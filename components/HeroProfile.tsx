@@ -1,0 +1,81 @@
+// components/HeroProfile.tsx
+import { CharacterStats } from '@/hooks/useWeeklyData';
+import { useState } from 'react';
+import { startAmbience, stopAmbience } from '@/lib/sounds';
+import { getTitleForLevel } from '@/lib/titles';
+
+interface HeroProfileProps {
+  stats: CharacterStats;
+  currentDay: string;
+}
+
+export default function HeroProfile({ stats, currentDay }: HeroProfileProps) {
+  const [ambienceOn, setAmbienceOn] = useState(false);
+
+  const toggleAmbience = () => {
+    if (ambienceOn) {
+      stopAmbience();
+    } else {
+      startAmbience();
+    }
+    setAmbienceOn(!ambienceOn);
+  };
+
+  const level = stats?.level || 1;
+  const xp = stats?.xp || 0;
+  const gold = stats?.gold || 0;
+  
+  const xpNeeded = 500 + (level * 100);
+  const progressPercentage = Math.min((xp / xpNeeded) * 100, 100);
+  const currentTitle = getTitleForLevel(level);
+
+  return (
+    <div className="bg-[#111] border border-[#333] rounded-xl p-5 mb-6 text-white">
+      {/* --- Profile Header with Avatar --- */}
+      <div className="flex items-center gap-4 mb-4 relative">
+        <button
+          onClick={toggleAmbience}
+          title={ambienceOn ? 'Mute torch ambience' : 'Play torch ambience'}
+          className="absolute top-0 right-0 text-lg opacity-60 hover:opacity-100 transition-opacity"
+        >
+          {ambienceOn ? '🔥' : '🕯️'}
+        </button>
+        <img 
+          src="/avatar.png" 
+          alt="Character Portrait" 
+          className="w-16 h-16 rounded-full border-2 border-neutral-700 object-cover shadow-lg"
+        />
+        <div>
+          {/* Shield removed from here */}
+          <h2 className="text-xl font-bold font-display">Lord Damien Zamir</h2>
+          <p className="text-xs font-bold text-blue-400 uppercase tracking-wide">{currentTitle.icon} {currentTitle.title}</p>
+          <p className="text-xs text-gray-400">Mode: <span className="text-green-400">{currentDay}</span></p>
+        </div>
+      </div>
+      
+      {/* --- Stats Grid --- */}
+      <div className="grid grid-cols-3 gap-2 mb-4 text-center">
+        <div className="bg-neutral-900 p-2 rounded">
+          <p className="text-xs text-gray-500">Level</p>
+          <p className="font-bold font-mono">Lvl {level}</p>
+        </div>
+        <div className="bg-neutral-900 p-2 rounded">
+          <p className="text-xs text-gray-500">XP</p>
+          <p className="font-bold font-mono">{xp}/{xpNeeded}</p>
+        </div>
+        <div className="bg-neutral-900 p-2 rounded">
+          <p className="text-xs text-gray-500">Wallet</p>
+          <p className="font-bold font-mono text-yellow-400">🪙 {gold}</p>
+        </div>
+      </div>
+
+      {/* --- Progress Bar --- */}
+      <div className="w-full bg-neutral-800 rounded-full h-2.5">
+        <div 
+          className="bg-blue-600 h-2.5 rounded-full transition-all duration-500" 
+          style={{ width: `${progressPercentage}%` }}
+        ></div>
+      </div>
+    </div>
+  );
+}

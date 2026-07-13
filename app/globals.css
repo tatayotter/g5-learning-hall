@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --background: #14100d;
+  --foreground: #d8cdb8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-display: var(--font-playfair);
+
+  /* --- DUNGEON RESKIN: overriding Tailwind's default palette --- */
+  --color-black: #0a0807;
+  --color-white: #ede4d3;
+
+  --color-neutral-900: #1c1611;
+  --color-neutral-800: #2a2119;
+  --color-neutral-700: #3d3225;
+
+  --color-gray-300: #c9bfae;
+  --color-gray-400: #a89c86;
+  --color-gray-500: #8a7c66;
+
+  /* Torchlight amber replaces blue as the primary accent */
+  --color-blue-400: #f0b429;
+  --color-blue-500: #e2921e;
+  --color-blue-600: #c9781a;
+  --color-blue-700: #a8620f;
+  --color-blue-800: #7a4a0f;
+  --color-blue-900: #4a2e0a;
+
+  /* Gold coin currency, intensified */
+  --color-yellow-400: #f5c542;
+  --color-yellow-500: #e0a92c;
+  --color-yellow-600: #c9911a;
+
+  /* Success — mossy dungeon green */
+  --color-green-400: #7fae52;
+  --color-green-600: #4d7a32;
+  --color-green-700: #3f6428;
+  --color-green-800: #33501f;
+  --color-green-900: #223616;
+
+  /* Danger/admin — blood red */
+  --color-red-400: #e0605a;
+  --color-red-600: #a3221c;
+  --color-red-700: #8a1c17;
+  --color-red-800: #6e1512;
+  --color-red-900: #4a0e0c;
+}
+
+body {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(201, 120, 26, 0.08), transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(201, 120, 26, 0.06), transparent 45%);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* One-off arbitrary panel colors used across components (bg-[#111], border-[#333]) */
+.bg-\[\#111\] {
+  background-color: #1c1611 !important;
+}
+.border-\[\#333\] {
+  border-color: #4a4038 !important;
+}
+
+/* Optional ornate frame — add className="dnd-frame" to any panel for a carved-stone/scroll look */
+.dnd-frame {
+  border: 3px double #7a4a0f;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6), 0 2px 10px rgba(0, 0, 0, 0.5);
+}
