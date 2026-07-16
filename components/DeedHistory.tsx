@@ -16,7 +16,7 @@ interface MonthGroup {
   totalGold: number;
 }
 
-export default function DeedHistory() {
+export default function DeedHistory({ userId }: { userId: string }) {
   const [groups, setGroups] = useState<MonthGroup[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -25,6 +25,7 @@ export default function DeedHistory() {
       const { data, error } = await supabase
         .from('player_log')
         .select('*')
+        .eq('user_id', userId)
         .eq('action_type', 'deed')
         .order('created_at', { ascending: false });
 
@@ -47,7 +48,7 @@ export default function DeedHistory() {
       setLoading(false);
     }
     fetchDeeds();
-  }, []);
+  }, [userId]);
 
   if (loading) {
     return <div className="text-gray-500 animate-pulse">Loading deed history...</div>;

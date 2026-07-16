@@ -8,13 +8,14 @@ import { supabase } from '@/lib/supabase';
 import GameButton from '@/components/GameButton';
 
 interface GuildJournalProps {
+  userId: string;
   journalLogs: Record<string, JournalEntry> | undefined | null;
   stats: CharacterStats;
   currentSunday: string;
   onSave: (newStats: CharacterStats, newLogs: Record<string, JournalEntry>) => void;
 }
 
-export default function GuildJournal({ journalLogs, stats, currentSunday, onSave }: GuildJournalProps) {
+export default function GuildJournal({ userId, journalLogs, stats, currentSunday, onSave }: GuildJournalProps) {
   const todayKey = format(new Date(), 'yyyy-MM-dd');
 
   // --- FORM STATE ---
@@ -81,7 +82,7 @@ export default function GuildJournal({ journalLogs, stats, currentSunday, onSave
         playSeal();
       }
 
-      await logAction(currentSunday, 'journal', `Submitted daily journal entry for ${todayKey}`, 50, 50);
+      await logAction(userId, currentSunday, 'journal', `Submitted daily journal entry for ${todayKey}`, 50, 50);
     }
 
     onSave(newStats, newLogs);

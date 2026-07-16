@@ -1,0 +1,114 @@
+// lib/userSession.ts
+import { supabase } from '@/lib/supabase';
+
+export type UserId = string;
+
+export interface UserProfile {
+  id: UserId;
+  name: string;
+  fullName: string;
+  grade: string;
+  avatar: string;
+  theme: 'damien' | 'tala';
+  gender: 'boy' | 'girl';
+  isFamily: boolean;
+  // Which user's Main Quest package (weekly_packages.package_data) this player
+  // reads questions from. Lets classmates share a grade's question pool while
+  // keeping their own stats/journal/achievements/quiz history independent.
+  // Defaults to the player's own id if omitted.
+  contentSourceId?: UserId;
+}
+
+export const USERS: Record<UserId, UserProfile> = {
+  damien: {
+    id: 'damien',
+    name: 'Damien',
+    fullName: 'Damien Zamir Ruelo',
+    grade: 'Grade 5',
+    avatar: '/avatar.png',
+    theme: 'damien',
+    gender: 'boy',
+    isFamily: true,
+  },
+  tala: {
+    id: 'tala',
+    name: 'Tala',
+    fullName: 'Tala Ruelo',
+    grade: 'Grade 2',
+    avatar: '/tala-avatar.png',
+    theme: 'tala',
+    gender: 'girl',
+    isFamily: true,
+  },
+};
+
+// Classmates are admin-managed (Admin Dashboard → Classmates) and login with a
+// username/password, unlike the two family profiles above. This loads them
+// into USERS once so every existing USERS[id] lookup across the app keeps
+// working synchronously without an async refactor.
+let classmatesLoaded = false;
+
+export async function loadClassmates(): Promise<void> {
+  if (classmatesLoaded) return;
+  const { data } = await supabase
+    .from('classmates')
+    .select('id, full_name, grade, gender')
+    .eq('is_active', true);
+
+  (data || []).forEach((c: any) => {
+    USERS[c.id] = {
+      id: c.id,
+      name: c.full_name.split(' ')[0],
+      fullName: c.full_name,
+      grade: c.grade,
+      avatar: '/avatar.png',
+      theme: 'damien',
+      gender: c.gender === 'girl' ? 'girl' : 'boy',
+      isFamily: false,
+      contentSourceId: 'damien',
+    };
+  });
+  classmatesLoaded = true;
+}
+
+export function getClassmateIds(): UserId[] {
+  return (Object.keys(USERS) as UserId[]).filter(id => !USERS[id].isFamily);
+}
+
+// Damien and Tala only need a password once one has been set from the Admin
+// Dashboard — until then their splash-screen cards log in instantly like
+// before, so this never locks anyone out on its own.
+let protectedFamilyIds: Set<UserId> = new Set();
+let familyProtectionLoaded = false;
+
+export async function loadFamilyProtection(): Promise<void> {
+  if (familyProtectionLoaded) return;
+  const { data } = await supabase.from('family_credentials').select('id');
+  protectedFamilyIds = new Set((data || []).map((row: any) => row.id));
+  familyProtectionLoaded = true;
+}
+
+export function isFamilyProtected(id: UserId): boolean {
+  return protectedFamilyIds.has(id);
+}
+
+const SESSION_KEY = 'g5_active_user';
+
+export function getActiveUser(): UserId | null {
+  if (typeof window === 'undefined') return null;
+  return localStorage.getItem(SESSION_KEY) || null;
+}
+
+export function setActiveUser(id: UserId) {
+  localStorage.setItem(SESSION_KEY, id);
+}
+
+export function clearActiveUser() {
+  localStorage.removeItem(SESSION_KEY);
+}
+
+export function getOtherPlayers(currentUserId: UserId): UserProfile[] {
+  return (Object.keys(USERS) as UserId[])
+    .filter(id => id !== currentUserId)
+    .map(id => USERS[id]);
+}

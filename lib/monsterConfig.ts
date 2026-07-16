@@ -1,0 +1,425 @@
+// lib/monsterConfig.ts
+// Full monster roster, element system, skill definitions, and battle constants
+// for the Monster Guild feature.
+
+// ─── ELEMENT SYSTEM ─────────────────────────────────────────────────────────
+
+export type Element = 'fire' | 'water' | 'leaf' | 'storm' | 'shadow' | 'light';
+
+// Returns damage multiplier when attacker element hits defender element
+export function getElementMultiplier(attacker: Element, defender: Element): number {
+  const weaknesses: Record<Element, Element> = {
+    fire:   'leaf',
+    leaf:   'water',
+    water:  'fire',
+    storm:  'water',
+    light:  'shadow',
+    shadow: 'light',
+  };
+  return weaknesses[attacker] === defender ? 1.5 : 1.0;
+}
+
+// ─── STATUS EFFECTS ─────────────────────────────────────────────────────────
+
+export type StatusEffect = 
+  | 'burn' | 'paralyze' | 'curse' | 'blessed' | null 
+  | 'def_boost' | 'atk_boost' | 'revive';
+
+export const STATUS_DEFINITIONS: Record<NonNullable<StatusEffect>, {
+  label: string;
+  emoji: string;
+  description: string;
+}> = {
+  burn:     { label: 'Burn',     emoji: '🔥', description: 'Deals 5 damage per turn' },
+  paralyze: { label: 'Paralyze', emoji: '⚡', description: 'Skips next attack turn' },
+  curse:    { label: 'Curse',    emoji: '🌑', description: 'Reduces damage dealt by 50% for 2 turns' },
+  blessed:  { label: 'Blessed',  emoji: '✨', description: 'Next correct answer deals double damage' },
+  def_boost: { label: 'Def Boost', emoji: '🛡️', description: 'Damage taken halved' },
+  atk_boost: { label: 'Atk Boost', emoji: '⚔️', description: 'Damage dealt increased' },
+  revive: { label: 'Revived', emoji: '🔄', description: 'Back in action' }
+};
+
+// Which element applies which status effect (only on perfect answers)
+export const ELEMENT_STATUS: Partial<Record<Element, StatusEffect>> = {
+  fire:   'burn',
+  storm:  'paralyze',
+  shadow: 'curse',
+  light:  'blessed',
+};
+
+// ─── SKILLS ─────────────────────────────────────────────────────────────────
+
+export interface Skill {
+  id: string;
+  name: string;
+  element: Element;
+  tier: 1 | 2 | 3;
+  questionCount: 1 | 2 | 3;  // matches tier
+  baseDamageMultiplier: number;
+  description: string;
+}
+
+export const SKILLS: Record<string, Skill> = {
+  // FIRE
+  ember:         { id: 'ember',         name: 'Ember',         element: 'fire',   tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A weak but accurate fire attack.' },
+  flamethrower:  { id: 'flamethrower',  name: 'Flamethrower',  element: 'fire',   tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A sustained stream of fire.' },
+  inferno_blast: { id: 'inferno_blast', name: 'Inferno Blast',  element: 'fire',   tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'A massive fire explosion. May cause Burn.' },
+
+  // WATER
+  water_gun:     { id: 'water_gun',     name: 'Water Gun',     element: 'water',  tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A pressurized water blast.' },
+  hydro_pump:    { id: 'hydro_pump',    name: 'Hydro Pump',    element: 'water',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A powerful torrent of water.' },
+  hydro_blast:   { id: 'hydro_blast',   name: 'Hydro Blast',   element: 'water',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'An overwhelming water surge.' },
+
+  // LEAF
+  vine_whip:     { id: 'vine_whip',     name: 'Vine Whip',     element: 'leaf',   tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A sharp lash with vines.' },
+  razor_leaf:    { id: 'razor_leaf',    name: 'Razor Leaf',    element: 'leaf',   tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A flurry of razor-sharp leaves.' },
+  solar_beam:    { id: 'solar_beam',    name: 'Solar Beam',    element: 'leaf',   tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'Absorbs sunlight, then fires. Restores HP.' },
+
+  // STORM
+  thunder_shock: { id: 'thunder_shock', name: 'Thunder Shock', element: 'storm',  tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A small electric jolt.' },
+  thunderbolt:   { id: 'thunderbolt',   name: 'Thunderbolt',   element: 'storm',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A crackling bolt of lightning.' },
+  thunder_surge: { id: 'thunder_surge', name: 'Thunder Surge', element: 'storm',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'A storm-level discharge. May Paralyze.' },
+
+  // SHADOW
+  shadow_claw:   { id: 'shadow_claw',   name: 'Shadow Claw',  element: 'shadow', tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A slash from the darkness.' },
+  dark_pulse:    { id: 'dark_pulse',    name: 'Dark Pulse',   element: 'shadow', tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A wave of dark energy.' },
+  void_strike:   { id: 'void_strike',   name: 'Void Strike',  element: 'shadow', tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'Strikes from the void. May Curse.' },
+
+  // LIGHT
+  flash:         { id: 'flash',         name: 'Flash',        element: 'light',  tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A blinding burst of light.' },
+  sacred_beam:   { id: 'sacred_beam',   name: 'Sacred Beam',  element: 'light',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A focused beam of holy light.' },
+  divine_burst:  { id: 'divine_burst',  name: 'Divine Burst', element: 'light',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'A radiant explosion. May Bless.' },
+};
+
+// ─── REST SKILL ──────────────────────────────────────────────────────────────
+
+export interface RestConfig {
+  hpRestorePercent: number;
+  maxUsesPerBattle: number;
+}
+
+export const REST_BY_ELEMENT: Record<Element, RestConfig> = {
+  leaf:   { hpRestorePercent: 0.40, maxUsesPerBattle: 2 },
+  water:  { hpRestorePercent: 0.30, maxUsesPerBattle: 1 },
+  fire:   { hpRestorePercent: 0.25, maxUsesPerBattle: 1 },
+  storm:  { hpRestorePercent: 0.25, maxUsesPerBattle: 1 },
+  shadow: { hpRestorePercent: 0.25, maxUsesPerBattle: 1 },
+  light:  { hpRestorePercent: 0.25, maxUsesPerBattle: 1 },
+};
+
+// ─── MONSTER DEFINITIONS ─────────────────────────────────────────────────────
+
+export type MonsterArchetype = 'tank' | 'balanced' | 'glass_cannon';
+
+export interface MonsterDef {
+  id: string;
+  name: string;
+  element: Element;
+  archetype: MonsterArchetype;
+  emoji: string;
+  description: string;
+  baseHp: number;
+  baseAttack: number;
+  baseDefense: number;
+  baseSpeed: number;
+  skills: [string, string, string]; // [tier1_id, tier2_id, tier3_id]
+  // Skill tier unlocks by monster level
+  skillUnlocks: { tier2: number; tier3: number }; // tier1 always available at level 1
+}
+
+const STAT_PRESETS: Record<MonsterArchetype, { baseHp: number; baseAttack: number; baseDefense: number; baseSpeed: number }> = {
+  tank:         { baseHp: 120, baseAttack: 15, baseDefense: 20, baseSpeed: 8  },
+  balanced:     { baseHp: 100, baseAttack: 18, baseDefense: 15, baseSpeed: 12 },
+  glass_cannon: { baseHp: 80,  baseAttack: 25, baseDefense: 10, baseSpeed: 18 },
+};
+
+// Wild-only monsters get a step up across every stat — they're meant to feel
+// like a real prize after such a rare, hard-won catch.
+const WILD_STAT_PRESET = { baseHp: 140, baseAttack: 26, baseDefense: 20, baseSpeed: 16 };
+
+// One starter per element — the rest of the original 12 (Embrak, Coralyn,
+// Mosshorn, Galestrik, Duskral, Luminos) now live in WILD_MONSTERS below,
+// only obtainable through a wild encounter.
+export const MONSTERS: Record<string, MonsterDef> = {
+  shadrak: {
+    id: 'shadrak', name: 'Shadrak', element: 'shadow', archetype: 'glass_cannon',
+    emoji: '👻', description: 'A cloaked phantom with hollow eyes.',
+    ...STAT_PRESETS.glass_cannon,
+    skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+  torrenth: {
+    id: 'torrenth', name: 'Torrenth', element: 'water', archetype: 'tank',
+    emoji: '🐢', description: 'An armored sea turtle with a crashing shell.',
+    ...STAT_PRESETS.tank,
+    skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+  voltmane: {
+    id: 'voltmane', name: 'Voltmane', element: 'storm', archetype: 'glass_cannon',
+    emoji: '⚡', description: 'A wild-maned beast crackling with static.',
+    ...STAT_PRESETS.glass_cannon,
+    skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+  fernix: {
+    id: 'fernix', name: 'Fernix', element: 'leaf', archetype: 'balanced',
+    emoji: '🦅', description: 'A bird made entirely of woven leaves and vines.',
+    ...STAT_PRESETS.balanced,
+    skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+  solarch: {
+    id: 'solarch', name: 'Solarch', element: 'light', archetype: 'tank',
+    emoji: '🦁', description: 'A regal lion with a sun-disc mane.',
+    ...STAT_PRESETS.tank,
+    skills: ['flash', 'sacred_beam', 'divine_burst'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+  pyravex: {
+    id: 'pyravex', name: 'Pyravex', element: 'fire', archetype: 'glass_cannon',
+    emoji: '🦊', description: 'A sleek fire fox with a blazing double tail.',
+    ...STAT_PRESETS.glass_cannon,
+    skills: ['ember', 'flamethrower', 'inferno_blast'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+};
+
+// ─── WILD MONSTERS ───────────────────────────────────────────────────────────
+// A pool only obtainable through a rare Training Map wild encounter (see
+// components/WildEncounterModal.tsx) — never selectable in TeamPanel's normal
+// add-monster flow like the MONSTERS above. Emberwyrm/Tidalynx/Zephyrion/
+// Nyxfang/Aureon are the original "legendary" exclusives (boosted stats);
+// Embrak/Coralyn/Mosshorn/Galestrik/Duskral/Luminos are the other half of the
+// original 12 starters, demoted here to keep stat variety in the wild pool.
+
+export const WILD_MONSTERS: Record<string, MonsterDef> = {
+  embrak: {
+    id: 'embrak', name: 'Embrak', element: 'fire', archetype: 'balanced',
+    emoji: '🦎', description: 'A stocky lizard with magma cracks on its hide.',
+    ...STAT_PRESETS.balanced,
+    skills: ['ember', 'flamethrower', 'inferno_blast'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+  coralyn: {
+    id: 'coralyn', name: 'Coralyn', element: 'water', archetype: 'balanced',
+    emoji: '🌊', description: 'An elegant coral-horned seahorse.',
+    ...STAT_PRESETS.balanced,
+    skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+  mosshorn: {
+    id: 'mosshorn', name: 'Mosshorn', element: 'leaf', archetype: 'tank',
+    emoji: '🦌', description: 'A gentle deer with a mossy antler crown.',
+    ...STAT_PRESETS.tank,
+    skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+  galestrik: {
+    id: 'galestrik', name: 'Galestrik', element: 'storm', archetype: 'glass_cannon',
+    emoji: '🦅', description: 'A hawk that rides and generates thunderclouds.',
+    ...STAT_PRESETS.glass_cannon,
+    skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+  duskral: {
+    id: 'duskral', name: 'Duskral', element: 'shadow', archetype: 'glass_cannon',
+    emoji: '🐈‍⬛', description: 'A sleek panther that melts into darkness.',
+    ...STAT_PRESETS.glass_cannon,
+    skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+  luminos: {
+    id: 'luminos', name: 'Luminos', element: 'light', archetype: 'balanced',
+    emoji: '🦊', description: 'A small glowing fox with a radiant tail.',
+    ...STAT_PRESETS.balanced,
+    skills: ['flash', 'sacred_beam', 'divine_burst'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+  emberwyrm: {
+    id: 'emberwyrm', name: 'Emberwyrm', element: 'fire', archetype: 'tank',
+    emoji: '🐉', description: 'A legendary wyrm wreathed in slow, eternal flame.',
+    ...WILD_STAT_PRESET,
+    skills: ['ember', 'flamethrower', 'inferno_blast'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+  tidalynx: {
+    id: 'tidalynx', name: 'Tidalynx', element: 'water', archetype: 'tank',
+    emoji: '🐋', description: 'A serene leviathan said to command the deep tides.',
+    ...WILD_STAT_PRESET,
+    skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+  zephyrion: {
+    id: 'zephyrion', name: 'Zephyrion', element: 'storm', archetype: 'tank',
+    emoji: '🦅', description: 'A storm-forged raptor that rides lightning itself.',
+    ...WILD_STAT_PRESET,
+    skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+  nyxfang: {
+    id: 'nyxfang', name: 'Nyxfang', element: 'shadow', archetype: 'tank',
+    emoji: '🐺', description: 'A wolf woven from pure night, rarely ever seen.',
+    ...WILD_STAT_PRESET,
+    skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+  aureon: {
+    id: 'aureon', name: 'Aureon', element: 'light', archetype: 'tank',
+    emoji: '🦄', description: 'A radiant beast said to bring fortune to its keeper.',
+    ...WILD_STAT_PRESET,
+    skills: ['flash', 'sacred_beam', 'divine_burst'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+  },
+};
+
+// Combined lookup for anywhere a monster id might be either a normal starter
+// monster or a wild-only one (e.g. resolving an NpcTrainer's monsters, since a
+// wild encounter is represented as a synthetic one-monster NpcTrainer).
+export const ALL_MONSTERS: Record<string, MonsterDef> = { ...MONSTERS, ...WILD_MONSTERS };
+
+// ─── NPC TRAINERS ────────────────────────────────────────────────────────────
+
+export interface TrainerMonster {
+  monsterId: string;
+  level: number;
+}
+
+export interface NpcTrainer {
+  id: string;
+  name: string;
+  element: Element | 'mixed';
+  levelRequirement: number;
+  monsters: TrainerMonster[];
+  reward: { exp: number; gold: number };
+  emoji: string;
+  intro: string;
+}
+
+export const NPC_TRAINERS: NpcTrainer[] = [
+  {
+    id: 'forest_scout', name: 'Forest Scout', element: 'leaf', levelRequirement: 1,
+    emoji: '🌿', intro: 'The forest protects its own. Can you survive its embrace?',
+    monsters: [
+      { monsterId: 'mosshorn', level: 2 },
+      { monsterId: 'fernix',   level: 3 },
+    ],
+    reward: { exp: 50, gold: 20 },
+  },
+  {
+    id: 'tide_watcher', name: 'Tide Watcher', element: 'water', levelRequirement: 5,
+    emoji: '🌊', intro: 'The sea is patient. Let\'s see if you are.',
+    monsters: [
+      { monsterId: 'coralyn',  level: 5 },
+      { monsterId: 'torrenth', level: 6 },
+    ],
+    reward: { exp: 75, gold: 30 },
+  },
+  {
+    id: 'ember_acolyte', name: 'Ember Acolyte', element: 'fire', levelRequirement: 7,
+    emoji: '🔥', intro: 'Fire consumes the weak. Prove you are not.',
+    monsters: [
+      { monsterId: 'embrak',  level: 7 },
+      { monsterId: 'pyravex', level: 8 },
+    ],
+    reward: { exp: 100, gold: 40 },
+  },
+  {
+    id: 'storm_caller', name: 'Storm Caller', element: 'storm', levelRequirement: 10,
+    emoji: '⚡', intro: 'The storm answers to no one. Can you say the same?',
+    monsters: [
+      { monsterId: 'voltmane',  level: 10 },
+      { monsterId: 'galestrik', level: 11 },
+    ],
+    reward: { exp: 125, gold: 50 },
+  },
+  {
+    id: 'shadow_stalker', name: 'Shadow Stalker', element: 'shadow', levelRequirement: 13,
+    emoji: '🌑', intro: 'You cannot fight what you cannot see.',
+    monsters: [
+      { monsterId: 'shadrak', level: 13 },
+      { monsterId: 'duskral', level: 14 },
+    ],
+    reward: { exp: 150, gold: 60 },
+  },
+  {
+    id: 'light_bearer', name: 'Light Bearer', element: 'light', levelRequirement: 16,
+    emoji: '✨', intro: 'True strength shines from within.',
+    monsters: [
+      { monsterId: 'luminos', level: 16 },
+      { monsterId: 'solarch', level: 17 },
+    ],
+    reward: { exp: 175, gold: 70 },
+  },
+  {
+    id: 'elemental_knight', name: 'Elemental Knight', element: 'mixed', levelRequirement: 20,
+    emoji: '⚔️', intro: 'I have mastered all elements. Have you?',
+    monsters: [
+      { monsterId: 'pyravex',  level: 20 },
+      { monsterId: 'torrenth', level: 20 },
+    ],
+    reward: { exp: 200, gold: 100 },
+  },
+  {
+    id: 'grand_master', name: 'The Grand Master', element: 'mixed', levelRequirement: 25,
+    emoji: '👑', intro: 'Few reach this point. None have passed.',
+    monsters: [
+      { monsterId: 'solarch',   level: 25 },
+      { monsterId: 'galestrik', level: 25 },
+    ],
+    reward: { exp: 300, gold: 150 },
+  },
+];
+
+// ─── BATTLE CONSTANTS ────────────────────────────────────────────────────────
+
+export const BATTLE_CONSTANTS = {
+  MONSTER_EXP_PER_LEVEL:       100,
+  MONSTER_EXP_PER_GRASS_ANSWER: 10,
+  MONSTER_EXP_PER_BATTLE_WIN:   25,
+  BURN_DAMAGE_PER_TURN:          5,
+  CURSE_DAMAGE_REDUCTION:       0.5,
+  CURSE_DURATION_TURNS:          2,
+  NPC_DAMAGE_BY_TIER: { 1: 10, 2: 20, 3: 30 } as Record<1|2|3, number>,
+  PLAYER_LEVEL_FOR_SLOT: { 1: 5, 2: 10, 3: 15 } as Record<1|2|3, number>,
+};
+
+// ─── HELPERS ─────────────────────────────────────────────────────────────────
+
+export function getMonsterLevel(exp: number): number {
+  return Math.floor(exp / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) + 1;
+}
+
+export function getAvailableSkillTiers(monsterLevel: number, monsterDef: MonsterDef): (1|2|3)[] {
+  const tiers: (1|2|3)[] = [1];
+  if (monsterLevel >= monsterDef.skillUnlocks.tier2) tiers.push(2);
+  if (monsterLevel >= monsterDef.skillUnlocks.tier3) tiers.push(3);
+  return tiers;
+}
+
+export function calculateDamage(
+  skill: Skill,
+  baseAttack: number,
+  correctAnswers: number,
+  totalQuestions: number,
+  attackerElement: Element,
+  defenderElement: Element,
+  isBlessed: boolean,
+): number {
+  const ratio = correctAnswers / totalQuestions;
+  if (ratio === 0) return 0;
+
+  let damage = baseAttack * skill.baseDamageMultiplier;
+  if (ratio < 1) damage *= 0.5; // partial correct = half damage
+  damage *= getElementMultiplier(attackerElement, defenderElement);
+  if (isBlessed) damage *= 2;
+
+  return Math.round(damage);
+}
+
+export function getUnlockedMonsterSlots(playerLevel: number): number {
+  if (playerLevel >= 15) return 3;
+  if (playerLevel >= 10) return 2;
+  if (playerLevel >= 5)  return 1;
+  return 0;
+}

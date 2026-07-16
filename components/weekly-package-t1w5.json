@@ -1,0 +1,406 @@
+{
+  "meta": {
+    "term": 1,
+    "week": 5,
+    "title": "Term 1 · Week 5",
+    "subtitle": "Nouns, Describing Words, Numbers to 1000, Emotions & Community",
+    "user_id": "tala"
+  },
+  "days": {
+    "Monday": {
+      "label": "Monday",
+      "quests": [
+        {
+          "id": "t1w5-mon-eng",
+          "subject": "English",
+          "emoji": "📖",
+          "title": "Common & Proper Nouns",
+          "description": "Learn the difference between common nouns (general names) and proper nouns (special names with capital letters).",
+          "xp": 40,
+          "gold": 10,
+          "mastery_key": "eng_t1w5_nouns",
+          "quiz": [
+            {
+              "q": "Which word is a PROPER noun?",
+              "choices": ["dog", "Tala", "school", "flower"],
+              "answer": 1
+            },
+            {
+              "q": "Which word is a COMMON noun?",
+              "choices": ["Manila", "Jollibee", "teacher", "Maria"],
+              "answer": 2
+            },
+            {
+              "q": "Proper nouns always start with a ___.",
+              "choices": ["small letter", "number", "capital letter", "symbol"],
+              "answer": 2
+            },
+            {
+              "q": "Which is a proper noun?",
+              "choices": ["city", "Cebu", "river", "mountain"],
+              "answer": 1
+            },
+            {
+              "q": "A common noun names a ___ person, place, or thing.",
+              "choices": ["special", "general", "big", "funny"],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "t1w5-mon-fil",
+          "subject": "Filipino",
+          "emoji": "🇵🇭",
+          "title": "Salitang Naglalarawan",
+          "description": "Matuto tungkol sa mga salitang naglalarawan (adjectives) — mga salitang nagsasabi kung ano ang isang tao, bagay, o lugar.",
+          "xp": 40,
+          "gold": 10,
+          "mastery_key": "fil_t1w5_naglalarawan",
+          "quiz": [
+            {
+              "q": "Alin ang salitang naglalarawan?",
+              "choices": ["tumakbo", "maganda", "bahay", "kumain"],
+              "answer": 1
+            },
+            {
+              "q": "Ang salitang naglalarawan ay nagsasabi ng ___ sa pangngalan.",
+              "choices": ["kilos", "katangian", "bilang", "lugar"],
+              "answer": 1
+            },
+            {
+              "q": "Alin ang salitang naglalarawan sa pangungusap na: 'Ang batang MASAYA ay naglaro.'",
+              "choices": ["bata", "naglaro", "masaya", "ang"],
+              "answer": 2
+            },
+            {
+              "q": "Piliin ang salitang naglalarawan: malaki, tumakbo, bahay, kumain",
+              "choices": ["tumakbo", "bahay", "malaki", "kumain"],
+              "answer": 2
+            },
+            {
+              "q": "Ang 'mabait' ay halimbawa ng:",
+              "choices": ["salitang kilos", "salitang naglalarawan", "pangngalan", "panghalip"],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    "Tuesday": {
+      "label": "Tuesday",
+      "quests": [
+        {
+          "id": "t1w5-tue-math",
+          "subject": "Mathematics",
+          "emoji": "🔢",
+          "title": "Numbers Up to 1000",
+          "description": "Recognize and represent numbers up to 1000 using blocks, pictures, and numerals.",
+          "xp": 50,
+          "gold": 12,
+          "mastery_key": "math_t1w5_numbers1000",
+          "quiz": [
+            {
+              "q": "What number is shown: 3 hundreds, 2 tens, 5 ones?",
+              "choices": ["235", "325", "352", "523"],
+              "answer": 1
+            },
+            {
+              "q": "How many hundreds are in the number 742?",
+              "choices": ["2", "4", "7", "1"],
+              "answer": 2
+            },
+            {
+              "q": "What is the value of the digit 5 in 583?",
+              "choices": ["5", "50", "500", "5000"],
+              "answer": 2
+            },
+            {
+              "q": "Which number has 9 hundreds, 0 tens, 1 one?",
+              "choices": ["910", "901", "109", "190"],
+              "answer": 1
+            },
+            {
+              "q": "What is 400 + 60 + 3?",
+              "choices": ["436", "463", "364", "346"],
+              "answer": 1
+            },
+            {
+              "q": "Which number comes AFTER 599?",
+              "choices": ["598", "600", "590", "699"],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "t1w5-tue-gmrc",
+          "subject": "GMRC",
+          "emoji": "❤️",
+          "title": "Aking mga Damdamin",
+          "description": "Alamin ang iba't ibang damdamin at ang tamang paraan ng pagpapahayag nito. Ang pagiging totoo sa ating damdamin ay mabuti!",
+          "xp": 35,
+          "gold": 8,
+          "mastery_key": "gmrc_t1w5_damdamin",
+          "quiz": [
+            {
+              "q": "Kung nasira ang iyong laruan, ano ang mararamdaman mo?",
+              "choices": ["masaya", "malungkot", "galit sa lahat", "walang pakialam"],
+              "answer": 1
+            },
+            {
+              "q": "Ang pagiging TOTOO sa ating damdamin ay tinatawag na:",
+              "choices": ["katamaran", "katapatan / sinseridad", "kalungkutan", "katatagan"],
+              "answer": 1
+            },
+            {
+              "q": "Ano ang tamang gawin kung galit ka?",
+              "choices": ["sumigaw sa lahat", "manuntok", "sabihin nang maayos kung bakit galit", "umiyak nang matagal"],
+              "answer": 2
+            },
+            {
+              "q": "Aling damdamin ang nararamdaman mo kapag may nagbigay sa iyo ng regalo?",
+              "choices": ["lungkot", "takot", "saya at pasasalamat", "galit"],
+              "answer": 2
+            },
+            {
+              "q": "Bakit mahalaga ang pagpapahayag ng ating damdamin?",
+              "choices": ["Para makakuha ng gusto natin", "Para malaman ng iba kung paano tayo tulungan", "Para manalo sa laro", "Para hindi mag-aral"],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    "Wednesday": {
+      "label": "Wednesday",
+      "quests": [
+        {
+          "id": "t1w5-wed-eng2",
+          "subject": "English",
+          "emoji": "📖",
+          "title": "Gender of Nouns",
+          "description": "Some nouns tell us if someone is male or female. Learn the different gender forms of nouns!",
+          "xp": 40,
+          "gold": 10,
+          "mastery_key": "eng_t1w5_gender",
+          "quiz": [
+            {
+              "q": "What is the feminine form of 'king'?",
+              "choices": ["queen", "prince", "knight", "lord"],
+              "answer": 0
+            },
+            {
+              "q": "What is the masculine form of 'mother'?",
+              "choices": ["sister", "aunt", "father", "grandmother"],
+              "answer": 2
+            },
+            {
+              "q": "Which noun is FEMININE?",
+              "choices": ["uncle", "brother", "grandfather", "aunt"],
+              "answer": 3
+            },
+            {
+              "q": "What is the masculine form of 'hen'?",
+              "choices": ["duck", "rooster", "chick", "goose"],
+              "answer": 1
+            },
+            {
+              "q": "Which noun has NO gender (neuter)?",
+              "choices": ["boy", "girl", "table", "woman"],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "t1w5-wed-makabansa",
+          "subject": "MAKABANSA",
+          "emoji": "🗺️",
+          "title": "Ang Aking Komunidad",
+          "description": "Alamin ang lokasyon, lawak, at mga palatandaang heograpikal ng ating komunidad.",
+          "xp": 40,
+          "gold": 10,
+          "mastery_key": "maka_t1w5_komunidad",
+          "quiz": [
+            {
+              "q": "Ang komunidad ay isang lugar kung saan ang mga tao ay ___ at nagtutulungan.",
+              "choices": ["nag-aaway", "nagsasama-sama", "nagtatago", "nagkalat"],
+              "answer": 1
+            },
+            {
+              "q": "Ano ang tinutukoy ng 'lokasyon' ng komunidad?",
+              "choices": ["Laki ng komunidad", "Kung saan matatagpuan ang komunidad", "Bilang ng tao sa komunidad", "Mga hayop sa komunidad"],
+              "answer": 1
+            },
+            {
+              "q": "Alin sa mga ito ay halimbawa ng palatandaang heograpikal?",
+              "choices": ["Palengke", "Simbahan", "Ilog o bundok", "Paaralan"],
+              "answer": 2
+            },
+            {
+              "q": "Ang 'lawak' ng komunidad ay tumutukoy sa:",
+              "choices": ["Kulay ng komunidad", "Laki o sukat ng komunidad", "Pangalan ng komunidad", "Kasaysayan ng komunidad"],
+              "answer": 1
+            },
+            {
+              "q": "Ang ating komunidad ay bahagi ng mas malaking lugar na tinatawag na:",
+              "choices": ["kwarto", "bansa / bayan", "paaralan", "tindahan"],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    "Thursday": {
+      "label": "Thursday",
+      "quests": [
+        {
+          "id": "t1w5-thu-fil2",
+          "subject": "Filipino",
+          "emoji": "🇵🇭",
+          "title": "Salitang Kilos at Pangkayarian",
+          "description": "Alamin ang mga salitang kilos (verbs) at salitang pangkayarian tulad ng: ang, ang mga, si, sina.",
+          "xp": 40,
+          "gold": 10,
+          "mastery_key": "fil_t1w5_kilos_kayarian",
+          "quiz": [
+            {
+              "q": "Alin ang salitang kilos?",
+              "choices": ["malaki", "bahay", "tumakbo", "maganda"],
+              "answer": 2
+            },
+            {
+              "q": "Gamitin ang tamang salitang pangkayarian: '___ bata ay naglaro.'",
+              "choices": ["Si", "Sina", "Ang", "Ang mga"],
+              "answer": 2
+            },
+            {
+              "q": "Gamitin ang tamang salitang pangkayarian: '___ Maria ay umawit.'",
+              "choices": ["Ang", "Si", "Sina", "Ang mga"],
+              "answer": 1
+            },
+            {
+              "q": "Alin ang salitang kilos sa pangungusap: 'Ang bata ay kumain ng mangga.'",
+              "choices": ["bata", "mangga", "kumain", "ang"],
+              "answer": 2
+            },
+            {
+              "q": "Ang 'si' at 'sina' ay ginagamit para sa mga ___.",
+              "choices": ["bagay", "lugar", "pangalan ng tao", "hayop"],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "t1w5-thu-math2",
+          "subject": "Mathematics",
+          "emoji": "🔢",
+          "title": "Counting & Ordering Numbers to 1000",
+          "description": "Practice counting by 2s, 5s, 10s, and ordering numbers up to 1000 from smallest to largest.",
+          "xp": 50,
+          "gold": 12,
+          "mastery_key": "math_t1w5_ordering",
+          "quiz": [
+            {
+              "q": "Count by 10s: 970, 980, 990, ___",
+              "choices": ["991", "995", "1000", "999"],
+              "answer": 2
+            },
+            {
+              "q": "Which number is GREATEST?",
+              "choices": ["456", "654", "546", "465"],
+              "answer": 1
+            },
+            {
+              "q": "Count by 5s: 985, 990, 995, ___",
+              "choices": ["996", "1000", "997", "998"],
+              "answer": 1
+            },
+            {
+              "q": "Arrange from smallest to largest: 312, 132, 231",
+              "choices": ["312, 231, 132", "132, 231, 312", "231, 132, 312", "312, 132, 231"],
+              "answer": 1
+            },
+            {
+              "q": "What number is 10 MORE than 890?",
+              "choices": ["880", "891", "900", "910"],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    },
+    "Friday": {
+      "label": "Friday",
+      "quests": [
+        {
+          "id": "t1w5-fri-review",
+          "subject": "Weekly Review",
+          "emoji": "⭐",
+          "title": "Week 5 Champion Challenge",
+          "description": "Show what you learned this week! Answer questions from all your subjects.",
+          "xp": 60,
+          "gold": 20,
+          "mastery_key": "review_t1w5",
+          "quiz": [
+            {
+              "q": "Which is a PROPER noun?",
+              "choices": ["book", "Tala", "pencil", "school"],
+              "answer": 1
+            },
+            {
+              "q": "What is the value of the digit 6 in 762?",
+              "choices": ["6", "60", "600", "6000"],
+              "answer": 1
+            },
+            {
+              "q": "Alin ang salitang naglalarawan?",
+              "choices": ["kumain", "bata", "mabait", "paaralan"],
+              "answer": 2
+            },
+            {
+              "q": "Kung nasasaktan ka, ano ang tamang gawin?",
+              "choices": ["Itago ang nararamdaman", "Sabihin nang maayos kung ano ang nararamdaman mo", "Sumigaw nang sumigaw", "Umalis nang walang salita"],
+              "answer": 1
+            },
+            {
+              "q": "Ang lokasyon ng komunidad ay nagsasabi ng:",
+              "choices": ["Kung gaano kalaki ang komunidad", "Kung saan matatagpuan ang komunidad", "Kung sino ang namumuno sa komunidad", "Kung ilang tao ang nasa komunidad"],
+              "answer": 1
+            },
+            {
+              "q": "What is the feminine form of 'brother'?",
+              "choices": ["mother", "aunt", "sister", "cousin"],
+              "answer": 2
+            },
+            {
+              "q": "Alin ang tamang salitang pangkayarian para sa pangalan ng tao?",
+              "choices": ["Ang", "Ang mga", "Si", "Mga"],
+              "answer": 2
+            },
+            {
+              "q": "Count by 100s: 600, 700, 800, ___",
+              "choices": ["810", "900", "850", "890"],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "weekly_summary": {
+    "subjects_covered": ["English", "Filipino", "Mathematics", "GMRC", "MAKABANSA"],
+    "total_quests": 9,
+    "max_xp": 395,
+    "max_gold": 102,
+    "mastery_keys": [
+      "eng_t1w5_nouns",
+      "eng_t1w5_gender",
+      "fil_t1w5_naglalarawan",
+      "fil_t1w5_kilos_kayarian",
+      "math_t1w5_numbers1000",
+      "math_t1w5_ordering",
+      "gmrc_t1w5_damdamin",
+      "maka_t1w5_komunidad",
+      "review_t1w5"
+    ]
+  }
+}

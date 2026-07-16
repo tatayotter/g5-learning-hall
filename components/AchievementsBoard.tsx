@@ -9,38 +9,40 @@ interface AchievementsBoardProps {
 }
 
 export default function AchievementsBoard({ data }: AchievementsBoardProps) {
-  // 1. ADD THIS GUARD CLAUSE
-  // If data hasn't arrived from the API yet, don't try to render anything.
-  if (!data) {
-    return null;
-  }
+  if (!data) return null;
+
+  const unlocked = ACHIEVEMENTS.filter(a => a.criteria(data));
+  const locked = ACHIEVEMENTS.filter(a => !a.criteria(data));
+  const sorted = [...unlocked, ...locked];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {ACHIEVEMENTS.map((achievement) => {
-        // 2. Now safe to call criteria() because we know data exists
-        const isUnlocked = achievement.criteria(data);
-        
-        return (
-          <div 
-            key={achievement.id} 
-            className={`p-5 rounded-xl border ${isUnlocked ? 'bg-[#111] border-green-900' : 'bg-[#111] border-[#333]'}`}
-          >
-            <h3 className={`text-lg font-bold ${isUnlocked ? 'text-white' : 'text-gray-500'}`}>
-              {isUnlocked ? achievement.title : `🔒 ${achievement.title.replace('🔒 ', '')}`}
-            </h3>
-            
-            <p className="text-sm text-gray-400 mt-1 mb-4 leading-relaxed">
-              {achievement.description}
-            </p>
-
-            <div className="flex justify-between text-xs font-mono">
-              <span className="text-blue-400">XP: {achievement.xpReward}</span>
-              <span className="text-yellow-400">Gold: {achievement.goldReward}</span>
+    <div className="mt-16 pt-10 border-t-2 border-neutral-800">
+      <div className="mb-6">
+        <h2 className="text-2xl font-display font-bold text-white">🏆 Achievements</h2>
+        <p className="text-xs text-gray-500 mt-1">{unlocked.length} of {ACHIEVEMENTS.length} unlocked</p>
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {sorted.map((achievement) => {
+          const isUnlocked = achievement.criteria(data);
+          return (
+            <div
+              key={achievement.id}
+              className={`p-3 rounded-xl border ${isUnlocked ? 'bg-[#111] border-green-900' : 'bg-[#111] border-[#333] opacity-60'}`}
+            >
+              <h3 className={`text-xs font-bold leading-tight mb-1 ${isUnlocked ? 'text-white' : 'text-gray-500'}`}>
+                {isUnlocked ? achievement.title : `🔒 ${achievement.title.replace('🔒 ', '')}`}
+              </h3>
+              <p className="text-[10px] text-gray-500 leading-relaxed mb-2">
+                {achievement.description}
+              </p>
+              <div className="flex justify-between text-[10px] font-mono">
+                <span className={isUnlocked ? 'text-blue-400' : 'text-gray-600'}>XP: {achievement.xpReward}</span>
+                <span className={isUnlocked ? 'text-yellow-400' : 'text-gray-600'}>🪙 {achievement.goldReward}</span>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }

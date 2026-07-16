@@ -4,6 +4,11 @@ import ReactMarkdown from 'react-markdown';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { playChime, playClash, playLevelUp } from '@/lib/sounds';
 import GameButton from '@/components/GameButton';
+import CelebrationOverlay from '@/components/CelebrationOverlay';
+
+function shuffleArray<T>(arr: T[]): T[] {
+  return [...arr].sort(() => Math.random() - 0.5);
+}
 
 const markdownComponents = {
   h1: (props: any) => <h1 className="text-2xl font-bold font-display text-white mt-6 mb-3 first:mt-0" {...props} />,
@@ -25,6 +30,7 @@ interface QuizQuestion {
 }
 
 interface QuestModuleProps {
+  userId: string;
   questName: string;
   questKey: string;
   questData: any;
@@ -46,14 +52,16 @@ function calculateReward(attempts: number) {
   };
 }
 
-export default function QuestModule({ questName, questKey, questData, currentStats, attemptsSoFar, isMastered, onQuizSubmit, onExit }: QuestModuleProps) {
+export default function QuestModule({ userId, questName, questKey, questData, currentStats, attemptsSoFar, isMastered, onQuizSubmit, onExit }: QuestModuleProps) {
   const safeAttemptsSoFar = Number.isFinite(attemptsSoFar) ? attemptsSoFar : 0;
 
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [shuffledOptions, setShuffledOptions] = useState<Record<number, string[]>>({});
   const [lastResult, setLastResult] = useState<{ isPerfect: boolean; score: number; total: number; xp: number; gold: number; attemptNumber: number } | null>(null);
   const [cooldownRemaining, setCooldownRemaining] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
+  const [celebration, setCelebration] = useState<{ active: boolean; type: 'levelup' | 'perfect' }>({ active: false, type: 'perfect' });
 
   // Countdown ticker
   useEffect(() => {
@@ -61,6 +69,14 @@ export default function QuestModule({ questName, questKey, questData, currentSta
     const timer = setTimeout(() => setCooldownRemaining(c => c - 1), 1000);
     return () => clearTimeout(timer);
   }, [cooldownRemaining]);
+
+  useEffect(() => {
+    const newShuffled: Record<number, string[]> = {};
+    quiz.forEach((q, i) => {
+      newShuffled[i] = shuffleArray(q.options);
+    });
+    setShuffledOptions(newShuffled);
+  }, [submitted]);
 
   const content = typeof questData === 'string'
     ? questData
@@ -101,8 +117,10 @@ export default function QuestModule({ questName, questKey, questData, currentSta
 
       if (currentLvl > currentStats.level) {
         playLevelUp();
+        setCelebration({ active: true, type: 'levelup' });
       } else {
         playChime();
+        setCelebration({ active: true, type: 'perfect' });
       }
     } else {
       // Wrong answer(s) — lock the retry button behind a short cooldown
@@ -204,7 +222,7 @@ export default function QuestModule({ questName, questKey, questData, currentSta
               <div key={i} className="bg-black border border-neutral-800 rounded-lg p-4">
                 <p className="font-bold mb-3">{i + 1}. {q.question}</p>
                 <div className="space-y-2">
-                  {q.options.map((opt) => {
+                  {(shuffledOptions[i] || q.options).map((opt) => {
                     const isSelected = selectedAnswers[i] === opt;
                     const showFeedback = submitted;
                     const isCorrectOption = opt === q.correct_answer;
@@ -263,6 +281,12 @@ export default function QuestModule({ questName, questKey, questData, currentSta
           <p className="text-sm text-gray-400">No quiz for this module — read the material above.</p>
         </div>
       )}
+    <CelebrationOverlay
+        userId={userId}
+        trigger={celebration.active}
+        type={celebration.type}
+        onComplete={() => setCelebration({ active: false, type: 'perfect' })}
+      />
     </div>
   );
 }

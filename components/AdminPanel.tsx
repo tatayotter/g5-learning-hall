@@ -4,6 +4,7 @@ import { CharacterStats, WeeklyData } from '@/hooks/useWeeklyData';
 import { logAction } from '@/lib/playerlog';
 import { playBlessing } from '@/lib/sounds';
 import DeedHistory from '@/components/DeedHistory';
+import GuildPoolStats from '@/components/GuildPoolStats';
 import GameButton from '@/components/GameButton';
 
 interface AdminPanelProps {
@@ -17,7 +18,53 @@ interface AdminPanelProps {
     honorGrants?: number
   ) => void;
 }
+function JournalEntry({ date, entry }: { date: string; entry: any }) {
+  const [expanded, setExpanded] = useState(false);
 
+  return (
+    <div className="bg-black border border-neutral-800 rounded-lg overflow-hidden">
+      {/* Header row — always visible, click to expand */}
+      <button
+        onClick={() => setExpanded(e => !e)}
+        className="w-full flex justify-between items-center p-4 text-left hover:bg-neutral-900 transition-colors"
+      >
+        <div className="flex items-center gap-3">
+          <span className="text-blue-400 font-bold font-mono text-sm">{date}</span>
+          {!expanded && (
+            <span className="text-gray-500 text-sm truncate max-w-[200px]">
+              {entry.done_today || 'No entry'}
+            </span>
+          )}
+        </div>
+        <span className="text-gray-500 text-xs ml-2 shrink-0">
+          {expanded ? '▲ collapse' : '▼ expand'}
+        </span>
+      </button>
+
+      {/* Expanded full entry */}
+      {expanded && (
+        <div className="px-4 pb-4 space-y-3 border-t border-neutral-800 pt-3">
+          <div>
+            <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">⚔️ What I did today</p>
+            <p className="text-sm text-gray-200 leading-relaxed">{entry.done_today || '—'}</p>
+          </div>
+          <div>
+            <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">📋 Tomorrow's plan</p>
+            <p className="text-sm text-gray-200 leading-relaxed">{entry.tomorrow_plan || '—'}</p>
+          </div>
+          <div>
+            <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">🧠 Hardest challenge</p>
+            <p className="text-sm text-gray-200 leading-relaxed">{entry.hardest_challenge || '—'}</p>
+          </div>
+          <div>
+            <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">🙏 Grateful for</p>
+            <p className="text-sm text-gray-200 leading-relaxed">{entry.gratitude || '—'}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 export default function AdminPanel({ currentData, currentSunday, onUpdateStats }: AdminPanelProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
@@ -39,6 +86,7 @@ export default function AdminPanel({ currentData, currentSunday, onUpdateStats }
       const { data } = await supabase
         .from('reward_claims')
         .select('*')
+        .eq('app_user_id', currentData.user_id)
         .order('created_at', { ascending: false });
       if (data) setClaims(data);
     };
@@ -60,7 +108,7 @@ export default function AdminPanel({ currentData, currentSunday, onUpdateStats }
     const newStats = { ...currentData.character_stats, gold: currentData.character_stats.gold + amount };
     const newHonorGrants = (currentData.honor_grants || 0) + 1;
     onUpdateStats(newStats, currentData.journal_logs, currentData.purchased_items, currentData.mastery_count, newHonorGrants);
-    logAction(currentSunday, 'deed', deedName, 0, amount);
+    logAction(currentData.user_id, currentSunday, 'deed', deedName, 0, amount);
     playBlessing();
     alert(`✅ Awarded 🪙 ${amount} Gold for: ${deedName}`);
     setDeedName('');
@@ -185,7 +233,7 @@ export default function AdminPanel({ currentData, currentSunday, onUpdateStats }
       {/* DEED HISTORY */}
       <div className="bg-[#111] border border-[#333] p-6 rounded-xl">
         <h3 className="text-xl font-bold mb-4 font-display">📅 Deed History</h3>
-        <DeedHistory />
+        <DeedHistory userId={currentData.user_id} />
       </div>
 
       {/* ... (rest of your existing sections remain the same) ... */}
@@ -215,6 +263,9 @@ export default function AdminPanel({ currentData, currentSunday, onUpdateStats }
         </GameButton>
       </div>
 
+      {/* SIDE QUEST POOL STATUS */}
+      <GuildPoolStats userId={currentData.user_id} />
+
       {/* QUIZ ATTEMPTS TRACKER */}
       <div className="bg-[#111] border border-[#333] p-6 rounded-xl">
         <h3 className="text-xl font-bold mb-4 font-display">📊 Quiz Attempts</h3>
@@ -241,13 +292,16 @@ export default function AdminPanel({ currentData, currentSunday, onUpdateStats }
       {/* JOURNAL LEDGER */}
       <div className="bg-[#111] border border-neutral-800 p-6 rounded-xl">
         <h3 className="text-xl font-bold mb-4">📜 Journal Ledger</h3>
-        <div className="space-y-4 max-h-96 overflow-y-auto">
-           {Object.entries(currentData.journal_logs || {}).map(([date, entry]) => (
-            <div key={date} className="bg-black p-4 rounded border border-neutral-800">
-               <div className="text-blue-400 font-bold">{date}</div>
-               <p className="text-sm text-gray-300">⚔️ {entry.done_today}</p>
-            </div>
-           ))}
+        <div className="space-y-3 max-h-[600px] overflow-y-auto">
+          {Object.entries(currentData.journal_logs || {}).length === 0 ? (
+            <p className="text-gray-500 text-sm italic">No journal entries yet.</p>
+          ) : (
+            Object.entries(currentData.journal_logs || {})
+              .sort(([a], [b]) => b.localeCompare(a))
+              .map(([date, entry]) => (
+                <JournalEntry key={date} date={date} entry={entry} />
+              ))
+          )}
         </div>
       </div>
 

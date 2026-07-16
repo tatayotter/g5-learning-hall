@@ -251,4 +251,139 @@ export const ACHIEVEMENTS: Achievement[] = [
     xpReward: 600, 
     goldReward: 300 
   },
+// ─── SIDE QUEST GUILD ACHIEVEMENTS ───────────────────────────────────────
+  {
+    id: 'guild_initiate',
+    title: '⚔️ Guild Initiate',
+    description: 'Step into the guild halls for the first time. Complete 1 side quest session.',
+    criteria: (d) => (d.guild_sessions_count || 0) >= 1,
+    xpReward: 50,
+    goldReward: 25
+  },
+  {
+    id: 'guild_regular',
+    title: '⚔️ Guild Regular',
+    description: 'You are becoming a fixture in the halls. Complete 5 guild sessions.',
+    criteria: (d) => (d.guild_sessions_count || 0) >= 5,
+    xpReward: 100,
+    goldReward: 50
+  },
+  {
+    id: 'guild_veteran',
+    title: '🔒 Guild Veteran',
+    description: 'A seasoned warrior of the side quests. Complete 15 guild sessions.',
+    criteria: (d) => (d.guild_sessions_count || 0) >= 15,
+    xpReward: 200,
+    goldReward: 100
+  },
+  {
+    id: 'guild_champion',
+    title: '🔒 Guild Champion',
+    description: 'You have proven yourself across all halls. Complete 30 guild sessions.',
+    criteria: (d) => (d.guild_sessions_count || 0) >= 30,
+    xpReward: 400,
+    goldReward: 200
+  },
+  {
+    id: 'guild_legend',
+    title: '🔒 Guild Legend',
+    description: 'Your name is etched into the guild walls. Complete 50 guild sessions.',
+    criteria: (d) => (d.guild_sessions_count || 0) >= 50,
+    xpReward: 800,
+    goldReward: 400
+  },
+
+  // ─── PERFECT QUIZ ACHIEVEMENTS ────────────────────────────────────────────
+  {
+    id: 'perfect_strike',
+    title: '💯 Perfect Strike',
+    description: 'Flawless execution. Achieve your first perfect quiz score.',
+    criteria: (d) => (d.perfect_quizzes || 0) >= 1,
+    xpReward: 75,
+    goldReward: 50
+  },
+  {
+    id: 'perfect_trio',
+    title: '🔒 Perfect Trio',
+    description: 'Three perfect scores. You are sharper than most. Achieve 3 perfect quizzes.',
+    criteria: (d) => (d.perfect_quizzes || 0) >= 3,
+    xpReward: 150,
+    goldReward: 75
+  },
+  {
+    id: 'perfect_machine',
+    title: '🔒 Perfect Machine',
+    description: 'Relentless accuracy. Achieve 10 perfect quiz scores.',
+    criteria: (d) => (d.perfect_quizzes || 0) >= 10,
+    xpReward: 400,
+    goldReward: 200
+  },
+  {
+    id: 'perfect_legend',
+    title: '🔒 Perfect Legend',
+    description: 'You never miss. Achieve 20 perfect quiz scores.',
+    criteria: (d) => (d.perfect_quizzes || 0) >= 20,
+    xpReward: 1000,
+    goldReward: 500
+  },
+
+  // ─── MONSTER GUILD ACHIEVEMENTS ───────────────────────────────────────────
+  {
+    id: 'monster_tamer',
+    title: '🐉 Monster Tamer',
+    description: 'Your first victory in the Monster Guild. Win 1 trainer battle.',
+    criteria: (d) => (d.monster_battles_won || 0) >= 1,
+    xpReward: 75,
+    goldReward: 50
+  },
+  {
+    id: 'battle_hardened',
+    title: '🔒 Battle Hardened',
+    description: 'You have fought and won many times. Win 5 trainer battles.',
+    criteria: (d) => (d.monster_battles_won || 0) >= 5,
+    xpReward: 150,
+    goldReward: 75
+  },
+  {
+    id: 'trainer_slayer',
+    title: '🔒 Trainer Slayer',
+    description: 'Trainers fear your name. Win 15 trainer battles.',
+    criteria: (d) => (d.monster_battles_won || 0) >= 15,
+    xpReward: 300,
+    goldReward: 150
+  },
+  {
+    id: 'monster_overlord',
+    title: '🔒 Monster Overlord',
+    description: 'You reign supreme over all trainers. Win 30 trainer battles.',
+    criteria: (d) => (d.monster_battles_won || 0) >= 30,
+    xpReward: 600,
+    goldReward: 300
+  },
+
+  // ─── SIBLING BATTLE ACHIEVEMENTS ─────────────────────────────────────────
+  {
+    id: 'sibling_rival',
+    title: '👊 Sibling Rival',
+    description: 'The family feud begins. Win your first sibling battle.',
+    criteria: (d) => (d.sibling_battles_won || 0) >= 1,
+    xpReward: 100,
+    goldReward: 50
+  },
+  {
+    id: 'sibling_dominator',
+    title: '🔒 Sibling Dominator',
+    description: 'Your sibling can\'t stop you. Win 5 sibling battles.',
+    criteria: (d) => (d.sibling_battles_won || 0) >= 5,
+    xpReward: 300,
+    goldReward: 150
+  },
+  {
+    id: 'family_champion',
+    title: '🔒 Family Champion',
+    description: 'The undisputed champion of the household. Win 10 sibling battles.',
+    criteria: (d) => (d.sibling_battles_won || 0) >= 10,
+    xpReward: 600,
+    goldReward: 300
+  },
 ];

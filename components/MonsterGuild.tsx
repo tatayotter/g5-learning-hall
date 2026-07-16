@@ -1,0 +1,1877 @@
+'use client';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { supabase } from '@/lib/supabase';
+import { playAttackWhoosh, playHitThud, playMiss, playVictory, playDefeat, playChime, playClash } from '@/lib/sounds';
+import { logAction } from '@/lib/playerlog';
+import { getOtherPlayers, UserId, USERS } from '@/lib/userSession';
+import { useMapPresence } from '@/hooks/useMapPresence';
+import PlayerStatsPopup from '@/components/PlayerStatsPopup';
+import WildEncounterModal from '@/components/WildEncounterModal';
+import {
+  MONSTERS, WILD_MONSTERS, ALL_MONSTERS, NPC_TRAINERS, SKILLS, BATTLE_CONSTANTS,
+  getUnlockedMonsterSlots, getAvailableSkillTiers, calculateDamage,
+  getMonsterLevel, REST_BY_ELEMENT, ELEMENT_STATUS, STATUS_DEFINITIONS,
+  Element, StatusEffect, NpcTrainer, MonsterDef,
+} from '@/lib/monsterConfig';
+import { fetchInventory, useInventoryItem, SHOP_CATALOG } from '@/lib/inventory';
+import {
+  hashQuestionId, arenaQuestionText,
+  fetchAnsweredArenaQuestionIds, markArenaQuestionsCompleted, resetArenaHistory,
+  fetchQuestionPool, markQuestionsCompleted,
+} from '@/lib/guildEngine';
+
+// Estimated so a player at ~1hr/day of active map play sees roughly 50 wild
+// encounters across a full school year (~180 hrs x ~120 answered questions/hr
+// ≈ 21,600 answers/year → 50/21,600 ≈ 0.23%). Tune after observing real usage.
+const WILD_ENCOUNTER_CHANCE = 0.002;
+// ─── TYPES ───────────────────────────────────────────────────────────────────
+
+interface UserMonster {
+  id: string;
+  user_id: string;
+  monster_id: string;
+  nickname: string | null;
+  monster_exp: number;
+  monster_level: number;
+  slot: number;
+  rest_used: number;
+}
+
+interface CaughtMonster {
+  id: string;
+  user_id: string;
+  monster_id: string;
+  nickname: string | null;
+  monster_level: number;
+  monster_exp: number;
+  caught_at: string;
+}
+
+interface BattleState {
+  id: string;
+  user_id: string;
+  map_x: number;
+  map_y: number;
+  defeated_trainers: string[];
+  active_monster_slot: number;
+  last_sibling_battle: string | null;
+  last_pvp_win: string | null;
+}
+
+interface ActiveBattleMonster {
+  def: MonsterDef;
+  level: number;
+  currentHp: number;
+  maxHp: number;
+  status: StatusEffect;
+  statusTurns: number;
+  restUsed: number;
+  userMonster?: UserMonster;
+}
+
+interface MonsterGuildProps {
+  userId: string;
+  playerLevel: number;
+  packageData: any;
+}
+
+// ─── MAP CONFIG ───────────────────────────────────────────────────────────────
+
+const MAP_SIZE = 16;
+
+type TileType = 'grass' | 'town' | 'wall';
+
+interface MapTile {
+  type: TileType;
+}
+
+// Build the map grid
+function buildMap(): MapTile[][] {
+  const map: MapTile[][] = Array.from({ length: MAP_SIZE }, () =>
+    Array.from({ length: MAP_SIZE }, () => ({ type: 'grass' as TileType }))
+  );
+
+  // Town (safe zone) in top-left corner
+  for (let y = 0; y < 3; y++) {
+    for (let x = 0; x < 3; x++) {
+      map[y][x] = { type: 'town' };
+    }
+  }
+
+  // Walls around edges
+  for (let i = 0; i < MAP_SIZE; i++) {
+    map[0][i] = { type: 'wall' };
+    map[MAP_SIZE - 1][i] = { type: 'wall' };
+    map[i][0] = { type: 'wall' };
+    map[i][MAP_SIZE - 1] = { type: 'wall' };
+  }
+
+  return map;
+}
+
+// The training map is a single painted background image (public/maps/map-1.webp)
+// with an invisible logical grid overlaid for walkability + markers. The grid and
+// all positioning are percentage-based (not fixed pixels) so the whole map scales
+// fluidly to any container width — no horizontal scrolling on mobile/small desktops.
+const MAP_IMAGE = '/maps/map-1.webp';
+const TILE_PCT = 100 / MAP_SIZE;
+
+function TownMarker() {
+  return (
+    <div
+      className="w-7 h-7 rounded-full bg-sky-900/70 border-2 border-sky-300 flex items-center justify-center text-sm shadow"
+      title="Town — heals your team"
+    >
+      🏠
+    </div>
+  );
+}
+
+function PlayerSprite({ userId }: { userId: string }) {
+  return (
+    <div className="relative w-full h-full">
+      <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-6 h-2 rounded-full bg-black/25"/>
+      <img
+        src={USERS[userId]?.gender === 'girl' ? '/sprite/girl1.webp' : '/sprite/boy1.webp'}
+        alt="Player"
+        className="relative w-full h-full object-contain"
+        style={{ imageRendering: 'pixelated' }}
+      />
+    </div>
+  );
+}
+
+// ─── MONSTER IMAGE ──────────────────────────────────────────────────────────
+// Renders a monster's /monsters/*.webp art when it exists, falling back to its
+// emoji (e.g. the wild-only monsters, which don't have art yet) if the image
+// 404s or the monster has no id to look up.
+
+export function MonsterImage({ monster, className = '', emojiClassName = 'text-3xl' }: {
+  monster: { id: string; name: string; emoji: string } | undefined | null;
+  className?: string;
+  emojiClassName?: string;
+}) {
+  const [failed, setFailed] = useState(false);
+  if (!monster) return null;
+  if (failed) {
+    return (
+      <span className={`flex items-center justify-center ${className} ${emojiClassName}`}>
+        {monster.emoji}
+      </span>
+    );
+  }
+  return (
+    <img
+      src={`/monsters/${monster.id}.webp`}
+      alt={monster.name}
+      className={`object-contain ${className}`}
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
+// ─── QUESTION HELPERS ─────────────────────────────────────────────────────────
+
+function extractQuestions(packageData: any): any[] {
+  if (!packageData) return [];
+  const questions: any[] = [];
+  Object.values(packageData).forEach((day: any) => {
+    if (typeof day === 'object' && day !== null) {
+      Object.values(day).forEach((subject: any) => {
+        if (subject?.quiz) {
+          questions.push(...subject.quiz);
+        } else if (subject?.questions) {
+          questions.push(...subject.questions);
+        }
+      });
+    }
+  });
+  return questions;
+}
+
+function shuffleArray<T>(arr: T[]): T[] {
+  return [...arr].sort(() => Math.random() - 0.5);
+}
+
+// ─── BATTLE QUESTION MODAL ────────────────────────────────────────────────────
+
+interface BattleQuestionProps {
+  questions: any[];
+  count: number;
+  embedded?: boolean;
+  onComplete: (correctCount: number, answeredQuestions: any[]) => void;
+}
+
+function BattleQuestionModal({ questions, count, embedded, onComplete }: BattleQuestionProps) {
+  const [pool] = useState(() => shuffleArray(questions).slice(0, count));
+  const [index, setIndex] = useState(0);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [results, setResults] = useState<boolean[]>([]);
+
+  const current = pool[index];
+  if (!current) return null;
+
+  const handleAnswer = (opt: string) => {
+    if (selected) return;
+    setSelected(opt);
+    const isCorrect = opt === current.correct_answer || opt === current.correct || opt === current.correct_choice;
+    const newResults = [...results, isCorrect];
+    setTimeout(() => {
+      if (index + 1 >= count) {
+        onComplete(newResults.filter(Boolean).length, pool);
+      } else {
+        setResults(newResults);
+        setSelected(null);
+        setIndex(i => i + 1);
+      }
+    }, 800);
+  };
+
+  const inner = (
+    <div className={embedded ? 'mt-2' : 'bg-neutral-900 border border-neutral-700 rounded-2xl p-8 max-w-lg w-full'}>
+      <p className="text-xs text-gray-500 mb-2 font-mono">Question {index + 1} of {count}</p>
+      <p className="text-lg font-bold text-white mb-6">{current.question || current.problem_prompt}</p>
+      <div className="space-y-3">
+        {(current.options || []).map((opt: any) => {
+          const key = typeof opt === 'string' ? opt : opt.key;
+          const text = typeof opt === 'string' ? opt : opt.text;
+          const isSelected = selected === key;
+          const isCorrect = key === current.correct_answer || key === current.correct || key === current.correct_choice;
+          let style = 'border-neutral-700 hover:border-neutral-500';
+          if (selected) {
+            if (isSelected && isCorrect) style = 'border-green-500 bg-green-900/30';
+            else if (isSelected && !isCorrect) style = 'border-red-500 bg-red-900/30';
+            else if (isCorrect) style = 'border-green-500 bg-green-900/20';
+          }
+          return (
+            <button
+              key={key}
+              onClick={() => handleAnswer(key)}
+              disabled={!!selected}
+              className={`w-full text-left p-4 rounded-xl border-2 text-gray-200 transition-all ${style}`}
+            >
+              {text}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+
+  if (embedded) return inner;
+
+  return (
+    <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+      {inner}
+    </div>
+  );
+}
+
+// ─── BATTLE SCREEN ────────────────────────────────────────────────────────────
+
+interface BattleScreenProps {
+  playerTeam: ActiveBattleMonster[];
+  trainer?: NpcTrainer;
+  siblingTeam?: ActiveBattleMonster[];
+  siblingName?: string;
+  questions: any[];
+  inventory: Record<string, number>;
+  onUseItem: (key: string) => Promise<boolean>;
+  onBattleEnd: (won: boolean, expEarned: number) => void;
+  onQuestionsAnswered?: (questions: any[]) => void;
+}
+
+function BattleScreen({ playerTeam, trainer, siblingTeam, siblingName, questions, inventory, onUseItem, onBattleEnd, onQuestionsAnswered }: BattleScreenProps) {
+  const opponentName = trainer?.name || siblingName || 'Sibling';
+  const opponentTeam = siblingTeam || trainer?.monsters.map((tm: any) => {
+    const def = ALL_MONSTERS[tm.monsterId];
+    return { def, level: tm.level, currentHp: def.baseHp, maxHp: def.baseHp, status: null, statusTurns: 0, restUsed: 0 };
+  }) || [];
+  const [playerMonsterIdx, setPlayerMonsterIdx] = useState(0);
+  const [npcMonsterIdx, setNpcMonsterIdx] = useState(0);
+  const [playerMonsters, setPlayerMonsters] = useState<ActiveBattleMonster[]>(playerTeam);
+  const [npcMonsters, setNpcMonsters] = useState<ActiveBattleMonster[]>(opponentTeam);
+  const [log, setLog] = useState<string[]>([`Battle started against ${opponentName}!`]);
+  const [phase, setPhase] = useState<'select_skill' | 'select_item' | 'answering' | 'npc_turn' | 'ended'>('select_skill');
+  const [pendingSkillId, setPendingSkillId] = useState<string | null>(null);
+  const [questionCount, setQuestionCount] = useState(1);
+  const [expEarned, setExpEarned] = useState(0);
+  const [playerAnim, setPlayerAnim] = useState('');
+  const [npcAnim, setNpcAnim] = useState('');
+  const [attackMessage, setAttackMessage] = useState<string | null>(null);
+  const battleMusicRef = useRef<HTMLAudioElement | null>(null);
+
+  const playerMon = playerMonsters[playerMonsterIdx];
+  const npcMon = npcMonsters[npcMonsterIdx];
+
+  // Mirrors of the latest committed state, read by doNpcTurn's setTimeout callback
+  // so it never has to nest a setState call inside another setState's updater.
+  const playerMonstersRef = useRef(playerMonsters);
+  playerMonstersRef.current = playerMonsters;
+  const npcMonstersRef = useRef(npcMonsters);
+  npcMonstersRef.current = npcMonsters;
+
+  useEffect(() => {
+    const audio = new Audio('/sounds/battle-theme.mp3');
+    audio.loop = true;
+    audio.volume = 0.4;
+    audio.play().catch(() => {});
+    battleMusicRef.current = audio;
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
+
+  const addLog = (msg: string) => setLog(prev => [msg, ...prev.slice(0, 6)]);
+
+  const triggerAnim = (target: 'player' | 'npc', anim: string) => {
+    if (target === 'player') {
+      setPlayerAnim('');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setPlayerAnim(anim);
+          setTimeout(() => setPlayerAnim(''), 600);
+        });
+      });
+    } else {
+      setNpcAnim('');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setNpcAnim(anim);
+          setTimeout(() => setNpcAnim(''), 600);
+        });
+      });
+    }
+  };
+
+  const applyStatusTick = (mon: ActiveBattleMonster): [ActiveBattleMonster, string[]] => {
+    const msgs: string[] = [];
+    let updated = { ...mon };
+    if (updated.status === 'burn') {
+      updated.currentHp = Math.max(0, updated.currentHp - BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN);
+      msgs.push(`${updated.def.name} takes ${BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN} burn damage!`);
+    }
+    if (updated.statusTurns > 0) {
+      updated.statusTurns--;
+      if (updated.statusTurns === 0 && updated.status !== 'burn' && updated.status !== 'paralyze') {
+        msgs.push(`${updated.def.name}'s ${updated.status} wore off!`);
+        updated.status = null;
+      }
+    }
+    return [updated, msgs];
+  };
+
+  const handleSkillSelect = (skillId: string) => {
+    const skill = SKILLS[skillId];
+    if (!skill) return;
+    setPendingSkillId(skillId);
+    setQuestionCount(skill.questionCount);
+    setPhase('answering');
+  };
+
+  const handleRest = () => {
+    const restConfig = REST_BY_ELEMENT[playerMon.def.element];
+    if (playerMon.restUsed >= restConfig.maxUsesPerBattle) {
+      addLog('Rest already used maximum times!');
+      return;
+    }
+    const healAmount = Math.round(playerMon.maxHp * restConfig.hpRestorePercent);
+    const newHp = Math.min(playerMon.maxHp, playerMon.currentHp + healAmount);
+    const updated = playerMonsters.map((m, i) =>
+      i === playerMonsterIdx ? { ...m, currentHp: newHp, restUsed: m.restUsed + 1 } : m
+    );
+    setPlayerMonsters(updated);
+    addLog(`${playerMon.def.name} used Rest and restored ${healAmount} HP!`);
+    doNpcTurn();
+  };
+
+  const handleItemUse = async (key: string) => {
+    const item = SHOP_CATALOG.find(i => i.key === key);
+    if (!item) return;
+
+    const itemUsed = await onUseItem(key);
+    if (!itemUsed) return;
+
+    switch (item.effect) {
+      case 'heal_30': {
+        const healAmount = 30;
+        const newHp = Math.min(playerMon.maxHp, playerMon.currentHp + healAmount);
+        setPlayerMonsters(prev => prev.map((m, i) => i === playerMonsterIdx ? { ...m, currentHp: newHp } : m));
+        addLog(`🧪 Used ${item.name}: Restored ${healAmount} HP!`);
+        break;
+      }
+      case 'atk_boost_1t': {
+        setPlayerMonsters(prev => prev.map((m, i) => i === playerMonsterIdx ? { ...m, status: 'atk_boost' as StatusEffect, statusTurns: 1 } : m));
+        addLog(`⚔️ Used ${item.name}: Attack boosted!`);
+        break;
+      }
+      case 'def_boost_1t': {
+        setPlayerMonsters(prev => prev.map((m, i) => i === playerMonsterIdx ? { ...m, status: 'def_boost' as StatusEffect, statusTurns: 1 } : m));
+        addLog(`🛡️ Used ${item.name}: Defense boosted!`);
+        break;
+      }
+      case 'apply_blessed': {
+        setPlayerMonsters(prev => prev.map((m, i) => i === playerMonsterIdx ? { ...m, status: 'blessed' as StatusEffect, statusTurns: 3 } : m));
+        addLog(`✨ Used ${item.name}: Blessed status applied!`);
+        break;
+      }
+      case 'cure_status': {
+        setPlayerMonsters(prev => prev.map((m, i) => i === playerMonsterIdx ? { ...m, status: null, statusTurns: 0 } : m));
+        addLog(`💊 Used ${item.name}: Status conditions cured!`);
+        break;
+      }
+      case 'inflict_curse': {
+        setNpcMonsters(prev => prev.map((m, i) => i === npcMonsterIdx ? { ...m, status: 'curse' as StatusEffect, statusTurns: 3 } : m));
+        addLog(`💀 Used ${item.name}: Enemy is now Cursed!`);
+        break;
+      }
+      case 'revive': {
+        if (playerMon.currentHp <= 0) {
+          setPlayerMonsters(prev => prev.map((m, i) => i === playerMonsterIdx ? { ...m, currentHp: Math.round(m.maxHp * 0.5) } : m));
+          addLog(`🔄 Used ${item.name}: ${playerMon.def.name} revived!`);
+        } else {
+          addLog(`❌ Only works on fainted monsters!`);
+        }
+        break;
+      }
+      default:
+        addLog(`Used ${item.name}!`);
+        break;
+    }
+
+    setTimeout(() => {
+      setPhase('npc_turn');
+      doNpcTurn();
+    }, 500);
+  };
+
+  const handleQuestionsComplete = (correctCount: number, answeredQuestions: any[]) => {
+    setPhase('npc_turn');
+    onQuestionsAnswered?.(answeredQuestions);
+    if (!pendingSkillId) return;
+    const skill = SKILLS[pendingSkillId];
+    const isBlessed = playerMon.status === 'blessed';
+    const isPerfect = correctCount === skill.questionCount;
+
+    let damage = calculateDamage(
+      skill,
+      playerMon.def.baseAttack,
+      correctCount,
+      skill.questionCount,
+      playerMon.def.element,
+      npcMon.def.element,
+      isBlessed,
+    );
+
+    if (playerMon.status === 'curse') {
+      damage = Math.round(damage * (1 - BATTLE_CONSTANTS.CURSE_DAMAGE_REDUCTION));
+    }
+
+    setAttackMessage(`${playerMon.def.name} used ${skill.name}!`);
+    playAttackWhoosh();
+    triggerAnim('player', 'battle-attack-right');
+    setTimeout(() => setAttackMessage(null), 1000);
+
+    if (damage === 0) {
+      playMiss();
+    } else {
+      playHitThud();
+      triggerAnim('npc', 'battle-hit');
+    }
+    let msg = `${playerMon.def.name} used ${skill.name}! (${correctCount}/${skill.questionCount} correct) → ${damage} damage!`;
+
+    let newNpcMonsters = [...npcMonsters];
+    let newNpcMon = { ...npcMon, currentHp: Math.max(0, npcMon.currentHp - damage) };
+
+    if (isPerfect && ELEMENT_STATUS[playerMon.def.element]) {
+      const effect = ELEMENT_STATUS[playerMon.def.element]!;
+      newNpcMon.status = effect;
+      newNpcMon.statusTurns = effect === 'curse' ? BATTLE_CONSTANTS.CURSE_DURATION_TURNS : 999;
+      msg += ` ${STATUS_DEFINITIONS[effect].emoji} ${newNpcMon.def.name} is ${effect}!`;
+    }
+
+    newNpcMonsters[npcMonsterIdx] = newNpcMon;
+
+    let newPlayerMonsters = playerMonsters.map((m, i) =>
+      i === playerMonsterIdx && m.status === 'blessed' ? { ...m, status: null as StatusEffect } : m
+    );
+
+    addLog(msg);
+    setNpcMonsters(newNpcMonsters);
+    setPlayerMonsters(newPlayerMonsters);
+
+    if (newNpcMon.currentHp <= 0) {
+      addLog(`${newNpcMon.def.name} fainted!`);
+      const nextNpc = npcMonsterIdx + 1;
+      if (nextNpc >= (trainer?.monsters.length ?? npcMonsters.length)) {
+        const earned = trainer?.reward.exp ?? 0;
+        setExpEarned(earned);
+        addLog(`You defeated ${opponentName}!`);
+        playVictory();
+        battleMusicRef.current?.pause();
+        setPhase('ended');
+        setTimeout(() => onBattleEnd(true, earned), 1500);
+        return;
+      }
+      setNpcMonsterIdx(nextNpc);
+      addLog(`${opponentName} sends out ${npcMonsters[nextNpc]?.def.name || 'another monster'}!`);
+    }
+
+    doNpcTurn();
+  };
+
+  const doNpcTurn = () => {
+    setTimeout(() => {
+      // Read the latest committed state via refs — computing everything here as
+      // plain values means each setState below fires exactly once, with no side
+      // effects hidden inside an updater function that React could re-invoke.
+      const currentNpc = npcMonstersRef.current[npcMonsterIdx];
+      const currentPlayer = playerMonstersRef.current[playerMonsterIdx];
+
+      if (currentNpc.status === 'paralyze') {
+        addLog(`${currentNpc.def.name} is paralyzed and can't move!`);
+        const [updatedNpc, msgs] = applyStatusTick(currentNpc);
+        msgs.forEach(addLog);
+        setNpcMonsters(npcMonstersRef.current.map((m, i) => i === npcMonsterIdx ? updatedNpc : m));
+        setPhase('select_skill');
+        return;
+      }
+
+      const tier = currentNpc.level >= 15 ? 3 : currentNpc.level >= 8 ? 2 : 1;
+      let damage = BATTLE_CONSTANTS.NPC_DAMAGE_BY_TIER[tier as 1|2|3];
+
+      if (currentPlayer.status === 'def_boost') {
+        damage = Math.round(damage / 2);
+        addLog(`🛡️ ${currentPlayer.def.name}'s Iron Shield blocked half the damage!`);
+      }
+
+      const newHp = Math.max(0, currentPlayer.currentHp - damage);
+      playHitThud();
+      triggerAnim('player', 'battle-hit');
+      addLog(`${currentNpc.def.name} attacks for ${damage} damage!`);
+
+      const [tickedNpc, tickMsgs] = applyStatusTick(currentNpc);
+      tickMsgs.forEach(addLog);
+
+      const updatedPlayer = playerMonstersRef.current.map((m, i) =>
+        i === playerMonsterIdx ? { ...m, currentHp: newHp } : m
+      );
+      const updatedNpc = npcMonstersRef.current.map((m, i) => i === npcMonsterIdx ? tickedNpc : m);
+
+      setPlayerMonsters(updatedPlayer);
+      setNpcMonsters(updatedNpc);
+
+      if (newHp <= 0) {
+        addLog(`${currentPlayer.def.name} fainted!`);
+        if (playerMonsterIdx + 1 >= updatedPlayer.length) {
+          addLog('All your monsters fainted! You lost!');
+          playDefeat();
+          battleMusicRef.current?.pause();
+          setPhase('ended');
+          setTimeout(() => onBattleEnd(false, 0), 1500);
+        } else {
+          setPlayerMonsterIdx(playerMonsterIdx + 1);
+          addLog(`Go, ${updatedPlayer[playerMonsterIdx + 1].def.name}!`);
+          setPhase('select_skill');
+        }
+      } else {
+        setPhase('select_skill');
+      }
+    }, 1000);
+  };
+
+  const availableTiers = getAvailableSkillTiers(playerMon.level, playerMon.def);
+  const restConfig = REST_BY_ELEMENT[playerMon.def.element];
+
+  return (
+    <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6">
+      {/* Battle header */}
+      <div className="flex justify-between items-start mb-6">
+        {/* Player monster — LEFT */}
+        <div className="text-center">
+          <p className="text-xs text-gray-500 mb-1">Your Monster</p>
+          <div className={`w-16 h-16 mx-auto mb-2 ${playerAnim}`}>
+            <MonsterImage monster={playerMon.def} className="w-full h-full battle-float" emojiClassName="text-4xl" />
+          </div>
+          <p className="text-sm font-bold text-white">{playerMon.def.name} Lv.{playerMon.level}</p>
+          <div className="w-32 bg-neutral-800 rounded-full h-2 mt-1">
+            <div
+              className="h-2 rounded-full bg-green-500 transition-all"
+              style={{ width: `${(playerMon.currentHp / playerMon.maxHp) * 100}%` }}
+            />
+          </div>
+          <p className="text-xs text-gray-500 mt-1">{playerMon.currentHp}/{playerMon.maxHp} HP</p>
+          {playerMon.status && <p className="text-xs mt-1">{STATUS_DEFINITIONS[playerMon.status].emoji} {playerMon.status}</p>}
+        </div>
+
+        {/* Battle log */}
+        <div className="flex-1 mx-6 bg-black/30 rounded-xl p-3 h-32 overflow-y-auto">
+          {log.map((msg, i) => (
+            <p key={i} className="text-xs text-gray-300 mb-1">{msg}</p>
+          ))}
+        </div>
+
+        {/* NPC monster — RIGHT, flipped to face left */}
+        <div className="text-center">
+          <div className="flex items-center justify-center gap-2 mb-1">
+            {trainer && (
+              <img 
+                src={`/trainers/${trainer.id}.png`}
+                alt={trainer.name} 
+                className="w-6 h-6 rounded-full object-cover border border-neutral-600"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              />
+            )}
+            <p className="text-xs text-gray-500">{opponentName}</p>
+          </div>
+          <div className={`w-16 h-16 mx-auto mb-2 ${npcAnim}`} style={{ transform: 'scaleX(-1)' }}>
+            <MonsterImage monster={npcMon.def} className="w-full h-full battle-float" emojiClassName="text-4xl" />
+          </div>
+          <p className="text-sm font-bold text-white">{npcMon.def.name} Lv.{npcMonsters[npcMonsterIdx].level}</p>
+          <div className="w-32 bg-neutral-800 rounded-full h-2 mt-1">
+            <div
+              className="h-2 rounded-full bg-red-500 transition-all"
+              style={{ width: `${(npcMon.currentHp / npcMon.maxHp) * 100}%` }}
+            />
+          </div>
+          <p className="text-xs text-gray-500 mt-1">{npcMon.currentHp}/{npcMon.maxHp} HP</p>
+          {npcMon.status && <p className="text-xs mt-1">{STATUS_DEFINITIONS[npcMon.status].emoji} {npcMon.status}</p>}
+        </div>
+      </div>
+
+      {/* Attack message overlay */}
+      {attackMessage && (
+        <div className="text-center py-4 text-xl font-bold text-amber-400 animate-pulse">
+          {attackMessage}
+        </div>
+      )}
+
+      {/* Skill selection */}
+      {phase === 'select_skill' && (
+        <div className="grid grid-cols-2 gap-3">
+          {availableTiers.map(tier => {
+            const skillId = playerMon.def.skills[tier - 1];
+            const skill = SKILLS[skillId];
+            return (
+              <button
+                key={tier}
+                onClick={() => handleSkillSelect(skillId)}
+                className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all"
+              >
+                <p className="font-bold text-white text-sm">{skill.name}</p>
+                <p className="text-xs text-gray-400">{skill.questionCount} question{skill.questionCount > 1 ? 's' : ''} · Tier {tier}</p>
+                <p className="text-xs text-gray-500 mt-1">{skill.description}</p>
+              </button>
+            );
+          })}
+          <button
+            onClick={handleRest}
+            disabled={playerMon.restUsed >= restConfig.maxUsesPerBattle}
+            className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            <p className="font-bold text-white text-sm">😴 Rest</p>
+            <p className="text-xs text-gray-400">Restore {Math.round(restConfig.hpRestorePercent * 100)}% HP</p>
+          </button>
+
+          <button
+            onClick={() => setPhase('select_item')}
+            className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all"
+          >
+            <p className="font-bold text-white text-sm">🎒 Items</p>
+            <p className="text-xs text-gray-400">Use items from inventory</p>
+          </button>
+        </div>
+      )}
+
+      {phase === 'npc_turn' && (
+        <div className="text-center py-4 text-gray-400 animate-pulse">Opponent is attacking...</div>
+      )}
+
+      {phase === 'select_item' && (
+        <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 space-y-4">
+          <p className="text-white font-bold text-center mb-2">🎒 Select an Item</p>
+          <div className="space-y-2">
+            {Object.entries(inventory).length === 0 ? (
+              <p className="text-gray-500 text-sm text-center">No items in inventory.</p>
+            ) : (
+              Object.entries(inventory).map(([key, qty]) => {
+                if (qty <= 0) return null;
+                
+                const itemData = SHOP_CATALOG.find(i => i.key === key);
+                
+                return (
+                  <button
+                    key={key}
+                    onClick={() => handleItemUse(key)}
+                    className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left flex items-center gap-4 transition-all"
+                  >
+                    <span className="text-2xl">{itemData?.icon || '📦'}</span>
+                    <div className="flex-1">
+                      <p className="text-white font-bold text-sm capitalize">{itemData?.name || key.replace('_', ' ')}</p>
+                      <p className="text-xs text-gray-400">{itemData?.desc || 'Consumable item'}</p>
+                    </div>
+                    <span className="bg-neutral-700 text-yellow-400 font-bold px-3 py-1 rounded-full text-xs">x{qty}</span>
+                  </button>
+                );
+              })
+            )}
+          </div>
+          <button 
+            onClick={() => setPhase('select_skill')} 
+            className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors"
+          >
+            Cancel
+          </button>
+        </div>
+      )}
+
+      {phase === 'ended' && (
+        <div className="text-center py-4">
+          <p className="text-xl font-bold text-white">Battle Over!</p>
+        </div>
+      )}
+
+      {phase === 'answering' && pendingSkillId && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+          <div className="bg-neutral-900 border border-amber-700 rounded-2xl p-6 max-w-lg w-full">
+            <div className="flex items-center gap-4 mb-5 bg-amber-900/20 border border-amber-800 rounded-xl p-4">
+              <MonsterImage monster={playerMon.def} className="w-14 h-14" />
+              <div>
+                <p className="text-amber-400 text-xs font-bold uppercase tracking-widest mb-1">⚔️ Attack!</p>
+                <p className="text-white font-bold">{playerMon.def.name} uses {SKILLS[pendingSkillId]?.name}!</p>
+                <p className="text-sm mt-1 text-gray-300">
+                  Answer <span className="text-amber-400 font-bold">{questionCount}/{questionCount}</span> correctly for full damage
+                  {questionCount > 1 && <span className="text-gray-500 text-xs ml-1"> · partial = half damage</span>}
+                </p>
+              </div>
+            </div>
+            <BattleQuestionModal
+              questions={questions}
+              count={questionCount}
+              embedded={true}
+              onComplete={handleQuestionsComplete}
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── STARTER SELECTION ────────────────────────────────────────────────────────
+
+interface StarterSelectionProps {
+  userId: string;
+  onComplete: () => void;
+}
+
+function StarterSelection({ userId, onComplete }: StarterSelectionProps) {
+  const [selected, setSelected] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+
+  const starters = Object.values(MONSTERS);
+
+  const handleConfirm = async () => {
+    if (!selected) return;
+    setSaving(true);
+    const { error } = await supabase.from('user_monsters').insert({
+      user_id: userId,
+      monster_id: selected,
+      monster_exp: 0,
+      monster_level: 1,
+      slot: 1,
+      rest_used: 0,
+    });
+    await supabase.from('user_battle_state').upsert({
+      user_id: userId,
+      map_x: 1,
+      map_y: 1,
+      defeated_trainers: [],
+      active_monster_slot: 1,
+    }, { onConflict: 'user_id' });
+    setSaving(false);
+    if (!error) onComplete();
+  };
+
+  
+
+  return (
+    <div className="max-w-4xl mx-auto">
+      <h2 className="text-3xl font-display font-bold text-white mb-2">🐉 Choose Your Starter</h2>
+      <p className="text-gray-400 mb-8">Pick your first monster. Choose wisely — you'll unlock more as you level up!</p>
+      <div className="grid grid-cols-3 gap-4 mb-8">
+        {starters.map(monster => (
+          <button
+            key={monster.id}
+            onClick={() => setSelected(monster.id)}
+            className={`p-6 rounded-2xl border-2 text-center transition-all ${
+              selected === monster.id
+                ? 'border-amber-400 bg-amber-900/20'
+                : 'border-neutral-700 bg-neutral-900 hover:border-neutral-500'
+            }`}
+          >
+<div className="w-16 h-16 mx-auto mb-3">
+              <MonsterImage monster={monster} className="w-full h-full" />
+            </div>
+            <p className="font-bold text-white font-display">{monster.name}</p>
+            <p className="text-xs text-gray-400 capitalize mb-2">{monster.element} · {monster.archetype.replace('_', ' ')}</p>
+            <p className="text-xs text-gray-500">{monster.description}</p>
+            <div className="mt-3 text-xs text-gray-400 space-y-1">
+              <p>❤️ {monster.baseHp} HP · ⚔️ {monster.baseAttack} ATK</p>
+              <p>🛡️ {monster.baseDefense} DEF · ⚡ {monster.baseSpeed} SPD</p>
+            </div>
+          </button>
+        ))}
+      </div>
+      <button
+        onClick={handleConfirm}
+        disabled={!selected || saving}
+        className="bg-amber-600 hover:bg-amber-500 text-white font-bold py-3 px-10 rounded-xl transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+      >
+        {saving ? 'Saving...' : `Choose ${selected ? MONSTERS[selected].name : '...'}`}
+      </button>
+    </div>
+  );
+}
+
+// ─── TRAINING MAP ─────────────────────────────────────────────────────────────
+
+interface TrainingMapProps {
+  userId: string;
+  battleState: BattleState;
+  userMonsters: UserMonster[];
+  questions: any[];
+  onBattleStateChange: (state: BattleState) => void;
+  onMonsterExpGained: (monsterId: string, exp: number) => void;
+  onHeal: () => void;
+  onQuestionsAnswered?: (questions: any[]) => void;
+  onWildEncounterRoll?: () => void;
+}
+
+function TrainingMap({
+  userId, battleState, userMonsters, questions,
+  onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll,
+}: TrainingMapProps) {
+  const [grassQuestion, setGrassQuestion] = useState(false);
+  const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
+  const [stickerPickerOpen, setStickerPickerOpen] = useState(false);
+  const map = buildMap();
+  const activeMonster = userMonsters.find(m => m.slot === battleState.active_monster_slot);
+  const selfProfile = USERS[userId];
+  const { onlinePlayers, waves, stickers, sendWave, sendSticker } = useMapPresence(
+    userId, selfProfile?.name || userId, selfProfile?.gender || 'boy', battleState.map_x, battleState.map_y
+  );
+
+  const move = useCallback(async (dx: number, dy: number) => {
+    const newX = battleState.map_x + dx;
+    const newY = battleState.map_y + dy;
+    if (newX < 0 || newX >= MAP_SIZE || newY < 0 || newY >= MAP_SIZE) return;
+
+    const tile = map[newY][newX];
+    if (tile.type === 'wall') return;
+
+    const newState = { ...battleState, map_x: newX, map_y: newY };
+    onBattleStateChange(newState);
+
+    await supabase.from('user_battle_state')
+      .update({ map_x: newX, map_y: newY, updated_at: new Date().toISOString() })
+      .eq('user_id', userId);
+
+    if (tile.type === 'grass' && Math.random() < 0.4) {
+      setGrassQuestion(true);
+    } else if (tile.type === 'town') {
+      onHeal();
+    }
+  }, [battleState, map, userId, onBattleStateChange, onHeal]);
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (grassQuestion) return;
+      if (e.key === 'ArrowUp')    move(0, -1);
+      if (e.key === 'ArrowDown')  move(0,  1);
+      if (e.key === 'ArrowLeft')  move(-1, 0);
+      if (e.key === 'ArrowRight') move(1,  0);
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [move, grassQuestion]);
+
+  const handleGrassAnswer = async (correctCount: number, answeredQuestions: any[]) => {
+    setGrassQuestion(false);
+    onQuestionsAnswered?.(answeredQuestions);
+    if (correctCount > 0 && activeMonster) {
+      const expGain = BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER;
+      onMonsterExpGained(activeMonster.id, expGain);
+      await supabase.from('user_monsters')
+        .update({ monster_exp: activeMonster.monster_exp + expGain })
+        .eq('id', activeMonster.id);
+    }
+    // Rare wild-monster encounter roll — once per individual question answered,
+    // regardless of whether it was answered correctly.
+    const encountered = answeredQuestions.some(() => Math.random() < WILD_ENCOUNTER_CHANCE);
+    if (encountered) onWildEncounterRoll?.();
+  };
+
+  return (
+    <div>
+
+      {/* Map (left on desktop, top on mobile) + stacked info column (right on desktop, below on mobile) */}
+      <div className="flex flex-col lg:flex-row gap-4 mb-4">
+
+        {/* Map column */}
+        <div className="flex flex-col items-center gap-3 lg:flex-1">
+
+          {/* Row: d-pad on the left of the map (mobile/tablet only — desktop relies on arrow keys) + map */}
+          <div className="flex flex-row items-center gap-2 sm:gap-3 w-full">
+
+            {/* D-pad — mobile/tablet only */}
+            <div className="flex-shrink-0 lg:hidden">
+              <div className="grid grid-cols-3 gap-1 w-16 sm:w-20">
+                <div />
+                <button onClick={() => move(0, -1)} className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base">▲</button>
+                <div />
+                <button onClick={() => move(-1, 0)} className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base">◀</button>
+                <div className="bg-neutral-900 rounded-lg" />
+                <button onClick={() => move(1, 0)}  className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base">▶</button>
+                <div />
+                <button onClick={() => move(0, 1)}  className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base">▼</button>
+                <div />
+              </div>
+              <p className="text-[10px] text-gray-600 mt-1 text-center">arrows</p>
+            </div>
+
+            {/* Map — single painted background image with a percentage-based walkability grid on top.
+                Sized as a responsive square (flex-1, capped by max-w) so it never causes horizontal
+                scrolling — every position on the grid is expressed in % rather than fixed pixels. */}
+            <div
+              className="relative border border-neutral-700 rounded-xl overflow-hidden bg-neutral-900 flex-1 min-w-0 max-w-[560px] aspect-square"
+              style={{ backgroundImage: `url(${MAP_IMAGE})`, backgroundSize: '100% 100%' }}
+            >
+              <div
+                className="absolute inset-0 grid gap-0"
+                style={{ gridTemplateColumns: `repeat(${MAP_SIZE}, 1fr)`, gridTemplateRows: `repeat(${MAP_SIZE}, 1fr)` }}
+              >
+                {map.map((row, y) =>
+                  row.map((tile, x) => (
+                    <div key={`${x}-${y}`} className="flex items-center justify-center" title={tile.type}>
+                      {tile.type === 'town' && x === 1 && y === 1 && <TownMarker />}
+                    </div>
+                  ))
+                )}
+              </div>
+              <div
+                className="absolute pointer-events-none transition-[left,top] duration-150 ease-out flex items-center justify-center"
+                style={{
+                  left: `${battleState.map_x * TILE_PCT}%`, top: `${battleState.map_y * TILE_PCT}%`,
+                  width: `${TILE_PCT}%`, height: `${TILE_PCT}%`,
+                }}
+              >
+                <div className="w-full h-full flex items-center justify-center relative">
+                  {waves[userId] && <span className="absolute -top-5 text-xl animate-bounce">👋</span>}
+                  {stickers[userId] && (
+                    <div className="absolute -top-8 bg-white text-black text-xs font-bold px-2 py-1 rounded-lg whitespace-nowrap shadow">
+                      {stickers[userId].text}
+                    </div>
+                  )}
+                  <div className="w-[70%] h-[70%]">
+                    <PlayerSprite userId={userId} />
+                  </div>
+                </div>
+              </div>
+
+              {/* Other online players */}
+              {Object.values(onlinePlayers).map(p => (
+                <div
+                  key={p.userId}
+                  className="absolute transition-[left,top] duration-150 ease-out cursor-pointer flex items-center justify-center"
+                  style={{ left: `${p.x * TILE_PCT}%`, top: `${p.y * TILE_PCT}%`, width: `${TILE_PCT}%`, height: `${TILE_PCT}%` }}
+                  onClick={() => setStatsTargetId(p.userId)}
+                  title={USERS[p.userId]?.name || p.name}
+                >
+                  <div className="w-full h-full flex items-center justify-center relative">
+                    {waves[p.userId] && <span className="absolute -top-5 text-xl animate-bounce">👋</span>}
+                    {stickers[p.userId] && (
+                      <div className="absolute -top-8 bg-white text-black text-xs font-bold px-2 py-1 rounded-lg whitespace-nowrap shadow">
+                        {stickers[p.userId].text}
+                      </div>
+                    )}
+                    <div className="w-[55%] h-[55%] opacity-80">
+                      <PlayerSprite userId={p.userId} />
+                    </div>
+                    <p className="absolute -bottom-4 text-[10px] text-white bg-black/60 px-1 rounded whitespace-nowrap">
+                      {USERS[p.userId]?.name || p.name}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Below map: arrow-key hint (desktop) + sticker picker */}
+          <div className="flex flex-col items-center">
+            <p className="hidden lg:block text-xs text-gray-600 text-center">Use arrow keys to move</p>
+
+            <div className="relative mt-1 lg:mt-3 w-24">
+              <button
+                onClick={() => setStickerPickerOpen(v => !v)}
+                className="w-full bg-neutral-800 hover:bg-neutral-700 rounded-lg p-2 text-center text-white text-sm"
+              >
+                💬
+              </button>
+              {stickerPickerOpen && (
+                <div className="absolute z-10 bottom-full mb-2 left-1/2 -translate-x-1/2 bg-neutral-900 border border-neutral-700 rounded-lg p-2 w-40 space-y-1">
+                  {['Need help!', "Let's battle!", 'Grinding EXP 💪', 'Almost there!'].map(text => (
+                    <button
+                      key={text}
+                      onClick={() => { sendSticker(text); setStickerPickerOpen(false); }}
+                      className="w-full text-left text-xs text-white hover:bg-neutral-800 rounded px-2 py-1"
+                    >
+                      {text}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Info column: Active Monster, Who's Online, then foldable Map Legend / Training Tips */}
+        <div className="w-full lg:w-80 flex-shrink-0 flex flex-col gap-4">
+
+          {/* Active monster */}
+          <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-4">
+            <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Active Monster</p>
+            {activeMonster ? (() => {
+              const def = ALL_MONSTERS[activeMonster.monster_id];
+              const expIntoLevel = activeMonster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL;
+              const expToNext = BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - expIntoLevel;
+              return (
+                <div className="flex items-center gap-3">
+                  <MonsterImage monster={def} className="w-12 h-12" />
+                  <div className="flex-1">
+                    <p className="font-bold text-white text-sm">{def?.name}</p>
+                    <p className="text-xs text-gray-400 capitalize">Lv.{activeMonster.monster_level} · {def?.element}</p>
+                    <div className="w-full bg-neutral-800 rounded-full h-1.5 mt-1">
+                      <div
+                        className="h-1.5 rounded-full bg-amber-400"
+                        style={{ width: `${(expIntoLevel / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) * 100}%` }}
+                      />
+                    </div>
+                    <p className="text-xs text-gray-500 mt-0.5">{expToNext} EXP to next level</p>
+                  </div>
+                </div>
+              );
+            })() : (
+              <p className="text-gray-500 text-sm">No active monster</p>
+            )}
+          </div>
+
+          {/* Who's online */}
+          <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-4">
+            <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">🟢 Who's Online</p>
+            {Object.keys(onlinePlayers).length === 0 ? (
+              <p className="text-gray-600 text-sm">No one else is on the map right now.</p>
+            ) : (
+              <div className="space-y-2">
+                {Object.values(onlinePlayers)
+                  .sort((a, b) => a.name.localeCompare(b.name))
+                  .map(p => (
+                    <button
+                      key={p.userId}
+                      onClick={() => setStatsTargetId(p.userId)}
+                      className="w-full flex items-center gap-2 bg-black/30 hover:bg-black/50 rounded-lg px-3 py-2 text-left transition-colors"
+                    >
+                      <span className="w-2 h-2 rounded-full bg-green-400 flex-shrink-0" />
+                      <span className="text-white text-sm font-medium truncate">
+                        {USERS[p.userId]?.name || p.name}
+                      </span>
+                      <span className="text-xs text-gray-500 ml-auto">{USERS[p.userId]?.grade}</span>
+                    </button>
+                  ))}
+              </div>
+            )}
+          </div>
+
+          {/* Map Legend — foldable */}
+          <details className="group bg-neutral-900 border border-neutral-700 rounded-xl p-4">
+            <summary className="text-xs text-gray-500 uppercase tracking-widest cursor-pointer select-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
+              Map Legend
+              <span className="text-gray-600 transition-transform group-open:rotate-180">▾</span>
+            </summary>
+            <div className="space-y-2 text-sm mt-3">
+              <div className="flex items-center gap-2">
+                <span>🟩</span>
+                <div>
+                  <p className="text-white font-medium">Grass</p>
+                  <p className="text-xs text-gray-400">40% chance to trigger a training question. Answer correctly for +{BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER} monster EXP.</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <span>🏠</span>
+                <div>
+                  <p className="text-white font-medium">Town</p>
+                  <p className="text-xs text-gray-400">Safe zone. Walking here heals your full team.</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <span>🧒</span>
+                <div>
+                  <p className="text-white font-medium">You</p>
+                  <p className="text-xs text-gray-400">Your current position on the map.</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <span>🟢</span>
+                <div>
+                  <p className="text-white font-medium">Other players</p>
+                  <p className="text-xs text-gray-400">Tap a player on the map or in the roster to view their stats or wave.</p>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          {/* Training Tips — foldable */}
+          <details className="group bg-neutral-900 border border-neutral-700 rounded-xl p-4">
+            <summary className="text-xs text-gray-500 uppercase tracking-widest cursor-pointer select-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
+              Training Tips
+              <span className="text-gray-600 transition-transform group-open:rotate-180">▾</span>
+            </summary>
+            <div className="space-y-2 text-xs text-gray-400 mt-3">
+              <p>⌨️ Use <span className="text-white font-bold">arrow keys</span> or the buttons below to move.</p>
+              <p>🌿 Walk through <span className="text-white font-bold">grass tiles</span> repeatedly to grind monster EXP.</p>
+              <p>⚔️ Monster reaches <span className="text-white font-bold">Lv.5</span> to unlock Tier 2 skill, <span className="text-white font-bold">Lv.10</span> for Tier 3.</p>
+              <p>🏠 Return to <span className="text-white font-bold">town</span> to heal before challenging a trainer.</p>
+              <p>💡 Defeat trainers in order from the <span className="text-white font-bold">⚔️ Trainers</span> tab — each one gets harder and requires a higher player level.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+      {grassQuestion && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+          <div className="bg-neutral-900 border border-emerald-700 rounded-2xl p-6 max-w-lg w-full">
+            <div className="flex items-center gap-4 mb-5 bg-emerald-900/30 border border-emerald-800 rounded-xl p-4">
+              {activeMonster && (
+                <MonsterImage monster={ALL_MONSTERS[activeMonster.monster_id]} className="w-14 h-14" />
+              )}
+              <div>
+                <p className="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-1">🌿 Wild Encounter!</p>
+                <p className="text-white font-bold">
+                  {activeMonster ? ALL_MONSTERS[activeMonster.monster_id]?.name : 'Your monster'} is training!
+                </p>
+                <p className="text-sm mt-1">
+                  Answer correctly → <span className="text-amber-400 font-bold">+{BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER} EXP</span>
+                  {activeMonster && (() => {
+                    const expToNext = BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - (activeMonster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL);
+                    return <span className="text-gray-400 text-xs ml-1">({expToNext} to next level)</span>;
+                  })()}
+                </p>
+              </div>
+            </div>
+            <BattleQuestionModal
+              questions={questions}
+              count={1}
+              embedded={true}
+              onComplete={handleGrassAnswer}
+            />
+          </div>
+        </div>
+      )}
+
+      {statsTargetId && (
+        <PlayerStatsPopup
+          targetId={statsTargetId}
+          onClose={() => setStatsTargetId(null)}
+          onWave={sendWave}
+        />
+      )}
+    </div>
+  );
+}
+
+// ─── TEAM PANEL ───────────────────────────────────────────────────────────────
+
+function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange }: {
+  userMonsters: UserMonster[];
+  playerLevel: number;
+  userId: string;
+  onTeamChange: () => void;
+}) {
+  const unlockedSlots = getUnlockedMonsterSlots(playerLevel);
+  const allMonsters = Object.values(MONSTERS);
+
+  const handleAddMonster = async (slot: number, monsterId: string) => {
+    const existing = userMonsters.find(m => m.slot === slot);
+    if (existing) {
+      await supabase.from('user_monsters').update({ monster_id: monsterId }).eq('id', existing.id);
+    } else {
+      await supabase.from('user_monsters').insert({
+        user_id: userId, monster_id: monsterId, monster_exp: 0, monster_level: 1, slot, rest_used: 0,
+      });
+    }
+    onTeamChange();
+  };
+
+  return (
+    <div className="space-y-4">
+      <h3 className="text-lg font-bold text-white font-display">Your Team</h3>
+      {[1, 2, 3].map(slot => {
+        const monster = userMonsters.find(m => m.slot === slot);
+        const isUnlocked = slot <= unlockedSlots || !!monster;
+        const def = monster ? ALL_MONSTERS[monster.monster_id] : null;
+        const expToNext = monster ? BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - (monster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) : 0;
+
+        return (
+          <div
+            key={slot}
+            className={`p-4 rounded-xl border ${isUnlocked ? 'border-neutral-700 bg-neutral-900' : 'border-neutral-800 bg-neutral-950 opacity-50'}`}
+          >
+            {!isUnlocked ? (
+              <p className="text-gray-500 text-sm">🔒 Unlocks at player Level {BATTLE_CONSTANTS.PLAYER_LEVEL_FOR_SLOT[slot as 1|2|3]}</p>
+            ) : !monster || !def ? (
+              <div>
+                <p className="text-gray-400 text-sm mb-2">Slot {slot} — Choose a monster:</p>
+                <div className="flex flex-wrap gap-2">
+                  {allMonsters.map(m => (
+                    <button
+                      key={m.id}
+                      onClick={() => handleAddMonster(slot, m.id)}
+                      className="text-sm bg-neutral-800 hover:bg-neutral-700 px-3 py-1 rounded-lg text-white"
+                    >
+                      {m.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12">
+                  <MonsterImage monster={def} className="w-full h-full" />
+                </div>
+                <div className="flex-1">
+                  <p className="font-bold text-white">{def.name} <span className="text-gray-400 text-sm">Lv.{monster.monster_level}</span></p>
+                  <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
+                  <div className="w-full bg-neutral-800 rounded-full h-1.5 mt-1">
+                    <div
+                      className="h-1.5 rounded-full bg-amber-400 transition-all"
+                      style={{ width: `${((monster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) * 100}%` }}
+                    />
+                  </div>
+                  <p className="text-xs text-gray-500 mt-0.5">{expToNext} EXP to next level</p>
+                </div>
+                <div className="text-xs text-gray-400 space-y-0.5">
+                  <p>❤️ {def.baseHp}</p>
+                  <p>⚔️ {def.baseAttack}</p>
+                  <p>🛡️ {def.baseDefense}</p>
+                  <p>⚡ {def.baseSpeed}</p>
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── COLLECTION PANEL ───────────────────────────────────────────────────────────
+// Rare, wild-caught monsters land here first (never straight into a team slot).
+// Promoting one reuses the same insert/update-by-slot pattern as TeamPanel.
+
+function CollectionPanel({ caughtMonsters, userMonsters, playerLevel, onPromote }: {
+  caughtMonsters: CaughtMonster[];
+  userMonsters: UserMonster[];
+  playerLevel: number;
+  onPromote: (caught: CaughtMonster, slot: number) => void;
+}) {
+  const [promotingId, setPromotingId] = useState<string | null>(null);
+  const unlockedSlots = getUnlockedMonsterSlots(playerLevel);
+
+  if (caughtMonsters.length === 0) {
+    return (
+      <div className="text-center py-16 text-gray-500">
+        <p className="text-4xl mb-3">🐲</p>
+        <p className="font-bold text-white mb-1">No wild monsters caught yet</p>
+        <p className="text-sm">Wild encounters are rare — keep answering questions on the Training Map and you might run into one.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-4">
+      <h3 className="text-lg font-bold text-white font-display">🐲 Collection</h3>
+      <p className="text-xs text-gray-500">Rare monsters you've caught in the wild. Move one into your team to battle with it.</p>
+      {caughtMonsters.map(caught => {
+        const def = ALL_MONSTERS[caught.monster_id];
+        if (!def) return null;
+        return (
+          <div key={caught.id} className="p-4 rounded-xl border border-amber-800 bg-amber-900/10">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 flex-shrink-0">
+                <MonsterImage monster={def} className="w-full h-full" />
+              </div>
+              <div className="flex-1">
+                <p className="font-bold text-white">{def.name} <span className="text-gray-400 text-sm">Lv.{caught.monster_level}</span></p>
+                <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
+              </div>
+              <button
+                onClick={() => setPromotingId(promotingId === caught.id ? null : caught.id)}
+                className="bg-amber-700 hover:bg-amber-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors"
+              >
+                → Move to Team
+              </button>
+            </div>
+            {promotingId === caught.id && (
+              <div className="mt-3 pt-3 border-t border-amber-900 flex flex-wrap gap-2">
+                {[1, 2, 3].map(slot => {
+                  const existing = userMonsters.find(m => m.slot === slot);
+                  const isUnlocked = slot <= unlockedSlots || !!existing;
+                  if (!isUnlocked) return null;
+                  return (
+                    <button
+                      key={slot}
+                      onClick={() => { onPromote(caught, slot); setPromotingId(null); }}
+                      className="text-xs bg-neutral-800 hover:bg-neutral-700 px-3 py-2 rounded-lg text-white"
+                    >
+                      {existing ? `Replace ${ALL_MONSTERS[existing.monster_id]?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── MAIN MONSTER GUILD ───────────────────────────────────────────────────────
+
+type GuildView = 'map' | 'team' | 'trainers' | 'collection' | 'battle';
+
+interface WildEncounterState {
+  monsterId: string;
+  level: number;
+  question: any;
+  attemptsLeft: number;
+}
+
+export default function MonsterGuild({ userId, playerLevel, packageData }: MonsterGuildProps) {
+  const [loading, setLoading] = useState(true);
+  const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
+  const [battleState, setBattleState] = useState<BattleState | null>(null);
+  const [view, setView] = useState<GuildView>('map');
+  const [activeBattle, setActiveBattle] = useState<NpcTrainer | null>(null);
+  const [isWildEncounterBattle, setIsWildEncounterBattle] = useState(false);
+  const [wildEncounter, setWildEncounter] = useState<WildEncounterState | null>(null);
+  const [caughtMonsters, setCaughtMonsters] = useState<CaughtMonster[]>([]);
+  const [pvpOpponent, setPvpOpponent] = useState<{ id: UserId; name: string } | null>(null);
+  const [pvpOpponentTeam, setPvpOpponentTeam] = useState<ActiveBattleMonster[] | null>(null);
+  const [notification, setNotification] = useState<string | null>(null);
+  const [inventory, setInventory] = useState<Record<string, number>>({});
+  const [answeredArenaIds, setAnsweredArenaIds] = useState<Set<string>>(new Set());
+
+  const allQuestions = extractQuestions(packageData);
+  // Questions this player hasn't been asked yet, so repeated grinding surfaces
+  // new material instead of the same handful of questions. Once every question
+  // in the pool has been seen, the history resets (below) and it starts over.
+  const questions = allQuestions.length === 0
+    ? allQuestions
+    : (() => {
+        const unseen = allQuestions.filter(q => !answeredArenaIds.has(hashQuestionId(arenaQuestionText(q))));
+        return unseen.length > 0 ? unseen : allQuestions;
+      })();
+
+  useEffect(() => {
+    if (allQuestions.length === 0 || answeredArenaIds.size === 0) return;
+    const stillUnseen = allQuestions.some(q => !answeredArenaIds.has(hashQuestionId(arenaQuestionText(q))));
+    if (!stillUnseen) {
+      setAnsweredArenaIds(new Set());
+      resetArenaHistory(userId);
+    }
+  }, [allQuestions, answeredArenaIds, userId]);
+
+  const handleQuestionsAnswered = (usedQuestions: any[]) => {
+    if (usedQuestions.length === 0) return;
+    setAnsweredArenaIds(prev => {
+      const next = new Set(prev);
+      usedQuestions.forEach(q => next.add(hashQuestionId(arenaQuestionText(q))));
+      return next;
+    });
+    markArenaQuestionsCompleted(userId, usedQuestions);
+  };
+
+  const loadData = async (isBattleInProgress = false) => {
+    // If in battle, we only want to update inventory, not reset monster/battle state
+    if (isBattleInProgress) {
+      const invData = await fetchInventory(userId);
+      setInventory(invData || {});
+      return;
+    }
+
+    setLoading(true);
+    const [monstersRes, stateRes, invData, answeredIds, caughtRes] = await Promise.all([
+      supabase.from('user_monsters').select('*').eq('user_id', userId).order('slot'),
+      supabase.from('user_battle_state').select('*').eq('user_id', userId).single(),
+      fetchInventory(userId),
+      fetchAnsweredArenaQuestionIds(userId),
+      supabase.from('user_caught_monsters').select('*').eq('user_id', userId).order('caught_at', { ascending: false }),
+    ]);
+    setUserMonsters(monstersRes.data || []);
+    setBattleState(stateRes.data || null);
+    setInventory(invData || {});
+    setAnsweredArenaIds(answeredIds);
+    setCaughtMonsters(caughtRes.data || []);
+    setLoading(false);
+  };
+
+  useEffect(() => { loadData(); }, [userId]);
+
+  const showNotification = (msg: string) => {
+    setNotification(msg);
+    setTimeout(() => setNotification(null), 3000);
+  };
+
+  const handleTrainerBattle = (trainer: NpcTrainer) => {
+    setActiveBattle(trainer);
+    setView('battle');
+  };
+
+  const handleHeal = () => {
+    showNotification('🏠 Your team has been healed!');
+  };
+
+  const gradeLevel = USERS[userId]?.grade === 'Grade 2' ? 2 : 5;
+
+  const handleWildEncounterRoll = async () => {
+    if (wildEncounter || view === 'battle') return; // don't stack encounters
+    const pool = await fetchQuestionPool(userId, 'sq_wild_encounter', 'wild_encounter', gradeLevel);
+    if (pool.length === 0) return; // admin hasn't added any wild-encounter questions yet
+    const wildIds = Object.keys(WILD_MONSTERS);
+    const monsterId = wildIds[Math.floor(Math.random() * wildIds.length)];
+    const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
+    const level = Math.max(1, (activeMonster?.monster_level || 1) + Math.floor(Math.random() * 3) - 1);
+    const question = pool[Math.floor(Math.random() * pool.length)];
+    setWildEncounter({ monsterId, level, question, attemptsLeft: 3 });
+  };
+
+  const handleWildEncounterCorrect = () => {
+    if (!wildEncounter) return;
+    markQuestionsCompleted(userId, 'wild_encounter', [wildEncounter.question.id]);
+    const monster = WILD_MONSTERS[wildEncounter.monsterId];
+    const trainer: NpcTrainer = {
+      id: `wild-${wildEncounter.monsterId}-${Date.now()}`,
+      name: monster.name,
+      element: monster.element,
+      levelRequirement: 0,
+      monsters: [{ monsterId: wildEncounter.monsterId, level: wildEncounter.level }],
+      reward: { exp: BATTLE_CONSTANTS.MONSTER_EXP_PER_BATTLE_WIN, gold: 0 },
+      emoji: monster.emoji,
+      intro: `A wild ${monster.name} blocks your path!`,
+    };
+    setWildEncounter(null);
+    setIsWildEncounterBattle(true);
+    setActiveBattle(trainer);
+    setView('battle');
+  };
+
+  const handleWildEncounterWrong = async () => {
+    if (!wildEncounter) return;
+    markQuestionsCompleted(userId, 'wild_encounter', [wildEncounter.question.id]);
+    const attemptsLeft = wildEncounter.attemptsLeft - 1;
+    if (attemptsLeft <= 0) {
+      showNotification(`💨 The wild ${WILD_MONSTERS[wildEncounter.monsterId].name} fled...`);
+      setWildEncounter(null);
+      return;
+    }
+    const pool = await fetchQuestionPool(userId, 'sq_wild_encounter', 'wild_encounter', gradeLevel);
+    if (pool.length === 0) {
+      setWildEncounter(null);
+      return;
+    }
+    const question = pool[Math.floor(Math.random() * pool.length)];
+    setWildEncounter(prev => prev ? { ...prev, question, attemptsLeft } : prev);
+  };
+
+  const handlePromoteCaughtMonster = async (caught: CaughtMonster, slot: number) => {
+    const existing = userMonsters.find(m => m.slot === slot);
+    if (existing) {
+      // Bumped monster isn't lost — it goes into the Collection so it can be
+      // swapped back in later, same as any wild catch.
+      await supabase.from('user_caught_monsters').insert({
+        user_id: userId, monster_id: existing.monster_id,
+        monster_level: existing.monster_level, monster_exp: existing.monster_exp,
+      });
+      await supabase.from('user_monsters')
+        .update({ monster_id: caught.monster_id, monster_level: caught.monster_level, monster_exp: caught.monster_exp })
+        .eq('id', existing.id);
+    } else {
+      await supabase.from('user_monsters').insert({
+        user_id: userId, monster_id: caught.monster_id,
+        monster_level: caught.monster_level, monster_exp: caught.monster_exp,
+        slot, rest_used: 0,
+      });
+    }
+    await supabase.from('user_caught_monsters').delete().eq('id', caught.id);
+    showNotification(`${ALL_MONSTERS[caught.monster_id]?.name} joined your team!`);
+    loadData();
+  };
+
+  const handleChallengePlayer = async (opponentId: UserId, opponentName: string) => {
+    const { data: opponentMonsters } = await supabase
+      .from('user_monsters')
+      .select('*')
+      .eq('user_id', opponentId)
+      .order('slot');
+
+    if (!opponentMonsters || opponentMonsters.length === 0) {
+      showNotification(`${opponentName} has no monsters yet!`);
+      return;
+    }
+
+    const opponentTeam: ActiveBattleMonster[] = opponentMonsters.map((um: any) => {
+      const def = ALL_MONSTERS[um.monster_id];
+      return {
+        def,
+        level: um.monster_level,
+        currentHp: def.baseHp,
+        maxHp: def.baseHp,
+        status: null,
+        statusTurns: 0,
+        restUsed: 0,
+      };
+    });
+
+    setPvpOpponent({ id: opponentId, name: opponentName });
+    setPvpOpponentTeam(opponentTeam);
+    setView('battle');
+  };
+
+  const handleMonsterExpGained = async (monsterId: string, exp: number) => {
+    setUserMonsters(prev => prev.map(m => {
+      if (m.id !== monsterId) return m;
+      const newExp = m.monster_exp + exp;
+      const newLevel = getMonsterLevel(newExp);
+      showNotification(`+${exp} EXP for ${ALL_MONSTERS[m.monster_id]?.name}!${newLevel > m.monster_level ? ` 🎉 Level Up! Now Lv.${newLevel}!` : ''}`);
+      return { ...m, monster_exp: newExp, monster_level: newLevel };
+    }));
+  };
+
+  const handleBattleEnd = async (won: boolean, expEarned: number) => {
+    const today = new Date().toISOString().split('T')[0];
+
+    if (isWildEncounterBattle && activeBattle) {
+      const wildMonsterId = activeBattle.monsters[0].monsterId;
+      const wildLevel = activeBattle.monsters[0].level;
+      if (won) {
+        await supabase.from('user_caught_monsters').insert({
+          user_id: userId, monster_id: wildMonsterId, monster_level: wildLevel, monster_exp: 0,
+        });
+        showNotification(`🎉 You caught ${activeBattle.name}!`);
+        logAction(userId, today, 'battle', `🐉 Captured wild ${activeBattle.name}!`, 0, 0);
+      } else {
+        showNotification(`💨 ${activeBattle.name} broke free and fled...`);
+        logAction(userId, today, 'battle', `💨 Failed to capture wild ${activeBattle.name}`, 0, 0);
+      }
+      setIsWildEncounterBattle(false);
+      setActiveBattle(null);
+      setView('map');
+      loadData();
+      return;
+    }
+
+    if (won && activeBattle) {
+      const newDefeated = [...(battleState?.defeated_trainers || []), activeBattle.id];
+      await supabase.from('user_battle_state').update({ defeated_trainers: newDefeated }).eq('user_id', userId);
+      setBattleState(prev => prev ? { ...prev, defeated_trainers: newDefeated } : prev);
+
+      if (expEarned > 0) {
+        const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
+        if (activeMonster) {
+          await handleMonsterExpGained(activeMonster.id, expEarned);
+          await supabase.from('user_monsters').update({ monster_exp: activeMonster.monster_exp + expEarned }).eq('id', activeMonster.id);
+        }
+      }
+      showNotification(`🏆 You defeated ${activeBattle.name}!`);
+      await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: activeBattle.id, result: 'win', monster_exp_earned: expEarned });
+      logAction(userId, today, 'battle', `🏆 Defeated Trainer ${activeBattle.name} — +${expEarned} Monster EXP`, expEarned, 0);
+    } else {
+      showNotification('💀 You lost the battle...');
+      await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: activeBattle?.id || 'unknown', result: 'loss', monster_exp_earned: 0 });
+      logAction(userId, today, 'battle', `💀 Lost battle against Trainer ${activeBattle?.name ?? 'Unknown'}`, 0, 0);
+    }
+    setActiveBattle(null);
+    setView('map');
+    loadData();
+  };
+
+  const handlePvpBattleEnd = async (won: boolean, expEarned: number) => {
+    const today = new Date().toISOString().split('T')[0];
+    const opponent = pvpOpponent!;
+    if (won) {
+      const alreadyWonToday = battleState?.last_pvp_win === today;
+      const goldReward = alreadyWonToday ? 0 : 50;
+      if (!alreadyWonToday) {
+        await supabase.from('user_battle_state').update({ last_pvp_win: today }).eq('user_id', userId);
+        setBattleState(prev => prev ? { ...prev, last_pvp_win: today } : prev);
+      }
+      await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: opponent.id, result: 'win', monster_exp_earned: 0 });
+      if (goldReward > 0) {
+        showNotification(`🏆 Defeated ${opponent.name}! +50 Gold!`);
+        logAction(userId, today, 'battle', `⚔️ Challenge vs ${opponent.name} — Victory! +50 Gold`, 0, 50);
+      } else {
+        showNotification(`🏆 Defeated ${opponent.name}! (First win gold already claimed today)`);
+        logAction(userId, today, 'battle', `⚔️ Challenge vs ${opponent.name} — Victory!`, 0, 0);
+      }
+    } else {
+      showNotification(`💀 ${opponent.name}'s team was too strong!`);
+      await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: opponent.id, result: 'loss', monster_exp_earned: 0 });
+      logAction(userId, today, 'battle', `💀 Challenge vs ${opponent.name} — Defeated`, 0, 0);
+    }
+    setPvpOpponent(null);
+    setPvpOpponentTeam(null);
+    setView('trainers');
+    loadData();
+  };
+
+  const buildPlayerTeam = (): ActiveBattleMonster[] => {
+    return userMonsters.map(um => {
+      const def = ALL_MONSTERS[um.monster_id];
+      return { def, level: um.monster_level, currentHp: def.baseHp, maxHp: def.baseHp, status: null, statusTurns: 0, restUsed: 0, userMonster: um } as ActiveBattleMonster;
+    });
+  };
+
+  if (loading) {
+    return <div className="text-center py-20 text-gray-500 animate-pulse">Loading Monster Guild...</div>;
+  }
+
+  if (userMonsters.length === 0) {
+    return (
+      <div className="py-10">
+        <StarterSelection userId={userId} onComplete={loadData} />
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      {/* Notification */}
+      {notification && (
+        <div className="fixed top-6 right-6 z-50 bg-amber-600 text-white px-6 py-3 rounded-xl font-bold shadow-lg">
+          {notification}
+        </div>
+      )}
+
+      <h2 className="text-3xl font-display font-bold text-white mb-6">🐉 Monster Guild</h2>
+
+      {/* Sub-nav */}
+      <div className="flex gap-2 mb-8 border-b border-neutral-800">
+        {([
+          { id: 'map',        label: '🗺️ Training Map' },
+          { id: 'team',       label: '👥 My Team' },
+          { id: 'trainers',   label: '⚔️ Trainers' },
+          { id: 'collection', label: `🐲 Collection${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}` },
+        ] as { id: GuildView; label: string }[]).map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setView(tab.id)}
+            className={`px-4 py-2 text-sm font-bold transition-colors border-b-2 -mb-px ${
+              view === tab.id
+                ? 'border-amber-400 text-amber-400'
+                : 'border-transparent text-gray-400 hover:text-white'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Map view */}
+      {view === 'map' && battleState && (
+        <TrainingMap
+          userId={userId}
+          battleState={battleState}
+          userMonsters={userMonsters}
+          questions={questions}
+          onBattleStateChange={setBattleState}
+          onMonsterExpGained={handleMonsterExpGained}
+          onHeal={handleHeal}
+          onQuestionsAnswered={handleQuestionsAnswered}
+          onWildEncounterRoll={handleWildEncounterRoll}
+        />
+      )}
+
+      {/* Team view */}
+      {view === 'team' && (
+        <TeamPanel
+          userMonsters={userMonsters}
+          playerLevel={playerLevel}
+          userId={userId}
+          onTeamChange={loadData}
+        />
+      )}
+
+      {/* Collection view — rare wild monsters, promote into a team slot */}
+      {view === 'collection' && (
+        <CollectionPanel
+          caughtMonsters={caughtMonsters}
+          userMonsters={userMonsters}
+          playerLevel={playerLevel}
+          onPromote={handlePromoteCaughtMonster}
+        />
+      )}
+
+      {/* Trainers view */}
+      {view === 'trainers' && battleState && (
+        <div className="space-y-4">
+          <h3 className="text-lg font-bold text-white font-display">NPC Trainers</h3>
+
+          {/* PvP — Challenge To A Battle */}
+          {(() => {
+            const today = new Date().toISOString().split('T')[0];
+            const alreadyWonToday = battleState?.last_pvp_win === today;
+            const otherPlayers = getOtherPlayers(userId as UserId);
+            return (
+              <div className="border border-indigo-800 bg-indigo-900/10 rounded-xl p-5">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-3xl">👊</span>
+                  <div>
+                    <p className="font-bold text-white">Challenge To A Battle</p>
+                    <p className="text-xs text-gray-400">
+                      Battle another player's team.
+                      {alreadyWonToday
+                        ? ' First win gold already claimed today — resets tomorrow.'
+                        : ' First win today earns '}
+                      {!alreadyWonToday && <span className="text-amber-400 font-bold">50 Gold</span>}
+                      {!alreadyWonToday && '.'}
+                    </p>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  {otherPlayers.map(player => (
+                    <div key={player.id} className="flex items-center justify-between bg-black/30 rounded-lg px-4 py-3">
+                      <div className="flex items-center gap-3">
+                        <span className="text-xl">{player.isFamily ? '⚔️' : '🎮'}</span>
+                        <div>
+                          <p className="text-white text-sm font-bold">{player.fullName}</p>
+                          <p className="text-gray-500 text-xs">{player.grade}{!player.isFamily && ' · Classmate'}</p>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => handleChallengePlayer(player.id as UserId, player.name)}
+                        className="bg-indigo-700 hover:bg-indigo-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors"
+                      >
+                        Challenge!
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
+          {NPC_TRAINERS.map(trainer => {
+            const defeated = battleState.defeated_trainers.includes(trainer.id);
+            const locked = playerLevel < trainer.levelRequirement;
+            return (
+              <div
+                key={trainer.id}
+                className={`p-5 rounded-xl border flex items-center gap-4 ${
+                  defeated ? 'border-green-800 bg-green-900/10' :
+                  locked   ? 'border-neutral-800 bg-neutral-950 opacity-50' :
+                             'border-neutral-700 bg-neutral-900'
+                }`}
+              >
+                <div className="w-14 h-14 flex-shrink-0 relative flex items-center justify-center text-4xl bg-neutral-800 rounded-full overflow-hidden border border-neutral-700">
+                  {/* Fallback emoji if the image hasn't loaded or is missing */}
+                  <span className="opacity-50">{trainer.emoji}</span>
+                  <img 
+                    src={`/trainers/${trainer.id}.png`}
+                    alt={trainer.name} 
+                    className="absolute inset-0 w-full h-full object-cover" 
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} 
+                  />
+                </div>
+                <div className="flex-1">
+                  <p className="font-bold text-white">{trainer.name}</p>
+                  <p className="text-xs text-gray-400 capitalize">{trainer.element} · Requires Level {trainer.levelRequirement}</p>
+                  <p className="text-xs text-gray-500 italic mt-1">"{trainer.intro}"</p>
+                  <div className="flex gap-2 mt-2">
+                    {trainer.monsters.map((tm, i) => (
+                      <span key={i} className="text-xs bg-neutral-800 px-2 py-0.5 rounded text-gray-300">
+                        {ALL_MONSTERS[tm.monsterId]?.name} Lv.{tm.level}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="text-right">
+                  {defeated ? (
+                    <span className="text-green-400 text-sm font-bold">✅ Defeated</span>
+                  ) : locked ? (
+                    <span className="text-gray-500 text-sm">🔒 Locked</span>
+                  ) : (
+                    <button
+                      onClick={() => handleTrainerBattle(trainer)}
+                      className="bg-amber-600 hover:bg-amber-500 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors"
+                    >
+                      Battle!
+                    </button>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Battle view — NPC */}
+      {view === 'battle' && activeBattle && !pvpOpponentTeam && (
+        <BattleScreen
+          playerTeam={buildPlayerTeam()}
+          trainer={activeBattle}
+          questions={questions}
+          inventory={inventory}
+          onUseItem={async (key) => {
+            const ok = await useInventoryItem(userId, key);
+            if (ok) await loadData(true); // <--- Pass 'true' to skip full reset
+            return ok;
+          }}
+          onBattleEnd={handleBattleEnd}
+          onQuestionsAnswered={handleQuestionsAnswered}
+        />
+      )}
+
+      {/* Battle view — PvP */}
+      {view === 'battle' && pvpOpponentTeam && pvpOpponent && (
+        <BattleScreen
+          playerTeam={buildPlayerTeam()}
+          siblingTeam={pvpOpponentTeam}
+          siblingName={pvpOpponent.name}
+          questions={questions}
+          inventory={inventory}
+          onUseItem={async (key) => {
+            const ok = await useInventoryItem(userId, key);
+            if (ok) await loadData(true); // skip full reset — would unmount BattleScreen mid-fight
+            return ok;
+          }}
+          onBattleEnd={handlePvpBattleEnd}
+          onQuestionsAnswered={handleQuestionsAnswered}
+        />
+      )}
+
+      {wildEncounter && (
+        <WildEncounterModal
+          key={wildEncounter.question.id}
+          monster={WILD_MONSTERS[wildEncounter.monsterId]}
+          level={wildEncounter.level}
+          question={wildEncounter.question}
+          attemptsLeft={wildEncounter.attemptsLeft}
+          onCorrect={handleWildEncounterCorrect}
+          onWrong={handleWildEncounterWrong}
+        />
+      )}
+    </div>
+  );
+}

@@ -1,13 +1,16 @@
 import { supabase } from '@/lib/supabase';
 
 export async function logAction(
+  userId: string,
   weekStartingDate: string,
   actionType: string,
   description: string,
   xpChange: number = 0,
   goldChange: number = 0
 ) {
+
   const { error } = await supabase.from('player_log').insert({
+    user_id: userId,
     week_starting_date: weekStartingDate,
     action_type: actionType,
     description,

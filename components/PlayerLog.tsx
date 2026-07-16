@@ -2,11 +2,10 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { format } from 'date-fns';
-import { ChevronDown, ChevronUp } from 'lucide-react';
-import GameButton from '@/components/GameButton';
 
 interface LogEntry {
   id: string;
+  user_id: string;
   week_starting_date: string;
   action_type: string;
   description: string;
@@ -15,66 +14,100 @@ interface LogEntry {
   created_at: string;
 }
 
-const ACTION_LABELS: Record<string, string> = {
-  journal: '📜 Journal Entry',
-  quiz: '⚔️ Quest Completed',
-  purchase: '🏪 Vault Purchase',
-  deed: '🏅 Good Deed Awarded'
+const ACTION_ICONS: Record<string, string> = {
+  quiz: '📝',
+  journal: '📖',
+  deed: '🏅',
+  achievement: '🏆',
+  side_quest: '⚔️',
+  purchase: '🛒',
 };
 
-export default function PlayerLog() {
+export default function PlayerLog({ userId }: { userId: string }) {
   const [entries, setEntries] = useState<LogEntry[]>([]);
   const [loading, setLoading] = useState(true);
-  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchLog() {
       const { data, error } = await supabase
         .from('player_log')
         .select('*')
-        .order('created_at', { ascending: false });
+        .eq('user_id', userId)
+        .order('created_at', { ascending: false })
+        .limit(100);
+
       if (!error && data) {
         setEntries(data as LogEntry[]);
       }
       setLoading(false);
     }
     fetchLog();
-  }, []);
+  }, [userId]);
 
   if (loading) {
     return <div className="text-gray-500 animate-pulse">Loading player log...</div>;
   }
 
   if (entries.length === 0) {
-    return <p className="text-gray-500 italic">No actions recorded yet.</p>;
+    return <p className="text-gray-500 italic">No log entries yet. Start a quest to write your legend!</p>;
   }
 
+  // Group by week
+  const byWeek: Record<string, LogEntry[]> = {};
+  entries.forEach((entry) => {
+    const key = entry.week_starting_date;
+    if (!byWeek[key]) byWeek[key] = [];
+    byWeek[key].push(entry);
+  });
+
   return (
-    <div className="space-y-2">
-      {entries.map((entry) => {
-        const isExpanded = expandedId === entry.id;
+    <div className="space-y-8">
+      {Object.entries(byWeek).map(([week, weekEntries]) => {
+        const totalXp = weekEntries.reduce((s, e) => s + (e.xp_change || 0), 0);
+        const totalGold = weekEntries.reduce((s, e) => s + (e.gold_change || 0), 0);
         return (
-          <div key={entry.id} className="bg-[#111] border border-[#333] rounded-lg overflow-hidden">
-            <GameButton
-              onClick={() => setExpandedId(isExpanded ? null : entry.id)}
-              className="w-full flex justify-between items-center p-4 text-left hover:bg-neutral-900 transition-colors"
-            >
-              <div>
-                <span className="text-xs font-bold text-blue-400 uppercase mr-3">{ACTION_LABELS[entry.action_type] || entry.action_type}</span>
-                <span className="text-sm text-gray-300">{entry.description}</span>
-              </div>
-              <div className="flex items-center gap-3 shrink-0 ml-4">
-                {entry.xp_change !== 0 && <span className="text-xs font-mono text-blue-400">{entry.xp_change > 0 ? '+' : ''}{entry.xp_change} XP</span>}
-                {entry.gold_change !== 0 && <span className="text-xs font-mono text-yellow-500">{entry.gold_change > 0 ? '+' : ''}{entry.gold_change} 🪙</span>}
-                {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-              </div>
-            </GameButton>
-            {isExpanded && (
-              <div className="px-4 pb-4 text-xs text-gray-500 border-t border-neutral-800 pt-3">
-                <p>Week of: {entry.week_starting_date}</p>
-                <p>Logged: {format(new Date(entry.created_at), 'MMM d, yyyy — h:mm a')}</p>
-              </div>
-            )}
+          <div key={week}>
+            <div className="flex justify-between items-center mb-3">
+              <h3 className="font-bold font-display text-blue-400">
+                Week of {format(new Date(week + 'T00:00:00'), 'MMMM d, yyyy')}
+              </h3>
+              <span className="text-xs font-mono text-gray-400">
+                {totalXp > 0 && <span className="text-blue-300 mr-2">+{totalXp} XP</span>}
+                {totalGold !== 0 && (
+                  <span className={totalGold > 0 ? 'text-yellow-400' : 'text-red-400'}>
+                    {totalGold > 0 ? '+' : ''}{totalGold} 🪙
+                  </span>
+                )}
+              </span>
+            </div>
+            <div className="space-y-2">
+              {weekEntries.map((entry) => (
+                <div
+                  key={entry.id}
+                  className="flex justify-between items-start bg-black border border-neutral-800 rounded-lg p-3"
+                >
+                  <div className="flex gap-3 items-start">
+                    <span className="text-lg">{ACTION_ICONS[entry.action_type] || '📌'}</span>
+                    <div>
+                      <p className="text-sm text-gray-200">{entry.description}</p>
+                      <p className="text-xs text-gray-600 mt-0.5">
+                        {format(new Date(entry.created_at), 'EEE, MMM d — h:mm a')}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-right text-xs font-mono ml-4 flex-shrink-0">
+                    {entry.xp_change !== 0 && (
+                      <div className="text-blue-400">+{entry.xp_change} XP</div>
+                    )}
+                    {entry.gold_change !== 0 && (
+                      <div className={entry.gold_change > 0 ? 'text-yellow-400' : 'text-red-400'}>
+                        {entry.gold_change > 0 ? '+' : ''}{entry.gold_change} 🪙
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         );
       })}

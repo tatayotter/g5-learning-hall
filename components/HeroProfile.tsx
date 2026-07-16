@@ -3,14 +3,17 @@ import { CharacterStats } from '@/hooks/useWeeklyData';
 import { useState } from 'react';
 import { startAmbience, stopAmbience } from '@/lib/sounds';
 import { getTitleForLevel } from '@/lib/titles';
+import { USERS } from '@/lib/userSession';
 
 interface HeroProfileProps {
+  userId: string;
   stats: CharacterStats;
   currentDay: string;
 }
 
-export default function HeroProfile({ stats, currentDay }: HeroProfileProps) {
+export default function HeroProfile({ userId, stats, currentDay }: HeroProfileProps) {
   const [ambienceOn, setAmbienceOn] = useState(false);
+  const activeUser = USERS[userId as keyof typeof USERS] ?? USERS['damien'];
 
   const toggleAmbience = () => {
     if (ambienceOn) {
@@ -41,13 +44,13 @@ export default function HeroProfile({ stats, currentDay }: HeroProfileProps) {
           {ambienceOn ? '🔥' : '🕯️'}
         </button>
         <img 
-          src="/avatar.png" 
+          src={activeUser.avatar}
           alt="Character Portrait" 
           className="w-16 h-16 rounded-full border-2 border-neutral-700 object-cover shadow-lg"
         />
         <div>
           {/* Shield removed from here */}
-          <h2 className="text-xl font-bold font-display">Lord Damien Zamir</h2>
+          <h2 className="text-xl font-bold font-display">{activeUser?.fullName || 'Hero'}</h2>
           <p className="text-xs font-bold text-blue-400 uppercase tracking-wide">{currentTitle.icon} {currentTitle.title}</p>
           <p className="text-xs text-gray-400">Mode: <span className="text-green-400">{currentDay}</span></p>
         </div>
