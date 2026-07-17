@@ -1070,8 +1070,9 @@ function TrainingMap({
     if (correctCount > 0 && activeMonster) {
       const expGain = BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER;
       onMonsterExpGained(activeMonster.id, expGain);
+      const newExp = activeMonster.monster_exp + expGain;
       await supabase.from('user_monsters')
-        .update({ monster_exp: activeMonster.monster_exp + expGain })
+        .update({ monster_exp: newExp, monster_level: getMonsterLevel(newExp) })
         .eq('id', activeMonster.id);
     }
     // Rare wild-monster encounter roll — once per individual question answered,
@@ -1920,7 +1921,8 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
         const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
         if (activeMonster) {
           await handleMonsterExpGained(activeMonster.id, expEarned);
-          await supabase.from('user_monsters').update({ monster_exp: activeMonster.monster_exp + expEarned }).eq('id', activeMonster.id);
+          const newExp = activeMonster.monster_exp + expEarned;
+          await supabase.from('user_monsters').update({ monster_exp: newExp, monster_level: getMonsterLevel(newExp) }).eq('id', activeMonster.id);
         }
       }
       showNotification(`🏆 You defeated ${activeBattle.name}!`);
