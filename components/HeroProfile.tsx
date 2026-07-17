@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { startAmbience, stopAmbience } from '@/lib/sounds';
 import { getTitleForLevel } from '@/lib/titles';
 import { USERS } from '@/lib/userSession';
+import AvatarPicker from '@/components/AvatarPicker';
 
 interface HeroProfileProps {
   userId: string;
@@ -13,6 +14,8 @@ interface HeroProfileProps {
 
 export default function HeroProfile({ userId, stats, currentDay }: HeroProfileProps) {
   const [ambienceOn, setAmbienceOn] = useState(false);
+  const [pickerOpen, setPickerOpen] = useState(false);
+  const [avatarTick, setAvatarTick] = useState(0);
   const activeUser = USERS[userId as keyof typeof USERS] ?? USERS['damien'];
 
   const toggleAmbience = () => {
@@ -43,11 +46,21 @@ export default function HeroProfile({ userId, stats, currentDay }: HeroProfilePr
         >
           {ambienceOn ? '🔥' : '🕯️'}
         </button>
-        <img 
-          src={activeUser.avatar}
-          alt="Character Portrait" 
-          className="w-16 h-16 rounded-full border-2 border-neutral-700 object-cover shadow-lg"
-        />
+        <button
+          onClick={() => setPickerOpen(true)}
+          title="Change avatar"
+          className="relative w-20 h-20 flex-shrink-0 group"
+        >
+          <img
+            key={avatarTick}
+            src={activeUser.avatar}
+            alt="Character Portrait"
+            className="w-20 h-20 object-contain"
+          />
+          <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-xs text-white bg-black/40 rounded">
+            ✏️
+          </span>
+        </button>
         <div>
           {/* Shield removed from here */}
           <h2 className="text-xl font-bold font-display">{activeUser?.fullName || 'Hero'}</h2>
@@ -79,6 +92,15 @@ export default function HeroProfile({ userId, stats, currentDay }: HeroProfilePr
           style={{ width: `${progressPercentage}%` }}
         ></div>
       </div>
+
+      {pickerOpen && (
+        <AvatarPicker
+          userId={userId}
+          currentAvatar={activeUser.avatar}
+          onClose={() => setPickerOpen(false)}
+          onSaved={() => setAvatarTick(t => t + 1)}
+        />
+      )}
     </div>
   );
 }

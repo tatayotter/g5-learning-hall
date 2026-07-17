@@ -305,6 +305,32 @@ body {
 .battle-hit          { animation: battle-hit 0.5s ease-in-out forwards; }
 .battle-float        { animation: battle-float 2s ease-in-out infinite; }
 
+/* ── Training Map: name tag always readable on its dark pill, ── */
+/* regardless of theme (Tala's theme repaints .text-white elsewhere) */
+.map-name-tag { color: #ffffff; }
+
+/* ── Training Map: step + bump feedback ─────────────── */
+@keyframes map-step-bounce {
+  0%   { transform: scale(1, 1); }
+  35%  { transform: scale(1.12, 0.85); }
+  65%  { transform: scale(0.94, 1.08); }
+  100% { transform: scale(1, 1); }
+}
+@keyframes map-bump-shake {
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(-4px); }
+  50%      { transform: translateX(4px); }
+  75%      { transform: translateX(-2px); }
+}
+@keyframes map-dust-puff {
+  0%   { opacity: 0.55; transform: translate(-50%, -50%) scale(0.4); }
+  100% { opacity: 0;    transform: translate(-50%, -50%) scale(1.4); }
+}
+
+.map-step-bounce { animation: map-step-bounce 0.22s ease-out; }
+.map-bump-shake  { animation: map-bump-shake 0.22s ease-in-out; }
+.map-dust-puff   { animation: map-dust-puff 0.45s ease-out forwards; }
+
 /* ── Landscape lock ─────────────────────────────── */
 @media screen and (orientation: portrait) and (max-width: 1024px) {
   .landscape-only {

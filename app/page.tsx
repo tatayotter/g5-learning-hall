@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadFamilyProtection, USERS } from '@/lib/userSession';
+import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadFamilyProtection, loadAvatarOverrides, USERS } from '@/lib/userSession';
 import SplashScreen from '@/components/SplashScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
 import HeroProfile from '@/components/HeroProfile';
@@ -56,8 +56,10 @@ export default function Dashboard() {
   useEffect(() => {
     async function hydrate() {
       // Classmates are loaded from Supabase, so USERS must be populated
-      // before anything reads USERS[savedUserId] below.
+      // before anything reads USERS[savedUserId] below. Avatar overrides are
+      // keyed by user_id, so they must load after classmates exist in USERS.
       await Promise.all([loadClassmates(), loadFamilyProtection()]);
+      await loadAvatarOverrides();
       const saved = getActiveUser();
       if (saved && USERS[saved]) {
         setActiveUserId(saved);

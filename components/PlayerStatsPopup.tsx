@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { USERS } from '@/lib/userSession';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
-import { MonsterImage } from '@/components/MonsterGuild';
+import { MonsterImage, GMBadge } from '@/components/MonsterGuild';
 
 interface TeamMonster {
   slot: number;
@@ -23,6 +23,7 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave }: PlayerSt
   const [level, setLevel] = useState<number | null>(null);
   const [team, setTeam] = useState<TeamMonster[]>([]);
   const [activeSlot, setActiveSlot] = useState<number | null>(null);
+  const [avatarFailed, setAvatarFailed] = useState(false);
 
   const profile = USERS[targetId];
 
@@ -55,9 +56,21 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave }: PlayerSt
         onClick={e => e.stopPropagation()}
       >
         <div className="flex items-center gap-3 mb-4">
-          <span className="text-3xl">{profile?.isFamily ? '⚔️' : '🎮'}</span>
+          {profile?.avatar && !avatarFailed ? (
+            <img
+              src={profile.avatar}
+              alt=""
+              onError={() => setAvatarFailed(true)}
+              className="w-10 h-10 rounded-full object-cover border-2 border-neutral-700"
+            />
+          ) : (
+            <span className="text-3xl">{profile?.isFamily ? '⚔️' : '🎮'}</span>
+          )}
           <div>
-            <p className="text-white font-bold">{profile?.fullName || targetId}</p>
+            <p className="text-white font-bold flex items-center gap-1.5">
+              {profile?.fullName || targetId}
+              {profile?.isFamily && <GMBadge />}
+            </p>
             <p className="text-xs text-gray-500">{profile?.grade}{profile && !profile.isFamily && ' · Classmate'}</p>
           </div>
         </div>

@@ -73,6 +73,19 @@ const CARD_STYLES: Record<string, { bg: string; border: string; hoverBorder: str
 
 const FAMILY_IDS: UserId[] = ['damien', 'tala'];
 
+function CardAvatar({ avatar, fallbackIcon }: { avatar: string; fallbackIcon: string }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) return <div className="text-5xl mb-4">{fallbackIcon}</div>;
+  return (
+    <img
+      src={avatar}
+      alt=""
+      onError={() => setFailed(true)}
+      className="w-20 h-20 object-contain mb-4"
+    />
+  );
+}
+
 export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenProps) {
   const [animationData, setAnimationData] = useState(null);
   const [statsMap, setStatsMap] = useState<Record<string, HeroStats | null>>({});
@@ -192,7 +205,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
                 transition={{ delay: 0.2 + i * 0.1 }}
                 className={`w-64 ${style.bg} border-2 ${style.border} ${style.hoverBorder} rounded-2xl p-8 text-left transition-colors group`}
               >
-                <div className="text-5xl mb-4">{style.icon}</div>
+                <CardAvatar avatar={user.avatar} fallbackIcon={style.icon} />
                 <h2 className={`text-2xl font-display font-bold ${style.accent} mb-1`}>{user.name}</h2>
                 <p className={`${style.accent} opacity-60 font-bold text-sm mb-3`}>{user.grade}</p>
                 <p className="text-gray-500 text-sm">{style.tagline}</p>
@@ -278,7 +291,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
                     transition={{ delay: i * 0.05 }}
                     className={`w-56 ${style.bg} border-2 ${style.border} ${style.hoverBorder} rounded-2xl p-6 text-left transition-colors group`}
                   >
-                    <div className="text-4xl mb-3">{style.icon}</div>
+                    <CardAvatar avatar={user.avatar} fallbackIcon={style.icon} />
                     <h2 className={`text-xl font-display font-bold ${style.accent} mb-1`}>{user.name}</h2>
                     <p className={`${style.accent} opacity-60 font-bold text-xs mb-2`}>{user.grade} · Classmate</p>
                     <div className={`mt-3 ${style.accent} opacity-60 font-bold text-xs group-hover:opacity-100 transition-opacity`}>

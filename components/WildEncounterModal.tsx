@@ -1,6 +1,7 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MonsterDef } from '@/lib/monsterConfig';
+import { playMonsterAppear, playChime, playClash } from '@/lib/sounds';
 
 interface WildEncounterModalProps {
   monster: MonsterDef;
@@ -14,6 +15,10 @@ interface WildEncounterModalProps {
 export default function WildEncounterModal({ monster, level, question, attemptsLeft, onCorrect, onWrong }: WildEncounterModalProps) {
   const [selected, setSelected] = useState<string | null>(null);
 
+  useEffect(() => {
+    playMonsterAppear();
+  }, []);
+
   const choices = [
     { key: 'a', text: question.choice_a },
     { key: 'b', text: question.choice_b },
@@ -25,6 +30,7 @@ export default function WildEncounterModal({ monster, level, question, attemptsL
     if (selected) return;
     setSelected(key);
     const isCorrect = key === question.correct_choice;
+    if (isCorrect) playChime(); else playClash();
     setTimeout(() => {
       if (isCorrect) onCorrect();
       else onWrong();

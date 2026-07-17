@@ -197,6 +197,128 @@ export function playPageFlip() {
   noise.start(now);
 }
 
+// --- Footstep on grass: soft, dull rustle ---
+export function playFootstepGrass() {
+  const ctx = getContext();
+  const now = ctx.currentTime;
+  const bufferSize = ctx.sampleRate * 0.12;
+  const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let i = 0; i < bufferSize; i++) {
+    data[i] = (Math.random() * 2 - 1) * (1 - i / bufferSize);
+  }
+  const noise = ctx.createBufferSource();
+  noise.buffer = buffer;
+  const lowpass = ctx.createBiquadFilter();
+  lowpass.type = 'lowpass';
+  lowpass.frequency.value = 900;
+  const gain = ctx.createGain();
+  gain.gain.setValueAtTime(0.1, now);
+  gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+  noise.connect(lowpass);
+  lowpass.connect(gain);
+  gain.connect(ctx.destination);
+  noise.start(now);
+}
+
+// --- Footstep on town tiles: brief stone-like tap ---
+export function playFootstepTown() {
+  const ctx = getContext();
+  const now = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = 'triangle';
+  osc.frequency.setValueAtTime(500, now);
+  osc.frequency.exponentialRampToValueAtTime(280, now + 0.08);
+  gain.gain.setValueAtTime(0.1, now);
+  gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.start(now);
+  osc.stop(now + 0.12);
+}
+
+// --- Wall/edge bump: short blocked-movement thud ---
+export function playWallBump() {
+  const ctx = getContext();
+  const now = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = 'square';
+  osc.frequency.setValueAtTime(90, now);
+  osc.frequency.exponentialRampToValueAtTime(45, now + 0.1);
+  gain.gain.setValueAtTime(0.18, now);
+  gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.start(now);
+  osc.stop(now + 0.14);
+}
+
+// --- Nearby social whoosh: another player's wave/sticker arriving ---
+export function playNearbyWhoosh() {
+  const ctx = getContext();
+  const now = ctx.currentTime;
+  const bufferSize = ctx.sampleRate * 0.18;
+  const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let i = 0; i < bufferSize; i++) {
+    data[i] = (Math.random() * 2 - 1) * (1 - i / bufferSize);
+  }
+  const noise = ctx.createBufferSource();
+  noise.buffer = buffer;
+  const bandpass = ctx.createBiquadFilter();
+  bandpass.type = 'bandpass';
+  bandpass.frequency.setValueAtTime(1400, now);
+  bandpass.frequency.exponentialRampToValueAtTime(3200, now + 0.18);
+  bandpass.Q.value = 1.2;
+  const gain = ctx.createGain();
+  gain.gain.setValueAtTime(0.12, now);
+  gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+  noise.connect(bandpass);
+  bandpass.connect(gain);
+  gain.connect(ctx.destination);
+  noise.start(now);
+}
+
+// --- Wild monster encounter: sudden alert + low growl as it appears ---
+export function playMonsterAppear() {
+  const ctx = getContext();
+  const now = ctx.currentTime;
+
+  // Rising alert stab
+  const alert = ctx.createOscillator();
+  const alertGain = ctx.createGain();
+  alert.type = 'sawtooth';
+  alert.frequency.setValueAtTime(180, now);
+  alert.frequency.exponentialRampToValueAtTime(420, now + 0.15);
+  alertGain.gain.setValueAtTime(0.001, now);
+  alertGain.gain.linearRampToValueAtTime(0.18, now + 0.05);
+  alertGain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+  alert.connect(alertGain);
+  alertGain.connect(ctx.destination);
+  alert.start(now);
+  alert.stop(now + 0.22);
+
+  // Low growl underneath
+  const growl = ctx.createOscillator();
+  const growlGain = ctx.createGain();
+  growl.type = 'sawtooth';
+  growl.frequency.setValueAtTime(90, now + 0.1);
+  growl.frequency.exponentialRampToValueAtTime(50, now + 0.5);
+  growlGain.gain.setValueAtTime(0.001, now + 0.1);
+  growlGain.gain.linearRampToValueAtTime(0.22, now + 0.16);
+  growlGain.gain.exponentialRampToValueAtTime(0.001, now + 0.55);
+  const growlFilter = ctx.createBiquadFilter();
+  growlFilter.type = 'lowpass';
+  growlFilter.frequency.value = 500;
+  growl.connect(growlFilter);
+  growlFilter.connect(growlGain);
+  growlGain.connect(ctx.destination);
+  growl.start(now + 0.1);
+  growl.stop(now + 0.55);
+}
+
 // --- Torch crackle ambience (looping, toggled by the player) ---
 export function startAmbience() {
   if (ambienceNodes) return;

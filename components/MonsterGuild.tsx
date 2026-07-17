@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
-import { playAttackWhoosh, playHitThud, playMiss, playVictory, playDefeat, playChime, playClash } from '@/lib/sounds';
+import { playAttackWhoosh, playHitThud, playMiss, playVictory, playDefeat, playFootstepGrass, playFootstepTown, playWallBump, playMonsterAppear, playChime, playClash } from '@/lib/sounds';
 import { logAction } from '@/lib/playerlog';
 import { getOtherPlayers, UserId, USERS } from '@/lib/userSession';
 import { useMapPresence } from '@/hooks/useMapPresence';
@@ -127,18 +127,31 @@ function TownMarker() {
   );
 }
 
-function PlayerSprite({ userId }: { userId: string }) {
+function PlayerSprite({ userId, isSelf = false }: { userId: string; isSelf?: boolean }) {
+  const profile = USERS[userId];
+  // A chosen userpic (full-body trainer sprite) doubles as the map sprite;
+  // the default headshot avatars (avatar.png / tala-avatar.png) don't fit
+  // that role, so those still fall back to the generic gender sprite.
+  const src = profile?.avatar?.startsWith('/userpics/')
+    ? profile.avatar
+    : profile?.gender === 'girl' ? '/sprite/girl1.webp' : '/sprite/boy1.webp';
+
   return (
     <div className="relative w-full h-full">
-      <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-6 h-2 rounded-full bg-black/25"/>
+      <div className={`absolute left-1/2 bottom-0 -translate-x-1/2 w-6 h-2 rounded-full ${isSelf ? 'bg-amber-400/60' : 'bg-black/25'}`}/>
       <img
-        src={USERS[userId]?.gender === 'girl' ? '/sprite/girl1.webp' : '/sprite/boy1.webp'}
+        src={src}
         alt="Player"
         className="relative w-full h-full object-contain"
         style={{ imageRendering: 'pixelated' }}
       />
     </div>
   );
+}
+
+// Perk badge for Tatay's kids — Damien and Tala are always USERS[id].isFamily.
+export function GMBadge() {
+  return <span title="GM" className="text-xs leading-none">👑</span>;
 }
 
 // ─── MONSTER IMAGE ──────────────────────────────────────────────────────────
@@ -856,6 +869,10 @@ function TrainingMap({
   const [grassQuestion, setGrassQuestion] = useState(false);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
   const [stickerPickerOpen, setStickerPickerOpen] = useState(false);
+  const [stepping, setStepping] = useState(false);
+  const [bumping, setBumping] = useState(false);
+  const [dustPuffs, setDustPuffs] = useState<{ id: number; x: number; y: number }[]>([]);
+  const dustIdRef = useRef(0);
   const map = buildMap();
   const activeMonster = userMonsters.find(m => m.slot === battleState.active_monster_slot);
   const selfProfile = USERS[userId];
@@ -863,13 +880,38 @@ function TrainingMap({
     userId, selfProfile?.name || userId, selfProfile?.gender || 'boy', battleState.map_x, battleState.map_y
   );
 
+  // Restarts a CSS keyframe animation on repeat triggers (toggling the same
+  // boolean twice in a row wouldn't otherwise re-fire the animation).
+  const pulse = (setter: (v: boolean) => void) => {
+    setter(false);
+    requestAnimationFrame(() => setter(true));
+  };
+
   const move = useCallback(async (dx: number, dy: number) => {
     const newX = battleState.map_x + dx;
     const newY = battleState.map_y + dy;
-    if (newX < 0 || newX >= MAP_SIZE || newY < 0 || newY >= MAP_SIZE) return;
+    if (newX < 0 || newX >= MAP_SIZE || newY < 0 || newY >= MAP_SIZE) {
+      playWallBump();
+      pulse(setBumping);
+      return;
+    }
 
     const tile = map[newY][newX];
-    if (tile.type === 'wall') return;
+    if (tile.type === 'wall') {
+      playWallBump();
+      pulse(setBumping);
+      return;
+    }
+
+    if (tile.type === 'town') {
+      playFootstepTown();
+    } else {
+      playFootstepGrass();
+      const puffId = dustIdRef.current++;
+      setDustPuffs(prev => [...prev, { id: puffId, x: newX, y: newY }]);
+      setTimeout(() => setDustPuffs(prev => prev.filter(p => p.id !== puffId)), 450);
+    }
+    pulse(setStepping);
 
     const newState = { ...battleState, map_x: newX, map_y: newY };
     onBattleStateChange(newState);
@@ -879,6 +921,7 @@ function TrainingMap({
       .eq('user_id', userId);
 
     if (tile.type === 'grass' && Math.random() < 0.4) {
+      playMonsterAppear();
       setGrassQuestion(true);
     } else if (tile.type === 'town') {
       onHeal();
@@ -899,6 +942,7 @@ function TrainingMap({
 
   const handleGrassAnswer = async (correctCount: number, answeredQuestions: any[]) => {
     setGrassQuestion(false);
+    if (correctCount > 0) playChime(); else playClash();
     onQuestionsAnswered?.(answeredQuestions);
     if (correctCount > 0 && activeMonster) {
       const expGain = BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER;
@@ -945,7 +989,7 @@ function TrainingMap({
                 Sized as a responsive square (flex-1, capped by max-w) so it never causes horizontal
                 scrolling — every position on the grid is expressed in % rather than fixed pixels. */}
             <div
-              className="relative border border-neutral-700 rounded-xl overflow-hidden bg-neutral-900 flex-1 min-w-0 max-w-[560px] aspect-square"
+              className={`relative border border-neutral-700 rounded-xl overflow-hidden bg-neutral-900 flex-1 min-w-0 max-w-[560px] aspect-square ${bumping ? 'map-bump-shake' : ''}`}
               style={{ backgroundImage: `url(${MAP_IMAGE})`, backgroundSize: '100% 100%' }}
             >
               <div
@@ -961,7 +1005,7 @@ function TrainingMap({
                 )}
               </div>
               <div
-                className="absolute pointer-events-none transition-[left,top] duration-150 ease-out flex items-center justify-center"
+                className="absolute pointer-events-none transition-[left,top] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] flex items-center justify-center"
                 style={{
                   left: `${battleState.map_x * TILE_PCT}%`, top: `${battleState.map_y * TILE_PCT}%`,
                   width: `${TILE_PCT}%`, height: `${TILE_PCT}%`,
@@ -974,17 +1018,34 @@ function TrainingMap({
                       {stickers[userId].text}
                     </div>
                   )}
-                  <div className="w-[70%] h-[70%]">
-                    <PlayerSprite userId={userId} />
+                  <div className={`w-[120%] h-[120%] ${stepping ? 'map-step-bounce' : ''}`}>
+                    <PlayerSprite userId={userId} isSelf />
                   </div>
+                  <p className="absolute -bottom-4 flex items-center gap-1 text-[10px] map-name-tag bg-black/60 px-1 rounded whitespace-nowrap">
+                    {selfProfile?.name || userId}
+                    {selfProfile?.isFamily && <GMBadge />}
+                  </p>
                 </div>
               </div>
+
+              {/* Footstep dust puffs on grass */}
+              {dustPuffs.map(p => (
+                <div
+                  key={p.id}
+                  className="absolute pointer-events-none map-dust-puff"
+                  style={{
+                    left: `${(p.x + 0.5) * TILE_PCT}%`, top: `${(p.y + 0.8) * TILE_PCT}%`,
+                    width: '10px', height: '10px', borderRadius: '9999px',
+                    background: 'radial-gradient(circle, rgba(214,196,150,0.9), rgba(214,196,150,0))',
+                  }}
+                />
+              ))}
 
               {/* Other online players */}
               {Object.values(onlinePlayers).map(p => (
                 <div
                   key={p.userId}
-                  className="absolute transition-[left,top] duration-150 ease-out cursor-pointer flex items-center justify-center"
+                  className="absolute transition-[left,top] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer flex items-center justify-center"
                   style={{ left: `${p.x * TILE_PCT}%`, top: `${p.y * TILE_PCT}%`, width: `${TILE_PCT}%`, height: `${TILE_PCT}%` }}
                   onClick={() => setStatsTargetId(p.userId)}
                   title={USERS[p.userId]?.name || p.name}
@@ -996,11 +1057,12 @@ function TrainingMap({
                         {stickers[p.userId].text}
                       </div>
                     )}
-                    <div className="w-[55%] h-[55%] opacity-80">
+                    <div className="w-[120%] h-[120%]">
                       <PlayerSprite userId={p.userId} />
                     </div>
-                    <p className="absolute -bottom-4 text-[10px] text-white bg-black/60 px-1 rounded whitespace-nowrap">
+                    <p className="absolute -bottom-4 flex items-center gap-1 text-[10px] map-name-tag bg-black/60 px-1 rounded whitespace-nowrap">
                       {USERS[p.userId]?.name || p.name}
+                      {USERS[p.userId]?.isFamily && <GMBadge />}
                     </p>
                   </div>
                 </div>
@@ -1086,6 +1148,7 @@ function TrainingMap({
                       <span className="text-white text-sm font-medium truncate">
                         {USERS[p.userId]?.name || p.name}
                       </span>
+                      {USERS[p.userId]?.isFamily && <GMBadge />}
                       <span className="text-xs text-gray-500 ml-auto">{USERS[p.userId]?.grade}</span>
                     </button>
                   ))}

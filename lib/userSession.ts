@@ -75,6 +75,30 @@ export function getClassmateIds(): UserId[] {
   return (Object.keys(USERS) as UserId[]).filter(id => !USERS[id].isFamily);
 }
 
+// Avatars are user-chosen (Admin excluded) via the avatar picker and stored
+// per user_id so the choice follows them across devices/browsers, same as
+// their stats do. Falls back to each profile's built-in default until a
+// choice is saved.
+let avatarsLoaded = false;
+
+export async function loadAvatarOverrides(): Promise<void> {
+  if (avatarsLoaded) return;
+  const { data } = await supabase.from('user_avatars').select('user_id, avatar');
+  (data || []).forEach((row: any) => {
+    if (USERS[row.user_id]) USERS[row.user_id].avatar = row.avatar;
+  });
+  avatarsLoaded = true;
+}
+
+export async function saveAvatar(userId: UserId, avatar: string): Promise<boolean> {
+  const { error } = await supabase
+    .from('user_avatars')
+    .upsert({ user_id: userId, avatar }, { onConflict: 'user_id' });
+  if (error) return false;
+  if (USERS[userId]) USERS[userId].avatar = avatar;
+  return true;
+}
+
 // Damien and Tala only need a password once one has been set from the Admin
 // Dashboard — until then their splash-screen cards log in instantly like
 // before, so this never locks anyone out on its own.

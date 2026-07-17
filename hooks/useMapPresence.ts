@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { RealtimeChannel } from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabase';
+import { playNearbyWhoosh } from '@/lib/sounds';
 
 export interface OnlinePlayer {
   userId: string;
@@ -39,6 +40,7 @@ export function useMapPresence(userId: string, name: string, gender: 'boy' | 'gi
     channel.on('broadcast', { event: 'wave' }, ({ payload }) => {
       const from = payload?.from;
       if (!from) return;
+      playNearbyWhoosh();
       setWaves(prev => ({ ...prev, [from]: Date.now() }));
       setTimeout(() => {
         setWaves(prev => {
@@ -53,6 +55,7 @@ export function useMapPresence(userId: string, name: string, gender: 'boy' | 'gi
       const from = payload?.from;
       const text = payload?.text;
       if (!from || !text) return;
+      playNearbyWhoosh();
       setStickers(prev => ({ ...prev, [from]: { text, at: Date.now() } }));
       setTimeout(() => {
         setStickers(prev => {
