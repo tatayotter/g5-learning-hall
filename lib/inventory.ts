@@ -67,63 +67,39 @@ export async function consumeInventoryItem(userId: string, key: ItemKey) {
 
 export async function claimDailyItems(userId: string): Promise<boolean> {
   const today = new Date().toISOString().split('T')[0];
-  
-  // Check if already claimed today (check health_potion as sentinel)
-  const { data } = await supabase
-    .from('player_inventory')
-    .select('last_daily_claim')
-    .eq('app_user_id', userId)
-    .eq('item_key', 'health_potion')
-    .single();
 
-  if (data?.last_daily_claim === today) return false; // already claimed
+  // Atomic claim-or-noop via the health_potion row's last_daily_claim as a
+  // lock — a plain read-then-write here would let two overlapping calls
+  // (e.g. the shop component mounting twice in quick succession) both see
+  // "not claimed yet" and both grant the daily bundle.
+  const { data: claimed } = await supabase.rpc('try_claim_daily_items', {
+    p_user_id: userId,
+    p_today: today,
+  });
+  if (!claimed) return false;
 
-  // Grant daily items
   for (const { key, qty } of DAILY_FAMILY_ITEMS) {
     await supabase.rpc('upsert_inventory', {
       p_user_id: userId,
       p_item_key: key,
       p_quantity_delta: qty,
     });
-    // Update last_daily_claim
-    await supabase
-      .from('player_inventory')
-      .update({ last_daily_claim: today })
-      .eq('app_user_id', userId)
-      .eq('item_key', key);
   }
   return true;
 }
 
-export async function useInventoryItem(userId: string, key: string) {
-  // 1. Fetch current quantity using the correct table and column
-  const { data: inventory, error: fetchError } = await supabase
-    .from('player_inventory') // Matches your table
-    .select('quantity')
-    .eq('app_user_id', userId) // Matches your column
-    .eq('item_key', key)
-    .maybeSingle();
-
-  if (fetchError) {
-    console.error("Fetch Error:", fetchError);
+export async function useInventoryItem(userId: string, key: string): Promise<boolean> {
+  // Atomic conditional decrement — a fetch-then-update here would let two
+  // overlapping calls (e.g. the same account open in two tabs) both read
+  // quantity=1, both pass the >0 check, and both apply the item's effect
+  // even though the row can only ever be decremented once.
+  const { data, error } = await supabase.rpc('consume_inventory_item', {
+    p_user_id: userId,
+    p_item_key: key,
+  });
+  if (error) {
+    console.error('consume_inventory_item error:', error);
     return false;
   }
-
-  if (inventory && inventory.quantity > 0) {
-    // 2. Update the quantity
-    const { error: updateError } = await supabase
-      .from('player_inventory')
-      .update({ quantity: inventory.quantity - 1 })
-      .eq('app_user_id', userId)
-      .eq('item_key', key);
-    
-    if (updateError) {
-      console.error("Update Error:", updateError);
-      return false;
-    }
-    return true; // Success!
-  }
-  
-  console.log("No inventory found or quantity is 0");
-  return false;
+  return !!data;
 }

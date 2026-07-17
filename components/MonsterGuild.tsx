@@ -409,7 +409,13 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
     if (!pendingSkillId) return;
     const skill = SKILLS[pendingSkillId];
     const isBlessed = playerMon.status === 'blessed';
-    const isPerfect = correctCount === skill.questionCount;
+    // Falls back to skill.questionCount when the modal wasn't able to ask
+    // that many questions (e.g. a tier-3 skill wants 3 but the player's
+    // unseen-question pool for that subject only had 2 left) — scoring
+    // against however many were actually asked instead of the nominal tier
+    // count, so a capped-down round can still register as a perfect hit.
+    const askedCount = answeredQuestions.length || skill.questionCount;
+    const isPerfect = correctCount === askedCount;
 
     // Speed determines who acts first. If the NPC is faster and its fixed
     // counter-damage would knock the player out this round, it strikes before
@@ -452,7 +458,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
       skill,
       getScaledStats(playerMon.def, playerMon.level).attack,
       correctCount,
-      skill.questionCount,
+      askedCount,
       playerMon.def.element,
       npcMon.def.element,
       isBlessed,

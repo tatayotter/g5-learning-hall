@@ -1,7 +1,7 @@
 // app/page.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadFamilyProtection, loadAvatarOverrides, linkIdentity, USERS } from '@/lib/userSession';
 import SplashScreen from '@/components/SplashScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
@@ -108,6 +108,8 @@ export default function Dashboard() {
   const { data, loading, updateStatsAndJournal, currentSunday } = useWeeklyData(activeUserId ?? 'damien');
   const [activeTab, setActiveTab] = useState('board');
   const [pendingLiveBattleId, setPendingLiveBattleId] = useState<string | null>(null);
+  const [claimingKey, setClaimingKey] = useState<string | null>(null);
+  const claimBusyRef = useRef(false);
   const liveBattleInbox = useLiveBattleInbox(activeUserId ?? '', activeUserId ? USERS[activeUserId]?.name ?? '' : '');
 
   const handleAcceptLiveBattleInvite = async () => {
@@ -166,37 +168,50 @@ export default function Dashboard() {
 
   const handleClaimReward = async (cost: number, itemName: string, itemKey: string) => {
     if (!data || !activeUserId) return;
+    // Guards against a rapid double-click firing two claims before the gold
+    // deduction above re-renders — without this, both clicks read the same
+    // pre-deduction `data.character_stats.gold` and both pass the balance
+    // check, charging gold once (stale-closure double-set) but inserting two
+    // reward_claims rows.
+    if (claimBusyRef.current) return;
+    claimBusyRef.current = true;
+    setClaimingKey(itemKey);
 
-    if (data.character_stats.gold >= cost) {
-      const newStats = {
-        ...data.character_stats,
-        gold: data.character_stats.gold - cost
-      };
+    try {
+      if (data.character_stats.gold >= cost) {
+        const newStats = {
+          ...data.character_stats,
+          gold: data.character_stats.gold - cost
+        };
 
-      const newPurchasedItems = (data.purchased_items || 0) + 1;
-      updateStatsAndJournal(newStats, data.journal_logs, newPurchasedItems);
-      logAction(activeUserId, data.week_starting_date, 'purchase', `Claimed reward: ${itemName}`, 0, -cost);
+        const newPurchasedItems = (data.purchased_items || 0) + 1;
+        updateStatsAndJournal(newStats, data.journal_logs, newPurchasedItems);
+        logAction(activeUserId, data.week_starting_date, 'purchase', `Claimed reward: ${itemName}`, 0, -cost);
 
-      // Insert with user_id so each user's claims are independent
-      const { error } = await supabase.from('reward_claims').insert({
-        app_user_id: activeUserId,
-        item_key: itemKey,
-        item_name: itemName,
-        cost: cost,
-        status: 'pending'
-      });
+        // Insert with user_id so each user's claims are independent
+        const { error } = await supabase.from('reward_claims').insert({
+          app_user_id: activeUserId,
+          item_key: itemKey,
+          item_name: itemName,
+          cost: cost,
+          status: 'pending'
+        });
 
-      if (error) {
-        console.error("Failed to queue reward:", error);
-        alert("Error queuing reward, but gold was deducted. Please tell Tatay!");
+        if (error) {
+          console.error("Failed to queue reward:", error);
+          alert("Error queuing reward, but gold was deducted. Please tell Tatay!");
+        } else {
+          playCoins();
+          setToast({ show: true, message: `Successfully claimed: ${itemName}!` });
+          fetchMyClaims();
+        }
       } else {
-        playCoins();
-        setToast({ show: true, message: `Successfully claimed: ${itemName}!` });
-        fetchMyClaims();
+        const short = cost - data.character_stats.gold;
+        alert(`❌ Not enough Gold! You need 🪙 ${short} more gold to claim this.`);
       }
-    } else {
-      const short = cost - data.character_stats.gold;
-      alert(`❌ Not enough Gold! You need 🪙 ${short} more gold to claim this.`);
+    } finally {
+      claimBusyRef.current = false;
+      setClaimingKey(null);
     }
   };
 
@@ -508,9 +523,9 @@ export default function Dashboard() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.95 }}
                     className="w-full bg-yellow-600 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    disabled={data.character_stats.gold < item.cost}
+                    disabled={data.character_stats.gold < item.cost || claimingKey === key}
                   >
-                    {data.character_stats.gold >= item.cost ? 'Claim Reward' : 'Not Enough Gold'}
+                    {claimingKey === key ? 'Claiming...' : data.character_stats.gold >= item.cost ? 'Claim Reward' : 'Not Enough Gold'}
                   </motion.button>
                 </div>
               ))}

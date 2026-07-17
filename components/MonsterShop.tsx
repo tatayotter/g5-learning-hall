@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { UserId, USERS } from '@/lib/userSession';
 import {
   SHOP_CATALOG,
@@ -23,6 +23,8 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [loading, setLoading] = useState(true);
   const [claimedToday, setClaimedToday] = useState(false);
+  const [buyingKey, setBuyingKey] = useState<ItemKey | null>(null);
+  const buyBusyRef = useRef(false);
   const isFamily = USERS[userId].isFamily;
 
   const loadInventory = async () => {
@@ -47,16 +49,28 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
   }, [userId]);
 
   const handleBuy = async (key: ItemKey, cost: number) => {
+    // Guards against a rapid double-click firing two purchases before
+    // `currentStats` (a prop from the parent) re-renders with the deducted
+    // gold — both clicks would otherwise read the same pre-purchase balance
+    // and both pass the affordability check, buying two items for one click.
+    if (buyBusyRef.current) return;
     if (currentStats.gold < cost) {
       alert(`❌ Not enough Gold! You need 🪙 ${cost - currentStats.gold} more.`);
       return;
     }
-    const item = SHOP_CATALOG.find(i => i.key === key);
-    const newStats = { ...currentStats, gold: currentStats.gold - cost };
-    onSpendGold(newStats);
-    await addInventoryItem(userId, key, 1);
-    await loadInventory();
-    logAction(userId, new Date().toISOString().split('T')[0], 'purchase', `Bought ${item?.name ?? key} from Monster Arena Shop`, 0, -cost);
+    buyBusyRef.current = true;
+    setBuyingKey(key);
+    try {
+      const item = SHOP_CATALOG.find(i => i.key === key);
+      const newStats = { ...currentStats, gold: currentStats.gold - cost };
+      onSpendGold(newStats);
+      await addInventoryItem(userId, key, 1);
+      await loadInventory();
+      logAction(userId, new Date().toISOString().split('T')[0], 'purchase', `Bought ${item?.name ?? key} from Monster Arena Shop`, 0, -cost);
+    } finally {
+      buyBusyRef.current = false;
+      setBuyingKey(null);
+    }
   };
 
   if (loading) return <p className="text-gray-500 animate-pulse">Loading shop...</p>;
@@ -117,10 +131,10 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
             </div>
             <button
               onClick={() => handleBuy(item.key, item.cost)}
-              disabled={currentStats.gold < item.cost}
+              disabled={currentStats.gold < item.cost || buyingKey === item.key}
               className="w-full bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-2 rounded-lg transition-colors text-sm"
             >
-              {currentStats.gold >= item.cost ? 'Buy' : 'Not Enough Gold'}
+              {buyingKey === item.key ? 'Buying...' : currentStats.gold >= item.cost ? 'Buy' : 'Not Enough Gold'}
             </button>
           </div>
         ))}

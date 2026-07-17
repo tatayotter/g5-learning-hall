@@ -304,13 +304,19 @@ export default function LiveBattleScreen({
     setAnswering(true);
   };
 
-  const handleQuestionsComplete = (correctCount: number) => {
+  const handleQuestionsComplete = (correctCount: number, answeredQuestions: any[]) => {
     setAnswering(false);
     if (!pendingSkillId) return;
     const skill = SKILLS[pendingSkillId];
-    const isPerfect = correctCount === skill.questionCount;
-    addLog(`You used ${skill.name}! (${correctCount}/${skill.questionCount} correct)`);
-    submitRoundAnswer(pendingSkillId, correctCount, skill.questionCount, isPerfect);
+    // Falls back to skill.questionCount when the modal wasn't able to ask
+    // that many questions (e.g. a tier-3 skill wants 3 but the unseen-
+    // question pool for that subject only had 2 left) — scoring against
+    // however many were actually asked, so a capped-down round can still
+    // register as a perfect hit instead of being permanently unreachable.
+    const askedCount = answeredQuestions.length || skill.questionCount;
+    const isPerfect = correctCount === askedCount;
+    addLog(`You used ${skill.name}! (${correctCount}/${askedCount} correct)`);
+    submitRoundAnswer(pendingSkillId, correctCount, askedCount, isPerfect);
     setPendingSkillId(null);
   };
 
@@ -661,7 +667,7 @@ export default function LiveBattleScreen({
           questions={questions}
           count={SKILLS[pendingSkillId].questionCount}
           embedded
-          onComplete={(correctCount) => handleQuestionsComplete(correctCount)}
+          onComplete={handleQuestionsComplete}
         />
       )}
 

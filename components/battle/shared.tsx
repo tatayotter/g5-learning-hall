@@ -78,7 +78,14 @@ export interface BattleQuestionProps {
 }
 
 export function BattleQuestionModal({ questions, count, embedded, onComplete }: BattleQuestionProps) {
+  // A skill can ask for more questions than are actually available (e.g. a
+  // tier-3 skill needs 3, but the player's unseen-question pool for that
+  // subject has only 2 left) — capping to the pool's own length here, and
+  // using it (not the requested `count`) as the completion bound below, is
+  // what keeps the modal from advancing past the last real question into an
+  // undefined one and softlocking with nothing left to click.
   const [pool] = useState(() => shuffleArray(questions).slice(0, count));
+  const askedCount = pool.length;
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
   const [results, setResults] = useState<boolean[]>([]);
@@ -92,7 +99,7 @@ export function BattleQuestionModal({ questions, count, embedded, onComplete }: 
     const isCorrect = opt === current.correct_answer || opt === current.correct || opt === current.correct_choice;
     const newResults = [...results, isCorrect];
     setTimeout(() => {
-      if (index + 1 >= count) {
+      if (index + 1 >= askedCount) {
         onComplete(newResults.filter(Boolean).length, pool);
       } else {
         setResults(newResults);
@@ -107,7 +114,7 @@ export function BattleQuestionModal({ questions, count, embedded, onComplete }: 
   const inner = (
     <div className={embedded ? 'mt-2' : 'bg-neutral-900 border border-neutral-700 rounded-2xl p-8 max-w-lg w-full battle-panel-in'}>
       <div key={index} className="battle-panel-in">
-        <p className="text-xs text-gray-500 mb-2 font-mono">Question {index + 1} of {count}</p>
+        <p className="text-xs text-gray-500 mb-2 font-mono">Question {index + 1} of {askedCount}</p>
         <p className="text-lg font-bold text-white mb-6">{current.question || current.problem_prompt}</p>
         <div className="space-y-3">
         {(current.options || []).map((opt: any) => {
