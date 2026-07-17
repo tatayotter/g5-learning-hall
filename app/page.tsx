@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadFamilyProtection, loadAvatarOverrides, USERS } from '@/lib/userSession';
+import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadFamilyProtection, loadAvatarOverrides, linkIdentity, USERS } from '@/lib/userSession';
 import SplashScreen from '@/components/SplashScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
 import HeroProfile from '@/components/HeroProfile';
@@ -28,6 +28,9 @@ import AchievementToast from '@/components/AchievementToast';
 import { useAchievementNotifier } from '@/hooks/useAchievementNotifier';
 import LexiconArena from '@/components/guilds/LexiconArena';
 import MonsterShop from '@/components/MonsterShop';
+import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
+import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
+import { respondToInvite } from '@/lib/liveBattle';
 
 const VAULT_CATALOG = {
   "voucher_30m": {
@@ -79,6 +82,7 @@ export default function Dashboard() {
     if (activeUserId) {
       const theme = USERS[activeUserId].theme;
       document.documentElement.classList.toggle('theme-tala', theme === 'tala');
+      linkIdentity(activeUserId);
     }
   }, [activeUserId, hydrated]);
 
@@ -103,6 +107,26 @@ export default function Dashboard() {
 
   const { data, loading, updateStatsAndJournal, currentSunday } = useWeeklyData(activeUserId ?? 'damien');
   const [activeTab, setActiveTab] = useState('board');
+  const [pendingLiveBattleId, setPendingLiveBattleId] = useState<string | null>(null);
+  const liveBattleInbox = useLiveBattleInbox(activeUserId ?? '', activeUserId ? USERS[activeUserId]?.name ?? '' : '');
+
+  const handleAcceptLiveBattleInvite = async () => {
+    const invite = liveBattleInbox.incomingInvite;
+    if (!invite) return;
+    await respondToInvite(invite.battleId, true);
+    await liveBattleInbox.sendInviteResponse(invite.fromId, invite.battleId, true);
+    liveBattleInbox.clearIncomingInvite();
+    setPendingLiveBattleId(invite.battleId);
+    setActiveTab('monster');
+  };
+
+  const handleDeclineLiveBattleInvite = async () => {
+    const invite = liveBattleInbox.incomingInvite;
+    if (!invite) return;
+    await respondToInvite(invite.battleId, false);
+    await liveBattleInbox.sendInviteResponse(invite.fromId, invite.battleId, false);
+    liveBattleInbox.clearIncomingInvite();
+  };
   const [splashAdminMode, setSplashAdminMode] = useState(false);
   const [adminOpen, setAdminOpen] = useState(false);  
   const [activeQuest, setActiveQuest] = useState<string | null>(null);
@@ -641,6 +665,17 @@ export default function Dashboard() {
             userId={activeUserId}
             playerLevel={data.character_stats.level}
             packageData={packageData}
+            liveBattleInbox={liveBattleInbox}
+            pendingLiveBattleId={pendingLiveBattleId}
+            onConsumePendingLiveBattle={() => setPendingLiveBattleId(null)}
+          />
+        )}
+
+        {liveBattleInbox.incomingInvite && (
+          <LiveBattleInviteToast
+            fromName={liveBattleInbox.incomingInvite.fromName}
+            onAccept={handleAcceptLiveBattleInvite}
+            onDecline={handleDeclineLiveBattleInvite}
           />
         )}
 

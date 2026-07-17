@@ -382,6 +382,9 @@ export const BATTLE_CONSTANTS = {
   CURSE_DURATION_TURNS:          2,
   NPC_DAMAGE_BY_TIER: { 1: 10, 2: 20, 3: 30 } as Record<1|2|3, number>,
   PLAYER_LEVEL_FOR_SLOT: { 1: 5, 2: 10, 3: 15 } as Record<1|2|3, number>,
+  // +8%/level over the monster's level-1 base stats, so a Lv.25 monster (the
+  // highest-level NPC trainer) hits roughly 2.9x as hard/tanky as a fresh catch.
+  STAT_GROWTH_PER_LEVEL:      0.08,
 };
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
@@ -397,6 +400,20 @@ export function getAvailableSkillTiers(monsterLevel: number, monsterDef: Monster
   return tiers;
 }
 
+// Scales a monster's level-1 base stats up with its current level. Applied
+// wherever a monster enters battle (both solo and live PVP) and wherever its
+// effective stats are displayed, so a leveled-up monster is actually stronger
+// rather than just having more skills available.
+export function getScaledStats(monsterDef: MonsterDef, level: number): { hp: number; attack: number; defense: number; speed: number } {
+  const growth = 1 + (level - 1) * BATTLE_CONSTANTS.STAT_GROWTH_PER_LEVEL;
+  return {
+    hp: Math.round(monsterDef.baseHp * growth),
+    attack: Math.round(monsterDef.baseAttack * growth),
+    defense: Math.round(monsterDef.baseDefense * growth),
+    speed: Math.round(monsterDef.baseSpeed * growth),
+  };
+}
+
 export function calculateDamage(
   skill: Skill,
   baseAttack: number,
@@ -405,6 +422,7 @@ export function calculateDamage(
   attackerElement: Element,
   defenderElement: Element,
   isBlessed: boolean,
+  defenderDefense: number = 0,
 ): number {
   const ratio = correctAnswers / totalQuestions;
   if (ratio === 0) return 0;
@@ -413,6 +431,10 @@ export function calculateDamage(
   if (ratio < 1) damage *= 0.5; // partial correct = half damage
   damage *= getElementMultiplier(attackerElement, defenderElement);
   if (isBlessed) damage *= 2;
+  // Diminishing-returns mitigation (100/(100+DEF)) rather than a flat
+  // subtraction, so Defense stays useful at every level without ever being
+  // able to reduce damage to exactly 0 regardless of how high it's scaled.
+  damage *= 100 / (100 + defenderDefense);
 
   return Math.round(damage);
 }

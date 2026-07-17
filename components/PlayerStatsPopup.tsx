@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { USERS } from '@/lib/userSession';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
-import { MonsterImage, GMBadge } from '@/components/MonsterGuild';
+import { GMBadge } from '@/components/MonsterGuild';
+import { MonsterImage } from '@/components/battle/shared';
 
 interface TeamMonster {
   slot: number;
@@ -16,9 +17,10 @@ interface PlayerStatsPopupProps {
   targetId: string;
   onClose: () => void;
   onWave: (targetId: string) => void;
+  onChallenge?: (targetId: string, name: string) => void;
 }
 
-export default function PlayerStatsPopup({ targetId, onClose, onWave }: PlayerStatsPopupProps) {
+export default function PlayerStatsPopup({ targetId, onClose, onWave, onChallenge }: PlayerStatsPopupProps) {
   const [loading, setLoading] = useState(true);
   const [level, setLevel] = useState<number | null>(null);
   const [team, setTeam] = useState<TeamMonster[]>([]);
@@ -130,6 +132,14 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave }: PlayerSt
           >
             👋 Wave
           </button>
+          {onChallenge && (
+            <button
+              onClick={() => { onChallenge(targetId, profile?.name || targetId); onClose(); }}
+              className="flex-1 bg-indigo-700 hover:bg-indigo-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors"
+            >
+              ⚔️ Challenge
+            </button>
+          )}
           <button
             onClick={onClose}
             className="bg-neutral-800 hover:bg-neutral-700 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors"

@@ -1,5 +1,5 @@
 // lib/userSession.ts
-import { supabase } from '@/lib/supabase';
+import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 
 export type UserId = string;
 
@@ -129,6 +129,18 @@ export function setActiveUser(id: UserId) {
 
 export function clearActiveUser() {
   localStorage.removeItem(SESSION_KEY);
+}
+
+// Bridges this browser's anonymous-auth identity (auth.uid()) to whichever
+// app user is currently logged in, so RLS policies that key on auth.uid()
+// (e.g. live_battles) can resolve back to the app's text-based user ids.
+// Safe to call on every login — it's an upsert keyed by auth_uid.
+export async function linkIdentity(userId: UserId): Promise<void> {
+  const authUid = await ensureAnonymousSession();
+  if (!authUid) return;
+  await supabase
+    .from('user_identity_map')
+    .upsert({ auth_uid: authUid, app_user_id: userId }, { onConflict: 'auth_uid' });
 }
 
 export function getOtherPlayers(currentUserId: UserId): UserProfile[] {

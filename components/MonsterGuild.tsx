@@ -9,7 +9,7 @@ import PlayerStatsPopup from '@/components/PlayerStatsPopup';
 import WildEncounterModal from '@/components/WildEncounterModal';
 import {
   MONSTERS, WILD_MONSTERS, ALL_MONSTERS, NPC_TRAINERS, SKILLS, BATTLE_CONSTANTS,
-  getUnlockedMonsterSlots, getAvailableSkillTiers, calculateDamage,
+  getUnlockedMonsterSlots, getAvailableSkillTiers, calculateDamage, getScaledStats,
   getMonsterLevel, REST_BY_ELEMENT, ELEMENT_STATUS, STATUS_DEFINITIONS,
   Element, StatusEffect, NpcTrainer, MonsterDef,
 } from '@/lib/monsterConfig';
@@ -19,23 +19,20 @@ import {
   fetchAnsweredArenaQuestionIds, markArenaQuestionsCompleted, resetArenaHistory,
   fetchQuestionPool, markQuestionsCompleted,
 } from '@/lib/guildEngine';
+import {
+  UserMonster, ActiveBattleMonster, MonsterImage, BattleQuestionModal,
+} from '@/components/battle/shared';
+import LiveBattleScreen from '@/components/LiveBattleScreen';
+import PostBattleSummary from '@/components/battle/PostBattleSummary';
+import LeaderboardPanel from '@/components/LeaderboardPanel';
+import { createInvite, fetchLiveBattle } from '@/lib/liveBattle';
+import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 
 // Estimated so a player at ~1hr/day of active map play sees roughly 50 wild
 // encounters across a full school year (~180 hrs x ~120 answered questions/hr
 // ≈ 21,600 answers/year → 50/21,600 ≈ 0.23%). Tune after observing real usage.
 const WILD_ENCOUNTER_CHANCE = 0.002;
 // ─── TYPES ───────────────────────────────────────────────────────────────────
-
-interface UserMonster {
-  id: string;
-  user_id: string;
-  monster_id: string;
-  nickname: string | null;
-  monster_exp: number;
-  monster_level: number;
-  slot: number;
-  rest_used: number;
-}
 
 interface CaughtMonster {
   id: string;
@@ -58,21 +55,13 @@ interface BattleState {
   last_pvp_win: string | null;
 }
 
-interface ActiveBattleMonster {
-  def: MonsterDef;
-  level: number;
-  currentHp: number;
-  maxHp: number;
-  status: StatusEffect;
-  statusTurns: number;
-  restUsed: number;
-  userMonster?: UserMonster;
-}
-
 interface MonsterGuildProps {
   userId: string;
   playerLevel: number;
   packageData: any;
+  liveBattleInbox: ReturnType<typeof useLiveBattleInbox>;
+  pendingLiveBattleId: string | null;
+  onConsumePendingLiveBattle: () => void;
 }
 
 // ─── MAP CONFIG ───────────────────────────────────────────────────────────────
@@ -154,35 +143,6 @@ export function GMBadge() {
   return <span title="GM" className="text-xs leading-none">👑</span>;
 }
 
-// ─── MONSTER IMAGE ──────────────────────────────────────────────────────────
-// Renders a monster's /monsters/*.webp art when it exists, falling back to its
-// emoji (e.g. the wild-only monsters, which don't have art yet) if the image
-// 404s or the monster has no id to look up.
-
-export function MonsterImage({ monster, className = '', emojiClassName = 'text-3xl' }: {
-  monster: { id: string; name: string; emoji: string } | undefined | null;
-  className?: string;
-  emojiClassName?: string;
-}) {
-  const [failed, setFailed] = useState(false);
-  if (!monster) return null;
-  if (failed) {
-    return (
-      <span className={`flex items-center justify-center ${className} ${emojiClassName}`}>
-        {monster.emoji}
-      </span>
-    );
-  }
-  return (
-    <img
-      src={`/monsters/${monster.id}.webp`}
-      alt={monster.name}
-      className={`object-contain ${className}`}
-      onError={() => setFailed(true)}
-    />
-  );
-}
-
 // ─── QUESTION HELPERS ─────────────────────────────────────────────────────────
 
 function extractQuestions(packageData: any): any[] {
@@ -202,87 +162,10 @@ function extractQuestions(packageData: any): any[] {
   return questions;
 }
 
-function shuffleArray<T>(arr: T[]): T[] {
-  return [...arr].sort(() => Math.random() - 0.5);
-}
-
-// ─── BATTLE QUESTION MODAL ────────────────────────────────────────────────────
-
-interface BattleQuestionProps {
-  questions: any[];
-  count: number;
-  embedded?: boolean;
-  onComplete: (correctCount: number, answeredQuestions: any[]) => void;
-}
-
-function BattleQuestionModal({ questions, count, embedded, onComplete }: BattleQuestionProps) {
-  const [pool] = useState(() => shuffleArray(questions).slice(0, count));
-  const [index, setIndex] = useState(0);
-  const [selected, setSelected] = useState<string | null>(null);
-  const [results, setResults] = useState<boolean[]>([]);
-
-  const current = pool[index];
-  if (!current) return null;
-
-  const handleAnswer = (opt: string) => {
-    if (selected) return;
-    setSelected(opt);
-    const isCorrect = opt === current.correct_answer || opt === current.correct || opt === current.correct_choice;
-    const newResults = [...results, isCorrect];
-    setTimeout(() => {
-      if (index + 1 >= count) {
-        onComplete(newResults.filter(Boolean).length, pool);
-      } else {
-        setResults(newResults);
-        setSelected(null);
-        setIndex(i => i + 1);
-      }
-    }, 800);
-  };
-
-  const inner = (
-    <div className={embedded ? 'mt-2' : 'bg-neutral-900 border border-neutral-700 rounded-2xl p-8 max-w-lg w-full'}>
-      <p className="text-xs text-gray-500 mb-2 font-mono">Question {index + 1} of {count}</p>
-      <p className="text-lg font-bold text-white mb-6">{current.question || current.problem_prompt}</p>
-      <div className="space-y-3">
-        {(current.options || []).map((opt: any) => {
-          const key = typeof opt === 'string' ? opt : opt.key;
-          const text = typeof opt === 'string' ? opt : opt.text;
-          const isSelected = selected === key;
-          const isCorrect = key === current.correct_answer || key === current.correct || key === current.correct_choice;
-          let style = 'border-neutral-700 hover:border-neutral-500';
-          if (selected) {
-            if (isSelected && isCorrect) style = 'border-green-500 bg-green-900/30';
-            else if (isSelected && !isCorrect) style = 'border-red-500 bg-red-900/30';
-            else if (isCorrect) style = 'border-green-500 bg-green-900/20';
-          }
-          return (
-            <button
-              key={key}
-              onClick={() => handleAnswer(key)}
-              disabled={!!selected}
-              className={`w-full text-left p-4 rounded-xl border-2 text-gray-200 transition-all ${style}`}
-            >
-              {text}
-            </button>
-          );
-        })}
-      </div>
-    </div>
-  );
-
-  if (embedded) return inner;
-
-  return (
-    <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-      {inner}
-    </div>
-  );
-}
-
 // ─── BATTLE SCREEN ────────────────────────────────────────────────────────────
 
 interface BattleScreenProps {
+  userId: string;
   playerTeam: ActiveBattleMonster[];
   trainer?: NpcTrainer;
   siblingTeam?: ActiveBattleMonster[];
@@ -294,24 +177,27 @@ interface BattleScreenProps {
   onQuestionsAnswered?: (questions: any[]) => void;
 }
 
-function BattleScreen({ playerTeam, trainer, siblingTeam, siblingName, questions, inventory, onUseItem, onBattleEnd, onQuestionsAnswered }: BattleScreenProps) {
+function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, questions, inventory, onUseItem, onBattleEnd, onQuestionsAnswered }: BattleScreenProps) {
   const opponentName = trainer?.name || siblingName || 'Sibling';
   const opponentTeam = siblingTeam || trainer?.monsters.map((tm: any) => {
     const def = ALL_MONSTERS[tm.monsterId];
-    return { def, level: tm.level, currentHp: def.baseHp, maxHp: def.baseHp, status: null, statusTurns: 0, restUsed: 0 };
+    const hp = getScaledStats(def, tm.level).hp;
+    return { def, level: tm.level, currentHp: hp, maxHp: hp, status: null, statusTurns: 0, restUsed: 0 };
   }) || [];
   const [playerMonsterIdx, setPlayerMonsterIdx] = useState(0);
   const [npcMonsterIdx, setNpcMonsterIdx] = useState(0);
   const [playerMonsters, setPlayerMonsters] = useState<ActiveBattleMonster[]>(playerTeam);
   const [npcMonsters, setNpcMonsters] = useState<ActiveBattleMonster[]>(opponentTeam);
   const [log, setLog] = useState<string[]>([`Battle started against ${opponentName}!`]);
-  const [phase, setPhase] = useState<'select_skill' | 'select_item' | 'answering' | 'npc_turn' | 'ended'>('select_skill');
+  const [phase, setPhase] = useState<'select_skill' | 'select_item' | 'select_switch' | 'answering' | 'npc_turn' | 'ended'>('select_skill');
   const [pendingSkillId, setPendingSkillId] = useState<string | null>(null);
   const [questionCount, setQuestionCount] = useState(1);
   const [expEarned, setExpEarned] = useState(0);
   const [playerAnim, setPlayerAnim] = useState('');
   const [npcAnim, setNpcAnim] = useState('');
   const [attackMessage, setAttackMessage] = useState<string | null>(null);
+  const [confirmSurrender, setConfirmSurrender] = useState(false);
+  const [battleResult, setBattleResult] = useState<{ won: boolean; exp: number; reason: 'ko' | 'surrender' } | null>(null);
   const battleMusicRef = useRef<HTMLAudioElement | null>(null);
 
   const playerMon = playerMonsters[playerMonsterIdx];
@@ -323,6 +209,12 @@ function BattleScreen({ playerTeam, trainer, siblingTeam, siblingName, questions
   playerMonstersRef.current = playerMonsters;
   const npcMonstersRef = useRef(npcMonsters);
   npcMonstersRef.current = npcMonsters;
+  // A manual monster switch changes playerMonsterIdx and calls doNpcTurn() in
+  // the same tick — doNpcTurn's setTimeout closure would otherwise capture the
+  // pre-switch index (state updates aren't visible until the next render), so
+  // the NPC's counter-attack could land on the just-benched monster instead.
+  const playerMonsterIdxRef = useRef(playerMonsterIdx);
+  playerMonsterIdxRef.current = playerMonsterIdx;
 
   useEffect(() => {
     const audio = new Audio('/sounds/battle-theme.mp3');
@@ -373,6 +265,17 @@ function BattleScreen({ playerTeam, trainer, siblingTeam, siblingName, questions
       }
     }
     return [updated, msgs];
+  };
+
+  // Shared by doNpcTurn's normal counter-attack and handleQuestionsComplete's
+  // speed-preemption check below, so the tier/defense/def_boost math can't
+  // drift between the two call sites.
+  const computeNpcDamage = (attacker: ActiveBattleMonster, defender: ActiveBattleMonster): number => {
+    const tier = attacker.level >= 15 ? 3 : attacker.level >= 8 ? 2 : 1;
+    let dmg = BATTLE_CONSTANTS.NPC_DAMAGE_BY_TIER[tier as 1|2|3];
+    dmg *= 100 / (100 + getScaledStats(defender.def, defender.level).defense);
+    if (defender.status === 'def_boost') dmg /= 2;
+    return Math.round(dmg);
   };
 
   const handleSkillSelect = (skillId: string) => {
@@ -467,14 +370,52 @@ function BattleScreen({ playerTeam, trainer, siblingTeam, siblingName, questions
     const isBlessed = playerMon.status === 'blessed';
     const isPerfect = correctCount === skill.questionCount;
 
+    // Speed determines who acts first. If the NPC is faster and its fixed
+    // counter-damage would knock the player out this round, it strikes before
+    // the player's just-chosen attack ever lands — mirroring the classic "the
+    // slower side doesn't get to move if it's already fainted" RPG rule.
+    const npcIsFaster = npcMon.currentHp > 0 && npcMon.status !== 'paralyze'
+      && getScaledStats(npcMon.def, npcMon.level).speed > getScaledStats(playerMon.def, playerMon.level).speed;
+    if (npcIsFaster) {
+      const preemptDamage = computeNpcDamage(npcMon, playerMon);
+      if (playerMon.currentHp - preemptDamage <= 0) {
+        setAttackMessage(`${npcMon.def.name} is faster and strikes first!`);
+        playHitThud();
+        triggerAnim('player', 'battle-hit');
+        setTimeout(() => setAttackMessage(null), 1000);
+        addLog(`⚡ ${npcMon.def.name} is faster and attacks for ${preemptDamage} damage before you can move!`);
+
+        const newHp = Math.max(0, playerMon.currentHp - preemptDamage);
+        const updatedPlayer = playerMonsters.map((m, i) => i === playerMonsterIdx ? { ...m, currentHp: newHp } : m);
+        setPlayerMonsters(updatedPlayer);
+        addLog(`${playerMon.def.name} fainted before it could attack!`);
+
+        const nextIdx = updatedPlayer.findIndex((m, i) => i !== playerMonsterIdx && m.currentHp > 0);
+        if (nextIdx === -1) {
+          addLog('All your monsters fainted! You lost!');
+          playDefeat();
+          battleMusicRef.current?.pause();
+          setBattleResult({ won: false, exp: 0, reason: 'ko' });
+          setPhase('ended');
+        } else {
+          setPlayerMonsterIdx(nextIdx);
+          playerMonsterIdxRef.current = nextIdx;
+          addLog(`Go, ${updatedPlayer[nextIdx].def.name}!`);
+          setPhase('select_skill');
+        }
+        return;
+      }
+    }
+
     let damage = calculateDamage(
       skill,
-      playerMon.def.baseAttack,
+      getScaledStats(playerMon.def, playerMon.level).attack,
       correctCount,
       skill.questionCount,
       playerMon.def.element,
       npcMon.def.element,
       isBlessed,
+      getScaledStats(npcMon.def, npcMon.level).defense,
     );
 
     if (playerMon.status === 'curse') {
@@ -486,13 +427,15 @@ function BattleScreen({ playerTeam, trainer, siblingTeam, siblingName, questions
     triggerAnim('player', 'battle-attack-right');
     setTimeout(() => setAttackMessage(null), 1000);
 
+    let msg: string;
     if (damage === 0) {
       playMiss();
+      msg = `❌ ${playerMon.def.name} used ${skill.name}, but the attack missed! (wrong answer)`;
     } else {
       playHitThud();
       triggerAnim('npc', 'battle-hit');
+      msg = `${playerMon.def.name} used ${skill.name}! (${correctCount}/${skill.questionCount} correct) → ${damage} damage!`;
     }
-    let msg = `${playerMon.def.name} used ${skill.name}! (${correctCount}/${skill.questionCount} correct) → ${damage} damage!`;
 
     let newNpcMonsters = [...npcMonsters];
     let newNpcMon = { ...npcMon, currentHp: Math.max(0, npcMon.currentHp - damage) };
@@ -523,8 +466,8 @@ function BattleScreen({ playerTeam, trainer, siblingTeam, siblingName, questions
         addLog(`You defeated ${opponentName}!`);
         playVictory();
         battleMusicRef.current?.pause();
+        setBattleResult({ won: true, exp: earned, reason: 'ko' });
         setPhase('ended');
-        setTimeout(() => onBattleEnd(true, earned), 1500);
         return;
       }
       setNpcMonsterIdx(nextNpc);
@@ -539,8 +482,11 @@ function BattleScreen({ playerTeam, trainer, siblingTeam, siblingName, questions
       // Read the latest committed state via refs — computing everything here as
       // plain values means each setState below fires exactly once, with no side
       // effects hidden inside an updater function that React could re-invoke.
+      // playerMonsterIdxRef (rather than the closure's playerMonsterIdx) is used
+      // so a manual switch that happened earlier in this same tick is honored.
+      const currentIdx = playerMonsterIdxRef.current;
       const currentNpc = npcMonstersRef.current[npcMonsterIdx];
-      const currentPlayer = playerMonstersRef.current[playerMonsterIdx];
+      const currentPlayer = playerMonstersRef.current[currentIdx];
 
       if (currentNpc.status === 'paralyze') {
         addLog(`${currentNpc.def.name} is paralyzed and can't move!`);
@@ -551,11 +497,9 @@ function BattleScreen({ playerTeam, trainer, siblingTeam, siblingName, questions
         return;
       }
 
-      const tier = currentNpc.level >= 15 ? 3 : currentNpc.level >= 8 ? 2 : 1;
-      let damage = BATTLE_CONSTANTS.NPC_DAMAGE_BY_TIER[tier as 1|2|3];
+      const damage = computeNpcDamage(currentNpc, currentPlayer);
 
       if (currentPlayer.status === 'def_boost') {
-        damage = Math.round(damage / 2);
         addLog(`🛡️ ${currentPlayer.def.name}'s Iron Shield blocked half the damage!`);
       }
 
@@ -568,7 +512,7 @@ function BattleScreen({ playerTeam, trainer, siblingTeam, siblingName, questions
       tickMsgs.forEach(addLog);
 
       const updatedPlayer = playerMonstersRef.current.map((m, i) =>
-        i === playerMonsterIdx ? { ...m, currentHp: newHp } : m
+        i === currentIdx ? { ...m, currentHp: newHp } : m
       );
       const updatedNpc = npcMonstersRef.current.map((m, i) => i === npcMonsterIdx ? tickedNpc : m);
 
@@ -577,15 +521,17 @@ function BattleScreen({ playerTeam, trainer, siblingTeam, siblingName, questions
 
       if (newHp <= 0) {
         addLog(`${currentPlayer.def.name} fainted!`);
-        if (playerMonsterIdx + 1 >= updatedPlayer.length) {
+        const nextIdx = updatedPlayer.findIndex((m, i) => i !== currentIdx && m.currentHp > 0);
+        if (nextIdx === -1) {
           addLog('All your monsters fainted! You lost!');
           playDefeat();
           battleMusicRef.current?.pause();
+          setBattleResult({ won: false, exp: 0, reason: 'ko' });
           setPhase('ended');
-          setTimeout(() => onBattleEnd(false, 0), 1500);
         } else {
-          setPlayerMonsterIdx(playerMonsterIdx + 1);
-          addLog(`Go, ${updatedPlayer[playerMonsterIdx + 1].def.name}!`);
+          setPlayerMonsterIdx(nextIdx);
+          playerMonsterIdxRef.current = nextIdx;
+          addLog(`Go, ${updatedPlayer[nextIdx].def.name}!`);
           setPhase('select_skill');
         }
       } else {
@@ -594,8 +540,50 @@ function BattleScreen({ playerTeam, trainer, siblingTeam, siblingName, questions
     }, 1000);
   };
 
+  const otherAlivePlayerMonsters = playerMonsters
+    .map((m, i) => ({ m, i }))
+    .filter(({ m, i }) => i !== playerMonsterIdx && m.currentHp > 0);
+
+  const handleSwitchMonster = (idx: number) => {
+    const target = playerMonsters[idx];
+    if (!target || target.currentHp <= 0) return;
+    addLog(`You switched to ${target.def.name}!`);
+    setPlayerMonsterIdx(idx);
+    playerMonsterIdxRef.current = idx;
+    setPhase('npc_turn');
+    doNpcTurn();
+  };
+
+  const handleSurrender = () => {
+    setConfirmSurrender(false);
+    addLog('You surrendered the battle.');
+    playDefeat();
+    battleMusicRef.current?.pause();
+    setBattleResult({ won: false, exp: 0, reason: 'surrender' });
+    setPhase('ended');
+  };
+
   const availableTiers = getAvailableSkillTiers(playerMon.level, playerMon.def);
   const restConfig = REST_BY_ELEMENT[playerMon.def.element];
+
+  if (phase === 'ended' && battleResult) {
+    const me = USERS[userId];
+    const opponentAvatarSrc = trainer ? `/trainers/${trainer.id}.png` : '/avatar.png';
+    const opponentFallbackEmoji = trainer?.emoji ?? '⚔️';
+    const reasonLabel = battleResult.reason === 'surrender' ? 'You surrendered' : 'Fight complete';
+
+    return (
+      <PostBattleSummary
+        outcome={battleResult.won ? 'win' : 'loss'}
+        reasonLabel={reasonLabel}
+        left={{ avatarSrc: me?.avatar || '/avatar.png', name: me?.fullName ?? userId, mon: playerMon, isWinner: battleResult.won }}
+        right={{ avatarSrc: opponentAvatarSrc, avatarFallbackEmoji: opponentFallbackEmoji, name: opponentName, mon: npcMon, isWinner: !battleResult.won }}
+        log={log}
+        rewardLine={battleResult.won && battleResult.exp > 0 ? `+${battleResult.exp} Monster EXP earned!` : undefined}
+        onContinue={() => onBattleEnd(battleResult.won, battleResult.exp)}
+      />
+    );
+  }
 
   return (
     <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6">
@@ -663,9 +651,22 @@ function BattleScreen({ playerTeam, trainer, siblingTeam, siblingName, questions
       {/* Skill selection */}
       {phase === 'select_skill' && (
         <div className="grid grid-cols-2 gap-3">
-          {availableTiers.map(tier => {
+          {([1, 2, 3] as const).map(tier => {
             const skillId = playerMon.def.skills[tier - 1];
             const skill = SKILLS[skillId];
+            const isLocked = !availableTiers.includes(tier);
+            if (isLocked) {
+              const requiredLevel = tier === 2 ? playerMon.def.skillUnlocks.tier2 : playerMon.def.skillUnlocks.tier3;
+              return (
+                <div
+                  key={tier}
+                  className="bg-neutral-950/50 border-2 border-dashed border-neutral-800 rounded-xl p-4 text-left opacity-60"
+                >
+                  <p className="font-bold text-gray-500 text-sm">🔒 {skill.name}</p>
+                  <p className="text-xs text-amber-500/80 mt-1">Unlocks at Lv.{requiredLevel}</p>
+                </div>
+              );
+            }
             return (
               <button
                 key={tier}
@@ -686,19 +687,95 @@ function BattleScreen({ playerTeam, trainer, siblingTeam, siblingName, questions
             <p className="font-bold text-white text-sm">😴 Rest</p>
             <p className="text-xs text-gray-400">Restore {Math.round(restConfig.hpRestorePercent * 100)}% HP</p>
           </button>
+        </div>
+      )}
 
-          <button
-            onClick={() => setPhase('select_item')}
-            className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all"
-          >
-            <p className="font-bold text-white text-sm">🎒 Items</p>
-            <p className="text-xs text-gray-400">Use items from inventory</p>
-          </button>
+      {phase === 'select_skill' && (
+        <>
+          <div className="border-t border-neutral-800 my-3" />
+          <div className="grid grid-cols-3 gap-3">
+            <button
+              onClick={() => setPhase('select_item')}
+              className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all"
+            >
+              <p className="font-bold text-white text-sm">🎒 Items</p>
+              <p className="text-xs text-gray-400">Use items from inventory</p>
+            </button>
+            <button
+              onClick={() => setPhase('select_switch')}
+              disabled={otherAlivePlayerMonsters.length === 0}
+              className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              <p className="font-bold text-white text-sm">🔄 Switch</p>
+              <p className="text-xs text-gray-400">{otherAlivePlayerMonsters.length > 0 ? 'Change your monster' : 'No other monsters'}</p>
+            </button>
+            <button
+              onClick={() => setConfirmSurrender(true)}
+              className="bg-neutral-800 hover:bg-neutral-700 border border-red-900/60 hover:border-red-500 rounded-xl p-4 text-left transition-all"
+            >
+              <p className="font-bold text-red-400 text-sm">🏳️ Surrender</p>
+              <p className="text-xs text-gray-400">Forfeit the match</p>
+            </button>
+          </div>
+        </>
+      )}
+
+      {phase === 'select_skill' && confirmSurrender && (
+        <div className="mt-4 bg-neutral-950 border border-red-900 rounded-2xl p-4 text-center space-y-3">
+          <p className="text-white font-bold">Surrender the battle?</p>
+          <p className="text-xs text-gray-400">You'll earn no Monster EXP.</p>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setConfirmSurrender(false)}
+              className="flex-1 bg-neutral-800 hover:bg-neutral-700 text-white py-2 rounded-lg"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleSurrender}
+              className="flex-1 bg-red-700 hover:bg-red-600 text-white py-2 rounded-lg font-bold"
+            >
+              Surrender
+            </button>
+          </div>
         </div>
       )}
 
       {phase === 'npc_turn' && (
         <div className="text-center py-4 text-gray-400 animate-pulse">Opponent is attacking...</div>
+      )}
+
+      {phase === 'select_switch' && (
+        <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 space-y-4">
+          <p className="text-white font-bold text-center mb-2">🔄 Switch Monster</p>
+          <div className="space-y-2">
+            {otherAlivePlayerMonsters.length === 0 ? (
+              <p className="text-gray-500 text-sm text-center">No other monsters available.</p>
+            ) : (
+              otherAlivePlayerMonsters.map(({ m, i }) => (
+                <button
+                  key={i}
+                  onClick={() => handleSwitchMonster(i)}
+                  className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left flex items-center gap-4 transition-all"
+                >
+                  <div className="w-10 h-10">
+                    <MonsterImage monster={m.def} className="w-full h-full" emojiClassName="text-2xl" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-white font-bold text-sm">{m.def.name} Lv.{m.level}</p>
+                    <p className="text-xs text-gray-400">{m.currentHp}/{m.maxHp} HP</p>
+                  </div>
+                </button>
+              ))
+            )}
+          </div>
+          <button
+            onClick={() => setPhase('select_skill')}
+            className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors"
+          >
+            Cancel
+          </button>
+        </div>
       )}
 
       {phase === 'select_item' && (
@@ -736,12 +813,6 @@ function BattleScreen({ playerTeam, trainer, siblingTeam, siblingName, questions
           >
             Cancel
           </button>
-        </div>
-      )}
-
-      {phase === 'ended' && (
-        <div className="text-center py-4">
-          <p className="text-xl font-bold text-white">Battle Over!</p>
         </div>
       )}
 
@@ -860,11 +931,12 @@ interface TrainingMapProps {
   onHeal: () => void;
   onQuestionsAnswered?: (questions: any[]) => void;
   onWildEncounterRoll?: () => void;
+  onChallengePlayer?: (targetId: string, name: string) => void;
 }
 
 function TrainingMap({
   userId, battleState, userMonsters, questions,
-  onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll,
+  onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll, onChallengePlayer,
 }: TrainingMapProps) {
   const [grassQuestion, setGrassQuestion] = useState(false);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
@@ -1248,6 +1320,7 @@ function TrainingMap({
           targetId={statsTargetId}
           onClose={() => setStatsTargetId(null)}
           onWave={sendWave}
+          onChallenge={onChallengePlayer}
         />
       )}
     </div>
@@ -1325,10 +1398,17 @@ function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange }: {
                   <p className="text-xs text-gray-500 mt-0.5">{expToNext} EXP to next level</p>
                 </div>
                 <div className="text-xs text-gray-400 space-y-0.5">
-                  <p>❤️ {def.baseHp}</p>
-                  <p>⚔️ {def.baseAttack}</p>
-                  <p>🛡️ {def.baseDefense}</p>
-                  <p>⚡ {def.baseSpeed}</p>
+                  {(() => {
+                    const scaled = getScaledStats(def, monster.monster_level);
+                    return (
+                      <>
+                        <p>❤️ {scaled.hp}</p>
+                        <p>⚔️ {scaled.attack}</p>
+                        <p>🛡️ {scaled.defense}</p>
+                        <p>⚡ {scaled.speed}</p>
+                      </>
+                    );
+                  })()}
                 </div>
               </div>
             )}
@@ -1413,7 +1493,7 @@ function CollectionPanel({ caughtMonsters, userMonsters, playerLevel, onPromote 
 
 // ─── MAIN MONSTER GUILD ───────────────────────────────────────────────────────
 
-type GuildView = 'map' | 'team' | 'trainers' | 'collection' | 'battle';
+type GuildView = 'map' | 'team' | 'trainers' | 'collection' | 'battle' | 'live_battle' | 'leaderboard';
 
 interface WildEncounterState {
   monsterId: string;
@@ -1422,7 +1502,7 @@ interface WildEncounterState {
   attemptsLeft: number;
 }
 
-export default function MonsterGuild({ userId, playerLevel, packageData }: MonsterGuildProps) {
+export default function MonsterGuild({ userId, playerLevel, packageData, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle }: MonsterGuildProps) {
   const [loading, setLoading] = useState(true);
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
   const [battleState, setBattleState] = useState<BattleState | null>(null);
@@ -1433,6 +1513,10 @@ export default function MonsterGuild({ userId, playerLevel, packageData }: Monst
   const [caughtMonsters, setCaughtMonsters] = useState<CaughtMonster[]>([]);
   const [pvpOpponent, setPvpOpponent] = useState<{ id: UserId; name: string } | null>(null);
   const [pvpOpponentTeam, setPvpOpponentTeam] = useState<ActiveBattleMonster[] | null>(null);
+  const [liveBattleId, setLiveBattleId] = useState<string | null>(null);
+  const [liveBattleOpponent, setLiveBattleOpponent] = useState<{ id: UserId; name: string } | null>(null);
+  const [liveBattleSide, setLiveBattleSide] = useState<'challenger' | 'opponent'>('challenger');
+  const [liveBattleTeams, setLiveBattleTeams] = useState<{ mine: ActiveBattleMonster[]; opp: ActiveBattleMonster[] } | null>(null);
   const [notification, setNotification] = useState<string | null>(null);
   const [inventory, setInventory] = useState<Record<string, number>>({});
   const [answeredArenaIds, setAnsweredArenaIds] = useState<Set<string>>(new Set());
@@ -1492,6 +1576,44 @@ export default function MonsterGuild({ userId, playerLevel, packageData }: Monst
   };
 
   useEffect(() => { loadData(); }, [userId]);
+
+  // The invitee lands here once they've accepted a challenge from anywhere
+  // else in the app (Dashboard's LiveBattleInviteToast) — fetch the battle
+  // row both sides already agreed on and jump straight into the live screen.
+  useEffect(() => {
+    if (!pendingLiveBattleId) return;
+    (async () => {
+      const battle = await fetchLiveBattle(pendingLiveBattleId);
+      onConsumePendingLiveBattle();
+      if (!battle) return;
+      const isChallenger = battle.challenger_id === userId;
+      const opponentId = isChallenger ? battle.opponent_id : battle.challenger_id;
+      setLiveBattleId(battle.id);
+      setLiveBattleOpponent({ id: opponentId, name: USERS[opponentId]?.name ?? opponentId });
+      setLiveBattleSide(isChallenger ? 'challenger' : 'opponent');
+      setLiveBattleTeams({
+        mine: isChallenger ? battle.challenger_team : battle.opponent_team,
+        opp: isChallenger ? battle.opponent_team : battle.challenger_team,
+      });
+      setView('live_battle');
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pendingLiveBattleId]);
+
+  // Challenger's side: if the invitee declines, back out of the waiting screen.
+  useEffect(() => {
+    const resp = liveBattleInbox.inviteResponse;
+    if (!resp || resp.battleId !== liveBattleId) return;
+    if (!resp.accepted) {
+      showNotification(`${liveBattleOpponent?.name ?? 'They'} declined the challenge.`);
+      setLiveBattleId(null);
+      setLiveBattleOpponent(null);
+      setLiveBattleTeams(null);
+      setView('trainers');
+    }
+    liveBattleInbox.clearInviteResponse();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [liveBattleInbox.inviteResponse]);
 
   const showNotification = (msg: string) => {
     setNotification(msg);
@@ -1584,6 +1706,11 @@ export default function MonsterGuild({ userId, playerLevel, packageData }: Monst
   };
 
   const handleChallengePlayer = async (opponentId: UserId, opponentName: string) => {
+    if (!liveBattleInbox.onlinePlayerIds.has(opponentId)) {
+      showNotification(`${opponentName} isn't online right now.`);
+      return;
+    }
+
     const { data: opponentMonsters } = await supabase
       .from('user_monsters')
       .select('*')
@@ -1597,20 +1724,33 @@ export default function MonsterGuild({ userId, playerLevel, packageData }: Monst
 
     const opponentTeam: ActiveBattleMonster[] = opponentMonsters.map((um: any) => {
       const def = ALL_MONSTERS[um.monster_id];
+      const hp = getScaledStats(def, um.monster_level).hp;
       return {
         def,
         level: um.monster_level,
-        currentHp: def.baseHp,
-        maxHp: def.baseHp,
+        currentHp: hp,
+        maxHp: hp,
         status: null,
         statusTurns: 0,
         restUsed: 0,
+        userMonster: um,
       };
     });
 
-    setPvpOpponent({ id: opponentId, name: opponentName });
-    setPvpOpponentTeam(opponentTeam);
-    setView('battle');
+    const myTeam = buildPlayerTeam();
+    const battle = await createInvite(userId, opponentId, myTeam, opponentTeam);
+    if (!battle) {
+      showNotification('Could not start a live battle right now — try again.');
+      return;
+    }
+
+    await liveBattleInbox.sendInvite(opponentId, battle.id);
+    setLiveBattleId(battle.id);
+    setLiveBattleOpponent({ id: opponentId, name: opponentName });
+    setLiveBattleSide('challenger');
+    setLiveBattleTeams({ mine: myTeam, opp: opponentTeam });
+    setView('live_battle');
+    showNotification(`Challenge sent to ${opponentName} — waiting for them to accept...`);
   };
 
   const handleMonsterExpGained = async (monsterId: string, exp: number) => {
@@ -1703,7 +1843,8 @@ export default function MonsterGuild({ userId, playerLevel, packageData }: Monst
   const buildPlayerTeam = (): ActiveBattleMonster[] => {
     return userMonsters.map(um => {
       const def = ALL_MONSTERS[um.monster_id];
-      return { def, level: um.monster_level, currentHp: def.baseHp, maxHp: def.baseHp, status: null, statusTurns: 0, restUsed: 0, userMonster: um } as ActiveBattleMonster;
+      const hp = getScaledStats(def, um.monster_level).hp;
+      return { def, level: um.monster_level, currentHp: hp, maxHp: hp, status: null, statusTurns: 0, restUsed: 0, userMonster: um } as ActiveBattleMonster;
     });
   };
 
@@ -1737,6 +1878,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData }: Monst
           { id: 'team',       label: '👥 My Team' },
           { id: 'trainers',   label: '⚔️ Trainers' },
           { id: 'collection', label: `🐲 Collection${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}` },
+          { id: 'leaderboard', label: '🏆 Leaderboard' },
         ] as { id: GuildView; label: string }[]).map(tab => (
           <button
             key={tab.id}
@@ -1764,6 +1906,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData }: Monst
           onHeal={handleHeal}
           onQuestionsAnswered={handleQuestionsAnswered}
           onWildEncounterRoll={handleWildEncounterRoll}
+          onChallengePlayer={(targetId, name) => handleChallengePlayer(targetId as UserId, name)}
         />
       )}
 
@@ -1786,6 +1929,8 @@ export default function MonsterGuild({ userId, playerLevel, packageData }: Monst
           onPromote={handlePromoteCaughtMonster}
         />
       )}
+
+      {view === 'leaderboard' && <LeaderboardPanel />}
 
       {/* Trainers view */}
       {view === 'trainers' && battleState && (
@@ -1817,7 +1962,12 @@ export default function MonsterGuild({ userId, playerLevel, packageData }: Monst
                   {otherPlayers.map(player => (
                     <div key={player.id} className="flex items-center justify-between bg-black/30 rounded-lg px-4 py-3">
                       <div className="flex items-center gap-3">
-                        <span className="text-xl">{player.isFamily ? '⚔️' : '🎮'}</span>
+                        <img
+                          src={player.avatar || '/avatar.png'}
+                          alt={player.name}
+                          className="w-9 h-9 rounded-full object-cover border border-neutral-600 flex-shrink-0"
+                          onError={(e) => { (e.target as HTMLImageElement).src = '/avatar.png'; }}
+                        />
                         <div>
                           <p className="text-white text-sm font-bold">{player.fullName}</p>
                           <p className="text-gray-500 text-xs">{player.grade}{!player.isFamily && ' · Classmate'}</p>
@@ -1892,6 +2042,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData }: Monst
       {/* Battle view — NPC */}
       {view === 'battle' && activeBattle && !pvpOpponentTeam && (
         <BattleScreen
+          userId={userId}
           playerTeam={buildPlayerTeam()}
           trainer={activeBattle}
           questions={questions}
@@ -1909,6 +2060,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData }: Monst
       {/* Battle view — PvP */}
       {view === 'battle' && pvpOpponentTeam && pvpOpponent && (
         <BattleScreen
+          userId={userId}
           playerTeam={buildPlayerTeam()}
           siblingTeam={pvpOpponentTeam}
           siblingName={pvpOpponent.name}
@@ -1921,6 +2073,34 @@ export default function MonsterGuild({ userId, playerLevel, packageData }: Monst
           }}
           onBattleEnd={handlePvpBattleEnd}
           onQuestionsAnswered={handleQuestionsAnswered}
+        />
+      )}
+
+      {/* Battle view — Live PvP */}
+      {view === 'live_battle' && liveBattleId && liveBattleOpponent && liveBattleTeams && (
+        <LiveBattleScreen
+          battleId={liveBattleId}
+          myUserId={userId}
+          opponentId={liveBattleOpponent.id}
+          opponentName={liveBattleOpponent.name}
+          side={liveBattleSide}
+          myTeam={liveBattleTeams.mine}
+          opponentTeam={liveBattleTeams.opp}
+          questions={questions}
+          inventory={inventory}
+          onUseItem={async (key) => {
+            const ok = await useInventoryItem(userId, key);
+            if (ok) await loadData(true); // skip full reset — would unmount LiveBattleScreen mid-fight
+            return ok;
+          }}
+          onBattleEnd={(won) => {
+            showNotification(won ? `🏆 Defeated ${liveBattleOpponent.name}!` : `💀 ${liveBattleOpponent.name} was too strong!`);
+            setLiveBattleId(null);
+            setLiveBattleOpponent(null);
+            setLiveBattleTeams(null);
+            setView('trainers');
+            loadData();
+          }}
         />
       )}
 
