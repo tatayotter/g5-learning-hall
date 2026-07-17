@@ -152,6 +152,8 @@ function WeeklyPackageBuilder({ currentData, currentSunday, onUpdateStats }: {
   onUpdateStats: (...args: any[]) => void;
 }) {
   const [userId, setUserId] = useState<'damien' | 'tala'>(currentData.user_id as 'damien' | 'tala');
+  const [selectedWeek, setSelectedWeek] = useState(currentSunday);
+  const [weekHasRow, setWeekHasRow] = useState(false);
   const [jsonInput, setJsonInput] = useState('');
   const [parsed, setParsed] = useState<any>(null);
   const [parseError, setParseError] = useState('');
@@ -159,14 +161,21 @@ function WeeklyPackageBuilder({ currentData, currentSunday, onUpdateStats }: {
   const [saving, setSaving] = useState(false);
   const [expandedDays, setExpandedDays] = useState<Set<string>>(new Set(WEEK_DAYS));
 
+  const shiftWeek = (deltaDays: number) => {
+    const d = new Date(selectedWeek + 'T00:00:00');
+    d.setDate(d.getDate() + deltaDays);
+    setSelectedWeek(format(startOfWeek(d), 'yyyy-MM-dd'));
+  };
+
   useEffect(() => {
     async function loadPackage() {
       const { data } = await supabase
         .from('weekly_packages')
         .select('package_data')
         .eq('user_id', userId)
-        .eq('week_starting_date', currentSunday)
-        .single();
+        .eq('week_starting_date', selectedWeek)
+        .maybeSingle();
+      setWeekHasRow(!!data);
       if (data?.package_data) {
         try {
           const content = typeof data.package_data === 'string'
@@ -183,7 +192,7 @@ function WeeklyPackageBuilder({ currentData, currentSunday, onUpdateStats }: {
       setParseError('');
     }
     loadPackage();
-  }, [userId, currentSunday]);
+  }, [userId, selectedWeek]);
 
   const handleParse = () => {
     setParseError('');
@@ -217,15 +226,44 @@ function WeeklyPackageBuilder({ currentData, currentSunday, onUpdateStats }: {
     if (!parsed) return;
     setSaving(true);
     try {
-      const { error } = await supabase
-        .from('weekly_packages')
-        .update({ package_data: parsed.data })
-        .eq('week_starting_date', currentSunday)
-        .eq('user_id', userId);
-      if (error) throw error;
-      alert(`✅ Package saved for ${userId === 'damien' ? 'Damien' : 'Tala'}! Refresh to see changes.`);
-      setJsonInput('');
-      setParsed(null);
+      if (weekHasRow) {
+        // Row already exists (this week, or a future week touched before) —
+        // only ever overwrite its package_data, never its stats.
+        const { error } = await supabase
+          .from('weekly_packages')
+          .update({ package_data: parsed.data })
+          .eq('week_starting_date', selectedWeek)
+          .eq('user_id', userId);
+        if (error) throw error;
+      } else {
+        // Brand-new future week: leave stat columns explicitly null so that
+        // when the week actually begins, useWeeklyData carries forward real
+        // progress from whatever the latest week turns out to be by then,
+        // instead of freezing stats at today's snapshot.
+        const { error } = await supabase
+          .from('weekly_packages')
+          .insert({
+            user_id: userId,
+            week_starting_date: selectedWeek,
+            package_data: parsed.data,
+            character_stats: null,
+            journal_logs: null,
+            achievements: null,
+            mastery_count: null,
+            purchased_items: null,
+            honor_grants: null,
+            quiz_attempts: null,
+            mastered_quizzes: null,
+            guild_sessions_count: null,
+            monster_battles_won: null,
+            sibling_battles_won: null,
+            perfect_quizzes: null,
+          });
+        if (error) throw error;
+        setWeekHasRow(true);
+      }
+      const weekLabel = selectedWeek === currentSunday ? 'this week' : `week of ${selectedWeek}`;
+      alert(`✅ Package saved for ${userId === 'damien' ? 'Damien' : 'Tala'} (${weekLabel})!`);
     } catch (e: any) {
       alert(`❌ Save failed: ${e.message}`);
     }
@@ -253,7 +291,7 @@ function WeeklyPackageBuilder({ currentData, currentSunday, onUpdateStats }: {
       <p className="text-gray-500 text-sm mb-6">Paste AI-generated JSON, review, edit if needed, then save for each student.</p>
 
       {/* User selector */}
-      <div className="flex gap-3 mb-6">
+      <div className="flex gap-3 mb-4">
         {(['damien', 'tala'] as const).map(id => (
           <button
             key={id}
@@ -267,7 +305,41 @@ function WeeklyPackageBuilder({ currentData, currentSunday, onUpdateStats }: {
             {id === 'damien' ? '⚔️ Damien' : '✨ Tala'}
           </button>
         ))}
-        <span className="text-xs text-gray-600 self-center ml-2">Week of {currentSunday}</span>
+      </div>
+
+      {/* Week selector */}
+      <div className="flex items-center gap-2 mb-6 bg-neutral-900 border border-neutral-700 rounded-xl p-3">
+        <button
+          onClick={() => shiftWeek(-7)}
+          className="bg-neutral-800 hover:bg-neutral-700 text-gray-300 rounded-lg px-3 py-1.5 text-sm font-bold transition-colors"
+        >
+          ← Prev
+        </button>
+        <input
+          type="date"
+          value={selectedWeek}
+          onChange={e => e.target.value && setSelectedWeek(format(startOfWeek(new Date(e.target.value + 'T00:00:00')), 'yyyy-MM-dd'))}
+          className="bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-1.5 text-sm text-white font-mono"
+        />
+        <button
+          onClick={() => shiftWeek(7)}
+          className="bg-neutral-800 hover:bg-neutral-700 text-gray-300 rounded-lg px-3 py-1.5 text-sm font-bold transition-colors"
+        >
+          Next →
+        </button>
+        {selectedWeek !== currentSunday && (
+          <button
+            onClick={() => setSelectedWeek(currentSunday)}
+            className="text-xs text-blue-400 hover:text-blue-300 ml-1"
+          >
+            Jump to this week
+          </button>
+        )}
+        <span className="text-xs text-gray-600 ml-auto">
+          {selectedWeek === currentSunday ? '📍 This week' : selectedWeek > currentSunday ? '🗓️ Future week' : '📜 Past week'}
+          {' · '}
+          {weekHasRow ? '✅ existing package' : '🆕 not created yet'}
+        </span>
       </div>
 
       <WeeklyPackageHistory userId={userId} />

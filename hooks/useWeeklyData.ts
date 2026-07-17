@@ -70,10 +70,13 @@ export function useWeeklyData(userId: string = 'damien') {
         return sourceRow?.package_data ? { ...row, package_data: sourceRow.package_data } : row;
       };
 
-      if (packageData) {
+      if (packageData && packageData.character_stats) {
         setData(await applyContentSource(packageData as WeeklyData));
       } else {
-        // No row for this week yet — carry forward progress from most recent past week
+        // Either no row for this week yet, or an admin pre-staged the week's
+        // package_data ahead of time (character_stats left null as the "not
+        // started" marker) — in both cases, carry forward progress from the
+        // most recent past week now that this week has actually begun.
         const { data: previousWeek } = await supabase
           .from('weekly_packages')
           .select('character_stats, achievements, mastery_count, purchased_items, honor_grants')
@@ -83,10 +86,7 @@ export function useWeeklyData(userId: string = 'damien') {
           .limit(1)
           .maybeSingle();
 
-        const defaultRow = {
-          week_starting_date: currentSunday,
-          user_id: userId,
-          package_data: {},
+        const carriedForward = {
           character_stats: previousWeek?.character_stats || { level: 1, xp: 0, gold: 0 },
           journal_logs: {},
           achievements: previousWeek?.achievements || {},
@@ -101,16 +101,39 @@ export function useWeeklyData(userId: string = 'damien') {
           perfect_quizzes: 0
         };
 
-        const { data: inserted, error: insertError } = await supabase
-          .from('weekly_packages')
-          .insert(defaultRow)
-          .select()
-          .single();
+        if (packageData) {
+          // Pre-staged row: keep its package_data, fill in the carried-forward stats.
+          const { data: updated, error: updateError } = await supabase
+            .from('weekly_packages')
+            .update(carriedForward)
+            .eq('id', packageData.id)
+            .select()
+            .single();
 
-        if (inserted) {
-          setData(await applyContentSource(inserted as WeeklyData));
-        } else if (insertError) {
-          console.error('Failed to create new weekly package:', insertError);
+          if (updated) {
+            setData(await applyContentSource(updated as WeeklyData));
+          } else if (updateError) {
+            console.error('Failed to initialize pre-staged weekly package:', updateError);
+          }
+        } else {
+          const defaultRow = {
+            week_starting_date: currentSunday,
+            user_id: userId,
+            package_data: {},
+            ...carriedForward
+          };
+
+          const { data: inserted, error: insertError } = await supabase
+            .from('weekly_packages')
+            .insert(defaultRow)
+            .select()
+            .single();
+
+          if (inserted) {
+            setData(await applyContentSource(inserted as WeeklyData));
+          } else if (insertError) {
+            console.error('Failed to create new weekly package:', insertError);
+          }
         }
       }
       setLoading(false);
