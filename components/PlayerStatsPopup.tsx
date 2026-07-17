@@ -18,9 +18,10 @@ interface PlayerStatsPopupProps {
   onClose: () => void;
   onWave: (targetId: string) => void;
   onChallenge?: (targetId: string, name: string) => void;
+  targetInBattle?: boolean;
 }
 
-export default function PlayerStatsPopup({ targetId, onClose, onWave, onChallenge }: PlayerStatsPopupProps) {
+export default function PlayerStatsPopup({ targetId, onClose, onWave, onChallenge, targetInBattle = false }: PlayerStatsPopupProps) {
   const [loading, setLoading] = useState(true);
   const [level, setLevel] = useState<number | null>(null);
   const [team, setTeam] = useState<TeamMonster[]>([]);
@@ -125,6 +126,10 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
           </>
         )}
 
+        {targetInBattle && (
+          <p className="text-xs text-amber-400 text-center mb-3">⚔️ {profile?.name || targetId} is in a battle — you can't challenge them right now.</p>
+        )}
+
         <div className="flex gap-2">
           <button
             onClick={() => { onWave(targetId); onClose(); }}
@@ -135,7 +140,8 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
           {onChallenge && (
             <button
               onClick={() => { onChallenge(targetId, profile?.name || targetId); onClose(); }}
-              className="flex-1 bg-indigo-700 hover:bg-indigo-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors"
+              disabled={targetInBattle}
+              className="flex-1 bg-indigo-700 hover:bg-indigo-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
               ⚔️ Challenge
             </button>

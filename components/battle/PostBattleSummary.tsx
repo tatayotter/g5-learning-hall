@@ -72,7 +72,7 @@ export default function PostBattleSummary({ outcome, reasonLabel, left, right, l
   const titleText = outcome === 'draw' ? "🤝 It's a Draw!" : outcome === 'win' ? '🏆 Victory!' : '💀 Defeat...';
 
   return (
-    <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6">
+    <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 battle-panel-in">
       <p className="text-center text-2xl font-display font-bold text-white mb-1">{titleText}</p>
       <p className="text-center text-xs text-gray-500 mb-1">{reasonLabel}</p>
       {rewardLine && <p className="text-center text-xs text-amber-400 font-bold mb-4">{rewardLine}</p>}
@@ -88,7 +88,7 @@ export default function PostBattleSummary({ outcome, reasonLabel, left, right, l
       </div>
       <button
         onClick={onContinue}
-        className="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-3 rounded-xl transition-colors"
+        className="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-3 rounded-xl transition-colors btn-tactile"
       >
         Continue
       </button>

@@ -55,8 +55,19 @@ export function MonsterImage({ monster, className = '', emojiClassName = 'text-3
   );
 }
 
+// A proper Fisher-Yates shuffle — NOT sort(() => Math.random() - 0.5), which
+// looks equivalent but is heavily biased (comparator-based sorts assume a
+// consistent comparator, and a random one isn't). That bias was the actual
+// cause of the same handful of questions resurfacing far more often than the
+// rest of the pool, even though the "already answered" exclusion logic
+// upstream (lib/guildEngine.ts) was working correctly.
 function shuffleArray<T>(arr: T[]): T[] {
-  return [...arr].sort(() => Math.random() - 0.5);
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
 }
 
 export interface BattleQuestionProps {
@@ -91,20 +102,24 @@ export function BattleQuestionModal({ questions, count, embedded, onComplete }: 
     }, 800);
   };
 
+  // Keyed on index so each new question replays the entrance animation below,
+  // rather than only playing once for the whole modal.
   const inner = (
-    <div className={embedded ? 'mt-2' : 'bg-neutral-900 border border-neutral-700 rounded-2xl p-8 max-w-lg w-full'}>
-      <p className="text-xs text-gray-500 mb-2 font-mono">Question {index + 1} of {count}</p>
-      <p className="text-lg font-bold text-white mb-6">{current.question || current.problem_prompt}</p>
-      <div className="space-y-3">
+    <div className={embedded ? 'mt-2' : 'bg-neutral-900 border border-neutral-700 rounded-2xl p-8 max-w-lg w-full battle-panel-in'}>
+      <div key={index} className="battle-panel-in">
+        <p className="text-xs text-gray-500 mb-2 font-mono">Question {index + 1} of {count}</p>
+        <p className="text-lg font-bold text-white mb-6">{current.question || current.problem_prompt}</p>
+        <div className="space-y-3">
         {(current.options || []).map((opt: any) => {
           const key = typeof opt === 'string' ? opt : opt.key;
           const text = typeof opt === 'string' ? opt : opt.text;
           const isSelected = selected === key;
           const isCorrect = key === current.correct_answer || key === current.correct || key === current.correct_choice;
           let style = 'border-neutral-700 hover:border-neutral-500';
+          let feedbackAnim = '';
           if (selected) {
-            if (isSelected && isCorrect) style = 'border-green-500 bg-green-900/30';
-            else if (isSelected && !isCorrect) style = 'border-red-500 bg-red-900/30';
+            if (isSelected && isCorrect) { style = 'border-green-500 bg-green-900/30'; feedbackAnim = 'battle-answer-correct'; }
+            else if (isSelected && !isCorrect) { style = 'border-red-500 bg-red-900/30'; feedbackAnim = 'battle-answer-wrong'; }
             else if (isCorrect) style = 'border-green-500 bg-green-900/20';
           }
           return (
@@ -112,12 +127,13 @@ export function BattleQuestionModal({ questions, count, embedded, onComplete }: 
               key={key}
               onClick={() => handleAnswer(key)}
               disabled={!!selected}
-              className={`w-full text-left p-4 rounded-xl border-2 text-gray-200 transition-all ${style}`}
+              className={`w-full text-left p-4 rounded-xl border-2 text-gray-200 transition-all btn-tactile ${style} ${feedbackAnim}`}
             >
               {text}
             </button>
           );
         })}
+        </div>
       </div>
     </div>
   );

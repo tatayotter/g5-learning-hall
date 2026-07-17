@@ -6,8 +6,15 @@ import { playChime, playClash, playLevelUp } from '@/lib/sounds';
 import GameButton from '@/components/GameButton';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
 
+// Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
+// is heavily biased (see components/battle/shared.tsx's shuffleArray).
 function shuffleArray<T>(arr: T[]): T[] {
-  return [...arr].sort(() => Math.random() - 0.5);
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
 }
 
 const markdownComponents = {

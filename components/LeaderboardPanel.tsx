@@ -8,6 +8,7 @@ import { fetchLeaderboard, LeaderboardEntry } from '@/lib/leaderboard';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 import { GMBadge } from '@/components/MonsterGuild';
+import InfoTag from '@/components/InfoTag';
 
 function TeamStrip({ team }: { team: LeaderboardEntry['team'] }) {
   if (team.length === 0) {
@@ -59,7 +60,10 @@ function TopEntryCard({ entry, rank }: { entry: LeaderboardEntry; rank: number }
             {entry.isFamily && <GMBadge />}
           </p>
           <p className="text-xs text-gray-500">{entry.grade}{!entry.isFamily && ' · Classmate'}</p>
-          <p className="text-sm text-amber-400 font-bold font-mono mt-1">⭐ {entry.score} Arena Score</p>
+          <p className="text-sm text-amber-400 font-bold font-mono mt-1 flex items-center gap-1">
+            ⭐ {entry.score} Arena Score
+            <InfoTag text="Score = Level×5 + Trainer Wins×10 + Live Battle Wins×25 + Questions Answered×1." />
+          </p>
         </div>
       </div>
       <div className="grid grid-cols-4 gap-2 mb-4">

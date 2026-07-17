@@ -21,6 +21,7 @@ import PostBattleSummary from '@/components/battle/PostBattleSummary';
 import { SHOP_CATALOG } from '@/lib/inventory';
 import { USERS } from '@/lib/userSession';
 import { playAttackWhoosh, playHitThud, playVictory, playDefeat } from '@/lib/sounds';
+import InfoTag from '@/components/InfoTag';
 
 // Sentinel skillIds for non-skill round actions — not real SKILLS entries, so
 // the round-resolution damage lookup in hooks/useLiveBattle.ts naturally
@@ -42,10 +43,12 @@ interface LiveBattleScreenProps {
   inventory: Record<string, number>;
   onUseItem: (key: string) => Promise<boolean>;
   onBattleEnd: (won: boolean) => void;
+  onBattleResultKnown?: (won: boolean) => void;
 }
 
 export default function LiveBattleScreen({
   battleId, myUserId, opponentId, opponentName, side, myTeam, opponentTeam, questions, inventory, onUseItem, onBattleEnd,
+  onBattleResultKnown,
 }: LiveBattleScreenProps) {
   const [myRoster, setMyRoster] = useState<ActiveBattleMonster[]>(myTeam);
   const [myActiveIdx, setMyActiveIdx] = useState(0);
@@ -59,7 +62,11 @@ export default function LiveBattleScreen({
   const [confirmSurrender, setConfirmSurrender] = useState(false);
   const [resolving, setResolving] = useState(false);
   const [now, setNow] = useState(() => Date.now());
+  const [itemBusy, setItemBusy] = useState(false);
+  const itemBusyRef = useRef(false);
   const battleMusicRef = useRef<HTMLAudioElement | null>(null);
+  const [myAnim, setMyAnim] = useState('');
+  const [oppAnim, setOppAnim] = useState('');
 
   const myMon = myRoster[myActiveIdx];
   const oppMon = oppRoster[oppActiveIdx];
@@ -87,6 +94,20 @@ export default function LiveBattleScreen({
   };
 
   const addLog = (msg: string) => setLog(prev => [msg, ...prev.slice(0, 6)]);
+
+  // Same reset-then-double-rAF pattern as the solo BattleScreen's triggerAnim
+  // (components/MonsterGuild.tsx) — resetting to '' first forces the CSS
+  // animation to restart even if the same class is applied on consecutive hits.
+  const triggerAnim = (target: 'my' | 'opp', anim: string) => {
+    const setter = target === 'my' ? setMyAnim : setOppAnim;
+    setter('');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setter(anim);
+        setTimeout(() => setter(''), 600);
+      });
+    });
+  };
 
   // The countdown display below reads `now` rather than calling Date.now()
   // directly at render time — without this tick, secondsLeft would only ever
@@ -179,6 +200,15 @@ export default function LiveBattleScreen({
 
     if (lastOutcome.myDamageDealt > 0) playHitThud(); else playAttackWhoosh();
 
+    if (lastOutcome.myDamageDealt > 0) {
+      triggerAnim('my', 'battle-attack-right');
+      triggerAnim('opp', 'battle-hit');
+    }
+    if (lastOutcome.opponentDamageDealt > 0) {
+      triggerAnim('opp', 'battle-attack-left');
+      triggerAnim('my', 'battle-hit');
+    }
+
     if (lastOutcome.myTimedOut) {
       addLog(`⏰ Your attack missed! (took too long to decide)`);
     } else if (lastOutcome.myAttackMissed) {
@@ -261,6 +291,11 @@ export default function LiveBattleScreen({
         ? oppRoster[oppActiveIdx]?.userMonster?.id
         : undefined;
     resolveBattle(battleId, battleEnded.winnerId, battleEnded.reason as any, winnerMonsterId);
+    // Fires the instant the result is known, rather than waiting for this
+    // player to click "Continue" on the summary screen below — otherwise
+    // onlookers' training maps keep showing a blinking "in battle" badge
+    // (and never see the win/loss emoji) until both players click through.
+    onBattleResultKnown?.(battleEnded.winnerId === myUserId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [battleEnded]);
 
@@ -300,10 +335,24 @@ export default function LiveBattleScreen({
   // opponent-targeting effect (inflict_curse) is broadcast so their client
   // applies it to their own monster (see incomingStatusEffect above).
   const handleUseItem = async (key: string) => {
+    // onUseItem is an async DB round-trip — without this guard, clicking the
+    // same (or another) item several times before it resolves fires the item
+    // multiple times in a single turn instead of once. The ref (not just
+    // itemBusy state) makes the guard effective immediately, since a state
+    // update isn't guaranteed to have committed before the next click event.
+    if (itemBusyRef.current) return;
     const item = SHOP_CATALOG.find(i => i.key === key);
     if (!item) return;
+
+    itemBusyRef.current = true;
+    setItemBusy(true);
+
     const used = await onUseItem(key);
-    if (!used) return;
+    if (!used) {
+      itemBusyRef.current = false;
+      setItemBusy(false);
+      return;
+    }
 
     setShowItemMenu(false);
 
@@ -358,6 +407,8 @@ export default function LiveBattleScreen({
     }
 
     submitRoundAnswer(ITEM_ACTION_ID, 0, 0, false);
+    itemBusyRef.current = false;
+    setItemBusy(false);
   };
 
   const otherAliveMonsters = myRoster
@@ -413,11 +464,12 @@ export default function LiveBattleScreen({
   }
 
   return (
-    <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6">
+    <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 battle-panel-in">
       <div className="flex justify-between items-start mb-6">
         <MonsterHpPanel
           name={myMon.def.name} level={myMon.level} def={myMon.def}
           currentHp={myMon.currentHp} maxHp={myMon.maxHp} status={myMon.status} align="left"
+          animClassName={myAnim}
         />
 
         <div className="flex-1 mx-6 bg-black/30 rounded-xl p-3 h-32 overflow-y-auto">
@@ -432,6 +484,7 @@ export default function LiveBattleScreen({
         <MonsterHpPanel
           name={`${oppMon.def.name} (${opponentName})`} level={oppMon.level} def={oppMon.def}
           currentHp={oppMon.currentHp} maxHp={oppMon.maxHp} status={oppMon.status} align="right"
+          animClassName={oppAnim}
         />
       </div>
 
@@ -462,7 +515,7 @@ export default function LiveBattleScreen({
                 <button
                   key={skillId}
                   onClick={() => handleSkillSelect(skillId)}
-                  className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left"
+                  className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left btn-tactile"
                 >
                   <p className="text-sm font-bold text-white">{skill.name}</p>
                   <p className="text-xs text-gray-400">{skill.questionCount} question{skill.questionCount > 1 ? 's' : ''}</p>
@@ -472,9 +525,11 @@ export default function LiveBattleScreen({
             <button
               onClick={handleRest}
               disabled={myMon.restUsed >= restConfig.maxUsesPerBattle}
-              className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left disabled:opacity-40 disabled:cursor-not-allowed"
+              className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
             >
-              <p className="text-sm font-bold text-white">😴 Rest</p>
+              <p className="text-sm font-bold text-white flex items-center gap-1">
+                😴 Rest <InfoTag text="Heals your monster and uses up this round's turn — the opponent still attacks normally. Limited uses per battle." />
+              </p>
               <p className="text-xs text-gray-400">Restore {Math.round(restConfig.hpRestorePercent * 100)}% HP</p>
             </button>
           </div>
@@ -485,24 +540,30 @@ export default function LiveBattleScreen({
           <div className="grid grid-cols-3 gap-2">
             <button
               onClick={() => { setShowItemMenu(true); setShowSwitchMenu(false); setConfirmSurrender(false); }}
-              className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left"
+              className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left btn-tactile"
             >
-              <p className="text-sm font-bold text-white">🎒 Items</p>
+              <p className="text-sm font-bold text-white flex items-center gap-1">
+                🎒 Items <InfoTag text="Using an item also uses up this round's turn — the opponent still attacks normally." />
+              </p>
               <p className="text-xs text-gray-400">Use an item</p>
             </button>
             <button
               onClick={() => { setShowSwitchMenu(true); setShowItemMenu(false); setConfirmSurrender(false); }}
               disabled={otherAliveMonsters.length === 0}
-              className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left disabled:opacity-40 disabled:cursor-not-allowed"
+              className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
             >
-              <p className="text-sm font-bold text-white">🔄 Switch</p>
+              <p className="text-sm font-bold text-white flex items-center gap-1">
+                🔄 Switch <InfoTag text="Swap to another monster on your team — also uses up this round's turn." />
+              </p>
               <p className="text-xs text-gray-400">{otherAliveMonsters.length > 0 ? 'Change your monster' : 'No other monsters'}</p>
             </button>
             <button
               onClick={() => { setConfirmSurrender(true); setShowItemMenu(false); setShowSwitchMenu(false); }}
-              className="p-3 rounded-xl border-2 border-red-900/60 hover:border-red-500 text-left"
+              className="p-3 rounded-xl border-2 border-red-900/60 hover:border-red-500 text-left btn-tactile"
             >
-              <p className="text-sm font-bold text-red-400">🏳️ Surrender</p>
+              <p className="text-sm font-bold text-red-400 flex items-center gap-1">
+                🏳️ Surrender <InfoTag text="Ends the match immediately. You earn no EXP or Gold; your opponent wins with half EXP and no Gold." />
+              </p>
               <p className="text-xs text-gray-400">Forfeit the match</p>
             </button>
           </div>
@@ -523,7 +584,8 @@ export default function LiveBattleScreen({
                 <button
                   key={key}
                   onClick={() => handleUseItem(key)}
-                  className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors"
+                  disabled={itemBusy}
+                  className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
                 >
                   <span className="text-left">
                     <span className="text-sm font-bold text-white">{itemData.icon} {itemData.name}</span>
@@ -536,7 +598,7 @@ export default function LiveBattleScreen({
           )}
           <button
             onClick={() => setShowItemMenu(false)}
-            className="w-full text-center text-xs text-gray-500 hover:text-gray-300 pt-1"
+            className="w-full text-center text-xs text-gray-500 hover:text-gray-300 pt-1 btn-tactile"
           >
             Cancel
           </button>
@@ -553,7 +615,7 @@ export default function LiveBattleScreen({
               <button
                 key={i}
                 onClick={() => handleSwitchMonster(i)}
-                className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors"
+                className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors btn-tactile"
               >
                 <span className="text-left">
                   <span className="text-sm font-bold text-white">{m.def.name} Lv.{m.level}</span>
@@ -564,7 +626,7 @@ export default function LiveBattleScreen({
           )}
           <button
             onClick={() => setShowSwitchMenu(false)}
-            className="w-full text-center text-xs text-gray-500 hover:text-gray-300 pt-1"
+            className="w-full text-center text-xs text-gray-500 hover:text-gray-300 pt-1 btn-tactile"
           >
             Cancel
           </button>
@@ -580,13 +642,13 @@ export default function LiveBattleScreen({
           <div className="flex gap-2">
             <button
               onClick={() => setConfirmSurrender(false)}
-              className="flex-1 bg-neutral-800 hover:bg-neutral-700 text-white py-2 rounded-lg"
+              className="flex-1 bg-neutral-800 hover:bg-neutral-700 text-white py-2 rounded-lg btn-tactile"
             >
               Cancel
             </button>
             <button
               onClick={handleSurrender}
-              className="flex-1 bg-red-700 hover:bg-red-600 text-white py-2 rounded-lg font-bold"
+              className="flex-1 bg-red-700 hover:bg-red-600 text-white py-2 rounded-lg font-bold btn-tactile"
             >
               Surrender
             </button>

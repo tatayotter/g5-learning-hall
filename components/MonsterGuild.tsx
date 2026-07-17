@@ -25,6 +25,7 @@ import {
 import LiveBattleScreen from '@/components/LiveBattleScreen';
 import PostBattleSummary from '@/components/battle/PostBattleSummary';
 import LeaderboardPanel from '@/components/LeaderboardPanel';
+import InfoTag from '@/components/InfoTag';
 import { createInvite, fetchLiveBattle } from '@/lib/liveBattle';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 
@@ -116,7 +117,12 @@ function TownMarker() {
   );
 }
 
-function PlayerSprite({ userId, isSelf = false }: { userId: string; isSelf?: boolean }) {
+function PlayerSprite({ userId, isSelf = false, inBattle = false, resultWon }: {
+  userId: string;
+  isSelf?: boolean;
+  inBattle?: boolean;
+  resultWon?: boolean;
+}) {
   const profile = USERS[userId];
   // A chosen userpic (full-body trainer sprite) doubles as the map sprite;
   // the default headshot avatars (avatar.png / tala-avatar.png) don't fit
@@ -127,6 +133,22 @@ function PlayerSprite({ userId, isSelf = false }: { userId: string; isSelf?: boo
 
   return (
     <div className="relative w-full h-full">
+      {inBattle && (
+        <span
+          className="absolute -top-1 left-1/2 -translate-x-1/2 text-sm z-10 animate-pulse drop-shadow"
+          title={`${profile?.name ?? 'This player'} is in a battle`}
+        >
+          ⚔️
+        </span>
+      )}
+      {!inBattle && resultWon !== undefined && (
+        <span
+          className="absolute -top-1 left-1/2 -translate-x-1/2 text-sm z-10 drop-shadow"
+          title={resultWon ? `${profile?.name ?? 'They'} won their battle!` : `${profile?.name ?? 'They'} lost their battle`}
+        >
+          {resultWon ? '🏆' : '💀'}
+        </span>
+      )}
       <div className={`absolute left-1/2 bottom-0 -translate-x-1/2 w-6 h-2 rounded-full ${isSelf ? 'bg-amber-400/60' : 'bg-black/25'}`}/>
       <img
         src={src}
@@ -198,6 +220,8 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
   const [attackMessage, setAttackMessage] = useState<string | null>(null);
   const [confirmSurrender, setConfirmSurrender] = useState(false);
   const [battleResult, setBattleResult] = useState<{ won: boolean; exp: number; reason: 'ko' | 'surrender' } | null>(null);
+  const [itemBusy, setItemBusy] = useState(false);
+  const itemBusyRef = useRef(false);
   const battleMusicRef = useRef<HTMLAudioElement | null>(null);
 
   const playerMon = playerMonsters[playerMonsterIdx];
@@ -303,11 +327,26 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
   };
 
   const handleItemUse = async (key: string) => {
+    // onUseItem is an async DB round-trip — without this guard, clicking the
+    // same (or another) item several times before it resolves fires the item
+    // multiple times in a single turn instead of once. The ref (not just
+    // itemBusy state) makes the guard effective immediately, since a state
+    // update isn't guaranteed to have committed before the next click event.
+    // Stays true through the 500ms npc_turn hand-off below too, so a second
+    // click can't sneak in during that window either.
+    if (itemBusyRef.current) return;
     const item = SHOP_CATALOG.find(i => i.key === key);
     if (!item) return;
 
+    itemBusyRef.current = true;
+    setItemBusy(true);
+
     const itemUsed = await onUseItem(key);
-    if (!itemUsed) return;
+    if (!itemUsed) {
+      itemBusyRef.current = false;
+      setItemBusy(false);
+      return;
+    }
 
     switch (item.effect) {
       case 'heal_30': {
@@ -359,6 +398,8 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
     setTimeout(() => {
       setPhase('npc_turn');
       doNpcTurn();
+      itemBusyRef.current = false;
+      setItemBusy(false);
     }, 500);
   };
 
@@ -586,7 +627,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
   }
 
   return (
-    <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6">
+    <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 battle-panel-in">
       {/* Battle header */}
       <div className="flex justify-between items-start mb-6">
         {/* Player monster — LEFT */}
@@ -671,7 +712,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
               <button
                 key={tier}
                 onClick={() => handleSkillSelect(skillId)}
-                className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all"
+                className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all btn-tactile"
               >
                 <p className="font-bold text-white text-sm">{skill.name}</p>
                 <p className="text-xs text-gray-400">{skill.questionCount} question{skill.questionCount > 1 ? 's' : ''} · Tier {tier}</p>
@@ -682,9 +723,11 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
           <button
             onClick={handleRest}
             disabled={playerMon.restUsed >= restConfig.maxUsesPerBattle}
-            className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+            className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
           >
-            <p className="font-bold text-white text-sm">😴 Rest</p>
+            <p className="font-bold text-white text-sm flex items-center gap-1">
+              😴 Rest <InfoTag text="Heals your monster and uses up this turn — the trainer's monster still attacks normally. Limited uses per battle." />
+            </p>
             <p className="text-xs text-gray-400">Restore {Math.round(restConfig.hpRestorePercent * 100)}% HP</p>
           </button>
         </div>
@@ -696,24 +739,30 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
           <div className="grid grid-cols-3 gap-3">
             <button
               onClick={() => setPhase('select_item')}
-              className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all"
+              className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all btn-tactile"
             >
-              <p className="font-bold text-white text-sm">🎒 Items</p>
+              <p className="font-bold text-white text-sm flex items-center gap-1">
+                🎒 Items <InfoTag text="Using an item also uses up this turn — the trainer's monster still attacks normally." />
+              </p>
               <p className="text-xs text-gray-400">Use items from inventory</p>
             </button>
             <button
               onClick={() => setPhase('select_switch')}
               disabled={otherAlivePlayerMonsters.length === 0}
-              className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+              className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
             >
-              <p className="font-bold text-white text-sm">🔄 Switch</p>
+              <p className="font-bold text-white text-sm flex items-center gap-1">
+                🔄 Switch <InfoTag text="Swap to another monster on your team — also uses up this turn." />
+              </p>
               <p className="text-xs text-gray-400">{otherAlivePlayerMonsters.length > 0 ? 'Change your monster' : 'No other monsters'}</p>
             </button>
             <button
               onClick={() => setConfirmSurrender(true)}
-              className="bg-neutral-800 hover:bg-neutral-700 border border-red-900/60 hover:border-red-500 rounded-xl p-4 text-left transition-all"
+              className="bg-neutral-800 hover:bg-neutral-700 border border-red-900/60 hover:border-red-500 rounded-xl p-4 text-left transition-all btn-tactile"
             >
-              <p className="font-bold text-red-400 text-sm">🏳️ Surrender</p>
+              <p className="font-bold text-red-400 text-sm flex items-center gap-1">
+                🏳️ Surrender <InfoTag text="Ends the battle immediately with no Monster EXP earned." />
+              </p>
               <p className="text-xs text-gray-400">Forfeit the match</p>
             </button>
           </div>
@@ -727,13 +776,13 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
           <div className="flex gap-2">
             <button
               onClick={() => setConfirmSurrender(false)}
-              className="flex-1 bg-neutral-800 hover:bg-neutral-700 text-white py-2 rounded-lg"
+              className="flex-1 bg-neutral-800 hover:bg-neutral-700 text-white py-2 rounded-lg btn-tactile"
             >
               Cancel
             </button>
             <button
               onClick={handleSurrender}
-              className="flex-1 bg-red-700 hover:bg-red-600 text-white py-2 rounded-lg font-bold"
+              className="flex-1 bg-red-700 hover:bg-red-600 text-white py-2 rounded-lg font-bold btn-tactile"
             >
               Surrender
             </button>
@@ -756,7 +805,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
                 <button
                   key={i}
                   onClick={() => handleSwitchMonster(i)}
-                  className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left flex items-center gap-4 transition-all"
+                  className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left flex items-center gap-4 transition-all btn-tactile"
                 >
                   <div className="w-10 h-10">
                     <MonsterImage monster={m.def} className="w-full h-full" emojiClassName="text-2xl" />
@@ -771,7 +820,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
           </div>
           <button
             onClick={() => setPhase('select_skill')}
-            className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors"
+            className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors btn-tactile"
           >
             Cancel
           </button>
@@ -794,7 +843,8 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
                   <button
                     key={key}
                     onClick={() => handleItemUse(key)}
-                    className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left flex items-center gap-4 transition-all"
+                    disabled={itemBusy}
+                    className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left flex items-center gap-4 transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
                   >
                     <span className="text-2xl">{itemData?.icon || '📦'}</span>
                     <div className="flex-1">
@@ -809,7 +859,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
           </div>
           <button 
             onClick={() => setPhase('select_skill')} 
-            className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors"
+            className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors btn-tactile"
           >
             Cancel
           </button>
@@ -818,7 +868,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
 
       {phase === 'answering' && pendingSkillId && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-          <div className="bg-neutral-900 border border-amber-700 rounded-2xl p-6 max-w-lg w-full">
+          <div className="bg-neutral-900 border border-amber-700 rounded-2xl p-6 max-w-lg w-full battle-panel-in">
             <div className="flex items-center gap-4 mb-5 bg-amber-900/20 border border-amber-800 rounded-xl p-4">
               <MonsterImage monster={playerMon.def} className="w-14 h-14" />
               <div>
@@ -932,11 +982,14 @@ interface TrainingMapProps {
   onQuestionsAnswered?: (questions: any[]) => void;
   onWildEncounterRoll?: () => void;
   onChallengePlayer?: (targetId: string, name: string) => void;
+  liveBattleInbox?: ReturnType<typeof useLiveBattleInbox>;
+  mapPresence: ReturnType<typeof useMapPresence>;
 }
 
 function TrainingMap({
   userId, battleState, userMonsters, questions,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll, onChallengePlayer,
+  liveBattleInbox, mapPresence,
 }: TrainingMapProps) {
   const [grassQuestion, setGrassQuestion] = useState(false);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
@@ -948,9 +1001,7 @@ function TrainingMap({
   const map = buildMap();
   const activeMonster = userMonsters.find(m => m.slot === battleState.active_monster_slot);
   const selfProfile = USERS[userId];
-  const { onlinePlayers, waves, stickers, sendWave, sendSticker } = useMapPresence(
-    userId, selfProfile?.name || userId, selfProfile?.gender || 'boy', battleState.map_x, battleState.map_y
-  );
+  const { onlinePlayers, waves, stickers, sendWave, sendSticker } = mapPresence;
 
   // Restarts a CSS keyframe animation on repeat triggers (toggling the same
   // boolean twice in a row wouldn't otherwise re-fire the animation).
@@ -1091,7 +1142,12 @@ function TrainingMap({
                     </div>
                   )}
                   <div className={`w-[120%] h-[120%] ${stepping ? 'map-step-bounce' : ''}`}>
-                    <PlayerSprite userId={userId} isSelf />
+                    <PlayerSprite
+                      userId={userId}
+                      isSelf
+                      inBattle={liveBattleInbox?.playersInBattle.has(userId) ?? false}
+                      resultWon={liveBattleInbox?.battleResultFlashes[userId]}
+                    />
                   </div>
                   <p className="absolute -bottom-4 flex items-center gap-1 text-[10px] map-name-tag bg-black/60 px-1 rounded whitespace-nowrap">
                     {selfProfile?.name || userId}
@@ -1130,7 +1186,11 @@ function TrainingMap({
                       </div>
                     )}
                     <div className="w-[120%] h-[120%]">
-                      <PlayerSprite userId={p.userId} />
+                      <PlayerSprite
+                        userId={p.userId}
+                        inBattle={liveBattleInbox?.playersInBattle.has(p.userId) ?? false}
+                        resultWon={liveBattleInbox?.battleResultFlashes[p.userId]}
+                      />
                     </div>
                     <p className="absolute -bottom-4 flex items-center gap-1 text-[10px] map-name-tag bg-black/60 px-1 rounded whitespace-nowrap">
                       {USERS[p.userId]?.name || p.name}
@@ -1321,6 +1381,7 @@ function TrainingMap({
           onClose={() => setStatsTargetId(null)}
           onWave={sendWave}
           onChallenge={onChallengePlayer}
+          targetInBattle={liveBattleInbox?.playersInBattle.has(statsTargetId) ?? false}
         />
       )}
     </div>
@@ -1432,61 +1493,101 @@ function CollectionPanel({ caughtMonsters, userMonsters, playerLevel, onPromote 
   const [promotingId, setPromotingId] = useState<string | null>(null);
   const unlockedSlots = getUnlockedMonsterSlots(playerLevel);
 
-  if (caughtMonsters.length === 0) {
-    return (
-      <div className="text-center py-16 text-gray-500">
-        <p className="text-4xl mb-3">🐲</p>
-        <p className="font-bold text-white mb-1">No wild monsters caught yet</p>
-        <p className="text-sm">Wild encounters are rare — keep answering questions on the Training Map and you might run into one.</p>
-      </div>
-    );
-  }
+  // "Owned" = currently on the team or sitting in the caught-but-benched
+  // collection — anything never caught (mostly the wild-only species, since
+  // starters can always be freely added to an open team slot) stays greyed
+  // out here as a preview of what's still out there to find.
+  const ownedSpeciesIds = new Set([
+    ...userMonsters.map(m => m.monster_id),
+    ...caughtMonsters.map(c => c.monster_id),
+  ]);
 
   return (
-    <div className="space-y-4">
-      <h3 className="text-lg font-bold text-white font-display">🐲 Collection</h3>
-      <p className="text-xs text-gray-500">Rare monsters you've caught in the wild. Move one into your team to battle with it.</p>
-      {caughtMonsters.map(caught => {
-        const def = ALL_MONSTERS[caught.monster_id];
-        if (!def) return null;
-        return (
-          <div key={caught.id} className="p-4 rounded-xl border border-amber-800 bg-amber-900/10">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 flex-shrink-0">
-                <MonsterImage monster={def} className="w-full h-full" />
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-lg font-bold text-white font-display">🐲 Collection</h3>
+        <p className="text-xs text-gray-500">Every monster species in the game. Greyed-out ones haven't been obtained yet — most only appear from a rare wild encounter on the Training Map.</p>
+      </div>
+
+      {caughtMonsters.length > 0 && (
+        <div className="space-y-3">
+          <p className="text-xs text-amber-500 font-bold uppercase tracking-widest">Ready to add to your team</p>
+          {caughtMonsters.map(caught => {
+            const def = ALL_MONSTERS[caught.monster_id];
+            if (!def) return null;
+            return (
+              <div key={caught.id} className="p-4 rounded-xl border border-amber-800 bg-amber-900/10">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 flex-shrink-0">
+                    <MonsterImage monster={def} className="w-full h-full" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-bold text-white">{def.name} <span className="text-gray-400 text-sm">Lv.{caught.monster_level}</span></p>
+                    <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
+                  </div>
+                  <button
+                    onClick={() => setPromotingId(promotingId === caught.id ? null : caught.id)}
+                    className="bg-amber-700 hover:bg-amber-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors"
+                  >
+                    → Move to Team
+                  </button>
+                </div>
+                {promotingId === caught.id && (
+                  <div className="mt-3 pt-3 border-t border-amber-900 flex flex-wrap gap-2">
+                    {[1, 2, 3].map(slot => {
+                      const existing = userMonsters.find(m => m.slot === slot);
+                      const isUnlocked = slot <= unlockedSlots || !!existing;
+                      if (!isUnlocked) return null;
+                      return (
+                        <button
+                          key={slot}
+                          onClick={() => { onPromote(caught, slot); setPromotingId(null); }}
+                          className="text-xs bg-neutral-800 hover:bg-neutral-700 px-3 py-2 rounded-lg text-white"
+                        >
+                          {existing ? `Replace ${ALL_MONSTERS[existing.monster_id]?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
-              <div className="flex-1">
-                <p className="font-bold text-white">{def.name} <span className="text-gray-400 text-sm">Lv.{caught.monster_level}</span></p>
-                <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
-              </div>
-              <button
-                onClick={() => setPromotingId(promotingId === caught.id ? null : caught.id)}
-                className="bg-amber-700 hover:bg-amber-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors"
+            );
+          })}
+        </div>
+      )}
+
+      <div className="space-y-3">
+        <p className="text-xs text-gray-500 font-bold uppercase tracking-widest">All Species</p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {Object.values(ALL_MONSTERS).map(def => {
+            const owned = ownedSpeciesIds.has(def.id);
+            const inTeam = userMonsters.find(m => m.monster_id === def.id);
+            return (
+              <div
+                key={def.id}
+                className={`p-3 rounded-xl border text-center ${
+                  owned ? 'border-neutral-700 bg-neutral-900' : 'border-neutral-800 bg-neutral-950/50 opacity-40 grayscale'
+                }`}
               >
-                → Move to Team
-              </button>
-            </div>
-            {promotingId === caught.id && (
-              <div className="mt-3 pt-3 border-t border-amber-900 flex flex-wrap gap-2">
-                {[1, 2, 3].map(slot => {
-                  const existing = userMonsters.find(m => m.slot === slot);
-                  const isUnlocked = slot <= unlockedSlots || !!existing;
-                  if (!isUnlocked) return null;
-                  return (
-                    <button
-                      key={slot}
-                      onClick={() => { onPromote(caught, slot); setPromotingId(null); }}
-                      className="text-xs bg-neutral-800 hover:bg-neutral-700 px-3 py-2 rounded-lg text-white"
-                    >
-                      {existing ? `Replace ${ALL_MONSTERS[existing.monster_id]?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
-                    </button>
-                  );
-                })}
+                <div className="w-12 h-12 mx-auto mb-2">
+                  <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-3xl" />
+                </div>
+                <p className="text-sm font-bold text-white">{def.name}</p>
+                <p className="text-xs text-gray-500 capitalize">{def.element}</p>
+                {owned ? (
+                  inTeam ? (
+                    <p className="text-[10px] text-green-500 mt-1">✅ In Team · Lv.{inTeam.monster_level}</p>
+                  ) : (
+                    <p className="text-[10px] text-amber-500 mt-1">📦 In Collection</p>
+                  )
+                ) : (
+                  <p className="text-[10px] text-gray-600 mt-1">🔒 Not obtained</p>
+                )}
               </div>
-            )}
-          </div>
-        );
-      })}
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
@@ -1577,6 +1678,19 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
 
   useEffect(() => { loadData(); }, [userId]);
 
+  // Mounted here (not inside TrainingMap) so a player's presence on the
+  // training-map channel survives switching to the live-battle view —
+  // otherwise their sprite would vanish for everyone else the instant a
+  // challenge is accepted, instead of staying visible with a battle badge.
+  const selfProfileForMap = USERS[userId];
+  const mapPresence = useMapPresence(
+    userId,
+    selfProfileForMap?.name || userId,
+    selfProfileForMap?.gender || 'boy',
+    battleState?.map_x ?? 0,
+    battleState?.map_y ?? 0,
+  );
+
   // The invitee lands here once they've accepted a challenge from anywhere
   // else in the app (Dashboard's LiveBattleInviteToast) — fetch the battle
   // row both sides already agreed on and jump straight into the live screen.
@@ -1599,6 +1713,13 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pendingLiveBattleId]);
+
+  // Lets other players' training maps show a blinking "in battle" badge over
+  // this player's sprite, and blocks challenges aimed at them while it's set.
+  useEffect(() => {
+    liveBattleInbox.setInBattleStatus(view === 'live_battle');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [view]);
 
   // Challenger's side: if the invitee declines, back out of the waiting screen.
   useEffect(() => {
@@ -1708,6 +1829,10 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
   const handleChallengePlayer = async (opponentId: UserId, opponentName: string) => {
     if (!liveBattleInbox.onlinePlayerIds.has(opponentId)) {
       showNotification(`${opponentName} isn't online right now.`);
+      return;
+    }
+    if (liveBattleInbox.playersInBattle.has(opponentId)) {
+      showNotification(`${opponentName} is in a battle — try again once they're done.`);
       return;
     }
 
@@ -1907,6 +2032,8 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           onQuestionsAnswered={handleQuestionsAnswered}
           onWildEncounterRoll={handleWildEncounterRoll}
           onChallengePlayer={(targetId, name) => handleChallengePlayer(targetId as UserId, name)}
+          liveBattleInbox={liveBattleInbox}
+          mapPresence={mapPresence}
         />
       )}
 
@@ -1959,7 +2086,9 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
                   </div>
                 </div>
                 <div className="space-y-2">
-                  {otherPlayers.map(player => (
+                  {otherPlayers.map(player => {
+                    const inBattle = liveBattleInbox.playersInBattle.has(player.id);
+                    return (
                     <div key={player.id} className="flex items-center justify-between bg-black/30 rounded-lg px-4 py-3">
                       <div className="flex items-center gap-3">
                         <img
@@ -1970,17 +2099,21 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
                         />
                         <div>
                           <p className="text-white text-sm font-bold">{player.fullName}</p>
-                          <p className="text-gray-500 text-xs">{player.grade}{!player.isFamily && ' · Classmate'}</p>
+                          <p className="text-gray-500 text-xs">
+                            {inBattle ? `⚔️ ${player.name} is in a battle` : `${player.grade}${!player.isFamily ? ' · Classmate' : ''}`}
+                          </p>
                         </div>
                       </div>
                       <button
                         onClick={() => handleChallengePlayer(player.id as UserId, player.name)}
-                        className="bg-indigo-700 hover:bg-indigo-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors"
+                        disabled={inBattle}
+                        className="bg-indigo-700 hover:bg-indigo-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                       >
                         Challenge!
                       </button>
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             );
@@ -2092,6 +2225,10 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
             const ok = await useInventoryItem(userId, key);
             if (ok) await loadData(true); // skip full reset — would unmount LiveBattleScreen mid-fight
             return ok;
+          }}
+          onBattleResultKnown={(won) => {
+            liveBattleInbox.sendBattleResultFlash(won);
+            liveBattleInbox.setInBattleStatus(false);
           }}
           onBattleEnd={(won) => {
             showNotification(won ? `🏆 Defeated ${liveBattleOpponent.name}!` : `💀 ${liveBattleOpponent.name} was too strong!`);

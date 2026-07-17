@@ -331,6 +331,37 @@ body {
 .map-bump-shake  { animation: map-bump-shake 0.22s ease-in-out; }
 .map-dust-puff   { animation: map-dust-puff 0.45s ease-out forwards; }
 
+/* ── Battle UI: shared button feel + screen/panel entrances ── */
+/* Used across all three battle surfaces (NPC BattleScreen, LiveBattleScreen,
+   WildEncounterModal) so a skill/item/answer button always presses the same
+   way, and a fight's main panel and its post-battle summary settle in with
+   the same weight rather than popping in instantly. */
+.btn-tactile {
+  transition: transform 0.12s ease-out, filter 0.12s ease-out;
+}
+.btn-tactile:hover:not(:disabled) { transform: translateY(-1px) scale(1.02); }
+.btn-tactile:active:not(:disabled) { transform: translateY(0) scale(0.97); }
+
+@keyframes battle-panel-in {
+  0%   { opacity: 0; transform: translateY(10px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.battle-panel-in { animation: battle-panel-in 0.25s ease-out; }
+
+@keyframes battle-answer-wrong {
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(-6px); }
+  50%      { transform: translateX(6px); }
+  75%      { transform: translateX(-3px); }
+}
+.battle-answer-wrong { animation: battle-answer-wrong 0.35s ease-in-out; }
+
+@keyframes battle-answer-correct {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
+}
+.battle-answer-correct { animation: battle-answer-correct 0.3s ease-out; }
+
 /* ── Landscape lock ─────────────────────────────── */
 @media screen and (orientation: portrait) and (max-width: 1024px) {
   .landscape-only {

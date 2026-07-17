@@ -31,8 +31,15 @@ const TIME_LIMIT_TALA = 120;
 const GOLD_PER_CORRECT = 3;
 const XP_PER_CORRECT = 5;
 
+// Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
+// is heavily biased (see components/battle/shared.tsx's shuffleArray).
 function shuffle<T>(arr: T[]): T[] {
-  return [...arr].sort(() => Math.random() - 0.5);
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
 }
 
 export default function LexiconArena({ userId, weekStartingDate, currentStats, onGoldEarned, onExit }: LexiconArenaProps) {
