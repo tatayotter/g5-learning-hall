@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import { useTimeAttack } from '@/hooks/useTimeAttack';
-import { fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
+import { fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile, ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/lib/guildEngine';
 import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
 import { playChime, playClash } from '@/lib/sounds';
@@ -98,6 +98,9 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
     if (profile) {
       const { level, xp } = applyLevelUp(profile.spellcaster_lvl, profile.spellcaster_xp, engine.totalXpEarned);
       await updateSubclassProfile(userId, { spellcaster_lvl: level, spellcaster_xp: xp });
+      if (profile.spellcaster_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
+        await ensureGuildMonsterGranted(userId, 'spellcaster');
+      }
     }
     if (engine.totalGoldEarned > 0) {
       const newStats = { ...currentStats, gold: currentStats.gold + engine.totalGoldEarned };

@@ -1,7 +1,11 @@
 // lib/guildEngine.ts
 import { supabase } from '@/lib/supabase';
 import { CURRENT_TERM, PREFETCH_BATCH_SIZE } from '@/lib/guildConfig';
+import type { GuildKey } from '@/lib/dailyChecklist';
+import { GUILD_MONSTERS } from '@/lib/monsterConfig';
 
+// Guild level at which a player is rewarded their guild's companion monster.
+export const GUILD_MONSTER_GRANT_LEVEL = 5;
 
 export interface SubclassProfile {
   lorekeeper_lvl: number;
@@ -22,12 +26,12 @@ export async function fetchSubclassProfile(userId: string): Promise<SubclassProf
     .from('user_subclass_profiles')
     .select('*')
     .eq('user_id', USER_ID)
-    .single();
+    .maybeSingle();
   if (error) {
     console.error('Failed to fetch subclass profile:', error);
     return null;
   }
-  return data as SubclassProfile;
+  return data as SubclassProfile | null;
 }
 
 export async function updateSubclassProfile(userId: string, fields: Partial<SubclassProfile>) {
@@ -38,6 +42,52 @@ export async function updateSubclassProfile(userId: string, fields: Partial<Subc
     .eq('user_id', USER_ID);
   if (error) {
     console.error('Failed to update subclass profile:', error);
+  }
+}
+
+const GUILD_LEVEL_FIELD: Record<GuildKey, keyof SubclassProfile> = {
+  lorekeeper: 'lorekeeper_lvl',
+  spellcaster: 'spellcaster_lvl',
+  number_realm: 'number_realm_lvl',
+  logic_labyrinth: 'logic_labyrinth_lvl',
+  lexicon_arena: 'lexicon_arena_lvl',
+};
+
+const GUILD_MONSTER_ID: Record<GuildKey, string> = {
+  lorekeeper: 'lorekeeper_familiar',
+  spellcaster: 'spellcaster_familiar',
+  number_realm: 'numberrealm_familiar',
+  logic_labyrinth: 'logiclabyrinth_familiar',
+  lexicon_arena: 'lexiconarena_familiar',
+};
+
+// Reads a player's level in a given guild off their SubclassProfile. Returns
+// 0 (safely resolves to tier 1 display) if the profile or guildKey is missing.
+export function guildLevelForKey(profile: SubclassProfile | null | undefined, guildKey: GuildKey | undefined): number {
+  if (!profile || !guildKey) return 0;
+  return profile[GUILD_LEVEL_FIELD[guildKey]] as number;
+}
+
+// Grants the guild's companion monster (see GUILD_MONSTERS in lib/monsterConfig.ts)
+// into the player's caught-monsters bench the first time that guild reaches
+// GUILD_MONSTER_GRANT_LEVEL. Call once per level-up, guarded by the caller so
+// it only fires on the level-5 crossing turn. Safe to call more than once —
+// checks for an existing catch first.
+export async function ensureGuildMonsterGranted(userId: string, guildKey: GuildKey) {
+  const monsterId = GUILD_MONSTER_ID[guildKey];
+  if (!monsterId || !GUILD_MONSTERS[monsterId]) return;
+
+  const [{ data: owned }, { data: caught }] = await Promise.all([
+    supabase.from('user_monsters').select('id').eq('user_id', userId).eq('monster_id', monsterId).limit(1),
+    supabase.from('user_caught_monsters').select('id').eq('user_id', userId).eq('monster_id', monsterId).limit(1),
+  ]);
+  if ((owned && owned.length > 0) || (caught && caught.length > 0)) return;
+
+  const { error } = await supabase.from('user_caught_monsters').insert({
+    user_id: userId, monster_id: monsterId, monster_level: 1, monster_exp: 0,
+  });
+  if (error) {
+    console.error('Failed to grant guild companion monster:', error);
   }
 }
 

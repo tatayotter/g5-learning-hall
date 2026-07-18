@@ -8,7 +8,7 @@ import GameButton from '@/components/GameButton';
 import { motion, AnimatePresence } from 'framer-motion';
 import { logAction } from '@/lib/playerlog';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
-import { fetchSubclassProfile, updateSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
+import { fetchSubclassProfile, updateSubclassProfile, ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/lib/guildEngine';
 import { applyLevelUp } from '@/lib/guildConfig';
 
 interface LexiconWord {
@@ -161,6 +161,9 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
     if (profile) {
       const { level, xp } = applyLevelUp(profile.lexicon_arena_lvl, profile.lexicon_arena_xp, xpEarned);
       await updateSubclassProfile(userId, { lexicon_arena_lvl: level, lexicon_arena_xp: xp });
+      if (profile.lexicon_arena_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
+        await ensureGuildMonsterGranted(userId, 'lexicon_arena');
+      }
     }
 
     let newXp = currentStats.xp + xpEarned;

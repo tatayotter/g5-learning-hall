@@ -2,7 +2,8 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { USERS } from '@/lib/userSession';
-import { ALL_MONSTERS } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, GUILD_MONSTERS, MonsterDef, getGuildMonsterDisplay } from '@/lib/monsterConfig';
+import { fetchSubclassProfile, guildLevelForKey, SubclassProfile } from '@/lib/guildEngine';
 import { GMBadge } from '@/components/MonsterGuild';
 import { MonsterImage } from '@/components/battle/shared';
 
@@ -27,6 +28,7 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
   const [team, setTeam] = useState<TeamMonster[]>([]);
   const [activeSlot, setActiveSlot] = useState<number | null>(null);
   const [avatarFailed, setAvatarFailed] = useState(false);
+  const [subclassProfile, setSubclassProfile] = useState<SubclassProfile | null>(null);
 
   const profile = USERS[targetId];
 
@@ -34,16 +36,18 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
     let cancelled = false;
     async function load() {
       setLoading(true);
-      const [stateRes, monstersRes, weeklyRes] = await Promise.all([
+      const [stateRes, monstersRes, weeklyRes, subProfile] = await Promise.all([
         supabase.from('user_battle_state').select('active_monster_slot').eq('user_id', targetId).single(),
         supabase.from('user_monsters').select('slot, monster_id, nickname, monster_level').eq('user_id', targetId).order('slot'),
         supabase.from('weekly_packages').select('character_stats')
           .eq('user_id', targetId).order('week_starting_date', { ascending: false }).limit(1).maybeSingle(),
+        fetchSubclassProfile(targetId),
       ]);
       if (cancelled) return;
       setActiveSlot(stateRes.data?.active_monster_slot ?? null);
       setTeam(monstersRes.data || []);
       setLevel(weeklyRes.data?.character_stats?.level ?? null);
+      setSubclassProfile(subProfile);
       setLoading(false);
     }
     load();
@@ -51,6 +55,17 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
   }, [targetId]);
 
   const activeMonster = team.find(m => m.slot === activeSlot);
+
+  // ALL_MONSTERS, but guild companions show the name/emoji their owner's
+  // (targetId's) guild level currently unlocks — see MonsterGuild.tsx for the
+  // same pattern applied to the local player's own view.
+  const displayMonsters: Record<string, MonsterDef> = { ...ALL_MONSTERS };
+  for (const id of Object.keys(GUILD_MONSTERS)) {
+    const def = GUILD_MONSTERS[id];
+    const guildLevel = guildLevelForKey(subclassProfile, def.guildEvolution?.guildKey);
+    const { name, emoji, isLegendary, spriteId } = getGuildMonsterDisplay(def, guildLevel);
+    displayMonsters[id] = { ...def, name, emoji, isLegendary, spriteId };
+  }
 
   return (
     <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" onClick={onClose}>
@@ -92,14 +107,14 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
               {activeMonster ? (
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 flex-shrink-0">
-                    <MonsterImage monster={ALL_MONSTERS[activeMonster.monster_id]} className="w-full h-full" emojiClassName="text-2xl" />
+                    <MonsterImage monster={displayMonsters[activeMonster.monster_id]} className="w-full h-full" emojiClassName="text-2xl" />
                   </div>
                   <div>
                     <p className="text-white text-sm font-bold">
-                      {activeMonster.nickname || ALL_MONSTERS[activeMonster.monster_id]?.name}
+                      {activeMonster.nickname || displayMonsters[activeMonster.monster_id]?.name}
                     </p>
                     <p className="text-xs text-gray-500">
-                      Lv{activeMonster.monster_level} · {ALL_MONSTERS[activeMonster.monster_id]?.element}
+                      Lv{activeMonster.monster_level} · {displayMonsters[activeMonster.monster_id]?.element}
                     </p>
                   </div>
                 </div>
@@ -115,9 +130,9 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
                   {team.map(m => (
                     <div key={m.slot} className="flex items-center gap-1.5 text-xs text-gray-400">
                       <div className="w-4 h-4 flex-shrink-0">
-                        <MonsterImage monster={ALL_MONSTERS[m.monster_id]} className="w-full h-full" emojiClassName="text-sm" />
+                        <MonsterImage monster={displayMonsters[m.monster_id]} className="w-full h-full" emojiClassName="text-sm" />
                       </div>
-                      <span>{m.nickname || ALL_MONSTERS[m.monster_id]?.name} — Lv{m.monster_level}</span>
+                      <span>{m.nickname || displayMonsters[m.monster_id]?.name} — Lv{m.monster_level}</span>
                     </div>
                   ))}
                 </div>

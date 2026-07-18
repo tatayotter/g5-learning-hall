@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTimeAttack } from '@/hooks/useTimeAttack';
-import { fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
+import { fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile, ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/lib/guildEngine';
 import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
 import { playChime, playClash } from '@/lib/sounds';
@@ -93,6 +93,9 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
       const { level, xp } = applyLevelUp(profile.logic_labyrinth_lvl, profile.logic_labyrinth_xp, engine.totalXpEarned);
       await updateSubclassProfile(userId, {
  logic_labyrinth_lvl: level, logic_labyrinth_xp: xp });
+      if (profile.logic_labyrinth_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
+        await ensureGuildMonsterGranted(userId, 'logic_labyrinth');
+      }
     }
     if (engine.totalGoldEarned > 0) {
       const newStats = { ...currentStats, gold: currentStats.gold + engine.totalGoldEarned };

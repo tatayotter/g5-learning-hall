@@ -2,6 +2,8 @@
 // Full monster roster, element system, skill definitions, and battle constants
 // for the Monster Guild feature.
 
+import type { GuildKey } from '@/lib/dailyChecklist';
+
 // ─── ELEMENT SYSTEM ─────────────────────────────────────────────────────────
 
 export type Element = 'fire' | 'water' | 'leaf' | 'storm' | 'shadow' | 'light';
@@ -135,6 +137,19 @@ export interface MonsterDef {
   // Skill tier unlocks by monster level
   skillUnlocks: { tier2: number; tier3: number }; // tier1 always available at level 1
   isLegendary?: boolean;
+  // Overrides which /public/monsters/{spriteId}.webp file MonsterImage loads,
+  // when it differs from `id` (e.g. a guild companion's tier1 sprite file is
+  // named after its tier1 form, not the DB monster_id). Falls back to `id`.
+  spriteId?: string;
+  // Present only on the 5 guild companion monsters (see GUILD_MONSTERS below).
+  // Gates the monster's *displayed* name/emoji/sprite on the owning player's
+  // guild level — separate from monster_level/monster_exp, which progress
+  // normally regardless of guild level.
+  guildEvolution?: {
+    guildKey: GuildKey;
+    tier2: { level: number; name: string; emoji: string; spriteId?: string; isLegendary?: boolean };
+    tier3: { level: number; name: string; emoji: string; spriteId?: string; isLegendary?: boolean };
+  };
 }
 
 const STAT_PRESETS: Record<MonsterArchetype, { baseHp: number; baseAttack: number; baseDefense: number; baseSpeed: number }> = {
@@ -422,10 +437,82 @@ export function getWildEncounterChance(defeatedTrainerCount: number): number {
   return Math.min(chance, cap);
 }
 
+// ─── GUILD COMPANION MONSTERS ────────────────────────────────────────────────
+// One dedicated monster per Side Quest Guild, granted the first time that
+// guild reaches level 5 (see ensureGuildMonsterGranted in lib/guildEngine.ts).
+// Battles/EXP/skills work exactly like any other monster — only the tier1
+// name/emoji here (top-level name/emoji fields) is what displays until the
+// player's guild level crosses guildEvolution.tier2/tier3.level; see
+// getGuildMonsterDisplay below.
+export const GUILD_MONSTERS: Record<string, MonsterDef> = {
+  lorekeeper_familiar: {
+    id: 'lorekeeper_familiar', name: 'Scryvyn', element: 'light', archetype: 'tank',
+    emoji: '📜', spriteId: 'scryvyn',
+    description: 'The Scroll Wyrm — a tiny dragon made entirely of old study scrolls, with green self-rewriting runes and a hooded cloak fused from its first master\'s robe. It lives in libraries closed too long, eating forgotten footnotes and orbiting itself with floating scrolls of memory.',
+    ...STAT_PRESETS.tank,
+    skills: ['flash', 'sacred_beam', 'divine_burst'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+    guildEvolution: {
+      guildKey: 'lorekeeper',
+      tier2: { level: 10, name: 'Lexiwyrm', emoji: '📚', spriteId: 'lexiwyrm' },
+      tier3: { level: 20, name: 'ChroniLex', emoji: '🌌', spriteId: 'chronilex', isLegendary: true },
+    },
+  },
+  spellcaster_familiar: {
+    id: 'spellcaster_familiar', name: 'Inkybble', element: 'shadow', archetype: 'glass_cannon',
+    emoji: '🖋️', spriteId: 'inkybble',
+    description: 'A tiny ink blot that spilled from an unfinished spell and learned to crawl. It hides in margins and erasures, feeding on crossed-out words and misspelled letters.',
+    ...STAT_PRESETS.glass_cannon,
+    skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+    guildEvolution: {
+      guildKey: 'spellcaster',
+      tier2: { level: 10, name: 'Quillara', emoji: '🪶', spriteId: 'quillara' },
+      tier3: { level: 20, name: 'Astrypta', emoji: '🌑', spriteId: 'astrypta', isLegendary: true },
+    },
+  },
+  numberrealm_familiar: {
+    id: 'numberrealm_familiar', name: 'Digitot', element: 'water', archetype: 'balanced',
+    emoji: '🐠', description: 'A small fish whose scales are etched with tally marks. It counts its own bubbles as it swims.',
+    ...STAT_PRESETS.balanced,
+    skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+    guildEvolution: {
+      guildKey: 'number_realm',
+      tier2: { level: 10, name: 'Sumray', emoji: '🐡' },
+      tier3: { level: 20, name: 'Infinifin', emoji: '🐋' },
+    },
+  },
+  logiclabyrinth_familiar: {
+    id: 'logiclabyrinth_familiar', name: 'Puzzlet', element: 'shadow', archetype: 'tank',
+    emoji: '🦉', description: 'A young owl whose feathers form shifting geometric patterns. It tilts its head at anything that doesn’t quite add up.',
+    ...STAT_PRESETS.tank,
+    skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+    guildEvolution: {
+      guildKey: 'logic_labyrinth',
+      tier2: { level: 10, name: 'Mazehawk', emoji: '🦅' },
+      tier3: { level: 20, name: 'Cipheryx', emoji: '🦢' },
+    },
+  },
+  lexiconarena_familiar: {
+    id: 'lexiconarena_familiar', name: 'Wordwisp', element: 'light', archetype: 'glass_cannon',
+    emoji: '🐝', description: 'A tiny glowing bee that spells out letters in the air with its flight path before it vanishes.',
+    ...STAT_PRESETS.glass_cannon,
+    skills: ['flash', 'sacred_beam', 'divine_burst'],
+    skillUnlocks: { tier2: 5, tier3: 10 },
+    guildEvolution: {
+      guildKey: 'lexicon_arena',
+      tier2: { level: 10, name: 'Lexihawk', emoji: '🦜' },
+      tier3: { level: 20, name: 'Thesauryx', emoji: '🦚' },
+    },
+  },
+};
+
 // Combined lookup for anywhere a monster id might be either a normal starter
 // monster or a wild-only one (e.g. resolving an NpcTrainer's monsters, since a
 // wild encounter is represented as a synthetic one-monster NpcTrainer).
-export const ALL_MONSTERS: Record<string, MonsterDef> = { ...MONSTERS, ...WILD_MONSTERS };
+export const ALL_MONSTERS: Record<string, MonsterDef> = { ...MONSTERS, ...WILD_MONSTERS, ...GUILD_MONSTERS };
 
 // ─── NPC TRAINERS ────────────────────────────────────────────────────────────
 
@@ -547,6 +634,44 @@ export function getAvailableSkillTiers(monsterLevel: number, monsterDef: Monster
   if (monsterLevel >= monsterDef.skillUnlocks.tier2) tiers.push(2);
   if (monsterLevel >= monsterDef.skillUnlocks.tier3) tiers.push(3);
   return tiers;
+}
+
+// Which evolution tier a guild companion monster's *display* is at, based on
+// the owning player's guild level (not monster level/exp). Regular monsters
+// (no guildEvolution) are always tier 1.
+export function getGuildMonsterTier(monsterDef: MonsterDef, guildLevel: number): 1 | 2 | 3 {
+  const evo = monsterDef.guildEvolution;
+  if (!evo) return 1;
+  if (guildLevel >= evo.tier3.level) return 3;
+  if (guildLevel >= evo.tier2.level) return 2;
+  return 1;
+}
+
+// Returns a MonsterDef with name/emoji/spriteId/isLegendary swapped for a
+// specific evolution tier of a guild companion — independent of any
+// player's current guild level (unlike getGuildMonsterDisplay below), so
+// the Compendium can render all 3 tiers as separate cards side by side.
+// Stats/skills always stay the base species values regardless of tier.
+export function getGuildMonsterTierDef(monsterDef: MonsterDef, tier: 1 | 2 | 3): MonsterDef {
+  const evo = monsterDef.guildEvolution;
+  if (!evo || tier === 1) return monsterDef;
+  const t = tier === 2 ? evo.tier2 : evo.tier3;
+  return {
+    ...monsterDef,
+    name: t.name,
+    emoji: t.emoji,
+    spriteId: t.spriteId ?? monsterDef.spriteId,
+    isLegendary: t.isLegendary ?? monsterDef.isLegendary,
+  };
+}
+
+// Resolves the name/emoji to actually display for a monster, given the
+// owning player's level in that monster's linked guild (0 if unknown/n/a).
+// Stats, skills, and EXP are unaffected by this — see getGuildMonsterTier.
+export function getGuildMonsterDisplay(monsterDef: MonsterDef, guildLevel: number): { name: string; emoji: string; tier: 1 | 2 | 3; isLegendary?: boolean; spriteId?: string } {
+  const tier = getGuildMonsterTier(monsterDef, guildLevel);
+  const d = getGuildMonsterTierDef(monsterDef, tier);
+  return { name: d.name, emoji: d.emoji, tier, isLegendary: d.isLegendary, spriteId: d.spriteId };
 }
 
 // Scales a monster's level-1 base stats up with its current level. Applied

@@ -8,10 +8,10 @@ import { useMapPresence } from '@/hooks/useMapPresence';
 import PlayerStatsPopup from '@/components/PlayerStatsPopup';
 import WildEncounterModal from '@/components/WildEncounterModal';
 import {
-  MONSTERS, WILD_MONSTERS, ALL_MONSTERS, NPC_TRAINERS, SKILLS, BATTLE_CONSTANTS,
+  MONSTERS, WILD_MONSTERS, ALL_MONSTERS, GUILD_MONSTERS, NPC_TRAINERS, SKILLS, BATTLE_CONSTANTS,
   getUnlockedMonsterSlots, getAvailableSkillTiers, calculateDamage, getScaledStats,
   getMonsterLevel, REST_BY_ELEMENT, ELEMENT_STATUS, STATUS_DEFINITIONS, getCounterElement,
-  pickRandomWildMonsterId, getWildEncounterChance,
+  pickRandomWildMonsterId, getWildEncounterChance, getGuildMonsterDisplay, getGuildMonsterTier, getGuildMonsterTierDef,
   Element, StatusEffect, NpcTrainer, MonsterDef, TrainerMonster,
 } from '@/lib/monsterConfig';
 import { fetchInventory, useInventoryItem, SHOP_CATALOG } from '@/lib/inventory';
@@ -19,7 +19,9 @@ import {
   hashQuestionId, arenaQuestionText,
   fetchAnsweredArenaQuestionIds, markArenaQuestionsCompleted, resetArenaHistory,
   fetchQuestionPool, markQuestionsCompleted,
+  fetchSubclassProfile, guildLevelForKey, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile,
 } from '@/lib/guildEngine';
+import { GUILDS } from '@/lib/dailyChecklist';
 import {
   UserMonster, ActiveBattleMonster, MonsterImage, BattleQuestionModal,
 } from '@/components/battle/shared';
@@ -993,12 +995,13 @@ interface TrainingMapProps {
   mapPresence: ReturnType<typeof useMapPresence>;
   movementLocked?: boolean;
   walkLockActive?: boolean;
+  monsterDisplay: Record<string, MonsterDef>;
 }
 
 function TrainingMap({
   userId, battleState, userMonsters, questions,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll, onChallengePlayer,
-  liveBattleInbox, mapPresence, movementLocked, walkLockActive,
+  liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
 }: TrainingMapProps) {
   const [grassQuestion, setGrassQuestion] = useState(false);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
@@ -1261,7 +1264,7 @@ function TrainingMap({
           <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-4">
             <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Active Monster</p>
             {activeMonster ? (() => {
-              const def = ALL_MONSTERS[activeMonster.monster_id];
+              const def = monsterDisplay[activeMonster.monster_id];
               const expIntoLevel = activeMonster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL;
               const expToNext = BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - expIntoLevel;
               return (
@@ -1373,12 +1376,12 @@ function TrainingMap({
           <div className="bg-neutral-900 border border-emerald-700 rounded-2xl p-6 max-w-lg w-full">
             <div className="flex items-center gap-4 mb-5 bg-emerald-900/30 border border-emerald-800 rounded-xl p-4">
               {activeMonster && (
-                <MonsterImage monster={ALL_MONSTERS[activeMonster.monster_id]} className="w-14 h-14" />
+                <MonsterImage monster={monsterDisplay[activeMonster.monster_id]} className="w-14 h-14" />
               )}
               <div>
                 <p className="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-1">🌿 Wild Encounter!</p>
                 <p className="text-white font-bold">
-                  {activeMonster ? ALL_MONSTERS[activeMonster.monster_id]?.name : 'Your monster'} is training!
+                  {activeMonster ? monsterDisplay[activeMonster.monster_id]?.name : 'Your monster'} is training!
                 </p>
                 <p className="text-sm mt-1">
                   Answer correctly → <span className="text-amber-400 font-bold">+{BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER} EXP</span>
@@ -1414,11 +1417,12 @@ function TrainingMap({
 
 // ─── TEAM PANEL ───────────────────────────────────────────────────────────────
 
-function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange }: {
+function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange, monsterDisplay }: {
   userMonsters: UserMonster[];
   playerLevel: number;
   userId: string;
   onTeamChange: () => void;
+  monsterDisplay: Record<string, MonsterDef>;
 }) {
   const unlockedSlots = getUnlockedMonsterSlots(playerLevel);
   const allMonsters = Object.values(MONSTERS);
@@ -1441,7 +1445,7 @@ function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange }: {
       {[1, 2, 3].map(slot => {
         const monster = userMonsters.find(m => m.slot === slot);
         const isUnlocked = slot <= unlockedSlots || !!monster;
-        const def = monster ? ALL_MONSTERS[monster.monster_id] : null;
+        const def = monster ? monsterDisplay[monster.monster_id] : null;
         const expToNext = monster ? BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - (monster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) : 0;
 
         return (
@@ -1558,14 +1562,27 @@ function CompendiumStatBar({ label, value, max }: { label: string; value: number
   );
 }
 
-function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerLevel, onPromote }: {
+// One Compendium tile — a plain species, or a single evolution tier of a
+// guild companion (each tier gets its own card; see CompendiumPanel).
+interface DexEntry {
+  key: string;
+  speciesId: string; // the underlying monster_id (DB key) — same across all 3 tiers of a guild companion
+  def: MonsterDef;    // tier-appropriate display def (name/emoji/spriteId), stats/skills always the base species values
+  tier: 1 | 2 | 3;
+  unlockLevel: number;   // guild level required to reveal this tier; 1 for non-guild species/tier1
+  guildLabel?: string;   // e.g. "Lorekeeper" — only set for guild-tier entries, used in the locked hint
+}
+
+function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerLevel, onPromote, monsterDisplay, subclassProfile }: {
   userMonsters: UserMonster[];
   caughtMonsters: CaughtMonster[];
   seenMonsterIds: string[];
   playerLevel: number;
   onPromote: (caught: CaughtMonster, slot: number) => void;
+  monsterDisplay: Record<string, MonsterDef>;
+  subclassProfile: SubclassProfile | null;
 }) {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedKey, setSelectedKey] = useState<string | null>(null);
   const [promotingId, setPromotingId] = useState<string | null>(null);
   const unlockedSlots = getUnlockedMonsterSlots(playerLevel);
 
@@ -1574,11 +1591,49 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerL
     ...caughtMonsters.map(c => c.monster_id),
   ]);
   const knownSpeciesIds = new Set([...ownedSpeciesIds, ...seenMonsterIds]);
-  const isKnown = (id: string) => !WILD_MONSTERS[id] || knownSpeciesIds.has(id);
+  const isKnownSpecies = (id: string) => !WILD_MONSTERS[id] || knownSpeciesIds.has(id);
 
-  const selected = selectedId ? ALL_MONSTERS[selectedId] : null;
-  const selectedKnown = selectedId ? isKnown(selectedId) : false;
-  const selectedOwned = selectedId ? ownedSpeciesIds.has(selectedId) : false;
+  const dexEntries: DexEntry[] = [];
+  for (const def of Object.values(ALL_MONSTERS)) {
+    if (!def.guildEvolution) {
+      dexEntries.push({ key: def.id, speciesId: def.id, def, tier: 1, unlockLevel: 1 });
+      continue;
+    }
+    const guildLabel = GUILDS.find(g => g.key === def.guildEvolution!.guildKey)?.label;
+    ([1, 2, 3] as const).forEach(tier => {
+      const unlockLevel = tier === 1 ? GUILD_MONSTER_GRANT_LEVEL : tier === 2 ? def.guildEvolution!.tier2.level : def.guildEvolution!.tier3.level;
+      dexEntries.push({
+        key: `${def.id}__t${tier}`,
+        speciesId: def.id,
+        def: getGuildMonsterTierDef(def, tier),
+        tier,
+        unlockLevel,
+        guildLabel,
+      });
+    });
+  }
+
+  // Whether a given dex entry is revealed. Plain species use the existing
+  // wild-encounter "known" rule; guild-tier entries (including tier 1 — the
+  // companion is a reward, not a starter) are revealed purely by the owning
+  // player's guild level crossing that tier's threshold.
+  const isEntryKnown = (entry: DexEntry) => {
+    if (!entry.guildLabel) return isKnownSpecies(entry.speciesId);
+    const guildDef = ALL_MONSTERS[entry.speciesId];
+    const guildLevel = guildLevelForKey(subclassProfile, guildDef.guildEvolution?.guildKey);
+    return guildLevel >= entry.unlockLevel;
+  };
+
+  const selectedEntry = selectedKey ? dexEntries.find(e => e.key === selectedKey) ?? null : null;
+  const selected = selectedEntry?.def ?? null;
+  const selectedKnown = selectedEntry ? isEntryKnown(selectedEntry) : false;
+  const selectedOwned = selectedEntry ? ownedSpeciesIds.has(selectedEntry.speciesId) : false;
+  // Only the tile matching the companion's *currently active* tier shows the
+  // owned/team badge — as guild level rises, the badge visually "moves" from
+  // the tier1 card to tier2 to tier3, mirroring the evolution.
+  const selectedIsActiveTier = selectedEntry
+    ? selectedEntry.tier === getGuildMonsterTier(ALL_MONSTERS[selectedEntry.speciesId], guildLevelForKey(subclassProfile, ALL_MONSTERS[selectedEntry.speciesId].guildEvolution?.guildKey))
+    : false;
 
   return (
     <div className="space-y-6">
@@ -1594,7 +1649,7 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerL
         <div className="space-y-3">
           <p className="text-xs text-amber-500 font-bold uppercase tracking-widest">Ready to add to your team</p>
           {caughtMonsters.map(caught => {
-            const def = ALL_MONSTERS[caught.monster_id];
+            const def = monsterDisplay[caught.monster_id];
             if (!def) return null;
             return (
               <div key={caught.id} className="p-4 rounded-xl border border-amber-800 bg-amber-900/10">
@@ -1625,7 +1680,7 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerL
                           onClick={() => { onPromote(caught, slot); setPromotingId(null); }}
                           className="text-xs bg-neutral-800 hover:bg-neutral-700 px-3 py-2 rounded-lg text-white"
                         >
-                          {existing ? `Replace ${ALL_MONSTERS[existing.monster_id]?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
+                          {existing ? `Replace ${monsterDisplay[existing.monster_id]?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
                         </button>
                       );
                     })}
@@ -1655,7 +1710,8 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerL
                       {selected.element}
                     </span>
                     <span className="text-[10px] text-gray-500 capitalize">{selected.archetype.replace('_', ' ')}</span>
-                    {selectedOwned && <span className="text-[10px] text-green-500 font-bold">✅ In your collection</span>}
+                    {selectedOwned && selectedIsActiveTier && <span className="text-[10px] text-green-500 font-bold">✅ In your collection</span>}
+                    {selectedEntry?.guildLabel && <span className="text-[10px] text-gray-500">Tier {selectedEntry.tier} · {selectedEntry.guildLabel} Lv.{selectedEntry.unlockLevel}+</span>}
                   </div>
                 </div>
                 <p className="text-sm text-gray-400">{selected.description}</p>
@@ -1687,11 +1743,17 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerL
           ) : (
             <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start">
               <div className="w-28 h-28 flex-shrink-0">
-                <MonsterSilhouette id={selected.id} className="w-full h-full" />
+                <MonsterSilhouette id={selected.spriteId ?? selected.id} className="w-full h-full" />
               </div>
               <div className="text-center sm:text-left">
                 <p className="text-xl font-bold text-white font-display">???</p>
-                <p className="text-sm text-gray-500 mt-2">A mysterious wild monster — its identity is still unknown. Keep answering questions on the Training Map for a chance to encounter it.</p>
+                {selectedEntry?.guildLabel ? (
+                  <p className="text-sm text-gray-500 mt-2">
+                    🔒 Reach {selectedEntry.guildLabel} Level {selectedEntry.unlockLevel} to {selectedEntry.tier === 1 ? 'earn this companion' : 'reveal this evolution'}.
+                  </p>
+                ) : (
+                  <p className="text-sm text-gray-500 mt-2">A mysterious wild monster — its identity is still unknown. Keep answering questions on the Training Map for a chance to encounter it.</p>
+                )}
               </div>
             </div>
           )}
@@ -1699,27 +1761,30 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerL
       )}
 
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
-        {Object.values(ALL_MONSTERS).map(def => {
-          const known = isKnown(def.id);
-          const owned = ownedSpeciesIds.has(def.id);
-          const inTeam = userMonsters.find(m => m.monster_id === def.id);
+        {dexEntries.map(entry => {
+          const known = isEntryKnown(entry);
+          const owned = ownedSpeciesIds.has(entry.speciesId);
+          const speciesDef = ALL_MONSTERS[entry.speciesId];
+          const isActiveTier = !speciesDef.guildEvolution || entry.tier === getGuildMonsterTier(speciesDef, guildLevelForKey(subclassProfile, speciesDef.guildEvolution.guildKey));
+          const inTeam = userMonsters.find(m => m.monster_id === entry.speciesId);
           return (
             <button
-              key={def.id}
-              onClick={() => setSelectedId(def.id)}
+              key={entry.key}
+              onClick={() => setSelectedKey(entry.key)}
               className={`p-3 rounded-xl border text-center transition-colors ${
-                selectedId === def.id ? 'border-amber-400 bg-amber-900/10' : 'border-neutral-800 bg-neutral-900/50 hover:border-neutral-700'
+                selectedKey === entry.key ? 'border-amber-400 bg-amber-900/10' : 'border-neutral-800 bg-neutral-900/50 hover:border-neutral-700'
               }`}
             >
               <div className="w-14 h-14 mx-auto mb-2">
                 {known ? (
-                  <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-3xl" />
+                  <MonsterImage monster={entry.def} className="w-full h-full" emojiClassName="text-3xl" />
                 ) : (
-                  <MonsterSilhouette id={def.id} className="w-full h-full" />
+                  <MonsterSilhouette id={entry.def.spriteId ?? entry.speciesId} className="w-full h-full" />
                 )}
               </div>
-              <p className="text-xs font-bold text-white truncate">{known ? def.name : '???'}</p>
-              {known && owned && (
+              <p className="text-xs font-bold text-white truncate">{known ? entry.def.name : '???'}</p>
+              {entry.guildLabel && <p className="text-[9px] text-gray-600">Tier {entry.tier}</p>}
+              {known && owned && isActiveTier && (
                 inTeam ? (
                   <p className="text-[9px] text-green-500">✅ In Team</p>
                 ) : (
@@ -1766,6 +1831,18 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
   const [notification, setNotification] = useState<string | null>(null);
   const [inventory, setInventory] = useState<Record<string, number>>({});
   const [answeredArenaIds, setAnsweredArenaIds] = useState<Set<string>>(new Set());
+  const [subclassProfile, setSubclassProfile] = useState<SubclassProfile | null>(null);
+
+  // ALL_MONSTERS, but with each guild companion's name/emoji swapped for the
+  // display tier the player's guild level currently allows (stats/skills are
+  // untouched — only these two fields differ from the base species def).
+  const displayMonsters: Record<string, MonsterDef> = { ...ALL_MONSTERS };
+  for (const id of Object.keys(GUILD_MONSTERS)) {
+    const def = GUILD_MONSTERS[id];
+    const guildLevel = guildLevelForKey(subclassProfile, def.guildEvolution?.guildKey);
+    const { name, emoji, isLegendary, spriteId } = getGuildMonsterDisplay(def, guildLevel);
+    displayMonsters[id] = { ...def, name, emoji, isLegendary, spriteId };
+  }
 
   const allQuestions = extractQuestions(packageData);
   // Questions this player hasn't been asked yet, so repeated grinding surfaces
@@ -1806,18 +1883,20 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
     }
 
     setLoading(true);
-    const [monstersRes, stateRes, invData, answeredIds, caughtRes] = await Promise.all([
+    const [monstersRes, stateRes, invData, answeredIds, caughtRes, subProfile] = await Promise.all([
       supabase.from('user_monsters').select('*').eq('user_id', userId).order('slot'),
       supabase.from('user_battle_state').select('*').eq('user_id', userId).single(),
       fetchInventory(userId),
       fetchAnsweredArenaQuestionIds(userId),
       supabase.from('user_caught_monsters').select('*').eq('user_id', userId).order('caught_at', { ascending: false }),
+      fetchSubclassProfile(userId),
     ]);
     setUserMonsters(monstersRes.data || []);
     setBattleState(stateRes.data || null);
     setInventory(invData || {});
     setAnsweredArenaIds(answeredIds);
     setCaughtMonsters(caughtRes.data || []);
+    setSubclassProfile(subProfile);
     setLoading(false);
   };
 
@@ -2027,7 +2106,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       });
     }
     await supabase.from('user_caught_monsters').delete().eq('id', caught.id);
-    showNotification(`${ALL_MONSTERS[caught.monster_id]?.name} joined your team!`);
+    showNotification(`${displayMonsters[caught.monster_id]?.name} joined your team!`);
     loadData();
   };
 
@@ -2088,7 +2167,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       if (m.id !== monsterId) return m;
       const newExp = m.monster_exp + exp;
       const newLevel = getMonsterLevel(newExp);
-      showNotification(`+${exp} EXP for ${ALL_MONSTERS[m.monster_id]?.name}!${newLevel > m.monster_level ? ` 🎉 Level Up! Now Lv.${newLevel}!` : ''}`);
+      showNotification(`+${exp} EXP for ${displayMonsters[m.monster_id]?.name}!${newLevel > m.monster_level ? ` 🎉 Level Up! Now Lv.${newLevel}!` : ''}`);
       return { ...m, monster_exp: newExp, monster_level: newLevel };
     }));
   };
@@ -2203,7 +2282,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
 
   const buildPlayerTeam = (): ActiveBattleMonster[] => {
     return userMonsters.map(um => {
-      const def = ALL_MONSTERS[um.monster_id];
+      const def = displayMonsters[um.monster_id];
       const hp = getScaledStats(def, um.monster_level).hp;
       return { def, level: um.monster_level, currentHp: hp, maxHp: hp, status: null, statusTurns: 0, restUsed: 0, userMonster: um } as ActiveBattleMonster;
     });
@@ -2272,6 +2351,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           mapPresence={mapPresence}
           movementLocked={!!wildEncounter || walkLocked}
           walkLockActive={walkLocked}
+          monsterDisplay={displayMonsters}
         />
       )}
 
@@ -2282,6 +2362,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           playerLevel={playerLevel}
           userId={userId}
           onTeamChange={loadData}
+          monsterDisplay={displayMonsters}
         />
       )}
 
@@ -2294,6 +2375,8 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           seenMonsterIds={battleState?.seen_monsters || []}
           playerLevel={playerLevel}
           onPromote={handlePromoteCaughtMonster}
+          monsterDisplay={displayMonsters}
+          subclassProfile={subclassProfile}
         />
       )}
 

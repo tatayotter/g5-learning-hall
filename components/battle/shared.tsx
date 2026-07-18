@@ -47,7 +47,7 @@ function LegendaryBadge() {
 // Renders a monster's sprite, falling back to its emoji if the sprite image
 // 404s or the monster has no id to look up.
 export function MonsterImage({ monster, className = '', emojiClassName = 'text-3xl' }: {
-  monster: { id: string; name: string; emoji: string; isLegendary?: boolean } | undefined | null;
+  monster: { id: string; name: string; emoji: string; isLegendary?: boolean; spriteId?: string } | undefined | null;
   className?: string;
   emojiClassName?: string;
 }) {
@@ -64,7 +64,7 @@ export function MonsterImage({ monster, className = '', emojiClassName = 'text-3
   return (
     <span className={`relative inline-flex ${className}`}>
       <img
-        src={`/monsters/${monster.id}.webp`}
+        src={`/monsters/${monster.spriteId ?? monster.id}.webp`}
         alt={monster.name}
         className="w-full h-full object-contain"
         onError={() => setFailed(true)}
