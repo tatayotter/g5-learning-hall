@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: false, error: 'A valid id and non-empty password are required' }, { status: 400 });
   }
 
-  const { error } = await supabase.rpc('set_family_password', { p_id: id, p_password: password });
+  const { error } = await supabase.rpc('set_family_password', { p_id: id, p_password: password, p_passcode: process.env.ADMIN_PASSCODE });
   if (error) {
     return NextResponse.json({ success: false, error: error.message }, { status: 409 });
   }

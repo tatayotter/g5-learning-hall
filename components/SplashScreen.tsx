@@ -179,7 +179,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
   const [monsterMap, setMonsterMap] = useState<Record<string, ActiveMonsterInfo | null>>({});
   const [onlineIds, setOnlineIds] = useState<Set<string>>(new Set());
   const [view, setView] = useState<'root' | 'classmates'>('root');
-  const [loginTarget, setLoginTarget] = useState<{ id: UserId; name: string } | null>(null);
+  const [loginTarget, setLoginTarget] = useState<{ id: UserId; name: string; isAdmin?: boolean } | null>(null);
   const [passwordInput, setPasswordInput] = useState('');
   const [loginError, setLoginError] = useState('');
   const [loggingIn, setLoggingIn] = useState(false);
@@ -266,8 +266,8 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
     onSelect(id);
   };
 
-  const openLogin = (id: UserId, name: string) => {
-    setLoginTarget({ id, name });
+  const openLogin = (id: UserId, name: string, isAdmin = false) => {
+    setLoginTarget({ id, name, isAdmin });
     setPasswordInput('');
     setLoginError('');
   };
@@ -285,7 +285,8 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
         body: JSON.stringify({ id: loginTarget.id, password: passwordInput }),
       });
       if (res.ok) {
-        handleSelect(loginTarget.id);
+        if (loginTarget.isAdmin) onAdminSelect(loginTarget.id);
+        else handleSelect(loginTarget.id);
       } else {
         setLoginError('❌ Incorrect password. Try again.');
       }
@@ -485,7 +486,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
             className="mt-10"
           >
             <button
-              onClick={() => onAdminSelect('damien')}
+              onClick={() => isFamilyProtected('damien') ? openLogin('damien', 'Tatay Admin', true) : onAdminSelect('damien')}
               className="text-gray-700 hover:text-gray-400 text-xs font-mono transition-colors px-4 py-2 border border-neutral-900 hover:border-neutral-700 rounded-lg"
             >
               🔑 Tatay Admin

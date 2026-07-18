@@ -48,6 +48,7 @@ interface BattleState {
   map_x: number;
   map_y: number;
   defeated_trainers: string[];
+  seen_monsters: string[];
   active_monster_slot: number;
   last_sibling_battle: string | null;
   last_pvp_win: string | null;
@@ -927,6 +928,7 @@ function StarterSelection({ userId, onComplete }: StarterSelectionProps) {
       map_x: 1,
       map_y: 1,
       defeated_trainers: [],
+      seen_monsters: [],
       active_monster_slot: 1,
     }, { onConflict: 'user_id' });
     setSaving(false);
@@ -1614,9 +1616,178 @@ function CollectionPanel({ caughtMonsters, userMonsters, playerLevel, onPromote 
   );
 }
 
+// ─── COMPENDIUM PANEL ───────────────────────────────────────────────────────────
+// A dex-style reference of every species in the game. Starters are always fully
+// known (the player picks one freely at the start). Wild-only species stay a
+// silhouette — shape visible, everything else hidden — until the player has
+// either encountered one on the Training Map (battleState.seen_monsters) or
+// already owns one (team/collection), matching WildEncounterModal's "A wild
+// {name} appeared!" reveal, which fires before the catch is decided.
+
+const ELEMENT_STYLES: Record<Element, string> = {
+  fire:   'text-orange-400 border-orange-800 bg-orange-900/20',
+  water:  'text-blue-400 border-blue-800 bg-blue-900/20',
+  leaf:   'text-green-400 border-green-800 bg-green-900/20',
+  storm:  'text-yellow-400 border-yellow-800 bg-yellow-900/20',
+  shadow: 'text-purple-400 border-purple-800 bg-purple-900/20',
+  light:  'text-amber-300 border-amber-700 bg-amber-900/20',
+};
+
+// Renders a monster's sprite as a flat black silhouette — deliberately
+// bypasses MonsterImage so neither the emoji fallback nor the legendary
+// crown badge can leak a hint about the mystery species underneath.
+function MonsterSilhouette({ id, className = '' }: { id: string; className?: string }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) {
+    return (
+      <div className={`flex items-center justify-center rounded-lg bg-neutral-950 text-neutral-700 text-2xl ${className}`}>
+        ?
+      </div>
+    );
+  }
+  return (
+    <img
+      src={`/monsters/${id}.webp`}
+      alt="???"
+      className={`object-contain ${className}`}
+      style={{ filter: 'brightness(0)', opacity: 0.55 }}
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
+function CompendiumStatBar({ label, value, max }: { label: string; value: number; max: number }) {
+  return (
+    <div>
+      <div className="flex justify-between text-[10px] text-gray-500 mb-0.5">
+        <span>{label}</span>
+        <span>{value}</span>
+      </div>
+      <div className="w-full h-1.5 bg-neutral-800 rounded-full overflow-hidden">
+        <div className="h-full bg-amber-500 rounded-full" style={{ width: `${Math.min(100, (value / max) * 100)}%` }} />
+      </div>
+    </div>
+  );
+}
+
+function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds }: {
+  userMonsters: UserMonster[];
+  caughtMonsters: CaughtMonster[];
+  seenMonsterIds: string[];
+}) {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  const ownedSpeciesIds = new Set([
+    ...userMonsters.map(m => m.monster_id),
+    ...caughtMonsters.map(c => c.monster_id),
+  ]);
+  const knownSpeciesIds = new Set([...ownedSpeciesIds, ...seenMonsterIds]);
+  const isKnown = (id: string) => !WILD_MONSTERS[id] || knownSpeciesIds.has(id);
+
+  const selected = selectedId ? ALL_MONSTERS[selectedId] : null;
+  const selectedKnown = selectedId ? isKnown(selectedId) : false;
+  const selectedOwned = selectedId ? ownedSpeciesIds.has(selectedId) : false;
+
+  return (
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-lg font-bold text-white font-display">📖 Compendium</h3>
+        <p className="text-xs text-gray-500">Every monster species in the game. Wild-only species stay a mystery silhouette until you encounter one on the Training Map.</p>
+      </div>
+
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+        {Object.values(ALL_MONSTERS).map(def => {
+          const known = isKnown(def.id);
+          const owned = ownedSpeciesIds.has(def.id);
+          return (
+            <button
+              key={def.id}
+              onClick={() => setSelectedId(def.id)}
+              className={`p-3 rounded-xl border text-center transition-colors ${
+                selectedId === def.id ? 'border-amber-400 bg-amber-900/10' : 'border-neutral-800 bg-neutral-900/50 hover:border-neutral-700'
+              }`}
+            >
+              <div className="w-14 h-14 mx-auto mb-2">
+                {known ? (
+                  <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-3xl" />
+                ) : (
+                  <MonsterSilhouette id={def.id} className="w-full h-full" />
+                )}
+              </div>
+              <p className="text-xs font-bold text-white truncate">{known ? def.name : '???'}</p>
+              {known && owned && <p className="text-[9px] text-green-500">✅ Owned</p>}
+            </button>
+          );
+        })}
+      </div>
+
+      {selected && (
+        <div className="p-5 rounded-2xl border border-neutral-800 bg-neutral-900/60">
+          {selectedKnown ? (
+            <div className="flex flex-col sm:flex-row gap-5">
+              <div className="w-28 h-28 mx-auto sm:mx-0 flex-shrink-0">
+                <MonsterImage monster={selected} className="w-full h-full" emojiClassName="text-6xl" />
+              </div>
+              <div className="flex-1 space-y-3">
+                <div>
+                  <p className="text-xl font-bold text-white font-display flex items-center gap-2">
+                    {selected.name}
+                    {selected.isLegendary && <span title="Legendary">👑</span>}
+                  </p>
+                  <div className="flex flex-wrap items-center gap-2 mt-1">
+                    <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full border capitalize ${ELEMENT_STYLES[selected.element]}`}>
+                      {selected.element}
+                    </span>
+                    <span className="text-[10px] text-gray-500 capitalize">{selected.archetype.replace('_', ' ')}</span>
+                    {selectedOwned && <span className="text-[10px] text-green-500 font-bold">✅ In your collection</span>}
+                  </div>
+                </div>
+                <p className="text-sm text-gray-400">{selected.description}</p>
+                <div className="grid grid-cols-2 gap-x-6 gap-y-2 max-w-sm">
+                  <CompendiumStatBar label="HP" value={selected.baseHp} max={150} />
+                  <CompendiumStatBar label="Attack" value={selected.baseAttack} max={30} />
+                  <CompendiumStatBar label="Defense" value={selected.baseDefense} max={30} />
+                  <CompendiumStatBar label="Speed" value={selected.baseSpeed} max={30} />
+                </div>
+                <div>
+                  <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Skills</p>
+                  <div className="space-y-1">
+                    {selected.skills.map((skillId, i) => {
+                      const skill = SKILLS[skillId];
+                      if (!skill) return null;
+                      const unlockLevel = i === 0 ? 1 : i === 1 ? selected.skillUnlocks.tier2 : selected.skillUnlocks.tier3;
+                      return (
+                        <div key={skillId} className="flex items-center gap-2 text-xs">
+                          <span className="text-gray-600 w-14 flex-shrink-0">Lv.{unlockLevel}</span>
+                          <span className="font-bold text-white">{skill.name}</span>
+                          <span className="text-gray-500">— {skill.description}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start">
+              <div className="w-28 h-28 flex-shrink-0">
+                <MonsterSilhouette id={selected.id} className="w-full h-full" />
+              </div>
+              <div className="text-center sm:text-left">
+                <p className="text-xl font-bold text-white font-display">???</p>
+                <p className="text-sm text-gray-500 mt-2">A mysterious wild monster — its identity is still unknown. Keep answering questions on the Training Map for a chance to encounter it.</p>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── MAIN MONSTER GUILD ───────────────────────────────────────────────────────
 
-type GuildView = 'map' | 'team' | 'trainers' | 'collection' | 'battle' | 'live_battle' | 'leaderboard';
+type GuildView = 'map' | 'team' | 'trainers' | 'collection' | 'compendium' | 'battle' | 'live_battle' | 'leaderboard';
 
 interface WildEncounterState {
   monsterId: string;
@@ -1822,6 +1993,15 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
     const level = Math.max(1, (activeMonster?.monster_level || 1) + Math.floor(Math.random() * 3) - 1);
     const question = pool[Math.floor(Math.random() * pool.length)];
     setWildEncounter({ monsterId, level, question, attemptsLeft: 3 });
+
+    // The species is revealed to the player the moment the encounter modal
+    // shows "A wild {name} appeared!" — regardless of catch outcome, so
+    // mark it seen here for the Compendium (only if not already recorded).
+    if (battleState && !battleState.seen_monsters.includes(monsterId)) {
+      const newSeen = [...battleState.seen_monsters, monsterId];
+      setBattleState({ ...battleState, seen_monsters: newSeen });
+      await supabase.from('user_battle_state').update({ seen_monsters: newSeen }).eq('user_id', userId);
+    }
   };
 
   const handleWildEncounterCorrect = () => {
@@ -2110,6 +2290,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           { id: 'team',       label: '👥 My Team' },
           { id: 'trainers',   label: '⚔️ Trainers' },
           { id: 'collection', label: `🐲 Collection${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}` },
+          { id: 'compendium', label: '📖 Compendium' },
           { id: 'leaderboard', label: '🏆 Leaderboard' },
         ] as { id: GuildView; label: string }[]).map(tab => (
           <button
@@ -2163,6 +2344,15 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           userMonsters={userMonsters}
           playerLevel={playerLevel}
           onPromote={handlePromoteCaughtMonster}
+        />
+      )}
+
+      {/* Compendium view — dex-style reference, wild-only species stay a silhouette until encountered */}
+      {view === 'compendium' && (
+        <CompendiumPanel
+          caughtMonsters={caughtMonsters}
+          userMonsters={userMonsters}
+          seenMonsterIds={battleState?.seen_monsters || []}
         />
       )}
 

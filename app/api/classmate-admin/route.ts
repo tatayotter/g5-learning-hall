@@ -41,6 +41,7 @@ export async function POST(request: NextRequest) {
       p_is_active: typeof isActive === 'boolean' ? isActive : null,
       p_password: typeof password === 'string' && password.trim() ? password : null,
       p_gender: cleanGender,
+      p_passcode: process.env.ADMIN_PASSCODE,
     });
     if (error) {
       return NextResponse.json({ success: false, error: error.message }, { status: 409 });
@@ -61,6 +62,7 @@ export async function POST(request: NextRequest) {
     p_full_name: fullName.trim(),
     p_grade: grade?.trim() || 'Grade 5',
     p_gender: cleanGender || 'boy',
+    p_passcode: process.env.ADMIN_PASSCODE,
   });
 
   if (error) {
