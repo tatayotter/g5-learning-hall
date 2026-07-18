@@ -55,7 +55,6 @@ interface BattleState {
   last_sibling_battle: string | null;
   last_pvp_win: string | null;
   last_wild_encounter_win: string | null;
-  last_guild_session: string | null;
 }
 
 interface MonsterGuildProps {
@@ -65,6 +64,7 @@ interface MonsterGuildProps {
   liveBattleInbox: ReturnType<typeof useLiveBattleInbox>;
   pendingLiveBattleId: string | null;
   onConsumePendingLiveBattle: () => void;
+  onBattleWon: (kind: 'trainer' | 'sibling') => void;
 }
 
 // ─── MAP CONFIG ───────────────────────────────────────────────────────────────
@@ -1619,7 +1619,7 @@ interface WildEncounterState {
   attemptsLeft: number;
 }
 
-export default function MonsterGuild({ userId, playerLevel, packageData, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle }: MonsterGuildProps) {
+export default function MonsterGuild({ userId, playerLevel, packageData, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle, onBattleWon }: MonsterGuildProps) {
   const [loading, setLoading] = useState(true);
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
   const [battleState, setBattleState] = useState<BattleState | null>(null);
@@ -1963,6 +1963,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       showNotification(`🏆 You defeated ${activeBattle.name}!`);
       await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: activeBattle.id, result: 'win', monster_exp_earned: expEarned });
       logAction(userId, today, 'battle', `🏆 Defeated Trainer ${activeBattle.name} — +${expEarned} Monster EXP`, expEarned, 0);
+      onBattleWon('trainer');
     } else {
       showNotification('💀 You lost the battle...');
       await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: activeBattle?.id || 'unknown', result: 'loss', monster_exp_earned: 0 });
@@ -1991,6 +1992,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
         showNotification(`🏆 Defeated ${opponent.name}! (First win gold already claimed today)`);
         logAction(userId, today, 'battle', `⚔️ Challenge vs ${opponent.name} — Victory!`, 0, 0);
       }
+      onBattleWon('sibling');
     } else {
       showNotification(`💀 ${opponent.name}'s team was too strong!`);
       await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: opponent.id, result: 'loss', monster_exp_earned: 0 });
@@ -2271,6 +2273,9 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           }}
           onBattleEnd={(won) => {
             showNotification(won ? `🏆 Defeated ${liveBattleOpponent.name}!` : `💀 ${liveBattleOpponent.name} was too strong!`);
+            if (won && USERS[liveBattleOpponent.id]?.isFamily) {
+              onBattleWon('sibling');
+            }
             setLiveBattleId(null);
             setLiveBattleOpponent(null);
             setLiveBattleTeams(null);

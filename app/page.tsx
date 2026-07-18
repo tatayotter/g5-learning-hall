@@ -650,7 +650,16 @@ export default function Dashboard() {
                 currentStats={data.character_stats}
                 onGoldEarned={(newStats) => {
                   markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
-                  updateStatsAndJournal(newStats, data.journal_logs);
+                  updateStatsAndJournal(
+                    newStats, data.journal_logs,
+                    data.purchased_items, data.mastery_count, data.honor_grants,
+                    data.quiz_attempts || {}, data.mastered_quizzes || [],
+                    data.honor_grants,
+                    (data.guild_sessions_count || 0) + 1,
+                    data.monster_battles_won || 0,
+                    data.sibling_battles_won || 0,
+                    data.perfect_quizzes || 0
+                  );
                 }}
                 onExit={() => setActiveGuild(null)}
               />
@@ -661,7 +670,16 @@ export default function Dashboard() {
                 currentStats={data.character_stats}
                 onGoldEarned={(newStats) => {
                   markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
-                  updateStatsAndJournal(newStats, data.journal_logs);
+                  updateStatsAndJournal(
+                    newStats, data.journal_logs,
+                    data.purchased_items, data.mastery_count, data.honor_grants,
+                    data.quiz_attempts || {}, data.mastered_quizzes || [],
+                    data.honor_grants,
+                    (data.guild_sessions_count || 0) + 1,
+                    data.monster_battles_won || 0,
+                    data.sibling_battles_won || 0,
+                    data.perfect_quizzes || 0
+                  );
                 }}
                 onExit={() => setActiveGuild(null)}
               />
@@ -672,7 +690,16 @@ export default function Dashboard() {
                 currentStats={data.character_stats}
                 onGoldEarned={(newStats) => {
                   markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
-                  updateStatsAndJournal(newStats, data.journal_logs);
+                  updateStatsAndJournal(
+                    newStats, data.journal_logs,
+                    data.purchased_items, data.mastery_count, data.honor_grants,
+                    data.quiz_attempts || {}, data.mastered_quizzes || [],
+                    data.honor_grants,
+                    (data.guild_sessions_count || 0) + 1,
+                    data.monster_battles_won || 0,
+                    data.sibling_battles_won || 0,
+                    data.perfect_quizzes || 0
+                  );
                 }}
                 onExit={() => setActiveGuild(null)}
               />
@@ -683,7 +710,16 @@ export default function Dashboard() {
                 currentStats={data.character_stats}
                 onGoldEarned={(newStats) => {
                   markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
-                  updateStatsAndJournal(newStats, data.journal_logs);
+                  updateStatsAndJournal(
+                    newStats, data.journal_logs,
+                    data.purchased_items, data.mastery_count, data.honor_grants,
+                    data.quiz_attempts || {}, data.mastered_quizzes || [],
+                    data.honor_grants,
+                    (data.guild_sessions_count || 0) + 1,
+                    data.monster_battles_won || 0,
+                    data.sibling_battles_won || 0,
+                    data.perfect_quizzes || 0
+                  );
                 }}
                 onExit={() => setActiveGuild(null)}
               />
@@ -709,6 +745,16 @@ export default function Dashboard() {
             liveBattleInbox={liveBattleInbox}
             pendingLiveBattleId={pendingLiveBattleId}
             onConsumePendingLiveBattle={() => setPendingLiveBattleId(null)}
+            onBattleWon={(kind) => updateStatsAndJournal(
+              data.character_stats, data.journal_logs,
+              data.purchased_items, data.mastery_count, data.honor_grants,
+              data.quiz_attempts || {}, data.mastered_quizzes || [],
+              data.honor_grants,
+              data.guild_sessions_count || 0,
+              (data.monster_battles_won || 0) + (kind === 'trainer' ? 1 : 0),
+              (data.sibling_battles_won || 0) + (kind === 'sibling' ? 1 : 0),
+              data.perfect_quizzes || 0
+            )}
           />
         )}
 
