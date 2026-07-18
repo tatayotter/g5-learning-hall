@@ -1504,118 +1504,6 @@ function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange }: {
   );
 }
 
-// ─── COLLECTION PANEL ───────────────────────────────────────────────────────────
-// Rare, wild-caught monsters land here first (never straight into a team slot).
-// Promoting one reuses the same insert/update-by-slot pattern as TeamPanel.
-
-function CollectionPanel({ caughtMonsters, userMonsters, playerLevel, onPromote }: {
-  caughtMonsters: CaughtMonster[];
-  userMonsters: UserMonster[];
-  playerLevel: number;
-  onPromote: (caught: CaughtMonster, slot: number) => void;
-}) {
-  const [promotingId, setPromotingId] = useState<string | null>(null);
-  const unlockedSlots = getUnlockedMonsterSlots(playerLevel);
-
-  // "Owned" = currently on the team or sitting in the caught-but-benched
-  // collection — anything never caught (mostly the wild-only species, since
-  // starters can always be freely added to an open team slot) stays greyed
-  // out here as a preview of what's still out there to find.
-  const ownedSpeciesIds = new Set([
-    ...userMonsters.map(m => m.monster_id),
-    ...caughtMonsters.map(c => c.monster_id),
-  ]);
-
-  return (
-    <div className="space-y-6">
-      <div>
-        <h3 className="text-lg font-bold text-white font-display">🐲 Collection</h3>
-        <p className="text-xs text-gray-500">Every monster species in the game. Greyed-out ones haven't been obtained yet — most only appear from a rare wild encounter on the Training Map.</p>
-      </div>
-
-      {caughtMonsters.length > 0 && (
-        <div className="space-y-3">
-          <p className="text-xs text-amber-500 font-bold uppercase tracking-widest">Ready to add to your team</p>
-          {caughtMonsters.map(caught => {
-            const def = ALL_MONSTERS[caught.monster_id];
-            if (!def) return null;
-            return (
-              <div key={caught.id} className="p-4 rounded-xl border border-amber-800 bg-amber-900/10">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 flex-shrink-0">
-                    <MonsterImage monster={def} className="w-full h-full" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-bold text-white">{def.name} <span className="text-gray-400 text-sm">Lv.{caught.monster_level}</span></p>
-                    <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
-                  </div>
-                  <button
-                    onClick={() => setPromotingId(promotingId === caught.id ? null : caught.id)}
-                    className="bg-amber-700 hover:bg-amber-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors"
-                  >
-                    → Move to Team
-                  </button>
-                </div>
-                {promotingId === caught.id && (
-                  <div className="mt-3 pt-3 border-t border-amber-900 flex flex-wrap gap-2">
-                    {[1, 2, 3].map(slot => {
-                      const existing = userMonsters.find(m => m.slot === slot);
-                      const isUnlocked = slot <= unlockedSlots || !!existing;
-                      if (!isUnlocked) return null;
-                      return (
-                        <button
-                          key={slot}
-                          onClick={() => { onPromote(caught, slot); setPromotingId(null); }}
-                          className="text-xs bg-neutral-800 hover:bg-neutral-700 px-3 py-2 rounded-lg text-white"
-                        >
-                          {existing ? `Replace ${ALL_MONSTERS[existing.monster_id]?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      )}
-
-      <div className="space-y-3">
-        <p className="text-xs text-gray-500 font-bold uppercase tracking-widest">All Species</p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-          {Object.values(ALL_MONSTERS).map(def => {
-            const owned = ownedSpeciesIds.has(def.id);
-            const inTeam = userMonsters.find(m => m.monster_id === def.id);
-            return (
-              <div
-                key={def.id}
-                className={`p-3 rounded-xl border text-center ${
-                  owned ? 'border-neutral-700 bg-neutral-900' : 'border-neutral-800 bg-neutral-950/50 opacity-40 grayscale'
-                }`}
-              >
-                <div className="w-12 h-12 mx-auto mb-2">
-                  <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-3xl" />
-                </div>
-                <p className="text-sm font-bold text-white">{def.name}</p>
-                <p className="text-xs text-gray-500 capitalize">{def.element}</p>
-                {owned ? (
-                  inTeam ? (
-                    <p className="text-[10px] text-green-500 mt-1">✅ In Team · Lv.{inTeam.monster_level}</p>
-                  ) : (
-                    <p className="text-[10px] text-amber-500 mt-1">📦 In Collection</p>
-                  )
-                ) : (
-                  <p className="text-[10px] text-gray-600 mt-1">🔒 Not obtained</p>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 // ─── COMPENDIUM PANEL ───────────────────────────────────────────────────────────
 // A dex-style reference of every species in the game. Starters are always fully
 // known (the player picks one freely at the start). Wild-only species stay a
@@ -1670,12 +1558,16 @@ function CompendiumStatBar({ label, value, max }: { label: string; value: number
   );
 }
 
-function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds }: {
+function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerLevel, onPromote }: {
   userMonsters: UserMonster[];
   caughtMonsters: CaughtMonster[];
   seenMonsterIds: string[];
+  playerLevel: number;
+  onPromote: (caught: CaughtMonster, slot: number) => void;
 }) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [promotingId, setPromotingId] = useState<string | null>(null);
+  const unlockedSlots = getUnlockedMonsterSlots(playerLevel);
 
   const ownedSpeciesIds = new Set([
     ...userMonsters.map(m => m.monster_id),
@@ -1695,10 +1587,61 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds }: {
         <p className="text-xs text-gray-500">Every monster species in the game. Wild-only species stay a mystery silhouette until you encounter one on the Training Map.</p>
       </div>
 
+      {/* Rare, wild-caught monsters land here first (never straight into a team
+          slot). Promoting one reuses the same insert/update-by-slot pattern as
+          TeamPanel. */}
+      {caughtMonsters.length > 0 && (
+        <div className="space-y-3">
+          <p className="text-xs text-amber-500 font-bold uppercase tracking-widest">Ready to add to your team</p>
+          {caughtMonsters.map(caught => {
+            const def = ALL_MONSTERS[caught.monster_id];
+            if (!def) return null;
+            return (
+              <div key={caught.id} className="p-4 rounded-xl border border-amber-800 bg-amber-900/10">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 flex-shrink-0">
+                    <MonsterImage monster={def} className="w-full h-full" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-bold text-white">{def.name} <span className="text-gray-400 text-sm">Lv.{caught.monster_level}</span></p>
+                    <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
+                  </div>
+                  <button
+                    onClick={() => setPromotingId(promotingId === caught.id ? null : caught.id)}
+                    className="bg-amber-700 hover:bg-amber-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors"
+                  >
+                    → Move to Team
+                  </button>
+                </div>
+                {promotingId === caught.id && (
+                  <div className="mt-3 pt-3 border-t border-amber-900 flex flex-wrap gap-2">
+                    {[1, 2, 3].map(slot => {
+                      const existing = userMonsters.find(m => m.slot === slot);
+                      const isUnlocked = slot <= unlockedSlots || !!existing;
+                      if (!isUnlocked) return null;
+                      return (
+                        <button
+                          key={slot}
+                          onClick={() => { onPromote(caught, slot); setPromotingId(null); }}
+                          className="text-xs bg-neutral-800 hover:bg-neutral-700 px-3 py-2 rounded-lg text-white"
+                        >
+                          {existing ? `Replace ${ALL_MONSTERS[existing.monster_id]?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
+
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
         {Object.values(ALL_MONSTERS).map(def => {
           const known = isKnown(def.id);
           const owned = ownedSpeciesIds.has(def.id);
+          const inTeam = userMonsters.find(m => m.monster_id === def.id);
           return (
             <button
               key={def.id}
@@ -1715,7 +1658,13 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds }: {
                 )}
               </div>
               <p className="text-xs font-bold text-white truncate">{known ? def.name : '???'}</p>
-              {known && owned && <p className="text-[9px] text-green-500">✅ Owned</p>}
+              {known && owned && (
+                inTeam ? (
+                  <p className="text-[9px] text-green-500">✅ In Team</p>
+                ) : (
+                  <p className="text-[9px] text-amber-500">📦 Benched</p>
+                )
+              )}
             </button>
           );
         })}
@@ -1787,7 +1736,7 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds }: {
 
 // ─── MAIN MONSTER GUILD ───────────────────────────────────────────────────────
 
-type GuildView = 'map' | 'team' | 'trainers' | 'collection' | 'compendium' | 'battle' | 'live_battle' | 'leaderboard';
+type GuildView = 'map' | 'team' | 'trainers' | 'compendium' | 'battle' | 'live_battle' | 'leaderboard';
 
 interface WildEncounterState {
   monsterId: string;
@@ -2289,8 +2238,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           { id: 'map',        label: '🗺️ Training Map' },
           { id: 'team',       label: '👥 My Team' },
           { id: 'trainers',   label: '⚔️ Trainers' },
-          { id: 'collection', label: `🐲 Collection${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}` },
-          { id: 'compendium', label: '📖 Compendium' },
+          { id: 'compendium', label: `📖 Compendium${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}` },
           { id: 'leaderboard', label: '🏆 Leaderboard' },
         ] as { id: GuildView; label: string }[]).map(tab => (
           <button
@@ -2337,22 +2285,15 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
         />
       )}
 
-      {/* Collection view — rare wild monsters, promote into a team slot */}
-      {view === 'collection' && (
-        <CollectionPanel
-          caughtMonsters={caughtMonsters}
-          userMonsters={userMonsters}
-          playerLevel={playerLevel}
-          onPromote={handlePromoteCaughtMonster}
-        />
-      )}
-
-      {/* Compendium view — dex-style reference, wild-only species stay a silhouette until encountered */}
+      {/* Compendium view — dex-style reference; wild-only species stay a silhouette
+          until encountered, and rare wild catches surface here to promote into a team slot */}
       {view === 'compendium' && (
         <CompendiumPanel
           caughtMonsters={caughtMonsters}
           userMonsters={userMonsters}
           seenMonsterIds={battleState?.seen_monsters || []}
+          playerLevel={playerLevel}
+          onPromote={handlePromoteCaughtMonster}
         />
       )}
 
