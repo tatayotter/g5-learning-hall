@@ -1086,6 +1086,13 @@ function TrainingMap({
         .update({ monster_exp: newExp, monster_level: getMonsterLevel(newExp) })
         .eq('id', activeMonster.id);
     }
+    // Daily checklist's "training map" item is satisfied by any correct grass
+    // question — it no longer requires actually winning a wild encounter battle.
+    if (correctCount > 0) {
+      const today = new Date().toISOString().split('T')[0];
+      await supabase.from('user_battle_state').update({ last_wild_encounter_win: today }).eq('user_id', userId);
+      onBattleStateChange({ ...battleState, last_wild_encounter_win: today });
+    }
     // Rare wild-monster encounter roll — once per individual question answered,
     // regardless of whether it was answered correctly.
     const encountered = answeredQuestions.some(() => Math.random() < WILD_ENCOUNTER_CHANCE);

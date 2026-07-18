@@ -48,23 +48,23 @@ export default function DailyChecklist({
   const [claimed, setClaimed] = useState(false);
   const [claiming, setClaiming] = useState(false);
 
-  const loadFlags = useCallback(async () => {
-    setLoading(true);
+  const loadFlags = useCallback(async (isInitial = false) => {
+    if (isInitial) setLoading(true);
     const [flags, claimedToday] = await Promise.all([
       fetchChecklistBattleFlags(userId),
       hasClaimedChecklistBonus(userId, todayKey),
     ]);
     setBattleFlags(flags);
     setClaimed(claimedToday);
-    setLoading(false);
+    if (isInitial) setLoading(false);
   }, [userId, todayKey]);
 
   // Wild-encounter wins and guild sessions happen deep inside sibling tabs
   // (MonsterGuild, the 5 guild components) with no shared callback back to
   // this always-mounted sidebar widget, so poll for state changes instead.
   useEffect(() => {
-    loadFlags();
-    const interval = setInterval(loadFlags, 15000);
+    loadFlags(true);
+    const interval = setInterval(() => loadFlags(false), 15000);
     return () => clearInterval(interval);
   }, [loadFlags]);
 
@@ -79,7 +79,7 @@ export default function DailyChecklist({
     { label: questDone && Object.keys(packageData?.[currentDayName] || {}).length === 0
         ? `🗺️ No quest scheduled today`
         : `🗺️ Finish today's Main Quest`, done: questDone },
-    { label: '🐉 Win a wild encounter at the training map', done: battleDone },
+    { label: '🐉 Answer a training map question correctly', done: battleDone },
   ];
 
   const allDone = items.every(i => i.done) && guildsAllDone;
