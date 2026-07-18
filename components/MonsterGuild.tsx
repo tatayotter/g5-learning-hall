@@ -54,6 +54,8 @@ interface BattleState {
   active_monster_slot: number;
   last_sibling_battle: string | null;
   last_pvp_win: string | null;
+  last_wild_encounter_win: string | null;
+  last_guild_session: string | null;
 }
 
 interface MonsterGuildProps {
@@ -990,12 +992,14 @@ interface TrainingMapProps {
   onChallengePlayer?: (targetId: string, name: string) => void;
   liveBattleInbox?: ReturnType<typeof useLiveBattleInbox>;
   mapPresence: ReturnType<typeof useMapPresence>;
+  movementLocked?: boolean;
+  walkLockActive?: boolean;
 }
 
 function TrainingMap({
   userId, battleState, userMonsters, questions,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll, onChallengePlayer,
-  liveBattleInbox, mapPresence,
+  liveBattleInbox, mapPresence, movementLocked, walkLockActive,
 }: TrainingMapProps) {
   const [grassQuestion, setGrassQuestion] = useState(false);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
@@ -1017,6 +1021,7 @@ function TrainingMap({
   };
 
   const move = useCallback(async (dx: number, dy: number) => {
+    if (movementLocked) return;
     const newX = battleState.map_x + dx;
     const newY = battleState.map_y + dy;
     if (newX < 0 || newX >= MAP_SIZE || newY < 0 || newY >= MAP_SIZE) {
@@ -1055,11 +1060,11 @@ function TrainingMap({
     } else if (tile.type === 'town') {
       onHeal();
     }
-  }, [battleState, map, userId, onBattleStateChange, onHeal]);
+  }, [battleState, map, userId, onBattleStateChange, onHeal, movementLocked]);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (grassQuestion) return;
+      if (grassQuestion || movementLocked) return;
       if (e.key === 'ArrowUp')    move(0, -1);
       if (e.key === 'ArrowDown')  move(0,  1);
       if (e.key === 'ArrowLeft')  move(-1, 0);
@@ -1067,7 +1072,7 @@ function TrainingMap({
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [move, grassQuestion]);
+  }, [move, grassQuestion, movementLocked]);
 
   const handleGrassAnswer = async (correctCount: number, answeredQuestions: any[]) => {
     setGrassQuestion(false);
@@ -1101,18 +1106,20 @@ function TrainingMap({
 
             {/* D-pad — mobile/tablet only */}
             <div className="flex-shrink-0 lg:hidden">
-              <div className="grid grid-cols-3 gap-1 w-16 sm:w-20">
+              <div className={`grid grid-cols-3 gap-1 w-16 sm:w-20 ${movementLocked ? 'opacity-40' : ''}`}>
                 <div />
-                <button onClick={() => move(0, -1)} className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base">▲</button>
+                <button disabled={movementLocked} onClick={() => move(0, -1)} className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base disabled:cursor-not-allowed">▲</button>
                 <div />
-                <button onClick={() => move(-1, 0)} className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base">◀</button>
+                <button disabled={movementLocked} onClick={() => move(-1, 0)} className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base disabled:cursor-not-allowed">◀</button>
                 <div className="bg-neutral-900 rounded-lg" />
-                <button onClick={() => move(1, 0)}  className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base">▶</button>
+                <button disabled={movementLocked} onClick={() => move(1, 0)}  className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base disabled:cursor-not-allowed">▶</button>
                 <div />
-                <button onClick={() => move(0, 1)}  className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base">▼</button>
+                <button disabled={movementLocked} onClick={() => move(0, 1)}  className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base disabled:cursor-not-allowed">▼</button>
                 <div />
               </div>
-              <p className="text-[10px] text-gray-600 mt-1 text-center">arrows</p>
+              <p className="text-[10px] text-gray-600 mt-1 text-center">
+                {walkLockActive ? '⏳ wait...' : 'arrows'}
+              </p>
             </div>
 
             {/* Map — single painted background image with a percentage-based walkability grid on top.
@@ -1211,7 +1218,9 @@ function TrainingMap({
 
           {/* Below map: arrow-key hint (desktop) + sticker picker */}
           <div className="flex flex-col items-center">
-            <p className="hidden lg:block text-xs text-gray-600 text-center">Use arrow keys to move</p>
+            <p className="hidden lg:block text-xs text-gray-600 text-center">
+              {walkLockActive ? '⏳ Take a moment to review that answer before moving...' : 'Use arrow keys to move'}
+            </p>
 
             <div className="relative mt-1 lg:mt-3 w-24">
               <button
@@ -1618,6 +1627,8 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
   const [activeBattle, setActiveBattle] = useState<NpcTrainer | null>(null);
   const [isWildEncounterBattle, setIsWildEncounterBattle] = useState(false);
   const [wildEncounter, setWildEncounter] = useState<WildEncounterState | null>(null);
+  const [walkLocked, setWalkLocked] = useState(false);
+  const walkLockTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [caughtMonsters, setCaughtMonsters] = useState<CaughtMonster[]>([]);
   const [pvpOpponent, setPvpOpponent] = useState<{ id: UserId; name: string } | null>(null);
   const [pvpOpponentTeam, setPvpOpponentTeam] = useState<ActiveBattleMonster[] | null>(null);
@@ -1791,8 +1802,24 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
     setView('battle');
   };
 
+  // Gives the player a forced pause after a wrong answer so they actually read
+  // the correct choice before rushing off, instead of instantly resuming.
+  const lockWalkingFor10Seconds = () => {
+    if (walkLockTimeoutRef.current) clearTimeout(walkLockTimeoutRef.current);
+    setWalkLocked(true);
+    walkLockTimeoutRef.current = setTimeout(() => {
+      setWalkLocked(false);
+      walkLockTimeoutRef.current = null;
+    }, 10000);
+  };
+
+  useEffect(() => () => {
+    if (walkLockTimeoutRef.current) clearTimeout(walkLockTimeoutRef.current);
+  }, []);
+
   const handleWildEncounterWrong = async () => {
     if (!wildEncounter) return;
+    lockWalkingFor10Seconds();
     markQuestionsCompleted(userId, 'wild_encounter', [wildEncounter.question.id]);
     const attemptsLeft = wildEncounter.attemptsLeft - 1;
     if (attemptsLeft <= 0) {
@@ -1905,6 +1932,8 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
         await supabase.from('user_caught_monsters').insert({
           user_id: userId, monster_id: wildMonsterId, monster_level: wildLevel, monster_exp: 0,
         });
+        await supabase.from('user_battle_state').update({ last_wild_encounter_win: today }).eq('user_id', userId);
+        setBattleState(prev => prev ? { ...prev, last_wild_encounter_win: today } : prev);
         showNotification(`🎉 You caught ${activeBattle.name}!`);
         logAction(userId, today, 'battle', `🐉 Captured wild ${activeBattle.name}!`, 0, 0);
       } else {
@@ -2042,6 +2071,8 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           onChallengePlayer={(targetId, name) => handleChallengePlayer(targetId as UserId, name)}
           liveBattleInbox={liveBattleInbox}
           mapPresence={mapPresence}
+          movementLocked={!!wildEncounter || walkLocked}
+          walkLockActive={walkLocked}
         />
       )}
 
