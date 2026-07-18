@@ -1637,39 +1637,6 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerL
         </div>
       )}
 
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
-        {Object.values(ALL_MONSTERS).map(def => {
-          const known = isKnown(def.id);
-          const owned = ownedSpeciesIds.has(def.id);
-          const inTeam = userMonsters.find(m => m.monster_id === def.id);
-          return (
-            <button
-              key={def.id}
-              onClick={() => setSelectedId(def.id)}
-              className={`p-3 rounded-xl border text-center transition-colors ${
-                selectedId === def.id ? 'border-amber-400 bg-amber-900/10' : 'border-neutral-800 bg-neutral-900/50 hover:border-neutral-700'
-              }`}
-            >
-              <div className="w-14 h-14 mx-auto mb-2">
-                {known ? (
-                  <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-3xl" />
-                ) : (
-                  <MonsterSilhouette id={def.id} className="w-full h-full" />
-                )}
-              </div>
-              <p className="text-xs font-bold text-white truncate">{known ? def.name : '???'}</p>
-              {known && owned && (
-                inTeam ? (
-                  <p className="text-[9px] text-green-500">✅ In Team</p>
-                ) : (
-                  <p className="text-[9px] text-amber-500">📦 Benched</p>
-                )
-              )}
-            </button>
-          );
-        })}
-      </div>
-
       {selected && (
         <div className="p-5 rounded-2xl border border-neutral-800 bg-neutral-900/60">
           {selectedKnown ? (
@@ -1730,6 +1697,39 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerL
           )}
         </div>
       )}
+
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+        {Object.values(ALL_MONSTERS).map(def => {
+          const known = isKnown(def.id);
+          const owned = ownedSpeciesIds.has(def.id);
+          const inTeam = userMonsters.find(m => m.monster_id === def.id);
+          return (
+            <button
+              key={def.id}
+              onClick={() => setSelectedId(def.id)}
+              className={`p-3 rounded-xl border text-center transition-colors ${
+                selectedId === def.id ? 'border-amber-400 bg-amber-900/10' : 'border-neutral-800 bg-neutral-900/50 hover:border-neutral-700'
+              }`}
+            >
+              <div className="w-14 h-14 mx-auto mb-2">
+                {known ? (
+                  <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-3xl" />
+                ) : (
+                  <MonsterSilhouette id={def.id} className="w-full h-full" />
+                )}
+              </div>
+              <p className="text-xs font-bold text-white truncate">{known ? def.name : '???'}</p>
+              {known && owned && (
+                inTeam ? (
+                  <p className="text-[9px] text-green-500">✅ In Team</p>
+                ) : (
+                  <p className="text-[9px] text-amber-500">📦 Benched</p>
+                )
+              )}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }
