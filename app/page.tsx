@@ -127,7 +127,15 @@ export default function Dashboard() {
   };
 
   const { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta } = useWeeklyData(activeUserId ?? 'damien');
-  const [activeTab, setActiveTab] = useState('board');
+  // Sticks to whichever top-level tab the player was on across a page refresh
+  // instead of always dropping back to Main Quests. sessionStorage (not
+  // localStorage) so a fresh browser session still starts clean.
+  const [activeTab, setActiveTab] = useState(() =>
+    (typeof window !== 'undefined' && sessionStorage.getItem('activeTab')) || 'board'
+  );
+  useEffect(() => {
+    sessionStorage.setItem('activeTab', activeTab);
+  }, [activeTab]);
   const [pendingLiveBattleId, setPendingLiveBattleId] = useState<string | null>(null);
   const [claimingKey, setClaimingKey] = useState<string | null>(null);
   const claimBusyRef = useRef(false);
