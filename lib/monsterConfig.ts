@@ -298,6 +298,14 @@ export interface NpcTrainer {
 
 export const NPC_TRAINERS: NpcTrainer[] = [
   {
+    id: 'training_tester', name: 'Training Dummy', element: 'mixed', levelRequirement: 0,
+    emoji: '🎯', intro: 'No hard feelings — just here to help you practice.',
+    monsters: [
+      { monsterId: 'mosshorn', level: 1 },
+    ],
+    reward: { exp: 10, gold: 0 },
+  },
+  {
     id: 'forest_scout', name: 'Forest Scout', element: 'leaf', levelRequirement: 1,
     emoji: '🌿', intro: 'The forest protects its own. Can you survive its embrace?',
     monsters: [

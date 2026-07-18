@@ -1948,9 +1948,13 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
     }
 
     if (won && activeBattle) {
-      const newDefeated = [...(battleState?.defeated_trainers || []), activeBattle.id];
-      await supabase.from('user_battle_state').update({ defeated_trainers: newDefeated }).eq('user_id', userId);
-      setBattleState(prev => prev ? { ...prev, defeated_trainers: newDefeated } : prev);
+      // The training dummy is repeatable practice, not a one-time milestone —
+      // never mark it defeated so its Battle button stays available forever.
+      if (activeBattle.id !== 'training_tester') {
+        const newDefeated = [...(battleState?.defeated_trainers || []), activeBattle.id];
+        await supabase.from('user_battle_state').update({ defeated_trainers: newDefeated }).eq('user_id', userId);
+        setBattleState(prev => prev ? { ...prev, defeated_trainers: newDefeated } : prev);
+      }
 
       if (expEarned > 0) {
         const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
@@ -2160,7 +2164,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
             );
           })()}
           {NPC_TRAINERS.map(trainer => {
-            const defeated = battleState.defeated_trainers.includes(trainer.id);
+            const defeated = trainer.id !== 'training_tester' && battleState.defeated_trainers.includes(trainer.id);
             const locked = playerLevel < trainer.levelRequirement;
             return (
               <div
