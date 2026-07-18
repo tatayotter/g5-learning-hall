@@ -616,6 +616,65 @@ function dedupeKeyFor(guild: GuildTable, q: any): string | null {
   return norm(q.question);
 }
 
+// Reference JSON array shape for each guild — shown in the importer so it's
+// easy to paste into an AI prompt and ask it to generate more questions in
+// the exact format validateQuestion()/the DB columns expect. Don't include
+// id/term_id/grade_level/is_active — those are set by the importer itself.
+const GUILD_JSON_EXAMPLES: Record<GuildTable, string> = {
+  sq_lorekeeper: JSON.stringify([
+    {
+      passage: "Optional passage text the question refers to (omit if not needed).",
+      question: "What is the main idea of the passage?",
+      choice_a: "First answer choice",
+      choice_b: "Second answer choice",
+      choice_c: "Third answer choice",
+      choice_d: "Fourth answer choice",
+      correct_choice: "a",
+    },
+  ], null, 2),
+  sq_wild_encounter: JSON.stringify([
+    {
+      passage: "Optional passage text the question refers to (omit if not needed).",
+      question: "What is the main idea of the passage?",
+      choice_a: "First answer choice",
+      choice_b: "Second answer choice",
+      choice_c: "Third answer choice",
+      choice_d: "Fourth answer choice",
+      correct_choice: "a",
+    },
+  ], null, 2),
+  sq_spellcaster: JSON.stringify([
+    { word_string: "beautiful", difficulty_tier: 2 },
+  ], null, 2),
+  sq_number_realm: JSON.stringify([
+    { problem_prompt: "12 + 7 = ?", expected_layout: "standard", correct_standard_ans: "19" },
+    { problem_prompt: "1/2 + 1/4 = ?", expected_layout: "fraction", correct_numerator: 3, correct_denominator: 4 },
+    { problem_prompt: "How long is 90 minutes in hours and minutes?", expected_layout: "time", correct_standard_ans: "1:30" },
+  ], null, 2),
+  sq_logic_labyrinth: JSON.stringify([
+    {
+      puzzle_prompt_text: "Which shape completes the pattern? (or use matrix_image_url instead)",
+      options_array: [
+        { id: "a", label: "Option A" },
+        { id: "b", label: "Option B" },
+        { id: "c", label: "Option C" },
+        { id: "d", label: "Option D" },
+      ],
+      correct_option_id: "a",
+    },
+  ], null, 2),
+  sq_lexicon_arena: JSON.stringify([
+    {
+      language: "English",
+      definition: "A word meaning pleasing to look at.",
+      correct_spelling: "beautiful",
+      wrong_a: "beutiful",
+      wrong_b: "beautifull",
+      wrong_c: "beautifal",
+    },
+  ], null, 2),
+};
+
 function QuestionBankImporter() {
   const [guild, setGuild] = useState<GuildTable>('sq_lorekeeper');
   const [gradeLevel, setGradeLevel] = useState<2 | 5>(5);
@@ -626,6 +685,18 @@ function QuestionBankImporter() {
   const [importing, setImporting] = useState(false);
   const [importResult, setImportResult] = useState<{ inserted: number; skipped: number; invalid: number; invalidDetails: string[] } | null>(null);
   const [refreshPool, setRefreshPool] = useState(0);
+  const [showFormat, setShowFormat] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const copyFormatExample = async () => {
+    try {
+      await navigator.clipboard.writeText(GUILD_JSON_EXAMPLES[guild]);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      // clipboard API unavailable — the textarea below is still selectable
+    }
+  };
 
   const previewErrors = preview.map(q => validateQuestion(guild, q));
   const validCount = previewErrors.filter(e => e.length === 0).length;
@@ -781,6 +852,30 @@ function QuestionBankImporter() {
       {/* JSON paste */}
       {preview.length === 0 && !importResult && (
         <div className="space-y-3">
+          <div className="bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden">
+            <button
+              onClick={() => setShowFormat(v => !v)}
+              className="w-full flex items-center justify-between px-4 py-3 text-left"
+            >
+              <span className="text-sm font-bold text-gray-300">
+                📋 {GUILD_LABELS[guild]} JSON format {showFormat ? '▲' : '▼'}
+              </span>
+              <span className="text-xs text-gray-500">Use this to prompt an AI to generate questions</span>
+            </button>
+            {showFormat && (
+              <div className="px-4 pb-4">
+                <pre className="bg-black border border-neutral-800 rounded-lg p-3 text-xs text-gray-300 font-mono overflow-x-auto whitespace-pre">
+                  {GUILD_JSON_EXAMPLES[guild]}
+                </pre>
+                <button
+                  onClick={copyFormatExample}
+                  className="mt-2 bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors"
+                >
+                  {copied ? '✅ Copied!' : '📋 Copy format'}
+                </button>
+              </div>
+            )}
+          </div>
           <textarea
             value={jsonInput}
             onChange={e => setJsonInput(e.target.value)}
@@ -1088,7 +1183,7 @@ function ToolsSection({ currentData, currentSunday, onUpdateStats, passcode }: {
             {claims.length === 0 ? (
               <p className="text-gray-600 text-sm">No pending rewards.</p>
             ) : (
-              <div className="space-y-2">
+              <div className="space-y-2 max-h-96 overflow-y-auto pr-1">
                 {claims.map(claim => (
                   <div key={claim.id} className="flex justify-between items-center bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3">
                     <div>

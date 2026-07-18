@@ -143,6 +143,14 @@ export async function linkIdentity(userId: UserId): Promise<void> {
     .upsert({ auth_uid: authUid, app_user_id: userId }, { onConflict: 'auth_uid' });
 }
 
+// Records when a user last logged in, so the splash screen can show a
+// "last seen" indicator on each player card.
+export async function recordLastLogin(userId: UserId): Promise<void> {
+  await supabase
+    .from('user_last_login')
+    .upsert({ user_id: userId, last_login: new Date().toISOString() }, { onConflict: 'user_id' });
+}
+
 export function getOtherPlayers(currentUserId: UserId): UserProfile[] {
   return (Object.keys(USERS) as UserId[])
     .filter(id => id !== currentUserId)

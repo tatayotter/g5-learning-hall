@@ -4,6 +4,8 @@ import Lottie from 'lottie-react';
 import { motion } from 'framer-motion';
 import { UserId, USERS, setActiveUser, getClassmateIds, isFamilyProtected } from '@/lib/userSession';
 import { supabase } from '@/lib/supabase';
+import { ALL_MONSTERS } from '@/lib/monsterConfig';
+import { MonsterImage } from '@/components/battle/shared';
 
 interface SplashScreenProps {
   onSelect: (id: UserId) => void;
@@ -14,6 +16,26 @@ interface HeroStats {
   level: number;
   xp: number;
   gold: number;
+}
+
+interface ActiveMonsterInfo {
+  monster_id: string;
+  nickname: string | null;
+  monster_level: number;
+}
+
+function formatLastSeen(iso: string | null | undefined): string {
+  if (!iso) return 'Never logged in';
+  const then = new Date(iso).getTime();
+  const diffMs = Date.now() - then;
+  const mins = Math.floor(diffMs / 60000);
+  if (mins < 1) return 'Just now';
+  if (mins < 60) return `${mins}m ago`;
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return `${hours}h ago`;
+  const days = Math.floor(hours / 24);
+  if (days < 7) return `${days}d ago`;
+  return new Date(iso).toLocaleDateString();
 }
 
 function getWeekStartDate(): string {
@@ -73,27 +95,96 @@ const CARD_STYLES: Record<string, { bg: string; border: string; hoverBorder: str
 
 const FAMILY_IDS: UserId[] = ['damien', 'tala'];
 
-function CardAvatar({ avatar, fallbackIcon }: { avatar: string; fallbackIcon: string }) {
+function CardAvatar({ avatar, fallbackIcon, online, size = 'w-20 h-20' }: { avatar: string; fallbackIcon: string; online?: boolean; size?: string }) {
   const [failed, setFailed] = useState(false);
-  if (failed) return <div className="text-5xl mb-4">{fallbackIcon}</div>;
   return (
-    <img
-      src={avatar}
-      alt=""
-      onError={() => setFailed(true)}
-      className="w-20 h-20 object-contain mb-4"
-    />
+    <div className={`relative ${size} mb-4`}>
+      {failed ? (
+        <div className="text-5xl">{fallbackIcon}</div>
+      ) : (
+        <img
+          src={avatar}
+          alt=""
+          onError={() => setFailed(true)}
+          className={`${size} object-contain`}
+        />
+      )}
+      {online && (
+        <span
+          className="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-green-400 border-2 border-black"
+          title="Online now"
+        />
+      )}
+    </div>
+  );
+}
+
+function CardStats({ id, stats, monster, lastLogin, accent, goldColor }: {
+  id: UserId;
+  stats: HeroStats | null | undefined;
+  monster: ActiveMonsterInfo | null | undefined;
+  lastLogin: string | null | undefined;
+  accent: string;
+  goldColor: string;
+}) {
+  return (
+    <>
+      {stats ? (
+        <div className="mt-5 grid grid-cols-3 gap-2 text-center">
+          <div className="bg-black/40 rounded-lg py-2 px-1">
+            <p className="text-xs text-gray-600 mb-1">Level</p>
+            <p className={`${accent} font-bold font-mono text-sm`}>Lvl {stats.level}</p>
+          </div>
+          <div className="bg-black/40 rounded-lg py-2 px-1">
+            <p className="text-xs text-gray-600 mb-1">XP</p>
+            <p className={`${accent} font-bold font-mono text-sm`}>{stats.xp}</p>
+          </div>
+          <div className="bg-black/40 rounded-lg py-2 px-1">
+            <p className="text-xs text-gray-600 mb-1">Gold</p>
+            <p className={`${goldColor} font-bold font-mono text-sm`}>🪙 {stats.gold}</p>
+          </div>
+        </div>
+      ) : (
+        <div className="mt-5 h-12 flex items-center">
+          <p className="text-xs text-gray-700 italic">Loading stats...</p>
+        </div>
+      )}
+
+      <div className="mt-3 flex items-center gap-2 bg-black/30 rounded-lg py-1.5 px-2">
+        {monster ? (
+          <>
+            <div className="w-6 h-6 flex-shrink-0">
+              <MonsterImage monster={ALL_MONSTERS[monster.monster_id]} className="w-full h-full" emojiClassName="text-lg" />
+            </div>
+            <p className="text-xs text-gray-400 truncate">
+              {monster.nickname || ALL_MONSTERS[monster.monster_id]?.name} <span className="text-gray-600">Lv{monster.monster_level}</span>
+            </p>
+          </>
+        ) : (
+          <p className="text-xs text-gray-700 italic">No active monster</p>
+        )}
+      </div>
+
+      <p className="mt-2 text-[11px] text-gray-600">
+        🕓 Last seen: {formatLastSeen(lastLogin)}
+      </p>
+    </>
   );
 }
 
 export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenProps) {
   const [animationData, setAnimationData] = useState(null);
   const [statsMap, setStatsMap] = useState<Record<string, HeroStats | null>>({});
+  const [lastLoginMap, setLastLoginMap] = useState<Record<string, string | null>>({});
+  const [monsterMap, setMonsterMap] = useState<Record<string, ActiveMonsterInfo | null>>({});
+  const [onlineIds, setOnlineIds] = useState<Set<string>>(new Set());
   const [view, setView] = useState<'root' | 'classmates'>('root');
   const [loginTarget, setLoginTarget] = useState<{ id: UserId; name: string } | null>(null);
   const [passwordInput, setPasswordInput] = useState('');
   const [loginError, setLoginError] = useState('');
   const [loggingIn, setLoggingIn] = useState(false);
+
+  const allIds = [...FAMILY_IDS, ...getClassmateIds()];
 
   useEffect(() => {
     fetch('/splash-animation.json')
@@ -106,25 +197,68 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
     async function fetchStats() {
       const weekDate = getWeekStartDate();
 
-      const results = await Promise.all(
-        FAMILY_IDS.map((id) =>
-          supabase
-            .from('weekly_packages')
-            .select('character_stats')
-            .eq('user_id', id)
-            .eq('week_starting_date', weekDate)
-            .single()
-        )
-      );
+      const [weeklyResults, lastLoginRes, battleStateRes, monstersRes] = await Promise.all([
+        Promise.all(
+          allIds.map((id) =>
+            supabase
+              .from('weekly_packages')
+              .select('character_stats')
+              .eq('user_id', id)
+              .eq('week_starting_date', weekDate)
+              .maybeSingle()
+          )
+        ),
+        supabase.from('user_last_login').select('user_id, last_login').in('user_id', allIds),
+        supabase.from('user_battle_state').select('user_id, active_monster_slot').in('user_id', allIds),
+        supabase.from('user_monsters').select('user_id, slot, monster_id, nickname, monster_level').in('user_id', allIds),
+      ]);
 
-      const map: Record<string, HeroStats | null> = {};
-      FAMILY_IDS.forEach((id, i) => {
-        map[id] = results[i].data?.character_stats ?? null;
+      const statsMapNext: Record<string, HeroStats | null> = {};
+      allIds.forEach((id, i) => {
+        statsMapNext[id] = weeklyResults[i].data?.character_stats ?? null;
       });
-      setStatsMap(map);
+      setStatsMap(statsMapNext);
+
+      const lastLoginNext: Record<string, string | null> = {};
+      (lastLoginRes.data || []).forEach((row: any) => {
+        lastLoginNext[row.user_id] = row.last_login;
+      });
+      setLastLoginMap(lastLoginNext);
+
+      const activeSlotByUser: Record<string, number | null> = {};
+      (battleStateRes.data || []).forEach((row: any) => {
+        activeSlotByUser[row.user_id] = row.active_monster_slot ?? null;
+      });
+      const monsterNext: Record<string, ActiveMonsterInfo | null> = {};
+      (monstersRes.data || []).forEach((row: any) => {
+        if (row.slot === activeSlotByUser[row.user_id]) {
+          monsterNext[row.user_id] = {
+            monster_id: row.monster_id,
+            nickname: row.nickname,
+            monster_level: row.monster_level,
+          };
+        }
+      });
+      setMonsterMap(monsterNext);
     }
 
     fetchStats();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Listen (read-only) to the app-wide presence channel that logged-in
+  // sessions track themselves on, so cards can show who's online right now.
+  useEffect(() => {
+    const channel = supabase.channel('app-presence', {
+      config: { presence: { key: '_splash_observer' } },
+    });
+    channel.on('presence', { event: 'sync' }, () => {
+      setOnlineIds(new Set(Object.keys(channel.presenceState())));
+    });
+    channel.subscribe();
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const handleSelect = (id: UserId) => {
@@ -205,31 +339,19 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
                 transition={{ delay: 0.2 + i * 0.1 }}
                 className={`w-64 ${style.bg} border-2 ${style.border} ${style.hoverBorder} rounded-2xl p-8 text-left transition-colors group`}
               >
-                <CardAvatar avatar={user.avatar} fallbackIcon={style.icon} />
+                <CardAvatar avatar={user.avatar} fallbackIcon={style.icon} online={onlineIds.has(id)} />
                 <h2 className={`text-2xl font-display font-bold ${style.accent} mb-1`}>{user.name}</h2>
                 <p className={`${style.accent} opacity-60 font-bold text-sm mb-3`}>{user.grade}</p>
                 <p className="text-gray-500 text-sm">{style.tagline}</p>
 
-                {stats ? (
-                  <div className="mt-5 grid grid-cols-3 gap-2 text-center">
-                    <div className="bg-black/40 rounded-lg py-2 px-1">
-                      <p className="text-xs text-gray-600 mb-1">Level</p>
-                      <p className={`${style.accent} font-bold font-mono text-sm`}>Lvl {stats.level}</p>
-                    </div>
-                    <div className="bg-black/40 rounded-lg py-2 px-1">
-                      <p className="text-xs text-gray-600 mb-1">XP</p>
-                      <p className={`${style.accent} font-bold font-mono text-sm`}>{stats.xp}</p>
-                    </div>
-                    <div className="bg-black/40 rounded-lg py-2 px-1">
-                      <p className="text-xs text-gray-600 mb-1">Gold</p>
-                      <p className={`${style.goldColor} font-bold font-mono text-sm`}>🪙 {stats.gold}</p>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="mt-5 h-12 flex items-center">
-                    <p className="text-xs text-gray-700 italic">Loading stats...</p>
-                  </div>
-                )}
+                <CardStats
+                  id={id}
+                  stats={stats}
+                  monster={monsterMap[id]}
+                  lastLogin={lastLoginMap[id]}
+                  accent={style.accent}
+                  goldColor={style.goldColor}
+                />
 
                 <div className={`mt-4 ${style.accent} opacity-60 font-bold text-sm group-hover:opacity-100 transition-opacity`}>
                   {style.cta}
@@ -291,9 +413,19 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
                     transition={{ delay: i * 0.05 }}
                     className={`w-56 ${style.bg} border-2 ${style.border} ${style.hoverBorder} rounded-2xl p-6 text-left transition-colors group`}
                   >
-                    <CardAvatar avatar={user.avatar} fallbackIcon={style.icon} />
+                    <CardAvatar avatar={user.avatar} fallbackIcon={style.icon} online={onlineIds.has(id)} size="w-16 h-16" />
                     <h2 className={`text-xl font-display font-bold ${style.accent} mb-1`}>{user.name}</h2>
                     <p className={`${style.accent} opacity-60 font-bold text-xs mb-2`}>{user.grade} · Classmate</p>
+
+                    <CardStats
+                      id={id}
+                      stats={statsMap[id]}
+                      monster={monsterMap[id]}
+                      lastLogin={lastLoginMap[id]}
+                      accent={style.accent}
+                      goldColor={style.goldColor}
+                    />
+
                     <div className={`mt-3 ${style.accent} opacity-60 font-bold text-xs group-hover:opacity-100 transition-opacity`}>
                       Enter password →
                     </div>

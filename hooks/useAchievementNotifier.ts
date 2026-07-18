@@ -10,6 +10,7 @@ export function useAchievementNotifier(data: WeeklyData | null) {
   const [newlyUnlocked, setNewlyUnlocked] = useState<Achievement[]>([]);
   const prevUnlockedIds = useRef<Set<string>>(new Set());
   const initialized = useRef(false);
+  const prevUserId = useRef<string | null>(null);
 
   useEffect(() => {
     if (!data) return;
@@ -17,10 +18,12 @@ export function useAchievementNotifier(data: WeeklyData | null) {
     const currentUnlocked = ACHIEVEMENTS.filter(a => a.criteria(data));
     const currentIds = new Set(currentUnlocked.map(a => a.id));
 
-    if (!initialized.current) {
-      // First load — just record what's already unlocked, don't toast them
+    if (!initialized.current || data.user_id !== prevUserId.current) {
+      // First load, or the active user changed — just record what's already
+      // unlocked, don't toast them (avoids leaking toasts across accounts).
       prevUnlockedIds.current = currentIds;
       initialized.current = true;
+      prevUserId.current = data.user_id;
       return;
     }
 

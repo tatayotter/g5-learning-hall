@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadFamilyProtection, loadAvatarOverrides, linkIdentity, USERS } from '@/lib/userSession';
+import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadFamilyProtection, loadAvatarOverrides, linkIdentity, recordLastLogin, USERS } from '@/lib/userSession';
 import SplashScreen from '@/components/SplashScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
 import HeroProfile from '@/components/HeroProfile';
@@ -85,8 +85,27 @@ export default function Dashboard() {
       const theme = USERS[activeUserId].theme;
       document.documentElement.classList.toggle('theme-tala', theme === 'tala');
       linkIdentity(activeUserId);
+      recordLastLogin(activeUserId);
     }
   }, [activeUserId, hydrated]);
+
+  // App-wide presence so the splash screen can show who's currently online.
+  // Separate from the training-map presence channel, which only exists while
+  // that tab is open and carries x/y position data this doesn't need.
+  useEffect(() => {
+    if (!activeUserId) return;
+    const channel = supabase.channel('app-presence', {
+      config: { presence: { key: activeUserId } },
+    });
+    channel.subscribe(async status => {
+      if (status === 'SUBSCRIBED') {
+        await channel.track({ userId: activeUserId });
+      }
+    });
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [activeUserId]);
 
   const handleUserSelect = (id: UserId) => {
     setActiveUserId(id);
@@ -348,6 +367,8 @@ export default function Dashboard() {
               const isToday = currentDayName === day;
               const daySubjects = packageData[day] || {};
               const subjectKeys = Object.keys(daySubjects);
+              const dayFullyMastered = subjectKeys.length > 0 &&
+                subjectKeys.every((subjectName) => (data.mastered_quizzes || []).includes(`${day}_${subjectName}`));
 
               return (
                 <div key={day} className={`mb-4 border border-neutral-800 rounded-lg overflow-hidden ${isToday ? 'border-blue-900' : ''}`}>
@@ -355,7 +376,11 @@ export default function Dashboard() {
                     📆 {day} Objectives {isToday && '⚡ (CURRENT RUN)'}
                   </div>
 
-                  {isToday || subjectKeys.length > 0 ? (
+                  {dayFullyMastered ? (
+                    <div className="p-4 bg-black">
+                      <p className="text-sm text-green-400 font-bold">✅ {day} Quests Completed</p>
+                    </div>
+                  ) : isToday || subjectKeys.length > 0 ? (
                     <div className="p-4 bg-black">
                       {subjectKeys.length === 0 ? (
                         <p className="text-sm text-gray-500">No quests registered for this specific calendar path.</p>
