@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useTimeAttack } from '@/hooks/useTimeAttack';
 import { fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
 import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
@@ -59,7 +58,9 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
     }
   }, [engine.phase]);
 
-  // Auto-focus input when playing starts
+  // Auto-focus input when playing starts. The input is never remounted
+  // between words (see the static wrapper below), so a one-time focus here
+  // is enough — no per-word refocus needed, keeping typing uninterrupted.
   useEffect(() => {
     if (screen === 'playing') {
       setTimeout(() => inputRef.current?.focus(), 100);
@@ -202,38 +203,32 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
           <GuardianSprite guild="spellcaster" pose={flashResult === 'correct' ? 'hurt' : 'idle'} className="w-full h-full" />
         </div>
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={engine.currentQuestion.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.15 }}
-            className={`bg-[#13111c] border-2 border-violet-800 rounded-xl p-8 shadow-2xl ${feedbackClass}`}
-          >
-            <p className="text-center text-xs text-gray-600 font-mono mb-4">{difficultyStars}</p>
+        {/* Static wrapper (not remounted per word) — SpellCaster is real-time
+            typing with no submit step, so the input must never lose focus or
+            unmount between words. Only the feedback pulse/shake class changes. */}
+        <div className={`bg-[#13111c] border-2 border-violet-800 rounded-xl p-8 shadow-2xl transition-colors ${feedbackClass}`}>
+          <p className="text-center text-xs text-gray-600 font-mono mb-4">{difficultyStars}</p>
 
-            {renderWordDisplay()}
+          {renderWordDisplay()}
 
-            <input
-              ref={inputRef}
-              type="text"
-              value={typedValue}
-              onChange={handleInput}
-              autoComplete="off"
-              autoCorrect="off"
-              autoCapitalize="off"
-              spellCheck={false}
-              className="w-full bg-black/50 border-2 border-violet-700 rounded-lg p-4 text-center text-xl font-mono text-white focus:outline-none focus:border-violet-400 caret-violet-400"
-              placeholder="Type the word..."
-            />
+          <input
+            ref={inputRef}
+            type="text"
+            value={typedValue}
+            onChange={handleInput}
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck={false}
+            className="w-full bg-black/50 border-2 border-violet-700 rounded-lg p-4 text-center text-xl font-mono text-white focus:outline-none focus:border-violet-400 caret-violet-400"
+            placeholder="Type the word..."
+          />
 
-            <div className="flex justify-between text-xs text-gray-600 font-mono mt-4">
-              <span>✅ {engine.correctCount}</span>
-              <span>❌ {engine.wrongCount}</span>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+          <div className="flex justify-between text-xs text-gray-600 font-mono mt-4">
+            <span>✅ {engine.correctCount}</span>
+            <span>❌ {engine.wrongCount}</span>
+          </div>
+        </div>
       </div>
     );
   }
