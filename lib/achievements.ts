@@ -386,4 +386,30 @@ export const ACHIEVEMENTS: Achievement[] = [
     xpReward: 600,
     goldReward: 300
   },
+
+  // ─── TRAINING DUMMY ACHIEVEMENTS ──────────────────────────────────────────
+  {
+    id: 'bully',
+    title: '😈 Bully',
+    description: 'Pick on someone your own size. Win 10 Training Dummy battles.',
+    criteria: (d) => (d.dummy_battles_won || 0) >= 10,
+    xpReward: 100,
+    goldReward: 50
+  },
+  {
+    id: 'mega_bully',
+    title: '🔒 Mega Bully',
+    description: 'The dummy never stood a chance. Win 100 Training Dummy battles.',
+    criteria: (d) => (d.dummy_battles_won || 0) >= 100,
+    xpReward: 300,
+    goldReward: 150
+  },
+  {
+    id: 'fbi_open_up',
+    title: '🔒 FBI Open Up!',
+    description: 'Someone call for help. Win 1,000 Training Dummy battles.',
+    criteria: (d) => (d.dummy_battles_won || 0) >= 1000,
+    xpReward: 600,
+    goldReward: 300
+  },
 ];

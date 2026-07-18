@@ -753,7 +753,8 @@ export default function Dashboard() {
               data.guild_sessions_count || 0,
               (data.monster_battles_won || 0) + (kind === 'trainer' ? 1 : 0),
               (data.sibling_battles_won || 0) + (kind === 'sibling' ? 1 : 0),
-              data.perfect_quizzes || 0
+              data.perfect_quizzes || 0,
+              (data.dummy_battles_won || 0) + (kind === 'dummy' ? 1 : 0)
             )}
           />
         )}

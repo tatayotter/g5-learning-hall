@@ -35,6 +35,7 @@ export interface WeeklyData {
   monster_battles_won: number;
   sibling_battles_won: number;
   perfect_quizzes: number;
+  dummy_battles_won: number;
 }
 
 export function useWeeklyData(userId: string = 'damien') {
@@ -98,7 +99,8 @@ export function useWeeklyData(userId: string = 'damien') {
           guild_sessions_count: 0,
           monster_battles_won: 0,
           sibling_battles_won: 0,
-          perfect_quizzes: 0
+          perfect_quizzes: 0,
+          dummy_battles_won: 0
         };
 
         if (packageData) {
@@ -153,7 +155,8 @@ export function useWeeklyData(userId: string = 'damien') {
     newGuildSessionsCount: number = data?.guild_sessions_count || 0,
     newMonsterBattlesWon: number = data?.monster_battles_won || 0,
     newSiblingBattlesWon: number = data?.sibling_battles_won || 0,
-    newPerfectQuizzes: number = data?.perfect_quizzes || 0
+    newPerfectQuizzes: number = data?.perfect_quizzes || 0,
+    newDummyBattlesWon: number = data?.dummy_battles_won || 0
   ) => {
     if (!data) {
       console.error('Aborting update: data is null');
@@ -180,7 +183,8 @@ export function useWeeklyData(userId: string = 'damien') {
         guild_sessions_count: newGuildSessionsCount,
         monster_battles_won: newMonsterBattlesWon,
         sibling_battles_won: newSiblingBattlesWon,
-        perfect_quizzes: newPerfectQuizzes
+        perfect_quizzes: newPerfectQuizzes,
+        dummy_battles_won: newDummyBattlesWon
       })) {
         newUnlocked[ach.id] = true;
         addedXp += ach.xpReward;
@@ -222,7 +226,8 @@ export function useWeeklyData(userId: string = 'damien') {
       guild_sessions_count: newGuildSessionsCount,
       monster_battles_won: newMonsterBattlesWon,
       sibling_battles_won: newSiblingBattlesWon,
-      perfect_quizzes: newPerfectQuizzes
+      perfect_quizzes: newPerfectQuizzes,
+      dummy_battles_won: newDummyBattlesWon
     };
 
     setData(updatedData);
@@ -241,7 +246,8 @@ export function useWeeklyData(userId: string = 'damien') {
         guild_sessions_count: newGuildSessionsCount,
         monster_battles_won: newMonsterBattlesWon,
         sibling_battles_won: newSiblingBattlesWon,
-        perfect_quizzes: newPerfectQuizzes
+        perfect_quizzes: newPerfectQuizzes,
+        dummy_battles_won: newDummyBattlesWon
       })
       .eq('week_starting_date', data.week_starting_date)
       .eq('user_id', userId);

@@ -10,8 +10,8 @@ import WildEncounterModal from '@/components/WildEncounterModal';
 import {
   MONSTERS, WILD_MONSTERS, ALL_MONSTERS, NPC_TRAINERS, SKILLS, BATTLE_CONSTANTS,
   getUnlockedMonsterSlots, getAvailableSkillTiers, calculateDamage, getScaledStats,
-  getMonsterLevel, REST_BY_ELEMENT, ELEMENT_STATUS, STATUS_DEFINITIONS,
-  Element, StatusEffect, NpcTrainer, MonsterDef,
+  getMonsterLevel, REST_BY_ELEMENT, ELEMENT_STATUS, STATUS_DEFINITIONS, getCounterElement,
+  Element, StatusEffect, NpcTrainer, MonsterDef, TrainerMonster,
 } from '@/lib/monsterConfig';
 import { fetchInventory, useInventoryItem, SHOP_CATALOG } from '@/lib/inventory';
 import {
@@ -64,7 +64,7 @@ interface MonsterGuildProps {
   liveBattleInbox: ReturnType<typeof useLiveBattleInbox>;
   pendingLiveBattleId: string | null;
   onConsumePendingLiveBattle: () => void;
-  onBattleWon: (kind: 'trainer' | 'sibling') => void;
+  onBattleWon: (kind: 'trainer' | 'sibling' | 'dummy') => void;
 }
 
 // ─── MAP CONFIG ───────────────────────────────────────────────────────────────
@@ -1626,6 +1626,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
   const [view, setView] = useState<GuildView>('map');
   const [activeBattle, setActiveBattle] = useState<NpcTrainer | null>(null);
   const [isWildEncounterBattle, setIsWildEncounterBattle] = useState(false);
+  const [isDummyBattle, setIsDummyBattle] = useState(false);
   const [wildEncounter, setWildEncounter] = useState<WildEncounterState | null>(null);
   const [walkLocked, setWalkLocked] = useState(false);
   const walkLockTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -1761,6 +1762,35 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
 
   const handleTrainerBattle = (trainer: NpcTrainer) => {
     setActiveBattle(trainer);
+    setView('battle');
+  };
+
+  // Free, always-available practice opponent: one monster per monster the
+  // player currently fields, each at the player's matching level and built
+  // from an element the player's monster is strong against — so it's always
+  // a fair, easy fight regardless of team composition.
+  const buildTrainingDummy = (): NpcTrainer => {
+    const monsters: TrainerMonster[] = userMonsters.map(um => {
+      const def = ALL_MONSTERS[um.monster_id];
+      const counterElement = getCounterElement(def.element);
+      const counterMonster = Object.values(MONSTERS).find(m => m.element === counterElement);
+      return { monsterId: counterMonster?.id || um.monster_id, level: um.monster_level };
+    });
+    return {
+      id: 'training_tester',
+      name: 'Training Dummy',
+      element: 'mixed',
+      levelRequirement: 0,
+      monsters,
+      reward: { exp: 10, gold: 0 },
+      emoji: '🎯',
+      intro: 'No hard feelings — just here to help you practice.',
+    };
+  };
+
+  const handleDummyBattle = () => {
+    setIsDummyBattle(true);
+    setActiveBattle(buildTrainingDummy());
     setView('battle');
   };
 
@@ -1947,14 +1977,36 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       return;
     }
 
-    if (won && activeBattle) {
-      // The training dummy is repeatable practice, not a one-time milestone —
-      // never mark it defeated so its Battle button stays available forever.
-      if (activeBattle.id !== 'training_tester') {
-        const newDefeated = [...(battleState?.defeated_trainers || []), activeBattle.id];
-        await supabase.from('user_battle_state').update({ defeated_trainers: newDefeated }).eq('user_id', userId);
-        setBattleState(prev => prev ? { ...prev, defeated_trainers: newDefeated } : prev);
+    if (isDummyBattle && activeBattle) {
+      if (won) {
+        if (expEarned > 0) {
+          const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
+          if (activeMonster) {
+            await handleMonsterExpGained(activeMonster.id, expEarned);
+            const newExp = activeMonster.monster_exp + expEarned;
+            await supabase.from('user_monsters').update({ monster_exp: newExp, monster_level: getMonsterLevel(newExp) }).eq('id', activeMonster.id);
+          }
+        }
+        showNotification('🥊 You bullied the Training Dummy!');
+        await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: 'training_tester', result: 'win', monster_exp_earned: expEarned });
+        logAction(userId, today, 'battle', `🥊 Beat the Training Dummy — +${expEarned} Monster EXP`, expEarned, 0);
+        onBattleWon('dummy');
+      } else {
+        showNotification('💀 Even the dummy got you this time...');
+        await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: 'training_tester', result: 'loss', monster_exp_earned: 0 });
+        logAction(userId, today, 'battle', '💀 Lost to the Training Dummy', 0, 0);
       }
+      setIsDummyBattle(false);
+      setActiveBattle(null);
+      setView('map');
+      loadData();
+      return;
+    }
+
+    if (won && activeBattle) {
+      const newDefeated = [...(battleState?.defeated_trainers || []), activeBattle.id];
+      await supabase.from('user_battle_state').update({ defeated_trainers: newDefeated }).eq('user_id', userId);
+      setBattleState(prev => prev ? { ...prev, defeated_trainers: newDefeated } : prev);
 
       if (expEarned > 0) {
         const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
@@ -2163,8 +2215,44 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
               </div>
             );
           })()}
+          <div className="p-5 rounded-xl border flex items-center gap-4 border-neutral-700 bg-neutral-900">
+            <div className="w-14 h-14 flex-shrink-0 relative flex items-center justify-center text-4xl bg-neutral-800 rounded-full overflow-hidden border border-neutral-700">
+              <span className="opacity-50">🎯</span>
+              <img
+                src="/trainers/training_tester.png"
+                alt="Training Dummy"
+                className="absolute inset-0 w-full h-full object-cover"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              />
+            </div>
+            <div className="flex-1">
+              <p className="font-bold text-white">Training Dummy</p>
+              <p className="text-xs text-gray-400">Always available · Matches your team</p>
+              <p className="text-xs text-gray-500 italic mt-1">"No hard feelings — just here to help you practice."</p>
+              <div className="flex gap-2 mt-2">
+                {userMonsters.map((um, i) => {
+                  const def = ALL_MONSTERS[um.monster_id];
+                  const counterElement = getCounterElement(def.element);
+                  const counterMonster = Object.values(MONSTERS).find(m => m.element === counterElement);
+                  return (
+                    <span key={i} className="text-xs bg-neutral-800 px-2 py-0.5 rounded text-gray-300">
+                      {counterMonster?.name || def.name} Lv.{um.monster_level}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="text-right">
+              <button
+                onClick={handleDummyBattle}
+                className="bg-amber-600 hover:bg-amber-500 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors"
+              >
+                Battle!
+              </button>
+            </div>
+          </div>
           {NPC_TRAINERS.map(trainer => {
-            const defeated = trainer.id !== 'training_tester' && battleState.defeated_trainers.includes(trainer.id);
+            const defeated = battleState.defeated_trainers.includes(trainer.id);
             const locked = playerLevel < trainer.levelRequirement;
             return (
               <div

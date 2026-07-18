@@ -271,6 +271,7 @@ function WeeklyPackageBuilder({ currentData, currentSunday, onUpdateStats }: {
             monster_battles_won: null,
             sibling_battles_won: null,
             perfect_quizzes: null,
+            dummy_battles_won: null,
           });
         if (error) throw error;
         setWeekHasRow(true);

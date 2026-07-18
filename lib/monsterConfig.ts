@@ -6,17 +6,26 @@
 
 export type Element = 'fire' | 'water' | 'leaf' | 'storm' | 'shadow' | 'light';
 
+// attacker: element that is strong against (deals 1.5x to) the mapped element
+const ELEMENT_WEAKNESSES: Record<Element, Element> = {
+  fire:   'leaf',
+  leaf:   'water',
+  water:  'fire',
+  storm:  'water',
+  light:  'shadow',
+  shadow: 'light',
+};
+
 // Returns damage multiplier when attacker element hits defender element
 export function getElementMultiplier(attacker: Element, defender: Element): number {
-  const weaknesses: Record<Element, Element> = {
-    fire:   'leaf',
-    leaf:   'water',
-    water:  'fire',
-    storm:  'water',
-    light:  'shadow',
-    shadow: 'light',
-  };
-  return weaknesses[attacker] === defender ? 1.5 : 1.0;
+  return ELEMENT_WEAKNESSES[attacker] === defender ? 1.5 : 1.0;
+}
+
+// Given a player monster's element, returns the element it is strong
+// against — used to build a Training Dummy opponent that's always weak to
+// whatever the player is currently fielding.
+export function getCounterElement(element: Element): Element {
+  return ELEMENT_WEAKNESSES[element];
 }
 
 // ─── STATUS EFFECTS ─────────────────────────────────────────────────────────
@@ -297,14 +306,6 @@ export interface NpcTrainer {
 }
 
 export const NPC_TRAINERS: NpcTrainer[] = [
-  {
-    id: 'training_tester', name: 'Training Dummy', element: 'mixed', levelRequirement: 0,
-    emoji: '🎯', intro: 'No hard feelings — just here to help you practice.',
-    monsters: [
-      { monsterId: 'mosshorn', level: 1 },
-    ],
-    reward: { exp: 10, gold: 0 },
-  },
   {
     id: 'forest_scout', name: 'Forest Scout', element: 'leaf', levelRequirement: 1,
     emoji: '🌿', intro: 'The forest protects its own. Can you survive its embrace?',
