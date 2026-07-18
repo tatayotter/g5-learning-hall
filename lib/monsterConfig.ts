@@ -134,6 +134,7 @@ export interface MonsterDef {
   skills: [string, string, string]; // [tier1_id, tier2_id, tier3_id]
   // Skill tier unlocks by monster level
   skillUnlocks: { tier2: number; tier3: number }; // tier1 always available at level 1
+  isLegendary?: boolean;
 }
 
 const STAT_PRESETS: Record<MonsterArchetype, { baseHp: number; baseAttack: number; baseDefense: number; baseSpeed: number }> = {
@@ -251,6 +252,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     ...WILD_STAT_PRESET,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
     skillUnlocks: { tier2: 5, tier3: 10 },
+    isLegendary: true,
   },
   tidalynx: {
     id: 'tidalynx', name: 'Tidalynx', element: 'water', archetype: 'tank',
@@ -258,6 +260,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     ...WILD_STAT_PRESET,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
     skillUnlocks: { tier2: 5, tier3: 10 },
+    isLegendary: true,
   },
   zephyrion: {
     id: 'zephyrion', name: 'Zephyrion', element: 'storm', archetype: 'tank',
@@ -265,6 +268,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     ...WILD_STAT_PRESET,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
     skillUnlocks: { tier2: 5, tier3: 10 },
+    isLegendary: true,
   },
   nyxfang: {
     id: 'nyxfang', name: 'Nyxfang', element: 'shadow', archetype: 'tank',
@@ -272,6 +276,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     ...WILD_STAT_PRESET,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
     skillUnlocks: { tier2: 5, tier3: 10 },
+    isLegendary: true,
   },
   aureon: {
     id: 'aureon', name: 'Aureon', element: 'light', archetype: 'tank',
@@ -279,8 +284,59 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     ...WILD_STAT_PRESET,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
     skillUnlocks: { tier2: 5, tier3: 10 },
+    isLegendary: true,
   },
 };
+
+// Legendary wild species are weighted well below the regular wild pool, so
+// a legendary encounter feels like a real, rare event rather than one of
+// eleven equally-likely species. A legendary starts ~10x rarer per-species
+// than a regular wild monster (common weight 10 vs legendary base weight 1).
+const WILD_RARITY_WEIGHT = { common: 10, legendaryBase: 1 } as const;
+// Each legendary species already in the player's collection makes every
+// remaining legendary harder to stumble into — weight decays multiplicatively
+// per owned legendary, floored so the last one stays possible, just rare.
+const LEGENDARY_WEIGHT_DECAY_PER_OWNED = 0.6;
+const LEGENDARY_MIN_WEIGHT = 0.05;
+
+// Picks a random wild-only monster id, biased away from legendaries per
+// WILD_RARITY_WEIGHT, with legendary odds falling further as
+// ownedLegendaryCount (distinct legendary species already in the player's
+// collection) grows — the closer to a full legendary set, the rarer the next one.
+export function pickRandomWildMonsterId(ownedLegendaryCount = 0): string {
+  const legendaryWeight = Math.max(
+    LEGENDARY_MIN_WEIGHT,
+    WILD_RARITY_WEIGHT.legendaryBase * Math.pow(LEGENDARY_WEIGHT_DECAY_PER_OWNED, ownedLegendaryCount)
+  );
+  const entries = Object.values(WILD_MONSTERS);
+  const totalWeight = entries.reduce(
+    (sum, m) => sum + (m.isLegendary ? legendaryWeight : WILD_RARITY_WEIGHT.common), 0
+  );
+  let roll = Math.random() * totalWeight;
+  for (const m of entries) {
+    const weight = m.isLegendary ? legendaryWeight : WILD_RARITY_WEIGHT.common;
+    if (roll < weight) return m.id;
+    roll -= weight;
+  }
+  return entries[entries.length - 1].id; // unreachable in practice
+}
+
+// ─── WILD ENCOUNTER CHANCE ──────────────────────────────────────────────────
+// Base odds are tuned so a player at ~1hr/day of active map play sees roughly
+// 50 wild encounters across a full school year (~180 hrs x ~120 answered
+// questions/hr ≈ 21,600 answers/year → 50/21,600 ≈ 0.23%). Defeating NPC
+// trainers gradually raises this — more trainers beaten makes the player
+// visibly better at finding wild monsters, capped once every trainer is down.
+const WILD_ENCOUNTER_BASE_CHANCE = 0.002;
+const WILD_ENCOUNTER_CHANCE_PER_TRAINER_DEFEATED = 0.0005;
+
+// Chance (0-1) that any single answered question triggers a wild encounter
+// roll, given how many distinct NPC trainers the player has defeated so far.
+export function getWildEncounterChance(defeatedTrainerCount: number): number {
+  const cap = WILD_ENCOUNTER_BASE_CHANCE + NPC_TRAINERS.length * WILD_ENCOUNTER_CHANCE_PER_TRAINER_DEFEATED;
+  const chance = WILD_ENCOUNTER_BASE_CHANCE + defeatedTrainerCount * WILD_ENCOUNTER_CHANCE_PER_TRAINER_DEFEATED;
+  return Math.min(chance, cap);
+}
 
 // Combined lookup for anywhere a monster id might be either a normal starter
 // monster or a wild-only one (e.g. resolving an NpcTrainer's monsters, since a

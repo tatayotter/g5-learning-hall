@@ -11,6 +11,7 @@ import {
   MONSTERS, WILD_MONSTERS, ALL_MONSTERS, NPC_TRAINERS, SKILLS, BATTLE_CONSTANTS,
   getUnlockedMonsterSlots, getAvailableSkillTiers, calculateDamage, getScaledStats,
   getMonsterLevel, REST_BY_ELEMENT, ELEMENT_STATUS, STATUS_DEFINITIONS, getCounterElement,
+  pickRandomWildMonsterId, getWildEncounterChance,
   Element, StatusEffect, NpcTrainer, MonsterDef, TrainerMonster,
 } from '@/lib/monsterConfig';
 import { fetchInventory, useInventoryItem, SHOP_CATALOG } from '@/lib/inventory';
@@ -29,10 +30,6 @@ import InfoTag from '@/components/InfoTag';
 import { createInvite, fetchLiveBattle } from '@/lib/liveBattle';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 
-// Estimated so a player at ~1hr/day of active map play sees roughly 50 wild
-// encounters across a full school year (~180 hrs x ~120 answered questions/hr
-// ≈ 21,600 answers/year → 50/21,600 ≈ 0.23%). Tune after observing real usage.
-const WILD_ENCOUNTER_CHANCE = 0.002;
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 
 interface CaughtMonster {
@@ -1094,8 +1091,10 @@ function TrainingMap({
       onBattleStateChange({ ...battleState, last_wild_encounter_win: today });
     }
     // Rare wild-monster encounter roll — once per individual question answered,
-    // regardless of whether it was answered correctly.
-    const encountered = answeredQuestions.some(() => Math.random() < WILD_ENCOUNTER_CHANCE);
+    // regardless of whether it was answered correctly. Odds rise the more
+    // NPC trainers the player has defeated (see getWildEncounterChance).
+    const wildEncounterChance = getWildEncounterChance(battleState.defeated_trainers.length);
+    const encountered = answeredQuestions.some(() => Math.random() < wildEncounterChance);
     if (encountered) onWildEncounterRoll?.();
   };
 
@@ -1811,8 +1810,14 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
     if (wildEncounter || view === 'battle') return; // don't stack encounters
     const pool = await fetchQuestionPool(userId, 'sq_wild_encounter', 'wild_encounter', gradeLevel);
     if (pool.length === 0) return; // admin hasn't added any wild-encounter questions yet
-    const wildIds = Object.keys(WILD_MONSTERS);
-    const monsterId = wildIds[Math.floor(Math.random() * wildIds.length)];
+    // More legendary species already caught nudges the odds of finding
+    // another legendary a bit further (see pickRandomWildMonsterId).
+    const ownedSpeciesIds = new Set([
+      ...userMonsters.map(m => m.monster_id),
+      ...caughtMonsters.map(c => c.monster_id),
+    ]);
+    const ownedLegendaryCount = [...ownedSpeciesIds].filter(id => ALL_MONSTERS[id]?.isLegendary).length;
+    const monsterId = pickRandomWildMonsterId(ownedLegendaryCount);
     const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
     const level = Math.max(1, (activeMonster?.monster_level || 1) + Math.floor(Math.random() * 3) - 1);
     const question = pool[Math.floor(Math.random() * pool.length)];

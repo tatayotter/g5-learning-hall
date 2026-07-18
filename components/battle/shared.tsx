@@ -29,10 +29,25 @@ export interface ActiveBattleMonster {
   userMonster?: UserMonster;
 }
 
+// Small gold "Legendary" badge overlaid on the top-right corner of a
+// monster's sprite/emoji. Rendered by MonsterImage itself so every call
+// site — battle screens, guild roster, leaderboard, splash, etc — gets the
+// tag for free without needing to know which monsters are legendary.
+function LegendaryBadge() {
+  return (
+    <span
+      className="absolute -top-1 -right-1 leading-none text-[0.7em] drop-shadow-[0_0_2px_rgba(0,0,0,0.8)] pointer-events-none select-none"
+      title="Legendary"
+    >
+      👑
+    </span>
+  );
+}
+
 // Renders a monster's sprite, falling back to its emoji if the sprite image
 // 404s or the monster has no id to look up.
 export function MonsterImage({ monster, className = '', emojiClassName = 'text-3xl' }: {
-  monster: { id: string; name: string; emoji: string } | undefined | null;
+  monster: { id: string; name: string; emoji: string; isLegendary?: boolean } | undefined | null;
   className?: string;
   emojiClassName?: string;
 }) {
@@ -40,18 +55,22 @@ export function MonsterImage({ monster, className = '', emojiClassName = 'text-3
   if (!monster) return null;
   if (failed) {
     return (
-      <span className={`flex items-center justify-center ${className} ${emojiClassName}`}>
+      <span className={`relative inline-flex items-center justify-center ${className} ${emojiClassName}`}>
         {monster.emoji}
+        {monster.isLegendary && <LegendaryBadge />}
       </span>
     );
   }
   return (
-    <img
-      src={`/monsters/${monster.id}.webp`}
-      alt={monster.name}
-      className={`object-contain ${className}`}
-      onError={() => setFailed(true)}
-    />
+    <span className={`relative inline-flex ${className}`}>
+      <img
+        src={`/monsters/${monster.id}.webp`}
+        alt={monster.name}
+        className="w-full h-full object-contain"
+        onError={() => setFailed(true)}
+      />
+      {monster.isLegendary && <LegendaryBadge />}
+    </span>
   );
 }
 
