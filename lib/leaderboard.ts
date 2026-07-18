@@ -55,6 +55,10 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
 
   const statsByUser = new Map<string, { level: number; gold: number; week: string }>();
   (weeklyRes.data || []).forEach((row: any) => {
+    // Admins can pre-stage a future week's row with character_stats left null
+    // as a "not started" marker (see hooks/useWeeklyData.ts) — skip those so
+    // they don't shadow the last week the player actually played.
+    if (!row.character_stats) return;
     const existing = statsByUser.get(row.user_id);
     // Keep only the most recent weekly_packages row per user (there's one per week).
     if (!existing || row.week_starting_date > existing.week) {
