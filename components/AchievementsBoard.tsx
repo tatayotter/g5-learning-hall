@@ -11,8 +11,14 @@ interface AchievementsBoardProps {
 export default function AchievementsBoard({ data }: AchievementsBoardProps) {
   if (!data) return null;
 
-  const unlocked = ACHIEVEMENTS.filter(a => a.criteria(data));
-  const locked = ACHIEVEMENTS.filter(a => !a.criteria(data));
+  // A gold-threshold achievement (e.g. "Reach 300 Gold") can be met once and
+  // then un-met later just by spending gold in the shop. Once the persisted
+  // `achievements` record says it was earned, it must stay unlocked forever —
+  // only fall back to the live criteria check for achievements not yet recorded.
+  const isEarned = (a: typeof ACHIEVEMENTS[number]) => !!data.achievements?.[a.id] || a.criteria(data);
+
+  const unlocked = ACHIEVEMENTS.filter(isEarned);
+  const locked = ACHIEVEMENTS.filter(a => !isEarned(a));
   const sorted = [...unlocked, ...locked];
 
   return (
@@ -23,7 +29,7 @@ export default function AchievementsBoard({ data }: AchievementsBoardProps) {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {sorted.map((achievement) => {
-          const isUnlocked = achievement.criteria(data);
+          const isUnlocked = isEarned(achievement);
           return (
             <div
               key={achievement.id}
