@@ -7,6 +7,8 @@ import SplashScreen from '@/components/SplashScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
 import HeroProfile from '@/components/HeroProfile';
 import GuildJournal from '@/components/GuildJournal';
+import DailyChecklist from '@/components/DailyChecklist';
+import { markGuildSessionToday, GuildKey } from '@/lib/dailyChecklist';
 import QuestModule from '@/components/QuestModule';
 import { format } from 'date-fns';
 import AdminPanel from '@/components/AdminPanel';
@@ -105,7 +107,7 @@ export default function Dashboard() {
     setActiveUserId(null);
   };
 
-  const { data, loading, updateStatsAndJournal, currentSunday } = useWeeklyData(activeUserId ?? 'damien');
+  const { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta } = useWeeklyData(activeUserId ?? 'damien');
   const [activeTab, setActiveTab] = useState('board');
   const [pendingLiveBattleId, setPendingLiveBattleId] = useState<string | null>(null);
   const [claimingKey, setClaimingKey] = useState<string | null>(null);
@@ -132,7 +134,7 @@ export default function Dashboard() {
   const [splashAdminMode, setSplashAdminMode] = useState(false);
   const [adminOpen, setAdminOpen] = useState(false);  
   const [activeQuest, setActiveQuest] = useState<string | null>(null);
-  const [activeGuild, setActiveGuild] = useState<string | null>(null);
+  const [activeGuild, setActiveGuild] = useState<GuildKey | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(() => {
     if (typeof window === 'undefined') return true;
     const saved = localStorage.getItem('sidebarOpen');
@@ -297,6 +299,15 @@ export default function Dashboard() {
               stats={data.character_stats}
               currentSunday={data.week_starting_date}
               onSave={updateStatsAndJournal}
+            />
+            <DailyChecklist
+              userId={activeUserId}
+              currentSunday={data.week_starting_date}
+              currentDayName={currentDayName}
+              packageData={data.package_data}
+              journalLogs={data.journal_logs}
+              masteredQuizzes={data.mastered_quizzes}
+              onGoldAwarded={applyGoldDelta}
             />
           </>
         )}
@@ -617,16 +628,19 @@ export default function Dashboard() {
                 userId={activeUserId}
                 weekStartingDate={data.week_starting_date}
                 currentStats={data.character_stats}
-                onGoldEarned={(newStats) => updateStatsAndJournal(
-                  newStats, data.journal_logs,
-                  data.purchased_items, data.mastery_count, data.honor_grants,
-                  data.quiz_attempts || {}, data.mastered_quizzes || [],
-                  data.honor_grants,
-                  (data.guild_sessions_count || 0) + 1,
-                  data.monster_battles_won || 0,
-                  data.sibling_battles_won || 0,
-                  data.perfect_quizzes || 0
-                )}
+                onGoldEarned={(newStats) => {
+                  markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
+                  updateStatsAndJournal(
+                    newStats, data.journal_logs,
+                    data.purchased_items, data.mastery_count, data.honor_grants,
+                    data.quiz_attempts || {}, data.mastered_quizzes || [],
+                    data.honor_grants,
+                    (data.guild_sessions_count || 0) + 1,
+                    data.monster_battles_won || 0,
+                    data.sibling_battles_won || 0,
+                    data.perfect_quizzes || 0
+                  );
+                }}
                 onExit={() => setActiveGuild(null)}
               />
             ) : activeGuild === 'spellcaster' ? (
@@ -634,7 +648,10 @@ export default function Dashboard() {
                 userId={activeUserId}
                 weekStartingDate={data.week_starting_date}
                 currentStats={data.character_stats}
-                onGoldEarned={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
+                onGoldEarned={(newStats) => {
+                  markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
+                  updateStatsAndJournal(newStats, data.journal_logs);
+                }}
                 onExit={() => setActiveGuild(null)}
               />
             ) : activeGuild === 'number_realm' ? (
@@ -642,7 +659,10 @@ export default function Dashboard() {
                 userId={activeUserId}
                 weekStartingDate={data.week_starting_date}
                 currentStats={data.character_stats}
-                onGoldEarned={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
+                onGoldEarned={(newStats) => {
+                  markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
+                  updateStatsAndJournal(newStats, data.journal_logs);
+                }}
                 onExit={() => setActiveGuild(null)}
               />
             ) : activeGuild === 'logic_labyrinth' ? (
@@ -650,7 +670,10 @@ export default function Dashboard() {
                 userId={activeUserId}
                 weekStartingDate={data.week_starting_date}
                 currentStats={data.character_stats}
-                onGoldEarned={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
+                onGoldEarned={(newStats) => {
+                  markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
+                  updateStatsAndJournal(newStats, data.journal_logs);
+                }}
                 onExit={() => setActiveGuild(null)}
               />
             ) : activeGuild === 'lexicon_arena' ? (
@@ -658,7 +681,10 @@ export default function Dashboard() {
                 userId={activeUserId}
                 weekStartingDate={data.week_starting_date}
                 currentStats={data.character_stats}
-                onGoldEarned={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
+                onGoldEarned={(newStats) => {
+                  markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
+                  updateStatsAndJournal(newStats, data.journal_logs);
+                }}
                 onExit={() => setActiveGuild(null)}
               />
             ) : null}

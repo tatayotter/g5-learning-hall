@@ -252,5 +252,12 @@ export function useWeeklyData(userId: string = 'damien') {
     }
   };
 
-  return { data, loading, updateStatsAndJournal, currentSunday };
+  const applyGoldDelta = (amount: number) => {
+    setData(prev => prev ? {
+      ...prev,
+      character_stats: { ...prev.character_stats, gold: prev.character_stats.gold + amount }
+    } : prev);
+  };
+
+  return { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta };
 }
