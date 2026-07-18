@@ -6,6 +6,7 @@ import { applyLevelUp } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
+import { USERS } from '@/lib/userSession';
 
 interface LogicOption {
   id: string;
@@ -39,13 +40,14 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
   const [flashResult, setFlashResult] = useState<'correct' | 'wrong' | null>(null);
 
   const isTala = userId === 'tala';
+  const gradeLevel = (USERS[userId]?.grade === 'Grade 2') ? 2 : 5;
   const engine = useTimeAttack<LogicLabyrinthQuestion>(questions, isTala ? 120 : 60);
 
   useEffect(() => {
     async function loadPool() {
       try {
         const [pool, subProfile] = await Promise.all([
-          fetchQuestionPool(userId, 'sq_logic_labyrinth', 'logic_labyrinth', isTala ? 2 : 5),
+          fetchQuestionPool(userId, 'sq_logic_labyrinth', 'logic_labyrinth', gradeLevel),
           fetchSubclassProfile(userId)
         ]);
         const parsed = (pool as any[]).map(q => ({

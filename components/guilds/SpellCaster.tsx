@@ -6,6 +6,7 @@ import { applyLevelUp } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
+import { USERS } from '@/lib/userSession';
 
 interface SpellCasterQuestion {
   id: string;
@@ -32,12 +33,13 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
   const inputRef = useRef<HTMLInputElement>(null);
 
   const isTala = userId === 'tala';
+  const gradeLevel = (USERS[userId]?.grade === 'Grade 2') ? 2 : 5;
   const engine = useTimeAttack<SpellCasterQuestion>(questions, isTala ? 120 : 60)
 
   useEffect(() => {
     async function loadPool() {
       const [pool, subProfile] = await Promise.all([
-        fetchQuestionPool(userId, 'sq_spellcaster', 'spellcaster', isTala ? 2 : 5),
+        fetchQuestionPool(userId, 'sq_spellcaster', 'spellcaster', gradeLevel),
         fetchSubclassProfile(userId)
       ]);
       setQuestions(pool as SpellCasterQuestion[]);

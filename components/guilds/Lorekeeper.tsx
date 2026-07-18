@@ -7,6 +7,7 @@ import { applyLevelUp } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
+import { USERS } from '@/lib/userSession';
 
 interface LorekeeperQuestion {
   id: string;
@@ -36,6 +37,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
 
   const isTala = userId === 'tala';
+  const gradeLevel = (USERS[userId]?.grade === 'Grade 2') ? 2 : 5;
   console.log('Lorekeeper userId:', userId, 'isTala:', isTala, 'duration:', isTala ? 120 : 60);
   const engine = useTimeAttack<LorekeeperQuestion>(questions, isTala ? 120 : 60);
 
@@ -43,7 +45,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
     async function loadPool() {
       try {
         const [pool, subProfile] = await Promise.all([
-          fetchQuestionPool(userId, 'sq_lorekeeper', 'lorekeeper', isTala ? 2 : 5),
+          fetchQuestionPool(userId, 'sq_lorekeeper', 'lorekeeper', gradeLevel),
           fetchSubclassProfile(userId)
         ]);
         setQuestions(pool as LorekeeperQuestion[]);
