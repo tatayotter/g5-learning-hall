@@ -542,10 +542,48 @@ export default function Dashboard() {
               ))}
             </div>
 
+            {/* Monster Arena Shop for family too */}
+            <div className="mt-12">
+              <MonsterShop
+                userId={activeUserId}
+                currentStats={data.character_stats}
+                onSpendGold={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
+              />
+            </div>
+
             {/* My Claimed Rewards — filtered to this user */}
             <div className="mt-10 bg-neutral-900 border border-neutral-800 p-6 rounded-xl">
               <h2 className="text-xl font-bold mb-4">📦 My Claimed Rewards</h2>
-              <div className="space-y-3">
+
+              {(() => {
+                const countOf = (key: string) => myClaims.filter(c => c.item_key === key).length;
+                const voucherCount = countOf('voucher_30m');
+                const aiLordingCount = countOf('ai_lording');
+                const jollibeeCount = countOf('jollibee_burger');
+                const totalClaimableHours = (voucherCount + aiLordingCount) * 0.5;
+                return (
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5 text-sm">
+                    <div className="bg-black p-3 rounded border border-neutral-800">
+                      <p className="text-gray-500 text-xs">🎮 Gaming Voucher</p>
+                      <p className="font-bold text-white">{voucherCount}</p>
+                    </div>
+                    <div className="bg-black p-3 rounded border border-neutral-800">
+                      <p className="text-gray-500 text-xs">🧙‍♂️ AI Lording</p>
+                      <p className="font-bold text-white">{aiLordingCount}</p>
+                    </div>
+                    <div className="bg-black p-3 rounded border border-neutral-800">
+                      <p className="text-gray-500 text-xs">🍔 Jollibee Yumburger</p>
+                      <p className="font-bold text-white">{jollibeeCount}</p>
+                    </div>
+                    <div className="bg-black p-3 rounded border border-neutral-800">
+                      <p className="text-gray-500 text-xs">⏱️ Total Claimable Hours</p>
+                      <p className="font-bold text-yellow-400">{totalClaimableHours}</p>
+                    </div>
+                  </div>
+                );
+              })()}
+
+              <div className="space-y-3 max-h-80 overflow-y-auto pr-1">
                 {myClaims.length > 0 ? (
                   myClaims.map((claim) => (
                     <div key={claim.id} className="flex justify-between items-center bg-black p-3 rounded border border-neutral-800">
@@ -566,15 +604,6 @@ export default function Dashboard() {
                   <p className="text-gray-500 text-sm italic">No rewards claimed yet.</p>
                 )}
               </div>
-            </div>
-
-            {/* Monster Arena Shop for family too */}
-            <div className="mt-12">
-              <MonsterShop
-                userId={activeUserId}
-                currentStats={data.character_stats}
-                onSpendGold={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
-              />
             </div>
           </div>
         )}
