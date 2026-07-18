@@ -617,7 +617,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
 
   if (phase === 'ended' && battleResult) {
     const me = USERS[userId];
-    const opponentAvatarSrc = trainer ? `/trainers/${trainer.id}.png` : '/avatar.png';
+    const opponentAvatarSrc = trainer ? `/trainers/${trainer.id}.png` : '/userpics/Spr_RS_School_Kid_M.png';
     const opponentFallbackEmoji = trainer?.emoji ?? '⚔️';
     const reasonLabel = battleResult.reason === 'surrender' ? 'You surrendered' : 'Fight complete';
 
@@ -625,7 +625,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
       <PostBattleSummary
         outcome={battleResult.won ? 'win' : 'loss'}
         reasonLabel={reasonLabel}
-        left={{ avatarSrc: me?.avatar || '/avatar.png', name: me?.fullName ?? userId, mon: playerMon, isWinner: battleResult.won }}
+        left={{ avatarSrc: me?.avatar || '/userpics/Spr_RS_School_Kid_M.png', name: me?.fullName ?? userId, mon: playerMon, isWinner: battleResult.won }}
         right={{ avatarSrc: opponentAvatarSrc, avatarFallbackEmoji: opponentFallbackEmoji, name: opponentName, mon: npcMon, isWinner: !battleResult.won }}
         log={log}
         rewardLine={battleResult.won && battleResult.exp > 0 ? `+${battleResult.exp} Monster EXP earned!` : undefined}
@@ -2189,10 +2189,10 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
                     <div key={player.id} className="flex items-center justify-between bg-black/30 rounded-lg px-4 py-3">
                       <div className="flex items-center gap-3">
                         <img
-                          src={player.avatar || '/avatar.png'}
+                          src={player.avatar || '/userpics/Spr_RS_School_Kid_M.png'}
                           alt={player.name}
                           className="w-9 h-9 rounded-full object-cover border border-neutral-600 flex-shrink-0"
-                          onError={(e) => { (e.target as HTMLImageElement).src = '/avatar.png'; }}
+                          onError={(e) => { (e.target as HTMLImageElement).src = '/userpics/Spr_RS_School_Kid_M.png'; }}
                         />
                         <div>
                           <p className="text-white text-sm font-bold">{player.fullName}</p>

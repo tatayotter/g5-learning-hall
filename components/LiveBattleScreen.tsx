@@ -461,8 +461,8 @@ export default function LiveBattleScreen({
       <PostBattleSummary
         outcome={isDraw ? 'draw' : iWon ? 'win' : 'loss'}
         reasonLabel={reasonLabel}
-        left={{ avatarSrc: me?.avatar || '/avatar.png', name: me?.fullName ?? myUserId, mon: myMon, isWinner: iWon }}
-        right={{ avatarSrc: opponent?.avatar || '/avatar.png', name: opponent?.fullName ?? opponentName, mon: oppMon, isWinner: !iWon && !isDraw }}
+        left={{ avatarSrc: me?.avatar || '/userpics/Spr_RS_School_Kid_M.png', name: me?.fullName ?? myUserId, mon: myMon, isWinner: iWon }}
+        right={{ avatarSrc: opponent?.avatar || '/userpics/Spr_RS_School_Kid_M.png', name: opponent?.fullName ?? opponentName, mon: oppMon, isWinner: !iWon && !isDraw }}
         log={log}
         onContinue={() => onBattleEnd(iWon)}
       />

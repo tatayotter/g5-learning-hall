@@ -52,7 +52,7 @@ function TopEntryCard({ entry, rank }: { entry: LeaderboardEntry; rank: number }
           src={entry.avatar}
           alt={entry.name}
           className="w-16 h-16 rounded-full object-cover border-2 border-amber-500 flex-shrink-0"
-          onError={(e) => { (e.target as HTMLImageElement).src = '/avatar.png'; }}
+          onError={(e) => { (e.target as HTMLImageElement).src = '/userpics/Spr_RS_School_Kid_M.png'; }}
         />
         <div>
           <p className="text-white font-bold text-lg flex items-center gap-1.5">
@@ -86,7 +86,7 @@ function RankRow({ entry, rank }: { entry: LeaderboardEntry; rank: number }) {
         src={entry.avatar}
         alt={entry.name}
         className="w-9 h-9 rounded-full object-cover border border-neutral-600 flex-shrink-0"
-        onError={(e) => { (e.target as HTMLImageElement).src = '/avatar.png'; }}
+        onError={(e) => { (e.target as HTMLImageElement).src = '/userpics/Spr_RS_School_Kid_M.png'; }}
       />
       <div className="flex-1 min-w-0">
         <p className="text-white text-sm font-bold flex items-center gap-1 truncate">

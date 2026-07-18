@@ -94,7 +94,7 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
     return {
       userId: id,
       name: profile?.fullName ?? id,
-      avatar: profile?.avatar ?? '/avatar.png',
+      avatar: profile?.avatar ?? '/userpics/Spr_RS_School_Kid_M.png',
       grade: profile?.grade ?? '',
       isFamily: !!profile?.isFamily,
       level: stats.level,
