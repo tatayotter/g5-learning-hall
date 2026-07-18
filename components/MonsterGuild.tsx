@@ -2273,7 +2273,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           }}
           onBattleEnd={(won) => {
             showNotification(won ? `🏆 Defeated ${liveBattleOpponent.name}!` : `💀 ${liveBattleOpponent.name} was too strong!`);
-            if (won && USERS[liveBattleOpponent.id]?.isFamily) {
+            if (won) {
               onBattleWon('sibling');
             }
             setLiveBattleId(null);

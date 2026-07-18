@@ -361,27 +361,27 @@ export const ACHIEVEMENTS: Achievement[] = [
     goldReward: 300
   },
 
-  // ─── SIBLING BATTLE ACHIEVEMENTS ─────────────────────────────────────────
+  // ─── PVP BATTLE ACHIEVEMENTS ──────────────────────────────────────────────
   {
     id: 'sibling_rival',
-    title: '👊 Sibling Rival',
-    description: 'The family feud begins. Win your first sibling battle.',
+    title: '👊 Rival Slayer',
+    description: 'The rivalry begins. Win your first live PvP battle.',
     criteria: (d) => (d.sibling_battles_won || 0) >= 1,
     xpReward: 100,
     goldReward: 50
   },
   {
     id: 'sibling_dominator',
-    title: '🔒 Sibling Dominator',
-    description: 'Your sibling can\'t stop you. Win 5 sibling battles.',
+    title: '🔒 PvP Dominator',
+    description: 'No one can stop you. Win 5 live PvP battles.',
     criteria: (d) => (d.sibling_battles_won || 0) >= 5,
     xpReward: 300,
     goldReward: 150
   },
   {
     id: 'family_champion',
-    title: '🔒 Family Champion',
-    description: 'The undisputed champion of the household. Win 10 sibling battles.',
+    title: '🔒 Arena Champion',
+    description: 'The undisputed champion of the arena. Win 10 live PvP battles.',
     criteria: (d) => (d.sibling_battles_won || 0) >= 10,
     xpReward: 600,
     goldReward: 300
