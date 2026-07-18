@@ -29,6 +29,8 @@ import GameButton from '@/components/GameButton';
 import AchievementToast from '@/components/AchievementToast';
 import { useAchievementNotifier } from '@/hooks/useAchievementNotifier';
 import LexiconArena from '@/components/guilds/LexiconArena';
+import GuardianSprite from '@/components/guilds/GuardianSprite';
+import { fetchSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
 import MonsterShop from '@/components/MonsterShop';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
@@ -162,6 +164,12 @@ export default function Dashboard() {
   const [adminOpen, setAdminOpen] = useState(false);  
   const [activeQuest, setActiveQuest] = useState<string | null>(null);
   const [activeGuild, setActiveGuild] = useState<GuildKey | null>(null);
+  const [guildProfile, setGuildProfile] = useState<SubclassProfile | null>(null);
+
+  useEffect(() => {
+    if (activeTab !== 'guilds' || !activeUserId) return;
+    fetchSubclassProfile(activeUserId).then(setGuildProfile);
+  }, [activeTab, activeUserId]);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(() => {
     if (typeof window === 'undefined') return true;
     const saved = localStorage.getItem('sidebarOpen');
@@ -645,46 +653,39 @@ export default function Dashboard() {
         {activeTab === 'guilds' && (
           <div>
             {activeGuild === null ? (
-              <>
+              <div className="battle-panel-in">
                 <h1 className="text-3xl font-bold mb-8 font-display">⚔️ Side Quest Guilds</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <button
-                    onClick={() => setActiveGuild('lorekeeper')}
-                    className="bg-[#121a16] border-2 border-emerald-800 hover:border-emerald-500 rounded-xl p-6 text-left transition-colors"
-                  >
-                    <h3 className="text-xl font-bold text-emerald-300 font-display mb-1">📜 Lorekeeper</h3>
-                    <p className="text-sm text-gray-400">English guild — Time Attack reading & grammar challenges.</p>
-                  </button>
-                  <button
-                    onClick={() => setActiveGuild('spellcaster')}
-                    className="bg-[#13111c] border-2 border-violet-800 hover:border-violet-500 rounded-xl p-6 text-left transition-colors"
-                  >
-                    <h3 className="text-xl font-bold text-violet-300 font-display mb-1">🧙‍♂️ SpellCaster</h3>
-                    <p className="text-sm text-gray-400">Typing guild — Real-time speed spelling under the clock.</p>
-                  </button>
-                  <button
-                    onClick={() => setActiveGuild('number_realm')}
-                    className="bg-[#0d0c08] border-2 border-amber-800 hover:border-amber-500 rounded-xl p-6 text-left transition-colors"
-                  >
-                    <h3 className="text-xl font-bold text-amber-300 font-display mb-1">🔢 Number Realm</h3>
-                    <p className="text-sm text-gray-400">Math guild — Fractions, time, and operations at speed.</p>
-                  </button>
-                  <button
-                    onClick={() => setActiveGuild('logic_labyrinth')}
-                    className="bg-[#0b0d12] border-2 border-cyan-800 hover:border-cyan-500 rounded-xl p-6 text-left transition-colors"
-                  >
-                    <h3 className="text-xl font-bold text-cyan-300 font-display mb-1">🧩 Logic Labyrinth</h3>
-                    <p className="text-sm text-gray-400">IQ guild — Pattern matrices and deduction puzzles.</p>
-                  </button>
-                  <button
-                    onClick={() => setActiveGuild('lexicon_arena')}
-                    className="bg-neutral-900 border-2 border-indigo-800 hover:border-indigo-500 rounded-xl p-6 text-left transition-colors"
-                  >
-                    <h3 className="text-xl font-bold text-indigo-300 font-display mb-1">🧿 Lexicon Arena</h3>
-                    <p className="text-sm text-gray-400">Spelling guild — Read the definition, pick the correct spelling before time runs out.</p>
-                  </button>
+                  {([
+                    { key: 'lorekeeper' as GuildKey, guild: 'lorekeeper' as const, emoji: '📜', name: 'Lorekeeper', desc: 'English guild — Time Attack reading & grammar challenges.', bg: 'bg-[#121a16]', border: 'border-emerald-800 hover:border-emerald-500', title: 'text-emerald-300', lvl: guildProfile?.lorekeeper_lvl },
+                    { key: 'spellcaster' as GuildKey, guild: 'spellcaster' as const, emoji: '🧙‍♂️', name: 'SpellCaster', desc: 'Typing guild — Real-time speed spelling under the clock.', bg: 'bg-[#13111c]', border: 'border-violet-800 hover:border-violet-500', title: 'text-violet-300', lvl: guildProfile?.spellcaster_lvl },
+                    { key: 'number_realm' as GuildKey, guild: 'numberrealm' as const, emoji: '🔢', name: 'Number Realm', desc: 'Math guild — Fractions, time, and operations at speed.', bg: 'bg-[#0d0c08]', border: 'border-amber-800 hover:border-amber-500', title: 'text-amber-300', lvl: guildProfile?.number_realm_lvl },
+                    { key: 'logic_labyrinth' as GuildKey, guild: 'logiclabyrinth' as const, emoji: '🧩', name: 'Logic Labyrinth', desc: 'IQ guild — Pattern matrices and deduction puzzles.', bg: 'bg-[#0b0d12]', border: 'border-cyan-800 hover:border-cyan-500', title: 'text-cyan-300', lvl: guildProfile?.logic_labyrinth_lvl },
+                    { key: 'lexicon_arena' as GuildKey, guild: 'lexiconarena' as const, emoji: '🧿', name: 'Lexicon Arena', desc: 'Spelling guild — Read the definition, pick the correct spelling before time runs out.', bg: 'bg-neutral-900', border: 'border-indigo-800 hover:border-indigo-500', title: 'text-indigo-300', lvl: guildProfile?.lexicon_arena_lvl },
+                  ]).map(g => (
+                    <motion.button
+                      key={g.key}
+                      onClick={() => setActiveGuild(g.key)}
+                      whileHover={{ scale: 1.02, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      className={`${g.bg} border-2 ${g.border} rounded-xl p-6 text-left transition-colors flex items-center gap-4`}
+                    >
+                      <div className="w-16 h-16 shrink-0">
+                        <GuardianSprite guild={g.guild} pose="idle" className="w-full h-full" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <h3 className={`text-xl font-bold ${g.title} font-display mb-1`}>{g.emoji} {g.name}</h3>
+                          {typeof g.lvl === 'number' && (
+                            <span className={`text-xs font-mono font-bold ${g.title} bg-black/40 rounded-full px-2 py-0.5 shrink-0`}>Lvl {g.lvl}</span>
+                          )}
+                        </div>
+                        <p className="text-sm text-gray-400">{g.desc}</p>
+                      </div>
+                    </motion.button>
+                  ))}
                 </div>
-              </>
+              </div>
             ) : activeGuild === 'lorekeeper' ? (
               <Lorekeeper
                 userId={activeUserId}

@@ -7,6 +7,9 @@ import { playChime, playClash, playLevelUp } from '@/lib/sounds';
 import GameButton from '@/components/GameButton';
 import { motion, AnimatePresence } from 'framer-motion';
 import { logAction } from '@/lib/playerlog';
+import GuardianSprite from '@/components/guilds/GuardianSprite';
+import { fetchSubclassProfile, updateSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
+import { applyLevelUp } from '@/lib/guildConfig';
 
 interface LexiconWord {
   id: string;
@@ -58,6 +61,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
   const [score, setScore] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [profile, setProfile] = useState<SubclassProfile | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const feedbackRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -89,6 +93,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
       setLoading(false);
     }
     loadWords();
+    fetchSubclassProfile(userId).then(setProfile);
   }, [gradeLevel]);
 
   // Build choices for current word
@@ -148,10 +153,15 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
     }, 800);
   };
 
-  const handleFinish = () => {
+  const handleFinish = async () => {
     const goldEarned = score * GOLD_PER_CORRECT;
     const xpEarned = score * XP_PER_CORRECT;
     const accuracy = score + wrongCount > 0 ? Math.round((score / (score + wrongCount)) * 100) : 0;
+
+    if (profile) {
+      const { level, xp } = applyLevelUp(profile.lexicon_arena_lvl, profile.lexicon_arena_xp, xpEarned);
+      await updateSubclassProfile(userId, { lexicon_arena_lvl: level, lexicon_arena_xp: xp });
+    }
 
     let newXp = currentStats.xp + xpEarned;
     let newLevel = currentStats.level;
@@ -188,8 +198,11 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
           ← Back to Guilds
         </GameButton>
         <div className="bg-[#111] border border-[#333] rounded-2xl p-10 text-center">
-          <div className="text-6xl mb-4">🧿</div>
+          <div className="w-40 h-40 mx-auto mb-4">
+            <GuardianSprite guild="lexiconarena" pose="idle" className="w-full h-full" />
+          </div>
           <h2 className={`text-3xl font-display font-bold mb-2 ${accent}`}>Lexicon Arena</h2>
+          <p className={`${accent} font-mono mb-1`}>Lvl {profile?.lexicon_arena_lvl || 1} · {profile?.lexicon_arena_xp || 0}/500 XP</p>
           <p className="text-gray-400 mb-8 max-w-md mx-auto">
             Read the definition carefully, then pick the <span className="font-bold text-white">correctly spelled word</span> from the four choices. Watch out — the wrong ones look very close!
           </p>
@@ -233,6 +246,9 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
     return (
       <div className="max-w-2xl mx-auto">
         <div className="bg-[#111] border border-[#333] rounded-2xl p-10 text-center">
+          <div className="w-40 h-40 mx-auto mb-4">
+            <GuardianSprite guild="lexiconarena" pose="defeated" className="w-full h-full" />
+          </div>
           <div className="text-5xl mb-4">{score >= 10 ? '🏆' : score >= 5 ? '⭐' : '📜'}</div>
           <h2 className="text-3xl font-display font-bold text-white mb-2">Time's Up!</h2>
           <p className="text-gray-400 mb-8">Here's how you did in the Lexicon Arena</p>
@@ -307,6 +323,10 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
           <span className="text-red-400">✗ {wrongCount}</span>
           <span className="text-yellow-400">🪙 {score * GOLD_PER_CORRECT}</span>
         </div>
+      </div>
+
+      <div className="w-28 h-28 mx-auto mb-2">
+        <GuardianSprite guild="lexiconarena" pose={feedback === 'correct' ? 'hurt' : 'idle'} className="w-full h-full" />
       </div>
 
       {/* Word card */}

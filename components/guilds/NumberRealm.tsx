@@ -1,12 +1,15 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTimeAttack } from '@/hooks/useTimeAttack';
 import { fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
-import { applyLevelUp } from '@/lib/guildConfig';
+import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { USERS } from '@/lib/userSession';
+import GameButton from '@/components/GameButton';
+import GuardianSprite from '@/components/guilds/GuardianSprite';
 
 interface NumberRealmQuestion {
   id: string;
@@ -48,7 +51,8 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
 
   const isTala = userId === 'tala';
   const gradeLevel = (USERS[userId]?.grade === 'Grade 2') ? 2 : 5;
-  const engine = useTimeAttack<NumberRealmQuestion>(questions, isTala ? 120 : 60)
+  const timeLimit = isTala ? 120 : 60;
+  const engine = useTimeAttack<NumberRealmQuestion>(questions, timeLimit)
 
   useEffect(() => {
     async function loadPool() {
@@ -172,20 +176,41 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
 
   if (screen === 'ready') {
     return (
-      <div className="bg-[#0d0c08] border-2 border-amber-800 rounded-xl p-12 text-center shadow-2xl">
-        <h2 className="text-4xl font-display font-bold text-amber-300 mb-2">🔢 Number Realm</h2>
-        <p className="text-amber-600 font-mono mb-1">Lvl {profile?.number_realm_lvl || 1} · {profile?.number_realm_xp || 0}/500 XP</p>
-        <p className="text-gray-400 mb-8 font-mono text-sm">Solve math problems in {isTala ? 120 : 60} seconds. Correct answers build your streak — the longer the streak, the greater the gold multiplier.</p>
-        {questions.length === 0 ? (
-          <p className="text-red-400">No active problems found for this term.</p>
-        ) : (
-          <button onClick={() => { engine.start(); setScreen('playing'); }}
-            className="bg-amber-700 hover:bg-amber-600 text-white font-bold py-3 px-10 rounded transition-colors font-mono text-lg">
-            ▶ Begin Time Attack
-          </button>
-        )}
-        <div className="mt-6">
-          <button onClick={onExit} className="text-sm text-gray-500 hover:text-gray-300">← Retreat to Map</button>
+      <div className="max-w-2xl mx-auto battle-panel-in">
+        <div className="bg-[#0d0c08] border-2 border-amber-800 rounded-2xl p-10 text-center shadow-2xl">
+          <div className="w-40 h-40 mx-auto mb-4">
+            <GuardianSprite guild="numberrealm" pose="idle" className="w-full h-full" />
+          </div>
+          <h2 className="text-4xl font-display font-bold text-amber-300 mb-2">🔢 Number Realm</h2>
+          <p className="text-amber-600 font-mono mb-1">Lvl {profile?.number_realm_lvl || 1} · {profile?.number_realm_xp || 0}/500 XP</p>
+          <p className="text-gray-400 mb-8 font-mono text-sm max-w-md mx-auto">Solve math problems in {timeLimit} seconds. Correct answers build your streak — the longer the streak, the greater the gold multiplier.</p>
+
+          <div className="grid grid-cols-3 gap-4 mb-8 text-center">
+            <div className="bg-black/40 rounded-xl p-4">
+              <p className="text-2xl font-bold font-mono text-white">⏱ {timeLimit}s</p>
+              <p className="text-xs text-gray-500 mt-1">Time Limit</p>
+            </div>
+            <div className="bg-black/40 rounded-xl p-4">
+              <p className="text-2xl font-bold font-mono text-amber-400">+{XP_PER_CORRECT} XP</p>
+              <p className="text-xs text-gray-500 mt-1">Per Correct</p>
+            </div>
+            <div className="bg-black/40 rounded-xl p-4">
+              <p className="text-2xl font-bold font-mono text-yellow-400">+{GOLD_PER_CORRECT}🪙</p>
+              <p className="text-xs text-gray-500 mt-1">Per Correct</p>
+            </div>
+          </div>
+
+          {questions.length === 0 ? (
+            <p className="text-red-400">No active problems found for this term.</p>
+          ) : (
+            <GameButton onClick={() => { engine.start(); setScreen('playing'); }}
+              className="bg-amber-700 hover:bg-amber-600 text-white font-bold py-3 px-10 rounded-xl transition-colors font-mono text-lg">
+              ⚔️ Begin Time Attack
+            </GameButton>
+          )}
+          <div className="mt-6">
+            <GameButton onClick={onExit} className="text-sm text-gray-500 hover:text-gray-300">← Retreat to Map</GameButton>
+          </div>
         </div>
       </div>
     );
@@ -193,41 +218,87 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
 
   if (screen === 'playing' && engine.currentQuestion) {
     const q = engine.currentQuestion;
-    const borderColor = flashResult === 'correct' ? 'border-green-500' : flashResult === 'wrong' ? 'border-red-500' : 'border-amber-800';
+    const timerPct = (engine.timeLeft / timeLimit) * 100;
+    const timerColor = engine.timeLeft <= 10 ? 'bg-red-500' : engine.timeLeft <= 20 ? 'bg-yellow-500' : 'bg-amber-500';
+    const feedbackClass = flashResult === 'correct' ? 'battle-answer-correct' : flashResult === 'wrong' ? 'battle-answer-wrong' : '';
+
     return (
-      <div className={`bg-[#0d0c08] border-2 ${borderColor} rounded-xl p-8 shadow-2xl transition-colors`}>
-        <div className="flex justify-between items-center mb-8">
-          <span className="text-2xl font-bold text-amber-300 font-mono">⏱ {engine.timeLeft}s</span>
+      <div className="max-w-2xl mx-auto">
+        <div className="flex justify-between items-center mb-4">
+          <div className="flex items-center gap-3">
+            <span className={`text-2xl font-bold font-mono ${engine.timeLeft <= 10 ? 'text-red-400 animate-pulse' : 'text-amber-300'}`}>⏱ {engine.timeLeft}s</span>
+            <div className="w-32 bg-neutral-800 rounded-full h-2">
+              <div className={`h-2 rounded-full transition-all ${timerColor}`} style={{ width: `${timerPct}%` }} />
+            </div>
+          </div>
           <span className="text-amber-400 font-mono">🔥 x{engine.currentMultiplier}</span>
           <span className="text-amber-300 font-bold font-mono">Score: {engine.score}</span>
         </div>
 
-        <p className="text-xl font-bold text-white text-center mb-6 leading-relaxed">{q.problem_prompt}</p>
-
-        {renderInputLayout(q)}
-
-        <button onClick={checkAnswer}
-          className="w-full bg-amber-700 hover:bg-amber-600 text-white font-bold py-3 rounded transition-colors font-mono">
-          Submit ↵
-        </button>
-
-        <div className="flex justify-between text-xs text-gray-600 font-mono mt-4">
-          <span>✅ {engine.correctCount}</span>
-          <span>❌ {engine.wrongCount}</span>
+        <div className="w-28 h-28 mx-auto mb-2">
+          <GuardianSprite guild="numberrealm" pose={flashResult === 'correct' ? 'hurt' : 'idle'} className="w-full h-full" />
         </div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={q.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.15 }}
+            className={`bg-[#0d0c08] border-2 border-amber-800 rounded-xl p-8 shadow-2xl ${feedbackClass}`}
+          >
+            <p className="text-xl font-bold text-white text-center mb-6 leading-relaxed">{q.problem_prompt}</p>
+
+            {renderInputLayout(q)}
+
+            <GameButton onClick={checkAnswer}
+              className="w-full bg-amber-700 hover:bg-amber-600 text-white font-bold py-3 rounded-xl transition-colors font-mono">
+              Submit ↵
+            </GameButton>
+
+            <div className="flex justify-between text-xs text-gray-600 font-mono mt-4">
+              <span>✅ {engine.correctCount}</span>
+              <span>❌ {engine.wrongCount}</span>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     );
   }
 
   return (
-    <div className="bg-[#0d0c08] border-2 border-amber-800 rounded-xl p-12 text-center shadow-2xl font-mono">
-      <h2 className="text-3xl font-bold text-amber-300 mb-4 font-display">⏳ Time's Up!</h2>
-      <p className="text-gray-300 mb-1">{engine.correctCount} correct · {engine.wrongCount} wrong</p>
-      <p className="text-xl mb-2">Subclass XP: <span className="text-amber-400 font-bold">{engine.totalXpEarned}</span></p>
-      <p className="text-xl mb-8">Gold earned: <span className="text-yellow-400 font-bold">{engine.totalGoldEarned}</span></p>
-      <button onClick={onExit} className="bg-neutral-800 hover:bg-neutral-700 text-white font-bold py-3 px-6 rounded transition-colors">
-        Return to Campaign Map
-      </button>
+    <div className="max-w-2xl mx-auto battle-panel-in">
+      <div className="bg-[#0d0c08] border-2 border-amber-800 rounded-2xl p-10 text-center shadow-2xl font-mono">
+        <div className="w-40 h-40 mx-auto mb-4">
+          <GuardianSprite guild="numberrealm" pose="defeated" className="w-full h-full" />
+        </div>
+        <div className="text-5xl mb-2">{engine.correctCount >= 10 ? '🏆' : engine.correctCount >= 5 ? '⭐' : '🔢'}</div>
+        <h2 className="text-3xl font-bold text-amber-300 mb-4 font-display">Guardian Defeated!</h2>
+
+        <div className="grid grid-cols-2 gap-4 mb-8">
+          <div className="bg-black/40 rounded-xl p-5">
+            <p className="text-4xl font-bold font-mono text-green-400">{engine.correctCount}</p>
+            <p className="text-sm text-gray-500 mt-1">Correct</p>
+          </div>
+          <div className="bg-black/40 rounded-xl p-5">
+            <p className="text-4xl font-bold font-mono text-red-400">{engine.wrongCount}</p>
+            <p className="text-sm text-gray-500 mt-1">Wrong</p>
+          </div>
+          <div className="bg-black/40 rounded-xl p-5">
+            <p className="text-4xl font-bold font-mono text-amber-400">{engine.totalXpEarned}</p>
+            <p className="text-sm text-gray-500 mt-1">Subclass XP</p>
+          </div>
+          <div className="bg-black/40 rounded-xl p-5">
+            <p className="text-4xl font-bold font-mono text-yellow-400">🪙 {engine.totalGoldEarned}</p>
+            <p className="text-sm text-gray-500 mt-1">Gold Earned</p>
+          </div>
+        </div>
+
+        <GameButton onClick={onExit} className="bg-neutral-800 hover:bg-neutral-700 text-white font-bold py-3 px-6 rounded-xl transition-colors">
+          Return to Campaign Map
+        </GameButton>
+      </div>
     </div>
   );
 }

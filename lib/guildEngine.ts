@@ -12,6 +12,8 @@ export interface SubclassProfile {
   number_realm_xp: number;
   logic_labyrinth_lvl: number;
   logic_labyrinth_xp: number;
+  lexicon_arena_lvl: number;
+  lexicon_arena_xp: number;
 }
 
 export async function fetchSubclassProfile(userId: string): Promise<SubclassProfile | null> {
