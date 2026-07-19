@@ -422,12 +422,13 @@ export function pickRandomWildMonsterId(ownedLegendaryCount = 0): string {
 
 // ─── WILD ENCOUNTER CHANCE ──────────────────────────────────────────────────
 // Base odds are tuned so a player at ~1hr/day of active map play sees roughly
-// 50 wild encounters across a full school year (~180 hrs x ~120 answered
-// questions/hr ≈ 21,600 answers/year → 50/21,600 ≈ 0.23%). Defeating NPC
-// trainers gradually raises this — more trainers beaten makes the player
-// visibly better at finding wild monsters, capped once every trainer is down.
-const WILD_ENCOUNTER_BASE_CHANCE = 0.002;
-const WILD_ENCOUNTER_CHANCE_PER_TRAINER_DEFEATED = 0.0005;
+// 3 wild encounters per week (~7 hrs x ~120 answered questions/hr ≈ 840
+// answers/week → 3/840 ≈ 0.36%, rounded to 0.5% for a rounder in-game feel).
+// Defeating NPC trainers gradually raises this — more trainers beaten makes
+// the player visibly better at finding wild monsters, capped once every
+// trainer is down (3x the base rate, same ratio as before this retune).
+const WILD_ENCOUNTER_BASE_CHANCE = 0.005;
+const WILD_ENCOUNTER_CHANCE_PER_TRAINER_DEFEATED = 0.00125;
 
 // Chance (0-1) that any single answered question triggers a wild encounter
 // roll, given how many distinct NPC trainers the player has defeated so far.
