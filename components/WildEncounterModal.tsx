@@ -29,7 +29,7 @@ export default function WildEncounterModal({ monster, level, question, attemptsL
   const handleAnswer = (key: string) => {
     if (selected) return;
     setSelected(key);
-    const isCorrect = key === question.correct_choice;
+    const isCorrect = key.toLowerCase() === question.correct_choice.toLowerCase();
     if (isCorrect) playChime(); else playClash();
     setTimeout(() => {
       if (isCorrect) onCorrect();
@@ -59,7 +59,7 @@ export default function WildEncounterModal({ monster, level, question, attemptsL
         <div className="space-y-3">
           {choices.map(c => {
             const isSelected = selected === c.key;
-            const isCorrect = c.key === question.correct_choice;
+            const isCorrect = c.key.toLowerCase() === question.correct_choice.toLowerCase();
             let style = 'border-neutral-700 hover:border-neutral-500';
             let feedbackAnim = '';
             if (selected) {

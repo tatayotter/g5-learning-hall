@@ -71,7 +71,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
   const handleAnswer = (choice: string) => {
     if (!engine.currentQuestion) return;
     setSelectedChoice(choice);
-    const isCorrect = choice === engine.currentQuestion.correct_choice;
+    const isCorrect = choice.toLowerCase() === engine.currentQuestion.correct_choice.toLowerCase();
     setFlashResult(isCorrect ? 'correct' : 'wrong');
     if (isCorrect) playChime(); else playClash();
     setTimeout(() => {
@@ -202,7 +202,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
               {choices.map(c => {
                 let style = 'border-emerald-800 hover:border-emerald-500 hover:bg-emerald-900/20';
                 if (selectedChoice === c.key) {
-                  style = c.key === q.correct_choice ? 'border-green-500 bg-green-900/30' : 'border-red-500 bg-red-900/30';
+                  style = c.key.toLowerCase() === q.correct_choice.toLowerCase() ? 'border-green-500 bg-green-900/30' : 'border-red-500 bg-red-900/30';
                 }
                 return (
                   <GameButton
