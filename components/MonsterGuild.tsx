@@ -1937,7 +1937,7 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
                 <p className="text-xl font-bold text-white font-display">???</p>
                 {selectedEntry?.guildLabel ? (
                   <p className="text-sm text-gray-500 mt-2">
-                    🔒 Reach {selectedEntry.guildLabel} Level {selectedEntry.unlockLevel} to {selectedEntry.tier === 1 ? 'earn this companion' : 'reveal this evolution'}.
+                    🔒 Reach {selectedEntry.guildLabel} Level {selectedEntry.unlockLevel} to {selectedEntry.tier === 1 ? 'earn this companion' : 'reveal this graduation'}.
                   </p>
                 ) : (
                   <p className="text-sm text-gray-500 mt-2">A mysterious wild monster — its identity is still unknown. Keep answering questions on the Training Map for a chance to encounter it.</p>

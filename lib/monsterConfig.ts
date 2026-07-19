@@ -691,6 +691,16 @@ export interface NpcTrainer {
   intro: string;
 }
 
+// Monster levels below are calibrated off real monster_level progress across
+// the 4 active players rather than off levelRequirement (a separate player-
+// level gate): after ~1-2 weeks of play, levels ranged from 2 (a player just
+// starting out) up through 9, 14, and 42 (a heavy grinder) — see git history
+// around 2026-07-20 for the actual reference numbers. Each trainer now fields
+// 3 monsters (was 2) for a longer, more attritional fight, with levels ramped
+// gradually so the curve tracks a normally-active player's real pace instead
+// of jumping straight to the levelRequirement number. The Grand Master tops
+// out around 29 — a real capstone for a dedicated player, without requiring
+// the outlier-grinder pace to ever be reachable.
 export const NPC_TRAINERS: NpcTrainer[] = [
   {
     id: 'forest_scout', name: 'Forest Scout', element: 'leaf', levelRequirement: 1,
@@ -698,6 +708,7 @@ export const NPC_TRAINERS: NpcTrainer[] = [
     monsters: [
       { monsterId: 'mosshorn', level: 2 },
       { monsterId: 'fernix',   level: 3 },
+      { monsterId: 'sproutle', level: 4 },
     ],
     reward: { exp: 50, gold: 20 },
   },
@@ -705,8 +716,9 @@ export const NPC_TRAINERS: NpcTrainer[] = [
     id: 'tide_watcher', name: 'Tide Watcher', element: 'water', levelRequirement: 5,
     emoji: '🌊', intro: 'The sea is patient. Let\'s see if you are.',
     monsters: [
-      { monsterId: 'coralyn',  level: 5 },
-      { monsterId: 'torrenth', level: 6 },
+      { monsterId: 'coralyn',  level: 6 },
+      { monsterId: 'torrenth', level: 7 },
+      { monsterId: 'bubbloon', level: 8 },
     ],
     reward: { exp: 75, gold: 30 },
   },
@@ -714,8 +726,9 @@ export const NPC_TRAINERS: NpcTrainer[] = [
     id: 'ember_acolyte', name: 'Ember Acolyte', element: 'fire', levelRequirement: 7,
     emoji: '🔥', intro: 'Fire consumes the weak. Prove you are not.',
     monsters: [
-      { monsterId: 'embrak',  level: 7 },
-      { monsterId: 'pyravex', level: 8 },
+      { monsterId: 'embrak',   level: 9 },
+      { monsterId: 'pyravex',  level: 10 },
+      { monsterId: 'emberpaw', level: 11 },
     ],
     reward: { exp: 100, gold: 40 },
   },
@@ -723,8 +736,9 @@ export const NPC_TRAINERS: NpcTrainer[] = [
     id: 'storm_caller', name: 'Storm Caller', element: 'storm', levelRequirement: 10,
     emoji: '⚡', intro: 'The storm answers to no one. Can you say the same?',
     monsters: [
-      { monsterId: 'voltmane',  level: 10 },
-      { monsterId: 'galestrik', level: 11 },
+      { monsterId: 'voltmane',  level: 12 },
+      { monsterId: 'galestrik', level: 13 },
+      { monsterId: 'zapkit',    level: 14 },
     ],
     reward: { exp: 125, gold: 50 },
   },
@@ -732,8 +746,9 @@ export const NPC_TRAINERS: NpcTrainer[] = [
     id: 'shadow_stalker', name: 'Shadow Stalker', element: 'shadow', levelRequirement: 13,
     emoji: '🌑', intro: 'You cannot fight what you cannot see.',
     monsters: [
-      { monsterId: 'shadrak', level: 13 },
-      { monsterId: 'duskral', level: 14 },
+      { monsterId: 'shadrak',  level: 15 },
+      { monsterId: 'duskral',  level: 16 },
+      { monsterId: 'gloombat', level: 17 },
     ],
     reward: { exp: 150, gold: 60 },
   },
@@ -741,8 +756,9 @@ export const NPC_TRAINERS: NpcTrainer[] = [
     id: 'light_bearer', name: 'Light Bearer', element: 'light', levelRequirement: 16,
     emoji: '✨', intro: 'True strength shines from within.',
     monsters: [
-      { monsterId: 'luminos', level: 16 },
-      { monsterId: 'solarch', level: 17 },
+      { monsterId: 'luminos',   level: 18 },
+      { monsterId: 'solarch',   level: 19 },
+      { monsterId: 'luminibee', level: 20 },
     ],
     reward: { exp: 175, gold: 70 },
   },
@@ -750,8 +766,9 @@ export const NPC_TRAINERS: NpcTrainer[] = [
     id: 'elemental_knight', name: 'Elemental Knight', element: 'mixed', levelRequirement: 20,
     emoji: '⚔️', intro: 'I have mastered all elements. Have you?',
     monsters: [
-      { monsterId: 'pyravex',  level: 20 },
-      { monsterId: 'torrenth', level: 20 },
+      { monsterId: 'pyravex',  level: 21 },
+      { monsterId: 'torrenth', level: 22 },
+      { monsterId: 'voltmane', level: 23 },
     ],
     reward: { exp: 200, gold: 100 },
   },
@@ -760,7 +777,8 @@ export const NPC_TRAINERS: NpcTrainer[] = [
     emoji: '👑', intro: 'Few reach this point. None have passed.',
     monsters: [
       { monsterId: 'solarch',   level: 25 },
-      { monsterId: 'galestrik', level: 25 },
+      { monsterId: 'galestrik', level: 27 },
+      { monsterId: 'duskral',   level: 29 },
     ],
     reward: { exp: 300, gold: 150 },
   },
