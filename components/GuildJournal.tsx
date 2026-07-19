@@ -110,24 +110,35 @@ export default function GuildJournal({ userId, journalLogs, stats, currentSunday
           placeholder="⚔️ What I did today"
           className="w-full bg-black border border-neutral-700 rounded p-2 focus:border-blue-500 outline-none"
           required
+          minLength={20}
+          title="At least 20 characters"
           onChange={e => setFormData({...formData, done_today: e.target.value})}
         />
         <textarea
           placeholder="🗺️ What I will do tomorrow"
           className="w-full bg-black border border-neutral-700 rounded p-2 focus:border-blue-500 outline-none"
           required
+          minLength={20}
+          title="At least 20 characters"
           onChange={e => setFormData({...formData, tomorrow_plan: e.target.value})}
         />
         <textarea
           placeholder="🐉 Hardest challenge today"
           className="w-full bg-black border border-neutral-700 rounded p-2 focus:border-blue-500 outline-none"
+          required
+          minLength={20}
+          title="At least 20 characters"
           onChange={e => setFormData({...formData, hardest_challenge: e.target.value})}
         />
         <input
           placeholder="💎 One thing I'm grateful for"
           className="w-full bg-black border border-neutral-700 rounded p-2 focus:border-blue-500 outline-none"
+          required
+          minLength={20}
+          title="At least 20 characters"
           onChange={e => setFormData({...formData, gratitude: e.target.value})}
         />
+        <p className="text-xs text-amber-500 text-center">✨ Earn +50 XP and +50 Gold for sealing today's entry · min. 20 characters per field</p>
         <GameButton type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors">
           💾 Seal Journal Entry
         </GameButton>
