@@ -14,7 +14,7 @@ import InfoTag from '@/components/InfoTag';
 
 function TeamStrip({ team }: { team: LeaderboardEntry['team'] }) {
   if (team.length === 0) {
-    return <p className="text-xs text-gray-600">No monsters yet</p>;
+    return <p className="text-xs text-gray-600">No curios yet</p>;
   }
   return (
     <div className="flex flex-wrap gap-2">
@@ -235,13 +235,13 @@ export default function LeaderboardPanel() {
       highlight: entry => ({
         emoji: '👾',
         value: String(entry.monstersCollected),
-        label: 'Monsters Collected',
+        label: 'Curios Collected',
       }),
     },
     {
       key: 'tamer',
-      title: '🐲 Monster Tamer Leaderboard',
-      badge: '🐲 #1 TOP MONSTER TAMER',
+      title: '🐲 Curio Tamer Leaderboard',
+      badge: '🐲 #1 TOP CURIO TAMER',
       ranked: tamerRanked,
       highlight: entry => ({
         emoji: '🌟',
