@@ -649,7 +649,13 @@ export default function Dashboard() {
 
               <div className="space-y-3 max-h-80 overflow-y-auto pr-1">
                 {myClaims.length > 0 ? (
-                  myClaims.map((claim) => (
+                  [...myClaims]
+                    .sort((a, b) => {
+                      if (a.status === 'pending' && b.status !== 'pending') return -1;
+                      if (a.status !== 'pending' && b.status === 'pending') return 1;
+                      return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+                    })
+                    .map((claim) => (
                     <div key={claim.id} className="flex justify-between items-center bg-black p-3 rounded border border-neutral-800">
                       <div>
                         <p className="font-bold">{claim.item_name}</p>
