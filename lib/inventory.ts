@@ -19,13 +19,13 @@ export interface ShopItem {
 }
 
 export const SHOP_CATALOG: ShopItem[] = [
-  { key: 'health_potion',  name: 'Health Potion',  icon: '🧪', cost: 20,  desc: 'Restore 30 HP to your monster mid-battle.',          effect: 'heal_30'        },
-  { key: 'attack_scroll',  name: 'Attack Scroll',  icon: '⚔️', cost: 30,  desc: 'Boost your monster\'s attack by 1.5x for one turn.', effect: 'atk_boost_1t'  },
-  { key: 'iron_shield',    name: 'Iron Shield',    icon: '🛡️', cost: 30,  desc: 'Reduce incoming damage by half for one turn.',        effect: 'def_boost_1t'  },
-  { key: 'blessed_charm',  name: 'Blessed Charm',  icon: '✨', cost: 50,  desc: 'Apply the Blessed status to your monster.',           effect: 'apply_blessed' },
-  { key: 'antidote',       name: 'Antidote',       icon: '💊', cost: 25,  desc: 'Cure Burn, Paralyze, or Curse from your monster.',    effect: 'cure_status'   },
-  { key: 'poison_fang',    name: 'Poison Fang',    icon: '💀', cost: 40,  desc: 'Inflict Curse on the enemy monster.',                 effect: 'inflict_curse' },
-  { key: 'revive_stone',   name: 'Revive Stone',   icon: '🔄', cost: 80,  desc: 'Revive your monster once from 0 HP.',                effect: 'revive'        },
+  { key: 'health_potion',  name: 'Health Potion',  icon: '/items/health_potion_100.webp', cost: 20,  desc: 'Restore 30 HP to your monster mid-battle.',          effect: 'heal_30'        },
+  { key: 'attack_scroll',  name: 'Attack Scroll',  icon: '/items/attack_scroll_100.webp', cost: 30,  desc: 'Boost your monster\'s attack by 1.5x for one turn.', effect: 'atk_boost_1t'  },
+  { key: 'iron_shield',    name: 'Iron Shield',    icon: '/items/iron_shield_100.webp', cost: 30,  desc: 'Reduce incoming damage by half for one turn.',        effect: 'def_boost_1t'  },
+  { key: 'blessed_charm',  name: 'Blessed Charm',  icon: '/items/blessed_charm_100.webp', cost: 50,  desc: 'Apply the Blessed status to your monster.',           effect: 'apply_blessed' },
+  { key: 'antidote',       name: 'Antidote',       icon: '/items/antidote_100.webp', cost: 25,  desc: 'Cure Burn, Paralyze, or Curse from your monster.',    effect: 'cure_status'   },
+  { key: 'poison_fang',    name: 'Poison Fang',    icon: '/items/poison_fang_100.webp', cost: 40,  desc: 'Inflict Curse on the enemy monster.',                 effect: 'inflict_curse' },
+  { key: 'revive_stone',   name: 'Revive Stone',   icon: '/items/revive_stone_100.webp', cost: 80,  desc: 'Revive your monster once from 0 HP.',                effect: 'revive'        },
 ];
 
 // Items given free daily to family players
@@ -34,22 +34,24 @@ export const DAILY_FAMILY_ITEMS: { key: ItemKey; qty: number }[] = [
   { key: 'iron_shield',   qty: 1 },
 ];
 
-export type InventoryMap = Partial<Record<ItemKey, number>>;
+// Keyed on plain strings (not just ItemKey) since scroll ids from
+// lib/skillScrolls.ts share this same player_inventory table/map.
+export type InventoryMap = Partial<Record<string, number>>;
 
 export async function fetchInventory(userId: string): Promise<InventoryMap> {
   const { data } = await supabase
     .from('player_inventory')
     .select('item_key, quantity')
     .eq('app_user_id', userId);
-  
+
   const map: InventoryMap = {};
   for (const row of data || []) {
-    map[row.item_key as ItemKey] = row.quantity;
+    map[row.item_key] = row.quantity;
   }
   return map;
 }
 
-export async function addInventoryItem(userId: string, key: ItemKey, qty: number) {
+export async function addInventoryItem(userId: string, key: string, qty: number) {
   await supabase.rpc('upsert_inventory', {
     p_user_id: userId,
     p_item_key: key,
@@ -57,7 +59,7 @@ export async function addInventoryItem(userId: string, key: ItemKey, qty: number
   });
 }
 
-export async function consumeInventoryItem(userId: string, key: ItemKey) {
+export async function consumeInventoryItem(userId: string, key: string) {
   await supabase.rpc('upsert_inventory', {
     p_user_id: userId,
     p_item_key: key,

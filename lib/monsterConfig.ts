@@ -18,6 +18,17 @@ const ELEMENT_WEAKNESSES: Record<Element, Element> = {
   shadow: 'light',
 };
 
+// Small badge icon per element, rendered next to the element name wherever a
+// monster's element is shown (Compendium, team roster, trainer list, etc).
+export const ELEMENT_ICON_SRC: Record<Element, string> = {
+  fire:   '/elements/elem_fire_100.webp',
+  water:  '/elements/elem_water_100.webp',
+  leaf:   '/elements/elem_leaf_100.webp',
+  storm:  '/elements/elem_storm_100.webp',
+  shadow: '/elements/elem_shadow_100.webp',
+  light:  '/elements/elem_light_100.webp',
+};
+
 // Returns damage multiplier when attacker element hits defender element
 export function getElementMultiplier(attacker: Element, defender: Element): number {
   return ELEMENT_WEAKNESSES[attacker] === defender ? 1.5 : 1.0;
@@ -60,14 +71,31 @@ export const ELEMENT_STATUS: Partial<Record<Element, StatusEffect>> = {
 
 // ─── SKILLS ─────────────────────────────────────────────────────────────────
 
+// A secondary mechanical effect a skill applies alongside (or instead of) its
+// raw damage. `magnitude` is a decimal fraction (0.15 = 15%); negative values
+// are a downside (e.g. Berserker's Edge trading away some Defense). `duration`
+// is a turn count, 'battle' for rest-of-battle, or 'instant' for a one-time
+// effect (heal/cleanse) applied the moment the skill lands.
+export interface SkillEffect {
+  kind: 'self_atk_up' | 'self_def_up' | 'self_speed_up' | 'enemy_atk_down' | 'enemy_def_down'
+      | 'lifesteal' | 'accuracy_soften' | 'flat_heal' | 'cleanse';
+  magnitude?: number;
+  duration?: number | 'battle' | 'instant';
+}
+
 export interface Skill {
   id: string;
   name: string;
-  element: Element;
+  element: Element | null; // null for element-agnostic "fighting skills"
   tier: 1 | 2 | 3;
   questionCount: 1 | 2 | 3;  // matches tier
   baseDamageMultiplier: number;
   description: string;
+  // Present on the Vault-taught alt/universal skills; absent (defaults to
+  // 'base') on the original 18 species-kit skills above so those don't need
+  // touching. See SkillEffect for what `effects` entries do in battle.
+  category?: 'base' | 'alt' | 'universal';
+  effects?: SkillEffect[];
 }
 
 export const SKILLS: Record<string, Skill> = {
@@ -100,6 +128,53 @@ export const SKILLS: Record<string, Skill> = {
   flash:         { id: 'flash',         name: 'Flash',        element: 'light',  tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A blinding burst of light.' },
   sacred_beam:   { id: 'sacred_beam',   name: 'Sacred Beam',  element: 'light',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A focused beam of holy light.' },
   divine_burst:  { id: 'divine_burst',  name: 'Divine Burst', element: 'light',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'A radiant explosion. May Bless.' },
+
+  // ─── VAULT ALT SKILLS ─── one per tier per element, trading raw damage for
+  // a themed secondary effect. Damage numbers are uniform across elements at
+  // a given tier (0.85x/1.15x/1.45x); only the effect differs per element.
+
+  // FIRE — self Attack Up
+  fire_fang:     { id: 'fire_fang',     name: 'Fire Fang',     element: 'fire',   tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'A biting flame strike that fires up the striker.', effects: [{ kind: 'self_atk_up', magnitude: 0.10, duration: 1 }] },
+  flame_wheel:   { id: 'flame_wheel',   name: 'Flame Wheel',   element: 'fire',   tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'Spins through flame, building momentum.',           effects: [{ kind: 'self_atk_up', magnitude: 0.15, duration: 2 }] },
+  wildfire:      { id: 'wildfire',      name: 'Wildfire',      element: 'fire',   tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'Scorches the field, fueling every follow-up hit.', effects: [{ kind: 'self_atk_up', magnitude: 0.20, duration: 3 }] },
+
+  // WATER — enemy Attack Down
+  aqua_jet:      { id: 'aqua_jet',      name: 'Aqua Jet',      element: 'water',  tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'A rapid water dash that rattles the target.',      effects: [{ kind: 'enemy_atk_down', magnitude: 0.10, duration: 1 }] },
+  whirlpool:     { id: 'whirlpool',     name: 'Whirlpool',     element: 'water',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'Traps the foe in a swirling current.',             effects: [{ kind: 'enemy_atk_down', magnitude: 0.15, duration: 2 }] },
+  tidal_surge:   { id: 'tidal_surge',   name: 'Tidal Surge',   element: 'water',  tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'A crushing wave that saps the target\'s power.',   effects: [{ kind: 'enemy_atk_down', magnitude: 0.20, duration: 3 }] },
+
+  // LEAF — self Lifesteal
+  leech_vine:    { id: 'leech_vine',    name: 'Leech Vine',    element: 'leaf',   tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'Drains vitality with every strike.',               effects: [{ kind: 'lifesteal', magnitude: 0.15 }] },
+  bramble_guard: { id: 'bramble_guard', name: 'Bramble Guard', element: 'leaf',   tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'Thorny vines that strike and mend.',                effects: [{ kind: 'lifesteal', magnitude: 0.20 }] },
+  verdant_bloom: { id: 'verdant_bloom', name: 'Verdant Bloom', element: 'leaf',   tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'A blossoming burst that damages and restores.',     effects: [{ kind: 'lifesteal', magnitude: 0.25 }] },
+
+  // STORM — self Speed Up
+  static_spark:  { id: 'static_spark',  name: 'Static Spark',  element: 'storm',  tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'A jolt that quickens the striker\'s reflexes.',    effects: [{ kind: 'self_speed_up', magnitude: 0.15, duration: 1 }] },
+  volt_charge:   { id: 'volt_charge',   name: 'Volt Charge',   element: 'storm',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'Charges the striker with crackling speed.',        effects: [{ kind: 'self_speed_up', magnitude: 0.20, duration: 2 }] },
+  storm_surge:   { id: 'storm_surge',   name: 'Storm Surge',   element: 'storm',  tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'A raging tempest that quickens every step.',       effects: [{ kind: 'self_speed_up', magnitude: 0.25, duration: 3 }] },
+
+  // SHADOW — enemy Defense Down
+  shade_bite:    { id: 'shade_bite',    name: 'Shade Bite',    element: 'shadow', tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'A shadowy bite that cracks the target\'s guard.',  effects: [{ kind: 'enemy_def_down', magnitude: 0.10, duration: 1 }] },
+  umbral_grasp:  { id: 'umbral_grasp',  name: 'Umbral Grasp',  element: 'shadow', tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'Dark tendrils that pry open the foe\'s defenses.', effects: [{ kind: 'enemy_def_down', magnitude: 0.15, duration: 2 }] },
+  nightfall:     { id: 'nightfall',     name: 'Nightfall',     element: 'shadow', tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'Plunges the field into darkness, weakening its guard.', effects: [{ kind: 'enemy_def_down', magnitude: 0.20, duration: 3 }] },
+
+  // LIGHT — self Defense Up
+  piercing_ray:  { id: 'piercing_ray',  name: 'Piercing Ray',  element: 'light',  tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'A focused ray that steels the striker\'s resolve.', effects: [{ kind: 'self_def_up', magnitude: 0.10, duration: 1 }] },
+  radiant_pulse: { id: 'radiant_pulse', name: 'Radiant Pulse', element: 'light',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'A radiant pulse that shields as it strikes.',      effects: [{ kind: 'self_def_up', magnitude: 0.15, duration: 2 }] },
+  sunburst:      { id: 'sunburst',      name: 'Sunburst',      element: 'light',  tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'A radiant explosion that hardens the striker\'s guard.', effects: [{ kind: 'self_def_up', magnitude: 0.20, duration: 3 }] },
+
+  // ─── UNIVERSAL FIGHTING SKILLS ─── element-agnostic, zero direct damage —
+  // the entire tier budget goes into effect strength since they occupy a
+  // slot that would otherwise be a damage move.
+  focus_stance:     { id: 'focus_stance',     name: 'Focus Stance',     element: null, tier: 1, questionCount: 1, baseDamageMultiplier: 0, category: 'universal', description: 'Softens the sting of a partial-credit answer for a few turns.', effects: [{ kind: 'accuracy_soften', magnitude: 0.15, duration: 2 }] },
+  quick_step:       { id: 'quick_step',       name: 'Quick Step',       element: null, tier: 1, questionCount: 1, baseDamageMultiplier: 0, category: 'universal', description: 'A burst of speed that helps you act first.',                    effects: [{ kind: 'self_speed_up', magnitude: 0.25, duration: 2 }] },
+  guard_up:         { id: 'guard_up',         name: 'Guard Up',         element: null, tier: 1, questionCount: 1, baseDamageMultiplier: 0, category: 'universal', description: 'Braces for impact, cutting incoming damage.',                    effects: [{ kind: 'self_def_up', magnitude: 0.25, duration: 2 }] },
+  intimidate:       { id: 'intimidate',       name: 'Intimidate',       element: null, tier: 2, questionCount: 2, baseDamageMultiplier: 0, category: 'universal', description: 'Rattles the foe, dulling their next attacks.',                   effects: [{ kind: 'enemy_atk_down', magnitude: 0.25, duration: 3 }] },
+  guard_break:      { id: 'guard_break',      name: 'Guard Break',      element: null, tier: 2, questionCount: 2, baseDamageMultiplier: 0, category: 'universal', description: 'Cracks the foe\'s defenses wide open.',                          effects: [{ kind: 'enemy_def_down', magnitude: 0.25, duration: 3 }] },
+  adrenaline_rush:  { id: 'adrenaline_rush',  name: 'Adrenaline Rush',  element: null, tier: 2, questionCount: 2, baseDamageMultiplier: 0, category: 'universal', description: 'A surge of speed and power.',                                    effects: [{ kind: 'self_speed_up', magnitude: 0.15, duration: 3 }, { kind: 'self_atk_up', magnitude: 0.15, duration: 3 }] },
+  iron_resolve:     { id: 'iron_resolve',     name: 'Iron Resolve',     element: null, tier: 3, questionCount: 3, baseDamageMultiplier: 0, category: 'universal', description: 'Hardens your resolve for the rest of the battle.',              effects: [{ kind: 'self_def_up', magnitude: 0.35, duration: 'battle' }] },
+  berserkers_edge:  { id: 'berserkers_edge',  name: "Berserker's Edge", element: null, tier: 3, questionCount: 3, baseDamageMultiplier: 0, category: 'universal', description: 'Trades safety for raw power, for the rest of the battle.',      effects: [{ kind: 'self_atk_up', magnitude: 0.40, duration: 'battle' }, { kind: 'self_def_up', magnitude: -0.20, duration: 'battle' }] },
+  second_wind:      { id: 'second_wind',      name: 'Second Wind',      element: null, tier: 3, questionCount: 3, baseDamageMultiplier: 0, category: 'universal', description: 'Catch your breath, heal up, and shake off any status.',          effects: [{ kind: 'flat_heal', magnitude: 0.25, duration: 'instant' }, { kind: 'cleanse', duration: 'instant' }] },
 };
 
 // ─── REST SKILL ──────────────────────────────────────────────────────────────
@@ -147,9 +222,22 @@ export interface MonsterDef {
   // normally regardless of guild level.
   guildEvolution?: {
     guildKey: GuildKey;
-    tier2: { level: number; name: string; emoji: string; spriteId?: string; isLegendary?: boolean };
-    tier3: { level: number; name: string; emoji: string; spriteId?: string; isLegendary?: boolean };
+    tier2: GuildEvolutionStage;
+    tier3: GuildEvolutionStage;
   };
+}
+
+// description is optional — omitting it falls back to the base species'
+// value. Stats are never authored by hand here: they're derived from the
+// base species stats by GUILD_ENHANCEMENT_GROWTH, keyed off tier + isLegendary
+// (see getGuildEnhancementLevel/getGuildMonsterTierDef below).
+interface GuildEvolutionStage {
+  level: number;
+  name: string;
+  emoji: string;
+  spriteId?: string;
+  isLegendary?: boolean;
+  description?: string;
 }
 
 const STAT_PRESETS: Record<MonsterArchetype, { baseHp: number; baseAttack: number; baseDefense: number; baseSpeed: number }> = {
@@ -171,42 +259,42 @@ export const MONSTERS: Record<string, MonsterDef> = {
     emoji: '👻', description: 'A cloaked phantom with hollow eyes. It wove its cloak from leftover night. It doesn’t cast a shadow — it wears one. Moves without sound and watches from doorways.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   torrenth: {
     id: 'torrenth', name: 'Torrenth', element: 'water', archetype: 'tank',
     emoji: '🐢', description: 'An armored sea turtle with a crashing shell. Each ridge on its shell holds the echo of a wave. Can tuck in and become almost immovable, like a small island.',
     ...STAT_PRESETS.tank,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   voltmane: {
     id: 'voltmane', name: 'Voltmane', element: 'storm', archetype: 'glass_cannon',
     emoji: '⚡', description: 'A wild-maned beast crackling with static. Its mane stands straight up from its own charge. Runs in short, blinding bursts that leave the smell of rain.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   fernix: {
     id: 'fernix', name: 'Fernix', element: 'leaf', archetype: 'balanced',
     emoji: '🦅', description: 'A bird made entirely of woven leaves and vines. Its body rustles when it flies. If it loses a feather, a small green sprout appears where it lands.',
     ...STAT_PRESETS.balanced,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   solarch: {
     id: 'solarch', name: 'Solarch', element: 'light', archetype: 'tank',
     emoji: '🦁', description: 'A regal lion with a sun-disc mane. The disc floats just off its fur and glows like late morning. Wakes early and lies in the highest sun it can find.',
     ...STAT_PRESETS.tank,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   pyravex: {
     id: 'pyravex', name: 'Pyravex', element: 'fire', archetype: 'glass_cannon',
     emoji: '🦊', description: 'A grumpy dinosaur-like monster with a blazing tail. The tail spins for balance when it runs. Its chest glows when it breathes in, dimming when it exhales.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
 };
 
@@ -224,49 +312,49 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     emoji: '🦎', description: 'A stocky lizard with magma cracks on its hide. Spends days half-buried in warm mud with only nostrils showing. Its bite leaves a clean, cauterized mark.',
     ...STAT_PRESETS.balanced,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   coralyn: {
     id: 'coralyn', name: 'Coralyn', element: 'water', archetype: 'balanced',
     emoji: '🌊', description: 'An elegant coral-horned seahorse. Her branching coral horns filter water and house tiny shrimp. She drifts slowly and guards one patch of reef fiercely.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   mosshorn: {
     id: 'mosshorn', name: 'Mosshorn', element: 'leaf', archetype: 'tank',
     emoji: '🦌', description: 'A gentle deer with a mossy antler crown. The moss on its antlers holds rainwater and tiny ferns. Sheds its antlers each year, leaving a small mossy hill behind.',
     ...STAT_PRESETS.tank,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   galestrik: {
     id: 'galestrik', name: 'Galestrik', element: 'storm', archetype: 'glass_cannon',
     emoji: '🦅', description: 'A hawk that rides and generates thunderclouds. It surfs wind currents without flapping and drags lightning behind its wingtips when it dives.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   duskral: {
     id: 'duskral', name: 'Duskral', element: 'shadow', archetype: 'glass_cannon',
     emoji: '🐈‍⬛', description: 'A sleek panther that melts into darkness. In low light its outline softens until only its eyes and crescent chest mark remain. Hunts at the edge of lamplight.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   luminos: {
     id: 'luminos', name: 'Luminos', element: 'light', archetype: 'balanced',
     emoji: '🦊', description: 'A small glowing fox with a radiant tail. Its tail works like a lantern that dims and brightens with its breathing. Leaves faint light pawprints that fade by morning.',
     ...STAT_PRESETS.balanced,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   emberwyrm: {
     id: 'emberwyrm', name: 'Emberwyrm', element: 'fire', archetype: 'tank',
     emoji: '🐉', description: 'A legendary wyrm wreathed in slow, eternal flame. Sleeps coiled around dormant volcanoes. Its flame moves so slowly you can watch it crawl across its scales over days.',
     ...WILD_STAT_PRESET,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
     isLegendary: true,
   },
   tidalynx: {
@@ -274,7 +362,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     emoji: '🐋', description: 'A serene leviathan said to command the deep tides. Lives along untouched coasts. Where it steps, water pulls back, leaving its pawprints filled with clear tide.',
     ...WILD_STAT_PRESET,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
     isLegendary: true,
   },
   zephyrion: {
@@ -282,7 +370,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     emoji: '🦅', description: 'A storm-forged raptor that rides lightning itself. Nests above the clouds where air is thin and stays aloft for weeks. Its shadow passing makes flags change direction.',
     ...WILD_STAT_PRESET,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
     isLegendary: true,
   },
   nyxfang: {
@@ -290,7 +378,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     emoji: '🐺', description: 'A wolf woven from pure night, rarely ever seen. Its fur absorbs light, so at night it looks like a wolf-shaped hole in the dark. Its howl feels like pressure more than sound.',
     ...WILD_STAT_PRESET,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
     isLegendary: true,
   },
   aureon: {
@@ -298,7 +386,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     emoji: '🦄', description: 'A radiant beast said to bring fortune to its keeper. Its mane scatters light like golden dust. At dawn, the air around it glitters for minutes after it has already left.',
     ...WILD_STAT_PRESET,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
     isLegendary: true,
   },
   emberpaw: {
@@ -306,84 +394,84 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     emoji: '🐾', description: 'Found near hearths and campfires. Leaves glowing pawprints that last hours. Superstitious travelers follow them at night, but Emberpaw just likes warm stones. It sneezes embers when nervous.',
     ...STAT_PRESETS.balanced,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   magmarox: {
     id: 'magmarox', name: 'Magmarox', element: 'fire', archetype: 'tank',
     emoji: '🦏', description: 'A solitary magma rhino that lives in cooled lava fields. Its armor is volcanic rock it coats itself in for protection, then sheds when it gets too heavy. It bathes in ash, not water.',
     ...STAT_PRESETS.tank,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   bubbloon: {
     id: 'bubbloon', name: 'Bubbloon', element: 'water', archetype: 'balanced',
     emoji: '🫧', description: 'A tidepool axolotl that stores fresh water in its cheek bubbles to survive low tide. It drifts with the current and inflates to look bigger. Its bubbles pop with a clean ping.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   coralune: {
     id: 'coralune', name: 'Coralune', element: 'water', archetype: 'balanced',
     emoji: '🪸', description: 'A shy reef seahorse that grows a small living coral crown. The coral’s health reflects the water’s. Coralune hums to keep the polyps calm. If water turns sour, it leaves.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   luminibee: {
     id: 'luminibee', name: 'Luminibee', element: 'light', archetype: 'balanced',
     emoji: '🐝', description: 'A nocturnal bee whose abdomen hardens into a lantern of solid light. It uses it to lure moths and to signal other Luminibee across meadows. The light never goes out, even after death.',
     ...STAT_PRESETS.balanced,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   solaraffe: {
     id: 'solaraffe', name: 'Solaraffe', element: 'light', archetype: 'tank',
     emoji: '🦒', description: 'A savanna giraffe with sun-like spots that hold heat through the night. It stands still for hours absorbing light, then releases it slowly to warm the grass around it in winter.',
     ...STAT_PRESETS.tank,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   zapkit: {
     id: 'zapkit', name: 'Zapkit', element: 'storm', archetype: 'glass_cannon',
     emoji: '🐱', description: 'A mountain kitten whose fur generates static. Before a storm, its fur stands straight up and crackles. It hunts by zapping insects out of the air.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   thundrake: {
     id: 'thundrake', name: 'Thundrake', element: 'storm', archetype: 'tank',
     emoji: '🐉', description: 'A serpentine dragon that lives inside storm clouds. It doesn’t create thunder — it lives where thunder already is, because the vibrations help it shed old cloud-scales. Often mistaken for distant thunder.',
     ...STAT_PRESETS.tank,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   gloombat: {
     id: 'gloombat', name: 'Gloombat', element: 'shadow', archetype: 'glass_cannon',
     emoji: '🦇', description: 'A small bat that roosts in abandoned attics and caves. Its large ears absorb sound, so it hears whispers from far rooms. It is active only when the moon is thin.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   umbraven: {
     id: 'umbraven', name: 'Umbraven', element: 'shadow', archetype: 'balanced',
     emoji: '🐦‍⬛', description: 'A forest raven whose feathers have a soft ink-like edge that blurs in dim light. It is hard to photograph because cameras can’t focus on it. It collects shiny black stones.',
     ...STAT_PRESETS.balanced,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   sproutle: {
     id: 'sproutle', name: 'Sproutle', element: 'leaf', archetype: 'balanced',
     emoji: '🦌', description: 'A fawn that sprouts a single seed on its head at birth. The sprout grows based on soil and mood, but never roots. Sproutle eat morning dew off their own leaves.',
     ...STAT_PRESETS.balanced,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
   brambleon: {
     id: 'brambleon', name: 'Brambleon', element: 'leaf', archetype: 'tank',
     emoji: '🦁', description: 'A lowland lion with a mane of thick leaves and vines. The leaves change color with the season, but never fall out completely. It marks territory by tangling vines into knots.',
     ...STAT_PRESETS.tank,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
   },
 };
 
@@ -461,10 +549,14 @@ export function getWildEncounterPityThreshold(totalMonstersOwned: number): numbe
 // ─── GUILD COMPANION MONSTERS ────────────────────────────────────────────────
 // One dedicated monster per Side Quest Guild, granted the first time that
 // guild reaches level 5 (see ensureGuildMonsterGranted in lib/guildEngine.ts).
-// Battles/EXP/skills work exactly like any other monster — only the tier1
-// name/emoji here (top-level name/emoji fields) is what displays until the
-// player's guild level crosses guildEvolution.tier2/tier3.level; see
-// getGuildMonsterDisplay below.
+// Skills/skillUnlocks/EXP work exactly like any other monster and never
+// change. The tier1 fields above (name/emoji/description/base stats) are
+// what's active until the player's guild level crosses
+// guildEvolution.tier2/tier3.level, at which point that stage's own
+// name/emoji/description take over and stats scale up per
+// GUILD_ENHANCEMENT_GROWTH (tier2 'enhanced', tier3 'super_enhanced', or
+// 'legendary' — the top tier — if that stage sets isLegendary, regardless of
+// whether it's reached at tier2 or tier3). See getGuildMonsterDisplay below.
 export const GUILD_MONSTERS: Record<string, MonsterDef> = {
   lorekeeper_familiar: {
     id: 'lorekeeper_familiar', name: 'Scryvyn', element: 'light', archetype: 'tank',
@@ -472,11 +564,17 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
     description: 'The Scroll Wyrm — a tiny dragon made entirely of old study scrolls, with green self-rewriting runes and a hooded cloak fused from its first master\'s robe. It lives in libraries closed too long, eating forgotten footnotes and orbiting itself with floating scrolls of memory.',
     ...STAT_PRESETS.tank,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
     guildEvolution: {
       guildKey: 'lorekeeper',
-      tier2: { level: 10, name: 'Lexiwyrm', emoji: '📚', spriteId: 'lexiwyrm' },
-      tier3: { level: 20, name: 'ChroniLex', emoji: '🌌', spriteId: 'chronilex', isLegendary: true },
+      tier2: {
+        level: 10, name: 'Lexiwyrm', emoji: '📚', spriteId: 'lexiwyrm',
+        description: 'The scrolls have bound themselves into a spine of pages that never quite closes. It reads its own margins aloud in a voice like turning paper, filing away everything its keeper has learned.',
+      },
+      tier3: {
+        level: 20, name: 'ChroniLex', emoji: '🌌', spriteId: 'chronilex', isLegendary: true,
+        description: 'A living archive that has outgrown its shelf and started keeping the library instead. Its runes now trail off into the space between stars, cataloguing knowledge no one has asked for yet.',
+      },
     },
   },
   spellcaster_familiar: {
@@ -485,11 +583,17 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
     description: 'A tiny ink blot that spilled from an unfinished spell and learned to crawl. It hides in margins and erasures, feeding on crossed-out words and misspelled letters.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
     guildEvolution: {
       guildKey: 'spellcaster',
-      tier2: { level: 10, name: 'Quillara', emoji: '🪶', spriteId: 'quillara' },
-      tier3: { level: 20, name: 'Astrypta', emoji: '🌑', spriteId: 'astrypta', isLegendary: true },
+      tier2: {
+        level: 10, name: 'Quillara', emoji: '🪶', spriteId: 'quillara',
+        description: 'The ink has grown a spine of quills that write faster than thought. It leaves perfect sentences in its wake, correcting typos it hasn\'t even seen yet.',
+      },
+      tier3: {
+        level: 20, name: 'Astrypta', emoji: '🌑', spriteId: 'astrypta', isLegendary: true,
+        description: 'A constellation of ink and eclipse, spelling out incantations no spellbook has printed. Where it drifts, unfinished spells finish themselves.',
+      },
     },
   },
   numberrealm_familiar: {
@@ -497,11 +601,17 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
     emoji: '🐠', description: 'A small fish whose scales are etched with tally marks. It counts its own bubbles as it swims.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
     guildEvolution: {
       guildKey: 'number_realm',
-      tier2: { level: 10, name: 'Sumray', emoji: '🐡' },
-      tier3: { level: 20, name: 'Infinifin', emoji: '🐋' },
+      tier2: {
+        level: 10, name: 'Sumray', emoji: '🐡',
+        description: 'Its tally-mark scales have multiplied into a puffed-up ledger of sums, bristling whenever a calculation comes up short.',
+      },
+      tier3: {
+        level: 20, name: 'Infinifin', emoji: '🐋', isLegendary: true,
+        description: 'A leviathan built from every number it has ever counted, so vast that some digits are still catching up to its tail.',
+      },
     },
   },
   logiclabyrinth_familiar: {
@@ -509,11 +619,17 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
     emoji: '🦉', description: 'A young owl whose feathers form shifting geometric patterns. It tilts its head at anything that doesn’t quite add up.',
     ...STAT_PRESETS.tank,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
     guildEvolution: {
       guildKey: 'logic_labyrinth',
-      tier2: { level: 10, name: 'Mazehawk', emoji: '🦅' },
-      tier3: { level: 20, name: 'Cipheryx', emoji: '🦢' },
+      tier2: {
+        level: 10, name: 'Mazehawk', emoji: '🦅',
+        description: 'Its shifting feathers have sharpened into a hawk\'s, tracing perfect right angles through the air as it hunts down loose logic.',
+      },
+      tier3: {
+        level: 20, name: 'Cipheryx', emoji: '🦢', isLegendary: true,
+        description: 'A serene, geometric swan that glides through contradictions without disturbing the water. Every ripple it leaves resolves into a proof.',
+      },
     },
   },
   lexiconarena_familiar: {
@@ -521,11 +637,17 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
     emoji: '🐝', description: 'A tiny glowing bee that spells out letters in the air with its flight path before it vanishes.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
-    skillUnlocks: { tier2: 5, tier3: 10 },
+    skillUnlocks: { tier2: 18, tier3: 30 },
     guildEvolution: {
       guildKey: 'lexicon_arena',
-      tier2: { level: 10, name: 'Lexihawk', emoji: '🦜' },
-      tier3: { level: 20, name: 'Thesauryx', emoji: '🦚' },
+      tier2: {
+        level: 10, name: 'Lexihawk', emoji: '🦜',
+        description: 'It has traded its glow for feathers, screeching out synonyms mid-flight until the right word lands.',
+      },
+      tier3: {
+        level: 20, name: 'Thesauryx', emoji: '🦚', isLegendary: true,
+        description: 'A peacock whose tail unfurls into a fan of every word that ever meant almost the same thing, dazzling and precise all at once.',
+      },
     },
   },
 };
@@ -657,6 +779,128 @@ export function getAvailableSkillTiers(monsterLevel: number, monsterDef: Monster
   return tiers;
 }
 
+// Resolves a monster instance's actual 3 skill slots, layering its
+// `equipped_skills` override (from the Vault learn/unlearn scrolls) on top of
+// its species' default kit. Per slot: `null`/`undefined` = species default
+// still active (free, never customized), `'EMPTY'` = unlearned and awaiting a
+// scroll (no skill usable in that slot), anything else = the taught skill id.
+// This is the single source of truth battle/UI code should read from instead
+// of `monsterDef.skills` directly, since the latter ignores any customization.
+export function getEquippedSkills(equippedSkills: (string | null)[] | null | undefined, monsterDef: MonsterDef): (Skill | null)[] {
+  return [0, 1, 2].map(i => {
+    const slot = equippedSkills?.[i];
+    if (slot == null) return SKILLS[monsterDef.skills[i]] ?? null;
+    if (slot === 'EMPTY') return null;
+    return SKILLS[slot] ?? null;
+  });
+}
+
+// ─── SKILL EFFECTS (alt/universal skills taught via Vault scrolls) ──────────
+// A multi-turn buff/debuff a monster is currently carrying, stacked from
+// `SkillEffect`s of kind self_atk_up/self_def_up/self_speed_up/enemy_atk_down/
+// enemy_def_down/accuracy_soften. Only one modifier per `kind` is ever active
+// at a time (a fresh one replaces the old, it doesn't stack additively) —
+// mirrors how the existing potion-driven atk_boost/def_boost statuses work.
+export interface ActiveModifier {
+  kind: 'atk' | 'def' | 'speed' | 'accuracy';
+  magnitude: number; // decimal fraction; negative = a downside
+  turnsRemaining: number | 'battle';
+}
+
+// 1 + net magnitude for atk/def/speed (multiply straight into the stat), or
+// the raw magnitude for 'accuracy' (added onto the 0.5 partial-credit floor).
+export function getModifierMultiplier(modifiers: ActiveModifier[] | undefined, kind: ActiveModifier['kind']): number {
+  const total = (modifiers ?? []).filter(m => m.kind === kind).reduce((sum, m) => sum + m.magnitude, 0);
+  return kind === 'accuracy' ? total : 1 + total;
+}
+
+// Called once per turn end for each monster still carrying modifiers —
+// decrements turn-limited ones and drops any that just expired. 'battle'
+// duration modifiers (Iron Resolve, Berserker's Edge) never tick down.
+export function tickModifiers(modifiers: ActiveModifier[] | undefined): ActiveModifier[] {
+  return (modifiers ?? [])
+    .map(m => (m.turnsRemaining === 'battle' ? m : { ...m, turnsRemaining: m.turnsRemaining - 1 }))
+    .filter(m => m.turnsRemaining === 'battle' || m.turnsRemaining > 0);
+}
+
+export interface SkillEffectResult {
+  casterModifiers: ActiveModifier[];
+  targetModifiers: ActiveModifier[];
+  casterHpDelta: number; // lifesteal/flat_heal — added to caster's currentHp
+  cleanseCaster: boolean;
+  logMessages: string[];
+}
+
+// Applies one skill's `effects` (Phase B — alt/universal skills only; base
+// species skills have no `effects` and this is a no-op for them) to the
+// caster's and target's modifier stacks. Shared by both battle screens so the
+// two turn engines can't drift on what a given effect actually does.
+export function applySkillEffects(
+  skill: Skill,
+  damageDealt: number,
+  casterMaxHp: number,
+  casterModifiers: ActiveModifier[] | undefined,
+  targetModifiers: ActiveModifier[] | undefined,
+): SkillEffectResult {
+  let nextCaster = [...(casterModifiers ?? [])];
+  let nextTarget = [...(targetModifiers ?? [])];
+  let hpDelta = 0;
+  let cleanse = false;
+  const logs: string[] = [];
+
+  const setCaster = (kind: ActiveModifier['kind'], magnitude: number, duration: SkillEffect['duration']) => {
+    nextCaster = nextCaster.filter(m => m.kind !== kind);
+    nextCaster.push({ kind, magnitude, turnsRemaining: duration === 'instant' || duration == null ? 'battle' : duration });
+  };
+  const setTarget = (kind: ActiveModifier['kind'], magnitude: number, duration: SkillEffect['duration']) => {
+    nextTarget = nextTarget.filter(m => m.kind !== kind);
+    nextTarget.push({ kind, magnitude, turnsRemaining: duration === 'instant' || duration == null ? 'battle' : duration });
+  };
+
+  for (const effect of skill.effects ?? []) {
+    switch (effect.kind) {
+      case 'self_atk_up':
+        setCaster('atk', effect.magnitude ?? 0, effect.duration);
+        logs.push(`${effect.magnitude! >= 0 ? '⬆️' : '⬇️'} Attack ${effect.magnitude! >= 0 ? 'rose' : 'fell'}!`);
+        break;
+      case 'self_def_up':
+        setCaster('def', effect.magnitude ?? 0, effect.duration);
+        logs.push(`${effect.magnitude! >= 0 ? '⬆️' : '⬇️'} Defense ${effect.magnitude! >= 0 ? 'rose' : 'fell'}!`);
+        break;
+      case 'self_speed_up':
+        setCaster('speed', effect.magnitude ?? 0, effect.duration);
+        logs.push(`⬆️ Speed rose!`);
+        break;
+      case 'enemy_atk_down':
+        setTarget('atk', -(effect.magnitude ?? 0), effect.duration);
+        logs.push(`⬇️ The enemy's Attack fell!`);
+        break;
+      case 'enemy_def_down':
+        setTarget('def', -(effect.magnitude ?? 0), effect.duration);
+        logs.push(`⬇️ The enemy's Defense fell!`);
+        break;
+      case 'accuracy_soften':
+        setCaster('accuracy', effect.magnitude ?? 0, effect.duration);
+        logs.push(`🎯 Accuracy sharpened!`);
+        break;
+      case 'lifesteal':
+        hpDelta += Math.round(damageDealt * (effect.magnitude ?? 0));
+        logs.push(`🩸 Drained some HP!`);
+        break;
+      case 'flat_heal':
+        hpDelta += Math.round(casterMaxHp * (effect.magnitude ?? 0));
+        logs.push(`💚 Restored some HP!`);
+        break;
+      case 'cleanse':
+        cleanse = true;
+        logs.push(`🧼 Status conditions cleansed!`);
+        break;
+    }
+  }
+
+  return { casterModifiers: nextCaster, targetModifiers: nextTarget, casterHpDelta: hpDelta, cleanseCaster: cleanse, logMessages: logs };
+}
+
 // Which evolution tier a guild companion monster's *display* is at, based on
 // the owning player's guild level (not monster level/exp). Regular monsters
 // (no guildEvolution) are always tier 1.
@@ -668,31 +912,62 @@ export function getGuildMonsterTier(monsterDef: MonsterDef, guildLevel: number):
   return 1;
 }
 
-// Returns a MonsterDef with name/emoji/spriteId/isLegendary swapped for a
-// specific evolution tier of a guild companion — independent of any
-// player's current guild level (unlike getGuildMonsterDisplay below), so
-// the Compendium can render all 3 tiers as separate cards side by side.
-// Stats/skills always stay the base species values regardless of tier.
+// Stat "power level" a guild companion's tier maps to. Tier1 is always
+// 'normal'; tier2/tier3 are 'enhanced'/'super_enhanced' UNLESS that stage is
+// flagged isLegendary, in which case 'legendary' — the top enhancement —
+// overrides it regardless of whether legendary status lands on tier2 or tier3.
+export type GuildEnhancementLevel = 'normal' | 'enhanced' | 'super_enhanced' | 'legendary';
+
+// Multiplier applied to a guild companion's tier1 base stats to produce each
+// enhancement level's stats. Always grown from the tier1 base, never stacked
+// tier-on-tier, so legendary status gives the same top stats whether it hits
+// at tier2 or tier3.
+const GUILD_ENHANCEMENT_GROWTH: Record<GuildEnhancementLevel, number> = {
+  normal: 1.0,
+  enhanced: 1.20,
+  super_enhanced: 1.45,
+  legendary: 1.70,
+};
+
+export function getGuildEnhancementLevel(monsterDef: MonsterDef, tier: 1 | 2 | 3): GuildEnhancementLevel {
+  if (tier === 1) return 'normal';
+  const stage = tier === 2 ? monsterDef.guildEvolution?.tier2 : monsterDef.guildEvolution?.tier3;
+  if (stage?.isLegendary) return 'legendary';
+  return tier === 2 ? 'enhanced' : 'super_enhanced';
+}
+
+// Returns a MonsterDef with name/emoji/spriteId/isLegendary/description/base
+// stats swapped for a specific evolution tier of a guild companion —
+// independent of any player's current guild level (unlike
+// getGuildMonsterDisplay below), so the Compendium can render all 3 tiers as
+// separate cards side by side. Skills and skillUnlocks always stay the base
+// species values — only flavor and stat totals change per tier.
 export function getGuildMonsterTierDef(monsterDef: MonsterDef, tier: 1 | 2 | 3): MonsterDef {
   const evo = monsterDef.guildEvolution;
   if (!evo || tier === 1) return monsterDef;
   const t = tier === 2 ? evo.tier2 : evo.tier3;
+  const growth = GUILD_ENHANCEMENT_GROWTH[getGuildEnhancementLevel(monsterDef, tier)];
   return {
     ...monsterDef,
     name: t.name,
     emoji: t.emoji,
     spriteId: t.spriteId ?? monsterDef.spriteId,
     isLegendary: t.isLegendary ?? monsterDef.isLegendary,
+    description: t.description ?? monsterDef.description,
+    baseHp: Math.round(monsterDef.baseHp * growth),
+    baseAttack: Math.round(monsterDef.baseAttack * growth),
+    baseDefense: Math.round(monsterDef.baseDefense * growth),
+    baseSpeed: Math.round(monsterDef.baseSpeed * growth),
   };
 }
 
-// Resolves the name/emoji to actually display for a monster, given the
-// owning player's level in that monster's linked guild (0 if unknown/n/a).
-// Stats, skills, and EXP are unaffected by this — see getGuildMonsterTier.
-export function getGuildMonsterDisplay(monsterDef: MonsterDef, guildLevel: number): { name: string; emoji: string; tier: 1 | 2 | 3; isLegendary?: boolean; spriteId?: string } {
+// Resolves the full display+stat def for a monster, given the owning
+// player's level in that monster's linked guild (0 if unknown/n/a). Skills
+// and EXP are unaffected by this — see getGuildMonsterTier.
+export function getGuildMonsterDisplay(monsterDef: MonsterDef, guildLevel: number): MonsterDef & { tier: 1 | 2 | 3; enhancementLevel: GuildEnhancementLevel } {
   const tier = getGuildMonsterTier(monsterDef, guildLevel);
   const d = getGuildMonsterTierDef(monsterDef, tier);
-  return { name: d.name, emoji: d.emoji, tier, isLegendary: d.isLegendary, spriteId: d.spriteId };
+  return { ...d, tier, enhancementLevel: getGuildEnhancementLevel(monsterDef, tier) };
 }
 
 // Scales a monster's level-1 base stats up with its current level. Applied
@@ -718,12 +993,15 @@ export function calculateDamage(
   defenderElement: Element,
   isBlessed: boolean,
   defenderDefense: number = 0,
+  // Net magnitude from any active 'accuracy' modifiers (Focus Stance and
+  // friends) — added onto the 0.5 partial-credit floor, e.g. 0.15 -> 0.65.
+  accuracyBonus: number = 0,
 ): number {
   const ratio = correctAnswers / totalQuestions;
   if (ratio === 0) return 0;
 
   let damage = baseAttack * skill.baseDamageMultiplier;
-  if (ratio < 1) damage *= 0.5; // partial correct = half damage
+  if (ratio < 1) damage *= Math.min(1, 0.5 + accuracyBonus); // partial correct = reduced damage
   damage *= getElementMultiplier(attackerElement, defenderElement);
   if (isBlessed) damage *= 2;
   // Diminishing-returns mitigation (100/(100+DEF)) rather than a flat

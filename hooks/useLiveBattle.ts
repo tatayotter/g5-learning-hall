@@ -5,7 +5,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { RealtimeChannel } from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabase';
-import { Skill, calculateDamage, getElementMultiplier, getScaledStats, ELEMENT_STATUS, StatusEffect } from '@/lib/monsterConfig';
+import { Skill, calculateDamage, getElementMultiplier, getScaledStats, ELEMENT_STATUS, StatusEffect, ActiveModifier, getModifierMultiplier, tickModifiers, applySkillEffects } from '@/lib/monsterConfig';
 import { ActiveBattleMonster } from '@/components/battle/shared';
 
 export type BattlePhase = 'waiting_for_opponent' | 'select_skill' | 'awaiting_opponent' | 'round_resolved' | 'ended';
@@ -39,6 +39,16 @@ export interface RoundOutcome {
   // side's damage never happened (mirrors the solo BattleScreen's doNpcTurn
   // speed-preemption rule).
   speedWinner: 'me' | 'opponent' | null;
+  // Alt/universal skills' secondary effects — the *resulting* modifier stack
+  // for each side (already ticked + this round's effects folded in), plus any
+  // self HP change (lifesteal/flat heal) and whether a cleanse fired. No-ops
+  // (empty array / 0 / false) when neither side used an effect-bearing skill.
+  myModifiers: ActiveModifier[];
+  oppModifiers: ActiveModifier[];
+  myHpDelta: number;
+  oppHpDelta: number;
+  myCleanse: boolean;
+  oppCleanse: boolean;
 }
 
 interface RoundAnswer {
@@ -113,11 +123,18 @@ export function useLiveBattle(
     const mySkill = skills[mine.skillId];
     const oppSkill = skills[theirs.skillId];
 
+    const myAtkMult = getModifierMultiplier(myMonster.modifiers, 'atk');
+    const oppDefMult = getModifierMultiplier(oppMonster.modifiers, 'def');
+    const myAccuracyBonus = getModifierMultiplier(myMonster.modifiers, 'accuracy');
+    const oppAtkMult = getModifierMultiplier(oppMonster.modifiers, 'atk');
+    const myDefMult = getModifierMultiplier(myMonster.modifiers, 'def');
+    const oppAccuracyBonus = getModifierMultiplier(oppMonster.modifiers, 'accuracy');
+
     let myDamageDealt = mySkill
-      ? calculateDamage(mySkill, getScaledStats(myMonster.def, myMonster.level).attack, mine.correctCount, mine.totalQuestions, myMonster.def.element, oppMonster.def.element, myMonster.status === 'blessed', getScaledStats(oppMonster.def, oppMonster.level).defense)
+      ? calculateDamage(mySkill, getScaledStats(myMonster.def, myMonster.level).attack * myAtkMult, mine.correctCount, mine.totalQuestions, myMonster.def.element, oppMonster.def.element, myMonster.status === 'blessed', getScaledStats(oppMonster.def, oppMonster.level).defense * oppDefMult, myAccuracyBonus)
       : 0;
     let opponentDamageDealt = oppSkill
-      ? calculateDamage(oppSkill, getScaledStats(oppMonster.def, oppMonster.level).attack, theirs.correctCount, theirs.totalQuestions, oppMonster.def.element, myMonster.def.element, oppMonster.status === 'blessed', getScaledStats(myMonster.def, myMonster.level).defense)
+      ? calculateDamage(oppSkill, getScaledStats(oppMonster.def, oppMonster.level).attack * oppAtkMult, theirs.correctCount, theirs.totalQuestions, oppMonster.def.element, myMonster.def.element, oppMonster.status === 'blessed', getScaledStats(myMonster.def, myMonster.level).defense * myDefMult, oppAccuracyBonus)
       : 0;
 
     // Iron Shield's def_boost halves damage taken while active — matches the
@@ -144,21 +161,46 @@ export function useLiveBattle(
       }
     }
 
-    const myStatusInflicted = mine.isPerfect && mySkill ? ELEMENT_STATUS[mySkill.element] ?? null : null;
-    const opponentStatusInflicted = theirs.isPerfect && oppSkill ? ELEMENT_STATUS[oppSkill.element] ?? null : null;
+    const myStatusInflicted = mine.isPerfect && mySkill ? ELEMENT_STATUS[myMonster.def.element] ?? null : null;
+    const opponentStatusInflicted = theirs.isPerfect && oppSkill ? ELEMENT_STATUS[oppMonster.def.element] ?? null : null;
 
     const myAttackMissed = !!mySkill && mine.correctCount === 0;
     const opponentAttackMissed = !!oppSkill && theirs.correctCount === 0;
     const myTimedOut = mine.skillId === TIMEOUT_ACTION_ID;
     const opponentTimedOut = theirs.skillId === TIMEOUT_ACTION_ID;
 
-    setLastOutcome({ round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, speedWinner });
+    // Alt/universal skills' secondary effects — ticked once per round, then
+    // each side's skill effects folded in in turn (mine first, then the
+    // opponent's) so both clients derive the exact same resulting arrays
+    // independently, without needing the effect details broadcast.
+    let myModifiers = tickModifiers(myMonster.modifiers);
+    let oppModifiers = tickModifiers(oppMonster.modifiers);
+    let myHpDelta = 0;
+    let oppHpDelta = 0;
+    let myCleanse = false;
+    let oppCleanse = false;
+    if (mySkill) {
+      const res = applySkillEffects(mySkill, myDamageDealt, myMonster.maxHp, myModifiers, oppModifiers);
+      myModifiers = res.casterModifiers;
+      oppModifiers = res.targetModifiers;
+      myHpDelta += res.casterHpDelta;
+      myCleanse = myCleanse || res.cleanseCaster;
+    }
+    if (oppSkill) {
+      const res = applySkillEffects(oppSkill, opponentDamageDealt, oppMonster.maxHp, oppModifiers, myModifiers);
+      oppModifiers = res.casterModifiers;
+      myModifiers = res.targetModifiers;
+      oppHpDelta += res.casterHpDelta;
+      oppCleanse = oppCleanse || res.cleanseCaster;
+    }
+
+    setLastOutcome({ round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse });
     setPhase('round_resolved');
 
     channelRef.current?.send({
       type: 'broadcast',
       event: 'round_result',
-      payload: { round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, speedWinner, from: userId },
+      payload: { round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, from: userId },
     });
   }, [skills, userId]);
 
@@ -255,6 +297,12 @@ export function useLiveBattle(
         myTimedOut: payload.opponentTimedOut,
         opponentTimedOut: payload.myTimedOut,
         speedWinner: payload.speedWinner === 'me' ? 'opponent' : payload.speedWinner === 'opponent' ? 'me' : null,
+        myModifiers: payload.oppModifiers ?? [],
+        oppModifiers: payload.myModifiers ?? [],
+        myHpDelta: payload.oppHpDelta ?? 0,
+        oppHpDelta: payload.myHpDelta ?? 0,
+        myCleanse: payload.oppCleanse ?? false,
+        oppCleanse: payload.myCleanse ?? false,
       });
       setPhase('round_resolved');
     });

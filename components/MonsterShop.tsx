@@ -8,10 +8,20 @@ import {
   addInventoryItem,
   claimDailyItems,
   InventoryMap,
-  ItemKey,
 } from '@/lib/inventory';
+import { SCROLL_CATALOG, ScrollItem } from '@/lib/skillScrolls';
+import { Element } from '@/lib/monsterConfig';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { logAction } from '@/lib/playerlog';
+
+const SCROLL_CATEGORY_LABELS: Record<ScrollItem['category'], string> = {
+  unlearn: 'Unlearn',
+  base: 'Base Kit',
+  alt: 'Alt Skills',
+  universal: 'Fighting Skills',
+};
+
+const ELEMENTS: Element[] = ['fire', 'water', 'leaf', 'storm', 'shadow', 'light'];
 
 interface Props {
   userId: UserId;
@@ -23,7 +33,9 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [loading, setLoading] = useState(true);
   const [claimedToday, setClaimedToday] = useState(false);
-  const [buyingKey, setBuyingKey] = useState<ItemKey | null>(null);
+  const [buyingKey, setBuyingKey] = useState<string | null>(null);
+  const [scrollCategory, setScrollCategory] = useState<ScrollItem['category'] | 'all'>('all');
+  const [scrollElement, setScrollElement] = useState<Element | 'all'>('all');
   const buyBusyRef = useRef(false);
   const isFamily = USERS[userId].isFamily;
 
@@ -48,7 +60,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
     if (isFamily) handleDailyClaim();
   }, [userId]);
 
-  const handleBuy = async (key: ItemKey, cost: number) => {
+  const handleBuy = async (key: string, cost: number, name: string) => {
     // Guards against a rapid double-click firing two purchases before
     // `currentStats` (a prop from the parent) re-renders with the deducted
     // gold — both clicks would otherwise read the same pre-purchase balance
@@ -61,12 +73,11 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
     buyBusyRef.current = true;
     setBuyingKey(key);
     try {
-      const item = SHOP_CATALOG.find(i => i.key === key);
       const newStats = { ...currentStats, gold: currentStats.gold - cost };
       onSpendGold(newStats);
       await addInventoryItem(userId, key, 1);
       await loadInventory();
-      logAction(userId, new Date().toISOString().split('T')[0], 'purchase', `Bought ${item?.name ?? key} from Monster Arena Shop`, 0, -cost);
+      logAction(userId, new Date().toISOString().split('T')[0], 'purchase', `Bought ${name} from Monster Arena Shop`, 0, -cost);
     } finally {
       buyBusyRef.current = false;
       setBuyingKey(null);
@@ -106,7 +117,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
               if (qty === 0) return null;
               return (
                 <div key={item.key} className="bg-neutral-800 rounded-lg px-3 py-2 flex items-center gap-2">
-                  <span className="text-xl">{item.icon}</span>
+                  <img src={item.icon} alt={item.name} className="w-6 h-6 object-contain" />
                   <span className="text-white text-sm font-bold">{item.name}</span>
                   <span className="bg-neutral-700 text-yellow-400 text-xs font-bold px-2 py-0.5 rounded-full">x{qty}</span>
                 </div>
@@ -121,7 +132,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
         {SHOP_CATALOG.map(item => (
           <div key={item.key} className="bg-[#111] border border-[#333] p-5 rounded-xl flex flex-col justify-between">
             <div>
-              <div className="text-3xl mb-2">{item.icon}</div>
+              <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
               <h3 className="text-white font-bold mb-1">{item.name}</h3>
               <p className="text-yellow-400 text-sm font-bold mb-2">🪙 {item.cost} Gold</p>
               <p className="text-gray-400 text-xs mb-4">{item.desc}</p>
@@ -130,7 +141,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
               )}
             </div>
             <button
-              onClick={() => handleBuy(item.key, item.cost)}
+              onClick={() => handleBuy(item.key, item.cost, item.name)}
               disabled={currentStats.gold < item.cost || buyingKey === item.key}
               className="w-full bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-2 rounded-lg transition-colors text-sm"
             >
@@ -138,6 +149,73 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
             </button>
           </div>
         ))}
+      </div>
+
+      {/* Skill Scrolls — the actual gold sink for the skill loadout system.
+          Purchase-only here; scrolls sit in inventory until spent teaching or
+          unlearning a monster's skill in the Compendium. */}
+      <div className="mt-10">
+        <h2 className="text-2xl font-bold mb-2 font-display">📜 Skill Scrolls</h2>
+        <p className="text-gray-400 text-sm mb-4">
+          Buy an Unlearn Scroll to open a monster&apos;s skill slot in the Compendium, then a
+          named scroll to teach it something new.
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-3">
+          {(['all', 'unlearn', 'base', 'alt', 'universal'] as const).map(cat => (
+            <button
+              key={cat}
+              onClick={() => setScrollCategory(cat)}
+              className={`text-xs font-bold px-3 py-1.5 rounded-full transition-colors ${
+                scrollCategory === cat ? 'bg-indigo-700 text-white' : 'bg-neutral-800 text-gray-400 hover:bg-neutral-700'
+              }`}
+            >
+              {cat === 'all' ? 'All' : SCROLL_CATEGORY_LABELS[cat]}
+            </button>
+          ))}
+        </div>
+
+        {(scrollCategory === 'all' || scrollCategory === 'base' || scrollCategory === 'alt') && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {(['all', ...ELEMENTS] as const).map(el => (
+              <button
+                key={el}
+                onClick={() => setScrollElement(el)}
+                className={`text-xs font-bold px-3 py-1 rounded-full capitalize transition-colors ${
+                  scrollElement === el ? 'bg-neutral-700 text-white' : 'bg-neutral-900 border border-neutral-800 text-gray-500 hover:text-gray-300'
+                }`}
+              >
+                {el}
+              </button>
+            ))}
+          </div>
+        )}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {SCROLL_CATALOG
+            .filter(item => scrollCategory === 'all' || item.category === scrollCategory)
+            .filter(item => scrollElement === 'all' || item.element === scrollElement || item.category === 'unlearn' || item.category === 'universal')
+            .map(item => (
+              <div key={item.key} className="bg-[#111] border border-[#333] p-5 rounded-xl flex flex-col justify-between">
+                <div>
+                  <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
+                  <h3 className="text-white font-bold mb-1">{item.name}</h3>
+                  <p className="text-yellow-400 text-sm font-bold mb-2">🪙 {item.cost} Gold</p>
+                  <p className="text-gray-400 text-xs mb-4">{item.desc}</p>
+                  {(inventory[item.key] || 0) > 0 && (
+                    <p className="text-green-400 text-xs mb-2 font-bold">In bag: x{inventory[item.key]}</p>
+                  )}
+                </div>
+                <button
+                  onClick={() => handleBuy(item.key, item.cost, item.name)}
+                  disabled={currentStats.gold < item.cost || buyingKey === item.key}
+                  className="w-full bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-2 rounded-lg transition-colors text-sm"
+                >
+                  {buyingKey === item.key ? 'Buying...' : currentStats.gold >= item.cost ? 'Buy' : 'Not Enough Gold'}
+                </button>
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );

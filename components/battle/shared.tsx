@@ -5,7 +5,7 @@
 // MonsterGuild.tsx rather than imported from it, so neither battle screen has to
 // import the other (avoids a circular import between the two).
 import { useState } from 'react';
-import { MonsterDef, StatusEffect } from '@/lib/monsterConfig';
+import { MonsterDef, StatusEffect, ActiveModifier } from '@/lib/monsterConfig';
 
 export interface UserMonster {
   id: string;
@@ -16,6 +16,7 @@ export interface UserMonster {
   monster_level: number;
   slot: number;
   rest_used: number;
+  equipped_skills: (string | null)[];
 }
 
 export interface ActiveBattleMonster {
@@ -27,6 +28,7 @@ export interface ActiveBattleMonster {
   statusTurns: number;
   restUsed: number;
   userMonster?: UserMonster;
+  modifiers?: ActiveModifier[];
 }
 
 // Small gold "Legendary" badge overlaid on the top-right corner of a

@@ -9,12 +9,14 @@ import PlayerStatsPopup from '@/components/PlayerStatsPopup';
 import WildEncounterModal from '@/components/WildEncounterModal';
 import {
   MONSTERS, WILD_MONSTERS, ALL_MONSTERS, GUILD_MONSTERS, NPC_TRAINERS, SKILLS, BATTLE_CONSTANTS,
-  getUnlockedMonsterSlots, getAvailableSkillTiers, calculateDamage, getScaledStats,
+  getUnlockedMonsterSlots, getAvailableSkillTiers, calculateDamage, getScaledStats, getEquippedSkills,
+  getModifierMultiplier, tickModifiers, applySkillEffects,
   getMonsterLevel, REST_BY_ELEMENT, ELEMENT_STATUS, STATUS_DEFINITIONS, getCounterElement,
   pickRandomWildMonsterId, getWildEncounterChance, getWildEncounterPityThreshold, getGuildMonsterDisplay, getGuildMonsterTier, getGuildMonsterTierDef,
-  Element, StatusEffect, NpcTrainer, MonsterDef, TrainerMonster,
+  Element, StatusEffect, NpcTrainer, MonsterDef, TrainerMonster, ELEMENT_ICON_SRC,
 } from '@/lib/monsterConfig';
-import { fetchInventory, useInventoryItem, SHOP_CATALOG } from '@/lib/inventory';
+import { fetchInventory, useInventoryItem, SHOP_CATALOG, InventoryMap } from '@/lib/inventory';
+import { SCROLL_CATALOG, unlearnMonsterSkill, learnMonsterSkill } from '@/lib/skillScrolls';
 import {
   hashQuestionId, arenaQuestionText,
   fetchAnsweredArenaQuestionIds, markArenaQuestionsCompleted, resetArenaHistory,
@@ -196,7 +198,7 @@ interface BattleScreenProps {
   siblingTeam?: ActiveBattleMonster[];
   siblingName?: string;
   questions: any[];
-  inventory: Record<string, number>;
+  inventory: InventoryMap;
   onUseItem: (key: string) => Promise<boolean>;
   onBattleEnd: (won: boolean, expEarned: number) => void;
   onQuestionsAnswered?: (questions: any[]) => void;
@@ -300,7 +302,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
   const computeNpcDamage = (attacker: ActiveBattleMonster, defender: ActiveBattleMonster): number => {
     const tier = attacker.level >= 15 ? 3 : attacker.level >= 8 ? 2 : 1;
     let dmg = BATTLE_CONSTANTS.NPC_DAMAGE_BY_TIER[tier as 1|2|3];
-    dmg *= 100 / (100 + getScaledStats(defender.def, defender.level).defense);
+    dmg *= 100 / (100 + getScaledStats(defender.def, defender.level).defense * getModifierMultiplier(defender.modifiers, 'def'));
     if (defender.status === 'def_boost') dmg /= 2;
     return Math.round(dmg);
   };
@@ -457,15 +459,20 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
       }
     }
 
+    const atkMult = getModifierMultiplier(playerMon.modifiers, 'atk');
+    const defMult = getModifierMultiplier(npcMon.modifiers, 'def');
+    const accuracyBonus = getModifierMultiplier(playerMon.modifiers, 'accuracy');
+
     let damage = calculateDamage(
       skill,
-      getScaledStats(playerMon.def, playerMon.level).attack,
+      getScaledStats(playerMon.def, playerMon.level).attack * atkMult,
       correctCount,
       askedCount,
       playerMon.def.element,
       npcMon.def.element,
       isBlessed,
-      getScaledStats(npcMon.def, npcMon.level).defense,
+      getScaledStats(npcMon.def, npcMon.level).defense * defMult,
+      accuracyBonus,
     );
 
     if (playerMon.status === 'curse') {
@@ -478,7 +485,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
     setTimeout(() => setAttackMessage(null), 1000);
 
     let msg: string;
-    if (damage === 0) {
+    if (damage === 0 && !skill.effects?.length) {
       playMiss();
       msg = `❌ ${playerMon.def.name} used ${skill.name}, but the attack missed! (wrong answer)`;
     } else {
@@ -497,11 +504,28 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
       msg += ` ${STATUS_DEFINITIONS[effect].emoji} ${newNpcMon.def.name} is ${effect}!`;
     }
 
+    // Alt/universal skills' secondary effects (self/enemy stat modifiers,
+    // lifesteal, accuracy-soften, flat heal + cleanse) — no-op for base
+    // species skills, which never set `effects`.
+    const effectResult = applySkillEffects(skill, damage, playerMon.maxHp, playerMon.modifiers, npcMon.modifiers);
+    effectResult.logMessages.forEach(m => { msg += ` ${m}`; });
+    newNpcMon.modifiers = effectResult.targetModifiers;
+
     newNpcMonsters[npcMonsterIdx] = newNpcMon;
 
-    let newPlayerMonsters = playerMonsters.map((m, i) =>
-      i === playerMonsterIdx && m.status === 'blessed' ? { ...m, status: null as StatusEffect } : m
-    );
+    let newPlayerMonsters = playerMonsters.map((m, i) => {
+      if (i !== playerMonsterIdx) return m;
+      let updated = { ...m, modifiers: effectResult.casterModifiers };
+      if (updated.status === 'blessed') updated.status = null as StatusEffect;
+      if (effectResult.casterHpDelta !== 0) {
+        updated.currentHp = Math.max(0, Math.min(updated.maxHp, updated.currentHp + effectResult.casterHpDelta));
+      }
+      if (effectResult.cleanseCaster) {
+        updated.status = null;
+        updated.statusTurns = 0;
+      }
+      return updated;
+    });
 
     addLog(msg);
     setNpcMonsters(newNpcMonsters);
@@ -560,9 +584,10 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
 
       const [tickedNpc, tickMsgs] = applyStatusTick(currentNpc);
       tickMsgs.forEach(addLog);
+      tickedNpc.modifiers = tickModifiers(tickedNpc.modifiers);
 
       const updatedPlayer = playerMonstersRef.current.map((m, i) =>
-        i === currentIdx ? { ...m, currentHp: newHp } : m
+        i === currentIdx ? { ...m, currentHp: newHp, modifiers: tickModifiers(m.modifiers) } : m
       );
       const updatedNpc = npcMonstersRef.current.map((m, i) => i === npcMonsterIdx ? tickedNpc : m);
 
@@ -614,6 +639,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
   };
 
   const availableTiers = getAvailableSkillTiers(playerMon.level, playerMon.def);
+  const equippedSkills = getEquippedSkills(playerMon.userMonster?.equipped_skills, playerMon.def);
   const restConfig = REST_BY_ELEMENT[playerMon.def.element];
 
   if (phase === 'ended' && battleResult) {
@@ -702,9 +728,15 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
       {phase === 'select_skill' && (
         <div className="grid grid-cols-2 gap-3">
           {([1, 2, 3] as const).map(tier => {
-            const skillId = playerMon.def.skills[tier - 1];
-            const skill = SKILLS[skillId];
-            const isLocked = !availableTiers.includes(tier);
+            // A slot that's been customized via the Compendium (unlearned
+            // and/or re-taught — 'EMPTY' or an explicit skill id) is usable
+            // right away regardless of level: the scroll purchase is itself
+            // the gate. Only a slot still on its free species default stays
+            // level-gated by skillUnlocks.
+            const slotValue = playerMon.userMonster?.equipped_skills?.[tier - 1];
+            const isCustomized = slotValue != null;
+            const equippedSkill = equippedSkills[tier - 1];
+            const isLocked = !isCustomized && !availableTiers.includes(tier);
             if (isLocked) {
               const requiredLevel = tier === 2 ? playerMon.def.skillUnlocks.tier2 : playerMon.def.skillUnlocks.tier3;
               return (
@@ -712,20 +744,31 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
                   key={tier}
                   className="bg-neutral-950/50 border-2 border-dashed border-neutral-800 rounded-xl p-4 text-left opacity-60"
                 >
-                  <p className="font-bold text-gray-500 text-sm">🔒 {skill.name}</p>
+                  <p className="font-bold text-gray-500 text-sm">🔒 {SKILLS[playerMon.def.skills[tier - 1]]?.name}</p>
                   <p className="text-xs text-amber-500/80 mt-1">Unlocks at Lv.{requiredLevel}</p>
+                </div>
+              );
+            }
+            if (!equippedSkill) {
+              return (
+                <div
+                  key={tier}
+                  className="bg-neutral-950/50 border-2 border-dashed border-neutral-800 rounded-xl p-4 text-left opacity-60"
+                >
+                  <p className="font-bold text-gray-500 text-sm">Empty slot</p>
+                  <p className="text-xs text-gray-600 mt-1">Teach this monster a skill from the Compendium.</p>
                 </div>
               );
             }
             return (
               <button
                 key={tier}
-                onClick={() => handleSkillSelect(skillId)}
+                onClick={() => handleSkillSelect(equippedSkill.id)}
                 className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all btn-tactile"
               >
-                <p className="font-bold text-white text-sm">{skill.name}</p>
-                <p className="text-xs text-gray-400">{skill.questionCount} question{skill.questionCount > 1 ? 's' : ''} · Tier {tier}</p>
-                <p className="text-xs text-gray-500 mt-1">{skill.description}</p>
+                <p className="font-bold text-white text-sm">{equippedSkill.name}</p>
+                <p className="text-xs text-gray-400">{equippedSkill.questionCount} question{equippedSkill.questionCount > 1 ? 's' : ''} · Tier {tier}</p>
+                <p className="text-xs text-gray-500 mt-1">{equippedSkill.description}</p>
               </button>
             );
           })}
@@ -844,7 +887,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
               <p className="text-gray-500 text-sm text-center">No items in inventory.</p>
             ) : (
               Object.entries(inventory).map(([key, qty]) => {
-                if (qty <= 0) return null;
+                if (!qty || qty <= 0) return null;
                 
                 const itemData = SHOP_CATALOG.find(i => i.key === key);
                 
@@ -855,7 +898,11 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
                     disabled={itemBusy}
                     className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left flex items-center gap-4 transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
                   >
-                    <span className="text-2xl">{itemData?.icon || '📦'}</span>
+                    {itemData?.icon ? (
+                      <img src={itemData.icon} alt={itemData.name} className="w-8 h-8 object-contain flex-shrink-0" />
+                    ) : (
+                      <span className="text-2xl">📦</span>
+                    )}
                     <div className="flex-1">
                       <p className="text-white font-bold text-sm capitalize">{itemData?.name || key.replace('_', ' ')}</p>
                       <p className="text-xs text-gray-400">{itemData?.desc || 'Consumable item'}</p>
@@ -1595,7 +1642,8 @@ interface DexEntry {
   guildLabel?: string;   // e.g. "Lorekeeper" — only set for guild-tier entries, used in the locked hint
 }
 
-function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerLevel, onPromote, monsterDisplay, subclassProfile }: {
+function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds, playerLevel, onPromote, monsterDisplay, subclassProfile, inventory, onLoadoutChange }: {
+  userId: UserId;
   userMonsters: UserMonster[];
   caughtMonsters: CaughtMonster[];
   seenMonsterIds: string[];
@@ -1603,10 +1651,47 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerL
   onPromote: (caught: CaughtMonster, slot: number) => void;
   monsterDisplay: Record<string, MonsterDef>;
   subclassProfile: SubclassProfile | null;
+  inventory: InventoryMap;
+  onLoadoutChange: () => Promise<void> | void;
 }) {
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
   const [promotingId, setPromotingId] = useState<string | null>(null);
+  const [pendingSlot, setPendingSlot] = useState<{ monsterRowId: string; slotIndex: number } | null>(null);
+  const [actionBusy, setActionBusy] = useState(false);
+  const actionBusyRef = useRef(false);
   const unlockedSlots = getUnlockedMonsterSlots(playerLevel);
+
+  const handleUnlearn = async (monsterRowId: string, slotIndex: number) => {
+    if (actionBusyRef.current) return;
+    actionBusyRef.current = true;
+    setActionBusy(true);
+    try {
+      const ok = await unlearnMonsterSkill(userId, monsterRowId, slotIndex);
+      if (ok) await onLoadoutChange();
+      else alert('Could not unlearn that skill — make sure you have an Unlearn Scroll.');
+    } finally {
+      actionBusyRef.current = false;
+      setActionBusy(false);
+    }
+  };
+
+  const handleLearn = async (monsterRowId: string, slotIndex: number, skillId: string, scrollKey: string) => {
+    if (actionBusyRef.current) return;
+    actionBusyRef.current = true;
+    setActionBusy(true);
+    try {
+      const ok = await learnMonsterSkill(userId, monsterRowId, slotIndex, skillId, scrollKey);
+      if (ok) {
+        setPendingSlot(null);
+        await onLoadoutChange();
+      } else {
+        alert('Could not learn that skill — make sure you still have that scroll.');
+      }
+    } finally {
+      actionBusyRef.current = false;
+      setActionBusy(false);
+    }
+  };
 
   const ownedSpeciesIds = new Set([
     ...userMonsters.map(m => m.monster_id),
@@ -1656,6 +1741,10 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerL
   const selectedIsActiveTier = selectedEntry
     ? selectedEntry.tier === getGuildMonsterTier(ALL_MONSTERS[selectedEntry.speciesId], guildLevelForKey(subclassProfile, ALL_MONSTERS[selectedEntry.speciesId].guildEvolution?.guildKey))
     : false;
+  // The actual team row for the selected species, if any — a player only
+  // ever owns one instance of a given monster, so this lookup is unambiguous.
+  // Only team monsters (not benched catches) have an editable skill loadout.
+  const ownedMonster = selectedEntry ? userMonsters.find(m => m.monster_id === selectedEntry.speciesId) : undefined;
 
   return (
     <div className="space-y-6">
@@ -1715,7 +1804,21 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerL
       )}
 
       {selected && (
-        <div className="p-5 rounded-2xl border border-neutral-800 bg-neutral-900/60">
+        <div
+          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
+          onClick={() => setSelectedKey(null)}
+        >
+          <div
+            className="relative w-full max-w-xl max-h-[85vh] overflow-y-auto p-5 rounded-2xl border border-neutral-800 bg-neutral-900 shadow-2xl battle-panel-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedKey(null)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-white text-xl leading-none btn-tactile"
+              aria-label="Close"
+            >
+              ✕
+            </button>
           {selectedKnown ? (
             <div className="flex flex-col sm:flex-row gap-5">
               <div className="w-28 h-28 mx-auto sm:mx-0 flex-shrink-0">
@@ -1728,7 +1831,8 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerL
                     {selected.isLegendary && <span title="Legendary">👑</span>}
                   </p>
                   <div className="flex flex-wrap items-center gap-2 mt-1">
-                    <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full border capitalize ${ELEMENT_STYLES[selected.element]}`}>
+                    <span className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full border capitalize ${ELEMENT_STYLES[selected.element]}`}>
+                      <img src={ELEMENT_ICON_SRC[selected.element]} alt="" className="w-3 h-3 object-contain" />
                       {selected.element}
                     </span>
                     <span className="text-[10px] text-gray-500 capitalize">{selected.archetype.replace('_', ' ')}</span>
@@ -1745,20 +1849,82 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerL
                 </div>
                 <div>
                   <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Skills</p>
-                  <div className="space-y-1">
-                    {selected.skills.map((skillId, i) => {
-                      const skill = SKILLS[skillId];
-                      if (!skill) return null;
-                      const unlockLevel = i === 0 ? 1 : i === 1 ? selected.skillUnlocks.tier2 : selected.skillUnlocks.tier3;
-                      return (
-                        <div key={skillId} className="flex items-center gap-2 text-xs">
-                          <span className="text-gray-600 w-14 flex-shrink-0">Lv.{unlockLevel}</span>
-                          <span className="font-bold text-white">{skill.name}</span>
-                          <span className="text-gray-500">— {skill.description}</span>
-                        </div>
-                      );
-                    })}
-                  </div>
+                  {ownedMonster ? (
+                    <div className="space-y-2">
+                      {getEquippedSkills(ownedMonster.equipped_skills, selected).map((skill, i) => {
+                        const slotIndex = i + 1;
+                        const isPending = pendingSlot?.monsterRowId === ownedMonster.id && pendingSlot.slotIndex === slotIndex;
+                        const unlearnQty = inventory['unlearn_scroll'] || 0;
+                        const slotScrolls = SCROLL_CATALOG.filter(s =>
+                          s.skillId && (s.element === selected.element || s.category === 'universal') && (inventory[s.key] || 0) > 0
+                        );
+                        return (
+                          <div key={i} className="border border-neutral-800 rounded-lg p-2">
+                            {skill ? (
+                              <div className="flex items-center justify-between gap-2">
+                                <div className="text-xs min-w-0">
+                                  <span className="font-bold text-white">{skill.name}</span>
+                                  <span className="text-gray-500"> — {skill.description}</span>
+                                </div>
+                                <button
+                                  onClick={() => handleUnlearn(ownedMonster.id, slotIndex)}
+                                  disabled={unlearnQty === 0 || actionBusy}
+                                  className="text-[10px] bg-neutral-800 hover:bg-neutral-700 disabled:opacity-40 disabled:cursor-not-allowed px-2 py-1 rounded text-white flex-shrink-0"
+                                >
+                                  {unlearnQty === 0 ? 'Need Unlearn Scroll' : 'Unlearn'}
+                                </button>
+                              </div>
+                            ) : (
+                              <div>
+                                <div className="flex items-center justify-between gap-2">
+                                  <span className="text-xs text-gray-500 italic">Empty slot</span>
+                                  <button
+                                    onClick={() => setPendingSlot(isPending ? null : { monsterRowId: ownedMonster.id, slotIndex })}
+                                    className="text-[10px] bg-amber-800 hover:bg-amber-700 px-2 py-1 rounded text-white flex-shrink-0"
+                                  >
+                                    {isPending ? 'Cancel' : 'Teach a Skill'}
+                                  </button>
+                                </div>
+                                {isPending && (
+                                  <div className="mt-2 flex flex-wrap gap-1">
+                                    {slotScrolls.length === 0 ? (
+                                      <p className="text-[10px] text-gray-600 italic">No scrolls owned for this slot yet — buy some in the Rewards Vault.</p>
+                                    ) : (
+                                      slotScrolls.map(s => (
+                                        <button
+                                          key={s.key}
+                                          disabled={actionBusy}
+                                          onClick={() => handleLearn(ownedMonster.id, slotIndex, s.skillId!, s.key)}
+                                          className="text-[10px] bg-neutral-800 hover:bg-neutral-700 disabled:opacity-40 px-2 py-1 rounded text-white"
+                                        >
+                                          {s.name} (x{inventory[s.key]})
+                                        </button>
+                                      ))
+                                    )}
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <div className="space-y-1">
+                      {selected.skills.map((skillId, i) => {
+                        const skill = SKILLS[skillId];
+                        if (!skill) return null;
+                        const unlockLevel = i === 0 ? 1 : i === 1 ? selected.skillUnlocks.tier2 : selected.skillUnlocks.tier3;
+                        return (
+                          <div key={skillId} className="flex items-center gap-2 text-xs">
+                            <span className="text-gray-600 w-14 flex-shrink-0">Lv.{unlockLevel}</span>
+                            <span className="font-bold text-white">{skill.name}</span>
+                            <span className="text-gray-500">— {skill.description}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -1779,6 +1945,7 @@ function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, playerL
               </div>
             </div>
           )}
+          </div>
         </div>
       )}
 
@@ -1851,19 +2018,18 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
   const [liveBattleSide, setLiveBattleSide] = useState<'challenger' | 'opponent'>('challenger');
   const [liveBattleTeams, setLiveBattleTeams] = useState<{ mine: ActiveBattleMonster[]; opp: ActiveBattleMonster[] } | null>(null);
   const [notification, setNotification] = useState<string | null>(null);
-  const [inventory, setInventory] = useState<Record<string, number>>({});
+  const [inventory, setInventory] = useState<InventoryMap>({});
   const [answeredArenaIds, setAnsweredArenaIds] = useState<Set<string>>(new Set());
   const [subclassProfile, setSubclassProfile] = useState<SubclassProfile | null>(null);
 
-  // ALL_MONSTERS, but with each guild companion's name/emoji swapped for the
-  // display tier the player's guild level currently allows (stats/skills are
-  // untouched — only these two fields differ from the base species def).
+  // ALL_MONSTERS, but with each guild companion swapped for the display tier
+  // the player's guild level currently allows — name/emoji/description/base
+  // stats all come from that tier (skills/skillUnlocks never change).
   const displayMonsters: Record<string, MonsterDef> = { ...ALL_MONSTERS };
   for (const id of Object.keys(GUILD_MONSTERS)) {
     const def = GUILD_MONSTERS[id];
     const guildLevel = guildLevelForKey(subclassProfile, def.guildEvolution?.guildKey);
-    const { name, emoji, isLegendary, spriteId } = getGuildMonsterDisplay(def, guildLevel);
-    displayMonsters[id] = { ...def, name, emoji, isLegendary, spriteId };
+    displayMonsters[id] = getGuildMonsterDisplay(def, guildLevel);
   }
 
   const allQuestions = extractQuestions(packageData);
@@ -1920,6 +2086,19 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
     setCaughtMonsters(caughtRes.data || []);
     setSubclassProfile(subProfile);
     setLoading(false);
+  };
+
+  // Refreshes just userMonsters + inventory after a Compendium learn/unlearn
+  // — unlike loadData()'s full reload, this never touches `loading`, so the
+  // Compendium's local selectedKey/pendingSlot state survives the refresh
+  // instead of the panel unmounting mid-interaction.
+  const refreshMonsterLoadouts = async () => {
+    const [monstersRes, invData] = await Promise.all([
+      supabase.from('user_monsters').select('*').eq('user_id', userId).order('slot'),
+      fetchInventory(userId),
+    ]);
+    setUserMonsters(monstersRes.data || []);
+    setInventory(invData || {});
   };
 
   useEffect(() => { loadData(); }, [userId]);
@@ -2153,8 +2332,15 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       return;
     }
 
+    // Resolve the opponent's own guild-companion tier (name/emoji/description/
+    // stats) so a fully-evolved companion fights as strong as it looks, same
+    // as displayMonsters does for the local player above.
+    const opponentSubclassProfile = await fetchSubclassProfile(opponentId);
     const opponentTeam: ActiveBattleMonster[] = opponentMonsters.map((um: any) => {
-      const def = ALL_MONSTERS[um.monster_id];
+      const baseDef = ALL_MONSTERS[um.monster_id];
+      const def = baseDef.guildEvolution
+        ? getGuildMonsterDisplay(baseDef, guildLevelForKey(opponentSubclassProfile, baseDef.guildEvolution.guildKey))
+        : baseDef;
       const hp = getScaledStats(def, um.monster_level).hp;
       return {
         def,
@@ -2393,6 +2579,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           until encountered, and rare wild catches surface here to promote into a team slot */}
       {view === 'compendium' && (
         <CompendiumPanel
+          userId={userId}
           caughtMonsters={caughtMonsters}
           userMonsters={userMonsters}
           seenMonsterIds={battleState?.seen_monsters || []}
@@ -2400,6 +2587,8 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           onPromote={handlePromoteCaughtMonster}
           monsterDisplay={displayMonsters}
           subclassProfile={subclassProfile}
+          inventory={inventory}
+          onLoadoutChange={refreshMonsterLoadouts}
         />
       )}
 

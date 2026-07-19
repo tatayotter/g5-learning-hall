@@ -16,8 +16,9 @@ import { useLiveBattle, TIMEOUT_ACTION_ID } from '@/hooks/useLiveBattle';
 import { resolveBattle } from '@/lib/liveBattle';
 import { ActiveBattleMonster, BattleQuestionModal, MonsterImage } from '@/components/battle/shared';
 import MonsterHpPanel from '@/components/battle/MonsterHpPanel';
-import { SKILLS, getAvailableSkillTiers, REST_BY_ELEMENT, StatusEffect, BATTLE_CONSTANTS } from '@/lib/monsterConfig';
+import { SKILLS, getAvailableSkillTiers, getEquippedSkills, REST_BY_ELEMENT, StatusEffect, BATTLE_CONSTANTS } from '@/lib/monsterConfig';
 import PostBattleSummary from '@/components/battle/PostBattleSummary';
+import { InventoryMap } from '@/lib/inventory';
 import { SHOP_CATALOG } from '@/lib/inventory';
 import { USERS } from '@/lib/userSession';
 import { playAttackWhoosh, playHitThud, playVictory, playDefeat } from '@/lib/sounds';
@@ -40,7 +41,7 @@ interface LiveBattleScreenProps {
   myTeam: ActiveBattleMonster[];
   opponentTeam: ActiveBattleMonster[];
   questions: any[];
-  inventory: Record<string, number>;
+  inventory: InventoryMap;
   onUseItem: (key: string) => Promise<boolean>;
   onBattleEnd: (won: boolean) => void;
   onBattleResultKnown?: (won: boolean) => void;
@@ -190,12 +191,26 @@ export default function LiveBattleScreen({
     if (!lastOutcome) return;
 
     updateOppActive(prev => {
-      const newHp = Math.max(0, prev.currentHp - lastOutcome.myDamageDealt);
-      return { ...prev, currentHp: newHp, status: lastOutcome.myStatusInflicted ?? prev.status };
+      let newHp = Math.max(0, prev.currentHp - lastOutcome.myDamageDealt);
+      if (lastOutcome.oppHpDelta !== 0) newHp = Math.max(0, Math.min(prev.maxHp, newHp + lastOutcome.oppHpDelta));
+      return {
+        ...prev,
+        currentHp: newHp,
+        status: lastOutcome.oppCleanse ? null : lastOutcome.myStatusInflicted ?? prev.status,
+        statusTurns: lastOutcome.oppCleanse ? 0 : prev.statusTurns,
+        modifiers: lastOutcome.oppModifiers,
+      };
     });
     updateMyActive(prev => {
-      const newHp = Math.max(0, prev.currentHp - lastOutcome.opponentDamageDealt);
-      return { ...prev, currentHp: newHp, status: lastOutcome.opponentStatusInflicted ?? prev.status };
+      let newHp = Math.max(0, prev.currentHp - lastOutcome.opponentDamageDealt);
+      if (lastOutcome.myHpDelta !== 0) newHp = Math.max(0, Math.min(prev.maxHp, newHp + lastOutcome.myHpDelta));
+      return {
+        ...prev,
+        currentHp: newHp,
+        status: lastOutcome.myCleanse ? null : lastOutcome.opponentStatusInflicted ?? prev.status,
+        statusTurns: lastOutcome.myCleanse ? 0 : prev.statusTurns,
+        modifiers: lastOutcome.myModifiers,
+      };
     });
 
     if (lastOutcome.myDamageDealt > 0) playHitThud(); else playAttackWhoosh();
@@ -228,6 +243,10 @@ export default function LiveBattleScreen({
     } else if (lastOutcome.speedWinner === 'opponent') {
       addLog(`⚡ ${opponentName} was faster and struck first!`);
     }
+    if (lastOutcome.myHpDelta > 0) addLog(`💚 Your skill restored ${lastOutcome.myHpDelta} HP!`);
+    if (lastOutcome.oppHpDelta > 0) addLog(`💚 ${opponentName}'s skill restored ${lastOutcome.oppHpDelta} HP!`);
+    if (lastOutcome.myCleanse) addLog(`🧼 Your status conditions were cleansed!`);
+    if (lastOutcome.oppCleanse) addLog(`🧼 ${opponentName}'s status conditions were cleansed!`);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastOutcome]);
 
@@ -444,6 +463,7 @@ export default function LiveBattleScreen({
   }
 
   const availableTiers = getAvailableSkillTiers(myMon.level, myMon.def);
+  const equippedSkills = getEquippedSkills(myMon.userMonster?.equipped_skills, myMon.def);
   const secondsLeft = deadlineAt ? Math.max(0, Math.ceil((deadlineAt - now) / 1000)) : null;
 
   if (phase === 'ended' && battleEnded) {
@@ -501,30 +521,46 @@ export default function LiveBattleScreen({
           {/* Row 1-2: the monster's 3 skill tiers (locked ones shown greyed
               out to nudge leveling) + Rest, in a fixed 2x2 grid. */}
           <div className="grid grid-cols-2 gap-2">
-            {myMon.def.skills.map((skillId, i) => {
-              const tier = (i + 1) as 1 | 2 | 3;
-              const skill = SKILLS[skillId];
-              const isLocked = !availableTiers.includes(tier);
+            {([1, 2, 3] as const).map(tier => {
+              // See BattleScreen's identical logic (components/MonsterGuild.tsx)
+              // — a customized slot (unlearned and/or re-taught) is usable
+              // immediately regardless of level; only a still-default slot
+              // stays gated by skillUnlocks.
+              const slotValue = myMon.userMonster?.equipped_skills?.[tier - 1];
+              const isCustomized = slotValue != null;
+              const equippedSkill = equippedSkills[tier - 1];
+              const isLocked = !isCustomized && !availableTiers.includes(tier);
               if (isLocked) {
                 const requiredLevel = tier === 2 ? myMon.def.skillUnlocks.tier2 : myMon.def.skillUnlocks.tier3;
                 return (
                   <div
-                    key={skillId}
+                    key={tier}
                     className="p-3 rounded-xl border-2 border-dashed border-neutral-800 bg-neutral-950/50 text-left opacity-60"
                   >
-                    <p className="text-sm font-bold text-gray-500">🔒 {skill.name}</p>
+                    <p className="text-sm font-bold text-gray-500">🔒 {SKILLS[myMon.def.skills[tier - 1]]?.name}</p>
                     <p className="text-xs text-amber-500/80">Unlocks at Lv.{requiredLevel}</p>
+                  </div>
+                );
+              }
+              if (!equippedSkill) {
+                return (
+                  <div
+                    key={tier}
+                    className="p-3 rounded-xl border-2 border-dashed border-neutral-800 bg-neutral-950/50 text-left opacity-60"
+                  >
+                    <p className="text-sm font-bold text-gray-500">Empty slot</p>
+                    <p className="text-xs text-gray-600">Teach this monster a skill from the Compendium.</p>
                   </div>
                 );
               }
               return (
                 <button
-                  key={skillId}
-                  onClick={() => handleSkillSelect(skillId)}
+                  key={tier}
+                  onClick={() => handleSkillSelect(equippedSkill.id)}
                   className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left btn-tactile"
                 >
-                  <p className="text-sm font-bold text-white">{skill.name}</p>
-                  <p className="text-xs text-gray-400">{skill.questionCount} question{skill.questionCount > 1 ? 's' : ''}</p>
+                  <p className="text-sm font-bold text-white">{equippedSkill.name}</p>
+                  <p className="text-xs text-gray-400">{equippedSkill.questionCount} question{equippedSkill.questionCount > 1 ? 's' : ''}</p>
                 </button>
               );
             })}
@@ -579,11 +615,11 @@ export default function LiveBattleScreen({
       {phase === 'select_skill' && !answering && showItemMenu && (
         <div className="mt-4 bg-neutral-950 border border-neutral-700 rounded-2xl p-4 space-y-2">
           <p className="text-white font-bold text-center mb-2">🎒 Select an Item</p>
-          {Object.entries(inventory).filter(([, qty]) => qty > 0).length === 0 ? (
+          {Object.entries(inventory).filter(([, qty]) => !!qty && qty > 0).length === 0 ? (
             <p className="text-gray-500 text-sm text-center">No items in inventory.</p>
           ) : (
             Object.entries(inventory).map(([key, qty]) => {
-              if (qty <= 0) return null;
+              if (!qty || qty <= 0) return null;
               const itemData = SHOP_CATALOG.find(i => i.key === key);
               if (!itemData) return null;
               return (
@@ -593,9 +629,12 @@ export default function LiveBattleScreen({
                   disabled={itemBusy}
                   className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
                 >
-                  <span className="text-left">
-                    <span className="text-sm font-bold text-white">{itemData.icon} {itemData.name}</span>
-                    <span className="block text-xs text-gray-400">{itemData.desc}</span>
+                  <span className="text-left flex items-center gap-2">
+                    <img src={itemData.icon} alt={itemData.name} className="w-6 h-6 object-contain flex-shrink-0" />
+                    <span>
+                      <span className="text-sm font-bold text-white">{itemData.name}</span>
+                      <span className="block text-xs text-gray-400">{itemData.desc}</span>
+                    </span>
                   </span>
                   <span className="text-xs text-amber-400 font-mono">x{qty}</span>
                 </button>
