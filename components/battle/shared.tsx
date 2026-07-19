@@ -103,7 +103,9 @@ export function BattleQuestionModal({ questions, count, embedded, onComplete }: 
   // using it (not the requested `count`) as the completion bound below, is
   // what keeps the modal from advancing past the last real question into an
   // undefined one and softlocking with nothing left to click.
-  const [pool] = useState(() => shuffleArray(questions).slice(0, count));
+  const [pool] = useState(() => shuffleArray(questions).slice(0, count).map(q =>
+    Array.isArray(q.options) ? { ...q, options: shuffleArray(q.options) } : q
+  ));
   const askedCount = pool.length;
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
