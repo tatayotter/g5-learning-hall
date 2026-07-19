@@ -1184,7 +1184,13 @@ function ToolsSection({ currentData, currentSunday, onUpdateStats, passcode }: {
               <p className="text-gray-600 text-sm">No pending rewards.</p>
             ) : (
               <div className="space-y-2 max-h-96 overflow-y-auto pr-1">
-                {claims.map(claim => (
+                {[...claims]
+                  .sort((a, b) => {
+                    if (a.status === 'pending' && b.status !== 'pending') return -1;
+                    if (a.status !== 'pending' && b.status === 'pending') return 1;
+                    return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+                  })
+                  .map(claim => (
                   <div key={claim.id} className="flex justify-between items-center bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3">
                     <div>
                       <p className="text-white font-medium text-sm">{claim.item_name}</p>
