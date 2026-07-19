@@ -203,6 +203,24 @@ export default function Dashboard() {
     fetchMyClaims();
   }, [activeUserId]);
 
+  // Live-refresh claimed rewards so the claimable-hours total updates as
+  // soon as an admin marks a reward "supplied" from the Admin Dashboard,
+  // without the kid needing to reload the page.
+  useEffect(() => {
+    if (!activeUserId) return;
+    const channel = supabase
+      .channel(`reward-claims-${activeUserId}`)
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'reward_claims', filter: `app_user_id=eq.${activeUserId}` },
+        () => fetchMyClaims()
+      )
+      .subscribe();
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [activeUserId]);
+
   const handleClaimReward = async (cost: number, itemName: string, itemKey: string) => {
     if (!data || !activeUserId) return;
     // Guards against a rapid double-click firing two claims before the gold
@@ -598,10 +616,13 @@ export default function Dashboard() {
 
               {(() => {
                 const countOf = (key: string) => myClaims.filter(c => c.item_key === key).length;
+                const suppliedCountOf = (key: string) => myClaims.filter(c => c.item_key === key && c.status === 'supplied').length;
                 const voucherCount = countOf('voucher_30m');
                 const aiLordingCount = countOf('ai_lording');
                 const jollibeeCount = countOf('jollibee_burger');
-                const totalClaimableHours = (voucherCount + aiLordingCount) * 0.5;
+                // Only rewards Tatay has actually supplied count toward usable weekend hours —
+                // a still-pending claim hasn't been handed over yet.
+                const totalClaimableHours = (suppliedCountOf('voucher_30m') + suppliedCountOf('ai_lording')) * 0.5;
                 return (
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5 text-sm">
                     <div className="bg-black p-3 rounded border border-neutral-800">
@@ -619,6 +640,7 @@ export default function Dashboard() {
                     <div className="bg-black p-3 rounded border border-neutral-800">
                       <p className="text-gray-500 text-xs">⏱️ Total Claimable Hours</p>
                       <p className="font-bold text-yellow-400">{totalClaimableHours}</p>
+                      <p className="text-[10px] text-gray-600 mt-0.5">from supplied rewards</p>
                     </div>
                   </div>
                 );
