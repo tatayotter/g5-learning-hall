@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { MonsterDef } from '@/lib/monsterConfig';
 import { playMonsterAppear, playChime, playClash } from '@/lib/sounds';
+import { MonsterImage } from '@/components/battle/shared';
 
 interface WildEncounterModalProps {
   monster: MonsterDef;
@@ -41,7 +42,7 @@ export default function WildEncounterModal({ monster, level, question, attemptsL
     <div className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
       <div className="bg-neutral-900 border border-amber-700 rounded-2xl p-6 sm:p-8 max-w-lg w-full battle-panel-in">
         <div className="flex items-center gap-3 mb-2">
-          <span className="text-4xl battle-float">{monster.emoji}</span>
+          <MonsterImage monster={monster} className="w-12 h-12 battle-float" emojiClassName="text-4xl" />
           <div>
             <p className="text-amber-400 font-bold text-lg">A wild {monster.name} appeared!</p>
             <p className="text-xs text-gray-500 capitalize">Lv.{level} · {monster.element}</p>
