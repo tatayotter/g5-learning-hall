@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Lottie from 'lottie-react';
 import { motion } from 'framer-motion';
 import { UserId, USERS, setActiveUser, getClassmateIds, isFamilyProtected } from '@/lib/userSession';
-import { supabase } from '@/lib/supabase';
+import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 
@@ -119,13 +119,14 @@ function CardAvatar({ avatar, fallbackIcon, online, size = 'w-20 h-20' }: { avat
   );
 }
 
-function CardStats({ id, stats, monster, lastLogin, accent, goldColor }: {
+function CardStats({ id, stats, monster, lastLogin, accent, goldColor, loaded }: {
   id: UserId;
   stats: HeroStats | null | undefined;
   monster: ActiveMonsterInfo | null | undefined;
   lastLogin: string | null | undefined;
   accent: string;
   goldColor: string;
+  loaded: boolean;
 }) {
   return (
     <>
@@ -146,7 +147,9 @@ function CardStats({ id, stats, monster, lastLogin, accent, goldColor }: {
         </div>
       ) : (
         <div className="mt-5 h-12 flex items-center">
-          <p className="text-xs text-gray-700 italic">Loading stats...</p>
+          <p className="text-xs text-gray-700 italic">
+            {loaded ? 'No stats yet' : 'Loading stats...'}
+          </p>
         </div>
       )}
 
@@ -177,6 +180,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
   const [statsMap, setStatsMap] = useState<Record<string, HeroStats | null>>({});
   const [lastLoginMap, setLastLoginMap] = useState<Record<string, string | null>>({});
   const [monsterMap, setMonsterMap] = useState<Record<string, ActiveMonsterInfo | null>>({});
+  const [statsLoaded, setStatsLoaded] = useState(false);
   const [onlineIds, setOnlineIds] = useState<Set<string>>(new Set());
   const [view, setView] = useState<'root' | 'classmates'>('root');
   const [loginTarget, setLoginTarget] = useState<{ id: UserId; name: string; isAdmin?: boolean } | null>(null);
@@ -195,6 +199,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
 
   useEffect(() => {
     async function fetchStats() {
+      await ensureAnonymousSession();
       const weekDate = getWeekStartDate();
 
       const [weeklyResults, lastLoginRes, battleStateRes, monstersRes] = await Promise.all([
@@ -240,6 +245,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
         }
       });
       setMonsterMap(monsterNext);
+      setStatsLoaded(true);
     }
 
     fetchStats();
@@ -352,6 +358,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
                   lastLogin={lastLoginMap[id]}
                   accent={style.accent}
                   goldColor={style.goldColor}
+                  loaded={statsLoaded}
                 />
 
                 <div className={`mt-4 ${style.accent} opacity-60 font-bold text-sm group-hover:opacity-100 transition-opacity`}>
@@ -425,6 +432,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
                       lastLogin={lastLoginMap[id]}
                       accent={style.accent}
                       goldColor={style.goldColor}
+                      loaded={statsLoaded}
                     />
 
                     <div className={`mt-3 ${style.accent} opacity-60 font-bold text-xs group-hover:opacity-100 transition-opacity`}>
