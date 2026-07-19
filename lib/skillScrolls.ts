@@ -30,7 +30,7 @@ const ELEMENT_SCROLL_ICON: Partial<Record<NonNullable<Skill['element']>, string>
   storm: '/items/storm_scroll_100.webp', shadow: '/items/shadow_scroll_100.webp', light: '/items/light_scroll_100.webp',
 };
 
-function scrollForSkill(skill: Skill): ScrollItem {
+function scrollForSkill(skill: Skill & { category?: 'base' | 'alt' | 'universal' }): ScrollItem {
   const category = skill.category ?? 'base';
   return {
     key: `scroll_${skill.id}`,
@@ -56,7 +56,11 @@ export const SCROLL_CATALOG: ScrollItem[] = [
     category: 'unlearn',
     element: null,
   },
-  ...Object.values(SKILLS).map(scrollForSkill),
+  // Legendary skills (category: 'legendary') are excluded — they're an
+  // exclusive default kit for legendary monsters, never purchasable.
+  ...Object.values(SKILLS)
+    .filter((s): s is Skill & { category?: 'base' | 'alt' | 'universal' } => (s.category ?? 'base') !== 'legendary')
+    .map(scrollForSkill),
 ];
 
 // slotIndex is 1-3 (matches the 1-based Postgres array index used by both

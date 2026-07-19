@@ -91,10 +91,12 @@ export interface Skill {
   questionCount: 1 | 2 | 3;  // matches tier
   baseDamageMultiplier: number;
   description: string;
-  // Present on the Vault-taught alt/universal skills; absent (defaults to
-  // 'base') on the original 18 species-kit skills above so those don't need
-  // touching. See SkillEffect for what `effects` entries do in battle.
-  category?: 'base' | 'alt' | 'universal';
+  // Present on the Vault-taught alt/universal skills and the legendary-only
+  // skills; absent (defaults to 'base') on the original 18 species-kit skills
+  // above so those don't need touching. See SkillEffect for what `effects`
+  // entries do in battle. 'legendary' skills are never sold in the Vault —
+  // see SCROLL_CATALOG in lib/skillScrolls.ts.
+  category?: 'base' | 'alt' | 'universal' | 'legendary';
   effects?: SkillEffect[];
 }
 
@@ -128,6 +130,20 @@ export const SKILLS: Record<string, Skill> = {
   flash:         { id: 'flash',         name: 'Flash',        element: 'light',  tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A blinding burst of light.' },
   sacred_beam:   { id: 'sacred_beam',   name: 'Sacred Beam',  element: 'light',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A focused beam of holy light.' },
   divine_burst:  { id: 'divine_burst',  name: 'Divine Burst', element: 'light',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'A radiant explosion. May Bless.' },
+
+  // ─── LEGENDARY SKILLS ─── one per element, exclusive default tier3 move for
+  // legendary monsters (wild-only legendaries, and guild companions whose
+  // evolution reaches 'legendary' — see getGuildEnhancementLevel). 2.25x is a
+  // modest step above every other skill's damage ceiling (base tier3 tops out
+  // at 2.0x) — strictly the strongest kit in the game, but not by a swingy
+  // margin. Never sold as a scroll (see skillId in lib/skillScrolls.ts) and
+  // rejected server-side if taught directly (see learn_monster_skill RPC).
+  legendary_fire:    { id: 'legendary_fire',    name: 'Solar Flare',      element: 'fire',   tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: "A legendary wyrm's signature blast, hot enough to outburn any Inferno Blast." },
+  legendary_water:   { id: 'legendary_water',   name: 'Maelstrom',        element: 'water',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'A whirlpool with the force of a whole tide behind it.' },
+  legendary_leaf:    { id: 'legendary_leaf',    name: 'World Bloom',      element: 'leaf',   tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'Every root and vine in reach answers at once.' },
+  legendary_storm:   { id: 'legendary_storm',   name: 'Tempest Fury',     element: 'storm',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'A full storm front discharged in a single strike.' },
+  legendary_shadow:  { id: 'legendary_shadow',  name: 'Oblivion Rend',    element: 'shadow', tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'A tear straight through to the void beneath the dark.' },
+  legendary_light:   { id: 'legendary_light',   name: 'Radiant Judgment', element: 'light',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'A verdict of pure light no shadow survives.' },
 
   // ─── VAULT ALT SKILLS ─── one per tier per element, trading raw damage for
   // a themed secondary effect. Damage numbers are uniform across elements at
@@ -353,7 +369,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     id: 'emberwyrm', name: 'Emberwyrm', element: 'fire', archetype: 'tank',
     emoji: '🐉', description: 'A legendary wyrm wreathed in slow, eternal flame. Sleeps coiled around dormant volcanoes. Its flame moves so slowly you can watch it crawl across its scales over days.',
     ...WILD_STAT_PRESET,
-    skills: ['ember', 'flamethrower', 'inferno_blast'],
+    skills: ['ember', 'flamethrower', 'legendary_fire'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     isLegendary: true,
   },
@@ -361,7 +377,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     id: 'tidalynx', name: 'Tidalynx', element: 'water', archetype: 'tank',
     emoji: '🐋', description: 'A serene leviathan said to command the deep tides. Lives along untouched coasts. Where it steps, water pulls back, leaving its pawprints filled with clear tide.',
     ...WILD_STAT_PRESET,
-    skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
+    skills: ['water_gun', 'hydro_pump', 'legendary_water'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     isLegendary: true,
   },
@@ -369,7 +385,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     id: 'zephyrion', name: 'Zephyrion', element: 'storm', archetype: 'tank',
     emoji: '🦅', description: 'A storm-forged raptor that rides lightning itself. Nests above the clouds where air is thin and stays aloft for weeks. Its shadow passing makes flags change direction.',
     ...WILD_STAT_PRESET,
-    skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
+    skills: ['thunder_shock', 'thunderbolt', 'legendary_storm'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     isLegendary: true,
   },
@@ -377,7 +393,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     id: 'nyxfang', name: 'Nyxfang', element: 'shadow', archetype: 'tank',
     emoji: '🐺', description: 'A wolf woven from pure night, rarely ever seen. Its fur absorbs light, so at night it looks like a wolf-shaped hole in the dark. Its howl feels like pressure more than sound.',
     ...WILD_STAT_PRESET,
-    skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
+    skills: ['shadow_claw', 'dark_pulse', 'legendary_shadow'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     isLegendary: true,
   },
@@ -385,7 +401,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     id: 'aureon', name: 'Aureon', element: 'light', archetype: 'tank',
     emoji: '🦄', description: 'A radiant beast said to bring fortune to its keeper. Its mane scatters light like golden dust. At dawn, the air around it glitters for minutes after it has already left.',
     ...WILD_STAT_PRESET,
-    skills: ['flash', 'sacred_beam', 'divine_burst'],
+    skills: ['flash', 'sacred_beam', 'legendary_light'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     isLegendary: true,
   },
@@ -559,11 +575,11 @@ export function getWildEncounterPityThreshold(totalMonstersOwned: number): numbe
 // whether it's reached at tier2 or tier3). See getGuildMonsterDisplay below.
 export const GUILD_MONSTERS: Record<string, MonsterDef> = {
   lorekeeper_familiar: {
-    id: 'lorekeeper_familiar', name: 'Scryvyn', element: 'light', archetype: 'tank',
+    id: 'lorekeeper_familiar', name: 'Scryvyn', element: 'leaf', archetype: 'tank',
     emoji: '📜', spriteId: 'scryvyn',
     description: 'The Scroll Wyrm — a tiny dragon made entirely of old study scrolls, with green self-rewriting runes and a hooded cloak fused from its first master\'s robe. It lives in libraries closed too long, eating forgotten footnotes and orbiting itself with floating scrolls of memory.',
     ...STAT_PRESETS.tank,
-    skills: ['flash', 'sacred_beam', 'divine_burst'],
+    skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     guildEvolution: {
       guildKey: 'lorekeeper',
@@ -615,20 +631,20 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
     },
   },
   logiclabyrinth_familiar: {
-    id: 'logiclabyrinth_familiar', name: 'Puzzlet', element: 'shadow', archetype: 'tank',
-    emoji: '🦉', description: 'A young owl whose feathers form shifting geometric patterns. It tilts its head at anything that doesn’t quite add up.',
+    id: 'logiclabyrinth_familiar', name: 'Quizzicube', element: 'storm', archetype: 'tank',
+    emoji: '🧊', description: 'A small cube built from shifting question-mark panels, each face humming with a different riddle. It rolls in place when stumped, waiting for the right answer to click it into shape.',
     ...STAT_PRESETS.tank,
-    skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
+    skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     guildEvolution: {
       guildKey: 'logic_labyrinth',
       tier2: {
-        level: 10, name: 'Mazehawk', emoji: '🦅',
-        description: 'Its shifting feathers have sharpened into a hawk\'s, tracing perfect right angles through the air as it hunts down loose logic.',
+        level: 10, name: 'Labrynthox', emoji: '🌀',
+        description: 'The cube has unfolded into a maze-backed beast, corridors running the length of its shell. Wrong turns echo through its body until the right path lights up on its own.',
       },
       tier3: {
-        level: 20, name: 'Cipheryx', emoji: '🦢', isLegendary: true,
-        description: 'A serene, geometric swan that glides through contradictions without disturbing the water. Every ripple it leaves resolves into a proof.',
+        level: 20, name: 'Infinitaze', emoji: '♾️', isLegendary: true,
+        description: 'A labyrinth given form, its passages looping back through themselves without end. It doesn\'t solve puzzles anymore — it simply becomes the answer, and lets you catch up.',
       },
     },
   },
@@ -936,17 +952,30 @@ export function getGuildEnhancementLevel(monsterDef: MonsterDef, tier: 1 | 2 | 3
   return tier === 2 ? 'enhanced' : 'super_enhanced';
 }
 
+// A guild companion that reaches 'legendary' swaps its tier3 skill slot for
+// its element's exclusive legendary move (see the LEGENDARY SKILLS block in
+// SKILLS above) instead of the normal species tier3 skill.
+const LEGENDARY_SKILL_BY_ELEMENT: Record<Element, string> = {
+  fire: 'legendary_fire', water: 'legendary_water', leaf: 'legendary_leaf',
+  storm: 'legendary_storm', shadow: 'legendary_shadow', light: 'legendary_light',
+};
+
 // Returns a MonsterDef with name/emoji/spriteId/isLegendary/description/base
-// stats swapped for a specific evolution tier of a guild companion —
-// independent of any player's current guild level (unlike
+// stats/tier3 skill swapped for a specific evolution tier of a guild
+// companion — independent of any player's current guild level (unlike
 // getGuildMonsterDisplay below), so the Compendium can render all 3 tiers as
-// separate cards side by side. Skills and skillUnlocks always stay the base
-// species values — only flavor and stat totals change per tier.
+// separate cards side by side. Skills stay the base species values, EXCEPT
+// the tier3 slot when this tier resolves to 'legendary' (see
+// LEGENDARY_SKILL_BY_ELEMENT) — skillUnlocks never change.
 export function getGuildMonsterTierDef(monsterDef: MonsterDef, tier: 1 | 2 | 3): MonsterDef {
   const evo = monsterDef.guildEvolution;
   if (!evo || tier === 1) return monsterDef;
   const t = tier === 2 ? evo.tier2 : evo.tier3;
-  const growth = GUILD_ENHANCEMENT_GROWTH[getGuildEnhancementLevel(monsterDef, tier)];
+  const enhancementLevel = getGuildEnhancementLevel(monsterDef, tier);
+  const growth = GUILD_ENHANCEMENT_GROWTH[enhancementLevel];
+  const skills: [string, string, string] = enhancementLevel === 'legendary'
+    ? [monsterDef.skills[0], monsterDef.skills[1], LEGENDARY_SKILL_BY_ELEMENT[monsterDef.element]]
+    : monsterDef.skills;
   return {
     ...monsterDef,
     name: t.name,
@@ -958,6 +987,7 @@ export function getGuildMonsterTierDef(monsterDef: MonsterDef, tier: 1 | 2 | 3):
     baseAttack: Math.round(monsterDef.baseAttack * growth),
     baseDefense: Math.round(monsterDef.baseDefense * growth),
     baseSpeed: Math.round(monsterDef.baseSpeed * growth),
+    skills,
   };
 }
 
