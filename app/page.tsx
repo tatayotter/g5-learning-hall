@@ -616,13 +616,14 @@ export default function Dashboard() {
 
               {(() => {
                 const countOf = (key: string) => myClaims.filter(c => c.item_key === key).length;
-                const suppliedCountOf = (key: string) => myClaims.filter(c => c.item_key === key && c.status === 'supplied').length;
+                const pendingCountOf = (key: string) => myClaims.filter(c => c.item_key === key && c.status === 'pending').length;
                 const voucherCount = countOf('voucher_30m');
                 const aiLordingCount = countOf('ai_lording');
                 const jollibeeCount = countOf('jollibee_burger');
-                // Only rewards Tatay has actually supplied count toward usable weekend hours —
-                // a still-pending claim hasn't been handed over yet.
-                const totalClaimableHours = (suppliedCountOf('voucher_30m') + suppliedCountOf('ai_lording')) * 0.5;
+                // Tatay marks a claim "supplied" only after the hours have already
+                // been used (usually Fri/Sat), so remaining claimable hours are the
+                // ones still pending — not yet spent.
+                const totalClaimableHours = (pendingCountOf('voucher_30m') + pendingCountOf('ai_lording')) * 0.5;
                 return (
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5 text-sm">
                     <div className="bg-black p-3 rounded border border-neutral-800">
@@ -640,7 +641,7 @@ export default function Dashboard() {
                     <div className="bg-black p-3 rounded border border-neutral-800">
                       <p className="text-gray-500 text-xs">⏱️ Total Claimable Hours</p>
                       <p className="font-bold text-yellow-400">{totalClaimableHours}</p>
-                      <p className="text-[10px] text-gray-600 mt-0.5">from supplied rewards</p>
+                      <p className="text-[10px] text-gray-600 mt-0.5">still unused, spend by Saturday</p>
                     </div>
                   </div>
                 );
