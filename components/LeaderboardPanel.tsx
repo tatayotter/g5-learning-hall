@@ -1,8 +1,10 @@
 'use client';
 // components/LeaderboardPanel.tsx
-// Monster Arena leaderboard — ranks every known player by a composite Arena
-// Score (see lib/leaderboard.ts). Shows #1 prominently by default; "Show Full
-// Leaderboard" expands the complete ranked list.
+// Three separate Monster Arena leaderboards, each ranking every known player
+// by a different stat: composite Arena Score, monsters collected, and
+// highest-level monster owned (see lib/leaderboard.ts). Each shows its #1
+// prominently by default; "Show Full Leaderboard" expands that category's
+// complete ranked list.
 import { useEffect, useState } from 'react';
 import { fetchLeaderboard, LeaderboardEntry } from '@/lib/leaderboard';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
@@ -48,11 +50,18 @@ function topMonsterLabel(topMonster: LeaderboardEntry['topMonster']): string {
   return `${name} Lv.${topMonster.monster_level}`;
 }
 
-function TopEntryCard({ entry, rank }: { entry: LeaderboardEntry; rank: number }) {
+interface Highlight {
+  emoji: string;
+  value: string;
+  label: string;
+  info?: string;
+}
+
+function TopEntryCard({ entry, rank, badge, highlight }: { entry: LeaderboardEntry; rank: number; badge: string; highlight: Highlight }) {
   return (
     <div className="border-2 border-amber-500 bg-amber-900/10 rounded-2xl p-6">
       <p className="text-center text-xs font-bold text-amber-400 mb-3">
-        {rank === 1 ? '🏆 #1 ARENA CHAMPION' : `#${rank}`}
+        {rank === 1 ? badge : `#${rank}`}
       </p>
       <div className="flex items-center gap-4 mb-4">
         <img
@@ -68,8 +77,8 @@ function TopEntryCard({ entry, rank }: { entry: LeaderboardEntry; rank: number }
           </p>
           <p className="text-xs text-gray-500">{entry.grade}{!entry.isFamily && ' · Classmate'}</p>
           <p className="text-sm text-amber-400 font-bold font-mono mt-1 flex items-center gap-1">
-            ⭐ {entry.score} Arena Score
-            <InfoTag text="Score = Level×5 + Trainer Wins×10 + Live Battle Wins×25 + Questions Answered×1." />
+            {highlight.emoji} {highlight.value}{highlight.label && ` ${highlight.label}`}
+            {highlight.info && <InfoTag text={highlight.info} />}
           </p>
         </div>
       </div>
@@ -140,9 +149,46 @@ function RankRow({ entry, rank }: { entry: LeaderboardEntry; rank: number }) {
   );
 }
 
+interface LeaderboardCategory {
+  key: string;
+  title: string;
+  badge: string;
+  ranked: LeaderboardEntry[];
+  highlight: (entry: LeaderboardEntry) => Highlight;
+}
+
+function CategorySection({ category }: { category: LeaderboardCategory }) {
+  const [expanded, setExpanded] = useState(false);
+  const [top, ...rest] = category.ranked;
+  if (!top) return null;
+
+  return (
+    <div className="space-y-4">
+      <h3 className="text-lg font-bold text-white font-display">{category.title}</h3>
+      <TopEntryCard entry={top} rank={1} badge={category.badge} highlight={category.highlight(top)} />
+
+      {rest.length > 0 && (
+        <button
+          onClick={() => setExpanded(v => !v)}
+          className="w-full text-center text-sm text-indigo-400 hover:text-indigo-300 font-bold py-2"
+        >
+          {expanded ? '▲ Hide Full Leaderboard' : `▼ Show Full Leaderboard (${category.ranked.length} players)`}
+        </button>
+      )}
+
+      {expanded && (
+        <div className="space-y-2">
+          {rest.map((entry, i) => (
+            <RankRow key={entry.userId} entry={entry} rank={i + 2} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function LeaderboardPanel() {
   const [entries, setEntries] = useState<LeaderboardEntry[] | null>(null);
-  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -160,29 +206,56 @@ export default function LeaderboardPanel() {
     return <p className="text-center py-10 text-gray-500">No arena stats yet.</p>;
   }
 
-  const [top, ...rest] = entries;
+  // entries arrives sorted by score (see fetchLeaderboard); the other two
+  // categories need their own sort, each falling back to score to break ties.
+  const arenaRanked = entries;
+  const collectorRanked = [...entries].sort((a, b) => b.monstersCollected - a.monstersCollected || b.score - a.score);
+  const tamerRanked = [...entries].sort((a, b) =>
+    (b.topMonster?.monster_level ?? -1) - (a.topMonster?.monster_level ?? -1) || b.score - a.score
+  );
+
+  const categories: LeaderboardCategory[] = [
+    {
+      key: 'arena',
+      title: '🏆 Arena Leaderboard',
+      badge: '🏆 #1 ARENA CHAMPION',
+      ranked: arenaRanked,
+      highlight: entry => ({
+        emoji: '⭐',
+        value: String(entry.score),
+        label: 'Arena Score',
+        info: 'Score = Level×5 + Trainer Wins×10 + Live Battle Wins×25 + Questions Answered×1.',
+      }),
+    },
+    {
+      key: 'collector',
+      title: '📚 Collector Leaderboard',
+      badge: '📚 #1 TOP COLLECTOR',
+      ranked: collectorRanked,
+      highlight: entry => ({
+        emoji: '👾',
+        value: String(entry.monstersCollected),
+        label: 'Monsters Collected',
+      }),
+    },
+    {
+      key: 'tamer',
+      title: '🐲 Monster Tamer Leaderboard',
+      badge: '🐲 #1 TOP MONSTER TAMER',
+      ranked: tamerRanked,
+      highlight: entry => ({
+        emoji: '🌟',
+        value: topMonsterLabel(entry.topMonster),
+        label: '',
+      }),
+    },
+  ];
 
   return (
-    <div className="space-y-4">
-      <h3 className="text-lg font-bold text-white font-display">🏆 Arena Leaderboard</h3>
-      <TopEntryCard entry={top} rank={1} />
-
-      {rest.length > 0 && (
-        <button
-          onClick={() => setExpanded(v => !v)}
-          className="w-full text-center text-sm text-indigo-400 hover:text-indigo-300 font-bold py-2"
-        >
-          {expanded ? '▲ Hide Full Leaderboard' : `▼ Show Full Leaderboard (${entries.length} players)`}
-        </button>
-      )}
-
-      {expanded && (
-        <div className="space-y-2">
-          {rest.map((entry, i) => (
-            <RankRow key={entry.userId} entry={entry} rank={i + 2} />
-          ))}
-        </div>
-      )}
+    <div className="space-y-10">
+      {categories.map(category => (
+        <CategorySection key={category.key} category={category} />
+      ))}
     </div>
   );
 }
