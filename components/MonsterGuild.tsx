@@ -11,7 +11,7 @@ import {
   MONSTERS, WILD_MONSTERS, ALL_MONSTERS, GUILD_MONSTERS, NPC_TRAINERS, SKILLS, BATTLE_CONSTANTS,
   getUnlockedMonsterSlots, getAvailableSkillTiers, calculateDamage, getScaledStats,
   getMonsterLevel, REST_BY_ELEMENT, ELEMENT_STATUS, STATUS_DEFINITIONS, getCounterElement,
-  pickRandomWildMonsterId, getWildEncounterChance, getGuildMonsterDisplay, getGuildMonsterTier, getGuildMonsterTierDef,
+  pickRandomWildMonsterId, getWildEncounterChance, getWildEncounterPityThreshold, getGuildMonsterDisplay, getGuildMonsterTier, getGuildMonsterTierDef,
   Element, StatusEffect, NpcTrainer, MonsterDef, TrainerMonster,
 } from '@/lib/monsterConfig';
 import { fetchInventory, useInventoryItem, SHOP_CATALOG } from '@/lib/inventory';
@@ -55,6 +55,7 @@ interface BattleState {
   last_sibling_battle: string | null;
   last_pvp_win: string | null;
   last_wild_encounter_win: string | null;
+  questions_since_wild_encounter: number;
 }
 
 interface MonsterGuildProps {
@@ -984,6 +985,7 @@ interface TrainingMapProps {
   userId: string;
   battleState: BattleState;
   userMonsters: UserMonster[];
+  caughtMonsters: CaughtMonster[];
   questions: any[];
   onBattleStateChange: (state: BattleState) => void;
   onMonsterExpGained: (monsterId: string, exp: number) => void;
@@ -999,7 +1001,7 @@ interface TrainingMapProps {
 }
 
 function TrainingMap({
-  userId, battleState, userMonsters, questions,
+  userId, battleState, userMonsters, caughtMonsters, questions,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll, onChallengePlayer,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
 }: TrainingMapProps) {
@@ -1090,16 +1092,36 @@ function TrainingMap({
     }
     // Daily checklist's "training map" item is satisfied by any correct grass
     // question — it no longer requires actually winning a wild encounter battle.
+    const stateUpdates: Partial<BattleState> = {};
     if (correctCount > 0) {
-      const today = new Date().toISOString().split('T')[0];
-      await supabase.from('user_battle_state').update({ last_wild_encounter_win: today }).eq('user_id', userId);
-      onBattleStateChange({ ...battleState, last_wild_encounter_win: today });
+      stateUpdates.last_wild_encounter_win = new Date().toISOString().split('T')[0];
     }
+
     // Rare wild-monster encounter roll — once per individual question answered,
     // regardless of whether it was answered correctly. Odds rise the more
     // NPC trainers the player has defeated (see getWildEncounterChance).
     const wildEncounterChance = getWildEncounterChance(battleState.defeated_trainers.length);
-    const encountered = answeredQuestions.some(() => Math.random() < wildEncounterChance);
+    let encountered = answeredQuestions.some(() => Math.random() < wildEncounterChance);
+
+    // Pity timer: below 2 defeated NPC trainers, odds stay exactly as rolled
+    // above. From 2 trainers onward, an encounter is forced once enough
+    // correctly-answered questions pass without one occurring naturally — the
+    // fewer monsters the player owns, the sooner the guarantee kicks in (see
+    // getWildEncounterPityThreshold).
+    let questionsSinceEncounter = battleState.questions_since_wild_encounter + correctCount;
+    if (!encountered && battleState.defeated_trainers.length >= 2) {
+      const totalMonstersOwned = userMonsters.length + caughtMonsters.length;
+      const pityThreshold = getWildEncounterPityThreshold(totalMonstersOwned);
+      if (pityThreshold !== null && questionsSinceEncounter >= pityThreshold) {
+        encountered = true;
+      }
+    }
+    questionsSinceEncounter = encountered ? 0 : questionsSinceEncounter;
+    stateUpdates.questions_since_wild_encounter = questionsSinceEncounter;
+
+    await supabase.from('user_battle_state').update(stateUpdates).eq('user_id', userId);
+    onBattleStateChange({ ...battleState, ...stateUpdates });
+
     if (encountered) onWildEncounterRoll?.();
   };
 
@@ -2340,6 +2362,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           userId={userId}
           battleState={battleState}
           userMonsters={userMonsters}
+          caughtMonsters={caughtMonsters}
           questions={questions}
           onBattleStateChange={setBattleState}
           onMonsterExpGained={handleMonsterExpGained}

@@ -438,6 +438,26 @@ export function getWildEncounterChance(defeatedTrainerCount: number): number {
   return Math.min(chance, cap);
 }
 
+// ─── WILD ENCOUNTER PITY TIMER ──────────────────────────────────────────────
+// Early-game safety net so a player who hasn't caught much yet isn't left to
+// the raw ~0.5-1.5% roll above. Once unlocked (2+ NPC trainers defeated), a
+// wild encounter is forced after this many correctly-answered grass questions
+// go by without one occurring naturally. Resets to standard-odds-only once
+// the player owns 5+ monsters (team + box combined).
+const WILD_ENCOUNTER_PITY_THRESHOLDS: Record<number, number> = {
+  1: 10,
+  2: 30,
+  3: 50,
+  4: 100,
+};
+
+// Number of correctly-answered questions after which an encounter should be
+// forced, given the player's total owned monster count — or null if the
+// player has 5+ monsters and should rely on getWildEncounterChance alone.
+export function getWildEncounterPityThreshold(totalMonstersOwned: number): number | null {
+  return WILD_ENCOUNTER_PITY_THRESHOLDS[totalMonstersOwned] ?? null;
+}
+
 // ─── GUILD COMPANION MONSTERS ────────────────────────────────────────────────
 // One dedicated monster per Side Quest Guild, granted the first time that
 // guild reaches level 5 (see ensureGuildMonsterGranted in lib/guildEngine.ts).
