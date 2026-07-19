@@ -1439,7 +1439,7 @@ function ClassmatesSection({ passcode }: { passcode: string }) {
     <div>
       <h2 className="text-xl font-bold text-white mb-1">Damien's Classmates</h2>
       <p className="text-gray-500 text-sm mb-6">
-        Add classmate accounts. They share Damien's Main Quest content and Monster Arena question pool but keep
+        Add classmate accounts. They share Damien's Main Quest content and Curio Arena question pool but keep
         their own independent progress, and log in from the "Damien's Classmates" group on the splash screen.
       </p>
 

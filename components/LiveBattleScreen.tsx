@@ -277,7 +277,7 @@ export default function LiveBattleScreen({
       setResolving(true);
       const won = oppWiped && !myWiped;
       const winnerId = myWiped && oppWiped ? null : (won ? myUserId : opponentId);
-      addLog(won ? `${opponentName} was defeated!` : 'All your monsters fainted!');
+      addLog(won ? `${opponentName} was defeated!` : 'All your curios fainted!');
       (won ? playVictory : playDefeat)();
       battleMusicRef.current?.pause();
       declareBattleEnd(winnerId, 'ko');
@@ -413,7 +413,7 @@ export default function LiveBattleScreen({
       case 'inflict_curse': {
         const statusTurns = BATTLE_CONSTANTS.CURSE_DURATION_TURNS;
         sendStatusEffectToOpponent('curse', statusTurns);
-        addLog(`💀 Used ${item.name}: ${opponentName}'s monster is now Cursed!`);
+        addLog(`💀 Used ${item.name}: ${opponentName}'s curio is now Cursed!`);
         break;
       }
       case 'revive': {
@@ -423,7 +423,7 @@ export default function LiveBattleScreen({
           sendSelfStateSync({ currentHp: newHp });
           addLog(`🔄 Used ${item.name}: ${myMon.def.name} revived!`);
         } else {
-          addLog('❌ Only works on fainted monsters!');
+          addLog('❌ Only works on fainted curios!');
         }
         break;
       }
@@ -549,7 +549,7 @@ export default function LiveBattleScreen({
                     className="p-3 rounded-xl border-2 border-dashed border-neutral-800 bg-neutral-950/50 text-left opacity-60"
                   >
                     <p className="text-sm font-bold text-gray-500">Empty slot</p>
-                    <p className="text-xs text-gray-600">Teach this monster a skill from the Compendium.</p>
+                    <p className="text-xs text-gray-600">Teach this curio a skill from the Compendium.</p>
                   </div>
                 );
               }
@@ -595,9 +595,9 @@ export default function LiveBattleScreen({
               className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
             >
               <p className="text-sm font-bold text-white flex items-center gap-1">
-                🔄 Switch <InfoTag text="Swap to another monster on your team — also uses up this round's turn." />
+                🔄 Switch <InfoTag text="Swap to another curio on your team — also uses up this round's turn." />
               </p>
-              <p className="text-xs text-gray-400">{otherAliveMonsters.length > 0 ? 'Change your monster' : 'No other monsters'}</p>
+              <p className="text-xs text-gray-400">{otherAliveMonsters.length > 0 ? 'Change your curio' : 'No other curios'}</p>
             </button>
             <button
               onClick={() => { setConfirmSurrender(true); setShowItemMenu(false); setShowSwitchMenu(false); }}
@@ -652,9 +652,9 @@ export default function LiveBattleScreen({
 
       {phase === 'select_skill' && !answering && showSwitchMenu && (
         <div className="mt-4 bg-neutral-950 border border-neutral-700 rounded-2xl p-4 space-y-2">
-          <p className="text-white font-bold text-center mb-2">🔄 Switch Monster</p>
+          <p className="text-white font-bold text-center mb-2">🔄 Switch Curio</p>
           {otherAliveMonsters.length === 0 ? (
-            <p className="text-gray-500 text-sm text-center">No other monsters available.</p>
+            <p className="text-gray-500 text-sm text-center">No other curios available.</p>
           ) : (
             otherAliveMonsters.map(({ m, i }) => (
               <button

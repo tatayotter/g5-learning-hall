@@ -19,7 +19,7 @@ interface MonsterHpPanelProps {
 export default function MonsterHpPanel({ name, level, def, currentHp, maxHp, status, animClassName = '', align = 'left' }: MonsterHpPanelProps) {
   return (
     <div className="text-center">
-      <p className="text-xs text-gray-500 mb-1">{align === 'left' ? 'Your Monster' : 'Opponent'}</p>
+      <p className="text-xs text-gray-500 mb-1">{align === 'left' ? 'Your Curio' : 'Opponent'}</p>
       <div className={`w-16 h-16 mx-auto mb-2 ${animClassName}`}>
         <MonsterImage monster={def} className="w-full h-full battle-float" emojiClassName="text-4xl" />
       </div>

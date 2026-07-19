@@ -164,7 +164,7 @@ function CardStats({ id, stats, monster, lastLogin, accent, goldColor, loaded }:
             </p>
           </>
         ) : (
-          <p className="text-xs text-gray-700 italic">No active monster</p>
+          <p className="text-xs text-gray-700 italic">No active curio</p>
         )}
       </div>
 

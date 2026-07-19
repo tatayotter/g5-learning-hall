@@ -77,7 +77,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
       onSpendGold(newStats);
       await addInventoryItem(userId, key, 1);
       await loadInventory();
-      logAction(userId, new Date().toISOString().split('T')[0], 'purchase', `Bought ${name} from Monster Arena Shop`, 0, -cost);
+      logAction(userId, new Date().toISOString().split('T')[0], 'purchase', `Bought ${name} from Curio Arena Shop`, 0, -cost);
     } finally {
       buyBusyRef.current = false;
       setBuyingKey(null);
@@ -88,9 +88,9 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-2 font-display">⚔️ Monster Arena Shop</h1>
+      <h1 className="text-3xl font-bold mb-2 font-display">⚔️ Curio Arena Shop</h1>
       <p className="text-gray-400 text-sm mb-6">
-        Buy consumable items to use in Monster Arena battles.
+        Buy consumable items to use in Curio Arena battles.
         {isFamily && ' As a family member, you receive free daily supplies!'}
       </p>
 

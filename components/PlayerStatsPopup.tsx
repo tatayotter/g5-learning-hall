@@ -103,7 +103,7 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
             </div>
 
             <div className="bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3 mb-3">
-              <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Active Monster</p>
+              <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Active Curio</p>
               {activeMonster ? (
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 flex-shrink-0">
@@ -119,7 +119,7 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
                   </div>
                 </div>
               ) : (
-                <p className="text-gray-600 text-sm">No active monster</p>
+                <p className="text-gray-600 text-sm">No active curio</p>
               )}
             </div>
 

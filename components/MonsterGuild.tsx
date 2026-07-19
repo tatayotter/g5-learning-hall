@@ -391,7 +391,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
           setPlayerMonsters(prev => prev.map((m, i) => i === playerMonsterIdx ? { ...m, currentHp: Math.round(m.maxHp * 0.5) } : m));
           addLog(`🔄 Used ${item.name}: ${playerMon.def.name} revived!`);
         } else {
-          addLog(`❌ Only works on fainted monsters!`);
+          addLog(`❌ Only works on fainted curios!`);
         }
         break;
       }
@@ -444,7 +444,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
 
         const nextIdx = updatedPlayer.findIndex((m, i) => i !== playerMonsterIdx && m.currentHp > 0);
         if (nextIdx === -1) {
-          addLog('All your monsters fainted! You lost!');
+          addLog('All your curios fainted! You lost!');
           playDefeat();
           battleMusicRef.current?.pause();
           setBattleResult({ won: false, exp: 0, reason: 'ko' });
@@ -545,7 +545,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
         return;
       }
       setNpcMonsterIdx(nextNpc);
-      addLog(`${opponentName} sends out ${npcMonsters[nextNpc]?.def.name || 'another monster'}!`);
+      addLog(`${opponentName} sends out ${npcMonsters[nextNpc]?.def.name || 'another curio'}!`);
     }
 
     doNpcTurn();
@@ -598,7 +598,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
         addLog(`${currentPlayer.def.name} fainted!`);
         const nextIdx = updatedPlayer.findIndex((m, i) => i !== currentIdx && m.currentHp > 0);
         if (nextIdx === -1) {
-          addLog('All your monsters fainted! You lost!');
+          addLog('All your curios fainted! You lost!');
           playDefeat();
           battleMusicRef.current?.pause();
           setBattleResult({ won: false, exp: 0, reason: 'ko' });
@@ -655,7 +655,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
         left={{ avatarSrc: me?.avatar || '/userpics/Spr_RS_School_Kid_M.png', name: me?.fullName ?? userId, mon: playerMon, isWinner: battleResult.won }}
         right={{ avatarSrc: opponentAvatarSrc, avatarFallbackEmoji: opponentFallbackEmoji, name: opponentName, mon: npcMon, isWinner: !battleResult.won }}
         log={log}
-        rewardLine={battleResult.won && battleResult.exp > 0 ? `+${battleResult.exp} Monster EXP earned!` : undefined}
+        rewardLine={battleResult.won && battleResult.exp > 0 ? `+${battleResult.exp} Curio EXP earned!` : undefined}
         onContinue={() => onBattleEnd(battleResult.won, battleResult.exp)}
       />
     );
@@ -667,7 +667,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
       <div className="flex justify-between items-start mb-6">
         {/* Player monster — LEFT */}
         <div className="text-center">
-          <p className="text-xs text-gray-500 mb-1">Your Monster</p>
+          <p className="text-xs text-gray-500 mb-1">Your Curio</p>
           <div className={`w-16 h-16 mx-auto mb-2 ${playerAnim}`}>
             <MonsterImage monster={playerMon.def} className="w-full h-full battle-float" emojiClassName="text-4xl" />
           </div>
@@ -756,7 +756,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
                   className="bg-neutral-950/50 border-2 border-dashed border-neutral-800 rounded-xl p-4 text-left opacity-60"
                 >
                   <p className="font-bold text-gray-500 text-sm">Empty slot</p>
-                  <p className="text-xs text-gray-600 mt-1">Teach this monster a skill from the Compendium.</p>
+                  <p className="text-xs text-gray-600 mt-1">Teach this curio a skill from the Compendium.</p>
                 </div>
               );
             }
@@ -778,7 +778,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
             className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
           >
             <p className="font-bold text-white text-sm flex items-center gap-1">
-              😴 Rest <InfoTag text="Heals your monster and uses up this turn — the trainer's monster still attacks normally. Limited uses per battle." />
+              😴 Rest <InfoTag text="Heals your curio and uses up this turn — the trainer's curio still attacks normally. Limited uses per battle." />
             </p>
             <p className="text-xs text-gray-400">Restore {Math.round(restConfig.hpRestorePercent * 100)}% HP</p>
           </button>
@@ -794,7 +794,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
               className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all btn-tactile"
             >
               <p className="font-bold text-white text-sm flex items-center gap-1">
-                🎒 Items <InfoTag text="Using an item also uses up this turn — the trainer's monster still attacks normally." />
+                🎒 Items <InfoTag text="Using an item also uses up this turn — the trainer's curio still attacks normally." />
               </p>
               <p className="text-xs text-gray-400">Use items from inventory</p>
             </button>
@@ -804,16 +804,16 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
               className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
             >
               <p className="font-bold text-white text-sm flex items-center gap-1">
-                🔄 Switch <InfoTag text="Swap to another monster on your team — also uses up this turn." />
+                🔄 Switch <InfoTag text="Swap to another curio on your team — also uses up this turn." />
               </p>
-              <p className="text-xs text-gray-400">{otherAlivePlayerMonsters.length > 0 ? 'Change your monster' : 'No other monsters'}</p>
+              <p className="text-xs text-gray-400">{otherAlivePlayerMonsters.length > 0 ? 'Change your curio' : 'No other curios'}</p>
             </button>
             <button
               onClick={() => setConfirmSurrender(true)}
               className="bg-neutral-800 hover:bg-neutral-700 border border-red-900/60 hover:border-red-500 rounded-xl p-4 text-left transition-all btn-tactile"
             >
               <p className="font-bold text-red-400 text-sm flex items-center gap-1">
-                🏳️ Surrender <InfoTag text="Ends the battle immediately with no Monster EXP earned." />
+                🏳️ Surrender <InfoTag text="Ends the battle immediately with no Curio EXP earned." />
               </p>
               <p className="text-xs text-gray-400">Forfeit the match</p>
             </button>
@@ -824,7 +824,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
       {phase === 'select_skill' && confirmSurrender && (
         <div className="mt-4 bg-neutral-950 border border-red-900 rounded-2xl p-4 text-center space-y-3">
           <p className="text-white font-bold">Surrender the battle?</p>
-          <p className="text-xs text-gray-400">You'll earn no Monster EXP.</p>
+          <p className="text-xs text-gray-400">You'll earn no Curio EXP.</p>
           <div className="flex gap-2">
             <button
               onClick={() => setConfirmSurrender(false)}
@@ -848,10 +848,10 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
 
       {phase === 'select_switch' && (
         <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 space-y-4">
-          <p className="text-white font-bold text-center mb-2">🔄 Switch Monster</p>
+          <p className="text-white font-bold text-center mb-2">🔄 Switch Curio</p>
           <div className="space-y-2">
             {otherAlivePlayerMonsters.length === 0 ? (
-              <p className="text-gray-500 text-sm text-center">No other monsters available.</p>
+              <p className="text-gray-500 text-sm text-center">No other curios available.</p>
             ) : (
               otherAlivePlayerMonsters.map(({ m, i }) => (
                 <button
@@ -990,7 +990,7 @@ function StarterSelection({ userId, onComplete }: StarterSelectionProps) {
   return (
     <div className="max-w-4xl mx-auto">
       <h2 className="text-3xl font-display font-bold text-white mb-2">🐉 Choose Your Starter</h2>
-      <p className="text-gray-400 mb-8">Pick your first monster. Choose wisely — you'll unlock more as you level up!</p>
+      <p className="text-gray-400 mb-8">Pick your first curio. Choose wisely — you'll unlock more as you level up!</p>
       <div className="grid grid-cols-3 gap-4 mb-8">
         {starters.map(monster => (
           <button
@@ -1331,7 +1331,7 @@ function TrainingMap({
 
           {/* Active monster */}
           <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-4">
-            <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Active Monster</p>
+            <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Active Curio</p>
             {activeMonster ? (() => {
               const def = monsterDisplay[activeMonster.monster_id];
               const expIntoLevel = activeMonster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL;
@@ -1353,7 +1353,7 @@ function TrainingMap({
                 </div>
               );
             })() : (
-              <p className="text-gray-500 text-sm">No active monster</p>
+              <p className="text-gray-500 text-sm">No active curio</p>
             )}
           </div>
 
@@ -1430,8 +1430,8 @@ function TrainingMap({
             </summary>
             <div className="space-y-2 text-xs text-gray-400 mt-3">
               <p>⌨️ Use <span className="text-white font-bold">arrow keys</span> or the buttons below to move.</p>
-              <p>🌿 Walk through <span className="text-white font-bold">grass tiles</span> repeatedly to grind monster EXP.</p>
-              <p>⚔️ Monster reaches <span className="text-white font-bold">Lv.5</span> to unlock Tier 2 skill, <span className="text-white font-bold">Lv.10</span> for Tier 3.</p>
+              <p>🌿 Walk through <span className="text-white font-bold">grass tiles</span> repeatedly to grind curio EXP.</p>
+              <p>⚔️ Curio reaches <span className="text-white font-bold">Lv.5</span> to unlock Tier 2 skill, <span className="text-white font-bold">Lv.10</span> for Tier 3.</p>
               <p>🏠 Return to <span className="text-white font-bold">town</span> to heal before challenging a trainer.</p>
               <p>💡 Defeat trainers in order from the <span className="text-white font-bold">⚔️ Trainers</span> tab — each one gets harder and requires a higher player level.</p>
             </div>
@@ -1750,7 +1750,7 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
     <div className="space-y-6">
       <div>
         <h3 className="text-lg font-bold text-white font-display">📖 Compendium</h3>
-        <p className="text-xs text-gray-500">Every monster species in the game. Wild-only species stay a mystery silhouette until you encounter one on the Training Map.</p>
+        <p className="text-xs text-gray-500">Every curio species in the game. Wild-only species stay a mystery silhouette until you encounter one on the Training Map.</p>
       </div>
 
       {/* Rare, wild-caught monsters land here first (never straight into a team
@@ -1940,7 +1940,7 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
                     🔒 Reach {selectedEntry.guildLabel} Level {selectedEntry.unlockLevel} to {selectedEntry.tier === 1 ? 'earn this companion' : 'reveal this graduation'}.
                   </p>
                 ) : (
-                  <p className="text-sm text-gray-500 mt-2">A mysterious wild monster — its identity is still unknown. Keep answering questions on the Training Map for a chance to encounter it.</p>
+                  <p className="text-sm text-gray-500 mt-2">A mysterious wild curio — its identity is still unknown. Keep answering questions on the Training Map for a chance to encounter it.</p>
                 )}
               </div>
             </div>
@@ -2328,7 +2328,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       .order('slot');
 
     if (!opponentMonsters || opponentMonsters.length === 0) {
-      showNotification(`${opponentName} has no monsters yet!`);
+      showNotification(`${opponentName} has no curios yet!`);
       return;
     }
 
@@ -2417,7 +2417,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
         }
         showNotification('🥊 You bullied the Training Dummy!');
         await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: 'training_tester', result: 'win', monster_exp_earned: expEarned });
-        logAction(userId, today, 'battle', `🥊 Beat the Training Dummy — +${expEarned} Monster EXP`, expEarned, 0);
+        logAction(userId, today, 'battle', `🥊 Beat the Training Dummy — +${expEarned} Curio EXP`, expEarned, 0);
         onBattleWon('dummy');
       } else {
         showNotification('💀 Even the dummy got you this time...');
@@ -2446,7 +2446,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       }
       showNotification(`🏆 You defeated ${activeBattle.name}!`);
       await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: activeBattle.id, result: 'win', monster_exp_earned: expEarned });
-      logAction(userId, today, 'battle', `🏆 Defeated Trainer ${activeBattle.name} — +${expEarned} Monster EXP`, expEarned, 0);
+      logAction(userId, today, 'battle', `🏆 Defeated Trainer ${activeBattle.name} — +${expEarned} Curio EXP`, expEarned, 0);
       onBattleWon('trainer');
     } else {
       showNotification('💀 You lost the battle...');
@@ -2497,7 +2497,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
   };
 
   if (loading) {
-    return <div className="text-center py-20 text-gray-500 animate-pulse">Loading Monster Guild...</div>;
+    return <div className="text-center py-20 text-gray-500 animate-pulse">Loading Curio Guild...</div>;
   }
 
   if (userMonsters.length === 0) {
@@ -2517,7 +2517,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
         </div>
       )}
 
-      <h2 className="text-3xl font-display font-bold text-white mb-6">🐉 Monster Guild</h2>
+      <h2 className="text-3xl font-display font-bold text-white mb-6">🐉 Curio Guild</h2>
 
       {/* Sub-nav */}
       <div className="flex gap-2 mb-8 border-b border-neutral-800">

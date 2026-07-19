@@ -374,7 +374,7 @@ export default function Dashboard() {
             { id: 'board',   label: '🏰 Main Quests' },
             { id: 'vault',   label: '🏪 Rewards Vault' },
             { id: 'guilds',  label: '⚔️ Learning Guilds' },
-            { id: 'monster', label: '🐉 Monster Arena' },
+            { id: 'monster', label: '🐉 Curio Arena' },
             { id: 'log',     label: '📖 Logs' },
           ].map(tab => (
             <GameButton
