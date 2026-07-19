@@ -25,6 +25,8 @@ export interface LeaderboardEntry {
   trainerBattlesWon: number;
   liveBattleWins: number;
   team: LeaderboardTeamMonster[];
+  monstersCollected: number;
+  topMonster: LeaderboardTeamMonster | null;
   score: number;
 }
 
@@ -33,9 +35,10 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
   const ids = Object.keys(USERS);
   if (ids.length === 0) return [];
 
-  const [battleStateRes, monstersRes, weeklyRes, questionsRes, battleLogRes] = await Promise.all([
+  const [battleStateRes, monstersRes, caughtRes, weeklyRes, questionsRes, battleLogRes] = await Promise.all([
     supabase.from('user_battle_state').select('user_id, defeated_trainers').in('user_id', ids),
     supabase.from('user_monsters').select('user_id, monster_id, monster_level, nickname, slot').in('user_id', ids).order('slot'),
+    supabase.from('user_caught_monsters').select('user_id, monster_id, monster_level, nickname').in('user_id', ids),
     supabase.from('weekly_packages').select('user_id, character_stats, week_starting_date').in('user_id', ids),
     supabase.from('user_completed_questions').select('user_id').eq('quest_type', MONSTER_ARENA_QUEST_TYPE).in('user_id', ids),
     supabase.from('monster_battle_log').select('user_id, opponent').eq('result', 'win').in('user_id', ids),
@@ -52,6 +55,31 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
     list.push({ monster_id: row.monster_id, monster_level: row.monster_level, nickname: row.nickname });
     teamByUser.set(row.user_id, list);
   });
+
+  // Distinct species owned — active team plus bench (user_caught_monsters),
+  // same union MonsterGuild.tsx uses for its Compendium "owned" set.
+  const speciesByUser = new Map<string, Set<string>>();
+  const addSpecies = (userId: string, monsterId: string) => {
+    const set = speciesByUser.get(userId) || new Set<string>();
+    set.add(monsterId);
+    speciesByUser.set(userId, set);
+  };
+  (monstersRes.data || []).forEach((row: any) => addSpecies(row.user_id, row.monster_id));
+  (caughtRes.data || []).forEach((row: any) => addSpecies(row.user_id, row.monster_id));
+
+  // Highest-level monster owned — active team plus bench, mirroring the same
+  // union used for monstersCollected above.
+  const topMonsterByUser = new Map<string, LeaderboardTeamMonster>();
+  const considerMonster = (userId: string, monster: LeaderboardTeamMonster) => {
+    const current = topMonsterByUser.get(userId);
+    if (!current || monster.monster_level > current.monster_level) {
+      topMonsterByUser.set(userId, monster);
+    }
+  };
+  (monstersRes.data || []).forEach((row: any) =>
+    considerMonster(row.user_id, { monster_id: row.monster_id, monster_level: row.monster_level, nickname: row.nickname }));
+  (caughtRes.data || []).forEach((row: any) =>
+    considerMonster(row.user_id, { monster_id: row.monster_id, monster_level: row.monster_level, nickname: row.nickname }));
 
   const statsByUser = new Map<string, { level: number; gold: number; week: string }>();
   (weeklyRes.data || []).forEach((row: any) => {
@@ -91,6 +119,7 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
     const questionsAnswered = questionsByUser.get(id) || 0;
     const trainerBattlesWon = defeatedByUser.get(id) || 0;
     const liveBattleWins = winsByUser.get(id) || 0;
+    const monstersCollected = speciesByUser.get(id)?.size || 0;
     // Weighted so the two headline achievements (live battle wins, trainer
     // wins) matter most, with level and raw questions answered as a baseline
     // participation credit.
@@ -107,6 +136,8 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
       trainerBattlesWon,
       liveBattleWins,
       team: teamByUser.get(id) || [],
+      monstersCollected,
+      topMonster: topMonsterByUser.get(id) || null,
       score,
     };
   });

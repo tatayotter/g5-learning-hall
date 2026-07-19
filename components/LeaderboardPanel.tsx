@@ -32,13 +32,20 @@ function TeamStrip({ team }: { team: LeaderboardEntry['team'] }) {
   );
 }
 
-function StatChip({ label, value }: { label: string; value: number }) {
+function StatChip({ label, value }: { label: string; value: number | string }) {
   return (
     <div className="bg-black/30 rounded-lg px-3 py-2 text-center">
       <p className="text-lg font-bold text-white font-mono">{value}</p>
       <p className="text-[10px] text-gray-500 uppercase tracking-wide">{label}</p>
     </div>
   );
+}
+
+function topMonsterLabel(topMonster: LeaderboardEntry['topMonster']): string {
+  if (!topMonster) return '—';
+  const def = ALL_MONSTERS[topMonster.monster_id];
+  const name = topMonster.nickname || def?.name || topMonster.monster_id;
+  return `${name} Lv.${topMonster.monster_level}`;
 }
 
 function TopEntryCard({ entry, rank }: { entry: LeaderboardEntry; rank: number }) {
@@ -66,11 +73,13 @@ function TopEntryCard({ entry, rank }: { entry: LeaderboardEntry; rank: number }
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-2 mb-4">
+      <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-4">
         <StatChip label="Level" value={entry.level} />
         <StatChip label="Trainer Wins" value={entry.trainerBattlesWon} />
         <StatChip label="Live Wins" value={entry.liveBattleWins} />
         <StatChip label="Questions" value={entry.questionsAnswered} />
+        <StatChip label="Monsters" value={entry.monstersCollected} />
+        <StatChip label="Top Monster" value={topMonsterLabel(entry.topMonster)} />
       </div>
       <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Team</p>
       <TeamStrip team={entry.team} />
@@ -113,6 +122,14 @@ function RankRow({ entry, rank }: { entry: LeaderboardEntry; rank: number }) {
         <div>
           <p className="text-xs text-gray-500">❓ Qs</p>
           <p className="text-sm font-mono text-white">{entry.questionsAnswered}</p>
+        </div>
+        <div>
+          <p className="text-xs text-gray-500">👾 Mons</p>
+          <p className="text-sm font-mono text-white">{entry.monstersCollected}</p>
+        </div>
+        <div>
+          <p className="text-xs text-gray-500">🌟 Top</p>
+          <p className="text-sm font-mono text-white whitespace-nowrap">{topMonsterLabel(entry.topMonster)}</p>
         </div>
         <div>
           <p className="text-xs text-amber-500">Score</p>
