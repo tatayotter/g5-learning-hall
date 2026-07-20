@@ -334,7 +334,7 @@ export default function Dashboard() {
       <div className="app-content">
         <div className="min-h-screen bg-black text-white flex flex-col md:flex-row">
       {/* Sidebar */}
-      <aside className={`relative bg-neutral-950 border-r border-neutral-800 overflow-y-auto transition-all duration-300 ${sidebarOpen ? 'w-full md:w-80 p-6' : 'w-12 p-0'}`}>
+      <aside className={`relative bg-neutral-950 border-r border-neutral-800 transition-all duration-300 ${sidebarOpen ? 'w-full md:w-80 p-6 overflow-y-auto' : 'w-12 h-12 md:h-auto p-0 overflow-visible'}`}>
         {/* Toggle button */}
         <button
           onClick={toggleSidebar}
