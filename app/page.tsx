@@ -580,7 +580,7 @@ export default function Dashboard() {
           <div>
             <h1 className="text-3xl font-bold mb-8 font-display">🏪 The Gold Token Rewards Vault</h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {Object.entries(VAULT_CATALOG).map(([key, item]) => (
                 <div key={key} className="bg-[#111] border border-[#333] p-6 rounded-xl flex flex-col justify-between h-full">
                   <div>
