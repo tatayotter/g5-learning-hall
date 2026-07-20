@@ -614,18 +614,19 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
   },
   numberrealm_familiar: {
     id: 'numberrealm_familiar', name: 'Digitot', element: 'water', archetype: 'balanced',
-    emoji: '🐠', description: 'A small fish whose scales are etched with tally marks. It counts its own bubbles as it swims.',
+    emoji: '🐠', spriteId: 'digitot',
+    description: 'A small fish whose scales are etched with tally marks. It counts its own bubbles as it swims.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     guildEvolution: {
       guildKey: 'number_realm',
       tier2: {
-        level: 10, name: 'Sumray', emoji: '🐡',
+        level: 10, name: 'Sumray', emoji: '🐡', spriteId: 'sumray',
         description: 'Its tally-mark scales have multiplied into a puffed-up ledger of sums, bristling whenever a calculation comes up short.',
       },
       tier3: {
-        level: 20, name: 'Infinifin', emoji: '🐋', isLegendary: true,
+        level: 20, name: 'Infinifin', emoji: '🐋', spriteId: 'infinifin', isLegendary: true,
         description: 'A leviathan built from every number it has ever counted, so vast that some digits are still catching up to its tail.',
       },
     },
@@ -650,20 +651,21 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
     },
   },
   lexiconarena_familiar: {
-    id: 'lexiconarena_familiar', name: 'Wordwisp', element: 'light', archetype: 'glass_cannon',
-    emoji: '🐝', description: 'A tiny glowing bee that spells out letters in the air with its flight path before it vanishes.',
+    id: 'lexiconarena_familiar', name: 'Pollyglyph', element: 'light', archetype: 'glass_cannon',
+    emoji: '🦜', spriteId: 'pollyglyph',
+    description: 'A fledgling parrot that mimics every word it hears until each one sprouts a tiny glowing glyph on its feathers.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     guildEvolution: {
       guildKey: 'lexicon_arena',
       tier2: {
-        level: 10, name: 'Lexihawk', emoji: '🦜',
-        description: 'It has traded its glow for feathers, screeching out synonyms mid-flight until the right word lands.',
+        level: 10, name: 'Squawkolar', emoji: '🦉', spriteId: 'squawkolar',
+        description: 'It has traded mimicry for mastery, footnoting its own squawks with etymology no one asked for.',
       },
       tier3: {
-        level: 20, name: 'Thesauryx', emoji: '🦚', isLegendary: true,
-        description: 'A peacock whose tail unfurls into a fan of every word that ever meant almost the same thing, dazzling and precise all at once.',
+        level: 20, name: 'Admiral Psquawk', emoji: '🦅', spriteId: 'admiral_psquawk', isLegendary: true,
+        description: 'A decorated commander of every word ever spoken, barking corrections from a crow\'s nest built out of dictionaries.',
       },
     },
   },

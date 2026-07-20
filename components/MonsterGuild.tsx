@@ -25,7 +25,7 @@ import {
 } from '@/lib/guildEngine';
 import { GUILDS } from '@/lib/dailyChecklist';
 import {
-  UserMonster, ActiveBattleMonster, MonsterImage, BattleQuestionModal,
+  UserMonster, ActiveBattleMonster, MonsterImage, BattleQuestionModal, LegendaryBadge,
 } from '@/components/battle/shared';
 import LiveBattleScreen from '@/components/LiveBattleScreen';
 import PostBattleSummary from '@/components/battle/PostBattleSummary';
@@ -1595,8 +1595,9 @@ const ELEMENT_STYLES: Record<Element, string> = {
 };
 
 // Renders a monster's sprite as a flat black silhouette — deliberately
-// bypasses MonsterImage so neither the emoji fallback nor the legendary
-// crown badge can leak a hint about the mystery species underneath.
+// bypasses MonsterImage so the emoji fallback can't leak a hint about the
+// mystery species underneath. Callers overlay their own LegendaryBadge
+// (isLegendary is safe to reveal — it doesn't identify the species).
 function MonsterSilhouette({ id, className = '' }: { id: string; className?: string }) {
   const [failed, setFailed] = useState(false);
   if (failed) {
@@ -1930,8 +1931,9 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
             </div>
           ) : (
             <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start">
-              <div className="w-28 h-28 flex-shrink-0">
+              <div className="relative w-28 h-28 flex-shrink-0">
                 <MonsterSilhouette id={selected.spriteId ?? selected.id} className="w-full h-full" />
+                {selected.isLegendary && <LegendaryBadge />}
               </div>
               <div className="text-center sm:text-left">
                 <p className="text-xl font-bold text-white font-display">???</p>
@@ -1964,11 +1966,14 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
                 selectedKey === entry.key ? 'border-amber-400 bg-amber-900/10' : 'border-neutral-800 bg-neutral-900/50 hover:border-neutral-700'
               }`}
             >
-              <div className="w-14 h-14 mx-auto mb-2">
+              <div className="relative w-14 h-14 mx-auto mb-2">
                 {known ? (
                   <MonsterImage monster={entry.def} className="w-full h-full" emojiClassName="text-3xl" />
                 ) : (
-                  <MonsterSilhouette id={entry.def.spriteId ?? entry.speciesId} className="w-full h-full" />
+                  <>
+                    <MonsterSilhouette id={entry.def.spriteId ?? entry.speciesId} className="w-full h-full" />
+                    {entry.def.isLegendary && <LegendaryBadge />}
+                  </>
                 )}
               </div>
               <p className="text-xs font-bold text-white truncate">{known ? entry.def.name : '???'}</p>

@@ -35,7 +35,7 @@ export interface ActiveBattleMonster {
 // monster's sprite/emoji. Rendered by MonsterImage itself so every call
 // site — battle screens, guild roster, leaderboard, splash, etc — gets the
 // tag for free without needing to know which monsters are legendary.
-function LegendaryBadge() {
+export function LegendaryBadge() {
   return (
     <span
       className="absolute -top-1 -right-1 leading-none text-[0.7em] drop-shadow-[0_0_2px_rgba(0,0,0,0.8)] pointer-events-none select-none"
