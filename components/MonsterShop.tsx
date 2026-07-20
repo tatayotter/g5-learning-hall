@@ -128,7 +128,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
       </div>
 
       {/* Shop */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {SHOP_CATALOG.map(item => (
           <div key={item.key} className="bg-[#111] border border-[#333] p-5 rounded-xl flex flex-col justify-between">
             <div>
@@ -191,7 +191,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {SCROLL_CATALOG
             .filter(item => scrollCategory === 'all' || item.category === scrollCategory)
             .filter(item => scrollElement === 'all' || item.element === scrollElement || item.category === 'unlearn' || item.category === 'universal')
