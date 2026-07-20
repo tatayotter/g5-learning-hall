@@ -632,18 +632,19 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
   },
   logiclabyrinth_familiar: {
     id: 'logiclabyrinth_familiar', name: 'Quizzicube', element: 'storm', archetype: 'tank',
-    emoji: '🧊', description: 'A small cube built from shifting question-mark panels, each face humming with a different riddle. It rolls in place when stumped, waiting for the right answer to click it into shape.',
+    emoji: '🧊', spriteId: 'quizzicube',
+    description: 'A small cube built from shifting question-mark panels, each face humming with a different riddle. It rolls in place when stumped, waiting for the right answer to click it into shape.',
     ...STAT_PRESETS.tank,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     guildEvolution: {
       guildKey: 'logic_labyrinth',
       tier2: {
-        level: 10, name: 'Labrynthox', emoji: '🌀',
+        level: 10, name: 'Labrynthox', emoji: '🌀', spriteId: 'labrynthox',
         description: 'The cube has unfolded into a maze-backed beast, corridors running the length of its shell. Wrong turns echo through its body until the right path lights up on its own.',
       },
       tier3: {
-        level: 20, name: 'Infinitaze', emoji: '♾️', isLegendary: true,
+        level: 20, name: 'Infinitaze', emoji: '♾️', spriteId: 'infinitaze', isLegendary: true,
         description: 'A labyrinth given form, its passages looping back through themselves without end. It doesn\'t solve puzzles anymore — it simply becomes the answer, and lets you catch up.',
       },
     },
