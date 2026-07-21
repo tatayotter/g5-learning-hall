@@ -367,8 +367,10 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
     }
 
     switch (item.effect) {
-      case 'heal_30': {
-        const healAmount = 30;
+      case 'heal_30':
+      case 'heal_60':
+      case 'heal_120': {
+        const healAmount = Number(item.effect.split('_')[1]);
         const newHp = Math.min(playerMon.maxHp, playerMon.currentHp + healAmount);
         setPlayerMonsters(prev => prev.map((m, i) => i === playerMonsterIdx ? { ...m, currentHp: newHp } : m));
         addLog(`🧪 Used ${item.name}: Restored ${healAmount} HP!`);

@@ -2,6 +2,8 @@ import { supabase } from './supabase';
 
 export type ItemKey =
   | 'health_potion'
+  | 'health_potion_medium'
+  | 'health_potion_large'
   | 'attack_scroll'
   | 'iron_shield'
   | 'blessed_charm'
@@ -19,7 +21,9 @@ export interface ShopItem {
 }
 
 export const SHOP_CATALOG: ShopItem[] = [
-  { key: 'health_potion',  name: 'Health Potion',  icon: '/items/health_potion_100.webp', cost: 20,  desc: 'Restore 30 HP to your monster mid-battle.',          effect: 'heal_30'        },
+  { key: 'health_potion',        name: 'Health Potion',        icon: '/items/health_potion_100.webp',   cost: 20,  desc: 'Restore 30 HP to your monster mid-battle.',   effect: 'heal_30'  },
+  { key: 'health_potion_medium', name: 'Medium Health Potion', icon: '/items/health_potion_m_100.webp', cost: 40,  desc: 'Restore 60 HP to your monster mid-battle.',   effect: 'heal_60'  },
+  { key: 'health_potion_large',  name: 'Large Health Potion',  icon: '/items/health_potion_l_100.webp', cost: 80,  desc: 'Restore 120 HP to your monster mid-battle.',  effect: 'heal_120' },
   { key: 'attack_scroll',  name: 'Attack Scroll',  icon: '/items/attack_scroll_100.webp', cost: 30,  desc: 'Boost your monster\'s attack by 1.5x for one turn.', effect: 'atk_boost_1t'  },
   { key: 'iron_shield',    name: 'Iron Shield',    icon: '/items/iron_shield_100.webp', cost: 30,  desc: 'Reduce incoming damage by half for one turn.',        effect: 'def_boost_1t'  },
   { key: 'blessed_charm',  name: 'Blessed Charm',  icon: '/items/blessed_charm_100.webp', cost: 50,  desc: 'Apply the Blessed status to your monster.',           effect: 'apply_blessed' },

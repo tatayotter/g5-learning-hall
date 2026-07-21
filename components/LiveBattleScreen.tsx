@@ -411,8 +411,10 @@ export default function LiveBattleScreen({
     setShowItemMenu(false);
 
     switch (item.effect) {
-      case 'heal_30': {
-        const healAmount = 30;
+      case 'heal_30':
+      case 'heal_60':
+      case 'heal_120': {
+        const healAmount = Number(item.effect.split('_')[1]);
         const newHp = Math.min(myMon.maxHp, myMon.currentHp + healAmount);
         updateMyActive(prev => ({ ...prev, currentHp: newHp }));
         sendSelfStateSync({ currentHp: newHp });
