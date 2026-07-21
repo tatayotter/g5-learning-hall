@@ -1589,7 +1589,7 @@ function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange, monsterDis
   monsterDisplay: Record<string, MonsterDef>;
 }) {
   const unlockedSlots = getUnlockedMonsterSlots(playerLevel);
-  const allMonsters = Object.values(MONSTERS);
+  const benchedMonsters = userMonsters.filter(m => m.slot === null);
 
   const handleAddMonster = async (slot: number, monsterId: string) => {
     // set_team_slot never overwrites an existing monster's row — it reuses
@@ -1625,17 +1625,25 @@ function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange, monsterDis
             ) : !monster || !def ? (
               <div>
                 <p className="text-gray-400 text-sm mb-2">Slot {slot} — Choose a monster:</p>
-                <div className="flex flex-wrap gap-2">
-                  {allMonsters.map(m => (
-                    <button
-                      key={m.id}
-                      onClick={() => handleAddMonster(slot, m.id)}
-                      className="text-sm bg-neutral-800 hover:bg-neutral-700 px-3 py-1 rounded-lg text-white"
-                    >
-                      {m.name}
-                    </button>
-                  ))}
-                </div>
+                {benchedMonsters.length === 0 ? (
+                  <p className="text-xs text-gray-600">No captured monsters available. Catch one on the Training Map first!</p>
+                ) : (
+                  <div className="flex flex-wrap gap-2">
+                    {benchedMonsters.map(bm => {
+                      const bmDef = monsterDisplay[bm.monster_id];
+                      if (!bmDef) return null;
+                      return (
+                        <button
+                          key={bm.id}
+                          onClick={() => handleAddMonster(slot, bm.monster_id)}
+                          className="text-sm bg-neutral-800 hover:bg-neutral-700 px-3 py-1 rounded-lg text-white"
+                        >
+                          {bmDef.name} <span className="text-gray-500">Lv.{bm.monster_level}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             ) : (
               <div className="flex items-center gap-4">
