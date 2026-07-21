@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { differenceInSeconds } from 'date-fns';
+import { AnimatePresence, motion } from 'framer-motion';
 import { CustomEvent, EventQuest, UserEventProgressRow } from '@/lib/customEvents';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 
@@ -11,6 +12,7 @@ interface EventPanelProps {
   progress: UserEventProgressRow[];
   claimed: boolean;
   onPlayQuest: (eventQuestId: string) => void;
+  onNavigateToBoard: () => void;
 }
 
 function formatCountdown(secondsLeft: number): string {
@@ -24,10 +26,11 @@ function formatCountdown(secondsLeft: number): string {
   return `${minutes}m ${seconds}s`;
 }
 
-export default function EventPanel({ event, eventQuests, progress, claimed, onPlayQuest }: EventPanelProps) {
+export default function EventPanel({ event, eventQuests, progress, claimed, onPlayQuest, onNavigateToBoard }: EventPanelProps) {
   const [secondsLeft, setSecondsLeft] = useState(() =>
     differenceInSeconds(new Date(`${event.end_date}T23:59:59`), new Date())
   );
+  const [showFullPoster, setShowFullPoster] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -45,7 +48,14 @@ export default function EventPanel({ event, eventQuests, progress, claimed, onPl
   return (
     <div className="bg-[#1a1208] border border-amber-800 rounded-xl p-5 mb-6 text-white overflow-hidden relative">
       {event.banner_url && (
-        <img src={event.banner_url} alt={event.title} className="w-full h-24 object-cover rounded-lg mb-3" />
+        <button
+          type="button"
+          onClick={() => setShowFullPoster(true)}
+          className="block w-full rounded-lg mb-3 cursor-zoom-in"
+          title="View full poster"
+        >
+          <img src={event.banner_url} alt={event.title} className="w-full h-auto rounded-lg" />
+        </button>
       )}
 
       <div className="flex items-center justify-between mb-2">
@@ -103,6 +113,34 @@ export default function EventPanel({ event, eventQuests, progress, claimed, onPl
           </div>
         </div>
       )}
+
+      <AnimatePresence>
+        {showFullPoster && event.banner_url && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => { setShowFullPoster(false); onNavigateToBoard(); }}
+            className="fixed inset-0 z-[100] bg-black/85 flex items-center justify-center p-6 cursor-pointer"
+          >
+            <motion.img
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              src={event.banner_url}
+              alt={event.title}
+              className="max-w-full max-h-full rounded-xl shadow-2xl"
+            />
+            <button
+              onClick={(e) => { e.stopPropagation(); setShowFullPoster(false); }}
+              className="absolute top-4 right-4 text-white/80 hover:text-white text-3xl leading-none"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

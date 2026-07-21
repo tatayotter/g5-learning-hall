@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { supabase } from '@/lib/supabase';
+import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { CharacterStats, WeeklyData } from '@/hooks/useWeeklyData';
 import { logAction } from '@/lib/playerlog';
 import { playBlessing } from '@/lib/sounds';
@@ -1577,6 +1577,27 @@ function EventManager({ events, questCounts, onReload }: {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [monsterFilter, setMonsterFilter] = useState('');
+  const [uploadingPoster, setUploadingPoster] = useState(false);
+  const [uploadError, setUploadError] = useState('');
+
+  const handlePosterUpload = async (file: File) => {
+    setUploadingPoster(true);
+    setUploadError('');
+    try {
+      await ensureAnonymousSession();
+      const ext = file.name.split('.').pop() || 'webp';
+      const path = `${crypto.randomUUID()}.${ext}`;
+      const { error: uploadErr } = await supabase.storage
+        .from('event-posters')
+        .upload(path, file, { upsert: true, contentType: file.type || undefined });
+      if (uploadErr) throw uploadErr;
+      const { data } = supabase.storage.from('event-posters').getPublicUrl(path);
+      setForm(f => ({ ...f, banner_url: data.publicUrl }));
+    } catch (e: any) {
+      setUploadError(`❌ Upload failed: ${e.message}`);
+    }
+    setUploadingPoster(false);
+  };
 
   const monsterOptions = Object.values(ALL_MONSTERS).filter(m =>
     m.name.toLowerCase().includes(monsterFilter.toLowerCase())
@@ -1737,11 +1758,31 @@ function EventManager({ events, questCounts, onReload }: {
           </div>
 
           <div>
-            <label className="text-xs text-gray-500 block mb-1">Banner Image URL</label>
+            <label className="text-xs text-gray-500 block mb-1">Banner / Poster Image</label>
+            <div className="flex items-center gap-3 mb-2">
+              <label className="bg-neutral-800 hover:bg-neutral-700 text-gray-300 text-xs font-bold px-3 py-2 rounded-lg cursor-pointer transition-colors">
+                {uploadingPoster ? 'Uploading…' : '📤 Upload Poster'}
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  disabled={uploadingPoster}
+                  onChange={e => {
+                    const file = e.target.files?.[0];
+                    if (file) handlePosterUpload(file);
+                    e.target.value = '';
+                  }}
+                />
+              </label>
+              {form.banner_url && (
+                <img src={form.banner_url} alt="Poster preview" className="h-10 w-auto rounded border border-neutral-700" />
+              )}
+            </div>
+            {uploadError && <p className="text-red-400 text-xs mb-2">{uploadError}</p>}
             <input
               value={form.banner_url}
               onChange={e => setForm({ ...form, banner_url: e.target.value })}
-              placeholder="https://... or /events/banner.png"
+              placeholder="https://... or upload above"
               className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-white"
             />
           </div>

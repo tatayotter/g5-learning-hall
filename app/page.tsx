@@ -408,6 +408,25 @@ export default function Dashboard() {
         {sidebarOpen && (
           <>
             <HeroProfile userId={activeUserId} stats={data.character_stats} currentDay={currentDayName} />
+            {activeEvent && (
+              <EventPanel
+                event={activeEvent}
+                eventQuests={eventQuests}
+                progress={eventProgress}
+                claimed={eventClaimed}
+                onPlayQuest={(eventQuestId) => {
+                  setActiveTab('board');
+                  setActiveQuest(null);
+                  setActiveEventQuest(eventQuestId);
+                  setEventQuizPhase('ready');
+                }}
+                onNavigateToBoard={() => {
+                  setActiveTab('board');
+                  setActiveQuest(null);
+                  setActiveEventQuest(null);
+                }}
+              />
+            )}
             <GuildJournal
               userId={activeUserId}
               journalLogs={data.journal_logs || {}}
@@ -424,20 +443,6 @@ export default function Dashboard() {
               masteredQuizzes={data.mastered_quizzes}
               onGoldAwarded={applyGoldDelta}
             />
-            {activeEvent && (
-              <EventPanel
-                event={activeEvent}
-                eventQuests={eventQuests}
-                progress={eventProgress}
-                claimed={eventClaimed}
-                onPlayQuest={(eventQuestId) => {
-                  setActiveTab('board');
-                  setActiveQuest(null);
-                  setActiveEventQuest(eventQuestId);
-                  setEventQuizPhase('ready');
-                }}
-              />
-            )}
           </>
         )}
       </aside>
