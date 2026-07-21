@@ -216,7 +216,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
   const [playerMonsters, setPlayerMonsters] = useState<ActiveBattleMonster[]>(playerTeam);
   const [npcMonsters, setNpcMonsters] = useState<ActiveBattleMonster[]>(opponentTeam);
   const [log, setLog] = useState<string[]>([`Battle started against ${opponentName}!`]);
-  const [phase, setPhase] = useState<'select_skill' | 'select_item' | 'select_switch' | 'answering' | 'npc_turn' | 'ended'>('select_skill');
+  const [phase, setPhase] = useState<'select_skill' | 'select_item' | 'select_switch' | 'select_revive_target' | 'answering' | 'npc_turn' | 'ended'>('select_skill');
   const [pendingSkillId, setPendingSkillId] = useState<string | null>(null);
   const [questionCount, setQuestionCount] = useState(1);
   const [expEarned, setExpEarned] = useState(0);
@@ -343,6 +343,19 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
     const item = SHOP_CATALOG.find(i => i.key === key);
     if (!item) return;
 
+    // Revive Stone can target any fainted teammate, not just the active
+    // curio, so it needs a target picker before the item is actually
+    // consumed — bail out here (no DB round-trip yet) if there's nothing
+    // to revive.
+    if (item.effect === 'revive') {
+      if (!faintedPlayerMonsters.length) {
+        addLog('❌ No fainted curios to revive!');
+        return;
+      }
+      setPhase('select_revive_target');
+      return;
+    }
+
     itemBusyRef.current = true;
     setItemBusy(true);
 
@@ -386,19 +399,38 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
         addLog(`💀 Used ${item.name}: Enemy is now Cursed!`);
         break;
       }
-      case 'revive': {
-        if (playerMon.currentHp <= 0) {
-          setPlayerMonsters(prev => prev.map((m, i) => i === playerMonsterIdx ? { ...m, currentHp: Math.round(m.maxHp * 0.5) } : m));
-          addLog(`🔄 Used ${item.name}: ${playerMon.def.name} revived!`);
-        } else {
-          addLog(`❌ Only works on fainted curios!`);
-        }
-        break;
-      }
       default:
         addLog(`Used ${item.name}!`);
         break;
     }
+
+    setTimeout(() => {
+      setPhase('npc_turn');
+      doNpcTurn();
+      itemBusyRef.current = false;
+      setItemBusy(false);
+    }, 500);
+  };
+
+  const handleReviveTarget = async (idx: number) => {
+    if (itemBusyRef.current) return;
+    const target = playerMonsters[idx];
+    if (!target || target.currentHp > 0) return;
+
+    itemBusyRef.current = true;
+    setItemBusy(true);
+
+    const itemUsed = await onUseItem('revive_stone');
+    if (!itemUsed) {
+      itemBusyRef.current = false;
+      setItemBusy(false);
+      setPhase('select_item');
+      return;
+    }
+
+    const revivedHp = Math.round(target.maxHp * 0.5);
+    setPlayerMonsters(prev => prev.map((m, i) => i === idx ? { ...m, currentHp: revivedHp } : m));
+    addLog(`🔄 Used Revive Stone: ${target.def.name} revived!`);
 
     setTimeout(() => {
       setPhase('npc_turn');
@@ -618,6 +650,10 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
   const otherAlivePlayerMonsters = playerMonsters
     .map((m, i) => ({ m, i }))
     .filter(({ m, i }) => i !== playerMonsterIdx && m.currentHp > 0);
+
+  const faintedPlayerMonsters = playerMonsters
+    .map((m, i) => ({ m, i }))
+    .filter(({ m }) => m.currentHp <= 0);
 
   const handleSwitchMonster = (idx: number) => {
     const target = playerMonsters[idx];
@@ -891,6 +927,42 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
         </div>
       )}
 
+      {phase === 'select_revive_target' && (
+        <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 space-y-4">
+          <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
+            <img src="/icons/rewards/gift.svg" alt="" className="w-4 h-4 object-contain" /> Revive Which Curio?
+          </p>
+          <div className="space-y-2">
+            {faintedPlayerMonsters.length === 0 ? (
+              <p className="text-gray-500 text-sm text-center">No fainted curios available.</p>
+            ) : (
+              faintedPlayerMonsters.map(({ m, i }) => (
+                <button
+                  key={i}
+                  onClick={() => handleReviveTarget(i)}
+                  disabled={itemBusy}
+                  className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left flex items-center gap-4 transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
+                >
+                  <div className="w-10 h-10">
+                    <MonsterImage monster={m.def} className="w-full h-full" emojiClassName="text-2xl" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-white font-bold text-sm">{m.def.name} Lv.{m.level}</p>
+                    <p className="text-xs text-gray-400">0/{m.maxHp} HP — Fainted</p>
+                  </div>
+                </button>
+              ))
+            )}
+          </div>
+          <button
+            onClick={() => setPhase('select_item')}
+            className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors btn-tactile"
+          >
+            Cancel
+          </button>
+        </div>
+      )}
+
       {phase === 'select_item' && (
         <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 space-y-4">
           <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
@@ -904,12 +976,13 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
                 if (!qty || qty <= 0) return null;
                 
                 const itemData = SHOP_CATALOG.find(i => i.key === key);
-                
+                const noReviveTargets = itemData?.effect === 'revive' && faintedPlayerMonsters.length === 0;
+
                 return (
                   <button
                     key={key}
                     onClick={() => handleItemUse(key)}
-                    disabled={itemBusy}
+                    disabled={itemBusy || noReviveTargets}
                     className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left flex items-center gap-4 transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
                   >
                     {itemData?.icon ? (
@@ -919,7 +992,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
                     )}
                     <div className="flex-1">
                       <p className="text-white font-bold text-sm capitalize">{itemData?.name || key.replace('_', ' ')}</p>
-                      <p className="text-xs text-gray-400">{itemData?.desc || 'Consumable item'}</p>
+                      <p className="text-xs text-gray-400">{noReviveTargets ? 'No fainted curios to revive' : (itemData?.desc || 'Consumable item')}</p>
                     </div>
                     <span className="bg-neutral-700 text-yellow-400 font-bold px-3 py-1 rounded-full text-xs">x{qty}</span>
                   </button>
@@ -1519,13 +1592,16 @@ function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange, monsterDis
   const allMonsters = Object.values(MONSTERS);
 
   const handleAddMonster = async (slot: number, monsterId: string) => {
-    const existing = userMonsters.find(m => m.slot === slot);
-    if (existing) {
-      await supabase.from('user_monsters').update({ monster_id: monsterId }).eq('id', existing.id);
-    } else {
-      await supabase.from('user_monsters').insert({
-        user_id: userId, monster_id: monsterId, monster_exp: 0, monster_level: 1, slot, rest_used: 0,
-      });
+    // set_team_slot never overwrites an existing monster's row — it reuses
+    // monsterId's own persistent row if one exists (so a previously-benched
+    // monster comes back with its own level/exp/equipped_skills intact) and
+    // benches whoever it displaces, rather than destroying either identity.
+    const { error } = await supabase.rpc('set_team_slot', {
+      p_user_id: userId, p_monster_id: monsterId, p_slot: slot,
+    });
+    if (error) {
+      console.error('set_team_slot error:', error);
+      return;
     }
     onTeamChange();
   };
@@ -2203,7 +2279,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
   // from an element the player's monster is strong against — so it's always
   // a fair, easy fight regardless of team composition.
   const buildTrainingDummy = (): NpcTrainer => {
-    const monsters: TrainerMonster[] = userMonsters.map(um => {
+    const monsters: TrainerMonster[] = userMonsters.filter(um => um.slot !== null).map(um => {
       const def = ALL_MONSTERS[um.monster_id];
       const counterElement = getCounterElement(def.element);
       const counterMonster = Object.values(MONSTERS).find(m => m.element === counterElement);
@@ -2315,23 +2391,19 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
   };
 
   const handlePromoteCaughtMonster = async (caught: CaughtMonster, slot: number) => {
-    const existing = userMonsters.find(m => m.slot === slot);
-    if (existing) {
-      // Bumped monster isn't lost — it goes into the Collection so it can be
-      // swapped back in later, same as any wild catch.
-      await supabase.from('user_caught_monsters').insert({
-        user_id: userId, monster_id: existing.monster_id,
-        monster_level: existing.monster_level, monster_exp: existing.monster_exp,
-      });
-      await supabase.from('user_monsters')
-        .update({ monster_id: caught.monster_id, monster_level: caught.monster_level, monster_exp: caught.monster_exp })
-        .eq('id', existing.id);
-    } else {
-      await supabase.from('user_monsters').insert({
-        user_id: userId, monster_id: caught.monster_id,
-        monster_level: caught.monster_level, monster_exp: caught.monster_exp,
-        slot, rest_used: 0,
-      });
+    // Bumped monster isn't lost — set_team_slot benches it (slot -> NULL) in
+    // place, keeping its own row (and level/exp/equipped_skills) untouched,
+    // so it comes back exactly as it was if it's ever slotted in again. The
+    // caught record only seeds a *fresh* row if this species has never been
+    // owned before; an already-owned (possibly benched) instance keeps its
+    // real progress instead of being reset to the new catch's stats.
+    const { error } = await supabase.rpc('set_team_slot', {
+      p_user_id: userId, p_monster_id: caught.monster_id, p_slot: slot,
+      p_init_level: caught.monster_level, p_init_exp: caught.monster_exp,
+    });
+    if (error) {
+      console.error('set_team_slot error:', error);
+      return;
     }
     await supabase.from('user_caught_monsters').delete().eq('id', caught.id);
     showNotification(`${displayMonsters[caught.monster_id]?.name} joined your team!`);
@@ -2352,6 +2424,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       .from('user_monsters')
       .select('*')
       .eq('user_id', opponentId)
+      .not('slot', 'is', null)
       .order('slot');
 
     if (!opponentMonsters || opponentMonsters.length === 0) {
@@ -2516,7 +2589,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
   };
 
   const buildPlayerTeam = (): ActiveBattleMonster[] => {
-    return userMonsters.map(um => {
+    return userMonsters.filter(um => um.slot !== null).map(um => {
       const def = displayMonsters[um.monster_id];
       const hp = getScaledStats(def, um.monster_level).hp;
       return { def, level: um.monster_level, currentHp: hp, maxHp: hp, status: null, statusTurns: 0, restUsed: 0, userMonster: um } as ActiveBattleMonster;
@@ -2695,7 +2768,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
               <p className="text-xs text-gray-400">Always available · Matches your team</p>
               <p className="text-xs text-gray-500 italic mt-1">"No hard feelings — just here to help you practice."</p>
               <div className="flex gap-2 mt-2">
-                {userMonsters.map((um, i) => {
+                {userMonsters.filter(um => um.slot !== null).map((um, i) => {
                   const def = ALL_MONSTERS[um.monster_id];
                   const counterElement = getCounterElement(def.element);
                   const counterMonster = Object.values(MONSTERS).find(m => m.element === counterElement);

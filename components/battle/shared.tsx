@@ -14,7 +14,7 @@ export interface UserMonster {
   nickname: string | null;
   monster_exp: number;
   monster_level: number;
-  slot: number;
+  slot: number | null; // null = benched (owned, but not in the active team)
   rest_used: number;
   equipped_skills: (string | null)[];
 }

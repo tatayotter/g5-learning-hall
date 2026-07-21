@@ -38,7 +38,7 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
       setLoading(true);
       const [stateRes, monstersRes, weeklyRes, subProfile] = await Promise.all([
         supabase.from('user_battle_state').select('active_monster_slot').eq('user_id', targetId).single(),
-        supabase.from('user_monsters').select('slot, monster_id, nickname, monster_level').eq('user_id', targetId).order('slot'),
+        supabase.from('user_monsters').select('slot, monster_id, nickname, monster_level').eq('user_id', targetId).not('slot', 'is', null).order('slot'),
         supabase.from('weekly_packages').select('character_stats')
           .eq('user_id', targetId).order('week_starting_date', { ascending: false }).limit(1).maybeSingle(),
         fetchSubclassProfile(targetId),

@@ -51,6 +51,7 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
 
   const teamByUser = new Map<string, LeaderboardTeamMonster[]>();
   (monstersRes.data || []).forEach((row: any) => {
+    if (row.slot == null) return; // benched, not part of the active team
     const list = teamByUser.get(row.user_id) || [];
     list.push({ monster_id: row.monster_id, monster_level: row.monster_level, nickname: row.nickname });
     teamByUser.set(row.user_id, list);
