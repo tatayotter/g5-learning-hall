@@ -115,7 +115,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
           <div className="w-40 h-40 mx-auto mb-4">
             <GuardianSprite guild="logiclabyrinth" pose="idle" className="w-full h-full" />
           </div>
-          <h2 className="text-4xl font-display font-bold text-cyan-300 mb-2">🧩 Logic Labyrinth</h2>
+          <h2 className="text-4xl font-display font-bold text-cyan-300 mb-2">Logic Labyrinth</h2>
           <p className="text-cyan-600 font-mono mb-1">Lvl {profile?.logic_labyrinth_lvl || 1} · {profile?.logic_labyrinth_xp || 0}/500 XP</p>
           <p className="text-gray-400 mb-8 text-sm max-w-md mx-auto">Study the pattern or puzzle above, then tap the correct answer from the grid below. Speed and accuracy both matter.</p>
 
@@ -129,7 +129,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
             <div className="bg-black/40 rounded-xl p-4">
-              <p className="text-2xl font-bold font-mono text-yellow-400">+{GOLD_PER_CORRECT}🪙</p>
+              <p className="text-2xl font-bold font-mono text-yellow-400">+{GOLD_PER_CORRECT}<img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /></p>
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
           </div>
@@ -256,7 +256,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
             <p className="text-sm text-gray-500 mt-1">Subclass XP</p>
           </div>
           <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-yellow-400">🪙 {engine.totalGoldEarned}</p>
+            <p className="text-4xl font-bold font-mono text-yellow-400"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {engine.totalGoldEarned}</p>
             <p className="text-sm text-gray-500 mt-1">Gold Earned</p>
           </div>
         </div>

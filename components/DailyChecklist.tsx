@@ -142,9 +142,9 @@ export default function DailyChecklist({
                 <span
                   key={g.key}
                   title={g.label}
-                  className={`text-base ${done ? 'opacity-100' : 'opacity-25 grayscale'}`}
+                  className={`text-[10px] font-bold uppercase tracking-tight ${done ? 'opacity-100' : 'opacity-25 grayscale'}`}
                 >
-                  {g.icon}
+                  {g.label.slice(0, 3)}
                 </span>
               );
             })}
@@ -153,14 +153,14 @@ export default function DailyChecklist({
       </div>
 
       {claimed ? (
-        <div className="text-center text-xs text-green-500 font-bold">🎁 Bonus claimed for today!</div>
+        <div className="text-center text-xs text-green-500 font-bold"><img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px]" /> Bonus claimed for today!</div>
       ) : allDone ? (
         <GameButton
           onClick={handleClaim}
           disabled={claiming}
           className="w-full bg-yellow-600 hover:bg-yellow-500 text-black font-bold py-2 rounded transition-colors disabled:opacity-50"
         >
-          🎁 Claim {BONUS_GOLD} Gold
+          <img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px]" /> Claim {BONUS_GOLD} Gold
         </GameButton>
       ) : (
         <p className="text-[11px] text-gray-500 text-center">Complete every task to earn {BONUS_GOLD} bonus gold!</p>

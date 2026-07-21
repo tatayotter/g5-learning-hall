@@ -219,7 +219,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
             <div className="bg-black/40 rounded-xl p-4">
-              <p className="text-2xl font-bold font-mono text-yellow-400">+{GOLD_PER_CORRECT}🪙</p>
+              <p className="text-2xl font-bold font-mono text-yellow-400">+{GOLD_PER_CORRECT}<img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /></p>
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
           </div>
@@ -270,7 +270,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
               <p className="text-sm text-gray-500 mt-1">Accuracy</p>
             </div>
             <div className="bg-black/40 rounded-xl p-5">
-              <p className="text-4xl font-bold font-mono text-yellow-400">🪙 {goldEarned}</p>
+              <p className="text-4xl font-bold font-mono text-yellow-400"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {goldEarned}</p>
               <p className="text-sm text-gray-500 mt-1">Gold Earned</p>
             </div>
           </div>
@@ -324,7 +324,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
         <div className="flex items-center gap-4 font-mono text-sm">
           <span className="text-green-400">✓ {score}</span>
           <span className="text-red-400">✗ {wrongCount}</span>
-          <span className="text-yellow-400">🪙 {score * GOLD_PER_CORRECT}</span>
+          <span className="text-yellow-400"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {score * GOLD_PER_CORRECT}</span>
         </div>
       </div>
 

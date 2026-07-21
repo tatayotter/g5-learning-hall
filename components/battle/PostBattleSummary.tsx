@@ -51,7 +51,11 @@ function Side({ avatarSrc, avatarFallbackEmoji, name, subtitle, mon, isWinner }:
   const scaled = getScaledStats(mon.def, mon.level);
   return (
     <div className={`flex-1 rounded-2xl border-2 p-5 text-center ${isWinner ? 'border-amber-500 bg-amber-900/10' : 'border-neutral-700 bg-neutral-950'}`}>
-      {isWinner && <p className="text-xs font-bold text-amber-400 mb-2">🏆 WINNER</p>}
+      {isWinner && (
+        <p className="text-xs font-bold text-amber-400 mb-2 flex items-center justify-center gap-1">
+          <img src="/icons/stats/victory.svg" alt="Winner" className="w-4 h-4 object-contain" /> WINNER
+        </p>
+      )}
       <AvatarImage src={avatarSrc} fallbackEmoji={avatarFallbackEmoji} alt={name} />
       <p className="font-bold text-white">{name}</p>
       {subtitle && <p className="text-xs text-gray-500 mb-1">{subtitle}</p>}
@@ -63,17 +67,25 @@ function Side({ avatarSrc, avatarFallbackEmoji, name, subtitle, mon, isWinner }:
       <p className={`text-sm font-mono mt-2 ${mon.currentHp <= 0 ? 'text-red-500' : 'text-green-400'}`}>
         {Math.max(0, mon.currentHp)}/{mon.maxHp} HP
       </p>
-      <p className="text-xs text-gray-500 mt-1">⚔️ {scaled.attack} ATK · 🛡️ {scaled.defense} DEF · ⚡ {scaled.speed} SPD</p>
+      <p className="text-xs text-gray-500 mt-1 flex items-center justify-center gap-1 flex-wrap">
+        <img src="/icons/stats/atk.svg" alt="ATK" className="w-3.5 h-3.5 object-contain" /> {scaled.attack} ATK ·
+        <img src="/icons/stats/def.svg" alt="DEF" className="w-3.5 h-3.5 object-contain" /> {scaled.defense} DEF ·
+        <img src="/icons/stats/spd.svg" alt="SPD" className="w-3.5 h-3.5 object-contain" /> {scaled.speed} SPD
+      </p>
     </div>
   );
 }
 
 export default function PostBattleSummary({ outcome, reasonLabel, left, right, log, rewardLine, onContinue }: PostBattleSummaryProps) {
-  const titleText = outcome === 'draw' ? "🤝 It's a Draw!" : outcome === 'win' ? '🏆 Victory!' : '💀 Defeat...';
+  const titleIcon = outcome === 'draw' ? '/icons/stats/draw.svg' : outcome === 'win' ? '/icons/stats/victory.svg' : '/icons/stats/defeat.svg';
+  const titleText = outcome === 'draw' ? "It's a Draw!" : outcome === 'win' ? 'Victory!' : 'Defeat...';
 
   return (
     <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 battle-panel-in">
-      <p className="text-center text-2xl font-display font-bold text-white mb-1">{titleText}</p>
+      <p className="text-center text-2xl font-display font-bold text-white mb-1 flex items-center justify-center gap-2">
+        <img src={titleIcon} alt={outcome} className="w-7 h-7 object-contain" />
+        {titleText}
+      </p>
       <p className="text-center text-xs text-gray-500 mb-1">{reasonLabel}</p>
       {rewardLine && <p className="text-center text-xs text-amber-400 font-bold mb-4">{rewardLine}</p>}
       {!rewardLine && <div className="mb-4" />}

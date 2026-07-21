@@ -191,7 +191,7 @@ export default function AdminPanel({ currentData, currentSunday, onUpdateStats }
 
       {/* REWARD FULFILLMENT QUEUE */}
       <div className="bg-[#111] border border-[#333] p-6 rounded-xl">
-        <h3 className="text-xl font-bold mb-4">📦 Reward Fulfillment Queue</h3>
+        <h3 className="text-xl font-bold mb-4"><img src="/icons/rewards/package.svg" alt="Package" className="inline w-4 h-4 align-[-2px]" /> Reward Fulfillment Queue</h3>
         <div className="space-y-2">
           {claims.length > 0 ? claims.map((claim) => (
             <div key={claim.id} className="flex justify-between items-center bg-black border border-neutral-800 p-3 rounded-lg">

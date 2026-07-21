@@ -5,7 +5,7 @@
 // highest-level monster owned (see lib/leaderboard.ts). Each shows its #1
 // prominently by default; "Show Full Leaderboard" expands that category's
 // complete ranked list.
-import { useEffect, useState } from 'react';
+import { useEffect, useState, ReactNode } from 'react';
 import { fetchLeaderboard, LeaderboardEntry } from '@/lib/leaderboard';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
@@ -57,10 +57,10 @@ interface Highlight {
   info?: string;
 }
 
-function TopEntryCard({ entry, rank, badge, highlight }: { entry: LeaderboardEntry; rank: number; badge: string; highlight: Highlight }) {
+function TopEntryCard({ entry, rank, badge, highlight }: { entry: LeaderboardEntry; rank: number; badge: ReactNode; highlight: Highlight }) {
   return (
     <div className="border-2 border-amber-500 bg-amber-900/10 rounded-2xl p-6">
-      <p className="text-center text-xs font-bold text-amber-400 mb-3">
+      <p className="text-center text-xs font-bold text-amber-400 mb-3 flex items-center justify-center gap-1">
         {rank === 1 ? badge : `#${rank}`}
       </p>
       <div className="flex items-center gap-4 mb-4">
@@ -152,7 +152,7 @@ function RankRow({ entry, rank }: { entry: LeaderboardEntry; rank: number }) {
 interface LeaderboardCategory {
   key: string;
   title: string;
-  badge: string;
+  badge: ReactNode;
   ranked: LeaderboardEntry[];
   highlight: (entry: LeaderboardEntry) => Highlight;
 }
@@ -218,7 +218,7 @@ export default function LeaderboardPanel() {
     {
       key: 'arena',
       title: '🏆 Arena Leaderboard',
-      badge: '🏆 #1 ARENA CHAMPION',
+      badge: <><img src="/icons/achievements/trophy.svg" alt="" className="w-4 h-4 object-contain" /> #1 ARENA CHAMPION</>,
       ranked: arenaRanked,
       highlight: entry => ({
         emoji: '⭐',

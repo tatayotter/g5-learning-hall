@@ -2,12 +2,12 @@ import { supabase } from './supabase';
 
 export type GuildKey = 'lorekeeper' | 'spellcaster' | 'number_realm' | 'logic_labyrinth' | 'lexicon_arena';
 
-export const GUILDS: { key: GuildKey; icon: string; label: string }[] = [
-  { key: 'lorekeeper', icon: '📜', label: 'Lorekeeper' },
-  { key: 'spellcaster', icon: '🧙‍♂️', label: 'SpellCaster' },
-  { key: 'number_realm', icon: '🔢', label: 'Number Realm' },
-  { key: 'logic_labyrinth', icon: '🧩', label: 'Logic Labyrinth' },
-  { key: 'lexicon_arena', icon: '🧿', label: 'Lexicon Arena' },
+export const GUILDS: { key: GuildKey; label: string }[] = [
+  { key: 'lorekeeper', label: 'Lorekeeper' },
+  { key: 'spellcaster', label: 'SpellCaster' },
+  { key: 'number_realm', label: 'Number Realm' },
+  { key: 'logic_labyrinth', label: 'Logic Labyrinth' },
+  { key: 'lexicon_arena', label: 'Lexicon Arena' },
 ];
 
 export interface ChecklistBattleFlags {

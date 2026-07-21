@@ -6,17 +6,16 @@ import { USERS } from '@/lib/userSession';
 
 interface GuildStat {
   label: string;
-  icon: string;
   tableName: string;
   questType: string;
   color: string;
 }
 
 const GUILDS: GuildStat[] = [
-  { label: 'Lorekeeper', icon: '📜', tableName: 'sq_lorekeeper', questType: 'lorekeeper', color: 'text-emerald-400' },
-  { label: 'SpellCaster', icon: '🧙‍♂️', tableName: 'sq_spellcaster', questType: 'spellcaster', color: 'text-purple-400' },
-  { label: 'Number Realm', icon: '🔢', tableName: 'sq_number_realm', questType: 'number_realm', color: 'text-amber-400' },
-  { label: 'Logic Labyrinth', icon: '🧩', tableName: 'sq_logic_labyrinth', questType: 'logic_labyrinth', color: 'text-cyan-400' },
+  { label: 'Lorekeeper', tableName: 'sq_lorekeeper', questType: 'lorekeeper', color: 'text-emerald-400' },
+  { label: 'SpellCaster', tableName: 'sq_spellcaster', questType: 'spellcaster', color: 'text-purple-400' },
+  { label: 'Number Realm', tableName: 'sq_number_realm', questType: 'number_realm', color: 'text-amber-400' },
+  { label: 'Logic Labyrinth', tableName: 'sq_logic_labyrinth', questType: 'logic_labyrinth', color: 'text-cyan-400' },
 ];
 
 interface PoolStat {
@@ -99,7 +98,7 @@ export default function GuildPoolStats({ userId }: { userId: string }) {
             return (
               <div key={guild.questType} className="bg-black border border-neutral-800 rounded-lg p-4">
                 <div className="flex justify-between items-center mb-2">
-                  <span className={`font-bold ${guild.color}`}>{guild.icon} {guild.label}</span>
+                  <span className={`font-bold ${guild.color}`}>{guild.label}</span>
                   {stat.prestigeWarning && (
                     <span className="text-xs font-bold text-red-400 animate-pulse">⚠️ Load more questions soon</span>
                   )}

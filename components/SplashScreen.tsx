@@ -142,7 +142,7 @@ function CardStats({ id, stats, monster, lastLogin, accent, goldColor, loaded }:
           </div>
           <div className="bg-black/40 rounded-lg py-2 px-1">
             <p className="text-xs text-gray-600 mb-1">Gold</p>
-            <p className={`${goldColor} font-bold font-mono text-sm`}>🪙 {stats.gold}</p>
+            <p className={`${goldColor} font-bold font-mono text-sm`}><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {stats.gold}</p>
           </div>
         </div>
       ) : (

@@ -148,10 +148,10 @@ function PlayerSprite({ userId, isSelf = false, inBattle = false, resultWon }: {
       )}
       {!inBattle && resultWon !== undefined && (
         <span
-          className="absolute -top-1 left-1/2 -translate-x-1/2 text-sm z-10 drop-shadow"
+          className="absolute -top-1 left-1/2 -translate-x-1/2 z-10 drop-shadow"
           title={resultWon ? `${profile?.name ?? 'They'} won their battle!` : `${profile?.name ?? 'They'} lost their battle`}
         >
-          {resultWon ? '🏆' : '💀'}
+          <img src={resultWon ? '/icons/stats/victory.svg' : '/icons/stats/defeat.svg'} alt={resultWon ? 'Won' : 'Lost'} className="w-4 h-4 object-contain" />
         </span>
       )}
       <div className={`absolute left-1/2 bottom-0 -translate-x-1/2 w-6 h-2 rounded-full ${isSelf ? 'bg-amber-400/60' : 'bg-black/25'}`}/>
@@ -679,7 +679,12 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
             />
           </div>
           <p className="text-xs text-gray-500 mt-1">{playerMon.currentHp}/{playerMon.maxHp} HP</p>
-          {playerMon.status && <p className="text-xs mt-1">{STATUS_DEFINITIONS[playerMon.status].emoji} {playerMon.status}</p>}
+          {playerMon.status && (
+            <p className="text-xs mt-1 flex items-center justify-center gap-1">
+              <img src={STATUS_DEFINITIONS[playerMon.status].iconSrc} alt={playerMon.status} className="w-4 h-4 object-contain" />
+              {playerMon.status}
+            </p>
+          )}
         </div>
 
         {/* Battle log */}
@@ -713,7 +718,12 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
             />
           </div>
           <p className="text-xs text-gray-500 mt-1">{npcMon.currentHp}/{npcMon.maxHp} HP</p>
-          {npcMon.status && <p className="text-xs mt-1">{STATUS_DEFINITIONS[npcMon.status].emoji} {npcMon.status}</p>}
+          {npcMon.status && (
+            <p className="text-xs mt-1 flex items-center justify-center gap-1">
+              <img src={STATUS_DEFINITIONS[npcMon.status].iconSrc} alt={npcMon.status} className="w-4 h-4 object-contain" />
+              {npcMon.status}
+            </p>
+          )}
         </div>
       </div>
 
@@ -778,7 +788,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
             className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
           >
             <p className="font-bold text-white text-sm flex items-center gap-1">
-              😴 Rest <InfoTag text="Heals your curio and uses up this turn — the trainer's curio still attacks normally. Limited uses per battle." />
+              <img src="/icons/stats/rest.svg" alt="" className="w-4 h-4 object-contain" /> Rest <InfoTag text="Heals your curio and uses up this turn — the trainer's curio still attacks normally. Limited uses per battle." />
             </p>
             <p className="text-xs text-gray-400">Restore {Math.round(restConfig.hpRestorePercent * 100)}% HP</p>
           </button>
@@ -794,7 +804,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
               className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all btn-tactile"
             >
               <p className="font-bold text-white text-sm flex items-center gap-1">
-                🎒 Items <InfoTag text="Using an item also uses up this turn — the trainer's curio still attacks normally." />
+                <img src="/icons/stats/items.svg" alt="" className="w-4 h-4 object-contain" /> Items <InfoTag text="Using an item also uses up this turn — the trainer's curio still attacks normally." />
               </p>
               <p className="text-xs text-gray-400">Use items from inventory</p>
             </button>
@@ -804,7 +814,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
               className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
             >
               <p className="font-bold text-white text-sm flex items-center gap-1">
-                🔄 Switch <InfoTag text="Swap to another curio on your team — also uses up this turn." />
+                <img src="/icons/stats/switch.svg" alt="" className="w-4 h-4 object-contain" /> Switch <InfoTag text="Swap to another curio on your team — also uses up this turn." />
               </p>
               <p className="text-xs text-gray-400">{otherAlivePlayerMonsters.length > 0 ? 'Change your curio' : 'No other curios'}</p>
             </button>
@@ -813,7 +823,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
               className="bg-neutral-800 hover:bg-neutral-700 border border-red-900/60 hover:border-red-500 rounded-xl p-4 text-left transition-all btn-tactile"
             >
               <p className="font-bold text-red-400 text-sm flex items-center gap-1">
-                🏳️ Surrender <InfoTag text="Ends the battle immediately with no Curio EXP earned." />
+                <img src="/icons/stats/surrender.svg" alt="" className="w-4 h-4 object-contain" /> Surrender <InfoTag text="Ends the battle immediately with no Curio EXP earned." />
               </p>
               <p className="text-xs text-gray-400">Forfeit the match</p>
             </button>
@@ -848,7 +858,9 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
 
       {phase === 'select_switch' && (
         <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 space-y-4">
-          <p className="text-white font-bold text-center mb-2">🔄 Switch Curio</p>
+          <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
+            <img src="/icons/stats/switch.svg" alt="" className="w-4 h-4 object-contain" /> Switch Curio
+          </p>
           <div className="space-y-2">
             {otherAlivePlayerMonsters.length === 0 ? (
               <p className="text-gray-500 text-sm text-center">No other curios available.</p>
@@ -881,7 +893,9 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
 
       {phase === 'select_item' && (
         <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 space-y-4">
-          <p className="text-white font-bold text-center mb-2">🎒 Select an Item</p>
+          <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
+            <img src="/icons/stats/items.svg" alt="" className="w-4 h-4 object-contain" /> Select an Item
+          </p>
           <div className="space-y-2">
             {Object.entries(inventory).length === 0 ? (
               <p className="text-gray-500 text-sm text-center">No items in inventory.</p>
@@ -901,7 +915,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
                     {itemData?.icon ? (
                       <img src={itemData.icon} alt={itemData.name} className="w-8 h-8 object-contain flex-shrink-0" />
                     ) : (
-                      <span className="text-2xl">📦</span>
+                      <span className="text-2xl"><img src="/icons/rewards/package.svg" alt="Package" className="inline w-4 h-4 align-[-2px]" /></span>
                     )}
                     <div className="flex-1">
                       <p className="text-white font-bold text-sm capitalize">{itemData?.name || key.replace('_', ' ')}</p>
@@ -928,7 +942,9 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
             <div className="flex items-center gap-4 mb-5 bg-amber-900/20 border border-amber-800 rounded-xl p-4">
               <MonsterImage monster={playerMon.def} className="w-14 h-14" />
               <div>
-                <p className="text-amber-400 text-xs font-bold uppercase tracking-widest mb-1">⚔️ Attack!</p>
+                <p className="text-amber-400 text-xs font-bold uppercase tracking-widest mb-1 flex items-center gap-1">
+                  <img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" /> Attack!
+                </p>
                 <p className="text-white font-bold">{playerMon.def.name} uses {SKILLS[pendingSkillId]?.name}!</p>
                 <p className="text-sm mt-1 text-gray-300">
                   Answer <span className="text-amber-400 font-bold">{questionCount}/{questionCount}</span> correctly for full damage
@@ -1009,8 +1025,14 @@ function StarterSelection({ userId, onComplete }: StarterSelectionProps) {
             <p className="text-xs text-gray-400 capitalize mb-2">{monster.element} · {monster.archetype.replace('_', ' ')}</p>
             <p className="text-xs text-gray-500">{monster.description}</p>
             <div className="mt-3 text-xs text-gray-400 space-y-1">
-              <p>❤️ {monster.baseHp} HP · ⚔️ {monster.baseAttack} ATK</p>
-              <p>🛡️ {monster.baseDefense} DEF · ⚡ {monster.baseSpeed} SPD</p>
+              <p className="flex items-center gap-1 flex-wrap">
+                <img src="/icons/stats/hp.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {monster.baseHp} HP ·
+                <img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {monster.baseAttack} ATK
+              </p>
+              <p className="flex items-center gap-1 flex-wrap">
+                <img src="/icons/stats/def.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {monster.baseDefense} DEF ·
+                <img src="/icons/stats/spd.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {monster.baseSpeed} SPD
+              </p>
             </div>
           </button>
         ))}
@@ -1433,7 +1455,7 @@ function TrainingMap({
               <p>🌿 Walk through <span className="text-white font-bold">grass tiles</span> repeatedly to grind curio EXP.</p>
               <p>⚔️ Curio reaches <span className="text-white font-bold">Lv.5</span> to unlock Tier 2 skill, <span className="text-white font-bold">Lv.10</span> for Tier 3.</p>
               <p>🏠 Return to <span className="text-white font-bold">town</span> to heal before challenging a trainer.</p>
-              <p>💡 Defeat trainers in order from the <span className="text-white font-bold">⚔️ Trainers</span> tab — each one gets harder and requires a higher player level.</p>
+              <p>💡 Defeat trainers in order from the <span className="text-white font-bold">Trainers</span> tab — each one gets harder and requires a higher player level.</p>
             </div>
           </details>
 
@@ -1560,10 +1582,10 @@ function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange, monsterDis
                     const scaled = getScaledStats(def, monster.monster_level);
                     return (
                       <>
-                        <p>❤️ {scaled.hp}</p>
-                        <p>⚔️ {scaled.attack}</p>
-                        <p>🛡️ {scaled.defense}</p>
-                        <p>⚡ {scaled.speed}</p>
+                        <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.hp}</p>
+                        <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.attack}</p>
+                        <p className="flex items-center gap-1"><img src="/icons/stats/def.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.defense}</p>
+                        <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.speed}</p>
                       </>
                     );
                   })()}
@@ -2527,11 +2549,11 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       {/* Sub-nav */}
       <div className="flex gap-2 mb-8 border-b border-neutral-800">
         {([
-          { id: 'map',        label: '🗺️ Training Map' },
-          { id: 'team',       label: '👥 My Team' },
-          { id: 'trainers',   label: '⚔️ Trainers' },
-          { id: 'compendium', label: `📖 Compendium${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}` },
-          { id: 'leaderboard', label: '🏆 Leaderboard' },
+          { id: 'map',        label: 'Training Map' },
+          { id: 'team',       label: 'My Team' },
+          { id: 'trainers',   label: 'Trainers' },
+          { id: 'compendium', label: `Compendium${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}` },
+          { id: 'leaderboard', label: 'Leaderboard' },
         ] as { id: GuildView; label: string }[]).map(tab => (
           <button
             key={tab.id}

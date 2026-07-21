@@ -75,7 +75,7 @@ export default function PlayerLog({ userId }: { userId: string }) {
                 {totalXp > 0 && <span className="text-blue-300 mr-2">+{totalXp} XP</span>}
                 {totalGold !== 0 && (
                   <span className={totalGold > 0 ? 'text-yellow-400' : 'text-red-400'}>
-                    {totalGold > 0 ? '+' : ''}{totalGold} 🪙
+                    {totalGold > 0 ? '+' : ''}{totalGold} <img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" />
                   </span>
                 )}
               </span>
@@ -101,7 +101,7 @@ export default function PlayerLog({ userId }: { userId: string }) {
                     )}
                     {entry.gold_change !== 0 && (
                       <div className={entry.gold_change > 0 ? 'text-yellow-400' : 'text-red-400'}>
-                        {entry.gold_change > 0 ? '+' : ''}{entry.gold_change} 🪙
+                        {entry.gold_change > 0 ? '+' : ''}{entry.gold_change} <img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" />
                       </div>
                     )}
                   </div>

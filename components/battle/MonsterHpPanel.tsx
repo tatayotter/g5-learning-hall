@@ -31,7 +31,12 @@ export default function MonsterHpPanel({ name, level, def, currentHp, maxHp, sta
         />
       </div>
       <p className="text-xs text-gray-500 mt-1">{currentHp}/{maxHp} HP</p>
-      {status && <p className="text-xs mt-1">{STATUS_DEFINITIONS[status].emoji} {status}</p>}
+      {status && (
+        <p className="text-xs mt-1 flex items-center justify-center gap-1">
+          <img src={STATUS_DEFINITIONS[status].iconSrc} alt={status} className="w-4 h-4 object-contain" />
+          {status}
+        </p>
+      )}
     </div>
   );
 }

@@ -115,7 +115,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
           <div className="w-40 h-40 mx-auto mb-4">
             <GuardianSprite guild="lorekeeper" pose="idle" className="w-full h-full" />
           </div>
-          <h2 className="text-4xl font-display font-bold text-emerald-300 mb-2">📜 Lorekeeper Guild Hall</h2>
+          <h2 className="text-4xl font-display font-bold text-emerald-300 mb-2">Lorekeeper Guild Hall</h2>
           <p className="text-emerald-500 font-serif mb-1">Lvl {profile?.lorekeeper_lvl || 1} · {profile?.lorekeeper_xp || 0}/500 XP</p>
           <p className="text-gray-400 mb-8 font-serif max-w-md mx-auto">Answer as many passage questions as you can in {timeLimit} seconds. Correct answers build your streak — the longer the streak, the greater the gold multiplier.</p>
 
@@ -129,7 +129,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
             <div className="bg-black/40 rounded-xl p-4">
-              <p className="text-2xl font-bold font-mono text-yellow-400">+{GOLD_PER_CORRECT}🪙</p>
+              <p className="text-2xl font-bold font-mono text-yellow-400">+{GOLD_PER_CORRECT}<img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /></p>
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
           </div>
@@ -246,7 +246,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
             <p className="text-sm text-gray-500 mt-1">Subclass XP</p>
           </div>
           <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-yellow-400">🪙 {engine.totalGoldEarned}</p>
+            <p className="text-4xl font-bold font-mono text-yellow-400"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {engine.totalGoldEarned}</p>
             <p className="text-sm text-gray-500 mt-1">Gold Earned</p>
           </div>
         </div>

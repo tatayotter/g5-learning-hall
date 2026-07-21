@@ -50,15 +50,16 @@ export type StatusEffect =
 export const STATUS_DEFINITIONS: Record<NonNullable<StatusEffect>, {
   label: string;
   emoji: string;
+  iconSrc: string;
   description: string;
 }> = {
-  burn:     { label: 'Burn',     emoji: '🔥', description: 'Deals 5 damage per turn' },
-  paralyze: { label: 'Paralyze', emoji: '⚡', description: 'Skips next attack turn' },
-  curse:    { label: 'Curse',    emoji: '🌑', description: 'Reduces damage dealt by 50% for 2 turns' },
-  blessed:  { label: 'Blessed',  emoji: '✨', description: 'Next correct answer deals double damage' },
-  def_boost: { label: 'Def Boost', emoji: '🛡️', description: 'Damage taken halved' },
-  atk_boost: { label: 'Atk Boost', emoji: '⚔️', description: 'Damage dealt increased' },
-  revive: { label: 'Revived', emoji: '🔄', description: 'Back in action' }
+  burn:     { label: 'Burn',     emoji: '🔥', iconSrc: '/icons/stats/burn.svg', description: 'Deals 5 damage per turn' },
+  paralyze: { label: 'Paralyze', emoji: '⚡', iconSrc: '/icons/stats/paralyze.svg', description: 'Skips next attack turn' },
+  curse:    { label: 'Curse',    emoji: '🌑', iconSrc: '/icons/stats/curse.svg', description: 'Reduces damage dealt by 50% for 2 turns' },
+  blessed:  { label: 'Blessed',  emoji: '✨', iconSrc: '/icons/stats/blessed.svg', description: 'Next correct answer deals double damage' },
+  def_boost: { label: 'Def Boost', emoji: '🛡️', iconSrc: '/icons/stats/def_boost.svg', description: 'Damage taken halved' },
+  atk_boost: { label: 'Atk Boost', emoji: '⚔️', iconSrc: '/icons/stats/atk_boost.svg', description: 'Damage dealt increased' },
+  revive: { label: 'Revived', emoji: '🔄', iconSrc: '/icons/stats/revive.svg', description: 'Back in action' }
 };
 
 // Which element applies which status effect (only on perfect answers)
@@ -671,10 +672,25 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
   },
 };
 
+// ─── EVENT-EXCLUSIVE MONSTERS ────────────────────────────────────────────────
+// Curios only obtainable as a Custom Event reward (see lib/customEvents.ts /
+// components/EventPanel.tsx) — never in the starter picker, wild pool, or
+// guild grants. Kept out of WILD_MONSTERS so pickRandomWildMonsterId never
+// rolls one; the only path to owning it is claim_event_reward.
+export const EVENT_MONSTERS: Record<string, MonsterDef> = {
+  tarsipling: {
+    id: 'tarsipling', name: 'Tarsipling', element: 'leaf', archetype: 'balanced',
+    emoji: '🐿️', description: 'A wide-eyed forest sprite, part tarsier, part sapling, that can never sit still around anything new. It tucks acorns, buttons, and stray answers alike into its cheeks, certain each one is worth knowing. Its ears swivel toward every rustle, every question, every "why."',
+    ...STAT_PRESETS.balanced,
+    skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
+    skillUnlocks: { tier2: 18, tier3: 30 },
+  },
+};
+
 // Combined lookup for anywhere a monster id might be either a normal starter
 // monster or a wild-only one (e.g. resolving an NpcTrainer's monsters, since a
 // wild encounter is represented as a synthetic one-monster NpcTrainer).
-export const ALL_MONSTERS: Record<string, MonsterDef> = { ...MONSTERS, ...WILD_MONSTERS, ...GUILD_MONSTERS };
+export const ALL_MONSTERS: Record<string, MonsterDef> = { ...MONSTERS, ...WILD_MONSTERS, ...GUILD_MONSTERS, ...EVENT_MONSTERS };
 
 // ─── NPC TRAINERS ────────────────────────────────────────────────────────────
 

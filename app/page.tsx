@@ -35,6 +35,19 @@ import MonsterShop from '@/components/MonsterShop';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import { respondToInvite } from '@/lib/liveBattle';
+import EventPanel from '@/components/EventPanel';
+import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
+import {
+  CustomEvent,
+  EventQuest,
+  UserEventProgressRow,
+  fetchActiveEvent,
+  fetchEventQuests,
+  fetchUserEventProgress,
+  hasClaimedEventReward,
+  recordEventQuizMastery,
+  claimEventReward,
+} from '@/lib/customEvents';
 
 const VAULT_CATALOG = {
   "voucher_30m": {
@@ -187,6 +200,55 @@ export default function Dashboard() {
   const [myClaims, setMyClaims] = useState<any[]>([]);
   const [toast, setToast] = useState({ show: false, message: '' });
   const { newlyUnlocked, clearNotifications } = useAchievementNotifier(data);
+
+  // --- Custom Events ---
+  const [activeEvent, setActiveEvent] = useState<CustomEvent | null>(null);
+  const [eventQuests, setEventQuests] = useState<EventQuest[]>([]);
+  const [eventProgress, setEventProgress] = useState<UserEventProgressRow[]>([]);
+  const [eventClaimed, setEventClaimed] = useState(false);
+  const [activeEventQuest, setActiveEventQuest] = useState<string | null>(null);
+  const [eventQuizPhase, setEventQuizPhase] = useState<'study' | 'ready' | 'quiz'>('study');
+  const [showEventPopup, setShowEventPopup] = useState(false);
+
+  const loadEventData = async (userId: UserId) => {
+    const ev = await fetchActiveEvent();
+    setActiveEvent(ev);
+    if (!ev) {
+      setEventQuests([]);
+      setEventProgress([]);
+      setEventClaimed(false);
+      return;
+    }
+    const gradeLevel = USERS[userId]?.grade === 'Grade 2' ? 2 : 5;
+    const [quests, progress, claimed] = await Promise.all([
+      fetchEventQuests(ev.id, gradeLevel),
+      fetchUserEventProgress(userId, ev.id),
+      hasClaimedEventReward(userId, ev.id),
+    ]);
+    setEventQuests(quests);
+    setEventProgress(progress);
+    setEventClaimed(claimed);
+
+    if (
+      !claimed &&
+      typeof window !== 'undefined' &&
+      !sessionStorage.getItem(`event_popup_shown_${ev.id}`)
+    ) {
+      setShowEventPopup(true);
+    }
+  };
+
+  useEffect(() => {
+    if (!activeUserId) return;
+    loadEventData(activeUserId);
+  }, [activeUserId]);
+
+  const handleDismissEventPopup = () => {
+    setShowEventPopup(false);
+    if (activeEvent && typeof window !== 'undefined') {
+      sessionStorage.setItem(`event_popup_shown_${activeEvent.id}`, '1');
+    }
+  };
 
   // Fetch claims filtered to the active user
   const fetchMyClaims = async () => {
@@ -362,6 +424,20 @@ export default function Dashboard() {
               masteredQuizzes={data.mastered_quizzes}
               onGoldAwarded={applyGoldDelta}
             />
+            {activeEvent && (
+              <EventPanel
+                event={activeEvent}
+                eventQuests={eventQuests}
+                progress={eventProgress}
+                claimed={eventClaimed}
+                onPlayQuest={(eventQuestId) => {
+                  setActiveTab('board');
+                  setActiveQuest(null);
+                  setActiveEventQuest(eventQuestId);
+                  setEventQuizPhase('ready');
+                }}
+              />
+            )}
           </>
         )}
       </aside>
@@ -371,15 +447,15 @@ export default function Dashboard() {
         {/* Navigation Tabs */}
         <div className="flex border-b border-neutral-800 mb-8 space-x-2">
           {[
-            { id: 'board',   label: '🏰 Main Quests' },
-            { id: 'vault',   label: '🏪 Rewards Vault' },
-            { id: 'guilds',  label: '⚔️ Learning Guilds' },
-            { id: 'monster', label: '🐉 Curio Arena' },
-            { id: 'log',     label: '📖 Logs' },
+            { id: 'board',   label: 'Main Quests' },
+            { id: 'vault',   label: 'Rewards Vault' },
+            { id: 'guilds',  label: 'Learning Guilds' },
+            { id: 'monster', label: 'Curio Arena' },
+            { id: 'log',     label: 'Logs' },
           ].map(tab => (
             <GameButton
               key={tab.id}
-              onClick={() => { playPageFlip(); setActiveTab(tab.id); setActiveQuest(null); }}
+              onClick={() => { playPageFlip(); setActiveTab(tab.id); setActiveQuest(null); setActiveEventQuest(null); }}
               className={`px-4 py-2.5 font-bold text-sm whitespace-nowrap transition-colors ${
                 activeTab === tab.id
                   ? 'border-b-2 border-blue-500 text-blue-400'
@@ -392,10 +468,48 @@ export default function Dashboard() {
         </div>
 
         {/* --- TAB A: QUEST BOARD --- */}
-        {activeTab === 'board' && activeQuest === null && (
+        {activeTab === 'board' && activeQuest === null && activeEventQuest === null && (
           <div>
             <h1 className="text-3xl font-bold mb-2 font-display">🗺️ Active Campaign Map</h1>
             <p className="text-gray-400 mb-8">Select an open, active quest card from the schedule below to begin your training.</p>
+
+            {activeEvent && (
+              <div className="mb-8">
+                <div className="mb-4 border border-amber-800 rounded-lg overflow-hidden">
+                  <div className="p-4 font-bold bg-amber-900/20 text-amber-400">
+                    🎪 {activeEvent.title} — Event Quests
+                  </div>
+                  <div className="p-4 bg-black">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {eventQuests.map((q) => {
+                        const isQuestMastered = eventProgress.some(p => p.event_quest_id === q.id && p.is_mastered);
+                        return (
+                          <div key={q.id} className="bg-[#111] border border-amber-900/50 p-5 rounded-xl">
+                            <h3 className="text-lg font-bold mb-3">{q.subject_name}</h3>
+                            {isQuestMastered ? (
+                              <div className="text-sm text-green-400 mb-2">✅ Quest Completed</div>
+                            ) : (
+                              <div className="text-sm text-yellow-500 mb-2">⚠️ Quest Available</div>
+                            )}
+                            <div className="text-xs text-gray-400 mb-4"><img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px]" /> Event reward on full completion</div>
+                            <GameButton
+                              onClick={() => {
+                                setActiveEventQuest(q.id);
+                                setEventQuizPhase('ready');
+                              }}
+                              disabled={isQuestMastered}
+                              className="w-full bg-amber-800 hover:bg-amber-700 py-2 rounded font-bold transition-colors text-white disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-amber-800"
+                            >
+                              {isQuestMastered ? '🔒 Completed' : '📜 Enter Module'}
+                            </GameButton>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {WEEKDAYS.map((day) => {
               const isToday = currentDayName === day;
@@ -432,7 +546,7 @@ export default function Dashboard() {
                                     ) : (
                                       <div className="text-sm text-yellow-500 mb-2">⚠️ Quest Available</div>
                                     )}
-                                    <div className="text-xs text-gray-400 mb-4">🎁 Loot: up to 200 XP | 50 Gold</div>
+                                    <div className="text-xs text-gray-400 mb-4"><img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px]" /> Loot: up to 200 XP | 50 Gold</div>
                                     <GameButton
                                       onClick={() => {
                                         setActiveQuest(`${day}_${subjectName}`);
@@ -567,6 +681,110 @@ export default function Dashboard() {
           );
         })()}
 
+        {/* --- ACTIVE EVENT QUEST VIEW --- */}
+        {activeTab === 'board' && activeEventQuest !== null && activeEvent && (() => {
+          const eventQuest = eventQuests.find(q => q.id === activeEventQuest);
+          const questRow = eventProgress.find(p => p.event_quest_id === activeEventQuest);
+
+          const handleEventQuizSubmit = (isPerfect: boolean, newAttempts: number, newStats: CharacterStats, xpEarned: number, goldEarned: number) => {
+            if (!activeUserId || !activeEvent || !eventQuest) return;
+            if (isPerfect) {
+              updateStatsAndJournal(newStats, data.journal_logs);
+              logAction(activeUserId, data.week_starting_date, 'event_quiz', `Completed event quest ${eventQuest.subject_name} in ${newAttempts} attempt(s)`, xpEarned, goldEarned);
+            }
+            (async () => {
+              await recordEventQuizMastery(activeUserId, activeEvent.id, eventQuest.id, isPerfect, newAttempts);
+              const newProgress = await fetchUserEventProgress(activeUserId, activeEvent.id);
+              setEventProgress(newProgress);
+
+              if (isPerfect) {
+                const allMastered = eventQuests.every(q =>
+                  q.id === eventQuest.id || newProgress.some(p => p.event_quest_id === q.id && p.is_mastered)
+                );
+                if (allMastered) {
+                  const granted = await claimEventReward(activeUserId, activeEvent.id);
+                  if (granted) {
+                    setEventClaimed(true);
+                    playCoins();
+                    setToast({ show: true, message: `🎁 Event reward claimed! Check your Curio Arena collection.` });
+                    logAction(activeUserId, data.week_starting_date, 'event_reward', `Completed event: ${activeEvent.title}`, 0, 0);
+                  }
+                }
+              }
+            })();
+          };
+
+          return (
+            <div className="w-full max-w-4xl mx-auto animate-in fade-in duration-500">
+              {eventQuizPhase === 'study' && (
+                <div className="space-y-6">
+                  <GameButton
+                    onClick={() => { setActiveEventQuest(null); setEventQuizPhase('study'); }}
+                    className="text-gray-400 hover:text-white flex items-center text-sm font-bold transition-colors"
+                  >
+                    ← Retreat to Map
+                  </GameButton>
+
+                  <div className="bg-neutral-900 border border-amber-900 p-8 rounded-xl shadow-lg">
+                    <h2 className="text-3xl font-bold mb-6 text-amber-400 font-display">📚 Study Session: {eventQuest?.subject_name}</h2>
+                    <div className="text-gray-300 leading-relaxed whitespace-pre-wrap border-t border-neutral-800 pt-6">
+                      {eventQuest?.summary_markdown || "No notes available for this module."}
+                    </div>
+                  </div>
+
+                  <GameButton
+                    onClick={() => setEventQuizPhase('ready')}
+                    className="w-full bg-amber-600 hover:bg-amber-500 text-black py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-[1.01]"
+                  >
+                    I Am Ready To Fight
+                  </GameButton>
+                </div>
+              )}
+
+              {eventQuizPhase === 'ready' && (
+                <div className="bg-[#111] border border-amber-900 p-12 rounded-2xl text-center shadow-2xl">
+                  <p className="text-amber-400 font-bold uppercase tracking-wider text-sm mb-2 font-display">{eventQuest?.subject_name} Encounter</p>
+                  <h2 className="text-4xl font-display font-bold mb-4">Prepare for Battle</h2>
+                  <p className="text-gray-400 mb-8 max-w-sm mx-auto">
+                    You are about to start the event assessment. Once you enter the exam, there is no turning back.
+                  </p>
+                  <div className="flex gap-4 justify-center">
+                    <GameButton
+                      onClick={() => setEventQuizPhase('study')}
+                      className="px-6 py-3 text-gray-400 hover:text-white font-bold"
+                    >
+                      Go Back to Notes
+                    </GameButton>
+                    <GameButton
+                      onClick={() => setEventQuizPhase('quiz')}
+                      className="bg-amber-600 hover:bg-amber-500 text-white px-8 py-3 rounded-lg font-bold transition-all"
+                    >
+                      Start Exam
+                    </GameButton>
+                  </div>
+                </div>
+              )}
+
+              {eventQuizPhase === 'quiz' && eventQuest && (
+                <QuestModule
+                  userId={activeUserId}
+                  questName={eventQuest.subject_name}
+                  questKey={`event_${eventQuest.id}`}
+                  questData={eventQuest}
+                  currentStats={data.character_stats}
+                  attemptsSoFar={questRow?.attempts || 0}
+                  isMastered={!!questRow?.is_mastered}
+                  onQuizSubmit={handleEventQuizSubmit}
+                  onExit={() => {
+                    setActiveEventQuest(null);
+                    setEventQuizPhase('study');
+                  }}
+                />
+              )}
+            </div>
+          );
+        })()}
+
         {/* --- TAB B: REWARDS VAULT / SHOP --- */}
         {activeTab === 'vault' && !USERS[activeUserId].isFamily && (
           <MonsterShop
@@ -585,7 +803,7 @@ export default function Dashboard() {
                 <div key={key} className="bg-[#111] border border-[#333] p-6 rounded-xl flex flex-col justify-between h-full">
                   <div>
                     <h3 className="text-xl font-bold mb-2">{item.name}</h3>
-                    <h4 className="text-yellow-400 font-bold mb-4">🪙 {item.cost} Gold</h4>
+                    <h4 className="text-yellow-400 font-bold mb-4"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {item.cost} Gold</h4>
                     <p className="text-sm text-gray-400 mb-6">{item.desc}</p>
                   </div>
                   <motion.button
@@ -612,7 +830,7 @@ export default function Dashboard() {
 
             {/* My Claimed Rewards — filtered to this user */}
             <div className="mt-10 bg-neutral-900 border border-neutral-800 p-6 rounded-xl">
-              <h2 className="text-xl font-bold mb-4">📦 My Claimed Rewards</h2>
+              <h2 className="text-xl font-bold mb-4"><img src="/icons/rewards/package.svg" alt="Package" className="inline w-4 h-4 align-[-2px]" /> My Claimed Rewards</h2>
 
               {(() => {
                 const countOf = (key: string) => myClaims.filter(c => c.item_key === key).length;
@@ -686,11 +904,11 @@ export default function Dashboard() {
                 <h1 className="text-3xl font-bold mb-8 font-display">⚔️ Side Quest Guilds</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {([
-                    { key: 'lorekeeper' as GuildKey, guild: 'lorekeeper' as const, emoji: '📜', name: 'Lorekeeper', desc: 'English guild — Time Attack reading & grammar challenges.', bg: 'bg-[#121a16]', border: 'border-emerald-800 hover:border-emerald-500', title: 'text-emerald-300', lvl: guildProfile?.lorekeeper_lvl },
-                    { key: 'spellcaster' as GuildKey, guild: 'spellcaster' as const, emoji: '🧙‍♂️', name: 'SpellCaster', desc: 'Typing guild — Real-time speed spelling under the clock.', bg: 'bg-[#13111c]', border: 'border-violet-800 hover:border-violet-500', title: 'text-violet-300', lvl: guildProfile?.spellcaster_lvl },
-                    { key: 'number_realm' as GuildKey, guild: 'numberrealm' as const, emoji: '🔢', name: 'Number Realm', desc: 'Math guild — Fractions, time, and operations at speed.', bg: 'bg-[#0d0c08]', border: 'border-amber-800 hover:border-amber-500', title: 'text-amber-300', lvl: guildProfile?.number_realm_lvl },
-                    { key: 'logic_labyrinth' as GuildKey, guild: 'logiclabyrinth' as const, emoji: '🧩', name: 'Logic Labyrinth', desc: 'IQ guild — Pattern matrices and deduction puzzles.', bg: 'bg-[#0b0d12]', border: 'border-cyan-800 hover:border-cyan-500', title: 'text-cyan-300', lvl: guildProfile?.logic_labyrinth_lvl },
-                    { key: 'lexicon_arena' as GuildKey, guild: 'lexiconarena' as const, emoji: '🧿', name: 'Lexicon Arena', desc: 'Spelling guild — Read the definition, pick the correct spelling before time runs out.', bg: 'bg-neutral-900', border: 'border-indigo-800 hover:border-indigo-500', title: 'text-indigo-300', lvl: guildProfile?.lexicon_arena_lvl },
+                    { key: 'lorekeeper' as GuildKey, guild: 'lorekeeper' as const, name: 'Lorekeeper', desc: 'English guild — Time Attack reading & grammar challenges.', bg: 'bg-[#121a16]', border: 'border-emerald-800 hover:border-emerald-500', title: 'text-emerald-300', lvl: guildProfile?.lorekeeper_lvl },
+                    { key: 'spellcaster' as GuildKey, guild: 'spellcaster' as const, name: 'SpellCaster', desc: 'Typing guild — Real-time speed spelling under the clock.', bg: 'bg-[#13111c]', border: 'border-violet-800 hover:border-violet-500', title: 'text-violet-300', lvl: guildProfile?.spellcaster_lvl },
+                    { key: 'number_realm' as GuildKey, guild: 'numberrealm' as const, name: 'Number Realm', desc: 'Math guild — Fractions, time, and operations at speed.', bg: 'bg-[#0d0c08]', border: 'border-amber-800 hover:border-amber-500', title: 'text-amber-300', lvl: guildProfile?.number_realm_lvl },
+                    { key: 'logic_labyrinth' as GuildKey, guild: 'logiclabyrinth' as const, name: 'Logic Labyrinth', desc: 'IQ guild — Pattern matrices and deduction puzzles.', bg: 'bg-[#0b0d12]', border: 'border-cyan-800 hover:border-cyan-500', title: 'text-cyan-300', lvl: guildProfile?.logic_labyrinth_lvl },
+                    { key: 'lexicon_arena' as GuildKey, guild: 'lexiconarena' as const, name: 'Lexicon Arena', desc: 'Spelling guild — Read the definition, pick the correct spelling before time runs out.', bg: 'bg-neutral-900', border: 'border-indigo-800 hover:border-indigo-500', title: 'text-indigo-300', lvl: guildProfile?.lexicon_arena_lvl },
                   ]).map(g => (
                     <motion.button
                       key={g.key}
@@ -704,7 +922,7 @@ export default function Dashboard() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-2">
-                          <h3 className={`text-xl font-bold ${g.title} font-display mb-1`}>{g.emoji} {g.name}</h3>
+                          <h3 className={`text-xl font-bold ${g.title} font-display mb-1`}>{g.name}</h3>
                           {typeof g.lvl === 'number' && (
                             <span className={`text-xs font-mono font-bold ${g.title} bg-black/40 rounded-full px-2 py-0.5 shrink-0`}>Lvl {g.lvl}</span>
                           )}
@@ -869,6 +1087,9 @@ export default function Dashboard() {
           show={toast.show}
           onClose={() => setToast({ show: false, message: '' })}
         />
+        {showEventPopup && activeEvent && (
+          <EventAnnouncementPopup event={activeEvent} onDismiss={handleDismissEventPopup} />
+        )}
 
         {/* ── Back to Splash Screen button ── fixed bottom-right of the dashboard */}
         <motion.button

@@ -184,7 +184,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
           <div className="w-40 h-40 mx-auto mb-4">
             <GuardianSprite guild="numberrealm" pose="idle" className="w-full h-full" />
           </div>
-          <h2 className="text-4xl font-display font-bold text-amber-300 mb-2">🔢 Number Realm</h2>
+          <h2 className="text-4xl font-display font-bold text-amber-300 mb-2">Number Realm</h2>
           <p className="text-amber-600 font-mono mb-1">Lvl {profile?.number_realm_lvl || 1} · {profile?.number_realm_xp || 0}/500 XP</p>
           <p className="text-gray-400 mb-8 font-mono text-sm max-w-md mx-auto">Solve math problems in {timeLimit} seconds. Correct answers build your streak — the longer the streak, the greater the gold multiplier.</p>
 
@@ -198,7 +198,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
             <div className="bg-black/40 rounded-xl p-4">
-              <p className="text-2xl font-bold font-mono text-yellow-400">+{GOLD_PER_CORRECT}🪙</p>
+              <p className="text-2xl font-bold font-mono text-yellow-400">+{GOLD_PER_CORRECT}<img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /></p>
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
           </div>
@@ -293,7 +293,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
             <p className="text-sm text-gray-500 mt-1">Subclass XP</p>
           </div>
           <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-yellow-400">🪙 {engine.totalGoldEarned}</p>
+            <p className="text-4xl font-bold font-mono text-yellow-400"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {engine.totalGoldEarned}</p>
             <p className="text-sm text-gray-500 mt-1">Gold Earned</p>
           </div>
         </div>

@@ -100,7 +100,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
           {claimedToday ? (
             <p className="text-green-400 text-sm font-bold">✅ Daily supply claimed! 3x Health Potion + 1x Iron Shield added to your inventory.</p>
           ) : (
-            <p className="text-yellow-400 text-sm font-bold">🎁 Claiming your daily supply...</p>
+            <p className="text-yellow-400 text-sm font-bold"><img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px]" /> Claiming your daily supply...</p>
           )}
         </div>
       )}
@@ -134,7 +134,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
             <div>
               <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
               <h3 className="text-white font-bold mb-1">{item.name}</h3>
-              <p className="text-yellow-400 text-sm font-bold mb-2">🪙 {item.cost} Gold</p>
+              <p className="text-yellow-400 text-sm font-bold mb-2"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {item.cost} Gold</p>
               <p className="text-gray-400 text-xs mb-4">{item.desc}</p>
               {(inventory[item.key] || 0) > 0 && (
                 <p className="text-green-400 text-xs mb-2 font-bold">In bag: x{inventory[item.key]}</p>
@@ -200,7 +200,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
                 <div>
                   <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
                   <h3 className="text-white font-bold mb-1">{item.name}</h3>
-                  <p className="text-yellow-400 text-sm font-bold mb-2">🪙 {item.cost} Gold</p>
+                  <p className="text-yellow-400 text-sm font-bold mb-2"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {item.cost} Gold</p>
                   <p className="text-gray-400 text-xs mb-4">{item.desc}</p>
                   {(inventory[item.key] || 0) > 0 && (
                     <p className="text-green-400 text-xs mb-2 font-bold">In bag: x{inventory[item.key]}</p>

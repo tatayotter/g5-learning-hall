@@ -65,7 +65,7 @@ export default function DeedHistory({ userId }: { userId: string }) {
           <div className="flex justify-between items-center mb-2">
             <h4 className="font-bold text-blue-400 font-display">{group.monthLabel}</h4>
             <span className="text-xs font-mono text-gray-400">
-              {group.deeds.length} deed{group.deeds.length !== 1 ? 's' : ''} · 🪙 {group.totalGold} total
+              {group.deeds.length} deed{group.deeds.length !== 1 ? 's' : ''} · <img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {group.totalGold} total
             </span>
           </div>
           <div className="space-y-2">
@@ -75,7 +75,7 @@ export default function DeedHistory({ userId }: { userId: string }) {
                   <p className="text-sm">{deed.description}</p>
                   <p className="text-xs text-gray-500">{format(new Date(deed.created_at), 'MMM d, yyyy — h:mm a')}</p>
                 </div>
-                <span className="text-xs font-mono text-yellow-500">+{deed.gold_change} 🪙</span>
+                <span className="text-xs font-mono text-yellow-500">+{deed.gold_change} <img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /></span>
               </div>
             ))}
           </div>

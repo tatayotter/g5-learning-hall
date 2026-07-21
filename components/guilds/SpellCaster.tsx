@@ -146,7 +146,7 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
           <div className="w-40 h-40 mx-auto mb-4">
             <GuardianSprite guild="spellcaster" pose="idle" className="w-full h-full" />
           </div>
-          <h2 className="text-4xl font-display font-bold text-violet-300 mb-2">🧙‍♂️ SpellCaster Guild</h2>
+          <h2 className="text-4xl font-display font-bold text-violet-300 mb-2">SpellCaster Guild</h2>
           <p className="text-violet-500 font-mono mb-1">Lvl {profile?.spellcaster_lvl || 1} · {profile?.spellcaster_xp || 0}/500 XP</p>
           <p className="text-gray-400 mb-8 font-mono text-sm max-w-md mx-auto">Type each word exactly as shown. The moment you spell it correctly, it vanishes and the next appears. No Enter key — pure speed.</p>
 
@@ -160,7 +160,7 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
             <div className="bg-black/40 rounded-xl p-4">
-              <p className="text-2xl font-bold font-mono text-yellow-400">+{GOLD_PER_CORRECT}🪙</p>
+              <p className="text-2xl font-bold font-mono text-yellow-400">+{GOLD_PER_CORRECT}<img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /></p>
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
           </div>
@@ -259,7 +259,7 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
             <p className="text-sm text-gray-500 mt-1">Subclass XP</p>
           </div>
           <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-yellow-400">🪙 {engine.totalGoldEarned}</p>
+            <p className="text-4xl font-bold font-mono text-yellow-400"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {engine.totalGoldEarned}</p>
             <p className="text-sm text-gray-500 mt-1">Gold Earned</p>
           </div>
         </div>

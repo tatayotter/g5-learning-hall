@@ -570,7 +570,7 @@ export default function LiveBattleScreen({
               className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
             >
               <p className="text-sm font-bold text-white flex items-center gap-1">
-                😴 Rest <InfoTag text="Heals your monster and uses up this round's turn — the opponent still attacks normally. Limited uses per battle." />
+                <img src="/icons/stats/rest.svg" alt="" className="w-4 h-4 object-contain" /> Rest <InfoTag text="Heals your monster and uses up this round's turn — the opponent still attacks normally. Limited uses per battle." />
               </p>
               <p className="text-xs text-gray-400">Restore {Math.round(restConfig.hpRestorePercent * 100)}% HP</p>
             </button>
@@ -585,7 +585,7 @@ export default function LiveBattleScreen({
               className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left btn-tactile"
             >
               <p className="text-sm font-bold text-white flex items-center gap-1">
-                🎒 Items <InfoTag text="Using an item also uses up this round's turn — the opponent still attacks normally." />
+                <img src="/icons/stats/items.svg" alt="" className="w-4 h-4 object-contain" /> Items <InfoTag text="Using an item also uses up this round's turn — the opponent still attacks normally." />
               </p>
               <p className="text-xs text-gray-400">Use an item</p>
             </button>
@@ -595,7 +595,7 @@ export default function LiveBattleScreen({
               className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
             >
               <p className="text-sm font-bold text-white flex items-center gap-1">
-                🔄 Switch <InfoTag text="Swap to another curio on your team — also uses up this round's turn." />
+                <img src="/icons/stats/switch.svg" alt="" className="w-4 h-4 object-contain" /> Switch <InfoTag text="Swap to another curio on your team — also uses up this round's turn." />
               </p>
               <p className="text-xs text-gray-400">{otherAliveMonsters.length > 0 ? 'Change your curio' : 'No other curios'}</p>
             </button>
@@ -604,7 +604,7 @@ export default function LiveBattleScreen({
               className="p-3 rounded-xl border-2 border-red-900/60 hover:border-red-500 text-left btn-tactile"
             >
               <p className="text-sm font-bold text-red-400 flex items-center gap-1">
-                🏳️ Surrender <InfoTag text="Ends the match immediately. You earn no EXP or Gold; your opponent wins with half EXP and no Gold." />
+                <img src="/icons/stats/surrender.svg" alt="" className="w-4 h-4 object-contain" /> Surrender <InfoTag text="Ends the match immediately. You earn no EXP or Gold; your opponent wins with half EXP and no Gold." />
               </p>
               <p className="text-xs text-gray-400">Forfeit the match</p>
             </button>
@@ -614,7 +614,9 @@ export default function LiveBattleScreen({
 
       {phase === 'select_skill' && !answering && showItemMenu && (
         <div className="mt-4 bg-neutral-950 border border-neutral-700 rounded-2xl p-4 space-y-2">
-          <p className="text-white font-bold text-center mb-2">🎒 Select an Item</p>
+          <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
+            <img src="/icons/stats/items.svg" alt="" className="w-4 h-4 object-contain" /> Select an Item
+          </p>
           {Object.entries(inventory).filter(([, qty]) => !!qty && qty > 0).length === 0 ? (
             <p className="text-gray-500 text-sm text-center">No items in inventory.</p>
           ) : (
@@ -652,7 +654,9 @@ export default function LiveBattleScreen({
 
       {phase === 'select_skill' && !answering && showSwitchMenu && (
         <div className="mt-4 bg-neutral-950 border border-neutral-700 rounded-2xl p-4 space-y-2">
-          <p className="text-white font-bold text-center mb-2">🔄 Switch Curio</p>
+          <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
+            <img src="/icons/stats/switch.svg" alt="" className="w-4 h-4 object-contain" /> Switch Curio
+          </p>
           {otherAliveMonsters.length === 0 ? (
             <p className="text-gray-500 text-sm text-center">No other curios available.</p>
           ) : (

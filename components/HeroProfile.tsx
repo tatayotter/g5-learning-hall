@@ -81,7 +81,7 @@ export default function HeroProfile({ userId, stats, currentDay }: HeroProfilePr
         </div>
         <div className="bg-neutral-900 p-2 rounded">
           <p className="text-xs text-gray-500">Wallet</p>
-          <p className="font-bold font-mono text-yellow-400">🪙 {gold}</p>
+          <p className="font-bold font-mono text-yellow-400"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {gold}</p>
         </div>
       </div>
 
