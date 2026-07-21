@@ -24,8 +24,8 @@ export default function AchievementsBoard({ data }: AchievementsBoardProps) {
   return (
     <div className="mt-16 pt-10 border-t-2 border-neutral-800">
       <div className="mb-6">
-        <h2 className="text-2xl font-display font-bold text-white flex items-center gap-2">
-          <img src="/icons/achievements/trophy.svg" alt="" className="w-6 h-6 object-contain" /> Achievements
+        <h2 className="text-2xl font-display font-bold text-white">
+          Achievements
         </h2>
         <p className="text-xs text-gray-500 mt-1">{unlocked.length} of {ACHIEVEMENTS.length} unlocked</p>
       </div>
@@ -37,12 +37,7 @@ export default function AchievementsBoard({ data }: AchievementsBoardProps) {
               key={achievement.id}
               className={`p-3 rounded-xl border ${isUnlocked ? 'bg-[#111] border-green-900' : 'bg-[#111] border-[#333] opacity-60'}`}
             >
-              <h3 className={`text-xs font-bold leading-tight mb-1 flex items-center gap-1 ${isUnlocked ? 'text-white' : 'text-gray-500'}`}>
-                <img
-                  src={isUnlocked ? achievement.icon : '/icons/achievements/locked.svg'}
-                  alt=""
-                  className="w-4 h-4 object-contain flex-shrink-0"
-                />
+              <h3 className={`text-xs font-bold leading-tight mb-1 ${isUnlocked ? 'text-white' : 'text-gray-500'}`}>
                 {achievement.title}
               </h3>
               <p className="text-[10px] text-gray-500 leading-relaxed mb-2">

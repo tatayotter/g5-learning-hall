@@ -81,16 +81,13 @@ export default function AchievementToast({ userId, newlyUnlocked, onDismissAll }
           <div className="p-5">
             {/* Header */}
             <div className="flex items-start justify-between mb-3">
-              <div className="flex items-center gap-2">
-                <img src={current.icon} alt="" className="w-8 h-8 object-contain flex-shrink-0" />
-                <div>
-                  <p className={`text-xs font-bold uppercase tracking-widest ${colors.sub}`}>
-                    {isTala ? '✨ Achievement Unlocked!' : '⚔️ Achievement Unlocked!'}
-                  </p>
-                  <h3 className={`text-lg font-display font-bold leading-tight ${colors.title}`}>
-                    {current.title}
-                  </h3>
-                </div>
+              <div>
+                <p className={`text-xs font-bold uppercase tracking-widest ${colors.sub}`}>
+                  {isTala ? '✨ Achievement Unlocked!' : '⚔️ Achievement Unlocked!'}
+                </p>
+                <h3 className={`text-lg font-display font-bold leading-tight ${colors.title}`}>
+                  {current.title}
+                </h3>
               </div>
               <button
                 onClick={() => { setVisible([]); onDismissAll(); }}

@@ -1,6 +1,6 @@
 // hooks/useWeeklyData.ts
 import { useState, useEffect } from 'react';
-import { supabase } from '@/lib/supabase';
+import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { startOfWeek, format } from 'date-fns';
 import { ACHIEVEMENTS, Achievement } from '@/lib/achievements';
 import { logAction } from '@/lib/playerlog';
@@ -52,6 +52,13 @@ export function useWeeklyData(userId: string = 'damien') {
 
   useEffect(() => {
     async function fetchData() {
+      // weekly_packages RLS only grants access to the `authenticated` role, which
+      // this app's anonymous-auth bridge (lib/supabase.ts) provides — but that
+      // sign-in happens in a separate effect (userSession.linkIdentity), so without
+      // waiting here this fetch can race ahead on the unauthenticated `anon` role
+      // and get rejected.
+      await ensureAnonymousSession();
+
       // Fetch this week's row for the specific user
       const { data: packageData, error: fetchError } = await supabase
         .from('weekly_packages')

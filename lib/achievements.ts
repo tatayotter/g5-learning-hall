@@ -4,7 +4,6 @@ import { WeeklyData } from '@/hooks/useWeeklyData';
 export interface Achievement {
   id: string;
   title: string;
-  icon: string;
   description: string;
   criteria: (data: any) => boolean;
   xpReward: number;
@@ -15,7 +14,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'novice_squire',
     title: 'Novice Squire',
-    icon: '/icons/achievements/novice_squire.svg', 
     description: 'A humble beginning. Level up to 2 to show your commitment.',
     criteria: (d) => d.character_stats.level >= 2, 
     xpReward: 50, 
@@ -24,7 +22,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'elite_stats',
     title: 'Elite Stats',
-    icon: '/icons/achievements/elite_stats.svg', 
     description: 'You are becoming a force to be reckoned with. Reach Level 15.',
     criteria: (d) => d.character_stats.level >= 15, 
     xpReward: 500, 
@@ -33,7 +30,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'first_blood',
     title: 'First Blood Victory',
-    icon: '/icons/achievements/first_blood.svg', 
     description: 'The first lesson conquered. Complete your first mastery.',
     criteria: (d) => (d.mastery_count || 0) >= 1, 
     xpReward: 50, 
@@ -42,7 +38,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'portfolio_build',
     title: 'Elite Portfolio',
-    icon: '/icons/achievements/portfolio_build.svg', 
     description: 'Your work speaks for itself. Attain 10 masteries.',
     criteria: (d) => (d.mastery_count || 0) >= 10, 
     xpReward: 400, 
@@ -51,7 +46,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'first_reflection',
     title: 'First Reflection',
-    icon: '/icons/achievements/first_reflection.svg', 
     description: 'Reflect on your progress. Submit your first journal entry.',
     criteria: (d) => Object.keys(d.journal_logs || {}).length >= 1, 
     xpReward: 50, 
@@ -60,7 +54,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'weekly_streak',
     title: 'Weekly Streak',
-    icon: '/icons/achievements/weekly_streak.svg', 
     description: 'Consistency is key to mastery. Log 7 journal entries.',
     criteria: (d) => Object.keys(d.journal_logs || {}).length >= 7, 
     xpReward: 350, 
@@ -69,7 +62,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'copper_sack',
     title: 'Copper Sack',
-    icon: '/icons/achievements/copper_sack.svg', 
     description: 'A small fortune. Amass 100 Gold in your wallet.',
     criteria: (d) => d.character_stats.gold >= 100, 
     xpReward: 50, 
@@ -78,7 +70,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'fortune_seeker',
     title: 'Amass Fortune',
-    icon: '/icons/achievements/fortune_seeker.svg', 
     description: 'A true treasure hunter. Amass 1,000 Gold.',
     criteria: (d) => d.character_stats.gold >= 1000, 
     xpReward: 500, 
@@ -87,7 +78,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'vault_novice',
     title: 'Vault Novice',
-    icon: '/icons/achievements/vault_novice.svg', 
     description: 'Spend your hard-earned gold. Make your first purchase.',
     criteria: (d) => (d.purchased_items || 0) >= 1, 
     xpReward: 50, 
@@ -96,7 +86,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'activity_bounty',
     title: 'Activity Bounty',
-    icon: '/icons/achievements/activity_bounty.svg', 
     description: 'Recognized for excellence. Receive an activity bounty grant.',
     criteria: (d) => (d.honor_grants || 0) >= 1, 
     xpReward: 100, 
@@ -105,7 +94,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'level_5',
     title: 'Train Hard',
-    icon: '/icons/achievements/level_5.svg', 
     description: 'Training intensifies. Reach Level 5.',
     criteria: (d) => d.character_stats.level >= 5, 
     xpReward: 150, 
@@ -114,7 +102,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'ultimate_status',
     title: 'Ultimate Status',
-    icon: '/icons/achievements/ultimate_status.svg', 
     description: 'You have transcended expectations. Reach Level 20.',
     criteria: (d) => d.character_stats.level >= 20, 
     xpReward: 1000, 
@@ -123,7 +110,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'academic_assignments',
     title: 'Academic Mastery',
-    icon: '/icons/achievements/academic_assignments.svg', 
     description: 'Versatility in studies. Complete 3 academic masteries.',
     criteria: (d) => (d.mastery_count || 0) >= 3, 
     xpReward: 100, 
@@ -132,7 +118,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'mastery_shatter',
     title: 'Shatter Expectations',
-    icon: '/icons/achievements/mastery_shatter.svg', 
     description: 'Shatter expectations. Achieve 15 masteries total.',
     criteria: (d) => (d.mastery_count || 0) >= 15, 
     xpReward: 600, 
@@ -141,7 +126,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'consistency_3',
     title: 'Journal Consistency',
-    icon: '/icons/achievements/consistency_3.svg', 
     description: 'Establishing a rhythm. Submit 3 journal logs.',
     criteria: (d) => Object.keys(d.journal_logs || {}).length >= 3, 
     xpReward: 100, 
@@ -150,7 +134,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'ledger_archive',
     title: 'Ledger Archive',
-    icon: '/icons/achievements/ledger_archive.svg', 
     description: 'A detailed history of your growth. Archive 10 logs.',
     criteria: (d) => Object.keys(d.journal_logs || {}).length >= 10, 
     xpReward: 500, 
@@ -159,7 +142,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'merchant_assoc',
     title: 'Merchant Associate',
-    icon: '/icons/achievements/merchant_assoc.svg', 
     description: 'A respectable sum. Reach 300 Gold balance.',
     criteria: (d) => d.character_stats.gold >= 300, 
     xpReward: 100, 
@@ -168,7 +150,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'legendary_bank',
     title: 'Legendary Balance',
-    icon: '/icons/achievements/legendary_bank.svg', 
     description: 'Your coffers overflow. Reach 1,500 Gold balance.',
     criteria: (d) => d.character_stats.gold >= 1500, 
     xpReward: 800, 
@@ -177,7 +158,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'vault_reward_5',
     title: 'Vault Reward x5',
-    icon: '/icons/achievements/vault_reward_5.svg', 
     description: 'You have been shopping! Claim 5 rewards from the vault.',
     criteria: (d) => (d.purchased_items || 0) >= 5, 
     xpReward: 200, 
@@ -186,7 +166,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'excellent_deeds_3',
     title: '3 Honor Grants',
-    icon: '/icons/achievements/excellent_deeds_3.svg', 
     description: 'Actions speak louder than words. Receive 3 honor grants.',
     criteria: (d) => (d.honor_grants || 0) >= 3, 
     xpReward: 250, 
@@ -195,7 +174,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'level_10',
     title: 'Threshold Level 10',
-    icon: '/icons/achievements/level_10.svg', 
     description: 'A seasoned learner. Reach Level 10.',
     criteria: (d) => d.character_stats.level >= 10, 
     xpReward: 300, 
@@ -204,7 +182,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'limit_breaker',
     title: 'Limit Breaker',
-    icon: '/icons/achievements/limit_breaker.svg', 
     description: 'You have no limits. Reach Level 25.',
     criteria: (d) => d.character_stats.level >= 25, 
     xpReward: 1500, 
@@ -213,7 +190,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'tactical_master',
     title: 'Tactical Master',
-    icon: '/icons/achievements/tactical_master.svg', 
     description: 'Strategic planning pays off. Complete 5 quests.',
     criteria: (d) => (d.mastery_count || 0) >= 5, 
     xpReward: 200, 
@@ -222,7 +198,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'wipeout_20',
     title: 'Wipe Out',
-    icon: '/icons/achievements/wipeout_20.svg', 
     description: 'Total mastery of the curriculum. Complete 20 quests.',
     criteria: (d) => (d.mastery_count || 0) >= 20, 
     xpReward: 1200, 
@@ -231,7 +206,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'travel_logs_5',
     title: 'Travel Logs',
-    icon: '/icons/achievements/travel_logs_5.svg', 
     description: 'Documenting your journey. Complete 5 journal logs.',
     criteria: (d) => Object.keys(d.journal_logs || {}).length >= 5, 
     xpReward: 150, 
@@ -240,7 +214,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'habit_builder',
     title: 'Habit Builder',
-    icon: '/icons/achievements/habit_builder.svg', 
     description: 'Your discipline is legendary. Submit 15 journal logs.',
     criteria: (d) => Object.keys(d.journal_logs || {}).length >= 15, 
     xpReward: 800, 
@@ -249,7 +222,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'wealthy_hoarder',
     title: 'Wealthy Hoarder',
-    icon: '/icons/achievements/wealthy_hoarder.svg', 
     description: 'The riches pile up. Amass 500 Gold.',
     criteria: (d) => d.character_stats.gold >= 500, 
     xpReward: 200, 
@@ -258,7 +230,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'staggering_wealth',
     title: 'Staggering Wealth',
-    icon: '/icons/achievements/staggering_wealth.svg', 
     description: 'You have more than most kingdoms. Amass 2,000 Gold.',
     criteria: (d) => d.character_stats.gold >= 2000, 
     xpReward: 1200, 
@@ -267,7 +238,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'cash_out_10',
     title: 'Cash Out',
-    icon: '/icons/achievements/cash_out_10.svg', 
     description: 'Stocking the inventory. Purchase 10 items from the vault.',
     criteria: (d) => (d.purchased_items || 0) >= 10, 
     xpReward: 400, 
@@ -276,7 +246,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'outstanding_help_5',
     title: 'Outstanding Help',
-    icon: '/icons/achievements/outstanding_help_5.svg', 
     description: 'Your character is a beacon. Receive 5 honor grants.',
     criteria: (d) => (d.honor_grants || 0) >= 5, 
     xpReward: 600, 
@@ -286,7 +255,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'guild_initiate',
     title: 'Guild Initiate',
-    icon: '/icons/achievements/guild_initiate.svg',
     description: 'Step into the guild halls for the first time. Complete 1 side quest session.',
     criteria: (d) => (d.guild_sessions_count || 0) >= 1,
     xpReward: 50,
@@ -295,7 +263,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'guild_regular',
     title: 'Guild Regular',
-    icon: '/icons/achievements/guild_regular.svg',
     description: 'You are becoming a fixture in the halls. Complete 5 guild sessions.',
     criteria: (d) => (d.guild_sessions_count || 0) >= 5,
     xpReward: 100,
@@ -304,7 +271,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'guild_veteran',
     title: 'Guild Veteran',
-    icon: '/icons/achievements/guild_veteran.svg',
     description: 'A seasoned warrior of the side quests. Complete 15 guild sessions.',
     criteria: (d) => (d.guild_sessions_count || 0) >= 15,
     xpReward: 200,
@@ -313,7 +279,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'guild_champion',
     title: 'Guild Champion',
-    icon: '/icons/achievements/guild_champion.svg',
     description: 'You have proven yourself across all halls. Complete 30 guild sessions.',
     criteria: (d) => (d.guild_sessions_count || 0) >= 30,
     xpReward: 400,
@@ -322,7 +287,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'guild_legend',
     title: 'Guild Legend',
-    icon: '/icons/achievements/guild_legend.svg',
     description: 'Your name is etched into the guild walls. Complete 50 guild sessions.',
     criteria: (d) => (d.guild_sessions_count || 0) >= 50,
     xpReward: 800,
@@ -333,7 +297,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'perfect_strike',
     title: 'Perfect Strike',
-    icon: '/icons/achievements/perfect_strike.svg',
     description: 'Flawless execution. Achieve your first perfect quiz score.',
     criteria: (d) => (d.perfect_quizzes || 0) >= 1,
     xpReward: 75,
@@ -342,7 +305,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'perfect_trio',
     title: 'Perfect Trio',
-    icon: '/icons/achievements/perfect_trio.svg',
     description: 'Three perfect scores. You are sharper than most. Achieve 3 perfect quizzes.',
     criteria: (d) => (d.perfect_quizzes || 0) >= 3,
     xpReward: 150,
@@ -351,7 +313,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'perfect_machine',
     title: 'Perfect Machine',
-    icon: '/icons/achievements/perfect_machine.svg',
     description: 'Relentless accuracy. Achieve 10 perfect quiz scores.',
     criteria: (d) => (d.perfect_quizzes || 0) >= 10,
     xpReward: 400,
@@ -360,7 +321,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'perfect_legend',
     title: 'Perfect Legend',
-    icon: '/icons/achievements/perfect_legend.svg',
     description: 'You never miss. Achieve 20 perfect quiz scores.',
     criteria: (d) => (d.perfect_quizzes || 0) >= 20,
     xpReward: 1000,
@@ -371,7 +331,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'monster_tamer',
     title: 'Monster Tamer',
-    icon: '/icons/achievements/monster_tamer.svg',
     description: 'Your first victory in the Monster Guild. Win 1 trainer battle.',
     criteria: (d) => (d.monster_battles_won || 0) >= 1,
     xpReward: 75,
@@ -380,7 +339,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'battle_hardened',
     title: 'Battle Hardened',
-    icon: '/icons/achievements/battle_hardened.svg',
     description: 'You have fought and won many times. Win 5 trainer battles.',
     criteria: (d) => (d.monster_battles_won || 0) >= 5,
     xpReward: 150,
@@ -389,7 +347,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'trainer_slayer',
     title: 'Trainer Slayer',
-    icon: '/icons/achievements/trainer_slayer.svg',
     description: 'Trainers fear your name. Win 15 trainer battles.',
     criteria: (d) => (d.monster_battles_won || 0) >= 15,
     xpReward: 300,
@@ -398,7 +355,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'monster_overlord',
     title: 'Monster Overlord',
-    icon: '/icons/achievements/monster_overlord.svg',
     description: 'You reign supreme over all trainers. Win 30 trainer battles.',
     criteria: (d) => (d.monster_battles_won || 0) >= 30,
     xpReward: 600,
@@ -409,7 +365,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'sibling_rival',
     title: 'Rival Slayer',
-    icon: '/icons/achievements/sibling_rival.svg',
     description: 'The rivalry begins. Win your first live PvP battle.',
     criteria: (d) => (d.sibling_battles_won || 0) >= 1,
     xpReward: 100,
@@ -418,7 +373,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'sibling_dominator',
     title: 'PvP Dominator',
-    icon: '/icons/achievements/sibling_dominator.svg',
     description: 'No one can stop you. Win 5 live PvP battles.',
     criteria: (d) => (d.sibling_battles_won || 0) >= 5,
     xpReward: 300,
@@ -427,7 +381,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'family_champion',
     title: 'Arena Champion',
-    icon: '/icons/achievements/family_champion.svg',
     description: 'The undisputed champion of the arena. Win 10 live PvP battles.',
     criteria: (d) => (d.sibling_battles_won || 0) >= 10,
     xpReward: 600,
@@ -438,7 +391,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'bully',
     title: 'Bully',
-    icon: '/icons/achievements/bully.svg',
     description: 'Pick on someone your own size. Win 10 Training Dummy battles.',
     criteria: (d) => (d.dummy_battles_won || 0) >= 10,
     xpReward: 100,
@@ -447,7 +399,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'mega_bully',
     title: 'Mega Bully',
-    icon: '/icons/achievements/mega_bully.svg',
     description: 'The dummy never stood a chance. Win 100 Training Dummy battles.',
     criteria: (d) => (d.dummy_battles_won || 0) >= 100,
     xpReward: 300,
@@ -456,7 +407,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'fbi_open_up',
     title: 'FBI Open Up!',
-    icon: '/icons/achievements/fbi_open_up.svg',
     description: 'Someone call for help. Win 1,000 Training Dummy battles.',
     criteria: (d) => (d.dummy_battles_won || 0) >= 1000,
     xpReward: 600,

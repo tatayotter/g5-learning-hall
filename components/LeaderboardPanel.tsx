@@ -218,7 +218,7 @@ export default function LeaderboardPanel() {
     {
       key: 'arena',
       title: '🏆 Arena Leaderboard',
-      badge: <><img src="/icons/achievements/trophy.svg" alt="" className="w-4 h-4 object-contain" /> #1 ARENA CHAMPION</>,
+      badge: '🏆 #1 ARENA CHAMPION',
       ranked: arenaRanked,
       highlight: entry => ({
         emoji: '⭐',
