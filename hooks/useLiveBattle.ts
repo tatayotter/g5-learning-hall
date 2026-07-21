@@ -91,6 +91,7 @@ export function useLiveBattle(
   const [incomingStatusEffect, setIncomingStatusEffect] = useState<{ status: StatusEffect; statusTurns: number } | null>(null);
   const [incomingSelfSync, setIncomingSelfSync] = useState<SelfStatePatch | null>(null);
   const [incomingSwitch, setIncomingSwitch] = useState<{ idx: number; forced: boolean } | null>(null);
+  const [incomingBenchRevive, setIncomingBenchRevive] = useState<{ idx: number; newHp: number } | null>(null);
 
   const channelRef = useRef<RealtimeChannel | null>(null);
   const myAnswerRef = useRef<RoundAnswer | null>(null);
@@ -333,6 +334,16 @@ export function useLiveBattle(
       setIncomingSwitch({ idx: payload.idx, forced: !!payload.forced });
     });
 
+    // A Revive Stone can target a benched (non-active) monster, which
+    // self_state_sync can't express — that patch only ever applies to
+    // whichever slot is currently active on the receiving side. This carries
+    // an explicit roster index instead, so the opponent's mirror of that
+    // specific bench slot gets the revive HP even though it never became active.
+    channel.on('broadcast', { event: 'bench_revive' }, ({ payload }) => {
+      if (!payload || payload.from === userId) return;
+      setIncomingBenchRevive({ idx: payload.idx, newHp: payload.newHp });
+    });
+
     channel.on('broadcast', { event: 'battle_end' }, ({ payload }) => {
       if (!payload) return;
       setBattleEnded({ winnerId: payload.winnerId ?? null, reason: payload.reason ?? 'ko' });
@@ -388,16 +399,22 @@ export function useLiveBattle(
     channelRef.current?.send({ type: 'broadcast', event: 'monster_switch', payload: { idx, forced, from: userId } });
   }, [userId]);
 
+  const sendBenchRevive = useCallback((idx: number, newHp: number) => {
+    channelRef.current?.send({ type: 'broadcast', event: 'bench_revive', payload: { idx, newHp, from: userId } });
+  }, [userId]);
+
   const clearIncomingStatusEffect = useCallback(() => setIncomingStatusEffect(null), []);
   const clearIncomingSelfSync = useCallback(() => setIncomingSelfSync(null), []);
   const clearIncomingSwitch = useCallback(() => setIncomingSwitch(null), []);
+  const clearIncomingBenchRevive = useCallback(() => setIncomingBenchRevive(null), []);
 
   return {
     phase, round, deadlineAt, lastOutcome, forfeitedByOpponent, battleEnded,
-    incomingStatusEffect, incomingSelfSync, incomingSwitch,
+    incomingStatusEffect, incomingSelfSync, incomingSwitch, incomingBenchRevive,
     submitRoundAnswer, advanceToNextRound, declareBattleEnd, registerMonsterGetters,
     sendStatusEffectToOpponent, clearIncomingStatusEffect,
     sendSelfStateSync, clearIncomingSelfSync,
     sendMonsterSwitch, clearIncomingSwitch,
+    sendBenchRevive, clearIncomingBenchRevive,
   };
 }

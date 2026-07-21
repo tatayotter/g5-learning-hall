@@ -60,6 +60,7 @@ export default function LiveBattleScreen({
   const [pendingSkillId, setPendingSkillId] = useState<string | null>(null);
   const [showItemMenu, setShowItemMenu] = useState(false);
   const [showSwitchMenu, setShowSwitchMenu] = useState(false);
+  const [showReviveMenu, setShowReviveMenu] = useState(false);
   const [confirmSurrender, setConfirmSurrender] = useState(false);
   const [resolving, setResolving] = useState(false);
   const [now, setNow] = useState(() => Date.now());
@@ -79,11 +80,12 @@ export default function LiveBattleScreen({
 
   const {
     phase, round, deadlineAt, lastOutcome, forfeitedByOpponent, battleEnded,
-    incomingStatusEffect, incomingSelfSync, incomingSwitch,
+    incomingStatusEffect, incomingSelfSync, incomingSwitch, incomingBenchRevive,
     submitRoundAnswer, advanceToNextRound, declareBattleEnd, registerMonsterGetters,
     sendStatusEffectToOpponent, clearIncomingStatusEffect,
     sendSelfStateSync, clearIncomingSelfSync,
     sendMonsterSwitch, clearIncomingSwitch,
+    sendBenchRevive, clearIncomingBenchRevive,
   } = useLiveBattle(battleId, myUserId, side, SKILLS);
   const timedOutRoundRef = useRef<number | null>(null);
 
@@ -168,6 +170,19 @@ export default function LiveBattleScreen({
     clearIncomingSwitch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [incomingSwitch]);
+
+  // The opponent revived a fainted bench monster — unlike self_state_sync,
+  // this writes directly to that roster slot rather than whichever monster
+  // is currently active, since the revived monster usually isn't.
+  useEffect(() => {
+    if (!incomingBenchRevive) return;
+    const { idx, newHp } = incomingBenchRevive;
+    setOppRoster(prev => prev.map((m, i) => (i === idx ? { ...m, currentHp: newHp } : m)));
+    const revived = oppRoster[idx];
+    if (revived) addLog(`${opponentName} revived ${revived.def.name}!`);
+    clearIncomingBenchRevive();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [incomingBenchRevive]);
 
   useEffect(() => {
     registerMonsterGetters(() => myMonRef.current, () => oppMonRef.current);
@@ -369,6 +384,20 @@ export default function LiveBattleScreen({
     const item = SHOP_CATALOG.find(i => i.key === key);
     if (!item) return;
 
+    // Revive Stone can target any fainted teammate, not just the active
+    // curio, so it needs a target picker before the item is actually
+    // consumed — bail out here (no DB round-trip yet) if there's nothing
+    // to revive.
+    if (item.effect === 'revive') {
+      if (!faintedMyMonsters.length) {
+        addLog('❌ No fainted curios to revive!');
+        return;
+      }
+      setShowItemMenu(false);
+      setShowReviveMenu(true);
+      return;
+    }
+
     itemBusyRef.current = true;
     setItemBusy(true);
 
@@ -416,17 +445,6 @@ export default function LiveBattleScreen({
         addLog(`💀 Used ${item.name}: ${opponentName}'s curio is now Cursed!`);
         break;
       }
-      case 'revive': {
-        if (myMon.currentHp <= 0) {
-          const newHp = Math.round(myMon.maxHp * 0.5);
-          updateMyActive(prev => ({ ...prev, currentHp: newHp }));
-          sendSelfStateSync({ currentHp: newHp });
-          addLog(`🔄 Used ${item.name}: ${myMon.def.name} revived!`);
-        } else {
-          addLog('❌ Only works on fainted curios!');
-        }
-        break;
-      }
       default:
         addLog(`Used ${item.name}!`);
     }
@@ -436,9 +454,41 @@ export default function LiveBattleScreen({
     setItemBusy(false);
   };
 
+  const handleReviveTarget = async (idx: number) => {
+    if (itemBusyRef.current) return;
+    const target = myRoster[idx];
+    if (!target || target.currentHp > 0) return;
+
+    itemBusyRef.current = true;
+    setItemBusy(true);
+
+    const used = await onUseItem('revive_stone');
+    if (!used) {
+      itemBusyRef.current = false;
+      setItemBusy(false);
+      setShowReviveMenu(false);
+      setShowItemMenu(true);
+      return;
+    }
+
+    setShowReviveMenu(false);
+    const newHp = Math.round(target.maxHp * 0.75);
+    setMyRoster(prev => prev.map((m, i) => (i === idx ? { ...m, currentHp: newHp } : m)));
+    sendBenchRevive(idx, newHp);
+    addLog(`🔄 Used Revive Stone: ${target.def.name} revived!`);
+
+    submitRoundAnswer(ITEM_ACTION_ID, 0, 0, false);
+    itemBusyRef.current = false;
+    setItemBusy(false);
+  };
+
   const otherAliveMonsters = myRoster
     .map((m, i) => ({ m, i }))
     .filter(({ m, i }) => i !== myActiveIdx && m.currentHp > 0);
+
+  const faintedMyMonsters = myRoster
+    .map((m, i) => ({ m, i }))
+    .filter(({ m }) => m.currentHp <= 0);
 
   const handleSwitchMonster = (idx: number) => {
     const newMon = myRoster[idx];
@@ -624,18 +674,19 @@ export default function LiveBattleScreen({
               if (!qty || qty <= 0) return null;
               const itemData = SHOP_CATALOG.find(i => i.key === key);
               if (!itemData) return null;
+              const noReviveTargets = itemData.effect === 'revive' && faintedMyMonsters.length === 0;
               return (
                 <button
                   key={key}
                   onClick={() => handleUseItem(key)}
-                  disabled={itemBusy}
+                  disabled={itemBusy || noReviveTargets}
                   className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
                 >
                   <span className="text-left flex items-center gap-2">
                     <img src={itemData.icon} alt={itemData.name} className="w-6 h-6 object-contain flex-shrink-0" />
                     <span>
                       <span className="text-sm font-bold text-white">{itemData.name}</span>
-                      <span className="block text-xs text-gray-400">{itemData.desc}</span>
+                      <span className="block text-xs text-gray-400">{noReviveTargets ? 'No fainted curios to revive' : itemData.desc}</span>
                     </span>
                   </span>
                   <span className="text-xs text-amber-400 font-mono">x{qty}</span>
@@ -675,6 +726,37 @@ export default function LiveBattleScreen({
           )}
           <button
             onClick={() => setShowSwitchMenu(false)}
+            className="w-full text-center text-xs text-gray-500 hover:text-gray-300 pt-1 btn-tactile"
+          >
+            Cancel
+          </button>
+        </div>
+      )}
+
+      {phase === 'select_skill' && !answering && showReviveMenu && (
+        <div className="mt-4 bg-neutral-950 border border-neutral-700 rounded-2xl p-4 space-y-2">
+          <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
+            <img src="/icons/rewards/gift.svg" alt="" className="w-4 h-4 object-contain" /> Revive Which Curio?
+          </p>
+          {faintedMyMonsters.length === 0 ? (
+            <p className="text-gray-500 text-sm text-center">No fainted curios available.</p>
+          ) : (
+            faintedMyMonsters.map(({ m, i }) => (
+              <button
+                key={i}
+                onClick={() => handleReviveTarget(i)}
+                disabled={itemBusy}
+                className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
+              >
+                <span className="text-left">
+                  <span className="text-sm font-bold text-white">{m.def.name} Lv.{m.level}</span>
+                  <span className="block text-xs text-gray-400">0/{m.maxHp} HP — Fainted</span>
+                </span>
+              </button>
+            ))
+          )}
+          <button
+            onClick={() => { setShowReviveMenu(false); setShowItemMenu(true); }}
             className="w-full text-center text-xs text-gray-500 hover:text-gray-300 pt-1 btn-tactile"
           >
             Cancel

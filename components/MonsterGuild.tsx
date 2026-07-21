@@ -428,7 +428,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
       return;
     }
 
-    const revivedHp = Math.round(target.maxHp * 0.5);
+    const revivedHp = Math.round(target.maxHp * 0.75);
     setPlayerMonsters(prev => prev.map((m, i) => i === idx ? { ...m, currentHp: revivedHp } : m));
     addLog(`🔄 Used Revive Stone: ${target.def.name} revived!`);
 
