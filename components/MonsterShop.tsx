@@ -10,6 +10,7 @@ import {
   InventoryMap,
 } from '@/lib/inventory';
 import { SCROLL_CATALOG, ScrollItem } from '@/lib/skillScrolls';
+import { USERPIC_CATALOG, userpicPath } from '@/lib/userpicShop';
 import { Element } from '@/lib/monsterConfig';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { logAction } from '@/lib/playerlog';
@@ -215,6 +216,44 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
                 </button>
               </div>
             ))}
+        </div>
+      </div>
+
+      {/* Userpics — cosmetic gold sink. One-time unlocks stored as qty-1
+          player_inventory rows; equip them from the avatar picker on the
+          Hero Profile card once owned. */}
+      <div className="mt-10">
+        <h2 className="text-2xl font-bold mb-2 font-display">🖼️ Userpics</h2>
+        <p className="text-gray-400 text-sm mb-4">
+          Unlock premium portraits for your Hero Profile. Once purchased, equip them anytime from your avatar picker.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {USERPIC_CATALOG.map(item => {
+            const owned = (inventory[item.key] || 0) > 0;
+            return (
+              <div key={item.key} className="bg-[#111] border border-[#333] p-5 rounded-xl flex flex-col justify-between">
+                <div>
+                  <img src={userpicPath(item.file)} alt={item.name} className="w-16 h-16 object-contain mb-2 rounded-lg bg-neutral-950" />
+                  <h3 className="text-white font-bold mb-1">{item.name}</h3>
+                  <p className="text-yellow-400 text-sm font-bold mb-2"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {item.cost} Gold</p>
+                </div>
+                {owned ? (
+                  <div className="w-full bg-green-900/30 border border-green-800 text-green-400 font-bold py-2 rounded-lg text-center text-sm">
+                    ✓ Owned
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => handleBuy(item.key, item.cost, item.name)}
+                    disabled={currentStats.gold < item.cost || buyingKey === item.key}
+                    className="w-full bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-2 rounded-lg transition-colors text-sm"
+                  >
+                    {buyingKey === item.key ? 'Buying...' : currentStats.gold >= item.cost ? 'Buy' : 'Not Enough Gold'}
+                  </button>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
