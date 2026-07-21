@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { USERS } from '@/lib/userSession';
-import { ALL_MONSTERS, GUILD_MONSTERS, MonsterDef, getGuildMonsterDisplay } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, GUILD_MONSTERS, MonsterDef, getGuildMonsterDisplay, getGraduatedMonsterDisplay } from '@/lib/monsterConfig';
 import { fetchSubclassProfile, guildLevelForKey, SubclassProfile } from '@/lib/guildEngine';
 import { GMBadge } from '@/components/MonsterGuild';
 import { MonsterImage } from '@/components/battle/shared';
@@ -12,6 +12,7 @@ interface TeamMonster {
   monster_id: string;
   nickname: string | null;
   monster_level: number;
+  graduation_tier: number;
 }
 
 interface PlayerStatsPopupProps {
@@ -38,7 +39,7 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
       setLoading(true);
       const [stateRes, monstersRes, weeklyRes, subProfile] = await Promise.all([
         supabase.from('user_battle_state').select('active_monster_slot').eq('user_id', targetId).single(),
-        supabase.from('user_monsters').select('slot, monster_id, nickname, monster_level').eq('user_id', targetId).not('slot', 'is', null).order('slot'),
+        supabase.from('user_monsters').select('slot, monster_id, nickname, monster_level, graduation_tier').eq('user_id', targetId).not('slot', 'is', null).order('slot'),
         supabase.from('weekly_packages').select('character_stats')
           .eq('user_id', targetId).order('week_starting_date', { ascending: false }).limit(1).maybeSingle(),
         fetchSubclassProfile(targetId),
@@ -65,6 +66,14 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
     const guildLevel = guildLevelForKey(subclassProfile, def.guildEvolution?.guildKey);
     const { name, emoji, isLegendary, spriteId } = getGuildMonsterDisplay(def, guildLevel);
     displayMonsters[id] = { ...def, name, emoji, isLegendary, spriteId };
+  }
+  // Same pattern as MonsterGuild.tsx's displayMonsters — layer this target
+  // player's purchased graduation tier onto their owned species' display.
+  for (const m of team) {
+    const def = ALL_MONSTERS[m.monster_id];
+    if (def?.graduation) {
+      displayMonsters[m.monster_id] = getGraduatedMonsterDisplay(displayMonsters[m.monster_id] ?? def, m.graduation_tier);
+    }
   }
 
   return (

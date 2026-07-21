@@ -1,4 +1,5 @@
 import { supabase } from './supabase';
+import { GRADUATION_SCROLL_COST } from './monsterConfig';
 
 export type ItemKey =
   | 'health_potion'
@@ -9,7 +10,8 @@ export type ItemKey =
   | 'blessed_charm'
   | 'antidote'
   | 'poison_fang'
-  | 'revive_stone';
+  | 'revive_stone'
+  | 'graduation_scroll';
 
 export interface ShopItem {
   key: ItemKey;
@@ -30,6 +32,7 @@ export const SHOP_CATALOG: ShopItem[] = [
   { key: 'antidote',       name: 'Antidote',       icon: '/items/antidote_100.webp', cost: 25,  desc: 'Cure Burn, Paralyze, or Curse from your monster.',    effect: 'cure_status'   },
   { key: 'poison_fang',    name: 'Poison Fang',    icon: '/items/poison_fang_100.webp', cost: 40,  desc: 'Inflict Curse on the enemy monster.',                 effect: 'inflict_curse' },
   { key: 'revive_stone',   name: 'Revive Stone',   icon: '/items/revive_stone_100.webp', cost: 80,  desc: 'Revive your monster once from 0 HP.',                effect: 'revive'        },
+  { key: 'graduation_scroll', name: 'Graduation Scroll', icon: '/items/graduation_scroll.svg', cost: GRADUATION_SCROLL_COST, desc: 'Use in the Compendium to graduate an eligible team monster into its next form once it\'s reached the required level.', effect: 'graduate_monster' },
 ];
 
 // Items given free daily to family players

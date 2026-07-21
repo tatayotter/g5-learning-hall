@@ -17,6 +17,7 @@ export interface UserMonster {
   slot: number | null; // null = benched (owned, but not in the active team)
   rest_used: number;
   equipped_skills: (string | null)[];
+  graduation_tier: number; // 0 = ungraduated; see MonsterDef.graduation in lib/monsterConfig.ts
 }
 
 export interface ActiveBattleMonster {

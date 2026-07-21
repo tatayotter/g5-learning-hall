@@ -8,16 +8,19 @@ import { useMapPresence } from '@/hooks/useMapPresence';
 import PlayerStatsPopup from '@/components/PlayerStatsPopup';
 import WildEncounterModal from '@/components/WildEncounterModal';
 import CurioRevealModal from '@/components/CurioRevealModal';
+import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
 import {
-  MONSTERS, WILD_MONSTERS, ALL_MONSTERS, GUILD_MONSTERS, NPC_TRAINERS, SKILLS, BATTLE_CONSTANTS,
+  MONSTERS, WILD_MONSTERS, ALL_MONSTERS, GUILD_MONSTERS, EVENT_MONSTERS, NPC_TRAINERS, SKILLS, BATTLE_CONSTANTS,
   getUnlockedMonsterSlots, getAvailableSkillTiers, calculateDamage, getScaledStats, getEquippedSkills,
   getModifierMultiplier, tickModifiers, applySkillEffects,
   getMonsterLevel, REST_BY_ELEMENT, ELEMENT_STATUS, STATUS_DEFINITIONS, getCounterElement,
   pickRandomWildMonsterId, getWildEncounterChance, getWildEncounterPityThreshold, getGuildMonsterDisplay, getGuildMonsterTier, getGuildMonsterTierDef,
+  getGraduatedMonsterDisplay, getMaxGraduationTier, GRADUATION_LEVEL_REQUIREMENT,
   Element, StatusEffect, NpcTrainer, MonsterDef, TrainerMonster, ELEMENT_ICON_SRC,
 } from '@/lib/monsterConfig';
 import { fetchInventory, useInventoryItem, SHOP_CATALOG, InventoryMap } from '@/lib/inventory';
 import { SCROLL_CATALOG, unlearnMonsterSkill, learnMonsterSkill } from '@/lib/skillScrolls';
+import { graduateMonster } from '@/lib/monsterGraduation';
 import {
   hashQuestionId, arenaQuestionText,
   fetchAnsweredArenaQuestionIds, markArenaQuestionsCompleted, resetArenaHistory,
@@ -1747,15 +1750,17 @@ function CompendiumStatBar({ label, value, max }: { label: string; value: number
   );
 }
 
-// One Compendium tile — a plain species, or a single evolution tier of a
-// guild companion (each tier gets its own card; see CompendiumPanel).
+// One Compendium tile — a plain species, a single evolution tier of a guild
+// companion, or a graduation stage of a regular monster (each tier/stage
+// gets its own card; see CompendiumPanel).
 interface DexEntry {
   key: string;
-  speciesId: string; // the underlying monster_id (DB key) — same across all 3 tiers of a guild companion
+  speciesId: string; // the underlying monster_id (DB key) — same across all tiers/stages of a species
   def: MonsterDef;    // tier-appropriate display def (name/emoji/spriteId), stats/skills always the base species values
   tier: 1 | 2 | 3;
-  unlockLevel: number;   // guild level required to reveal this tier; 1 for non-guild species/tier1
+  unlockLevel: number;   // guild level (guild tiers) or monster level (graduation tiers) required to reveal this tier; 1 for a plain tier1 entry
   guildLabel?: string;   // e.g. "Lorekeeper" — only set for guild-tier entries, used in the locked hint
+  isGraduationTier?: boolean; // true for a species' graduated-form card (tier 2/3 = first/second graduation)
 }
 
 function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds, playerLevel, onPromote, monsterDisplay, subclassProfile, inventory, onLoadoutChange }: {
@@ -1771,6 +1776,7 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
   onLoadoutChange: () => Promise<void> | void;
 }) {
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
+  const [ceremony, setCeremony] = useState<{ fromDef: MonsterDef; toDef: MonsterDef; monsterLevel: number; speciesId: string; targetTier: 1 | 2 } | null>(null);
   const [promotingId, setPromotingId] = useState<string | null>(null);
   const [pendingSlot, setPendingSlot] = useState<{ monsterRowId: string; slotIndex: number } | null>(null);
   const [actionBusy, setActionBusy] = useState(false);
@@ -1809,38 +1815,93 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
     }
   };
 
+  const handleGraduate = async (monsterRowId: string, requiredLevel: number, targetTier: 1 | 2, speciesId: string, currentTier: number, monsterLevel: number) => {
+    if (actionBusyRef.current) return;
+    actionBusyRef.current = true;
+    setActionBusy(true);
+    try {
+      const ok = await graduateMonster(userId, monsterRowId, requiredLevel, targetTier);
+      if (ok) {
+        const speciesDef = ALL_MONSTERS[speciesId];
+        // Snapshot before/after display defs now, off the pre-refresh data —
+        // the ceremony below renders from this snapshot, so it's unaffected
+        // by onLoadoutChange()'s refresh (fired in the background here)
+        // updating userMonsters/inventory underneath it.
+        setCeremony({
+          fromDef: getGraduatedMonsterDisplay(speciesDef, currentTier),
+          toDef: getGraduatedMonsterDisplay(speciesDef, targetTier),
+          monsterLevel,
+          speciesId,
+          targetTier,
+        });
+        onLoadoutChange();
+      } else {
+        alert('Could not graduate — make sure the monster has reached the required level and you have a Graduation Scroll.');
+      }
+    } finally {
+      actionBusyRef.current = false;
+      setActionBusy(false);
+    }
+  };
+
   const ownedSpeciesIds = new Set([
     ...userMonsters.map(m => m.monster_id),
     ...caughtMonsters.map(c => c.monster_id),
   ]);
   const knownSpeciesIds = new Set([...ownedSpeciesIds, ...seenMonsterIds]);
-  const isKnownSpecies = (id: string) => !WILD_MONSTERS[id] || knownSpeciesIds.has(id);
+  const isKnownSpecies = (id: string) => {
+    // Event-exclusive curios never appear wild, so seen_monsters can't apply —
+    // they're a mystery until actually claimed/owned.
+    if (EVENT_MONSTERS[id]) return ownedSpeciesIds.has(id);
+    return !WILD_MONSTERS[id] || knownSpeciesIds.has(id);
+  };
+
+  // A player only ever owns one instance of a given species, so this lookup
+  // (used below for both the "active graduation tier" checks) is unambiguous.
+  const graduationTierForSpecies = (speciesId: string) => userMonsters.find(m => m.monster_id === speciesId)?.graduation_tier ?? 0;
 
   const dexEntries: DexEntry[] = [];
   for (const def of Object.values(ALL_MONSTERS)) {
-    if (!def.guildEvolution) {
-      dexEntries.push({ key: def.id, speciesId: def.id, def, tier: 1, unlockLevel: 1 });
+    if (def.guildEvolution) {
+      const guildLabel = GUILDS.find(g => g.key === def.guildEvolution!.guildKey)?.label;
+      ([1, 2, 3] as const).forEach(tier => {
+        const unlockLevel = tier === 1 ? GUILD_MONSTER_GRANT_LEVEL : tier === 2 ? def.guildEvolution!.tier2.level : def.guildEvolution!.tier3.level;
+        dexEntries.push({
+          key: `${def.id}__t${tier}`,
+          speciesId: def.id,
+          def: getGuildMonsterTierDef(def, tier),
+          tier,
+          unlockLevel,
+          guildLabel,
+        });
+      });
       continue;
     }
-    const guildLabel = GUILDS.find(g => g.key === def.guildEvolution!.guildKey)?.label;
-    ([1, 2, 3] as const).forEach(tier => {
-      const unlockLevel = tier === 1 ? GUILD_MONSTER_GRANT_LEVEL : tier === 2 ? def.guildEvolution!.tier2.level : def.guildEvolution!.tier3.level;
-      dexEntries.push({
-        key: `${def.id}__t${tier}`,
-        speciesId: def.id,
-        def: getGuildMonsterTierDef(def, tier),
-        tier,
-        unlockLevel,
-        guildLabel,
-      });
-    });
+    dexEntries.push({ key: def.id, speciesId: def.id, def, tier: 1, unlockLevel: 1 });
+    if (def.graduation) {
+      const maxTier = getMaxGraduationTier(def);
+      for (let t = 1; t <= maxTier; t++) {
+        const graduationTier = t as 1 | 2;
+        dexEntries.push({
+          key: `${def.id}__grad${graduationTier}`,
+          speciesId: def.id,
+          def: getGraduatedMonsterDisplay(def, graduationTier),
+          tier: (graduationTier + 1) as 2 | 3, // base entry is tier 1, so first/second graduation land on tier 2/3
+          unlockLevel: GRADUATION_LEVEL_REQUIREMENT[graduationTier],
+          isGraduationTier: true,
+        });
+      }
+    }
   }
 
   // Whether a given dex entry is revealed. Plain species use the existing
   // wild-encounter "known" rule; guild-tier entries (including tier 1 — the
   // companion is a reward, not a starter) are revealed purely by the owning
-  // player's guild level crossing that tier's threshold.
+  // player's guild level crossing that tier's threshold; graduation-tier
+  // entries are revealed only once the player has actually purchased that
+  // graduation on their owned instance (it's not auto-computed from level).
   const isEntryKnown = (entry: DexEntry) => {
+    if (entry.isGraduationTier) return graduationTierForSpecies(entry.speciesId) >= entry.tier - 1;
     if (!entry.guildLabel) return isKnownSpecies(entry.speciesId);
     const guildDef = ALL_MONSTERS[entry.speciesId];
     const guildLevel = guildLevelForKey(subclassProfile, guildDef.guildEvolution?.guildKey);
@@ -1851,16 +1912,21 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
   const selected = selectedEntry?.def ?? null;
   const selectedKnown = selectedEntry ? isEntryKnown(selectedEntry) : false;
   const selectedOwned = selectedEntry ? ownedSpeciesIds.has(selectedEntry.speciesId) : false;
-  // Only the tile matching the companion's *currently active* tier shows the
-  // owned/team badge — as guild level rises, the badge visually "moves" from
-  // the tier1 card to tier2 to tier3, mirroring the evolution.
+  // Only the tile matching the species' *currently active* tier shows the
+  // owned/team badge — as guild level rises (or a monster gets graduated),
+  // the badge visually "moves" to the new tier's card.
   const selectedIsActiveTier = selectedEntry
-    ? selectedEntry.tier === getGuildMonsterTier(ALL_MONSTERS[selectedEntry.speciesId], guildLevelForKey(subclassProfile, ALL_MONSTERS[selectedEntry.speciesId].guildEvolution?.guildKey))
+    ? (selectedEntry.guildLabel
+        ? selectedEntry.tier === getGuildMonsterTier(ALL_MONSTERS[selectedEntry.speciesId], guildLevelForKey(subclassProfile, ALL_MONSTERS[selectedEntry.speciesId].guildEvolution?.guildKey))
+        : selectedEntry.tier === graduationTierForSpecies(selectedEntry.speciesId) + 1)
     : false;
   // The actual team row for the selected species, if any — a player only
   // ever owns one instance of a given monster, so this lookup is unambiguous.
   // Only team monsters (not benched catches) have an editable skill loadout.
-  const ownedMonster = selectedEntry ? userMonsters.find(m => m.monster_id === selectedEntry.speciesId) : undefined;
+  // Gated on selectedIsActiveTier so a species' now-superseded tier (e.g. the
+  // pre-graduation form after graduating) reads as unowned, same as any dex
+  // entry the player never actually holds — no skill editing, no team badge.
+  const ownedMonster = selectedEntry && selectedIsActiveTier ? userMonsters.find(m => m.monster_id === selectedEntry.speciesId) : undefined;
 
   return (
     <div className="space-y-6">
@@ -1917,6 +1983,19 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
             );
           })}
         </div>
+      )}
+
+      {ceremony && (
+        <GraduationCeremonyModal
+          fromDef={ceremony.fromDef}
+          toDef={ceremony.toDef}
+          monsterLevel={ceremony.monsterLevel}
+          userId={userId}
+          onGoToCompendium={() => {
+            setSelectedKey(`${ceremony.speciesId}__grad${ceremony.targetTier}`);
+            setCeremony(null);
+          }}
+        />
       )}
 
       {selected && (
@@ -2042,6 +2121,33 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
                     </div>
                   )}
                 </div>
+                {selectedEntry && !selectedEntry.isGraduationTier && ownedMonster && ALL_MONSTERS[selectedEntry.speciesId].graduation && (() => {
+                  const speciesDef = ALL_MONSTERS[selectedEntry.speciesId];
+                  const grad = speciesDef.graduation!;
+                  const maxTier = getMaxGraduationTier(speciesDef);
+                  const currentTier = ownedMonster.graduation_tier ?? 0;
+                  if (currentTier >= maxTier) return null;
+                  const targetTier = (currentTier + 1) as 1 | 2;
+                  const stage = targetTier === 2 && grad.second ? grad.second : grad.first;
+                  const requiredLevel = GRADUATION_LEVEL_REQUIREMENT[targetTier];
+                  const scrollQty = inventory['graduation_scroll'] || 0;
+                  const levelMet = ownedMonster.monster_level >= requiredLevel;
+                  return (
+                    <div className="border border-amber-900 bg-amber-900/10 rounded-lg p-3">
+                      <p className="text-[10px] text-amber-500 font-bold uppercase tracking-widest mb-1">Graduation</p>
+                      <p className="text-xs text-gray-400 mb-2">
+                        Reach Lv.{requiredLevel} and use a Graduation Scroll to graduate into <span className="font-bold text-white">{stage.name}</span>.
+                      </p>
+                      <button
+                        onClick={() => handleGraduate(ownedMonster.id, requiredLevel, targetTier, selectedEntry.speciesId, currentTier, ownedMonster.monster_level)}
+                        disabled={!levelMet || scrollQty === 0 || actionBusy}
+                        className="text-[10px] bg-amber-700 hover:bg-amber-600 disabled:opacity-40 disabled:cursor-not-allowed px-3 py-2 rounded text-white"
+                      >
+                        {!levelMet ? `Need Lv.${requiredLevel} (currently Lv.${ownedMonster.monster_level})` : scrollQty === 0 ? 'Need Graduation Scroll' : `Graduate to ${stage.name} (x${scrollQty} Scroll)`}
+                      </button>
+                    </div>
+                  );
+                })()}
               </div>
             </div>
           ) : (
@@ -2055,6 +2161,10 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
                 {selectedEntry?.guildLabel ? (
                   <p className="text-sm text-gray-500 mt-2">
                     🔒 Reach {selectedEntry.guildLabel} Level {selectedEntry.unlockLevel} to {selectedEntry.tier === 1 ? 'earn this companion' : 'reveal this graduation'}.
+                  </p>
+                ) : selectedEntry?.isGraduationTier ? (
+                  <p className="text-sm text-gray-500 mt-2">
+                    🔒 Reach Lv.{selectedEntry.unlockLevel} and use a Graduation Scroll on your {ALL_MONSTERS[selectedEntry.speciesId].name} to reveal this graduation.
                   </p>
                 ) : (
                   <p className="text-sm text-gray-500 mt-2">A mysterious wild curio — its identity is still unknown. Keep answering questions on the Training Map for a chance to encounter it.</p>
@@ -2071,7 +2181,12 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
           const known = isEntryKnown(entry);
           const owned = ownedSpeciesIds.has(entry.speciesId);
           const speciesDef = ALL_MONSTERS[entry.speciesId];
-          const isActiveTier = !speciesDef.guildEvolution || entry.tier === getGuildMonsterTier(speciesDef, guildLevelForKey(subclassProfile, speciesDef.guildEvolution.guildKey));
+          // Same formula for the base tier (always tier 1) and graduation
+          // tiers alike, so a species' now-superseded pre-graduation card
+          // stops showing the owned/team badge once graduated past it.
+          const isActiveTier = entry.guildLabel
+            ? entry.tier === getGuildMonsterTier(speciesDef, guildLevelForKey(subclassProfile, speciesDef.guildEvolution!.guildKey))
+            : entry.tier === graduationTierForSpecies(entry.speciesId) + 1;
           const inTeam = userMonsters.find(m => m.monster_id === entry.speciesId);
           return (
             <button
@@ -2092,7 +2207,7 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
                 )}
               </div>
               <p className="text-xs font-bold text-white truncate">{known ? entry.def.name : '???'}</p>
-              {entry.guildLabel && <p className="text-[9px] text-gray-600">Tier {entry.tier}</p>}
+              {(entry.guildLabel || entry.isGraduationTier) && <p className="text-[9px] text-gray-600">Tier {entry.tier}</p>}
               {known && owned && isActiveTier && (
                 inTeam ? (
                   <p className="text-[9px] text-green-500">✅ In Team</p>
@@ -2151,6 +2266,16 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
     const def = GUILD_MONSTERS[id];
     const guildLevel = guildLevelForKey(subclassProfile, def.guildEvolution?.guildKey);
     displayMonsters[id] = getGuildMonsterDisplay(def, guildLevel);
+  }
+  // A player only ever owns one team instance of a given species — layer its
+  // purchased graduation tier (see MonsterDef.graduation) onto that species'
+  // display, same as guild companions above but keyed on the owned instance's
+  // own graduation_tier column instead of guild level.
+  for (const m of userMonsters) {
+    const def = ALL_MONSTERS[m.monster_id];
+    if (def?.graduation) {
+      displayMonsters[m.monster_id] = getGraduatedMonsterDisplay(displayMonsters[m.monster_id] ?? def, m.graduation_tier);
+    }
   }
 
   const allQuestions = extractQuestions(packageData);
@@ -2450,15 +2575,18 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       return;
     }
 
-    // Resolve the opponent's own guild-companion tier (name/emoji/description/
-    // stats) so a fully-evolved companion fights as strong as it looks, same
-    // as displayMonsters does for the local player above.
+    // Resolve the opponent's own guild-companion tier and graduation (name/
+    // emoji/description/stats) so a fully-evolved/graduated curio fights as
+    // strong as it looks, same as displayMonsters does for the local player
+    // above (graduation and guildEvolution are mutually exclusive per
+    // species, so applying both here is never a double-boost).
     const opponentSubclassProfile = await fetchSubclassProfile(opponentId);
     const opponentTeam: ActiveBattleMonster[] = opponentMonsters.map((um: any) => {
       const baseDef = ALL_MONSTERS[um.monster_id];
-      const def = baseDef.guildEvolution
+      const guildDef = baseDef.guildEvolution
         ? getGuildMonsterDisplay(baseDef, guildLevelForKey(opponentSubclassProfile, baseDef.guildEvolution.guildKey))
         : baseDef;
+      const def = baseDef.graduation ? getGraduatedMonsterDisplay(guildDef, um.graduation_tier ?? 0) : guildDef;
       const hp = getScaledStats(def, um.monster_level).hp;
       return {
         def,

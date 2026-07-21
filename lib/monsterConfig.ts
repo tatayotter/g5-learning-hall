@@ -242,6 +242,64 @@ export interface MonsterDef {
     tier2: GuildEvolutionStage;
     tier3: GuildEvolutionStage;
   };
+  // Present only on regular starter/wild monsters that have a purchasable
+  // "graduation" upgrade — unlike guildEvolution (free, keyed on guild level),
+  // graduating consumes a Graduation Scroll (see GRADUATION_SCROLL_COST) and
+  // is gated on the monster's own level (see GRADUATION_LEVEL_REQUIREMENT).
+  // Once bought it's permanent for that specific monster instance, tracked in
+  // user_monsters.graduation_tier (0 = ungraduated, matches no `graduation`).
+  graduation?: {
+    first: GraduationStage;
+    second?: GraduationStage; // no species defines this yet
+  };
+}
+
+interface GraduationStage {
+  level: number;
+  name: string;
+  emoji: string;
+  spriteId?: string;
+  description?: string;
+}
+
+// Monster level required to buy each graduation tier, and flat gold cost of
+// the Graduation Scroll consumed to do it (see lib/inventory.ts SHOP_CATALOG).
+export const GRADUATION_LEVEL_REQUIREMENT: Record<1 | 2, number> = { 1: 20, 2: 32 };
+export const GRADUATION_SCROLL_COST = 200;
+
+// Highest graduation tier a species supports (0 if it has none defined).
+export function getMaxGraduationTier(monsterDef: MonsterDef): 0 | 1 | 2 {
+  if (!monsterDef.graduation) return 0;
+  return monsterDef.graduation.second ? 2 : 1;
+}
+
+// Returns a MonsterDef with name/emoji/spriteId/description swapped, and base
+// stats scaled up, for a specific graduation tier of a regular monster —
+// independent of monster level (unlike getGuildMonsterDisplay's guild-level
+// lookup), since graduation is a one-time player purchase tracked per
+// monster instance. Growth reuses GUILD_ENHANCEMENT_GROWTH's 'enhanced'
+// (first graduation) / 'super_enhanced' (second) multipliers rather than a
+// parallel table, so a graduation lands on the same power curve as a guild
+// companion's tier2/tier3 — shown to the player as an old-stat -> new-stat
+// comparison in the graduation ceremony. Skills are unaffected; growth
+// always compounds from the ungraduated base stats, never stacked
+// tier-on-tier, mirroring getGuildMonsterTierDef.
+export function getGraduatedMonsterDisplay(monsterDef: MonsterDef, graduationTier: number): MonsterDef {
+  const grad = monsterDef.graduation;
+  if (!grad || graduationTier <= 0) return monsterDef;
+  const stage = graduationTier >= 2 && grad.second ? grad.second : grad.first;
+  const growth = GUILD_ENHANCEMENT_GROWTH[graduationTier >= 2 && grad.second ? 'super_enhanced' : 'enhanced'];
+  return {
+    ...monsterDef,
+    baseHp: Math.round(monsterDef.baseHp * growth),
+    baseAttack: Math.round(monsterDef.baseAttack * growth),
+    baseDefense: Math.round(monsterDef.baseDefense * growth),
+    baseSpeed: Math.round(monsterDef.baseSpeed * growth),
+    name: stage.name,
+    emoji: stage.emoji,
+    spriteId: stage.spriteId ?? monsterDef.spriteId,
+    description: stage.description ?? monsterDef.description,
+  };
 }
 
 // description is optional — omitting it falls back to the base species'
@@ -305,6 +363,12 @@ export const MONSTERS: Record<string, MonsterDef> = {
     ...STAT_PRESETS.tank,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
     skillUnlocks: { tier2: 18, tier3: 30 },
+    graduation: {
+      first: {
+        level: 20, name: 'Starlune', emoji: '🌟', spriteId: 'starlune',
+        description: 'Solarch\'s sun-disc mane has widened into a halo of starlight, bright even at noon. It no longer needs to chase the sun — it carries a piece of the sky with it wherever it walks.',
+      },
+    },
   },
   pyravex: {
     id: 'pyravex', name: 'Pyravex', element: 'fire', archetype: 'glass_cannon',
@@ -337,6 +401,12 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
+    graduation: {
+      first: {
+        level: 20, name: 'Coralyss', emoji: '🪸', spriteId: 'coralyss',
+        description: 'Her coral crown has bloomed into a full reef of its own, busy with shrimp and anemones she\'s long since stopped noticing. The patch of ocean she guards has grown right along with her.',
+      },
+    },
   },
   mosshorn: {
     id: 'mosshorn', name: 'Mosshorn', element: 'leaf', archetype: 'tank',
@@ -358,6 +428,12 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     ...STAT_PRESETS.glass_cannon,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
     skillUnlocks: { tier2: 18, tier3: 30 },
+    graduation: {
+      first: {
+        level: 20, name: 'Noctral', emoji: '🌑', spriteId: 'noctral',
+        description: 'Duskral has stopped melting into the dark and become it — a panther-shaped absence with a crescent of stars where its chest mark used to be. Lamplight bends around it now instead of touching it.',
+      },
+    },
   },
   luminos: {
     id: 'luminos', name: 'Luminos', element: 'light', archetype: 'balanced',
@@ -683,6 +759,41 @@ export const EVENT_MONSTERS: Record<string, MonsterDef> = {
     emoji: '🐿️', description: 'A wide-eyed forest sprite, part tarsier, part sapling, that can never sit still around anything new. It tucks acorns, buttons, and stray answers alike into its cheeks, certain each one is worth knowing. Its ears swivel toward every rustle, every question, every "why."',
     ...STAT_PRESETS.balanced,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
+    skillUnlocks: { tier2: 18, tier3: 30 },
+  },
+  tamablase: {
+    id: 'tamablase', name: 'Tamablase', element: 'fire', archetype: 'balanced',
+    emoji: '🦎', description: 'A calm little salamander whose belly-flame only ever burns steady, never wild. It warms whatever curls up next to it and refuses to singe even the driest kindling. Trainers say it appears only when someone has kept their temper through a hard question.',
+    ...STAT_PRESETS.balanced,
+    skills: ['ember', 'flamethrower', 'inferno_blast'],
+    skillUnlocks: { tier2: 18, tier3: 30 },
+  },
+  palalume: {
+    id: 'palalume', name: 'Palalume', element: 'light', archetype: 'balanced',
+    emoji: '🕊️', description: 'A dove that carries a small sun in its chest, glowing brighter with every kind thing it witnesses. It circles back to the same rooftops each dusk, dropping soft light onto whoever is still studying below.',
+    ...STAT_PRESETS.balanced,
+    skills: ['flash', 'sacred_beam', 'divine_burst'],
+    skillUnlocks: { tier2: 18, tier3: 30 },
+  },
+  bleedune: {
+    id: 'bleedune', name: 'Bleedune', element: 'shadow', archetype: 'balanced',
+    emoji: '🦂', description: 'A quiet dune-scorpion whose shell bleeds ink-black sand from every crack, redrawing its own pattern each night. It buries itself before sunrise and is gone by the time anyone looks twice.',
+    ...STAT_PRESETS.balanced,
+    skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
+    skillUnlocks: { tier2: 18, tier3: 30 },
+  },
+  tawili: {
+    id: 'tawili', name: 'Tawili', element: 'water', archetype: 'balanced',
+    emoji: '🐢', description: 'A small, affectionate river turtle that grows fonder of a place the longer it stays, one lap of the current at a time. It hums when it recognizes a face, a low bubbling note that carries clean across still water.',
+    ...STAT_PRESETS.balanced,
+    skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
+    skillUnlocks: { tier2: 18, tier3: 30 },
+  },
+  bukitok: {
+    id: 'bukitok', name: 'Bukitok', element: 'storm', archetype: 'balanced',
+    emoji: '🐸', description: 'A stout hill-toad that swells up and crackles with static right before a storm breaks, croaking out warnings no one else can hear yet. Farmers say a Bukitok sighting means the weather is about to turn.',
+    ...STAT_PRESETS.balanced,
+    skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
 };

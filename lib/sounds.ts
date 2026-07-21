@@ -470,6 +470,13 @@ export function playCurioLevelUp() {
   audio.play().catch(() => {});
 }
 
+// --- Curio graduated into its next form: recorded fanfare clip ---
+export function playCurioGraduation() {
+  const audio = new Audio('/sounds/curio_graduation.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
 // --- Battle: defeat sting ---
 export function playDefeat() {
   const ctx = getContext();
