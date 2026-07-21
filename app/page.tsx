@@ -2,6 +2,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadFamilyProtection, loadAvatarOverrides, linkIdentity, recordLastLogin, USERS } from '@/lib/userSession';
 import SplashScreen from '@/components/SplashScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
@@ -485,6 +486,20 @@ export default function Dashboard() {
                     🎪 {activeEvent.title} — Event Quests
                   </div>
                   <div className="p-4 bg-black">
+                    {(activeEvent.details_markdown || activeEvent.reward_lore_markdown) && (
+                      <div className="mb-4 space-y-3">
+                        {activeEvent.details_markdown && (
+                          <div className="text-sm text-gray-300 leading-relaxed">
+                            <ReactMarkdown>{activeEvent.details_markdown}</ReactMarkdown>
+                          </div>
+                        )}
+                        {activeEvent.reward_lore_markdown && (
+                          <div className="text-sm text-yellow-200/90 leading-relaxed bg-amber-900/10 border border-amber-900/40 rounded-lg p-3">
+                            <ReactMarkdown>{activeEvent.reward_lore_markdown}</ReactMarkdown>
+                          </div>
+                        )}
+                      </div>
+                    )}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {eventQuests.map((q) => {
                         const isQuestMastered = eventProgress.some(p => p.event_quest_id === q.id && p.is_mastered);
