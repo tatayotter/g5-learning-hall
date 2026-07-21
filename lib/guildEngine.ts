@@ -106,21 +106,19 @@ export async function fetchQuestionPool(userId: string, tableName: string, quest
     .eq('user_id', USER_ID)
     .eq('quest_type', questType);
 
-  const completedIds = (completed || []).map((c: any) => c.question_id);
+  // Completed IDs are excluded client-side rather than via a `.not(id, in, ...)`
+  // filter — with hundreds of completed questions that filter's URL grows past
+  // server/proxy length limits and the request fails outright.
+  const completedIds = new Set((completed || []).map((c: any) => c.question_id));
 
   let query = supabase
     .from(tableName)
     .select('*')
     .eq('term_id', CURRENT_TERM)
-    .eq('is_active', true)
-    .limit(PREFETCH_BATCH_SIZE);
+    .eq('is_active', true);
 
   if (gradeLevel !== undefined) {
     query = query.eq('grade_level', gradeLevel);
-  }
-
-  if (completedIds.length > 0) {
-    query = query.not('id', 'in', `(${completedIds.join(',')})`);
   }
 
   const { data, error } = await query;
@@ -129,35 +127,19 @@ export async function fetchQuestionPool(userId: string, tableName: string, quest
     return [];
   }
 
-  // Pool exhausted — prestige: wipe history for this guild and refetch full pool
-  if (!data || data.length === 0) {
-    await supabase
-      .from('user_completed_questions')
-      .delete()
-      .eq('user_id', USER_ID)
-      .eq('quest_type', questType);
-
-    let freshQuery = supabase
-      .from(tableName)
-      .select('*')
-      .eq('term_id', CURRENT_TERM)
-      .eq('is_active', true)
-      .limit(PREFETCH_BATCH_SIZE);
-
-    if (gradeLevel !== undefined) {
-      freshQuery = freshQuery.eq('grade_level', gradeLevel);
-    }
-
-    const { data: freshData, error: freshError } = await freshQuery;
-
-    if (freshError) {
-      console.error(`Failed to fetch fresh ${tableName} pool after prestige:`, freshError);
-      return [];
-    }
-    return freshData || [];
+  const remaining = (data || []).filter((q: any) => !completedIds.has(q.id));
+  if (remaining.length > 0) {
+    return remaining.slice(0, PREFETCH_BATCH_SIZE);
   }
 
-  return data;
+  // Pool exhausted — prestige: wipe history for this guild and refetch full pool
+  await supabase
+    .from('user_completed_questions')
+    .delete()
+    .eq('user_id', USER_ID)
+    .eq('quest_type', questType);
+
+  return data ? data.slice(0, PREFETCH_BATCH_SIZE) : [];
 }
 
 export async function markQuestionsCompleted(userId: string, questType: string, questionIds: string[]) {
