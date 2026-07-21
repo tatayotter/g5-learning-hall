@@ -37,6 +37,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
   const [buyingKey, setBuyingKey] = useState<string | null>(null);
   const [scrollCategory, setScrollCategory] = useState<ScrollItem['category'] | 'all'>('all');
   const [scrollElement, setScrollElement] = useState<Element | 'all'>('all');
+  const [activeSection, setActiveSection] = useState<'items' | 'scrolls' | 'sprites'>('items');
   const buyBusyRef = useRef(false);
   const isFamily = USERS[userId].isFamily;
 
@@ -128,121 +129,108 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
         )}
       </div>
 
-      {/* Shop */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {SHOP_CATALOG.map(item => (
-          <div key={item.key} className="bg-[#111] border border-[#333] p-5 rounded-xl flex flex-col justify-between">
-            <div>
-              <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
-              <h3 className="text-white font-bold mb-1">{item.name}</h3>
-              <p className="text-yellow-400 text-sm font-bold mb-2"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {item.cost} Gold</p>
-              <p className="text-gray-400 text-xs mb-4">{item.desc}</p>
-              {(inventory[item.key] || 0) > 0 && (
-                <p className="text-green-400 text-xs mb-2 font-bold">In bag: x{inventory[item.key]}</p>
-              )}
-            </div>
-            <button
-              onClick={() => handleBuy(item.key, item.cost, item.name)}
-              disabled={currentStats.gold < item.cost || buyingKey === item.key}
-              className="w-full bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-2 rounded-lg transition-colors text-sm"
-            >
-              {buyingKey === item.key ? 'Buying...' : currentStats.gold >= item.cost ? 'Buy' : 'Not Enough Gold'}
-            </button>
-          </div>
+      {/* Section tabs */}
+      <div className="flex border-b border-neutral-800 mb-6 space-x-2">
+        {([
+          { id: 'items',   label: '⚔️ Curio Arena Shop' },
+          { id: 'scrolls', label: '📜 Skill Scrolls' },
+          { id: 'sprites', label: '🖼️ Trainer Sprites' },
+        ] as const).map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveSection(tab.id)}
+            className={`px-4 py-2.5 font-bold text-sm whitespace-nowrap transition-colors ${
+              activeSection === tab.id
+                ? 'border-b-2 border-indigo-500 text-indigo-400'
+                : 'text-gray-500 hover:text-gray-300 hover:bg-neutral-900 rounded-t'
+            }`}
+          >
+            {tab.label}
+          </button>
         ))}
       </div>
+
+      {/* Curio Arena Shop — consumables */}
+      {activeSection === 'items' && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {SHOP_CATALOG.map(item => (
+            <div key={item.key} className="bg-[#111] border border-[#333] p-5 rounded-xl flex flex-col justify-between">
+              <div>
+                <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
+                <h3 className="text-white font-bold mb-1">{item.name}</h3>
+                <p className="text-yellow-400 text-sm font-bold mb-2"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {item.cost} Gold</p>
+                <p className="text-gray-400 text-xs mb-4">{item.desc}</p>
+                {(inventory[item.key] || 0) > 0 && (
+                  <p className="text-green-400 text-xs mb-2 font-bold">In bag: x{inventory[item.key]}</p>
+                )}
+              </div>
+              <button
+                onClick={() => handleBuy(item.key, item.cost, item.name)}
+                disabled={currentStats.gold < item.cost || buyingKey === item.key}
+                className="w-full bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-2 rounded-lg transition-colors text-sm"
+              >
+                {buyingKey === item.key ? 'Buying...' : currentStats.gold >= item.cost ? 'Buy' : 'Not Enough Gold'}
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Skill Scrolls — the actual gold sink for the skill loadout system.
           Purchase-only here; scrolls sit in inventory until spent teaching or
           unlearning a monster's skill in the Compendium. */}
-      <div className="mt-10">
-        <h2 className="text-2xl font-bold mb-2 font-display">📜 Skill Scrolls</h2>
-        <p className="text-gray-400 text-sm mb-4">
-          Buy an Unlearn Scroll to open a monster&apos;s skill slot in the Compendium, then a
-          named scroll to teach it something new.
-        </p>
+      {activeSection === 'scrolls' && (
+        <div>
+          <p className="text-gray-400 text-sm mb-4">
+            Buy an Unlearn Scroll to open a monster&apos;s skill slot in the Compendium, then a
+            named scroll to teach it something new.
+          </p>
 
-        <div className="flex flex-wrap gap-2 mb-3">
-          {(['all', 'unlearn', 'base', 'alt', 'universal'] as const).map(cat => (
-            <button
-              key={cat}
-              onClick={() => setScrollCategory(cat)}
-              className={`text-xs font-bold px-3 py-1.5 rounded-full transition-colors ${
-                scrollCategory === cat ? 'bg-indigo-700 text-white' : 'bg-neutral-800 text-gray-400 hover:bg-neutral-700'
-              }`}
-            >
-              {cat === 'all' ? 'All' : SCROLL_CATEGORY_LABELS[cat]}
-            </button>
-          ))}
-        </div>
-
-        {(scrollCategory === 'all' || scrollCategory === 'base' || scrollCategory === 'alt') && (
-          <div className="flex flex-wrap gap-2 mb-4">
-            {(['all', ...ELEMENTS] as const).map(el => (
+          <div className="flex flex-wrap gap-2 mb-3">
+            {(['all', 'unlearn', 'base', 'alt', 'universal'] as const).map(cat => (
               <button
-                key={el}
-                onClick={() => setScrollElement(el)}
-                className={`text-xs font-bold px-3 py-1 rounded-full capitalize transition-colors ${
-                  scrollElement === el ? 'bg-neutral-700 text-white' : 'bg-neutral-900 border border-neutral-800 text-gray-500 hover:text-gray-300'
+                key={cat}
+                onClick={() => setScrollCategory(cat)}
+                className={`text-xs font-bold px-3 py-1.5 rounded-full transition-colors ${
+                  scrollCategory === cat ? 'bg-indigo-700 text-white' : 'bg-neutral-800 text-gray-400 hover:bg-neutral-700'
                 }`}
               >
-                {el}
+                {cat === 'all' ? 'All' : SCROLL_CATEGORY_LABELS[cat]}
               </button>
             ))}
           </div>
-        )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {SCROLL_CATALOG
-            .filter(item => scrollCategory === 'all' || item.category === scrollCategory)
-            .filter(item => scrollElement === 'all' || item.element === scrollElement || item.category === 'unlearn' || item.category === 'universal')
-            .map(item => (
-              <div key={item.key} className="bg-[#111] border border-[#333] p-5 rounded-xl flex flex-col justify-between">
-                <div>
-                  <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
-                  <h3 className="text-white font-bold mb-1">{item.name}</h3>
-                  <p className="text-yellow-400 text-sm font-bold mb-2"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {item.cost} Gold</p>
-                  <p className="text-gray-400 text-xs mb-4">{item.desc}</p>
-                  {(inventory[item.key] || 0) > 0 && (
-                    <p className="text-green-400 text-xs mb-2 font-bold">In bag: x{inventory[item.key]}</p>
-                  )}
-                </div>
+          {(scrollCategory === 'all' || scrollCategory === 'base' || scrollCategory === 'alt') && (
+            <div className="flex flex-wrap gap-2 mb-4">
+              {(['all', ...ELEMENTS] as const).map(el => (
                 <button
-                  onClick={() => handleBuy(item.key, item.cost, item.name)}
-                  disabled={currentStats.gold < item.cost || buyingKey === item.key}
-                  className="w-full bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-2 rounded-lg transition-colors text-sm"
+                  key={el}
+                  onClick={() => setScrollElement(el)}
+                  className={`text-xs font-bold px-3 py-1 rounded-full capitalize transition-colors ${
+                    scrollElement === el ? 'bg-neutral-700 text-white' : 'bg-neutral-900 border border-neutral-800 text-gray-500 hover:text-gray-300'
+                  }`}
                 >
-                  {buyingKey === item.key ? 'Buying...' : currentStats.gold >= item.cost ? 'Buy' : 'Not Enough Gold'}
+                  {el}
                 </button>
-              </div>
-            ))}
-        </div>
-      </div>
+              ))}
+            </div>
+          )}
 
-      {/* Userpics — cosmetic gold sink. One-time unlocks stored as qty-1
-          player_inventory rows; equip them from the avatar picker on the
-          Hero Profile card once owned. */}
-      <div className="mt-10">
-        <h2 className="text-2xl font-bold mb-2 font-display">🖼️ Userpics</h2>
-        <p className="text-gray-400 text-sm mb-4">
-          Unlock premium portraits for your Hero Profile. Once purchased, equip them anytime from your avatar picker.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {USERPIC_CATALOG.map(item => {
-            const owned = (inventory[item.key] || 0) > 0;
-            return (
-              <div key={item.key} className="bg-[#111] border border-[#333] p-5 rounded-xl flex flex-col justify-between">
-                <div>
-                  <img src={userpicPath(item.file)} alt={item.name} className="w-16 h-16 object-contain mb-2 rounded-lg bg-neutral-950" />
-                  <h3 className="text-white font-bold mb-1">{item.name}</h3>
-                  <p className="text-yellow-400 text-sm font-bold mb-2"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {item.cost} Gold</p>
-                </div>
-                {owned ? (
-                  <div className="w-full bg-green-900/30 border border-green-800 text-green-400 font-bold py-2 rounded-lg text-center text-sm">
-                    ✓ Owned
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {SCROLL_CATALOG
+              .filter(item => scrollCategory === 'all' || item.category === scrollCategory)
+              .filter(item => scrollElement === 'all' || item.element === scrollElement || item.category === 'unlearn' || item.category === 'universal')
+              .map(item => (
+                <div key={item.key} className="bg-[#111] border border-[#333] p-5 rounded-xl flex flex-col justify-between">
+                  <div>
+                    <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
+                    <h3 className="text-white font-bold mb-1">{item.name}</h3>
+                    <p className="text-yellow-400 text-sm font-bold mb-2"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {item.cost} Gold</p>
+                    <p className="text-gray-400 text-xs mb-4">{item.desc}</p>
+                    {(inventory[item.key] || 0) > 0 && (
+                      <p className="text-green-400 text-xs mb-2 font-bold">In bag: x{inventory[item.key]}</p>
+                    )}
                   </div>
-                ) : (
                   <button
                     onClick={() => handleBuy(item.key, item.cost, item.name)}
                     disabled={currentStats.gold < item.cost || buyingKey === item.key}
@@ -250,12 +238,50 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
                   >
                     {buyingKey === item.key ? 'Buying...' : currentStats.gold >= item.cost ? 'Buy' : 'Not Enough Gold'}
                   </button>
-                )}
-              </div>
-            );
-          })}
+                </div>
+              ))}
+          </div>
         </div>
-      </div>
+      )}
+
+      {/* Trainer Sprites — cosmetic gold sink. One-time unlocks stored as
+          qty-1 player_inventory rows; equip them from the avatar picker on
+          the Hero Profile card once owned. */}
+      {activeSection === 'sprites' && (
+        <div>
+          <p className="text-gray-400 text-sm mb-4">
+            Unlock premium portraits for your Hero Profile. Once purchased, equip them anytime from your avatar picker.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {USERPIC_CATALOG.map(item => {
+              const owned = (inventory[item.key] || 0) > 0;
+              return (
+                <div key={item.key} className="bg-[#111] border border-[#333] p-5 rounded-xl flex flex-col justify-between">
+                  <div>
+                    <img src={userpicPath(item.file)} alt={item.name} className="w-16 h-16 object-contain mb-2 rounded-lg bg-neutral-950" />
+                    <h3 className="text-white font-bold mb-1">{item.name}</h3>
+                    <p className="text-yellow-400 text-sm font-bold mb-2"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {item.cost} Gold</p>
+                  </div>
+                  {owned ? (
+                    <div className="w-full bg-green-900/30 border border-green-800 text-green-400 font-bold py-2 rounded-lg text-center text-sm">
+                      ✓ Owned
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => handleBuy(item.key, item.cost, item.name)}
+                      disabled={currentStats.gold < item.cost || buyingKey === item.key}
+                      className="w-full bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-2 rounded-lg transition-colors text-sm"
+                    >
+                      {buyingKey === item.key ? 'Buying...' : currentStats.gold >= item.cost ? 'Buy' : 'Not Enough Gold'}
+                    </button>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

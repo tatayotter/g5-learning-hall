@@ -88,7 +88,7 @@ export default function AvatarPicker({ userId, currentAvatar, onClose, onSaved }
             {USERPIC_CATALOG.length > 0 && (
               <>
                 <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mt-5 mb-2">
-                  Premium (unlock in the Curio Arena Shop)
+                  Trainer Sprites (unlock in the Curio Arena Shop)
                 </p>
                 <div className="grid grid-cols-4 sm:grid-cols-5 gap-3">
                   {USERPIC_CATALOG.map(item => {
@@ -99,7 +99,7 @@ export default function AvatarPicker({ userId, currentAvatar, onClose, onSaved }
                     return (
                       <button
                         key={item.key}
-                        onClick={() => owned ? handlePick(avatar) : alert(`🔒 Unlock "${item.name}" for ${item.cost} Gold in the Curio Arena Shop.`)}
+                        onClick={() => owned ? handlePick(avatar) : alert(`🔒 Unlock "${item.name}" for ${item.cost} Gold in the Trainer Sprites tab of the Curio Arena Shop.`)}
                         disabled={owned && !!saving}
                         title={owned ? item.name : `Locked — ${item.cost} Gold in the Shop`}
                         className={`relative aspect-square rounded-xl border-2 overflow-hidden bg-neutral-950 transition-all disabled:opacity-50 ${
