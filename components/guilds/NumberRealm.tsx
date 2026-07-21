@@ -10,6 +10,8 @@ import { CharacterStats } from '@/hooks/useWeeklyData';
 import { USERS } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
+import CurioRevealModal from '@/components/CurioRevealModal';
+import { ALL_MONSTERS } from '@/lib/monsterConfig';
 
 interface NumberRealmQuestion {
   id: string;
@@ -35,6 +37,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
   const [questions, setQuestions] = useState<NumberRealmQuestion[]>([]);
   const [profile, setProfile] = useState<SubclassProfile | null>(null);
   const [flashResult, setFlashResult] = useState<'correct' | 'wrong' | null>(null);
+  const [newCurioId, setNewCurioId] = useState<string | null>(null);
 
   // Input state for all three layouts
   const [standardAns, setStandardAns] = useState('');
@@ -120,7 +123,8 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
       const { level, xp } = applyLevelUp(profile.number_realm_lvl, profile.number_realm_xp, engine.totalXpEarned);
       await updateSubclassProfile(userId, { number_realm_lvl: level, number_realm_xp: xp });
       if (profile.number_realm_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
-        await ensureGuildMonsterGranted(userId, 'number_realm');
+        const grantedId = await ensureGuildMonsterGranted(userId, 'number_realm');
+        if (grantedId) setNewCurioId(grantedId);
       }
     }
     if (engine.totalGoldEarned > 0) {
@@ -272,6 +276,9 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
 
   return (
     <div className="max-w-2xl mx-auto battle-panel-in">
+      {newCurioId && ALL_MONSTERS[newCurioId] && (
+        <CurioRevealModal monster={ALL_MONSTERS[newCurioId]} userId={userId} onClose={() => setNewCurioId(null)} />
+      )}
       <div className="bg-[#0d0c08] border-2 border-amber-800 rounded-2xl p-10 text-center shadow-2xl font-mono">
         <div className="w-40 h-40 mx-auto mb-4">
           <GuardianSprite guild="numberrealm" pose="defeated" className="w-full h-full" />

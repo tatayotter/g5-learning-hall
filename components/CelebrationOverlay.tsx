@@ -20,7 +20,7 @@ interface Particle {
 interface CelebrationOverlayProps {
   userId: string;
   trigger: boolean;
-  type: 'levelup' | 'perfect';
+  type: 'levelup' | 'perfect' | 'curio';
   onComplete?: () => void;
 }
 
@@ -132,7 +132,7 @@ export default function CelebrationOverlay({ userId, trigger, type, onComplete }
   const isTala    = userId === 'tala';
   const particle_type: 'ember' | 'star' = isTala ? 'star' : 'ember';
 
-  const COUNT = type === 'levelup' ? 80 : 40;
+  const COUNT = type === 'perfect' ? 40 : 80;
 
   useEffect(() => {
     if (!trigger) return;
@@ -151,8 +151,8 @@ export default function CelebrationOverlay({ userId, trigger, type, onComplete }
       createParticle(i, particle_type, COUNT)
     );
 
-    // For level-up: add a second burst slightly offset
-    if (type === 'levelup') {
+    // For level-up and curio reveals: add a second burst slightly offset
+    if (type === 'levelup' || type === 'curio') {
       const burst2 = Array.from({ length: COUNT / 2 }, (_, i) => {
         const p = createParticle(i + COUNT, particle_type, COUNT / 2);
         p.x = 30 + Math.random() * 40;

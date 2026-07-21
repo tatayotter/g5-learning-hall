@@ -38,6 +38,8 @@ import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import { respondToInvite } from '@/lib/liveBattle';
 import EventPanel from '@/components/EventPanel';
 import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
+import CurioRevealModal from '@/components/CurioRevealModal';
+import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import {
   CustomEvent,
   EventQuest,
@@ -207,6 +209,7 @@ export default function Dashboard() {
   const [eventQuests, setEventQuests] = useState<EventQuest[]>([]);
   const [eventProgress, setEventProgress] = useState<UserEventProgressRow[]>([]);
   const [eventClaimed, setEventClaimed] = useState(false);
+  const [revealEventMonster, setRevealEventMonster] = useState<string | null>(null);
   const [activeEventQuest, setActiveEventQuest] = useState<string | null>(null);
   const [eventQuizPhase, setEventQuizPhase] = useState<'study' | 'ready' | 'quiz'>('study');
   const [showEventPopup, setShowEventPopup] = useState(false);
@@ -722,11 +725,11 @@ export default function Dashboard() {
                   q.id === eventQuest.id || newProgress.some(p => p.event_quest_id === q.id && p.is_mastered)
                 );
                 if (allMastered) {
-                  const granted = await claimEventReward(activeUserId, activeEvent.id);
+                  const gradeLevel = USERS[activeUserId]?.grade === 'Grade 2' ? 2 : 5;
+                  const granted = await claimEventReward(activeUserId, activeEvent.id, gradeLevel);
                   if (granted) {
                     setEventClaimed(true);
-                    playCoins();
-                    setToast({ show: true, message: `🎁 Event reward claimed! Check your Curio Arena collection.` });
+                    setRevealEventMonster(activeEvent.reward_monster_id);
                     logAction(activeUserId, data.week_starting_date, 'event_reward', `Completed event: ${activeEvent.title}`, 0, 0);
                   }
                 }
@@ -1086,6 +1089,10 @@ export default function Dashboard() {
               data.perfect_quizzes || 0,
               (data.dummy_battles_won || 0) + (kind === 'dummy' ? 1 : 0)
             )}
+            onGoldAwarded={(amount) => updateStatsAndJournal(
+              { ...data.character_stats, gold: data.character_stats.gold + amount },
+              data.journal_logs
+            )}
           />
         )}
 
@@ -1109,6 +1116,13 @@ export default function Dashboard() {
         />
         {showEventPopup && activeEvent && (
           <EventAnnouncementPopup event={activeEvent} onDismiss={handleDismissEventPopup} />
+        )}
+        {revealEventMonster && ALL_MONSTERS[revealEventMonster] && activeUserId && (
+          <CurioRevealModal
+            monster={ALL_MONSTERS[revealEventMonster]}
+            userId={activeUserId}
+            onClose={() => setRevealEventMonster(null)}
+          />
         )}
 
         {/* ── Back to Splash Screen button ── fixed bottom-right of the dashboard */}

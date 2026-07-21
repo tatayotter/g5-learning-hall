@@ -10,6 +10,8 @@ import { CharacterStats } from '@/hooks/useWeeklyData';
 import { USERS } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
+import CurioRevealModal from '@/components/CurioRevealModal';
+import { ALL_MONSTERS } from '@/lib/monsterConfig';
 
 interface LogicOption {
   id: string;
@@ -41,6 +43,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
   const [profile, setProfile] = useState<SubclassProfile | null>(null);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [flashResult, setFlashResult] = useState<'correct' | 'wrong' | null>(null);
+  const [newCurioId, setNewCurioId] = useState<string | null>(null);
 
   const isTala = userId === 'tala';
   const gradeLevel = (USERS[userId]?.grade === 'Grade 2') ? 2 : 5;
@@ -94,7 +97,8 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
       await updateSubclassProfile(userId, {
  logic_labyrinth_lvl: level, logic_labyrinth_xp: xp });
       if (profile.logic_labyrinth_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
-        await ensureGuildMonsterGranted(userId, 'logic_labyrinth');
+        const grantedId = await ensureGuildMonsterGranted(userId, 'logic_labyrinth');
+        if (grantedId) setNewCurioId(grantedId);
       }
     }
     if (engine.totalGoldEarned > 0) {
@@ -235,6 +239,9 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
 
   return (
     <div className="max-w-2xl mx-auto battle-panel-in">
+      {newCurioId && ALL_MONSTERS[newCurioId] && (
+        <CurioRevealModal monster={ALL_MONSTERS[newCurioId]} userId={userId} onClose={() => setNewCurioId(null)} />
+      )}
       <div className="bg-[#0b0d12] border-2 border-cyan-800 rounded-2xl p-10 text-center shadow-2xl">
         <div className="w-40 h-40 mx-auto mb-4">
           <GuardianSprite guild="logiclabyrinth" pose="defeated" className="w-full h-full" />

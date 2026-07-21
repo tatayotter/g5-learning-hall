@@ -456,6 +456,20 @@ export function playVictory() {
   });
 }
 
+// --- New curio obtained: recorded fanfare clip ---
+export function playCurioCaught() {
+  const audio = new Audio('/sounds/curio_caught.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- Curio leveled up: recorded fanfare clip ---
+export function playCurioLevelUp() {
+  const audio = new Audio('/sounds/curio_level_up.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
 // --- Battle: defeat sting ---
 export function playDefeat() {
   const ctx = getContext();

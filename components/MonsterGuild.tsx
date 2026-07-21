@@ -1,12 +1,13 @@
 'use client';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
-import { playAttackWhoosh, playHitThud, playMiss, playVictory, playDefeat, playFootstepGrass, playFootstepTown, playWallBump, playMonsterAppear, playChime, playClash } from '@/lib/sounds';
+import { playAttackWhoosh, playHitThud, playMiss, playVictory, playDefeat, playFootstepGrass, playFootstepTown, playWallBump, playMonsterAppear, playChime, playClash, playCurioLevelUp } from '@/lib/sounds';
 import { logAction } from '@/lib/playerlog';
 import { getOtherPlayers, UserId, USERS } from '@/lib/userSession';
 import { useMapPresence } from '@/hooks/useMapPresence';
 import PlayerStatsPopup from '@/components/PlayerStatsPopup';
 import WildEncounterModal from '@/components/WildEncounterModal';
+import CurioRevealModal from '@/components/CurioRevealModal';
 import {
   MONSTERS, WILD_MONSTERS, ALL_MONSTERS, GUILD_MONSTERS, NPC_TRAINERS, SKILLS, BATTLE_CONSTANTS,
   getUnlockedMonsterSlots, getAvailableSkillTiers, calculateDamage, getScaledStats, getEquippedSkills,
@@ -68,7 +69,12 @@ interface MonsterGuildProps {
   pendingLiveBattleId: string | null;
   onConsumePendingLiveBattle: () => void;
   onBattleWon: (kind: 'trainer' | 'sibling' | 'dummy') => void;
+  onGoldAwarded: (amount: number) => void;
 }
+
+// Gold awarded when a wild encounter win would-be-catch a species already
+// owned (active team or uncollected inbox) — converted instead of stacking.
+const DUPLICATE_CATCH_GOLD = 100;
 
 // ─── MAP CONFIG ───────────────────────────────────────────────────────────────
 
@@ -2112,7 +2118,7 @@ interface WildEncounterState {
   attemptsLeft: number;
 }
 
-export default function MonsterGuild({ userId, playerLevel, packageData, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle, onBattleWon }: MonsterGuildProps) {
+export default function MonsterGuild({ userId, playerLevel, packageData, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle, onBattleWon, onGoldAwarded }: MonsterGuildProps) {
   const [loading, setLoading] = useState(true);
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
   const [battleState, setBattleState] = useState<BattleState | null>(null);
@@ -2131,6 +2137,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
   const [liveBattleSide, setLiveBattleSide] = useState<'challenger' | 'opponent'>('challenger');
   const [liveBattleTeams, setLiveBattleTeams] = useState<{ mine: ActiveBattleMonster[]; opp: ActiveBattleMonster[] } | null>(null);
   const [notification, setNotification] = useState<string | null>(null);
+  const [revealMonster, setRevealMonster] = useState<MonsterDef | null>(null);
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [answeredArenaIds, setAnsweredArenaIds] = useState<Set<string>>(new Set());
   const [subclassProfile, setSubclassProfile] = useState<SubclassProfile | null>(null);
@@ -2485,7 +2492,9 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       if (m.id !== monsterId) return m;
       const newExp = m.monster_exp + exp;
       const newLevel = getMonsterLevel(newExp);
-      showNotification(`+${exp} EXP for ${displayMonsters[m.monster_id]?.name}!${newLevel > m.monster_level ? ` 🎉 Level Up! Now Lv.${newLevel}!` : ''}`);
+      const leveledUp = newLevel > m.monster_level;
+      if (leveledUp) playCurioLevelUp();
+      showNotification(`+${exp} EXP for ${displayMonsters[m.monster_id]?.name}!${leveledUp ? ` 🎉 Level Up! Now Lv.${newLevel}!` : ''}`);
       return { ...m, monster_exp: newExp, monster_level: newLevel };
     }));
   };
@@ -2497,13 +2506,25 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       const wildMonsterId = activeBattle.monsters[0].monsterId;
       const wildLevel = activeBattle.monsters[0].level;
       if (won) {
-        await supabase.from('user_caught_monsters').insert({
-          user_id: userId, monster_id: wildMonsterId, monster_level: wildLevel, monster_exp: 0,
-        });
+        const wasNew = !userMonsters.some(m => m.monster_id === wildMonsterId)
+          && !caughtMonsters.some(m => m.monster_id === wildMonsterId);
+        if (wasNew) {
+          await supabase.from('user_caught_monsters').insert({
+            user_id: userId, monster_id: wildMonsterId, monster_level: wildLevel, monster_exp: 0,
+          });
+        }
         await supabase.from('user_battle_state').update({ last_wild_encounter_win: today }).eq('user_id', userId);
         setBattleState(prev => prev ? { ...prev, last_wild_encounter_win: today } : prev);
-        showNotification(`🎉 You caught ${activeBattle.name}!`);
-        logAction(userId, today, 'battle', `🐉 Captured wild ${activeBattle.name}!`, 0, 0);
+        if (wasNew) {
+          setRevealMonster(ALL_MONSTERS[wildMonsterId]);
+          logAction(userId, today, 'battle', `🐉 Captured wild ${activeBattle.name}!`, 0, 0);
+        } else {
+          // Already own this species (active or in the catch inbox) — a
+          // duplicate catch converts to gold instead of piling up unused rows.
+          onGoldAwarded(DUPLICATE_CATCH_GOLD);
+          showNotification(`✨ You already have ${activeBattle.name} — converted to ${DUPLICATE_CATCH_GOLD} gold!`);
+          logAction(userId, today, 'battle', `✨ ${activeBattle.name} was a duplicate — converted to ${DUPLICATE_CATCH_GOLD} gold`, 0, DUPLICATE_CATCH_GOLD);
+        }
       } else {
         showNotification(`💨 ${activeBattle.name} broke free and fled...`);
         logAction(userId, today, 'battle', `💨 Failed to capture wild ${activeBattle.name}`, 0, 0);
@@ -2935,6 +2956,10 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           onCorrect={handleWildEncounterCorrect}
           onWrong={handleWildEncounterWrong}
         />
+      )}
+
+      {revealMonster && (
+        <CurioRevealModal monster={revealMonster} userId={userId} onClose={() => setRevealMonster(null)} />
       )}
     </div>
   );

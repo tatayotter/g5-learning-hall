@@ -11,6 +11,8 @@ import { CharacterStats } from '@/hooks/useWeeklyData';
 import { USERS } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
+import CurioRevealModal from '@/components/CurioRevealModal';
+import { ALL_MONSTERS } from '@/lib/monsterConfig';
 
 interface LorekeeperQuestion {
   id: string;
@@ -39,6 +41,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
   const [profile, setProfile] = useState<SubclassProfile | null>(null);
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [flashResult, setFlashResult] = useState<'correct' | 'wrong' | null>(null);
+  const [newCurioId, setNewCurioId] = useState<string | null>(null);
 
   const isTala = userId === 'tala';
   const gradeLevel = (USERS[userId]?.grade === 'Grade 2') ? 2 : 5;
@@ -89,7 +92,8 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
       const { level, xp } = applyLevelUp(profile.lorekeeper_lvl, profile.lorekeeper_xp, engine.totalXpEarned);
       await updateSubclassProfile(userId, { lorekeeper_lvl: level, lorekeeper_xp: xp });
       if (profile.lorekeeper_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
-        await ensureGuildMonsterGranted(userId, 'lorekeeper');
+        const grantedId = await ensureGuildMonsterGranted(userId, 'lorekeeper');
+        if (grantedId) setNewCurioId(grantedId);
       }
     }
 
@@ -225,6 +229,9 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
   // --- RESULTS ---
   return (
     <div className="max-w-2xl mx-auto battle-panel-in">
+      {newCurioId && ALL_MONSTERS[newCurioId] && (
+        <CurioRevealModal monster={ALL_MONSTERS[newCurioId]} userId={userId} onClose={() => setNewCurioId(null)} />
+      )}
       <div className="bg-[#121a16] border-2 border-emerald-800 rounded-2xl p-10 text-center shadow-2xl font-serif">
         <div className="w-40 h-40 mx-auto mb-4">
           <GuardianSprite guild="lorekeeper" pose="defeated" className="w-full h-full" />

@@ -72,23 +72,26 @@ export function guildLevelForKey(profile: SubclassProfile | null | undefined, gu
 // into the player's caught-monsters bench the first time that guild reaches
 // GUILD_MONSTER_GRANT_LEVEL. Call once per level-up, guarded by the caller so
 // it only fires on the level-5 crossing turn. Safe to call more than once —
-// checks for an existing catch first.
-export async function ensureGuildMonsterGranted(userId: string, guildKey: GuildKey) {
+// checks for an existing catch first. Returns the granted monster id (so the
+// caller can show a "new curio" reveal), or null if nothing was granted.
+export async function ensureGuildMonsterGranted(userId: string, guildKey: GuildKey): Promise<string | null> {
   const monsterId = GUILD_MONSTER_ID[guildKey];
-  if (!monsterId || !GUILD_MONSTERS[monsterId]) return;
+  if (!monsterId || !GUILD_MONSTERS[monsterId]) return null;
 
   const [{ data: owned }, { data: caught }] = await Promise.all([
     supabase.from('user_monsters').select('id').eq('user_id', userId).eq('monster_id', monsterId).limit(1),
     supabase.from('user_caught_monsters').select('id').eq('user_id', userId).eq('monster_id', monsterId).limit(1),
   ]);
-  if ((owned && owned.length > 0) || (caught && caught.length > 0)) return;
+  if ((owned && owned.length > 0) || (caught && caught.length > 0)) return null;
 
   const { error } = await supabase.from('user_caught_monsters').insert({
     user_id: userId, monster_id: monsterId, monster_level: 1, monster_exp: 0,
   });
   if (error) {
     console.error('Failed to grant guild companion monster:', error);
+    return null;
   }
+  return monsterId;
 }
 
 // Fetch a fresh, non-repeating batch of questions for a given guild's table.

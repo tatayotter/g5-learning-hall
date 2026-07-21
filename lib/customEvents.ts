@@ -116,10 +116,11 @@ export async function recordEventQuizMastery(
 // Atomic, idempotent — the RPC re-verifies every event_quest is mastered
 // and inserts a one-row claim ledger entry before granting the curio, so
 // calling this more than once (e.g. a retried request) never double-grants.
-export async function claimEventReward(userId: string, eventId: string): Promise<boolean> {
+export async function claimEventReward(userId: string, eventId: string, gradeLevel: number): Promise<boolean> {
   const { data, error } = await supabase.rpc('claim_event_reward', {
     p_event_id: eventId,
     p_user_id: userId,
+    p_grade_level: gradeLevel,
   });
   if (error) {
     console.error('Failed to claim event reward:', error);
