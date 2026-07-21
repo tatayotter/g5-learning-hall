@@ -456,6 +456,7 @@ export default function Dashboard() {
               journalLogs={data.journal_logs}
               masteredQuizzes={data.mastered_quizzes}
               onGoldAwarded={applyGoldDelta}
+              onPlayGuild={(guildKey) => { setActiveTab('guilds'); setActiveGuild(guildKey); }}
             />
           </>
         )}

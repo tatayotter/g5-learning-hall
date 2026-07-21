@@ -14,9 +14,10 @@ interface GuardianSpriteProps {
   guild: GuardianGuild;
   pose: GuardianPose;
   className?: string;
+  animate?: boolean;
 }
 
-export default function GuardianSprite({ guild, pose, className = '' }: GuardianSpriteProps) {
+export default function GuardianSprite({ guild, pose, className = '', animate = true }: GuardianSpriteProps) {
   const [failed, setFailed] = useState(false);
   const src = `/sidequests/${guild}${POSE_SUFFIX[pose]}.webp`;
 
@@ -31,7 +32,7 @@ export default function GuardianSprite({ guild, pose, className = '' }: Guardian
     );
   }
 
-  const poseClass = pose === 'hurt' ? 'battle-hit' : pose === 'idle' ? 'battle-float' : '';
+  const poseClass = !animate ? '' : pose === 'hurt' ? 'battle-hit' : pose === 'idle' ? 'battle-float' : '';
 
   return (
     <img

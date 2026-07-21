@@ -179,10 +179,24 @@ export function useLiveBattleInbox(userId: string, name: string) {
   const clearIncomingInvite = () => setIncomingInvite(null);
   const clearInviteResponse = () => setInviteResponse(null);
 
+  // Re-reads the lobby's presence state on demand — presence normally updates
+  // live via the 'sync' event above, but this gives the UI a manual "Refresh"
+  // action for players who want to confirm the list is current right now.
+  const refreshPresence = useCallback(() => {
+    const lobby = lobbyRef.current;
+    if (!lobby) return;
+    const state = lobby.presenceState<{ userId: string; inBattle?: boolean }>();
+    setOnlinePlayerIds(new Set(Object.keys(state)));
+    const inBattleIds = Object.entries(state)
+      .filter(([, metas]) => metas.some(m => m.inBattle))
+      .map(([id]) => id);
+    setPlayersInBattle(new Set(inBattleIds));
+  }, []);
+
   return {
     onlinePlayerIds, playersInBattle, battleResultFlashes, incomingInvite, inviteResponse,
     sendInvite, cancelInvite, sendInviteResponse,
     clearIncomingInvite, clearInviteResponse,
-    setInBattleStatus, sendBattleResultFlash,
+    setInBattleStatus, sendBattleResultFlash, refreshPresence,
   };
 }

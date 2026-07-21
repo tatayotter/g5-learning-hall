@@ -1593,15 +1593,18 @@ function TrainingMap({
 
 // ─── TEAM PANEL ───────────────────────────────────────────────────────────────
 
-function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange, monsterDisplay }: {
+function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange, monsterDisplay, caughtMonsters, onPromote }: {
   userMonsters: UserMonster[];
   playerLevel: number;
   userId: string;
   onTeamChange: () => void;
   monsterDisplay: Record<string, MonsterDef>;
+  caughtMonsters: CaughtMonster[];
+  onPromote: (caught: CaughtMonster, slot: number) => void;
 }) {
   const unlockedSlots = getUnlockedMonsterSlots(playerLevel);
   const benchedMonsters = userMonsters.filter(m => m.slot === null);
+  const [promotingId, setPromotingId] = useState<string | null>(null);
 
   const handleAddMonster = async (slot: number, monsterId: string) => {
     // set_team_slot never overwrites an existing monster's row — it reuses
@@ -1691,6 +1694,69 @@ function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange, monsterDis
           </div>
         );
       })}
+
+      {/* Rare, wild-caught monsters land here first (never straight into a team
+          slot). Promoting one reuses the same insert/update-by-slot pattern as
+          the slots above. */}
+      {caughtMonsters.length > 0 && (
+        <div className="space-y-3 pt-2">
+          <p className="text-xs text-amber-500 font-bold uppercase tracking-widest">Ready to add to your team</p>
+          {caughtMonsters.map(caught => {
+            // Deliberately ALL_MONSTERS, not monsterDisplay — a bench catch is
+            // always the ungraduated tier-1 form (user_caught_monsters has no
+            // graduation_tier column; only a promoted team monster can be
+            // graduated), so it must never render via the species-wide
+            // graduation-aware display override, even if the player's own
+            // team already owns a graduated instance of this same species.
+            const def = ALL_MONSTERS[caught.monster_id];
+            if (!def) return null;
+            const scaled = getScaledStats(def, caught.monster_level);
+            return (
+              <div key={caught.id} className="p-4 rounded-xl border border-amber-800 bg-amber-900/10">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 flex-shrink-0">
+                    <MonsterImage monster={def} className="w-full h-full" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-bold text-white">{def.name} <span className="text-gray-400 text-sm">Lv.{caught.monster_level}</span></p>
+                    <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
+                  </div>
+                  <div className="text-xs text-gray-400 space-y-0.5">
+                    <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.hp}</p>
+                    <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.attack}</p>
+                    <p className="flex items-center gap-1"><img src="/icons/stats/def.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.defense}</p>
+                    <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.speed}</p>
+                  </div>
+                  <button
+                    onClick={() => setPromotingId(promotingId === caught.id ? null : caught.id)}
+                    className="bg-amber-700 hover:bg-amber-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors"
+                  >
+                    → Move to Team
+                  </button>
+                </div>
+                {promotingId === caught.id && (
+                  <div className="mt-3 pt-3 border-t border-amber-900 flex flex-wrap gap-2">
+                    {[1, 2, 3].map(slot => {
+                      const existing = userMonsters.find(m => m.slot === slot);
+                      const isUnlocked = slot <= unlockedSlots || !!existing;
+                      if (!isUnlocked) return null;
+                      return (
+                        <button
+                          key={slot}
+                          onClick={() => { onPromote(caught, slot); setPromotingId(null); }}
+                          className="text-xs bg-neutral-800 hover:bg-neutral-700 px-3 py-2 rounded-lg text-white"
+                        >
+                          {existing ? `Replace ${monsterDisplay[existing.monster_id]?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
@@ -1763,13 +1829,11 @@ interface DexEntry {
   isGraduationTier?: boolean; // true for a species' graduated-form card (tier 2/3 = first/second graduation)
 }
 
-function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds, playerLevel, onPromote, monsterDisplay, subclassProfile, inventory, onLoadoutChange }: {
+function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds, monsterDisplay, subclassProfile, inventory, onLoadoutChange }: {
   userId: UserId;
   userMonsters: UserMonster[];
   caughtMonsters: CaughtMonster[];
   seenMonsterIds: string[];
-  playerLevel: number;
-  onPromote: (caught: CaughtMonster, slot: number) => void;
   monsterDisplay: Record<string, MonsterDef>;
   subclassProfile: SubclassProfile | null;
   inventory: InventoryMap;
@@ -1777,11 +1841,9 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
 }) {
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
   const [ceremony, setCeremony] = useState<{ fromDef: MonsterDef; toDef: MonsterDef; monsterLevel: number; speciesId: string; targetTier: 1 | 2 } | null>(null);
-  const [promotingId, setPromotingId] = useState<string | null>(null);
   const [pendingSlot, setPendingSlot] = useState<{ monsterRowId: string; slotIndex: number } | null>(null);
   const [actionBusy, setActionBusy] = useState(false);
   const actionBusyRef = useRef(false);
-  const unlockedSlots = getUnlockedMonsterSlots(playerLevel);
 
   const handleUnlearn = async (monsterRowId: string, slotIndex: number) => {
     if (actionBusyRef.current) return;
@@ -1934,56 +1996,6 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
         <h3 className="text-lg font-bold text-white font-display">📖 Compendium</h3>
         <p className="text-xs text-gray-500">Every curio species in the game. Wild-only species stay a mystery silhouette until you encounter one on the Training Map.</p>
       </div>
-
-      {/* Rare, wild-caught monsters land here first (never straight into a team
-          slot). Promoting one reuses the same insert/update-by-slot pattern as
-          TeamPanel. */}
-      {caughtMonsters.length > 0 && (
-        <div className="space-y-3">
-          <p className="text-xs text-amber-500 font-bold uppercase tracking-widest">Ready to add to your team</p>
-          {caughtMonsters.map(caught => {
-            const def = monsterDisplay[caught.monster_id];
-            if (!def) return null;
-            return (
-              <div key={caught.id} className="p-4 rounded-xl border border-amber-800 bg-amber-900/10">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 flex-shrink-0">
-                    <MonsterImage monster={def} className="w-full h-full" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-bold text-white">{def.name} <span className="text-gray-400 text-sm">Lv.{caught.monster_level}</span></p>
-                    <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
-                  </div>
-                  <button
-                    onClick={() => setPromotingId(promotingId === caught.id ? null : caught.id)}
-                    className="bg-amber-700 hover:bg-amber-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors"
-                  >
-                    → Move to Team
-                  </button>
-                </div>
-                {promotingId === caught.id && (
-                  <div className="mt-3 pt-3 border-t border-amber-900 flex flex-wrap gap-2">
-                    {[1, 2, 3].map(slot => {
-                      const existing = userMonsters.find(m => m.slot === slot);
-                      const isUnlocked = slot <= unlockedSlots || !!existing;
-                      if (!isUnlocked) return null;
-                      return (
-                        <button
-                          key={slot}
-                          onClick={() => { onPromote(caught, slot); setPromotingId(null); }}
-                          className="text-xs bg-neutral-800 hover:bg-neutral-700 px-3 py-2 rounded-lg text-white"
-                        >
-                          {existing ? `Replace ${monsterDisplay[existing.monster_id]?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      )}
 
       {ceremony && (
         <GraduationCeremonyModal
@@ -2638,8 +2650,13 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
         const wasNew = !userMonsters.some(m => m.monster_id === wildMonsterId)
           && !caughtMonsters.some(m => m.monster_id === wildMonsterId);
         if (wasNew) {
+          // monster_exp must stay consistent with monster_level under
+          // getMonsterLevel's exp/100+1 formula — every later EXP gain
+          // recomputes level purely from monster_exp, so seeding exp at 0
+          // for a non-1 wildLevel would make the monster's level collapse
+          // back to 1 the instant it earned any EXP after being promoted.
           await supabase.from('user_caught_monsters').insert({
-            user_id: userId, monster_id: wildMonsterId, monster_level: wildLevel, monster_exp: 0,
+            user_id: userId, monster_id: wildMonsterId, monster_level: wildLevel, monster_exp: (wildLevel - 1) * BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL,
           });
         }
         await supabase.from('user_battle_state').update({ last_wild_encounter_win: today }).eq('user_id', userId);
@@ -2777,7 +2794,10 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
         </div>
       )}
 
-      <h2 className="text-3xl font-display font-bold text-white mb-6">🐉 Curio Guild</h2>
+      <div className="mb-6">
+        <h2 className="text-3xl font-display font-bold text-white">Curio Arena</h2>
+        <p className="text-xs text-gray-500 mt-1">Train, catch, and battle with every curio species in the game.</p>
+      </div>
 
       {/* Sub-nav */}
       <div className="flex gap-2 mb-8 border-b border-neutral-800">
@@ -2832,6 +2852,8 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           userId={userId}
           onTeamChange={loadData}
           monsterDisplay={displayMonsters}
+          caughtMonsters={caughtMonsters}
+          onPromote={handlePromoteCaughtMonster}
         />
       )}
 
@@ -2843,8 +2865,6 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           caughtMonsters={caughtMonsters}
           userMonsters={userMonsters}
           seenMonsterIds={battleState?.seen_monsters || []}
-          playerLevel={playerLevel}
-          onPromote={handlePromoteCaughtMonster}
           monsterDisplay={displayMonsters}
           subclassProfile={subclassProfile}
           inventory={inventory}
@@ -2857,30 +2877,40 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       {/* Trainers view */}
       {view === 'trainers' && battleState && (
         <div className="space-y-4">
-          <h3 className="text-lg font-bold text-white font-display">NPC Trainers</h3>
-
           {/* PvP — Challenge To A Battle */}
           {(() => {
             const today = new Date().toISOString().split('T')[0];
             const alreadyWonToday = battleState?.last_pvp_win === today;
-            const otherPlayers = getOtherPlayers(userId as UserId);
+            const otherPlayers = getOtherPlayers(userId as UserId).filter(p => liveBattleInbox.onlinePlayerIds.has(p.id));
             return (
               <div className="border border-indigo-800 bg-indigo-900/10 rounded-xl p-5">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-3xl">👊</span>
-                  <div>
-                    <p className="font-bold text-white">Challenge To A Battle</p>
-                    <p className="text-xs text-gray-400">
-                      Battle another player's team.
-                      {alreadyWonToday
-                        ? ' First win gold already claimed today — resets tomorrow.'
-                        : ' First win today earns '}
-                      {!alreadyWonToday && <span className="text-amber-400 font-bold">50 Gold</span>}
-                      {!alreadyWonToday && '.'}
-                    </p>
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl">👊</span>
+                    <div>
+                      <p className="font-bold text-white">Challenge To A Battle</p>
+                      <p className="text-xs text-gray-400">
+                        Battle another player's team.
+                        {alreadyWonToday
+                          ? ' First win gold already claimed today — resets tomorrow.'
+                          : ' First win today earns '}
+                        {!alreadyWonToday && <span className="text-amber-400 font-bold">50 Gold</span>}
+                        {!alreadyWonToday && '.'}
+                      </p>
+                    </div>
                   </div>
+                  <button
+                    onClick={() => liveBattleInbox.refreshPresence()}
+                    className="text-xs bg-neutral-800 hover:bg-neutral-700 text-gray-300 font-bold px-3 py-1.5 rounded-lg transition-colors flex-shrink-0"
+                    title="Refresh online list"
+                  >
+                    🔄 Refresh
+                  </button>
                 </div>
                 <div className="space-y-2">
+                  {otherPlayers.length === 0 && (
+                    <p className="text-xs text-gray-500 italic">No one else is online right now.</p>
+                  )}
                   {otherPlayers.map(player => {
                     const inBattle = liveBattleInbox.playersInBattle.has(player.id);
                     return (
@@ -2913,6 +2943,8 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
               </div>
             );
           })()}
+
+          <h3 className="text-lg font-bold text-white font-display">NPC Trainers</h3>
           <div className="p-5 rounded-xl border flex items-center gap-4 border-neutral-700 bg-neutral-900">
             <div className="w-14 h-14 flex-shrink-0 relative flex items-center justify-center text-4xl bg-neutral-800 rounded-full overflow-hidden border border-neutral-700">
               <span className="opacity-50">🎯</span>

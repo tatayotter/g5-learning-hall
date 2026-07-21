@@ -8,10 +8,20 @@ import {
   claimChecklistBonus,
   GUILDS,
   ChecklistBattleFlags,
+  GuildKey,
 } from '@/lib/dailyChecklist';
 import { logAction } from '@/lib/playerlog';
 import { playCoins } from '@/lib/sounds';
 import GameButton from '@/components/GameButton';
+import GuardianSprite, { GuardianGuild } from '@/components/guilds/GuardianSprite';
+
+const GUILD_SPRITE_KEY: Record<string, GuardianGuild> = {
+  lorekeeper: 'lorekeeper',
+  spellcaster: 'spellcaster',
+  number_realm: 'numberrealm',
+  logic_labyrinth: 'logiclabyrinth',
+  lexicon_arena: 'lexiconarena',
+};
 
 interface DailyChecklistProps {
   userId: string;
@@ -21,6 +31,7 @@ interface DailyChecklistProps {
   journalLogs: Record<string, unknown> | undefined | null;
   masteredQuizzes: string[] | undefined;
   onGoldAwarded: (amount: number) => void;
+  onPlayGuild: (guildKey: GuildKey) => void;
 }
 
 const BONUS_GOLD = 50;
@@ -38,6 +49,7 @@ export default function DailyChecklist({
   journalLogs,
   masteredQuizzes,
   onGoldAwarded,
+  onPlayGuild,
 }: DailyChecklistProps) {
   const todayKey = format(new Date(), 'yyyy-MM-dd');
   const [battleFlags, setBattleFlags] = useState<ChecklistBattleFlags>({
@@ -135,17 +147,19 @@ export default function DailyChecklist({
               ⚔️ Play each Learning Guild ({guildsPlayedToday.length}/{GUILDS.length})
             </span>
           </div>
-          <div className="flex gap-1 mt-1 ml-6">
+          <div className="flex gap-1.5 mt-1 ml-6">
             {GUILDS.map(g => {
               const done = battleFlags.guild_last_played?.[g.key] === todayKey;
               return (
-                <span
+                <button
                   key={g.key}
-                  title={g.label}
-                  className={`text-[10px] font-bold uppercase tracking-tight ${done ? 'opacity-100' : 'opacity-25 grayscale'}`}
+                  type="button"
+                  title={done ? g.label : `Play ${g.label}`}
+                  onClick={() => onPlayGuild(g.key)}
+                  className={`w-7 h-7 rounded-full bg-black/30 overflow-hidden transition-opacity ${done ? 'opacity-100' : 'opacity-30 grayscale hover:opacity-60'}`}
                 >
-                  {g.label.slice(0, 3)}
-                </span>
+                  <GuardianSprite guild={GUILD_SPRITE_KEY[g.key]} pose="idle" animate={false} className="w-full h-full" />
+                </button>
               );
             })}
           </div>

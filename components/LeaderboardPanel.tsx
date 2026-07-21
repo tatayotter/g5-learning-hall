@@ -50,6 +50,28 @@ function topMonsterLabel(topMonster: LeaderboardEntry['topMonster']): string {
   return `${name} Lv.${topMonster.monster_level}`;
 }
 
+function TopCurioChip({ topMonster }: { topMonster: LeaderboardEntry['topMonster'] }) {
+  const def = topMonster ? ALL_MONSTERS[topMonster.monster_id] : null;
+  const name = topMonster ? (topMonster.nickname || def?.name || topMonster.monster_id) : null;
+  return (
+    <div className="bg-black/30 rounded-lg px-2 py-2 text-center overflow-hidden">
+      {def && (
+        <div className="w-8 h-8 mx-auto mb-1">
+          <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-xl" />
+        </div>
+      )}
+      {topMonster ? (
+        <p className="text-xs font-bold text-white font-mono leading-tight truncate" title={topMonsterLabel(topMonster)}>
+          {name} <span className="text-gray-400">Lv.{topMonster.monster_level}</span>
+        </p>
+      ) : (
+        <p className="text-sm font-bold text-white font-mono">—</p>
+      )}
+      <p className="text-[10px] text-gray-500 uppercase tracking-wide mt-0.5">Top Curio</p>
+    </div>
+  );
+}
+
 interface Highlight {
   emoji: string;
   value: string;
@@ -88,7 +110,7 @@ function TopEntryCard({ entry, rank, badge, highlight }: { entry: LeaderboardEnt
         <StatChip label="Live Wins" value={entry.liveBattleWins} />
         <StatChip label="Questions" value={entry.questionsAnswered} />
         <StatChip label="Monsters" value={entry.monstersCollected} />
-        <StatChip label="Top Monster" value={topMonsterLabel(entry.topMonster)} />
+        <TopCurioChip topMonster={entry.topMonster} />
       </div>
       <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Team</p>
       <TeamStrip team={entry.team} />
@@ -136,9 +158,16 @@ function RankRow({ entry, rank }: { entry: LeaderboardEntry; rank: number }) {
           <p className="text-xs text-gray-500">👾 Mons</p>
           <p className="text-sm font-mono text-white">{entry.monstersCollected}</p>
         </div>
-        <div>
-          <p className="text-xs text-gray-500">🌟 Top</p>
-          <p className="text-sm font-mono text-white whitespace-nowrap">{topMonsterLabel(entry.topMonster)}</p>
+        <div className="flex items-center gap-1.5">
+          {entry.topMonster && ALL_MONSTERS[entry.topMonster.monster_id] && (
+            <div className="w-5 h-5 flex-shrink-0">
+              <MonsterImage monster={ALL_MONSTERS[entry.topMonster.monster_id]} className="w-full h-full" emojiClassName="text-xs" />
+            </div>
+          )}
+          <div>
+            <p className="text-xs text-gray-500">Top Curio</p>
+            <p className="text-sm font-mono text-white whitespace-nowrap">{topMonsterLabel(entry.topMonster)}</p>
+          </div>
         </div>
         <div>
           <p className="text-xs text-amber-500">Score</p>
