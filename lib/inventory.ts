@@ -66,6 +66,26 @@ export async function addInventoryItem(userId: string, key: string, qty: number)
   });
 }
 
+// Atomic gold-debit + item-grant in one DB transaction, so a shop purchase
+// can't be split into "call upsert_inventory directly, skip paying" — the
+// item is only granted if the gold was actually there and got deducted.
+// Cost is looked up server-side from shop_items, not trusted from the caller.
+export async function spendGoldAndGrantItem(
+  userId: string, weekStartingDate: string, key: string, qty: number = 1
+): Promise<{ gold: number; xp: number; level: number } | null> {
+  const { data, error } = await supabase.rpc('spend_gold_and_grant_item', {
+    p_user_id: userId,
+    p_week_starting_date: weekStartingDate,
+    p_item_key: key,
+    p_quantity: qty,
+  });
+  if (error) {
+    console.error('spend_gold_and_grant_item error:', error);
+    return null;
+  }
+  return data;
+}
+
 export async function consumeInventoryItem(userId: string, key: string) {
   await supabase.rpc('upsert_inventory', {
     p_user_id: userId,

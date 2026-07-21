@@ -95,7 +95,15 @@ export default function AdminPanel({ currentData, currentSunday, onUpdateStats }
 
   const toggleStatus = async (id: number, currentStatus: string) => {
     const newStatus = currentStatus === 'pending' ? 'supplied' : 'pending';
-    await supabase.from('reward_claims').update({ status: newStatus }).eq('id', id);
+    const res = await fetch('/api/admin-reward-claim', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ passcode: password, id, status: newStatus }),
+    });
+    if (!res.ok) {
+      alert('❌ Failed to update reward status.');
+      return;
+    }
     setClaims(claims.map(c => c.id === id ? { ...c, status: newStatus } : c));
   };
 
@@ -139,8 +147,9 @@ export default function AdminPanel({ currentData, currentSunday, onUpdateStats }
       const { error } = await supabase
         .from('weekly_packages')
         .update({ package_data: jsonPayload })
-        .eq('week_starting_date', currentSunday);
-        
+        .eq('week_starting_date', currentSunday)
+        .eq('user_id', currentData.user_id);
+
       if (error) throw error;
       alert('✅ Quest payload updated successfully! Please refresh the page to load the new map.');
     } catch (err: any) {

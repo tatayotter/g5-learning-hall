@@ -845,6 +845,7 @@ export default function Dashboard() {
           <MonsterShop
             userId={activeUserId}
             currentStats={data.character_stats}
+            weekStartingDate={data.week_starting_date}
             onSpendGold={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
           />
         )}
@@ -879,6 +880,7 @@ export default function Dashboard() {
               <MonsterShop
                 userId={activeUserId}
                 currentStats={data.character_stats}
+                weekStartingDate={data.week_starting_date}
                 onSpendGold={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
               />
             </div>

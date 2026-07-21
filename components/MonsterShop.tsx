@@ -5,7 +5,7 @@ import { UserId, USERS } from '@/lib/userSession';
 import {
   SHOP_CATALOG,
   fetchInventory,
-  addInventoryItem,
+  spendGoldAndGrantItem,
   claimDailyItems,
   InventoryMap,
 } from '@/lib/inventory';
@@ -27,10 +27,11 @@ const ELEMENTS: Element[] = ['fire', 'water', 'leaf', 'storm', 'shadow', 'light'
 interface Props {
   userId: UserId;
   currentStats: CharacterStats;
+  weekStartingDate: string;
   onSpendGold: (newStats: CharacterStats) => void;
 }
 
-export default function MonsterShop({ userId, currentStats, onSpendGold }: Props) {
+export default function MonsterShop({ userId, currentStats, weekStartingDate, onSpendGold }: Props) {
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [loading, setLoading] = useState(true);
   const [claimedToday, setClaimedToday] = useState(false);
@@ -75,9 +76,12 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
     buyBusyRef.current = true;
     setBuyingKey(key);
     try {
-      const newStats = { ...currentStats, gold: currentStats.gold - cost };
+      const newStats = await spendGoldAndGrantItem(userId, weekStartingDate, key, 1);
+      if (!newStats) {
+        alert('❌ Purchase failed — you may not have enough Gold anymore.');
+        return;
+      }
       onSpendGold(newStats);
-      await addInventoryItem(userId, key, 1);
       await loadInventory();
       logAction(userId, new Date().toISOString().split('T')[0], 'purchase', `Bought ${name} from Curio Arena Shop`, 0, -cost);
     } finally {

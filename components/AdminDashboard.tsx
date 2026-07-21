@@ -154,10 +154,11 @@ function WeeklyPackageHistory({ userId }: { userId: 'damien' | 'tala' }) {
   );
 }
 
-function WeeklyPackageBuilder({ currentData, currentSunday, onUpdateStats }: {
+function WeeklyPackageBuilder({ currentData, currentSunday, onUpdateStats, passcode }: {
   currentData: WeeklyData;
   currentSunday: string;
   onUpdateStats: (...args: any[]) => void;
+  passcode: string;
 }) {
   const [userId, setUserId] = useState<'damien' | 'tala'>(currentData.user_id as 'damien' | 'tala');
   const [selectedWeek, setSelectedWeek] = useState(currentSunday);
@@ -247,43 +248,20 @@ function WeeklyPackageBuilder({ currentData, currentSunday, onUpdateStats }: {
     if (!parsed || parsed.warnings.length > 0) return;
     setSaving(true);
     try {
-      if (weekHasRow) {
-        // Row already exists (this week, or a future week touched before) —
-        // only ever overwrite its package_data, never its stats.
-        const { error } = await supabase
-          .from('weekly_packages')
-          .update({ package_data: parsed.data })
-          .eq('week_starting_date', selectedWeek)
-          .eq('user_id', userId);
-        if (error) throw error;
-      } else {
-        // Brand-new future week: leave stat columns explicitly null so that
-        // when the week actually begins, useWeeklyData carries forward real
-        // progress from whatever the latest week turns out to be by then,
-        // instead of freezing stats at today's snapshot.
-        const { error } = await supabase
-          .from('weekly_packages')
-          .insert({
-            user_id: userId,
-            week_starting_date: selectedWeek,
-            package_data: parsed.data,
-            character_stats: null,
-            journal_logs: null,
-            achievements: null,
-            mastery_count: null,
-            purchased_items: null,
-            honor_grants: null,
-            quiz_attempts: null,
-            mastered_quizzes: null,
-            guild_sessions_count: null,
-            monster_battles_won: null,
-            sibling_battles_won: null,
-            perfect_quizzes: null,
-            dummy_battles_won: null,
-          });
-        if (error) throw error;
-        setWeekHasRow(true);
-      }
+      // Both branches (existing row / brand-new future week) are handled by a single
+      // upsert RPC now — direct client writes to another user's weekly_packages row
+      // are blocked by RLS, so this always goes through the passcode-gated admin path.
+      const res = await fetch('/api/admin-weekly', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          passcode, action: 'set_package_data',
+          userId, weekStartingDate: selectedWeek, packageData: parsed.data,
+        }),
+      });
+      const result = await res.json();
+      if (!result.success) throw new Error(result.error || 'Save failed');
+      setWeekHasRow(true);
       const weekLabel = selectedWeek === currentSunday ? 'this week' : `week of ${selectedWeek}`;
       alert(`✅ Package saved for ${userId === 'damien' ? 'Damien' : 'Tala'} (${weekLabel})!`);
     } catch (e: any) {
@@ -1033,15 +1011,28 @@ function ToolsSection({ currentData, currentSunday, onUpdateStats, passcode }: {
     setSavingPassword(false);
   };
 
-  const handleAwardDeed = () => {
+  // NOTE: these act on `userId` (the Damien/Tala picker above), not necessarily the
+  // account currently logged into this browser tab — they used to go through
+  // onUpdateStats, which is wired to the *active session's own* row (app/page.tsx),
+  // so switching the picker to the other kid silently overwrote whoever was actually
+  // logged in instead. Routing through the admin RPC (which takes an explicit
+  // p_user_id) fixes that along with the RLS tightening.
+  const handleAwardDeed = async () => {
     const amount = Number(deedGold);
     if (!deedName.trim() || !amount || amount <= 0) {
       alert('Enter a deed name and valid gold amount.');
       return;
     }
-    const newStats = { ...toolData.character_stats, gold: toolData.character_stats.gold + amount };
-    const newHonorGrants = (toolData.honor_grants || 0) + 1;
-    onUpdateStats(newStats, toolData.journal_logs, toolData.purchased_items, toolData.mastery_count, newHonorGrants);
+    const res = await fetch('/api/admin-weekly', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ passcode, action: 'award_gold', userId, weekStartingDate: currentSunday, amount }),
+    });
+    const result = await res.json();
+    if (!result.success) {
+      alert(`❌ ${result.error || 'Failed to award gold.'}`);
+      return;
+    }
     logAction(userId, currentSunday, 'deed', deedName, 0, amount);
     playBlessing();
     alert(`✅ Awarded 🪙 ${amount} Gold for: ${deedName}`);
@@ -1050,19 +1041,36 @@ function ToolsSection({ currentData, currentSunday, onUpdateStats, passcode }: {
     loadUserData(userId);
   };
 
-  const handleSaveStats = () => {
+  const handleSaveStats = async () => {
     let xp = stats.xp;
     let level = stats.level;
     while (xp >= (500 + level * 100)) { xp -= (500 + level * 100); level++; }
     const normalized = { ...stats, xp, level };
+    const res = await fetch('/api/admin-weekly', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ passcode, action: 'set_character_stats', userId, weekStartingDate: currentSunday, characterStats: normalized }),
+    });
+    const result = await res.json();
+    if (!result.success) {
+      alert(`❌ ${result.error || 'Failed to save stats.'}`);
+      return;
+    }
     setStats(normalized);
-    onUpdateStats(normalized, toolData.journal_logs);
     alert('✅ Stats overwritten!');
   };
 
   const toggleClaim = async (id: number, status: string) => {
     const next = status === 'pending' ? 'supplied' : 'pending';
-    await supabase.from('reward_claims').update({ status: next }).eq('id', id);
+    const res = await fetch('/api/admin-reward-claim', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ passcode, id, status: next }),
+    });
+    if (!res.ok) {
+      alert('❌ Failed to update reward status.');
+      return;
+    }
     setClaims(claims.map(c => c.id === id ? { ...c, status: next } : c));
   };
 
@@ -1568,10 +1576,11 @@ const EMPTY_EVENT_FORM = {
   end_date: '',
 };
 
-function EventManager({ events, questCounts, onReload }: {
+function EventManager({ events, questCounts, onReload, passcode }: {
   events: CustomEvent[];
   questCounts: Record<string, number>;
   onReload: () => void;
+  passcode: string;
 }) {
   const [form, setForm] = useState(EMPTY_EVENT_FORM);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -1632,18 +1641,13 @@ function EventManager({ events, questCounts, onReload }: {
     }
     setSaving(true);
     try {
-      if (editingId) {
-        const { error } = await supabase
-          .from('custom_events')
-          .update({ ...form, updated_at: new Date().toISOString() })
-          .eq('id', editingId);
-        if (error) throw error;
-      } else {
-        const { error } = await supabase
-          .from('custom_events')
-          .insert({ ...form, status: 'draft' });
-        if (error) throw error;
-      }
+      const res = await fetch('/api/admin-events', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ passcode, action: 'upsert_event', id: editingId, ...form }),
+      });
+      const result = await res.json();
+      if (!result.success) throw new Error(result.error || 'Save failed');
       resetForm();
       onReload();
     } catch (e: any) {
@@ -1657,12 +1661,14 @@ function EventManager({ events, questCounts, onReload }: {
       alert('This event has no quests yet — add Event Quests below before scheduling or activating it.');
       return;
     }
-    const { error } = await supabase
-      .from('custom_events')
-      .update({ status, updated_at: new Date().toISOString() })
-      .eq('id', ev.id);
-    if (error) {
-      alert(`❌ Status update failed: ${error.message}`);
+    const res = await fetch('/api/admin-events', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ passcode, action: 'set_status', id: ev.id, status }),
+    });
+    const result = await res.json();
+    if (!result.success) {
+      alert(`❌ Status update failed: ${result.error}`);
       return;
     }
     onReload();
@@ -1857,10 +1863,11 @@ function EventManager({ events, questCounts, onReload }: {
   );
 }
 
-function EventQuestEditor({ events, questCounts, onReload }: {
+function EventQuestEditor({ events, questCounts, onReload, passcode }: {
   events: CustomEvent[];
   questCounts: Record<string, number>;
   onReload: () => void;
+  passcode: string;
 }) {
   const [selectedEventId, setSelectedEventId] = useState('');
   const [gradeLevel, setGradeLevel] = useState<2 | 5>(5);
@@ -1908,17 +1915,19 @@ function EventQuestEditor({ events, questCounts, onReload }: {
     setSaving(true);
     try {
       const rows = parsed.data.map((subj: any, i: number) => ({
-        event_id: selectedEventId,
         subject_name: subj.subject_name,
         summary_markdown: subj.summary_markdown || null,
         quiz: subj.quiz,
         sort_order: i,
         grade_level: gradeLevel,
       }));
-      const { error } = await supabase
-        .from('event_quests')
-        .upsert(rows, { onConflict: 'event_id,subject_name,grade_level' });
-      if (error) throw error;
+      const res = await fetch('/api/admin-event-quests', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ passcode, eventId: selectedEventId, rows }),
+      });
+      const result = await res.json();
+      if (!result.success) throw new Error(result.error || 'Save failed');
       setParsed(null);
       setJsonInput('');
       fetchEventQuests(selectedEventId).then(setExistingQuests);
@@ -2037,7 +2046,7 @@ function EventQuestEditor({ events, questCounts, onReload }: {
   );
 }
 
-function EventsSection() {
+function EventsSection({ passcode }: { passcode: string }) {
   const [events, setEvents] = useState<CustomEvent[]>([]);
   const [questCounts, setQuestCounts] = useState<Record<string, number>>({});
   const [loading, setLoading] = useState(true);
@@ -2057,9 +2066,9 @@ function EventsSection() {
 
   return (
     <div className="space-y-10">
-      <EventManager events={events} questCounts={questCounts} onReload={reload} />
+      <EventManager events={events} questCounts={questCounts} onReload={reload} passcode={passcode} />
       <div className="border-t border-neutral-800 pt-10">
-        <EventQuestEditor events={events} questCounts={questCounts} onReload={reload} />
+        <EventQuestEditor events={events} questCounts={questCounts} onReload={reload} passcode={passcode} />
       </div>
     </div>
   );
@@ -2175,11 +2184,12 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
             currentData={currentData}
             currentSunday={currentSunday}
             onUpdateStats={onUpdateStats}
+            passcode={password}
           />
         )}
         {section === 'questions' && <QuestionBankImporter />}
         {section === 'classmates' && <ClassmatesSection passcode={password} />}
-        {section === 'events' && <EventsSection />}
+        {section === 'events' && <EventsSection passcode={password} />}
         {section === 'tools' && (
           <ToolsSection
             currentData={currentData}
