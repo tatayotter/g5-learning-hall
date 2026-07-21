@@ -102,9 +102,8 @@ export default function EventPanel({ event, eventQuests, progress, claimed, onPl
 
       {reward && (
         <div className="flex items-center gap-2 bg-black/30 border border-neutral-800 rounded-lg p-2">
-          <span className="text-2xl">{reward.emoji}</span>
           <div className="min-w-0">
-            <p className="text-xs font-bold text-yellow-400 truncate">Reward: {reward.name}</p>
+            <p className="text-xs font-bold text-yellow-400 truncate">Reward: {reward.name} (Event Exclusive Curio)</p>
             {claimed ? (
               <p className="text-[10px] text-green-500"><img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px]" /> Claimed!</p>
             ) : (
