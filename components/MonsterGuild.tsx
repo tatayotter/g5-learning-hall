@@ -70,6 +70,7 @@ interface MonsterGuildProps {
   onConsumePendingLiveBattle: () => void;
   onBattleWon: (kind: 'trainer' | 'sibling' | 'dummy') => void;
   onGoldAwarded: (amount: number) => void;
+  initialView?: GuildView;
 }
 
 // Gold awarded when a wild encounter win would-be-catch a species already
@@ -2118,11 +2119,11 @@ interface WildEncounterState {
   attemptsLeft: number;
 }
 
-export default function MonsterGuild({ userId, playerLevel, packageData, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle, onBattleWon, onGoldAwarded }: MonsterGuildProps) {
+export default function MonsterGuild({ userId, playerLevel, packageData, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle, onBattleWon, onGoldAwarded, initialView }: MonsterGuildProps) {
   const [loading, setLoading] = useState(true);
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
   const [battleState, setBattleState] = useState<BattleState | null>(null);
-  const [view, setView] = useState<GuildView>('map');
+  const [view, setView] = useState<GuildView>(initialView ?? 'map');
   const [activeBattle, setActiveBattle] = useState<NpcTrainer | null>(null);
   const [isWildEncounterBattle, setIsWildEncounterBattle] = useState(false);
   const [isDummyBattle, setIsDummyBattle] = useState(false);

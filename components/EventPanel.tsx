@@ -5,6 +5,7 @@ import { differenceInSeconds } from 'date-fns';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CustomEvent, EventQuest, UserEventProgressRow } from '@/lib/customEvents';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
+import { MonsterImage } from '@/components/battle/shared';
 
 interface EventPanelProps {
   event: CustomEvent;
@@ -44,6 +45,26 @@ export default function EventPanel({ event, eventQuests, progress, claimed, onPl
   const totalCount = eventQuests.length;
   const pct = totalCount > 0 ? Math.round((doneCount / totalCount) * 100) : 0;
   const reward = ALL_MONSTERS[event.reward_monster_id];
+
+  // Once the reward is claimed, this panel's job is done — collapse it to a
+  // trophy card (name, timer, sprite) instead of the full quest checklist.
+  if (claimed) {
+    return (
+      <div className="bg-[#1a1208] border border-amber-800 rounded-xl p-5 mb-6 text-white overflow-hidden relative">
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="font-bold text-amber-300">🎪 {event.title}</h3>
+          <span className="text-[10px] font-mono text-amber-500 bg-amber-900/30 border border-amber-800 px-2 py-0.5 rounded-full whitespace-nowrap">
+            ⏳ {formatCountdown(secondsLeft)}
+          </span>
+        </div>
+        <div className="flex flex-col items-center text-center py-2">
+          {reward && <MonsterImage monster={reward} className="w-20 h-20 mb-2" emojiClassName="text-6xl" />}
+          <p className="text-sm font-bold text-green-400">✅ Completed</p>
+          {reward && <p className="text-xs text-gray-400">{reward.name} claimed!</p>}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-[#1a1208] border border-amber-800 rounded-xl p-5 mb-6 text-white overflow-hidden relative">

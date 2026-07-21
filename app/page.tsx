@@ -40,6 +40,7 @@ import EventPanel from '@/components/EventPanel';
 import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
+import { MonsterImage } from '@/components/battle/shared';
 import {
   CustomEvent,
   EventQuest,
@@ -180,12 +181,21 @@ export default function Dashboard() {
   const [adminOpen, setAdminOpen] = useState(false);  
   const [activeQuest, setActiveQuest] = useState<string | null>(null);
   const [activeGuild, setActiveGuild] = useState<GuildKey | null>(null);
+  const [guildInitialView, setGuildInitialView] = useState<'compendium' | undefined>(undefined);
   const [guildProfile, setGuildProfile] = useState<SubclassProfile | null>(null);
 
   useEffect(() => {
     if (activeTab !== 'guilds' || !activeUserId) return;
     fetchSubclassProfile(activeUserId).then(setGuildProfile);
   }, [activeTab, activeUserId]);
+
+  // One-shot: MonsterGuild reads guildInitialView only at mount, so clear it
+  // right after so a later manual tab visit defaults back to the map view.
+  useEffect(() => {
+    if (activeTab === 'monster' && guildInitialView) {
+      setGuildInitialView(undefined);
+    }
+  }, [activeTab]);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(() => {
     if (typeof window === 'undefined') return true;
     const saved = localStorage.getItem('sidebarOpen');
@@ -488,6 +498,27 @@ export default function Dashboard() {
                   <div className="p-4 font-bold bg-amber-900/20 text-amber-400">
                     🎪 {activeEvent.title} — Event Quests
                   </div>
+                  {eventClaimed ? (
+                    <div className="p-6 bg-black flex flex-col items-center text-center gap-3">
+                      <p className="text-green-400 font-bold">
+                        ✅ Special Event Completed. You have collected {ALL_MONSTERS[activeEvent.reward_monster_id]?.name ?? 'your reward'}!
+                      </p>
+                      {ALL_MONSTERS[activeEvent.reward_monster_id] && (
+                        <button
+                          type="button"
+                          onClick={() => { setGuildInitialView('compendium'); setActiveTab('monster'); }}
+                          className="cursor-pointer"
+                          title="View in Compendium"
+                        >
+                          <MonsterImage
+                            monster={ALL_MONSTERS[activeEvent.reward_monster_id]}
+                            className="w-24 h-24 hover:scale-105 transition-transform"
+                            emojiClassName="text-7xl"
+                          />
+                        </button>
+                      )}
+                    </div>
+                  ) : (
                   <div className="p-4 bg-black">
                     {(activeEvent.details_markdown || activeEvent.reward_lore_markdown) && (
                       <div className="mb-4 space-y-3">
@@ -530,6 +561,7 @@ export default function Dashboard() {
                       })}
                     </div>
                   </div>
+                  )}
                 </div>
               </div>
             )}
@@ -1077,6 +1109,7 @@ export default function Dashboard() {
             packageData={packageData}
             liveBattleInbox={liveBattleInbox}
             pendingLiveBattleId={pendingLiveBattleId}
+            initialView={guildInitialView}
             onConsumePendingLiveBattle={() => setPendingLiveBattleId(null)}
             onBattleWon={(kind) => updateStatsAndJournal(
               data.character_stats, data.journal_logs,
