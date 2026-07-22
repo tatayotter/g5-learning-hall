@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import { motion } from 'framer-motion';
 import { UserId, USERS, setActiveUser, getClassmateIds, isFamilyProtected } from '@/lib/userSession';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
-import { ALL_MONSTERS } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, getGraduatedMonsterDisplay } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 
 interface SplashScreenProps {
@@ -22,6 +22,7 @@ interface ActiveMonsterInfo {
   monster_id: string;
   nickname: string | null;
   monster_level: number;
+  graduation_tier: number;
 }
 
 function formatLastSeen(iso: string | null | undefined): string {
@@ -156,12 +157,20 @@ function CardStats({ id, stats, monster, lastLogin, accent, goldColor, loaded }:
       <div className="mt-3 flex items-center gap-2 bg-black/30 rounded-lg py-1.5 px-2">
         {monster ? (
           <>
-            <div className="w-6 h-6 flex-shrink-0">
-              <MonsterImage monster={ALL_MONSTERS[monster.monster_id]} className="w-full h-full" emojiClassName="text-lg" />
-            </div>
-            <p className="text-xs text-gray-400 truncate">
-              {monster.nickname || ALL_MONSTERS[monster.monster_id]?.name} <span className="text-gray-600">Lv{monster.monster_level}</span>
-            </p>
+            {(() => {
+              const baseDef = ALL_MONSTERS[monster.monster_id];
+              const def = baseDef ? getGraduatedMonsterDisplay(baseDef, monster.graduation_tier) : baseDef;
+              return (
+                <>
+                  <div className="w-6 h-6 flex-shrink-0">
+                    <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-lg" />
+                  </div>
+                  <p className="text-xs text-gray-400 truncate">
+                    {monster.nickname || def?.name} <span className="text-gray-600">Lv{monster.monster_level}</span>
+                  </p>
+                </>
+              );
+            })()}
           </>
         ) : (
           <p className="text-xs text-gray-700 italic">No active curio</p>
@@ -215,7 +224,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
         ),
         supabase.from('user_last_login').select('user_id, last_login').in('user_id', allIds),
         supabase.from('user_battle_state').select('user_id, active_monster_slot').in('user_id', allIds),
-        supabase.from('user_monsters').select('user_id, slot, monster_id, nickname, monster_level').in('user_id', allIds),
+        supabase.from('user_monsters').select('user_id, slot, monster_id, nickname, monster_level, graduation_tier').in('user_id', allIds),
       ]);
 
       const statsMapNext: Record<string, HeroStats | null> = {};
@@ -241,6 +250,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
             monster_id: row.monster_id,
             nickname: row.nickname,
             monster_level: row.monster_level,
+            graduation_tier: row.graduation_tier ?? 0,
           };
         }
       });
