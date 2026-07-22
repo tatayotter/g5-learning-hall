@@ -6,7 +6,7 @@
 // prominently by default; "Show Full Leaderboard" expands that category's
 // complete ranked list.
 import { useEffect, useState, ReactNode } from 'react';
-import { fetchLeaderboard, LeaderboardEntry } from '@/lib/leaderboard';
+import { fetchLeaderboard, fetchReactionCounts, sendReaction, LeaderboardEntry, ReactionCounts } from '@/lib/leaderboard';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 import { GMBadge } from '@/components/MonsterGuild';
@@ -31,6 +31,55 @@ function TeamStrip({ team }: { team: LeaderboardEntry['team'] }) {
         );
       })}
     </div>
+  );
+}
+
+const REACTION_COOLDOWN_MS = 60 * 60 * 1000; // one cheer per target per hour, client-side only
+
+function canReact(fromUserId: string, toUserId: string): boolean {
+  if (typeof window === 'undefined') return false;
+  const last = Number(localStorage.getItem(`cheer_cd_${fromUserId}_${toUserId}`) || 0);
+  return Date.now() - last > REACTION_COOLDOWN_MS;
+}
+
+function markReacted(fromUserId: string, toUserId: string) {
+  if (typeof window === 'undefined') return;
+  localStorage.setItem(`cheer_cd_${fromUserId}_${toUserId}`, String(Date.now()));
+}
+
+function CheerButton({ fromUserId, toUserId, count, onSent }: { fromUserId: string; toUserId: string; count: number; onSent: () => void }) {
+  const [sending, setSending] = useState(false);
+  const [onCooldown, setOnCooldown] = useState(true);
+
+  useEffect(() => {
+    setOnCooldown(!canReact(fromUserId, toUserId));
+  }, [fromUserId, toUserId]);
+
+  if (fromUserId === toUserId) return null;
+
+  const handleClick = async () => {
+    if (sending || onCooldown) return;
+    setSending(true);
+    const ok = await sendReaction(fromUserId, toUserId);
+    setSending(false);
+    if (ok) {
+      markReacted(fromUserId, toUserId);
+      setOnCooldown(true);
+      onSent();
+    }
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      disabled={sending || onCooldown}
+      title={onCooldown ? 'Already cheered — come back later' : 'Send a cheer!'}
+      className={`flex items-center gap-1 text-xs font-bold rounded-full px-2 py-1 transition-colors flex-shrink-0 ${
+        onCooldown ? 'bg-black/20 text-gray-600 cursor-default' : 'bg-black/30 text-amber-300 hover:bg-amber-900/30'
+      }`}
+    >
+      👏 {count}
+    </button>
   );
 }
 
@@ -79,7 +128,7 @@ interface Highlight {
   info?: string;
 }
 
-function TopEntryCard({ entry, rank, badge, highlight }: { entry: LeaderboardEntry; rank: number; badge: ReactNode; highlight: Highlight }) {
+function TopEntryCard({ entry, rank, badge, highlight, currentUserId, reactionCounts, onReactionSent }: { entry: LeaderboardEntry; rank: number; badge: ReactNode; highlight: Highlight; currentUserId: string; reactionCounts: ReactionCounts; onReactionSent: () => void }) {
   return (
     <div className="border-2 border-amber-500 bg-amber-900/10 rounded-2xl p-6">
       <p className="text-center text-xs font-bold text-amber-400 mb-3 flex items-center justify-center gap-1">
@@ -92,7 +141,7 @@ function TopEntryCard({ entry, rank, badge, highlight }: { entry: LeaderboardEnt
           className="w-16 h-16 rounded-full object-cover border-2 border-amber-500 flex-shrink-0"
           onError={(e) => { (e.target as HTMLImageElement).src = '/userpics/Spr_RS_School_Kid_M.png'; }}
         />
-        <div>
+        <div className="flex-1">
           <p className="text-white font-bold text-lg flex items-center gap-1.5">
             {entry.name}
             {entry.isFamily && <GMBadge />}
@@ -103,6 +152,12 @@ function TopEntryCard({ entry, rank, badge, highlight }: { entry: LeaderboardEnt
             {highlight.info && <InfoTag text={highlight.info} />}
           </p>
         </div>
+        <CheerButton
+          fromUserId={currentUserId}
+          toUserId={entry.userId}
+          count={reactionCounts[entry.userId] || 0}
+          onSent={onReactionSent}
+        />
       </div>
       <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-4">
         <StatChip label="Level" value={entry.level} />
@@ -118,7 +173,7 @@ function TopEntryCard({ entry, rank, badge, highlight }: { entry: LeaderboardEnt
   );
 }
 
-function RankRow({ entry, rank }: { entry: LeaderboardEntry; rank: number }) {
+function RankRow({ entry, rank, currentUserId, reactionCounts, onReactionSent }: { entry: LeaderboardEntry; rank: number; currentUserId: string; reactionCounts: ReactionCounts; onReactionSent: () => void }) {
   return (
     <div className="flex items-center gap-3 bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3">
       <p className="w-6 text-center text-sm font-bold text-gray-500 flex-shrink-0">#{rank}</p>
@@ -174,6 +229,12 @@ function RankRow({ entry, rank }: { entry: LeaderboardEntry; rank: number }) {
           <p className="text-sm font-mono font-bold text-amber-400">{entry.score}</p>
         </div>
       </div>
+      <CheerButton
+        fromUserId={currentUserId}
+        toUserId={entry.userId}
+        count={reactionCounts[entry.userId] || 0}
+        onSent={onReactionSent}
+      />
     </div>
   );
 }
@@ -186,7 +247,7 @@ interface LeaderboardCategory {
   highlight: (entry: LeaderboardEntry) => Highlight;
 }
 
-function CategorySection({ category }: { category: LeaderboardCategory }) {
+function CategorySection({ category, currentUserId, reactionCounts, onReactionSent }: { category: LeaderboardCategory; currentUserId: string; reactionCounts: ReactionCounts; onReactionSent: () => void }) {
   const [expanded, setExpanded] = useState(false);
   const [top, ...rest] = category.ranked;
   if (!top) return null;
@@ -194,7 +255,15 @@ function CategorySection({ category }: { category: LeaderboardCategory }) {
   return (
     <div className="space-y-4">
       <h3 className="text-lg font-bold text-white font-display">{category.title}</h3>
-      <TopEntryCard entry={top} rank={1} badge={category.badge} highlight={category.highlight(top)} />
+      <TopEntryCard
+        entry={top}
+        rank={1}
+        badge={category.badge}
+        highlight={category.highlight(top)}
+        currentUserId={currentUserId}
+        reactionCounts={reactionCounts}
+        onReactionSent={onReactionSent}
+      />
 
       {rest.length > 0 && (
         <button
@@ -208,7 +277,14 @@ function CategorySection({ category }: { category: LeaderboardCategory }) {
       {expanded && (
         <div className="space-y-2">
           {rest.map((entry, i) => (
-            <RankRow key={entry.userId} entry={entry} rank={i + 2} />
+            <RankRow
+              key={entry.userId}
+              entry={entry}
+              rank={i + 2}
+              currentUserId={currentUserId}
+              reactionCounts={reactionCounts}
+              onReactionSent={onReactionSent}
+            />
           ))}
         </div>
       )}
@@ -216,14 +292,20 @@ function CategorySection({ category }: { category: LeaderboardCategory }) {
   );
 }
 
-export default function LeaderboardPanel() {
+export default function LeaderboardPanel({ userId }: { userId: string }) {
   const [entries, setEntries] = useState<LeaderboardEntry[] | null>(null);
+  const [reactionCounts, setReactionCounts] = useState<ReactionCounts>({});
+
+  const loadReactionCounts = () => {
+    fetchReactionCounts().then(setReactionCounts);
+  };
 
   useEffect(() => {
     let cancelled = false;
     fetchLeaderboard().then(result => {
       if (!cancelled) setEntries(result);
     });
+    loadReactionCounts();
     return () => { cancelled = true; };
   }, []);
 
@@ -283,7 +365,13 @@ export default function LeaderboardPanel() {
   return (
     <div className="space-y-10">
       {categories.map(category => (
-        <CategorySection key={category.key} category={category} />
+        <CategorySection
+          key={category.key}
+          category={category}
+          currentUserId={userId}
+          reactionCounts={reactionCounts}
+          onReactionSent={loadReactionCounts}
+        />
       ))}
     </div>
   );

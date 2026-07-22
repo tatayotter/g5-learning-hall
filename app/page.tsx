@@ -9,7 +9,7 @@ import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
 import HeroProfile from '@/components/HeroProfile';
 import GuildJournal from '@/components/GuildJournal';
 import DailyChecklist from '@/components/DailyChecklist';
-import { markGuildSessionToday, GuildKey } from '@/lib/dailyChecklist';
+import { markGuildSessionToday, GuildKey, GUILDS } from '@/lib/dailyChecklist';
 import QuestModule from '@/components/QuestModule';
 import { format } from 'date-fns';
 import AdminPanel from '@/components/AdminPanel';
@@ -978,11 +978,11 @@ export default function Dashboard() {
                 <h1 className="text-3xl font-bold mb-8 font-display">⚔️ Side Quest Guilds</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {([
-                    { key: 'lorekeeper' as GuildKey, guild: 'lorekeeper' as const, name: 'Lorekeeper', desc: 'English guild — Time Attack reading & grammar challenges.', bg: 'bg-[#121a16]', border: 'border-emerald-800 hover:border-emerald-500', title: 'text-emerald-300', lvl: guildProfile?.lorekeeper_lvl },
-                    { key: 'spellcaster' as GuildKey, guild: 'spellcaster' as const, name: 'SpellCaster', desc: 'Typing guild — Real-time speed spelling under the clock.', bg: 'bg-[#13111c]', border: 'border-violet-800 hover:border-violet-500', title: 'text-violet-300', lvl: guildProfile?.spellcaster_lvl },
-                    { key: 'number_realm' as GuildKey, guild: 'numberrealm' as const, name: 'Number Realm', desc: 'Math guild — Fractions, time, and operations at speed.', bg: 'bg-[#0d0c08]', border: 'border-amber-800 hover:border-amber-500', title: 'text-amber-300', lvl: guildProfile?.number_realm_lvl },
-                    { key: 'logic_labyrinth' as GuildKey, guild: 'logiclabyrinth' as const, name: 'Logic Labyrinth', desc: 'IQ guild — Pattern matrices and deduction puzzles.', bg: 'bg-[#0b0d12]', border: 'border-cyan-800 hover:border-cyan-500', title: 'text-cyan-300', lvl: guildProfile?.logic_labyrinth_lvl },
-                    { key: 'lexicon_arena' as GuildKey, guild: 'lexiconarena' as const, name: 'Lexicon Arena', desc: 'Spelling guild — Read the definition, pick the correct spelling before time runs out.', bg: 'bg-neutral-900', border: 'border-indigo-800 hover:border-indigo-500', title: 'text-indigo-300', lvl: guildProfile?.lexicon_arena_lvl },
+                    { key: 'lorekeeper' as GuildKey, guild: 'lorekeeper' as const, name: 'Lorekeeper', desc: 'English guild — Time Attack reading & grammar challenges.', bg: 'bg-[#121a16]', border: 'border-emerald-800 hover:border-emerald-500', title: 'text-emerald-300', lvl: guildProfile?.lorekeeper_lvl, tier: guildProfile?.lorekeeper_tier },
+                    { key: 'spellcaster' as GuildKey, guild: 'spellcaster' as const, name: 'SpellCaster', desc: 'Typing guild — Real-time speed spelling under the clock.', bg: 'bg-[#13111c]', border: 'border-violet-800 hover:border-violet-500', title: 'text-violet-300', lvl: guildProfile?.spellcaster_lvl, tier: guildProfile?.spellcaster_tier },
+                    { key: 'number_realm' as GuildKey, guild: 'numberrealm' as const, name: 'Number Realm', desc: 'Math guild — Fractions, time, and operations at speed.', bg: 'bg-[#0d0c08]', border: 'border-amber-800 hover:border-amber-500', title: 'text-amber-300', lvl: guildProfile?.number_realm_lvl, tier: guildProfile?.number_realm_tier },
+                    { key: 'logic_labyrinth' as GuildKey, guild: 'logiclabyrinth' as const, name: 'Logic Labyrinth', desc: 'IQ guild — Pattern matrices and deduction puzzles.', bg: 'bg-[#0b0d12]', border: 'border-cyan-800 hover:border-cyan-500', title: 'text-cyan-300', lvl: guildProfile?.logic_labyrinth_lvl, tier: guildProfile?.logic_labyrinth_tier },
+                    { key: 'lexicon_arena' as GuildKey, guild: 'lexiconarena' as const, name: 'Lexicon Arena', desc: 'Spelling guild — Read the definition, pick the correct spelling before time runs out.', bg: 'bg-neutral-900', border: 'border-indigo-800 hover:border-indigo-500', title: 'text-indigo-300', lvl: guildProfile?.lexicon_arena_lvl, tier: guildProfile?.lexicon_arena_tier },
                   ]).map(g => (
                     <motion.button
                       key={g.key}
@@ -998,10 +998,17 @@ export default function Dashboard() {
                         <div className="flex items-center justify-between gap-2">
                           <h3 className={`text-xl font-bold ${g.title} font-display mb-1`}>{g.name}</h3>
                           {typeof g.lvl === 'number' && (
-                            <span className={`text-xs font-mono font-bold ${g.title} bg-black/40 rounded-full px-2 py-0.5 shrink-0`}>Lvl {g.lvl}</span>
+                            <span className={`text-xs font-mono font-bold ${g.title} bg-black/40 rounded-full px-2 py-0.5 shrink-0`}>
+                              Lvl {g.lvl} {typeof g.tier === 'number' && (
+                                <>· {'★'.repeat(g.tier)}{'☆'.repeat(Math.max(0, 3 - g.tier))}</>
+                              )}
+                            </span>
                           )}
                         </div>
                         <p className="text-sm text-gray-400">{g.desc}</p>
+                        <p className="text-xs text-gray-500 italic mt-1">
+                          {GUILDS.find(guild => guild.key === g.key)?.lore}
+                        </p>
                       </div>
                     </motion.button>
                   ))}

@@ -7,10 +7,12 @@ import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
+import { GUILDS } from '@/lib/dailyChecklist';
 import { USERS } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
+import CritBonusToast from '@/components/CritBonusToast';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 
 interface SpellCasterQuestion {
@@ -83,7 +85,7 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
       // Correct match
       playChime();
       setFlashResult('correct');
-      engine.submitResult(true, engine.currentQuestion.id);
+      engine.submitResult(true, engine.currentQuestion.id, engine.currentQuestion.difficulty_tier);
       setTypedValue('');
       setTimeout(() => setFlashResult(null), 300);
     } else if (val.length >= target.length && !target.toLowerCase().startsWith(val.toLowerCase())) {
@@ -153,6 +155,7 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
             <GuardianSprite guild="spellcaster" pose="idle" className="w-full h-full" />
           </div>
           <h2 className="text-4xl font-display font-bold text-violet-300 mb-2">SpellCaster Guild</h2>
+          <p className="text-violet-600 font-mono italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'spellcaster')?.lore}</p>
           <p className="text-violet-500 font-mono mb-1">Lvl {profile?.spellcaster_lvl || 1} · {profile?.spellcaster_xp || 0}/500 XP</p>
           <p className="text-gray-400 mb-8 font-mono text-sm max-w-md mx-auto">Type each word exactly as shown. The moment you spell it correctly, it vanishes and the next appears. No Enter key — pure speed.</p>
 
@@ -197,6 +200,7 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
 
     return (
       <div className="max-w-2xl mx-auto">
+        <CritBonusToast event={engine.lastCrit} />
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center gap-3">
             <span className={`text-2xl font-bold font-mono ${engine.timeLeft <= 10 ? 'text-red-400 animate-pulse' : 'text-violet-300'}`}>⏱ {engine.timeLeft}s</span>

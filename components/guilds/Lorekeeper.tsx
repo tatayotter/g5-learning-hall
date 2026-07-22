@@ -9,10 +9,12 @@ import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
+import { GUILDS } from '@/lib/dailyChecklist';
 import { USERS } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
+import CritBonusToast from '@/components/CritBonusToast';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 
 interface LorekeeperQuestion {
@@ -24,6 +26,7 @@ interface LorekeeperQuestion {
   choice_c: string;
   choice_d: string;
   correct_choice: string;
+  difficulty_tier: number;
 }
 
 interface LorekeeperProps {
@@ -79,7 +82,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
     setFlashResult(isCorrect ? 'correct' : 'wrong');
     if (isCorrect) playChime(); else playClash();
     setTimeout(() => {
-      engine.submitResult(isCorrect, engine.currentQuestion!.id);
+      engine.submitResult(isCorrect, engine.currentQuestion!.id, engine.currentQuestion!.difficulty_tier);
       setSelectedChoice(null);
       setFlashResult(null);
     }, 400);
@@ -122,7 +125,9 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
             <GuardianSprite guild="lorekeeper" pose="idle" className="w-full h-full" />
           </div>
           <h2 className="text-4xl font-display font-bold text-emerald-300 mb-2">Lorekeeper Guild Hall</h2>
+          <p className="text-emerald-600 font-serif italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'lorekeeper')?.lore}</p>
           <p className="text-emerald-500 font-serif mb-1">Lvl {profile?.lorekeeper_lvl || 1} · {profile?.lorekeeper_xp || 0}/500 XP</p>
+          <p className="text-emerald-600 text-xs mb-1">Difficulty {'★'.repeat(profile?.lorekeeper_tier || 1)}{'☆'.repeat(Math.max(0, 3 - (profile?.lorekeeper_tier || 1)))}</p>
           <p className="text-gray-400 mb-8 font-serif max-w-md mx-auto">Answer as many passage questions as you can in {timeLimit} seconds. Correct answers build your streak — the longer the streak, the greater the gold multiplier.</p>
 
           <div className="grid grid-cols-3 gap-4 mb-8 text-center">
@@ -166,12 +171,14 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
       { key: 'c', text: q.choice_c },
       { key: 'd', text: q.choice_d }
     ];
+    const difficultyStars = '★'.repeat(q.difficulty_tier) + '☆'.repeat(Math.max(0, 3 - q.difficulty_tier));
     const timerPct = (engine.timeLeft / timeLimit) * 100;
     const timerColor = engine.timeLeft <= 10 ? 'bg-red-500' : engine.timeLeft <= 20 ? 'bg-yellow-500' : 'bg-emerald-500';
     const feedbackClass = flashResult === 'correct' ? 'battle-answer-correct' : flashResult === 'wrong' ? 'battle-answer-wrong' : '';
 
     return (
       <div className="max-w-2xl mx-auto font-serif">
+        <CritBonusToast event={engine.lastCrit} />
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center gap-3">
             <span className={`text-2xl font-bold ${engine.timeLeft <= 10 ? 'text-red-400 animate-pulse' : 'text-emerald-300'}`}>⏱ {engine.timeLeft}s</span>
@@ -196,6 +203,8 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
             transition={{ duration: 0.15 }}
             className={`bg-[#121a16] border-2 border-emerald-800 rounded-xl p-8 shadow-2xl ${feedbackClass}`}
           >
+            <p className="text-center text-xs text-gray-600 mb-2">{difficultyStars}</p>
+
             {q.passage && (
               <div className="bg-black/30 border border-emerald-900 rounded-lg p-4 mb-4 text-gray-300 leading-relaxed">
                 {q.passage}

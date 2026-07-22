@@ -2,12 +2,12 @@ import { supabase } from './supabase';
 
 export type GuildKey = 'lorekeeper' | 'spellcaster' | 'number_realm' | 'logic_labyrinth' | 'lexicon_arena';
 
-export const GUILDS: { key: GuildKey; label: string }[] = [
-  { key: 'lorekeeper', label: 'Lorekeeper' },
-  { key: 'spellcaster', label: 'SpellCaster' },
-  { key: 'number_realm', label: 'Number Realm' },
-  { key: 'logic_labyrinth', label: 'Logic Labyrinth' },
-  { key: 'lexicon_arena', label: 'Lexicon Arena' },
+export const GUILDS: { key: GuildKey; label: string; lore: string }[] = [
+  { key: 'lorekeeper', label: 'Lorekeeper', lore: 'Keeper of the Old Stories — every passage you master seals a page against the Forgetting.' },
+  { key: 'spellcaster', label: 'SpellCaster', lore: 'Word-Weaver of the Spelling Spire — each letter cast true strengthens the wards that guard the Lexicon.' },
+  { key: 'number_realm', label: 'Number Realm', lore: 'Warden of the Shifting Equations — the Realm only holds its shape while its numbers stay solved.' },
+  { key: 'logic_labyrinth', label: 'Logic Labyrinth', lore: 'Wayfinder of the Endless Maze — its walls rearrange for those who reason their way through.' },
+  { key: 'lexicon_arena', label: 'Lexicon Arena', lore: 'Champion of the Living Dictionary — every definition claimed adds a word to your legend.' },
 ];
 
 export interface ChecklistBattleFlags {

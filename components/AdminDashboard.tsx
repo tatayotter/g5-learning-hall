@@ -514,8 +514,25 @@ const nonEmptyStr = (v: any) => typeof v === 'string' && v.trim().length > 0;
 // checkAnswer() falling through to isCorrect=false for bad expected_layout,
 // and Lorekeeper/WildEncounterModal comparing correct_choice against the
 // literal 'a'/'b'/'c'/'d' key, not the choice text.
+// difficulty_tier is optional on the 5 tiered guild tables (defaults to 1 in
+// the DB) but if present must be 1-3 — these drive the adaptive-difficulty
+// pool progression in lib/guildEngine.ts's fetchQuestionPool. sq_wild_encounter
+// has no such column (it's a separate Wild Encounter feature, not one of the
+// 5 progression guilds), so reject the field there instead of letting a
+// confusing "column does not exist" error surface from the insert itself.
+function validateDifficultyTier(guild: GuildTable, q: any): string[] {
+  if (q.difficulty_tier === undefined || q.difficulty_tier === null) return [];
+  if (guild === 'sq_wild_encounter') {
+    return ['difficulty_tier is not supported on sq_wild_encounter'];
+  }
+  if (typeof q.difficulty_tier !== 'number' || !Number.isInteger(q.difficulty_tier) || q.difficulty_tier < 1 || q.difficulty_tier > 3) {
+    return [`difficulty_tier must be an integer 1-3 (got ${JSON.stringify(q.difficulty_tier)})`];
+  }
+  return [];
+}
+
 function validateQuestion(guild: GuildTable, q: any): string[] {
-  const errors: string[] = [];
+  const errors: string[] = [...validateDifficultyTier(guild, q)];
 
   if (guild === 'sq_lorekeeper' || guild === 'sq_wild_encounter') {
     if (!nonEmptyStr(q.question)) errors.push('missing question text');
@@ -527,9 +544,6 @@ function validateQuestion(guild: GuildTable, q: any): string[] {
     }
   } else if (guild === 'sq_spellcaster') {
     if (!nonEmptyStr(q.word_string)) errors.push('missing word_string');
-    if (q.difficulty_tier !== undefined && q.difficulty_tier !== null && typeof q.difficulty_tier !== 'number') {
-      errors.push('difficulty_tier must be a number');
-    }
   } else if (guild === 'sq_number_realm') {
     if (!nonEmptyStr(q.problem_prompt)) errors.push('missing problem_prompt');
     if (!['standard', 'fraction', 'time'].includes(q.expected_layout)) {
@@ -616,6 +630,7 @@ const GUILD_JSON_EXAMPLES: Record<GuildTable, string> = {
       choice_c: "Third answer choice",
       choice_d: "Fourth answer choice",
       correct_choice: "a",
+      difficulty_tier: 1,
     },
   ], null, 2),
   sq_wild_encounter: JSON.stringify([
@@ -633,9 +648,9 @@ const GUILD_JSON_EXAMPLES: Record<GuildTable, string> = {
     { word_string: "beautiful", difficulty_tier: 2 },
   ], null, 2),
   sq_number_realm: JSON.stringify([
-    { problem_prompt: "12 + 7 = ?", expected_layout: "standard", correct_standard_ans: "19" },
-    { problem_prompt: "1/2 + 1/4 = ?", expected_layout: "fraction", correct_numerator: 3, correct_denominator: 4 },
-    { problem_prompt: "How long is 90 minutes in hours and minutes?", expected_layout: "time", correct_standard_ans: "1:30" },
+    { problem_prompt: "12 + 7 = ?", expected_layout: "standard", correct_standard_ans: "19", difficulty_tier: 1 },
+    { problem_prompt: "1/2 + 1/4 = ?", expected_layout: "fraction", correct_numerator: 3, correct_denominator: 4, difficulty_tier: 2 },
+    { problem_prompt: "How long is 90 minutes in hours and minutes?", expected_layout: "time", correct_standard_ans: "1:30", difficulty_tier: 2 },
   ], null, 2),
   sq_logic_labyrinth: JSON.stringify([
     {
@@ -647,6 +662,7 @@ const GUILD_JSON_EXAMPLES: Record<GuildTable, string> = {
         { id: "d", label: "Option D" },
       ],
       correct_option_id: "a",
+      difficulty_tier: 1,
     },
   ], null, 2),
   sq_lexicon_arena: JSON.stringify([
@@ -657,6 +673,7 @@ const GUILD_JSON_EXAMPLES: Record<GuildTable, string> = {
       wrong_a: "beutiful",
       wrong_b: "beautifull",
       wrong_c: "beautifal",
+      difficulty_tier: 1,
     },
   ], null, 2),
 };

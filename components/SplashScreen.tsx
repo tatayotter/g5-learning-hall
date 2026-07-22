@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Lottie from 'lottie-react';
 import { motion } from 'framer-motion';
 import { UserId, USERS, setActiveUser, getClassmateIds, isFamilyProtected } from '@/lib/userSession';
@@ -51,136 +51,39 @@ function getWeekStartDate(): string {
   return `${yyyy}-${mm}-${dd}`;
 }
 
-const CARD_STYLES: Record<string, { bg: string; border: string; hoverBorder: string; accent: string; goldColor: string; icon: string; tagline: string; cta: string }> = {
-  damien: {
-    bg: 'bg-[#1c1611]',
-    border: 'border-amber-800',
-    hoverBorder: 'hover:border-amber-500',
-    accent: 'text-amber-400',
-    goldColor: 'text-yellow-400',
-    icon: '⚔️',
-    tagline: 'Dark dungeon quests, guild raids, and ancient lore await.',
-    cta: 'Enter the Dungeon →',
-  },
-  tala: {
-    bg: 'bg-[#1a0a15]',
-    border: 'border-rose-800/60',
-    hoverBorder: 'hover:border-rose-400',
-    accent: 'text-rose-300',
-    goldColor: 'text-pink-300',
-    icon: '✨',
-    tagline: 'Enchanted quests, starlight spells, and royal adventures await.',
-    cta: 'Enter the Kingdom →',
-  },
-  classmates: {
-    bg: 'bg-[#0f1520]',
-    border: 'border-indigo-800/60',
-    hoverBorder: 'hover:border-indigo-400',
-    accent: 'text-indigo-300',
-    goldColor: 'text-yellow-400',
-    icon: '🎓',
-    tagline: "Join Damien's classmates for quests, battles, and glory.",
-    cta: 'Open the Hall →',
-  },
-  _default: {
-    bg: 'bg-[#0f1520]',
-    border: 'border-indigo-800/60',
-    hoverBorder: 'hover:border-indigo-400',
-    accent: 'text-indigo-300',
-    goldColor: 'text-yellow-400',
-    icon: '🎮',
-    tagline: 'Quests, battles, and glory await.',
-    cta: 'Enter →',
-  },
+// One neutral style for every player — no family-vs-classmate distinction.
+const ROSTER_STYLE = {
+  bg: 'bg-[#0f1520]',
+  border: 'border-indigo-800/60',
+  hoverBorder: 'hover:border-indigo-400',
+  accent: 'text-indigo-300',
+  goldColor: 'text-yellow-400',
+  icon: '🎮',
 };
 
 const FAMILY_IDS: UserId[] = ['damien', 'tala'];
 
-function CardAvatar({ avatar, fallbackIcon, online, size = 'w-20 h-20' }: { avatar: string; fallbackIcon: string; online?: boolean; size?: string }) {
+function RosterAvatar({ avatar, online }: { avatar: string; online?: boolean }) {
   const [failed, setFailed] = useState(false);
   return (
-    <div className={`relative ${size} mb-4`}>
+    <div className="relative w-12 h-12 shrink-0">
       {failed ? (
-        <div className="text-5xl">{fallbackIcon}</div>
+        <div className="text-3xl">{ROSTER_STYLE.icon}</div>
       ) : (
         <img
           src={avatar}
           alt=""
           onError={() => setFailed(true)}
-          className={`${size} object-contain`}
+          className="w-12 h-12 object-contain"
         />
       )}
       {online && (
         <span
-          className="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-green-400 border-2 border-black"
+          className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-green-400 border-2 border-black"
           title="Online now"
         />
       )}
     </div>
-  );
-}
-
-function CardStats({ id, stats, monster, lastLogin, accent, goldColor, loaded }: {
-  id: UserId;
-  stats: HeroStats | null | undefined;
-  monster: ActiveMonsterInfo | null | undefined;
-  lastLogin: string | null | undefined;
-  accent: string;
-  goldColor: string;
-  loaded: boolean;
-}) {
-  return (
-    <>
-      {stats ? (
-        <div className="mt-5 grid grid-cols-3 gap-2 text-center">
-          <div className="bg-black/40 rounded-lg py-2 px-1">
-            <p className="text-xs text-gray-600 mb-1">Level</p>
-            <p className={`${accent} font-bold font-mono text-sm`}>Lvl {stats.level}</p>
-          </div>
-          <div className="bg-black/40 rounded-lg py-2 px-1">
-            <p className="text-xs text-gray-600 mb-1">XP</p>
-            <p className={`${accent} font-bold font-mono text-sm`}>{stats.xp}</p>
-          </div>
-          <div className="bg-black/40 rounded-lg py-2 px-1">
-            <p className="text-xs text-gray-600 mb-1">Gold</p>
-            <p className={`${goldColor} font-bold font-mono text-sm`}><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {stats.gold}</p>
-          </div>
-        </div>
-      ) : (
-        <div className="mt-5 h-12 flex items-center">
-          <p className="text-xs text-gray-700 italic">
-            {loaded ? 'No stats yet' : 'Loading stats...'}
-          </p>
-        </div>
-      )}
-
-      <div className="mt-3 flex items-center gap-2 bg-black/30 rounded-lg py-1.5 px-2">
-        {monster ? (
-          <>
-            {(() => {
-              const baseDef = ALL_MONSTERS[monster.monster_id];
-              const def = baseDef ? getGraduatedMonsterDisplay(baseDef, monster.graduation_tier) : baseDef;
-              return (
-                <>
-                  <div className="w-6 h-6 flex-shrink-0">
-                    <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-lg" />
-                  </div>
-                  <p className="text-xs text-gray-400 truncate">
-                    {monster.nickname || def?.name} <span className="text-gray-600">Lv{monster.monster_level}</span>
-                  </p>
-                </>
-              );
-            })()}
-          </>
-        ) : (
-          <p className="text-xs text-gray-700 italic">No active curio</p>
-        )}
-      </div>
-
-      <p className="mt-2 text-[11px] text-gray-600">
-        🕓 Last seen: {formatLastSeen(lastLogin)}
-      </p>
-    </>
   );
 }
 
@@ -191,13 +94,25 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
   const [monsterMap, setMonsterMap] = useState<Record<string, ActiveMonsterInfo | null>>({});
   const [statsLoaded, setStatsLoaded] = useState(false);
   const [onlineIds, setOnlineIds] = useState<Set<string>>(new Set());
-  const [view, setView] = useState<'root' | 'classmates'>('root');
+  const [searchQuery, setSearchQuery] = useState('');
   const [loginTarget, setLoginTarget] = useState<{ id: UserId; name: string; isAdmin?: boolean } | null>(null);
   const [passwordInput, setPasswordInput] = useState('');
   const [loginError, setLoginError] = useState('');
   const [loggingIn, setLoggingIn] = useState(false);
 
-  const allIds = [...FAMILY_IDS, ...getClassmateIds()];
+  // Single unified roster — family and classmates together, alphabetical.
+  // By the time SplashScreen mounts, the parent has already awaited
+  // loadClassmates()/loadAvatarOverrides(), so USERS is fully populated.
+  const allIds = useMemo(
+    () => [...FAMILY_IDS, ...getClassmateIds()].sort((a, b) => USERS[a].name.localeCompare(USERS[b].name)),
+    []
+  );
+
+  const visibleIds = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return allIds;
+    return allIds.filter(id => USERS[id].name.toLowerCase().includes(q));
+  }, [allIds, searchQuery]);
 
   useEffect(() => {
     fetch('/splash-animation.json')
@@ -211,25 +126,20 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
       await ensureAnonymousSession();
       const weekDate = getWeekStartDate();
 
-      const [weeklyResults, lastLoginRes, battleStateRes, monstersRes] = await Promise.all([
-        Promise.all(
-          allIds.map((id) =>
-            supabase
-              .from('weekly_packages')
-              .select('character_stats')
-              .eq('user_id', id)
-              .eq('week_starting_date', weekDate)
-              .maybeSingle()
-          )
-        ),
+      const [weeklyRes, lastLoginRes, battleStateRes, monstersRes] = await Promise.all([
+        supabase
+          .from('weekly_packages')
+          .select('user_id, character_stats')
+          .in('user_id', allIds)
+          .eq('week_starting_date', weekDate),
         supabase.from('user_last_login').select('user_id, last_login').in('user_id', allIds),
         supabase.from('user_battle_state').select('user_id, active_monster_slot').in('user_id', allIds),
         supabase.from('user_monsters').select('user_id, slot, monster_id, nickname, monster_level, graduation_tier').in('user_id', allIds),
       ]);
 
       const statsMapNext: Record<string, HeroStats | null> = {};
-      allIds.forEach((id, i) => {
-        statsMapNext[id] = weeklyResults[i].data?.character_stats ?? null;
+      (weeklyRes.data || []).forEach((row: any) => {
+        statsMapNext[row.user_id] = row.character_stats ?? null;
       });
       setStatsMap(statsMapNext);
 
@@ -263,7 +173,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
   }, []);
 
   // Listen (read-only) to the app-wide presence channel that logged-in
-  // sessions track themselves on, so cards can show who's online right now.
+  // sessions track themselves on, so rows can show who's online right now.
   useEffect(() => {
     const channel = supabase.channel('app-presence', {
       config: { presence: { key: '_splash_observer' } },
@@ -286,6 +196,16 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
     setLoginTarget({ id, name, isAdmin });
     setPasswordInput('');
     setLoginError('');
+  };
+
+  const handleRowClick = (id: UserId) => {
+    const user = USERS[id];
+    if (FAMILY_IDS.includes(id)) {
+      if (isFamilyProtected(id)) openLogin(id, user.name);
+      else handleSelect(id);
+    } else {
+      openLogin(id, user.name);
+    }
   };
 
   const handlePasswordSubmit = async (e: React.FormEvent) => {
@@ -312,10 +232,8 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
     setLoggingIn(false);
   };
 
-  const classmateIds = getClassmateIds();
-
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#0a0807] px-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#0a0807] px-6 py-10">
 
       {animationData && (
         <div className="flex justify-center items-center w-full -mt-24 -mb-36">
@@ -329,134 +247,81 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-12"
+        className="text-center mb-8"
       >
         <h1 className="text-5xl font-display font-bold text-amber-400 mb-3">Learning Hall</h1>
         <p className="text-gray-500 text-lg">
-          {loginTarget ? `Welcome back, ${loginTarget.name}` : view === 'root' ? 'Choose your hero to begin' : "Choose your name, classmate"}
+          {loginTarget ? `Welcome back, ${loginTarget.name}` : 'Choose your hero to begin'}
         </p>
       </motion.div>
 
-      {/* Root view — Damien, Tala, and the Classmates folder */}
-      {view === 'root' && !loginTarget && (
-        <div className="flex flex-wrap justify-center gap-6 w-full max-w-5xl">
-          {FAMILY_IDS.map((id, i) => {
-            const user = USERS[id];
-            const stats = statsMap[id];
-            const style = CARD_STYLES[id] ?? CARD_STYLES['_default'];
-
-            return (
-              <motion.button
-                key={id}
-                onClick={() => isFamilyProtected(id) ? openLogin(id, user.name) : handleSelect(id)}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 + i * 0.1 }}
-                className={`w-64 ${style.bg} border-2 ${style.border} ${style.hoverBorder} rounded-2xl p-8 text-left transition-colors group`}
-              >
-                <CardAvatar avatar={user.avatar} fallbackIcon={style.icon} online={onlineIds.has(id)} />
-                <h2 className={`text-2xl font-display font-bold ${style.accent} mb-1`}>{user.name}</h2>
-                <p className={`${style.accent} opacity-60 font-bold text-sm mb-3`}>{user.grade}</p>
-                <p className="text-gray-500 text-sm">{style.tagline}</p>
-
-                <CardStats
-                  id={id}
-                  stats={stats}
-                  monster={monsterMap[id]}
-                  lastLogin={lastLoginMap[id]}
-                  accent={style.accent}
-                  goldColor={style.goldColor}
-                  loaded={statsLoaded}
-                />
-
-                <div className={`mt-4 ${style.accent} opacity-60 font-bold text-sm group-hover:opacity-100 transition-opacity`}>
-                  {style.cta}
-                </div>
-              </motion.button>
-            );
-          })}
-
-          {/* Classmates folder card */}
-          <motion.button
-            onClick={() => setView('classmates')}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 + FAMILY_IDS.length * 0.1 }}
-            className={`w-64 ${CARD_STYLES.classmates.bg} border-2 ${CARD_STYLES.classmates.border} ${CARD_STYLES.classmates.hoverBorder} rounded-2xl p-8 text-left transition-colors group`}
-          >
-            <div className="text-5xl mb-4">{CARD_STYLES.classmates.icon}</div>
-            <h2 className={`text-2xl font-display font-bold ${CARD_STYLES.classmates.accent} mb-1`}>Damien's Classmates</h2>
-            <p className={`${CARD_STYLES.classmates.accent} opacity-60 font-bold text-sm mb-3`}>Grade 5</p>
-            <p className="text-gray-500 text-sm">{CARD_STYLES.classmates.tagline}</p>
-            <div className="mt-5 h-12 flex items-center">
-              <p className="text-xs text-gray-600">
-                {classmateIds.length} classmate{classmateIds.length === 1 ? '' : 's'} ready to battle
-              </p>
-            </div>
-            <div className={`mt-4 ${CARD_STYLES.classmates.accent} opacity-60 font-bold text-sm group-hover:opacity-100 transition-opacity`}>
-              {CARD_STYLES.classmates.cta}
-            </div>
-          </motion.button>
-        </div>
-      )}
-
-      {/* Classmates picker — click a name, then enter password */}
-      {view === 'classmates' && !loginTarget && (
-        <div className="w-full max-w-5xl">
-          <button
-            onClick={() => setView('root')}
-            className="mb-6 text-gray-500 hover:text-gray-300 text-sm font-bold transition-colors"
-          >
-            ← Back
-          </button>
-          {classmateIds.length === 0 ? (
-            <p className="text-gray-600 text-sm">No classmates yet — ask Tatay to add one from the Admin Dashboard!</p>
-          ) : (
-            <div className="flex flex-wrap justify-center gap-6">
-              {classmateIds.map((id, i) => {
-                const user = USERS[id];
-                const style = CARD_STYLES['_default'];
-                return (
-                  <motion.button
-                    key={id}
-                    onClick={() => openLogin(id, user.name)}
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                    className={`w-56 ${style.bg} border-2 ${style.border} ${style.hoverBorder} rounded-2xl p-6 text-left transition-colors group`}
-                  >
-                    <CardAvatar avatar={user.avatar} fallbackIcon={style.icon} online={onlineIds.has(id)} size="w-16 h-16" />
-                    <h2 className={`text-xl font-display font-bold ${style.accent} mb-1`}>{user.name}</h2>
-                    <p className={`${style.accent} opacity-60 font-bold text-xs mb-2`}>{user.grade} · Classmate</p>
-
-                    <CardStats
-                      id={id}
-                      stats={statsMap[id]}
-                      monster={monsterMap[id]}
-                      lastLogin={lastLoginMap[id]}
-                      accent={style.accent}
-                      goldColor={style.goldColor}
-                      loaded={statsLoaded}
-                    />
-
-                    <div className={`mt-3 ${style.accent} opacity-60 font-bold text-xs group-hover:opacity-100 transition-opacity`}>
-                      Enter password →
-                    </div>
-                  </motion.button>
-                );
-              })}
-            </div>
+      {!loginTarget && (
+        <div className="w-full max-w-xl">
+          {allIds.length > 6 && (
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search players..."
+              className="w-full bg-black/40 border border-neutral-800 rounded-lg py-2.5 px-4 mb-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-indigo-500"
+            />
           )}
+
+          <div className="flex flex-col gap-2 max-h-[55vh] overflow-y-auto pr-1">
+            {visibleIds.length === 0 && (
+              <p className="text-center text-gray-600 text-sm py-6">No players match &quot;{searchQuery}&quot;</p>
+            )}
+            {visibleIds.map((id, i) => {
+              const user = USERS[id];
+              const stats = statsMap[id];
+              const monster = monsterMap[id];
+              const monsterDef = monster ? ALL_MONSTERS[monster.monster_id] : null;
+              const monsterDisplay = monsterDef && monster ? getGraduatedMonsterDisplay(monsterDef, monster.graduation_tier) : monsterDef;
+
+              return (
+                <motion.button
+                  key={id}
+                  onClick={() => handleRowClick(id)}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: Math.min(i, 10) * 0.03 }}
+                  className={`${ROSTER_STYLE.bg} border ${ROSTER_STYLE.border} ${ROSTER_STYLE.hoverBorder} rounded-xl px-4 py-3 flex items-center gap-4 text-left transition-colors group`}
+                >
+                  <RosterAvatar avatar={user.avatar} online={onlineIds.has(id)} />
+
+                  <div className="flex-1 min-w-0">
+                    <p className={`font-display font-bold ${ROSTER_STYLE.accent} truncate`}>{user.name}</p>
+                    <p className="text-xs text-gray-500">{user.grade}</p>
+                  </div>
+
+                  {monsterDisplay && (
+                    <div className="hidden sm:flex items-center gap-1.5 shrink-0">
+                      <div className="w-6 h-6">
+                        <MonsterImage monster={monsterDisplay} className="w-full h-full" emojiClassName="text-lg" />
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="text-right shrink-0">
+                    <p className={`text-sm font-mono font-bold ${ROSTER_STYLE.accent}`}>
+                      {stats ? `Lvl ${stats.level}` : statsLoaded ? '—' : '···'}
+                    </p>
+                    <p className="text-[11px] text-gray-600">{formatLastSeen(lastLoginMap[id])}</p>
+                  </div>
+
+                  <span className={`${ROSTER_STYLE.accent} opacity-0 group-hover:opacity-100 transition-opacity text-sm font-bold shrink-0`}>
+                    →
+                  </span>
+                </motion.button>
+              );
+            })}
+          </div>
         </div>
       )}
 
-      {/* Password prompt for the clicked classmate */}
+      {/* Password prompt for the clicked player */}
       {loginTarget && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -495,13 +360,13 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
         </motion.div>
       )}
 
-      {view === 'root' && !loginTarget && (
+      {!loginTarget && (
         <>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="mt-10"
+            className="mt-8"
           >
             <button
               onClick={() => isFamilyProtected('damien') ? openLogin('damien', 'Tatay Admin', true) : onAdminSelect('damien')}

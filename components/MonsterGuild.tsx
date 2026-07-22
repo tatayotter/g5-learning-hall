@@ -2872,7 +2872,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
         />
       )}
 
-      {view === 'leaderboard' && <LeaderboardPanel />}
+      {view === 'leaderboard' && <LeaderboardPanel userId={userId} />}
 
       {/* Trainers view */}
       {view === 'trainers' && battleState && (

@@ -8,10 +8,12 @@ import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
+import { GUILDS } from '@/lib/dailyChecklist';
 import { USERS } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
+import CritBonusToast from '@/components/CritBonusToast';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 
 interface LogicOption {
@@ -26,6 +28,7 @@ interface LogicLabyrinthQuestion {
   matrix_image_url: string | null;
   options_array: LogicOption[];
   correct_option_id: string;
+  difficulty_tier: number;
 }
 
 interface LogicLabyrinthProps {
@@ -84,7 +87,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
     if (isCorrect) playChime(); else playClash();
 
     setTimeout(() => {
-      engine.submitResult(isCorrect, engine.currentQuestion!.id);
+      engine.submitResult(isCorrect, engine.currentQuestion!.id, engine.currentQuestion!.difficulty_tier);
       setSelectedOption(null);
       setFlashResult(null);
     }, 500);
@@ -122,7 +125,9 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
             <GuardianSprite guild="logiclabyrinth" pose="idle" className="w-full h-full" />
           </div>
           <h2 className="text-4xl font-display font-bold text-cyan-300 mb-2">Logic Labyrinth</h2>
+          <p className="text-cyan-700 font-mono italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'logic_labyrinth')?.lore}</p>
           <p className="text-cyan-600 font-mono mb-1">Lvl {profile?.logic_labyrinth_lvl || 1} · {profile?.logic_labyrinth_xp || 0}/500 XP</p>
+          <p className="text-cyan-700 text-xs font-mono mb-1">Difficulty {'★'.repeat(profile?.logic_labyrinth_tier || 1)}{'☆'.repeat(Math.max(0, 3 - (profile?.logic_labyrinth_tier || 1)))}</p>
           <p className="text-gray-400 mb-8 text-sm max-w-md mx-auto">Study the pattern or puzzle above, then tap the correct answer from the grid below. Speed and accuracy both matter.</p>
 
           <div className="grid grid-cols-3 gap-4 mb-8 text-center">
@@ -158,12 +163,14 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
 
   if (screen === 'playing' && engine.currentQuestion) {
     const q = engine.currentQuestion;
+    const difficultyStars = '★'.repeat(q.difficulty_tier) + '☆'.repeat(Math.max(0, 3 - q.difficulty_tier));
     const timerPct = (engine.timeLeft / timeLimit) * 100;
     const timerColor = engine.timeLeft <= 10 ? 'bg-red-500' : engine.timeLeft <= 20 ? 'bg-yellow-500' : 'bg-cyan-500';
     const feedbackClass = flashResult === 'correct' ? 'battle-answer-correct' : flashResult === 'wrong' ? 'battle-answer-wrong' : '';
 
     return (
       <div className="max-w-2xl mx-auto">
+        <CritBonusToast event={engine.lastCrit} />
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center gap-3">
             <span className={`text-2xl font-bold font-mono ${engine.timeLeft <= 10 ? 'text-red-400 animate-pulse' : 'text-cyan-300'}`}>⏱ {engine.timeLeft}s</span>
@@ -188,6 +195,8 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
             transition={{ duration: 0.15 }}
             className={`bg-[#0b0d12] border-2 border-cyan-800 rounded-xl p-8 shadow-2xl ${feedbackClass}`}
           >
+            <p className="text-center text-xs text-gray-600 font-mono mb-2">{difficultyStars}</p>
+
             {q.matrix_image_url && (
               <div className="flex justify-center mb-6">
                 <img

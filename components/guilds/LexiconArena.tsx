@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { supabase } from '@/lib/supabase';
 import { CharacterStats } from '@/hooks/useWeeklyData';
+import { GUILDS } from '@/lib/dailyChecklist';
 import { USERS } from '@/lib/userSession';
 import { playChime, playClash, playLevelUp } from '@/lib/sounds';
 import GameButton from '@/components/GameButton';
@@ -9,9 +9,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
-import { fetchSubclassProfile, updateSubclassProfile, ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/lib/guildEngine';
-import { applyLevelUp } from '@/lib/guildConfig';
+import { fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile, ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/lib/guildEngine';
+import { applyLevelUp, rollCritBonus, getTierRewardMultiplier } from '@/lib/guildConfig';
 import CurioRevealModal from '@/components/CurioRevealModal';
+import CritBonusToast from '@/components/CritBonusToast';
+import { CritBonusEvent } from '@/hooks/useTimeAttack';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 
 interface LexiconWord {
@@ -22,6 +24,7 @@ interface LexiconWord {
   wrong_a: string;
   wrong_b: string;
   wrong_c: string;
+  difficulty_tier: number;
 }
 
 interface LexiconArenaProps {
@@ -64,10 +67,16 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
   const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
   const [score, setScore] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
+  const [bonusGold, setBonusGold] = useState(0);
+  const [weightedGold, setWeightedGold] = useState(0);
+  const [weightedXp, setWeightedXp] = useState(0);
+  const [lastCrit, setLastCrit] = useState<CritBonusEvent | null>(null);
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState<SubclassProfile | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const feedbackRef = useRef<NodeJS.Timeout | null>(null);
+  const critNonceRef = useRef(0);
+  const completedIdsRef = useRef<string[]>([]);
 
   // Theme colors
   const accent = isTala ? 'text-pink-400' : 'text-amber-400';
@@ -78,27 +87,23 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
     ? 'bg-pink-900/30 text-pink-300 border border-pink-800'
     : 'bg-blue-900/30 text-blue-300 border border-blue-800';
 
-  // Load words
+  // Load words — routed through the shared guild engine so Lexicon Arena
+  // gets the same no-repeat completion tracking and tier progression/prestige
+  // as the other 4 guilds, instead of re-serving the full untiered pool every
+  // session.
   useEffect(() => {
     async function loadWords() {
       setLoading(true);
-      const { data, error } = await supabase
-        .from('sq_lexicon_arena')
-        .select('*')
-        .eq('term_id', 1)
-        .eq('is_active', true)
-        .eq('grade_level', gradeLevel);
-
-      console.log('Lexicon fetch result:', data, error);
-      console.log('Query params — gradeLevel:', gradeLevel, 'userId:', userId);
-      if (data && data.length > 0) {
-        setWords(shuffle(data));
+      completedIdsRef.current = [];
+      const pool = await fetchQuestionPool(userId, 'sq_lexicon_arena', 'lexicon_arena', gradeLevel);
+      if (pool.length > 0) {
+        setWords(shuffle(pool as LexiconWord[]));
       }
       setLoading(false);
     }
     loadWords();
     fetchSubclassProfile(userId).then(setProfile);
-  }, [gradeLevel]);
+  }, [gradeLevel, userId]);
 
   // Build choices for current word
   useEffect(() => {
@@ -136,10 +141,19 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
 
     setSelected(choice);
     setFeedback(isCorrect ? 'correct' : 'wrong');
+    completedIdsRef.current.push(words[currentIndex].id);
 
     if (isCorrect) {
       playChime();
       setScore(s => s + 1);
+      const tierMult = getTierRewardMultiplier(words[currentIndex]?.difficulty_tier || 1);
+      setWeightedGold(g => g + GOLD_PER_CORRECT * tierMult);
+      setWeightedXp(x => x + XP_PER_CORRECT * tierMult);
+      const critBonus = rollCritBonus();
+      if (critBonus) {
+        setBonusGold(g => g + critBonus);
+        setLastCrit({ bonus: critBonus, nonce: ++critNonceRef.current });
+      }
     } else {
       playClash();
       setWrongCount(w => w + 1);
@@ -158,9 +172,11 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
   };
 
   const handleFinish = async () => {
-    const goldEarned = score * GOLD_PER_CORRECT;
-    const xpEarned = score * XP_PER_CORRECT;
+    const goldEarned = weightedGold + bonusGold;
+    const xpEarned = weightedXp;
     const accuracy = score + wrongCount > 0 ? Math.round((score / (score + wrongCount)) * 100) : 0;
+
+    await markQuestionsCompleted(userId, 'lexicon_arena', completedIdsRef.current);
 
     let grantedId: string | null = null;
     if (profile) {
@@ -215,7 +231,9 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
             <GuardianSprite guild="lexiconarena" pose="idle" className="w-full h-full" />
           </div>
           <h2 className={`text-3xl font-display font-bold mb-2 ${accent}`}>Lexicon Arena</h2>
+          <p className="text-gray-500 italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'lexicon_arena')?.lore}</p>
           <p className={`${accent} font-mono mb-1`}>Lvl {profile?.lexicon_arena_lvl || 1} · {profile?.lexicon_arena_xp || 0}/500 XP</p>
+          <p className="text-gray-500 text-xs mb-1">Difficulty {'★'.repeat(profile?.lexicon_arena_tier || 1)}{'☆'.repeat(Math.max(0, 3 - (profile?.lexicon_arena_tier || 1)))}</p>
           <p className="text-gray-400 mb-8 max-w-md mx-auto">
             Read the definition carefully, then pick the <span className="font-bold text-white">correctly spelled word</span> from the four choices. Watch out — the wrong ones look very close!
           </p>
@@ -252,8 +270,8 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
 
   // ── RESULT ──
   if (phase === 'result') {
-    const goldEarned = score * GOLD_PER_CORRECT;
-    const xpEarned = score * XP_PER_CORRECT;
+    const goldEarned = weightedGold + bonusGold;
+    const xpEarned = weightedXp;
     const accuracy = score + wrongCount > 0 ? Math.round((score / (score + wrongCount)) * 100) : 0;
 
     return (
@@ -298,6 +316,9 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
                 setPhase('intro');
                 setScore(0);
                 setWrongCount(0);
+                setBonusGold(0);
+                setWeightedGold(0);
+                setWeightedXp(0);
                 setTimeLeft(isTala ? TIME_LIMIT_TALA : TIME_LIMIT_DEFAULT);
                 setCurrentIndex(0);
                 setWords(prev => shuffle([...prev]));
@@ -337,9 +358,11 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
         <div className="flex items-center gap-4 font-mono text-sm">
           <span className="text-green-400">✓ {score}</span>
           <span className="text-red-400">✗ {wrongCount}</span>
-          <span className="text-yellow-400"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {score * GOLD_PER_CORRECT}</span>
+          <span className="text-yellow-400"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {weightedGold + bonusGold}</span>
         </div>
       </div>
+
+      <CritBonusToast event={lastCrit} />
 
       <div className="w-28 h-28 mx-auto mb-2">
         <GuardianSprite guild="lexiconarena" pose={feedback === 'correct' ? 'hurt' : 'idle'} className="w-full h-full" />
@@ -367,6 +390,9 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
             </div>
 
             {/* Definition */}
+            <p className="text-center text-xs text-gray-600 mb-2">
+              {'★'.repeat(current.difficulty_tier)}{'☆'.repeat(Math.max(0, 3 - current.difficulty_tier))}
+            </p>
             <p className="text-lg text-gray-200 leading-relaxed mb-8 text-center font-medium">
               "{current.definition}"
             </p>

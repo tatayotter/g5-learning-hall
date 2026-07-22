@@ -8,10 +8,12 @@ import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
+import { GUILDS } from '@/lib/dailyChecklist';
 import { USERS } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
+import CritBonusToast from '@/components/CritBonusToast';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 
 interface NumberRealmQuestion {
@@ -21,6 +23,7 @@ interface NumberRealmQuestion {
   correct_numerator: number | null;
   correct_denominator: number | null;
   correct_standard_ans: string | null;
+  difficulty_tier: number;
 }
 
 interface NumberRealmProps {
@@ -112,7 +115,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
 
     if (isCorrect) playChime(); else playClash();
     setFlashResult(isCorrect ? 'correct' : 'wrong');
-    engine.submitResult(isCorrect, q.id);
+    engine.submitResult(isCorrect, q.id, q.difficulty_tier);
     clearInputs();
     setTimeout(() => setFlashResult(null), 300);
   };
@@ -191,7 +194,9 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
             <GuardianSprite guild="numberrealm" pose="idle" className="w-full h-full" />
           </div>
           <h2 className="text-4xl font-display font-bold text-amber-300 mb-2">Number Realm</h2>
+          <p className="text-amber-700 font-mono italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'number_realm')?.lore}</p>
           <p className="text-amber-600 font-mono mb-1">Lvl {profile?.number_realm_lvl || 1} · {profile?.number_realm_xp || 0}/500 XP</p>
+          <p className="text-amber-700 text-xs font-mono mb-1">Difficulty {'★'.repeat(profile?.number_realm_tier || 1)}{'☆'.repeat(Math.max(0, 3 - (profile?.number_realm_tier || 1)))}</p>
           <p className="text-gray-400 mb-8 font-mono text-sm max-w-md mx-auto">Solve math problems in {timeLimit} seconds. Correct answers build your streak — the longer the streak, the greater the gold multiplier.</p>
 
           <div className="grid grid-cols-3 gap-4 mb-8 text-center">
@@ -227,12 +232,14 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
 
   if (screen === 'playing' && engine.currentQuestion) {
     const q = engine.currentQuestion;
+    const difficultyStars = '★'.repeat(q.difficulty_tier) + '☆'.repeat(Math.max(0, 3 - q.difficulty_tier));
     const timerPct = (engine.timeLeft / timeLimit) * 100;
     const timerColor = engine.timeLeft <= 10 ? 'bg-red-500' : engine.timeLeft <= 20 ? 'bg-yellow-500' : 'bg-amber-500';
     const feedbackClass = flashResult === 'correct' ? 'battle-answer-correct' : flashResult === 'wrong' ? 'battle-answer-wrong' : '';
 
     return (
       <div className="max-w-2xl mx-auto">
+        <CritBonusToast event={engine.lastCrit} />
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center gap-3">
             <span className={`text-2xl font-bold font-mono ${engine.timeLeft <= 10 ? 'text-red-400 animate-pulse' : 'text-amber-300'}`}>⏱ {engine.timeLeft}s</span>
@@ -257,6 +264,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
             transition={{ duration: 0.15 }}
             className={`bg-[#0d0c08] border-2 border-amber-800 rounded-xl p-8 shadow-2xl ${feedbackClass}`}
           >
+            <p className="text-center text-xs text-gray-600 font-mono mb-2">{difficultyStars}</p>
             <p className="text-xl font-bold text-white text-center mb-6 leading-relaxed">{q.problem_prompt}</p>
 
             {renderInputLayout(q)}

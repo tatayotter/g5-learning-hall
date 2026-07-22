@@ -145,3 +145,29 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
 
   return entries.sort((a, b) => b.score - a.score);
 }
+
+export interface ReactionCounts {
+  [toUserId: string]: number;
+}
+
+// Read-only aggregate — RLS on leaderboard_reactions allows select to everyone
+// (small trusted family/classmate roster), same pattern as user_completed_questions.
+export async function fetchReactionCounts(): Promise<ReactionCounts> {
+  const { data } = await supabase.from('leaderboard_reactions').select('to_user_id');
+  const counts: ReactionCounts = {};
+  (data || []).forEach((row: any) => {
+    counts[row.to_user_id] = (counts[row.to_user_id] || 0) + 1;
+  });
+  return counts;
+}
+
+export async function sendReaction(fromUserId: string, toUserId: string, emoji: string = '👏'): Promise<boolean> {
+  const { error } = await supabase
+    .from('leaderboard_reactions')
+    .insert({ from_user_id: fromUserId, to_user_id: toUserId, emoji });
+  if (error) {
+    console.error('Failed to send reaction:', error);
+    return false;
+  }
+  return true;
+}

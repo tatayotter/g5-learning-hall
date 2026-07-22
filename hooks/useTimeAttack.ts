@@ -1,6 +1,11 @@
 // hooks/useTimeAttack.ts
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { TIME_ATTACK_DURATION, XP_PER_CORRECT, GOLD_PER_CORRECT, SCORE_PER_CORRECT, SCORE_PENALTY_WRONG, getStreakMultiplier } from '@/lib/guildConfig';
+import { TIME_ATTACK_DURATION, XP_PER_CORRECT, GOLD_PER_CORRECT, SCORE_PER_CORRECT, SCORE_PENALTY_WRONG, getStreakMultiplier, getTierRewardMultiplier, rollCritBonus } from '@/lib/guildConfig';
+
+export interface CritBonusEvent {
+  bonus: number;
+  nonce: number;
+}
 
 export type TimeAttackPhase = 'idle' | 'active' | 'ended';
 
@@ -14,7 +19,9 @@ export function useTimeAttack<T>(questionPool: T[], duration: number = TIME_ATTA
   const [wrongCount, setWrongCount] = useState(0);
   const [totalXpEarned, setTotalXpEarned] = useState(0);
   const [totalGoldEarned, setTotalGoldEarned] = useState(0);
+  const [lastCrit, setLastCrit] = useState<CritBonusEvent | null>(null);
   const completedIdsRef = useRef<string[]>([]);
+  const critNonceRef = useRef(0);
 
   useEffect(() => {
     if (phase !== 'active') return;
@@ -36,24 +43,33 @@ export function useTimeAttack<T>(questionPool: T[], duration: number = TIME_ATTA
     setWrongCount(0);
     setTotalXpEarned(0);
     setTotalGoldEarned(0);
+    setLastCrit(null);
     completedIdsRef.current = [];
   }, [duration]);
 
   // Call this with true/false for whether the submitted answer was correct.
   // questionId is used to record it in the "no repeats" completed-questions log.
-  const submitResult = useCallback((isCorrect: boolean, questionId: string) => {
+  // tier is the answered question's difficulty_tier (1-3, defaults to 1 for
+  // guilds/questions that don't carry one) — harder tiers pay out more.
+  const submitResult = useCallback((isCorrect: boolean, questionId: string, tier: number = 1) => {
     if (phase !== 'active') return;
 
     completedIdsRef.current.push(questionId);
 
     if (isCorrect) {
       const newStreak = streak + 1;
-      const multiplier = getStreakMultiplier(newStreak);
+      const streakMult = getStreakMultiplier(newStreak);
+      const tierMult = getTierRewardMultiplier(tier);
       setStreak(newStreak);
       setScore(s => s + SCORE_PER_CORRECT);
       setCorrectCount(c => c + 1);
-      setTotalXpEarned(x => x + XP_PER_CORRECT);
-      setTotalGoldEarned(g => g + GOLD_PER_CORRECT * multiplier);
+      setTotalXpEarned(x => x + XP_PER_CORRECT * tierMult);
+      const critBonus = rollCritBonus();
+      const goldGain = GOLD_PER_CORRECT * streakMult * tierMult + (critBonus || 0);
+      setTotalGoldEarned(g => g + goldGain);
+      if (critBonus) {
+        setLastCrit({ bonus: critBonus, nonce: ++critNonceRef.current });
+      }
     } else {
       setStreak(0);
       setScore(s => Math.max(0, s - SCORE_PENALTY_WRONG));
@@ -79,6 +95,7 @@ export function useTimeAttack<T>(questionPool: T[], duration: number = TIME_ATTA
     wrongCount,
     totalXpEarned,
     totalGoldEarned,
+    lastCrit,
     completedQuestionIds: completedIdsRef.current,
     start,
     submitResult

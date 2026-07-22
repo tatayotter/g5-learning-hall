@@ -26,3 +26,18 @@ export function applyLevelUp(currentLevel: number, currentXp: number, addedXp: n
 export function getStreakMultiplier(streak: number) {
   return 1 + Math.floor(streak / 5);
 }
+
+// Harder-tier questions pay out more XP/gold, so difficulty progression stays
+// tied to visible reward (Flow + Competence) rather than just gating content.
+export function getTierRewardMultiplier(tier: number) {
+  return Math.max(1, tier);
+}
+
+// ~1 in 8 correct answers triggers a "Lucky Find" bonus of 1-3x the normal
+// gold rate — a small variable-reward moment on top of the deterministic
+// streak multiplier, so correct answers aren't 100% predictable in payout.
+export const CRIT_CHANCE = 0.12;
+
+export function rollCritBonus(): number | null {
+  return Math.random() < CRIT_CHANCE ? (1 + Math.floor(Math.random() * 3)) : null;
+}
