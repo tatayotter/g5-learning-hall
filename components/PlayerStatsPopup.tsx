@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { USERS } from '@/lib/userSession';
-import { ALL_MONSTERS, GUILD_MONSTERS, MonsterDef, getGuildMonsterDisplay, getGraduatedMonsterDisplay } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, GUILD_MONSTERS, MonsterDef, getGuildMonsterDisplay, getGraduatedMonsterDisplay, getScaledStats } from '@/lib/monsterConfig';
 import { fetchSubclassProfile, guildLevelForKey, SubclassProfile } from '@/lib/guildEngine';
 import { GMBadge } from '@/components/MonsterGuild';
 import { MonsterImage } from '@/components/battle/shared';
@@ -54,8 +54,6 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
     load();
     return () => { cancelled = true; };
   }, [targetId]);
-
-  const activeMonster = team.find(m => m.slot === activeSlot);
 
   // ALL_MONSTERS, but guild companions show the name/emoji their owner's
   // (targetId's) guild level currently unlocks — see MonsterGuild.tsx for the
@@ -111,39 +109,38 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
               <p className="text-white font-bold">{level ?? '?'}</p>
             </div>
 
-            <div className="bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3 mb-3">
-              <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Active Curio</p>
-              {activeMonster ? (
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 flex-shrink-0">
-                    <MonsterImage monster={displayMonsters[activeMonster.monster_id]} className="w-full h-full" emojiClassName="text-2xl" />
-                  </div>
-                  <div>
-                    <p className="text-white text-sm font-bold">
-                      {activeMonster.nickname || displayMonsters[activeMonster.monster_id]?.name}
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      Lv{activeMonster.monster_level} · {displayMonsters[activeMonster.monster_id]?.element}
-                    </p>
-                  </div>
-                </div>
-              ) : (
-                <p className="text-gray-600 text-sm">No active curio</p>
-              )}
-            </div>
-
             {team.length > 0 && (
               <div className="bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3 mb-4">
                 <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Team</p>
-                <div className="space-y-1">
-                  {team.map(m => (
-                    <div key={m.slot} className="flex items-center gap-1.5 text-xs text-gray-400">
-                      <div className="w-4 h-4 flex-shrink-0">
-                        <MonsterImage monster={displayMonsters[m.monster_id]} className="w-full h-full" emojiClassName="text-sm" />
+                <div className="space-y-2">
+                  {team.map(m => {
+                    const def = displayMonsters[m.monster_id];
+                    const scaled = getScaledStats(def, m.monster_level);
+                    const isActive = m.slot === activeSlot;
+                    return (
+                      <div
+                        key={m.slot}
+                        className={`flex items-center gap-2 rounded-lg p-1.5 ${isActive ? 'border border-amber-700 bg-amber-900/10' : ''}`}
+                      >
+                        <div className="w-8 h-8 flex-shrink-0">
+                          <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-2xl" />
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-white text-sm font-bold">
+                            {m.nickname || def?.name}
+                            {isActive && <span className="ml-1.5 text-[10px] text-amber-400 font-bold uppercase tracking-wide">Active</span>}
+                          </p>
+                          <p className="text-xs text-gray-500">Lv{m.monster_level} · {def?.element}</p>
+                        </div>
+                        <div className="text-[10px] text-gray-400 space-y-0.5 flex-shrink-0">
+                          <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-3 h-3 object-contain" /> {scaled.hp}</p>
+                          <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-3 h-3 object-contain" /> {scaled.attack}</p>
+                          <p className="flex items-center gap-1"><img src="/icons/stats/def.svg" alt="" className="w-3 h-3 object-contain" /> {scaled.defense}</p>
+                          <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-3 h-3 object-contain" /> {scaled.speed}</p>
+                        </div>
                       </div>
-                      <span>{m.nickname || displayMonsters[m.monster_id]?.name} — Lv{m.monster_level}</span>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             )}

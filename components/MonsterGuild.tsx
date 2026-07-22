@@ -1436,31 +1436,57 @@ function TrainingMap({
         {/* Info column: Active Monster, Who's Online, then foldable Map Legend / Training Tips */}
         <div className="w-full lg:w-80 flex-shrink-0 flex flex-col gap-4">
 
-          {/* Active monster */}
+          {/* Your team — every teammate, not just the one currently active in
+              grass encounters. The active one (whichever gets grass-answer EXP)
+              is called out with an amber border + badge rather than being the
+              only curio shown at all. */}
           <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-4">
-            <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Active Curio</p>
-            {activeMonster ? (() => {
-              const def = monsterDisplay[activeMonster.monster_id];
-              const expIntoLevel = activeMonster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL;
-              const expToNext = BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - expIntoLevel;
-              return (
-                <div className="flex items-center gap-3">
-                  <MonsterImage monster={def} className="w-12 h-12" />
-                  <div className="flex-1">
-                    <p className="font-bold text-white text-sm">{def?.name}</p>
-                    <p className="text-xs text-gray-400 capitalize">Lv.{activeMonster.monster_level} · {def?.element}</p>
-                    <div className="w-full bg-neutral-800 rounded-full h-1.5 mt-1">
+            <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Your Team</p>
+            {userMonsters.filter(m => m.slot !== null).length === 0 ? (
+              <p className="text-gray-500 text-sm">No curios on your team</p>
+            ) : (
+              <div className="space-y-3">
+                {userMonsters
+                  .filter(m => m.slot !== null)
+                  .sort((a, b) => (a.slot ?? 0) - (b.slot ?? 0))
+                  .map(monster => {
+                    const def = monsterDisplay[monster.monster_id];
+                    const isActive = monster.slot === battleState.active_monster_slot;
+                    const expIntoLevel = monster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL;
+                    const expToNext = BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - expIntoLevel;
+                    const scaled = getScaledStats(def, monster.monster_level);
+                    return (
                       <div
-                        className="h-1.5 rounded-full bg-amber-400"
-                        style={{ width: `${(expIntoLevel / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) * 100}%` }}
-                      />
-                    </div>
-                    <p className="text-xs text-gray-500 mt-0.5">{expToNext} EXP to next level</p>
-                  </div>
-                </div>
-              );
-            })() : (
-              <p className="text-gray-500 text-sm">No active curio</p>
+                        key={monster.id}
+                        className={`rounded-lg p-2 ${isActive ? 'border border-amber-700 bg-amber-900/10' : 'border border-neutral-800'}`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <MonsterImage monster={def} className="w-12 h-12" />
+                          <div className="flex-1">
+                            <p className="font-bold text-white text-sm">
+                              {def?.name}
+                              {isActive && <span className="ml-1.5 text-[10px] text-amber-400 font-bold uppercase tracking-wide">Active</span>}
+                            </p>
+                            <p className="text-xs text-gray-400 capitalize">Lv.{monster.monster_level} · {def?.element}</p>
+                            <div className="w-full bg-neutral-800 rounded-full h-1.5 mt-1">
+                              <div
+                                className="h-1.5 rounded-full bg-amber-400"
+                                style={{ width: `${(expIntoLevel / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) * 100}%` }}
+                              />
+                            </div>
+                            <p className="text-xs text-gray-500 mt-0.5">{expToNext} EXP to next level</p>
+                          </div>
+                          <div className="text-[10px] text-gray-400 space-y-0.5 flex-shrink-0">
+                            <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-3 h-3 object-contain" /> {scaled.hp}</p>
+                            <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-3 h-3 object-contain" /> {scaled.attack}</p>
+                            <p className="flex items-center gap-1"><img src="/icons/stats/def.svg" alt="" className="w-3 h-3 object-contain" /> {scaled.defense}</p>
+                            <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-3 h-3 object-contain" /> {scaled.speed}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+              </div>
             )}
           </div>
 
@@ -1605,6 +1631,7 @@ function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange, monsterDis
   const unlockedSlots = getUnlockedMonsterSlots(playerLevel);
   const benchedMonsters = userMonsters.filter(m => m.slot === null);
   const [promotingId, setPromotingId] = useState<string | null>(null);
+  const [promotingBenchId, setPromotingBenchId] = useState<string | null>(null);
 
   const handleAddMonster = async (slot: number, monsterId: string) => {
     // set_team_slot never overwrites an existing monster's row — it reuses
@@ -1695,12 +1722,64 @@ function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange, monsterDis
         );
       })}
 
-      {/* Rare, wild-caught monsters land here first (never straight into a team
-          slot). Promoting one reuses the same insert/update-by-slot pattern as
-          the slots above. */}
-      {caughtMonsters.length > 0 && (
+      {/* Everything not currently sitting in slot 1-3: monsters already owned but
+          benched (slot IS NULL — displaced teammates, guild-reward familiars) and
+          rare wild catches waiting to join for the first time. This has to be an
+          always-visible section: the per-slot "Choose a monster" list above only
+          renders for slots that are already empty, so once every unlocked slot is
+          full, a benched monster would otherwise have no UI to be seen or swapped
+          back in from at all. */}
+      {(benchedMonsters.length > 0 || caughtMonsters.length > 0) && (
         <div className="space-y-3 pt-2">
-          <p className="text-xs text-amber-500 font-bold uppercase tracking-widest">Ready to add to your team</p>
+          <p className="text-xs text-cyan-500 font-bold uppercase tracking-widest">Your Bench (Add To Your Team)</p>
+          {benchedMonsters.map(bm => {
+            const def = monsterDisplay[bm.monster_id];
+            if (!def) return null;
+            const scaled = getScaledStats(def, bm.monster_level);
+            return (
+              <div key={bm.id} className="p-4 rounded-xl border border-cyan-900 bg-cyan-900/10">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 flex-shrink-0">
+                    <MonsterImage monster={def} className="w-full h-full" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-bold text-white">{def.name} <span className="text-gray-400 text-sm">Lv.{bm.monster_level}</span></p>
+                    <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
+                  </div>
+                  <div className="text-xs text-gray-400 space-y-0.5">
+                    <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.hp}</p>
+                    <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.attack}</p>
+                    <p className="flex items-center gap-1"><img src="/icons/stats/def.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.defense}</p>
+                    <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.speed}</p>
+                  </div>
+                  <button
+                    onClick={() => setPromotingBenchId(promotingBenchId === bm.id ? null : bm.id)}
+                    className="bg-cyan-700 hover:bg-cyan-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors"
+                  >
+                    → Move to Team
+                  </button>
+                </div>
+                {promotingBenchId === bm.id && (
+                  <div className="mt-3 pt-3 border-t border-cyan-900 flex flex-wrap gap-2">
+                    {[1, 2, 3].map(slot => {
+                      const existing = userMonsters.find(m => m.slot === slot);
+                      const isUnlocked = slot <= unlockedSlots || !!existing;
+                      if (!isUnlocked) return null;
+                      return (
+                        <button
+                          key={slot}
+                          onClick={() => { handleAddMonster(slot, bm.monster_id); setPromotingBenchId(null); }}
+                          className="text-xs bg-neutral-800 hover:bg-neutral-700 px-3 py-2 rounded-lg text-white"
+                        >
+                          {existing ? `Replace ${monsterDisplay[existing.monster_id]?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })}
           {caughtMonsters.map(caught => {
             // Deliberately ALL_MONSTERS, not monsterDisplay — a bench catch is
             // always the ungraduated tier-1 form (user_caught_monsters has no
@@ -1712,7 +1791,7 @@ function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange, monsterDis
             if (!def) return null;
             const scaled = getScaledStats(def, caught.monster_level);
             return (
-              <div key={caught.id} className="p-4 rounded-xl border border-amber-800 bg-amber-900/10">
+              <div key={caught.id} className="p-4 rounded-xl border border-cyan-900 bg-cyan-900/10">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 flex-shrink-0">
                     <MonsterImage monster={def} className="w-full h-full" />
@@ -1729,13 +1808,13 @@ function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange, monsterDis
                   </div>
                   <button
                     onClick={() => setPromotingId(promotingId === caught.id ? null : caught.id)}
-                    className="bg-amber-700 hover:bg-amber-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors"
+                    className="bg-cyan-700 hover:bg-cyan-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors"
                   >
                     → Move to Team
                   </button>
                 </div>
                 {promotingId === caught.id && (
-                  <div className="mt-3 pt-3 border-t border-amber-900 flex flex-wrap gap-2">
+                  <div className="mt-3 pt-3 border-t border-cyan-900 flex flex-wrap gap-2">
                     {[1, 2, 3].map(slot => {
                       const existing = userMonsters.find(m => m.slot === slot);
                       const isUnlocked = slot <= unlockedSlots || !!existing;
