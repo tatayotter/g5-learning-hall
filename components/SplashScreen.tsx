@@ -2,7 +2,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import Lottie from 'lottie-react';
 import { motion } from 'framer-motion';
-import { UserId, USERS, setActiveUser, getClassmateIds, isFamilyProtected } from '@/lib/userSession';
+import { UserId, USERS, setActiveUser, getClassmateIds, getChildIds, isFamilyProtected } from '@/lib/userSession';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { ALL_MONSTERS, getGraduatedMonsterDisplay } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
@@ -214,7 +214,11 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
     setLoggingIn(true);
     setLoginError('');
     try {
-      const endpoint = FAMILY_IDS.includes(loginTarget.id) ? '/api/family-login' : '/api/classmate-login';
+      const endpoint = FAMILY_IDS.includes(loginTarget.id)
+        ? '/api/family-login'
+        : getChildIds().includes(loginTarget.id)
+          ? '/api/child-login'
+          : '/api/classmate-login';
       const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -374,6 +378,17 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
             >
               🔑 Tatay Admin
             </button>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.55 }}
+            className="mt-3 flex items-center gap-3 text-xs"
+          >
+            <a href="/register" className="text-gray-600 hover:text-indigo-300 transition-colors">Register as a Parent</a>
+            <span className="text-gray-800">·</span>
+            <a href="/parent-login" className="text-gray-600 hover:text-indigo-300 transition-colors">Parent Login</a>
           </motion.div>
 
           <motion.p

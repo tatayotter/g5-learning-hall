@@ -17,7 +17,14 @@ export function ensureAnonymousSession(): Promise<string | null> {
   if (!anonSessionPromise) {
     anonSessionPromise = (async () => {
       const { data: { session } } = await supabase.auth.getSession();
-      if (session?.user) return session.user.id;
+      if (session?.user?.is_anonymous) return session.user.id;
+      if (session?.user) {
+        // A real (parent/admin) Supabase Auth session is active on this
+        // device — e.g. a parent used the Parent Dashboard, then handed the
+        // device to a child to play. Never bridge gameplay identity to a
+        // real account; sign it out so a fresh anonymous session is used.
+        await supabase.auth.signOut();
+      }
       const { data, error } = await supabase.auth.signInAnonymously();
       if (error) {
         anonSessionPromise = null;

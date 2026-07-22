@@ -75,6 +75,41 @@ export function getClassmateIds(): UserId[] {
   return (Object.keys(USERS) as UserId[]).filter(id => !USERS[id].isFamily);
 }
 
+// Children are parent-created (Parent Dashboard → Add Child) and log in with
+// a username/PIN, same shape as classmates but sourced from the `children`
+// table. Loaded into USERS once so every existing USERS[id] lookup across
+// the app keeps working synchronously without an async refactor.
+let childrenLoaded = false;
+let childIds: Set<UserId> = new Set();
+
+export async function loadChildren(): Promise<void> {
+  if (childrenLoaded) return;
+  const { data } = await supabase
+    .from('children')
+    .select('id, full_name, grade, gender, avatar')
+    .eq('is_active', true);
+
+  (data || []).forEach((c: any) => {
+    USERS[c.id] = {
+      id: c.id,
+      name: c.full_name.split(' ')[0],
+      fullName: c.full_name,
+      grade: c.grade,
+      avatar: c.avatar,
+      theme: 'damien',
+      gender: c.gender === 'girl' ? 'girl' : 'boy',
+      isFamily: false,
+      contentSourceId: 'damien',
+    };
+    childIds.add(c.id);
+  });
+  childrenLoaded = true;
+}
+
+export function getChildIds(): UserId[] {
+  return Array.from(childIds);
+}
+
 // Avatars are user-chosen (Admin excluded) via the avatar picker and stored
 // per user_id so the choice follows them across devices/browsers, same as
 // their stats do. Falls back to each profile's built-in default until a

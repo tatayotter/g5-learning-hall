@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadFamilyProtection, loadAvatarOverrides, linkIdentity, recordLastLogin, USERS } from '@/lib/userSession';
+import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadChildren, loadFamilyProtection, loadAvatarOverrides, linkIdentity, recordLastLogin, USERS } from '@/lib/userSession';
 import SplashScreen from '@/components/SplashScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
 import HeroProfile from '@/components/HeroProfile';
@@ -82,7 +82,7 @@ export default function Dashboard() {
       // Classmates are loaded from Supabase, so USERS must be populated
       // before anything reads USERS[savedUserId] below. Avatar overrides are
       // keyed by user_id, so they must load after classmates exist in USERS.
-      await Promise.all([loadClassmates(), loadFamilyProtection()]);
+      await Promise.all([loadClassmates(), loadChildren(), loadFamilyProtection()]);
       await loadAvatarOverrides();
       const saved = getActiveUser();
       if (saved && USERS[saved]) {
