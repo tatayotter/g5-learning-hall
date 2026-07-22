@@ -12,7 +12,6 @@ import DailyChecklist from '@/components/DailyChecklist';
 import { markGuildSessionToday, GuildKey, GUILDS } from '@/lib/dailyChecklist';
 import QuestModule from '@/components/QuestModule';
 import { format } from 'date-fns';
-import AdminPanel from '@/components/AdminPanel';
 import AchievementsBoard from '@/components/AchievementsBoard';
 import { supabase } from '@/lib/supabase';
 import PlayerLog from '@/components/PlayerLog';
