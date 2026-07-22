@@ -7,6 +7,7 @@ import { playChime, playClash, playLevelUp } from '@/lib/sounds';
 import GameButton from '@/components/GameButton';
 import { motion, AnimatePresence } from 'framer-motion';
 import { logAction } from '@/lib/playerlog';
+import { trackEvent } from '@/lib/analytics';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import { fetchSubclassProfile, updateSubclassProfile, ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/lib/guildEngine';
 import { applyLevelUp } from '@/lib/guildConfig';
@@ -190,6 +191,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
     };
     onGoldEarned(newStats);
     logAction(userId, weekStartingDate, 'side_quest', `Lexicon Arena session: ${score} correct, ${wrongCount} wrong, ${accuracy}% accuracy — +${xpEarned} XP +${goldEarned} Gold`, xpEarned, goldEarned);
+    trackEvent('guild_quiz_complete', { guild_key: 'lexicon_arena', correct_count: score, wrong_count: wrongCount, xp_earned: xpEarned, gold_earned: goldEarned });
     if (grantedId) {
       setNewCurioId(grantedId); // reveal modal's onClose triggers onExit instead
     } else {
@@ -237,7 +239,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
             <p className="text-red-400">No words loaded for your grade yet.</p>
           ) : (
             <GameButton
-              onClick={() => setPhase('playing')}
+              onClick={() => { setPhase('playing'); trackEvent('guild_quiz_start', { guild_key: 'lexicon_arena' }); }}
               className={`${accentBg} text-white font-bold py-4 px-12 rounded-xl text-lg transition-all`}
             >
               ⚔️ Enter the Arena

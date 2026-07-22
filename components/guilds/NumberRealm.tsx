@@ -5,6 +5,7 @@ import { useTimeAttack } from '@/hooks/useTimeAttack';
 import { fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile, ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/lib/guildEngine';
 import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
+import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { USERS } from '@/lib/userSession';
@@ -118,6 +119,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
 
   const handleSessionEnd = async () => {
     setScreen('results');
+    trackEvent('guild_quiz_complete', { guild_key: 'number_realm', correct_count: engine.correctCount, wrong_count: engine.wrongCount, xp_earned: engine.totalXpEarned, gold_earned: engine.totalGoldEarned });
     await markQuestionsCompleted(userId, 'number_realm', engine.completedQuestionIds);
     if (profile) {
       const { level, xp } = applyLevelUp(profile.number_realm_lvl, profile.number_realm_xp, engine.totalXpEarned);
@@ -210,7 +212,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
           {questions.length === 0 ? (
             <p className="text-red-400">No active problems found for this term.</p>
           ) : (
-            <GameButton onClick={() => { engine.start(); setScreen('playing'); }}
+            <GameButton onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'number_realm' }); }}
               className="bg-amber-700 hover:bg-amber-600 text-white font-bold py-3 px-10 rounded-xl transition-colors font-mono text-lg">
               ⚔️ Begin Time Attack
             </GameButton>

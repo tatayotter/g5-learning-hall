@@ -5,6 +5,7 @@ import { useTimeAttack } from '@/hooks/useTimeAttack';
 import { fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile, ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/lib/guildEngine';
 import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
+import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { USERS } from '@/lib/userSession';
@@ -91,6 +92,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
 
   const handleSessionEnd = async () => {
     setScreen('results');
+    trackEvent('guild_quiz_complete', { guild_key: 'logic_labyrinth', correct_count: engine.correctCount, wrong_count: engine.wrongCount, xp_earned: engine.totalXpEarned, gold_earned: engine.totalGoldEarned });
     await markQuestionsCompleted(userId, 'logic_labyrinth', engine.completedQuestionIds);
     if (profile) {
       const { level, xp } = applyLevelUp(profile.logic_labyrinth_lvl, profile.logic_labyrinth_xp, engine.totalXpEarned);
@@ -141,7 +143,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
           {questions.length === 0 ? (
             <p className="text-red-400">No active puzzles found for this term.</p>
           ) : (
-            <GameButton onClick={() => { engine.start(); setScreen('playing'); }}
+            <GameButton onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'logic_labyrinth' }); }}
               className="bg-cyan-800 hover:bg-cyan-700 text-white font-bold py-3 px-10 rounded-xl transition-colors font-display text-lg">
               ⚔️ Begin Time Attack
             </GameButton>

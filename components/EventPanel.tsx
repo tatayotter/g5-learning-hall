@@ -1,11 +1,12 @@
 // components/EventPanel.tsx
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { differenceInSeconds } from 'date-fns';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CustomEvent, EventQuest, UserEventProgressRow } from '@/lib/customEvents';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
+import { trackEvent } from '@/lib/analytics';
 
 interface EventPanelProps {
   event: CustomEvent;
@@ -45,6 +46,17 @@ export default function EventPanel({ event, eventQuests, progress, claimed, onPl
   const totalCount = eventQuests.length;
   const pct = totalCount > 0 ? Math.round((doneCount / totalCount) * 100) : 0;
   const reward = ALL_MONSTERS[event.reward_monster_id];
+
+  // Fires once when a kid has mastered every quest this event currently
+  // offers but hasn't claimed the reward yet — a "ran out of content"
+  // signal (all available quests locked behind "already completed").
+  const outOfQuestsFired = useRef(false);
+  useEffect(() => {
+    if (!claimed && totalCount > 0 && doneCount === totalCount && !outOfQuestsFired.current) {
+      outOfQuestsFired.current = true;
+      trackEvent('event_quest_locked_encountered', { event_id: event.id, reason: 'all_quests_completed' });
+    }
+  }, [claimed, doneCount, totalCount, event.id]);
 
   // Once the reward is claimed, this panel's job is done — collapse it to a
   // trophy card (name, timer, sprite) instead of the full quest checklist.

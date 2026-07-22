@@ -6,6 +6,7 @@ import { useTimeAttack } from '@/hooks/useTimeAttack';
 import { fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile, ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/lib/guildEngine';
 import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
+import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { USERS } from '@/lib/userSession';
@@ -86,6 +87,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
 
   const handleSessionEnd = async () => {
     setScreen('results');
+    trackEvent('guild_quiz_complete', { guild_key: 'lorekeeper', correct_count: engine.correctCount, wrong_count: engine.wrongCount, xp_earned: engine.totalXpEarned, gold_earned: engine.totalGoldEarned });
     await markQuestionsCompleted(userId, 'lorekeeper', engine.completedQuestionIds);
 
     if (profile) {
@@ -142,7 +144,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
             <p className="text-red-400">No active questions found for this term. Ask Tatay to add some in Supabase.</p>
           ) : (
             <GameButton
-              onClick={() => { engine.start(); setScreen('playing'); }}
+              onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'lorekeeper' }); }}
               className="bg-emerald-700 hover:bg-emerald-600 text-white font-bold py-3 px-10 rounded-xl transition-colors font-display text-lg"
             >
               ⚔️ Begin Time Attack

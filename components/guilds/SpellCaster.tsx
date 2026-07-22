@@ -4,6 +4,7 @@ import { useTimeAttack } from '@/hooks/useTimeAttack';
 import { fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile, ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/lib/guildEngine';
 import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
+import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { USERS } from '@/lib/userSession';
@@ -97,6 +98,7 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
 
   const handleSessionEnd = async () => {
     setScreen('results');
+    trackEvent('guild_quiz_complete', { guild_key: 'spellcaster', correct_count: engine.correctCount, wrong_count: engine.wrongCount, xp_earned: engine.totalXpEarned, gold_earned: engine.totalGoldEarned });
     await markQuestionsCompleted(userId, 'spellcaster', engine.completedQuestionIds);
     if (profile) {
       const { level, xp } = applyLevelUp(profile.spellcaster_lvl, profile.spellcaster_xp, engine.totalXpEarned);
@@ -173,7 +175,7 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
             <p className="text-red-400">No active words found for this term. Ask Tatay to add some in Supabase.</p>
           ) : (
             <GameButton
-              onClick={() => { engine.start(); setScreen('playing'); }}
+              onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'spellcaster' }); }}
               className="bg-violet-700 hover:bg-violet-600 text-white font-bold py-3 px-10 rounded-xl transition-colors font-mono text-lg"
             >
               ⚔️ Begin Time Attack

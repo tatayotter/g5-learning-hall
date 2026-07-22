@@ -3,6 +3,7 @@
 // realtime hooks (hooks/useLiveBattleInbox.ts, hooks/useLiveBattle.ts) thin —
 // they own the channel/broadcast wiring, this file owns the DB shape.
 import { supabase } from '@/lib/supabase';
+import { trackEvent } from '@/lib/analytics';
 
 export type LiveBattleStatus =
   | 'pending_invite' | 'accepted' | 'declined' | 'in_progress'
@@ -119,6 +120,7 @@ export async function markBattleStarted(battleId: string): Promise<void> {
     .update({ status: 'in_progress', started_at: new Date().toISOString() })
     .eq('id', battleId)
     .eq('status', 'accepted');
+  trackEvent('curio_arena_battle_start', { battle_id: battleId });
 }
 
 export async function updateRoundState(
@@ -157,5 +159,6 @@ export async function resolveBattle(
     console.error('Failed to resolve live battle:', error);
     return { alreadyResolved: false, row: null };
   }
+  trackEvent('curio_arena_battle_end', { battle_id: battleId, end_reason: endReason, winner_id: winnerId });
   return { alreadyResolved: !!data?.alreadyResolved, row: (data?.battle as LiveBattleRow) ?? null };
 }

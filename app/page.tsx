@@ -21,6 +21,7 @@ import SpellCaster from '@/components/guilds/SpellCaster';
 import NumberRealm from '@/components/guilds/NumberRealm';
 import LogicLabyrinth from '@/components/guilds/LogicLabyrinth';
 import { logAction } from '@/lib/playerlog';
+import { trackEvent } from '@/lib/analytics';
 import MonsterGuild from '@/components/MonsterGuild';
 import AdminDashboard from '@/components/AdminDashboard';
 import { playCoins, playPageFlip } from '@/lib/sounds';
@@ -105,6 +106,12 @@ export default function Dashboard() {
       document.documentElement.classList.toggle('theme-tala', theme === 'tala');
       linkIdentity(activeUserId);
       recordLastLogin(activeUserId);
+      // One-shot per browser session, regardless of which user ends up logged
+      // in first — guards against firing again on every activeUserId change.
+      if (typeof window !== 'undefined' && !sessionStorage.getItem('g5_session_started')) {
+        sessionStorage.setItem('g5_session_started', '1');
+        trackEvent('session_start');
+      }
     }
   }, [activeUserId, hydrated]);
 
@@ -130,6 +137,7 @@ export default function Dashboard() {
     setActiveUserId(id);
     const theme = USERS[id].theme;
     document.documentElement.classList.toggle('theme-tala', theme === 'tala');
+    trackEvent('login');
   };
 
   const handleAdminSelect = (id: UserId) => {
@@ -137,6 +145,7 @@ export default function Dashboard() {
     const theme = USERS[id].theme;
     document.documentElement.classList.toggle('theme-tala', theme === 'tala');
     setSplashAdminMode(true);
+    trackEvent('login');
   };
 
   const handleSwitchUser = () => {
@@ -154,6 +163,9 @@ export default function Dashboard() {
   );
   useEffect(() => {
     sessionStorage.setItem('activeTab', activeTab);
+  }, [activeTab]);
+  useEffect(() => {
+    trackEvent('tab_view', {}, activeTab);
   }, [activeTab]);
   const [pendingLiveBattleId, setPendingLiveBattleId] = useState<string | null>(null);
   const [claimingKey, setClaimingKey] = useState<string | null>(null);
@@ -711,8 +723,10 @@ export default function Dashboard() {
                         (data.perfect_quizzes || 0) + 1
                       );
                       logAction(activeUserId, data.week_starting_date, 'quiz', `Completed ${subject} in ${newAttempts} attempt(s)`, xpEarned, goldEarned);
+                      trackEvent('main_quest_completed', { subject, attempts: newAttempts, xp_earned: xpEarned, gold_earned: goldEarned });
                       if (newStats.level > data.character_stats.level) {
                         logAction(activeUserId, data.week_starting_date, 'achievement', `🎉 Leveled up to Level ${newStats.level}!`, 0, 0);
+                        trackEvent('guild_level_up', { new_level: newStats.level });
                       }
                     } else {
                       updateStatsAndJournal(
@@ -747,6 +761,7 @@ export default function Dashboard() {
             if (isPerfect) {
               updateStatsAndJournal(newStats, data.journal_logs);
               logAction(activeUserId, data.week_starting_date, 'event_quiz', `Completed event quest ${eventQuest.subject_name} in ${newAttempts} attempt(s)`, xpEarned, goldEarned);
+              trackEvent('event_quiz_completed', { event_id: activeEvent.id, subject: eventQuest.subject_name, attempts: newAttempts });
             }
             (async () => {
               await recordEventQuizMastery(activeUserId, activeEvent.id, eventQuest.id, isPerfect, newAttempts);
@@ -764,6 +779,7 @@ export default function Dashboard() {
                     setEventClaimed(true);
                     setRevealEventMonster(activeEvent.reward_monster_id);
                     logAction(activeUserId, data.week_starting_date, 'event_reward', `Completed event: ${activeEvent.title}`, 0, 0);
+                    trackEvent('event_reward_claimed', { event_id: activeEvent.id });
                   }
                 }
               }

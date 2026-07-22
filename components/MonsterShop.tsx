@@ -14,6 +14,7 @@ import { USERPIC_CATALOG, userpicPath } from '@/lib/userpicShop';
 import { Element } from '@/lib/monsterConfig';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { logAction } from '@/lib/playerlog';
+import { trackEvent } from '@/lib/analytics';
 
 const SCROLL_CATEGORY_LABELS: Record<ScrollItem['category'], string> = {
   unlearn: 'Unlearn',
@@ -71,6 +72,7 @@ export default function MonsterShop({ userId, currentStats, weekStartingDate, on
     if (buyBusyRef.current) return;
     if (currentStats.gold < cost) {
       alert(`❌ Not enough Gold! You need 🪙 ${cost - currentStats.gold} more.`);
+      trackEvent('shop_purchase_blocked_insufficient_gold', { item_key: key, cost, short_by: cost - currentStats.gold });
       return;
     }
     buyBusyRef.current = true;
@@ -79,11 +81,13 @@ export default function MonsterShop({ userId, currentStats, weekStartingDate, on
       const newStats = await spendGoldAndGrantItem(userId, weekStartingDate, key, 1);
       if (!newStats) {
         alert('❌ Purchase failed — you may not have enough Gold anymore.');
+        trackEvent('shop_purchase_attempt', { item_key: key, cost, success: false });
         return;
       }
       onSpendGold(newStats);
       await loadInventory();
       logAction(userId, new Date().toISOString().split('T')[0], 'purchase', `Bought ${name} from Curio Arena Shop`, 0, -cost);
+      trackEvent('shop_purchase_attempt', { item_key: key, cost, success: true });
     } finally {
       buyBusyRef.current = false;
       setBuyingKey(null);

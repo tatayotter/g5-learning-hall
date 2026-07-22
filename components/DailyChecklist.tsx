@@ -11,6 +11,7 @@ import {
   GuildKey,
 } from '@/lib/dailyChecklist';
 import { logAction } from '@/lib/playerlog';
+import { trackEvent } from '@/lib/analytics';
 import { playCoins } from '@/lib/sounds';
 import GameButton from '@/components/GameButton';
 import GuardianSprite, { GuardianGuild } from '@/components/guilds/GuardianSprite';
@@ -107,6 +108,7 @@ export default function DailyChecklist({
       playCoins();
       onGoldAwarded(BONUS_GOLD);
       await logAction(userId, currentSunday, 'daily_checklist_bonus', 'Completed all daily to-dos', 0, BONUS_GOLD);
+      trackEvent('daily_checklist_bonus_claimed', { gold_earned: BONUS_GOLD });
     }
     setClaiming(false);
   };
