@@ -126,10 +126,10 @@ const TILE_PCT = 100 / MAP_SIZE;
 function TownMarker() {
   return (
     <div
-      className="w-7 h-7 rounded-full bg-sky-900/70 border-2 border-sky-300 flex items-center justify-center text-sm shadow"
+      className="text-2xl drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]"
       title="Town — heals your team"
     >
-      🏠
+      🧪
     </div>
   );
 }
