@@ -13,6 +13,8 @@ import {
 } from '@/lib/guildConfig';
 import { TITLE_TIERS } from '@/lib/titles';
 import { ACHIEVEMENTS } from '@/lib/achievements';
+import { SHOP_CATALOG } from '@/lib/inventory';
+import { SCROLL_CATALOG } from '@/lib/skillScrolls';
 
 // ─── Static config shared by a few sections ────────────────────────────────
 
@@ -58,6 +60,7 @@ const SECTIONS = [
   { id: 'guilds', label: 'The Five Guilds' },
   { id: 'growth', label: 'How Growth Works' },
   { id: 'curios', label: 'Curios & Evolution' },
+  { id: 'items', label: 'Items & Scrolls' },
   { id: 'achievements', label: 'Achievements & Titles' },
   { id: 'glossary', label: 'Glossary' },
 ] as const;
@@ -78,6 +81,8 @@ const GLOSSARY: { term: string; definition: string }[] = [
   { term: 'Elemental Region', definition: 'A World Map region themed to one element, where every wild curio you meet shares that element.' },
   { term: 'Cheer', definition: 'A quick reaction you can send another player on the leaderboard — one per person, per hour.' },
   { term: 'Lucky Find', definition: `A ~${Math.round(CRIT_CHANCE * 100)}% chance on any correct answer for a bonus gold payout.` },
+  { term: 'Vault', definition: 'The Rewards Vault tab — spend gold on Items and Skill Scrolls.' },
+  { term: 'Scroll', definition: "Teaches a curio a new skill in one of its 3 slots, or clears a slot so a different skill can be taught in." },
 ];
 
 // ─── Small shared UI ────────────────────────────────────────────────────────
@@ -189,6 +194,7 @@ export default function CodexPanel() {
           {activeSection === 'guilds' && <GuildsSection />}
           {activeSection === 'growth' && <GrowthSection />}
           {activeSection === 'curios' && <CuriosSection />}
+          {activeSection === 'items' && <ItemsSection />}
           {activeSection === 'achievements' && <AchievementsSection />}
           {activeSection === 'glossary' && <GlossarySection />}
         </div>
@@ -393,6 +399,78 @@ function CuriosSection() {
           already own.
         </p>
       </div>
+    </div>
+  );
+}
+
+function ItemsSection() {
+  const scrollCost = (category: string, tier: number) =>
+    SCROLL_CATALOG.find(s => s.category === category && s.tier === tier)?.cost;
+  const unlearnScroll = SCROLL_CATALOG.find(s => s.category === 'unlearn');
+  const categoryCounts: Record<string, number> = {};
+  for (const s of SCROLL_CATALOG) categoryCounts[s.category] = (categoryCounts[s.category] ?? 0) + 1;
+
+  return (
+    <div>
+      <SectionTitle>Items & Scrolls</SectionTitle>
+      <TLDR>Items are single-use battle tools bought with gold; Scrolls teach your curios new skills.</TLDR>
+
+      <p className="text-sm font-bold text-white mb-2">Items</p>
+      <p className="text-xs text-gray-500 mb-3 max-w-2xl">
+        Bought with gold in the <b className="text-gray-300">Rewards Vault</b>, used mid-battle for a one-time effect.
+      </p>
+      <div className="grid sm:grid-cols-2 gap-2 max-w-2xl mb-6">
+        {SHOP_CATALOG.map(item => (
+          <div key={item.key} className="flex items-center gap-2.5 bg-neutral-900 border border-neutral-800 rounded-lg p-2.5">
+            <img src={item.icon} alt={item.name} className="w-8 h-8 flex-shrink-0" />
+            <div className="min-w-0">
+              <p className="text-sm font-bold text-white flex items-baseline gap-1.5">
+                {item.name}
+                <span className="text-[11px] text-amber-400 font-mono">{item.cost}g</span>
+              </p>
+              <p className="text-xs text-gray-500">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p className="text-sm font-bold text-white mb-2">Scrolls</p>
+      <p className="text-xs text-gray-500 mb-3 max-w-2xl">
+        Also bought in the Vault, then taught to a specific curio from its loadout screen in the{' '}
+        <b className="text-gray-300">Compendium</b>. There are <b className="text-white">{SCROLL_CATALOG.length} scrolls</b> in
+        total — one {unlearnScroll?.name.toLowerCase()} ({unlearnScroll?.cost}g, clears a skill slot) plus one scroll per skill in
+        the game, split across three categories:
+      </p>
+      <div className="grid sm:grid-cols-3 gap-2 max-w-2xl">
+        <ScrollCategoryCard
+          label="Base"
+          count={categoryCounts['base'] ?? 0}
+          costs={[scrollCost('base', 1), scrollCost('base', 2), scrollCost('base', 3)]}
+          desc="Every curio's original species skills."
+        />
+        <ScrollCategoryCard
+          label="Alt"
+          count={categoryCounts['alt'] ?? 0}
+          costs={[scrollCost('alt', 1), scrollCost('alt', 2), scrollCost('alt', 3)]}
+          desc="Trade raw damage for a themed secondary effect."
+        />
+        <ScrollCategoryCard
+          label="Universal"
+          count={categoryCounts['universal'] ?? 0}
+          costs={[scrollCost('universal', 1), scrollCost('universal', 2), scrollCost('universal', 3)]}
+          desc="Element-agnostic buffs/debuffs, no element required."
+        />
+      </div>
+    </div>
+  );
+}
+
+function ScrollCategoryCard({ label, count, costs, desc }: { label: string; count: number; costs: (number | undefined)[]; desc: string }) {
+  return (
+    <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-3">
+      <p className="font-bold text-white text-sm">{label} <span className="text-gray-500 font-normal">({count})</span></p>
+      <p className="text-xs text-gray-500 mt-1">{desc}</p>
+      <p className="text-[11px] text-amber-400 font-mono mt-1.5">Tier 1/2/3: {costs.map(c => c ?? '—').join(' / ')}g</p>
     </div>
   );
 }

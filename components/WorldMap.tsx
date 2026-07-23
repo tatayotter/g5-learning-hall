@@ -10,15 +10,25 @@ interface WorldMapProps {
 
 const RING_ELEMENTS: Element[] = ['fire', 'water', 'leaf', 'storm', 'shadow', 'light'];
 
-// Ring hotspot positions as percentages of the map container, evenly spaced
-// starting from the top and going clockwise — matches the percentage-based
-// positioning convention already used for player sprites on the Training Map.
-function ringPosition(index: number, count: number): { left: number; top: number } {
-  const angle = (index / count) * 2 * Math.PI - Math.PI / 2;
-  const radius = 38; // % of container
+// Each region's hotspot angle (degrees clockwise from top) and radius
+// (% of container), hand-measured against the actual worldmap.webp art —
+// the six regions are NOT evenly spaced wedges, so these can't be derived
+// from index/count alone.
+const RING_POSITION: Record<Element, { angle: number; radius: number }> = {
+  fire: { angle: 338, radius: 38 },
+  water: { angle: 48, radius: 38 },
+  leaf: { angle: 95, radius: 38 },
+  storm: { angle: 178, radius: 38 },
+  shadow: { angle: 211, radius: 38 },
+  light: { angle: 297, radius: 38 },
+};
+
+function ringPosition(element: Element): { left: number; top: number } {
+  const { angle, radius } = RING_POSITION[element];
+  const rad = (angle / 180) * Math.PI - Math.PI / 2;
   return {
-    left: 50 + radius * Math.cos(angle),
-    top: 50 + radius * Math.sin(angle),
+    left: 50 + radius * Math.cos(rad),
+    top: 50 + radius * Math.sin(rad),
   };
 }
 
@@ -52,10 +62,10 @@ export default function WorldMap({ playerLevel, onSelectRegion }: WorldMapProps)
         />
 
         {/* 6 elemental regions in a ring */}
-        {RING_ELEMENTS.map((el, i) => {
+        {RING_ELEMENTS.map((el) => {
           const regionId = REGION_BY_ELEMENT[el];
           const region = REGIONS[regionId];
-          const pos = ringPosition(i, RING_ELEMENTS.length);
+          const pos = ringPosition(el);
           const unlocked = playerLevel >= region.unlockLevel;
           return (
             <RegionHotspot
