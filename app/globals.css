@@ -69,6 +69,13 @@ body {
   border-color: #4a4038 !important;
 }
 
+/* Splash screen roster list scrollbar */
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #3d3225; border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #7a4a0f; }
+.custom-scrollbar { scrollbar-width: thin; scrollbar-color: #3d3225 transparent; }
+
 /* Optional ornate frame — add className="dnd-frame" to any panel for a carved-stone/scroll look */
 .dnd-frame {
   border: 3px double #7a4a0f;
