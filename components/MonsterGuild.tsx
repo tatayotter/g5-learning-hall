@@ -125,12 +125,12 @@ const TILE_PCT = 100 / MAP_SIZE;
 
 function TownMarker() {
   return (
-    <div
-      className="text-2xl drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]"
+    <img
+      src="/items/health_potion_l_100.webp"
+      alt="Town — heals your team"
       title="Town — heals your team"
-    >
-      🧪
-    </div>
+      className="w-8 h-8 object-contain drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]"
+    />
   );
 }
 
