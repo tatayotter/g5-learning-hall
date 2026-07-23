@@ -1025,7 +1025,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
 
       {phase === 'answering' && pendingSkillId && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-          <div className="bg-neutral-900 border border-amber-700 rounded-2xl p-6 max-w-lg w-full battle-panel-in">
+          <div className="bg-neutral-900 border border-amber-700 rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in">
             <div className="flex items-center gap-4 mb-5 bg-amber-900/20 border border-amber-800 rounded-xl p-4">
               <MonsterImage monster={playerMon.def} className="w-14 h-14" />
               <div>
@@ -1615,7 +1615,7 @@ function TrainingMap({
 
       {grassQuestion && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-          <div className="bg-neutral-900 border border-emerald-700 rounded-2xl p-6 max-w-lg w-full">
+          <div className="bg-neutral-900 border border-emerald-700 rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto">
             <div className="flex items-center gap-4 mb-5 bg-emerald-900/30 border border-emerald-800 rounded-xl p-4">
               {activeMonster && (
                 <MonsterImage monster={monsterDisplay[activeMonster.monster_id]} className="w-14 h-14" />

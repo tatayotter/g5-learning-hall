@@ -40,7 +40,7 @@ export default function WildEncounterModal({ monster, level, question, attemptsL
 
   return (
     <div className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
-      <div className="bg-neutral-900 border border-amber-700 rounded-2xl p-6 sm:p-8 max-w-lg w-full battle-panel-in">
+      <div className="bg-neutral-900 border border-amber-700 rounded-2xl p-6 sm:p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in">
         <div className="flex items-center gap-3 mb-2">
           <MonsterImage monster={monster} className="w-12 h-12 battle-float" emojiClassName="text-4xl" />
           <div>

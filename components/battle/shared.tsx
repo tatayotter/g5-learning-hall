@@ -136,7 +136,7 @@ export function BattleQuestionModal({ questions, count, embedded, onComplete }: 
   // Keyed on index so each new question replays the entrance animation below,
   // rather than only playing once for the whole modal.
   const inner = (
-    <div className={embedded ? 'mt-2' : 'bg-neutral-900 border border-neutral-700 rounded-2xl p-8 max-w-lg w-full battle-panel-in'}>
+    <div className={embedded ? 'mt-2' : 'bg-neutral-900 border border-neutral-700 rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in'}>
       <div key={index} className="battle-panel-in">
         <p className="text-xs text-gray-500 mb-2 font-mono">Question {index + 1} of {askedCount}</p>
         <p className="text-lg font-bold text-white mb-6">{current.question || current.problem_prompt}</p>
