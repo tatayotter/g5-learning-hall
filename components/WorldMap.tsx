@@ -87,33 +87,8 @@ export default function WorldMap({ playerLevel, onSelectRegion }: WorldMapProps)
           </p>
         </div>
 
-        {/* Info column: Region Info, then foldable Regions legend */}
+        {/* Info column: foldable Regions legend, then Region Info */}
         <div className="w-full lg:w-80 flex-shrink-0 flex flex-col gap-4">
-
-          {/* Region Info — reserves space so the column doesn't jump */}
-          <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-4 min-h-[112px]">
-            <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Region Info</p>
-            {hoveredRegion ? (
-              <div>
-                <p className="font-bold text-white text-sm flex items-center gap-2">
-                  {hoveredRegion.element !== 'all' && (
-                    <img src={ELEMENT_ICON_SRC[hoveredRegion.element]} alt={hoveredRegion.element} className="w-4 h-4" />
-                  )}
-                  {hoveredRegion.name}
-                  <span className="text-[10px] uppercase tracking-widest text-gray-500">
-                    {hoveredRegion.element === 'all' ? 'All Elements' : hoveredRegion.element}
-                  </span>
-                </p>
-                {playerLevel < hoveredRegion.unlockLevel ? (
-                  <p className="text-xs text-amber-500 mt-1">🔒 Unlocks at Player Level {hoveredRegion.unlockLevel}</p>
-                ) : (
-                  <p className="text-xs text-gray-400 mt-1">{hoveredRegion.lore}</p>
-                )}
-              </div>
-            ) : (
-              <p className="text-gray-500 text-sm">Choose a region to explore. Each elemental region only holds curios of its own kind.</p>
-            )}
-          </div>
 
           {/* Regions — foldable, matches the Training Map's Map Legend pattern */}
           <details className="group bg-neutral-900 border border-neutral-700 rounded-xl p-4" open>
@@ -147,6 +122,31 @@ export default function WorldMap({ playerLevel, onSelectRegion }: WorldMapProps)
               })}
             </div>
           </details>
+
+          {/* Region Info — reserves space so the column doesn't jump */}
+          <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-4 min-h-[112px]">
+            <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Region Info</p>
+            {hoveredRegion ? (
+              <div>
+                <p className="font-bold text-white text-sm flex items-center gap-2">
+                  {hoveredRegion.element !== 'all' && (
+                    <img src={ELEMENT_ICON_SRC[hoveredRegion.element]} alt={hoveredRegion.element} className="w-4 h-4" />
+                  )}
+                  {hoveredRegion.name}
+                  <span className="text-[10px] uppercase tracking-widest text-gray-500">
+                    {hoveredRegion.element === 'all' ? 'All Elements' : hoveredRegion.element}
+                  </span>
+                </p>
+                {playerLevel < hoveredRegion.unlockLevel ? (
+                  <p className="text-xs text-amber-500 mt-1">🔒 Unlocks at Player Level {hoveredRegion.unlockLevel}</p>
+                ) : (
+                  <p className="text-xs text-gray-400 mt-1">{hoveredRegion.lore}</p>
+                )}
+              </div>
+            ) : (
+              <p className="text-gray-500 text-sm">Choose a region to explore. Each elemental region only holds curios of its own kind.</p>
+            )}
+          </div>
 
         </div>
       </div>
