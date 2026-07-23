@@ -37,6 +37,8 @@ import LeaderboardPanel from '@/components/LeaderboardPanel';
 import InfoTag from '@/components/InfoTag';
 import { createInvite, fetchLiveBattle } from '@/lib/liveBattle';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
+import WorldMap from '@/components/WorldMap';
+import { REGIONS } from '@/lib/regions';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 
@@ -1152,12 +1154,19 @@ interface TrainingMapProps {
   movementLocked?: boolean;
   walkLockActive?: boolean;
   monsterDisplay: Record<string, MonsterDef>;
+  // World Map region — 'ledgers_heart' (or omitted) is the original single
+  // map: unfiltered encounters, position persisted to user_battle_state.
+  // Any other region id uses its own hand-authored layout/background and a
+  // fixed spawn point tracked in local state only (never written to the DB).
+  regionId?: string;
+  onExitRegion?: () => void;
 }
 
 function TrainingMap({
   userId, battleState, userMonsters, caughtMonsters, questions,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll, onChallengePlayer,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
+  regionId, onExitRegion,
 }: TrainingMapProps) {
   const [grassQuestion, setGrassQuestion] = useState(false);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
@@ -1166,7 +1175,16 @@ function TrainingMap({
   const [bumping, setBumping] = useState(false);
   const [dustPuffs, setDustPuffs] = useState<{ id: number; x: number; y: number }[]>([]);
   const dustIdRef = useRef(0);
-  const map = buildMap();
+  const isLedgersHeart = !regionId || regionId === 'ledgers_heart';
+  const region = !isLedgersHeart ? REGIONS[regionId!] : null;
+  const map = isLedgersHeart ? buildMap() : region!.layout;
+  const mapImageSrc = isLedgersHeart ? MAP_IMAGE : region!.mapImage;
+  // Elemental regions always start at their fixed spawn point and never
+  // persist position — this local state naturally resets on region re-entry
+  // since TrainingMap remounts when regionId changes.
+  const [localPos, setLocalPos] = useState(() => region?.spawn ?? { x: 1, y: 1 });
+  const posX = isLedgersHeart ? battleState.map_x : localPos.x;
+  const posY = isLedgersHeart ? battleState.map_y : localPos.y;
   const activeMonster = userMonsters.find(m => m.slot === battleState.active_monster_slot);
   const selfProfile = USERS[userId];
   const { onlinePlayers, waves, stickers, sendWave, sendSticker } = mapPresence;
@@ -1180,8 +1198,8 @@ function TrainingMap({
 
   const move = useCallback(async (dx: number, dy: number) => {
     if (movementLocked) return;
-    const newX = battleState.map_x + dx;
-    const newY = battleState.map_y + dy;
+    const newX = posX + dx;
+    const newY = posY + dy;
     if (newX < 0 || newX >= MAP_SIZE || newY < 0 || newY >= MAP_SIZE) {
       playWallBump();
       pulse(setBumping);
@@ -1205,12 +1223,15 @@ function TrainingMap({
     }
     pulse(setStepping);
 
-    const newState = { ...battleState, map_x: newX, map_y: newY };
-    onBattleStateChange(newState);
-
-    await supabase.from('user_battle_state')
-      .update({ map_x: newX, map_y: newY, updated_at: new Date().toISOString() })
-      .eq('user_id', userId);
+    if (isLedgersHeart) {
+      const newState = { ...battleState, map_x: newX, map_y: newY };
+      onBattleStateChange(newState);
+      await supabase.from('user_battle_state')
+        .update({ map_x: newX, map_y: newY, updated_at: new Date().toISOString() })
+        .eq('user_id', userId);
+    } else {
+      setLocalPos({ x: newX, y: newY });
+    }
 
     if (tile.type === 'grass' && Math.random() < 0.4) {
       playMonsterAppear();
@@ -1218,7 +1239,7 @@ function TrainingMap({
     } else if (tile.type === 'town') {
       onHeal();
     }
-  }, [battleState, map, userId, onBattleStateChange, onHeal, movementLocked]);
+  }, [posX, posY, map, userId, onBattleStateChange, onHeal, movementLocked, isLedgersHeart, battleState]);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -1282,6 +1303,20 @@ function TrainingMap({
   return (
     <div>
 
+      {onExitRegion && (
+        <div className="mb-3 flex items-center justify-between">
+          <button
+            onClick={onExitRegion}
+            className="text-sm font-bold text-gray-400 hover:text-white flex items-center gap-1"
+          >
+            ← Back to World Map
+          </button>
+          <p className="text-sm font-display font-bold text-white">
+            {isLedgersHeart ? REGIONS.ledgers_heart.name : region!.name}
+          </p>
+        </div>
+      )}
+
       {/* Map (left on desktop, top on mobile) + stacked info column (right on desktop, below on mobile) */}
       <div className="flex flex-col lg:flex-row gap-4 mb-4">
 
@@ -1314,24 +1349,29 @@ function TrainingMap({
                 scrolling — every position on the grid is expressed in % rather than fixed pixels. */}
             <div
               className={`relative border border-neutral-700 rounded-xl overflow-hidden bg-neutral-900 flex-1 min-w-0 max-w-[560px] aspect-square ${bumping ? 'map-bump-shake' : ''}`}
-              style={{ backgroundImage: `url(${MAP_IMAGE})`, backgroundSize: '100% 100%' }}
+              style={{ backgroundImage: `url(${mapImageSrc})`, backgroundSize: '100% 100%' }}
             >
               <div
                 className="absolute inset-0 grid gap-0"
                 style={{ gridTemplateColumns: `repeat(${MAP_SIZE}, 1fr)`, gridTemplateRows: `repeat(${MAP_SIZE}, 1fr)` }}
               >
                 {map.map((row, y) =>
-                  row.map((tile, x) => (
-                    <div key={`${x}-${y}`} className="flex items-center justify-center" title={tile.type}>
-                      {tile.type === 'town' && x === 1 && y === 1 && <TownMarker />}
-                    </div>
-                  ))
+                  row.map((tile, x) => {
+                    const isTownMarkerTile = isLedgersHeart
+                      ? x === 1 && y === 1
+                      : x === region!.townCenter.x && y === region!.townCenter.y;
+                    return (
+                      <div key={`${x}-${y}`} className="flex items-center justify-center" title={tile.type}>
+                        {tile.type === 'town' && isTownMarkerTile && <TownMarker />}
+                      </div>
+                    );
+                  })
                 )}
               </div>
               <div
                 className="absolute pointer-events-none transition-[left,top] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] flex items-center justify-center"
                 style={{
-                  left: `${battleState.map_x * TILE_PCT}%`, top: `${battleState.map_y * TILE_PCT}%`,
+                  left: `${posX * TILE_PCT}%`, top: `${posY * TILE_PCT}%`,
                   width: `${TILE_PCT}%`, height: `${TILE_PCT}%`,
                 }}
               >
@@ -2330,6 +2370,10 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
   const [battleState, setBattleState] = useState<BattleState | null>(null);
   const [view, setView] = useState<GuildView>(initialView ?? 'map');
+  // World Map — null shows the region picker; a region id enters that
+  // region's Training Map. 'ledgers_heart' behaves exactly like the original
+  // single Training Map (unfiltered encounters, DB-persisted position).
+  const [activeRegion, setActiveRegion] = useState<string | null>(null);
   const [activeBattle, setActiveBattle] = useState<NpcTrainer | null>(null);
   const [isWildEncounterBattle, setIsWildEncounterBattle] = useState(false);
   const [isDummyBattle, setIsDummyBattle] = useState(false);
@@ -2554,7 +2598,11 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       ...caughtMonsters.map(c => c.monster_id),
     ]);
     const ownedLegendaryCount = [...ownedSpeciesIds].filter(id => ALL_MONSTERS[id]?.isLegendary).length;
-    const monsterId = pickRandomWildMonsterId(ownedLegendaryCount);
+    // Elemental World Map regions restrict wild encounters to their own
+    // element; 'ledgers_heart' (or no active region) stays fully unfiltered.
+    const activeRegionDef = activeRegion ? REGIONS[activeRegion] : null;
+    const allowedElements = activeRegionDef && activeRegionDef.element !== 'all' ? [activeRegionDef.element] : undefined;
+    const monsterId = pickRandomWildMonsterId(ownedLegendaryCount, allowedElements);
     const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
     const level = Math.max(1, (activeMonster?.monster_level || 1) + Math.floor(Math.random() * 3) - 1);
     const question = pool[Math.floor(Math.random() * pool.length)];
@@ -2881,7 +2929,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       {/* Sub-nav */}
       <div className="flex gap-2 mb-8 border-b border-neutral-800">
         {([
-          { id: 'map',        label: 'Training Map' },
+          { id: 'map',        label: 'World Map' },
           { id: 'team',       label: 'My Team' },
           { id: 'trainers',   label: 'Trainers' },
           { id: 'compendium', label: `Compendium${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}` },
@@ -2901,26 +2949,32 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
         ))}
       </div>
 
-      {/* Map view */}
+      {/* Map view — World Map region picker, or the selected region's Training Map */}
       {view === 'map' && battleState && (
-        <TrainingMap
-          userId={userId}
-          battleState={battleState}
-          userMonsters={userMonsters}
-          caughtMonsters={caughtMonsters}
-          questions={questions}
-          onBattleStateChange={setBattleState}
-          onMonsterExpGained={handleMonsterExpGained}
-          onHeal={handleHeal}
-          onQuestionsAnswered={handleQuestionsAnswered}
-          onWildEncounterRoll={handleWildEncounterRoll}
-          onChallengePlayer={(targetId, name) => handleChallengePlayer(targetId as UserId, name)}
-          liveBattleInbox={liveBattleInbox}
-          mapPresence={mapPresence}
-          movementLocked={!!wildEncounter || walkLocked}
-          walkLockActive={walkLocked}
-          monsterDisplay={displayMonsters}
-        />
+        activeRegion ? (
+          <TrainingMap
+            userId={userId}
+            battleState={battleState}
+            userMonsters={userMonsters}
+            caughtMonsters={caughtMonsters}
+            questions={questions}
+            onBattleStateChange={setBattleState}
+            onMonsterExpGained={handleMonsterExpGained}
+            onHeal={handleHeal}
+            onQuestionsAnswered={handleQuestionsAnswered}
+            onWildEncounterRoll={handleWildEncounterRoll}
+            onChallengePlayer={(targetId, name) => handleChallengePlayer(targetId as UserId, name)}
+            liveBattleInbox={liveBattleInbox}
+            mapPresence={mapPresence}
+            movementLocked={!!wildEncounter || walkLocked}
+            walkLockActive={walkLocked}
+            monsterDisplay={displayMonsters}
+            regionId={activeRegion}
+            onExitRegion={() => setActiveRegion(null)}
+          />
+        ) : (
+          <WorldMap playerLevel={playerLevel} onSelectRegion={setActiveRegion} />
+        )
       )}
 
       {/* Team view */}

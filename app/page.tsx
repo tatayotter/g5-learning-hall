@@ -22,6 +22,7 @@ import LogicLabyrinth from '@/components/guilds/LogicLabyrinth';
 import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
 import MonsterGuild from '@/components/MonsterGuild';
+import CodexPanel from '@/components/CodexPanel';
 import AdminDashboard from '@/components/AdminDashboard';
 import { playCoins, playPageFlip } from '@/lib/sounds';
 import Toast from '@/components/Toast';
@@ -481,6 +482,7 @@ export default function Dashboard() {
             { id: 'board',   label: 'Main Quests' },
             { id: 'vault',   label: 'Rewards Vault' },
             { id: 'guilds',  label: 'Learning Guilds' },
+            { id: 'codex',   label: 'Codex' },
             { id: 'monster', label: 'Curio Arena' },
             { id: 'log',     label: 'Logs' },
           ].map(tab => (
@@ -1153,6 +1155,9 @@ export default function Dashboard() {
             )}
           />
         )}
+
+        {/* --- TAB: CODEX --- */}
+        {activeTab === 'codex' && <CodexPanel />}
 
         {liveBattleInbox.incomingInvite && (
           <LiveBattleInviteToast

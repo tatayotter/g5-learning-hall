@@ -14,7 +14,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'novice_squire',
     title: 'Novice Squire',
-    description: 'A humble beginning. Level up to 2 to show your commitment.',
+    description: 'The Ledger has begun to notice your name. Level up to 2 to show your commitment.',
     criteria: (d) => d.character_stats.level >= 2, 
     xpReward: 50, 
     goldReward: 25 
@@ -22,7 +22,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'elite_stats',
     title: 'Elite Stats',
-    description: 'You are becoming a force to be reckoned with. Reach Level 15.',
+    description: 'Your thread of the Ledger runs thick and steady now. Reach Level 15.',
     criteria: (d) => d.character_stats.level >= 15, 
     xpReward: 500, 
     goldReward: 250 
@@ -62,7 +62,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'copper_sack',
     title: 'Copper Sack',
-    description: 'A small fortune. Amass 100 Gold in your wallet.',
+    description: 'The world\'s gratitude, in coin. Amass 100 Gold in your wallet.',
     criteria: (d) => d.character_stats.gold >= 100, 
     xpReward: 50, 
     goldReward: 25 
@@ -70,7 +70,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'fortune_seeker',
     title: 'Amass Fortune',
-    description: 'A true treasure hunter. Amass 1,000 Gold.',
+    description: 'A thousand thanks from a world that noticed. Amass 1,000 Gold.',
     criteria: (d) => d.character_stats.gold >= 1000, 
     xpReward: 500, 
     goldReward: 250 
@@ -94,7 +94,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'level_5',
     title: 'Train Hard',
-    description: 'Training intensifies. Reach Level 5.',
+    description: 'Every watch-post is a little safer for it. Reach Level 5.',
     criteria: (d) => d.character_stats.level >= 5, 
     xpReward: 150, 
     goldReward: 75 
@@ -102,7 +102,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'ultimate_status',
     title: 'Ultimate Status',
-    description: 'You have transcended expectations. Reach Level 20.',
+    description: 'The world keeps a record of keepers like you. Reach Level 20.',
     criteria: (d) => d.character_stats.level >= 20, 
     xpReward: 1000, 
     goldReward: 500 
@@ -142,7 +142,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'merchant_assoc',
     title: 'Merchant Associate',
-    description: 'A respectable sum. Reach 300 Gold balance.',
+    description: 'A respectable sum of the world\'s gratitude. Reach 300 Gold balance.',
     criteria: (d) => d.character_stats.gold >= 300, 
     xpReward: 100, 
     goldReward: 50 
@@ -150,7 +150,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'legendary_bank',
     title: 'Legendary Balance',
-    description: 'Your coffers overflow. Reach 1,500 Gold balance.',
+    description: 'Your coffers overflow with a world\'s thanks. Reach 1,500 Gold balance.',
     criteria: (d) => d.character_stats.gold >= 1500, 
     xpReward: 800, 
     goldReward: 400 
@@ -174,7 +174,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'level_10',
     title: 'Threshold Level 10',
-    description: 'A seasoned learner. Reach Level 10.',
+    description: 'A seasoned keeper now, trusted with more of the Ledger. Reach Level 10.',
     criteria: (d) => d.character_stats.level >= 10, 
     xpReward: 300, 
     goldReward: 150 
@@ -182,7 +182,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'limit_breaker',
     title: 'Limit Breaker',
-    description: 'You have no limits. Reach Level 25.',
+    description: 'Few watch-posts have ever had a keeper this reliable. Reach Level 25.',
     criteria: (d) => d.character_stats.level >= 25, 
     xpReward: 1500, 
     goldReward: 750 
@@ -222,7 +222,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'wealthy_hoarder',
     title: 'Wealthy Hoarder',
-    description: 'The riches pile up. Amass 500 Gold.',
+    description: 'The world\'s gratitude piles up. Amass 500 Gold.',
     criteria: (d) => d.character_stats.gold >= 500, 
     xpReward: 200, 
     goldReward: 100 
@@ -230,7 +230,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { 
     id: 'staggering_wealth',
     title: 'Staggering Wealth',
-    description: 'You have more than most kingdoms. Amass 2,000 Gold.',
+    description: 'A whole world\'s worth of thanks, in your keeping. Amass 2,000 Gold.',
     criteria: (d) => d.character_stats.gold >= 2000, 
     xpReward: 1200, 
     goldReward: 600 

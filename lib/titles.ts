@@ -5,7 +5,7 @@ export interface TitleTier {
   icon: string;
 }
 
-const TITLE_TIERS: TitleTier[] = [
+export const TITLE_TIERS: TitleTier[] = [
   { minLevel: 1, title: 'Apprentice', icon: '📖' },
   { minLevel: 3, title: 'Journeyman', icon: '🗡️' },
   { minLevel: 5, title: 'Adventurer', icon: '🛡️' },

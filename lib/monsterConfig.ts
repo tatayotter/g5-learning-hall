@@ -331,35 +331,35 @@ const WILD_STAT_PRESET = { baseHp: 140, baseAttack: 26, baseDefense: 20, baseSpe
 export const MONSTERS: Record<string, MonsterDef> = {
   shadrak: {
     id: 'shadrak', name: 'Shadrak', element: 'shadow', archetype: 'glass_cannon',
-    emoji: '👻', description: 'A cloaked phantom with hollow eyes. It wove its cloak from leftover night. It doesn’t cast a shadow — it wears one. Moves without sound and watches from doorways.',
+    emoji: '👻', description: 'A cloaked phantom with hollow eyes — a fragment of the world\'s Ledger that keeps what\'s hidden or overlooked. It wove its cloak from leftover night. It doesn’t cast a shadow — it wears one. Moves without sound and watches from doorways.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   torrenth: {
     id: 'torrenth', name: 'Torrenth', element: 'water', archetype: 'tank',
-    emoji: '🐢', description: 'An armored sea turtle with a crashing shell. Each ridge on its shell holds the echo of a wave. Can tuck in and become almost immovable, like a small island.',
+    emoji: '🐢', description: 'An armored sea turtle with a crashing shell — a fragment of the Ledger that keeps change and feeling. Each ridge on its shell holds the echo of a wave. Can tuck in and become almost immovable, like a small island.',
     ...STAT_PRESETS.tank,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   voltmane: {
     id: 'voltmane', name: 'Voltmane', element: 'storm', archetype: 'glass_cannon',
-    emoji: '⚡', description: 'A wild-maned beast crackling with static. Its mane stands straight up from its own charge. Runs in short, blinding bursts that leave the smell of rain.',
+    emoji: '⚡', description: 'A wild-maned beast crackling with static — a fragment of the Ledger that keeps momentum and consequence. Its mane stands straight up from its own charge. Runs in short, blinding bursts that leave the smell of rain.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   fernix: {
     id: 'fernix', name: 'Fernix', element: 'leaf', archetype: 'balanced',
-    emoji: '🦅', description: 'A bird made entirely of woven leaves and vines. Its body rustles when it flies. If it loses a feather, a small green sprout appears where it lands.',
+    emoji: '🦅', description: 'A bird made entirely of woven leaves and vines — a fragment of the Ledger that keeps growth and patience. Its body rustles when it flies. If it loses a feather, a small green sprout appears where it lands.',
     ...STAT_PRESETS.balanced,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   solarch: {
     id: 'solarch', name: 'Solarch', element: 'light', archetype: 'tank',
-    emoji: '🦁', description: 'A regal lion with a sun-disc mane. The disc floats just off its fur and glows like late morning. Wakes early and lies in the highest sun it can find.',
+    emoji: '🦁', description: 'A regal lion with a sun-disc mane — a fragment of the Ledger that keeps what\'s been proven true. The disc floats just off its fur and glows like late morning. Wakes early and lies in the highest sun it can find.',
     ...STAT_PRESETS.tank,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -372,7 +372,7 @@ export const MONSTERS: Record<string, MonsterDef> = {
   },
   pyravex: {
     id: 'pyravex', name: 'Pyravex', element: 'fire', archetype: 'glass_cannon',
-    emoji: '🦊', description: 'A grumpy dinosaur-like monster with a blazing tail. The tail spins for balance when it runs. Its chest glows when it breathes in, dimming when it exhales.',
+    emoji: '🦊', description: 'A grumpy dinosaur-like monster with a blazing tail — a fragment of the Ledger that keeps will and courage. The tail spins for balance when it runs. Its chest glows when it breathes in, dimming when it exhales.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -390,14 +390,14 @@ export const MONSTERS: Record<string, MonsterDef> = {
 export const WILD_MONSTERS: Record<string, MonsterDef> = {
   embrak: {
     id: 'embrak', name: 'Embrak', element: 'fire', archetype: 'balanced',
-    emoji: '🦎', description: 'A stocky lizard with magma cracks on its hide. Spends days half-buried in warm mud with only nostrils showing. Its bite leaves a clean, cauterized mark.',
+    emoji: '🦎', description: 'A stocky lizard with magma cracks on its hide — a loose fragment of the Ledger, never claimed by any watch-post. Spends days half-buried in warm mud with only nostrils showing. Its bite leaves a clean, cauterized mark.',
     ...STAT_PRESETS.balanced,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   coralyn: {
     id: 'coralyn', name: 'Coralyn', element: 'water', archetype: 'balanced',
-    emoji: '🌊', description: 'An elegant coral-horned seahorse. Her branching coral horns filter water and house tiny shrimp. She drifts slowly and guards one patch of reef fiercely.',
+    emoji: '🌊', description: 'An elegant coral-horned seahorse — a fragment of the Ledger that drifted loose long ago and never found a post to guard. Her branching coral horns filter water and house tiny shrimp. She drifts slowly and guards one patch of reef fiercely.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -410,21 +410,21 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   mosshorn: {
     id: 'mosshorn', name: 'Mosshorn', element: 'leaf', archetype: 'tank',
-    emoji: '🦌', description: 'A gentle deer with a mossy antler crown. The moss on its antlers holds rainwater and tiny ferns. Sheds its antlers each year, leaving a small mossy hill behind.',
+    emoji: '🦌', description: 'A gentle deer with a mossy antler crown — a loose fragment of the Ledger, patient enough to wait uncaught for years. The moss on its antlers holds rainwater and tiny ferns. Sheds its antlers each year, leaving a small mossy hill behind.',
     ...STAT_PRESETS.tank,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   galestrik: {
     id: 'galestrik', name: 'Galestrik', element: 'storm', archetype: 'glass_cannon',
-    emoji: '🦅', description: 'A hawk that rides and generates thunderclouds. It surfs wind currents without flapping and drags lightning behind its wingtips when it dives.',
+    emoji: '🦅', description: 'A hawk that rides and generates thunderclouds — a fragment of the Ledger that outran every post built to hold it. It surfs wind currents without flapping and drags lightning behind its wingtips when it dives.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   duskral: {
     id: 'duskral', name: 'Duskral', element: 'shadow', archetype: 'glass_cannon',
-    emoji: '🐈‍⬛', description: 'A sleek panther that melts into darkness. In low light its outline softens until only its eyes and crescent chest mark remain. Hunts at the edge of lamplight.',
+    emoji: '🐈‍⬛', description: 'A sleek panther that melts into darkness — a loose fragment of the Ledger keeping what\'s hidden, drifting between watch-posts unclaimed. In low light its outline softens until only its eyes and crescent chest mark remain. Hunts at the edge of lamplight.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -437,14 +437,14 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   luminos: {
     id: 'luminos', name: 'Luminos', element: 'light', archetype: 'balanced',
-    emoji: '🦊', description: 'A small glowing fox with a radiant tail. Its tail works like a lantern that dims and brightens with its breathing. Leaves faint light pawprints that fade by morning.',
+    emoji: '🦊', description: 'A small glowing fox with a radiant tail — a loose fragment of the Ledger, never bound to any single post. Its tail works like a lantern that dims and brightens with its breathing. Leaves faint light pawprints that fade by morning.',
     ...STAT_PRESETS.balanced,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   emberwyrm: {
     id: 'emberwyrm', name: 'Emberwyrm', element: 'fire', archetype: 'tank',
-    emoji: '🐉', description: 'A legendary wyrm wreathed in slow, eternal flame. Sleeps coiled around dormant volcanoes. Its flame moves so slowly you can watch it crawl across its scales over days.',
+    emoji: '🐉', description: 'A legendary wyrm wreathed in slow, eternal flame — said to be one of the oldest fragments of the Ledger, old enough to remember when the Forgetting had no name yet. Sleeps coiled around dormant volcanoes. Its flame moves so slowly you can watch it crawl across its scales over days.',
     ...WILD_STAT_PRESET,
     skills: ['ember', 'flamethrower', 'legendary_fire'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -452,7 +452,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   tidalynx: {
     id: 'tidalynx', name: 'Tidalynx', element: 'water', archetype: 'tank',
-    emoji: '🐋', description: 'A serene leviathan said to command the deep tides. Lives along untouched coasts. Where it steps, water pulls back, leaving its pawprints filled with clear tide.',
+    emoji: '🐋', description: 'A serene leviathan said to command the deep tides — one of the oldest fragments of the Ledger, holding more change and feeling than any single watch-post could contain. Lives along untouched coasts. Where it steps, water pulls back, leaving its pawprints filled with clear tide.',
     ...WILD_STAT_PRESET,
     skills: ['water_gun', 'hydro_pump', 'legendary_water'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -460,7 +460,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   zephyrion: {
     id: 'zephyrion', name: 'Zephyrion', element: 'storm', archetype: 'tank',
-    emoji: '🦅', description: 'A storm-forged raptor that rides lightning itself. Nests above the clouds where air is thin and stays aloft for weeks. Its shadow passing makes flags change direction.',
+    emoji: '🦅', description: 'A storm-forged raptor that rides lightning itself — one of the oldest fragments of the Ledger, carrying more momentum than any single watch-post could hold. Nests above the clouds where air is thin and stays aloft for weeks. Its shadow passing makes flags change direction.',
     ...WILD_STAT_PRESET,
     skills: ['thunder_shock', 'thunderbolt', 'legendary_storm'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -468,7 +468,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   nyxfang: {
     id: 'nyxfang', name: 'Nyxfang', element: 'shadow', archetype: 'tank',
-    emoji: '🐺', description: 'A wolf woven from pure night, rarely ever seen. Its fur absorbs light, so at night it looks like a wolf-shaped hole in the dark. Its howl feels like pressure more than sound.',
+    emoji: '🐺', description: 'A wolf woven from pure night, rarely ever seen — one of the oldest fragments of the Ledger, holding more of what\'s hidden than any single watch-post dares keep. Its fur absorbs light, so at night it looks like a wolf-shaped hole in the dark. Its howl feels like pressure more than sound.',
     ...WILD_STAT_PRESET,
     skills: ['shadow_claw', 'dark_pulse', 'legendary_shadow'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -476,7 +476,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   aureon: {
     id: 'aureon', name: 'Aureon', element: 'light', archetype: 'tank',
-    emoji: '🦄', description: 'A radiant beast said to bring fortune to its keeper. Its mane scatters light like golden dust. At dawn, the air around it glitters for minutes after it has already left.',
+    emoji: '🦄', description: 'A radiant beast said to bring fortune to its keeper — one of the oldest fragments of the Ledger, holding more proven truth than any single watch-post could shelter. Its mane scatters light like golden dust. At dawn, the air around it glitters for minutes after it has already left.',
     ...WILD_STAT_PRESET,
     skills: ['flash', 'sacred_beam', 'legendary_light'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -484,84 +484,84 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   emberpaw: {
     id: 'emberpaw', name: 'Emberpaw', element: 'fire', archetype: 'balanced',
-    emoji: '🐾', description: 'Found near hearths and campfires. Leaves glowing pawprints that last hours. Superstitious travelers follow them at night, but Emberpaw just likes warm stones. It sneezes embers when nervous.',
+    emoji: '🐾', description: 'A loose fragment of the Ledger, found near hearths and campfires. Leaves glowing pawprints that last hours. Superstitious travelers follow them at night, but Emberpaw just likes warm stones. It sneezes embers when nervous.',
     ...STAT_PRESETS.balanced,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   magmarox: {
     id: 'magmarox', name: 'Magmarox', element: 'fire', archetype: 'tank',
-    emoji: '🦏', description: 'A solitary magma rhino that lives in cooled lava fields. Its armor is volcanic rock it coats itself in for protection, then sheds when it gets too heavy. It bathes in ash, not water.',
+    emoji: '🦏', description: 'A solitary magma rhino, a loose fragment of the Ledger that lives in cooled lava fields. Its armor is volcanic rock it coats itself in for protection, then sheds when it gets too heavy. It bathes in ash, not water.',
     ...STAT_PRESETS.tank,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   bubbloon: {
     id: 'bubbloon', name: 'Bubbloon', element: 'water', archetype: 'balanced',
-    emoji: '🫧', description: 'A tidepool axolotl that stores fresh water in its cheek bubbles to survive low tide. It drifts with the current and inflates to look bigger. Its bubbles pop with a clean ping.',
+    emoji: '🫧', description: 'A tidepool axolotl, a loose fragment of the Ledger that stores fresh water in its cheek bubbles to survive low tide. It drifts with the current and inflates to look bigger. Its bubbles pop with a clean ping.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   coralune: {
     id: 'coralune', name: 'Coralune', element: 'water', archetype: 'balanced',
-    emoji: '🪸', description: 'A shy reef seahorse that grows a small living coral crown. The coral’s health reflects the water’s. Coralune hums to keep the polyps calm. If water turns sour, it leaves.',
+    emoji: '🪸', description: 'A shy reef seahorse, a loose fragment of the Ledger that grows a small living coral crown. The coral’s health reflects the water’s. Coralune hums to keep the polyps calm. If water turns sour, it leaves.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   luminibee: {
     id: 'luminibee', name: 'Luminibee', element: 'light', archetype: 'balanced',
-    emoji: '🐝', description: 'A nocturnal bee whose abdomen hardens into a lantern of solid light. It uses it to lure moths and to signal other Luminibee across meadows. The light never goes out, even after death.',
+    emoji: '🐝', description: 'A nocturnal bee, a loose fragment of the Ledger, whose abdomen hardens into a lantern of solid light. It uses it to lure moths and to signal other Luminibee across meadows. The light never goes out, even after death.',
     ...STAT_PRESETS.balanced,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   solaraffe: {
     id: 'solaraffe', name: 'Solaraffe', element: 'light', archetype: 'tank',
-    emoji: '🦒', description: 'A savanna giraffe with sun-like spots that hold heat through the night. It stands still for hours absorbing light, then releases it slowly to warm the grass around it in winter.',
+    emoji: '🦒', description: 'A savanna giraffe, a loose fragment of the Ledger, with sun-like spots that hold heat through the night. It stands still for hours absorbing light, then releases it slowly to warm the grass around it in winter.',
     ...STAT_PRESETS.tank,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   zapkit: {
     id: 'zapkit', name: 'Zapkit', element: 'storm', archetype: 'glass_cannon',
-    emoji: '🐱', description: 'A mountain kitten whose fur generates static. Before a storm, its fur stands straight up and crackles. It hunts by zapping insects out of the air.',
+    emoji: '🐱', description: 'A mountain kitten, a loose fragment of the Ledger, whose fur generates static. Before a storm, its fur stands straight up and crackles. It hunts by zapping insects out of the air.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   thundrake: {
     id: 'thundrake', name: 'Thundrake', element: 'storm', archetype: 'tank',
-    emoji: '🐉', description: 'A serpentine dragon that lives inside storm clouds. It doesn’t create thunder — it lives where thunder already is, because the vibrations help it shed old cloud-scales. Often mistaken for distant thunder.',
+    emoji: '🐉', description: 'A serpentine dragon, a loose fragment of the Ledger, that lives inside storm clouds. It doesn’t create thunder — it lives where thunder already is, because the vibrations help it shed old cloud-scales. Often mistaken for distant thunder.',
     ...STAT_PRESETS.tank,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   gloombat: {
     id: 'gloombat', name: 'Gloombat', element: 'shadow', archetype: 'glass_cannon',
-    emoji: '🦇', description: 'A small bat that roosts in abandoned attics and caves. Its large ears absorb sound, so it hears whispers from far rooms. It is active only when the moon is thin.',
+    emoji: '🦇', description: 'A small bat, a loose fragment of the Ledger, that roosts in abandoned attics and caves. Its large ears absorb sound, so it hears whispers from far rooms. It is active only when the moon is thin.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   umbraven: {
     id: 'umbraven', name: 'Umbraven', element: 'shadow', archetype: 'balanced',
-    emoji: '🐦‍⬛', description: 'A forest raven whose feathers have a soft ink-like edge that blurs in dim light. It is hard to photograph because cameras can’t focus on it. It collects shiny black stones.',
+    emoji: '🐦‍⬛', description: 'A forest raven, a loose fragment of the Ledger, whose feathers have a soft ink-like edge that blurs in dim light. It is hard to photograph because cameras can’t focus on it. It collects shiny black stones.',
     ...STAT_PRESETS.balanced,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   sproutle: {
     id: 'sproutle', name: 'Sproutle', element: 'leaf', archetype: 'balanced',
-    emoji: '🦌', description: 'A fawn that sprouts a single seed on its head at birth. The sprout grows based on soil and mood, but never roots. Sproutle eat morning dew off their own leaves.',
+    emoji: '🦌', description: 'A fawn, a loose fragment of the Ledger, that sprouts a single seed on its head at birth. The sprout grows based on soil and mood, but never roots. Sproutle eat morning dew off their own leaves.',
     ...STAT_PRESETS.balanced,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
   brambleon: {
     id: 'brambleon', name: 'Brambleon', element: 'leaf', archetype: 'tank',
-    emoji: '🦁', description: 'A lowland lion with a mane of thick leaves and vines. The leaves change color with the season, but never fall out completely. It marks territory by tangling vines into knots.',
+    emoji: '🦁', description: 'A lowland lion, a loose fragment of the Ledger, with a mane of thick leaves and vines. The leaves change color with the season, but never fall out completely. It marks territory by tangling vines into knots.',
     ...STAT_PRESETS.tank,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -583,12 +583,17 @@ const LEGENDARY_MIN_WEIGHT = 0.05;
 // WILD_RARITY_WEIGHT, with legendary odds falling further as
 // ownedLegendaryCount (distinct legendary species already in the player's
 // collection) grows — the closer to a full legendary set, the rarer the next one.
-export function pickRandomWildMonsterId(ownedLegendaryCount = 0): string {
+// `allowedElements`, when provided (World Map elemental regions), restricts
+// the candidate pool to only those elements before weighting — omitted
+// entirely, behavior is identical to the original unfiltered roll.
+export function pickRandomWildMonsterId(ownedLegendaryCount = 0, allowedElements?: Element[]): string {
   const legendaryWeight = Math.max(
     LEGENDARY_MIN_WEIGHT,
     WILD_RARITY_WEIGHT.legendaryBase * Math.pow(LEGENDARY_WEIGHT_DECAY_PER_OWNED, ownedLegendaryCount)
   );
-  const entries = Object.values(WILD_MONSTERS);
+  const entries = allowedElements
+    ? Object.values(WILD_MONSTERS).filter(m => allowedElements.includes(m.element))
+    : Object.values(WILD_MONSTERS);
   const totalWeight = entries.reduce(
     (sum, m) => sum + (m.isLegendary ? legendaryWeight : WILD_RARITY_WEIGHT.common), 0
   );
@@ -654,7 +659,7 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
   lorekeeper_familiar: {
     id: 'lorekeeper_familiar', name: 'Scryvyn', element: 'leaf', archetype: 'tank',
     emoji: '📜', spriteId: 'scryvyn',
-    description: 'The Scroll Wyrm — a tiny dragon made entirely of old study scrolls, with green self-rewriting runes and a hooded cloak fused from its first master\'s robe. It lives in libraries closed too long, eating forgotten footnotes and orbiting itself with floating scrolls of memory.',
+    description: 'The Scroll Wyrm — the Lorekeeper watch-post\'s own fragment of the Ledger, a tiny dragon made entirely of old study scrolls, with green self-rewriting runes and a hooded cloak fused from its first master\'s robe. It lives in libraries closed too long, eating forgotten footnotes and orbiting itself with floating scrolls of memory.',
     ...STAT_PRESETS.tank,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -662,18 +667,18 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
       guildKey: 'lorekeeper',
       tier2: {
         level: 10, name: 'Lexiwyrm', emoji: '📚', spriteId: 'lexiwyrm',
-        description: 'The scrolls have bound themselves into a spine of pages that never quite closes. It reads its own margins aloud in a voice like turning paper, filing away everything its keeper has learned.',
+        description: 'As the Lorekeeper watch-post grows stronger, the scrolls have bound themselves into a spine of pages that never quite closes. It reads its own margins aloud in a voice like turning paper, filing away everything its keeper has learned.',
       },
       tier3: {
         level: 20, name: 'ChroniLex', emoji: '🌌', spriteId: 'chronilex', isLegendary: true,
-        description: 'A living archive that has outgrown its shelf and started keeping the library instead. Its runes now trail off into the space between stars, cataloguing knowledge no one has asked for yet.',
+        description: 'A living archive that has outgrown its shelf and started keeping the library instead — the Ledger itself, waking further with every page its keeper has sealed against the Forgetting. Its runes now trail off into the space between stars, cataloguing knowledge no one has asked for yet.',
       },
     },
   },
   spellcaster_familiar: {
     id: 'spellcaster_familiar', name: 'Inkybble', element: 'shadow', archetype: 'glass_cannon',
     emoji: '🖋️', spriteId: 'inkybble',
-    description: 'A tiny ink blot that spilled from an unfinished spell and learned to crawl. It hides in margins and erasures, feeding on crossed-out words and misspelled letters.',
+    description: 'The SpellCaster watch-post\'s own fragment of the Ledger — a tiny ink blot that spilled from an unfinished spell and learned to crawl. It hides in margins and erasures, feeding on crossed-out words and misspelled letters.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -681,18 +686,18 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
       guildKey: 'spellcaster',
       tier2: {
         level: 10, name: 'Quillara', emoji: '🪶', spriteId: 'quillara',
-        description: 'The ink has grown a spine of quills that write faster than thought. It leaves perfect sentences in its wake, correcting typos it hasn\'t even seen yet.',
+        description: 'As the Spelling Spire\'s wards strengthen, the ink has grown a spine of quills that write faster than thought. It leaves perfect sentences in its wake, correcting typos it hasn\'t even seen yet.',
       },
       tier3: {
         level: 20, name: 'Astrypta', emoji: '🌑', spriteId: 'astrypta', isLegendary: true,
-        description: 'A constellation of ink and eclipse, spelling out incantations no spellbook has printed. Where it drifts, unfinished spells finish themselves.',
+        description: 'A constellation of ink and eclipse, spelling out incantations no spellbook has printed — the Lexicon\'s wards made whole. Where it drifts, unfinished spells finish themselves.',
       },
     },
   },
   numberrealm_familiar: {
     id: 'numberrealm_familiar', name: 'Digitot', element: 'water', archetype: 'balanced',
     emoji: '🐠', spriteId: 'digitot',
-    description: 'A small fish whose scales are etched with tally marks. It counts its own bubbles as it swims.',
+    description: 'The Number Realm watch-post\'s own fragment of the Ledger — a small fish whose scales are etched with tally marks. It counts its own bubbles as it swims.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -700,18 +705,18 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
       guildKey: 'number_realm',
       tier2: {
         level: 10, name: 'Sumray', emoji: '🐡', spriteId: 'sumray',
-        description: 'Its tally-mark scales have multiplied into a puffed-up ledger of sums, bristling whenever a calculation comes up short.',
+        description: 'As the Realm holds its shape more firmly, its tally-mark scales have multiplied into a puffed-up ledger of sums, bristling whenever a calculation comes up short.',
       },
       tier3: {
         level: 20, name: 'Infinifin', emoji: '🐋', spriteId: 'infinifin', isLegendary: true,
-        description: 'A leviathan built from every number it has ever counted, so vast that some digits are still catching up to its tail.',
+        description: 'A leviathan built from every number it has ever counted, so vast that some digits are still catching up to its tail — the Realm\'s Ledger-fragment fully awake.',
       },
     },
   },
   logiclabyrinth_familiar: {
     id: 'logiclabyrinth_familiar', name: 'Quizzicube', element: 'storm', archetype: 'tank',
     emoji: '🧊', spriteId: 'quizzicube',
-    description: 'A small cube built from shifting question-mark panels, each face humming with a different riddle. It rolls in place when stumped, waiting for the right answer to click it into shape.',
+    description: 'The Logic Labyrinth watch-post\'s own fragment of the Ledger — a small cube built from shifting question-mark panels, each face humming with a different riddle. It rolls in place when stumped, waiting for the right answer to click it into shape.',
     ...STAT_PRESETS.tank,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -719,18 +724,18 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
       guildKey: 'logic_labyrinth',
       tier2: {
         level: 10, name: 'Labrynthox', emoji: '🌀', spriteId: 'labrynthox',
-        description: 'The cube has unfolded into a maze-backed beast, corridors running the length of its shell. Wrong turns echo through its body until the right path lights up on its own.',
+        description: 'As the Endless Maze grows harder for the Forgetting to tangle, the cube has unfolded into a maze-backed beast, corridors running the length of its shell. Wrong turns echo through its body until the right path lights up on its own.',
       },
       tier3: {
         level: 20, name: 'Infinitaze', emoji: '♾️', spriteId: 'infinitaze', isLegendary: true,
-        description: 'A labyrinth given form, its passages looping back through themselves without end. It doesn\'t solve puzzles anymore — it simply becomes the answer, and lets you catch up.',
+        description: 'A labyrinth given form, its passages looping back through themselves without end — the Maze\'s own fragment of the Ledger, fully awake. It doesn\'t solve puzzles anymore — it simply becomes the answer, and lets you catch up.',
       },
     },
   },
   lexiconarena_familiar: {
     id: 'lexiconarena_familiar', name: 'Pollyglyph', element: 'light', archetype: 'glass_cannon',
     emoji: '🦜', spriteId: 'pollyglyph',
-    description: 'A fledgling parrot that mimics every word it hears until each one sprouts a tiny glowing glyph on its feathers.',
+    description: 'The Lexicon Arena watch-post\'s own fragment of the Ledger — a fledgling parrot that mimics every word it hears until each one sprouts a tiny glowing glyph on its feathers.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -738,11 +743,11 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
       guildKey: 'lexicon_arena',
       tier2: {
         level: 10, name: 'Squawkolar', emoji: '🦉', spriteId: 'squawkolar',
-        description: 'It has traded mimicry for mastery, footnoting its own squawks with etymology no one asked for.',
+        description: 'As the Living Dictionary wakes further, it has traded mimicry for mastery, footnoting its own squawks with etymology no one asked for.',
       },
       tier3: {
         level: 20, name: 'Admiral Psquawk', emoji: '🦅', spriteId: 'admiral_psquawk', isLegendary: true,
-        description: 'A decorated commander of every word ever spoken, barking corrections from a crow\'s nest built out of dictionaries.',
+        description: 'A decorated commander of every word ever spoken, barking corrections from a crow\'s nest built out of dictionaries — the Dictionary\'s own fragment, fully awake.',
       },
     },
   },
@@ -756,7 +761,7 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
 export const EVENT_MONSTERS: Record<string, MonsterDef> = {
   tarsipling: {
     id: 'tarsipling', name: 'Tarsipling', element: 'leaf', archetype: 'balanced',
-    emoji: '🐿️', description: 'A wide-eyed forest sprite, part tarsier, part sapling, that can never sit still around anything new. It tucks acorns, buttons, and stray answers alike into its cheeks, certain each one is worth knowing. Its ears swivel toward every rustle, every question, every "why."',
+    emoji: '🐿️', description: 'A wide-eyed forest sprite, part tarsier, part sapling, that can never sit still around anything new — trainers say it only shows itself to those who keep asking questions long after the answer would\'ve been good enough. It tucks acorns, buttons, and stray answers alike into its cheeks, certain each one is worth knowing. Its ears swivel toward every rustle, every question, every "why."',
     ...STAT_PRESETS.balanced,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -777,7 +782,7 @@ export const EVENT_MONSTERS: Record<string, MonsterDef> = {
   },
   bleedune: {
     id: 'bleedune', name: 'Bleedune', element: 'shadow', archetype: 'balanced',
-    emoji: '🦂', description: 'A quiet dune-scorpion whose shell bleeds ink-black sand from every crack, redrawing its own pattern each night. It buries itself before sunrise and is gone by the time anyone looks twice.',
+    emoji: '🦂', description: 'A quiet dune-scorpion whose shell bleeds ink-black sand from every crack, redrawing its own pattern each night — a fragment of the Ledger that only surfaces for a Trainer willing to sit with a hard problem overnight. It buries itself before sunrise and is gone by the time anyone looks twice.',
     ...STAT_PRESETS.balanced,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -834,7 +839,7 @@ export interface NpcTrainer {
 export const NPC_TRAINERS: NpcTrainer[] = [
   {
     id: 'forest_scout', name: 'Forest Scout', element: 'leaf', levelRequirement: 1,
-    emoji: '🌿', intro: 'The forest protects its own. Can you survive its embrace?',
+    emoji: '🌿', intro: 'Another keeper-in-training. Show me you can hold what you\'ve learned.',
     monsters: [
       { monsterId: 'mosshorn', level: 2 },
       { monsterId: 'fernix',   level: 3 },
@@ -844,7 +849,7 @@ export const NPC_TRAINERS: NpcTrainer[] = [
   },
   {
     id: 'tide_watcher', name: 'Tide Watcher', element: 'water', levelRequirement: 5,
-    emoji: '🌊', intro: 'The sea is patient. Let\'s see if you are.',
+    emoji: '🌊', intro: 'The Ledger doesn\'t rush its keepers. Let\'s see if you\'ve learned that yet.',
     monsters: [
       { monsterId: 'coralyn',  level: 6 },
       { monsterId: 'torrenth', level: 7 },
@@ -854,7 +859,7 @@ export const NPC_TRAINERS: NpcTrainer[] = [
   },
   {
     id: 'ember_acolyte', name: 'Ember Acolyte', element: 'fire', levelRequirement: 7,
-    emoji: '🔥', intro: 'Fire consumes the weak. Prove you are not.',
+    emoji: '🔥', intro: 'The Forgetting consumes what\'s left unpracticed. Prove yours isn\'t.',
     monsters: [
       { monsterId: 'embrak',   level: 9 },
       { monsterId: 'pyravex',  level: 10 },
@@ -864,7 +869,7 @@ export const NPC_TRAINERS: NpcTrainer[] = [
   },
   {
     id: 'storm_caller', name: 'Storm Caller', element: 'storm', levelRequirement: 10,
-    emoji: '⚡', intro: 'The storm answers to no one. Can you say the same?',
+    emoji: '⚡', intro: 'A fragment of the Ledger answers to no one but a keeper who has earned it. Have you?',
     monsters: [
       { monsterId: 'voltmane',  level: 12 },
       { monsterId: 'galestrik', level: 13 },
@@ -874,7 +879,7 @@ export const NPC_TRAINERS: NpcTrainer[] = [
   },
   {
     id: 'shadow_stalker', name: 'Shadow Stalker', element: 'shadow', levelRequirement: 13,
-    emoji: '🌑', intro: 'You cannot fight what you cannot see.',
+    emoji: '🌑', intro: 'You cannot hold a memory you refuse to look at.',
     monsters: [
       { monsterId: 'shadrak',  level: 15 },
       { monsterId: 'duskral',  level: 16 },
@@ -884,7 +889,7 @@ export const NPC_TRAINERS: NpcTrainer[] = [
   },
   {
     id: 'light_bearer', name: 'Light Bearer', element: 'light', levelRequirement: 16,
-    emoji: '✨', intro: 'True strength shines from within.',
+    emoji: '✨', intro: 'What you have truly learned cannot be un-written. Show me.',
     monsters: [
       { monsterId: 'luminos',   level: 18 },
       { monsterId: 'solarch',   level: 19 },
@@ -894,7 +899,7 @@ export const NPC_TRAINERS: NpcTrainer[] = [
   },
   {
     id: 'elemental_knight', name: 'Elemental Knight', element: 'mixed', levelRequirement: 20,
-    emoji: '⚔️', intro: 'I have mastered all elements. Have you?',
+    emoji: '⚔️', intro: 'I have held every kind of memory the Ledger keeps. Have you?',
     monsters: [
       { monsterId: 'pyravex',  level: 21 },
       { monsterId: 'torrenth', level: 22 },
@@ -904,7 +909,7 @@ export const NPC_TRAINERS: NpcTrainer[] = [
   },
   {
     id: 'grand_master', name: 'The Grand Master', element: 'mixed', levelRequirement: 25,
-    emoji: '👑', intro: 'Few reach this point. None have passed.',
+    emoji: '👑', intro: 'Few keepers hold this much of the Ledger. None have held more than me.',
     monsters: [
       { monsterId: 'solarch',   level: 25 },
       { monsterId: 'galestrik', level: 27 },
