@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Learning Hall</string>
+    <string name="title_activity_main">Learning Hall</string>
+    <string name="package_name">com.tatayotter.g5learninghall</string>
+    <string name="custom_url_scheme">com.tatayotter.g5learninghall</string>
+</resources>
