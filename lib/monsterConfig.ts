@@ -8,14 +8,17 @@ import type { GuildKey } from '@/lib/dailyChecklist';
 
 export type Element = 'fire' | 'water' | 'leaf' | 'storm' | 'shadow' | 'light';
 
-// attacker: element that is strong against (deals 1.5x to) the mapped element
-const ELEMENT_WEAKNESSES: Record<Element, Element> = {
-  fire:   'leaf',
-  leaf:   'water',
-  water:  'fire',
-  storm:  'water',
-  light:  'shadow',
-  shadow: 'light',
+// attacker: elements that attacker is strong against (deals 1.5x to).
+// Leaf beats both Water and Storm — this closes Storm into the loop
+// (Leaf → Storm → Water → Fire → Leaf) so Storm isn't the only element
+// with no weakness of its own.
+const ELEMENT_WEAKNESSES: Record<Element, Element[]> = {
+  fire:   ['leaf'],
+  leaf:   ['water', 'storm'],
+  water:  ['fire'],
+  storm:  ['water'],
+  light:  ['shadow'],
+  shadow: ['light'],
 };
 
 // Small badge icon per element, rendered next to the element name wherever a
@@ -31,13 +34,19 @@ export const ELEMENT_ICON_SRC: Record<Element, string> = {
 
 // Returns damage multiplier when attacker element hits defender element
 export function getElementMultiplier(attacker: Element, defender: Element): number {
-  return ELEMENT_WEAKNESSES[attacker] === defender ? 1.5 : 1.0;
+  return ELEMENT_WEAKNESSES[attacker].includes(defender) ? 1.5 : 1.0;
 }
 
-// Given a player monster's element, returns the element it is strong
+// Given a player monster's element, returns the (first) element it is strong
 // against — used to build a Training Dummy opponent that's always weak to
 // whatever the player is currently fielding.
 export function getCounterElement(element: Element): Element {
+  return ELEMENT_WEAKNESSES[element][0];
+}
+
+// Full list of elements the given element is strong against — used by the
+// Codex element wheel, which needs every arrow, not just the first.
+export function getCounterElements(element: Element): Element[] {
   return ELEMENT_WEAKNESSES[element];
 }
 

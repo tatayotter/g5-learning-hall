@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import {
-  Element, ELEMENT_ICON_SRC, getCounterElement, BATTLE_CONSTANTS,
+  Element, ELEMENT_ICON_SRC, getCounterElements, BATTLE_CONSTANTS,
   GRADUATION_LEVEL_REQUIREMENT, GRADUATION_SCROLL_COST,
 } from '@/lib/monsterConfig';
 import { GUILDS, GuildKey } from '@/lib/dailyChecklist';
@@ -114,19 +114,20 @@ function ElementWheel() {
     positions[el] = { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) };
   });
 
-  const arrows = ELEMENTS.map(el => {
-    const target = getCounterElement(el);
-    const from = positions[el];
-    const to = positions[target];
-    const dx = to.x - from.x;
-    const dy = to.y - from.y;
-    const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-    const startX = from.x + (dx / dist) * (nodeRadius + 4);
-    const startY = from.y + (dy / dist) * (nodeRadius + 4);
-    const endX = to.x - (dx / dist) * (nodeRadius + 10);
-    const endY = to.y - (dy / dist) * (nodeRadius + 10);
-    return { key: el, startX, startY, endX, endY };
-  });
+  const arrows = ELEMENTS.flatMap(el =>
+    getCounterElements(el).map(target => {
+      const from = positions[el];
+      const to = positions[target];
+      const dx = to.x - from.x;
+      const dy = to.y - from.y;
+      const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+      const startX = from.x + (dx / dist) * (nodeRadius + 4);
+      const startY = from.y + (dy / dist) * (nodeRadius + 4);
+      const endX = to.x - (dx / dist) * (nodeRadius + 10);
+      const endY = to.y - (dy / dist) * (nodeRadius + 10);
+      return { key: `${el}-${target}`, startX, startY, endX, endY };
+    })
+  );
 
   return (
     <svg viewBox={`0 0 ${size} ${size}`} className="w-full max-w-[320px] mx-auto">
