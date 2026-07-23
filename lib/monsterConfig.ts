@@ -561,6 +561,24 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
+  darkkor: {
+    id: 'darkkor', name: 'Darkkor', element: 'shadow', archetype: 'glass_cannon',
+    emoji: '🫥', spriteId: 'darkkor',
+    description: 'A shadow that never left when the light came back — a loose fragment of the Ledger, unclaimed by any watch-post, that learned to float instead of fade. It hides in the darkest corners of the Logic Labyrinth, feeding quietly on unfinished answers.',
+    ...STAT_PRESETS.glass_cannon,
+    skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
+    skillUnlocks: { tier2: 18, tier3: 30 },
+    graduation: {
+      first: {
+        level: 20, name: 'VoidLore', emoji: '🕳️', spriteId: 'voidlore',
+        description: 'Darkkor has torn wings from its own stitched shadow and learned to fly. It has no face — only two hollow yellow eyes, without pupils, that read every blank space a Trainer left behind.',
+      },
+      second: {
+        level: 32, name: 'Nuhilore', emoji: '🌌', spriteId: 'nuhilore',
+        description: 'It has swallowed too many blanks to still be called a shadow. Null. Nihil. Lore. It no longer hides in the Labyrinth — on a bad night, it becomes the Labyrinth, where every unfinished answer drifts to be nothing.',
+      },
+    },
+  },
   sproutle: {
     id: 'sproutle', name: 'Sproutle', element: 'leaf', archetype: 'balanced',
     emoji: '🦌', description: 'A fawn, a loose fragment of the Ledger, that sprouts a single seed on its head at birth. The sprout grows based on soil and mood, but never roots. Sproutle eat morning dew off their own leaves.',
