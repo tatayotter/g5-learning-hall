@@ -102,11 +102,12 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 // ─── Element wheel (SVG, relationships derived live from getCounterElement) ─
 
 function ElementWheel() {
-  const size = 300;
+  const size = 460;
   const cx = size / 2;
   const cy = size / 2;
-  const radius = 108;
-  const nodeRadius = 26;
+  const radius = 170;
+  const iconSize = 100;
+  const iconHalf = iconSize / 2;
 
   const positions: Record<Element, { x: number; y: number }> = {} as any;
   ELEMENTS.forEach((el, i) => {
@@ -121,16 +122,16 @@ function ElementWheel() {
       const dx = to.x - from.x;
       const dy = to.y - from.y;
       const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-      const startX = from.x + (dx / dist) * (nodeRadius + 4);
-      const startY = from.y + (dy / dist) * (nodeRadius + 4);
-      const endX = to.x - (dx / dist) * (nodeRadius + 10);
-      const endY = to.y - (dy / dist) * (nodeRadius + 10);
+      const startX = from.x + (dx / dist) * (iconHalf + 4);
+      const startY = from.y + (dy / dist) * (iconHalf + 4);
+      const endX = to.x - (dx / dist) * (iconHalf + 10);
+      const endY = to.y - (dy / dist) * (iconHalf + 10);
       return { key: `${el}-${target}`, startX, startY, endX, endY };
     })
   );
 
   return (
-    <svg viewBox={`0 0 ${size} ${size}`} className="w-full max-w-[320px] mx-auto">
+    <svg viewBox={`0 0 ${size} ${size}`} className="w-full max-w-[460px] mx-auto">
       <defs>
         <marker id="codex-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
           <path d="M0,0 L8,4 L0,8 Z" fill="#d4af37" />
@@ -146,12 +147,13 @@ function ElementWheel() {
       ))}
       {ELEMENTS.map(el => {
         const p = positions[el];
-        const color = ELEMENT_COLOR[el];
         return (
-          <g key={el}>
-            <circle cx={p.x} cy={p.y} r={nodeRadius} fill={color.to} stroke={color.text} strokeWidth={2} />
-            <image href={ELEMENT_ICON_SRC[el]} x={p.x - 14} y={p.y - 14} width={28} height={28} />
-          </g>
+          <image
+            key={el}
+            href={ELEMENT_ICON_SRC[el]}
+            x={p.x - iconHalf} y={p.y - iconHalf}
+            width={iconSize} height={iconSize}
+          />
         );
       })}
     </svg>
@@ -246,12 +248,24 @@ function ElementsSection() {
       <TLDR>Each element is a different kind of memory the Ledger keeps.</TLDR>
       <ElementWheel />
       <div className="grid sm:grid-cols-2 gap-3 mt-4 max-w-2xl">
-        {ELEMENTS.map(el => (
-          <div key={el} className="flex items-start gap-2 bg-neutral-900 border border-neutral-800 rounded-lg p-3">
-            <img src={ELEMENT_ICON_SRC[el]} alt={el} className="w-6 h-6 mt-0.5" />
-            <p className="text-sm text-gray-300">{ELEMENT_MEANING[el]}</p>
-          </div>
-        ))}
+        {ELEMENTS.map(el => {
+          const strongAgainst = getCounterElements(el);
+          const weakAgainst = ELEMENTS.filter(other => getCounterElements(other).includes(el));
+          return (
+            <div key={el} className="flex items-start gap-2 bg-neutral-900 border border-neutral-800 rounded-lg p-3">
+              <img src={ELEMENT_ICON_SRC[el]} alt={el} className="w-6 h-6 mt-0.5" />
+              <div>
+                <p className="text-sm text-gray-300">{ELEMENT_MEANING[el]}</p>
+                <p className="text-xs text-emerald-400 mt-1.5">
+                  Strong against: {strongAgainst.map(e => e[0].toUpperCase() + e.slice(1)).join(', ')}
+                </p>
+                <p className="text-xs text-rose-400 mt-0.5">
+                  Weak against: {weakAgainst.length > 0 ? weakAgainst.map(e => e[0].toUpperCase() + e.slice(1)).join(', ') : 'None'}
+                </p>
+              </div>
+            </div>
+          );
+        })}
       </div>
       <p className="text-xs text-gray-500 mt-3">
         The arrows above show which element is strong against which in battle — a curio's element decides both what it remembers
