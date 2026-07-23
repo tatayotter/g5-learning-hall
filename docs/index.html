@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learning Hall — Download</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #171717;
+    --panel: #1f1f1f;
+    --border: #3a3a3a;
+    --text: #e5e5e5;
+    --muted: #9ca3af;
+    --amber: #f59e0b;
+    --emerald: #10b981;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 32px 16px 64px;
+  }
+  .wrap { max-width: 560px; width: 100%; }
+  h1 {
+    font-size: 1.9rem;
+    margin: 0 0 4px;
+    text-align: center;
+  }
+  .subtitle {
+    text-align: center;
+    color: var(--muted);
+    margin: 0 0 28px;
+    font-size: 0.95rem;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .card.recommended { border-color: var(--emerald); }
+  .card.apk { border-color: var(--amber); }
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .badge.recommended { background: rgba(16,185,129,0.15); color: var(--emerald); }
+  .badge.apk { background: rgba(245,158,11,0.15); color: var(--amber); }
+  .card h2 { margin: 0 0 6px; font-size: 1.15rem; }
+  .card p { margin: 0 0 16px; color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+  .btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: opacity 0.15s;
+  }
+  .btn:active { opacity: 0.8; }
+  .btn.emerald { background: var(--emerald); color: #04241a; }
+  .btn.amber { background: var(--amber); color: #2b1a02; }
+  ol {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    padding-left: 20px;
+    margin: 0;
+  }
+  ol li { margin-bottom: 6px; }
+  ol b { color: var(--text); }
+  .note {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 24px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🐾 Learning Hall</h1>
+  <p class="subtitle">Pick whichever way you'd like to play</p>
+
+  <div class="card recommended">
+    <span class="badge recommended">Easiest — no install</span>
+    <h2>Play in your browser</h2>
+    <p>Works on any phone, tablet, or computer. Nothing to download, no install warnings.</p>
+    <a class="btn emerald" href="https://learninghall.vercel.app">Open learninghall.vercel.app</a>
+  </div>
+
+  <div class="card apk">
+    <span class="badge apk">Android app</span>
+    <h2>Download the Android app</h2>
+    <p>Prefer an app icon on your home screen? Download and install the APK below.</p>
+    <a class="btn amber" href="https://github.com/tatayotter/g5-learning-hall/releases/latest/download/LearningHall.apk">Download LearningHall.apk</a>
+  </div>
+
+  <div class="card">
+    <h2>Installing the APK</h2>
+    <ol>
+      <li>Tap <b>Download LearningHall.apk</b> above and let it finish downloading.</li>
+      <li>Open the downloaded file from your notifications or Downloads folder.</li>
+      <li>If Android warns about "unknown sources," tap <b>Settings</b> in that prompt and allow installs from your browser/file app — this is normal for apps outside the Play Store.</li>
+      <li>Tap <b>Install</b>, then open <b>Learning Hall</b> from your app drawer.</li>
+    </ol>
+  </div>
+
+  <p class="note">New builds are published automatically — reinstalling later gets you the latest version.</p>
+</div>
+</body>
+</html>

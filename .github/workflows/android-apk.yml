@@ -9,6 +9,9 @@ on:
       - "capacitor.config.ts"
       - ".github/workflows/android-apk.yml"
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -41,7 +44,19 @@ jobs:
         working-directory: android
         run: ./gradlew assembleDebug --no-daemon --stacktrace
 
+      - name: Rename APK for release
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk android/app/build/outputs/apk/debug/LearningHall.apk
+
       - uses: actions/upload-artifact@v4
         with:
           name: g5-learning-hall-debug-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Publish APK to a public Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest-apk
+          name: Learning Hall (latest APK)
+          body: Auto-built from the latest `main` branch. Download `LearningHall.apk` below and install it on Android.
+          make_latest: true
+          files: android/app/build/outputs/apk/debug/LearningHall.apk
