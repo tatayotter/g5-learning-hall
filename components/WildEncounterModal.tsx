@@ -44,7 +44,9 @@ export default function WildEncounterModal({ monster, level, question, attemptsL
         <div className="flex items-center gap-3 mb-2">
           <MonsterImage monster={monster} className="w-12 h-12 battle-float" emojiClassName="text-4xl" />
           <div>
-            <p className="text-amber-400 font-bold text-lg">A wild {monster.name} appeared!</p>
+            <p className="text-amber-400 font-bold text-lg flex items-center gap-1.5">
+              <img src="/icons/encounter/cage.svg" alt="Wild encounter" className="w-6 h-6" /> A wild {monster.name} appeared!
+            </p>
             <p className="text-xs text-gray-500 capitalize">Lv.{level} · {monster.element}</p>
           </div>
         </div>

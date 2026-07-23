@@ -1621,9 +1621,11 @@ function TrainingMap({
                 <MonsterImage monster={monsterDisplay[activeMonster.monster_id]} className="w-14 h-14" />
               )}
               <div>
-                <p className="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-1">🌿 Wild Encounter!</p>
+                <p className="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-1 flex items-center gap-1.5">
+                  <img src="/icons/encounter/atk.svg" alt="Training" className="w-6 h-6" /> Grass Training
+                </p>
                 <p className="text-white font-bold">
-                  {activeMonster ? monsterDisplay[activeMonster.monster_id]?.name : 'Your monster'} is training!
+                  {activeMonster ? monsterDisplay[activeMonster.monster_id]?.name : 'Your monster'} is practicing!
                 </p>
                 <p className="text-sm mt-1">
                   Answer correctly → <span className="text-amber-400 font-bold">+{BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER} EXP</span>
