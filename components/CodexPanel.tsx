@@ -209,6 +209,11 @@ export default function CodexPanel() {
 function LedgerSection() {
   return (
     <div>
+      <img
+        src="/codex/ledger_header.webp"
+        alt="The Ledger"
+        className="w-full max-w-2xl rounded-xl border border-neutral-800 mb-4 object-cover"
+      />
       <SectionTitle>The Ledger</SectionTitle>
       <TLDR>Everything in this world — every curio, every guild, every point of XP — is part of one story: the fight to keep knowledge from fading.</TLDR>
       <div className="space-y-3 text-gray-300 text-sm leading-relaxed max-w-2xl">
