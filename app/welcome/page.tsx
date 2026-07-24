@@ -313,7 +313,11 @@ export default function WelcomePage() {
       <section className="relative min-h-[92vh] flex items-center justify-center px-6 py-20">
         <HeroBackdrop />
         <div className="relative z-10 max-w-3xl text-center">
-          <SectionKicker>Learning Hall</SectionKicker>
+          <img
+            src="/learning_hall_full_logo.webp"
+            alt="Learning Hall"
+            className="h-20 sm:h-28 w-auto mx-auto mb-6 object-contain drop-shadow-[0_6px_28px_rgba(0,0,0,0.55)]"
+          />
           <h1 className="font-display text-4xl sm:text-6xl font-black leading-[1.05] tracking-[-0.02em] mb-6">
             Turn Homework Into <span className="text-[#f0b429]">An Epic Quest</span>
           </h1>
@@ -333,13 +337,75 @@ export default function WelcomePage() {
             <CTAButtons />
           </div>
 
-          <a
-            href={APK_URL}
-            className="inline-block mt-6 text-[12.5px] text-[#8a7c66] hover:text-[#d4b46a] transition-colors tracking-wide"
-          >
-            Also available on Android — Download APK
-          </a>
+          <div className="mt-6 flex flex-col items-center gap-2">
+            <a
+              href="/welcome/features"
+              className="inline-block text-[12.5px] font-semibold text-[#d4b46a] hover:text-[#f0b429] transition-colors tracking-wide"
+            >
+              See the Full Feature List →
+            </a>
+            <a
+              href={APK_URL}
+              className="inline-block text-[12.5px] text-[#8a7c66] hover:text-[#d4b46a] transition-colors tracking-wide"
+            >
+              Also available on Android — Download APK
+            </a>
+          </div>
         </div>
+      </section>
+
+      {/* ── ORIGIN STORY ── */}
+      <section className="px-6 py-24 max-w-3xl mx-auto">
+        <FadeIn>
+          <SectionKicker>Why Learning Hall Exists</SectionKicker>
+          <h2 className="font-display text-3xl sm:text-4xl font-black text-center mb-10">
+            Built by a Dad Who Didn&apos;t Want to Steal His Kids&apos; Free Time
+          </h2>
+        </FadeIn>
+
+        <FadeIn delay={0.05}>
+          <div className="space-y-5 text-[#c9bfae] leading-relaxed">
+            <p>
+              A while back, we looked into hiring a private tutor for Tala and Damien. The closest
+              one we could find was six kilometers away — which meant traffic, a late pickup, and a
+              long ride home. By the time they walked through the door it was almost 6 PM, and they
+              were wiped out. Did they learn something? Sure. Did they complain the entire way home?
+              Also sure.
+            </p>
+            <p>
+              Every afternoon in the car, I&apos;d ask the same question: &ldquo;How was school
+              today?&rdquo; For the longest time I got the usual one-word shrug. Then, about a week
+              after Tala started playing the game I&apos;d been building at home, something changed.
+            </p>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.1}>
+          <div className="my-8 bg-[#1c1611] border-l-4 border-[#c9781a] rounded-xl px-6 py-5">
+            <p className="text-[#ede4d3] leading-relaxed italic">
+              &ldquo;The lessons we went over in class today felt easy,&rdquo; she told me, &ldquo;because
+              I already sort of learned it — from playing Learning Hall.&rdquo;
+            </p>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.15}>
+          <div className="space-y-5 text-[#c9bfae] leading-relaxed">
+            <p>
+              That was the moment it clicked for me. If a game I&apos;d built just to survive our own
+              homework routine could do that for my own kids, I probably wasn&apos;t the only parent
+              who needed something like it. So I&apos;m opening Learning Hall up to a small group of
+              families first — parents who share the same idea I did: that learning can be fun and
+              engaging enough that it stops feeling like studying at all.
+            </p>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.2}>
+          <p className="text-right text-sm text-[#8a7c66] italic mt-8">
+            — Tatay, creator of Learning Hall
+          </p>
+        </FadeIn>
       </section>
 
       {/* ── SCREENTIME, RECLAIMED ── */}
@@ -495,11 +561,19 @@ export default function WelcomePage() {
             </h2>
           </FadeIn>
           <FadeIn delay={0.05}>
-            <p className="text-[#c9bfae] leading-relaxed lg:pt-2">
+            <p className="text-[#c9bfae] leading-relaxed lg:pt-2 mb-5">
               Every correct answer weakens the wild Curios. Defeat them to capture their essence and
               fill your Codex — but catching, training, and battling a curio is only ever unlocked by
               mastering lessons, never by grinding.
             </p>
+            <div className="bg-[#1c1611] border-l-4 border-[#c9781a] rounded-xl px-6 py-5">
+              <p className="text-[#ede4d3] leading-relaxed">
+                <strong className="text-[#f0b429]">What&apos;s a Curio?</strong>{' '}
+                A collectible creature born from your child&apos;s own lesson mastery — the harder
+                they study, the stronger it gets. Collect them all, train them, and battle friends
+                with the ones you&apos;ve earned.
+              </p>
+            </div>
           </FadeIn>
         </div>
 
@@ -554,7 +628,7 @@ export default function WelcomePage() {
 
                 <div className="text-center flex-1">
                   <p className="text-[10px] text-[#8a7c66] uppercase tracking-wider mb-1">Opponent</p>
-                  <img src="/monsters/thundrake.webp" alt="" className="w-14 h-14 mx-auto mb-1.5 object-contain" />
+                  <img src="/monsters/thundrake.webp" alt="" className="w-14 h-14 mx-auto mb-1.5 object-contain scale-x-[-1]" />
                   <p className="text-xs font-bold text-[#ede4d3]">Thundrake Lv.19</p>
                   <div className="w-full max-w-[100px] mx-auto bg-[#3d3225] rounded-full h-1.5 mt-1.5">
                     <div className="h-full bg-[#c9781a] rounded-full" style={{ width: '41%' }} />
@@ -655,60 +729,6 @@ export default function WelcomePage() {
             </div>
           </FadeIn>
         </div>
-      </section>
-
-      {/* ── ORIGIN STORY ── */}
-      <section className="px-6 py-24 max-w-3xl mx-auto">
-        <FadeIn>
-          <SectionKicker>Why Learning Hall Exists</SectionKicker>
-          <h2 className="font-display text-3xl sm:text-4xl font-black text-center mb-10">
-            Built by a Dad Who Didn&apos;t Want to Steal His Kids&apos; Free Time
-          </h2>
-        </FadeIn>
-
-        <FadeIn delay={0.05}>
-          <div className="space-y-5 text-[#c9bfae] leading-relaxed">
-            <p>
-              A while back, we looked into hiring a private tutor for Tala and Damien. The closest
-              one we could find was six kilometers away — which meant traffic, a late pickup, and a
-              long ride home. By the time they walked through the door it was almost 6 PM, and they
-              were wiped out. Did they learn something? Sure. Did they complain the entire way home?
-              Also sure.
-            </p>
-            <p>
-              Every afternoon in the car, I&apos;d ask the same question: &ldquo;How was school
-              today?&rdquo; For the longest time I got the usual one-word shrug. Then, about a week
-              after Tala started playing the game I&apos;d been building at home, something changed.
-            </p>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={0.1}>
-          <div className="my-8 bg-[#1c1611] border-l-4 border-[#c9781a] rounded-xl px-6 py-5">
-            <p className="text-[#ede4d3] leading-relaxed italic">
-              &ldquo;The lessons we went over in class today felt easy,&rdquo; she told me, &ldquo;because
-              I already sort of learned it — from playing Learning Hall.&rdquo;
-            </p>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={0.15}>
-          <div className="space-y-5 text-[#c9bfae] leading-relaxed">
-            <p>
-              That was the moment it clicked for me. If a game I&apos;d built just to survive our own
-              homework routine could do that for my own kids, I probably wasn&apos;t the only parent
-              who needed something like it. So I&apos;m opening Learning Hall up to a small group of
-              families first — parents who share the same idea I did: that learning can be fun and
-              engaging enough that it stops feeling like studying at all.
-            </p>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={0.2}>
-          <p className="text-right text-sm text-[#8a7c66] italic mt-8">
-            — Tatay, creator of Learning Hall
-          </p>
-        </FadeIn>
       </section>
 
       {/* ── PARENT DASHBOARD (split) ── */}
