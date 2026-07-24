@@ -116,8 +116,20 @@ function HeroBackdrop() {
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a0807]/30 via-[#0a0807]/60 to-[#0a0807]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(0,0,0,0.75)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(0,0,0,0.85)_100%)] sm:bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(0,0,0,0.75)_100%)]" />
     </div>
+  );
+}
+
+function FilmGrain() {
+  return (
+    <div
+      className="fixed inset-0 pointer-events-none opacity-[0.025]"
+      style={{
+        backgroundImage:
+          "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+      }}
+    />
   );
 }
 
@@ -308,6 +320,7 @@ export default function WelcomePage() {
 
   return (
     <div className="min-h-screen bg-[#0a0807] text-[#ede4d3] font-[Inter,system-ui,sans-serif] overflow-x-hidden selection:bg-[#c9781a]/30 selection:text-[#f0b429]">
+      <FilmGrain />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[92vh] flex items-center justify-center px-6 py-20">
@@ -381,11 +394,24 @@ export default function WelcomePage() {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <div className="my-8 bg-[#1c1611] border-l-4 border-[#c9781a] rounded-xl px-6 py-5">
-            <p className="text-[#ede4d3] leading-relaxed italic">
-              &ldquo;The lessons we went over in class today felt easy,&rdquo; she told me, &ldquo;because
-              I already sort of learned it — from playing Learning Hall.&rdquo;
-            </p>
+          <div className="relative my-8">
+            <div
+              className="absolute -inset-8 pointer-events-none"
+              style={{ background: 'radial-gradient(ellipse at 40% 50%, rgba(201,120,26,0.10), transparent 60%)' }}
+            />
+            <div className="relative bg-[#1c1611] border-l-4 border-[#c9781a] rounded-xl px-6 py-5 overflow-hidden">
+              <div
+                className="absolute inset-0 pointer-events-none opacity-[0.05]"
+                style={{
+                  backgroundImage:
+                    "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E\")",
+                }}
+              />
+              <p className="relative text-[#ede4d3] leading-relaxed italic">
+                &ldquo;The lessons we went over in class today felt easy,&rdquo; she told me, &ldquo;because
+                I already sort of learned it — from playing Learning Hall.&rdquo;
+              </p>
+            </div>
           </div>
         </FadeIn>
 
@@ -427,8 +453,18 @@ export default function WelcomePage() {
       </section>
 
       {/* ── THE CORE HOOK (split) ── */}
-      <section className="px-6 py-24 max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
+      <section className="relative px-6 py-24 max-w-6xl mx-auto overflow-hidden">
+        <div
+          className="hidden sm:block absolute inset-0 pointer-events-none opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%23c9bfae' stroke-width='1'%3E%3Cpath d='M0 40 Q60 10 120 40 T240 40'/%3E%3Cpath d='M0 90 Q60 60 120 90 T240 90'/%3E%3Cpath d='M0 140 Q60 110 120 140 T240 140'/%3E%3Cpath d='M0 190 Q60 160 120 190 T240 190'/%3E%3Ccircle cx='40' cy='60' r='2'/%3E%3Ccircle cx='170' cy='120' r='2'/%3E%3Ccircle cx='90' cy='180' r='2'/%3E%3C/g%3E%3C/svg%3E\")",
+            backgroundSize: '240px 240px',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
+            maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
+          }}
+        />
+        <div className="relative grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
           <FadeIn>
             <SectionKicker align="left">The Core Hook</SectionKicker>
             <h2 className="font-display text-3xl sm:text-4xl font-black mb-4">
@@ -504,8 +540,19 @@ export default function WelcomePage() {
       </section>
 
       {/* ── LEARNING GUILDS ── */}
-      <section className="px-6 py-24 bg-[#0d0a08] border-y border-[#241d16]">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative px-6 py-24 bg-[#0d0a08] border-y border-[#241d16] overflow-hidden">
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.035]"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(0deg, #c9bfae 0px, #c9bfae 1px, transparent 1px, transparent 28px), repeating-linear-gradient(90deg, #c9bfae 0px, #c9bfae 1px, transparent 1px, transparent 56px)",
+          }}
+        />
+        <div
+          className="absolute inset-x-0 top-0 h-[420px] pointer-events-none"
+          style={{ background: 'radial-gradient(600px 300px at 50% 0%, rgba(201,120,26,0.08), transparent 70%)' }}
+        />
+        <div className="relative max-w-6xl mx-auto">
           <FadeIn>
             <SectionKicker>Learning Guilds</SectionKicker>
             <h2 className="font-display text-3xl sm:text-4xl font-black text-center mb-4">
@@ -577,21 +624,40 @@ export default function WelcomePage() {
           </FadeIn>
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
-          {MONSTERS.map((m, i) => (
-            <FadeIn key={m.file} delay={i * 0.05}>
-              <button
-                type="button"
-                onClick={() => setSelectedMonster(m)}
-                className="w-full bg-[#1c1611] border border-[#3d3225] rounded-xl p-4 text-center hover:border-[#c9781a] transition-colors cursor-pointer"
-              >
-                <img src={`/monsters/${m.file}.webp`} alt={m.name} className="w-full aspect-square object-contain mb-2" />
-                <p className="text-xs font-bold text-[#ede4d3]">{m.name}</p>
-                <p className="text-[10px] text-[#8a7c66] capitalize">{m.element}</p>
-                <p className="text-[9px] text-[#5c5245] mt-1 uppercase tracking-wider">Tap for stats</p>
-              </button>
-            </FadeIn>
-          ))}
+        <div className="relative">
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: [
+                'radial-gradient(180px 180px at 8% 20%, rgba(240,180,41,0.06), transparent 70%)',
+                'radial-gradient(180px 180px at 25% 80%, rgba(56,189,248,0.06), transparent 70%)',
+                'radial-gradient(180px 180px at 42% 20%, rgba(148,163,184,0.06), transparent 70%)',
+                'radial-gradient(180px 180px at 58% 80%, rgba(127,174,82,0.06), transparent 70%)',
+                'radial-gradient(180px 180px at 75% 20%, rgba(99,102,241,0.06), transparent 70%)',
+                'radial-gradient(180px 180px at 92% 80%, rgba(240,229,169,0.06), transparent 70%)',
+              ].join(', '),
+            }}
+          />
+          <div
+            className="absolute inset-x-0 bottom-0 h-32 pointer-events-none"
+            style={{ background: 'radial-gradient(ellipse 80% 100% at 50% 100%, rgba(201,120,26,0.10), transparent 70%)' }}
+          />
+          <div className="relative grid grid-cols-3 sm:grid-cols-6 gap-4">
+            {MONSTERS.map((m, i) => (
+              <FadeIn key={m.file} delay={i * 0.05}>
+                <button
+                  type="button"
+                  onClick={() => setSelectedMonster(m)}
+                  className="w-full bg-[#1c1611] border border-[#3d3225] rounded-xl p-4 text-center hover:border-[#c9781a] transition-colors cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+                >
+                  <img src={`/monsters/${m.file}.webp`} alt={m.name} className="w-full aspect-square object-contain mb-2" />
+                  <p className="text-xs font-bold text-[#ede4d3]">{m.name}</p>
+                  <p className="text-[10px] text-[#8a7c66] capitalize">{m.element}</p>
+                  <p className="text-[9px] text-[#5c5245] mt-1 uppercase tracking-wider">Tap for stats</p>
+                </button>
+              </FadeIn>
+            ))}
+          </div>
         </div>
 
         <FadeIn delay={0.15}>
@@ -670,10 +736,13 @@ export default function WelcomePage() {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-6 items-center bg-[#1c1611] border border-amber-800/60 rounded-2xl p-6 sm:p-8 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-6 items-center bg-[#1c1611] border border-amber-800/60 rounded-2xl p-6 sm:p-8 mb-6 shadow-[0_0_24px_rgba(201,120,26,0.18)]">
             <img src="/monsters/tarsipling.webp" alt="Tarsipling" className="w-24 h-24 object-contain mx-auto" />
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-wider text-[#f0b429] mb-1.5">Live This Week</p>
+              <p className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#f0b429] mb-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#f0b429] animate-pulse shadow-[0_0_8px_rgba(240,180,41,0.8)]" />
+                Live This Week
+              </p>
               <h3 className="font-display text-xl font-black text-[#ede4d3] mb-2">The Tarsipling Event</h3>
               <p className="text-sm text-[#8a7c66] leading-relaxed">
                 Built around this term&apos;s review material, running right now. Clear every event quest
@@ -698,8 +767,23 @@ export default function WelcomePage() {
       </section>
 
       {/* ── REWARDS VAULT ── */}
-      <section className="px-6 py-24 bg-[#0d0a08] border-y border-[#241d16]">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative px-6 py-24 bg-[#0d0a08] border-y border-[#241d16] overflow-hidden">
+        <div
+          className="absolute inset-x-0 top-0 h-40 pointer-events-none"
+          style={{ background: 'linear-gradient(to bottom, rgba(240,180,41,0.12), transparent 40%)' }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.04]"
+          style={{
+            backgroundImage: 'radial-gradient(#f0b429 1px, transparent 1px)',
+            backgroundSize: '28px 28px',
+          }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ boxShadow: 'inset 0 0 160px rgba(0,0,0,0.5)' }}
+        />
+        <div className="relative max-w-4xl mx-auto text-center">
           <FadeIn>
             <SectionKicker>Rewards Vault</SectionKicker>
             <h2 className="font-display text-3xl sm:text-4xl font-black mb-4">
@@ -788,9 +872,17 @@ export default function WelcomePage() {
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section className="px-6 py-24 border-t border-[#241d16]">
+      <section className="relative px-6 py-24 border-t border-[#241d16] overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <img
+            src="/welcome-hero.webp"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-20 blur-2xl scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0807]/40 via-[#0a0807]/75 to-[#0a0807]" />
+        </div>
         <FadeIn>
-          <div className="max-w-xl mx-auto text-center">
+          <div className="relative max-w-xl mx-auto text-center">
             <SectionKicker>Begin Today</SectionKicker>
             <h2 className="font-display text-3xl sm:text-4xl font-black mb-4">
               Ready to Start the Campaign?

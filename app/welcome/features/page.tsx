@@ -11,67 +11,67 @@ type Feature = {
 
 const FEATURES: Feature[] = [
   {
-    icon: '📖',
+    icon: '/sidequests/lorekeeper.webp',
     name: 'Learning Guilds',
     what: 'Five focused mini-games — Lorekeeper (reading), SpellCaster (typing), Number Realm (mental math), Logic Labyrinth (critical thinking), and Lexicon Arena (spelling & vocabulary).',
     payoff: 'Builds five core academic skills through short, repeatable practice — without it feeling like a worksheet.',
   },
   {
-    icon: '🐲',
+    icon: '/monsters/emberwyrm.webp',
     name: 'Curio Collection & Battling',
     what: 'Collectible creatures with elemental strengths and weaknesses (fire, water, leaf, storm, shadow, light) that your child earns and trains by mastering lessons.',
     payoff: 'Turns "did I study enough" into a visible, growing collection your child is proud to show off.',
   },
   {
-    icon: '⚔️',
+    icon: '/icons/encounter/atk.svg',
     name: 'Live PvP Battles',
     what: 'Real-time battles against siblings or classmates, using the curios your child has trained.',
     payoff: 'Adds friendly competition with people they already know — no strangers, no public chat.',
   },
   {
-    icon: '🗺️',
+    icon: '/maps/worldmap.webp',
     name: 'World Map & Codex',
     what: 'An explorable map and lore reference where every region and creature entry ties back to something your child unlocked by learning.',
     payoff: 'Gives schoolwork a sense of discovery and story, so lessons feel like progress in a world, not just checkboxes.',
   },
   {
-    icon: '🎯',
+    icon: '/monsters/tarsipling.webp',
     name: 'Weekly Quests & Special Events',
     what: 'A structured weekly quest line matched to the school schedule, plus limited-time Events built around upcoming summative tests.',
     payoff: 'Keeps your child a step ahead of exams instead of cramming the night before.',
   },
   {
-    icon: '🏆',
+    icon: '/items/crown.png',
     name: 'Leaderboard',
     what: 'Rankings by level, gold, battles won, and monsters collected, visible across the family/classmate group your child plays with.',
     payoff: 'Gives quiet extra motivation from healthy comparison with people they know — no public strangers involved.',
   },
   {
-    icon: '🎁',
+    icon: '/icons/rewards/gift.svg',
     name: 'Achievements, Titles & Rewards',
     what: 'XP and gold earned strictly from mastering lessons, spent on titles, unlockable profile art, and vault rewards you control.',
     payoff: 'Rewards effort with proof of work — never pay-to-win, never disconnected from actual learning.',
   },
   {
-    icon: '🔒',
+    icon: '/items/iron_shield_100.webp',
     name: 'Safe, PIN-Based Child Login',
     what: 'Kids sign in with a simple username and 4-digit PIN set by the parent — no email, no social accounts, no public exposure.',
     payoff: "One less password to manage, and no way for your child's account to be reached by anyone outside the family.",
   },
   {
-    icon: '👪',
+    icon: '/items/blessed_charm_100.webp',
     name: 'Approval-Gated Parent Registration',
     what: 'Every new parent account is reviewed and approved before it can access the dashboard — this isn\'t an open sign-up.',
     payoff: 'Keeps the platform a trusted, vetted space rather than an anonymous free-for-all.',
   },
   {
-    icon: '👨‍👩‍👧‍👦',
+    icon: '/icons/stats/switch.svg',
     name: 'Multi-Child Support',
     what: 'Add every child in the family under one parent account and manage them all from a single login.',
     payoff: 'No juggling separate logins per sibling — one account, the whole family.',
   },
   {
-    icon: '📚',
+    icon: '/items/graduation_scroll.svg',
     name: 'DepEd Curriculum Alignment',
     what: "Content is built from the official Budget of Work for Grades 2–6, released about two days ahead of the week it's taught in class — not a content dump your child can binge ahead of the teacher.",
     payoff: "Whatever your child plays this week is exactly what they're covering in class this week — genuine reinforcement, not a mismatch.",
@@ -80,19 +80,19 @@ const FEATURES: Feature[] = [
 
 const COMING_SOON: Feature[] = [
   {
-    icon: '📊',
+    icon: '/icons/stats/items.svg',
     name: 'Parent Dashboard Analytics',
     what: 'Time spent, lessons mastered, and progress trends for each child, visible right from the parent dashboard.',
     payoff: "See what's working without having to ask your child how school went.",
   },
   {
-    icon: '✅',
+    icon: '/icons/rewards/package.svg',
     name: 'Reward-Claim Approvals',
     what: 'When a child redeems a reward from the Vault, it will sit pending until a parent approves and fulfills it.',
     payoff: 'You stay in control of what your child actually receives — nothing is granted without your sign-off.',
   },
   {
-    icon: '🐉',
+    icon: '/monsters/thundrake.webp',
     name: 'Term Exams as Boss Fights',
     what: "Instead of a plain quiz list, term exams become a full Boss Fight built from that term's material.",
     payoff: 'Turns the most stressful school moment of the term into one more challenge your child is already used to facing.',
@@ -132,7 +132,7 @@ function FeatureCard({ feature, delay, muted = false }: { feature: Feature; dela
             : 'bg-[#1c1611] border-[#3d3225]'
         }`}
       >
-        <div className="text-3xl mb-3">{feature.icon}</div>
+        <img src={feature.icon} alt="" className="w-12 h-12 object-contain mb-3" />
         <h3 className="font-display text-lg font-bold text-[#ede4d3] mb-2">{feature.name}</h3>
         <p className="text-xs text-[#8a7c66] leading-relaxed mb-3">{feature.what}</p>
         <p className="text-sm text-[#f0b429] font-semibold leading-relaxed">{feature.payoff}</p>
