@@ -19,8 +19,27 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://learninghall.vercel.app"),
   title: "Learning Hall",
   description: "A gamified learning quest tracker",
+  openGraph: {
+    title: "Learning Hall",
+    description: "A gamified learning quest tracker",
+    images: [
+      {
+        url: "/splash1.webp",
+        width: 2096,
+        height: 1184,
+        alt: "Learning Hall",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Learning Hall",
+    description: "A gamified learning quest tracker",
+    images: ["/splash1.webp"],
+  },
 };
 
 export default function RootLayout({
