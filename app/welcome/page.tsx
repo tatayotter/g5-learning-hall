@@ -54,6 +54,41 @@ const STAT_MAX = { hp: 150, atk: 30, def: 30, spd: 30 };
 
 const APK_URL = 'https://github.com/tatayotter/g5-learning-hall/releases/latest/download/LearningHall.apk';
 
+const FAQS = [
+  {
+    q: 'Is this actually free?',
+    a: 'Yes — Learning Hall is free while it’s in Early Access, no credit card required. We haven’t locked in pricing for a wider release yet, but Early Access families won’t be blindsided by a sudden bill; you’ll hear about any change before it happens.',
+  },
+  {
+    q: 'Is my child’s information safe?',
+    a: 'Only a parent can create the family account, and every child profile lives under it. There’s no public chat, no ads, and no stranger contact — the only people your child battles or competes with are siblings and classmates you’ve already added.',
+  },
+  {
+    q: 'Will this replace my child’s teacher or homework?',
+    a: 'No. Learning Hall runs alongside the classroom, not instead of it — Daily Quests are built from the same lesson schedule and DepEd curriculum your child’s teacher is already following, so it reinforces what’s being taught rather than replacing it.',
+  },
+  {
+    q: 'My child isn’t in Grade 5 — can they still use it?',
+    a: 'Learning Hall is built for elementary-age learners and already supports more than one grade level. It’s actively growing grade by grade, so if your child’s exact level isn’t covered yet, it will be soon.',
+  },
+  {
+    q: 'Do we need to buy a tablet or download anything?',
+    a: 'No purchase needed. Learning Hall runs in any browser, and there’s also a free Android app if you’d rather have an icon on the home screen.',
+  },
+  {
+    q: 'What if my kid just wants to battle curios and skip the actual learning?',
+    a: 'They can’t, by design. Every quest cleared, skill unlocked, curio caught, and battle won is gated behind mastering the matching classroom lesson first — there’s no way to grind the game part without doing the learning part.',
+  },
+  {
+    q: 'Can I control the rewards, or will my kid expect things I haven’t agreed to?',
+    a: 'You stock the Rewards Vault yourself with whatever you’re comfortable offering, and every claim sits pending until you approve it. Nothing gets fulfilled without your sign-off.',
+  },
+  {
+    q: 'What if I have more than one child?',
+    a: 'One parent account manages your whole family — add every child once during registration, then switch between them and approve each one’s reward claims from a single dashboard.',
+  },
+] as const;
+
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   return (
     <motion.div
@@ -220,6 +255,27 @@ function GuildSnapshotModal({ guild, onClose }: { guild: (typeof GUILDS)[number]
 
       <p className="text-xs text-[#8a7c66] mt-4 leading-relaxed">{guild.lore}</p>
     </ModalOverlay>
+  );
+}
+
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between gap-4 text-left px-5 py-4 cursor-pointer"
+      >
+        <span className="font-bold text-[#ede4d3] text-sm">{q}</span>
+        <span className={`shrink-0 text-[#c9781a] font-bold text-lg transition-transform ${open ? 'rotate-45' : ''}`}>+</span>
+      </button>
+      {open && (
+        <div className="px-5 pb-4">
+          <p className="text-sm text-[#8a7c66] leading-relaxed">{a}</p>
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -686,6 +742,28 @@ export default function WelcomePage() {
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="px-6 py-24 bg-[#0d0a08] border-y border-[#241d16]">
+        <div className="max-w-3xl mx-auto">
+          <FadeIn>
+            <SectionKicker>From Parents, For Parents</SectionKicker>
+            <h2 className="font-display text-3xl sm:text-4xl font-black text-center mb-4">
+              Questions You&apos;d Actually Ask
+            </h2>
+            <p className="text-[#c9bfae] text-center max-w-xl mx-auto mb-12 leading-relaxed">
+              The things we&apos;d want to know before handing our own kid another screen.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.05}>
+            <div className="space-y-3">
+              {FAQS.map((item) => (
+                <FaqItem key={item.q} q={item.q} a={item.a} />
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
