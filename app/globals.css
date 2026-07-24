@@ -153,7 +153,8 @@ body {
 .theme-tala .bg-\[\#14100d\],
 .theme-tala .bg-\[\#1a0a15\],
 .theme-tala .bg-\[\#0d0b1a\],
-.theme-tala .bg-\[\#0d1020\] { background-color: #f9ddf0 !important; }
+.theme-tala .bg-\[\#0d1020\],
+.theme-tala .bg-\[\#1a1208\] { background-color: #f9ddf0 !important; }
 
 .theme-tala .bg-black { background-color: #fdf0f7 !important; }
 
@@ -172,6 +173,7 @@ body {
 
 /* Text */
 .theme-tala .text-white        { color: #5a2d4a !important; }
+.theme-tala .text-gray-200     { color: #3a1a2e !important; }
 .theme-tala .text-gray-300     { color: #8b4a7a !important; }
 .theme-tala .text-gray-400     { color: #a06090 !important; }
 .theme-tala .text-gray-500     { color: #b575a5 !important; }
@@ -192,9 +194,14 @@ body {
 /* Buttons default */
 .theme-tala button             { color: #5a2d4a; }
 
-/* Filled buttons get white text */
-.theme-tala .bg-blue-600,
+/* Filled buttons get white text. bg-blue-600/700 also need their background
+   repainted here — Tailwind bakes utility colors as literal hex at build
+   time, so the --color-blue-* redefinitions above never reach already-
+   compiled .bg-blue-600 rules, and it was otherwise left showing the
+   dungeon-theme amber. */
+.theme-tala .bg-blue-600       { background-color: #be185d !important; color: #ffffff !important; }
 .theme-tala .bg-blue-700,
+.theme-tala .hover\:bg-blue-700:hover { background-color: #9d174d !important; color: #ffffff !important; }
 .theme-tala .bg-amber-600,
 .theme-tala .bg-pink-600,
 .theme-tala .bg-green-700,
@@ -207,6 +214,16 @@ body {
 
 /* Explicit white text buttons always stay white */
 .theme-tala button.text-white  { color: #ffffff !important; }
+
+/* ...except buttons whose background the rules above turn light (neutral-800/
+   900, black) — those need dark text or the white-text rule above makes them
+   unreadable. This is the fix for "Enter Module" and every bg-neutral-800
+   action button across the guild games (Items/Switch/Rest/Cancel/etc). */
+.theme-tala button.bg-neutral-800.text-white,
+.theme-tala button.bg-neutral-900.text-white,
+.theme-tala button.bg-black.text-white {
+  color: #5a2d4a !important;
+}
 
 /* Disabled buttons */
 .theme-tala button:disabled    {
@@ -227,6 +244,20 @@ body {
 }
 .theme-tala input::placeholder,
 .theme-tala textarea::placeholder { color: #c888b8 !important; }
+
+/* Stat sub-panels (Leaderboard stat chips, every guild game's "Time Limit /
+   Per Correct" boxes, battle logs, etc.) use bg-black/NN as a subtle inline
+   panel — not the solid bg-black already repainted above. Left alone, that
+   translucent black composites to a muddy mid-grey over the now-light page,
+   and the text-gray-500 labels sitting on it become nearly invisible.
+   Full-screen modal scrims (bg-black/60 and darker) are intentionally left
+   untouched — those stay dark overlays by design. */
+.theme-tala .bg-black\/20,
+.theme-tala .bg-black\/25,
+.theme-tala .bg-black\/30,
+.theme-tala .bg-black\/40,
+.theme-tala .bg-black\/50,
+.theme-tala .hover\:bg-black\/50:hover { background-color: #f0d5e8 !important; }
 
 /* Quest board day rows */
 .theme-tala .bg-blue-900\/20   { background-color: rgba(236,72,153,0.08) !important; }
