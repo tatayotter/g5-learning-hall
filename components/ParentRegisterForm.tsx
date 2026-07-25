@@ -2,9 +2,14 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import { getOrCreateSessionId } from '@/lib/analytics';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
 
-export default function ParentRegisterForm() {
+interface ParentRegisterFormProps {
+  source: 'demo_banner' | 'organic';
+}
+
+export default function ParentRegisterForm({ source }: ParentRegisterFormProps) {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -43,6 +48,20 @@ export default function ParentRegisterForm() {
         setError(signUpError?.message || 'Could not create your account.');
         return;
       }
+
+      // Not routed through trackEvent(): a fresh parent signup has no
+      // g5_active_user session yet, so trackEvent's getActiveUser() gate
+      // would silently drop this event.
+      supabase.from('analytics_events').insert({
+        user_id: signUpData.user.id,
+        session_id: getOrCreateSessionId(),
+        event_name: 'parent_registration_submitted',
+        properties: { source },
+        is_family: false,
+        client_ts: new Date().toISOString(),
+      }).then(({ error }) => {
+        if (error) console.error('Failed to write analytics event:', error);
+      });
 
       let childFailed = false;
       for (const child of children) {

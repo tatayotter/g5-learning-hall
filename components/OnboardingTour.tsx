@@ -1,8 +1,9 @@
 // components/OnboardingTour.tsx
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { trackEvent } from '@/lib/analytics';
 
 interface OnboardingStep {
   emoji: string;
@@ -47,6 +48,24 @@ export default function OnboardingTour({ onComplete }: OnboardingTourProps) {
   const isLast = step === STEPS.length - 1;
   const current = STEPS[step];
 
+  useEffect(() => {
+    trackEvent('onboarding_step_viewed', { step, stepName: STEPS[step].title });
+  }, [step]);
+
+  const handleSkip = () => {
+    trackEvent('onboarding_skipped', { atStep: step });
+    onComplete();
+  };
+
+  const handleAdvance = () => {
+    if (isLast) {
+      trackEvent('onboarding_completed');
+      onComplete();
+    } else {
+      setStep(s => s + 1);
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-[100] bg-black/70 flex items-center justify-center p-4">
       <motion.div
@@ -57,7 +76,7 @@ export default function OnboardingTour({ onComplete }: OnboardingTourProps) {
       >
         <button
           type="button"
-          onClick={onComplete}
+          onClick={handleSkip}
           className="absolute top-3 right-3 text-[#8a7c66] hover:text-white transition-colors text-lg leading-none"
           aria-label="Skip tutorial"
         >
@@ -100,7 +119,7 @@ export default function OnboardingTour({ onComplete }: OnboardingTourProps) {
           </button>
           <button
             type="button"
-            onClick={() => (isLast ? onComplete() : setStep(s => s + 1))}
+            onClick={handleAdvance}
             className="bg-[#c9781a] hover:bg-[#e2921e] text-white font-bold px-6 py-2.5 rounded-[12px] transition-colors"
           >
             {isLast ? "Let's go!" : 'Next'}

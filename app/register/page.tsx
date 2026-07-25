@@ -1,6 +1,13 @@
 import ParentRegisterForm from '@/components/ParentRegisterForm';
 
-export default function RegisterPage() {
+export default async function RegisterPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ ref?: string }>;
+}) {
+  const { ref } = await searchParams;
+  const source = ref === 'demo' ? 'demo_banner' : 'organic';
+
   return (
     <main className="min-h-screen bg-black py-10 px-4">
       <div className="max-w-lg mx-auto mb-6 text-center">
@@ -9,7 +16,7 @@ export default function RegisterPage() {
           Register yourself and your children. An admin will review and approve your account before you can log in to the dashboard.
         </p>
       </div>
-      <ParentRegisterForm />
+      <ParentRegisterForm source={source} />
     </main>
   );
 }
