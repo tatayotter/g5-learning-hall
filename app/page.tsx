@@ -40,6 +40,8 @@ import { respondToInvite } from '@/lib/liveBattle';
 import EventPanel from '@/components/EventPanel';
 import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
 import CurioRevealModal from '@/components/CurioRevealModal';
+import DemoBanner from '@/components/DemoBanner';
+import OnboardingTour from '@/components/OnboardingTour';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 import {
@@ -132,6 +134,33 @@ export default function Dashboard() {
       supabase.removeChannel(channel);
     };
   }, [activeUserId]);
+
+  // Reused by both demo and real accounts (user_last_login.onboarding_completed_at)
+  // so the guided tour only auto-shows once per account, ever.
+  const [showOnboarding, setShowOnboarding] = useState(false);
+
+  useEffect(() => {
+    if (!activeUserId) return;
+    (async () => {
+      const { data: row } = await supabase
+        .from('user_last_login')
+        .select('onboarding_completed_at')
+        .eq('user_id', activeUserId)
+        .maybeSingle();
+      if (!row?.onboarding_completed_at) {
+        setShowOnboarding(true);
+      }
+    })();
+  }, [activeUserId]);
+
+  const handleCompleteOnboarding = async () => {
+    setShowOnboarding(false);
+    if (!activeUserId) return;
+    await supabase
+      .from('user_last_login')
+      .update({ onboarding_completed_at: new Date().toISOString() })
+      .eq('user_id', activeUserId);
+  };
 
   const handleUserSelect = (id: UserId) => {
     setActiveUserId(id);
@@ -419,6 +448,8 @@ export default function Dashboard() {
   return (
     <>
       {rotationScreen}
+      {activeUserId.startsWith('demo_') && <DemoBanner />}
+      {showOnboarding && <OnboardingTour onComplete={handleCompleteOnboarding} />}
       <div className="app-content">
         <div className="min-h-screen bg-black text-white flex flex-col md:flex-row">
       {/* Sidebar */}
@@ -1187,6 +1218,18 @@ export default function Dashboard() {
             onClose={() => setRevealEventMonster(null)}
           />
         )}
+
+        {/* ── Replay Tutorial button ── fixed bottom-left of the dashboard */}
+        <motion.button
+          onClick={() => setShowOnboarding(true)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="fixed bottom-6 left-6 z-50 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-gray-400 hover:text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-lg transition-colors flex items-center gap-2"
+          title="Replay Tutorial"
+        >
+          <span>❓</span>
+          <span>Tutorial</span>
+        </motion.button>
 
         {/* ── Back to Splash Screen button ── fixed bottom-right of the dashboard */}
         <motion.button

@@ -2695,6 +2695,9 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
   };
 
   const handleChallengePlayer = async (opponentId: UserId, opponentName: string) => {
+    // Demo accounts are single-player only (see app/api/demo-login) — never
+    // let one start a live battle against a real student.
+    if (userId.startsWith('demo_')) return;
     if (!liveBattleInbox.onlinePlayerIds.has(opponentId)) {
       showNotification(`${opponentName} isn't online right now.`);
       return;
@@ -3012,8 +3015,9 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
       {/* Trainers view */}
       {view === 'trainers' && battleState && (
         <div className="space-y-4">
-          {/* PvP — Challenge To A Battle */}
-          {(() => {
+          {/* PvP — Challenge To A Battle (never shown to demo accounts —
+              single-player only, see app/api/demo-login) */}
+          {!userId.startsWith('demo_') && (() => {
             const today = new Date().toISOString().split('T')[0];
             const alreadyWonToday = battleState?.last_pvp_win === today;
             const otherPlayers = getOtherPlayers(userId as UserId).filter(p => liveBattleInbox.onlinePlayerIds.has(p.id));

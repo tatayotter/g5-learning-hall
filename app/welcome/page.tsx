@@ -1,7 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import { ensureAnonymousSession } from '@/lib/supabase';
+import { setActiveUser, registerDemoUser, recordLastLogin } from '@/lib/userSession';
 
 const GUILDS = [
   {
@@ -292,24 +295,70 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 }
 
 function CTAButtons({ align = 'center' }: { align?: 'center' | 'left' }) {
+  const router = useRouter();
+  const [demoState, setDemoState] = useState<'idle' | 'loading' | 'error'>('idle');
+
+  const handleTryDemo = async () => {
+    setDemoState('loading');
+    try {
+      const authUid = await ensureAnonymousSession();
+      if (!authUid) throw new Error('no anonymous session');
+
+      const res = await fetch('/api/demo-login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ authUid }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error(data.error || 'demo login failed');
+
+      registerDemoUser(data.userId);
+      setActiveUser(data.userId);
+      await recordLastLogin(data.userId);
+      router.push('/');
+    } catch {
+      setDemoState('error');
+    }
+  };
+
   return (
-    <div className={`flex flex-col sm:flex-row items-center gap-3 mt-8 ${align === 'left' ? 'sm:justify-start' : 'justify-center'}`}>
-      <motion.a
-        href="/register"
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.97 }}
-        className="w-full sm:w-auto text-center bg-[#c9781a] hover:bg-[#e2921e] text-white font-bold px-8 py-3.5 rounded-[14px] transition-colors shadow-[0_4px_20px_rgba(201,120,26,0.35)]"
-      >
-        Register Your Family
-      </motion.a>
-      <motion.a
-        href="/parent-login"
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.97 }}
-        className="w-full sm:w-auto text-center bg-[#1c1611] hover:bg-[#241d16] border border-[#3d3225] hover:border-[#c9781a] text-[#d8cdb8] font-bold px-8 py-3.5 rounded-[14px] transition-colors"
-      >
-        Parent Login
-      </motion.a>
+    <div className={`flex flex-col items-center mt-8 ${align === 'left' ? 'sm:items-start' : ''}`}>
+      <div className={`flex flex-col sm:flex-row items-center gap-3 ${align === 'left' ? 'sm:justify-start' : 'justify-center'}`}>
+        <motion.a
+          href="/register"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="w-full sm:w-auto text-center bg-[#c9781a] hover:bg-[#e2921e] text-white font-bold px-8 py-3.5 rounded-[14px] transition-colors shadow-[0_4px_20px_rgba(201,120,26,0.35)]"
+        >
+          Register Your Family
+        </motion.a>
+        <motion.a
+          href="/parent-login"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="w-full sm:w-auto text-center bg-[#1c1611] hover:bg-[#241d16] border border-[#3d3225] hover:border-[#c9781a] text-[#d8cdb8] font-bold px-8 py-3.5 rounded-[14px] transition-colors"
+        >
+          Parent Login
+        </motion.a>
+        <motion.button
+          type="button"
+          onClick={handleTryDemo}
+          disabled={demoState === 'loading'}
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="w-full sm:w-auto text-center bg-transparent hover:bg-[#241d16] border border-dashed border-[#5a4c38] hover:border-[#c9781a] text-[#d8cdb8] font-bold px-8 py-3.5 rounded-[14px] transition-colors disabled:opacity-60"
+        >
+          {demoState === 'loading' ? 'Loading demo…' : 'Try the Demo'}
+        </motion.button>
+      </div>
+      <p className={`text-xs text-[#8a7c66] mt-2 ${align === 'left' ? 'sm:text-left' : ''}`}>
+        No sign-up needed
+      </p>
+      {demoState === 'error' && (
+        <p className="text-xs text-red-400 mt-1">
+          Couldn&apos;t start the demo right now — please try again in a bit.
+        </p>
+      )}
     </div>
   );
 }

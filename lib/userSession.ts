@@ -186,6 +186,24 @@ export async function recordLastLogin(userId: UserId): Promise<void> {
     .upsert({ user_id: userId, last_login: new Date().toISOString() }, { onConflict: 'user_id' });
 }
 
+// Demo accounts never come from `children`/`classmates` (see app/api/demo-login
+// and the create_demo_account RPC), so they're added to USERS directly here
+// instead of through a loader — which also keeps them out of every other
+// loader-driven surface (leaderboard, online-players list, etc.) by construction.
+export function registerDemoUser(userId: UserId): void {
+  USERS[userId] = {
+    id: userId,
+    name: 'Guest',
+    fullName: 'Guest Explorer',
+    grade: '',
+    avatar: '/userpics/Spr_RS_School_Kid_M.png',
+    theme: 'damien',
+    gender: 'boy',
+    isFamily: false,
+    contentSourceId: 'damien',
+  };
+}
+
 export function getOtherPlayers(currentUserId: UserId): UserProfile[] {
   return (Object.keys(USERS) as UserId[])
     .filter(id => id !== currentUserId)
