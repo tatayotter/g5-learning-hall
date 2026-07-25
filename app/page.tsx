@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadChildren, loadFamilyProtection, loadAvatarOverrides, linkIdentity, recordLastLogin, USERS } from '@/lib/userSession';
+import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadChildren, loadFamilyProtection, loadAvatarOverrides, linkIdentity, recordLastLogin, registerDemoUser, USERS } from '@/lib/userSession';
 import SplashScreen from '@/components/SplashScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
 import HeroProfile from '@/components/HeroProfile';
@@ -88,6 +88,13 @@ export default function Dashboard() {
       await Promise.all([loadClassmates(), loadChildren(), loadFamilyProtection()]);
       await loadAvatarOverrides();
       const saved = getActiveUser();
+      // Demo profiles are registered into USERS purely in-memory at login
+      // (never stored in `children`/`classmates`), so a page refresh loses
+      // them — registerDemoUser is a pure function of the id, so it's safe
+      // to just call it again here rather than losing the session.
+      if (saved && saved.startsWith('demo_') && !USERS[saved]) {
+        registerDemoUser(saved);
+      }
       if (saved && USERS[saved]) {
         setActiveUserId(saved);
         const theme = USERS[saved].theme;
