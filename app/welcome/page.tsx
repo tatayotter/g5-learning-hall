@@ -477,9 +477,16 @@ export default function WelcomePage() {
         </FadeIn>
 
         <FadeIn delay={0.2}>
-          <p className="text-right text-sm text-[#8a7c66] italic mt-8">
-            — Tatay, creator of Learning Hall
-          </p>
+          <div className="flex flex-col items-end mt-8">
+            <img
+              src="/tatay sprite.webp"
+              alt="Tatay"
+              className="w-16 h-16 object-contain mb-2"
+            />
+            <p className="text-right text-sm text-[#8a7c66] italic">
+              — Tatay, creator of Learning Hall
+            </p>
+          </div>
         </FadeIn>
       </section>
 
