@@ -481,7 +481,7 @@ export default function WelcomePage() {
             <img
               src="/tatay sprite.webp"
               alt="Tatay"
-              className="w-16 h-16 object-contain mb-2"
+              className="object-contain mb-2"
             />
             <p className="text-right text-sm text-[#8a7c66] italic">
               — Tatay, creator of Learning Hall
