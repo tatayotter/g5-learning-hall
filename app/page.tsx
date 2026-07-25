@@ -266,6 +266,17 @@ export default function Dashboard() {
   const [showEventPopup, setShowEventPopup] = useState(false);
 
   const loadEventData = async (userId: UserId) => {
+    // Demo accounts never see Special Events (sidebar panel, board section,
+    // or the announcement popup) — not real progress worth showcasing, and
+    // events are tied to grade-specific curriculum content demo profiles
+    // don't have.
+    if (userId.startsWith('demo_')) {
+      setActiveEvent(null);
+      setEventQuests([]);
+      setEventProgress([]);
+      setEventClaimed(false);
+      return;
+    }
     const ev = await fetchActiveEvent();
     setActiveEvent(ev);
     if (!ev) {
