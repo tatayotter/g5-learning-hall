@@ -2449,13 +2449,14 @@ function DraftSummaryCard({ summary, onReload, passcode, publishDay, publishWeek
   );
 }
 
-function DraftSubjectGroup({ subject, drafts, summary, grade, selectedIds, onToggleSelect, onReload, passcode }: {
+function DraftSubjectGroup({ subject, drafts, summary, grade, selectedIds, onToggleSelect, onSelectAll, onReload, passcode }: {
   subject: string;
   drafts: DraftQuestion[];
   summary?: DraftSummary;
   grade: number;
   selectedIds: Set<string>;
   onToggleSelect: (id: string) => void;
+  onSelectAll: (ids: string[], selected: boolean) => void;
   onReload: () => void;
   passcode: string;
 }) {
@@ -2464,6 +2465,8 @@ function DraftSubjectGroup({ subject, drafts, summary, grade, selectedIds, onTog
   const [publishing, setPublishing] = useState(false);
 
   const idsInThisSubject = drafts.filter(d => selectedIds.has(d.id)).map(d => d.id);
+  const approvedIds = drafts.filter(d => d.status === 'approved').map(d => d.id);
+  const allApprovedSelected = approvedIds.length > 0 && approvedIds.every(id => selectedIds.has(id));
 
   const handlePublish = async () => {
     if (idsInThisSubject.length === 0) return;
@@ -2489,6 +2492,16 @@ function DraftSubjectGroup({ subject, drafts, summary, grade, selectedIds, onTog
   return (
     <div className="mb-6">
       <h3 className="text-white font-bold text-sm mb-2">{subject}</h3>
+      {approvedIds.length > 0 && (
+        <label className="flex items-center gap-2 mb-2 text-xs text-gray-400 cursor-pointer select-none w-fit">
+          <input
+            type="checkbox"
+            checked={allApprovedSelected}
+            onChange={() => onSelectAll(approvedIds, !allApprovedSelected)}
+          />
+          Select all {approvedIds.length} approved
+        </label>
+      )}
       {summary && (
         <DraftSummaryCard summary={summary} onReload={onReload} passcode={passcode} publishDay={publishDay} publishWeek={publishWeek} />
       )}
@@ -2586,6 +2599,14 @@ function DraftQuestionsSection({ passcode }: { passcode: string }) {
     });
   };
 
+  const selectAll = (ids: string[], selected: boolean) => {
+    setSelectedIds(prev => {
+      const next = new Set(prev);
+      ids.forEach(id => selected ? next.add(id) : next.delete(id));
+      return next;
+    });
+  };
+
   const bySubject: Record<string, DraftQuestion[]> = {};
   drafts.forEach(d => {
     if (!bySubject[d.subject]) bySubject[d.subject] = [];
@@ -2646,6 +2667,7 @@ function DraftQuestionsSection({ passcode }: { passcode: string }) {
           grade={grade}
           selectedIds={selectedIds}
           onToggleSelect={toggleSelect}
+          onSelectAll={selectAll}
           onReload={reload}
           passcode={passcode}
         />
