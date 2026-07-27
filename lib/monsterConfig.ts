@@ -90,6 +90,15 @@ export const ELEMENT_STATUS: Partial<Record<Element, StatusEffect>> = {
   light:  'blessed',
 };
 
+// ELEMENT_STATUS entries that buff the caster instead of debuffing whoever
+// it just hit. Every entry above except 'blessed' is a debuff (burn/paralyze/
+// curse — see STATUS_DEFINITIONS) and belongs on the defender as normal;
+// 'blessed' ("next correct answer deals double damage") only makes sense
+// applied to the attacker's own next turn, matching how it's granted by
+// items elsewhere (apply_blessed) and read back via `status === 'blessed'`
+// wherever a caster's own damage is calculated.
+export const SELF_TARGETING_ELEMENT_STATUSES: StatusEffect[] = ['blessed'];
+
 // ─── SKILLS ─────────────────────────────────────────────────────────────────
 
 // A secondary mechanical effect a skill applies alongside (or instead of) its
@@ -997,11 +1006,18 @@ export const BATTLE_CONSTANTS = {
   BURN_DAMAGE_PER_TURN:          5,
   CURSE_DAMAGE_REDUCTION:       0.5,
   CURSE_DURATION_TURNS:          2,
-  NPC_DAMAGE_BY_TIER: { 1: 10, 2: 20, 3: 30 } as Record<1|2|3, number>,
   PLAYER_LEVEL_FOR_SLOT: { 1: 5, 2: 10, 3: 15 } as Record<1|2|3, number>,
   // +8%/level over the monster's level-1 base stats, so a Lv.25 monster (the
   // highest-level NPC trainer) hits roughly 2.9x as hard/tanky as a fresh catch.
   STAT_GROWTH_PER_LEVEL:      0.08,
+  // NPCs don't answer quiz questions, so their counter-attacks need a stand-in
+  // accuracy instead of a real correct/total ratio. calculateDamage only cares
+  // whether the ratio is a perfect 1 (full damage), a partial >0 (0.5x, same
+  // reduction a player gets for any wrong answer), or exactly 0 (miss) — so
+  // this pair just needs to land in the "partial" bucket, simulating an NPC
+  // that gets roughly 2/3 of its own questions right rather than always
+  // landing a perfect hit.
+  NPC_COUNTER_ACCURACY: { correct: 2, total: 3 },
 };
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────

@@ -5,7 +5,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { RealtimeChannel } from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabase';
-import { Skill, calculateDamage, getElementMultiplier, getScaledStats, ELEMENT_STATUS, StatusEffect, ActiveModifier, getModifierMultiplier, tickModifiers, applySkillEffects } from '@/lib/monsterConfig';
+import { Skill, calculateDamage, getElementMultiplier, getScaledStats, ELEMENT_STATUS, SELF_TARGETING_ELEMENT_STATUSES, StatusEffect, ActiveModifier, getModifierMultiplier, tickModifiers, applySkillEffects } from '@/lib/monsterConfig';
 import { ActiveBattleMonster } from '@/components/battle/shared';
 
 export type BattlePhase = 'waiting_for_opponent' | 'select_skill' | 'awaiting_opponent' | 'round_resolved' | 'ended';
@@ -22,8 +22,16 @@ export interface RoundOutcome {
   round: number;
   myDamageDealt: number;
   opponentDamageDealt: number;
+  // Debuffs (burn/paralyze/curse) landed on the opponent by this side's
+  // perfect-hit ELEMENT_STATUS effect — null if the effect was a buff
+  // instead (see mySelfStatus/oppSelfStatus below) or no perfect hit landed.
   myStatusInflicted: StatusEffect;
   opponentStatusInflicted: StatusEffect;
+  // Buffs (currently only 'blessed') a side's own perfect hit earned for
+  // its *own* next attack — applied to that side's own monster, never the
+  // opponent's, unlike myStatusInflicted/opponentStatusInflicted above.
+  mySelfStatus: StatusEffect;
+  oppSelfStatus: StatusEffect;
   // True only when a real skill was picked (not Rest/an item) and every
   // question for it was answered wrong — distinct from a deliberate 0-damage
   // action, so the UI can say "your attack missed" rather than staying vague.
@@ -168,8 +176,16 @@ export function useLiveBattle(
       }
     }
 
-    const myStatusInflicted = mine.isPerfect && mySkill ? ELEMENT_STATUS[myMonster.def.element] ?? null : null;
-    const opponentStatusInflicted = theirs.isPerfect && oppSkill ? ELEMENT_STATUS[oppMonster.def.element] ?? null : null;
+    const myEffect = mine.isPerfect && mySkill ? ELEMENT_STATUS[myMonster.def.element] ?? null : null;
+    const oppEffect = theirs.isPerfect && oppSkill ? ELEMENT_STATUS[oppMonster.def.element] ?? null : null;
+    const myIsSelfEffect = !!myEffect && SELF_TARGETING_ELEMENT_STATUSES.includes(myEffect);
+    const oppIsSelfEffect = !!oppEffect && SELF_TARGETING_ELEMENT_STATUSES.includes(oppEffect);
+    // A self-targeting effect (blessed) buffs the caster's own next attack;
+    // every other effect (burn/paralyze/curse) debuffs whoever it hit.
+    const myStatusInflicted = myEffect && !myIsSelfEffect ? myEffect : null;
+    const opponentStatusInflicted = oppEffect && !oppIsSelfEffect ? oppEffect : null;
+    const mySelfStatus = myIsSelfEffect ? myEffect : null;
+    const oppSelfStatus = oppIsSelfEffect ? oppEffect : null;
 
     const myAttackMissed = !!mySkill && mine.correctCount === 0;
     const opponentAttackMissed = !!oppSkill && theirs.correctCount === 0;
@@ -204,13 +220,13 @@ export function useLiveBattle(
     const mySkillId = mySkill ? mine.skillId : null;
     const oppSkillId = oppSkill ? theirs.skillId : null;
 
-    setLastOutcome({ round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId });
+    setLastOutcome({ round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId });
     setPhase('round_resolved');
 
     channelRef.current?.send({
       type: 'broadcast',
       event: 'round_result',
-      payload: { round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId, from: userId },
+      payload: { round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId, from: userId },
     });
   }, [skills, userId]);
 
@@ -302,6 +318,8 @@ export function useLiveBattle(
         opponentDamageDealt: payload.myDamageDealt,
         myStatusInflicted: payload.opponentStatusInflicted,
         opponentStatusInflicted: payload.myStatusInflicted,
+        mySelfStatus: payload.oppSelfStatus,
+        oppSelfStatus: payload.mySelfStatus,
         myAttackMissed: payload.opponentAttackMissed,
         opponentAttackMissed: payload.myAttackMissed,
         myTimedOut: payload.opponentTimedOut,

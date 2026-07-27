@@ -83,7 +83,7 @@ export function MonsterImage({ monster, className = '', emojiClassName = 'text-3
 // fixed window before the next beat (or the caller's onDone) fires, so a
 // fight plays out deliberately instead of resolving instantly.
 
-export const BATTLE_BEAT_MS = 2000;
+export const BATTLE_BEAT_MS = 2600;
 
 export interface BattleBeat {
   actor: 'player' | 'opponent';
@@ -124,8 +124,8 @@ export function runBattleBeats(beats: BattleBeat[], onBeat: (beat: BattleBeat) =
 // gets the same clear per-hit feedback the solo screen has always had.
 export function AttackBanner({ text, iconSrc }: { text: string; iconSrc: string | null }) {
   return (
-    <div className="text-center py-4 text-xl font-bold text-amber-400 animate-pulse flex items-center justify-center gap-2">
-      {iconSrc && <img src={iconSrc} alt="" className="w-6 h-6 object-contain" />}
+    <div className="battle-banner-text text-center py-4 text-2xl text-amber-300 animate-pulse flex items-center justify-center gap-2">
+      {iconSrc && <img src={iconSrc} alt="" className="w-7 h-7 object-contain" />}
       {text}
     </div>
   );
@@ -136,8 +136,8 @@ export function AttackBanner({ text, iconSrc }: { text: string; iconSrc: string 
 export function DamageNumber({ value, missed }: { value: number; missed: boolean }) {
   return (
     <span
-      className={`damage-number absolute left-1/2 top-0 -translate-x-1/2 font-bold pointer-events-none select-none ${
-        missed ? 'text-gray-400 text-sm' : 'text-red-400 text-lg'
+      className={`damage-number absolute left-1/2 top-0 -translate-x-1/2 pointer-events-none select-none ${
+        missed ? 'dmg-text-miss' : 'dmg-text-hit'
       }`}
     >
       {missed ? 'Miss!' : `-${value}`}

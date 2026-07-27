@@ -13,7 +13,7 @@ import {
   MONSTERS, WILD_MONSTERS, ALL_MONSTERS, GUILD_MONSTERS, EVENT_MONSTERS, NPC_TRAINERS, SKILLS, BATTLE_CONSTANTS,
   getUnlockedMonsterSlots, getAvailableSkillTiers, calculateDamage, getScaledStats, getEquippedSkills,
   getModifierMultiplier, tickModifiers, applySkillEffects,
-  getMonsterLevel, REST_BY_ELEMENT, ELEMENT_STATUS, STATUS_DEFINITIONS, getCounterElement,
+  getMonsterLevel, REST_BY_ELEMENT, ELEMENT_STATUS, SELF_TARGETING_ELEMENT_STATUSES, STATUS_DEFINITIONS, getCounterElement,
   pickRandomWildMonsterId, getWildEncounterChance, getWildEncounterPityThreshold, getGuildMonsterDisplay, getGuildMonsterTier, getGuildMonsterTierDef,
   getGraduatedMonsterDisplay, getMaxGraduationTier, GRADUATION_LEVEL_REQUIREMENT,
   Element, StatusEffect, NpcTrainer, MonsterDef, TrainerMonster, ELEMENT_ICON_SRC, getSkillIconSrc,
@@ -313,13 +313,39 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
     return [updated, msgs];
   };
 
-  // Shared by doNpcTurn's normal counter-attack and handleQuestionsComplete's
-  // speed-preemption check below, so the tier/defense/def_boost math can't
-  // drift between the two call sites.
-  const computeNpcDamage = (attacker: ActiveBattleMonster, defender: ActiveBattleMonster): number => {
+  // The skill an NPC curio counter-attacks with — same tier gating players
+  // get (skillUnlocks tier2/tier3), so a low-level NPC can't use a move it
+  // wouldn't actually have learned yet.
+  const getNpcSkill = (attacker: ActiveBattleMonster) => {
     const tier = attacker.level >= 15 ? 3 : attacker.level >= 8 ? 2 : 1;
-    let dmg = BATTLE_CONSTANTS.NPC_DAMAGE_BY_TIER[tier as 1|2|3];
-    dmg *= 100 / (100 + getScaledStats(defender.def, defender.level).defense * getModifierMultiplier(defender.modifiers, 'def'));
+    return SKILLS[attacker.def.skills[tier - 1]];
+  };
+
+  // Shared by doNpcTurn's normal counter-attack and handleQuestionsComplete's
+  // speed-preemption check below, so the stat/defense/def_boost math can't
+  // drift between the two call sites. Uses the same calculateDamage formula
+  // as the player's own attacks and live PVP (lib/liveBattle.ts /
+  // hooks/useLiveBattle.ts) — full ATK stat, the NPC's real skill multiplier,
+  // elemental type, mitigated by the defender's DEF — instead of a flat
+  // per-tier number, so every battle mode (trainer, wild encounter, training
+  // dummy, PVP) scales damage the same way. NPCs don't answer questions, so
+  // NPC_COUNTER_ACCURACY stands in for a real correct/total ratio — without
+  // it every NPC hit would land at a player's "perfect answer" damage, every
+  // single turn, which is far harder than any player ever has to face.
+  const computeNpcDamage = (attacker: ActiveBattleMonster, defender: ActiveBattleMonster): number => {
+    const skill = getNpcSkill(attacker);
+    const atkMult = getModifierMultiplier(attacker.modifiers, 'atk');
+    const defMult = getModifierMultiplier(defender.modifiers, 'def');
+    let dmg = calculateDamage(
+      skill,
+      getScaledStats(attacker.def, attacker.level).attack * atkMult,
+      BATTLE_CONSTANTS.NPC_COUNTER_ACCURACY.correct,
+      BATTLE_CONSTANTS.NPC_COUNTER_ACCURACY.total,
+      attacker.def.element,
+      defender.def.element,
+      attacker.status === 'blessed',
+      getScaledStats(defender.def, defender.level).defense * defMult,
+    );
     if (defender.status === 'def_boost') dmg /= 2;
     return Math.round(dmg);
   };
@@ -486,6 +512,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
       && getScaledStats(npcMon.def, npcMon.level).speed > getScaledStats(playerMon.def, playerMon.level).speed;
     if (npcIsFaster) {
       const preemptDamage = computeNpcDamage(npcMon, playerMon);
+      const preemptAttackVerb = `uses ${getNpcSkill(npcMon).name}`;
       if (playerMon.currentHp - preemptDamage <= 0) {
         let updatedPlayerAfterPreempt: ActiveBattleMonster[] = playerMonsters;
         const beat: BattleBeat = {
@@ -498,7 +525,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
             playHitThud();
             triggerAnim('player', 'battle-hit');
             setPlayerDamagePopup({ key: Date.now(), value: preemptDamage, missed: false });
-            addLog(`⚡ ${npcMon.def.name} is faster and attacks for ${preemptDamage} damage before you can move!`);
+            addLog(`⚡ ${npcMon.def.name} is faster and ${preemptAttackVerb} for ${preemptDamage} damage before you can move!`);
             const newHp = Math.max(0, playerMon.currentHp - preemptDamage);
             updatedPlayerAfterPreempt = playerMonsters.map((m, i) => i === playerMonsterIdx ? { ...m, currentHp: newHp } : m);
             setPlayerMonsters(updatedPlayerAfterPreempt);
@@ -559,11 +586,21 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
     const npcHpFloor = trainer?.unbeatable ? 1 : 0;
     let newNpcMon = { ...npcMon, currentHp: Math.max(npcHpFloor, npcMon.currentHp - damage) };
 
+    // A perfect hit's ELEMENT_STATUS effect is either a debuff (burn/paralyze/
+    // curse — applied to whoever got hit) or a buff (blessed — applied to the
+    // caster's own next attack instead). selfBlessed is folded into
+    // newPlayerMonsters below rather than set here directly.
+    let selfBlessed = false;
     if (isPerfect && ELEMENT_STATUS[playerMon.def.element]) {
       const effect = ELEMENT_STATUS[playerMon.def.element]!;
-      newNpcMon.status = effect;
-      newNpcMon.statusTurns = effect === 'curse' ? BATTLE_CONSTANTS.CURSE_DURATION_TURNS : 999;
-      msg += ` ${STATUS_DEFINITIONS[effect].emoji} ${newNpcMon.def.name} is ${effect}!`;
+      if (SELF_TARGETING_ELEMENT_STATUSES.includes(effect)) {
+        selfBlessed = true;
+        msg += ` ${STATUS_DEFINITIONS[effect].emoji} ${playerMon.def.name} is ${effect}!`;
+      } else {
+        newNpcMon.status = effect;
+        newNpcMon.statusTurns = effect === 'curse' ? BATTLE_CONSTANTS.CURSE_DURATION_TURNS : 999;
+        msg += ` ${STATUS_DEFINITIONS[effect].emoji} ${newNpcMon.def.name} is ${effect}!`;
+      }
     }
 
     // Alt/universal skills' secondary effects (self/enemy stat modifiers,
@@ -578,7 +615,11 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
     let newPlayerMonsters = playerMonsters.map((m, i) => {
       if (i !== playerMonsterIdx) return m;
       let updated = { ...m, modifiers: effectResult.casterModifiers };
+      // Consume any blessed carried in from a prior turn (it just powered
+      // this attack via isBlessed above), then re-bless for the next turn if
+      // this hit itself earned a fresh one.
       if (updated.status === 'blessed') updated.status = null as StatusEffect;
+      if (selfBlessed) { updated.status = 'blessed' as StatusEffect; updated.statusTurns = 3; }
       if (effectResult.casterHpDelta !== 0) {
         updated.currentHp = Math.max(0, Math.min(updated.maxHp, updated.currentHp + effectResult.casterHpDelta));
       }
@@ -657,10 +698,12 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
     tickedNpc.modifiers = tickModifiers(tickedNpc.modifiers);
     const newHp = Math.max(0, currentPlayer.currentHp - damage);
 
+    const npcAttackVerb = `uses ${getNpcSkill(currentNpc).name}`;
+
     let updatedPlayerAfterNpc: ActiveBattleMonster[] = playerMonstersRef.current;
     const npcBeat: BattleBeat = {
       actor: 'opponent',
-      message: `${currentNpc.def.name} attacks!`,
+      message: `${currentNpc.def.name} ${npcAttackVerb}!`,
       iconSrc: null,
       damage,
       missed: false,
@@ -668,7 +711,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
         playHitThud();
         triggerAnim('player', 'battle-hit');
         setPlayerDamagePopup({ key: Date.now(), value: damage, missed: false });
-        addLog(`${currentNpc.def.name} attacks for ${damage} damage!`);
+        addLog(`${currentNpc.def.name} ${npcAttackVerb} for ${damage} damage!`);
         tickMsgs.forEach(addLog);
         updatedPlayerAfterNpc = playerMonstersRef.current.map((m, i) =>
           i === currentIdx ? { ...m, currentHp: newHp, modifiers: tickModifiers(m.modifiers) } : m

@@ -167,7 +167,7 @@ export default function BattleStage({
         <div className="bstage-status-banner">{statusBanner}</div>
       )}
 
-      <div className={`bstage-log-panel bg-black/95 ${logOpen ? 'open border-2 border-neutral-700' : ''}`}>
+      <div className={`bstage-log-panel bg-black/95 ${logOpen ? 'open border-2 border-neutral-700' : ''} ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}>
         <div className="flex items-center justify-between px-3 py-1.5 border-b border-neutral-800 text-[11px] font-bold uppercase tracking-wide text-gray-400 flex-shrink-0">
           <span>Battle Log</span>
         </div>
@@ -180,12 +180,12 @@ export default function BattleStage({
 
       <button
         onClick={() => setLogOpen(o => !o)}
-        className="bstage-show-log bg-neutral-800 hover:bg-neutral-700 text-gray-200 font-bold text-[11px]"
+        className={`bstage-show-log bg-neutral-800 hover:bg-neutral-700 text-gray-200 font-bold text-[11px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}
       >
         {logOpen ? 'Hide Log' : 'Show Log'}
       </button>
 
-      <div className="bstage-action-panel bg-neutral-900/95 border border-neutral-700 rounded-xl p-[7px]">
+      <div className={`bstage-action-panel bg-neutral-900/95 border border-neutral-700 rounded-xl p-[7px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}>
         {actionPanel}
       </div>
     </div>

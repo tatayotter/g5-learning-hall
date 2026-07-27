@@ -253,6 +253,12 @@ export default function LiveBattleScreen({
         if (lastOutcome.myDamageDealt > 0) playHitThud(); else playAttackWhoosh();
         if (lastOutcome.oppHpDelta > 0) addLog(`💚 ${opponentName}'s skill restored ${lastOutcome.oppHpDelta} HP!`);
         if (lastOutcome.oppCleanse) addLog(`🧼 ${opponentName}'s status conditions were cleansed!`);
+        // A self-targeting effect (blessed) buffs my own next attack — unlike
+        // myStatusInflicted above, this lands on my own monster, not theirs.
+        if (lastOutcome.mySelfStatus) {
+          updateMyActive(prev => ({ ...prev, status: lastOutcome.mySelfStatus, statusTurns: 3 }));
+          addLog(`✨ You are ${lastOutcome.mySelfStatus}!`);
+        }
       },
     } : null;
 
@@ -284,6 +290,12 @@ export default function LiveBattleScreen({
         if (lastOutcome.opponentDamageDealt > 0) playHitThud(); else playAttackWhoosh();
         if (lastOutcome.myHpDelta > 0) addLog(`💚 Your skill restored ${lastOutcome.myHpDelta} HP!`);
         if (lastOutcome.myCleanse) addLog(`🧼 Your status conditions were cleansed!`);
+        // Mirrors mySelfStatus above, but for the opponent's own perfect hit
+        // buffing their own next attack.
+        if (lastOutcome.oppSelfStatus) {
+          updateOppActive(prev => ({ ...prev, status: lastOutcome.oppSelfStatus, statusTurns: 3 }));
+          addLog(`✨ ${opponentName} is ${lastOutcome.oppSelfStatus}!`);
+        }
       },
     } : null;
 
