@@ -49,6 +49,12 @@ export interface RoundOutcome {
   oppHpDelta: number;
   myCleanse: boolean;
   oppCleanse: boolean;
+  // The real skill id each side used this round, or null for a non-attack
+  // action (Rest/item/switch/timeout) — lets the UI build a per-side attack
+  // beat (name + element icon) without re-deriving it from the sentinel
+  // action ids itself.
+  mySkillId: string | null;
+  oppSkillId: string | null;
 }
 
 interface RoundAnswer {
@@ -195,13 +201,16 @@ export function useLiveBattle(
       oppCleanse = oppCleanse || res.cleanseCaster;
     }
 
-    setLastOutcome({ round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse });
+    const mySkillId = mySkill ? mine.skillId : null;
+    const oppSkillId = oppSkill ? theirs.skillId : null;
+
+    setLastOutcome({ round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId });
     setPhase('round_resolved');
 
     channelRef.current?.send({
       type: 'broadcast',
       event: 'round_result',
-      payload: { round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, from: userId },
+      payload: { round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId, from: userId },
     });
   }, [skills, userId]);
 
@@ -304,6 +313,8 @@ export function useLiveBattle(
         oppHpDelta: payload.myHpDelta ?? 0,
         myCleanse: payload.oppCleanse ?? false,
         oppCleanse: payload.myCleanse ?? false,
+        mySkillId: payload.oppSkillId ?? null,
+        oppSkillId: payload.mySkillId ?? null,
       });
       setPhase('round_resolved');
     });

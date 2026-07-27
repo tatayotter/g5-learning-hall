@@ -32,6 +32,17 @@ export const ELEMENT_ICON_SRC: Record<Element, string> = {
   light:  '/elements/elem_light_100.webp',
 };
 
+// Shared placeholder icon for element-agnostic "fighting skills" (element:
+// null) — Rest and the universal/alt skill tree's non-elemental moves all
+// fall back to this single badge rather than needing one each.
+export const NORMAL_SKILL_ICON_SRC = '/elements/elem_normal_100.webp';
+
+// Icon shown on a skill button during battle — the skill's own element badge,
+// or the shared normal-attack placeholder for element-agnostic skills.
+export function getSkillIconSrc(skill: { element: Element | null }): string {
+  return skill.element ? ELEMENT_ICON_SRC[skill.element] : NORMAL_SKILL_ICON_SRC;
+}
+
 // Returns damage multiplier when attacker element hits defender element
 export function getElementMultiplier(attacker: Element, defender: Element): number {
   return ELEMENT_WEAKNESSES[attacker].includes(defender) ? 1.5 : 1.0;

@@ -1,39 +1,30 @@
 // components/battle/MonsterHpPanel.tsx
-// HP bar / status-badge rendering, extracted from BattleScreen's inline JSX
-// (components/MonsterGuild.tsx) so both the solo BattleScreen and the live
-// LiveBattleScreen render a monster's battle-header the same way.
-import { MonsterImage } from '@/components/battle/shared';
-import { STATUS_DEFINITIONS, MonsterDef, StatusEffect } from '@/lib/monsterConfig';
+// HP card for the battle stage's hp-row — name/level, HP bar, status badge.
+// Sprite rendering lives in BattleStage's Creature (positioned on the stage,
+// not the card) since the redesigned layout separates "who's fighting" (the
+// stage) from "how are they doing" (this card).
+import { STATUS_DEFINITIONS, StatusEffect } from '@/lib/monsterConfig';
 
 interface MonsterHpPanelProps {
   name: string;
   level: number;
-  def: MonsterDef;
   currentHp: number;
   maxHp: number;
   status: StatusEffect;
-  animClassName?: string;
-  align?: 'left' | 'right';
 }
 
-export default function MonsterHpPanel({ name, level, def, currentHp, maxHp, status, animClassName = '', align = 'left' }: MonsterHpPanelProps) {
+export default function MonsterHpPanel({ name, level, currentHp, maxHp, status }: MonsterHpPanelProps) {
+  const pct = maxHp > 0 ? Math.max(0, Math.min(100, (currentHp / maxHp) * 100)) : 0;
   return (
-    <div className="text-center">
-      <p className="text-xs text-gray-500 mb-1">{align === 'left' ? 'Your Curio' : 'Opponent'}</p>
-      <div className={`w-16 h-16 mx-auto mb-2 ${animClassName}`}>
-        <MonsterImage monster={def} className="w-full h-full battle-float" emojiClassName="text-4xl" />
+    <div className="bstage-hp-card bg-neutral-900 border-2 border-neutral-700 rounded-lg px-3 py-2 shadow-lg">
+      <p className="text-white font-bold text-center text-[15px] leading-tight mb-1 truncate">{name} Lv.{level}</p>
+      <div className="h-[13px] bg-black border-2 border-white rounded-full overflow-hidden">
+        <div className="h-full bg-green-500 transition-all" style={{ width: `${pct}%` }} />
       </div>
-      <p className="text-sm font-bold text-white">{name} Lv.{level}</p>
-      <div className="w-32 bg-neutral-800 rounded-full h-2 mt-1 mx-auto">
-        <div
-          className="h-2 rounded-full bg-green-500 transition-all"
-          style={{ width: `${maxHp > 0 ? (currentHp / maxHp) * 100 : 0}%` }}
-        />
-      </div>
-      <p className="text-xs text-gray-500 mt-1">{currentHp}/{maxHp} HP</p>
+      <p className="text-white text-center text-xs font-semibold mt-1">{Math.max(0, currentHp)}/{maxHp} HP</p>
       {status && (
-        <p className="text-xs mt-1 flex items-center justify-center gap-1">
-          <img src={STATUS_DEFINITIONS[status].iconSrc} alt={status} className="w-4 h-4 object-contain" />
+        <p className="text-xs mt-1 flex items-center justify-center gap-1 text-gray-300">
+          <img src={STATUS_DEFINITIONS[status].iconSrc} alt={status} className="w-3.5 h-3.5 object-contain" />
           {status}
         </p>
       )}

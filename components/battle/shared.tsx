@@ -77,6 +77,74 @@ export function MonsterImage({ monster, className = '', emojiClassName = 'text-3
   );
 }
 
+// ─── ATTACK SEQUENCING ──────────────────────────────────────────────────────
+// Shared between BattleScreen (components/MonsterGuild.tsx) and
+// LiveBattleScreen — one "beat" is a single attack/counter-attack shown for a
+// fixed window before the next beat (or the caller's onDone) fires, so a
+// fight plays out deliberately instead of resolving instantly.
+
+export const BATTLE_BEAT_MS = 2000;
+
+export interface BattleBeat {
+  actor: 'player' | 'opponent';
+  message: string;
+  iconSrc: string | null;
+  damage: number | null;
+  missed: boolean;
+  // Applies this beat's queued state change (HP/status/etc) at the moment
+  // the beat starts, so the number on screen always matches the HP bar.
+  apply: () => void;
+}
+
+// Walks `beats` one at a time, each visible for BATTLE_BEAT_MS: applies the
+// beat's queued state change and hands it to onBeat (to trigger the banner /
+// damage number / shake anim), waits out the window, then either moves to
+// the next beat or calls onDone once the last one's window closes.
+export function runBattleBeats(beats: BattleBeat[], onBeat: (beat: BattleBeat) => void, onDone: () => void) {
+  if (beats.length === 0) {
+    onDone();
+    return;
+  }
+  let i = 0;
+  const step = () => {
+    const beat = beats[i];
+    beat.apply();
+    onBeat(beat);
+    i++;
+    setTimeout(() => {
+      if (i < beats.length) step();
+      else onDone();
+    }, BATTLE_BEAT_MS);
+  };
+  step();
+}
+
+// Pulsing overlay text shown during a beat — "X used Y!" — with the acting
+// skill's element icon alongside it. Shared by both battle screens so PvP
+// gets the same clear per-hit feedback the solo screen has always had.
+export function AttackBanner({ text, iconSrc }: { text: string; iconSrc: string | null }) {
+  return (
+    <div className="text-center py-4 text-xl font-bold text-amber-400 animate-pulse flex items-center justify-center gap-2">
+      {iconSrc && <img src={iconSrc} alt="" className="w-6 h-6 object-contain" />}
+      {text}
+    </div>
+  );
+}
+
+// Floating damage number over a monster's sprite — keyed by the caller on
+// each new hit so the rise-and-fade animation replays every time.
+export function DamageNumber({ value, missed }: { value: number; missed: boolean }) {
+  return (
+    <span
+      className={`damage-number absolute left-1/2 top-0 -translate-x-1/2 font-bold pointer-events-none select-none ${
+        missed ? 'text-gray-400 text-sm' : 'text-red-400 text-lg'
+      }`}
+    >
+      {missed ? 'Miss!' : `-${value}`}
+    </span>
+  );
+}
+
 // A proper Fisher-Yates shuffle — NOT sort(() => Math.random() - 0.5), which
 // looks equivalent but is heavily biased (comparator-based sorts assume a
 // consistent comparator, and a random one isn't). That bias was the actual
@@ -138,9 +206,9 @@ export function BattleQuestionModal({ questions, count, embedded, onComplete }: 
   const inner = (
     <div className={embedded ? 'mt-2' : 'bg-neutral-900 border border-neutral-700 rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in'}>
       <div key={index} className="battle-panel-in">
-        <p className="text-xs text-gray-500 mb-2 font-mono">Question {index + 1} of {askedCount}</p>
-        <p className="text-lg font-bold text-white mb-6">{current.question || current.problem_prompt}</p>
-        <div className="space-y-3">
+        <p className="text-xs text-gray-500 mb-1.5 font-mono">Question {index + 1} of {askedCount}</p>
+        <p className="text-base font-bold text-white mb-3 leading-snug">{current.question || current.problem_prompt}</p>
+        <div className="space-y-2">
         {(current.options || []).map((opt: any) => {
           const key = typeof opt === 'string' ? opt : opt.key;
           const text = typeof opt === 'string' ? opt : opt.text;
@@ -158,7 +226,7 @@ export function BattleQuestionModal({ questions, count, embedded, onComplete }: 
               key={key}
               onClick={() => handleAnswer(key)}
               disabled={!!selected}
-              className={`w-full text-left p-4 rounded-xl border-2 text-gray-200 transition-all btn-tactile ${style} ${feedbackAnim}`}
+              className={`w-full text-left p-3 rounded-xl border-2 text-gray-200 transition-all btn-tactile ${style} ${feedbackAnim}`}
             >
               {text}
             </button>

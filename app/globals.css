@@ -69,7 +69,27 @@ body {
   border-color: #4a4038 !important;
 }
 
-/* Splash screen roster list scrollbar */
+/* ── Global scrollbar styling ──────────────────────────────────────────
+   Applies to every scrollable element app-wide by default (sidebar, modals,
+   the battle log, question-modal overlays, item/switch lists, etc.) so a
+   scrollbar always matches the dungeon theme instead of showing the
+   browser's unstyled default. `html` carries the Firefox-style properties,
+   which inherit down to any descendant that scrolls; the bare
+   `::-webkit-scrollbar` (no selector before it) implicitly targets every
+   element, same pattern the Tala theme override below already relies on.
+   Scoped overrides (.custom-scrollbar, .theme-tala) still win via normal
+   cascade specificity. */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #3d3225 transparent;
+}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #3d3225; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #c9781a; }
+
+/* Splash screen roster list scrollbar — intentionally thinner than the
+   global default above for that particular narrow list. */
 .custom-scrollbar::-webkit-scrollbar { width: 4px; }
 .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
 .custom-scrollbar::-webkit-scrollbar-thumb { background: #3d3225; border-radius: 10px; }
@@ -343,6 +363,13 @@ body {
 .battle-hit          { animation: battle-hit 0.5s ease-in-out forwards; }
 .battle-float        { animation: battle-float 2s ease-in-out infinite; }
 
+@keyframes damage-float {
+  0%   { opacity: 0; transform: translate(-50%, 0px) scale(0.8); }
+  15%  { opacity: 1; transform: translate(-50%, -8px) scale(1.1); }
+  100% { opacity: 0; transform: translate(-50%, -36px) scale(1); }
+}
+.damage-number { animation: damage-float 0.9s ease-out forwards; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
+
 /* ── Training Map: name tag always readable on its dark pill, ── */
 /* regardless of theme (Tala's theme repaints .text-white elsewhere) */
 .map-name-tag { color: #ffffff; }
@@ -433,6 +460,289 @@ body {
   .app-content {
     display: none !important;
   }
+}
+
+/* ── Battle Stage — redesigned battle scene ─────────────────────────────
+   Fixed-aspect canvas (896x504 = 1000x562 mockup scaled by 0.896 to fit the
+   app's max-w-4xl battle container at 100% scale on desktop) shared by both
+   BattleScreen (solo NPC, components/MonsterGuild.tsx) and LiveBattleScreen
+   (PvP). See components/battle/BattleStage.tsx for the component that
+   consumes these classes — colors/typography stay in Tailwind utility
+   classes there; this block is geometry/positioning only. */
+/* Width/height/scale below are driven by BattleStage's ResizeObserver
+   (measuring the shell's real rendered width, not viewport width — the
+   battle screen sits inside a sidebar layout narrower than the viewport) —
+   these rules just provide the base geometry it scales from. */
+.bstage-shell {
+  width: 100%;
+  max-width: 896px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.bstage-scale-inner {
+  width: 896px;
+  height: 504px;
+  flex-shrink: 0;
+  transform-origin: top center;
+}
+
+.bstage-container {
+  position: relative;
+  width: 896px;
+  height: 504px;
+  border-radius: 11px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.bstage-top-tags {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 20;
+}
+
+.bstage-round-badge {
+  position: absolute;
+  top: 6px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 21;
+}
+
+.bstage-hp-row {
+  position: absolute;
+  top: 34px; left: 20px; right: 20px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+}
+.bstage-hp-card { width: 237px; }
+
+.bstage-stage {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 172px;
+  z-index: 5;
+}
+.bstage-creature {
+  position: absolute;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 161px;
+}
+.bstage-creature.left { left: 77px; }
+.bstage-creature.right { right: 77px; }
+.bstage-sprite {
+  position: relative;
+  z-index: 2;
+  width: 139px; height: 139px;
+  display: flex; align-items: flex-end; justify-content: center;
+  /* battle_platform.webp is a top-down rock islet — its flat grass "standing
+     surface" sits roughly 2/3 down the image (the rock cliff face is the
+     bottom third), not at the image's very top edge, so the sprite's feet
+     need to sink well into the platform box to land on that surface instead
+     of floating above it. */
+  margin-bottom: -34px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,.4));
+}
+/* Wider than the sprite and only lightly overlapped (see .bstage-sprite's
+   small negative margin above) so the curio reads as standing on top of the
+   platform rather than sunk into it. `position: relative` is required for
+   z-index to actually apply — without it, document order alone would make
+   this (the later element) paint in front of the sprite regardless of
+   z-index. */
+.bstage-platform {
+  position: relative;
+  z-index: 1;
+  width: 210px; height: 75px;
+}
+.bstage-platform img { width: 100%; height: 100%; object-fit: contain; }
+
+.bstage-stage-banner {
+  position: absolute;
+  top: 38%; left: 0; right: 0;
+  z-index: 16;
+  pointer-events: none;
+}
+.bstage-status-banner {
+  position: absolute;
+  bottom: 178px; left: 0; right: 0;
+  z-index: 13;
+  text-align: center;
+}
+
+/* Narrow and centered in the gap between the two creatures (not full-width)
+   so an open log never covers either monster, and anchored at the same
+   `bottom` as the action panel's top edge so it reads as attached to that
+   container rather than floating independently. Border only applies when
+   open — a border on a height:0 element still paints as a thin line, which
+   is what caused the stray horizontal bar above the log when closed. */
+.bstage-log-panel {
+  position: absolute;
+  left: 50%; width: 360px;
+  transform: translateX(-50%);
+  bottom: 134px;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.28s cubic-bezier(.22,.8,.26,1);
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px 8px 0 0;
+}
+.bstage-log-panel.open { height: 150px; }
+.bstage-log-content {
+  overflow-y: auto;
+  flex: 1;
+}
+/* Fixed at the same `bottom` as the log panel at all times (open or closed)
+   — it must never move on hover or on open/close, since re-centering via
+   `transform: translateX(-50%)` was getting clobbered by .btn-tactile's
+   hover transform, which made the pill visibly jump sideways. */
+.bstage-show-log {
+  position: absolute;
+  bottom: 134px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  padding: 6px 16px;
+  border-radius: 7px 7px 0 0;
+  white-space: nowrap;
+}
+
+.bstage-action-panel {
+  position: absolute;
+  bottom: 11px; left: 11px; right: 11px;
+  z-index: 14;
+}
+.bstage-moves { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+.bstage-utils { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+
+/* Shared by both BattleStage and MapStage — fixed to the real browser
+   viewport (not `absolute` within the scaled 896x504 canvas) so modal
+   content (item/switch/revive/surrender-confirm/question-modal, grass
+   training, player stats, etc.) gets the actual screen's height to work
+   with instead of being capped at the canvas's logical 504px, which is what
+   forced a scrollbar inside longer content like the question modal. */
+.stage-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+/* ── Map Stage — World Map / Training Map shell ──────────────────────────
+   Same fixed 896x504 canvas + mobile-fullscreen treatment as the battle
+   screen (see components/MapStage.tsx + hooks/useStageScale.ts), so both
+   "worlds" in the app read as one visual system. The walkable/region map
+   itself is inherently square (16x16 grid or a circular region hub), so
+   rather than stretching it to the wide canvas it sits centered in an
+   ornate-framed square (`.mstage-frame`, reusing the existing `.dnd-frame`
+   look), with movement controls overlaid directly on top of it instead of
+   living outside in a separate row. */
+.mstage-shell {
+  width: 100%;
+  max-width: 896px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.mstage-scale-inner {
+  width: 896px;
+  height: 504px;
+  flex-shrink: 0;
+  transform-origin: top center;
+}
+.mstage-container {
+  position: relative;
+  width: 896px;
+  height: 504px;
+  border-radius: 11px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: radial-gradient(circle at 50% 38%, #2a2119 0%, #1c1611 55%, #0a0807 100%);
+}
+
+.mstage-top-tags {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 20;
+}
+
+/* Fills nearly the entire canvas height — top tags float directly over the
+   frame (z-index above it, same as how the battle screen's top tags overlay
+   its stage) rather than reserving their own row, and the bottom margin
+   matches the drawer/toggle's own inset below, so both read as flush with
+   the frame's edges instead of floating in separate reserved space.
+   height/width are equal (a square) since the grid/hub art itself is
+   square, hardcoded rather than derived since the canvas is a fixed
+   896x504 to begin with. */
+.mstage-frame {
+  position: absolute;
+  top: 6px; left: 50%;
+  transform: translateX(-50%);
+  width: 490px; height: 490px;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* Movement controls overlaid directly on the map (bottom-left corner of the
+   frame) instead of sitting outside it in their own row. */
+.mstage-controls {
+  position: absolute;
+  left: 10px; bottom: 10px;
+  z-index: 16;
+}
+.mstage-dpad {
+  display: grid;
+  grid-template-columns: repeat(3, 30px);
+  grid-template-rows: repeat(3, 30px);
+  gap: 3px;
+}
+
+/* Narrow and centered (not full-width) same as the battle log, anchored at
+   the same `bottom` as the frame's own bottom edge (8px canvas margin) so
+   it reads as attached rather than floating independently. Border only
+   applies when open — a border on a height:0 element still paints as a
+   thin line otherwise. */
+.mstage-drawer {
+  position: absolute;
+  left: 50%; width: 460px;
+  transform: translateX(-50%);
+  bottom: 8px;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.28s cubic-bezier(.22,.8,.26,1);
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px 8px 0 0;
+}
+.mstage-drawer.open { height: 220px; }
+.mstage-drawer-content {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.mstage-show-drawer {
+  position: absolute;
+  bottom: 8px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  padding: 6px 16px;
+  border-radius: 7px 7px 0 0;
+  white-space: nowrap;
 }
 
 /* ── Mobile Typography Scale ─────────────────────────────── */

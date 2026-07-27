@@ -14,9 +14,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLiveBattle, TIMEOUT_ACTION_ID } from '@/hooks/useLiveBattle';
 import { resolveBattle } from '@/lib/liveBattle';
-import { ActiveBattleMonster, BattleQuestionModal, MonsterImage } from '@/components/battle/shared';
-import MonsterHpPanel from '@/components/battle/MonsterHpPanel';
-import { SKILLS, getAvailableSkillTiers, getEquippedSkills, REST_BY_ELEMENT, StatusEffect, BATTLE_CONSTANTS } from '@/lib/monsterConfig';
+import { ActiveBattleMonster, BattleBeat, BattleQuestionModal, runBattleBeats } from '@/components/battle/shared';
+import BattleStage, { ActionTile, PlaceholderTile } from '@/components/battle/BattleStage';
+import { SKILLS, getAvailableSkillTiers, getEquippedSkills, getSkillIconSrc, REST_BY_ELEMENT, StatusEffect, BATTLE_CONSTANTS } from '@/lib/monsterConfig';
 import PostBattleSummary from '@/components/battle/PostBattleSummary';
 import { InventoryMap } from '@/lib/inventory';
 import { SHOP_CATALOG } from '@/lib/inventory';
@@ -69,6 +69,13 @@ export default function LiveBattleScreen({
   const battleMusicRef = useRef<HTMLAudioElement | null>(null);
   const [myAnim, setMyAnim] = useState('');
   const [oppAnim, setOppAnim] = useState('');
+  const [banner, setBanner] = useState<{ text: string; iconSrc: string | null } | null>(null);
+  const [myDamagePopup, setMyDamagePopup] = useState<{ key: number; value: number; missed: boolean } | null>(null);
+  const [oppDamagePopup, setOppDamagePopup] = useState<{ key: number; value: number; missed: boolean } | null>(null);
+  // Set to the round number once that round's attack beats have finished
+  // playing — gates auto-advance/KO handling so they don't fire mid-sequence
+  // while a beat's 2s window is still on screen.
+  const [beatsDoneForRound, setBeatsDoneForRound] = useState<number | null>(null);
 
   const myMon = myRoster[myActiveIdx];
   const oppMon = oppRoster[oppActiveIdx];
@@ -202,66 +209,94 @@ export default function LiveBattleScreen({
 
   // Applies the round's resolved damage/status once, from whichever source
   // arrived first — my own resolveRound() call or the opponent's round_result.
+  // Rather than applying both sides at once, this plays each side's attack as
+  // its own ~2s beat (banner + damage number + shake), same pacing as the
+  // solo BattleScreen, so a PvP hit is never just an instant, silent HP dip.
   useEffect(() => {
     if (!lastOutcome) return;
+    setBanner(null);
 
-    updateOppActive(prev => {
-      let newHp = Math.max(0, prev.currentHp - lastOutcome.myDamageDealt);
-      if (lastOutcome.oppHpDelta !== 0) newHp = Math.max(0, Math.min(prev.maxHp, newHp + lastOutcome.oppHpDelta));
-      return {
-        ...prev,
-        currentHp: newHp,
-        status: lastOutcome.oppCleanse ? null : lastOutcome.myStatusInflicted ?? prev.status,
-        statusTurns: lastOutcome.oppCleanse ? 0 : prev.statusTurns,
-        modifiers: lastOutcome.oppModifiers,
-      };
-    });
-    updateMyActive(prev => {
-      let newHp = Math.max(0, prev.currentHp - lastOutcome.opponentDamageDealt);
-      if (lastOutcome.myHpDelta !== 0) newHp = Math.max(0, Math.min(prev.maxHp, newHp + lastOutcome.myHpDelta));
-      return {
-        ...prev,
-        currentHp: newHp,
-        status: lastOutcome.myCleanse ? null : lastOutcome.opponentStatusInflicted ?? prev.status,
-        statusTurns: lastOutcome.myCleanse ? 0 : prev.statusTurns,
-        modifiers: lastOutcome.myModifiers,
-      };
-    });
-
-    if (lastOutcome.myDamageDealt > 0) playHitThud(); else playAttackWhoosh();
-
-    if (lastOutcome.myDamageDealt > 0) {
-      triggerAnim('my', 'battle-attack-right');
-      triggerAnim('opp', 'battle-hit');
-    }
-    if (lastOutcome.opponentDamageDealt > 0) {
-      triggerAnim('opp', 'battle-attack-left');
-      triggerAnim('my', 'battle-hit');
-    }
-
-    if (lastOutcome.myTimedOut) {
-      addLog(`⏰ Your attack missed! (took too long to decide)`);
-    } else if (lastOutcome.myAttackMissed) {
-      addLog(`❌ Your attack missed! (wrong answer)`);
-    } else if (lastOutcome.myDamageDealt > 0) {
-      addLog(`You dealt ${lastOutcome.myDamageDealt} damage!`);
-    }
-    if (lastOutcome.opponentTimedOut) {
-      addLog(`⏰ ${opponentName}'s attack missed! (took too long to decide)`);
-    } else if (lastOutcome.opponentAttackMissed) {
-      addLog(`${opponentName}'s attack missed! (wrong answer)`);
-    } else if (lastOutcome.opponentDamageDealt > 0) {
-      addLog(`${opponentName} dealt ${lastOutcome.opponentDamageDealt} damage to you!`);
-    }
     if (lastOutcome.speedWinner === 'me') {
       addLog(`⚡ You were faster — your hit landed first!`);
     } else if (lastOutcome.speedWinner === 'opponent') {
       addLog(`⚡ ${opponentName} was faster and struck first!`);
     }
-    if (lastOutcome.myHpDelta > 0) addLog(`💚 Your skill restored ${lastOutcome.myHpDelta} HP!`);
-    if (lastOutcome.oppHpDelta > 0) addLog(`💚 ${opponentName}'s skill restored ${lastOutcome.oppHpDelta} HP!`);
-    if (lastOutcome.myCleanse) addLog(`🧼 Your status conditions were cleansed!`);
-    if (lastOutcome.oppCleanse) addLog(`🧼 ${opponentName}'s status conditions were cleansed!`);
+
+    const mySkillDef = lastOutcome.mySkillId ? SKILLS[lastOutcome.mySkillId] : null;
+    const oppSkillDef = lastOutcome.oppSkillId ? SKILLS[lastOutcome.oppSkillId] : null;
+
+    const myBeat: BattleBeat | null = mySkillDef ? {
+      actor: 'player',
+      message: lastOutcome.myTimedOut
+        ? `⏰ Your attack missed! (took too long to decide)`
+        : lastOutcome.myAttackMissed
+          ? `❌ You used ${mySkillDef.name}, but it missed! (wrong answer)`
+          : `You used ${mySkillDef.name}! → ${lastOutcome.myDamageDealt} damage!`,
+      iconSrc: getSkillIconSrc(mySkillDef),
+      damage: lastOutcome.myDamageDealt,
+      missed: lastOutcome.myDamageDealt === 0,
+      apply: () => {
+        updateOppActive(prev => {
+          let newHp = Math.max(0, prev.currentHp - lastOutcome.myDamageDealt);
+          if (lastOutcome.oppHpDelta !== 0) newHp = Math.max(0, Math.min(prev.maxHp, newHp + lastOutcome.oppHpDelta));
+          return {
+            ...prev,
+            currentHp: newHp,
+            status: lastOutcome.oppCleanse ? null : lastOutcome.myStatusInflicted ?? prev.status,
+            statusTurns: lastOutcome.oppCleanse ? 0 : prev.statusTurns,
+            modifiers: lastOutcome.oppModifiers,
+          };
+        });
+        setOppDamagePopup({ key: Date.now(), value: lastOutcome.myDamageDealt, missed: lastOutcome.myDamageDealt === 0 });
+        triggerAnim('my', 'battle-attack-right');
+        triggerAnim('opp', 'battle-hit');
+        if (lastOutcome.myDamageDealt > 0) playHitThud(); else playAttackWhoosh();
+        if (lastOutcome.oppHpDelta > 0) addLog(`💚 ${opponentName}'s skill restored ${lastOutcome.oppHpDelta} HP!`);
+        if (lastOutcome.oppCleanse) addLog(`🧼 ${opponentName}'s status conditions were cleansed!`);
+      },
+    } : null;
+
+    const oppBeat: BattleBeat | null = oppSkillDef ? {
+      actor: 'opponent',
+      message: lastOutcome.opponentTimedOut
+        ? `⏰ ${opponentName}'s attack missed! (took too long to decide)`
+        : lastOutcome.opponentAttackMissed
+          ? `❌ ${opponentName} used ${oppSkillDef.name}, but it missed!`
+          : `${opponentName} used ${oppSkillDef.name}! → ${lastOutcome.opponentDamageDealt} damage!`,
+      iconSrc: getSkillIconSrc(oppSkillDef),
+      damage: lastOutcome.opponentDamageDealt,
+      missed: lastOutcome.opponentDamageDealt === 0,
+      apply: () => {
+        updateMyActive(prev => {
+          let newHp = Math.max(0, prev.currentHp - lastOutcome.opponentDamageDealt);
+          if (lastOutcome.myHpDelta !== 0) newHp = Math.max(0, Math.min(prev.maxHp, newHp + lastOutcome.myHpDelta));
+          return {
+            ...prev,
+            currentHp: newHp,
+            status: lastOutcome.myCleanse ? null : lastOutcome.opponentStatusInflicted ?? prev.status,
+            statusTurns: lastOutcome.myCleanse ? 0 : prev.statusTurns,
+            modifiers: lastOutcome.myModifiers,
+          };
+        });
+        setMyDamagePopup({ key: Date.now(), value: lastOutcome.opponentDamageDealt, missed: lastOutcome.opponentDamageDealt === 0 });
+        triggerAnim('opp', 'battle-attack-left');
+        triggerAnim('my', 'battle-hit');
+        if (lastOutcome.opponentDamageDealt > 0) playHitThud(); else playAttackWhoosh();
+        if (lastOutcome.myHpDelta > 0) addLog(`💚 Your skill restored ${lastOutcome.myHpDelta} HP!`);
+        if (lastOutcome.myCleanse) addLog(`🧼 Your status conditions were cleansed!`);
+      },
+    } : null;
+
+    // Default order is me-then-opponent; when Speed broke a mutual-KO tie,
+    // play the faster side's hit first to match the "struck first" log line.
+    let beats: BattleBeat[] = [myBeat, oppBeat].filter((b): b is BattleBeat => !!b);
+    if (lastOutcome.speedWinner === 'opponent' && myBeat && oppBeat) beats = [oppBeat, myBeat];
+
+    runBattleBeats(
+      beats,
+      (beat) => { setBanner({ text: beat.message, iconSrc: beat.iconSrc }); addLog(beat.message); },
+      () => { setBanner(null); setBeatsDoneForRound(lastOutcome.round); },
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastOutcome]);
 
@@ -272,6 +307,7 @@ export default function LiveBattleScreen({
   // actually writes the result (see lib/liveBattle.ts:resolveBattle).
   useEffect(() => {
     if (resolving || battleEnded) return;
+    if (beatsDoneForRound !== round) return; // wait for this round's attack beats to finish playing
     const myFainted = myMon.currentHp <= 0;
     const oppFainted = oppMon.currentHp <= 0;
     if (!myFainted && !oppFainted) return;
@@ -298,20 +334,23 @@ export default function LiveBattleScreen({
       declareBattleEnd(winnerId, 'ko');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [myMon.currentHp, oppMon.currentHp]);
+  }, [myMon.currentHp, oppMon.currentHp, beatsDoneForRound]);
 
   // Once a round resolves and nobody fainted (or the auto-switch above has
   // already replaced a fainted monster with a live one), kick off the next
   // round. Only the challenger's client sends round_start (stable
   // tie-breaker — see hooks/useLiveBattle.ts), so only it schedules the advance.
+  // Gated on beatsDoneForRound so the round can't advance mid-sequence, while
+  // this round's attack beats are still playing out.
   useEffect(() => {
     if (phase !== 'round_resolved') return;
     if (side !== 'challenger') return;
+    if (beatsDoneForRound !== round) return;
     if (myMon.currentHp <= 0 || oppMon.currentHp <= 0) return; // KO effect above will end the battle instead
-    const timer = setTimeout(() => advanceToNextRound(), 1500);
+    const timer = setTimeout(() => advanceToNextRound(), 400);
     return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase, myMon.currentHp, oppMon.currentHp, side]);
+  }, [phase, myMon.currentHp, oppMon.currentHp, side, beatsDoneForRound, round]);
 
   // Whichever client's battle_end fires first calls the Edge Function; the
   // second call is a harmless no-op read of the already-resolved row. The
@@ -541,270 +580,217 @@ export default function LiveBattleScreen({
     );
   }
 
-  return (
-    <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 battle-panel-in">
-      <div className="flex justify-between items-start mb-6">
-        <MonsterHpPanel
-          name={myMon.def.name} level={myMon.level} def={myMon.def}
-          currentHp={myMon.currentHp} maxHp={myMon.maxHp} status={myMon.status} align="left"
-          animClassName={myAnim}
-        />
+  const myDisplayName = USERS[myUserId]?.fullName ?? 'You';
 
-        <div className="flex-1 mx-6 bg-black/30 rounded-xl p-3 h-32 overflow-y-auto">
-          {phase === 'waiting_for_opponent' && (
-            <p className="text-xs text-gray-400">Waiting for {opponentName} to join the battle channel...</p>
-          )}
-          {log.map((msg, i) => (
-            <p key={i} className="text-xs text-gray-300 mb-1">{msg}</p>
-          ))}
-        </div>
+  const overlay = answering && pendingSkillId ? (
+    <div className="w-full max-w-xl bg-neutral-900 border border-amber-700 rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in">
+      <BattleQuestionModal
+        questions={questions}
+        count={SKILLS[pendingSkillId].questionCount}
+        embedded
+        onComplete={handleQuestionsComplete}
+      />
+    </div>
+  ) : showItemMenu ? (
+    <div className="w-full max-w-sm bg-neutral-950 border border-neutral-700 rounded-2xl p-4 space-y-2 max-h-full overflow-y-auto battle-panel-in">
+      <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
+        <img src="/icons/stats/items.svg" alt="" className="w-4 h-4 object-contain" /> Select an Item
+      </p>
+      {Object.entries(inventory).filter(([, qty]) => !!qty && qty > 0).length === 0 ? (
+        <p className="text-gray-500 text-sm text-center">No items in inventory.</p>
+      ) : (
+        Object.entries(inventory).map(([key, qty]) => {
+          if (!qty || qty <= 0) return null;
+          const itemData = SHOP_CATALOG.find(i => i.key === key);
+          if (!itemData) return null;
+          const noReviveTargets = itemData.effect === 'revive' && faintedMyMonsters.length === 0;
+          return (
+            <button
+              key={key}
+              onClick={() => handleUseItem(key)}
+              disabled={itemBusy || noReviveTargets}
+              className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
+            >
+              <span className="text-left flex items-center gap-2">
+                <img src={itemData.icon} alt={itemData.name} className="w-6 h-6 object-contain flex-shrink-0" />
+                <span>
+                  <span className="text-sm font-bold text-white">{itemData.name}</span>
+                  <span className="block text-xs text-gray-400">{noReviveTargets ? 'No fainted curios to revive' : itemData.desc}</span>
+                </span>
+              </span>
+              <span className="text-xs text-amber-400 font-mono">x{qty}</span>
+            </button>
+          );
+        })
+      )}
+      <button
+        onClick={() => setShowItemMenu(false)}
+        className="w-full text-center text-xs text-gray-500 hover:text-gray-300 pt-1 btn-tactile"
+      >
+        Cancel
+      </button>
+    </div>
+  ) : showSwitchMenu ? (
+    <div className="w-full max-w-sm bg-neutral-950 border border-neutral-700 rounded-2xl p-4 space-y-2 max-h-full overflow-y-auto battle-panel-in">
+      <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
+        <img src="/icons/stats/switch.svg" alt="" className="w-4 h-4 object-contain" /> Switch Curio
+      </p>
+      {otherAliveMonsters.length === 0 ? (
+        <p className="text-gray-500 text-sm text-center">No other curios available.</p>
+      ) : (
+        otherAliveMonsters.map(({ m, i }) => (
+          <button
+            key={i}
+            onClick={() => handleSwitchMonster(i)}
+            className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors btn-tactile"
+          >
+            <span className="text-left">
+              <span className="text-sm font-bold text-white">{m.def.name} Lv.{m.level}</span>
+              <span className="block text-xs text-gray-400">{m.currentHp}/{m.maxHp} HP</span>
+            </span>
+          </button>
+        ))
+      )}
+      <button
+        onClick={() => setShowSwitchMenu(false)}
+        className="w-full text-center text-xs text-gray-500 hover:text-gray-300 pt-1 btn-tactile"
+      >
+        Cancel
+      </button>
+    </div>
+  ) : showReviveMenu ? (
+    <div className="w-full max-w-sm bg-neutral-950 border border-neutral-700 rounded-2xl p-4 space-y-2 max-h-full overflow-y-auto battle-panel-in">
+      <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
+        <img src="/icons/rewards/gift.svg" alt="" className="w-4 h-4 object-contain" /> Revive Which Curio?
+      </p>
+      {faintedMyMonsters.length === 0 ? (
+        <p className="text-gray-500 text-sm text-center">No fainted curios available.</p>
+      ) : (
+        faintedMyMonsters.map(({ m, i }) => (
+          <button
+            key={i}
+            onClick={() => handleReviveTarget(i)}
+            disabled={itemBusy}
+            className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
+          >
+            <span className="text-left">
+              <span className="text-sm font-bold text-white">{m.def.name} Lv.{m.level}</span>
+              <span className="block text-xs text-gray-400">0/{m.maxHp} HP — Fainted</span>
+            </span>
+          </button>
+        ))
+      )}
+      <button
+        onClick={() => { setShowReviveMenu(false); setShowItemMenu(true); }}
+        className="w-full text-center text-xs text-gray-500 hover:text-gray-300 pt-1 btn-tactile"
+      >
+        Cancel
+      </button>
+    </div>
+  ) : confirmSurrender ? (
+    <div className="w-full max-w-sm bg-neutral-950 border border-red-900 rounded-2xl p-4 text-center space-y-3 battle-panel-in">
+      <p className="text-white font-bold">Surrender the battle?</p>
+      <p className="text-xs text-gray-400">
+        You'll earn no Monster EXP or Gold. {opponentName} will win with half EXP and no Gold.
+      </p>
+      <div className="flex gap-2">
+        <button
+          onClick={() => setConfirmSurrender(false)}
+          className="flex-1 bg-neutral-800 hover:bg-neutral-700 text-white py-2 rounded-lg btn-tactile"
+        >
+          Cancel
+        </button>
+        <button
+          onClick={handleSurrender}
+          className="flex-1 bg-red-700 hover:bg-red-600 text-white py-2 rounded-lg font-bold btn-tactile"
+        >
+          Surrender
+        </button>
+      </div>
+    </div>
+  ) : null;
 
-        <MonsterHpPanel
-          name={`${oppMon.def.name} (${opponentName})`} level={oppMon.level} def={oppMon.def}
-          currentHp={oppMon.currentHp} maxHp={oppMon.maxHp} status={oppMon.status} align="right"
-          animClassName={oppAnim}
-        />
+  const actionPanel = phase === 'select_skill' ? (
+    <div>
+      <div className="bstage-moves">
+        {([1, 2, 3] as const).map(tier => {
+          // See BattleScreen's identical logic (components/MonsterGuild.tsx)
+          // — a customized slot (unlearned and/or re-taught) is usable
+          // immediately regardless of level; only a still-default slot
+          // stays gated by skillUnlocks.
+          const slotValue = myMon.userMonster?.equipped_skills?.[tier - 1];
+          const isCustomized = slotValue != null;
+          const equippedSkill = equippedSkills[tier - 1];
+          const isLocked = !isCustomized && !availableTiers.includes(tier);
+          if (isLocked) {
+            const requiredLevel = tier === 2 ? myMon.def.skillUnlocks.tier2 : myMon.def.skillUnlocks.tier3;
+            return <PlaceholderTile key={tier} title={`🔒 ${SKILLS[myMon.def.skills[tier - 1]]?.name}`} sub={`Unlocks at Lv.${requiredLevel}`} />;
+          }
+          if (!equippedSkill) {
+            return <PlaceholderTile key={tier} title="Empty slot" sub="Teach a skill from the Compendium" />;
+          }
+          return (
+            <ActionTile
+              key={tier}
+              onClick={() => handleSkillSelect(equippedSkill.id)}
+              icon={<img src={getSkillIconSrc(equippedSkill)} alt="" className="w-7 h-7 object-contain" />}
+              title={equippedSkill.name}
+              sub={`${equippedSkill.questionCount} question${equippedSkill.questionCount > 1 ? 's' : ''}`}
+            />
+          );
+        })}
       </div>
 
-      {phase === 'select_skill' && !answering && (
-        <div>
-          {secondsLeft !== null && <p className="text-xs text-amber-400 mb-2 font-mono">⏱ {secondsLeft}s to pick a skill</p>}
-
-          {/* Row 1-2: the monster's 3 skill tiers (locked ones shown greyed
-              out to nudge leveling) + Rest, in a fixed 2x2 grid. */}
-          <div className="grid grid-cols-2 gap-2">
-            {([1, 2, 3] as const).map(tier => {
-              // See BattleScreen's identical logic (components/MonsterGuild.tsx)
-              // — a customized slot (unlearned and/or re-taught) is usable
-              // immediately regardless of level; only a still-default slot
-              // stays gated by skillUnlocks.
-              const slotValue = myMon.userMonster?.equipped_skills?.[tier - 1];
-              const isCustomized = slotValue != null;
-              const equippedSkill = equippedSkills[tier - 1];
-              const isLocked = !isCustomized && !availableTiers.includes(tier);
-              if (isLocked) {
-                const requiredLevel = tier === 2 ? myMon.def.skillUnlocks.tier2 : myMon.def.skillUnlocks.tier3;
-                return (
-                  <div
-                    key={tier}
-                    className="p-3 rounded-xl border-2 border-dashed border-neutral-800 bg-neutral-950/50 text-left opacity-60"
-                  >
-                    <p className="text-sm font-bold text-gray-500">🔒 {SKILLS[myMon.def.skills[tier - 1]]?.name}</p>
-                    <p className="text-xs text-amber-500/80">Unlocks at Lv.{requiredLevel}</p>
-                  </div>
-                );
-              }
-              if (!equippedSkill) {
-                return (
-                  <div
-                    key={tier}
-                    className="p-3 rounded-xl border-2 border-dashed border-neutral-800 bg-neutral-950/50 text-left opacity-60"
-                  >
-                    <p className="text-sm font-bold text-gray-500">Empty slot</p>
-                    <p className="text-xs text-gray-600">Teach this curio a skill from the Compendium.</p>
-                  </div>
-                );
-              }
-              return (
-                <button
-                  key={tier}
-                  onClick={() => handleSkillSelect(equippedSkill.id)}
-                  className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left btn-tactile"
-                >
-                  <p className="text-sm font-bold text-white">{equippedSkill.name}</p>
-                  <p className="text-xs text-gray-400">{equippedSkill.questionCount} question{equippedSkill.questionCount > 1 ? 's' : ''}</p>
-                </button>
-              );
-            })}
-            <button
-              onClick={handleRest}
-              disabled={myMon.restUsed >= restConfig.maxUsesPerBattle}
-              className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
-            >
-              <p className="text-sm font-bold text-white flex items-center gap-1">
-                <img src="/icons/stats/rest.svg" alt="" className="w-4 h-4 object-contain" /> Rest <InfoTag text="Heals your monster and uses up this round's turn — the opponent still attacks normally. Limited uses per battle." />
-              </p>
-              <p className="text-xs text-gray-400">Restore {Math.round(restConfig.hpRestorePercent * 100)}% HP</p>
-            </button>
-          </div>
-
-          <div className="border-t border-neutral-800 my-3" />
-
-          {/* Row 3: Items / Switch Monster / Surrender. */}
-          <div className="grid grid-cols-3 gap-2">
-            <button
-              onClick={() => { setShowItemMenu(true); setShowSwitchMenu(false); setConfirmSurrender(false); }}
-              className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left btn-tactile"
-            >
-              <p className="text-sm font-bold text-white flex items-center gap-1">
-                <img src="/icons/stats/items.svg" alt="" className="w-4 h-4 object-contain" /> Items <InfoTag text="Using an item also uses up this round's turn — the opponent still attacks normally." />
-              </p>
-              <p className="text-xs text-gray-400">Use an item</p>
-            </button>
-            <button
-              onClick={() => { setShowSwitchMenu(true); setShowItemMenu(false); setConfirmSurrender(false); }}
-              disabled={otherAliveMonsters.length === 0}
-              className="p-3 rounded-xl border-2 border-neutral-700 hover:border-amber-500 text-left disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
-            >
-              <p className="text-sm font-bold text-white flex items-center gap-1">
-                <img src="/icons/stats/switch.svg" alt="" className="w-4 h-4 object-contain" /> Switch <InfoTag text="Swap to another curio on your team — also uses up this round's turn." />
-              </p>
-              <p className="text-xs text-gray-400">{otherAliveMonsters.length > 0 ? 'Change your curio' : 'No other curios'}</p>
-            </button>
-            <button
-              onClick={() => { setConfirmSurrender(true); setShowItemMenu(false); setShowSwitchMenu(false); }}
-              className="p-3 rounded-xl border-2 border-red-900/60 hover:border-red-500 text-left btn-tactile"
-            >
-              <p className="text-sm font-bold text-red-400 flex items-center gap-1">
-                <img src="/icons/stats/surrender.svg" alt="" className="w-4 h-4 object-contain" /> Surrender <InfoTag text="Ends the match immediately. You earn no EXP or Gold; your opponent wins with half EXP and no Gold." />
-              </p>
-              <p className="text-xs text-gray-400">Forfeit the match</p>
-            </button>
-          </div>
-        </div>
-      )}
-
-      {phase === 'select_skill' && !answering && showItemMenu && (
-        <div className="mt-4 bg-neutral-950 border border-neutral-700 rounded-2xl p-4 space-y-2">
-          <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
-            <img src="/icons/stats/items.svg" alt="" className="w-4 h-4 object-contain" /> Select an Item
-          </p>
-          {Object.entries(inventory).filter(([, qty]) => !!qty && qty > 0).length === 0 ? (
-            <p className="text-gray-500 text-sm text-center">No items in inventory.</p>
-          ) : (
-            Object.entries(inventory).map(([key, qty]) => {
-              if (!qty || qty <= 0) return null;
-              const itemData = SHOP_CATALOG.find(i => i.key === key);
-              if (!itemData) return null;
-              const noReviveTargets = itemData.effect === 'revive' && faintedMyMonsters.length === 0;
-              return (
-                <button
-                  key={key}
-                  onClick={() => handleUseItem(key)}
-                  disabled={itemBusy || noReviveTargets}
-                  className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
-                >
-                  <span className="text-left flex items-center gap-2">
-                    <img src={itemData.icon} alt={itemData.name} className="w-6 h-6 object-contain flex-shrink-0" />
-                    <span>
-                      <span className="text-sm font-bold text-white">{itemData.name}</span>
-                      <span className="block text-xs text-gray-400">{noReviveTargets ? 'No fainted curios to revive' : itemData.desc}</span>
-                    </span>
-                  </span>
-                  <span className="text-xs text-amber-400 font-mono">x{qty}</span>
-                </button>
-              );
-            })
-          )}
-          <button
-            onClick={() => setShowItemMenu(false)}
-            className="w-full text-center text-xs text-gray-500 hover:text-gray-300 pt-1 btn-tactile"
-          >
-            Cancel
-          </button>
-        </div>
-      )}
-
-      {phase === 'select_skill' && !answering && showSwitchMenu && (
-        <div className="mt-4 bg-neutral-950 border border-neutral-700 rounded-2xl p-4 space-y-2">
-          <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
-            <img src="/icons/stats/switch.svg" alt="" className="w-4 h-4 object-contain" /> Switch Curio
-          </p>
-          {otherAliveMonsters.length === 0 ? (
-            <p className="text-gray-500 text-sm text-center">No other curios available.</p>
-          ) : (
-            otherAliveMonsters.map(({ m, i }) => (
-              <button
-                key={i}
-                onClick={() => handleSwitchMonster(i)}
-                className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors btn-tactile"
-              >
-                <span className="text-left">
-                  <span className="text-sm font-bold text-white">{m.def.name} Lv.{m.level}</span>
-                  <span className="block text-xs text-gray-400">{m.currentHp}/{m.maxHp} HP</span>
-                </span>
-              </button>
-            ))
-          )}
-          <button
-            onClick={() => setShowSwitchMenu(false)}
-            className="w-full text-center text-xs text-gray-500 hover:text-gray-300 pt-1 btn-tactile"
-          >
-            Cancel
-          </button>
-        </div>
-      )}
-
-      {phase === 'select_skill' && !answering && showReviveMenu && (
-        <div className="mt-4 bg-neutral-950 border border-neutral-700 rounded-2xl p-4 space-y-2">
-          <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
-            <img src="/icons/rewards/gift.svg" alt="" className="w-4 h-4 object-contain" /> Revive Which Curio?
-          </p>
-          {faintedMyMonsters.length === 0 ? (
-            <p className="text-gray-500 text-sm text-center">No fainted curios available.</p>
-          ) : (
-            faintedMyMonsters.map(({ m, i }) => (
-              <button
-                key={i}
-                onClick={() => handleReviveTarget(i)}
-                disabled={itemBusy}
-                className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
-              >
-                <span className="text-left">
-                  <span className="text-sm font-bold text-white">{m.def.name} Lv.{m.level}</span>
-                  <span className="block text-xs text-gray-400">0/{m.maxHp} HP — Fainted</span>
-                </span>
-              </button>
-            ))
-          )}
-          <button
-            onClick={() => { setShowReviveMenu(false); setShowItemMenu(true); }}
-            className="w-full text-center text-xs text-gray-500 hover:text-gray-300 pt-1 btn-tactile"
-          >
-            Cancel
-          </button>
-        </div>
-      )}
-
-      {phase === 'select_skill' && !answering && confirmSurrender && (
-        <div className="mt-4 bg-neutral-950 border border-red-900 rounded-2xl p-4 text-center space-y-3">
-          <p className="text-white font-bold">Surrender the battle?</p>
-          <p className="text-xs text-gray-400">
-            You'll earn no Monster EXP or Gold. {opponentName} will win with half EXP and no Gold.
-          </p>
-          <div className="flex gap-2">
-            <button
-              onClick={() => setConfirmSurrender(false)}
-              className="flex-1 bg-neutral-800 hover:bg-neutral-700 text-white py-2 rounded-lg btn-tactile"
-            >
-              Cancel
-            </button>
-            <button
-              onClick={handleSurrender}
-              className="flex-1 bg-red-700 hover:bg-red-600 text-white py-2 rounded-lg font-bold btn-tactile"
-            >
-              Surrender
-            </button>
-          </div>
-        </div>
-      )}
-
-      {answering && pendingSkillId && (
-        <BattleQuestionModal
-          questions={questions}
-          count={SKILLS[pendingSkillId].questionCount}
-          embedded
-          onComplete={handleQuestionsComplete}
+      <div className="bstage-utils mt-[7px]">
+        <ActionTile
+          onClick={handleRest}
+          disabled={myMon.restUsed >= restConfig.maxUsesPerBattle}
+          icon={<img src="/icons/stats/rest.svg" alt="" className="w-7 h-7 object-contain" />}
+          title={<>Rest <InfoTag text="Heals your monster and uses up this round's turn — the opponent still attacks normally. Limited uses per battle." /></>}
+          sub={`Restore ${Math.round(restConfig.hpRestorePercent * 100)}% HP`}
         />
-      )}
-
-      {phase === 'awaiting_opponent' && !answering && (
-        <p className="text-sm text-gray-400 text-center">Waiting for {opponentName} to finish their round...</p>
-      )}
-
-      {phase === 'round_resolved' && myMon.currentHp > 0 && oppMon.currentHp > 0 && (
-        <p className="text-sm text-gray-400 text-center">Round resolved — next round starting...</p>
-      )}
+        <ActionTile
+          onClick={() => { setShowItemMenu(true); setShowSwitchMenu(false); setConfirmSurrender(false); }}
+          icon={<img src="/icons/stats/items.svg" alt="" className="w-7 h-7 object-contain" />}
+          title={<>Items <InfoTag text="Using an item also uses up this round's turn — the opponent still attacks normally." /></>}
+          sub="Use an item"
+        />
+        <ActionTile
+          onClick={() => { setShowSwitchMenu(true); setShowItemMenu(false); setConfirmSurrender(false); }}
+          disabled={otherAliveMonsters.length === 0}
+          icon={<img src="/icons/stats/switch.svg" alt="" className="w-7 h-7 object-contain" />}
+          title={<>Switch <InfoTag text="Swap to another curio on your team — also uses up this round's turn." /></>}
+          sub={otherAliveMonsters.length > 0 ? 'Change your curio' : 'No other curios'}
+        />
+        <ActionTile
+          onClick={() => { setConfirmSurrender(true); setShowItemMenu(false); setShowSwitchMenu(false); }}
+          danger
+          icon={<img src="/icons/stats/surrender.svg" alt="" className="w-7 h-7 object-contain" />}
+          title={<>Surrender <InfoTag text="Ends the match immediately. You earn no EXP or Gold; your opponent wins with half EXP and no Gold." /></>}
+          sub="Forfeit the match"
+        />
+      </div>
     </div>
+  ) : null;
+
+  const statusBanner =
+    phase === 'waiting_for_opponent' ? <p className="text-sm text-gray-300 bg-black/50 inline-block px-3 py-1 rounded-full">Waiting for {opponentName} to join the battle channel...</p>
+    : phase === 'awaiting_opponent' && !answering ? <p className="text-sm text-gray-300 bg-black/50 inline-block px-3 py-1 rounded-full">Waiting for {opponentName} to finish their round...</p>
+    : phase === 'round_resolved' && myMon.currentHp > 0 && oppMon.currentHp > 0 ? <p className="text-sm text-gray-300 bg-black/50 inline-block px-3 py-1 rounded-full">Round resolved — next round starting...</p>
+    : null;
+
+  return (
+    <BattleStage
+      leftName={myDisplayName}
+      rightName={opponentName}
+      leftMon={{ name: myMon.def.name, level: myMon.level, def: myMon.def, currentHp: myMon.currentHp, maxHp: myMon.maxHp, status: myMon.status, animClassName: myAnim, damagePopup: myDamagePopup }}
+      rightMon={{ name: oppMon.def.name, level: oppMon.level, def: oppMon.def, currentHp: oppMon.currentHp, maxHp: oppMon.maxHp, status: oppMon.status, animClassName: oppAnim, damagePopup: oppDamagePopup }}
+      roundBadge={secondsLeft !== null ? `⏱ ${secondsLeft}s` : null}
+      log={log}
+      banner={banner}
+      statusBanner={statusBanner}
+      actionPanel={actionPanel}
+      overlay={overlay}
+    />
   );
 }

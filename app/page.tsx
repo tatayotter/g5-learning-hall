@@ -257,6 +257,15 @@ export default function Dashboard() {
       return next;
     });
   };
+
+  // Curio Arena's battle/map views want the full width, so fold the sidebar
+  // the moment that tab opens — fires once per switch into 'monster' (not on
+  // every render while already there), so a manual re-open afterward sticks.
+  useEffect(() => {
+    if (activeTab !== 'monster') return;
+    setSidebarOpen(false);
+    localStorage.setItem('sidebarOpen', 'false');
+  }, [activeTab]);
   const [quizPhase, setQuizPhase] = useState<'study' | 'ready' | 'quiz'>('study');
   const [myClaims, setMyClaims] = useState<any[]>([]);
   const [toast, setToast] = useState({ show: false, message: '' });
@@ -525,28 +534,39 @@ export default function Dashboard() {
 
       {/* Main Content Area */}
       <main className="flex-1 p-8 overflow-y-auto relative">
-        {/* Navigation Tabs */}
-        <div className="flex border-b border-neutral-800 mb-8 space-x-2">
-          {[
-            { id: 'board',   label: 'Main Quests' },
-            { id: 'vault',   label: 'Rewards Vault' },
-            { id: 'guilds',  label: 'Learning Guilds' },
-            { id: 'codex',   label: 'Codex' },
-            { id: 'monster', label: 'Curio Arena' },
-            { id: 'log',     label: 'Logs' },
-          ].map(tab => (
-            <GameButton
-              key={tab.id}
-              onClick={() => { playPageFlip(); setActiveTab(tab.id); setActiveQuest(null); setActiveEventQuest(null); }}
-              className={`px-4 py-2.5 font-bold text-sm whitespace-nowrap transition-colors ${
-                activeTab === tab.id
-                  ? 'border-b-2 border-blue-500 text-blue-400'
-                  : 'text-gray-500 hover:text-gray-300 hover:bg-neutral-900 theme-tala:hover:bg-pink-900/20 rounded-t'
-              }`}
-            >
-              {tab.label}
-            </GameButton>
-          ))}
+        {/* Navigation Tabs + header actions (Switch Hero lives here now,
+            not as a fixed floating button on every screen) */}
+        <div className="flex items-center justify-between border-b border-neutral-800 mb-8">
+          <div className="flex space-x-2">
+            {[
+              { id: 'board',   label: 'Main Quests' },
+              { id: 'vault',   label: 'Rewards Vault' },
+              { id: 'guilds',  label: 'Learning Guilds' },
+              { id: 'codex',   label: 'Codex' },
+              { id: 'monster', label: 'Curio Arena' },
+              { id: 'log',     label: 'Logs' },
+            ].map(tab => (
+              <GameButton
+                key={tab.id}
+                onClick={() => { playPageFlip(); setActiveTab(tab.id); setActiveQuest(null); setActiveEventQuest(null); }}
+                className={`px-4 py-2.5 font-bold text-sm whitespace-nowrap transition-colors ${
+                  activeTab === tab.id
+                    ? 'border-b-2 border-blue-500 text-blue-400'
+                    : 'text-gray-500 hover:text-gray-300 hover:bg-neutral-900 theme-tala:hover:bg-pink-900/20 rounded-t'
+                }`}
+              >
+                {tab.label}
+              </GameButton>
+            ))}
+          </div>
+          <button
+            onClick={handleSwitchUser}
+            className="flex items-center gap-1.5 text-gray-500 hover:text-white text-xs font-bold px-3 py-2 mb-1 rounded-lg hover:bg-neutral-900 transition-colors whitespace-nowrap"
+            title="Switch Hero"
+          >
+            <span>🏠</span>
+            <span>Switch Hero</span>
+          </button>
         </div>
 
         {/* --- TAB A: QUEST BOARD --- */}
@@ -1237,28 +1257,16 @@ export default function Dashboard() {
           />
         )}
 
-        {/* ── Replay Tutorial button ── fixed bottom-left of the dashboard */}
+        {/* ── Replay Tutorial button ── fixed bottom-left of the dashboard,
+            icon-only to keep its footprint small */}
         <motion.button
           onClick={() => setShowOnboarding(true)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="fixed bottom-6 left-6 z-50 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-gray-400 hover:text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-lg transition-colors flex items-center gap-2"
+          className="fixed bottom-6 left-6 z-50 w-10 h-10 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-gray-400 hover:text-white rounded-full shadow-lg transition-colors flex items-center justify-center"
           title="Replay Tutorial"
         >
-          <span>❓</span>
-          <span>Tutorial</span>
-        </motion.button>
-
-        {/* ── Back to Splash Screen button ── fixed bottom-right of the dashboard */}
-        <motion.button
-          onClick={handleSwitchUser}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="fixed bottom-6 right-6 z-50 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-gray-400 hover:text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-lg transition-colors flex items-center gap-2"
-          title="Switch Hero"
-        >
-          <span>🏠</span>
-          <span>Switch Hero</span>
+          <span className="text-base leading-none">❓</span>
         </motion.button>
       </main>
     </div>

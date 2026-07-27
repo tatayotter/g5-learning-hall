@@ -16,7 +16,7 @@ import {
   getMonsterLevel, REST_BY_ELEMENT, ELEMENT_STATUS, STATUS_DEFINITIONS, getCounterElement,
   pickRandomWildMonsterId, getWildEncounterChance, getWildEncounterPityThreshold, getGuildMonsterDisplay, getGuildMonsterTier, getGuildMonsterTierDef,
   getGraduatedMonsterDisplay, getMaxGraduationTier, GRADUATION_LEVEL_REQUIREMENT,
-  Element, StatusEffect, NpcTrainer, MonsterDef, TrainerMonster, ELEMENT_ICON_SRC,
+  Element, StatusEffect, NpcTrainer, MonsterDef, TrainerMonster, ELEMENT_ICON_SRC, getSkillIconSrc,
 } from '@/lib/monsterConfig';
 import { fetchInventory, useInventoryItem, SHOP_CATALOG, InventoryMap } from '@/lib/inventory';
 import { SCROLL_CATALOG, unlearnMonsterSkill, learnMonsterSkill } from '@/lib/skillScrolls';
@@ -30,7 +30,9 @@ import {
 import { GUILDS } from '@/lib/dailyChecklist';
 import {
   UserMonster, ActiveBattleMonster, MonsterImage, BattleQuestionModal, LegendaryBadge,
+  BattleBeat, runBattleBeats,
 } from '@/components/battle/shared';
+import BattleStage, { ActionTile, PlaceholderTile } from '@/components/battle/BattleStage';
 import LiveBattleScreen from '@/components/LiveBattleScreen';
 import PostBattleSummary from '@/components/battle/PostBattleSummary';
 import LeaderboardPanel from '@/components/LeaderboardPanel';
@@ -38,6 +40,7 @@ import InfoTag from '@/components/InfoTag';
 import { createInvite, fetchLiveBattle } from '@/lib/liveBattle';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import WorldMap from '@/components/WorldMap';
+import MapStage from '@/components/MapStage';
 import { REGIONS } from '@/lib/regions';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
@@ -234,7 +237,9 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
   const [expEarned, setExpEarned] = useState(0);
   const [playerAnim, setPlayerAnim] = useState('');
   const [npcAnim, setNpcAnim] = useState('');
-  const [attackMessage, setAttackMessage] = useState<string | null>(null);
+  const [banner, setBanner] = useState<{ text: string; iconSrc: string | null } | null>(null);
+  const [playerDamagePopup, setPlayerDamagePopup] = useState<{ key: number; value: number; missed: boolean } | null>(null);
+  const [npcDamagePopup, setNpcDamagePopup] = useState<{ key: number; value: number; missed: boolean } | null>(null);
   const [confirmSurrender, setConfirmSurrender] = useState(false);
   const [battleResult, setBattleResult] = useState<{ won: boolean; exp: number; reason: 'ko' | 'surrender' } | null>(null);
   const [itemBusy, setItemBusy] = useState(false);
@@ -339,6 +344,11 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
       i === playerMonsterIdx ? { ...m, currentHp: newHp, restUsed: m.restUsed + 1 } : m
     );
     setPlayerMonsters(updated);
+    // doNpcTurn (below) now runs synchronously and reads playerMonstersRef —
+    // which only picks up this heal on the NEXT render. Syncing the ref here
+    // too keeps that same-tick read from clobbering the heal with stale,
+    // pre-Rest HP (see playerMonstersRef's declaration comment above).
+    playerMonstersRef.current = updated;
     addLog(`${playerMon.def.name} used Rest and restored ${healAmount} HP!`);
     doNpcTurn();
   };
@@ -477,30 +487,40 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
     if (npcIsFaster) {
       const preemptDamage = computeNpcDamage(npcMon, playerMon);
       if (playerMon.currentHp - preemptDamage <= 0) {
-        setAttackMessage(`${npcMon.def.name} is faster and strikes first!`);
-        playHitThud();
-        triggerAnim('player', 'battle-hit');
-        setTimeout(() => setAttackMessage(null), 1000);
-        addLog(`⚡ ${npcMon.def.name} is faster and attacks for ${preemptDamage} damage before you can move!`);
-
-        const newHp = Math.max(0, playerMon.currentHp - preemptDamage);
-        const updatedPlayer = playerMonsters.map((m, i) => i === playerMonsterIdx ? { ...m, currentHp: newHp } : m);
-        setPlayerMonsters(updatedPlayer);
-        addLog(`${playerMon.def.name} fainted before it could attack!`);
-
-        const nextIdx = updatedPlayer.findIndex((m, i) => i !== playerMonsterIdx && m.currentHp > 0);
-        if (nextIdx === -1) {
-          addLog('All your curios fainted! You lost!');
-          playDefeat();
-          battleMusicRef.current?.pause();
-          setBattleResult({ won: false, exp: 0, reason: 'ko' });
-          setPhase('ended');
-        } else {
-          setPlayerMonsterIdx(nextIdx);
-          playerMonsterIdxRef.current = nextIdx;
-          addLog(`Go, ${updatedPlayer[nextIdx].def.name}!`);
-          setPhase('select_skill');
-        }
+        let updatedPlayerAfterPreempt: ActiveBattleMonster[] = playerMonsters;
+        const beat: BattleBeat = {
+          actor: 'opponent',
+          message: `${npcMon.def.name} is faster and strikes first!`,
+          iconSrc: null,
+          damage: preemptDamage,
+          missed: false,
+          apply: () => {
+            playHitThud();
+            triggerAnim('player', 'battle-hit');
+            setPlayerDamagePopup({ key: Date.now(), value: preemptDamage, missed: false });
+            addLog(`⚡ ${npcMon.def.name} is faster and attacks for ${preemptDamage} damage before you can move!`);
+            const newHp = Math.max(0, playerMon.currentHp - preemptDamage);
+            updatedPlayerAfterPreempt = playerMonsters.map((m, i) => i === playerMonsterIdx ? { ...m, currentHp: newHp } : m);
+            setPlayerMonsters(updatedPlayerAfterPreempt);
+          },
+        };
+        runBattleBeats([beat], b => setBanner({ text: b.message, iconSrc: b.iconSrc }), () => {
+          setBanner(null);
+          addLog(`${playerMon.def.name} fainted before it could attack!`);
+          const nextIdx = updatedPlayerAfterPreempt.findIndex((m, i) => i !== playerMonsterIdx && m.currentHp > 0);
+          if (nextIdx === -1) {
+            addLog('All your curios fainted! You lost!');
+            playDefeat();
+            battleMusicRef.current?.pause();
+            setBattleResult({ won: false, exp: 0, reason: 'ko' });
+            setPhase('ended');
+          } else {
+            setPlayerMonsterIdx(nextIdx);
+            playerMonsterIdxRef.current = nextIdx;
+            addLog(`Go, ${updatedPlayerAfterPreempt[nextIdx].def.name}!`);
+            setPhase('select_skill');
+          }
+        });
         return;
       }
     }
@@ -525,18 +545,11 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
       damage = Math.round(damage * (1 - BATTLE_CONSTANTS.CURSE_DAMAGE_REDUCTION));
     }
 
-    setAttackMessage(`${playerMon.def.name} used ${skill.name}!`);
-    playAttackWhoosh();
-    triggerAnim('player', 'battle-attack-right');
-    setTimeout(() => setAttackMessage(null), 1000);
-
+    const missed = damage === 0 && !skill.effects?.length;
     let msg: string;
-    if (damage === 0 && !skill.effects?.length) {
-      playMiss();
+    if (missed) {
       msg = `❌ ${playerMon.def.name} used ${skill.name}, but the attack missed! (wrong answer)`;
     } else {
-      playHitThud();
-      triggerAnim('npc', 'battle-hit');
       msg = `${playerMon.def.name} used ${skill.name}! (${correctCount}/${skill.questionCount} correct) → ${damage} damage!`;
     }
 
@@ -573,76 +586,101 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
       return updated;
     });
 
-    addLog(msg);
-    setNpcMonsters(newNpcMonsters);
-    setPlayerMonsters(newPlayerMonsters);
+    const playerBeat: BattleBeat = {
+      actor: 'player',
+      message: `${playerMon.def.name} used ${skill.name}!`,
+      iconSrc: getSkillIconSrc(skill),
+      damage,
+      missed,
+      apply: () => {
+        playAttackWhoosh();
+        triggerAnim('player', 'battle-attack-right');
+        if (missed) { playMiss(); } else { playHitThud(); triggerAnim('npc', 'battle-hit'); }
+        setNpcDamagePopup({ key: Date.now(), value: damage, missed });
+        addLog(msg);
+        setNpcMonsters(newNpcMonsters);
+        setPlayerMonsters(newPlayerMonsters);
+      },
+    };
 
-    if (newNpcMon.currentHp <= 0) {
-      addLog(`${newNpcMon.def.name} fainted!`);
-      const nextNpc = npcMonsterIdx + 1;
-      if (nextNpc >= (trainer?.monsters.length ?? npcMonsters.length)) {
-        const earned = trainer?.reward.exp ?? 0;
-        setExpEarned(earned);
-        addLog(`You defeated ${opponentName}!`);
-        playVictory();
-        battleMusicRef.current?.pause();
-        setBattleResult({ won: true, exp: earned, reason: 'ko' });
-        setPhase('ended');
-        return;
+    runBattleBeats([playerBeat], b => setBanner({ text: b.message, iconSrc: b.iconSrc }), () => {
+      setBanner(null);
+      if (newNpcMon.currentHp <= 0) {
+        addLog(`${newNpcMon.def.name} fainted!`);
+        const nextNpc = npcMonsterIdx + 1;
+        if (nextNpc >= (trainer?.monsters.length ?? npcMonsters.length)) {
+          const earned = trainer?.reward.exp ?? 0;
+          setExpEarned(earned);
+          addLog(`You defeated ${opponentName}!`);
+          playVictory();
+          battleMusicRef.current?.pause();
+          setBattleResult({ won: true, exp: earned, reason: 'ko' });
+          setPhase('ended');
+          return;
+        }
+        setNpcMonsterIdx(nextNpc);
+        addLog(`${opponentName} sends out ${npcMonsters[nextNpc]?.def.name || 'another curio'}!`);
       }
-      setNpcMonsterIdx(nextNpc);
-      addLog(`${opponentName} sends out ${npcMonsters[nextNpc]?.def.name || 'another curio'}!`);
-    }
-
-    doNpcTurn();
+      doNpcTurn();
+    });
   };
 
   const doNpcTurn = () => {
-    setTimeout(() => {
-      // Read the latest committed state via refs — computing everything here as
-      // plain values means each setState below fires exactly once, with no side
-      // effects hidden inside an updater function that React could re-invoke.
-      // playerMonsterIdxRef (rather than the closure's playerMonsterIdx) is used
-      // so a manual switch that happened earlier in this same tick is honored.
-      const currentIdx = playerMonsterIdxRef.current;
-      const currentNpc = npcMonstersRef.current[npcMonsterIdx];
-      const currentPlayer = playerMonstersRef.current[currentIdx];
+    // Read the latest committed state via refs — computing everything here as
+    // plain values means each setState below fires exactly once, with no side
+    // effects hidden inside an updater function that React could re-invoke.
+    // playerMonsterIdxRef (rather than the closure's playerMonsterIdx) is used
+    // so a manual switch that happened earlier in this same tick is honored.
+    const currentIdx = playerMonsterIdxRef.current;
+    const currentNpc = npcMonstersRef.current[npcMonsterIdx];
+    const currentPlayer = playerMonstersRef.current[currentIdx];
 
-      if (currentNpc.status === 'paralyze') {
-        addLog(`${currentNpc.def.name} is paralyzed and can't move!`);
-        const [updatedNpc, msgs] = applyStatusTick(currentNpc);
-        msgs.forEach(addLog);
-        setNpcMonsters(npcMonstersRef.current.map((m, i) => i === npcMonsterIdx ? updatedNpc : m));
-        setPhase('select_skill');
-        return;
-      }
+    if (currentNpc.status === 'paralyze') {
+      addLog(`${currentNpc.def.name} is paralyzed and can't move!`);
+      const [updatedNpc, msgs] = applyStatusTick(currentNpc);
+      msgs.forEach(addLog);
+      setNpcMonsters(npcMonstersRef.current.map((m, i) => i === npcMonsterIdx ? updatedNpc : m));
+      setPhase('select_skill');
+      return;
+    }
 
-      const damage = computeNpcDamage(currentNpc, currentPlayer);
+    const damage = computeNpcDamage(currentNpc, currentPlayer);
 
-      if (currentPlayer.status === 'def_boost') {
-        addLog(`🛡️ ${currentPlayer.def.name}'s Iron Shield blocked half the damage!`);
-      }
+    if (currentPlayer.status === 'def_boost') {
+      addLog(`🛡️ ${currentPlayer.def.name}'s Iron Shield blocked half the damage!`);
+    }
 
-      const newHp = Math.max(0, currentPlayer.currentHp - damage);
-      playHitThud();
-      triggerAnim('player', 'battle-hit');
-      addLog(`${currentNpc.def.name} attacks for ${damage} damage!`);
+    const [tickedNpc, tickMsgs] = applyStatusTick(currentNpc);
+    tickedNpc.modifiers = tickModifiers(tickedNpc.modifiers);
+    const newHp = Math.max(0, currentPlayer.currentHp - damage);
 
-      const [tickedNpc, tickMsgs] = applyStatusTick(currentNpc);
-      tickMsgs.forEach(addLog);
-      tickedNpc.modifiers = tickModifiers(tickedNpc.modifiers);
+    let updatedPlayerAfterNpc: ActiveBattleMonster[] = playerMonstersRef.current;
+    const npcBeat: BattleBeat = {
+      actor: 'opponent',
+      message: `${currentNpc.def.name} attacks!`,
+      iconSrc: null,
+      damage,
+      missed: false,
+      apply: () => {
+        playHitThud();
+        triggerAnim('player', 'battle-hit');
+        setPlayerDamagePopup({ key: Date.now(), value: damage, missed: false });
+        addLog(`${currentNpc.def.name} attacks for ${damage} damage!`);
+        tickMsgs.forEach(addLog);
+        updatedPlayerAfterNpc = playerMonstersRef.current.map((m, i) =>
+          i === currentIdx ? { ...m, currentHp: newHp, modifiers: tickModifiers(m.modifiers) } : m
+        );
+        const updatedNpc = npcMonstersRef.current.map((m, i) => i === npcMonsterIdx ? tickedNpc : m);
+        setPlayerMonsters(updatedPlayerAfterNpc);
+        setNpcMonsters(updatedNpc);
+      },
+    };
 
-      const updatedPlayer = playerMonstersRef.current.map((m, i) =>
-        i === currentIdx ? { ...m, currentHp: newHp, modifiers: tickModifiers(m.modifiers) } : m
-      );
-      const updatedNpc = npcMonstersRef.current.map((m, i) => i === npcMonsterIdx ? tickedNpc : m);
-
-      setPlayerMonsters(updatedPlayer);
-      setNpcMonsters(updatedNpc);
-
+    runBattleBeats([npcBeat], b => setBanner({ text: b.message, iconSrc: b.iconSrc }), () => {
+      setBanner(null);
       if (newHp <= 0) {
         addLog(`${currentPlayer.def.name} fainted!`);
-        const nextIdx = updatedPlayer.findIndex((m, i) => i !== currentIdx && m.currentHp > 0);
+        const nextIdx = updatedPlayerAfterNpc.findIndex((m, i) => i !== currentIdx && m.currentHp > 0);
         if (nextIdx === -1) {
           addLog('All your curios fainted! You lost!');
           playDefeat();
@@ -652,13 +690,13 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
         } else {
           setPlayerMonsterIdx(nextIdx);
           playerMonsterIdxRef.current = nextIdx;
-          addLog(`Go, ${updatedPlayer[nextIdx].def.name}!`);
+          addLog(`Go, ${updatedPlayerAfterNpc[nextIdx].def.name}!`);
           setPhase('select_skill');
         }
       } else {
         setPhase('select_skill');
       }
-    }, 1000);
+    });
   };
 
   const otherAlivePlayerMonsters = playerMonsters
@@ -711,344 +749,233 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
     );
   }
 
-  return (
-    <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 battle-panel-in">
-      {/* Battle header */}
-      <div className="flex justify-between items-start mb-6">
-        {/* Player monster — LEFT */}
-        <div className="text-center">
-          <p className="text-xs text-gray-500 mb-1">Your Curio</p>
-          <div className={`w-16 h-16 mx-auto mb-2 ${playerAnim}`}>
-            <MonsterImage monster={playerMon.def} className="w-full h-full battle-float" emojiClassName="text-4xl" />
-          </div>
-          <p className="text-sm font-bold text-white">{playerMon.def.name} Lv.{playerMon.level}</p>
-          <div className="w-32 bg-neutral-800 rounded-full h-2 mt-1">
-            <div
-              className="h-2 rounded-full bg-green-500 transition-all"
-              style={{ width: `${(playerMon.currentHp / playerMon.maxHp) * 100}%` }}
-            />
-          </div>
-          <p className="text-xs text-gray-500 mt-1">{playerMon.currentHp}/{playerMon.maxHp} HP</p>
-          {playerMon.status && (
-            <p className="text-xs mt-1 flex items-center justify-center gap-1">
-              <img src={STATUS_DEFINITIONS[playerMon.status].iconSrc} alt={playerMon.status} className="w-4 h-4 object-contain" />
-              {playerMon.status}
-            </p>
-          )}
-        </div>
+  const playerDisplayName = USERS[userId]?.fullName ?? userId;
 
-        {/* Battle log */}
-        <div className="flex-1 mx-6 bg-black/30 rounded-xl p-3 h-32 overflow-y-auto">
-          {log.map((msg, i) => (
-            <p key={i} className="text-xs text-gray-300 mb-1">{msg}</p>
-          ))}
-        </div>
-
-        {/* NPC monster — RIGHT, flipped to face left */}
-        <div className="text-center">
-          <div className="flex items-center justify-center gap-2 mb-1">
-            {trainer && (
-              <img 
-                src={`/trainers/${trainer.id}.png`}
-                alt={trainer.name} 
-                className="w-6 h-6 rounded-full object-cover border border-neutral-600"
-                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-              />
-            )}
-            <p className="text-xs text-gray-500">{opponentName}</p>
-          </div>
-          <div className={`w-16 h-16 mx-auto mb-2 ${npcAnim}`} style={{ transform: 'scaleX(-1)' }}>
-            <MonsterImage monster={npcMon.def} className="w-full h-full battle-float" emojiClassName="text-4xl" />
-          </div>
-          <p className="text-sm font-bold text-white">{npcMon.def.name} Lv.{npcMonsters[npcMonsterIdx].level}</p>
-          <div className="w-32 bg-neutral-800 rounded-full h-2 mt-1">
-            <div
-              className="h-2 rounded-full bg-red-500 transition-all"
-              style={{ width: `${(npcMon.currentHp / npcMon.maxHp) * 100}%` }}
-            />
-          </div>
-          <p className="text-xs text-gray-500 mt-1">{npcMon.currentHp}/{npcMon.maxHp} HP</p>
-          {npcMon.status && (
-            <p className="text-xs mt-1 flex items-center justify-center gap-1">
-              <img src={STATUS_DEFINITIONS[npcMon.status].iconSrc} alt={npcMon.status} className="w-4 h-4 object-contain" />
-              {npcMon.status}
-            </p>
-          )}
+  const overlay = phase === 'answering' && pendingSkillId ? (
+    <div className="w-full max-w-xl bg-neutral-900 border border-amber-700 rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in">
+      <div className="flex items-center gap-3 mb-2 bg-amber-900/20 border border-amber-800 rounded-xl px-3 py-2">
+        <MonsterImage monster={playerMon.def} className="w-9 h-9 flex-shrink-0" />
+        <div className="min-w-0">
+          <p className="text-white font-bold text-sm leading-tight">{playerMon.def.name} uses {SKILLS[pendingSkillId]?.name}!</p>
+          <p className="text-xs text-gray-300 leading-tight">
+            Answer <span className="text-amber-400 font-bold">{questionCount}/{questionCount}</span> correctly for full damage
+            {questionCount > 1 && <span className="text-gray-500 text-xs ml-1"> · partial = half damage</span>}
+          </p>
         </div>
       </div>
-
-      {/* Attack message overlay */}
-      {attackMessage && (
-        <div className="text-center py-4 text-xl font-bold text-amber-400 animate-pulse">
-          {attackMessage}
-        </div>
-      )}
-
-      {/* Skill selection */}
-      {phase === 'select_skill' && (
-        <div className="grid grid-cols-2 gap-3">
-          {([1, 2, 3] as const).map(tier => {
-            // A slot that's been customized via the Compendium (unlearned
-            // and/or re-taught — 'EMPTY' or an explicit skill id) is usable
-            // right away regardless of level: the scroll purchase is itself
-            // the gate. Only a slot still on its free species default stays
-            // level-gated by skillUnlocks.
-            const slotValue = playerMon.userMonster?.equipped_skills?.[tier - 1];
-            const isCustomized = slotValue != null;
-            const equippedSkill = equippedSkills[tier - 1];
-            const isLocked = !isCustomized && !availableTiers.includes(tier);
-            if (isLocked) {
-              const requiredLevel = tier === 2 ? playerMon.def.skillUnlocks.tier2 : playerMon.def.skillUnlocks.tier3;
-              return (
-                <div
-                  key={tier}
-                  className="bg-neutral-950/50 border-2 border-dashed border-neutral-800 rounded-xl p-4 text-left opacity-60"
-                >
-                  <p className="font-bold text-gray-500 text-sm">🔒 {SKILLS[playerMon.def.skills[tier - 1]]?.name}</p>
-                  <p className="text-xs text-amber-500/80 mt-1">Unlocks at Lv.{requiredLevel}</p>
-                </div>
-              );
-            }
-            if (!equippedSkill) {
-              return (
-                <div
-                  key={tier}
-                  className="bg-neutral-950/50 border-2 border-dashed border-neutral-800 rounded-xl p-4 text-left opacity-60"
-                >
-                  <p className="font-bold text-gray-500 text-sm">Empty slot</p>
-                  <p className="text-xs text-gray-600 mt-1">Teach this curio a skill from the Compendium.</p>
-                </div>
-              );
-            }
-            return (
-              <button
-                key={tier}
-                onClick={() => handleSkillSelect(equippedSkill.id)}
-                className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all btn-tactile"
-              >
-                <p className="font-bold text-white text-sm">{equippedSkill.name}</p>
-                <p className="text-xs text-gray-400">{equippedSkill.questionCount} question{equippedSkill.questionCount > 1 ? 's' : ''} · Tier {tier}</p>
-                <p className="text-xs text-gray-500 mt-1">{equippedSkill.description}</p>
-              </button>
-            );
-          })}
-          <button
-            onClick={handleRest}
-            disabled={playerMon.restUsed >= restConfig.maxUsesPerBattle}
-            className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
-          >
-            <p className="font-bold text-white text-sm flex items-center gap-1">
-              <img src="/icons/stats/rest.svg" alt="" className="w-4 h-4 object-contain" /> Rest <InfoTag text="Heals your curio and uses up this turn — the trainer's curio still attacks normally. Limited uses per battle." />
-            </p>
-            <p className="text-xs text-gray-400">Restore {Math.round(restConfig.hpRestorePercent * 100)}% HP</p>
-          </button>
-        </div>
-      )}
-
-      {phase === 'select_skill' && (
-        <>
-          <div className="border-t border-neutral-800 my-3" />
-          <div className="grid grid-cols-3 gap-3">
-            <button
-              onClick={() => setPhase('select_item')}
-              className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all btn-tactile"
-            >
-              <p className="font-bold text-white text-sm flex items-center gap-1">
-                <img src="/icons/stats/items.svg" alt="" className="w-4 h-4 object-contain" /> Items <InfoTag text="Using an item also uses up this turn — the trainer's curio still attacks normally." />
-              </p>
-              <p className="text-xs text-gray-400">Use items from inventory</p>
-            </button>
-            <button
-              onClick={() => setPhase('select_switch')}
-              disabled={otherAlivePlayerMonsters.length === 0}
-              className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
-            >
-              <p className="font-bold text-white text-sm flex items-center gap-1">
-                <img src="/icons/stats/switch.svg" alt="" className="w-4 h-4 object-contain" /> Switch <InfoTag text="Swap to another curio on your team — also uses up this turn." />
-              </p>
-              <p className="text-xs text-gray-400">{otherAlivePlayerMonsters.length > 0 ? 'Change your curio' : 'No other curios'}</p>
-            </button>
-            <button
-              onClick={() => setConfirmSurrender(true)}
-              className="bg-neutral-800 hover:bg-neutral-700 border border-red-900/60 hover:border-red-500 rounded-xl p-4 text-left transition-all btn-tactile"
-            >
-              <p className="font-bold text-red-400 text-sm flex items-center gap-1">
-                <img src="/icons/stats/surrender.svg" alt="" className="w-4 h-4 object-contain" /> Surrender <InfoTag text="Ends the battle immediately with no Curio EXP earned." />
-              </p>
-              <p className="text-xs text-gray-400">Forfeit the match</p>
-            </button>
-          </div>
-        </>
-      )}
-
-      {phase === 'select_skill' && confirmSurrender && (
-        <div className="mt-4 bg-neutral-950 border border-red-900 rounded-2xl p-4 text-center space-y-3">
-          <p className="text-white font-bold">Surrender the battle?</p>
-          <p className="text-xs text-gray-400">You'll earn no Curio EXP.</p>
-          <div className="flex gap-2">
-            <button
-              onClick={() => setConfirmSurrender(false)}
-              className="flex-1 bg-neutral-800 hover:bg-neutral-700 text-white py-2 rounded-lg btn-tactile"
-            >
-              Cancel
-            </button>
-            <button
-              onClick={handleSurrender}
-              className="flex-1 bg-red-700 hover:bg-red-600 text-white py-2 rounded-lg font-bold btn-tactile"
-            >
-              Surrender
-            </button>
-          </div>
-        </div>
-      )}
-
-      {phase === 'npc_turn' && (
-        <div className="text-center py-4 text-gray-400 animate-pulse">Opponent is attacking...</div>
-      )}
-
-      {phase === 'select_switch' && (
-        <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 space-y-4">
-          <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
-            <img src="/icons/stats/switch.svg" alt="" className="w-4 h-4 object-contain" /> Switch Curio
-          </p>
-          <div className="space-y-2">
-            {otherAlivePlayerMonsters.length === 0 ? (
-              <p className="text-gray-500 text-sm text-center">No other curios available.</p>
-            ) : (
-              otherAlivePlayerMonsters.map(({ m, i }) => (
-                <button
-                  key={i}
-                  onClick={() => handleSwitchMonster(i)}
-                  className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left flex items-center gap-4 transition-all btn-tactile"
-                >
-                  <div className="w-10 h-10">
-                    <MonsterImage monster={m.def} className="w-full h-full" emojiClassName="text-2xl" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-white font-bold text-sm">{m.def.name} Lv.{m.level}</p>
-                    <p className="text-xs text-gray-400">{m.currentHp}/{m.maxHp} HP</p>
-                  </div>
-                </button>
-              ))
-            )}
-          </div>
-          <button
-            onClick={() => setPhase('select_skill')}
-            className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors btn-tactile"
-          >
-            Cancel
-          </button>
-        </div>
-      )}
-
-      {phase === 'select_revive_target' && (
-        <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 space-y-4">
-          <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
-            <img src="/icons/rewards/gift.svg" alt="" className="w-4 h-4 object-contain" /> Revive Which Curio?
-          </p>
-          <div className="space-y-2">
-            {faintedPlayerMonsters.length === 0 ? (
-              <p className="text-gray-500 text-sm text-center">No fainted curios available.</p>
-            ) : (
-              faintedPlayerMonsters.map(({ m, i }) => (
-                <button
-                  key={i}
-                  onClick={() => handleReviveTarget(i)}
-                  disabled={itemBusy}
-                  className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left flex items-center gap-4 transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
-                >
-                  <div className="w-10 h-10">
-                    <MonsterImage monster={m.def} className="w-full h-full" emojiClassName="text-2xl" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-white font-bold text-sm">{m.def.name} Lv.{m.level}</p>
-                    <p className="text-xs text-gray-400">0/{m.maxHp} HP — Fainted</p>
-                  </div>
-                </button>
-              ))
-            )}
-          </div>
-          <button
-            onClick={() => setPhase('select_item')}
-            className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors btn-tactile"
-          >
-            Cancel
-          </button>
-        </div>
-      )}
-
-      {phase === 'select_item' && (
-        <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 space-y-4">
-          <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
-            <img src="/icons/stats/items.svg" alt="" className="w-4 h-4 object-contain" /> Select an Item
-          </p>
-          <div className="space-y-2">
-            {Object.entries(inventory).length === 0 ? (
-              <p className="text-gray-500 text-sm text-center">No items in inventory.</p>
-            ) : (
-              Object.entries(inventory).map(([key, qty]) => {
-                if (!qty || qty <= 0) return null;
-                
-                const itemData = SHOP_CATALOG.find(i => i.key === key);
-                const noReviveTargets = itemData?.effect === 'revive' && faintedPlayerMonsters.length === 0;
-
-                return (
-                  <button
-                    key={key}
-                    onClick={() => handleItemUse(key)}
-                    disabled={itemBusy || noReviveTargets}
-                    className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-4 text-left flex items-center gap-4 transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
-                  >
-                    {itemData?.icon ? (
-                      <img src={itemData.icon} alt={itemData.name} className="w-8 h-8 object-contain flex-shrink-0" />
-                    ) : (
-                      <span className="text-2xl"><img src="/icons/rewards/package.svg" alt="Package" className="inline w-4 h-4 align-[-2px]" /></span>
-                    )}
-                    <div className="flex-1">
-                      <p className="text-white font-bold text-sm capitalize">{itemData?.name || key.replace('_', ' ')}</p>
-                      <p className="text-xs text-gray-400">{noReviveTargets ? 'No fainted curios to revive' : (itemData?.desc || 'Consumable item')}</p>
-                    </div>
-                    <span className="bg-neutral-700 text-yellow-400 font-bold px-3 py-1 rounded-full text-xs">x{qty}</span>
-                  </button>
-                );
-              })
-            )}
-          </div>
-          <button 
-            onClick={() => setPhase('select_skill')} 
-            className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors btn-tactile"
-          >
-            Cancel
-          </button>
-        </div>
-      )}
-
-      {phase === 'answering' && pendingSkillId && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-          <div className="bg-neutral-900 border border-amber-700 rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in">
-            <div className="flex items-center gap-4 mb-5 bg-amber-900/20 border border-amber-800 rounded-xl p-4">
-              <MonsterImage monster={playerMon.def} className="w-14 h-14" />
-              <div>
-                <p className="text-amber-400 text-xs font-bold uppercase tracking-widest mb-1 flex items-center gap-1">
-                  <img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" /> Attack!
-                </p>
-                <p className="text-white font-bold">{playerMon.def.name} uses {SKILLS[pendingSkillId]?.name}!</p>
-                <p className="text-sm mt-1 text-gray-300">
-                  Answer <span className="text-amber-400 font-bold">{questionCount}/{questionCount}</span> correctly for full damage
-                  {questionCount > 1 && <span className="text-gray-500 text-xs ml-1"> · partial = half damage</span>}
-                </p>
-              </div>
-            </div>
-            <BattleQuestionModal
-              questions={questions}
-              count={questionCount}
-              embedded={true}
-              onComplete={handleQuestionsComplete}
-            />
-          </div>
-        </div>
-      )}
+      <BattleQuestionModal
+        questions={questions}
+        count={questionCount}
+        embedded={true}
+        onComplete={handleQuestionsComplete}
+      />
     </div>
+  ) : phase === 'select_item' ? (
+    <div className="w-full max-w-sm bg-neutral-900 border border-neutral-700 rounded-2xl p-4 space-y-2 max-h-full overflow-y-auto battle-panel-in">
+      <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
+        <img src="/icons/stats/items.svg" alt="" className="w-4 h-4 object-contain" /> Select an Item
+      </p>
+      {Object.entries(inventory).length === 0 ? (
+        <p className="text-gray-500 text-sm text-center">No items in inventory.</p>
+      ) : (
+        Object.entries(inventory).map(([key, qty]) => {
+          if (!qty || qty <= 0) return null;
+
+          const itemData = SHOP_CATALOG.find(i => i.key === key);
+          const noReviveTargets = itemData?.effect === 'revive' && faintedPlayerMonsters.length === 0;
+
+          return (
+            <button
+              key={key}
+              onClick={() => handleItemUse(key)}
+              disabled={itemBusy || noReviveTargets}
+              className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-3 text-left flex items-center gap-3 transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
+            >
+              {itemData?.icon ? (
+                <img src={itemData.icon} alt={itemData.name} className="w-8 h-8 object-contain flex-shrink-0" />
+              ) : (
+                <img src="/icons/rewards/package.svg" alt="Package" className="w-6 h-6 object-contain flex-shrink-0" />
+              )}
+              <div className="flex-1">
+                <p className="text-white font-bold text-sm capitalize">{itemData?.name || key.replace('_', ' ')}</p>
+                <p className="text-xs text-gray-400">{noReviveTargets ? 'No fainted curios to revive' : (itemData?.desc || 'Consumable item')}</p>
+              </div>
+              <span className="bg-neutral-700 text-yellow-400 font-bold px-3 py-1 rounded-full text-xs">x{qty}</span>
+            </button>
+          );
+        })
+      )}
+      <button
+        onClick={() => setPhase('select_skill')}
+        className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors btn-tactile"
+      >
+        Cancel
+      </button>
+    </div>
+  ) : phase === 'select_switch' ? (
+    <div className="w-full max-w-sm bg-neutral-900 border border-neutral-700 rounded-2xl p-4 space-y-2 max-h-full overflow-y-auto battle-panel-in">
+      <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
+        <img src="/icons/stats/switch.svg" alt="" className="w-4 h-4 object-contain" /> Switch Curio
+      </p>
+      {otherAlivePlayerMonsters.length === 0 ? (
+        <p className="text-gray-500 text-sm text-center">No other curios available.</p>
+      ) : (
+        otherAlivePlayerMonsters.map(({ m, i }) => (
+          <button
+            key={i}
+            onClick={() => handleSwitchMonster(i)}
+            className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-3 text-left flex items-center gap-3 transition-all btn-tactile"
+          >
+            <div className="w-9 h-9">
+              <MonsterImage monster={m.def} className="w-full h-full" emojiClassName="text-2xl" />
+            </div>
+            <div className="flex-1">
+              <p className="text-white font-bold text-sm">{m.def.name} Lv.{m.level}</p>
+              <p className="text-xs text-gray-400">{m.currentHp}/{m.maxHp} HP</p>
+            </div>
+          </button>
+        ))
+      )}
+      <button
+        onClick={() => setPhase('select_skill')}
+        className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors btn-tactile"
+      >
+        Cancel
+      </button>
+    </div>
+  ) : phase === 'select_revive_target' ? (
+    <div className="w-full max-w-sm bg-neutral-900 border border-neutral-700 rounded-2xl p-4 space-y-2 max-h-full overflow-y-auto battle-panel-in">
+      <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
+        <img src="/icons/rewards/gift.svg" alt="" className="w-4 h-4 object-contain" /> Revive Which Curio?
+      </p>
+      {faintedPlayerMonsters.length === 0 ? (
+        <p className="text-gray-500 text-sm text-center">No fainted curios available.</p>
+      ) : (
+        faintedPlayerMonsters.map(({ m, i }) => (
+          <button
+            key={i}
+            onClick={() => handleReviveTarget(i)}
+            disabled={itemBusy}
+            className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-3 text-left flex items-center gap-3 transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
+          >
+            <div className="w-9 h-9">
+              <MonsterImage monster={m.def} className="w-full h-full" emojiClassName="text-2xl" />
+            </div>
+            <div className="flex-1">
+              <p className="text-white font-bold text-sm">{m.def.name} Lv.{m.level}</p>
+              <p className="text-xs text-gray-400">0/{m.maxHp} HP — Fainted</p>
+            </div>
+          </button>
+        ))
+      )}
+      <button
+        onClick={() => setPhase('select_item')}
+        className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors btn-tactile"
+      >
+        Cancel
+      </button>
+    </div>
+  ) : confirmSurrender ? (
+    <div className="w-full max-w-sm bg-neutral-950 border border-red-900 rounded-2xl p-4 text-center space-y-3 battle-panel-in">
+      <p className="text-white font-bold">Surrender the battle?</p>
+      <p className="text-xs text-gray-400">You'll earn no Curio EXP.</p>
+      <div className="flex gap-2">
+        <button
+          onClick={() => setConfirmSurrender(false)}
+          className="flex-1 bg-neutral-800 hover:bg-neutral-700 text-white py-2 rounded-lg btn-tactile"
+        >
+          Cancel
+        </button>
+        <button
+          onClick={handleSurrender}
+          className="flex-1 bg-red-700 hover:bg-red-600 text-white py-2 rounded-lg font-bold btn-tactile"
+        >
+          Surrender
+        </button>
+      </div>
+    </div>
+  ) : null;
+
+  const actionPanel = phase !== 'npc_turn' ? (
+    <div>
+      <div className="bstage-moves">
+        {([1, 2, 3] as const).map(tier => {
+          // A slot that's been customized via the Compendium (unlearned
+          // and/or re-taught — 'EMPTY' or an explicit skill id) is usable
+          // right away regardless of level: the scroll purchase is itself
+          // the gate. Only a slot still on its free species default stays
+          // level-gated by skillUnlocks.
+          const slotValue = playerMon.userMonster?.equipped_skills?.[tier - 1];
+          const isCustomized = slotValue != null;
+          const equippedSkill = equippedSkills[tier - 1];
+          const isLocked = !isCustomized && !availableTiers.includes(tier);
+          if (isLocked) {
+            const requiredLevel = tier === 2 ? playerMon.def.skillUnlocks.tier2 : playerMon.def.skillUnlocks.tier3;
+            return <PlaceholderTile key={tier} title={`🔒 ${SKILLS[playerMon.def.skills[tier - 1]]?.name}`} sub={`Unlocks at Lv.${requiredLevel}`} />;
+          }
+          if (!equippedSkill) {
+            return <PlaceholderTile key={tier} title="Empty slot" sub="Teach a skill from the Compendium" />;
+          }
+          return (
+            <ActionTile
+              key={tier}
+              onClick={() => handleSkillSelect(equippedSkill.id)}
+              icon={<img src={getSkillIconSrc(equippedSkill)} alt="" className="w-7 h-7 object-contain" />}
+              title={equippedSkill.name}
+              sub={`${equippedSkill.questionCount} question${equippedSkill.questionCount > 1 ? 's' : ''} · Tier ${tier}`}
+            />
+          );
+        })}
+      </div>
+
+      <div className="bstage-utils mt-[7px]">
+        <ActionTile
+          onClick={handleRest}
+          disabled={playerMon.restUsed >= restConfig.maxUsesPerBattle}
+          icon={<img src="/icons/stats/rest.svg" alt="" className="w-7 h-7 object-contain" />}
+          title={<>Rest <InfoTag text="Heals your curio and uses up this turn — the trainer's curio still attacks normally. Limited uses per battle." /></>}
+          sub={`Restore ${Math.round(restConfig.hpRestorePercent * 100)}% HP`}
+        />
+        <ActionTile
+          onClick={() => setPhase('select_item')}
+          icon={<img src="/icons/stats/items.svg" alt="" className="w-7 h-7 object-contain" />}
+          title={<>Items <InfoTag text="Using an item also uses up this turn — the trainer's curio still attacks normally." /></>}
+          sub="Use items from inventory"
+        />
+        <ActionTile
+          onClick={() => setPhase('select_switch')}
+          disabled={otherAlivePlayerMonsters.length === 0}
+          icon={<img src="/icons/stats/switch.svg" alt="" className="w-7 h-7 object-contain" />}
+          title={<>Switch <InfoTag text="Swap to another curio on your team — also uses up this turn." /></>}
+          sub={otherAlivePlayerMonsters.length > 0 ? 'Change your curio' : 'No other curios'}
+        />
+        <ActionTile
+          onClick={() => setConfirmSurrender(true)}
+          danger
+          icon={<img src="/icons/stats/surrender.svg" alt="" className="w-7 h-7 object-contain" />}
+          title={<>Surrender <InfoTag text="Ends the battle immediately with no Curio EXP earned." /></>}
+          sub="Forfeit the match"
+        />
+      </div>
+    </div>
+  ) : null;
+
+  const statusBanner = phase === 'npc_turn' ? (
+    <p className="text-sm text-gray-300 bg-black/50 inline-block px-3 py-1 rounded-full animate-pulse">Opponent is attacking...</p>
+  ) : null;
+
+  return (
+    <BattleStage
+      leftName={playerDisplayName}
+      rightName={opponentName}
+      leftMon={{ name: playerMon.def.name, level: playerMon.level, def: playerMon.def, currentHp: playerMon.currentHp, maxHp: playerMon.maxHp, status: playerMon.status, animClassName: playerAnim, damagePopup: playerDamagePopup }}
+      rightMon={{ name: npcMon.def.name, level: npcMonsters[npcMonsterIdx].level, def: npcMon.def, currentHp: npcMon.currentHp, maxHp: npcMon.maxHp, status: npcMon.status, animClassName: npcAnim, damagePopup: npcDamagePopup }}
+      log={log}
+      banner={banner}
+      statusBanner={statusBanner}
+      actionPanel={actionPanel}
+      overlay={overlay}
+    />
   );
 }
 
@@ -1160,17 +1087,23 @@ interface TrainingMapProps {
   // fixed spawn point tracked in local state only (never written to the DB).
   regionId?: string;
   onExitRegion?: () => void;
+  // Mobile-fullscreen-only "✕" affordance (see MapStage) — the sub-tab bar
+  // (World Map/My Team/Trainers/...) is still in the DOM on mobile but
+  // painted over entirely by the fullscreen map, so there's otherwise no way
+  // back to it at all.
+  onExitToMenu?: () => void;
 }
 
 function TrainingMap({
   userId, battleState, userMonsters, caughtMonsters, questions,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll, onChallengePlayer,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
-  regionId, onExitRegion,
+  regionId, onExitRegion, onExitToMenu,
 }: TrainingMapProps) {
   const [grassQuestion, setGrassQuestion] = useState(false);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
   const [stickerPickerOpen, setStickerPickerOpen] = useState(false);
+  const [infoTab, setInfoTab] = useState<'team' | 'online' | 'legend' | 'tips'>('team');
   const [stepping, setStepping] = useState(false);
   const [bumping, setBumping] = useState(false);
   const [dustPuffs, setDustPuffs] = useState<{ id: number; x: number; y: number }[]>([]);
@@ -1300,351 +1233,341 @@ function TrainingMap({
     if (encountered) onWildEncounterRoll?.();
   };
 
-  return (
-    <div>
-
+  const leftTag = (
+    <span className="flex items-center gap-1.5">
       {onExitRegion && (
-        <div className="mb-3 flex items-center justify-between">
-          <button
-            onClick={onExitRegion}
-            className="text-sm font-bold text-gray-400 hover:text-white flex items-center gap-1"
-          >
-            ← Back to World Map
-          </button>
-          <p className="text-sm font-display font-bold text-white">
-            {isLedgersHeart ? REGIONS.ledgers_heart.name : region!.name}
-          </p>
-        </div>
+        <button onClick={onExitRegion} className="hover:text-amber-400" title="Back to World Map">←</button>
       )}
+      {isLedgersHeart ? REGIONS.ledgers_heart.name : region!.name}
+    </span>
+  );
 
-      {/* Map (left on desktop, top on mobile) + stacked info column (right on desktop, below on mobile) */}
-      <div className="flex flex-col lg:flex-row gap-4 mb-4">
-
-        {/* Map column */}
-        <div className="flex flex-col items-center gap-3 lg:flex-1">
-
-          {/* Row: d-pad on the left of the map (mobile/tablet only — desktop relies on arrow keys) + map */}
-          <div className="flex flex-row items-center gap-2 sm:gap-3 w-full">
-
-            {/* D-pad — mobile/tablet only */}
-            <div className="flex-shrink-0 lg:hidden">
-              <div className={`grid grid-cols-3 gap-1 w-16 sm:w-20 ${movementLocked ? 'opacity-40' : ''}`}>
-                <div />
-                <button disabled={movementLocked} onClick={() => move(0, -1)} className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base disabled:cursor-not-allowed">▲</button>
-                <div />
-                <button disabled={movementLocked} onClick={() => move(-1, 0)} className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base disabled:cursor-not-allowed">◀</button>
-                <div className="bg-neutral-900 rounded-lg" />
-                <button disabled={movementLocked} onClick={() => move(1, 0)}  className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base disabled:cursor-not-allowed">▶</button>
-                <div />
-                <button disabled={movementLocked} onClick={() => move(0, 1)}  className="bg-neutral-800 hover:bg-neutral-700 rounded-lg p-1.5 text-center text-white text-base disabled:cursor-not-allowed">▼</button>
-                <div />
+  // Map — single painted background image with a percentage-based
+  // walkability grid on top, filling MapStage's square frame exactly (every
+  // position on the grid is expressed in % rather than fixed pixels, so it
+  // scales cleanly with the frame regardless of its rendered size).
+  const frameContent = (
+    <div
+      className={`relative w-full h-full ${bumping ? 'map-bump-shake' : ''}`}
+      style={{ backgroundImage: `url(${mapImageSrc})`, backgroundSize: '100% 100%' }}
+    >
+      <div
+        className="absolute inset-0 grid gap-0"
+        style={{ gridTemplateColumns: `repeat(${MAP_SIZE}, 1fr)`, gridTemplateRows: `repeat(${MAP_SIZE}, 1fr)` }}
+      >
+        {map.map((row, y) =>
+          row.map((tile, x) => {
+            const isTownMarkerTile = isLedgersHeart
+              ? x === 1 && y === 1
+              : x === region!.townCenter.x && y === region!.townCenter.y;
+            return (
+              <div key={`${x}-${y}`} className="flex items-center justify-center" title={tile.type}>
+                {tile.type === 'town' && isTownMarkerTile && <TownMarker />}
               </div>
-              <p className="text-[10px] text-gray-600 mt-1 text-center">
-                {walkLockActive ? '⏳ wait...' : 'arrows'}
-              </p>
+            );
+          })
+        )}
+      </div>
+      <div
+        className="absolute pointer-events-none transition-[left,top] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] flex items-center justify-center"
+        style={{
+          left: `${posX * TILE_PCT}%`, top: `${posY * TILE_PCT}%`,
+          width: `${TILE_PCT}%`, height: `${TILE_PCT}%`,
+        }}
+      >
+        <div className="w-full h-full flex items-center justify-center relative">
+          {waves[userId] && <span className="absolute -top-5 text-xl animate-bounce">👋</span>}
+          {stickers[userId] && (
+            <div className="absolute -top-8 bg-white text-black text-xs font-bold px-2 py-1 rounded-lg whitespace-nowrap shadow">
+              {stickers[userId].text}
             </div>
-
-            {/* Map — single painted background image with a percentage-based walkability grid on top.
-                Sized as a responsive square (flex-1, capped by max-w) so it never causes horizontal
-                scrolling — every position on the grid is expressed in % rather than fixed pixels. */}
-            <div
-              className={`relative border border-neutral-700 rounded-xl overflow-hidden bg-neutral-900 flex-1 min-w-0 max-w-[560px] aspect-square ${bumping ? 'map-bump-shake' : ''}`}
-              style={{ backgroundImage: `url(${mapImageSrc})`, backgroundSize: '100% 100%' }}
-            >
-              <div
-                className="absolute inset-0 grid gap-0"
-                style={{ gridTemplateColumns: `repeat(${MAP_SIZE}, 1fr)`, gridTemplateRows: `repeat(${MAP_SIZE}, 1fr)` }}
-              >
-                {map.map((row, y) =>
-                  row.map((tile, x) => {
-                    const isTownMarkerTile = isLedgersHeart
-                      ? x === 1 && y === 1
-                      : x === region!.townCenter.x && y === region!.townCenter.y;
-                    return (
-                      <div key={`${x}-${y}`} className="flex items-center justify-center" title={tile.type}>
-                        {tile.type === 'town' && isTownMarkerTile && <TownMarker />}
-                      </div>
-                    );
-                  })
-                )}
-              </div>
-              <div
-                className="absolute pointer-events-none transition-[left,top] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] flex items-center justify-center"
-                style={{
-                  left: `${posX * TILE_PCT}%`, top: `${posY * TILE_PCT}%`,
-                  width: `${TILE_PCT}%`, height: `${TILE_PCT}%`,
-                }}
-              >
-                <div className="w-full h-full flex items-center justify-center relative">
-                  {waves[userId] && <span className="absolute -top-5 text-xl animate-bounce">👋</span>}
-                  {stickers[userId] && (
-                    <div className="absolute -top-8 bg-white text-black text-xs font-bold px-2 py-1 rounded-lg whitespace-nowrap shadow">
-                      {stickers[userId].text}
-                    </div>
-                  )}
-                  <div className={`w-[120%] h-[120%] ${stepping ? 'map-step-bounce' : ''}`}>
-                    <PlayerSprite
-                      userId={userId}
-                      isSelf
-                      inBattle={liveBattleInbox?.playersInBattle.has(userId) ?? false}
-                      resultWon={liveBattleInbox?.battleResultFlashes[userId]}
-                    />
-                  </div>
-                  <p className="absolute -bottom-4 flex items-center gap-1 text-[10px] map-name-tag bg-black/60 px-1 rounded whitespace-nowrap">
-                    {selfProfile?.name || userId}
-                    {selfProfile?.isFamily && <GMBadge />}
-                  </p>
-                </div>
-              </div>
-
-              {/* Footstep dust puffs on grass */}
-              {dustPuffs.map(p => (
-                <div
-                  key={p.id}
-                  className="absolute pointer-events-none map-dust-puff"
-                  style={{
-                    left: `${(p.x + 0.5) * TILE_PCT}%`, top: `${(p.y + 0.8) * TILE_PCT}%`,
-                    width: '10px', height: '10px', borderRadius: '9999px',
-                    background: 'radial-gradient(circle, rgba(214,196,150,0.9), rgba(214,196,150,0))',
-                  }}
-                />
-              ))}
-
-              {/* Other online players */}
-              {Object.values(onlinePlayers).map(p => (
-                <div
-                  key={p.userId}
-                  className="absolute transition-[left,top] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer flex items-center justify-center"
-                  style={{ left: `${p.x * TILE_PCT}%`, top: `${p.y * TILE_PCT}%`, width: `${TILE_PCT}%`, height: `${TILE_PCT}%` }}
-                  onClick={() => setStatsTargetId(p.userId)}
-                  title={USERS[p.userId]?.name || p.name}
-                >
-                  <div className="w-full h-full flex items-center justify-center relative">
-                    {waves[p.userId] && <span className="absolute -top-5 text-xl animate-bounce">👋</span>}
-                    {stickers[p.userId] && (
-                      <div className="absolute -top-8 bg-white text-black text-xs font-bold px-2 py-1 rounded-lg whitespace-nowrap shadow">
-                        {stickers[p.userId].text}
-                      </div>
-                    )}
-                    <div className="w-[120%] h-[120%]">
-                      <PlayerSprite
-                        userId={p.userId}
-                        inBattle={liveBattleInbox?.playersInBattle.has(p.userId) ?? false}
-                        resultWon={liveBattleInbox?.battleResultFlashes[p.userId]}
-                      />
-                    </div>
-                    <p className="absolute -bottom-4 flex items-center gap-1 text-[10px] map-name-tag bg-black/60 px-1 rounded whitespace-nowrap">
-                      {USERS[p.userId]?.name || p.name}
-                      {USERS[p.userId]?.isFamily && <GMBadge />}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+          )}
+          <div className={`w-[120%] h-[120%] ${stepping ? 'map-step-bounce' : ''}`}>
+            <PlayerSprite
+              userId={userId}
+              isSelf
+              inBattle={liveBattleInbox?.playersInBattle.has(userId) ?? false}
+              resultWon={liveBattleInbox?.battleResultFlashes[userId]}
+            />
           </div>
-
-          {/* Below map: arrow-key hint (desktop) + sticker picker */}
-          <div className="flex flex-col items-center">
-            <p className="hidden lg:block text-xs text-gray-600 text-center">
-              {walkLockActive ? '⏳ Take a moment to review that answer before moving...' : 'Use arrow keys to move'}
-            </p>
-
-            <div className="relative mt-1 lg:mt-3 w-24">
-              <button
-                onClick={() => setStickerPickerOpen(v => !v)}
-                className="w-full bg-neutral-800 hover:bg-neutral-700 rounded-lg p-2 text-center text-white text-sm"
-              >
-                💬
-              </button>
-              {stickerPickerOpen && (
-                <div className="absolute z-10 bottom-full mb-2 left-1/2 -translate-x-1/2 bg-neutral-900 border border-neutral-700 rounded-lg p-2 w-40 space-y-1">
-                  {['Need help!', "Let's battle!", 'Grinding EXP 💪', 'Almost there!'].map(text => (
-                    <button
-                      key={text}
-                      onClick={() => { sendSticker(text); setStickerPickerOpen(false); }}
-                      className="w-full text-left text-xs text-white hover:bg-neutral-800 rounded px-2 py-1"
-                    >
-                      {text}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-
-        {/* Info column: Active Monster, Who's Online, then foldable Map Legend / Training Tips */}
-        <div className="w-full lg:w-80 flex-shrink-0 flex flex-col gap-4">
-
-          {/* Your team — every teammate, not just the one currently active in
-              grass encounters. The active one (whichever gets grass-answer EXP)
-              is called out with an amber border + badge rather than being the
-              only curio shown at all. */}
-          <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-4">
-            <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Your Team</p>
-            {userMonsters.filter(m => m.slot !== null).length === 0 ? (
-              <p className="text-gray-500 text-sm">No curios on your team</p>
-            ) : (
-              <div className="space-y-3">
-                {userMonsters
-                  .filter(m => m.slot !== null)
-                  .sort((a, b) => (a.slot ?? 0) - (b.slot ?? 0))
-                  .map(monster => {
-                    const def = monsterDisplay[monster.monster_id];
-                    const isActive = monster.slot === battleState.active_monster_slot;
-                    const expIntoLevel = monster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL;
-                    const expToNext = BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - expIntoLevel;
-                    const scaled = getScaledStats(def, monster.monster_level);
-                    return (
-                      <div
-                        key={monster.id}
-                        className={`rounded-lg p-2 ${isActive ? 'border border-amber-700 bg-amber-900/10' : 'border border-neutral-800'}`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <MonsterImage monster={def} className="w-12 h-12" />
-                          <div className="flex-1">
-                            <p className="font-bold text-white text-sm">
-                              {def?.name}
-                              {isActive && <span className="ml-1.5 text-[10px] text-amber-400 font-bold uppercase tracking-wide">Active</span>}
-                            </p>
-                            <p className="text-xs text-gray-400 capitalize">Lv.{monster.monster_level} · {def?.element}</p>
-                            <div className="w-full bg-neutral-800 rounded-full h-1.5 mt-1">
-                              <div
-                                className="h-1.5 rounded-full bg-amber-400"
-                                style={{ width: `${(expIntoLevel / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) * 100}%` }}
-                              />
-                            </div>
-                            <p className="text-xs text-gray-500 mt-0.5">{expToNext} EXP to next level</p>
-                          </div>
-                          <div className="text-[10px] text-gray-400 space-y-0.5 flex-shrink-0">
-                            <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-3 h-3 object-contain" /> {scaled.hp}</p>
-                            <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-3 h-3 object-contain" /> {scaled.attack}</p>
-                            <p className="flex items-center gap-1"><img src="/icons/stats/def.svg" alt="" className="w-3 h-3 object-contain" /> {scaled.defense}</p>
-                            <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-3 h-3 object-contain" /> {scaled.speed}</p>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-              </div>
-            )}
-          </div>
-
-          {/* Who's online */}
-          <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-4">
-            <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">🟢 Who's Online</p>
-            {Object.keys(onlinePlayers).length === 0 ? (
-              <p className="text-gray-600 text-sm">No one else is on the map right now.</p>
-            ) : (
-              <div className="space-y-2">
-                {Object.values(onlinePlayers)
-                  .sort((a, b) => a.name.localeCompare(b.name))
-                  .map(p => (
-                    <button
-                      key={p.userId}
-                      onClick={() => setStatsTargetId(p.userId)}
-                      className="w-full flex items-center gap-2 bg-black/30 hover:bg-black/50 rounded-lg px-3 py-2 text-left transition-colors"
-                    >
-                      <span className="w-2 h-2 rounded-full bg-green-400 flex-shrink-0" />
-                      <span className="text-white text-sm font-medium truncate">
-                        {USERS[p.userId]?.name || p.name}
-                      </span>
-                      {USERS[p.userId]?.isFamily && <GMBadge />}
-                      <span className="text-xs text-gray-500 ml-auto">{USERS[p.userId]?.grade}</span>
-                    </button>
-                  ))}
-              </div>
-            )}
-          </div>
-
-          {/* Map Legend — foldable */}
-          <details className="group bg-neutral-900 border border-neutral-700 rounded-xl p-4">
-            <summary className="text-xs text-gray-500 uppercase tracking-widest cursor-pointer select-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
-              Map Legend
-              <span className="text-gray-600 transition-transform group-open:rotate-180">▾</span>
-            </summary>
-            <div className="space-y-2 text-sm mt-3">
-              <div className="flex items-center gap-2">
-                <span>🟩</span>
-                <div>
-                  <p className="text-white font-medium">Grass</p>
-                  <p className="text-xs text-gray-400">40% chance to trigger a training question. Answer correctly for +{BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER} monster EXP.</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <span>🏠</span>
-                <div>
-                  <p className="text-white font-medium">Town</p>
-                  <p className="text-xs text-gray-400">Safe zone. Walking here heals your full team.</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <span>🧒</span>
-                <div>
-                  <p className="text-white font-medium">You</p>
-                  <p className="text-xs text-gray-400">Your current position on the map.</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <span>🟢</span>
-                <div>
-                  <p className="text-white font-medium">Other players</p>
-                  <p className="text-xs text-gray-400">Tap a player on the map or in the roster to view their stats or wave.</p>
-                </div>
-              </div>
-            </div>
-          </details>
-
-          {/* Training Tips — foldable */}
-          <details className="group bg-neutral-900 border border-neutral-700 rounded-xl p-4">
-            <summary className="text-xs text-gray-500 uppercase tracking-widest cursor-pointer select-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
-              Training Tips
-              <span className="text-gray-600 transition-transform group-open:rotate-180">▾</span>
-            </summary>
-            <div className="space-y-2 text-xs text-gray-400 mt-3">
-              <p>⌨️ Use <span className="text-white font-bold">arrow keys</span> or the buttons below to move.</p>
-              <p>🌿 Walk through <span className="text-white font-bold">grass tiles</span> repeatedly to grind curio EXP.</p>
-              <p>⚔️ Curio reaches <span className="text-white font-bold">Lv.5</span> to unlock Tier 2 skill, <span className="text-white font-bold">Lv.10</span> for Tier 3.</p>
-              <p>🏠 Return to <span className="text-white font-bold">town</span> to heal before challenging a trainer.</p>
-              <p>💡 Defeat trainers in order from the <span className="text-white font-bold">Trainers</span> tab — each one gets harder and requires a higher player level.</p>
-            </div>
-          </details>
-
+          <p className="absolute -bottom-4 flex items-center gap-1 text-[10px] map-name-tag bg-black/60 px-1 rounded whitespace-nowrap">
+            {selfProfile?.name || userId}
+            {selfProfile?.isFamily && <GMBadge />}
+          </p>
         </div>
       </div>
 
-      {grassQuestion && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-          <div className="bg-neutral-900 border border-emerald-700 rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center gap-4 mb-5 bg-emerald-900/30 border border-emerald-800 rounded-xl p-4">
-              {activeMonster && (
-                <MonsterImage monster={monsterDisplay[activeMonster.monster_id]} className="w-14 h-14" />
-              )}
-              <div>
-                <p className="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-1 flex items-center gap-1.5">
-                  <img src="/icons/encounter/atk.svg" alt="Training" className="w-6 h-6" /> Grass Training
-                </p>
-                <p className="text-white font-bold">
-                  {activeMonster ? monsterDisplay[activeMonster.monster_id]?.name : 'Your monster'} is practicing!
-                </p>
-                <p className="text-sm mt-1">
-                  Answer correctly → <span className="text-amber-400 font-bold">+{BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER} EXP</span>
-                  {activeMonster && (() => {
-                    const expToNext = BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - (activeMonster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL);
-                    return <span className="text-gray-400 text-xs ml-1">({expToNext} to next level)</span>;
-                  })()}
-                </p>
+      {/* Footstep dust puffs on grass */}
+      {dustPuffs.map(p => (
+        <div
+          key={p.id}
+          className="absolute pointer-events-none map-dust-puff"
+          style={{
+            left: `${(p.x + 0.5) * TILE_PCT}%`, top: `${(p.y + 0.8) * TILE_PCT}%`,
+            width: '10px', height: '10px', borderRadius: '9999px',
+            background: 'radial-gradient(circle, rgba(214,196,150,0.9), rgba(214,196,150,0))',
+          }}
+        />
+      ))}
+
+      {/* Other online players */}
+      {Object.values(onlinePlayers).map(p => (
+        <div
+          key={p.userId}
+          className="absolute transition-[left,top] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer flex items-center justify-center"
+          style={{ left: `${p.x * TILE_PCT}%`, top: `${p.y * TILE_PCT}%`, width: `${TILE_PCT}%`, height: `${TILE_PCT}%` }}
+          onClick={() => setStatsTargetId(p.userId)}
+          title={USERS[p.userId]?.name || p.name}
+        >
+          <div className="w-full h-full flex items-center justify-center relative">
+            {waves[p.userId] && <span className="absolute -top-5 text-xl animate-bounce">👋</span>}
+            {stickers[p.userId] && (
+              <div className="absolute -top-8 bg-white text-black text-xs font-bold px-2 py-1 rounded-lg whitespace-nowrap shadow">
+                {stickers[p.userId].text}
               </div>
+            )}
+            <div className="w-[120%] h-[120%]">
+              <PlayerSprite
+                userId={p.userId}
+                inBattle={liveBattleInbox?.playersInBattle.has(p.userId) ?? false}
+                resultWon={liveBattleInbox?.battleResultFlashes[p.userId]}
+              />
             </div>
-            <BattleQuestionModal
-              questions={questions}
-              count={1}
-              embedded={true}
-              onComplete={handleGrassAnswer}
-            />
+            <p className="absolute -bottom-4 flex items-center gap-1 text-[10px] map-name-tag bg-black/60 px-1 rounded whitespace-nowrap">
+              {USERS[p.userId]?.name || p.name}
+              {USERS[p.userId]?.isFamily && <GMBadge />}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+
+  // Movement + chat controls overlaid directly on the map (bottom-left
+  // corner of the frame) instead of living outside it in a separate row —
+  // desktop still also has arrow-key support via the keydown listener above.
+  const controls = (
+    <div className="flex items-end gap-2">
+      <div>
+        <div className={`mstage-dpad ${movementLocked ? 'opacity-40' : ''}`}>
+          <div />
+          <button disabled={movementLocked} onClick={() => move(0, -1)} className="bg-black/60 hover:bg-black/80 rounded text-white text-xs disabled:cursor-not-allowed">▲</button>
+          <div />
+          <button disabled={movementLocked} onClick={() => move(-1, 0)} className="bg-black/60 hover:bg-black/80 rounded text-white text-xs disabled:cursor-not-allowed">◀</button>
+          <div className="bg-black/30 rounded" />
+          <button disabled={movementLocked} onClick={() => move(1, 0)}  className="bg-black/60 hover:bg-black/80 rounded text-white text-xs disabled:cursor-not-allowed">▶</button>
+          <div />
+          <button disabled={movementLocked} onClick={() => move(0, 1)}  className="bg-black/60 hover:bg-black/80 rounded text-white text-xs disabled:cursor-not-allowed">▼</button>
+          <div />
+        </div>
+        {walkLockActive && <p className="text-[9px] text-amber-400 mt-0.5 text-center">⏳ wait...</p>}
+      </div>
+
+      <div className="relative">
+        <button
+          onClick={() => setStickerPickerOpen(v => !v)}
+          className="w-[30px] h-[30px] bg-black/60 hover:bg-black/80 rounded text-white text-sm flex items-center justify-center"
+        >
+          💬
+        </button>
+        {stickerPickerOpen && (
+          <div className="absolute z-10 bottom-full mb-2 left-0 bg-neutral-900 border border-neutral-700 rounded-lg p-2 w-40 space-y-1">
+            {['Need help!', "Let's battle!", 'Grinding EXP 💪', 'Almost there!'].map(text => (
+              <button
+                key={text}
+                onClick={() => { sendSticker(text); setStickerPickerOpen(false); }}
+                className="w-full text-left text-xs text-white hover:bg-neutral-800 rounded px-2 py-1"
+              >
+                {text}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
+  // Info drawer — Team/Online/Legend/Tips used to be four permanent side
+  // cards; tabbed here instead since the drawer (like the battle log) is
+  // deliberately compact and hidden by default.
+  const drawer = (
+    <div>
+      <div className="flex gap-1 mb-2">
+        {([
+          { id: 'team' as const, label: 'Team' },
+          { id: 'online' as const, label: `Online (${Object.keys(onlinePlayers).length})` },
+          { id: 'legend' as const, label: 'Legend' },
+          { id: 'tips' as const, label: 'Tips' },
+        ]).map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setInfoTab(tab.id)}
+            className={`flex-1 text-[10px] font-bold uppercase tracking-wide rounded px-1.5 py-1 transition-colors ${
+              infoTab === tab.id
+                ? 'bg-amber-900/30 text-amber-400 border border-amber-800'
+                : 'bg-neutral-900 text-gray-500 border border-neutral-800 hover:text-gray-300'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {infoTab === 'team' && (
+        userMonsters.filter(m => m.slot !== null).length === 0 ? (
+          <p className="text-gray-500 text-xs">No curios on your team</p>
+        ) : (
+          <div className="space-y-2">
+            {userMonsters
+              .filter(m => m.slot !== null)
+              .sort((a, b) => (a.slot ?? 0) - (b.slot ?? 0))
+              .map(monster => {
+                const def = monsterDisplay[monster.monster_id];
+                const isActive = monster.slot === battleState.active_monster_slot;
+                const expIntoLevel = monster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL;
+                const expToNext = BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - expIntoLevel;
+                const scaled = getScaledStats(def, monster.monster_level);
+                return (
+                  <div
+                    key={monster.id}
+                    className={`rounded-lg p-2 ${isActive ? 'border border-amber-700 bg-amber-900/10' : 'border border-neutral-800 bg-neutral-900'}`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <MonsterImage monster={def} className="w-9 h-9 flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <p className="font-bold text-white text-xs truncate">
+                          {def?.name}
+                          {isActive && <span className="ml-1.5 text-[9px] text-amber-400 font-bold uppercase tracking-wide">Active</span>}
+                        </p>
+                        <p className="text-[10px] text-gray-400 capitalize">Lv.{monster.monster_level} · {def?.element}</p>
+                        <div className="w-full bg-neutral-800 rounded-full h-1 mt-1">
+                          <div className="h-1 rounded-full bg-amber-400" style={{ width: `${(expIntoLevel / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) * 100}%` }} />
+                        </div>
+                      </div>
+                      <div className="text-[9px] text-gray-400 space-y-0.5 flex-shrink-0">
+                        <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-2.5 h-2.5 object-contain" /> {scaled.hp}</p>
+                        <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-2.5 h-2.5 object-contain" /> {scaled.attack}</p>
+                        <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-2.5 h-2.5 object-contain" /> {scaled.speed}</p>
+                      </div>
+                    </div>
+                    <p className="text-[9px] text-gray-500 mt-0.5">{expToNext} EXP to next level</p>
+                  </div>
+                );
+              })}
+          </div>
+        )
+      )}
+
+      {infoTab === 'online' && (
+        Object.keys(onlinePlayers).length === 0 ? (
+          <p className="text-gray-600 text-xs">No one else is on the map right now.</p>
+        ) : (
+          <div className="space-y-1.5">
+            {Object.values(onlinePlayers)
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map(p => (
+                <button
+                  key={p.userId}
+                  onClick={() => setStatsTargetId(p.userId)}
+                  className="w-full flex items-center gap-2 bg-neutral-900 border border-neutral-800 hover:border-amber-500 rounded-lg px-2.5 py-1.5 text-left transition-colors"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
+                  <span className="text-white text-xs font-medium truncate">
+                    {USERS[p.userId]?.name || p.name}
+                  </span>
+                  {USERS[p.userId]?.isFamily && <GMBadge />}
+                  <span className="text-[10px] text-gray-500 ml-auto">{USERS[p.userId]?.grade}</span>
+                </button>
+              ))}
+          </div>
+        )
+      )}
+
+      {infoTab === 'legend' && (
+        <div className="space-y-1.5 text-xs">
+          <div className="flex items-center gap-2">
+            <span>🟩</span>
+            <div>
+              <p className="text-white font-medium">Grass</p>
+              <p className="text-[10px] text-gray-400">40% chance to trigger a training question. Answer correctly for +{BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER} monster EXP.</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <span>🏠</span>
+            <div>
+              <p className="text-white font-medium">Town</p>
+              <p className="text-[10px] text-gray-400">Safe zone. Walking here heals your full team.</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <span>🧒</span>
+            <div>
+              <p className="text-white font-medium">You</p>
+              <p className="text-[10px] text-gray-400">Your current position on the map.</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <span>🟢</span>
+            <div>
+              <p className="text-white font-medium">Other players</p>
+              <p className="text-[10px] text-gray-400">Tap a player on the map or in the roster to view their stats or wave.</p>
+            </div>
           </div>
         </div>
       )}
+
+      {infoTab === 'tips' && (
+        <div className="space-y-1.5 text-[11px] text-gray-400">
+          <p>⌨️ Use <span className="text-white font-bold">arrow keys</span> or the on-map buttons to move.</p>
+          <p>🌿 Walk through <span className="text-white font-bold">grass tiles</span> repeatedly to grind curio EXP.</p>
+          <p>⚔️ Curio reaches <span className="text-white font-bold">Lv.5</span> to unlock Tier 2 skill, <span className="text-white font-bold">Lv.10</span> for Tier 3.</p>
+          <p>🏠 Return to <span className="text-white font-bold">town</span> to heal before challenging a trainer.</p>
+          <p>💡 Defeat trainers in order from the <span className="text-white font-bold">Trainers</span> tab — each one gets harder and requires a higher player level.</p>
+        </div>
+      )}
+    </div>
+  );
+
+  const overlay = grassQuestion ? (
+    <div className="w-full max-w-xl bg-neutral-900 border border-emerald-700 rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in">
+      <div className="flex items-center gap-3 mb-3 bg-emerald-900/30 border border-emerald-800 rounded-xl px-3 py-2">
+        {activeMonster && (
+          <MonsterImage monster={monsterDisplay[activeMonster.monster_id]} className="w-10 h-10 flex-shrink-0" />
+        )}
+        <div className="min-w-0">
+          <p className="text-white font-bold text-sm leading-tight">
+            {activeMonster ? monsterDisplay[activeMonster.monster_id]?.name : 'Your monster'} is practicing!
+          </p>
+          <p className="text-xs text-gray-300 leading-tight">
+            Answer correctly → <span className="text-amber-400 font-bold">+{BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER} EXP</span>
+            {activeMonster && (() => {
+              const expToNext = BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - (activeMonster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL);
+              return <span className="text-gray-500 text-[11px] ml-1">({expToNext} to next level)</span>;
+            })()}
+          </p>
+        </div>
+      </div>
+      <BattleQuestionModal
+        questions={questions}
+        count={1}
+        embedded={true}
+        onComplete={handleGrassAnswer}
+      />
+    </div>
+  ) : null;
+
+  return (
+    <>
+      <MapStage
+        leftTag={leftTag}
+        rightTag={`🟢 ${Object.keys(onlinePlayers).length}`}
+        frame={frameContent}
+        controls={controls}
+        drawerLabel="Info"
+        drawer={drawer}
+        overlay={overlay}
+        onExit={onExitToMenu}
+      />
 
       {statsTargetId && (
         <PlayerStatsPopup
@@ -1655,7 +1578,7 @@ function TrainingMap({
           targetInBattle={liveBattleInbox?.playersInBattle.has(statsTargetId) ?? false}
         />
       )}
-    </div>
+    </>
   );
 }
 
@@ -2976,9 +2899,10 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
             monsterDisplay={displayMonsters}
             regionId={activeRegion}
             onExitRegion={() => setActiveRegion(null)}
+            onExitToMenu={() => setView('team')}
           />
         ) : (
-          <WorldMap playerLevel={playerLevel} onSelectRegion={setActiveRegion} />
+          <WorldMap playerLevel={playerLevel} onSelectRegion={setActiveRegion} onExit={() => setView('team')} />
         )
       )}
 
