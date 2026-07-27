@@ -486,6 +486,14 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     skillUnlocks: { tier2: 18, tier3: 30 },
     isLegendary: true,
   },
+  lexiwyrm: {
+    id: 'lexiwyrm', name: 'Lexiwyrm', element: 'leaf', archetype: 'tank',
+    emoji: '📚', spriteId: 'lexiwyrm', description: 'A legendary spine of pages that never quite closes — one of the oldest fragments of the Ledger, holding more written memory than any single watch-post could shelve. It reads its own margins aloud in a voice like turning paper. Every root and vine within reach seems to lean in to listen.',
+    ...WILD_STAT_PRESET,
+    skills: ['vine_whip', 'razor_leaf', 'legendary_leaf'],
+    skillUnlocks: { tier2: 18, tier3: 30 },
+    isLegendary: true,
+  },
   nyxfang: {
     id: 'nyxfang', name: 'Nyxfang', element: 'shadow', archetype: 'tank',
     emoji: '🐺', description: 'A wolf woven from pure night, rarely ever seen — one of the oldest fragments of the Ledger, holding more of what\'s hidden than any single watch-post dares keep. Its fur absorbs light, so at night it looks like a wolf-shaped hole in the dark. Its howl feels like pressure more than sound.',
@@ -862,6 +870,13 @@ export interface NpcTrainer {
   reward: { exp: number; gold: number };
   emoji: string;
   intro: string;
+  // A joke/lore capstone opponent that can never actually be defeated — see
+  // its enforcement in handleQuestionsComplete (MonsterGuild.tsx), which
+  // floors this trainer's active curio HP at 1 so it can never be KO'd.
+  unbeatable?: boolean;
+  // Overrides the default `/trainers/{id}.png` sprite lookup for trainers
+  // whose art lives elsewhere (e.g. a pre-existing decorative asset).
+  spriteOverride?: string;
 }
 
 // Monster levels below are calibrated off real monster_level progress across
@@ -954,6 +969,22 @@ export const NPC_TRAINERS: NpcTrainer[] = [
       { monsterId: 'duskral',   level: 29 },
     ],
     reward: { exp: 300, gold: 150 },
+  },
+  // No levelRequirement gate — an anytime, joke capstone fight. `unbeatable`
+  // is enforced in MonsterGuild.tsx's handleQuestionsComplete, not by stats
+  // alone (NPC counter-damage is tier-capped regardless of level, so a huge
+  // level number wouldn't make a fight actually unwinnable on its own).
+  {
+    id: 'tatay', name: 'Tatay', element: 'mixed', levelRequirement: 0,
+    emoji: '👴', intro: 'You have no power here, kid!',
+    monsters: [
+      { monsterId: 'emberwyrm', level: 100 },
+      { monsterId: 'zephyrion', level: 100 },
+      { monsterId: 'lexiwyrm',  level: 100 },
+    ],
+    reward: { exp: 0, gold: 0 },
+    unbeatable: true,
+    spriteOverride: '/tatay sprite.webp',
   },
 ];
 

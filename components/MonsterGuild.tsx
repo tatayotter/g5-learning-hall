@@ -554,7 +554,10 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
     }
 
     let newNpcMonsters = [...npcMonsters];
-    let newNpcMon = { ...npcMon, currentHp: Math.max(0, npcMon.currentHp - damage) };
+    // An `unbeatable` trainer's curio HP is floored at 1 instead of 0 — it can
+    // never actually be KO'd, no matter how much damage lands.
+    const npcHpFloor = trainer?.unbeatable ? 1 : 0;
+    let newNpcMon = { ...npcMon, currentHp: Math.max(npcHpFloor, npcMon.currentHp - damage) };
 
     if (isPerfect && ELEMENT_STATUS[playerMon.def.element]) {
       const effect = ELEMENT_STATUS[playerMon.def.element]!;
@@ -732,7 +735,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
 
   if (phase === 'ended' && battleResult) {
     const me = USERS[userId];
-    const opponentAvatarSrc = trainer ? `/trainers/${trainer.id}.png` : '/userpics/Spr_RS_School_Kid_M.png';
+    const opponentAvatarSrc = trainer ? (trainer.spriteOverride ?? `/trainers/${trainer.id}.png`) : '/userpics/Spr_RS_School_Kid_M.png';
     const opponentFallbackEmoji = trainer?.emoji ?? '⚔️';
     const reasonLabel = battleResult.reason === 'surrender' ? 'You surrendered' : 'Fight complete';
 
@@ -741,7 +744,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
         outcome={battleResult.won ? 'win' : 'loss'}
         reasonLabel={reasonLabel}
         left={{ avatarSrc: me?.avatar || '/userpics/Spr_RS_School_Kid_M.png', name: me?.fullName ?? userId, mon: playerMon, isWinner: battleResult.won }}
-        right={{ avatarSrc: opponentAvatarSrc, avatarFallbackEmoji: opponentFallbackEmoji, name: opponentName, mon: npcMon, isWinner: !battleResult.won }}
+        right={{ avatarSrc: opponentAvatarSrc, avatarFallbackEmoji: opponentFallbackEmoji, avatarContain: !!trainer?.spriteOverride, name: opponentName, mon: npcMon, isWinner: !battleResult.won }}
         log={log}
         rewardLine={battleResult.won && battleResult.exp > 0 ? `+${battleResult.exp} Curio EXP earned!` : undefined}
         onContinue={() => onBattleEnd(battleResult.won, battleResult.exp)}
@@ -3009,15 +3012,11 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
 
           <h3 className="text-lg font-bold text-white font-display">NPC Trainers</h3>
           <div className="p-5 rounded-xl border flex items-center gap-4 border-neutral-700 bg-neutral-900">
-            <div className="w-14 h-14 flex-shrink-0 relative flex items-center justify-center text-4xl bg-neutral-800 rounded-full overflow-hidden border border-neutral-700">
-              <span className="opacity-50">🎯</span>
-              <img
-                src="/trainers/training_tester.png"
-                alt="Training Dummy"
-                className="absolute inset-0 w-full h-full object-cover"
-                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-              />
-            </div>
+            <img
+              src="/trainers/training_tester.png"
+              alt="Training Dummy"
+              className="w-24 h-24 flex-shrink-0 object-contain"
+            />
             <div className="flex-1">
               <p className="font-bold text-white">Training Dummy</p>
               <p className="text-xs text-gray-400">Always available · Matches your team</p>
@@ -3056,16 +3055,11 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
                              'border-neutral-700 bg-neutral-900'
                 }`}
               >
-                <div className="w-14 h-14 flex-shrink-0 relative flex items-center justify-center text-4xl bg-neutral-800 rounded-full overflow-hidden border border-neutral-700">
-                  {/* Fallback emoji if the image hasn't loaded or is missing */}
-                  <span className="opacity-50">{trainer.emoji}</span>
-                  <img 
-                    src={`/trainers/${trainer.id}.png`}
-                    alt={trainer.name} 
-                    className="absolute inset-0 w-full h-full object-cover" 
-                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} 
-                  />
-                </div>
+                <img
+                  src={trainer.spriteOverride ?? `/trainers/${trainer.id}.png`}
+                  alt={trainer.name}
+                  className="w-24 h-24 flex-shrink-0 object-contain"
+                />
                 <div className="flex-1">
                   <p className="font-bold text-white">{trainer.name}</p>
                   <p className="text-xs text-gray-400 capitalize">{trainer.element} · Requires Level {trainer.levelRequirement}</p>

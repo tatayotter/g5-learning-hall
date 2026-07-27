@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { ActiveBattleMonster, MonsterImage } from '@/components/battle/shared';
 import { getScaledStats } from '@/lib/monsterConfig';
 
-function AvatarImage({ src, fallbackEmoji, alt }: { src: string; fallbackEmoji?: string; alt: string }) {
+function AvatarImage({ src, fallbackEmoji, alt, contain }: { src: string; fallbackEmoji?: string; alt: string; contain?: boolean }) {
   const [failed, setFailed] = useState(false);
   if (failed && fallbackEmoji) {
     return (
@@ -22,7 +22,7 @@ function AvatarImage({ src, fallbackEmoji, alt }: { src: string; fallbackEmoji?:
     <img
       src={src}
       alt={alt}
-      className="w-16 h-16 rounded-full object-cover border border-neutral-600 mx-auto mb-2"
+      className={`w-16 h-16 rounded-full border border-neutral-600 mx-auto mb-2 ${contain ? 'object-contain bg-neutral-950' : 'object-cover'}`}
       onError={() => (fallbackEmoji ? setFailed(true) : undefined)}
     />
   );
@@ -31,6 +31,10 @@ function AvatarImage({ src, fallbackEmoji, alt }: { src: string; fallbackEmoji?:
 export interface PostBattleSideInfo {
   avatarSrc: string;
   avatarFallbackEmoji?: string;
+  // Set when avatarSrc is a non-square sprite (e.g. a trainer's full-body
+  // art rather than the usual square /trainers/{id}.png icon) — object-cover
+  // would crop it, so this switches to object-contain instead.
+  avatarContain?: boolean;
   name: string;
   subtitle?: string;
   mon: ActiveBattleMonster;
@@ -47,7 +51,7 @@ interface PostBattleSummaryProps {
   onContinue: () => void;
 }
 
-function Side({ avatarSrc, avatarFallbackEmoji, name, subtitle, mon, isWinner }: PostBattleSideInfo) {
+function Side({ avatarSrc, avatarFallbackEmoji, avatarContain, name, subtitle, mon, isWinner }: PostBattleSideInfo) {
   const scaled = getScaledStats(mon.def, mon.level);
   return (
     <div className={`flex-1 rounded-2xl border-2 p-5 text-center ${isWinner ? 'border-amber-500 bg-amber-900/10' : 'border-neutral-700 bg-neutral-950'}`}>
@@ -56,7 +60,7 @@ function Side({ avatarSrc, avatarFallbackEmoji, name, subtitle, mon, isWinner }:
           <img src="/icons/stats/victory.svg" alt="Winner" className="w-4 h-4 object-contain" /> WINNER
         </p>
       )}
-      <AvatarImage src={avatarSrc} fallbackEmoji={avatarFallbackEmoji} alt={name} />
+      <AvatarImage src={avatarSrc} fallbackEmoji={avatarFallbackEmoji} alt={name} contain={avatarContain} />
       <p className="font-bold text-white">{name}</p>
       {subtitle && <p className="text-xs text-gray-500 mb-1">{subtitle}</p>}
       <div className="w-14 h-14 mx-auto my-2">
