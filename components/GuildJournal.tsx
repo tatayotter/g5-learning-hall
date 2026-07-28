@@ -50,6 +50,7 @@ export default function GuildJournal({ userId, journalLogs, stats, currentSunday
     // Archive this entry into the dedicated journal_entries table (for future export)
     const weekStart = format(new Date(new Date().setDate(new Date().getDate() - new Date().getDay())), 'yyyy-MM-dd');
     const { error: archiveError } = await supabase.from('journal_entries').insert({
+      user_id: userId,
       entry_date: todayKey,
       week_starting_date: weekStart,
       done_today: formData.done_today,

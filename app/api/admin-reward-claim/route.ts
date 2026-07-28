@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
+import { requireAdminPasscode } from '@/lib/adminAuth';
 
 export async function POST(request: NextRequest) {
   const { passcode, id, status } = await request.json();
 
-  if (passcode !== process.env.ADMIN_PASSCODE) {
-    return NextResponse.json({ success: false, error: 'Invalid passcode' }, { status: 401 });
-  }
+  const authError = requireAdminPasscode(passcode);
+  if (authError) return authError;
   if (typeof id !== 'number' || (status !== 'pending' && status !== 'supplied')) {
     return NextResponse.json({ success: false, error: 'A valid id and status are required' }, { status: 400 });
   }

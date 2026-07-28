@@ -5,7 +5,7 @@
 // MonsterGuild.tsx rather than imported from it, so neither battle screen has to
 // import the other (avoids a circular import between the two).
 import { useState } from 'react';
-import { MonsterDef, StatusEffect, ActiveModifier } from '@/lib/monsterConfig';
+import { MonsterDef, StatusEffect, ActiveModifier, BATTLE_CONSTANTS } from '@/lib/monsterConfig';
 
 export interface UserMonster {
   id: string;
@@ -244,4 +244,63 @@ export function BattleQuestionModal({ questions, count, embedded, onComplete }: 
       {inner}
     </div>
   );
+}
+
+// Perk badge for Tatay's kids — Damien and Tala are always USERS[id].isFamily.
+export function GMBadge() {
+  return <span title="GM" className="text-xs leading-none">👑</span>;
+}
+
+export interface ItemEffectResult {
+  logMessage: string;
+  healAmount?: number;
+  selfStatus?: { status: StatusEffect; statusTurns: number };
+  opponentStatus?: { status: StatusEffect; statusTurns: number };
+}
+
+// Shared by the solo BattleScreen and the live PvP LiveBattleScreen — was
+// previously an identical switch statement copy-pasted into both, which
+// meant a new consumable item type (or a tweak to an existing one's
+// duration/amount) had to be edited in two places to stay consistent. It
+// already hadn't: solo battles applied inflict_curse for a hardcoded 3
+// turns while live battles correctly used BATTLE_CONSTANTS.CURSE_DURATION_TURNS
+// (2) — unified on the named constant here.
+export function resolveItemEffect(item: { name: string; effect?: string }, opponentLabel: string = 'Enemy'): ItemEffectResult {
+  switch (item.effect) {
+    case 'heal_30':
+    case 'heal_60':
+    case 'heal_120': {
+      const healAmount = Number(item.effect.split('_')[1]);
+      return { logMessage: `🧪 Used ${item.name}: Restored ${healAmount} HP!`, healAmount };
+    }
+    case 'atk_boost_1t':
+      return { logMessage: `⚔️ Used ${item.name}: Attack boosted!`, selfStatus: { status: 'atk_boost', statusTurns: 1 } };
+    case 'def_boost_1t':
+      return { logMessage: `🛡️ Used ${item.name}: Defense boosted!`, selfStatus: { status: 'def_boost', statusTurns: 1 } };
+    case 'apply_blessed':
+      return { logMessage: `✨ Used ${item.name}: Blessed status applied!`, selfStatus: { status: 'blessed', statusTurns: 3 } };
+    case 'cure_status':
+      return { logMessage: `💊 Used ${item.name}: Status conditions cured!`, selfStatus: { status: null, statusTurns: 0 } };
+    case 'inflict_curse':
+      return { logMessage: `💀 Used ${item.name}: ${opponentLabel} is now Cursed!`, opponentStatus: { status: 'curse', statusTurns: BATTLE_CONSTANTS.CURSE_DURATION_TURNS } };
+    default:
+      return { logMessage: `Used ${item.name}!` };
+  }
+}
+
+// Whether a skill tier slot should render locked, and the level it unlocks
+// at if so — shared because both battle screens implement the exact same
+// rule: a slot customized via the Compendium (unlearned and/or re-taught)
+// is usable immediately regardless of level, so only a still-default slot
+// stays gated by the species' skillUnlocks.
+export function getSkillSlotLock(
+  equippedSkillsRaw: (string | null)[] | undefined,
+  def: MonsterDef,
+  tier: 1 | 2 | 3,
+  availableTiers: number[],
+): { isLocked: boolean; requiredLevel: number } {
+  const isCustomized = equippedSkillsRaw?.[tier - 1] != null;
+  const isLocked = !isCustomized && !availableTiers.includes(tier);
+  const requiredLevel = tier === 2 ? def.skillUnlocks.tier2 : def.skillUnlocks.tier3;
+  return { isLocked, requiredLevel };
 }

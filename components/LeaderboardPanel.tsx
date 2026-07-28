@@ -9,7 +9,7 @@ import { useEffect, useState, ReactNode } from 'react';
 import { fetchLeaderboard, fetchReactionCounts, sendReaction, LeaderboardEntry, ReactionCounts } from '@/lib/leaderboard';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
-import { GMBadge } from '@/components/MonsterGuild';
+import { GMBadge } from '@/components/battle/shared';
 import InfoTag from '@/components/InfoTag';
 import { playCheer } from '@/lib/sounds';
 

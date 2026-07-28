@@ -220,8 +220,11 @@ export function useWeeklyData(userId: string = 'damien') {
       gold: newStats.gold + addedGold
     };
 
-    const updatedData = {
-      ...data,
+    // Single source of truth for what this update touches — used for both the
+    // local optimistic update and the Supabase write, so the two can't drift
+    // out of sync (a field added to only one used to silently desync local
+    // UI state from what's actually persisted).
+    const changes = {
       character_stats: finalStats,
       journal_logs: newJournal,
       achievements: newUnlocked,
@@ -237,25 +240,11 @@ export function useWeeklyData(userId: string = 'damien') {
       dummy_battles_won: newDummyBattlesWon
     };
 
-    setData(updatedData);
+    setData({ ...data, ...changes });
 
     const { error } = await supabase
       .from('weekly_packages')
-      .update({
-        character_stats: finalStats,
-        journal_logs: newJournal,
-        achievements: newUnlocked,
-        purchased_items: newPurchasedItems,
-        mastery_count: newMasteryCount,
-        honor_grants: newHonorGrants,
-        quiz_attempts: newQuizAttempts,
-        mastered_quizzes: newMasteredQuizzes,
-        guild_sessions_count: newGuildSessionsCount,
-        monster_battles_won: newMonsterBattlesWon,
-        sibling_battles_won: newSiblingBattlesWon,
-        perfect_quizzes: newPerfectQuizzes,
-        dummy_battles_won: newDummyBattlesWon
-      })
+      .update(changes)
       .eq('week_starting_date', data.week_starting_date)
       .eq('user_id', userId);
 

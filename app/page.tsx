@@ -115,14 +115,19 @@ export default function Dashboard() {
     if (activeUserId) {
       const theme = USERS[activeUserId].theme;
       document.documentElement.classList.toggle('theme-tala', theme === 'tala');
-      linkIdentity(activeUserId);
-      recordLastLogin(activeUserId);
-      // One-shot per browser session, regardless of which user ends up logged
-      // in first — guards against firing again on every activeUserId change.
-      if (typeof window !== 'undefined' && !sessionStorage.getItem('g5_session_started')) {
-        sessionStorage.setItem('g5_session_started', '1');
-        trackEvent('session_start');
-      }
+      // linkIdentity must resolve first — analytics_events/player_log RLS now
+      // requires the user_identity_map row it writes, so firing trackEvent
+      // before it lands would silently drop the session_start event.
+      (async () => {
+        await linkIdentity(activeUserId);
+        recordLastLogin(activeUserId);
+        // One-shot per browser session, regardless of which user ends up logged
+        // in first — guards against firing again on every activeUserId change.
+        if (typeof window !== 'undefined' && !sessionStorage.getItem('g5_session_started')) {
+          sessionStorage.setItem('g5_session_started', '1');
+          trackEvent('session_start');
+        }
+      })();
     }
   }, [activeUserId, hydrated]);
 
@@ -228,7 +233,19 @@ export default function Dashboard() {
     liveBattleInbox.clearIncomingInvite();
   };
   const [splashAdminMode, setSplashAdminMode] = useState(false);
-  const [adminOpen, setAdminOpen] = useState(false);  
+  const [adminOpen, setAdminOpen] = useState(false);
+
+  // Opening the admin dashboard used to happen directly in the render body
+  // (right before the JSX return), relying on React re-rendering before
+  // commit to pick up the new adminOpen value — fragile under concurrent
+  // rendering, where a render can be thrown away without committing.
+  useEffect(() => {
+    if (splashAdminMode && !adminOpen) {
+      setAdminOpen(true);
+      setSplashAdminMode(false);
+    }
+  }, [splashAdminMode, adminOpen]);
+
   const [activeQuest, setActiveQuest] = useState<string | null>(null);
   const [activeGuild, setActiveGuild] = useState<GuildKey | null>(null);
   const [guildInitialView, setGuildInitialView] = useState<'compendium' | 'team' | undefined>(undefined);
@@ -412,11 +429,6 @@ export default function Dashboard() {
     return <div className="min-h-screen bg-black text-white flex items-center justify-center">Loading realm...</div>;
   }
 
-  if (splashAdminMode && !adminOpen) {
-    setAdminOpen(true);
-    setSplashAdminMode(false);
-  }
-
   if (!data) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
@@ -427,6 +439,24 @@ export default function Dashboard() {
       </div>
     );
   }
+
+  // Shared by all 5 guild mini-games' onGoldEarned — each was an identical
+  // ~15-line inline callback differing only by which guild rendered it, and
+  // activeGuild already identifies that from closure.
+  const handleGuildGoldEarned = (newStats: CharacterStats) => {
+    if (!activeGuild) return;
+    markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
+    updateStatsAndJournal(
+      newStats, data.journal_logs,
+      data.purchased_items, data.mastery_count, data.honor_grants,
+      data.quiz_attempts || {}, data.mastered_quizzes || [],
+      data.honor_grants,
+      (data.guild_sessions_count || 0) + 1,
+      data.monster_battles_won || 0,
+      data.sibling_battles_won || 0,
+      data.perfect_quizzes || 0
+    );
+  };
 
   const currentDayName = format(new Date(), 'EEEE');
   const packageData = typeof data.package_data === 'string' && data.package_data.trim() !== ''
@@ -1042,19 +1072,7 @@ export default function Dashboard() {
                 userId={activeUserId}
                 weekStartingDate={data.week_starting_date}
                 currentStats={data.character_stats}
-                onGoldEarned={(newStats) => {
-                  markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
-                  updateStatsAndJournal(
-                    newStats, data.journal_logs,
-                    data.purchased_items, data.mastery_count, data.honor_grants,
-                    data.quiz_attempts || {}, data.mastered_quizzes || [],
-                    data.honor_grants,
-                    (data.guild_sessions_count || 0) + 1,
-                    data.monster_battles_won || 0,
-                    data.sibling_battles_won || 0,
-                    data.perfect_quizzes || 0
-                  );
-                }}
+                onGoldEarned={handleGuildGoldEarned}
                 onExit={() => setActiveGuild(null)}
               />
             ) : activeGuild === 'spellcaster' ? (
@@ -1062,19 +1080,7 @@ export default function Dashboard() {
                 userId={activeUserId}
                 weekStartingDate={data.week_starting_date}
                 currentStats={data.character_stats}
-                onGoldEarned={(newStats) => {
-                  markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
-                  updateStatsAndJournal(
-                    newStats, data.journal_logs,
-                    data.purchased_items, data.mastery_count, data.honor_grants,
-                    data.quiz_attempts || {}, data.mastered_quizzes || [],
-                    data.honor_grants,
-                    (data.guild_sessions_count || 0) + 1,
-                    data.monster_battles_won || 0,
-                    data.sibling_battles_won || 0,
-                    data.perfect_quizzes || 0
-                  );
-                }}
+                onGoldEarned={handleGuildGoldEarned}
                 onExit={() => setActiveGuild(null)}
               />
             ) : activeGuild === 'number_realm' ? (
@@ -1082,19 +1088,7 @@ export default function Dashboard() {
                 userId={activeUserId}
                 weekStartingDate={data.week_starting_date}
                 currentStats={data.character_stats}
-                onGoldEarned={(newStats) => {
-                  markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
-                  updateStatsAndJournal(
-                    newStats, data.journal_logs,
-                    data.purchased_items, data.mastery_count, data.honor_grants,
-                    data.quiz_attempts || {}, data.mastered_quizzes || [],
-                    data.honor_grants,
-                    (data.guild_sessions_count || 0) + 1,
-                    data.monster_battles_won || 0,
-                    data.sibling_battles_won || 0,
-                    data.perfect_quizzes || 0
-                  );
-                }}
+                onGoldEarned={handleGuildGoldEarned}
                 onExit={() => setActiveGuild(null)}
               />
             ) : activeGuild === 'logic_labyrinth' ? (
@@ -1102,19 +1096,7 @@ export default function Dashboard() {
                 userId={activeUserId}
                 weekStartingDate={data.week_starting_date}
                 currentStats={data.character_stats}
-                onGoldEarned={(newStats) => {
-                  markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
-                  updateStatsAndJournal(
-                    newStats, data.journal_logs,
-                    data.purchased_items, data.mastery_count, data.honor_grants,
-                    data.quiz_attempts || {}, data.mastered_quizzes || [],
-                    data.honor_grants,
-                    (data.guild_sessions_count || 0) + 1,
-                    data.monster_battles_won || 0,
-                    data.sibling_battles_won || 0,
-                    data.perfect_quizzes || 0
-                  );
-                }}
+                onGoldEarned={handleGuildGoldEarned}
                 onExit={() => setActiveGuild(null)}
               />
             ) : activeGuild === 'lexicon_arena' ? (
@@ -1122,19 +1104,7 @@ export default function Dashboard() {
                 userId={activeUserId}
                 weekStartingDate={data.week_starting_date}
                 currentStats={data.character_stats}
-                onGoldEarned={(newStats) => {
-                  markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
-                  updateStatsAndJournal(
-                    newStats, data.journal_logs,
-                    data.purchased_items, data.mastery_count, data.honor_grants,
-                    data.quiz_attempts || {}, data.mastered_quizzes || [],
-                    data.honor_grants,
-                    (data.guild_sessions_count || 0) + 1,
-                    data.monster_battles_won || 0,
-                    data.sibling_battles_won || 0,
-                    data.perfect_quizzes || 0
-                  );
-                }}
+                onGoldEarned={handleGuildGoldEarned}
                 onExit={() => setActiveGuild(null)}
               />
             ) : null}

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
+import { requireAdminPasscode } from '@/lib/adminAuth';
 
 // All three actions write to another user's weekly_packages row, which client-side
 // RLS no longer allows directly — they go through passcode-gated SECURITY DEFINER
@@ -9,9 +10,8 @@ export async function POST(request: NextRequest) {
   const body = await request.json();
   const { passcode, action, userId, weekStartingDate } = body;
 
-  if (passcode !== process.env.ADMIN_PASSCODE) {
-    return NextResponse.json({ success: false, error: 'Invalid passcode' }, { status: 401 });
-  }
+  const authError = requireAdminPasscode(passcode);
+  if (authError) return authError;
   if (typeof userId !== 'string' || !userId.trim() || typeof weekStartingDate !== 'string') {
     return NextResponse.json({ success: false, error: 'userId and weekStartingDate are required' }, { status: 400 });
   }

@@ -1,29 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
+import { requireAdminPasscode } from '@/lib/adminAuth';
 
 function slugify(fullName: string): string {
   return fullName.toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
+// Single query for every id sharing this base prefix, instead of probing
+// candidate/candidate2/candidate3/... one request at a time.
 async function uniqueId(fullName: string): Promise<string> {
   const base = slugify(fullName) || 'classmate';
-  let candidate = base;
+  const { data } = await supabase.from('classmates').select('id').like('id', `${base}%`);
+  const taken = new Set((data || []).map((r: { id: string }) => r.id));
+  if (!taken.has(base)) return base;
   let suffix = 2;
-  while (true) {
-    const { data } = await supabase.from('classmates').select('id').eq('id', candidate).maybeSingle();
-    if (!data) return candidate;
-    candidate = `${base}${suffix}`;
-    suffix += 1;
-  }
+  while (taken.has(`${base}${suffix}`)) suffix += 1;
+  return `${base}${suffix}`;
 }
 
 export async function POST(request: NextRequest) {
   const { passcode, id, username, fullName, grade, password, isActive, gender } = await request.json();
   const cleanGender = gender === 'girl' ? 'girl' : gender === 'boy' ? 'boy' : null;
 
-  if (passcode !== process.env.ADMIN_PASSCODE) {
-    return NextResponse.json({ success: false, error: 'Invalid passcode' }, { status: 401 });
-  }
+  const authError = requireAdminPasscode(passcode);
+  if (authError) return authError;
 
   if (typeof username !== 'string' || !username.trim() || typeof fullName !== 'string' || !fullName.trim()) {
     return NextResponse.json({ success: false, error: 'Username and full name are required' }, { status: 400 });

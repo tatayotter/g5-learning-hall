@@ -9,14 +9,20 @@ export async function GET() {
   const premiumDir = path.join(dir, 'userpics_premium');
   let files: string[] = [];
   let premiumFiles: string[] = [];
+  // ENOENT (directory doesn't exist — e.g. userpics_premium not created yet)
+  // is expected and means "no pics here yet". Anything else (permissions,
+  // I/O errors) is a real misconfiguration and worth logging, rather than
+  // silently collapsing to the same empty-array result as ENOENT.
   try {
     files = fs.readdirSync(dir).filter(f => IMAGE_EXTENSIONS.has(path.extname(f).toLowerCase()));
-  } catch {
+  } catch (err: any) {
+    if (err?.code !== 'ENOENT') console.error('Failed to read userpics directory:', err);
     files = [];
   }
   try {
     premiumFiles = fs.readdirSync(premiumDir).filter(f => IMAGE_EXTENSIONS.has(path.extname(f).toLowerCase()));
-  } catch {
+  } catch (err: any) {
+    if (err?.code !== 'ENOENT') console.error('Failed to read userpics_premium directory:', err);
     premiumFiles = [];
   }
   files.sort();

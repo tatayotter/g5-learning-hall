@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase';
 import { USERS } from '@/lib/userSession';
 import { ALL_MONSTERS, GUILD_MONSTERS, MonsterDef, getGuildMonsterDisplay, getGraduatedMonsterDisplay, getScaledStats } from '@/lib/monsterConfig';
 import { fetchSubclassProfile, guildLevelForKey, SubclassProfile } from '@/lib/guildEngine';
-import { GMBadge } from '@/components/MonsterGuild';
+import { GMBadge } from '@/components/battle/shared';
 import { MonsterImage } from '@/components/battle/shared';
 
 interface TeamMonster {

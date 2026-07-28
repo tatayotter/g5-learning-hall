@@ -14,9 +14,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLiveBattle, TIMEOUT_ACTION_ID } from '@/hooks/useLiveBattle';
 import { resolveBattle } from '@/lib/liveBattle';
-import { ActiveBattleMonster, BattleBeat, BattleQuestionModal, runBattleBeats } from '@/components/battle/shared';
+import { ActiveBattleMonster, BattleBeat, BattleQuestionModal, runBattleBeats, resolveItemEffect, getSkillSlotLock } from '@/components/battle/shared';
 import BattleStage, { ActionTile, PlaceholderTile } from '@/components/battle/BattleStage';
-import { SKILLS, getAvailableSkillTiers, getEquippedSkills, getSkillIconSrc, REST_BY_ELEMENT, StatusEffect, BATTLE_CONSTANTS } from '@/lib/monsterConfig';
+import { SKILLS, getAvailableSkillTiers, getEquippedSkills, getSkillIconSrc, REST_BY_ELEMENT } from '@/lib/monsterConfig';
 import PostBattleSummary from '@/components/battle/PostBattleSummary';
 import { InventoryMap } from '@/lib/inventory';
 import { SHOP_CATALOG } from '@/lib/inventory';
@@ -461,45 +461,20 @@ export default function LiveBattleScreen({
 
     setShowItemMenu(false);
 
-    switch (item.effect) {
-      case 'heal_30':
-      case 'heal_60':
-      case 'heal_120': {
-        const healAmount = Number(item.effect.split('_')[1]);
-        const newHp = Math.min(myMon.maxHp, myMon.currentHp + healAmount);
+    {
+      const result = resolveItemEffect(item, `${opponentName}'s curio`);
+      if (result.healAmount !== undefined) {
+        const newHp = Math.min(myMon.maxHp, myMon.currentHp + result.healAmount);
         updateMyActive(prev => ({ ...prev, currentHp: newHp }));
         sendSelfStateSync({ currentHp: newHp });
-        addLog(`🧪 Used ${item.name}: Restored ${healAmount} HP!`);
-        break;
+      } else if (result.selfStatus) {
+        const { status, statusTurns } = result.selfStatus;
+        updateMyActive(prev => ({ ...prev, status, statusTurns }));
+        sendSelfStateSync({ status, statusTurns });
+      } else if (result.opponentStatus) {
+        sendStatusEffectToOpponent(result.opponentStatus.status, result.opponentStatus.statusTurns);
       }
-      case 'atk_boost_1t':
-        updateMyActive(prev => ({ ...prev, status: 'atk_boost' as StatusEffect, statusTurns: 1 }));
-        sendSelfStateSync({ status: 'atk_boost' as StatusEffect, statusTurns: 1 });
-        addLog(`⚔️ Used ${item.name}: Attack boosted!`);
-        break;
-      case 'def_boost_1t':
-        updateMyActive(prev => ({ ...prev, status: 'def_boost' as StatusEffect, statusTurns: 1 }));
-        sendSelfStateSync({ status: 'def_boost' as StatusEffect, statusTurns: 1 });
-        addLog(`🛡️ Used ${item.name}: Defense boosted!`);
-        break;
-      case 'apply_blessed':
-        updateMyActive(prev => ({ ...prev, status: 'blessed' as StatusEffect, statusTurns: 3 }));
-        sendSelfStateSync({ status: 'blessed' as StatusEffect, statusTurns: 3 });
-        addLog(`✨ Used ${item.name}: Blessed status applied!`);
-        break;
-      case 'cure_status':
-        updateMyActive(prev => ({ ...prev, status: null, statusTurns: 0 }));
-        sendSelfStateSync({ status: null, statusTurns: 0 });
-        addLog(`💊 Used ${item.name}: Status conditions cured!`);
-        break;
-      case 'inflict_curse': {
-        const statusTurns = BATTLE_CONSTANTS.CURSE_DURATION_TURNS;
-        sendStatusEffectToOpponent('curse', statusTurns);
-        addLog(`💀 Used ${item.name}: ${opponentName}'s curio is now Cursed!`);
-        break;
-      }
-      default:
-        addLog(`Used ${item.name}!`);
+      addLog(result.logMessage);
     }
 
     submitRoundAnswer(ITEM_ACTION_ID, 0, 0, false);
@@ -726,16 +701,9 @@ export default function LiveBattleScreen({
     <div>
       <div className="bstage-moves">
         {([1, 2, 3] as const).map(tier => {
-          // See BattleScreen's identical logic (components/MonsterGuild.tsx)
-          // — a customized slot (unlearned and/or re-taught) is usable
-          // immediately regardless of level; only a still-default slot
-          // stays gated by skillUnlocks.
-          const slotValue = myMon.userMonster?.equipped_skills?.[tier - 1];
-          const isCustomized = slotValue != null;
           const equippedSkill = equippedSkills[tier - 1];
-          const isLocked = !isCustomized && !availableTiers.includes(tier);
+          const { isLocked, requiredLevel } = getSkillSlotLock(myMon.userMonster?.equipped_skills, myMon.def, tier, availableTiers);
           if (isLocked) {
-            const requiredLevel = tier === 2 ? myMon.def.skillUnlocks.tier2 : myMon.def.skillUnlocks.tier3;
             return <PlaceholderTile key={tier} title={`🔒 ${SKILLS[myMon.def.skills[tier - 1]]?.name}`} sub={`Unlocks at Lv.${requiredLevel}`} />;
           }
           if (!equippedSkill) {

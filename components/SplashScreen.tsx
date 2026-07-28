@@ -135,6 +135,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
   }, [allIds, searchQuery]);
 
   useEffect(() => {
+    let cancelled = false;
     async function fetchStats() {
       await ensureAnonymousSession();
       const weekDate = getWeekStartDate();
@@ -149,6 +150,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
         supabase.from('user_battle_state').select('user_id, active_monster_slot').in('user_id', allIds),
         supabase.from('user_monsters').select('user_id, slot, monster_id, nickname, monster_level, graduation_tier').in('user_id', allIds),
       ]);
+      if (cancelled) return;
 
       const statsMapNext: Record<string, HeroStats | null> = {};
       (weeklyRes.data || []).forEach((row: any) => {
@@ -182,6 +184,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
     }
 
     fetchStats();
+    return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

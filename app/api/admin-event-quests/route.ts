@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
+import { requireAdminPasscode } from '@/lib/adminAuth';
 
 export async function POST(request: NextRequest) {
   const { passcode, eventId, rows } = await request.json();
 
-  if (passcode !== process.env.ADMIN_PASSCODE) {
-    return NextResponse.json({ success: false, error: 'Invalid passcode' }, { status: 401 });
-  }
+  const authError = requireAdminPasscode(passcode);
+  if (authError) return authError;
   if (typeof eventId !== 'string' || !Array.isArray(rows) || rows.length === 0) {
     return NextResponse.json({ success: false, error: 'eventId and a non-empty rows array are required' }, { status: 400 });
   }
