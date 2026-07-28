@@ -22,12 +22,12 @@ const RING_ELEMENTS: Element[] = ['fire', 'water', 'leaf', 'storm', 'shadow', 'l
 // the six regions are NOT evenly spaced wedges, so these can't be derived
 // from index/count alone.
 const RING_POSITION: Record<Element, { angle: number; radius: number }> = {
-  fire: { angle: 338, radius: 38 },
-  water: { angle: 48, radius: 38 },
-  leaf: { angle: 95, radius: 38 },
-  storm: { angle: 178, radius: 38 },
-  shadow: { angle: 211, radius: 38 },
-  light: { angle: 297, radius: 38 },
+  fire: { angle: 358.4, radius: 39.9 },
+  water: { angle: 40.6, radius: 56.2 },
+  leaf: { angle: 86.8, radius: 33.6 },
+  storm: { angle: 181.8, radius: 36.1 },
+  shadow: { angle: 235.5, radius: 44.6 },
+  light: { angle: 297, radius: 38.1 },
 };
 
 function ringPosition(element: Element): { left: number; top: number } {
@@ -47,7 +47,7 @@ export default function WorldMap({ playerLevel, onSelectRegion, onExit }: WorldM
   const frame = (
     <div
       className="relative w-full h-full"
-      style={{ backgroundImage: 'url(/maps/worldmap.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+      style={{ backgroundImage: 'url(/maps/worldmap_new.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       {/* The Ledger's Heart — always centered, always unlocked */}
       <RegionHotspot
@@ -156,7 +156,6 @@ function RegionHotspot({
   onHover: (id: string | null) => void;
   onSelect: (id: string) => void;
 }) {
-  const color = region.element !== 'all' ? ELEMENT_COLOR[region.element] : null;
   return (
     <button
       onMouseEnter={() => onHover(region.id)}
@@ -165,26 +164,21 @@ function RegionHotspot({
       onBlur={() => onHover(null)}
       onClick={() => unlocked && onSelect(region.id)}
       disabled={!unlocked}
-      className={`absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 flex items-center justify-center transition-transform ${
+      className={`absolute -translate-x-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center transition-transform ${
         unlocked ? 'hover:scale-110 cursor-pointer' : 'cursor-not-allowed grayscale opacity-50'
       }`}
-      style={{
-        left: `${left}%`,
-        top: `${top}%`,
-        borderColor: color ? color.text : '#d4af37',
-        background: color
-          ? `radial-gradient(circle, ${color.to} 0%, ${color.from} 100%)`
-          : 'radial-gradient(circle, #4a3a1c 0%, #241c0e 100%)',
-      }}
+      style={{ left: `${left}%`, top: `${top}%` }}
       title={region.name}
     >
       {!unlocked ? (
-        <span className="text-base">🔒</span>
+        <span className="text-4xl drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">🔒</span>
       ) : region.element !== 'all' ? (
-        <img src={ELEMENT_ICON_SRC[region.element]} alt={region.element} className="w-6 h-6" />
-      ) : (
-        <span className="text-base">📖</span>
-      )}
+        <img
+          src={ELEMENT_ICON_SRC[region.element]}
+          alt={region.element}
+          className="w-14 h-14 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]"
+        />
+      ) : null}
     </button>
   );
 }

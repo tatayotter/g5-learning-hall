@@ -7,10 +7,10 @@
 // owning unrelated card/sidebar layouts.
 //
 // Same fixed 896x504 canvas + mobile-fullscreen treatment as BattleStage
-// (see hooks/useStageScale.ts). The map/hub art itself is inherently square
-// (a 16x16 grid or a circular region wheel), so rather than stretching it to
-// the wide canvas it sits centered in an ornate-framed square (`.mstage-frame`),
-// with movement controls overlaid directly on top of it (bottom-left corner)
+// (see hooks/useStageScale.ts). The map/hub art is 16:9 (a 16x16 grid or a
+// circular region wheel, both painted onto wide backgrounds), so it sits
+// centered in an ornate-framed 16:9 rectangle (`.mstage-frame`), with
+// movement controls overlaid directly on top of it (bottom-left corner)
 // instead of living outside in a separate row, and an info drawer (team
 // roster / who's online / legend / regions list — whatever the caller needs)
 // collapsed by default beneath it, matching the battle log's pattern.
@@ -41,7 +41,7 @@ export default function MapStage({ leftTag, rightTag, frame, controls, drawerLab
   const { shellRef, scale, isMobile } = useStageScale(CANVAS_WIDTH, CANVAS_HEIGHT);
 
   const canvas = (
-    <div className="mstage-container border-2 border-black">
+    <div className="mstage-container">
       <div className="mstage-top-tags">
         <div className="bg-black/70 text-white font-bold text-[13px] px-3 py-1 rounded-br-lg truncate max-w-[45%]">
           {leftTag}
@@ -53,7 +53,7 @@ export default function MapStage({ leftTag, rightTag, frame, controls, drawerLab
         )}
       </div>
 
-      <div className="mstage-frame dnd-frame">
+      <div className="mstage-frame">
         {frame}
         {controls && <div className="mstage-controls">{controls}</div>}
       </div>

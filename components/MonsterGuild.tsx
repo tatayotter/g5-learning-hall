@@ -123,7 +123,7 @@ function buildMap(): MapTile[][] {
 // with an invisible logical grid overlaid for walkability + markers. The grid and
 // all positioning are percentage-based (not fixed pixels) so the whole map scales
 // fluidly to any container width — no horizontal scrolling on mobile/small desktops.
-const MAP_IMAGE = '/maps/map-1.webp';
+const MAP_IMAGE = '/maps/ledgers_heart.webp';
 const TILE_PCT = 100 / MAP_SIZE;
 
 function TownMarker() {
@@ -1293,7 +1293,7 @@ function TrainingMap({
   );
 
   // Map — single painted background image with a percentage-based
-  // walkability grid on top, filling MapStage's square frame exactly (every
+  // walkability grid on top, filling MapStage's 16:9 frame exactly (every
   // position on the grid is expressed in % rather than fixed pixels, so it
   // scales cleanly with the frame regardless of its rendered size).
   const frameContent = (

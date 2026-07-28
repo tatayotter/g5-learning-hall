@@ -261,14 +261,16 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
       <div className="relative z-10 w-full max-w-[480px] h-[100dvh] flex flex-col px-[18px] sm:px-6 py-5 overflow-hidden">
         {/* Header */}
         <div className="flex flex-col items-center gap-3 pt-2 pb-5">
-          <div className="flex items-center gap-2">
-            <div className="h-px w-8 bg-gradient-to-r from-transparent to-[#c9aa6a]/40" />
-            <span className="text-[10px] tracking-[0.32em] font-bold text-[#d4b46a]/90 uppercase">Learning Hall</span>
-            <div className="h-px w-8 bg-gradient-to-l from-transparent to-[#c9aa6a]/40" />
-          </div>
-          <h1 className="text-[11px] tracking-[0.18em] text-white/20 font-medium uppercase text-center px-4">
-            {loginTarget ? `Welcome back, ${loginTarget.name}` : 'Family Edition'}
-          </h1>
+          <img
+            src="/learning_hall_full_logo_optimize.png"
+            alt="Learning Hall"
+            className="h-20 w-auto object-contain"
+          />
+          {loginTarget && (
+            <h1 className="text-[11px] tracking-[0.18em] text-white/20 font-medium uppercase text-center px-4">
+              {`Welcome back, ${loginTarget.name}`}
+            </h1>
+          )}
         </div>
 
         {!loginTarget && allIds.length > 6 && (

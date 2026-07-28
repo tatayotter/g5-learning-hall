@@ -744,7 +744,7 @@ html {
   border-radius: 11px;
   overflow: hidden;
   flex-shrink: 0;
-  background: radial-gradient(circle at 50% 38%, #2a2119 0%, #1c1611 55%, #0a0807 100%);
+  background: #0A0807;
 }
 
 .mstage-top-tags {
@@ -756,20 +756,15 @@ html {
   z-index: 20;
 }
 
-/* Fills nearly the entire canvas height — top tags float directly over the
-   frame (z-index above it, same as how the battle screen's top tags overlay
-   its stage) rather than reserving their own row, and the bottom margin
-   matches the drawer/toggle's own inset below, so both read as flush with
-   the frame's edges instead of floating in separate reserved space.
-   height/width are equal (a square) since the grid/hub art itself is
-   square, hardcoded rather than derived since the canvas is a fixed
-   896x504 to begin with. */
+/* Fills the entire canvas — snug against the container's edges, since the
+   canvas itself is already a fixed 896x504 (16:9), matching the map art's
+   own aspect ratio. Top tags float directly over the frame (z-index above
+   it, same as how the battle screen's top tags overlay its stage) rather
+   than reserving their own row. */
 .mstage-frame {
   position: absolute;
-  top: 6px; left: 50%;
-  transform: translateX(-50%);
-  width: 490px; height: 490px;
-  border-radius: 8px;
+  top: 0; left: 0;
+  width: 896px; height: 504px;
   overflow: hidden;
   z-index: 5;
 }
