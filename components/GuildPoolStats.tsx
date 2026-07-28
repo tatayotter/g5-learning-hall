@@ -76,7 +76,7 @@ export default function GuildPoolStats({ userId }: { userId: string }) {
   return (
     <div className="bg-[#111] border border-[#333] p-6 rounded-xl">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-xl font-bold font-display">⚔️ Side Quest Pool Status</h3>
+        <h3 className="text-xl font-bold font-display">Side Quest Pool Status</h3>
         <button
           onClick={fetchStats}
           className="text-xs text-gray-500 hover:text-gray-300 transition-colors"

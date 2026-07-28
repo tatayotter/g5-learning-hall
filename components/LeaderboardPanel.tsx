@@ -11,6 +11,7 @@ import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 import { GMBadge } from '@/components/MonsterGuild';
 import InfoTag from '@/components/InfoTag';
+import { playCheer } from '@/lib/sounds';
 
 function TeamStrip({ team }: { team: LeaderboardEntry['team'] }) {
   if (team.length === 0) {
@@ -65,6 +66,7 @@ function CheerButton({ fromUserId, toUserId, count, onSent }: { fromUserId: stri
     if (ok) {
       markReacted(fromUserId, toUserId);
       setOnCooldown(true);
+      playCheer();
       onSent();
     }
   };

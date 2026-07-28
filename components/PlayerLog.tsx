@@ -23,9 +23,14 @@ const ACTION_ICONS: Record<string, string> = {
   purchase: '🛒',
 };
 
+const COLLAPSED_COUNT = 6;
+const PAGE_SIZE = 10;
+
 export default function PlayerLog({ userId }: { userId: string }) {
   const [entries, setEntries] = useState<LogEntry[]>([]);
   const [loading, setLoading] = useState(true);
+  const [showAll, setShowAll] = useState(false);
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
     async function fetchLog() {
@@ -52,9 +57,14 @@ export default function PlayerLog({ userId }: { userId: string }) {
     return <p className="text-gray-500 italic">No log entries yet. Start a quest to write your legend!</p>;
   }
 
+  const totalPages = Math.max(1, Math.ceil(entries.length / PAGE_SIZE));
+  const visibleEntries = showAll
+    ? entries.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE)
+    : entries.slice(0, COLLAPSED_COUNT);
+
   // Group by week
   const byWeek: Record<string, LogEntry[]> = {};
-  entries.forEach((entry) => {
+  visibleEntries.forEach((entry) => {
     const key = entry.week_starting_date;
     if (!byWeek[key]) byWeek[key] = [];
     byWeek[key].push(entry);
@@ -111,6 +121,45 @@ export default function PlayerLog({ userId }: { userId: string }) {
           </div>
         );
       })}
+
+      {!showAll && entries.length > COLLAPSED_COUNT && (
+        <button
+          onClick={() => { setShowAll(true); setPage(0); }}
+          className="w-full text-center text-sm font-bold text-amber-400 hover:text-amber-300 py-2 border border-neutral-800 rounded-lg hover:bg-neutral-900 transition-colors"
+        >
+          View All ({entries.length})
+        </button>
+      )}
+
+      {showAll && (
+        <div className="flex items-center justify-between pt-2">
+          <button
+            onClick={() => setShowAll(false)}
+            className="text-xs font-bold text-gray-500 hover:text-white transition-colors"
+          >
+            ← Show Recent Only
+          </button>
+          {totalPages > 1 && (
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => setPage((p) => Math.max(0, p - 1))}
+                disabled={page === 0}
+                className="text-xs font-bold text-gray-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+              >
+                ← Prev
+              </button>
+              <span className="text-xs text-gray-500">Page {page + 1} of {totalPages}</span>
+              <button
+                onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+                disabled={page >= totalPages - 1}
+                className="text-xs font-bold text-gray-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+              >
+                Next →
+              </button>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

@@ -73,39 +73,6 @@ export function playClash() {
   noise.start(now);
 }
 
-// --- Parchment seal thump for journal submission ---
-export function playSeal() {
-  const ctx = getContext();
-  const now = ctx.currentTime;
-
-  const osc = ctx.createOscillator();
-  const gain = ctx.createGain();
-  osc.type = 'sine';
-  osc.frequency.setValueAtTime(180, now);
-  osc.frequency.exponentialRampToValueAtTime(60, now + 0.2);
-  gain.gain.setValueAtTime(0.3, now);
-  gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
-  osc.connect(gain);
-  gain.connect(ctx.destination);
-  osc.start(now);
-  osc.stop(now + 0.3);
-
-  const bufferSize = ctx.sampleRate * 0.15;
-  const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-  const data = buffer.getChannelData(0);
-  for (let i = 0; i < bufferSize; i++) {
-    data[i] = (Math.random() * 2 - 1) * (1 - i / bufferSize) * 0.3;
-  }
-  const noise = ctx.createBufferSource();
-  noise.buffer = buffer;
-  const lowpass = ctx.createBiquadFilter();
-  lowpass.type = 'lowpass';
-  lowpass.frequency.value = 400;
-  noise.connect(lowpass);
-  lowpass.connect(ctx.destination);
-  noise.start(now);
-}
-
 // --- Coin jingle for vault purchases ---
 export function playCoins() {
   const ctx = getContext();
@@ -473,6 +440,48 @@ export function playCurioLevelUp() {
 // --- Curio graduated into its next form: recorded fanfare clip ---
 export function playCurioGraduation() {
   const audio = new Audio('/sounds/curio_graduation.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- Achievement unlocked: recorded fanfare clip ---
+export function playAchievementUnlock() {
+  const audio = new Audio('/sounds/achievement.wav');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- Cheer reaction sent on the leaderboard: recorded clip ---
+export function playCheer() {
+  const audio = new Audio('/sounds/cheer.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- Battle item consumed: recorded clip ---
+export function playItemUse() {
+  const audio = new Audio('/sounds/item_use.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- Incoming live-battle challenge: recorded clip ---
+export function playPvpChallenge() {
+  const audio = new Audio('/sounds/pvp_challenge.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- Gold spent on a shop/vault purchase: recorded clip ---
+export function playShopPurchase() {
+  const audio = new Audio('/sounds/shop_purchase.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- Daily journal entry sealed: recorded clip ---
+export function playTeachingScroll() {
+  const audio = new Audio('/sounds/teaching_scroll.mp3');
   audio.volume = 0.6;
   audio.play().catch(() => {});
 }

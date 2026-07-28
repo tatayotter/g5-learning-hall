@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
-import { playAttackWhoosh, playHitThud, playMiss, playVictory, playDefeat, playFootstepGrass, playFootstepTown, playWallBump, playMonsterAppear, playChime, playClash, playCurioLevelUp } from '@/lib/sounds';
+import { playAttackWhoosh, playHitThud, playMiss, playVictory, playDefeat, playFootstepGrass, playFootstepTown, playWallBump, playMonsterAppear, playChime, playClash, playCurioLevelUp, playItemUse } from '@/lib/sounds';
 import { logAction } from '@/lib/playerlog';
 import { getOtherPlayers, UserId, USERS } from '@/lib/userSession';
 import { useMapPresence } from '@/hooks/useMapPresence';
@@ -263,7 +263,7 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
   playerMonsterIdxRef.current = playerMonsterIdx;
 
   useEffect(() => {
-    const audio = new Audio('/sounds/battle-theme.mp3');
+    const audio = new Audio('/sounds/learninghall_battle.mp3');
     audio.loop = true;
     audio.volume = 0.4;
     audio.play().catch(() => {});
@@ -414,6 +414,8 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
       return;
     }
 
+    playItemUse();
+
     switch (item.effect) {
       case 'heal_30':
       case 'heal_60':
@@ -477,6 +479,8 @@ function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, q
       setPhase('select_item');
       return;
     }
+
+    playItemUse();
 
     const revivedHp = Math.round(target.maxHp * 0.75);
     setPlayerMonsters(prev => prev.map((m, i) => i === idx ? { ...m, currentHp: revivedHp } : m));
@@ -1065,7 +1069,7 @@ function StarterSelection({ userId, onComplete }: StarterSelectionProps) {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <h2 className="text-3xl font-display font-bold text-white mb-2">🐉 Choose Your Starter</h2>
+      <h2 className="text-3xl font-display font-bold text-white mb-2">Choose Your Starter</h2>
       <p className="text-gray-400 mb-8">Pick your first curio. Choose wisely — you'll unlock more as you level up!</p>
       <div className="grid grid-cols-3 gap-4 mb-8">
         {starters.map(monster => (
@@ -2083,7 +2087,7 @@ function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds,
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-bold text-white font-display">📖 Compendium</h3>
+        <h3 className="text-lg font-bold text-white font-display">Compendium</h3>
         <p className="text-xs text-gray-500">Every curio species in the game. Wild-only species stay a mystery silhouette until you encounter one on the Training Map.</p>
       </div>
 

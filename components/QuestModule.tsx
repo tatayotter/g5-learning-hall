@@ -155,7 +155,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
     const recap = calculateReward(safeAttemptsSoFar);
     return (
       <div className="bg-green-900/20 border border-green-800 p-8 rounded-xl text-center">
-        <h2 className="text-3xl font-bold text-green-400 mb-4 font-display">✅ Quest Completed!</h2>
+        <h2 className="text-3xl font-bold text-green-400 mb-4 font-display">Quest Completed!</h2>
         <p className="text-gray-400 mb-2">Mastered in {safeAttemptsSoFar || 1} attempt{safeAttemptsSoFar !== 1 ? 's' : ''}.</p>
         <p className="text-xl mb-6">You earned <span className="font-bold text-blue-400 font-mono">{recap.xp} XP</span> and <span className="font-bold text-yellow-400 font-mono">{recap.gold} Gold</span>.</p>
         <GameButton
@@ -172,7 +172,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
   if (submitted && lastResult?.isPerfect) {
     return (
       <div className="bg-green-900/20 border border-green-800 p-8 rounded-xl text-center">
-        <h2 className="text-3xl font-bold text-green-400 mb-4 font-display">🎉 Quest Completed!</h2>
+        <h2 className="text-3xl font-bold text-green-400 mb-4 font-display">Quest Completed!</h2>
         <p className="text-gray-400 mb-2">Perfect score: {lastResult.score}/{lastResult.total} in {lastResult.attemptNumber} attempt(s).</p>
         <p className="text-xl mb-6">You earned <span className="font-bold text-blue-400 font-mono">{lastResult.xp} XP</span> and <span className="font-bold text-yellow-400 font-mono">{lastResult.gold} Gold</span>.</p>
         <GameButton
@@ -213,7 +213,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
 
       {hasStarted && quiz.length > 0 ? (
         <div className="border-t border-neutral-800 pt-6">
-          <h3 className="text-xl font-bold mb-4 font-display">📝 Quiz: Score a perfect round to claim loot!</h3>
+          <h3 className="text-xl font-bold mb-4 font-display">Quiz: Score a perfect round to claim loot!</h3>
 
           {submitted && !lastResult?.isPerfect && (
             <div className="bg-red-900/20 border border-red-800 rounded-lg p-4 mb-6 text-red-400">

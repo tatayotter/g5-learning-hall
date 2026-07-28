@@ -10,7 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
-  --font-display: var(--font-playfair);
+  --font-display: var(--font-cinzel);
 
   /* --- DUNGEON RESKIN: overriding Tailwind's default palette --- */
   --color-black: #0a0807;
@@ -488,6 +488,41 @@ html {
   }
   .app-content {
     display: none !important;
+  }
+}
+
+/* ── Haptic hover — quick scale pulse that reads like a controller-button
+   buzz, used on GBA-style CTA buttons (see components/QuestCard.tsx). */
+@keyframes haptic-bounce {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(0.94); }
+  60%  { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+.btn-haptic:hover {
+  animation: haptic-bounce 0.28s ease-in-out;
+}
+
+/* ── Compact sidebar rail — short viewports (phones in landscape) can't
+   fit 9 full-size icon+label rows without the rail itself scrolling, so
+   below this height the rail drops labels and shrinks icons to fit flush. */
+@media screen and (max-height: 520px) {
+  .rail-aside {
+    width: 3.25rem;
+  }
+  .rail-drawer {
+    left: 3.25rem;
+  }
+  .rail-label {
+    display: none;
+  }
+  .rail-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .rail-btn {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
   }
 }
 

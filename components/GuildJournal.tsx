@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { format } from 'date-fns';
 import { CharacterStats, JournalEntry } from '@/hooks/useWeeklyData';
 import { logAction } from '@/lib/playerlog';
-import { playSeal, playLevelUp } from '@/lib/sounds';
+import { playTeachingScroll, playLevelUp } from '@/lib/sounds';
 import { supabase } from '@/lib/supabase';
 import GameButton from '@/components/GameButton';
 
@@ -79,7 +79,7 @@ export default function GuildJournal({ userId, journalLogs, stats, currentSunday
       if (currentLvl > stats.level) {
         playLevelUp();
       } else {
-        playSeal();
+        playTeachingScroll();
       }
 
       await logAction(userId, currentSunday, 'journal', `Submitted daily journal entry for ${todayKey}`, 50, 50);

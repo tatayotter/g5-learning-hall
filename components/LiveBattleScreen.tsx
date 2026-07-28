@@ -196,7 +196,7 @@ export default function LiveBattleScreen({
   }, [registerMonsterGetters]);
 
   useEffect(() => {
-    const audio = new Audio('/sounds/battle-theme.mp3');
+    const audio = new Audio('/sounds/learninghall_battle.mp3');
     audio.loop = true;
     audio.volume = 0.4;
     audio.play().catch(() => {});

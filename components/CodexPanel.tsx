@@ -168,7 +168,7 @@ export default function CodexPanel() {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-3xl font-display font-bold text-white">📖 The Codex</h1>
+        <h1 className="text-3xl font-display font-bold text-white">The Codex</h1>
         <p className="text-xs text-gray-500 mt-1">Everything about this world, and how it actually works.</p>
       </div>
 

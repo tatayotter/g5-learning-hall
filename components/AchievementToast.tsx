@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Achievement } from '@/lib/achievements';
+import { playAchievementUnlock } from '@/lib/sounds';
 
 interface AchievementToastProps {
   userId: string;
@@ -19,6 +20,7 @@ export default function AchievementToast({ userId, newlyUnlocked, onDismissAll }
     if (newlyUnlocked.length > 0) {
       setVisible(newlyUnlocked);
       setCurrentIndex(0);
+      playAchievementUnlock();
     }
   }, [newlyUnlocked]);
 

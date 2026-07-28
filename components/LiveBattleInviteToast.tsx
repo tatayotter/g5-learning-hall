@@ -5,7 +5,9 @@
 // Dashboard root (app/page.tsx) rather than inside MonsterGuild.tsx, so a
 // challenge reaches the player no matter which tab they're on. Styled to
 // match components/AchievementToast.tsx's toast conventions.
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { playPvpChallenge } from '@/lib/sounds';
 
 interface LiveBattleInviteToastProps {
   fromName: string;
@@ -14,6 +16,10 @@ interface LiveBattleInviteToastProps {
 }
 
 export default function LiveBattleInviteToast({ fromName, onAccept, onDecline }: LiveBattleInviteToastProps) {
+  useEffect(() => {
+    playPvpChallenge();
+  }, []);
+
   return (
     <AnimatePresence>
       <motion.div
