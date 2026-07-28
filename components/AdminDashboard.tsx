@@ -8,6 +8,7 @@ import DeedHistory from '@/components/DeedHistory';
 import GameButton from '@/components/GameButton';
 import { format, startOfWeek } from 'date-fns';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
+import { getScheduledDay } from '@/lib/subjectSchedule';
 import {
   CustomEvent,
   EventQuest,
@@ -230,11 +231,16 @@ function WeeklyPackageBuilder({ currentData, currentSunday, onUpdateStats, passc
       // checked here — validating only `quiz` let unvalidated `questions`
       // arrays flow straight into live Monster Arena battles.
       const days = Object.keys(obj);
+      const grade = USER_TO_GRADE[userId];
       let warnings: string[] = [];
       days.forEach(day => {
         const subjects = obj[day];
         Object.keys(subjects).forEach(subject => {
           const s = subjects[subject];
+          const scheduledDay = getScheduledDay(subject, grade);
+          if (day !== scheduledDay) {
+            warnings.push(`${day} / ${subject}: this subject is scheduled for ${scheduledDay}, not ${day}`);
+          }
           const key: 'quiz' | 'questions' | null = Array.isArray(s.quiz) ? 'quiz' : Array.isArray(s.questions) ? 'questions' : null;
           if (!key) {
             warnings.push(`${day} / ${subject}: missing quiz/questions array`);
@@ -2460,7 +2466,7 @@ function DraftSubjectGroup({ subject, drafts, summary, grade, selectedIds, onTog
   onReload: () => void;
   passcode: string;
 }) {
-  const [publishDay, setPublishDay] = useState<typeof WEEKDAYS_FOR_PUBLISH[number]>('Monday');
+  const publishDay = getScheduledDay(subject, grade);
   const [publishWeek, setPublishWeek] = useState(drafts[0]?.week_starting_date || summary?.week_starting_date || '');
   const [publishing, setPublishing] = useState(false);
 
@@ -2522,19 +2528,12 @@ function DraftSubjectGroup({ subject, drafts, summary, grade, selectedIds, onTog
           <span className="text-xs text-blue-400 font-bold">
             {idsInThisSubject.length > 0 ? `${idsInThisSubject.length} selected` : 'Publish target'}
           </span>
-          <div className="flex gap-1">
-            {WEEKDAYS_FOR_PUBLISH.map(day => (
-              <button
-                key={day}
-                onClick={() => setPublishDay(day)}
-                className={`text-[10px] font-bold px-2 py-1 rounded-md transition-colors ${
-                  publishDay === day ? 'bg-white text-black' : 'bg-neutral-800 text-gray-400 hover:text-white'
-                }`}
-              >
-                {day.slice(0, 3)}
-              </button>
-            ))}
-          </div>
+          <span
+            title="Day is fixed by the subject schedule"
+            className="text-[10px] font-bold px-2 py-1 rounded-md bg-neutral-800 text-white"
+          >
+            🔒 {publishDay}
+          </span>
           <input
             type="date"
             value={publishWeek}

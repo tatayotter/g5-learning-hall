@@ -10,6 +10,7 @@ import HeroProfile from '@/components/HeroProfile';
 import GuildJournal from '@/components/GuildJournal';
 import DailyChecklist from '@/components/DailyChecklist';
 import { markGuildSessionToday, GuildKey, GUILDS } from '@/lib/dailyChecklist';
+import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
 import QuestModule from '@/components/QuestModule';
 import { format } from 'date-fns';
 import AchievementsBoard from '@/components/AchievementsBoard';
@@ -431,6 +432,10 @@ export default function Dashboard() {
   const packageData = typeof data.package_data === 'string' && data.package_data.trim() !== ''
     ? JSON.parse(data.package_data)
     : (data.package_data || {});
+  // Main Quest board shows Friday as one auto-built "Weekly Review" quest
+  // instead of whatever's stored under Friday — the Monster Arena question
+  // pool (which reads `packageData` directly) is left untouched.
+  const mainQuestPackageData = { ...packageData, Friday: buildWeeklyReviewDay(packageData) };
 
   const rotationScreen = (
     <div className="landscape-only fixed inset-0 z-[999] bg-black flex-col items-center justify-center text-center p-8" style={{ display: 'none' }}>
@@ -492,7 +497,7 @@ export default function Dashboard() {
               userId={activeUserId}
               currentSunday={data.week_starting_date}
               currentDayName={currentDayName}
-              packageData={data.package_data}
+              packageData={mainQuestPackageData}
               journalLogs={data.journal_logs}
               masteredQuizzes={data.mastered_quizzes}
               onGoldAwarded={applyGoldDelta}
@@ -617,7 +622,7 @@ export default function Dashboard() {
 
             {WEEKDAYS.map((day) => {
               const isToday = currentDayName === day;
-              const daySubjects = packageData[day] || {};
+              const daySubjects = mainQuestPackageData[day] || {};
               const subjectKeys = Object.keys(daySubjects);
               const dayFullyMastered = subjectKeys.length > 0 &&
                 subjectKeys.every((subjectName) => (data.mastered_quizzes || []).includes(`${day}_${subjectName}`));
@@ -663,7 +668,7 @@ export default function Dashboard() {
         {/* --- ACTIVE QUEST VIEW --- */}
         {activeTab === 'board' && activeQuest !== null && (() => {
           const [day, subject] = activeQuest.split('_');
-          const questData = packageData[day]?.[subject];
+          const questData = mainQuestPackageData[day]?.[subject];
 
           return (
             <div className="w-full max-w-4xl mx-auto animate-in fade-in duration-500">
