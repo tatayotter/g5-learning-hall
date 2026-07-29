@@ -678,7 +678,7 @@ export default function LiveBattleScreen({
     <div className="w-full max-w-sm bg-neutral-950 border border-red-900 rounded-2xl p-4 text-center space-y-3 battle-panel-in">
       <p className="text-white font-bold">Surrender the battle?</p>
       <p className="text-xs text-gray-400">
-        You'll earn no Monster EXP or Gold. {opponentName} will win with half EXP and no Gold.
+        You'll earn no Curio EXP or Gold. {opponentName} will win with half EXP and no Gold.
       </p>
       <div className="flex gap-2">
         <button

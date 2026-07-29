@@ -166,7 +166,7 @@ function TopEntryCard({ entry, rank, badge, highlight, currentUserId, reactionCo
         <StatChip label="Trainer Wins" value={entry.trainerBattlesWon} />
         <StatChip label="Live Wins" value={entry.liveBattleWins} />
         <StatChip label="Questions" value={entry.questionsAnswered} />
-        <StatChip label="Monsters" value={entry.monstersCollected} />
+        <StatChip label="Curios" value={entry.monstersCollected} />
         <TopCurioChip topMonster={entry.topMonster} />
       </div>
       <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Team</p>
