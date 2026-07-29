@@ -16,6 +16,17 @@ import CurioRevealModal from '@/components/CurioRevealModal';
 import CritBonusToast from '@/components/CritBonusToast';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 
+// Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
+// is heavily biased (see components/battle/shared.tsx's shuffleArray).
+function shuffle<T>(arr: T[]): T[] {
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
 interface LogicOption {
   id: string;
   label: string;
@@ -61,11 +72,15 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
           fetchQuestionPool(userId, 'sq_logic_labyrinth', 'logic_labyrinth', gradeLevel),
           fetchSubclassProfile(userId)
         ]);
+        // Shuffle each puzzle's options too — otherwise correct_option_id
+        // tends to sit in the same array slot across puzzles (same class of
+        // bug fixed in Lorekeeper: a fixed answer position lets a kid win
+        // every round by spam-clicking that slot instead of solving anything).
         const parsed = (pool as any[]).map(q => ({
           ...q,
-          options_array: typeof q.options_array === 'string' ? JSON.parse(q.options_array) : q.options_array
+          options_array: shuffle(typeof q.options_array === 'string' ? JSON.parse(q.options_array) : q.options_array)
         }));
-        setQuestions(parsed as LogicLabyrinthQuestion[]);
+        setQuestions(shuffle(parsed as LogicLabyrinthQuestion[]));
         setProfile(subProfile);
         setScreen('ready');
       } catch (err) {

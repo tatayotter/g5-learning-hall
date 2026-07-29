@@ -4,6 +4,17 @@ import { MonsterDef } from '@/lib/monsterConfig';
 import { playMonsterAppear, playChime, playClash } from '@/lib/sounds';
 import { MonsterImage } from '@/components/battle/shared';
 
+// Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
+// is heavily biased (see components/battle/shared.tsx's shuffleArray).
+function shuffle<T>(arr: T[]): T[] {
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
 interface WildEncounterModalProps {
   monster: MonsterDef;
   level: number;
@@ -20,12 +31,17 @@ export default function WildEncounterModal({ monster, level, question, attemptsL
     playMonsterAppear();
   }, []);
 
-  const choices = [
+  // Shuffled once per mount — the parent remounts this modal (keyed on
+  // question.id) for every new question, so this never needs to re-shuffle
+  // mid-question. Without it, correct_choice tends to sit in the same slot
+  // across seed rows, letting a kid win every encounter by spam-clicking
+  // that slot instead of answering (same bug fixed in Lorekeeper/LogicLabyrinth).
+  const [choices] = useState(() => shuffle([
     { key: 'a', text: question.choice_a },
     { key: 'b', text: question.choice_b },
     { key: 'c', text: question.choice_c },
     { key: 'd', text: question.choice_d },
-  ];
+  ]));
 
   const handleAnswer = (key: string) => {
     if (selected) return;

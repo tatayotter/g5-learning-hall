@@ -17,6 +17,17 @@ import CurioRevealModal from '@/components/CurioRevealModal';
 import CritBonusToast from '@/components/CritBonusToast';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 
+// Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
+// is heavily biased (see components/battle/shared.tsx's shuffleArray).
+function shuffle<T>(arr: T[]): T[] {
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
 interface LorekeeperQuestion {
   id: string;
   passage: string | null;
@@ -46,6 +57,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [flashResult, setFlashResult] = useState<'correct' | 'wrong' | null>(null);
   const [newCurioId, setNewCurioId] = useState<string | null>(null);
+  const [shuffledChoices, setShuffledChoices] = useState<{ key: string; text: string }[]>([]);
 
   const isTala = userId === 'tala';
   const gradeLevel = gradeToNumber(USERS[userId]?.grade);
@@ -59,7 +71,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
           fetchQuestionPool(userId, 'sq_lorekeeper', 'lorekeeper', gradeLevel),
           fetchSubclassProfile(userId)
         ]);
-        setQuestions(pool as LorekeeperQuestion[]);
+        setQuestions(shuffle(pool as LorekeeperQuestion[]));
         setProfile(subProfile);
         setScreen('ready');
       } catch (err) {
@@ -74,6 +86,21 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
       handleSessionEnd();
     }
   }, [engine.phase]);
+
+  // Re-shuffle answer order each time the question changes — without this,
+  // choices always rendered in fixed a/b/c/d order, so whichever slot the
+  // seed data happened to put correct_choice in (e.g. "b") was correct for
+  // nearly every question, making spam-clicking that slot a free win.
+  useEffect(() => {
+    if (!engine.currentQuestion) return;
+    const q = engine.currentQuestion;
+    setShuffledChoices(shuffle([
+      { key: 'a', text: q.choice_a },
+      { key: 'b', text: q.choice_b },
+      { key: 'c', text: q.choice_c },
+      { key: 'd', text: q.choice_d },
+    ]));
+  }, [engine.currentQuestion]);
 
   const handleAnswer = (choice: string) => {
     if (!engine.currentQuestion) return;
@@ -165,12 +192,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
 
   if (screen === 'playing' && engine.currentQuestion) {
     const q = engine.currentQuestion;
-    const choices = [
-      { key: 'a', text: q.choice_a },
-      { key: 'b', text: q.choice_b },
-      { key: 'c', text: q.choice_c },
-      { key: 'd', text: q.choice_d }
-    ];
+    const choices = shuffledChoices;
     const difficultyStars = '★'.repeat(q.difficulty_tier) + '☆'.repeat(Math.max(0, 3 - q.difficulty_tier));
     const timerPct = (engine.timeLeft / timeLimit) * 100;
     const timerColor = engine.timeLeft <= 10 ? 'bg-red-500' : engine.timeLeft <= 20 ? 'bg-yellow-500' : 'bg-emerald-500';

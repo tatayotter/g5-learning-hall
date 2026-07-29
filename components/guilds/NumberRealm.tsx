@@ -16,6 +16,17 @@ import CurioRevealModal from '@/components/CurioRevealModal';
 import CritBonusToast from '@/components/CritBonusToast';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 
+// Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
+// is heavily biased (see components/battle/shared.tsx's shuffleArray).
+function shuffle<T>(arr: T[]): T[] {
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
 interface NumberRealmQuestion {
   id: string;
   problem_prompt: string;
@@ -67,7 +78,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
         fetchQuestionPool(userId, 'sq_number_realm', 'number_realm', gradeLevel),
         fetchSubclassProfile(userId)
       ]);
-      setQuestions(pool as NumberRealmQuestion[]);
+      setQuestions(shuffle(pool as NumberRealmQuestion[]));
       setProfile(subProfile);
       setScreen('ready');
     }
