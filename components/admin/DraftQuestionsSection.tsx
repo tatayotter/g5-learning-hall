@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import { getScheduledDay } from '@/lib/subjectSchedule';
 import { callAdminApi } from '@/lib/adminApi';
+import { GRADE_LEVELS } from '@/lib/userSession';
 
 interface DraftSummary {
   id: string;
@@ -30,10 +31,7 @@ interface DraftQuestion {
   reviewed_at: string | null;
 }
 
-const DRAFT_GRADES = [
-  { grade: 5, label: 'Grade 5 (Damien)' },
-  { grade: 2, label: 'Grade 2 (Tala)' },
-];
+const DRAFT_GRADES = GRADE_LEVELS.map(grade => ({ grade, label: `Grade ${grade}` }));
 
 const WEEKDAYS_FOR_PUBLISH = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] as const;
 

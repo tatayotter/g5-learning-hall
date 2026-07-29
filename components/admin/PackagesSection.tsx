@@ -5,10 +5,18 @@ import { WeeklyData } from '@/hooks/useWeeklyData';
 import { format, startOfWeek } from 'date-fns';
 import { getScheduledDay } from '@/lib/subjectSchedule';
 import { callAdminApi } from '@/lib/adminApi';
+import { USERS } from '@/lib/userSession';
 
 const WEEK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
-function WeeklyPackageHistory({ userId }: { userId: 'damien' | 'tala' }) {
+// Display name for a content-owner id — family profiles (damien/tala) already
+// have a friendly name in USERS; any other content owner falls back to its
+// raw id since it may not be loaded into USERS yet at admin-panel mount time.
+function ownerLabel(userId: string): string {
+  return USERS[userId]?.name || userId;
+}
+
+function WeeklyPackageHistory({ userId }: { userId: string }) {
   const [weeks, setWeeks] = useState<{ week_starting_date: string; has_content: boolean }[]>([]);
 
   useEffect(() => {
@@ -36,7 +44,7 @@ function WeeklyPackageHistory({ userId }: { userId: 'damien' | 'tala' }) {
 
   return (
     <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-5 mb-6">
-      <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Recent Weeks — {userId === 'damien' ? 'Damien' : 'Tala'}</p>
+      <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Recent Weeks — {ownerLabel(userId)}</p>
       <div className="space-y-2">
         {weeks.map(w => (
           <div key={w.week_starting_date} className="flex items-center justify-between">
@@ -53,9 +61,6 @@ function WeeklyPackageHistory({ userId }: { userId: 'damien' | 'tala' }) {
   );
 }
 
-// grade_content_owners in Supabase: damien -> grade 5, tala -> grade 2.
-const USER_TO_GRADE: Record<'damien' | 'tala', number> = { damien: 5, tala: 2 };
-
 export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpdateStats, passcode, onNavigateToDrafts }: {
   currentData: WeeklyData;
   currentSunday: string;
@@ -63,7 +68,11 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
   passcode: string;
   onNavigateToDrafts: () => void;
 }) {
-  const [userId, setUserId] = useState<'damien' | 'tala'>(currentData.user_id as 'damien' | 'tala');
+  const [userId, setUserId] = useState<string>(currentData.user_id);
+  // grade_content_owners in Supabase maps each grade to the user whose
+  // weekly_packages row is that grade's Main Quest content source — fetched
+  // live so newly designated owners (Grade 3/4/6) show up without a redeploy.
+  const [owners, setOwners] = useState<{ grade: number; user_id: string }[]>([]);
   const [pendingDraftCount, setPendingDraftCount] = useState(0);
   const [selectedWeek, setSelectedWeek] = useState(currentSunday);
   const [weekHasRow, setWeekHasRow] = useState(false);
@@ -79,6 +88,16 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
     d.setDate(d.getDate() + deltaDays);
     setSelectedWeek(format(startOfWeek(d), 'yyyy-MM-dd'));
   };
+
+  useEffect(() => {
+    async function loadOwners() {
+      const { data } = await supabase.from('grade_content_owners').select('grade, user_id').order('grade');
+      setOwners(data || []);
+    }
+    loadOwners();
+  }, []);
+
+  const gradeForOwner = (id: string) => owners.find(o => o.user_id === id)?.grade;
 
   useEffect(() => {
     async function loadPackage() {
@@ -109,7 +128,8 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
 
   useEffect(() => {
     async function loadDraftCount() {
-      const grade = USER_TO_GRADE[userId];
+      const grade = gradeForOwner(userId);
+      if (grade === undefined) { setPendingDraftCount(0); return; }
       const [{ count: qCount }, { count: sCount }] = await Promise.all([
         supabase.from('draft_questions').select('id', { count: 'exact', head: true }).eq('grade', grade).in('status', ['pending_review', 'approved']),
         supabase.from('draft_summaries').select('id', { count: 'exact', head: true }).eq('grade', grade).in('status', ['pending_review', 'approved']),
@@ -117,7 +137,7 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
       setPendingDraftCount((qCount || 0) + (sCount || 0));
     }
     loadDraftCount();
-  }, [userId]);
+  }, [userId, owners]);
 
   const handleParse = () => {
     setParseError('');
@@ -129,7 +149,7 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
       // checked here — validating only `quiz` let unvalidated `questions`
       // arrays flow straight into live Monster Arena battles.
       const days = Object.keys(obj);
-      const grade = USER_TO_GRADE[userId];
+      const grade = gradeForOwner(userId) ?? 5;
       let warnings: string[] = [];
       days.forEach(day => {
         const subjects = obj[day];
@@ -180,7 +200,7 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
     } else {
       setWeekHasRow(true);
       const weekLabel = selectedWeek === currentSunday ? 'this week' : `week of ${selectedWeek}`;
-      alert(`✅ Package saved for ${userId === 'damien' ? 'Damien' : 'Tala'} (${weekLabel})!`);
+      alert(`✅ Package saved for ${ownerLabel(userId)} (${weekLabel})!`);
     }
     setSaving(false);
   };
@@ -205,19 +225,17 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
       <h2 className="text-xl font-bold text-white mb-1">Weekly Package Builder</h2>
       <p className="text-gray-500 text-sm mb-6">Paste AI-generated JSON, review, edit if needed, then save for each student.</p>
 
-      {/* User selector */}
-      <div className="flex gap-3 mb-4">
-        {(['damien', 'tala'] as const).map(id => (
+      {/* Content-owner selector — one button per grade with an authored content source */}
+      <div className="flex gap-3 mb-4 flex-wrap">
+        {owners.map(({ grade, user_id }) => (
           <button
-            key={id}
-            onClick={() => setUserId(id)}
+            key={user_id}
+            onClick={() => setUserId(user_id)}
             className={`px-5 py-2 rounded-lg font-bold text-sm transition-all ${
-              userId === id
-                ? id === 'damien' ? 'bg-amber-600 text-white' : 'bg-pink-600 text-white'
-                : 'bg-neutral-800 text-gray-400 hover:text-white'
+              userId === user_id ? 'bg-amber-600 text-white' : 'bg-neutral-800 text-gray-400 hover:text-white'
             }`}
           >
-            {id === 'damien' ? '⚔️ Damien' : '✨ Tala'}
+            {ownerLabel(user_id)} (Grade {grade})
           </button>
         ))}
       </div>
@@ -228,7 +246,7 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
           className="w-full flex items-center justify-between bg-amber-900/20 border border-amber-800 rounded-xl px-4 py-3 mb-4 text-left hover:bg-amber-900/30 transition-colors"
         >
           <span className="text-amber-400 text-sm font-bold">
-            📝 {pendingDraftCount} draft{pendingDraftCount !== 1 ? 's' : ''} pending for {userId === 'damien' ? 'Grade 5' : 'Grade 2'}
+            📝 {pendingDraftCount} draft{pendingDraftCount !== 1 ? 's' : ''} pending for Grade {gradeForOwner(userId) ?? '?'}
           </span>
           <span className="text-amber-500 text-xs">Review in Draft Questions →</span>
         </button>
@@ -277,7 +295,7 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
           <textarea
             value={jsonInput}
             onChange={e => setJsonInput(e.target.value)}
-            placeholder={`Paste ${userId === 'damien' ? "Damien's" : "Tala's"} weekly package JSON here...`}
+            placeholder={`Paste ${ownerLabel(userId)}'s weekly package JSON here...`}
             className="w-full h-48 bg-neutral-950 border border-neutral-700 rounded-xl p-4 font-mono text-xs text-gray-300 focus:outline-none focus:border-neutral-500 resize-none"
           />
           {parseError && <p className="text-red-400 text-xs">{parseError}</p>}
@@ -420,7 +438,7 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
               title={parsed.warnings.length > 0 ? 'Fix all warnings above before saving' : undefined}
               className="bg-green-700 hover:bg-green-600 disabled:opacity-40 text-white font-bold px-6 py-2 rounded-lg transition-colors"
             >
-              {saving ? 'Saving...' : parsed.warnings.length > 0 ? `⚠️ Fix ${parsed.warnings.length} warning${parsed.warnings.length > 1 ? 's' : ''} to save` : `💾 Save for ${userId === 'damien' ? 'Damien' : 'Tala'}`}
+              {saving ? 'Saving...' : parsed.warnings.length > 0 ? `⚠️ Fix ${parsed.warnings.length} warning${parsed.warnings.length > 1 ? 's' : ''} to save` : `💾 Save for ${ownerLabel(userId)}`}
             </button>
           </div>
         </div>

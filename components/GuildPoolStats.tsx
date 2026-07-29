@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { CURRENT_TERM } from '@/lib/guildConfig';
-import { USERS } from '@/lib/userSession';
+import { USERS, gradeToNumber } from '@/lib/userSession';
 
 interface GuildStat {
   label: string;
@@ -32,7 +32,7 @@ export default function GuildPoolStats({ userId }: { userId: string }) {
   const [lastRefreshed, setLastRefreshed] = useState<Date>(new Date());
 
   const userProfile = USERS[userId as keyof typeof USERS] || USERS['damien'];
-  const gradeLevel = userProfile.grade === 'Grade 2' ? 2 : 5;
+  const gradeLevel = gradeToNumber(userProfile.grade);
 
   async function fetchStats() {
     setLoading(true);

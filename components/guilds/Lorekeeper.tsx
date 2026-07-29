@@ -10,7 +10,7 @@ import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { GUILDS } from '@/lib/dailyChecklist';
-import { USERS } from '@/lib/userSession';
+import { USERS, gradeToNumber } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
@@ -48,7 +48,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
   const [newCurioId, setNewCurioId] = useState<string | null>(null);
 
   const isTala = userId === 'tala';
-  const gradeLevel = (USERS[userId]?.grade === 'Grade 2') ? 2 : 5;
+  const gradeLevel = gradeToNumber(USERS[userId]?.grade);
   const timeLimit = isTala ? 120 : 60;
   const engine = useTimeAttack<LorekeeperQuestion>(questions, timeLimit);
 

@@ -9,6 +9,7 @@ import {
   countEventQuests,
 } from '@/lib/customEvents';
 import { callAdminApi } from '@/lib/adminApi';
+import { GRADE_LEVELS } from '@/lib/userSession';
 
 const EMPTY_EVENT_FORM = {
   title: '',
@@ -301,7 +302,7 @@ function EventQuestEditor({ events, questCounts, onReload, passcode }: {
   passcode: string;
 }) {
   const [selectedEventId, setSelectedEventId] = useState('');
-  const [gradeLevel, setGradeLevel] = useState<2 | 5>(5);
+  const [gradeLevel, setGradeLevel] = useState<number>(5);
   const [existingQuests, setExistingQuests] = useState<EventQuest[]>([]);
   const [jsonInput, setJsonInput] = useState('');
   const [parsed, setParsed] = useState<{ data: any[]; warnings: string[] } | null>(null);
@@ -391,8 +392,8 @@ function EventQuestEditor({ events, questCounts, onReload, passcode }: {
         <>
           <div className="mb-4">
             <label className="text-xs text-gray-500 block mb-1">Grade — the paste below applies to this grade only</label>
-            <div className="flex gap-2">
-              {([5, 2] as const).map(g => (
+            <div className="flex gap-1.5 flex-wrap">
+              {GRADE_LEVELS.map(g => (
                 <button
                   key={g}
                   onClick={() => setGradeLevel(g)}

@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
+import { GRADE_LEVELS } from '@/lib/userSession';
 
 export type GuildTable = 'sq_lorekeeper' | 'sq_spellcaster' | 'sq_number_realm' | 'sq_logic_labyrinth' | 'sq_lexicon_arena' | 'sq_wild_encounter';
 
@@ -14,20 +15,19 @@ const GUILD_LABELS: Record<GuildTable, string> = {
 };
 
 function PoolCountPanel() {
-  const [counts, setCounts] = useState<Record<string, { g2: number; g5: number }>>({});
+  const [counts, setCounts] = useState<Record<string, Record<number, number>>>({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchCounts() {
       const guilds = Object.keys(GUILD_LABELS) as GuildTable[];
-      const results: Record<string, { g2: number; g5: number }> = {};
+      const results: Record<string, Record<number, number>> = {};
 
       await Promise.all(guilds.map(async (guild) => {
-        const [r2, r5] = await Promise.all([
-          supabase.from(guild).select('id', { count: 'exact', head: true }).eq('is_active', true).eq('grade_level', 2).eq('term_id', 1),
-          supabase.from(guild).select('id', { count: 'exact', head: true }).eq('is_active', true).eq('grade_level', 5).eq('term_id', 1),
-        ]);
-        results[guild] = { g2: r2.count || 0, g5: r5.count || 0 };
+        const perGrade = await Promise.all(GRADE_LEVELS.map(g =>
+          supabase.from(guild).select('id', { count: 'exact', head: true }).eq('is_active', true).eq('grade_level', g).eq('term_id', 1)
+        ));
+        results[guild] = Object.fromEntries(GRADE_LEVELS.map((g, i) => [g, perGrade[i].count || 0]));
       }));
 
       setCounts(results);
@@ -52,24 +52,20 @@ function PoolCountPanel() {
           <thead>
             <tr className="text-xs text-gray-500 border-b border-neutral-800">
               <th className="text-left pb-2">Guild</th>
-              <th className="text-center pb-2">Grade 2</th>
-              <th className="text-center pb-2">Grade 5</th>
+              {GRADE_LEVELS.map(g => <th key={g} className="text-center pb-2">Grade {g}</th>)}
             </tr>
           </thead>
           <tbody className="divide-y divide-neutral-800">
             {(Object.keys(GUILD_LABELS) as GuildTable[]).map(guild => (
               <tr key={guild}>
                 <td className="py-2 text-gray-300 font-medium">{GUILD_LABELS[guild]}</td>
-                <td className="py-2 text-center">
-                  <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${badge(counts[guild]?.g2 || 0)}`}>
-                    {counts[guild]?.g2 ?? '—'}
-                  </span>
-                </td>
-                <td className="py-2 text-center">
-                  <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${badge(counts[guild]?.g5 || 0)}`}>
-                    {counts[guild]?.g5 ?? '—'}
-                  </span>
-                </td>
+                {GRADE_LEVELS.map(g => (
+                  <td key={g} className="py-2 text-center">
+                    <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${badge(counts[guild]?.[g] || 0)}`}>
+                      {counts[guild]?.[g] ?? '—'}
+                    </span>
+                  </td>
+                ))}
               </tr>
             ))}
           </tbody>
@@ -256,7 +252,7 @@ const GUILD_JSON_EXAMPLES: Record<GuildTable, string> = {
 
 export default function QuestionBankImporter() {
   const [guild, setGuild] = useState<GuildTable>('sq_lorekeeper');
-  const [gradeLevel, setGradeLevel] = useState<2 | 5>(5);
+  const [gradeLevel, setGradeLevel] = useState<number>(5);
   const [termId, setTermId] = useState(1);
   const [jsonInput, setJsonInput] = useState('');
   const [preview, setPreview] = useState<any[]>([]);
@@ -405,14 +401,14 @@ export default function QuestionBankImporter() {
         </div>
         <div>
           <label className="text-xs text-gray-500 uppercase tracking-widest block mb-2">Grade Level</label>
-          <div className="flex gap-2">
-            {([2, 5] as const).map(g => (
+          <div className="flex gap-1.5 flex-wrap">
+            {GRADE_LEVELS.map(g => (
               <button
                 key={g}
                 onClick={() => setGradeLevel(g)}
                 className={`flex-1 py-2 rounded-lg font-bold text-sm transition-all ${gradeLevel === g ? 'bg-blue-600 text-white' : 'bg-neutral-800 text-gray-400 hover:text-white'}`}
               >
-                Grade {g}
+                {g}
               </button>
             ))}
           </div>

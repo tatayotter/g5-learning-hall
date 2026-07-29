@@ -3,6 +3,9 @@ import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 
 export type UserId = string;
 
+// DepEd elementary grade levels this app covers.
+export const GRADE_LEVELS = [2, 3, 4, 5, 6] as const;
+
 export interface UserProfile {
   id: UserId;
   name: string;
@@ -42,6 +45,34 @@ export const USERS: Record<UserId, UserProfile> = {
   },
 };
 
+// Extracts the numeric grade level out of a "Grade N" string (or a bare
+// number). Falls back to 5 for anything unparseable so old data/typos degrade
+// to the original grade instead of crashing a query.
+export function gradeToNumber(grade: string | number | undefined): number {
+  if (typeof grade === 'number') return grade;
+  const match = /(\d+)/.exec(grade || '');
+  return match ? parseInt(match[1], 10) : 5;
+}
+
+// grade_content_owners (Supabase) maps a grade level to the user_id whose
+// weekly_packages row is the shared Main Quest content source for that grade
+// (e.g. 5 -> damien, 2 -> tala). Grades with no row here have no authored
+// content yet, so callers fall back to 'damien' (Grade 5) rather than serving
+// nothing.
+let gradeOwnersLoaded = false;
+let gradeOwners: Record<number, UserId> = {};
+
+export async function loadGradeContentOwners(): Promise<void> {
+  if (gradeOwnersLoaded) return;
+  const { data } = await supabase.from('grade_content_owners').select('grade, user_id');
+  (data || []).forEach((row: any) => { gradeOwners[row.grade] = row.user_id; });
+  gradeOwnersLoaded = true;
+}
+
+function contentSourceForGrade(grade: string): UserId {
+  return gradeOwners[gradeToNumber(grade)] || 'damien';
+}
+
 // Classmates are admin-managed (Admin Dashboard → Classmates) and login with a
 // username/password, unlike the two family profiles above. This loads them
 // into USERS once so every existing USERS[id] lookup across the app keeps
@@ -50,6 +81,7 @@ let classmatesLoaded = false;
 
 export async function loadClassmates(): Promise<void> {
   if (classmatesLoaded) return;
+  await loadGradeContentOwners();
   const { data } = await supabase
     .from('classmates')
     .select('id, full_name, grade, gender')
@@ -65,7 +97,7 @@ export async function loadClassmates(): Promise<void> {
       theme: 'damien',
       gender: c.gender === 'girl' ? 'girl' : 'boy',
       isFamily: false,
-      contentSourceId: 'damien',
+      contentSourceId: contentSourceForGrade(c.grade),
     };
   });
   classmatesLoaded = true;
@@ -84,6 +116,7 @@ let childIds: Set<UserId> = new Set();
 
 export async function loadChildren(): Promise<void> {
   if (childrenLoaded) return;
+  await loadGradeContentOwners();
   const { data } = await supabase
     .from('children')
     .select('id, full_name, grade, gender, avatar')
@@ -99,7 +132,7 @@ export async function loadChildren(): Promise<void> {
       theme: 'damien',
       gender: c.gender === 'girl' ? 'girl' : 'boy',
       isFamily: false,
-      contentSourceId: 'damien',
+      contentSourceId: contentSourceForGrade(c.grade),
     };
     childIds.add(c.id);
   });

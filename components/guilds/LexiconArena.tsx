@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { GUILDS } from '@/lib/dailyChecklist';
-import { USERS } from '@/lib/userSession';
+import { USERS, gradeToNumber } from '@/lib/userSession';
 import { playChime, playClash, playLevelUp } from '@/lib/sounds';
 import GameButton from '@/components/GameButton';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -54,7 +54,7 @@ function shuffle<T>(arr: T[]): T[] {
 export default function LexiconArena({ userId, weekStartingDate, currentStats, onGoldEarned, onExit }: LexiconArenaProps) {
   const isTala = userId === 'tala';
   const userProfile = USERS[userId as keyof typeof USERS] ?? USERS['damien'];
-  const gradeLevel = userProfile.grade === 'Grade 2' ? 2 : 5;
+  const gradeLevel = gradeToNumber(userProfile.grade);
 
   const [phase, setPhase] = useState<'intro' | 'playing' | 'result'>('intro');
   const [words, setWords] = useState<LexiconWord[]>([]);

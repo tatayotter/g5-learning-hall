@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import { callAdminApi } from '@/lib/adminApi';
+import { GRADES } from '@/components/ChildAccountForm';
 
 interface Classmate {
   id: string;
@@ -95,10 +96,10 @@ export default function ClassmatesSection({ passcode }: { passcode: string }) {
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-white mb-1">Damien's Classmates</h2>
+      <h2 className="text-xl font-bold text-white mb-1">Classmates</h2>
       <p className="text-gray-500 text-sm mb-6">
-        Add classmate accounts. They share Damien's Main Quest content and Curio Arena question pool but keep
-        their own independent progress, and log in from the "Damien's Classmates" group on the splash screen.
+        Add classmate accounts. They share their grade's Main Quest content and guild question pools but keep
+        their own independent progress, and log in from the classmates group on the splash screen.
       </p>
 
       {/* Add classmate */}
@@ -122,8 +123,10 @@ export default function ClassmatesSection({ passcode }: { passcode: string }) {
           </div>
           <div>
             <label className="text-xs text-gray-500 block mb-1">Grade</label>
-            <input type="text" value={grade} onChange={e => setGrade(e.target.value)}
-              className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-neutral-500" />
+            <select value={grade} onChange={e => setGrade(e.target.value)}
+              className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-neutral-500">
+              {GRADES.map(g => <option key={g} value={g}>{g}</option>)}
+            </select>
           </div>
           <div>
             <label className="text-xs text-gray-500 block mb-1">Gender (sprite)</label>

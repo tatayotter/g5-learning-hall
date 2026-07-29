@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadChildren, loadFamilyProtection, loadAvatarOverrides, linkIdentity, recordLastLogin, registerDemoUser, USERS } from '@/lib/userSession';
+import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadChildren, loadFamilyProtection, loadAvatarOverrides, linkIdentity, recordLastLogin, registerDemoUser, USERS, gradeToNumber } from '@/lib/userSession';
 import SplashScreen from '@/components/SplashScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
 import HeroProfile from '@/components/HeroProfile';
@@ -304,7 +304,7 @@ export default function Dashboard() {
       setEventClaimed(false);
       return;
     }
-    const gradeLevel = USERS[userId]?.grade === 'Grade 2' ? 2 : 5;
+    const gradeLevel = gradeToNumber(USERS[userId]?.grade);
     const [quests, progress, claimed] = await Promise.all([
       fetchEventQuests(ev.id, gradeLevel),
       fetchUserEventProgress(userId, ev.id),
@@ -471,7 +471,7 @@ export default function Dashboard() {
     <div className="landscape-only fixed inset-0 z-[999] bg-black flex-col items-center justify-center text-center p-8" style={{ display: 'none' }}>
       <div className="text-6xl mb-6">📱</div>
       <h2 className="text-white text-2xl font-bold mb-3">Rotate Your Device</h2>
-      <p className="text-gray-400 text-sm">G5 Learning Hall works best in landscape mode. Please rotate your phone sideways to continue.</p>
+      <p className="text-gray-400 text-sm">Learning Hall works best in landscape mode. Please rotate your phone sideways to continue.</p>
       <div className="mt-8 text-4xl animate-bounce">↻</div>
     </div>
   );
@@ -495,10 +495,11 @@ export default function Dashboard() {
   return (
     <>
       {rotationScreen}
+      <div className="h-screen flex flex-col">
       {activeUserId.startsWith('demo_') && <DemoBanner />}
       {showOnboarding && <OnboardingTour onComplete={handleCompleteOnboarding} />}
-      <div className="app-content">
-        <div className="h-screen bg-black text-white flex flex-row">
+      <div className="app-content flex-1 min-h-0 flex flex-col">
+        <div className="h-full bg-black text-white flex flex-row">
       {/* Sidebar rail */}
       <SidebarRail
         activeTab={activeTab}
@@ -826,7 +827,7 @@ export default function Dashboard() {
                   q.id === eventQuest.id || newProgress.some(p => p.event_quest_id === q.id && p.is_mastered)
                 );
                 if (allMastered) {
-                  const gradeLevel = USERS[activeUserId]?.grade === 'Grade 2' ? 2 : 5;
+                  const gradeLevel = gradeToNumber(USERS[activeUserId]?.grade);
                   const granted = await claimEventReward(activeUserId, activeEvent.id, gradeLevel);
                   if (granted) {
                     setEventClaimed(true);
@@ -1196,6 +1197,7 @@ export default function Dashboard() {
         </motion.button>
       </main>
     </div>
+      </div>
       </div>
     </>
   );

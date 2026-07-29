@@ -508,21 +508,31 @@ html {
    below this height the rail drops labels and shrinks icons to fit flush. */
 @media screen and (max-height: 520px) {
   .rail-aside {
-    width: 3.25rem;
+    width: 4rem;
   }
   .rail-drawer {
-    left: 3.25rem;
+    left: 4rem;
   }
   .rail-label {
     display: none;
   }
-  .rail-icon {
-    width: 1.5rem;
-    height: 1.5rem;
+  /* The spacer div (flex-1) that normally pushes Logout to the bottom would
+     otherwise eat an equal share of space alongside the buttons here —
+     collapse it so every button gets the max room the viewport allows. */
+  .rail-aside > .flex-1 {
+    flex: 0 0 0px;
   }
   .rail-btn {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
+    flex: 1 1 0px;
+    min-height: 0;
+    justify-content: center;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .rail-icon {
+    width: auto;
+    height: min(2.5rem, 70%);
+    max-width: 80%;
   }
 }
 
@@ -877,4 +887,17 @@ html {
   button {
     font-size: 0.8rem !important;
   }
+
+  /* Card/section spacing — cut down the desktop-sized gaps between and
+     inside content blocks so more fits in a short landscape viewport.
+     Deliberately leaves button padding (tap targets) and icon/image sizes
+     alone — only outer margins, card padding, and flex/grid gaps shrink. */
+  .mb-8 { margin-bottom: 1rem !important; }
+  .mb-6 { margin-bottom: 0.75rem !important; }
+  .mt-10 { margin-top: 1.25rem !important; }
+  .p-8 { padding: 1rem !important; }
+  .p-6 { padding: 0.875rem !important; }
+  .px-6 { padding-left: 0.875rem !important; padding-right: 0.875rem !important; }
+  .gap-6 { gap: 0.75rem !important; }
+  .gap-4 { gap: 0.625rem !important; }
 }

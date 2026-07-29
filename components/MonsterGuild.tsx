@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
 import { playCurioLevelUp } from '@/lib/sounds';
 import { logAction } from '@/lib/playerlog';
-import { getOtherPlayers, UserId, USERS } from '@/lib/userSession';
+import { getOtherPlayers, UserId, USERS, gradeToNumber } from '@/lib/userSession';
 import { useMapPresence } from '@/hooks/useMapPresence';
 import WildEncounterModal from '@/components/WildEncounterModal';
 import CurioRevealModal from '@/components/CurioRevealModal';
@@ -302,7 +302,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
     showNotification('🏠 Your team has been healed!');
   };
 
-  const gradeLevel = USERS[userId]?.grade === 'Grade 2' ? 2 : 5;
+  const gradeLevel = gradeToNumber(USERS[userId]?.grade);
 
   const handleWildEncounterRoll = async () => {
     if (wildEncounter || view === 'battle') return; // don't stack encounters
