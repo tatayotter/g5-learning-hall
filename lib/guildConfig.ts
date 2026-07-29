@@ -23,8 +23,10 @@ export function applyLevelUp(currentLevel: number, currentXp: number, addedXp: n
   return { level, xp };
 }
 
+export const MAX_STREAK_MULTIPLIER = 5;
+
 export function getStreakMultiplier(streak: number) {
-  return 1 + Math.floor(streak / 5);
+  return Math.min(1 + Math.floor(streak / 5), MAX_STREAK_MULTIPLIER);
 }
 
 // Harder-tier questions pay out more XP/gold, so difficulty progression stays

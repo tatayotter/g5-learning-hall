@@ -41,7 +41,7 @@ import { respondToInvite } from '@/lib/liveBattle';
 import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import DemoBanner from '@/components/DemoBanner';
-import SidebarRail, { RailPanelId, RailTabId } from '@/components/SidebarRail';
+import SidebarRail, { RailTabId } from '@/components/SidebarRail';
 import QuestCard from '@/components/QuestCard';
 import OnboardingTour from '@/components/OnboardingTour';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
@@ -262,12 +262,6 @@ export default function Dashboard() {
     if (activeTab === 'monster' && guildInitialView) {
       setGuildInitialView(undefined);
     }
-  }, [activeTab]);
-  const [activePanel, setActivePanel] = useState<RailPanelId | null>(null);
-
-  // Any drawer left open shouldn't float over a freshly-switched tab.
-  useEffect(() => {
-    setActivePanel(null);
   }, [activeTab]);
   const [quizPhase, setQuizPhase] = useState<'study' | 'ready' | 'quiz'>('study');
   const [myClaims, setMyClaims] = useState<any[]>([]);
@@ -503,7 +497,6 @@ export default function Dashboard() {
       {/* Sidebar rail */}
       <SidebarRail
         activeTab={activeTab}
-        activePanel={activePanel}
         onNavigate={(tab) => {
           playPageFlip();
           // Curio Arena defaults to the full-screen World Map stage; landing
@@ -514,44 +507,7 @@ export default function Dashboard() {
           setActiveQuest(null);
           setActiveEventQuest(null);
         }}
-        onOpenPanel={(panel) => setActivePanel(prev => (prev === panel ? null : panel))}
-        onClosePanel={() => setActivePanel(null)}
         onLogout={handleSwitchUser}
-        panelTitles={{
-          todo: 'To-Do',
-          journal: 'Journal',
-          profile: 'Profile',
-        }}
-        panelContent={{
-          todo: (
-            <DailyChecklist
-              userId={activeUserId}
-              currentSunday={data.week_starting_date}
-              currentDayName={currentDayName}
-              packageData={mainQuestPackageData}
-              journalLogs={data.journal_logs}
-              masteredQuizzes={data.mastered_quizzes}
-              onGoldAwarded={applyGoldDelta}
-              onPlayGuild={(guildKey) => { setActiveTab('guilds'); setActiveGuild(guildKey); setActivePanel(null); }}
-            />
-          ),
-          journal: (
-            <>
-              <GuildJournal
-                userId={activeUserId}
-                journalLogs={data.journal_logs || {}}
-                stats={data.character_stats}
-                currentSunday={data.week_starting_date}
-                onSave={updateStatsAndJournal}
-              />
-              <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wide mt-6 mb-2">Player Log</h3>
-              <PlayerLog userId={activeUserId} />
-            </>
-          ),
-          profile: (
-            <HeroProfile userId={activeUserId} stats={data.character_stats} currentDay={currentDayName} />
-          ),
-        }}
       />
 
       {/* Main Content Area */}
@@ -1112,11 +1068,49 @@ export default function Dashboard() {
           </div>
         )}
 
-        {/* --- TAB: PLAYER LOG --- */}
-        {activeTab === 'log' && (
+        {/* --- TAB: JOURNAL --- */}
+        {activeTab === 'journal' && (
           <div>
-            <h1 className="text-3xl font-bold mb-8 font-display">Player Log</h1>
+            <h1 className="text-3xl font-bold mb-8 font-display">Journal</h1>
+            <GuildJournal
+              userId={activeUserId}
+              journalLogs={data.journal_logs || {}}
+              stats={data.character_stats}
+              currentSunday={data.week_starting_date}
+              onSave={updateStatsAndJournal}
+            />
+            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wide mt-6 mb-2">Player Log</h3>
             <PlayerLog userId={activeUserId} />
+          </div>
+        )}
+
+        {/* --- TAB: TO-DO --- */}
+        {activeTab === 'todo' && (
+          <div>
+            <h1 className="text-3xl font-bold mb-8 font-display">To-Do</h1>
+            <DailyChecklist
+              userId={activeUserId}
+              currentSunday={data.week_starting_date}
+              currentDayName={currentDayName}
+              packageData={mainQuestPackageData}
+              journalLogs={data.journal_logs}
+              masteredQuizzes={data.mastered_quizzes}
+              onGoldAwarded={applyGoldDelta}
+              onPlayGuild={(guildKey) => { setActiveTab('guilds'); setActiveGuild(guildKey); }}
+            />
+          </div>
+        )}
+
+        {/* --- TAB: PROFILE --- */}
+        {activeTab === 'profile' && (
+          <div>
+            <h1 className="text-3xl font-bold mb-8 font-display">Profile</h1>
+            <HeroProfile
+              userId={activeUserId}
+              data={data}
+              currentDay={currentDayName}
+              onViewAchievements={() => setActiveTab('board')}
+            />
           </div>
         )}
 

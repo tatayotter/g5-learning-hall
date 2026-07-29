@@ -6,8 +6,10 @@
 // the battle screen (components/battle/BattleStage.tsx) instead of each
 // owning unrelated card/sidebar layouts.
 //
-// Same fixed 896x504 canvas + mobile-fullscreen treatment as BattleStage
-// (see hooks/useStageScale.ts). The map/hub art is 16:9 (a 16x16 grid or a
+// Same fixed 896x504 canvas as BattleStage, scaled to fit its container's
+// actual rendered width (see hooks/useStageScale.ts) — always inline within
+// the page (no mobile-fullscreen mode; the sidebar/tab bar stays visible and
+// reachable at every screen size). The map/hub art is 16:9 (a 16x16 grid or a
 // circular region wheel, both painted onto wide backgrounds), so it sits
 // centered in an ornate-framed 16:9 rectangle (`.mstage-frame`), with
 // movement controls overlaid directly on top of it (bottom-left corner)
@@ -25,20 +27,14 @@ interface MapStageProps {
   drawerLabel?: string;
   drawer?: ReactNode;
   overlay?: ReactNode;
-  // Only rendered in mobile fullscreen mode — on desktop the app's own nav
-  // tabs are already visible, but the fullscreen wrapper below covers them
-  // entirely (still in the DOM, just painted over), so mobile needs its own
-  // explicit way back out. Positioned in real viewport coordinates (outside
-  // the scaled canvas) so it stays a consistent tap size regardless of scale.
-  onExit?: () => void;
 }
 
 const CANVAS_WIDTH = 896;
 const CANVAS_HEIGHT = 504;
 
-export default function MapStage({ leftTag, rightTag, frame, controls, drawerLabel = 'Info', drawer, overlay, onExit }: MapStageProps) {
+export default function MapStage({ leftTag, rightTag, frame, controls, drawerLabel = 'Info', drawer, overlay }: MapStageProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const { shellRef, scale, isMobile } = useStageScale(CANVAS_WIDTH, CANVAS_HEIGHT);
+  const { shellRef, scale } = useStageScale(CANVAS_WIDTH, CANVAS_HEIGHT);
 
   const canvas = (
     <div className="mstage-container">
@@ -85,28 +81,6 @@ export default function MapStage({ leftTag, rightTag, frame, controls, drawerLab
       {overlay}
     </div>
   );
-
-  if (isMobile) {
-    return (
-      <>
-        <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: 'var(--background)' }}>
-          <div className="mstage-scale-inner" style={{ transform: `scale(${scale})`, transformOrigin: 'center center' }}>
-            {canvas}
-          </div>
-          {onExit && (
-            <button
-              onClick={onExit}
-              className="fixed top-3 right-3 z-[60] w-9 h-9 bg-black/70 hover:bg-black/90 border border-neutral-700 rounded-full text-white flex items-center justify-center"
-              title="Exit map"
-            >
-              ✕
-            </button>
-          )}
-        </div>
-        {overlayLayer}
-      </>
-    );
-  }
 
   return (
     <>

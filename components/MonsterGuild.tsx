@@ -691,10 +691,9 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
             monsterDisplay={displayMonsters}
             regionId={activeRegion}
             onExitRegion={() => setActiveRegion(null)}
-            onExitToMenu={() => setView('team')}
           />
         ) : (
-          <WorldMap playerLevel={playerLevel} onSelectRegion={setActiveRegion} onExit={() => setView('team')} />
+          <WorldMap playerLevel={playerLevel} onSelectRegion={setActiveRegion} />
         )
       )}
 

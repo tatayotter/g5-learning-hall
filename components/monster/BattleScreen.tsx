@@ -625,14 +625,24 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       <p className="text-white font-bold text-center mb-2 flex items-center justify-center gap-1">
         <img src="/icons/stats/items.svg" alt="" className="w-4 h-4 object-contain" /> Select an Item
       </p>
-      {Object.entries(inventory).length === 0 ? (
-        <p className="text-gray-500 text-sm text-center">No items in inventory.</p>
-      ) : (
-        Object.entries(inventory).map(([key, qty]) => {
-          if (!qty || qty <= 0) return null;
-
+      {/* player_inventory also holds non-battle rows (userpic cosmetics,
+          skill scrolls, the Compendium-only graduation scroll) — only show
+          entries that are actual battle consumables, not just anything the
+          player owns. */}
+      {(() => {
+        const battleItems = Object.entries(inventory).filter(([key, qty]) => {
+          if (!qty || qty <= 0) return false;
           const itemData = SHOP_CATALOG.find(i => i.key === key);
-          const noReviveTargets = itemData?.effect === 'revive' && faintedPlayerMonsters.length === 0;
+          return !!itemData && itemData.effect !== 'graduate_monster';
+        });
+
+        if (battleItems.length === 0) {
+          return <p className="text-gray-500 text-sm text-center">No items in inventory.</p>;
+        }
+
+        return battleItems.map(([key, qty]) => {
+          const itemData = SHOP_CATALOG.find(i => i.key === key)!;
+          const noReviveTargets = itemData.effect === 'revive' && faintedPlayerMonsters.length === 0;
 
           return (
             <button
@@ -641,20 +651,16 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
               disabled={itemBusy || noReviveTargets}
               className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-3 text-left flex items-center gap-3 transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
             >
-              {itemData?.icon ? (
-                <img src={itemData.icon} alt={itemData.name} className="w-8 h-8 object-contain flex-shrink-0" />
-              ) : (
-                <img src="/icons/rewards/package.svg" alt="Package" className="w-6 h-6 object-contain flex-shrink-0" />
-              )}
+              <img src={itemData.icon} alt={itemData.name} className="w-8 h-8 object-contain flex-shrink-0" />
               <div className="flex-1">
-                <p className="text-white font-bold text-sm capitalize">{itemData?.name || key.replace('_', ' ')}</p>
-                <p className="text-xs text-gray-400">{noReviveTargets ? 'No fainted curios to revive' : (itemData?.desc || 'Consumable item')}</p>
+                <p className="text-white font-bold text-sm capitalize">{itemData.name}</p>
+                <p className="text-xs text-gray-400">{noReviveTargets ? 'No fainted curios to revive' : itemData.desc}</p>
               </div>
               <span className="bg-neutral-700 text-yellow-400 font-bold px-3 py-1 rounded-full text-xs">x{qty}</span>
             </button>
           );
-        })
-      )}
+        });
+      })()}
       <button
         onClick={() => setPhase('select_skill')}
         className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors btn-tactile"

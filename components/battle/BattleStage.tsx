@@ -205,7 +205,7 @@ export default function BattleStage({
   if (isMobile) {
     return (
       <>
-        <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: 'var(--background)' }}>
+        <div className="fixed inset-0 z-[75] flex items-center justify-center" style={{ background: 'var(--background)' }}>
           <div className="bstage-scale-inner" style={{ transform: `scale(${scale})`, transformOrigin: 'center center' }}>
             {canvas}
           </div>

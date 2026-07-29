@@ -1018,12 +1018,13 @@ export const BATTLE_CONSTANTS = {
   // that gets roughly 2/3 of its own questions right rather than always
   // landing a perfect hit.
   NPC_COUNTER_ACCURACY: { correct: 2, total: 3 },
+  MONSTER_LEVEL_CAP: 100,
 };
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
 
 export function getMonsterLevel(exp: number): number {
-  return Math.floor(exp / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) + 1;
+  return Math.min(Math.floor(exp / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) + 1, BATTLE_CONSTANTS.MONSTER_LEVEL_CAP);
 }
 
 export function getAvailableSkillTiers(monsterLevel: number, monsterDef: MonsterDef): (1|2|3)[] {

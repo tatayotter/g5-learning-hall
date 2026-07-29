@@ -131,18 +131,13 @@ interface TrainingMapProps {
   // fixed spawn point tracked in local state only (never written to the DB).
   regionId?: string;
   onExitRegion?: () => void;
-  // Mobile-fullscreen-only "✕" affordance (see MapStage) — the sub-tab bar
-  // (World Map/My Team/Trainers/...) is still in the DOM on mobile but
-  // painted over entirely by the fullscreen map, so there's otherwise no way
-  // back to it at all.
-  onExitToMenu?: () => void;
 }
 
 export default function TrainingMap({
   userId, battleState, userMonsters, caughtMonsters, questions,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll, onChallengePlayer,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
-  regionId, onExitRegion, onExitToMenu,
+  regionId, onExitRegion,
 }: TrainingMapProps) {
   const [grassQuestion, setGrassQuestion] = useState(false);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
@@ -610,7 +605,6 @@ export default function TrainingMap({
         drawerLabel="Info"
         drawer={drawer}
         overlay={overlay}
-        onExit={onExitToMenu}
       />
 
       {statsTargetId && (

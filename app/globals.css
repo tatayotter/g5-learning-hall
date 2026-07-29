@@ -510,9 +510,6 @@ html {
   .rail-aside {
     width: 4rem;
   }
-  .rail-drawer {
-    left: 4rem;
-  }
   .rail-label {
     display: none;
   }

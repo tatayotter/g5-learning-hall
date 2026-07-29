@@ -12,7 +12,6 @@ import MapStage from '@/components/MapStage';
 interface WorldMapProps {
   playerLevel: number;
   onSelectRegion: (regionId: string) => void;
-  onExit?: () => void;
 }
 
 const RING_ELEMENTS: Element[] = ['fire', 'water', 'leaf', 'storm', 'shadow', 'light'];
@@ -39,7 +38,7 @@ function ringPosition(element: Element): { left: number; top: number } {
   };
 }
 
-export default function WorldMap({ playerLevel, onSelectRegion, onExit }: WorldMapProps) {
+export default function WorldMap({ playerLevel, onSelectRegion }: WorldMapProps) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const hoveredRegion = hoveredId ? REGIONS[hoveredId] : null;
   const allRegions = [REGIONS.ledgers_heart, ...RING_ELEMENTS.map(el => REGIONS[REGION_BY_ELEMENT[el]])];
@@ -141,7 +140,6 @@ export default function WorldMap({ playerLevel, onSelectRegion, onExit }: WorldM
       frame={frame}
       drawerLabel="Regions"
       drawer={drawer}
-      onExit={onExit}
     />
   );
 }
