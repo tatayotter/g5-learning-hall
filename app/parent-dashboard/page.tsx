@@ -7,6 +7,7 @@ import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/Ch
 interface ParentRow {
   status: 'pending' | 'approved' | 'rejected';
   full_name: string;
+  marketing_opt_in: boolean;
 }
 
 interface ChildRow {
@@ -28,6 +29,7 @@ export default function ParentDashboardPage() {
   const [newChild, setNewChild] = useState<ChildFormData>(emptyChildForm());
   const [addError, setAddError] = useState('');
   const [adding, setAdding] = useState(false);
+  const [togglingOptIn, setTogglingOptIn] = useState(false);
 
   const load = async () => {
     const { data: { user } } = await supabase.auth.getUser();
@@ -37,7 +39,7 @@ export default function ParentDashboardPage() {
     }
     const { data: parentRow } = await supabase
       .from('parents')
-      .select('status, full_name')
+      .select('status, full_name, marketing_opt_in')
       .eq('id', user.id)
       .single();
     setParent(parentRow as ParentRow);
@@ -79,6 +81,24 @@ export default function ParentDashboardPage() {
     setNewChild(emptyChildForm());
     setShowAddChild(false);
     load();
+  };
+
+  const handleToggleOptIn = async () => {
+    if (!parent) return;
+    const nextValue = !parent.marketing_opt_in;
+    setTogglingOptIn(true);
+    const { error } = await supabase.rpc('set_marketing_opt_in', { p_opt_in: nextValue });
+    setTogglingOptIn(false);
+    if (error) {
+      console.error('Failed to update email preference:', error);
+      return;
+    }
+    setParent({ ...parent, marketing_opt_in: nextValue });
+    if (nextValue) {
+      supabase.functions.invoke('sendfox-sync').then(({ error: syncError }) => {
+        if (syncError) console.error('Failed to sync SendFox contact:', syncError);
+      });
+    }
   };
 
   const handleSignOut = async () => {
@@ -127,6 +147,19 @@ export default function ParentDashboardPage() {
           <h1 className="text-xl font-display font-bold text-white">Welcome, {parent.full_name}</h1>
           <button onClick={handleSignOut} className="text-xs text-gray-500 hover:text-gray-300 underline">Sign out</button>
         </div>
+
+        <label className="flex items-start gap-3 rounded-lg border border-indigo-500/40 bg-indigo-500/10 px-3 py-2.5 cursor-pointer hover:border-indigo-400">
+          <input
+            type="checkbox"
+            checked={parent.marketing_opt_in}
+            onChange={handleToggleOptIn}
+            disabled={togglingOptIn}
+            className="mt-0.5 h-4 w-4 accent-indigo-500"
+          />
+          <span className="text-sm text-indigo-200">
+            <span className="font-semibold text-indigo-300">Email updates</span> — send occasional progress tips and updates. You can toggle this anytime.
+          </span>
+        </label>
 
         <div className="space-y-3">
           {kids.length === 0 && <p className="text-gray-500 text-sm">No children added yet.</p>}

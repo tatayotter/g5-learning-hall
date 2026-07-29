@@ -16,6 +16,7 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [children, setChildren] = useState<ChildFormData[]>([emptyChildForm()]);
+  const [marketingOptIn, setMarketingOptIn] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
 
@@ -42,7 +43,7 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
       const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
         email,
         password,
-        options: { data: { full_name: fullName, phone } },
+        options: { data: { full_name: fullName, phone, marketing_opt_in: marketingOptIn } },
       });
       if (signUpError || !signUpData.user) {
         setError(signUpError?.message || 'Could not create your account.');
@@ -62,6 +63,15 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
       }).then(({ error }) => {
         if (error) console.error('Failed to write analytics event:', error);
       });
+
+      // Fire-and-forget: opt-in state already lives on the parents row via
+      // signup metadata, so a failure here just means SendFox sync is late,
+      // not that registration failed.
+      if (marketingOptIn) {
+        supabase.functions.invoke('sendfox-sync').then(({ error }) => {
+          if (error) console.error('Failed to sync SendFox contact:', error);
+        });
+      }
 
       let childFailed = false;
       for (const child of children) {
@@ -123,6 +133,22 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
           onChange={(e) => setPhone(e.target.value)}
           className="w-full rounded-lg bg-neutral-950 border border-neutral-700 px-3 py-2 text-sm text-white"
         />
+        <label className="flex items-start gap-3 rounded-lg border border-indigo-500/40 bg-indigo-500/10 px-3 py-2.5 cursor-pointer hover:border-indigo-400">
+          <input
+            type="checkbox"
+            checked={marketingOptIn}
+            onChange={(e) => setMarketingOptIn(e.target.checked)}
+            className="mt-0.5 h-4 w-4 accent-indigo-500"
+          />
+          <span className="text-sm text-indigo-200">
+            <span className="font-semibold text-indigo-300">Keep me in the loop</span> — send occasional progress tips and updates by email. You can unsubscribe anytime.
+          </span>
+        </label>
+        {!marketingOptIn && (
+          <p className="text-xs text-gray-500 px-1">
+            Not checked — that's fine, you can always turn this on later from your dashboard.
+          </p>
+        )}
       </div>
 
       <div className="space-y-3">
