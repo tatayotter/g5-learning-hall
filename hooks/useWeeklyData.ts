@@ -204,28 +204,31 @@ export function useWeeklyData(userId: string = 'damien') {
       logAction(userId, currentSunday, 'achievement', `Unlocked achievement: ${title}`, xp, gold);
     });
 
-    // Apply achievement rewards then re-run level-up loop
-    // so XP from achievements doesn't overflow without levelling up
-    let finalXp = newStats.xp + addedXp;
-    let finalLevel = newStats.level;
-    while (finalXp >= (500 + finalLevel * 100)) {
-      finalXp -= (500 + finalLevel * 100);
-      finalLevel += 1;
+    // xp/gold/level are applied server-side as atomic deltas (not written as
+    // an absolute snapshot of local state) so that two saves firing close
+    // together both land instead of the second one clobbering the first —
+    // this used to silently lose gold when e.g. a battle reward and a quiz
+    // save raced each other.
+    const xpDelta = (newStats.xp - data.character_stats.xp) + addedXp;
+    const goldDelta = (newStats.gold - data.character_stats.gold) + addedGold;
+
+    const { data: finalStats, error: statsError } = await supabase.rpc('apply_character_deltas', {
+      p_user_id: userId,
+      p_week_starting_date: data.week_starting_date,
+      p_xp_delta: xpDelta,
+      p_gold_delta: goldDelta
+    });
+
+    if (statsError || !finalStats) {
+      console.error('Failed to apply character deltas:', statsError);
+      alert(`⚠️ Save failed: ${statsError?.message}`);
+      return;
     }
 
-    const finalStats = {
-      ...newStats,
-      xp: finalXp,
-      level: finalLevel,
-      gold: newStats.gold + addedGold
-    };
-
-    // Single source of truth for what this update touches — used for both the
-    // local optimistic update and the Supabase write, so the two can't drift
-    // out of sync (a field added to only one used to silently desync local
-    // UI state from what's actually persisted).
-    const changes = {
-      character_stats: finalStats,
+    // Everything but character_stats (which was just written atomically above)
+    // — kept as its own object so the plain .update() below can't re-write
+    // character_stats with a stale value and undo the atomic delta.
+    const otherChanges = {
       journal_logs: newJournal,
       achievements: newUnlocked,
       purchased_items: newPurchasedItems,
@@ -240,11 +243,11 @@ export function useWeeklyData(userId: string = 'damien') {
       dummy_battles_won: newDummyBattlesWon
     };
 
-    setData({ ...data, ...changes });
+    setData({ ...data, character_stats: finalStats as CharacterStats, ...otherChanges });
 
     const { error } = await supabase
       .from('weekly_packages')
-      .update(changes)
+      .update(otherChanges)
       .eq('week_starting_date', data.week_starting_date)
       .eq('user_id', userId);
 
@@ -254,11 +257,21 @@ export function useWeeklyData(userId: string = 'damien') {
     }
   };
 
-  const applyGoldDelta = (amount: number) => {
-    setData(prev => prev ? {
-      ...prev,
-      character_stats: { ...prev.character_stats, gold: prev.character_stats.gold + amount }
-    } : prev);
+  const applyGoldDelta = async (amount: number) => {
+    if (!data) return;
+    const { data: finalStats, error } = await supabase.rpc('apply_character_deltas', {
+      p_user_id: userId,
+      p_week_starting_date: data.week_starting_date,
+      p_xp_delta: 0,
+      p_gold_delta: amount
+    });
+
+    if (error || !finalStats) {
+      console.error('Failed to apply gold delta:', error);
+      return;
+    }
+
+    setData(prev => prev ? { ...prev, character_stats: finalStats as CharacterStats } : prev);
   };
 
   return { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta };
