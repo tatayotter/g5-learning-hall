@@ -879,27 +879,35 @@ export default function Dashboard() {
 
         {activeTab === 'vault' && USERS[activeUserId].isFamily && (
           <div>
-            <h1 className="text-3xl font-bold mb-8 font-display">The Gold Token Rewards Vault</h1>
+            <h1 className="text-3xl font-bold mb-2 font-display">The Gold Token Rewards Vault</h1>
+            <p className="text-gray-400 mb-8">Spend your hard-earned Gold on real-world rewards from the catalog below.</p>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              {Object.entries(VAULT_CATALOG).map(([key, item]) => (
-                <div key={key} className="bg-[#111] border border-[#333] p-6 rounded-xl flex flex-col justify-between h-full">
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">{item.name}</h3>
-                    <h4 className="text-yellow-400 font-bold mb-4"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {item.cost} Gold</h4>
-                    <p className="text-sm text-gray-400 mb-6">{item.desc}</p>
+              {Object.entries(VAULT_CATALOG).map(([key, item]) => {
+                const affordable = data.character_stats.gold >= item.cost;
+                return (
+                  <div key={key} className="bg-[#161010] border-2 border-[#000000] rounded-2xl p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] flex flex-col justify-between h-full">
+                    <div>
+                      <h3 className="text-lg font-bold text-white leading-tight mb-2">{item.name}</h3>
+                      <div className="mb-3">
+                        <span className={`inline-flex items-center gap-1 border-2 border-[#000000] text-[10px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full ${affordable ? 'bg-[#47982a] text-black shadow-[2px_2px_0_0_#000]' : 'bg-neutral-800 text-gray-400'}`}>
+                          <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3 h-3" /> {item.cost} GOLD
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-400 mb-6">{item.desc}</p>
+                    </div>
+                    <motion.button
+                      onClick={() => handleClaimReward(item.cost, item.name, key)}
+                      whileHover={affordable ? { scale: 1.02 } : {}}
+                      whileTap={affordable ? { scale: 0.95 } : {}}
+                      className="w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide text-black bg-yellow-500 hover:bg-yellow-400 border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-neutral-700 disabled:text-gray-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all"
+                      disabled={!affordable || claimingKey === key}
+                    >
+                      {claimingKey === key ? 'Claiming...' : affordable ? 'Claim Reward' : 'Not Enough Gold'}
+                    </motion.button>
                   </div>
-                  <motion.button
-                    onClick={() => handleClaimReward(item.cost, item.name, key)}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-full bg-yellow-600 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    disabled={data.character_stats.gold < item.cost || claimingKey === key}
-                  >
-                    {claimingKey === key ? 'Claiming...' : data.character_stats.gold >= item.cost ? 'Claim Reward' : 'Not Enough Gold'}
-                  </motion.button>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Monster Arena Shop for family too */}
@@ -913,8 +921,13 @@ export default function Dashboard() {
             </div>
 
             {/* My Claimed Rewards — filtered to this user */}
-            <div className="mt-10 bg-neutral-900 border border-neutral-800 p-6 rounded-xl">
-              <h2 className="text-xl font-bold mb-4"><img src="/icons/rewards/package.svg" alt="Package" className="inline w-4 h-4 align-[-2px]" /> My Claimed Rewards</h2>
+            <div className="mt-10 bg-[#111] border border-[#333] p-8 rounded-xl shadow-2xl">
+              <div className="flex justify-between items-center border-b border-neutral-800 pb-4 mb-6">
+                <h2 className="text-2xl font-bold text-blue-400 font-display"><img src="/icons/rewards/package.svg" alt="" className="inline w-5 h-5 align-[-4px] mr-1" /> My Claimed Rewards</h2>
+                <span className="bg-blue-900/30 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-800">
+                  {myClaims.length} TOTAL
+                </span>
+              </div>
 
               {(() => {
                 const countOf = (key: string) => myClaims.filter(c => c.item_key === key).length;
@@ -1071,7 +1084,8 @@ export default function Dashboard() {
         {/* --- TAB: JOURNAL --- */}
         {activeTab === 'journal' && (
           <div>
-            <h1 className="text-3xl font-bold mb-8 font-display">Journal</h1>
+            <h1 className="text-3xl font-bold mb-2 font-display">Guild Journal</h1>
+            <p className="text-gray-400 mb-8">Reflect on today's run and seal your ledger entry to claim your reward.</p>
             <GuildJournal
               userId={activeUserId}
               journalLogs={data.journal_logs || {}}
@@ -1087,7 +1101,8 @@ export default function Dashboard() {
         {/* --- TAB: TO-DO --- */}
         {activeTab === 'todo' && (
           <div>
-            <h1 className="text-3xl font-bold mb-8 font-display">To-Do</h1>
+            <h1 className="text-3xl font-bold mb-2 font-display">Daily To-Dos</h1>
+            <p className="text-gray-400 mb-8">Clear today's checklist to claim your daily bonus gold.</p>
             <DailyChecklist
               userId={activeUserId}
               currentSunday={data.week_starting_date}
@@ -1104,7 +1119,8 @@ export default function Dashboard() {
         {/* --- TAB: PROFILE --- */}
         {activeTab === 'profile' && (
           <div>
-            <h1 className="text-3xl font-bold mb-8 font-display">Profile</h1>
+            <h1 className="text-3xl font-bold mb-2 font-display">Hero Profile</h1>
+            <p className="text-gray-400 mb-8">Your rank, stats, and everything you've earned on the journey so far.</p>
             <HeroProfile
               userId={activeUserId}
               data={data}

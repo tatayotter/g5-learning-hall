@@ -115,22 +115,24 @@ export default function DailyChecklist({
 
   if (loading) {
     return (
-      <div className="bg-[#111] border border-[#333] rounded-xl p-5 mb-6 text-gray-500 animate-pulse">
-        <h3 className="font-bold mb-2">✅ Loading Daily To-Dos...</h3>
+      <div className="bg-[#111] border border-[#333] p-8 rounded-xl shadow-2xl mb-6 text-gray-500 animate-pulse">
+        <h3 className="font-bold mb-2 font-display">✅ Loading Daily To-Dos...</h3>
       </div>
     );
   }
 
   return (
-    <div className="bg-[#111] border border-[#333] rounded-xl p-5 mb-6 text-white">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="font-bold">✅ Daily To-Dos</h3>
-        <span className="text-xs text-gray-400">{doneCount}/{totalCount} done</span>
+    <div className="bg-[#111] border border-[#333] p-8 rounded-xl shadow-2xl mb-6 text-white">
+      <div className="flex justify-between items-center border-b border-neutral-800 pb-4 mb-6">
+        <h2 className="text-2xl font-bold text-blue-400 font-display">Daily To-Dos</h2>
+        <span className="bg-blue-900/30 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-800">
+          {doneCount}/{totalCount} DONE
+        </span>
       </div>
 
-      <div className="space-y-2 mb-3">
+      <div className="space-y-3 mb-6">
         {items.map((item, i) => (
-          <div key={i} className="flex items-center gap-2 text-sm">
+          <div key={i} className={`flex items-center gap-3 bg-black border rounded-lg p-4 text-sm ${item.done ? 'border-green-800' : 'border-neutral-800'}`}>
             <span className={item.done ? 'text-green-500' : 'text-gray-600'}>
               {item.done ? '✅' : '⬜'}
             </span>
@@ -140,8 +142,8 @@ export default function DailyChecklist({
           </div>
         ))}
 
-        <div>
-          <div className="flex items-center gap-2 text-sm">
+        <div className={`bg-black border rounded-lg p-4 ${guildsAllDone ? 'border-green-800' : 'border-neutral-800'}`}>
+          <div className="flex items-center gap-3 text-sm">
             <span className={guildsAllDone ? 'text-green-500' : 'text-gray-600'}>
               {guildsAllDone ? '✅' : '⬜'}
             </span>
@@ -149,7 +151,7 @@ export default function DailyChecklist({
               ⚔️ Play each Learning Guild ({guildsPlayedToday.length}/{GUILDS.length})
             </span>
           </div>
-          <div className="flex gap-1.5 mt-1 ml-6">
+          <div className="flex gap-1.5 mt-2 ml-6">
             {GUILDS.map(g => {
               const done = battleFlags.guild_last_played?.[g.key] === todayKey;
               return (
@@ -169,17 +171,19 @@ export default function DailyChecklist({
       </div>
 
       {claimed ? (
-        <div className="text-center text-xs text-green-500 font-bold"><img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px]" /> Bonus claimed for today!</div>
+        <div className="border-t border-neutral-800 pt-6 text-center text-sm text-green-500 font-bold"><img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px]" /> Bonus claimed for today!</div>
       ) : allDone ? (
-        <GameButton
-          onClick={handleClaim}
-          disabled={claiming}
-          className="w-full bg-yellow-600 hover:bg-yellow-500 text-black font-bold py-2 rounded transition-colors disabled:opacity-50"
-        >
-          <img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px]" /> Claim {BONUS_GOLD} Gold
-        </GameButton>
+        <div className="border-t border-neutral-800 pt-6 flex justify-center">
+          <GameButton
+            onClick={handleClaim}
+            disabled={claiming}
+            className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-10 rounded transition-colors font-display text-lg disabled:opacity-50"
+          >
+            <img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px] mr-1" /> Claim {BONUS_GOLD} Gold
+          </GameButton>
+        </div>
       ) : (
-        <p className="text-[11px] text-gray-500 text-center">Complete every task to earn {BONUS_GOLD} bonus gold!</p>
+        <p className="text-[11px] text-gray-500 text-center border-t border-neutral-800 pt-6">Complete every task to earn {BONUS_GOLD} bonus gold!</p>
       )}
     </div>
   );

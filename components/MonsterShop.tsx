@@ -118,7 +118,7 @@ export default function MonsterShop({ userId, currentStats, weekStartingDate, on
       )}
 
       {/* Inventory */}
-      <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4 mb-8">
+      <div className="bg-[#111] border border-[#333] p-6 rounded-xl shadow-2xl mb-8">
         <h2 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">My Inventory</h2>
         {Object.keys(inventory).length === 0 ? (
           <p className="text-gray-500 text-sm italic">No items yet. Buy some below!</p>
@@ -163,26 +163,33 @@ export default function MonsterShop({ userId, currentStats, weekStartingDate, on
       {/* Curio Arena Shop — consumables */}
       {activeSection === 'items' && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {SHOP_CATALOG.map(item => (
-            <div key={item.key} className="bg-[#111] border border-[#333] p-5 rounded-xl flex flex-col justify-between">
-              <div>
-                <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
-                <h3 className="text-white font-bold mb-1">{item.name}</h3>
-                <p className="text-yellow-400 text-sm font-bold mb-2"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {item.cost} Gold</p>
-                <p className="text-gray-400 text-xs mb-4">{item.desc}</p>
-                {(inventory[item.key] || 0) > 0 && (
-                  <p className="text-green-400 text-xs mb-2 font-bold">In bag: x{inventory[item.key]}</p>
-                )}
+          {SHOP_CATALOG.map(item => {
+            const affordable = currentStats.gold >= item.cost;
+            return (
+              <div key={item.key} className="bg-[#161010] border-2 border-[#000000] rounded-2xl p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] flex flex-col justify-between">
+                <div>
+                  <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
+                  <h3 className="text-white font-bold mb-2">{item.name}</h3>
+                  <div className="mb-3">
+                    <span className={`inline-flex items-center gap-1 border-2 border-[#000000] text-[10px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full ${affordable ? 'bg-[#47982a] text-black shadow-[2px_2px_0_0_#000]' : 'bg-neutral-800 text-gray-400'}`}>
+                      <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3 h-3" /> {item.cost} GOLD
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-xs mb-4">{item.desc}</p>
+                  {(inventory[item.key] || 0) > 0 && (
+                    <p className="text-green-400 text-xs mb-2 font-bold">In bag: x{inventory[item.key]}</p>
+                  )}
+                </div>
+                <button
+                  onClick={() => handleBuy(item.key, item.cost, item.name)}
+                  disabled={!affordable || buyingKey === item.key}
+                  className="w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide text-white bg-indigo-600 hover:bg-indigo-500 border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-neutral-700 disabled:text-gray-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all"
+                >
+                  {buyingKey === item.key ? 'Buying...' : affordable ? 'Buy' : 'Not Enough Gold'}
+                </button>
               </div>
-              <button
-                onClick={() => handleBuy(item.key, item.cost, item.name)}
-                disabled={currentStats.gold < item.cost || buyingKey === item.key}
-                className="w-full bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-2 rounded-lg transition-colors text-sm"
-              >
-                {buyingKey === item.key ? 'Buying...' : currentStats.gold >= item.cost ? 'Buy' : 'Not Enough Gold'}
-              </button>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
 
@@ -230,26 +237,33 @@ export default function MonsterShop({ userId, currentStats, weekStartingDate, on
             {SCROLL_CATALOG
               .filter(item => scrollCategory === 'all' || item.category === scrollCategory)
               .filter(item => scrollElement === 'all' || item.element === scrollElement || item.category === 'unlearn' || item.category === 'universal')
-              .map(item => (
-                <div key={item.key} className="bg-[#111] border border-[#333] p-5 rounded-xl flex flex-col justify-between">
-                  <div>
-                    <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
-                    <h3 className="text-white font-bold mb-1">{item.name}</h3>
-                    <p className="text-yellow-400 text-sm font-bold mb-2"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {item.cost} Gold</p>
-                    <p className="text-gray-400 text-xs mb-4">{item.desc}</p>
-                    {(inventory[item.key] || 0) > 0 && (
-                      <p className="text-green-400 text-xs mb-2 font-bold">In bag: x{inventory[item.key]}</p>
-                    )}
+              .map(item => {
+                const affordable = currentStats.gold >= item.cost;
+                return (
+                  <div key={item.key} className="bg-[#161010] border-2 border-[#000000] rounded-2xl p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] flex flex-col justify-between">
+                    <div>
+                      <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
+                      <h3 className="text-white font-bold mb-2">{item.name}</h3>
+                      <div className="mb-3">
+                        <span className={`inline-flex items-center gap-1 border-2 border-[#000000] text-[10px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full ${affordable ? 'bg-[#47982a] text-black shadow-[2px_2px_0_0_#000]' : 'bg-neutral-800 text-gray-400'}`}>
+                          <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3 h-3" /> {item.cost} GOLD
+                        </span>
+                      </div>
+                      <p className="text-gray-400 text-xs mb-4">{item.desc}</p>
+                      {(inventory[item.key] || 0) > 0 && (
+                        <p className="text-green-400 text-xs mb-2 font-bold">In bag: x{inventory[item.key]}</p>
+                      )}
+                    </div>
+                    <button
+                      onClick={() => handleBuy(item.key, item.cost, item.name)}
+                      disabled={!affordable || buyingKey === item.key}
+                      className="w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide text-white bg-indigo-600 hover:bg-indigo-500 border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-neutral-700 disabled:text-gray-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all"
+                    >
+                      {buyingKey === item.key ? 'Buying...' : affordable ? 'Buy' : 'Not Enough Gold'}
+                    </button>
                   </div>
-                  <button
-                    onClick={() => handleBuy(item.key, item.cost, item.name)}
-                    disabled={currentStats.gold < item.cost || buyingKey === item.key}
-                    className="w-full bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-2 rounded-lg transition-colors text-sm"
-                  >
-                    {buyingKey === item.key ? 'Buying...' : currentStats.gold >= item.cost ? 'Buy' : 'Not Enough Gold'}
-                  </button>
-                </div>
-              ))}
+                );
+              })}
           </div>
         </div>
       )}
@@ -266,24 +280,29 @@ export default function MonsterShop({ userId, currentStats, weekStartingDate, on
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {USERPIC_CATALOG.map(item => {
               const owned = (inventory[item.key] || 0) > 0;
+              const affordable = currentStats.gold >= item.cost;
               return (
-                <div key={item.key} className="bg-[#111] border border-[#333] p-5 rounded-xl flex flex-col justify-between">
+                <div key={item.key} className="bg-[#161010] border-2 border-[#000000] rounded-2xl p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] flex flex-col justify-between">
                   <div>
                     <img src={userpicPath(item.file)} alt={item.name} className="w-16 h-16 object-contain mb-2 rounded-lg bg-neutral-950" />
-                    <h3 className="text-white font-bold mb-1">{item.name}</h3>
-                    <p className="text-yellow-400 text-sm font-bold mb-2"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {item.cost} Gold</p>
+                    <h3 className="text-white font-bold mb-2">{item.name}</h3>
+                    <div className="mb-3">
+                      <span className={`inline-flex items-center gap-1 border-2 border-[#000000] text-[10px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full ${affordable || owned ? 'bg-[#47982a] text-black shadow-[2px_2px_0_0_#000]' : 'bg-neutral-800 text-gray-400'}`}>
+                        <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3 h-3" /> {item.cost} GOLD
+                      </span>
+                    </div>
                   </div>
                   {owned ? (
-                    <div className="w-full bg-green-900/30 border border-green-800 text-green-400 font-bold py-2 rounded-lg text-center text-sm">
+                    <div className="w-full bg-neutral-800 border-2 border-[#000000] text-gray-300 font-extrabold uppercase tracking-wide text-sm py-2.5 rounded-lg text-center">
                       ✓ Owned
                     </div>
                   ) : (
                     <button
                       onClick={() => handleBuy(item.key, item.cost, item.name)}
-                      disabled={currentStats.gold < item.cost || buyingKey === item.key}
-                      className="w-full bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-2 rounded-lg transition-colors text-sm"
+                      disabled={!affordable || buyingKey === item.key}
+                      className="w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide text-white bg-indigo-600 hover:bg-indigo-500 border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-neutral-700 disabled:text-gray-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all"
                     >
-                      {buyingKey === item.key ? 'Buying...' : currentStats.gold >= item.cost ? 'Buy' : 'Not Enough Gold'}
+                      {buyingKey === item.key ? 'Buying...' : affordable ? 'Buy' : 'Not Enough Gold'}
                     </button>
                   )}
                 </div>
