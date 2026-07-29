@@ -1,6 +1,6 @@
 // lib/guildEngine.ts
 import { supabase } from '@/lib/supabase';
-import { CURRENT_TERM, PREFETCH_BATCH_SIZE } from '@/lib/guildConfig';
+import { CURRENT_TERM, PREFETCH_BATCH_SIZE, MIN_SESSION_POOL_SIZE } from '@/lib/guildConfig';
 import type { GuildKey } from '@/lib/dailyChecklist';
 import { GUILD_MONSTERS } from '@/lib/monsterConfig';
 
@@ -155,10 +155,20 @@ export async function fetchQuestionPool(userId: string, tableName: string, quest
     return data || [];
   }
 
+  // Top up a too-small "remaining" pool with already-completed questions from
+  // the wider pool so a session isn't just 1-2 distinct questions on repeat —
+  // still prefers fresh questions first, just pads with seen ones if needed.
+  function withTopUp(remaining: any[], widerPool: any[]): any[] {
+    if (remaining.length >= MIN_SESSION_POOL_SIZE) return remaining;
+    const remainingIds = new Set(remaining.map((q: any) => q.id));
+    const topUp = widerPool.filter((q: any) => !remainingIds.has(q.id));
+    return [...remaining, ...topUp.slice(0, MIN_SESSION_POOL_SIZE - remaining.length)];
+  }
+
   if (!tierField) {
     const data = await fetchPool(null);
     const remaining = data.filter((q: any) => !completedIds.has(q.id));
-    if (remaining.length > 0) return remaining.slice(0, PREFETCH_BATCH_SIZE);
+    if (remaining.length > 0) return withTopUp(remaining, data).slice(0, PREFETCH_BATCH_SIZE);
     await supabase.from('user_completed_questions').delete().eq('user_id', USER_ID).eq('quest_type', questType);
     return data.slice(0, PREFETCH_BATCH_SIZE);
   }
@@ -173,7 +183,7 @@ export async function fetchQuestionPool(userId: string, tableName: string, quest
 
   const remaining = tierPool.filter((q: any) => !completedIds.has(q.id));
   if (remaining.length > 0) {
-    return remaining.slice(0, PREFETCH_BATCH_SIZE);
+    return withTopUp(remaining, tierPool).slice(0, PREFETCH_BATCH_SIZE);
   }
 
   if (currentTier < MAX_DIFFICULTY_TIER) {

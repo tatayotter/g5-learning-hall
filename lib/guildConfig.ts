@@ -6,6 +6,11 @@ export const CURRENT_TERM = 1;
 export const TIME_ATTACK_DURATION = 60; // seconds
 export const PREFETCH_BATCH_SIZE = 35; // 30-40 range per spec
 
+// Below this, a "no-repeat" pool is too small to fill a Time Attack session
+// without the same question resurfacing every answer — top it up with
+// already-completed questions rather than serve just 1-2 distinct ones.
+export const MIN_SESSION_POOL_SIZE = 10;
+
 export const XP_PER_CORRECT = 10;
 export const GOLD_PER_CORRECT = 2;
 export const SCORE_PER_CORRECT = 10;
