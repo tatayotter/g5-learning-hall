@@ -1318,6 +1318,82 @@ export const BLOG_POSTS: BlogPost[] = [
       { label: 'deped-click.com', url: 'https://www.deped-click.com/' },
     ],
   },
+  {
+    slug: 'learning-hall-vs-after-school-tutor',
+    title: 'Learning Hall vs. an After-School Tutor: An Honest Comparison for Busy Filipino Parents',
+    description:
+      'Weighing a gamified learning app against traditional after-school tutoring — cost, commute, screen time, and where each one actually helps a Grade 2-6 learner.',
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 'all',
+    publishedAt: '2026-07-30',
+    updatedAt: '2026-07-30',
+    intro:
+      "Every parent juggling a Grade 2-6 learner's schedule eventually asks some version of the same question: is an after-school tutor worth it, or is there a lower-friction way to get the same reinforcement? There's no single right answer — a good tutor genuinely helps many kids — but it's worth actually laying out where a tutor shines, where the friction shows up, and where something like Learning Hall fits instead of just being another screen to feel guilty about.",
+    sections: [
+      {
+        heading: 'What a good tutor actually does well',
+        paragraphs: [
+          "Traditional after-school tutoring earns its place for a reason. A patient adult sitting next to a child, watching exactly where they get stuck on a specific problem, and adjusting on the spot is something no app fully replicates. Tutors also add real accountability — a scheduled session a child has to show up for tends to happen, where a vague intention to \"review at home\" often doesn't.",
+          "For a child who's genuinely behind in one subject, or who has a specific learning difficulty that needs a trained adult's judgment, that one-on-one human attention isn't a nice-to-have — it's often exactly what's needed. Nothing in this post is meant to talk that value down.",
+        ],
+      },
+      {
+        heading: "Where the friction shows up",
+        paragraphs: [
+          "The honest downside of after-school tutoring in most Filipino cities is logistics, not the teaching itself. A tutor session usually means commute time on top of the session itself — often through traffic, at the end of a school day when a child is already tired. By the time review actually starts, the child has less mental energy left for it than they did three hours earlier.",
+          "Cost adds up the same way: a weekly or twice-weekly tutor is a recurring expense most families feel every month, on top of school fees and transportation. None of this makes tutoring the wrong choice — it just means it comes with a real cost in money, time, and a child's remaining energy for the day, and it's worth weighing against that, not just against \"doing nothing.\"",
+        ],
+      },
+      {
+        heading: "The screen time worry — and why not all screen time is equal",
+        paragraphs: [
+          "Adding an app to a child's routine understandably triggers a screen-time reflex in most parents, and that instinct isn't wrong — a lot of screen time genuinely is worth limiting. But the research on this is less about a raw minutes count and more about what's actually happening during those minutes. An algorithmic short-video feed designed to never end is a very different experience from a bounded, single-purpose learning session with a clear start and stop.",
+          "Learning Hall is built with that distinction in mind: there's no infinite scroll, no autoplay feed, and no ad-driven incentive to keep a child's eyes on the screen longer than the actual lesson content needs. A session has a shape — a quest, a quiz, a checklist — and then it ends, the same way a workbook page ends. The goal is screen time a parent can feel fine about, not screen time that quietly stretches on its own.",
+        ],
+      },
+      {
+        heading: 'Fun changes whether review actually happens at all',
+        paragraphs: [
+          'The biggest practical difference between a worksheet and a quest with the exact same questions on it isn\'t the content — it\'s whether a child asks to do it again tomorrow. Spaced, repeated review is what actually builds retention (a point that comes up across nearly every skill guide on this blog), and spaced repetition only works if the repetition actually happens without a fight each time.',
+          "A child who finds the format genuinely fun will voluntarily return to review material a parent would otherwise have to insist on. That's not a minor convenience — it's the entire mechanism that makes daily short practice sessions realistic for a busy household, instead of becoming one more nightly negotiation.",
+        ],
+      },
+      {
+        heading: 'Meaningful play, not empty entertainment',
+        paragraphs: [
+          "It's worth being precise about what \"gamified\" should mean here, because the word gets used loosely. Meaningful play has real stakes and real feedback tied to something that matters — a quest only unlocks once an actual DepEd-aligned quiz is answered correctly, a monster is only caught through real quiz mastery, and progress reflects what a child actually knows, not just how long they sat there. That's different from a rewards system bolted onto content with no real connection to it, which teaches a child to chase the reward instead of the learning.",
+          "The app's journal feature leans on this too — a short daily reflection on what was learned or what felt hard turns a quiz session into something a child thinks about afterward, not just clicks through. That reflective habit is closer to what a good tutor draws out in conversation than to typical app engagement.",
+        ],
+      },
+      {
+        heading: 'Cost and logistics, side by side',
+        paragraphs: [
+          "A typical after-school tutor in a Philippine city runs anywhere from a few hundred to over a thousand pesos per session, once or twice a week, plus the commute time on both ends. Learning Hall's core learning content is free, runs at home with no travel, and fits into ten or fifteen minutes whenever the family actually has them — before dinner, after a bath, on a weekend morning — rather than a fixed slot that has to be defended on the calendar every week.",
+          "That doesn't make the app strictly \"better\" — it makes it lower-friction for the kind of daily reinforcement that tutoring sessions, realistically, can only cover once or twice a week anyway.",
+        ],
+      },
+      {
+        heading: 'Where a tutor still makes more sense',
+        paragraphs: [
+          "To be fair about it: a child who is significantly behind in a specific subject, has a diagnosed learning difficulty, or simply needs a trusted adult physically present to stay focused will usually get more out of a real tutor than any app, however well designed. Human judgment, live correction, and one-on-one accountability are genuinely hard to replace, and this post isn't arguing they should be.",
+        ],
+      },
+      {
+        heading: "They don't have to be a choice between one or the other",
+        paragraphs: [
+          "Plenty of families end up doing both, and that's often the most realistic setup: a weekly tutor session for focused, harder subjects, and Learning Hall for the daily five-to-fifteen-minute reinforcement in between that keeps skills warm without adding another appointment to the week. The two aren't competing for the same job — one is depth on a schedule, the other is frequency without the friction.",
+        ],
+      },
+    ],
+    takeaways: [
+      "A good tutor still offers real, human value — one-on-one judgment and accountability — that this post isn't trying to diminish.",
+      "The screen-time question is about structure, not just minutes: a bounded quest session is a different experience than an endless feed.",
+      "Fun is what makes repeated review actually happen, and meaningful play — real stakes tied to real mastery — is what keeps that fun from being empty.",
+      "Many families get the most value by combining both: a tutor for focused depth, Learning Hall for daily low-friction reinforcement.",
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
