@@ -263,6 +263,11 @@ export default function ParentDashboardPage() {
             </>
           )}
         </div>
+        {!isPremium && (
+          <a href="/parent-dashboard/pricing" className="block text-center text-xs text-indigo-300 hover:text-indigo-200 underline">
+            See full pricing details
+          </a>
+        )}
         {checkoutError && !isPremium && kids.length < maxChildren && <p className="text-red-400 text-xs">{checkoutError}</p>}
 
         <label className="flex items-start gap-3 rounded-lg border border-indigo-500/40 bg-indigo-500/10 px-3 py-2.5 cursor-pointer hover:border-indigo-400">
