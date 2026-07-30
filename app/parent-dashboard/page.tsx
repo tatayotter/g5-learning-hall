@@ -34,6 +34,8 @@ export default function ParentDashboardPage() {
   const [deleteConfirmText, setDeleteConfirmText] = useState('');
   const [deleting, setDeleting] = useState(false);
   const [deleteError, setDeleteError] = useState('');
+  const [revealedPins, setRevealedPins] = useState<Record<string, string | null>>({});
+  const [pinLoading, setPinLoading] = useState<string | null>(null);
 
   const load = async () => {
     const { data: { user } } = await supabase.auth.getUser();
@@ -103,6 +105,25 @@ export default function ParentDashboardPage() {
         if (syncError) console.error('Failed to sync SendFox contact:', syncError);
       });
     }
+  };
+
+  const handleTogglePin = async (childId: string) => {
+    if (childId in revealedPins) {
+      setRevealedPins((prev) => {
+        const next = { ...prev };
+        delete next[childId];
+        return next;
+      });
+      return;
+    }
+    setPinLoading(childId);
+    const { data, error } = await supabase.rpc('get_child_pin', { p_child_id: childId });
+    setPinLoading(null);
+    if (error) {
+      console.error('Failed to load PIN:', error);
+      return;
+    }
+    setRevealedPins((prev) => ({ ...prev, [childId]: data ?? null }));
   };
 
   const handleSignOut = async () => {
@@ -194,10 +215,22 @@ export default function ParentDashboardPage() {
           {kids.map((kid) => (
             <div key={kid.id} className="bg-neutral-900 border border-neutral-700 rounded-xl p-3 flex items-center gap-3">
               <img src={kid.avatar} alt="" className="w-12 h-12 rounded-lg object-cover border border-neutral-700" />
-              <div>
+              <div className="flex-1">
                 <p className="text-white text-sm font-bold">{kid.full_name}</p>
                 <p className="text-gray-500 text-xs">{kid.grade} · {kid.school_name} · @{kid.username}</p>
               </div>
+              <button
+                type="button"
+                onClick={() => handleTogglePin(kid.id)}
+                disabled={pinLoading === kid.id}
+                className="text-xs text-indigo-300 hover:text-indigo-200 underline disabled:opacity-50 whitespace-nowrap"
+              >
+                {pinLoading === kid.id
+                  ? '…'
+                  : kid.id in revealedPins
+                    ? (revealedPins[kid.id] ?? 'PIN unavailable — reset it')
+                    : 'Show PIN'}
+              </button>
             </div>
           ))}
         </div>
