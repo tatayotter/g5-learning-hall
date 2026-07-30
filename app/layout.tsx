@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://learninghall.vercel.app"),
+  metadataBase: new URL("https://learninghallph.com"),
   title: "Learning Hall",
   description: "A gamified learning quest tracker",
   openGraph: {
@@ -40,6 +40,13 @@ export const metadata: Metadata = {
     description: "A gamified learning quest tracker",
     images: ["/splash1.webp"],
   },
+  // Paste the verification string Google Search Console gives you (Settings >
+  // Ownership verification > HTML tag method) into NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION.
+  // Omitted entirely — not just empty — when unset, since Next.js still renders
+  // an empty content="" meta tag otherwise.
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 export default function RootLayout({

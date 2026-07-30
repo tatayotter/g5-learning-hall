@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ensureAnonymousSession } from '@/lib/supabase';
@@ -111,11 +112,14 @@ function HeroBackdrop() {
     <div className="absolute inset-0 overflow-hidden">
       <div className="absolute inset-0 bg-[#0a0807]" />
       {!failed && (
-        <img
+        <Image
           src="/welcome-hero.webp"
           alt=""
+          fill
+          priority
+          sizes="100vw"
           onError={() => setFailed(true)}
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-70"
+          className="object-cover object-center opacity-70"
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a0807]/30 via-[#0a0807]/60 to-[#0a0807]" />
@@ -375,9 +379,12 @@ export default function WelcomePage() {
       <section className="relative min-h-[92vh] flex items-center justify-center px-6 py-20">
         <HeroBackdrop />
         <div className="relative z-10 max-w-3xl text-center">
-          <img
+          <Image
             src="/learning_hall_full_logo.webp"
             alt="Learning Hall"
+            width={495}
+            height={367}
+            priority
             className="h-20 sm:h-28 w-auto mx-auto mb-6 object-contain drop-shadow-[0_6px_28px_rgba(0,0,0,0.55)]"
           />
           <h1 className="font-display text-4xl sm:text-6xl font-black leading-[1.05] tracking-[-0.02em] mb-6">
@@ -930,10 +937,13 @@ export default function WelcomePage() {
       {/* ── FINAL CTA ── */}
       <section className="relative px-6 py-24 border-t border-[#241d16] overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <img
+          <Image
             src="/welcome-hero.webp"
             alt=""
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-20 blur-2xl scale-110"
+            fill
+            quality={20}
+            sizes="100vw"
+            className="object-cover object-center opacity-20 blur-2xl scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0807]/40 via-[#0a0807]/75 to-[#0a0807]" />
         </div>
@@ -958,6 +968,12 @@ export default function WelcomePage() {
       </section>
 
       <footer className="px-6 py-8 text-center border-t border-[#241d16]">
+        <a
+          href="/blog"
+          className="inline-block text-[12px] font-semibold text-[#d4b46a] hover:text-[#f0b429] transition-colors tracking-wide mb-3"
+        >
+          Free Parent Guides — Reading, Math, Typing & More →
+        </a>
         <p className="text-[11px] tracking-[0.06em] text-white/25 font-medium">
           © {new Date().getFullYear()} Ruelo Learning Hall. All Rights Reserved.
         </p>
