@@ -61,7 +61,7 @@ const APK_URL = 'https://github.com/tatayotter/g5-learning-hall/releases/latest/
 const FAQS = [
   {
     q: 'Is this actually free?',
-    a: 'Yes — Learning Hall is free while it’s in Early Access, no credit card required. We haven’t locked in pricing for a wider release yet, but Early Access families won’t be blindsided by a sudden bill; you’ll hear about any change before it happens.',
+    a: 'Yes — the core game is free, forever, for one child: full gameplay, all five Learning Guilds, curio battles, and the progress dashboard. A ₱249/year Premium plan is available if you want to add more children under one account, view your child’s journal entries, and earn gold coins to stock the Rewards Vault — but nothing about the actual learning is ever paywalled.',
   },
   {
     q: 'Is my child’s information safe?',
@@ -85,11 +85,15 @@ const FAQS = [
   },
   {
     q: 'Can I control the rewards, or will my kid expect things I haven’t agreed to?',
-    a: 'You stock the Rewards Vault yourself with whatever you’re comfortable offering, and every claim sits pending until you approve it. Nothing gets fulfilled without your sign-off.',
+    a: 'Yes. You stock the Rewards Vault yourself with whatever you’re comfortable offering, and gold is only ever earned from mastered lessons — never bought. Reward-claim approvals are on the roadmap; for now you set the vault contents and stay in the loop through the parent dashboard.',
   },
   {
     q: 'What if I have more than one child?',
-    a: 'One parent account manages your whole family — add every child once during registration, then switch between them and approve each one’s reward claims from a single dashboard.',
+    a: 'Every family starts with one free child account. Add siblings under the same parent login with the ₱249/year Premium plan — it covers a couple of kids to start, with extra child slots available if you need more, and everyone shows up on one dashboard.',
+  },
+  {
+    q: 'What does the parent dashboard actually show me?',
+    a: 'Each child’s learning streak, recent activity, and — on Premium — their in-game journal entries, so you can see how they’re doing without having to ask.',
   },
 ] as const;
 
@@ -336,14 +340,6 @@ function CTAButtons({ align = 'center' }: { align?: 'center' | 'left' }) {
         >
           Register Your Family
         </motion.a>
-        <motion.a
-          href="/parent-login"
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          className="w-full sm:w-auto text-center bg-[#1c1611] hover:bg-[#241d16] border border-[#3d3225] hover:border-[#c9781a] text-[#d8cdb8] font-bold px-8 py-3.5 rounded-[14px] transition-colors"
-        >
-          Parent Login
-        </motion.a>
         <motion.button
           type="button"
           onClick={handleTryDemo}
@@ -404,21 +400,6 @@ export default function WelcomePage() {
 
           <div className="flex justify-center">
             <CTAButtons />
-          </div>
-
-          <div className="mt-6 flex flex-col items-center gap-2">
-            <a
-              href="/welcome/features"
-              className="inline-block text-[12.5px] font-semibold text-[#d4b46a] hover:text-[#f0b429] transition-colors tracking-wide"
-            >
-              See the Full Feature List →
-            </a>
-            <a
-              href={APK_URL}
-              className="inline-block text-[12.5px] text-[#8a7c66] hover:text-[#d4b46a] transition-colors tracking-wide"
-            >
-              Also available on Android — Download APK
-            </a>
           </div>
         </div>
       </section>
@@ -895,8 +876,8 @@ export default function WelcomePage() {
             {[
               { title: 'Daily 30-Minute Loop', desc: 'Predictable rhythm — Monday through Friday campaigns tied to the classroom schedule, with guilds, curio training, and PvP battles anytime in between. No doom-scrolling.' },
               { title: 'Real Curriculum, Zero Fluff', desc: 'Mapped to elementary subjects and DepEd curriculum. What they learn counts.' },
-              { title: 'Parent Dashboard Included', desc: 'See time spent, lessons mastered, and gold earned — gentle nudges, not nagging reports.' },
-              { title: 'One Login, Whole Family', desc: 'Manage every registered child from a single parent account, approve every reward claim.' },
+              { title: 'Progress Dashboard Included', desc: 'See each child’s learning streak and recent activity, right from your free parent account — a gentle check-in, not a nagging report.' },
+              { title: 'Free for Your First Child, Premium for the Rest', desc: 'One child account is free forever. Add siblings under the same login, unlock journal viewing, and earn gold to stock the Rewards Vault with a ₱249/year Premium plan.' },
             ].map((f, i) => (
               <FadeIn key={f.title} delay={i * 0.05}>
                 <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl px-5 py-4 flex items-start gap-3">
@@ -910,6 +891,27 @@ export default function WelcomePage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ── FULL FEATURE LIST TEASER ── */}
+      <section className="px-6 py-16 bg-[#0d0a08] border-y border-[#241d16]">
+        <FadeIn>
+          <div className="max-w-xl mx-auto text-center">
+            <SectionKicker>Still Curious?</SectionKicker>
+            <h2 className="font-display text-2xl sm:text-3xl font-black mb-3">
+              There&apos;s More Under the Hood
+            </h2>
+            <p className="text-[#8a7c66] text-sm mb-6 leading-relaxed">
+              Guilds, curios, PvP, events, dashboards — every feature explained plainly, one page.
+            </p>
+            <a
+              href="/welcome/features"
+              className="inline-block text-sm font-semibold text-[#d4b46a] hover:text-[#f0b429] transition-colors tracking-wide"
+            >
+              See the Full Feature List →
+            </a>
+          </div>
+        </FadeIn>
       </section>
 
       {/* ── FAQ ── */}
@@ -954,8 +956,8 @@ export default function WelcomePage() {
               Ready to Start the Campaign?
             </h2>
             <p className="text-[#c9bfae] mb-8">
-              Join families turning homework battles into legend. Free during Early Access — no
-              credit card.
+              Join families turning homework battles into legend. Free forever for your first
+              child — no credit card.
             </p>
             <div className="flex justify-center">
               <CTAButtons />
@@ -974,6 +976,11 @@ export default function WelcomePage() {
         >
           Free Parent Guides — Reading, Math, Typing & More →
         </a>
+        <p className="text-[11px] tracking-wide mb-3">
+          <a href="/parent-login" className="text-white/40 hover:text-white/70 underline">Parent Login</a>
+          <span className="text-white/20 mx-2">·</span>
+          <a href={APK_URL} className="text-white/40 hover:text-white/70 underline">Download Android APK</a>
+        </p>
         <p className="text-[11px] tracking-[0.06em] text-white/25 font-medium">
           © {new Date().getFullYear()} Ruelo Learning Hall. All Rights Reserved.
         </p>

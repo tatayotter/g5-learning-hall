@@ -67,8 +67,20 @@ const FEATURES: Feature[] = [
   {
     icon: '/icons/stats/switch.svg',
     name: 'Multi-Child Support',
-    what: 'Add every child in the family under one parent account and manage them all from a single login.',
+    what: 'Your first child account is free forever. Add siblings under the same parent login with a ₱249/year Premium plan, and manage everyone from a single dashboard.',
     payoff: 'No juggling separate logins per sibling — one account, the whole family.',
+  },
+  {
+    icon: '/icons/stats/items.svg',
+    name: 'Progress Dashboard',
+    what: 'See each child’s current learning streak and recent activity right from your parent account, free.',
+    payoff: "Know how they're doing without having to ask how school went.",
+  },
+  {
+    icon: '/icons/rewards/package.svg',
+    name: 'Journal Viewing & Gold Rewards',
+    what: "A Premium-only window into your child's in-game journal, plus a yearly pool of gold coins you can hand out to stock the Rewards Vault.",
+    payoff: 'A closer look at how they think, and a way to reward real effort without spending on top of the subscription.',
   },
   {
     icon: '/items/graduation_scroll.svg',
@@ -79,12 +91,6 @@ const FEATURES: Feature[] = [
 ];
 
 const COMING_SOON: Feature[] = [
-  {
-    icon: '/icons/stats/items.svg',
-    name: 'Parent Dashboard Analytics',
-    what: 'Time spent, lessons mastered, and progress trends for each child, visible right from the parent dashboard.',
-    payoff: "See what's working without having to ask your child how school went.",
-  },
   {
     icon: '/icons/rewards/package.svg',
     name: 'Reward-Claim Approvals',
@@ -212,9 +218,15 @@ export default function FeaturesPage() {
               Ready to Start the Campaign?
             </h2>
             <p className="text-[#c9bfae] mb-2">
-              Free during Early Access — no credit card.
+              Free forever for your first child — no credit card.
             </p>
             <CTAButtons />
+            <a
+              href="/parent-dashboard/pricing"
+              className="inline-block mt-4 text-[12.5px] text-[#8a7c66] hover:text-[#d4b46a] transition-colors tracking-wide"
+            >
+              Free vs. Premium — See Pricing →
+            </a>
           </div>
         </FadeIn>
       </section>
