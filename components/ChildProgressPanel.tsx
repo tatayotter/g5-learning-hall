@@ -5,6 +5,9 @@ import { supabase } from '@/lib/supabase';
 
 interface Props {
   childId: string;
+  isPremium: boolean;
+  coinBalance: number;
+  onCoinsAwarded: (amount: number) => void;
 }
 
 interface SubclassProfile {
@@ -49,7 +52,7 @@ function computeStreak(claimDates: string[]): number {
   return streak;
 }
 
-export default function ChildProgressPanel({ childId }: Props) {
+export default function ChildProgressPanel({ childId, isPremium, coinBalance, onCoinsAwarded }: Props) {
   const [loading, setLoading] = useState(true);
   const [level, setLevel] = useState<number | null>(null);
   const [xp, setXp] = useState<number | null>(null);
@@ -63,6 +66,11 @@ export default function ChildProgressPanel({ childId }: Props) {
   const [showJournal, setShowJournal] = useState(false);
   const [journalLoading, setJournalLoading] = useState(false);
   const [journal, setJournal] = useState<JournalEntry[] | null>(null);
+
+  const [coinAmount, setCoinAmount] = useState('');
+  const [awarding, setAwarding] = useState(false);
+  const [awardError, setAwardError] = useState('');
+  const [awardSuccess, setAwardSuccess] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -136,6 +144,27 @@ export default function ChildProgressPanel({ childId }: Props) {
     setJournal((data as JournalEntry[]) ?? []);
   };
 
+  const handleAwardCoins = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setAwardError('');
+    setAwardSuccess(false);
+    const amount = parseInt(coinAmount, 10);
+    if (!Number.isInteger(amount) || amount <= 0) {
+      setAwardError('Enter a positive whole number.');
+      return;
+    }
+    setAwarding(true);
+    const { error } = await supabase.rpc('award_coins_to_child', { p_child_id: childId, p_amount: amount });
+    setAwarding(false);
+    if (error) {
+      setAwardError(error.message);
+      return;
+    }
+    setCoinAmount('');
+    setAwardSuccess(true);
+    onCoinsAwarded(amount);
+  };
+
   if (loading) {
     return <p className="text-xs text-gray-500 py-2">Loading progress…</p>;
   }
@@ -174,15 +203,19 @@ export default function ChildProgressPanel({ childId }: Props) {
         {lastLogin && <> · last played {new Date(lastLogin).toLocaleDateString()}</>}
       </p>
 
-      <button
-        type="button"
-        onClick={handleToggleJournal}
-        className="text-xs text-indigo-300 hover:text-indigo-200 underline"
-      >
-        {showJournal ? 'Hide journal' : 'View journal'}
-      </button>
+      {isPremium ? (
+        <button
+          type="button"
+          onClick={handleToggleJournal}
+          className="text-xs text-indigo-300 hover:text-indigo-200 underline"
+        >
+          {showJournal ? 'Hide journal' : 'View journal'}
+        </button>
+      ) : (
+        <p className="text-xs text-gray-600">🔒 Journal viewing is a Premium feature.</p>
+      )}
 
-      {showJournal && (
+      {isPremium && showJournal && (
         <div className="space-y-2">
           {journalLoading && <p className="text-xs text-gray-500">Loading journal…</p>}
           {!journalLoading && journal?.length === 0 && (
@@ -199,6 +232,30 @@ export default function ChildProgressPanel({ childId }: Props) {
           ))}
         </div>
       )}
+
+      {isPremium && (
+        <form onSubmit={handleAwardCoins} className="flex items-center gap-2 pt-1 border-t border-neutral-800">
+          <span className="text-xs text-gray-500 whitespace-nowrap">🪙 Award coins</span>
+          <input
+            type="number"
+            min={1}
+            value={coinAmount}
+            onChange={(e) => { setCoinAmount(e.target.value); setAwardSuccess(false); }}
+            placeholder="Amount"
+            className="w-20 rounded-lg bg-black border border-neutral-700 px-2 py-1 text-xs text-white"
+          />
+          <button
+            type="submit"
+            disabled={awarding || coinBalance <= 0}
+            className="rounded-lg bg-amber-600 hover:bg-amber-500 disabled:opacity-50 text-white text-xs font-bold px-3 py-1.5"
+          >
+            {awarding ? '…' : 'Award'}
+          </button>
+          <span className="text-[10px] text-gray-600 whitespace-nowrap ml-auto">{coinBalance} left</span>
+        </form>
+      )}
+      {isPremium && awardError && <p className="text-red-400 text-xs">{awardError}</p>}
+      {isPremium && awardSuccess && <p className="text-green-400 text-xs">Coins awarded!</p>}
     </div>
   );
 }

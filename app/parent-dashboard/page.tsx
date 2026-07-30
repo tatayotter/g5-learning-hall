@@ -11,6 +11,13 @@ interface ParentRow {
   marketing_opt_in: boolean;
 }
 
+interface SubscriptionRow {
+  status: 'none' | 'pending' | 'active' | 'expired' | 'cancelled';
+  addon_children: number;
+  coin_pool_balance: number;
+  current_period_end: string | null;
+}
+
 interface ChildRow {
   id: string;
   full_name: string;
@@ -38,6 +45,12 @@ export default function ParentDashboardPage() {
   const [revealedPins, setRevealedPins] = useState<Record<string, string | null>>({});
   const [pinLoading, setPinLoading] = useState<string | null>(null);
   const [expandedChild, setExpandedChild] = useState<string | null>(null);
+  const [subscription, setSubscription] = useState<SubscriptionRow | null>(null);
+  const [maxChildren, setMaxChildren] = useState(1);
+  const [checkingOut, setCheckingOut] = useState(false);
+  const [checkoutError, setCheckoutError] = useState('');
+
+  const isPremium = subscription?.status === 'active';
 
   const load = async () => {
     const { data: { user } } = await supabase.auth.getUser();
@@ -53,13 +66,41 @@ export default function ParentDashboardPage() {
     setParent(parentRow as ParentRow);
 
     if (parentRow?.status === 'approved') {
-      const { data: children } = await supabase
-        .from('children')
-        .select('id, full_name, grade, gender, school_name, avatar, username')
-        .eq('parent_id', user.id);
+      const [{ data: children }, { data: subRow }, { data: maxKids }] = await Promise.all([
+        supabase
+          .from('children')
+          .select('id, full_name, grade, gender, school_name, avatar, username')
+          .eq('parent_id', user.id),
+        supabase
+          .from('subscriptions')
+          .select('status, addon_children, coin_pool_balance, current_period_end')
+          .eq('parent_id', user.id)
+          .maybeSingle(),
+        supabase.rpc('max_children_for_parent', { p_parent_id: user.id }),
+      ]);
       setKids((children as ChildRow[]) || []);
+      setSubscription((subRow as SubscriptionRow) ?? null);
+      setMaxChildren((maxKids as number) ?? 1);
     }
     setLoading(false);
+  };
+
+  const handleSubscribe = async (addonChildren: number) => {
+    setCheckoutError('');
+    setCheckingOut(true);
+    const { data: { session } } = await supabase.auth.getSession();
+    const res = await fetch('/api/create-checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token || ''}` },
+      body: JSON.stringify({ addonChildren }),
+    });
+    const body = await res.json().catch(() => ({}));
+    setCheckingOut(false);
+    if (!res.ok || !body.success) {
+      setCheckoutError(body.error || 'Could not start checkout.');
+      return;
+    }
+    window.location.href = body.checkoutUrl;
   };
 
   useEffect(() => { load(); }, []);
@@ -199,6 +240,31 @@ export default function ParentDashboardPage() {
           <button onClick={handleSignOut} className="text-xs text-gray-500 hover:text-gray-300 underline">Sign out</button>
         </div>
 
+        <div className="rounded-lg border border-amber-500/40 bg-amber-500/5 px-3 py-2.5 flex items-center justify-between gap-3">
+          {isPremium ? (
+            <>
+              <span className="text-sm text-amber-300">⭐ Premium · 🪙 {subscription!.coin_pool_balance} coins left</span>
+              {subscription!.current_period_end && (
+                <span className="text-[10px] text-gray-500 whitespace-nowrap">
+                  renews {new Date(subscription!.current_period_end).toLocaleDateString()}
+                </span>
+              )}
+            </>
+          ) : (
+            <>
+              <span className="text-sm text-gray-400">Free plan — journal viewing & coin rewards are Premium.</span>
+              <button
+                onClick={() => handleSubscribe(0)}
+                disabled={checkingOut}
+                className="rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white text-xs font-bold px-3 py-1.5 whitespace-nowrap"
+              >
+                {checkingOut ? 'Redirecting…' : 'Subscribe ₱249/yr'}
+              </button>
+            </>
+          )}
+        </div>
+        {checkoutError && !isPremium && kids.length < maxChildren && <p className="text-red-400 text-xs">{checkoutError}</p>}
+
         <label className="flex items-start gap-3 rounded-lg border border-indigo-500/40 bg-indigo-500/10 px-3 py-2.5 cursor-pointer hover:border-indigo-400">
           <input
             type="checkbox"
@@ -242,12 +308,47 @@ export default function ParentDashboardPage() {
               >
                 {expandedChild === kid.id ? 'Hide progress ▲' : 'View progress ▼'}
               </button>
-              {expandedChild === kid.id && <ChildProgressPanel childId={kid.id} />}
+              {expandedChild === kid.id && (
+                <ChildProgressPanel
+                  childId={kid.id}
+                  isPremium={isPremium}
+                  coinBalance={subscription?.coin_pool_balance ?? 0}
+                  onCoinsAwarded={(amount) =>
+                    setSubscription((prev) => (prev ? { ...prev, coin_pool_balance: prev.coin_pool_balance - amount } : prev))
+                  }
+                />
+              )}
             </div>
           ))}
         </div>
 
-        {showAddChild ? (
+        {kids.length >= maxChildren ? (
+          <div className="rounded-lg border border-dashed border-amber-500/40 bg-amber-500/5 p-3 space-y-2 text-center">
+            <p className="text-sm text-amber-300">
+              {isPremium
+                ? `You've reached your child limit (${maxChildren}).`
+                : `Free accounts can add 1 child. Subscribe to add more.`}
+            </p>
+            {isPremium && subscription!.addon_children < 2 ? (
+              <button
+                onClick={() => handleSubscribe(subscription!.addon_children + 1)}
+                disabled={checkingOut}
+                className="w-full rounded-lg bg-amber-600 hover:bg-amber-500 disabled:opacity-50 text-white text-sm font-bold py-2"
+              >
+                {checkingOut ? 'Redirecting…' : `+ Add a child slot (₱99/yr, renews at ₱${249 + (subscription!.addon_children + 1) * 99}/yr)`}
+              </button>
+            ) : !isPremium ? (
+              <button
+                onClick={() => handleSubscribe(0)}
+                disabled={checkingOut}
+                className="w-full rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white text-sm font-bold py-2"
+              >
+                {checkingOut ? 'Redirecting…' : 'Subscribe — ₱249/yr'}
+              </button>
+            ) : null}
+            {checkoutError && <p className="text-red-400 text-xs">{checkoutError}</p>}
+          </div>
+        ) : showAddChild ? (
           <form onSubmit={handleAddChild} className="space-y-3">
             <ChildAccountForm label="New Child" data={newChild} onChange={setNewChild} />
             {addError && <p className="text-red-400 text-sm">{addError}</p>}
