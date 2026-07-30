@@ -18,9 +18,15 @@ export async function generateMetadata({
   params: Promise<{ page: string }>;
 }): Promise<Metadata> {
   const { page } = await params;
+  const title = `Parent Guides — Page ${page} — Learning Hall Blog`;
+  const description =
+    'Free, practical guides for helping Grade 2-6 learners build reading comprehension, mental math, typing, critical thinking, and vocabulary skills at home.';
   return {
-    title: `Parent Guides — Page ${page} — Learning Hall Blog`,
+    title,
+    description,
     alternates: { canonical: `/blog/page/${page}` },
+    openGraph: { title, description, url: `/blog/page/${page}` },
+    twitter: { card: 'summary_large_image', title, description },
   };
 }
 

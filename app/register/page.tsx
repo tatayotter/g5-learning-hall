@@ -12,6 +12,12 @@ export const metadata: Metadata = {
       'Register a free parent account for Learning Hall, the DepEd-aligned gamified learning app for Grade 2-6 students. No credit card required.',
     url: '/register',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Create Your Family Account — Learning Hall',
+    description:
+      'Register a free parent account for Learning Hall, the DepEd-aligned gamified learning app for Grade 2-6 students. No credit card required.',
+  },
 };
 
 export default async function RegisterPage({

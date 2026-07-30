@@ -18,6 +18,12 @@ export const metadata: Metadata = {
       'Free, practical guides for helping Grade 2-6 learners build reading comprehension, mental math, typing, critical thinking, and vocabulary skills at home.',
     url: '/blog',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Parent Guides — Learning Hall Blog',
+    description:
+      'Free, practical guides for helping Grade 2-6 learners build reading comprehension, mental math, typing, critical thinking, and vocabulary skills at home.',
+  },
 };
 
 export default function BlogIndexPage() {
