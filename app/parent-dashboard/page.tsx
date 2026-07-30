@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
+import ChildProgressPanel from '@/components/ChildProgressPanel';
 
 interface ParentRow {
   status: 'pending' | 'approved' | 'rejected';
@@ -36,6 +37,7 @@ export default function ParentDashboardPage() {
   const [deleteError, setDeleteError] = useState('');
   const [revealedPins, setRevealedPins] = useState<Record<string, string | null>>({});
   const [pinLoading, setPinLoading] = useState<string | null>(null);
+  const [expandedChild, setExpandedChild] = useState<string | null>(null);
 
   const load = async () => {
     const { data: { user } } = await supabase.auth.getUser();
@@ -213,24 +215,34 @@ export default function ParentDashboardPage() {
         <div className="space-y-3">
           {kids.length === 0 && <p className="text-gray-500 text-sm">No children added yet.</p>}
           {kids.map((kid) => (
-            <div key={kid.id} className="bg-neutral-900 border border-neutral-700 rounded-xl p-3 flex items-center gap-3">
-              <img src={kid.avatar} alt="" className="w-12 h-12 rounded-lg object-cover border border-neutral-700" />
-              <div className="flex-1">
-                <p className="text-white text-sm font-bold">{kid.full_name}</p>
-                <p className="text-gray-500 text-xs">{kid.grade} · {kid.school_name} · @{kid.username}</p>
+            <div key={kid.id} className="bg-neutral-900 border border-neutral-700 rounded-xl p-3 space-y-3">
+              <div className="flex items-center gap-3">
+                <img src={kid.avatar} alt="" className="w-12 h-12 rounded-lg object-cover border border-neutral-700" />
+                <div className="flex-1">
+                  <p className="text-white text-sm font-bold">{kid.full_name}</p>
+                  <p className="text-gray-500 text-xs">{kid.grade} · {kid.school_name} · @{kid.username}</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleTogglePin(kid.id)}
+                  disabled={pinLoading === kid.id}
+                  className="text-xs text-indigo-300 hover:text-indigo-200 underline disabled:opacity-50 whitespace-nowrap"
+                >
+                  {pinLoading === kid.id
+                    ? '…'
+                    : kid.id in revealedPins
+                      ? (revealedPins[kid.id] ?? 'PIN unavailable — reset it')
+                      : 'Show PIN'}
+                </button>
               </div>
               <button
                 type="button"
-                onClick={() => handleTogglePin(kid.id)}
-                disabled={pinLoading === kid.id}
-                className="text-xs text-indigo-300 hover:text-indigo-200 underline disabled:opacity-50 whitespace-nowrap"
+                onClick={() => setExpandedChild(expandedChild === kid.id ? null : kid.id)}
+                className="text-xs text-gray-400 hover:text-white underline"
               >
-                {pinLoading === kid.id
-                  ? '…'
-                  : kid.id in revealedPins
-                    ? (revealedPins[kid.id] ?? 'PIN unavailable — reset it')
-                    : 'Show PIN'}
+                {expandedChild === kid.id ? 'Hide progress ▲' : 'View progress ▼'}
               </button>
+              {expandedChild === kid.id && <ChildProgressPanel childId={kid.id} />}
             </div>
           ))}
         </div>
