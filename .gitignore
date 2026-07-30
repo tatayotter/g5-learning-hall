@@ -50,4 +50,6 @@ repomix-output.xml
 /android/local.properties
 /android/captures/
 /android/app/release/
+/android/keystore.properties
+/android/keystore/
 
