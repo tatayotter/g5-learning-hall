@@ -30,6 +30,10 @@ export default function ParentDashboardPage() {
   const [addError, setAddError] = useState('');
   const [adding, setAdding] = useState(false);
   const [togglingOptIn, setTogglingOptIn] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [deleteConfirmText, setDeleteConfirmText] = useState('');
+  const [deleting, setDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState('');
 
   const load = async () => {
     const { data: { user } } = await supabase.auth.getUser();
@@ -104,6 +108,30 @@ export default function ParentDashboardPage() {
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.push('/parent-login');
+  };
+
+  const handleDeleteAccount = async () => {
+    setDeleteError('');
+    setDeleting(true);
+    const { error: rpcError } = await supabase.rpc('delete_own_family_data');
+    if (rpcError) {
+      setDeleteError(rpcError.message);
+      setDeleting(false);
+      return;
+    }
+    const { data: { session } } = await supabase.auth.getSession();
+    const res = await fetch('/api/account-delete', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${session?.access_token || ''}` },
+    });
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      setDeleteError(body.error || 'Could not finish deleting your account. Your data was removed, but sign-in still exists — contact support.');
+      setDeleting(false);
+      return;
+    }
+    await supabase.auth.signOut();
+    router.push('/');
   };
 
   if (loading) {
@@ -203,6 +231,47 @@ export default function ParentDashboardPage() {
             + Add a child
           </button>
         )}
+
+        <div className="pt-6 border-t border-neutral-800">
+          {!showDeleteConfirm ? (
+            <button
+              onClick={() => setShowDeleteConfirm(true)}
+              className="text-xs text-red-500/70 hover:text-red-400 underline"
+            >
+              Delete my account
+            </button>
+          ) : (
+            <div className="rounded-lg border border-red-500/40 bg-red-500/5 p-4 space-y-3">
+              <p className="text-sm text-red-300 font-semibold">This permanently deletes your account and every child's progress. This cannot be undone.</p>
+              <p className="text-xs text-gray-400">Type DELETE below to confirm.</p>
+              <input
+                type="text"
+                value={deleteConfirmText}
+                onChange={(e) => setDeleteConfirmText(e.target.value)}
+                className="w-full rounded-lg bg-black border border-neutral-700 px-3 py-2 text-sm text-white"
+                placeholder="DELETE"
+              />
+              {deleteError && <p className="text-red-400 text-sm">{deleteError}</p>}
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => { setShowDeleteConfirm(false); setDeleteConfirmText(''); setDeleteError(''); }}
+                  className="flex-1 rounded-lg border border-neutral-700 text-gray-400 py-2.5"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={handleDeleteAccount}
+                  disabled={deleteConfirmText !== 'DELETE' || deleting}
+                  className="flex-1 rounded-lg bg-red-600 hover:bg-red-500 disabled:opacity-50 text-white font-bold py-2.5"
+                >
+                  {deleting ? 'Deleting…' : 'Permanently Delete'}
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </main>
   );

@@ -105,6 +105,11 @@ export default async function BlogTopicPage({
         <p className="text-[11px] tracking-[0.06em] text-white/25 font-medium">
           © {new Date().getFullYear()} Ruelo Learning Hall. All Rights Reserved.
         </p>
+        <p className="mt-2 text-[11px] tracking-wide">
+          <a href="/privacy" className="text-white/40 hover:text-white/70 underline">Privacy Policy</a>
+          <span className="text-white/20 mx-2">·</span>
+          <a href="/account-deletion" className="text-white/40 hover:text-white/70 underline">Delete Account</a>
+        </p>
       </footer>
     </div>
   );

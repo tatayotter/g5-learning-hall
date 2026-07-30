@@ -23,6 +23,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
+    {
+      url: `${BASE_URL}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/account-deletion`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
     ...Array.from({ length: Math.max(0, getBlogIndexPageCount() - 1) }, (_, i) => ({
       url: `${BASE_URL}/blog/page/${i + 2}`,
       lastModified: new Date(),
