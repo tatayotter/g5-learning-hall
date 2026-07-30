@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import { isNativeApp } from '@/lib/platform';
 
 interface SubscriptionRow {
   status: 'none' | 'pending' | 'active' | 'expired' | 'cancelled';
@@ -14,8 +15,11 @@ export default function PricingPage() {
   const [subscription, setSubscription] = useState<SubscriptionRow | null>(null);
   const [checkingOut, setCheckingOut] = useState(false);
   const [checkoutError, setCheckoutError] = useState('');
+  const [isNative, setIsNative] = useState(false);
 
   const isPremium = subscription?.status === 'active';
+
+  useEffect(() => { setIsNative(isNativeApp()); }, []);
 
   useEffect(() => {
     (async () => {
@@ -97,7 +101,11 @@ export default function PricingPage() {
           </div>
         </div>
 
-        {isPremium ? (
+        {isNative ? (
+          <p className="text-xs text-gray-500 text-center">
+            {isPremium ? "⭐ You're already on Premium." : 'Premium subscriptions are managed outside this app.'}
+          </p>
+        ) : isPremium ? (
           <div className="rounded-lg border border-amber-500/40 bg-amber-500/5 p-3 text-center">
             <p className="text-sm text-amber-300">⭐ You're already on Premium.</p>
             {subscription!.addon_children < 2 && (

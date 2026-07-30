@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import { isNativeApp } from '@/lib/platform';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
 import ChildProgressPanel from '@/components/ChildProgressPanel';
 
@@ -49,8 +50,11 @@ export default function ParentDashboardPage() {
   const [maxChildren, setMaxChildren] = useState(1);
   const [checkingOut, setCheckingOut] = useState(false);
   const [checkoutError, setCheckoutError] = useState('');
+  const [isNative, setIsNative] = useState(false);
 
   const isPremium = subscription?.status === 'active';
+
+  useEffect(() => { setIsNative(isNativeApp()); }, []);
 
   const load = async () => {
     const { data: { user } } = await supabase.auth.getUser();
@@ -250,6 +254,8 @@ export default function ParentDashboardPage() {
                 </span>
               )}
             </>
+          ) : isNative ? (
+            <span className="text-sm text-gray-400">Free plan — Premium unlocks journal viewing & coin rewards.</span>
           ) : (
             <>
               <span className="text-sm text-gray-400">Free plan — journal viewing & coin rewards are Premium.</span>
@@ -263,7 +269,7 @@ export default function ParentDashboardPage() {
             </>
           )}
         </div>
-        {!isPremium && (
+        {!isPremium && !isNative && (
           <a href="/parent-dashboard/pricing" className="block text-center text-xs text-indigo-300 hover:text-indigo-200 underline">
             See full pricing details
           </a>
@@ -334,7 +340,7 @@ export default function ParentDashboardPage() {
                 ? `You've reached your child limit (${maxChildren}).`
                 : `Free accounts can add 1 child. Subscribe to add more.`}
             </p>
-            {isPremium && subscription!.addon_children < 2 ? (
+            {isNative ? null : isPremium && subscription!.addon_children < 2 ? (
               <button
                 onClick={() => handleSubscribe(subscription!.addon_children + 1)}
                 disabled={checkingOut}
