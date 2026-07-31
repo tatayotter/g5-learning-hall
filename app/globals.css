@@ -59,6 +59,16 @@ body {
     radial-gradient(circle at 85% 90%, rgba(201, 120, 26, 0.06), transparent 45%);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Deterrent only — text in inputs/textareas/editable fields must stay selectable */
+input,
+textarea,
+[contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 /* One-off arbitrary panel colors used across components (bg-[#111], border-[#333]) */

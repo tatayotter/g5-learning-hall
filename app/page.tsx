@@ -656,6 +656,11 @@ export default function Dashboard() {
         {activeTab === 'board' && activeQuest !== null && (() => {
           const [day, subject] = activeQuest.split('_');
           const questData = mainQuestPackageData[day]?.[subject];
+          // Classmates who don't author their own Main Quest content read
+          // questions from a reference player's row (see useWeeklyData.ts's
+          // applyContentSource) — grading must look up the same row, or the
+          // RPC finds this student's own (contentless) package_data instead.
+          const gradingUserId = USERS[activeUserId as UserId]?.contentSourceId || activeUserId;
 
           return (
             <div className="w-full max-w-4xl mx-auto animate-in fade-in duration-500">
@@ -717,6 +722,22 @@ export default function Dashboard() {
                   currentStats={data.character_stats}
                   attemptsSoFar={(data.quiz_attempts || {})[activeQuest] || 0}
                   isMastered={(data.mastered_quizzes || []).includes(activeQuest)}
+                  gradeQuiz={async (selectedAnswers) => {
+                    const { data: graded, error } = await supabase.rpc('grade_weekly_quiz', {
+                      p_user_id: gradingUserId,
+                      p_week_starting_date: data.week_starting_date,
+                      p_day: day,
+                      p_subject: subject,
+                      p_selected: selectedAnswers,
+                    });
+                    if (error || !graded) throw error || new Error('grade_weekly_quiz returned no data');
+                    return {
+                      correct_count: graded.correct_count,
+                      total: graded.total,
+                      is_perfect: graded.is_perfect,
+                      correct_answers: graded.correct_answers,
+                    };
+                  }}
                   onQuizSubmit={(isPerfect, newAttempts, newStats, xpEarned, goldEarned) => {
                     const newQuizAttempts = { ...(data.quiz_attempts || {}), [activeQuest]: newAttempts };
                     if (isPerfect) {
@@ -856,6 +877,19 @@ export default function Dashboard() {
                   currentStats={data.character_stats}
                   attemptsSoFar={questRow?.attempts || 0}
                   isMastered={!!questRow?.is_mastered}
+                  gradeQuiz={async (selectedAnswers) => {
+                    const { data: graded, error } = await supabase.rpc('grade_event_quiz', {
+                      p_event_quest_id: eventQuest.id,
+                      p_selected: selectedAnswers,
+                    });
+                    if (error || !graded) throw error || new Error('grade_event_quiz returned no data');
+                    return {
+                      correct_count: graded.correct_count,
+                      total: graded.total,
+                      is_perfect: graded.is_perfect,
+                      correct_answers: graded.correct_answers,
+                    };
+                  }}
                   onQuizSubmit={handleEventQuizSubmit}
                   onExit={() => {
                     setActiveEventQuest(null);

@@ -33,7 +33,13 @@ const markdownComponents = {
 interface QuizQuestion {
   question: string;
   options: string[];
-  correct_answer: string;
+}
+
+export interface QuizGradeResult {
+  correct_count: number;
+  total: number;
+  is_perfect: boolean;
+  correct_answers: string[];
 }
 
 interface QuestModuleProps {
@@ -44,6 +50,10 @@ interface QuestModuleProps {
   currentStats: CharacterStats;
   attemptsSoFar: number;
   isMastered: boolean;
+  // Grading happens server-side (grade_weekly_quiz / grade_event_quiz RPCs) —
+  // questData never carries correct_answer, so this module can't compare
+  // locally even if it wanted to.
+  gradeQuiz: (selectedAnswers: Record<number, string>) => Promise<QuizGradeResult>;
   onQuizSubmit: (isPerfect: boolean, newAttempts: number, newStats: CharacterStats, xpEarned: number, goldEarned: number) => void;
   onExit: () => void;
 }
@@ -59,12 +69,14 @@ function calculateReward(attempts: number) {
   };
 }
 
-export default function QuestModule({ userId, questName, questKey, questData, currentStats, attemptsSoFar, isMastered, onQuizSubmit, onExit }: QuestModuleProps) {
+export default function QuestModule({ userId, questName, questKey, questData, currentStats, attemptsSoFar, isMastered, gradeQuiz, onQuizSubmit, onExit }: QuestModuleProps) {
   const safeAttemptsSoFar = Number.isFinite(attemptsSoFar) ? attemptsSoFar : 0;
 
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [grading, setGrading] = useState(false);
   const [shuffledOptions, setShuffledOptions] = useState<Record<number, string[]>>({});
+  const [correctAnswers, setCorrectAnswers] = useState<string[]>([]);
   const [lastResult, setLastResult] = useState<{ isPerfect: boolean; score: number; total: number; xp: number; gold: number; attemptNumber: number } | null>(null);
   const [cooldownRemaining, setCooldownRemaining] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
@@ -96,13 +108,21 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
     setSelectedAnswers({ ...selectedAnswers, [qIndex]: option });
   };
 
-  const handleSubmitQuiz = () => {
-    const total = quiz.length;
-    let correctCount = 0;
-    quiz.forEach((q, i) => {
-      if (selectedAnswers[i] === q.correct_answer) correctCount++;
-    });
-    const isPerfect = total > 0 && correctCount === total;
+  const handleSubmitQuiz = async () => {
+    if (grading) return;
+    setGrading(true);
+    let graded: QuizGradeResult;
+    try {
+      graded = await gradeQuiz(selectedAnswers);
+    } catch (err) {
+      console.error('Failed to grade quiz:', err);
+      setGrading(false);
+      alert('⚠️ Could not grade your quiz — please try again.');
+      return;
+    }
+    setGrading(false);
+
+    const { correct_count: correctCount, total, is_perfect: isPerfect, correct_answers: gradedAnswers } = graded;
     const newAttempts = safeAttemptsSoFar + 1;
 
     let newStats = { ...currentStats };
@@ -136,6 +156,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
       playClash();
     }
 
+    setCorrectAnswers(gradedAnswers || []);
     setSubmitted(true);
     setLastResult({ isPerfect, score: correctCount, total, xp: reward.xp, gold: reward.gold, attemptNumber: newAttempts });
     onQuizSubmit(isPerfect, newAttempts, newStats, reward.xp, reward.gold);
@@ -232,7 +253,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
                   {(shuffledOptions[i] || q.options).map((opt) => {
                     const isSelected = selectedAnswers[i] === opt;
                     const showFeedback = submitted;
-                    const isCorrectOption = opt === q.correct_answer;
+                    const isCorrectOption = opt === correctAnswers[i];
                     let optionStyle = 'border-neutral-700 hover:border-blue-500';
                     if (showFeedback) {
                       if (isCorrectOption) optionStyle = 'border-green-600 bg-green-900/20';
@@ -275,10 +296,10 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
             ) : (
               <GameButton
                 onClick={handleSubmitQuiz}
-                disabled={!allAnswered}
+                disabled={!allAnswered || grading}
                 className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                ✅ Submit Quiz
+                {grading ? '⏳ Grading...' : '✅ Submit Quiz'}
               </GameButton>
             )}
           </div>

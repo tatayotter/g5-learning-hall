@@ -59,9 +59,11 @@ export function useWeeklyData(userId: string = 'damien') {
       // and get rejected.
       await ensureAnonymousSession();
 
-      // Fetch this week's row for the specific user
+      // Read from weekly_packages_public, which strips correct_answer out of
+      // every quiz question — the real answers only ever live server-side,
+      // checked by the grade_weekly_quiz RPC at submit time.
       const { data: packageData, error: fetchError } = await supabase
-        .from('weekly_packages')
+        .from('weekly_packages_public')
         .select('*')
         .eq('week_starting_date', currentSunday)
         .eq('user_id', userId)
@@ -70,7 +72,7 @@ export function useWeeklyData(userId: string = 'damien') {
       const applyContentSource = async (row: WeeklyData): Promise<WeeklyData> => {
         if (contentSourceId === userId) return row;
         const { data: sourceRow } = await supabase
-          .from('weekly_packages')
+          .from('weekly_packages_public')
           .select('package_data')
           .eq('week_starting_date', currentSunday)
           .eq('user_id', contentSourceId)

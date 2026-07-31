@@ -6,7 +6,10 @@ export interface EventQuest {
   event_id: string;
   subject_name: string;
   summary_markdown: string | null;
-  quiz: { question: string; options: string[]; correct_answer: string }[];
+  // correct_answer is absent from fetchEventQuests (student read path uses
+  // event_quests_public, which strips it) but present when admin authoring
+  // code reads/writes the base event_quests table directly.
+  quiz: { question: string; options: string[]; correct_answer?: string }[];
   sort_order: number;
   grade_level: number;
 }
@@ -58,8 +61,10 @@ export async function fetchActiveEvent(today: string = format(new Date(), 'yyyy-
 // gradeLevel omitted (admin use) returns every subject across every grade;
 // passed (student use) filters to that player's own grade content.
 export async function fetchEventQuests(eventId: string, gradeLevel?: number): Promise<EventQuest[]> {
+  // event_quests_public strips correct_answer from every quiz question — the
+  // real answers only ever live server-side, checked by grade_event_quiz.
   let query = supabase
-    .from('event_quests')
+    .from('event_quests_public')
     .select('*')
     .eq('event_id', eventId)
     .order('sort_order', { ascending: true });

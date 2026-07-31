@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cinzel, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import ContentProtection from "@/components/ContentProtection";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -60,6 +61,7 @@ export default function RootLayout({
       className={`${cinzel.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        <ContentProtection />
         {children}
       </body>
     </html>
