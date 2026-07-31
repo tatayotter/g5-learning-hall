@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { UserId, USERS, setActiveUser, getClassmateIds, getChildIds, isFamilyProtected } from '@/lib/userSession';
+import { UserId, USERS, setActiveUser, getClassmateIds, getChildIds, isFamilyProtected, linkIdentity } from '@/lib/userSession';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { ALL_MONSTERS, getGraduatedMonsterDisplay } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
@@ -241,6 +241,16 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
         body: JSON.stringify({ id: loginTarget.id, password: passwordInput }),
       });
       if (res.ok) {
+        // Claim this app_user_id for the browser's auth.uid() now, while the
+        // just-entered password is still in memory — link_verified_identity
+        // re-checks it server-side before granting RLS access to this
+        // account's gold/monsters/inventory. See lib/userSession.ts:linkIdentity.
+        const linked = await linkIdentity(loginTarget.id, passwordInput);
+        if (!linked) {
+          setLoginError('❌ Incorrect password. Try again.');
+          setLoggingIn(false);
+          return;
+        }
         if (loginTarget.isAdmin) onAdminSelect(loginTarget.id);
         else handleSelect(loginTarget.id);
       } else {

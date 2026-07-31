@@ -23,6 +23,7 @@ import {
 import { UserMonster, ActiveBattleMonster } from '@/components/battle/shared';
 import LiveBattleScreen from '@/components/LiveBattleScreen';
 import LeaderboardPanel from '@/components/LeaderboardPanel';
+import TradePanel from '@/components/trade/TradePanel';
 import { createInvite, fetchLiveBattle } from '@/lib/liveBattle';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import WorldMap from '@/components/WorldMap';
@@ -73,7 +74,7 @@ function extractQuestions(packageData: any): any[] {
 
 // ─── MAIN MONSTER GUILD ───────────────────────────────────────────────────────
 
-type GuildView = 'map' | 'team' | 'trainers' | 'compendium' | 'battle' | 'live_battle' | 'leaderboard';
+type GuildView = 'map' | 'team' | 'trainers' | 'compendium' | 'battle' | 'live_battle' | 'leaderboard' | 'trade';
 
 interface WildEncounterState {
   monsterId: string;
@@ -653,6 +654,10 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           { id: 'team',       label: 'My Team' },
           { id: 'trainers',   label: 'Trainers' },
           { id: 'compendium', label: `Compendium${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}` },
+          // Trading is disabled for demo accounts (ephemeral/single-player,
+          // see app/api/demo-login and create_trade_request's own server-side
+          // guard) — hidden here so a demo player never hits a dead-end tab.
+          ...(userId.startsWith('demo_') ? [] : [{ id: 'trade' as GuildView, label: 'Trade' }]),
           { id: 'leaderboard', label: 'Leaderboard' },
         ] as { id: GuildView; label: string }[]).map(tab => (
           <button
@@ -722,6 +727,14 @@ export default function MonsterGuild({ userId, playerLevel, packageData, liveBat
           subclassProfile={subclassProfile}
           inventory={inventory}
           onLoadoutChange={refreshMonsterLoadouts}
+        />
+      )}
+
+      {view === 'trade' && (
+        <TradePanel
+          userId={userId as UserId}
+          userMonsters={userMonsters}
+          onTradeCompleted={refreshMonsterLoadouts}
         />
       )}
 

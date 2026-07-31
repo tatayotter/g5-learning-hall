@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { createClient } from '@supabase/supabase-js';
 
 export async function POST(request: NextRequest) {
-  const { authUid } = await request.json();
+  const { accessToken } = await request.json();
 
-  if (typeof authUid !== 'string') {
+  if (typeof accessToken !== 'string' || !accessToken) {
     return NextResponse.json({ success: false }, { status: 400 });
   }
 
@@ -12,10 +12,18 @@ export async function POST(request: NextRequest) {
     || request.headers.get('x-real-ip')
     || 'unknown';
 
-  const { data, error } = await supabase.rpc('create_demo_account', {
-    p_auth_uid: authUid,
-    p_ip: ip,
-  });
+  // Scoped to the caller's own session/JWT (not the shared anon-key server
+  // client) so create_demo_account's auth.uid() resolves to whichever
+  // browser actually holds this token. Without this, a client could pass
+  // someone else's auth_uid and hijack their identity mapping — the RPC used
+  // to accept it as a plain (client-supplied) parameter instead.
+  const authedClient = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    { global: { headers: { Authorization: `Bearer ${accessToken}` } } }
+  );
+
+  const { data, error } = await authedClient.rpc('create_demo_account', { p_ip: ip });
 
   if (error) {
     if (error.message.includes('rate limit')) {

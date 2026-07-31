@@ -40,7 +40,7 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
 
   const [battleStateRes, monstersRes, caughtRes, weeklyRes, questionsRes, battleLogRes] = await Promise.all([
     supabase.from('user_battle_state').select('user_id, defeated_trainers').in('user_id', ids),
-    supabase.from('user_monsters').select('user_id, monster_id, monster_level, nickname, slot').in('user_id', ids).order('slot'),
+    supabase.from('user_monsters').select('user_id, monster_id, monster_level, nickname, slot, acquired_via').in('user_id', ids).order('slot'),
     supabase.from('user_caught_monsters').select('user_id, monster_id, monster_level, nickname').in('user_id', ids),
     supabase.from('weekly_packages').select('user_id, character_stats, week_starting_date').in('user_id', ids),
     supabase.from('user_completed_questions').select('user_id').eq('quest_type', MONSTER_ARENA_QUEST_TYPE).in('user_id', ids),
@@ -52,8 +52,14 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
     defeatedByUser.set(row.user_id, (row.defeated_trainers || []).length);
   });
 
+  // Traded-in curios are excluded from every leaderboard signal below — rank
+  // (and the team/collection shown for it) should reflect earned progress,
+  // not trading/purchasing power. user_caught_monsters (the dex) is never
+  // touched by trading, so it's unaffected.
+  const earnedMonsters = (monstersRes.data || []).filter((row: any) => row.acquired_via !== 'traded');
+
   const teamByUser = new Map<string, LeaderboardTeamMonster[]>();
-  (monstersRes.data || []).forEach((row: any) => {
+  earnedMonsters.forEach((row: any) => {
     if (row.slot == null) return; // benched, not part of the active team
     const list = teamByUser.get(row.user_id) || [];
     list.push({ monster_id: row.monster_id, monster_level: row.monster_level, nickname: row.nickname });
@@ -68,7 +74,7 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
     set.add(monsterId);
     speciesByUser.set(userId, set);
   };
-  (monstersRes.data || []).forEach((row: any) => addSpecies(row.user_id, row.monster_id));
+  earnedMonsters.forEach((row: any) => addSpecies(row.user_id, row.monster_id));
   (caughtRes.data || []).forEach((row: any) => addSpecies(row.user_id, row.monster_id));
 
   // Highest-level monster owned — active team plus bench, mirroring the same
@@ -80,7 +86,7 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
       topMonsterByUser.set(userId, monster);
     }
   };
-  (monstersRes.data || []).forEach((row: any) =>
+  earnedMonsters.forEach((row: any) =>
     considerMonster(row.user_id, { monster_id: row.monster_id, monster_level: row.monster_level, nickname: row.nickname }));
   (caughtRes.data || []).forEach((row: any) =>
     considerMonster(row.user_id, { monster_id: row.monster_id, monster_level: row.monster_level, nickname: row.nickname }));

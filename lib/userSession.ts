@@ -201,14 +201,28 @@ export function clearActiveUser() {
 
 // Bridges this browser's anonymous-auth identity (auth.uid()) to whichever
 // app user is currently logged in, so RLS policies that key on auth.uid()
-// (e.g. live_battles) can resolve back to the app's text-based user ids.
-// Safe to call on every login — it's an upsert keyed by auth_uid.
-export async function linkIdentity(userId: UserId): Promise<void> {
+// (e.g. user_monsters, weekly_packages/gold, player_inventory, live_battles)
+// can resolve back to the app's text-based user ids.
+//
+// Routed through the link_verified_identity RPC (SECURITY DEFINER) rather
+// than a direct table upsert — the RPC re-checks the same password/PIN used
+// at login before it will (re)claim an app_user_id for this browser, and
+// direct INSERT/UPDATE on user_identity_map is revoked for anon/authenticated.
+// Without that check, any browser could self-attest any known app_user_id
+// (e.g. "damien") and inherit full RLS access to that account's gold/monsters.
+//
+// `credential` is only required the first time a given browser links to a
+// given id, or when switching which id it claims — reconfirming an existing
+// claim (e.g. on page reload, same browser/session) is a free no-op inside
+// the RPC, so omitting it is safe for that case.
+export async function linkIdentity(userId: UserId, credential?: string): Promise<boolean> {
   const authUid = await ensureAnonymousSession();
-  if (!authUid) return;
-  await supabase
-    .from('user_identity_map')
-    .upsert({ auth_uid: authUid, app_user_id: userId }, { onConflict: 'auth_uid' });
+  if (!authUid) return false;
+  const { data, error } = await supabase.rpc('link_verified_identity', {
+    p_id: userId,
+    p_credential: credential ?? null,
+  });
+  return !error && data === true;
 }
 
 // Records when a user last logged in, so the splash screen can show a

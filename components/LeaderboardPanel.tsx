@@ -7,6 +7,8 @@
 // complete ranked list.
 import { useEffect, useState, ReactNode } from 'react';
 import { fetchLeaderboard, fetchReactionCounts, sendReaction, LeaderboardEntry, ReactionCounts } from '@/lib/leaderboard';
+import { fetchTopTraders, TopTrader } from '@/lib/trades';
+import { USERS } from '@/lib/userSession';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 import { GMBadge } from '@/components/battle/shared';
@@ -294,9 +296,35 @@ function CategorySection({ category, currentUserId, reactionCounts, onReactionSe
   );
 }
 
+// Ranked purely by total gold spent on trade fees (see get_top_traders) —
+// doubles as a health metric for trading as a gold sink. Kept separate from
+// CategorySection since a TopTrader row (user_id, total_fees) doesn't carry
+// the full profile shape LeaderboardEntry/TopEntryCard expect.
+function TopTraderSection({ traders }: { traders: TopTrader[] }) {
+  if (traders.length === 0) return null;
+  return (
+    <div className="space-y-4">
+      <h3 className="text-lg font-bold text-white font-display">🪙 Top Trader Leaderboard</h3>
+      <div className="space-y-2">
+        {traders.map((t, i) => {
+          const profile = USERS[t.user_id];
+          return (
+            <div key={t.user_id} className="flex items-center gap-3 bg-neutral-900/60 border border-neutral-800 rounded-xl px-4 py-2.5">
+              <span className="text-sm font-bold text-gray-500 w-6">#{i + 1}</span>
+              <span className="flex-1 text-sm font-bold text-white">{profile?.fullName ?? t.user_id}</span>
+              <span className="text-sm text-amber-400 font-bold">{t.total_fees.toLocaleString()} gold</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export default function LeaderboardPanel({ userId }: { userId: string }) {
   const [entries, setEntries] = useState<LeaderboardEntry[] | null>(null);
   const [reactionCounts, setReactionCounts] = useState<ReactionCounts>({});
+  const [topTraders, setTopTraders] = useState<TopTrader[]>([]);
 
   const loadReactionCounts = () => {
     fetchReactionCounts().then(setReactionCounts);
@@ -306,6 +334,9 @@ export default function LeaderboardPanel({ userId }: { userId: string }) {
     let cancelled = false;
     fetchLeaderboard().then(result => {
       if (!cancelled) setEntries(result);
+    });
+    fetchTopTraders().then(result => {
+      if (!cancelled) setTopTraders(result);
     });
     loadReactionCounts();
     return () => { cancelled = true; };
@@ -375,6 +406,7 @@ export default function LeaderboardPanel({ userId }: { userId: string }) {
           onReactionSent={loadReactionCounts}
         />
       ))}
+      <TopTraderSection traders={topTraders} />
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { ensureAnonymousSession } from '@/lib/supabase';
+import { ensureAnonymousSession, supabase } from '@/lib/supabase';
 import { setActiveUser, registerDemoUser, recordLastLogin } from '@/lib/userSession';
 
 const GUILDS = [
@@ -311,11 +311,15 @@ function CTAButtons({ align = 'center' }: { align?: 'center' | 'left' }) {
     try {
       const authUid = await ensureAnonymousSession();
       if (!authUid) throw new Error('no anonymous session');
+      // Send the session's own access token (not just the uid) so the server
+      // route can act as this exact browser — see app/api/demo-login.
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.access_token) throw new Error('no session token');
 
       const res = await fetch('/api/demo-login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ authUid }),
+        body: JSON.stringify({ accessToken: session.access_token }),
       });
       const data = await res.json();
       if (!res.ok || !data.success) throw new Error(data.error || 'demo login failed');
