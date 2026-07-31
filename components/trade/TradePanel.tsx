@@ -12,7 +12,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { startOfWeek, format } from 'date-fns';
 import { UserId } from '@/lib/userSession';
-import { ALL_MONSTERS } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, getGraduatedMonsterDisplay } from '@/lib/monsterConfig';
 import { UserMonster } from '@/components/battle/shared';
 import { MonsterImage } from '@/components/battle/shared';
 import {
@@ -38,8 +38,18 @@ function previewFee(myMonsterCount: number, theirMonsterCount: number, myGold: n
   return curioFee + myGoldFee;
 }
 
+// A monster's displayed name/sprite depends on its graduation tier, not just
+// its species id (e.g. a graduated "solarch" displays as "Starlune") — see
+// getGraduatedMonsterDisplay and its usage in components/HeroProfile.tsx.
+// Trading a curio doesn't change any of this; it's purely a display lookup.
+function displayDef(m: UserMonster) {
+  const base = ALL_MONSTERS[m.monster_id];
+  if (!base) return undefined;
+  return base.graduation ? getGraduatedMonsterDisplay(base, m.graduation_tier) : base;
+}
+
 function monsterLabel(m: UserMonster): string {
-  return ALL_MONSTERS[m.monster_id]?.name ?? m.monster_id;
+  return displayDef(m)?.name ?? m.monster_id;
 }
 
 const currentSunday = () => format(startOfWeek(new Date()), 'yyyy-MM-dd');
@@ -485,7 +495,7 @@ function MonsterPicker({
               picked.has(m.id) ? 'border-amber-400 bg-amber-900/20 text-amber-200' : 'border-neutral-800 bg-neutral-900 text-gray-300'
             }`}
           >
-            <MonsterImage monster={ALL_MONSTERS[m.monster_id]} className="w-8 h-8" emojiClassName="text-lg" />
+            <MonsterImage monster={displayDef(m)} className="w-8 h-8" emojiClassName="text-lg" />
             <span>{monsterLabel(m)} <span className="text-gray-500">Lv.{m.monster_level}</span></span>
           </button>
         ))}
