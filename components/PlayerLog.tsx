@@ -21,6 +21,7 @@ const ACTION_ICONS: Record<string, string> = {
   achievement: '🏆',
   side_quest: '⚔️',
   purchase: '🛒',
+  trade: '🔄',
 };
 
 const COLLAPSED_COUNT = 6;
