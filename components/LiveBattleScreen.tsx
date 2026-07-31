@@ -227,11 +227,13 @@ export default function LiveBattleScreen({
 
     const myBeat: BattleBeat | null = mySkillDef ? {
       actor: 'player',
-      message: lastOutcome.myTimedOut
-        ? `⏰ Your attack missed! (took too long to decide)`
-        : lastOutcome.myAttackMissed
-          ? `❌ You used ${mySkillDef.name}, but it missed! (wrong answer)`
-          : `You used ${mySkillDef.name}! → ${lastOutcome.myDamageDealt} damage!`,
+      message: lastOutcome.myParalyzed
+        ? `⚡ You are paralyzed and can't move!`
+        : lastOutcome.myTimedOut
+          ? `⏰ Your attack missed! (took too long to decide)`
+          : lastOutcome.myAttackMissed
+            ? `❌ You used ${mySkillDef.name}, but it missed! (wrong answer)`
+            : `You used ${mySkillDef.name}! → ${lastOutcome.myDamageDealt} damage!`,
       iconSrc: getSkillIconSrc(mySkillDef),
       damage: lastOutcome.myDamageDealt,
       missed: lastOutcome.myDamageDealt === 0,
@@ -253,6 +255,11 @@ export default function LiveBattleScreen({
         if (lastOutcome.myDamageDealt > 0) playHitThud(); else playAttackWhoosh();
         if (lastOutcome.oppHpDelta > 0) addLog(`💚 ${opponentName}'s skill restored ${lastOutcome.oppHpDelta} HP!`);
         if (lastOutcome.oppCleanse) addLog(`🧼 ${opponentName}'s status conditions were cleansed!`);
+        // Blessed is a one-shot buff — it just powered this attack's damage
+        // above, so clear it now unless a fresh one is granted below.
+        if (lastOutcome.myBlessedConsumed) {
+          updateMyActive(prev => (prev.status === 'blessed' ? { ...prev, status: null, statusTurns: 0 } : prev));
+        }
         // A self-targeting effect (blessed) buffs my own next attack — unlike
         // myStatusInflicted above, this lands on my own monster, not theirs.
         if (lastOutcome.mySelfStatus) {
@@ -264,11 +271,13 @@ export default function LiveBattleScreen({
 
     const oppBeat: BattleBeat | null = oppSkillDef ? {
       actor: 'opponent',
-      message: lastOutcome.opponentTimedOut
-        ? `⏰ ${opponentName}'s attack missed! (took too long to decide)`
-        : lastOutcome.opponentAttackMissed
-          ? `❌ ${opponentName} used ${oppSkillDef.name}, but it missed!`
-          : `${opponentName} used ${oppSkillDef.name}! → ${lastOutcome.opponentDamageDealt} damage!`,
+      message: lastOutcome.opponentParalyzed
+        ? `⚡ ${opponentName} is paralyzed and can't move!`
+        : lastOutcome.opponentTimedOut
+          ? `⏰ ${opponentName}'s attack missed! (took too long to decide)`
+          : lastOutcome.opponentAttackMissed
+            ? `❌ ${opponentName} used ${oppSkillDef.name}, but it missed!`
+            : `${opponentName} used ${oppSkillDef.name}! → ${lastOutcome.opponentDamageDealt} damage!`,
       iconSrc: getSkillIconSrc(oppSkillDef),
       damage: lastOutcome.opponentDamageDealt,
       missed: lastOutcome.opponentDamageDealt === 0,
@@ -290,6 +299,10 @@ export default function LiveBattleScreen({
         if (lastOutcome.opponentDamageDealt > 0) playHitThud(); else playAttackWhoosh();
         if (lastOutcome.myHpDelta > 0) addLog(`💚 Your skill restored ${lastOutcome.myHpDelta} HP!`);
         if (lastOutcome.myCleanse) addLog(`🧼 Your status conditions were cleansed!`);
+        // Mirrors myBlessedConsumed above, for the opponent's own one-shot buff.
+        if (lastOutcome.oppBlessedConsumed) {
+          updateOppActive(prev => (prev.status === 'blessed' ? { ...prev, status: null, statusTurns: 0 } : prev));
+        }
         // Mirrors mySelfStatus above, but for the opponent's own perfect hit
         // buffing their own next attack.
         if (lastOutcome.oppSelfStatus) {
@@ -299,10 +312,41 @@ export default function LiveBattleScreen({
       },
     } : null;
 
+    // Burn DoT — plays as its own beat after the round's attacks, same
+    // ordering as the solo BattleScreen's end-of-turn applyStatusTick.
+    const myBurnBeat: BattleBeat | null = lastOutcome.myBurnDamage > 0 ? {
+      actor: 'player',
+      message: `🔥 You take ${lastOutcome.myBurnDamage} burn damage!`,
+      iconSrc: null,
+      damage: lastOutcome.myBurnDamage,
+      missed: false,
+      apply: () => {
+        updateMyActive(prev => ({ ...prev, currentHp: Math.max(0, prev.currentHp - lastOutcome.myBurnDamage) }));
+        setMyDamagePopup({ key: Date.now(), value: lastOutcome.myBurnDamage, missed: false });
+        triggerAnim('my', 'battle-hit');
+        playHitThud();
+      },
+    } : null;
+
+    const oppBurnBeat: BattleBeat | null = lastOutcome.oppBurnDamage > 0 ? {
+      actor: 'opponent',
+      message: `🔥 ${opponentName} takes ${lastOutcome.oppBurnDamage} burn damage!`,
+      iconSrc: null,
+      damage: lastOutcome.oppBurnDamage,
+      missed: false,
+      apply: () => {
+        updateOppActive(prev => ({ ...prev, currentHp: Math.max(0, prev.currentHp - lastOutcome.oppBurnDamage) }));
+        setOppDamagePopup({ key: Date.now(), value: lastOutcome.oppBurnDamage, missed: false });
+        triggerAnim('opp', 'battle-hit');
+        playHitThud();
+      },
+    } : null;
+
     // Default order is me-then-opponent; when Speed broke a mutual-KO tie,
     // play the faster side's hit first to match the "struck first" log line.
     let beats: BattleBeat[] = [myBeat, oppBeat].filter((b): b is BattleBeat => !!b);
     if (lastOutcome.speedWinner === 'opponent' && myBeat && oppBeat) beats = [oppBeat, myBeat];
+    beats = [...beats, myBurnBeat, oppBurnBeat].filter((b): b is BattleBeat => !!b);
 
     runBattleBeats(
       beats,

@@ -5,7 +5,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { RealtimeChannel } from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabase';
-import { Skill, calculateDamage, getElementMultiplier, getScaledStats, ELEMENT_STATUS, SELF_TARGETING_ELEMENT_STATUSES, StatusEffect, ActiveModifier, getModifierMultiplier, tickModifiers, applySkillEffects } from '@/lib/monsterConfig';
+import { Skill, calculateDamage, getElementMultiplier, getScaledStats, ELEMENT_STATUS, SELF_TARGETING_ELEMENT_STATUSES, StatusEffect, ActiveModifier, getModifierMultiplier, tickModifiers, applySkillEffects, BATTLE_CONSTANTS } from '@/lib/monsterConfig';
 import { ActiveBattleMonster } from '@/components/battle/shared';
 
 export type BattlePhase = 'waiting_for_opponent' | 'select_skill' | 'awaiting_opponent' | 'round_resolved' | 'ended';
@@ -42,6 +42,27 @@ export interface RoundOutcome {
   // wrong-answer miss.
   myTimedOut: boolean;
   opponentTimedOut: boolean;
+  // True when the side was paralyzed entering this round — its attack (and
+  // any perfect-hit status/skill effects it would have caused) is skipped
+  // entirely, matching the solo BattleScreen's doNpcTurn skip-turn handling
+  // of the same status.
+  myParalyzed: boolean;
+  opponentParalyzed: boolean;
+  // Burn damage (BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN) applied this round to
+  // whichever side entered the round already burned — matches the solo
+  // BattleScreen's applyStatusTick DoT, which the PVP path never ran.
+  myBurnDamage: number;
+  oppBurnDamage: number;
+  // True when the side attacked (a real skill, not Rest/item/timeout) while
+  // cursed — its own damage output was already halved into myDamageDealt/
+  // opponentDamageDealt above, this just lets the UI note why.
+  myCursed: boolean;
+  opponentCursed: boolean;
+  // True when the side attacked while blessed — blessed is a one-shot buff
+  // (doubles that single attack) and must be cleared after use, mirroring
+  // the solo BattleScreen's explicit `status = null` on the consuming turn.
+  myBlessedConsumed: boolean;
+  oppBlessedConsumed: boolean;
   // Set when both hits would have been mutually lethal this round and Speed
   // broke the tie — the named side's attack landed first, so the other
   // side's damage never happened (mirrors the solo BattleScreen's doNpcTurn
@@ -157,6 +178,23 @@ export function useLiveBattle(
     if (oppMonster.status === 'def_boost') myDamageDealt = Math.round(myDamageDealt / 2);
     if (myMonster.status === 'def_boost') opponentDamageDealt = Math.round(opponentDamageDealt / 2);
 
+    // Curse halves the *cursed* side's own damage output — matches the solo
+    // BattleScreen's handleQuestionsComplete handling of the same status,
+    // which this PVP path never ported over.
+    const myCursed = myMonster.status === 'curse';
+    const opponentCursed = oppMonster.status === 'curse';
+    if (myCursed) myDamageDealt = Math.round(myDamageDealt * (1 - BATTLE_CONSTANTS.CURSE_DAMAGE_REDUCTION));
+    if (opponentCursed) opponentDamageDealt = Math.round(opponentDamageDealt * (1 - BATTLE_CONSTANTS.CURSE_DAMAGE_REDUCTION));
+
+    // Paralyze skips the paralyzed side's attack entirely (0 damage, no
+    // perfect-hit status/skill effects) — matches the solo BattleScreen's
+    // doNpcTurn skip-turn handling of the same status, which was never
+    // ported to this PVP resolution path.
+    const myParalyzed = myMonster.status === 'paralyze';
+    const oppParalyzed = oppMonster.status === 'paralyze';
+    if (myParalyzed) myDamageDealt = 0;
+    if (oppParalyzed) opponentDamageDealt = 0;
+
     // Speed only matters when both hits would otherwise be mutually lethal
     // this round — the faster side's attack lands first and defeats the
     // other before its own hit can register, so that damage is zeroed out.
@@ -176,8 +214,8 @@ export function useLiveBattle(
       }
     }
 
-    const myEffect = mine.isPerfect && mySkill ? ELEMENT_STATUS[myMonster.def.element] ?? null : null;
-    const oppEffect = theirs.isPerfect && oppSkill ? ELEMENT_STATUS[oppMonster.def.element] ?? null : null;
+    const myEffect = mine.isPerfect && mySkill && !myParalyzed ? ELEMENT_STATUS[myMonster.def.element] ?? null : null;
+    const oppEffect = theirs.isPerfect && oppSkill && !oppParalyzed ? ELEMENT_STATUS[oppMonster.def.element] ?? null : null;
     const myIsSelfEffect = !!myEffect && SELF_TARGETING_ELEMENT_STATUSES.includes(myEffect);
     const oppIsSelfEffect = !!oppEffect && SELF_TARGETING_ELEMENT_STATUSES.includes(oppEffect);
     // A self-targeting effect (blessed) buffs the caster's own next attack;
@@ -192,6 +230,16 @@ export function useLiveBattle(
     const myTimedOut = mine.skillId === TIMEOUT_ACTION_ID;
     const opponentTimedOut = theirs.skillId === TIMEOUT_ACTION_ID;
 
+    // Burn DoT ticks every round for whoever entered it burned — matches the
+    // solo BattleScreen's applyStatusTick, which this PVP path never ran.
+    const myBurnDamage = myMonster.status === 'burn' ? BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN : 0;
+    const oppBurnDamage = oppMonster.status === 'burn' ? BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN : 0;
+
+    // Blessed is a one-shot buff — consumed the moment it powers an attack,
+    // matching the solo BattleScreen's explicit status-clear on the same turn.
+    const myBlessedConsumed = myMonster.status === 'blessed' && !!mySkill;
+    const oppBlessedConsumed = oppMonster.status === 'blessed' && !!oppSkill;
+
     // Alt/universal skills' secondary effects — ticked once per round, then
     // each side's skill effects folded in in turn (mine first, then the
     // opponent's) so both clients derive the exact same resulting arrays
@@ -202,14 +250,14 @@ export function useLiveBattle(
     let oppHpDelta = 0;
     let myCleanse = false;
     let oppCleanse = false;
-    if (mySkill) {
+    if (mySkill && !myParalyzed) {
       const res = applySkillEffects(mySkill, myDamageDealt, myMonster.maxHp, myModifiers, oppModifiers);
       myModifiers = res.casterModifiers;
       oppModifiers = res.targetModifiers;
       myHpDelta += res.casterHpDelta;
       myCleanse = myCleanse || res.cleanseCaster;
     }
-    if (oppSkill) {
+    if (oppSkill && !oppParalyzed) {
       const res = applySkillEffects(oppSkill, opponentDamageDealt, oppMonster.maxHp, oppModifiers, myModifiers);
       oppModifiers = res.casterModifiers;
       myModifiers = res.targetModifiers;
@@ -220,13 +268,13 @@ export function useLiveBattle(
     const mySkillId = mySkill ? mine.skillId : null;
     const oppSkillId = oppSkill ? theirs.skillId : null;
 
-    setLastOutcome({ round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId });
+    setLastOutcome({ round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, myParalyzed, opponentParalyzed: oppParalyzed, myBurnDamage, oppBurnDamage, myCursed, opponentCursed, myBlessedConsumed, oppBlessedConsumed, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId });
     setPhase('round_resolved');
 
     channelRef.current?.send({
       type: 'broadcast',
       event: 'round_result',
-      payload: { round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId, from: userId },
+      payload: { round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, myParalyzed, opponentParalyzed: oppParalyzed, myBurnDamage, oppBurnDamage, myCursed, opponentCursed, myBlessedConsumed, oppBlessedConsumed, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId, from: userId },
     });
   }, [skills, userId]);
 
@@ -324,6 +372,14 @@ export function useLiveBattle(
         opponentAttackMissed: payload.myAttackMissed,
         myTimedOut: payload.opponentTimedOut,
         opponentTimedOut: payload.myTimedOut,
+        myParalyzed: payload.opponentParalyzed,
+        opponentParalyzed: payload.myParalyzed,
+        myBurnDamage: payload.oppBurnDamage ?? 0,
+        oppBurnDamage: payload.myBurnDamage ?? 0,
+        myCursed: payload.opponentCursed,
+        opponentCursed: payload.myCursed,
+        myBlessedConsumed: payload.oppBlessedConsumed,
+        oppBlessedConsumed: payload.myBlessedConsumed,
         speedWinner: payload.speedWinner === 'me' ? 'opponent' : payload.speedWinner === 'opponent' ? 'me' : null,
         myModifiers: payload.oppModifiers ?? [],
         oppModifiers: payload.myModifiers ?? [],
