@@ -4,6 +4,11 @@
 // server-side inside the trading RPCs (lib/trades.ts) — this component only
 // ever displays what those RPCs return, same pattern as the rest of the app's
 // gold handling (hooks/useWeeklyData.ts:applyGoldDelta).
+//
+// A negotiation is a "thread": a chain of offer -> counter-offer -> counter-
+// offer rows (see TradeThread in lib/trades.ts), roles swapping each hop.
+// Only the latest trade in a thread is actionable; everything before it is
+// shown as a read-only change log.
 import { useState, useEffect, useCallback } from 'react';
 import { startOfWeek, format } from 'date-fns';
 import { UserId } from '@/lib/userSession';
@@ -12,7 +17,8 @@ import { UserMonster } from '@/components/battle/shared';
 import { MonsterImage } from '@/components/battle/shared';
 import {
   searchPlayers, fetchTradeableMonsters, createTradeRequest, respondToTrade,
-  cancelTradeRequest, fetchMyTrades, PlayerSearchResult, TradeWithItems,
+  cancelTradeRequest, counterTradeRequest, fetchMyTradeThreads,
+  PlayerSearchResult, TradeThread, TradeWithItems,
 } from '@/lib/trades';
 
 interface TradePanelProps {
@@ -26,7 +32,7 @@ interface TradePanelProps {
 // rounded, minimum 1 gold. These mirror respond_to_trade's server-side math
 // exactly and are display-only here — the RPC is the source of truth for
 // what actually gets charged.
-function previewFee(myMonsterCount: number, theirMonsterCount: number, myGold: number, theirGold: number) {
+function previewFee(myMonsterCount: number, theirMonsterCount: number, myGold: number) {
   const curioFee = 250 * (myMonsterCount + theirMonsterCount);
   const myGoldFee = myGold > 0 ? Math.max(1, Math.ceil(myGold * 0.08)) : 0;
   return curioFee + myGoldFee;
@@ -40,24 +46,28 @@ const currentSunday = () => format(startOfWeek(new Date()), 'yyyy-MM-dd');
 
 export default function TradePanel({ userId, userMonsters, onTradeCompleted }: TradePanelProps) {
   const [tab, setTab] = useState<'pending' | 'new' | 'history'>('pending');
-  const [trades, setTrades] = useState<TradeWithItems[]>([]);
+  const [threads, setThreads] = useState<TradeThread[]>([]);
   const [busyId, setBusyId] = useState<string | null>(null);
+  const [counteringId, setCounteringId] = useState<string | null>(null);
 
-  const loadTrades = useCallback(async () => {
-    setTrades(await fetchMyTrades(userId));
+  const loadThreads = useCallback(async () => {
+    setThreads(await fetchMyTradeThreads(userId));
   }, [userId]);
 
-  useEffect(() => { loadTrades(); }, [loadTrades]);
+  useEffect(() => { loadThreads(); }, [loadThreads]);
 
-  const incoming = trades.filter(t => t.status === 'pending' && t.recipient_id === userId);
-  const outgoing = trades.filter(t => t.status === 'pending' && t.initiator_id === userId);
-  const history = trades.filter(t => t.status !== 'pending');
+  const isActive = (t: TradeThread) => t.trades[t.trades.length - 1].status === 'pending';
+  const activeThreads = threads.filter(isActive);
+  const historyThreads = threads.filter(t => !isActive(t));
+  const incomingCount = activeThreads.filter(
+    t => t.trades[t.trades.length - 1].recipient_id === userId
+  ).length;
 
   const handleRespond = async (tradeId: string, accept: boolean) => {
     setBusyId(tradeId);
     await respondToTrade(tradeId, accept, currentSunday());
     setBusyId(null);
-    await loadTrades();
+    await loadThreads();
     onTradeCompleted();
   };
 
@@ -65,14 +75,19 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted }: T
     setBusyId(tradeId);
     await cancelTradeRequest(tradeId);
     setBusyId(null);
-    await loadTrades();
+    await loadThreads();
+  };
+
+  const handleCounterSubmitted = async () => {
+    setCounteringId(null);
+    await loadThreads();
   };
 
   return (
     <div className="space-y-6">
       <div className="flex gap-2 border-b border-neutral-800">
         {([
-          { id: 'pending', label: `Requests${incoming.length > 0 ? ` (${incoming.length})` : ''}` },
+          { id: 'pending', label: `Requests${incomingCount > 0 ? ` (${incomingCount})` : ''}` },
           { id: 'new', label: 'New Trade' },
           { id: 'history', label: 'History' },
         ] as { id: typeof tab; label: string }[]).map(t => (
@@ -89,40 +104,23 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted }: T
       </div>
 
       {tab === 'pending' && (
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wide mb-3">Incoming</h3>
-            {incoming.length === 0 && <p className="text-sm text-gray-500">No incoming trade requests.</p>}
-            <div className="space-y-3">
-              {incoming.map(t => (
-                <TradeRequestCard
-                  key={t.id}
-                  trade={t}
-                  userMonsters={userMonsters}
-                  viewerId={userId}
-                  busy={busyId === t.id}
-                  onAccept={() => handleRespond(t.id, true)}
-                  onDecline={() => handleRespond(t.id, false)}
-                />
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wide mb-3">Outgoing</h3>
-            {outgoing.length === 0 && <p className="text-sm text-gray-500">No outgoing trade requests.</p>}
-            <div className="space-y-3">
-              {outgoing.map(t => (
-                <TradeRequestCard
-                  key={t.id}
-                  trade={t}
-                  userMonsters={userMonsters}
-                  viewerId={userId}
-                  busy={busyId === t.id}
-                  onCancel={() => handleCancel(t.id)}
-                />
-              ))}
-            </div>
-          </div>
+        <div className="space-y-3">
+          {activeThreads.length === 0 && <p className="text-sm text-gray-500">No open trade requests.</p>}
+          {activeThreads.map(thread => (
+            <ThreadCard
+              key={thread.threadId}
+              thread={thread}
+              viewerId={userId}
+              userMonsters={userMonsters}
+              busy={busyId === thread.trades[thread.trades.length - 1].id}
+              countering={counteringId === thread.trades[thread.trades.length - 1].id}
+              onAccept={() => handleRespond(thread.trades[thread.trades.length - 1].id, true)}
+              onDecline={() => handleRespond(thread.trades[thread.trades.length - 1].id, false)}
+              onCancel={() => handleCancel(thread.trades[thread.trades.length - 1].id)}
+              onStartCounter={() => setCounteringId(thread.trades[thread.trades.length - 1].id)}
+              onCounterSubmitted={handleCounterSubmitted}
+            />
+          ))}
         </div>
       )}
 
@@ -130,15 +128,15 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted }: T
         <NewTradeFlow
           userId={userId}
           userMonsters={userMonsters}
-          onCreated={async () => { await loadTrades(); setTab('pending'); }}
+          onCreated={async () => { await loadThreads(); setTab('pending'); }}
         />
       )}
 
       {tab === 'history' && (
         <div className="space-y-3">
-          {history.length === 0 && <p className="text-sm text-gray-500">No completed trades yet.</p>}
-          {history.map(t => (
-            <TradeRequestCard key={t.id} trade={t} userMonsters={userMonsters} viewerId={userId} readOnly />
+          {historyThreads.length === 0 && <p className="text-sm text-gray-500">No completed trades yet.</p>}
+          {historyThreads.map(thread => (
+            <ThreadCard key={thread.threadId} thread={thread} viewerId={userId} userMonsters={userMonsters} readOnly />
           ))}
         </div>
       )}
@@ -146,24 +144,39 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted }: T
   );
 }
 
-function TradeRequestCard({
-  trade, viewerId, busy, onAccept, onDecline, onCancel, readOnly,
+function offerSummary(trade: TradeWithItems, fromLabel: string): string {
+  const initiatorItems = trade.items.filter(i => i.side === 'initiator').length;
+  const recipientItems = trade.items.filter(i => i.side === 'recipient').length;
+  const give = `${initiatorItems} curio${initiatorItems === 1 ? '' : 's'}${trade.initiator_gold > 0 ? ` + ${trade.initiator_gold} gold` : ''}`;
+  const get = `${recipientItems} curio${recipientItems === 1 ? '' : 's'}${trade.recipient_gold > 0 ? ` + ${trade.recipient_gold} gold` : ''}`;
+  return `${fromLabel} offered ${give} for ${get}`;
+}
+
+function ThreadCard({
+  thread, viewerId, userMonsters, busy, countering, onAccept, onDecline, onCancel, onStartCounter, onCounterSubmitted, readOnly,
 }: {
-  trade: TradeWithItems;
-  userMonsters: UserMonster[];
+  thread: TradeThread;
   viewerId: UserId;
+  userMonsters: UserMonster[];
   busy?: boolean;
+  countering?: boolean;
   onAccept?: () => void;
   onDecline?: () => void;
   onCancel?: () => void;
+  onStartCounter?: () => void;
+  onCounterSubmitted?: () => void;
   readOnly?: boolean;
 }) {
-  const isInitiator = trade.initiator_id === viewerId;
-  const myItems = trade.items.filter(i => (isInitiator ? i.side === 'initiator' : i.side === 'recipient'));
-  const theirItems = trade.items.filter(i => (isInitiator ? i.side === 'recipient' : i.side === 'initiator'));
-  const myGold = isInitiator ? trade.initiator_gold : trade.recipient_gold;
-  const theirGold = isInitiator ? trade.recipient_gold : trade.initiator_gold;
-  const otherPartyId = isInitiator ? trade.recipient_id : trade.initiator_id;
+  const [showLog, setShowLog] = useState(false);
+  const latest = thread.trades[thread.trades.length - 1];
+  const isInitiator = latest.initiator_id === viewerId;
+  const myItems = latest.items.filter(i => (isInitiator ? i.side === 'initiator' : i.side === 'recipient'));
+  const theirItems = latest.items.filter(i => (isInitiator ? i.side === 'recipient' : i.side === 'initiator'));
+  const myGold = isInitiator ? latest.initiator_gold : latest.recipient_gold;
+  const theirGold = isInitiator ? latest.recipient_gold : latest.initiator_gold;
+  const otherPartyId = isInitiator ? latest.recipient_id : latest.initiator_id;
+  const canRespond = latest.status === 'pending' && latest.recipient_id === viewerId;
+  const canCancel = latest.status === 'pending' && latest.initiator_id === viewerId;
 
   return (
     <div className="border border-neutral-800 rounded-xl p-4 bg-neutral-900/50">
@@ -171,7 +184,7 @@ function TradeRequestCard({
         <p className="text-sm font-bold text-white">
           {isInitiator ? `To ${otherPartyId}` : `From ${otherPartyId}`}
         </p>
-        <span className="text-xs text-gray-500 uppercase">{trade.status}</span>
+        <span className="text-xs text-gray-500 uppercase">{latest.status}</span>
       </div>
       <div className="grid grid-cols-2 gap-4 text-sm text-gray-300 mb-3">
         <div>
@@ -183,41 +196,108 @@ function TradeRequestCard({
           <p>{theirItems.length} curio{theirItems.length === 1 ? '' : 's'}{theirGold > 0 ? ` + ${theirGold} gold` : ''}</p>
         </div>
       </div>
-      {trade.status === 'failed' && trade.fail_reason && (
-        <p className="text-xs text-red-400 mb-2">{trade.fail_reason}</p>
+      {latest.status === 'failed' && latest.fail_reason && (
+        <p className="text-xs text-red-400 mb-2">{latest.fail_reason}</p>
       )}
-      {!readOnly && (onAccept || onCancel) && (
+      {canCancel && !readOnly && (
+        <p className="text-xs text-gray-500 mb-2">Waiting for {otherPartyId} to respond.</p>
+      )}
+
+      {thread.trades.length > 1 && (
+        <button onClick={() => setShowLog(v => !v)} className="text-xs text-indigo-400 hover:text-indigo-300 font-bold mb-2">
+          {showLog ? '▲ Hide offer history' : `▼ Show offer history (${thread.trades.length} offers)`}
+        </button>
+      )}
+      {showLog && (
+        <div className="space-y-1 mb-3 border-l-2 border-neutral-800 pl-3">
+          {thread.trades.map(t => (
+            <p key={t.id} className="text-xs text-gray-500">
+              {offerSummary(t, t.initiator_id === viewerId ? 'You' : t.initiator_id)}
+              {' — '}{t.status}
+            </p>
+          ))}
+        </div>
+      )}
+
+      {!readOnly && canRespond && (
         <div className="flex gap-2">
-          {onAccept && (
-            <button
-              disabled={busy}
-              onClick={onAccept}
-              className="px-3 py-1.5 text-xs font-bold rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white disabled:opacity-50"
-            >
-              Accept
-            </button>
-          )}
-          {onDecline && (
-            <button
-              disabled={busy}
-              onClick={onDecline}
-              className="px-3 py-1.5 text-xs font-bold rounded-lg bg-neutral-800 hover:bg-neutral-700 text-gray-300 disabled:opacity-50"
-            >
-              Decline
-            </button>
-          )}
-          {onCancel && (
-            <button
-              disabled={busy}
-              onClick={onCancel}
-              className="px-3 py-1.5 text-xs font-bold rounded-lg bg-neutral-800 hover:bg-neutral-700 text-gray-300 disabled:opacity-50"
-            >
-              Cancel
-            </button>
-          )}
+          <button
+            disabled={busy}
+            onClick={onAccept}
+            className="px-3 py-1.5 text-xs font-bold rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white disabled:opacity-50"
+          >
+            Accept
+          </button>
+          <button
+            disabled={busy}
+            onClick={onDecline}
+            className="px-3 py-1.5 text-xs font-bold rounded-lg bg-neutral-800 hover:bg-neutral-700 text-gray-300 disabled:opacity-50"
+          >
+            Decline
+          </button>
+          <button
+            disabled={busy}
+            onClick={onStartCounter}
+            className="px-3 py-1.5 text-xs font-bold rounded-lg bg-indigo-800 hover:bg-indigo-700 text-white disabled:opacity-50"
+          >
+            Counter
+          </button>
+        </div>
+      )}
+      {!readOnly && canCancel && (
+        <button
+          disabled={busy}
+          onClick={onCancel}
+          className="px-3 py-1.5 text-xs font-bold rounded-lg bg-neutral-800 hover:bg-neutral-700 text-gray-300 disabled:opacity-50"
+        >
+          Cancel
+        </button>
+      )}
+
+      {countering && onCounterSubmitted && (
+        <div className="mt-4 pt-4 border-t border-neutral-800">
+          <CounterOfferFlow
+            trade={latest}
+            viewerId={viewerId}
+            userMonsters={userMonsters}
+            onSubmitted={onCounterSubmitted}
+          />
         </div>
       )}
     </div>
+  );
+}
+
+function CounterOfferFlow({
+  trade, viewerId, userMonsters, onSubmitted,
+}: {
+  trade: TradeWithItems;
+  viewerId: UserId;
+  userMonsters: UserMonster[];
+  onSubmitted: () => void;
+}) {
+  const otherPartyId = trade.initiator_id === viewerId ? trade.recipient_id : trade.initiator_id;
+  const [theirMonsters, setTheirMonsters] = useState<UserMonster[]>([]);
+
+  useEffect(() => {
+    fetchTradeableMonsters(otherPartyId).then(setTheirMonsters);
+  }, [otherPartyId]);
+
+  return (
+    <OfferBuilder
+      myMonsters={userMonsters}
+      theirMonsters={theirMonsters}
+      theirLabel={otherPartyId}
+      submitLabel="Send Counter-Offer"
+      onSubmit={async (myIds, theirIds, myGold, theirGold) => {
+        const { error } = await counterTradeRequest({
+          tradeId: trade.id, myMonsterIds: myIds, theirMonsterIds: theirIds, myGold, theirGold,
+        });
+        if (error) return error;
+        onSubmitted();
+        return null;
+      }}
+    />
   );
 }
 
@@ -232,12 +312,6 @@ function NewTradeFlow({
   const [results, setResults] = useState<PlayerSearchResult[]>([]);
   const [target, setTarget] = useState<PlayerSearchResult | null>(null);
   const [theirMonsters, setTheirMonsters] = useState<UserMonster[]>([]);
-  const [myPicked, setMyPicked] = useState<Set<string>>(new Set());
-  const [theirPicked, setTheirPicked] = useState<Set<string>>(new Set());
-  const [myGold, setMyGold] = useState(0);
-  const [theirGold, setTheirGold] = useState(0);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!query.trim()) { setResults([]); return; }
@@ -250,36 +324,6 @@ function NewTradeFlow({
     setResults([]);
     setQuery('');
     setTheirMonsters(await fetchTradeableMonsters(p.id));
-  };
-
-  const toggle = (set: Set<string>, setSet: (s: Set<string>) => void, id: string) => {
-    const next = new Set(set);
-    if (next.has(id)) next.delete(id); else next.add(id);
-    setSet(next);
-  };
-
-  const fee = previewFee(myPicked.size, theirPicked.size, myGold, theirGold);
-
-  const submit = async () => {
-    if (!target) return;
-    setSubmitting(true);
-    setError(null);
-    const { tradeId, error: err } = await createTradeRequest({
-      recipientId: target.id,
-      myMonsterIds: Array.from(myPicked),
-      theirMonsterIds: Array.from(theirPicked),
-      myGold,
-      theirGold,
-    });
-    setSubmitting(false);
-    if (!tradeId) { setError(err ?? 'Could not create trade request.'); return; }
-    setTarget(null);
-    setTheirMonsters([]);
-    setMyPicked(new Set());
-    setTheirPicked(new Set());
-    setMyGold(0);
-    setTheirGold(0);
-    onCreated();
   };
 
   if (!target) {
@@ -314,9 +358,70 @@ function NewTradeFlow({
         <button onClick={() => setTarget(null)} className="text-xs text-gray-500 hover:text-gray-300">Change player</button>
       </div>
 
+      <OfferBuilder
+        myMonsters={userMonsters}
+        theirMonsters={theirMonsters}
+        theirLabel={target.display_name}
+        submitLabel="Send Trade Request"
+        onSubmit={async (myIds, theirIds, myGold, theirGold) => {
+          const { error } = await createTradeRequest({
+            recipientId: target.id, myMonsterIds: myIds, theirMonsterIds: theirIds, myGold, theirGold,
+          });
+          if (error) return error;
+          setTarget(null);
+          setTheirMonsters([]);
+          onCreated();
+          return null;
+        }}
+      />
+    </div>
+  );
+}
+
+// Shared curio/gold picker + fee preview + submit, used by both a fresh
+// trade proposal and a counter-offer — the only difference is what
+// onSubmit does with the picks (create_trade_request vs counter_trade_request).
+function OfferBuilder({
+  myMonsters, theirMonsters, theirLabel, submitLabel, onSubmit,
+}: {
+  myMonsters: UserMonster[];
+  theirMonsters: UserMonster[];
+  theirLabel: string;
+  submitLabel: string;
+  onSubmit: (myIds: string[], theirIds: string[], myGold: number, theirGold: number) => Promise<string | null>;
+}) {
+  const [myPicked, setMyPicked] = useState<Set<string>>(new Set());
+  const [theirPicked, setTheirPicked] = useState<Set<string>>(new Set());
+  const [myGold, setMyGold] = useState(0);
+  const [theirGold, setTheirGold] = useState(0);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const toggle = (set: Set<string>, setSet: (s: Set<string>) => void, id: string) => {
+    const next = new Set(set);
+    if (next.has(id)) next.delete(id); else next.add(id);
+    setSet(next);
+  };
+
+  const fee = previewFee(myPicked.size, theirPicked.size, myGold);
+
+  const submit = async () => {
+    setSubmitting(true);
+    setError(null);
+    const err = await onSubmit(Array.from(myPicked), Array.from(theirPicked), myGold, theirGold);
+    setSubmitting(false);
+    if (err) { setError(err); return; }
+    setMyPicked(new Set());
+    setTheirPicked(new Set());
+    setMyGold(0);
+    setTheirGold(0);
+  };
+
+  return (
+    <div className="space-y-5">
       <div className="grid grid-cols-2 gap-4">
-        <MonsterPicker title="Your curios" monsters={userMonsters} picked={myPicked} onToggle={id => toggle(myPicked, setMyPicked, id)} />
-        <MonsterPicker title={`${target.display_name}'s curios`} monsters={theirMonsters} picked={theirPicked} onToggle={id => toggle(theirPicked, setTheirPicked, id)} />
+        <MonsterPicker title="Your curios" monsters={myMonsters} picked={myPicked} onToggle={id => toggle(myPicked, setMyPicked, id)} />
+        <MonsterPicker title={`${theirLabel}'s curios`} monsters={theirMonsters} picked={theirPicked} onToggle={id => toggle(theirPicked, setTheirPicked, id)} />
       </div>
 
       <div className="grid grid-cols-2 gap-4">
@@ -354,7 +459,7 @@ function NewTradeFlow({
         onClick={submit}
         className="px-5 py-2.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-black font-bold text-sm disabled:opacity-50"
       >
-        {submitting ? 'Sending…' : 'Send Trade Request'}
+        {submitting ? 'Sending…' : submitLabel}
       </button>
     </div>
   );

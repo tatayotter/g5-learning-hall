@@ -16,7 +16,7 @@ export interface PlayerSearchResult {
   grade: string;
 }
 
-export type TradeStatus = 'pending' | 'completed' | 'declined' | 'cancelled' | 'expired' | 'failed';
+export type TradeStatus = 'pending' | 'completed' | 'declined' | 'cancelled' | 'expired' | 'failed' | 'countered';
 
 export interface TradeItemRow {
   id: string;
@@ -38,10 +38,21 @@ export interface TradeRow {
   created_at: string;
   expires_at: string;
   responded_at: string | null;
+  thread_id: string;
+  parent_trade_id: string | null;
 }
 
 export interface TradeWithItems extends TradeRow {
   items: TradeItemRow[];
+}
+
+// A negotiation thread: every offer/counter-offer between the same two
+// parties over the same trade, oldest first. `trades[trades.length - 1]` is
+// the current/active offer (the one that's pending, or the terminal state
+// if the thread is resolved) — the rest is the change log.
+export interface TradeThread {
+  threadId: string;
+  trades: TradeWithItems[];
 }
 
 export async function searchPlayers(query: string): Promise<PlayerSearchResult[]> {
@@ -102,24 +113,68 @@ export async function cancelTradeRequest(tradeId: string): Promise<boolean> {
   return !error && data === true;
 }
 
-export async function fetchMyTrades(userId: UserId): Promise<TradeWithItems[]> {
-  const { data: trades, error } = await supabase
-    .from('trades')
-    .select('*')
-    .or(`initiator_id.eq.${userId},recipient_id.eq.${userId}`)
-    .order('created_at', { ascending: false });
-  if (error || !trades || trades.length === 0) return [];
+// Countering only makes sense on a trade that's currently pending and where
+// the caller is the recipient (enforced server-side too) — it flips roles:
+// the counter-offerer becomes the new initiator, and if their counter is
+// later accepted, they pay the fee, same as any other initiator.
+export async function counterTradeRequest(params: {
+  tradeId: string;
+  myMonsterIds: string[];
+  theirMonsterIds: string[];
+  myGold?: number;
+  theirGold?: number;
+}): Promise<{ tradeId: string | null; error: string | null }> {
+  const { data, error } = await supabase.rpc('counter_trade_request', {
+    p_trade_id: params.tradeId,
+    p_my_monster_ids: params.myMonsterIds,
+    p_their_monster_ids: params.theirMonsterIds,
+    p_my_gold: params.myGold ?? 0,
+    p_their_gold: params.theirGold ?? 0,
+  });
+  if (error) return { tradeId: null, error: error.message };
+  return { tradeId: data as string, error: null };
+}
 
+async function attachItems(trades: TradeRow[]): Promise<TradeWithItems[]> {
+  if (trades.length === 0) return [];
   const tradeIds = trades.map(t => t.id);
   const { data: items } = await supabase
     .from('trade_items')
     .select('*')
     .in('trade_id', tradeIds);
-
-  return (trades as TradeRow[]).map(t => ({
+  return trades.map(t => ({
     ...t,
     items: (items as TradeItemRow[] | null)?.filter(i => i.trade_id === t.id) ?? [],
   }));
+}
+
+// Groups every trade a user has been party to (as initiator or recipient, at
+// any point in a counter-offer chain) into per-thread negotiation histories,
+// oldest offer first within each thread.
+export async function fetchMyTradeThreads(userId: UserId): Promise<TradeThread[]> {
+  const { data: trades, error } = await supabase
+    .from('trades')
+    .select('*')
+    .or(`initiator_id.eq.${userId},recipient_id.eq.${userId}`)
+    .order('created_at', { ascending: true });
+  if (error || !trades || trades.length === 0) return [];
+
+  const withItems = await attachItems(trades as TradeRow[]);
+
+  const byThread = new Map<string, TradeWithItems[]>();
+  withItems.forEach(t => {
+    const list = byThread.get(t.thread_id) || [];
+    list.push(t);
+    byThread.set(t.thread_id, list);
+  });
+
+  const threads = Array.from(byThread.entries()).map(([threadId, list]) => ({ threadId, trades: list }));
+  // Most recently active thread first (by its latest offer's created_at).
+  threads.sort((a, b) =>
+    new Date(b.trades[b.trades.length - 1].created_at).getTime()
+    - new Date(a.trades[a.trades.length - 1].created_at).getTime()
+  );
+  return threads;
 }
 
 export interface TopTrader {
