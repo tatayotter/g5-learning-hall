@@ -296,6 +296,17 @@ export async function claimChecklistBonusLocal(userId: string, today: string, da
   await enqueueSync('claim_daily_checklist_bonus', 'rpc', { userId, today, dayName, weekStartingDate, gold });
 }
 
+export async function getLocalChecklistState(userId: string, today: string): Promise<{ guildSessions: GuildKey[]; claimed: boolean } | null> {
+  const db = await getDb();
+  const result = await db.query(
+    `SELECT guild_sessions_json, claimed FROM local_checklist_state WHERE user_id = ? AND today = ?`,
+    [userId, today]
+  );
+  const row = result.values?.[0];
+  if (!row) return null;
+  return { guildSessions: JSON.parse(row.guild_sessions_json), claimed: !!row.claimed };
+}
+
 // ─── Active user handoff (bridges main app <-> offline shell across origins) ──
 
 export async function setActiveUserLocal(userId: string, gradeLevel?: number) {

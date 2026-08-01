@@ -16,6 +16,8 @@ import {
 } from '@/lib/monsterConfig';
 import { fetchSubclassProfile, guildLevelForKey } from '@/lib/guildEngine';
 import { MonsterImage } from '@/components/battle/shared';
+import { isOfflineStorageAvailable } from '@/lib/localDataSource';
+import { isAppOffline } from '@/lib/offlineState';
 
 interface ActiveCurio {
   slot: number;
@@ -45,14 +47,22 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   const [subclassProfile, setSubclassProfile] = useState<Awaited<ReturnType<typeof fetchSubclassProfile>> | null>(null);
   const activeUser = USERS[userId as keyof typeof USERS] ?? USERS['damien'];
 
+  // Cosmetics/inventory, team roster, and lifetime stats are all live-only
+  // fetches with no offline cache — skip cleanly (empty state) rather than
+  // hang or error; the core stats/level/achievements below all render from
+  // the already-cached `data` prop regardless.
+  const offline = isOfflineStorageAvailable() && isAppOffline();
+
   useEffect(() => {
+    if (offline) return;
     fetchInventory(userId).then(setInventory);
-  }, [userId, avatarTick]);
+  }, [userId, avatarTick, offline]);
 
   // Team roster for the Trainer Card — same fetch shape as PlayerStatsPopup's
   // "Team" section, so a guild companion or graduated species displays
   // identically here as it does when a classmate looks this player up.
   useEffect(() => {
+    if (offline) return;
     let cancelled = false;
     async function loadTeam() {
       const [stateRes, monstersRes, subProfile] = await Promise.all([
@@ -67,7 +77,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
     }
     loadTeam();
     return () => { cancelled = true; };
-  }, [userId, avatarTick]);
+  }, [userId, avatarTick, offline]);
 
   // Same display-override pattern as MonsterGuild.tsx/PlayerStatsPopup: guild
   // companions show the name/sprite their owner's guild level currently
@@ -98,13 +108,13 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   // hooks/useWeeklyData.ts), so "lifetime" means summing across every past
   // weekly_packages row — fetched lazily, only once the toggle is used.
   useEffect(() => {
-    if (battleView !== 'lifetime' || lifetimeStats) return;
+    if (offline || battleView !== 'lifetime' || lifetimeStats) return;
     setLifetimeLoading(true);
     fetchLifetimeBattleStats(userId).then(stats => {
       setLifetimeStats(stats);
       setLifetimeLoading(false);
     });
-  }, [battleView, userId, lifetimeStats]);
+  }, [battleView, userId, lifetimeStats, offline]);
 
   const stats = data.character_stats;
   const level = stats?.level || 1;
@@ -126,7 +136,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   const ownedUserpics = USERPIC_CATALOG.filter(item => (inventory[item.key] || 0) > 0);
 
   const handleQuickSwitch = async (avatar: string) => {
-    if (avatar === activeUser.avatar || switchingAvatar) return;
+    if (avatar === activeUser.avatar || switchingAvatar || offline) return;
     setSwitchingAvatar(avatar);
     const ok = await saveAvatar(userId, avatar);
     setSwitchingAvatar(null);

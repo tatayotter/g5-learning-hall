@@ -5,6 +5,8 @@ import { CharacterStats, JournalEntry } from '@/hooks/useWeeklyData';
 import { logAction } from '@/lib/playerlog';
 import { playTeachingScroll, playLevelUp } from '@/lib/sounds';
 import { supabase } from '@/lib/supabase';
+import { isOfflineStorageAvailable } from '@/lib/localDataSource';
+import { isAppOffline } from '@/lib/offlineState';
 import GameButton from '@/components/GameButton';
 
 interface GuildJournalProps {
@@ -47,19 +49,24 @@ export default function GuildJournal({ userId, journalLogs, stats, currentSunday
     const newLogs = { ...journalLogs, [todayKey]: formData };
     let newStats = { ...stats };
 
-    // Archive this entry into the dedicated journal_entries table (for future export)
-    const weekStart = format(new Date(new Date().setDate(new Date().getDate() - new Date().getDay())), 'yyyy-MM-dd');
-    const { error: archiveError } = await supabase.from('journal_entries').insert({
-      user_id: userId,
-      entry_date: todayKey,
-      week_starting_date: weekStart,
-      done_today: formData.done_today,
-      tomorrow_plan: formData.tomorrow_plan,
-      hardest_challenge: formData.hardest_challenge,
-      gratitude: formData.gratitude
-    });
-    if (archiveError) {
-      console.error('Failed to archive journal entry:', archiveError);
+    // Archive this entry into the dedicated journal_entries table (for future
+    // export) — skipped offline rather than queued: it's a secondary archive
+    // copy, not the source of truth (journal_logs, saved via onSave below,
+    // already goes through the offline-aware updateStatsAndJournal path).
+    if (!(isOfflineStorageAvailable() && isAppOffline())) {
+      const weekStart = format(new Date(new Date().setDate(new Date().getDate() - new Date().getDay())), 'yyyy-MM-dd');
+      const { error: archiveError } = await supabase.from('journal_entries').insert({
+        user_id: userId,
+        entry_date: todayKey,
+        week_starting_date: weekStart,
+        done_today: formData.done_today,
+        tomorrow_plan: formData.tomorrow_plan,
+        hardest_challenge: formData.hardest_challenge,
+        gratitude: formData.gratitude
+      });
+      if (archiveError) {
+        console.error('Failed to archive journal entry:', archiveError);
+      }
     }
 
     // Process Rewards (only if NOT already submitted)

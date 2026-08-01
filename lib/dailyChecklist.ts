@@ -1,4 +1,6 @@
 import { supabase } from './supabase';
+import { isOfflineStorageAvailable, markGuildSessionTodayLocal, claimChecklistBonusLocal, getLocalChecklistState } from '@/lib/localDataSource';
+import { isAppOffline } from '@/lib/offlineState';
 
 export type GuildKey = 'lorekeeper' | 'spellcaster' | 'number_realm' | 'logic_labyrinth' | 'lexicon_arena';
 
@@ -35,6 +37,16 @@ export interface ChecklistBattleFlags {
 }
 
 export async function fetchChecklistBattleFlags(userId: string): Promise<ChecklistBattleFlags> {
+  if (isOfflineStorageAvailable() && isAppOffline()) {
+    const today = new Date().toISOString().slice(0, 10);
+    const state = await getLocalChecklistState(userId, today);
+    const guild_last_played: Partial<Record<GuildKey, string>> = {};
+    (state?.guildSessions || []).forEach(g => { guild_last_played[g] = today; });
+    // No offline data source for wild-encounter wins (Monster Arena is
+    // online-only) — this sub-item just always shows undone offline.
+    return { last_wild_encounter_win: null, guild_last_played };
+  }
+
   const { data, error } = await supabase
     .from('user_battle_state')
     .select('last_wild_encounter_win, guild_last_played')
@@ -52,6 +64,10 @@ export async function fetchChecklistBattleFlags(userId: string): Promise<Checkli
 // the Monster Arena yet (no user_battle_state row) still gets one created
 // atomically rather than racing a client-side read-then-upsert.
 export async function markGuildSessionToday(userId: string, guildKey: GuildKey, today: string) {
+  if (isOfflineStorageAvailable() && isAppOffline()) {
+    await markGuildSessionTodayLocal(userId, guildKey, today);
+    return;
+  }
   await supabase.rpc('mark_guild_session_today', {
     p_user_id: userId,
     p_guild_key: guildKey,
@@ -70,6 +86,11 @@ export function isQuestDayDone(
 }
 
 export async function hasClaimedChecklistBonus(userId: string, today: string): Promise<boolean> {
+  if (isOfflineStorageAvailable() && isAppOffline()) {
+    const state = await getLocalChecklistState(userId, today);
+    return state?.claimed ?? false;
+  }
+
   const { data } = await supabase
     .from('daily_checklist_claims')
     .select('claim_date')
@@ -86,6 +107,11 @@ export async function claimChecklistBonus(
   weekStartingDate: string,
   gold: number = 50
 ): Promise<boolean> {
+  if (isOfflineStorageAvailable() && isAppOffline()) {
+    await claimChecklistBonusLocal(userId, today, dayName, weekStartingDate, gold);
+    return true;
+  }
+
   const { data, error } = await supabase.rpc('claim_daily_checklist_bonus', {
     p_user_id: userId,
     p_today: today,
