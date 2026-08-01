@@ -13,14 +13,16 @@ import com.getcapacitor.CapConfig;
 // Offline: no connection at cold start, so loading the remote server.url
 // would just show a network-error page. Instead, fall back to the
 // locally-bundled offline shell (a separate, small static export — see
-// offline-shell/ and lib/localDataSource.ts) copied into www/offline/ and
-// synced into assets/public/offline/ alongside the usual webDir contents.
+// offline-shell/ and lib/localDataSource.ts). It IS webDir (www/) in its
+// entirety — the online path never uses webDir at all (server.url always
+// overrides it) — so this just loads webDir's own root index.html, no
+// custom start path needed.
 public class MainActivity extends BridgeActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         if (!isOnline()) {
-            this.config = new CapConfig.Builder(this).setServerUrl(null).setStartPath("/offline/index.html").create();
+            this.config = new CapConfig.Builder(this).setServerUrl(null).create();
         }
         super.onCreate(savedInstanceState);
     }

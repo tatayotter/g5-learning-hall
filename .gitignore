@@ -61,7 +61,8 @@ repomix-output.xml
 /offline-shell/next-env.d.ts
 /offline-shell/*.tsbuildinfo
 
-# offline-shell's build output, copied into www/offline by the Android CI
-# workflow right before `cap sync` — not source, shouldn't be committed.
-/www/offline/
+# offline-shell's build output, copied wholesale into www/ by the Android CI
+# workflow right before `cap sync` (www/ is never used by the online path —
+# server.url always overrides it) — not source, shouldn't be committed.
+/www/
 

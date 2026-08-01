@@ -42,9 +42,9 @@ jobs:
 
       - name: Copy offline shell into webDir
         run: |
-          rm -rf www/offline
-          mkdir -p www/offline
-          cp -r offline-shell/out/. www/offline/
+          rm -rf www
+          mkdir -p www
+          cp -r offline-shell/out/. www/
 
       - name: Sync Capacitor Android project
         run: npx cap sync android
