@@ -5,8 +5,9 @@
 // online app already uses. Call this from the main app once it's confirmed
 // online — see app/page.tsx.
 import { Network } from '@capacitor/network';
+import { supabase } from '@/lib/supabase';
 import { isOfflineStorageAvailable, getUnsyncedQueue, markSynced, type SyncQueueRow } from '@/lib/localDataSource';
-import { markQuestionsCompleted } from '@/lib/guildEngine';
+import { markQuestionsCompleted, updateSubclassProfile, type SubclassProfile } from '@/lib/guildEngine';
 import { markGuildSessionToday, claimChecklistBonus, type GuildKey } from '@/lib/dailyChecklist';
 
 async function replay(row: SyncQueueRow): Promise<void> {
@@ -20,6 +21,28 @@ async function replay(row: SyncQueueRow): Promise<void> {
       return;
     case 'claim_daily_checklist_bonus':
       await claimChecklistBonus(p.userId, p.today, p.dayName, p.weekStartingDate, p.gold);
+      return;
+    case 'apply_character_deltas': {
+      const { error } = await supabase.rpc('apply_character_deltas', {
+        p_user_id: p.userId,
+        p_week_starting_date: p.weekStartingDate,
+        p_xp_delta: p.xpDelta,
+        p_gold_delta: p.goldDelta,
+      });
+      if (error) throw error;
+      return;
+    }
+    case 'weekly_packages_other_changes': {
+      const { error } = await supabase
+        .from('weekly_packages')
+        .update(p.otherChanges)
+        .eq('week_starting_date', p.weekStartingDate)
+        .eq('user_id', p.userId);
+      if (error) throw error;
+      return;
+    }
+    case 'update_subclass_profile':
+      await updateSubclassProfile(p.userId, p.fields as Partial<SubclassProfile>);
       return;
     default:
       console.error(`Unknown sync_queue target, skipping: ${row.tableTarget}`);

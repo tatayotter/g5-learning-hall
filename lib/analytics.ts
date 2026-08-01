@@ -4,6 +4,8 @@
 // never break gameplay.
 import { supabase } from '@/lib/supabase';
 import { getActiveUser, USERS } from '@/lib/userSession';
+import { isOfflineStorageAvailable } from '@/lib/localDataSource';
+import { isAppOffline } from '@/lib/offlineState';
 
 const SESSION_STORAGE_KEY = 'g5_analytics_session_id';
 
@@ -24,6 +26,9 @@ export async function trackEvent(
 ) {
   const userId = getActiveUser();
   if (!userId) return; // no-op before login — nothing meaningful to attribute yet
+  // Skipped rather than queued when offline — analytics, not user-facing
+  // progress, not worth the sync complexity.
+  if (isOfflineStorageAvailable() && isAppOffline()) return;
 
   const { error } = await supabase.from('analytics_events').insert({
     user_id: userId,

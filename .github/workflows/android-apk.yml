@@ -29,6 +29,13 @@ jobs:
 
       - name: Build offline shell (static export)
         working-directory: offline-shell
+        env:
+          # Public (NEXT_PUBLIC_*) values, same as the main app's Vercel config
+          # — needed because importing lib/guildEngine.ts/lib/userSession.ts
+          # transitively constructs the Supabase client (lib/supabase.ts) at
+          # module load, even though the offline path itself never calls it.
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
         run: |
           npm ci
           npm run build

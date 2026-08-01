@@ -1,135 +1,157 @@
 'use client';
 // offline-shell/app/page.tsx
 //
-// Phase-1 proof-of-concept screen: NumberRealm practice, standard-layout
-// questions only (fraction/time layouts, and the other 4 guilds, are a
-// later pass — see the plan doc). Runs entirely off the local SQLite cache
-// populated by the main app's caching-writer; no Supabase calls here.
+// Thin guild-hosting shell: reuses the real guild components verbatim
+// (components/guilds/*.tsx) — same props, same visuals/animations/sounds —
+// wired to data that's already offline-aware (lib/guildEngine.ts,
+// hooks/useWeeklyData.ts) from the Phase 2 offline branches. This page only
+// supplies the profile lookup + guild picker + gold-earned wiring that
+// app/page.tsx normally provides.
 import { useEffect, useState } from 'react';
-import {
-  isOfflineStorageAvailable,
-  getActiveUserLocal,
-  getCachedGuildPoolAnyTier,
-  getLocallyCompletedQuestionIds,
-  markQuestionsCompletedLocal,
-} from '@/lib/localDataSource';
+import { motion } from 'framer-motion';
+import { format } from 'date-fns';
+import { getActiveUserLocal } from '@/lib/localDataSource';
+import { useWeeklyData } from '@/hooks/useWeeklyData';
+import { fetchSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
+import { markGuildSessionToday, GUILDS } from '@/lib/dailyChecklist';
+import type { GuildKey } from '@/lib/dailyChecklist';
+import Lorekeeper from '@/components/guilds/Lorekeeper';
+import SpellCaster from '@/components/guilds/SpellCaster';
+import NumberRealm from '@/components/guilds/NumberRealm';
+import LogicLabyrinth from '@/components/guilds/LogicLabyrinth';
+import LexiconArena from '@/components/guilds/LexiconArena';
+import GuardianSprite, { GuardianGuild } from '@/components/guilds/GuardianSprite';
 
-interface NumberRealmQuestion {
-  id: string;
-  problem_prompt: string;
-  expected_layout: 'standard' | 'fraction' | 'time';
-  correct_standard_ans: string | null;
-}
+const GUILD_DISPLAY: { key: GuildKey; guild: GuardianGuild; name: string; desc: string; bg: string; border: string; title: string }[] = [
+  { key: 'lorekeeper', guild: 'lorekeeper', name: 'Lorekeeper', desc: 'English guild — Time Attack reading & grammar challenges.', bg: 'bg-[#121a16]', border: 'border-emerald-800 hover:border-emerald-500', title: 'text-emerald-300' },
+  { key: 'spellcaster', guild: 'spellcaster', name: 'SpellCaster', desc: 'Typing guild — Real-time speed spelling under the clock.', bg: 'bg-[#13111c]', border: 'border-violet-800 hover:border-violet-500', title: 'text-violet-300' },
+  { key: 'number_realm', guild: 'numberrealm', name: 'Number Realm', desc: 'Math guild — Fractions, time, and operations at speed.', bg: 'bg-[#0d0c08]', border: 'border-amber-800 hover:border-amber-500', title: 'text-amber-300' },
+  { key: 'logic_labyrinth', guild: 'logiclabyrinth', name: 'Logic Labyrinth', desc: 'IQ guild — Pattern matrices and deduction puzzles.', bg: 'bg-[#0b0d12]', border: 'border-cyan-800 hover:border-cyan-500', title: 'text-cyan-300' },
+  { key: 'lexicon_arena', guild: 'lexiconarena', name: 'Lexicon Arena', desc: 'Spelling guild — Read the definition, pick the correct spelling before time runs out.', bg: 'bg-neutral-900', border: 'border-indigo-800 hover:border-indigo-500', title: 'text-indigo-300' },
+];
 
-function shuffle<T>(arr: T[]): T[] {
-  const result = [...arr];
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-  return result;
-}
-
-type Screen = 'loading' | 'no-profile' | 'no-questions' | 'playing' | 'done';
+const GUILD_LEVEL_FIELD: Record<GuildKey, keyof SubclassProfile> = {
+  lorekeeper: 'lorekeeper_lvl',
+  spellcaster: 'spellcaster_lvl',
+  number_realm: 'number_realm_lvl',
+  logic_labyrinth: 'logic_labyrinth_lvl',
+  lexicon_arena: 'lexicon_arena_lvl',
+};
+const GUILD_TIER_FIELD: Record<GuildKey, keyof SubclassProfile> = {
+  lorekeeper: 'lorekeeper_tier',
+  spellcaster: 'spellcaster_tier',
+  number_realm: 'number_realm_tier',
+  logic_labyrinth: 'logic_labyrinth_tier',
+  lexicon_arena: 'lexicon_arena_tier',
+};
 
 export default function OfflinePracticePage() {
-  const [screen, setScreen] = useState<Screen>('loading');
   const [userId, setUserId] = useState<string | null>(null);
-  const [questions, setQuestions] = useState<NumberRealmQuestion[]>([]);
-  const [index, setIndex] = useState(0);
-  const [answer, setAnswer] = useState('');
-  const [correctCount, setCorrectCount] = useState(0);
-  const [answeredIds, setAnsweredIds] = useState<string[]>([]);
-  const [flash, setFlash] = useState<'correct' | 'wrong' | null>(null);
+  const [resolvedProfile, setResolvedProfile] = useState(false);
+  const [activeGuild, setActiveGuild] = useState<GuildKey | null>(null);
+  const [guildProfile, setGuildProfile] = useState<SubclassProfile | null>(null);
 
   useEffect(() => {
-    async function load() {
-      if (!isOfflineStorageAvailable()) {
-        setScreen('no-profile');
-        return;
-      }
-      const active = await getActiveUserLocal();
-      if (!active) {
-        setScreen('no-profile');
-        return;
-      }
-      setUserId(active.userId);
-
-      const [pool, completedIds] = await Promise.all([
-        getCachedGuildPoolAnyTier('sq_number_realm', 'number_realm', active.gradeLevel ?? undefined),
-        getLocallyCompletedQuestionIds(active.userId, 'number_realm'),
-      ]);
-
-      const standardOnly = (pool as NumberRealmQuestion[]).filter(q => q.expected_layout === 'standard');
-      const remaining = standardOnly.filter(q => !completedIds.has(q.id));
-      const session = shuffle(remaining.length > 0 ? remaining : standardOnly).slice(0, 10);
-
-      if (session.length === 0) {
-        setScreen('no-questions');
-        return;
-      }
-      setQuestions(session);
-      setScreen('playing');
-    }
-    load();
+    getActiveUserLocal().then(active => {
+      setUserId(active?.userId ?? null);
+      setResolvedProfile(true);
+    });
   }, []);
 
-  async function submitAnswer() {
-    const q = questions[index];
-    const isCorrect = answer.trim().toLowerCase() === (q.correct_standard_ans || '').trim().toLowerCase();
-    setFlash(isCorrect ? 'correct' : 'wrong');
-    if (isCorrect) setCorrectCount(c => c + 1);
-    setAnsweredIds(ids => [...ids, q.id]);
+  useEffect(() => {
+    if (!userId) return;
+    fetchSubclassProfile(userId).then(setGuildProfile);
+  }, [userId]);
 
-    setTimeout(async () => {
-      setFlash(null);
-      setAnswer('');
-      if (index + 1 < questions.length) {
-        setIndex(i => i + 1);
-      } else {
-        if (userId) await markQuestionsCompletedLocal(userId, 'number_realm', [...answeredIds, q.id]);
-        setScreen('done');
-      }
-    }, 500);
-  }
+  // Falls through to a sentinel that matches no cached row while userId is
+  // still resolving, so this hook (which must run unconditionally) doesn't
+  // fetch/insert against a real user id before we know who's playing.
+  const { data, loading, updateStatsAndJournal } = useWeeklyData(userId ?? '__pending__');
 
-  if (screen === 'loading') return <Centered>Loading…</Centered>;
-  if (screen === 'no-profile') {
+  const handleGoldEarned = (newStats: { level: number; xp: number; gold: number }) => {
+    if (!activeGuild || !data || !userId) return;
+    markGuildSessionToday(userId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
+    updateStatsAndJournal(
+      newStats, data.journal_logs,
+      data.purchased_items, data.mastery_count, data.honor_grants,
+      data.quiz_attempts || {}, data.mastered_quizzes || [],
+      data.honor_grants,
+      (data.guild_sessions_count || 0) + 1,
+      data.monster_battles_won || 0,
+      data.sibling_battles_won || 0,
+      data.perfect_quizzes || 0
+    );
+  };
+
+  if (!resolvedProfile) return <Centered>Loading…</Centered>;
+  if (!userId) {
     return <Centered>No cached profile yet — open Learning Hall online at least once before playing offline.</Centered>;
   }
-  if (screen === 'no-questions') {
-    return <Centered>No Number Realm questions cached yet — connect to the internet once so this week's practice set can download.</Centered>;
-  }
-  if (screen === 'done') {
-    return <Centered>Session complete — {correctCount}/{questions.length} correct.<br />Your progress will sync next time you're online.</Centered>;
+  if (loading) return <Centered>Loading…</Centered>;
+  if (!data) {
+    return <Centered>No cached data yet — connect online once so this week's content can download.</Centered>;
   }
 
-  const q = questions[index];
+  if (activeGuild) {
+    const commonProps = {
+      userId,
+      weekStartingDate: data.week_starting_date,
+      currentStats: data.character_stats,
+      onGoldEarned: handleGoldEarned,
+      onExit: () => setActiveGuild(null),
+    };
+    switch (activeGuild) {
+      case 'lorekeeper': return <Lorekeeper {...commonProps} />;
+      case 'spellcaster': return <SpellCaster {...commonProps} />;
+      case 'number_realm': return <NumberRealm {...commonProps} />;
+      case 'logic_labyrinth': return <LogicLabyrinth {...commonProps} />;
+      case 'lexicon_arena': return <LexiconArena {...commonProps} />;
+    }
+  }
+
   return (
-    <div style={{ maxWidth: 480, margin: '0 auto', padding: 24 }}>
-      <p style={{ opacity: 0.6, fontSize: 14 }}>Number Realm (offline) — question {index + 1} of {questions.length}</p>
-      <h2 style={{ fontSize: 22 }}>{q.problem_prompt}</h2>
-      <input
-        value={answer}
-        onChange={e => setAnswer(e.target.value)}
-        onKeyDown={e => e.key === 'Enter' && submitAnswer()}
-        style={{ fontSize: 18, padding: 8, width: '100%', marginTop: 16, borderRadius: 8, border: 'none' }}
-        autoFocus
-      />
-      <button
-        onClick={submitAnswer}
-        style={{ marginTop: 12, padding: '10px 20px', borderRadius: 8, border: 'none', background: '#4f46e5', color: '#fff', fontSize: 16 }}
-      >
-        Submit
-      </button>
-      {flash && <p style={{ marginTop: 12, color: flash === 'correct' ? '#4ade80' : '#f87171' }}>{flash === 'correct' ? 'Correct!' : 'Not quite.'}</p>}
+    <div className="battle-panel-in p-6 max-w-3xl mx-auto">
+      <h1 className="text-3xl font-bold mb-2 font-display">Practice Offline</h1>
+      <p className="text-gray-400 text-sm mb-8">Pick a guild to practice — progress syncs once you're back online.</p>
+      <div className="grid grid-cols-1 gap-6">
+        {GUILD_DISPLAY.map(g => (
+          <motion.button
+            key={g.key}
+            onClick={() => setActiveGuild(g.key)}
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className={`${g.bg} border-2 ${g.border} rounded-xl p-6 text-left transition-colors flex items-center gap-4`}
+          >
+            <div className="w-16 h-16 shrink-0">
+              <GuardianSprite guild={g.guild} pose="idle" className="w-full h-full" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between gap-2">
+                <h3 className={`text-xl font-bold ${g.title} font-display mb-1`}>{g.name}</h3>
+                {typeof guildProfile?.[GUILD_LEVEL_FIELD[g.key]] === 'number' && (
+                  <span className={`text-xs font-mono font-bold ${g.title} bg-black/40 rounded-full px-2 py-0.5 shrink-0`}>
+                    Lvl {guildProfile![GUILD_LEVEL_FIELD[g.key]]}
+                    {typeof guildProfile?.[GUILD_TIER_FIELD[g.key]] === 'number' && (
+                      <> · {'★'.repeat(guildProfile![GUILD_TIER_FIELD[g.key]] as number)}</>
+                    )}
+                  </span>
+                )}
+              </div>
+              <p className="text-sm text-gray-400">{g.desc}</p>
+              <p className="text-xs text-gray-500 italic mt-1">
+                {GUILDS.find(guild => guild.key === g.key)?.lore}
+              </p>
+            </div>
+          </motion.button>
+        ))}
+      </div>
     </div>
   );
 }
 
 function Centered({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', textAlign: 'center', padding: 24 }}>
+    <div className="flex items-center justify-center min-h-screen text-center p-6">
       <p>{children}</p>
     </div>
   );

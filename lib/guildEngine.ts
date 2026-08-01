@@ -3,7 +3,12 @@ import { supabase } from '@/lib/supabase';
 import { CURRENT_TERM, PREFETCH_BATCH_SIZE, MIN_SESSION_POOL_SIZE } from '@/lib/guildConfig';
 import type { GuildKey } from '@/lib/dailyChecklist';
 import { GUILD_MONSTERS } from '@/lib/monsterConfig';
-import { isOfflineStorageAvailable, cacheGuildPool } from '@/lib/localDataSource';
+import {
+  isOfflineStorageAvailable, cacheGuildPool, getCachedGuildPoolAnyTier,
+  getLocallyCompletedQuestionIds, markQuestionsCompletedLocal,
+  getCachedSubclassProfile, updateSubclassProfileLocal, cacheSubclassProfile,
+} from '@/lib/localDataSource';
+import { isAppOffline } from '@/lib/offlineState';
 
 // Best-effort mirror of a freshly fetched guild pool into the on-device
 // SQLite cache, so the Android offline shell has something to serve next
@@ -53,6 +58,10 @@ const GUILD_TIER_FIELD: Partial<Record<string, keyof SubclassProfile>> = {
 };
 
 export async function fetchSubclassProfile(userId: string): Promise<SubclassProfile | null> {
+  if (isOfflineStorageAvailable() && isAppOffline()) {
+    return getCachedSubclassProfile(userId);
+  }
+
   const USER_ID = userId;
   const { data, error } = await supabase
     .from('user_subclass_profiles')
@@ -63,10 +72,26 @@ export async function fetchSubclassProfile(userId: string): Promise<SubclassProf
     console.error('Failed to fetch subclass profile:', error);
     return null;
   }
+  if (data && isOfflineStorageAvailable()) {
+    void cacheSubclassProfileSafe(userId, data as SubclassProfile);
+  }
   return data as SubclassProfile | null;
 }
 
+async function cacheSubclassProfileSafe(userId: string, profile: SubclassProfile) {
+  try {
+    await cacheSubclassProfile(userId, profile);
+  } catch (e) {
+    console.error('Offline cache write failed (non-fatal):', e);
+  }
+}
+
 export async function updateSubclassProfile(userId: string, fields: Partial<SubclassProfile>) {
+  if (isOfflineStorageAvailable() && isAppOffline()) {
+    await updateSubclassProfileLocal(userId, fields);
+    return;
+  }
+
   const USER_ID = userId;
   const { error } = await supabase
     .from('user_subclass_profiles')
@@ -110,6 +135,11 @@ export async function ensureGuildMonsterGranted(userId: string, guildKey: GuildK
   const monsterId = GUILD_MONSTER_ID[guildKey];
   if (!monsterId || !GUILD_MONSTERS[monsterId]) return null;
 
+  // Simplified offline: skip the companion-monster grant/reveal entirely —
+  // it resolves correctly next time this level-up condition is evaluated
+  // online (the caller already treats a null return as "nothing granted").
+  if (isOfflineStorageAvailable() && isAppOffline()) return null;
+
   const [{ data: owned }, { data: caught }] = await Promise.all([
     supabase.from('user_monsters').select('id').eq('user_id', userId).eq('monster_id', monsterId).limit(1),
     supabase.from('user_caught_monsters').select('id').eq('user_id', userId).eq('monster_id', monsterId).limit(1),
@@ -138,6 +168,19 @@ export async function ensureGuildMonsterGranted(userId: string, guildKey: GuildK
 export async function fetchQuestionPool(userId: string, tableName: string, questType: string, gradeLevel?: number): Promise<any[]> {
   const USER_ID = userId;
   const tierField = GUILD_TIER_FIELD[questType];
+
+  // Offline: serve from whatever's cached, no tier-advance/prestige logic
+  // (that requires writing back to the subclass profile's tier field — kept
+  // simple here since it resolves correctly once back online anyway).
+  if (isOfflineStorageAvailable() && isAppOffline()) {
+    const [pool, completedIds] = await Promise.all([
+      getCachedGuildPoolAnyTier(tableName, questType, gradeLevel),
+      getLocallyCompletedQuestionIds(USER_ID, questType),
+    ]);
+    const remaining = pool.filter((q: any) => !completedIds.has(q.id));
+    const source = remaining.length > 0 ? remaining : pool;
+    return source.slice(0, PREFETCH_BATCH_SIZE);
+  }
 
   const [{ data: completed }, profile] = await Promise.all([
     supabase
@@ -217,6 +260,12 @@ export async function fetchQuestionPool(userId: string, tableName: string, quest
 
 export async function markQuestionsCompleted(userId: string, questType: string, questionIds: string[]) {
   if (questionIds.length === 0) return;
+
+  if (isOfflineStorageAvailable() && isAppOffline()) {
+    await markQuestionsCompletedLocal(userId, questType, questionIds);
+    return;
+  }
+
   const USER_ID = userId;
   const rows = questionIds.map((id: string) => ({
     user_id: USER_ID,

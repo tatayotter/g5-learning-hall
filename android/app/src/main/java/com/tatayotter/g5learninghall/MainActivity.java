@@ -20,7 +20,7 @@ public class MainActivity extends BridgeActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         if (!isOnline()) {
-            this.config = new CapConfig.Builder(this).setServerUrl(null).setStartPath("offline/index.html").create();
+            this.config = new CapConfig.Builder(this).setServerUrl(null).setStartPath("/offline/index.html").create();
         }
         super.onCreate(savedInstanceState);
     }

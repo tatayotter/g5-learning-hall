@@ -37,6 +37,7 @@ import { fetchSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
 import { watchAndFlushSyncQueue } from '@/lib/offlineSync';
 import { seedOfflineCache } from '@/lib/offlineSeed';
 import MonsterShop from '@/components/MonsterShop';
+import VaultKeeperNpc from '@/components/VaultKeeperNpc';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import { respondToInvite } from '@/lib/liveBattle';
@@ -219,6 +220,16 @@ export default function Dashboard() {
   }, [activeTab]);
   useEffect(() => {
     trackEvent('tab_view', {}, activeTab);
+  }, [activeTab]);
+  // Retriggers the Vault Keeper's slide-in greeting each time the player
+  // (re)enters the vault tab, rather than just once on mount.
+  const [vaultGreetKey, setVaultGreetKey] = useState(0);
+  const prevTabRef = useRef(activeTab);
+  useEffect(() => {
+    if (activeTab === 'vault' && prevTabRef.current !== 'vault') {
+      setVaultGreetKey((k) => k + 1);
+    }
+    prevTabRef.current = activeTab;
   }, [activeTab]);
   const [pendingLiveBattleId, setPendingLiveBattleId] = useState<string | null>(null);
   const [claimingKey, setClaimingKey] = useState<string | null>(null);
@@ -522,6 +533,8 @@ export default function Dashboard() {
 
       {/* Main Content Area */}
       <main className="flex-1 p-8 overflow-y-auto relative">
+
+        {activeTab === 'vault' && <VaultKeeperNpc key={vaultGreetKey} />}
 
         {/* Tab switches from the sidebar rail fade/slide the content area
             instead of snapping — keyed on activeTab only, so in-tab state

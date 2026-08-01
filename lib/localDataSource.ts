@@ -13,15 +13,23 @@
 import { Capacitor } from '@capacitor/core';
 import { CapacitorSQLite, SQLiteConnection, SQLiteDBConnection } from '@capacitor-community/sqlite';
 import type { GuildKey } from '@/lib/dailyChecklist';
+import type { WeeklyData } from '@/hooks/useWeeklyData';
+import type { SubclassProfile } from '@/lib/guildEngine';
 
 const DB_NAME = 'learninghall_offline';
 const DB_VERSION = 1;
 
 const SCHEMA_SQL = `
-CREATE TABLE IF NOT EXISTS local_package_data (
+CREATE TABLE IF NOT EXISTS local_weekly_data (
   user_id TEXT PRIMARY KEY,
-  week_starting_date TEXT,
-  package_data_json TEXT NOT NULL,
+  week_starting_date TEXT NOT NULL,
+  weekly_data_json TEXT NOT NULL,
+  cached_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS local_subclass_profile (
+  user_id TEXT PRIMARY KEY,
+  profile_json TEXT NOT NULL,
   cached_at TEXT NOT NULL
 );
 
@@ -152,25 +160,49 @@ export async function getCachedGuildPoolAnyTier(tableName: string, questType: st
   return merged;
 }
 
-// ─── Weekly package data (Main Quest content, reused by Monster Arena) ─────
+// ─── Weekly data (full WeeklyData snapshot: stats, journal, achievements, ─────
+// package_data/Main Quest content, quiz history, etc.) ─────────────────────
 
-export async function cachePackageData(userId: string, weekStartingDate: string, packageData: any) {
+export async function cacheWeeklyData(userId: string, weeklyData: WeeklyData) {
   const db = await getDb();
   await db.run(
-    `INSERT OR REPLACE INTO local_package_data (user_id, week_starting_date, package_data_json, cached_at) VALUES (?, ?, ?, ?)`,
-    [userId, weekStartingDate, JSON.stringify(packageData), new Date().toISOString()]
+    `INSERT OR REPLACE INTO local_weekly_data (user_id, week_starting_date, weekly_data_json, cached_at) VALUES (?, ?, ?, ?)`,
+    [userId, weeklyData.week_starting_date, JSON.stringify(weeklyData), new Date().toISOString()]
   );
 }
 
-export async function getCachedPackageData(userId: string): Promise<{ weekStartingDate: string | null; packageData: any } | null> {
+export async function getCachedWeeklyData(userId: string): Promise<WeeklyData | null> {
   const db = await getDb();
   const result = await db.query(
-    `SELECT week_starting_date, package_data_json FROM local_package_data WHERE user_id = ?`,
+    `SELECT weekly_data_json FROM local_weekly_data WHERE user_id = ?`,
     [userId]
   );
   const row = result.values?.[0];
-  if (!row) return null;
-  return { weekStartingDate: row.week_starting_date, packageData: JSON.parse(row.package_data_json) };
+  return row ? JSON.parse(row.weekly_data_json) : null;
+}
+
+// ─── Subclass profile (per-guild level/xp/tier — user_subclass_profiles) ──
+
+export async function cacheSubclassProfile(userId: string, profile: SubclassProfile) {
+  const db = await getDb();
+  await db.run(
+    `INSERT OR REPLACE INTO local_subclass_profile (user_id, profile_json, cached_at) VALUES (?, ?, ?)`,
+    [userId, JSON.stringify(profile), new Date().toISOString()]
+  );
+}
+
+export async function getCachedSubclassProfile(userId: string): Promise<SubclassProfile | null> {
+  const db = await getDb();
+  const result = await db.query(`SELECT profile_json FROM local_subclass_profile WHERE user_id = ?`, [userId]);
+  const row = result.values?.[0];
+  return row ? JSON.parse(row.profile_json) : null;
+}
+
+export async function updateSubclassProfileLocal(userId: string, fields: Partial<SubclassProfile>) {
+  const existing = (await getCachedSubclassProfile(userId)) || ({} as SubclassProfile);
+  const merged = { ...existing, ...fields } as SubclassProfile;
+  await cacheSubclassProfile(userId, merged);
+  await enqueueSync('update_subclass_profile', 'update', { userId, fields });
 }
 
 // ─── Completed questions (local read model, mirrors user_completed_questions) ──

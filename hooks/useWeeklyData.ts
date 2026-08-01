@@ -5,7 +5,8 @@ import { startOfWeek, format } from 'date-fns';
 import { ACHIEVEMENTS, Achievement } from '@/lib/achievements';
 import { logAction } from '@/lib/playerlog';
 import { USERS, UserId } from '@/lib/userSession';
-import { isOfflineStorageAvailable, cachePackageData } from '@/lib/localDataSource';
+import { isOfflineStorageAvailable, cacheWeeklyData, getCachedWeeklyData, enqueueSync } from '@/lib/localDataSource';
+import { isAppOffline } from '@/lib/offlineState';
 
 export interface CharacterStats {
   level: number;
@@ -53,6 +54,16 @@ export function useWeeklyData(userId: string = 'damien') {
 
   useEffect(() => {
     async function fetchData() {
+      // Offline (Android only): skip the network round-trip entirely and load
+      // straight from the on-device cache — see lib/localDataSource.ts's
+      // cacheWeeklyData, written every time `data` changes below.
+      if (isOfflineStorageAvailable() && isAppOffline()) {
+        const cached = await getCachedWeeklyData(userId);
+        setData(cached);
+        setLoading(false);
+        return;
+      }
+
       // weekly_packages RLS only grants access to the `authenticated` role, which
       // this app's anonymous-auth bridge (lib/supabase.ts) provides — but that
       // sign-in happens in a separate effect (userSession.linkIdentity), so without
@@ -153,13 +164,16 @@ export function useWeeklyData(userId: string = 'damien') {
     fetchData();
   }, [currentSunday, userId, contentSourceId]);
 
-  // Mirror this week's package_data (also what Monster Arena wild encounters
-  // draw from) into the on-device SQLite cache, so the Android offline shell
-  // has this week's content available next time there's no connection.
-  // Best-effort only — never allowed to affect the online experience.
+  // Mirror the full WeeklyData snapshot (stats, journal, achievements,
+  // package_data — also what Monster Arena wild encounters draw from, quiz
+  // history, etc.) into the on-device SQLite cache, so the Android offline
+  // shell has everything it needs next time there's no connection. Skipped
+  // when we just loaded `data` FROM the cache (offline) to avoid a pointless
+  // write-back of the same data. Best-effort only — never allowed to affect
+  // the online experience.
   useEffect(() => {
-    if (!data || !isOfflineStorageAvailable()) return;
-    cachePackageData(userId, data.week_starting_date, data.package_data).catch(e => {
+    if (!data || !isOfflineStorageAvailable() || isAppOffline()) return;
+    cacheWeeklyData(userId, data).catch(e => {
       console.error('Offline cache write failed (non-fatal):', e);
     });
   }, [data, userId]);
@@ -214,9 +228,11 @@ export function useWeeklyData(userId: string = 'damien') {
       }
     });
 
-    newlyUnlockedTitles.forEach(({ title, xp, gold }) => {
-      logAction(userId, currentSunday, 'achievement', `Unlocked achievement: ${title}`, xp, gold);
-    });
+    if (!isAppOffline()) {
+      newlyUnlockedTitles.forEach(({ title, xp, gold }) => {
+        logAction(userId, currentSunday, 'achievement', `Unlocked achievement: ${title}`, xp, gold);
+      });
+    }
 
     // xp/gold/level are applied server-side as atomic deltas (not written as
     // an absolute snapshot of local state) so that two saves firing close
@@ -226,22 +242,9 @@ export function useWeeklyData(userId: string = 'damien') {
     const xpDelta = (newStats.xp - data.character_stats.xp) + addedXp;
     const goldDelta = (newStats.gold - data.character_stats.gold) + addedGold;
 
-    const { data: finalStats, error: statsError } = await supabase.rpc('apply_character_deltas', {
-      p_user_id: userId,
-      p_week_starting_date: data.week_starting_date,
-      p_xp_delta: xpDelta,
-      p_gold_delta: goldDelta
-    });
-
-    if (statsError || !finalStats) {
-      console.error('Failed to apply character deltas:', statsError);
-      alert(`⚠️ Save failed: ${statsError?.message}`);
-      return;
-    }
-
-    // Everything but character_stats (which was just written atomically above)
-    // — kept as its own object so the plain .update() below can't re-write
-    // character_stats with a stale value and undo the atomic delta.
+    // Everything but character_stats (applied atomically, online via RPC or
+    // offline via a locally-applied delta) — kept as its own object so the
+    // plain .update() below can't re-write character_stats with a stale value.
     const otherChanges = {
       journal_logs: newJournal,
       achievements: newUnlocked,
@@ -256,6 +259,42 @@ export function useWeeklyData(userId: string = 'damien') {
       perfect_quizzes: newPerfectQuizzes,
       dummy_battles_won: newDummyBattlesWon
     };
+
+    if (isOfflineStorageAvailable() && isAppOffline()) {
+      // No RPC available offline — apply the delta locally (safe: offline
+      // means single-device/single-session, no concurrent-save race to guard
+      // against) and queue the same delta to replay against the real RPC
+      // once back online, so the server-side atomicity guarantee still holds
+      // for the eventual write.
+      const finalStats: CharacterStats = {
+        level: newStats.level,
+        xp: data.character_stats.xp + xpDelta,
+        gold: data.character_stats.gold + goldDelta,
+      };
+      const updated = { ...data, character_stats: finalStats, ...otherChanges };
+      setData(updated);
+      await cacheWeeklyData(userId, updated);
+      await enqueueSync('apply_character_deltas', 'rpc', {
+        userId, weekStartingDate: data.week_starting_date, xpDelta, goldDelta,
+      });
+      await enqueueSync('weekly_packages_other_changes', 'update', {
+        userId, weekStartingDate: data.week_starting_date, otherChanges,
+      });
+      return;
+    }
+
+    const { data: finalStats, error: statsError } = await supabase.rpc('apply_character_deltas', {
+      p_user_id: userId,
+      p_week_starting_date: data.week_starting_date,
+      p_xp_delta: xpDelta,
+      p_gold_delta: goldDelta
+    });
+
+    if (statsError || !finalStats) {
+      console.error('Failed to apply character deltas:', statsError);
+      alert(`⚠️ Save failed: ${statsError?.message}`);
+      return;
+    }
 
     setData({ ...data, character_stats: finalStats as CharacterStats, ...otherChanges });
 
@@ -273,6 +312,18 @@ export function useWeeklyData(userId: string = 'damien') {
 
   const applyGoldDelta = async (amount: number) => {
     if (!data) return;
+
+    if (isOfflineStorageAvailable() && isAppOffline()) {
+      const finalStats: CharacterStats = { ...data.character_stats, gold: data.character_stats.gold + amount };
+      const updated = { ...data, character_stats: finalStats };
+      setData(updated);
+      await cacheWeeklyData(userId, updated);
+      await enqueueSync('apply_character_deltas', 'rpc', {
+        userId, weekStartingDate: data.week_starting_date, xpDelta: 0, goldDelta: amount,
+      });
+      return;
+    }
+
     const { data: finalStats, error } = await supabase.rpc('apply_character_deltas', {
       p_user_id: userId,
       p_week_starting_date: data.week_starting_date,

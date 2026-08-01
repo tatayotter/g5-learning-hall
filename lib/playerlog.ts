@@ -1,4 +1,6 @@
 import { supabase } from '@/lib/supabase';
+import { isOfflineStorageAvailable } from '@/lib/localDataSource';
+import { isAppOffline } from '@/lib/offlineState';
 
 export async function logAction(
   userId: string,
@@ -8,6 +10,9 @@ export async function logAction(
   xpChange: number = 0,
   goldChange: number = 0
 ) {
+  // Skipped rather than queued when offline — this is an activity-feed
+  // entry, not user-facing progress, not worth the sync complexity.
+  if (isOfflineStorageAvailable() && isAppOffline()) return;
 
   const { error } = await supabase.from('player_log').insert({
     user_id: userId,
