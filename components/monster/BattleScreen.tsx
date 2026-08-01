@@ -1,6 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
-import { playAttackWhoosh, playHitThud, playMiss, playVictory, playDefeat, playItemUse } from '@/lib/sounds';
+import { playAttackWhoosh, playHitThud, playMiss, playVictory, playDefeat, playItemUse, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
 import { USERS } from '@/lib/userSession';
 import {
   ALL_MONSTERS, SKILLS, BATTLE_CONSTANTS,
@@ -56,7 +56,6 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   const [battleResult, setBattleResult] = useState<{ won: boolean; exp: number; reason: 'ko' | 'surrender' } | null>(null);
   const [itemBusy, setItemBusy] = useState(false);
   const itemBusyRef = useRef(false);
-  const battleMusicRef = useRef<HTMLAudioElement | null>(null);
 
   const playerMon = playerMonsters[playerMonsterIdx];
   const npcMon = npcMonsters[npcMonsterIdx];
@@ -75,15 +74,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   playerMonsterIdxRef.current = playerMonsterIdx;
 
   useEffect(() => {
-    const audio = new Audio('/sounds/learninghall_battle.mp3');
-    audio.loop = true;
-    audio.volume = 0.4;
-    audio.play().catch(() => {});
-    battleMusicRef.current = audio;
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-    };
+    startBattleTheme();
+    return () => stopBattleTheme();
   }, []);
 
   const addLog = (msg: string) => setLog(prev => [msg, ...prev.slice(0, 6)]);
@@ -342,7 +334,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
           if (nextIdx === -1) {
             addLog('All your curios fainted! You lost!');
             playDefeat();
-            battleMusicRef.current?.pause();
+            pauseBattleTheme();
             setBattleResult({ won: false, exp: 0, reason: 'ko' });
             setPhase('ended');
           } else {
@@ -461,7 +453,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
           setExpEarned(earned);
           addLog(`You defeated ${opponentName}!`);
           playVictory();
-          battleMusicRef.current?.pause();
+          pauseBattleTheme();
           setBattleResult({ won: true, exp: earned, reason: 'ko' });
           setPhase('ended');
           return;
@@ -534,7 +526,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         if (nextIdx === -1) {
           addLog('All your curios fainted! You lost!');
           playDefeat();
-          battleMusicRef.current?.pause();
+          pauseBattleTheme();
           setBattleResult({ won: false, exp: 0, reason: 'ko' });
           setPhase('ended');
         } else {
@@ -571,7 +563,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     setConfirmSurrender(false);
     addLog('You surrendered the battle.');
     playDefeat();
-    battleMusicRef.current?.pause();
+    pauseBattleTheme();
     setBattleResult({ won: false, exp: 0, reason: 'surrender' });
     setPhase('ended');
   };

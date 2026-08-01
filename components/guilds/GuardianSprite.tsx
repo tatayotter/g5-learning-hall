@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { playGuardianDefeatVoice } from '@/lib/sounds';
 
 export type GuardianGuild = 'lorekeeper' | 'spellcaster' | 'numberrealm' | 'logiclabyrinth' | 'lexiconarena';
 export type GuardianPose = 'idle' | 'hurt' | 'defeated';
@@ -23,6 +24,11 @@ export default function GuardianSprite({ guild, pose, className = '', animate = 
 
   // Reset the broken-image fallback whenever we switch sprite source
   useEffect(() => setFailed(false), [src]);
+
+  // Play a random defeat voice line the moment the guardian's pose becomes "defeated"
+  useEffect(() => {
+    if (pose === 'defeated') playGuardianDefeatVoice(guild);
+  }, [pose, guild]);
 
   if (failed) {
     return (

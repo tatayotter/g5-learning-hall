@@ -21,7 +21,7 @@ import PostBattleSummary from '@/components/battle/PostBattleSummary';
 import { InventoryMap } from '@/lib/inventory';
 import { SHOP_CATALOG } from '@/lib/inventory';
 import { USERS } from '@/lib/userSession';
-import { playAttackWhoosh, playHitThud, playVictory, playDefeat } from '@/lib/sounds';
+import { playAttackWhoosh, playHitThud, playVictory, playDefeat, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
 import InfoTag from '@/components/InfoTag';
 
 // Sentinel skillIds for non-skill round actions — not real SKILLS entries, so
@@ -66,7 +66,6 @@ export default function LiveBattleScreen({
   const [now, setNow] = useState(() => Date.now());
   const [itemBusy, setItemBusy] = useState(false);
   const itemBusyRef = useRef(false);
-  const battleMusicRef = useRef<HTMLAudioElement | null>(null);
   const [myAnim, setMyAnim] = useState('');
   const [oppAnim, setOppAnim] = useState('');
   const [banner, setBanner] = useState<{ text: string; iconSrc: string | null } | null>(null);
@@ -196,15 +195,8 @@ export default function LiveBattleScreen({
   }, [registerMonsterGetters]);
 
   useEffect(() => {
-    const audio = new Audio('/sounds/learninghall_battle.mp3');
-    audio.loop = true;
-    audio.volume = 0.4;
-    audio.play().catch(() => {});
-    battleMusicRef.current = audio;
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-    };
+    startBattleTheme();
+    return () => stopBattleTheme();
   }, []);
 
   // Applies the round's resolved damage/status once, from whichever source
@@ -386,7 +378,7 @@ export default function LiveBattleScreen({
       const winnerId = myWiped && oppWiped ? null : (won ? myUserId : opponentId);
       addLog(won ? `${opponentName} was defeated!` : 'All your curios fainted!');
       (won ? playVictory : playDefeat)();
-      battleMusicRef.current?.pause();
+      pauseBattleTheme();
       declareBattleEnd(winnerId, 'ko');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -575,7 +567,7 @@ export default function LiveBattleScreen({
   const handleSurrender = () => {
     setConfirmSurrender(false);
     addLog('You surrendered the battle.');
-    battleMusicRef.current?.pause();
+    pauseBattleTheme();
     playDefeat();
     declareBattleEnd(opponentId, 'surrender');
   };

@@ -25,7 +25,7 @@ import { trackEvent } from '@/lib/analytics';
 import MonsterGuild from '@/components/MonsterGuild';
 import CodexPanel from '@/components/CodexPanel';
 import AdminDashboard from '@/components/AdminDashboard';
-import { playShopPurchase, playPageFlip } from '@/lib/sounds';
+import { playShopPurchase, playPageFlip, startMainTheme, stopMainTheme, isSfxEnabled, isMusicEnabled, setSfxEnabled, setMusicEnabled } from '@/lib/sounds';
 import Toast from '@/components/Toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import GameButton from '@/components/GameButton';
@@ -116,6 +116,31 @@ export default function Dashboard() {
   // lib/offlineSync.ts) — a no-op on web/desktop and on first install where
   // no offline session has happened yet.
   useEffect(() => watchAndFlushSyncQueue(), []);
+
+  // Main theme plays for the whole logged-in session; BattleScreen and
+  // LiveBattleScreen duck it (pauseMainTheme/resumeMainTheme) while their
+  // own battle track plays instead of stopping/restarting it.
+  useEffect(() => {
+    if (!activeUserId) return;
+    startMainTheme();
+    return () => stopMainTheme();
+  }, [activeUserId]);
+
+  // Volume toggles surfaced next to the Replay Tutorial button — local state
+  // just mirrors lib/sounds.ts's module-level flags so the icons update
+  // immediately on click; the flags themselves persist to localStorage.
+  const [sfxOn, setSfxOn] = useState(() => isSfxEnabled());
+  const [musicOn, setMusicOn] = useState(() => isMusicEnabled());
+  const toggleSfx = () => {
+    const next = !sfxOn;
+    setSfxEnabled(next);
+    setSfxOn(next);
+  };
+  const toggleMusic = () => {
+    const next = !musicOn;
+    setMusicEnabled(next);
+    setMusicOn(next);
+  };
 
   useEffect(() => {
     if (!hydrated) return;
@@ -1249,17 +1274,38 @@ export default function Dashboard() {
           />
         )}
 
-        {/* ── Replay Tutorial button ── fixed bottom-left of the dashboard,
-            icon-only to keep its footprint small */}
-        <motion.button
-          onClick={() => setShowOnboarding(true)}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="fixed bottom-6 right-6 z-50 w-10 h-10 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-gray-400 hover:text-white rounded-full shadow-lg transition-colors flex items-center justify-center"
-          title="Replay Tutorial"
-        >
-          <span className="text-base leading-none">❓</span>
-        </motion.button>
+        {/* ── Floating utility rail ── fixed bottom-right of the dashboard:
+            music toggle, sound-effects toggle, Replay Tutorial. Icon-only
+            buttons stacked to keep the footprint small. */}
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
+          <motion.button
+            onClick={toggleMusic}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-10 h-10 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-gray-400 hover:text-white rounded-full shadow-lg transition-colors flex items-center justify-center"
+            title={musicOn ? 'Mute Music' : 'Unmute Music'}
+          >
+            <span className="text-base leading-none">{musicOn ? '🎵' : '🔇'}</span>
+          </motion.button>
+          <motion.button
+            onClick={toggleSfx}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-10 h-10 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-gray-400 hover:text-white rounded-full shadow-lg transition-colors flex items-center justify-center"
+            title={sfxOn ? 'Mute Sound Effects' : 'Unmute Sound Effects'}
+          >
+            <span className="text-base leading-none">{sfxOn ? '🔊' : '🔈'}</span>
+          </motion.button>
+          <motion.button
+            onClick={() => setShowOnboarding(true)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-10 h-10 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-gray-400 hover:text-white rounded-full shadow-lg transition-colors flex items-center justify-center"
+            title="Replay Tutorial"
+          >
+            <span className="text-base leading-none">❓</span>
+          </motion.button>
+        </div>
       </main>
     </div>
       </div>
