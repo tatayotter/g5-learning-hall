@@ -79,6 +79,7 @@ function contentSourceForGrade(grade: string): UserId {
 // into USERS once so every existing USERS[id] lookup across the app keeps
 // working synchronously without an async refactor.
 let classmatesLoaded = false;
+let classmateIds: Set<UserId> = new Set();
 
 export async function loadClassmates(): Promise<void> {
   if (classmatesLoaded) return;
@@ -100,12 +101,17 @@ export async function loadClassmates(): Promise<void> {
       isFamily: false,
       contentSourceId: contentSourceForGrade(c.grade),
     };
+    classmateIds.add(c.id);
   });
   classmatesLoaded = true;
 }
 
+// Filtered against classmateIds (not just `!isFamily`) because children are
+// also non-family — without this, a child loaded via loadChildren() would be
+// swept into this list too (isFamily: false on both), duplicating them
+// alongside getChildIds() wherever both are combined into one roster.
 export function getClassmateIds(): UserId[] {
-  return (Object.keys(USERS) as UserId[]).filter(id => !USERS[id].isFamily);
+  return Array.from(classmateIds);
 }
 
 // Children are parent-created (Parent Dashboard → Add Child) and log in with

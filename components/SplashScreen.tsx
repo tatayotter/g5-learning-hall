@@ -124,7 +124,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
   // By the time SplashScreen mounts, the parent has already awaited
   // loadClassmates()/loadAvatarOverrides(), so USERS is fully populated.
   const allIds = useMemo(
-    () => [...FAMILY_IDS, ...getClassmateIds()].sort((a, b) => USERS[a].name.localeCompare(USERS[b].name)),
+    () => [...FAMILY_IDS, ...getClassmateIds(), ...getChildIds()].sort((a, b) => USERS[a].name.localeCompare(USERS[b].name)),
     []
   );
 
