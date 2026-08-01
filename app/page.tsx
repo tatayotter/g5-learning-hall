@@ -37,6 +37,7 @@ import { fetchSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
 import { watchAndFlushSyncQueue } from '@/lib/offlineSync';
 import { seedOfflineCache } from '@/lib/offlineSeed';
 import MonsterShop from '@/components/MonsterShop';
+import VaultKeeperNpc from '@/components/VaultKeeperNpc';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import { respondToInvite } from '@/lib/liveBattle';
@@ -1072,6 +1073,8 @@ export default function Dashboard() {
             </div>
           </div>
         )}
+
+        {activeTab === 'vault' && <VaultKeeperNpc key={vaultGreetKey} />}
 
         {/* --- TAB: SIDE QUEST GUILDS --- */}
         {activeTab === 'guilds' && (

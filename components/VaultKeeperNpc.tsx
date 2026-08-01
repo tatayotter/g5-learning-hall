@@ -45,7 +45,7 @@ export default function VaultKeeperNpc() {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: 200, opacity: 0 }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="fixed bottom-6 right-6 z-50 flex items-center gap-3"
+          className="fixed bottom-32 right-6 z-40 flex items-center gap-3"
         >
           <div className="relative bg-white text-black text-sm font-semibold rounded-2xl px-4 py-3 max-w-[220px] shadow-[3px_3px_0_0_#000] border-2 border-black">
             {GREETINGS[lineIndex]}
