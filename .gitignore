@@ -23,6 +23,7 @@
 # misc
 .DS_Store
 *.pem
+.idea/
 
 # debug
 npm-debug.log*
@@ -52,4 +53,15 @@ repomix-output.xml
 /android/app/release/
 /android/keystore.properties
 /android/keystore/
+
+# offline-shell (separate build, own node_modules/build output — see plan doc)
+/offline-shell/node_modules/
+/offline-shell/out/
+/offline-shell/.next/
+/offline-shell/next-env.d.ts
+/offline-shell/*.tsbuildinfo
+
+# offline-shell's build output, copied into www/offline by the Android CI
+# workflow right before `cap sync` — not source, shouldn't be committed.
+/www/offline/
 

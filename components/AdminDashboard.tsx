@@ -9,6 +9,7 @@ import ClassmatesSection from '@/components/admin/ClassmatesSection';
 import EventsSection from '@/components/admin/EventsSection';
 import DraftQuestionsSection from '@/components/admin/DraftQuestionsSection';
 import AnalyticsSection from '@/components/admin/AnalyticsSection';
+import MapEditorSection from '@/components/admin/MapEditorSection';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 interface AdminDashboardProps {
@@ -18,7 +19,7 @@ interface AdminDashboardProps {
   onBack: () => void;
 }
 
-type AdminSection = 'packages' | 'questions' | 'tools' | 'prompts' | 'classmates' | 'events' | 'draft_questions' | 'analytics';
+type AdminSection = 'packages' | 'questions' | 'tools' | 'prompts' | 'classmates' | 'events' | 'draft_questions' | 'analytics' | 'map_editor';
 
 export default function AdminDashboard({ currentData, currentSunday, onUpdateStats, onBack }: AdminDashboardProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -81,6 +82,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
     { id: 'events',     label: 'Custom Events' },
     { id: 'draft_questions', label: 'Draft Questions' },
     { id: 'analytics',  label: 'Analytics' },
+    { id: 'map_editor', label: 'Map Editor' },
     { id: 'tools',      label: 'Tools' },
     { id: 'prompts',    label: 'Prompts' },
   ];
@@ -139,6 +141,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
         {section === 'events' && <EventsSection passcode={password} />}
         {section === 'draft_questions' && <DraftQuestionsSection passcode={password} />}
         {section === 'analytics' && <AnalyticsSection />}
+        {section === 'map_editor' && <MapEditorSection />}
         {section === 'tools' && (
           <ToolsSection
             currentData={currentData}
