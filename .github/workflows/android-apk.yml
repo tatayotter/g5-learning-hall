@@ -7,6 +7,8 @@ on:
     paths:
       - "android/**"
       - "capacitor.config.ts"
+      - "offline-shell/**"
+      - "lib/**"
       - ".github/workflows/android-apk.yml"
 
 permissions:
@@ -24,6 +26,18 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Build offline shell (static export)
+        working-directory: offline-shell
+        run: |
+          npm ci
+          npm run build
+
+      - name: Copy offline shell into webDir
+        run: |
+          rm -rf www/offline
+          mkdir -p www/offline
+          cp -r offline-shell/out/. www/offline/
 
       - name: Sync Capacitor Android project
         run: npx cap sync android

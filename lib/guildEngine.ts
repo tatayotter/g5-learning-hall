@@ -3,6 +3,20 @@ import { supabase } from '@/lib/supabase';
 import { CURRENT_TERM, PREFETCH_BATCH_SIZE, MIN_SESSION_POOL_SIZE } from '@/lib/guildConfig';
 import type { GuildKey } from '@/lib/dailyChecklist';
 import { GUILD_MONSTERS } from '@/lib/monsterConfig';
+import { isOfflineStorageAvailable, cacheGuildPool } from '@/lib/localDataSource';
+
+// Best-effort mirror of a freshly fetched guild pool into the on-device
+// SQLite cache, so the Android offline shell has something to serve next
+// time there's no connection. Never allowed to affect the online path —
+// swallow any failure (missing native plugin, disk error, etc).
+async function cacheGuildPoolSafe(tableName: string, questType: string, gradeLevel: number | undefined, tier: number | null, questions: any[]) {
+  if (!isOfflineStorageAvailable()) return;
+  try {
+    await cacheGuildPool(tableName, questType, gradeLevel, tier, questions);
+  } catch (e) {
+    console.error('Offline cache write failed (non-fatal):', e);
+  }
+}
 
 // Guild level at which a player is rewarded their guild's companion monster.
 export const GUILD_MONSTER_GRANT_LEVEL = 5;
@@ -152,6 +166,7 @@ export async function fetchQuestionPool(userId: string, tableName: string, quest
       console.error(`Failed to fetch ${tableName} questions:`, error);
       return [];
     }
+    void cacheGuildPoolSafe(tableName, questType, gradeLevel, tier, data || []);
     return data || [];
   }
 

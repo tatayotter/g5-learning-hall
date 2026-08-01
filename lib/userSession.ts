@@ -1,5 +1,6 @@
 // lib/userSession.ts
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
+import { isOfflineStorageAvailable, setActiveUserLocal } from '@/lib/localDataSource';
 
 export type UserId = string;
 
@@ -193,6 +194,14 @@ export function getActiveUser(): UserId | null {
 
 export function setActiveUser(id: UserId) {
   localStorage.setItem(SESSION_KEY, id);
+  // Mirror into SQLite (best-effort) — the offline shell runs from a
+  // different origin than the live site, so it can't read localStorage,
+  // but it can read the same native SQLite file via the Capacitor bridge.
+  if (isOfflineStorageAvailable()) {
+    setActiveUserLocal(id, gradeToNumber(USERS[id]?.grade)).catch(e => {
+      console.error('Offline cache write failed (non-fatal):', e);
+    });
+  }
 }
 
 export function clearActiveUser() {

@@ -1,0 +1,24 @@
+{
+  "name": "g5-learning-hall-offline-shell",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal statically-exported Android offline companion to the main app. Built separately and bundled as Capacitor's local webDir for use only when there's no connection. See lib/localDataSource.ts and the plan doc for the overall architecture.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@capacitor-community/sqlite": "^8.1.0",
+    "@capacitor/core": "^8.4.2",
+    "next": "^16.2.10",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  }
+}

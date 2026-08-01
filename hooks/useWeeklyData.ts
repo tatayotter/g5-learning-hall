@@ -5,6 +5,7 @@ import { startOfWeek, format } from 'date-fns';
 import { ACHIEVEMENTS, Achievement } from '@/lib/achievements';
 import { logAction } from '@/lib/playerlog';
 import { USERS, UserId } from '@/lib/userSession';
+import { isOfflineStorageAvailable, cachePackageData } from '@/lib/localDataSource';
 
 export interface CharacterStats {
   level: number;
@@ -151,6 +152,17 @@ export function useWeeklyData(userId: string = 'damien') {
     }
     fetchData();
   }, [currentSunday, userId, contentSourceId]);
+
+  // Mirror this week's package_data (also what Monster Arena wild encounters
+  // draw from) into the on-device SQLite cache, so the Android offline shell
+  // has this week's content available next time there's no connection.
+  // Best-effort only — never allowed to affect the online experience.
+  useEffect(() => {
+    if (!data || !isOfflineStorageAvailable()) return;
+    cachePackageData(userId, data.week_starting_date, data.package_data).catch(e => {
+      console.error('Offline cache write failed (non-fatal):', e);
+    });
+  }, [data, userId]);
 
   const updateStatsAndJournal = async (
     newStats: CharacterStats,

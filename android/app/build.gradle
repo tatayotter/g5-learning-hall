@@ -37,6 +37,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig keystorePropertiesFile.exists() ? signingConfigs.release : null
+            // Explicit rather than relying on the AGP default: Capacitor's
+            // WebView debugging flag (chrome://inspect access to the cached
+            // offline content) tracks this same debuggable flag, so this is
+            // the one line that actually closes that off for release builds.
+            debuggable false
         }
     }
 }

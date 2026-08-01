@@ -34,6 +34,8 @@ import { useAchievementNotifier } from '@/hooks/useAchievementNotifier';
 import LexiconArena from '@/components/guilds/LexiconArena';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import { fetchSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
+import { watchAndFlushSyncQueue } from '@/lib/offlineSync';
+import { seedOfflineCache } from '@/lib/offlineSeed';
 import MonsterShop from '@/components/MonsterShop';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
@@ -110,6 +112,11 @@ export default function Dashboard() {
     hydrate();
   }, []);
 
+  // Drains anything queued while the Android offline shell was in use (see
+  // lib/offlineSync.ts) — a no-op on web/desktop and on first install where
+  // no offline session has happened yet.
+  useEffect(() => watchAndFlushSyncQueue(), []);
+
   useEffect(() => {
     if (!hydrated) return;
     if (activeUserId) {
@@ -121,6 +128,9 @@ export default function Dashboard() {
       (async () => {
         await linkIdentity(activeUserId);
         recordLastLogin(activeUserId);
+        // Fire-and-forget — pre-warms all 5 guild pools for offline play
+        // (Android only). Not awaited so it can't delay session_start below.
+        void seedOfflineCache(activeUserId, USERS[activeUserId].grade);
         // One-shot per browser session, regardless of which user ends up logged
         // in first — guards against firing again on every activeUserId change.
         if (typeof window !== 'undefined' && !sessionStorage.getItem('g5_session_started')) {
