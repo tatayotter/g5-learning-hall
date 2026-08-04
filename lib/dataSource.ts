@@ -11,5 +11,5 @@ export interface DataSource {
   fetchQuestionPool(userId: string, tableName: string, questType: string, gradeLevel?: number): Promise<any[]>;
   markQuestionsCompleted(userId: string, questType: string, questionIds: string[]): Promise<void>;
   markGuildSessionToday(userId: string, guildKey: GuildKey, today: string): Promise<void>;
-  claimChecklistBonus(userId: string, today: string, dayName: string, weekStartingDate: string, gold?: number): Promise<boolean>;
+  claimChecklistBonus(userId: string, today: string, dayName: string, weekStartingDate: string): Promise<{ granted: boolean; streak?: number; gold?: number }>;
 }

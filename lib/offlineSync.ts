@@ -20,7 +20,7 @@ async function replay(row: SyncQueueRow): Promise<void> {
       await markGuildSessionToday(p.userId, p.guildKey as GuildKey, p.today);
       return;
     case 'claim_daily_checklist_bonus':
-      await claimChecklistBonus(p.userId, p.today, p.dayName, p.weekStartingDate, p.gold);
+      await claimChecklistBonus(p.userId, p.today, p.dayName, p.weekStartingDate);
       return;
     case 'apply_character_deltas': {
       const { error } = await supabase.rpc('apply_character_deltas', {

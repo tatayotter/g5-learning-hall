@@ -6,15 +6,18 @@ import {
   hasClaimedChecklistBonus,
   isQuestDayDone,
   claimChecklistBonus,
+  fetchDailyChecklistStreak,
+  STREAK_GOLD_LADDER,
   GUILDS,
   ChecklistBattleFlags,
+  ChecklistStreakInfo,
   GuildKey,
 } from '@/lib/dailyChecklist';
 import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
-import { playCoins } from '@/lib/sounds';
 import GameButton from '@/components/GameButton';
 import GuardianSprite, { GuardianGuild } from '@/components/guilds/GuardianSprite';
+import DailyBonusModal from '@/components/DailyBonusModal';
 
 const GUILD_SPRITE_KEY: Record<string, GuardianGuild> = {
   lorekeeper: 'lorekeeper',
@@ -34,8 +37,6 @@ interface DailyChecklistProps {
   onGoldAwarded: (amount: number) => void;
   onPlayGuild: (guildKey: GuildKey) => void;
 }
-
-const BONUS_GOLD = 50;
 
 interface ChecklistItem {
   label: string;
@@ -60,15 +61,19 @@ export default function DailyChecklist({
   const [loading, setLoading] = useState(true);
   const [claimed, setClaimed] = useState(false);
   const [claiming, setClaiming] = useState(false);
+  const [streakInfo, setStreakInfo] = useState<ChecklistStreakInfo | null>(null);
+  const [bonusEvent, setBonusEvent] = useState<{ streak: number; gold: number } | null>(null);
 
   const loadFlags = useCallback(async (isInitial = false) => {
     if (isInitial) setLoading(true);
-    const [flags, claimedToday] = await Promise.all([
+    const [flags, claimedToday, streak] = await Promise.all([
       fetchChecklistBattleFlags(userId),
       hasClaimedChecklistBonus(userId, todayKey),
+      fetchDailyChecklistStreak(userId, todayKey),
     ]);
     setBattleFlags(flags);
     setClaimed(claimedToday);
+    setStreakInfo(streak);
     if (isInitial) setLoading(false);
   }, [userId, todayKey]);
 
@@ -102,13 +107,16 @@ export default function DailyChecklist({
   const handleClaim = async () => {
     if (claiming || claimed) return;
     setClaiming(true);
-    const granted = await claimChecklistBonus(userId, todayKey, currentDayName, currentSunday, BONUS_GOLD);
-    if (granted) {
+    const result = await claimChecklistBonus(userId, todayKey, currentDayName, currentSunday);
+    if (result.granted) {
       setClaimed(true);
-      playCoins();
-      onGoldAwarded(BONUS_GOLD);
-      await logAction(userId, currentSunday, 'daily_checklist_bonus', 'Completed all daily to-dos', 0, BONUS_GOLD);
-      trackEvent('daily_checklist_bonus_claimed', { gold_earned: BONUS_GOLD });
+      const gold = result.gold ?? STREAK_GOLD_LADDER[0];
+      const streak = result.streak ?? 1;
+      onGoldAwarded(gold);
+      await logAction(userId, currentSunday, 'daily_checklist_bonus', 'Completed all daily to-dos', 0, gold);
+      trackEvent('daily_checklist_bonus_claimed', { gold_earned: gold, streak });
+      setBonusEvent({ streak, gold });
+      loadFlags(false);
     }
     setClaiming(false);
   };
@@ -129,6 +137,38 @@ export default function DailyChecklist({
           {doneCount}/{totalCount} DONE
         </span>
       </div>
+
+      {streakInfo && (
+        <div className="mb-6 bg-black border border-neutral-800 rounded-lg p-3">
+          <div className="flex items-center justify-between mb-2 gap-2">
+            <span className="text-xs font-bold text-gray-300 whitespace-nowrap">
+              🔥 {streakInfo.currentStreak}-day streak
+            </span>
+            <span className="text-[10px] text-gray-500 text-right">
+              {streakInfo.claimedToday
+                ? 'Come back tomorrow to keep it going!'
+                : `Finish today's to-dos for ${streakInfo.nextGold} gold`}
+            </span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            {STREAK_GOLD_LADDER.map((tierGold, i) => {
+              const day = i + 1;
+              const achieved = streakInfo.currentStreak >= day;
+              const isNextTarget = !streakInfo.claimedToday && streakInfo.nextStreak === day;
+              return (
+                <div key={day} className="flex-1 flex flex-col items-center gap-1">
+                  <div
+                    className={`w-full h-1.5 rounded-full ${
+                      achieved ? 'bg-blue-500' : isNextTarget ? 'bg-blue-900/50 border border-dashed border-blue-700' : 'bg-neutral-800'
+                    }`}
+                  />
+                  <span className={`text-[9px] ${achieved ? 'text-blue-400 font-bold' : 'text-gray-600'}`}>{tierGold}g</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       <div className="space-y-3 mb-6">
         {items.map((item, i) => (
@@ -171,7 +211,10 @@ export default function DailyChecklist({
       </div>
 
       {claimed ? (
-        <div className="border-t border-neutral-800 pt-6 text-center text-sm text-green-500 font-bold"><img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px]" /> Bonus claimed for today!</div>
+        <div className="border-t border-neutral-800 pt-6 text-center text-sm text-green-500 font-bold">
+          <img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px]" /> Bonus claimed for today
+          {streakInfo?.todayGold ? ` — ${streakInfo.todayGold} gold!` : '!'}
+        </div>
       ) : allDone ? (
         <div className="border-t border-neutral-800 pt-6 flex justify-center">
           <GameButton
@@ -179,11 +222,22 @@ export default function DailyChecklist({
             disabled={claiming}
             className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-10 rounded transition-colors font-display text-lg disabled:opacity-50"
           >
-            <img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px] mr-1" /> Claim {BONUS_GOLD} Gold
+            <img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px] mr-1" /> Claim {streakInfo?.nextGold ?? STREAK_GOLD_LADDER[0]} Gold
           </GameButton>
         </div>
       ) : (
-        <p className="text-[11px] text-gray-500 text-center border-t border-neutral-800 pt-6">Complete every task to earn {BONUS_GOLD} bonus gold!</p>
+        <p className="text-[11px] text-gray-500 text-center border-t border-neutral-800 pt-6">
+          Complete every task to earn {streakInfo?.nextGold ?? STREAK_GOLD_LADDER[0]} bonus gold!
+        </p>
+      )}
+
+      {bonusEvent && (
+        <DailyBonusModal
+          streak={bonusEvent.streak}
+          gold={bonusEvent.gold}
+          userId={userId}
+          onClose={() => setBonusEvent(null)}
+        />
       )}
     </div>
   );

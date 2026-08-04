@@ -100,16 +100,71 @@ export async function hasClaimedChecklistBonus(userId: string, today: string): P
   return !!data;
 }
 
+// Ladder mirrored from the daily_checklist_gold_for_streak SQL function —
+// duplicated here only so the UI can render the always-visible streak
+// ladder (lib/dailyChecklist.ts callers show this even before claiming)
+// without a round-trip; the actual gold grant is always computed and
+// enforced server-side in claim_daily_checklist_bonus, never trusted from
+// here.
+export const STREAK_GOLD_LADDER = [50, 60, 70, 80, 90];
+export function goldForStreak(streak: number): number {
+  const capped = Math.min(Math.max(streak, 1), STREAK_GOLD_LADDER.length);
+  return STREAK_GOLD_LADDER[capped - 1];
+}
+
+export interface ChecklistStreakInfo {
+  claimedToday: boolean;
+  currentStreak: number;
+  nextStreak: number;
+  todayGold: number | null;
+  nextGold: number;
+}
+
+// Preview of the streak ladder — how many consecutive days the player is
+// on, and what claiming today would earn — so the To-Dos panel can show
+// this before the claim button is even pressed. No offline data source for
+// claim history (same limitation as fetchChecklistBattleFlags), so offline
+// this just reports "no known streak" and the real value catches up once
+// the queued claim syncs.
+export async function fetchDailyChecklistStreak(userId: string, today: string): Promise<ChecklistStreakInfo> {
+  if (isOfflineStorageAvailable() && isAppOffline()) {
+    return { claimedToday: false, currentStreak: 0, nextStreak: 1, todayGold: null, nextGold: STREAK_GOLD_LADDER[0] };
+  }
+
+  const { data, error } = await supabase.rpc('get_daily_checklist_streak', {
+    p_user_id: userId,
+    p_today: today,
+  });
+
+  if (error || !data) {
+    return { claimedToday: false, currentStreak: 0, nextStreak: 1, todayGold: null, nextGold: STREAK_GOLD_LADDER[0] };
+  }
+  return {
+    claimedToday: !!data.claimedToday,
+    currentStreak: data.currentStreak ?? 0,
+    nextStreak: data.nextStreak ?? 1,
+    todayGold: data.todayGold ?? null,
+    nextGold: data.nextGold ?? STREAK_GOLD_LADDER[0],
+  };
+}
+
+export interface ChecklistClaimResult {
+  granted: boolean;
+  streak?: number;
+  gold?: number;
+}
+
 export async function claimChecklistBonus(
   userId: string,
   today: string,
   dayName: string,
-  weekStartingDate: string,
-  gold: number = 50
-): Promise<boolean> {
+  weekStartingDate: string
+): Promise<ChecklistClaimResult> {
   if (isOfflineStorageAvailable() && isAppOffline()) {
-    await claimChecklistBonusLocal(userId, today, dayName, weekStartingDate, gold);
-    return true;
+    await claimChecklistBonusLocal(userId, today, dayName, weekStartingDate);
+    // Streak/gold aren't knowable offline (no local claim history) — the
+    // real values land once this queued claim syncs and the panel refetches.
+    return { granted: true };
   }
 
   const { data, error } = await supabase.rpc('claim_daily_checklist_bonus', {
@@ -117,12 +172,11 @@ export async function claimChecklistBonus(
     p_today: today,
     p_day_name: dayName,
     p_week_starting_date: weekStartingDate,
-    p_gold: gold,
   });
 
   if (error) {
     console.error('Failed to claim daily checklist bonus:', error);
-    return false;
+    return { granted: false };
   }
-  return !!data;
+  return { granted: !!data?.granted, streak: data?.streak, gold: data?.gold };
 }
