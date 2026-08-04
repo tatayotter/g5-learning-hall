@@ -752,6 +752,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           playerLevel={playerLevel}
           userId={userId}
           onTeamChange={loadData}
+          onLoadoutChange={refreshMonsterLoadouts}
           monsterDisplay={displayMonsters}
           caughtMonsters={caughtMonsters}
           onPromote={handlePromoteCaughtMonster}

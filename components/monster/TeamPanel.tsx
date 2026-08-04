@@ -31,13 +31,20 @@ const ELEMENT_STYLES: Record<Element, string> = {
 };
 
 export default function TeamPanel({
-  userMonsters, playerLevel, userId, onTeamChange, monsterDisplay, caughtMonsters, onPromote,
+  userMonsters, playerLevel, userId, onTeamChange, onLoadoutChange, monsterDisplay, caughtMonsters, onPromote,
   inventory, currentGold, weekStartingDate, onGoldSynced,
 }: {
   userMonsters: UserMonster[];
   playerLevel: number;
   userId: string;
   onTeamChange: () => void;
+  // Lighter refresh (just userMonsters + inventory, no loading-spinner
+  // remount) used by the modal actions below — onTeamChange sets `loading`
+  // in MonsterGuild, which unmounts this whole panel and wipes local modal
+  // state (tutorOutcome, detailMonster, ...) before the user ever sees the
+  // result. Kept separate from onTeamChange (still used by handleAddMonster,
+  // where a full reload was already the pre-existing behavior).
+  onLoadoutChange: () => Promise<void> | void;
   monsterDisplay: Record<string, MonsterDef>;
   caughtMonsters: CaughtMonster[];
   onPromote: (caught: CaughtMonster, slot: number) => void;
@@ -92,7 +99,7 @@ export default function TeamPanel({
     try {
       const ok = await unlearnMonsterSkill(userId, monsterRowId, slotIndex);
       if (ok) {
-        onTeamChange();
+        onLoadoutChange();
         setForgottenEvent({ monster: monsterDef, skill });
       } else {
         alert('Could not unlearn that skill — make sure you have an Unlearn Scroll.');
@@ -111,7 +118,7 @@ export default function TeamPanel({
       const ok = await learnMonsterSkill(userId, monsterRowId, slotIndex, skillId, scrollKey);
       if (ok) {
         setPendingSlot(null);
-        onTeamChange();
+        onLoadoutChange();
         const skill = SKILLS[skillId];
         if (skill) setLearnedEvent({ monster: monsterDef, skill });
       } else {
@@ -139,7 +146,7 @@ export default function TeamPanel({
           speciesId,
           targetTier,
         });
-        onTeamChange();
+        onLoadoutChange();
       } else {
         alert('Could not graduate — make sure the monster has reached the required level and you have a Graduation Scroll.');
       }
@@ -170,7 +177,7 @@ export default function TeamPanel({
       if (outcome.character_stats) onGoldSynced(outcome.character_stats);
       setUseTomeToggle(false);
       setTutorOutcome({ outcome, monsterName });
-      onTeamChange();
+      onLoadoutChange();
     } finally {
       actionBusyRef.current = false;
       setActionBusy(false);
