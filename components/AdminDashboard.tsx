@@ -1,11 +1,13 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabase';
 import { WeeklyData } from '@/hooks/useWeeklyData';
 import WeeklyPackageBuilder from '@/components/admin/PackagesSection';
 import QuestionBankImporter from '@/components/admin/QuestionBankSection';
 import ToolsSection from '@/components/admin/ToolsSection';
 import PromptsSection from '@/components/admin/PromptsSection';
-import ClassmatesSection from '@/components/admin/ClassmatesSection';
+import ChildrenSection from '@/components/admin/ChildrenSection';
+import ParentsSection from '@/components/admin/ParentsSection';
 import EventsSection from '@/components/admin/EventsSection';
 import DraftQuestionsSection from '@/components/admin/DraftQuestionsSection';
 import AnalyticsSection from '@/components/admin/AnalyticsSection';
@@ -20,12 +22,23 @@ interface AdminDashboardProps {
   onBack: () => void;
 }
 
-type AdminSection = 'packages' | 'draft_questions' | 'questions' | 'map_editor' | 'classmates' | 'events' | 'approvals' | 'analytics' | 'tools' | 'prompts';
+type AdminSection = 'packages' | 'draft_questions' | 'questions' | 'map_editor' | 'children' | 'parents' | 'events' | 'approvals' | 'analytics' | 'tools' | 'prompts';
 
 export default function AdminDashboard({ currentData, currentSunday, onUpdateStats, onBack }: AdminDashboardProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [section, setSection] = useState<AdminSection>('packages');
+  const [pendingApprovals, setPendingApprovals] = useState(0);
+
+  useEffect(() => {
+    const ADMIN_EMAIL = process.env.NEXT_PUBLIC_ADMIN_EMAIL || '';
+    (async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user || user.email !== ADMIN_EMAIL) return;
+      const { data, error } = await supabase.rpc('admin_list_pending_parents');
+      if (!error) setPendingApprovals((data || []).length);
+    })();
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -89,7 +102,8 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
     {
       heading: 'People',
       items: [
-        { id: 'classmates', label: 'Classmates' },
+        { id: 'children',  label: 'Children' },
+        { id: 'parents',   label: 'Parents' },
         { id: 'events',     label: 'Custom Events' },
         { id: 'approvals',  label: 'Parent Approvals' },
       ],
@@ -132,7 +146,10 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
                         : 'text-gray-400 hover:text-white hover:bg-neutral-800'
                     }`}
                   >
-                    <span>{item.label}</span>
+                    <span className="flex-1">{item.label}</span>
+                    {item.id === 'approvals' && pendingApprovals > 0 && (
+                      <span className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0" />
+                    )}
                   </button>
                 ))}
               </div>
@@ -163,9 +180,10 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
           />
         )}
         {section === 'questions' && <QuestionBankImporter />}
-        {section === 'classmates' && <ClassmatesSection passcode={password} />}
+        {section === 'children' && <ChildrenSection passcode={password} />}
+        {section === 'parents' && <ParentsSection />}
         {section === 'events' && <EventsSection passcode={password} />}
-        {section === 'approvals' && <ApprovalsSection />}
+        {section === 'approvals' && <ApprovalsSection onPendingChange={setPendingApprovals} />}
         {section === 'draft_questions' && <DraftQuestionsSection passcode={password} />}
         {section === 'analytics' && <AnalyticsSection />}
         {section === 'map_editor' && <MapEditorSection />}

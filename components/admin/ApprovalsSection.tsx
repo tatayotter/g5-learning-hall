@@ -12,7 +12,11 @@ interface PendingParent {
 
 const ADMIN_EMAIL = process.env.NEXT_PUBLIC_ADMIN_EMAIL || '';
 
-export default function ApprovalsSection() {
+interface ApprovalsSectionProps {
+  onPendingChange?: (count: number) => void;
+}
+
+export default function ApprovalsSection({ onPendingChange }: ApprovalsSectionProps) {
   const [userEmail, setUserEmail] = useState<string | null | undefined>(undefined);
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
@@ -24,7 +28,7 @@ export default function ApprovalsSection() {
 
   const loadSession = async () => {
     const { data: { user } } = await supabase.auth.getUser();
-    setUserEmail(user?.email ?? null);
+    setUserEmail(user?.email || null);
   };
 
   const loadPending = async () => {
@@ -34,7 +38,9 @@ export default function ApprovalsSection() {
       setListError(error.message);
       return;
     }
-    setPending((data as PendingParent[]) || []);
+    const rows = (data as PendingParent[]) || [];
+    setPending(rows);
+    onPendingChange?.(rows.length);
   };
 
   useEffect(() => { loadSession(); }, []);

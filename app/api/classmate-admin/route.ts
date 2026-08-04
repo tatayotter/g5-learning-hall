@@ -19,7 +19,7 @@ async function uniqueId(fullName: string): Promise<string> {
 }
 
 export async function POST(request: NextRequest) {
-  const { passcode, id, username, fullName, grade, password, isActive, gender } = await request.json();
+  const { passcode, id, username, fullName, grade, password, isActive, gender, schoolName } = await request.json();
   const cleanGender = gender === 'girl' ? 'girl' : gender === 'boy' ? 'boy' : null;
 
   const authError = requireAdminPasscode(passcode);
@@ -42,6 +42,7 @@ export async function POST(request: NextRequest) {
       p_password: typeof password === 'string' && password.trim() ? password : null,
       p_gender: cleanGender,
       p_passcode: process.env.ADMIN_PASSCODE,
+      p_school_name: typeof schoolName === 'string' && schoolName.trim() ? schoolName.trim() : null,
     });
     if (error) {
       return NextResponse.json({ success: false, error: error.message }, { status: 409 });
@@ -63,6 +64,7 @@ export async function POST(request: NextRequest) {
     p_grade: grade?.trim() || 'Grade 5',
     p_gender: cleanGender || 'boy',
     p_passcode: process.env.ADMIN_PASSCODE,
+    p_school_name: typeof schoolName === 'string' && schoolName.trim() ? schoolName.trim() : undefined,
   });
 
   if (error) {
