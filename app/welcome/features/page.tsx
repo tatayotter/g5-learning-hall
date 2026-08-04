@@ -236,6 +236,8 @@ export default function FeaturesPage() {
           © {new Date().getFullYear()} Ruelo Learning Hall. All Rights Reserved.
         </p>
         <p className="mt-2 text-[11px] tracking-wide">
+          <a href="https://www.facebook.com/learninghallph" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white/70 underline">Facebook</a>
+          <span className="text-white/20 mx-2">·</span>
           <a href="/privacy" className="text-white/40 hover:text-white/70 underline">Privacy Policy</a>
           <span className="text-white/20 mx-2">·</span>
           <a href="/account-deletion" className="text-white/40 hover:text-white/70 underline">Delete Account</a>
