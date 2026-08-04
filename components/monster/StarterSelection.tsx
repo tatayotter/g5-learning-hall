@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
+import StarterClaimModal from '@/components/monster/StarterClaimModal';
 
 interface StarterSelectionProps {
   userId: string;
@@ -12,6 +13,7 @@ interface StarterSelectionProps {
 export default function StarterSelection({ userId, onComplete }: StarterSelectionProps) {
   const [selected, setSelected] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const [claimed, setClaimed] = useState<string | null>(null);
 
   const starters = Object.values(MONSTERS);
 
@@ -35,8 +37,12 @@ export default function StarterSelection({ userId, onComplete }: StarterSelectio
       active_monster_slot: 1,
     }, { onConflict: 'user_id' });
     setSaving(false);
-    if (!error) onComplete();
+    if (!error) setClaimed(selected);
   };
+
+  if (claimed) {
+    return <StarterClaimModal monster={MONSTERS[claimed]} userId={userId} onComplete={onComplete} />;
+  }
 
   return (
     <div className="max-w-4xl mx-auto">
