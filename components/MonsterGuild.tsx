@@ -755,6 +755,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           monsterDisplay={displayMonsters}
           caughtMonsters={caughtMonsters}
           onPromote={handlePromoteCaughtMonster}
+          inventory={inventory}
+          currentGold={currentGold}
+          weekStartingDate={weekStartingDate}
+          onGoldSynced={onGoldSynced}
         />
       )}
 
@@ -762,17 +766,11 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           until encountered, and rare wild catches surface here to promote into a team slot */}
       {view === 'compendium' && (
         <CompendiumPanel
-          userId={userId}
           caughtMonsters={caughtMonsters}
           userMonsters={userMonsters}
           seenMonsterIds={battleState?.seen_monsters || []}
           monsterDisplay={displayMonsters}
           subclassProfile={subclassProfile}
-          inventory={inventory}
-          onLoadoutChange={refreshMonsterLoadouts}
-          currentGold={currentGold}
-          weekStartingDate={weekStartingDate}
-          onGoldSynced={onGoldSynced}
         />
       )}
 
