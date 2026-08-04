@@ -7,6 +7,7 @@ import {
 } from '@/lib/monsterConfig';
 import { MonsterImage, UserMonster } from '@/components/battle/shared';
 import { CaughtMonster } from '@/components/monster/types';
+import { getQualityGlowClass } from '@/lib/curioQuality';
 
 export default function TeamPanel({ userMonsters, playerLevel, userId, onTeamChange, monsterDisplay, caughtMonsters, onPromote }: {
   userMonsters: UserMonster[];
@@ -78,7 +79,7 @@ export default function TeamPanel({ userMonsters, playerLevel, userId, onTeamCha
               </div>
             ) : (
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12">
+                <div className={`w-12 h-12 ${getQualityGlowClass(monster.quality)}`}>
                   <MonsterImage monster={def} className="w-full h-full" />
                 </div>
                 <div className="flex-1">
@@ -94,7 +95,7 @@ export default function TeamPanel({ userMonsters, playerLevel, userId, onTeamCha
                 </div>
                 <div className="text-xs text-gray-400 space-y-0.5">
                   {(() => {
-                    const scaled = getScaledStats(def, monster.monster_level);
+                    const scaled = getScaledStats(def, monster.monster_level, monster.quality);
                     return (
                       <>
                         <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.hp}</p>
@@ -124,11 +125,11 @@ export default function TeamPanel({ userMonsters, playerLevel, userId, onTeamCha
           {benchedMonsters.map(bm => {
             const def = monsterDisplay[bm.monster_id];
             if (!def) return null;
-            const scaled = getScaledStats(def, bm.monster_level);
+            const scaled = getScaledStats(def, bm.monster_level, bm.quality);
             return (
               <div key={bm.id} className="p-4 rounded-xl border border-cyan-900 bg-cyan-900/10">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 flex-shrink-0">
+                  <div className={`w-12 h-12 flex-shrink-0 ${getQualityGlowClass(bm.quality)}`}>
                     <MonsterImage monster={def} className="w-full h-full" />
                   </div>
                   <div className="flex-1">
@@ -178,11 +179,11 @@ export default function TeamPanel({ userMonsters, playerLevel, userId, onTeamCha
             // team already owns a graduated instance of this same species.
             const def = ALL_MONSTERS[caught.monster_id];
             if (!def) return null;
-            const scaled = getScaledStats(def, caught.monster_level);
+            const scaled = getScaledStats(def, caught.monster_level, caught.quality);
             return (
               <div key={caught.id} className="p-4 rounded-xl border border-cyan-900 bg-cyan-900/10">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 flex-shrink-0">
+                  <div className={`w-12 h-12 flex-shrink-0 ${getQualityGlowClass(caught.quality)}`}>
                     <MonsterImage monster={def} className="w-full h-full" />
                   </div>
                   <div className="flex-1">

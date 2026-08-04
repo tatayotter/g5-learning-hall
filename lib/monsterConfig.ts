@@ -3,6 +3,7 @@
 // for the Monster Guild feature.
 
 import type { GuildKey } from '@/lib/dailyChecklist';
+import { QualityTier, QUALITY_STAT_MULTIPLIER } from '@/lib/curioQuality';
 
 // ─── ELEMENT SYSTEM ─────────────────────────────────────────────────────────
 
@@ -1291,12 +1292,16 @@ export function getGuildMonsterDisplay(monsterDef: MonsterDef, guildLevel: numbe
 // Scales a monster's level-1 base stats up with its current level. Applied
 // wherever a monster enters battle (both solo and live PVP) and wherever its
 // effective stats are displayed, so a leveled-up monster is actually stronger
-// rather than just having more skills available.
-export function getScaledStats(monsterDef: MonsterDef, level: number): { hp: number; attack: number; defense: number; speed: number } {
+// rather than just having more skills available. `quality` (see
+// lib/curioQuality.ts — defaults to 'normal' for callers that don't track it,
+// e.g. a freshly-claimed starter) multiplies HP/Attack only, never
+// Defense/Speed, so Tutoring is a pure offense/survivability chase stat.
+export function getScaledStats(monsterDef: MonsterDef, level: number, quality: QualityTier = 'normal'): { hp: number; attack: number; defense: number; speed: number } {
   const growth = 1 + (level - 1) * BATTLE_CONSTANTS.STAT_GROWTH_PER_LEVEL;
+  const qualityMult = QUALITY_STAT_MULTIPLIER[quality];
   return {
-    hp: Math.round(monsterDef.baseHp * growth),
-    attack: Math.round(monsterDef.baseAttack * growth),
+    hp: Math.round(monsterDef.baseHp * growth * qualityMult),
+    attack: Math.round(monsterDef.baseAttack * growth * qualityMult),
     defense: Math.round(monsterDef.baseDefense * growth),
     speed: Math.round(monsterDef.baseSpeed * growth),
   };

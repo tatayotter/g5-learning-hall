@@ -615,6 +615,31 @@ html {
 }
 .battle-answer-correct { animation: battle-answer-correct 0.3s ease-out; }
 
+/* ── Curio quality glow (see lib/curioQuality.ts) — applied to a curio's
+   sprite/card wherever it's rendered above Normal quality. A static radial
+   gradient sitting behind the sprite (via ::before, so it never intercepts
+   clicks) rather than an animated effect, since this is a persistent state
+   indicator, not a ceremony beat. */
+.quality-glow-good,
+.quality-glow-outstanding,
+.quality-glow-perfect {
+  position: relative;
+}
+.quality-glow-good::before,
+.quality-glow-outstanding::before,
+.quality-glow-perfect::before {
+  content: '';
+  position: absolute;
+  inset: -30%;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, var(--quality-glow-color) 0%, transparent 72%);
+}
+.quality-glow-good { --quality-glow-color: rgba(74, 222, 128, 0.55); }
+.quality-glow-outstanding { --quality-glow-color: rgba(34, 211, 238, 0.55); }
+.quality-glow-perfect { --quality-glow-color: rgba(251, 146, 60, 0.6); }
+
 /* ── Landscape lock ─────────────────────────────── */
 @media screen and (orientation: portrait) and (max-width: 1024px) {
   .landscape-only {

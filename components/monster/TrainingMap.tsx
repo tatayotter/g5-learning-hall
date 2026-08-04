@@ -467,7 +467,7 @@ export default function TrainingMap({
                 const isActive = monster.slot === battleState.active_monster_slot;
                 const expIntoLevel = monster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL;
                 const expToNext = BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - expIntoLevel;
-                const scaled = getScaledStats(def, monster.monster_level);
+                const scaled = getScaledStats(def, monster.monster_level, monster.quality);
                 return (
                   <div
                     key={monster.id}

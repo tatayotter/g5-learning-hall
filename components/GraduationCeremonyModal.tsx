@@ -7,6 +7,7 @@
 // the new form) before the stat comparison reveal.
 import { useEffect, useState } from 'react';
 import { MonsterDef, getScaledStats } from '@/lib/monsterConfig';
+import { QualityTier } from '@/lib/curioQuality';
 import { playCurioGraduation } from '@/lib/sounds';
 import { MonsterImage } from '@/components/battle/shared';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
@@ -15,6 +16,7 @@ interface GraduationCeremonyModalProps {
   fromDef: MonsterDef; // pre-graduation display def (old stats + old sprite)
   toDef: MonsterDef;   // post-graduation display def (grown stats + new sprite)
   monsterLevel: number; // the actual monster's current level — stats shown are its real in-battle numbers, not level-1 base stats
+  quality: QualityTier; // unchanged by graduation, but factors into the before/after stat comparison shown here
   userId: string;
   onGoToCompendium: () => void;
 }
@@ -32,7 +34,7 @@ const STAT_ROWS: { label: string; key: 'hp' | 'attack' | 'defense' | 'speed' }[]
   { label: 'Speed', key: 'speed' },
 ];
 
-export default function GraduationCeremonyModal({ fromDef, toDef, monsterLevel, userId, onGoToCompendium }: GraduationCeremonyModalProps) {
+export default function GraduationCeremonyModal({ fromDef, toDef, monsterLevel, quality, userId, onGoToCompendium }: GraduationCeremonyModalProps) {
   const isTala = userId === 'tala';
   const [phase, setPhase] = useState<Phase>('throw');
   const [flickerShowNew, setFlickerShowNew] = useState(false);
@@ -125,8 +127,8 @@ export default function GraduationCeremonyModal({ fromDef, toDef, monsterLevel, 
 
               <div className="space-y-1.5 text-left max-w-[200px] mx-auto">
                 {(() => {
-                  const fromScaled = getScaledStats(fromDef, monsterLevel);
-                  const toScaled = getScaledStats(toDef, monsterLevel);
+                  const fromScaled = getScaledStats(fromDef, monsterLevel, quality);
+                  const toScaled = getScaledStats(toDef, monsterLevel, quality);
                   return STAT_ROWS.map((row, i) => {
                     const from = fromScaled[row.key];
                     const to = toScaled[row.key];

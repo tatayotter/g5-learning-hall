@@ -7,6 +7,7 @@
 import { useState } from 'react';
 import { MonsterDef, StatusEffect, ActiveModifier, statusDuration } from '@/lib/monsterConfig';
 import { gradeMonsterQuestion } from '@/lib/guildEngine';
+import { QualityTier } from '@/lib/curioQuality';
 
 export interface UserMonster {
   id: string;
@@ -19,6 +20,7 @@ export interface UserMonster {
   rest_used: number;
   equipped_skills: (string | null)[];
   graduation_tier: number; // 0 = ungraduated; see MonsterDef.graduation in lib/monsterConfig.ts
+  quality: QualityTier; // see lib/curioQuality.ts — boosts HP/Attack via getScaledStats
 }
 
 export interface ActiveBattleMonster {

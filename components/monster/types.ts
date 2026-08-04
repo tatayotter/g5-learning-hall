@@ -1,5 +1,7 @@
 // Shared between MonsterGuild.tsx and its extracted sub-views
 // (TrainingMap, TeamPanel, CompendiumPanel).
+import { QualityTier } from '@/lib/curioQuality';
+
 export interface CaughtMonster {
   id: string;
   user_id: string;
@@ -8,6 +10,7 @@ export interface CaughtMonster {
   monster_level: number;
   monster_exp: number;
   caught_at: string;
+  quality: QualityTier;
 }
 
 export interface BattleState {

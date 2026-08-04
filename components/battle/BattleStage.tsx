@@ -21,6 +21,7 @@ import { MonsterDef, StatusEffect } from '@/lib/monsterConfig';
 import { MonsterImage, DamageNumber, AttackBanner } from '@/components/battle/shared';
 import MonsterHpPanel from '@/components/battle/MonsterHpPanel';
 import { useStageScale } from '@/hooks/useStageScale';
+import { QualityTier, getQualityGlowClass } from '@/lib/curioQuality';
 
 export interface BattleStageMonster {
   name: string;
@@ -31,6 +32,7 @@ export interface BattleStageMonster {
   status: StatusEffect;
   animClassName?: string;
   damagePopup?: { key: number; value: number; missed: boolean } | null;
+  quality?: QualityTier; // absent for NPC trainers, which have no quality tier
 }
 
 interface BattleStageProps {
@@ -59,7 +61,10 @@ function Creature({ mon, side }: { mon: BattleStageMonster; side: 'left' | 'righ
         {/* The enemy (right side) sprite is mirrored to face the player —
             only the image flips; the damage popup below is a sibling, not a
             child, so it stays readable instead of mirroring with it. */}
-        <div className="bstage-sprite" style={side === 'right' ? { transform: 'scaleX(-1)' } : undefined}>
+        <div
+          className={`bstage-sprite ${mon.quality ? getQualityGlowClass(mon.quality) : ''}`}
+          style={side === 'right' ? { transform: 'scaleX(-1)' } : undefined}
+        >
           <MonsterImage monster={mon.def} className="w-full h-full battle-float" emojiClassName="text-6xl" />
         </div>
         {mon.damagePopup && (

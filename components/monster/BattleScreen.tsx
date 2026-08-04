@@ -147,13 +147,13 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     const defMult = getModifierMultiplier(defender.modifiers, 'def');
     let dmg = calculateDamage(
       skill,
-      getScaledStats(attacker.def, attacker.level).attack * atkMult,
+      getScaledStats(attacker.def, attacker.level, attacker.userMonster?.quality).attack * atkMult,
       BATTLE_CONSTANTS.NPC_COUNTER_ACCURACY.correct,
       BATTLE_CONSTANTS.NPC_COUNTER_ACCURACY.total,
       attacker.def.element,
       defender.def.element,
       attacker.status === 'blessed',
-      getScaledStats(defender.def, defender.level).defense * defMult,
+      getScaledStats(defender.def, defender.level, defender.userMonster?.quality).defense * defMult,
     );
     if (attacker.status === 'atk_boost') dmg *= BATTLE_CONSTANTS.ATK_BOOST_MULTIPLIER;
     if (attacker.status === 'curse') dmg *= (1 - BATTLE_CONSTANTS.CURSE_DAMAGE_REDUCTION);
@@ -312,7 +312,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     // the player's just-chosen attack ever lands — mirroring the classic "the
     // slower side doesn't get to move if it's already fainted" RPG rule.
     const npcIsFaster = npcMon.currentHp > 0 && npcMon.status !== 'paralyze'
-      && getScaledStats(npcMon.def, npcMon.level).speed > getScaledStats(playerMon.def, playerMon.level).speed;
+      && getScaledStats(npcMon.def, npcMon.level, npcMon.userMonster?.quality).speed > getScaledStats(playerMon.def, playerMon.level, playerMon.userMonster?.quality).speed;
     if (npcIsFaster) {
       const preemptDamage = computeNpcDamage(npcMon, playerMon);
       const preemptAttackVerb = `uses ${getNpcSkill(npcMon).name}`;
@@ -361,13 +361,13 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
 
     let damage = calculateDamage(
       skill,
-      getScaledStats(playerMon.def, playerMon.level).attack * atkMult,
+      getScaledStats(playerMon.def, playerMon.level, playerMon.userMonster?.quality).attack * atkMult,
       correctCount,
       askedCount,
       playerMon.def.element,
       npcMon.def.element,
       isBlessed,
-      getScaledStats(npcMon.def, npcMon.level).defense * defMult,
+      getScaledStats(npcMon.def, npcMon.level, npcMon.userMonster?.quality).defense * defMult,
       accuracyBonus,
     );
 
@@ -834,8 +834,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     <BattleStage
       leftName={playerDisplayName}
       rightName={opponentName}
-      leftMon={{ name: playerMon.def.name, level: playerMon.level, def: playerMon.def, currentHp: playerMon.currentHp, maxHp: playerMon.maxHp, status: playerMon.status, animClassName: playerAnim, damagePopup: playerDamagePopup }}
-      rightMon={{ name: npcMon.def.name, level: npcMonsters[npcMonsterIdx].level, def: npcMon.def, currentHp: npcMon.currentHp, maxHp: npcMon.maxHp, status: npcMon.status, animClassName: npcAnim, damagePopup: npcDamagePopup }}
+      leftMon={{ name: playerMon.def.name, level: playerMon.level, def: playerMon.def, currentHp: playerMon.currentHp, maxHp: playerMon.maxHp, status: playerMon.status, animClassName: playerAnim, damagePopup: playerDamagePopup, quality: playerMon.userMonster?.quality }}
+      rightMon={{ name: npcMon.def.name, level: npcMonsters[npcMonsterIdx].level, def: npcMon.def, currentHp: npcMon.currentHp, maxHp: npcMon.maxHp, status: npcMon.status, animClassName: npcAnim, damagePopup: npcDamagePopup, quality: npcMon.userMonster?.quality }}
       log={log}
       banner={banner}
       statusBanner={statusBanner}

@@ -801,8 +801,8 @@ export default function LiveBattleScreen({
     <BattleStage
       leftName={myDisplayName}
       rightName={opponentName}
-      leftMon={{ name: myMon.def.name, level: myMon.level, def: myMon.def, currentHp: myMon.currentHp, maxHp: myMon.maxHp, status: myMon.status, animClassName: myAnim, damagePopup: myDamagePopup }}
-      rightMon={{ name: oppMon.def.name, level: oppMon.level, def: oppMon.def, currentHp: oppMon.currentHp, maxHp: oppMon.maxHp, status: oppMon.status, animClassName: oppAnim, damagePopup: oppDamagePopup }}
+      leftMon={{ name: myMon.def.name, level: myMon.level, def: myMon.def, currentHp: myMon.currentHp, maxHp: myMon.maxHp, status: myMon.status, animClassName: myAnim, damagePopup: myDamagePopup, quality: myMon.userMonster?.quality }}
+      rightMon={{ name: oppMon.def.name, level: oppMon.level, def: oppMon.def, currentHp: oppMon.currentHp, maxHp: oppMon.maxHp, status: oppMon.status, animClassName: oppAnim, damagePopup: oppDamagePopup, quality: oppMon.userMonster?.quality }}
       roundBadge={secondsLeft !== null ? `⏱ ${secondsLeft}s` : null}
       log={log}
       banner={banner}

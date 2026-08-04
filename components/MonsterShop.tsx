@@ -12,6 +12,7 @@ import {
 import { SCROLL_CATALOG, ScrollItem } from '@/lib/skillScrolls';
 import { USERPIC_CATALOG, userpicPath } from '@/lib/userpicShop';
 import { THEME_CATALOG } from '@/lib/themeShop';
+import { TOME_CATALOG } from '@/lib/tomeShop';
 import { Element } from '@/lib/monsterConfig';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { logAction } from '@/lib/playerlog';
@@ -42,7 +43,7 @@ export default function MonsterShop({ userId, currentStats, weekStartingDate, on
   const [buyingKey, setBuyingKey] = useState<string | null>(null);
   const [scrollCategory, setScrollCategory] = useState<ScrollItem['category'] | 'all'>('all');
   const [scrollElement, setScrollElement] = useState<Element | 'all'>('all');
-  const [activeSection, setActiveSection] = useState<'items' | 'scrolls' | 'sprites' | 'themes'>('items');
+  const [activeSection, setActiveSection] = useState<'items' | 'scrolls' | 'tomes' | 'sprites' | 'themes'>('items');
   const [equippedTheme, setEquippedTheme] = useState(USERS[userId].theme);
   const buyBusyRef = useRef(false);
   const isFamily = USERS[userId].isFamily;
@@ -153,6 +154,7 @@ export default function MonsterShop({ userId, currentStats, weekStartingDate, on
         {([
           { id: 'items',   label: '⚔️ Curio Arena Shop' },
           { id: 'scrolls', label: '📜 Skill Scrolls' },
+          { id: 'tomes',   label: '📚 Tomes of Knowledge' },
           { id: 'sprites', label: '🖼️ Trainer Sprites' },
           { id: 'themes',  label: '🎨 Themes' },
         ] as const).map(tab => (
@@ -274,6 +276,48 @@ export default function MonsterShop({ userId, currentStats, weekStartingDate, on
                   </div>
                 );
               })}
+          </div>
+        </div>
+      )}
+
+      {/* Tomes of Knowledge — one-shot boosters for the Tutor reroll system
+          in the Compendium (see lib/curioQuality.ts / lib/tutorCurio.ts).
+          Each tome only boosts a roll made from its matching curio quality
+          tier; consumed atomically inside the tutor_curio RPC. */}
+      {activeSection === 'tomes' && (
+        <div>
+          <p className="text-gray-400 text-sm mb-4">
+            Boost the odds of a single Tutor roll in the Compendium. Each tome only helps a curio
+            currently at its matching quality tier.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {TOME_CATALOG.map(item => {
+              const affordable = currentStats.gold >= item.cost;
+              return (
+                <div key={item.key} className="bg-[#161010] border-2 border-[#000000] rounded-2xl p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] flex flex-col justify-between">
+                  <div>
+                    <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
+                    <h3 className="text-white font-bold mb-2">{item.name}</h3>
+                    <div className="mb-3">
+                      <span className={`inline-flex items-center gap-1 border-2 border-[#000000] text-[10px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full ${affordable ? 'bg-[#47982a] text-black shadow-[2px_2px_0_0_#000]' : 'bg-neutral-800 text-gray-400'}`}>
+                        <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3 h-3" /> {item.cost} GOLD
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-xs mb-4">{item.desc}</p>
+                    {(inventory[item.key] || 0) > 0 && (
+                      <p className="text-green-400 text-xs mb-2 font-bold">In bag: x{inventory[item.key]}</p>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => handleBuy(item.key, item.cost, item.name)}
+                    disabled={!affordable || buyingKey === item.key}
+                    className="w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide text-white bg-indigo-600 hover:bg-indigo-500 border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-neutral-700 disabled:text-gray-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all"
+                  >
+                    {buyingKey === item.key ? 'Buying...' : affordable ? 'Buy' : 'Not Enough Gold'}
+                  </button>
+                </div>
+              );
+            })}
           </div>
         </div>
       )}

@@ -1220,6 +1220,7 @@ export default function Dashboard() {
           <MonsterGuild
             userId={activeUserId}
             playerLevel={data.character_stats.level}
+            currentGold={data.character_stats.gold}
             packageData={packageData}
             gradingUserId={USERS[activeUserId as UserId]?.contentSourceId || activeUserId}
             weekStartingDate={data.week_starting_date}
@@ -1242,6 +1243,7 @@ export default function Dashboard() {
               { ...data.character_stats, gold: data.character_stats.gold + amount },
               data.journal_logs
             )}
+            onGoldSynced={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
           />
         )}
 

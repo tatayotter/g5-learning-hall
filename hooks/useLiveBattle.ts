@@ -174,11 +174,14 @@ export function useLiveBattle(
     const myDefMult = getModifierMultiplier(myMonster.modifiers, 'def');
     const oppAccuracyBonus = getModifierMultiplier(oppMonster.modifiers, 'accuracy');
 
+    const myQuality = myMonster.userMonster?.quality;
+    const oppQuality = oppMonster.userMonster?.quality;
+
     let myDamageDealt = mySkill
-      ? calculateDamage(mySkill, getScaledStats(myMonster.def, myMonster.level).attack * myAtkMult, mine.correctCount, mine.totalQuestions, myMonster.def.element, oppMonster.def.element, myMonster.status === 'blessed', getScaledStats(oppMonster.def, oppMonster.level).defense * oppDefMult, myAccuracyBonus)
+      ? calculateDamage(mySkill, getScaledStats(myMonster.def, myMonster.level, myQuality).attack * myAtkMult, mine.correctCount, mine.totalQuestions, myMonster.def.element, oppMonster.def.element, myMonster.status === 'blessed', getScaledStats(oppMonster.def, oppMonster.level, oppQuality).defense * oppDefMult, myAccuracyBonus)
       : 0;
     let opponentDamageDealt = oppSkill
-      ? calculateDamage(oppSkill, getScaledStats(oppMonster.def, oppMonster.level).attack * oppAtkMult, theirs.correctCount, theirs.totalQuestions, oppMonster.def.element, myMonster.def.element, oppMonster.status === 'blessed', getScaledStats(myMonster.def, myMonster.level).defense * myDefMult, oppAccuracyBonus)
+      ? calculateDamage(oppSkill, getScaledStats(oppMonster.def, oppMonster.level, oppQuality).attack * oppAtkMult, theirs.correctCount, theirs.totalQuestions, oppMonster.def.element, myMonster.def.element, oppMonster.status === 'blessed', getScaledStats(myMonster.def, myMonster.level, myQuality).defense * myDefMult, oppAccuracyBonus)
       : 0;
 
     // Attack Scroll's atk_boost multiplies damage dealt while active — matches
@@ -217,8 +220,8 @@ export function useLiveBattle(
     const myMonsterWouldFaint = myMonster.currentHp - opponentDamageDealt <= 0;
     const oppMonsterWouldFaint = oppMonster.currentHp - myDamageDealt <= 0;
     if (myMonsterWouldFaint && oppMonsterWouldFaint) {
-      const mySpeed = getScaledStats(myMonster.def, myMonster.level).speed;
-      const oppSpeed = getScaledStats(oppMonster.def, oppMonster.level).speed;
+      const mySpeed = getScaledStats(myMonster.def, myMonster.level, myQuality).speed;
+      const oppSpeed = getScaledStats(oppMonster.def, oppMonster.level, oppQuality).speed;
       if (mySpeed > oppSpeed) {
         speedWinner = 'me';
         opponentDamageDealt = 0;

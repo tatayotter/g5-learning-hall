@@ -52,7 +52,7 @@ interface PostBattleSummaryProps {
 }
 
 function Side({ avatarSrc, avatarFallbackEmoji, avatarContain, name, subtitle, mon, isWinner }: PostBattleSideInfo) {
-  const scaled = getScaledStats(mon.def, mon.level);
+  const scaled = getScaledStats(mon.def, mon.level, mon.userMonster?.quality);
   return (
     <div className={`flex-1 rounded-2xl border-2 p-5 text-center ${isWinner ? 'border-amber-500 bg-amber-900/10' : 'border-neutral-700 bg-neutral-950'}`}>
       {isWinner && (

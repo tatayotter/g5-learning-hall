@@ -17,6 +17,12 @@ import UnlearnSkillModal from '@/components/monster/UnlearnSkillModal';
 import { InventoryMap } from '@/lib/inventory';
 import { UserId } from '@/lib/userSession';
 import { CaughtMonster } from '@/components/monster/types';
+import {
+  QualityTier, QUALITY_LABEL, TUTOR_COST_BY_TIER, totalAdvanceChance, getQualityGlowClass,
+} from '@/lib/curioQuality';
+import { getTomeForTier } from '@/lib/tomeShop';
+import { tutorCurio, TutorOutcome } from '@/lib/tutorCurio';
+import TutorRollModal from '@/components/TutorRollModal';
 
 const ELEMENT_STYLES: Record<Element, string> = {
   fire:   'text-orange-400 border-orange-800 bg-orange-900/20',
@@ -78,7 +84,7 @@ interface DexEntry {
   isGraduationTier?: boolean; // true for a species' graduated-form card (tier 2/3 = first/second graduation)
 }
 
-export default function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds, monsterDisplay, subclassProfile, inventory, onLoadoutChange }: {
+export default function CompendiumPanel({ userId, userMonsters, caughtMonsters, seenMonsterIds, monsterDisplay, subclassProfile, inventory, onLoadoutChange, currentGold, weekStartingDate, onGoldSynced }: {
   userId: UserId;
   userMonsters: UserMonster[];
   caughtMonsters: CaughtMonster[];
@@ -87,14 +93,19 @@ export default function CompendiumPanel({ userId, userMonsters, caughtMonsters, 
   subclassProfile: SubclassProfile | null;
   inventory: InventoryMap;
   onLoadoutChange: () => Promise<void> | void;
+  currentGold: number;
+  weekStartingDate: string;
+  onGoldSynced: (newStats: { gold: number; xp: number; level: number }) => void;
 }) {
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
-  const [ceremony, setCeremony] = useState<{ fromDef: MonsterDef; toDef: MonsterDef; monsterLevel: number; speciesId: string; targetTier: 1 | 2 } | null>(null);
+  const [ceremony, setCeremony] = useState<{ fromDef: MonsterDef; toDef: MonsterDef; monsterLevel: number; quality: QualityTier; speciesId: string; targetTier: 1 | 2 } | null>(null);
   const [learnedEvent, setLearnedEvent] = useState<{ monster: MonsterDef; skill: Skill } | null>(null);
   const [forgottenEvent, setForgottenEvent] = useState<{ monster: MonsterDef; skill: Skill } | null>(null);
   const [pendingSlot, setPendingSlot] = useState<{ monsterRowId: string; slotIndex: number } | null>(null);
   const [actionBusy, setActionBusy] = useState(false);
   const actionBusyRef = useRef(false);
+  const [tutorOutcome, setTutorOutcome] = useState<{ outcome: TutorOutcome; monsterName: string } | null>(null);
+  const [useTomeToggle, setUseTomeToggle] = useState(false);
 
   const handleUnlearn = async (monsterRowId: string, slotIndex: number, skill: Skill, monsterDef: MonsterDef) => {
     if (actionBusyRef.current) return;
@@ -134,7 +145,7 @@ export default function CompendiumPanel({ userId, userMonsters, caughtMonsters, 
     }
   };
 
-  const handleGraduate = async (monsterRowId: string, requiredLevel: number, targetTier: 1 | 2, speciesId: string, currentTier: number, monsterLevel: number) => {
+  const handleGraduate = async (monsterRowId: string, requiredLevel: number, targetTier: 1 | 2, speciesId: string, currentTier: number, monsterLevel: number, quality: QualityTier) => {
     if (actionBusyRef.current) return;
     actionBusyRef.current = true;
     setActionBusy(true);
@@ -150,6 +161,7 @@ export default function CompendiumPanel({ userId, userMonsters, caughtMonsters, 
           fromDef: getGraduatedMonsterDisplay(speciesDef, currentTier),
           toDef: getGraduatedMonsterDisplay(speciesDef, targetTier),
           monsterLevel,
+          quality,
           speciesId,
           targetTier,
         });
@@ -157,6 +169,34 @@ export default function CompendiumPanel({ userId, userMonsters, caughtMonsters, 
       } else {
         alert('Could not graduate — make sure the monster has reached the required level and you have a Graduation Scroll.');
       }
+    } finally {
+      actionBusyRef.current = false;
+      setActionBusy(false);
+    }
+  };
+
+  const handleTutor = async (monsterRowId: string, monsterName: string, useTome: boolean) => {
+    if (actionBusyRef.current) return;
+    actionBusyRef.current = true;
+    setActionBusy(true);
+    try {
+      const outcome = await tutorCurio(userId, monsterRowId, weekStartingDate, useTome);
+      if (!outcome) {
+        alert('Could not reach the tutor right now — try again.');
+        return;
+      }
+      if (outcome.error === 'insufficient_gold') {
+        alert('❌ Not enough Gold for a Tutor attempt.');
+        return;
+      }
+      if (outcome.error) {
+        alert('Could not tutor this curio right now.');
+        return;
+      }
+      if (outcome.character_stats) onGoldSynced(outcome.character_stats);
+      setUseTomeToggle(false);
+      setTutorOutcome({ outcome, monsterName });
+      onLoadoutChange();
     } finally {
       actionBusyRef.current = false;
       setActionBusy(false);
@@ -259,11 +299,21 @@ export default function CompendiumPanel({ userId, userMonsters, caughtMonsters, 
           fromDef={ceremony.fromDef}
           toDef={ceremony.toDef}
           monsterLevel={ceremony.monsterLevel}
+          quality={ceremony.quality}
           userId={userId}
           onGoToCompendium={() => {
             setSelectedKey(`${ceremony.speciesId}__grad${ceremony.targetTier}`);
             setCeremony(null);
           }}
+        />
+      )}
+
+      {tutorOutcome && (
+        <TutorRollModal
+          outcome={tutorOutcome.outcome}
+          monsterName={tutorOutcome.monsterName}
+          userId={userId}
+          onClose={() => setTutorOutcome(null)}
         />
       )}
 
@@ -303,7 +353,7 @@ export default function CompendiumPanel({ userId, userMonsters, caughtMonsters, 
             </button>
           {selectedKnown ? (
             <div className="flex flex-col sm:flex-row gap-5">
-              <div className="w-28 h-28 mx-auto sm:mx-0 flex-shrink-0">
+              <div className={`w-28 h-28 mx-auto sm:mx-0 flex-shrink-0 ${ownedMonster ? getQualityGlowClass(ownedMonster.quality) : ''}`}>
                 <MonsterImage monster={selected} className="w-full h-full" emojiClassName="text-6xl" />
               </div>
               <div className="flex-1 space-y-3">
@@ -426,11 +476,56 @@ export default function CompendiumPanel({ userId, userMonsters, caughtMonsters, 
                         Reach Lv.{requiredLevel} and use a Graduation Scroll to graduate into <span className="font-bold text-white">{stage.name}</span>.
                       </p>
                       <button
-                        onClick={() => handleGraduate(ownedMonster.id, requiredLevel, targetTier, selectedEntry.speciesId, currentTier, ownedMonster.monster_level)}
+                        onClick={() => handleGraduate(ownedMonster.id, requiredLevel, targetTier, selectedEntry.speciesId, currentTier, ownedMonster.monster_level, ownedMonster.quality)}
                         disabled={!levelMet || scrollQty === 0 || actionBusy}
                         className="text-[10px] bg-amber-700 hover:bg-amber-600 disabled:opacity-40 disabled:cursor-not-allowed px-3 py-2 rounded text-white"
                       >
                         {!levelMet ? `Need Lv.${requiredLevel} (currently Lv.${ownedMonster.monster_level})` : scrollQty === 0 ? 'Need Graduation Scroll' : `Graduate to ${stage.name} (x${scrollQty} Scroll)`}
+                      </button>
+                    </div>
+                  );
+                })()}
+                {selectedEntry && ownedMonster && (() => {
+                  const quality = ownedMonster.quality;
+                  if (quality === 'perfect') return null;
+                  const cost = TUTOR_COST_BY_TIER[quality]!;
+                  const advanceChance = totalAdvanceChance(quality);
+                  const tome = getTomeForTier(quality);
+                  const tomeQty = tome ? (inventory[tome.key] || 0) : 0;
+                  const canUseTome = useTomeToggle && tomeQty > 0;
+                  const affordable = currentGold >= cost;
+                  const glowClass = getQualityGlowClass(quality);
+                  return (
+                    <div className="border border-indigo-900 bg-indigo-900/10 rounded-lg p-3">
+                      <p className="text-[10px] text-indigo-400 font-bold uppercase tracking-widest mb-1">Tutor</p>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-neutral-800 text-white ${glowClass}`}>
+                          {QUALITY_LABEL[quality]}
+                        </span>
+                        <span className="text-xs text-gray-500">
+                          {(advanceChance * 100).toFixed(1)}% chance to advance
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-400 mb-2">
+                        Spend gold for a chance to permanently raise this curio's quality (boosts HP &amp; Attack). Never downgrades — a failed roll just costs the gold.
+                      </p>
+                      {tome && (
+                        <label className="flex items-center gap-2 text-xs text-gray-400 mb-2">
+                          <input
+                            type="checkbox"
+                            checked={canUseTome}
+                            disabled={tomeQty === 0}
+                            onChange={e => setUseTomeToggle(e.target.checked)}
+                          />
+                          Use {tome.name} (x{tomeQty}) — boosts this roll's odds
+                        </label>
+                      )}
+                      <button
+                        onClick={() => handleTutor(ownedMonster.id, selected.name, canUseTome)}
+                        disabled={!affordable || actionBusy}
+                        className="text-[10px] bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed px-3 py-2 rounded text-white"
+                      >
+                        {!affordable ? `Need ${cost} Gold` : `Tutor (${cost} Gold)`}
                       </button>
                     </div>
                   );

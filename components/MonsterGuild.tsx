@@ -7,6 +7,7 @@ import { getOtherPlayers, UserId, USERS, gradeToNumber } from '@/lib/userSession
 import { useMapPresence } from '@/hooks/useMapPresence';
 import WildEncounterModal from '@/components/WildEncounterModal';
 import CurioRevealModal from '@/components/CurioRevealModal';
+import DuplicateCatchModal from '@/components/DuplicateCatchModal';
 import {
   MONSTERS, WILD_MONSTERS, ALL_MONSTERS, GUILD_MONSTERS, NPC_TRAINERS, BATTLE_CONSTANTS,
   getScaledStats, getMonsterLevel, getCounterElement,
@@ -40,6 +41,7 @@ import StarterSelection from '@/components/monster/StarterSelection';
 interface MonsterGuildProps {
   userId: string;
   playerLevel: number;
+  currentGold: number;
   packageData: any;
   // Whose weekly package to grade Monster Guild quiz answers against, and
   // which week — needed because `packageData` here is the answer-stripped
@@ -52,6 +54,11 @@ interface MonsterGuildProps {
   onConsumePendingLiveBattle: () => void;
   onBattleWon: (kind: 'trainer' | 'sibling' | 'dummy') => void;
   onGoldAwarded: (amount: number) => void;
+  // Syncs the locally cached gold balance after an RPC that ALREADY
+  // performed its own atomic server-side deduction (tutor_curio) — unlike
+  // onGoldAwarded, this must not trigger a second real deduction. Mirrors
+  // MonsterShop's onSpendGold.
+  onGoldSynced: (newStats: { gold: number; xp: number; level: number }) => void;
   initialView?: GuildView;
 }
 
@@ -89,7 +96,7 @@ interface WildEncounterState {
   attemptsLeft: number;
 }
 
-export default function MonsterGuild({ userId, playerLevel, packageData, gradingUserId, weekStartingDate, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle, onBattleWon, onGoldAwarded, initialView }: MonsterGuildProps) {
+export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, gradingUserId, weekStartingDate, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle, onBattleWon, onGoldAwarded, onGoldSynced, initialView }: MonsterGuildProps) {
   const [loading, setLoading] = useState(true);
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
   const [battleState, setBattleState] = useState<BattleState | null>(null);
@@ -113,6 +120,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, grading
   const [liveBattleTeams, setLiveBattleTeams] = useState<{ mine: ActiveBattleMonster[]; opp: ActiveBattleMonster[] } | null>(null);
   const [notification, setNotification] = useState<string | null>(null);
   const [revealMonster, setRevealMonster] = useState<MonsterDef | null>(null);
+  const [pendingDuplicate, setPendingDuplicate] = useState<{ monsterId: string; level: number; name: string } | null>(null);
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [answeredArenaIds, setAnsweredArenaIds] = useState<Set<string>>(new Set());
   const [subclassProfile, setSubclassProfile] = useState<SubclassProfile | null>(null);
@@ -406,6 +414,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, grading
     const { error } = await supabase.rpc('set_team_slot', {
       p_user_id: userId, p_monster_id: caught.monster_id, p_slot: slot,
       p_init_level: caught.monster_level, p_init_exp: caught.monster_exp,
+      p_init_quality: caught.quality,
     });
     if (error) {
       console.error('set_team_slot error:', error);
@@ -414,6 +423,33 @@ export default function MonsterGuild({ userId, playerLevel, packageData, grading
     await supabase.from('user_caught_monsters').delete().eq('id', caught.id);
     showNotification(`${displayMonsters[caught.monster_id]?.name} joined your team!`);
     loadData();
+  };
+
+  const handleDuplicateKeep = async () => {
+    if (!pendingDuplicate) return;
+    const { monsterId, level, name } = pendingDuplicate;
+    const today = new Date().toISOString().split('T')[0];
+    // Same exp-seeding as a fresh wild catch (see handleBattleEnd above) —
+    // monster_exp must stay consistent with monster_level under
+    // getMonsterLevel's exp/100+1 formula.
+    await supabase.from('user_caught_monsters').insert({
+      user_id: userId, monster_id: monsterId, monster_level: level,
+      monster_exp: (level - 1) * BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL,
+    });
+    showNotification(`📥 ${name} added to your Catch Inbox as a spare!`);
+    logAction(userId, today, 'battle', `📥 Kept duplicate ${name} in the Catch Inbox`, 0, 0);
+    setPendingDuplicate(null);
+    loadData();
+  };
+
+  const handleDuplicateConvert = () => {
+    if (!pendingDuplicate) return;
+    const { name } = pendingDuplicate;
+    const today = new Date().toISOString().split('T')[0];
+    onGoldAwarded(DUPLICATE_CATCH_GOLD);
+    showNotification(`✨ Converted duplicate ${name} to ${DUPLICATE_CATCH_GOLD} gold!`);
+    logAction(userId, today, 'battle', `✨ ${name} was a duplicate — converted to ${DUPLICATE_CATCH_GOLD} gold`, 0, DUPLICATE_CATCH_GOLD);
+    setPendingDuplicate(null);
   };
 
   const handleChallengePlayer = async (opponentId: UserId, opponentName: string) => {
@@ -453,7 +489,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, grading
         ? getGuildMonsterDisplay(baseDef, guildLevelForKey(opponentSubclassProfile, baseDef.guildEvolution.guildKey))
         : baseDef;
       const def = baseDef.graduation ? getGraduatedMonsterDisplay(guildDef, um.graduation_tier ?? 0) : guildDef;
-      const hp = getScaledStats(def, um.monster_level).hp;
+      const hp = getScaledStats(def, um.monster_level, um.quality ?? 'normal').hp;
       return {
         def,
         level: um.monster_level,
@@ -519,11 +555,10 @@ export default function MonsterGuild({ userId, playerLevel, packageData, grading
           setRevealMonster(ALL_MONSTERS[wildMonsterId]);
           logAction(userId, today, 'battle', `🐉 Captured wild ${activeBattle.name}!`, 0, 0);
         } else {
-          // Already own this species (active or in the catch inbox) — a
-          // duplicate catch converts to gold instead of piling up unused rows.
-          onGoldAwarded(DUPLICATE_CATCH_GOLD);
-          showNotification(`✨ You already have ${activeBattle.name} — converted to ${DUPLICATE_CATCH_GOLD} gold!`);
-          logAction(userId, today, 'battle', `✨ ${activeBattle.name} was a duplicate — converted to ${DUPLICATE_CATCH_GOLD} gold`, 0, DUPLICATE_CATCH_GOLD);
+          // Already own this species (active or in the catch inbox) — let
+          // the player choose to keep it as a spare (see DuplicateCatchModal)
+          // instead of always auto-converting to gold.
+          setPendingDuplicate({ monsterId: wildMonsterId, level: wildLevel, name: activeBattle.name });
         }
       } else {
         showNotification(`💨 ${activeBattle.name} broke free and fled...`);
@@ -622,7 +657,7 @@ export default function MonsterGuild({ userId, playerLevel, packageData, grading
   const buildPlayerTeam = (): ActiveBattleMonster[] => {
     return userMonsters.filter(um => um.slot !== null).map(um => {
       const def = displayMonsters[um.monster_id];
-      const hp = getScaledStats(def, um.monster_level).hp;
+      const hp = getScaledStats(def, um.monster_level, um.quality).hp;
       return { def, level: um.monster_level, currentHp: hp, maxHp: hp, status: null, statusTurns: 0, restUsed: 0, userMonster: um } as ActiveBattleMonster;
     });
   };
@@ -735,6 +770,9 @@ export default function MonsterGuild({ userId, playerLevel, packageData, grading
           subclassProfile={subclassProfile}
           inventory={inventory}
           onLoadoutChange={refreshMonsterLoadouts}
+          currentGold={currentGold}
+          weekStartingDate={weekStartingDate}
+          onGoldSynced={onGoldSynced}
         />
       )}
 
@@ -976,6 +1014,16 @@ export default function MonsterGuild({ userId, playerLevel, packageData, grading
             setView('trainers');
             loadData();
           }}
+        />
+      )}
+
+      {pendingDuplicate && (
+        <DuplicateCatchModal
+          monsterName={pendingDuplicate.name}
+          goldValue={DUPLICATE_CATCH_GOLD}
+          userId={userId}
+          onKeep={handleDuplicateKeep}
+          onConvert={handleDuplicateConvert}
         />
       )}
 
