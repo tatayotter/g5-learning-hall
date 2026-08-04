@@ -235,8 +235,7 @@ html {
 .theme-tala .bg-amber-600,
 .theme-tala .bg-pink-600,
 .theme-tala .bg-green-700,
-.theme-tala .bg-red-800,
-.theme-tala .bg-red-900        { color: #ffffff !important; }
+.theme-tala .bg-red-800         { color: #ffffff !important; }
 
 /* Neutral action buttons (Enter Module etc) */
 .theme-tala .bg-neutral-800    { background-color: #e0b0d0 !important; color: #5a2d4a !important; }
@@ -293,9 +292,12 @@ html {
 .theme-tala .bg-blue-900\/20   { background-color: rgba(236,72,153,0.08) !important; }
 .theme-tala .bg-blue-900\/30   { background-color: rgba(236,72,153,0.12) !important; }
 .theme-tala .bg-green-900\/20  { background-color: rgba(52,211,153,0.1) !important; }
-.theme-tala .bg-green-900      { background-color: #d1fae5 !important; }
+/* Solid bg-green-900 badges (reward-claim status pills, success Toast) pair
+   this light background with light Tailwind text (text-green-100/300) —
+   force dark text here too or it goes invisible. */
+.theme-tala .bg-green-900      { background-color: #d1fae5 !important; color: #065f46 !important; }
 .theme-tala .bg-red-900\/20    { background-color: rgba(251,113,133,0.1) !important; }
-.theme-tala .bg-red-900        { background-color: #ffe4e6 !important; }
+.theme-tala .bg-red-900        { background-color: #ffe4e6 !important; color: #9f1239 !important; }
 
 /* Borders */
 .theme-tala .border-blue-800   { border-color: #f9a8d4 !important; }
