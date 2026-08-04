@@ -12,7 +12,7 @@ interface PendingParent {
 
 const ADMIN_EMAIL = process.env.NEXT_PUBLIC_ADMIN_EMAIL || '';
 
-export default function AdminApprovalsPage() {
+export default function ApprovalsSection() {
   const [userEmail, setUserEmail] = useState<string | null | undefined>(undefined);
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
@@ -67,14 +67,15 @@ export default function AdminApprovalsPage() {
   };
 
   if (userEmail === undefined) {
-    return <main className="min-h-screen bg-black flex items-center justify-center text-gray-500">Loading…</main>;
+    return <p className="text-gray-500 text-sm">Loading…</p>;
   }
 
   if (!userEmail) {
     return (
-      <main className="min-h-screen bg-black flex items-center justify-center px-4">
-        <form onSubmit={handleLogin} className="w-full max-w-sm bg-neutral-900 border border-neutral-700 rounded-2xl p-6 space-y-4">
-          <h1 className="text-xl font-display font-bold text-white text-center">Admin Login</h1>
+      <div>
+        <h2 className="text-xl font-bold text-white mb-1">Parent Approvals</h2>
+        <p className="text-gray-500 text-sm mb-6">Sign in with the parent-approvals admin account to review pending registrations.</p>
+        <form onSubmit={handleLogin} className="w-full max-w-sm bg-neutral-900 border border-neutral-700 rounded-xl p-6 space-y-4">
           <input
             type="email"
             placeholder="Admin email"
@@ -100,18 +101,19 @@ export default function AdminApprovalsPage() {
             {loggingIn ? 'Logging in…' : 'Log In'}
           </button>
         </form>
-      </main>
+      </div>
     );
   }
 
   if (userEmail !== ADMIN_EMAIL) {
-    return <main className="min-h-screen bg-black flex items-center justify-center text-gray-500">Not authorized.</main>;
+    return <p className="text-gray-500 text-sm">Signed in as {userEmail}, which isn't the parent-approvals admin account.</p>;
   }
 
   return (
-    <main className="min-h-screen bg-black py-10 px-4">
-      <div className="max-w-lg mx-auto space-y-4">
-        <h1 className="text-xl font-display font-bold text-white">Pending Parent Registrations</h1>
+    <div>
+      <h2 className="text-xl font-bold text-white mb-1">Parent Approvals</h2>
+      <p className="text-gray-500 text-sm mb-6">Review and approve or reject pending parent registrations.</p>
+      <div className="max-w-lg space-y-4">
         {listError && <p className="text-red-400 text-sm">{listError}</p>}
         {pending.length === 0 && <p className="text-gray-500 text-sm">No pending registrations.</p>}
         {pending.map((p) => (
@@ -138,6 +140,6 @@ export default function AdminApprovalsPage() {
           </div>
         ))}
       </div>
-    </main>
+    </div>
   );
 }

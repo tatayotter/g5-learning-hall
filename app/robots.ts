@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: ['/welcome', '/register', '/blog'],
-      disallow: ['/', '/parent-login', '/parent-dashboard', '/admin-approvals', '/api/'],
+      disallow: ['/', '/parent-login', '/parent-dashboard', '/tatayadmin', '/api/'],
     },
     sitemap: 'https://learninghallph.com/sitemap.xml',
   };

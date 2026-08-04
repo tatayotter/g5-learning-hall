@@ -10,7 +10,7 @@ import HeroProfile from '@/components/HeroProfile';
 import GuildJournal from '@/components/GuildJournal';
 import DailyChecklist from '@/components/DailyChecklist';
 import { markGuildSessionToday, GuildKey, GUILDS } from '@/lib/dailyChecklist';
-import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
+import { buildWeeklyReviewDay, WEEKLY_REVIEW_SUBJECT } from '@/lib/weeklyReview';
 import QuestModule from '@/components/QuestModule';
 import { format } from 'date-fns';
 import AchievementsBoard from '@/components/AchievementsBoard';
@@ -24,7 +24,6 @@ import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
 import MonsterGuild from '@/components/MonsterGuild';
 import CodexPanel from '@/components/CodexPanel';
-import AdminDashboard from '@/components/AdminDashboard';
 import { playShopPurchase, playPageFlip, startMainTheme, stopMainTheme, isSfxEnabled, isMusicEnabled, setSfxEnabled, setMusicEnabled } from '@/lib/sounds';
 import Toast from '@/components/Toast';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -219,14 +218,6 @@ export default function Dashboard() {
     trackEvent('login');
   };
 
-  const handleAdminSelect = (id: UserId) => {
-    setActiveUserId(id);
-    const theme = USERS[id].theme;
-    document.documentElement.classList.toggle('theme-tala', theme === 'tala');
-    setSplashAdminMode(true);
-    trackEvent('login');
-  };
-
   const handleSwitchUser = () => {
     clearActiveUser();
     document.documentElement.classList.remove('theme-tala');
@@ -278,19 +269,6 @@ export default function Dashboard() {
     await liveBattleInbox.sendInviteResponse(invite.fromId, invite.battleId, false);
     liveBattleInbox.clearIncomingInvite();
   };
-  const [splashAdminMode, setSplashAdminMode] = useState(false);
-  const [adminOpen, setAdminOpen] = useState(false);
-
-  // Opening the admin dashboard used to happen directly in the render body
-  // (right before the JSX return), relying on React re-rendering before
-  // commit to pick up the new adminOpen value — fragile under concurrent
-  // rendering, where a render can be thrown away without committing.
-  useEffect(() => {
-    if (splashAdminMode && !adminOpen) {
-      setAdminOpen(true);
-      setSplashAdminMode(false);
-    }
-  }, [splashAdminMode, adminOpen]);
 
   const [activeQuest, setActiveQuest] = useState<string | null>(null);
   const [activeGuild, setActiveGuild] = useState<GuildKey | null>(null);
@@ -462,7 +440,7 @@ export default function Dashboard() {
   }
 
   if (!activeUserId) {
-    return <SplashScreen onSelect={handleUserSelect} onAdminSelect={handleAdminSelect} />;
+    return <SplashScreen onSelect={handleUserSelect} />;
   }
 
   if (loading) {
@@ -515,22 +493,6 @@ export default function Dashboard() {
       <div className="mt-8 text-4xl animate-bounce">↻</div>
     </div>
   );
-
-  if (adminOpen) {
-    return (
-      <>
-        {rotationScreen}
-        <div className="app-content">
-          <AdminDashboard
-            currentData={data}
-            currentSunday={currentSunday}
-            onUpdateStats={updateStatsAndJournal}
-            onBack={() => setAdminOpen(false)}
-          />
-        </div>
-      </>
-    );
-  }
 
   return (
     <>
@@ -770,6 +732,30 @@ export default function Dashboard() {
                   attemptsSoFar={(data.quiz_attempts || {})[activeQuest] || 0}
                   isMastered={(data.mastered_quizzes || []).includes(activeQuest)}
                   gradeQuiz={async (selectedAnswers) => {
+                    // "Weekly Review" is built client-side on the fly (lib/weeklyReview.ts)
+                    // and never persisted under package_data->Friday->'Weekly Review' — the
+                    // day/subject-keyed grade_weekly_quiz RPC would always find nothing
+                    // there, so this subject grades by matching question text instead.
+                    if (subject === WEEKLY_REVIEW_SUBJECT) {
+                      const quizQuestions: { question: string }[] = questData?.quiz || [];
+                      const answers = quizQuestions.map((q, i) => ({
+                        question: q.question,
+                        selected: selectedAnswers[i],
+                      }));
+                      const { data: graded, error } = await supabase.rpc('grade_weekly_review_quiz', {
+                        p_user_id: gradingUserId,
+                        p_week_starting_date: data.week_starting_date,
+                        p_answers: answers,
+                      });
+                      if (error || !graded) throw error || new Error('grade_weekly_review_quiz returned no data');
+                      return {
+                        correct_count: graded.correct_count,
+                        total: graded.total,
+                        is_perfect: graded.is_perfect,
+                        correct_answers: graded.correct_answers,
+                      };
+                    }
+
                     const { data: graded, error } = await supabase.rpc('grade_weekly_quiz', {
                       p_user_id: gradingUserId,
                       p_week_starting_date: data.week_starting_date,
@@ -1220,6 +1206,8 @@ export default function Dashboard() {
             userId={activeUserId}
             playerLevel={data.character_stats.level}
             packageData={packageData}
+            gradingUserId={USERS[activeUserId as UserId]?.contentSourceId || activeUserId}
+            weekStartingDate={data.week_starting_date}
             liveBattleInbox={liveBattleInbox}
             pendingLiveBattleId={pendingLiveBattleId}
             initialView={guildInitialView}

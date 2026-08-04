@@ -8,7 +8,6 @@ import { MonsterImage } from '@/components/battle/shared';
 
 interface SplashScreenProps {
   onSelect: (id: UserId) => void;
-  onAdminSelect: (id: UserId) => void;
 }
 
 interface HeroStats {
@@ -108,14 +107,14 @@ function RosterAvatar({
   );
 }
 
-export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenProps) {
+export default function SplashScreen({ onSelect }: SplashScreenProps) {
   const [statsMap, setStatsMap] = useState<Record<string, HeroStats | null>>({});
   const [lastLoginMap, setLastLoginMap] = useState<Record<string, string | null>>({});
   const [monsterMap, setMonsterMap] = useState<Record<string, ActiveMonsterInfo | null>>({});
   const [statsLoaded, setStatsLoaded] = useState(false);
   const [onlineIds, setOnlineIds] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState('');
-  const [loginTarget, setLoginTarget] = useState<{ id: UserId; name: string; isAdmin?: boolean } | null>(null);
+  const [loginTarget, setLoginTarget] = useState<{ id: UserId; name: string } | null>(null);
   const [passwordInput, setPasswordInput] = useState('');
   const [loginError, setLoginError] = useState('');
   const [loggingIn, setLoggingIn] = useState(false);
@@ -208,8 +207,8 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
     onSelect(id);
   };
 
-  const openLogin = (id: UserId, name: string, isAdmin = false) => {
-    setLoginTarget({ id, name, isAdmin });
+  const openLogin = (id: UserId, name: string) => {
+    setLoginTarget({ id, name });
     setPasswordInput('');
     setLoginError('');
   };
@@ -251,8 +250,7 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
           setLoggingIn(false);
           return;
         }
-        if (loginTarget.isAdmin) onAdminSelect(loginTarget.id);
-        else handleSelect(loginTarget.id);
+        handleSelect(loginTarget.id);
       } else {
         setLoginError('❌ Incorrect password. Try again.');
       }
@@ -409,22 +407,6 @@ export default function SplashScreen({ onSelect, onAdminSelect }: SplashScreenPr
 
         {!loginTarget && (
           <div className="pt-4 pb-2 flex flex-col items-center gap-3.5 shrink-0">
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              onClick={() => isFamilyProtected('damien') ? openLogin('damien', 'Tatay Admin', true) : onAdminSelect('damien')}
-              className="group inline-flex items-center gap-2 rounded-full bg-[#1c1611] border border-[#4a4038] px-4 py-2 shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_2px_12px_rgba(0,0,0,0.5)] hover:border-[#c9781a] hover:bg-[#241d16] transition-all"
-            >
-              <span className="w-5 h-5 rounded-full bg-[#2a2119] border border-[#4a4038] flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#e0a92c]">
-                  <path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" />
-                  <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" />
-                </svg>
-              </span>
-              <span className="text-[13px] font-semibold tracking-wide text-[#d8cdb8]">Tatay Admin</span>
-            </motion.button>
-
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

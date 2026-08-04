@@ -10,6 +10,7 @@ import EventsSection from '@/components/admin/EventsSection';
 import DraftQuestionsSection from '@/components/admin/DraftQuestionsSection';
 import AnalyticsSection from '@/components/admin/AnalyticsSection';
 import MapEditorSection from '@/components/admin/MapEditorSection';
+import ApprovalsSection from '@/components/admin/ApprovalsSection';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 interface AdminDashboardProps {
@@ -19,7 +20,7 @@ interface AdminDashboardProps {
   onBack: () => void;
 }
 
-type AdminSection = 'packages' | 'questions' | 'tools' | 'prompts' | 'classmates' | 'events' | 'draft_questions' | 'analytics' | 'map_editor';
+type AdminSection = 'packages' | 'draft_questions' | 'questions' | 'map_editor' | 'classmates' | 'events' | 'approvals' | 'analytics' | 'tools' | 'prompts';
 
 export default function AdminDashboard({ currentData, currentSunday, onUpdateStats, onBack }: AdminDashboardProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -50,7 +51,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
       <div className="min-h-screen bg-neutral-950 flex items-center justify-center">
         <div className="w-full max-w-sm">
           <button onClick={onBack} className="text-gray-600 hover:text-gray-400 text-sm mb-8 flex items-center gap-2 transition-colors">
-            ← Back to Dashboard
+            ← Back to Learning Hall
           </button>
           <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8">
             <div className="text-3xl mb-4">🔑</div>
@@ -75,16 +76,32 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
     );
   }
 
-  const NAV: { id: AdminSection; label: string }[] = [
-    { id: 'packages',   label: 'Weekly Packages' },
-    { id: 'questions',  label: 'Question Bank' },
-    { id: 'classmates', label: 'Classmates' },
-    { id: 'events',     label: 'Custom Events' },
-    { id: 'draft_questions', label: 'Draft Questions' },
-    { id: 'analytics',  label: 'Analytics' },
-    { id: 'map_editor', label: 'Map Editor' },
-    { id: 'tools',      label: 'Tools' },
-    { id: 'prompts',    label: 'Prompts' },
+  const NAV_GROUPS: { heading: string; items: { id: AdminSection; label: string }[] }[] = [
+    {
+      heading: 'Content',
+      items: [
+        { id: 'packages',        label: 'Weekly Packages' },
+        { id: 'draft_questions', label: 'Draft Questions' },
+        { id: 'questions',       label: 'Question Bank' },
+        { id: 'map_editor',      label: 'Map Editor' },
+      ],
+    },
+    {
+      heading: 'People',
+      items: [
+        { id: 'classmates', label: 'Classmates' },
+        { id: 'events',     label: 'Custom Events' },
+        { id: 'approvals',  label: 'Parent Approvals' },
+      ],
+    },
+    {
+      heading: 'System',
+      items: [
+        { id: 'analytics', label: 'Analytics' },
+        { id: 'tools',     label: 'Tools' },
+        { id: 'prompts',   label: 'Prompts' },
+      ],
+    },
   ];
 
   return (
@@ -98,19 +115,28 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
         </div>
 
         {/* Nav */}
-        <nav className="flex-1 p-3 space-y-1">
-          {NAV.map(item => (
-            <button
-              key={item.id}
-              onClick={() => setSection(item.id)}
-              className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-left ${
-                section === item.id
-                  ? 'bg-white text-black'
-                  : 'text-gray-400 hover:text-white hover:bg-neutral-800'
-              }`}
-            >
-              <span>{item.label}</span>
-            </button>
+        <nav className="flex-1 p-3 space-y-4 overflow-y-auto">
+          {NAV_GROUPS.map(group => (
+            <div key={group.heading}>
+              <p className="px-4 pb-1.5 text-[10px] text-gray-600 uppercase tracking-widest font-semibold">
+                {group.heading}
+              </p>
+              <div className="space-y-1">
+                {group.items.map(item => (
+                  <button
+                    key={item.id}
+                    onClick={() => setSection(item.id)}
+                    className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-left ${
+                      section === item.id
+                        ? 'bg-white text-black'
+                        : 'text-gray-400 hover:text-white hover:bg-neutral-800'
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
           ))}
         </nav>
 
@@ -120,7 +146,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
             onClick={onBack}
             className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-gray-500 hover:text-white hover:bg-neutral-800 transition-colors"
           >
-            ← Back to Dashboard
+            ← Back to Learning Hall
           </button>
         </div>
       </aside>
@@ -139,6 +165,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
         {section === 'questions' && <QuestionBankImporter />}
         {section === 'classmates' && <ClassmatesSection passcode={password} />}
         {section === 'events' && <EventsSection passcode={password} />}
+        {section === 'approvals' && <ApprovalsSection />}
         {section === 'draft_questions' && <DraftQuestionsSection passcode={password} />}
         {section === 'analytics' && <AnalyticsSection />}
         {section === 'map_editor' && <MapEditorSection />}
