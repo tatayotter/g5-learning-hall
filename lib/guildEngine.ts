@@ -325,6 +325,30 @@ export async function markArenaQuestionsCompleted(userId: string, questions: any
   }
 }
 
+// Grades a single Monster Guild question (grass encounters, trainer battles,
+// PvP battles) server-side. The `questions` fed into BattleQuestionModal come
+// from weekly_packages_public, which strips correct_answer out of every quiz
+// question — so correctness can't be checked client-side and must go through
+// this RPC, which matches by question text against the real package_data.
+export async function gradeMonsterQuestion(
+  userId: string,
+  weekStartingDate: string,
+  questionText: string,
+  selected: string
+): Promise<{ correct: boolean; correctAnswer: string | null }> {
+  const { data, error } = await supabase.rpc('grade_monster_question', {
+    p_user_id: userId,
+    p_week_starting_date: weekStartingDate,
+    p_question_text: questionText,
+    p_selected: selected,
+  });
+  if (error || !data) {
+    console.error('Failed to grade monster question:', error);
+    return { correct: false, correctAnswer: null };
+  }
+  return { correct: !!data.correct, correctAnswer: data.correct_answer ?? null };
+}
+
 // Prestige: wipe a player's Monster Arena history so a fresh round starts
 // once they've seen every question in the current pool.
 export async function resetArenaHistory(userId: string) {

@@ -6,6 +6,7 @@
 // import the other (avoids a circular import between the two).
 import { useState } from 'react';
 import { MonsterDef, StatusEffect, ActiveModifier, BATTLE_CONSTANTS } from '@/lib/monsterConfig';
+import { gradeMonsterQuestion } from '@/lib/guildEngine';
 
 export interface UserMonster {
   id: string;
@@ -164,10 +165,15 @@ export interface BattleQuestionProps {
   questions: any[];
   count: number;
   embedded?: boolean;
+  // Whose weekly package to grade against, and which week — the `questions`
+  // array comes from weekly_packages_public (correct_answer stripped), so
+  // correctness has to be checked server-side via grade_monster_question.
+  gradingUserId: string;
+  weekStartingDate: string;
   onComplete: (correctCount: number, answeredQuestions: any[]) => void;
 }
 
-export function BattleQuestionModal({ questions, count, embedded, onComplete }: BattleQuestionProps) {
+export function BattleQuestionModal({ questions, count, embedded, gradingUserId, weekStartingDate, onComplete }: BattleQuestionProps) {
   // A skill can ask for more questions than are actually available (e.g. a
   // tier-3 skill needs 3, but the player's unseen-question pool for that
   // subject has only 2 left) — capping to the pool's own length here, and
@@ -180,15 +186,21 @@ export function BattleQuestionModal({ questions, count, embedded, onComplete }: 
   const askedCount = pool.length;
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
+  const [grading, setGrading] = useState(false);
+  const [revealedCorrect, setRevealedCorrect] = useState<string | null>(null);
   const [results, setResults] = useState<boolean[]>([]);
 
   const current = pool[index];
   if (!current) return null;
 
-  const handleAnswer = (opt: string) => {
-    if (selected) return;
+  const handleAnswer = async (opt: string) => {
+    if (selected || grading) return;
     setSelected(opt);
-    const isCorrect = opt === current.correct_answer || opt === current.correct || opt === current.correct_choice;
+    setGrading(true);
+    const questionText = current.question || current.problem_prompt;
+    const { correct: isCorrect, correctAnswer } = await gradeMonsterQuestion(gradingUserId, weekStartingDate, questionText, opt);
+    setGrading(false);
+    setRevealedCorrect(correctAnswer);
     const newResults = [...results, isCorrect];
     setTimeout(() => {
       if (index + 1 >= askedCount) {
@@ -196,6 +208,7 @@ export function BattleQuestionModal({ questions, count, embedded, onComplete }: 
       } else {
         setResults(newResults);
         setSelected(null);
+        setRevealedCorrect(null);
         setIndex(i => i + 1);
       }
     }, 800);
@@ -213,10 +226,10 @@ export function BattleQuestionModal({ questions, count, embedded, onComplete }: 
           const key = typeof opt === 'string' ? opt : opt.key;
           const text = typeof opt === 'string' ? opt : opt.text;
           const isSelected = selected === key;
-          const isCorrect = key === current.correct_answer || key === current.correct || key === current.correct_choice;
+          const isCorrect = revealedCorrect !== null && key === revealedCorrect;
           let style = 'border-neutral-700 hover:border-neutral-500';
           let feedbackAnim = '';
-          if (selected) {
+          if (revealedCorrect !== null) {
             if (isSelected && isCorrect) { style = 'border-green-500 bg-green-900/30'; feedbackAnim = 'battle-answer-correct'; }
             else if (isSelected && !isCorrect) { style = 'border-red-500 bg-red-900/30'; feedbackAnim = 'battle-answer-wrong'; }
             else if (isCorrect) style = 'border-green-500 bg-green-900/20';

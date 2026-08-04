@@ -114,6 +114,8 @@ interface TrainingMapProps {
   userMonsters: UserMonster[];
   caughtMonsters: CaughtMonster[];
   questions: any[];
+  gradingUserId: string;
+  weekStartingDate: string;
   onBattleStateChange: (state: BattleState) => void;
   onMonsterExpGained: (monsterId: string, exp: number) => void;
   onHeal: () => void;
@@ -134,7 +136,7 @@ interface TrainingMapProps {
 }
 
 export default function TrainingMap({
-  userId, battleState, userMonsters, caughtMonsters, questions,
+  userId, battleState, userMonsters, caughtMonsters, questions, gradingUserId, weekStartingDate,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll, onChallengePlayer,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
   regionId, onExitRegion,
@@ -590,6 +592,8 @@ export default function TrainingMap({
         questions={questions}
         count={1}
         embedded={true}
+        gradingUserId={gradingUserId}
+        weekStartingDate={weekStartingDate}
         onComplete={handleGrassAnswer}
       />
     </div>

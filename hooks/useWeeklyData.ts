@@ -14,6 +14,33 @@ export interface CharacterStats {
   gold: number;
 }
 
+// Mirrors the level-up loop in apply_character_deltas (Postgres RPC): every
+// level's xp requirement is 500 + level*100, and xp beyond that threshold
+// carries over as the next level's starting remainder. Converts a
+// (level, remainder) pair back into the raw cumulative xp it represents, so
+// that two states can be diffed correctly even when a level-up happened
+// between them.
+function totalXpForLevelState(level: number, xp: number): number {
+  let total = xp;
+  for (let l = 1; l < level; l++) {
+    total += 500 + l * 100;
+  }
+  return total;
+}
+
+// Same level-up loop as the apply_character_deltas Postgres RPC — used to
+// keep the offline (no-RPC) path's level/xp consistent with what the server
+// would compute once the queued delta replays.
+function applyXpDelta(level: number, xp: number, delta: number): { level: number; xp: number } {
+  let newLevel = level;
+  let newXp = xp + delta;
+  while (newXp >= 500 + newLevel * 100) {
+    newXp -= 500 + newLevel * 100;
+    newLevel += 1;
+  }
+  return { level: newLevel, xp: newXp };
+}
+
 export interface JournalEntry {
   done_today: string;
   tomorrow_plan: string;
@@ -81,6 +108,16 @@ export function useWeeklyData(userId: string = 'damien') {
         .eq('user_id', userId)
         .maybeSingle();
 
+      if (fetchError) {
+        // Never fall through to the "no row yet" branch on a fetch failure —
+        // that branch carries forward (or defaults) progress and writes it,
+        // so treating a transient/RLS error as "this week hasn't started"
+        // would silently stomp real progress with level-1 defaults.
+        console.error('Failed to fetch this week\'s package:', fetchError);
+        setLoading(false);
+        return;
+      }
+
       const applyContentSource = async (row: WeeklyData): Promise<WeeklyData> => {
         if (contentSourceId === userId) return row;
         const { data: sourceRow } = await supabase
@@ -99,7 +136,7 @@ export function useWeeklyData(userId: string = 'damien') {
         // package_data ahead of time (character_stats left null as the "not
         // started" marker) — in both cases, carry forward progress from the
         // most recent past week now that this week has actually begun.
-        const { data: previousWeek } = await supabase
+        const { data: previousWeek, error: previousWeekError } = await supabase
           .from('weekly_packages')
           .select('character_stats, achievements, mastery_count, purchased_items, honor_grants')
           .eq('user_id', userId)
@@ -107,6 +144,17 @@ export function useWeeklyData(userId: string = 'damien') {
           .order('week_starting_date', { ascending: false })
           .limit(1)
           .maybeSingle();
+
+        if (previousWeekError) {
+          // Same reasoning as the fetchError guard above: an error here must
+          // not be treated as "no previous week exists" — that would carry
+          // forward (and persist) level-1/0-xp/0-gold defaults over a real
+          // prior week's progress. This is exactly the bug that reset Tala
+          // and Damien's levels — bail out and let the next load retry.
+          console.error('Failed to fetch previous week for carry-forward:', previousWeekError);
+          setLoading(false);
+          return;
+        }
 
         const carriedForward = {
           character_stats: previousWeek?.character_stats || { level: 1, xp: 0, gold: 0 },
@@ -239,7 +287,14 @@ export function useWeeklyData(userId: string = 'damien') {
     // together both land instead of the second one clobbering the first —
     // this used to silently lose gold when e.g. a battle reward and a quiz
     // save raced each other.
-    const xpDelta = (newStats.xp - data.character_stats.xp) + addedXp;
+    // Diffed as total accumulated xp, not raw `.xp` fields — callers like
+    // QuestModule/GuildJournal pre-consume xp into levels locally before
+    // calling this (for the level-up celebration/achievement checks), so
+    // newStats.xp is a post-level-up remainder while data.character_stats.xp
+    // is the old remainder. Subtracting those directly could go negative (or
+    // undercount) whenever a level-up happened in between, silently losing
+    // xp on the server write.
+    const xpDelta = (totalXpForLevelState(newStats.level, newStats.xp) - totalXpForLevelState(data.character_stats.level, data.character_stats.xp)) + addedXp;
     const goldDelta = (newStats.gold - data.character_stats.gold) + addedGold;
 
     // Everything but character_stats (applied atomically, online via RPC or
@@ -266,9 +321,10 @@ export function useWeeklyData(userId: string = 'damien') {
       // against) and queue the same delta to replay against the real RPC
       // once back online, so the server-side atomicity guarantee still holds
       // for the eventual write.
+      const { level: finalLevel, xp: finalXp } = applyXpDelta(data.character_stats.level, data.character_stats.xp, xpDelta);
       const finalStats: CharacterStats = {
-        level: newStats.level,
-        xp: data.character_stats.xp + xpDelta,
+        level: finalLevel,
+        xp: finalXp,
         gold: data.character_stats.gold + goldDelta,
       };
       const updated = { ...data, character_stats: finalStats, ...otherChanges };
