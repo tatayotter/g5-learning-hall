@@ -13,7 +13,10 @@ export interface UserProfile {
   fullName: string;
   grade: string;
   avatar: string;
-  theme: 'damien' | 'tala';
+  // Currently-equipped THEME_CATALOG key (lib/themeShop.ts). Hardcoded here
+  // is just the pre-DB-load fallback default — loadThemeOverrides() replaces
+  // it with whatever's actually saved in user_themes once that resolves.
+  theme: string;
   gender: 'boy' | 'girl';
   isFamily: boolean;
   // Which user's Main Quest package (weekly_packages.package_data) this player
@@ -30,7 +33,7 @@ export const USERS: Record<UserId, UserProfile> = {
     fullName: 'Damien Zamir Ruelo',
     grade: 'Grade 5',
     avatar: '/userpics/Spr_RS_School_Kid_M.png',
-    theme: 'damien',
+    theme: 'theme_default',
     gender: 'boy',
     isFamily: true,
   },
@@ -40,7 +43,7 @@ export const USERS: Record<UserId, UserProfile> = {
     fullName: 'Tala Ruelo',
     grade: 'Grade 2',
     avatar: '/tala-avatar.png',
-    theme: 'tala',
+    theme: 'theme_tala',
     gender: 'girl',
     isFamily: true,
   },
@@ -96,7 +99,7 @@ export async function loadClassmates(): Promise<void> {
       fullName: c.full_name,
       grade: c.grade,
       avatar: '/userpics/Spr_RS_School_Kid_M.png',
-      theme: 'damien',
+      theme: 'theme_default',
       gender: c.gender === 'girl' ? 'girl' : 'boy',
       isFamily: false,
       contentSourceId: contentSourceForGrade(c.grade),
@@ -136,7 +139,7 @@ export async function loadChildren(): Promise<void> {
       fullName: c.full_name,
       grade: c.grade,
       avatar: c.avatar,
-      theme: 'damien',
+      theme: 'theme_default',
       gender: c.gender === 'girl' ? 'girl' : 'boy',
       isFamily: false,
       contentSourceId: contentSourceForGrade(c.grade),
@@ -171,6 +174,30 @@ export async function saveAvatar(userId: UserId, avatar: string): Promise<boolea
     .upsert({ user_id: userId, avatar }, { onConflict: 'user_id' });
   if (error) return false;
   if (USERS[userId]) USERS[userId].avatar = avatar;
+  return true;
+}
+
+// Equipped color theme (Curio Arena Shop → Themes tab) is purchased/owned
+// like a userpic but, unlike avatars, only takes effect once explicitly
+// equipped — see saveTheme. Falls back to each profile's built-in default
+// (currently only Tala defaults to non-default) until a choice is saved.
+let themesLoaded = false;
+
+export async function loadThemeOverrides(): Promise<void> {
+  if (themesLoaded) return;
+  const { data } = await supabase.from('user_themes').select('user_id, theme_key');
+  (data || []).forEach((row: any) => {
+    if (USERS[row.user_id]) USERS[row.user_id].theme = row.theme_key;
+  });
+  themesLoaded = true;
+}
+
+export async function saveTheme(userId: UserId, themeKey: string): Promise<boolean> {
+  const { error } = await supabase
+    .from('user_themes')
+    .upsert({ user_id: userId, theme_key: themeKey }, { onConflict: 'user_id' });
+  if (error) return false;
+  if (USERS[userId]) USERS[userId].theme = themeKey;
   return true;
 }
 
@@ -259,7 +286,7 @@ export function registerDemoUser(userId: UserId): void {
     fullName: 'Guest Explorer',
     grade: '',
     avatar: '/userpics/Spr_RS_School_Kid_M.png',
-    theme: 'damien',
+    theme: 'theme_default',
     gender: 'boy',
     isFamily: false,
     contentSourceId: 'damien',

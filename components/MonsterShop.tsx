@@ -11,6 +11,7 @@ import {
 } from '@/lib/inventory';
 import { SCROLL_CATALOG, ScrollItem } from '@/lib/skillScrolls';
 import { USERPIC_CATALOG, userpicPath } from '@/lib/userpicShop';
+import { THEME_CATALOG } from '@/lib/themeShop';
 import { Element } from '@/lib/monsterConfig';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { logAction } from '@/lib/playerlog';
@@ -31,16 +32,18 @@ interface Props {
   currentStats: CharacterStats;
   weekStartingDate: string;
   onSpendGold: (newStats: CharacterStats) => void;
+  onThemeChange: (themeKey: string) => void;
 }
 
-export default function MonsterShop({ userId, currentStats, weekStartingDate, onSpendGold }: Props) {
+export default function MonsterShop({ userId, currentStats, weekStartingDate, onSpendGold, onThemeChange }: Props) {
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [loading, setLoading] = useState(true);
   const [claimedToday, setClaimedToday] = useState(false);
   const [buyingKey, setBuyingKey] = useState<string | null>(null);
   const [scrollCategory, setScrollCategory] = useState<ScrollItem['category'] | 'all'>('all');
   const [scrollElement, setScrollElement] = useState<Element | 'all'>('all');
-  const [activeSection, setActiveSection] = useState<'items' | 'scrolls' | 'sprites'>('items');
+  const [activeSection, setActiveSection] = useState<'items' | 'scrolls' | 'sprites' | 'themes'>('items');
+  const [equippedTheme, setEquippedTheme] = useState(USERS[userId].theme);
   const buyBusyRef = useRef(false);
   const isFamily = USERS[userId].isFamily;
 
@@ -63,7 +66,13 @@ export default function MonsterShop({ userId, currentStats, weekStartingDate, on
   useEffect(() => {
     loadInventory();
     if (isFamily) handleDailyClaim();
+    setEquippedTheme(USERS[userId].theme);
   }, [userId]);
+
+  const handleEquipTheme = (themeKey: string) => {
+    setEquippedTheme(themeKey);
+    onThemeChange(themeKey);
+  };
 
   const handleBuy = async (key: string, cost: number, name: string) => {
     // Guards against a rapid double-click firing two purchases before
@@ -145,6 +154,7 @@ export default function MonsterShop({ userId, currentStats, weekStartingDate, on
           { id: 'items',   label: '⚔️ Curio Arena Shop' },
           { id: 'scrolls', label: '📜 Skill Scrolls' },
           { id: 'sprites', label: '🖼️ Trainer Sprites' },
+          { id: 'themes',  label: '🎨 Themes' },
         ] as const).map(tab => (
           <button
             key={tab.id}
@@ -296,6 +306,66 @@ export default function MonsterShop({ userId, currentStats, weekStartingDate, on
                     <div className="w-full bg-neutral-800 border-2 border-[#000000] text-gray-300 font-extrabold uppercase tracking-wide text-sm py-2.5 rounded-lg text-center">
                       ✓ Owned
                     </div>
+                  ) : (
+                    <button
+                      onClick={() => handleBuy(item.key, item.cost, item.name)}
+                      disabled={!affordable || buyingKey === item.key}
+                      className="w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide text-white bg-indigo-600 hover:bg-indigo-500 border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-neutral-700 disabled:text-gray-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all"
+                    >
+                      {buyingKey === item.key ? 'Buying...' : affordable ? 'Buy' : 'Not Enough Gold'}
+                    </button>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Themes — cosmetic gold sink, same one-time player_inventory unlock
+          as Trainer Sprites above, except equipping happens right here
+          instead of a separate picker (there's no big built-in-free gallery
+          to browse, just the catalog itself). theme_default is always free
+          and always "owned" — it's the app's base styling with no item row. */}
+      {activeSection === 'themes' && (
+        <div>
+          <p className="text-gray-400 text-sm mb-4">
+            Unlock new color themes for the whole app. Once purchased, equip any theme you own anytime.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {THEME_CATALOG.map(item => {
+              const isDefault = item.key === 'theme_default';
+              const owned = isDefault || (inventory[item.key] || 0) > 0;
+              const affordable = currentStats.gold >= item.cost;
+              const isEquipped = equippedTheme === item.key;
+              return (
+                <div key={item.key} className="bg-[#161010] border-2 border-[#000000] rounded-2xl p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] flex flex-col justify-between">
+                  <div>
+                    <div className="w-16 h-16 mb-2 rounded-lg overflow-hidden grid grid-cols-2 grid-rows-2 border border-neutral-800">
+                      {item.swatch.slice(0, 4).map((color, i) => (
+                        <div key={i} style={{ backgroundColor: color }} />
+                      ))}
+                    </div>
+                    <h3 className="text-white font-bold mb-2">{item.name}</h3>
+                    <div className="mb-3">
+                      <span className={`inline-flex items-center gap-1 border-2 border-[#000000] text-[10px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full ${affordable || owned ? 'bg-[#47982a] text-black shadow-[2px_2px_0_0_#000]' : 'bg-neutral-800 text-gray-400'}`}>
+                        {isDefault ? 'FREE' : (<><img src="/icons/rewards/gold_coin.svg" alt="" className="w-3 h-3" /> {item.cost} GOLD</>)}
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-xs mb-4">{item.description}</p>
+                  </div>
+                  {isEquipped ? (
+                    <div className="w-full bg-amber-600 border-2 border-[#000000] text-white font-extrabold uppercase tracking-wide text-sm py-2.5 rounded-lg text-center">
+                      ✓ Equipped
+                    </div>
+                  ) : owned ? (
+                    <button
+                      onClick={() => handleEquipTheme(item.key)}
+                      className="w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide text-white bg-neutral-700 hover:bg-neutral-600 border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] transition-all"
+                    >
+                      Equip
+                    </button>
                   ) : (
                     <button
                       onClick={() => handleBuy(item.key, item.cost, item.name)}

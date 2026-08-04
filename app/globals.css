@@ -184,7 +184,13 @@ html {
 .theme-tala .bg-\[\#1a0a15\],
 .theme-tala .bg-\[\#0d0b1a\],
 .theme-tala .bg-\[\#0d1020\],
-.theme-tala .bg-\[\#1a1208\] { background-color: #f9ddf0 !important; }
+.theme-tala .bg-\[\#1a1208\],
+/* Shop/reward/hero item-card background (Reward Vault, Curio Arena Shop
+   tabs, HeroProfile, QuestCard) — was missing from this list, so its
+   text-white headings landed on an unrepainted near-black card and read as
+   barely-visible dark maroon-on-black instead of dark maroon-on-light-pink
+   like every other card here. */
+.theme-tala .bg-\[\#161010\] { background-color: #f9ddf0 !important; }
 
 .theme-tala .bg-black { background-color: #fdf0f7 !important; }
 
@@ -345,6 +351,117 @@ html {
 .theme-tala .text-xs.text-gray-600  { color: #9a5a7a !important; }
 .theme-tala .text-blue-300          { color: #be185d !important; }
 .theme-tala [class*="text-blue-3"]  { color: #be185d !important; }
+
+/* ============================================
+   ELEMENTAL / COSMIC THEMES — Ember, Verdant, Umbra
+   Unlike Tala's theme (a light pastel repaint), these keep the default
+   dungeon's dark backgrounds and light body text — which already have
+   correct contrast everywhere, including every status badge (bg-green-900,
+   bg-red-900, Toast, etc.) — and only recolor the app's "brand accent"
+   (the indigo/blue buttons, active-tab borders, and a couple of highlight
+   text/scrollbar colors) to the theme's element color. This sidesteps the
+   whole class of light-background/light-text contrast bugs Tala's theme
+   needed extra rules to fix, since nothing here turns a dark surface light.
+   ============================================ */
+
+/* ---- Emberheart (Fire) ---- */
+.theme-ember {
+  --color-blue-300: #ffb08a;
+  --color-blue-400: #ff8c5a;
+  --color-blue-500: #ff6b35;
+  --color-blue-600: #e0501e;
+  --color-blue-700: #c1440e;
+  --color-indigo-300: #ffb08a;
+  --color-indigo-400: #ff8c5a;
+  --color-indigo-500: #ff6b35;
+  --color-indigo-600: #e0501e;
+}
+.theme-ember body {
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(255, 107, 53, 0.07), transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(193, 68, 14, 0.06), transparent 45%);
+}
+.theme-ember .bg-blue-600,
+.theme-ember .bg-indigo-600            { background-color: #e0501e !important; color: #ffffff !important; }
+.theme-ember .bg-blue-700,
+.theme-ember .hover\:bg-blue-700:hover,
+.theme-ember .hover\:bg-indigo-500:hover { background-color: #c1440e !important; color: #ffffff !important; }
+.theme-ember .bg-amber-600,
+.theme-ember .hover\:bg-amber-500:hover { background-color: #ff6b35 !important; color: #ffffff !important; }
+.theme-ember .border-b-2               { border-color: #ff6b35 !important; }
+.theme-ember .border-indigo-500        { border-color: #ff6b35 !important; }
+.theme-ember .text-indigo-400,
+.theme-ember .text-blue-300,
+.theme-ember [class*="text-blue-3"],
+.theme-ember [class*="text-indigo-4"]  { color: #ff8c5a !important; }
+.theme-ember ::-webkit-scrollbar-thumb        { background: #7a2f0f; }
+.theme-ember ::-webkit-scrollbar-thumb:hover  { background: #ff6b35; }
+
+/* ---- Verdant Grove (Leaf) ---- */
+.theme-verdant {
+  --color-blue-300: #b7e4c7;
+  --color-blue-400: #74c69d;
+  --color-blue-500: #52b788;
+  --color-blue-600: #40916c;
+  --color-blue-700: #2d6a4f;
+  --color-indigo-300: #b7e4c7;
+  --color-indigo-400: #74c69d;
+  --color-indigo-500: #52b788;
+  --color-indigo-600: #40916c;
+}
+.theme-verdant body {
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(82, 183, 136, 0.07), transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(45, 106, 79, 0.06), transparent 45%);
+}
+.theme-verdant .bg-blue-600,
+.theme-verdant .bg-indigo-600            { background-color: #40916c !important; color: #ffffff !important; }
+.theme-verdant .bg-blue-700,
+.theme-verdant .hover\:bg-blue-700:hover,
+.theme-verdant .hover\:bg-indigo-500:hover { background-color: #2d6a4f !important; color: #ffffff !important; }
+.theme-verdant .bg-amber-600,
+.theme-verdant .hover\:bg-amber-500:hover { background-color: #52b788 !important; color: #ffffff !important; }
+.theme-verdant .border-b-2               { border-color: #52b788 !important; }
+.theme-verdant .border-indigo-500        { border-color: #52b788 !important; }
+.theme-verdant .text-indigo-400,
+.theme-verdant .text-blue-300,
+.theme-verdant [class*="text-blue-3"],
+.theme-verdant [class*="text-indigo-4"]  { color: #74c69d !important; }
+.theme-verdant ::-webkit-scrollbar-thumb        { background: #1b4332; }
+.theme-verdant ::-webkit-scrollbar-thumb:hover  { background: #52b788; }
+
+/* ---- Umbra Veil (Shadow/Cosmic) ---- */
+.theme-umbra {
+  --color-blue-300: #ddd6fe;
+  --color-blue-400: #c4b5fd;
+  --color-blue-500: #a78bfa;
+  --color-blue-600: #8b5cf6;
+  --color-blue-700: #7c3aed;
+  --color-indigo-300: #ddd6fe;
+  --color-indigo-400: #c4b5fd;
+  --color-indigo-500: #a78bfa;
+  --color-indigo-600: #8b5cf6;
+}
+.theme-umbra body {
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(167, 139, 250, 0.08), transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(76, 29, 149, 0.07), transparent 45%);
+}
+.theme-umbra .bg-blue-600,
+.theme-umbra .bg-indigo-600            { background-color: #8b5cf6 !important; color: #ffffff !important; }
+.theme-umbra .bg-blue-700,
+.theme-umbra .hover\:bg-blue-700:hover,
+.theme-umbra .hover\:bg-indigo-500:hover { background-color: #7c3aed !important; color: #ffffff !important; }
+.theme-umbra .bg-amber-600,
+.theme-umbra .hover\:bg-amber-500:hover { background-color: #a78bfa !important; color: #ffffff !important; }
+.theme-umbra .border-b-2               { border-color: #a78bfa !important; }
+.theme-umbra .border-indigo-500        { border-color: #a78bfa !important; }
+.theme-umbra .text-indigo-400,
+.theme-umbra .text-blue-300,
+.theme-umbra [class*="text-blue-3"],
+.theme-umbra [class*="text-indigo-4"]  { color: #c4b5fd !important; }
+.theme-umbra ::-webkit-scrollbar-thumb        { background: #4c1d95; }
+.theme-umbra ::-webkit-scrollbar-thumb:hover  { background: #a78bfa; }
 
 /* ── Battle Animations ─────────────────────────────── */
 @keyframes battle-attack-right {

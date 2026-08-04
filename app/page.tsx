@@ -3,7 +3,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadChildren, loadFamilyProtection, loadAvatarOverrides, linkIdentity, recordLastLogin, registerDemoUser, USERS, gradeToNumber } from '@/lib/userSession';
+import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadChildren, loadFamilyProtection, loadAvatarOverrides, loadThemeOverrides, saveTheme, linkIdentity, recordLastLogin, registerDemoUser, USERS, gradeToNumber } from '@/lib/userSession';
+import { THEME_CLASSES, getThemeItem } from '@/lib/themeShop';
 import SplashScreen from '@/components/SplashScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
 import HeroProfile from '@/components/HeroProfile';
@@ -80,6 +81,15 @@ const VAULT_CATALOG = {
 
 const WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
+// Swaps <html>'s theme class for the one tied to `themeKey` (default has
+// none). Always removes every known theme class first so switching between
+// two non-default themes doesn't leave the old one stacked on top.
+function applyThemeClass(themeKey: string) {
+  document.documentElement.classList.remove(...THEME_CLASSES);
+  const cls = getThemeItem(themeKey)?.cssClass;
+  if (cls) document.documentElement.classList.add(cls);
+}
+
 export default function Dashboard() {
   const [activeUserId, setActiveUserId] = useState<UserId | null>(null);
   const [hydrated, setHydrated] = useState(false);
@@ -90,7 +100,7 @@ export default function Dashboard() {
       // before anything reads USERS[savedUserId] below. Avatar overrides are
       // keyed by user_id, so they must load after classmates exist in USERS.
       await Promise.all([loadClassmates(), loadChildren(), loadFamilyProtection()]);
-      await loadAvatarOverrides();
+      await Promise.all([loadAvatarOverrides(), loadThemeOverrides()]);
       const saved = getActiveUser();
       // Demo profiles are registered into USERS purely in-memory at login
       // (never stored in `children`/`classmates`), so a page refresh loses
@@ -101,8 +111,7 @@ export default function Dashboard() {
       }
       if (saved && USERS[saved]) {
         setActiveUserId(saved);
-        const theme = USERS[saved].theme;
-        document.documentElement.classList.toggle('theme-tala', theme === 'tala');
+        applyThemeClass(USERS[saved].theme);
       } else if (saved) {
         // Stale/deactivated account — clear it so the splash screen shows.
         clearActiveUser();
@@ -145,8 +154,7 @@ export default function Dashboard() {
   useEffect(() => {
     if (!hydrated) return;
     if (activeUserId) {
-      const theme = USERS[activeUserId].theme;
-      document.documentElement.classList.toggle('theme-tala', theme === 'tala');
+      applyThemeClass(USERS[activeUserId].theme);
       // linkIdentity must resolve first — analytics_events/player_log RLS now
       // requires the user_identity_map row it writes, so firing trackEvent
       // before it lands would silently drop the session_start event.
@@ -213,15 +221,20 @@ export default function Dashboard() {
 
   const handleUserSelect = (id: UserId) => {
     setActiveUserId(id);
-    const theme = USERS[id].theme;
-    document.documentElement.classList.toggle('theme-tala', theme === 'tala');
+    applyThemeClass(USERS[id].theme);
     trackEvent('login');
   };
 
   const handleSwitchUser = () => {
     clearActiveUser();
-    document.documentElement.classList.remove('theme-tala');
+    document.documentElement.classList.remove(...THEME_CLASSES);
     setActiveUserId(null);
+  };
+
+  const handleThemeChange = async (themeKey: string) => {
+    if (!activeUserId) return;
+    applyThemeClass(themeKey);
+    await saveTheme(activeUserId, themeKey);
   };
 
   const { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta } = useWeeklyData(activeUserId ?? 'damien');
@@ -941,6 +954,7 @@ export default function Dashboard() {
             currentStats={data.character_stats}
             weekStartingDate={data.week_starting_date}
             onSpendGold={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
+            onThemeChange={handleThemeChange}
           />
         )}
 
@@ -984,6 +998,7 @@ export default function Dashboard() {
                 currentStats={data.character_stats}
                 weekStartingDate={data.week_starting_date}
                 onSpendGold={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
+                onThemeChange={handleThemeChange}
               />
             </div>
 
