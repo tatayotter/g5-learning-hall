@@ -110,7 +110,13 @@ export default function MonsterShop({ userId, currentStats, weekStartingDate, on
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-2 font-display">Curio Arena Shop</h1>
+      <div className="flex items-center justify-between gap-4 mb-2">
+        <h1 className="text-3xl font-bold font-display">Curio Arena Shop</h1>
+        <div className="flex items-center gap-1.5 bg-[#161010] border-2 border-[#000000] rounded-full px-3 py-1.5 shadow-[2px_2px_0_0_#000] flex-shrink-0">
+          <img src="/icons/rewards/gold_coin.svg" alt="" className="w-4 h-4" />
+          <span className="text-yellow-400 font-extrabold text-sm">{currentStats.gold}</span>
+        </div>
+      </div>
       <p className="text-gray-400 text-sm mb-6">
         Buy consumable items to use in Curio Arena battles.
         {isFamily && ' As a family member, you receive free daily supplies!'}

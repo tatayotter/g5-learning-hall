@@ -960,7 +960,13 @@ export default function Dashboard() {
 
         {activeTab === 'vault' && USERS[activeUserId].isFamily && (
           <div>
-            <h1 className="text-3xl font-bold mb-2 font-display">The Gold Token Rewards Vault</h1>
+            <div className="flex items-center justify-between gap-4 mb-2">
+              <h1 className="text-3xl font-bold font-display">The Gold Token Rewards Vault</h1>
+              <div className="flex items-center gap-1.5 bg-[#161010] border-2 border-[#000000] rounded-full px-3 py-1.5 shadow-[2px_2px_0_0_#000] flex-shrink-0">
+                <img src="/icons/rewards/gold_coin.svg" alt="" className="w-4 h-4" />
+                <span className="text-yellow-400 font-extrabold text-sm">{data.character_stats.gold}</span>
+              </div>
+            </div>
             <p className="text-gray-400 mb-8">Spend your hard-earned Gold on real-world rewards from the catalog below.</p>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">

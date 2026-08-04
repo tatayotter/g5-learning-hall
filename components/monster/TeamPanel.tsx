@@ -378,13 +378,18 @@ export default function TeamPanel({
                         Use {tome.name} (x{tomeQty}) — boosts this roll's odds
                       </label>
                     )}
-                    <button
-                      onClick={() => handleTutor(monster.id, def.name, canUseTome)}
-                      disabled={!affordable || actionBusy}
-                      className="text-[10px] bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed px-3 py-2 rounded text-white"
-                    >
-                      {!affordable ? `Need ${cost} Gold` : `Tutor (${cost} Gold)`}
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => handleTutor(monster.id, def.name, canUseTome)}
+                        disabled={!affordable || actionBusy}
+                        className="text-[10px] bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed px-3 py-2 rounded text-white"
+                      >
+                        {!affordable ? `Need ${cost} Gold` : `Tutor (${cost} Gold)`}
+                      </button>
+                      <span className="text-[10px] text-gray-500 flex items-center gap-1">
+                        <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3 h-3" /> {currentGold} left
+                      </span>
+                    </div>
                   </div>
                 );
               })()}
