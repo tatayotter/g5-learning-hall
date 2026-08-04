@@ -4,7 +4,7 @@ import {
   WILD_MONSTERS, ALL_MONSTERS, EVENT_MONSTERS, SKILLS,
   getEquippedSkills, getGuildMonsterTier, getGuildMonsterTierDef,
   getGraduatedMonsterDisplay, getMaxGraduationTier, GRADUATION_LEVEL_REQUIREMENT,
-  Element, MonsterDef, ELEMENT_ICON_SRC,
+  Element, MonsterDef, Skill, ELEMENT_ICON_SRC,
 } from '@/lib/monsterConfig';
 import { SCROLL_CATALOG, unlearnMonsterSkill, learnMonsterSkill } from '@/lib/skillScrolls';
 import { graduateMonster } from '@/lib/monsterGraduation';
@@ -12,6 +12,8 @@ import { guildLevelForKey, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/
 import { GUILDS } from '@/lib/dailyChecklist';
 import { UserMonster, MonsterImage, LegendaryBadge } from '@/components/battle/shared';
 import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
+import TeachSkillModal from '@/components/monster/TeachSkillModal';
+import UnlearnSkillModal from '@/components/monster/UnlearnSkillModal';
 import { InventoryMap } from '@/lib/inventory';
 import { UserId } from '@/lib/userSession';
 import { CaughtMonster } from '@/components/monster/types';
@@ -88,25 +90,31 @@ export default function CompendiumPanel({ userId, userMonsters, caughtMonsters, 
 }) {
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
   const [ceremony, setCeremony] = useState<{ fromDef: MonsterDef; toDef: MonsterDef; monsterLevel: number; speciesId: string; targetTier: 1 | 2 } | null>(null);
+  const [learnedEvent, setLearnedEvent] = useState<{ monster: MonsterDef; skill: Skill } | null>(null);
+  const [forgottenEvent, setForgottenEvent] = useState<{ monster: MonsterDef; skill: Skill } | null>(null);
   const [pendingSlot, setPendingSlot] = useState<{ monsterRowId: string; slotIndex: number } | null>(null);
   const [actionBusy, setActionBusy] = useState(false);
   const actionBusyRef = useRef(false);
 
-  const handleUnlearn = async (monsterRowId: string, slotIndex: number) => {
+  const handleUnlearn = async (monsterRowId: string, slotIndex: number, skill: Skill, monsterDef: MonsterDef) => {
     if (actionBusyRef.current) return;
     actionBusyRef.current = true;
     setActionBusy(true);
     try {
       const ok = await unlearnMonsterSkill(userId, monsterRowId, slotIndex);
-      if (ok) await onLoadoutChange();
-      else alert('Could not unlearn that skill — make sure you have an Unlearn Scroll.');
+      if (ok) {
+        await onLoadoutChange();
+        setForgottenEvent({ monster: monsterDef, skill });
+      } else {
+        alert('Could not unlearn that skill — make sure you have an Unlearn Scroll.');
+      }
     } finally {
       actionBusyRef.current = false;
       setActionBusy(false);
     }
   };
 
-  const handleLearn = async (monsterRowId: string, slotIndex: number, skillId: string, scrollKey: string) => {
+  const handleLearn = async (monsterRowId: string, slotIndex: number, skillId: string, scrollKey: string, monsterDef: MonsterDef) => {
     if (actionBusyRef.current) return;
     actionBusyRef.current = true;
     setActionBusy(true);
@@ -115,6 +123,8 @@ export default function CompendiumPanel({ userId, userMonsters, caughtMonsters, 
       if (ok) {
         setPendingSlot(null);
         await onLoadoutChange();
+        const skill = SKILLS[skillId];
+        if (skill) setLearnedEvent({ monster: monsterDef, skill });
       } else {
         alert('Could not learn that skill — make sure you still have that scroll.');
       }
@@ -257,6 +267,24 @@ export default function CompendiumPanel({ userId, userMonsters, caughtMonsters, 
         />
       )}
 
+      {learnedEvent && (
+        <TeachSkillModal
+          monster={learnedEvent.monster}
+          skill={learnedEvent.skill}
+          userId={userId}
+          onClose={() => setLearnedEvent(null)}
+        />
+      )}
+
+      {forgottenEvent && (
+        <UnlearnSkillModal
+          monster={forgottenEvent.monster}
+          skill={forgottenEvent.skill}
+          userId={userId}
+          onClose={() => setForgottenEvent(null)}
+        />
+      )}
+
       {selected && (
         <div
           className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
@@ -321,7 +349,7 @@ export default function CompendiumPanel({ userId, userMonsters, caughtMonsters, 
                                   <span className="text-gray-500"> — {skill.description}</span>
                                 </div>
                                 <button
-                                  onClick={() => handleUnlearn(ownedMonster.id, slotIndex)}
+                                  onClick={() => handleUnlearn(ownedMonster.id, slotIndex, skill, selected)}
                                   disabled={unlearnQty === 0 || actionBusy}
                                   className="text-[10px] bg-neutral-800 hover:bg-neutral-700 disabled:opacity-40 disabled:cursor-not-allowed px-2 py-1 rounded text-white flex-shrink-0"
                                 >
@@ -348,7 +376,7 @@ export default function CompendiumPanel({ userId, userMonsters, caughtMonsters, 
                                         <button
                                           key={s.key}
                                           disabled={actionBusy}
-                                          onClick={() => handleLearn(ownedMonster.id, slotIndex, s.skillId!, s.key)}
+                                          onClick={() => handleLearn(ownedMonster.id, slotIndex, s.skillId!, s.key, selected)}
                                           className="text-[10px] bg-neutral-800 hover:bg-neutral-700 disabled:opacity-40 px-2 py-1 rounded text-white"
                                         >
                                           {s.name} (x{inventory[s.key]})
