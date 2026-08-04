@@ -471,7 +471,7 @@ export default function TeamPanel({
             ) : (
               <button
                 onClick={() => setDetailMonster(monster)}
-                className="w-full flex items-center gap-4 text-left rounded-lg transition-colors hover:bg-white/5"
+                className="w-full flex items-center gap-4 text-left rounded-lg"
               >
                 <div className={`w-12 h-12 ${getQualityGlowClass(monster.quality)}`}>
                   <MonsterImage monster={def} className="w-full h-full" />
@@ -523,7 +523,7 @@ export default function TeamPanel({
             return (
               <div key={bm.id} className="p-4 rounded-xl border border-cyan-900 bg-cyan-900/10">
                 <div className="flex items-center gap-4">
-                  <button onClick={() => setDetailMonster(bm)} className="flex flex-1 items-center gap-4 text-left rounded-lg transition-colors hover:bg-white/5 min-w-0">
+                  <button onClick={() => setDetailMonster(bm)} className="flex flex-1 items-center gap-4 text-left rounded-lg min-w-0">
                     <div className={`w-12 h-12 flex-shrink-0 ${getQualityGlowClass(bm.quality)}`}>
                       <MonsterImage monster={def} className="w-full h-full" />
                     </div>
