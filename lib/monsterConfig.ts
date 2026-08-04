@@ -1006,6 +1006,24 @@ export const BATTLE_CONSTANTS = {
   BURN_DAMAGE_PER_TURN:          5,
   CURSE_DAMAGE_REDUCTION:       0.5,
   CURSE_DURATION_TURNS:          2,
+  // Attack Scroll's atk_boost status — matches Iron Shield's def_boost being
+  // a symmetric halving of incoming damage (lib/inventory.ts item copy: "Boost
+  // your monster's attack by 1.5x for one turn").
+  ATK_BOOST_MULTIPLIER:          1.5,
+  // How many turns each ELEMENT_STATUS debuff lasts once inflicted by a
+  // perfect hit — burn/paralyze previously had no real duration (see
+  // statusDuration below), which is what let a paralyzed monster stay
+  // paralyzed forever instead of skipping exactly one turn.
+  BURN_DURATION_TURNS:           3,
+  PARALYZE_DURATION_TURNS:       1,
+  // One-shot item buffs (Attack Scroll/Iron Shield) — active for exactly the
+  // turn they're used on, then gone.
+  ATK_BOOST_DURATION_TURNS:      1,
+  DEF_BOOST_DURATION_TURNS:      1,
+  // apply_blessed / a self-targeting ELEMENT_STATUS perfect hit — how many
+  // turns the buff waits around to be consumed by a perfect answer before it
+  // expires unused.
+  BLESSED_DURATION_TURNS:        3,
   PLAYER_LEVEL_FOR_SLOT: { 1: 5, 2: 10, 3: 15 } as Record<1|2|3, number>,
   // +8%/level over the monster's level-1 base stats, so a Lv.25 monster (the
   // highest-level NPC trainer) hits roughly 2.9x as hard/tanky as a fresh catch.
@@ -1020,6 +1038,37 @@ export const BATTLE_CONSTANTS = {
   NPC_COUNTER_ACCURACY: { correct: 2, total: 3 },
   MONSTER_LEVEL_CAP: 100,
 };
+
+// How many turns a given status effect lasts once (re-)granted — the single
+// source of truth for every grant site (ELEMENT_STATUS perfect hits, item
+// effects) so a status's lifetime can't drift between where it's applied and
+// where it's ticked down. def_boost/atk_boost/revive/null all resolve to a
+// flat 1 turn or 0 (revive/null aren't ticked; they're cleared/consumed
+// directly wherever they're granted).
+export function statusDuration(status: StatusEffect): number {
+  switch (status) {
+    case 'burn':      return BATTLE_CONSTANTS.BURN_DURATION_TURNS;
+    case 'paralyze':  return BATTLE_CONSTANTS.PARALYZE_DURATION_TURNS;
+    case 'curse':     return BATTLE_CONSTANTS.CURSE_DURATION_TURNS;
+    case 'blessed':   return BATTLE_CONSTANTS.BLESSED_DURATION_TURNS;
+    case 'atk_boost': return BATTLE_CONSTANTS.ATK_BOOST_DURATION_TURNS;
+    case 'def_boost': return BATTLE_CONSTANTS.DEF_BOOST_DURATION_TURNS;
+    default:          return 0;
+  }
+}
+
+// Decrements a status effect's remaining duration by one turn, clearing it
+// once it reaches 0 — mirrors tickModifiers but for the single-slot `status`
+// field (which unlike modifiers has no array to filter, so needs its own
+// helper). Shared by the solo BattleScreen and PVP round resolution so a
+// status's actual on-screen lifetime can't drift between the two — this is
+// what previously let a paralyzed/burned monster stay that way forever
+// instead of the status wearing off after its intended number of turns.
+export function tickStatus(status: StatusEffect, statusTurns: number): { status: StatusEffect; statusTurns: number } {
+  if (!status || statusTurns <= 0) return { status: null, statusTurns: 0 };
+  const remaining = statusTurns - 1;
+  return remaining <= 0 ? { status: null, statusTurns: 0 } : { status, statusTurns: remaining };
+}
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
 

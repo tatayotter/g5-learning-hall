@@ -5,7 +5,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { RealtimeChannel } from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabase';
-import { Skill, calculateDamage, getElementMultiplier, getScaledStats, ELEMENT_STATUS, SELF_TARGETING_ELEMENT_STATUSES, StatusEffect, ActiveModifier, getModifierMultiplier, tickModifiers, applySkillEffects, BATTLE_CONSTANTS } from '@/lib/monsterConfig';
+import { Skill, calculateDamage, getElementMultiplier, getScaledStats, ELEMENT_STATUS, SELF_TARGETING_ELEMENT_STATUSES, StatusEffect, ActiveModifier, getModifierMultiplier, tickModifiers, applySkillEffects, BATTLE_CONSTANTS, statusDuration, tickStatus } from '@/lib/monsterConfig';
 import { ActiveBattleMonster } from '@/components/battle/shared';
 
 export type BattlePhase = 'waiting_for_opponent' | 'select_skill' | 'awaiting_opponent' | 'round_resolved' | 'ended';
@@ -63,6 +63,14 @@ export interface RoundOutcome {
   // the solo BattleScreen's explicit `status = null` on the consuming turn.
   myBlessedConsumed: boolean;
   oppBlessedConsumed: boolean;
+  // What each side's status field/remaining duration becomes going into the
+  // next round, already fully resolved (inflicted/self-granted/cleansed/
+  // consumed/ticked) — see resolveNextStatus in resolveRound. The UI should
+  // set status/statusTurns to these directly rather than deriving them.
+  myNextStatus: StatusEffect;
+  myNextStatusTurns: number;
+  oppNextStatus: StatusEffect;
+  oppNextStatusTurns: number;
   // Set when both hits would have been mutually lethal this round and Speed
   // broke the tie — the named side's attack landed first, so the other
   // side's damage never happened (mirrors the solo BattleScreen's doNpcTurn
@@ -173,6 +181,12 @@ export function useLiveBattle(
       ? calculateDamage(oppSkill, getScaledStats(oppMonster.def, oppMonster.level).attack * oppAtkMult, theirs.correctCount, theirs.totalQuestions, oppMonster.def.element, myMonster.def.element, oppMonster.status === 'blessed', getScaledStats(myMonster.def, myMonster.level).defense * myDefMult, oppAccuracyBonus)
       : 0;
 
+    // Attack Scroll's atk_boost multiplies damage dealt while active — matches
+    // the solo BattleScreen's computeNpcDamage/handleQuestionsComplete handling
+    // of the same status.
+    if (myMonster.status === 'atk_boost') myDamageDealt = Math.round(myDamageDealt * BATTLE_CONSTANTS.ATK_BOOST_MULTIPLIER);
+    if (oppMonster.status === 'atk_boost') opponentDamageDealt = Math.round(opponentDamageDealt * BATTLE_CONSTANTS.ATK_BOOST_MULTIPLIER);
+
     // Iron Shield's def_boost halves damage taken while active — matches the
     // solo BattleScreen's doNpcTurn handling of the same status.
     if (oppMonster.status === 'def_boost') myDamageDealt = Math.round(myDamageDealt / 2);
@@ -265,16 +279,43 @@ export function useLiveBattle(
       oppCleanse = oppCleanse || res.cleanseCaster;
     }
 
+    // Resolves what a side's status field becomes going into the *next*
+    // round: a status just inflicted/self-granted this round always wins
+    // (with a fresh duration, ticked once — same "granted and ticked the
+    // same round" behavior as the solo BattleScreen's NPC curse), a cleanse
+    // clears it, a just-consumed blessed clears it, and otherwise whatever
+    // was carried in just ticks down by one turn. Without this, status never
+    // decayed in PVP at all — a burn/paralyze/curse (or an item buff like
+    // atk_boost/def_boost) would stick around for the rest of the match,
+    // which is what let a paralyzed curio stay paralyzed forever.
+    const resolveNextStatus = (
+      prevStatus: StatusEffect, prevTurns: number, cleansed: boolean,
+      inflicted: StatusEffect, selfGranted: StatusEffect, blessedConsumed: boolean,
+    ): { status: StatusEffect; statusTurns: number } => {
+      if (cleansed) return { status: null, statusTurns: 0 };
+      if (inflicted) return tickStatus(inflicted, statusDuration(inflicted));
+      if (selfGranted) return tickStatus(selfGranted, statusDuration(selfGranted));
+      if (blessedConsumed) return { status: null, statusTurns: 0 };
+      return tickStatus(prevStatus, prevTurns);
+    };
+    const myNext = resolveNextStatus(myMonster.status, myMonster.statusTurns, myCleanse, opponentStatusInflicted, mySelfStatus, myBlessedConsumed);
+    const oppNext = resolveNextStatus(oppMonster.status, oppMonster.statusTurns, oppCleanse, myStatusInflicted, oppSelfStatus, oppBlessedConsumed);
+
     const mySkillId = mySkill ? mine.skillId : null;
     const oppSkillId = oppSkill ? theirs.skillId : null;
 
-    setLastOutcome({ round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, myParalyzed, opponentParalyzed: oppParalyzed, myBurnDamage, oppBurnDamage, myCursed, opponentCursed, myBlessedConsumed, oppBlessedConsumed, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId });
+    const myNextStatus = myNext.status;
+    const myNextStatusTurns = myNext.statusTurns;
+    const oppNextStatus = oppNext.status;
+    const oppNextStatusTurns = oppNext.statusTurns;
+
+    setLastOutcome({ round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, myParalyzed, opponentParalyzed: oppParalyzed, myBurnDamage, oppBurnDamage, myCursed, opponentCursed, myBlessedConsumed, oppBlessedConsumed, myNextStatus, myNextStatusTurns, oppNextStatus, oppNextStatusTurns, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId });
     setPhase('round_resolved');
 
     channelRef.current?.send({
       type: 'broadcast',
       event: 'round_result',
-      payload: { round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, myParalyzed, opponentParalyzed: oppParalyzed, myBurnDamage, oppBurnDamage, myCursed, opponentCursed, myBlessedConsumed, oppBlessedConsumed, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId, from: userId },
+      payload: { round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, myParalyzed, opponentParalyzed: oppParalyzed, myBurnDamage, oppBurnDamage, myCursed, opponentCursed, myBlessedConsumed, oppBlessedConsumed, myNextStatus, myNextStatusTurns, oppNextStatus, oppNextStatusTurns, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId, from: userId },
     });
   }, [skills, userId]);
 
@@ -380,6 +421,10 @@ export function useLiveBattle(
         opponentCursed: payload.myCursed,
         myBlessedConsumed: payload.oppBlessedConsumed,
         oppBlessedConsumed: payload.myBlessedConsumed,
+        myNextStatus: payload.oppNextStatus ?? null,
+        myNextStatusTurns: payload.oppNextStatusTurns ?? 0,
+        oppNextStatus: payload.myNextStatus ?? null,
+        oppNextStatusTurns: payload.myNextStatusTurns ?? 0,
         speedWinner: payload.speedWinner === 'me' ? 'opponent' : payload.speedWinner === 'opponent' ? 'me' : null,
         myModifiers: payload.oppModifiers ?? [],
         oppModifiers: payload.myModifiers ?? [],

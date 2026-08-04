@@ -5,7 +5,7 @@
 // MonsterGuild.tsx rather than imported from it, so neither battle screen has to
 // import the other (avoids a circular import between the two).
 import { useState } from 'react';
-import { MonsterDef, StatusEffect, ActiveModifier, BATTLE_CONSTANTS } from '@/lib/monsterConfig';
+import { MonsterDef, StatusEffect, ActiveModifier, statusDuration } from '@/lib/monsterConfig';
 import { gradeMonsterQuestion } from '@/lib/guildEngine';
 
 export interface UserMonster {
@@ -287,15 +287,15 @@ export function resolveItemEffect(item: { name: string; effect?: string }, oppon
       return { logMessage: `🧪 Used ${item.name}: Restored ${healAmount} HP!`, healAmount };
     }
     case 'atk_boost_1t':
-      return { logMessage: `⚔️ Used ${item.name}: Attack boosted!`, selfStatus: { status: 'atk_boost', statusTurns: 1 } };
+      return { logMessage: `⚔️ Used ${item.name}: Attack boosted!`, selfStatus: { status: 'atk_boost', statusTurns: statusDuration('atk_boost') } };
     case 'def_boost_1t':
-      return { logMessage: `🛡️ Used ${item.name}: Defense boosted!`, selfStatus: { status: 'def_boost', statusTurns: 1 } };
+      return { logMessage: `🛡️ Used ${item.name}: Defense boosted!`, selfStatus: { status: 'def_boost', statusTurns: statusDuration('def_boost') } };
     case 'apply_blessed':
-      return { logMessage: `✨ Used ${item.name}: Blessed status applied!`, selfStatus: { status: 'blessed', statusTurns: 3 } };
+      return { logMessage: `✨ Used ${item.name}: Blessed status applied!`, selfStatus: { status: 'blessed', statusTurns: statusDuration('blessed') } };
     case 'cure_status':
       return { logMessage: `💊 Used ${item.name}: Status conditions cured!`, selfStatus: { status: null, statusTurns: 0 } };
     case 'inflict_curse':
-      return { logMessage: `💀 Used ${item.name}: ${opponentLabel} is now Cursed!`, opponentStatus: { status: 'curse', statusTurns: BATTLE_CONSTANTS.CURSE_DURATION_TURNS } };
+      return { logMessage: `💀 Used ${item.name}: ${opponentLabel} is now Cursed!`, opponentStatus: { status: 'curse', statusTurns: statusDuration('curse') } };
     default:
       return { logMessage: `Used ${item.name}!` };
   }

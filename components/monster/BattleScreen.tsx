@@ -5,7 +5,7 @@ import { USERS } from '@/lib/userSession';
 import {
   ALL_MONSTERS, SKILLS, BATTLE_CONSTANTS,
   getAvailableSkillTiers, calculateDamage, getScaledStats, getEquippedSkills,
-  getModifierMultiplier, tickModifiers, applySkillEffects,
+  getModifierMultiplier, tickModifiers, applySkillEffects, statusDuration, tickStatus,
   REST_BY_ELEMENT, ELEMENT_STATUS, SELF_TARGETING_ELEMENT_STATUSES, STATUS_DEFINITIONS,
   StatusEffect, NpcTrainer, getSkillIconSrc,
 } from '@/lib/monsterConfig';
@@ -109,12 +109,15 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       updated.currentHp = Math.max(0, updated.currentHp - BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN);
       msgs.push(`${updated.def.name} takes ${BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN} burn damage!`);
     }
-    if (updated.statusTurns > 0) {
-      updated.statusTurns--;
-      if (updated.statusTurns === 0 && updated.status !== 'burn' && updated.status !== 'paralyze') {
-        msgs.push(`${updated.def.name}'s ${updated.status} wore off!`);
-        updated.status = null;
-      }
+    // Every status (including burn/paralyze, which used to be hardcoded to
+    // never clear here — the cause of a monster staying paralyzed forever)
+    // wears off once its duration runs out, same as any other status.
+    const wasStatus = updated.status;
+    const ticked = tickStatus(updated.status, updated.statusTurns);
+    updated.status = ticked.status;
+    updated.statusTurns = ticked.statusTurns;
+    if (wasStatus && !updated.status) {
+      msgs.push(`${updated.def.name}'s ${wasStatus} wore off!`);
     }
     return [updated, msgs];
   };
@@ -152,6 +155,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       attacker.status === 'blessed',
       getScaledStats(defender.def, defender.level).defense * defMult,
     );
+    if (attacker.status === 'atk_boost') dmg *= BATTLE_CONSTANTS.ATK_BOOST_MULTIPLIER;
+    if (attacker.status === 'curse') dmg *= (1 - BATTLE_CONSTANTS.CURSE_DAMAGE_REDUCTION);
     if (defender.status === 'def_boost') dmg /= 2;
     return Math.round(dmg);
   };
@@ -366,6 +371,10 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       accuracyBonus,
     );
 
+    if (playerMon.status === 'atk_boost') {
+      damage = Math.round(damage * BATTLE_CONSTANTS.ATK_BOOST_MULTIPLIER);
+    }
+
     if (playerMon.status === 'curse') {
       damage = Math.round(damage * (1 - BATTLE_CONSTANTS.CURSE_DAMAGE_REDUCTION));
     }
@@ -396,7 +405,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         msg += ` ${STATUS_DEFINITIONS[effect].emoji} ${playerMon.def.name} is ${effect}!`;
       } else {
         newNpcMon.status = effect;
-        newNpcMon.statusTurns = effect === 'curse' ? BATTLE_CONSTANTS.CURSE_DURATION_TURNS : 999;
+        newNpcMon.statusTurns = statusDuration(effect);
         msg += ` ${STATUS_DEFINITIONS[effect].emoji} ${newNpcMon.def.name} is ${effect}!`;
       }
     }
@@ -417,7 +426,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       // this attack via isBlessed above), then re-bless for the next turn if
       // this hit itself earned a fresh one.
       if (updated.status === 'blessed') updated.status = null as StatusEffect;
-      if (selfBlessed) { updated.status = 'blessed' as StatusEffect; updated.statusTurns = 3; }
+      if (selfBlessed) { updated.status = 'blessed' as StatusEffect; updated.statusTurns = statusDuration('blessed'); }
       if (effectResult.casterHpDelta !== 0) {
         updated.currentHp = Math.max(0, Math.min(updated.maxHp, updated.currentHp + effectResult.casterHpDelta));
       }
@@ -481,7 +490,13 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       addLog(`${currentNpc.def.name} is paralyzed and can't move!`);
       const [updatedNpc, msgs] = applyStatusTick(currentNpc);
       msgs.forEach(addLog);
+      // A full round still passed for the player even though the NPC's turn
+      // was skipped — tick their own status (item buffs like atk_boost/
+      // def_boost) down too, so those don't linger forever either.
+      const [updatedPlayer, playerMsgs] = applyStatusTick(currentPlayer);
+      playerMsgs.forEach(addLog);
       setNpcMonsters(npcMonstersRef.current.map((m, i) => i === npcMonsterIdx ? updatedNpc : m));
+      setPlayerMonsters(playerMonstersRef.current.map((m, i) => i === currentIdx ? updatedPlayer : m));
       setPhase('select_skill');
       return;
     }
@@ -495,6 +510,10 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     const [tickedNpc, tickMsgs] = applyStatusTick(currentNpc);
     tickedNpc.modifiers = tickModifiers(tickedNpc.modifiers);
     const newHp = Math.max(0, currentPlayer.currentHp - damage);
+    // Ticks the player's own status (atk_boost/def_boost/blessed) down for
+    // this round too — mirrors the NPC's own tick above, so a one-turn item
+    // buff can't stay active turn after turn.
+    const [tickedPlayer, playerTickMsgs] = applyStatusTick({ ...currentPlayer, currentHp: newHp });
 
     const npcAttackVerb = `uses ${getNpcSkill(currentNpc).name}`;
 
@@ -511,8 +530,11 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         setPlayerDamagePopup({ key: Date.now(), value: damage, missed: false });
         addLog(`${currentNpc.def.name} ${npcAttackVerb} for ${damage} damage!`);
         tickMsgs.forEach(addLog);
+        playerTickMsgs.forEach(addLog);
         updatedPlayerAfterNpc = playerMonstersRef.current.map((m, i) =>
-          i === currentIdx ? { ...m, currentHp: newHp, modifiers: tickModifiers(m.modifiers) } : m
+          i === currentIdx
+            ? { ...m, currentHp: tickedPlayer.currentHp, status: tickedPlayer.status, statusTurns: tickedPlayer.statusTurns, modifiers: tickModifiers(m.modifiers) }
+            : m
         );
         const updatedNpc = npcMonstersRef.current.map((m, i) => i === npcMonsterIdx ? tickedNpc : m);
         setPlayerMonsters(updatedPlayerAfterNpc);
@@ -522,7 +544,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
 
     runBattleBeats([npcBeat], b => setBanner({ text: b.message, iconSrc: b.iconSrc }), () => {
       setBanner(null);
-      if (newHp <= 0) {
+      if (tickedPlayer.currentHp <= 0) {
         addLog(`${currentPlayer.def.name} fainted!`);
         const nextIdx = updatedPlayerAfterNpc.findIndex((m, i) => i !== currentIdx && m.currentHp > 0);
         if (nextIdx === -1) {

@@ -238,8 +238,12 @@ export default function LiveBattleScreen({
           return {
             ...prev,
             currentHp: newHp,
-            status: lastOutcome.oppCleanse ? null : lastOutcome.myStatusInflicted ?? prev.status,
-            statusTurns: lastOutcome.oppCleanse ? 0 : prev.statusTurns,
+            // Fully resolved by resolveRound (inflicted-by-me/cleansed/carried
+            // forward and ticked) — see myNextStatus/oppNextStatus on
+            // RoundOutcome, which is what actually fixes status effects (e.g.
+            // paralyze) sticking around forever in PVP.
+            status: lastOutcome.oppNextStatus,
+            statusTurns: lastOutcome.oppNextStatusTurns,
             modifiers: lastOutcome.oppModifiers,
           };
         });
@@ -249,15 +253,11 @@ export default function LiveBattleScreen({
         if (lastOutcome.myDamageDealt > 0) playHitThud(); else playAttackWhoosh();
         if (lastOutcome.oppHpDelta > 0) addLog(`💚 ${opponentName}'s skill restored ${lastOutcome.oppHpDelta} HP!`);
         if (lastOutcome.oppCleanse) addLog(`🧼 ${opponentName}'s status conditions were cleansed!`);
-        // Blessed is a one-shot buff — it just powered this attack's damage
-        // above, so clear it now unless a fresh one is granted below.
-        if (lastOutcome.myBlessedConsumed) {
-          updateMyActive(prev => (prev.status === 'blessed' ? { ...prev, status: null, statusTurns: 0 } : prev));
-        }
-        // A self-targeting effect (blessed) buffs my own next attack — unlike
-        // myStatusInflicted above, this lands on my own monster, not theirs.
+        // Actual state write for my own status (self-granted blessed, or the
+        // consumption of a blessed that just powered this attack) happens in
+        // oppBeat's apply below via myNextStatus, which already folds both
+        // cases in — this is just the feedback log, timed with this beat.
         if (lastOutcome.mySelfStatus) {
-          updateMyActive(prev => ({ ...prev, status: lastOutcome.mySelfStatus, statusTurns: 3 }));
           addLog(`✨ You are ${lastOutcome.mySelfStatus}!`);
         }
       },
@@ -282,8 +282,10 @@ export default function LiveBattleScreen({
           return {
             ...prev,
             currentHp: newHp,
-            status: lastOutcome.myCleanse ? null : lastOutcome.opponentStatusInflicted ?? prev.status,
-            statusTurns: lastOutcome.myCleanse ? 0 : prev.statusTurns,
+            // Fully resolved by resolveRound — see myNextStatus's doc comment
+            // above (mirrored for "my" own monster here).
+            status: lastOutcome.myNextStatus,
+            statusTurns: lastOutcome.myNextStatusTurns,
             modifiers: lastOutcome.myModifiers,
           };
         });
@@ -293,14 +295,10 @@ export default function LiveBattleScreen({
         if (lastOutcome.opponentDamageDealt > 0) playHitThud(); else playAttackWhoosh();
         if (lastOutcome.myHpDelta > 0) addLog(`💚 Your skill restored ${lastOutcome.myHpDelta} HP!`);
         if (lastOutcome.myCleanse) addLog(`🧼 Your status conditions were cleansed!`);
-        // Mirrors myBlessedConsumed above, for the opponent's own one-shot buff.
-        if (lastOutcome.oppBlessedConsumed) {
-          updateOppActive(prev => (prev.status === 'blessed' ? { ...prev, status: null, statusTurns: 0 } : prev));
-        }
-        // Mirrors mySelfStatus above, but for the opponent's own perfect hit
-        // buffing their own next attack.
+        // Actual state write for the opponent's own status is already applied
+        // above via oppNextStatus (myBeat's apply) — this is just the
+        // feedback log, timed with this beat.
         if (lastOutcome.oppSelfStatus) {
-          updateOppActive(prev => ({ ...prev, status: lastOutcome.oppSelfStatus, statusTurns: 3 }));
           addLog(`✨ ${opponentName} is ${lastOutcome.oppSelfStatus}!`);
         }
       },
