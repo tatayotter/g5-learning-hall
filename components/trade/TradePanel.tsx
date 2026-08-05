@@ -20,6 +20,7 @@ import {
   cancelTradeRequest, counterTradeRequest, fetchMyTradeThreads,
   PlayerSearchResult, TradeThread, TradeWithItems,
 } from '@/lib/trades';
+import { logAction } from '@/lib/playerlog';
 
 interface TradePanelProps {
   userId: UserId;
@@ -75,7 +76,12 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted }: T
 
   const handleRespond = async (tradeId: string, accept: boolean) => {
     setBusyId(tradeId);
-    await respondToTrade(tradeId, accept, currentSunday());
+    const result = await respondToTrade(tradeId, accept, currentSunday());
+    if (result.status === 'completed') {
+      logAction(userId, currentSunday(), 'trade', '🔄 Completed a curio trade', 0, 0);
+    } else if (!accept) {
+      logAction(userId, currentSunday(), 'trade', '🔄 Declined a trade request', 0, 0);
+    }
     setBusyId(null);
     await loadThreads();
     onTradeCompleted();

@@ -44,11 +44,14 @@ import { respondToInvite } from '@/lib/liveBattle';
 import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import DemoBanner from '@/components/DemoBanner';
+import LinkParentBanner from '@/components/LinkParentBanner';
 import SidebarRail, { RailTabId } from '@/components/SidebarRail';
 import QuestCard from '@/components/QuestCard';
 import OnboardingTour from '@/components/OnboardingTour';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
+import { syncEggProgress, fetchUserEggs, HatchedEgg } from '@/lib/curioEggs';
+import EggHatchModal from '@/components/EggHatchModal';
 import {
   CustomEvent,
   EventQuest,
@@ -151,6 +154,26 @@ export default function Dashboard() {
     setMusicOn(next);
   };
 
+  // Curio egg mechanism (see docs/curio-egg-mechanism-design.md). Hatches
+  // reveal here (not scoped to MonsterGuild) so the ceremony still plays
+  // even if the player never opens Curio Arena that session — the streak
+  // itself already advanced in the sync_egg_progress call below regardless
+  // of which tab is active, since "checking in" just means opening the app.
+  const [pendingEggHatches, setPendingEggHatches] = useState<HatchedEgg[]>([]);
+  // Bumped when a hatch reveal closes so MonsterGuild refetches userMonsters
+  // — the new bench curio is inserted server-side by sync_egg_progress
+  // (which resolves async, on its own timer relative to MonsterGuild's own
+  // mount-time fetch), so without this the freshly hatched curio wouldn't
+  // show up in My Team until an unrelated reload happened to refresh it.
+  const [eggRefreshSignal, setEggRefreshSignal] = useState(0);
+  const [hasStalledEgg, setHasStalledEgg] = useState(false);
+  // Set by MonsterGuild once it's loaded userMonsters + the egg chain map —
+  // whether any owned curio has crossed its egg-ready threshold but hasn't
+  // claimed yet. Combined with hasStalledEgg/pendingEggHatches below for the
+  // sidebar's Curio Arena badge.
+  const [hasEggReadyCurio, setHasEggReadyCurio] = useState(false);
+  const eggBadge = hasEggReadyCurio || hasStalledEgg || pendingEggHatches.length > 0;
+
   useEffect(() => {
     if (!hydrated) return;
     if (activeUserId) {
@@ -161,6 +184,22 @@ export default function Dashboard() {
       (async () => {
         await linkIdentity(activeUserId);
         recordLastLogin(activeUserId);
+        // Curio egg check-in — a demo account (excluded server-side, RPC
+        // no-ops) doesn't need this, but calling unconditionally keeps this
+        // block simple; the RPC itself is the source of truth on eligibility.
+        syncEggProgress(activeUserId).then(result => {
+          if (result?.hatched?.length) {
+            setPendingEggHatches(prev => [...prev, ...result.hatched]);
+            const today = format(new Date(), 'yyyy-MM-dd');
+            result.hatched.forEach(h => {
+              const speciesName = ALL_MONSTERS[h.species_id]?.name ?? h.species_id;
+              logAction(activeUserId, today, 'egg', `🐣 An egg hatched into ${speciesName}!`, 0, 0);
+            });
+          }
+        });
+        fetchUserEggs(activeUserId).then(eggs => {
+          setHasStalledEgg(eggs.some(e => e.status === 'stalled'));
+        });
         // Fire-and-forget — pre-warms all 5 guild pools for offline play
         // (Android only). Not awaited so it can't delay session_start below.
         void seedOfflineCache(activeUserId, USERS[activeUserId].grade);
@@ -512,12 +551,27 @@ export default function Dashboard() {
       {rotationScreen}
       <div className="h-screen flex flex-col">
       {activeUserId.startsWith('demo_') && <DemoBanner />}
+      {!activeUserId.startsWith('demo_') && <LinkParentBanner />}
       {showOnboarding && <OnboardingTour onComplete={handleCompleteOnboarding} />}
       <div className="app-content flex-1 min-h-0 flex flex-col">
         <div className="h-full bg-black text-white flex flex-row">
       {/* Sidebar rail */}
+      {pendingEggHatches[0] && (
+        <EggHatchModal
+          speciesId={pendingEggHatches[0].species_id}
+          element={ALL_MONSTERS[pendingEggHatches[0].species_id]?.element || 'fire'}
+          quality={pendingEggHatches[0].quality}
+          userId={activeUserId}
+          onClose={() => {
+            setPendingEggHatches(prev => prev.slice(1));
+            setEggRefreshSignal(n => n + 1);
+          }}
+        />
+      )}
+
       <SidebarRail
         activeTab={activeTab}
+        railBadges={{ monster: eggBadge }}
         onNavigate={(tab) => {
           playPageFlip();
           // Curio Arena defaults to the full-screen World Map stage; landing
@@ -1250,6 +1304,8 @@ export default function Dashboard() {
               data.journal_logs
             )}
             onGoldSynced={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
+            onEggBadgeChange={setHasEggReadyCurio}
+            eggRefreshSignal={eggRefreshSignal}
           />
         )}
 

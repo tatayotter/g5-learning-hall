@@ -16,12 +16,19 @@ interface LogEntry {
 
 const ACTION_ICONS: Record<string, string> = {
   quiz: '📝',
+  event_quiz: '📝',
   journal: '📖',
   deed: '🏅',
   achievement: '🏆',
   side_quest: '⚔️',
   purchase: '🛒',
   trade: '🔄',
+  battle: '🐉',
+  graduation: '🎓',
+  tutor: '📘',
+  egg: '🥚',
+  daily_checklist_bonus: '✅',
+  event_reward: '🎉',
 };
 
 const COLLAPSED_COUNT = 6;

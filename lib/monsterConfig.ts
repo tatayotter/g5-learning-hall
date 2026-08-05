@@ -38,6 +38,20 @@ export const ELEMENT_ICON_SRC: Record<Element, string> = {
 // fall back to this single badge rather than needing one each.
 export const NORMAL_SKILL_ICON_SRC = '/elements/elem_normal_100.webp';
 
+// Curio egg sprite per element (see lib/curioEggs.ts + docs/curio-egg-mechanism-design.md).
+// The fire asset's filename doesn't follow the other five's plain
+// `egg_<element>_200px.png` convention (it has a `NO_COIN_TRUE_TRANS` suffix
+// left over from its export) — accounted for here rather than renamed on
+// disk, so nothing else has to know about the mismatch.
+export const EGG_SPRITE_SRC: Record<Element, string> = {
+  fire:   '/eggs/egg_fire_NO_COIN_TRUE_TRANS_200px.png',
+  water:  '/eggs/egg_water_200px.png',
+  leaf:   '/eggs/egg_leaf_200px.png',
+  storm:  '/eggs/egg_storm_200px.png',
+  shadow: '/eggs/egg_shadow_200px.png',
+  light:  '/eggs/egg_light_200px.png',
+};
+
 // Icon shown on a skill button during battle — the skill's own element badge,
 // or the shared normal-attack placeholder for element-agnostic skills.
 export function getSkillIconSrc(skill: { element: Element | null }): string {

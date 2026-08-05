@@ -15,6 +15,12 @@ import { TITLE_TIERS } from '@/lib/titles';
 import { ACHIEVEMENTS } from '@/lib/achievements';
 import { SHOP_CATALOG } from '@/lib/inventory';
 import { SCROLL_CATALOG } from '@/lib/skillScrolls';
+import {
+  QUALITY_TIERS, QUALITY_LABEL, QUALITY_STAT_MULTIPLIER, TUTOR_COST_BY_TIER, TUTOR_ROLL_TABLE,
+} from '@/lib/curioQuality';
+import { TOME_CATALOG } from '@/lib/tomeShop';
+import { eggReadyLevel } from '@/lib/curioEggs';
+import { STREAK_GOLD_LADDER } from '@/lib/dailyChecklist';
 
 // ─── Static config shared by a few sections ────────────────────────────────
 
@@ -59,9 +65,14 @@ const SECTIONS = [
   { id: 'worldmap', label: 'The World Map' },
   { id: 'guilds', label: 'The Five Guilds' },
   { id: 'growth', label: 'How Growth Works' },
+  { id: 'daily', label: 'Daily Rituals' },
   { id: 'curios', label: 'Curios & Evolution' },
+  { id: 'tutoring', label: 'Tutoring & Quality' },
+  { id: 'eggs', label: 'Eggs & The Hatchery' },
   { id: 'items', label: 'Items & Scrolls' },
+  { id: 'trading', label: 'Trading' },
   { id: 'achievements', label: 'Achievements & Titles' },
+  { id: 'family', label: 'Family & Parents' },
   { id: 'glossary', label: 'Glossary' },
 ] as const;
 
@@ -81,8 +92,19 @@ const GLOSSARY: { term: string; definition: string }[] = [
   { term: 'Elemental Region', definition: 'A World Map region themed to one element, where every wild curio you meet shares that element.' },
   { term: 'Cheer', definition: 'A quick reaction you can send another player on the leaderboard — one per person, per hour.' },
   { term: 'Lucky Find', definition: `A ~${Math.round(CRIT_CHANCE * 100)}% chance on any correct answer for a bonus gold payout.` },
-  { term: 'Vault', definition: 'The Rewards Vault tab — spend gold on Items and Skill Scrolls.' },
+  { term: 'Vault', definition: 'The Rewards Vault tab — spend gold on Items, Skill Scrolls, and Tomes of Knowledge.' },
   { term: 'Scroll', definition: "Teaches a curio a new skill in one of its 3 slots, or clears a slot so a different skill can be taught in." },
+  { term: 'Quality Tier', definition: 'A permanent HP/Attack multiplier on one owned curio — Normal, Good, Outstanding, or Perfect. Rises only through Tutoring (or a lucky egg hatch), never falls.' },
+  { term: 'Tutor', definition: "Spend gold at a curio's detail screen for a chance to roll its quality up a tier. A roll only ever holds or improves — it can never downgrade a curio." },
+  { term: 'Tome of Knowledge', definition: "A single-use Vault item that boosts one Tutor attempt's odds. Three tiers (Novice/Adept/Master), each matched to the quality tier it helps a curio climb past." },
+  { term: 'Egg', definition: "A one-time reward from a graduated curio that's leveled far enough past its graduation. Claiming it starts a 5-day incubation in the Hatchery." },
+  { term: 'Hatchery', definition: 'A tab inside Curio Arena that tracks every egg you own — incubating, stalled, or freshly hatched.' },
+  { term: 'Incubate', definition: "The button that restarts a stalled egg's growth after a missed check-in day — resets the countdown, doesn't lose the egg itself." },
+  { term: 'Trade', definition: 'A negotiated curio-for-curio (and optionally gold) exchange with another player, agreed through offer/counter-offer requests.' },
+  { term: 'Catch Inbox', definition: "Where a duplicate catch of a curio you already own lands — keep it as a second copy, or convert it straight to gold." },
+  { term: 'Deed', definition: 'A real-world chore or good behavior an adult logs by hand for bonus gold — tracked separately in Deed History.' },
+  { term: 'Daily To-Dos', definition: "A short daily checklist that pays escalating bonus gold the more days in a row you clear it, up to a 5-day streak cap." },
+  { term: 'Journal', definition: 'A short daily reflection (what you did, tomorrow’s plan, hardest part, one gratitude) — submitted once per day for flat XP and gold.' },
 ];
 
 // ─── Small shared UI ────────────────────────────────────────────────────────
@@ -196,9 +218,14 @@ export default function CodexPanel() {
           {activeSection === 'worldmap' && <WorldMapSection />}
           {activeSection === 'guilds' && <GuildsSection />}
           {activeSection === 'growth' && <GrowthSection />}
+          {activeSection === 'daily' && <DailySection />}
           {activeSection === 'curios' && <CuriosSection />}
+          {activeSection === 'tutoring' && <TutoringSection />}
+          {activeSection === 'eggs' && <EggsSection />}
           {activeSection === 'items' && <ItemsSection />}
+          {activeSection === 'trading' && <TradingSection />}
           {activeSection === 'achievements' && <AchievementsSection />}
+          {activeSection === 'family' && <FamilySection />}
           {activeSection === 'glossary' && <GlossarySection />}
         </div>
       </div>
@@ -374,6 +401,161 @@ function GrowthSection() {
   );
 }
 
+function DailySection() {
+  return (
+    <div>
+      <SectionTitle>Daily Rituals</SectionTitle>
+      <TLDR>Two short daily habits — a to-do checklist and a journal entry — each pay their own gold and stack on top of everything else.</TLDR>
+      <div className="space-y-3 max-w-2xl text-sm">
+        <Fact label="Daily To-Dos streak ladder" value={STREAK_GOLD_LADDER.map(g => `${g}g`).join(' → ')}>
+          Clear every task in a day to claim that day's gold — the payout climbs each consecutive day, capping at a{' '}
+          {STREAK_GOLD_LADDER.length}-day streak. Miss a day and the ladder resets to the first rung.
+        </Fact>
+        <Fact label="Journal entry" value="+50 XP, +50 Gold">
+          One submission per day — done today, tomorrow's plan, hardest challenge, and one thing you're grateful for. Flat
+          reward, no streak involved.
+        </Fact>
+        <Fact label="Deeds" value="Gold only, no XP">
+          Real-world chores or good behavior an adult logs by hand from the admin Tools panel — shows up in your Deed
+          History alongside everything else.
+        </Fact>
+      </div>
+    </div>
+  );
+}
+
+function TutoringSection() {
+  const tierCosts = QUALITY_TIERS.slice(0, -1).map(t => `${QUALITY_LABEL[t]} → ${TUTOR_COST_BY_TIER[t]}g`);
+  return (
+    <div>
+      <SectionTitle>Tutoring & Quality</SectionTitle>
+      <TLDR>Every curio has a hidden Quality Tier — a permanent stat boost you can only raise by spending gold at the Tutor.</TLDR>
+      <div className="space-y-3 max-w-2xl text-sm text-gray-300">
+        <p>
+          Open any owned curio's detail screen in <b className="text-white">My Team</b> and, once it's not still climbing
+          levels for its next Graduation, a <b className="text-white">Tutor</b> option appears. Spend gold and roll — a
+          roll only ever holds a curio's tier or bumps it up one step. It can never make a curio worse.
+        </p>
+        <div className="grid sm:grid-cols-2 gap-3">
+          <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-3">
+            <p className="font-bold text-white text-sm mb-1.5">Quality tiers & stat bonus</p>
+            <div className="space-y-1 text-xs">
+              {QUALITY_TIERS.map(t => (
+                <p key={t} className="flex justify-between">
+                  <span className="text-gray-400">{QUALITY_LABEL[t]}</span>
+                  <span className="text-amber-400 font-mono">×{QUALITY_STAT_MULTIPLIER[t].toFixed(2)} HP/ATK</span>
+                </p>
+              ))}
+            </div>
+          </div>
+          <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-3">
+            <p className="font-bold text-white text-sm mb-1.5">Tutor cost by current tier</p>
+            <div className="space-y-1 text-xs">
+              {tierCosts.map(c => (
+                <p key={c} className="text-gray-400">{c}</p>
+              ))}
+              <p className="text-gray-600 italic mt-1">Perfect is terminal — nothing left to roll for.</p>
+            </div>
+          </div>
+        </div>
+        <p>
+          Roll odds are the same every attempt regardless of current tier: <b className="text-white">{Math.round(TUTOR_ROLL_TABLE.fail * 100)}%</b> no
+          change, <b className="text-white">{Math.round(TUTOR_ROLL_TABLE.good * 100)}%</b> Good, <b className="text-white">{Math.round(TUTOR_ROLL_TABLE.outstanding * 100)}%</b> Outstanding,{' '}
+          <b className="text-white">{(TUTOR_ROLL_TABLE.perfect * 100).toFixed(1)}%</b> Perfect — only the outcomes ranked above a curio's
+          current tier actually count as an upgrade.
+        </p>
+        <p>
+          A <b className="text-white">Tome of Knowledge</b> (bought in the Vault, {TOME_CATALOG.length} tiers) boosts the odds on
+          one specific attempt, consumed automatically the moment it's used. Each tome is matched to the tier it helps a
+          curio climb past — a Tome of Novice Knowledge only helps a Normal-quality roll, and so on up the ladder.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function EggsSection() {
+  return (
+    <div>
+      <SectionTitle>Eggs & The Hatchery</SectionTitle>
+      <TLDR>A graduated, high-leveled curio can lay one egg in its lifetime — hatch it with a 5-day login streak into a different, earlier species.</TLDR>
+      <div className="space-y-3 max-w-2xl text-sm text-gray-300">
+        <p>
+          Once a curio has graduated and reached <b className="text-white">Graduation level + 3</b> (Tier 1 → Lv.{eggReadyLevel(1)},
+          Tier 2 → Lv.{eggReadyLevel(2)}), a "Claim Egg" prompt appears on its card in My Team. Claiming is one-time and
+          permanent — the parent curio itself is untouched, staying exactly where it was.
+        </p>
+        <div className="grid sm:grid-cols-2 gap-3">
+          <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-3">
+            <p className="font-bold text-white text-sm">Incubating</p>
+            <p className="text-xs text-gray-400 mt-1">
+              Counts a consecutive daily login streak toward 5 days. Opening the app each day is all it takes to keep it
+              growing.
+            </p>
+          </div>
+          <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-3">
+            <p className="font-bold text-white text-sm">Stalled</p>
+            <p className="text-xs text-gray-400 mt-1">
+              Missing a day resets progress to 0 and pauses it — nothing is lost, but growth won't resume until you press{' '}
+              <b className="text-white">Incubate</b> in the Hatchery.
+            </p>
+          </div>
+        </div>
+        <p>
+          At 5 days, the egg hatches into an admin-defined <b className="text-white">predecessor species</b> — an earlier
+          curio in that species' own line, not another copy of the parent — starting at level 1, ungraduated, benched and
+          ready to raise. It also gets a free quality-tier roll on the spot, using the same odds as a Tutor attempt.
+        </p>
+        <p className="text-xs text-gray-500">
+          Not every species has a predecessor assigned yet — chains are added over time, so a "no egg content configured"
+          message just means that curio's line hasn't been authored in yet.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function TradingSection() {
+  return (
+    <div>
+      <SectionTitle>Trading</SectionTitle>
+      <TLDR>Offer a curio (and optionally gold) to another player; they can accept, decline, or counter — nothing moves until both sides agree.</TLDR>
+      <div className="space-y-3 max-w-2xl text-sm text-gray-300">
+        <p>
+          Trading lives in the Curio Arena's <b className="text-white">Trade</b> tab. Search for another player, build an
+          offer from your own team/bench, and send it. They can accept it outright, decline it, or send back a counter-offer
+          — every back-and-forth on the same deal is kept together as one negotiation thread.
+        </p>
+        <p>
+          A small gold fee applies to any completed trade — charged per curio moved and on any gold either side includes —
+          so trades always cost a little to discourage spam, but nothing ever changes hands until someone actually accepts.
+        </p>
+        <p className="text-xs text-gray-500">Not available on demo accounts.</p>
+      </div>
+    </div>
+  );
+}
+
+function FamilySection() {
+  return (
+    <div>
+      <SectionTitle>Family & Parents</SectionTitle>
+      <TLDR>A self-registered child can link a parent from inside the app — it unlocks leaderboards and PvP, and pays a one-time gold bonus.</TLDR>
+      <div className="space-y-3 max-w-2xl text-sm text-gray-300">
+        <p>
+          Kids who sign themselves up start unlinked. A small "Link a Parent" prompt lets them send their parent's email
+          an invite; once the parent confirms it, the two accounts are connected. Linking unlocks leaderboards and PvP
+          challenges, and rewards the child <b className="text-white">100 gold</b> for finishing the link.
+        </p>
+        <p>
+          Parents get their own dashboard to follow a linked child's progress, streaks, and journal entries, and can view
+          — never change — that child's login PIN if it's ever forgotten.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function Fact({ label, value, children }: { label: string; value: string; children: React.ReactNode }) {
   return (
     <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-3">
@@ -417,6 +599,12 @@ function CuriosSection() {
           Most wild curios are found by walking the World Map and answering questions — the odds are low on purpose, so a wild
           encounter always feels like a real event. Legendary curios are rarer still, and get harder to find the more of them you
           already own.
+        </p>
+        <p>
+          Two more permanent upgrades live outside leveling entirely: a curio's <b className="text-white">Quality Tier</b> (see{' '}
+          <b className="text-white">Tutoring & Quality</b>) is a separate stat boost bought with gold, and a graduated curio
+          can eventually lay a one-time <b className="text-white">Egg</b> (see <b className="text-white">Eggs & The Hatchery</b>)
+          that hatches into a whole new curio of its own.
         </p>
       </div>
     </div>
@@ -480,6 +668,26 @@ function ItemsSection() {
           costs={[scrollCost('universal', 1), scrollCost('universal', 2), scrollCost('universal', 3)]}
           desc="Element-agnostic buffs/debuffs, no element required."
         />
+      </div>
+
+      <p className="text-sm font-bold text-white mb-2 mt-6">Tomes of Knowledge</p>
+      <p className="text-xs text-gray-500 mb-3 max-w-2xl">
+        Also bought in the Vault — a one-time boost to a single Tutor roll's odds, consumed the moment it's used. See{' '}
+        <b className="text-gray-300">Tutoring & Quality</b> for the full mechanic.
+      </p>
+      <div className="grid sm:grid-cols-3 gap-2 max-w-2xl">
+        {TOME_CATALOG.map(tome => (
+          <div key={tome.key} className="flex items-center gap-2.5 bg-neutral-900 border border-neutral-800 rounded-lg p-2.5">
+            <img src={tome.icon} alt={tome.name} className="w-8 h-8 flex-shrink-0" />
+            <div className="min-w-0">
+              <p className="text-sm font-bold text-white flex items-baseline gap-1.5">
+                {tome.name}
+                <span className="text-[11px] text-amber-400 font-mono">{tome.cost}g</span>
+              </p>
+              <p className="text-xs text-gray-500">{tome.desc}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

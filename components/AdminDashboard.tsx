@@ -9,6 +9,7 @@ import PromptsSection from '@/components/admin/PromptsSection';
 import ChildrenSection from '@/components/admin/ChildrenSection';
 import ParentsSection from '@/components/admin/ParentsSection';
 import EventsSection from '@/components/admin/EventsSection';
+import EggChainsSection from '@/components/admin/EggChainsSection';
 import DraftQuestionsSection from '@/components/admin/DraftQuestionsSection';
 import AnalyticsSection from '@/components/admin/AnalyticsSection';
 import MapEditorSection from '@/components/admin/MapEditorSection';
@@ -22,7 +23,7 @@ interface AdminDashboardProps {
   onBack: () => void;
 }
 
-type AdminSection = 'packages' | 'draft_questions' | 'questions' | 'map_editor' | 'children' | 'parents' | 'events' | 'approvals' | 'analytics' | 'tools' | 'prompts';
+type AdminSection = 'packages' | 'draft_questions' | 'questions' | 'map_editor' | 'children' | 'parents' | 'events' | 'egg_chains' | 'approvals' | 'analytics' | 'tools' | 'prompts';
 
 export default function AdminDashboard({ currentData, currentSunday, onUpdateStats, onBack }: AdminDashboardProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -105,6 +106,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
         { id: 'children',  label: 'Children' },
         { id: 'parents',   label: 'Parents' },
         { id: 'events',     label: 'Custom Events' },
+        { id: 'egg_chains', label: 'Egg Chains' },
         { id: 'approvals',  label: 'Parent Approvals' },
       ],
     },
@@ -183,6 +185,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
         {section === 'children' && <ChildrenSection passcode={password} />}
         {section === 'parents' && <ParentsSection />}
         {section === 'events' && <EventsSection passcode={password} />}
+        {section === 'egg_chains' && <EggChainsSection passcode={password} />}
         {section === 'approvals' && <ApprovalsSection onPendingChange={setPendingApprovals} />}
         {section === 'draft_questions' && <DraftQuestionsSection passcode={password} />}
         {section === 'analytics' && <AnalyticsSection />}
