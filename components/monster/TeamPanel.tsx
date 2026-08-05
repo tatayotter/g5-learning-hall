@@ -16,6 +16,7 @@ import {
 import { getTomeForTier } from '@/lib/tomeShop';
 import { tutorCurio, TutorOutcome } from '@/lib/tutorCurio';
 import { InventoryMap } from '@/lib/inventory';
+import { logAction } from '@/lib/playerlog';
 import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
 import TeachSkillModal from '@/components/monster/TeachSkillModal';
 import UnlearnSkillModal from '@/components/monster/UnlearnSkillModal';
@@ -99,8 +100,10 @@ export default function TeamPanel({
         );
         return;
       }
+      const laidBy = confirmingEgg?.name ?? 'A curio';
       setConfirmingEgg(null);
       setDetailMonster(null);
+      logAction(userId, weekStartingDate, 'egg', `🥚 ${laidBy} laid an egg — now incubating in the Hatchery`, 0, 0);
       onEggClaimed();
     } finally {
       setEggClaimBusy(false);
@@ -176,6 +179,8 @@ export default function TeamPanel({
           speciesId,
           targetTier,
         });
+        const toName = getGraduatedMonsterDisplay(speciesDef, targetTier).name;
+        logAction(userId, weekStartingDate, 'graduation', `🎓 Graduated into ${toName}`, 0, 0);
         onLoadoutChange();
       } else {
         alert('Could not graduate — make sure the monster has reached the required level and you have a Graduation Scroll.');
@@ -207,6 +212,14 @@ export default function TeamPanel({
       if (outcome.character_stats) onGoldSynced(outcome.character_stats);
       setUseTomeToggle(false);
       setTutorOutcome({ outcome, monsterName, def, monsterLevel });
+      const upgraded = outcome.new_quality && outcome.new_quality !== outcome.previous_quality;
+      logAction(
+        userId, weekStartingDate, 'tutor',
+        upgraded
+          ? `📘 Tutored ${monsterName} — rolled up to ${QUALITY_LABEL[outcome.new_quality as QualityTier]}!`
+          : `📘 Tutored ${monsterName} — no upgrade this time`,
+        0, -(outcome.gold_spent ?? 0)
+      );
       onLoadoutChange();
     } finally {
       actionBusyRef.current = false;
