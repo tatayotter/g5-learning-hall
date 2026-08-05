@@ -388,10 +388,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     }
 
     let newNpcMonsters = [...npcMonsters];
-    // An `unbeatable` trainer's curio HP is floored at 1 instead of 0 — it can
-    // never actually be KO'd, no matter how much damage lands.
-    const npcHpFloor = trainer?.unbeatable ? 1 : 0;
-    let newNpcMon = { ...npcMon, currentHp: Math.max(npcHpFloor, npcMon.currentHp - damage) };
+    let newNpcMon = { ...npcMon, currentHp: Math.max(0, npcMon.currentHp - damage) };
 
     // A perfect hit's ELEMENT_STATUS effect is either a debuff (burn/paralyze/
     // curse — applied to whoever got hit) or a buff (blessed — applied to the
