@@ -35,6 +35,8 @@ import TeamPanel from '@/components/monster/TeamPanel';
 import CompendiumPanel from '@/components/monster/CompendiumPanel';
 import BattleScreen from '@/components/monster/BattleScreen';
 import StarterSelection from '@/components/monster/StarterSelection';
+import HatcheryPanel from '@/components/monster/HatcheryPanel';
+import { EggChainMap, CurioEgg, fetchEggChainMap, fetchUserEggs, eggReadyLevel } from '@/lib/curioEggs';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 
@@ -60,6 +62,15 @@ interface MonsterGuildProps {
   // MonsterShop's onSpendGold.
   onGoldSynced: (newStats: { gold: number; xp: number; level: number }) => void;
   initialView?: GuildView;
+  // Whether Curio Arena's sidebar badge should light up for an egg-ready
+  // curio — combined by the caller with its own hatched/stalled-egg checks
+  // (see docs/curio-egg-mechanism-design.md).
+  onEggBadgeChange?: (hasReadyCurio: boolean) => void;
+  // Bumped by app/page.tsx after an egg-hatch reveal closes — forces a
+  // reload so the freshly hatched curio (inserted server-side by
+  // sync_egg_progress, independently of this component's own mount-time
+  // fetch) actually shows up in My Team/bench without an unrelated reload.
+  eggRefreshSignal?: number;
 }
 
 // Gold awarded when a wild encounter win would-be-catch a species already
@@ -87,7 +98,7 @@ function extractQuestions(packageData: any): any[] {
 
 // ─── MAIN MONSTER GUILD ───────────────────────────────────────────────────────
 
-type GuildView = 'map' | 'team' | 'trainers' | 'compendium' | 'battle' | 'live_battle' | 'leaderboard' | 'trade';
+type GuildView = 'map' | 'team' | 'trainers' | 'compendium' | 'battle' | 'live_battle' | 'leaderboard' | 'trade' | 'hatchery';
 
 interface WildEncounterState {
   monsterId: string;
@@ -96,7 +107,8 @@ interface WildEncounterState {
   attemptsLeft: number;
 }
 
-export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, gradingUserId, weekStartingDate, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle, onBattleWon, onGoldAwarded, onGoldSynced, initialView }: MonsterGuildProps) {
+export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, gradingUserId, weekStartingDate, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle, onBattleWon, onGoldAwarded, onGoldSynced, initialView, onEggBadgeChange, eggRefreshSignal }: MonsterGuildProps) {
+  const isDemo = userId.startsWith('demo_');
   const [loading, setLoading] = useState(true);
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
   const [battleState, setBattleState] = useState<BattleState | null>(null);
@@ -124,6 +136,22 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [answeredArenaIds, setAnsweredArenaIds] = useState<Set<string>>(new Set());
   const [subclassProfile, setSubclassProfile] = useState<SubclassProfile | null>(null);
+  // Curio egg mechanism (see docs/curio-egg-mechanism-design.md) — excluded
+  // entirely for demo accounts, same guard as Trade below.
+  const [eggChainMap, setEggChainMap] = useState<EggChainMap>({});
+  const [userEggs, setUserEggs] = useState<CurioEgg[]>([]);
+  const loadEggs = async () => {
+    if (isDemo) return;
+    setUserEggs(await fetchUserEggs(userId));
+  };
+  // Claiming happens from inside TeamPanel's curio detail modal — jump the
+  // player straight to the Hatchery so the new egg is immediately visible,
+  // rather than leaving them on My Team to go find it themselves.
+  const handleEggClaimed = () => {
+    loadEggs();
+    setView('hatchery');
+    showNotification('Claimed 1 egg 🥚');
+  };
 
   // ALL_MONSTERS, but with each guild companion swapped for the display tier
   // the player's guild level currently allows — name/emoji/description/base
@@ -199,6 +227,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     setCaughtMonsters(caughtRes.data || []);
     setSubclassProfile(subProfile);
     setLoading(false);
+    loadEggs();
   };
 
   // Refreshes just userMonsters + inventory after a Compendium learn/unlearn
@@ -214,7 +243,29 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     setInventory(invData || {});
   };
 
-  useEffect(() => { loadData(); }, [userId]);
+  useEffect(() => { loadData(); }, [userId, eggRefreshSignal]);
+
+  // Chain map is admin-authored content, not per-user — fetch once.
+  useEffect(() => { if (!isDemo) fetchEggChainMap().then(setEggChainMap); }, [isDemo]);
+
+  // Sidebar badge: any owned curio (team or bench) that's graduated,
+  // crossed its egg-ready level threshold, has a defined chain, and hasn't
+  // already laid its one egg.
+  useEffect(() => {
+    if (!onEggBadgeChange) return;
+    if (isDemo) { onEggBadgeChange(false); return; }
+    const claimedParentIds = new Set(userEggs.map(e => e.parent_user_monster_id));
+    const ready = userMonsters.some(m => {
+      const tier = m.graduation_tier as 1 | 2;
+      if (!tier || tier < 1) return false;
+      if (m.monster_level < eggReadyLevel(tier)) return false;
+      if (!eggChainMap[m.monster_id]) return false;
+      if (claimedParentIds.has(m.id)) return false;
+      return true;
+    });
+    onEggBadgeChange(ready);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userMonsters, eggChainMap, userEggs, isDemo]);
 
   // Mounted here (not inside TrainingMap) so a player's presence on the
   // training-map channel survives switching to the live-battle view —
@@ -700,6 +751,9 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           // guard) — hidden here so a demo player never hits a dead-end tab.
           ...(userId.startsWith('demo_') ? [] : [{ id: 'trade' as GuildView, label: 'Trade' }]),
           { id: 'leaderboard', label: 'Leaderboard' },
+          // Excluded for demo accounts — a demo session is too short-lived
+          // to ever complete a 5-day streak, so the tab would be a dead end.
+          ...(userId.startsWith('demo_') ? [] : [{ id: 'hatchery' as GuildView, label: 'Hatchery' }]),
         ] as { id: GuildView; label: string }[]).map(tab => (
           <button
             key={tab.id}
@@ -760,7 +814,15 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           currentGold={currentGold}
           weekStartingDate={weekStartingDate}
           onGoldSynced={onGoldSynced}
+          eggChainMap={eggChainMap}
+          claimedEggParentIds={new Set(userEggs.map(e => e.parent_user_monster_id))}
+          onEggClaimed={handleEggClaimed}
         />
+      )}
+
+      {/* Hatchery view — claimed eggs, incubating/stalled, per docs/curio-egg-mechanism-design.md */}
+      {view === 'hatchery' && !isDemo && (
+        <HatcheryPanel userId={userId} eggs={userEggs} onEggsChanged={loadEggs} />
       )}
 
       {/* Compendium view — dex-style reference; wild-only species stay a silhouette

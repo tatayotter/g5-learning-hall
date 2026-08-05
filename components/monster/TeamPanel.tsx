@@ -20,6 +20,7 @@ import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
 import TeachSkillModal from '@/components/monster/TeachSkillModal';
 import UnlearnSkillModal from '@/components/monster/UnlearnSkillModal';
 import TutorRollModal from '@/components/TutorRollModal';
+import { EggChainMap, claimCurioEgg, eggReadyLevel } from '@/lib/curioEggs';
 
 const ELEMENT_STYLES: Record<Element, string> = {
   fire:   'text-orange-400 border-orange-800 bg-orange-900/20',
@@ -33,6 +34,7 @@ const ELEMENT_STYLES: Record<Element, string> = {
 export default function TeamPanel({
   userMonsters, playerLevel, userId, onTeamChange, onLoadoutChange, monsterDisplay, caughtMonsters, onPromote,
   inventory, currentGold, weekStartingDate, onGoldSynced,
+  eggChainMap, claimedEggParentIds, onEggClaimed,
 }: {
   userMonsters: UserMonster[];
   playerLevel: number;
@@ -52,6 +54,12 @@ export default function TeamPanel({
   currentGold: number;
   weekStartingDate: string;
   onGoldSynced: (newStats: { gold: number; xp: number; level: number }) => void;
+  // Curio egg mechanism (see docs/curio-egg-mechanism-design.md) — a species
+  // with no eggChainMap entry never shows the "ready to lay an egg" prompt
+  // (also excludes guild/event curios, which never get a chain entry).
+  eggChainMap: EggChainMap;
+  claimedEggParentIds: Set<string | null>;
+  onEggClaimed: () => void;
 }) {
   const unlockedSlots = getUnlockedMonsterSlots(playerLevel);
   const benchedMonsters = userMonsters.filter(m => m.slot === null);
@@ -76,6 +84,28 @@ export default function TeamPanel({
   const [learnedEvent, setLearnedEvent] = useState<{ monster: MonsterDef; skill: Skill } | null>(null);
   const [forgottenEvent, setForgottenEvent] = useState<{ monster: MonsterDef; skill: Skill } | null>(null);
   const [tutorOutcome, setTutorOutcome] = useState<{ outcome: TutorOutcome; monsterName: string; def: MonsterDef; monsterLevel: number } | null>(null);
+  const [confirmingEgg, setConfirmingEgg] = useState<{ monsterRowId: string; name: string } | null>(null);
+  const [eggClaimBusy, setEggClaimBusy] = useState(false);
+
+  const handleClaimEgg = async (monsterRowId: string) => {
+    setEggClaimBusy(true);
+    try {
+      const result = await claimCurioEgg(userId, monsterRowId);
+      if (!result?.success) {
+        alert(
+          result?.error === 'no_chain_defined'
+            ? 'No egg content is set up for this curio yet — check back soon!'
+            : 'Could not claim this egg right now — try again.'
+        );
+        return;
+      }
+      setConfirmingEgg(null);
+      setDetailMonster(null);
+      onEggClaimed();
+    } finally {
+      setEggClaimBusy(false);
+    }
+  };
 
   const handleAddMonster = async (slot: number, monsterId: string) => {
     // set_team_slot never overwrites an existing monster's row — it reuses
@@ -345,6 +375,30 @@ export default function TeamPanel({
                 );
               })()}
 
+              {(() => {
+                const tier = monster.graduation_tier as 1 | 2;
+                if (!tier || tier < 1) return null;
+                if (monster.monster_level < eggReadyLevel(tier)) return null;
+                const chain = eggChainMap[monster.monster_id];
+                if (!chain) return null;
+                if (claimedEggParentIds.has(monster.id)) return null;
+                return (
+                  <div className="border border-cyan-900 bg-cyan-900/10 rounded-lg p-3">
+                    <p className="text-[10px] text-cyan-400 font-bold uppercase tracking-widest mb-1">Egg</p>
+                    <p className="text-xs text-gray-400 mb-2">
+                      {def.name} is ready to lay an egg. It can only do this once.
+                    </p>
+                    <button
+                      onClick={() => setConfirmingEgg({ monsterRowId: monster.id, name: def.name })}
+                      disabled={actionBusy}
+                      className="text-[10px] bg-cyan-700 hover:bg-cyan-600 disabled:opacity-40 px-3 py-2 rounded text-white"
+                    >
+                      Claim Egg
+                    </button>
+                  </div>
+                );
+              })()}
+
               {monster.quality !== 'perfect' && (() => {
                 const quality = monster.quality;
                 const cost = TUTOR_COST_BY_TIER[quality]!;
@@ -444,6 +498,37 @@ export default function TeamPanel({
           userId={userId}
           onClose={() => setForgottenEvent(null)}
         />
+      )}
+
+      {confirmingEgg && (
+        <div
+          className="fixed inset-0 bg-black/70 z-[70] flex items-center justify-center p-6"
+          onClick={() => !eggClaimBusy && setConfirmingEgg(null)}
+        >
+          <div
+            className="bg-neutral-950 border border-cyan-800 rounded-xl p-6 w-full max-w-xs text-center battle-panel-in"
+            onClick={e => e.stopPropagation()}
+          >
+            <p className="text-white font-bold mb-1">Lay {confirmingEgg.name}'s egg?</p>
+            <p className="text-gray-500 text-xs mb-5">This can only happen once — {confirmingEgg.name} stays on your team either way.</p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setConfirmingEgg(null)}
+                disabled={eggClaimBusy}
+                className="flex-1 py-2 rounded-lg font-bold text-sm bg-neutral-800 hover:bg-neutral-700 disabled:opacity-40 text-gray-300 transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => handleClaimEgg(confirmingEgg.monsterRowId)}
+                disabled={eggClaimBusy}
+                className="flex-1 py-2 rounded-lg font-bold text-sm bg-cyan-700 hover:bg-cyan-600 disabled:opacity-40 text-white transition-colors"
+              >
+                {eggClaimBusy ? '...' : 'Lay Egg'}
+              </button>
+            </div>
+          </div>
+        </div>
       )}
 
       {[1, 2, 3].map(slot => {

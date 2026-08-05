@@ -27,12 +27,18 @@ interface SidebarRailProps {
   activeTab: string;
   onNavigate: (tab: RailTabId) => void;
   onLogout: () => void;
+  // Small notification dot on a rail icon — currently only used by Curio
+  // Arena for an egg-ready-to-claim curio, a stalled egg, or an unrevealed
+  // hatch (see docs/curio-egg-mechanism-design.md). Keyed by RailTabId so
+  // other tabs could reuse it later without a new prop.
+  railBadges?: Partial<Record<RailTabId, boolean>>;
 }
 
 export default function SidebarRail({
   activeTab,
   onNavigate,
   onLogout,
+  railBadges,
 }: SidebarRailProps) {
   const [confirmingLogout, setConfirmingLogout] = useState(false);
 
@@ -50,7 +56,12 @@ export default function SidebarRail({
                 isActive ? 'border-l-amber-500 bg-[#0a0807]' : 'border-l-transparent hover:bg-[#0a0807]'
               }`}
             >
-              <img src={item.icon} alt="" className="rail-icon w-10 h-10 object-contain" />
+              <span className="relative">
+                <img src={item.icon} alt="" className="rail-icon w-10 h-10 object-contain" />
+                {railBadges?.[item.target] && (
+                  <span className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-amber-400 border-2 border-[#211007]" />
+                )}
+              </span>
               <span className="rail-label text-[9px] font-bold uppercase tracking-wide text-gray-400 text-center leading-tight">
                 {item.label}
               </span>

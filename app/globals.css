@@ -601,6 +601,35 @@ html {
 }
 .claim-orb-pulse { animation: claim-orb-pulse 0.7s ease-in-out infinite; }
 
+/* ── Egg hatch ceremony: wobble before the crack, then the two shell
+   halves split apart (see components/EggHatchModal.tsx) ── */
+@keyframes egg-wobble {
+  0%, 100% { transform: rotate(0deg); }
+  20%      { transform: rotate(-6deg); }
+  40%      { transform: rotate(5deg); }
+  60%      { transform: rotate(-4deg); }
+  80%      { transform: rotate(3deg); }
+}
+.egg-wobble { animation: egg-wobble 0.45s ease-in-out infinite; }
+
+@keyframes egg-crack-top {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate(-10px, -34px) rotate(-18deg); opacity: 0; }
+}
+.egg-crack-top { animation: egg-crack-top 0.5s ease-in forwards; }
+
+@keyframes egg-crack-bottom {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate(10px, 34px) rotate(18deg); opacity: 0; }
+}
+.egg-crack-bottom { animation: egg-crack-bottom 0.5s ease-in forwards; }
+
+@keyframes egg-hatchling-in {
+  0%   { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1);   opacity: 1; }
+}
+.egg-hatchling-in { animation: egg-hatchling-in 0.4s ease-out 0.2s both; }
+
 @keyframes battle-answer-wrong {
   0%, 100% { transform: translateX(0); }
   25%      { transform: translateX(-6px); }
