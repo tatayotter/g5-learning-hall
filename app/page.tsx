@@ -276,7 +276,7 @@ export default function Dashboard() {
     await saveTheme(activeUserId, themeKey);
   };
 
-  const { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta } = useWeeklyData(activeUserId ?? 'damien');
+  const { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta, bumpCounters } = useWeeklyData(activeUserId ?? 'damien');
   // Sticks to whichever top-level tab the player was on across a page refresh
   // instead of always dropping back to Main Quests. sessionStorage (not
   // localStorage) so a fresh browser session still starts clean.
@@ -565,6 +565,7 @@ export default function Dashboard() {
           onClose={() => {
             setPendingEggHatches(prev => prev.slice(1));
             setEggRefreshSignal(n => n + 1);
+            bumpCounters({ eggs_hatched: 1 });
           }}
         />
       )}
@@ -1306,6 +1307,11 @@ export default function Dashboard() {
             onGoldSynced={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
             onEggBadgeChange={setHasEggReadyCurio}
             eggRefreshSignal={eggRefreshSignal}
+            onGraduated={() => bumpCounters({ curios_graduated: 1 })}
+            onTutored={() => bumpCounters({ tutor_rerolls: 1 })}
+            onTradeConfirmed={() => bumpCounters({ trades_completed: 1 })}
+            onLegendaryCaught={() => bumpCounters({ legendaries_caught: 1 })}
+            onTatayBattleResult={(won) => bumpCounters(won ? { tatay_battles_won: 1 } : { tatay_battles_lost: 1 })}
           />
         )}
 
