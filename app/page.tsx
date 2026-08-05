@@ -188,7 +188,14 @@ export default function Dashboard() {
         // no-ops) doesn't need this, but calling unconditionally keeps this
         // block simple; the RPC itself is the source of truth on eligibility.
         syncEggProgress(activeUserId).then(result => {
-          if (result?.hatched?.length) setPendingEggHatches(prev => [...prev, ...result.hatched]);
+          if (result?.hatched?.length) {
+            setPendingEggHatches(prev => [...prev, ...result.hatched]);
+            const today = format(new Date(), 'yyyy-MM-dd');
+            result.hatched.forEach(h => {
+              const speciesName = ALL_MONSTERS[h.species_id]?.name ?? h.species_id;
+              logAction(activeUserId, today, 'egg', `🐣 An egg hatched into ${speciesName}!`, 0, 0);
+            });
+          }
         });
         fetchUserEggs(activeUserId).then(eggs => {
           setHasStalledEgg(eggs.some(e => e.status === 'stalled'));
