@@ -75,7 +75,7 @@ export default function TeamPanel({
   const [ceremony, setCeremony] = useState<{ fromDef: MonsterDef; toDef: MonsterDef; monsterLevel: number; quality: QualityTier; speciesId: string; targetTier: 1 | 2 } | null>(null);
   const [learnedEvent, setLearnedEvent] = useState<{ monster: MonsterDef; skill: Skill } | null>(null);
   const [forgottenEvent, setForgottenEvent] = useState<{ monster: MonsterDef; skill: Skill } | null>(null);
-  const [tutorOutcome, setTutorOutcome] = useState<{ outcome: TutorOutcome; monsterName: string } | null>(null);
+  const [tutorOutcome, setTutorOutcome] = useState<{ outcome: TutorOutcome; monsterName: string; def: MonsterDef; monsterLevel: number } | null>(null);
 
   const handleAddMonster = async (slot: number, monsterId: string) => {
     // set_team_slot never overwrites an existing monster's row — it reuses
@@ -156,7 +156,7 @@ export default function TeamPanel({
     }
   };
 
-  const handleTutor = async (monsterRowId: string, monsterName: string, useTome: boolean) => {
+  const handleTutor = async (monsterRowId: string, monsterName: string, def: MonsterDef, monsterLevel: number, useTome: boolean) => {
     if (actionBusyRef.current) return;
     actionBusyRef.current = true;
     setActionBusy(true);
@@ -176,7 +176,7 @@ export default function TeamPanel({
       }
       if (outcome.character_stats) onGoldSynced(outcome.character_stats);
       setUseTomeToggle(false);
-      setTutorOutcome({ outcome, monsterName });
+      setTutorOutcome({ outcome, monsterName, def, monsterLevel });
       onLoadoutChange();
     } finally {
       actionBusyRef.current = false;
@@ -380,7 +380,7 @@ export default function TeamPanel({
                     )}
                     <div className="flex items-center gap-2">
                       <button
-                        onClick={() => handleTutor(monster.id, def.name, canUseTome)}
+                        onClick={() => handleTutor(monster.id, def.name, def, monster.monster_level, canUseTome)}
                         disabled={!affordable || actionBusy}
                         className="text-[10px] bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed px-3 py-2 rounded text-white"
                       >
@@ -421,6 +421,8 @@ export default function TeamPanel({
         <TutorRollModal
           outcome={tutorOutcome.outcome}
           monsterName={tutorOutcome.monsterName}
+          def={tutorOutcome.def}
+          monsterLevel={tutorOutcome.monsterLevel}
           userId={userId}
           onClose={() => setTutorOutcome(null)}
         />

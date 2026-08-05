@@ -8,24 +8,34 @@
 import { useEffect, useState } from 'react';
 import { QUALITY_LABEL, getQualityGlowClass } from '@/lib/curioQuality';
 import { TutorOutcome } from '@/lib/tutorCurio';
+import { MonsterDef, getScaledStats } from '@/lib/monsterConfig';
+import { MonsterImage } from '@/components/battle/shared';
 import { playPageFlip, playCurioLevelUp, playMiss } from '@/lib/sounds';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
 
 interface TutorRollModalProps {
   outcome: TutorOutcome;
   monsterName: string;
+  def: MonsterDef;
+  monsterLevel: number;
   userId: string;
   onClose: () => void;
 }
 
 type Phase = 'charge' | 'reveal';
 
-export default function TutorRollModal({ outcome, monsterName, userId, onClose }: TutorRollModalProps) {
+export default function TutorRollModal({ outcome, monsterName, def, monsterLevel, userId, onClose }: TutorRollModalProps) {
   const isTala = userId === 'tala';
   const [phase, setPhase] = useState<Phase>('charge');
   const [burst, setBurst] = useState(false);
 
   const success = outcome.success && outcome.new_quality;
+  // The glow shown on the curio's sprite here — its NEW quality on a
+  // success, its unchanged current quality on a fail (never blank), so the
+  // reveal always shows the real, present state of the actual curio.
+  const displayedQuality = success ? outcome.new_quality! : outcome.previous_quality!;
+  const beforeStats = getScaledStats(def, monsterLevel, outcome.previous_quality);
+  const afterStats = success ? getScaledStats(def, monsterLevel, outcome.new_quality) : null;
 
   useEffect(() => {
     playPageFlip();
@@ -70,8 +80,8 @@ export default function TutorRollModal({ outcome, monsterName, userId, onClose }
           }`}
           onClick={e => e.stopPropagation()}
         >
-          <p className={`font-bold text-sm tracking-wide mb-4 ${success ? 'text-white' : 'text-gray-400'}`}>
-            📖 CURIO TUTORING 📖
+          <p className={`font-bold text-sm tracking-wide mb-4 font-display ${success ? 'text-white' : 'text-gray-400'}`}>
+            Curio Tutoring
           </p>
 
           <div className="relative w-24 h-24 mx-auto mb-2 flex items-center justify-center">
@@ -81,9 +91,9 @@ export default function TutorRollModal({ outcome, monsterName, userId, onClose }
             {phase === 'reveal' && (
               <div className={`absolute inset-0 rounded-full graduation-glow-flash ${flashColorClass}`} />
             )}
-            <span className={`relative text-5xl transition-opacity duration-200 ${phase === 'charge' ? 'opacity-0' : 'opacity-100 battle-float'}`}>
-              {success ? '✨' : '📖'}
-            </span>
+            <div className={`relative w-16 h-16 transition-opacity duration-200 ${phase === 'charge' ? 'opacity-0' : `opacity-100 battle-float ${getQualityGlowClass(displayedQuality)}`}`}>
+              <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-5xl" />
+            </div>
           </div>
 
           {phase !== 'reveal' ? (
@@ -96,6 +106,18 @@ export default function TutorRollModal({ outcome, monsterName, userId, onClose }
                   → {QUALITY_LABEL[outcome.new_quality!]}!
                 </p>
                 <p className="text-gray-400 text-xs mt-1">HP and Attack permanently increased.</p>
+                {afterStats && (
+                  <div className="flex items-center justify-center gap-4 mt-2 text-xs">
+                    <span className="flex items-center gap-1 text-white">
+                      <img src="/icons/stats/hp.svg" alt="" className="w-3.5 h-3.5 object-contain" />
+                      {beforeStats.hp} <span className="text-green-400">→ {afterStats.hp}</span>
+                    </span>
+                    <span className="flex items-center gap-1 text-white">
+                      <img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" />
+                      {beforeStats.attack} <span className="text-green-400">→ {afterStats.attack}</span>
+                    </span>
+                  </div>
+                )}
               </div>
               <button
                 onClick={onClose}
