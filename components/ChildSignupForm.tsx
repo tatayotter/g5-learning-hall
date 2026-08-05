@@ -3,14 +3,19 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { setActiveUser, recordLastLogin, registerChildUser } from '@/lib/userSession';
+import { getOrCreateSessionId } from '@/lib/analytics';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
+
+interface ChildSignupFormProps {
+  source: 'demo_banner' | 'organic';
+}
 
 // Lets a child create their own account with no parent required yet — see
 // docs/parent-child-linking-design.md. Mirrors the "Try Demo" flow in
 // app/welcome/page.tsx (anonymous session -> server route -> RPC), except
 // this creates a real, permanent `children` row instead of an ephemeral
 // demo account, and logs the child straight into it afterward.
-export default function ChildSignupForm() {
+export default function ChildSignupForm({ source }: ChildSignupFormProps) {
   const router = useRouter();
   const [data, setData] = useState<ChildFormData>(emptyChildForm());
   const [submitting, setSubmitting] = useState(false);
@@ -45,6 +50,8 @@ export default function ChildSignupForm() {
           gender: data.gender,
           schoolName: data.schoolName,
           avatar: data.avatar,
+          source,
+          sessionId: getOrCreateSessionId(),
         }),
       });
       const result = await res.json();

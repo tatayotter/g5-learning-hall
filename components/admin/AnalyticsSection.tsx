@@ -32,6 +32,7 @@ interface DemoStats {
   rate_limited_hits: number;
   demo_referred_registrations: number;
   organic_registrations: number;
+  child_self_registrations: number;
 }
 
 export default function AnalyticsSection() {
@@ -232,8 +233,12 @@ export default function AnalyticsSection() {
           </div>
 
           {/* CTA -> registration funnel. Directional only: no identity link between
-              a demo account and a later /register submission, so this is a count
-              of touchpoints, not a per-user conversion rate. */}
+              a demo account and a later /register (or /child-signup) submission, so
+              this is a count of touchpoints, not a per-user conversion rate. Covers
+              both account-creation paths — a parent registering (parent_registration_submitted)
+              and a child registering themselves with no parent yet
+              (child_self_registration_submitted, added with /child-signup — see
+              docs/parent-child-linking-design.md) — since both carry a `source` tag. */}
           <div className="space-y-2 border-t border-neutral-800 pt-4">
             <p className="text-[10px] text-gray-600 uppercase tracking-widest mb-2">
               &quot;Create real account&quot; funnel (directional — not identity-linked)
@@ -261,6 +266,10 @@ export default function AnalyticsSection() {
             <div className="flex justify-between text-xs text-gray-500 pt-1">
               <span>Organic (non-demo) registrations</span>
               <span className="font-bold text-gray-300">{demoStats.organic_registrations}</span>
+            </div>
+            <div className="flex justify-between text-xs text-gray-500">
+              <span>Of which, self-registered by a child (no parent yet)</span>
+              <span className="font-bold text-gray-300">{demoStats.child_self_registrations}</span>
             </div>
           </div>
         </div>

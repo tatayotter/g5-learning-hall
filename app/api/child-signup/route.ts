@@ -8,7 +8,7 @@ import { createClient } from '@supabase/supabase-js';
 // this exact browser, and so the real client IP (unavailable to browser JS)
 // can be attached for the RPC's own rate limiting.
 export async function POST(request: NextRequest) {
-  const { accessToken, username, pin, fullName, grade, gender, schoolName, avatar } = await request.json();
+  const { accessToken, username, pin, fullName, grade, gender, schoolName, avatar, source, sessionId } = await request.json();
 
   if (typeof accessToken !== 'string' || !accessToken) {
     return NextResponse.json({ success: false, error: 'missing session' }, { status: 400 });
@@ -40,5 +40,21 @@ export async function POST(request: NextRequest) {
   }
 
   const row = Array.isArray(data) ? data[0] : data;
+
+  // Mirrors ParentRegisterForm's direct insert: this child has no
+  // g5_active_user session yet, so trackEvent()'s getActiveUser() gate
+  // would silently drop it. Feeds get_demo_stats' registrations CTE — see
+  // docs/parent-child-linking-design.md. Awaited (not fire-and-forget) since
+  // a serverless function can be torn down right after the response is sent.
+  const { error: analyticsError } = await authedClient.from('analytics_events').insert({
+    user_id: row.id,
+    session_id: typeof sessionId === 'string' && sessionId ? sessionId : 'server',
+    event_name: 'child_self_registration_submitted',
+    properties: { source: source === 'demo_banner' ? 'demo_banner' : 'organic' },
+    is_family: false,
+    client_ts: new Date().toISOString(),
+  });
+  if (analyticsError) console.error('Failed to write analytics event:', analyticsError);
+
   return NextResponse.json({ success: true, id: row.id as string, username: row.username as string });
 }

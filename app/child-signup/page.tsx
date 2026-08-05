@@ -8,7 +8,14 @@ export const metadata: Metadata = {
   alternates: { canonical: '/child-signup' },
 };
 
-export default function ChildSignupPage() {
+export default async function ChildSignupPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ ref?: string }>;
+}) {
+  const { ref } = await searchParams;
+  const source = ref === 'demo' ? 'demo_banner' : 'organic';
+
   return (
     <main className="min-h-screen bg-black py-10 px-4">
       <div className="max-w-lg mx-auto mb-6 text-center">
@@ -18,7 +25,7 @@ export default function ChildSignupPage() {
           no parent needed to get started.
         </p>
       </div>
-      <ChildSignupForm />
+      <ChildSignupForm source={source} />
     </main>
   );
 }
