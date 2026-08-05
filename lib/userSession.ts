@@ -293,6 +293,33 @@ export function registerDemoUser(userId: UserId): void {
   };
 }
 
+// Self-registered children (create_unclaimed_child_account) are real rows
+// in `children`, unlike demo accounts — a later full page load will pick
+// them up naturally through loadChildren(). This just makes the brand new
+// account usable immediately in the current session, mirroring
+// registerDemoUser but with the child's actual chosen profile instead of a
+// generic "Guest" placeholder.
+export function registerChildUser(profile: {
+  id: UserId;
+  fullName: string;
+  grade: string;
+  gender: 'boy' | 'girl';
+  avatar: string;
+}): void {
+  USERS[profile.id] = {
+    id: profile.id,
+    name: profile.fullName.split(' ')[0],
+    fullName: profile.fullName,
+    grade: profile.grade,
+    avatar: profile.avatar,
+    theme: 'theme_default',
+    gender: profile.gender,
+    isFamily: false,
+    contentSourceId: contentSourceForGrade(profile.grade),
+  };
+  childIds.add(profile.id);
+}
+
 export function getOtherPlayers(currentUserId: UserId): UserProfile[] {
   return (Object.keys(USERS) as UserId[])
     .filter(id => id !== currentUserId)

@@ -416,6 +416,8 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
               <a href="/register" className="text-[#b5824a] hover:text-[#f0b429] transition-colors tracking-wide">Register as a Parent</a>
               <span className="text-[#4a4038] text-[10px]">·</span>
               <a href="/parent-login" className="text-[#b5824a] hover:text-[#f0b429] transition-colors tracking-wide">Parent Login</a>
+              <span className="text-[#4a4038] text-[10px]">·</span>
+              <a href="/child-signup" className="text-[#b5824a] hover:text-[#f0b429] transition-colors tracking-wide">Kids: Play Now</a>
             </motion.div>
 
             <motion.p

@@ -44,6 +44,7 @@ import { respondToInvite } from '@/lib/liveBattle';
 import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import DemoBanner from '@/components/DemoBanner';
+import LinkParentBanner from '@/components/LinkParentBanner';
 import SidebarRail, { RailTabId } from '@/components/SidebarRail';
 import QuestCard from '@/components/QuestCard';
 import OnboardingTour from '@/components/OnboardingTour';
@@ -512,6 +513,7 @@ export default function Dashboard() {
       {rotationScreen}
       <div className="h-screen flex flex-col">
       {activeUserId.startsWith('demo_') && <DemoBanner />}
+      {!activeUserId.startsWith('demo_') && <LinkParentBanner />}
       {showOnboarding && <OnboardingTour onComplete={handleCompleteOnboarding} />}
       <div className="app-content flex-1 min-h-0 flex flex-col">
         <div className="h-full bg-black text-white flex flex-row">
