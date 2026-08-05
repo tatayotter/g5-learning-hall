@@ -5,7 +5,7 @@
 // excluded, so their species are filtered out of both dropdowns below
 // rather than relying on the admin to remember not to pick one.
 import { useEffect, useState } from 'react';
-import { ALL_MONSTERS, GUILD_MONSTERS, EVENT_MONSTERS, Element } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, GUILD_MONSTERS, EVENT_MONSTERS, Element, getGraduatedMonsterDisplay } from '@/lib/monsterConfig';
 import { fetchEggChainList, EggChainRow } from '@/lib/curioEggs';
 import { callAdminApi } from '@/lib/adminApi';
 
@@ -14,6 +14,15 @@ const ELEMENTS: Element[] = ['fire', 'water', 'leaf', 'storm', 'shadow', 'light'
 // Species eligible as the "layer" — only ones that can ever graduate at
 // all, since egg-readiness is gated on graduation_tier >= 1.
 const LAYER_SPECIES = Object.values(ALL_MONSTERS).filter(m => m.graduation);
+
+// A curio can't become egg-ready until it's already graduated (tier >= 1),
+// so the admin is always picking a species by the identity it's actually
+// wearing at that point — e.g. "Starlune", not "Solarch" — never the
+// ungraduated base name. Tier 1's name covers it even for two-tier species,
+// since tier 1 is already past the egg-ready threshold.
+function layerDisplayName(m: typeof LAYER_SPECIES[number]): string {
+  return getGraduatedMonsterDisplay(m, 1).name;
+}
 // Species eligible as the hatched predecessor — excludes guild companions
 // and event-exclusive curios, which are meant to be granted only through
 // their own special-acquisition paths.
@@ -65,7 +74,9 @@ export default function EggChainsSection({ passcode }: { passcode: string }) {
   };
 
   const handleDelete = async (species_id: string) => {
-    if (!confirm(`Remove the egg chain for ${ALL_MONSTERS[species_id]?.name || species_id}? Curios that already claimed an egg from it keep what they claimed.`)) return;
+    const layerDef = ALL_MONSTERS[species_id];
+    const layerName = layerDef ? layerDisplayName(layerDef) : species_id;
+    if (!confirm(`Remove the egg chain for ${layerName}? Curios that already claimed an egg from it keep what they claimed.`)) return;
     const result = await callAdminApi('/api/admin-egg-chains', { passcode, action: 'delete_chain', speciesId: species_id });
     if (!result.success) {
       alert(`❌ Delete failed: ${result.error}`);
@@ -92,7 +103,7 @@ export default function EggChainsSection({ passcode }: { passcode: string }) {
               className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-2 py-2 text-xs text-white"
             >
               <option value="">Select...</option>
-              {LAYER_SPECIES.map(m => <option key={m.id} value={m.id}>{m.name}</option>)}
+              {LAYER_SPECIES.map(m => <option key={m.id} value={m.id}>{layerDisplayName(m)}</option>)}
             </select>
           </div>
           <div>
@@ -136,7 +147,7 @@ export default function EggChainsSection({ passcode }: { passcode: string }) {
             <div key={chain.species_id} className="bg-neutral-900 border border-neutral-800 rounded-xl p-4 flex items-center justify-between gap-4">
               <div>
                 <p className="text-white font-bold text-sm">
-                  {ALL_MONSTERS[chain.species_id]?.name || chain.species_id}
+                  {(() => { const d = ALL_MONSTERS[chain.species_id]; return d ? layerDisplayName(d) : chain.species_id; })()}
                   <span className="text-gray-500 font-normal"> → </span>
                   {ALL_MONSTERS[chain.predecessor_species_id]?.name || chain.predecessor_species_id}
                 </p>
