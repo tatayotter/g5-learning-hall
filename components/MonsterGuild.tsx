@@ -71,6 +71,15 @@ interface MonsterGuildProps {
   // sync_egg_progress, independently of this component's own mount-time
   // fetch) actually shows up in My Team/bench without an unrelated reload.
   eggRefreshSignal?: number;
+  // Achievement-counter bumps (see lib/achievements.ts and
+  // useWeeklyData's bumpCounters) for mechanics added since the last
+  // achievements pass — graduation, Tutor rerolls, confirmed trades, a
+  // freshly-caught (not duplicate) legendary, and the Tatay joke fight.
+  onGraduated?: () => void;
+  onTutored?: () => void;
+  onTradeConfirmed?: () => void;
+  onLegendaryCaught?: () => void;
+  onTatayBattleResult?: (won: boolean) => void;
 }
 
 // Gold awarded when a wild encounter win would-be-catch a species already
@@ -107,7 +116,7 @@ interface WildEncounterState {
   attemptsLeft: number;
 }
 
-export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, gradingUserId, weekStartingDate, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle, onBattleWon, onGoldAwarded, onGoldSynced, initialView, onEggBadgeChange, eggRefreshSignal }: MonsterGuildProps) {
+export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, gradingUserId, weekStartingDate, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle, onBattleWon, onGoldAwarded, onGoldSynced, initialView, onEggBadgeChange, eggRefreshSignal, onGraduated, onTutored, onTradeConfirmed, onLegendaryCaught, onTatayBattleResult }: MonsterGuildProps) {
   const isDemo = userId.startsWith('demo_');
   const [loading, setLoading] = useState(true);
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
@@ -599,6 +608,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           await supabase.from('user_caught_monsters').insert({
             user_id: userId, monster_id: wildMonsterId, monster_level: wildLevel, monster_exp: (wildLevel - 1) * BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL,
           });
+          if (ALL_MONSTERS[wildMonsterId]?.isLegendary) onLegendaryCaught?.();
         }
         await supabase.from('user_battle_state').update({ last_wild_encounter_win: today }).eq('user_id', userId);
         setBattleState(prev => prev ? { ...prev, last_wild_encounter_win: today } : prev);
@@ -665,10 +675,12 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: activeBattle.id, result: 'win', monster_exp_earned: expEarned });
       logAction(userId, today, 'battle', `🏆 Defeated Trainer ${activeBattle.name} — +${expEarned} Curio EXP`, expEarned, 0);
       onBattleWon('trainer');
+      if (activeBattle.id === 'tatay') onTatayBattleResult?.(true);
     } else {
       showNotification('💀 You lost the battle...');
       await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: activeBattle?.id || 'unknown', result: 'loss', monster_exp_earned: 0 });
       logAction(userId, today, 'battle', `💀 Lost battle against Trainer ${activeBattle?.name ?? 'Unknown'}`, 0, 0);
+      if (activeBattle?.id === 'tatay') onTatayBattleResult?.(false);
     }
     setActiveBattle(null);
     setView('map');
@@ -817,6 +829,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           eggChainMap={eggChainMap}
           claimedEggParentIds={new Set(userEggs.map(e => e.parent_user_monster_id))}
           onEggClaimed={handleEggClaimed}
+          onGraduated={onGraduated}
+          onTutored={onTutored}
         />
       )}
 
@@ -842,6 +856,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           userId={userId as UserId}
           userMonsters={userMonsters}
           onTradeCompleted={refreshMonsterLoadouts}
+          onTradeConfirmed={onTradeConfirmed}
         />
       )}
 

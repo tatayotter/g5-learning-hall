@@ -412,4 +412,144 @@ export const ACHIEVEMENTS: Achievement[] = [
     xpReward: 600,
     goldReward: 300
   },
+
+  // ─── CURIO EGG ACHIEVEMENTS ────────────────────────────────────────────────
+  {
+    id: 'first_hatch',
+    title: 'Cracked Open',
+    description: 'A new life joins the Ledger. Hatch your first curio egg.',
+    criteria: (d) => (d.eggs_hatched || 0) >= 1,
+    xpReward: 100,
+    goldReward: 50
+  },
+  {
+    id: 'hatchery_keeper',
+    title: 'Hatchery Keeper',
+    description: 'Your incubators never stop humming. Hatch 5 curio eggs.',
+    criteria: (d) => (d.eggs_hatched || 0) >= 5,
+    xpReward: 300,
+    goldReward: 150
+  },
+  {
+    id: 'hatchery_master',
+    title: 'Hatchery Master',
+    description: 'A whole nursery answers to you. Hatch 15 curio eggs.',
+    criteria: (d) => (d.eggs_hatched || 0) >= 15,
+    xpReward: 700,
+    goldReward: 350
+  },
+
+  // ─── CURIO GRADUATION ACHIEVEMENTS ─────────────────────────────────────────
+  {
+    id: 'first_graduation',
+    title: 'Commencement',
+    description: 'The first of many upgrades. Graduate your first curio.',
+    criteria: (d) => (d.curios_graduated || 0) >= 1,
+    xpReward: 100,
+    goldReward: 50
+  },
+  {
+    id: 'graduating_class',
+    title: 'Graduating Class',
+    description: 'A team reshaped by growth. Graduate 5 curios.',
+    criteria: (d) => (d.curios_graduated || 0) >= 5,
+    xpReward: 350,
+    goldReward: 175
+  },
+  {
+    id: 'alumni_association',
+    title: 'Alumni Association',
+    description: 'Every curio on your team has walked the stage. Graduate 15 curios.',
+    criteria: (d) => (d.curios_graduated || 0) >= 15,
+    xpReward: 800,
+    goldReward: 400
+  },
+
+  // ─── CURIO TRADING ACHIEVEMENTS ─────────────────────────────────────────────
+  {
+    id: 'first_trade',
+    title: 'Handshake Deal',
+    description: 'Trust, sealed with a trade. Complete your first curio trade.',
+    criteria: (d) => (d.trades_completed || 0) >= 1,
+    xpReward: 75,
+    goldReward: 50
+  },
+  {
+    id: 'seasoned_trader',
+    title: 'Seasoned Trader',
+    description: 'The market knows your name. Complete 5 curio trades.',
+    criteria: (d) => (d.trades_completed || 0) >= 5,
+    xpReward: 250,
+    goldReward: 125
+  },
+  {
+    id: 'trade_baron',
+    title: 'Trade Baron',
+    description: 'Your ledger of deals runs deep. Complete 15 curio trades.',
+    criteria: (d) => (d.trades_completed || 0) >= 15,
+    xpReward: 600,
+    goldReward: 300
+  },
+
+  // ─── LEGENDARY CATCH ACHIEVEMENTS ──────────────────────────────────────────
+  {
+    id: 'legend_found',
+    title: 'A Legend Found',
+    description: 'The rarest of finds. Catch your first legendary curio in the wild.',
+    criteria: (d) => (d.legendaries_caught || 0) >= 1,
+    xpReward: 400,
+    goldReward: 200
+  },
+  {
+    id: 'legend_collector',
+    title: 'Legend Collector',
+    description: 'The Ledger\'s rarest fragments gather around you. Catch 5 legendary curios.',
+    criteria: (d) => (d.legendaries_caught || 0) >= 5,
+    xpReward: 1000,
+    goldReward: 500
+  },
+
+  // ─── TUTOR (QUALITY REROLL) ACHIEVEMENTS ───────────────────────────────────
+  {
+    id: 'first_tutoring',
+    title: 'Extra Credit',
+    description: 'A little polish never hurts. Tutor a curio for the first time.',
+    criteria: (d) => (d.tutor_rerolls || 0) >= 1,
+    xpReward: 75,
+    goldReward: 25
+  },
+  {
+    id: 'dedicated_pupil',
+    title: 'Dedicated Pupil',
+    description: 'Practice makes perfect quality. Tutor curios 10 times.',
+    criteria: (d) => (d.tutor_rerolls || 0) >= 10,
+    xpReward: 300,
+    goldReward: 150
+  },
+  {
+    id: 'honor_roll',
+    title: 'Honor Roll',
+    description: 'No amount of gold is too much for perfection. Tutor curios 30 times.',
+    criteria: (d) => (d.tutor_rerolls || 0) >= 30,
+    xpReward: 700,
+    goldReward: 350
+  },
+
+  // ─── TATAY (JOKE CAPSTONE) ACHIEVEMENTS ────────────────────────────────────
+  {
+    id: 'no_power_here',
+    title: 'You Have No Power Here',
+    description: '"You have no power here, kid!" Lose a battle against Tatay.',
+    criteria: (d) => (d.tatay_battles_lost || 0) >= 1,
+    xpReward: 25,
+    goldReward: 10
+  },
+  {
+    id: 'tatay_slayer',
+    title: 'The Student Becomes The Teacher',
+    description: 'No one saw this coming — not even Tatay. Defeat Tatay in battle.',
+    criteria: (d) => (d.tatay_battles_won || 0) >= 1,
+    xpReward: 1000,
+    goldReward: 500
+  },
 ];

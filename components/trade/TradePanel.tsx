@@ -26,6 +26,10 @@ interface TradePanelProps {
   userId: UserId;
   userMonsters: UserMonster[];
   onTradeCompleted: () => void;
+  // Achievement-counter bump (see lib/achievements.ts) — fired only when a
+  // trade actually completes, unlike onTradeCompleted which also refreshes
+  // after a decline/cancel.
+  onTradeConfirmed?: () => void;
 }
 
 // Curio-for-curio: 250 gold per curio moved, both sides counted, initiator
@@ -55,7 +59,7 @@ function monsterLabel(m: UserMonster): string {
 
 const currentSunday = () => format(startOfWeek(new Date()), 'yyyy-MM-dd');
 
-export default function TradePanel({ userId, userMonsters, onTradeCompleted }: TradePanelProps) {
+export default function TradePanel({ userId, userMonsters, onTradeCompleted, onTradeConfirmed }: TradePanelProps) {
   const [tab, setTab] = useState<'pending' | 'new' | 'history'>('pending');
   const [threads, setThreads] = useState<TradeThread[]>([]);
   const [busyId, setBusyId] = useState<string | null>(null);
@@ -79,6 +83,7 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted }: T
     const result = await respondToTrade(tradeId, accept, currentSunday());
     if (result.status === 'completed') {
       logAction(userId, currentSunday(), 'trade', '🔄 Completed a curio trade', 0, 0);
+      onTradeConfirmed?.();
     } else if (!accept) {
       logAction(userId, currentSunday(), 'trade', '🔄 Declined a trade request', 0, 0);
     }

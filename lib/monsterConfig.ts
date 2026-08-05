@@ -894,10 +894,6 @@ export interface NpcTrainer {
   reward: { exp: number; gold: number };
   emoji: string;
   intro: string;
-  // A joke/lore capstone opponent that can never actually be defeated — see
-  // its enforcement in handleQuestionsComplete (MonsterGuild.tsx), which
-  // floors this trainer's active curio HP at 1 so it can never be KO'd.
-  unbeatable?: boolean;
   // Overrides the default `/trainers/{id}.png` sprite lookup for trainers
   // whose art lives elsewhere (e.g. a pre-existing decorative asset).
   spriteOverride?: string;
@@ -994,10 +990,7 @@ export const NPC_TRAINERS: NpcTrainer[] = [
     ],
     reward: { exp: 300, gold: 150 },
   },
-  // No levelRequirement gate — an anytime, joke capstone fight. `unbeatable`
-  // is enforced in MonsterGuild.tsx's handleQuestionsComplete, not by stats
-  // alone (NPC counter-damage is tier-capped regardless of level, so a huge
-  // level number wouldn't make a fight actually unwinnable on its own).
+  // No levelRequirement gate — an anytime, joke capstone fight.
   {
     id: 'tatay', name: 'Tatay', element: 'mixed', levelRequirement: 0,
     emoji: '👴', intro: 'You have no power here, kid!',
@@ -1007,7 +1000,6 @@ export const NPC_TRAINERS: NpcTrainer[] = [
       { monsterId: 'lexiwyrm',  level: 100 },
     ],
     reward: { exp: 0, gold: 0 },
-    unbeatable: true,
     spriteOverride: '/tatay sprite.webp',
   },
 ];

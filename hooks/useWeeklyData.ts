@@ -65,6 +65,13 @@ export interface WeeklyData {
   sibling_battles_won: number;
   perfect_quizzes: number;
   dummy_battles_won: number;
+  eggs_hatched: number;
+  curios_graduated: number;
+  trades_completed: number;
+  legendaries_caught: number;
+  tutor_rerolls: number;
+  tatay_battles_won: number;
+  tatay_battles_lost: number;
 }
 
 export function useWeeklyData(userId: string = 'damien') {
@@ -169,7 +176,14 @@ export function useWeeklyData(userId: string = 'damien') {
           monster_battles_won: 0,
           sibling_battles_won: 0,
           perfect_quizzes: 0,
-          dummy_battles_won: 0
+          dummy_battles_won: 0,
+          eggs_hatched: 0,
+          curios_graduated: 0,
+          trades_completed: 0,
+          legendaries_caught: 0,
+          tutor_rerolls: 0,
+          tatay_battles_won: 0,
+          tatay_battles_lost: 0
         };
 
         if (packageData) {
@@ -239,7 +253,14 @@ export function useWeeklyData(userId: string = 'damien') {
     newMonsterBattlesWon: number = data?.monster_battles_won || 0,
     newSiblingBattlesWon: number = data?.sibling_battles_won || 0,
     newPerfectQuizzes: number = data?.perfect_quizzes || 0,
-    newDummyBattlesWon: number = data?.dummy_battles_won || 0
+    newDummyBattlesWon: number = data?.dummy_battles_won || 0,
+    newEggsHatched: number = data?.eggs_hatched || 0,
+    newCuriosGraduated: number = data?.curios_graduated || 0,
+    newTradesCompleted: number = data?.trades_completed || 0,
+    newLegendariesCaught: number = data?.legendaries_caught || 0,
+    newTutorRerolls: number = data?.tutor_rerolls || 0,
+    newTatayBattlesWon: number = data?.tatay_battles_won || 0,
+    newTatayBattlesLost: number = data?.tatay_battles_lost || 0
   ) => {
     if (!data) {
       console.error('Aborting update: data is null');
@@ -267,7 +288,14 @@ export function useWeeklyData(userId: string = 'damien') {
         monster_battles_won: newMonsterBattlesWon,
         sibling_battles_won: newSiblingBattlesWon,
         perfect_quizzes: newPerfectQuizzes,
-        dummy_battles_won: newDummyBattlesWon
+        dummy_battles_won: newDummyBattlesWon,
+        eggs_hatched: newEggsHatched,
+        curios_graduated: newCuriosGraduated,
+        trades_completed: newTradesCompleted,
+        legendaries_caught: newLegendariesCaught,
+        tutor_rerolls: newTutorRerolls,
+        tatay_battles_won: newTatayBattlesWon,
+        tatay_battles_lost: newTatayBattlesLost
       })) {
         newUnlocked[ach.id] = true;
         addedXp += ach.xpReward;
@@ -312,7 +340,14 @@ export function useWeeklyData(userId: string = 'damien') {
       monster_battles_won: newMonsterBattlesWon,
       sibling_battles_won: newSiblingBattlesWon,
       perfect_quizzes: newPerfectQuizzes,
-      dummy_battles_won: newDummyBattlesWon
+      dummy_battles_won: newDummyBattlesWon,
+      eggs_hatched: newEggsHatched,
+      curios_graduated: newCuriosGraduated,
+      trades_completed: newTradesCompleted,
+      legendaries_caught: newLegendariesCaught,
+      tutor_rerolls: newTutorRerolls,
+      tatay_battles_won: newTatayBattlesWon,
+      tatay_battles_lost: newTatayBattlesLost
     };
 
     if (isOfflineStorageAvailable() && isAppOffline()) {
@@ -366,6 +401,41 @@ export function useWeeklyData(userId: string = 'damien') {
     }
   };
 
+  // Increments one or more of the newer per-mechanic achievement counters
+  // (egg hatching, graduation, trading, legendary catches, Tutor rerolls,
+  // the Tatay joke fight) without callers having to thread the entire
+  // updateStatsAndJournal positional argument list through just to bump one
+  // number — everything else is carried forward from the current `data`.
+  const bumpCounters = async (deltas: Partial<{
+    eggs_hatched: number;
+    curios_graduated: number;
+    trades_completed: number;
+    legendaries_caught: number;
+    tutor_rerolls: number;
+    tatay_battles_won: number;
+    tatay_battles_lost: number;
+  }>) => {
+    if (!data) return;
+    await updateStatsAndJournal(
+      data.character_stats, data.journal_logs,
+      data.purchased_items, data.mastery_count, data.honor_grants,
+      data.quiz_attempts || {}, data.mastered_quizzes || [],
+      data.honor_grants,
+      data.guild_sessions_count || 0,
+      data.monster_battles_won || 0,
+      data.sibling_battles_won || 0,
+      data.perfect_quizzes || 0,
+      data.dummy_battles_won || 0,
+      (data.eggs_hatched || 0) + (deltas.eggs_hatched || 0),
+      (data.curios_graduated || 0) + (deltas.curios_graduated || 0),
+      (data.trades_completed || 0) + (deltas.trades_completed || 0),
+      (data.legendaries_caught || 0) + (deltas.legendaries_caught || 0),
+      (data.tutor_rerolls || 0) + (deltas.tutor_rerolls || 0),
+      (data.tatay_battles_won || 0) + (deltas.tatay_battles_won || 0),
+      (data.tatay_battles_lost || 0) + (deltas.tatay_battles_lost || 0)
+    );
+  };
+
   const applyGoldDelta = async (amount: number) => {
     if (!data) return;
 
@@ -395,5 +465,5 @@ export function useWeeklyData(userId: string = 'damien') {
     setData(prev => prev ? { ...prev, character_stats: finalStats as CharacterStats } : prev);
   };
 
-  return { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta };
+  return { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta, bumpCounters };
 }

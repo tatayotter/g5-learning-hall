@@ -36,6 +36,7 @@ export default function TeamPanel({
   userMonsters, playerLevel, userId, onTeamChange, onLoadoutChange, monsterDisplay, caughtMonsters, onPromote,
   inventory, currentGold, weekStartingDate, onGoldSynced,
   eggChainMap, claimedEggParentIds, onEggClaimed,
+  onGraduated, onTutored,
 }: {
   userMonsters: UserMonster[];
   playerLevel: number;
@@ -61,6 +62,11 @@ export default function TeamPanel({
   eggChainMap: EggChainMap;
   claimedEggParentIds: Set<string | null>;
   onEggClaimed: () => void;
+  // Achievement-counter bumps (see lib/achievements.ts) — fired on a
+  // successful graduation/Tutor attempt, separately from onLoadoutChange
+  // (which just refreshes the panel's own data).
+  onGraduated?: () => void;
+  onTutored?: () => void;
 }) {
   const unlockedSlots = getUnlockedMonsterSlots(playerLevel);
   const benchedMonsters = userMonsters.filter(m => m.slot === null);
@@ -182,6 +188,7 @@ export default function TeamPanel({
         const toName = getGraduatedMonsterDisplay(speciesDef, targetTier).name;
         logAction(userId, weekStartingDate, 'graduation', `🎓 Graduated into ${toName}`, 0, 0);
         onLoadoutChange();
+        onGraduated?.();
       } else {
         alert('Could not graduate — make sure the monster has reached the required level and you have a Graduation Scroll.');
       }
@@ -212,6 +219,7 @@ export default function TeamPanel({
       if (outcome.character_stats) onGoldSynced(outcome.character_stats);
       setUseTomeToggle(false);
       setTutorOutcome({ outcome, monsterName, def, monsterLevel });
+      onTutored?.();
       const upgraded = outcome.new_quality && outcome.new_quality !== outcome.previous_quality;
       logAction(
         userId, weekStartingDate, 'tutor',
