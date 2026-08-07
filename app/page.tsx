@@ -40,6 +40,7 @@ import { watchAndFlushSyncQueue } from '@/lib/offlineSync';
 import { seedOfflineCache } from '@/lib/offlineSeed';
 import MonsterShop from '@/components/MonsterShop';
 import VaultKeeperNpc from '@/components/VaultKeeperNpc';
+import CurioExpertNpc from '@/components/CurioExpertNpc';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import { respondToInvite } from '@/lib/liveBattle';
@@ -294,10 +295,16 @@ export default function Dashboard() {
   // Retriggers the Vault Keeper's slide-in greeting each time the player
   // (re)enters the vault tab, rather than just once on mount.
   const [vaultGreetKey, setVaultGreetKey] = useState(0);
+  // Retriggers the Curio Expert's slide-in greeting each time the player
+  // (re)enters the Curio Arena tab, rather than just once on mount.
+  const [curioGreetKey, setCurioGreetKey] = useState(0);
   const prevTabRef = useRef(activeTab);
   useEffect(() => {
     if (activeTab === 'vault' && prevTabRef.current !== 'vault') {
       setVaultGreetKey((k) => k + 1);
+    }
+    if (activeTab === 'monster' && prevTabRef.current !== 'monster') {
+      setCurioGreetKey((k) => k + 1);
     }
     prevTabRef.current = activeTab;
   }, [activeTab]);
@@ -1311,6 +1318,8 @@ export default function Dashboard() {
         )}
 
         {/* --- TAB: ADMIN --- */}
+
+        {activeTab === 'monster' && <CurioExpertNpc key={curioGreetKey} />}
 
         {activeTab === 'monster' && (
           <MonsterGuild
