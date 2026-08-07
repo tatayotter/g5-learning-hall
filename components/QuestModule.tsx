@@ -1,6 +1,7 @@
 // components/QuestModule.tsx
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { playChime, playClash, playLevelUp } from '@/lib/sounds';
 import GameButton from '@/components/GameButton';
@@ -17,7 +18,10 @@ function shuffleArray<T>(arr: T[]): T[] {
   return result;
 }
 
-const markdownComponents = {
+// Exported so other screens that render the same summary_markdown (e.g. the
+// pre-quest "Study Session" screens in app/page.tsx) can match this styling
+// instead of falling back to plain/unstyled markdown.
+export const markdownComponents = {
   h1: (props: any) => <h1 className="text-2xl font-bold font-display text-white mt-6 mb-3 first:mt-0" {...props} />,
   h2: (props: any) => <h2 className="text-xl font-bold font-display text-white mt-6 mb-3 first:mt-0" {...props} />,
   h3: (props: any) => <h3 className="text-lg font-bold font-display text-blue-400 mt-6 mb-2 first:mt-0" {...props} />,
@@ -28,6 +32,14 @@ const markdownComponents = {
   li: (props: any) => <li className="pl-1" {...props} />,
   hr: () => <hr className="border-neutral-700 my-6" />,
   blockquote: (props: any) => <blockquote className="border-l-4 border-blue-600 pl-4 italic text-gray-400 my-4" {...props} />,
+  // GFM tables (needs remarkPlugins={[remarkGfm]} passed alongside this map —
+  // plain react-markdown doesn't parse table syntax at all, it just falls
+  // through as a literal pipe-delimited paragraph).
+  table: (props: any) => <div className="overflow-x-auto mb-4"><table className="w-full text-sm border-collapse" {...props} /></div>,
+  thead: (props: any) => <thead className="text-white" {...props} />,
+  tr: (props: any) => <tr className="border-b border-neutral-800" {...props} />,
+  th: (props: any) => <th className="text-left font-bold py-2 px-3 border-b border-neutral-700" {...props} />,
+  td: (props: any) => <td className="py-2 px-3 text-gray-300" {...props} />,
 };
 
 interface QuizQuestion {
@@ -217,7 +229,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
 
       {!hasStarted && (
         <div className="mb-10 bg-black/30 border border-neutral-800 rounded-xl p-6">
-          <ReactMarkdown components={markdownComponents}>{content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{content}</ReactMarkdown>
         </div>
       )}
 
