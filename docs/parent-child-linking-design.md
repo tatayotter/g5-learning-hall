@@ -378,21 +378,94 @@ confirmed a second link attempt is rejected with `child account limit
 reached (1 of 1)`; added an active subscription row for the same parent,
 confirmed the same link then succeeds. Test rows cleaned up after.
 
+## Admin re-link tool implementation (2026-08-06)
+
+Feature is now fully built end-to-end, backend and frontend, verified live
+against the remote DB (test rows cleaned up after each check):
+
+- **Fixed a real gap found while wiring this up:** `admin_list_children`
+  inner-joined `parents`, so self-registered unclaimed children were
+  completely invisible in the admin dashboard — no way to see or moderate
+  them at all. Changed to a left join (migration
+  `admin_list_children_show_unclaimed`); `ChildrenSection.tsx` now shows
+  `self-registered, unlinked` for these instead of a blank/broken parent
+  field.
+- `admin_request_child_reassignment`'s return type changed from `text`
+  (cancel token only) to `jsonb` bundling `cancel_token`,
+  `old_parent_email`, `new_parent_email`, `child_full_name` — avoids a
+  second lookup in the calling route. Explicit drop + recreate since
+  `CREATE OR REPLACE` cannot change a return type (and, per the earlier
+  overload lesson in this doc, a same-signature `create or replace` with a
+  different return type errors outright rather than silently creating a
+  bad overload — confirmed this the safe way this time).
+- `execute_due_child_reassignments`'s return type similarly changed from
+  `int` (count) to a row set (`child_id, child_full_name,
+  old_parent_email, new_parent_email`) so the scheduled job knows who to
+  email on completion.
+- New pieces: `app/api/admin-child-reassignment/route.ts` (passcode-gated,
+  calls the RPC then fires `admin-reassignment-notify`);
+  `supabase/functions/admin-reassignment-notify` (cancel-link email to old
+  parent, pending notice to new parent — invoked server-side with
+  `SUPABASE_SERVICE_ROLE_KEY`, `verify_jwt: true`, never called from the
+  browser); `app/cancel-reassignment` + `components/CancelReassignmentAction.tsx`
+  (the page the old parent's cancel link lands on — no auth needed, the
+  token itself is the proof of authority, same pattern as the parent-link
+  invite token); `components/admin/ChildrenSection.tsx` gained a
+  "🔁 Reassign Parent" action on already-linked children only.
+- **Scheduled job**: `supabase/functions/execute-due-reassignments`,
+  mirroring `reengagement-sync`'s pg_cron + shared-secret-header pattern
+  exactly, but **hourly** (`0 * * * *`) rather than daily — a 48h window
+  shouldn't risk slipping by up to 24h extra waiting on a once-a-day cron.
+  Scheduled via migration `schedule_reassignment_cron`. Sends completion
+  emails to both parents once a reassignment actually executes.
+  `REASSIGNMENT_CRON_SECRET` (the same plaintext generated and shared with
+  the user earlier in this doc's history) gates both the pg_cron -> function
+  HTTP call and the function -> RPC call.
+
+Verified live: full request -> cancel lifecycle (cancel token rejects
+wrong/expired input, accepts the right one); full request -> execute
+lifecycle (`children.parent_id` actually changes once `effective_at` is
+reached and the cron secret is correct); wrong admin passcode rejected;
+`admin_list_children` now returns the previously-invisible unlinked child
+alongside a normal linked one. Also ran a full project `tsc --noEmit` —
+zero errors.
+
+`REASSIGNMENT_CRON_SECRET` has been set as an Edge Function secret.
+
+**Bug found and fixed via live testing, not just review (2026-08-06):**
+`admin_request_child_reassignment` resolved `new_parent_id` from
+`auth.users` but never confirmed a matching `parents` row exists —
+`children.parent_id` and `pending_parent_reassignments.new_parent_id` both
+FK to `parents(id)`, not `auth.users(id)`. Reassigning to an account that
+predates the `on_auth_user_created_insert_parent` trigger (confirmed to
+exist for at least one real account in this project) raised a raw FK
+violation instead of completing or failing cleanly.
+`confirm_parent_link` already guarded against exactly this
+(`insert ... on conflict do update`); `admin_request_child_reassignment`
+now does the same (migration `admin_request_reassignment_ensure_parent_row`).
+
+Caught by testing against a real edge case (an admin account with no
+`parents` row) rather than only synthetic test accounts that happen to get
+one automatically — worth remembering as a pattern: synthetic test fixtures
+can accidentally test only the "happy path" the trigger already covers.
+
+Full chain verified live end-to-end for real, including actual email
+delivery: seeded a due reassignment, manually invoked the deployed
+`execute-due-reassignments` function via `curl` with the real
+`x-cron-secret` (rather than waiting for the hourly tick), confirmed
+`{"completed":1}`, confirmed `children.parent_id` actually changed and
+`pending_parent_reassignments.status` flipped to `completed`. All test
+rows removed afterward, including a `parents` row the bug-fixed RPC created
+as a side effect of testing against the real admin account (it had none
+before) — deleted to restore exact original state.
+
 ## Open items before implementation
 
-- Build the admin reassignment UI in `components/admin/ChildrenSection.tsx`
-  (currently read-only on `parent_id`) and the emails it sends
-  (cancel-link notice to the old parent, pending/completion notices).
-- Build the scheduled job that calls `execute_due_child_reassignments` with
-  `REASSIGNMENT_CRON_SECRET` (value was generated and shared with the user
-  directly in chat, not committed anywhere).
-- Verify a verified sending domain + `RESEND_FROM_EMAIL` are set before
-  relying on this for real parent invites (currently falls back to
-  Resend's shared test sender, which only delivers to the Resend account
-  owner's own inbox).
 - Decide the exact nudge-banner trigger threshold — currently shows
   immediately/always for any unlinked child rather than after a delay
   (e.g. day 3 of play or first PvP attempt, per the original design intent).
+- Optionally enable DMARC in Resend for `learninghallph.com` (currently
+  off — not blocking, just better deliverability).
 - Add the admin UI for reassignment in `components/admin/ChildrenSection.tsx`
   (currently read-only on `parent_id`).
 - Wire the nudge banner + gate leaderboards/PvP on `children.parent_id IS

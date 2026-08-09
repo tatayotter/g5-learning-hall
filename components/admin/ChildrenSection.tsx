@@ -19,9 +19,9 @@ interface Classmate {
 
 interface AdminChild {
   id: string;
-  parent_id: string;
-  parent_email: string;
-  parent_status: string;
+  parent_id: string | null;
+  parent_email: string | null;
+  parent_status: string | null;
   username: string;
   full_name: string;
   grade: string;
@@ -62,6 +62,12 @@ export default function ChildrenSection({ passcode }: { passcode: string }) {
   const [error, setError] = useState('');
   const [resetTargetId, setResetTargetId] = useState<string | null>(null);
   const [resetPassword, setResetPassword] = useState('');
+
+  const [reassignTargetId, setReassignTargetId] = useState<string | null>(null);
+  const [reassignEmail, setReassignEmail] = useState('');
+  const [reassignReason, setReassignReason] = useState('');
+  const [reassignSubmitting, setReassignSubmitting] = useState(false);
+  const [reassignMessage, setReassignMessage] = useState('');
 
   const loadClassmates = async () => {
     const { data } = await supabase
@@ -169,6 +175,23 @@ export default function ChildrenSection({ passcode }: { passcode: string }) {
     const { error } = await supabase.rpc('admin_set_child_active', { p_child_id: c.id, p_is_active: !c.is_active });
     if (error) alert(error.message);
     else loadChildren();
+  };
+
+  const handleReassign = async (c: AdminChild) => {
+    if (!reassignEmail.trim() || !reassignReason.trim()) return;
+    setReassignSubmitting(true);
+    setReassignMessage('');
+    const result = await callAdminApi('/api/admin-child-reassignment', {
+      passcode, childId: c.id, newParentEmail: reassignEmail.trim(), reason: reassignReason.trim(),
+    });
+    setReassignSubmitting(false);
+    if (result.success) {
+      setReassignMessage('✅ Reassignment requested — both parents have been notified. It takes effect in 48 hours unless the current parent cancels it.');
+      setReassignEmail('');
+      setReassignReason('');
+    } else {
+      setReassignMessage(`❌ ${result.error || 'Failed to request reassignment.'}`);
+    }
   };
 
   const people: Person[] = useMemo(() => [
@@ -340,19 +363,58 @@ export default function ChildrenSection({ passcode }: { passcode: string }) {
                     <div key={`child-${p.data.id}`} className="bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-white font-medium text-sm">{p.data.full_name} <span className="text-gray-600 text-xs font-normal">· parent-registered</span></p>
-                          <p className="text-xs text-gray-500 font-mono">{p.data.username} · parent: {p.data.parent_email}</p>
+                          <p className="text-white font-medium text-sm">
+                            {p.data.full_name}{' '}
+                            <span className="text-gray-600 text-xs font-normal">
+                              · {p.data.parent_id ? 'parent-registered' : 'self-registered, unlinked'}
+                            </span>
+                          </p>
+                          <p className="text-xs text-gray-500 font-mono">
+                            {p.data.username}{' '}
+                            {p.data.parent_id
+                              ? `· parent: ${p.data.parent_email}`
+                              : <span className="text-amber-500">· no parent linked yet</span>}
+                          </p>
                         </div>
                         <div className="flex items-center gap-2">
                           <span className="text-white text-xs font-bold px-3 py-1.5 rounded-lg bg-neutral-800">
                             {p.data.gender === 'girl' ? '👧 Girl' : '👦 Boy'}
                           </span>
+                          {p.data.parent_id && (
+                            <button onClick={() => {
+                              setReassignTargetId(reassignTargetId === p.data.id ? null : p.data.id);
+                              setReassignEmail(''); setReassignReason(''); setReassignMessage('');
+                            }}
+                              className="bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">
+                              🔁 Reassign Parent
+                            </button>
+                          )}
                           <button onClick={() => handleToggleChildActive(p.data)}
                             className={`text-xs font-bold px-3 py-1.5 rounded-lg transition-colors ${p.data.is_active ? 'bg-green-900/50 text-green-400 border border-green-800 hover:bg-red-900/50 hover:text-red-400 hover:border-red-800' : 'bg-neutral-800 text-gray-500 border border-neutral-700 hover:bg-green-900/50 hover:text-green-400'}`}>
                             {p.data.is_active ? '✅ Active' : '⛔ Inactive'}
                           </button>
                         </div>
                       </div>
+                      {reassignTargetId === p.data.id && (
+                        <div className="mt-3 space-y-2 border-t border-neutral-800 pt-3">
+                          <p className="text-xs text-gray-500">
+                            Moves this child to a different (already-registered) parent account. Takes effect in
+                            48 hours — the current parent gets a cancel link, the new parent gets a heads-up.
+                            Requires a written reason for the audit trail.
+                          </p>
+                          <input type="email" placeholder="New parent's email (must already have an account)"
+                            value={reassignEmail} onChange={e => setReassignEmail(e.target.value)}
+                            className="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:border-neutral-500" />
+                          <input type="text" placeholder="Reason (required, e.g. support ticket #)"
+                            value={reassignReason} onChange={e => setReassignReason(e.target.value)}
+                            className="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:border-neutral-500" />
+                          {reassignMessage && <p className="text-xs">{reassignMessage}</p>}
+                          <button onClick={() => handleReassign(p.data)} disabled={reassignSubmitting}
+                            className="bg-amber-700 hover:bg-amber-600 disabled:opacity-40 text-white text-xs font-bold px-4 py-1.5 rounded-lg transition-colors">
+                            {reassignSubmitting ? 'Requesting…' : 'Request Reassignment'}
+                          </button>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>

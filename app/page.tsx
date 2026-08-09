@@ -3,6 +3,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { UserId, getActiveUser, clearActiveUser, loadClassmates, loadChildren, loadFamilyProtection, loadAvatarOverrides, loadThemeOverrides, saveTheme, linkIdentity, recordLastLogin, registerDemoUser, USERS, gradeToNumber } from '@/lib/userSession';
 import { THEME_CLASSES, getThemeItem } from '@/lib/themeShop';
 import SplashScreen from '@/components/SplashScreen';
@@ -12,7 +13,8 @@ import GuildJournal from '@/components/GuildJournal';
 import DailyChecklist from '@/components/DailyChecklist';
 import { markGuildSessionToday, GuildKey, GUILDS } from '@/lib/dailyChecklist';
 import { buildWeeklyReviewDay, WEEKLY_REVIEW_SUBJECT } from '@/lib/weeklyReview';
-import QuestModule from '@/components/QuestModule';
+import QuestModule, { markdownComponents } from '@/components/QuestModule';
+import { useReadTimer } from '@/hooks/useReadTimer';
 import { format } from 'date-fns';
 import AchievementsBoard from '@/components/AchievementsBoard';
 import { supabase } from '@/lib/supabase';
@@ -38,6 +40,7 @@ import { watchAndFlushSyncQueue } from '@/lib/offlineSync';
 import { seedOfflineCache } from '@/lib/offlineSeed';
 import MonsterShop from '@/components/MonsterShop';
 import VaultKeeperNpc from '@/components/VaultKeeperNpc';
+import CurioExpertNpc from '@/components/CurioExpertNpc';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import { respondToInvite } from '@/lib/liveBattle';
@@ -292,10 +295,16 @@ export default function Dashboard() {
   // Retriggers the Vault Keeper's slide-in greeting each time the player
   // (re)enters the vault tab, rather than just once on mount.
   const [vaultGreetKey, setVaultGreetKey] = useState(0);
+  // Retriggers the Curio Expert's slide-in greeting each time the player
+  // (re)enters the Curio Arena tab, rather than just once on mount.
+  const [curioGreetKey, setCurioGreetKey] = useState(0);
   const prevTabRef = useRef(activeTab);
   useEffect(() => {
     if (activeTab === 'vault' && prevTabRef.current !== 'vault') {
       setVaultGreetKey((k) => k + 1);
+    }
+    if (activeTab === 'monster' && prevTabRef.current !== 'monster') {
+      setCurioGreetKey((k) => k + 1);
     }
     prevTabRef.current = activeTab;
   }, [activeTab]);
@@ -353,6 +362,26 @@ export default function Dashboard() {
   const [activeEventQuest, setActiveEventQuest] = useState<string | null>(null);
   const [eventQuizPhase, setEventQuizPhase] = useState<'study' | 'ready' | 'quiz'>('study');
   const [showEventPopup, setShowEventPopup] = useState(false);
+
+  // Forced-read countdown for the pre-quiz "Study Session" screens, sized to
+  // each quest's own notes. Computed here (before the loading/no-data early
+  // returns below) so useReadTimer's internal hooks are called on every
+  // render — hooks can't live behind a conditional return. `data` may still
+  // be null/loading at this point, which the optional chaining below handles;
+  // the Weekly Review quest's synthesized content isn't in raw package_data,
+  // so it falls back to useReadTimer's minimum duration rather than a
+  // length-aware one — an acceptable gap, not a broken gate.
+  const [timerQuestDay, timerQuestSubject] = activeQuest ? activeQuest.split('_') : [undefined, undefined];
+  const rawPackageDataForTimer = data && typeof data.package_data === 'string' && data.package_data.trim() !== ''
+    ? JSON.parse(data.package_data)
+    : (data?.package_data || {});
+  const activeStudyContent = timerQuestDay && timerQuestSubject
+    ? rawPackageDataForTimer?.[timerQuestDay]?.[timerQuestSubject]?.summary_markdown
+    : undefined;
+  const studyReadRemaining = useReadTimer(activeStudyContent, activeQuest || '');
+
+  const activeEventQuestForTimer = eventQuests.find(q => q.id === activeEventQuest);
+  const eventStudyReadRemaining = useReadTimer(activeEventQuestForTimer?.summary_markdown, activeEventQuest || '');
 
   const loadEventData = async (userId: UserId) => {
     // Demo accounts never see Special Events (sidebar panel, board section,
@@ -671,7 +700,10 @@ export default function Dashboard() {
                             completed={isQuestMastered}
                             onEnter={() => {
                               setActiveEventQuest(q.id);
-                              setEventQuizPhase('ready');
+                              // Same fix as the board-quest entry point —
+                              // show the notes first, not the ready-confirm
+                              // screen, so the read-timer actually engages.
+                              setEventQuizPhase('study');
                             }}
                           />
                         );
@@ -714,7 +746,11 @@ export default function Dashboard() {
                             completed={(data.mastered_quizzes || []).includes(`${day}_${subjectName}`)}
                             onEnter={() => {
                               setActiveQuest(`${day}_${subjectName}`);
-                              setQuizPhase('ready');
+                              // Land on the notes screen first, not the
+                              // "ready" confirm screen — that's what was
+                              // letting kids skip straight past the summary
+                              // without the read-timer ever engaging.
+                              setQuizPhase('study');
                             }}
                           />
                         ))}
@@ -752,16 +788,19 @@ export default function Dashboard() {
 
                   <div className="bg-neutral-900 border border-neutral-800 p-8 rounded-xl shadow-lg">
                     <h2 className="text-3xl font-bold mb-6 text-blue-400 font-display">Study Session: {subject}</h2>
-                    <div className="text-gray-300 leading-relaxed whitespace-pre-wrap border-t border-neutral-800 pt-6">
-                      {questData?.summary_markdown || "No notes available for this module."}
+                    <div className="border-t border-neutral-800 pt-6">
+                      {questData?.summary_markdown
+                        ? <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{questData.summary_markdown}</ReactMarkdown>
+                        : <p className="text-gray-300 leading-relaxed">No notes available for this module.</p>}
                     </div>
                   </div>
 
                   <GameButton
-                    onClick={() => setQuizPhase('ready')}
-                    className="w-full bg-yellow-600 hover:bg-yellow-500 text-black py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-[1.01]"
+                    onClick={() => { if (studyReadRemaining <= 0) setQuizPhase('ready'); }}
+                    disabled={studyReadRemaining > 0}
+                    className="w-full bg-yellow-600 hover:bg-yellow-500 text-black py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-[1.01] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
-                    I Am Ready To Fight
+                    {studyReadRemaining > 0 ? `🔒 Keep Reading... ${studyReadRemaining}s` : 'I Am Ready To Fight'}
                   </GameButton>
                 </div>
               )}
@@ -931,16 +970,19 @@ export default function Dashboard() {
 
                   <div className="bg-neutral-900 border border-amber-900 p-8 rounded-xl shadow-lg">
                     <h2 className="text-3xl font-bold mb-6 text-amber-400 font-display">Study Session: {eventQuest?.subject_name}</h2>
-                    <div className="text-gray-300 leading-relaxed whitespace-pre-wrap border-t border-neutral-800 pt-6">
-                      {eventQuest?.summary_markdown || "No notes available for this module."}
+                    <div className="border-t border-neutral-800 pt-6">
+                      {eventQuest?.summary_markdown
+                        ? <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{eventQuest.summary_markdown}</ReactMarkdown>
+                        : <p className="text-gray-300 leading-relaxed">No notes available for this module.</p>}
                     </div>
                   </div>
 
                   <GameButton
-                    onClick={() => setEventQuizPhase('ready')}
-                    className="w-full bg-amber-600 hover:bg-amber-500 text-black py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-[1.01]"
+                    onClick={() => { if (eventStudyReadRemaining <= 0) setEventQuizPhase('ready'); }}
+                    disabled={eventStudyReadRemaining > 0}
+                    className="w-full bg-amber-600 hover:bg-amber-500 text-black py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-[1.01] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
-                    I Am Ready To Fight
+                    {eventStudyReadRemaining > 0 ? `🔒 Keep Reading... ${eventStudyReadRemaining}s` : 'I Am Ready To Fight'}
                   </GameButton>
                 </div>
               )}
@@ -1276,6 +1318,8 @@ export default function Dashboard() {
         )}
 
         {/* --- TAB: ADMIN --- */}
+
+        {activeTab === 'monster' && <CurioExpertNpc key={curioGreetKey} />}
 
         {activeTab === 'monster' && (
           <MonsterGuild
