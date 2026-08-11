@@ -23,9 +23,10 @@ async function replay(row: SyncQueueRow): Promise<void> {
       await claimChecklistBonus(p.userId, p.today, p.dayName, p.weekStartingDate);
       return;
     case 'apply_character_deltas': {
-      // Queue target name kept as-is (matches hooks/useWeeklyData.ts's enqueueSync calls) but
-      // now replays against apply_progress_deltas (player_progress, lifetime, no week param) —
-      // see docs/weekly-progress-redesign-plan.md Phase 4 Wave 1.
+      // Queue target name kept as-is (matches applyGoldDelta's enqueueSync call, which only
+      // ever needs a bare xp/gold delta) but replays against apply_progress_deltas
+      // (player_progress, lifetime, no week param) — see
+      // docs/weekly-progress-redesign-plan.md Phase 4 Wave 1.
       const { error } = await supabase.rpc('apply_progress_deltas', {
         p_user_id: p.userId,
         p_xp_delta: p.xpDelta,
@@ -34,6 +35,44 @@ async function replay(row: SyncQueueRow): Promise<void> {
       if (error) throw error;
       return;
     }
+    case 'apply_progress_update': {
+      // updateStatsAndJournal's full stats+counters+achievements write (Phase 4 Wave 4) — see
+      // docs/weekly-progress-redesign-plan.md. Replaces apply_character_deltas +
+      // weekly_packages_other_changes for this call site.
+      const { error } = await supabase.rpc('apply_progress_update', {
+        p_user_id: p.userId,
+        p_xp_delta: p.xpDelta,
+        p_gold_delta: p.goldDelta,
+        p_mastery_count: p.mastery,
+        p_purchased_items: p.purchased,
+        p_honor_grants: p.honor,
+        p_guild_sessions_delta: p.counterDeltas.guild,
+        p_monster_battles_won_delta: p.counterDeltas.monster,
+        p_sibling_battles_won_delta: p.counterDeltas.sibling,
+        p_perfect_quizzes_delta: p.counterDeltas.perfect,
+        p_dummy_battles_won_delta: p.counterDeltas.dummy,
+        p_eggs_hatched_delta: p.counterDeltas.eggs,
+        p_curios_graduated_delta: p.counterDeltas.grad,
+        p_trades_completed_delta: p.counterDeltas.trades,
+        p_legendaries_caught_delta: p.counterDeltas.legend,
+        p_tutor_rerolls_delta: p.counterDeltas.tutor,
+        p_tatay_battles_won_delta: p.counterDeltas.tatayWon,
+        p_tatay_battles_lost_delta: p.counterDeltas.tatayLost,
+        p_new_achievement_ids: p.newAchievementIds,
+      });
+      if (error) throw error;
+      return;
+    }
+    case 'player_weekly_journal_upsert': {
+      const { error } = await supabase
+        .from('player_weekly_journal')
+        .upsert({ user_id: p.userId, content_week_id: p.contentWeekId, ...p.journalChanges }, { onConflict: 'user_id,content_week_id' });
+      if (error) throw error;
+      return;
+    }
+    // Retained so a queue entry written by a pre-Wave-4 app build (an offline device that
+    // hasn't come back online since the update) still replays correctly instead of hitting
+    // the "unknown target" fallback below.
     case 'weekly_packages_other_changes': {
       const { error } = await supabase
         .from('weekly_packages')

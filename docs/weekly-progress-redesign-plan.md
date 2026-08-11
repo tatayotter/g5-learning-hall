@@ -322,10 +322,59 @@ normalized `content_*` tables with real stable question IDs everywhere.
   - The offline shell (`offline-shell/app/page.tsx`) is a separate app and was not touched —
     flagged as out of scope throughout, same as Wave 1.
 
+**Wave 4 — Journal/counter/achievement write path (2026-08-11, done)**
+- Root cause: Waves 1-3 moved level/xp/gold and content reads off `weekly_packages`, but
+  `journal_logs`/`mastery_count`/`purchased_items`/`honor_grants`/`quiz_attempts`/
+  `mastered_quizzes`/the 12 per-week battle counters/`achievements` were still written through the
+  ORIGINAL carry-forward/null-sentinel fetch-then-insert-or-update logic in
+  `hooks/useWeeklyData.ts` — i.e. the exact bug class this whole redesign exists to kill was still
+  live for these fields. Discovered while investigating whether `weekly_packages` could be
+  dropped (it could not — it was still the sole write target for all of the above).
+- New migration `20260811120908_wave4_journal_write_path.sql`: added the 12 per-week counter
+  columns to `player_weekly_journal` (previously only had journal_logs/mastery/purchased/honor/
+  quiz_attempts/mastered_quizzes — the dual-write trigger was already mirroring those 6, just not
+  the 12 counters or achievements); new `apply_progress_update` RPC (one atomic call — xp/gold
+  delta + level-up, absolute mastery/purchased/honor set, per-call deltas for the 12
+  `player_progress.*_total` lifetime counters, achievement-id merge into
+  `player_progress.achievements`).
+- `hooks/useWeeklyData.ts`: fetch no longer touches `weekly_packages`/`weekly_packages_public` at
+  all — reads `player_progress` (stats + achievements, lifetime) and `player_weekly_journal`
+  (journal/counters, this-week, keyed by `content_week_id`) directly, in parallel with content.
+  The entire carry-forward/pre-stage branch (fetch error → bail, no row → carry forward or
+  default-insert) is **deleted**, not just bypassed — journal fields have no carry-forward concept
+  anymore (a new week legitimately starts at empty/0, no previous-week read needed).
+  `updateStatsAndJournal` now calls `apply_progress_update` once, then a direct
+  `player_weekly_journal` upsert (RLS: `current_app_user_id() = user_id`, no RPC needed for that
+  half). Achievement "already unlocked" set now sourced from `player_progress.achievements`, not
+  a per-week field.
+- `lib/offlineSync.ts`: new `apply_progress_update`/`player_weekly_journal_upsert` replay targets;
+  old `weekly_packages_other_changes` case kept (not deleted) purely so a queue entry written by a
+  pre-Wave-4 build (offline device that hasn't reconnected since the update) still replays instead
+  of hitting the unknown-target fallback.
+- `components/admin/ToolsSection.tsx`: diagnostic read of `toolData` (quiz_attempts/mastered
+  quizzes display) now resolves `content_weeks.id` for the user's grade/current-week and reads
+  `player_weekly_journal`, instead of `weekly_packages`.
+- **Verified**: RPC tested directly (level-up math, absolute mastery/purchased/honor set, achievement
+  merge-not-overwrite, per-counter deltas) via scratch `wave4_test_probe` user, cleaned up after.
+  `player_weekly_journal` upsert schema tested directly, cleaned up after. Full real browser
+  round-trip on the live dev server against production data (`fatty`, a real classmate account,
+  Grade 5 English quiz, attempt 2 of an already-answered quiz) — `grade_content_quiz` →
+  `updateStatsAndJournal` → `apply_progress_update` + `player_weekly_journal` upsert fired with
+  zero console/runtime errors; `quiz_attempts.Monday_English` confirmed incremented 1→2 in the DB
+  post-submit. xp/gold correctly did NOT change (repeat-attempt reward suppression is
+  `QuestModule.tsx`'s pre-existing, untouched behavior — first-attempt-only rewards).
+- **`weekly_packages` now has zero remaining app write paths** (grep-confirmed — only the
+  intentional offline backward-compat case in `offlineSync.ts` still references it). It is,
+  finally, actually safe to schedule for Phase 5 decommission — not done in this session, per the
+  existing "observe for a full week-rollover cycle first" rule below.
+
 **Phase 5 — Decommission**
-- Once dual-write window is clean and all call sites cut over, drop writes to old
-  `weekly_packages`, then (after a further safety period) drop the table itself in its own
-  migration.
+- Once dual-write window is clean and all call sites cut over (**true as of Wave 4, 2026-08-11**),
+  drop writes to old `weekly_packages` (already done), then (after a further safety period —
+  recommend waiting past the next Sunday week-rollover, 2026-08-16, so at least one real
+  week-boundary is observed with the new write path) drop the table itself, `weekly_packages_public`,
+  `grade_content_owners`, `increment_weekly_counter`, and the now-fully-dead
+  `sync_weekly_packages_to_progress` trigger, in their own migration.
 
 ## 4. Rollback strategy
 

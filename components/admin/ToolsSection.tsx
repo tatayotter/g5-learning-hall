@@ -31,10 +31,11 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
 
   const loadUserData = async (id: 'damien' | 'tala') => {
     setLoadingData(true);
-    // Level/xp/gold now live on player_progress (lifetime, no week key) — see
-    // docs/weekly-progress-redesign-plan.md Phase 4 Wave 1. Quiz attempts/mastered quizzes
-    // are still week-scoped content, so toolData keeps reading the current week's
-    // weekly_packages row for those (Wave 3 will move that too).
+    // Level/xp/gold live on player_progress (lifetime, no week key); journal_logs/counters/
+    // quiz_attempts/mastered_quizzes live on player_weekly_journal, keyed by content_week_id —
+    // see docs/weekly-progress-redesign-plan.md Phase 4 Waves 1 & 4. Only damien (Grade 5) and
+    // tala (Grade 2) ever reach this admin tool, so the grade map below is fine hardcoded.
+    const grade = id === 'tala' ? 2 : 5;
     const { data: progress } = await supabase
       .from('player_progress')
       .select('level, xp, gold')
@@ -43,14 +44,22 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
     if (progress) {
       setStats(progress as CharacterStats);
     }
-    const { data } = await supabase
-      .from('weekly_packages')
-      .select('*')
-      .eq('user_id', id)
+    const { data: week } = await supabase
+      .from('content_weeks')
+      .select('id')
+      .eq('grade', grade)
       .eq('week_starting_date', currentSunday)
-      .single();
-    if (data) {
-      setToolData(data as WeeklyData);
+      .maybeSingle();
+    if (week) {
+      const { data } = await supabase
+        .from('player_weekly_journal')
+        .select('*')
+        .eq('user_id', id)
+        .eq('content_week_id', week.id)
+        .maybeSingle();
+      if (data) {
+        setToolData(data as WeeklyData);
+      }
     }
     const { data: claimsData } = await supabase
       .from('reward_claims')

@@ -51,21 +51,23 @@ function applyXpDelta(level: number, xp: number, delta: number): { level: number
 // they grade (by real question.id now, not text/position). correct_answer is never included —
 // same answer-stripping guarantee weekly_packages_public used to provide, enforced here by
 // content_questions_public (which never exposes it) rather than a client-side strip.
-async function fetchGradeContent(grade: number, weekStartingDate: string): Promise<any> {
+// Also returns the resolved content_weeks.id (null if the admin hasn't authored this grade/week
+// yet) — Wave 4 keys player_weekly_journal off it instead of a week_starting_date column.
+async function fetchGradeContent(grade: number, weekStartingDate: string): Promise<{ content: any; contentWeekId: string | null }> {
   const { data: week } = await supabase
     .from('content_weeks')
     .select('id')
     .eq('grade', grade)
     .eq('week_starting_date', weekStartingDate)
     .maybeSingle();
-  if (!week) return {};
+  if (!week) return { content: {}, contentWeekId: null };
 
   const { data: rows, error } = await supabase
     .from('content_questions_public')
     .select('id, prompt, options, sort_order, subject, weekday, summary_markdown')
     .eq('content_week_id', week.id)
     .order('sort_order');
-  if (error || !rows) return {};
+  if (error || !rows) return { content: {}, contentWeekId: week.id };
 
   const byDay: Record<string, Record<string, { summary_markdown?: string; quiz: any[] }>> = {};
   rows.forEach((r: any) => {
@@ -75,8 +77,34 @@ async function fetchGradeContent(grade: number, weekStartingDate: string): Promi
     }
     byDay[r.weekday][r.subject].quiz.push({ id: r.id, question: r.prompt, options: r.options });
   });
-  return byDay;
+  return { content: byDay, contentWeekId: week.id };
 }
+
+// The 12 "this week" battle/activity counters, zeroed for a week with no player_weekly_journal
+// row yet (a brand new week, or a week nobody has interacted with). No carry-forward from the
+// previous week — unlike character_stats, these have always reset to 0 client-side on a new
+// week (see the old carriedForward object this replaced), so starting empty is correct, not a
+// gap to fill in.
+const EMPTY_JOURNAL_FIELDS = {
+  journal_logs: {} as Record<string, JournalEntry>,
+  mastery_count: 0,
+  purchased_items: 0,
+  honor_grants: 0,
+  quiz_attempts: {} as Record<string, number>,
+  mastered_quizzes: [] as string[],
+  guild_sessions_count: 0,
+  monster_battles_won: 0,
+  sibling_battles_won: 0,
+  perfect_quizzes: 0,
+  dummy_battles_won: 0,
+  eggs_hatched: 0,
+  curios_graduated: 0,
+  trades_completed: 0,
+  legendaries_caught: 0,
+  tutor_rerolls: 0,
+  tatay_battles_won: 0,
+  tatay_battles_lost: 0,
+};
 
 export interface JournalEntry {
   done_today: string;
@@ -116,13 +144,14 @@ export function useWeeklyData(userId: string = 'damien') {
   const [loading, setLoading] = useState(true);
   // Lifetime totals for achievement-criteria checking (Phase 4 Wave 2, see
   // docs/weekly-progress-redesign-plan.md) — kept a little stale between saves is fine
-  // (self-heals via the Phase 3 trigger next fetch); it's only used to project what an
-  // in-flight counter update will become lifetime-wise, not as a write target itself.
+  // (self-heals next fetch); it's also the source of `data.character_stats`/`.achievements`
+  // below, and (Wave 4) the target of every stats/achievement write, so it's fetched inline in
+  // the same effect as everything else rather than a separate race-prone effect.
   const [progress, setProgress] = useState<PlayerProgress | null>(null);
-
-  useEffect(() => {
-    fetchPlayerProgress(userId).then(setProgress);
-  }, [userId]);
+  // Resolved content_weeks.id for (grade, currentSunday) — null if the admin hasn't authored
+  // this grade/week yet. Needed by updateStatsAndJournal to know which player_weekly_journal
+  // row to upsert (Phase 4 Wave 4).
+  const [contentWeekId, setContentWeekId] = useState<string | null>(null);
 
   const today = new Date();
   const currentSunday = format(startOfWeek(today), 'yyyy-MM-dd');
@@ -133,6 +162,7 @@ export function useWeeklyData(userId: string = 'damien') {
   const grade = gradeToNumber(USERS[userId as UserId]?.grade);
 
   useEffect(() => {
+    let cancelled = false;
     async function fetchData() {
       // Offline (Android only): skip the network round-trip entirely and load
       // straight from the on-device cache — see lib/localDataSource.ts's
@@ -144,126 +174,57 @@ export function useWeeklyData(userId: string = 'damien') {
         return;
       }
 
-      // weekly_packages RLS only grants access to the `authenticated` role, which
-      // this app's anonymous-auth bridge (lib/supabase.ts) provides — but that
-      // sign-in happens in a separate effect (userSession.linkIdentity), so without
-      // waiting here this fetch can race ahead on the unauthenticated `anon` role
-      // and get rejected.
+      // player_progress/player_weekly_journal RLS only grants access to the `authenticated`
+      // role, which this app's anonymous-auth bridge (lib/supabase.ts) provides — but that
+      // sign-in happens in a separate effect (userSession.linkIdentity), so without waiting
+      // here this fetch can race ahead on the unauthenticated `anon` role and get rejected.
       await ensureAnonymousSession();
 
-      // journal_logs/counters/character_stats still come from weekly_packages (Wave 1/2 left
-      // this write path unchanged — only where progress/content are READ from has moved).
-      // package_data itself is ignored below in favor of the grade-keyed content fetch.
-      const [{ data: packageData, error: fetchError }, gradeContent] = await Promise.all([
-        supabase
-          .from('weekly_packages_public')
-          .select('*')
-          .eq('week_starting_date', currentSunday)
-          .eq('user_id', userId)
-          .maybeSingle(),
+      const [{ content: gradeContent, contentWeekId: weekId }, progressData] = await Promise.all([
         fetchGradeContent(grade, currentSunday),
+        fetchPlayerProgress(userId),
       ]);
+      if (cancelled) return;
 
-      if (fetchError) {
-        // Never fall through to the "no row yet" branch on a fetch failure —
-        // that branch carries forward (or defaults) progress and writes it,
-        // so treating a transient/RLS error as "this week hasn't started"
-        // would silently stomp real progress with level-1 defaults.
-        console.error('Failed to fetch this week\'s package:', fetchError);
-        setLoading(false);
-        return;
-      }
-
-      const applyContent = (row: WeeklyData): WeeklyData => ({ ...row, package_data: gradeContent });
-
-      if (packageData && packageData.character_stats) {
-        setData(applyContent(packageData as WeeklyData));
-      } else {
-        // Either no row for this week yet, or an admin pre-staged the week's
-        // package_data ahead of time (character_stats left null as the "not
-        // started" marker) — in both cases, carry forward progress from the
-        // most recent past week now that this week has actually begun.
-        const { data: previousWeek, error: previousWeekError } = await supabase
-          .from('weekly_packages')
-          .select('character_stats, achievements, mastery_count, purchased_items, honor_grants')
+      // No carry-forward step here (Phase 4 Wave 4) — journal_logs/counters genuinely reset
+      // to empty on a new week (see EMPTY_JOURNAL_FIELDS), and character_stats/achievements
+      // are always read live from player_progress (lifetime, no week dimension to carry
+      // forward at all). This eliminates the fetch-error/carry-forward bug class for these
+      // fields entirely, the same way Wave 1 eliminated it for xp/gold/level.
+      let journalRow: Record<string, any> | null = null;
+      if (weekId) {
+        const { data: journal, error: journalError } = await supabase
+          .from('player_weekly_journal')
+          .select('*')
           .eq('user_id', userId)
-          .lt('week_starting_date', currentSunday)
-          .order('week_starting_date', { ascending: false })
-          .limit(1)
+          .eq('content_week_id', weekId)
           .maybeSingle();
-
-        if (previousWeekError) {
-          // Same reasoning as the fetchError guard above: an error here must
-          // not be treated as "no previous week exists" — that would carry
-          // forward (and persist) level-1/0-xp/0-gold defaults over a real
-          // prior week's progress. This is exactly the bug that reset Tala
-          // and Damien's levels — bail out and let the next load retry.
-          console.error('Failed to fetch previous week for carry-forward:', previousWeekError);
+        if (journalError) {
+          console.error('Failed to fetch this week\'s journal:', journalError);
           setLoading(false);
           return;
         }
-
-        const carriedForward = {
-          character_stats: previousWeek?.character_stats || { level: 1, xp: 0, gold: 0 },
-          journal_logs: {},
-          achievements: previousWeek?.achievements || {},
-          mastery_count: previousWeek?.mastery_count || 0,
-          purchased_items: previousWeek?.purchased_items || 0,
-          honor_grants: previousWeek?.honor_grants || 0,
-          quiz_attempts: {},
-          mastered_quizzes: [],
-          guild_sessions_count: 0,
-          monster_battles_won: 0,
-          sibling_battles_won: 0,
-          perfect_quizzes: 0,
-          dummy_battles_won: 0,
-          eggs_hatched: 0,
-          curios_graduated: 0,
-          trades_completed: 0,
-          legendaries_caught: 0,
-          tutor_rerolls: 0,
-          tatay_battles_won: 0,
-          tatay_battles_lost: 0
-        };
-
-        if (packageData) {
-          // Pre-staged row: keep its package_data, fill in the carried-forward stats.
-          const { data: updated, error: updateError } = await supabase
-            .from('weekly_packages')
-            .update(carriedForward)
-            .eq('id', packageData.id)
-            .select()
-            .single();
-
-          if (updated) {
-            setData(applyContent(updated as WeeklyData));
-          } else if (updateError) {
-            console.error('Failed to initialize pre-staged weekly package:', updateError);
-          }
-        } else {
-          const defaultRow = {
-            week_starting_date: currentSunday,
-            user_id: userId,
-            package_data: {},
-            ...carriedForward
-          };
-
-          const { data: inserted, error: insertError } = await supabase
-            .from('weekly_packages')
-            .insert(defaultRow)
-            .select()
-            .single();
-
-          if (inserted) {
-            setData(applyContent(inserted as WeeklyData));
-          } else if (insertError) {
-            console.error('Failed to create new weekly package:', insertError);
-          }
-        }
+        journalRow = journal;
       }
+      if (cancelled) return;
+
+      setProgress(progressData);
+      setContentWeekId(weekId);
+      setData({
+        week_starting_date: currentSunday,
+        user_id: userId,
+        character_stats: progressData
+          ? { level: progressData.level, xp: progressData.xp, gold: progressData.gold }
+          : { level: 1, xp: 0, gold: 0 },
+        ...EMPTY_JOURNAL_FIELDS,
+        ...(journalRow || {}),
+        achievements: progressData?.achievements || {},
+        package_data: gradeContent,
+      });
       setLoading(false);
     }
     fetchData();
+    return () => { cancelled = true; };
   }, [currentSunday, userId, grade]);
 
   // Mirror the full WeeklyData snapshot (stats, journal, achievements,
@@ -313,6 +274,7 @@ export function useWeeklyData(userId: string = 'damien') {
 
     const newUnlocked = { ...currentAchievements };
     const newlyUnlockedTitles: { title: string; xp: number; gold: number }[] = [];
+    const newlyUnlockedIds: string[] = [];
 
     // Achievement criteria now check LIFETIME totals (player_progress), not the current
     // week's weekly-reset counters — thresholds unchanged, only the data source moved
@@ -353,6 +315,7 @@ export function useWeeklyData(userId: string = 'damien') {
         addedXp += ach.xpReward;
         addedGold += ach.goldReward;
         newlyUnlockedTitles.push({ title: ach.title, xp: ach.xpReward, gold: ach.goldReward });
+        newlyUnlockedIds.push(ach.id);
       }
     });
 
@@ -377,12 +340,12 @@ export function useWeeklyData(userId: string = 'damien') {
     const xpDelta = (totalXpForLevelState(newStats.level, newStats.xp) - totalXpForLevelState(data.character_stats.level, data.character_stats.xp)) + addedXp;
     const goldDelta = (newStats.gold - data.character_stats.gold) + addedGold;
 
-    // Everything but character_stats (applied atomically, online via RPC or
-    // offline via a locally-applied delta) — kept as its own object so the
-    // plain .update() below can't re-write character_stats with a stale value.
-    const otherChanges = {
+    // Journal fields (this-week only — no longer lifetime-adjacent, see player_weekly_journal)
+    // written via a direct client upsert below, RLS-gated to the caller's own row. Kept as its
+    // own object so the upsert below can't touch character_stats/achievements, which are
+    // player_progress's job now (see the apply_progress_update RPC call further down).
+    const journalChanges = {
       journal_logs: newJournal,
-      achievements: newUnlocked,
       purchased_items: newPurchasedItems,
       mastery_count: newMasteryCount,
       honor_grants: newHonorGrants,
@@ -402,6 +365,24 @@ export function useWeeklyData(userId: string = 'damien') {
       tatay_battles_lost: newTatayBattlesLost
     };
 
+    // Per-call deltas for the 12 lifetime *_total counters on player_progress — same
+    // projectLifetime math as the achievement check above, reused here as the actual RPC
+    // arguments instead of just a projection.
+    const counterDeltas = {
+      guild: newGuildSessionsCount - (data.guild_sessions_count || 0),
+      monster: newMonsterBattlesWon - (data.monster_battles_won || 0),
+      sibling: newSiblingBattlesWon - (data.sibling_battles_won || 0),
+      perfect: newPerfectQuizzes - (data.perfect_quizzes || 0),
+      dummy: newDummyBattlesWon - (data.dummy_battles_won || 0),
+      eggs: newEggsHatched - (data.eggs_hatched || 0),
+      grad: newCuriosGraduated - (data.curios_graduated || 0),
+      trades: newTradesCompleted - (data.trades_completed || 0),
+      legend: newLegendariesCaught - (data.legendaries_caught || 0),
+      tutor: newTutorRerolls - (data.tutor_rerolls || 0),
+      tatayWon: newTatayBattlesWon - (data.tatay_battles_won || 0),
+      tatayLost: newTatayBattlesLost - (data.tatay_battles_lost || 0),
+    };
+
     if (isOfflineStorageAvailable() && isAppOffline()) {
       // No RPC available offline — apply the delta locally (safe: offline
       // means single-device/single-session, no concurrent-save race to guard
@@ -414,48 +395,70 @@ export function useWeeklyData(userId: string = 'damien') {
         xp: finalXp,
         gold: data.character_stats.gold + goldDelta,
       };
-      const updated = { ...data, character_stats: finalStats, ...otherChanges };
+      const updated = { ...data, character_stats: finalStats, ...journalChanges, achievements: newUnlocked };
       setData(updated);
       await cacheWeeklyData(userId, updated);
-      await enqueueSync('apply_character_deltas', 'rpc', {
+      await enqueueSync('apply_progress_update', 'rpc', {
         userId, xpDelta, goldDelta,
+        mastery: newMasteryCount, purchased: newPurchasedItems, honor: newHonorGrants,
+        counterDeltas, newAchievementIds: newlyUnlockedIds,
       });
-      await enqueueSync('weekly_packages_other_changes', 'update', {
-        userId, weekStartingDate: data.week_starting_date, otherChanges,
-      });
+      if (contentWeekId) {
+        await enqueueSync('player_weekly_journal_upsert', 'upsert', {
+          userId, contentWeekId, journalChanges,
+        });
+      }
       return;
     }
 
-    // xp/gold/level now live on player_progress (lifetime, not week-keyed) — see
-    // apply_progress_deltas (Phase 1/4 of the progress redesign). This replaces
-    // apply_character_deltas, which required a pre-existing weekly_packages row for the
-    // given week and was the root cause of the carry-forward/null-sentinel bug class
-    // (see docs/weekly-progress-redesign-plan.md). apply_progress_deltas auto-creates its
-    // row on first use, so there's no carry-forward step to get wrong here anymore.
-    const { data: finalStats, error: statsError } = await supabase.rpc('apply_progress_deltas', {
+    // xp/gold/level/counters/mastery-purchased-honor/achievements all live on player_progress
+    // (lifetime, not week-keyed) now — applied atomically in one round trip by
+    // apply_progress_update (Phase 4 Wave 4, see docs/weekly-progress-redesign-plan.md).
+    // Auto-creates its row on first use, so there's no carry-forward step to get wrong here.
+    const { data: finalStats, error: statsError } = await supabase.rpc('apply_progress_update', {
       p_user_id: userId,
       p_xp_delta: xpDelta,
-      p_gold_delta: goldDelta
+      p_gold_delta: goldDelta,
+      p_mastery_count: newMasteryCount,
+      p_purchased_items: newPurchasedItems,
+      p_honor_grants: newHonorGrants,
+      p_guild_sessions_delta: counterDeltas.guild,
+      p_monster_battles_won_delta: counterDeltas.monster,
+      p_sibling_battles_won_delta: counterDeltas.sibling,
+      p_perfect_quizzes_delta: counterDeltas.perfect,
+      p_dummy_battles_won_delta: counterDeltas.dummy,
+      p_eggs_hatched_delta: counterDeltas.eggs,
+      p_curios_graduated_delta: counterDeltas.grad,
+      p_trades_completed_delta: counterDeltas.trades,
+      p_legendaries_caught_delta: counterDeltas.legend,
+      p_tutor_rerolls_delta: counterDeltas.tutor,
+      p_tatay_battles_won_delta: counterDeltas.tatayWon,
+      p_tatay_battles_lost_delta: counterDeltas.tatayLost,
+      p_new_achievement_ids: newlyUnlockedIds,
     });
 
     if (statsError || !finalStats) {
-      console.error('Failed to apply character deltas:', statsError);
+      console.error('Failed to apply progress update:', statsError);
       alert(`⚠️ Save failed: ${statsError?.message}`);
       return;
     }
 
-    setData({ ...data, character_stats: finalStats as CharacterStats, ...otherChanges });
+    setData({ ...data, character_stats: finalStats as CharacterStats, ...journalChanges, achievements: newUnlocked });
 
-    const { error } = await supabase
-      .from('weekly_packages')
-      .update(otherChanges)
-      .eq('week_starting_date', data.week_starting_date)
-      .eq('user_id', userId);
+    // journal_logs/counters are this-week-only content, not lifetime — written directly via a
+    // client upsert (RLS: `current_app_user_id() = user_id`), same trust boundary the old blind
+    // weekly_packages .update() had. Skipped if the admin hasn't authored this grade/week yet
+    // (nothing to key the row to) — matches package_data being empty in that case too.
+    if (contentWeekId) {
+      const { error: journalError } = await supabase
+        .from('player_weekly_journal')
+        .upsert({ user_id: userId, content_week_id: contentWeekId, ...journalChanges }, { onConflict: 'user_id,content_week_id' });
 
-    if (error) {
-      console.error('Failed to save to Supabase:', error);
-      alert(`⚠️ Save failed: ${error.message}`);
-      return;
+      if (journalError) {
+        console.error('Failed to save journal:', journalError);
+        alert(`⚠️ Save failed: ${journalError.message}`);
+        return;
+      }
     }
 
     // Refresh the lifetime snapshot used by the achievement projection above, so the next
