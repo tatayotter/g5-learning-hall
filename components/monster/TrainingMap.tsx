@@ -12,101 +12,17 @@ import {
 import { MonsterImage, BattleQuestionModal, GMBadge, UserMonster } from '@/components/battle/shared';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import MapStage from '@/components/MapStage';
-import { REGIONS } from '@/lib/regions';
+import MapCanvas from '@/components/monster/map/MapCanvas';
+import { REGIONS, MAP_SIZE, type MapTile } from '@/lib/regions';
+import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
 import { CaughtMonster, BattleState } from '@/components/monster/types';
-
-const MAP_SIZE = 16;
-
-type TileType = 'grass' | 'town' | 'wall';
-
-interface MapTile {
-  type: TileType;
-}
-
-// Build the map grid
-function buildMap(): MapTile[][] {
-  const map: MapTile[][] = Array.from({ length: MAP_SIZE }, () =>
-    Array.from({ length: MAP_SIZE }, () => ({ type: 'grass' as TileType }))
-  );
-
-  // Town (safe zone) in top-left corner
-  for (let y = 0; y < 3; y++) {
-    for (let x = 0; x < 3; x++) {
-      map[y][x] = { type: 'town' };
-    }
-  }
-
-  // Walls around edges
-  for (let i = 0; i < MAP_SIZE; i++) {
-    map[0][i] = { type: 'wall' };
-    map[MAP_SIZE - 1][i] = { type: 'wall' };
-    map[i][0] = { type: 'wall' };
-    map[i][MAP_SIZE - 1] = { type: 'wall' };
-  }
-
-  return map;
-}
 
 // The training map is a single painted background image (public/maps/map-1.webp)
 // with an invisible logical grid overlaid for walkability + markers. The grid and
 // all positioning are percentage-based (not fixed pixels) so the whole map scales
 // fluidly to any container width — no horizontal scrolling on mobile/small desktops.
-const MAP_IMAGE = '/maps/ledgers_heart.webp';
-const TILE_PCT = 100 / MAP_SIZE;
-
-function TownMarker() {
-  return (
-    <img
-      src="/items/health_potion_l_100.webp"
-      alt="Town — heals your team"
-      title="Town — heals your team"
-      className="w-8 h-8 object-contain drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]"
-    />
-  );
-}
-
-function PlayerSprite({ userId, isSelf = false, inBattle = false, resultWon }: {
-  userId: string;
-  isSelf?: boolean;
-  inBattle?: boolean;
-  resultWon?: boolean;
-}) {
-  const profile = USERS[userId];
-  // A chosen userpic (full-body trainer sprite) doubles as the map sprite;
-  // the default headshot avatars (avatar.png / tala-avatar.png) don't fit
-  // that role, so those still fall back to the generic gender sprite.
-  const src = profile?.avatar?.startsWith('/userpics/')
-    ? profile.avatar
-    : profile?.gender === 'girl' ? '/sprite/girl1.webp' : '/sprite/boy1.webp';
-
-  return (
-    <div className="relative w-full h-full">
-      {inBattle && (
-        <span
-          className="absolute -top-1 left-1/2 -translate-x-1/2 text-sm z-10 animate-pulse drop-shadow"
-          title={`${profile?.name ?? 'This player'} is in a battle`}
-        >
-          ⚔️
-        </span>
-      )}
-      {!inBattle && resultWon !== undefined && (
-        <span
-          className="absolute -top-1 left-1/2 -translate-x-1/2 z-10 drop-shadow"
-          title={resultWon ? `${profile?.name ?? 'They'} won their battle!` : `${profile?.name ?? 'They'} lost their battle`}
-        >
-          <img src={resultWon ? '/icons/stats/victory.svg' : '/icons/stats/defeat.svg'} alt={resultWon ? 'Won' : 'Lost'} className="w-4 h-4 object-contain" />
-        </span>
-      )}
-      <div className={`absolute left-1/2 bottom-0 -translate-x-1/2 w-6 h-2 rounded-full ${isSelf ? 'bg-amber-400/60' : 'bg-black/25'}`}/>
-      <img
-        src={src}
-        alt="Player"
-        className="relative w-full h-full object-contain"
-        style={{ imageRendering: 'pixelated' }}
-      />
-    </div>
-  );
-}
+// Every region's walkability grid is authored in Tiled (see public/maps-tiled/*.json
+// + lib/tiledMap.ts) — REGIONS[id].tiledMapPath points at each one.
 
 interface TrainingMapProps {
   userId: string;
@@ -115,7 +31,6 @@ interface TrainingMapProps {
   caughtMonsters: CaughtMonster[];
   questions: any[];
   gradingUserId: string;
-  weekStartingDate: string;
   onBattleStateChange: (state: BattleState) => void;
   onMonsterExpGained: (monsterId: string, exp: number) => void;
   onHeal: () => void;
@@ -136,7 +51,7 @@ interface TrainingMapProps {
 }
 
 export default function TrainingMap({
-  userId, battleState, userMonsters, caughtMonsters, questions, gradingUserId, weekStartingDate,
+  userId, battleState, userMonsters, caughtMonsters, questions, gradingUserId,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll, onChallengePlayer,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
   regionId, onExitRegion,
@@ -151,8 +66,20 @@ export default function TrainingMap({
   const dustIdRef = useRef(0);
   const isLedgersHeart = !regionId || regionId === 'ledgers_heart';
   const region = !isLedgersHeart ? REGIONS[regionId!] : null;
-  const map = isLedgersHeart ? buildMap() : region!.layout;
-  const mapImageSrc = isLedgersHeart ? MAP_IMAGE : region!.mapImage;
+  const activeRegion = region ?? REGIONS.ledgers_heart;
+  const [regionMap, setRegionMap] = useState<MapTile[][]>(blankLoadingMap);
+  useEffect(() => {
+    let cancelled = false;
+    loadTiledMap(activeRegion.tiledMapPath).then(parsed => {
+      if (!cancelled) setRegionMap(parsed.layout);
+    });
+    return () => { cancelled = true; };
+    // Component remounts when regionId changes (see the localPos comment
+    // below), so this only ever needs to run once per mount.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const map = regionMap;
+  const mapImageSrc = activeRegion.mapImage;
   // Elemental regions always start at their fixed spawn point and never
   // persist position — this local state naturally resets on region re-entry
   // since TrainingMap remounts when regionId changes.
@@ -160,7 +87,6 @@ export default function TrainingMap({
   const posX = isLedgersHeart ? battleState.map_x : localPos.x;
   const posY = isLedgersHeart ? battleState.map_y : localPos.y;
   const activeMonster = userMonsters.find(m => m.slot === battleState.active_monster_slot);
-  const selfProfile = USERS[userId];
   const { onlinePlayers, waves, stickers, sendWave, sendSticker } = mapPresence;
 
   // Restarts a CSS keyframe animation on repeat triggers (toggling the same
@@ -283,105 +209,28 @@ export default function TrainingMap({
     </span>
   );
 
-  // Map — single painted background image with a percentage-based
-  // walkability grid on top, filling MapStage's 16:9 frame exactly (every
-  // position on the grid is expressed in % rather than fixed pixels, so it
-  // scales cleanly with the frame regardless of its rendered size).
+  // Map — Phaser canvas for the world layer (background, sprites, dust,
+  // bump shake) with a thin DOM overlay for name tags/badges/bubbles/marker;
+  // see components/monster/map/MapCanvas.tsx for the split rationale.
+  const townMarkerTile = isLedgersHeart ? { x: 1, y: 1 } : region!.townCenter;
   const frameContent = (
-    <div
-      className={`relative w-full h-full ${bumping ? 'map-bump-shake' : ''}`}
-      style={{ backgroundImage: `url(${mapImageSrc})`, backgroundSize: '100% 100%' }}
-    >
-      <div
-        className="absolute inset-0 grid gap-0"
-        style={{ gridTemplateColumns: `repeat(${MAP_SIZE}, 1fr)`, gridTemplateRows: `repeat(${MAP_SIZE}, 1fr)` }}
-      >
-        {map.map((row, y) =>
-          row.map((tile, x) => {
-            const isTownMarkerTile = isLedgersHeart
-              ? x === 1 && y === 1
-              : x === region!.townCenter.x && y === region!.townCenter.y;
-            return (
-              <div key={`${x}-${y}`} className="flex items-center justify-center" title={tile.type}>
-                {tile.type === 'town' && isTownMarkerTile && <TownMarker />}
-              </div>
-            );
-          })
-        )}
-      </div>
-      <div
-        className="absolute pointer-events-none transition-[left,top] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] flex items-center justify-center"
-        style={{
-          left: `${posX * TILE_PCT}%`, top: `${posY * TILE_PCT}%`,
-          width: `${TILE_PCT}%`, height: `${TILE_PCT}%`,
-        }}
-      >
-        <div className="w-full h-full flex items-center justify-center relative">
-          {waves[userId] && <span className="absolute -top-5 text-xl animate-bounce">👋</span>}
-          {stickers[userId] && (
-            <div className="absolute -top-8 bg-white text-black text-xs font-bold px-2 py-1 rounded-lg whitespace-nowrap shadow">
-              {stickers[userId].text}
-            </div>
-          )}
-          <div className={`w-[120%] h-[120%] ${stepping ? 'map-step-bounce' : ''}`}>
-            <PlayerSprite
-              userId={userId}
-              isSelf
-              inBattle={liveBattleInbox?.playersInBattle.has(userId) ?? false}
-              resultWon={liveBattleInbox?.battleResultFlashes[userId]}
-            />
-          </div>
-          <p className="absolute -bottom-4 flex items-center gap-1 text-[10px] map-name-tag bg-black/60 px-1 rounded whitespace-nowrap">
-            {selfProfile?.name || userId}
-            {selfProfile?.isFamily && <GMBadge />}
-          </p>
-        </div>
-      </div>
-
-      {/* Footstep dust puffs on grass */}
-      {dustPuffs.map(p => (
-        <div
-          key={p.id}
-          className="absolute pointer-events-none map-dust-puff"
-          style={{
-            left: `${(p.x + 0.5) * TILE_PCT}%`, top: `${(p.y + 0.8) * TILE_PCT}%`,
-            width: '10px', height: '10px', borderRadius: '9999px',
-            background: 'radial-gradient(circle, rgba(214,196,150,0.9), rgba(214,196,150,0))',
-          }}
-        />
-      ))}
-
-      {/* Other online players */}
-      {Object.values(onlinePlayers).map(p => (
-        <div
-          key={p.userId}
-          className="absolute transition-[left,top] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer flex items-center justify-center"
-          style={{ left: `${p.x * TILE_PCT}%`, top: `${p.y * TILE_PCT}%`, width: `${TILE_PCT}%`, height: `${TILE_PCT}%` }}
-          onClick={() => setStatsTargetId(p.userId)}
-          title={USERS[p.userId]?.name || p.name}
-        >
-          <div className="w-full h-full flex items-center justify-center relative">
-            {waves[p.userId] && <span className="absolute -top-5 text-xl animate-bounce">👋</span>}
-            {stickers[p.userId] && (
-              <div className="absolute -top-8 bg-white text-black text-xs font-bold px-2 py-1 rounded-lg whitespace-nowrap shadow">
-                {stickers[p.userId].text}
-              </div>
-            )}
-            <div className="w-[120%] h-[120%]">
-              <PlayerSprite
-                userId={p.userId}
-                inBattle={liveBattleInbox?.playersInBattle.has(p.userId) ?? false}
-                resultWon={liveBattleInbox?.battleResultFlashes[p.userId]}
-              />
-            </div>
-            <p className="absolute -bottom-4 flex items-center gap-1 text-[10px] map-name-tag bg-black/60 px-1 rounded whitespace-nowrap">
-              {USERS[p.userId]?.name || p.name}
-              {USERS[p.userId]?.isFamily && <GMBadge />}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
+    <MapCanvas
+      mapSize={MAP_SIZE}
+      mapImageSrc={mapImageSrc}
+      bumping={bumping}
+      stepping={stepping}
+      posX={posX}
+      posY={posY}
+      userId={userId}
+      waves={waves}
+      stickers={stickers}
+      dustPuffs={dustPuffs}
+      onlinePlayers={onlinePlayers}
+      inBattle={id => liveBattleInbox?.playersInBattle.has(id) ?? false}
+      resultWon={id => liveBattleInbox?.battleResultFlashes[id]}
+      townMarkerTile={townMarkerTile}
+      onPlayerClick={setStatsTargetId}
+    />
   );
 
   // Movement + chat controls overlaid directly on the map (bottom-left
@@ -593,7 +442,6 @@ export default function TrainingMap({
         count={1}
         embedded={true}
         gradingUserId={gradingUserId}
-        weekStartingDate={weekStartingDate}
         onComplete={handleGrassAnswer}
       />
     </div>

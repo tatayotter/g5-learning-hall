@@ -4,9 +4,10 @@ import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { startOfWeek, format } from 'date-fns';
 import { ACHIEVEMENTS, Achievement } from '@/lib/achievements';
 import { logAction } from '@/lib/playerlog';
-import { USERS, UserId } from '@/lib/userSession';
+import { USERS, UserId, gradeToNumber } from '@/lib/userSession';
 import { isOfflineStorageAvailable, cacheWeeklyData, getCachedWeeklyData, enqueueSync } from '@/lib/localDataSource';
 import { isAppOffline } from '@/lib/offlineState';
+import { fetchPlayerProgress, PlayerProgress } from '@/lib/lifetimeStats';
 
 export interface CharacterStats {
   level: number;
@@ -39,6 +40,42 @@ function applyXpDelta(level: number, xp: number, delta: number): { level: number
     newLevel += 1;
   }
   return { level: newLevel, xp: newXp };
+}
+
+// Reconstructs a package_data-shaped object (weekday -> subject -> {summary_markdown,
+// quiz: [{id, question, options}]}) from the normalized content_* tables, grade-keyed instead of
+// per-student contentSourceId (Phase 4 Wave 3, see docs/weekly-progress-redesign-plan.md).
+// Deliberately kept in the OLD nested shape rather than a flat list — every downstream consumer
+// (Main Quest quiz UI, Monster Arena's extractQuestions, lib/weeklyReview.ts's synthesis) already
+// walks this exact shape, so reconstructing it here means none of them need to change, only how
+// they grade (by real question.id now, not text/position). correct_answer is never included —
+// same answer-stripping guarantee weekly_packages_public used to provide, enforced here by
+// content_questions_public (which never exposes it) rather than a client-side strip.
+async function fetchGradeContent(grade: number, weekStartingDate: string): Promise<any> {
+  const { data: week } = await supabase
+    .from('content_weeks')
+    .select('id')
+    .eq('grade', grade)
+    .eq('week_starting_date', weekStartingDate)
+    .maybeSingle();
+  if (!week) return {};
+
+  const { data: rows, error } = await supabase
+    .from('content_questions_public')
+    .select('id, prompt, options, sort_order, subject, weekday, summary_markdown')
+    .eq('content_week_id', week.id)
+    .order('sort_order');
+  if (error || !rows) return {};
+
+  const byDay: Record<string, Record<string, { summary_markdown?: string; quiz: any[] }>> = {};
+  rows.forEach((r: any) => {
+    if (!byDay[r.weekday]) byDay[r.weekday] = {};
+    if (!byDay[r.weekday][r.subject]) {
+      byDay[r.weekday][r.subject] = { summary_markdown: r.summary_markdown ?? undefined, quiz: [] };
+    }
+    byDay[r.weekday][r.subject].quiz.push({ id: r.id, question: r.prompt, options: r.options });
+  });
+  return byDay;
 }
 
 export interface JournalEntry {
@@ -77,14 +114,23 @@ export interface WeeklyData {
 export function useWeeklyData(userId: string = 'damien') {
   const [data, setData] = useState<WeeklyData | null>(null);
   const [loading, setLoading] = useState(true);
+  // Lifetime totals for achievement-criteria checking (Phase 4 Wave 2, see
+  // docs/weekly-progress-redesign-plan.md) — kept a little stale between saves is fine
+  // (self-heals via the Phase 3 trigger next fetch); it's only used to project what an
+  // in-flight counter update will become lifetime-wise, not as a write target itself.
+  const [progress, setProgress] = useState<PlayerProgress | null>(null);
+
+  useEffect(() => {
+    fetchPlayerProgress(userId).then(setProgress);
+  }, [userId]);
 
   const today = new Date();
   const currentSunday = format(startOfWeek(today), 'yyyy-MM-dd');
 
-  // Classmates who don't author their own Main Quest content read questions
-  // live from a reference player of the same grade (e.g. Damien), while their
-  // own stats/journal/achievements/quiz history stay on their own row.
-  const contentSourceId = USERS[userId as UserId]?.contentSourceId || userId;
+  // Content is grade-keyed, not per-student (Phase 4 Wave 3, see
+  // docs/weekly-progress-redesign-plan.md) — replaces the old contentSourceId
+  // indirection where classmates read a reference player's package_data.
+  const grade = gradeToNumber(USERS[userId as UserId]?.grade);
 
   useEffect(() => {
     async function fetchData() {
@@ -105,15 +151,18 @@ export function useWeeklyData(userId: string = 'damien') {
       // and get rejected.
       await ensureAnonymousSession();
 
-      // Read from weekly_packages_public, which strips correct_answer out of
-      // every quiz question — the real answers only ever live server-side,
-      // checked by the grade_weekly_quiz RPC at submit time.
-      const { data: packageData, error: fetchError } = await supabase
-        .from('weekly_packages_public')
-        .select('*')
-        .eq('week_starting_date', currentSunday)
-        .eq('user_id', userId)
-        .maybeSingle();
+      // journal_logs/counters/character_stats still come from weekly_packages (Wave 1/2 left
+      // this write path unchanged — only where progress/content are READ from has moved).
+      // package_data itself is ignored below in favor of the grade-keyed content fetch.
+      const [{ data: packageData, error: fetchError }, gradeContent] = await Promise.all([
+        supabase
+          .from('weekly_packages_public')
+          .select('*')
+          .eq('week_starting_date', currentSunday)
+          .eq('user_id', userId)
+          .maybeSingle(),
+        fetchGradeContent(grade, currentSunday),
+      ]);
 
       if (fetchError) {
         // Never fall through to the "no row yet" branch on a fetch failure —
@@ -125,19 +174,10 @@ export function useWeeklyData(userId: string = 'damien') {
         return;
       }
 
-      const applyContentSource = async (row: WeeklyData): Promise<WeeklyData> => {
-        if (contentSourceId === userId) return row;
-        const { data: sourceRow } = await supabase
-          .from('weekly_packages_public')
-          .select('package_data')
-          .eq('week_starting_date', currentSunday)
-          .eq('user_id', contentSourceId)
-          .maybeSingle();
-        return sourceRow?.package_data ? { ...row, package_data: sourceRow.package_data } : row;
-      };
+      const applyContent = (row: WeeklyData): WeeklyData => ({ ...row, package_data: gradeContent });
 
       if (packageData && packageData.character_stats) {
-        setData(await applyContentSource(packageData as WeeklyData));
+        setData(applyContent(packageData as WeeklyData));
       } else {
         // Either no row for this week yet, or an admin pre-staged the week's
         // package_data ahead of time (character_stats left null as the "not
@@ -196,7 +236,7 @@ export function useWeeklyData(userId: string = 'damien') {
             .single();
 
           if (updated) {
-            setData(await applyContentSource(updated as WeeklyData));
+            setData(applyContent(updated as WeeklyData));
           } else if (updateError) {
             console.error('Failed to initialize pre-staged weekly package:', updateError);
           }
@@ -215,7 +255,7 @@ export function useWeeklyData(userId: string = 'damien') {
             .single();
 
           if (inserted) {
-            setData(await applyContentSource(inserted as WeeklyData));
+            setData(applyContent(inserted as WeeklyData));
           } else if (insertError) {
             console.error('Failed to create new weekly package:', insertError);
           }
@@ -224,7 +264,7 @@ export function useWeeklyData(userId: string = 'damien') {
       setLoading(false);
     }
     fetchData();
-  }, [currentSunday, userId, contentSourceId]);
+  }, [currentSunday, userId, grade]);
 
   // Mirror the full WeeklyData snapshot (stats, journal, achievements,
   // package_data — also what Monster Arena wild encounters draw from, quiz
@@ -274,6 +314,18 @@ export function useWeeklyData(userId: string = 'damien') {
     const newUnlocked = { ...currentAchievements };
     const newlyUnlockedTitles: { title: string; xp: number; gold: number }[] = [];
 
+    // Achievement criteria now check LIFETIME totals (player_progress), not the current
+    // week's weekly-reset counters — thresholds unchanged, only the data source moved
+    // (Phase 4 Wave 2, see docs/weekly-progress-redesign-plan.md). The 12 counters below
+    // still reset weekly in weekly_packages (unchanged write below), so what's being unlocked
+    // here is projected: lifetimeTotal + (thisCall'sNewWeeklyValue - thisWeek'sOldValue) —
+    // exactly what the Phase 3 trigger will compute once this call's otherChanges write lands,
+    // computed here ahead of time so the achievement check and the atomic xp/gold write can
+    // stay in the same round trip. mastery_count/purchased_items/honor_grants need no such
+    // projection — they already carry forward as lifetime-equivalent values today.
+    const projectLifetime = (total: number, newWeeklyValue: number, oldWeeklyValue: number) =>
+      total + (newWeeklyValue - oldWeeklyValue);
+
     ACHIEVEMENTS.forEach((ach: Achievement) => {
       if (!newUnlocked[ach.id] && ach.criteria({
         ...data,
@@ -284,18 +336,18 @@ export function useWeeklyData(userId: string = 'damien') {
         honor_grants: newHonorGrants,
         quiz_attempts: newQuizAttempts,
         mastered_quizzes: newMasteredQuizzes,
-        guild_sessions_count: newGuildSessionsCount,
-        monster_battles_won: newMonsterBattlesWon,
-        sibling_battles_won: newSiblingBattlesWon,
-        perfect_quizzes: newPerfectQuizzes,
-        dummy_battles_won: newDummyBattlesWon,
-        eggs_hatched: newEggsHatched,
-        curios_graduated: newCuriosGraduated,
-        trades_completed: newTradesCompleted,
-        legendaries_caught: newLegendariesCaught,
-        tutor_rerolls: newTutorRerolls,
-        tatay_battles_won: newTatayBattlesWon,
-        tatay_battles_lost: newTatayBattlesLost
+        guild_sessions_count: projectLifetime(progress?.guild_sessions_count_total || 0, newGuildSessionsCount, data.guild_sessions_count || 0),
+        monster_battles_won: projectLifetime(progress?.monster_battles_won_total || 0, newMonsterBattlesWon, data.monster_battles_won || 0),
+        sibling_battles_won: projectLifetime(progress?.sibling_battles_won_total || 0, newSiblingBattlesWon, data.sibling_battles_won || 0),
+        perfect_quizzes: projectLifetime(progress?.perfect_quizzes_total || 0, newPerfectQuizzes, data.perfect_quizzes || 0),
+        dummy_battles_won: projectLifetime(progress?.dummy_battles_won_total || 0, newDummyBattlesWon, data.dummy_battles_won || 0),
+        eggs_hatched: projectLifetime(progress?.eggs_hatched_total || 0, newEggsHatched, data.eggs_hatched || 0),
+        curios_graduated: projectLifetime(progress?.curios_graduated_total || 0, newCuriosGraduated, data.curios_graduated || 0),
+        trades_completed: projectLifetime(progress?.trades_completed_total || 0, newTradesCompleted, data.trades_completed || 0),
+        legendaries_caught: projectLifetime(progress?.legendaries_caught_total || 0, newLegendariesCaught, data.legendaries_caught || 0),
+        tutor_rerolls: projectLifetime(progress?.tutor_rerolls_total || 0, newTutorRerolls, data.tutor_rerolls || 0),
+        tatay_battles_won: projectLifetime(progress?.tatay_battles_won_total || 0, newTatayBattlesWon, data.tatay_battles_won || 0),
+        tatay_battles_lost: projectLifetime(progress?.tatay_battles_lost_total || 0, newTatayBattlesLost, data.tatay_battles_lost || 0)
       })) {
         newUnlocked[ach.id] = true;
         addedXp += ach.xpReward;
@@ -366,7 +418,7 @@ export function useWeeklyData(userId: string = 'damien') {
       setData(updated);
       await cacheWeeklyData(userId, updated);
       await enqueueSync('apply_character_deltas', 'rpc', {
-        userId, weekStartingDate: data.week_starting_date, xpDelta, goldDelta,
+        userId, xpDelta, goldDelta,
       });
       await enqueueSync('weekly_packages_other_changes', 'update', {
         userId, weekStartingDate: data.week_starting_date, otherChanges,
@@ -374,9 +426,14 @@ export function useWeeklyData(userId: string = 'damien') {
       return;
     }
 
-    const { data: finalStats, error: statsError } = await supabase.rpc('apply_character_deltas', {
+    // xp/gold/level now live on player_progress (lifetime, not week-keyed) — see
+    // apply_progress_deltas (Phase 1/4 of the progress redesign). This replaces
+    // apply_character_deltas, which required a pre-existing weekly_packages row for the
+    // given week and was the root cause of the carry-forward/null-sentinel bug class
+    // (see docs/weekly-progress-redesign-plan.md). apply_progress_deltas auto-creates its
+    // row on first use, so there's no carry-forward step to get wrong here anymore.
+    const { data: finalStats, error: statsError } = await supabase.rpc('apply_progress_deltas', {
       p_user_id: userId,
-      p_week_starting_date: data.week_starting_date,
       p_xp_delta: xpDelta,
       p_gold_delta: goldDelta
     });
@@ -398,7 +455,12 @@ export function useWeeklyData(userId: string = 'damien') {
     if (error) {
       console.error('Failed to save to Supabase:', error);
       alert(`⚠️ Save failed: ${error.message}`);
+      return;
     }
+
+    // Refresh the lifetime snapshot used by the achievement projection above, so the next
+    // save in this session isn't checking against increasingly stale totals.
+    fetchPlayerProgress(userId).then(setProgress);
   };
 
   // Increments one or more of the newer per-mechanic achievement counters
@@ -445,14 +507,13 @@ export function useWeeklyData(userId: string = 'damien') {
       setData(updated);
       await cacheWeeklyData(userId, updated);
       await enqueueSync('apply_character_deltas', 'rpc', {
-        userId, weekStartingDate: data.week_starting_date, xpDelta: 0, goldDelta: amount,
+        userId, xpDelta: 0, goldDelta: amount,
       });
       return;
     }
 
-    const { data: finalStats, error } = await supabase.rpc('apply_character_deltas', {
+    const { data: finalStats, error } = await supabase.rpc('apply_progress_deltas', {
       p_user_id: userId,
-      p_week_starting_date: data.week_starting_date,
       p_xp_delta: 0,
       p_gold_delta: amount
     });

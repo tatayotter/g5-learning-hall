@@ -19,11 +19,6 @@ export interface UserProfile {
   theme: string;
   gender: 'boy' | 'girl';
   isFamily: boolean;
-  // Which user's Main Quest package (weekly_packages.package_data) this player
-  // reads questions from. Lets classmates share a grade's question pool while
-  // keeping their own stats/journal/achievements/quiz history independent.
-  // Defaults to the player's own id if omitted.
-  contentSourceId?: UserId;
 }
 
 export const USERS: Record<UserId, UserProfile> = {
@@ -58,25 +53,6 @@ export function gradeToNumber(grade: string | number | undefined): number {
   return match ? parseInt(match[1], 10) : 5;
 }
 
-// grade_content_owners (Supabase) maps a grade level to the user_id whose
-// weekly_packages row is the shared Main Quest content source for that grade
-// (e.g. 5 -> damien, 2 -> tala). Grades with no row here have no authored
-// content yet, so callers fall back to 'damien' (Grade 5) rather than serving
-// nothing.
-let gradeOwnersLoaded = false;
-let gradeOwners: Record<number, UserId> = {};
-
-export async function loadGradeContentOwners(): Promise<void> {
-  if (gradeOwnersLoaded) return;
-  const { data } = await supabase.from('grade_content_owners').select('grade, user_id');
-  (data || []).forEach((row: any) => { gradeOwners[row.grade] = row.user_id; });
-  gradeOwnersLoaded = true;
-}
-
-function contentSourceForGrade(grade: string): UserId {
-  return gradeOwners[gradeToNumber(grade)] || 'damien';
-}
-
 // Classmates are admin-managed (Admin Dashboard → Classmates) and login with a
 // username/password, unlike the two family profiles above. This loads them
 // into USERS once so every existing USERS[id] lookup across the app keeps
@@ -86,7 +62,6 @@ let classmateIds: Set<UserId> = new Set();
 
 export async function loadClassmates(): Promise<void> {
   if (classmatesLoaded) return;
-  await loadGradeContentOwners();
   const { data } = await supabase
     .from('classmates')
     .select('id, full_name, grade, gender')
@@ -102,7 +77,6 @@ export async function loadClassmates(): Promise<void> {
       theme: 'theme_default',
       gender: c.gender === 'girl' ? 'girl' : 'boy',
       isFamily: false,
-      contentSourceId: contentSourceForGrade(c.grade),
     };
     classmateIds.add(c.id);
   });
@@ -126,7 +100,6 @@ let childIds: Set<UserId> = new Set();
 
 export async function loadChildren(): Promise<void> {
   if (childrenLoaded) return;
-  await loadGradeContentOwners();
   const { data } = await supabase
     .from('children')
     .select('id, full_name, grade, gender, avatar')
@@ -142,7 +115,6 @@ export async function loadChildren(): Promise<void> {
       theme: 'theme_default',
       gender: c.gender === 'girl' ? 'girl' : 'boy',
       isFamily: false,
-      contentSourceId: contentSourceForGrade(c.grade),
     };
     childIds.add(c.id);
   });
@@ -289,7 +261,6 @@ export function registerDemoUser(userId: UserId): void {
     theme: 'theme_default',
     gender: 'boy',
     isFamily: false,
-    contentSourceId: 'damien',
   };
 }
 
@@ -315,7 +286,6 @@ export function registerChildUser(profile: {
     theme: 'theme_default',
     gender: profile.gender,
     isFamily: false,
-    contentSourceId: contentSourceForGrade(profile.grade),
   };
   childIds.add(profile.id);
 }

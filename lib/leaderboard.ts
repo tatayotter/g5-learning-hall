@@ -1,7 +1,7 @@
 // lib/leaderboard.ts
 // Aggregates Monster Arena stats across every known player for the
 // Leaderboard tab. Reads only tables that already allow broad cross-user
-// select under RLS (user_battle_state, user_monsters, weekly_packages,
+// select under RLS (user_battle_state, user_monsters, player_progress,
 // user_completed_questions, monster_battle_log) — no new policies needed.
 import { supabase } from '@/lib/supabase';
 import { USERS, UserId, loadClassmates } from '@/lib/userSession';
@@ -38,11 +38,16 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
   const ids = Object.keys(USERS).filter(id => !id.startsWith('demo_'));
   if (ids.length === 0) return [];
 
-  const [battleStateRes, monstersRes, caughtRes, weeklyRes, questionsRes, battleLogRes] = await Promise.all([
+  const [battleStateRes, monstersRes, caughtRes, progressRes, questionsRes, battleLogRes] = await Promise.all([
     supabase.from('user_battle_state').select('user_id, defeated_trainers').in('user_id', ids),
     supabase.from('user_monsters').select('user_id, monster_id, monster_level, nickname, slot, acquired_via').in('user_id', ids).order('slot'),
     supabase.from('user_caught_monsters').select('user_id, monster_id, monster_level, nickname').in('user_id', ids),
-    supabase.from('weekly_packages').select('user_id, character_stats, week_starting_date').in('user_id', ids),
+    // player_progress is one row per user (lifetime, not week-keyed) — see
+    // docs/weekly-progress-redesign-plan.md Phase 4 Wave 2. Replaces a multi-row
+    // weekly_packages fetch + client-side "latest row wins" dedup, which (like the
+    // sync trigger before its 2026-08-11 fix) could be fooled by a pre-staged future week
+    // with non-null-but-zeroed character_stats sorting as "latest".
+    supabase.from('player_progress').select('user_id, level, gold').in('user_id', ids),
     supabase.from('user_completed_questions').select('user_id').eq('quest_type', MONSTER_ARENA_QUEST_TYPE).in('user_id', ids),
     supabase.from('monster_battle_log').select('user_id, opponent').eq('result', 'win').in('user_id', ids),
   ]);
@@ -91,21 +96,9 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
   (caughtRes.data || []).forEach((row: any) =>
     considerMonster(row.user_id, { monster_id: row.monster_id, monster_level: row.monster_level, nickname: row.nickname }));
 
-  const statsByUser = new Map<string, { level: number; gold: number; week: string }>();
-  (weeklyRes.data || []).forEach((row: any) => {
-    // Admins can pre-stage a future week's row with character_stats left null
-    // as a "not started" marker (see hooks/useWeeklyData.ts) — skip those so
-    // they don't shadow the last week the player actually played.
-    if (!row.character_stats) return;
-    const existing = statsByUser.get(row.user_id);
-    // Keep only the most recent weekly_packages row per user (there's one per week).
-    if (!existing || row.week_starting_date > existing.week) {
-      statsByUser.set(row.user_id, {
-        level: row.character_stats?.level ?? 1,
-        gold: row.character_stats?.gold ?? 0,
-        week: row.week_starting_date,
-      });
-    }
+  const statsByUser = new Map<string, { level: number; gold: number }>();
+  (progressRes.data || []).forEach((row: any) => {
+    statsByUser.set(row.user_id, { level: row.level ?? 1, gold: row.gold ?? 0 });
   });
 
   const questionsByUser = new Map<string, number>();
@@ -125,7 +118,7 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
 
   const entries: LeaderboardEntry[] = ids.map(id => {
     const profile = USERS[id];
-    const stats = statsByUser.get(id) || { level: 1, gold: 0, week: '' };
+    const stats = statsByUser.get(id) || { level: 1, gold: 0 };
     const questionsAnswered = questionsByUser.get(id) || 0;
     const trainerBattlesWon = defeatedByUser.get(id) || 0;
     const liveBattleWins = winsByUser.get(id) || 0;

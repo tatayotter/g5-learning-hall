@@ -30,5 +30,9 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules", "supabase"]
+  // "public" is excluded because Tiled's tileset file format also uses the
+  // .tsx extension (its own XML-based format, unrelated to TypeScript/JSX) —
+  // see public/maps-tiled-art/ — which would otherwise get parsed as a React
+  // component by the TS compiler and fail with syntax errors.
+  "exclude": ["node_modules", "supabase", "public"]
 }

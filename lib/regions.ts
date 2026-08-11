@@ -3,6 +3,10 @@
 // (the original, unfiltered Training Map). Elemental regions are placeholder
 // content: hand-authored layouts + solid/gradient element-tinted backgrounds,
 // swappable for real art later by only changing `mapImage` below.
+//
+// Walkability layouts are authored in Tiled (see public/maps-tiled/*.json,
+// parsed by lib/tiledMap.ts) rather than hand-coded here — `tiledMapPath`
+// below points TrainingMap.tsx at each region's map file.
 import type { Element } from './monsterConfig';
 
 export const MAP_SIZE = 16;
@@ -20,118 +24,9 @@ export interface Region {
   element: Element | 'all';
   unlockLevel: number;
   mapImage: string;
-  layout: MapTile[][];
+  tiledMapPath: string;
   spawn: { x: number; y: number };
   townCenter: { x: number; y: number };
-}
-
-function grassGrid(): MapTile[][] {
-  return Array.from({ length: MAP_SIZE }, () =>
-    Array.from({ length: MAP_SIZE }, () => ({ type: 'grass' as TileType }))
-  );
-}
-
-function withBorderWalls(map: MapTile[][]): MapTile[][] {
-  for (let i = 0; i < MAP_SIZE; i++) {
-    map[0][i] = { type: 'wall' };
-    map[MAP_SIZE - 1][i] = { type: 'wall' };
-    map[i][0] = { type: 'wall' };
-    map[i][MAP_SIZE - 1] = { type: 'wall' };
-  }
-  return map;
-}
-
-function withTown(map: MapTile[][], topLeftX: number, topLeftY: number): MapTile[][] {
-  for (let y = topLeftY; y < topLeftY + 3; y++) {
-    for (let x = topLeftX; x < topLeftX + 3; x++) {
-      map[y][x] = { type: 'town' };
-    }
-  }
-  return map;
-}
-
-// A short interior wall segment, e.g. [[x,y], [x,y], ...] — kept simple
-// (straight/L-shaped runs) since these are placeholder layouts meant to feel
-// structurally distinct from each other, not intricate mazes.
-function withWallSegment(map: MapTile[][], cells: [number, number][]): MapTile[][] {
-  for (const [x, y] of cells) {
-    if (x > 0 && x < MAP_SIZE - 1 && y > 0 && y < MAP_SIZE - 1) {
-      map[y][x] = { type: 'wall' };
-    }
-  }
-  return map;
-}
-
-// The Cinderreach (fire) — a jagged diagonal fissure splitting the region,
-// town tucked in the top-right corner.
-function buildCinderreachLayout(): MapTile[][] {
-  let map = withBorderWalls(grassGrid());
-  map = withTown(map, 12, 1);
-  const fissure: [number, number][] = [];
-  for (let i = 2; i < 13; i++) fissure.push([i, i]);
-  return withWallSegment(map, fissure);
-}
-
-// The Tidewrit Shallows (water) — a river-like wall band curving across the
-// middle, town on the bottom-left shore.
-function buildTidewritShallowsLayout(): MapTile[][] {
-  let map = withBorderWalls(grassGrid());
-  map = withTown(map, 1, 12);
-  const river: [number, number][] = [];
-  for (let x = 1; x < 15; x++) {
-    const y = 6 + Math.round(Math.sin(x / 2.5) * 2);
-    river.push([x, y]);
-  }
-  return withWallSegment(map, river);
-}
-
-// The Rootbound Wilds (leaf) — a ring of bramble walls enclosing a central
-// grove, town centered at the top.
-function buildRootboundWildsLayout(): MapTile[][] {
-  let map = withBorderWalls(grassGrid());
-  map = withTown(map, 6, 1);
-  const ring: [number, number][] = [];
-  for (let i = 4; i <= 11; i++) {
-    ring.push([i, 4], [i, 11], [4, i], [11, i]);
-  }
-  return withWallSegment(map, ring);
-}
-
-// The Stormrun Reaches (storm) — scattered wall clusters like storm-thrown
-// debris, town in the bottom-right.
-function buildStormrunReachesLayout(): MapTile[][] {
-  let map = withBorderWalls(grassGrid());
-  map = withTown(map, 12, 12);
-  const debris: [number, number][] = [
-    [2, 3], [3, 3], [2, 4],
-    [7, 6], [8, 6], [8, 7],
-    [4, 9], [4, 10], [5, 10],
-    [10, 3], [10, 4], [11, 4],
-    [6, 13], [7, 13],
-  ];
-  return withWallSegment(map, debris);
-}
-
-// The Unread Margins (shadow) — narrow corridor walls like the margins of a
-// closed book, town hidden in the bottom-left.
-function buildUnreadMarginsLayout(): MapTile[][] {
-  let map = withBorderWalls(grassGrid());
-  map = withTown(map, 1, 12);
-  const margins: [number, number][] = [];
-  for (let y = 2; y < 14; y += 3) {
-    for (let x = 3; x < 13; x++) margins.push([x, y]);
-  }
-  return withWallSegment(map, margins);
-}
-
-// The Radiant Archive (light) — a symmetric cross of shelving walls radiating
-// from the center, town at the top-left.
-function buildRadiantArchiveLayout(): MapTile[][] {
-  let map = withBorderWalls(grassGrid());
-  map = withTown(map, 1, 1);
-  const shelves: [number, number][] = [];
-  for (let i = 3; i < 13; i++) shelves.push([i, 8], [8, i]);
-  return withWallSegment(map, shelves);
 }
 
 export const REGIONS: Record<string, Region> = {
@@ -142,7 +37,7 @@ export const REGIONS: Record<string, Region> = {
     element: 'all',
     unlockLevel: 1,
     mapImage: '/maps/ledgers_heart.webp',
-    layout: [], // unused — TrainingMap always uses the original buildMap() for this region
+    tiledMapPath: '/maps-tiled/ledgers_heart.json',
     spawn: { x: 1, y: 1 },
     townCenter: { x: 1, y: 1 },
   },
@@ -153,7 +48,7 @@ export const REGIONS: Record<string, Region> = {
     element: 'fire',
     unlockLevel: 10,
     mapImage: '/maps/fire_new.webp',
-    layout: buildCinderreachLayout(),
+    tiledMapPath: '/maps-tiled/cinderreach.json',
     spawn: { x: 1, y: 4 },
     townCenter: { x: 13, y: 2 },
   },
@@ -164,7 +59,7 @@ export const REGIONS: Record<string, Region> = {
     element: 'water',
     unlockLevel: 10,
     mapImage: '/maps/water_new.webp',
-    layout: buildTidewritShallowsLayout(),
+    tiledMapPath: '/maps-tiled/tidewrit_shallows.json',
     spawn: { x: 1, y: 4 },
     townCenter: { x: 2, y: 13 },
   },
@@ -175,7 +70,7 @@ export const REGIONS: Record<string, Region> = {
     element: 'leaf',
     unlockLevel: 10,
     mapImage: '/maps/leaf_new.webp',
-    layout: buildRootboundWildsLayout(),
+    tiledMapPath: '/maps-tiled/rootbound_wilds.json',
     spawn: { x: 4, y: 1 },
     townCenter: { x: 7, y: 2 },
   },
@@ -186,7 +81,7 @@ export const REGIONS: Record<string, Region> = {
     element: 'storm',
     unlockLevel: 10,
     mapImage: '/maps/storm_new.webp',
-    layout: buildStormrunReachesLayout(),
+    tiledMapPath: '/maps-tiled/stormrun_reaches.json',
     spawn: { x: 1, y: 4 },
     townCenter: { x: 13, y: 13 },
   },
@@ -197,7 +92,7 @@ export const REGIONS: Record<string, Region> = {
     element: 'shadow',
     unlockLevel: 10,
     mapImage: '/maps/shadow_new.webp',
-    layout: buildUnreadMarginsLayout(),
+    tiledMapPath: '/maps-tiled/unread_margins.json',
     spawn: { x: 1, y: 4 },
     townCenter: { x: 2, y: 13 },
   },
@@ -208,7 +103,7 @@ export const REGIONS: Record<string, Region> = {
     element: 'light',
     unlockLevel: 10,
     mapImage: '/maps/light_new.webp',
-    layout: buildRadiantArchiveLayout(),
+    tiledMapPath: '/maps-tiled/radiant_archive.json',
     spawn: { x: 4, y: 1 },
     townCenter: { x: 2, y: 2 },
   },

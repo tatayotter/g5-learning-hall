@@ -12,8 +12,8 @@ import EventsSection from '@/components/admin/EventsSection';
 import EggChainsSection from '@/components/admin/EggChainsSection';
 import DraftQuestionsSection from '@/components/admin/DraftQuestionsSection';
 import AnalyticsSection from '@/components/admin/AnalyticsSection';
-import MapEditorSection from '@/components/admin/MapEditorSection';
 import ApprovalsSection from '@/components/admin/ApprovalsSection';
+import BossFightSection from '@/components/admin/BossFightSection';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 interface AdminDashboardProps {
@@ -23,7 +23,7 @@ interface AdminDashboardProps {
   onBack: () => void;
 }
 
-type AdminSection = 'packages' | 'draft_questions' | 'questions' | 'map_editor' | 'children' | 'parents' | 'events' | 'egg_chains' | 'approvals' | 'analytics' | 'tools' | 'prompts';
+type AdminSection = 'packages' | 'draft_questions' | 'questions' | 'children' | 'parents' | 'events' | 'boss_fights' | 'egg_chains' | 'approvals' | 'analytics' | 'tools' | 'prompts';
 
 export default function AdminDashboard({ currentData, currentSunday, onUpdateStats, onBack }: AdminDashboardProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -97,7 +97,6 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
         { id: 'packages',        label: 'Weekly Packages' },
         { id: 'draft_questions', label: 'Draft Questions' },
         { id: 'questions',       label: 'Question Bank' },
-        { id: 'map_editor',      label: 'Map Editor' },
       ],
     },
     {
@@ -106,6 +105,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
         { id: 'children',  label: 'Children' },
         { id: 'parents',   label: 'Parents' },
         { id: 'events',     label: 'Custom Events' },
+        { id: 'boss_fights', label: 'Term Boss Fight' },
         { id: 'egg_chains', label: 'Egg Chains' },
         { id: 'approvals',  label: 'Parent Approvals' },
       ],
@@ -185,11 +185,11 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
         {section === 'children' && <ChildrenSection passcode={password} />}
         {section === 'parents' && <ParentsSection />}
         {section === 'events' && <EventsSection passcode={password} />}
+        {section === 'boss_fights' && <BossFightSection passcode={password} />}
         {section === 'egg_chains' && <EggChainsSection passcode={password} />}
         {section === 'approvals' && <ApprovalsSection onPendingChange={setPendingApprovals} />}
         {section === 'draft_questions' && <DraftQuestionsSection passcode={password} />}
         {section === 'analytics' && <AnalyticsSection />}
-        {section === 'map_editor' && <MapEditorSection />}
         {section === 'tools' && (
           <ToolsSection
             currentData={currentData}

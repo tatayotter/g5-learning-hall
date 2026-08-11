@@ -40,14 +40,18 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
       const [stateRes, monstersRes, weeklyRes, subProfile] = await Promise.all([
         supabase.from('user_battle_state').select('active_monster_slot').eq('user_id', targetId).single(),
         supabase.from('user_monsters').select('slot, monster_id, nickname, monster_level, graduation_tier').eq('user_id', targetId).not('slot', 'is', null).order('slot'),
-        supabase.from('weekly_packages').select('character_stats')
-          .eq('user_id', targetId).order('week_starting_date', { ascending: false }).limit(1).maybeSingle(),
+        // One row per user (lifetime, not week-keyed) — see
+        // docs/weekly-progress-redesign-plan.md Phase 4 Wave 2. The old query here had no
+        // guard at all against a pre-staged future week shadowing the real latest week (see
+        // the Tala level-9-vs-1 bug fixed 2026-08-11 for the trigger that had the same class
+        // of "latest row" flaw) — player_progress sidesteps the whole problem, one row, no sort.
+        supabase.from('player_progress').select('level').eq('user_id', targetId).maybeSingle(),
         fetchSubclassProfile(targetId),
       ]);
       if (cancelled) return;
       setActiveSlot(stateRes.data?.active_monster_slot ?? null);
       setTeam(monstersRes.data || []);
-      setLevel(weeklyRes.data?.character_stats?.level ?? null);
+      setLevel(weeklyRes.data?.level ?? null);
       setSubclassProfile(subProfile);
       setLoading(false);
     }

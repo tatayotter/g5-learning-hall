@@ -16,7 +16,6 @@ import {
 } from '@/lib/monsterConfig';
 import { fetchInventory, useInventoryItem, InventoryMap } from '@/lib/inventory';
 import {
-  hashQuestionId, arenaQuestionText,
   fetchAnsweredArenaQuestionIds, markArenaQuestionsCompleted, resetArenaHistory,
   fetchQuestionPool, markQuestionsCompleted,
   fetchSubclassProfile, guildLevelForKey, SubclassProfile,
@@ -45,11 +44,8 @@ interface MonsterGuildProps {
   playerLevel: number;
   currentGold: number;
   packageData: any;
-  // Whose weekly package to grade Monster Guild quiz answers against, and
-  // which week — needed because `packageData` here is the answer-stripped
-  // weekly_packages_public row (see extractQuestions below), so correctness
-  // has to be checked server-side via grade_monster_question.
-  gradingUserId: string;
+  // Used by TeamPanel's Tutor-Curio gold sync, unrelated to question grading
+  // (grading now just needs userId — see the gradeMonsterQuestion call sites below).
   weekStartingDate: string;
   liveBattleInbox: ReturnType<typeof useLiveBattleInbox>;
   pendingLiveBattleId: string | null;
@@ -116,7 +112,7 @@ interface WildEncounterState {
   attemptsLeft: number;
 }
 
-export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, gradingUserId, weekStartingDate, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle, onBattleWon, onGoldAwarded, onGoldSynced, initialView, onEggBadgeChange, eggRefreshSignal, onGraduated, onTutored, onTradeConfirmed, onLegendaryCaught, onTatayBattleResult }: MonsterGuildProps) {
+export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, weekStartingDate, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle, onBattleWon, onGoldAwarded, onGoldSynced, initialView, onEggBadgeChange, eggRefreshSignal, onGraduated, onTutored, onTradeConfirmed, onLegendaryCaught, onTatayBattleResult }: MonsterGuildProps) {
   const isDemo = userId.startsWith('demo_');
   const [loading, setLoading] = useState(true);
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
@@ -189,13 +185,13 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const questions = allQuestions.length === 0
     ? allQuestions
     : (() => {
-        const unseen = allQuestions.filter(q => !answeredArenaIds.has(hashQuestionId(arenaQuestionText(q))));
+        const unseen = allQuestions.filter(q => !answeredArenaIds.has(q.id));
         return unseen.length > 0 ? unseen : allQuestions;
       })();
 
   useEffect(() => {
     if (allQuestions.length === 0 || answeredArenaIds.size === 0) return;
-    const stillUnseen = allQuestions.some(q => !answeredArenaIds.has(hashQuestionId(arenaQuestionText(q))));
+    const stillUnseen = allQuestions.some(q => !answeredArenaIds.has(q.id));
     if (!stillUnseen) {
       setAnsweredArenaIds(new Set());
       resetArenaHistory(userId);
@@ -206,7 +202,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     if (usedQuestions.length === 0) return;
     setAnsweredArenaIds(prev => {
       const next = new Set(prev);
-      usedQuestions.forEach(q => next.add(hashQuestionId(arenaQuestionText(q))));
+      usedQuestions.forEach(q => next.add(q.id));
       return next;
     });
     markArenaQuestionsCompleted(userId, usedQuestions);
@@ -791,8 +787,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
             userMonsters={userMonsters}
             caughtMonsters={caughtMonsters}
             questions={questions}
-            gradingUserId={gradingUserId}
-            weekStartingDate={weekStartingDate}
+            gradingUserId={userId}
             onBattleStateChange={setBattleState}
             onMonsterExpGained={handleMonsterExpGained}
             onHeal={handleHeal}
@@ -1023,8 +1018,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           playerTeam={buildPlayerTeam()}
           trainer={activeBattle}
           questions={questions}
-          gradingUserId={gradingUserId}
-          weekStartingDate={weekStartingDate}
+          gradingUserId={userId}
           inventory={inventory}
           onUseItem={async (key) => {
             const ok = await useInventoryItem(userId, key);
@@ -1044,8 +1038,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           siblingTeam={pvpOpponentTeam}
           siblingName={pvpOpponent.name}
           questions={questions}
-          gradingUserId={gradingUserId}
-          weekStartingDate={weekStartingDate}
+          gradingUserId={userId}
           inventory={inventory}
           onUseItem={async (key) => {
             const ok = await useInventoryItem(userId, key);
@@ -1068,8 +1061,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           myTeam={liveBattleTeams.mine}
           opponentTeam={liveBattleTeams.opp}
           questions={questions}
-          gradingUserId={gradingUserId}
-          weekStartingDate={weekStartingDate}
+          gradingUserId={userId}
           inventory={inventory}
           onUseItem={async (key) => {
             const ok = await useInventoryItem(userId, key);

@@ -279,29 +279,12 @@ export async function markQuestionsCompleted(userId: string, questType: string, 
 }
 
 // ─── Monster Arena question tracking ──────────────────────────────────────────
-// Monster Arena questions come from weekly_packages.package_data (embedded JSON,
-// no stable id), unlike the sq_* guild tables above. We derive a deterministic
-// id from the question text so the same user_completed_questions table can
-// track "already asked" per player without a schema change to package_data.
+// Monster Arena questions now carry a real, stable content_questions.id (Phase 4 Wave 3, see
+// docs/weekly-progress-redesign-plan.md) instead of a hash derived from question text — the old
+// hashQuestionId/arenaQuestionText helpers are gone, `question_id` below is just `q.id` directly.
+// Editing a question's wording no longer resets everyone's "already answered" state for it.
 
 export const MONSTER_ARENA_QUEST_TYPE = 'monster_arena';
-
-export function hashQuestionId(text: string): string {
-  const seeds = [0x811c9dc5, 0x1000193, 0x9e3779b9, 0x85ebca6b];
-  const hex = seeds.map(seed => {
-    let hash = seed >>> 0;
-    for (let i = 0; i < text.length; i++) {
-      hash ^= text.charCodeAt(i);
-      hash = Math.imul(hash, 16777619) >>> 0;
-    }
-    return hash.toString(16).padStart(8, '0');
-  }).join('');
-  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20, 32)}`;
-}
-
-export function arenaQuestionText(q: any): string {
-  return q.question || q.problem_prompt || '';
-}
 
 export async function fetchAnsweredArenaQuestionIds(userId: string): Promise<Set<string>> {
   const { data } = await supabase
@@ -317,7 +300,7 @@ export async function markArenaQuestionsCompleted(userId: string, questions: any
   const rows = questions.map(q => ({
     user_id: userId,
     quest_type: MONSTER_ARENA_QUEST_TYPE,
-    question_id: hashQuestionId(arenaQuestionText(q)),
+    question_id: q.id,
   }));
   const { error } = await supabase.from('user_completed_questions').insert(rows);
   if (error) {
@@ -325,21 +308,18 @@ export async function markArenaQuestionsCompleted(userId: string, questions: any
   }
 }
 
-// Grades a single Monster Guild question (grass encounters, trainer battles,
-// PvP battles) server-side. The `questions` fed into BattleQuestionModal come
-// from weekly_packages_public, which strips correct_answer out of every quiz
-// question — so correctness can't be checked client-side and must go through
-// this RPC, which matches by question text against the real package_data.
+// Grades a single Monster Guild question (grass encounters, trainer battles, PvP battles)
+// server-side, by stable question id — replaces the old text-matching grade_monster_question
+// RPC. The `questions` fed into BattleQuestionModal come from content_questions_public, which
+// strips correct_answer out of every question, so correctness can't be checked client-side.
 export async function gradeMonsterQuestion(
   userId: string,
-  weekStartingDate: string,
-  questionText: string,
+  questionId: string,
   selected: string
 ): Promise<{ correct: boolean; correctAnswer: string | null }> {
-  const { data, error } = await supabase.rpc('grade_monster_question', {
+  const { data, error } = await supabase.rpc('grade_content_question', {
     p_user_id: userId,
-    p_week_starting_date: weekStartingDate,
-    p_question_text: questionText,
+    p_question_id: questionId,
     p_selected: selected,
   });
   if (error || !data) {

@@ -7,7 +7,7 @@ import { saveAvatar } from '@/lib/userSession';
 import { fetchInventory, InventoryMap } from '@/lib/inventory';
 import { USERPIC_CATALOG, userpicPath } from '@/lib/userpicShop';
 import { ACHIEVEMENTS } from '@/lib/achievements';
-import { fetchLifetimeBattleStats, LifetimeBattleStats } from '@/lib/lifetimeStats';
+import { fetchLifetimeBattleStats, LifetimeBattleStats, fetchPlayerProgress, PlayerProgress, mergeProgressForAchievements } from '@/lib/lifetimeStats';
 import AvatarPicker from '@/components/AvatarPicker';
 import { supabase } from '@/lib/supabase';
 import {
@@ -42,6 +42,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   const [battleView, setBattleView] = useState<'week' | 'lifetime'>('week');
   const [lifetimeStats, setLifetimeStats] = useState<LifetimeBattleStats | null>(null);
   const [lifetimeLoading, setLifetimeLoading] = useState(false);
+  const [progress, setProgress] = useState<PlayerProgress | null>(null);
   const [activeCurios, setActiveCurios] = useState<ActiveCurio[]>([]);
   const [activeSlot, setActiveSlot] = useState<number | null>(null);
   const [subclassProfile, setSubclassProfile] = useState<Awaited<ReturnType<typeof fetchSubclassProfile>> | null>(null);
@@ -100,7 +101,17 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   useEffect(() => {
     setLifetimeStats(null);
     setBattleView('week');
+    setProgress(null);
   }, [userId]);
+
+  // Fetched eagerly (not gated behind the This Week/Lifetime toggle like lifetimeStats below)
+  // because achievement criteria (isEarned, below) need lifetime counters/level/xp/gold
+  // regardless of which battle-record view is showing — see
+  // docs/weekly-progress-redesign-plan.md Phase 4 Wave 2.
+  useEffect(() => {
+    if (offline) return;
+    fetchPlayerProgress(userId).then(setProgress);
+  }, [userId, offline]);
 
   // guild_sessions_count/monster_battles_won/etc. reset every week (see
   // hooks/useWeeklyData.ts), so "lifetime" means summing across every past
@@ -128,7 +139,10 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   // by spending gold — once persisted as earned it must stay unlocked, so
   // only fall back to the live criteria check for ones not yet recorded.
   // Mirrors the same rule in AchievementsBoard.
-  const isEarned = (a: typeof ACHIEVEMENTS[number]) => !!data.achievements?.[a.id] || a.criteria(data);
+  // Criteria checked against lifetime totals (player_progress), not the current week's
+  // weekly-reset counters — thresholds unchanged, only the data source moved (Phase 4 Wave 2).
+  const achievementData = mergeProgressForAchievements(data, progress);
+  const isEarned = (a: typeof ACHIEVEMENTS[number]) => !!data.achievements?.[a.id] || a.criteria(achievementData);
   const unlockedAchievements = ACHIEVEMENTS.filter(isEarned);
 
   const ownedUserpics = USERPIC_CATALOG.filter(item => (inventory[item.key] || 0) > 0);

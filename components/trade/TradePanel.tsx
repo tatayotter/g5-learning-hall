@@ -80,7 +80,7 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted, onT
 
   const handleRespond = async (tradeId: string, accept: boolean) => {
     setBusyId(tradeId);
-    const result = await respondToTrade(tradeId, accept, currentSunday());
+    const result = await respondToTrade(tradeId, accept);
     if (result.status === 'completed') {
       logAction(userId, currentSunday(), 'trade', '🔄 Completed a curio trade', 0, 0);
       onTradeConfirmed?.();

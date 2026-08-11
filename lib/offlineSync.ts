@@ -23,9 +23,11 @@ async function replay(row: SyncQueueRow): Promise<void> {
       await claimChecklistBonus(p.userId, p.today, p.dayName, p.weekStartingDate);
       return;
     case 'apply_character_deltas': {
-      const { error } = await supabase.rpc('apply_character_deltas', {
+      // Queue target name kept as-is (matches hooks/useWeeklyData.ts's enqueueSync calls) but
+      // now replays against apply_progress_deltas (player_progress, lifetime, no week param) —
+      // see docs/weekly-progress-redesign-plan.md Phase 4 Wave 1.
+      const { error } = await supabase.rpc('apply_progress_deltas', {
         p_user_id: p.userId,
-        p_week_starting_date: p.weekStartingDate,
         p_xp_delta: p.xpDelta,
         p_gold_delta: p.goldDelta,
       });

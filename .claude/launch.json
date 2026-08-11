@@ -7,6 +7,13 @@
       "runtimeArgs": ["run", "dev"],
       "port": 3000,
       "autoPort": true
+    },
+    {
+      "name": "map-editor-tool",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "D:\\Python Builds\\ReactJS G5 Tutor\\map-editor-tool", "run", "dev", "--", "--port", "3001"],
+      "port": 3001,
+      "autoPort": true
     }
   ]
 }

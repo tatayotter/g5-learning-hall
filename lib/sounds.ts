@@ -570,12 +570,40 @@ let mainThemeAudio: HTMLAudioElement | null = null;
 let battleThemeAudio: HTMLAudioElement | null = null;
 let activeMusicTrack: 'main' | 'battle' | null = null;
 
+// --- Term Exam Boss Fight music: an ambient track that overrides the main
+// theme game-wide while the boss event is active, and a further-overriding
+// track for the persona fight screen itself. Sits as a layer above the
+// main/battle system above rather than folded into activeMusicTrack, so
+// entering/exiting a persona fight doesn't have to know or care whether a
+// regular Curio battle theme would otherwise be playing.
+let termBossThemeAudio: HTMLAudioElement | null = null;
+let bossFightThemeAudio: HTMLAudioElement | null = null;
+let bossMusicLayer: 'boss_fight' | 'term_boss' | null = null;
+
 function applyMusicPlayback() {
   if (!musicEnabled) {
     mainThemeAudio?.pause();
     battleThemeAudio?.pause();
+    termBossThemeAudio?.pause();
+    bossFightThemeAudio?.pause();
     return;
   }
+  if (bossMusicLayer === 'boss_fight') {
+    mainThemeAudio?.pause();
+    battleThemeAudio?.pause();
+    termBossThemeAudio?.pause();
+    bossFightThemeAudio?.play().catch(() => {});
+    return;
+  }
+  if (bossMusicLayer === 'term_boss') {
+    mainThemeAudio?.pause();
+    battleThemeAudio?.pause();
+    bossFightThemeAudio?.pause();
+    termBossThemeAudio?.play().catch(() => {});
+    return;
+  }
+  termBossThemeAudio?.pause();
+  bossFightThemeAudio?.pause();
   if (activeMusicTrack === 'battle') {
     mainThemeAudio?.pause();
     battleThemeAudio?.play().catch(() => {});
@@ -583,6 +611,52 @@ function applyMusicPlayback() {
     battleThemeAudio?.pause();
     mainThemeAudio?.play().catch(() => {});
   }
+}
+
+// --- Term boss ambient: plays game-wide (replacing the main theme) for as
+// long as the boss event is active. Idempotent — calling it again while
+// already playing is a no-op rather than restarting the track.
+export function startTermBossTheme() {
+  if (!termBossThemeAudio) {
+    const audio = new Audio('/sounds/term_boss_bgm.mp3');
+    audio.loop = true;
+    audio.volume = 0.35;
+    termBossThemeAudio = audio;
+  }
+  if (bossMusicLayer !== 'boss_fight') bossMusicLayer = 'term_boss';
+  applyMusicPlayback();
+}
+
+export function stopTermBossTheme() {
+  if (!termBossThemeAudio) return;
+  termBossThemeAudio.pause();
+  termBossThemeAudio.currentTime = 0;
+  termBossThemeAudio = null;
+  if (bossMusicLayer === 'term_boss') bossMusicLayer = null;
+  applyMusicPlayback();
+}
+
+// --- Persona fight theme: takes over from the term boss ambient (if any)
+// for the duration of a single persona challenge. Stopping it falls back to
+// the term boss ambient rather than silence/main theme, since the event is
+// still active.
+export function startBossFightTheme() {
+  if (bossFightThemeAudio) return;
+  const audio = new Audio('/sounds/term_boss_fight.mp3');
+  audio.loop = true;
+  audio.volume = 0.4;
+  bossFightThemeAudio = audio;
+  bossMusicLayer = 'boss_fight';
+  applyMusicPlayback();
+}
+
+export function stopBossFightTheme() {
+  if (!bossFightThemeAudio) return;
+  bossFightThemeAudio.pause();
+  bossFightThemeAudio.currentTime = 0;
+  bossFightThemeAudio = null;
+  bossMusicLayer = termBossThemeAudio ? 'term_boss' : null;
+  applyMusicPlayback();
 }
 
 // --- Main theme: looping background track, plays for the whole session except during battle ---
