@@ -6,7 +6,7 @@
 // BattleStage's MonsterDef/MonsterHpPanel machinery onto a persona that isn't
 // a real Curio — reuses the genuinely shared pieces (ActionTile,
 // AttackBanner, DamageNumber, runBattleBeats/BattleBeat) directly.
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import type { CSSProperties } from 'react';
 import { ActionTile } from '@/components/battle/BattleStage';
 import { AttackBanner, DamageNumber, runBattleBeats, BattleBeat } from '@/components/battle/shared';
@@ -18,6 +18,7 @@ import {
   buildBossQuestionPool,
   gradeBossQuestion,
   useBossFightQueue,
+  shuffle,
 } from '@/lib/bossFightEngine';
 import { CURRENT_TERM } from '@/lib/guildConfig';
 import { startBossFightTheme, stopBossFightTheme, playHitThud, playClash } from '@/lib/sounds';
@@ -110,6 +111,12 @@ function BossFightBattle({
   onLost: () => void;
 }) {
   const { status, current, hearts, maxHearts, corruptionPct, submitAnswer, correctCount } = useBossFightQueue(pool);
+  // The persona pool's `options` arrays come straight off content_questions with the correct
+  // answer always first (an AI-generation authoring convention, not a display order) — rendered
+  // as-is, the top-left tile was always correct. Shuffled once per question (keyed on id, not
+  // recomputed every render) so the correct tile lands in a random position each time, same
+  // pattern QuestModule.tsx already uses for Main Quest quizzes.
+  const shuffledOptions = useMemo(() => (current ? shuffle(current.options) : []), [current?.id]); // eslint-disable-line react-hooks/exhaustive-deps
   const [grading, setGrading] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
   const [banner, setBanner] = useState<{ text: string; iconSrc: string | null } | null>(null);
@@ -212,7 +219,7 @@ function BossFightBattle({
             </p>
             <p className="text-white font-bold mb-3 leading-snug">{current.question}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {current.options.map(opt => (
+              {shuffledOptions.map(opt => (
                 <ActionTile
                   key={opt}
                   icon={<span className="text-lg">▸</span>}
