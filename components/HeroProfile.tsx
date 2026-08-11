@@ -12,7 +12,7 @@ import AvatarPicker from '@/components/AvatarPicker';
 import { supabase } from '@/lib/supabase';
 import {
   ALL_MONSTERS, GUILD_MONSTERS, MonsterDef,
-  getGuildMonsterDisplay, getGraduatedMonsterDisplay,
+  getGuildMonsterDisplay, getGraduatedMonsterDisplay, getOwnedMonsterDisplay,
 } from '@/lib/monsterConfig';
 import { fetchSubclassProfile, guildLevelForKey } from '@/lib/guildEngine';
 import { MonsterImage } from '@/components/battle/shared';
@@ -81,19 +81,17 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
 
   // Same display-override pattern as MonsterGuild.tsx/PlayerStatsPopup: guild
   // companions show the name/sprite their owner's guild level currently
-  // unlocks, and graduated species show their purchased tier.
+  // unlocks. Graduation is NOT baked in here — it's per owned user_monsters
+  // instance, and since the egg mechanism a player can hold more than one
+  // instance of the same species at different tiers (a graduated adult plus
+  // its own freshly hatched, ungraduated egg-child), so it must be layered
+  // on per-row at render time via getOwnedMonsterDisplay instead.
   const curioDisplayMonsters: Record<string, MonsterDef> = { ...ALL_MONSTERS };
   for (const id of Object.keys(GUILD_MONSTERS)) {
     const def = GUILD_MONSTERS[id];
     const guildLevel = guildLevelForKey(subclassProfile, def.guildEvolution?.guildKey);
     const { name, emoji, isLegendary, spriteId } = getGuildMonsterDisplay(def, guildLevel);
     curioDisplayMonsters[id] = { ...def, name, emoji, isLegendary, spriteId };
-  }
-  for (const m of activeCurios) {
-    const def = ALL_MONSTERS[m.monster_id];
-    if (def?.graduation) {
-      curioDisplayMonsters[m.monster_id] = getGraduatedMonsterDisplay(curioDisplayMonsters[m.monster_id] ?? def, m.graduation_tier);
-    }
   }
 
   // Cached lifetime totals belong to whichever account fetched them —
@@ -240,7 +238,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {activeCurios.map(m => {
-                const def = curioDisplayMonsters[m.monster_id];
+                const def = getOwnedMonsterDisplay(curioDisplayMonsters[m.monster_id], m.graduation_tier);
                 const isActive = m.slot === activeSlot;
                 return (
                   <div

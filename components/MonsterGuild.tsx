@@ -11,7 +11,7 @@ import DuplicateCatchModal from '@/components/DuplicateCatchModal';
 import {
   MONSTERS, WILD_MONSTERS, ALL_MONSTERS, GUILD_MONSTERS, NPC_TRAINERS, BATTLE_CONSTANTS,
   getScaledStats, getMonsterLevel, getCounterElement,
-  pickRandomWildMonsterId, getGuildMonsterDisplay, getGraduatedMonsterDisplay,
+  pickRandomWildMonsterId, getGuildMonsterDisplay, getGraduatedMonsterDisplay, getOwnedMonsterDisplay,
   NpcTrainer, MonsterDef, TrainerMonster,
 } from '@/lib/monsterConfig';
 import { fetchInventory, useInventoryItem, InventoryMap } from '@/lib/inventory';
@@ -165,21 +165,21 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // ALL_MONSTERS, but with each guild companion swapped for the display tier
   // the player's guild level currently allows — name/emoji/description/base
   // stats all come from that tier (skills/skillUnlocks never change).
+  // Species-wide display only: guild companions swapped for the tier the
+  // player's guild level currently allows. Graduation is deliberately NOT
+  // baked in here — it's purchased per owned user_monsters instance, and
+  // since the egg mechanism a player can hold more than one instance of the
+  // same species at different graduation tiers (a graduated adult plus its
+  // own freshly hatched, ungraduated egg-child). Baking graduation into this
+  // species-keyed map made every instance of a species render as whichever
+  // one happened to be processed last. Callers that need a specific owned
+  // row's display must layer its own graduation_tier on via
+  // getOwnedMonsterDisplay(displayMonsters[m.monster_id], m.graduation_tier).
   const displayMonsters: Record<string, MonsterDef> = { ...ALL_MONSTERS };
   for (const id of Object.keys(GUILD_MONSTERS)) {
     const def = GUILD_MONSTERS[id];
     const guildLevel = guildLevelForKey(subclassProfile, def.guildEvolution?.guildKey);
     displayMonsters[id] = getGuildMonsterDisplay(def, guildLevel);
-  }
-  // A player only ever owns one team instance of a given species — layer its
-  // purchased graduation tier (see MonsterDef.graduation) onto that species'
-  // display, same as guild companions above but keyed on the owned instance's
-  // own graduation_tier column instead of guild level.
-  for (const m of userMonsters) {
-    const def = ALL_MONSTERS[m.monster_id];
-    if (def?.graduation) {
-      displayMonsters[m.monster_id] = getGraduatedMonsterDisplay(displayMonsters[m.monster_id] ?? def, m.graduation_tier);
-    }
   }
 
   const allQuestions = extractQuestions(packageData);
@@ -585,7 +585,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       const newLevel = getMonsterLevel(newExp);
       const leveledUp = newLevel > m.monster_level;
       if (leveledUp) playCurioLevelUp();
-      showNotification(`+${exp} EXP for ${displayMonsters[m.monster_id]?.name}!${leveledUp ? ` 🎉 Level Up! Now Lv.${newLevel}!` : ''}`);
+      const ownedDef = getOwnedMonsterDisplay(displayMonsters[m.monster_id], m.graduation_tier);
+      showNotification(`+${exp} EXP for ${ownedDef?.name}!${leveledUp ? ` 🎉 Level Up! Now Lv.${newLevel}!` : ''}`);
       return { ...m, monster_exp: newExp, monster_level: newLevel };
     }));
   };
@@ -719,7 +720,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
   const buildPlayerTeam = (): ActiveBattleMonster[] => {
     return userMonsters.filter(um => um.slot !== null).map(um => {
-      const def = displayMonsters[um.monster_id];
+      const def = getOwnedMonsterDisplay(displayMonsters[um.monster_id], um.graduation_tier) as MonsterDef;
       const hp = getScaledStats(def, um.monster_level, um.quality).hp;
       return { def, level: um.monster_level, currentHp: hp, maxHp: hp, status: null, statusTurns: 0, restUsed: 0, userMonster: um } as ActiveBattleMonster;
     });

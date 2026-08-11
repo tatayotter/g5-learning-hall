@@ -4,10 +4,12 @@ import { supabase } from '@/lib/supabase';
 import {
   ALL_MONSTERS, BATTLE_CONSTANTS, MonsterDef, Skill, SKILLS, Element, ELEMENT_ICON_SRC,
   getUnlockedMonsterSlots, getScaledStats, getEquippedSkills,
-  getGraduatedMonsterDisplay, getMaxGraduationTier, GRADUATION_LEVEL_REQUIREMENT,
+  getGraduatedMonsterDisplay, getOwnedMonsterDisplay, getMaxGraduationTier, GRADUATION_LEVEL_REQUIREMENT,
+  getMonsterLevel,
 } from '@/lib/monsterConfig';
 import { SCROLL_CATALOG, unlearnMonsterSkill, learnMonsterSkill } from '@/lib/skillScrolls';
 import { graduateMonster } from '@/lib/monsterGraduation';
+import { useGrowthPill } from '@/lib/growthPill';
 import { MonsterImage, UserMonster } from '@/components/battle/shared';
 import { CaughtMonster } from '@/components/monster/types';
 import {
@@ -18,6 +20,7 @@ import { tutorCurio, TutorOutcome } from '@/lib/tutorCurio';
 import { InventoryMap } from '@/lib/inventory';
 import { logAction } from '@/lib/playerlog';
 import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
+import GrowthPillCeremonyModal from '@/components/GrowthPillCeremonyModal';
 import TeachSkillModal from '@/components/monster/TeachSkillModal';
 import UnlearnSkillModal from '@/components/monster/UnlearnSkillModal';
 import TutorRollModal from '@/components/TutorRollModal';
@@ -88,6 +91,7 @@ export default function TeamPanel({
   const [actionBusy, setActionBusy] = useState(false);
   const actionBusyRef = useRef(false);
   const [ceremony, setCeremony] = useState<{ fromDef: MonsterDef; toDef: MonsterDef; monsterLevel: number; quality: QualityTier; speciesId: string; targetTier: 1 | 2 } | null>(null);
+  const [growthCeremony, setGrowthCeremony] = useState<{ def: MonsterDef; fromLevel: number; toLevel: number; quality: QualityTier } | null>(null);
   const [learnedEvent, setLearnedEvent] = useState<{ monster: MonsterDef; skill: Skill } | null>(null);
   const [forgottenEvent, setForgottenEvent] = useState<{ monster: MonsterDef; skill: Skill } | null>(null);
   const [tutorOutcome, setTutorOutcome] = useState<{ outcome: TutorOutcome; monsterName: string; def: MonsterDef; monsterLevel: number } | null>(null);
@@ -198,6 +202,29 @@ export default function TeamPanel({
     }
   };
 
+  const handleUseGrowthPill = async (monsterRowId: string, def: MonsterDef, currentLevel: number, currentExp: number, quality: QualityTier) => {
+    if (actionBusyRef.current) return;
+    actionBusyRef.current = true;
+    setActionBusy(true);
+    try {
+      const ok = await useGrowthPill(userId, monsterRowId);
+      if (ok) {
+        // Display-only projection of the RPC's own +500 exp / level-cap
+        // clamp — the server is still the source of truth for what actually
+        // got written, this just avoids a refetch before showing the ceremony.
+        const toLevel = getMonsterLevel(currentExp + 500);
+        setGrowthCeremony({ def, fromLevel: currentLevel, toLevel, quality });
+        logAction(userId, weekStartingDate, 'growth_pill', `💊 ${def.name} surged to Lv.${toLevel}`, 0, 0);
+        onLoadoutChange();
+      } else {
+        alert('Could not use a Growth Pill right now — make sure you have one.');
+      }
+    } finally {
+      actionBusyRef.current = false;
+      setActionBusy(false);
+    }
+  };
+
   const handleTutor = async (monsterRowId: string, monsterName: string, def: MonsterDef, monsterLevel: number, useTome: boolean) => {
     if (actionBusyRef.current) return;
     actionBusyRef.current = true;
@@ -247,7 +274,7 @@ export default function TeamPanel({
   function renderDetailModal() {
     if (!liveDetailMonster) return null;
     const monster = liveDetailMonster;
-    const def = monsterDisplay[monster.monster_id];
+    const def = getOwnedMonsterDisplay(monsterDisplay[monster.monster_id], monster.graduation_tier);
     if (!def) return null;
     const scaled = getScaledStats(def, monster.monster_level, monster.quality);
     const glowClass = getQualityGlowClass(monster.quality);
@@ -397,6 +424,26 @@ export default function TeamPanel({
               })()}
 
               {(() => {
+                const pillQty = inventory['growth_pill'] || 0;
+                const atCap = monster.monster_level >= BATTLE_CONSTANTS.MONSTER_LEVEL_CAP;
+                return (
+                  <div className="border border-purple-900 bg-purple-900/10 rounded-lg p-3">
+                    <p className="text-[10px] text-purple-400 font-bold uppercase tracking-widest mb-1">Growth Pill</p>
+                    <p className="text-xs text-gray-400 mb-2">
+                      Use a Growth Pill to instantly gain <span className="font-bold text-white">5 levels</span> — works on any owned curio.
+                    </p>
+                    <button
+                      onClick={() => handleUseGrowthPill(monster.id, def, monster.monster_level, monster.monster_exp, monster.quality)}
+                      disabled={atCap || pillQty === 0 || actionBusy}
+                      className="text-[10px] bg-purple-700 hover:bg-purple-600 disabled:opacity-40 disabled:cursor-not-allowed px-3 py-2 rounded text-white"
+                    >
+                      {atCap ? `Already Lv.${BATTLE_CONSTANTS.MONSTER_LEVEL_CAP}` : pillQty === 0 ? 'Need Growth Pill' : `Use Growth Pill (x${pillQty})`}
+                    </button>
+                  </div>
+                );
+              })()}
+
+              {(() => {
                 const tier = monster.graduation_tier as 1 | 2;
                 if (!tier || tier < 1) return null;
                 if (monster.monster_level < eggReadyLevel(tier)) return null;
@@ -492,6 +539,17 @@ export default function TeamPanel({
         />
       )}
 
+      {growthCeremony && (
+        <GrowthPillCeremonyModal
+          def={growthCeremony.def}
+          fromLevel={growthCeremony.fromLevel}
+          toLevel={growthCeremony.toLevel}
+          quality={growthCeremony.quality}
+          userId={userId}
+          onDismiss={() => setGrowthCeremony(null)}
+        />
+      )}
+
       {tutorOutcome && (
         <TutorRollModal
           outcome={tutorOutcome.outcome}
@@ -555,7 +613,7 @@ export default function TeamPanel({
       {[1, 2, 3].map(slot => {
         const monster = userMonsters.find(m => m.slot === slot);
         const isUnlocked = slot <= unlockedSlots || !!monster;
-        const def = monster ? monsterDisplay[monster.monster_id] : null;
+        const def = monster ? getOwnedMonsterDisplay(monsterDisplay[monster.monster_id], monster.graduation_tier) : null;
         const expToNext = monster ? BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - (monster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) : 0;
 
         return (
@@ -573,7 +631,7 @@ export default function TeamPanel({
                 ) : (
                   <div className="flex flex-wrap gap-2">
                     {benchedMonsters.map(bm => {
-                      const bmDef = monsterDisplay[bm.monster_id];
+                      const bmDef = getOwnedMonsterDisplay(monsterDisplay[bm.monster_id], bm.graduation_tier);
                       if (!bmDef) return null;
                       return (
                         <button
@@ -637,7 +695,7 @@ export default function TeamPanel({
         <div className="space-y-3 pt-2">
           <p className="text-xs text-cyan-500 font-bold uppercase tracking-widest">Your Bench (Add To Your Team)</p>
           {benchedMonsters.map(bm => {
-            const def = monsterDisplay[bm.monster_id];
+            const def = getOwnedMonsterDisplay(monsterDisplay[bm.monster_id], bm.graduation_tier);
             if (!def) return null;
             const scaled = getScaledStats(def, bm.monster_level, bm.quality);
             return (
@@ -677,7 +735,7 @@ export default function TeamPanel({
                           onClick={() => { handleAddMonster(slot, bm.monster_id); setPromotingBenchId(null); }}
                           className="text-xs bg-neutral-800 hover:bg-neutral-700 px-3 py-2 rounded-lg text-white"
                         >
-                          {existing ? `Replace ${monsterDisplay[existing.monster_id]?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
+                          {existing ? `Replace ${getOwnedMonsterDisplay(monsterDisplay[existing.monster_id], existing.graduation_tier)?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
                         </button>
                       );
                     })}
@@ -734,7 +792,7 @@ export default function TeamPanel({
                           onClick={() => { onPromote(caught, slot); setPromotingId(null); }}
                           className="text-xs bg-neutral-800 hover:bg-neutral-700 px-3 py-2 rounded-lg text-white"
                         >
-                          {existing ? `Replace ${monsterDisplay[existing.monster_id]?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
+                          {existing ? `Replace ${getOwnedMonsterDisplay(monsterDisplay[existing.monster_id], existing.graduation_tier)?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
                         </button>
                       );
                     })}

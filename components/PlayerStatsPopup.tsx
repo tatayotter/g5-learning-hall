@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { USERS } from '@/lib/userSession';
-import { ALL_MONSTERS, GUILD_MONSTERS, MonsterDef, getGuildMonsterDisplay, getGraduatedMonsterDisplay, getScaledStats } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, GUILD_MONSTERS, MonsterDef, getGuildMonsterDisplay, getOwnedMonsterDisplay, getScaledStats } from '@/lib/monsterConfig';
 import { fetchSubclassProfile, guildLevelForKey, SubclassProfile } from '@/lib/guildEngine';
 import { GMBadge } from '@/components/battle/shared';
 import { MonsterImage } from '@/components/battle/shared';
@@ -65,14 +65,11 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
     const { name, emoji, isLegendary, spriteId } = getGuildMonsterDisplay(def, guildLevel);
     displayMonsters[id] = { ...def, name, emoji, isLegendary, spriteId };
   }
-  // Same pattern as MonsterGuild.tsx's displayMonsters — layer this target
-  // player's purchased graduation tier onto their owned species' display.
-  for (const m of team) {
-    const def = ALL_MONSTERS[m.monster_id];
-    if (def?.graduation) {
-      displayMonsters[m.monster_id] = getGraduatedMonsterDisplay(displayMonsters[m.monster_id] ?? def, m.graduation_tier);
-    }
-  }
+  // Graduation is NOT baked into this species-keyed map — it's purchased
+  // per owned user_monsters instance, and since the egg mechanism this
+  // target player can hold more than one instance of the same species at
+  // different tiers (a graduated adult plus its own freshly hatched,
+  // ungraduated egg-child). Layered on per-row below via getOwnedMonsterDisplay.
 
   return (
     <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" onClick={onClose}>
@@ -114,7 +111,7 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
                 <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Team</p>
                 <div className="space-y-2">
                   {team.map(m => {
-                    const def = displayMonsters[m.monster_id];
+                    const def = getOwnedMonsterDisplay(displayMonsters[m.monster_id], m.graduation_tier) as MonsterDef;
                     const scaled = getScaledStats(def, m.monster_level);
                     const isActive = m.slot === activeSlot;
                     return (
