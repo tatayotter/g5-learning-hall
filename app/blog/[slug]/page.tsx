@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { BLOG_POSTS, getBlogPost, getGuildImage, getRelatedPosts } from '@/lib/blogPosts';
+import { BLOG_POSTS, getBlogPost, getGuildImage, getPostImage, getRelatedPosts } from '@/lib/blogPosts';
 import ShareButtons from '@/components/ShareButtons';
 import BlogHeader from '@/components/BlogHeader';
 
@@ -19,10 +19,13 @@ export async function generateMetadata({
   const post = getBlogPost(slug);
   if (!post) return {};
 
+  const photo = getPostImage(post);
   const guildImage = getGuildImage(post.guildKey);
-  const image = guildImage
-    ? { url: guildImage, width: 640, height: 640, alt: post.guildName }
-    : { url: '/splash1.webp', width: 2096, height: 1184, alt: 'Learning Hall' };
+  const image = photo
+    ? { url: photo.url, width: photo.width, height: photo.height, alt: photo.alt }
+    : guildImage
+      ? { url: guildImage, width: 640, height: 640, alt: post.guildName }
+      : { url: '/splash1.webp', width: 2096, height: 1184, alt: 'Learning Hall' };
 
   return {
     title: post.title,
@@ -126,17 +129,44 @@ export default async function BlogPostPage({
             {post.title}
           </h1>
 
-          {getGuildImage(post.guildKey) && (
-            <div className="relative w-full aspect-square max-w-xs mx-auto mb-6 rounded-xl overflow-hidden border border-[#3d3225] bg-[#1c1611]">
-              <Image
-                src={getGuildImage(post.guildKey) as string}
-                alt={post.guildName}
-                fill
-                sizes="(max-width: 640px) 100vw, 320px"
-                className="object-contain p-4"
-              />
-            </div>
-          )}
+          {(() => {
+            const photo = getPostImage(post);
+            if (photo) {
+              return (
+                <div className="mb-6">
+                  <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-[#3d3225] bg-[#1c1611]">
+                    <Image
+                      src={photo.url}
+                      alt={photo.alt}
+                      fill
+                      sizes="(max-width: 672px) 100vw, 672px"
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+                  <p className="text-[10px] text-[#5c5245] mt-1.5 text-right">
+                    Photo by{' '}
+                    <a href={photo.credit.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#8a7c66]">
+                      {photo.credit.name}
+                    </a>{' '}
+                    on {photo.credit.source}
+                  </p>
+                </div>
+              );
+            }
+            const guildImage = getGuildImage(post.guildKey);
+            return guildImage ? (
+              <div className="relative w-full aspect-square max-w-xs mx-auto mb-6 rounded-xl overflow-hidden border border-[#3d3225] bg-[#1c1611]">
+                <Image
+                  src={guildImage}
+                  alt={post.guildName}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 320px"
+                  className="object-contain p-4"
+                />
+              </div>
+            ) : null;
+          })()}
 
           <time dateTime={post.publishedAt} className="block text-[11px] text-[#5c5245] mb-8">
             {new Date(post.publishedAt).toLocaleDateString('en-PH', {

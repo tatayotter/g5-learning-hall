@@ -3,6 +3,16 @@ export type BlogSection = {
   paragraphs: string[];
 };
 
+/** A photographic hero/thumbnail image, self-hosted under /public/blog-images after being sourced from a free-license stock site. */
+export type BlogPostImage = {
+  url: string;
+  /** Descriptive, keyword-relevant alt text — also used as the OG/Twitter image alt. */
+  alt: string;
+  width: number;
+  height: number;
+  credit: { name: string; source: 'Pexels' | 'Unsplash' | 'Pixabay'; sourceUrl: string };
+};
+
 export type BlogPost = {
   slug: string;
   title: string;
@@ -27,7 +37,58 @@ export type BlogPost = {
   curriculumNote?: string;
   /** Optional outbound links to third-party sites referenced in the post. */
   externalLinks?: { label: string; url: string }[];
+  /**
+   * Post-specific hero/thumbnail photo. Leave unset to fall back to
+   * GUILD_HERO_IMAGES[guildKey] (see getPostImage) — used by the 25 skill/grade
+   * guides that share one representative photo per skill. Set explicitly on
+   * posts covering a unique topic (the "Resources" posts) that need their own art.
+   */
+  image?: BlogPostImage;
 };
+
+/** One representative photo per skill guild, shared across that guild's grade-specific posts. */
+const GUILD_HERO_IMAGES: Partial<Record<BlogPost['guildKey'], BlogPostImage>> = {
+  lorekeeper: {
+    url: '/blog-images/child-reading-comprehension-practice.webp',
+    alt: 'Elementary school child reading a book, practicing reading comprehension',
+    width: 1200,
+    height: 675,
+    credit: { name: 'Toulouse', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/boy-in-gray-jacket-reading-book-3457273/' },
+  },
+  numberrealm: {
+    url: '/blog-images/child-mental-math-number-sense.webp',
+    alt: 'Child arranging colorful plastic numbers, practicing mental math and number sense',
+    width: 1200,
+    height: 675,
+    credit: { name: 'Keira Burton', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/little-kid-playing-with-plastic-numbers-6623835/' },
+  },
+  spellcaster: {
+    url: '/blog-images/child-typing-speed-practice.webp',
+    alt: 'Grade school child typing on a laptop keyboard, building typing speed and accuracy',
+    width: 1200,
+    height: 675,
+    credit: { name: 'Katerina Holmes', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/crop-adorable-schoolgirl-typing-on-wireless-laptop-at-wooden-desk-5905971/' },
+  },
+  logiclabyrinth: {
+    url: '/blog-images/child-critical-thinking-puzzle.webp',
+    alt: 'Child solving a jigsaw puzzle, building critical thinking and reasoning skills',
+    width: 1200,
+    height: 675,
+    credit: { name: 'Kaboompics.com', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/overhead-shot-of-a-boy-in-a-brown-shirt-solving-a-jigsaw-puzzle-7269448/' },
+  },
+  lexiconarena: {
+    url: '/blog-images/child-vocabulary-spelling-practice.webp',
+    alt: 'Child writing in a notebook, practicing vocabulary and spelling',
+    width: 1200,
+    height: 675,
+    credit: { name: 'Katerina Holmes', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/crop-ethnic-schoolkid-writing-in-notepad-5905888/' },
+  },
+};
+
+/** Post's own image if set, otherwise the shared per-guild photo, otherwise null (caller falls back to the in-game sprite). */
+export function getPostImage(post: BlogPost): BlogPostImage | null {
+  return post.image ?? GUILD_HERO_IMAGES[post.guildKey] ?? null;
+}
 
 export const BLOG_POSTS: BlogPost[] = [
   {
@@ -1317,6 +1378,13 @@ export const BLOG_POSTS: BlogPost[] = [
       { label: 'teachersclick.com', url: 'https://www.teachersclick.com/' },
       { label: 'deped-click.com', url: 'https://www.deped-click.com/' },
     ],
+    image: {
+      url: '/blog-images/deped-aligned-quiz-resources.webp',
+      alt: 'Teacher and student reviewing lesson materials together',
+      width: 1200,
+      height: 675,
+      credit: { name: 'Ahmet Kurt', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/teacher-and-student-collaborating-in-classroom-35745677/' },
+    },
   },
   {
     slug: 'learning-hall-vs-after-school-tutor',
@@ -1393,6 +1461,178 @@ export const BLOG_POSTS: BlogPost[] = [
       "Fun is what makes repeated review actually happen, and meaningful play — real stakes tied to real mastery — is what keeps that fun from being empty.",
       "Many families get the most value by combining both: a tutor for focused depth, Learning Hall for daily low-friction reinforcement.",
     ],
+    image: {
+      url: '/blog-images/tutor-helping-student-homework.webp',
+      alt: 'Tutor helping a young student with schoolwork during a one-on-one lesson',
+      width: 1200,
+      height: 675,
+      credit: { name: 'Katerina Holmes', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/smiling-black-woman-supporting-little-pupil-during-lesson-in-classroom-5905486/' },
+    },
+  },
+  {
+    slug: 'matatag-curriculum-parent-guide',
+    title: "What Is the MATATAG Curriculum? A Parent's Plain-English Guide",
+    description:
+      "A clear, jargon-free explanation of DepEd's MATATAG curriculum reform — what changed, why, and what it actually means for a Grade 2-6 learner's day-to-day schoolwork.",
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 'all',
+    publishedAt: '2026-08-01',
+    updatedAt: '2026-08-01',
+    intro:
+      "\"MATATAG\" shows up constantly on report cards, school memos, and module covers now, and most parents nod along without ever getting a straight answer about what it actually is. It's not a new subject, a new school year format, or an app — it's DepEd's ongoing curriculum reform, and understanding the basic shape of it makes a lot of the changes in your child's schoolwork make more sense.",
+    sections: [
+      {
+        heading: 'MATATAG is a curriculum reform, not a new curriculum from scratch',
+        paragraphs: [
+          "MATATAG is DepEd's response to a well-documented problem with the previous K to 12 curriculum: it was widely seen as congested, packing in more competencies per quarter than teachers could realistically cover well or students could realistically absorb. Rather than replacing K to 12 entirely, MATATAG is a decongestion and refinement of it — trimming redundant or overly advanced competencies, resequencing others, and putting sharper focus on foundational skills like reading and numeracy in the early grades.",
+          'The name itself is an acronym built around four goals: making the curriculum relevant and up to date, taking steps to accelerate delivery of basic education facilities and services, ensuring learner health, well-being, and safety are prioritized, and giving support to teachers so they can actually teach the new curriculum well — not just handing them a new document and expecting the rest to follow.',
+        ],
+      },
+      {
+        heading: 'What actually changed in the classroom',
+        paragraphs: [
+          "The most noticeable shift for parents is fewer, more focused learning competencies per quarter, with more time spent making sure a skill is actually mastered before moving on, instead of racing through a long checklist. Reading and math fundamentals get heavier emphasis in the earlier grades specifically because DepEd's own data showed many learners were moving up grade levels without solidly mastering basic reading and number skills first — a gap that then made every later subject harder than it needed to be.",
+          "The rollout has been phased by grade level rather than all at once, starting with the earliest grades and working upward over successive school years, so not every grade level switches over in the same year. If you're unsure exactly where your child's grade level stands in the rollout, your child's teacher or school will have the most current, accurate answer — the timeline has shifted and refined as it's rolled out.",
+        ],
+      },
+      {
+        heading: "Why this matters even if you're not tracking curriculum documents",
+        paragraphs: [
+          "You don't need to read the actual curriculum guide to benefit from knowing this exists. The practical takeaway is that if your child's homework, module content, or teacher's pacing looks different from what an older sibling had at the same grade level a few years ago, that's very likely MATATAG's decongestion at work — not a sign something is wrong, and not something you need to independently supplement with extra unrelated material to \"catch up.\"",
+          "It's also part of why Learning Hall leans on live teacher-facing resources (see our post on where our quiz content actually comes from) rather than a fixed set of questions written once and left alone — a curriculum that's actively being refined needs content that gets rechecked against it, not content that assumes the curriculum is standing still.",
+        ],
+      },
+    ],
+    takeaways: [
+      'MATATAG is a decongestion and refinement of the existing K to 12 curriculum, not a brand-new one built from scratch.',
+      'The biggest practical change is fewer, more focused competencies per quarter, with heavier emphasis on foundational reading and numeracy in earlier grades.',
+      "The rollout is phased by grade level over several school years — check with your child's school for exactly where their grade level stands.",
+    ],
+    externalLinks: [
+      { label: 'DepEd Official Website', url: 'https://www.deped.gov.ph/' },
+    ],
+    image: {
+      url: '/blog-images/matatag-curriculum-classroom.webp',
+      alt: 'Filipino elementary school children in a classroom under the MATATAG curriculum',
+      width: 1200,
+      height: 675,
+      credit: { name: 'yi lu', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/children-inside-the-classroom-11273200/' },
+    },
+  },
+  {
+    slug: 'how-much-screen-time-is-too-much-grade-school',
+    title: 'How Much Screen Time Is Too Much for a Grade 2-6 Student?',
+    description:
+      "A grounded look at screen time guidance for elementary-age children — why the 'how many minutes' question is the wrong first question, and what actually matters more.",
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 'all',
+    publishedAt: '2026-08-02',
+    updatedAt: '2026-08-02',
+    intro:
+      "Almost every parent of a Grade 2-6 learner has, at some point, typed some version of \"how many hours of screen time is okay for a [age]-year-old\" into a search bar late at night, half hoping for a clean number that settles the argument. The honest answer is that a single minutes-per-day number is a much blunter tool than it sounds, and leans on it alone tends to miss the factors that actually predict whether screen time is helping or hurting.",
+    sections: [
+      {
+        heading: 'Why "how many minutes" is the wrong first question',
+        paragraphs: [
+          'Two children can spend the exact same 45 minutes on a screen and come away in completely different states — one calm and having learned something, the other wound up and irritable. Time alone doesn\'t capture that difference. What predicts the outcome much more reliably is what\'s actually happening during those minutes: is there a natural stopping point, or does it stretch indefinitely; is the content something the child is actively doing, or passively consuming; does it end when the activity is done, or does an algorithm keep offering "one more"?',
+          "That's not an excuse to ignore total time entirely — a child glued to a screen for six hours a day has a real problem regardless of content quality. But between a reasonable range of daily minutes, content and structure do most of the actual work in determining whether that time was worthwhile.",
+        ],
+      },
+      {
+        heading: 'The distinction that matters: bounded vs. unbounded',
+        paragraphs: [
+          "The clearest useful line to draw isn't \"educational vs. entertainment\" — plenty of educational content is still designed to be endless, and plenty of entertainment has a natural stopping point. The clearer line is bounded versus unbounded. A movie ends. A single level of a game ends. A quiz session ends. A short-video feed, by design, does not — there's always another video queued up, engineered specifically to remove the natural stopping cue a child would otherwise notice and act on.",
+          'Unbounded content is worth watching closely regardless of what\'s on it, because it depends on the child (or the parent) to supply the stopping decision that the app deliberately avoids supplying itself. Bounded content builds in a stopping point the child experiences as normal, the same way finishing a chapter or a worksheet page is normal.',
+        ],
+      },
+      {
+        heading: 'Passive versus active screen time',
+        paragraphs: [
+          "The second useful distinction is whether a child is doing something or just watching something. Answering a quiz question, typing a sentence, or making a choice that changes what happens next all require active engagement — the brain has to produce a response, not just receive one. Watching a video, even an educational one, is comprehension without production, which is a real skill but a passive one, closer to being read to than to doing something yourself.",
+          "Neither is inherently bad — passive content has its place, especially for winding down — but a screen-time routine made up entirely of passive content is missing something a routine with some active, bounded content provides.",
+        ],
+      },
+      {
+        heading: 'A practical way to audit your child\'s screen time this week',
+        paragraphs: [
+          "Instead of starting with a minutes budget, spend one week just noting, for each screen session, whether it was bounded or unbounded, and active or passive. You'll likely find the sessions that cause the most friction at bedtime or homework time cluster in the unbounded-passive corner — and the ones your child walks away from calm and satisfied cluster in the bounded-active corner. That pattern is usually more useful for deciding what to cut than any generic hours-per-day rule.",
+        ],
+      },
+    ],
+    takeaways: [
+      'A single minutes-per-day number misses the bigger factor: what actually happens during that screen time.',
+      'Bounded activities (with a natural stopping point) behave very differently from unbounded ones (endless feeds) designed to remove that stopping cue.',
+      'Active screen time (doing something) and passive screen time (watching something) both have a place, but a routine made entirely of unbounded, passive content is the pattern worth actually watching for.',
+    ],
+    image: {
+      url: '/blog-images/child-screen-time-tablet-learning.webp',
+      alt: 'Child using a tablet for a structured, bounded learning session',
+      width: 1200,
+      height: 675,
+      credit: { name: 'Julia M Cameron', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/a-boy-studying-using-an-ipad-4145035/' },
+    },
+  },
+  {
+    slug: 'signs-child-falling-behind-what-to-do',
+    title: 'Signs Your Child Might Be Falling Behind — and What to Do About It',
+    description:
+      "Practical, non-alarmist signs that a Grade 2-6 learner may be struggling academically, and concrete next steps for parents before it becomes a bigger problem.",
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 'all',
+    publishedAt: '2026-08-03',
+    updatedAt: '2026-08-03',
+    intro:
+      "It's one of the harder things to admit as a parent — that your child might be quietly falling behind, not failing loudly enough to trigger an obvious alarm, just slowly losing ground in a way that's easy to miss in the day-to-day rush of school, homework, and everything else. The good news is that the early signs are usually visible well before a report card makes it official, if you know roughly what to look for.",
+    sections: [
+      {
+        heading: 'Watch for avoidance, not just wrong answers',
+        paragraphs: [
+          "A child who's struggling often shows it through avoidance long before they show it through visibly wrong work — suddenly \"forgetting\" homework, taking unusually long to start an assignment, or getting upset well out of proportion to the actual task in front of them. Avoidance is frequently a cover for \"I don't know how to do this and I don't want that to show,\" and it's worth treating as a signal worth investigating rather than a discipline problem to correct on its own.",
+        ],
+      },
+      {
+        heading: "Notice when 'I don't know' replaces a wrong guess",
+        paragraphs: [
+          "A child who's engaged with material, even when struggling, will usually attempt an answer — even a wrong one shows some reasoning happening. A shift toward reflexively saying \"I don't know\" without even attempting a guess is often a bigger signal than the wrong answer itself would have been, since it suggests the child has stopped trying to reason through the problem at all, possibly out of repeated frustration.",
+        ],
+      },
+      {
+        heading: 'Compare confidence across subjects, not just scores',
+        paragraphs: [
+          "Grades lag behind the actual struggle by weeks or months in most school systems, which makes them a late-arriving signal. A faster one is noticing which subjects your child talks about with confidence versus which ones they go quiet about, or actively steer conversation away from. That gap often shows up well before it's reflected in a quiz score.",
+        ],
+      },
+      {
+        heading: 'Rule out the basics before assuming it\'s the subject matter',
+        paragraphs: [
+          "Before concluding a child is struggling with a subject itself, it's worth ruling out more basic causes: is homework happening at a time of day when the child is genuinely too tired to focus, is there a vision or hearing issue that's never been checked, is something unrelated (a friendship problem, a stressful home change) taking up mental bandwidth that would otherwise go to schoolwork? A struggle that looks academic is sometimes actually about capacity, not comprehension.",
+        ],
+      },
+      {
+        heading: 'What to actually do once you notice a pattern',
+        paragraphs: [
+          "Start with a direct, low-pressure conversation with your child's teacher — they see the pattern across a full classroom and can usually tell you quickly whether what you're noticing at home matches what shows up at school, or whether it's isolated to home. If a specific skill gap is clear (a particular math operation, a reading sub-skill), targeted daily practice on just that gap, even five to ten minutes, tends to close it faster than a general \"study more\" push. And if the struggle is broad or persistent despite targeted practice, that's the point where a tutor or the school's own intervention support genuinely earns its cost — this is exactly the kind of situation where one-on-one human attention outperforms any app or general effort.",
+        ],
+      },
+    ],
+    takeaways: [
+      "Avoidance behavior and a shift toward reflexive \"I don't know\" are often earlier, more reliable signals than a dropping grade.",
+      'Compare which subjects your child talks about confidently versus which ones they go quiet about — that gap often shows up before test scores do.',
+      "Rule out sleep, health, and unrelated stress before assuming a struggle is purely academic, and bring in a teacher or tutor once a pattern is clear rather than waiting for a report card to confirm it.",
+    ],
+    image: {
+      url: '/blog-images/child-falling-behind-signs-support.webp',
+      alt: 'Thoughtful child at a desk, a sign a student may need extra academic support',
+      width: 1200,
+      height: 675,
+      credit: { name: 'Anastasia Shuraeva', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/a-photo-of-a-boy-with-his-hand-on-his-chin-8466709/' },
+    },
   },
 ];
 

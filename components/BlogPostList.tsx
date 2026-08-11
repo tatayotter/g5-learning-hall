@@ -1,23 +1,35 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getGuildImage, type BlogPost } from '@/lib/blogPosts';
+import { getGuildImage, getPostImage, type BlogPost } from '@/lib/blogPosts';
 
 export default function BlogPostList({ posts }: { posts: BlogPost[] }) {
   return (
     <div className="max-w-3xl mx-auto space-y-4">
-      {posts.map((post) => (
+      {posts.map((post) => {
+        const photo = getPostImage(post);
+        return (
         <div
           key={post.slug}
           className="flex gap-4 bg-[#1c1611] border border-[#3d3225] rounded-xl p-6 hover:border-[#c9781a]/60 transition-colors"
         >
-          <div className="relative w-16 h-16 shrink-0 rounded-lg overflow-hidden border border-[#3d3225] bg-[#13100c]">
-            <Image
-              src={getGuildImage(post.guildKey) ?? '/learning_hall_full_logo.webp'}
-              alt=""
-              fill
-              sizes="64px"
-              className="object-contain p-1.5"
-            />
+          <div className="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden border border-[#3d3225] bg-[#13100c]">
+            {photo ? (
+              <Image
+                src={photo.url}
+                alt={photo.alt}
+                fill
+                sizes="80px"
+                className="object-cover"
+              />
+            ) : (
+              <Image
+                src={getGuildImage(post.guildKey) ?? '/learning_hall_full_logo.webp'}
+                alt=""
+                fill
+                sizes="80px"
+                className="object-contain p-1.5"
+              />
+            )}
           </div>
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2 flex-wrap">
@@ -46,7 +58,8 @@ export default function BlogPostList({ posts }: { posts: BlogPost[] }) {
             </Link>
           </div>
         </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
