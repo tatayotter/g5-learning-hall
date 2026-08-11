@@ -77,13 +77,17 @@ export default function DailyChecklist({
     if (isInitial) setLoading(false);
   }, [userId, todayKey]);
 
-  // Wild-encounter wins and guild sessions happen deep inside sibling tabs
-  // (MonsterGuild, the 5 guild components) with no shared callback back to
-  // this always-mounted sidebar widget, so poll for state changes instead.
+  // Wild-encounter wins and guild sessions happen on sibling tabs (MonsterGuild,
+  // the 5 guild components) — but this component is itself gated behind
+  // `activeTab === 'todo'` in app/page.tsx, so it fully unmounts when the user
+  // switches away and remounts (re-running this effect) when they come back.
+  // That remount-triggered fetch is already exactly-when-needed fresh data, so
+  // no background polling is required — a 15s setInterval used to run here
+  // regardless of whether the tab was even visible, costing 3 queries every
+  // 15s per active user for no reason (see docs/weekly-progress-redesign-plan.md-
+  // adjacent capacity notes). Removed 2026-08-11.
   useEffect(() => {
     loadFlags(true);
-    const interval = setInterval(() => loadFlags(false), 15000);
-    return () => clearInterval(interval);
   }, [loadFlags]);
 
   const journalDone = !!journalLogs?.[todayKey];
