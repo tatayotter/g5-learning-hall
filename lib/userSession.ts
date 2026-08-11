@@ -19,6 +19,9 @@ export interface UserProfile {
   theme: string;
   gender: 'boy' | 'girl';
   isFamily: boolean;
+  // children.school_name / classmates.school_name — undefined for the two
+  // hardcoded family profiles below, which aren't enrolled anywhere.
+  school?: string;
 }
 
 export const USERS: Record<UserId, UserProfile> = {
@@ -64,7 +67,7 @@ export async function loadClassmates(): Promise<void> {
   if (classmatesLoaded) return;
   const { data } = await supabase
     .from('classmates')
-    .select('id, full_name, grade, gender')
+    .select('id, full_name, grade, gender, school_name')
     .eq('is_active', true);
 
   (data || []).forEach((c: any) => {
@@ -77,6 +80,7 @@ export async function loadClassmates(): Promise<void> {
       theme: 'theme_default',
       gender: c.gender === 'girl' ? 'girl' : 'boy',
       isFamily: false,
+      school: c.school_name || undefined,
     };
     classmateIds.add(c.id);
   });
@@ -102,7 +106,7 @@ export async function loadChildren(): Promise<void> {
   if (childrenLoaded) return;
   const { data } = await supabase
     .from('children')
-    .select('id, full_name, grade, gender, avatar')
+    .select('id, full_name, grade, gender, avatar, school_name')
     .eq('is_active', true);
 
   (data || []).forEach((c: any) => {
@@ -115,6 +119,7 @@ export async function loadChildren(): Promise<void> {
       theme: 'theme_default',
       gender: c.gender === 'girl' ? 'girl' : 'boy',
       isFamily: false,
+      school: c.school_name || undefined,
     };
     childIds.add(c.id);
   });

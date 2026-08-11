@@ -1,42 +1,11 @@
 'use client';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { UserId, USERS, setActiveUser, getClassmateIds, getChildIds, isFamilyProtected, linkIdentity } from '@/lib/userSession';
-import { supabase, ensureAnonymousSession } from '@/lib/supabase';
-import { ALL_MONSTERS, getGraduatedMonsterDisplay } from '@/lib/monsterConfig';
-import { MonsterImage } from '@/components/battle/shared';
 
 interface SplashScreenProps {
   onSelect: (id: UserId) => void;
 }
-
-interface HeroStats {
-  level: number;
-  xp: number;
-  gold: number;
-}
-
-interface ActiveMonsterInfo {
-  monster_id: string;
-  nickname: string | null;
-  monster_level: number;
-  graduation_tier: number;
-}
-
-function formatLastSeen(iso: string | null | undefined): string {
-  if (!iso) return 'Never logged in';
-  const then = new Date(iso).getTime();
-  const diffMs = Date.now() - then;
-  const mins = Math.floor(diffMs / 60000);
-  if (mins < 1) return 'Just now';
-  if (mins < 60) return `${mins}m ago`;
-  const hours = Math.floor(mins / 60);
-  if (hours < 24) return `${hours}h ago`;
-  const days = Math.floor(hours / 24);
-  if (days < 7) return `${days}d ago`;
-  return new Date(iso).toLocaleDateString();
-}
-
 
 const FAMILY_IDS: UserId[] = ['damien', 'tala'];
 
@@ -56,12 +25,10 @@ function RosterAvatar({
   avatar,
   name,
   palette,
-  online,
 }: {
   avatar: string;
   name: string;
   palette: { bg: string; border: string; text: string };
-  online?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
   return (
@@ -86,22 +53,11 @@ function RosterAvatar({
         />
       )}
       <div className="absolute top-[2px] left-[3px] right-[3px] h-[1px] bg-white/10 rounded-full" />
-      {online && (
-        <span
-          className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-green-400 border-2 border-black"
-          title="Online now"
-        />
-      )}
     </div>
   );
 }
 
 export default function SplashScreen({ onSelect }: SplashScreenProps) {
-  const [statsMap, setStatsMap] = useState<Record<string, HeroStats | null>>({});
-  const [lastLoginMap, setLastLoginMap] = useState<Record<string, string | null>>({});
-  const [monsterMap, setMonsterMap] = useState<Record<string, ActiveMonsterInfo | null>>({});
-  const [statsLoaded, setStatsLoaded] = useState(false);
-  const [onlineIds, setOnlineIds] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState('');
   const [loginTarget, setLoginTarget] = useState<{ id: UserId; name: string } | null>(null);
   const [passwordInput, setPasswordInput] = useState('');
@@ -121,78 +77,6 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
     if (!q) return allIds;
     return allIds.filter(id => USERS[id].name.toLowerCase().includes(q));
   }, [allIds, searchQuery]);
-
-  useEffect(() => {
-    let cancelled = false;
-    async function fetchStats() {
-      await ensureAnonymousSession();
-
-      // player_progress is one row per user (lifetime, not week-keyed) — see
-      // docs/weekly-progress-redesign-plan.md Phase 4 Wave 2. Replaces an exact-current-week
-      // weekly_packages lookup, which (while not buggy — it never had the "latest row" flaw
-      // fixed elsewhere today) left a gap: a user shows no stats here until their first login
-      // of the week has created that week's row. player_progress always has the real numbers.
-      const [progressRes, lastLoginRes, battleStateRes, monstersRes] = await Promise.all([
-        supabase
-          .from('player_progress')
-          .select('user_id, level, xp, gold')
-          .in('user_id', allIds),
-        supabase.from('user_last_login').select('user_id, last_login').in('user_id', allIds),
-        supabase.from('user_battle_state').select('user_id, active_monster_slot').in('user_id', allIds),
-        supabase.from('user_monsters').select('user_id, slot, monster_id, nickname, monster_level, graduation_tier').in('user_id', allIds),
-      ]);
-      if (cancelled) return;
-
-      const statsMapNext: Record<string, HeroStats | null> = {};
-      (progressRes.data || []).forEach((row: any) => {
-        statsMapNext[row.user_id] = { level: row.level, xp: row.xp, gold: row.gold };
-      });
-      setStatsMap(statsMapNext);
-
-      const lastLoginNext: Record<string, string | null> = {};
-      (lastLoginRes.data || []).forEach((row: any) => {
-        lastLoginNext[row.user_id] = row.last_login;
-      });
-      setLastLoginMap(lastLoginNext);
-
-      const activeSlotByUser: Record<string, number | null> = {};
-      (battleStateRes.data || []).forEach((row: any) => {
-        activeSlotByUser[row.user_id] = row.active_monster_slot ?? null;
-      });
-      const monsterNext: Record<string, ActiveMonsterInfo | null> = {};
-      (monstersRes.data || []).forEach((row: any) => {
-        if (row.slot === activeSlotByUser[row.user_id]) {
-          monsterNext[row.user_id] = {
-            monster_id: row.monster_id,
-            nickname: row.nickname,
-            monster_level: row.monster_level,
-            graduation_tier: row.graduation_tier ?? 0,
-          };
-        }
-      });
-      setMonsterMap(monsterNext);
-      setStatsLoaded(true);
-    }
-
-    fetchStats();
-    return () => { cancelled = true; };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // Listen (read-only) to the app-wide presence channel that logged-in
-  // sessions track themselves on, so rows can show who's online right now.
-  useEffect(() => {
-    const channel = supabase.channel('app-presence', {
-      config: { presence: { key: '_splash_observer' } },
-    });
-    channel.on('presence', { event: 'sync' }, () => {
-      setOnlineIds(new Set(Object.keys(channel.presenceState())));
-    });
-    channel.subscribe();
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, []);
 
   const handleSelect = (id: UserId) => {
     setActiveUser(id);
@@ -305,10 +189,6 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
               )}
               {visibleIds.map((id, i) => {
                 const user = USERS[id];
-                const stats = statsMap[id];
-                const monster = monsterMap[id];
-                const monsterDef = monster ? ALL_MONSTERS[monster.monster_id] : null;
-                const monsterDisplay = monsterDef && monster ? getGraduatedMonsterDisplay(monsterDef, monster.graduation_tier) : monsterDef;
                 const palette = AVATAR_PALETTES[allIds.indexOf(id) % AVATAR_PALETTES.length];
 
                 return (
@@ -322,7 +202,7 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
                     transition={{ delay: Math.min(i, 10) * 0.03 }}
                     className="group w-full text-left relative rounded-[14px] bg-[#1c1611] border border-[#3d3225] p-3 flex items-center gap-3 transition-colors duration-200 hover:border-[#c9781a] hover:bg-[#241d16]"
                   >
-                    <RosterAvatar avatar={user.avatar} name={user.name} palette={palette} online={onlineIds.has(id)} />
+                    <RosterAvatar avatar={user.avatar} name={user.name} palette={palette} />
 
                     <div className="flex-1 min-w-0 flex flex-col gap-[1px]">
                       <span className="text-[15px] font-bold leading-none tracking-[-0.01em] text-white/90 group-hover:text-white transition-colors truncate">
@@ -331,21 +211,11 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
                       <span className="text-[11.5px] font-medium tracking-wide text-[#a89c86] mt-[3px]">{user.grade}</span>
                     </div>
 
-                    <div className="shrink-0 flex flex-col items-end gap-[3px] min-w-[86px]">
-                      {stats ? (
-                        <div className="flex items-center gap-1.5">
-                          {monsterDisplay && (
-                            <MonsterImage monster={monsterDisplay} className="w-4 h-4" emojiClassName="text-[13px]" />
-                          )}
-                          <span className="text-[12.5px] font-bold tracking-wide text-[#f0b429]">Lvl {stats.level}</span>
-                        </div>
-                      ) : (
-                        <span className="text-[13px] leading-none text-[#3d3225] font-bold tracking-widest">
-                          {statsLoaded ? '—' : '···'}
-                        </span>
-                      )}
-                      <span className="text-[11px] font-medium text-[#6b5f4a] tracking-wide">{formatLastSeen(lastLoginMap[id])}</span>
-                    </div>
+                    {user.school && (
+                      <span className="shrink-0 max-w-[110px] text-right text-[11px] font-medium text-[#6b5f4a] tracking-wide truncate">
+                        {user.school}
+                      </span>
+                    )}
                   </motion.button>
                 );
               })}
