@@ -59,21 +59,25 @@ export const ACHIEVEMENTS: Achievement[] = [
     xpReward: 350, 
     goldReward: 200 
   },
-  { 
+  {
     id: 'copper_sack',
     title: 'Copper Sack',
-    description: 'The world\'s gratitude, in coin. Amass 100 Gold in your wallet.',
-    criteria: (d) => d.character_stats.gold >= 100, 
-    xpReward: 50, 
-    goldReward: 25 
+    // Rebalanced 2026-08-11 (Phase 4 Wave 2/4): gold criteria now reads the lifetime balance
+    // (player_progress.gold), not a weekly-reset snapshot — old thresholds (100/300/500/1000/
+    // 1500/2000) were already exceeded by every real account before this rebalance. See
+    // docs/weekly-progress-redesign-plan.md.
+    description: 'The world\'s gratitude, in coin. Amass 300 Gold in your wallet.',
+    criteria: (d) => d.character_stats.gold >= 300,
+    xpReward: 50,
+    goldReward: 25
   },
-  { 
+  {
     id: 'fortune_seeker',
     title: 'Amass Fortune',
-    description: 'A thousand thanks from a world that noticed. Amass 1,000 Gold.',
-    criteria: (d) => d.character_stats.gold >= 1000, 
-    xpReward: 500, 
-    goldReward: 250 
+    description: 'A thousand thanks from a world that noticed. Amass 3,000 Gold.',
+    criteria: (d) => d.character_stats.gold >= 3000,
+    xpReward: 500,
+    goldReward: 250
   },
   { 
     id: 'vault_novice',
@@ -139,21 +143,21 @@ export const ACHIEVEMENTS: Achievement[] = [
     xpReward: 500, 
     goldReward: 250 
   },
-  { 
+  {
     id: 'merchant_assoc',
     title: 'Merchant Associate',
-    description: 'A respectable sum of the world\'s gratitude. Reach 300 Gold balance.',
-    criteria: (d) => d.character_stats.gold >= 300, 
-    xpReward: 100, 
-    goldReward: 50 
+    description: 'A respectable sum of the world\'s gratitude. Reach 800 Gold balance.',
+    criteria: (d) => d.character_stats.gold >= 800,
+    xpReward: 100,
+    goldReward: 50
   },
-  { 
+  {
     id: 'legendary_bank',
     title: 'Legendary Balance',
-    description: 'Your coffers overflow with a world\'s thanks. Reach 1,500 Gold balance.',
-    criteria: (d) => d.character_stats.gold >= 1500, 
-    xpReward: 800, 
-    goldReward: 400 
+    description: 'Your coffers overflow with a world\'s thanks. Reach 6,000 Gold balance.',
+    criteria: (d) => d.character_stats.gold >= 6000,
+    xpReward: 800,
+    goldReward: 400
   },
   { 
     id: 'vault_reward_5',
@@ -219,21 +223,21 @@ export const ACHIEVEMENTS: Achievement[] = [
     xpReward: 800, 
     goldReward: 400 
   },
-  { 
+  {
     id: 'wealthy_hoarder',
     title: 'Wealthy Hoarder',
-    description: 'The world\'s gratitude piles up. Amass 500 Gold.',
-    criteria: (d) => d.character_stats.gold >= 500, 
-    xpReward: 200, 
-    goldReward: 100 
+    description: 'The world\'s gratitude piles up. Amass 1,500 Gold.',
+    criteria: (d) => d.character_stats.gold >= 1500,
+    xpReward: 200,
+    goldReward: 100
   },
-  { 
+  {
     id: 'staggering_wealth',
     title: 'Staggering Wealth',
-    description: 'A whole world\'s worth of thanks, in your keeping. Amass 2,000 Gold.',
-    criteria: (d) => d.character_stats.gold >= 2000, 
-    xpReward: 1200, 
-    goldReward: 600 
+    description: 'A whole world\'s worth of thanks, in your keeping. Amass 10,000 Gold.',
+    criteria: (d) => d.character_stats.gold >= 10000,
+    xpReward: 1200,
+    goldReward: 600
   },
   { 
     id: 'cash_out_10',
@@ -255,40 +259,44 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'guild_initiate',
     title: 'Guild Initiate',
-    description: 'Step into the guild halls for the first time. Complete 1 side quest session.',
-    criteria: (d) => (d.guild_sessions_count || 0) >= 1,
+    // Rebalanced 2026-08-11 (Phase 4 Wave 2/4): this criterion now reads a lifetime total
+    // (player_progress.guild_sessions_count_total), not a weekly-reset count — a real account
+    // (damien) already had 165 lifetime sessions, well past the old top tier of 50. See
+    // docs/weekly-progress-redesign-plan.md.
+    description: 'Step into the guild halls for the first time. Complete 3 side quest sessions.',
+    criteria: (d) => (d.guild_sessions_count || 0) >= 3,
     xpReward: 50,
     goldReward: 25
   },
   {
     id: 'guild_regular',
     title: 'Guild Regular',
-    description: 'You are becoming a fixture in the halls. Complete 5 guild sessions.',
-    criteria: (d) => (d.guild_sessions_count || 0) >= 5,
+    description: 'You are becoming a fixture in the halls. Complete 15 guild sessions.',
+    criteria: (d) => (d.guild_sessions_count || 0) >= 15,
     xpReward: 100,
     goldReward: 50
   },
   {
     id: 'guild_veteran',
     title: 'Guild Veteran',
-    description: 'A seasoned warrior of the side quests. Complete 15 guild sessions.',
-    criteria: (d) => (d.guild_sessions_count || 0) >= 15,
+    description: 'A seasoned warrior of the side quests. Complete 50 guild sessions.',
+    criteria: (d) => (d.guild_sessions_count || 0) >= 50,
     xpReward: 200,
     goldReward: 100
   },
   {
     id: 'guild_champion',
     title: 'Guild Champion',
-    description: 'You have proven yourself across all halls. Complete 30 guild sessions.',
-    criteria: (d) => (d.guild_sessions_count || 0) >= 30,
+    description: 'You have proven yourself across all halls. Complete 120 guild sessions.',
+    criteria: (d) => (d.guild_sessions_count || 0) >= 120,
     xpReward: 400,
     goldReward: 200
   },
   {
     id: 'guild_legend',
     title: 'Guild Legend',
-    description: 'Your name is etched into the guild walls. Complete 50 guild sessions.',
-    criteria: (d) => (d.guild_sessions_count || 0) >= 50,
+    description: 'Your name is etched into the guild walls. Complete 250 guild sessions.',
+    criteria: (d) => (d.guild_sessions_count || 0) >= 250,
     xpReward: 800,
     goldReward: 400
   },
@@ -305,24 +313,26 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'perfect_trio',
     title: 'Perfect Trio',
-    description: 'Three perfect scores. You are sharper than most. Achieve 3 perfect quizzes.',
-    criteria: (d) => (d.perfect_quizzes || 0) >= 3,
+    // Rebalanced 2026-08-11 (Phase 4 Wave 2/4): lifetime total now — real accounts already at
+    // 20-39. See docs/weekly-progress-redesign-plan.md.
+    description: 'Eight perfect scores. You are sharper than most. Achieve 8 perfect quizzes.',
+    criteria: (d) => (d.perfect_quizzes || 0) >= 8,
     xpReward: 150,
     goldReward: 75
   },
   {
     id: 'perfect_machine',
     title: 'Perfect Machine',
-    description: 'Relentless accuracy. Achieve 10 perfect quiz scores.',
-    criteria: (d) => (d.perfect_quizzes || 0) >= 10,
+    description: 'Relentless accuracy. Achieve 25 perfect quiz scores.',
+    criteria: (d) => (d.perfect_quizzes || 0) >= 25,
     xpReward: 400,
     goldReward: 200
   },
   {
     id: 'perfect_legend',
     title: 'Perfect Legend',
-    description: 'You never miss. Achieve 20 perfect quiz scores.',
-    criteria: (d) => (d.perfect_quizzes || 0) >= 20,
+    description: 'You never miss. Achieve 60 perfect quiz scores.',
+    criteria: (d) => (d.perfect_quizzes || 0) >= 60,
     xpReward: 1000,
     goldReward: 500
   },
@@ -373,16 +383,18 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'sibling_dominator',
     title: 'PvP Dominator',
-    description: 'No one can stop you. Win 5 live PvP battles.',
-    criteria: (d) => (d.sibling_battles_won || 0) >= 5,
+    // Rebalanced 2026-08-11 (Phase 4 Wave 2/4): lifetime total now — tala already at 12
+    // lifetime wins, past the old top tier of 10. See docs/weekly-progress-redesign-plan.md.
+    description: 'No one can stop you. Win 10 live PvP battles.',
+    criteria: (d) => (d.sibling_battles_won || 0) >= 10,
     xpReward: 300,
     goldReward: 150
   },
   {
     id: 'family_champion',
     title: 'Arena Champion',
-    description: 'The undisputed champion of the arena. Win 10 live PvP battles.',
-    criteria: (d) => (d.sibling_battles_won || 0) >= 10,
+    description: 'The undisputed champion of the arena. Win 25 live PvP battles.',
+    criteria: (d) => (d.sibling_battles_won || 0) >= 25,
     xpReward: 600,
     goldReward: 300
   },
