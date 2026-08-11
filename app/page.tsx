@@ -224,24 +224,6 @@ export default function Dashboard() {
     }
   }, [activeUserId, hydrated]);
 
-  // App-wide presence so the splash screen can show who's currently online.
-  // Separate from the training-map presence channel, which only exists while
-  // that tab is open and carries x/y position data this doesn't need.
-  useEffect(() => {
-    if (!activeUserId) return;
-    const channel = supabase.channel('app-presence', {
-      config: { presence: { key: activeUserId } },
-    });
-    channel.subscribe(async status => {
-      if (status === 'SUBSCRIBED') {
-        await channel.track({ userId: activeUserId });
-      }
-    });
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, [activeUserId]);
-
   // Reused by both demo and real accounts (user_last_login.onboarding_completed_at)
   // so the guided tour only auto-shows once per account, ever.
   const [showOnboarding, setShowOnboarding] = useState(false);
