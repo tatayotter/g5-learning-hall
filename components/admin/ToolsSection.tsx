@@ -31,6 +31,18 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
 
   const loadUserData = async (id: 'damien' | 'tala') => {
     setLoadingData(true);
+    // Level/xp/gold now live on player_progress (lifetime, no week key) — see
+    // docs/weekly-progress-redesign-plan.md Phase 4 Wave 1. Quiz attempts/mastered quizzes
+    // are still week-scoped content, so toolData keeps reading the current week's
+    // weekly_packages row for those (Wave 3 will move that too).
+    const { data: progress } = await supabase
+      .from('player_progress')
+      .select('level, xp, gold')
+      .eq('user_id', id)
+      .maybeSingle();
+    if (progress) {
+      setStats(progress as CharacterStats);
+    }
     const { data } = await supabase
       .from('weekly_packages')
       .select('*')
@@ -39,7 +51,6 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
       .single();
     if (data) {
       setToolData(data as WeeklyData);
-      setStats(data.character_stats);
     }
     const { data: claimsData } = await supabase
       .from('reward_claims')
@@ -78,7 +89,7 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
       alert('Enter a deed name and valid gold amount.');
       return;
     }
-    const result = await callAdminApi('/api/admin-weekly', { passcode, action: 'award_gold', userId, weekStartingDate: currentSunday, amount });
+    const result = await callAdminApi('/api/admin-weekly', { passcode, action: 'award_progress_gold', userId, amount });
     if (!result.success) {
       alert(`❌ ${result.error || 'Failed to award gold.'}`);
       return;
@@ -96,7 +107,7 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
     let level = stats.level;
     while (xp >= (500 + level * 100)) { xp -= (500 + level * 100); level++; }
     const normalized = { ...stats, xp, level };
-    const result = await callAdminApi('/api/admin-weekly', { passcode, action: 'set_character_stats', userId, weekStartingDate: currentSunday, characterStats: normalized });
+    const result = await callAdminApi('/api/admin-weekly', { passcode, action: 'set_progress_stats', userId, characterStats: normalized });
     if (!result.success) {
       alert(`❌ ${result.error || 'Failed to save stats.'}`);
       return;
@@ -177,9 +188,9 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
           <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-5">
             <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">Current Stats</p>
             <div className="flex gap-6">
-              <div><p className="text-xs text-gray-500">Level</p><p className="text-2xl font-bold text-white font-mono">{toolData.character_stats.level}</p></div>
-              <div><p className="text-xs text-gray-500">XP</p><p className="text-2xl font-bold text-blue-400 font-mono">{toolData.character_stats.xp}</p></div>
-              <div><p className="text-xs text-gray-500">Gold</p><p className="text-2xl font-bold text-yellow-400 font-mono"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {toolData.character_stats.gold}</p></div>
+              <div><p className="text-xs text-gray-500">Level</p><p className="text-2xl font-bold text-white font-mono">{stats.level}</p></div>
+              <div><p className="text-xs text-gray-500">XP</p><p className="text-2xl font-bold text-blue-400 font-mono">{stats.xp}</p></div>
+              <div><p className="text-xs text-gray-500">Gold</p><p className="text-2xl font-bold text-yellow-400 font-mono"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {stats.gold}</p></div>
             </div>
           </div>
 

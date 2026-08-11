@@ -91,18 +91,16 @@ export async function createTradeRequest(params: {
   return { tradeId: data as string, error: null };
 }
 
-// weekStartingDate must be the same Sunday-anchored string the caller's own
-// weekly_packages row uses (see hooks/useWeeklyData.ts:currentSunday) — the
-// RPC looks up both parties' gold for that same calendar week.
+// Gold now lives on player_progress (lifetime, no week key) — the RPC no longer needs a
+// week_starting_date param at all (Phase 4 Wave 1, see docs/weekly-progress-redesign-plan.md).
+// This also removed the last "trust the client's Sunday" call site the redesign plan flagged.
 export async function respondToTrade(
   tradeId: string,
-  accept: boolean,
-  weekStartingDate: string
+  accept: boolean
 ): Promise<{ status: TradeStatus | 'error'; reason?: string }> {
   const { data, error } = await supabase.rpc('respond_to_trade', {
     p_trade_id: tradeId,
     p_accept: accept,
-    p_week_starting_date: weekStartingDate,
   });
   if (error) return { status: 'error', reason: error.message };
   return { status: data.status, reason: data.reason };

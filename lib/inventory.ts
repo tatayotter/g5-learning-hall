@@ -11,7 +11,8 @@ export type ItemKey =
   | 'antidote'
   | 'poison_fang'
   | 'revive_stone'
-  | 'graduation_scroll';
+  | 'graduation_scroll'
+  | 'growth_pill';
 
 export interface ShopItem {
   key: ItemKey;

@@ -12,7 +12,7 @@ import HeroProfile from '@/components/HeroProfile';
 import GuildJournal from '@/components/GuildJournal';
 import DailyChecklist from '@/components/DailyChecklist';
 import { markGuildSessionToday, GuildKey, GUILDS } from '@/lib/dailyChecklist';
-import { buildWeeklyReviewDay, WEEKLY_REVIEW_SUBJECT } from '@/lib/weeklyReview';
+import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
 import QuestModule, { markdownComponents } from '@/components/QuestModule';
 import { useReadTimer } from '@/hooks/useReadTimer';
 import { format } from 'date-fns';
@@ -27,7 +27,7 @@ import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
 import MonsterGuild from '@/components/MonsterGuild';
 import CodexPanel from '@/components/CodexPanel';
-import { playShopPurchase, playPageFlip, startMainTheme, stopMainTheme, isSfxEnabled, isMusicEnabled, setSfxEnabled, setMusicEnabled } from '@/lib/sounds';
+import { playShopPurchase, playPageFlip, startMainTheme, stopMainTheme, startTermBossTheme, stopTermBossTheme, isSfxEnabled, isMusicEnabled, setSfxEnabled, setMusicEnabled } from '@/lib/sounds';
 import Toast from '@/components/Toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import GameButton from '@/components/GameButton';
@@ -66,6 +66,14 @@ import {
   recordEventQuizMastery,
   claimEventReward,
 } from '@/lib/customEvents';
+import BossFightScreen from '@/components/monster/BossFightScreen';
+import BossPersonaFan from '@/components/monster/BossPersonaFan';
+import BossMistOverlay from '@/components/BossMistOverlay';
+import BossCutscene from '@/components/BossCutscene';
+import { useBossFightProgress } from '@/hooks/useBossFightProgress';
+import { getPersonasForGrade, isBossFightGrade, hasCutsceneBeenSeen, markCutsceneSeen } from '@/lib/bossPersonas';
+import { fetchBossPoolCounts, POOL_READY_THRESHOLD } from '@/lib/bossFightEngine';
+import { CURRENT_TERM } from '@/lib/guildConfig';
 
 const VAULT_CATALOG = {
   "voucher_30m": {
@@ -363,6 +371,39 @@ export default function Dashboard() {
   const [eventQuizPhase, setEventQuizPhase] = useState<'study' | 'ready' | 'quiz'>('study');
   const [showEventPopup, setShowEventPopup] = useState(false);
 
+  // --- Term Exam Boss Fight ---
+  const [activeBossFight, setActiveBossFight] = useState<string | null>(null); // subject key
+  const bossGradeLevel = gradeToNumber(USERS[activeUserId ?? 'damien']?.grade);
+  const bossProgress = useBossFightProgress(activeUserId ?? 'damien', bossGradeLevel);
+  const [bossPoolCounts, setBossPoolCounts] = useState<Record<string, number>>({});
+  useEffect(() => {
+    if (!isBossFightGrade(bossGradeLevel) || !bossProgress.bossFightsEnabled) return;
+    fetchBossPoolCounts(bossGradeLevel).then(setBossPoolCounts);
+  }, [bossGradeLevel, bossProgress.bossFightsEnabled]);
+  // Term boss ambient overrides the main theme game-wide while the event is
+  // active — same gate as the mist overlay. Falls back to whatever was
+  // already playing (main theme) once the event ends or the player leaves.
+  const bossEventActive = isBossFightGrade(bossGradeLevel) && bossProgress.bossFightsEnabled;
+  useEffect(() => {
+    if (bossEventActive) startTermBossTheme();
+    else stopTermBossTheme();
+    return () => { stopTermBossTheme(); };
+  }, [bossEventActive]);
+
+  // Opening cutscene — plays once per player per grade/term, the first time
+  // the event is seen active. Music already starts via the effect above at
+  // the same moment, so the reveal and the ambient track land together.
+  const [showBossCutscene, setShowBossCutscene] = useState(false);
+  useEffect(() => {
+    if (bossEventActive && !hasCutsceneBeenSeen(bossGradeLevel, CURRENT_TERM)) {
+      setShowBossCutscene(true);
+    }
+  }, [bossEventActive, bossGradeLevel]);
+  const dismissBossCutscene = () => {
+    markCutsceneSeen(bossGradeLevel, CURRENT_TERM);
+    setShowBossCutscene(false);
+  };
+
   // Forced-read countdown for the pre-quiz "Study Session" screens, sized to
   // each quest's own notes. Computed here (before the loading/no-data early
   // returns below) so useReadTimer's internal hooks are called on every
@@ -578,6 +619,12 @@ export default function Dashboard() {
   return (
     <>
       {rotationScreen}
+      {bossEventActive && (
+        <BossMistOverlay defeated={bossProgress.defeated.size} total={bossProgress.total} />
+      )}
+      {showBossCutscene && (
+        <BossCutscene personas={getPersonasForGrade(bossGradeLevel)} onDismiss={dismissBossCutscene} />
+      )}
       <div className="h-screen flex flex-col">
       {activeUserId.startsWith('demo_') && <DemoBanner />}
       {!activeUserId.startsWith('demo_') && <LinkParentBanner />}
@@ -611,6 +658,7 @@ export default function Dashboard() {
           setActiveTab(tab);
           setActiveQuest(null);
           setActiveEventQuest(null);
+          setActiveBossFight(null);
         }}
         onLogout={handleSwitchUser}
       />
@@ -632,7 +680,7 @@ export default function Dashboard() {
         >
 
         {/* --- TAB A: QUEST BOARD --- */}
-        {activeTab === 'board' && activeQuest === null && activeEventQuest === null && (
+        {activeTab === 'board' && activeQuest === null && activeEventQuest === null && activeBossFight === null && (
           <div>
             <h1 className="text-3xl font-bold mb-2 font-display">Active Campaign Map</h1>
             <p className="text-gray-400 mb-8">Select an open, active quest card from the schedule below to begin your training.</p>
@@ -716,6 +764,23 @@ export default function Dashboard() {
               </div>
             )}
 
+            {bossEventActive && (
+              <div className="mb-10">
+                <div className="rounded-2xl border-2 border-purple-700/70 bg-gradient-to-br from-[#0d0512] to-black shadow-[0_0_0_2px_#000,0_0_40px_-8px_rgba(147,51,234,0.35)] p-6">
+                  <h2 className="text-xl font-bold text-white font-display mb-1">Term Boss — The Forgetting</h2>
+                  <p className="text-xs font-bold text-purple-400 uppercase tracking-wide mb-4">
+                    Defeat every persona to push it back
+                  </p>
+                  <BossPersonaFan
+                    personas={getPersonasForGrade(bossGradeLevel)}
+                    defeated={bossProgress.defeated}
+                    readySubjects={new Set(Object.entries(bossPoolCounts).filter(([, c]) => c >= POOL_READY_THRESHOLD).map(([s]) => s))}
+                    onChallenge={(subject) => setActiveBossFight(subject)}
+                  />
+                </div>
+              </div>
+            )}
+
             {WEEKDAYS.map((day) => {
               const isToday = currentDayName === day;
               const daySubjects = mainQuestPackageData[day] || {};
@@ -761,7 +826,7 @@ export default function Dashboard() {
               );
             })}
 
-            <AchievementsBoard data={data} />
+            <AchievementsBoard data={data} userId={activeUserId} />
           </div>
         )}
 
@@ -769,11 +834,6 @@ export default function Dashboard() {
         {activeTab === 'board' && activeQuest !== null && (() => {
           const [day, subject] = activeQuest.split('_');
           const questData = mainQuestPackageData[day]?.[subject];
-          // Classmates who don't author their own Main Quest content read
-          // questions from a reference player's row (see useWeeklyData.ts's
-          // applyContentSource) — grading must look up the same row, or the
-          // RPC finds this student's own (contentless) package_data instead.
-          const gradingUserId = USERS[activeUserId as UserId]?.contentSourceId || activeUserId;
 
           return (
             <div className="w-full max-w-4xl mx-auto animate-in fade-in duration-500">
@@ -839,43 +899,26 @@ export default function Dashboard() {
                   attemptsSoFar={(data.quiz_attempts || {})[activeQuest] || 0}
                   isMastered={(data.mastered_quizzes || []).includes(activeQuest)}
                   gradeQuiz={async (selectedAnswers) => {
-                    // "Weekly Review" is built client-side on the fly (lib/weeklyReview.ts)
-                    // and never persisted under package_data->Friday->'Weekly Review' — the
-                    // day/subject-keyed grade_weekly_quiz RPC would always find nothing
-                    // there, so this subject grades by matching question text instead.
-                    if (subject === WEEKLY_REVIEW_SUBJECT) {
-                      const quizQuestions: { question: string }[] = questData?.quiz || [];
-                      const answers = quizQuestions.map((q, i) => ({
-                        question: q.question,
-                        selected: selectedAnswers[i],
-                      }));
-                      const { data: graded, error } = await supabase.rpc('grade_weekly_review_quiz', {
-                        p_user_id: gradingUserId,
-                        p_week_starting_date: data.week_starting_date,
-                        p_answers: answers,
-                      });
-                      if (error || !graded) throw error || new Error('grade_weekly_review_quiz returned no data');
-                      return {
-                        correct_count: graded.correct_count,
-                        total: graded.total,
-                        is_perfect: graded.is_perfect,
-                        correct_answers: graded.correct_answers,
-                      };
-                    }
-
-                    const { data: graded, error } = await supabase.rpc('grade_weekly_quiz', {
-                      p_user_id: gradingUserId,
-                      p_week_starting_date: data.week_starting_date,
-                      p_day: day,
-                      p_subject: subject,
-                      p_selected: selectedAnswers,
+                    // Every question now carries a stable content_questions.id (Phase 4 Wave 3,
+                    // see docs/weekly-progress-redesign-plan.md) — Weekly Review (built
+                    // client-side by lib/weeklyReview.ts from real questions pulled out of the
+                    // rest of the week) grades through the exact same id-keyed path as a normal
+                    // day/subject quiz now, no more bespoke text-matching RPC needed.
+                    const quizQuestions: { id: string }[] = questData?.quiz || [];
+                    const answers = quizQuestions.map((q, i) => ({
+                      question_id: q.id,
+                      selected: selectedAnswers[i],
+                    }));
+                    const { data: graded, error } = await supabase.rpc('grade_content_quiz', {
+                      p_user_id: activeUserId,
+                      p_answers: answers,
                     });
-                    if (error || !graded) throw error || new Error('grade_weekly_quiz returned no data');
+                    if (error || !graded) throw error || new Error('grade_content_quiz returned no data');
                     return {
                       correct_count: graded.correct_count,
                       total: graded.total,
                       is_perfect: graded.is_perfect,
-                      correct_answers: graded.correct_answers,
+                      correct_answers: (graded.results || []).map((r: any) => r.correct_answer),
                     };
                   }}
                   onQuizSubmit={(isPerfect, newAttempts, newStats, xpEarned, goldEarned) => {
@@ -1043,6 +1086,30 @@ export default function Dashboard() {
             </div>
           );
         })()}
+
+        {/* --- ACTIVE BOSS FIGHT VIEW --- */}
+        {activeTab === 'board' && activeBossFight !== null && (
+          <div className="w-full max-w-2xl mx-auto animate-in fade-in duration-500">
+            <GameButton
+              onClick={() => setActiveBossFight(null)}
+              className="text-gray-400 hover:text-white flex items-center text-sm font-bold transition-colors mb-4"
+            >
+              ← Retreat to Map
+            </GameButton>
+            <BossFightScreen
+              userId={activeUserId}
+              grade={bossGradeLevel}
+              subject={activeBossFight}
+              otherPersonas={getPersonasForGrade(bossGradeLevel).filter(
+                p => p.subject !== activeBossFight && !bossProgress.defeated.has(p.subject)
+              )}
+              onExit={(defeated) => {
+                setActiveBossFight(null);
+                if (defeated) bossProgress.refresh();
+              }}
+            />
+          </div>
+        )}
 
         {/* --- TAB B: REWARDS VAULT / SHOP --- */}
         {activeTab === 'vault' && !USERS[activeUserId].isFamily && (
@@ -1327,7 +1394,6 @@ export default function Dashboard() {
             playerLevel={data.character_stats.level}
             currentGold={data.character_stats.gold}
             packageData={packageData}
-            gradingUserId={USERS[activeUserId as UserId]?.contentSourceId || activeUserId}
             weekStartingDate={data.week_starting_date}
             liveBattleInbox={liveBattleInbox}
             pendingLiveBattleId={pendingLiveBattleId}

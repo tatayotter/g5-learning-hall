@@ -1,28 +1,42 @@
 // components/AchievementsBoard.tsx
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ACHIEVEMENTS } from '@/lib/achievements';
 import { WeeklyData } from '@/hooks/useWeeklyData';
+import { fetchPlayerProgress, PlayerProgress, mergeProgressForAchievements } from '@/lib/lifetimeStats';
 
 interface AchievementsBoardProps {
   // Use '?' to make data optional in the interface,
   // or accept WeeklyData | undefined
   data?: WeeklyData;
+  userId?: string;
 }
 
 const PAGE_SIZE = 12;
 
-export default function AchievementsBoard({ data }: AchievementsBoardProps) {
+export default function AchievementsBoard({ data, userId }: AchievementsBoardProps) {
   const [expanded, setExpanded] = useState(false);
   const [page, setPage] = useState(0);
+  const [progress, setProgress] = useState<PlayerProgress | null>(null);
+
+  // Criteria checked against lifetime totals (player_progress), not the current week's
+  // weekly-reset counters — thresholds unchanged, only the data source moved (Phase 4 Wave 2,
+  // see docs/weekly-progress-redesign-plan.md). Mirrors the same fetch in HeroProfile.tsx.
+  useEffect(() => {
+    if (!userId) return;
+    setProgress(null);
+    fetchPlayerProgress(userId).then(setProgress);
+  }, [userId]);
 
   if (!data) return null;
+
+  const achievementData = mergeProgressForAchievements(data, progress);
 
   // A gold-threshold achievement (e.g. "Reach 300 Gold") can be met once and
   // then un-met later just by spending gold in the shop. Once the persisted
   // `achievements` record says it was earned, it must stay unlocked forever —
   // only fall back to the live criteria check for achievements not yet recorded.
-  const isEarned = (a: typeof ACHIEVEMENTS[number]) => !!data.achievements?.[a.id] || a.criteria(data);
+  const isEarned = (a: typeof ACHIEVEMENTS[number]) => !!data.achievements?.[a.id] || a.criteria(achievementData);
 
   const unlocked = ACHIEVEMENTS.filter(isEarned);
   const locked = ACHIEVEMENTS.filter(a => !isEarned(a));

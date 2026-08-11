@@ -127,7 +127,7 @@ export function runBattleBeats(beats: BattleBeat[], onBeat: (beat: BattleBeat) =
 // gets the same clear per-hit feedback the solo screen has always had.
 export function AttackBanner({ text, iconSrc }: { text: string; iconSrc: string | null }) {
   return (
-    <div className="battle-banner-text text-center py-4 text-2xl text-amber-300 animate-pulse flex items-center justify-center gap-2">
+    <div className="battle-banner-text font-display text-center py-4 text-2xl text-amber-300 animate-pulse flex items-center justify-center gap-2">
       {iconSrc && <img src={iconSrc} alt="" className="w-7 h-7 object-contain" />}
       {text}
     </div>
@@ -139,7 +139,7 @@ export function AttackBanner({ text, iconSrc }: { text: string; iconSrc: string 
 export function DamageNumber({ value, missed }: { value: number; missed: boolean }) {
   return (
     <span
-      className={`damage-number absolute left-1/2 top-0 -translate-x-1/2 pointer-events-none select-none ${
+      className={`damage-number font-display absolute left-1/2 top-0 -translate-x-1/2 pointer-events-none select-none ${
         missed ? 'dmg-text-miss' : 'dmg-text-hit'
       }`}
     >
@@ -167,15 +167,14 @@ export interface BattleQuestionProps {
   questions: any[];
   count: number;
   embedded?: boolean;
-  // Whose weekly package to grade against, and which week — the `questions`
-  // array comes from weekly_packages_public (correct_answer stripped), so
-  // correctness has to be checked server-side via grade_monster_question.
+  // Whose progress to record the attempt against — the `questions` array comes from
+  // content_questions_public (correct_answer stripped), so correctness has to be checked
+  // server-side via grade_content_question, keyed by each question's stable id.
   gradingUserId: string;
-  weekStartingDate: string;
   onComplete: (correctCount: number, answeredQuestions: any[]) => void;
 }
 
-export function BattleQuestionModal({ questions, count, embedded, gradingUserId, weekStartingDate, onComplete }: BattleQuestionProps) {
+export function BattleQuestionModal({ questions, count, embedded, gradingUserId, onComplete }: BattleQuestionProps) {
   // A skill can ask for more questions than are actually available (e.g. a
   // tier-3 skill needs 3, but the player's unseen-question pool for that
   // subject has only 2 left) — capping to the pool's own length here, and
@@ -199,8 +198,7 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
     if (selected || grading) return;
     setSelected(opt);
     setGrading(true);
-    const questionText = current.question || current.problem_prompt;
-    const { correct: isCorrect, correctAnswer } = await gradeMonsterQuestion(gradingUserId, weekStartingDate, questionText, opt);
+    const { correct: isCorrect, correctAnswer } = await gradeMonsterQuestion(gradingUserId, current.id, opt);
     setGrading(false);
     setRevealedCorrect(correctAnswer);
     const newResults = [...results, isCorrect];

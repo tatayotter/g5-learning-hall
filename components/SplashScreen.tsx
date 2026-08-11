@@ -37,17 +37,6 @@ function formatLastSeen(iso: string | null | undefined): string {
   return new Date(iso).toLocaleDateString();
 }
 
-function getWeekStartDate(): string {
-  const now = new Date();
-  const day = now.getDay();
-  const diff = now.getDate() - day;
-  const sunday = new Date(now);
-  sunday.setDate(diff);
-  const yyyy = sunday.getFullYear();
-  const mm = String(sunday.getMonth() + 1).padStart(2, '0');
-  const dd = String(sunday.getDate()).padStart(2, '0');
-  return `${yyyy}-${mm}-${dd}`;
-}
 
 const FAMILY_IDS: UserId[] = ['damien', 'tala'];
 
@@ -137,14 +126,17 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
     let cancelled = false;
     async function fetchStats() {
       await ensureAnonymousSession();
-      const weekDate = getWeekStartDate();
 
-      const [weeklyRes, lastLoginRes, battleStateRes, monstersRes] = await Promise.all([
+      // player_progress is one row per user (lifetime, not week-keyed) — see
+      // docs/weekly-progress-redesign-plan.md Phase 4 Wave 2. Replaces an exact-current-week
+      // weekly_packages lookup, which (while not buggy — it never had the "latest row" flaw
+      // fixed elsewhere today) left a gap: a user shows no stats here until their first login
+      // of the week has created that week's row. player_progress always has the real numbers.
+      const [progressRes, lastLoginRes, battleStateRes, monstersRes] = await Promise.all([
         supabase
-          .from('weekly_packages')
-          .select('user_id, character_stats')
-          .in('user_id', allIds)
-          .eq('week_starting_date', weekDate),
+          .from('player_progress')
+          .select('user_id, level, xp, gold')
+          .in('user_id', allIds),
         supabase.from('user_last_login').select('user_id, last_login').in('user_id', allIds),
         supabase.from('user_battle_state').select('user_id, active_monster_slot').in('user_id', allIds),
         supabase.from('user_monsters').select('user_id, slot, monster_id, nickname, monster_level, graduation_tier').in('user_id', allIds),
@@ -152,8 +144,8 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
       if (cancelled) return;
 
       const statsMapNext: Record<string, HeroStats | null> = {};
-      (weeklyRes.data || []).forEach((row: any) => {
-        statsMapNext[row.user_id] = row.character_stats ?? null;
+      (progressRes.data || []).forEach((row: any) => {
+        statsMapNext[row.user_id] = { level: row.level, xp: row.xp, gold: row.gold };
       });
       setStatsMap(statsMapNext);
 

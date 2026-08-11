@@ -346,6 +346,23 @@ export function getGraduatedMonsterDisplay(monsterDef: MonsterDef, graduationTie
   };
 }
 
+// Per-instance wrapper around getGraduatedMonsterDisplay for callers holding a
+// species-wide display map (guild-tier swaps baked in, see MonsterGuild's
+// displayMonsters) plus one specific owned row. Graduation is purchased per
+// user_monsters instance, not per species — since the egg mechanism a player
+// can own more than one instance of the same species at different
+// graduation tiers (e.g. a graduated adult and its own freshly hatched,
+// ungraduated egg-child both named "duskral"), so graduation must always be
+// layered on at the instance the row belongs to, never baked into the
+// shared species entry the way guild tier is.
+export function getOwnedMonsterDisplay(
+  speciesDisplay: MonsterDef | undefined,
+  graduationTier: number | null | undefined
+): MonsterDef | undefined {
+  if (!speciesDisplay?.graduation) return speciesDisplay;
+  return getGraduatedMonsterDisplay(speciesDisplay, graduationTier ?? 0);
+}
+
 // description is optional — omitting it falls back to the base species'
 // value. Stats are never authored by hand here: they're derived from the
 // base species stats by GUILD_ENHANCEMENT_GROWTH, keyed off tier + isLegendary

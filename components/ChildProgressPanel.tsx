@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { startOfWeek, format } from 'date-fns';
+import { format } from 'date-fns';
 import { supabase } from '@/lib/supabase';
 
 interface Props {
@@ -77,18 +77,19 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
 
     async function load() {
       setLoading(true);
-      const currentSunday = format(startOfWeek(new Date()), 'yyyy-MM-dd');
       const sevenDaysAgo = new Date();
       sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
 
-      const [weeklyRes, subclassRes, loginRes, quizRes, streakRes] = await Promise.all([
+      const [progressRes, subclassRes, loginRes, quizRes, streakRes] = await Promise.all([
+        // One row per user (lifetime, not week-keyed) — see
+        // docs/weekly-progress-redesign-plan.md Phase 4 Wave 2. Replaces the old
+        // <=/ORDER BY/LIMIT 1 "most recent row on or before this week" lookup, which had
+        // the same "latest row wins" fragility the Phase 3 trigger was fixed for on
+        // 2026-08-11 (a pre-staged future row can carry non-null-but-wrong stats).
         supabase
-          .from('weekly_packages')
-          .select('character_stats, mastery_count, perfect_quizzes')
+          .from('player_progress')
+          .select('level, xp, mastery_count, perfect_quizzes_total')
           .eq('user_id', childId)
-          .lte('week_starting_date', currentSunday)
-          .order('week_starting_date', { ascending: false })
-          .limit(1)
           .maybeSingle(),
         supabase
           .from('user_subclass_profiles')
@@ -110,11 +111,10 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
 
       if (cancelled) return;
 
-      const stats = weeklyRes.data?.character_stats as { level?: number; xp?: number } | undefined;
-      setLevel(stats?.level ?? null);
-      setXp(stats?.xp ?? null);
-      setMasteryCount(weeklyRes.data?.mastery_count ?? null);
-      setPerfectQuizzes(weeklyRes.data?.perfect_quizzes ?? null);
+      setLevel(progressRes.data?.level ?? null);
+      setXp(progressRes.data?.xp ?? null);
+      setMasteryCount(progressRes.data?.mastery_count ?? null);
+      setPerfectQuizzes(progressRes.data?.perfect_quizzes_total ?? null);
       setSubclass((subclassRes.data as SubclassProfile) ?? null);
       setLastLogin(loginRes.data?.last_login ?? null);
       setQuizzesLast7Days(quizRes.count ?? 0);
@@ -199,7 +199,7 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
       )}
 
       <p className="text-xs text-gray-500">
-        {masteryCount ?? 0} topics mastered · {perfectQuizzes ?? 0} perfect quizzes · {quizzesLast7Days} questions this week
+        {masteryCount ?? 0} topics mastered · {perfectQuizzes ?? 0} perfect quizzes (career) · {quizzesLast7Days} questions this week
         {lastLogin && <> · last played {new Date(lastLogin).toLocaleDateString()}</>}
       </p>
 

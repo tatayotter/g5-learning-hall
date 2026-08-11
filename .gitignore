@@ -66,3 +66,6 @@ repomix-output.xml
 # server.url always overrides it) — not source, shouldn't be committed.
 /www/
 
+
+graphify-out/
+supabase/.temp/

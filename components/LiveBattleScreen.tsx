@@ -42,7 +42,6 @@ interface LiveBattleScreenProps {
   opponentTeam: ActiveBattleMonster[];
   questions: any[];
   gradingUserId: string;
-  weekStartingDate: string;
   inventory: InventoryMap;
   onUseItem: (key: string) => Promise<boolean>;
   onBattleEnd: (won: boolean) => void;
@@ -50,7 +49,7 @@ interface LiveBattleScreenProps {
 }
 
 export default function LiveBattleScreen({
-  battleId, myUserId, opponentId, opponentName, side, myTeam, opponentTeam, questions, gradingUserId, weekStartingDate, inventory, onUseItem, onBattleEnd,
+  battleId, myUserId, opponentId, opponentName, side, myTeam, opponentTeam, questions, gradingUserId, inventory, onUseItem, onBattleEnd,
   onBattleResultKnown,
 }: LiveBattleScreenProps) {
   const [myRoster, setMyRoster] = useState<ActiveBattleMonster[]>(myTeam);
@@ -612,7 +611,6 @@ export default function LiveBattleScreen({
         count={SKILLS[pendingSkillId].questionCount}
         embedded
         gradingUserId={gradingUserId}
-        weekStartingDate={weekStartingDate}
         onComplete={handleQuestionsComplete}
       />
     </div>

@@ -6,7 +6,10 @@ export const WEEKDAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
 export type Weekday = typeof WEEKDAYS[number];
 
 // Matches the 9 subjects the `deped-draft-questions-grade5` routine generates for.
-const GRADE_5_SCHEDULE: Record<string, Weekday> = {
+// Exported (not just used internally) so it doubles as the single source of
+// truth for "which subjects does Grade 5 have" — e.g. lib/bossPersonas.ts
+// derives its persona list from this instead of hardcoding a second list.
+export const GRADE_5_SCHEDULE: Record<string, Weekday> = {
   English: 'Monday',
   Mathematics: 'Monday',
   Filipino: 'Tuesday',
@@ -19,7 +22,7 @@ const GRADE_5_SCHEDULE: Record<string, Weekday> = {
 };
 
 // Matches the 7 subjects the `deped-draft-questions-grade2` routine generates for.
-const GRADE_2_SCHEDULE: Record<string, Weekday> = {
+export const GRADE_2_SCHEDULE: Record<string, Weekday> = {
   English: 'Monday',
   Mathematics: 'Monday',
   Filipino: 'Tuesday',

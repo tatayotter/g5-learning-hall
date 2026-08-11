@@ -62,7 +62,7 @@ interface QuestModuleProps {
   currentStats: CharacterStats;
   attemptsSoFar: number;
   isMastered: boolean;
-  // Grading happens server-side (grade_weekly_quiz / grade_event_quiz RPCs) —
+  // Grading happens server-side (grade_content_quiz / grade_event_quiz RPCs) —
   // questData never carries correct_answer, so this module can't compare
   // locally even if it wanted to.
   gradeQuiz: (selectedAnswers: Record<number, string>) => Promise<QuizGradeResult>;
