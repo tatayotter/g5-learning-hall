@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidateTag } from 'next/cache';
 import { supabase } from '@/lib/supabase';
 import { requireAdminPasscode } from '@/lib/adminAuth';
 
@@ -71,6 +72,12 @@ export async function POST(request: NextRequest) {
       p_created_by: body.createdBy ?? null,
     });
     if (error) return NextResponse.json({ success: false, error: error.message }, { status: 409 });
+    // Bust app/api/content's shared cache immediately, rather than waiting up
+    // to 5 minutes for its fallback TTL — a saved week should be playable
+    // right away, not eventually. { expire: 0 } (not the 'max' stale-while-
+    // revalidate profile) is the documented pattern for a Route Handler that
+    // needs data to expire immediately rather than serve-stale-then-refresh.
+    revalidateTag('content', { expire: 0 });
     return NextResponse.json({ success: true });
   }
 

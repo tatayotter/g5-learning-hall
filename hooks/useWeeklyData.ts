@@ -49,35 +49,22 @@ function applyXpDelta(level: number, xp: number, delta: number): { level: number
 // (Main Quest quiz UI, Monster Arena's extractQuestions, lib/weeklyReview.ts's synthesis) already
 // walks this exact shape, so reconstructing it here means none of them need to change, only how
 // they grade (by real question.id now, not text/position). correct_answer is never included —
-// same answer-stripping guarantee weekly_packages_public used to provide, enforced here by
-// content_questions_public (which never exposes it) rather than a client-side strip.
+// same answer-stripping guarantee weekly_packages_public used to provide, enforced structurally
+// by content_questions_public (which never selects it), not a client-side strip.
+// Fetched through app/api/content (Data-Cache-backed, shared across every visitor, 5min TTL or
+// immediate on admin save) instead of querying Supabase directly — this used to be 2 queries PER
+// STUDENT PER PAGE LOAD; content only changes when an admin authors a week, so there's no reason
+// every visitor should re-fetch it individually. See app/api/content/route.ts.
 // Also returns the resolved content_weeks.id (null if the admin hasn't authored this grade/week
 // yet) — Wave 4 keys player_weekly_journal off it instead of a week_starting_date column.
 async function fetchGradeContent(grade: number, weekStartingDate: string): Promise<{ content: any; contentWeekId: string | null }> {
-  const { data: week } = await supabase
-    .from('content_weeks')
-    .select('id')
-    .eq('grade', grade)
-    .eq('week_starting_date', weekStartingDate)
-    .maybeSingle();
-  if (!week) return { content: {}, contentWeekId: null };
-
-  const { data: rows, error } = await supabase
-    .from('content_questions_public')
-    .select('id, prompt, options, sort_order, subject, weekday, summary_markdown')
-    .eq('content_week_id', week.id)
-    .order('sort_order');
-  if (error || !rows) return { content: {}, contentWeekId: week.id };
-
-  const byDay: Record<string, Record<string, { summary_markdown?: string; quiz: any[] }>> = {};
-  rows.forEach((r: any) => {
-    if (!byDay[r.weekday]) byDay[r.weekday] = {};
-    if (!byDay[r.weekday][r.subject]) {
-      byDay[r.weekday][r.subject] = { summary_markdown: r.summary_markdown ?? undefined, quiz: [] };
-    }
-    byDay[r.weekday][r.subject].quiz.push({ id: r.id, question: r.prompt, options: r.options });
-  });
-  return { content: byDay, contentWeekId: week.id };
+  try {
+    const res = await fetch(`/api/content?grade=${grade}&week=${weekStartingDate}`);
+    if (!res.ok) return { content: {}, contentWeekId: null };
+    return await res.json();
+  } catch {
+    return { content: {}, contentWeekId: null };
+  }
 }
 
 // The 12 "this week" battle/activity counters, zeroed for a week with no player_weekly_journal
