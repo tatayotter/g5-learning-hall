@@ -41,9 +41,6 @@ import { seedOfflineCache } from '@/lib/offlineSeed';
 import MonsterShop from '@/components/MonsterShop';
 import VaultKeeperNpc from '@/components/VaultKeeperNpc';
 import CurioExpertNpc from '@/components/CurioExpertNpc';
-import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
-import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
-import { respondToInvite } from '@/lib/liveBattle';
 import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import DemoBanner from '@/components/DemoBanner';
@@ -298,28 +295,8 @@ export default function Dashboard() {
     }
     prevTabRef.current = activeTab;
   }, [activeTab]);
-  const [pendingLiveBattleId, setPendingLiveBattleId] = useState<string | null>(null);
   const [claimingKey, setClaimingKey] = useState<string | null>(null);
   const claimBusyRef = useRef(false);
-  const liveBattleInbox = useLiveBattleInbox(activeUserId ?? '', activeUserId ? USERS[activeUserId]?.name ?? '' : '');
-
-  const handleAcceptLiveBattleInvite = async () => {
-    const invite = liveBattleInbox.incomingInvite;
-    if (!invite) return;
-    await respondToInvite(invite.battleId, true);
-    await liveBattleInbox.sendInviteResponse(invite.fromId, invite.battleId, true);
-    liveBattleInbox.clearIncomingInvite();
-    setPendingLiveBattleId(invite.battleId);
-    setActiveTab('monster');
-  };
-
-  const handleDeclineLiveBattleInvite = async () => {
-    const invite = liveBattleInbox.incomingInvite;
-    if (!invite) return;
-    await respondToInvite(invite.battleId, false);
-    await liveBattleInbox.sendInviteResponse(invite.fromId, invite.battleId, false);
-    liveBattleInbox.clearIncomingInvite();
-  };
 
   const [activeQuest, setActiveQuest] = useState<string | null>(null);
   const [activeGuild, setActiveGuild] = useState<GuildKey | null>(null);
@@ -1377,10 +1354,7 @@ export default function Dashboard() {
             currentGold={data.character_stats.gold}
             packageData={packageData}
             weekStartingDate={data.week_starting_date}
-            liveBattleInbox={liveBattleInbox}
-            pendingLiveBattleId={pendingLiveBattleId}
             initialView={guildInitialView}
-            onConsumePendingLiveBattle={() => setPendingLiveBattleId(null)}
             onBattleWon={(kind) => updateStatsAndJournal(
               data.character_stats, data.journal_logs,
               data.purchased_items, data.mastery_count, data.honor_grants,
@@ -1412,14 +1386,6 @@ export default function Dashboard() {
 
         </motion.div>
         </AnimatePresence>
-
-        {liveBattleInbox.incomingInvite && (
-          <LiveBattleInviteToast
-            fromName={liveBattleInbox.incomingInvite.fromName}
-            onAccept={handleAcceptLiveBattleInvite}
-            onDecline={handleDeclineLiveBattleInvite}
-          />
-        )}
 
         <AchievementToast
           userId={activeUserId}

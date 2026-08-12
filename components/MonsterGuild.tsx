@@ -24,8 +24,9 @@ import { UserMonster, ActiveBattleMonster } from '@/components/battle/shared';
 import LiveBattleScreen from '@/components/LiveBattleScreen';
 import LeaderboardPanel from '@/components/LeaderboardPanel';
 import TradePanel from '@/components/trade/TradePanel';
-import { createInvite, fetchLiveBattle } from '@/lib/liveBattle';
+import { createInvite, respondToInvite } from '@/lib/liveBattle';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
+import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import WorldMap from '@/components/WorldMap';
 import { REGIONS } from '@/lib/regions';
 import { CaughtMonster, BattleState } from '@/components/monster/types';
@@ -47,9 +48,6 @@ interface MonsterGuildProps {
   // Used by TeamPanel's Tutor-Curio gold sync, unrelated to question grading
   // (grading now just needs userId — see the gradeMonsterQuestion call sites below).
   weekStartingDate: string;
-  liveBattleInbox: ReturnType<typeof useLiveBattleInbox>;
-  pendingLiveBattleId: string | null;
-  onConsumePendingLiveBattle: () => void;
   onBattleWon: (kind: 'trainer' | 'sibling' | 'dummy') => void;
   onGoldAwarded: (amount: number) => void;
   // Syncs the locally cached gold balance after an RPC that ALREADY
@@ -112,7 +110,15 @@ interface WildEncounterState {
   attemptsLeft: number;
 }
 
-export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, weekStartingDate, liveBattleInbox, pendingLiveBattleId, onConsumePendingLiveBattle, onBattleWon, onGoldAwarded, onGoldSynced, initialView, onEggBadgeChange, eggRefreshSignal, onGraduated, onTutored, onTradeConfirmed, onLegendaryCaught, onTatayBattleResult }: MonsterGuildProps) {
+export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, weekStartingDate, onBattleWon, onGoldAwarded, onGoldSynced, initialView, onEggBadgeChange, eggRefreshSignal, onGraduated, onTutored, onTradeConfirmed, onLegendaryCaught, onTatayBattleResult }: MonsterGuildProps) {
+  // Mounted/unmounted with this component (i.e. with the Curio Arena tab),
+  // not app-wide — a deliberate tradeoff made 2026-08-12 to cut concurrent
+  // Realtime connections against the free-tier ceiling. This means a PvP
+  // challenge sent to a player who isn't currently on this tab will never
+  // reach them (no app-wide toast anymore); see the free-tier maximization
+  // notes for the accepted cost of this change.
+  const selfProfile = USERS[userId];
+  const liveBattleInbox = useLiveBattleInbox(userId, selfProfile?.name || userId);
   const isDemo = userId.startsWith('demo_');
   const [loading, setLoading] = useState(true);
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
@@ -285,28 +291,36 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     battleState?.map_y ?? 0,
   );
 
-  // The invitee lands here once they've accepted a challenge from anywhere
-  // else in the app (Dashboard's LiveBattleInviteToast) — fetch the battle
-  // row both sides already agreed on and jump straight into the live screen.
-  useEffect(() => {
-    if (!pendingLiveBattleId) return;
-    (async () => {
-      const battle = await fetchLiveBattle(pendingLiveBattleId);
-      onConsumePendingLiveBattle();
-      if (!battle) return;
-      const isChallenger = battle.challenger_id === userId;
-      const opponentId = isChallenger ? battle.opponent_id : battle.challenger_id;
-      setLiveBattleId(battle.id);
-      setLiveBattleOpponent({ id: opponentId, name: USERS[opponentId]?.name ?? opponentId });
-      setLiveBattleSide(isChallenger ? 'challenger' : 'opponent');
-      setLiveBattleTeams({
-        mine: isChallenger ? battle.challenger_team : battle.opponent_team,
-        opp: isChallenger ? battle.opponent_team : battle.challenger_team,
-      });
-      setView('live_battle');
-    })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pendingLiveBattleId]);
+  // The invitee accepts/declines from LiveBattleInviteToast, rendered below
+  // — both are only reachable while this component is mounted (Curio Arena
+  // tab open), since the invite itself can only have arrived over the inbox
+  // channel this component now owns.
+  const handleAcceptLiveBattleInvite = async () => {
+    const invite = liveBattleInbox.incomingInvite;
+    if (!invite) return;
+    const battle = await respondToInvite(invite.battleId, true);
+    await liveBattleInbox.sendInviteResponse(invite.fromId, invite.battleId, true);
+    liveBattleInbox.clearIncomingInvite();
+    if (!battle) return;
+    const isChallenger = battle.challenger_id === userId;
+    const opponentId = isChallenger ? battle.opponent_id : battle.challenger_id;
+    setLiveBattleId(battle.id);
+    setLiveBattleOpponent({ id: opponentId, name: USERS[opponentId]?.name ?? opponentId });
+    setLiveBattleSide(isChallenger ? 'challenger' : 'opponent');
+    setLiveBattleTeams({
+      mine: isChallenger ? battle.challenger_team : battle.opponent_team,
+      opp: isChallenger ? battle.opponent_team : battle.challenger_team,
+    });
+    setView('live_battle');
+  };
+
+  const handleDeclineLiveBattleInvite = async () => {
+    const invite = liveBattleInbox.incomingInvite;
+    if (!invite) return;
+    await respondToInvite(invite.battleId, false);
+    await liveBattleInbox.sendInviteResponse(invite.fromId, invite.battleId, false);
+    liveBattleInbox.clearIncomingInvite();
+  };
 
   // Lets other players' training maps show a blinking "in battle" badge over
   // this player's sprite, and blocks challenges aimed at them while it's set.
@@ -1110,6 +1124,14 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
       {revealMonster && (
         <CurioRevealModal monster={revealMonster} userId={userId} onClose={() => setRevealMonster(null)} />
+      )}
+
+      {liveBattleInbox.incomingInvite && (
+        <LiveBattleInviteToast
+          fromName={liveBattleInbox.incomingInvite.fromName}
+          onAccept={handleAcceptLiveBattleInvite}
+          onDecline={handleDeclineLiveBattleInvite}
+        />
       )}
     </div>
   );
