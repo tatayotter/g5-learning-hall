@@ -715,6 +715,11 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       }
       await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: opponent.id, result: 'win', monster_exp_earned: 0 });
       if (goldReward > 0) {
+        // This used to only write a player_log entry claiming "+50 Gold" —
+        // player_log is an append-only activity feed, not a mutable balance,
+        // so the reward was never actually credited despite the toast/log
+        // saying it was. onGoldAwarded is the real additive credit.
+        onGoldAwarded(goldReward);
         showNotification(`🏆 Defeated ${opponent.name}! +50 Gold!`);
         logAction(userId, today, 'battle', `⚔️ Challenge vs ${opponent.name} — Victory! +50 Gold`, 0, 50);
       } else {
@@ -1096,6 +1101,13 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
             showNotification(won ? `🏆 Defeated ${liveBattleOpponent.name}!` : `💀 ${liveBattleOpponent.name} was too strong!`);
             if (won) {
               onBattleWon('sibling');
+              // resolve-live-battle (Edge Function) already credited any gold
+              // reward straight to player_progress server-side — this is a
+              // pure resync of local display state, not another credit. By
+              // the time the player has clicked through the result screen to
+              // get here, that call (fired when the battle ended, well
+              // before this handler) has had plenty of time to land.
+              onProgressSynced();
             }
             setLiveBattleId(null);
             setLiveBattleOpponent(null);
