@@ -516,5 +516,23 @@ export function useWeeklyData(userId: string = 'damien') {
     setData(prev => prev ? { ...prev, character_stats: finalStats as CharacterStats } : prev);
   };
 
-  return { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta, bumpCounters };
+  // Pure local-state sync — refetches the real player_progress row and mirrors
+  // it into character_stats, WITHOUT going through apply_progress_update/
+  // apply_progress_deltas. Those two push another server-side delta on top of
+  // whatever's already there; this is for when a different SECURITY DEFINER
+  // RPC (e.g. respond_to_trade) already made its own atomic gold/xp write
+  // elsewhere, so re-deriving and re-applying a "delta" here would double-
+  // apply that change. See applyGoldDelta/updateStatsAndJournal above for the
+  // delta-applying counterparts, and MonsterGuild's onGoldSynced for the same
+  // distinction on the Tutor-Curio path.
+  const syncCharacterStats = async () => {
+    const fresh = await fetchPlayerProgress(userId);
+    if (!fresh) return;
+    setProgress(fresh);
+    setData(prev => prev
+      ? { ...prev, character_stats: { level: fresh.level, xp: fresh.xp, gold: fresh.gold } }
+      : prev);
+  };
+
+  return { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta, bumpCounters, syncCharacterStats };
 }

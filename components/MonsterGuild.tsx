@@ -55,6 +55,11 @@ interface MonsterGuildProps {
   // onGoldAwarded, this must not trigger a second real deduction. Mirrors
   // MonsterShop's onSpendGold.
   onGoldSynced: (newStats: { gold: number; xp: number; level: number }) => void;
+  // Same "sync, don't re-apply" idea as onGoldSynced, but for TradePanel:
+  // respond_to_trade already wrote the real gold change straight to
+  // player_progress server-side, so this just refetches and mirrors it
+  // locally rather than taking a value to diff into another delta RPC call.
+  onProgressSynced: () => void;
   initialView?: GuildView;
   // Whether Curio Arena's sidebar badge should light up for an egg-ready
   // curio — combined by the caller with its own hatched/stalled-egg checks
@@ -110,7 +115,7 @@ interface WildEncounterState {
   attemptsLeft: number;
 }
 
-export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, weekStartingDate, onBattleWon, onGoldAwarded, onGoldSynced, initialView, onEggBadgeChange, eggRefreshSignal, onGraduated, onTutored, onTradeConfirmed, onLegendaryCaught, onTatayBattleResult }: MonsterGuildProps) {
+export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, weekStartingDate, onBattleWon, onGoldAwarded, onGoldSynced, onProgressSynced, initialView, onEggBadgeChange, eggRefreshSignal, onGraduated, onTutored, onTradeConfirmed, onLegendaryCaught, onTatayBattleResult }: MonsterGuildProps) {
   // Mounted/unmounted with this component (i.e. with the Curio Arena tab),
   // not app-wide — a deliberate tradeoff made 2026-08-12 to cut concurrent
   // Realtime connections against the free-tier ceiling. This means a PvP
@@ -867,6 +872,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           userMonsters={userMonsters}
           onTradeCompleted={refreshMonsterLoadouts}
           onTradeConfirmed={onTradeConfirmed}
+          onGoldChanged={onProgressSynced}
         />
       )}
 

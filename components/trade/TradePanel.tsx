@@ -30,6 +30,11 @@ interface TradePanelProps {
   // trade actually completes, unlike onTradeCompleted which also refreshes
   // after a decline/cancel.
   onTradeConfirmed?: () => void;
+  // respond_to_trade writes gold straight to player_progress server-side —
+  // this only ever refetches and mirrors that into local state, it never
+  // pushes another delta itself. Fired only on a completed trade (declines/
+  // cancels never touch gold, so there's nothing to resync for those).
+  onGoldChanged?: () => void;
 }
 
 // Curio-for-curio: 250 gold per curio moved, both sides counted, initiator
@@ -59,7 +64,7 @@ function monsterLabel(m: UserMonster): string {
 
 const currentSunday = () => format(startOfWeek(new Date()), 'yyyy-MM-dd');
 
-export default function TradePanel({ userId, userMonsters, onTradeCompleted, onTradeConfirmed }: TradePanelProps) {
+export default function TradePanel({ userId, userMonsters, onTradeCompleted, onTradeConfirmed, onGoldChanged }: TradePanelProps) {
   const [tab, setTab] = useState<'pending' | 'new' | 'history'>('pending');
   const [threads, setThreads] = useState<TradeThread[]>([]);
   const [busyId, setBusyId] = useState<string | null>(null);
@@ -84,6 +89,7 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted, onT
     if (result.status === 'completed') {
       logAction(userId, currentSunday(), 'trade', '🔄 Completed a curio trade', 0, 0);
       onTradeConfirmed?.();
+      onGoldChanged?.();
     } else if (!accept) {
       logAction(userId, currentSunday(), 'trade', '🔄 Declined a trade request', 0, 0);
     }
