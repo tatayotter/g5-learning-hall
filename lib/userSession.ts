@@ -65,10 +65,14 @@ let classmateIds: Set<UserId> = new Set();
 
 export async function loadClassmates(): Promise<void> {
   if (classmatesLoaded) return;
+  // classmates itself denies all direct client reads (RLS) — it has no
+  // owner concept to scope a policy by, and carries password_hash. This
+  // safe-column view is the only public read path for the account-select
+  // roster; the admin dashboard's need for username goes through a
+  // separate passcode-gated route instead (see classmate-admin/route.ts).
   const { data } = await supabase
-    .from('classmates')
-    .select('id, full_name, grade, gender, school_name')
-    .eq('is_active', true);
+    .from('classmates_public')
+    .select('id, full_name, grade, gender, school_name');
 
   (data || []).forEach((c: any) => {
     USERS[c.id] = {
@@ -104,10 +108,13 @@ let childIds: Set<UserId> = new Set();
 
 export async function loadChildren(): Promise<void> {
   if (childrenLoaded) return;
+  // children itself only allows a parent to read their own rows now (RLS) —
+  // pin_plain/pin_hash/username live there and shouldn't be readable
+  // outside that. This safe-column view (already scoped to active children
+  // of approved parents) is the public account-select roster's read path.
   const { data } = await supabase
-    .from('children')
-    .select('id, full_name, grade, gender, avatar, school_name')
-    .eq('is_active', true);
+    .from('children_public')
+    .select('id, full_name, grade, gender, avatar, school_name');
 
   (data || []).forEach((c: any) => {
     USERS[c.id] = {

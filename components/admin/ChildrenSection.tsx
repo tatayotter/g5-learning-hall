@@ -70,11 +70,11 @@ export default function ChildrenSection({ passcode }: { passcode: string }) {
   const [reassignMessage, setReassignMessage] = useState('');
 
   const loadClassmates = async () => {
-    const { data } = await supabase
-      .from('classmates')
-      .select('id, username, full_name, grade, gender, is_active, school_name')
-      .order('full_name');
-    setClassmates(data || []);
+    // classmates denies all direct client reads (RLS) — username isn't safe
+    // to expose through a public view, so this goes through a passcode-
+    // gated route instead, same pattern as every write below.
+    const result = await callAdminApi<{ classmates: Classmate[] }>('/api/classmate-admin', { passcode, action: 'list' });
+    setClassmates(result.success ? result.classmates || [] : []);
   };
 
   const loadSession = async () => {
