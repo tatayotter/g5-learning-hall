@@ -14,13 +14,18 @@ export interface OnlinePlayer {
 const WAVE_TTL_MS = 1500;
 const STICKER_TTL_MS = 3000;
 
-export function useMapPresence(userId: string, name: string, gender: 'boy' | 'girl', x: number, y: number) {
+// `enabled` defaults true (every existing call site keeps working
+// unchanged); pass false to skip opening the Realtime channel entirely —
+// used by MonsterGuild.tsx when offline, where a live presence channel has
+// no chance of connecting and would just retry uselessly.
+export function useMapPresence(userId: string, name: string, gender: 'boy' | 'girl', x: number, y: number, enabled = true) {
   const [onlinePlayers, setOnlinePlayers] = useState<Record<string, OnlinePlayer>>({});
   const [waves, setWaves] = useState<Record<string, number>>({});
   const [stickers, setStickers] = useState<Record<string, { text: string; at: number }>>({});
   const channelRef = useRef<RealtimeChannel | null>(null);
 
   useEffect(() => {
+    if (!enabled) return;
     const channel = supabase.channel('training-map', {
       config: { presence: { key: userId }, broadcast: { self: true } },
     });
@@ -77,7 +82,7 @@ export function useMapPresence(userId: string, name: string, gender: 'boy' | 'gi
       channelRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userId]);
+  }, [userId, enabled]);
 
   useEffect(() => {
     channelRef.current?.track({ userId, name, gender, x, y });

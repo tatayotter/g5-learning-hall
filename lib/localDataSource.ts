@@ -83,6 +83,20 @@ CREATE TABLE IF NOT EXISTS local_active_user (
   updated_at TEXT NOT NULL
 );
 
+-- Snapshot of lib/userSession.ts's USERS dict (classmates, children, avatar
+-- overrides, theme overrides) plus the id sets that classify them, so
+-- Dashboard's session-hydration effect can populate USERS offline instead of
+-- hanging on the four live Supabase calls that normally do it. Single-row
+-- like local_active_user — there's only ever one roster to cache.
+CREATE TABLE IF NOT EXISTS local_users_snapshot (
+  id INTEGER PRIMARY KEY CHECK (id = 1),
+  users_json TEXT NOT NULL,
+  classmate_ids_json TEXT NOT NULL,
+  child_ids_json TEXT NOT NULL,
+  protected_family_ids_json TEXT NOT NULL,
+  cached_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS sync_queue (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   table_target TEXT NOT NULL,
@@ -323,6 +337,45 @@ export async function getActiveUserLocal(): Promise<{ userId: string; gradeLevel
   const result = await db.query(`SELECT user_id, grade_level FROM local_active_user WHERE id = 1`);
   const row = result.values?.[0];
   return row ? { userId: row.user_id, gradeLevel: row.grade_level } : null;
+}
+
+// ─── Users snapshot (classmates/children/avatar/theme overrides + id sets) ──
+
+export interface UsersSnapshot {
+  users: Record<string, any>;
+  classmateIds: string[];
+  childIds: string[];
+  protectedFamilyIds: string[];
+}
+
+export async function cacheUsersSnapshot(snapshot: UsersSnapshot) {
+  const db = await getDb();
+  await db.run(
+    `INSERT INTO local_users_snapshot (id, users_json, classmate_ids_json, child_ids_json, protected_family_ids_json, cached_at) VALUES (1, ?, ?, ?, ?, ?)
+     ON CONFLICT(id) DO UPDATE SET users_json = excluded.users_json, classmate_ids_json = excluded.classmate_ids_json, child_ids_json = excluded.child_ids_json, protected_family_ids_json = excluded.protected_family_ids_json, cached_at = excluded.cached_at`,
+    [
+      JSON.stringify(snapshot.users),
+      JSON.stringify(snapshot.classmateIds),
+      JSON.stringify(snapshot.childIds),
+      JSON.stringify(snapshot.protectedFamilyIds),
+      new Date().toISOString(),
+    ]
+  );
+}
+
+export async function getCachedUsersSnapshot(): Promise<UsersSnapshot | null> {
+  const db = await getDb();
+  const result = await db.query(
+    `SELECT users_json, classmate_ids_json, child_ids_json, protected_family_ids_json FROM local_users_snapshot WHERE id = 1`
+  );
+  const row = result.values?.[0];
+  if (!row) return null;
+  return {
+    users: JSON.parse(row.users_json),
+    classmateIds: JSON.parse(row.classmate_ids_json),
+    childIds: JSON.parse(row.child_ids_json),
+    protectedFamilyIds: JSON.parse(row.protected_family_ids_json),
+  };
 }
 
 // ─── Sync outbox ───────────────────────────────────────────────────────────

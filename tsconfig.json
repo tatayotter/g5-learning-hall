@@ -33,6 +33,11 @@
   // "public" is excluded because Tiled's tileset file format also uses the
   // .tsx extension (its own XML-based format, unrelated to TypeScript/JSX) —
   // see public/maps-tiled-art/ — which would otherwise get parsed as a React
-  // component by the TS compiler and fail with syntax errors.
-  "exclude": ["node_modules", "supabase", "public"]
+  // component by the TS compiler and fail with syntax errors. offline-shell
+  // now mirrors this same public/ (see scripts/sync-offline-shell-public.js)
+  // and has its own tsconfig.json/build; android/ holds Java + Capacitor's
+  // copy of the bundled web assets; www/ is that same static-export output
+  // staged at the repo root before `npx cap sync` — none of these are this
+  // project's TS source, so all are excluded from root's scan.
+  "exclude": ["node_modules", "supabase", "public", "offline-shell", "android", "www"]
 }

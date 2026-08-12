@@ -151,14 +151,25 @@ export function useWeeklyData(userId: string = 'damien') {
   useEffect(() => {
     let cancelled = false;
     async function fetchData() {
-      // Offline (Android only): skip the network round-trip entirely and load
-      // straight from the on-device cache — see lib/localDataSource.ts's
-      // cacheWeeklyData, written every time `data` changes below.
-      if (isOfflineStorageAvailable() && isAppOffline()) {
+      // Native (Android): cache-first, stale-while-revalidate — render
+      // whatever's on-device immediately regardless of connectivity, so
+      // opening the app never blocks on a network round trip just to show
+      // last-known progress. True offline, that's as fresh as it gets (same
+      // behavior as before). Online, execution falls through to the live
+      // fetch below, which silently refreshes `data` (and re-caches it, see
+      // the write-through effect further down) once it resolves — no second
+      // loading flash, since `loading` is already false by then.
+      if (isOfflineStorageAvailable()) {
         const cached = await getCachedWeeklyData(userId);
-        setData(cached);
-        setLoading(false);
-        return;
+        if (cached) {
+          setData(cached);
+          setLoading(false);
+        }
+        if (isAppOffline()) {
+          if (!cached) setData(null);
+          setLoading(false);
+          return;
+        }
       }
 
       // player_progress/player_weekly_journal RLS only grants access to the `authenticated`
@@ -544,5 +555,5 @@ export function useWeeklyData(userId: string = 'damien') {
     setProgress(prev => prev ? { ...prev, level: stats.level, xp: stats.xp, gold: stats.gold } : prev);
   };
 
-  return { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta, bumpCounters, syncCharacterStats, setCharacterStatsDirect };
+  return { data, loading, updateStatsAndJournal, currentSunday, contentWeekId, applyGoldDelta, bumpCounters, syncCharacterStats, setCharacterStatsDirect };
 }

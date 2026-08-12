@@ -1,6 +1,7 @@
 // lib/userSession.ts
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
-import { isOfflineStorageAvailable, setActiveUserLocal } from '@/lib/localDataSource';
+import { isOfflineStorageAvailable, setActiveUserLocal, cacheUsersSnapshot, getCachedUsersSnapshot } from '@/lib/localDataSource';
+import { isAppOffline } from '@/lib/offlineState';
 
 export type UserId = string;
 
@@ -200,6 +201,49 @@ export async function loadFamilyProtection(): Promise<void> {
 
 export function isFamilyProtected(id: UserId): boolean {
   return protectedFamilyIds.has(id);
+}
+
+// Populates USERS (classmates, children, family protection, avatar/theme
+// overrides) the way Dashboard needs at hydration time. Online (or web/
+// desktop, where offline mode never applies), this is just the same four
+// live Supabase loads as before, plus a write-through cache afterward
+// (native only) so the snapshot is fresh next time there's no connection —
+// same shape as cacheWeeklyData/cacheGuildPool elsewhere. Offline (native +
+// isAppOffline()), it skips the live calls entirely — which would otherwise
+// hang forever with no network — and reads the cached snapshot instead.
+export async function loadAllUsersData(): Promise<void> {
+  if (isOfflineStorageAvailable() && isAppOffline()) {
+    const snapshot = await getCachedUsersSnapshot();
+    if (snapshot) {
+      Object.assign(USERS, snapshot.users);
+      snapshot.classmateIds.forEach(id => classmateIds.add(id));
+      snapshot.childIds.forEach(id => childIds.add(id));
+      protectedFamilyIds = new Set(snapshot.protectedFamilyIds);
+    }
+    // Mark every loader "done" regardless of whether a snapshot existed yet
+    // (first-ever-offline-launch case) — there's no live fallback to retry
+    // into while offline, so leaving these false would just mean every
+    // future loadClassmates()/etc. call in this session keeps re-attempting
+    // (and failing) a live fetch.
+    classmatesLoaded = true;
+    childrenLoaded = true;
+    familyProtectionLoaded = true;
+    avatarsLoaded = true;
+    themesLoaded = true;
+    return;
+  }
+
+  await Promise.all([loadClassmates(), loadChildren(), loadFamilyProtection()]);
+  await Promise.all([loadAvatarOverrides(), loadThemeOverrides()]);
+
+  if (isOfflineStorageAvailable()) {
+    cacheUsersSnapshot({
+      users: USERS,
+      classmateIds: Array.from(classmateIds),
+      childIds: Array.from(childIds),
+      protectedFamilyIds: Array.from(protectedFamilyIds),
+    }).catch(e => console.error('Offline users snapshot cache failed (non-fatal):', e));
+  }
 }
 
 const SESSION_KEY = 'g5_active_user';

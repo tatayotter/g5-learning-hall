@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+/* offline-shell/ builds this exact file via a relative import
+   ("../../app/globals.css") from its own separate Next.js project (its own
+   node_modules/package.json) — Tailwind v4's automatic class-usage
+   detection stops at that project boundary, so without these explicit
+   @source paths it never sees classes used in the root components/lib/hooks
+   directories that components/Dashboard.tsx (shared by both online and the
+   offline shell) pulls in, silently producing a near-empty utility CSS file.
+   Paths resolve relative to this file's own location, so this is a no-op
+   for the root app's own build (already within its scan root) and the fix
+   for offline-shell's. */
+@source "../components";
+@source "../lib";
+@source "../hooks";
+@source "../app";
+
 :root {
   --background: #14100d;
   --foreground: #d8cdb8;
