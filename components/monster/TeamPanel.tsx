@@ -230,7 +230,7 @@ export default function TeamPanel({
     actionBusyRef.current = true;
     setActionBusy(true);
     try {
-      const outcome = await tutorCurio(userId, monsterRowId, weekStartingDate, useTome);
+      const outcome = await tutorCurio(userId, monsterRowId, useTome);
       if (!outcome) {
         alert('Could not reach the tutor right now — try again.');
         return;

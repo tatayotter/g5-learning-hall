@@ -266,7 +266,7 @@ export default function Dashboard() {
     await saveTheme(activeUserId, themeKey);
   };
 
-  const { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta, bumpCounters, syncCharacterStats } = useWeeklyData(activeUserId ?? 'damien');
+  const { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta, bumpCounters, syncCharacterStats, setCharacterStatsDirect } = useWeeklyData(activeUserId ?? 'damien');
   // Sticks to whichever top-level tab the player was on across a page refresh
   // instead of always dropping back to Main Quests. sessionStorage (not
   // localStorage) so a fresh browser session still starts clean.
@@ -1075,8 +1075,7 @@ export default function Dashboard() {
           <MonsterShop
             userId={activeUserId}
             currentStats={data.character_stats}
-            weekStartingDate={data.week_starting_date}
-            onSpendGold={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
+            onSpendGold={setCharacterStatsDirect}
             onThemeChange={handleThemeChange}
           />
         )}
@@ -1125,8 +1124,7 @@ export default function Dashboard() {
               <MonsterShop
                 userId={activeUserId}
                 currentStats={data.character_stats}
-                weekStartingDate={data.week_starting_date}
-                onSpendGold={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
+                onSpendGold={setCharacterStatsDirect}
                 onThemeChange={handleThemeChange}
               />
             </div>
@@ -1318,6 +1316,7 @@ export default function Dashboard() {
             <p className="text-gray-400 mb-8">Clear today's checklist to claim your daily bonus gold.</p>
             <DailyChecklist
               userId={activeUserId}
+              grade={gradeToNumber(USERS[activeUserId]?.grade)}
               currentSunday={data.week_starting_date}
               currentDayName={currentDayName}
               packageData={mainQuestPackageData}
@@ -1370,7 +1369,7 @@ export default function Dashboard() {
               { ...data.character_stats, gold: data.character_stats.gold + amount },
               data.journal_logs
             )}
-            onGoldSynced={(newStats) => updateStatsAndJournal(newStats, data.journal_logs)}
+            onGoldSynced={setCharacterStatsDirect}
             onProgressSynced={syncCharacterStats}
             onEggBadgeChange={setHasEggReadyCurio}
             eggRefreshSignal={eggRefreshSignal}

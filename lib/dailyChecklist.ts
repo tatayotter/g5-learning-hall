@@ -158,10 +158,10 @@ export async function claimChecklistBonus(
   userId: string,
   today: string,
   dayName: string,
-  weekStartingDate: string
+  grade: number
 ): Promise<ChecklistClaimResult> {
   if (isOfflineStorageAvailable() && isAppOffline()) {
-    await claimChecklistBonusLocal(userId, today, dayName, weekStartingDate);
+    await claimChecklistBonusLocal(userId, today, dayName, grade);
     // Streak/gold aren't knowable offline (no local claim history) — the
     // real values land once this queued claim syncs and the panel refetches.
     return { granted: true };
@@ -171,7 +171,7 @@ export async function claimChecklistBonus(
     p_user_id: userId,
     p_today: today,
     p_day_name: dayName,
-    p_week_starting_date: weekStartingDate,
+    p_grade: grade,
   });
 
   if (error) {

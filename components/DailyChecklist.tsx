@@ -29,6 +29,9 @@ const GUILD_SPRITE_KEY: Record<string, GuardianGuild> = {
 
 interface DailyChecklistProps {
   userId: string;
+  // Needed by claim_daily_checklist_bonus to resolve this week's content —
+  // see lib/dailyChecklist.ts's claimChecklistBonus.
+  grade: number;
   currentSunday: string;
   currentDayName: string;
   packageData: any;
@@ -45,6 +48,7 @@ interface ChecklistItem {
 
 export default function DailyChecklist({
   userId,
+  grade,
   currentSunday,
   currentDayName,
   packageData,
@@ -111,7 +115,7 @@ export default function DailyChecklist({
   const handleClaim = async () => {
     if (claiming || claimed) return;
     setClaiming(true);
-    const result = await claimChecklistBonus(userId, todayKey, currentDayName, currentSunday);
+    const result = await claimChecklistBonus(userId, todayKey, currentDayName, grade);
     if (result.granted) {
       setClaimed(true);
       const gold = result.gold ?? STREAK_GOLD_LADDER[0];

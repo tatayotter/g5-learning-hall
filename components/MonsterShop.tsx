@@ -31,12 +31,11 @@ const ELEMENTS: Element[] = ['fire', 'water', 'leaf', 'storm', 'shadow', 'light'
 interface Props {
   userId: UserId;
   currentStats: CharacterStats;
-  weekStartingDate: string;
   onSpendGold: (newStats: CharacterStats) => void;
   onThemeChange: (themeKey: string) => void;
 }
 
-export default function MonsterShop({ userId, currentStats, weekStartingDate, onSpendGold, onThemeChange }: Props) {
+export default function MonsterShop({ userId, currentStats, onSpendGold, onThemeChange }: Props) {
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [loading, setLoading] = useState(true);
   const [claimedToday, setClaimedToday] = useState(false);
@@ -89,7 +88,7 @@ export default function MonsterShop({ userId, currentStats, weekStartingDate, on
     buyBusyRef.current = true;
     setBuyingKey(key);
     try {
-      const newStats = await spendGoldAndGrantItem(userId, weekStartingDate, key, 1);
+      const newStats = await spendGoldAndGrantItem(userId, key, 1);
       if (!newStats) {
         alert('❌ Purchase failed — you may not have enough Gold anymore.');
         trackEvent('shop_purchase_attempt', { item_key: key, cost, success: false });

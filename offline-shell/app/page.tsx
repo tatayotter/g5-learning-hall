@@ -13,6 +13,7 @@ import { motion } from 'framer-motion';
 import { format } from 'date-fns';
 import { getActiveUserLocal } from '@/lib/localDataSource';
 import { useWeeklyData } from '@/hooks/useWeeklyData';
+import { USERS, gradeToNumber, UserId } from '@/lib/userSession';
 import { fetchSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
 import { markGuildSessionToday, GUILDS } from '@/lib/dailyChecklist';
 import type { GuildKey } from '@/lib/dailyChecklist';
@@ -172,6 +173,7 @@ export default function OfflineShellPage() {
       content = (
         <DailyChecklist
           userId={userId}
+          grade={gradeToNumber(USERS[userId as UserId]?.grade)}
           currentSunday={data.week_starting_date}
           currentDayName={currentDayName}
           packageData={packageData}

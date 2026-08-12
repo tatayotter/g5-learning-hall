@@ -286,14 +286,14 @@ export async function markGuildSessionTodayLocal(userId: string, guildKey: Guild
   await enqueueSync('mark_guild_session_today', 'rpc', { userId, guildKey, today });
 }
 
-export async function claimChecklistBonusLocal(userId: string, today: string, dayName: string, weekStartingDate: string) {
+export async function claimChecklistBonusLocal(userId: string, today: string, dayName: string, grade: number) {
   const db = await getDb();
   await db.run(
     `INSERT INTO local_checklist_state (user_id, today, claimed) VALUES (?, ?, 1)
      ON CONFLICT(user_id, today) DO UPDATE SET claimed = 1`,
     [userId, today]
   );
-  await enqueueSync('claim_daily_checklist_bonus', 'rpc', { userId, today, dayName, weekStartingDate });
+  await enqueueSync('claim_daily_checklist_bonus', 'rpc', { userId, today, dayName, grade });
 }
 
 export async function getLocalChecklistState(userId: string, today: string): Promise<{ guildSessions: GuildKey[]; claimed: boolean } | null> {

@@ -534,5 +534,15 @@ export function useWeeklyData(userId: string = 'damien') {
       : prev);
   };
 
-  return { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta, bumpCounters, syncCharacterStats };
+  // Same "sync, don't re-apply" idea as syncCharacterStats, but for RPCs that
+  // already hand back their own post-write character_stats directly
+  // (tutor_curio, spend_gold_and_grant_item) — setting that straight into
+  // local state is both correct AND cheaper than syncCharacterStats' extra
+  // round trip, since there's nothing left to refetch.
+  const setCharacterStatsDirect = (stats: CharacterStats) => {
+    setData(prev => prev ? { ...prev, character_stats: stats } : prev);
+    setProgress(prev => prev ? { ...prev, level: stats.level, xp: stats.xp, gold: stats.gold } : prev);
+  };
+
+  return { data, loading, updateStatsAndJournal, currentSunday, applyGoldDelta, bumpCounters, syncCharacterStats, setCharacterStatsDirect };
 }

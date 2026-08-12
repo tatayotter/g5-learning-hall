@@ -7,28 +7,29 @@ import { QualityTier } from './curioQuality';
 
 export interface TutorOutcome {
   success: boolean;
-  error?: 'not_found' | 'already_perfect' | 'no_weekly_package' | 'insufficient_gold';
+  error?: 'not_found' | 'already_perfect' | 'insufficient_gold';
   rolled_tier?: 'fail' | QualityTier;
   previous_quality?: QualityTier;
   new_quality?: QualityTier;
   gold_spent?: number;
   used_tome?: boolean;
-  // Present only when gold was actually deducted — pass straight to
-  // updateStatsAndJournal (see MonsterShop's onSpendGold) to sync the
-  // locally cached balance with the RPC's already-authoritative deduction.
+  // Present only when gold was actually deducted — the RPC now writes
+  // straight to player_progress, so callers should sync (not re-apply) this
+  // into local state via useWeeklyData's syncCharacterStats, not
+  // updateStatsAndJournal (which would push another delta on top of a
+  // change this RPC already made atomically). See MonsterGuild's
+  // onProgressSynced.
   character_stats?: { gold: number; xp: number; level: number };
 }
 
 export async function tutorCurio(
   userId: string,
   monsterRowId: string,
-  weekStartingDate: string,
   useTome: boolean = false,
 ): Promise<TutorOutcome | null> {
   const { data, error } = await supabase.rpc('tutor_curio', {
     p_user_id: userId,
     p_monster_row_id: monsterRowId,
-    p_week_starting_date: weekStartingDate,
     p_use_tome: useTome,
   });
   if (error) {
