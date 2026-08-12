@@ -1,0 +1,12 @@
+-- Found during RLS audit: daily_checklist_claims had a client-writable INSERT
+-- policy left over from before claim_daily_checklist_bonus was made
+-- SECURITY DEFINER (see 20260812060000_migrate_remaining_gold_rpcs_off_
+-- weekly_packages) -- that RPC now runs with elevated privileges and never
+-- needed this policy to succeed. No client code ever inserts into this
+-- table directly (confirmed: only a SELECT read in lib/dailyChecklist.ts's
+-- hasClaimedChecklistBonus). No currency exploit was actually possible
+-- through it (gold only ever flows through player_progress, which has no
+-- client-writable policy at all), but a curious/malicious client could
+-- still directly insert a bogus claim row to corrupt their own streak
+-- continuity -- unnecessary attack surface with zero legitimate use.
+DROP POLICY IF EXISTS "daily_checklist_claims: insert own" ON public.daily_checklist_claims;

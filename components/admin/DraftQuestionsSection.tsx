@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { supabase } from '@/lib/supabase';
 import { getScheduledDay } from '@/lib/subjectSchedule';
 import { callAdminApi } from '@/lib/adminApi';
 import { GRADE_LEVELS } from '@/lib/userSession';
@@ -405,25 +404,16 @@ export default function DraftQuestionsSection({ passcode }: { passcode: string }
 
   const reload = async () => {
     setLoading(true);
-    const [{ data: questionData }, { data: summaryData }] = await Promise.all([
-      supabase
-        .from('draft_questions')
-        .select('*')
-        .eq('grade', grade)
-        .eq('status', statusFilter)
-        .order('subject')
-        .order('tier')
-        .order('created_at'),
-      supabase
-        .from('draft_summaries')
-        .select('*')
-        .eq('grade', grade)
-        .eq('status', statusFilter)
-        .order('subject')
-        .order('created_at'),
-    ]);
-    setDrafts(questionData || []);
-    setSummaries(summaryData || []);
+    // draft_questions/draft_summaries deny all direct client reads (RLS) —
+    // correct_answer for content still pending review shouldn't be readable
+    // by anyone holding the public anon key. Routed through the same
+    // passcode-gated, service-role admin API every mutation here already uses.
+    const result = await callAdminApi<{ questions: DraftQuestion[]; summaries: DraftSummary[] }>(
+      '/api/admin-draft-questions',
+      { passcode, action: 'list_drafts', grade, statuses: [statusFilter] }
+    );
+    setDrafts(result.success ? result.questions || [] : []);
+    setSummaries(result.success ? result.summaries || [] : []);
     setSelectedIds(new Set());
     setLoading(false);
   };

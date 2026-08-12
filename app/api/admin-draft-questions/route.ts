@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { requireAdminPasscode } from '@/lib/adminAuth';
 
 export async function POST(request: NextRequest) {
@@ -8,6 +9,29 @@ export async function POST(request: NextRequest) {
 
   const authError = requireAdminPasscode(passcode);
   if (authError) return authError;
+
+  // draft_questions/draft_summaries carry correct_answer for content still
+  // pending review — RLS on both tables denies all direct client access
+  // (see the 20260812100000 migration), so reading them requires the
+  // service-role client, same as every other privileged read/write in this
+  // route. Used by DraftQuestionsSection (full rows) and PackagesSection
+  // (just a pending-count badge) — both pass whichever statuses they need.
+  if (action === 'list_drafts') {
+    const { grade, statuses } = body;
+    if (typeof grade !== 'number' || !Array.isArray(statuses) || statuses.length === 0) {
+      return NextResponse.json({ success: false, error: 'grade and a non-empty statuses array are required' }, { status: 400 });
+    }
+    const [{ data: questions, error: qError }, { data: summaries, error: sError }] = await Promise.all([
+      supabaseAdmin.from('draft_questions').select('*').eq('grade', grade).in('status', statuses)
+        .order('subject').order('tier').order('created_at'),
+      supabaseAdmin.from('draft_summaries').select('*').eq('grade', grade).in('status', statuses)
+        .order('subject').order('created_at'),
+    ]);
+    if (qError || sError) {
+      return NextResponse.json({ success: false, error: (qError || sError)!.message }, { status: 500 });
+    }
+    return NextResponse.json({ success: true, questions: questions || [], summaries: summaries || [] });
+  }
 
   if (action === 'update_draft') {
     const { id, question, options, correct_answer, topic, tier } = body;

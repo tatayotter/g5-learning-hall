@@ -276,14 +276,16 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
 
   useEffect(() => {
     async function loadDraftCount() {
-      const [{ count: qCount }, { count: sCount }] = await Promise.all([
-        supabase.from('draft_questions').select('id', { count: 'exact', head: true }).eq('grade', grade).in('status', ['pending_review', 'approved']),
-        supabase.from('draft_summaries').select('id', { count: 'exact', head: true }).eq('grade', grade).in('status', ['pending_review', 'approved']),
-      ]);
-      setPendingDraftCount((qCount || 0) + (sCount || 0));
+      // draft_questions/draft_summaries deny all direct client reads (RLS) —
+      // routed through the same passcode-gated admin API DraftQuestionsSection uses.
+      const result = await callAdminApi<{ questions: unknown[]; summaries: unknown[] }>(
+        '/api/admin-draft-questions',
+        { passcode, action: 'list_drafts', grade, statuses: ['pending_review', 'approved'] }
+      );
+      setPendingDraftCount(result.success ? (result.questions?.length || 0) + (result.summaries?.length || 0) : 0);
     }
     loadDraftCount();
-  }, [grade]);
+  }, [grade, passcode]);
 
   const handleParse = () => {
     setParseError('');
