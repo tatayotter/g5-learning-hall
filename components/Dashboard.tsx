@@ -1,0 +1,1546 @@
+// components/Dashboard.tsx
+//
+// Extracted from app/page.tsx so the exact same component can be rendered by
+// both the online app (app/page.tsx, a thin wrapper) and the Android offline
+// shell (offline-shell/app/page.tsx) — one source of truth for every tab,
+// no more hand-maintained parallel page that drifts.
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { UserId, getActiveUser, clearActiveUser, loadAllUsersData, saveTheme, linkIdentity, recordLastLogin, registerDemoUser, USERS, gradeToNumber } from '@/lib/userSession';
+import { THEME_CLASSES, getThemeItem } from '@/lib/themeShop';
+import SplashScreen from '@/components/SplashScreen';
+import LoadingScreen from '@/components/LoadingScreen';
+import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
+import HeroProfile from '@/components/HeroProfile';
+import GuildJournal from '@/components/GuildJournal';
+import DailyChecklist from '@/components/DailyChecklist';
+import { markGuildSessionToday, GuildKey, GUILDS } from '@/lib/dailyChecklist';
+import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
+import QuestModule, { markdownComponents } from '@/components/QuestModule';
+import { useReadTimer } from '@/hooks/useReadTimer';
+import { format } from 'date-fns';
+import AchievementsBoard from '@/components/AchievementsBoard';
+import { supabase } from '@/lib/supabase';
+import PlayerLog from '@/components/PlayerLog';
+import Lorekeeper from '@/components/guilds/Lorekeeper';
+import SpellCaster from '@/components/guilds/SpellCaster';
+import NumberRealm from '@/components/guilds/NumberRealm';
+import LogicLabyrinth from '@/components/guilds/LogicLabyrinth';
+import { logAction } from '@/lib/playerlog';
+import { trackEvent } from '@/lib/analytics';
+import MonsterGuild from '@/components/MonsterGuild';
+import CodexPanel from '@/components/CodexPanel';
+import { playShopPurchase, playPageFlip, startMainTheme, stopMainTheme, startTermBossTheme, stopTermBossTheme, isSfxEnabled, isMusicEnabled, setSfxEnabled, setMusicEnabled } from '@/lib/sounds';
+import Toast from '@/components/Toast';
+import { motion, AnimatePresence } from 'framer-motion';
+import GameButton from '@/components/GameButton';
+import AchievementToast from '@/components/AchievementToast';
+import { useAchievementNotifier } from '@/hooks/useAchievementNotifier';
+import LexiconArena from '@/components/guilds/LexiconArena';
+import GuardianSprite from '@/components/guilds/GuardianSprite';
+import { fetchSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
+import { isOfflineStorageAvailable, getActiveUserLocal, enqueueSync } from '@/lib/localDataSource';
+import { isAppOffline } from '@/lib/offlineState';
+import { watchAndFlushSyncQueue } from '@/lib/offlineSync';
+import { seedOfflineCache } from '@/lib/offlineSeed';
+import MonsterShop from '@/components/MonsterShop';
+import VaultKeeperNpc from '@/components/VaultKeeperNpc';
+import CurioExpertNpc from '@/components/CurioExpertNpc';
+import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
+import CurioRevealModal from '@/components/CurioRevealModal';
+import DemoBanner from '@/components/DemoBanner';
+import LinkParentBanner from '@/components/LinkParentBanner';
+import SidebarRail, { RailTabId } from '@/components/SidebarRail';
+import QuestCard from '@/components/QuestCard';
+import OnboardingTour from '@/components/OnboardingTour';
+import { ALL_MONSTERS } from '@/lib/monsterConfig';
+import { MonsterImage } from '@/components/battle/shared';
+import { syncEggProgress, fetchUserEggs, HatchedEgg } from '@/lib/curioEggs';
+import EggHatchModal from '@/components/EggHatchModal';
+import {
+  CustomEvent,
+  EventQuest,
+  UserEventProgressRow,
+  fetchActiveEvent,
+  fetchEventQuests,
+  fetchUserEventProgress,
+  hasClaimedEventReward,
+  recordEventQuizMastery,
+  claimEventReward,
+} from '@/lib/customEvents';
+import BossFightScreen from '@/components/monster/BossFightScreen';
+import BossPersonaFan from '@/components/monster/BossPersonaFan';
+import BossMistOverlay from '@/components/BossMistOverlay';
+import BossCutscene from '@/components/BossCutscene';
+import { useBossFightProgress } from '@/hooks/useBossFightProgress';
+import { getPersonasForGrade, isBossFightGrade, hasCutsceneBeenSeen, markCutsceneSeen } from '@/lib/bossPersonas';
+import { fetchBossPoolCounts, POOL_READY_THRESHOLD } from '@/lib/bossFightEngine';
+import { CURRENT_TERM } from '@/lib/guildConfig';
+
+const VAULT_CATALOG = {
+  "voucher_30m": {
+    "name": "🎮 30-Min Gaming Voucher",
+    "cost": 100,
+    "desc": "Unlocks 30 minutes of console gaming or modding runtime privileges.",
+  },
+  "jollibee_burger": {
+    "name": "🍔 Jollibee Yumburger Reward",
+    "cost": 250,
+    "desc": "Claim a real-world Jollibee hamburger snack ordered by Tatay. (Limit: 1 per week)",
+  },
+  "ai_lording": {
+    "name": "🧙‍♂️ 30-Min AI Lording Sandbox",
+    "cost": 100,
+    "desc": "Unlocks 30 minutes of advanced AI prompt mastery using Google Gemini.",
+  },
+};
+
+const WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+
+// Swaps <html>'s theme class for the one tied to `themeKey` (default has
+// none). Always removes every known theme class first so switching between
+// two non-default themes doesn't leave the old one stacked on top.
+function applyThemeClass(themeKey: string) {
+  document.documentElement.classList.remove(...THEME_CLASSES);
+  const cls = getThemeItem(themeKey)?.cssClass;
+  if (cls) document.documentElement.classList.add(cls);
+}
+
+export default function Dashboard() {
+  const [activeUserId, setActiveUserId] = useState<UserId | null>(null);
+  const [hydrated, setHydrated] = useState(false);
+  // Computed once up top so every offline gate in this component (egg sync,
+  // onboarding check, Vault claims, etc.) reads the same value.
+  const offline = isOfflineStorageAvailable() && isAppOffline();
+
+  useEffect(() => {
+    async function hydrate() {
+      // Classmates/children/etc. must be populated into USERS before
+      // anything reads USERS[savedUserId] below. loadAllUsersData() is
+      // offline-aware: online it's the same live Supabase loads as before
+      // (write-through cached afterward for next time); offline (native +
+      // isAppOffline()) it reads that cache instead of hanging on live calls
+      // that have no chance of resolving with no connection.
+      await loadAllUsersData();
+      // getActiveUser() reads localStorage, which is scoped to the online
+      // origin (https://learninghall.vercel.app) — the Android offline shell
+      // runs from a different, locally-bundled origin and can't see it.
+      // Falls back to the SQLite active-user handoff (reachable from both
+      // origins via the same native Capacitor bridge — see
+      // lib/localDataSource.ts's local_active_user table) so Dashboard can
+      // resolve a session either way without offline-shell needing its own
+      // separate session-resolution code.
+      let saved = getActiveUser();
+      if (!saved && isOfflineStorageAvailable()) {
+        const local = await getActiveUserLocal();
+        saved = local?.userId ?? null;
+      }
+      // Demo profiles are registered into USERS purely in-memory at login
+      // (never stored in `children`/`classmates`), so a page refresh loses
+      // them — registerDemoUser is a pure function of the id, so it's safe
+      // to just call it again here rather than losing the session.
+      if (saved && saved.startsWith('demo_') && !USERS[saved]) {
+        registerDemoUser(saved);
+      }
+      if (saved && USERS[saved]) {
+        setActiveUserId(saved);
+        applyThemeClass(USERS[saved].theme);
+      } else if (saved) {
+        // Stale/deactivated account — clear it so the splash screen shows.
+        clearActiveUser();
+      }
+      setHydrated(true);
+    }
+    hydrate();
+  }, []);
+
+  // Drains anything queued while the Android offline shell was in use (see
+  // lib/offlineSync.ts) — a no-op on web/desktop and on first install where
+  // no offline session has happened yet.
+  useEffect(() => watchAndFlushSyncQueue(), []);
+
+  // Main theme plays for the whole logged-in session; BattleScreen and
+  // LiveBattleScreen duck it (pauseMainTheme/resumeMainTheme) while their
+  // own battle track plays instead of stopping/restarting it.
+  useEffect(() => {
+    if (!activeUserId) return;
+    startMainTheme();
+    return () => stopMainTheme();
+  }, [activeUserId]);
+
+  // Volume toggles surfaced next to the Replay Tutorial button — local state
+  // just mirrors lib/sounds.ts's module-level flags so the icons update
+  // immediately on click; the flags themselves persist to localStorage.
+  const [sfxOn, setSfxOn] = useState(() => isSfxEnabled());
+  const [musicOn, setMusicOn] = useState(() => isMusicEnabled());
+  const toggleSfx = () => {
+    const next = !sfxOn;
+    setSfxEnabled(next);
+    setSfxOn(next);
+  };
+  const toggleMusic = () => {
+    const next = !musicOn;
+    setMusicEnabled(next);
+    setMusicOn(next);
+  };
+
+  // Curio egg mechanism (see docs/curio-egg-mechanism-design.md). Hatches
+  // reveal here (not scoped to MonsterGuild) so the ceremony still plays
+  // even if the player never opens Curio Arena that session — the streak
+  // itself already advanced in the sync_egg_progress call below regardless
+  // of which tab is active, since "checking in" just means opening the app.
+  const [pendingEggHatches, setPendingEggHatches] = useState<HatchedEgg[]>([]);
+  // Bumped when a hatch reveal closes so MonsterGuild refetches userMonsters
+  // — the new bench curio is inserted server-side by sync_egg_progress
+  // (which resolves async, on its own timer relative to MonsterGuild's own
+  // mount-time fetch), so without this the freshly hatched curio wouldn't
+  // show up in My Team until an unrelated reload happened to refresh it.
+  const [eggRefreshSignal, setEggRefreshSignal] = useState(0);
+  const [hasStalledEgg, setHasStalledEgg] = useState(false);
+  // Set by MonsterGuild once it's loaded userMonsters + the egg chain map —
+  // whether any owned curio has crossed its egg-ready threshold but hasn't
+  // claimed yet. Combined with hasStalledEgg/pendingEggHatches below for the
+  // sidebar's Curio Arena badge.
+  const [hasEggReadyCurio, setHasEggReadyCurio] = useState(false);
+  const eggBadge = hasEggReadyCurio || hasStalledEgg || pendingEggHatches.length > 0;
+
+  useEffect(() => {
+    if (!hydrated) return;
+    if (activeUserId) {
+      applyThemeClass(USERS[activeUserId].theme);
+      // Everything below (identity linking, session tracking, egg check-in,
+      // offline-cache seeding) is either live-only or pointless while
+      // already offline — skip the whole block rather than let each call
+      // fail individually and spam the console (seen as "sync_egg_progress
+      // error"/"fetchUserEggs error" during offline testing).
+      if (offline) return;
+      // linkIdentity must resolve first — analytics_events/player_log RLS now
+      // requires the user_identity_map row it writes, so firing trackEvent
+      // before it lands would silently drop the session_start event.
+      (async () => {
+        await linkIdentity(activeUserId);
+        recordLastLogin(activeUserId);
+        // Curio egg check-in — a demo account (excluded server-side, RPC
+        // no-ops) doesn't need this, but calling unconditionally keeps this
+        // block simple; the RPC itself is the source of truth on eligibility.
+        syncEggProgress(activeUserId).then(result => {
+          if (result?.hatched?.length) {
+            setPendingEggHatches(prev => [...prev, ...result.hatched]);
+            const today = format(new Date(), 'yyyy-MM-dd');
+            result.hatched.forEach(h => {
+              const speciesName = ALL_MONSTERS[h.species_id]?.name ?? h.species_id;
+              logAction(activeUserId, today, 'egg', `🐣 An egg hatched into ${speciesName}!`, 0, 0);
+            });
+          }
+        });
+        fetchUserEggs(activeUserId).then(eggs => {
+          setHasStalledEgg(eggs.some(e => e.status === 'stalled'));
+        });
+        // Fire-and-forget — pre-warms all 5 guild pools for offline play
+        // (Android only). Not awaited so it can't delay session_start below.
+        void seedOfflineCache(activeUserId, USERS[activeUserId].grade);
+        // One-shot per browser session, regardless of which user ends up logged
+        // in first — guards against firing again on every activeUserId change.
+        if (typeof window !== 'undefined' && !sessionStorage.getItem('g5_session_started')) {
+          sessionStorage.setItem('g5_session_started', '1');
+          trackEvent('session_start');
+        }
+      })();
+    }
+  }, [activeUserId, hydrated]);
+
+  // Reused by both demo and real accounts (user_last_login.onboarding_completed_at)
+  // so the guided tour only auto-shows once per account, ever.
+  const [showOnboarding, setShowOnboarding] = useState(false);
+
+  useEffect(() => {
+    // No safe way to tell whether onboarding was already completed without
+    // a live read — defaulting to "don't show" offline is the better
+    // failure mode (a kid who's seen the tour before doesn't get it shoved
+    // back in front of them every offline launch); worst case, a genuinely
+    // new offline-first player just sees it once they're online instead.
+    if (!activeUserId || offline) return;
+    (async () => {
+      const { data: row } = await supabase
+        .from('user_last_login')
+        .select('onboarding_completed_at')
+        .eq('user_id', activeUserId)
+        .maybeSingle();
+      if (!row?.onboarding_completed_at) {
+        setShowOnboarding(true);
+      }
+    })();
+  }, [activeUserId]);
+
+  const handleCompleteOnboarding = async () => {
+    setShowOnboarding(false);
+    if (!activeUserId) return;
+    await supabase
+      .from('user_last_login')
+      .update({ onboarding_completed_at: new Date().toISOString() })
+      .eq('user_id', activeUserId);
+  };
+
+  const handleUserSelect = (id: UserId) => {
+    setActiveUserId(id);
+    applyThemeClass(USERS[id].theme);
+    trackEvent('login');
+  };
+
+  const handleSwitchUser = () => {
+    clearActiveUser();
+    document.documentElement.classList.remove(...THEME_CLASSES);
+    setActiveUserId(null);
+  };
+
+  const handleThemeChange = async (themeKey: string) => {
+    if (!activeUserId) return;
+    applyThemeClass(themeKey);
+    await saveTheme(activeUserId, themeKey);
+  };
+
+  const { data, loading, updateStatsAndJournal, currentSunday, contentWeekId, applyGoldDelta, bumpCounters, syncCharacterStats, setCharacterStatsDirect } = useWeeklyData(activeUserId ?? 'damien');
+  // Sticks to whichever top-level tab the player was on across a page refresh
+  // instead of always dropping back to Main Quests. sessionStorage (not
+  // localStorage) so a fresh browser session still starts clean.
+  const [activeTab, setActiveTab] = useState(() =>
+    (typeof window !== 'undefined' && sessionStorage.getItem('activeTab')) || 'board'
+  );
+  useEffect(() => {
+    sessionStorage.setItem('activeTab', activeTab);
+  }, [activeTab]);
+  useEffect(() => {
+    trackEvent('tab_view', {}, activeTab);
+  }, [activeTab]);
+  // Retriggers the Vault Keeper's slide-in greeting each time the player
+  // (re)enters the vault tab, rather than just once on mount.
+  const [vaultGreetKey, setVaultGreetKey] = useState(0);
+  // Retriggers the Curio Expert's slide-in greeting each time the player
+  // (re)enters the Curio Arena tab, rather than just once on mount.
+  const [curioGreetKey, setCurioGreetKey] = useState(0);
+  const prevTabRef = useRef(activeTab);
+  useEffect(() => {
+    if (activeTab === 'vault' && prevTabRef.current !== 'vault') {
+      setVaultGreetKey((k) => k + 1);
+    }
+    if (activeTab === 'monster' && prevTabRef.current !== 'monster') {
+      setCurioGreetKey((k) => k + 1);
+    }
+    prevTabRef.current = activeTab;
+  }, [activeTab]);
+  const [claimingKey, setClaimingKey] = useState<string | null>(null);
+  const claimBusyRef = useRef(false);
+
+  const [activeQuest, setActiveQuest] = useState<string | null>(null);
+  const [activeGuild, setActiveGuild] = useState<GuildKey | null>(null);
+  const [guildInitialView, setGuildInitialView] = useState<'compendium' | 'team' | undefined>(undefined);
+  const [guildProfile, setGuildProfile] = useState<SubclassProfile | null>(null);
+
+  useEffect(() => {
+    if (activeTab !== 'guilds' || !activeUserId) return;
+    fetchSubclassProfile(activeUserId).then(setGuildProfile);
+  }, [activeTab, activeUserId]);
+
+  // One-shot: MonsterGuild reads guildInitialView only at mount, so clear it
+  // right after so a later manual tab visit defaults back to the map view.
+  useEffect(() => {
+    if (activeTab === 'monster' && guildInitialView) {
+      setGuildInitialView(undefined);
+    }
+  }, [activeTab]);
+  const [quizPhase, setQuizPhase] = useState<'study' | 'ready' | 'quiz'>('study');
+  const [myClaims, setMyClaims] = useState<any[]>([]);
+  const [toast, setToast] = useState({ show: false, message: '' });
+  const { newlyUnlocked, clearNotifications } = useAchievementNotifier(data);
+
+  // --- Custom Events ---
+  const [activeEvent, setActiveEvent] = useState<CustomEvent | null>(null);
+  const [eventQuests, setEventQuests] = useState<EventQuest[]>([]);
+  const [eventProgress, setEventProgress] = useState<UserEventProgressRow[]>([]);
+  const [eventClaimed, setEventClaimed] = useState(false);
+  const [revealEventMonster, setRevealEventMonster] = useState<string | null>(null);
+  const [activeEventQuest, setActiveEventQuest] = useState<string | null>(null);
+  const [eventQuizPhase, setEventQuizPhase] = useState<'study' | 'ready' | 'quiz'>('study');
+  const [showEventPopup, setShowEventPopup] = useState(false);
+
+  // --- Term Exam Boss Fight ---
+  const [activeBossFight, setActiveBossFight] = useState<string | null>(null); // subject key
+  const bossGradeLevel = gradeToNumber(USERS[activeUserId ?? 'damien']?.grade);
+  const bossProgress = useBossFightProgress(activeUserId ?? 'damien', bossGradeLevel);
+  const [bossPoolCounts, setBossPoolCounts] = useState<Record<string, number>>({});
+  useEffect(() => {
+    if (!isBossFightGrade(bossGradeLevel) || !bossProgress.bossFightsEnabled) return;
+    fetchBossPoolCounts(bossGradeLevel).then(setBossPoolCounts);
+  }, [bossGradeLevel, bossProgress.bossFightsEnabled]);
+  // Term boss ambient overrides the main theme game-wide while the event is
+  // active — same gate as the mist overlay. Falls back to whatever was
+  // already playing (main theme) once the event ends or the player leaves.
+  const bossEventActive = isBossFightGrade(bossGradeLevel) && bossProgress.bossFightsEnabled;
+  useEffect(() => {
+    if (bossEventActive) startTermBossTheme();
+    else stopTermBossTheme();
+    return () => { stopTermBossTheme(); };
+  }, [bossEventActive]);
+
+  // Opening cutscene — plays once per player per grade/term, the first time
+  // the event is seen active. Music already starts via the effect above at
+  // the same moment, so the reveal and the ambient track land together.
+  const [showBossCutscene, setShowBossCutscene] = useState(false);
+  useEffect(() => {
+    if (bossEventActive && !hasCutsceneBeenSeen(bossGradeLevel, CURRENT_TERM)) {
+      setShowBossCutscene(true);
+    }
+  }, [bossEventActive, bossGradeLevel]);
+  const dismissBossCutscene = () => {
+    markCutsceneSeen(bossGradeLevel, CURRENT_TERM);
+    setShowBossCutscene(false);
+  };
+
+  // Forced-read countdown for the pre-quiz "Study Session" screens, sized to
+  // each quest's own notes. Computed here (before the loading/no-data early
+  // returns below) so useReadTimer's internal hooks are called on every
+  // render — hooks can't live behind a conditional return. `data` may still
+  // be null/loading at this point, which the optional chaining below handles;
+  // the Weekly Review quest's synthesized content isn't in raw package_data,
+  // so it falls back to useReadTimer's minimum duration rather than a
+  // length-aware one — an acceptable gap, not a broken gate.
+  const [timerQuestDay, timerQuestSubject] = activeQuest ? activeQuest.split('_') : [undefined, undefined];
+  const rawPackageDataForTimer = data && typeof data.package_data === 'string' && data.package_data.trim() !== ''
+    ? JSON.parse(data.package_data)
+    : (data?.package_data || {});
+  const activeStudyContent = timerQuestDay && timerQuestSubject
+    ? rawPackageDataForTimer?.[timerQuestDay]?.[timerQuestSubject]?.summary_markdown
+    : undefined;
+  const studyReadRemaining = useReadTimer(activeStudyContent, activeQuest || '');
+
+  const activeEventQuestForTimer = eventQuests.find(q => q.id === activeEventQuest);
+  const eventStudyReadRemaining = useReadTimer(activeEventQuestForTimer?.summary_markdown, activeEventQuest || '');
+
+  const loadEventData = async (userId: UserId) => {
+    // Demo accounts never see Special Events (sidebar panel, board section,
+    // or the announcement popup) — not real progress worth showcasing, and
+    // events are tied to grade-specific curriculum content demo profiles
+    // don't have.
+    if (userId.startsWith('demo_')) {
+      setActiveEvent(null);
+      setEventQuests([]);
+      setEventProgress([]);
+      setEventClaimed(false);
+      return;
+    }
+    const ev = await fetchActiveEvent();
+    setActiveEvent(ev);
+    if (!ev) {
+      setEventQuests([]);
+      setEventProgress([]);
+      setEventClaimed(false);
+      return;
+    }
+    const gradeLevel = gradeToNumber(USERS[userId]?.grade);
+    const [quests, progress, claimed] = await Promise.all([
+      fetchEventQuests(ev.id, gradeLevel),
+      fetchUserEventProgress(userId, ev.id),
+      hasClaimedEventReward(userId, ev.id),
+    ]);
+    setEventQuests(quests);
+    setEventProgress(progress);
+    setEventClaimed(claimed);
+
+    if (
+      !claimed &&
+      typeof window !== 'undefined' &&
+      !sessionStorage.getItem(`event_popup_shown_${ev.id}`)
+    ) {
+      setShowEventPopup(true);
+    }
+  };
+
+  useEffect(() => {
+    if (!activeUserId) return;
+    loadEventData(activeUserId);
+  }, [activeUserId]);
+
+  const handleDismissEventPopup = () => {
+    setShowEventPopup(false);
+    if (activeEvent && typeof window !== 'undefined') {
+      sessionStorage.setItem(`event_popup_shown_${activeEvent.id}`, '1');
+    }
+  };
+
+  // Fetch claims filtered to the active user
+  const fetchMyClaims = async () => {
+    if (!activeUserId || offline) return;
+    const { data: claimsData } = await supabase
+      .from('reward_claims')
+      .select('*')
+      .eq('app_user_id', activeUserId)
+      .order('created_at', { ascending: false });
+    if (claimsData) setMyClaims(claimsData);
+  };
+
+  useEffect(() => {
+    fetchMyClaims();
+  }, [activeUserId]);
+
+  // Live-refresh claimed rewards so the claimable-hours total updates as
+  // soon as an admin marks a reward "supplied" from the Admin Dashboard,
+  // without the kid needing to reload the page.
+  useEffect(() => {
+    if (!activeUserId || offline) return;
+    const channel = supabase
+      .channel(`reward-claims-${activeUserId}`)
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'reward_claims', filter: `app_user_id=eq.${activeUserId}` },
+        () => fetchMyClaims()
+      )
+      .subscribe();
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [activeUserId]);
+
+  const handleClaimReward = async (cost: number, itemName: string, itemKey: string) => {
+    // No safe offline path — the gold-deduct + reward_claims insert has to
+    // be atomic against the server to avoid double-spending gold across
+    // devices, so this stays gated (the Claim button below is disabled
+    // offline too, this is just the belt-and-suspenders guard).
+    if (!data || !activeUserId || offline) return;
+    // Guards against a rapid double-click firing two claims before the gold
+    // deduction above re-renders — without this, both clicks read the same
+    // pre-deduction `data.character_stats.gold` and both pass the balance
+    // check, charging gold once (stale-closure double-set) but inserting two
+    // reward_claims rows.
+    if (claimBusyRef.current) return;
+    claimBusyRef.current = true;
+    setClaimingKey(itemKey);
+
+    try {
+      if (data.character_stats.gold >= cost) {
+        const newStats = {
+          ...data.character_stats,
+          gold: data.character_stats.gold - cost
+        };
+
+        const newPurchasedItems = (data.purchased_items || 0) + 1;
+        updateStatsAndJournal(newStats, data.journal_logs, newPurchasedItems);
+        logAction(activeUserId, data.week_starting_date, 'purchase', `Claimed reward: ${itemName}`, 0, -cost);
+
+        // Insert with user_id so each user's claims are independent
+        const { error } = await supabase.from('reward_claims').insert({
+          app_user_id: activeUserId,
+          item_key: itemKey,
+          item_name: itemName,
+          cost: cost,
+          status: 'pending'
+        });
+
+        if (error) {
+          console.error("Failed to queue reward:", error);
+          alert("Error queuing reward, but gold was deducted. Please tell Tatay!");
+        } else {
+          playShopPurchase();
+          setToast({ show: true, message: `Successfully claimed: ${itemName}!` });
+          fetchMyClaims();
+        }
+      } else {
+        const short = cost - data.character_stats.gold;
+        alert(`❌ Not enough Gold! You need 🪙 ${short} more gold to claim this.`);
+      }
+    } finally {
+      claimBusyRef.current = false;
+      setClaimingKey(null);
+    }
+  };
+
+  if (!hydrated) {
+    return <LoadingScreen />;
+  }
+
+  if (!activeUserId) {
+    return <SplashScreen onSelect={handleUserSelect} />;
+  }
+
+  if (loading) {
+    return <LoadingScreen message="Loading realm..." />;
+  }
+
+  if (!data) {
+    return (
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-2">✨ Great job checking in!</h1>
+          <p className="text-gray-400">Your study package for the week is currently being prepared.</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Shared by all 5 guild mini-games' onGoldEarned — each was an identical
+  // ~15-line inline callback differing only by which guild rendered it, and
+  // activeGuild already identifies that from closure.
+  const handleGuildGoldEarned = (newStats: CharacterStats) => {
+    if (!activeGuild) return;
+    markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
+    updateStatsAndJournal(
+      newStats, data.journal_logs,
+      data.purchased_items, data.mastery_count, data.honor_grants,
+      data.quiz_attempts || {}, data.mastered_quizzes || [],
+      data.honor_grants,
+      (data.guild_sessions_count || 0) + 1,
+      data.monster_battles_won || 0,
+      data.sibling_battles_won || 0,
+      data.perfect_quizzes || 0
+    );
+  };
+
+  const currentDayName = format(new Date(), 'EEEE');
+  const packageData = typeof data.package_data === 'string' && data.package_data.trim() !== ''
+    ? JSON.parse(data.package_data)
+    : (data.package_data || {});
+  // Main Quest board shows Friday as one auto-built "Weekly Review" quest
+  // instead of whatever's stored under Friday — the Monster Arena question
+  // pool (which reads `packageData` directly) is left untouched.
+  const mainQuestPackageData = { ...packageData, Friday: buildWeeklyReviewDay(packageData) };
+
+  const rotationScreen = (
+    <div className="landscape-only fixed inset-0 z-[999] bg-black flex-col items-center justify-center text-center p-8" style={{ display: 'none' }}>
+      <div className="text-6xl mb-6">📱</div>
+      <h2 className="text-white text-2xl font-bold mb-3">Rotate Your Device</h2>
+      <p className="text-gray-400 text-sm">Learning Hall works best in landscape mode. Please rotate your phone sideways to continue.</p>
+      <div className="mt-8 text-4xl animate-bounce">↻</div>
+    </div>
+  );
+
+  return (
+    <>
+      {rotationScreen}
+      {bossEventActive && (
+        <BossMistOverlay defeated={bossProgress.defeated.size} total={bossProgress.total} />
+      )}
+      {showBossCutscene && (
+        <BossCutscene personas={getPersonasForGrade(bossGradeLevel)} onDismiss={dismissBossCutscene} />
+      )}
+      <div className="h-screen flex flex-col">
+      {activeUserId.startsWith('demo_') && <DemoBanner />}
+      {!activeUserId.startsWith('demo_') && <LinkParentBanner />}
+      {showOnboarding && <OnboardingTour onComplete={handleCompleteOnboarding} />}
+      <div className="app-content flex-1 min-h-0 flex flex-col">
+        <div className="h-full bg-black text-white flex flex-row">
+      {/* Sidebar rail */}
+      {pendingEggHatches[0] && (
+        <EggHatchModal
+          speciesId={pendingEggHatches[0].species_id}
+          element={ALL_MONSTERS[pendingEggHatches[0].species_id]?.element || 'fire'}
+          quality={pendingEggHatches[0].quality}
+          userId={activeUserId}
+          onClose={() => {
+            setPendingEggHatches(prev => prev.slice(1));
+            setEggRefreshSignal(n => n + 1);
+            bumpCounters({ eggs_hatched: 1 });
+          }}
+        />
+      )}
+
+      <SidebarRail
+        activeTab={activeTab}
+        railBadges={{ monster: eggBadge }}
+        onNavigate={(tab) => {
+          playPageFlip();
+          // Curio Arena defaults to the full-screen World Map stage; landing
+          // on Team instead keeps the sidebar usable when arriving fresh
+          // from the rail. Re-clicking while already there leaves the view alone.
+          if (tab === 'monster' && activeTab !== 'monster') setGuildInitialView('team');
+          setActiveTab(tab);
+          setActiveQuest(null);
+          setActiveEventQuest(null);
+          setActiveBossFight(null);
+        }}
+        onLogout={handleSwitchUser}
+      />
+
+      {/* Main Content Area */}
+      <main className="flex-1 p-8 overflow-y-auto relative">
+
+
+        {/* Tab switches from the sidebar rail fade/slide the content area
+            instead of snapping — keyed on activeTab only, so in-tab state
+            (quest view, quiz phase) doesn't retrigger it. */}
+        <AnimatePresence mode="wait">
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.2, ease: 'easeOut' }}
+        >
+
+        {/* --- TAB A: QUEST BOARD --- */}
+        {activeTab === 'board' && activeQuest === null && activeEventQuest === null && activeBossFight === null && (
+          <div>
+            <h1 className="text-3xl font-bold mb-2 font-display">Active Campaign Map</h1>
+            <p className="text-gray-400 mb-8">Select an open, active quest card from the schedule below to begin your training.</p>
+
+            {activeEvent && (
+              <div className="mb-10">
+                <div className="relative rounded-2xl border-2 border-amber-500/70 bg-gradient-to-br from-[#1a1005] to-black shadow-[0_0_0_2px_#000,0_0_40px_-8px_rgba(245,158,11,0.35)] overflow-hidden">
+                  {activeEvent.banner_url && (
+                    <div className="absolute inset-0 z-0">
+                      <img src={activeEvent.banner_url} alt="" className="w-full h-full object-cover opacity-35" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#0d0700] via-[#0d0700]/85 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0d0700] via-transparent to-transparent" />
+                    </div>
+                  )}
+                  <div className="relative z-10">
+                  <div className="p-6 pb-5">
+                    <h2 className="text-2xl font-bold text-white font-display mb-1">{activeEvent.title}</h2>
+                    <p className="text-xs font-bold text-amber-400 uppercase tracking-wide">
+                      Limited-time event <span className="text-amber-700 mx-1">•</span> Bonus loot inside
+                    </p>
+                  </div>
+                  {eventClaimed ? (
+                    <div className="px-6 pb-6 flex flex-col items-center text-center gap-3">
+                      <p className="text-green-400 font-bold">
+                        ✅ Special Event Completed. You have collected {ALL_MONSTERS[activeEvent.reward_monster_id]?.name ?? 'your reward'}!
+                      </p>
+                      {ALL_MONSTERS[activeEvent.reward_monster_id] && (
+                        <button
+                          type="button"
+                          onClick={() => { setGuildInitialView('compendium'); setActiveTab('monster'); }}
+                          className="cursor-pointer"
+                          title="View in Compendium"
+                        >
+                          <MonsterImage
+                            monster={ALL_MONSTERS[activeEvent.reward_monster_id]}
+                            className="w-24 h-24 hover:scale-105 transition-transform"
+                            emojiClassName="text-7xl"
+                          />
+                        </button>
+                      )}
+                    </div>
+                  ) : (
+                  <div className="px-6 pb-6">
+                    {(activeEvent.details_markdown || activeEvent.reward_lore_markdown) && (
+                      <div className="mb-5 space-y-3">
+                        {activeEvent.details_markdown && (
+                          <div className="text-sm text-gray-300 leading-relaxed">
+                            <ReactMarkdown>{activeEvent.details_markdown}</ReactMarkdown>
+                          </div>
+                        )}
+                        {activeEvent.reward_lore_markdown && (
+                          <div className="text-sm text-yellow-200/90 leading-relaxed bg-amber-900/10 border border-amber-900/40 rounded-lg p-3">
+                            <ReactMarkdown>{activeEvent.reward_lore_markdown}</ReactMarkdown>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                      {eventQuests.map((q) => {
+                        const isQuestMastered = eventProgress.some(p => p.event_quest_id === q.id && p.is_mastered);
+                        return (
+                          <QuestCard
+                            key={q.id}
+                            subjectName={q.subject_name}
+                            completed={isQuestMastered}
+                            onEnter={() => {
+                              setActiveEventQuest(q.id);
+                              // Same fix as the board-quest entry point —
+                              // show the notes first, not the ready-confirm
+                              // screen, so the read-timer actually engages.
+                              setEventQuizPhase('study');
+                            }}
+                          />
+                        );
+                      })}
+                    </div>
+                  </div>
+                  )}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {bossEventActive && (
+              <div className="mb-10">
+                <div className="rounded-2xl border-2 border-purple-700/70 bg-gradient-to-br from-[#0d0512] to-black shadow-[0_0_0_2px_#000,0_0_40px_-8px_rgba(147,51,234,0.35)] p-6">
+                  <h2 className="text-xl font-bold text-white font-display mb-1">Term Boss — The Forgetting</h2>
+                  <p className="text-xs font-bold text-purple-400 uppercase tracking-wide mb-4">
+                    Defeat every persona to push it back
+                  </p>
+                  <BossPersonaFan
+                    personas={getPersonasForGrade(bossGradeLevel)}
+                    defeated={bossProgress.defeated}
+                    readySubjects={new Set(Object.entries(bossPoolCounts).filter(([, c]) => c >= POOL_READY_THRESHOLD).map(([s]) => s))}
+                    onChallenge={(subject) => setActiveBossFight(subject)}
+                  />
+                </div>
+              </div>
+            )}
+
+            {WEEKDAYS.map((day) => {
+              const isToday = currentDayName === day;
+              const daySubjects = mainQuestPackageData[day] || {};
+              const subjectKeys = Object.keys(daySubjects);
+              const dayFullyMastered = subjectKeys.length > 0 &&
+                subjectKeys.every((subjectName) => (data.mastered_quizzes || []).includes(`${day}_${subjectName}`));
+
+              return (
+                <div key={day} className="mb-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <h2 className={`text-sm font-bold uppercase tracking-wide whitespace-nowrap ${isToday ? 'text-amber-400' : 'text-gray-500'}`}>
+                      {day} Objectives {isToday && <span className="text-amber-300">⚡ (Current Run)</span>}
+                    </h2>
+                    <div className={`flex-1 h-px ${isToday ? 'bg-amber-900/50' : 'bg-neutral-800'}`} />
+                  </div>
+
+                  {dayFullyMastered ? (
+                    <p className="text-sm text-green-400 font-bold">✅ {day} Quests Completed</p>
+                  ) : isToday || subjectKeys.length > 0 ? (
+                    subjectKeys.length === 0 ? (
+                      <p className="text-sm text-gray-500">No quests registered for this specific calendar path.</p>
+                    ) : (
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                        {subjectKeys.map((subjectName) => (
+                          <QuestCard
+                            key={subjectName}
+                            subjectName={subjectName}
+                            completed={(data.mastered_quizzes || []).includes(`${day}_${subjectName}`)}
+                            onEnter={() => {
+                              setActiveQuest(`${day}_${subjectName}`);
+                              // Land on the notes screen first, not the
+                              // "ready" confirm screen — that's what was
+                              // letting kids skip straight past the summary
+                              // without the read-timer ever engaging.
+                              setQuizPhase('study');
+                            }}
+                          />
+                        ))}
+                      </div>
+                    )
+                  ) : null}
+                </div>
+              );
+            })}
+
+            <AchievementsBoard data={data} userId={activeUserId} />
+          </div>
+        )}
+
+        {/* --- ACTIVE QUEST VIEW --- */}
+        {activeTab === 'board' && activeQuest !== null && (() => {
+          const [day, subject] = activeQuest.split('_');
+          const questData = mainQuestPackageData[day]?.[subject];
+
+          return (
+            <div className="w-full max-w-4xl mx-auto animate-in fade-in duration-500">
+              {quizPhase === 'study' && (
+                <div className="space-y-6">
+                  <GameButton
+                    onClick={() => { setActiveQuest(null); setQuizPhase('study'); }}
+                    className="text-gray-400 hover:text-white flex items-center text-sm font-bold transition-colors"
+                  >
+                    ← Retreat to Map
+                  </GameButton>
+
+                  <div className="bg-neutral-900 border border-neutral-800 p-8 rounded-xl shadow-lg">
+                    <h2 className="text-3xl font-bold mb-6 text-blue-400 font-display">Study Session: {subject}</h2>
+                    <div className="border-t border-neutral-800 pt-6">
+                      {questData?.summary_markdown
+                        ? <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{questData.summary_markdown}</ReactMarkdown>
+                        : <p className="text-gray-300 leading-relaxed">No notes available for this module.</p>}
+                    </div>
+                  </div>
+
+                  <GameButton
+                    onClick={() => { if (studyReadRemaining <= 0) setQuizPhase('ready'); }}
+                    disabled={studyReadRemaining > 0}
+                    className="w-full bg-yellow-600 hover:bg-yellow-500 text-black py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-[1.01] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  >
+                    {studyReadRemaining > 0 ? `🔒 Keep Reading... ${studyReadRemaining}s` : 'I Am Ready To Fight'}
+                  </GameButton>
+                </div>
+              )}
+
+              {quizPhase === 'ready' && (
+                <div className="bg-[#111] border border-neutral-800 p-12 rounded-2xl text-center shadow-2xl">
+                  <p className="text-blue-400 font-bold uppercase tracking-wider text-sm mb-2 font-display">{subject} Encounter</p>
+                  <h2 className="text-4xl font-display font-bold mb-4">Prepare for Battle</h2>
+                  <p className="text-gray-400 mb-8 max-w-sm mx-auto">
+                    You are about to start the assessment. Once you enter the exam, there is no turning back.
+                  </p>
+                  <div className="flex gap-4 justify-center">
+                    <GameButton
+                      onClick={() => setQuizPhase('study')}
+                      className="px-6 py-3 text-gray-400 hover:text-white font-bold"
+                    >
+                      Go Back to Notes
+                    </GameButton>
+                    <GameButton
+                      onClick={() => setQuizPhase('quiz')}
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition-all"
+                    >
+                      Start Exam
+                    </GameButton>
+                  </div>
+                </div>
+              )}
+
+              {quizPhase === 'quiz' && (
+                <QuestModule
+                  userId={activeUserId}
+                  questName={subject}
+                  questKey={activeQuest}
+                  questData={questData}
+                  currentStats={data.character_stats}
+                  attemptsSoFar={(data.quiz_attempts || {})[activeQuest] || 0}
+                  isMastered={(data.mastered_quizzes || []).includes(activeQuest)}
+                  gradeQuiz={async (selectedAnswers) => {
+                    // Every question now carries a stable content_questions.id (Phase 4 Wave 3,
+                    // see docs/weekly-progress-redesign-plan.md) — Weekly Review (built
+                    // client-side by lib/weeklyReview.ts from real questions pulled out of the
+                    // rest of the week) grades through the exact same id-keyed path as a normal
+                    // day/subject quiz now, no more bespoke text-matching RPC needed.
+                    const quizQuestions: { id: string }[] = questData?.quiz || [];
+                    const answers = quizQuestions.map((q, i) => ({
+                      question_id: q.id,
+                      selected: selectedAnswers[i],
+                    }));
+                    const { data: graded, error } = await supabase.rpc('grade_content_quiz', {
+                      p_user_id: activeUserId,
+                      p_answers: answers,
+                    });
+                    if (error || !graded) throw error || new Error('grade_content_quiz returned no data');
+                    return {
+                      correct_count: graded.correct_count,
+                      total: graded.total,
+                      is_perfect: graded.is_perfect,
+                      correct_answers: (graded.results || []).map((r: any) => r.correct_answer),
+                    };
+                  }}
+                  onQuizSubmit={(isPerfect, newAttempts, newStats, xpEarned, goldEarned) => {
+                    const newQuizAttempts = { ...(data.quiz_attempts || {}), [activeQuest]: newAttempts };
+                    if (isPerfect) {
+                      const newMasteredQuizzes = [...(data.mastered_quizzes || []), activeQuest];
+                      const newMasteryCount = (data.mastery_count || 0) + 1;
+                      updateStatsAndJournal(
+                        newStats, data.journal_logs,
+                        data.purchased_items, newMasteryCount, data.honor_grants,
+                        newQuizAttempts, newMasteredQuizzes,
+                        data.honor_grants,
+                        data.guild_sessions_count || 0,
+                        data.monster_battles_won || 0,
+                        data.sibling_battles_won || 0,
+                        (data.perfect_quizzes || 0) + 1
+                      );
+                      logAction(activeUserId, data.week_starting_date, 'quiz', `Completed ${subject} in ${newAttempts} attempt(s)`, xpEarned, goldEarned);
+                      trackEvent('main_quest_completed', { subject, attempts: newAttempts, xp_earned: xpEarned, gold_earned: goldEarned });
+                      if (newStats.level > data.character_stats.level) {
+                        logAction(activeUserId, data.week_starting_date, 'achievement', `🎉 Leveled up to Level ${newStats.level}!`, 0, 0);
+                        trackEvent('guild_level_up', { new_level: newStats.level });
+                      }
+                    } else {
+                      updateStatsAndJournal(
+                        data.character_stats, data.journal_logs,
+                        data.purchased_items, data.mastery_count, data.honor_grants,
+                        newQuizAttempts, data.mastered_quizzes,
+                        data.honor_grants,
+                        data.guild_sessions_count || 0,
+                        data.monster_battles_won || 0,
+                        data.sibling_battles_won || 0,
+                        data.perfect_quizzes || 0
+                      );
+                    }
+                  }}
+                  onExit={() => {
+                    setActiveQuest(null);
+                    setQuizPhase('study');
+                  }}
+                  offline={offline}
+                  onOfflineSubmit={(selectedAnswers) => {
+                    // Grading needs the server-only answer key, so it can't
+                    // happen on-device — queue the raw answers instead and
+                    // let lib/offlineSync.ts's 'submit_quiz_answers' replay
+                    // case grade + apply rewards once back online. The
+                    // `snapshot` fields mirror this exact onQuizSubmit call
+                    // below so replay can rebuild the same
+                    // apply_progress_update args later; like every other
+                    // queued write in this app, that snapshot can go stale
+                    // if other progress syncs in between (accepted tradeoff,
+                    // same as the rest of lib/offlineSync.ts — single-player,
+                    // ordered replay, no conflict resolution).
+                    const quizQuestions: { id: string }[] = questData?.quiz || [];
+                    const answers = quizQuestions.map((q, i) => ({
+                      question_id: q.id,
+                      selected: selectedAnswers[i],
+                    }));
+                    enqueueSync('submit_quiz_answers', 'rpc', {
+                      userId: activeUserId,
+                      questKey: activeQuest,
+                      subject,
+                      answers,
+                      attemptsSoFar: (data.quiz_attempts || {})[activeQuest] || 0,
+                      contentWeekId,
+                      // Full journalChanges shape (see useWeeklyData.ts's
+                      // updateStatsAndJournal) — the player_weekly_journal
+                      // upsert below writes every field each time, so
+                      // anything omitted here would get nulled out rather
+                      // than left alone.
+                      snapshot: {
+                        characterStats: data.character_stats,
+                        journalLogs: data.journal_logs,
+                        purchasedItems: data.purchased_items,
+                        masteryCount: data.mastery_count,
+                        honorGrants: data.honor_grants,
+                        quizAttempts: data.quiz_attempts || {},
+                        masteredQuizzes: data.mastered_quizzes || [],
+                        guildSessionsCount: data.guild_sessions_count || 0,
+                        monsterBattlesWon: data.monster_battles_won || 0,
+                        siblingBattlesWon: data.sibling_battles_won || 0,
+                        perfectQuizzes: data.perfect_quizzes || 0,
+                        dummyBattlesWon: data.dummy_battles_won || 0,
+                        eggsHatched: data.eggs_hatched || 0,
+                        curiosGraduated: data.curios_graduated || 0,
+                        tradesCompleted: data.trades_completed || 0,
+                        legendariesCaught: data.legendaries_caught || 0,
+                        tutorRerolls: data.tutor_rerolls || 0,
+                        tatayBattlesWon: data.tatay_battles_won || 0,
+                        tatayBattlesLost: data.tatay_battles_lost || 0,
+                        weekStartingDate: data.week_starting_date,
+                      },
+                    }).catch(e => console.error('Failed to queue offline quiz submission (non-fatal):', e));
+                  }}
+                />
+              )}
+            </div>
+          );
+        })()}
+
+        {/* --- ACTIVE EVENT QUEST VIEW --- */}
+        {activeTab === 'board' && activeEventQuest !== null && activeEvent && (() => {
+          const eventQuest = eventQuests.find(q => q.id === activeEventQuest);
+          const questRow = eventProgress.find(p => p.event_quest_id === activeEventQuest);
+
+          const handleEventQuizSubmit = (isPerfect: boolean, newAttempts: number, newStats: CharacterStats, xpEarned: number, goldEarned: number) => {
+            if (!activeUserId || !activeEvent || !eventQuest) return;
+            if (isPerfect) {
+              updateStatsAndJournal(newStats, data.journal_logs);
+              logAction(activeUserId, data.week_starting_date, 'event_quiz', `Completed event quest ${eventQuest.subject_name} in ${newAttempts} attempt(s)`, xpEarned, goldEarned);
+              trackEvent('event_quiz_completed', { event_id: activeEvent.id, subject: eventQuest.subject_name, attempts: newAttempts });
+            }
+            (async () => {
+              await recordEventQuizMastery(activeUserId, activeEvent.id, eventQuest.id, isPerfect, newAttempts);
+              const newProgress = await fetchUserEventProgress(activeUserId, activeEvent.id);
+              setEventProgress(newProgress);
+
+              if (isPerfect) {
+                const allMastered = eventQuests.every(q =>
+                  q.id === eventQuest.id || newProgress.some(p => p.event_quest_id === q.id && p.is_mastered)
+                );
+                if (allMastered) {
+                  const gradeLevel = gradeToNumber(USERS[activeUserId]?.grade);
+                  const granted = await claimEventReward(activeUserId, activeEvent.id, gradeLevel);
+                  if (granted) {
+                    setEventClaimed(true);
+                    setRevealEventMonster(activeEvent.reward_monster_id);
+                    logAction(activeUserId, data.week_starting_date, 'event_reward', `Completed event: ${activeEvent.title}`, 0, 0);
+                    trackEvent('event_reward_claimed', { event_id: activeEvent.id });
+                  }
+                }
+              }
+            })();
+          };
+
+          return (
+            <div className="w-full max-w-4xl mx-auto animate-in fade-in duration-500">
+              {eventQuizPhase === 'study' && (
+                <div className="space-y-6">
+                  <GameButton
+                    onClick={() => { setActiveEventQuest(null); setEventQuizPhase('study'); }}
+                    className="text-gray-400 hover:text-white flex items-center text-sm font-bold transition-colors"
+                  >
+                    ← Retreat to Map
+                  </GameButton>
+
+                  <div className="bg-neutral-900 border border-amber-900 p-8 rounded-xl shadow-lg">
+                    <h2 className="text-3xl font-bold mb-6 text-amber-400 font-display">Study Session: {eventQuest?.subject_name}</h2>
+                    <div className="border-t border-neutral-800 pt-6">
+                      {eventQuest?.summary_markdown
+                        ? <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{eventQuest.summary_markdown}</ReactMarkdown>
+                        : <p className="text-gray-300 leading-relaxed">No notes available for this module.</p>}
+                    </div>
+                  </div>
+
+                  <GameButton
+                    onClick={() => { if (eventStudyReadRemaining <= 0) setEventQuizPhase('ready'); }}
+                    disabled={eventStudyReadRemaining > 0}
+                    className="w-full bg-amber-600 hover:bg-amber-500 text-black py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-[1.01] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  >
+                    {eventStudyReadRemaining > 0 ? `🔒 Keep Reading... ${eventStudyReadRemaining}s` : 'I Am Ready To Fight'}
+                  </GameButton>
+                </div>
+              )}
+
+              {eventQuizPhase === 'ready' && (
+                <div className="bg-[#111] border border-amber-900 p-12 rounded-2xl text-center shadow-2xl">
+                  <p className="text-amber-400 font-bold uppercase tracking-wider text-sm mb-2 font-display">{eventQuest?.subject_name} Encounter</p>
+                  <h2 className="text-4xl font-display font-bold mb-4">Prepare for Battle</h2>
+                  <p className="text-gray-400 mb-8 max-w-sm mx-auto">
+                    You are about to start the event assessment. Once you enter the exam, there is no turning back.
+                  </p>
+                  <div className="flex gap-4 justify-center">
+                    <GameButton
+                      onClick={() => setEventQuizPhase('study')}
+                      className="px-6 py-3 text-gray-400 hover:text-white font-bold"
+                    >
+                      Go Back to Notes
+                    </GameButton>
+                    <GameButton
+                      onClick={() => setEventQuizPhase('quiz')}
+                      className="bg-amber-600 hover:bg-amber-500 text-white px-8 py-3 rounded-lg font-bold transition-all"
+                    >
+                      Start Exam
+                    </GameButton>
+                  </div>
+                </div>
+              )}
+
+              {eventQuizPhase === 'quiz' && eventQuest && (
+                <QuestModule
+                  userId={activeUserId}
+                  questName={eventQuest.subject_name}
+                  questKey={`event_${eventQuest.id}`}
+                  questData={eventQuest}
+                  currentStats={data.character_stats}
+                  attemptsSoFar={questRow?.attempts || 0}
+                  isMastered={!!questRow?.is_mastered}
+                  gradeQuiz={async (selectedAnswers) => {
+                    const { data: graded, error } = await supabase.rpc('grade_event_quiz', {
+                      p_event_quest_id: eventQuest.id,
+                      p_selected: selectedAnswers,
+                    });
+                    if (error || !graded) throw error || new Error('grade_event_quiz returned no data');
+                    return {
+                      correct_count: graded.correct_count,
+                      total: graded.total,
+                      is_perfect: graded.is_perfect,
+                      correct_answers: graded.correct_answers,
+                    };
+                  }}
+                  onQuizSubmit={handleEventQuizSubmit}
+                  onExit={() => {
+                    setActiveEventQuest(null);
+                    setEventQuizPhase('study');
+                  }}
+                />
+              )}
+            </div>
+          );
+        })()}
+
+        {/* --- ACTIVE BOSS FIGHT VIEW --- */}
+        {activeTab === 'board' && activeBossFight !== null && (
+          <div className="w-full max-w-2xl mx-auto animate-in fade-in duration-500">
+            <GameButton
+              onClick={() => setActiveBossFight(null)}
+              className="text-gray-400 hover:text-white flex items-center text-sm font-bold transition-colors mb-4"
+            >
+              ← Retreat to Map
+            </GameButton>
+            <BossFightScreen
+              userId={activeUserId}
+              grade={bossGradeLevel}
+              subject={activeBossFight}
+              otherPersonas={getPersonasForGrade(bossGradeLevel).filter(
+                p => p.subject !== activeBossFight && !bossProgress.defeated.has(p.subject)
+              )}
+              onExit={(defeated) => {
+                setActiveBossFight(null);
+                if (defeated) bossProgress.refresh();
+              }}
+            />
+          </div>
+        )}
+
+        {/* --- TAB B: REWARDS VAULT / SHOP --- */}
+        {activeTab === 'vault' && !USERS[activeUserId].isFamily && (
+          <MonsterShop
+            userId={activeUserId}
+            currentStats={data.character_stats}
+            onSpendGold={setCharacterStatsDirect}
+            onThemeChange={handleThemeChange}
+          />
+        )}
+
+        {activeTab === 'vault' && USERS[activeUserId].isFamily && (
+          <div>
+            <div className="flex items-center justify-between gap-4 mb-2">
+              <h1 className="text-3xl font-bold font-display">The Gold Token Rewards Vault</h1>
+              <div className="flex items-center gap-1.5 bg-[#161010] border-2 border-[#000000] rounded-full px-3 py-1.5 shadow-[2px_2px_0_0_#000] flex-shrink-0">
+                <img src="/icons/rewards/gold_coin.svg" alt="" className="w-4 h-4" />
+                <span className="text-yellow-400 font-extrabold text-sm">{data.character_stats.gold}</span>
+              </div>
+            </div>
+            <p className="text-gray-400 mb-8">
+              Spend your hard-earned Gold on real-world rewards from the catalog below.
+              {offline && <span className="block text-amber-400 font-bold mt-2">🔌 Claiming needs a connection — browse the catalog, then reconnect to claim.</span>}
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              {Object.entries(VAULT_CATALOG).map(([key, item]) => {
+                const affordable = data.character_stats.gold >= item.cost;
+                return (
+                  <div key={key} className="bg-[#161010] border-2 border-[#000000] rounded-2xl p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] flex flex-col justify-between h-full">
+                    <div>
+                      <h3 className="text-lg font-bold text-white leading-tight mb-2">{item.name}</h3>
+                      <div className="mb-3">
+                        <span className={`inline-flex items-center gap-1 border-2 border-[#000000] text-[10px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full ${affordable ? 'bg-[#47982a] text-black shadow-[2px_2px_0_0_#000]' : 'bg-neutral-800 text-gray-400'}`}>
+                          <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3 h-3" /> {item.cost} GOLD
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-400 mb-6">{item.desc}</p>
+                    </div>
+                    <motion.button
+                      onClick={() => handleClaimReward(item.cost, item.name, key)}
+                      whileHover={affordable && !offline ? { scale: 1.02 } : {}}
+                      whileTap={affordable && !offline ? { scale: 0.95 } : {}}
+                      className="w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide text-black bg-yellow-500 hover:bg-yellow-400 border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-neutral-700 disabled:text-gray-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all"
+                      disabled={offline || !affordable || claimingKey === key}
+                    >
+                      {offline ? '🔒 Reconnect to Claim' : claimingKey === key ? 'Claiming...' : affordable ? 'Claim Reward' : 'Not Enough Gold'}
+                    </motion.button>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Monster Arena Shop for family too */}
+            <div className="mt-12">
+              <MonsterShop
+                userId={activeUserId}
+                currentStats={data.character_stats}
+                onSpendGold={setCharacterStatsDirect}
+                onThemeChange={handleThemeChange}
+              />
+            </div>
+
+            {/* My Claimed Rewards — filtered to this user */}
+            <div className="mt-10 bg-[#111] border border-[#333] p-8 rounded-xl shadow-2xl">
+              <div className="flex justify-between items-center border-b border-neutral-800 pb-4 mb-6">
+                <h2 className="text-2xl font-bold text-blue-400 font-display"><img src="/icons/rewards/package.svg" alt="" className="inline w-5 h-5 align-[-4px] mr-1" /> My Claimed Rewards</h2>
+                <span className="bg-blue-900/30 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-800">
+                  {myClaims.length} TOTAL
+                </span>
+              </div>
+
+              {(() => {
+                const countOf = (key: string) => myClaims.filter(c => c.item_key === key).length;
+                const pendingCountOf = (key: string) => myClaims.filter(c => c.item_key === key && c.status === 'pending').length;
+                const voucherCount = countOf('voucher_30m');
+                const aiLordingCount = countOf('ai_lording');
+                const jollibeeCount = countOf('jollibee_burger');
+                // Tatay marks a claim "supplied" only after the hours have already
+                // been used (usually Fri/Sat), so remaining claimable hours are the
+                // ones still pending — not yet spent.
+                const totalClaimableHours = (pendingCountOf('voucher_30m') + pendingCountOf('ai_lording')) * 0.5;
+                return (
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5 text-sm">
+                    <div className="bg-black p-3 rounded border border-neutral-800">
+                      <p className="text-gray-500 text-xs">🎮 Gaming Voucher</p>
+                      <p className="font-bold text-white">{voucherCount}</p>
+                    </div>
+                    <div className="bg-black p-3 rounded border border-neutral-800">
+                      <p className="text-gray-500 text-xs">🧙‍♂️ AI Lording</p>
+                      <p className="font-bold text-white">{aiLordingCount}</p>
+                    </div>
+                    <div className="bg-black p-3 rounded border border-neutral-800">
+                      <p className="text-gray-500 text-xs">🍔 Jollibee Yumburger</p>
+                      <p className="font-bold text-white">{jollibeeCount}</p>
+                    </div>
+                    <div className="bg-black p-3 rounded border border-neutral-800">
+                      <p className="text-gray-500 text-xs">⏱️ Total Claimable Hours</p>
+                      <p className="font-bold text-yellow-400">{totalClaimableHours}</p>
+                      <p className="text-[10px] text-gray-600 mt-0.5">still unused, spend by Saturday</p>
+                    </div>
+                  </div>
+                );
+              })()}
+
+              <div className="space-y-3 max-h-80 overflow-y-auto pr-1">
+                {myClaims.length > 0 ? (
+                  [...myClaims]
+                    .sort((a, b) => {
+                      if (a.status === 'pending' && b.status !== 'pending') return -1;
+                      if (a.status !== 'pending' && b.status === 'pending') return 1;
+                      return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+                    })
+                    .map((claim) => (
+                    <div key={claim.id} className="flex justify-between items-center bg-black p-3 rounded border border-neutral-800">
+                      <div>
+                        <p className="font-bold">{claim.item_name}</p>
+                        <p className="text-xs text-gray-500">{new Date(claim.created_at).toLocaleDateString()}</p>
+                      </div>
+                      <div className={`px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider ${
+                        claim.status === 'pending'
+                          ? 'bg-yellow-900 text-yellow-300'
+                          : 'bg-green-900 text-green-300'
+                      }`}>
+                        {claim.status}
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-gray-500 text-sm italic">No rewards claimed yet.</p>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'vault' && <VaultKeeperNpc key={vaultGreetKey} />}
+
+        {/* --- TAB: SIDE QUEST GUILDS --- */}
+        {activeTab === 'guilds' && (
+          <div>
+            {activeGuild === null ? (
+              <div className="battle-panel-in">
+                <h1 className="text-3xl font-bold mb-8 font-display">Side Quest Guilds</h1>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {([
+                    { key: 'lorekeeper' as GuildKey, guild: 'lorekeeper' as const, name: 'Lorekeeper', desc: 'English guild — Time Attack reading & grammar challenges.', bg: 'bg-[#121a16]', border: 'border-emerald-800 hover:border-emerald-500', title: 'text-emerald-300', lvl: guildProfile?.lorekeeper_lvl, tier: guildProfile?.lorekeeper_tier },
+                    { key: 'spellcaster' as GuildKey, guild: 'spellcaster' as const, name: 'SpellCaster', desc: 'Typing guild — Real-time speed spelling under the clock.', bg: 'bg-[#13111c]', border: 'border-violet-800 hover:border-violet-500', title: 'text-violet-300', lvl: guildProfile?.spellcaster_lvl, tier: guildProfile?.spellcaster_tier },
+                    { key: 'number_realm' as GuildKey, guild: 'numberrealm' as const, name: 'Number Realm', desc: 'Math guild — Fractions, time, and operations at speed.', bg: 'bg-[#0d0c08]', border: 'border-amber-800 hover:border-amber-500', title: 'text-amber-300', lvl: guildProfile?.number_realm_lvl, tier: guildProfile?.number_realm_tier },
+                    { key: 'logic_labyrinth' as GuildKey, guild: 'logiclabyrinth' as const, name: 'Logic Labyrinth', desc: 'IQ guild — Pattern matrices and deduction puzzles.', bg: 'bg-[#0b0d12]', border: 'border-cyan-800 hover:border-cyan-500', title: 'text-cyan-300', lvl: guildProfile?.logic_labyrinth_lvl, tier: guildProfile?.logic_labyrinth_tier },
+                    { key: 'lexicon_arena' as GuildKey, guild: 'lexiconarena' as const, name: 'Lexicon Arena', desc: 'Spelling guild — Read the definition, pick the correct spelling before time runs out.', bg: 'bg-neutral-900', border: 'border-indigo-800 hover:border-indigo-500', title: 'text-indigo-300', lvl: guildProfile?.lexicon_arena_lvl, tier: guildProfile?.lexicon_arena_tier },
+                  ]).map(g => (
+                    <motion.button
+                      key={g.key}
+                      onClick={() => setActiveGuild(g.key)}
+                      whileHover={{ scale: 1.02, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      className={`${g.bg} border-2 ${g.border} rounded-xl p-6 text-left transition-colors flex items-center gap-4`}
+                    >
+                      <div className="w-16 h-16 shrink-0">
+                        <GuardianSprite guild={g.guild} pose="idle" className="w-full h-full" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <h3 className={`text-xl font-bold ${g.title} font-display mb-1`}>{g.name}</h3>
+                          {typeof g.lvl === 'number' && (
+                            <span className={`text-xs font-mono font-bold ${g.title} bg-black/40 rounded-full px-2 py-0.5 shrink-0`}>
+                              Lvl {g.lvl} {typeof g.tier === 'number' && (
+                                <>· {'★'.repeat(g.tier)}{'☆'.repeat(Math.max(0, 3 - g.tier))}</>
+                              )}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-sm text-gray-400">{g.desc}</p>
+                        <p className="text-xs text-gray-500 italic mt-1">
+                          {GUILDS.find(guild => guild.key === g.key)?.lore}
+                        </p>
+                      </div>
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+            ) : activeGuild === 'lorekeeper' ? (
+              <Lorekeeper
+                userId={activeUserId}
+                weekStartingDate={data.week_starting_date}
+                currentStats={data.character_stats}
+                onGoldEarned={handleGuildGoldEarned}
+                onExit={() => setActiveGuild(null)}
+              />
+            ) : activeGuild === 'spellcaster' ? (
+              <SpellCaster
+                userId={activeUserId}
+                weekStartingDate={data.week_starting_date}
+                currentStats={data.character_stats}
+                onGoldEarned={handleGuildGoldEarned}
+                onExit={() => setActiveGuild(null)}
+              />
+            ) : activeGuild === 'number_realm' ? (
+              <NumberRealm
+                userId={activeUserId}
+                weekStartingDate={data.week_starting_date}
+                currentStats={data.character_stats}
+                onGoldEarned={handleGuildGoldEarned}
+                onExit={() => setActiveGuild(null)}
+              />
+            ) : activeGuild === 'logic_labyrinth' ? (
+              <LogicLabyrinth
+                userId={activeUserId}
+                weekStartingDate={data.week_starting_date}
+                currentStats={data.character_stats}
+                onGoldEarned={handleGuildGoldEarned}
+                onExit={() => setActiveGuild(null)}
+              />
+            ) : activeGuild === 'lexicon_arena' ? (
+              <LexiconArena
+                userId={activeUserId}
+                weekStartingDate={data.week_starting_date}
+                currentStats={data.character_stats}
+                onGoldEarned={handleGuildGoldEarned}
+                onExit={() => setActiveGuild(null)}
+              />
+            ) : null}
+          </div>
+        )}
+
+        {/* --- TAB: JOURNAL --- */}
+        {activeTab === 'journal' && (
+          <div>
+            <h1 className="text-3xl font-bold mb-2 font-display">Guild Journal</h1>
+            <p className="text-gray-400 mb-8">Reflect on today's run and seal your ledger entry to claim your reward.</p>
+            <GuildJournal
+              userId={activeUserId}
+              journalLogs={data.journal_logs || {}}
+              stats={data.character_stats}
+              currentSunday={data.week_starting_date}
+              onSave={updateStatsAndJournal}
+            />
+            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wide mt-6 mb-2">Player Log</h3>
+            <PlayerLog userId={activeUserId} />
+          </div>
+        )}
+
+        {/* --- TAB: TO-DO --- */}
+        {activeTab === 'todo' && (
+          <div>
+            <h1 className="text-3xl font-bold mb-2 font-display">Daily To-Dos</h1>
+            <p className="text-gray-400 mb-8">Clear today's checklist to claim your daily bonus gold.</p>
+            <DailyChecklist
+              userId={activeUserId}
+              grade={gradeToNumber(USERS[activeUserId]?.grade)}
+              currentSunday={data.week_starting_date}
+              currentDayName={currentDayName}
+              packageData={mainQuestPackageData}
+              journalLogs={data.journal_logs}
+              masteredQuizzes={data.mastered_quizzes}
+              onGoldAwarded={applyGoldDelta}
+              onPlayGuild={(guildKey) => { setActiveTab('guilds'); setActiveGuild(guildKey); }}
+            />
+          </div>
+        )}
+
+        {/* --- TAB: PROFILE --- */}
+        {activeTab === 'profile' && (
+          <div>
+            <h1 className="text-3xl font-bold mb-2 font-display">Hero Profile</h1>
+            <p className="text-gray-400 mb-8">Your rank, stats, and everything you've earned on the journey so far.</p>
+            <HeroProfile
+              userId={activeUserId}
+              data={data}
+              currentDay={currentDayName}
+              onViewAchievements={() => setActiveTab('board')}
+            />
+          </div>
+        )}
+
+        {/* --- TAB: ADMIN --- */}
+
+        {activeTab === 'monster' && <CurioExpertNpc key={curioGreetKey} />}
+
+        {activeTab === 'monster' && (
+          <MonsterGuild
+            userId={activeUserId}
+            playerLevel={data.character_stats.level}
+            currentGold={data.character_stats.gold}
+            packageData={packageData}
+            weekStartingDate={data.week_starting_date}
+            initialView={guildInitialView}
+            onBattleWon={(kind) => updateStatsAndJournal(
+              data.character_stats, data.journal_logs,
+              data.purchased_items, data.mastery_count, data.honor_grants,
+              data.quiz_attempts || {}, data.mastered_quizzes || [],
+              data.honor_grants,
+              data.guild_sessions_count || 0,
+              (data.monster_battles_won || 0) + (kind === 'trainer' ? 1 : 0),
+              (data.sibling_battles_won || 0) + (kind === 'sibling' ? 1 : 0),
+              data.perfect_quizzes || 0,
+              (data.dummy_battles_won || 0) + (kind === 'dummy' ? 1 : 0)
+            )}
+            onGoldAwarded={(amount) => updateStatsAndJournal(
+              { ...data.character_stats, gold: data.character_stats.gold + amount },
+              data.journal_logs
+            )}
+            onGoldSynced={setCharacterStatsDirect}
+            onProgressSynced={syncCharacterStats}
+            onEggBadgeChange={setHasEggReadyCurio}
+            eggRefreshSignal={eggRefreshSignal}
+            onGraduated={() => bumpCounters({ curios_graduated: 1 })}
+            onTutored={() => bumpCounters({ tutor_rerolls: 1 })}
+            onTradeConfirmed={() => bumpCounters({ trades_completed: 1 })}
+            onLegendaryCaught={() => bumpCounters({ legendaries_caught: 1 })}
+            onTatayBattleResult={(won) => bumpCounters(won ? { tatay_battles_won: 1 } : { tatay_battles_lost: 1 })}
+          />
+        )}
+
+        {/* --- TAB: CODEX --- */}
+        {activeTab === 'codex' && <CodexPanel />}
+
+        </motion.div>
+        </AnimatePresence>
+
+        <AchievementToast
+          userId={activeUserId}
+          newlyUnlocked={newlyUnlocked}
+          onDismissAll={clearNotifications}
+        />
+        <Toast
+          message={toast.message}
+          show={toast.show}
+          onClose={() => setToast({ show: false, message: '' })}
+        />
+        {showEventPopup && activeEvent && (
+          <EventAnnouncementPopup event={activeEvent} onDismiss={handleDismissEventPopup} />
+        )}
+        {revealEventMonster && ALL_MONSTERS[revealEventMonster] && activeUserId && (
+          <CurioRevealModal
+            monster={ALL_MONSTERS[revealEventMonster]}
+            userId={activeUserId}
+            onClose={() => setRevealEventMonster(null)}
+          />
+        )}
+
+        {/* ── Floating utility rail ── fixed bottom-right of the dashboard:
+            music toggle, sound-effects toggle, Replay Tutorial. Icon-only
+            buttons stacked to keep the footprint small. */}
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
+          <motion.button
+            onClick={toggleMusic}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-10 h-10 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-gray-400 hover:text-white rounded-full shadow-lg transition-colors flex items-center justify-center"
+            title={musicOn ? 'Mute Music' : 'Unmute Music'}
+          >
+            <span className="text-base leading-none">{musicOn ? '🎵' : '🔇'}</span>
+          </motion.button>
+          <motion.button
+            onClick={toggleSfx}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-10 h-10 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-gray-400 hover:text-white rounded-full shadow-lg transition-colors flex items-center justify-center"
+            title={sfxOn ? 'Mute Sound Effects' : 'Unmute Sound Effects'}
+          >
+            <span className="text-base leading-none">{sfxOn ? '🔊' : '🔈'}</span>
+          </motion.button>
+          <motion.button
+            onClick={() => setShowOnboarding(true)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-10 h-10 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-gray-400 hover:text-white rounded-full shadow-lg transition-colors flex items-center justify-center"
+            title="Replay Tutorial"
+          >
+            <span className="text-base leading-none">❓</span>
+          </motion.button>
+        </div>
+      </main>
+    </div>
+      </div>
+      </div>
+    </>
+  );
+}

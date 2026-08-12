@@ -9,6 +9,7 @@ import { supabase } from '@/lib/supabase';
 import { isOfflineStorageAvailable, getUnsyncedQueue, markSynced, type SyncQueueRow } from '@/lib/localDataSource';
 import { markQuestionsCompleted, updateSubclassProfile, type SubclassProfile } from '@/lib/guildEngine';
 import { markGuildSessionToday, claimChecklistBonus, type GuildKey } from '@/lib/dailyChecklist';
+import { calculateReward } from '@/lib/quizReward';
 
 async function replay(row: SyncQueueRow): Promise<void> {
   const p = row.payload;
@@ -85,6 +86,91 @@ async function replay(row: SyncQueueRow): Promise<void> {
     case 'update_subclass_profile':
       await updateSubclassProfile(p.userId, p.fields as Partial<SubclassProfile>);
       return;
+    // Main Quest board quiz submitted while offline (components/QuestModule.tsx's
+    // onOfflineSubmit, queued from components/Dashboard.tsx) — grading needs the
+    // server-only answer key, so it couldn't happen on-device; do it now that
+    // we're back online, then apply the same reward/journal writes
+    // components/Dashboard.tsx's onQuizSubmit would have made live. `snapshot`
+    // is a point-in-time copy of the player's progress fields at submit time —
+    // like every other queued write here, it can be stale if something else
+    // synced in between (accepted: single-player, ordered replay, no conflict
+    // resolution — see the file header).
+    case 'submit_quiz_answers': {
+      const s = p.snapshot;
+      const { data: graded, error: gradeError } = await supabase.rpc('grade_content_quiz', {
+        p_user_id: p.userId,
+        p_answers: p.answers,
+      });
+      if (gradeError || !graded) throw gradeError || new Error('grade_content_quiz returned no data');
+
+      const newAttempts = (p.attemptsSoFar || 0) + 1;
+      const isPerfect: boolean = graded.is_perfect;
+      const newQuizAttempts = { ...(s.quizAttempts || {}), [p.questKey]: newAttempts };
+      const newMasteredQuizzes = isPerfect ? [...(s.masteredQuizzes || []), p.questKey] : (s.masteredQuizzes || []);
+      const newMasteryCount = isPerfect ? (s.masteryCount || 0) + 1 : (s.masteryCount || 0);
+      const reward = isPerfect ? calculateReward(newAttempts) : { xp: 0, gold: 0 };
+
+      const { error: progressError } = await supabase.rpc('apply_progress_update', {
+        p_user_id: p.userId,
+        p_xp_delta: reward.xp,
+        p_gold_delta: reward.gold,
+        p_mastery_count: newMasteryCount,
+        p_purchased_items: s.purchasedItems,
+        p_honor_grants: s.honorGrants,
+        p_guild_sessions_delta: 0,
+        p_monster_battles_won_delta: 0,
+        p_sibling_battles_won_delta: 0,
+        p_perfect_quizzes_delta: isPerfect ? 1 : 0,
+        p_dummy_battles_won_delta: 0,
+        p_eggs_hatched_delta: 0,
+        p_curios_graduated_delta: 0,
+        p_trades_completed_delta: 0,
+        p_legendaries_caught_delta: 0,
+        p_tutor_rerolls_delta: 0,
+        p_tatay_battles_won_delta: 0,
+        p_tatay_battles_lost_delta: 0,
+        // Achievement bonuses aren't evaluated here (that logic lives in
+        // useWeeklyData.ts's live hook, not something this background replay
+        // re-derives) — a quiz-triggered achievement unlock just catches up
+        // the next time progress is checked while online, same as the rest
+        // of this file's accepted staleness tradeoff.
+        p_new_achievement_ids: [],
+      });
+      if (progressError) throw progressError;
+
+      // journal_logs/counters are this-week-only content (player_weekly_journal),
+      // separate from the lifetime player_progress fields above — skipped if
+      // the admin hadn't authored this grade/week yet when the answer was
+      // queued (matches the live path's same guard).
+      if (p.contentWeekId) {
+        const { error: journalError } = await supabase
+          .from('player_weekly_journal')
+          .upsert({
+            user_id: p.userId,
+            content_week_id: p.contentWeekId,
+            journal_logs: s.journalLogs,
+            purchased_items: s.purchasedItems,
+            mastery_count: newMasteryCount,
+            honor_grants: s.honorGrants,
+            quiz_attempts: newQuizAttempts,
+            mastered_quizzes: newMasteredQuizzes,
+            guild_sessions_count: s.guildSessionsCount,
+            monster_battles_won: s.monsterBattlesWon,
+            sibling_battles_won: s.siblingBattlesWon,
+            perfect_quizzes: isPerfect ? (s.perfectQuizzes || 0) + 1 : (s.perfectQuizzes || 0),
+            dummy_battles_won: s.dummyBattlesWon,
+            eggs_hatched: s.eggsHatched,
+            curios_graduated: s.curiosGraduated,
+            trades_completed: s.tradesCompleted,
+            legendaries_caught: s.legendariesCaught,
+            tutor_rerolls: s.tutorRerolls,
+            tatay_battles_won: s.tatayBattlesWon,
+            tatay_battles_lost: s.tatayBattlesLost,
+          }, { onConflict: 'user_id,content_week_id' });
+        if (journalError) throw journalError;
+      }
+      return;
+    }
     default:
       console.error(`Unknown sync_queue target, skipping: ${row.tableTarget}`);
   }

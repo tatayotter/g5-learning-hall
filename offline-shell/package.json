@@ -2,9 +2,10 @@
   "name": "g5-learning-hall-offline-shell",
   "version": "0.1.0",
   "private": true,
-  "description": "Minimal statically-exported Android offline companion to the main app. Built separately and bundled as Capacitor's local webDir for use only when there's no connection. See lib/localDataSource.ts and the plan doc for the overall architecture.",
+  "description": "Statically-exported Android offline companion to the main app — renders the exact same components/Dashboard.tsx the online app uses. Built separately and bundled as Capacitor's local webDir for use only when there's no connection. See lib/localDataSource.ts and the plan doc for the overall architecture.",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node ../scripts/sync-offline-shell-public.js",
     "build": "next build",
     "lint": "eslint"
   },
@@ -17,8 +18,11 @@
     "framer-motion": "^12.42.2",
     "lucide-react": "^1.24.0",
     "next": "^16.2.10",
+    "phaser": "^4.2.1",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
