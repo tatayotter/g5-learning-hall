@@ -92,6 +92,18 @@ export default async function BlogPostPage({
 
   const related = getRelatedPosts(post);
 
+  const faqJsonLd = post.faq && post.faq.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: post.faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: { '@type': 'Answer', text: item.answer },
+        })),
+      }
+    : null;
+
   return (
     <div className="min-h-screen bg-[#0a0807] text-[#ede4d3] font-[Inter,system-ui,sans-serif]">
       <script
@@ -102,6 +114,12 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
 
       <BlogHeader />
 
@@ -216,6 +234,24 @@ export default async function BlogPostPage({
                 </a>
               ))}
             </div>
+          )}
+
+          {post.faq && post.faq.length > 0 && (
+            <section className="mb-8">
+              <h2 className="font-display text-xl sm:text-2xl font-black mb-3">
+                Frequently Asked Questions
+              </h2>
+              <div className="space-y-4">
+                {post.faq.map((item) => (
+                  <div key={item.question} className="bg-[#161310] border border-[#3d3225] rounded-xl p-5">
+                    <h3 className="font-display text-base font-bold mb-2 text-[#f0b429]">
+                      {item.question}
+                    </h3>
+                    <p className="text-sm text-[#c9bfae] leading-relaxed">{item.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
           )}
 
           <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-6 mb-10">

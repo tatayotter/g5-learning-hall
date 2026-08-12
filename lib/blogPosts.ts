@@ -44,6 +44,13 @@ export type BlogPost = {
    * posts covering a unique topic (the "Resources" posts) that need their own art.
    */
   image?: BlogPostImage;
+  /**
+   * Optional Q&A pairs rendered as a visible FAQ section and FAQPage JSON-LD.
+   * Only add these where the post genuinely answers questions people search —
+   * forcing it onto a how-to guide just to get rich-result eligibility reads as
+   * spammy to both Google and readers.
+   */
+  faq?: { question: string; answer: string }[];
 };
 
 /** One representative photo per skill guild, shared across that guild's grade-specific posts. */
@@ -1520,6 +1527,28 @@ export const BLOG_POSTS: BlogPost[] = [
       height: 675,
       credit: { name: 'yi lu', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/children-inside-the-classroom-11273200/' },
     },
+    faq: [
+      {
+        question: 'What does MATATAG stand for?',
+        answer:
+          "MATATAG is an acronym built around four goals: making the curriculum relevant and up to date, taking steps to accelerate delivery of basic education facilities and services, ensuring learner health, well-being, and safety are prioritized, and giving support to teachers so they can teach the new curriculum well.",
+      },
+      {
+        question: 'Is MATATAG replacing the K to 12 curriculum?',
+        answer:
+          "No. MATATAG is a decongestion and refinement of the existing K to 12 curriculum, not a brand-new curriculum built from scratch. It trims and resequences competencies rather than replacing the whole system.",
+      },
+      {
+        question: 'What is the biggest change parents will notice with MATATAG?',
+        answer:
+          'Fewer, more focused learning competencies per quarter, with heavier emphasis on foundational reading and numeracy skills in the earlier grades before moving on to more advanced material.',
+      },
+      {
+        question: 'When did the MATATAG curriculum start, and does it apply to my child\'s grade yet?',
+        answer:
+          "The rollout has been phased by grade level over several school years rather than switching every grade at once, so not every grade level has transitioned yet. Your child's teacher or school can confirm exactly where your child's grade level currently stands.",
+      },
+    ],
   },
   {
     slug: 'how-much-screen-time-is-too-much-grade-school',
@@ -1575,6 +1604,23 @@ export const BLOG_POSTS: BlogPost[] = [
       height: 675,
       credit: { name: 'Julia M Cameron', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/a-boy-studying-using-an-ipad-4145035/' },
     },
+    faq: [
+      {
+        question: 'How many hours of screen time should a Grade 2-6 child have per day?',
+        answer:
+          "There's no single number that fits every child, and leaning on minutes alone misses the bigger factor: what's actually happening during that screen time. A reasonable daily range matters less than whether the content is bounded (has a natural stopping point) and active (requires doing something, not just watching).",
+      },
+      {
+        question: 'Is educational screen time different from entertainment screen time?',
+        answer:
+          "The more useful distinction isn't educational versus entertainment — it's bounded versus unbounded. A bounded activity like a single quiz session or a movie ends naturally; an unbounded one, like a short-video feed, is designed to never end and removes the natural stopping cue a child would otherwise notice.",
+      },
+      {
+        question: 'What is "bounded" screen time?',
+        answer:
+          'Bounded screen time has a built-in stopping point the child experiences as normal — a quest, a quiz, or a chapter that finishes — the same way finishing a worksheet page is normal. Unbounded screen time, like an algorithmic feed, has no natural end and depends on the child or parent to supply the stopping decision instead.',
+      },
+    ],
   },
   {
     slug: 'signs-child-falling-behind-what-to-do',
@@ -1633,6 +1679,23 @@ export const BLOG_POSTS: BlogPost[] = [
       height: 675,
       credit: { name: 'Anastasia Shuraeva', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/a-photo-of-a-boy-with-his-hand-on-his-chin-8466709/' },
     },
+    faq: [
+      {
+        question: 'What are the earliest signs a child is falling behind in school?',
+        answer:
+          "Avoidance behavior — suddenly \"forgetting\" homework, taking unusually long to start an assignment — and a shift toward reflexively saying \"I don't know\" without even attempting a guess are both often earlier, more reliable signals than a dropping grade.",
+      },
+      {
+        question: 'How can I tell if my child needs a tutor or just more practice at home?',
+        answer:
+          "If a specific skill gap is clear — a particular math operation, a reading sub-skill — targeted daily practice on just that gap, even five to ten minutes, tends to close it faster than a general \"study more\" push. If the struggle is broad or persistent despite that targeted practice, that's the point where a tutor or the school's own intervention support earns its cost.",
+      },
+      {
+        question: "Should I worry if my child's grades haven't dropped yet?",
+        answer:
+          "Grades lag behind an actual struggle by weeks or months in most school systems. Comparing which subjects your child talks about with confidence versus which ones they go quiet about is a faster signal, since that gap often shows up before it's reflected in a quiz score.",
+      },
+    ],
   },
 ];
 
