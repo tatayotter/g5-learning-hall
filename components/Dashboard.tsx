@@ -663,7 +663,12 @@ export default function Dashboard() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 p-8 overflow-y-auto relative">
+      {/* min-w-0 overrides the flex default of min-width:auto — without it,
+          this flex item refuses to shrink below its content's natural width,
+          so anything inside wider than the available space (long unbroken
+          text, etc.) stretches the whole row and forces the page into
+          horizontal scroll, especially on narrower landscape viewports. */}
+      <main className="flex-1 min-w-0 p-8 overflow-y-auto relative">
 
 
         {/* Tab switches from the sidebar rail fade/slide the content area
