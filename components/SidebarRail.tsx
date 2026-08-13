@@ -44,19 +44,7 @@ export default function SidebarRail({
 
   return (
     <>
-      {/* transform: translateZ(0) forces this aside onto its own GPU
-          compositing layer. iOS Safari has a long-standing bug where heavy
-          simultaneously-composited siblings (BossPersonaFan stacks up to
-          ~9 absolutely-positioned cards, each animating transform + filter +
-          box-shadow at once) blow its layer budget and Safari silently
-          drops paint on unrelated elements sharing the page — this rail's
-          plain <img> icons going blank on iOS (never on Android/desktop)
-          matches that exactly. Pinning the rail to its own layer keeps it
-          from being a casualty of that pressure. */}
-      <aside
-        className="rail-aside relative z-[70] w-20 md:w-24 shrink-0 bg-[#211007] flex flex-col items-center overflow-y-auto"
-        style={{ transform: 'translateZ(0)', WebkitBackfaceVisibility: 'hidden' }}
-      >
+      <aside className="rail-aside relative z-[70] w-20 md:w-24 shrink-0 bg-[#211007] flex flex-col items-center overflow-y-auto">
         {RAIL_ITEMS.map((item) => {
           const isActive = activeTab === item.target;
           return (
@@ -68,7 +56,22 @@ export default function SidebarRail({
                 isActive ? 'border-l-amber-500 bg-[#0a0807]' : 'border-l-transparent hover:bg-[#0a0807]'
               }`}
             >
-              <span className="relative">
+              {/* w-10 h-10 here (not just on .rail-icon) gives this wrapper
+                  a definite height. Without it, the landscape/short-viewport
+                  rule in globals.css (`.rail-icon { height: min(2.5rem, 70%) }`)
+                  has a `70%` term that can only resolve against a definite
+                  parent height — this span was the parent, but sized only by
+                  its content (auto), so the percentage had nothing to resolve
+                  against. Per spec that should just fall back cleanly, but
+                  WebKit/iOS Safari collapses the image to ~0px instead
+                  (Chrome/Android happens to paper over it), which is why the
+                  rail icons went blank only in landscape play (the orientation
+                  this landscape-locked game runs in) and only on iOS — the
+                  standalone Logout button below never had this wrapper, so its
+                  icon was never affected. Giving the span the same definite
+                  w-10 h-10 as the icon removes the indeterminate-height case
+                  entirely instead of relying on a browser to guess right. */}
+              <span className="relative w-10 h-10 flex items-center justify-center shrink-0">
                 <img src={item.icon} alt="" className="rail-icon w-10 h-10 object-contain" />
                 {railBadges?.[item.target] && (
                   <span className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-amber-400 border-2 border-[#211007]" />
