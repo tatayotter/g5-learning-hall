@@ -67,6 +67,18 @@
   --color-red-900: #4a0e0c;
 }
 
+/* This app never has content meant to scroll sideways — anywhere it
+   does (BossPersonaFan's absolutely-positioned cards fanning past their
+   container's edges, a flex child stretching past viewport width, etc.)
+   is a bug, not an intentional pan surface. Blocking it at the root
+   removes the drag/swipe entirely instead of chasing each source, and
+   also stops iOS Safari's `position: fixed` layers (e.g. BossMistOverlay)
+   from misaligning/clipping when the page itself is horizontally
+   scrollable. */
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--background);
   background-image:

@@ -770,7 +770,12 @@ export default function Dashboard() {
 
             {bossEventActive && (
               <div className="mb-10">
-                <div className="rounded-2xl border-2 border-purple-700/70 bg-gradient-to-br from-[#0d0512] to-black shadow-[0_0_0_2px_#000,0_0_40px_-8px_rgba(147,51,234,0.35)] p-6">
+                {/* overflow-hidden: BossPersonaFan fans its cards out with
+                    absolute positioning, which can spill past this box's
+                    edges (the source of the horizontal-scroll bug) — clip it
+                    here instead of relying solely on the page-level
+                    overflow-x guard in globals.css. */}
+                <div className="rounded-2xl border-2 border-purple-700/70 bg-gradient-to-br from-[#0d0512] to-black shadow-[0_0_0_2px_#000,0_0_40px_-8px_rgba(147,51,234,0.35)] p-6 overflow-hidden">
                   <h2 className="text-xl font-bold text-white font-display mb-1">Term Boss — The Forgetting</h2>
                   <p className="text-xs font-bold text-purple-400 uppercase tracking-wide mb-4">
                     Defeat every persona to push it back
