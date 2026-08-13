@@ -668,7 +668,16 @@ export default function Dashboard() {
           so anything inside wider than the available space (long unbroken
           text, etc.) stretches the whole row and forces the page into
           horizontal scroll, especially on narrower landscape viewports. */}
-      <main className="flex-1 min-w-0 p-8 overflow-y-auto relative">
+      {/* overflow-x-hidden: min-w-0 above stops this pane from *growing* to
+          fit wide content, but doesn't stop that content from still
+          visually spilling past this box's edge (overflow-x was left at
+          its 'visible' default) — which was still widening the page's
+          real scrollable area even though it looked fine. That phantom
+          width is why the fixed-position audio rail's `right: 6` (further
+          down this file) was resolving off-screen: fixed elements pin to
+          the viewport, but only once nothing upstream is still stretching
+          it. */}
+      <main className="flex-1 min-w-0 p-8 overflow-y-auto overflow-x-hidden relative">
 
 
         {/* Tab switches from the sidebar rail fade/slide the content area
