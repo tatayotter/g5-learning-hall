@@ -44,7 +44,19 @@ export default function SidebarRail({
 
   return (
     <>
-      <aside className="rail-aside relative z-[70] w-20 md:w-24 shrink-0 bg-[#211007] flex flex-col items-center overflow-y-auto">
+      {/* transform: translateZ(0) forces this aside onto its own GPU
+          compositing layer. iOS Safari has a long-standing bug where heavy
+          simultaneously-composited siblings (BossPersonaFan stacks up to
+          ~9 absolutely-positioned cards, each animating transform + filter +
+          box-shadow at once) blow its layer budget and Safari silently
+          drops paint on unrelated elements sharing the page — this rail's
+          plain <img> icons going blank on iOS (never on Android/desktop)
+          matches that exactly. Pinning the rail to its own layer keeps it
+          from being a casualty of that pressure. */}
+      <aside
+        className="rail-aside relative z-[70] w-20 md:w-24 shrink-0 bg-[#211007] flex flex-col items-center overflow-y-auto"
+        style={{ transform: 'translateZ(0)', WebkitBackfaceVisibility: 'hidden' }}
+      >
         {RAIL_ITEMS.map((item) => {
           const isActive = activeTab === item.target;
           return (
