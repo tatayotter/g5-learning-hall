@@ -1,0 +1,36 @@
+{
+  "_readme": "Predefined curriculum source URLs for the bow-rollout cloud routine, so it fetches known-good official DepEd MATATAG Curriculum Guide PDFs directly instead of running open-ended WebSearch every run (saves tokens). Compiled 2026-08-14 from deped.gov.ph. 'confidence: high' entries are official DepEd CG PDFs that explicitly cover the target grade's key stage — WebFetch these directly. 'confidence: partial' entries are the best official document found but may not clearly break out that specific grade (e.g. it's a K-3 or multi-grade combined guide) — WebFetch first, and only fall back to one targeted WebSearch if the fetched content doesn't actually cover the target grade's competencies. 'confidence: none' means no official document was found — go straight to WebSearch/WebFetch research for that one, same as before this manifest existed. Grades 4 and 6 intentionally share the same source docs: DepEd's Key Stage 2 (Grades 4-6) curriculum guides are published as one document per subject spanning all three grades, titled by the launch-year grades (e.g. 'Grade 4 and 7') rather than split per grade — look for the Grade 6-specific competency table inside the same PDF, don't search for a separate Grade-6-only file.",
+  "sources": {
+    "3": {
+      "English": { "confidence": "partial", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf"], "note": "K-3 Reading and Literacy CG covers the English literacy strand; confirm it breaks out Grade 3 specifically." },
+      "Mathematics": { "confidence": "partial", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-Mathematics-CG-Grades1-4-and-7.pdf"], "note": "Titled Grades 1/4/7 but Math CGs typically show the full K-10 progression table; find the Grade 3 row." },
+      "Filipino": { "confidence": "partial", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf", "https://www.deped.gov.ph/wp-content/uploads/MATATAG-FILIPINO-CG-Grades-4-at-7-.pdf"], "note": "First URL for the K-3 literacy strand; second as a structure/format reference only (it's the Grade 4/7 doc, not Grade 3 content)." },
+      "Science": { "confidence": "partial", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-Science-CG-Grade-4-and-7.pdf"], "note": "Science is formally introduced in Grade 3 under MATATAG (per the Kindergarten CG's note 'eventually Science in Grade 3') — check whether this doc's progression table starts at Grade 3." },
+      "GMRC": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-GMRC-and-VE-Grades-1-4-and-7.pdf"], "note": "Covers the K-3 GMRC strand; find the Grade 3 row." },
+      "Makabansa": { "confidence": "partial", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MAKABANSA-GRADE-1.pdf"], "note": "Only a Grade 1 Makabansa CG was found. Use it for format/strand structure, but you'll likely need one WebSearch for the actual Grade 3 Makabansa competencies." },
+      "Computer": { "confidence": "none", "urls": [], "note": "No official MATATAG document — this app's own addition, not a DepEd-mandated subject at this grade band. Write age-appropriate basic computer/ICT literacy competencies from general best practice, consistent with what Grade 2's existing budget_of_work row does." }
+    },
+    "4": {
+      "English": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-ENGLISH-CG-G4-and-7.pdf"] },
+      "Mathematics": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-Mathematics-CG-Grades1-4-and-7.pdf"] },
+      "Filipino": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-FILIPINO-CG-Grades-4-at-7-.pdf"] },
+      "Science": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-Science-CG-Grade-4-and-7.pdf"] },
+      "Araling Panlipunan": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-Araling-Panlipunan-CG-Grade-4-and-7.pdf"] },
+      "EPP (ICT)": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-EPP_TLE-CG-2023-Grades-4-10-1.pdf"], "note": "Combined EPP/TLE CG for Grades 4-10 — find the ICT exploratory strand for Grade 4." },
+      "EPP (AFA/FCS/IA)": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-EPP_TLE-CG-2023-Grades-4-10-1.pdf"], "note": "Same document as EPP (ICT) — find the Agri-Fishery/Home Economics/Industrial Arts exploratory strands for Grade 4." },
+      "MAPEH": { "confidence": "partial", "urls": ["https://www.deped.gov.ph/wp-content/uploads/PE-and-HEALTH_CG-2023_Grade-4-and-7.pdf"], "note": "This only covers the PE & Health half of MAPEH. Music & Arts CG wasn't found in this pass — one WebSearch for 'MATATAG Music and Arts CG Grade 4' is needed to complete this subject." },
+      "GMRC": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-GMRC-and-VE-Grades-1-4-and-7.pdf"] }
+    },
+    "6": {
+      "English": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-ENGLISH-CG-G4-and-7.pdf"], "note": "Same Key Stage 2 document as Grade 4 — find the Grade 6 competency table." },
+      "Mathematics": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-Mathematics-CG-Grades1-4-and-7.pdf"], "note": "Find the Grade 6 competency table." },
+      "Filipino": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-FILIPINO-CG-Grades-4-at-7-.pdf"], "note": "Find the Grade 6 competency table." },
+      "Science": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-Science-CG-Grade-4-and-7.pdf"], "note": "Find the Grade 6 competency table." },
+      "Araling Panlipunan": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-Araling-Panlipunan-CG-Grade-4-and-7.pdf"], "note": "Find the Grade 6 competency table." },
+      "EPP (ICT)": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-EPP_TLE-CG-2023-Grades-4-10-1.pdf"], "note": "Find the Grade 6 ICT exploratory strand." },
+      "EPP (AFA/FCS/IA)": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-EPP_TLE-CG-2023-Grades-4-10-1.pdf"], "note": "Find the Grade 6 Agri-Fishery/Home Economics/Industrial Arts strands." },
+      "MAPEH": { "confidence": "partial", "urls": ["https://www.deped.gov.ph/wp-content/uploads/PE-and-HEALTH_CG-2023_Grade-4-and-7.pdf"], "note": "PE & Health half only, same gap as Grade 4 — one WebSearch for 'MATATAG Music and Arts CG Grade 6' needed." },
+      "GMRC": { "confidence": "high", "urls": ["https://www.deped.gov.ph/wp-content/uploads/MATATAG-GMRC-and-VE-Grades-1-4-and-7.pdf"], "note": "Find the Grade 6 competency table." }
+    }
+  }
+}
