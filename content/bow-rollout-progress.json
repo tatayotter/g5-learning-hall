@@ -16,15 +16,15 @@
     { "grade": 4, "subject": "EPP (ICT)", "status": "authored" },
     { "grade": 4, "subject": "MAPEH", "status": "authored" },
     { "grade": 4, "subject": "EPP (AFA/FCS/IA)", "status": "authored" },
-    { "grade": 4, "subject": "GMRC", "status": "pending" },
-    { "grade": 6, "subject": "English", "status": "pending" },
-    { "grade": 6, "subject": "Mathematics", "status": "pending" },
-    { "grade": 6, "subject": "Filipino", "status": "pending" },
-    { "grade": 6, "subject": "Science", "status": "pending" },
-    { "grade": 6, "subject": "Araling Panlipunan", "status": "pending" },
-    { "grade": 6, "subject": "EPP (ICT)", "status": "pending" },
-    { "grade": 6, "subject": "MAPEH", "status": "pending" },
-    { "grade": 6, "subject": "EPP (AFA/FCS/IA)", "status": "pending" },
-    { "grade": 6, "subject": "GMRC", "status": "pending" }
+    { "grade": 4, "subject": "GMRC", "status": "authored" },
+    { "grade": 6, "subject": "English", "status": "authored" },
+    { "grade": 6, "subject": "Mathematics", "status": "authored" },
+    { "grade": 6, "subject": "Filipino", "status": "authored" },
+    { "grade": 6, "subject": "Science", "status": "authored" },
+    { "grade": 6, "subject": "Araling Panlipunan", "status": "authored" },
+    { "grade": 6, "subject": "EPP (ICT)", "status": "authored" },
+    { "grade": 6, "subject": "MAPEH", "status": "authored" },
+    { "grade": 6, "subject": "EPP (AFA/FCS/IA)", "status": "authored" },
+    { "grade": 6, "subject": "GMRC", "status": "authored" }
   ]
 }
