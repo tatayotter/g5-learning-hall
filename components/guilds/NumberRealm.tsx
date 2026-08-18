@@ -2,7 +2,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTimeAttack } from '@/hooks/useTimeAttack';
-import { fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile, ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/lib/guildEngine';
+import {
+  fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile,
+  ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile,
+  getCompanionTierCrossed, fetchCompanionInstanceStats, getCompanionSpeciesDef,
+} from '@/lib/guildEngine';
 import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
@@ -13,8 +17,10 @@ import { USERS, gradeToNumber } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
+import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
 import CritBonusToast from '@/components/CritBonusToast';
-import { ALL_MONSTERS } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, getGuildMonsterTierDef, MonsterDef } from '@/lib/monsterConfig';
+import { QualityTier } from '@/lib/curioQuality';
 
 // Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
 // is heavily biased (see components/battle/shared.tsx's shuffleArray).
@@ -53,6 +59,9 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
   const [profile, setProfile] = useState<SubclassProfile | null>(null);
   const [flashResult, setFlashResult] = useState<'correct' | 'wrong' | null>(null);
   const [newCurioId, setNewCurioId] = useState<string | null>(null);
+  const [companionGraduation, setCompanionGraduation] = useState<{
+    fromDef: MonsterDef; toDef: MonsterDef; monsterLevel: number; quality: QualityTier;
+  } | null>(null);
 
   // Input state for all three layouts
   const [standardAns, setStandardAns] = useState('');
@@ -141,6 +150,18 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
       if (profile.number_realm_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
         const grantedId = await ensureGuildMonsterGranted(userId, 'number_realm');
         if (grantedId) setNewCurioId(grantedId);
+      } else if (profile.number_realm_lvl >= GUILD_MONSTER_GRANT_LEVEL) {
+        const tierCrossed = getCompanionTierCrossed('number_realm', profile.number_realm_lvl, level);
+        const speciesDef = tierCrossed ? getCompanionSpeciesDef('number_realm') : undefined;
+        if (tierCrossed && speciesDef) {
+          const { level: monsterLevel, quality } = await fetchCompanionInstanceStats(userId, 'number_realm');
+          setCompanionGraduation({
+            fromDef: getGuildMonsterTierDef(speciesDef, (tierCrossed - 1) as 1 | 2),
+            toDef: getGuildMonsterTierDef(speciesDef, tierCrossed),
+            monsterLevel,
+            quality,
+          });
+        }
       }
     }
     if (engine.totalGoldEarned > 0) {
@@ -299,6 +320,13 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
     <div className="max-w-2xl mx-auto battle-panel-in">
       {newCurioId && ALL_MONSTERS[newCurioId] && (
         <CurioRevealModal monster={ALL_MONSTERS[newCurioId]} userId={userId} onClose={() => setNewCurioId(null)} />
+      )}
+      {companionGraduation && (
+        <GraduationCeremonyModal
+          {...companionGraduation}
+          userId={userId}
+          onGoToCompendium={() => setCompanionGraduation(null)}
+        />
       )}
       <div className="bg-[#0d0c08] border-2 border-amber-800 rounded-2xl p-10 text-center shadow-2xl font-mono">
         <div className="w-40 h-40 mx-auto mb-4">

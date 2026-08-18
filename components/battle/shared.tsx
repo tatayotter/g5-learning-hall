@@ -219,7 +219,14 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
   const inner = (
     <div className={embedded ? 'mt-2' : 'bg-neutral-900 border border-neutral-700 rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in'}>
       <div key={index} className="battle-panel-in">
-        <p className="text-xs text-gray-500 mb-1.5 font-mono">Question {index + 1} of {askedCount}</p>
+        <div className="flex items-center justify-between mb-1.5">
+          <p className="text-xs text-gray-500 font-mono">Question {index + 1} of {askedCount}</p>
+          {current.subject && (
+            <span className="text-[10px] font-bold uppercase tracking-wide text-amber-300 bg-amber-900/40 border border-amber-700/60 rounded-full px-2 py-0.5">
+              {current.subject}
+            </span>
+          )}
+        </div>
         <p className="text-base font-bold text-white mb-3 leading-snug">{current.question || current.problem_prompt}</p>
         <div className="space-y-2">
         {(current.options || []).map((opt: any) => {

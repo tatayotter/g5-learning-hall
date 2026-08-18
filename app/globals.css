@@ -577,20 +577,82 @@ html {
   65%  { transform: scale(0.94, 1.08); }
   100% { transform: scale(1, 1); }
 }
-@keyframes map-bump-shake {
-  0%, 100% { transform: translateX(0); }
-  25%      { transform: translateX(-4px); }
-  50%      { transform: translateX(4px); }
-  75%      { transform: translateX(-2px); }
-}
 @keyframes map-dust-puff {
   0%   { opacity: 0.55; transform: translate(-50%, -50%) scale(0.4); }
   100% { opacity: 0;    transform: translate(-50%, -50%) scale(1.4); }
 }
 
 .map-step-bounce { animation: map-step-bounce 0.22s ease-out; }
-.map-bump-shake  { animation: map-bump-shake 0.22s ease-in-out; }
 .map-dust-puff   { animation: map-dust-puff 0.45s ease-out forwards; }
+
+/* Scroll marker — gentle idle float so it reads as "alive" on the map. */
+@keyframes map-scroll-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+.map-scroll-sprite { display: inline-block; animation: map-scroll-bob 1.8s ease-in-out infinite; }
+
+/* Strong orange glow behind the scroll sprite — a wide, pulsing radial glow
+   so a spawned scroll reads clearly from a distance on the map. */
+@keyframes map-scroll-glow-pulse {
+  0%, 100% { opacity: 0.7; transform: scale(0.9); }
+  50%      { opacity: 1;   transform: scale(1.2); }
+}
+.map-scroll-glow {
+  inset: -20%;
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.75) 0%, rgba(251, 146, 60, 0.35) 45%, transparent 72%);
+  animation: map-scroll-glow-pulse 1.8s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* Curio marker — an oval ground-shadow glow pooled under its feet (as if lit
+   from a light source above, not a halo behind it), colored per-instance via
+   --glow-color (set inline from getQualityGroundGlowColor). Pulses/breathes
+   outward so a spawned curio reads as "special" from a glance/distance. */
+@keyframes map-curio-glow-pulse {
+  0%, 100% { opacity: 0.55; transform: translateX(-50%) scale(0.85); }
+  50%      { opacity: 0.95; transform: translateX(-50%) scale(1.15); }
+}
+.map-curio-ground-glow {
+  bottom: 6%;
+  left: 50%;
+  width: 72%;
+  height: 26%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, var(--glow-color) 0%, transparent 72%);
+  animation: map-curio-glow-pulse 2.2s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* Periodic hop — an occasional attention-grabbing jump rather than a
+   continuous bounce: the sprite sits still for most of the 4s loop and only
+   jumps briefly near the end of each cycle. */
+@keyframes map-curio-hop {
+  0%, 82%, 100% { transform: translateY(0); }
+  88%  { transform: translateY(-10px); }
+  94%  { transform: translateY(0); }
+}
+.map-curio-hop { animation: map-curio-hop 4s ease-in-out infinite; z-index: 1; }
+
+/* Portal marker — cycles the 4 frames of public/tilesets/portals/portal-orange.png
+   (a horizontal strip, each frame 1/4 of the image width) via background-position. */
+@keyframes map-portal-spin {
+  0%   { background-position: 0% 0; }
+  100% { background-position: 100% 0; }
+}
+.map-portal-sprite {
+  background-image: url('/tilesets/portals/portal-orange.png');
+  background-size: 400% 100%;
+  image-rendering: pixelated;
+  /* steps(3), not steps(4): background-position 0%->100% only lands exactly
+     on a frame boundary at multiples of 100/(frames-1) — with 4 frames that's
+     0%, 33.3%, 66.7%, 100%. steps(N) quantizes to N *evenly time-spaced*
+     stops (25/50/75/100 for N=4), which doesn't line up with those frame
+     boundaries and blends two frames together at each stop — the "panning"
+     smear. steps(frames-1) is what actually lands cleanly on every frame. */
+  animation: map-portal-spin 0.6s steps(3) infinite;
+}
+
 
 /* ── Battle UI: shared button feel + screen/panel entrances ── */
 /* Used across all three battle surfaces (NPC BattleScreen, LiveBattleScreen,
@@ -1018,13 +1080,6 @@ html {
   left: 10px; bottom: 10px;
   z-index: 16;
 }
-.mstage-dpad {
-  display: grid;
-  grid-template-columns: repeat(3, 30px);
-  grid-template-rows: repeat(3, 30px);
-  gap: 3px;
-}
-
 /* Narrow and centered (not full-width) same as the battle log, anchored at
    the same `bottom` as the frame's own bottom edge (8px canvas margin) so
    it reads as attached rather than floating independently. Border only

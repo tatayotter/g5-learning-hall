@@ -73,7 +73,7 @@ export default function AvatarPicker({ userId, currentAvatar, onClose, onSaved }
                       isCurrent ? 'border-amber-400' : 'border-neutral-700 hover:border-neutral-500'
                     }`}
                   >
-                    <img src={avatar} alt={file} className="w-full h-full object-cover" />
+                    <img src={avatar} alt={file} className="w-full h-full object-contain" />
                     {isCurrent && (
                       <span className="absolute bottom-0.5 right-0.5 bg-amber-500 text-black text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">✓</span>
                     )}
@@ -106,7 +106,7 @@ export default function AvatarPicker({ userId, currentAvatar, onClose, onSaved }
                           isCurrent ? 'border-amber-400' : owned ? 'border-neutral-700 hover:border-neutral-500' : 'border-neutral-800'
                         }`}
                       >
-                        <img src={avatar} alt={item.name} className={`w-full h-full object-cover ${owned ? '' : 'opacity-30 grayscale'}`} />
+                        <img src={avatar} alt={item.name} className={`w-full h-full object-contain ${owned ? '' : 'opacity-30 grayscale'}`} />
                         {isCurrent && (
                           <span className="absolute bottom-0.5 right-0.5 bg-amber-500 text-black text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">✓</span>
                         )}

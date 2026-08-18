@@ -693,43 +693,28 @@ export function pickRandomWildMonsterId(ownedLegendaryCount = 0, allowedElements
   return entries[entries.length - 1].id; // unreachable in practice
 }
 
-// ─── WILD ENCOUNTER CHANCE ──────────────────────────────────────────────────
-// Base odds are tuned so a player at ~1hr/day of active map play sees roughly
-// 3 wild encounters per week (~7 hrs x ~120 answered questions/hr ≈ 840
-// answers/week → 3/840 ≈ 0.36%, rounded to 0.5% for a rounder in-game feel).
-// Defeating NPC trainers gradually raises this — more trainers beaten makes
-// the player visibly better at finding wild monsters, capped once every
-// trainer is down (3x the base rate, same ratio as before this retune).
-const WILD_ENCOUNTER_BASE_CHANCE = 0.005;
-const WILD_ENCOUNTER_CHANCE_PER_TRAINER_DEFEATED = 0.00125;
+// ─── WILD ENCOUNTER (CURIO) CHANCE ──────────────────────────────────────────
+// A curio now spawns on the map from a single roll made when a *scroll*
+// question is answered correctly (see components/monster/TrainingMap.tsx's
+// handleScrollAnswer) — a deliberate, walked-to event, not ambient
+// background noise on every grass step like the old system this replaced.
+// Flat rate for everyone: ~1 curio every 20 correct answers on average, with
+// no scaling by trainers defeated or monsters owned — that two-axis scaling
+// only mattered when rolls were cheap and frequent; at this cadence a flat
+// number is both simpler and easier to reason about for players.
+const WILD_ENCOUNTER_CHANCE = 0.05;
 
-// Chance (0-1) that any single answered question triggers a wild encounter
-// roll, given how many distinct NPC trainers the player has defeated so far.
-export function getWildEncounterChance(defeatedTrainerCount: number): number {
-  const cap = WILD_ENCOUNTER_BASE_CHANCE + NPC_TRAINERS.length * WILD_ENCOUNTER_CHANCE_PER_TRAINER_DEFEATED;
-  const chance = WILD_ENCOUNTER_BASE_CHANCE + defeatedTrainerCount * WILD_ENCOUNTER_CHANCE_PER_TRAINER_DEFEATED;
-  return Math.min(chance, cap);
+export function getWildEncounterChance(): number {
+  return WILD_ENCOUNTER_CHANCE;
 }
 
-// ─── WILD ENCOUNTER PITY TIMER ──────────────────────────────────────────────
-// Early-game safety net so a player who hasn't caught much yet isn't left to
-// the raw ~0.5-1.5% roll above. Once unlocked (2+ NPC trainers defeated), a
-// wild encounter is forced after this many correctly-answered grass questions
-// go by without one occurring naturally. Resets to standard-odds-only once
-// the player owns 5+ monsters (team + box combined).
-const WILD_ENCOUNTER_PITY_THRESHOLDS: Record<number, number> = {
-  1: 10,
-  2: 30,
-  3: 50,
-  4: 100,
-};
-
-// Number of correctly-answered questions after which an encounter should be
-// forced, given the player's total owned monster count — or null if the
-// player has 5+ monsters and should rely on getWildEncounterChance alone.
-export function getWildEncounterPityThreshold(totalMonstersOwned: number): number | null {
-  return WILD_ENCOUNTER_PITY_THRESHOLDS[totalMonstersOwned] ?? null;
-}
+// ─── WILD ENCOUNTER (CURIO) PITY TIMER ──────────────────────────────────────
+// Safety net against a long unlucky streak — always active for every player
+// (no owned-monster or defeated-trainer gating), unlike the old tiered table
+// this replaced, which silently granted zero pity to anyone owning 5+
+// monsters. A curio is forced once this many correct scroll answers pass
+// without one spawning naturally; resets to 0 the moment one does.
+export const WILD_ENCOUNTER_PITY_THRESHOLD = 30;
 
 // ─── GUILD COMPANION MONSTERS ────────────────────────────────────────────────
 // One dedicated monster per Side Quest Guild, granted the first time that

@@ -4,18 +4,23 @@ import { supabase } from '@/lib/supabase';
 import { playMonsterAppear, playChime, playClash, playFootstepGrass, playFootstepTown, playWallBump } from '@/lib/sounds';
 import { USERS } from '@/lib/userSession';
 import { useMapPresence } from '@/hooks/useMapPresence';
+import { useContinuousMovement } from '@/hooks/useContinuousMovement';
 import PlayerStatsPopup from '@/components/PlayerStatsPopup';
 import {
   MonsterDef, BATTLE_CONSTANTS, getScaledStats, getMonsterLevel,
-  getWildEncounterChance, getWildEncounterPityThreshold,
+  getWildEncounterChance, WILD_ENCOUNTER_PITY_THRESHOLD,
 } from '@/lib/monsterConfig';
 import { MonsterImage, BattleQuestionModal, GMBadge, UserMonster } from '@/components/battle/shared';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import MapStage from '@/components/MapStage';
 import MapCanvas from '@/components/monster/map/MapCanvas';
-import { REGIONS, MAP_SIZE, type MapTile } from '@/lib/regions';
+import Joystick from '@/components/monster/map/Joystick';
+import { REGIONS, type MapTile } from '@/lib/regions';
 import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
+import { loadTiledArtMap, type TiledArtPortal } from '@/lib/tiledArtMap';
+import type { MapBackground } from '@/lib/phaserMap/TrainingMapScene';
 import { CaughtMonster, BattleState } from '@/components/monster/types';
+import type { QualityTier } from '@/lib/curioQuality';
 
 // The training map is a single painted background image (public/maps/map-1.webp)
 // with an invisible logical grid overlaid for walkability + markers. The grid and
@@ -23,6 +28,65 @@ import { CaughtMonster, BattleState } from '@/components/monster/types';
 // fluidly to any container width — no horizontal scrolling on mobile/small desktops.
 // Every region's walkability grid is authored in Tiled (see public/maps-tiled/*.json
 // + lib/tiledMap.ts) — REGIONS[id].tiledMapPath points at each one.
+
+// Scrolls (training questions) and curios (wild-encounter entry points) are
+// visible, walked-into map entities — replacing the old "random 40% chance
+// while stepping on any grass tile" model. Both are purely client-local
+// (never synced to other players, see hooks/useMapPresence.ts's header for
+// contrast) and live entirely in this component's own state, same pattern
+// as dustPuffs below.
+const SCROLL_POOL_SIZE = 5;
+const SCROLL_RESPAWN_DELAY_MS = 2500;
+
+// Random unoccupied 'grass'-type tile — same eligibility the old random
+// quiz roll used (never 'path'/'town'/'wall'). Returns null if none fit
+// (e.g. a small elemental-region map with fewer than SCROLL_POOL_SIZE grass
+// tiles once occupied ones are excluded) — callers should just spawn as
+// many as fit rather than treating null as an error.
+function pickEligibleTile(
+  map: MapTile[][], mapWidth: number, mapHeight: number,
+  occupied: { x: number; y: number }[], foliage: boolean[][] | null,
+): { x: number; y: number } | null {
+  const candidates: { x: number; y: number }[] = [];
+  for (let y = 0; y < mapHeight; y++) {
+    for (let x = 0; x < mapWidth; x++) {
+      if (map[y]?.[x]?.type !== 'grass') continue;
+      if (foliage?.[y]?.[x]) continue; // under tree canopy — see lib/tiledArtMap.ts
+      if (occupied.some(o => o.x === x && o.y === y)) continue;
+      candidates.push({ x, y });
+    }
+  }
+  if (candidates.length === 0) return null;
+  return candidates[Math.floor(Math.random() * candidates.length)];
+}
+
+// A curio spawns on an open tile next to the player (not the scroll's own
+// tile, not a random far-off one) so the "you answered here, it appeared
+// here" link stays obvious. Widens the search radius outward if the
+// player's immediate neighbors are all blocked/occupied, so a boxed-in
+// player doesn't silently eat a successful roll.
+function pickAdjacentOpenTile(
+  map: MapTile[][], mapWidth: number, mapHeight: number,
+  playerX: number, playerY: number, occupied: { x: number; y: number }[], foliage: boolean[][] | null,
+): { x: number; y: number } | null {
+  for (let radius = 1; radius <= 3; radius++) {
+    const candidates: { x: number; y: number }[] = [];
+    for (let dy = -radius; dy <= radius; dy++) {
+      for (let dx = -radius; dx <= radius; dx++) {
+        if (dx === 0 && dy === 0) continue;
+        if (Math.max(Math.abs(dx), Math.abs(dy)) !== radius) continue; // this radius's ring only
+        const x = playerX + dx, y = playerY + dy;
+        if (x < 0 || x >= mapWidth || y < 0 || y >= mapHeight) continue;
+        if (map[y]?.[x]?.type === 'wall') continue;
+        if (foliage?.[y]?.[x]) continue; // under tree canopy — see lib/tiledArtMap.ts
+        if (occupied.some(o => o.x === x && o.y === y)) continue;
+        candidates.push({ x, y });
+      }
+    }
+    if (candidates.length > 0) return candidates[Math.floor(Math.random() * candidates.length)];
+  }
+  return null;
+}
 
 interface TrainingMapProps {
   userId: string;
@@ -36,6 +100,13 @@ interface TrainingMapProps {
   onHeal: () => void;
   onQuestionsAnswered?: (questions: any[]) => void;
   onWildEncounterRoll?: () => void;
+  // The curio MonsterGuild picked (species/level/question) once a scroll
+  // roll succeeds — TrainingMap only owns WHERE it renders (curioPos,
+  // picked adjacent to the player); MonsterGuild owns WHAT it is and the
+  // actual battle-entry flow (WildEncounterModal). Walking onto curioPos's
+  // tile calls onEnterCurio, which is what actually opens that modal.
+  activeCurio?: { id: number; monsterId: string; quality: QualityTier } | null;
+  onEnterCurio?: () => void;
   onChallengePlayer?: (targetId: string, name: string) => void;
   liveBattleInbox?: ReturnType<typeof useLiveBattleInbox>;
   mapPresence: ReturnType<typeof useMapPresence>;
@@ -48,17 +119,24 @@ interface TrainingMapProps {
   // fixed spawn point tracked in local state only (never written to the DB).
   regionId?: string;
   onExitRegion?: () => void;
+  // Needed to gate the portal tiles placed in Ledger's Heart (see
+  // public/maps-tiled-art/README.md) against each region's unlockLevel.
+  playerLevel: number;
+  onEnterRegion?: (regionId: string) => void;
 }
 
 export default function TrainingMap({
   userId, battleState, userMonsters, caughtMonsters, questions, gradingUserId,
-  onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll, onChallengePlayer,
+  onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll,
+  activeCurio, onEnterCurio, onChallengePlayer,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
-  regionId, onExitRegion,
+  regionId, onExitRegion, playerLevel, onEnterRegion,
 }: TrainingMapProps) {
-  const [grassQuestion, setGrassQuestion] = useState(false);
+  const [scrolls, setScrolls] = useState<{ id: number; x: number; y: number }[]>([]);
+  const [activeScroll, setActiveScroll] = useState<{ id: number; x: number; y: number } | null>(null);
+  const [curioPos, setCurioPos] = useState<{ x: number; y: number } | null>(null);
+  const scrollIdRef = useRef(0);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
-  const [stickerPickerOpen, setStickerPickerOpen] = useState(false);
   const [infoTab, setInfoTab] = useState<'team' | 'online' | 'legend' | 'tips'>('team');
   const [stepping, setStepping] = useState(false);
   const [bumping, setBumping] = useState(false);
@@ -68,18 +146,71 @@ export default function TrainingMap({
   const region = !isLedgersHeart ? REGIONS[regionId!] : null;
   const activeRegion = region ?? REGIONS.ledgers_heart;
   const [regionMap, setRegionMap] = useState<MapTile[][]>(blankLoadingMap);
+  // blankLoadingMap is an all-'grass' placeholder shown for one frame while
+  // the real map loads — scroll spawning must wait for the REAL map (it'd
+  // otherwise happily scatter scrolls across the fake grid), so this tracks
+  // "has a real map ever landed in regionMap" separately from regionMap's
+  // own reference (which can't be diffed against blankLoadingMap — it's a
+  // lazy useState initializer, called once, so regionMap only ever holds
+  // its return VALUE, never the function itself).
+  const [mapReady, setMapReady] = useState(false);
+  const [background, setBackground] = useState<MapBackground>({ type: 'image', src: activeRegion.mapImage });
+  const [portals, setPortals] = useState<TiledArtPortal[]>([]);
+  // Tree-canopy exclusion zone for scroll/curio spawning (real-tile-art maps
+  // only — see lib/tiledArtMap.ts). null for painted-background elemental
+  // regions, which have no such layer to derive this from.
+  const [foliage, setFoliage] = useState<boolean[][] | null>(null);
+  const [lockedPortalMsg, setLockedPortalMsg] = useState<string | null>(null);
   useEffect(() => {
     let cancelled = false;
-    loadTiledMap(activeRegion.tiledMapPath).then(parsed => {
-      if (!cancelled) setRegionMap(parsed.layout);
-    });
+    if (activeRegion.tileArtPath) {
+      loadTiledArtMap(activeRegion.tileArtPath).then(parsed => {
+        if (cancelled) return;
+        setRegionMap(parsed.layout);
+        setMapReady(true);
+        setBackground({
+          type: 'tilemap',
+          key: activeRegion.tileArtPath!,
+          mapJson: parsed.mapJson,
+          tilesetImages: parsed.tilesetImages,
+          tileSize: parsed.tileSize,
+          belowPlayerLayers: parsed.belowPlayerLayers,
+          abovePlayerLayers: parsed.abovePlayerLayers,
+        });
+        setPortals(parsed.portals);
+        setFoliage(parsed.foliage);
+        // Ledger's Heart persists position to the DB, so a player whose saved
+        // spot no longer exists on a re-authored map (out of bounds, or now
+        // sitting inside a fence/tree) needs to be nudged back to the map's
+        // own spawn point rather than getting stuck or rendering off-map.
+        if (isLedgersHeart) {
+          const { x, y } = { x: battleState.map_x, y: battleState.map_y };
+          const outOfBounds = x < 0 || x >= parsed.mapWidth || y < 0 || y >= parsed.mapHeight;
+          const blocked = !outOfBounds && parsed.layout[y][x].type === 'wall';
+          if (outOfBounds || blocked) {
+            const newState = { ...battleState, map_x: parsed.spawn.x, map_y: parsed.spawn.y };
+            onBattleStateChange(newState);
+            supabase.from('user_battle_state')
+              .update({ map_x: parsed.spawn.x, map_y: parsed.spawn.y, updated_at: new Date().toISOString() })
+              .eq('user_id', userId);
+            contMove.resetTo({ x: parsed.spawn.x, y: parsed.spawn.y });
+          }
+        }
+      });
+    } else {
+      loadTiledMap(activeRegion.tiledMapPath).then(parsed => {
+        if (cancelled) return;
+        setRegionMap(parsed.layout);
+        setMapReady(true);
+        setBackground({ type: 'image', src: activeRegion.mapImage });
+      });
+    }
     return () => { cancelled = true; };
     // Component remounts when regionId changes (see the localPos comment
     // below), so this only ever needs to run once per mount.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const map = regionMap;
-  const mapImageSrc = activeRegion.mapImage;
   // Elemental regions always start at their fixed spawn point and never
   // persist position — this local state naturally resets on region re-entry
   // since TrainingMap remounts when regionId changes.
@@ -87,7 +218,51 @@ export default function TrainingMap({
   const posX = isLedgersHeart ? battleState.map_x : localPos.x;
   const posY = isLedgersHeart ? battleState.map_y : localPos.y;
   const activeMonster = userMonsters.find(m => m.slot === battleState.active_monster_slot);
-  const { onlinePlayers, waves, stickers, sendWave, sendSticker } = mapPresence;
+  const { onlinePlayers, waves, sendWave } = mapPresence;
+
+  // Fills the scroll pool up to SCROLL_POOL_SIZE once the map has actually
+  // loaded (mapReady — regionMap starts as an all-'grass' loading
+  // placeholder, which would otherwise get scrolls scattered across it).
+  // Excludes the player's own spawn tile so the pool never instant-triggers
+  // the moment the map appears.
+  useEffect(() => {
+    if (!mapReady || scrolls.length > 0) return;
+    const spawned: { id: number; x: number; y: number }[] = [];
+    for (let i = 0; i < SCROLL_POOL_SIZE; i++) {
+      const occupied = [...spawned, { x: posX, y: posY }];
+      const tile = pickEligibleTile(map, activeRegion.mapWidth, activeRegion.mapHeight, occupied, foliage);
+      if (!tile) break; // fewer than SCROLL_POOL_SIZE grass tiles fit — spawn as many as we can
+      spawned.push({ id: scrollIdRef.current++, x: tile.x, y: tile.y });
+    }
+    if (spawned.length > 0) setScrolls(spawned);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mapReady]);
+
+  // Defensive reset if this TrainingMap instance ever persists across a
+  // regionId change (e.g. a portal transition that doesn't force a full
+  // remount) — without this, a stale scroll pool from the previous map
+  // could linger at coordinates that no longer make sense on the new one.
+  useEffect(() => {
+    setScrolls([]);
+    setActiveScroll(null);
+    setCurioPos(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [regionId]);
+
+  // curioPos tracks activeCurio's lifecycle exactly: picked the moment a
+  // curio identity arrives from MonsterGuild, cleared the moment it's gone
+  // (caught, fled, or a region change) — single source of truth, no
+  // MonsterGuild-side position bookkeeping needed.
+  useEffect(() => {
+    if (!activeCurio) {
+      setCurioPos(null);
+      return;
+    }
+    const occupied = [...scrolls, { x: posX, y: posY }];
+    const tile = pickAdjacentOpenTile(map, activeRegion.mapWidth, activeRegion.mapHeight, posX, posY, occupied, foliage);
+    setCurioPos(tile);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeCurio?.id]);
 
   // Restarts a CSS keyframe animation on repeat triggers (toggling the same
   // boolean twice in a row wouldn't otherwise re-fire the animation).
@@ -96,24 +271,17 @@ export default function TrainingMap({
     requestAnimationFrame(() => setter(true));
   };
 
-  const move = useCallback(async (dx: number, dy: number) => {
-    if (movementLocked) return;
-    const newX = posX + dx;
-    const newY = posY + dy;
-    if (newX < 0 || newX >= MAP_SIZE || newY < 0 || newY >= MAP_SIZE) {
-      playWallBump();
-      pulse(setBumping);
-      return;
-    }
+  // Fires once per tile the player newly enters (continuous movement crosses
+  // tile boundaries instead of "completing a move()") — same side effects,
+  // same odds/timing, as the old discrete move() used to run synchronously.
+  const handleTileEnter = useCallback((tile: { x: number; y: number }) => {
+    const { x: newX, y: newY } = tile;
+    const tileData = map[newY]?.[newX];
+    if (!tileData) return;
 
-    const tile = map[newY][newX];
-    if (tile.type === 'wall') {
-      playWallBump();
-      pulse(setBumping);
-      return;
-    }
+    const portal = isLedgersHeart ? portals.find(p => p.x === newX && p.y === newY) : undefined;
 
-    if (tile.type === 'town') {
+    if (tileData.type === 'town') {
       playFootstepTown();
     } else {
       playFootstepGrass();
@@ -126,35 +294,60 @@ export default function TrainingMap({
     if (isLedgersHeart) {
       const newState = { ...battleState, map_x: newX, map_y: newY };
       onBattleStateChange(newState);
-      await supabase.from('user_battle_state')
+      supabase.from('user_battle_state')
         .update({ map_x: newX, map_y: newY, updated_at: new Date().toISOString() })
         .eq('user_id', userId);
     } else {
       setLocalPos({ x: newX, y: newY });
     }
 
-    if (tile.type === 'grass' && Math.random() < 0.4) {
+    if (portal) {
+      const targetRegion = REGIONS[portal.regionId];
+      if (targetRegion && playerLevel >= targetRegion.unlockLevel) {
+        onEnterRegion?.(portal.regionId);
+      } else {
+        setLockedPortalMsg(`${targetRegion?.name ?? 'This region'} unlocks at Player Level ${targetRegion?.unlockLevel ?? '?'}`);
+        setTimeout(() => setLockedPortalMsg(null), 2500);
+      }
+      return;
+    }
+
+    // Scroll/curio are visible, walked-into map entities — replaces the old
+    // "40% chance while stepping on any grass tile" random roll entirely.
+    const scrollHere = scrolls.find(s => s.x === newX && s.y === newY);
+    if (scrollHere) {
       playMonsterAppear();
-      setGrassQuestion(true);
-    } else if (tile.type === 'town') {
+      setActiveScroll(scrollHere);
+      return;
+    }
+    if (curioPos && curioPos.x === newX && curioPos.y === newY) {
+      onEnterCurio?.();
+      return;
+    }
+
+    if (tileData.type === 'town') {
       onHeal();
     }
-  }, [posX, posY, map, userId, onBattleStateChange, onHeal, movementLocked, isLedgersHeart, battleState]);
+  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, onEnterCurio]);
 
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (grassQuestion || movementLocked) return;
-      if (e.key === 'ArrowUp')    move(0, -1);
-      if (e.key === 'ArrowDown')  move(0,  1);
-      if (e.key === 'ArrowLeft')  move(-1, 0);
-      if (e.key === 'ArrowRight') move(1,  0);
-    };
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [move, grassQuestion, movementLocked]);
+  const handleBlocked = useCallback(() => {
+    playWallBump();
+    pulse(setBumping);
+  }, []);
 
-  const handleGrassAnswer = async (correctCount: number, answeredQuestions: any[]) => {
-    setGrassQuestion(false);
+  const contMove = useContinuousMovement({
+    map,
+    mapWidth: activeRegion.mapWidth,
+    mapHeight: activeRegion.mapHeight,
+    enabled: !activeScroll && !movementLocked,
+    initialTile: { x: posX, y: posY },
+    onTileCrossed: handleTileEnter,
+    onBlocked: handleBlocked,
+  });
+
+  const handleScrollAnswer = async (correctCount: number, answeredQuestions: any[]) => {
+    const answered = activeScroll!;
+    setActiveScroll(null);
     if (correctCount > 0) playChime(); else playClash();
     onQuestionsAnswered?.(answeredQuestions);
     if (correctCount > 0 && activeMonster) {
@@ -172,24 +365,36 @@ export default function TrainingMap({
       stateUpdates.last_wild_encounter_win = new Date().toISOString().split('T')[0];
     }
 
-    // Rare wild-monster encounter roll — once per individual question answered,
-    // regardless of whether it was answered correctly. Odds rise the more
-    // NPC trainers the player has defeated (see getWildEncounterChance).
-    const wildEncounterChance = getWildEncounterChance(battleState.defeated_trainers.length);
-    let encountered = answeredQuestions.some(() => Math.random() < wildEncounterChance);
+    // Consume the answered scroll and schedule its replacement, keeping the
+    // pool at SCROLL_POOL_SIZE — same shape as dustPuffs' setTimeout cleanup.
+    setScrolls(prev => prev.filter(s => s.id !== answered.id));
+    setTimeout(() => {
+      setScrolls(prev => {
+        if (prev.length >= SCROLL_POOL_SIZE) return prev;
+        const occupied = [...prev, { x: posX, y: posY }, ...(curioPos ? [curioPos] : [])];
+        const tile = pickEligibleTile(map, activeRegion.mapWidth, activeRegion.mapHeight, occupied, foliage);
+        if (!tile) return prev;
+        return [...prev, { id: scrollIdRef.current++, x: tile.x, y: tile.y }];
+      });
+    }, SCROLL_RESPAWN_DELAY_MS);
 
-    // Pity timer: below 2 defeated NPC trainers, odds stay exactly as rolled
-    // above. From 2 trainers onward, an encounter is forced once enough
-    // correctly-answered questions pass without one occurring naturally — the
-    // fewer monsters the player owns, the sooner the guarantee kicks in (see
-    // getWildEncounterPityThreshold).
+    // Wild-monster (curio) encounter roll — gated on a CORRECT scroll answer
+    // (previously rolled once per answered question regardless of
+    // correctness) and capped at one active curio at a time: a successful
+    // roll while one's already on the map is just a miss, not queued or
+    // refunded. Flat rate, no scaling by trainers defeated or monsters
+    // owned (see getWildEncounterChance's header comment).
+    const wildEncounterChance = getWildEncounterChance();
+    let encountered = correctCount > 0 && !activeCurio && Math.random() < wildEncounterChance;
+
+    // Pity timer: always active (see WILD_ENCOUNTER_PITY_THRESHOLD's header
+    // comment) — forces an encounter once this many correct answers pass
+    // without one occurring naturally. The counter itself still accrues on
+    // every correct answer even while capped by an already-active curio —
+    // only the encounter is suppressed then, not the progress toward pity.
     let questionsSinceEncounter = battleState.questions_since_wild_encounter + correctCount;
-    if (!encountered && battleState.defeated_trainers.length >= 2) {
-      const totalMonstersOwned = userMonsters.length + caughtMonsters.length;
-      const pityThreshold = getWildEncounterPityThreshold(totalMonstersOwned);
-      if (pityThreshold !== null && questionsSinceEncounter >= pityThreshold) {
-        encountered = true;
-      }
+    if (!encountered && !activeCurio && questionsSinceEncounter >= WILD_ENCOUNTER_PITY_THRESHOLD) {
+      encountered = true;
     }
     questionsSinceEncounter = encountered ? 0 : questionsSinceEncounter;
     stateUpdates.questions_since_wild_encounter = questionsSinceEncounter;
@@ -212,67 +417,56 @@ export default function TrainingMap({
   // Map — Phaser canvas for the world layer (background, sprites, dust,
   // bump shake) with a thin DOM overlay for name tags/badges/bubbles/marker;
   // see components/monster/map/MapCanvas.tsx for the split rationale.
-  const townMarkerTile = isLedgersHeart ? { x: 1, y: 1 } : region!.townCenter;
+  // Ledger's Heart's tile-art map has no dedicated healing tile (see
+  // lib/tiledArtMap.ts's header comment) — so no marker to show there.
+  const townMarkerTile = isLedgersHeart ? null : region!.townCenter;
+  const portalMarkers = isLedgersHeart
+    ? portals.map(p => ({ x: p.x, y: p.y, regionId: p.regionId, locked: playerLevel < (REGIONS[p.regionId]?.unlockLevel ?? 0) }))
+    : undefined;
   const frameContent = (
-    <MapCanvas
-      mapSize={MAP_SIZE}
-      mapImageSrc={mapImageSrc}
-      bumping={bumping}
-      stepping={stepping}
-      posX={posX}
-      posY={posY}
-      userId={userId}
-      waves={waves}
-      stickers={stickers}
-      dustPuffs={dustPuffs}
-      onlinePlayers={onlinePlayers}
-      inBattle={id => liveBattleInbox?.playersInBattle.has(id) ?? false}
-      resultWon={id => liveBattleInbox?.battleResultFlashes[id]}
-      townMarkerTile={townMarkerTile}
-      onPlayerClick={setStatsTargetId}
-    />
+    <div className="relative w-full h-full">
+      <MapCanvas
+        mapWidth={activeRegion.mapWidth}
+        mapHeight={activeRegion.mapHeight}
+        background={background}
+        bumping={bumping}
+        stepping={stepping}
+        posX={posX}
+        posY={posY}
+        movement={contMove}
+        userId={userId}
+        waves={waves}
+        dustPuffs={dustPuffs}
+        onlinePlayers={onlinePlayers}
+        inBattle={id => liveBattleInbox?.playersInBattle.has(id) ?? false}
+        resultWon={id => liveBattleInbox?.battleResultFlashes[id]}
+        townMarkerTile={townMarkerTile}
+        portalMarkers={portalMarkers}
+        scrollMarkers={scrolls}
+        curioMarker={activeCurio && curioPos ? { ...curioPos, monsterDef: monsterDisplay[activeCurio.monsterId], quality: activeCurio.quality } : null}
+        onPlayerClick={setStatsTargetId}
+      />
+      {lockedPortalMsg && (
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-black/80 border border-amber-600 text-amber-400 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap z-20">
+          🔒 {lockedPortalMsg}
+        </div>
+      )}
+    </div>
   );
 
-  // Movement + chat controls overlaid directly on the map (bottom-left
-  // corner of the frame) instead of living outside it in a separate row —
-  // desktop still also has arrow-key support via the keydown listener above.
+  // Movement controls overlaid directly on the map (bottom-left corner of
+  // the frame) instead of living outside it in a separate row. Shown on
+  // every view type (desktop included) — desktop keyboard arrow-key support
+  // still works unchanged via useContinuousMovement's own keydown/keyup
+  // listeners, the joystick is just an always-available mouse alternative
+  // now. Gated by both movementLocked and activeScroll, matching the
+  // keyboard path.
+  const controlsDisabled = movementLocked || !!activeScroll;
   const controls = (
     <div className="flex items-end gap-2">
       <div>
-        <div className={`mstage-dpad ${movementLocked ? 'opacity-40' : ''}`}>
-          <div />
-          <button disabled={movementLocked} onClick={() => move(0, -1)} className="bg-black/60 hover:bg-black/80 rounded text-white text-xs disabled:cursor-not-allowed">▲</button>
-          <div />
-          <button disabled={movementLocked} onClick={() => move(-1, 0)} className="bg-black/60 hover:bg-black/80 rounded text-white text-xs disabled:cursor-not-allowed">◀</button>
-          <div className="bg-black/30 rounded" />
-          <button disabled={movementLocked} onClick={() => move(1, 0)}  className="bg-black/60 hover:bg-black/80 rounded text-white text-xs disabled:cursor-not-allowed">▶</button>
-          <div />
-          <button disabled={movementLocked} onClick={() => move(0, 1)}  className="bg-black/60 hover:bg-black/80 rounded text-white text-xs disabled:cursor-not-allowed">▼</button>
-          <div />
-        </div>
+        <Joystick disabled={controlsDisabled} setDirectionPressed={contMove.setDirectionPressed} />
         {walkLockActive && <p className="text-[9px] text-amber-400 mt-0.5 text-center">⏳ wait...</p>}
-      </div>
-
-      <div className="relative">
-        <button
-          onClick={() => setStickerPickerOpen(v => !v)}
-          className="w-[30px] h-[30px] bg-black/60 hover:bg-black/80 rounded text-white text-sm flex items-center justify-center"
-        >
-          💬
-        </button>
-        {stickerPickerOpen && (
-          <div className="absolute z-10 bottom-full mb-2 left-0 bg-neutral-900 border border-neutral-700 rounded-lg p-2 w-40 space-y-1">
-            {['Need help!', "Let's battle!", 'Grinding EXP 💪', 'Almost there!'].map(text => (
-              <button
-                key={text}
-                onClick={() => { sendSticker(text); setStickerPickerOpen(false); }}
-                className="w-full text-left text-xs text-white hover:bg-neutral-800 rounded px-2 py-1"
-              >
-                {text}
-              </button>
-            ))}
-          </div>
-        )}
       </div>
     </div>
   );
@@ -376,10 +570,10 @@ export default function TrainingMap({
       {infoTab === 'legend' && (
         <div className="space-y-1.5 text-xs">
           <div className="flex items-center gap-2">
-            <span>🟩</span>
+            <span>📜</span>
             <div>
-              <p className="text-white font-medium">Grass</p>
-              <p className="text-[10px] text-gray-400">40% chance to trigger a training question. Answer correctly for +{BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER} monster EXP.</p>
+              <p className="text-white font-medium">Scroll</p>
+              <p className="text-[10px] text-gray-400">Walk onto one for a training question. Answer correctly for +{BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER} monster EXP — and a chance at a wild curio appearing nearby.</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -409,7 +603,7 @@ export default function TrainingMap({
       {infoTab === 'tips' && (
         <div className="space-y-1.5 text-[11px] text-gray-400">
           <p>⌨️ Use <span className="text-white font-bold">arrow keys</span> or the on-map buttons to move.</p>
-          <p>🌿 Walk through <span className="text-white font-bold">grass tiles</span> repeatedly to grind curio EXP.</p>
+          <p>📜 Walk into a <span className="text-white font-bold">floating scroll</span> to answer a question and grind curio EXP.</p>
           <p>⚔️ Curio reaches <span className="text-white font-bold">Lv.5</span> to unlock Tier 2 skill, <span className="text-white font-bold">Lv.10</span> for Tier 3.</p>
           <p>🏠 Return to <span className="text-white font-bold">town</span> to heal before challenging a trainer.</p>
           <p>💡 Defeat trainers in order from the <span className="text-white font-bold">Trainers</span> tab — each one gets harder and requires a higher player level.</p>
@@ -418,7 +612,7 @@ export default function TrainingMap({
     </div>
   );
 
-  const overlay = grassQuestion ? (
+  const overlay = activeScroll ? (
     <div className="w-full max-w-xl bg-neutral-900 border border-emerald-700 rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in">
       <div className="flex items-center gap-3 mb-3 bg-emerald-900/30 border border-emerald-800 rounded-xl px-3 py-2">
         {activeMonster && (
@@ -442,7 +636,7 @@ export default function TrainingMap({
         count={1}
         embedded={true}
         gradingUserId={gradingUserId}
-        onComplete={handleGrassAnswer}
+        onComplete={handleScrollAnswer}
       />
     </div>
   ) : null;

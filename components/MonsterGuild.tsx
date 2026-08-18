@@ -15,6 +15,7 @@ import {
   NpcTrainer, MonsterDef, TrainerMonster,
 } from '@/lib/monsterConfig';
 import { fetchInventory, useInventoryItem, InventoryMap } from '@/lib/inventory';
+import { rollFreshQualityTier, type QualityTier } from '@/lib/curioQuality';
 import {
   fetchAnsweredArenaQuestionIds, markArenaQuestionsCompleted, resetArenaHistory,
   fetchQuestionPool, markQuestionsCompleted,
@@ -94,11 +95,15 @@ function extractQuestions(packageData: any): any[] {
   const questions: any[] = [];
   Object.values(packageData).forEach((day: any) => {
     if (typeof day === 'object' && day !== null) {
-      Object.values(day).forEach((subject: any) => {
+      // Object.entries (not values) so each question can be tagged with the
+      // subject key it was nested under — the raw quiz/questions items carry
+      // no subject field of their own, and BattleQuestionModal needs one to
+      // show players which subject a battle question is testing.
+      Object.entries(day).forEach(([subjectName, subject]: [string, any]) => {
         if (subject?.quiz) {
-          questions.push(...subject.quiz);
+          questions.push(...subject.quiz.map((q: any) => ({ ...q, subject: subjectName })));
         } else if (subject?.questions) {
-          questions.push(...subject.questions);
+          questions.push(...subject.questions.map((q: any) => ({ ...q, subject: subjectName })));
         }
       });
     }
@@ -115,6 +120,24 @@ interface WildEncounterState {
   level: number;
   question: any;
   attemptsLeft: number;
+  quality: QualityTier;
+}
+
+// "Known but not yet engaged" curio — MonsterGuild owns identity (species/
+// level/question, all picked at roll-success time same as before), while
+// TrainingMap.tsx owns WHERE it renders on the map (curioPos, picked
+// adjacent to the player) and calls onEnterCurio when the player walks onto
+// it. Walking in is what promotes this into a real WildEncounterState.
+interface CurioState {
+  id: number;
+  monsterId: string;
+  level: number;
+  question: any;
+  attemptsLeft: number;
+  // Rolled fresh at spawn time (see rollFreshQualityTier) — shown as the
+  // map marker's ground-glow color before the player ever engages it, and
+  // carried onto the caught monster's row if they win the catch.
+  quality: QualityTier;
 }
 
 export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, weekStartingDate, onBattleWon, onGoldAwarded, onGoldSynced, onProgressSynced, initialView, onEggBadgeChange, eggRefreshSignal, onGraduated, onTutored, onTradeConfirmed, onLegendaryCaught, onTatayBattleResult }: MonsterGuildProps) {
@@ -125,7 +148,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // reach them (no app-wide toast anymore); see the free-tier maximization
   // notes for the accepted cost of this change.
   const selfProfile = USERS[userId];
-  const liveBattleInbox = useLiveBattleInbox(userId, selfProfile?.name || userId);
+  const liveBattleInbox = useLiveBattleInbox(userId, selfProfile?.name || userId, selfProfile?.grade);
   const isDemo = userId.startsWith('demo_');
   // Gates trading, PvP/live battle, map presence, and egg-catch inserts —
   // the roster/team view still renders from the local_owned_monsters cache
@@ -143,6 +166,16 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const [isWildEncounterBattle, setIsWildEncounterBattle] = useState(false);
   const [isDummyBattle, setIsDummyBattle] = useState(false);
   const [wildEncounter, setWildEncounter] = useState<WildEncounterState | null>(null);
+  // Set the moment a scroll-answer roll succeeds (species/question already
+  // picked); promoted into wildEncounter (opening WildEncounterModal) only
+  // once the player walks onto its map position — see handleEnterCurio.
+  const [curio, setCurio] = useState<CurioState | null>(null);
+  const curioIdRef = useRef(0);
+  // The rolled quality of whichever wild curio battle is currently active —
+  // wildEncounter/curio are both cleared the instant the battle starts (see
+  // handleWildEncounterCorrect), so this is what handleBattleEnd's catch
+  // insert reads to carry the roll onto the caught monster's row.
+  const [activeWildQuality, setActiveWildQuality] = useState<QualityTier>('normal');
   const [walkLocked, setWalkLocked] = useState(false);
   const walkLockTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [caughtMonsters, setCaughtMonsters] = useState<CaughtMonster[]>([]);
@@ -461,8 +494,16 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
   const gradeLevel = gradeToNumber(USERS[userId]?.grade);
 
+  // Region change (including leaving to the World Map hub) drops any curio
+  // left over from the previous map — TrainingMap.tsx resets its own
+  // scroll/curioPos state on regionId change too, but curio's identity
+  // lives here and wouldn't otherwise know a region change happened.
+  useEffect(() => {
+    setCurio(null);
+  }, [activeRegion]);
+
   const handleWildEncounterRoll = async () => {
-    if (wildEncounter || view === 'battle') return; // don't stack encounters
+    if (curio || wildEncounter || view === 'battle') return; // don't stack encounters
     const pool = await fetchQuestionPool(userId, 'sq_wild_encounter', 'wild_encounter', gradeLevel);
     if (pool.length === 0) return; // admin hasn't added any wild-encounter questions yet
     // More legendary species already caught nudges the odds of finding
@@ -480,16 +521,32 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
     const level = Math.max(1, (activeMonster?.monster_level || 1) + Math.floor(Math.random() * 3) - 1);
     const question = pool[Math.floor(Math.random() * pool.length)];
-    setWildEncounter({ monsterId, level, question, attemptsLeft: 3 });
+    // Rolled once, at spawn — a real rarity signal shown via the map
+    // marker's ground-glow color before the player ever engages it (see
+    // rollFreshQualityTier's header comment), not just decoration.
+    const quality = rollFreshQualityTier();
+    // Doesn't open WildEncounterModal directly anymore — spawns a curio on
+    // the map instead (species art shown immediately via MonsterImage,
+    // since it's already known here). handleEnterCurio is what actually
+    // opens the modal, once the player walks onto the curio's tile.
+    setCurio({ id: ++curioIdRef.current, monsterId, level, question, attemptsLeft: 3, quality });
 
-    // The species is revealed to the player the moment the encounter modal
-    // shows "A wild {name} appeared!" — regardless of catch outcome, so
-    // mark it seen here for the Compendium (only if not already recorded).
+    // The species is revealed to the player the moment the curio appears on
+    // the map — regardless of catch outcome, so mark it seen here for the
+    // Compendium (only if not already recorded).
     if (battleState && !battleState.seen_monsters.includes(monsterId)) {
       const newSeen = [...battleState.seen_monsters, monsterId];
       setBattleState({ ...battleState, seen_monsters: newSeen });
       await supabase.from('user_battle_state').update({ seen_monsters: newSeen }).eq('user_id', userId);
     }
+  };
+
+  // Fires when the player walks onto the curio's map tile (see
+  // TrainingMap.tsx's handleTileEnter) — promotes the "known but not yet
+  // engaged" curio into an actual open WildEncounterModal.
+  const handleEnterCurio = () => {
+    if (!curio || wildEncounter) return;
+    setWildEncounter({ monsterId: curio.monsterId, level: curio.level, question: curio.question, attemptsLeft: curio.attemptsLeft, quality: curio.quality });
   };
 
   const handleWildEncounterCorrect = () => {
@@ -506,7 +563,9 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       emoji: monster.emoji,
       intro: `A wild ${monster.name} blocks your path!`,
     };
+    setActiveWildQuality(wildEncounter.quality);
     setWildEncounter(null);
+    setCurio(null); // caught/engaged — clear the map sprite
     setIsWildEncounterBattle(true);
     setActiveBattle(trainer);
     setView('battle');
@@ -535,6 +594,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     if (attemptsLeft <= 0) {
       showNotification(`💨 The wild ${WILD_MONSTERS[wildEncounter.monsterId].name} fled...`);
       setWildEncounter(null);
+      setCurio(null); // fled — despawn the map sprite
       return;
     }
     const pool = await fetchQuestionPool(userId, 'sq_wild_encounter', 'wild_encounter', gradeLevel);
@@ -690,6 +750,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           // back to 1 the instant it earned any EXP after being promoted.
           await supabase.from('user_caught_monsters').insert({
             user_id: userId, monster_id: wildMonsterId, monster_level: wildLevel, monster_exp: (wildLevel - 1) * BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL,
+            quality: activeWildQuality,
           });
           if (ALL_MONSTERS[wildMonsterId]?.isLegendary) onLegendaryCaught?.();
         }
@@ -914,6 +975,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
             onHeal={handleHeal}
             onQuestionsAnswered={handleQuestionsAnswered}
             onWildEncounterRoll={handleWildEncounterRoll}
+            activeCurio={curio}
+            onEnterCurio={handleEnterCurio}
             onChallengePlayer={(targetId, name) => handleChallengePlayer(targetId as UserId, name)}
             liveBattleInbox={liveBattleInbox}
             mapPresence={mapPresence}
@@ -922,6 +985,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
             monsterDisplay={displayMonsters}
             regionId={activeRegion}
             onExitRegion={() => setActiveRegion(null)}
+            playerLevel={playerLevel}
+            onEnterRegion={setActiveRegion}
           />
         ) : (
           <WorldMap playerLevel={playerLevel} onSelectRegion={setActiveRegion} />

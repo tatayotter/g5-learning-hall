@@ -2,6 +2,8 @@
 // Fixed weekly rotation: every subject always publishes to the same weekday,
 // so Main Quests no longer need a day picked by hand. Grade 5 and Grade 2
 // have different subject lists, so each grade gets its own schedule.
+import { GRADE_LEVELS } from '@/lib/userSession';
+
 export const WEEKDAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] as const;
 export type Weekday = typeof WEEKDAYS[number];
 
@@ -32,10 +34,13 @@ export const GRADE_2_SCHEDULE: Record<string, Weekday> = {
   GMRC: 'Thursday',
 };
 
-const SCHEDULE_BY_GRADE: Record<number, Record<string, Weekday>> = {
-  5: GRADE_5_SCHEDULE,
-  2: GRADE_2_SCHEDULE,
-};
+// Grades 3, 4, and 6 don't have their own subject/day layout authored yet, so
+// they fall back to the Grade 5 schedule. Built from the shared GRADE_LEVELS
+// constant (lib/userSession.ts) instead of a hardcoded 2/5 binary, so a grade
+// added there automatically gets a (fallback) entry here too.
+const SCHEDULE_BY_GRADE: Record<number, Record<string, Weekday>> = Object.fromEntries(
+  GRADE_LEVELS.map(grade => [grade, grade === 2 ? GRADE_2_SCHEDULE : GRADE_5_SCHEDULE])
+);
 
 // Subjects with no fixed slot (e.g. "Weekly Review") fall to Friday, the flex/review day.
 export function getScheduledDay(subject: string, grade: number = 5): Weekday {

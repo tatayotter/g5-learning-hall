@@ -44,6 +44,63 @@ function MonsterSilhouette({ id, className = '' }: { id: string; className?: str
   );
 }
 
+// Horizontal chain of a species' forms — base -> first/second graduation for
+// a regular monster (MonsterDef.graduation), or tier1 -> tier2 -> tier3 for a
+// guild companion (MonsterDef.guildEvolution). Both are graduations in the
+// same sense (a permanent, one-way form upgrade past the base species) —
+// a guild companion's is just automatic (gated on guild level) rather than
+// bought with a Graduation Scroll, so both share the "Graduation Stream"
+// label. Shown inside the detail modal for any species with more than one
+// DexEntry, and reuses the exact same silhouette/"???" treatment as the main
+// dex grid (MonsterSilhouette, plus LegendaryBadge on locked-but-legendary
+// stages) so a locked stage never looks any more "revealed" here than its
+// own grid tile does. Clicking a stage re-points the modal at that stage's
+// own DexEntry, so the stream doubles as in-modal navigation between a
+// species' forms.
+function GraduationStream({ entries, knownByKey, activeKey, onSelect }: {
+  entries: DexEntry[]; // same speciesId, sorted tier ascending
+  knownByKey: Record<string, boolean>;
+  activeKey: string | null;
+  onSelect: (key: string) => void;
+}) {
+  return (
+    <div>
+      <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1.5">Graduation Stream</p>
+      <div className="flex items-center gap-1.5 flex-wrap">
+        {entries.map((stage, i) => {
+          const known = knownByKey[stage.key];
+          return (
+            <div key={stage.key} className="flex items-center gap-1.5">
+              {i > 0 && <span className="text-gray-700 text-sm">→</span>}
+              <button
+                onClick={() => onSelect(stage.key)}
+                className={`p-1.5 rounded-lg border text-center transition-colors ${
+                  stage.key === activeKey ? 'border-amber-400 bg-amber-900/10' : 'border-neutral-800 bg-neutral-900/50 hover:border-neutral-700'
+                }`}
+              >
+                <div className="relative w-12 h-12 mx-auto mb-1">
+                  {known ? (
+                    <MonsterImage monster={stage.def} className="w-full h-full" emojiClassName="text-2xl" />
+                  ) : (
+                    <>
+                      <MonsterSilhouette id={stage.def.spriteId ?? stage.speciesId} className="w-full h-full" />
+                      {stage.def.isLegendary && <LegendaryBadge />}
+                    </>
+                  )}
+                </div>
+                <p className="text-[9px] font-bold text-white truncate max-w-[64px]">{known ? stage.def.name : '???'}</p>
+                <p className="text-[9px] text-gray-600">
+                  {stage.tier === 1 ? 'Base' : stage.guildLabel ? `${stage.guildLabel} Lv.${stage.unlockLevel}+` : `Lv.${stage.unlockLevel}+`}
+                </p>
+              </button>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function CompendiumStatBar({ label, value, max }: { label: string; value: number; max: number }) {
   return (
     <div>
@@ -164,6 +221,17 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
         ? selectedEntry.tier === getGuildMonsterTier(ALL_MONSTERS[selectedEntry.speciesId], guildLevelForKey(subclassProfile, ALL_MONSTERS[selectedEntry.speciesId].guildEvolution?.guildKey))
         : selectedEntry.tier === graduationTierForSpecies(selectedEntry.speciesId) + 1)
     : false;
+
+  // Every DexEntry for whichever species the open modal belongs to — a
+  // species' own graduation tiers (base -> first/second graduation) *or* a
+  // guild companion's evolution tiers (tier1 -> tier2 -> tier3), whichever
+  // applies. Only worth rendering once there's more than one entry, i.e.
+  // the species actually defines `graduation` or `guildEvolution`.
+  const graduationStreamEntries = selectedEntry
+    ? dexEntries.filter(e => e.speciesId === selectedEntry.speciesId).sort((a, b) => a.tier - b.tier)
+    : [];
+  const graduationStreamKnownByKey = Object.fromEntries(graduationStreamEntries.map(e => [e.key, isEntryKnown(e)]));
+
   return (
     <div className="space-y-6">
       <div>
@@ -208,6 +276,14 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
                     {selectedEntry?.guildLabel && <span className="text-[10px] text-gray-500">Tier {selectedEntry.tier} · {selectedEntry.guildLabel} Lv.{selectedEntry.unlockLevel}+</span>}
                   </div>
                 </div>
+                {graduationStreamEntries.length > 1 && (
+                  <GraduationStream
+                    entries={graduationStreamEntries}
+                    knownByKey={graduationStreamKnownByKey}
+                    activeKey={selectedKey}
+                    onSelect={setSelectedKey}
+                  />
+                )}
                 <p className="text-sm text-gray-400">{selected.description}</p>
                 <div className="grid grid-cols-2 gap-x-6 gap-y-2 max-w-sm">
                   <CompendiumStatBar label="HP" value={selected.baseHp} max={150} />
@@ -257,6 +333,16 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
                   </p>
                 ) : (
                   <p className="text-sm text-gray-500 mt-2">A mysterious wild curio — its identity is still unknown. Keep answering questions on the Training Map for a chance to encounter it.</p>
+                )}
+                {graduationStreamEntries.length > 1 && (
+                  <div className="mt-4">
+                    <GraduationStream
+                      entries={graduationStreamEntries}
+                      knownByKey={graduationStreamKnownByKey}
+                      activeKey={selectedKey}
+                      onSelect={setSelectedKey}
+                    />
+                  </div>
                 )}
               </div>
             </div>

@@ -5,6 +5,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { RealtimeChannel } from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabase';
+import { gradeToNumber } from '@/lib/userSession';
 
 export interface IncomingInvite {
   battleId: string;
@@ -17,17 +18,33 @@ export interface InviteResponse {
   accepted: boolean;
 }
 
-// Shared by every logged-in player so "who's online" presence is visible
-// across sessions — the per-user player-inbox-{userId} channel below is
-// still used for delivering invites, since presence tracked there would
-// only ever be seen by that one user (each subscriber is alone on it).
-const LOBBY_CHANNEL = 'live-battle-lobby';
+// Shared by every logged-in player at the same grade so "who's online"
+// presence is visible across sessions — the per-user player-inbox-{userId}
+// channel below is still used for delivering invites, since presence
+// tracked there would only ever be seen by that one user (each subscriber
+// is alone on it).
+//
+// Used to be one hardcoded 'live-battle-lobby' literal for the entire
+// platform: every presence sync and battle-result broadcast fanned out to
+// every connected client regardless of grade, so a Grade 2 player's
+// presence updates were pushed to (and paid for by) a Grade 6 player's
+// browser too. Scoping by grade — the only grouping the app already tracks
+// per user today — bounds fan-out to grade size instead of platform size.
+// This is a stand-in for real class/school scoping (Phase 3 of
+// buzzing-rolling-engelbart.md, once tenancy exists); grade is coarser than
+// class but ships now with zero schema changes and only tightens further
+// once class_id lands.
+function lobbyChannelFor(grade: string | undefined): string {
+  const gradeNum = gradeToNumber(grade);
+  return `live-battle-lobby-g${gradeNum}`;
+}
 
 // How long a win/loss emoji lingers on a player's map sprite after their
 // battle ends before it clears on its own.
 const RESULT_FLASH_MS = 6000;
 
-export function useLiveBattleInbox(userId: string, name: string) {
+export function useLiveBattleInbox(userId: string, name: string, grade?: string) {
+  const lobbyChannelName = lobbyChannelFor(grade);
   const [onlinePlayerIds, setOnlinePlayerIds] = useState<Set<string>>(new Set());
   const [playersInBattle, setPlayersInBattle] = useState<Set<string>>(new Set());
   const [battleResultFlashes, setBattleResultFlashes] = useState<Record<string, boolean>>({});
@@ -41,7 +58,7 @@ export function useLiveBattleInbox(userId: string, name: string) {
   useEffect(() => {
     if (!userId) return;
 
-    const lobby = supabase.channel(LOBBY_CHANNEL, {
+    const lobby = supabase.channel(lobbyChannelName, {
       config: { presence: { key: userId } },
     });
     lobbyRef.current = lobby;
@@ -86,7 +103,7 @@ export function useLiveBattleInbox(userId: string, name: string) {
       lobbyRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userId]);
+  }, [userId, lobbyChannelName]);
 
   // Re-tracks this player's presence payload with an updated inBattle flag —
   // called when entering/leaving a live battle so other players' training

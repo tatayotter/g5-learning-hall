@@ -3,49 +3,136 @@
 // Replaces the old CSS-grid `frameContent` in TrainingMap.tsx with a real
 // Phaser canvas (lib/phaserMap/TrainingMapScene.ts) for the "world" layer —
 // background image, player/other-player sprites, footstep dust, wall-bump
-// shake. Name tags, GM badges, wave/sticker speech bubbles, and the town
+// shake. Name tags, GM badges, wave speech bubbles, and the town
 // marker stay as a thin DOM overlay on top (same tile-percentage positioning
 // the old CSS grid used) since canvas text/rounded-rect primitives would
 // only regress that polish's fidelity for no gameplay benefit — see the
 // scene file's header comment for the full rationale.
 import { useEffect, useRef } from 'react';
 import { USERS } from '@/lib/userSession';
-import { GMBadge } from '@/components/battle/shared';
-import type { MapCanvasSyncState, MapCanvasPlayer } from '@/lib/phaserMap/TrainingMapScene';
+import { GMBadge, MonsterImage } from '@/components/battle/shared';
+import { ELEMENT_ICON_SRC, type MonsterDef } from '@/lib/monsterConfig';
+import { REGIONS } from '@/lib/regions';
+import { getQualityGroundGlowColor, type QualityTier } from '@/lib/curioQuality';
+import type { MapCanvasSyncState, MapCanvasPlayer, MapBackground } from '@/lib/phaserMap/TrainingMapScene';
+import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM } from '@/lib/phaserMap/constants';
 import type { OnlinePlayer } from '@/hooks/useMapPresence';
+import type { ContinuousMovementHandle } from '@/hooks/useContinuousMovement';
 
 function spriteSrcFor(userId: string): string {
   const profile = USERS[userId];
-  return profile?.avatar?.startsWith('/userpics/')
-    ? profile.avatar
-    : profile?.gender === 'girl' ? '/sprite/girl1.webp' : '/sprite/boy1.webp';
+  // Use whatever avatar the profile has (covers /userpics/…, /tala-avatar.png,
+  // and any other path from the avatar picker). The old check for startsWith
+  // '/userpics/' is gone because girl1.webp/boy1.webp (the previous fallbacks)
+  // were removed; Spr_RS_School_Kid_F/M.png are the safe gender defaults now.
+  if (profile?.avatar) return profile.avatar;
+  return profile?.gender === 'girl'
+    ? '/userpics/Spr_RS_School_Kid_F.png'
+    : '/userpics/Spr_RS_School_Kid_M.png';
+}
+
+// Translates tile coordinates into percentages of the canvas box so the DOM
+// overlay (name tags, bubbles, portal/town markers) lines up with what the
+// Phaser canvas actually drew. Valid because the .mstage-frame container is
+// always a fixed 896:504 (16:9) box, so "% of container" and "% of canvas
+// pixels" are the same number.
+//
+// Painted-background regions stretch to fill the canvas at a fixed scale, so
+// this is static. Real tilemaps instead render at native scale behind a
+// panning/zooming camera that follows the player (see TrainingMapScene's
+// updateCameraForTilemap) — rather than asking that scene what its camera is
+// currently doing (which would lag a render behind whenever posX/posY changes,
+// producing a one-frame mismatch), this recomputes the exact same clamped
+// scroll target independently: it's a pure function of props already
+// available here, using the identical formula, so both always agree.
+function overlayPositioning(mapWidth: number, mapHeight: number, background: MapBackground, selfX: number, selfY: number) {
+  if (background.type === 'image') {
+    const tileWPct = 100 / mapWidth;
+    const tileHPct = 100 / mapHeight;
+    return { tileWPct, tileHPct, leftPct: (x: number) => x * tileWPct, topPct: (y: number) => y * tileHPct };
+  }
+  const { tileSize } = background;
+  const zoom = TILE_ART_ZOOM;
+  const viewW = CANVAS_WIDTH / zoom;
+  const viewH = CANVAS_HEIGHT / zoom;
+  const mapPixelW = mapWidth * tileSize;
+  const mapPixelH = mapHeight * tileSize;
+  const selfWorldX = (selfX + 0.5) * tileSize;
+  const selfWorldY = (selfY + 0.5) * tileSize;
+  const scrollX = Math.min(Math.max(selfWorldX - viewW / 2, 0), Math.max(0, mapPixelW - viewW));
+  const scrollY = Math.min(Math.max(selfWorldY - viewH / 2, 0), Math.max(0, mapPixelH - viewH));
+  const tileWPct = (tileSize * zoom / CANVAS_WIDTH) * 100;
+  const tileHPct = (tileSize * zoom / CANVAS_HEIGHT) * 100;
+  return {
+    tileWPct,
+    tileHPct,
+    leftPct: (x: number) => ((x * tileSize - scrollX) * zoom / CANVAS_WIDTH) * 100,
+    topPct: (y: number) => ((y * tileSize - scrollY) * zoom / CANVAS_HEIGHT) * 100,
+  };
 }
 
 interface MapCanvasProps {
-  mapSize: number;
-  mapImageSrc: string;
+  mapWidth: number;
+  mapHeight: number;
+  background: MapBackground;
   bumping: boolean;
   stepping: boolean;
   posX: number;
   posY: number;
+  // Drives the local player's continuous, per-frame position — see the rAF
+  // effect below. posX/posY above stay as the "settled" (once-per-tile)
+  // integer feed used everywhere else (background/others/dust/bump sync).
+  movement: ContinuousMovementHandle;
   userId: string;
   waves: Record<string, number>;
-  stickers: Record<string, { text: string; at: number }>;
   dustPuffs: { id: number; x: number; y: number }[];
   onlinePlayers: Record<string, OnlinePlayer>;
   inBattle: (userId: string) => boolean;
   resultWon: (userId: string) => boolean | undefined;
   townMarkerTile: { x: number; y: number } | null;
+  portalMarkers?: { x: number; y: number; regionId: string; locked: boolean }[];
+  // Scrolls (training questions) and the curio (wild-encounter entry point)
+  // are stationary, walked-into map entities — rendered the same way as
+  // portal markers (static DOM overlay, no per-frame updates needed) since
+  // neither moves once spawned. See components/monster/TrainingMap.tsx for
+  // the spawn/lifecycle logic; this component only draws them.
+  scrollMarkers?: { id: number; x: number; y: number }[];
+  curioMarker?: { x: number; y: number; monsterDef: MonsterDef; quality: QualityTier } | null;
   onPlayerClick: (userId: string) => void;
 }
 
 export default function MapCanvas({
-  mapSize, mapImageSrc, bumping, stepping, posX, posY, userId, waves, stickers,
-  dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, onPlayerClick,
+  mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
+  dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers, curioMarker, onPlayerClick,
 }: MapCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const gameRef = useRef<import('phaser').Game | null>(null);
   const sceneRef = useRef<import('@/lib/phaserMap/TrainingMapScene').default | null>(null);
+  // Direct DOM target for the self name-tag/status-icon wrapper — positioned
+  // imperatively every animation frame (see the rAF effect below), bypassing
+  // React re-render entirely so 60fps movement doesn't churn this component.
+  const selfWrapRef = useRef<HTMLDivElement>(null);
+  // Every OTHER stationary-tile marker (town, portals, scrolls, curio) also
+  // needs its left/top repositioned every frame the camera pans — earlier
+  // these only used the once-per-tile posX/posY-derived leftPct/topPct
+  // computed at render time, which was fine when the only markers were a
+  // rare town icon and static portals (barely noticeable lag), but became
+  // an obvious stutter once several bobbing scroll markers made the
+  // once-per-tile snap vs. the continuously-panning background/self
+  // visually obvious. Same imperative-ref pattern as selfWrapRef, keyed so
+  // each marker's own tile position is known at reposition time.
+  const markerElsRef = useRef<Map<string, { el: HTMLDivElement; x: number; y: number }>>(new Map());
+  const registerMarker = (key: string, x: number, y: number) => (el: HTMLDivElement | null) => {
+    if (el) markerElsRef.current.set(key, { el, x, y });
+    else markerElsRef.current.delete(key);
+  };
+  // Mirrors whatever the sync effect below last computed, kept current on
+  // every render regardless of whether the Phaser Game exists yet. Needed
+  // because game creation is async (dynamic import) — if it finishes after
+  // the sync effect's most recent run (the common case: nothing else
+  // triggers a re-render in between), sceneRef.current would otherwise stay
+  // pointed at a scene that's never actually been sent any real state.
+  const latestStateRef = useRef<MapCanvasSyncState | null>(null);
 
   useEffect(() => {
     let destroyed = false;
@@ -68,6 +155,9 @@ export default function MapCanvas({
         scale: { mode: Phaser.Scale.NONE },
         scene: [scene],
       });
+      // Scene queues this (via its own `ready` guard) until create() has
+      // actually run — safe to call immediately.
+      if (latestStateRef.current) scene.sync(latestStateRef.current);
     })();
 
     return () => {
@@ -85,8 +175,9 @@ export default function MapCanvas({
       id: p.userId, x: p.x, y: p.y, spriteSrc: spriteSrcFor(p.userId),
     }));
     const state: MapCanvasSyncState = {
-      mapSize,
-      mapImageSrc,
+      mapWidth,
+      mapHeight,
+      background,
       self: { id: userId, x: posX, y: posY, spriteSrc: spriteSrcFor(userId) },
       others,
       bumping,
@@ -94,10 +185,47 @@ export default function MapCanvas({
       dustPuffs,
       onPlayerClick,
     };
+    latestStateRef.current = state;
     sceneRef.current?.sync(state);
   });
 
-  const tilePct = 100 / mapSize;
+  // Cheap high-frequency path for the LOCAL player only — runs every
+  // animation frame, fully decoupled from the full-state sync effect above
+  // (which stays at "once per tile crossed"). Pushes position directly into
+  // the Phaser scene and writes the self name-tag wrapper's DOM style
+  // directly, bypassing React re-render entirely — the whole point of
+  // keeping 60fps movement off this component's render path (see
+  // useContinuousMovement.ts's header comment).
+  useEffect(() => {
+    let raf: number;
+    const tick = () => {
+      raf = requestAnimationFrame(tick);
+      const { x, y } = movement.getFloatPos();
+      const isMoving = movement.isMoving();
+      const facingRight = movement.isFacingRight();
+      sceneRef.current?.updateSelfPosition(x - 0.5, y - 0.5, isMoving, facingRight);
+      if (selfWrapRef.current) {
+        // overlayPositioning's leftPct/topPct expect a raw tile-index-style
+        // coordinate (same convention as posX/posY elsewhere) — the
+        // movement hook's float position is center-based, so subtract 0.5
+        // to convert back before reusing the same pure function.
+        const { leftPct: lp, topPct: tp } = overlayPositioning(mapWidth, mapHeight, background, x - 0.5, y - 0.5);
+        selfWrapRef.current.style.left = `${lp(x - 0.5)}%`;
+        selfWrapRef.current.style.top = `${tp(y - 0.5)}%`;
+        // Every other stationary marker (town/portals/scrolls/curio) shares
+        // the exact same camera-relative lp/tp this frame, just evaluated
+        // at each marker's own fixed tile position instead of the player's.
+        markerElsRef.current.forEach(({ el, x: mx, y: my }) => {
+          el.style.left = `${lp(mx)}%`;
+          el.style.top = `${tp(my)}%`;
+        });
+      }
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [movement, mapWidth, mapHeight, background]);
+
+  const { tileWPct, tileHPct, leftPct, topPct } = overlayPositioning(mapWidth, mapHeight, background, posX, posY);
 
   const nameTag = (targetId: string) => {
     const profile = USERS[targetId];
@@ -134,24 +262,20 @@ export default function MapCanvas({
   const bubbles = (targetId: string) => (
     <>
       {waves[targetId] && <span className="absolute -top-5 text-xl animate-bounce">👋</span>}
-      {stickers[targetId] && (
-        <div className="absolute -top-8 bg-white text-black text-xs font-bold px-2 py-1 rounded-lg whitespace-nowrap shadow">
-          {stickers[targetId].text}
-        </div>
-      )}
     </>
   );
 
   return (
-    <div className={`relative w-full h-full ${bumping ? 'map-bump-shake' : ''}`}>
+    <div className="relative w-full h-full">
       <div ref={containerRef} className="absolute inset-0" />
 
       {townMarkerTile && (
         <div
+          ref={registerMarker('town', townMarkerTile.x, townMarkerTile.y)}
           className="absolute pointer-events-none flex items-center justify-center"
           style={{
-            left: `${townMarkerTile.x * tilePct}%`, top: `${townMarkerTile.y * tilePct}%`,
-            width: `${tilePct}%`, height: `${tilePct}%`,
+            left: `${leftPct(townMarkerTile.x)}%`, top: `${topPct(townMarkerTile.y)}%`,
+            width: `${tileWPct}%`, height: `${tileHPct}%`,
           }}
         >
           <img
@@ -163,10 +287,88 @@ export default function MapCanvas({
         </div>
       )}
 
-      {/* Self */}
+      {portalMarkers?.map(portal => {
+        const region = REGIONS[portal.regionId];
+        if (!region) return null;
+        return (
+          <div
+            key={`${portal.x},${portal.y}`}
+            ref={registerMarker(`portal:${portal.x},${portal.y}`, portal.x, portal.y)}
+            className={`absolute pointer-events-none ${portal.locked ? 'opacity-50 grayscale' : ''}`}
+            style={{
+              left: `${leftPct(portal.x)}%`, top: `${topPct(portal.y)}%`,
+              width: `${tileWPct}%`, height: `${tileHPct}%`,
+            }}
+            title={portal.locked ? `${region.name} — locked until level ${region.unlockLevel}` : region.name}
+          >
+            {/* The sprite (public/tilesets/portals/portal-orange.png) is
+                32x48 — taller than a tile — so it's bottom-anchored to sit on
+                the tile like a standee instead of being squashed to fit. */}
+            <div className="map-portal-sprite absolute left-1/2 bottom-0 -translate-x-1/2" style={{ width: '100%', aspectRatio: '32 / 48' }} />
+            {region.element !== 'all' && (
+              <img
+                src={ELEMENT_ICON_SRC[region.element]}
+                alt={region.name}
+                className="absolute -bottom-1 -right-1 w-4 h-4 object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]"
+              />
+            )}
+            {portal.locked && <span className="absolute top-0 left-1/2 -translate-x-1/2 text-xs drop-shadow">🔒</span>}
+          </div>
+        );
+      })}
+
+      {scrollMarkers?.map(scroll => (
+        <div
+          key={scroll.id}
+          ref={registerMarker(`scroll:${scroll.id}`, scroll.x, scroll.y)}
+          className="absolute pointer-events-none flex items-center justify-center"
+          style={{
+            left: `${leftPct(scroll.x)}%`, top: `${topPct(scroll.y)}%`,
+            width: `${tileWPct}%`, height: `${tileHPct}%`,
+          }}
+        >
+          {/* Strong radiating orange glow behind the scroll, independent of
+              the bob animation on the image itself, so it reads from a
+              distance the same way the curio ground-glow does. */}
+          <span className="map-scroll-glow absolute rounded-full" />
+          <img
+            src="/sprite/question-scroll.png"
+            alt="Training scroll"
+            className="map-scroll-sprite relative w-8 h-8 object-contain drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]"
+          />
+        </div>
+      ))}
+
+      {curioMarker && (
+        <div
+          ref={registerMarker('curio', curioMarker.x, curioMarker.y)}
+          className="absolute pointer-events-none flex items-end justify-center"
+          style={{
+            left: `${leftPct(curioMarker.x)}%`, top: `${topPct(curioMarker.y)}%`,
+            width: `${tileWPct}%`, height: `${tileHPct}%`,
+          }}
+        >
+          {/* Ground-shadow glow: an oval pooled under the curio's feet, as if
+              lit from above, colored by its rolled QUALITY tier (not
+              element) so rarer spawns visibly stand out from a distance. */}
+          <span
+            className="map-curio-ground-glow absolute rounded-full"
+            style={{ ['--glow-color' as string]: getQualityGroundGlowColor(curioMarker.quality) }}
+          />
+          {/* Periodic hop — an occasional attention-grabbing jump, not a
+              continuous bounce, so a spawned curio still reads as "idle"
+              most of the time. */}
+          <MonsterImage monster={curioMarker.monsterDef} className="relative w-8 h-8 map-curio-hop" />
+        </div>
+      )}
+
+      {/* Self — position is written directly to this ref every animation
+          frame by the rAF effect above, not via React state/props, so no
+          CSS transition here (it would fight/lag behind 60fps updates). */}
       <div
-        className="absolute pointer-events-none transition-[left,top] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] flex items-center justify-center"
-        style={{ left: `${posX * tilePct}%`, top: `${posY * tilePct}%`, width: `${tilePct}%`, height: `${tilePct}%` }}
+        ref={selfWrapRef}
+        className="absolute pointer-events-none flex items-center justify-center"
+        style={{ left: `${leftPct(posX)}%`, top: `${topPct(posY)}%`, width: `${tileWPct}%`, height: `${tileHPct}%` }}
       >
         <div className="w-full h-full flex items-center justify-center relative">
           {statusIcon(userId)}
@@ -180,7 +382,7 @@ export default function MapCanvas({
         <div
           key={p.userId}
           className="absolute transition-[left,top] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer flex items-center justify-center"
-          style={{ left: `${p.x * tilePct}%`, top: `${p.y * tilePct}%`, width: `${tilePct}%`, height: `${tilePct}%` }}
+          style={{ left: `${leftPct(p.x)}%`, top: `${topPct(p.y)}%`, width: `${tileWPct}%`, height: `${tileHPct}%` }}
           onClick={() => onPlayerClick(p.userId)}
           title={USERS[p.userId]?.name || p.name}
         >

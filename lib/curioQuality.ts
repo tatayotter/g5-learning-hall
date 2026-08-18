@@ -70,3 +70,31 @@ export function getQualityGlowClass(quality: QualityTier): string {
     default: return '';
   }
 }
+
+// Rolls a fresh quality tier from scratch (not an upgrade-from-current roll
+// like the Tutor system) — used when a wild curio spawns on the map, so
+// rarer tiers are a genuine "you got lucky" moment before the player even
+// engages it, not just decoration. Same odds table as Tutor for consistency
+// (one set of numbers to balance/explain), reused independently of tier
+// since there's no "current tier" to roll up from yet.
+export function rollFreshQualityTier(): QualityTier {
+  const roll = Math.random();
+  if (roll < TUTOR_ROLL_TABLE.perfect) return 'perfect';
+  if (roll < TUTOR_ROLL_TABLE.perfect + TUTOR_ROLL_TABLE.outstanding) return 'outstanding';
+  if (roll < TUTOR_ROLL_TABLE.perfect + TUTOR_ROLL_TABLE.outstanding + TUTOR_ROLL_TABLE.good) return 'good';
+  return 'normal';
+}
+
+// Color for the map curio's ground-shadow glow (an oval "light from above"
+// shadow under its feet, not a halo) — same rgba values as the tier
+// halo colors above for 'good'/'outstanding'/'perfect' (see .quality-glow-*
+// in app/globals.css), plus a soft neutral for 'normal' so every curio
+// still gets a grounding shadow, just a duller one.
+export function getQualityGroundGlowColor(quality: QualityTier): string {
+  switch (quality) {
+    case 'good': return 'rgba(74, 222, 128, 0.55)';
+    case 'outstanding': return 'rgba(34, 211, 238, 0.55)';
+    case 'perfect': return 'rgba(251, 146, 60, 0.6)';
+    default: return 'rgba(226, 232, 240, 0.45)';
+  }
+}

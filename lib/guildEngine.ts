@@ -2,7 +2,8 @@
 import { supabase } from '@/lib/supabase';
 import { CURRENT_TERM, PREFETCH_BATCH_SIZE, MIN_SESSION_POOL_SIZE } from '@/lib/guildConfig';
 import type { GuildKey } from '@/lib/dailyChecklist';
-import { GUILD_MONSTERS } from '@/lib/monsterConfig';
+import { GUILD_MONSTERS, MonsterDef } from '@/lib/monsterConfig';
+import type { QualityTier } from '@/lib/curioQuality';
 import {
   isOfflineStorageAvailable, cacheGuildPool, getCachedGuildPoolAnyTier,
   getLocallyCompletedQuestionIds, markQuestionsCompletedLocal,
@@ -154,6 +155,53 @@ export async function ensureGuildMonsterGranted(userId: string, guildKey: GuildK
     return null;
   }
   return monsterId;
+}
+
+// The species def for a guild's own companion monster (see GUILD_MONSTERS) —
+// callers that need the actual MonsterDef (rather than just its id) use this
+// instead of duplicating the GUILD_MONSTER_ID map's species keys themselves.
+export function getCompanionSpeciesDef(guildKey: GuildKey): MonsterDef | undefined {
+  return GUILD_MONSTERS[GUILD_MONSTER_ID[guildKey]];
+}
+
+// Whether a guild level-up from oldLevel -> newLevel just crossed that
+// guild's companion's tier2 or tier3 evolution threshold (see
+// MonsterDef.guildEvolution) — i.e. it's a "graduation event" moment, same
+// as the level-5 grant check above but for the two automatic evolutions
+// that follow it. Checks tier3 first since a big enough XP dump (e.g. a
+// perfect Weekly Review) can cross both thresholds in a single session —
+// the ceremony should show the highest tier actually reached, not stall on
+// tier2. Returns null if neither threshold was crossed, or the species has
+// no guildEvolution at all.
+export function getCompanionTierCrossed(guildKey: GuildKey, oldLevel: number, newLevel: number): 2 | 3 | null {
+  const evo = getCompanionSpeciesDef(guildKey)?.guildEvolution;
+  if (!evo) return null;
+  if (oldLevel < evo.tier3.level && newLevel >= evo.tier3.level) return 3;
+  if (oldLevel < evo.tier2.level && newLevel >= evo.tier2.level) return 2;
+  return null;
+}
+
+// The owned instance's own level/quality for the guild companion species —
+// needed by GraduationCeremonyModal's before/after stat comparison, which
+// scales off the *monster's* level (independent of guild level) and its
+// Tutor quality roll. Checks user_monsters (promoted to team) first, then
+// user_caught_monsters (still benched) — a guild companion lives in exactly
+// one of those tables. Falls back to a fresh lv1 normal-quality instance if
+// neither row is found, which shouldn't happen once a tier has actually been
+// crossed (the tier1 grant guarantees a row exists by then), but keeps the
+// ceremony's stat math from throwing on an unexpected gap instead of hard-failing.
+export async function fetchCompanionInstanceStats(userId: string, guildKey: GuildKey): Promise<{ level: number; quality: QualityTier }> {
+  const monsterId = GUILD_MONSTER_ID[guildKey];
+  const fallback = { level: 1, quality: 'normal' as QualityTier };
+  if (!monsterId) return fallback;
+
+  const [{ data: owned }, { data: caught }] = await Promise.all([
+    supabase.from('user_monsters').select('monster_level, quality').eq('user_id', userId).eq('monster_id', monsterId).limit(1).maybeSingle(),
+    supabase.from('user_caught_monsters').select('monster_level, quality').eq('user_id', userId).eq('monster_id', monsterId).limit(1).maybeSingle(),
+  ]);
+  const row = owned ?? caught;
+  if (!row) return fallback;
+  return { level: row.monster_level ?? 1, quality: (row.quality as QualityTier) ?? 'normal' };
 }
 
 // Fetch a fresh, non-repeating batch of questions for a given guild's table,

@@ -30,7 +30,40 @@ export interface LeaderboardEntry {
   score: number;
 }
 
-export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
+// fetchLeaderboard() below used to recompute rankings from scratch — six
+// cross-user table scans over the *entire* platform roster — on every single
+// mount of LeaderboardPanel. Nothing coalesced repeat opens, so a player
+// flipping between tabs re-ran the full O(all-platform-users) query each
+// time. A short TTL cache plus in-flight de-dupe (below) means repeat opens
+// within the window reuse one computed result instead of re-querying.
+// See Phase 0 of buzzing-rolling-engelbart.md: the fuller fix (a
+// leaderboard_snapshot table refreshed on a cron) is future work — this is
+// the safe, no-schema-change interim step that still stops the same-session
+// re-fetch storm.
+const CACHE_TTL_MS = 30_000;
+let cachedEntries: LeaderboardEntry[] | null = null;
+let cachedAt = 0;
+let inFlight: Promise<LeaderboardEntry[]> | null = null;
+
+export async function fetchLeaderboard(options?: { force?: boolean }): Promise<LeaderboardEntry[]> {
+  if (!options?.force && cachedEntries && Date.now() - cachedAt < CACHE_TTL_MS) {
+    return cachedEntries;
+  }
+  if (inFlight) return inFlight;
+
+  inFlight = computeLeaderboard()
+    .then(entries => {
+      cachedEntries = entries;
+      cachedAt = Date.now();
+      return entries;
+    })
+    .finally(() => {
+      inFlight = null;
+    });
+  return inFlight;
+}
+
+async function computeLeaderboard(): Promise<LeaderboardEntry[]> {
   await loadClassmates();
   // Demo accounts never come from loadClassmates()/loadChildren() (they're
   // registered directly via registerDemoUser), so they're already excluded

@@ -9,9 +9,15 @@
 // below points TrainingMap.tsx at each region's map file.
 import type { Element } from './monsterConfig';
 
+// Historical default — every region used a fixed 16x16 grid until Ledger's
+// Heart moved to a real-tile-art map with its own dimensions (see
+// Region.mapWidth/mapHeight below, and lib/tiledArtMap.ts). Kept as the
+// fallback for regions that don't override it.
 export const MAP_SIZE = 16;
 
-export type TileType = 'grass' | 'town' | 'wall';
+// 'path' is walkable like 'grass' but never rolls a wild-encounter question —
+// see the "no encounter layer" convention in public/maps-tiled-art/README.md.
+export type TileType = 'grass' | 'town' | 'wall' | 'path';
 
 export interface MapTile {
   type: TileType;
@@ -27,6 +33,11 @@ export interface Region {
   tiledMapPath: string;
   spawn: { x: number; y: number };
   townCenter: { x: number; y: number };
+  mapWidth: number;
+  mapHeight: number;
+  // Present only for regions rendered as real tile art (lib/tiledArtMap.ts)
+  // instead of a single painted background image + logic-only Tiled layer.
+  tileArtPath?: string;
 }
 
 export const REGIONS: Record<string, Region> = {
@@ -38,8 +49,11 @@ export const REGIONS: Record<string, Region> = {
     unlockLevel: 1,
     mapImage: '/maps/ledgers_heart.webp',
     tiledMapPath: '/maps-tiled/ledgers_heart.json',
-    spawn: { x: 1, y: 1 },
+    spawn: { x: 17, y: 9 },
     townCenter: { x: 1, y: 1 },
+    mapWidth: 30,
+    mapHeight: 20,
+    tileArtPath: '/maps-tiled-art/ledgers_heart/ledgers_heart.tmx',
   },
   cinderreach: {
     id: 'cinderreach',
@@ -51,6 +65,8 @@ export const REGIONS: Record<string, Region> = {
     tiledMapPath: '/maps-tiled/cinderreach.json',
     spawn: { x: 1, y: 4 },
     townCenter: { x: 13, y: 2 },
+    mapWidth: MAP_SIZE,
+    mapHeight: MAP_SIZE,
   },
   tidewrit_shallows: {
     id: 'tidewrit_shallows',
@@ -62,6 +78,8 @@ export const REGIONS: Record<string, Region> = {
     tiledMapPath: '/maps-tiled/tidewrit_shallows.json',
     spawn: { x: 1, y: 4 },
     townCenter: { x: 2, y: 13 },
+    mapWidth: MAP_SIZE,
+    mapHeight: MAP_SIZE,
   },
   rootbound_wilds: {
     id: 'rootbound_wilds',
@@ -73,6 +91,8 @@ export const REGIONS: Record<string, Region> = {
     tiledMapPath: '/maps-tiled/rootbound_wilds.json',
     spawn: { x: 4, y: 1 },
     townCenter: { x: 7, y: 2 },
+    mapWidth: MAP_SIZE,
+    mapHeight: MAP_SIZE,
   },
   stormrun_reaches: {
     id: 'stormrun_reaches',
@@ -84,6 +104,8 @@ export const REGIONS: Record<string, Region> = {
     tiledMapPath: '/maps-tiled/stormrun_reaches.json',
     spawn: { x: 1, y: 4 },
     townCenter: { x: 13, y: 13 },
+    mapWidth: MAP_SIZE,
+    mapHeight: MAP_SIZE,
   },
   unread_margins: {
     id: 'unread_margins',
@@ -95,6 +117,8 @@ export const REGIONS: Record<string, Region> = {
     tiledMapPath: '/maps-tiled/unread_margins.json',
     spawn: { x: 1, y: 4 },
     townCenter: { x: 2, y: 13 },
+    mapWidth: MAP_SIZE,
+    mapHeight: MAP_SIZE,
   },
   radiant_archive: {
     id: 'radiant_archive',
@@ -104,6 +128,8 @@ export const REGIONS: Record<string, Region> = {
     unlockLevel: 10,
     mapImage: '/maps/light_new.webp',
     tiledMapPath: '/maps-tiled/radiant_archive.json',
+    mapWidth: MAP_SIZE,
+    mapHeight: MAP_SIZE,
     spawn: { x: 4, y: 1 },
     townCenter: { x: 2, y: 2 },
   },

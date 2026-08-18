@@ -9,12 +9,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
-import { fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile, ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/lib/guildEngine';
+import {
+  fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile,
+  ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile,
+  getCompanionTierCrossed, fetchCompanionInstanceStats, getCompanionSpeciesDef,
+} from '@/lib/guildEngine';
 import { applyLevelUp, rollCritBonus, getTierRewardMultiplier } from '@/lib/guildConfig';
 import CurioRevealModal from '@/components/CurioRevealModal';
+import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
 import CritBonusToast from '@/components/CritBonusToast';
 import { CritBonusEvent } from '@/hooks/useTimeAttack';
-import { ALL_MONSTERS } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, getGuildMonsterTierDef, MonsterDef } from '@/lib/monsterConfig';
+import { QualityTier } from '@/lib/curioQuality';
 
 interface LexiconWord {
   id: string;
@@ -63,6 +69,9 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
   const [selected, setSelected] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<'correct' | 'wrong' | null>(null);
   const [newCurioId, setNewCurioId] = useState<string | null>(null);
+  const [companionGraduation, setCompanionGraduation] = useState<{
+    fromDef: MonsterDef; toDef: MonsterDef; monsterLevel: number; quality: QualityTier;
+  } | null>(null);
   const TIME_LIMIT = isTala ? TIME_LIMIT_TALA : TIME_LIMIT_DEFAULT;
   const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
   const [score, setScore] = useState(0);
@@ -179,11 +188,25 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
     await markQuestionsCompleted(userId, 'lexicon_arena', completedIdsRef.current);
 
     let grantedId: string | null = null;
+    let graduatedThisSession = false;
     if (profile) {
       const { level, xp } = applyLevelUp(profile.lexicon_arena_lvl, profile.lexicon_arena_xp, xpEarned);
       await updateSubclassProfile(userId, { lexicon_arena_lvl: level, lexicon_arena_xp: xp });
       if (profile.lexicon_arena_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
         grantedId = await ensureGuildMonsterGranted(userId, 'lexicon_arena');
+      } else if (profile.lexicon_arena_lvl >= GUILD_MONSTER_GRANT_LEVEL) {
+        const tierCrossed = getCompanionTierCrossed('lexicon_arena', profile.lexicon_arena_lvl, level);
+        const speciesDef = tierCrossed ? getCompanionSpeciesDef('lexicon_arena') : undefined;
+        if (tierCrossed && speciesDef) {
+          const { level: monsterLevel, quality } = await fetchCompanionInstanceStats(userId, 'lexicon_arena');
+          setCompanionGraduation({
+            fromDef: getGuildMonsterTierDef(speciesDef, (tierCrossed - 1) as 1 | 2),
+            toDef: getGuildMonsterTierDef(speciesDef, tierCrossed),
+            monsterLevel,
+            quality,
+          });
+          graduatedThisSession = true;
+        }
       }
     }
 
@@ -210,6 +233,9 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
     trackEvent('guild_quiz_complete', { guild_key: 'lexicon_arena', correct_count: score, wrong_count: wrongCount, xp_earned: xpEarned, gold_earned: goldEarned });
     if (grantedId) {
       setNewCurioId(grantedId); // reveal modal's onClose triggers onExit instead
+    } else if (graduatedThisSession) {
+      // companionGraduation is already set above — its ceremony's
+      // onGoToCompendium triggers onExit instead (same deferral as grantedId).
     } else {
       onExit();
     }
@@ -278,6 +304,13 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
       <div className="max-w-2xl mx-auto">
         {newCurioId && ALL_MONSTERS[newCurioId] && (
           <CurioRevealModal monster={ALL_MONSTERS[newCurioId]} userId={userId} onClose={() => { setNewCurioId(null); onExit(); }} />
+        )}
+        {companionGraduation && (
+          <GraduationCeremonyModal
+            {...companionGraduation}
+            userId={userId}
+            onGoToCompendium={() => { setCompanionGraduation(null); onExit(); }}
+          />
         )}
         <div className="bg-[#111] border border-[#333] rounded-2xl p-10 text-center">
           <div className="w-40 h-40 mx-auto mb-4">

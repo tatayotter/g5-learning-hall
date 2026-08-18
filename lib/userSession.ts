@@ -64,6 +64,38 @@ export function gradeToNumber(grade: string | number | undefined): number {
 let classmatesLoaded = false;
 let classmateIds: Set<UserId> = new Set();
 
+// Supabase caps a single select response at 1000 rows by default — fine for
+// today's handful of classmates, but a silent, hard-to-notice truncation
+// once the roster crosses that line (splash screen + leaderboard would just
+// quietly drop everyone past row 1000). Page through with .range() so the
+// full roster always loads regardless of size; see Phase 0 of
+// buzzing-rolling-engelbart.md — this doesn't scope the query down, it just
+// stops it from silently truncating until scoping (Phase 1+) lands.
+const ROSTER_PAGE_SIZE = 1000;
+
+async function fetchAllRows<T>(
+  table: string,
+  columns: string,
+): Promise<T[]> {
+  const rows: T[] = [];
+  let from = 0;
+  for (;;) {
+    const { data, error } = await supabase
+      .from(table)
+      .select(columns)
+      .range(from, from + ROSTER_PAGE_SIZE - 1);
+    if (error) {
+      console.error(`Failed to page ${table}:`, error);
+      break;
+    }
+    const page = (data || []) as T[];
+    rows.push(...page);
+    if (page.length < ROSTER_PAGE_SIZE) break;
+    from += ROSTER_PAGE_SIZE;
+  }
+  return rows;
+}
+
 export async function loadClassmates(): Promise<void> {
   if (classmatesLoaded) return;
   // classmates itself denies all direct client reads (RLS) — it has no
@@ -71,9 +103,7 @@ export async function loadClassmates(): Promise<void> {
   // safe-column view is the only public read path for the account-select
   // roster; the admin dashboard's need for username goes through a
   // separate passcode-gated route instead (see classmate-admin/route.ts).
-  const { data } = await supabase
-    .from('classmates_public')
-    .select('id, full_name, grade, gender, school_name');
+  const data = await fetchAllRows<any>('classmates_public', 'id, full_name, grade, gender, school_name');
 
   (data || []).forEach((c: any) => {
     USERS[c.id] = {
@@ -113,9 +143,7 @@ export async function loadChildren(): Promise<void> {
   // pin_plain/pin_hash/username live there and shouldn't be readable
   // outside that. This safe-column view (already scoped to active children
   // of approved parents) is the public account-select roster's read path.
-  const { data } = await supabase
-    .from('children_public')
-    .select('id, full_name, grade, gender, avatar, school_name');
+  const data = await fetchAllRows<any>('children_public', 'id, full_name, grade, gender, avatar, school_name');
 
   (data || []).forEach((c: any) => {
     USERS[c.id] = {

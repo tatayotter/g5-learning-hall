@@ -12,7 +12,6 @@ export interface OnlinePlayer {
 }
 
 const WAVE_TTL_MS = 1500;
-const STICKER_TTL_MS = 3000;
 
 // `enabled` defaults true (every existing call site keeps working
 // unchanged); pass false to skip opening the Realtime channel entirely —
@@ -21,7 +20,6 @@ const STICKER_TTL_MS = 3000;
 export function useMapPresence(userId: string, name: string, gender: 'boy' | 'girl', x: number, y: number, enabled = true) {
   const [onlinePlayers, setOnlinePlayers] = useState<Record<string, OnlinePlayer>>({});
   const [waves, setWaves] = useState<Record<string, number>>({});
-  const [stickers, setStickers] = useState<Record<string, { text: string; at: number }>>({});
   const channelRef = useRef<RealtimeChannel | null>(null);
 
   useEffect(() => {
@@ -56,21 +54,6 @@ export function useMapPresence(userId: string, name: string, gender: 'boy' | 'gi
       }, WAVE_TTL_MS);
     });
 
-    channel.on('broadcast', { event: 'sticker' }, ({ payload }) => {
-      const from = payload?.from;
-      const text = payload?.text;
-      if (!from || !text) return;
-      playNearbyWhoosh();
-      setStickers(prev => ({ ...prev, [from]: { text, at: Date.now() } }));
-      setTimeout(() => {
-        setStickers(prev => {
-          if (!(from in prev)) return prev;
-          const { [from]: _, ...rest } = prev;
-          return rest;
-        });
-      }, STICKER_TTL_MS);
-    });
-
     channel.subscribe(async status => {
       if (status === 'SUBSCRIBED') {
         await channel.track({ userId, name, gender, x, y });
@@ -93,9 +76,5 @@ export function useMapPresence(userId: string, name: string, gender: 'boy' | 'gi
     channelRef.current?.send({ type: 'broadcast', event: 'wave', payload: { from: userId, to: toUserId } });
   };
 
-  const sendSticker = (text: string) => {
-    channelRef.current?.send({ type: 'broadcast', event: 'sticker', payload: { from: userId, text } });
-  };
-
-  return { onlinePlayers, waves, stickers, sendWave, sendSticker };
+  return { onlinePlayers, waves, sendWave };
 }

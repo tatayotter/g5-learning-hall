@@ -3,7 +3,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTimeAttack } from '@/hooks/useTimeAttack';
-import { fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile, ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/lib/guildEngine';
+import {
+  fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile,
+  ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile,
+  getCompanionTierCrossed, fetchCompanionInstanceStats, getCompanionSpeciesDef,
+} from '@/lib/guildEngine';
 import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
@@ -14,8 +18,10 @@ import { USERS, gradeToNumber } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
+import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
 import CritBonusToast from '@/components/CritBonusToast';
-import { ALL_MONSTERS } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, getGuildMonsterTierDef, MonsterDef } from '@/lib/monsterConfig';
+import { QualityTier } from '@/lib/curioQuality';
 
 // Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
 // is heavily biased (see components/battle/shared.tsx's shuffleArray).
@@ -57,6 +63,9 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [flashResult, setFlashResult] = useState<'correct' | 'wrong' | null>(null);
   const [newCurioId, setNewCurioId] = useState<string | null>(null);
+  const [companionGraduation, setCompanionGraduation] = useState<{
+    fromDef: MonsterDef; toDef: MonsterDef; monsterLevel: number; quality: QualityTier;
+  } | null>(null);
   const [shuffledChoices, setShuffledChoices] = useState<{ key: string; text: string }[]>([]);
 
   const isTala = userId === 'tala';
@@ -126,6 +135,21 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
       if (profile.lorekeeper_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
         const grantedId = await ensureGuildMonsterGranted(userId, 'lorekeeper');
         if (grantedId) setNewCurioId(grantedId);
+      } else if (profile.lorekeeper_lvl >= GUILD_MONSTER_GRANT_LEVEL) {
+        // Only checked once the companion already exists (the branch above
+        // handles the same-session grant+tier-up edge case by just deferring
+        // the ceremony to next session — see getCompanionTierCrossed).
+        const tierCrossed = getCompanionTierCrossed('lorekeeper', profile.lorekeeper_lvl, level);
+        const speciesDef = tierCrossed ? getCompanionSpeciesDef('lorekeeper') : undefined;
+        if (tierCrossed && speciesDef) {
+          const { level: monsterLevel, quality } = await fetchCompanionInstanceStats(userId, 'lorekeeper');
+          setCompanionGraduation({
+            fromDef: getGuildMonsterTierDef(speciesDef, (tierCrossed - 1) as 1 | 2),
+            toDef: getGuildMonsterTierDef(speciesDef, tierCrossed),
+            monsterLevel,
+            quality,
+          });
+        }
       }
     }
 
@@ -264,6 +288,13 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
     <div className="max-w-2xl mx-auto battle-panel-in">
       {newCurioId && ALL_MONSTERS[newCurioId] && (
         <CurioRevealModal monster={ALL_MONSTERS[newCurioId]} userId={userId} onClose={() => setNewCurioId(null)} />
+      )}
+      {companionGraduation && (
+        <GraduationCeremonyModal
+          {...companionGraduation}
+          userId={userId}
+          onGoToCompendium={() => setCompanionGraduation(null)}
+        />
       )}
       <div className="bg-[#121a16] border-2 border-emerald-800 rounded-2xl p-10 text-center shadow-2xl font-serif">
         <div className="w-40 h-40 mx-auto mb-4">
