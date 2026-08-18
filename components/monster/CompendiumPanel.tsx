@@ -101,6 +101,11 @@ function GraduationStream({ entries, knownByKey, activeKey, onSelect }: {
   );
 }
 
+// Stat bar ceilings that accommodate every form in the game:
+//   wild-legendary tier (WILD_STAT_PRESET × 1.70) tops out at HP≈238, ATK≈44
+//   super_enhanced (1.45×) peaks at HP≈174, ATK≈36 — well within these bounds.
+const STAT_BAR_MAX = { hp: 250, atk: 50, def: 40, spd: 30 } as const;
+
 function CompendiumStatBar({ label, value, max }: { label: string; value: number; max: number }) {
   return (
     <div>
@@ -273,7 +278,14 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
                     </span>
                     <span className="text-[10px] text-gray-500 capitalize">{selected.archetype.replace('_', ' ')}</span>
                     {selectedOwned && selectedIsActiveTier && <span className="text-[10px] text-green-500 font-bold">✅ In your collection</span>}
-                    {selectedEntry?.guildLabel && <span className="text-[10px] text-gray-500">Tier {selectedEntry.tier} · {selectedEntry.guildLabel} Lv.{selectedEntry.unlockLevel}+</span>}
+                    {selectedEntry?.guildLabel && (
+                      <span className="text-[10px] text-gray-500">Tier {selectedEntry.tier} · {selectedEntry.guildLabel} Lv.{selectedEntry.unlockLevel}+</span>
+                    )}
+                    {selectedEntry?.isGraduationTier && (
+                      <span className="text-[10px] text-amber-600 font-semibold">
+                        ✨ Grad {selectedEntry.tier - 1} · Lv.{selectedEntry.unlockLevel}+
+                      </span>
+                    )}
                   </div>
                 </div>
                 {graduationStreamEntries.length > 1 && (
@@ -286,10 +298,10 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
                 )}
                 <p className="text-sm text-gray-400">{selected.description}</p>
                 <div className="grid grid-cols-2 gap-x-6 gap-y-2 max-w-sm">
-                  <CompendiumStatBar label="HP" value={selected.baseHp} max={150} />
-                  <CompendiumStatBar label="Attack" value={selected.baseAttack} max={30} />
-                  <CompendiumStatBar label="Defense" value={selected.baseDefense} max={30} />
-                  <CompendiumStatBar label="Speed" value={selected.baseSpeed} max={30} />
+                  <CompendiumStatBar label="HP" value={selected.baseHp} max={STAT_BAR_MAX.hp} />
+                  <CompendiumStatBar label="Attack" value={selected.baseAttack} max={STAT_BAR_MAX.atk} />
+                  <CompendiumStatBar label="Defense" value={selected.baseDefense} max={STAT_BAR_MAX.def} />
+                  <CompendiumStatBar label="Speed" value={selected.baseSpeed} max={STAT_BAR_MAX.spd} />
                 </div>
                 <div>
                   <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Default attacks</p>
@@ -328,9 +340,15 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
                     🔒 Reach {selectedEntry.guildLabel} Level {selectedEntry.unlockLevel} to {selectedEntry.tier === 1 ? 'earn this companion' : 'reveal this graduation'}.
                   </p>
                 ) : selectedEntry?.isGraduationTier ? (
-                  <p className="text-sm text-gray-500 mt-2">
-                    🔒 Reach Lv.{selectedEntry.unlockLevel} and use a Graduation Scroll on your {ALL_MONSTERS[selectedEntry.speciesId].name} to reveal this graduation.
-                  </p>
+                  selectedEntry.tier === 2 ? (
+                    <p className="text-sm text-gray-500 mt-2">
+                      🔒 Reach Lv.{selectedEntry.unlockLevel} and use a Graduation Scroll on your {ALL_MONSTERS[selectedEntry.speciesId].name} to reveal this form.
+                    </p>
+                  ) : (
+                    <p className="text-sm text-gray-500 mt-2">
+                      🔒 First graduate your {ALL_MONSTERS[selectedEntry.speciesId].name} to {ALL_MONSTERS[selectedEntry.speciesId].graduation?.first?.name ?? 'its first form'} (Lv.{GRADUATION_LEVEL_REQUIREMENT[1]}), then use a second Graduation Scroll at Lv.{selectedEntry.unlockLevel} to reveal this form.
+                    </p>
+                  )
                 ) : (
                   <p className="text-sm text-gray-500 mt-2">A mysterious wild curio — its identity is still unknown. Keep answering questions on the Training Map for a chance to encounter it.</p>
                 )}
@@ -382,7 +400,8 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
                 )}
               </div>
               <p className="text-xs font-bold text-white truncate">{known ? entry.def.name : '???'}</p>
-              {(entry.guildLabel || entry.isGraduationTier) && <p className="text-[9px] text-gray-600">Tier {entry.tier}</p>}
+              {entry.guildLabel && <p className="text-[9px] text-gray-600">Tier {entry.tier}</p>}
+              {entry.isGraduationTier && <p className="text-[9px] text-amber-700">Grad {entry.tier - 1} · Lv.{entry.unlockLevel}</p>}
               {known && owned && isActiveTier && (
                 inTeam ? (
                   <p className="text-[9px] text-green-500">✅ In Team</p>
