@@ -11,7 +11,7 @@ export type Element = 'fire' | 'water' | 'leaf' | 'storm' | 'shadow' | 'light';
 
 // attacker: elements that attacker is strong against (deals 1.5x to).
 // Leaf beats both Water and Storm — this closes Storm into the loop
-// (Leaf → Storm → Water → Fire → Leaf) so Storm isn't the only element
+// (Leaf → Storm → Water → Fire → Leaf) so Storm isn\'t the only element
 // with no weakness of its own.
 const ELEMENT_WEAKNESSES: Record<Element, Element[]> = {
   fire:   ['leaf'],
@@ -23,7 +23,7 @@ const ELEMENT_WEAKNESSES: Record<Element, Element[]> = {
 };
 
 // Small badge icon per element, rendered next to the element name wherever a
-// monster's element is shown (Compendium, team roster, trainer list, etc).
+// monster\'s element is shown (Compendium, team roster, trainer list, etc).
 export const ELEMENT_ICON_SRC: Record<Element, string> = {
   fire:   '/elements/elem_fire_100.webp',
   water:  '/elements/elem_water_100.webp',
@@ -34,12 +34,12 @@ export const ELEMENT_ICON_SRC: Record<Element, string> = {
 };
 
 // Shared placeholder icon for element-agnostic "fighting skills" (element:
-// null) — Rest and the universal/alt skill tree's non-elemental moves all
+// null) — Rest and the universal/alt skill tree\'s non-elemental moves all
 // fall back to this single badge rather than needing one each.
 export const NORMAL_SKILL_ICON_SRC = '/elements/elem_normal_100.webp';
 
 // Curio egg sprite per element (see lib/curioEggs.ts + docs/curio-egg-mechanism-design.md).
-// The fire asset's filename doesn't follow the other five's plain
+// The fire asset\'s filename doesn\'t follow the other five\'s plain
 // `egg_<element>_200px.png` convention (it has a `NO_COIN_TRUE_TRANS` suffix
 // left over from its export) — accounted for here rather than renamed on
 // disk, so nothing else has to know about the mismatch.
@@ -52,7 +52,7 @@ export const EGG_SPRITE_SRC: Record<Element, string> = {
   light:  '/eggs/egg_light_200px.png',
 };
 
-// Icon shown on a skill button during battle — the skill's own element badge,
+// Icon shown on a skill button during battle — the skill\'s own element badge,
 // or the shared normal-attack placeholder for element-agnostic skills.
 export function getSkillIconSrc(skill: { element: Element | null }): string {
   return skill.element ? ELEMENT_ICON_SRC[skill.element] : NORMAL_SKILL_ICON_SRC;
@@ -63,8 +63,8 @@ export function getElementMultiplier(attacker: Element, defender: Element): numb
   return ELEMENT_WEAKNESSES[attacker].includes(defender) ? 1.5 : 1.0;
 }
 
-// Given a player monster's element, returns the (first) element it is strong
-// against — used to build a Training Dummy opponent that's always weak to
+// Given a player monster\'s element, returns the (first) element it is strong
+// against — used to build a Training Dummy opponent that\'s always weak to
 // whatever the player is currently fielding.
 export function getCounterElement(element: Element): Element {
   return ELEMENT_WEAKNESSES[element][0];
@@ -109,16 +109,16 @@ export const ELEMENT_STATUS: Partial<Record<Element, StatusEffect>> = {
 // it just hit. Every entry above except 'blessed' is a debuff (burn/paralyze/
 // curse — see STATUS_DEFINITIONS) and belongs on the defender as normal;
 // 'blessed' ("next correct answer deals double damage") only makes sense
-// applied to the attacker's own next turn, matching how it's granted by
+// applied to the attacker\'s own next turn, matching how it\'s granted by
 // items elsewhere (apply_blessed) and read back via `status === 'blessed'`
-// wherever a caster's own damage is calculated.
+// wherever a caster\'s own damage is calculated.
 export const SELF_TARGETING_ELEMENT_STATUSES: StatusEffect[] = ['blessed'];
 
 // ─── SKILLS ─────────────────────────────────────────────────────────────────
 
 // A secondary mechanical effect a skill applies alongside (or instead of) its
 // raw damage. `magnitude` is a decimal fraction (0.15 = 15%); negative values
-// are a downside (e.g. Berserker's Edge trading away some Defense). `duration`
+// are a downside (e.g. Berserker\'s Edge trading away some Defense). `duration`
 // is a turn count, 'battle' for rest-of-battle, or 'instant' for a one-time
 // effect (heal/cleanse) applied the moment the skill lands.
 export interface SkillEffect {
@@ -138,7 +138,7 @@ export interface Skill {
   description: string;
   // Present on the Vault-taught alt/universal skills and the legendary-only
   // skills; absent (defaults to 'base') on the original 18 species-kit skills
-  // above so those don't need touching. See SkillEffect for what `effects`
+  // above so those don\'t need touching. See SkillEffect for what `effects`
   // entries do in battle. 'legendary' skills are never sold in the Vault —
   // see SCROLL_CATALOG in lib/skillScrolls.ts.
   category?: 'base' | 'alt' | 'universal' | 'legendary';
@@ -179,11 +179,11 @@ export const SKILLS: Record<string, Skill> = {
   // ─── LEGENDARY SKILLS ─── one per element, exclusive default tier3 move for
   // legendary monsters (wild-only legendaries, and guild companions whose
   // evolution reaches 'legendary' — see getGuildEnhancementLevel). 2.25x is a
-  // modest step above every other skill's damage ceiling (base tier3 tops out
+  // modest step above every other skill\'s damage ceiling (base tier3 tops out
   // at 2.0x) — strictly the strongest kit in the game, but not by a swingy
   // margin. Never sold as a scroll (see skillId in lib/skillScrolls.ts) and
   // rejected server-side if taught directly (see learn_monster_skill RPC).
-  legendary_fire:    { id: 'legendary_fire',    name: 'Solar Flare',      element: 'fire',   tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: "A legendary wyrm's signature blast, hot enough to outburn any Inferno Blast." },
+  legendary_fire:    { id: 'legendary_fire',    name: 'Solar Flare',      element: 'fire',   tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: "A legendary wyrm\'s signature blast, hot enough to outburn any Inferno Blast." },
   legendary_water:   { id: 'legendary_water',   name: 'Maelstrom',        element: 'water',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'A whirlpool with the force of a whole tide behind it.' },
   legendary_leaf:    { id: 'legendary_leaf',    name: 'World Bloom',      element: 'leaf',   tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'Every root and vine in reach answers at once.' },
   legendary_storm:   { id: 'legendary_storm',   name: 'Tempest Fury',     element: 'storm',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'A full storm front discharged in a single strike.' },
@@ -234,7 +234,7 @@ export const SKILLS: Record<string, Skill> = {
   guard_break:      { id: 'guard_break',      name: 'Guard Break',      element: null, tier: 2, questionCount: 2, baseDamageMultiplier: 0, category: 'universal', description: 'Cracks the foe\'s defenses wide open.',                          effects: [{ kind: 'enemy_def_down', magnitude: 0.25, duration: 3 }] },
   adrenaline_rush:  { id: 'adrenaline_rush',  name: 'Adrenaline Rush',  element: null, tier: 2, questionCount: 2, baseDamageMultiplier: 0, category: 'universal', description: 'A surge of speed and power.',                                    effects: [{ kind: 'self_speed_up', magnitude: 0.15, duration: 3 }, { kind: 'self_atk_up', magnitude: 0.15, duration: 3 }] },
   iron_resolve:     { id: 'iron_resolve',     name: 'Iron Resolve',     element: null, tier: 3, questionCount: 3, baseDamageMultiplier: 0, category: 'universal', description: 'Hardens your resolve for the rest of the battle.',              effects: [{ kind: 'self_def_up', magnitude: 0.35, duration: 'battle' }] },
-  berserkers_edge:  { id: 'berserkers_edge',  name: "Berserker's Edge", element: null, tier: 3, questionCount: 3, baseDamageMultiplier: 0, category: 'universal', description: 'Trades safety for raw power, for the rest of the battle.',      effects: [{ kind: 'self_atk_up', magnitude: 0.40, duration: 'battle' }, { kind: 'self_def_up', magnitude: -0.20, duration: 'battle' }] },
+  berserkers_edge:  { id: 'berserkers_edge',  name: "Berserker\'s Edge", element: null, tier: 3, questionCount: 3, baseDamageMultiplier: 0, category: 'universal', description: 'Trades safety for raw power, for the rest of the battle.',      effects: [{ kind: 'self_atk_up', magnitude: 0.40, duration: 'battle' }, { kind: 'self_def_up', magnitude: -0.20, duration: 'battle' }] },
   second_wind:      { id: 'second_wind',      name: 'Second Wind',      element: null, tier: 3, questionCount: 3, baseDamageMultiplier: 0, category: 'universal', description: 'Catch your breath, heal up, and shake off any status.',          effects: [{ kind: 'flat_heal', magnitude: 0.25, duration: 'instant' }, { kind: 'cleanse', duration: 'instant' }] },
 };
 
@@ -274,11 +274,11 @@ export interface MonsterDef {
   skillUnlocks: { tier2: number; tier3: number }; // tier1 always available at level 1
   isLegendary?: boolean;
   // Overrides which /public/monsters/{spriteId}.webp file MonsterImage loads,
-  // when it differs from `id` (e.g. a guild companion's tier1 sprite file is
+  // when it differs from `id` (e.g. a guild companion\'s tier1 sprite file is
   // named after its tier1 form, not the DB monster_id). Falls back to `id`.
   spriteId?: string;
   // Present only on the 5 guild companion monsters (see GUILD_MONSTERS below).
-  // Gates the monster's *displayed* name/emoji/sprite on the owning player's
+  // Gates the monster\'s *displayed* name/emoji/sprite on the owning player\'s
   // guild level — separate from monster_level/monster_exp, which progress
   // normally regardless of guild level.
   guildEvolution?: {
@@ -289,8 +289,8 @@ export interface MonsterDef {
   // Present only on regular starter/wild monsters that have a purchasable
   // "graduation" upgrade — unlike guildEvolution (free, keyed on guild level),
   // graduating consumes a Graduation Scroll (see GRADUATION_SCROLL_COST) and
-  // is gated on the monster's own level (see GRADUATION_LEVEL_REQUIREMENT).
-  // Once bought it's permanent for that specific monster instance, tracked in
+  // is gated on the monster\'s own level (see GRADUATION_LEVEL_REQUIREMENT).
+  // Once bought it\'s permanent for that specific monster instance, tracked in
   // user_monsters.graduation_tier (0 = ungraduated, matches no `graduation`).
   graduation?: {
     first: GraduationStage;
@@ -319,12 +319,12 @@ export function getMaxGraduationTier(monsterDef: MonsterDef): 0 | 1 | 2 {
 
 // Returns a MonsterDef with name/emoji/spriteId/description swapped, and base
 // stats scaled up, for a specific graduation tier of a regular monster —
-// independent of monster level (unlike getGuildMonsterDisplay's guild-level
+// independent of monster level (unlike getGuildMonsterDisplay\'s guild-level
 // lookup), since graduation is a one-time player purchase tracked per
-// monster instance. Growth reuses GUILD_ENHANCEMENT_GROWTH's 'enhanced'
+// monster instance. Growth reuses GUILD_ENHANCEMENT_GROWTH\'s 'enhanced'
 // (first graduation) / 'super_enhanced' (second) multipliers rather than a
 // parallel table, so a graduation lands on the same power curve as a guild
-// companion's tier2/tier3 — shown to the player as an old-stat -> new-stat
+// companion\'s tier2/tier3 — shown to the player as an old-stat -> new-stat
 // comparison in the graduation ceremony. Skills are unaffected; growth
 // always compounds from the ungraduated base stats, never stacked
 // tier-on-tier, mirroring getGuildMonsterTierDef.
@@ -347,7 +347,7 @@ export function getGraduatedMonsterDisplay(monsterDef: MonsterDef, graduationTie
 }
 
 // Per-instance wrapper around getGraduatedMonsterDisplay for callers holding a
-// species-wide display map (guild-tier swaps baked in, see MonsterGuild's
+// species-wide display map (guild-tier swaps baked in, see MonsterGuild\'s
 // displayMonsters) plus one specific owned row. Graduation is purchased per
 // user_monsters instance, not per species — since the egg mechanism a player
 // can own more than one instance of the same species at different
@@ -364,7 +364,7 @@ export function getOwnedMonsterDisplay(
 }
 
 // description is optional — omitting it falls back to the base species'
-// value. Stats are never authored by hand here: they're derived from the
+// value. Stats are never authored by hand here: they\'re derived from the
 // base species stats by GUILD_ENHANCEMENT_GROWTH, keyed off tier + isLegendary
 // (see getGuildEnhancementLevel/getGuildMonsterTierDef below).
 interface GuildEvolutionStage {
@@ -382,7 +382,7 @@ const STAT_PRESETS: Record<MonsterArchetype, { baseHp: number; baseAttack: numbe
   glass_cannon: { baseHp: 80,  baseAttack: 25, baseDefense: 10, baseSpeed: 18 },
 };
 
-// Wild-only monsters get a step up across every stat — they're meant to feel
+// Wild-only monsters get a step up across every stat — they\'re meant to feel
 // like a real prize after such a rare, hard-won catch.
 const WILD_STAT_PRESET = { baseHp: 140, baseAttack: 26, baseDefense: 20, baseSpeed: 16 };
 
@@ -392,10 +392,20 @@ const WILD_STAT_PRESET = { baseHp: 140, baseAttack: 26, baseDefense: 20, baseSpe
 export const MONSTERS: Record<string, MonsterDef> = {
   shadrak: {
     id: 'shadrak', name: 'Shadrak', element: 'shadow', archetype: 'glass_cannon',
-    emoji: '👻', description: 'A cloaked phantom with hollow eyes — a fragment of the world\'s Ledger that keeps what\'s hidden or overlooked. It wove its cloak from leftover night. It doesn’t cast a shadow — it wears one. Moves without sound and watches from doorways.',
+    emoji: '👻', description: 'A cloaked phantom with hollow eyes — a fragment of the world\'s Ledger that keeps what\'s hidden or overlooked. It wove its cloak from leftover night. It doesn\'t cast a shadow — it wears one. Moves without sound and watches from doorways.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
     skillUnlocks: { tier2: 18, tier3: 30 },
+    graduation: {
+      first: {
+        level: 20, name: 'Shadeveil', emoji: '🌒', spriteId: 'shadeveil',
+        description: 'Shadrak\'s cloak has thickened into a true veil — less a garment now and more a second skin of woven night. It rarely opens its eyes in bright light anymore, preferring the clarity that comes from seeing through the dark alone.',
+      },
+      second: {
+        level: 32, name: 'Shadecrown', emoji: '🌑', spriteId: 'shadecrown',
+        description: 'What was once a veil has hardened into something older — a crown of compressed shadow that no light touches. It no longer watches from doorways. It becomes the doorway.',
+      },
+    },
   },
   torrenth: {
     id: 'torrenth', name: 'Torrenth', element: 'water', archetype: 'tank',
@@ -403,6 +413,16 @@ export const MONSTERS: Record<string, MonsterDef> = {
     ...STAT_PRESETS.tank,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
+    graduation: {
+      first: {
+        level: 20, name: 'Torrentide', emoji: '🌊', spriteId: 'torrentide',
+        description: 'Torrenth\'s shell has widened and ridged further, each ridge now holding not just the echo of a wave but a living current. It can anchor itself so completely that smaller creatures shelter in its wake during storms.',
+      },
+      second: {
+        level: 32, name: 'Torrentitan', emoji: '🏔️', spriteId: 'torrentitan',
+        description: 'It has grown past immovable into something that changes the water around it — a tide unto itself. Ships give it a wide berth, not out of fear, but because the sea behaves differently wherever Torrentitan rests.',
+      },
+    },
   },
   voltmane: {
     id: 'voltmane', name: 'Voltmane', element: 'storm', archetype: 'glass_cannon',
@@ -410,6 +430,16 @@ export const MONSTERS: Record<string, MonsterDef> = {
     ...STAT_PRESETS.glass_cannon,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
     skillUnlocks: { tier2: 18, tier3: 30 },
+    graduation: {
+      first: {
+        level: 20, name: 'Voltzane', emoji: '🌩️', spriteId: 'voltzane',
+        description: 'Voltmane\'s mane has grown out further, arcing between its own tips in constant small sparks. Its bursts are longer now, and it lingers in the smell of rain long after it has gone.',
+      },
+      second: {
+        level: 32, name: 'Voltzar', emoji: '⛈️', spriteId: 'voltzar',
+        description: 'The static has nowhere left to build — it simply is. Voltzar no longer runs in bursts. It moves at the speed of consequence, already somewhere else by the time the thunder catches up.',
+      },
+    },
   },
   fernix: {
     id: 'fernix', name: 'Fernix', element: 'leaf', archetype: 'balanced',
@@ -417,6 +447,16 @@ export const MONSTERS: Record<string, MonsterDef> = {
     ...STAT_PRESETS.balanced,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
     skillUnlocks: { tier2: 18, tier3: 30 },
+    graduation: {
+      first: {
+        level: 20, name: 'Fernox', emoji: '🍃', spriteId: 'fernox',
+        description: 'Fernix\'s woven feathers have grown denser and overlapped into something closer to bark than leaf — harder to lose, slower to rustle. The sprouts it leaves behind now take root instead of fading.',
+      },
+      second: {
+        level: 32, name: 'Fernthos', emoji: '🌿', spriteId: 'fernthos',
+        description: 'It no longer flies so much as drifts on currents it chooses. Its body is all old growth now — layered vines, crossed branches — and the forest it passes through leans in for a moment before straightening again.',
+      },
+    },
   },
   solarch: {
     id: 'solarch', name: 'Solarch', element: 'light', archetype: 'tank',
@@ -429,6 +469,10 @@ export const MONSTERS: Record<string, MonsterDef> = {
         level: 20, name: 'Starlune', emoji: '🌟', spriteId: 'starlune',
         description: 'Solarch\'s sun-disc mane has widened into a halo of starlight, bright even at noon. It no longer needs to chase the sun — it carries a piece of the sky with it wherever it walks.',
       },
+      second: {
+        level: 32, name: 'Stellarch', emoji: '⭐', spriteId: 'stellarch',
+        description: 'The star-halo has expanded past Starlune\'s shoulders and begun to orbit slowly on its own. It no longer needs to find the light — wherever Stellarch stands, morning comes a little early.',
+      },
     },
   },
   pyravex: {
@@ -437,12 +481,22 @@ export const MONSTERS: Record<string, MonsterDef> = {
     ...STAT_PRESETS.glass_cannon,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
+    graduation: {
+      first: {
+        level: 20, name: 'Volcavor', emoji: '🌋', spriteId: 'volcavor',
+        description: 'Pyravex\'s tail no longer just spins — it churns, dragging heat up from somewhere deep. The chest glow no longer dims on exhale. It has stopped being grumpy and started being patient, which is somehow worse.',
+      },
+      second: {
+        level: 32, name: 'Magmordrax', emoji: '🐉', spriteId: 'magmordrax',
+        description: 'The patience has cooled into something geological. Magmordrax doesn\'t breathe in and out so much as it cycles — heat in, lava out — the will and courage of the Ledger distilled into its own slow geology.',
+      },
+    },
   },
 };
 
 // ─── WILD MONSTERS ───────────────────────────────────────────────────────────
 // A pool only obtainable through a rare Training Map wild encounter (see
-// components/WildEncounterModal.tsx) — never selectable in TeamPanel's normal
+// components/WildEncounterModal.tsx) — never selectable in TeamPanel\'s normal
 // add-monster flow like the MONSTERS above. Emberwyrm/Tidalynx/Zephyrion/
 // Nyxfang/Aureon are the original "legendary" exclusives (boosted stats);
 // Embrak/Coralyn/Mosshorn/Galestrik/Duskral/Luminos are the other half of the
@@ -455,6 +509,16 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     ...STAT_PRESETS.balanced,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
+    graduation: {
+      first: {
+        level: 20, name: 'Magmabrak', emoji: '🔥', spriteId: 'magmabrak',
+        description: 'Embrak\'s magma cracks have widened and begun to glow orange-white at the edges. It no longer needs to half-bury itself in warm mud — it brings its own heat wherever it goes. The cauterized bite mark it leaves now takes twice as long to fade.',
+      },
+      second: {
+        level: 32, name: 'Infernabrax', emoji: '💥', spriteId: 'infernabrax',
+        description: 'The mud phase is long over. Infernabrax hasn\'t cooled in years — its surface runs at a permanent simmer, the Ledger\'s fragment of will burning so steadily now that it has simply become part of how the world feels warm.',
+      },
+    },
   },
   coralyn: {
     id: 'coralyn', name: 'Coralyn', element: 'water', archetype: 'balanced',
@@ -467,6 +531,10 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
         level: 20, name: 'Coralyss', emoji: '🪸', spriteId: 'coralyss',
         description: 'Her coral crown has bloomed into a full reef of its own, busy with shrimp and anemones she\'s long since stopped noticing. The patch of ocean she guards has grown right along with her.',
       },
+      second: {
+        level: 32, name: 'Coralythia', emoji: '🌺', spriteId: 'coralythia',
+        description: 'The reef that grew on Coralyss has become its own ecosystem — Coralythia carries a living ocean on its back, no longer guarding a single patch but becoming the patch. The shrimp and anemones have forgotten it was ever anything else.',
+      },
     },
   },
   mosshorn: {
@@ -475,6 +543,16 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     ...STAT_PRESETS.tank,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
     skillUnlocks: { tier2: 18, tier3: 30 },
+    graduation: {
+      first: {
+        level: 20, name: 'Mossloft', emoji: '🌿', spriteId: 'mossloft',
+        description: 'Mosshorn\'s antlers have spread outward and the moss has grown past them, hanging in heavy curtains that brush the ground. Rain no longer collects in the antlers — it flows down them. The small mossy hill it leaves behind is larger every year.',
+      },
+      second: {
+        level: 32, name: 'Eldermoss', emoji: '🌳', spriteId: 'eldermoss',
+        description: 'The antlers are fully grown over now — more forest than deer. Eldermoss moves slowly because the moss it carries is home to hundreds of things it hasn\'t quite noticed yet. The Ledger\'s patience made flesh, layered by time into something that no longer hurries for anything.',
+      },
+    },
   },
   galestrik: {
     id: 'galestrik', name: 'Galestrik', element: 'storm', archetype: 'glass_cannon',
@@ -493,6 +571,10 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
       first: {
         level: 20, name: 'Noctral', emoji: '🌑', spriteId: 'noctral',
         description: 'Duskral has stopped melting into the dark and become it — a panther-shaped absence with a crescent of stars where its chest mark used to be. Lamplight bends around it now instead of touching it.',
+      },
+      second: {
+        level: 32, name: 'Astralyx', emoji: '🌌', spriteId: 'astralyx',
+        description: 'Noctral\'s outline has dissolved entirely into a constellation of scattered light — a void-panther whose form is defined only by the stars that frame where it isn\'t. It doesn\'t hunt in the dark anymore. It is the dark that decides where the stars sit.',
       },
     },
   },
@@ -574,7 +656,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   coralune: {
     id: 'coralune', name: 'Coralune', element: 'water', archetype: 'balanced',
-    emoji: '🪸', description: 'A shy reef seahorse, a loose fragment of the Ledger that grows a small living coral crown. The coral’s health reflects the water’s. Coralune hums to keep the polyps calm. If water turns sour, it leaves.',
+    emoji: '🪸', description: 'A shy reef seahorse, a loose fragment of the Ledger that grows a small living coral crown. The coral\'s health reflects the water\'s. Coralune hums to keep the polyps calm. If water turns sour, it leaves.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -602,7 +684,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   thundrake: {
     id: 'thundrake', name: 'Thundrake', element: 'storm', archetype: 'tank',
-    emoji: '🐉', description: 'A serpentine dragon, a loose fragment of the Ledger, that lives inside storm clouds. It doesn’t create thunder — it lives where thunder already is, because the vibrations help it shed old cloud-scales. Often mistaken for distant thunder.',
+    emoji: '🐉', description: 'A serpentine dragon, a loose fragment of the Ledger, that lives inside storm clouds. It doesn\'t create thunder — it lives where thunder already is, because the vibrations help it shed old cloud-scales. Often mistaken for distant thunder.',
     ...STAT_PRESETS.tank,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -616,7 +698,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   umbraven: {
     id: 'umbraven', name: 'Umbraven', element: 'shadow', archetype: 'balanced',
-    emoji: '🐦‍⬛', description: 'A forest raven, a loose fragment of the Ledger, whose feathers have a soft ink-like edge that blurs in dim light. It is hard to photograph because cameras can’t focus on it. It collects shiny black stones.',
+    emoji: '🐦‍⬛', description: 'A forest raven, a loose fragment of the Ledger, whose feathers have a soft ink-like edge that blurs in dim light. It is hard to photograph because cameras can\'t focus on it. It collects shiny black stones.',
     ...STAT_PRESETS.balanced,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -646,6 +728,23 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
+  platydew: {
+    id: 'platydew', name: 'Platydew', element: 'water', archetype: 'balanced',
+    emoji: '🦆', description: 'A small, pudgy platypus, a loose fragment of the Ledger, whose bill is perpetually wet with morning dew. It naps face-down at the water\'s edge with its bill just submerged, feeling for movement. Nobody is sure when it sleeps and when it is simply very still.',
+    ...STAT_PRESETS.balanced,
+    skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
+    skillUnlocks: { tier2: 18, tier3: 30 },
+    graduation: {
+      first: {
+        level: 20, name: 'Tidebill', emoji: '🌊', spriteId: 'tidebill',
+        description: 'Platydew\'s bill has grown longer and more sensitive, reading entire currents at once. It no longer naps at the edge — it drifts with one eye open, bill sweeping the water ahead like a slow, deliberate question.',
+      },
+      second: {
+        level: 32, name: 'Tideboard', emoji: '🏄', spriteId: 'tideboard',
+        description: 'Tidebill has grown broad and flat enough to ride its own wake — a living surfboard of a platypus that steers tides more than it follows them. The bill now reads the ocean floor from the surface. It rarely needs to submerge anymore; the water comes to it.',
+      },
+    },
+  },
   brambleon: {
     id: 'brambleon', name: 'Brambleon', element: 'leaf', archetype: 'tank',
     emoji: '🦁', description: 'A lowland lion, a loose fragment of the Ledger, with a mane of thick leaves and vines. The leaves change color with the season, but never fall out completely. It marks territory by tangling vines into knots.',
@@ -660,7 +759,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
 // eleven equally-likely species. A legendary starts ~10x rarer per-species
 // than a regular wild monster (common weight 10 vs legendary base weight 1).
 const WILD_RARITY_WEIGHT = { common: 10, legendaryBase: 1 } as const;
-// Each legendary species already in the player's collection makes every
+// Each legendary species already in the player\'s collection makes every
 // remaining legendary harder to stumble into — weight decays multiplicatively
 // per owned legendary, floored so the last one stays possible, just rare.
 const LEGENDARY_WEIGHT_DECAY_PER_OWNED = 0.6;
@@ -668,7 +767,7 @@ const LEGENDARY_MIN_WEIGHT = 0.05;
 
 // Picks a random wild-only monster id, biased away from legendaries per
 // WILD_RARITY_WEIGHT, with legendary odds falling further as
-// ownedLegendaryCount (distinct legendary species already in the player's
+// ownedLegendaryCount (distinct legendary species already in the player\'s
 // collection) grows — the closer to a full legendary set, the rarer the next one.
 // `allowedElements`, when provided (World Map elemental regions), restricts
 // the candidate pool to only those elements before weighting — omitted
@@ -695,7 +794,7 @@ export function pickRandomWildMonsterId(ownedLegendaryCount = 0, allowedElements
 
 // ─── WILD ENCOUNTER (CURIO) CHANCE ──────────────────────────────────────────
 // A curio now spawns on the map from a single roll made when a *scroll*
-// question is answered correctly (see components/monster/TrainingMap.tsx's
+// question is answered correctly (see components/monster/TrainingMap.tsx\'s
 // handleScrollAnswer) — a deliberate, walked-to event, not ambient
 // background noise on every grass step like the old system this replaced.
 // Flat rate for everyone: ~1 curio every 20 correct answers on average, with
@@ -721,12 +820,12 @@ export const WILD_ENCOUNTER_PITY_THRESHOLD = 30;
 // guild reaches level 5 (see ensureGuildMonsterGranted in lib/guildEngine.ts).
 // Skills/skillUnlocks/EXP work exactly like any other monster and never
 // change. The tier1 fields above (name/emoji/description/base stats) are
-// what's active until the player's guild level crosses
-// guildEvolution.tier2/tier3.level, at which point that stage's own
+// what\'s active until the player\'s guild level crosses
+// guildEvolution.tier2/tier3.level, at which point that stage\'s own
 // name/emoji/description take over and stats scale up per
 // GUILD_ENHANCEMENT_GROWTH (tier2 'enhanced', tier3 'super_enhanced', or
 // 'legendary' — the top tier — if that stage sets isLegendary, regardless of
-// whether it's reached at tier2 or tier3). See getGuildMonsterDisplay below.
+// whether it\'s reached at tier2 or tier3). See getGuildMonsterDisplay below.
 export const GUILD_MONSTERS: Record<string, MonsterDef> = {
   lorekeeper_familiar: {
     id: 'lorekeeper_familiar', name: 'Scryvyn', element: 'leaf', archetype: 'tank',
@@ -876,7 +975,7 @@ export const EVENT_MONSTERS: Record<string, MonsterDef> = {
 };
 
 // Combined lookup for anywhere a monster id might be either a normal starter
-// monster or a wild-only one (e.g. resolving an NpcTrainer's monsters, since a
+// monster or a wild-only one (e.g. resolving an NpcTrainer\'s monsters, since a
 // wild encounter is represented as a synthetic one-monster NpcTrainer).
 export const ALL_MONSTERS: Record<string, MonsterDef> = { ...MONSTERS, ...WILD_MONSTERS, ...GUILD_MONSTERS, ...EVENT_MONSTERS };
 
@@ -907,7 +1006,7 @@ export interface NpcTrainer {
 // starting out) up through 9, 14, and 42 (a heavy grinder) — see git history
 // around 2026-07-20 for the actual reference numbers. Each trainer now fields
 // 3 monsters (was 2) for a longer, more attritional fight, with levels ramped
-// gradually so the curve tracks a normally-active player's real pace instead
+// gradually so the curve tracks a normally-active player\'s real pace instead
 // of jumping straight to the levelRequirement number. The Grand Master tops
 // out around 29 — a real capstone for a dedicated player, without requiring
 // the outlier-grinder pace to ever be reachable.
@@ -1015,9 +1114,9 @@ export const BATTLE_CONSTANTS = {
   BURN_DAMAGE_PER_TURN:          5,
   CURSE_DAMAGE_REDUCTION:       0.5,
   CURSE_DURATION_TURNS:          2,
-  // Attack Scroll's atk_boost status — matches Iron Shield's def_boost being
+  // Attack Scroll\'s atk_boost status — matches Iron Shield\'s def_boost being
   // a symmetric halving of incoming damage (lib/inventory.ts item copy: "Boost
-  // your monster's attack by 1.5x for one turn").
+  // your monster\'s attack by 1.5x for one turn").
   ATK_BOOST_MULTIPLIER:          1.5,
   // How many turns each ELEMENT_STATUS debuff lasts once inflicted by a
   // perfect hit — burn/paralyze previously had no real duration (see
@@ -1026,7 +1125,7 @@ export const BATTLE_CONSTANTS = {
   BURN_DURATION_TURNS:           3,
   PARALYZE_DURATION_TURNS:       1,
   // One-shot item buffs (Attack Scroll/Iron Shield) — active for exactly the
-  // turn they're used on, then gone.
+  // turn they\'re used on, then gone.
   ATK_BOOST_DURATION_TURNS:      1,
   DEF_BOOST_DURATION_TURNS:      1,
   // apply_blessed / a self-targeting ELEMENT_STATUS perfect hit — how many
@@ -1034,10 +1133,10 @@ export const BATTLE_CONSTANTS = {
   // expires unused.
   BLESSED_DURATION_TURNS:        3,
   PLAYER_LEVEL_FOR_SLOT: { 1: 5, 2: 10, 3: 15 } as Record<1|2|3, number>,
-  // +8%/level over the monster's level-1 base stats, so a Lv.25 monster (the
+  // +8%/level over the monster\'s level-1 base stats, so a Lv.25 monster (the
   // highest-level NPC trainer) hits roughly 2.9x as hard/tanky as a fresh catch.
   STAT_GROWTH_PER_LEVEL:      0.08,
-  // NPCs don't answer quiz questions, so their counter-attacks need a stand-in
+  // NPCs don\'t answer quiz questions, so their counter-attacks need a stand-in
   // accuracy instead of a real correct/total ratio. calculateDamage only cares
   // whether the ratio is a perfect 1 (full damage), a partial >0 (0.5x, same
   // reduction a player gets for any wrong answer), or exactly 0 (miss) — so
@@ -1050,10 +1149,10 @@ export const BATTLE_CONSTANTS = {
 
 // How many turns a given status effect lasts once (re-)granted — the single
 // source of truth for every grant site (ELEMENT_STATUS perfect hits, item
-// effects) so a status's lifetime can't drift between where it's applied and
-// where it's ticked down. def_boost/atk_boost/revive/null all resolve to a
-// flat 1 turn or 0 (revive/null aren't ticked; they're cleared/consumed
-// directly wherever they're granted).
+// effects) so a status\'s lifetime can\'t drift between where it\'s applied and
+// where it\'s ticked down. def_boost/atk_boost/revive/null all resolve to a
+// flat 1 turn or 0 (revive/null aren\'t ticked; they\'re cleared/consumed
+// directly wherever they\'re granted).
 export function statusDuration(status: StatusEffect): number {
   switch (status) {
     case 'burn':      return BATTLE_CONSTANTS.BURN_DURATION_TURNS;
@@ -1066,11 +1165,11 @@ export function statusDuration(status: StatusEffect): number {
   }
 }
 
-// Decrements a status effect's remaining duration by one turn, clearing it
+// Decrements a status effect\'s remaining duration by one turn, clearing it
 // once it reaches 0 — mirrors tickModifiers but for the single-slot `status`
 // field (which unlike modifiers has no array to filter, so needs its own
 // helper). Shared by the solo BattleScreen and PVP round resolution so a
-// status's actual on-screen lifetime can't drift between the two — this is
+// status\'s actual on-screen lifetime can\'t drift between the two — this is
 // what previously let a paralyzed/burned monster stay that way forever
 // instead of the status wearing off after its intended number of turns.
 export function tickStatus(status: StatusEffect, statusTurns: number): { status: StatusEffect; statusTurns: number } {
@@ -1092,7 +1191,7 @@ export function getAvailableSkillTiers(monsterLevel: number, monsterDef: Monster
   return tiers;
 }
 
-// Resolves a monster instance's actual 3 skill slots, layering its
+// Resolves a monster instance\'s actual 3 skill slots, layering its
 // `equipped_skills` override (from the Vault learn/unlearn scrolls) on top of
 // its species' default kit. Per slot: `null`/`undefined` = species default
 // still active (free, never customized), `'EMPTY'` = unlearned and awaiting a
@@ -1112,7 +1211,7 @@ export function getEquippedSkills(equippedSkills: (string | null)[] | null | und
 // A multi-turn buff/debuff a monster is currently carrying, stacked from
 // `SkillEffect`s of kind self_atk_up/self_def_up/self_speed_up/enemy_atk_down/
 // enemy_def_down/accuracy_soften. Only one modifier per `kind` is ever active
-// at a time (a fresh one replaces the old, it doesn't stack additively) —
+// at a time (a fresh one replaces the old, it doesn\'t stack additively) —
 // mirrors how the existing potion-driven atk_boost/def_boost statuses work.
 export interface ActiveModifier {
   kind: 'atk' | 'def' | 'speed' | 'accuracy';
@@ -1129,7 +1228,7 @@ export function getModifierMultiplier(modifiers: ActiveModifier[] | undefined, k
 
 // Called once per turn end for each monster still carrying modifiers —
 // decrements turn-limited ones and drops any that just expired. 'battle'
-// duration modifiers (Iron Resolve, Berserker's Edge) never tick down.
+// duration modifiers (Iron Resolve, Berserker\'s Edge) never tick down.
 export function tickModifiers(modifiers: ActiveModifier[] | undefined): ActiveModifier[] {
   return (modifiers ?? [])
     .map(m => (m.turnsRemaining === 'battle' ? m : { ...m, turnsRemaining: m.turnsRemaining - 1 }))
@@ -1139,15 +1238,15 @@ export function tickModifiers(modifiers: ActiveModifier[] | undefined): ActiveMo
 export interface SkillEffectResult {
   casterModifiers: ActiveModifier[];
   targetModifiers: ActiveModifier[];
-  casterHpDelta: number; // lifesteal/flat_heal — added to caster's currentHp
+  casterHpDelta: number; // lifesteal/flat_heal — added to caster\'s currentHp
   cleanseCaster: boolean;
   logMessages: string[];
 }
 
-// Applies one skill's `effects` (Phase B — alt/universal skills only; base
+// Applies one skill\'s `effects` (Phase B — alt/universal skills only; base
 // species skills have no `effects` and this is a no-op for them) to the
-// caster's and target's modifier stacks. Shared by both battle screens so the
-// two turn engines can't drift on what a given effect actually does.
+// caster\'s and target\'s modifier stacks. Shared by both battle screens so the
+// two turn engines can\'t drift on what a given effect actually does.
 export function applySkillEffects(
   skill: Skill,
   damageDealt: number,
@@ -1186,11 +1285,11 @@ export function applySkillEffects(
         break;
       case 'enemy_atk_down':
         setTarget('atk', -(effect.magnitude ?? 0), effect.duration);
-        logs.push(`⬇️ The enemy's Attack fell!`);
+        logs.push(`⬇️ The enemy\'s Attack fell!`);
         break;
       case 'enemy_def_down':
         setTarget('def', -(effect.magnitude ?? 0), effect.duration);
-        logs.push(`⬇️ The enemy's Defense fell!`);
+        logs.push(`⬇️ The enemy\'s Defense fell!`);
         break;
       case 'accuracy_soften':
         setCaster('accuracy', effect.magnitude ?? 0, effect.duration);
@@ -1214,8 +1313,8 @@ export function applySkillEffects(
   return { casterModifiers: nextCaster, targetModifiers: nextTarget, casterHpDelta: hpDelta, cleanseCaster: cleanse, logMessages: logs };
 }
 
-// Which evolution tier a guild companion monster's *display* is at, based on
-// the owning player's guild level (not monster level/exp). Regular monsters
+// Which evolution tier a guild companion monster\'s *display* is at, based on
+// the owning player\'s guild level (not monster level/exp). Regular monsters
 // (no guildEvolution) are always tier 1.
 export function getGuildMonsterTier(monsterDef: MonsterDef, guildLevel: number): 1 | 2 | 3 {
   const evo = monsterDef.guildEvolution;
@@ -1225,14 +1324,14 @@ export function getGuildMonsterTier(monsterDef: MonsterDef, guildLevel: number):
   return 1;
 }
 
-// Stat "power level" a guild companion's tier maps to. Tier1 is always
+// Stat "power level" a guild companion\'s tier maps to. Tier1 is always
 // 'normal'; tier2/tier3 are 'enhanced'/'super_enhanced' UNLESS that stage is
 // flagged isLegendary, in which case 'legendary' — the top enhancement —
 // overrides it regardless of whether legendary status lands on tier2 or tier3.
 export type GuildEnhancementLevel = 'normal' | 'enhanced' | 'super_enhanced' | 'legendary';
 
-// Multiplier applied to a guild companion's tier1 base stats to produce each
-// enhancement level's stats. Always grown from the tier1 base, never stacked
+// Multiplier applied to a guild companion\'s tier1 base stats to produce each
+// enhancement level\'s stats. Always grown from the tier1 base, never stacked
 // tier-on-tier, so legendary status gives the same top stats whether it hits
 // at tier2 or tier3.
 const GUILD_ENHANCEMENT_GROWTH: Record<GuildEnhancementLevel, number> = {
@@ -1250,7 +1349,7 @@ export function getGuildEnhancementLevel(monsterDef: MonsterDef, tier: 1 | 2 | 3
 }
 
 // A guild companion that reaches 'legendary' swaps its tier3 skill slot for
-// its element's exclusive legendary move (see the LEGENDARY SKILLS block in
+// its element\'s exclusive legendary move (see the LEGENDARY SKILLS block in
 // SKILLS above) instead of the normal species tier3 skill.
 const LEGENDARY_SKILL_BY_ELEMENT: Record<Element, string> = {
   fire: 'legendary_fire', water: 'legendary_water', leaf: 'legendary_leaf',
@@ -1259,7 +1358,7 @@ const LEGENDARY_SKILL_BY_ELEMENT: Record<Element, string> = {
 
 // Returns a MonsterDef with name/emoji/spriteId/isLegendary/description/base
 // stats/tier3 skill swapped for a specific evolution tier of a guild
-// companion — independent of any player's current guild level (unlike
+// companion — independent of any player\'s current guild level (unlike
 // getGuildMonsterDisplay below), so the Compendium can render all 3 tiers as
 // separate cards side by side. Skills stay the base species values, EXCEPT
 // the tier3 slot when this tier resolves to 'legendary' (see
@@ -1289,7 +1388,7 @@ export function getGuildMonsterTierDef(monsterDef: MonsterDef, tier: 1 | 2 | 3):
 }
 
 // Resolves the full display+stat def for a monster, given the owning
-// player's level in that monster's linked guild (0 if unknown/n/a). Skills
+// player\'s level in that monster\'s linked guild (0 if unknown/n/a). Skills
 // and EXP are unaffected by this — see getGuildMonsterTier.
 export function getGuildMonsterDisplay(monsterDef: MonsterDef, guildLevel: number): MonsterDef & { tier: 1 | 2 | 3; enhancementLevel: GuildEnhancementLevel } {
   const tier = getGuildMonsterTier(monsterDef, guildLevel);
@@ -1297,11 +1396,11 @@ export function getGuildMonsterDisplay(monsterDef: MonsterDef, guildLevel: numbe
   return { ...d, tier, enhancementLevel: getGuildEnhancementLevel(monsterDef, tier) };
 }
 
-// Scales a monster's level-1 base stats up with its current level. Applied
+// Scales a monster\'s level-1 base stats up with its current level. Applied
 // wherever a monster enters battle (both solo and live PVP) and wherever its
 // effective stats are displayed, so a leveled-up monster is actually stronger
 // rather than just having more skills available. `quality` (see
-// lib/curioQuality.ts — defaults to 'normal' for callers that don't track it,
+// lib/curioQuality.ts — defaults to 'normal' for callers that don\'t track it,
 // e.g. a freshly-claimed starter) multiplies HP/Attack only, never
 // Defense/Speed, so Tutoring is a pure offense/survivability chase stat.
 export function getScaledStats(monsterDef: MonsterDef, level: number, quality: QualityTier = 'normal'): { hp: number; attack: number; defense: number; speed: number } {
@@ -1337,7 +1436,7 @@ export function calculateDamage(
   if (isBlessed) damage *= 2;
   // Diminishing-returns mitigation (100/(100+DEF)) rather than a flat
   // subtraction, so Defense stays useful at every level without ever being
-  // able to reduce damage to exactly 0 regardless of how high it's scaled.
+  // able to reduce damage to exactly 0 regardless of how high it\'s scaled.
   damage *= 100 / (100 + defenderDefense);
 
   return Math.round(damage);
