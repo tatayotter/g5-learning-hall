@@ -221,7 +221,20 @@ export default function Dashboard() {
       // requires the user_identity_map row it writes, so firing trackEvent
       // before it lands would silently drop the session_start event.
       (async () => {
-        await linkIdentity(activeUserId);
+        const linked = await linkIdentity(activeUserId);
+        if (!linked) {
+          // The anonymous Supabase session rotated since the last login (e.g.
+          // a parent used the Parent Dashboard on this device, which signs out
+          // the anonymous session and creates a new one with a different
+          // auth.uid()). Without a credential we can't re-claim this account
+          // for the new auth.uid(), so RLS would silently return empty rows for
+          // everything (inventory, monsters, gold, etc.). Force back to the
+          // splash screen so the user re-enters their password once and
+          // linkIdentity re-runs with a credential — at which point it works.
+          clearActiveUser();
+          setActiveUserId(null);
+          return;
+        }
         recordLastLogin(activeUserId);
         // Curio egg check-in — a demo account (excluded server-side, RPC
         // no-ops) doesn't need this, but calling unconditionally keeps this
