@@ -51,6 +51,9 @@ export default function ParentDashboardPage() {
   const [checkingOut, setCheckingOut] = useState(false);
   const [checkoutError, setCheckoutError] = useState('');
   const [isNative, setIsNative] = useState(false);
+  const [showBugReport, setShowBugReport] = useState(false);
+  const [bugText, setBugText] = useState('');
+  const [bugSent, setBugSent] = useState(false);
 
   const isPremium = subscription?.status === 'active';
 
@@ -171,6 +174,22 @@ export default function ParentDashboardPage() {
       return;
     }
     setRevealedPins((prev) => ({ ...prev, [childId]: data ?? null }));
+  };
+
+  const handleBugReport = () => {
+    const subject = encodeURIComponent('[G5 Learning Hall] Bug Report');
+    const body = encodeURIComponent(
+      `Parent: ${parent?.full_name ?? 'unknown'}\n\n` +
+      `Description:\n${bugText.trim()}\n\n` +
+      `---\nSent from Parent Dashboard`
+    );
+    window.open(`mailto:tatay@learninghallph.com?subject=${subject}&body=${body}`);
+    setBugSent(true);
+    setBugText('');
+    setTimeout(() => {
+      setBugSent(false);
+      setShowBugReport(false);
+    }, 2500);
   };
 
   const handleSignOut = async () => {
@@ -389,7 +408,53 @@ export default function ParentDashboardPage() {
           </button>
         )}
 
-        <div className="pt-6 border-t border-neutral-800">
+        <div className="pt-6 border-t border-neutral-800 space-y-4">
+          {/* Bug report */}
+          {!showBugReport ? (
+            <button
+              onClick={() => { setShowBugReport(true); setBugSent(false); }}
+              className="text-xs text-yellow-500/70 hover:text-yellow-400 underline"
+            >
+              🐛 Report a bug
+            </button>
+          ) : (
+            <div className="rounded-lg border border-yellow-500/40 bg-yellow-500/5 p-4 space-y-3">
+              <p className="text-sm text-yellow-300 font-semibold">🐛 Report a Bug</p>
+              <p className="text-xs text-gray-400">Describe what happened and we'll look into it.</p>
+              {bugSent ? (
+                <p className="text-sm text-green-400">✓ Thanks! Your report is on its way.</p>
+              ) : (
+                <>
+                  <textarea
+                    value={bugText}
+                    onChange={(e) => setBugText(e.target.value)}
+                    rows={4}
+                    placeholder="e.g. The progress panel doesn't load for my child…"
+                    className="w-full rounded-lg bg-black border border-neutral-700 px-3 py-2 text-sm text-white resize-none placeholder:text-gray-600 focus:outline-none focus:border-yellow-500/60"
+                  />
+                  <div className="flex gap-3">
+                    <button
+                      type="button"
+                      onClick={() => { setShowBugReport(false); setBugText(''); }}
+                      className="flex-1 rounded-lg border border-neutral-700 text-gray-400 py-2.5 text-sm"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleBugReport}
+                      disabled={!bugText.trim()}
+                      className="flex-1 rounded-lg bg-yellow-600 hover:bg-yellow-500 disabled:opacity-40 text-white font-bold py-2.5 text-sm"
+                    >
+                      Send Report
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+
+          {/* Account deletion */}
           {!showDeleteConfirm ? (
             <button
               onClick={() => setShowDeleteConfirm(true)}
