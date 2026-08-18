@@ -1697,6 +1697,89 @@ export const BLOG_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'how-kids-bypass-parental-controls',
+    title: 'How Kids Bypass Parental Controls — and How to Actually Close the Gaps',
+    description:
+      'A practical rundown of the tricks kids commonly use to get around screen-time limits and content filters, with a concrete fix for each one.',
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 'all',
+    publishedAt: '2026-08-18',
+    updatedAt: '2026-08-18',
+    intro:
+      "If you've ever set a screen-time limit only to find your child still on their phone an hour later, you're not imagining things and you're not a bad parent — getting around a rule you didn't agree with is a completely normal thing for a kid to try, the digital version of staying up past bedtime with a flashlight under the blanket. The tricks themselves have just gotten more technical. Knowing the actual playbook — not to win an arms race, but to have an informed conversation — is the more useful goal here than trying to lock down every possible loophole.",
+    image: {
+      url: '/blog-images/parent-child-conversation-parental-controls.webp',
+      alt: 'A mother looking at her phone beside her daughter at home',
+      width: 1200,
+      height: 675,
+      credit: { name: 'Nicola Barts', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/a-mother-holding-her-phone-while-looking-at-her-daughter-7943486/' },
+    },
+    sections: [
+      {
+        heading: 'Software loopholes: embedded browsers, notifications, and app gaps',
+        paragraphs: [
+          "A lot of apps that look harmless — Google Docs, Notes, Spotify, even a fitness tracker — have a built-in browser for opening links, and that embedded browser often isn't covered by whatever content filter is protecting the phone's main browser. The fix isn't banning those apps; it's checking whether your device management or filtering software has an option to apply filtering system-wide rather than per-browser, which most modern parental control tools now support if you dig into settings.",
+          "A subtler version of the same gap: some kids reply to a blocked messaging app's notifications directly from the lock-screen alert or notification tray, which lets them keep a conversation going without ever actually opening (and triggering the block on) the app itself. If a messaging app is meant to be restricted, check whether quick-reply from notifications is disabled for it specifically, not just whether the app itself is blocked.",
+          "Worth a periodic look, too: collaborative features inside apps that don't read as \"social\" at all — comments on a shared document, a joint Spotify playlist, messages attached to a shared fitness challenge. These aren't usually anyone's first place to check, which is exactly why they get used.",
+        ],
+      },
+      {
+        heading: 'Time and access tricks',
+        paragraphs: [
+          "Manually changing the device's time zone or clock is a surprisingly common way to trick a screen-time system into thinking a new day (and a fresh limit) has started early. If your family uses a time-based limit, it's worth checking whether your parental control software locks date and time settings — many do, but it's often off by default.",
+          "The \"one more minute\" loophole is less about tech and more about a design flaw in how extension requests work: some tools let a child request a short emergency extension repeatedly, and each one gets rubber-stamp approved because it's easy to grant \"just five more minutes\" five separate times without noticing the pattern. Treating a second or third same-day request as a conversation starter, not just a button to tap, closes this without needing a technical fix at all.",
+          "And a genuinely clever one: deleting a time-limited app and reinstalling it from the cloud can reset a usage counter that was tracking time spent inside that specific app, since some tools count from install rather than from the device's overall daily total. If a limit keeps mysteriously resetting, check whether your tool tracks time at the device level or the app level — device-level tracking isn't fooled by a reinstall.",
+        ],
+      },
+      {
+        heading: 'Network and account workarounds',
+        paragraphs: [
+          "A VPN or proxy app reroutes internet traffic so a DNS-based content filter simply never sees what's actually being visited — from the filter's perspective, the traffic looks like it's going somewhere else entirely. Most family device management tools have a setting to block new app installs outright or to specifically block known VPN and proxy apps; if yours doesn't, restricting app-store installs to parent-approved apps closes this more broadly.",
+          'A second account with a fake birth date is a common way around age-gated content, since most platforms only check age at signup and never again. The most reliable fix isn\'t catching every fake account after the fact — it\'s using a shared family email or password manager for any new account signup, so a new account can\'t be created without a verification email a parent would actually see.',
+          "And the most drastic version: a full factory reset wipes a device back to its out-of-box state, which removes any parental software installed on it entirely. This is exactly what account-level activation locks (Google's Find My Device / Apple's Activation Lock, tied to the parent's account) are built to prevent — a reset device still can't be set up again without the account credentials that locked it, which most families don't realize is available until they specifically turn it on.",
+        ],
+      },
+      {
+        heading: 'Real-world tactics that have nothing to do with software',
+        paragraphs: [
+          "Watching a parent type in a restriction PIN — or recording the screen while they do — is about as old a trick as there is, and no software update fixes it. Switching to a biometric unlock (fingerprint or face ID) for parental control settings removes the vulnerability entirely, since there's nothing to watch or memorize.",
+          "An old, unlocked family phone or Wi-Fi-only tablet sitting in a drawer is a second device with none of the restrictions on the primary one. A periodic \"device audit\" — literally walking through the house and checking what's connected to Wi-Fi — catches this faster than any software ever will, since it's a hardware problem, not a settings problem.",
+          "And a genuinely elaborate one worth knowing about: leaving an empty phone case plugged into the charger, face-down, while the actual phone comes along under a pillow. If a \"charging\" phone hasn't budged from the exact same spot and angle in days, it's worth an actual glance to confirm what's really in the case.",
+        ],
+      },
+      {
+        heading: 'Why the conversation matters more than the lockdown',
+        paragraphs: [
+          "None of this is really a technology problem underneath — it's a trust and autonomy problem that shows up through technology, because that's where a lot of a kid's independence lives right now. Every fix above closes a specific gap, but a child who feels like every rule was imposed with zero input will keep finding new gaps faster than any single family can patch them. Explaining the reasoning behind a limit, and revisiting it as your child gets older, tends to reduce the motivation to bypass it far more reliably than tightening the lockdown ever does on its own.",
+        ],
+      },
+    ],
+    takeaways: [
+      'Most bypass tricks exploit a specific gap (per-app tracking, notification replies, an unlocked time zone setting) rather than defeating parental controls broadly — closing the specific gap usually works better than a blanket crackdown.',
+      "A repeated pattern (multiple same-day extension requests, a phone that never moves while \"charging\") is often a more reliable signal than any single alert.",
+      "Account-level protections (activation lock, biometric settings unlock, a shared family email for new signups) hold up against tricks that defeat app-level controls entirely, like a factory reset.",
+    ],
+    faq: [
+      {
+        question: 'Can a factory reset really remove parental controls?',
+        answer:
+          "Yes — a factory reset wipes a device back to its out-of-box state, which removes any parental control software installed on it. The way to prevent this isn't stopping the reset itself, but enabling an account-level activation lock (tied to the parent's Google or Apple account) so the device can't be set up again afterward without those credentials.",
+      },
+      {
+        question: 'Why do screen-time limits sometimes seem to reset on their own?',
+        answer:
+          "Some tools track usage per app rather than per device, so deleting and reinstalling a time-limited app can reset its counter. Checking whether your parental control tool tracks time at the device level rather than the app level closes this gap.",
+      },
+      {
+        question: "Is it normal for kids to try to get around parental controls?",
+        answer:
+          "Yes — trying to work around a rule they didn't agree to is a normal part of a child testing independence, not a sign of a deeper problem on its own. It's worth treating as an opening for a conversation about the reasoning behind the limit, rather than only as a technical problem to patch.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
