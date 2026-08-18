@@ -4,26 +4,60 @@ values (
   'EPP (ICT)',
   $bow$# Grade 4 EPP (ICT) — Budget of Work
 
-Grade 4 EPP is exploratory: learners rotate through short units that introduce the ICT strand of Edukasyong Pantahanan at Pangkabuhayan, building on the basic computer literacy from Grade 3 Computer and setting up for the Grade 5-6 EPP/TLE tracks.
+Grade 4 EPP rotates through four strands across the year. ICT is Quarter I. The other three quarters (AFA, FCS, IA) are tracked in the EPP (AFA/FCS/IA) entry.
 
-## Term 1: The Computer System and Responsible Use
-- **Wk1-3: Parts and functions of a computer system.** Identifying hardware components (input, output, processing, storage devices) and their functions in more detail than Grade 3; distinguishing hardware from software; describing what an operating system does in simple terms.
-- **Wk4-6: Responsible and safe ICT use.** Practicing good digital citizenship — respecting others online, avoiding harmful or false content, and understanding basic rules against cyberbullying; identifying safe search practices and age-appropriate content with adult guidance.
-- **Wk7-10: File and folder management.** Creating, naming, renaming, moving, and organizing files and folders in a structured way; understanding file types (document, image) by their extensions; term project — organizing a small set of files into a sensible folder structure.
+## Term 1 — Quarter I: Information and Communications Technology (ICT)
 
-**Special Science enrichment:** hindi inilalapat sa asignaturang EPP.
+**Introduction to Computer**
+Content Standard: Naipamamalas ang pag-unawa sa kahalagahan, bahagi, at basic operation ng computer.
+Content: Kahalagahan ng computer at computing devices; mga bahagi ng Computer System; basic computer operations — booting and shutting down computer, keyboarding techniques, mouse techniques.
+Learning Competencies:
+1. Naipaliliwanag ang kahalagahan ng computer at iba pang computing device.
+2. Natatalakay ang mga bahagi at gamit ng computer at peripherals nito.
+3. Natatalakay ang basic computer operations.
 
-## Term 2: Word Processing and Basic Data Handling
-- **Wk1-3: Word processing skills.** Formatting a document (font, size, alignment, bullet/numbered lists); inserting a simple image or table into a document; typing with improving speed and accuracy.
-- **Wk4-6: Introduction to spreadsheets.** Entering data into rows and columns; using a spreadsheet to organize simple lists (e.g., a class attendance or inventory list); performing a basic sum using a spreadsheet formula, with guidance.
-- **Wk7-10: Applying ICT skills to a small output.** Creating a one-page flyer, certificate, or simple report combining text formatting and an inserted image or table; presenting the finished output and explaining the ICT tools used.
+**Digital Citizenship**
+Content Standard: Naipamamalas ang pag-unawa sa digital health and wellness at online security and safety.
+Content: Digital health and wellness; online security and safety.
+Learning Competencies:
+4. Natatalakay ang wastong posisyon, layo, at oras sa paggamit ng computer at iba pang computing devices.
+5. Naipaliliwanag ang mga panuntunang pangkaligtasan sa paggamit ng Internet.
 
-**Special Science enrichment:** hindi inilalapat sa asignaturang EPP.
+**Word Processing Software**
+Content Standard: Naipamamalas ang pag-unawa sa paggamit ng productivity software.
+Content: User interface; page size, orientation, and margin; font type, style, size, and color; text alignment.
+Learning Competency:
+6. Nakagagawa ng word document.
 
-## Term 3: Research, Communication, and ICT Career Awareness
-- **Wk1-4: Basic internet research skills.** Using a search engine effectively (choosing good keywords); evaluating whether a website result looks reliable, with adult guidance; taking notes from a source in one's own words to avoid copying directly.
-- **Wk5-7: Introduction to digital communication.** Understanding what email and messaging apps are used for and their basic etiquette; recognizing common online scams or suspicious messages meant to trick users, and the rule of never clicking unknown links.
-- **Wk8-10: Exploring ICT-related jobs and entrepreneurship awareness.** Identifying simple ICT-related jobs and how computers are used in different careers (e.g., graphic design, typing services, online selling); year-end project — planning a simple ICT-based product or service idea (e.g., a poster for an imaginary small business) using skills learned across the year.
+**Presentation Software**
+Content: User interface; page design/theme; inserting and formatting textbox, WordArt, shapes, and images.
+Learning Competency:
+7. Nakagagawa ng presentation document.
+
+**Desktop Publishing Software**
+Content: User interface; templates; inserting and formatting textbox, WordArt, shapes, and images.
+Learning Competency:
+8. Nakagagawa ng desktop publishing document.
+
+**Spreadsheet Software**
+Content: User interface; borders; basic formula (MDAS).
+Learning Competency:
+9. Nakagagawa ng spreadsheet document.
+
+**Performance Standard (Productivity Tools):** Ang mga mag-aaral ay nakagagawa ng iba't ibang dokumento gamit ang computing devices at productivity tools.
+
+**Introduction to Block Coding**
+Content Standard: Naipamamalas ang pag-unawa sa algorithm at basic process flowchart.
+Content: Algorithm; basic process flowchart.
+Learning Competencies:
+10. Nakagagawa ng algorithm para sa mga gawaing pang-araw-araw.
+11. Nakagagawa ng basic process flow chart para sa mga gawaing pang-araw-araw.
+
+**Performance Standard (Block Coding):** Ang mga mag-aaral ay nakagagawa ng algorithm at basic process flow chart bilang bahagi ng block coding.
+
+## Terms 2–4 — See EPP (AFA/FCS/IA)
+
+Quarter II = Agriculture and Fishery Arts (AFA); Quarter III = Family and Consumer Science (FCS); Quarter IV = Industrial Arts (IA). All are covered in the companion EPP (AFA/FCS/IA) budget-of-work entry.
 
 **Special Science enrichment:** hindi inilalapat sa asignaturang EPP.$bow$,
   'https://www.deped.gov.ph/wp-content/uploads/MATATAG-EPP_TLE-CG-2023-Grades-4-10-1.pdf'
