@@ -4,34 +4,18 @@ values (
   'EPP (ICT)',
   $bow$# Grade 6 EPP (ICT) — Budget of Work
 
-Grade 6 EPP (ICT) builds on Grade 4's introductory strand with more advanced productivity tools, multimedia creation, and stronger digital-citizenship and career-awareness content, closing out Key Stage 2 before Grade 7 TLE specialization.
+Grade Level Standard (Grade 6): The learner demonstrates an understanding of the basic knowledge, skills, values, and attitudes in Information and Communications Technology (multimedia editing and basic coding), Fishery Arts (fish-growing), Family and Consumer Science (food preservation & processing), and Industrial Arts (making simple projects out of locally available materials) towards improving oneself, family's, and community's economic life. In the official MATATAG EPP/TLE curriculum, ICT is the Quarter 1 component of the year's rotation across the four EPP strands.
 
-## Term 1: Advanced Productivity Tools
-- **Wk1-3: Advanced word processing.** Using headers, footers, page numbers, and styles for longer documents; inserting and formatting tables and charts.
-- **Wk4-6: Spreadsheets for real tasks.** Using formulas (sum, average) and simple sorting/filtering to manage a real data set (e.g., a class record or small budget); creating a simple chart from spreadsheet data.
-- **Wk7-10: Slide presentations.** Creating a multi-slide presentation with text, images, and simple transitions on a topic of choice; practicing effective presentation delivery (eye contact, pacing, clarity).
-
-**Special Science enrichment:** hindi inilalapat sa asignaturang EPP.
-
-## Term 2: Multimedia and Basic Digital Design
-- **Wk1-4: Image and multimedia editing.** Using basic tools to crop, resize, and caption images; combining text, image, and simple audio into a short multimedia project (e.g., a digital storybook or short slideshow with narration).
-- **Wk5-7: Introduction to basic coding concepts.** Exploring sequencing, loops, and simple conditionals using a beginner-friendly block-based tool; creating a very simple interactive project (e.g., a short animation or simple game).
-- **Wk8-10: Term project.** Producing a short multimedia output that applies design and basic coding concepts learned this term, and presenting it to the class.
-
-**Special Science enrichment:** hindi inilalapat sa asignaturang EPP.
-
-## Term 3: Digital Citizenship and Online Safety
-- **Wk1-3: Deeper digital citizenship.** Discussing digital footprint and privacy — what information should never be shared online; recognizing and reporting cyberbullying and online harassment.
-- **Wk4-6: Evaluating information online.** Practicing fact-checking and source evaluation for online information; distinguishing reliable sources from misinformation, with adult guidance.
-- **Wk7-10: Applying safe and ethical ICT use.** Creating a short class guide or poster on responsible internet use for younger students; discussing intellectual property and the importance of giving credit for others' work (basic plagiarism awareness).
-
-**Special Science enrichment:** hindi inilalapat sa asignaturang EPP.
-
-## Term 4: ICT Careers and Entrepreneurship
-- **Wk1-4: Exploring ICT-related careers.** Researching different ICT-related jobs (web design, data entry, digital content creation, online business) and the basic skills each requires.
-- **Wk5-7: Basic online entrepreneurship awareness.** Discussing how small businesses use ICT tools (social media, simple online catalogs) to reach customers; planning a simple digital product or promotional material for an imaginary small business.
-- **Wk8-10: Year-end capstone project.** Producing a polished multimedia or productivity-tool output that combines skills learned across the year (e.g., a presentation pitching a simple business idea, complete with a spreadsheet budget and a promotional slide), and presenting it to the class.
+## Quarter 1 (ICT): Online Collaboration Tools, Productivity Software, and Block Coding
+- **Online and collaboration tools:** Performing web conferencing in a safe and responsible manner; using online form builder applications/mobile apps to create and share simple forms; uploading and sharing files through cloud storage platforms safely and responsibly.
+- **Word Processing Software:** Creating word documents with watermark, page color, page borders, page numbers, and headers and footers.
+- **Presentation Software:** Performing slide recording using the record toolbar.
+- **Desktop Publishing Software:** Creating documents using desktop publishing features — master page, background, guides, headers and footers, page numbers.
+- **Spreadsheet Software:** Creating spreadsheets with charts and data validation features (filtering, grouping, sorting).
+- **Performance Standard:** The learner performs the utilization of online and productivity tools in a safe and responsible manner.
+- **Introduction to Block Coding:** Using sensing, operators, and variables block codes to create an animation, a simple game, or a digital story.
+- **Performance Standard:** The learner performs the utilization of block codes to create an animation/game/digital story in a safe and responsible manner.
 
 **Special Science enrichment:** hindi inilalapat sa asignaturang EPP.$bow$,
-  null
+  'https://www.deped.gov.ph/wp-content/uploads/MATATAG-EPP_TLE-CG-2023-Grades-4-10-1.pdf (full Grades 4-10 combined EPP/TLE document; Grade 6 Quarter I ICT content, content standards, and learning competencies table used verbatim — the official curriculum names this content area "Grade 6" with ICT as the Quarter 1 rotation, not a full-year four-quarter ICT-only course)'
 );

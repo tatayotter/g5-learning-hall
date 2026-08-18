@@ -4,34 +4,30 @@ values (
   'EPP (AFA/FCS/IA)',
   $bow$# Grade 6 EPP (AFA/FCS/IA) — Budget of Work
 
-Grade 6 EPP (AFA/FCS/IA) deepens the three strands introduced in Grade 4, with more independent, project-based work and a stronger entrepreneurship/livelihood angle in preparation for Grade 7 TLE track selection.
+Grade Level Standard (Grade 6): The learner demonstrates an understanding of the basic knowledge, skills, values, and attitudes in Information and Communications Technology (multimedia editing and basic coding), Fishery Arts (fish-growing), Family and Consumer Science (food preservation & processing), and Industrial Arts (making simple projects out of locally available materials) towards improving oneself, family's, and community's economic life. In the official MATATAG EPP/TLE curriculum, AFA (as Fishery Arts), FCS, and IA are the Quarter 2, 3, and 4 components of the year's rotation, following the ICT quarter.
 
-## Term 1: Agri-Fishery Arts (AFA) — Applied Gardening and Basic Animal Care
-- **Wk1-3: Improving garden yield.** Applying proper spacing, composting, and pest-management basics to improve a garden plot's yield; recordkeeping of planting and harvest cycles.
-- **Wk4-7: Introduction to basic animal or fish care.** Describing the basic needs and simple care routine for small backyard animals or fish (if locally relevant), or an alternative deeper plant-propagation unit where animal care is not applicable.
-- **Wk8-10: Term output.** Presenting a small harvest, propagated plant, or a well-documented care log as a term output, with a short reflection on lessons learned.
+## Quarter 2 (AFA — Fishery Arts): Natural Fish Raising, Harvesting, and Selling
+- **Fishery arts and its branches:** Discussing fish culture, fish capture, and fish processing; the importance and benefits of fish raising as a source of food, income, and employment.
+- **Support systems:** Identifying government agencies (Department of Agriculture, Bureau of Fisheries and Aquatic Resources, DENR) and NGOs that support fish raising and fisheries; discussing successful fish raisers in the community and their characteristics (determined, honest, innovative, industrious, risk-taker).
+- **Technical content:** Discussing the requirements for natural fish raising (water supply, stocking density, feeds), the anatomy of fish (mouths, tails, scales, gills), and common fish diseases with their causes, signs, prevention, and control.
+- **Performing procedures:** Performing the procedure for natural fish raising with safety precautions — preparing tools/equipment/pond or fish tank, stocking, feeding, managing water and aeration, and monitoring growth; performing harvesting of fishes; performing selling of fishes (online/offline, wholesale/retail) with recording of income and expenses.
+- **Performance Standard:** The learner performs the natural way of raising, harvesting, and selling of fish following safety precautions.
 
-**Special Science enrichment:** hindi inilalapat sa asignaturang EPP.
+## Quarter 3 (FCS): Family Resources, Food Preparation, and Food Preservation
+- **Family resources:** Identifying different family resources; discussing needs and wants; preparing a simple family budget plan.
+- **Food preparation:** Creating a meal plan applying the principles of meal planning and food hygiene/safety/sanitation; discussing kitchen waste (food and non-food) and its disposal; familiarizing basic home kitchen tools and equipment and their proper care; demonstrating measuring techniques (dry and liquid ingredients) and basic cutting techniques (dice, mince, slice, julienne) with safety precautions; performing dry-heat and moist-heat cooking methods in preparing a simple meal.
+- **Performance Standard:** The learner prepares simple meals following kitchen operations with safety precautions.
+- **Food preservation:** Performing food preservation using basic methods (salting, sugar-concentration, pickling, drying) with precautions; discussing types of packaging and labeling; selling preserved products.
+- **Performance Standard:** The learner preserves and sells products with safety precautions.
 
-## Term 2: Home Economics / Family and Consumer Science (FCS) — Applied Cooking and Sewing
-- **Wk1-4: Simple cooked-dish preparation.** Preparing a simple cooked dish (adult-supervised) following a recipe, including proper use of basic cooking tools and heat safety.
-- **Wk5-7: Intermediate sewing and mending.** Practicing basic hand-sewing projects (e.g., a simple pouch or patch) and mending techniques; discussing basic budgeting for household needs.
-- **Wk8-10: Term output.** Presenting a prepared dish or a finished sewing project, explaining the steps taken and the safety practices followed.
-
-**Special Science enrichment:** hindi inilalapat sa asignaturang EPP.
-
-## Term 3: Industrial Arts (IA) — Applied Tools and Simple Repairs
-- **Wk1-4: Intermediate tool use and simple repairs.** Practicing safe use of a wider set of hand tools; performing a simple household repair task (e.g., tightening a loose hinge, fixing a small wooden item) under supervision.
-- **Wk5-7: Basic technical drawing and planning.** Sketching a simple plan or measurement drawing before building a small project; following the plan to construct the item.
-- **Wk8-10: Term output.** Completing and presenting a small functional project (e.g., a simple shelf, toolbox, or repaired household item), explaining the planning and safety steps taken.
-
-**Special Science enrichment:** hindi inilalapat sa asignaturang EPP.
-
-## Term 4: Entrepreneurship and Livelihood Integration (AFA/FCS/IA)
-- **Wk1-4: Costing and simple business planning.** Estimating the cost of materials for a small AFA, FCS, or IA product; computing a simple selling price that covers cost and a small profit.
-- **Wk5-7: Marketing basics.** Planning how to present or promote a small product (a simple label, poster, or pitch) to potential buyers, drawing on ICT skills where relevant.
-- **Wk8-10: Year-end capstone project.** Producing one small marketable product from any of the three strands (a garden harvest, a sewn or cooked item, or a simple craft), complete with a cost estimate and a simple promotional material, presented as the culminating EPP output for Key Stage 2.
+## Quarter 4 (IA): Wood/Bamboo, Metal, and Basic Electrical Works; Product Development
+- **Wood/bamboo works:** Performing wood/bamboo works (different wood/bamboo joints, methods of finishing) with safety precautions.
+- **Metal works:** Performing sheet metal works — joining processes (cutting, bending, forming) and finishing methods — with safety precautions.
+- **Basic electrical works:** Discussing types of current (direct/alternating), parts of a simple circuit, and splices and joints; performing basic electrical skills (wire splicing, terminal connection, basic installation) with safety precautions.
+- **Performance Standard:** The learner performs the basic competencies in wood or bamboo works, sheet metal works, and electrical works with safety precautions.
+- **Product Development:** Creating a simple wood/bamboo, metal, and/or electrical project (or a combination of the three materials) applying creation, innovation, improvement, and enhancement, with safety precautions; selling the product.
+- **Performance Standard:** The learner develops and sells a simple project with safety precautions.
 
 **Special Science enrichment:** hindi inilalapat sa asignaturang EPP.$bow$,
-  null
+  'https://www.deped.gov.ph/wp-content/uploads/MATATAG-EPP_TLE-CG-2023-Grades-4-10-1.pdf (full Grades 4-10 combined EPP/TLE document; Grade 6 Quarter II Agriculture and Fishery Arts (Fishery Arts strand), Quarter III Family and Consumer Science, and Quarter IV Industrial Arts content, content standards, and learning competencies tables used verbatim)'
 );
