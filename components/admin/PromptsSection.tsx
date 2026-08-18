@@ -60,18 +60,33 @@ export default function PromptsSection() {
 
       <PromptCard
         title="Weekly Package Prompt"
-        subtitle="✨ Tala — Grade 2"
+        subtitle="✨ Grade 2"
         url="/prompts/tala-weekly-prompt.md"
       />
 
-      <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-6 opacity-50">
-        <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">⚔️ Damien — Grade 5</p>
-        <p className="text-white font-bold mb-2">Weekly Package Prompt</p>
-        <p className="text-gray-500 text-sm">
-          Upload Damien's Grade 5 BOW files to generate his prompt.
-          Once created, place it at public/prompts/damien-weekly-prompt.md
-        </p>
-      </div>
+      <PromptCard
+        title="Weekly Package Prompt"
+        subtitle="🌱 Grade 3"
+        url="/prompts/grade3-weekly-prompt.md"
+      />
+
+      <PromptCard
+        title="Weekly Package Prompt"
+        subtitle="📖 Grade 4"
+        url="/prompts/grade4-weekly-prompt.md"
+      />
+
+      <PromptCard
+        title="Weekly Package Prompt"
+        subtitle="⚔️ Grade 5"
+        url="/prompts/grade5-weekly-prompt.md"
+      />
+
+      <PromptCard
+        title="Weekly Package Prompt"
+        subtitle="🏆 Grade 6"
+        url="/prompts/grade6-weekly-prompt.md"
+      />
     </div>
   );
 }
