@@ -4,28 +4,42 @@ values (
   'GMRC',
   $bow$# Baitang 6 GMRC — Budget of Work
 
-## Unang Markahan: Paglalim ng Sariling Kamalayan at Pananagutan
-- **Nilalaman:** Mas malalim na pag-unawa sa sariling pagkatao, kakayahan, at limitasyon habang papalapit sa pagbibinata't pagdadalaga; pananagutan sa mga pasya na may epekto sa sarili at sa iba.
-- **Kasanayang Pampagkatuto:** (a) Pagsusuri sa sariling paglago at pagbabago sa taong ito; (b) Pagpapakita ng higit na kalayaan at pananagutan sa pag-aaral at gawain; (c) Pagsasanay ng mahinahong pagpasya sa mga sitwasyong may hamon o tukso.
-- **Pamantayan sa Pagganap:** Naipamamalas ang mas malalim na pananagutan sa sarili sa harap ng mga bagong hamon at responsibilidad.
-- **Lilinanging Pagpapahalaga:** Mapanagutan.
+Pamantayan sa Baitang: Naipamamalas ng mag-aaral ang pag-unawa sa mga konsepto, patuloy na paglalapat, at paglinang ng mga kilos kaugnay ng kabutihang-asal at wastong pag-uugali na nagpapakita ng pagmamahal sa sarili, pamilya, kapuwa, Diyos, kalikasan, bayan, at sanlibutan tungo sa paghubog ng mga virtue at pagpapahalaga.
 
-## Ikalawang Markahan: Pamilya Bilang Pundasyon ng Katatagan
-- **Nilalaman:** Papel ng pamilya sa paghubog ng katatagan ng loob at wastong pagpapasya; pangangalaga sa ugnayang pampamilya sa gitna ng mga pagbabagong dulot ng paglaki.
-- **Kasanayang Pampagkatuto:** (a) Pagpapahalaga sa gabay at payo ng mga magulang o nakatatanda sa pamilya; (b) Pagpapakita ng bukas na komunikasyon sa pamilya tungkol sa mga hamon; (c) Paglutas ng mas kumplikadong hidwaan sa pamilya nang may paggalang at pang-unawa.
-- **Pamantayan sa Pagganap:** Naipamamalas ang matatag na ugnayan at bukas na komunikasyon sa pamilya.
-- **Lilinanging Pagpapahalaga:** Tiwala sa sarili.
+## Unang Markahan: Pagpapaunlad ng Positibong Pagkilala sa Sarili Upang Malinang ang mga Mabuting Gawi
+- Pagkilala sa sarili bilang nilikha na may dignidad — nagmumula sa pagkabukod-tangi sa lahat ng nilalang, batayan ng paggalang sa sarili at kapuwa. Lilinanging pagpapahalaga: Pagpapahalaga sa sarili.
+- Paglinang ng positibong pagtingin sa sarili sa tulong ng pamilya. Lilinanging pagpapahalaga: Pagiging totoo.
+- Mapanagutang pagpapasiya ng sarili kasama ang kapuwa — pagtitimbang-timbang ng mga opsiyon upang matukoy ang higit na magpapabuti sa kaniya bilang tao. Lilinanging pagpapahalaga: Maingat na paghuhusga.
+- Sariling pakikipag-ugnayan sa Diyos bilang indikasyon ng pananampalataya (regular na pananalangin kasama ang pamilya). Lilinanging pagpapahalaga: Pananampalataya.
+- Mga sariling kilos ng pagmamahal bilang indikasyon ng pananampalataya sa Diyos (hal. pagbibigay-priyoridad sa kapakanan ng kasapi ng pamilya). Lilinanging pagpapahalaga: Mapagmalasakit.
+- Sariling pagtitipid ng enerhiya upang mapangalagaan ang kalikasan. Lilinanging pagpapahalaga: Mapagmalasakit.
+- Sariling pagkilala sa mga Pilipinong may mahalagang kontribusyon sa bayan (mga indibidwal, grupo, organisasyon). Lilinanging pagpapahalaga: Mapagpasalamat.
 
-## Ikatlong Markahan: Pakikipagkapwa sa Gitna ng Pagkakaiba-iba
-- **Nilalaman:** Paggalang at pakikitungo sa kapwa sa gitna ng pagkakaiba ng paniniwala, kultura, o kakayahan; pagharap sa peer pressure at pagpapanatili ng mabuting pakikisama nang walang pagsuko sa tamang pagpapasya.
-- **Kasanayang Pampagkatuto:** (a) Pagpapakita ng paggalang sa pagkakaiba-iba ng kapwa-kabataan; (b) Pagharap sa peer pressure nang may matatag na paninindigan; (c) Pakikilahok sa mga gawaing nagtataguyod ng pagkakaisa sa paaralan at komunidad.
-- **Pamantayan sa Pagganap:** Naipamamalas ang matatag na paninindigan at paggalang sa kapwa kahit sa gitna ng panggigipit ng kapwa-kabataan.
-- **Lilinanging Pagpapahalaga:** Matatag na paninindigan.
+## Ikalawang Markahan: Pamilya Katuwang sa Paglinang at Paglalapat ng mga Mabuting Gawi
+- Ugnayan ng sarili sa mga mas matanda (elders) at nakatatanda o may gulang (elderly) sa pamilya — angkop na salita o gesture, pag-alaala, pag-alalay. Lilinanging pagpapahalaga: Kagandahang-loob.
+- Wastong pagpapahayag ng saloobin sa pamilya — positibong pagtanggap sa mga mapaghamong situwasyon. Lilinanging pagpapahalaga: Mapagpasensiya.
+- Pagtupad ng mga tungkulin sa pamilya ayon sa iskedyul ng mga gawain. Lilinanging pagpapahalaga: Masipag.
+- Sama-samang pagsamba ng pamilya — nagpapatibay ng tiwala at buhay-panalangin bilang pamilya. Lilinanging pagpapahalaga: Pakikiisa.
+- Paglilingkod ng pamilya bilang indikasyon ng pananampalataya sa Diyos — pagtulong sa mga nangangailangan. Lilinanging pagpapahalaga: Mapagkawang-gawa.
+- Pagsunod ng pamilya sa mga batas-pangkapaligiran na angkop sa bayan na kinabibilangan. Lilinanging pagpapahalaga: Mapanagutan.
+- Pakikipagbayanihan ng pamilya sa mga gawaing-pampamayanan ayon sa kanilang kakayahan. Lilinanging pagpapahalaga: Pakikiisa.
 
-## Ikaapat na Markahan: Pagiging Handa Bilang Kabataang Pilipino
-- **Nilalaman:** Paghahanda sa mas malaking responsibilidad bilang kabataang Pilipino sa Key Stage 3; pagpapahalaga sa bansa, kalikasan, at mundo bilang extension ng pagmamahal sa sarili at pamilya.
-- **Kasanayang Pampagkatuto:** (a) Pagninilay sa sariling paglago sa buong Key Stage 2 (Baitang 4-6); (b) Pagtatakda ng personal na layunin para sa Key Stage 3; (c) Pagpapamalas ng pananagutan bilang mamamayan sa paaralan, komunidad, at bansa.
-- **Pamantayan sa Pagganap:** Naipamamalas ang kahandaan at pananagutan bilang lumalaking mamamayang Pilipino sa pagtungo sa Key Stage 3.
-- **Lilinanging Pagpapahalaga:** Nasyonalismo.$bow$,
-  'https://www.deped.gov.ph/wp-content/uploads/MATATAG-GMRC-and-VE-Grades-1-4-and-7.pdf'
+## Ikatlong Markahan: Paglalapat ng mga Mabuting Gawi sa Pakikipagkapuwa
+- Sariling pagtugon sa pambubulas ng kapuwa — paninindigan o hayagang pag-ayaw sa kilos o pananalitang pambubulas. Lilinanging pagpapahalaga: Lakas ng loob.
+- Mapanagutang pagtugon sa iba't ibang emosyon ng kapuwa — pagninilay sa kahihinatnan ng kilos na dulot ng emosyon. Lilinanging pagpapahalaga: Mapagpasensiya.
+- Pakikipagkapuwa sa mga nakatatanda (elders) — wastong pakikitungo anuman ang kanilang estado sa buhay. Lilinanging pagpapahalaga: Magalang.
+- Mga simbolo, imahe, at gamit sa pananampalataya o paniniwala ng kapuwa — pagkilala at paggalang. Lilinanging pagpapahalaga: Pananampalataya.
+- Pangingilatis ng kabutihan bilang katibayan ng pananampalataya — regular na pananalangin, pagbasa ng Banal na Aklat, pagsangguni sa mapagkakatiwalaang tao. Lilinanging pagpapahalaga: Pananampalataya.
+- Pag-iingat sa kapaligiran kasama ang kapuwa bilang pag-iwas sa sakuna. Lilinanging pagpapahalaga: Maingat.
+- Pagbibigay-galang sa oras ng kapuwa bilang isang pagpapahalagang Pilipino (pagdating nang maaga, pagpasa ng output bago ang takdang oras). Lilinanging pagpapahalaga: Maagap.
+
+## Ikaapat na Markahan: Pamayanan Bilang Tagapaglinang ng mga Mabuting Gawi para sa Bayan
+- Sariling pagkalinga sa mga napapabayaan ng lipunan ayon sa kakayahan. Lilinanging pagpapahalaga: Mapagmalasakit.
+- Pananagutan sa sariling kilos sa pamayanan — kusang-loob na pagwawasto sa mga nagawang mali. Lilinanging pagpapahalaga: Mapanagutan.
+- Sariling pakikipag-ugnayan sa mga awtoridad sa pamayanan — mahalaga lalo na sa panahon ng sakuna o kalamidad. Lilinanging pagpapahalaga: Magalang.
+- Ang pananampalataya bilang daluyan ng pag-asa ng pamayanan sa panahon ng pangangailangan. Lilinanging pagpapahalaga: Pag-asa.
+- Positibong pagtingin sa mga mamamayan batay sa sariling pananampalataya. Lilinanging pagpapahalaga: Positibo sa buhay.
+- Mga kilos na humihikayat sa pamayanan na pangalagaan ang kalikasan. Lilinanging pagpapahalaga: Mapanagutan.
+- Pagkilala sa pagkabukod-tangi ng lahing Pilipino — pagpapalaganap ng mga bukod-tanging katangian ng mga Pilipino. Lilinanging pagpapahalaga: Nasyonalismo.$bow$,
+  'https://www.academ-e.ph/wp-content/uploads/2023/09/GMRC-and-VE-CG-2023.pdf (full Baitang 1-10 combined GMRC/VE document; Baitang 6 markahan themes, nilalaman, and lilinanging pagpapahalaga used verbatim)'
 );
