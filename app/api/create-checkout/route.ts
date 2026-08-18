@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
 
   const amountPhp = BASE_PRICE_PHP + addons * ADDON_PRICE_PHP;
   const lineItems = [
-    { currency: 'PHP', amount: BASE_PRICE_PHP * 100, name: 'G5 Learning Hall Premium (1 year)', quantity: 1 },
+    { currency: 'PHP', amount: BASE_PRICE_PHP * 100, name: 'Learning Hall Premium (1 year)', quantity: 1 },
   ];
   if (addons > 0) {
     lineItems.push({ currency: 'PHP', amount: ADDON_PRICE_PHP * 100, name: 'Additional child slot (1 year)', quantity: addons });
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
           show_description: true,
           line_items: lineItems,
           payment_method_types: ['gcash', 'card', 'paymaya'],
-          description: 'G5 Learning Hall parent subscription',
+          description: 'Learning Hall parent subscription',
           success_url: `${siteUrl}/parent-dashboard?checkout=success`,
           cancel_url: `${siteUrl}/parent-dashboard?checkout=cancelled`,
           metadata: { parent_id: userData.user.id, addon_children: String(addons) },

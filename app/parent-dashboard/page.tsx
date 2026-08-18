@@ -177,7 +177,7 @@ export default function ParentDashboardPage() {
   };
 
   const handleBugReport = () => {
-    const subject = encodeURIComponent('[G5 Learning Hall] Bug Report');
+    const subject = encodeURIComponent('[Learning Hall] Bug Report');
     const body = encodeURIComponent(
       `Parent: ${parent?.full_name ?? 'unknown'}\n\n` +
       `Description:\n${bugText.trim()}\n\n` +

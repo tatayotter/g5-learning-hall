@@ -244,8 +244,8 @@ export default function Dashboard() {
         void seedOfflineCache(activeUserId, USERS[activeUserId].grade);
         // One-shot per browser session, regardless of which user ends up logged
         // in first — guards against firing again on every activeUserId change.
-        if (typeof window !== 'undefined' && !sessionStorage.getItem('g5_session_started')) {
-          sessionStorage.setItem('g5_session_started', '1');
+        if (typeof window !== 'undefined' && !sessionStorage.getItem('lh_session_started')) {
+          sessionStorage.setItem('lh_session_started', '1');
           trackEvent('session_start');
         }
       })();
