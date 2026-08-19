@@ -258,8 +258,8 @@ export default function ParentDashboardPage() {
   }
 
   return (
-    <main className="min-h-screen bg-black py-10 px-4">
-      <div className="max-w-lg mx-auto space-y-6">
+    <main className="min-h-screen bg-black py-10 px-4 pb-20">
+      <div className="max-w-lg mx-auto space-y-5">
         <div className="flex items-center justify-between">
           <h1 className="text-xl font-display font-bold text-white">Welcome, {parent.full_name}</h1>
           <button onClick={handleSignOut} className="text-xs text-gray-500 hover:text-gray-300 underline">Sign out</button>
@@ -424,12 +424,15 @@ export default function ParentDashboardPage() {
           </button>
         )}
 
-        <div className="pt-6 border-t border-neutral-800 space-y-4">
+        {/* ── Danger zone — pushed far from main content ── */}
+        <div className="mt-16 pt-8 border-t border-neutral-800/60 space-y-3">
+          <p className="text-[10px] uppercase tracking-widest text-neutral-600 select-none">More options</p>
+
           {/* Bug report */}
           {!showBugReport ? (
             <button
               onClick={() => { setShowBugReport(true); setBugSent(false); }}
-              className="text-xs text-yellow-500/70 hover:text-yellow-400 underline"
+              className="block text-xs text-yellow-500/60 hover:text-yellow-400 underline"
             >
               🐛 Report a bug
             </button>
@@ -474,7 +477,7 @@ export default function ParentDashboardPage() {
           {!showDeleteConfirm ? (
             <button
               onClick={() => setShowDeleteConfirm(true)}
-              className="text-xs text-red-500/70 hover:text-red-400 underline"
+              className="block text-xs text-red-500/50 hover:text-red-400 underline"
             >
               Delete my account
             </button>
