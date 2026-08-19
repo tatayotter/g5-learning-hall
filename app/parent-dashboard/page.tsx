@@ -6,6 +6,7 @@ import { isNativeApp } from '@/lib/platform';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
 import ChildProgressPanel from '@/components/ChildProgressPanel';
 import WeeklyLessonsPanel from '@/components/WeeklyLessonsPanel';
+import ParentBlogResources from '@/components/ParentBlogResources';
 
 interface ParentRow {
   status: 'pending' | 'approved' | 'rejected';
@@ -410,6 +411,13 @@ export default function ParentDashboardPage() {
           >
             + Add a child
           </button>
+        )}
+
+        {/* ── Blog resources ── */}
+        {kids.length > 0 && (
+          <ParentBlogResources
+            grades={[...new Set(kids.map(k => parseInt(k.grade.replace(/\D/g, ''), 10)).filter(Boolean))]}
+          />
         )}
 
         {/* ── Danger zone — pushed far from main content ── */}
