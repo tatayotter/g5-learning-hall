@@ -5,7 +5,7 @@
 
 ## HOW TO USE THIS PROMPT
 
-1. Find the current school week number (e.g. Term 1 Week 5)
+1. Find the current school week number (e.g. **Week 9**) — continuous from school opening, does NOT restart per term
 2. Look up the matching week in the BOW reference below
 3. Fill in the `[DATE]`, `[WEEK NUMBER]`, and `[SUBJECTS]` placeholders
 4. Paste the completed prompt into Claude, ChatGPT, or Gemini
@@ -17,7 +17,8 @@
 
 ```
 You are a curriculum assistant for a Filipino Grade 3 learner (age 8-9).
-Generate a weekly package JSON for the week of [DATE e.g. July 20, 2026] — Term [X] Week [X].
+Generate a weekly package JSON for the week of [DATE e.g. July 20, 2026] — Week [X].
+(Week number is CONTINUOUS for the whole school year. Week 1 = Jun 15 orientation; lessons begin Week 2. Never restart the count at a new term — write "Week 15", not "Term 2 Week 1".)
 
 OUTPUT RULES:
 - Return ONLY valid JSON. No explanation, no markdown, no code blocks.
@@ -52,6 +53,21 @@ Generate the full JSON now.
 ## BOW REFERENCE — GRADE 3
 
 Use this to fill in the `SUBJECTS AND TOPICS` section above each Sunday.
+
+> ### 📅 SY 2026-2027 Week Map
+> BOW entries use internal week numbers (reset per term). Convert to continuous school week using the offsets below.
+>
+> | Period | School Weeks | Approx. Dates | BOW → School |
+> |--------|-------------|---------------|--------------|
+> | **Week 1** — Orientation (no lessons) | 1 | Jun 15–19, 2026 | — |
+> | **Term 1** | 2–13 | Jun 22 – Sep 12, 2026 | BOW Week N → **Week N+1** |
+> | *(Term 1 end / break)* | 13–14 | Sep 13–19, 2026 | — |
+> | **Term 2** | 15–27 | Sep 22 – Dec 18, 2026 | BOW Week N → **Week N+14** |
+> | *(Term 2 end / break)* | 28–29 | Dec 21, 2026 – Jan 2, 2027 | — |
+> | **Term 3** | 30–50 | Jan 5 – May 29, 2027 | BOW Week N → **Week N+29** |
+>
+> *Example: BOW "Term 2 Week 3" = School Week 3+14 = **Week 17***.
+> *Next week (Aug 24–28) = **School Week 11** = BOW Term 1 Week 10 (Review week).*
 
 ---
 
@@ -214,14 +230,14 @@ Use this to fill in the `SUBJECTS AND TOPICS` section above each Sunday.
 
 ## SUBJECT SCHEDULE REFERENCE
 
-Grade 3 typical weekly schedule (verify against actual school schedule):
+Grade 3 fixed weekly subject schedule (matches `GRADE_3_SCHEDULE` in `subjectSchedule.ts`):
 
 | Day | Subjects |
 |-----|---------|
-| Monday | English + Makabansa |
-| Tuesday | GMRC + Filipino |
-| Wednesday | English + Mathematics |
-| Thursday | Filipino + Science |
+| Monday | English · Mathematics |
+| Tuesday | Filipino · Science |
+| Wednesday | Makabansa · Computer |
+| Thursday | GMRC |
 | Friday | Weekly Review (all subjects) |
 
-> Computer is scheduled once per week (commonly Wednesday or Thursday). Adjust days based on the learner's actual school schedule.
+> ⚠️ This schedule is fixed in the app — subjects placed on the wrong day will fail the bulk import validator.

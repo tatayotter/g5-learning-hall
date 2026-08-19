@@ -5,7 +5,7 @@
 
 ## HOW TO USE THIS PROMPT
 
-1. Find the current school week number (e.g. Term 1 Week 5)
+1. Find the current school week number (e.g. **Week 9**) — continuous from school opening, does NOT restart per term
 2. Look up the matching week in the BOW reference below
 3. Fill in the `[DATE]`, `[WEEK NUMBER]`, and `[SUBJECTS]` placeholders
 4. Paste the completed prompt into Claude, ChatGPT, or Gemini
@@ -17,7 +17,8 @@
 
 ```
 You are a curriculum assistant for a Filipino Grade 4 learner (age 9-10).
-Generate a weekly package JSON for the week of [DATE e.g. July 20, 2026] — Term [X] Week [X].
+Generate a weekly package JSON for the week of [DATE e.g. July 20, 2026] — Week [X].
+(Week number is CONTINUOUS for the whole school year. Week 1 = Jun 15 orientation; lessons begin Week 2. Never restart the count at a new term — write "Week 15", not "Term 2 Week 1".)
 
 OUTPUT RULES:
 - Return ONLY valid JSON. No explanation, no markdown, no code blocks.
@@ -52,6 +53,22 @@ Generate the full JSON now.
 ## BOW REFERENCE — GRADE 4
 
 Use this to fill in the `SUBJECTS AND TOPICS` section above each Sunday.
+
+> ### 📅 SY 2026-2027 Week Map
+> BOW entries use internal week numbers (reset per quarter). Convert to continuous school week using the offsets below.
+>
+> | Period | School Weeks | Approx. Dates | BOW → School |
+> |--------|-------------|---------------|--------------|
+> | **Week 1** — Orientation (no lessons) | 1 | Jun 15–19, 2026 | — |
+> | **Q1 / Term 1** | 2–13 | Jun 22 – Sep 12, 2026 | BOW Week N → **Week N+1** |
+> | *(Term 1 end / break)* | 13–14 | Sep 13–19, 2026 | — |
+> | **Q2 / Term 2** | 15–27 | Sep 22 – Dec 18, 2026 | BOW Week N → **Week N+14** |
+> | *(Term 2 end / break)* | 28–29 | Dec 21, 2026 – Jan 2, 2027 | — |
+> | **Q3 / Term 3** | 30–40 | Jan 5 – Mar 20, 2027 | BOW Week N → **Week N+29** |
+> | **Q4 / Term 3 (cont.)** | 41–50 | Mar 23 – May 29, 2027 | BOW Week N → **Week N+40** |
+>
+> *Example: BOW "Q2 Week 3" = School Week 3+14 = **Week 17***.
+> *Next week (Aug 24–28) = **School Week 11** = BOW Q1 Week 10 (Review week).*
 
 > **EPP note:** EPP rotates through four strands across the year. Quarter I = ICT. Quarter II = Agriculture and Fishery Arts (AFA). Quarter III = Family and Consumer Science (FCS). Quarter IV = Industrial Arts (IA). Include the active strand for the current quarter.
 
@@ -256,14 +273,15 @@ Use this to fill in the `SUBJECTS AND TOPICS` section above each Sunday.
 
 ## SUBJECT SCHEDULE REFERENCE
 
-Grade 4 typical weekly schedule (verify against actual school schedule):
+Grade 4 fixed weekly subject schedule (matches `GRADE_5_SCHEDULE` in `subjectSchedule.ts` — shared by Grades 4, 5, 6):
 
 | Day | Subjects |
 |-----|---------|
-| Monday | English + Araling Panlipunan |
-| Tuesday | GMRC + Filipino |
-| Wednesday | English + Mathematics |
-| Thursday | Filipino + Science |
+| Monday | English · Mathematics |
+| Tuesday | Filipino · Science |
+| Wednesday | Araling Panlipunan · EPP (ICT) |
+| Thursday | MAPEH · GMRC · EPP (AFA/FCS/IA)* |
 | Friday | Weekly Review (all subjects) |
 
-> MAPEH and EPP (ICT or AFA/FCS/IA depending on the quarter) are scheduled on rotating days — typically 2–3 days per week. Confirm with the learner's actual schedule. On weeks where MAPEH or EPP is included, add it to the relevant day's subjects.
+> *EPP (AFA/FCS/IA) is only active in Q2–Q4. Omit it from Thursday during Q1.
+> ⚠️ This schedule is fixed in the app — subjects placed on the wrong day will fail the bulk import validator.

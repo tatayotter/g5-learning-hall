@@ -34,12 +34,29 @@ export const GRADE_2_SCHEDULE: Record<string, Weekday> = {
   GMRC: 'Thursday',
 };
 
-// Grades 3, 4, and 6 don't have their own subject/day layout authored yet, so
-// they fall back to the Grade 5 schedule. Built from the shared GRADE_LEVELS
-// constant (lib/userSession.ts) instead of a hardcoded 2/5 binary, so a grade
+// Grade 3 has different subjects from Grade 5: Makabansa and Computer instead
+// of Araling Panlipunan, EPP, and MAPEH. Needs its own schedule so the
+// validator doesn't flag those subjects as being on the wrong day.
+export const GRADE_3_SCHEDULE: Record<string, Weekday> = {
+  English: 'Monday',
+  Mathematics: 'Monday',
+  Filipino: 'Tuesday',
+  Science: 'Tuesday',
+  Makabansa: 'Wednesday',
+  Computer: 'Wednesday',
+  GMRC: 'Thursday',
+};
+
+// Grades 4 and 6 share the same subject set as Grade 5 so they reuse that
+// schedule. Grade 3 gets its own. Built from GRADE_LEVELS so a new grade
 // added there automatically gets a (fallback) entry here too.
 const SCHEDULE_BY_GRADE: Record<number, Record<string, Weekday>> = Object.fromEntries(
-  GRADE_LEVELS.map(grade => [grade, grade === 2 ? GRADE_2_SCHEDULE : GRADE_5_SCHEDULE])
+  GRADE_LEVELS.map(grade => [
+    grade,
+    grade === 2 ? GRADE_2_SCHEDULE :
+    grade === 3 ? GRADE_3_SCHEDULE :
+    GRADE_5_SCHEDULE,
+  ])
 );
 
 // Subjects with no fixed slot (e.g. "Weekly Review") fall to Friday, the flex/review day.
