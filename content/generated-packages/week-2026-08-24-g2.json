@@ -8,43 +8,123 @@
         "quiz": [
           {
             "question": "Which word is a proper noun?",
-            "options": ["Ramon", "tiger", "house", "ocean"],
+            "options": [
+              "Ramon",
+              "tiger",
+              "house",
+              "ocean"
+            ],
             "correct_answer": "Ramon"
           },
           {
             "question": "Which word is a verb (action word)?",
-            "options": ["happy", "green", "swim", "book"],
+            "options": [
+              "happy",
+              "green",
+              "swim",
+              "book"
+            ],
             "correct_answer": "swim"
           },
           {
             "question": "Which word is an adjective (describing word)?",
-            "options": ["shiny", "climb", "Nena", "park"],
+            "options": [
+              "shiny",
+              "climb",
+              "Nena",
+              "park"
+            ],
             "correct_answer": "shiny"
           },
           {
             "question": "Which sentence is declarative (a telling sentence)?",
-            "options": ["I love mangoes.", "Do you love mangoes?", "Eat the mangoes!", "Wow, sweet mangoes!"],
+            "options": [
+              "I love mangoes.",
+              "Do you love mangoes?",
+              "Eat the mangoes!",
+              "Wow, sweet mangoes!"
+            ],
             "correct_answer": "I love mangoes."
           },
           {
             "question": "What punctuation ends an interrogative sentence?",
-            "options": ["Question mark (?)", "Exclamation mark (!)", "Period mark (.)", "Comma mark (,)"],
+            "options": [
+              "Question mark (?)",
+              "Exclamation mark (!)",
+              "Period mark (.)",
+              "Comma mark (,)"
+            ],
             "correct_answer": "Question mark (?)"
           },
           {
             "question": "\"The tiny kitten slept on the warm mat.\" Which word is an adjective?",
-            "options": ["slept", "tiny", "kitten", "mat"],
+            "options": [
+              "slept",
+              "tiny",
+              "kitten",
+              "mat"
+            ],
             "correct_answer": "tiny"
           },
           {
             "question": "In a story summary, we call the people/animals in the story the ___.",
-            "options": ["characters", "adjectives", "sentences", "settings"],
+            "options": [
+              "characters",
+              "adjectives",
+              "sentences",
+              "settings"
+            ],
             "correct_answer": "characters"
           },
           {
             "question": "Which word is a common noun?",
-            "options": ["school", "Maria", "runs", "bright"],
+            "options": [
+              "school",
+              "Maria",
+              "runs",
+              "bright"
+            ],
             "correct_answer": "school"
+          },
+          {
+            "question": "Which word is a VERB?",
+            "options": [
+              "runs",
+              "happy",
+              "flower",
+              "tall"
+            ],
+            "correct_answer": "runs"
+          },
+          {
+            "question": "\"The big red ball\" — which word is an adjective?",
+            "options": [
+              "big",
+              "ball",
+              "the",
+              "rolled"
+            ],
+            "correct_answer": "big"
+          },
+          {
+            "question": "Which sentence is COMPLETE?",
+            "options": [
+              "The cat sleeps on the mat.",
+              "Runs very fast.",
+              "A big blue.",
+              "Under the table."
+            ],
+            "correct_answer": "The cat sleeps on the mat."
+          },
+          {
+            "question": "Which word is a PROPER NOUN?",
+            "options": [
+              "Maria",
+              "dog",
+              "city",
+              "table"
+            ],
+            "correct_answer": "Maria"
           }
         ]
       },
@@ -53,43 +133,123 @@
         "quiz": [
           {
             "question": "Which has the GREATEST value?",
-            "options": ["₱500 bill", "₱100 bill", "₱50 bill", "₱20 bill"],
+            "options": [
+              "₱500 bill",
+              "₱100 bill",
+              "₱50 bill",
+              "₱20 bill"
+            ],
             "correct_answer": "₱500 bill"
           },
           {
             "question": "Tala has ₱30. She earns ₱20 more. How much does she have now?",
-            "options": ["₱50", "₱40", "₱60", "₱55"],
+            "options": [
+              "₱50",
+              "₱40",
+              "₱60",
+              "₱55"
+            ],
             "correct_answer": "₱50"
           },
           {
             "question": "Which has the LEAST value?",
-            "options": ["₱1 coin", "₱5 coin", "₱10 coin", "₱20 bill"],
+            "options": [
+              "₱1 coin",
+              "₱5 coin",
+              "₱10 coin",
+              "₱20 bill"
+            ],
             "correct_answer": "₱1 coin"
           },
           {
             "question": "Ana buys a pen for ₱12 and an eraser for ₱8. How much does she spend in all?",
-            "options": ["₱20", "₱18", "₱22", "₱16"],
+            "options": [
+              "₱20",
+              "₱18",
+              "₱22",
+              "₱16"
+            ],
             "correct_answer": "₱20"
           },
           {
             "question": "Which symbol means \"greater than\"?",
-            "options": [">", "<", "=", "+"],
+            "options": [
+              ">",
+              "<",
+              "=",
+              "+"
+            ],
             "correct_answer": ">"
           },
           {
             "question": "Jose has ₱45. His lolo gives him ₱55 more. How much does Jose have in all?",
-            "options": ["₱100", "₱90", "₱80", "₱110"],
+            "options": [
+              "₱100",
+              "₱90",
+              "₱80",
+              "₱110"
+            ],
             "correct_answer": "₱100"
           },
           {
             "question": "Which shows that ₱50 is LESS than ₱100?",
-            "options": ["₱50 < ₱100", "₱50 > ₱100", "₱50 = ₱100", "₱50 + ₱100"],
+            "options": [
+              "₱50 < ₱100",
+              "₱50 > ₱100",
+              "₱50 = ₱100",
+              "₱50 + ₱100"
+            ],
             "correct_answer": "₱50 < ₱100"
           },
           {
             "question": "Bella saves ₱120 in April and ₱80 in May. How much does she save in all?",
-            "options": ["₱200", "₱190", "₱180", "₱210"],
+            "options": [
+              "₱200",
+              "₱190",
+              "₱180",
+              "₱210"
+            ],
             "correct_answer": "₱200"
+          },
+          {
+            "question": "How many centavos make one peso?",
+            "options": [
+              "100 centavos",
+              "10 centavos",
+              "50 centavos",
+              "20 centavos"
+            ],
+            "correct_answer": "100 centavos"
+          },
+          {
+            "question": "Ana has ₱5. She buys a pencil for ₱3. How much is left?",
+            "options": [
+              "₱2",
+              "₱8",
+              "₱3",
+              "₱1"
+            ],
+            "correct_answer": "₱2"
+          },
+          {
+            "question": "What coin has the HIGHEST value?",
+            "options": [
+              "₱10 coin",
+              "₱5 coin",
+              "₱1 coin",
+              "25¢ coin"
+            ],
+            "correct_answer": "₱10 coin"
+          },
+          {
+            "question": "There are 14 apples. Ben eats 6. How many are left?",
+            "options": [
+              "8",
+              "20",
+              "6",
+              "10"
+            ],
+            "correct_answer": "8"
           }
         ]
       }
@@ -100,43 +260,123 @@
         "quiz": [
           {
             "question": "Ano ang tinatawag na paksa ng pangungusap?",
-            "options": ["Simuno", "Panaguri", "Pandiwa", "Panlapi"],
+            "options": [
+              "Simuno",
+              "Panaguri",
+              "Pandiwa",
+              "Panlapi"
+            ],
             "correct_answer": "Simuno"
           },
           {
             "question": "Aling pangungusap ang pasalaysay?",
-            "options": ["Mahal ko ang Pilipinas.", "Mahal mo ba ang Pilipinas?", "Ipaglaban ang Pilipinas!", "Wow, ang ganda ng Pilipinas!"],
+            "options": [
+              "Mahal ko ang Pilipinas.",
+              "Mahal mo ba ang Pilipinas?",
+              "Ipaglaban ang Pilipinas!",
+              "Wow, ang ganda ng Pilipinas!"
+            ],
             "correct_answer": "Mahal ko ang Pilipinas."
           },
           {
             "question": "Sa pangungusap na \"Si Pedro ay mabilis tumakbo\", ano ang simuno?",
-            "options": ["Si Pedro", "mabilis", "tumakbo", "ay"],
+            "options": [
+              "Si Pedro",
+              "mabilis",
+              "tumakbo",
+              "ay"
+            ],
             "correct_answer": "Si Pedro"
           },
           {
             "question": "Ano ang pandiwa sa pangungusap na \"Kumakain si Lolo ng mangga\"?",
-            "options": ["kumakain", "si Lolo", "mangga", "ng"],
+            "options": [
+              "kumakain",
+              "si Lolo",
+              "mangga",
+              "ng"
+            ],
             "correct_answer": "kumakain"
           },
           {
             "question": "Anong tandaan ang ginagamit sa katapusan ng patanong na pangungusap?",
-            "options": ["Tandang pananong (?)", "Tuldok (.)", "Padamdam (!)", "Kuwit (,)"],
+            "options": [
+              "Tandang pananong (?)",
+              "Tuldok (.)",
+              "Padamdam (!)",
+              "Kuwit (,)"
+            ],
             "correct_answer": "Tandang pananong (?)"
           },
           {
             "question": "Alin sa mga ito ang halimbawa ng pandiwa?",
-            "options": ["tumatalon", "mabait", "Nena", "paaralan"],
+            "options": [
+              "tumatalon",
+              "mabait",
+              "Nena",
+              "paaralan"
+            ],
             "correct_answer": "tumatalon"
           },
           {
             "question": "Sa buod ng kwento, ano ang unang dapat nating sabihin?",
-            "options": ["Kung sino ang mga tauhan", "Kung paano nagtapos ang kwento", "Kung ano ang bawat salita", "Kung nasaan ang aklatan"],
+            "options": [
+              "Kung sino ang mga tauhan",
+              "Kung paano nagtapos ang kwento",
+              "Kung ano ang bawat salita",
+              "Kung nasaan ang aklatan"
+            ],
             "correct_answer": "Kung sino ang mga tauhan"
           },
           {
             "question": "Ano ang kahulugan ng \"tagpuan\" sa isang kwento?",
-            "options": ["Lugar ng kwento", "Tauhan ng kwento", "Wakas ng kwento", "Simula ng kwento"],
+            "options": [
+              "Lugar ng kwento",
+              "Tauhan ng kwento",
+              "Wakas ng kwento",
+              "Simula ng kwento"
+            ],
             "correct_answer": "Lugar ng kwento"
+          },
+          {
+            "question": "Anong uri ng pangungusap ito? \"Matulog ka na!\"",
+            "options": [
+              "Utos",
+              "Tanong",
+              "Pasalaysay",
+              "Damdamin"
+            ],
+            "correct_answer": "Utos"
+          },
+          {
+            "question": "Alin ang pangngalan sa pangungusap na \"Naglaro si Ben sa bakuran\"?",
+            "options": [
+              "Ben",
+              "naglaro",
+              "sa",
+              "bakuran"
+            ],
+            "correct_answer": "Ben"
+          },
+          {
+            "question": "Paano mo ibubuod ang isang kuwento?",
+            "options": [
+              "Sabihin ang simula, gitna, at katapusan",
+              "Isulat muli ang buong kuwento",
+              "Sabihin ang pinakamahabang bahagi",
+              "Sabihin ang mga diyalogo lamang"
+            ],
+            "correct_answer": "Sabihin ang simula, gitna, at katapusan"
+          },
+          {
+            "question": "Alin ang panguri sa \"Ang matangkad na lalaki ay mabait\"?",
+            "options": [
+              "matangkad",
+              "lalaki",
+              "ang",
+              "mabait"
+            ],
+            "correct_answer": "matangkad"
           }
         ]
       }
@@ -147,43 +387,123 @@
         "quiz": [
           {
             "question": "Ano ang pambansang bulaklak ng Pilipinas?",
-            "options": ["Sampaguita", "Rosal", "Gumamela", "Ilang-ilang"],
+            "options": [
+              "Sampaguita",
+              "Rosal",
+              "Gumamela",
+              "Ilang-ilang"
+            ],
             "correct_answer": "Sampaguita"
           },
           {
             "question": "Ano ang pambansang ibon ng Pilipinas?",
-            "options": ["Agila ng Pilipinas", "Kalapati", "Maya", "Tikling"],
+            "options": [
+              "Agila ng Pilipinas",
+              "Kalapati",
+              "Maya",
+              "Tikling"
+            ],
             "correct_answer": "Agila ng Pilipinas"
           },
           {
             "question": "Ilang sinag ang araw sa watawat ng Pilipinas?",
-            "options": ["Walo (8)", "Tatlo (3)", "Lima (5)", "Anim (6)"],
+            "options": [
+              "Walo (8)",
+              "Tatlo (3)",
+              "Lima (5)",
+              "Anim (6)"
+            ],
             "correct_answer": "Walo (8)"
           },
           {
             "question": "Ano ang kinakatawan ng pulang kulay sa watawat ng Pilipinas?",
-            "options": ["Tapang at katapangan", "Kapayapaan at katapatan", "Kagandahan ng bansa", "Yaman ng kalikasan"],
+            "options": [
+              "Tapang at katapangan",
+              "Kapayapaan at katapatan",
+              "Kagandahan ng bansa",
+              "Yaman ng kalikasan"
+            ],
             "correct_answer": "Tapang at katapangan"
           },
           {
             "question": "Ano ang pambansang hayop ng Pilipinas?",
-            "options": ["Kalabaw", "Kabayo", "Baboy-ramo", "Usa"],
+            "options": [
+              "Kalabaw",
+              "Kabayo",
+              "Baboy-ramo",
+              "Usa"
+            ],
             "correct_answer": "Kalabaw"
           },
           {
             "question": "Ano ang pambansang puno ng Pilipinas?",
-            "options": ["Narra", "Kawayan", "Mangga", "Ipil-ipil"],
+            "options": [
+              "Narra",
+              "Kawayan",
+              "Mangga",
+              "Ipil-ipil"
+            ],
             "correct_answer": "Narra"
           },
           {
             "question": "Ilang bituin ang nasa watawat ng Pilipinas?",
-            "options": ["Tatlo (3)", "Walo (8)", "Lima (5)", "Isa (1)"],
+            "options": [
+              "Tatlo (3)",
+              "Walo (8)",
+              "Lima (5)",
+              "Isa (1)"
+            ],
             "correct_answer": "Tatlo (3)"
           },
           {
             "question": "Ano ang tawag sa pinakamataas na pinuno ng Pilipinas?",
-            "options": ["Pangulo", "Gobernador", "Alkalde", "Senador"],
+            "options": [
+              "Pangulo",
+              "Gobernador",
+              "Alkalde",
+              "Senador"
+            ],
             "correct_answer": "Pangulo"
+          },
+          {
+            "question": "Ano ang ginagawa natin tuwing naririnig ang Lupang Hinirang?",
+            "options": [
+              "Tumayo at magbigay ng galang",
+              "Uminom ng tubig at magpahinga",
+              "Kumanta ng ibang kanta",
+              "Maupo at makinig lamang"
+            ],
+            "correct_answer": "Tumayo at magbigay ng galang"
+          },
+          {
+            "question": "Ano ang kumakatawan sa tatlong pangunahing isla ng Pilipinas sa watawat?",
+            "options": [
+              "Tatlong bituin",
+              "Tatlong guhit",
+              "Tatlong kulay",
+              "Tatlong araw"
+            ],
+            "correct_answer": "Tatlong bituin"
+          },
+          {
+            "question": "Saan makikita ang Philippine Eagle bilang pambansang ibon?",
+            "options": [
+              "Mindanao",
+              "Batanes",
+              "Palawan",
+              "Leyte"
+            ],
+            "correct_answer": "Mindanao"
+          },
+          {
+            "question": "Ano ang pambansang hayop ng Pilipinas?",
+            "options": [
+              "Carabao",
+              "Eagle",
+              "Pawikan",
+              "Tamaraw"
+            ],
+            "correct_answer": "Carabao"
           }
         ]
       },
@@ -192,43 +512,123 @@
         "quiz": [
           {
             "question": "What is the computer screen called?",
-            "options": ["Monitor", "Keyboard", "Printer", "Speaker"],
+            "options": [
+              "Monitor",
+              "Keyboard",
+              "Printer",
+              "Speaker"
+            ],
             "correct_answer": "Monitor"
           },
           {
             "question": "Which device do you use to TYPE words on a computer?",
-            "options": ["Keyboard", "Monitor", "Speaker", "Printer"],
+            "options": [
+              "Keyboard",
+              "Monitor",
+              "Speaker",
+              "Printer"
+            ],
             "correct_answer": "Keyboard"
           },
           {
             "question": "What is the \"brain\" of the computer called?",
-            "options": ["CPU", "RAM", "USB", "DVD"],
+            "options": [
+              "CPU",
+              "RAM",
+              "USB",
+              "DVD"
+            ],
             "correct_answer": "CPU"
           },
           {
             "question": "Which of these is an INPUT device?",
-            "options": ["Mouse", "Monitor", "Speakers", "Printer"],
+            "options": [
+              "Mouse",
+              "Monitor",
+              "Speakers",
+              "Printer"
+            ],
             "correct_answer": "Mouse"
           },
           {
             "question": "Which of these is an OUTPUT device?",
-            "options": ["Printer", "Mouse", "Keyboard", "Webcam"],
+            "options": [
+              "Printer",
+              "Mouse",
+              "Keyboard",
+              "Webcam"
+            ],
             "correct_answer": "Printer"
           },
           {
             "question": "Where do your LEFT hand fingers go on the home row?",
-            "options": ["A S D F", "Z X C V", "Q W E R", "G H J K"],
+            "options": [
+              "A S D F",
+              "Z X C V",
+              "Q W E R",
+              "G H J K"
+            ],
             "correct_answer": "A S D F"
           },
           {
             "question": "What do you use on a computer to click and point at things?",
-            "options": ["Mouse", "Keyboard", "Monitor", "CPU"],
+            "options": [
+              "Mouse",
+              "Keyboard",
+              "Monitor",
+              "CPU"
+            ],
             "correct_answer": "Mouse"
           },
           {
             "question": "Which key adds a space between words?",
-            "options": ["Space Bar", "Enter key", "Shift key", "Tab key"],
+            "options": [
+              "Space Bar",
+              "Enter key",
+              "Shift key",
+              "Tab key"
+            ],
             "correct_answer": "Space Bar"
+          },
+          {
+            "question": "Alin ang tamang posisyon ng mga daliri sa home row keys?",
+            "options": [
+              "ASDF at JKL;",
+              "QWER at UIOP",
+              "ZXCV at NM,.",
+              "Kung saan komportable"
+            ],
+            "correct_answer": "ASDF at JKL;"
+          },
+          {
+            "question": "Ano ang ginagawa ng DELETE key?",
+            "options": [
+              "Binubura ang character sa kanan ng cursor",
+              "Sine-save ang dokumento",
+              "Binubura ang character sa kaliwa ng cursor",
+              "Nagbubukas ng bagong file"
+            ],
+            "correct_answer": "Binubura ang character sa kanan ng cursor"
+          },
+          {
+            "question": "Ano ang gamit ng mouse?",
+            "options": [
+              "Piliin at i-click ang mga bagay sa screen",
+              "I-type ang mga salita",
+              "I-print ang dokumento",
+              "I-save ang file"
+            ],
+            "correct_answer": "Piliin at i-click ang mga bagay sa screen"
+          },
+          {
+            "question": "Anong parte ng computer ang nagpapakita ng impormasyon?",
+            "options": [
+              "Monitor",
+              "Keyboard",
+              "CPU",
+              "Mouse"
+            ],
+            "correct_answer": "Monitor"
           }
         ]
       }
@@ -239,43 +639,123 @@
         "quiz": [
           {
             "question": "Ano ang ibig sabihin ng \"responsibilidad\"?",
-            "options": ["Tungkulin o obligasyon natin", "Palaruan pagkatapos ng klase", "Kasiyahang ating natanggap", "Pagkain na ating gustong kainin"],
+            "options": [
+              "Tungkulin o obligasyon natin",
+              "Palaruan pagkatapos ng klase",
+              "Kasiyahang ating natanggap",
+              "Pagkain na ating gustong kainin"
+            ],
             "correct_answer": "Tungkulin o obligasyon natin"
           },
           {
             "question": "Alin sa mga ito ang responsibilidad sa tahanan?",
-            "options": ["Mag-aayos ng higaan", "Manood ng TV nang buong araw", "Maglaro sa labas palagi", "Kumain nang walang pahintulot"],
+            "options": [
+              "Mag-aayos ng higaan",
+              "Manood ng TV nang buong araw",
+              "Maglaro sa labas palagi",
+              "Kumain nang walang pahintulot"
+            ],
             "correct_answer": "Mag-aayos ng higaan"
           },
           {
             "question": "Paano mo ipapakita ang paggalang sa iyong guro?",
-            "options": ["Pakikinig habang nagtuturo", "Pakikipag-usap sa klase", "Paglalaro sa oras ng aralin", "Paglabas nang walang pahintulot"],
+            "options": [
+              "Pakikinig habang nagtuturo",
+              "Pakikipag-usap sa klase",
+              "Paglalaro sa oras ng aralin",
+              "Paglabas nang walang pahintulot"
+            ],
             "correct_answer": "Pakikinig habang nagtuturo"
           },
           {
             "question": "Anong salita ang ginagamit upang magpakita ng galang sa matatanda?",
-            "options": ["Po at opo", "Oo at hindi", "Kumusta at paalam", "Salamat at tuloy"],
+            "options": [
+              "Po at opo",
+              "Oo at hindi",
+              "Kumusta at paalam",
+              "Salamat at tuloy"
+            ],
             "correct_answer": "Po at opo"
           },
           {
             "question": "Si Marco ay nagbasag ng laruan ni Pedro nang hindi sinasadya. Ano ang dapat niyang gawin?",
-            "options": ["Humingi ng tawad kay Pedro", "Magtago at tumahimik na lang", "Sisihin ang ibang bata", "Umalis ng silid agad"],
+            "options": [
+              "Humingi ng tawad kay Pedro",
+              "Magtago at tumahimik na lang",
+              "Sisihin ang ibang bata",
+              "Umalis ng silid agad"
+            ],
             "correct_answer": "Humingi ng tawad kay Pedro"
           },
           {
             "question": "Alin sa mga ito ang responsibilidad ng bata sa paaralan?",
-            "options": ["Gumawa ng takdang-aralin", "Matulog sa oras ng klase", "Manggulo sa kaklase", "Laktawan ang klase"],
+            "options": [
+              "Gumawa ng takdang-aralin",
+              "Matulog sa oras ng klase",
+              "Manggulo sa kaklase",
+              "Laktawan ang klase"
+            ],
             "correct_answer": "Gumawa ng takdang-aralin"
           },
           {
             "question": "Ano ang tawag sa batang sumusunod sa mga alituntunin at gumagawa ng tama?",
-            "options": ["Disiplinang bata", "Mapaglarong bata", "Maingay na bata", "Tamad na bata"],
+            "options": [
+              "Disiplinang bata",
+              "Mapaglarong bata",
+              "Maingay na bata",
+              "Tamad na bata"
+            ],
             "correct_answer": "Disiplinang bata"
           },
           {
             "question": "Bakit mahalaga ang responsibilidad para sa isang bata?",
-            "options": ["Para maging maganda ang ating pag-uugali", "Para laging manalo sa mga laro", "Para makakuha ng maraming regalo", "Para palaging bakasyon ang araw"],
+            "options": [
+              "Para maging maganda ang ating pag-uugali",
+              "Para laging manalo sa mga laro",
+              "Para makakuha ng maraming regalo",
+              "Para palaging bakasyon ang araw"
+            ],
             "correct_answer": "Para maging maganda ang ating pag-uugali"
+          },
+          {
+            "question": "Ano ang tamang gawin kapag nakita mong may dumapa sa daan?",
+            "options": [
+              "Tulungan siya at humingi ng tulong",
+              "Tawanan at lumakad na lang",
+              "Magpanggap na hindi mo nakita",
+              "Takbo na lang palayo"
+            ],
+            "correct_answer": "Tulungan siya at humingi ng tulong"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsunod sa mga patakaran sa paaralan?",
+            "options": [
+              "Para manatiling ligtas at maayos ang lahat",
+              "Para hindi mapagalitan ng guro",
+              "Para makakuha ng gantimpala",
+              "Para mapanood ng TV mamaya"
+            ],
+            "correct_answer": "Para manatiling ligtas at maayos ang lahat"
+          },
+          {
+            "question": "Ano ang dapat mong sabihin kapag natanggap mo ang regalo?",
+            "options": [
+              "Salamat!",
+              "Ang pangit naman!",
+              "Wala akong gusto niyan.",
+              "Bakit ito lang?"
+            ],
+            "correct_answer": "Salamat!"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng \"responsibilidad\"?",
+            "options": [
+              "Ang tungkulin na kailangan mong gawin",
+              "Ang bagay na gusto mong gawin",
+              "Ang gantimpala para sa mabuting gawa",
+              "Ang parusa kapag nagkamali"
+            ],
+            "correct_answer": "Ang tungkulin na kailangan mong gawin"
           }
         ]
       }
@@ -286,43 +766,123 @@
         "quiz": [
           {
             "question": "Which word is a proper noun?",
-            "options": ["Manila", "river", "flower", "school"],
+            "options": [
+              "Manila",
+              "river",
+              "flower",
+              "school"
+            ],
             "correct_answer": "Manila"
           },
           {
             "question": "Which word is an adjective?",
-            "options": ["tall", "jump", "Pedro", "song"],
+            "options": [
+              "tall",
+              "jump",
+              "Pedro",
+              "song"
+            ],
             "correct_answer": "tall"
           },
           {
             "question": "Which word is a verb?",
-            "options": ["sing", "small", "Tala", "book"],
+            "options": [
+              "sing",
+              "small",
+              "Tala",
+              "book"
+            ],
             "correct_answer": "sing"
           },
           {
             "question": "Which sentence asks a question?",
-            "options": ["Where do you live?", "I live in Manila.", "Go home now.", "What a nice day!"],
+            "options": [
+              "Where do you live?",
+              "I live in Manila.",
+              "Go home now.",
+              "What a nice day!"
+            ],
             "correct_answer": "Where do you live?"
           },
           {
             "question": "\"The fluffy cat slept soundly.\" Which word is an adjective?",
-            "options": ["fluffy", "slept", "cat", "soundly"],
+            "options": [
+              "fluffy",
+              "slept",
+              "cat",
+              "soundly"
+            ],
             "correct_answer": "fluffy"
           },
           {
             "question": "Which word is a common noun?",
-            "options": ["bridge", "Ana", "swims", "happy"],
+            "options": [
+              "bridge",
+              "Ana",
+              "swims",
+              "happy"
+            ],
             "correct_answer": "bridge"
           },
           {
             "question": "What does a declarative sentence end with?",
-            "options": ["A period (.)", "A question mark (?)", "An exclamation (!)", "A comma (,)"],
+            "options": [
+              "A period (.)",
+              "A question mark (?)",
+              "An exclamation (!)",
+              "A comma (,)"
+            ],
             "correct_answer": "A period (.)"
           },
           {
             "question": "When summarizing a story, what is the \"setting\"?",
-            "options": ["The place and time", "The people in it", "The main problem", "The final ending"],
+            "options": [
+              "The place and time",
+              "The people in it",
+              "The main problem",
+              "The final ending"
+            ],
             "correct_answer": "The place and time"
+          },
+          {
+            "question": "Choose the NOUN: \"The bird sings a lovely song.\"",
+            "options": [
+              "bird",
+              "sings",
+              "lovely",
+              "a"
+            ],
+            "correct_answer": "bird"
+          },
+          {
+            "question": "Which sentence has a VERB?",
+            "options": [
+              "She reads books every day.",
+              "A tall green tree.",
+              "Very fast and smart.",
+              "The blue sky."
+            ],
+            "correct_answer": "She reads books every day."
+          },
+          {
+            "question": "Which word is an ADJECTIVE?",
+            "options": [
+              "yellow",
+              "jump",
+              "they",
+              "quickly"
+            ],
+            "correct_answer": "yellow"
+          },
+          {
+            "question": "What does a NOUN name?",
+            "options": [
+              "A person, place, or thing",
+              "An action or movement",
+              "A describing word",
+              "A connecting word"
+            ],
+            "correct_answer": "A person, place, or thing"
           }
         ]
       },
@@ -331,43 +891,123 @@
         "quiz": [
           {
             "question": "Which bill has the LEAST value?",
-            "options": ["₱20 bill", "₱50 bill", "₱100 bill", "₱200 bill"],
+            "options": [
+              "₱20 bill",
+              "₱50 bill",
+              "₱100 bill",
+              "₱200 bill"
+            ],
             "correct_answer": "₱20 bill"
           },
           {
             "question": "Rina has ₱60. She earns ₱40 more. How much does she have now?",
-            "options": ["₱100", "₱80", "₱90", "₱110"],
+            "options": [
+              "₱100",
+              "₱80",
+              "₱90",
+              "₱110"
+            ],
             "correct_answer": "₱100"
           },
           {
             "question": "Which shows ₱10 is GREATER than ₱5?",
-            "options": ["₱10 > ₱5", "₱10 < ₱5", "₱10 = ₱5", "₱10 + ₱5"],
+            "options": [
+              "₱10 > ₱5",
+              "₱10 < ₱5",
+              "₱10 = ₱5",
+              "₱10 + ₱5"
+            ],
             "correct_answer": "₱10 > ₱5"
           },
           {
             "question": "Marco buys a toy for ₱75 and a snack for ₱25. How much in all?",
-            "options": ["₱100", "₱90", "₱80", "₱85"],
+            "options": [
+              "₱100",
+              "₱90",
+              "₱80",
+              "₱85"
+            ],
             "correct_answer": "₱100"
           },
           {
             "question": "Which coin is worth the MOST?",
-            "options": ["₱10 coin", "₱5 coin", "₱1 coin", "₱25 sentimo"],
+            "options": [
+              "₱10 coin",
+              "₱5 coin",
+              "₱1 coin",
+              "₱25 sentimo"
+            ],
             "correct_answer": "₱10 coin"
           },
           {
             "question": "Nena saves ₱150. Her sister saves ₱50. How much do they save together?",
-            "options": ["₱200", "₱180", "₱190", "₱160"],
+            "options": [
+              "₱200",
+              "₱180",
+              "₱190",
+              "₱160"
+            ],
             "correct_answer": "₱200"
           },
           {
             "question": "₱500 __ ₱1,000 (Which symbol fits?)",
-            "options": ["<", ">", "=", "+"],
+            "options": [
+              "<",
+              ">",
+              "=",
+              "+"
+            ],
             "correct_answer": "<"
           },
           {
             "question": "Luis has ₱300. He earns ₱200 more. How much does he have?",
-            "options": ["₱500", "₱400", "₱600", "₱450"],
+            "options": [
+              "₱500",
+              "₱400",
+              "₱600",
+              "₱450"
+            ],
             "correct_answer": "₱500"
+          },
+          {
+            "question": "Lena has ₱20. She buys candy for ₱7. How much change?",
+            "options": [
+              "₱13",
+              "₱27",
+              "₱7",
+              "₱3"
+            ],
+            "correct_answer": "₱13"
+          },
+          {
+            "question": "Which coin is worth MORE: ₱5 or ₱1?",
+            "options": [
+              "₱5",
+              "₱1",
+              "They are equal",
+              "Cannot tell"
+            ],
+            "correct_answer": "₱5"
+          },
+          {
+            "question": "9 + 7 = ?",
+            "options": [
+              "16",
+              "15",
+              "17",
+              "14"
+            ],
+            "correct_answer": "16"
+          },
+          {
+            "question": "18 − 5 = ?",
+            "options": [
+              "13",
+              "12",
+              "14",
+              "23"
+            ],
+            "correct_answer": "13"
           }
         ]
       },
@@ -376,43 +1016,123 @@
         "quiz": [
           {
             "question": "Ano ang simuno sa pangungusap na \"Naglalaro si Ben sa parke\"?",
-            "options": ["Si Ben", "naglalaro", "parke", "sa"],
+            "options": [
+              "Si Ben",
+              "naglalaro",
+              "parke",
+              "sa"
+            ],
             "correct_answer": "Si Ben"
           },
           {
             "question": "Alin ang pandiwa sa pangungusap?",
-            "options": ["Kumanta", "mabait", "Lola", "malalim"],
+            "options": [
+              "Kumanta",
+              "mabait",
+              "Lola",
+              "malalim"
+            ],
             "correct_answer": "Kumanta"
           },
           {
             "question": "Anong uri ng pangungusap ang \"Nasaan ang aking sapatos\"?",
-            "options": ["Patanong", "Pasalaysay", "Pautos", "Padamdam"],
+            "options": [
+              "Patanong",
+              "Pasalaysay",
+              "Pautos",
+              "Padamdam"
+            ],
             "correct_answer": "Patanong"
           },
           {
             "question": "Alin ang pasalaysay na pangungusap?",
-            "options": ["Ang pusa ay natutulog.", "Natutulog na ba ang pusa?", "Gisingin ang pusa!", "Ay, nakakatulog naman!"],
+            "options": [
+              "Ang pusa ay natutulog.",
+              "Natutulog na ba ang pusa?",
+              "Gisingin ang pusa!",
+              "Ay, nakakatulog naman!"
+            ],
             "correct_answer": "Ang pusa ay natutulog."
           },
           {
             "question": "Ano ang unang dapat sabihin sa buod ng isang kwento?",
-            "options": ["Ang mga tauhan", "Ang katapusan lamang", "Lahat ng salita", "Ang mga larawan"],
+            "options": [
+              "Ang mga tauhan",
+              "Ang katapusan lamang",
+              "Lahat ng salita",
+              "Ang mga larawan"
+            ],
             "correct_answer": "Ang mga tauhan"
           },
           {
             "question": "Ano ang tinatawag sa lugar na pinaganapan ng kwento?",
-            "options": ["Tagpuan", "Tauhan", "Banghay", "Tunggalian"],
+            "options": [
+              "Tagpuan",
+              "Tauhan",
+              "Banghay",
+              "Tunggalian"
+            ],
             "correct_answer": "Tagpuan"
           },
           {
             "question": "Alin sa mga ito ang salitang kilos (pandiwa)?",
-            "options": ["lumangoy", "matangkad", "paaralan", "malinis"],
+            "options": [
+              "lumangoy",
+              "matangkad",
+              "paaralan",
+              "malinis"
+            ],
             "correct_answer": "lumangoy"
           },
           {
             "question": "Anong tandaan ang ginagamit sa dulo ng pasalaysay na pangungusap?",
-            "options": ["Tuldok (.)", "Tandang pananong (?)", "Padamdam (!)", "Kuwit (,)"],
+            "options": [
+              "Tuldok (.)",
+              "Tandang pananong (?)",
+              "Padamdam (!)",
+              "Kuwit (,)"
+            ],
             "correct_answer": "Tuldok (.)"
+          },
+          {
+            "question": "Alin ang tamang pangungusap?",
+            "options": [
+              "Kumain si Nena ng tinapay.",
+              "Kumain tinapay si Nena.",
+              "Si Nena tinapay kumain.",
+              "Tinapay kumain si Nena."
+            ],
+            "correct_answer": "Kumain si Nena ng tinapay."
+          },
+          {
+            "question": "Ano ang unang bahagi ng isang maayos na buod?",
+            "options": [
+              "Simula ng kuwento",
+              "Katapusan ng kuwento",
+              "Pinaka-kapana-panabik na bahagi",
+              "Mga pangalan ng tauhan"
+            ],
+            "correct_answer": "Simula ng kuwento"
+          },
+          {
+            "question": "\"Magandang umaga!\" — ito ay halimbawa ng?",
+            "options": [
+              "Pagbati",
+              "Utos",
+              "Tanong",
+              "Salitang-ugat"
+            ],
+            "correct_answer": "Pagbati"
+          },
+          {
+            "question": "Alin ang pandiwang nagpapakita ng kilos?",
+            "options": [
+              "tumakbo",
+              "maganda",
+              "hardin",
+              "mabilis"
+            ],
+            "correct_answer": "tumakbo"
           }
         ]
       },
@@ -421,43 +1141,123 @@
         "quiz": [
           {
             "question": "Ano ang pambansang isda ng Pilipinas?",
-            "options": ["Bangus", "Tilapia", "Lapu-lapu", "Maya-maya"],
+            "options": [
+              "Bangus",
+              "Tilapia",
+              "Lapu-lapu",
+              "Maya-maya"
+            ],
             "correct_answer": "Bangus"
           },
           {
             "question": "Ano ang kinakatawan ng asul na kulay sa watawat?",
-            "options": ["Kapayapaan at katapatan", "Tapang at katapangan", "Yaman ng bansa", "Kagandahan ng kalikasan"],
+            "options": [
+              "Kapayapaan at katapatan",
+              "Tapang at katapangan",
+              "Yaman ng bansa",
+              "Kagandahan ng kalikasan"
+            ],
             "correct_answer": "Kapayapaan at katapatan"
           },
           {
             "question": "Ano ang pambansang bulaklak ng Pilipinas?",
-            "options": ["Sampaguita", "Rosal", "Rosas", "Gumamela"],
+            "options": [
+              "Sampaguita",
+              "Rosal",
+              "Rosas",
+              "Gumamela"
+            ],
             "correct_answer": "Sampaguita"
           },
           {
             "question": "Ang tatlong bituin sa watawat ay kumakatawan sa tatlong pangunahing isla ng Pilipinas. Alin ang mga ito?",
-            "options": ["Luzon, Visayas, Mindanao", "Cebu, Davao, Manila", "Palawan, Bohol, Leyte", "Batangas, Rizal, Laguna"],
+            "options": [
+              "Luzon, Visayas, Mindanao",
+              "Cebu, Davao, Manila",
+              "Palawan, Bohol, Leyte",
+              "Batangas, Rizal, Laguna"
+            ],
             "correct_answer": "Luzon, Visayas, Mindanao"
           },
           {
             "question": "Ano ang pambansang ibon ng Pilipinas?",
-            "options": ["Agila ng Pilipinas", "Kalapati", "Tikling", "Maya"],
+            "options": [
+              "Agila ng Pilipinas",
+              "Kalapati",
+              "Tikling",
+              "Maya"
+            ],
             "correct_answer": "Agila ng Pilipinas"
           },
           {
             "question": "Sino ang pinakamataas na pinuno ng Pilipinas?",
-            "options": ["Pangulo", "Alkalde", "Gobernador", "Senador"],
+            "options": [
+              "Pangulo",
+              "Alkalde",
+              "Gobernador",
+              "Senador"
+            ],
             "correct_answer": "Pangulo"
           },
           {
             "question": "Ano ang pambansang hayop ng Pilipinas?",
-            "options": ["Kalabaw", "Kabayo", "Usa", "Aso"],
+            "options": [
+              "Kalabaw",
+              "Kabayo",
+              "Usa",
+              "Aso"
+            ],
             "correct_answer": "Kalabaw"
           },
           {
             "question": "Ilang sinag ang araw sa gitna ng watawat ng Pilipinas?",
-            "options": ["Walo (8)", "Tatlo (3)", "Lima (5)", "Sampung (10)"],
+            "options": [
+              "Walo (8)",
+              "Tatlo (3)",
+              "Lima (5)",
+              "Sampung (10)"
+            ],
             "correct_answer": "Walo (8)"
+          },
+          {
+            "question": "Ano ang kulay ng araw sa watawat ng Pilipinas?",
+            "options": [
+              "Ginto/Dilaw",
+              "Pula",
+              "Asul",
+              "Puti"
+            ],
+            "correct_answer": "Ginto/Dilaw"
+          },
+          {
+            "question": "Ano ang pambansang bulaklak ng Pilipinas?",
+            "options": [
+              "Sampaguita",
+              "Rosas",
+              "Gumamela",
+              "Orkidya"
+            ],
+            "correct_answer": "Sampaguita"
+          },
+          {
+            "question": "Sino ang itinuturing na Ama ng Wikang Pambansa?",
+            "options": [
+              "Manuel L. Quezon",
+              "Jose Rizal",
+              "Andres Bonifacio",
+              "Emilio Aguinaldo"
+            ],
+            "correct_answer": "Manuel L. Quezon"
+          },
+          {
+            "question": "Ang tatlong bituin sa watawat ay kumakatawan sa?",
+            "options": [
+              "Luzon, Visayas, Mindanao",
+              "Kapayapaan, Kalayaan, Katarungan",
+              "Pag-asa, Pagmamahal, Katotohanan",
+              "Ginto, Pilak, Tanso"
+            ],
+            "correct_answer": "Luzon, Visayas, Mindanao"
           }
         ]
       },
@@ -466,43 +1266,123 @@
         "quiz": [
           {
             "question": "What do we call the screen that shows your work?",
-            "options": ["Monitor", "Keyboard", "CPU", "Printer"],
+            "options": [
+              "Monitor",
+              "Keyboard",
+              "CPU",
+              "Printer"
+            ],
             "correct_answer": "Monitor"
           },
           {
             "question": "Which of these is an INPUT device?",
-            "options": ["Keyboard", "Monitor", "Speaker", "Printer"],
+            "options": [
+              "Keyboard",
+              "Monitor",
+              "Speaker",
+              "Printer"
+            ],
             "correct_answer": "Keyboard"
           },
           {
             "question": "What is the computer's \"brain\" called?",
-            "options": ["CPU", "RAM", "USB", "DVD"],
+            "options": [
+              "CPU",
+              "RAM",
+              "USB",
+              "DVD"
+            ],
             "correct_answer": "CPU"
           },
           {
             "question": "Which is an OUTPUT device?",
-            "options": ["Speakers", "Mouse", "Keyboard", "Webcam"],
+            "options": [
+              "Speakers",
+              "Mouse",
+              "Keyboard",
+              "Webcam"
+            ],
             "correct_answer": "Speakers"
           },
           {
             "question": "Your right hand fingers go on which home row keys?",
-            "options": ["J K L ;", "A S D F", "Z X C V", "G H J K"],
+            "options": [
+              "J K L ;",
+              "A S D F",
+              "Z X C V",
+              "G H J K"
+            ],
             "correct_answer": "J K L ;"
           },
           {
             "question": "What do you use to click on items on the screen?",
-            "options": ["Mouse", "Keyboard", "Monitor", "Speaker"],
+            "options": [
+              "Mouse",
+              "Keyboard",
+              "Monitor",
+              "Speaker"
+            ],
             "correct_answer": "Mouse"
           },
           {
             "question": "Which key separates words when typing?",
-            "options": ["Space Bar", "Shift key", "Enter key", "Tab key"],
+            "options": [
+              "Space Bar",
+              "Shift key",
+              "Enter key",
+              "Tab key"
+            ],
             "correct_answer": "Space Bar"
           },
           {
             "question": "Which device lets you hear sounds from the computer?",
-            "options": ["Speakers", "Mouse", "Keyboard", "Monitor"],
+            "options": [
+              "Speakers",
+              "Mouse",
+              "Keyboard",
+              "Monitor"
+            ],
             "correct_answer": "Speakers"
+          },
+          {
+            "question": "Ano ang pangunahing gamit ng keyboard?",
+            "options": [
+              "I-type ang mga salita at numero",
+              "I-click ang mga larawan",
+              "Ipakita ang mga file",
+              "I-print ang dokumento"
+            ],
+            "correct_answer": "I-type ang mga salita at numero"
+          },
+          {
+            "question": "Anong key ang ginagamit para gumawa ng MALAKING titik?",
+            "options": [
+              "Shift key",
+              "Enter key",
+              "Space bar",
+              "Tab key"
+            ],
+            "correct_answer": "Shift key"
+          },
+          {
+            "question": "Ano ang CPU?",
+            "options": [
+              "Ang utak ng computer na nagpoproseso ng impormasyon",
+              "Ang screen ng computer",
+              "Ang papel na pangprint",
+              "Ang mouse ng computer"
+            ],
+            "correct_answer": "Ang utak ng computer na nagpoproseso ng impormasyon"
+          },
+          {
+            "question": "Ano ang tamang hakbang bago patayin ang computer?",
+            "options": [
+              "I-shut down muna bago patayin ang kuryente",
+              "Direktang bawiin ang kuryente",
+              "Iwanan lang naka-on",
+              "I-restart muna nang tatlong beses"
+            ],
+            "correct_answer": "I-shut down muna bago patayin ang kuryente"
           }
         ]
       },
@@ -511,43 +1391,123 @@
         "quiz": [
           {
             "question": "Alin ang isang halimbawa ng responsibilidad sa tahanan?",
-            "options": ["Pag-aayos ng higaan", "Paglalaro nang walang pahinto", "Panonood ng TV buong araw", "Pagkain nang walang pahintulot"],
+            "options": [
+              "Pag-aayos ng higaan",
+              "Paglalaro nang walang pahinto",
+              "Panonood ng TV buong araw",
+              "Pagkain nang walang pahintulot"
+            ],
             "correct_answer": "Pag-aayos ng higaan"
           },
           {
             "question": "Paano natin ipinapakita ang paggalang sa matatanda?",
-            "options": ["Gamiting \"po\" at \"opo\"", "Huwag silang pakinggan", "Sagutin ng malakas", "Huwag silang tingnan"],
+            "options": [
+              "Gamiting \"po\" at \"opo\"",
+              "Huwag silang pakinggan",
+              "Sagutin ng malakas",
+              "Huwag silang tingnan"
+            ],
             "correct_answer": "Gamiting \"po\" at \"opo\""
           },
           {
             "question": "Ano ang responsibilidad ng bata sa paaralan?",
-            "options": ["Gumawa ng takdang-aralin", "Matulog sa klase", "Manggulo sa kaklase", "Lumabas ng walang pahintulot"],
+            "options": [
+              "Gumawa ng takdang-aralin",
+              "Matulog sa klase",
+              "Manggulo sa kaklase",
+              "Lumabas ng walang pahintulot"
+            ],
             "correct_answer": "Gumawa ng takdang-aralin"
           },
           {
             "question": "Ano ang dapat gawin kapag nagkamali ka sa iyong kaibigan?",
-            "options": ["Humingi ng tawad", "Magtago at umalis", "Sisihin ang iba", "Magalit sa kanila"],
+            "options": [
+              "Humingi ng tawad",
+              "Magtago at umalis",
+              "Sisihin ang iba",
+              "Magalit sa kanila"
+            ],
             "correct_answer": "Humingi ng tawad"
           },
           {
             "question": "Ang disiplinang bata ay ___.",
-            "options": ["sumusunod sa mga alituntunin", "ginagawa ang gusto lang niya", "palaging nag-aaway", "hindi nakikinig sa guro"],
+            "options": [
+              "sumusunod sa mga alituntunin",
+              "ginagawa ang gusto lang niya",
+              "palaging nag-aaway",
+              "hindi nakikinig sa guro"
+            ],
             "correct_answer": "sumusunod sa mga alituntunin"
           },
           {
             "question": "Bakit mahalaga ang pagiging responsable?",
-            "options": ["Para lumaki ng mabuting tao", "Para makakuha ng maraming laro", "Para palaging bakasyon", "Para laging mananalo"],
+            "options": [
+              "Para lumaki ng mabuting tao",
+              "Para makakuha ng maraming laro",
+              "Para palaging bakasyon",
+              "Para laging mananalo"
+            ],
             "correct_answer": "Para lumaki ng mabuting tao"
           },
           {
             "question": "Alin ang halimbawa ng responsibilidad sa paaralan?",
-            "options": ["Pakikinig sa guro", "Paglalaro sa oras ng klase", "Pakikipag-usap nang maingay", "Pagtakas sa paaralan"],
+            "options": [
+              "Pakikinig sa guro",
+              "Paglalaro sa oras ng klase",
+              "Pakikipag-usap nang maingay",
+              "Pagtakas sa paaralan"
+            ],
             "correct_answer": "Pakikinig sa guro"
           },
           {
             "question": "Ano ang dapat gawin ng bata kapag may ginawa siyang mali?",
-            "options": ["Humingi ng tawad at magbago", "Magtago at huwag aminin", "Sisihin ang ibang tao", "Umiyak at umalis"],
+            "options": [
+              "Humingi ng tawad at magbago",
+              "Magtago at huwag aminin",
+              "Sisihin ang ibang tao",
+              "Umiyak at umalis"
+            ],
             "correct_answer": "Humingi ng tawad at magbago"
+          },
+          {
+            "question": "Ano ang tamang gawin kapag hindi mo alam ang sagot sa tanong ng guro?",
+            "options": [
+              "Sabihing hindi mo alam nang may galang",
+              "Hulaan lang at maging kumpiyansa",
+              "Tumahimik at magpanggap na natutulog",
+              "Kopyahin sa katabi"
+            ],
+            "correct_answer": "Sabihing hindi mo alam nang may galang"
+          },
+          {
+            "question": "Paano mo ipinakikita ang paggalang sa mga nakatatanda?",
+            "options": [
+              "Paggamit ng po at opo, at pagtulong sa kanila",
+              "Pag-iwas sa kanila palagi",
+              "Pag-uutos sa kanila ng mga bagay",
+              "Pagkuha ng kanilang mga gamit nang walang pahintulot"
+            ],
+            "correct_answer": "Paggamit ng po at opo, at pagtulong sa kanila"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag napinsala mo ang laruan ng kaibigan?",
+            "options": [
+              "Humingi ng tawad at alamin kung paano ayusin",
+              "Itago at magpanggap na hindi nangyari",
+              "Sisihin ang kaibigan",
+              "Umalis na lang nang maaga"
+            ],
+            "correct_answer": "Humingi ng tawad at alamin kung paano ayusin"
+          },
+          {
+            "question": "Bakit mahalagang maging matapat (honest)?",
+            "options": [
+              "Para magtayo ng tiwala at mabuting relasyon",
+              "Para lagi kang manalo sa laro",
+              "Para makakuha ng mga gantimpala",
+              "Para hindi kailanman mapagalitan"
+            ],
+            "correct_answer": "Para magtayo ng tiwala at mabuting relasyon"
           }
         ]
       }

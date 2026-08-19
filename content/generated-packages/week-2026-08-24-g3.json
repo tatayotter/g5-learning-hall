@@ -8,43 +8,123 @@
         "quiz": [
           {
             "question": "Which word is a proper noun?",
-            "options": ["Palawan", "island", "mountain", "forest"],
+            "options": [
+              "Palawan",
+              "island",
+              "mountain",
+              "forest"
+            ],
             "correct_answer": "Palawan"
           },
           {
             "question": "Which word is a linking verb?",
-            "options": ["seems", "jump", "write", "sing"],
+            "options": [
+              "seems",
+              "jump",
+              "write",
+              "sing"
+            ],
             "correct_answer": "seems"
           },
           {
             "question": "Which word is a possessive adjective?",
-            "options": ["their", "run", "happy", "school"],
+            "options": [
+              "their",
+              "run",
+              "happy",
+              "school"
+            ],
             "correct_answer": "their"
           },
           {
             "question": "Which pronoun replaces \"Maria and Jose\"?",
-            "options": ["They", "She", "He", "It"],
+            "options": [
+              "They",
+              "She",
+              "He",
+              "It"
+            ],
             "correct_answer": "They"
           },
           {
             "question": "Which sentence is interrogative?",
-            "options": ["Can you help me now?", "I can help you now.", "Help me right now!", "Please help me now."],
+            "options": [
+              "Can you help me now?",
+              "I can help you now.",
+              "Help me right now!",
+              "Please help me now."
+            ],
             "correct_answer": "Can you help me now?"
           },
           {
             "question": "\"The loud thunder scared the small children.\" How many adjectives are in this sentence?",
-            "options": ["Two", "Three", "One", "Four"],
+            "options": [
+              "Two",
+              "Three",
+              "One",
+              "Four"
+            ],
             "correct_answer": "Two"
           },
           {
             "question": "Which word is a demonstrative pronoun?",
-            "options": ["these", "run", "happy", "Maria"],
+            "options": [
+              "these",
+              "run",
+              "happy",
+              "Maria"
+            ],
             "correct_answer": "these"
           },
           {
             "question": "A story summary should include the characters, setting, and ___.",
-            "options": ["key events", "every word", "the cover page", "all pictures"],
+            "options": [
+              "key events",
+              "every word",
+              "the cover page",
+              "all pictures"
+            ],
             "correct_answer": "key events"
+          },
+          {
+            "question": "Which word is an ADVERB?",
+            "options": [
+              "quickly",
+              "flower",
+              "bright",
+              "run"
+            ],
+            "correct_answer": "quickly"
+          },
+          {
+            "question": "\"She is a kind teacher.\" What part of speech is \"kind\"?",
+            "options": [
+              "Adjective",
+              "Noun",
+              "Verb",
+              "Adverb"
+            ],
+            "correct_answer": "Adjective"
+          },
+          {
+            "question": "What is a CONJUNCTION?",
+            "options": [
+              "A word that joins ideas (and, but, or)",
+              "A word that names a person or thing",
+              "A word that shows action",
+              "A word that describes a verb"
+            ],
+            "correct_answer": "A word that joins ideas (and, but, or)"
+          },
+          {
+            "question": "Which sentence correctly uses a PRONOUN?",
+            "options": [
+              "She went to school early.",
+              "Maria went to school early.",
+              "The girl went to school early.",
+              "A student went to school early."
+            ],
+            "correct_answer": "She went to school early."
           }
         ]
       },
@@ -53,43 +133,123 @@
         "quiz": [
           {
             "question": "What is 23,456 + 14,327?",
-            "options": ["37,783", "38,783", "37,693", "36,783"],
+            "options": [
+              "37,783",
+              "38,783",
+              "37,693",
+              "36,783"
+            ],
             "correct_answer": "37,783"
           },
           {
             "question": "What is 50,000 − 18,450?",
-            "options": ["31,550", "32,550", "31,450", "30,550"],
+            "options": [
+              "31,550",
+              "32,550",
+              "31,450",
+              "30,550"
+            ],
             "correct_answer": "31,550"
           },
           {
             "question": "What is 125 × 4?",
-            "options": ["500", "450", "520", "480"],
+            "options": [
+              "500",
+              "450",
+              "520",
+              "480"
+            ],
             "correct_answer": "500"
           },
           {
             "question": "What is 342 ÷ 3?",
-            "options": ["114", "124", "110", "104"],
+            "options": [
+              "114",
+              "124",
+              "110",
+              "104"
+            ],
             "correct_answer": "114"
           },
           {
             "question": "Which property says 7 × 8 = 8 × 7?",
-            "options": ["Commutative Property", "Associative Property", "Distributive Property", "Identity Property"],
+            "options": [
+              "Commutative Property",
+              "Associative Property",
+              "Distributive Property",
+              "Identity Property"
+            ],
             "correct_answer": "Commutative Property"
           },
           {
             "question": "A school has 24 classrooms with 36 students each. How many students are there in all?",
-            "options": ["864", "804", "884", "844"],
+            "options": [
+              "864",
+              "804",
+              "884",
+              "844"
+            ],
             "correct_answer": "864"
           },
           {
             "question": "If 54 ÷ 9 = 6, which multiplication fact is related?",
-            "options": ["9 × 6 = 54", "6 × 54 = 9", "9 × 54 = 6", "54 − 9 = 6"],
+            "options": [
+              "9 × 6 = 54",
+              "6 × 54 = 9",
+              "9 × 54 = 6",
+              "54 − 9 = 6"
+            ],
             "correct_answer": "9 × 6 = 54"
           },
           {
             "question": "There are 5 boxes with 48 crayons each. How many crayons are there in all?",
-            "options": ["240", "230", "250", "220"],
+            "options": [
+              "240",
+              "230",
+              "250",
+              "220"
+            ],
             "correct_answer": "240"
+          },
+          {
+            "question": "What is 4 × 7?",
+            "options": [
+              "28",
+              "24",
+              "32",
+              "21"
+            ],
+            "correct_answer": "28"
+          },
+          {
+            "question": "72 ÷ 8 = ?",
+            "options": [
+              "9",
+              "8",
+              "7",
+              "10"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "Which is the LARGEST number? 8,452 | 8,524 | 8,245 | 8,542",
+            "options": [
+              "8,542",
+              "8,524",
+              "8,452",
+              "8,245"
+            ],
+            "correct_answer": "8,542"
+          },
+          {
+            "question": "What is 5,000 + 300 + 40 + 6 in standard form?",
+            "options": [
+              "5,346",
+              "5,436",
+              "5,364",
+              "5,034"
+            ],
+            "correct_answer": "5,346"
           }
         ]
       }
@@ -100,43 +260,123 @@
         "quiz": [
           {
             "question": "Ano ang anyo ng pandiwa na nagpapakita ng kasalukuyang kilos?",
-            "options": ["Progresibo", "Perpektibo", "Kontemplatibo", "Pawatas"],
+            "options": [
+              "Progresibo",
+              "Perpektibo",
+              "Kontemplatibo",
+              "Pawatas"
+            ],
             "correct_answer": "Progresibo"
           },
           {
             "question": "Alin ang anyo ng pandiwa na nagpapakita ng natapos nang kilos?",
-            "options": ["Perpektibo", "Progresibo", "Kontemplatibo", "Pawatas"],
+            "options": [
+              "Perpektibo",
+              "Progresibo",
+              "Kontemplatibo",
+              "Pawatas"
+            ],
             "correct_answer": "Perpektibo"
           },
           {
             "question": "Sa pangungusap na \"Ang magandang bulaklak ay namumukadkad\", ano ang simuno?",
-            "options": ["Ang magandang bulaklak", "namumukadkad", "maganda", "ay"],
+            "options": [
+              "Ang magandang bulaklak",
+              "namumukadkad",
+              "maganda",
+              "ay"
+            ],
             "correct_answer": "Ang magandang bulaklak"
           },
           {
             "question": "Alin sa mga ito ang salitang naglalarawan ng dami?",
-            "options": ["Marami", "Mabilis", "Kumanta", "Bahay"],
+            "options": [
+              "Marami",
+              "Mabilis",
+              "Kumanta",
+              "Bahay"
+            ],
             "correct_answer": "Marami"
           },
           {
             "question": "\"Maglalaro si Nino bukas.\" Ano ang anyo ng pandiwa na \"maglalaro\"?",
-            "options": ["Kontemplatibo", "Progresibo", "Perpektibo", "Pawatas"],
+            "options": [
+              "Kontemplatibo",
+              "Progresibo",
+              "Perpektibo",
+              "Pawatas"
+            ],
             "correct_answer": "Kontemplatibo"
           },
           {
             "question": "Ano ang tawag sa lugar at oras ng isang kwento?",
-            "options": ["Tagpuan", "Tauhan", "Banghay", "Suliranin"],
+            "options": [
+              "Tagpuan",
+              "Tauhan",
+              "Banghay",
+              "Suliranin"
+            ],
             "correct_answer": "Tagpuan"
           },
           {
             "question": "Ano ang tawag sa mga tao o hayop sa isang kwento?",
-            "options": ["Tauhan", "Tagpuan", "Solusyon", "Banghay"],
+            "options": [
+              "Tauhan",
+              "Tagpuan",
+              "Solusyon",
+              "Banghay"
+            ],
             "correct_answer": "Tauhan"
           },
           {
             "question": "\"Malaki at mabigat ang bato.\" Ilang salitang naglalarawan ang nasa pangungusap?",
-            "options": ["Dalawa (2)", "Isa (1)", "Tatlo (3)", "Wala"],
+            "options": [
+              "Dalawa (2)",
+              "Isa (1)",
+              "Tatlo (3)",
+              "Wala"
+            ],
             "correct_answer": "Dalawa (2)"
+          },
+          {
+            "question": "\"Kumakain siya ng kanin.\" Ano ang aspekto ng pandiwa?",
+            "options": [
+              "Progresibo",
+              "Kontemplatibo",
+              "Perpektibo",
+              "Pawatas"
+            ],
+            "correct_answer": "Progresibo"
+          },
+          {
+            "question": "Alin ang pandiwa sa perpektibong aspekto?",
+            "options": [
+              "Kumanta na siya",
+              "Kakanta siya bukas",
+              "Kumakanta siya ngayon",
+              "Kanta ang gusto niya"
+            ],
+            "correct_answer": "Kumanta na siya"
+          },
+          {
+            "question": "Ano ang kahulugan ng \"kontemplatibong aspekto\"?",
+            "options": [
+              "Ang kilos ay gagawin pa lamang",
+              "Ang kilos ay tapos na",
+              "Ang kilos ay nagaganap na",
+              "Ang kilos ay hindi natitiyak"
+            ],
+            "correct_answer": "Ang kilos ay gagawin pa lamang"
+          },
+          {
+            "question": "Sabihin ang tamang anyo: \"Bukas, ___ si Ana sa tindahan.\" (punta)",
+            "options": [
+              "pupunta",
+              "pumunta",
+              "pumupunta",
+              "magpunta"
+            ],
+            "correct_answer": "pupunta"
           }
         ]
       },
@@ -145,43 +385,123 @@
         "quiz": [
           {
             "question": "Which property tells us if a material can dissolve in water?",
-            "options": ["Solubility", "Hardness", "Flexibility", "Conductivity"],
+            "options": [
+              "Solubility",
+              "Hardness",
+              "Flexibility",
+              "Conductivity"
+            ],
             "correct_answer": "Solubility"
           },
           {
             "question": "Cutting a piece of paper is an example of a ___.",
-            "options": ["physical change", "chemical change", "rusting process", "burning process"],
+            "options": [
+              "physical change",
+              "chemical change",
+              "rusting process",
+              "burning process"
+            ],
             "correct_answer": "physical change"
           },
           {
             "question": "Burning wood is an example of a ___.",
-            "options": ["chemical change", "physical change", "melting process", "dissolving process"],
+            "options": [
+              "chemical change",
+              "physical change",
+              "melting process",
+              "dissolving process"
+            ],
             "correct_answer": "chemical change"
           },
           {
             "question": "Which material is a natural material?",
-            "options": ["Cotton", "Plastic", "Nylon", "Steel"],
+            "options": [
+              "Cotton",
+              "Plastic",
+              "Nylon",
+              "Steel"
+            ],
             "correct_answer": "Cotton"
           },
           {
             "question": "Which property describes whether a material can carry electricity?",
-            "options": ["Conductivity", "Flexibility", "Solubility", "Texture"],
+            "options": [
+              "Conductivity",
+              "Flexibility",
+              "Solubility",
+              "Texture"
+            ],
             "correct_answer": "Conductivity"
           },
           {
             "question": "A rubber band can bend and stretch. Which property does this describe?",
-            "options": ["Flexibility", "Hardness", "Solubility", "Texture"],
+            "options": [
+              "Flexibility",
+              "Hardness",
+              "Solubility",
+              "Texture"
+            ],
             "correct_answer": "Flexibility"
           },
           {
             "question": "Using an old bottle as a flower pot is an example of ___.",
-            "options": ["Reusing", "Reducing", "Recycling", "Rusting"],
+            "options": [
+              "Reusing",
+              "Reducing",
+              "Recycling",
+              "Rusting"
+            ],
             "correct_answer": "Reusing"
           },
           {
             "question": "Which of these is an example of a man-made material?",
-            "options": ["Plastic", "Stone", "Wood", "Cotton"],
+            "options": [
+              "Plastic",
+              "Stone",
+              "Wood",
+              "Cotton"
+            ],
             "correct_answer": "Plastic"
+          },
+          {
+            "question": "A physical change happens when ___.",
+            "options": [
+              "Only shape or size changes, not the substance",
+              "A new substance is formed",
+              "The material burns completely",
+              "The color changes permanently"
+            ],
+            "correct_answer": "Only shape or size changes, not the substance"
+          },
+          {
+            "question": "Which is a NATURAL material?",
+            "options": [
+              "Wood",
+              "Plastic",
+              "Glass",
+              "Nylon"
+            ],
+            "correct_answer": "Wood"
+          },
+          {
+            "question": "What property tells us HOW HEAVY an object is?",
+            "options": [
+              "Mass",
+              "Color",
+              "Texture",
+              "Shape"
+            ],
+            "correct_answer": "Mass"
+          },
+          {
+            "question": "Rusting of iron is an example of a ___ change.",
+            "options": [
+              "Chemical change",
+              "Physical change",
+              "Reversible change",
+              "Size change"
+            ],
+            "correct_answer": "Chemical change"
           }
         ]
       }
@@ -192,43 +512,123 @@
         "quiz": [
           {
             "question": "Sa aling rehiyon ng Asya matatagpuan ang Pilipinas?",
-            "options": ["Timog-Silangang Asya", "Silangang Asya", "Timog Asya", "Kanlurang Asya"],
+            "options": [
+              "Timog-Silangang Asya",
+              "Silangang Asya",
+              "Timog Asya",
+              "Kanlurang Asya"
+            ],
             "correct_answer": "Timog-Silangang Asya"
           },
           {
             "question": "Alin ang pinakamataas na bundok sa Pilipinas?",
-            "options": ["Bundok Apo", "Bundok Mayon", "Bundok Pulag", "Bundok Banahaw"],
+            "options": [
+              "Bundok Apo",
+              "Bundok Mayon",
+              "Bundok Pulag",
+              "Bundok Banahaw"
+            ],
             "correct_answer": "Bundok Apo"
           },
           {
             "question": "Ano ang tawag sa bundok na maaaring sumabog?",
-            "options": ["Bulkan", "Talampas", "Lambak", "Karst"],
+            "options": [
+              "Bulkan",
+              "Talampas",
+              "Lambak",
+              "Karst"
+            ],
             "correct_answer": "Bulkan"
           },
           {
             "question": "Ano ang Cagayan River sa Pilipinas?",
-            "options": ["Pinakamahabang ilog", "Pinakamalaking lawa", "Pinakamalayong look", "Pinakamataas na bundok"],
+            "options": [
+              "Pinakamahabang ilog",
+              "Pinakamalaking lawa",
+              "Pinakamalayong look",
+              "Pinakamataas na bundok"
+            ],
             "correct_answer": "Pinakamahabang ilog"
           },
           {
             "question": "Ano ang tawag sa mababang lupain sa pagitan ng mga bundok?",
-            "options": ["Lambak", "Talampas", "Bulkan", "Pulo"],
+            "options": [
+              "Lambak",
+              "Talampas",
+              "Bulkan",
+              "Pulo"
+            ],
             "correct_answer": "Lambak"
           },
           {
             "question": "Ang Laguna de Bay ay isang halimbawa ng ___.",
-            "options": ["Lawa", "Ilog", "Look", "Dagat"],
+            "options": [
+              "Lawa",
+              "Ilog",
+              "Look",
+              "Dagat"
+            ],
             "correct_answer": "Lawa"
           },
           {
             "question": "Ano ang tawag sa grupo ng mga pulo?",
-            "options": ["Kapuluan", "Lambak", "Talampas", "Baybayin"],
+            "options": [
+              "Kapuluan",
+              "Lambak",
+              "Talampas",
+              "Baybayin"
+            ],
             "correct_answer": "Kapuluan"
           },
           {
             "question": "Ano ang pambansang bulaklak ng Pilipinas?",
-            "options": ["Sampaguita", "Gumamela", "Rosal", "Ilang-ilang"],
+            "options": [
+              "Sampaguita",
+              "Gumamela",
+              "Rosal",
+              "Ilang-ilang"
+            ],
             "correct_answer": "Sampaguita"
+          },
+          {
+            "question": "Ang Pilipinas ay matatagpuan sa anong kontinente?",
+            "options": [
+              "Asya",
+              "Europa",
+              "Amerika",
+              "Aprika"
+            ],
+            "correct_answer": "Asya"
+          },
+          {
+            "question": "Ano ang tinatawag na mga bundok sa Pilipinas?",
+            "options": [
+              "Anyong lupa",
+              "Anyong tubig",
+              "Kapatagan",
+              "Tangway"
+            ],
+            "correct_answer": "Anyong lupa"
+          },
+          {
+            "question": "Ang Dagat Pasipiko ay isang halimbawa ng anong anyong tubig?",
+            "options": [
+              "Karagatan",
+              "Ilog",
+              "Lawa",
+              "Look"
+            ],
+            "correct_answer": "Karagatan"
+          },
+          {
+            "question": "Saan matatagpuan ang pinakamataas na bundok ng Pilipinas (Mt. Apo)?",
+            "options": [
+              "Mindanao",
+              "Luzon",
+              "Visayas",
+              "Palawan"
+            ],
+            "correct_answer": "Mindanao"
           }
         ]
       },
@@ -237,43 +637,123 @@
         "quiz": [
           {
             "question": "What is the purpose of a FOLDER on a computer?",
-            "options": ["To organize your files", "To print your work", "To send an email", "To play a video game"],
+            "options": [
+              "To organize your files",
+              "To print your work",
+              "To send an email",
+              "To play a video game"
+            ],
             "correct_answer": "To organize your files"
           },
           {
             "question": "Which shortcut key saves a file?",
-            "options": ["Ctrl + S", "Ctrl + P", "Ctrl + C", "Ctrl + Z"],
+            "options": [
+              "Ctrl + S",
+              "Ctrl + P",
+              "Ctrl + C",
+              "Ctrl + Z"
+            ],
             "correct_answer": "Ctrl + S"
           },
           {
             "question": "Where do your RIGHT hand fingers go on the home row?",
-            "options": ["J K L ;", "A S D F", "Z X C V", "G H J K"],
+            "options": [
+              "J K L ;",
+              "A S D F",
+              "Z X C V",
+              "G H J K"
+            ],
             "correct_answer": "J K L ;"
           },
           {
             "question": "What is the CPU?",
-            "options": ["The brain of the computer", "The screen of the computer", "The printing device", "The music player"],
+            "options": [
+              "The brain of the computer",
+              "The screen of the computer",
+              "The printing device",
+              "The music player"
+            ],
             "correct_answer": "The brain of the computer"
           },
           {
             "question": "Which device is used to make a paper copy of your work?",
-            "options": ["Printer", "Monitor", "Speaker", "Mouse"],
+            "options": [
+              "Printer",
+              "Monitor",
+              "Speaker",
+              "Mouse"
+            ],
             "correct_answer": "Printer"
           },
           {
             "question": "Which name is the BEST for a file about your Science report?",
-            "options": ["Science-Report-Grade3", "file1", "new document", "stuff"],
+            "options": [
+              "Science-Report-Grade3",
+              "file1",
+              "new document",
+              "stuff"
+            ],
             "correct_answer": "Science-Report-Grade3"
           },
           {
             "question": "When should you save your work?",
-            "options": ["Before closing the program", "Only when the teacher says so", "Never — it saves itself", "Only at the end of the week"],
+            "options": [
+              "Before closing the program",
+              "Only when the teacher says so",
+              "Never — it saves itself",
+              "Only at the end of the week"
+            ],
             "correct_answer": "Before closing the program"
           },
           {
             "question": "Which finger rests on the 'F' key when using home row position?",
-            "options": ["Left index finger", "Right index finger", "Left pinky finger", "Right pinky finger"],
+            "options": [
+              "Left index finger",
+              "Right index finger",
+              "Left pinky finger",
+              "Right pinky finger"
+            ],
             "correct_answer": "Left index finger"
+          },
+          {
+            "question": "What does 'saving a file' mean?",
+            "options": [
+              "Storing the file so it can be used later",
+              "Deleting the file permanently",
+              "Printing the file on paper",
+              "Sharing the file online"
+            ],
+            "correct_answer": "Storing the file so it can be used later"
+          },
+          {
+            "question": "Which key do you press to UNDO an action?",
+            "options": [
+              "Ctrl + Z",
+              "Ctrl + S",
+              "Ctrl + C",
+              "Ctrl + V"
+            ],
+            "correct_answer": "Ctrl + Z"
+          },
+          {
+            "question": "What is a FOLDER used for in a computer?",
+            "options": [
+              "To organize and group related files",
+              "To type documents quickly",
+              "To connect to the internet",
+              "To play videos and music"
+            ],
+            "correct_answer": "To organize and group related files"
+          },
+          {
+            "question": "What does Ctrl + C do?",
+            "options": [
+              "Copies selected text or file",
+              "Cuts selected text or file",
+              "Pastes copied content",
+              "Saves the document"
+            ],
+            "correct_answer": "Copies selected text or file"
           }
         ]
       }
@@ -284,43 +764,123 @@
         "quiz": [
           {
             "question": "Ano ang ibig sabihin ng \"disiplina\"?",
-            "options": ["Pagsunod sa mga tuntunin at paggawa ng tama", "Paglalaro nang walang pahintulot", "Pagtanggap ng regalo mula sa iba", "Pagkain nang marami tuwing hapunan"],
+            "options": [
+              "Pagsunod sa mga tuntunin at paggawa ng tama",
+              "Paglalaro nang walang pahintulot",
+              "Pagtanggap ng regalo mula sa iba",
+              "Pagkain nang marami tuwing hapunan"
+            ],
             "correct_answer": "Pagsunod sa mga tuntunin at paggawa ng tama"
           },
           {
             "question": "Sino ang nagbibigay ng pagkain, pag-aaruga, at edukasyon sa pamilya?",
-            "options": ["Mga magulang", "Mga kapatid", "Mga kaibigan", "Mga guro"],
+            "options": [
+              "Mga magulang",
+              "Mga kapatid",
+              "Mga kaibigan",
+              "Mga guro"
+            ],
             "correct_answer": "Mga magulang"
           },
           {
             "question": "Ang paggawa ng tama kahit walang nakakakita ay tinatawag na ___.",
-            "options": ["integridad", "suwerte", "katatagan", "kasiyahan"],
+            "options": [
+              "integridad",
+              "suwerte",
+              "katatagan",
+              "kasiyahan"
+            ],
             "correct_answer": "integridad"
           },
           {
             "question": "Alin ang nagpapakita ng pagpapahalaga sa sarili?",
-            "options": ["Ipinagmamalaki ang aking mga nagagawa", "Palaging nagrereklamo at naiinggit", "Sinisisi ang iba sa aking mga kamalian", "Ayaw pumasok sa paaralan"],
+            "options": [
+              "Ipinagmamalaki ang aking mga nagagawa",
+              "Palaging nagrereklamo at naiinggit",
+              "Sinisisi ang iba sa aking mga kamalian",
+              "Ayaw pumasok sa paaralan"
+            ],
             "correct_answer": "Ipinagmamalaki ang aking mga nagagawa"
           },
           {
             "question": "Kapag nagkamali ka, ano ang tamang gawin?",
-            "options": ["Aminin, humingi ng tawad, at magbago", "Magtago at huwag aminin", "Sisihin ang ibang tao", "Magalit at umalis"],
+            "options": [
+              "Aminin, humingi ng tawad, at magbago",
+              "Magtago at huwag aminin",
+              "Sisihin ang ibang tao",
+              "Magalit at umalis"
+            ],
             "correct_answer": "Aminin, humingi ng tawad, at magbago"
           },
           {
             "question": "Alin ang isang halimbawa ng responsibilidad ng bata sa tahanan?",
-            "options": ["Pagtutulungan sa mga gawain sa bahay", "Paglalaro nang buong magdamag", "Pagtanggal ng takdang-aralin", "Pagsama sa maling gawi"],
+            "options": [
+              "Pagtutulungan sa mga gawain sa bahay",
+              "Paglalaro nang buong magdamag",
+              "Pagtanggal ng takdang-aralin",
+              "Pagsama sa maling gawi"
+            ],
             "correct_answer": "Pagtutulungan sa mga gawain sa bahay"
           },
           {
             "question": "Ano ang tamang saloobin kapag pinuri ka ng iyong guro?",
-            "options": ["Pasalamatan siya nang buong puso", "Ipagmamalaki nang labis sa lahat", "Huwag pansinin ang kanyang papuri", "Sisihin ang ibang bata"],
+            "options": [
+              "Pasalamatan siya nang buong puso",
+              "Ipagmamalaki nang labis sa lahat",
+              "Huwag pansinin ang kanyang papuri",
+              "Sisihin ang ibang bata"
+            ],
             "correct_answer": "Pasalamatan siya nang buong puso"
           },
           {
             "question": "Bakit mahalaga ang paggalang sa magulang?",
-            "options": ["Sila ang nagmamahal at nag-aalaga sa atin", "Para laging makakuha ng regalo", "Para hindi ka parusahan", "Para makita ng mga kaibigan"],
+            "options": [
+              "Sila ang nagmamahal at nag-aalaga sa atin",
+              "Para laging makakuha ng regalo",
+              "Para hindi ka parusahan",
+              "Para makita ng mga kaibigan"
+            ],
             "correct_answer": "Sila ang nagmamahal at nag-aalaga sa atin"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng \"disiplina sa sarili\"?",
+            "options": [
+              "Kakayahang kontrolin ang sariling kilos at desisyon",
+              "Pagsunod sa lahat ng utos ng iba",
+              "Pag-iwas sa lahat ng bagay na masaya",
+              "Pagiging mahigpit sa iba"
+            ],
+            "correct_answer": "Kakayahang kontrolin ang sariling kilos at desisyon"
+          },
+          {
+            "question": "Ano ang dapat mong gawin kapag nagkamali ka?",
+            "options": [
+              "Aminin, humingi ng tawad, at ayusin ang pagkakamali",
+              "Sisihin ang iba para hindi mahalata",
+              "Magpanggap na hindi nangyari",
+              "Umalis para maiwasan ang problema"
+            ],
+            "correct_answer": "Aminin, humingi ng tawad, at ayusin ang pagkakamali"
+          },
+          {
+            "question": "Bakit mahalaga ang pagiging responsable sa iyong mga gawa?",
+            "options": [
+              "Para lumago bilang isang mabuting tao at miyembro ng komunidad",
+              "Para palaging manalo sa mga laro",
+              "Para hindi na kailangang mag-aral",
+              "Para magtamasa ng mas maraming libreng oras"
+            ],
+            "correct_answer": "Para lumago bilang isang mabuting tao at miyembro ng komunidad"
+          },
+          {
+            "question": "Paano mo matutulungan ang iyong pamilya sa bahay?",
+            "options": [
+              "Sa pamamagitan ng paggawa ng mga simpleng gawaing-bahay",
+              "Sa pamamagitan ng paglalaro palagi",
+              "Sa pamamagitan ng paghingi ng pera",
+              "Sa pamamagitan ng pag-uutos sa mga kapatid"
+            ],
+            "correct_answer": "Sa pamamagitan ng paggawa ng mga simpleng gawaing-bahay"
           }
         ]
       }
@@ -331,43 +891,123 @@
         "quiz": [
           {
             "question": "Which word is a proper noun?",
-            "options": ["Batangas", "province", "river", "mountain"],
+            "options": [
+              "Batangas",
+              "province",
+              "river",
+              "mountain"
+            ],
             "correct_answer": "Batangas"
           },
           {
             "question": "Which word is a linking verb?",
-            "options": ["is", "run", "jump", "sing"],
+            "options": [
+              "is",
+              "run",
+              "jump",
+              "sing"
+            ],
             "correct_answer": "is"
           },
           {
             "question": "Which pronoun replaces \"Nena and her sister\"?",
-            "options": ["They", "She", "He", "It"],
+            "options": [
+              "They",
+              "She",
+              "He",
+              "It"
+            ],
             "correct_answer": "They"
           },
           {
             "question": "Which sentence is exclamatory?",
-            "options": ["What a beautiful rainbow!", "Is that a rainbow?", "I see a rainbow.", "Look at that rainbow."],
+            "options": [
+              "What a beautiful rainbow!",
+              "Is that a rainbow?",
+              "I see a rainbow.",
+              "Look at that rainbow."
+            ],
             "correct_answer": "What a beautiful rainbow!"
           },
           {
             "question": "\"The brave young soldier stood tall.\" How many adjectives are there?",
-            "options": ["Two", "Three", "One", "Four"],
+            "options": [
+              "Two",
+              "Three",
+              "One",
+              "Four"
+            ],
             "correct_answer": "Two"
           },
           {
             "question": "Which is a demonstrative pronoun?",
-            "options": ["those", "run", "happy", "Maria"],
+            "options": [
+              "those",
+              "run",
+              "happy",
+              "Maria"
+            ],
             "correct_answer": "those"
           },
           {
             "question": "Which pronoun replaces \"the dog\"?",
-            "options": ["It", "He", "She", "They"],
+            "options": [
+              "It",
+              "He",
+              "She",
+              "They"
+            ],
             "correct_answer": "It"
           },
           {
             "question": "A good story summary always includes characters, setting, and ___.",
-            "options": ["key events", "every word", "the book cover", "all pictures"],
+            "options": [
+              "key events",
+              "every word",
+              "the book cover",
+              "all pictures"
+            ],
             "correct_answer": "key events"
+          },
+          {
+            "question": "Identify the ADVERB: \"She ran quickly to school.\"",
+            "options": [
+              "quickly",
+              "ran",
+              "school",
+              "she"
+            ],
+            "correct_answer": "quickly"
+          },
+          {
+            "question": "Which is a COMPOUND sentence?",
+            "options": [
+              "She likes cats, and he likes dogs.",
+              "She likes cats.",
+              "Although she likes cats, he does not.",
+              "She likes cats and dogs."
+            ],
+            "correct_answer": "She likes cats, and he likes cats, and he likes dogs."
+          },
+          {
+            "question": "A PRONOUN replaces a ___.",
+            "options": [
+              "noun",
+              "verb",
+              "adjective",
+              "sentence"
+            ],
+            "correct_answer": "noun"
+          },
+          {
+            "question": "\"But\" is an example of a ___.",
+            "options": [
+              "conjunction",
+              "preposition",
+              "adjective",
+              "adverb"
+            ],
+            "correct_answer": "conjunction"
           }
         ]
       },
@@ -376,43 +1016,123 @@
         "quiz": [
           {
             "question": "What is 42,500 + 17,350?",
-            "options": ["59,850", "58,850", "60,850", "59,750"],
+            "options": [
+              "59,850",
+              "58,850",
+              "60,850",
+              "59,750"
+            ],
             "correct_answer": "59,850"
           },
           {
             "question": "What is 60,000 − 23,456?",
-            "options": ["36,544", "37,544", "36,454", "35,544"],
+            "options": [
+              "36,544",
+              "37,544",
+              "36,454",
+              "35,544"
+            ],
             "correct_answer": "36,544"
           },
           {
             "question": "What is 236 × 3?",
-            "options": ["708", "706", "718", "698"],
+            "options": [
+              "708",
+              "706",
+              "718",
+              "698"
+            ],
             "correct_answer": "708"
           },
           {
             "question": "What is 525 ÷ 5?",
-            "options": ["105", "115", "100", "125"],
+            "options": [
+              "105",
+              "115",
+              "100",
+              "125"
+            ],
             "correct_answer": "105"
           },
           {
             "question": "If 72 ÷ 8 = 9, which fact is related?",
-            "options": ["8 × 9 = 72", "9 × 72 = 8", "72 − 8 = 9", "8 + 9 = 72"],
+            "options": [
+              "8 × 9 = 72",
+              "9 × 72 = 8",
+              "72 − 8 = 9",
+              "8 + 9 = 72"
+            ],
             "correct_answer": "8 × 9 = 72"
           },
           {
             "question": "A farmer plants 45 rows with 12 trees each. How many trees in all?",
-            "options": ["540", "530", "550", "500"],
+            "options": [
+              "540",
+              "530",
+              "550",
+              "500"
+            ],
             "correct_answer": "540"
           },
           {
             "question": "What is 13,750 + 28,250?",
-            "options": ["42,000", "41,000", "43,000", "40,000"],
+            "options": [
+              "42,000",
+              "41,000",
+              "43,000",
+              "40,000"
+            ],
             "correct_answer": "42,000"
           },
           {
             "question": "There are 168 mangoes to be packed equally into 4 boxes. How many mangoes per box?",
-            "options": ["42", "40", "44", "48"],
+            "options": [
+              "42",
+              "40",
+              "44",
+              "48"
+            ],
             "correct_answer": "42"
+          },
+          {
+            "question": "6 × 9 = ?",
+            "options": [
+              "54",
+              "48",
+              "63",
+              "56"
+            ],
+            "correct_answer": "54"
+          },
+          {
+            "question": "81 ÷ 9 = ?",
+            "options": [
+              "9",
+              "8",
+              "7",
+              "10"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "What is 3,000 + 700 + 5?",
+            "options": [
+              "3,705",
+              "3,075",
+              "3,750",
+              "3,507"
+            ],
+            "correct_answer": "3,705"
+          },
+          {
+            "question": "Which number has 4 in the THOUSANDS place? 4,381 | 3,481 | 1,438 | 8,143",
+            "options": [
+              "4,381",
+              "3,481",
+              "1,438",
+              "8,143"
+            ],
+            "correct_answer": "4,381"
           }
         ]
       },
@@ -421,43 +1141,123 @@
         "quiz": [
           {
             "question": "\"Maglalaro si Ben mamaya.\" Ano ang anyo ng pandiwa?",
-            "options": ["Kontemplatibo", "Progresibo", "Perpektibo", "Pawatas"],
+            "options": [
+              "Kontemplatibo",
+              "Progresibo",
+              "Perpektibo",
+              "Pawatas"
+            ],
             "correct_answer": "Kontemplatibo"
           },
           {
             "question": "\"Naglaro na si Ben.\" Ano ang anyo ng pandiwa?",
-            "options": ["Perpektibo", "Progresibo", "Kontemplatibo", "Pawatas"],
+            "options": [
+              "Perpektibo",
+              "Progresibo",
+              "Kontemplatibo",
+              "Pawatas"
+            ],
             "correct_answer": "Perpektibo"
           },
           {
             "question": "Alin ang salitang naglalarawan ng katangian?",
-            "options": ["Mabilis", "Kumain", "Paaralan", "Bahay"],
+            "options": [
+              "Mabilis",
+              "Kumain",
+              "Paaralan",
+              "Bahay"
+            ],
             "correct_answer": "Mabilis"
           },
           {
             "question": "Ano ang simuno sa pangungusap na \"Ang matandang lalaki ay maingat\"?",
-            "options": ["Ang matandang lalaki", "maingat", "ay", "matanda"],
+            "options": [
+              "Ang matandang lalaki",
+              "maingat",
+              "ay",
+              "matanda"
+            ],
             "correct_answer": "Ang matandang lalaki"
           },
           {
             "question": "Ano ang tinatawag sa suliranin at paraan ng paglutas ng kwento?",
-            "options": ["Suliranin at solusyon", "Tauhan at tagpuan", "Simuno at panaguri", "Banghay at wakas"],
+            "options": [
+              "Suliranin at solusyon",
+              "Tauhan at tagpuan",
+              "Simuno at panaguri",
+              "Banghay at wakas"
+            ],
             "correct_answer": "Suliranin at solusyon"
           },
           {
             "question": "\"Kumakain si Lola ng sopas.\" Ano ang anyo ng pandiwa?",
-            "options": ["Progresibo", "Perpektibo", "Kontemplatibo", "Pawatas"],
+            "options": [
+              "Progresibo",
+              "Perpektibo",
+              "Kontemplatibo",
+              "Pawatas"
+            ],
             "correct_answer": "Progresibo"
           },
           {
             "question": "Alin ang salitang naglalarawan ng dami?",
-            "options": ["Ilang", "Mabilis", "Kumain", "Paaralan"],
+            "options": [
+              "Ilang",
+              "Mabilis",
+              "Kumain",
+              "Paaralan"
+            ],
             "correct_answer": "Ilang"
           },
           {
             "question": "Ano ang banghay ng isang kwento?",
-            "options": ["Sunod-sunod na mga pangyayari", "Lugar ng kwento", "Tauhan ng kwento", "Dulo ng kwento"],
+            "options": [
+              "Sunod-sunod na mga pangyayari",
+              "Lugar ng kwento",
+              "Tauhan ng kwento",
+              "Dulo ng kwento"
+            ],
             "correct_answer": "Sunod-sunod na mga pangyayari"
+          },
+          {
+            "question": "\"Luluto si Nanay ng adobo.\" Ano ang aspekto ng pandiwa?",
+            "options": [
+              "Kontemplatibo",
+              "Progresibo",
+              "Perpektibo",
+              "Pawatas"
+            ],
+            "correct_answer": "Kontemplatibo"
+          },
+          {
+            "question": "Alin ang progresibong aspekto?",
+            "options": [
+              "Naglalaro siya ngayon",
+              "Maglalaro siya mamaya",
+              "Naglaro na siya kahapon",
+              "Gusto niyang maglaro"
+            ],
+            "correct_answer": "Naglalaro siya ngayon"
+          },
+          {
+            "question": "Alin ang perpektibong aspekto?",
+            "options": [
+              "Kumain na si Rey",
+              "Kakain si Rey mamaya",
+              "Kumakain si Rey ngayon",
+              "Gusto ni Rey kumain"
+            ],
+            "correct_answer": "Kumain na si Rey"
+          },
+          {
+            "question": "\"Tatakbo si Mia bukas.\" Anong uri ng pandiwa ito?",
+            "options": [
+              "Kontemplatibo",
+              "Progresibo",
+              "Perpektibo",
+              "Pawatas"
+            ],
+            "correct_answer": "Kontemplatibo"
           }
         ]
       },
@@ -466,43 +1266,123 @@
         "quiz": [
           {
             "question": "Which property describes how easily a material bends?",
-            "options": ["Flexibility", "Hardness", "Solubility", "Texture"],
+            "options": [
+              "Flexibility",
+              "Hardness",
+              "Solubility",
+              "Texture"
+            ],
             "correct_answer": "Flexibility"
           },
           {
             "question": "Cooking an egg is an example of a ___.",
-            "options": ["chemical change", "physical change", "natural change", "reversible change"],
+            "options": [
+              "chemical change",
+              "physical change",
+              "natural change",
+              "reversible change"
+            ],
             "correct_answer": "chemical change"
           },
           {
             "question": "Which material is natural?",
-            "options": ["Wood", "Nylon", "Steel", "Plastic"],
+            "options": [
+              "Wood",
+              "Nylon",
+              "Steel",
+              "Plastic"
+            ],
             "correct_answer": "Wood"
           },
           {
             "question": "Salt dissolves in water. This shows the property of ___.",
-            "options": ["solubility", "hardness", "conductivity", "flexibility"],
+            "options": [
+              "solubility",
+              "hardness",
+              "conductivity",
+              "flexibility"
+            ],
             "correct_answer": "solubility"
           },
           {
             "question": "Melting ice is an example of a ___.",
-            "options": ["physical change", "chemical change", "rusting change", "burning change"],
+            "options": [
+              "physical change",
+              "chemical change",
+              "rusting change",
+              "burning change"
+            ],
             "correct_answer": "physical change"
           },
           {
             "question": "Which of the 3 Rs means using less material?",
-            "options": ["Reduce", "Reuse", "Recycle", "Remove"],
+            "options": [
+              "Reduce",
+              "Reuse",
+              "Recycle",
+              "Remove"
+            ],
             "correct_answer": "Reduce"
           },
           {
             "question": "Copper wire conducts electricity. This describes its ___.",
-            "options": ["conductivity", "flexibility", "texture", "hardness"],
+            "options": [
+              "conductivity",
+              "flexibility",
+              "texture",
+              "hardness"
+            ],
             "correct_answer": "conductivity"
           },
           {
             "question": "Which is a man-made material?",
-            "options": ["Plastic", "Cotton", "Wood", "Stone"],
+            "options": [
+              "Plastic",
+              "Cotton",
+              "Wood",
+              "Stone"
+            ],
             "correct_answer": "Plastic"
+          },
+          {
+            "question": "Which is a MAN-MADE material?",
+            "options": [
+              "Plastic",
+              "Wood",
+              "Cotton",
+              "Stone"
+            ],
+            "correct_answer": "Plastic"
+          },
+          {
+            "question": "Cutting paper is a ___ change.",
+            "options": [
+              "Physical change",
+              "Chemical change",
+              "Permanent change",
+              "Irreversible change"
+            ],
+            "correct_answer": "Physical change"
+          },
+          {
+            "question": "What property describes HOW SMOOTH OR ROUGH a surface is?",
+            "options": [
+              "Texture",
+              "Mass",
+              "Color",
+              "Size"
+            ],
+            "correct_answer": "Texture"
+          },
+          {
+            "question": "Burning wood is a ___ change because ___.",
+            "options": [
+              "Chemical — a new substance (ash) is formed",
+              "Physical — only the size changes",
+              "Reversible — you can get the wood back",
+              "Temporary — it can be undone easily"
+            ],
+            "correct_answer": "Chemical — a new substance (ash) is formed"
           }
         ]
       },
@@ -511,43 +1391,123 @@
         "quiz": [
           {
             "question": "Ano ang tawag sa mataas na lupain na patag ang tuktok?",
-            "options": ["Talampas", "Bundok", "Lambak", "Bulkan"],
+            "options": [
+              "Talampas",
+              "Bundok",
+              "Lambak",
+              "Bulkan"
+            ],
             "correct_answer": "Talampas"
           },
           {
             "question": "Ang Laguna de Bay ay isang halimbawa ng ___.",
-            "options": ["Lawa", "Ilog", "Look", "Dagat"],
+            "options": [
+              "Lawa",
+              "Ilog",
+              "Look",
+              "Dagat"
+            ],
             "correct_answer": "Lawa"
           },
           {
             "question": "Ano ang pinakamataas na bundok sa Pilipinas?",
-            "options": ["Bundok Apo", "Bundok Mayon", "Bundok Pulag", "Bundok Halcon"],
+            "options": [
+              "Bundok Apo",
+              "Bundok Mayon",
+              "Bundok Pulag",
+              "Bundok Halcon"
+            ],
             "correct_answer": "Bundok Apo"
           },
           {
             "question": "Ano ang pambansang puno ng Pilipinas?",
-            "options": ["Narra", "Kawayan", "Mangga", "Yakal"],
+            "options": [
+              "Narra",
+              "Kawayan",
+              "Mangga",
+              "Yakal"
+            ],
             "correct_answer": "Narra"
           },
           {
             "question": "Ang Pilipinas ay nasa aling bahagi ng Asya?",
-            "options": ["Timog-Silangan", "Hilaga", "Kanluran", "Gitna"],
+            "options": [
+              "Timog-Silangan",
+              "Hilaga",
+              "Kanluran",
+              "Gitna"
+            ],
             "correct_answer": "Timog-Silangan"
           },
           {
             "question": "Ano ang tawag sa bahagi ng dagat na napalibutan ng lupa sa tatlong panig?",
-            "options": ["Look", "Ilog", "Lawa", "Dagat"],
+            "options": [
+              "Look",
+              "Ilog",
+              "Lawa",
+              "Dagat"
+            ],
             "correct_answer": "Look"
           },
           {
             "question": "Ano ang pambansang ibon ng Pilipinas?",
-            "options": ["Agila ng Pilipinas", "Maya", "Kalapati", "Tikling"],
+            "options": [
+              "Agila ng Pilipinas",
+              "Maya",
+              "Kalapati",
+              "Tikling"
+            ],
             "correct_answer": "Agila ng Pilipinas"
           },
           {
             "question": "Ang Mayon Volcano ay isang halimbawa ng ___.",
-            "options": ["Bulkan", "Bundok", "Talampas", "Lambak"],
+            "options": [
+              "Bulkan",
+              "Bundok",
+              "Talampas",
+              "Lambak"
+            ],
             "correct_answer": "Bulkan"
+          },
+          {
+            "question": "Ang Look ng Manila ay isang halimbawa ng anong anyong tubig?",
+            "options": [
+              "Look",
+              "Karagatan",
+              "Lawa",
+              "Ilog"
+            ],
+            "correct_answer": "Look"
+          },
+          {
+            "question": "Ang Pilipinas ay binubuo ng humigit-kumulang ilang pulo?",
+            "options": [
+              "7,641 pulo",
+              "1,000 pulo",
+              "500 pulo",
+              "10,000 pulo"
+            ],
+            "correct_answer": "7,641 pulo"
+          },
+          {
+            "question": "Anong malaking katawan ng tubig ang nasa kanluran ng Pilipinas?",
+            "options": [
+              "Dagat Timog Tsina",
+              "Dagat Pasipiko",
+              "Dagat Sulu",
+              "Karagatang Indiyano"
+            ],
+            "correct_answer": "Dagat Timog Tsina"
+          },
+          {
+            "question": "Ang kapatagan ay isang halimbawa ng anong anyong lupa?",
+            "options": [
+              "Mababang lupain",
+              "Mataas na bundok",
+              "Mataas na talampas",
+              "Makitid na daan"
+            ],
+            "correct_answer": "Mababang lupain"
           }
         ]
       },
@@ -556,43 +1516,123 @@
         "quiz": [
           {
             "question": "What does Ctrl + S do on a computer?",
-            "options": ["Saves your file", "Prints your file", "Copies your file", "Deletes your file"],
+            "options": [
+              "Saves your file",
+              "Prints your file",
+              "Copies your file",
+              "Deletes your file"
+            ],
             "correct_answer": "Saves your file"
           },
           {
             "question": "Which is an OUTPUT device?",
-            "options": ["Monitor", "Mouse", "Keyboard", "Webcam"],
+            "options": [
+              "Monitor",
+              "Mouse",
+              "Keyboard",
+              "Webcam"
+            ],
             "correct_answer": "Monitor"
           },
           {
             "question": "Which finger rests on the 'J' key?",
-            "options": ["Right index finger", "Left index finger", "Right pinky finger", "Left pinky finger"],
+            "options": [
+              "Right index finger",
+              "Left index finger",
+              "Right pinky finger",
+              "Left pinky finger"
+            ],
             "correct_answer": "Right index finger"
           },
           {
             "question": "What is the best way to organize your files on a computer?",
-            "options": ["Put them in clearly named folders", "Leave them all in one place", "Delete the ones you do not need", "Put them all on the desktop"],
+            "options": [
+              "Put them in clearly named folders",
+              "Leave them all in one place",
+              "Delete the ones you do not need",
+              "Put them all on the desktop"
+            ],
             "correct_answer": "Put them in clearly named folders"
           },
           {
             "question": "What is a CPU?",
-            "options": ["The brain of the computer", "The screen of the computer", "The typing device", "The sound system"],
+            "options": [
+              "The brain of the computer",
+              "The screen of the computer",
+              "The typing device",
+              "The sound system"
+            ],
             "correct_answer": "The brain of the computer"
           },
           {
             "question": "Which is an INPUT device?",
-            "options": ["Mouse", "Printer", "Monitor", "Speakers"],
+            "options": [
+              "Mouse",
+              "Printer",
+              "Monitor",
+              "Speakers"
+            ],
             "correct_answer": "Mouse"
           },
           {
             "question": "Good file names should be ___.",
-            "options": ["clear and specific", "very short like 'a'", "numbered only (1, 2, 3)", "left blank"],
+            "options": [
+              "clear and specific",
+              "very short like 'a'",
+              "numbered only (1, 2, 3)",
+              "left blank"
+            ],
             "correct_answer": "clear and specific"
           },
           {
             "question": "Which keys are on the HOME ROW for the left hand?",
-            "options": ["A S D F", "Q W E R", "Z X C V", "G H J K"],
+            "options": [
+              "A S D F",
+              "Q W E R",
+              "Z X C V",
+              "G H J K"
+            ],
             "correct_answer": "A S D F"
+          },
+          {
+            "question": "What is the shortcut to PASTE copied content?",
+            "options": [
+              "Ctrl + V",
+              "Ctrl + C",
+              "Ctrl + X",
+              "Ctrl + Z"
+            ],
+            "correct_answer": "Ctrl + V"
+          },
+          {
+            "question": "What does Ctrl + S do?",
+            "options": [
+              "Saves the file",
+              "Selects all content",
+              "Prints the document",
+              "Cuts the selection"
+            ],
+            "correct_answer": "Saves the file"
+          },
+          {
+            "question": "Which is the correct way to organize files on a computer?",
+            "options": [
+              "Put related files in the same folder",
+              "Keep all files on the desktop with no folders",
+              "Delete files you haven't used in one week",
+              "Rename all files to 'file1, file2...'"
+            ],
+            "correct_answer": "Put related files in the same folder"
+          },
+          {
+            "question": "What does 'double-click' mean?",
+            "options": [
+              "Click the mouse button two times quickly",
+              "Use two fingers to click",
+              "Press two keys at once",
+              "Click and drag slowly"
+            ],
+            "correct_answer": "Click the mouse button two times quickly"
           }
         ]
       },
@@ -601,43 +1641,123 @@
         "quiz": [
           {
             "question": "Ano ang ibig sabihin ng \"integridad\"?",
-            "options": ["Paggawa ng tama kahit walang nakakakita", "Palaging nasa tamang lugar", "Pagiging matalino sa klase", "Pagkuha ng pinakamataas na marka"],
+            "options": [
+              "Paggawa ng tama kahit walang nakakakita",
+              "Palaging nasa tamang lugar",
+              "Pagiging matalino sa klase",
+              "Pagkuha ng pinakamataas na marka"
+            ],
             "correct_answer": "Paggawa ng tama kahit walang nakakakita"
           },
           {
             "question": "Alin ang nagpapakita ng pagpapahalaga sa sarili?",
-            "options": ["Pag-alam sa aking mga kakayahan", "Laging pagkopya sa kaklase", "Pagsisisi sa aking katayuan", "Pagmamataas sa kapuwa"],
+            "options": [
+              "Pag-alam sa aking mga kakayahan",
+              "Laging pagkopya sa kaklase",
+              "Pagsisisi sa aking katayuan",
+              "Pagmamataas sa kapuwa"
+            ],
             "correct_answer": "Pag-alam sa aking mga kakayahan"
           },
           {
             "question": "Alin ang halimbawa ng disiplina sa paaralan?",
-            "options": ["Pakikinig sa guro", "Paglalaro sa oras ng aralin", "Pagtakas sa klase", "Pakikipag-away sa kaklase"],
+            "options": [
+              "Pakikinig sa guro",
+              "Paglalaro sa oras ng aralin",
+              "Pagtakas sa klase",
+              "Pakikipag-away sa kaklase"
+            ],
             "correct_answer": "Pakikinig sa guro"
           },
           {
             "question": "Ano ang dapat gawin kapag nagkamali ka?",
-            "options": ["Aminin at humingi ng tawad", "Sisihin ang iyong kaibigan", "Magtago at umalis agad", "Magalit at tumanggi"],
+            "options": [
+              "Aminin at humingi ng tawad",
+              "Sisihin ang iyong kaibigan",
+              "Magtago at umalis agad",
+              "Magalit at tumanggi"
+            ],
             "correct_answer": "Aminin at humingi ng tawad"
           },
           {
             "question": "Sino ang nagbibigay ng pag-aaruga at edukasyon sa isang bata?",
-            "options": ["Mga magulang", "Mga kaibigan", "Mga guro lamang", "Mga kapitbahay"],
+            "options": [
+              "Mga magulang",
+              "Mga kaibigan",
+              "Mga guro lamang",
+              "Mga kapitbahay"
+            ],
             "correct_answer": "Mga magulang"
           },
           {
             "question": "Alin ang halimbawa ng pananagutan?",
-            "options": ["Tinanggap ko ang bunga ng aking gawa", "Sinisi ko ang kaibigan ko", "Tumakas ako nang nagkamali ako", "Nagalit ako sa aking guro"],
+            "options": [
+              "Tinanggap ko ang bunga ng aking gawa",
+              "Sinisi ko ang kaibigan ko",
+              "Tumakas ako nang nagkamali ako",
+              "Nagalit ako sa aking guro"
+            ],
             "correct_answer": "Tinanggap ko ang bunga ng aking gawa"
           },
           {
             "question": "Bakit mahalaga ang paggalang sa magulang?",
-            "options": ["Sila ang nagmamahal at nag-aalaga sa atin", "Para makakuha ng mas maraming oras maglaro", "Para palaging makakain ng masarap", "Para hindi ka parusahan palagi"],
+            "options": [
+              "Sila ang nagmamahal at nag-aalaga sa atin",
+              "Para makakuha ng mas maraming oras maglaro",
+              "Para palaging makakain ng masarap",
+              "Para hindi ka parusahan palagi"
+            ],
             "correct_answer": "Sila ang nagmamahal at nag-aalaga sa atin"
           },
           {
             "question": "Ano ang tamang gawin kapag pinuri ka ng iyong guro?",
-            "options": ["Magpasalamat nang buong puso", "Ipagmamalaki nang sobra sa lahat", "Huwag pansinin ang papuri", "Sagutin nang may kayabangan"],
+            "options": [
+              "Magpasalamat nang buong puso",
+              "Ipagmamalaki nang sobra sa lahat",
+              "Huwag pansinin ang papuri",
+              "Sagutin nang may kayabangan"
+            ],
             "correct_answer": "Magpasalamat nang buong puso"
+          },
+          {
+            "question": "Bakit mahalaga ang pag-aayos ng oras (time management)?",
+            "options": [
+              "Para matapos ang mga responsibilidad at may panahon pa sa pahinga",
+              "Para palaging maagang matulog kahit hindi tapos ang gawain",
+              "Para palaging huli sa lahat ng aktibidad",
+              "Para hindi na kailangang maglaro pa"
+            ],
+            "correct_answer": "Para matapos ang mga responsibilidad at may panahon pa sa pahinga"
+          },
+          {
+            "question": "Ano ang tamang gawin kapag may nagbibigay ng maling impormasyon sa iyo?",
+            "options": [
+              "Mahinahong itama ang impormasyon gamit ang katotohanan",
+              "Sumang-ayon na lang para hindi magalit",
+              "Ikuwento agad sa lahat ng kaibigan",
+              "Magalit at pagsabihan nang malakas"
+            ],
+            "correct_answer": "Mahinahong itama ang impormasyon gamit ang katotohanan"
+          },
+          {
+            "question": "Ang pagtulong sa mga kaklase kapag nahihirapan sila ay isang halimbawa ng ___.",
+            "options": [
+              "Empatiya at kooperasyon",
+              "Pakikialam sa buhay ng iba",
+              "Pagpapakita ng kahusayan mo",
+              "Pag-aaksaya ng oras"
+            ],
+            "correct_answer": "Empatiya at kooperasyon"
+          },
+          {
+            "question": "Paano ipinakikita ang pagiging mabuting miyembro ng paaralan?",
+            "options": [
+              "Pagsunod sa mga patakaran at pagiging magalang sa lahat",
+              "Pagkuha ng pinakamataas na marka sa lahat ng pagsubok",
+              "Pag-iwas sa lahat ng gawain at grupo",
+              "Pagiging palaging tahimik kahit kailangan ng tulong"
+            ],
+            "correct_answer": "Pagsunod sa mga patakaran at pagiging magalang sa lahat"
           }
         ]
       }

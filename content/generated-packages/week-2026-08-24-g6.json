@@ -8,43 +8,123 @@
         "quiz": [
           {
             "question": "A dove appears in a story representing peace. This is an example of ___.",
-            "options": ["Symbolism", "Irony", "Foreshadowing", "Flashback"],
+            "options": [
+              "Symbolism",
+              "Irony",
+              "Foreshadowing",
+              "Flashback"
+            ],
             "correct_answer": "Symbolism"
           },
           {
             "question": "\"Although it rained heavily, the picnic continued.\" This is a ___ sentence.",
-            "options": ["complex", "simple", "compound", "compound-complex"],
+            "options": [
+              "complex",
+              "simple",
+              "compound",
+              "compound-complex"
+            ],
             "correct_answer": "complex"
           },
           {
             "question": "\"Swimming is my favorite sport.\" The word \"swimming\" is a ___.",
-            "options": ["gerund", "participle", "infinitive", "conjunction"],
+            "options": [
+              "gerund",
+              "participle",
+              "infinitive",
+              "conjunction"
+            ],
             "correct_answer": "gerund"
           },
           {
             "question": "What is FORESHADOWING?",
-            "options": ["Hints in the text about future events", "A scene set before the main story", "An object that represents an idea", "Opposite of what you expect"],
+            "options": [
+              "Hints in the text about future events",
+              "A scene set before the main story",
+              "An object that represents an idea",
+              "Opposite of what you expect"
+            ],
             "correct_answer": "Hints in the text about future events"
           },
           {
             "question": "\"She wants to become a doctor.\" The phrase \"to become\" is an ___.",
-            "options": ["infinitive", "gerund", "participle", "conjunction"],
+            "options": [
+              "infinitive",
+              "gerund",
+              "participle",
+              "conjunction"
+            ],
             "correct_answer": "infinitive"
           },
           {
             "question": "What type of irony is: A fire station burning down?",
-            "options": ["Situational irony", "Verbal irony", "Dramatic irony", "Poetic irony"],
+            "options": [
+              "Situational irony",
+              "Verbal irony",
+              "Dramatic irony",
+              "Poetic irony"
+            ],
             "correct_answer": "Situational irony"
           },
           {
             "question": "In an argumentative essay, what comes after stating a claim?",
-            "options": ["Evidence that supports the claim", "The conclusion of the essay", "A counter-argument rebuttal", "A new unrelated claim"],
+            "options": [
+              "Evidence that supports the claim",
+              "The conclusion of the essay",
+              "A counter-argument rebuttal",
+              "A new unrelated claim"
+            ],
             "correct_answer": "Evidence that supports the claim"
           },
           {
             "question": "Which signal phrase is used to CITE evidence from a text?",
-            "options": ["According to the text,", "In my opinion,", "I believe that,", "Personally, I think"],
+            "options": [
+              "According to the text,",
+              "In my opinion,",
+              "I believe that,",
+              "Personally, I think"
+            ],
             "correct_answer": "According to the text,"
+          },
+          {
+            "question": "\"Although she was tired, she finished the report.\" The dependent clause is ___.",
+            "options": [
+              "Although she was tired",
+              "she finished the report",
+              "finished the report",
+              "Although tired"
+            ],
+            "correct_answer": "Although she was tired"
+          },
+          {
+            "question": "\"The smiling teacher entered the room.\" \"Smiling\" is a ___.",
+            "options": [
+              "Participle (adjective)",
+              "Gerund (noun)",
+              "Infinitive (noun)",
+              "Conjunction"
+            ],
+            "correct_answer": "Participle (adjective)"
+          },
+          {
+            "question": "Which signal phrase best introduces a COUNTER-ARGUMENT in an essay?",
+            "options": [
+              "Some might argue that...",
+              "According to the text,",
+              "The evidence shows that",
+              "In conclusion,"
+            ],
+            "correct_answer": "Some might argue that..."
+          },
+          {
+            "question": "What is VERBAL IRONY?",
+            "options": [
+              "Saying the opposite of what you mean",
+              "An object that represents an idea",
+              "Hints about what will happen later",
+              "A scene set in the past"
+            ],
+            "correct_answer": "Saying the opposite of what you mean"
           }
         ]
       },
@@ -53,43 +133,123 @@
         "quiz": [
           {
             "question": "What is ⅔ + ¾?",
-            "options": ["17/12 (1 and 5/12)", "5/7", "1 and 1/6", "1 and 1/12"],
+            "options": [
+              "17/12 (1 and 5/12)",
+              "5/7",
+              "1 and 1/6",
+              "1 and 1/12"
+            ],
             "correct_answer": "17/12 (1 and 5/12)"
           },
           {
             "question": "What is ¾ × ⅘?",
-            "options": ["3/5", "12/20", "7/9", "4/15"],
+            "options": [
+              "3/5",
+              "12/20",
+              "7/9",
+              "4/15"
+            ],
             "correct_answer": "3/5"
           },
           {
             "question": "What is ½ ÷ ¼?",
-            "options": ["2", "1/8", "1/2", "4"],
+            "options": [
+              "2",
+              "1/8",
+              "1/2",
+              "4"
+            ],
             "correct_answer": "2"
           },
           {
             "question": "The ratio of boys to girls is 3:5. If there are 24 boys, how many girls are there?",
-            "options": ["40", "35", "45", "30"],
+            "options": [
+              "40",
+              "35",
+              "45",
+              "30"
+            ],
             "correct_answer": "40"
           },
           {
             "question": "What is 30% of 150?",
-            "options": ["45", "30", "50", "60"],
+            "options": [
+              "45",
+              "30",
+              "50",
+              "60"
+            ],
             "correct_answer": "45"
           },
           {
             "question": "18 out of 72 students passed the test. What percent passed?",
-            "options": ["25%", "18%", "30%", "72%"],
+            "options": [
+              "25%",
+              "18%",
+              "30%",
+              "72%"
+            ],
             "correct_answer": "25%"
           },
           {
             "question": "What fraction is equivalent to 75%?",
-            "options": ["3/4", "1/4", "1/2", "2/3"],
+            "options": [
+              "3/4",
+              "1/4",
+              "1/2",
+              "2/3"
+            ],
             "correct_answer": "3/4"
           },
           {
             "question": "A store sells oranges at ₱120 for 4 pieces. What is the unit rate per orange?",
-            "options": ["₱30 per piece", "₱40 per piece", "₱25 per piece", "₱120 per piece"],
+            "options": [
+              "₱30 per piece",
+              "₱40 per piece",
+              "₱25 per piece",
+              "₱120 per piece"
+            ],
             "correct_answer": "₱30 per piece"
+          },
+          {
+            "question": "What is 1⅔ + 2¾?",
+            "options": [
+              "4 and 5/12",
+              "4 and 1/2",
+              "3 and 5/12",
+              "4 and 7/12"
+            ],
+            "correct_answer": "4 and 5/12"
+          },
+          {
+            "question": "What is 2½ × 1⅗?",
+            "options": [
+              "4",
+              "3½",
+              "3⅘",
+              "5"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "A recipe needs ¾ cup of sugar. For 3 batches, how much sugar is needed?",
+            "options": [
+              "2¼ cups",
+              "2 cups",
+              "1¾ cups",
+              "3 cups"
+            ],
+            "correct_answer": "2¼ cups"
+          },
+          {
+            "question": "What is the reciprocal of ⅗?",
+            "options": [
+              "5/3",
+              "3/5",
+              "1/5",
+              "1"
+            ],
+            "correct_answer": "5/3"
           }
         ]
       }
@@ -100,43 +260,123 @@
         "quiz": [
           {
             "question": "Ano ang gamit ng pang-ugnay na \"na/-ng\" sa pangungusap?",
-            "options": ["Nag-uugnay ng panuring sa salitang tinutukoy", "Nagpapahiwatig ng oras ng pandiwa", "Nagbibigay ng direksiyon ng kilos", "Nagsasaad ng lugar ng pangyayari"],
+            "options": [
+              "Nag-uugnay ng panuring sa salitang tinutukoy",
+              "Nagpapahiwatig ng oras ng pandiwa",
+              "Nagbibigay ng direksiyon ng kilos",
+              "Nagsasaad ng lugar ng pangyayari"
+            ],
             "correct_answer": "Nag-uugnay ng panuring sa salitang tinutukoy"
           },
           {
             "question": "Gawing pasibo: \"Sinulat ni Rizal ang Noli Me Tangere.\"",
-            "options": ["Sinulat ang Noli Me Tangere ni Rizal.", "Sulat ni Rizal ang Noli Me Tangere.", "Ang Noli Me Tangere ay isinulat ni Rizal.", "Nagsulatng Noli Me Tangere si Rizal."],
+            "options": [
+              "Sinulat ang Noli Me Tangere ni Rizal.",
+              "Sulat ni Rizal ang Noli Me Tangere.",
+              "Ang Noli Me Tangere ay isinulat ni Rizal.",
+              "Nagsulatng Noli Me Tangere si Rizal."
+            ],
             "correct_answer": "Ang Noli Me Tangere ay isinulat ni Rizal."
           },
           {
             "question": "\"Lulangoy si Ana bukas.\" Ano ang aspekto ng pandiwa?",
-            "options": ["Kontemplatibo", "Progresibo", "Perpektibo", "Pawatas"],
+            "options": [
+              "Kontemplatibo",
+              "Progresibo",
+              "Perpektibo",
+              "Pawatas"
+            ],
             "correct_answer": "Kontemplatibo"
           },
           {
             "question": "Ano ang nobela ni Jose Rizal na nagsilbing inspirasyon sa rebolusyon?",
-            "options": ["Noli Me Tangere", "Florante at Laura", "Ibong Adarna", "Biag ni Lam-ang"],
+            "options": [
+              "Noli Me Tangere",
+              "Florante at Laura",
+              "Ibong Adarna",
+              "Biag ni Lam-ang"
+            ],
             "correct_answer": "Noli Me Tangere"
           },
           {
             "question": "Alin ang halimbawa ng tamang paggamit ng pang-ugnay na \"-ng\"?",
-            "options": ["batang matalino", "bata na matalino", "matalinong bata na", "ang bata matalino"],
+            "options": [
+              "batang matalino",
+              "bata na matalino",
+              "matalinong bata na",
+              "ang bata matalino"
+            ],
             "correct_answer": "batang matalino"
           },
           {
             "question": "Ano ang katangian ng isang dula (drama)?",
-            "options": ["Inilalahad ang kwento sa pamamagitan ng dialogue at kilos", "Isinulat bilang mahabang prosa lamang", "Ginagamit ang ritmo at tugma sa lahat ng bahagi", "Walang tauhan at tagpuan sa loob nito"],
+            "options": [
+              "Inilalahad ang kwento sa pamamagitan ng dialogue at kilos",
+              "Isinulat bilang mahabang prosa lamang",
+              "Ginagamit ang ritmo at tugma sa lahat ng bahagi",
+              "Walang tauhan at tagpuan sa loob nito"
+            ],
             "correct_answer": "Inilalahad ang kwento sa pamamagitan ng dialogue at kilos"
           },
           {
             "question": "Alin ang pang-ukol sa pangungusap na \"Pumunta siya sa palengke\"?",
-            "options": ["sa", "siya", "pumunta", "palengke"],
+            "options": [
+              "sa",
+              "siya",
+              "pumunta",
+              "palengke"
+            ],
             "correct_answer": "sa"
           },
           {
             "question": "Ano ang layunin ng sanaysay?",
-            "options": ["Ibahagi ang personal na pananaw ng manunulat sa isang paksa", "Magsalaysay ng buhay ng isang bayani", "Magbigay ng dula para sa entablado", "Magsalaysay ng mahabang alamat"],
+            "options": [
+              "Ibahagi ang personal na pananaw ng manunulat sa isang paksa",
+              "Magsalaysay ng buhay ng isang bayani",
+              "Magbigay ng dula para sa entablado",
+              "Magsalaysay ng mahabang alamat"
+            ],
             "correct_answer": "Ibahagi ang personal na pananaw ng manunulat sa isang paksa"
+          },
+          {
+            "question": "Alin ang halimbawa ng AKTIBONG pangungusap?",
+            "options": [
+              "Binasa ni Ana ang nobela.",
+              "Ang nobela ay binasa ni Ana.",
+              "Nabasa ang nobela ni Ana.",
+              "Binabasa ang nobela ngayon."
+            ],
+            "correct_answer": "Binasa ni Ana ang nobela."
+          },
+          {
+            "question": "\"Pumunta siya mula sa Maynila.\" Ano ang pang-ukol?",
+            "options": [
+              "mula sa",
+              "siya",
+              "pumunta",
+              "Maynila"
+            ],
+            "correct_answer": "mula sa"
+          },
+          {
+            "question": "Ang \"El Filibusterismo\" ay isinulat ni Jose Rizal bilang pagpapatuloy ng ___.",
+            "options": [
+              "Noli Me Tangere",
+              "Florante at Laura",
+              "Ibong Adarna",
+              "Biag ni Lam-ang"
+            ],
+            "correct_answer": "Noli Me Tangere"
+          },
+          {
+            "question": "Alin ang nagpapakita ng progresibong aspekto?",
+            "options": [
+              "Tinutulungan niya ang kaibigan.",
+              "Tutulungan niya ang kaibigan bukas.",
+              "Tinulungan na niya ang kaibigan.",
+              "Gusto niyang tulungan ang kaibigan."
+            ],
+            "correct_answer": "Tinutulungan niya ang kaibigan."
           }
         ]
       },
@@ -145,43 +385,123 @@
         "quiz": [
           {
             "question": "What is the BASIC UNIT of life?",
-            "options": ["Cell", "Tissue", "Organ", "Molecule"],
+            "options": [
+              "Cell",
+              "Tissue",
+              "Organ",
+              "Molecule"
+            ],
             "correct_answer": "Cell"
           },
           {
             "question": "A group of SIMILAR CELLS working together forms a ___.",
-            "options": ["tissue", "organ", "system", "organism"],
+            "options": [
+              "tissue",
+              "organ",
+              "system",
+              "organism"
+            ],
             "correct_answer": "tissue"
           },
           {
             "question": "Which organ system removes waste products from the body?",
-            "options": ["Excretory system", "Digestive system", "Nervous system", "Circulatory system"],
+            "options": [
+              "Excretory system",
+              "Digestive system",
+              "Nervous system",
+              "Circulatory system"
+            ],
             "correct_answer": "Excretory system"
           },
           {
             "question": "Which part of the cell is called the \"powerhouse\" because it produces energy?",
-            "options": ["Mitochondria", "Nucleus", "Cell membrane", "Cytoplasm"],
+            "options": [
+              "Mitochondria",
+              "Nucleus",
+              "Cell membrane",
+              "Cytoplasm"
+            ],
             "correct_answer": "Mitochondria"
           },
           {
             "question": "In the digestive system, where does most NUTRIENT ABSORPTION happen?",
-            "options": ["Small intestine", "Large intestine", "Stomach", "Esophagus"],
+            "options": [
+              "Small intestine",
+              "Large intestine",
+              "Stomach",
+              "Esophagus"
+            ],
             "correct_answer": "Small intestine"
           },
           {
             "question": "Which organ system uses arteries and veins to transport blood?",
-            "options": ["Circulatory system", "Respiratory system", "Digestive system", "Nervous system"],
+            "options": [
+              "Circulatory system",
+              "Respiratory system",
+              "Digestive system",
+              "Nervous system"
+            ],
             "correct_answer": "Circulatory system"
           },
           {
             "question": "The ALVEOLI are tiny air sacs in the lungs. Which system do they belong to?",
-            "options": ["Respiratory system", "Circulatory system", "Excretory system", "Digestive system"],
+            "options": [
+              "Respiratory system",
+              "Circulatory system",
+              "Excretory system",
+              "Digestive system"
+            ],
             "correct_answer": "Respiratory system"
           },
           {
             "question": "Which part of the cell contains DNA and controls cell activities?",
-            "options": ["Nucleus", "Mitochondria", "Cell membrane", "Cytoplasm"],
+            "options": [
+              "Nucleus",
+              "Mitochondria",
+              "Cell membrane",
+              "Cytoplasm"
+            ],
             "correct_answer": "Nucleus"
+          },
+          {
+            "question": "A group of SIMILAR CELLS working together forms a ___.",
+            "options": [
+              "Tissue",
+              "Organ",
+              "System",
+              "Organism"
+            ],
+            "correct_answer": "Tissue"
+          },
+          {
+            "question": "Which body system is responsible for SUPPORT and MOVEMENT?",
+            "options": [
+              "Musculoskeletal system (bones + muscles)",
+              "Nervous system",
+              "Circulatory system",
+              "Excretory system"
+            ],
+            "correct_answer": "Musculoskeletal system (bones + muscles)"
+          },
+          {
+            "question": "The TRACHEA is part of which body system?",
+            "options": [
+              "Respiratory system",
+              "Digestive system",
+              "Circulatory system",
+              "Nervous system"
+            ],
+            "correct_answer": "Respiratory system"
+          },
+          {
+            "question": "What is the role of the SPINAL CORD?",
+            "options": [
+              "Carries signals between brain and body",
+              "Filters waste from the blood",
+              "Pumps blood to all organs",
+              "Breaks down food into nutrients"
+            ],
+            "correct_answer": "Carries signals between brain and body"
           }
         ]
       }
@@ -192,43 +512,123 @@
         "quiz": [
           {
             "question": "Kailan itinatag ang ASEAN?",
-            "options": ["Agosto 8, 1967", "Agosto 8, 1945", "Hulyo 4, 1946", "Hunyo 12, 1898"],
+            "options": [
+              "Agosto 8, 1967",
+              "Agosto 8, 1945",
+              "Hulyo 4, 1946",
+              "Hunyo 12, 1898"
+            ],
             "correct_answer": "Agosto 8, 1967"
           },
           {
             "question": "Ano ang ASEAN Charter?",
-            "options": ["Pormal na dokumento ng mga alituntunin ng ASEAN", "Pangalan ng punong opisyal ng ASEAN", "Lugar ng tanggapan ng ASEAN", "Salaping ginagamit ng ASEAN"],
+            "options": [
+              "Pormal na dokumento ng mga alituntunin ng ASEAN",
+              "Pangalan ng punong opisyal ng ASEAN",
+              "Lugar ng tanggapan ng ASEAN",
+              "Salaping ginagamit ng ASEAN"
+            ],
             "correct_answer": "Pormal na dokumento ng mga alituntunin ng ASEAN"
           },
           {
             "question": "Ano ang \"globalisasyon\"?",
-            "options": ["Pagkakaroon ng mas malapit na ugnayan ng mga bansa", "Pagtatayo ng iisang pamahalaan sa buong mundo", "Pagkawala ng lahat ng hangganan ng bansa", "Pagtatayo ng isang pandaigdigang wika"],
+            "options": [
+              "Pagkakaroon ng mas malapit na ugnayan ng mga bansa",
+              "Pagtatayo ng iisang pamahalaan sa buong mundo",
+              "Pagkawala ng lahat ng hangganan ng bansa",
+              "Pagtatayo ng isang pandaigdigang wika"
+            ],
             "correct_answer": "Pagkakaroon ng mas malapit na ugnayan ng mga bansa"
           },
           {
             "question": "Alin ang POSITIBONG epekto ng globalisasyon?",
-            "options": ["Mas maraming oportunidad sa trabaho", "Pagkawala ng lokal na industriya", "Paglaganap ng maling kulturang dayuhan", "Mas mataas na presyo ng lahat ng produkto"],
+            "options": [
+              "Mas maraming oportunidad sa trabaho",
+              "Pagkawala ng lokal na industriya",
+              "Paglaganap ng maling kulturang dayuhan",
+              "Mas mataas na presyo ng lahat ng produkto"
+            ],
             "correct_answer": "Mas maraming oportunidad sa trabaho"
           },
           {
             "question": "Ano ang \"export\"?",
-            "options": ["Pagbebenta ng produkto sa ibang bansa", "Pagbili ng produkto mula sa ibang bansa", "Pag-iimbak ng produkto sa bodega", "Pagbabayad ng buwis sa pamahalaan"],
+            "options": [
+              "Pagbebenta ng produkto sa ibang bansa",
+              "Pagbili ng produkto mula sa ibang bansa",
+              "Pag-iimbak ng produkto sa bodega",
+              "Pagbabayad ng buwis sa pamahalaan"
+            ],
             "correct_answer": "Pagbebenta ng produkto sa ibang bansa"
           },
           {
             "question": "Ilan ang miyembro ng ASEAN ngayon?",
-            "options": ["10", "8", "11", "12"],
+            "options": [
+              "10",
+              "8",
+              "11",
+              "12"
+            ],
             "correct_answer": "10"
           },
           {
             "question": "Ano ang ASEAN Economic Community (AEC)?",
-            "options": ["Nagbibigay ng mas malayag na kalakalan sa loob ng ASEAN", "Isang bangko para sa mga miyembro ng ASEAN", "Isang pulitikal na partido ng ASEAN", "Isang militar na alyansa ng ASEAN"],
+            "options": [
+              "Nagbibigay ng mas malayag na kalakalan sa loob ng ASEAN",
+              "Isang bangko para sa mga miyembro ng ASEAN",
+              "Isang pulitikal na partido ng ASEAN",
+              "Isang militar na alyansa ng ASEAN"
+            ],
             "correct_answer": "Nagbibigay ng mas malayag na kalakalan sa loob ng ASEAN"
           },
           {
             "question": "Saan itatag ang ASEAN?",
-            "options": ["Bangkok, Thailand", "Manila, Philippines", "Jakarta, Indonesia", "Singapore"],
+            "options": [
+              "Bangkok, Thailand",
+              "Manila, Philippines",
+              "Jakarta, Indonesia",
+              "Singapore"
+            ],
             "correct_answer": "Bangkok, Thailand"
+          },
+          {
+            "question": "Ang ASEAN Vision 2025 ay naglalayong ___.",
+            "options": [
+              "Gumawa ng mas maunlad, inklusibo, at naka-integrate na komunidad",
+              "Pagsama ng China sa ASEAN",
+              "Pag-alis ng lahat ng buwis sa kalakalan",
+              "Pagsasama ng lahat ng bansa sa Asya"
+            ],
+            "correct_answer": "Gumawa ng mas maunlad, inklusibo, at naka-integrate na komunidad"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng \"balance of trade\"?",
+            "options": [
+              "Pagkakaiba ng halaga ng import at export ng isang bansa",
+              "Pantay na dami ng import at export",
+              "Kabuuang halaga ng export lamang",
+              "Kabuuang halaga ng import lamang"
+            ],
+            "correct_answer": "Pagkakaiba ng halaga ng import at export ng isang bansa"
+          },
+          {
+            "question": "Alin ang Pilipinas sa ASEAN founding members na pumirma noong 1967?",
+            "options": [
+              "Oo, kasama sa limang founding members",
+              "Hindi, sumali lamang pagkatapos ng 1967",
+              "Oo, ngunit lumabas noong 1972",
+              "Hindi, kasama sa pangalawang grupo ng miyembro"
+            ],
+            "correct_answer": "Oo, kasama sa limang founding members"
+          },
+          {
+            "question": "Ano ang kaibahan ng globalisasyon sa regionalisasyon?",
+            "options": [
+              "Globalisasyon = pandaigdigang ugnayan; regionalisasyon = lokal na rehiyonal na ugnayan",
+              "Parehong iisa ang kahulugan",
+              "Globalisasyon = pagbaba ng kalakalan; regionalisasyon = pagtaas",
+              "Regionalisasyon = pandaigdigang ugnayan; globalisasyon = lokal"
+            ],
+            "correct_answer": "Globalisasyon = pandaigdigang ugnayan; regionalisasyon = lokal na rehiyonal na ugnayan"
           }
         ]
       },
@@ -237,43 +637,123 @@
         "quiz": [
           {
             "question": "What does the formula =IF(B1>=75, \"Passed\", \"Failed\") do when B1 = 80?",
-            "options": ["Shows 'Passed'", "Shows 'Failed'", "Shows '80'", "Shows an error"],
+            "options": [
+              "Shows 'Passed'",
+              "Shows 'Failed'",
+              "Shows '80'",
+              "Shows an error"
+            ],
             "correct_answer": "Shows 'Passed'"
           },
           {
             "question": "What is an ABSOLUTE REFERENCE in a spreadsheet?",
-            "options": ["A cell reference that does not change when copied ($A$1)", "A cell reference that changes when the formula is copied (A1)", "A formula that works on all sheets", "A cell that cannot be edited"],
+            "options": [
+              "A cell reference that does not change when copied ($A$1)",
+              "A cell reference that changes when the formula is copied (A1)",
+              "A formula that works on all sheets",
+              "A cell that cannot be edited"
+            ],
             "correct_answer": "A cell reference that does not change when copied ($A$1)"
           },
           {
             "question": "What does the Boolean operator NOT do in a search?",
-            "options": ["Excludes results with that term", "Requires both terms to be present", "Allows either term to appear", "Broadens the search results"],
+            "options": [
+              "Excludes results with that term",
+              "Requires both terms to be present",
+              "Allows either term to appear",
+              "Broadens the search results"
+            ],
             "correct_answer": "Excludes results with that term"
           },
           {
             "question": "What is PHISHING?",
-            "options": ["Fake messages that trick you into sharing personal info", "A secure way to log in online", "A type of search engine function", "A method of encrypting data safely"],
+            "options": [
+              "Fake messages that trick you into sharing personal info",
+              "A secure way to log in online",
+              "A type of search engine function",
+              "A method of encrypting data safely"
+            ],
             "correct_answer": "Fake messages that trick you into sharing personal info"
           },
           {
             "question": "What is ENCRYPTION?",
-            "options": ["Scrambling data so only authorized people can read it", "A type of malware that harms computers", "A search operator for narrowing results", "A tool for creating spreadsheets"],
+            "options": [
+              "Scrambling data so only authorized people can read it",
+              "A type of malware that harms computers",
+              "A search operator for narrowing results",
+              "A tool for creating spreadsheets"
+            ],
             "correct_answer": "Scrambling data so only authorized people can read it"
           },
           {
             "question": "What does the CRAAP Test stand for (for evaluating sources)?",
-            "options": ["Currency, Relevance, Authority, Accuracy, Purpose", "Content, Research, Analysis, Application, Plan", "Copy, Read, Assess, Apply, Print", "Check, Review, Analyze, Apply, Pass"],
+            "options": [
+              "Currency, Relevance, Authority, Accuracy, Purpose",
+              "Content, Research, Analysis, Application, Plan",
+              "Copy, Read, Assess, Apply, Print",
+              "Check, Review, Analyze, Apply, Pass"
+            ],
             "correct_answer": "Currency, Relevance, Authority, Accuracy, Purpose"
           },
           {
             "question": "What is TWO-FACTOR AUTHENTICATION (2FA)?",
-            "options": ["An extra security step beyond a password", "A way to log in with two passwords", "A method of copying files to two locations", "A spreadsheet with two formulas"],
+            "options": [
+              "An extra security step beyond a password",
+              "A way to log in with two passwords",
+              "A method of copying files to two locations",
+              "A spreadsheet with two formulas"
+            ],
             "correct_answer": "An extra security step beyond a password"
           },
           {
             "question": "What formula finds the HIGHEST VALUE in cells A1 to A10?",
-            "options": ["=MAX(A1:A10)", "=SUM(A1:A10)", "=MIN(A1:A10)", "=COUNT(A1:A10)"],
+            "options": [
+              "=MAX(A1:A10)",
+              "=SUM(A1:A10)",
+              "=MIN(A1:A10)",
+              "=COUNT(A1:A10)"
+            ],
             "correct_answer": "=MAX(A1:A10)"
+          },
+          {
+            "question": "In a spreadsheet, what does the # symbol in a cell mean?",
+            "options": [
+              "The column is too narrow to display the number",
+              "There is an error in the formula",
+              "The cell contains a negative number",
+              "The cell is password-protected"
+            ],
+            "correct_answer": "The column is too narrow to display the number"
+          },
+          {
+            "question": "What is RANSOMWARE?",
+            "options": [
+              "Malware that locks your files and demands payment",
+              "A type of antivirus software",
+              "A secure way to store passwords",
+              "A tool for creating backups"
+            ],
+            "correct_answer": "Malware that locks your files and demands payment"
+          },
+          {
+            "question": "What is a CREATIVE COMMONS license?",
+            "options": [
+              "A license allowing free use of content with specific conditions",
+              "A copyright that prevents all use of content",
+              "A paid subscription for creative software",
+              "A government permit for publishing books"
+            ],
+            "correct_answer": "A license allowing free use of content with specific conditions"
+          },
+          {
+            "question": "What does the 'R' in CRAAP test stand for?",
+            "options": [
+              "Relevance — how well it relates to your topic",
+              "Reliability of the source website",
+              "Readability of the content",
+              "Recency of the publication date"
+            ],
+            "correct_answer": "Relevance — how well it relates to your topic"
           }
         ]
       }
@@ -284,43 +764,123 @@
         "quiz": [
           {
             "question": "Which musical form follows the pattern ABA?",
-            "options": ["Ternary form", "Binary form", "Rondo form", "Through-composed form"],
+            "options": [
+              "Ternary form",
+              "Binary form",
+              "Rondo form",
+              "Through-composed form"
+            ],
             "correct_answer": "Ternary form"
           },
           {
             "question": "Juan Luna's famous painting is ___.",
-            "options": ["Spoliarium", "El Buen Pastor", "The Wedding Dance", "Pagsamba"],
+            "options": [
+              "Spoliarium",
+              "El Buen Pastor",
+              "The Wedding Dance",
+              "Pagsamba"
+            ],
             "correct_answer": "Spoliarium"
           },
           {
             "question": "Which musical period came AFTER the Baroque period?",
-            "options": ["Classical period", "Romantic period", "Medieval period", "Modern period"],
+            "options": [
+              "Classical period",
+              "Romantic period",
+              "Medieval period",
+              "Modern period"
+            ],
             "correct_answer": "Classical period"
           },
           {
             "question": "What is KUNDIMAN?",
-            "options": ["A traditional romantic Filipino song", "A Mindanao percussion instrument", "A stringed Filipino ensemble", "A type of Philippine folk dance"],
+            "options": [
+              "A traditional romantic Filipino song",
+              "A Mindanao percussion instrument",
+              "A stringed Filipino ensemble",
+              "A type of Philippine folk dance"
+            ],
             "correct_answer": "A traditional romantic Filipino song"
           },
           {
             "question": "Which element of art refers to the surface quality of an artwork?",
-            "options": ["Texture", "Balance", "Emphasis", "Unity"],
+            "options": [
+              "Texture",
+              "Balance",
+              "Emphasis",
+              "Unity"
+            ],
             "correct_answer": "Texture"
           },
           {
             "question": "In volleyball, which skill is used to send the ball over the net with force from above?",
-            "options": ["Spiking", "Serving", "Blocking", "Setting"],
+            "options": [
+              "Spiking",
+              "Serving",
+              "Blocking",
+              "Setting"
+            ],
             "correct_answer": "Spiking"
           },
           {
             "question": "What is KULINTANG?",
-            "options": ["A percussion instrument from Mindanao", "A romantic Tagalog song type", "A Filipino stringed ensemble", "A type of folk dance from Luzon"],
+            "options": [
+              "A percussion instrument from Mindanao",
+              "A romantic Tagalog song type",
+              "A Filipino stringed ensemble",
+              "A type of folk dance from Luzon"
+            ],
             "correct_answer": "A percussion instrument from Mindanao"
           },
           {
             "question": "Which is a healthy COPING STRATEGY for managing stress?",
-            "options": ["Talking to a trusted person", "Avoiding all social interaction", "Suppressing feelings entirely", "Using substances to feel better"],
+            "options": [
+              "Talking to a trusted person",
+              "Avoiding all social interaction",
+              "Suppressing feelings entirely",
+              "Using substances to feel better"
+            ],
             "correct_answer": "Talking to a trusted person"
+          },
+          {
+            "question": "Which musical period is associated with Bach and Handel?",
+            "options": [
+              "Baroque period",
+              "Classical period",
+              "Romantic period",
+              "Modern period"
+            ],
+            "correct_answer": "Baroque period"
+          },
+          {
+            "question": "What is a RONDALLA?",
+            "options": [
+              "A Filipino ensemble of stringed instruments",
+              "A traditional Mindanao percussion instrument",
+              "A type of romantic Filipino song",
+              "A Philippine folk dance from Visayas"
+            ],
+            "correct_answer": "A Filipino ensemble of stringed instruments"
+          },
+          {
+            "question": "In basketball, the act of moving with the ball without dribbling is called ___.",
+            "options": [
+              "Traveling",
+              "Dribbling",
+              "Fouling",
+              "Passing"
+            ],
+            "correct_answer": "Traveling"
+          },
+          {
+            "question": "Which communicable disease spreads through AIRBORNE droplets?",
+            "options": [
+              "Tuberculosis (TB)",
+              "Dengue fever",
+              "Cholera",
+              "Malaria"
+            ],
+            "correct_answer": "Tuberculosis (TB)"
           }
         ]
       },
@@ -329,43 +889,123 @@
         "quiz": [
           {
             "question": "Ano ang UDHR?",
-            "options": ["Universal Declaration of Human Rights", "United Democratic Human Rights", "Universal Department of Human Respect", "United Declaration on Humane Relations"],
+            "options": [
+              "Universal Declaration of Human Rights",
+              "United Democratic Human Rights",
+              "Universal Department of Human Respect",
+              "United Declaration on Humane Relations"
+            ],
             "correct_answer": "Universal Declaration of Human Rights"
           },
           {
             "question": "Alin ang isang halimbawa ng karapatang pantao?",
-            "options": ["Karapatang mabuhay at magaral", "Karapatang maging pangulo ng bansa", "Karapatang hindi magbayad ng buwis", "Karapatang siyahin ang kapuwa"],
+            "options": [
+              "Karapatang mabuhay at magaral",
+              "Karapatang maging pangulo ng bansa",
+              "Karapatang hindi magbayad ng buwis",
+              "Karapatang siyahin ang kapuwa"
+            ],
             "correct_answer": "Karapatang mabuhay at magaral"
           },
           {
             "question": "Ano ang ibig sabihin ng tunay na nasyonalismo?",
-            "options": ["Paggawa ng mga bagay na makakatulong sa bansa", "Pagsigaw lamang ng \"Pilipino ako\"", "Pagpapahalaga sa mga dayuhang produkto", "Pagtatago ng sariling kultura"],
+            "options": [
+              "Paggawa ng mga bagay na makakatulong sa bansa",
+              "Pagsigaw lamang ng \"Pilipino ako\"",
+              "Pagpapahalaga sa mga dayuhang produkto",
+              "Pagtatago ng sariling kultura"
+            ],
             "correct_answer": "Paggawa ng mga bagay na makakatulong sa bansa"
           },
           {
             "question": "Ano ang \"gender equality\"?",
-            "options": ["Pantay na karapatan para sa lahat anuman ang kasarian", "Mas mataas na karapatan para sa babae", "Mas mataas na karapatan para sa lalaki", "Pagbibigay ng iba't ibang karapatan base sa kasarian"],
+            "options": [
+              "Pantay na karapatan para sa lahat anuman ang kasarian",
+              "Mas mataas na karapatan para sa babae",
+              "Mas mataas na karapatan para sa lalaki",
+              "Pagbibigay ng iba't ibang karapatan base sa kasarian"
+            ],
             "correct_answer": "Pantay na karapatan para sa lahat anuman ang kasarian"
           },
           {
             "question": "Ano ang \"sustainable development\"?",
-            "options": ["Pagtupad ng pangangailangan ngayon nang hindi sinisira ang kinabukasan", "Pagtatayo ng mga bagong gusali sa lahat ng lugar", "Paggamit ng lahat ng likas na yaman ngayon", "Pagtatayo ng ekonomiya batay sa dayuhang tulong"],
+            "options": [
+              "Pagtupad ng pangangailangan ngayon nang hindi sinisira ang kinabukasan",
+              "Pagtatayo ng mga bagong gusali sa lahat ng lugar",
+              "Paggamit ng lahat ng likas na yaman ngayon",
+              "Pagtatayo ng ekonomiya batay sa dayuhang tulong"
+            ],
             "correct_answer": "Pagtupad ng pangangailangan ngayon nang hindi sinisira ang kinabukasan"
           },
           {
             "question": "Alin ang isang TUNGKULIN ng mamamayang Pilipino?",
-            "options": ["Sumunod sa batas ng bansa", "Sumali sa ibang bansa", "Humingi ng exemption sa buwis", "Mag-alis ng pagkamamamayan"],
+            "options": [
+              "Sumunod sa batas ng bansa",
+              "Sumali sa ibang bansa",
+              "Humingi ng exemption sa buwis",
+              "Mag-alis ng pagkamamamayan"
+            ],
             "correct_answer": "Sumunod sa batas ng bansa"
           },
           {
             "question": "Ano ang \"diskriminasyon\"?",
-            "options": ["Pag-uuri ng tao batay sa lahi, kasarian, o relihiyon", "Pagbibigay ng pantay na pagkakataon sa lahat", "Paggalang sa karapatang pantao ng lahat", "Pagtataguyod ng social justice sa lipunan"],
+            "options": [
+              "Pag-uuri ng tao batay sa lahi, kasarian, o relihiyon",
+              "Pagbibigay ng pantay na pagkakataon sa lahat",
+              "Paggalang sa karapatang pantao ng lahat",
+              "Pagtataguyod ng social justice sa lipunan"
+            ],
             "correct_answer": "Pag-uuri ng tao batay sa lahi, kasarian, o relihiyon"
           },
           {
             "question": "Bilang kabataan, paano mo matitiyak ang sustainable na kinabukasan?",
-            "options": ["Sa pagiging responsable sa kalikasan at sa ating mga desisyon", "Sa paggamit ng lahat ng resources ngayon para sa kasiyahan", "Sa pananatiling tahimik at hindi pakikialam sa mga isyu", "Sa pag-alis ng lahat ng industriya para sa kalikasan"],
+            "options": [
+              "Sa pagiging responsable sa kalikasan at sa ating mga desisyon",
+              "Sa paggamit ng lahat ng resources ngayon para sa kasiyahan",
+              "Sa pananatiling tahimik at hindi pakikialam sa mga isyu",
+              "Sa pag-alis ng lahat ng industriya para sa kalikasan"
+            ],
             "correct_answer": "Sa pagiging responsable sa kalikasan at sa ating mga desisyon"
+          },
+          {
+            "question": "What is SOCIAL RESPONSIBILITY?",
+            "options": [
+              "The duty to act for the benefit of society as a whole",
+              "Taking care only of your own personal needs",
+              "Working for any organization that pays well",
+              "Following only the rules you personally like"
+            ],
+            "correct_answer": "The duty to act for the benefit of society as a whole"
+          },
+          {
+            "question": "The Philippines' 1987 Constitution guarantees ___.",
+            "options": [
+              "The rights and freedoms of all Filipino citizens",
+              "That only wealthy citizens have rights",
+              "That the president can rule without limits",
+              "That only elected officials have human rights"
+            ],
+            "correct_answer": "The rights and freedoms of all Filipino citizens"
+          },
+          {
+            "question": "What does \"active citizenship\" mean?",
+            "options": [
+              "Participating in community affairs and civic duties",
+              "Voting once and doing nothing else",
+              "Living quietly without involvement",
+              "Only obeying laws when convenient"
+            ],
+            "correct_answer": "Participating in community affairs and civic duties"
+          },
+          {
+            "question": "How do you show respect for CULTURAL DIVERSITY?",
+            "options": [
+              "Learn about and appreciate different cultures and traditions",
+              "Assume all cultures are the same",
+              "Avoid interacting with people from different backgrounds",
+              "Only celebrate your own cultural traditions"
+            ],
+            "correct_answer": "Learn about and appreciate different cultures and traditions"
           }
         ]
       }
@@ -376,43 +1016,123 @@
         "quiz": [
           {
             "question": "A wilting flower in a story represents the end of hope. This is ___.",
-            "options": ["Symbolism", "Irony", "Flashback", "Alliteration"],
+            "options": [
+              "Symbolism",
+              "Irony",
+              "Flashback",
+              "Alliteration"
+            ],
             "correct_answer": "Symbolism"
           },
           {
             "question": "\"Running every morning keeps me healthy.\" \"Running\" is a ___.",
-            "options": ["Gerund", "Participle", "Infinitive", "Conjunction"],
+            "options": [
+              "Gerund",
+              "Participle",
+              "Infinitive",
+              "Conjunction"
+            ],
             "correct_answer": "Gerund"
           },
           {
             "question": "Which is a COMPLEX sentence?",
-            "options": ["Since it was cold, she wore a jacket.", "She wore a jacket and a scarf.", "She wore a jacket.", "It was cold, and she wore a jacket."],
+            "options": [
+              "Since it was cold, she wore a jacket.",
+              "She wore a jacket and a scarf.",
+              "She wore a jacket.",
+              "It was cold, and she wore a jacket."
+            ],
             "correct_answer": "Since it was cold, she wore a jacket."
           },
           {
             "question": "Early in the story, dark clouds appear before the character's bad luck. This is ___.",
-            "options": ["Foreshadowing", "Flashback", "Irony", "Symbolism"],
+            "options": [
+              "Foreshadowing",
+              "Flashback",
+              "Irony",
+              "Symbolism"
+            ],
             "correct_answer": "Foreshadowing"
           },
           {
             "question": "\"She wants to travel the world.\" \"to travel\" is an ___.",
-            "options": ["Infinitive", "Gerund", "Participle", "Preposition"],
+            "options": [
+              "Infinitive",
+              "Gerund",
+              "Participle",
+              "Preposition"
+            ],
             "correct_answer": "Infinitive"
           },
           {
             "question": "In an argumentative essay, what follows the counter-argument?",
-            "options": ["A rebuttal that defends your claim", "A new and separate claim", "The introduction of the essay", "A summary of the counter-argument only"],
+            "options": [
+              "A rebuttal that defends your claim",
+              "A new and separate claim",
+              "The introduction of the essay",
+              "A summary of the counter-argument only"
+            ],
             "correct_answer": "A rebuttal that defends your claim"
           },
           {
             "question": "Which signal phrase introduces evidence from a text?",
-            "options": ["According to the author,", "I feel that,", "Everyone knows that,", "It is obvious that,"],
+            "options": [
+              "According to the author,",
+              "I feel that,",
+              "Everyone knows that,",
+              "It is obvious that,"
+            ],
             "correct_answer": "According to the author,"
           },
           {
             "question": "A lifeguard drowns at his own swimming party. This is ___.",
-            "options": ["Situational irony", "Verbal irony", "Foreshadowing", "Flashback"],
+            "options": [
+              "Situational irony",
+              "Verbal irony",
+              "Foreshadowing",
+              "Flashback"
+            ],
             "correct_answer": "Situational irony"
+          },
+          {
+            "question": "\"The broken window let in the cold air.\" \"Broken\" is a ___.",
+            "options": [
+              "Participle (adjective)",
+              "Gerund (noun)",
+              "Infinitive",
+              "Adverb"
+            ],
+            "correct_answer": "Participle (adjective)"
+          },
+          {
+            "question": "\"Swimming in the ocean\" used as a subject is a ___.",
+            "options": [
+              "Gerund phrase",
+              "Participial phrase",
+              "Infinitive phrase",
+              "Prepositional phrase"
+            ],
+            "correct_answer": "Gerund phrase"
+          },
+          {
+            "question": "A story within the main story set at an EARLIER TIME is a ___.",
+            "options": [
+              "Flashback",
+              "Foreshadowing",
+              "Irony",
+              "Symbolism"
+            ],
+            "correct_answer": "Flashback"
+          },
+          {
+            "question": "Which type of sentence structure has ONE independent clause?",
+            "options": [
+              "Simple sentence",
+              "Compound sentence",
+              "Complex sentence",
+              "Compound-complex sentence"
+            ],
+            "correct_answer": "Simple sentence"
           }
         ]
       },
@@ -421,43 +1141,123 @@
         "quiz": [
           {
             "question": "What is ⅓ + ½?",
-            "options": ["5/6", "2/6", "2/5", "4/6"],
+            "options": [
+              "5/6",
+              "2/6",
+              "2/5",
+              "4/6"
+            ],
             "correct_answer": "5/6"
           },
           {
             "question": "What is ⅔ × ¾?",
-            "options": ["½", "5/7", "6/8", "2/12"],
+            "options": [
+              "½",
+              "5/7",
+              "6/8",
+              "2/12"
+            ],
             "correct_answer": "½"
           },
           {
             "question": "What is ¾ ÷ ⅜?",
-            "options": ["2", "9/32", "1", "3/2"],
+            "options": [
+              "2",
+              "9/32",
+              "1",
+              "3/2"
+            ],
             "correct_answer": "2"
           },
           {
             "question": "What is 40% of 250?",
-            "options": ["100", "80", "120", "90"],
+            "options": [
+              "100",
+              "80",
+              "120",
+              "90"
+            ],
             "correct_answer": "100"
           },
           {
             "question": "30 out of 120 students joined the club. What percent is that?",
-            "options": ["25%", "30%", "20%", "40%"],
+            "options": [
+              "25%",
+              "30%",
+              "20%",
+              "40%"
+            ],
             "correct_answer": "25%"
           },
           {
             "question": "What fraction equals 60%?",
-            "options": ["3/5", "2/3", "4/5", "1/2"],
+            "options": [
+              "3/5",
+              "2/3",
+              "4/5",
+              "1/2"
+            ],
             "correct_answer": "3/5"
           },
           {
             "question": "The ratio of red to blue tiles is 4:6. In simplest form, what is this ratio?",
-            "options": ["2:3", "4:6", "1:2", "3:4"],
+            "options": [
+              "2:3",
+              "4:6",
+              "1:2",
+              "3:4"
+            ],
             "correct_answer": "2:3"
           },
           {
             "question": "A car travels 180 km in 3 hours. What is its unit rate (speed)?",
-            "options": ["60 km/h", "90 km/h", "54 km/h", "45 km/h"],
+            "options": [
+              "60 km/h",
+              "90 km/h",
+              "54 km/h",
+              "45 km/h"
+            ],
             "correct_answer": "60 km/h"
+          },
+          {
+            "question": "What is 3⅓ ÷ 1⅔?",
+            "options": [
+              "2",
+              "5",
+              "1⅔",
+              "3"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "A field is 2¼ km long and ⅔ km wide. What is its area?",
+            "options": [
+              "1½ km²",
+              "2¼ km²",
+              "2 km²",
+              "1¼ km²"
+            ],
+            "correct_answer": "1½ km²"
+          },
+          {
+            "question": "Express 0.375 as a fraction in LOWEST TERMS.",
+            "options": [
+              "3/8",
+              "3/10",
+              "37/100",
+              "1/3"
+            ],
+            "correct_answer": "3/8"
+          },
+          {
+            "question": "A store gives a 15% discount on a ₱800 jacket. How much is the discount?",
+            "options": [
+              "₱120",
+              "₱80",
+              "₱150",
+              "₱100"
+            ],
+            "correct_answer": "₱120"
           }
         ]
       },
@@ -466,43 +1266,123 @@
         "quiz": [
           {
             "question": "Gawing pasibo: \"Binasa ni Gina ang liham.\"",
-            "options": ["Ang liham ay binasa ni Gina.", "Binasa ng liham si Gina.", "Si Gina ay binasa ang liham.", "Nagbasa ng liham si Gina."],
+            "options": [
+              "Ang liham ay binasa ni Gina.",
+              "Binasa ng liham si Gina.",
+              "Si Gina ay binasa ang liham.",
+              "Nagbasa ng liham si Gina."
+            ],
             "correct_answer": "Ang liham ay binasa ni Gina."
           },
           {
             "question": "Alin ang tamang paggamit ng pang-ugnay na \"na\"?",
-            "options": ["batang mapagmahal", "bata na mapagmahal", "mapagmahal na batang", "ang bata mapagmahal"],
+            "options": [
+              "batang mapagmahal",
+              "bata na mapagmahal",
+              "mapagmahal na batang",
+              "ang bata mapagmahal"
+            ],
             "correct_answer": "batang mapagmahal"
           },
           {
             "question": "Ang nobela ni Jose Rizal na pumukaw sa damdamin ng mga Pilipino ay ___.",
-            "options": ["Noli Me Tangere", "Florante at Laura", "Ibong Adarna", "Biag ni Lam-ang"],
+            "options": [
+              "Noli Me Tangere",
+              "Florante at Laura",
+              "Ibong Adarna",
+              "Biag ni Lam-ang"
+            ],
             "correct_answer": "Noli Me Tangere"
           },
           {
             "question": "\"Luluwa siya bukas.\" Ano ang aspekto ng pandiwa?",
-            "options": ["Kontemplatibo", "Progresibo", "Perpektibo", "Pawatas"],
+            "options": [
+              "Kontemplatibo",
+              "Progresibo",
+              "Perpektibo",
+              "Pawatas"
+            ],
             "correct_answer": "Kontemplatibo"
           },
           {
             "question": "Alin ang pang-ukol sa pangungusap na \"Pumunta siya para sa pagkain\"?",
-            "options": ["para sa", "siya", "pumunta", "pagkain"],
+            "options": [
+              "para sa",
+              "siya",
+              "pumunta",
+              "pagkain"
+            ],
             "correct_answer": "para sa"
           },
           {
             "question": "Ang sanaysay ay isang akdang ___.",
-            "options": ["nagbabahagi ng personal na pananaw ng manunulat", "nagsasalaysay ng buhay ng isang bayani", "isinasagawa sa entablado na may mga artista", "mahabang kwento tungkol sa pag-ibig"],
+            "options": [
+              "nagbabahagi ng personal na pananaw ng manunulat",
+              "nagsasalaysay ng buhay ng isang bayani",
+              "isinasagawa sa entablado na may mga artista",
+              "mahabang kwento tungkol sa pag-ibig"
+            ],
             "correct_answer": "nagbabahagi ng personal na pananaw ng manunulat"
           },
           {
             "question": "\"Kumakanta na siya.\" Ano ang aspekto ng pandiwa?",
-            "options": ["Progresibo", "Kontemplatibo", "Perpektibo", "Pawatas"],
+            "options": [
+              "Progresibo",
+              "Kontemplatibo",
+              "Perpektibo",
+              "Pawatas"
+            ],
             "correct_answer": "Progresibo"
           },
           {
             "question": "Ano ang katangian ng dula bilang uri ng panitikan?",
-            "options": ["Inilalahad ang kwento sa pamamagitan ng dialogue at kilos", "Isinulat bilang mahabang prosa", "Walang tauhan at tagpuan", "Gumagamit ng talinghaga at ritmo lamang"],
+            "options": [
+              "Inilalahad ang kwento sa pamamagitan ng dialogue at kilos",
+              "Isinulat bilang mahabang prosa",
+              "Walang tauhan at tagpuan",
+              "Gumagamit ng talinghaga at ritmo lamang"
+            ],
             "correct_answer": "Inilalahad ang kwento sa pamamagitan ng dialogue at kilos"
+          },
+          {
+            "question": "\"Ang El Filibusterismo\" ay nagtatampok ng katotohanang ___.",
+            "options": [
+              "Ang reporma ay hindi sapat at kailangan na ang rebolusyon",
+              "Ang mga Pilipino ay masaya sa pananakop ng Espanya",
+              "Ang mga prayle ay matulungin at mabuti",
+              "Ang Pilipinas ay hindi handang maging malaya"
+            ],
+            "correct_answer": "Ang reporma ay hindi sapat at kailangan na ang rebolusyon"
+          },
+          {
+            "question": "\"Hanggang sa muli\" — alin ang pang-ukol dito?",
+            "options": [
+              "Hanggang sa",
+              "muli",
+              "Hanggang",
+              "Ang"
+            ],
+            "correct_answer": "Hanggang sa"
+          },
+          {
+            "question": "Alin ang halimbawa ng PASIBONG pangungusap?",
+            "options": [
+              "Isinulat ng bata ang liham.",
+              "Sumulat ang bata ng liham.",
+              "Ang bata ay sumusulat ng liham.",
+              "Isusulat ng bata ang liham."
+            ],
+            "correct_answer": "Isinulat ng bata ang liham."
+          },
+          {
+            "question": "Ang \"dula\" bilang uri ng panitikan ay nagtatampok ng ___.",
+            "options": [
+              "Mga tauhan, dialogue, at tagpuan na ipinakikita sa entablado",
+              "Mahabang talata tungkol sa isang paksa",
+              "Mga sukat at tugma sa bawat linya",
+              "Mga alamat tungkol sa mga engkanto"
+            ],
+            "correct_answer": "Mga tauhan, dialogue, at tagpuan na ipinakikita sa entablado"
           }
         ]
       },
@@ -511,43 +1391,123 @@
         "quiz": [
           {
             "question": "Which level of organization comes BETWEEN tissue and organ system?",
-            "options": ["Organ", "Cell", "Molecule", "Organism"],
+            "options": [
+              "Organ",
+              "Cell",
+              "Molecule",
+              "Organism"
+            ],
             "correct_answer": "Organ"
           },
           {
             "question": "The cell membrane's main function is to ___.",
-            "options": ["Control what enters and exits the cell", "Produce energy for the cell", "Store the cell's DNA", "Fill the cell with fluid"],
+            "options": [
+              "Control what enters and exits the cell",
+              "Produce energy for the cell",
+              "Store the cell's DNA",
+              "Fill the cell with fluid"
+            ],
             "correct_answer": "Control what enters and exits the cell"
           },
           {
             "question": "Which system controls all body functions and responses?",
-            "options": ["Nervous system", "Circulatory system", "Respiratory system", "Digestive system"],
+            "options": [
+              "Nervous system",
+              "Circulatory system",
+              "Respiratory system",
+              "Digestive system"
+            ],
             "correct_answer": "Nervous system"
           },
           {
             "question": "Where does BLOOD GO after leaving the heart through arteries?",
-            "options": ["To the body's organs and tissues", "Back to the heart through veins", "To the lungs for oxygen only", "To the kidneys for filtering"],
+            "options": [
+              "To the body's organs and tissues",
+              "Back to the heart through veins",
+              "To the lungs for oxygen only",
+              "To the kidneys for filtering"
+            ],
             "correct_answer": "To the body's organs and tissues"
           },
           {
             "question": "The ALVEOLI are in which organ?",
-            "options": ["Lungs", "Heart", "Stomach", "Kidneys"],
+            "options": [
+              "Lungs",
+              "Heart",
+              "Stomach",
+              "Kidneys"
+            ],
             "correct_answer": "Lungs"
           },
           {
             "question": "What does the MITOCHONDRIA do?",
-            "options": ["Produces energy (ATP) for the cell", "Controls all activities of the cell", "Protects the cell from outside", "Helps the cell move around"],
+            "options": [
+              "Produces energy (ATP) for the cell",
+              "Controls all activities of the cell",
+              "Protects the cell from outside",
+              "Helps the cell move around"
+            ],
             "correct_answer": "Produces energy (ATP) for the cell"
           },
           {
             "question": "Which organ FILTERS waste from the blood?",
-            "options": ["Kidneys", "Heart", "Lungs", "Stomach"],
+            "options": [
+              "Kidneys",
+              "Heart",
+              "Lungs",
+              "Stomach"
+            ],
             "correct_answer": "Kidneys"
           },
           {
             "question": "In which organ does most DIGESTION and ABSORPTION happen?",
-            "options": ["Small intestine", "Large intestine", "Stomach", "Esophagus"],
+            "options": [
+              "Small intestine",
+              "Large intestine",
+              "Stomach",
+              "Esophagus"
+            ],
             "correct_answer": "Small intestine"
+          },
+          {
+            "question": "What is the correct order of body organization from smallest to largest?",
+            "options": [
+              "Cell → Tissue → Organ → System → Organism",
+              "Organism → System → Organ → Tissue → Cell",
+              "Tissue → Cell → Organ → System → Organism",
+              "Organ → Cell → Tissue → System → Organism"
+            ],
+            "correct_answer": "Cell → Tissue → Organ → System → Organism"
+          },
+          {
+            "question": "Which organ produces BILE to help digest fats?",
+            "options": [
+              "Liver",
+              "Stomach",
+              "Pancreas",
+              "Kidneys"
+            ],
+            "correct_answer": "Liver"
+          },
+          {
+            "question": "The DIAPHRAGM is a dome-shaped muscle that helps with ___.",
+            "options": [
+              "Breathing (respiratory system)",
+              "Pumping blood (circulatory system)",
+              "Digesting food (digestive system)",
+              "Filtering waste (excretory system)"
+            ],
+            "correct_answer": "Breathing (respiratory system)"
+          },
+          {
+            "question": "CAPILLARIES are the smallest blood vessels. Their function is to ___.",
+            "options": [
+              "Exchange oxygen and nutrients between blood and cells",
+              "Carry blood away from the heart",
+              "Return blood back to the heart",
+              "Pump blood throughout the body"
+            ],
+            "correct_answer": "Exchange oxygen and nutrients between blood and cells"
           }
         ]
       },
@@ -556,43 +1516,123 @@
         "quiz": [
           {
             "question": "Kailan itinatag ang ASEAN?",
-            "options": ["Agosto 8, 1967", "Hulyo 4, 1946", "Hunyo 12, 1898", "Agosto 8, 1972"],
+            "options": [
+              "Agosto 8, 1967",
+              "Hulyo 4, 1946",
+              "Hunyo 12, 1898",
+              "Agosto 8, 1972"
+            ],
             "correct_answer": "Agosto 8, 1967"
           },
           {
             "question": "Ano ang negatibong epekto ng globalisasyon?",
-            "options": ["Maaaring mawala ang lokal na industriya", "Mas maraming trabaho sa bansa", "Mas mababang presyo ng produkto", "Mas maraming pagkakataon sa edukasyon"],
+            "options": [
+              "Maaaring mawala ang lokal na industriya",
+              "Mas maraming trabaho sa bansa",
+              "Mas mababang presyo ng produkto",
+              "Mas maraming pagkakataon sa edukasyon"
+            ],
             "correct_answer": "Maaaring mawala ang lokal na industriya"
           },
           {
             "question": "Ang Pilipinas ay isang founding member ng ASEAN. Ibig sabihin nito, ang Pilipinas ay ___.",
-            "options": ["Isa sa mga unang nagtatag ng ASEAN", "Pinaka-bagong miyembro ng ASEAN", "Kasalukuyang pangulo ng ASEAN", "Hindi kasali sa pagtatag ng ASEAN"],
+            "options": [
+              "Isa sa mga unang nagtatag ng ASEAN",
+              "Pinaka-bagong miyembro ng ASEAN",
+              "Kasalukuyang pangulo ng ASEAN",
+              "Hindi kasali sa pagtatag ng ASEAN"
+            ],
             "correct_answer": "Isa sa mga unang nagtatag ng ASEAN"
           },
           {
             "question": "Ano ang ibig sabihin ng \"import\"?",
-            "options": ["Pagbili ng produkto mula sa ibang bansa", "Pagbebenta ng produkto sa ibang bansa", "Paggawa ng produkto sa sariling bansa", "Pag-aalis ng produkto mula sa merkado"],
+            "options": [
+              "Pagbili ng produkto mula sa ibang bansa",
+              "Pagbebenta ng produkto sa ibang bansa",
+              "Paggawa ng produkto sa sariling bansa",
+              "Pag-aalis ng produkto mula sa merkado"
+            ],
             "correct_answer": "Pagbili ng produkto mula sa ibang bansa"
           },
           {
             "question": "Ilan ang kasalukuyang miyembro ng ASEAN?",
-            "options": ["10", "8", "11", "12"],
+            "options": [
+              "10",
+              "8",
+              "11",
+              "12"
+            ],
             "correct_answer": "10"
           },
           {
             "question": "Ang ASEAN Economic Community (AEC) ay nagtataguyod ng ___.",
-            "options": ["Mas malayag na kalakalan sa loob ng ASEAN", "Pagtatayo ng iisang pamahalaan sa ASEAN", "Pagtatayo ng military alliance sa ASEAN", "Pag-alis ng lahat ng buwis sa buong mundo"],
+            "options": [
+              "Mas malayag na kalakalan sa loob ng ASEAN",
+              "Pagtatayo ng iisang pamahalaan sa ASEAN",
+              "Pagtatayo ng military alliance sa ASEAN",
+              "Pag-alis ng lahat ng buwis sa buong mundo"
+            ],
             "correct_answer": "Mas malayag na kalakalan sa loob ng ASEAN"
           },
           {
             "question": "Ano ang ASEAN Charter?",
-            "options": ["Pormal na dokumento ng mga alituntunin ng ASEAN", "Pangalan ng punong opisyal ng ASEAN", "Salaping ginagamit ng mga miyembro ng ASEAN", "Lugar ng tanggapan ng ASEAN"],
+            "options": [
+              "Pormal na dokumento ng mga alituntunin ng ASEAN",
+              "Pangalan ng punong opisyal ng ASEAN",
+              "Salaping ginagamit ng mga miyembro ng ASEAN",
+              "Lugar ng tanggapan ng ASEAN"
+            ],
             "correct_answer": "Pormal na dokumento ng mga alituntunin ng ASEAN"
           },
           {
             "question": "Alin ang positibong epekto ng globalisasyon sa Pilipinas?",
-            "options": ["Mas maraming trabaho at oportunidad para sa mga Pilipino", "Pagkawala ng lahat ng lokal na produkto", "Paglaganap ng mapanganib na kulturang dayuhan", "Pagbaba ng kalidad ng edukasyon sa bansa"],
+            "options": [
+              "Mas maraming trabaho at oportunidad para sa mga Pilipino",
+              "Pagkawala ng lahat ng lokal na produkto",
+              "Paglaganap ng mapanganib na kulturang dayuhan",
+              "Pagbaba ng kalidad ng edukasyon sa bansa"
+            ],
             "correct_answer": "Mas maraming trabaho at oportunidad para sa mga Pilipino"
+          },
+          {
+            "question": "Ang \"trade deficit\" ay nangangahulugang ___.",
+            "options": [
+              "Mas maraming import kaysa export",
+              "Mas maraming export kaysa import",
+              "Pantay ang import at export",
+              "Walang import o export"
+            ],
+            "correct_answer": "Mas maraming import kaysa export"
+          },
+          {
+            "question": "Alin ang dahilan kung bakit sumali ang Pilipinas sa ASEAN?",
+            "options": [
+              "Para sa kapayapaan, katatagan, at pang-ekonomiyang pag-unlad",
+              "Para makontrol ang ibang bansa sa Southeast Asia",
+              "Para maging pinakamalakas na bansa sa rehiyon",
+              "Para iwasan ang lahat ng dayuhang impluwensiya"
+            ],
+            "correct_answer": "Para sa kapayapaan, katatagan, at pang-ekonomiyang pag-unlad"
+          },
+          {
+            "question": "Ang WTO (World Trade Organization) ay ___.",
+            "options": [
+              "Pandaigdigang organisasyon na namamahala ng mga patakaran sa kalakalan",
+              "Pangulo ng ASEAN Economic Community",
+              "Bangko ng ASEAN para sa mga miyembro",
+              "Military alliance ng mga bansang ASEAN"
+            ],
+            "correct_answer": "Pandaigdigang organisasyon na namamahala ng mga patakaran sa kalakalan"
+          },
+          {
+            "question": "Ano ang epekto ng globalisasyon sa wikang Filipino?",
+            "options": [
+              "Mas maraming Ingles na salita ang pumapasok sa wikang Filipino",
+              "Nawawala na ang wikang Filipino dahil sa globalisasyon",
+              "Walang anumang epekto ang globalisasyon sa wika",
+              "Ang Filipino ang naging opisyal na wika ng buong mundo"
+            ],
+            "correct_answer": "Mas maraming Ingles na salita ang pumapasok sa wikang Filipino"
           }
         ]
       },
@@ -601,43 +1641,123 @@
         "quiz": [
           {
             "question": "What does =IF(A1>=90, \"Excellent\", \"Good\") show when A1=95?",
-            "options": ["Excellent", "Good", "95", "Error"],
+            "options": [
+              "Excellent",
+              "Good",
+              "95",
+              "Error"
+            ],
             "correct_answer": "Excellent"
           },
           {
             "question": "What is a RELATIVE cell reference?",
-            "options": ["A reference that changes when formula is copied (A1)", "A reference that stays fixed when copied ($A$1)", "A reference to another spreadsheet", "A reference that cannot be used in formulas"],
+            "options": [
+              "A reference that changes when formula is copied (A1)",
+              "A reference that stays fixed when copied ($A$1)",
+              "A reference to another spreadsheet",
+              "A reference that cannot be used in formulas"
+            ],
             "correct_answer": "A reference that changes when formula is copied (A1)"
           },
           {
             "question": "The search \"dogs AND cats\" will find pages that ___.",
-            "options": ["Have BOTH dogs and cats", "Have either dogs or cats", "Exclude dogs from results", "Show only cat-related results"],
+            "options": [
+              "Have BOTH dogs and cats",
+              "Have either dogs or cats",
+              "Exclude dogs from results",
+              "Show only cat-related results"
+            ],
             "correct_answer": "Have BOTH dogs and cats"
           },
           {
             "question": "What is MALWARE?",
-            "options": ["Harmful software that damages or steals data", "A security feature of web browsers", "A type of spreadsheet formula", "A safe file-sharing method"],
+            "options": [
+              "Harmful software that damages or steals data",
+              "A security feature of web browsers",
+              "A type of spreadsheet formula",
+              "A safe file-sharing method"
+            ],
             "correct_answer": "Harmful software that damages or steals data"
           },
           {
             "question": "In the CRAAP test, what does the 'A' for AUTHORITY check?",
-            "options": ["Who wrote the information and their credentials", "How accurate the information is", "How recent the information is", "Why the information was written"],
+            "options": [
+              "Who wrote the information and their credentials",
+              "How accurate the information is",
+              "How recent the information is",
+              "Why the information was written"
+            ],
             "correct_answer": "Who wrote the information and their credentials"
           },
           {
             "question": "What formula finds the MINIMUM value in B1 to B20?",
-            "options": ["=MIN(B1:B20)", "=MAX(B1:B20)", "=SUM(B1:B20)", "=COUNT(B1:B20)"],
+            "options": [
+              "=MIN(B1:B20)",
+              "=MAX(B1:B20)",
+              "=SUM(B1:B20)",
+              "=COUNT(B1:B20)"
+            ],
             "correct_answer": "=MIN(B1:B20)"
           },
           {
             "question": "What is TWO-FACTOR AUTHENTICATION?",
-            "options": ["An extra security step beyond just a password", "Using two passwords at the same time", "A method to share files securely", "A spreadsheet with two formula types"],
+            "options": [
+              "An extra security step beyond just a password",
+              "Using two passwords at the same time",
+              "A method to share files securely",
+              "A spreadsheet with two formula types"
+            ],
             "correct_answer": "An extra security step beyond just a password"
           },
           {
             "question": "Which is an example of good digital citizenship?",
-            "options": ["Always giving credit when using others' work", "Sharing someone's personal photo without asking", "Clicking all links in unknown emails", "Posting private information about others"],
+            "options": [
+              "Always giving credit when using others' work",
+              "Sharing someone's personal photo without asking",
+              "Clicking all links in unknown emails",
+              "Posting private information about others"
+            ],
             "correct_answer": "Always giving credit when using others' work"
+          },
+          {
+            "question": "What is the purpose of a FIREWALL?",
+            "options": [
+              "Blocks unauthorized access to your computer or network",
+              "Speeds up your internet connection",
+              "Organizes your files and folders",
+              "Creates automatic backups of your data"
+            ],
+            "correct_answer": "Blocks unauthorized access to your computer or network"
+          },
+          {
+            "question": "The formula =SUM(B2:B10) adds the values in ___.",
+            "options": [
+              "Cells B2 through B10",
+              "Only cells B2 and B10",
+              "All cells in column B",
+              "Cells in row 2 through row 10"
+            ],
+            "correct_answer": "Cells B2 through B10"
+          },
+          {
+            "question": "What does the 'P' in CRAAP test stand for?",
+            "options": [
+              "Purpose — why the information was created",
+              "Publication — where it was published",
+              "Proof — whether it has references",
+              "Popularity — how many people read it"
+            ],
+            "correct_answer": "Purpose — why the information was created"
+          },
+          {
+            "question": "Which is an example of ETHICAL behavior online?",
+            "options": [
+              "Asking permission before sharing someone's photo",
+              "Copying an article without crediting the author",
+              "Downloading movies from unofficial websites",
+              "Accessing another person's account without permission"
+            ],
+            "correct_answer": "Asking permission before sharing someone's photo"
           }
         ]
       },
@@ -646,43 +1766,123 @@
         "quiz": [
           {
             "question": "Which musical form follows AB pattern?",
-            "options": ["Binary form", "Ternary form", "Rondo form", "Sonata form"],
+            "options": [
+              "Binary form",
+              "Ternary form",
+              "Rondo form",
+              "Sonata form"
+            ],
             "correct_answer": "Binary form"
           },
           {
             "question": "Which composer belongs to the CLASSICAL period?",
-            "options": ["Mozart", "Bach", "Beethoven's late works", "Debussy"],
+            "options": [
+              "Mozart",
+              "Bach",
+              "Beethoven's late works",
+              "Debussy"
+            ],
             "correct_answer": "Mozart"
           },
           {
             "question": "Fernando Amorsolo is known for ___.",
-            "options": ["Depicting rural Filipino life in golden light", "The painting Spoliarium", "Kulintang music composition", "Kundiman songwriting"],
+            "options": [
+              "Depicting rural Filipino life in golden light",
+              "The painting Spoliarium",
+              "Kulintang music composition",
+              "Kundiman songwriting"
+            ],
             "correct_answer": "Depicting rural Filipino life in golden light"
           },
           {
             "question": "What is RONDALLA?",
-            "options": ["A Filipino stringed instrument ensemble", "A type of Philippine folk dance", "A traditional Filipino song form", "A percussion instrument from Mindanao"],
+            "options": [
+              "A Filipino stringed instrument ensemble",
+              "A type of Philippine folk dance",
+              "A traditional Filipino song form",
+              "A percussion instrument from Mindanao"
+            ],
             "correct_answer": "A Filipino stringed instrument ensemble"
           },
           {
             "question": "In volleyball, a player jumps and hits the ball hard downward over the net. This is called ___.",
-            "options": ["Spiking", "Serving", "Blocking", "Setting"],
+            "options": [
+              "Spiking",
+              "Serving",
+              "Blocking",
+              "Setting"
+            ],
             "correct_answer": "Spiking"
           },
           {
             "question": "Which is a healthy response to stress and anxiety?",
-            "options": ["Talking to a trusted adult or counselor", "Bottling up all your feelings alone", "Using alcohol or tobacco to relax", "Avoiding everyone around you"],
+            "options": [
+              "Talking to a trusted adult or counselor",
+              "Bottling up all your feelings alone",
+              "Using alcohol or tobacco to relax",
+              "Avoiding everyone around you"
+            ],
             "correct_answer": "Talking to a trusted adult or counselor"
           },
           {
             "question": "The musical form that follows ABA pattern is ___.",
-            "options": ["Ternary form", "Binary form", "Rondo form", "Theme and variations"],
+            "options": [
+              "Ternary form",
+              "Binary form",
+              "Rondo form",
+              "Theme and variations"
+            ],
             "correct_answer": "Ternary form"
           },
           {
             "question": "Which famous painting by Juan Luna is shown in the Philippine National Museum?",
-            "options": ["Spoliarium", "El Buen Pastor", "Parisian Life", "Tampuhan"],
+            "options": [
+              "Spoliarium",
+              "El Buen Pastor",
+              "Parisian Life",
+              "Tampuhan"
+            ],
             "correct_answer": "Spoliarium"
+          },
+          {
+            "question": "Fernando Amorsolo is known for painting ___.",
+            "options": [
+              "Rural Philippine life bathed in golden sunlight",
+              "Abstract geometric shapes and forms",
+              "Dark scenes of the Spanish colonial era",
+              "Modern urban landscapes of Manila"
+            ],
+            "correct_answer": "Rural Philippine life bathed in golden sunlight"
+          },
+          {
+            "question": "What is the pattern for RONDO form?",
+            "options": [
+              "ABACADA...",
+              "AABA",
+              "ABA",
+              "AB"
+            ],
+            "correct_answer": "ABACADA..."
+          },
+          {
+            "question": "Which health behavior PREVENTS communicable diseases?",
+            "options": [
+              "Frequent handwashing and proper hygiene",
+              "Avoiding all exercise and physical activity",
+              "Eating only processed and canned foods",
+              "Staying indoors all day every day"
+            ],
+            "correct_answer": "Frequent handwashing and proper hygiene"
+          },
+          {
+            "question": "In music, DYNAMICS refers to ___.",
+            "options": [
+              "How loud or soft the music is played",
+              "The speed or tempo of the music",
+              "The pattern of beats in the music",
+              "The pitch or key of the music"
+            ],
+            "correct_answer": "How loud or soft the music is played"
           }
         ]
       },
@@ -691,43 +1891,123 @@
         "quiz": [
           {
             "question": "Ano ang UDHR?",
-            "options": ["Universal Declaration of Human Rights", "United Democratic Human Rules", "Universal Department of Human Relations", "United Declaration on Human Reforms"],
+            "options": [
+              "Universal Declaration of Human Rights",
+              "United Democratic Human Rules",
+              "Universal Department of Human Relations",
+              "United Declaration on Human Reforms"
+            ],
             "correct_answer": "Universal Declaration of Human Rights"
           },
           {
             "question": "Alin ang karapatan ng bawat mamamayan?",
-            "options": ["Magaral at mabuhay nang may kalayaan", "Magmana ng milyun-milyon mula sa pamahalaan", "Hindi sumunod sa batas kapag gusto nila", "Magpataw ng batas sa ibang tao"],
+            "options": [
+              "Magaral at mabuhay nang may kalayaan",
+              "Magmana ng milyun-milyon mula sa pamahalaan",
+              "Hindi sumunod sa batas kapag gusto nila",
+              "Magpataw ng batas sa ibang tao"
+            ],
             "correct_answer": "Magaral at mabuhay nang may kalayaan"
           },
           {
             "question": "Ano ang tunay na nasyonalismo?",
-            "options": ["Paggawa ng nagpapaunlad sa bansa", "Pagsigaw ng \"Pilipino ako\" nang walang kilos", "Pagpapahalaga ng dayuhang produkto kaysa sarili", "Pag-alis ng bansa sa lahat ng global na usapan"],
+            "options": [
+              "Paggawa ng nagpapaunlad sa bansa",
+              "Pagsigaw ng \"Pilipino ako\" nang walang kilos",
+              "Pagpapahalaga ng dayuhang produkto kaysa sarili",
+              "Pag-alis ng bansa sa lahat ng global na usapan"
+            ],
             "correct_answer": "Paggawa ng nagpapaunlad sa bansa"
           },
           {
             "question": "Ano ang \"sustainable development\"?",
-            "options": ["Pagtupad ng pangangailangan ngayon nang hindi sinisira ang kinabukasan", "Paggamit ng lahat ng resources para sa kasalukuyan", "Pagtigil ng lahat ng industriya para sa kalikasan", "Pagtatayo ng mas maraming gusali at riles"],
+            "options": [
+              "Pagtupad ng pangangailangan ngayon nang hindi sinisira ang kinabukasan",
+              "Paggamit ng lahat ng resources para sa kasalukuyan",
+              "Pagtigil ng lahat ng industriya para sa kalikasan",
+              "Pagtatayo ng mas maraming gusali at riles"
+            ],
             "correct_answer": "Pagtupad ng pangangailangan ngayon nang hindi sinisira ang kinabukasan"
           },
           {
             "question": "Alin ang tungkulin ng mamamayang Pilipino?",
-            "options": ["Sumunod sa batas ng bansa", "Maghanap ng mas mabuting bansa para tumira", "Humingi ng exemption sa lahat ng buwis", "Tumangging lumahok sa mga halalan"],
+            "options": [
+              "Sumunod sa batas ng bansa",
+              "Maghanap ng mas mabuting bansa para tumira",
+              "Humingi ng exemption sa lahat ng buwis",
+              "Tumangging lumahok sa mga halalan"
+            ],
             "correct_answer": "Sumunod sa batas ng bansa"
           },
           {
             "question": "Ang \"social justice\" ay nangangahulugang ___.",
-            "options": ["Pantay na pagkakataon para sa lahat", "Mas mataas na karapatan para sa mahihirap", "Pagbibigay ng lahat sa iisang grupo", "Pagtanggal ng mga batas sa lipunan"],
+            "options": [
+              "Pantay na pagkakataon para sa lahat",
+              "Mas mataas na karapatan para sa mahihirap",
+              "Pagbibigay ng lahat sa iisang grupo",
+              "Pagtanggal ng mga batas sa lipunan"
+            ],
             "correct_answer": "Pantay na pagkakataon para sa lahat"
           },
           {
             "question": "Alin ang halimbawa ng \"diskriminasyon\"?",
-            "options": ["Pagtanggi sa isang tao dahil sa kanyang lahi", "Pagbibigay ng pantay na serbisyo sa lahat", "Paggalang sa karapatang pantao ng lahat", "Pagtulong sa mga nangangailangan"],
+            "options": [
+              "Pagtanggi sa isang tao dahil sa kanyang lahi",
+              "Pagbibigay ng pantay na serbisyo sa lahat",
+              "Paggalang sa karapatang pantao ng lahat",
+              "Pagtulong sa mga nangangailangan"
+            ],
             "correct_answer": "Pagtanggi sa isang tao dahil sa kanyang lahi"
           },
           {
             "question": "Bilang Grade 6, paano ka makakatulong sa iyong komunidad?",
-            "options": ["Pagiging responsable sa iyong mga aksyon at sa kalikasan", "Pananatili sa bahay at pag-iwas sa lahat ng responsibilidad", "Pag-asa sa gobyerno para sa lahat ng solusyon", "Pagtanggi sa lahat ng gawain na panlipunan"],
+            "options": [
+              "Pagiging responsable sa iyong mga aksyon at sa kalikasan",
+              "Pananatili sa bahay at pag-iwas sa lahat ng responsibilidad",
+              "Pag-asa sa gobyerno para sa lahat ng solusyon",
+              "Pagtanggi sa lahat ng gawain na panlipunan"
+            ],
             "correct_answer": "Pagiging responsable sa iyong mga aksyon at sa kalikasan"
+          },
+          {
+            "question": "What does \"pagiging Pilipino\" mean as a responsibility?",
+            "options": [
+              "Loving and actively contributing to the nation's progress",
+              "Only speaking Filipino at all times",
+              "Avoiding all foreign culture and influence",
+              "Memorizing all the national symbols"
+            ],
+            "correct_answer": "Loving and actively contributing to the nation's progress"
+          },
+          {
+            "question": "How is HUMAN RIGHTS different from PRIVILEGES?",
+            "options": [
+              "Human rights are universal and cannot be taken away; privileges can be revoked",
+              "Human rights can be taken away; privileges cannot be taken away",
+              "They are the same thing — both are universal",
+              "Privileges apply to all; human rights apply only to citizens"
+            ],
+            "correct_answer": "Human rights are universal and cannot be taken away; privileges can be revoked"
+          },
+          {
+            "question": "What is the role of YOUTH in sustainable development?",
+            "options": [
+              "Advocate for responsible use of resources and environmental care",
+              "Leave all environmental decisions to adults",
+              "Use as many resources as possible while young",
+              "Focus only on economic development, not environment"
+            ],
+            "correct_answer": "Advocate for responsible use of resources and environmental care"
+          },
+          {
+            "question": "\"Ang bawat tao ay may karapatang mabuhay.\" This reflects which principle?",
+            "options": [
+              "Human dignity and the right to life",
+              "Freedom of speech only",
+              "The right to own property",
+              "The right to vote in elections"
+            ],
+            "correct_answer": "Human dignity and the right to life"
           }
         ]
       }

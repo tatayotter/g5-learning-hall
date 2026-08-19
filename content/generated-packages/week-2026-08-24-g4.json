@@ -8,43 +8,123 @@
         "quiz": [
           {
             "question": "What is the CLIMAX of a story?",
-            "options": ["The most exciting turning point", "The very beginning scene", "The lesson learned at end", "The introduction of characters"],
+            "options": [
+              "The most exciting turning point",
+              "The very beginning scene",
+              "The lesson learned at end",
+              "The introduction of characters"
+            ],
             "correct_answer": "The most exciting turning point"
           },
           {
             "question": "The word \"benevolent\" appears in a sentence about a kind king who gave food to the poor. What does \"benevolent\" most likely mean?",
-            "options": ["Generous and kind-hearted", "Angry and powerful", "Lazy and uncaring", "Wealthy and powerful"],
+            "options": [
+              "Generous and kind-hearted",
+              "Angry and powerful",
+              "Lazy and uncaring",
+              "Wealthy and powerful"
+            ],
             "correct_answer": "Generous and kind-hearted"
           },
           {
             "question": "What is the THEME of a story?",
-            "options": ["The central message or lesson", "The time and place of the story", "The main character's name", "The problem the hero faces"],
+            "options": [
+              "The central message or lesson",
+              "The time and place of the story",
+              "The main character's name",
+              "The problem the hero faces"
+            ],
             "correct_answer": "The central message or lesson"
           },
           {
             "question": "Which sentence uses subject-verb agreement correctly?",
-            "options": ["The girls are singing.", "The girls is singing.", "The girls was singing.", "The girls be singing."],
+            "options": [
+              "The girls are singing.",
+              "The girls is singing.",
+              "The girls was singing.",
+              "The girls be singing."
+            ],
             "correct_answer": "The girls are singing."
           },
           {
             "question": "Which word is an abstract noun?",
-            "options": ["courage", "table", "Manila", "river"],
+            "options": [
+              "courage",
+              "table",
+              "Manila",
+              "river"
+            ],
             "correct_answer": "courage"
           },
           {
             "question": "\"Joy ran faster than Mia, but Lea ran the fastest.\" Which word is a superlative adjective?",
-            "options": ["fastest", "faster", "fast", "ran"],
+            "options": [
+              "fastest",
+              "faster",
+              "fast",
+              "ran"
+            ],
             "correct_answer": "fastest"
           },
           {
             "question": "What do signal words like \"first,\" \"next,\" and \"finally\" show in a paragraph?",
-            "options": ["The sequence of events", "The theme of the text", "The setting of the story", "The cause of a problem"],
+            "options": [
+              "The sequence of events",
+              "The theme of the text",
+              "The setting of the story",
+              "The cause of a problem"
+            ],
             "correct_answer": "The sequence of events"
           },
           {
             "question": "Which word is a collective noun?",
-            "options": ["flock", "bird", "fly", "feather"],
+            "options": [
+              "flock",
+              "bird",
+              "fly",
+              "feather"
+            ],
             "correct_answer": "flock"
+          },
+          {
+            "question": "What are CONTEXT CLUES?",
+            "options": [
+              "Words around an unknown word that help explain its meaning",
+              "Dictionary definitions of difficult words",
+              "Synonyms listed at the end of a book",
+              "Footnotes that explain grammar rules"
+            ],
+            "correct_answer": "Words around an unknown word that help explain its meaning"
+          },
+          {
+            "question": "Identify the SUBORDINATING CONJUNCTION: \"She stayed home because she was sick.\"",
+            "options": [
+              "because",
+              "she",
+              "stayed",
+              "sick"
+            ],
+            "correct_answer": "because"
+          },
+          {
+            "question": "\"The old, rusty bridge creaked loudly.\" How many adjectives are there?",
+            "options": [
+              "2 (old, rusty)",
+              "1 (old)",
+              "3 (old, rusty, loudly)",
+              "0"
+            ],
+            "correct_answer": "2 (old, rusty)"
+          },
+          {
+            "question": "The THEME of a story is ___.",
+            "options": [
+              "The central message or lesson",
+              "The main character's name",
+              "The setting of the story",
+              "The problem in the story"
+            ],
+            "correct_answer": "The central message or lesson"
           }
         ]
       },
@@ -53,43 +133,123 @@
         "quiz": [
           {
             "question": "What is the value of the digit 7 in 3,724,896?",
-            "options": ["700,000", "7,000,000", "70,000", "7,000"],
+            "options": [
+              "700,000",
+              "7,000,000",
+              "70,000",
+              "7,000"
+            ],
             "correct_answer": "700,000"
           },
           {
             "question": "Round 4,567 to the nearest thousand.",
-            "options": ["5,000", "4,000", "4,600", "4,500"],
+            "options": [
+              "5,000",
+              "4,000",
+              "4,600",
+              "4,500"
+            ],
             "correct_answer": "5,000"
           },
           {
             "question": "What is 23,456 + 18,744?",
-            "options": ["42,200", "41,200", "43,200", "42,100"],
+            "options": [
+              "42,200",
+              "41,200",
+              "43,200",
+              "42,100"
+            ],
             "correct_answer": "42,200"
           },
           {
             "question": "What is 75,000 − 38,462?",
-            "options": ["36,538", "37,538", "36,438", "35,538"],
+            "options": [
+              "36,538",
+              "37,538",
+              "36,438",
+              "35,538"
+            ],
             "correct_answer": "36,538"
           },
           {
             "question": "What is 345 × 24?",
-            "options": ["8,280", "8,180", "8,380", "8,080"],
+            "options": [
+              "8,280",
+              "8,180",
+              "8,380",
+              "8,080"
+            ],
             "correct_answer": "8,280"
           },
           {
             "question": "What is 1,848 ÷ 6?",
-            "options": ["308", "318", "298", "288"],
+            "options": [
+              "308",
+              "318",
+              "298",
+              "288"
+            ],
             "correct_answer": "308"
           },
           {
             "question": "A factory makes 1,250 toys per day. How many toys in 8 days?",
-            "options": ["10,000", "9,000", "10,500", "8,500"],
+            "options": [
+              "10,000",
+              "9,000",
+              "10,500",
+              "8,500"
+            ],
             "correct_answer": "10,000"
           },
           {
             "question": "Which shows 2,345,678 in word form?",
-            "options": ["Two million, three hundred forty-five thousand, six hundred seventy-eight", "Two thousand, three hundred forty-five million, six hundred seventy-eight", "Twenty-three million, four hundred fifty-six thousand, seventy-eight", "Two million, three hundred four-five thousand, sixty-seventy-eight"],
+            "options": [
+              "Two million, three hundred forty-five thousand, six hundred seventy-eight",
+              "Two thousand, three hundred forty-five million, six hundred seventy-eight",
+              "Twenty-three million, four hundred fifty-six thousand, seventy-eight",
+              "Two million, three hundred four-five thousand, sixty-seventy-eight"
+            ],
             "correct_answer": "Two million, three hundred forty-five thousand, six hundred seventy-eight"
+          },
+          {
+            "question": "What is 3,456 × 4?",
+            "options": [
+              "13,824",
+              "12,824",
+              "13,624",
+              "13,844"
+            ],
+            "correct_answer": "13,824"
+          },
+          {
+            "question": "What is the value of the digit 7 in 4,763,291?",
+            "options": [
+              "700,000",
+              "7,000",
+              "70,000",
+              "7,000,000"
+            ],
+            "correct_answer": "700,000"
+          },
+          {
+            "question": "Round 6,478 to the nearest THOUSAND.",
+            "options": [
+              "6,000",
+              "7,000",
+              "6,500",
+              "6,400"
+            ],
+            "correct_answer": "6,000"
+          },
+          {
+            "question": "What is 500,000 − 158,342?",
+            "options": [
+              "341,658",
+              "342,658",
+              "341,758",
+              "351,658"
+            ],
+            "correct_answer": "341,658"
           }
         ]
       }
@@ -100,43 +260,123 @@
         "quiz": [
           {
             "question": "Ano ang uri ng pangungusap na \"Tumakbo ang bata sa kalye\"?",
-            "options": ["Pasalaysay", "Patanong", "Pautos", "Padamdam"],
+            "options": [
+              "Pasalaysay",
+              "Patanong",
+              "Pautos",
+              "Padamdam"
+            ],
             "correct_answer": "Pasalaysay"
           },
           {
             "question": "Alin ang panlapi (prefix) na nagpapahiwatig ng nagaganap na kilos?",
-            "options": ["nag-", "ma-", "-in", "-an"],
+            "options": [
+              "nag-",
+              "ma-",
+              "-in",
+              "-an"
+            ],
             "correct_answer": "nag-"
           },
           {
             "question": "Sa pangungusap na \"Binilhan ni Lola ang aking kapatid ng regalo\", ano ang tuwirang layon?",
-            "options": ["regalo", "Lola", "kapatid", "binilhan"],
+            "options": [
+              "regalo",
+              "Lola",
+              "kapatid",
+              "binilhan"
+            ],
             "correct_answer": "regalo"
           },
           {
             "question": "Ano ang salitang-ugat ng salitang \"magluto\"?",
-            "options": ["luto", "mag", "magluto", "luto-an"],
+            "options": [
+              "luto",
+              "mag",
+              "magluto",
+              "luto-an"
+            ],
             "correct_answer": "luto"
           },
           {
             "question": "\"Huwag kang maingay sa klase!\" Ano ang uri ng pangungusap ito?",
-            "options": ["Pautos", "Pasalaysay", "Patanong", "Padamdam"],
+            "options": [
+              "Pautos",
+              "Pasalaysay",
+              "Patanong",
+              "Padamdam"
+            ],
             "correct_answer": "Pautos"
           },
           {
             "question": "Alin sa mga ito ang katangian ng maikling kwento?",
-            "options": ["Iisang pangyayari na may resolusyon", "Maraming tauhan at maraming suliranin", "Walang resolusyon sa katapusan", "Nagsasalaysay ng buhay ng isang tao"],
+            "options": [
+              "Iisang pangyayari na may resolusyon",
+              "Maraming tauhan at maraming suliranin",
+              "Walang resolusyon sa katapusan",
+              "Nagsasalaysay ng buhay ng isang tao"
+            ],
             "correct_answer": "Iisang pangyayari na may resolusyon"
           },
           {
             "question": "Anong panlapi ang idadagdag sa \"kain\" para maging \"pagkain\"?",
-            "options": ["pag-", "nag-", "-in", "ma-"],
+            "options": [
+              "pag-",
+              "nag-",
+              "-in",
+              "ma-"
+            ],
             "correct_answer": "pag-"
           },
           {
             "question": "Alin ang nagbibigay ng ritmo at talinghaga sa panitikan?",
-            "options": ["Tula", "Balita", "Talumpati", "Sanaysay"],
+            "options": [
+              "Tula",
+              "Balita",
+              "Talumpati",
+              "Sanaysay"
+            ],
             "correct_answer": "Tula"
+          },
+          {
+            "question": "Ano ang \"pokus ng pandiwa\"?",
+            "options": [
+              "Ang tauhang tinutukoy ng pandiwang ginagawa ang kilos",
+              "Ang lugar kung saan nagaganap ang kilos",
+              "Ang oras ng pangyayari ng kilos",
+              "Ang dahilan ng pagkilos ng tauhan"
+            ],
+            "correct_answer": "Ang tauhang tinutukoy ng pandiwang ginagawa ang kilos"
+          },
+          {
+            "question": "Sa pangungusap na \"Binili ni Lea ang aklat,\" ano ang pokus?",
+            "options": [
+              "Binibili (object focus)",
+              "Actor focus",
+              "Locative focus",
+              "Benefactive focus"
+            ],
+            "correct_answer": "Binibili (object focus)"
+          },
+          {
+            "question": "Alin ang uri ng pangungusap ayon sa layunin: \"Ano ang pangalan mo?\"",
+            "options": [
+              "Patanong",
+              "Pasalaysay",
+              "Padamdam",
+              "Paukol"
+            ],
+            "correct_answer": "Patanong"
+          },
+          {
+            "question": "\"Nakakatuwa ang palabas!\" — ito ay anong uri ng pangungusap?",
+            "options": [
+              "Padamdam",
+              "Pasalaysay",
+              "Patanong",
+              "Pautós"
+            ],
+            "correct_answer": "Padamdam"
           }
         ]
       },
@@ -145,43 +385,123 @@
         "quiz": [
           {
             "question": "Which state of matter has a definite shape and volume?",
-            "options": ["Solid", "Liquid", "Gas", "Plasma"],
+            "options": [
+              "Solid",
+              "Liquid",
+              "Gas",
+              "Plasma"
+            ],
             "correct_answer": "Solid"
           },
           {
             "question": "Salt water is an example of a ___.",
-            "options": ["homogeneous mixture", "solid substance", "pure element", "heterogeneous mixture"],
+            "options": [
+              "homogeneous mixture",
+              "solid substance",
+              "pure element",
+              "heterogeneous mixture"
+            ],
             "correct_answer": "homogeneous mixture"
           },
           {
             "question": "An object sinks in water. This means the object is ___ than water.",
-            "options": ["denser", "lighter", "smaller", "smoother"],
+            "options": [
+              "denser",
+              "lighter",
+              "smaller",
+              "smoother"
+            ],
             "correct_answer": "denser"
           },
           {
             "question": "Which is an example of a PHYSICAL change?",
-            "options": ["Melting ice into water", "Burning paper to ash", "Rusting of an iron nail", "Baking a raw egg"],
+            "options": [
+              "Melting ice into water",
+              "Burning paper to ash",
+              "Rusting of an iron nail",
+              "Baking a raw egg"
+            ],
             "correct_answer": "Melting ice into water"
           },
           {
             "question": "Which is an example of a CHEMICAL change?",
-            "options": ["Rusting of an iron nail", "Melting of butter", "Dissolving sugar in water", "Cutting paper into pieces"],
+            "options": [
+              "Rusting of an iron nail",
+              "Melting of butter",
+              "Dissolving sugar in water",
+              "Cutting paper into pieces"
+            ],
             "correct_answer": "Rusting of an iron nail"
           },
           {
             "question": "Which method can separate sand from water?",
-            "options": ["Filtering", "Evaporation", "Using a magnet", "Decanting only"],
+            "options": [
+              "Filtering",
+              "Evaporation",
+              "Using a magnet",
+              "Decanting only"
+            ],
             "correct_answer": "Filtering"
           },
           {
             "question": "Which property of matter describes whether a material can carry electricity?",
-            "options": ["Conductivity", "Solubility", "Flexibility", "Density"],
+            "options": [
+              "Conductivity",
+              "Solubility",
+              "Flexibility",
+              "Density"
+            ],
             "correct_answer": "Conductivity"
           },
           {
             "question": "Steam is water in which state of matter?",
-            "options": ["Gas", "Liquid", "Solid", "Plasma"],
+            "options": [
+              "Gas",
+              "Liquid",
+              "Solid",
+              "Plasma"
+            ],
             "correct_answer": "Gas"
+          },
+          {
+            "question": "What is a MIXTURE?",
+            "options": [
+              "Two or more substances combined but not chemically joined",
+              "A single pure substance",
+              "A liquid that has been boiled",
+              "Two substances that react to form a new substance"
+            ],
+            "correct_answer": "Two or more substances combined but not chemically joined"
+          },
+          {
+            "question": "Which state of matter has a DEFINITE shape and volume?",
+            "options": [
+              "Solid",
+              "Liquid",
+              "Gas",
+              "Plasma"
+            ],
+            "correct_answer": "Solid"
+          },
+          {
+            "question": "What happens during EVAPORATION?",
+            "options": [
+              "Liquid changes to gas",
+              "Gas changes to liquid",
+              "Solid changes to liquid",
+              "Liquid changes to solid"
+            ],
+            "correct_answer": "Liquid changes to gas"
+          },
+          {
+            "question": "Filtering dirty water is an example of ___ a mixture.",
+            "options": [
+              "separating",
+              "mixing",
+              "reacting",
+              "burning"
+            ],
+            "correct_answer": "separating"
           }
         ]
       }
@@ -192,43 +512,123 @@
         "quiz": [
           {
             "question": "Ilang pulo ang bumubuo sa Pilipinas?",
-            "options": ["7,641", "7,107", "7,461", "7,000"],
+            "options": [
+              "7,641",
+              "7,107",
+              "7,461",
+              "7,000"
+            ],
             "correct_answer": "7,641"
           },
           {
             "question": "Alin ang pinakamalaking rehiyon ng Pilipinas?",
-            "options": ["Luzon", "Visayas", "Mindanao", "Palawan"],
+            "options": [
+              "Luzon",
+              "Visayas",
+              "Mindanao",
+              "Palawan"
+            ],
             "correct_answer": "Luzon"
           },
           {
             "question": "Ano ang uri ng klima sa Pilipinas?",
-            "options": ["Tropikal", "Arktiko", "Deserto", "Temperate"],
+            "options": [
+              "Tropikal",
+              "Arktiko",
+              "Deserto",
+              "Temperate"
+            ],
             "correct_answer": "Tropikal"
           },
           {
             "question": "Alin ang halimbawa ng likas na yamang mineral ng Pilipinas?",
-            "options": ["Ginto at pilak", "Palay at mais", "Saging at niyog", "Baboy at manok"],
+            "options": [
+              "Ginto at pilak",
+              "Palay at mais",
+              "Saging at niyog",
+              "Baboy at manok"
+            ],
             "correct_answer": "Ginto at pilak"
           },
           {
             "question": "Ano ang \"bayanihan\" sa kulturang Pilipino?",
-            "options": ["Tradisyon ng pagtutulungan ng komunidad", "Uri ng pagkain sa Pilipinas", "Pambansang sayaw ng Pilipinas", "Tawag sa Pilipinong manggagawa"],
+            "options": [
+              "Tradisyon ng pagtutulungan ng komunidad",
+              "Uri ng pagkain sa Pilipinas",
+              "Pambansang sayaw ng Pilipinas",
+              "Tawag sa Pilipinong manggagawa"
+            ],
             "correct_answer": "Tradisyon ng pagtutulungan ng komunidad"
           },
           {
             "question": "Ang Dagat Tsina sa Timog ay nasa aling panig ng Pilipinas?",
-            "options": ["Kanluran", "Silangan", "Hilaga", "Timog"],
+            "options": [
+              "Kanluran",
+              "Silangan",
+              "Hilaga",
+              "Timog"
+            ],
             "correct_answer": "Kanluran"
           },
           {
             "question": "Ano ang pangunahing pananim sa Pilipinas?",
-            "options": ["Palay", "Trigo", "Mais lamang", "Saging lamang"],
+            "options": [
+              "Palay",
+              "Trigo",
+              "Mais lamang",
+              "Saging lamang"
+            ],
             "correct_answer": "Palay"
           },
           {
             "question": "Ano ang pinakamataas na bilang ng grupong etniko sa Pilipinas?",
-            "options": ["Higit sa 175", "Eksaktong 50", "Higit sa 1,000", "Eksaktong 25"],
+            "options": [
+              "Higit sa 175",
+              "Eksaktong 50",
+              "Higit sa 1,000",
+              "Eksaktong 25"
+            ],
             "correct_answer": "Higit sa 175"
+          },
+          {
+            "question": "Ang Pilipinas ay bahagi ng anong rehiyon sa Asya?",
+            "options": [
+              "Timog-Silangang Asya",
+              "Silangang Asya",
+              "Gitnang Asya",
+              "Katimugang Asya"
+            ],
+            "correct_answer": "Timog-Silangang Asya"
+          },
+          {
+            "question": "Ang pangunahing produktong pang-export ng Pilipinas ay?",
+            "options": [
+              "Mga electronic products",
+              "Langis",
+              "Wheat",
+              "Bakal"
+            ],
+            "correct_answer": "Mga electronic products"
+          },
+          {
+            "question": "Sino ang nagtatag ng Maynila noong 1571?",
+            "options": [
+              "Miguel Lopez de Legazpi",
+              "Ferdinand Magellan",
+              "Jose Rizal",
+              "Andres Bonifacio"
+            ],
+            "correct_answer": "Miguel Lopez de Legazpi"
+          },
+          {
+            "question": "Anong likas na yaman ang maraming makikita sa mga katubigan ng Pilipinas?",
+            "options": [
+              "Isda at iba pang seafood",
+              "Langis at gas",
+              "Ginto at pilak",
+              "Coal at karbon"
+            ],
+            "correct_answer": "Isda at iba pang seafood"
           }
         ]
       },
@@ -237,43 +637,123 @@
         "quiz": [
           {
             "question": "What keyboard shortcut makes text BOLD?",
-            "options": ["Ctrl + B", "Ctrl + I", "Ctrl + U", "Ctrl + S"],
+            "options": [
+              "Ctrl + B",
+              "Ctrl + I",
+              "Ctrl + U",
+              "Ctrl + S"
+            ],
             "correct_answer": "Ctrl + B"
           },
           {
             "question": "What is the difference between hardware and software?",
-            "options": ["Hardware is physical; software is programs", "Hardware is programs; software is physical", "They are both the same thing", "Hardware runs the internet only"],
+            "options": [
+              "Hardware is physical; software is programs",
+              "Hardware is programs; software is physical",
+              "They are both the same thing",
+              "Hardware runs the internet only"
+            ],
             "correct_answer": "Hardware is physical; software is programs"
           },
           {
             "question": "Which of these is an Internet Safety rule?",
-            "options": ["Never share personal info online", "Tell everyone your home address", "Click on all links you see", "Share your password with friends"],
+            "options": [
+              "Never share personal info online",
+              "Tell everyone your home address",
+              "Click on all links you see",
+              "Share your password with friends"
+            ],
             "correct_answer": "Never share personal info online"
           },
           {
             "question": "What does Ctrl + P do in a word processor?",
-            "options": ["Opens the print dialog", "Saves the document", "Makes text italic", "Copies selected text"],
+            "options": [
+              "Opens the print dialog",
+              "Saves the document",
+              "Makes text italic",
+              "Copies selected text"
+            ],
             "correct_answer": "Opens the print dialog"
           },
           {
             "question": "What is an operating system?",
-            "options": ["Software that manages all programs", "A type of keyboard shortcut", "A website on the internet", "A printing device feature"],
+            "options": [
+              "Software that manages all programs",
+              "A type of keyboard shortcut",
+              "A website on the internet",
+              "A printing device feature"
+            ],
             "correct_answer": "Software that manages all programs"
           },
           {
             "question": "What tool do you use to SEARCH for information on the Internet?",
-            "options": ["Search engine", "Word processor", "Spreadsheet", "Operating system"],
+            "options": [
+              "Search engine",
+              "Word processor",
+              "Spreadsheet",
+              "Operating system"
+            ],
             "correct_answer": "Search engine"
           },
           {
             "question": "Which text alignment puts text in the CENTER of the page?",
-            "options": ["Center alignment", "Left alignment", "Right alignment", "Justify alignment"],
+            "options": [
+              "Center alignment",
+              "Left alignment",
+              "Right alignment",
+              "Justify alignment"
+            ],
             "correct_answer": "Center alignment"
           },
           {
             "question": "What is cyberbullying?",
-            "options": ["Bullying someone online or through devices", "A computer virus program", "A type of online game", "A safe way to share files"],
+            "options": [
+              "Bullying someone online or through devices",
+              "A computer virus program",
+              "A type of online game",
+              "A safe way to share files"
+            ],
             "correct_answer": "Bullying someone online or through devices"
+          },
+          {
+            "question": "What is the difference between SAVE and SAVE AS?",
+            "options": [
+              "Save overwrites the current file; Save As creates a new copy",
+              "Save creates a new copy; Save As overwrites",
+              "They do the same thing",
+              "Save prints the file; Save As sends it by email"
+            ],
+            "correct_answer": "Save overwrites the current file; Save As creates a new copy"
+          },
+          {
+            "question": "What is INTERNET SAFETY?",
+            "options": [
+              "Protecting yourself from online dangers and threats",
+              "Using the internet only for games",
+              "Downloading free software from any site",
+              "Sharing your password with close friends"
+            ],
+            "correct_answer": "Protecting yourself from online dangers and threats"
+          },
+          {
+            "question": "Which is a sign of a RELIABLE website?",
+            "options": [
+              "Has an https:// address and known organization",
+              "Has many pop-up advertisements",
+              "Is very colorful and fun to look at",
+              "Can be edited by anyone"
+            ],
+            "correct_answer": "Has an https:// address and known organization"
+          },
+          {
+            "question": "What does the CURSOR (blinking line) in a text document show?",
+            "options": [
+              "Where the next character you type will appear",
+              "The end of the document",
+              "The title of the document",
+              "Where you should save the file"
+            ],
+            "correct_answer": "Where the next character you type will appear"
           }
         ]
       }
@@ -284,43 +764,123 @@
         "quiz": [
           {
             "question": "What is the TEMPO of music?",
-            "options": ["The speed of the music", "The loudness of the music", "The pitch of the notes", "The rhythm pattern used"],
+            "options": [
+              "The speed of the music",
+              "The loudness of the music",
+              "The pitch of the notes",
+              "The rhythm pattern used"
+            ],
             "correct_answer": "The speed of the music"
           },
           {
             "question": "What does \"forte\" mean in music?",
-            "options": ["Loud", "Soft", "Fast", "Slow"],
+            "options": [
+              "Loud",
+              "Soft",
+              "Fast",
+              "Slow"
+            ],
             "correct_answer": "Loud"
           },
           {
             "question": "Which component of fitness does RUNNING improve the most?",
-            "options": ["Cardiovascular endurance", "Muscular strength", "Flexibility", "Body composition"],
+            "options": [
+              "Cardiovascular endurance",
+              "Muscular strength",
+              "Flexibility",
+              "Body composition"
+            ],
             "correct_answer": "Cardiovascular endurance"
           },
           {
             "question": "What is PITCH in music?",
-            "options": ["How high or low a note sounds", "The speed of the song", "The volume of the music", "The beat pattern used"],
+            "options": [
+              "How high or low a note sounds",
+              "The speed of the song",
+              "The volume of the music",
+              "The beat pattern used"
+            ],
             "correct_answer": "How high or low a note sounds"
           },
           {
             "question": "Which activity BEST improves FLEXIBILITY?",
-            "options": ["Stretching exercises", "Running long distance", "Lifting heavy weights", "Doing push-ups daily"],
+            "options": [
+              "Stretching exercises",
+              "Running long distance",
+              "Lifting heavy weights",
+              "Doing push-ups daily"
+            ],
             "correct_answer": "Stretching exercises"
           },
           {
             "question": "What is TIMBRE in music?",
-            "options": ["The unique sound quality of an instrument", "The speed of a song's beat", "The highest note in a melody", "The loudness of a performance"],
+            "options": [
+              "The unique sound quality of an instrument",
+              "The speed of a song's beat",
+              "The highest note in a melody",
+              "The loudness of a performance"
+            ],
             "correct_answer": "The unique sound quality of an instrument"
           },
           {
             "question": "Which is an example of a Philippine folk song?",
-            "options": ["Bahay Kubo", "Twinkle Twinkle", "London Bridge", "Mary Had a Lamb"],
+            "options": [
+              "Bahay Kubo",
+              "Twinkle Twinkle",
+              "London Bridge",
+              "Mary Had a Lamb"
+            ],
             "correct_answer": "Bahay Kubo"
           },
           {
             "question": "Which component of fitness does doing SIT-UPS improve?",
-            "options": ["Muscular endurance", "Cardiovascular endurance", "Flexibility", "Body composition"],
+            "options": [
+              "Muscular endurance",
+              "Cardiovascular endurance",
+              "Flexibility",
+              "Body composition"
+            ],
             "correct_answer": "Muscular endurance"
+          },
+          {
+            "question": "Which component of fitness measures how far you can reach?",
+            "options": [
+              "Flexibility",
+              "Strength",
+              "Speed",
+              "Endurance"
+            ],
+            "correct_answer": "Flexibility"
+          },
+          {
+            "question": "What is RHYTHM in music?",
+            "options": [
+              "The pattern of beats and sounds in music",
+              "How high or low a sound is",
+              "How loud or soft music is",
+              "The speed of the music"
+            ],
+            "correct_answer": "The pattern of beats and sounds in music"
+          },
+          {
+            "question": "What is a WARM-UP exercise for?",
+            "options": [
+              "Prepare the body and reduce risk of injury",
+              "Make you sweat more quickly",
+              "Replace the main workout",
+              "Cool down after exercise"
+            ],
+            "correct_answer": "Prepare the body and reduce risk of injury"
+          },
+          {
+            "question": "The ELEMENTS of art include ___.",
+            "options": [
+              "Line, color, shape, texture, form",
+              "Balance, unity, emphasis, harmony",
+              "Running, jumping, throwing, catching",
+              "Do, Re, Mi, Fa, Sol, La, Ti"
+            ],
+            "correct_answer": "Line, color, shape, texture, form"
           }
         ]
       },
@@ -329,43 +889,123 @@
         "quiz": [
           {
             "question": "Ano ang \"katapatan\" sa wikang Ingles?",
-            "options": ["Honesty", "Respect", "Courage", "Patience"],
+            "options": [
+              "Honesty",
+              "Respect",
+              "Courage",
+              "Patience"
+            ],
             "correct_answer": "Honesty"
           },
           {
             "question": "Alin ang nagpapakita ng tunay na responsibilidad?",
-            "options": ["Ginagawa ang takdang-aralin nang walang paalala", "Ginagawa ang aralin kapag sinabi ng guro", "Ginagawa ang aralin kapag may gantimpala", "Hindi ginagawa ang aralin kapag pagod"],
+            "options": [
+              "Ginagawa ang takdang-aralin nang walang paalala",
+              "Ginagawa ang aralin kapag sinabi ng guro",
+              "Ginagawa ang aralin kapag may gantimpala",
+              "Hindi ginagawa ang aralin kapag pagod"
+            ],
             "correct_answer": "Ginagawa ang takdang-aralin nang walang paalala"
           },
           {
             "question": "Ano ang ibig sabihin ng \"kooperasyon\"?",
-            "options": ["Pagtutulungan para sa isang layunin", "Paglalaro nang mag-isa palagi", "Pagsasagawa ng trabaho para sa sarili", "Pagtanggap ng parangal mula sa iba"],
+            "options": [
+              "Pagtutulungan para sa isang layunin",
+              "Paglalaro nang mag-isa palagi",
+              "Pagsasagawa ng trabaho para sa sarili",
+              "Pagtanggap ng parangal mula sa iba"
+            ],
             "correct_answer": "Pagtutulungan para sa isang layunin"
           },
           {
             "question": "Alin ang halimbawa ng pagiging mapagmalasakit?",
-            "options": ["Pagtulong sa nangangailangan", "Pagkuha ng pinaka-malaking bahagi", "Pag-iwas sa mga mahihirapan", "Pagbibigay ng payo nang walang kilos"],
+            "options": [
+              "Pagtulong sa nangangailangan",
+              "Pagkuha ng pinaka-malaking bahagi",
+              "Pag-iwas sa mga mahihirapan",
+              "Pagbibigay ng payo nang walang kilos"
+            ],
             "correct_answer": "Pagtulong sa nangangailangan"
           },
           {
             "question": "Bakit sinasabing ang pamilya ang pinakamahalagang grupo?",
-            "options": ["Dito nagsisimula ang ating pagpapahalaga", "Sila ang nagbibigay ng pinakamataas na marka", "Sila ang pinakasikat sa komunidad", "Dito nakukuha ang pinaka-maraming pagkain"],
+            "options": [
+              "Dito nagsisimula ang ating pagpapahalaga",
+              "Sila ang nagbibigay ng pinakamataas na marka",
+              "Sila ang pinakasikat sa komunidad",
+              "Dito nakukuha ang pinaka-maraming pagkain"
+            ],
             "correct_answer": "Dito nagsisimula ang ating pagpapahalaga"
           },
           {
             "question": "Alin ang nagpapakita ng paggalang sa kapuwa?",
-            "options": ["Pakikinig nang mabuti habang nagsasalita ang iba", "Pagsalita nang malakas sa oras ng pagtitipon", "Pagtawid sa harapan ng nagsasalita", "Pagsasalita habang kumakain ang iba"],
+            "options": [
+              "Pakikinig nang mabuti habang nagsasalita ang iba",
+              "Pagsalita nang malakas sa oras ng pagtitipon",
+              "Pagtawid sa harapan ng nagsasalita",
+              "Pagsasalita habang kumakain ang iba"
+            ],
             "correct_answer": "Pakikinig nang mabuti habang nagsasalita ang iba"
           },
           {
             "question": "Ano ang kahulugan ng \"pakikiisa sa komunidad\"?",
-            "options": ["Aktibong paglahok sa mga gawaing pangkomunidad", "Pananatili sa bahay at pag-iwas sa komunidad", "Paggawa ng iyong sariling bagay palagi", "Pag-aalaga ng sariling pamilya lamang"],
+            "options": [
+              "Aktibong paglahok sa mga gawaing pangkomunidad",
+              "Pananatili sa bahay at pag-iwas sa komunidad",
+              "Paggawa ng iyong sariling bagay palagi",
+              "Pag-aalaga ng sariling pamilya lamang"
+            ],
             "correct_answer": "Aktibong paglahok sa mga gawaing pangkomunidad"
           },
           {
             "question": "Paano mo maipapakita ang pagmamahal sa iyong pamilya?",
-            "options": ["Pagtutulungan sa mga gawain sa bahay", "Paglalaro nang buong araw at gabi", "Pag-aaway sa mga kapatid palagi", "Pagtanggi sa mga iniuutos ng magulang"],
+            "options": [
+              "Pagtutulungan sa mga gawain sa bahay",
+              "Paglalaro nang buong araw at gabi",
+              "Pag-aaway sa mga kapatid palagi",
+              "Pagtanggi sa mga iniuutos ng magulang"
+            ],
             "correct_answer": "Pagtutulungan sa mga gawain sa bahay"
+          },
+          {
+            "question": "What is EMPATHY?",
+            "options": [
+              "The ability to understand and share the feelings of others",
+              "Feeling better than others around you",
+              "Ignoring others' problems to focus on yourself",
+              "Expressing your emotions loudly"
+            ],
+            "correct_answer": "The ability to understand and share the feelings of others"
+          },
+          {
+            "question": "A good community member ___.",
+            "options": [
+              "Follows rules and helps neighbors in need",
+              "Thinks only about personal gain",
+              "Avoids all community activities",
+              "Breaks rules when it is convenient"
+            ],
+            "correct_answer": "Follows rules and helps neighbors in need"
+          },
+          {
+            "question": "What does \"respect for differences\" mean?",
+            "options": [
+              "Accepting that people have different beliefs, cultures, and abilities",
+              "Everyone must think and act the same way",
+              "Only respecting people who are similar to you",
+              "Forcing others to follow your traditions"
+            ],
+            "correct_answer": "Accepting that people have different beliefs, cultures, and abilities"
+          },
+          {
+            "question": "Which is an example of GOOD VALUES in school?",
+            "options": [
+              "Being honest even when no one is watching",
+              "Cheating to get a higher grade",
+              "Bullying quieter classmates",
+              "Copying homework from friends"
+            ],
+            "correct_answer": "Being honest even when no one is watching"
           }
         ]
       }
@@ -376,43 +1016,123 @@
         "quiz": [
           {
             "question": "What is the RESOLUTION of a story?",
-            "options": ["How the conflict is solved", "The start of the story", "The most exciting moment", "Where the story takes place"],
+            "options": [
+              "How the conflict is solved",
+              "The start of the story",
+              "The most exciting moment",
+              "Where the story takes place"
+            ],
             "correct_answer": "How the conflict is solved"
           },
           {
             "question": "Which sentence has correct subject-verb agreement?",
-            "options": ["The children are playing.", "The children is playing.", "The children was playing.", "The children be playing."],
+            "options": [
+              "The children are playing.",
+              "The children is playing.",
+              "The children was playing.",
+              "The children be playing."
+            ],
             "correct_answer": "The children are playing."
           },
           {
             "question": "Which word is an abstract noun?",
-            "options": ["freedom", "chair", "Davao", "ocean"],
+            "options": [
+              "freedom",
+              "chair",
+              "Davao",
+              "ocean"
+            ],
             "correct_answer": "freedom"
           },
           {
             "question": "\"Joy ran faster, but Lea ran fastest.\" Which is superlative?",
-            "options": ["fastest", "faster", "fast", "ran"],
+            "options": [
+              "fastest",
+              "faster",
+              "fast",
+              "ran"
+            ],
             "correct_answer": "fastest"
           },
           {
             "question": "The word \"luminous\" appears near \"bright\" and \"glowing.\" What does it mean?",
-            "options": ["Giving off light", "Very heavy", "Cold and icy", "Old and worn"],
+            "options": [
+              "Giving off light",
+              "Very heavy",
+              "Cold and icy",
+              "Old and worn"
+            ],
             "correct_answer": "Giving off light"
           },
           {
             "question": "Which word is a collective noun?",
-            "options": ["swarm", "bee", "sting", "honey"],
+            "options": [
+              "swarm",
+              "bee",
+              "sting",
+              "honey"
+            ],
             "correct_answer": "swarm"
           },
           {
             "question": "What is the THEME of a story?",
-            "options": ["The lesson or message", "The main character", "The setting of events", "The story's climax"],
+            "options": [
+              "The lesson or message",
+              "The main character",
+              "The setting of events",
+              "The story's climax"
+            ],
             "correct_answer": "The lesson or message"
           },
           {
             "question": "Which is a helping verb?",
-            "options": ["will", "run", "happy", "school"],
+            "options": [
+              "will",
+              "run",
+              "happy",
+              "school"
+            ],
             "correct_answer": "will"
+          },
+          {
+            "question": "What literary element describes WHERE and WHEN a story takes place?",
+            "options": [
+              "Setting",
+              "Theme",
+              "Conflict",
+              "Resolution"
+            ],
+            "correct_answer": "Setting"
+          },
+          {
+            "question": "\"The thunder roared like an angry lion.\" This is a ___.",
+            "options": [
+              "Simile",
+              "Metaphor",
+              "Personification",
+              "Hyperbole"
+            ],
+            "correct_answer": "Simile"
+          },
+          {
+            "question": "A COMPLEX sentence contains ___.",
+            "options": [
+              "One independent + one dependent clause",
+              "Two independent clauses",
+              "Only one simple clause",
+              "Three or more independent clauses"
+            ],
+            "correct_answer": "One independent + one dependent clause"
+          },
+          {
+            "question": "What is the RESOLUTION of a story?",
+            "options": [
+              "How the conflict is solved",
+              "The most exciting moment",
+              "Where the story begins",
+              "The main character's problem"
+            ],
+            "correct_answer": "How the conflict is solved"
           }
         ]
       },
@@ -421,43 +1141,123 @@
         "quiz": [
           {
             "question": "What is the place value of 4 in 2,435,678?",
-            "options": ["Hundred-thousands", "Millions", "Ten-thousands", "Thousands"],
+            "options": [
+              "Hundred-thousands",
+              "Millions",
+              "Ten-thousands",
+              "Thousands"
+            ],
             "correct_answer": "Hundred-thousands"
           },
           {
             "question": "Round 6,842 to the nearest thousand.",
-            "options": ["7,000", "6,000", "6,800", "6,900"],
+            "options": [
+              "7,000",
+              "6,000",
+              "6,800",
+              "6,900"
+            ],
             "correct_answer": "7,000"
           },
           {
             "question": "What is 456 × 32?",
-            "options": ["14,592", "14,492", "14,692", "14,392"],
+            "options": [
+              "14,592",
+              "14,492",
+              "14,692",
+              "14,392"
+            ],
             "correct_answer": "14,592"
           },
           {
             "question": "What is 2,856 ÷ 8?",
-            "options": ["357", "367", "347", "377"],
+            "options": [
+              "357",
+              "367",
+              "347",
+              "377"
+            ],
             "correct_answer": "357"
           },
           {
             "question": "A school has 48 rooms with 35 students each. How many students in all?",
-            "options": ["1,680", "1,580", "1,780", "1,480"],
+            "options": [
+              "1,680",
+              "1,580",
+              "1,780",
+              "1,480"
+            ],
             "correct_answer": "1,680"
           },
           {
             "question": "What is 123,456 + 234,567?",
-            "options": ["358,023", "357,023", "359,023", "356,023"],
+            "options": [
+              "358,023",
+              "357,023",
+              "359,023",
+              "356,023"
+            ],
             "correct_answer": "358,023"
           },
           {
             "question": "What is 500,000 − 123,456?",
-            "options": ["376,544", "377,544", "375,544", "376,444"],
+            "options": [
+              "376,544",
+              "377,544",
+              "375,544",
+              "376,444"
+            ],
             "correct_answer": "376,544"
           },
           {
             "question": "There are 1,260 books to be placed equally on 9 shelves. How many books per shelf?",
-            "options": ["140", "150", "130", "160"],
+            "options": [
+              "140",
+              "150",
+              "130",
+              "160"
+            ],
             "correct_answer": "140"
+          },
+          {
+            "question": "What is 2,345,678 rounded to the nearest MILLION?",
+            "options": [
+              "2,000,000",
+              "3,000,000",
+              "2,300,000",
+              "2,500,000"
+            ],
+            "correct_answer": "2,000,000"
+          },
+          {
+            "question": "What is 456 × 23?",
+            "options": [
+              "10,488",
+              "10,388",
+              "10,468",
+              "9,488"
+            ],
+            "correct_answer": "10,488"
+          },
+          {
+            "question": "What is 9,000 ÷ 9?",
+            "options": [
+              "1,000",
+              "900",
+              "9,000",
+              "100"
+            ],
+            "correct_answer": "1,000"
+          },
+          {
+            "question": "Which shows CORRECT order from least to greatest? ",
+            "options": [
+              "1,234 < 2,134 < 2,314 < 3,412",
+              "2,134 < 1,234 < 3,412 < 2,314",
+              "3,412 < 2,314 < 2,134 < 1,234",
+              "1,234 < 2,314 < 2,134 < 3,412"
+            ],
+            "correct_answer": "1,234 < 2,134 < 2,314 < 3,412"
           }
         ]
       },
@@ -466,43 +1266,123 @@
         "quiz": [
           {
             "question": "\"Kumanta ang mga bata nang masaya.\" Ano ang uri ng pangungusap?",
-            "options": ["Pasalaysay", "Patanong", "Pautos", "Padamdam"],
+            "options": [
+              "Pasalaysay",
+              "Patanong",
+              "Pautos",
+              "Padamdam"
+            ],
             "correct_answer": "Pasalaysay"
           },
           {
             "question": "Ano ang salitang-ugat ng \"nagluto\"?",
-            "options": ["luto", "nag", "nagluto", "lutong"],
+            "options": [
+              "luto",
+              "nag",
+              "nagluto",
+              "lutong"
+            ],
             "correct_answer": "luto"
           },
           {
             "question": "Sa pangungusap na \"Binilhan ni Tatay ang bata ng laruan\", ano ang tuwirang layon?",
-            "options": ["laruan", "Tatay", "bata", "binilhan"],
+            "options": [
+              "laruan",
+              "Tatay",
+              "bata",
+              "binilhan"
+            ],
             "correct_answer": "laruan"
           },
           {
             "question": "\"Mag-aral ka nang mabuti!\" Ano ang uri ng pangungusap?",
-            "options": ["Pautos", "Pasalaysay", "Patanong", "Padamdam"],
+            "options": [
+              "Pautos",
+              "Pasalaysay",
+              "Patanong",
+              "Padamdam"
+            ],
             "correct_answer": "Pautos"
           },
           {
             "question": "Alin ang katangian ng isang tula?",
-            "options": ["Gumagamit ng ritmo at talinghaga", "Nagsasalaysay ng buhay ng isang tao", "Walang emosyon o damdamin", "Laging may tatlong suliranin"],
+            "options": [
+              "Gumagamit ng ritmo at talinghaga",
+              "Nagsasalaysay ng buhay ng isang tao",
+              "Walang emosyon o damdamin",
+              "Laging may tatlong suliranin"
+            ],
             "correct_answer": "Gumagamit ng ritmo at talinghaga"
           },
           {
             "question": "Alin ang tamang panlapi para maging \"lutuin\" ang salitang \"luto\"?",
-            "options": ["-in", "nag-", "ma-", "pag-"],
+            "options": [
+              "-in",
+              "nag-",
+              "ma-",
+              "pag-"
+            ],
             "correct_answer": "-in"
           },
           {
             "question": "Ang maikling kwento ay may katangiang ___.",
-            "options": ["iisang pangunahing suliranin", "maraming tauhan at maraming suliranin", "walang resolusyon sa katapusan", "nagsasalaysay ng buhay ng isang bayani"],
+            "options": [
+              "iisang pangunahing suliranin",
+              "maraming tauhan at maraming suliranin",
+              "walang resolusyon sa katapusan",
+              "nagsasalaysay ng buhay ng isang bayani"
+            ],
             "correct_answer": "iisang pangunahing suliranin"
           },
           {
             "question": "\"Ano ang pangalan mo?\" Ano ang uri ng pangungusap?",
-            "options": ["Patanong", "Pasalaysay", "Pautos", "Padamdam"],
+            "options": [
+              "Patanong",
+              "Pasalaysay",
+              "Pautos",
+              "Padamdam"
+            ],
             "correct_answer": "Patanong"
+          },
+          {
+            "question": "Alin ang actor-focus verb?",
+            "options": [
+              "Bumili siya ng tinapay",
+              "Binili niya ang tinapay",
+              "Bilhin mo ang tinapay",
+              "Ibinili niya ng tinapay ang bata"
+            ],
+            "correct_answer": "Bumili siya ng tinapay"
+          },
+          {
+            "question": "Anong uri ng pangungusap ang \"Tumakbo ka na!\"?",
+            "options": [
+              "Pautós",
+              "Pasalaysay",
+              "Patanong",
+              "Padamdam"
+            ],
+            "correct_answer": "Pautós"
+          },
+          {
+            "question": "\"Mahal na mahal ko ang aking bansa!\" — ito ay anong uri?",
+            "options": [
+              "Padamdam",
+              "Pasalaysay",
+              "Patanong",
+              "Pautós"
+            ],
+            "correct_answer": "Padamdam"
+          },
+          {
+            "question": "Sa panitikan, ang \"epiko\" ay isang mahabang tula tungkol sa ___.",
+            "options": [
+              "Mga bayani at kanilang pakikipaglaban",
+              "Pag-ibig ng dalawang magkasintahan",
+              "Mga hayop na nagtuturo ng aral",
+              "Mga diwata at engkanto"
+            ],
+            "correct_answer": "Mga bayani at kanilang pakikipaglaban"
           }
         ]
       },
@@ -511,43 +1391,123 @@
         "quiz": [
           {
             "question": "Which state of matter takes the shape of its container but has a definite volume?",
-            "options": ["Liquid", "Solid", "Gas", "Plasma"],
+            "options": [
+              "Liquid",
+              "Solid",
+              "Gas",
+              "Plasma"
+            ],
             "correct_answer": "Liquid"
           },
           {
             "question": "Dissolving sugar in water is an example of a ___.",
-            "options": ["physical change", "chemical change", "rusting process", "burning change"],
+            "options": [
+              "physical change",
+              "chemical change",
+              "rusting process",
+              "burning change"
+            ],
             "correct_answer": "physical change"
           },
           {
             "question": "Which method separates iron filings from sand?",
-            "options": ["Using a magnet", "Evaporation", "Filtering", "Decanting"],
+            "options": [
+              "Using a magnet",
+              "Evaporation",
+              "Filtering",
+              "Decanting"
+            ],
             "correct_answer": "Using a magnet"
           },
           {
             "question": "A wood block floats on water. What does this tell us?",
-            "options": ["Wood is less dense than water", "Wood is denser than water", "Wood has no density at all", "Wood absorbs all the water"],
+            "options": [
+              "Wood is less dense than water",
+              "Wood is denser than water",
+              "Wood has no density at all",
+              "Wood absorbs all the water"
+            ],
             "correct_answer": "Wood is less dense than water"
           },
           {
             "question": "Which is a homogeneous mixture?",
-            "options": ["Saltwater", "Fruit salad", "Sand and gravel", "Rice and beans"],
+            "options": [
+              "Saltwater",
+              "Fruit salad",
+              "Sand and gravel",
+              "Rice and beans"
+            ],
             "correct_answer": "Saltwater"
           },
           {
             "question": "Baking bread is an example of a ___.",
-            "options": ["chemical change", "physical change", "natural change", "reversible change"],
+            "options": [
+              "chemical change",
+              "physical change",
+              "natural change",
+              "reversible change"
+            ],
             "correct_answer": "chemical change"
           },
           {
             "question": "Which state of matter has particles spread far apart?",
-            "options": ["Gas", "Liquid", "Solid", "Mixture"],
+            "options": [
+              "Gas",
+              "Liquid",
+              "Solid",
+              "Mixture"
+            ],
             "correct_answer": "Gas"
           },
           {
             "question": "How can you separate salt from salt water?",
-            "options": ["By evaporation", "By filtering", "By using a magnet", "By decanting alone"],
+            "options": [
+              "By evaporation",
+              "By filtering",
+              "By using a magnet",
+              "By decanting alone"
+            ],
             "correct_answer": "By evaporation"
+          },
+          {
+            "question": "What is the difference between a MIXTURE and a COMPOUND?",
+            "options": [
+              "Mixture: components keep properties; Compound: new substance forms",
+              "Mixture: new substance forms; Compound: components stay the same",
+              "They are exactly the same thing",
+              "Mixtures involve gases only; compounds involve solids only"
+            ],
+            "correct_answer": "Mixture: components keep properties; Compound: new substance forms"
+          },
+          {
+            "question": "Which change of state describes DEW forming on grass?",
+            "options": [
+              "Condensation",
+              "Evaporation",
+              "Melting",
+              "Freezing"
+            ],
+            "correct_answer": "Condensation"
+          },
+          {
+            "question": "Which state of matter takes the SHAPE of its container but has definite volume?",
+            "options": [
+              "Liquid",
+              "Solid",
+              "Gas",
+              "Plasma"
+            ],
+            "correct_answer": "Liquid"
+          },
+          {
+            "question": "What is a PHYSICAL property of matter?",
+            "options": [
+              "Color, size, and texture (observable without changing the substance)",
+              "Ability to burn or rust",
+              "What the substance becomes when heated",
+              "How two substances react together"
+            ],
+            "correct_answer": "Color, size, and texture (observable without changing the substance)"
           }
         ]
       },
@@ -556,43 +1516,123 @@
         "quiz": [
           {
             "question": "Ilang pulo ang bumubuo sa Pilipinas?",
-            "options": ["7,641", "7,000", "7,107", "6,500"],
+            "options": [
+              "7,641",
+              "7,000",
+              "7,107",
+              "6,500"
+            ],
             "correct_answer": "7,641"
           },
           {
             "question": "Alin ang likas na yamang mineral ng Pilipinas?",
-            "options": ["Ginto", "Palay", "Niyog", "Saging"],
+            "options": [
+              "Ginto",
+              "Palay",
+              "Niyog",
+              "Saging"
+            ],
             "correct_answer": "Ginto"
           },
           {
             "question": "Ano ang \"bayanihan\"?",
-            "options": ["Pagtutulungan ng komunidad", "Uri ng sayaw sa Pilipinas", "Pambansang pagkain", "Tawag sa pamahalaang lokal"],
+            "options": [
+              "Pagtutulungan ng komunidad",
+              "Uri ng sayaw sa Pilipinas",
+              "Pambansang pagkain",
+              "Tawag sa pamahalaang lokal"
+            ],
             "correct_answer": "Pagtutulungan ng komunidad"
           },
           {
             "question": "Ang Pilipinas ay napapalibutan ng aling katawan ng tubig sa silangan?",
-            "options": ["Karagatang Pasipiko", "Dagat Tsina sa Timog", "Dagat Sulu", "Look ng Maynila"],
+            "options": [
+              "Karagatang Pasipiko",
+              "Dagat Tsina sa Timog",
+              "Dagat Sulu",
+              "Look ng Maynila"
+            ],
             "correct_answer": "Karagatang Pasipiko"
           },
           {
             "question": "Alin ang pangunahing pananim ng Pilipinas?",
-            "options": ["Palay", "Trigo", "Mais", "Patatas"],
+            "options": [
+              "Palay",
+              "Trigo",
+              "Mais",
+              "Patatas"
+            ],
             "correct_answer": "Palay"
           },
           {
             "question": "Ano ang uri ng klima ng Pilipinas?",
-            "options": ["Tropikal", "Arktiko", "Deserto", "Temperate"],
+            "options": [
+              "Tropikal",
+              "Arktiko",
+              "Deserto",
+              "Temperate"
+            ],
             "correct_answer": "Tropikal"
           },
           {
             "question": "Ano ang pinakamalaking pulo ng Pilipinas?",
-            "options": ["Luzon", "Cebu", "Leyte", "Mindanao"],
+            "options": [
+              "Luzon",
+              "Cebu",
+              "Leyte",
+              "Mindanao"
+            ],
             "correct_answer": "Luzon"
           },
           {
             "question": "Alin ang sentro ng kulturang Pilipino?",
-            "options": ["Pamilya", "Paaralan", "Simbahan", "Pamahalaan"],
+            "options": [
+              "Pamilya",
+              "Paaralan",
+              "Simbahan",
+              "Pamahalaan"
+            ],
             "correct_answer": "Pamilya"
+          },
+          {
+            "question": "Ang ASEAN ay itinatag sa anong taon?",
+            "options": [
+              "1967",
+              "1945",
+              "1972",
+              "1986"
+            ],
+            "correct_answer": "1967"
+          },
+          {
+            "question": "Ano ang pangunahing layunin ng mga batas sa lipunan?",
+            "options": [
+              "Protektahan ang karapatan ng bawat mamamayan",
+              "Magbigay ng mas maraming kapangyarihan sa pamahalaan",
+              "Kontrolin ang mga kilos ng lahat",
+              "Palakihin ang ekonomiya ng bansa"
+            ],
+            "correct_answer": "Protektahan ang karapatan ng bawat mamamayan"
+          },
+          {
+            "question": "Ang Pilipinas ay nagsimulang maging malaya mula sa Estados Unidos noong?",
+            "options": [
+              "Hulyo 4, 1946",
+              "Hunyo 12, 1898",
+              "Agosto 21, 1983",
+              "Pebrero 25, 1986"
+            ],
+            "correct_answer": "Hulyo 4, 1946"
+          },
+          {
+            "question": "Ano ang likas na kalamidad na madalas na dumarating sa Pilipinas?",
+            "options": [
+              "Bagyo (typhoon)",
+              "Blizzard",
+              "Sandstorm",
+              "Tornado"
+            ],
+            "correct_answer": "Bagyo (typhoon)"
           }
         ]
       },
@@ -601,43 +1641,123 @@
         "quiz": [
           {
             "question": "What keyboard shortcut makes text ITALIC?",
-            "options": ["Ctrl + I", "Ctrl + B", "Ctrl + U", "Ctrl + S"],
+            "options": [
+              "Ctrl + I",
+              "Ctrl + B",
+              "Ctrl + U",
+              "Ctrl + S"
+            ],
             "correct_answer": "Ctrl + I"
           },
           {
             "question": "What is a search engine used for?",
-            "options": ["Finding information online", "Printing documents faster", "Creating presentations", "Saving files to folders"],
+            "options": [
+              "Finding information online",
+              "Printing documents faster",
+              "Creating presentations",
+              "Saving files to folders"
+            ],
             "correct_answer": "Finding information online"
           },
           {
             "question": "Which is NOT safe to share online?",
-            "options": ["Your home address", "Your favorite color", "Your opinion about a book", "Your favorite subject"],
+            "options": [
+              "Your home address",
+              "Your favorite color",
+              "Your opinion about a book",
+              "Your favorite subject"
+            ],
             "correct_answer": "Your home address"
           },
           {
             "question": "What shortcut SAVES your document?",
-            "options": ["Ctrl + S", "Ctrl + P", "Ctrl + B", "Ctrl + Z"],
+            "options": [
+              "Ctrl + S",
+              "Ctrl + P",
+              "Ctrl + B",
+              "Ctrl + Z"
+            ],
             "correct_answer": "Ctrl + S"
           },
           {
             "question": "What is the Internet?",
-            "options": ["A global network of computers", "A type of software program", "A computer keyboard", "A single very large computer"],
+            "options": [
+              "A global network of computers",
+              "A type of software program",
+              "A computer keyboard",
+              "A single very large computer"
+            ],
             "correct_answer": "A global network of computers"
           },
           {
             "question": "What is cyberbullying?",
-            "options": ["Bullying someone using devices or online", "A type of computer game", "A virus in a computer", "A safe online activity"],
+            "options": [
+              "Bullying someone using devices or online",
+              "A type of computer game",
+              "A virus in a computer",
+              "A safe online activity"
+            ],
             "correct_answer": "Bullying someone using devices or online"
           },
           {
             "question": "What should you do before clicking an unknown link online?",
-            "options": ["Ask a trusted adult first", "Click it immediately", "Share it with friends", "Download whatever it offers"],
+            "options": [
+              "Ask a trusted adult first",
+              "Click it immediately",
+              "Share it with friends",
+              "Download whatever it offers"
+            ],
             "correct_answer": "Ask a trusted adult first"
           },
           {
             "question": "Which of these is good digital citizenship?",
-            "options": ["Think before you post online", "Share other people's passwords", "Post anything you want freely", "Ignore all privacy settings"],
+            "options": [
+              "Think before you post online",
+              "Share other people's passwords",
+              "Post anything you want freely",
+              "Ignore all privacy settings"
+            ],
             "correct_answer": "Think before you post online"
+          },
+          {
+            "question": "What is PLAGIARISM?",
+            "options": [
+              "Using someone else's work or ideas without giving them credit",
+              "Creating your own original content",
+              "Copying your own work from last year",
+              "Using a dictionary to check spelling"
+            ],
+            "correct_answer": "Using someone else's work or ideas without giving them credit"
+          },
+          {
+            "question": "What is a STRONG PASSWORD?",
+            "options": [
+              "Mix of upper/lower case, numbers, and symbols",
+              "Your name and birthdate",
+              "A simple word easy to remember",
+              "123456 or password"
+            ],
+            "correct_answer": "Mix of upper/lower case, numbers, and symbols"
+          },
+          {
+            "question": "Which describes DIGITAL CITIZENSHIP?",
+            "options": [
+              "Using technology responsibly and ethically",
+              "Using social media all day long",
+              "Downloading any file you find online",
+              "Sharing other people's personal info online"
+            ],
+            "correct_answer": "Using technology responsibly and ethically"
+          },
+          {
+            "question": "What does the 'Recycle Bin' or 'Trash' on a computer do?",
+            "options": [
+              "Temporarily stores deleted files before permanent deletion",
+              "Permanently deletes files immediately",
+              "Organizes files by file type",
+              "Downloads new files from the internet"
+            ],
+            "correct_answer": "Temporarily stores deleted files before permanent deletion"
           }
         ]
       },
@@ -646,43 +1766,123 @@
         "quiz": [
           {
             "question": "What does \"piano\" mean in music?",
-            "options": ["Soft", "Loud", "Fast", "Slow"],
+            "options": [
+              "Soft",
+              "Loud",
+              "Fast",
+              "Slow"
+            ],
             "correct_answer": "Soft"
           },
           {
             "question": "What is RHYTHM in music?",
-            "options": ["The pattern of beats in music", "The speed of the music", "The loudness of the song", "The pitch of the notes"],
+            "options": [
+              "The pattern of beats in music",
+              "The speed of the music",
+              "The loudness of the song",
+              "The pitch of the notes"
+            ],
             "correct_answer": "The pattern of beats in music"
           },
           {
             "question": "Which fitness component does PUSH-UPS improve?",
-            "options": ["Muscular strength", "Cardiovascular endurance", "Flexibility", "Body composition"],
+            "options": [
+              "Muscular strength",
+              "Cardiovascular endurance",
+              "Flexibility",
+              "Body composition"
+            ],
             "correct_answer": "Muscular strength"
           },
           {
             "question": "What is \"allegro\" in music?",
-            "options": ["Fast tempo", "Slow tempo", "Very loud", "Very soft"],
+            "options": [
+              "Fast tempo",
+              "Slow tempo",
+              "Very loud",
+              "Very soft"
+            ],
             "correct_answer": "Fast tempo"
           },
           {
             "question": "Which fitness component does stretching improve?",
-            "options": ["Flexibility", "Muscular strength", "Cardiovascular endurance", "Body composition"],
+            "options": [
+              "Flexibility",
+              "Muscular strength",
+              "Cardiovascular endurance",
+              "Body composition"
+            ],
             "correct_answer": "Flexibility"
           },
           {
             "question": "What is a MELODY in music?",
-            "options": ["A sequence of notes that forms the tune", "The speed at which music is played", "The loudness or softness of music", "The pattern of long and short beats"],
+            "options": [
+              "A sequence of notes that forms the tune",
+              "The speed at which music is played",
+              "The loudness or softness of music",
+              "The pattern of long and short beats"
+            ],
             "correct_answer": "A sequence of notes that forms the tune"
           },
           {
             "question": "Which activity best develops CARDIOVASCULAR endurance?",
-            "options": ["Swimming for 20 minutes", "Lifting very heavy weights", "Doing one stretch", "Playing chess"],
+            "options": [
+              "Swimming for 20 minutes",
+              "Lifting very heavy weights",
+              "Doing one stretch",
+              "Playing chess"
+            ],
             "correct_answer": "Swimming for 20 minutes"
           },
           {
             "question": "What is TIMBRE?",
-            "options": ["The unique sound quality of an instrument", "The speed of a song", "The highest note in a melody", "The loudness of the music"],
+            "options": [
+              "The unique sound quality of an instrument",
+              "The speed of a song",
+              "The highest note in a melody",
+              "The loudness of the music"
+            ],
             "correct_answer": "The unique sound quality of an instrument"
+          },
+          {
+            "question": "Which fitness component helps you exercise for a long time without getting tired?",
+            "options": [
+              "Cardiovascular endurance",
+              "Muscular strength",
+              "Flexibility",
+              "Body composition"
+            ],
+            "correct_answer": "Cardiovascular endurance"
+          },
+          {
+            "question": "What does TEMPO mean in music?",
+            "options": [
+              "The speed of the music",
+              "How loud or soft it is",
+              "The pattern of beats",
+              "How high or low the notes are"
+            ],
+            "correct_answer": "The speed of the music"
+          },
+          {
+            "question": "The PRINCIPLES of art include ___.",
+            "options": [
+              "Balance, emphasis, unity, harmony",
+              "Line, color, shape, texture",
+              "Do Re Mi Fa Sol La Ti",
+              "Running, jumping, throwing"
+            ],
+            "correct_answer": "Balance, emphasis, unity, harmony"
+          },
+          {
+            "question": "What is a COOL-DOWN exercise for?",
+            "options": [
+              "Gradually lower heart rate after exercise",
+              "Prepare the body for intense exercise",
+              "Replace the warm-up before exercise",
+              "Increase your energy before a race"
+            ],
+            "correct_answer": "Gradually lower heart rate after exercise"
           }
         ]
       },
@@ -691,43 +1891,123 @@
         "quiz": [
           {
             "question": "Ano ang kahulugan ng \"malasakit\"?",
-            "options": ["Pagtulong sa nangangailangan", "Pagsasabi ng kasinungalingan", "Pag-iwas sa mga problema", "Pagtanggi sa responsibilidad"],
+            "options": [
+              "Pagtulong sa nangangailangan",
+              "Pagsasabi ng kasinungalingan",
+              "Pag-iwas sa mga problema",
+              "Pagtanggi sa responsibilidad"
+            ],
             "correct_answer": "Pagtulong sa nangangailangan"
           },
           {
             "question": "Alin ang nagpapakita ng katapatan?",
-            "options": ["Pag-amin ng kamalian nang tapat", "Pagtago ng katotohanan sa lahat", "Pagsabi ng gusto ng iba lamang", "Pagtanggap ng gantimpala ng iba"],
+            "options": [
+              "Pag-amin ng kamalian nang tapat",
+              "Pagtago ng katotohanan sa lahat",
+              "Pagsabi ng gusto ng iba lamang",
+              "Pagtanggap ng gantimpala ng iba"
+            ],
             "correct_answer": "Pag-amin ng kamalian nang tapat"
           },
           {
             "question": "Bakit mahalaga ang paggalang?",
-            "options": ["Nagtatayo ito ng pagkakaunawaan", "Nagbibigay ito ng mas maraming pera", "Nagbibigay ito ng mas mataas na marka", "Nagbibigay ito ng mas maraming kaibigan"],
+            "options": [
+              "Nagtatayo ito ng pagkakaunawaan",
+              "Nagbibigay ito ng mas maraming pera",
+              "Nagbibigay ito ng mas mataas na marka",
+              "Nagbibigay ito ng mas maraming kaibigan"
+            ],
             "correct_answer": "Nagtatayo ito ng pagkakaunawaan"
           },
           {
             "question": "Alin ang halimbawa ng kooperasyon?",
-            "options": ["Pagtutulungan sa proyektong pangklase", "Paggawa ng trabaho nang mag-isa palagi", "Pagtanggal ng gawain sa iba", "Pagsasagawa ng proyekto para sa sarili"],
+            "options": [
+              "Pagtutulungan sa proyektong pangklase",
+              "Paggawa ng trabaho nang mag-isa palagi",
+              "Pagtanggal ng gawain sa iba",
+              "Pagsasagawa ng proyekto para sa sarili"
+            ],
             "correct_answer": "Pagtutulungan sa proyektong pangklase"
           },
           {
             "question": "Ano ang unang grupo na dapat nating paglingkuran?",
-            "options": ["Pamilya", "Paaralan", "Gobyerno", "Negosyo"],
+            "options": [
+              "Pamilya",
+              "Paaralan",
+              "Gobyerno",
+              "Negosyo"
+            ],
             "correct_answer": "Pamilya"
           },
           {
             "question": "Alin ang nagpapakita ng tunay na responsibilidad?",
-            "options": ["Pagsasagawa ng tungkulin nang walang paalala", "Paghihintay ng utos bago kumilos", "Pagtanggap ng gantimpala bago kumilos", "Pagsabi ng \"sige\" pero hindi ginagawa"],
+            "options": [
+              "Pagsasagawa ng tungkulin nang walang paalala",
+              "Paghihintay ng utos bago kumilos",
+              "Pagtanggap ng gantimpala bago kumilos",
+              "Pagsabi ng \"sige\" pero hindi ginagawa"
+            ],
             "correct_answer": "Pagsasagawa ng tungkulin nang walang paalala"
           },
           {
             "question": "Ano ang \"pakikiisa sa komunidad\"?",
-            "options": ["Aktibong paglahok sa mga gawaing panlipunan", "Pananatili sa bahay nang lagi", "Pagtanggi sa lahat ng pagtitipon", "Paggawa ng trabaho para sa sarili lamang"],
+            "options": [
+              "Aktibong paglahok sa mga gawaing panlipunan",
+              "Pananatili sa bahay nang lagi",
+              "Pagtanggi sa lahat ng pagtitipon",
+              "Paggawa ng trabaho para sa sarili lamang"
+            ],
             "correct_answer": "Aktibong paglahok sa mga gawaing panlipunan"
           },
           {
             "question": "Sino ang dapat tulungan natin nang walang hinihintay na kapalit?",
-            "options": ["Ang mga nangangailangan", "Ang mga pinakamayaman", "Ang mga pinakamalakas", "Ang mga pinaka-sikat"],
+            "options": [
+              "Ang mga nangangailangan",
+              "Ang mga pinakamayaman",
+              "Ang mga pinakamalakas",
+              "Ang mga pinaka-sikat"
+            ],
             "correct_answer": "Ang mga nangangailangan"
+          },
+          {
+            "question": "What is the difference between a NEED and a WANT?",
+            "options": [
+              "Needs are essential for survival; wants are desires",
+              "Needs are things you like; wants are things you must have",
+              "They are the same thing",
+              "Wants are more important than needs"
+            ],
+            "correct_answer": "Needs are essential for survival; wants are desires"
+          },
+          {
+            "question": "How do you show INTEGRITY?",
+            "options": [
+              "Do what is right even when no one is watching",
+              "Only behave well when adults are present",
+              "Tell others what they want to hear",
+              "Change your values based on who you are with"
+            ],
+            "correct_answer": "Do what is right even when no one is watching"
+          },
+          {
+            "question": "What is COMMUNITY SERVICE?",
+            "options": [
+              "Helping others in your community without expecting payment",
+              "Working for money at a local business",
+              "Only helping your family members",
+              "Participating in school competitions"
+            ],
+            "correct_answer": "Helping others in your community without expecting payment"
+          },
+          {
+            "question": "Why is it important to RESPECT THE ENVIRONMENT?",
+            "options": [
+              "To ensure a healthy world for future generations",
+              "Because the government requires it by law",
+              "To avoid paying fines for littering",
+              "Only animals and plants need a clean environment"
+            ],
+            "correct_answer": "To ensure a healthy world for future generations"
           }
         ]
       }
