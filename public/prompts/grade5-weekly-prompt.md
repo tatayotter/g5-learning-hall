@@ -61,14 +61,13 @@ Use this to fill in the `SUBJECTS AND TOPICS` section above each Sunday.
 > |--------|-------------|---------------|--------------|
 > | **Week 1** — Orientation (no lessons) | 1 | Jun 15–19, 2026 | — |
 > | **Q1 / Term 1** | 2–13 | Jun 22 – Sep 12, 2026 | BOW Week N → **Week N+1** |
-> | *(Term 1 end / break)* | 13–14 | Sep 13–19, 2026 | — |
-> | **Q2 / Term 2** | 15–27 | Sep 22 – Dec 18, 2026 | BOW Week N → **Week N+14** |
-> | *(Term 2 end / break)* | 28–29 | Dec 21, 2026 – Jan 2, 2027 | — |
-> | **Q3 / Term 3** | 30–40 | Jan 5 – Mar 20, 2027 | BOW Week N → **Week N+29** |
-> | **Q4 / Term 3 (cont.)** | 41–50 | Mar 23 – May 29, 2027 | BOW Week N → **Week N+40** |
+> | *(Term 1 break)* | 13–14 | Sep 10–20, 2026 | — |
+> | **Q2 / Term 2** | 15–27 | Sep 21 – Dec 16, 2026 | BOW Week N → **Week N+14** |
+> | *(Term 2 break — Christmas)* | 27–29 | Dec 17–31, 2026 | — |
+> | **Q3 / Term 3** | 30–40 | Jan 4 – Mar 19, 2027 | BOW Week N → **Week N+29** |
+> | **Q4 / Term 3 (cont.)** | 41–50 | Mar 22 – May 28, 2027 | BOW Week N → **Week N+40** |
 >
-> *Example: BOW "Q2 Week 3" = School Week 3+14 = **Week 17***.
-> *Next week (Aug 24–28) = **School Week 11** = BOW Q1 Week 10 (Review week).*
+> *Example: BOW "Q2 Week 3" = School Week 3+14 = **Week 17**.*
 
 > **EPP note:** EPP rotates through four strands across the year. Quarter I = ICT. Quarter II = Agriculture and Fishery Arts (AFA). Quarter III = Family and Consumer Science (FCS). Quarter IV = Industrial Arts (IA). Include the active strand for the current quarter.
 

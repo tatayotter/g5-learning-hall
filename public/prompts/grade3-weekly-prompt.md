@@ -61,13 +61,12 @@ Use this to fill in the `SUBJECTS AND TOPICS` section above each Sunday.
 > |--------|-------------|---------------|--------------|
 > | **Week 1** — Orientation (no lessons) | 1 | Jun 15–19, 2026 | — |
 > | **Term 1** | 2–13 | Jun 22 – Sep 12, 2026 | BOW Week N → **Week N+1** |
-> | *(Term 1 end / break)* | 13–14 | Sep 13–19, 2026 | — |
-> | **Term 2** | 15–27 | Sep 22 – Dec 18, 2026 | BOW Week N → **Week N+14** |
-> | *(Term 2 end / break)* | 28–29 | Dec 21, 2026 – Jan 2, 2027 | — |
-> | **Term 3** | 30–50 | Jan 5 – May 29, 2027 | BOW Week N → **Week N+29** |
+> | *(Term 1 break)* | 13–14 | Sep 10–20, 2026 | — |
+> | **Term 2** | 15–27 | Sep 21 – Dec 16, 2026 | BOW Week N → **Week N+14** |
+> | *(Term 2 break — Christmas)* | 27–29 | Dec 17–31, 2026 | — |
+> | **Term 3** | 30–50 | Jan 4 – May 28, 2027 | BOW Week N → **Week N+29** |
 >
-> *Example: BOW "Term 2 Week 3" = School Week 3+14 = **Week 17***.
-> *Next week (Aug 24–28) = **School Week 11** = BOW Term 1 Week 10 (Review week).*
+> *Example: BOW "Term 2 Week 3" = School Week 3+14 = **Week 17**.*
 
 ---
 
