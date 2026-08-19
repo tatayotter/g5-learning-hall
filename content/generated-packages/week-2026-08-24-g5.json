@@ -1,0 +1,736 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-08-24",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📚 English Review — Week 10: Literary Devices & Grammar!\n\nOutstanding work this term, Grade 5! Let's pull everything together. 💪\n\n## 🎭 Literary Devices Review\n- **Simile**: comparing two unlike things using *like* or *as*\n  - *Her voice was as smooth as silk.*\n- **Metaphor**: comparing two unlike things WITHOUT *like* or *as*\n  - *Life is a journey.*\n- **Personification**: giving human qualities to non-human things\n  - *The wind whispered through the trees.*\n- **Hyperbole**: extreme exaggeration for effect\n  - *I've told you a million times!*\n- **Alliteration**: repetition of the same starting sound\n  - *Peter Piper picked a peck of peppers.*\n\n## 📖 Reading Comprehension\n- **Author's purpose**: to **inform**, **persuade**, or **entertain** (PIE)\n- **Point of view**: 1st person (*I, we*) | 3rd person (*he, she, they*)\n- **Inference**: reading between the lines — use text clues + background knowledge\n- **Text structure**: description, sequence, compare/contrast, cause/effect, problem/solution\n\n## ✏️ Grammar Review\n- **Verb tenses**: simple (past/present/future), progressive (*is running*), perfect (*has run*)\n- **Active vs. passive voice**: *The dog bit the boy.* (active) vs. *The boy was bitten by the dog.* (passive)\n- **Conjunctions**: coordinating (FANBOYS: for, and, nor, but, or, yet, so) | subordinating (because, although, since)\n\nYou've become a strong and thoughtful reader! ⭐",
+        "quiz": [
+          {
+            "question": "\"The clouds were cotton balls in the sky.\" What literary device is used?",
+            "options": ["Metaphor", "Simile", "Personification", "Alliteration"],
+            "correct_answer": "Metaphor"
+          },
+          {
+            "question": "\"The leaves danced in the gentle breeze.\" What literary device is used?",
+            "options": ["Personification", "Metaphor", "Simile", "Hyperbole"],
+            "correct_answer": "Personification"
+          },
+          {
+            "question": "\"Her smile was like the sun on a cloudy day.\" What literary device is used?",
+            "options": ["Simile", "Metaphor", "Alliteration", "Hyperbole"],
+            "correct_answer": "Simile"
+          },
+          {
+            "question": "What are the three main purposes of writing? (Author's Purpose)",
+            "options": ["Inform, persuade, entertain", "Read, write, speak", "Research, discuss, solve", "Question, answer, debate"],
+            "correct_answer": "Inform, persuade, entertain"
+          },
+          {
+            "question": "\"The cake was eaten by Maria.\" This sentence is in ___ voice.",
+            "options": ["passive", "active", "future", "progressive"],
+            "correct_answer": "passive"
+          },
+          {
+            "question": "Which conjunction is SUBORDINATING?",
+            "options": ["because", "and", "but", "or"],
+            "correct_answer": "because"
+          },
+          {
+            "question": "\"I have already finished my homework.\" What verb tense is \"have finished\"?",
+            "options": ["Present perfect", "Simple past", "Past progressive", "Simple present"],
+            "correct_answer": "Present perfect"
+          },
+          {
+            "question": "\"I was so hungry I could eat a horse!\" What literary device is this?",
+            "options": ["Hyperbole", "Simile", "Metaphor", "Personification"],
+            "correct_answer": "Hyperbole"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics Review — Week 10: Number Theory & Operations!\n\nLet's review the key ideas from Term 1! 🏆\n\n## 🔢 Numbers to Billions\n- **Place values**: Billions | Hundred-Millions | Ten-Millions | Millions | ...\n- **Reading large numbers**: 1,234,567,890 → \"one billion, two hundred thirty-four million...\"\n\n## 🔍 Divisibility Rules\n- **Divisible by 2**: ends in 0, 2, 4, 6, 8\n- **Divisible by 3**: sum of digits is divisible by 3 (e.g., 123 → 1+2+3=6 ✓)\n- **Divisible by 5**: ends in 0 or 5\n- **Divisible by 10**: ends in 0\n\n## 🧩 GCF and LCM\n- **GCF (Greatest Common Factor)**: the largest factor shared by two numbers\n  - GCF of 12 and 18: Factors of 12 = {1,2,3,4,6,12}; Factors of 18 = {1,2,3,6,9,18} → **GCF = 6**\n- **LCM (Least Common Multiple)**: the smallest multiple shared by two numbers\n  - LCM of 4 and 6: Multiples of 4 = 4,8,12,16; Multiples of 6 = 6,12,18 → **LCM = 12**\n\n## ✖️÷ Operations with Whole Numbers\n- **Long multiplication**: 3,456 × 78 — use partial products\n- **Long division**: 56,789 ÷ 23 — estimate, divide, multiply, subtract, bring down\n\nYou are a number theory champion! 🌟",
+        "quiz": [
+          {
+            "question": "Is 348 divisible by 3?",
+            "options": ["Yes, because 3+4+8=15", "No, because it ends in 8", "Yes, because it is even", "No, because 15 is odd"],
+            "correct_answer": "Yes, because 3+4+8=15"
+          },
+          {
+            "question": "What is the GCF of 24 and 36?",
+            "options": ["12", "6", "8", "4"],
+            "correct_answer": "12"
+          },
+          {
+            "question": "What is the LCM of 6 and 9?",
+            "options": ["18", "54", "3", "9"],
+            "correct_answer": "18"
+          },
+          {
+            "question": "Which number is divisible by both 2 AND 5?",
+            "options": ["350", "352", "355", "357"],
+            "correct_answer": "350"
+          },
+          {
+            "question": "What is 4,567 × 34?",
+            "options": ["155,278", "145,278", "156,278", "154,278"],
+            "correct_answer": "155,278"
+          },
+          {
+            "question": "What is 78,456 ÷ 24?",
+            "options": ["3,269", "3,169", "3,369", "3,069"],
+            "correct_answer": "3,269"
+          },
+          {
+            "question": "What is the GCF of 15 and 25?",
+            "options": ["5", "15", "25", "75"],
+            "correct_answer": "5"
+          },
+          {
+            "question": "A ribbon 72 cm long is cut into equal pieces. Which length allows no leftover? (Hint: use divisibility)",
+            "options": ["8 cm pieces", "7 cm pieces", "11 cm pieces", "13 cm pieces"],
+            "correct_answer": "8 cm pieces"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 10 Pagsasanay: Gramatika at Akdang Pampanitikan!\n\nSinasalamin ng wikang Filipino ang kagandahan ng ating kultura. Balikan natin ang lahat! 💪\n\n## 🔤 Gramatika\n- **Pandiwa at Aspekto**:\n  - Kontemplatibo: *kakain* (gagawin pa)\n  - Progresibo: *kumakain* (ginagawa ngayon)\n  - Perpektibo: *kumain na* (tapos na)\n- **Pokus ng Pandiwa**:\n  - Actor focus (*mag-*, *um-*): *Nagluto si Maria.*\n  - Object focus (*-in*): *Niluto ni Maria ang adobo.*\n  - Beneficiary focus (*-an*): *Nilutuan ni Maria ang kanyang ina.*\n- **Pandiwari**: salitang nagsisilbing pangngalan → *ang magluto* = isang gawain\n\n## 📝 Talasalitaan\n- **Denotasyon**: literal na kahulugan ng salita (diksyonaryo)\n- **Konotasyon**: naidudulot na damdamin o kahulugan ng salita\n  - Halimbawa: *matabang* (denotasyon: maraming taba) vs. *malusog* (mas positibong konotasyon)\n- **Idyoma**: pariralang may espesyal na kahulugan\n  - *Sukang-pait* = napakaalat o mapait na karanasan\n\n## 📚 Akdang Pampanitikan\n- **Epiko**: mahabang tula tungkol sa bayani ng isang tribu o bansa (hal. *Biag ni Lam-ang*, *Hinilawod*)\n- **Alamat**: kwentong nagpapaliwanag ng pinagmulan ng isang bagay\n- **Pabula**: kwentong may aral, may hayop na nagsasalita\n\nNapakahusay! 🌟",
+        "quiz": [
+          {
+            "question": "\"Magluluto si Lola bukas.\" Ano ang aspekto ng pandiwa?",
+            "options": ["Kontemplatibo", "Progresibo", "Perpektibo", "Pawatas"],
+            "correct_answer": "Kontemplatibo"
+          },
+          {
+            "question": "\"Niluto ni Maria ang adobo.\" Ano ang pokus ng pandiwa?",
+            "options": ["Object focus", "Actor focus", "Beneficiary focus", "Locative focus"],
+            "correct_answer": "Object focus"
+          },
+          {
+            "question": "Ano ang \"denotasyon\" ng isang salita?",
+            "options": ["Literal na kahulugan sa diksyonaryo", "Damdaming kahulugan ng salita", "Idyomatikong gamit ng salita", "Salitang may panlapi"],
+            "correct_answer": "Literal na kahulugan sa diksyonaryo"
+          },
+          {
+            "question": "\"Nagluto si Maria\" — Ano ang pokus ng pandiwa?",
+            "options": ["Actor focus", "Object focus", "Beneficiary focus", "Locative focus"],
+            "correct_answer": "Actor focus"
+          },
+          {
+            "question": "Alin ang halimbawa ng isang idyoma?",
+            "options": ["Kabaligtaran ng loob", "Kumain ng maraming pagkain", "Natulog nang maaga", "Nagsalita sa entablado"],
+            "correct_answer": "Kabaligtaran ng loob"
+          },
+          {
+            "question": "Ano ang epiko sa panitikang Pilipino?",
+            "options": ["Mahabang tula tungkol sa mga bayani ng tribu", "Maikling kwento na may moral", "Tula na may ritmo at tugma lamang", "Kwentong nagpapaliwanag ng pinagmulan"],
+            "correct_answer": "Mahabang tula tungkol sa mga bayani ng tribu"
+          },
+          {
+            "question": "\"Malusog\" kumpara sa \"mataba\" — ito ay isang halimbawa ng pagkakaiba ng ___.",
+            "options": ["konotasyon", "denotasyon", "idyoma", "panlapi"],
+            "correct_answer": "konotasyon"
+          },
+          {
+            "question": "Ano ang pabula?",
+            "options": ["Kwentong may aral at may hayop na nagsasalita", "Tula tungkol sa mga bayani ng bansa", "Kwentong nagpapaliwanag ng pinagmulan", "Mahabang nobela tungkol sa pag-ibig"],
+            "correct_answer": "Kwentong may aral at may hayop na nagsasalita"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science Review — Week 10: Matter — Properties & Changes!\n\nGreat term, scientists! Let's review our study of **matter**. 🌟\n\n## ⚗️ Pure Substances vs. Mixtures\n- **Pure substance**: only ONE kind of material; cannot be separated by physical means\n  - **Elements**: cannot be broken down further → *gold, oxygen, carbon*\n  - **Compounds**: two or more elements chemically combined → *water (H₂O), table salt (NaCl)*\n- **Mixture**: two or more substances combined; **CAN** be separated physically\n  - **Solution** (homogeneous): evenly mixed → *salt water, lemonade*\n  - **Colloid**: particles in between — don't settle but scatter light → *milk, fog*\n  - **Suspension** (heterogeneous): particles settle over time → *muddy water, sand in water*\n\n## 🧪 Physical & Chemical Properties\n- **Physical properties**: observed without changing the substance → color, odor, melting point, density, conductivity\n- **Chemical properties**: describe how a substance reacts → flammability, reactivity with acid/base\n\n## 🔄 Physical & Chemical Changes\n- **Physical change**: no new substance formed → melting, freezing, dissolving, cutting\n- **Chemical change**: new substance formed → burning, rusting, fermentation, photosynthesis\n  - Signs of chemical change: color change, gas produced, heat/light released, precipitate forms\n\nYou're thinking like a true scientist! 🌍",
+        "quiz": [
+          {
+            "question": "Which of these is a PURE ELEMENT?",
+            "options": ["Gold (Au)", "Water (H₂O)", "Salt (NaCl)", "Sugar (C₁₂H₂₂O₁₁)"],
+            "correct_answer": "Gold (Au)"
+          },
+          {
+            "question": "Water (H₂O) is an example of a ___.",
+            "options": ["compound", "element", "mixture", "suspension"],
+            "correct_answer": "compound"
+          },
+          {
+            "question": "Milk is an example of which type of mixture?",
+            "options": ["Colloid", "Solution", "Suspension", "Pure substance"],
+            "correct_answer": "Colloid"
+          },
+          {
+            "question": "Muddy water is an example of a ___.",
+            "options": ["suspension", "solution", "colloid", "compound"],
+            "correct_answer": "suspension"
+          },
+          {
+            "question": "Photosynthesis (plants making food) is an example of a ___.",
+            "options": ["chemical change", "physical change", "reversible change", "natural mixture"],
+            "correct_answer": "chemical change"
+          },
+          {
+            "question": "Which is a sign that a CHEMICAL change has occurred?",
+            "options": ["Gas is produced and color changes", "The substance melts and reforms", "The shape changes but color stays", "The material dissolves completely"],
+            "correct_answer": "Gas is produced and color changes"
+          },
+          {
+            "question": "Which property describes a material's ability to burn?",
+            "options": ["Flammability", "Conductivity", "Solubility", "Density"],
+            "correct_answer": "Flammability"
+          },
+          {
+            "question": "Salt water can be separated by evaporation. What type of mixture is it?",
+            "options": ["Solution", "Suspension", "Colloid", "Compound"],
+            "correct_answer": "Solution"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🌏 Araling Panlipunan — Linggo 10 Pagsasanay: Timog-Silangang Asya!\n\nBalikan natin ang ating mga natutunan tungkol sa rehiyon ng Timog-Silangang Asya! 🌟\n\n## 🗺️ Timog-Silangang Asya (TSEA)\n- Kilala rin bilang **Southeast Asia**; naglalaman ng **11 bansa**\n- Napapalibutan ng mga karagatan: Pasipiko, Indian Ocean, South China Sea\n- Dalawang bahagi:\n  - **Mainland**: Myanmar, Thailand, Laos, Cambodia, Vietnam\n  - **Island region**: Pilipinas, Indonesia, Malaysia, Brunei, Timor-Leste, Singapore\n\n## 🤝 ASEAN\n- **Association of Southeast Asian Nations** — itinatag noong **Agosto 8, 1967**\n- Lugar ng pagtitipon: **Bangkok, Thailand** (Declaration of Bangkok)\n- **Layunin**: pagpapalakas ng kapayapaan, katatagan, at pag-unlad sa rehiyon\n- **10 miyembro**: Pilipinas, Indonesia, Malaysia, Singapore, Thailand, Brunei, Vietnam, Laos, Myanmar, Cambodia\n- Simbolo: **logo ng ASEAN** — sampung tangkay ng palay\n\n## 🌾 Kalikasan at Kabuhayan ng TSEA\n- Mayaman sa **likas na yaman**: langis, natural gas, mineral, kagubatan, karagatan\n- Pangunahing kabuhayan: **agrikultura** (palay, goma, niyog), **turismo**, **pag-export** ng minerals\n\n## 🌍 Pilipinas sa ASEAN\n- Isa sa mga founding member ng ASEAN\n- Aktibong kalahok sa mga summit at trade agreements\n\nAng pagkakaisa ay kalakasan! 🌟",
+        "quiz": [
+          {
+            "question": "Kailan itinatag ang ASEAN?",
+            "options": ["Agosto 8, 1967", "Hunyo 12, 1898", "Agosto 8, 1945", "Hulyo 4, 1946"],
+            "correct_answer": "Agosto 8, 1967"
+          },
+          {
+            "question": "Ilan ang kasalukuyang miyembro ng ASEAN?",
+            "options": ["10", "11", "8", "12"],
+            "correct_answer": "10"
+          },
+          {
+            "question": "Saan itinatag ang ASEAN?",
+            "options": ["Bangkok, Thailand", "Manila, Philippines", "Jakarta, Indonesia", "Singapore City, Singapore"],
+            "correct_answer": "Bangkok, Thailand"
+          },
+          {
+            "question": "Alin ang hindi miyembro ng ASEAN?",
+            "options": ["Japan", "Vietnam", "Brunei", "Myanmar"],
+            "correct_answer": "Japan"
+          },
+          {
+            "question": "Ano ang pangunahing layunin ng ASEAN?",
+            "options": ["Kapayapaan, katatagan, at pag-unlad", "Pagtatag ng isang gobyerno para sa lahat", "Pagbebenta ng likas na yaman ng TSEA", "Pagsasama ng lahat ng bansa sa iisang bansa"],
+            "correct_answer": "Kapayapaan, katatagan, at pag-unlad"
+          },
+          {
+            "question": "Ang Pilipinas ay nasa aling bahagi ng Timog-Silangang Asya?",
+            "options": ["Island region", "Mainland", "Northern part", "Southern mainland"],
+            "correct_answer": "Island region"
+          },
+          {
+            "question": "Ilang tangkay ng palay ang nasa logo ng ASEAN?",
+            "options": ["Sampu (10)", "Siyam (9)", "Labing-isa (11)", "Walo (8)"],
+            "correct_answer": "Sampu (10)"
+          },
+          {
+            "question": "Alin ang isa sa pinakamahalagang pananim sa Timog-Silangang Asya?",
+            "options": ["Palay", "Trigo", "Mais", "Saging"],
+            "correct_answer": "Palay"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 10 Review: Internet, Digital Tools & Citizenship!\n\nYou've built strong digital skills this term! Let's review. 🖥️\n\n## 🌐 Internet & Research Skills\n- **URL (Uniform Resource Locator)**: the web address of a site → e.g., *www.deped.gov.ph*\n- **Search strategies**: use keywords; use quotes for exact phrases (\"climate change Philippines\")\n- **Evaluating sources**: check the **author**, **date**, **source credibility**, and **purpose**\n- **Plagiarism**: copying someone else's work without credit → WRONG; always **cite your sources**\n\n## 📊 Productivity Software\n- **Word processor** (e.g., MS Word): write reports, format text\n- **Spreadsheet** (e.g., MS Excel): organize data, perform calculations with formulas\n  - Example formula: =SUM(A1:A10) adds values in cells A1 to A10\n- **Presentation software** (e.g., MS PowerPoint): create slides for reports\n\n## 🔐 Digital Safety & Citizenship\n- **Strong password**: mix of letters, numbers, symbols; at least 8 characters; not your name!\n- **Privacy settings**: control who sees your information online\n- **Digital footprint**: everything you do online leaves a trace; think before you post!\n- **Copyright**: respect others' creative work — ask permission or use Creative Commons resources\n\nUse technology wisely and responsibly! 💡",
+        "quiz": [
+          {
+            "question": "What does URL stand for?",
+            "options": ["Uniform Resource Locator", "Universal Reading Link", "Unique Resource Location", "Uniform Research Listing"],
+            "correct_answer": "Uniform Resource Locator"
+          },
+          {
+            "question": "What is a STRONG password?",
+            "options": ["A mix of letters, numbers, and symbols", "Your full name and birthday", "A single common word", "The word 'password123'"],
+            "correct_answer": "A mix of letters, numbers, and symbols"
+          },
+          {
+            "question": "What is PLAGIARISM?",
+            "options": ["Copying someone's work without giving credit", "Writing your own original work", "Citing all your references properly", "Searching for information online"],
+            "correct_answer": "Copying someone's work without giving credit"
+          },
+          {
+            "question": "In a spreadsheet, what does the formula =SUM(A1:A5) do?",
+            "options": ["Adds all values from A1 to A5", "Subtracts A5 from A1", "Multiplies A1 and A5", "Counts the cells A1 to A5"],
+            "correct_answer": "Adds all values from A1 to A5"
+          },
+          {
+            "question": "What is a \"digital footprint\"?",
+            "options": ["A trace of everything you do online", "A type of computer virus", "Your password for social media", "A file you download from the web"],
+            "correct_answer": "A trace of everything you do online"
+          },
+          {
+            "question": "To check if a website is credible, you should look at the ___.",
+            "options": ["Author and source credibility", "Number of pictures on the page", "Length of the article only", "Color scheme of the website"],
+            "correct_answer": "Author and source credibility"
+          },
+          {
+            "question": "Which software is BEST for creating a slideshow presentation?",
+            "options": ["Presentation software (PowerPoint)", "Word processor (MS Word)", "Spreadsheet (MS Excel)", "Web browser (Chrome)"],
+            "correct_answer": "Presentation software (PowerPoint)"
+          },
+          {
+            "question": "Which is an example of good DIGITAL CITIZENSHIP?",
+            "options": ["Always citing your online sources", "Sharing other people's passwords", "Posting private photos of others", "Clicking all pop-up advertisements"],
+            "correct_answer": "Always citing your online sources"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎵🏃 MAPEH — Week 10 Review: Music, Arts, PE & Health!\n\nYou've explored so much in MAPEH this term! Let's review the highlights. 🌟\n\n## 🎵 Music Theory Review\n- **Pitch**: how high or low a note is; determined by frequency\n- **Dynamics**: *pp* (pianissimo) | *p* (piano) | *mp* (mezzo-piano) | *mf* (mezzo-forte) | *f* (forte) | *ff* (fortissimo)\n- **Rhythm**: patterns of long and short sounds; read using **note values**\n  - Whole note = 4 beats | Half note = 2 beats | Quarter note = 1 beat | Eighth note = ½ beat\n- **Time signature**: *4/4* (4 beats per measure, quarter note = 1 beat)\n- **Scale**: sequence of notes in order — Do Re Mi Fa Sol La Ti Do (C major)\n\n## 🎨 Arts (Visual Arts Review)\n- **Elements of art**: line, shape, form, color, texture, space, value\n- **Principles of design**: balance, emphasis, contrast, rhythm, unity, proportion\n- **Philippine folk art**: weaving (*abel iloco*), pottery, wood carving\n\n## 🏃 Physical Education: Health & Fitness\n- **FITT Principle**: Frequency, Intensity, Time, Type\n- **Target heart rate**: during exercise, aim for 60–85% of maximum heart rate\n- **Nutrition**: eat balanced meals using the **Pinggang Pinoy** model (rice, vegetables, fruits, protein)\n\n## 🌿 Health Education\n- **Puberty**: physical and emotional changes in adolescence\n- **Mental health**: managing emotions; seeking help is a sign of strength\n- **Substance abuse prevention**: say no to drugs, alcohol, tobacco\n\nTake care of your whole self — body, mind, and heart! 🌟",
+        "quiz": [
+          {
+            "question": "How many BEATS does a whole note receive?",
+            "options": ["4 beats", "2 beats", "1 beat", "3 beats"],
+            "correct_answer": "4 beats"
+          },
+          {
+            "question": "What does \"pp\" (pianissimo) mean in music?",
+            "options": ["Very soft", "Very loud", "Very fast", "Very slow"],
+            "correct_answer": "Very soft"
+          },
+          {
+            "question": "What is the time signature 4/4?",
+            "options": ["4 beats per measure, quarter note = 1 beat", "4 beats per measure, half note = 1 beat", "2 beats per measure, quarter note = 1 beat", "4 beats per measure, whole note = 1 beat"],
+            "correct_answer": "4 beats per measure, quarter note = 1 beat"
+          },
+          {
+            "question": "Which of these is an ELEMENT of art?",
+            "options": ["Color", "Balance", "Unity", "Emphasis"],
+            "correct_answer": "Color"
+          },
+          {
+            "question": "What does the FITT principle stand for?",
+            "options": ["Frequency, Intensity, Time, Type", "Fitness, Interval, Training, Technique", "Force, Impact, Training, Time", "Frequency, Interval, Tempo, Type"],
+            "correct_answer": "Frequency, Intensity, Time, Type"
+          },
+          {
+            "question": "Which Philippine folk art involves creating cloth using a loom?",
+            "options": ["Weaving (abel iloco)", "Wood carving", "Pottery making", "Sand painting"],
+            "correct_answer": "Weaving (abel iloco)"
+          },
+          {
+            "question": "What is \"Pinggang Pinoy\" in health education?",
+            "options": ["A guide to balanced Filipino meals", "A Philippine national dance form", "A type of Philippine folk song", "A physical fitness test standard"],
+            "correct_answer": "A guide to balanced Filipino meals"
+          },
+          {
+            "question": "How many beats does a HALF NOTE receive?",
+            "options": ["2 beats", "4 beats", "1 beat", "3 beats"],
+            "correct_answer": "2 beats"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 10 Pagsasanay: Pagpapahalaga at Karakter!\n\nNapakahusay mong mag-aaral! Balikan natin ang ating mga aral sa pagpapahalaga. 🌟\n\n## 🌟 Mga Pangunahing Pagpapahalaga (Core Values)\n- **Katarungan (Justice)**: pagbibigay sa bawat isa ng kanyang nararapat\n- **Katapatan (Honesty)**: pagsasabi ng totoo kahit mahirap\n- **Pagmamahal (Love)**: tunay na pagmamalasakit sa kapuwa\n- **Kapayapaan (Peace)**: paghahanap ng mapayapang solusyon sa mga salungatan\n- **Pagpapahalaga sa buhay**: pag-aaral at pangangalaga sa sarili at sa kapuwa\n\n## 🤝 Pakikipagkapwa-tao\n- Ang bawat tao ay may **likas na dignidad** na nararapat irespeto\n- **Empatiya**: ang kakayahang maunawaan ang nararamdaman ng iba\n- **Resolusyon ng salungatan** (Conflict resolution): kausap nang mahinahon; humanap ng win-win na solusyon\n\n## 🌍 Panlipunang Responsibilidad\n- Bilang kabataan, kayo ang kinabukasan ng bansa\n- Mag-ambag sa komunidad sa pamamagitan ng:\n  - Pagiging aktibong mamamayan\n  - Pangangalaga sa kalikasan\n  - Paggalang sa batas at karapatan ng lahat\n\n## 💡 Pagiging Mapanuri (Critical Thinking)\n- Huwag basta sumunod — **mag-isip** bago kumilos\n- Alamin kung tama o mali ang isang desisyon bago gawin\n\nIkaw ang pag-asa ng bansa! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang ibig sabihin ng \"katarungan\"?",
+            "options": ["Pagbibigay sa bawat isa ng kanyang nararapat", "Pagsasabi ng totoo sa lahat", "Pagtulong sa mga mahihirap lamang", "Pagiging mabait sa lahat ng oras"],
+            "correct_answer": "Pagbibigay sa bawat isa ng kanyang nararapat"
+          },
+          {
+            "question": "Ano ang \"empatiya\"?",
+            "options": ["Pag-unawa sa nararamdaman ng iba", "Pagtanggap ng napakaraming gantimpala", "Pagsasabi ng salita nang malakas", "Pagmamahal sa sarili lamang"],
+            "correct_answer": "Pag-unawa sa nararamdaman ng iba"
+          },
+          {
+            "question": "Paano dapat harapin ang isang salungatan?",
+            "options": ["Makipag-usap nang mahinahon at humanap ng win-win", "Ipadama ang galit sa kabilang partido", "Iwasang pag-usapan ang suliranin", "Magpretend na walang suliranin"],
+            "correct_answer": "Makipag-usap nang mahinahon at humanap ng win-win"
+          },
+          {
+            "question": "Alin ang nagpapakita ng \"kapayapaan\" sa araw-araw na buhay?",
+            "options": ["Paghahanap ng solusyon sa halip na away", "Palaging pananatiling tahimik kahit mali", "Pagtanggap ng pagkakamali ng iba", "Pag-iwas sa lahat ng usapan"],
+            "correct_answer": "Paghahanap ng solusyon sa halip na away"
+          },
+          {
+            "question": "Bakit sinasabing ang kabataan ang pag-asa ng bansa?",
+            "options": ["Sila ang mamahalang sa bansa sa hinaharap", "Sila ang pinaka-mabilis sa pagtatrabaho", "Sila ang may pinakamaraming yaman", "Sila ang pinaka-sikat sa buong mundo"],
+            "correct_answer": "Sila ang mamahalang sa bansa sa hinaharap"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng \"likas na dignidad\" ng tao?",
+            "options": ["Bawat tao ay may karapatang irespeto", "Ang mga mayaman lang ang may dignidad", "Ang dignidad ay kailangang kitain", "Ang dignidad ay nakasalalay sa katanyagan"],
+            "correct_answer": "Bawat tao ay may karapatang irespeto"
+          },
+          {
+            "question": "Alin ang halimbawa ng panlipunang responsibilidad ng isang mag-aaral?",
+            "options": ["Pangangalaga sa kapaligiran ng paaralan", "Paglalaro lamang sa oras ng pahinga", "Pagtanggi sa lahat ng tungkulin", "Pag-aaway sa kapuwa estudyante"],
+            "correct_answer": "Pangangalaga sa kapaligiran ng paaralan"
+          },
+          {
+            "question": "Ang pagiging \"mapanuri\" ay nangangahulugang ___.",
+            "options": ["Pag-iisip bago kumilos o sumunod", "Pagtanggi sa lahat ng patakaran", "Palaging pagdududa sa lahat ng bagay", "Pag-alis sa lahat ng responsibilidad"],
+            "correct_answer": "Pag-iisip bago kumilos o sumunod"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📚 Friday Review — English (Grade 5)\n\n- **Simile**: like/as | **Metaphor**: direct comparison | **Personification**: human traits to non-humans\n- **Hyperbole**: exaggeration | **Alliteration**: same starting sounds\n- **Author's purpose**: PIE — Persuade, Inform, Entertain\n- **Active voice**: subject acts | **Passive voice**: subject receives action\n- **Verb tenses**: simple, progressive (*is/are/was + -ing*), perfect (*has/have/had + past participle*)\n- **Conjunctions**: FANBOYS (coordinating) | because/although/since (subordinating)\n\nFantastic work! ⭐",
+        "quiz": [
+          {
+            "question": "\"Peter Piper picked a peck of peppers.\" What device is this?",
+            "options": ["Alliteration", "Metaphor", "Simile", "Hyperbole"],
+            "correct_answer": "Alliteration"
+          },
+          {
+            "question": "\"Her laugh was music to my ears.\" What device is this?",
+            "options": ["Metaphor", "Simile", "Personification", "Alliteration"],
+            "correct_answer": "Metaphor"
+          },
+          {
+            "question": "\"Maria baked the cake.\" This is in ___ voice.",
+            "options": ["active", "passive", "future", "perfect"],
+            "correct_answer": "active"
+          },
+          {
+            "question": "\"She is reading a book.\" What tense is this?",
+            "options": ["Present progressive", "Simple present", "Present perfect", "Past progressive"],
+            "correct_answer": "Present progressive"
+          },
+          {
+            "question": "Which is a COORDINATING conjunction?",
+            "options": ["but", "because", "although", "since"],
+            "correct_answer": "but"
+          },
+          {
+            "question": "An author writes to convince you to do something. What is their purpose?",
+            "options": ["Persuade", "Inform", "Entertain", "Describe"],
+            "correct_answer": "Persuade"
+          },
+          {
+            "question": "\"The book was read by the student.\" This is in ___ voice.",
+            "options": ["passive", "active", "future", "perfect"],
+            "correct_answer": "passive"
+          },
+          {
+            "question": "\"She has already finished the project.\" What tense is \"has finished\"?",
+            "options": ["Present perfect", "Simple past", "Past progressive", "Future tense"],
+            "correct_answer": "Present perfect"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 5)\n\n- **Divisibility rules**: 2 (ends in even), 3 (digit sum ÷ 3), 5 (ends 0 or 5), 10 (ends in 0)\n- **GCF**: largest shared factor | **LCM**: smallest shared multiple\n- **Large numbers**: up to billions — know each place value\n- **Operations**: long multiplication and division with large numbers\n- **Problem solving**: 4 steps — Understand, Plan, Solve, Check\n\nYou're a math star! 🌟",
+        "quiz": [
+          {
+            "question": "Is 246 divisible by 3?",
+            "options": ["Yes, 2+4+6=12", "No, it is even", "Yes, it ends in 6", "No, 12 is too big"],
+            "correct_answer": "Yes, 2+4+6=12"
+          },
+          {
+            "question": "What is the GCF of 18 and 30?",
+            "options": ["6", "9", "3", "18"],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What is the LCM of 8 and 12?",
+            "options": ["24", "96", "4", "16"],
+            "correct_answer": "24"
+          },
+          {
+            "question": "Which number is divisible by 2, 3, AND 5?",
+            "options": ["90", "92", "95", "91"],
+            "correct_answer": "90"
+          },
+          {
+            "question": "What is 2,345 × 56?",
+            "options": ["131,320", "130,320", "132,320", "131,220"],
+            "correct_answer": "131,320"
+          },
+          {
+            "question": "What is 98,560 ÷ 32?",
+            "options": ["3,080", "3,180", "2,980", "3,280"],
+            "correct_answer": "3,080"
+          },
+          {
+            "question": "GCF of 36 and 48 is ___.",
+            "options": ["12", "6", "36", "4"],
+            "correct_answer": "12"
+          },
+          {
+            "question": "A class of 30 and a class of 42 need to be divided into equal groups of the same size. What is the largest group size?",
+            "options": ["6", "3", "42", "30"],
+            "correct_answer": "6"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino (Baitang 5)\n\n- **Aspekto ng pandiwa**: Kontemplatibo | Progresibo | Perpektibo\n- **Pokus**: Actor (*mag-/um-*) | Object (*-in*) | Beneficiary (*-an*)\n- **Denotasyon** = literal | **Konotasyon** = emosyonal na kahulugan\n- **Idyoma** = espesyal na kahulugan ng parirala\n- **Epiko** = bayani ng tribu | **Alamat** = pinagmulan | **Pabula** = hayop + aral\n\nMahusay! 🌟",
+        "quiz": [
+          {
+            "question": "\"Niluto ni Lola ang adobo.\" Ano ang pokus ng pandiwa?",
+            "options": ["Object focus", "Actor focus", "Beneficiary focus", "Locative focus"],
+            "correct_answer": "Object focus"
+          },
+          {
+            "question": "\"Nagluluto si Lola.\" Ano ang aspekto ng pandiwa?",
+            "options": ["Progresibo", "Kontemplatibo", "Perpektibo", "Pawatas"],
+            "correct_answer": "Progresibo"
+          },
+          {
+            "question": "Alin ang halimbawa ng idyoma?",
+            "options": ["Malakas ang loob", "Kumakain siya ng mangga", "Magsalita nang malakas", "Kumanta siya nang maganda"],
+            "correct_answer": "Malakas ang loob"
+          },
+          {
+            "question": "Ang \"epiko\" ay ___.",
+            "options": ["mahabang tula tungkol sa mga bayani ng tribu", "maikling kwentong may aral", "kwentong nagpapaliwanag ng pinagmulan", "tula na may ritmo at tugma lamang"],
+            "correct_answer": "mahabang tula tungkol sa mga bayani ng tribu"
+          },
+          {
+            "question": "Ang pagkakaiba ng \"denotasyon\" at \"konotasyon\" ay ___.",
+            "options": ["Literal vs. emosyonal na kahulugan", "Panlapi vs. salitang-ugat", "Epiko vs. pabula", "Simuno vs. panaguri"],
+            "correct_answer": "Literal vs. emosyonal na kahulugan"
+          },
+          {
+            "question": "\"Nilutuan ni Lola ang kanyang pamilya ng adobo.\" Ano ang pokus?",
+            "options": ["Beneficiary focus", "Object focus", "Actor focus", "Locative focus"],
+            "correct_answer": "Beneficiary focus"
+          },
+          {
+            "question": "Alin ang katangian ng alamat?",
+            "options": ["Nagpapaliwanag ng pinagmulan ng isang bagay", "May moral at hayop na nagsasalita", "Mahabang tula tungkol sa bayani", "Kwento ng pag-ibig ng dalawang tao"],
+            "correct_answer": "Nagpapaliwanag ng pinagmulan ng isang bagay"
+          },
+          {
+            "question": "\"Magluluto si Lola bukas.\" Ano ang aspekto?",
+            "options": ["Kontemplatibo", "Progresibo", "Perpektibo", "Pawatas"],
+            "correct_answer": "Kontemplatibo"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Friday Review — Science (Grade 5)\n\n- **Elements**: cannot be broken down (Gold, Oxygen) | **Compounds**: elements chemically combined (H₂O, NaCl)\n- **Mixtures**: solution (evenly mixed) | colloid (particles scatter light) | suspension (settles over time)\n- **Physical change**: no new substance | **Chemical change**: new substance formed (signs: gas, color change, heat/light, precipitate)\n- **Physical properties**: color, odor, density, conductivity\n- **Chemical properties**: flammability, reactivity\n\nExcellent scientist! 🌍",
+        "quiz": [
+          {
+            "question": "Which is an ELEMENT (not a compound)?",
+            "options": ["Oxygen (O)", "Water (H₂O)", "Salt (NaCl)", "Sugar (C₆H₁₂O₆)"],
+            "correct_answer": "Oxygen (O)"
+          },
+          {
+            "question": "Which is a COMPOUND?",
+            "options": ["Table salt (NaCl)", "Gold (Au)", "Iron (Fe)", "Carbon (C)"],
+            "correct_answer": "Table salt (NaCl)"
+          },
+          {
+            "question": "Fog is an example of which type of mixture?",
+            "options": ["Colloid", "Solution", "Suspension", "Compound"],
+            "correct_answer": "Colloid"
+          },
+          {
+            "question": "Which is a sign of a CHEMICAL change?",
+            "options": ["Gas is produced from the reaction", "The shape of the object changes", "The material melts and then refreezes", "The color is the same before and after"],
+            "correct_answer": "Gas is produced from the reaction"
+          },
+          {
+            "question": "Freezing water into ice is an example of a ___.",
+            "options": ["physical change", "chemical change", "irreversible change", "reactive change"],
+            "correct_answer": "physical change"
+          },
+          {
+            "question": "The ability of a material to burn is its ___.",
+            "options": ["flammability", "conductivity", "solubility", "density"],
+            "correct_answer": "flammability"
+          },
+          {
+            "question": "Which mixture separates into layers when left undisturbed?",
+            "options": ["Suspension", "Solution", "Colloid", "Compound"],
+            "correct_answer": "Suspension"
+          },
+          {
+            "question": "Rusting of iron is an example of a ___.",
+            "options": ["chemical change", "physical change", "reversible change", "natural solution"],
+            "correct_answer": "chemical change"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🌏 Biyernes — Lingguhang Pagsasanay: Araling Panlipunan (Baitang 5)\n\n- **ASEAN**: itinatag Agosto 8, 1967 sa Bangkok; 10 miyembro\n- **Layunin**: kapayapaan, katatagan, pag-unlad ng rehiyon\n- **Timog-Silangang Asya**: mainland at island region; 11 bansa\n- **Likas na yaman**: langis, mineral, kagubatan, karagatan\n- Pilipinas = founding member ng ASEAN\n\nIpagmahal ang ASEAN! 🌟",
+        "quiz": [
+          {
+            "question": "Kailan itinatag ang ASEAN?",
+            "options": ["Agosto 8, 1967", "Hulyo 4, 1946", "Hunyo 12, 1898", "Agosto 8, 1972"],
+            "correct_answer": "Agosto 8, 1967"
+          },
+          {
+            "question": "Ilan ang miyembro ng ASEAN?",
+            "options": ["10", "8", "11", "12"],
+            "correct_answer": "10"
+          },
+          {
+            "question": "Alin ang hindi miyembro ng ASEAN?",
+            "options": ["India", "Vietnam", "Brunei", "Cambodia"],
+            "correct_answer": "India"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang mainland country ng Timog-Silangang Asya?",
+            "options": ["Thailand", "Pilipinas", "Indonesia", "Brunei"],
+            "correct_answer": "Thailand"
+          },
+          {
+            "question": "Ano ang pangunahing layunin ng ASEAN?",
+            "options": ["Kapayapaan, katatagan, at pag-unlad", "Pagbuo ng iisang gobyerno sa TSEA", "Pagtataas ng military ng bawat bansa", "Pagkontrol ng lahat ng kalakalan sa Asya"],
+            "correct_answer": "Kapayapaan, katatagan, at pag-unlad"
+          },
+          {
+            "question": "Ang logo ng ASEAN ay may sampung tangkay ng palay na kumakatawan sa ___.",
+            "options": ["sampung miyembro ng ASEAN", "sampung taon ng ASEAN", "sampung prinsipyo ng ASEAN", "sampung rehiyon ng TSEA"],
+            "correct_answer": "sampung miyembro ng ASEAN"
+          },
+          {
+            "question": "Alin ang island country ng Timog-Silangang Asya?",
+            "options": ["Indonesia", "Myanmar", "Thailand", "Cambodia"],
+            "correct_answer": "Indonesia"
+          },
+          {
+            "question": "Saan itinatag ang ASEAN?",
+            "options": ["Bangkok, Thailand", "Manila, Philippines", "Jakarta, Indonesia", "Kuala Lumpur, Malaysia"],
+            "correct_answer": "Bangkok, Thailand"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Friday Review — EPP (ICT) (Grade 5)\n\n- **URL** = web address | **Search strategy**: use keywords + quotes for exact phrases\n- **Source evaluation**: check author, date, credibility, purpose\n- **Plagiarism** = copying without credit; always cite sources\n- **Spreadsheet**: =SUM(), =AVERAGE() formulas\n- **Digital footprint**: trace of online activity; think before you post!\n- **Copyright**: respect others' work; use Creative Commons\n\nUse tech wisely! 💡",
+        "quiz": [
+          {
+            "question": "What does URL stand for?",
+            "options": ["Uniform Resource Locator", "Universal Research Link", "Unique Reading Location", "Unified Resource Listing"],
+            "correct_answer": "Uniform Resource Locator"
+          },
+          {
+            "question": "What is a DIGITAL FOOTPRINT?",
+            "options": ["A trace of everything you do online", "A type of virus on your computer", "Your login password online", "A file you download from the web"],
+            "correct_answer": "A trace of everything you do online"
+          },
+          {
+            "question": "What does the formula =AVERAGE(B1:B5) do?",
+            "options": ["Calculates the average of B1 to B5", "Adds all values from B1 to B5", "Multiplies B1 by B5", "Counts entries in B1 to B5"],
+            "correct_answer": "Calculates the average of B1 to B5"
+          },
+          {
+            "question": "To find information FAST, which search strategy helps?",
+            "options": ["Using specific keywords and phrases", "Typing full sentences only", "Using only one short word", "Asking Ctrl+F to search the web"],
+            "correct_answer": "Using specific keywords and phrases"
+          },
+          {
+            "question": "What is PLAGIARISM?",
+            "options": ["Using someone's work without giving credit", "Searching for information properly", "Writing a proper bibliography", "Citing all your references"],
+            "correct_answer": "Using someone's work without giving credit"
+          },
+          {
+            "question": "Which is an example of good digital citizenship?",
+            "options": ["Citing your sources in a report", "Sharing other people's passwords freely", "Posting photos of others without asking", "Clicking every link you see online"],
+            "correct_answer": "Citing your sources in a report"
+          },
+          {
+            "question": "To evaluate a website's credibility, what should you check?",
+            "options": ["The author and source of the site", "The number of images on the page", "How many ads the site has", "The font size used on the page"],
+            "correct_answer": "The author and source of the site"
+          },
+          {
+            "question": "What is COPYRIGHT?",
+            "options": ["Legal protection for creative work", "A type of computer shortcut key", "A setting in a word processor", "A search engine feature"],
+            "correct_answer": "Legal protection for creative work"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎵🏃 Friday Review — MAPEH (Grade 5)\n\n- **Music**: note values (whole=4, half=2, quarter=1, eighth=½ beat), dynamics (pp to ff), time signature 4/4, scale (Do Re Mi...)\n- **Arts**: elements (line, shape, form, color, texture, space, value), principles (balance, contrast, unity...)\n- **Philippine folk art**: weaving, pottery, wood carving\n- **FITT principle**: Frequency, Intensity, Time, Type\n- **Pinggang Pinoy**: balanced Filipino meal guide\n- **Health**: puberty, mental health, substance abuse prevention\n\nKeep moving and stay healthy! 🌟",
+        "quiz": [
+          {
+            "question": "How many beats does a QUARTER NOTE receive?",
+            "options": ["1 beat", "2 beats", "4 beats", "3 beats"],
+            "correct_answer": "1 beat"
+          },
+          {
+            "question": "What does \"forte\" (f) mean?",
+            "options": ["Loud", "Soft", "Fast", "Slow"],
+            "correct_answer": "Loud"
+          },
+          {
+            "question": "Which is a PRINCIPLE of design?",
+            "options": ["Balance", "Color", "Texture", "Shape"],
+            "correct_answer": "Balance"
+          },
+          {
+            "question": "Which is an ELEMENT of art?",
+            "options": ["Line", "Unity", "Proportion", "Emphasis"],
+            "correct_answer": "Line"
+          },
+          {
+            "question": "What does the 'F' in FITT stand for?",
+            "options": ["Frequency", "Force", "Flexibility", "Fitness"],
+            "correct_answer": "Frequency"
+          },
+          {
+            "question": "\"Pinggang Pinoy\" is a guide to ___.",
+            "options": ["balanced Filipino meals", "Philippine folk dances", "physical fitness tests", "traditional Filipino arts"],
+            "correct_answer": "balanced Filipino meals"
+          },
+          {
+            "question": "How many beats does an EIGHTH NOTE receive?",
+            "options": ["½ beat", "1 beat", "2 beats", "4 beats"],
+            "correct_answer": "½ beat"
+          },
+          {
+            "question": "Which Philippine folk art involves hand-weaving cloth on a loom?",
+            "options": ["Abel iloco", "Parol-making", "Baybayin writing", "Singkil dance"],
+            "correct_answer": "Abel iloco"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC (Baitang 5)\n\n- **Katarungan** = pagbibigay ng nararapat sa lahat\n- **Empatiya** = pag-unawa sa nararamdaman ng iba\n- **Resolusyon ng salungatan**: makipag-usap nang mahinahon\n- **Likas na dignidad**: bawat tao ay may karapatang irespeto\n- Kabataan = pag-asa ng bansa; maging aktibong mamamayan!\n\nPatuloy na maging mabuting tao! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang \"katarungan\"?",
+            "options": ["Pagbibigay ng nararapat sa lahat", "Pagiging mayaman at makapangyarihan", "Pagtanggi sa lahat ng responsibilidad", "Pagsasabi ng gusto ng nakararami"],
+            "correct_answer": "Pagbibigay ng nararapat sa lahat"
+          },
+          {
+            "question": "Alin ang nagpapakita ng empatiya?",
+            "options": ["Pag-unawa sa nararamdaman ng iyong kaibigan", "Pagiging masaya kahit malungkot ang iba", "Pag-iwas sa mga nagdurusa", "Pagbibigay ng payo nang walang pakikinig"],
+            "correct_answer": "Pag-unawa sa nararamdaman ng iyong kaibigan"
+          },
+          {
+            "question": "Paano malulutas ang isang salungatan nang mapayapa?",
+            "options": ["Makipag-usap nang mahinahon at may paggalang", "Lumaban nang walang pag-iisip", "Huwag na lang pag-usapan para hindi masama", "Manalo sa lahat ng paraan"],
+            "correct_answer": "Makipag-usap nang mahinahon at may paggalang"
+          },
+          {
+            "question": "Bakit sinasabing ang bawat tao ay may \"likas na dignidad\"?",
+            "options": ["Bawat tao ay may karapatang irespeto mula pa sa kapanganakan", "Ang dignidad ay nakukuha sa pag-aaral at trabaho", "Ang dignidad ay nakasalalay sa kayamanan ng tao", "Ang dignidad ay ibinibigay ng pamahalaan"],
+            "correct_answer": "Bawat tao ay may karapatang irespeto mula pa sa kapanganakan"
+          },
+          {
+            "question": "Bilang kabataan, paano ka makakatulong sa iyong komunidad?",
+            "options": ["Sa pangangalaga ng kalikasan at aktibong pakikilahok", "Sa pagtanggi sa lahat ng pagtitipon", "Sa pag-iiwan ng lahat ng responsibilidad sa matatanda", "Sa pananatili sa bahay at pag-aaral lamang"],
+            "correct_answer": "Sa pangangalaga ng kalikasan at aktibong pakikilahok"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng pagiging \"mapanuri\"?",
+            "options": ["Pag-iisip bago kumilos o sumunod", "Pagsunod sa lahat nang walang tanong", "Pagtanggi sa lahat ng panukala", "Palaging pagdududa nang walang basehan"],
+            "correct_answer": "Pag-iisip bago kumilos o sumunod"
+          },
+          {
+            "question": "Alin ang halimbawa ng pangangalaga sa kalikasan?",
+            "options": ["Pagtatanim at pag-aayos ng basurahan", "Pagtatapon ng basura sa ilog", "Pagputol ng mga puno para sa gusali", "Pag-aalaga lamang ng sariling bakuran"],
+            "correct_answer": "Pagtatanim at pag-aayos ng basurahan"
+          },
+          {
+            "question": "Bakit mahalaga ang kapayapaan sa isang komunidad?",
+            "options": ["Para makapag-unlad at mabuhay nang maayos ang lahat", "Para laging masaya at may selebrasyon", "Para walang trabaho at responsibilidad ang lahat", "Para maging pinaka-sikat sa buong bansa"],
+            "correct_answer": "Para makapag-unlad at mabuhay nang maayos ang lahat"
+          }
+        ]
+      }
+    }
+  }
+}

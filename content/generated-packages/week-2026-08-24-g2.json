@@ -1,0 +1,556 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-08-24",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English Review — Week 10: Nouns, Verbs, Adjectives & Sentences!\n\nAmazing work this term! Let's review what we've learned. 💪\n\n## 📝 Nouns — Names of Things\n- A **common noun** names any person, place, or thing: *girl*, *school*, *book*\n- A **proper noun** names a specific person, place, or thing — starts with a **Capital Letter!**\n  - Example: **Tala** is a proper noun. **Manila** is a proper noun.\n\n## 🏃 Verbs — Action Words\n- A **verb** tells what someone does: *jump*, *read*, *sing*, *eat*\n- 🌟 Example: **The dog *runs* in the park.**\n\n## 🌈 Adjectives — Describing Words\n- An **adjective** describes a noun — how it looks, feels, sounds, or tastes.\n- Examples: *big*, *red*, *sweet*, *happy*\n- 🌟 Example: **The *small* puppy has *soft* fur.**\n\n## 📖 Types of Sentences\n- **Declarative**: tells something → ends with a **period (.)**\n  - Example: *I love to read.*\n- **Interrogative**: asks a question → ends with a **question mark (?)**\n  - Example: *Do you love to read?*\n\n## 📚 Story Summary\nWhen you summarize, share:\n- **Who** — the characters (people/animals in the story)\n- **Where** — the setting (place and time)\n- **What happened** — beginning, middle, and end\n\nYou are a superstar learner! ⭐",
+        "quiz": [
+          {
+            "question": "Which word is a proper noun?",
+            "options": ["Ramon", "tiger", "house", "ocean"],
+            "correct_answer": "Ramon"
+          },
+          {
+            "question": "Which word is a verb (action word)?",
+            "options": ["happy", "green", "swim", "book"],
+            "correct_answer": "swim"
+          },
+          {
+            "question": "Which word is an adjective (describing word)?",
+            "options": ["shiny", "climb", "Nena", "park"],
+            "correct_answer": "shiny"
+          },
+          {
+            "question": "Which sentence is declarative (a telling sentence)?",
+            "options": ["I love mangoes.", "Do you love mangoes?", "Eat the mangoes!", "Wow, sweet mangoes!"],
+            "correct_answer": "I love mangoes."
+          },
+          {
+            "question": "What punctuation ends an interrogative sentence?",
+            "options": ["Question mark (?)", "Exclamation mark (!)", "Period mark (.)", "Comma mark (,)"],
+            "correct_answer": "Question mark (?)"
+          },
+          {
+            "question": "\"The tiny kitten slept on the warm mat.\" Which word is an adjective?",
+            "options": ["slept", "tiny", "kitten", "mat"],
+            "correct_answer": "tiny"
+          },
+          {
+            "question": "In a story summary, we call the people/animals in the story the ___.",
+            "options": ["characters", "adjectives", "sentences", "settings"],
+            "correct_answer": "characters"
+          },
+          {
+            "question": "Which word is a common noun?",
+            "options": ["school", "Maria", "runs", "bright"],
+            "correct_answer": "school"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💰 Mathematics Review — Week 10: Money and Word Problems!\n\nLet's review **Philippine money** and solve **word problems**! 💰\n\n## 🪙 Philippine Coins and Bills\n- **Coins**: ₱1, ₱5, ₱10\n- **Bills**: ₱20, ₱50, ₱100, ₱200, ₱500, ₱1,000\n- The **bigger** the number, the **greater** the value!\n  - ₱100 **>** ₱50 (one hundred pesos is MORE than fifty pesos)\n  - ₱5 **<** ₱10 (five pesos is LESS than ten pesos)\n\n## ➕ Solving Word Problems with Money\n**Steps:**\n1. Read the problem carefully.\n2. Find the numbers you need.\n3. **Add** the amounts together.\n4. Write the answer with the **₱** sign.\n\n**Example 1:** Tala has ₱35. She earns ₱15 more. How much does she have now?\n- ₱35 + ₱15 = **₱50** ✓\n\n**Example 2:** Ben buys a pencil for ₱8 and a notebook for ₱22. How much does he spend?\n- ₱8 + ₱22 = **₱30** ✓\n\nAlways write the **peso sign ₱** in money answers! 🌟",
+        "quiz": [
+          {
+            "question": "Which has the GREATEST value?",
+            "options": ["₱500 bill", "₱100 bill", "₱50 bill", "₱20 bill"],
+            "correct_answer": "₱500 bill"
+          },
+          {
+            "question": "Tala has ₱30. She earns ₱20 more. How much does she have now?",
+            "options": ["₱50", "₱40", "₱60", "₱55"],
+            "correct_answer": "₱50"
+          },
+          {
+            "question": "Which has the LEAST value?",
+            "options": ["₱1 coin", "₱5 coin", "₱10 coin", "₱20 bill"],
+            "correct_answer": "₱1 coin"
+          },
+          {
+            "question": "Ana buys a pen for ₱12 and an eraser for ₱8. How much does she spend in all?",
+            "options": ["₱20", "₱18", "₱22", "₱16"],
+            "correct_answer": "₱20"
+          },
+          {
+            "question": "Which symbol means \"greater than\"?",
+            "options": [">", "<", "=", "+"],
+            "correct_answer": ">"
+          },
+          {
+            "question": "Jose has ₱45. His lolo gives him ₱55 more. How much does Jose have in all?",
+            "options": ["₱100", "₱90", "₱80", "₱110"],
+            "correct_answer": "₱100"
+          },
+          {
+            "question": "Which shows that ₱50 is LESS than ₱100?",
+            "options": ["₱50 < ₱100", "₱50 > ₱100", "₱50 = ₱100", "₱50 + ₱100"],
+            "correct_answer": "₱50 < ₱100"
+          },
+          {
+            "question": "Bella saves ₱120 in April and ₱80 in May. How much does she save in all?",
+            "options": ["₱200", "₱190", "₱180", "₱210"],
+            "correct_answer": "₱200"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 10 Pagsasanay: Pangungusap at Kwento\n\nNapakagaling mo sa Term 1! Balikan natin ang lahat ng ating natutunan. 💪\n\n## 📝 Simuno at Panaguri\n- **Simuno** — ang paksa ng pangungusap (kung sino o ano ang pinag-uusapan)\n  - Halimbawa: ***Si Ana*** ay mabait.\n- **Panaguri** — ang bahagi na nagsasaad ng ginawa o katangian ng simuno\n  - Halimbawa: Si Ana ***ay mabait.***\n\n## 📖 Mga Uri ng Pangungusap\n- **Pasalaysay** — nagsasaad ng katotohanan; nagtatapos sa **tuldok (.)**\n  - Halimbawa: *Mahilig ang mga bata sa paglalaro.*\n- **Patanong** — nagtatanong; nagtatapos sa **tandang pananong (?)**\n  - Halimbawa: *Mahilig ka ba sa paglalaro?*\n\n## 🏃 Salitang Kilos (Pandiwa)\n- Ang **pandiwa** ay nagsasaad ng kilos o gawa.\n  - Halimbawa: *kumakain*, *naglalaro*, *nagbabasa*\n\n## 📚 Buod ng Kwento\nSa paggawa ng **buod**, kailangan nating sabihin:\n- **Sino** ang mga tauhan\n- **Saan** ang tagpuan\n- **Ano** ang nangyari (simula → gitna → katapusan)\n\nIkaw ay isang napakagaling na mag-aaral! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tinatawag na paksa ng pangungusap?",
+            "options": ["Simuno", "Panaguri", "Pandiwa", "Panlapi"],
+            "correct_answer": "Simuno"
+          },
+          {
+            "question": "Aling pangungusap ang pasalaysay?",
+            "options": ["Mahal ko ang Pilipinas.", "Mahal mo ba ang Pilipinas?", "Ipaglaban ang Pilipinas!", "Wow, ang ganda ng Pilipinas!"],
+            "correct_answer": "Mahal ko ang Pilipinas."
+          },
+          {
+            "question": "Sa pangungusap na \"Si Pedro ay mabilis tumakbo\", ano ang simuno?",
+            "options": ["Si Pedro", "mabilis", "tumakbo", "ay"],
+            "correct_answer": "Si Pedro"
+          },
+          {
+            "question": "Ano ang pandiwa sa pangungusap na \"Kumakain si Lolo ng mangga\"?",
+            "options": ["kumakain", "si Lolo", "mangga", "ng"],
+            "correct_answer": "kumakain"
+          },
+          {
+            "question": "Anong tandaan ang ginagamit sa katapusan ng patanong na pangungusap?",
+            "options": ["Tandang pananong (?)", "Tuldok (.)", "Padamdam (!)", "Kuwit (,)"],
+            "correct_answer": "Tandang pananong (?)"
+          },
+          {
+            "question": "Alin sa mga ito ang halimbawa ng pandiwa?",
+            "options": ["tumatalon", "mabait", "Nena", "paaralan"],
+            "correct_answer": "tumatalon"
+          },
+          {
+            "question": "Sa buod ng kwento, ano ang unang dapat nating sabihin?",
+            "options": ["Kung sino ang mga tauhan", "Kung paano nagtapos ang kwento", "Kung ano ang bawat salita", "Kung nasaan ang aklatan"],
+            "correct_answer": "Kung sino ang mga tauhan"
+          },
+          {
+            "question": "Ano ang kahulugan ng \"tagpuan\" sa isang kwento?",
+            "options": ["Lugar ng kwento", "Tauhan ng kwento", "Wakas ng kwento", "Simula ng kwento"],
+            "correct_answer": "Lugar ng kwento"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🇵🇭 Makabansa — Linggo 10 Pagsasanay: Pambansang Sagisag at Simbolo\n\nNatutunan natin ang maraming bagay tungkol sa ating magandang bansa! Balikan natin ito ngayon. 🌟\n\n## 🌿 Pambansang Sagisag ng Pilipinas\n- **Pambansang Bulaklak**: 🌸 **Sampaguita** — mabango at puti\n- **Pambansang Ibon**: 🦅 **Agila ng Pilipinas** (Philippine Eagle)\n- **Pambansang Puno**: 🌳 **Narra** — malaki at matibay na puno\n- **Pambansang Isda**: 🐟 **Bangus** (Milkfish)\n- **Pambansang Hayop**: 🐃 **Kalabaw** — tumutulong sa mga magsasaka\n\n## 🎌 Watawat ng Pilipinas\n- **Tatlong kulay**: puti, asul, at pula\n- **Puting tatsulok** sa kaliwa — may **araw** na may 8 sinag at **3 bituin**\n  - 3 bituin = Luzon, Visayas, at Mindanao\n- **Asul** — kapayapaan at katapatan\n- **Pula** — tapang at katapangan\n\n## 👑 Pangulo ng Pilipinas\n- Ang **Pangulo** ang pinakamataas na pinuno ng bansa\n- Pinipili siya ng mga mamamayang Pilipino\n\nMahalin at igalang ang ating bansa, ang Pilipinas! 🇵🇭",
+        "quiz": [
+          {
+            "question": "Ano ang pambansang bulaklak ng Pilipinas?",
+            "options": ["Sampaguita", "Rosal", "Gumamela", "Ilang-ilang"],
+            "correct_answer": "Sampaguita"
+          },
+          {
+            "question": "Ano ang pambansang ibon ng Pilipinas?",
+            "options": ["Agila ng Pilipinas", "Kalapati", "Maya", "Tikling"],
+            "correct_answer": "Agila ng Pilipinas"
+          },
+          {
+            "question": "Ilang sinag ang araw sa watawat ng Pilipinas?",
+            "options": ["Walo (8)", "Tatlo (3)", "Lima (5)", "Anim (6)"],
+            "correct_answer": "Walo (8)"
+          },
+          {
+            "question": "Ano ang kinakatawan ng pulang kulay sa watawat ng Pilipinas?",
+            "options": ["Tapang at katapangan", "Kapayapaan at katapatan", "Kagandahan ng bansa", "Yaman ng kalikasan"],
+            "correct_answer": "Tapang at katapangan"
+          },
+          {
+            "question": "Ano ang pambansang hayop ng Pilipinas?",
+            "options": ["Kalabaw", "Kabayo", "Baboy-ramo", "Usa"],
+            "correct_answer": "Kalabaw"
+          },
+          {
+            "question": "Ano ang pambansang puno ng Pilipinas?",
+            "options": ["Narra", "Kawayan", "Mangga", "Ipil-ipil"],
+            "correct_answer": "Narra"
+          },
+          {
+            "question": "Ilang bituin ang nasa watawat ng Pilipinas?",
+            "options": ["Tatlo (3)", "Walo (8)", "Lima (5)", "Isa (1)"],
+            "correct_answer": "Tatlo (3)"
+          },
+          {
+            "question": "Ano ang tawag sa pinakamataas na pinuno ng Pilipinas?",
+            "options": ["Pangulo", "Gobernador", "Alkalde", "Senador"],
+            "correct_answer": "Pangulo"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Week 10 Review: Parts of the Computer!\n\nYou've learned so much about computers this term! Let's review the key parts. 🖥️\n\n## 🖥️ Main Parts of a Computer\n- **Monitor** — the screen that shows your work (output)\n- **Keyboard** — you type letters and numbers on it (input)\n- **Mouse** — you point and click to control things (input)\n- **CPU (Central Processing Unit)** — the computer's \"brain\" that processes everything\n- **Speakers** — play sounds from the computer (output)\n\n## 📥 Input Devices — send information TO the computer\n- Keyboard, mouse, microphone, webcam\n\n## 📤 Output Devices — send information FROM the computer\n- Monitor, printer, speakers\n\n## ⌨️ Keyboard Home Row Keys\n- **Left hand**: A S D F\n- **Right hand**: J K L ;\n- **Thumbs**: Space Bar\n\n**Example:** To type the word \"flag\", use your left hand: **F L A G** — all on the home row! 😊\n\nKeep practicing your typing! You're doing great! 💡",
+        "quiz": [
+          {
+            "question": "What is the computer screen called?",
+            "options": ["Monitor", "Keyboard", "Printer", "Speaker"],
+            "correct_answer": "Monitor"
+          },
+          {
+            "question": "Which device do you use to TYPE words on a computer?",
+            "options": ["Keyboard", "Monitor", "Speaker", "Printer"],
+            "correct_answer": "Keyboard"
+          },
+          {
+            "question": "What is the \"brain\" of the computer called?",
+            "options": ["CPU", "RAM", "USB", "DVD"],
+            "correct_answer": "CPU"
+          },
+          {
+            "question": "Which of these is an INPUT device?",
+            "options": ["Mouse", "Monitor", "Speakers", "Printer"],
+            "correct_answer": "Mouse"
+          },
+          {
+            "question": "Which of these is an OUTPUT device?",
+            "options": ["Printer", "Mouse", "Keyboard", "Webcam"],
+            "correct_answer": "Printer"
+          },
+          {
+            "question": "Where do your LEFT hand fingers go on the home row?",
+            "options": ["A S D F", "Z X C V", "Q W E R", "G H J K"],
+            "correct_answer": "A S D F"
+          },
+          {
+            "question": "What do you use on a computer to click and point at things?",
+            "options": ["Mouse", "Keyboard", "Monitor", "CPU"],
+            "correct_answer": "Mouse"
+          },
+          {
+            "question": "Which key adds a space between words?",
+            "options": ["Space Bar", "Enter key", "Shift key", "Tab key"],
+            "correct_answer": "Space Bar"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 10 Pagsasanay: Responsibilidad at Paggalang\n\nNapakaraming natutunan natin tungkol sa mabuting ugali! Balikan natin ito ngayon. 🌟\n\n## 📌 Responsibilidad sa Tahanan\n- Ang **responsibilidad** ay ang iyong tungkulin o obligasyon.\n- Mga halimbawa sa tahanan:\n  - Pag-aayos ng higaan tuwing umaga\n  - Pagtutulungan sa mga gawaing-bahay\n  - Pag-iingat ng iyong mga gamit\n  - Pagsunod sa mga tuntunin ng magulang\n\n## 🏫 Responsibilidad sa Paaralan\n- Pumasok nang maaga at handa sa klase\n- Makikinig at susunod sa guro\n- Gagawin ang mga takdang-aralin\n- Pag-aalaga ng mga gamit sa paaralan\n\n## 🤝 Paggalang sa Kapuwa\n- Gamitin ang **\"po\"** at **\"opo\"** sa matatanda\n- Huwag mang-away o manggulo sa kapuwa\n- Ibahagi ang iyong mga bagay sa iba\n- Humingi ng tawad kapag nagkamali\n\n## 💛 Ang Disiplinang Bata\n- Sumusunod sa mga alituntunin\n- Iniingatan ang lahat ng gamit\n- Tumutulong sa mga kapuwa\n- Ginagawa ang tama kahit walang nakakakita\n\nIkaw ay isang napakagaling at mabuting bata! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang ibig sabihin ng \"responsibilidad\"?",
+            "options": ["Tungkulin o obligasyon natin", "Palaruan pagkatapos ng klase", "Kasiyahang ating natanggap", "Pagkain na ating gustong kainin"],
+            "correct_answer": "Tungkulin o obligasyon natin"
+          },
+          {
+            "question": "Alin sa mga ito ang responsibilidad sa tahanan?",
+            "options": ["Mag-aayos ng higaan", "Manood ng TV nang buong araw", "Maglaro sa labas palagi", "Kumain nang walang pahintulot"],
+            "correct_answer": "Mag-aayos ng higaan"
+          },
+          {
+            "question": "Paano mo ipapakita ang paggalang sa iyong guro?",
+            "options": ["Pakikinig habang nagtuturo", "Pakikipag-usap sa klase", "Paglalaro sa oras ng aralin", "Paglabas nang walang pahintulot"],
+            "correct_answer": "Pakikinig habang nagtuturo"
+          },
+          {
+            "question": "Anong salita ang ginagamit upang magpakita ng galang sa matatanda?",
+            "options": ["Po at opo", "Oo at hindi", "Kumusta at paalam", "Salamat at tuloy"],
+            "correct_answer": "Po at opo"
+          },
+          {
+            "question": "Si Marco ay nagbasag ng laruan ni Pedro nang hindi sinasadya. Ano ang dapat niyang gawin?",
+            "options": ["Humingi ng tawad kay Pedro", "Magtago at tumahimik na lang", "Sisihin ang ibang bata", "Umalis ng silid agad"],
+            "correct_answer": "Humingi ng tawad kay Pedro"
+          },
+          {
+            "question": "Alin sa mga ito ang responsibilidad ng bata sa paaralan?",
+            "options": ["Gumawa ng takdang-aralin", "Matulog sa oras ng klase", "Manggulo sa kaklase", "Laktawan ang klase"],
+            "correct_answer": "Gumawa ng takdang-aralin"
+          },
+          {
+            "question": "Ano ang tawag sa batang sumusunod sa mga alituntunin at gumagawa ng tama?",
+            "options": ["Disiplinang bata", "Mapaglarong bata", "Maingay na bata", "Tamad na bata"],
+            "correct_answer": "Disiplinang bata"
+          },
+          {
+            "question": "Bakit mahalaga ang responsibilidad para sa isang bata?",
+            "options": ["Para maging maganda ang ating pag-uugali", "Para laging manalo sa mga laro", "Para makakuha ng maraming regalo", "Para palaging bakasyon ang araw"],
+            "correct_answer": "Para maging maganda ang ating pag-uugali"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nGreat week! Quick review of **nouns**, **verbs**, **adjectives**, and **sentences**.\n\n- **Common noun** = any person, place, or thing: *dog, school, girl*\n- **Proper noun** = specific name, capital letter: *Manila, Tala*\n- **Verb** = action word: *run, eat, jump*\n- **Adjective** = describing word: *big, red, happy*\n- **Declarative sentence** → ends with **.**\n- **Interrogative sentence** → ends with **?**\n- **Story summary** → Who + Where + What happened\n\nYou did it! ⭐",
+        "quiz": [
+          {
+            "question": "Which word is a proper noun?",
+            "options": ["Manila", "river", "flower", "school"],
+            "correct_answer": "Manila"
+          },
+          {
+            "question": "Which word is an adjective?",
+            "options": ["tall", "jump", "Pedro", "song"],
+            "correct_answer": "tall"
+          },
+          {
+            "question": "Which word is a verb?",
+            "options": ["sing", "small", "Tala", "book"],
+            "correct_answer": "sing"
+          },
+          {
+            "question": "Which sentence asks a question?",
+            "options": ["Where do you live?", "I live in Manila.", "Go home now.", "What a nice day!"],
+            "correct_answer": "Where do you live?"
+          },
+          {
+            "question": "\"The fluffy cat slept soundly.\" Which word is an adjective?",
+            "options": ["fluffy", "slept", "cat", "soundly"],
+            "correct_answer": "fluffy"
+          },
+          {
+            "question": "Which word is a common noun?",
+            "options": ["bridge", "Ana", "swims", "happy"],
+            "correct_answer": "bridge"
+          },
+          {
+            "question": "What does a declarative sentence end with?",
+            "options": ["A period (.)", "A question mark (?)", "An exclamation (!)", "A comma (,)"],
+            "correct_answer": "A period (.)"
+          },
+          {
+            "question": "When summarizing a story, what is the \"setting\"?",
+            "options": ["The place and time", "The people in it", "The main problem", "The final ending"],
+            "correct_answer": "The place and time"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💰 Friday Weekly Review — Mathematics\n\nQuick review of **money** and **word problems**!\n\n- **Greater than**: ₱100 **>** ₱50\n- **Less than**: ₱5 **<** ₱10\n- **Addition with money**: find the numbers → add → write **₱** in answer\n- Philippine bills: ₱20, ₱50, ₱100, ₱200, ₱500, ₱1,000\n- Philippine coins: ₱1, ₱5, ₱10\n\nYou can do it! 🌟",
+        "quiz": [
+          {
+            "question": "Which bill has the LEAST value?",
+            "options": ["₱20 bill", "₱50 bill", "₱100 bill", "₱200 bill"],
+            "correct_answer": "₱20 bill"
+          },
+          {
+            "question": "Rina has ₱60. She earns ₱40 more. How much does she have now?",
+            "options": ["₱100", "₱80", "₱90", "₱110"],
+            "correct_answer": "₱100"
+          },
+          {
+            "question": "Which shows ₱10 is GREATER than ₱5?",
+            "options": ["₱10 > ₱5", "₱10 < ₱5", "₱10 = ₱5", "₱10 + ₱5"],
+            "correct_answer": "₱10 > ₱5"
+          },
+          {
+            "question": "Marco buys a toy for ₱75 and a snack for ₱25. How much in all?",
+            "options": ["₱100", "₱90", "₱80", "₱85"],
+            "correct_answer": "₱100"
+          },
+          {
+            "question": "Which coin is worth the MOST?",
+            "options": ["₱10 coin", "₱5 coin", "₱1 coin", "₱25 sentimo"],
+            "correct_answer": "₱10 coin"
+          },
+          {
+            "question": "Nena saves ₱150. Her sister saves ₱50. How much do they save together?",
+            "options": ["₱200", "₱180", "₱190", "₱160"],
+            "correct_answer": "₱200"
+          },
+          {
+            "question": "₱500 __ ₱1,000 (Which symbol fits?)",
+            "options": ["<", ">", "=", "+"],
+            "correct_answer": "<"
+          },
+          {
+            "question": "Luis has ₱300. He earns ₱200 more. How much does he have?",
+            "options": ["₱500", "₱400", "₱600", "₱450"],
+            "correct_answer": "₱500"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Simuno** = paksa ng pangungusap (*Si Ana*, *Ang bata*)\n- **Panaguri** = nagsasabi tungkol sa simuno (*ay masayahin*, *ay kumakain*)\n- **Pandiwa** = salitang kilos (*tumakbo, kumakain, nagbasa*)\n- **Pasalaysay** = nagtatapos sa tuldok (.)\n- **Patanong** = nagtatapos sa tandang pananong (?)\n- **Buod** = sino + saan + nangyari (simula, gitna, katapusan)\n\nMahusay ka! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang simuno sa pangungusap na \"Naglalaro si Ben sa parke\"?",
+            "options": ["Si Ben", "naglalaro", "parke", "sa"],
+            "correct_answer": "Si Ben"
+          },
+          {
+            "question": "Alin ang pandiwa sa pangungusap?",
+            "options": ["Kumanta", "mabait", "Lola", "malalim"],
+            "correct_answer": "Kumanta"
+          },
+          {
+            "question": "Anong uri ng pangungusap ang \"Nasaan ang aking sapatos\"?",
+            "options": ["Patanong", "Pasalaysay", "Pautos", "Padamdam"],
+            "correct_answer": "Patanong"
+          },
+          {
+            "question": "Alin ang pasalaysay na pangungusap?",
+            "options": ["Ang pusa ay natutulog.", "Natutulog na ba ang pusa?", "Gisingin ang pusa!", "Ay, nakakatulog naman!"],
+            "correct_answer": "Ang pusa ay natutulog."
+          },
+          {
+            "question": "Ano ang unang dapat sabihin sa buod ng isang kwento?",
+            "options": ["Ang mga tauhan", "Ang katapusan lamang", "Lahat ng salita", "Ang mga larawan"],
+            "correct_answer": "Ang mga tauhan"
+          },
+          {
+            "question": "Ano ang tinatawag sa lugar na pinaganapan ng kwento?",
+            "options": ["Tagpuan", "Tauhan", "Banghay", "Tunggalian"],
+            "correct_answer": "Tagpuan"
+          },
+          {
+            "question": "Alin sa mga ito ang salitang kilos (pandiwa)?",
+            "options": ["lumangoy", "matangkad", "paaralan", "malinis"],
+            "correct_answer": "lumangoy"
+          },
+          {
+            "question": "Anong tandaan ang ginagamit sa dulo ng pasalaysay na pangungusap?",
+            "options": ["Tuldok (.)", "Tandang pananong (?)", "Padamdam (!)", "Kuwit (,)"],
+            "correct_answer": "Tuldok (.)"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Makabansa\n\nMabilis na balikan ng ating pambansang sagisag!\n\n- 🌸 **Pambansang Bulaklak**: Sampaguita\n- 🦅 **Pambansang Ibon**: Agila ng Pilipinas\n- 🌳 **Pambansang Puno**: Narra\n- 🐟 **Pambansang Isda**: Bangus\n- 🐃 **Pambansang Hayop**: Kalabaw\n- 🎌 **Watawat**: Puti, Asul, Pula — 8 sinag, 3 bituin\n- **Asul** = kapayapaan | **Pula** = tapang\n\nManigong Ika-10 Linggo! 🇵🇭",
+        "quiz": [
+          {
+            "question": "Ano ang pambansang isda ng Pilipinas?",
+            "options": ["Bangus", "Tilapia", "Lapu-lapu", "Maya-maya"],
+            "correct_answer": "Bangus"
+          },
+          {
+            "question": "Ano ang kinakatawan ng asul na kulay sa watawat?",
+            "options": ["Kapayapaan at katapatan", "Tapang at katapangan", "Yaman ng bansa", "Kagandahan ng kalikasan"],
+            "correct_answer": "Kapayapaan at katapatan"
+          },
+          {
+            "question": "Ano ang pambansang bulaklak ng Pilipinas?",
+            "options": ["Sampaguita", "Rosal", "Rosas", "Gumamela"],
+            "correct_answer": "Sampaguita"
+          },
+          {
+            "question": "Ang tatlong bituin sa watawat ay kumakatawan sa tatlong pangunahing isla ng Pilipinas. Alin ang mga ito?",
+            "options": ["Luzon, Visayas, Mindanao", "Cebu, Davao, Manila", "Palawan, Bohol, Leyte", "Batangas, Rizal, Laguna"],
+            "correct_answer": "Luzon, Visayas, Mindanao"
+          },
+          {
+            "question": "Ano ang pambansang ibon ng Pilipinas?",
+            "options": ["Agila ng Pilipinas", "Kalapati", "Tikling", "Maya"],
+            "correct_answer": "Agila ng Pilipinas"
+          },
+          {
+            "question": "Sino ang pinakamataas na pinuno ng Pilipinas?",
+            "options": ["Pangulo", "Alkalde", "Gobernador", "Senador"],
+            "correct_answer": "Pangulo"
+          },
+          {
+            "question": "Ano ang pambansang hayop ng Pilipinas?",
+            "options": ["Kalabaw", "Kabayo", "Usa", "Aso"],
+            "correct_answer": "Kalabaw"
+          },
+          {
+            "question": "Ilang sinag ang araw sa gitna ng watawat ng Pilipinas?",
+            "options": ["Walo (8)", "Tatlo (3)", "Lima (5)", "Sampung (10)"],
+            "correct_answer": "Walo (8)"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nQuick review of computer basics!\n\n- **Monitor** = screen (output)\n- **Keyboard** = type letters/numbers (input)\n- **Mouse** = point and click (input)\n- **CPU** = brain of the computer\n- **Speakers** = play sound (output)\n- **Home row left hand**: A S D F\n- **Home row right hand**: J K L ;\n\nYou're a tech star! 💡",
+        "quiz": [
+          {
+            "question": "What do we call the screen that shows your work?",
+            "options": ["Monitor", "Keyboard", "CPU", "Printer"],
+            "correct_answer": "Monitor"
+          },
+          {
+            "question": "Which of these is an INPUT device?",
+            "options": ["Keyboard", "Monitor", "Speaker", "Printer"],
+            "correct_answer": "Keyboard"
+          },
+          {
+            "question": "What is the computer's \"brain\" called?",
+            "options": ["CPU", "RAM", "USB", "DVD"],
+            "correct_answer": "CPU"
+          },
+          {
+            "question": "Which is an OUTPUT device?",
+            "options": ["Speakers", "Mouse", "Keyboard", "Webcam"],
+            "correct_answer": "Speakers"
+          },
+          {
+            "question": "Your right hand fingers go on which home row keys?",
+            "options": ["J K L ;", "A S D F", "Z X C V", "G H J K"],
+            "correct_answer": "J K L ;"
+          },
+          {
+            "question": "What do you use to click on items on the screen?",
+            "options": ["Mouse", "Keyboard", "Monitor", "Speaker"],
+            "correct_answer": "Mouse"
+          },
+          {
+            "question": "Which key separates words when typing?",
+            "options": ["Space Bar", "Shift key", "Enter key", "Tab key"],
+            "correct_answer": "Space Bar"
+          },
+          {
+            "question": "Which device lets you hear sounds from the computer?",
+            "options": ["Speakers", "Mouse", "Keyboard", "Monitor"],
+            "correct_answer": "Speakers"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- **Responsibilidad** = ating tungkulin o obligasyon\n- Sa tahanan: mag-aayos ng higaan, tutulong sa mga gawain\n- Sa paaralan: makikinig, gagawa ng takdang-aralin\n- **Paggalang**: gamitin ang \"po\" at \"opo\" sa matatanda\n- **Disiplinang bata** = sumusunod sa alituntunin, gumagawa ng tama\n- Humingi ng tawad kapag nagkamali\n\nPatuloy na maging mabuting bata! 🌟",
+        "quiz": [
+          {
+            "question": "Alin ang isang halimbawa ng responsibilidad sa tahanan?",
+            "options": ["Pag-aayos ng higaan", "Paglalaro nang walang pahinto", "Panonood ng TV buong araw", "Pagkain nang walang pahintulot"],
+            "correct_answer": "Pag-aayos ng higaan"
+          },
+          {
+            "question": "Paano natin ipinapakita ang paggalang sa matatanda?",
+            "options": ["Gamiting \"po\" at \"opo\"", "Huwag silang pakinggan", "Sagutin ng malakas", "Huwag silang tingnan"],
+            "correct_answer": "Gamiting \"po\" at \"opo\""
+          },
+          {
+            "question": "Ano ang responsibilidad ng bata sa paaralan?",
+            "options": ["Gumawa ng takdang-aralin", "Matulog sa klase", "Manggulo sa kaklase", "Lumabas ng walang pahintulot"],
+            "correct_answer": "Gumawa ng takdang-aralin"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag nagkamali ka sa iyong kaibigan?",
+            "options": ["Humingi ng tawad", "Magtago at umalis", "Sisihin ang iba", "Magalit sa kanila"],
+            "correct_answer": "Humingi ng tawad"
+          },
+          {
+            "question": "Ang disiplinang bata ay ___.",
+            "options": ["sumusunod sa mga alituntunin", "ginagawa ang gusto lang niya", "palaging nag-aaway", "hindi nakikinig sa guro"],
+            "correct_answer": "sumusunod sa mga alituntunin"
+          },
+          {
+            "question": "Bakit mahalaga ang pagiging responsable?",
+            "options": ["Para lumaki ng mabuting tao", "Para makakuha ng maraming laro", "Para palaging bakasyon", "Para laging mananalo"],
+            "correct_answer": "Para lumaki ng mabuting tao"
+          },
+          {
+            "question": "Alin ang halimbawa ng responsibilidad sa paaralan?",
+            "options": ["Pakikinig sa guro", "Paglalaro sa oras ng klase", "Pakikipag-usap nang maingay", "Pagtakas sa paaralan"],
+            "correct_answer": "Pakikinig sa guro"
+          },
+          {
+            "question": "Ano ang dapat gawin ng bata kapag may ginawa siyang mali?",
+            "options": ["Humingi ng tawad at magbago", "Magtago at huwag aminin", "Sisihin ang ibang tao", "Umiyak at umalis"],
+            "correct_answer": "Humingi ng tawad at magbago"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,646 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-08-24",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English Review — Week 10: Parts of Speech & Sentences!\n\nExcellent work this term! Let's review everything we've learned. 💪\n\n## 📝 Nouns\n- **Common noun**: any person, place, or thing → *teacher, mountain, ball*\n- **Proper noun**: specific name, always capitalized → *Miss Santos, Mayon Volcano*\n- **Collective noun**: a group of things → *a flock of birds, a class of students*\n\n## 🏃 Verbs\n- **Action verb**: shows physical action → *run, write, throw*\n- **Linking verb**: connects subject to a description → *is, are, was, seems*\n  - Example: *The sky **is** blue.*\n\n## 🌈 Adjectives\n- **Descriptive**: how something looks/feels/sounds → *tall, cold, loud*\n- **Possessive**: shows ownership → *my, your, his, her, our*\n  - Example: *That is **her** beautiful bag.*\n\n## 👤 Pronouns\n- Replace a noun to avoid repetition\n- **Personal**: I, you, he, she, it, we, they\n- **Demonstrative**: this, that, these, those\n\n## 📖 Types of Sentences\n- **Declarative** → ends with **.** → *I love science.*\n- **Interrogative** → ends with **?** → *Do you love science?*\n- **Exclamatory** → ends with **!** → *I love science so much!*\n- **Imperative** → gives a command → *Study your lessons.*\n\n## 📚 Story Summary\nA summary includes: **characters**, **setting**, **problem**, **solution**, and **key events** in order.\n\nYou've grown so much as a reader and writer this term! ⭐",
+        "quiz": [
+          {
+            "question": "Which word is a proper noun?",
+            "options": ["Palawan", "island", "mountain", "forest"],
+            "correct_answer": "Palawan"
+          },
+          {
+            "question": "Which word is a linking verb?",
+            "options": ["seems", "jump", "write", "sing"],
+            "correct_answer": "seems"
+          },
+          {
+            "question": "Which word is a possessive adjective?",
+            "options": ["their", "run", "happy", "school"],
+            "correct_answer": "their"
+          },
+          {
+            "question": "Which pronoun replaces \"Maria and Jose\"?",
+            "options": ["They", "She", "He", "It"],
+            "correct_answer": "They"
+          },
+          {
+            "question": "Which sentence is interrogative?",
+            "options": ["Can you help me now?", "I can help you now.", "Help me right now!", "Please help me now."],
+            "correct_answer": "Can you help me now?"
+          },
+          {
+            "question": "\"The loud thunder scared the small children.\" How many adjectives are in this sentence?",
+            "options": ["Two", "Three", "One", "Four"],
+            "correct_answer": "Two"
+          },
+          {
+            "question": "Which word is a demonstrative pronoun?",
+            "options": ["these", "run", "happy", "Maria"],
+            "correct_answer": "these"
+          },
+          {
+            "question": "A story summary should include the characters, setting, and ___.",
+            "options": ["key events", "every word", "the cover page", "all pictures"],
+            "correct_answer": "key events"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics Review — Week 10: All Four Operations!\n\nLet's review everything from Term 1 — **addition, subtraction, multiplication, and division!**\n\n## ➕ Addition (up to 100,000)\n- Line up place values, add from **right to left**\n- **Regroup** (carry) when a column adds up to 10 or more\n- Example: **45,678 + 32,456 = 78,134** ✓\n\n## ➖ Subtraction (up to 100,000)\n- **Regroup** (borrow) when the top digit is smaller than the bottom\n- Example: **80,000 − 27,345 = 52,655** ✓\n\n## ✖️ Multiplication (up to 3-digit × 2-digit)\n- Multiply by ones first, then tens — then **add** the partial products\n- Example: **234 × 12 = 2,808** ✓\n- Properties: **Commutative** (6×4 = 4×6), **Associative**, **Distributive**\n\n## ÷ Division (2–3 digit ÷ 1 digit)\n- Steps: **D**ivide → **M**ultiply → **S**ubtract → **B**ring down\n- Example: **486 ÷ 6 = 81** ✓\n- Division and multiplication are related: **81 × 6 = 486**\n\n## 💡 Word Problem Strategy\n1. **Read** the problem\n2. **Find** the given numbers and what is asked\n3. **Choose** the operation (+, −, ×, ÷)\n4. **Solve** and label your answer\n\nYou've mastered so much math this term! 🌟",
+        "quiz": [
+          {
+            "question": "What is 23,456 + 14,327?",
+            "options": ["37,783", "38,783", "37,693", "36,783"],
+            "correct_answer": "37,783"
+          },
+          {
+            "question": "What is 50,000 − 18,450?",
+            "options": ["31,550", "32,550", "31,450", "30,550"],
+            "correct_answer": "31,550"
+          },
+          {
+            "question": "What is 125 × 4?",
+            "options": ["500", "450", "520", "480"],
+            "correct_answer": "500"
+          },
+          {
+            "question": "What is 342 ÷ 3?",
+            "options": ["114", "124", "110", "104"],
+            "correct_answer": "114"
+          },
+          {
+            "question": "Which property says 7 × 8 = 8 × 7?",
+            "options": ["Commutative Property", "Associative Property", "Distributive Property", "Identity Property"],
+            "correct_answer": "Commutative Property"
+          },
+          {
+            "question": "A school has 24 classrooms with 36 students each. How many students are there in all?",
+            "options": ["864", "804", "884", "844"],
+            "correct_answer": "864"
+          },
+          {
+            "question": "If 54 ÷ 9 = 6, which multiplication fact is related?",
+            "options": ["9 × 6 = 54", "6 × 54 = 9", "9 × 54 = 6", "54 − 9 = 6"],
+            "correct_answer": "9 × 6 = 54"
+          },
+          {
+            "question": "There are 5 boxes with 48 crayons each. How many crayons are there in all?",
+            "options": ["240", "230", "250", "220"],
+            "correct_answer": "240"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 10 Pagsasanay: Lahat ng Natutunan!\n\nHuwag kang mag-alala — kaya mo ito! Balikan natin ang Term 1. 💪\n\n## 📝 Pangungusap — Simuno at Panaguri\n- **Simuno** = paksa ng pangungusap\n- **Panaguri** = nagsasabi tungkol sa simuno\n- Halimbawa: **Si Gina** *(simuno)* **ay matalino** *(panaguri).*\n\n## 🏃 Pandiwa — Salitang Kilos\n- **Pawatas** = walang takdang panahon → *kumain, maglaro*\n- **Kontemplatibo** = balak gawin pa lang → *kakain, maglalaro*\n- **Progresibo** = ginagawa ngayon → *kumakain, naglalaro*\n- **Perpektibo** = tapos na → *kumain na, naglaro na*\n\n**Halimbawa:**\n- *Kakain si Lola bukas.* (kontemplatibo)\n- *Kumakain si Lola ngayon.* (progresibo)\n- *Kumain na si Lola.* (perpektibo)\n\n## 🌈 Salitang Naglalarawan\n- Naglalarawan ng katangian: *malaki, mabait, maliwanag*\n- Naglalarawan ng dami: *ilang, lahat, marami*\n- Halimbawa: ***Tatlong** malalaking mangga ang nasa mesa.*\n\n## 📚 Naratibong Teksto\n- **Tauhan** = mga tao/hayop sa kwento\n- **Tagpuan** = lugar at oras ng kwento\n- **Banghay** = sunod-sunod na pangyayari\n- **Suliranin at Solusyon** = problema at paraan ng paglutas\n\nNapakahusay mong mag-aaral! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang anyo ng pandiwa na nagpapakita ng kasalukuyang kilos?",
+            "options": ["Progresibo", "Perpektibo", "Kontemplatibo", "Pawatas"],
+            "correct_answer": "Progresibo"
+          },
+          {
+            "question": "Alin ang anyo ng pandiwa na nagpapakita ng natapos nang kilos?",
+            "options": ["Perpektibo", "Progresibo", "Kontemplatibo", "Pawatas"],
+            "correct_answer": "Perpektibo"
+          },
+          {
+            "question": "Sa pangungusap na \"Ang magandang bulaklak ay namumukadkad\", ano ang simuno?",
+            "options": ["Ang magandang bulaklak", "namumukadkad", "maganda", "ay"],
+            "correct_answer": "Ang magandang bulaklak"
+          },
+          {
+            "question": "Alin sa mga ito ang salitang naglalarawan ng dami?",
+            "options": ["Marami", "Mabilis", "Kumanta", "Bahay"],
+            "correct_answer": "Marami"
+          },
+          {
+            "question": "\"Maglalaro si Nino bukas.\" Ano ang anyo ng pandiwa na \"maglalaro\"?",
+            "options": ["Kontemplatibo", "Progresibo", "Perpektibo", "Pawatas"],
+            "correct_answer": "Kontemplatibo"
+          },
+          {
+            "question": "Ano ang tawag sa lugar at oras ng isang kwento?",
+            "options": ["Tagpuan", "Tauhan", "Banghay", "Suliranin"],
+            "correct_answer": "Tagpuan"
+          },
+          {
+            "question": "Ano ang tawag sa mga tao o hayop sa isang kwento?",
+            "options": ["Tauhan", "Tagpuan", "Solusyon", "Banghay"],
+            "correct_answer": "Tauhan"
+          },
+          {
+            "question": "\"Malaki at mabigat ang bato.\" Ilang salitang naglalarawan ang nasa pangungusap?",
+            "options": ["Dalawa (2)", "Isa (1)", "Tatlo (3)", "Wala"],
+            "correct_answer": "Dalawa (2)"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science Review — Week 10: Materials and Their Properties!\n\nGreat term, scientists! Let's review what we've learned about **materials**. 🌟\n\n## 🧪 Properties of Materials\n- **Texture**: how a surface feels → *smooth, rough, bumpy*\n- **Hardness**: how easy it is to scratch or bend → *hard (rock), soft (sponge)*\n- **Flexibility**: how easily it bends → *flexible (rubber), rigid (wood)*\n- **Solubility**: can it dissolve in water? → *sugar dissolves, sand does not*\n- **Conductivity**: can it carry heat or electricity? → *metals conduct; plastic does not*\n\n## ⚗️ Physical vs. Chemical Changes\n- **Physical change**: changes shape or form but NOT its substance\n  - Cutting paper, melting ice, folding cloth\n- **Chemical change**: creates a completely new substance\n  - Burning wood, rusting iron, cooking an egg\n\n## 🌿 Natural vs. Man-Made Materials\n- **Natural**: wood, cotton, stone, rubber (from trees)\n- **Man-made (synthetic)**: plastic, nylon, glass, steel\n\n## ♻️ Responsible Use\n- **Reduce** the amount we use\n- **Reuse** things instead of throwing them away\n- **Recycle** materials into new products\n\nTake care of our materials and our planet! 🌍",
+        "quiz": [
+          {
+            "question": "Which property tells us if a material can dissolve in water?",
+            "options": ["Solubility", "Hardness", "Flexibility", "Conductivity"],
+            "correct_answer": "Solubility"
+          },
+          {
+            "question": "Cutting a piece of paper is an example of a ___.",
+            "options": ["physical change", "chemical change", "rusting process", "burning process"],
+            "correct_answer": "physical change"
+          },
+          {
+            "question": "Burning wood is an example of a ___.",
+            "options": ["chemical change", "physical change", "melting process", "dissolving process"],
+            "correct_answer": "chemical change"
+          },
+          {
+            "question": "Which material is a natural material?",
+            "options": ["Cotton", "Plastic", "Nylon", "Steel"],
+            "correct_answer": "Cotton"
+          },
+          {
+            "question": "Which property describes whether a material can carry electricity?",
+            "options": ["Conductivity", "Flexibility", "Solubility", "Texture"],
+            "correct_answer": "Conductivity"
+          },
+          {
+            "question": "A rubber band can bend and stretch. Which property does this describe?",
+            "options": ["Flexibility", "Hardness", "Solubility", "Texture"],
+            "correct_answer": "Flexibility"
+          },
+          {
+            "question": "Using an old bottle as a flower pot is an example of ___.",
+            "options": ["Reusing", "Reducing", "Recycling", "Rusting"],
+            "correct_answer": "Reusing"
+          },
+          {
+            "question": "Which of these is an example of a man-made material?",
+            "options": ["Plastic", "Stone", "Wood", "Cotton"],
+            "correct_answer": "Plastic"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🇵🇭 Makabansa — Linggo 10 Pagsasanay: Ang Ating Bansa!\n\nBalikan natin ang ating mga natutunan tungkol sa Pilipinas! 🌟\n\n## 🗺️ Lokasyon ng Pilipinas\n- Ang Pilipinas ay nasa **Timog-Silangang Asya**\n- Ito ay isang **kapuluan** — grupo ng mga pulo\n- Napapalibutan ng **Karagatang Pasipiko** at **Dagat Tsina sa Timog**\n\n## ⛰️ Anyong Lupa\n- **Bundok** — mataas na lupain (hal. Bundok Apo — pinakamataas)\n- **Bulkan** — bundok na may butas sa tuktok; maaaring sumabog (hal. Mayon)\n- **Talampas** — mataas na lupain na patag ang tuktok\n- **Lambak** — mababang lupain sa pagitan ng mga bundok\n\n## 🌊 Anyong Tubig\n- **Ilog** — dumadaloy na tubig sa lupa (hal. Cagayan River — pinakamahabang ilog)\n- **Lawa** — napalibutan ng lupa ang tubig (hal. Laguna de Bay)\n- **Look** — isang bahagi ng dagat na napalibutan ng lupa sa tatlong panig\n- **Karagatan/Dagat** — malaking katawan ng tubig-alat\n\n## 🇵🇭 Pambansang Sagisag\n- Bulaklak: Sampaguita | Ibon: Agila ng Pilipinas\n- Puno: Narra | Isda: Bangus | Hayop: Kalabaw\n\nIpagmahal ang ating kahanga-hangang bansa! 🌟",
+        "quiz": [
+          {
+            "question": "Sa aling rehiyon ng Asya matatagpuan ang Pilipinas?",
+            "options": ["Timog-Silangang Asya", "Silangang Asya", "Timog Asya", "Kanlurang Asya"],
+            "correct_answer": "Timog-Silangang Asya"
+          },
+          {
+            "question": "Alin ang pinakamataas na bundok sa Pilipinas?",
+            "options": ["Bundok Apo", "Bundok Mayon", "Bundok Pulag", "Bundok Banahaw"],
+            "correct_answer": "Bundok Apo"
+          },
+          {
+            "question": "Ano ang tawag sa bundok na maaaring sumabog?",
+            "options": ["Bulkan", "Talampas", "Lambak", "Karst"],
+            "correct_answer": "Bulkan"
+          },
+          {
+            "question": "Ano ang Cagayan River sa Pilipinas?",
+            "options": ["Pinakamahabang ilog", "Pinakamalaking lawa", "Pinakamalayong look", "Pinakamataas na bundok"],
+            "correct_answer": "Pinakamahabang ilog"
+          },
+          {
+            "question": "Ano ang tawag sa mababang lupain sa pagitan ng mga bundok?",
+            "options": ["Lambak", "Talampas", "Bulkan", "Pulo"],
+            "correct_answer": "Lambak"
+          },
+          {
+            "question": "Ang Laguna de Bay ay isang halimbawa ng ___.",
+            "options": ["Lawa", "Ilog", "Look", "Dagat"],
+            "correct_answer": "Lawa"
+          },
+          {
+            "question": "Ano ang tawag sa grupo ng mga pulo?",
+            "options": ["Kapuluan", "Lambak", "Talampas", "Baybayin"],
+            "correct_answer": "Kapuluan"
+          },
+          {
+            "question": "Ano ang pambansang bulaklak ng Pilipinas?",
+            "options": ["Sampaguita", "Gumamela", "Rosal", "Ilang-ilang"],
+            "correct_answer": "Sampaguita"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Week 10 Review: Skills & File Management!\n\nYou've worked hard on computer skills this term! Let's review. 🖥️\n\n## 🖥️ Parts of a Computer\n- **Monitor** — displays your work (output)\n- **Keyboard** — input; used to type text\n- **Mouse** — input; used to point, click, and drag\n- **CPU** — the central processing unit; the computer's brain\n- **Printer** — produces a paper copy of your work (output)\n\n## ⌨️ Typing: Home Row Keys\n- **Left hand**: A S D F (index finger on F)\n- **Right hand**: J K L ; (index finger on J)\n- **Thumbs**: Space Bar\n- Keep eyes on the screen, not the keyboard!\n\n## 📁 File Management\n- A **folder** organizes your files — like a drawer in a cabinet\n- To **create** a new folder: right-click → New → Folder\n- **Naming** files: use a clear, specific name → *Science-Report-Grade3*\n- **Saving**: always save your work (Ctrl + S) before closing!\n- **Organizing**: keep related files in the same folder\n\n**Example:** Put all your Science files in a folder named \"Science\" inside your \"Grade 3\" folder.\n\nYou're becoming a true computer expert! 💡",
+        "quiz": [
+          {
+            "question": "What is the purpose of a FOLDER on a computer?",
+            "options": ["To organize your files", "To print your work", "To send an email", "To play a video game"],
+            "correct_answer": "To organize your files"
+          },
+          {
+            "question": "Which shortcut key saves a file?",
+            "options": ["Ctrl + S", "Ctrl + P", "Ctrl + C", "Ctrl + Z"],
+            "correct_answer": "Ctrl + S"
+          },
+          {
+            "question": "Where do your RIGHT hand fingers go on the home row?",
+            "options": ["J K L ;", "A S D F", "Z X C V", "G H J K"],
+            "correct_answer": "J K L ;"
+          },
+          {
+            "question": "What is the CPU?",
+            "options": ["The brain of the computer", "The screen of the computer", "The printing device", "The music player"],
+            "correct_answer": "The brain of the computer"
+          },
+          {
+            "question": "Which device is used to make a paper copy of your work?",
+            "options": ["Printer", "Monitor", "Speaker", "Mouse"],
+            "correct_answer": "Printer"
+          },
+          {
+            "question": "Which name is the BEST for a file about your Science report?",
+            "options": ["Science-Report-Grade3", "file1", "new document", "stuff"],
+            "correct_answer": "Science-Report-Grade3"
+          },
+          {
+            "question": "When should you save your work?",
+            "options": ["Before closing the program", "Only when the teacher says so", "Never — it saves itself", "Only at the end of the week"],
+            "correct_answer": "Before closing the program"
+          },
+          {
+            "question": "Which finger rests on the 'F' key when using home row position?",
+            "options": ["Left index finger", "Right index finger", "Left pinky finger", "Right pinky finger"],
+            "correct_answer": "Left index finger"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 10 Pagsasanay: Disiplina at Pananagutan!\n\nNapakahusay mong mag-aaral! Balikan natin ang mahahalagang aral sa Term 1. 🌟\n\n## 📌 Pagpapahalaga sa Sarili at Pamilya\n- Ang **pagpapahalaga sa sarili** ay ang pag-alam sa iyong mga kakayahan at pagmamahal sa iyong sarili.\n- Halimbawa: Ipinagmamalaki ko ang aking mga nagagawa!\n\n## 🏠 Tungkulin sa Pamilya\n- Ang bawat miyembro ng pamilya ay may mga **tungkulin** (responsibilidad).\n  - Mga magulang: nagbibigay ng pagkain, pag-aaruga, at edukasyon\n  - Mga bata: pagtutulungan, paggalang, at pagsunod\n- Ang **pagmamahal** at **paggalang** sa magulang ay pangunahing halaga.\n\n## 🏫 Disiplina sa Tahanan at Paaralan\n- **Disiplina** = pagsunod sa mga tuntunin at paggawa ng tama\n- Sa tahanan: pag-aayos ng higaan, pagtutulungan\n- Sa paaralan: pakikinig sa guro, pagsasagawa ng takdang-aralin\n\n## 🤝 Pananagutan sa Sariling Gawi\n- Ang **pananagutan** ay ang pagtanggap ng responsibilidad para sa iyong mga ginagawa.\n- Kung nagkamali ka → **aminin**, **humingi ng tawad**, at **magbago**\n- Ginagawa ang tama kahit walang nakakakita — iyon ang tunay na integridad!\n\nIkaw ay lumalaki bilang isang mabuting tao! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang ibig sabihin ng \"disiplina\"?",
+            "options": ["Pagsunod sa mga tuntunin at paggawa ng tama", "Paglalaro nang walang pahintulot", "Pagtanggap ng regalo mula sa iba", "Pagkain nang marami tuwing hapunan"],
+            "correct_answer": "Pagsunod sa mga tuntunin at paggawa ng tama"
+          },
+          {
+            "question": "Sino ang nagbibigay ng pagkain, pag-aaruga, at edukasyon sa pamilya?",
+            "options": ["Mga magulang", "Mga kapatid", "Mga kaibigan", "Mga guro"],
+            "correct_answer": "Mga magulang"
+          },
+          {
+            "question": "Ang paggawa ng tama kahit walang nakakakita ay tinatawag na ___.",
+            "options": ["integridad", "suwerte", "katatagan", "kasiyahan"],
+            "correct_answer": "integridad"
+          },
+          {
+            "question": "Alin ang nagpapakita ng pagpapahalaga sa sarili?",
+            "options": ["Ipinagmamalaki ang aking mga nagagawa", "Palaging nagrereklamo at naiinggit", "Sinisisi ang iba sa aking mga kamalian", "Ayaw pumasok sa paaralan"],
+            "correct_answer": "Ipinagmamalaki ang aking mga nagagawa"
+          },
+          {
+            "question": "Kapag nagkamali ka, ano ang tamang gawin?",
+            "options": ["Aminin, humingi ng tawad, at magbago", "Magtago at huwag aminin", "Sisihin ang ibang tao", "Magalit at umalis"],
+            "correct_answer": "Aminin, humingi ng tawad, at magbago"
+          },
+          {
+            "question": "Alin ang isang halimbawa ng responsibilidad ng bata sa tahanan?",
+            "options": ["Pagtutulungan sa mga gawain sa bahay", "Paglalaro nang buong magdamag", "Pagtanggal ng takdang-aralin", "Pagsama sa maling gawi"],
+            "correct_answer": "Pagtutulungan sa mga gawain sa bahay"
+          },
+          {
+            "question": "Ano ang tamang saloobin kapag pinuri ka ng iyong guro?",
+            "options": ["Pasalamatan siya nang buong puso", "Ipagmamalaki nang labis sa lahat", "Huwag pansinin ang kanyang papuri", "Sisihin ang ibang bata"],
+            "correct_answer": "Pasalamatan siya nang buong puso"
+          },
+          {
+            "question": "Bakit mahalaga ang paggalang sa magulang?",
+            "options": ["Sila ang nagmamahal at nag-aalaga sa atin", "Para laging makakuha ng regalo", "Para hindi ka parusahan", "Para makita ng mga kaibigan"],
+            "correct_answer": "Sila ang nagmamahal at nag-aalaga sa atin"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Review — English (Grade 3)\n\n- **Common noun**: any person/place/thing → *teacher, park*\n- **Proper noun**: specific name, capitalized → *Ms. Reyes, Rizal Park*\n- **Action verb**: *run, write* | **Linking verb**: *is, are, was*\n- **Adjectives**: descriptive (*tall*), possessive (*her*)\n- **Pronouns**: personal (I, he, she) | demonstrative (this, that)\n- **Sentence types**: Declarative (.) | Interrogative (?) | Exclamatory (!) | Imperative\n- **Summary**: characters + setting + key events in order\n\nYou did great this week! ⭐",
+        "quiz": [
+          {
+            "question": "Which word is a proper noun?",
+            "options": ["Batangas", "province", "river", "mountain"],
+            "correct_answer": "Batangas"
+          },
+          {
+            "question": "Which word is a linking verb?",
+            "options": ["is", "run", "jump", "sing"],
+            "correct_answer": "is"
+          },
+          {
+            "question": "Which pronoun replaces \"Nena and her sister\"?",
+            "options": ["They", "She", "He", "It"],
+            "correct_answer": "They"
+          },
+          {
+            "question": "Which sentence is exclamatory?",
+            "options": ["What a beautiful rainbow!", "Is that a rainbow?", "I see a rainbow.", "Look at that rainbow."],
+            "correct_answer": "What a beautiful rainbow!"
+          },
+          {
+            "question": "\"The brave young soldier stood tall.\" How many adjectives are there?",
+            "options": ["Two", "Three", "One", "Four"],
+            "correct_answer": "Two"
+          },
+          {
+            "question": "Which is a demonstrative pronoun?",
+            "options": ["those", "run", "happy", "Maria"],
+            "correct_answer": "those"
+          },
+          {
+            "question": "Which pronoun replaces \"the dog\"?",
+            "options": ["It", "He", "She", "They"],
+            "correct_answer": "It"
+          },
+          {
+            "question": "A good story summary always includes characters, setting, and ___.",
+            "options": ["key events", "every word", "the book cover", "all pictures"],
+            "correct_answer": "key events"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 3)\n\n- **Addition**: regroup when sum of a column is 10+\n- **Subtraction**: regroup (borrow) when top digit is smaller\n- **Multiplication**: 2–3 digit × 1–2 digit; use partial products\n- **Division**: Divide → Multiply → Subtract → Bring down\n- **Related facts**: if 6 × 8 = 48, then 48 ÷ 6 = 8\n- **Word problems**: Read → Find numbers → Choose operation → Solve → Label\n\nYou're a math champion! 🏆",
+        "quiz": [
+          {
+            "question": "What is 42,500 + 17,350?",
+            "options": ["59,850", "58,850", "60,850", "59,750"],
+            "correct_answer": "59,850"
+          },
+          {
+            "question": "What is 60,000 − 23,456?",
+            "options": ["36,544", "37,544", "36,454", "35,544"],
+            "correct_answer": "36,544"
+          },
+          {
+            "question": "What is 236 × 3?",
+            "options": ["708", "706", "718", "698"],
+            "correct_answer": "708"
+          },
+          {
+            "question": "What is 525 ÷ 5?",
+            "options": ["105", "115", "100", "125"],
+            "correct_answer": "105"
+          },
+          {
+            "question": "If 72 ÷ 8 = 9, which fact is related?",
+            "options": ["8 × 9 = 72", "9 × 72 = 8", "72 − 8 = 9", "8 + 9 = 72"],
+            "correct_answer": "8 × 9 = 72"
+          },
+          {
+            "question": "A farmer plants 45 rows with 12 trees each. How many trees in all?",
+            "options": ["540", "530", "550", "500"],
+            "correct_answer": "540"
+          },
+          {
+            "question": "What is 13,750 + 28,250?",
+            "options": ["42,000", "41,000", "43,000", "40,000"],
+            "correct_answer": "42,000"
+          },
+          {
+            "question": "There are 168 mangoes to be packed equally into 4 boxes. How many mangoes per box?",
+            "options": ["42", "40", "44", "48"],
+            "correct_answer": "42"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino (Baitang 3)\n\n- **Pandiwa**: Pawatas | Kontemplatibo | Progresibo | Perpektibo\n- **Simuno** = paksa | **Panaguri** = nagpapaliwanag\n- **Salitang naglalarawan**: katangian (*mabait*), dami (*tatlo*)\n- **Naratibong teksto**: tauhan, tagpuan, banghay, suliranin, solusyon\n\nMahusay! 🌟",
+        "quiz": [
+          {
+            "question": "\"Maglalaro si Ben mamaya.\" Ano ang anyo ng pandiwa?",
+            "options": ["Kontemplatibo", "Progresibo", "Perpektibo", "Pawatas"],
+            "correct_answer": "Kontemplatibo"
+          },
+          {
+            "question": "\"Naglaro na si Ben.\" Ano ang anyo ng pandiwa?",
+            "options": ["Perpektibo", "Progresibo", "Kontemplatibo", "Pawatas"],
+            "correct_answer": "Perpektibo"
+          },
+          {
+            "question": "Alin ang salitang naglalarawan ng katangian?",
+            "options": ["Mabilis", "Kumain", "Paaralan", "Bahay"],
+            "correct_answer": "Mabilis"
+          },
+          {
+            "question": "Ano ang simuno sa pangungusap na \"Ang matandang lalaki ay maingat\"?",
+            "options": ["Ang matandang lalaki", "maingat", "ay", "matanda"],
+            "correct_answer": "Ang matandang lalaki"
+          },
+          {
+            "question": "Ano ang tinatawag sa suliranin at paraan ng paglutas ng kwento?",
+            "options": ["Suliranin at solusyon", "Tauhan at tagpuan", "Simuno at panaguri", "Banghay at wakas"],
+            "correct_answer": "Suliranin at solusyon"
+          },
+          {
+            "question": "\"Kumakain si Lola ng sopas.\" Ano ang anyo ng pandiwa?",
+            "options": ["Progresibo", "Perpektibo", "Kontemplatibo", "Pawatas"],
+            "correct_answer": "Progresibo"
+          },
+          {
+            "question": "Alin ang salitang naglalarawan ng dami?",
+            "options": ["Ilang", "Mabilis", "Kumain", "Paaralan"],
+            "correct_answer": "Ilang"
+          },
+          {
+            "question": "Ano ang banghay ng isang kwento?",
+            "options": ["Sunod-sunod na mga pangyayari", "Lugar ng kwento", "Tauhan ng kwento", "Dulo ng kwento"],
+            "correct_answer": "Sunod-sunod na mga pangyayari"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Friday Review — Science (Grade 3)\n\n- **Properties of materials**: texture, hardness, flexibility, solubility, conductivity\n- **Physical change**: change in form, NOT substance → cutting, melting\n- **Chemical change**: new substance created → burning, rusting, cooking\n- **Natural materials**: wood, cotton, stone | **Man-made**: plastic, glass, steel\n- **3 Rs**: Reduce, Reuse, Recycle\n\nKeep being a responsible scientist! 🌍",
+        "quiz": [
+          {
+            "question": "Which property describes how easily a material bends?",
+            "options": ["Flexibility", "Hardness", "Solubility", "Texture"],
+            "correct_answer": "Flexibility"
+          },
+          {
+            "question": "Cooking an egg is an example of a ___.",
+            "options": ["chemical change", "physical change", "natural change", "reversible change"],
+            "correct_answer": "chemical change"
+          },
+          {
+            "question": "Which material is natural?",
+            "options": ["Wood", "Nylon", "Steel", "Plastic"],
+            "correct_answer": "Wood"
+          },
+          {
+            "question": "Salt dissolves in water. This shows the property of ___.",
+            "options": ["solubility", "hardness", "conductivity", "flexibility"],
+            "correct_answer": "solubility"
+          },
+          {
+            "question": "Melting ice is an example of a ___.",
+            "options": ["physical change", "chemical change", "rusting change", "burning change"],
+            "correct_answer": "physical change"
+          },
+          {
+            "question": "Which of the 3 Rs means using less material?",
+            "options": ["Reduce", "Reuse", "Recycle", "Remove"],
+            "correct_answer": "Reduce"
+          },
+          {
+            "question": "Copper wire conducts electricity. This describes its ___.",
+            "options": ["conductivity", "flexibility", "texture", "hardness"],
+            "correct_answer": "conductivity"
+          },
+          {
+            "question": "Which is a man-made material?",
+            "options": ["Plastic", "Cotton", "Wood", "Stone"],
+            "correct_answer": "Plastic"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Makabansa (Baitang 3)\n\n- Pilipinas nasa **Timog-Silangang Asya** | kapuluan\n- **Anyong lupa**: bundok, bulkan, talampas, lambak\n- **Anyong tubig**: ilog, lawa, look, dagat\n- Pinakamataas na bundok: **Bundok Apo** | Pinakamahabang ilog: **Cagayan River**\n- **Pambansang sagisag**: Sampaguita, Agila, Narra, Bangus, Kalabaw\n\nIpagmahal ang Pilipinas! 🇵🇭",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa mataas na lupain na patag ang tuktok?",
+            "options": ["Talampas", "Bundok", "Lambak", "Bulkan"],
+            "correct_answer": "Talampas"
+          },
+          {
+            "question": "Ang Laguna de Bay ay isang halimbawa ng ___.",
+            "options": ["Lawa", "Ilog", "Look", "Dagat"],
+            "correct_answer": "Lawa"
+          },
+          {
+            "question": "Ano ang pinakamataas na bundok sa Pilipinas?",
+            "options": ["Bundok Apo", "Bundok Mayon", "Bundok Pulag", "Bundok Halcon"],
+            "correct_answer": "Bundok Apo"
+          },
+          {
+            "question": "Ano ang pambansang puno ng Pilipinas?",
+            "options": ["Narra", "Kawayan", "Mangga", "Yakal"],
+            "correct_answer": "Narra"
+          },
+          {
+            "question": "Ang Pilipinas ay nasa aling bahagi ng Asya?",
+            "options": ["Timog-Silangan", "Hilaga", "Kanluran", "Gitna"],
+            "correct_answer": "Timog-Silangan"
+          },
+          {
+            "question": "Ano ang tawag sa bahagi ng dagat na napalibutan ng lupa sa tatlong panig?",
+            "options": ["Look", "Ilog", "Lawa", "Dagat"],
+            "correct_answer": "Look"
+          },
+          {
+            "question": "Ano ang pambansang ibon ng Pilipinas?",
+            "options": ["Agila ng Pilipinas", "Maya", "Kalapati", "Tikling"],
+            "correct_answer": "Agila ng Pilipinas"
+          },
+          {
+            "question": "Ang Mayon Volcano ay isang halimbawa ng ___.",
+            "options": ["Bulkan", "Bundok", "Talampas", "Lambak"],
+            "correct_answer": "Bulkan"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Friday Review — Computer (Grade 3)\n\n- **Monitor** = output (screen) | **Keyboard** = input (type)\n- **Mouse** = input (click) | **CPU** = brain | **Printer** = output\n- **Home row left**: A S D F | **Home row right**: J K L ;\n- **File management**: create folder → name it clearly → save (Ctrl + S)\n- Organize files into folders; keep related files together\n\nYou're a computer pro! 💡",
+        "quiz": [
+          {
+            "question": "What does Ctrl + S do on a computer?",
+            "options": ["Saves your file", "Prints your file", "Copies your file", "Deletes your file"],
+            "correct_answer": "Saves your file"
+          },
+          {
+            "question": "Which is an OUTPUT device?",
+            "options": ["Monitor", "Mouse", "Keyboard", "Webcam"],
+            "correct_answer": "Monitor"
+          },
+          {
+            "question": "Which finger rests on the 'J' key?",
+            "options": ["Right index finger", "Left index finger", "Right pinky finger", "Left pinky finger"],
+            "correct_answer": "Right index finger"
+          },
+          {
+            "question": "What is the best way to organize your files on a computer?",
+            "options": ["Put them in clearly named folders", "Leave them all in one place", "Delete the ones you do not need", "Put them all on the desktop"],
+            "correct_answer": "Put them in clearly named folders"
+          },
+          {
+            "question": "What is a CPU?",
+            "options": ["The brain of the computer", "The screen of the computer", "The typing device", "The sound system"],
+            "correct_answer": "The brain of the computer"
+          },
+          {
+            "question": "Which is an INPUT device?",
+            "options": ["Mouse", "Printer", "Monitor", "Speakers"],
+            "correct_answer": "Mouse"
+          },
+          {
+            "question": "Good file names should be ___.",
+            "options": ["clear and specific", "very short like 'a'", "numbered only (1, 2, 3)", "left blank"],
+            "correct_answer": "clear and specific"
+          },
+          {
+            "question": "Which keys are on the HOME ROW for the left hand?",
+            "options": ["A S D F", "Q W E R", "Z X C V", "G H J K"],
+            "correct_answer": "A S D F"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC (Baitang 3)\n\n- **Pagpapahalaga sa sarili** = pag-alam at pagmamahal sa ating kakayahan\n- **Tungkulin sa pamilya**: paggalang, pagtutulungan, pagmamahal\n- **Disiplina** = pagsunod sa tuntunin, paggawa ng tama\n- **Pananagutan** = pagtanggap ng responsibilidad sa ating gawi\n- **Integridad** = paggawa ng tama kahit walang nakakakita\n\nPatuloy na maging mabuting tao! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang ibig sabihin ng \"integridad\"?",
+            "options": ["Paggawa ng tama kahit walang nakakakita", "Palaging nasa tamang lugar", "Pagiging matalino sa klase", "Pagkuha ng pinakamataas na marka"],
+            "correct_answer": "Paggawa ng tama kahit walang nakakakita"
+          },
+          {
+            "question": "Alin ang nagpapakita ng pagpapahalaga sa sarili?",
+            "options": ["Pag-alam sa aking mga kakayahan", "Laging pagkopya sa kaklase", "Pagsisisi sa aking katayuan", "Pagmamataas sa kapuwa"],
+            "correct_answer": "Pag-alam sa aking mga kakayahan"
+          },
+          {
+            "question": "Alin ang halimbawa ng disiplina sa paaralan?",
+            "options": ["Pakikinig sa guro", "Paglalaro sa oras ng aralin", "Pagtakas sa klase", "Pakikipag-away sa kaklase"],
+            "correct_answer": "Pakikinig sa guro"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag nagkamali ka?",
+            "options": ["Aminin at humingi ng tawad", "Sisihin ang iyong kaibigan", "Magtago at umalis agad", "Magalit at tumanggi"],
+            "correct_answer": "Aminin at humingi ng tawad"
+          },
+          {
+            "question": "Sino ang nagbibigay ng pag-aaruga at edukasyon sa isang bata?",
+            "options": ["Mga magulang", "Mga kaibigan", "Mga guro lamang", "Mga kapitbahay"],
+            "correct_answer": "Mga magulang"
+          },
+          {
+            "question": "Alin ang halimbawa ng pananagutan?",
+            "options": ["Tinanggap ko ang bunga ng aking gawa", "Sinisi ko ang kaibigan ko", "Tumakas ako nang nagkamali ako", "Nagalit ako sa aking guro"],
+            "correct_answer": "Tinanggap ko ang bunga ng aking gawa"
+          },
+          {
+            "question": "Bakit mahalaga ang paggalang sa magulang?",
+            "options": ["Sila ang nagmamahal at nag-aalaga sa atin", "Para makakuha ng mas maraming oras maglaro", "Para palaging makakain ng masarap", "Para hindi ka parusahan palagi"],
+            "correct_answer": "Sila ang nagmamahal at nag-aalaga sa atin"
+          },
+          {
+            "question": "Ano ang tamang gawin kapag pinuri ka ng iyong guro?",
+            "options": ["Magpasalamat nang buong puso", "Ipagmamalaki nang sobra sa lahat", "Huwag pansinin ang papuri", "Sagutin nang may kayabangan"],
+            "correct_answer": "Magpasalamat nang buong puso"
+          }
+        ]
+      }
+    }
+  }
+}

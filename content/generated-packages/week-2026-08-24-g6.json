@@ -1,0 +1,736 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-08-24",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📚 English Review — Week 10: Texts, Literary Devices & Grammar!\n\nExcellent term, Grade 6! You've developed strong reading and writing skills. Let's review! 💪\n\n## 📖 Types of Texts\n- **Literary text**: tells a story (fiction, poetry, drama) — focuses on imagination and experience\n- **Informational/Expository text**: shares facts and knowledge — uses text features (headings, graphs, captions)\n\n## 🎭 Literary Devices Review\n- **Symbolism**: an object represents a larger idea → a dove symbolizes peace\n- **Irony**: the opposite of what is expected\n  - *Verbal*: saying the opposite of what you mean (sarcasm)\n  - *Situational*: what happens is opposite to what is expected\n- **Flashback**: a scene set earlier than the main story\n- **Foreshadowing**: hints about future events\n- **Imagery**: descriptive language that appeals to the senses\n\n## ✏️ Grammar Review\n- **Verbals**: verb forms used as other parts of speech\n  - *Gerund* (verb + -ing as noun): *Swimming is fun.*\n  - *Infinitive* (to + verb as noun/adj/adv): *She wants to sing.*\n  - *Participle* (verb form as adjective): *The running boy is Jose.*\n- **Sentence types by structure**: Simple | Compound | Complex | Compound-Complex\n- **Complex sentence**: has an independent + dependent clause\n  - *Although it rained, the game continued.*\n\n## 🖊️ Writing\n- **Argumentative essay**: claim + evidence + counter-argument + rebuttal + conclusion\n- **Cite evidence**: use signal phrases like *\"According to...,\" \"The text states...,\" \"This shows that...\"*\n\nYou've become a sophisticated reader and writer! ⭐",
+        "quiz": [
+          {
+            "question": "A dove appears in a story representing peace. This is an example of ___.",
+            "options": ["Symbolism", "Irony", "Foreshadowing", "Flashback"],
+            "correct_answer": "Symbolism"
+          },
+          {
+            "question": "\"Although it rained heavily, the picnic continued.\" This is a ___ sentence.",
+            "options": ["complex", "simple", "compound", "compound-complex"],
+            "correct_answer": "complex"
+          },
+          {
+            "question": "\"Swimming is my favorite sport.\" The word \"swimming\" is a ___.",
+            "options": ["gerund", "participle", "infinitive", "conjunction"],
+            "correct_answer": "gerund"
+          },
+          {
+            "question": "What is FORESHADOWING?",
+            "options": ["Hints in the text about future events", "A scene set before the main story", "An object that represents an idea", "Opposite of what you expect"],
+            "correct_answer": "Hints in the text about future events"
+          },
+          {
+            "question": "\"She wants to become a doctor.\" The phrase \"to become\" is an ___.",
+            "options": ["infinitive", "gerund", "participle", "conjunction"],
+            "correct_answer": "infinitive"
+          },
+          {
+            "question": "What type of irony is: A fire station burning down?",
+            "options": ["Situational irony", "Verbal irony", "Dramatic irony", "Poetic irony"],
+            "correct_answer": "Situational irony"
+          },
+          {
+            "question": "In an argumentative essay, what comes after stating a claim?",
+            "options": ["Evidence that supports the claim", "The conclusion of the essay", "A counter-argument rebuttal", "A new unrelated claim"],
+            "correct_answer": "Evidence that supports the claim"
+          },
+          {
+            "question": "Which signal phrase is used to CITE evidence from a text?",
+            "options": ["According to the text,", "In my opinion,", "I believe that,", "Personally, I think"],
+            "correct_answer": "According to the text,"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics Review — Week 10: Fractions, Ratio & Percent!\n\nLet's review the key Math concepts from Term 1! 🏆\n\n## 🍕 Fractions — All Four Operations\n- **Addition/Subtraction**: find a **common denominator** first\n  - ½ + ⅓ = 3/6 + 2/6 = **5/6**\n- **Multiplication**: multiply numerators, multiply denominators; simplify\n  - ¾ × ⅔ = (3×2)/(4×3) = 6/12 = **½**\n- **Division**: multiply by the **reciprocal** of the divisor\n  - ¾ ÷ ½ = ¾ × 2/1 = 6/4 = **1½**\n\n## 📊 Ratio\n- A **ratio** compares two quantities: *3:5* or *3/5* or *\"3 to 5\"*\n- **Equivalent ratios**: 2:3 = 4:6 = 8:12 (multiply both parts by the same number)\n- **Rate**: a ratio with different units → *60 km per hour*, *₱50 per kilogram*\n- **Unit rate**: rate with denominator of 1 → *₱25 per item*\n\n## 📈 Percent\n- **Percent** means \"per hundred\" → 45% = 45/100 = 0.45\n- **Finding a percent of a number**: 25% of 80 = 0.25 × 80 = **20**\n- **Finding what percent**: 15 out of 60 = 15/60 = ¼ = **25%**\n- **Common equivalents**: 25% = ¼ | 50% = ½ | 75% = ¾ | 100% = 1 whole\n\nYou are a mathematics master! 🌟",
+        "quiz": [
+          {
+            "question": "What is ⅔ + ¾?",
+            "options": ["17/12 (1 and 5/12)", "5/7", "1 and 1/6", "1 and 1/12"],
+            "correct_answer": "17/12 (1 and 5/12)"
+          },
+          {
+            "question": "What is ¾ × ⅘?",
+            "options": ["3/5", "12/20", "7/9", "4/15"],
+            "correct_answer": "3/5"
+          },
+          {
+            "question": "What is ½ ÷ ¼?",
+            "options": ["2", "1/8", "1/2", "4"],
+            "correct_answer": "2"
+          },
+          {
+            "question": "The ratio of boys to girls is 3:5. If there are 24 boys, how many girls are there?",
+            "options": ["40", "35", "45", "30"],
+            "correct_answer": "40"
+          },
+          {
+            "question": "What is 30% of 150?",
+            "options": ["45", "30", "50", "60"],
+            "correct_answer": "45"
+          },
+          {
+            "question": "18 out of 72 students passed the test. What percent passed?",
+            "options": ["25%", "18%", "30%", "72%"],
+            "correct_answer": "25%"
+          },
+          {
+            "question": "What fraction is equivalent to 75%?",
+            "options": ["3/4", "1/4", "1/2", "2/3"],
+            "correct_answer": "3/4"
+          },
+          {
+            "question": "A store sells oranges at ₱120 for 4 pieces. What is the unit rate per orange?",
+            "options": ["₱30 per piece", "₱40 per piece", "₱25 per piece", "₱120 per piece"],
+            "correct_answer": "₱30 per piece"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 10 Pagsasanay: Komunikasyon at Panitikan!\n\nNapakahusay mong mag-aaral ng wikang Filipino! Balikan natin ang Term 1. 💪\n\n## 🔤 Gramatika: Advanced na Paksa\n- **Pang-ukol (Prepositions)**: nagsasaad ng relasyon ng mga salita → *sa, ng, para sa, mula sa, hanggang sa*\n- **Pang-angkop (Ligature/Linker)**: nag-uugnay ng pang-uring salita → *na* at *-ng*\n  - Halimbawa: *ang magandang* babae | *ang batang matalino*\n- **Pandiwang di-perpektibo vs perpektibo**:\n  - Di-perpektibo: *lulangoy* (gagawin), *lumalangoy* (ginagawa)\n  - Perpektibo: *lumangoy na* (tapos na)\n- **Pasibong Pangungusap**: ang tumatanggap ng kilos ang naging paksa\n  - Aktibo: *Binasa ni Maria ang libro.* → Pasibo: *Binasa ng libro si Maria.* (Ang libro ang nabasa.)\n\n## 📚 Akdang Pampanitikan\n- **Nobelang Pilipino**: mahabang prosa na sumasalamin ng lipunan at kultura\n  - Halimbawa: *Noli Me Tangere* at *El Filibusterismo* ni Jose Rizal\n- **Dula (Drama)**: inilalahad ang kwento sa pamamagitan ng dialogue at kilos ng mga artista\n- **Sanaysay**: personal o pormal na pagsulat ng isang manunulat tungkol sa isang paksa\n\n## 🌺 Kulturang Pilipino sa Panitikan\n- Ang panitikang Pilipino ay nagtatampok ng pagpapahalaga sa pamilya, kalikasan, at bayan\n- Ang mga akda ni Rizal ay nagsilbing inspirasyon sa rebolusyon\n\nIkaw ay lumalago bilang isang tunay na Pilipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang gamit ng pang-ugnay na \"na/-ng\" sa pangungusap?",
+            "options": ["Nag-uugnay ng panuring sa salitang tinutukoy", "Nagpapahiwatig ng oras ng pandiwa", "Nagbibigay ng direksiyon ng kilos", "Nagsasaad ng lugar ng pangyayari"],
+            "correct_answer": "Nag-uugnay ng panuring sa salitang tinutukoy"
+          },
+          {
+            "question": "Gawing pasibo: \"Sinulat ni Rizal ang Noli Me Tangere.\"",
+            "options": ["Sinulat ang Noli Me Tangere ni Rizal.", "Sulat ni Rizal ang Noli Me Tangere.", "Ang Noli Me Tangere ay isinulat ni Rizal.", "Nagsulatng Noli Me Tangere si Rizal."],
+            "correct_answer": "Ang Noli Me Tangere ay isinulat ni Rizal."
+          },
+          {
+            "question": "\"Lulangoy si Ana bukas.\" Ano ang aspekto ng pandiwa?",
+            "options": ["Kontemplatibo", "Progresibo", "Perpektibo", "Pawatas"],
+            "correct_answer": "Kontemplatibo"
+          },
+          {
+            "question": "Ano ang nobela ni Jose Rizal na nagsilbing inspirasyon sa rebolusyon?",
+            "options": ["Noli Me Tangere", "Florante at Laura", "Ibong Adarna", "Biag ni Lam-ang"],
+            "correct_answer": "Noli Me Tangere"
+          },
+          {
+            "question": "Alin ang halimbawa ng tamang paggamit ng pang-ugnay na \"-ng\"?",
+            "options": ["batang matalino", "bata na matalino", "matalinong bata na", "ang bata matalino"],
+            "correct_answer": "batang matalino"
+          },
+          {
+            "question": "Ano ang katangian ng isang dula (drama)?",
+            "options": ["Inilalahad ang kwento sa pamamagitan ng dialogue at kilos", "Isinulat bilang mahabang prosa lamang", "Ginagamit ang ritmo at tugma sa lahat ng bahagi", "Walang tauhan at tagpuan sa loob nito"],
+            "correct_answer": "Inilalahad ang kwento sa pamamagitan ng dialogue at kilos"
+          },
+          {
+            "question": "Alin ang pang-ukol sa pangungusap na \"Pumunta siya sa palengke\"?",
+            "options": ["sa", "siya", "pumunta", "palengke"],
+            "correct_answer": "sa"
+          },
+          {
+            "question": "Ano ang layunin ng sanaysay?",
+            "options": ["Ibahagi ang personal na pananaw ng manunulat sa isang paksa", "Magsalaysay ng buhay ng isang bayani", "Magbigay ng dula para sa entablado", "Magsalaysay ng mahabang alamat"],
+            "correct_answer": "Ibahagi ang personal na pananaw ng manunulat sa isang paksa"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science Review — Week 10: The Human Body — Cells to Systems!\n\nExcellent term, Grade 6 scientists! Let's review the organization of the human body. 🌟\n\n## 🔬 Levels of Body Organization\n1. **Cell** — the basic unit of life; smallest living unit\n2. **Tissue** — a group of similar cells working together → *muscle tissue, nerve tissue*\n3. **Organ** — a group of tissues working together → *heart, lungs, stomach*\n4. **Organ system** — a group of organs working together → *digestive system, respiratory system*\n5. **Organism** — the complete living thing\n\n## 💓 Major Body Systems Review\n- **Digestive system**: breaks down food into nutrients the body can use\n  - Key organs: mouth → esophagus → stomach → small intestine → large intestine\n- **Respiratory system**: takes in oxygen and expels carbon dioxide\n  - Key organs: nose/mouth → trachea → bronchi → lungs → alveoli\n- **Circulatory system**: transports blood, nutrients, and oxygen throughout the body\n  - Key organs: heart (pump), arteries (carry blood away), veins (carry blood to heart), capillaries\n- **Nervous system**: controls body functions and responses\n  - Key organs: brain (control center), spinal cord, nerves\n- **Excretory system**: removes waste from the body\n  - Key organs: kidneys (filter blood), lungs (CO₂), skin (sweat), large intestine (solid waste)\n\n## 🧬 Cell Parts Review\n- **Cell membrane**: controls what enters/exits the cell\n- **Nucleus**: control center; contains DNA\n- **Cytoplasm**: jelly-like fluid that fills the cell\n- **Mitochondria**: \"powerhouse\" — produces energy (ATP)\n\nYou are a true scientist! 🌍",
+        "quiz": [
+          {
+            "question": "What is the BASIC UNIT of life?",
+            "options": ["Cell", "Tissue", "Organ", "Molecule"],
+            "correct_answer": "Cell"
+          },
+          {
+            "question": "A group of SIMILAR CELLS working together forms a ___.",
+            "options": ["tissue", "organ", "system", "organism"],
+            "correct_answer": "tissue"
+          },
+          {
+            "question": "Which organ system removes waste products from the body?",
+            "options": ["Excretory system", "Digestive system", "Nervous system", "Circulatory system"],
+            "correct_answer": "Excretory system"
+          },
+          {
+            "question": "Which part of the cell is called the \"powerhouse\" because it produces energy?",
+            "options": ["Mitochondria", "Nucleus", "Cell membrane", "Cytoplasm"],
+            "correct_answer": "Mitochondria"
+          },
+          {
+            "question": "In the digestive system, where does most NUTRIENT ABSORPTION happen?",
+            "options": ["Small intestine", "Large intestine", "Stomach", "Esophagus"],
+            "correct_answer": "Small intestine"
+          },
+          {
+            "question": "Which organ system uses arteries and veins to transport blood?",
+            "options": ["Circulatory system", "Respiratory system", "Digestive system", "Nervous system"],
+            "correct_answer": "Circulatory system"
+          },
+          {
+            "question": "The ALVEOLI are tiny air sacs in the lungs. Which system do they belong to?",
+            "options": ["Respiratory system", "Circulatory system", "Excretory system", "Digestive system"],
+            "correct_answer": "Respiratory system"
+          },
+          {
+            "question": "Which part of the cell contains DNA and controls cell activities?",
+            "options": ["Nucleus", "Mitochondria", "Cell membrane", "Cytoplasm"],
+            "correct_answer": "Nucleus"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🌏 Araling Panlipunan — Linggo 10 Pagsasanay: ASEAN at Globalisasyon!\n\nBalikan natin ang lahat ng natutunan tungkol sa ASEAN at ang papel ng Pilipinas! 🌟\n\n## 🤝 ASEAN Review\n- **Itinatag**: Agosto 8, 1967 sa Bangkok, Thailand\n- **Kasalukuyang miyembro**: 10 bansa\n- **Mga pangunahing layunin**:\n  - Pagtataguyod ng kapayapaan at katatagan\n  - Pagpapabilis ng pag-unlad ng ekonomiya\n  - Pagpapalaki ng kultura at edukasyon\n- **ASEAN Charter** (2007): pormal na dokumento na nagtatakda ng mga alituntunin ng ASEAN\n\n## 🌐 Globalisasyon\n- **Globalisasyon**: ang proseso ng pagkakaroon ng mas malapit na ugnayan ng mga bansa sa kalakalan, teknolohiya, at kultura\n- **Positibong epekto**: mas maraming trabaho, mas mababang presyo ng produkto, pagpapalitan ng kultura\n- **Negatibong epekto**: maaaring mawala ang lokal na industriya; paglaganap ng maling kultura\n\n## 🇵🇭 Pilipinas at ASEAN\n- Isa sa mga **founding member** ng ASEAN\n- Nagbibigay ng mga manggagawa sa buong rehiyon\n- Aktibong kalahok sa ASEAN Summit at trade agreements\n- **ASEAN Economic Community (AEC)**: nagbibigay ng mas malayag na kalakalan sa loob ng rehiyon\n\n## 💡 Trade at Ekonomiya\n- **Import**: pagbili ng produkto mula sa ibang bansa\n- **Export**: pagbenta ng produkto sa ibang bansa\n- **Balance of trade**: pagkakaiba ng halaga ng import at export\n\nMag-aral at maging handa para sa isang globalisadong mundo! 🌟",
+        "quiz": [
+          {
+            "question": "Kailan itinatag ang ASEAN?",
+            "options": ["Agosto 8, 1967", "Agosto 8, 1945", "Hulyo 4, 1946", "Hunyo 12, 1898"],
+            "correct_answer": "Agosto 8, 1967"
+          },
+          {
+            "question": "Ano ang ASEAN Charter?",
+            "options": ["Pormal na dokumento ng mga alituntunin ng ASEAN", "Pangalan ng punong opisyal ng ASEAN", "Lugar ng tanggapan ng ASEAN", "Salaping ginagamit ng ASEAN"],
+            "correct_answer": "Pormal na dokumento ng mga alituntunin ng ASEAN"
+          },
+          {
+            "question": "Ano ang \"globalisasyon\"?",
+            "options": ["Pagkakaroon ng mas malapit na ugnayan ng mga bansa", "Pagtatayo ng iisang pamahalaan sa buong mundo", "Pagkawala ng lahat ng hangganan ng bansa", "Pagtatayo ng isang pandaigdigang wika"],
+            "correct_answer": "Pagkakaroon ng mas malapit na ugnayan ng mga bansa"
+          },
+          {
+            "question": "Alin ang POSITIBONG epekto ng globalisasyon?",
+            "options": ["Mas maraming oportunidad sa trabaho", "Pagkawala ng lokal na industriya", "Paglaganap ng maling kulturang dayuhan", "Mas mataas na presyo ng lahat ng produkto"],
+            "correct_answer": "Mas maraming oportunidad sa trabaho"
+          },
+          {
+            "question": "Ano ang \"export\"?",
+            "options": ["Pagbebenta ng produkto sa ibang bansa", "Pagbili ng produkto mula sa ibang bansa", "Pag-iimbak ng produkto sa bodega", "Pagbabayad ng buwis sa pamahalaan"],
+            "correct_answer": "Pagbebenta ng produkto sa ibang bansa"
+          },
+          {
+            "question": "Ilan ang miyembro ng ASEAN ngayon?",
+            "options": ["10", "8", "11", "12"],
+            "correct_answer": "10"
+          },
+          {
+            "question": "Ano ang ASEAN Economic Community (AEC)?",
+            "options": ["Nagbibigay ng mas malayag na kalakalan sa loob ng ASEAN", "Isang bangko para sa mga miyembro ng ASEAN", "Isang pulitikal na partido ng ASEAN", "Isang militar na alyansa ng ASEAN"],
+            "correct_answer": "Nagbibigay ng mas malayag na kalakalan sa loob ng ASEAN"
+          },
+          {
+            "question": "Saan itatag ang ASEAN?",
+            "options": ["Bangkok, Thailand", "Manila, Philippines", "Jakarta, Indonesia", "Singapore"],
+            "correct_answer": "Bangkok, Thailand"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 10 Review: Advanced Digital Skills!\n\nYou've built impressive tech skills this term! Let's review. 🖥️\n\n## 📊 Spreadsheets: Advanced Functions\n- **Basic formulas**: =SUM(), =AVERAGE(), =MAX(), =MIN(), =COUNT()\n- **Conditional formula**: =IF(condition, value_if_true, value_if_false)\n  - Example: =IF(A1>=75, \"Passed\", \"Failed\") → shows \"Passed\" if A1 ≥ 75\n- **Absolute reference**: $A$1 — doesn't change when formula is copied\n- **Relative reference**: A1 — changes relative position when copied\n\n## 🌐 Internet & Research Skills (Advanced)\n- **Boolean operators**: AND, OR, NOT → narrow or broaden searches\n  - \"climate change\" AND Philippines → finds pages with BOTH terms\n  - \"climate change\" NOT hurricane → excludes pages with hurricane\n- **Evaluating sources (CRAAP Test)**: Currency, Relevance, Authority, Accuracy, Purpose\n- **Creative Commons**: licenses that allow free use of content with conditions\n\n## 🔐 Cybersecurity\n- **Phishing**: fake emails/websites that trick you into giving personal info\n- **Malware**: harmful software (virus, spyware, ransomware)\n- **Firewall**: software that protects a computer from unauthorized access\n- **Encryption**: scrambles data so only authorized people can read it\n- **Two-factor authentication (2FA)**: extra security step beyond just a password\n\nStay smart, safe, and ethical online! 💡",
+        "quiz": [
+          {
+            "question": "What does the formula =IF(B1>=75, \"Passed\", \"Failed\") do when B1 = 80?",
+            "options": ["Shows 'Passed'", "Shows 'Failed'", "Shows '80'", "Shows an error"],
+            "correct_answer": "Shows 'Passed'"
+          },
+          {
+            "question": "What is an ABSOLUTE REFERENCE in a spreadsheet?",
+            "options": ["A cell reference that does not change when copied ($A$1)", "A cell reference that changes when the formula is copied (A1)", "A formula that works on all sheets", "A cell that cannot be edited"],
+            "correct_answer": "A cell reference that does not change when copied ($A$1)"
+          },
+          {
+            "question": "What does the Boolean operator NOT do in a search?",
+            "options": ["Excludes results with that term", "Requires both terms to be present", "Allows either term to appear", "Broadens the search results"],
+            "correct_answer": "Excludes results with that term"
+          },
+          {
+            "question": "What is PHISHING?",
+            "options": ["Fake messages that trick you into sharing personal info", "A secure way to log in online", "A type of search engine function", "A method of encrypting data safely"],
+            "correct_answer": "Fake messages that trick you into sharing personal info"
+          },
+          {
+            "question": "What is ENCRYPTION?",
+            "options": ["Scrambling data so only authorized people can read it", "A type of malware that harms computers", "A search operator for narrowing results", "A tool for creating spreadsheets"],
+            "correct_answer": "Scrambling data so only authorized people can read it"
+          },
+          {
+            "question": "What does the CRAAP Test stand for (for evaluating sources)?",
+            "options": ["Currency, Relevance, Authority, Accuracy, Purpose", "Content, Research, Analysis, Application, Plan", "Copy, Read, Assess, Apply, Print", "Check, Review, Analyze, Apply, Pass"],
+            "correct_answer": "Currency, Relevance, Authority, Accuracy, Purpose"
+          },
+          {
+            "question": "What is TWO-FACTOR AUTHENTICATION (2FA)?",
+            "options": ["An extra security step beyond a password", "A way to log in with two passwords", "A method of copying files to two locations", "A spreadsheet with two formulas"],
+            "correct_answer": "An extra security step beyond a password"
+          },
+          {
+            "question": "What formula finds the HIGHEST VALUE in cells A1 to A10?",
+            "options": ["=MAX(A1:A10)", "=SUM(A1:A10)", "=MIN(A1:A10)", "=COUNT(A1:A10)"],
+            "correct_answer": "=MAX(A1:A10)"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎵🏃 MAPEH — Week 10 Review: Music, Arts, PE & Health!\n\nYou've covered a lot of ground in MAPEH this term! Let's review the highlights. 🌟\n\n## 🎵 Music: Forms & History\n- **Musical forms**: Binary (AB) | Ternary (ABA) | Rondo (ABACADA...) | Theme and Variations\n- **Western music periods**: Medieval → Renaissance → Baroque → Classical → Romantic → Modern\n- **Notable composers**: Bach (Baroque), Mozart (Classical), Beethoven (Classical/Romantic)\n- **Philippine music**: kundiman (romantic Filipino songs), rondalla (stringed ensemble), kulintang (Mindanao)\n\n## 🎨 Arts: Philippine Visual Arts\n- **Modernist Filipino artists**: Fernando Amorsolo (golden light in rural scenes), Juan Luna (*Spoliarium*)\n- **Elements vs. Principles**: Elements = the \"what\" (line, color, form); Principles = the \"how\" (balance, emphasis)\n- **2D vs. 3D art**: painting, drawing (2D) vs. sculpture, pottery (3D)\n\n## 🏃 Physical Education: Team Sports\n- **Basketball**: court terminology, basic rules, fundamentals (dribbling, passing, shooting)\n- **Volleyball**: rotation, serving, spiking, blocking\n- **Team dynamics**: communication, roles, sportsmanship\n\n## 🌿 Health: Adolescent Health\n- **Reproductive health**: understanding puberty, hygiene, responsible choices\n- **Mental health**: recognizing anxiety and depression; coping strategies; destigmatizing help-seeking\n- **Communicable diseases**: how they spread (airborne, contact, vector, waterborne) and prevention\n\nTake care of your whole self! 🌟",
+        "quiz": [
+          {
+            "question": "Which musical form follows the pattern ABA?",
+            "options": ["Ternary form", "Binary form", "Rondo form", "Through-composed form"],
+            "correct_answer": "Ternary form"
+          },
+          {
+            "question": "Juan Luna's famous painting is ___.",
+            "options": ["Spoliarium", "El Buen Pastor", "The Wedding Dance", "Pagsamba"],
+            "correct_answer": "Spoliarium"
+          },
+          {
+            "question": "Which musical period came AFTER the Baroque period?",
+            "options": ["Classical period", "Romantic period", "Medieval period", "Modern period"],
+            "correct_answer": "Classical period"
+          },
+          {
+            "question": "What is KUNDIMAN?",
+            "options": ["A traditional romantic Filipino song", "A Mindanao percussion instrument", "A stringed Filipino ensemble", "A type of Philippine folk dance"],
+            "correct_answer": "A traditional romantic Filipino song"
+          },
+          {
+            "question": "Which element of art refers to the surface quality of an artwork?",
+            "options": ["Texture", "Balance", "Emphasis", "Unity"],
+            "correct_answer": "Texture"
+          },
+          {
+            "question": "In volleyball, which skill is used to send the ball over the net with force from above?",
+            "options": ["Spiking", "Serving", "Blocking", "Setting"],
+            "correct_answer": "Spiking"
+          },
+          {
+            "question": "What is KULINTANG?",
+            "options": ["A percussion instrument from Mindanao", "A romantic Tagalog song type", "A Filipino stringed ensemble", "A type of folk dance from Luzon"],
+            "correct_answer": "A percussion instrument from Mindanao"
+          },
+          {
+            "question": "Which is a healthy COPING STRATEGY for managing stress?",
+            "options": ["Talking to a trusted person", "Avoiding all social interaction", "Suppressing feelings entirely", "Using substances to feel better"],
+            "correct_answer": "Talking to a trusted person"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 10 Pagsasanay: Pagkamamamayan at Karapatang-Pantao!\n\nBilang Grade 6, kayo ay malapit nang maging kabataang may responsibilidad. Balikan natin ang ating mga pag-aaral. 🌟\n\n## 🌟 Karapatang-Pantao (Human Rights)\n- Ang **karapatang pantao** ay ang mga karapatang mayroon ang bawat tao sa mundo, anuman ang kanyang lahi, kasarian, o katayuan.\n- Pinoprotektahan ng **Universal Declaration of Human Rights (UDHR)** ng UN ang mga karapatang ito.\n- Mga halimbawa: karapatang mabuhay, magaral, maging malaya, magkaroon ng pagkain at tirahan\n\n## 🇵🇭 Pagkamamamayang Pilipino\n- **Nasyonalismo**: pagmamahal at pagpapahalaga sa sariling bansa\n- **Tunay na nasyonalismo**: hindi lang pagsigaw ng \"Pilipino ako\" kundi paggawa ng mga bagay na makakatulong sa bansa\n- **Mga karapatan at tungkulin ng mamamayan**:\n  - Karapatan: bumoto, magkaroon ng edukasyon, maging ligtas\n  - Tungkulin: magbayad ng buwis, sumunod sa batas, sumali sa pagboto\n\n## ⚖️ Katarungan at Pagkapantay-pantay\n- **Social justice**: lahat ay may pantay na pagkakataon\n- **Gender equality**: pantay ang karapatan at oportunidad ng lahat anuman ang kasarian\n- **Diskriminasyon**: hindi tama ang pag-uuri ng tao batay sa lahi, kasarian, o relihiyon\n\n## 💡 Pangkalikasang Responsibilidad\n- **Sustainable development**: pagtupad sa pangangailangan ngayon nang hindi sinisira ang hinaharap\n- Bawat desisyon natin ay may epekto sa kalikasan — maging responsable!\n\nIkaw ay magiging isang pillar ng ating lipunan! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang UDHR?",
+            "options": ["Universal Declaration of Human Rights", "United Democratic Human Rights", "Universal Department of Human Respect", "United Declaration on Humane Relations"],
+            "correct_answer": "Universal Declaration of Human Rights"
+          },
+          {
+            "question": "Alin ang isang halimbawa ng karapatang pantao?",
+            "options": ["Karapatang mabuhay at magaral", "Karapatang maging pangulo ng bansa", "Karapatang hindi magbayad ng buwis", "Karapatang siyahin ang kapuwa"],
+            "correct_answer": "Karapatang mabuhay at magaral"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng tunay na nasyonalismo?",
+            "options": ["Paggawa ng mga bagay na makakatulong sa bansa", "Pagsigaw lamang ng \"Pilipino ako\"", "Pagpapahalaga sa mga dayuhang produkto", "Pagtatago ng sariling kultura"],
+            "correct_answer": "Paggawa ng mga bagay na makakatulong sa bansa"
+          },
+          {
+            "question": "Ano ang \"gender equality\"?",
+            "options": ["Pantay na karapatan para sa lahat anuman ang kasarian", "Mas mataas na karapatan para sa babae", "Mas mataas na karapatan para sa lalaki", "Pagbibigay ng iba't ibang karapatan base sa kasarian"],
+            "correct_answer": "Pantay na karapatan para sa lahat anuman ang kasarian"
+          },
+          {
+            "question": "Ano ang \"sustainable development\"?",
+            "options": ["Pagtupad ng pangangailangan ngayon nang hindi sinisira ang kinabukasan", "Pagtatayo ng mga bagong gusali sa lahat ng lugar", "Paggamit ng lahat ng likas na yaman ngayon", "Pagtatayo ng ekonomiya batay sa dayuhang tulong"],
+            "correct_answer": "Pagtupad ng pangangailangan ngayon nang hindi sinisira ang kinabukasan"
+          },
+          {
+            "question": "Alin ang isang TUNGKULIN ng mamamayang Pilipino?",
+            "options": ["Sumunod sa batas ng bansa", "Sumali sa ibang bansa", "Humingi ng exemption sa buwis", "Mag-alis ng pagkamamamayan"],
+            "correct_answer": "Sumunod sa batas ng bansa"
+          },
+          {
+            "question": "Ano ang \"diskriminasyon\"?",
+            "options": ["Pag-uuri ng tao batay sa lahi, kasarian, o relihiyon", "Pagbibigay ng pantay na pagkakataon sa lahat", "Paggalang sa karapatang pantao ng lahat", "Pagtataguyod ng social justice sa lipunan"],
+            "correct_answer": "Pag-uuri ng tao batay sa lahi, kasarian, o relihiyon"
+          },
+          {
+            "question": "Bilang kabataan, paano mo matitiyak ang sustainable na kinabukasan?",
+            "options": ["Sa pagiging responsable sa kalikasan at sa ating mga desisyon", "Sa paggamit ng lahat ng resources ngayon para sa kasiyahan", "Sa pananatiling tahimik at hindi pakikialam sa mga isyu", "Sa pag-alis ng lahat ng industriya para sa kalikasan"],
+            "correct_answer": "Sa pagiging responsable sa kalikasan at sa ating mga desisyon"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📚 Friday Review — English (Grade 6)\n\n- **Symbolism**: object = bigger idea | **Foreshadowing**: hints at future | **Flashback**: scene set in past | **Irony**: opposite of expected\n- **Verbals**: gerund (-ing as noun) | infinitive (to + verb) | participle (-ing/-ed as adjective)\n- **Complex sentence**: independent + dependent clause (*Although it rained, we played.*)\n- **Argumentative essay**: claim + evidence + counter-argument + rebuttal + conclusion\n- **Cite evidence**: \"According to the text,\" \"The author states,\" \"This demonstrates...\"\n\nExcellent week! ⭐",
+        "quiz": [
+          {
+            "question": "A wilting flower in a story represents the end of hope. This is ___.",
+            "options": ["Symbolism", "Irony", "Flashback", "Alliteration"],
+            "correct_answer": "Symbolism"
+          },
+          {
+            "question": "\"Running every morning keeps me healthy.\" \"Running\" is a ___.",
+            "options": ["Gerund", "Participle", "Infinitive", "Conjunction"],
+            "correct_answer": "Gerund"
+          },
+          {
+            "question": "Which is a COMPLEX sentence?",
+            "options": ["Since it was cold, she wore a jacket.", "She wore a jacket and a scarf.", "She wore a jacket.", "It was cold, and she wore a jacket."],
+            "correct_answer": "Since it was cold, she wore a jacket."
+          },
+          {
+            "question": "Early in the story, dark clouds appear before the character's bad luck. This is ___.",
+            "options": ["Foreshadowing", "Flashback", "Irony", "Symbolism"],
+            "correct_answer": "Foreshadowing"
+          },
+          {
+            "question": "\"She wants to travel the world.\" \"to travel\" is an ___.",
+            "options": ["Infinitive", "Gerund", "Participle", "Preposition"],
+            "correct_answer": "Infinitive"
+          },
+          {
+            "question": "In an argumentative essay, what follows the counter-argument?",
+            "options": ["A rebuttal that defends your claim", "A new and separate claim", "The introduction of the essay", "A summary of the counter-argument only"],
+            "correct_answer": "A rebuttal that defends your claim"
+          },
+          {
+            "question": "Which signal phrase introduces evidence from a text?",
+            "options": ["According to the author,", "I feel that,", "Everyone knows that,", "It is obvious that,"],
+            "correct_answer": "According to the author,"
+          },
+          {
+            "question": "A lifeguard drowns at his own swimming party. This is ___.",
+            "options": ["Situational irony", "Verbal irony", "Foreshadowing", "Flashback"],
+            "correct_answer": "Situational irony"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 6)\n\n- **Fraction operations**: add/subtract (common denominator), multiply (numerator × numerator), divide (multiply by reciprocal)\n- **Ratio**: compares two quantities (3:5 = 3/5); equivalent ratios multiply both parts\n- **Rate**: ratio with different units (₱60/kg); **unit rate**: denominator = 1\n- **Percent**: per hundred; 25% = ¼ = 0.25; find % of number → multiply by decimal\n- **Common equivalents**: 25%=¼, 50%=½, 75%=¾, 100%=1\n\nMath master! 🏆",
+        "quiz": [
+          {
+            "question": "What is ⅓ + ½?",
+            "options": ["5/6", "2/6", "2/5", "4/6"],
+            "correct_answer": "5/6"
+          },
+          {
+            "question": "What is ⅔ × ¾?",
+            "options": ["½", "5/7", "6/8", "2/12"],
+            "correct_answer": "½"
+          },
+          {
+            "question": "What is ¾ ÷ ⅜?",
+            "options": ["2", "9/32", "1", "3/2"],
+            "correct_answer": "2"
+          },
+          {
+            "question": "What is 40% of 250?",
+            "options": ["100", "80", "120", "90"],
+            "correct_answer": "100"
+          },
+          {
+            "question": "30 out of 120 students joined the club. What percent is that?",
+            "options": ["25%", "30%", "20%", "40%"],
+            "correct_answer": "25%"
+          },
+          {
+            "question": "What fraction equals 60%?",
+            "options": ["3/5", "2/3", "4/5", "1/2"],
+            "correct_answer": "3/5"
+          },
+          {
+            "question": "The ratio of red to blue tiles is 4:6. In simplest form, what is this ratio?",
+            "options": ["2:3", "4:6", "1:2", "3:4"],
+            "correct_answer": "2:3"
+          },
+          {
+            "question": "A car travels 180 km in 3 hours. What is its unit rate (speed)?",
+            "options": ["60 km/h", "90 km/h", "54 km/h", "45 km/h"],
+            "correct_answer": "60 km/h"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino (Baitang 6)\n\n- **Pang-ukol**: *sa, ng, para sa, mula sa, hanggang sa*\n- **Pang-ugnay (-ng/na)**: *batang matalino / matinong bata*\n- **Pasibong pangungusap**: Ang tumatanggap ng kilos ang naging simuno\n- **Nobela** (Noli Me Tangere ni Rizal) | **Dula** (dialogue + kilos) | **Sanaysay** (personal na pananaw)\n- **Kontemplatibo / Progresibo / Perpektibo** aspekto\n\nMahusay! 🌟",
+        "quiz": [
+          {
+            "question": "Gawing pasibo: \"Binasa ni Gina ang liham.\"",
+            "options": ["Ang liham ay binasa ni Gina.", "Binasa ng liham si Gina.", "Si Gina ay binasa ang liham.", "Nagbasa ng liham si Gina."],
+            "correct_answer": "Ang liham ay binasa ni Gina."
+          },
+          {
+            "question": "Alin ang tamang paggamit ng pang-ugnay na \"na\"?",
+            "options": ["batang mapagmahal", "bata na mapagmahal", "mapagmahal na batang", "ang bata mapagmahal"],
+            "correct_answer": "batang mapagmahal"
+          },
+          {
+            "question": "Ang nobela ni Jose Rizal na pumukaw sa damdamin ng mga Pilipino ay ___.",
+            "options": ["Noli Me Tangere", "Florante at Laura", "Ibong Adarna", "Biag ni Lam-ang"],
+            "correct_answer": "Noli Me Tangere"
+          },
+          {
+            "question": "\"Luluwa siya bukas.\" Ano ang aspekto ng pandiwa?",
+            "options": ["Kontemplatibo", "Progresibo", "Perpektibo", "Pawatas"],
+            "correct_answer": "Kontemplatibo"
+          },
+          {
+            "question": "Alin ang pang-ukol sa pangungusap na \"Pumunta siya para sa pagkain\"?",
+            "options": ["para sa", "siya", "pumunta", "pagkain"],
+            "correct_answer": "para sa"
+          },
+          {
+            "question": "Ang sanaysay ay isang akdang ___.",
+            "options": ["nagbabahagi ng personal na pananaw ng manunulat", "nagsasalaysay ng buhay ng isang bayani", "isinasagawa sa entablado na may mga artista", "mahabang kwento tungkol sa pag-ibig"],
+            "correct_answer": "nagbabahagi ng personal na pananaw ng manunulat"
+          },
+          {
+            "question": "\"Kumakanta na siya.\" Ano ang aspekto ng pandiwa?",
+            "options": ["Progresibo", "Kontemplatibo", "Perpektibo", "Pawatas"],
+            "correct_answer": "Progresibo"
+          },
+          {
+            "question": "Ano ang katangian ng dula bilang uri ng panitikan?",
+            "options": ["Inilalahad ang kwento sa pamamagitan ng dialogue at kilos", "Isinulat bilang mahabang prosa", "Walang tauhan at tagpuan", "Gumagamit ng talinghaga at ritmo lamang"],
+            "correct_answer": "Inilalahad ang kwento sa pamamagitan ng dialogue at kilos"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Friday Review — Science (Grade 6)\n\n- **Levels of organization**: Cell → Tissue → Organ → Organ System → Organism\n- **Cell parts**: nucleus (DNA/control), mitochondria (energy), cell membrane (gatekeeper), cytoplasm (fluid)\n- **Digestive**: mouth→esophagus→stomach→small intestine→large intestine\n- **Respiratory**: nose→trachea→bronchi→lungs→alveoli\n- **Circulatory**: heart (pump), arteries (away), veins (toward heart), capillaries\n- **Nervous**: brain (control), spinal cord, nerves\n- **Excretory**: kidneys, lungs, skin, large intestine\n\nExcellent scientist! 🌍",
+        "quiz": [
+          {
+            "question": "Which level of organization comes BETWEEN tissue and organ system?",
+            "options": ["Organ", "Cell", "Molecule", "Organism"],
+            "correct_answer": "Organ"
+          },
+          {
+            "question": "The cell membrane's main function is to ___.",
+            "options": ["Control what enters and exits the cell", "Produce energy for the cell", "Store the cell's DNA", "Fill the cell with fluid"],
+            "correct_answer": "Control what enters and exits the cell"
+          },
+          {
+            "question": "Which system controls all body functions and responses?",
+            "options": ["Nervous system", "Circulatory system", "Respiratory system", "Digestive system"],
+            "correct_answer": "Nervous system"
+          },
+          {
+            "question": "Where does BLOOD GO after leaving the heart through arteries?",
+            "options": ["To the body's organs and tissues", "Back to the heart through veins", "To the lungs for oxygen only", "To the kidneys for filtering"],
+            "correct_answer": "To the body's organs and tissues"
+          },
+          {
+            "question": "The ALVEOLI are in which organ?",
+            "options": ["Lungs", "Heart", "Stomach", "Kidneys"],
+            "correct_answer": "Lungs"
+          },
+          {
+            "question": "What does the MITOCHONDRIA do?",
+            "options": ["Produces energy (ATP) for the cell", "Controls all activities of the cell", "Protects the cell from outside", "Helps the cell move around"],
+            "correct_answer": "Produces energy (ATP) for the cell"
+          },
+          {
+            "question": "Which organ FILTERS waste from the blood?",
+            "options": ["Kidneys", "Heart", "Lungs", "Stomach"],
+            "correct_answer": "Kidneys"
+          },
+          {
+            "question": "In which organ does most DIGESTION and ABSORPTION happen?",
+            "options": ["Small intestine", "Large intestine", "Stomach", "Esophagus"],
+            "correct_answer": "Small intestine"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🌏 Biyernes — Lingguhang Pagsasanay: Araling Panlipunan (Baitang 6)\n\n- **ASEAN**: itinatag Agosto 8, 1967; 10 miyembro; layunin = kapayapaan at pag-unlad\n- **ASEAN Charter** (2007): pormal na alituntunin ng ASEAN\n- **Globalisasyon**: mas malapit na ugnayan ng mga bansa; positibo at negatibong epekto\n- **Import** = pagbili mula sa ibang bansa | **Export** = pagbenta sa ibang bansa\n- **AEC** = freer trade sa loob ng ASEAN\n\nIpagmahal ang Pilipinas at ang ASEAN! 🌟",
+        "quiz": [
+          {
+            "question": "Kailan itinatag ang ASEAN?",
+            "options": ["Agosto 8, 1967", "Hulyo 4, 1946", "Hunyo 12, 1898", "Agosto 8, 1972"],
+            "correct_answer": "Agosto 8, 1967"
+          },
+          {
+            "question": "Ano ang negatibong epekto ng globalisasyon?",
+            "options": ["Maaaring mawala ang lokal na industriya", "Mas maraming trabaho sa bansa", "Mas mababang presyo ng produkto", "Mas maraming pagkakataon sa edukasyon"],
+            "correct_answer": "Maaaring mawala ang lokal na industriya"
+          },
+          {
+            "question": "Ang Pilipinas ay isang founding member ng ASEAN. Ibig sabihin nito, ang Pilipinas ay ___.",
+            "options": ["Isa sa mga unang nagtatag ng ASEAN", "Pinaka-bagong miyembro ng ASEAN", "Kasalukuyang pangulo ng ASEAN", "Hindi kasali sa pagtatag ng ASEAN"],
+            "correct_answer": "Isa sa mga unang nagtatag ng ASEAN"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng \"import\"?",
+            "options": ["Pagbili ng produkto mula sa ibang bansa", "Pagbebenta ng produkto sa ibang bansa", "Paggawa ng produkto sa sariling bansa", "Pag-aalis ng produkto mula sa merkado"],
+            "correct_answer": "Pagbili ng produkto mula sa ibang bansa"
+          },
+          {
+            "question": "Ilan ang kasalukuyang miyembro ng ASEAN?",
+            "options": ["10", "8", "11", "12"],
+            "correct_answer": "10"
+          },
+          {
+            "question": "Ang ASEAN Economic Community (AEC) ay nagtataguyod ng ___.",
+            "options": ["Mas malayag na kalakalan sa loob ng ASEAN", "Pagtatayo ng iisang pamahalaan sa ASEAN", "Pagtatayo ng military alliance sa ASEAN", "Pag-alis ng lahat ng buwis sa buong mundo"],
+            "correct_answer": "Mas malayag na kalakalan sa loob ng ASEAN"
+          },
+          {
+            "question": "Ano ang ASEAN Charter?",
+            "options": ["Pormal na dokumento ng mga alituntunin ng ASEAN", "Pangalan ng punong opisyal ng ASEAN", "Salaping ginagamit ng mga miyembro ng ASEAN", "Lugar ng tanggapan ng ASEAN"],
+            "correct_answer": "Pormal na dokumento ng mga alituntunin ng ASEAN"
+          },
+          {
+            "question": "Alin ang positibong epekto ng globalisasyon sa Pilipinas?",
+            "options": ["Mas maraming trabaho at oportunidad para sa mga Pilipino", "Pagkawala ng lahat ng lokal na produkto", "Paglaganap ng mapanganib na kulturang dayuhan", "Pagbaba ng kalidad ng edukasyon sa bansa"],
+            "correct_answer": "Mas maraming trabaho at oportunidad para sa mga Pilipino"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Friday Review — EPP (ICT) (Grade 6)\n\n- **Spreadsheet**: =SUM, =AVERAGE, =MAX, =MIN, =COUNT; =IF(condition, yes, no); absolute ($A$1) vs relative (A1) references\n- **Boolean search**: AND (both terms), OR (either), NOT (exclude)\n- **CRAAP Test**: Currency, Relevance, Authority, Accuracy, Purpose\n- **Phishing** = fake messages for info | **Malware** = harmful software | **Encryption** = scramble data | **2FA** = extra login step\n- **Creative Commons** = free use with conditions; always cite sources\n\nStay smart online! 💡",
+        "quiz": [
+          {
+            "question": "What does =IF(A1>=90, \"Excellent\", \"Good\") show when A1=95?",
+            "options": ["Excellent", "Good", "95", "Error"],
+            "correct_answer": "Excellent"
+          },
+          {
+            "question": "What is a RELATIVE cell reference?",
+            "options": ["A reference that changes when formula is copied (A1)", "A reference that stays fixed when copied ($A$1)", "A reference to another spreadsheet", "A reference that cannot be used in formulas"],
+            "correct_answer": "A reference that changes when formula is copied (A1)"
+          },
+          {
+            "question": "The search \"dogs AND cats\" will find pages that ___.",
+            "options": ["Have BOTH dogs and cats", "Have either dogs or cats", "Exclude dogs from results", "Show only cat-related results"],
+            "correct_answer": "Have BOTH dogs and cats"
+          },
+          {
+            "question": "What is MALWARE?",
+            "options": ["Harmful software that damages or steals data", "A security feature of web browsers", "A type of spreadsheet formula", "A safe file-sharing method"],
+            "correct_answer": "Harmful software that damages or steals data"
+          },
+          {
+            "question": "In the CRAAP test, what does the 'A' for AUTHORITY check?",
+            "options": ["Who wrote the information and their credentials", "How accurate the information is", "How recent the information is", "Why the information was written"],
+            "correct_answer": "Who wrote the information and their credentials"
+          },
+          {
+            "question": "What formula finds the MINIMUM value in B1 to B20?",
+            "options": ["=MIN(B1:B20)", "=MAX(B1:B20)", "=SUM(B1:B20)", "=COUNT(B1:B20)"],
+            "correct_answer": "=MIN(B1:B20)"
+          },
+          {
+            "question": "What is TWO-FACTOR AUTHENTICATION?",
+            "options": ["An extra security step beyond just a password", "Using two passwords at the same time", "A method to share files securely", "A spreadsheet with two formula types"],
+            "correct_answer": "An extra security step beyond just a password"
+          },
+          {
+            "question": "Which is an example of good digital citizenship?",
+            "options": ["Always giving credit when using others' work", "Sharing someone's personal photo without asking", "Clicking all links in unknown emails", "Posting private information about others"],
+            "correct_answer": "Always giving credit when using others' work"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎵🏃 Friday Review — MAPEH (Grade 6)\n\n- **Musical forms**: Binary (AB) | Ternary (ABA) | Rondo (ABACADA)\n- **Music history**: Medieval→Renaissance→Baroque→Classical→Romantic→Modern; Bach, Mozart, Beethoven\n- **Philippine music**: kundiman (romantic songs), rondalla (strings), kulintang (Mindanao percussion)\n- **Filipino artists**: Amorsolo (golden rural light), Juan Luna (Spoliarium)\n- **Team sports**: Basketball (dribble, pass, shoot) | Volleyball (serve, spike, block)\n- **Health**: puberty, mental health coping strategies, communicable diseases\n\nKeep moving and stay healthy! 🌟",
+        "quiz": [
+          {
+            "question": "Which musical form follows AB pattern?",
+            "options": ["Binary form", "Ternary form", "Rondo form", "Sonata form"],
+            "correct_answer": "Binary form"
+          },
+          {
+            "question": "Which composer belongs to the CLASSICAL period?",
+            "options": ["Mozart", "Bach", "Beethoven's late works", "Debussy"],
+            "correct_answer": "Mozart"
+          },
+          {
+            "question": "Fernando Amorsolo is known for ___.",
+            "options": ["Depicting rural Filipino life in golden light", "The painting Spoliarium", "Kulintang music composition", "Kundiman songwriting"],
+            "correct_answer": "Depicting rural Filipino life in golden light"
+          },
+          {
+            "question": "What is RONDALLA?",
+            "options": ["A Filipino stringed instrument ensemble", "A type of Philippine folk dance", "A traditional Filipino song form", "A percussion instrument from Mindanao"],
+            "correct_answer": "A Filipino stringed instrument ensemble"
+          },
+          {
+            "question": "In volleyball, a player jumps and hits the ball hard downward over the net. This is called ___.",
+            "options": ["Spiking", "Serving", "Blocking", "Setting"],
+            "correct_answer": "Spiking"
+          },
+          {
+            "question": "Which is a healthy response to stress and anxiety?",
+            "options": ["Talking to a trusted adult or counselor", "Bottling up all your feelings alone", "Using alcohol or tobacco to relax", "Avoiding everyone around you"],
+            "correct_answer": "Talking to a trusted adult or counselor"
+          },
+          {
+            "question": "The musical form that follows ABA pattern is ___.",
+            "options": ["Ternary form", "Binary form", "Rondo form", "Theme and variations"],
+            "correct_answer": "Ternary form"
+          },
+          {
+            "question": "Which famous painting by Juan Luna is shown in the Philippine National Museum?",
+            "options": ["Spoliarium", "El Buen Pastor", "Parisian Life", "Tampuhan"],
+            "correct_answer": "Spoliarium"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC (Baitang 6)\n\n- **UDHR**: Universal Declaration of Human Rights — karapatan ng bawat tao\n- **Nasyonalismo**: pagmamahal sa bansa + paggawa ng nagpapahalaga nito\n- **Karapatan**: mabuhay, magaral, maging ligtas\n- **Tungkulin**: sumunod sa batas, magbayad ng buwis, sumali sa pagboto\n- **Social justice**: pantay na pagkakataon para sa lahat\n- **Sustainable development**: tugunan ang ngayon nang hindi sinisira ang kinabukasan\n\nIkaw ang kinabukasan ng Pilipinas! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang UDHR?",
+            "options": ["Universal Declaration of Human Rights", "United Democratic Human Rules", "Universal Department of Human Relations", "United Declaration on Human Reforms"],
+            "correct_answer": "Universal Declaration of Human Rights"
+          },
+          {
+            "question": "Alin ang karapatan ng bawat mamamayan?",
+            "options": ["Magaral at mabuhay nang may kalayaan", "Magmana ng milyun-milyon mula sa pamahalaan", "Hindi sumunod sa batas kapag gusto nila", "Magpataw ng batas sa ibang tao"],
+            "correct_answer": "Magaral at mabuhay nang may kalayaan"
+          },
+          {
+            "question": "Ano ang tunay na nasyonalismo?",
+            "options": ["Paggawa ng nagpapaunlad sa bansa", "Pagsigaw ng \"Pilipino ako\" nang walang kilos", "Pagpapahalaga ng dayuhang produkto kaysa sarili", "Pag-alis ng bansa sa lahat ng global na usapan"],
+            "correct_answer": "Paggawa ng nagpapaunlad sa bansa"
+          },
+          {
+            "question": "Ano ang \"sustainable development\"?",
+            "options": ["Pagtupad ng pangangailangan ngayon nang hindi sinisira ang kinabukasan", "Paggamit ng lahat ng resources para sa kasalukuyan", "Pagtigil ng lahat ng industriya para sa kalikasan", "Pagtatayo ng mas maraming gusali at riles"],
+            "correct_answer": "Pagtupad ng pangangailangan ngayon nang hindi sinisira ang kinabukasan"
+          },
+          {
+            "question": "Alin ang tungkulin ng mamamayang Pilipino?",
+            "options": ["Sumunod sa batas ng bansa", "Maghanap ng mas mabuting bansa para tumira", "Humingi ng exemption sa lahat ng buwis", "Tumangging lumahok sa mga halalan"],
+            "correct_answer": "Sumunod sa batas ng bansa"
+          },
+          {
+            "question": "Ang \"social justice\" ay nangangahulugang ___.",
+            "options": ["Pantay na pagkakataon para sa lahat", "Mas mataas na karapatan para sa mahihirap", "Pagbibigay ng lahat sa iisang grupo", "Pagtanggal ng mga batas sa lipunan"],
+            "correct_answer": "Pantay na pagkakataon para sa lahat"
+          },
+          {
+            "question": "Alin ang halimbawa ng \"diskriminasyon\"?",
+            "options": ["Pagtanggi sa isang tao dahil sa kanyang lahi", "Pagbibigay ng pantay na serbisyo sa lahat", "Paggalang sa karapatang pantao ng lahat", "Pagtulong sa mga nangangailangan"],
+            "correct_answer": "Pagtanggi sa isang tao dahil sa kanyang lahi"
+          },
+          {
+            "question": "Bilang Grade 6, paano ka makakatulong sa iyong komunidad?",
+            "options": ["Pagiging responsable sa iyong mga aksyon at sa kalikasan", "Pananatili sa bahay at pag-iwas sa lahat ng responsibilidad", "Pag-asa sa gobyerno para sa lahat ng solusyon", "Pagtanggi sa lahat ng gawain na panlipunan"],
+            "correct_answer": "Pagiging responsable sa iyong mga aksyon at sa kalikasan"
+          }
+        ]
+      }
+    }
+  }
+}

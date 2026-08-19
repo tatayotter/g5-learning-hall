@@ -1,0 +1,736 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-08-24",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📚 English Review — Week 10: Literary Elements & Grammar!\n\nExcellent term, Grade 4! This week we review the key skills from Term 1. 💪\n\n## 🎭 Literary Elements\n- **Character**: the people or animals in the story; the **protagonist** is the main character\n- **Setting**: *where* and *when* the story takes place\n- **Plot**: the sequence of events — **exposition** → **rising action** → **climax** → **falling action** → **resolution**\n- **Theme**: the central message or lesson of the story\n- **Conflict**: the main problem the character faces\n\n## 🔍 Reading Strategies\n- **Context clues**: use surrounding words to figure out the meaning of an unfamiliar word\n- **Main idea**: the most important point of a paragraph; **supporting details** back it up\n- **Sequence**: signal words like *first, next, then, finally* show order of events\n- **Cause and effect**: what happens (effect) and why it happens (cause)\n\n## ✏️ Grammar Review\n- **Nouns**: common, proper, abstract (*happiness, freedom*), collective (*a team of players*)\n- **Verbs**: action (*run*), linking (*is, seems*), helping (*has, will*)\n- **Adjectives**: descriptive, comparative (*bigger*), superlative (*biggest*)\n- **Subject-verb agreement**: *The students **are** smart.* / *The student **is** smart.*\n\nYou have grown so much as a reader and writer! ⭐",
+        "quiz": [
+          {
+            "question": "What is the CLIMAX of a story?",
+            "options": ["The most exciting turning point", "The very beginning scene", "The lesson learned at end", "The introduction of characters"],
+            "correct_answer": "The most exciting turning point"
+          },
+          {
+            "question": "The word \"benevolent\" appears in a sentence about a kind king who gave food to the poor. What does \"benevolent\" most likely mean?",
+            "options": ["Generous and kind-hearted", "Angry and powerful", "Lazy and uncaring", "Wealthy and powerful"],
+            "correct_answer": "Generous and kind-hearted"
+          },
+          {
+            "question": "What is the THEME of a story?",
+            "options": ["The central message or lesson", "The time and place of the story", "The main character's name", "The problem the hero faces"],
+            "correct_answer": "The central message or lesson"
+          },
+          {
+            "question": "Which sentence uses subject-verb agreement correctly?",
+            "options": ["The girls are singing.", "The girls is singing.", "The girls was singing.", "The girls be singing."],
+            "correct_answer": "The girls are singing."
+          },
+          {
+            "question": "Which word is an abstract noun?",
+            "options": ["courage", "table", "Manila", "river"],
+            "correct_answer": "courage"
+          },
+          {
+            "question": "\"Joy ran faster than Mia, but Lea ran the fastest.\" Which word is a superlative adjective?",
+            "options": ["fastest", "faster", "fast", "ran"],
+            "correct_answer": "fastest"
+          },
+          {
+            "question": "What do signal words like \"first,\" \"next,\" and \"finally\" show in a paragraph?",
+            "options": ["The sequence of events", "The theme of the text", "The setting of the story", "The cause of a problem"],
+            "correct_answer": "The sequence of events"
+          },
+          {
+            "question": "Which word is a collective noun?",
+            "options": ["flock", "bird", "fly", "feather"],
+            "correct_answer": "flock"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics Review — Week 10: Numbers to Millions & Operations!\n\nLet's review the big ideas from Term 1 Math! 🏆\n\n## 🔢 Numbers to Millions\n- **Place value** of a 7-digit number: Millions | Hundred-Thousands | Ten-Thousands | Thousands | Hundreds | Tens | Ones\n- **Reading**: 1,234,567 → \"one million, two hundred thirty-four thousand, five hundred sixty-seven\"\n- **Rounding**: look at the digit to the RIGHT of the place you're rounding to\n  - 3,456 rounded to the nearest thousand → **3,000** (4 < 5, so round down)\n  - 3,678 rounded to the nearest thousand → **4,000** (6 ≥ 5, so round up)\n\n## ➕➖ Addition & Subtraction\n- Always align place values before adding or subtracting\n- Regroup (carry/borrow) when needed\n\n## ✖️÷ Multiplication & Division\n- Multiplication: **2 to 4-digit numbers × 2-digit numbers**\n  - Use partial products or long multiplication\n- Division: **Estimate the quotient**, then **divide, multiply, subtract, bring down**\n\n## 💡 Problem Solving\n1. Understand → 2. Plan → 3. Solve → 4. Check\n- For multi-step problems: solve one step at a time!\n\nYou're a mathematical thinker! 🌟",
+        "quiz": [
+          {
+            "question": "What is the value of the digit 7 in 3,724,896?",
+            "options": ["700,000", "7,000,000", "70,000", "7,000"],
+            "correct_answer": "700,000"
+          },
+          {
+            "question": "Round 4,567 to the nearest thousand.",
+            "options": ["5,000", "4,000", "4,600", "4,500"],
+            "correct_answer": "5,000"
+          },
+          {
+            "question": "What is 23,456 + 18,744?",
+            "options": ["42,200", "41,200", "43,200", "42,100"],
+            "correct_answer": "42,200"
+          },
+          {
+            "question": "What is 75,000 − 38,462?",
+            "options": ["36,538", "37,538", "36,438", "35,538"],
+            "correct_answer": "36,538"
+          },
+          {
+            "question": "What is 345 × 24?",
+            "options": ["8,280", "8,180", "8,380", "8,080"],
+            "correct_answer": "8,280"
+          },
+          {
+            "question": "What is 1,848 ÷ 6?",
+            "options": ["308", "318", "298", "288"],
+            "correct_answer": "308"
+          },
+          {
+            "question": "A factory makes 1,250 toys per day. How many toys in 8 days?",
+            "options": ["10,000", "9,000", "10,500", "8,500"],
+            "correct_answer": "10,000"
+          },
+          {
+            "question": "Which shows 2,345,678 in word form?",
+            "options": ["Two million, three hundred forty-five thousand, six hundred seventy-eight", "Two thousand, three hundred forty-five million, six hundred seventy-eight", "Twenty-three million, four hundred fifty-six thousand, seventy-eight", "Two million, three hundred four-five thousand, sixty-seventy-eight"],
+            "correct_answer": "Two million, three hundred forty-five thousand, six hundred seventy-eight"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 10 Pagsasanay: Gramatika at Panitikan!\n\nSinasalamin ng wikang Filipino ang ating kultura at pagpapahalaga. Balikan natin ang ating mga natutunan! 💪\n\n## 📖 Uri ng Pangungusap (Review)\n- **Pasalaysay** → tuldok (.)\n- **Patanong** → tandang pananong (?)\n- **Pautos** → tandang padamdam (!) o tuldok (.)\n- **Padamdam** → tandang padamdam (!)\n\n## 🔤 Mga Bahagi ng Pangungusap\n- **Simuno**: paksa ng pangungusap\n- **Panaguri**: nagsasabi tungkol sa simuno\n- **Komplimentong Tuwirang Layon** (KTL): tinatanggap ang kilos ng pandiwa\n  - Halimbawa: Kumain si Juan ng *mangga.* → \"mangga\" = KTL\n\n## 🌟 Talasalitaan\n- **Salitang-ugat**: pangunahing salita bago magkaroon ng panlapi\n  - Halimbawa: *laro* → naglalaro, naglaro, maglalaro\n- **Panlapi**: prefix (*mag-*, *na-*, *i-*) at suffix (*-in*, *-an*, *-an*)\n  - Halimbawa: *luto* + *-in* = *lutuin* | *mag-* + *luto* = *magluto*\n\n## 📚 Akdang Pampanitikan\n- **Maikling Kwento**: nagtatampok ng iisang pangyayari, maliit na bilang ng tauhan, may resolusyon\n- **Tula**: may ritmo, tunog, at imahe; gumagamit ng talinghaga\n\nNapakahusay mong mag-aaral ng Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang uri ng pangungusap na \"Tumakbo ang bata sa kalye\"?",
+            "options": ["Pasalaysay", "Patanong", "Pautos", "Padamdam"],
+            "correct_answer": "Pasalaysay"
+          },
+          {
+            "question": "Alin ang panlapi (prefix) na nagpapahiwatig ng nagaganap na kilos?",
+            "options": ["nag-", "ma-", "-in", "-an"],
+            "correct_answer": "nag-"
+          },
+          {
+            "question": "Sa pangungusap na \"Binilhan ni Lola ang aking kapatid ng regalo\", ano ang tuwirang layon?",
+            "options": ["regalo", "Lola", "kapatid", "binilhan"],
+            "correct_answer": "regalo"
+          },
+          {
+            "question": "Ano ang salitang-ugat ng salitang \"magluto\"?",
+            "options": ["luto", "mag", "magluto", "luto-an"],
+            "correct_answer": "luto"
+          },
+          {
+            "question": "\"Huwag kang maingay sa klase!\" Ano ang uri ng pangungusap ito?",
+            "options": ["Pautos", "Pasalaysay", "Patanong", "Padamdam"],
+            "correct_answer": "Pautos"
+          },
+          {
+            "question": "Alin sa mga ito ang katangian ng maikling kwento?",
+            "options": ["Iisang pangyayari na may resolusyon", "Maraming tauhan at maraming suliranin", "Walang resolusyon sa katapusan", "Nagsasalaysay ng buhay ng isang tao"],
+            "correct_answer": "Iisang pangyayari na may resolusyon"
+          },
+          {
+            "question": "Anong panlapi ang idadagdag sa \"kain\" para maging \"pagkain\"?",
+            "options": ["pag-", "nag-", "-in", "ma-"],
+            "correct_answer": "pag-"
+          },
+          {
+            "question": "Alin ang nagbibigay ng ritmo at talinghaga sa panitikan?",
+            "options": ["Tula", "Balita", "Talumpati", "Sanaysay"],
+            "correct_answer": "Tula"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science Review — Week 10: Matter and Its Properties!\n\nGreat work, scientists! Let's review everything we've learned about **matter**. 🌟\n\n## 🧊💧💨 States of Matter\n- **Solid**: definite shape and volume; particles packed closely → *ice, rock, wood*\n- **Liquid**: definite volume but takes the shape of its container → *water, juice, oil*\n- **Gas**: no definite shape or volume; expands to fill container → *air, steam, oxygen*\n\n## ⚗️ Properties of Matter\n- **Physical properties**: color, odor, texture, hardness, solubility, conductivity, mass, volume\n- **Density**: how much mass in a given volume; determines if an object floats or sinks\n  - Object **denser than water** → sinks | Object **less dense than water** → floats\n\n## 🥄 Mixtures\n- **Mixture**: two or more substances combined; each keeps its own properties\n- **Homogeneous (solution)**: evenly mixed → *salt water, vinegar*\n- **Heterogeneous**: not evenly mixed; parts visible → *salad, sand and gravel*\n- **Separating mixtures**: filtering, decanting, evaporation, using a magnet\n\n## 🔄 Physical vs. Chemical Changes\n- **Physical change**: form changes, substance stays the same → *cutting, melting, dissolving*\n- **Chemical change**: a new substance is formed → *burning, rusting, baking*\n\nMatter matters! 🌍",
+        "quiz": [
+          {
+            "question": "Which state of matter has a definite shape and volume?",
+            "options": ["Solid", "Liquid", "Gas", "Plasma"],
+            "correct_answer": "Solid"
+          },
+          {
+            "question": "Salt water is an example of a ___.",
+            "options": ["homogeneous mixture", "solid substance", "pure element", "heterogeneous mixture"],
+            "correct_answer": "homogeneous mixture"
+          },
+          {
+            "question": "An object sinks in water. This means the object is ___ than water.",
+            "options": ["denser", "lighter", "smaller", "smoother"],
+            "correct_answer": "denser"
+          },
+          {
+            "question": "Which is an example of a PHYSICAL change?",
+            "options": ["Melting ice into water", "Burning paper to ash", "Rusting of an iron nail", "Baking a raw egg"],
+            "correct_answer": "Melting ice into water"
+          },
+          {
+            "question": "Which is an example of a CHEMICAL change?",
+            "options": ["Rusting of an iron nail", "Melting of butter", "Dissolving sugar in water", "Cutting paper into pieces"],
+            "correct_answer": "Rusting of an iron nail"
+          },
+          {
+            "question": "Which method can separate sand from water?",
+            "options": ["Filtering", "Evaporation", "Using a magnet", "Decanting only"],
+            "correct_answer": "Filtering"
+          },
+          {
+            "question": "Which property of matter describes whether a material can carry electricity?",
+            "options": ["Conductivity", "Solubility", "Flexibility", "Density"],
+            "correct_answer": "Conductivity"
+          },
+          {
+            "question": "Steam is water in which state of matter?",
+            "options": ["Gas", "Liquid", "Solid", "Plasma"],
+            "correct_answer": "Gas"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🌏 Araling Panlipunan — Linggo 10 Pagsasanay: Pilipinas sa Asya!\n\nBalikan natin ang ating mga natutunan tungkol sa Pilipinas at Asya! 🌟\n\n## 🗺️ Heograpiya ng Pilipinas\n- Ang Pilipinas ay nasa **Timog-Silangang Asya**\n- May **7,641 na pulo**; nahahati sa Luzon, Visayas, at Mindanao\n- **Hangganan**: Karagatang Pasipiko (silangan), Dagat Tsina sa Timog (kanluran)\n- **Klima**: tropical — mainit at mahalumigmig; may **tag-ulan** at **tag-araw**\n- Epekto ng lokasyon: maraming **bagyo**, malaking karagatan → **pangingisda**\n\n## 🌿 Likas na Yaman\n- **Kagubatan**: narra, lawaan, molave (kahoy); pinagmumulan ng hangin\n- **Mineral**: ginto, pilak, bakal, tanso, kromo\n- **Karagatan**: pagkain (isda, alimasag, hipon), industriya\n- **Agrikultura**: palay, mais, niyog, saging, kamote\n\n## 🤝 Kultura at Pagkakakilanlan\n- Higit sa **175 grupong etniko** — bawat isa ay may sariling wika, sining, at kaugalian\n- **Pagkain**: adobo, sinigang, lechon — nagpapakita ng impluwensiya ng kasaysayan\n- **Pamilya** ang sentro ng kulturang Pilipino\n- **Bayanihan** — tradisyon ng pagtutulungan ng komunidad\n\nIpagmahal ang ating mayamang kultura at kalikasan! 🇵🇭",
+        "quiz": [
+          {
+            "question": "Ilang pulo ang bumubuo sa Pilipinas?",
+            "options": ["7,641", "7,107", "7,461", "7,000"],
+            "correct_answer": "7,641"
+          },
+          {
+            "question": "Alin ang pinakamalaking rehiyon ng Pilipinas?",
+            "options": ["Luzon", "Visayas", "Mindanao", "Palawan"],
+            "correct_answer": "Luzon"
+          },
+          {
+            "question": "Ano ang uri ng klima sa Pilipinas?",
+            "options": ["Tropikal", "Arktiko", "Deserto", "Temperate"],
+            "correct_answer": "Tropikal"
+          },
+          {
+            "question": "Alin ang halimbawa ng likas na yamang mineral ng Pilipinas?",
+            "options": ["Ginto at pilak", "Palay at mais", "Saging at niyog", "Baboy at manok"],
+            "correct_answer": "Ginto at pilak"
+          },
+          {
+            "question": "Ano ang \"bayanihan\" sa kulturang Pilipino?",
+            "options": ["Tradisyon ng pagtutulungan ng komunidad", "Uri ng pagkain sa Pilipinas", "Pambansang sayaw ng Pilipinas", "Tawag sa Pilipinong manggagawa"],
+            "correct_answer": "Tradisyon ng pagtutulungan ng komunidad"
+          },
+          {
+            "question": "Ang Dagat Tsina sa Timog ay nasa aling panig ng Pilipinas?",
+            "options": ["Kanluran", "Silangan", "Hilaga", "Timog"],
+            "correct_answer": "Kanluran"
+          },
+          {
+            "question": "Ano ang pangunahing pananim sa Pilipinas?",
+            "options": ["Palay", "Trigo", "Mais lamang", "Saging lamang"],
+            "correct_answer": "Palay"
+          },
+          {
+            "question": "Ano ang pinakamataas na bilang ng grupong etniko sa Pilipinas?",
+            "options": ["Higit sa 175", "Eksaktong 50", "Higit sa 1,000", "Eksaktong 25"],
+            "correct_answer": "Higit sa 175"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 10 Review: Digital Literacy & Word Processing!\n\nYou've built great tech skills this term! Let's review. 🖥️\n\n## 🖥️ Computer Basics Review\n- **Hardware**: physical parts — monitor, keyboard, mouse, CPU, printer\n- **Software**: programs you run — word processor, browser, games\n- **Operating system (OS)**: manages all programs — e.g., *Windows*\n\n## ⌨️ Word Processing Skills\n- **Formatting text**: bold (**Ctrl+B**), italic (*Ctrl+I*), underline (**Ctrl+U**)\n- **Font size and style**: use readable fonts (e.g., Arial 12pt for reports)\n- **Alignment**: Left | Center | Right | Justify\n- **Saving**: Ctrl+S → always save before closing!\n- **Printing**: Ctrl+P → check print preview first\n\n## 🌐 Internet Basics\n- The **Internet** is a global network of connected computers\n- A **browser** (e.g., Chrome) helps you navigate websites\n- A **search engine** (e.g., Google) finds information\n- **Internet Safety Rules**:\n  - Never share personal information online (full name, address, phone)\n  - Ask a trusted adult before clicking unknown links\n  - Be kind online — cyberbullying is wrong\n\n## 🔐 Digital Citizenship\n- Respect others online | Think before you post | Protect your privacy\n\nStay smart and safe online! 🔐",
+        "quiz": [
+          {
+            "question": "What keyboard shortcut makes text BOLD?",
+            "options": ["Ctrl + B", "Ctrl + I", "Ctrl + U", "Ctrl + S"],
+            "correct_answer": "Ctrl + B"
+          },
+          {
+            "question": "What is the difference between hardware and software?",
+            "options": ["Hardware is physical; software is programs", "Hardware is programs; software is physical", "They are both the same thing", "Hardware runs the internet only"],
+            "correct_answer": "Hardware is physical; software is programs"
+          },
+          {
+            "question": "Which of these is an Internet Safety rule?",
+            "options": ["Never share personal info online", "Tell everyone your home address", "Click on all links you see", "Share your password with friends"],
+            "correct_answer": "Never share personal info online"
+          },
+          {
+            "question": "What does Ctrl + P do in a word processor?",
+            "options": ["Opens the print dialog", "Saves the document", "Makes text italic", "Copies selected text"],
+            "correct_answer": "Opens the print dialog"
+          },
+          {
+            "question": "What is an operating system?",
+            "options": ["Software that manages all programs", "A type of keyboard shortcut", "A website on the internet", "A printing device feature"],
+            "correct_answer": "Software that manages all programs"
+          },
+          {
+            "question": "What tool do you use to SEARCH for information on the Internet?",
+            "options": ["Search engine", "Word processor", "Spreadsheet", "Operating system"],
+            "correct_answer": "Search engine"
+          },
+          {
+            "question": "Which text alignment puts text in the CENTER of the page?",
+            "options": ["Center alignment", "Left alignment", "Right alignment", "Justify alignment"],
+            "correct_answer": "Center alignment"
+          },
+          {
+            "question": "What is cyberbullying?",
+            "options": ["Bullying someone online or through devices", "A computer virus program", "A type of online game", "A safe way to share files"],
+            "correct_answer": "Bullying someone online or through devices"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎵🏃 MAPEH — Week 10 Review: Music & Physical Education!\n\nLet's review the exciting things we've learned in **Music** and **PE** this term! 🌟\n\n## 🎵 Elements of Music\n- **Melody**: a sequence of musical notes that forms the tune of a song\n- **Rhythm**: the pattern of beats in music — some long, some short\n- **Tempo**: the speed of the music → *allegro* (fast) | *andante* (slow)\n- **Dynamics**: the loudness or softness → *forte* (loud) | *piano* (soft)\n- **Pitch**: how high or low a note sounds\n- **Timbre**: the unique quality of a sound that identifies an instrument\n\n## 🎶 Philippine Folk Songs\n- Traditional songs reflect Filipino culture and values\n- Example: *Bahay Kubo* (about plants grown around the home)\n\n## 🏃 Physical Education: Components of Fitness\n- **Cardiovascular endurance**: ability of heart/lungs to sustain exercise → *running, swimming*\n- **Muscular strength**: maximum force a muscle can exert → *push-ups, lifting*\n- **Muscular endurance**: ability to repeat a movement → *sit-ups*\n- **Flexibility**: range of motion in joints → *stretching*\n- **Body composition**: ratio of fat to lean muscle mass\n\n## 🌿 Health & Wellness\n- Regular exercise + balanced diet + enough sleep = healthy body and mind!\n\nKeep moving and keep making music! 🎵🏆",
+        "quiz": [
+          {
+            "question": "What is the TEMPO of music?",
+            "options": ["The speed of the music", "The loudness of the music", "The pitch of the notes", "The rhythm pattern used"],
+            "correct_answer": "The speed of the music"
+          },
+          {
+            "question": "What does \"forte\" mean in music?",
+            "options": ["Loud", "Soft", "Fast", "Slow"],
+            "correct_answer": "Loud"
+          },
+          {
+            "question": "Which component of fitness does RUNNING improve the most?",
+            "options": ["Cardiovascular endurance", "Muscular strength", "Flexibility", "Body composition"],
+            "correct_answer": "Cardiovascular endurance"
+          },
+          {
+            "question": "What is PITCH in music?",
+            "options": ["How high or low a note sounds", "The speed of the song", "The volume of the music", "The beat pattern used"],
+            "correct_answer": "How high or low a note sounds"
+          },
+          {
+            "question": "Which activity BEST improves FLEXIBILITY?",
+            "options": ["Stretching exercises", "Running long distance", "Lifting heavy weights", "Doing push-ups daily"],
+            "correct_answer": "Stretching exercises"
+          },
+          {
+            "question": "What is TIMBRE in music?",
+            "options": ["The unique sound quality of an instrument", "The speed of a song's beat", "The highest note in a melody", "The loudness of a performance"],
+            "correct_answer": "The unique sound quality of an instrument"
+          },
+          {
+            "question": "Which is an example of a Philippine folk song?",
+            "options": ["Bahay Kubo", "Twinkle Twinkle", "London Bridge", "Mary Had a Lamb"],
+            "correct_answer": "Bahay Kubo"
+          },
+          {
+            "question": "Which component of fitness does doing SIT-UPS improve?",
+            "options": ["Muscular endurance", "Cardiovascular endurance", "Flexibility", "Body composition"],
+            "correct_answer": "Muscular endurance"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 10 Pagsasanay: Pagpapahalaga at Karakter!\n\nNapakahusay mong mag-aaral! Balikan natin ang ating mga aral sa pagpapahalaga. 🌟\n\n## 🌟 Pagpapahalaga (Values) Review\n- **Katapatan (Honesty)**: palaging nagsasabi ng totoo kahit mahirap\n- **Paggalang (Respect)**: pagturing sa iba nang may dignidad at pagpapahalaga\n- **Responsibilidad**: pagtanggap at pagsasagawa ng ating mga tungkulin\n- **Malasakit (Compassion)**: pagtulong sa nangangailangan nang buong puso\n- **Kooperasyon**: pagtutulungan para sa isang layunin\n\n## 👨‍👩‍👧‍👦 Pagmamahal sa Pamilya\n- Ang pamilya ang **pinakamahalagang grupo** sa buhay ng isang tao\n- Mga halimbawa ng pagpapakita ng pagmamahal:\n  - Paggawa ng takdang-aralin nang walang sabi\n  - Pagtutulungan sa mga gawain sa bahay\n  - Pagiging maingat sa mga gamit ng pamilya\n\n## 🏫 Pakikiisa sa Komunidad\n- Ang bawat miyembro ay may papel sa komunidad\n- Ang **pakikiisa** ay nagsisimula sa pamilya → silid-aralan → paaralan → komunidad\n- Halimbawa: paglalinis ng kapaligiran, pagsali sa mga gawaing pangkomunidad\n\nIkaw ay isang haligi ng ating samahan! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang \"katapatan\" sa wikang Ingles?",
+            "options": ["Honesty", "Respect", "Courage", "Patience"],
+            "correct_answer": "Honesty"
+          },
+          {
+            "question": "Alin ang nagpapakita ng tunay na responsibilidad?",
+            "options": ["Ginagawa ang takdang-aralin nang walang paalala", "Ginagawa ang aralin kapag sinabi ng guro", "Ginagawa ang aralin kapag may gantimpala", "Hindi ginagawa ang aralin kapag pagod"],
+            "correct_answer": "Ginagawa ang takdang-aralin nang walang paalala"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng \"kooperasyon\"?",
+            "options": ["Pagtutulungan para sa isang layunin", "Paglalaro nang mag-isa palagi", "Pagsasagawa ng trabaho para sa sarili", "Pagtanggap ng parangal mula sa iba"],
+            "correct_answer": "Pagtutulungan para sa isang layunin"
+          },
+          {
+            "question": "Alin ang halimbawa ng pagiging mapagmalasakit?",
+            "options": ["Pagtulong sa nangangailangan", "Pagkuha ng pinaka-malaking bahagi", "Pag-iwas sa mga mahihirapan", "Pagbibigay ng payo nang walang kilos"],
+            "correct_answer": "Pagtulong sa nangangailangan"
+          },
+          {
+            "question": "Bakit sinasabing ang pamilya ang pinakamahalagang grupo?",
+            "options": ["Dito nagsisimula ang ating pagpapahalaga", "Sila ang nagbibigay ng pinakamataas na marka", "Sila ang pinakasikat sa komunidad", "Dito nakukuha ang pinaka-maraming pagkain"],
+            "correct_answer": "Dito nagsisimula ang ating pagpapahalaga"
+          },
+          {
+            "question": "Alin ang nagpapakita ng paggalang sa kapuwa?",
+            "options": ["Pakikinig nang mabuti habang nagsasalita ang iba", "Pagsalita nang malakas sa oras ng pagtitipon", "Pagtawid sa harapan ng nagsasalita", "Pagsasalita habang kumakain ang iba"],
+            "correct_answer": "Pakikinig nang mabuti habang nagsasalita ang iba"
+          },
+          {
+            "question": "Ano ang kahulugan ng \"pakikiisa sa komunidad\"?",
+            "options": ["Aktibong paglahok sa mga gawaing pangkomunidad", "Pananatili sa bahay at pag-iwas sa komunidad", "Paggawa ng iyong sariling bagay palagi", "Pag-aalaga ng sariling pamilya lamang"],
+            "correct_answer": "Aktibong paglahok sa mga gawaing pangkomunidad"
+          },
+          {
+            "question": "Paano mo maipapakita ang pagmamahal sa iyong pamilya?",
+            "options": ["Pagtutulungan sa mga gawain sa bahay", "Paglalaro nang buong araw at gabi", "Pag-aaway sa mga kapatid palagi", "Pagtanggi sa mga iniuutos ng magulang"],
+            "correct_answer": "Pagtutulungan sa mga gawain sa bahay"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📚 Friday Review — English (Grade 4)\n\n- **Literary elements**: character, setting, plot (exposition→climax→resolution), theme, conflict\n- **Context clues**: use surrounding words to understand unfamiliar words\n- **Main idea + supporting details** | **Cause and effect** | **Sequence**\n- **Nouns**: common, proper, abstract, collective\n- **Verbs**: action, linking (*is/are*), helping (*will/has*)\n- **Adjectives**: descriptive, comparative (*bigger*), superlative (*biggest*)\n- **Subject-verb agreement**: *The students **are** smart.*\n\nOutstanding work this week! ⭐",
+        "quiz": [
+          {
+            "question": "What is the RESOLUTION of a story?",
+            "options": ["How the conflict is solved", "The start of the story", "The most exciting moment", "Where the story takes place"],
+            "correct_answer": "How the conflict is solved"
+          },
+          {
+            "question": "Which sentence has correct subject-verb agreement?",
+            "options": ["The children are playing.", "The children is playing.", "The children was playing.", "The children be playing."],
+            "correct_answer": "The children are playing."
+          },
+          {
+            "question": "Which word is an abstract noun?",
+            "options": ["freedom", "chair", "Davao", "ocean"],
+            "correct_answer": "freedom"
+          },
+          {
+            "question": "\"Joy ran faster, but Lea ran fastest.\" Which is superlative?",
+            "options": ["fastest", "faster", "fast", "ran"],
+            "correct_answer": "fastest"
+          },
+          {
+            "question": "The word \"luminous\" appears near \"bright\" and \"glowing.\" What does it mean?",
+            "options": ["Giving off light", "Very heavy", "Cold and icy", "Old and worn"],
+            "correct_answer": "Giving off light"
+          },
+          {
+            "question": "Which word is a collective noun?",
+            "options": ["swarm", "bee", "sting", "honey"],
+            "correct_answer": "swarm"
+          },
+          {
+            "question": "What is the THEME of a story?",
+            "options": ["The lesson or message", "The main character", "The setting of events", "The story's climax"],
+            "correct_answer": "The lesson or message"
+          },
+          {
+            "question": "Which is a helping verb?",
+            "options": ["will", "run", "happy", "school"],
+            "correct_answer": "will"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 4)\n\n- **Place value**: up to millions; know each digit's value\n- **Rounding**: look at the digit to the RIGHT\n- **Addition/Subtraction**: align place values; regroup when needed\n- **Multiplication**: 2–4 digit × 2-digit; use partial products\n- **Division**: Divide → Multiply → Subtract → Bring down\n- **Problem solving**: 4 steps — Understand, Plan, Solve, Check\n\nMath champion! 🏆",
+        "quiz": [
+          {
+            "question": "What is the place value of 4 in 2,435,678?",
+            "options": ["Hundred-thousands", "Millions", "Ten-thousands", "Thousands"],
+            "correct_answer": "Hundred-thousands"
+          },
+          {
+            "question": "Round 6,842 to the nearest thousand.",
+            "options": ["7,000", "6,000", "6,800", "6,900"],
+            "correct_answer": "7,000"
+          },
+          {
+            "question": "What is 456 × 32?",
+            "options": ["14,592", "14,492", "14,692", "14,392"],
+            "correct_answer": "14,592"
+          },
+          {
+            "question": "What is 2,856 ÷ 8?",
+            "options": ["357", "367", "347", "377"],
+            "correct_answer": "357"
+          },
+          {
+            "question": "A school has 48 rooms with 35 students each. How many students in all?",
+            "options": ["1,680", "1,580", "1,780", "1,480"],
+            "correct_answer": "1,680"
+          },
+          {
+            "question": "What is 123,456 + 234,567?",
+            "options": ["358,023", "357,023", "359,023", "356,023"],
+            "correct_answer": "358,023"
+          },
+          {
+            "question": "What is 500,000 − 123,456?",
+            "options": ["376,544", "377,544", "375,544", "376,444"],
+            "correct_answer": "376,544"
+          },
+          {
+            "question": "There are 1,260 books to be placed equally on 9 shelves. How many books per shelf?",
+            "options": ["140", "150", "130", "160"],
+            "correct_answer": "140"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino (Baitang 4)\n\n- **4 uri ng pangungusap**: Pasalaysay (.) | Patanong (?) | Pautos (!) | Padamdam (!)\n- **Simuno** + **Panaguri** + **Tuwirang Layon**\n- **Salitang-ugat** + mga panlapi (*mag-*, *nag-*, *-in*, *-an*)\n- **Maikling kwento**: iisang suliranin, may resolusyon\n- **Tula**: ritmo, tunog, talinghaga\n\nMahusay! 🌟",
+        "quiz": [
+          {
+            "question": "\"Kumanta ang mga bata nang masaya.\" Ano ang uri ng pangungusap?",
+            "options": ["Pasalaysay", "Patanong", "Pautos", "Padamdam"],
+            "correct_answer": "Pasalaysay"
+          },
+          {
+            "question": "Ano ang salitang-ugat ng \"nagluto\"?",
+            "options": ["luto", "nag", "nagluto", "lutong"],
+            "correct_answer": "luto"
+          },
+          {
+            "question": "Sa pangungusap na \"Binilhan ni Tatay ang bata ng laruan\", ano ang tuwirang layon?",
+            "options": ["laruan", "Tatay", "bata", "binilhan"],
+            "correct_answer": "laruan"
+          },
+          {
+            "question": "\"Mag-aral ka nang mabuti!\" Ano ang uri ng pangungusap?",
+            "options": ["Pautos", "Pasalaysay", "Patanong", "Padamdam"],
+            "correct_answer": "Pautos"
+          },
+          {
+            "question": "Alin ang katangian ng isang tula?",
+            "options": ["Gumagamit ng ritmo at talinghaga", "Nagsasalaysay ng buhay ng isang tao", "Walang emosyon o damdamin", "Laging may tatlong suliranin"],
+            "correct_answer": "Gumagamit ng ritmo at talinghaga"
+          },
+          {
+            "question": "Alin ang tamang panlapi para maging \"lutuin\" ang salitang \"luto\"?",
+            "options": ["-in", "nag-", "ma-", "pag-"],
+            "correct_answer": "-in"
+          },
+          {
+            "question": "Ang maikling kwento ay may katangiang ___.",
+            "options": ["iisang pangunahing suliranin", "maraming tauhan at maraming suliranin", "walang resolusyon sa katapusan", "nagsasalaysay ng buhay ng isang bayani"],
+            "correct_answer": "iisang pangunahing suliranin"
+          },
+          {
+            "question": "\"Ano ang pangalan mo?\" Ano ang uri ng pangungusap?",
+            "options": ["Patanong", "Pasalaysay", "Pautos", "Padamdam"],
+            "correct_answer": "Patanong"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Friday Review — Science (Grade 4)\n\n- **States of matter**: Solid (definite shape+volume) | Liquid (definite volume) | Gas (no definite shape/volume)\n- **Density**: denser → sinks; less dense → floats\n- **Mixtures**: homogeneous (evenly mixed) vs. heterogeneous (parts visible)\n- **Separating mixtures**: filtering, evaporation, magnet, decanting\n- **Physical change**: form changes, substance stays same\n- **Chemical change**: new substance is formed\n\nGreat work, scientist! 🌍",
+        "quiz": [
+          {
+            "question": "Which state of matter takes the shape of its container but has a definite volume?",
+            "options": ["Liquid", "Solid", "Gas", "Plasma"],
+            "correct_answer": "Liquid"
+          },
+          {
+            "question": "Dissolving sugar in water is an example of a ___.",
+            "options": ["physical change", "chemical change", "rusting process", "burning change"],
+            "correct_answer": "physical change"
+          },
+          {
+            "question": "Which method separates iron filings from sand?",
+            "options": ["Using a magnet", "Evaporation", "Filtering", "Decanting"],
+            "correct_answer": "Using a magnet"
+          },
+          {
+            "question": "A wood block floats on water. What does this tell us?",
+            "options": ["Wood is less dense than water", "Wood is denser than water", "Wood has no density at all", "Wood absorbs all the water"],
+            "correct_answer": "Wood is less dense than water"
+          },
+          {
+            "question": "Which is a homogeneous mixture?",
+            "options": ["Saltwater", "Fruit salad", "Sand and gravel", "Rice and beans"],
+            "correct_answer": "Saltwater"
+          },
+          {
+            "question": "Baking bread is an example of a ___.",
+            "options": ["chemical change", "physical change", "natural change", "reversible change"],
+            "correct_answer": "chemical change"
+          },
+          {
+            "question": "Which state of matter has particles spread far apart?",
+            "options": ["Gas", "Liquid", "Solid", "Mixture"],
+            "correct_answer": "Gas"
+          },
+          {
+            "question": "How can you separate salt from salt water?",
+            "options": ["By evaporation", "By filtering", "By using a magnet", "By decanting alone"],
+            "correct_answer": "By evaporation"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🌏 Biyernes — Lingguhang Pagsasanay: Araling Panlipunan (Baitang 4)\n\n- Pilipinas: **7,641 pulo**, Timog-Silangang Asya\n- **Klima**: tropikal (tag-ulan at tag-araw)\n- **Likas na yaman**: ginto/pilak (mineral), palay/niyog (agrikultura), isda (karagatan)\n- **Kultura**: 175+ grupong etniko, bayanihan, pagkain (adobo, sinigang)\n- **Pamilya** = sentro ng kulturang Pilipino\n\nIpagmahal ang Pilipinas! 🇵🇭",
+        "quiz": [
+          {
+            "question": "Ilang pulo ang bumubuo sa Pilipinas?",
+            "options": ["7,641", "7,000", "7,107", "6,500"],
+            "correct_answer": "7,641"
+          },
+          {
+            "question": "Alin ang likas na yamang mineral ng Pilipinas?",
+            "options": ["Ginto", "Palay", "Niyog", "Saging"],
+            "correct_answer": "Ginto"
+          },
+          {
+            "question": "Ano ang \"bayanihan\"?",
+            "options": ["Pagtutulungan ng komunidad", "Uri ng sayaw sa Pilipinas", "Pambansang pagkain", "Tawag sa pamahalaang lokal"],
+            "correct_answer": "Pagtutulungan ng komunidad"
+          },
+          {
+            "question": "Ang Pilipinas ay napapalibutan ng aling katawan ng tubig sa silangan?",
+            "options": ["Karagatang Pasipiko", "Dagat Tsina sa Timog", "Dagat Sulu", "Look ng Maynila"],
+            "correct_answer": "Karagatang Pasipiko"
+          },
+          {
+            "question": "Alin ang pangunahing pananim ng Pilipinas?",
+            "options": ["Palay", "Trigo", "Mais", "Patatas"],
+            "correct_answer": "Palay"
+          },
+          {
+            "question": "Ano ang uri ng klima ng Pilipinas?",
+            "options": ["Tropikal", "Arktiko", "Deserto", "Temperate"],
+            "correct_answer": "Tropikal"
+          },
+          {
+            "question": "Ano ang pinakamalaking pulo ng Pilipinas?",
+            "options": ["Luzon", "Cebu", "Leyte", "Mindanao"],
+            "correct_answer": "Luzon"
+          },
+          {
+            "question": "Alin ang sentro ng kulturang Pilipino?",
+            "options": ["Pamilya", "Paaralan", "Simbahan", "Pamahalaan"],
+            "correct_answer": "Pamilya"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Friday Review — EPP (ICT) (Grade 4)\n\n- **Hardware** = physical parts | **Software** = programs\n- **Word processing**: Ctrl+B (bold), Ctrl+I (italic), Ctrl+S (save), Ctrl+P (print)\n- **Internet**: global computer network | browser = navigate | search engine = find info\n- **Internet Safety**: never share personal info; ask an adult; be kind online\n- **Digital citizenship**: respect + think before posting + protect privacy\n\nStay smart and safe online! 🔐",
+        "quiz": [
+          {
+            "question": "What keyboard shortcut makes text ITALIC?",
+            "options": ["Ctrl + I", "Ctrl + B", "Ctrl + U", "Ctrl + S"],
+            "correct_answer": "Ctrl + I"
+          },
+          {
+            "question": "What is a search engine used for?",
+            "options": ["Finding information online", "Printing documents faster", "Creating presentations", "Saving files to folders"],
+            "correct_answer": "Finding information online"
+          },
+          {
+            "question": "Which is NOT safe to share online?",
+            "options": ["Your home address", "Your favorite color", "Your opinion about a book", "Your favorite subject"],
+            "correct_answer": "Your home address"
+          },
+          {
+            "question": "What shortcut SAVES your document?",
+            "options": ["Ctrl + S", "Ctrl + P", "Ctrl + B", "Ctrl + Z"],
+            "correct_answer": "Ctrl + S"
+          },
+          {
+            "question": "What is the Internet?",
+            "options": ["A global network of computers", "A type of software program", "A computer keyboard", "A single very large computer"],
+            "correct_answer": "A global network of computers"
+          },
+          {
+            "question": "What is cyberbullying?",
+            "options": ["Bullying someone using devices or online", "A type of computer game", "A virus in a computer", "A safe online activity"],
+            "correct_answer": "Bullying someone using devices or online"
+          },
+          {
+            "question": "What should you do before clicking an unknown link online?",
+            "options": ["Ask a trusted adult first", "Click it immediately", "Share it with friends", "Download whatever it offers"],
+            "correct_answer": "Ask a trusted adult first"
+          },
+          {
+            "question": "Which of these is good digital citizenship?",
+            "options": ["Think before you post online", "Share other people's passwords", "Post anything you want freely", "Ignore all privacy settings"],
+            "correct_answer": "Think before you post online"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎵🏃 Friday Review — MAPEH (Grade 4)\n\n- **Music elements**: melody, rhythm, tempo (*allegro* = fast, *andante* = slow), dynamics (*forte* = loud, *piano* = soft), pitch, timbre\n- **Philippine folk song**: *Bahay Kubo*\n- **Fitness components**: cardiovascular endurance, muscular strength, muscular endurance, flexibility, body composition\n- Healthy lifestyle: exercise + balanced diet + enough sleep\n\nKeep moving! 🏆",
+        "quiz": [
+          {
+            "question": "What does \"piano\" mean in music?",
+            "options": ["Soft", "Loud", "Fast", "Slow"],
+            "correct_answer": "Soft"
+          },
+          {
+            "question": "What is RHYTHM in music?",
+            "options": ["The pattern of beats in music", "The speed of the music", "The loudness of the song", "The pitch of the notes"],
+            "correct_answer": "The pattern of beats in music"
+          },
+          {
+            "question": "Which fitness component does PUSH-UPS improve?",
+            "options": ["Muscular strength", "Cardiovascular endurance", "Flexibility", "Body composition"],
+            "correct_answer": "Muscular strength"
+          },
+          {
+            "question": "What is \"allegro\" in music?",
+            "options": ["Fast tempo", "Slow tempo", "Very loud", "Very soft"],
+            "correct_answer": "Fast tempo"
+          },
+          {
+            "question": "Which fitness component does stretching improve?",
+            "options": ["Flexibility", "Muscular strength", "Cardiovascular endurance", "Body composition"],
+            "correct_answer": "Flexibility"
+          },
+          {
+            "question": "What is a MELODY in music?",
+            "options": ["A sequence of notes that forms the tune", "The speed at which music is played", "The loudness or softness of music", "The pattern of long and short beats"],
+            "correct_answer": "A sequence of notes that forms the tune"
+          },
+          {
+            "question": "Which activity best develops CARDIOVASCULAR endurance?",
+            "options": ["Swimming for 20 minutes", "Lifting very heavy weights", "Doing one stretch", "Playing chess"],
+            "correct_answer": "Swimming for 20 minutes"
+          },
+          {
+            "question": "What is TIMBRE?",
+            "options": ["The unique sound quality of an instrument", "The speed of a song", "The highest note in a melody", "The loudness of the music"],
+            "correct_answer": "The unique sound quality of an instrument"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC (Baitang 4)\n\n- **Katapatan** = palaging nagsasabi ng totoo\n- **Paggalang** = pagtrato sa iba nang may dignidad\n- **Responsibilidad** = pagsasagawa ng ating mga tungkulin\n- **Malasakit** = pagtulong sa nangangailangan\n- **Kooperasyon** = pagtutulungan para sa layunin\n- Pamilya = pinakamahalagang grupo; **bayanihan** sa komunidad\n\nPatuloy na maging mabuting mamamayan! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang kahulugan ng \"malasakit\"?",
+            "options": ["Pagtulong sa nangangailangan", "Pagsasabi ng kasinungalingan", "Pag-iwas sa mga problema", "Pagtanggi sa responsibilidad"],
+            "correct_answer": "Pagtulong sa nangangailangan"
+          },
+          {
+            "question": "Alin ang nagpapakita ng katapatan?",
+            "options": ["Pag-amin ng kamalian nang tapat", "Pagtago ng katotohanan sa lahat", "Pagsabi ng gusto ng iba lamang", "Pagtanggap ng gantimpala ng iba"],
+            "correct_answer": "Pag-amin ng kamalian nang tapat"
+          },
+          {
+            "question": "Bakit mahalaga ang paggalang?",
+            "options": ["Nagtatayo ito ng pagkakaunawaan", "Nagbibigay ito ng mas maraming pera", "Nagbibigay ito ng mas mataas na marka", "Nagbibigay ito ng mas maraming kaibigan"],
+            "correct_answer": "Nagtatayo ito ng pagkakaunawaan"
+          },
+          {
+            "question": "Alin ang halimbawa ng kooperasyon?",
+            "options": ["Pagtutulungan sa proyektong pangklase", "Paggawa ng trabaho nang mag-isa palagi", "Pagtanggal ng gawain sa iba", "Pagsasagawa ng proyekto para sa sarili"],
+            "correct_answer": "Pagtutulungan sa proyektong pangklase"
+          },
+          {
+            "question": "Ano ang unang grupo na dapat nating paglingkuran?",
+            "options": ["Pamilya", "Paaralan", "Gobyerno", "Negosyo"],
+            "correct_answer": "Pamilya"
+          },
+          {
+            "question": "Alin ang nagpapakita ng tunay na responsibilidad?",
+            "options": ["Pagsasagawa ng tungkulin nang walang paalala", "Paghihintay ng utos bago kumilos", "Pagtanggap ng gantimpala bago kumilos", "Pagsabi ng \"sige\" pero hindi ginagawa"],
+            "correct_answer": "Pagsasagawa ng tungkulin nang walang paalala"
+          },
+          {
+            "question": "Ano ang \"pakikiisa sa komunidad\"?",
+            "options": ["Aktibong paglahok sa mga gawaing panlipunan", "Pananatili sa bahay nang lagi", "Pagtanggi sa lahat ng pagtitipon", "Paggawa ng trabaho para sa sarili lamang"],
+            "correct_answer": "Aktibong paglahok sa mga gawaing panlipunan"
+          },
+          {
+            "question": "Sino ang dapat tulungan natin nang walang hinihintay na kapalit?",
+            "options": ["Ang mga nangangailangan", "Ang mga pinakamayaman", "Ang mga pinakamalakas", "Ang mga pinaka-sikat"],
+            "correct_answer": "Ang mga nangangailangan"
+          }
+        ]
+      }
+    }
+  }
+}
