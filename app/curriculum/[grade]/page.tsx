@@ -7,6 +7,9 @@ import BlogHeader from '@/components/BlogHeader';
 import { CURRICULUM_GRADES, SSES_SUBJECTS, getBudgetOfWork, getCitedSources, type CurriculumGrade } from '@/lib/curriculum';
 import { BLOG_POSTS } from '@/lib/blogPosts';
 
+// Always fetch fresh from Supabase — BOW content is edited live via admin tools.
+export const dynamic = 'force-dynamic';
+
 const GRADE_SLUG_RE = /^grade-([2-6])$/;
 
 function parseGrade(slug: string): CurriculumGrade | null {
