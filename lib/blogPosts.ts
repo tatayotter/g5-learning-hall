@@ -1384,6 +1384,7 @@ export const BLOG_POSTS: BlogPost[] = [
     externalLinks: [
       { label: 'teachersclick.com', url: 'https://www.teachersclick.com/' },
       { label: 'deped-click.com', url: 'https://www.deped-click.com/' },
+      { label: 'See the full curriculum, grade by grade', url: '/curriculum' },
     ],
     image: {
       url: '/blog-images/deped-aligned-quiz-resources.webp',
@@ -1519,6 +1520,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     externalLinks: [
       { label: 'DepEd Official Website', url: 'https://www.deped.gov.ph/' },
+      { label: 'See what MATATAG covers in your child\'s grade', url: '/curriculum' },
     ],
     image: {
       url: '/blog-images/matatag-curriculum-classroom.webp',

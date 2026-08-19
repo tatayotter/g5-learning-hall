@@ -37,6 +37,12 @@ export default function BlogHeader() {
           >
             All Guides
           </Link>
+          <Link
+            href="/curriculum"
+            className="shrink-0 px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wide text-[#c9bfae] hover:text-[#f0b429] hover:bg-[#1c1611] transition-colors"
+          >
+            Curriculum
+          </Link>
           <span className="hidden md:contents">
             {topics.map(([key]) => (
               <Link
