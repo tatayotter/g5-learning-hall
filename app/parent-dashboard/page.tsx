@@ -5,6 +5,7 @@ import { supabase } from '@/lib/supabase';
 import { isNativeApp } from '@/lib/platform';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
 import ChildProgressPanel from '@/components/ChildProgressPanel';
+import WeeklyLessonsPanel from '@/components/WeeklyLessonsPanel';
 
 interface ParentRow {
   status: 'pending' | 'approved' | 'rejected';
@@ -46,6 +47,7 @@ export default function ParentDashboardPage() {
   const [revealedPins, setRevealedPins] = useState<Record<string, string | null>>({});
   const [pinLoading, setPinLoading] = useState<string | null>(null);
   const [expandedChild, setExpandedChild] = useState<string | null>(null);
+  const [expandedLessons, setExpandedLessons] = useState<string | null>(null);
   const [subscription, setSubscription] = useState<SubscriptionRow | null>(null);
   const [maxChildren, setMaxChildren] = useState(1);
   const [checkingOut, setCheckingOut] = useState(false);
@@ -331,13 +333,27 @@ export default function ParentDashboardPage() {
                       : 'Show PIN'}
                 </button>
               </div>
-              <button
-                type="button"
-                onClick={() => setExpandedChild(expandedChild === kid.id ? null : kid.id)}
-                className="text-xs text-gray-400 hover:text-white underline"
-              >
-                {expandedChild === kid.id ? 'Hide progress ▲' : 'View progress ▼'}
-              </button>
+              <div className="flex gap-4">
+                <button
+                  type="button"
+                  onClick={() => setExpandedLessons(expandedLessons === kid.id ? null : kid.id)}
+                  className="text-xs text-gray-400 hover:text-white underline"
+                >
+                  {expandedLessons === kid.id ? 'Hide lessons ▲' : "This week's lessons ▼"}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setExpandedChild(expandedChild === kid.id ? null : kid.id)}
+                  className="text-xs text-gray-400 hover:text-white underline"
+                >
+                  {expandedChild === kid.id ? 'Hide progress ▲' : 'View progress ▼'}
+                </button>
+              </div>
+
+              {expandedLessons === kid.id && (
+                <WeeklyLessonsPanel grade={kid.grade} />
+              )}
+
               {expandedChild === kid.id && (
                 <ChildProgressPanel
                   childId={kid.id}
