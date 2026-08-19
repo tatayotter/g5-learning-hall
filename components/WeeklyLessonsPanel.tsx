@@ -47,9 +47,11 @@ export default function WeeklyLessonsPanel({ grade }: Props) {
       return;
     }
 
-    // Current school week starts on Monday
-    const monday = startOfWeek(new Date(), { weekStartsOn: 1 });
-    const weekDate = format(monday, 'yyyy-MM-dd');
+    // Week key matches useWeeklyData: Sunday-anchored (no weekStartsOn override)
+    const sunday = startOfWeek(new Date());
+    const weekDate = format(sunday, 'yyyy-MM-dd');
+    // Display label still shows Mon–Fri for the parent
+    const monday = addDays(sunday, 1);
     setWeekLabel(
       `${format(monday, 'MMM d')}–${format(addDays(monday, 4), 'MMM d, yyyy')}`
     );
