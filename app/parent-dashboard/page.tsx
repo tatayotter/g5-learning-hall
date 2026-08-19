@@ -56,6 +56,7 @@ export default function ParentDashboardPage() {
   const [showBugReport, setShowBugReport] = useState(false);
   const [bugText, setBugText] = useState('');
   const [bugSent, setBugSent] = useState(false);
+  const [showOptOutConfirm, setShowOptOutConfirm] = useState(false);
 
   const isPremium = subscription?.status === 'active';
 
@@ -297,19 +298,6 @@ export default function ParentDashboardPage() {
         )}
         {checkoutError && !isPremium && kids.length < maxChildren && <p className="text-red-400 text-xs">{checkoutError}</p>}
 
-        <label className="flex items-start gap-3 rounded-lg border border-indigo-500/40 bg-indigo-500/10 px-3 py-2.5 cursor-pointer hover:border-indigo-400">
-          <input
-            type="checkbox"
-            checked={parent.marketing_opt_in}
-            onChange={handleToggleOptIn}
-            disabled={togglingOptIn}
-            className="mt-0.5 h-4 w-4 accent-indigo-500"
-          />
-          <span className="text-sm text-indigo-200">
-            <span className="font-semibold text-indigo-300">Email updates</span> — send occasional progress tips and updates. You can toggle this anytime.
-          </span>
-        </label>
-
         <div className="space-y-3">
           {kids.length === 0 && <p className="text-gray-500 text-sm">No children added yet.</p>}
           {kids.map((kid) => (
@@ -427,6 +415,55 @@ export default function ParentDashboardPage() {
         {/* ── Danger zone — pushed far from main content ── */}
         <div className="mt-16 pt-8 border-t border-neutral-800/60 space-y-3">
           <p className="text-[10px] uppercase tracking-widest text-neutral-600 select-none">More options</p>
+
+          {/* Email updates opt-in/out */}
+          {!showOptOutConfirm ? (
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-xs text-gray-500">
+                📧 Email updates — progress tips &amp; news
+              </span>
+              {parent.marketing_opt_in ? (
+                <button
+                  type="button"
+                  onClick={() => setShowOptOutConfirm(true)}
+                  disabled={togglingOptIn}
+                  className="text-[11px] text-gray-600 hover:text-gray-400 underline disabled:opacity-50"
+                >
+                  Unsubscribe
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleToggleOptIn}
+                  disabled={togglingOptIn}
+                  className="text-[11px] text-indigo-400 hover:text-indigo-300 underline disabled:opacity-50"
+                >
+                  {togglingOptIn ? '…' : 'Subscribe'}
+                </button>
+              )}
+            </div>
+          ) : (
+            <div className="rounded-lg border border-neutral-700 bg-neutral-900 p-3 space-y-2">
+              <p className="text-xs text-gray-300">Stop receiving email updates from Learning Hall?</p>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => setShowOptOutConfirm(false)}
+                  className="flex-1 rounded-lg border border-neutral-700 text-gray-400 py-2 text-xs"
+                >
+                  Keep me subscribed
+                </button>
+                <button
+                  type="button"
+                  onClick={async () => { await handleToggleOptIn(); setShowOptOutConfirm(false); }}
+                  disabled={togglingOptIn}
+                  className="flex-1 rounded-lg bg-neutral-700 hover:bg-neutral-600 disabled:opacity-50 text-gray-300 text-xs py-2"
+                >
+                  {togglingOptIn ? '…' : 'Yes, unsubscribe'}
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Bug report */}
           {!showBugReport ? (
