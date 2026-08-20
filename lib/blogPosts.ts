@@ -194,6 +194,9 @@ export const BLOG_POSTS: BlogPost[] = [
       'Everyday money math builds number sense faster than isolated worksheets.',
       'Add speed pressure only after the concept is solid, and mix topics instead of blocking them.',
     ],
+    externalLinks: [
+      { label: "Why spaced practice works, according to the research", url: '/blog/science-of-repetition-why-practice-works' },
+    ],
   },
   {
     slug: 'typing-speed-accuracy-elementary-guide',
@@ -310,6 +313,9 @@ export const BLOG_POSTS: BlogPost[] = [
       'Short review sessions spread across several days beat one long cram session.',
       'Using a word in a sentence builds a stronger memory than spelling it out loud on its own.',
       'Study easily-confused word pairs together so the difference — not just the spelling — sticks.',
+    ],
+    externalLinks: [
+      { label: "Why spaced practice works, according to the research", url: '/blog/science-of-repetition-why-practice-works' },
     ],
   },
   {
