@@ -4,6 +4,7 @@ import { getBlogIndexPage, getBlogIndexPageCount } from '@/lib/blogPosts';
 import BlogHeader from '@/components/BlogHeader';
 import BlogPostList from '@/components/BlogPostList';
 import BlogPagination from '@/components/BlogPagination';
+import BlogFooter from '@/components/BlogFooter';
 
 export function generateStaticParams() {
   const totalPages = getBlogIndexPageCount();
@@ -46,12 +47,12 @@ export default async function BlogIndexPaginatedPage({
   const posts = getBlogIndexPage(pageNumber);
 
   return (
-    <div className="min-h-screen bg-[#0a0807] text-[#ede4d3] font-[Inter,system-ui,sans-serif]">
-      <BlogHeader />
+    <div className="min-h-screen bg-[#faf7f1] text-[#2b2417] font-[Inter,system-ui,sans-serif]">
+      <BlogHeader theme="light" />
 
-      <div className="px-6 py-10 border-b border-[#241d16] text-center">
+      <div className="px-6 py-10 border-b border-[#eee3ce] text-center">
         <h1 className="font-display text-3xl sm:text-4xl font-black mb-3">Parent Guides</h1>
-        <p className="text-[#c9bfae] max-w-xl mx-auto leading-relaxed">
+        <p className="text-[#6b5f4d] max-w-xl mx-auto leading-relaxed">
           Free, practical ways to build reading, math, typing, logic, and vocabulary skills at home —
           no worksheets required.
         </p>
@@ -67,18 +68,7 @@ export default async function BlogIndexPaginatedPage({
         />
       </main>
 
-      <footer className="px-6 py-8 text-center border-t border-[#241d16]">
-        <p className="text-[11px] tracking-[0.06em] text-white/25 font-medium">
-          © {new Date().getFullYear()} Ruelo Learning Hall. All Rights Reserved.
-        </p>
-        <p className="mt-2 text-[11px] tracking-wide">
-          <a href="https://www.facebook.com/learninghallph" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white/70 underline">Facebook</a>
-          <span className="text-white/20 mx-2">·</span>
-          <a href="/privacy" className="text-white/40 hover:text-white/70 underline">Privacy Policy</a>
-          <span className="text-white/20 mx-2">·</span>
-          <a href="/account-deletion" className="text-white/40 hover:text-white/70 underline">Delete Account</a>
-        </p>
-      </footer>
+      <BlogFooter />
     </div>
   );
 }

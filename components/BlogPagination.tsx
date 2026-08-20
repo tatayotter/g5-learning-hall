@@ -23,7 +23,7 @@ export default function BlogPagination({
       {currentPage > 1 && (
         <Link
           href={pageHref(currentPage - 1)}
-          className="px-3 py-1.5 rounded-full text-xs font-bold text-[#c9bfae] border border-[#3d3225] hover:border-[#c9781a]/60 hover:text-[#f0b429] transition-colors"
+          className="px-3 py-1.5 rounded-full text-xs font-bold text-[#6b5f4d] border border-[#e2d9c4] bg-white hover:border-[#e2b978] hover:text-[#a3610c] transition-colors"
         >
           ← Previous
         </Link>
@@ -36,8 +36,8 @@ export default function BlogPagination({
           aria-current={page === currentPage ? 'page' : undefined}
           className={
             page === currentPage
-              ? 'px-3 py-1.5 rounded-full text-xs font-bold bg-[#c9781a] text-black'
-              : 'px-3 py-1.5 rounded-full text-xs font-bold text-[#c9bfae] border border-[#3d3225] hover:border-[#c9781a]/60 hover:text-[#f0b429] transition-colors'
+              ? 'px-3 py-1.5 rounded-full text-xs font-bold bg-[#c9781a] text-white'
+              : 'px-3 py-1.5 rounded-full text-xs font-bold text-[#6b5f4d] border border-[#e2d9c4] bg-white hover:border-[#e2b978] hover:text-[#a3610c] transition-colors'
           }
         >
           {page}
@@ -47,7 +47,7 @@ export default function BlogPagination({
       {currentPage < totalPages && (
         <Link
           href={pageHref(currentPage + 1)}
-          className="px-3 py-1.5 rounded-full text-xs font-bold text-[#c9bfae] border border-[#3d3225] hover:border-[#c9781a]/60 hover:text-[#f0b429] transition-colors"
+          className="px-3 py-1.5 rounded-full text-xs font-bold text-[#6b5f4d] border border-[#e2d9c4] bg-white hover:border-[#e2b978] hover:text-[#a3610c] transition-colors"
         >
           Next →
         </Link>

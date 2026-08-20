@@ -41,7 +41,7 @@ export default function ShareButtons({ url, title }: { url: string; title: strin
 
   return (
     <div className="flex items-center gap-2 mb-8">
-      <span className="text-[11px] tracking-[0.15em] font-bold text-[#8a7c66] uppercase mr-1">
+      <span className="text-[11px] tracking-[0.15em] font-bold text-[#948975] uppercase mr-1">
         Share
       </span>
       {links.map((link) => (
@@ -51,7 +51,7 @@ export default function ShareButtons({ url, title }: { url: string; title: strin
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Share on ${link.label}`}
-          className="w-8 h-8 rounded-full bg-[#1c1611] border border-[#3d3225] text-[#c9bfae] flex items-center justify-center hover:border-[#c9781a]/60 hover:text-[#f0b429] transition-colors"
+          className="w-8 h-8 rounded-full bg-white border border-[#eee3ce] text-[#6b5f4d] flex items-center justify-center shadow-sm hover:border-[#e2b978] hover:text-[#a3610c] transition-colors"
         >
           {link.icon}
         </a>
@@ -60,7 +60,7 @@ export default function ShareButtons({ url, title }: { url: string; title: strin
         type="button"
         onClick={handleCopy}
         aria-label="Copy link"
-        className="h-8 px-3 rounded-full bg-[#1c1611] border border-[#3d3225] text-[11px] font-semibold text-[#c9bfae] flex items-center justify-center hover:border-[#c9781a]/60 hover:text-[#f0b429] transition-colors"
+        className="h-8 px-3 rounded-full bg-white border border-[#eee3ce] text-[11px] font-semibold text-[#6b5f4d] flex items-center justify-center shadow-sm hover:border-[#e2b978] hover:text-[#a3610c] transition-colors"
       >
         {copied ? 'Copied!' : 'Copy Link'}
       </button>

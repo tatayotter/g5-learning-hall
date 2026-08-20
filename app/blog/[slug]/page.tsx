@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { BLOG_POSTS, getBlogPost, getGuildImage, getPostImage, getRelatedPosts } from '@/lib/blogPosts';
 import ShareButtons from '@/components/ShareButtons';
 import BlogHeader from '@/components/BlogHeader';
+import BlogFooter from '@/components/BlogFooter';
 
 export function generateStaticParams() {
   return BLOG_POSTS.map((post) => ({ slug: post.slug }));
@@ -105,7 +106,7 @@ export default async function BlogPostPage({
     : null;
 
   return (
-    <div className="min-h-screen bg-[#0a0807] text-[#ede4d3] font-[Inter,system-ui,sans-serif]">
+    <div className="min-h-screen bg-[#faf7f1] text-[#2b2417] font-[Inter,system-ui,sans-serif]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -121,24 +122,24 @@ export default async function BlogPostPage({
         />
       )}
 
-      <BlogHeader />
+      <BlogHeader theme="light" />
 
       <main className="px-6 py-12">
         <article className="max-w-2xl mx-auto">
-          <Link href="/blog" className="text-xs text-[#8a7c66] hover:text-[#c9bfae]">
+          <Link href="/blog" className="text-xs text-[#948975] hover:text-[#5c5245]">
             ← All guides
           </Link>
 
           <div className="flex items-center gap-2 flex-wrap mt-4">
             <Link
               href={`/blog/topic/${post.guildKey}`}
-              className="text-[11px] tracking-[0.2em] font-bold text-[#d4b46a]/90 uppercase hover:text-[#f0b429] w-fit"
+              className="text-[11px] tracking-[0.2em] font-bold text-[#a3610c] uppercase hover:text-[#c9781a] w-fit"
             >
               {post.skill}
               {post.guildName !== post.skill ? ` · ${post.guildName}` : ''}
             </Link>
             {post.grade !== 'all' && (
-              <span className="text-[10px] font-bold text-[#7fae52] bg-[#1c2a18] border border-[#2f4023] rounded-full px-2 py-0.5">
+              <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-2 py-0.5">
                 Grade {post.grade}
               </span>
             )}
@@ -152,7 +153,7 @@ export default async function BlogPostPage({
             if (photo) {
               return (
                 <div className="mb-6">
-                  <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-[#3d3225] bg-[#1c1611]">
+                  <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-[#eee3ce] bg-white shadow-sm">
                     <Image
                       src={photo.url}
                       alt={photo.alt}
@@ -162,9 +163,9 @@ export default async function BlogPostPage({
                       priority
                     />
                   </div>
-                  <p className="text-[10px] text-[#5c5245] mt-1.5 text-right">
+                  <p className="text-[10px] text-[#948975] mt-1.5 text-right">
                     Photo by{' '}
-                    <a href={photo.credit.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#8a7c66]">
+                    <a href={photo.credit.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#5c5245]">
                       {photo.credit.name}
                     </a>{' '}
                     on {photo.credit.source}
@@ -174,7 +175,7 @@ export default async function BlogPostPage({
             }
             const guildImage = getGuildImage(post.guildKey);
             return guildImage ? (
-              <div className="relative w-full aspect-square max-w-xs mx-auto mb-6 rounded-xl overflow-hidden border border-[#3d3225] bg-[#1c1611]">
+              <div className="relative w-full aspect-square max-w-xs mx-auto mb-6 rounded-xl overflow-hidden border border-[#eee3ce] bg-white shadow-sm">
                 <Image
                   src={guildImage}
                   alt={post.guildName}
@@ -186,7 +187,7 @@ export default async function BlogPostPage({
             ) : null;
           })()}
 
-          <time dateTime={post.publishedAt} className="block text-[11px] text-[#5c5245] mb-8">
+          <time dateTime={post.publishedAt} className="block text-[11px] text-[#948975] mb-8">
             {new Date(post.publishedAt).toLocaleDateString('en-PH', {
               year: 'numeric',
               month: 'long',
@@ -196,14 +197,14 @@ export default async function BlogPostPage({
 
           <ShareButtons url={`https://learninghallph.com/blog/${post.slug}`} title={post.title} />
 
-          <p className="text-[#c9bfae] leading-relaxed mb-8">{post.intro}</p>
+          <p className="text-[#5c5245] leading-relaxed mb-8">{post.intro}</p>
 
           {post.curriculumNote && (
-            <div className="bg-[#161f13] border border-[#2f4023] rounded-xl p-5 mb-8">
-              <p className="text-[10px] tracking-[0.2em] font-bold text-[#7fae52] uppercase mb-2">
+            <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-5 mb-8">
+              <p className="text-[10px] tracking-[0.2em] font-bold text-emerald-700 uppercase mb-2">
                 What DepEd Actually Asks at This Level
               </p>
-              <p className="text-sm text-[#c9bfae] leading-relaxed">{post.curriculumNote}</p>
+              <p className="text-sm text-[#5c5245] leading-relaxed">{post.curriculumNote}</p>
             </div>
           )}
 
@@ -213,7 +214,7 @@ export default async function BlogPostPage({
                 {section.heading}
               </h2>
               {section.paragraphs.map((paragraph, i) => (
-                <p key={i} className="text-[#c9bfae] leading-relaxed mb-3">
+                <p key={i} className="text-[#5c5245] leading-relaxed mb-3">
                   {paragraph}
                 </p>
               ))}
@@ -228,7 +229,7 @@ export default async function BlogPostPage({
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#f0b429] hover:text-[#f5c542] underline underline-offset-2"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#a3610c] hover:text-[#c9781a] underline underline-offset-2"
                 >
                   {link.label} ↗
                 </a>
@@ -243,38 +244,38 @@ export default async function BlogPostPage({
               </h2>
               <div className="space-y-4">
                 {post.faq.map((item) => (
-                  <div key={item.question} className="bg-[#161310] border border-[#3d3225] rounded-xl p-5">
-                    <h3 className="font-display text-base font-bold mb-2 text-[#f0b429]">
+                  <div key={item.question} className="bg-white border border-[#eee3ce] rounded-xl p-5 shadow-sm">
+                    <h3 className="font-display text-base font-bold mb-2 text-[#a3610c]">
                       {item.question}
                     </h3>
-                    <p className="text-sm text-[#c9bfae] leading-relaxed">{item.answer}</p>
+                    <p className="text-sm text-[#5c5245] leading-relaxed">{item.answer}</p>
                   </div>
                 ))}
               </div>
             </section>
           )}
 
-          <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-6 mb-10">
+          <div className="bg-white border border-[#eee3ce] rounded-xl p-6 mb-10 shadow-sm">
             <h2 className="font-display text-lg font-black mb-3">Quick Takeaways</h2>
             <ul className="space-y-2">
               {post.takeaways.map((takeaway) => (
-                <li key={takeaway} className="flex items-start gap-2 text-sm text-[#c9bfae]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#f0b429] mt-1.5 shrink-0" />
+                <li key={takeaway} className="flex items-start gap-2 text-sm text-[#5c5245]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#c9781a] mt-1.5 shrink-0" />
                   {takeaway}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="bg-[#13100c] border border-[#3d3225] rounded-xl p-6 text-center mb-12">
-            <p className="text-[#c9bfae] leading-relaxed mb-4">
+          <div className="bg-[#fdf1de] border border-[#f0d9ad] rounded-xl p-6 text-center mb-12">
+            <p className="text-[#5c5245] leading-relaxed mb-4">
               {post.guildKey === 'resources'
                 ? "Learning Hall turns that same curriculum into a daily quest your child actually wants to finish — free during Early Access."
                 : `Learning Hall turns ${post.skill.toLowerCase()} practice into a daily quest your child actually wants to finish — free during Early Access.`}
             </p>
             <Link
               href="/register"
-              className="inline-block bg-[#c9781a] hover:bg-[#e2921e] text-black font-bold text-sm px-6 py-3 rounded-lg transition-colors"
+              className="inline-block bg-[#c9781a] hover:bg-[#b3690f] text-white font-bold text-sm px-6 py-3 rounded-lg transition-colors"
             >
               Start Your Family's Quest
             </Link>
@@ -288,9 +289,9 @@ export default async function BlogPostPage({
                   <Link
                     key={p.slug}
                     href={`/blog/${p.slug}`}
-                    className="block bg-[#1c1611] border border-[#3d3225] rounded-lg p-4 hover:border-[#c9781a]/60 transition-colors"
+                    className="block bg-white border border-[#eee3ce] rounded-lg p-4 shadow-sm hover:shadow-md hover:border-[#e2b978] transition-all"
                   >
-                    <span className="text-[10px] tracking-[0.2em] font-bold text-[#d4b46a]/90 uppercase">
+                    <span className="text-[10px] tracking-[0.2em] font-bold text-[#a3610c] uppercase">
                       {p.skill}
                     </span>
                     <p className="font-bold text-sm mt-1">{p.title}</p>
@@ -299,7 +300,7 @@ export default async function BlogPostPage({
               </div>
               <Link
                 href={`/blog/topic/${post.guildKey}`}
-                className="inline-block mt-4 text-xs text-[#8a7c66] hover:text-[#c9bfae]"
+                className="inline-block mt-4 text-xs text-[#948975] hover:text-[#5c5245]"
               >
                 See all {post.skill} guides →
               </Link>
@@ -308,18 +309,7 @@ export default async function BlogPostPage({
         </article>
       </main>
 
-      <footer className="px-6 py-8 text-center border-t border-[#241d16]">
-        <p className="text-[11px] tracking-[0.06em] text-white/25 font-medium">
-          © {new Date().getFullYear()} Ruelo Learning Hall. All Rights Reserved.
-        </p>
-        <p className="mt-2 text-[11px] tracking-wide">
-          <a href="https://www.facebook.com/learninghallph" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white/70 underline">Facebook</a>
-          <span className="text-white/20 mx-2">·</span>
-          <a href="/privacy" className="text-white/40 hover:text-white/70 underline">Privacy Policy</a>
-          <span className="text-white/20 mx-2">·</span>
-          <a href="/account-deletion" className="text-white/40 hover:text-white/70 underline">Delete Account</a>
-        </p>
-      </footer>
+      <BlogFooter />
     </div>
   );
 }
