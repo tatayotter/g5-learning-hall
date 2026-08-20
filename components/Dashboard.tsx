@@ -1436,8 +1436,8 @@ export default function Dashboard() {
                 <img
                   src={({ lorekeeper: '/guilds/lorekeeper-bg.png', spellcaster: '/guilds/spell-bg.png', number_realm: '/guilds/number-bg.png', logic_labyrinth: '/guilds/logic-bg.png', lexicon_arena: '/guilds/lex-bg.png' } as Record<string, string>)[activeGuild] ?? ''}
                   alt=""
-                  className="fixed inset-0 w-full h-full object-contain landscape:object-cover object-top pointer-events-none lg:blur-sm" style={{ zIndex: 0 }}
-                  style={{ zIndex: 0 }}
+                  className="fixed inset-0 w-full h-full object-cover pointer-events-none"
+                  style={{ zIndex: 0, filter: 'blur(6px)', transform: 'scale(1.05)' }}
                 />
                 <div className="relative px-4 lg:px-8 pt-6 pb-12">
                   {activeGuild === 'lorekeeper' ? (
