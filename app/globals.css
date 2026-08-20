@@ -797,6 +797,32 @@ html {
   }
 }
 
+/* ── Arena sub-nav FAB — sits above the main compass (nav-fab).
+   Portrait: centered above bottom edge.
+   Landscape: stacked above the compass on the left edge.
+   Desktop (≥1024px): compass is w-24 (96px); mobile: w-20 (80px).      */
+.arena-fab {
+  position: fixed;
+  bottom: calc(1rem + 80px + 10px); /* compass (80px) + gap */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 80;
+}
+
+@media (orientation: landscape) {
+  .arena-fab {
+    bottom: calc(1.5rem + 80px + 10px);
+    left: 1rem;
+    transform: none;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .arena-fab {
+    bottom: calc(1.5rem + 96px + 10px); /* desktop compass is w-24 */
+  }
+}
+
 /* ── Amber glow pulse — used on the active nav icon in SidebarRail */
 @keyframes amber-glow {
   0%, 100% { filter: drop-shadow(0 0 6px rgba(251,191,36,0.8)) drop-shadow(0 0 12px rgba(251,191,36,0.5)); }

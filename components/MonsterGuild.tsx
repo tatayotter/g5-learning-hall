@@ -152,11 +152,15 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const liveBattleInbox = useLiveBattleInbox(userId, selfProfile?.name || userId, selfProfile?.grade);
   const isDemo = userId.startsWith('demo_');
 
-  // Arena sub-nav drawer
+  // Arena sub-nav drawer + responsive state (mirrors SidebarRail hooks)
   const [arenaNavOpen, setArenaNavOpen] = useState(false);
   const [isLandscape, setIsLandscape] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   useEffect(() => {
-    const check = () => setIsLandscape(window.innerWidth > window.innerHeight);
+    const check = () => {
+      setIsLandscape(window.innerWidth > window.innerHeight);
+      setIsDesktop(window.innerWidth >= 1024);
+    };
     check();
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
@@ -926,30 +930,33 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         <p className="text-xs text-gray-500 mt-1">Train, catch, and battle with every curio species in the game.</p>
       </div>
 
-      {/* Arena sub-nav: trigger button shows current view; tap opens drawer */}
+      {/* Arena sub-nav — floating Curio Arena icon FAB + drawer overlay */}
       {(() => {
         const ARENA_TABS = ([
-          { id: 'map'        as GuildView, label: 'Training Map', icon: '🗺️' },
-          { id: 'team'       as GuildView, label: 'My Team',      icon: '🐾' },
-          { id: 'trainers'   as GuildView, label: 'Trainers',     icon: '⚔️' },
-          { id: 'compendium' as GuildView, label: `Compendium${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}`, icon: '📖' },
-          ...(isDemo ? [] : [{ id: 'trade'       as GuildView, label: 'Trade',       icon: '🤝' }]),
-          { id: 'leaderboard' as GuildView, label: 'Leaderboard', icon: '🏆' },
-          ...(isDemo ? [] : [{ id: 'hatchery'    as GuildView, label: 'Hatchery',    icon: '🥚' }]),
+          { id: 'map'         as GuildView, label: 'Training Map', icon: '🗺️' },
+          { id: 'team'        as GuildView, label: 'My Team',      icon: '🐾' },
+          { id: 'trainers'    as GuildView, label: 'Trainers',     icon: '⚔️' },
+          { id: 'compendium'  as GuildView, label: `Compendium${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}`, icon: '📖' },
+          ...(isDemo ? [] : [{ id: 'trade'      as GuildView, label: 'Trade',       icon: '🤝' }]),
+          { id: 'leaderboard' as GuildView, label: 'Leaderboard',  icon: '🏆' },
+          ...(isDemo ? [] : [{ id: 'hatchery'   as GuildView, label: 'Hatchery',    icon: '🥚' }]),
         ]);
-        const current = ARENA_TABS.find(t => t.id === view) ?? ARENA_TABS[0];
         const needsConnection = (id: GuildView) =>
           offline && (id === 'map' || id === 'trainers' || id === 'trade' || id === 'leaderboard');
         return (
           <>
-            {/* Current-view trigger */}
+            {/* Floating FAB — Curio Arena icon, sits above the main compass */}
             <button
               onClick={() => setArenaNavOpen(true)}
-              className="mb-6 w-full flex items-center gap-3 px-4 py-3 bg-amber-50 border border-amber-200 rounded-xl hover:bg-amber-100 transition-colors"
+              className="arena-fab hover:-translate-y-1 hover:drop-shadow-lg active:translate-y-0 active:scale-95 transition-all duration-150 ease-out"
+              aria-label="Open Curio Arena menu"
+              title="Curio Arena"
             >
-              <span className="text-xl leading-none">{current.icon}</span>
-              <span className="font-bold text-gray-900 flex-1 text-left">{current.label}</span>
-              <span className="text-gray-400 text-sm">▼</span>
+              <img
+                src="/main ui/curioarena.png"
+                alt=""
+                className={isDesktop ? 'w-24 h-24 object-contain' : 'w-20 h-20 object-contain'}
+              />
             </button>
 
             {/* Drawer overlay */}
