@@ -925,11 +925,6 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         </div>
       )}
 
-      <div className="mb-6">
-        <h2 className="text-3xl font-bold text-gray-900">Curio Arena</h2>
-        <p className="text-xs text-gray-500 mt-1">Train, catch, and battle with every curio species in the game.</p>
-      </div>
-
       {/* Arena sub-nav — floating Curio Arena icon FAB + drawer overlay */}
       {(() => {
         const ARENA_TABS = ([
