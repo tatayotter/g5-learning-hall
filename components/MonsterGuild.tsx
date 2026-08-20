@@ -161,7 +161,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // World Map — null shows the region picker; a region id enters that
   // region's Training Map. 'ledgers_heart' behaves exactly like the original
   // single Training Map (unfiltered encounters, DB-persisted position).
-  const [activeRegion, setActiveRegion] = useState<string | null>(null);
+  const [activeRegion, setActiveRegion] = useState<string>('ledgers_heart');
   const [activeBattle, setActiveBattle] = useState<NpcTrainer | null>(null);
   const [isWildEncounterBattle, setIsWildEncounterBattle] = useState(false);
   const [isDummyBattle, setIsDummyBattle] = useState(false);
@@ -918,7 +918,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       {/* Sub-nav */}
       <div className="flex gap-2 mb-8 border-b border-stone-200">
         {([
-          { id: 'map',        label: 'World Map' },
+          { id: 'map',        label: 'Training Map' },
           { id: 'team',       label: 'My Team' },
           { id: 'trainers',   label: 'Trainers' },
           { id: 'compendium', label: `Compendium${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}` },
@@ -957,40 +957,35 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           live here, so there's nothing safe to render without a connection. */}
       {view === 'map' && offline && (
         <div className="text-center py-16 text-gray-400">
-          <p className="text-lg font-bold text-gray-900 mb-2">🔌 The World Map needs a connection</p>
+          <p className="text-lg font-bold text-gray-900 mb-2">🔌 The Training Map needs a connection</p>
           <p className="text-sm">Wild encounters and trainer battles sync live — reconnect to explore.</p>
         </div>
       )}
       {view === 'map' && !offline && battleState && (
-        activeRegion ? (
-          <TrainingMap
-            userId={userId}
-            battleState={battleState}
-            userMonsters={userMonsters}
-            caughtMonsters={caughtMonsters}
-            questions={questions}
-            gradingUserId={userId}
-            onBattleStateChange={setBattleState}
-            onMonsterExpGained={handleMonsterExpGained}
-            onHeal={handleHeal}
-            onQuestionsAnswered={handleQuestionsAnswered}
-            onWildEncounterRoll={handleWildEncounterRoll}
-            activeCurio={curio}
-            onEnterCurio={handleEnterCurio}
-            onChallengePlayer={(targetId, name) => handleChallengePlayer(targetId as UserId, name)}
-            liveBattleInbox={liveBattleInbox}
-            mapPresence={mapPresence}
-            movementLocked={!!wildEncounter || walkLocked}
-            walkLockActive={walkLocked}
-            monsterDisplay={displayMonsters}
-            regionId={activeRegion}
-            onExitRegion={() => setActiveRegion(null)}
-            playerLevel={playerLevel}
-            onEnterRegion={setActiveRegion}
-          />
-        ) : (
-          <WorldMap playerLevel={playerLevel} onSelectRegion={setActiveRegion} />
-        )
+        <TrainingMap
+          userId={userId}
+          battleState={battleState}
+          userMonsters={userMonsters}
+          caughtMonsters={caughtMonsters}
+          questions={questions}
+          gradingUserId={userId}
+          onBattleStateChange={setBattleState}
+          onMonsterExpGained={handleMonsterExpGained}
+          onHeal={handleHeal}
+          onQuestionsAnswered={handleQuestionsAnswered}
+          onWildEncounterRoll={handleWildEncounterRoll}
+          activeCurio={curio}
+          onEnterCurio={handleEnterCurio}
+          onChallengePlayer={(targetId, name) => handleChallengePlayer(targetId as UserId, name)}
+          liveBattleInbox={liveBattleInbox}
+          mapPresence={mapPresence}
+          movementLocked={!!wildEncounter || walkLocked}
+          walkLockActive={walkLocked}
+          monsterDisplay={displayMonsters}
+          regionId={activeRegion}
+          playerLevel={playerLevel}
+          onEnterRegion={setActiveRegion}
+        />
       )}
 
       {/* Team view */}
