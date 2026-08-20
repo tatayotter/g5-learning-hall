@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import BlogHeader from '@/components/BlogHeader';
+import BlogFooter from '@/components/BlogFooter';
 import { CURRICULUM_GRADES, SSES_SUBJECTS, getBudgetOfWork, getCitedSources, type CurriculumGrade } from '@/lib/curriculum';
 import { BLOG_POSTS } from '@/lib/blogPosts';
 
@@ -42,21 +43,21 @@ export async function generateMetadata({
 }
 
 const markdownComponents = {
-  h1: (props: any) => <h1 className="text-xl font-display font-black text-white mt-6 mb-3 first:mt-0" {...props} />,
-  h2: (props: any) => <h2 className="text-lg font-display font-bold text-[#f0b429] mt-6 mb-3 first:mt-0" {...props} />,
-  h3: (props: any) => <h3 className="text-base font-display font-bold text-[#d4b46a] mt-5 mb-2 first:mt-0" {...props} />,
-  p: (props: any) => <p className="text-[#c9bfae] leading-relaxed mb-3" {...props} />,
-  strong: (props: any) => <strong className="text-white font-bold" {...props} />,
-  ul: (props: any) => <ul className="list-disc list-outside pl-5 mb-3 space-y-1 text-[#c9bfae]" {...props} />,
-  ol: (props: any) => <ol className="list-decimal list-outside pl-5 mb-3 space-y-1 text-[#c9bfae]" {...props} />,
+  h1: (props: any) => <h1 className="text-xl font-display font-black text-[#2b2417] mt-6 mb-3 first:mt-0" {...props} />,
+  h2: (props: any) => <h2 className="text-lg font-display font-bold text-[#a3610c] mt-6 mb-3 first:mt-0" {...props} />,
+  h3: (props: any) => <h3 className="text-base font-display font-bold text-[#c9781a] mt-5 mb-2 first:mt-0" {...props} />,
+  p: (props: any) => <p className="text-[#5c5245] leading-relaxed mb-3" {...props} />,
+  strong: (props: any) => <strong className="text-[#2b2417] font-bold" {...props} />,
+  ul: (props: any) => <ul className="list-disc list-outside pl-5 mb-3 space-y-1 text-[#5c5245]" {...props} />,
+  ol: (props: any) => <ol className="list-decimal list-outside pl-5 mb-3 space-y-1 text-[#5c5245]" {...props} />,
   li: (props: any) => <li className="pl-1" {...props} />,
-  hr: () => <hr className="border-[#3d3225] my-5" />,
-  blockquote: (props: any) => <blockquote className="border-l-4 border-[#c9781a] pl-4 italic text-[#8a7c66] my-4" {...props} />,
+  hr: () => <hr className="border-[#eee3ce] my-5" />,
+  blockquote: (props: any) => <blockquote className="border-l-4 border-[#c9781a] pl-4 italic text-[#948975] my-4" {...props} />,
   table: (props: any) => <div className="overflow-x-auto mb-4"><table className="w-full text-sm border-collapse" {...props} /></div>,
-  thead: (props: any) => <thead className="text-white" {...props} />,
-  tr: (props: any) => <tr className="border-b border-[#3d3225]" {...props} />,
-  th: (props: any) => <th className="text-left font-bold py-2 px-3 border-b border-[#3d3225]" {...props} />,
-  td: (props: any) => <td className="py-2 px-3 text-[#c9bfae]" {...props} />,
+  thead: (props: any) => <thead className="text-[#2b2417]" {...props} />,
+  tr: (props: any) => <tr className="border-b border-[#eee3ce]" {...props} />,
+  th: (props: any) => <th className="text-left font-bold py-2 px-3 border-b border-[#eee3ce]" {...props} />,
+  td: (props: any) => <td className="py-2 px-3 text-[#5c5245]" {...props} />,
 };
 
 export default async function CurriculumGradePage({
@@ -94,15 +95,15 @@ export default async function CurriculumGradePage({
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0807] text-[#ede4d3] font-[Inter,system-ui,sans-serif]">
+    <div className="min-h-screen bg-[#faf7f1] text-[#2b2417] font-[Inter,system-ui,sans-serif]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
-      <BlogHeader />
+      <BlogHeader theme="light" />
 
       <main className="px-6 py-12">
         <article className="max-w-2xl mx-auto">
-          <Link href="/curriculum" className="text-xs text-[#8a7c66] hover:text-[#c9bfae]">
+          <Link href="/curriculum" className="text-xs text-[#948975] hover:text-[#5c5245]">
             ← All Curriculum Pages
           </Link>
 
@@ -110,18 +111,18 @@ export default async function CurriculumGradePage({
             Grade {grade} DepEd Curriculum: Full Budget of Work & MATATAG Alignment
           </h1>
 
-          <p className="text-[#c9bfae] leading-relaxed mb-6">
+          <p className="text-[#5c5245] leading-relaxed mb-6">
             This is the same source material Learning Hall's own Grade {grade} quests are built from — every subject
             DepEd's MATATAG curriculum covers this year, broken down term by term. It's here for two reasons: so a
             parent can see exactly what "DepEd-aligned" means for Grade {grade} in concrete terms, and so Learning
             Hall itself stays honest about what it's actually teaching against.
           </p>
 
-          <div className="bg-[#161f13] border border-[#2f4023] rounded-xl p-5 mb-8">
-            <p className="text-[10px] tracking-[0.2em] font-bold text-[#7fae52] uppercase mb-2">
+          <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-5 mb-8">
+            <p className="text-[10px] tracking-[0.2em] font-bold text-emerald-700 uppercase mb-2">
               Special Science (SSES) Enrichment
             </p>
-            <p className="text-sm text-[#c9bfae] leading-relaxed">
+            <p className="text-sm text-[#5c5245] leading-relaxed">
               English, Mathematics, and Science each carry an additional layer of Special Science Elementary School
               (SSES) enrichment at this grade level, marked below — an extra applied-reasoning task layered on top of
               the standard MATATAG competencies, not a separate curriculum. Every other subject follows the standard
@@ -130,11 +131,11 @@ export default async function CurriculumGradePage({
           </div>
 
           {entries.map((entry) => (
-            <section key={entry.subject} className="mb-8 border-t border-[#241d16] pt-6">
+            <section key={entry.subject} className="mb-8 border-t border-[#eee3ce] pt-6">
               <div className="flex items-center gap-2 mb-1">
                 <h2 className="font-display text-xl sm:text-2xl font-black">{entry.subject}</h2>
                 {SSES_SUBJECTS.includes(entry.subject) && (
-                  <span className="text-[10px] font-bold text-[#7fae52] bg-[#1c2a18] border border-[#2f4023] rounded-full px-2 py-0.5">
+                  <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-2 py-0.5">
                     SSES Enrichment
                   </span>
                 )}
@@ -146,12 +147,12 @@ export default async function CurriculumGradePage({
           ))}
 
           {relatedPosts.length > 0 && (
-            <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-6 mb-8">
+            <div className="bg-white border border-[#eee3ce] rounded-xl p-6 mb-8 shadow-sm">
               <h2 className="font-display text-lg font-black mb-3">Related Learning Hall Guides for Grade {grade}</h2>
               <ul className="space-y-2">
                 {relatedPosts.map((post) => (
                   <li key={post.slug}>
-                    <Link href={`/blog/${post.slug}`} className="text-sm text-[#f0b429] hover:text-[#f5c542] underline underline-offset-2">
+                    <Link href={`/blog/${post.slug}`} className="text-sm text-[#a3610c] hover:text-[#c9781a] underline underline-offset-2">
                       {post.title}
                     </Link>
                   </li>
@@ -162,7 +163,7 @@ export default async function CurriculumGradePage({
 
           {sources.length > 0 && (
             <div className="mb-10">
-              <p className="text-[10px] tracking-[0.2em] font-bold text-[#8a7c66] uppercase mb-2">Primary Sources Cited</p>
+              <p className="text-[10px] tracking-[0.2em] font-bold text-[#948975] uppercase mb-2">Primary Sources Cited</p>
               <div className="flex flex-wrap gap-3">
                 {sources.map((url) => (
                   <a
@@ -170,7 +171,7 @@ export default async function CurriculumGradePage({
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#8a7c66] hover:text-[#c9bfae] underline underline-offset-2"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#948975] hover:text-[#5c5245] underline underline-offset-2"
                   >
                     Official MATATAG Curriculum Guide ↗
                   </a>
@@ -179,14 +180,14 @@ export default async function CurriculumGradePage({
             </div>
           )}
 
-          <div className="flex items-center justify-between border-t border-[#241d16] pt-6">
+          <div className="flex items-center justify-between border-t border-[#eee3ce] pt-6">
             {grade > 2 ? (
-              <Link href={`/curriculum/grade-${grade - 1}`} className="text-sm text-[#8a7c66] hover:text-[#c9bfae]">
+              <Link href={`/curriculum/grade-${grade - 1}`} className="text-sm text-[#948975] hover:text-[#5c5245]">
                 ← Grade {grade - 1}
               </Link>
             ) : <span />}
             {grade < 6 ? (
-              <Link href={`/curriculum/grade-${grade + 1}`} className="text-sm text-[#8a7c66] hover:text-[#c9bfae]">
+              <Link href={`/curriculum/grade-${grade + 1}`} className="text-sm text-[#948975] hover:text-[#5c5245]">
                 Grade {grade + 1} →
               </Link>
             ) : <span />}
@@ -194,18 +195,7 @@ export default async function CurriculumGradePage({
         </article>
       </main>
 
-      <footer className="px-6 py-8 text-center border-t border-[#241d16]">
-        <p className="text-[11px] tracking-[0.06em] text-white/25 font-medium">
-          © {new Date().getFullYear()} Ruelo Learning Hall. All Rights Reserved.
-        </p>
-        <p className="mt-2 text-[11px] tracking-wide">
-          <a href="https://www.facebook.com/learninghallph" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white/70 underline">Facebook</a>
-          <span className="text-white/20 mx-2">·</span>
-          <Link href="/privacy" className="text-white/40 hover:text-white/70 underline">Privacy Policy</Link>
-          <span className="text-white/20 mx-2">·</span>
-          <Link href="/account-deletion" className="text-white/40 hover:text-white/70 underline">Delete Account</Link>
-        </p>
-      </footer>
+      <BlogFooter />
     </div>
   );
 }
