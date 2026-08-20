@@ -911,12 +911,12 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       )}
 
       <div className="mb-6">
-        <h2 className="text-3xl font-display font-bold text-white">Curio Arena</h2>
+        <h2 className="text-3xl font-bold text-gray-900">Curio Arena</h2>
         <p className="text-xs text-gray-500 mt-1">Train, catch, and battle with every curio species in the game.</p>
       </div>
 
       {/* Sub-nav */}
-      <div className="flex gap-2 mb-8 border-b border-neutral-800">
+      <div className="flex gap-2 mb-8 border-b border-stone-200">
         {([
           { id: 'map',        label: 'World Map' },
           { id: 'team',       label: 'My Team' },
@@ -941,8 +941,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
               onClick={() => setView(tab.id)}
               className={`px-4 py-2 text-sm font-bold transition-colors border-b-2 -mb-px ${
                 view === tab.id
-                  ? 'border-amber-400 text-amber-400'
-                  : 'border-transparent text-gray-400 hover:text-white'
+                  ? 'border-amber-500 text-amber-600'
+                  : 'border-transparent text-gray-500 hover:text-gray-900'
               }`}
             >
               {needsConnection && '🔒 '}{tab.label}
@@ -957,7 +957,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           live here, so there's nothing safe to render without a connection. */}
       {view === 'map' && offline && (
         <div className="text-center py-16 text-gray-400">
-          <p className="text-lg font-bold text-white mb-2">🔌 The World Map needs a connection</p>
+          <p className="text-lg font-bold text-gray-900 mb-2">🔌 The World Map needs a connection</p>
           <p className="text-sm">Wild encounters and trainer battles sync live — reconnect to explore.</p>
         </div>
       )}
@@ -1060,7 +1060,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       {/* Trainers view */}
       {view === 'trainers' && offline && (
         <div className="text-center py-16 text-gray-400">
-          <p className="text-lg font-bold text-white mb-2">🔌 Trainer battles need a connection</p>
+          <p className="text-lg font-bold text-gray-900 mb-2">🔌 Trainer battles need a connection</p>
           <p className="text-sm">Battle results and rewards sync live — reconnect to challenge a trainer.</p>
         </div>
       )}
@@ -1073,12 +1073,12 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
             const alreadyWonToday = battleState?.last_pvp_win === today;
             const otherPlayers = getOtherPlayers(userId as UserId).filter(p => liveBattleInbox.onlinePlayerIds.has(p.id));
             return (
-              <div className="border border-indigo-800 bg-indigo-900/10 rounded-xl p-5">
+              <div className="border border-indigo-200 bg-indigo-50 rounded-xl p-5">
                 <div className="flex items-center justify-between gap-3 mb-4">
                   <div className="flex items-center gap-3">
                     <span className="text-3xl">👊</span>
                     <div>
-                      <p className="font-bold text-white">Challenge To A Battle</p>
+                      <p className="font-bold text-gray-900">Challenge To A Battle</p>
                       <p className="text-xs text-gray-400">
                         Battle another player's team.
                         {alreadyWonToday
@@ -1091,7 +1091,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                   </div>
                   <button
                     onClick={() => liveBattleInbox.refreshPresence()}
-                    className="text-xs bg-neutral-800 hover:bg-neutral-700 text-gray-300 font-bold px-3 py-1.5 rounded-lg transition-colors flex-shrink-0"
+                    className="text-xs bg-stone-100 hover:bg-stone-200 text-gray-700 font-bold px-3 py-1.5 rounded-lg transition-colors flex-shrink-0"
                     title="Refresh online list"
                   >
                     🔄 Refresh
@@ -1104,16 +1104,16 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                   {otherPlayers.map(player => {
                     const inBattle = liveBattleInbox.playersInBattle.has(player.id);
                     return (
-                    <div key={player.id} className="flex items-center justify-between bg-black/30 rounded-lg px-4 py-3">
+                    <div key={player.id} className="flex items-center justify-between bg-white border border-stone-200 rounded-lg px-4 py-3">
                       <div className="flex items-center gap-3">
                         <img
                           src={player.avatar || '/userpics/Spr_RS_School_Kid_M.png'}
                           alt={player.name}
-                          className="w-9 h-9 rounded-full object-cover border border-neutral-600 flex-shrink-0"
+                          className="w-9 h-9 rounded-full object-cover border border-stone-300 flex-shrink-0"
                           onError={(e) => { (e.target as HTMLImageElement).src = '/userpics/Spr_RS_School_Kid_M.png'; }}
                         />
                         <div>
-                          <p className="text-white text-sm font-bold">{player.fullName}</p>
+                          <p className="text-gray-900 text-sm font-bold">{player.fullName}</p>
                           <p className="text-gray-500 text-xs">
                             {inBattle ? `⚔️ ${player.name} is in a battle` : `${player.grade}${!player.isFamily ? ' · Classmate' : ''}`}
                           </p>
@@ -1134,15 +1134,15 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
             );
           })()}
 
-          <h3 className="text-lg font-bold text-white font-display">NPC Trainers</h3>
-          <div className="p-5 rounded-xl border flex items-center gap-4 border-neutral-700 bg-neutral-900">
+          <h3 className="text-lg font-bold text-gray-900">NPC Trainers</h3>
+          <div className="p-5 rounded-xl border flex items-center gap-4 border-stone-200 bg-stone-50">
             <img
               src="/trainers/training_tester.png"
               alt="Training Dummy"
               className="w-24 h-24 flex-shrink-0 object-contain"
             />
             <div className="flex-1">
-              <p className="font-bold text-white">Training Dummy</p>
+              <p className="font-bold text-gray-900">Training Dummy</p>
               <p className="text-xs text-gray-400">Always available · Matches your team</p>
               <p className="text-xs text-gray-500 italic mt-1">"No hard feelings — just here to help you practice."</p>
               <div className="flex gap-2 mt-2">
@@ -1174,9 +1174,9 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
               <div
                 key={trainer.id}
                 className={`p-5 rounded-xl border flex items-center gap-4 ${
-                  defeated ? 'border-green-800 bg-green-900/10' :
-                  locked   ? 'border-neutral-800 bg-neutral-950 opacity-50' :
-                             'border-neutral-700 bg-neutral-900'
+                  defeated ? 'border-green-200 bg-green-50' :
+                  locked   ? 'border-stone-200 bg-stone-100 opacity-50' :
+                             'border-stone-200 bg-stone-50'
                 }`}
               >
                 <img
@@ -1185,12 +1185,12 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                   className="w-24 h-24 flex-shrink-0 object-contain"
                 />
                 <div className="flex-1">
-                  <p className="font-bold text-white">{trainer.name}</p>
+                  <p className="font-bold text-gray-900">{trainer.name}</p>
                   <p className="text-xs text-gray-400 capitalize">{trainer.element} · Requires Level {trainer.levelRequirement}</p>
                   <p className="text-xs text-gray-500 italic mt-1">"{trainer.intro}"</p>
                   <div className="flex gap-2 mt-2">
                     {trainer.monsters.map((tm, i) => (
-                      <span key={i} className="text-xs bg-neutral-800 px-2 py-0.5 rounded text-gray-300">
+                      <span key={i} className="text-xs bg-stone-100 px-2 py-0.5 rounded text-gray-600">
                         {ALL_MONSTERS[tm.monsterId]?.name} Lv.{tm.level}
                       </span>
                     ))}
@@ -1198,7 +1198,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                 </div>
                 <div className="text-right">
                   {defeated ? (
-                    <span className="text-green-400 text-sm font-bold">✅ Defeated</span>
+                    <span className="text-green-600 text-sm font-bold">✅ Defeated</span>
                   ) : locked ? (
                     <span className="text-gray-500 text-sm">🔒 Locked</span>
                   ) : (

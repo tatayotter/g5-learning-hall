@@ -27,12 +27,12 @@ import TutorRollModal from '@/components/TutorRollModal';
 import { EggChainMap, claimCurioEgg, eggReadyLevel } from '@/lib/curioEggs';
 
 const ELEMENT_STYLES: Record<Element, string> = {
-  fire:   'text-orange-400 border-orange-800 bg-orange-900/20',
-  water:  'text-blue-400 border-blue-800 bg-blue-900/20',
-  leaf:   'text-green-400 border-green-800 bg-green-900/20',
-  storm:  'text-yellow-400 border-yellow-800 bg-yellow-900/20',
-  shadow: 'text-purple-400 border-purple-800 bg-purple-900/20',
-  light:  'text-amber-300 border-amber-700 bg-amber-900/20',
+  fire:   'text-orange-700 border-orange-200 bg-orange-50',
+  water:  'text-blue-700 border-blue-200 bg-blue-50',
+  leaf:   'text-green-700 border-green-200 bg-green-50',
+  storm:  'text-yellow-700 border-yellow-200 bg-yellow-50',
+  shadow: 'text-purple-700 border-purple-200 bg-purple-50',
+  light:  'text-amber-700 border-amber-200 bg-amber-50',
 };
 
 export default function TeamPanel({
@@ -285,12 +285,12 @@ export default function TeamPanel({
         onClick={() => setDetailMonster(null)}
       >
         <div
-          className="relative w-full max-w-xl max-h-[85vh] overflow-y-auto p-5 rounded-2xl border border-neutral-800 bg-neutral-900 shadow-2xl battle-panel-in"
+          className="relative w-full max-w-xl max-h-[85vh] overflow-y-auto p-5 rounded-2xl border border-stone-200 bg-amber-50 shadow-2xl battle-panel-in"
           onClick={e => e.stopPropagation()}
         >
           <button
             onClick={() => setDetailMonster(null)}
-            className="absolute top-3 right-3 text-gray-500 hover:text-white text-xl leading-none btn-tactile"
+            className="absolute top-3 right-3 text-gray-500 hover:text-gray-900 text-xl leading-none btn-tactile"
             aria-label="Close"
           >
             ✕
@@ -302,7 +302,7 @@ export default function TeamPanel({
             </div>
             <div className="flex-1 space-y-3">
               <div>
-                <p className="text-xl font-bold text-white font-display flex items-center gap-2">
+                <p className="text-xl font-bold text-gray-900 flex items-center gap-2">
                   {def.name}
                   {def.isLegendary && <span title="Legendary">👑</span>}
                 </p>
@@ -314,7 +314,7 @@ export default function TeamPanel({
                   <span className="text-[10px] text-gray-500 capitalize">{def.archetype.replace('_', ' ')}</span>
                   <span className="text-[10px] text-gray-500">Lv.{monster.monster_level}{monster.graduation_tier ? ` · Graduation Tier ${monster.graduation_tier}` : ''}</span>
                   {monster.quality !== 'normal' && (
-                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-neutral-800 text-white ${glowClass}`}>
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-gray-900 ${glowClass}`}>
                       {QUALITY_LABEL[monster.quality]}
                     </span>
                   )}
@@ -323,7 +323,7 @@ export default function TeamPanel({
 
               <div>
                 <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Live stats</p>
-                <div className="grid grid-cols-2 gap-2 max-w-xs text-sm text-white">
+                <div className="grid grid-cols-2 gap-2 max-w-xs text-sm text-gray-900">
                   <p className="flex items-center gap-1.5"><img src="/icons/stats/hp.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.hp} HP</p>
                   <p className="flex items-center gap-1.5"><img src="/icons/stats/atk.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.attack} Attack</p>
                   <p className="flex items-center gap-1.5"><img src="/icons/stats/def.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.defense} Defense</p>
@@ -343,17 +343,17 @@ export default function TeamPanel({
                       s.skillId && (s.element === def.element || s.category === 'universal') && (inventory[s.key] || 0) > 0
                     );
                     return (
-                      <div key={i} className="border border-neutral-800 rounded-lg p-2">
+                      <div key={i} className="border border-stone-200 bg-white rounded-lg p-2">
                         {skill ? (
                           <div className="flex items-center justify-between gap-2">
                             <div className="text-xs min-w-0">
-                              <span className="font-bold text-white">{skill.name}</span>
+                              <span className="font-bold text-gray-900">{skill.name}</span>
                               <span className="text-gray-500"> — {skill.description}</span>
                             </div>
                             <button
                               onClick={() => handleUnlearn(monster.id, slotIndex, skill, def)}
                               disabled={unlearnQty === 0 || actionBusy}
-                              className="text-[10px] bg-neutral-800 hover:bg-neutral-700 disabled:opacity-40 disabled:cursor-not-allowed px-2 py-1 rounded text-white flex-shrink-0"
+                              className="text-[10px] bg-stone-100 hover:bg-stone-200 disabled:opacity-40 disabled:cursor-not-allowed px-2 py-1 rounded text-gray-700 flex-shrink-0"
                             >
                               {unlearnQty === 0 ? 'Need Unlearn Scroll' : 'Unlearn'}
                             </button>
@@ -364,7 +364,7 @@ export default function TeamPanel({
                               <span className="text-xs text-gray-500 italic">Empty slot</span>
                               <button
                                 onClick={() => setPendingSlot(isPending ? null : { monsterRowId: monster.id, slotIndex })}
-                                className="text-[10px] bg-amber-800 hover:bg-amber-700 px-2 py-1 rounded text-white flex-shrink-0"
+                                className="text-[10px] bg-amber-100 hover:bg-amber-200 px-2 py-1 rounded text-amber-800 flex-shrink-0"
                               >
                                 {isPending ? 'Cancel' : 'Teach a Skill'}
                               </button>
@@ -379,7 +379,7 @@ export default function TeamPanel({
                                       key={s.key}
                                       disabled={actionBusy}
                                       onClick={() => handleLearn(monster.id, slotIndex, s.skillId!, s.key, def)}
-                                      className="text-[10px] bg-neutral-800 hover:bg-neutral-700 disabled:opacity-40 px-2 py-1 rounded text-white"
+                                      className="text-[10px] bg-stone-100 hover:bg-stone-200 disabled:opacity-40 px-2 py-1 rounded text-gray-700"
                                     >
                                       {s.name} (x{inventory[s.key]})
                                     </button>
@@ -407,10 +407,10 @@ export default function TeamPanel({
                 const scrollQty = inventory['graduation_scroll'] || 0;
                 const levelMet = monster.monster_level >= requiredLevel;
                 return (
-                  <div className="border border-amber-900 bg-amber-900/10 rounded-lg p-3">
-                    <p className="text-[10px] text-amber-500 font-bold uppercase tracking-widest mb-1">Graduation</p>
-                    <p className="text-xs text-gray-400 mb-2">
-                      Reach Lv.{requiredLevel} and use a Graduation Scroll to graduate into <span className="font-bold text-white">{stage.name}</span>.
+                  <div className="border border-amber-200 bg-amber-50 rounded-lg p-3">
+                    <p className="text-[10px] text-amber-700 font-bold uppercase tracking-widest mb-1">Graduation</p>
+                    <p className="text-xs text-gray-600 mb-2">
+                      Reach Lv.{requiredLevel} and use a Graduation Scroll to graduate into <span className="font-bold text-gray-900">{stage.name}</span>.
                     </p>
                     <button
                       onClick={() => handleGraduate(monster.id, requiredLevel, targetTier, monster.monster_id, currentTier, monster.monster_level, monster.quality)}
@@ -427,10 +427,10 @@ export default function TeamPanel({
                 const pillQty = inventory['growth_pill'] || 0;
                 const atCap = monster.monster_level >= BATTLE_CONSTANTS.MONSTER_LEVEL_CAP;
                 return (
-                  <div className="border border-purple-900 bg-purple-900/10 rounded-lg p-3">
-                    <p className="text-[10px] text-purple-400 font-bold uppercase tracking-widest mb-1">Growth Pill</p>
-                    <p className="text-xs text-gray-400 mb-2">
-                      Use a Growth Pill to instantly gain <span className="font-bold text-white">5 levels</span> — works on any owned curio.
+                  <div className="border border-purple-200 bg-purple-50 rounded-lg p-3">
+                    <p className="text-[10px] text-purple-700 font-bold uppercase tracking-widest mb-1">Growth Pill</p>
+                    <p className="text-xs text-gray-600 mb-2">
+                      Use a Growth Pill to instantly gain <span className="font-bold text-gray-900">5 levels</span> — works on any owned curio.
                     </p>
                     <button
                       onClick={() => handleUseGrowthPill(monster.id, def, monster.monster_level, monster.monster_exp, monster.quality)}
@@ -451,9 +451,9 @@ export default function TeamPanel({
                 if (!chain) return null;
                 if (claimedEggParentIds.has(monster.id)) return null;
                 return (
-                  <div className="border border-cyan-900 bg-cyan-900/10 rounded-lg p-3">
-                    <p className="text-[10px] text-cyan-400 font-bold uppercase tracking-widest mb-1">Egg</p>
-                    <p className="text-xs text-gray-400 mb-2">
+                  <div className="border border-cyan-200 bg-cyan-50 rounded-lg p-3">
+                    <p className="text-[10px] text-cyan-700 font-bold uppercase tracking-widest mb-1">Egg</p>
+                    <p className="text-xs text-gray-600 mb-2">
                       {def.name} is ready to lay an egg. It can only do this once.
                     </p>
                     <button
@@ -476,17 +476,17 @@ export default function TeamPanel({
                 const canUseTome = useTomeToggle && tomeQty > 0;
                 const affordable = currentGold >= cost;
                 return (
-                  <div className="border border-indigo-900 bg-indigo-900/10 rounded-lg p-3">
-                    <p className="text-[10px] text-indigo-400 font-bold uppercase tracking-widest mb-1">Tutor</p>
+                  <div className="border border-indigo-200 bg-indigo-50 rounded-lg p-3">
+                    <p className="text-[10px] text-indigo-700 font-bold uppercase tracking-widest mb-1">Tutor</p>
                     <div className="flex items-center gap-2 mb-2">
-                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-neutral-800 text-white ${glowClass}`}>
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-gray-900 ${glowClass}`}>
                         {QUALITY_LABEL[quality]}
                       </span>
                       <span className="text-xs text-gray-500">
                         {(advanceChance * 100).toFixed(1)}% chance to advance
                       </span>
                     </div>
-                    <p className="text-xs text-gray-400 mb-2">
+                    <p className="text-xs text-gray-600 mb-2">
                       Spend gold for a chance to permanently raise this curio's quality (boosts HP &amp; Attack). Never downgrades — a failed roll just costs the gold.
                     </p>
                     {tome && (
@@ -524,7 +524,7 @@ export default function TeamPanel({
 
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-bold text-white font-display">Your Team</h3>
+      <h3 className="text-lg font-bold text-gray-900">Your Team</h3>
 
       {renderDetailModal()}
 
@@ -585,16 +585,16 @@ export default function TeamPanel({
           onClick={() => !eggClaimBusy && setConfirmingEgg(null)}
         >
           <div
-            className="bg-neutral-950 border border-cyan-800 rounded-xl p-6 w-full max-w-xs text-center battle-panel-in"
+            className="bg-white border border-cyan-200 rounded-xl p-6 w-full max-w-xs text-center battle-panel-in"
             onClick={e => e.stopPropagation()}
           >
-            <p className="text-white font-bold mb-1">Lay {confirmingEgg.name}'s egg?</p>
+            <p className="text-gray-900 font-bold mb-1">Lay {confirmingEgg.name}'s egg?</p>
             <p className="text-gray-500 text-xs mb-5">This can only happen once — {confirmingEgg.name} stays on your team either way.</p>
             <div className="flex gap-3">
               <button
                 onClick={() => setConfirmingEgg(null)}
                 disabled={eggClaimBusy}
-                className="flex-1 py-2 rounded-lg font-bold text-sm bg-neutral-800 hover:bg-neutral-700 disabled:opacity-40 text-gray-300 transition-colors"
+                className="flex-1 py-2 rounded-lg font-bold text-sm bg-stone-100 hover:bg-stone-200 disabled:opacity-40 text-gray-700 transition-colors"
               >
                 Cancel
               </button>
@@ -619,7 +619,7 @@ export default function TeamPanel({
         return (
           <div
             key={slot}
-            className={`p-4 rounded-xl border ${isUnlocked ? 'border-neutral-700 bg-neutral-900' : 'border-neutral-800 bg-neutral-950 opacity-50'}`}
+            className={`p-4 rounded-xl border ${isUnlocked ? 'border-stone-200 bg-stone-50' : 'border-stone-200 bg-stone-100 opacity-50'}`}
           >
             {!isUnlocked ? (
               <p className="text-gray-500 text-sm">🔒 Unlocks at player Level {BATTLE_CONSTANTS.PLAYER_LEVEL_FOR_SLOT[slot as 1|2|3]}</p>
@@ -637,7 +637,7 @@ export default function TeamPanel({
                         <button
                           key={bm.id}
                           onClick={() => handleAddMonster(slot, bm.monster_id)}
-                          className="text-sm bg-neutral-800 hover:bg-neutral-700 px-3 py-1 rounded-lg text-white"
+                          className="text-sm bg-stone-100 hover:bg-stone-200 px-3 py-1 rounded-lg text-gray-900"
                         >
                           {bmDef.name} <span className="text-gray-500">Lv.{bm.monster_level}</span>
                         </button>
@@ -655,9 +655,9 @@ export default function TeamPanel({
                   <MonsterImage monster={def} className="w-full h-full" />
                 </div>
                 <div className="flex-1">
-                  <p className="font-bold text-white">{def.name} <span className="text-gray-400 text-sm">Lv.{monster.monster_level}</span></p>
+                  <p className="font-bold text-gray-900">{def.name} <span className="text-gray-500 text-sm">Lv.{monster.monster_level}</span></p>
                   <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
-                  <div className="w-full bg-neutral-800 rounded-full h-1.5 mt-1">
+                  <div className="w-full bg-stone-200 rounded-full h-1.5 mt-1">
                     <div
                       className="h-1.5 rounded-full bg-amber-400 transition-all"
                       style={{ width: `${((monster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) * 100}%` }}
@@ -693,20 +693,20 @@ export default function TeamPanel({
           back in from at all. */}
       {(benchedMonsters.length > 0 || caughtMonsters.length > 0) && (
         <div className="space-y-3 pt-2">
-          <p className="text-xs text-cyan-500 font-bold uppercase tracking-widest">Your Bench (Add To Your Team)</p>
+          <p className="text-xs text-cyan-700 font-bold uppercase tracking-widest">Your Bench (Add To Your Team)</p>
           {benchedMonsters.map(bm => {
             const def = getOwnedMonsterDisplay(monsterDisplay[bm.monster_id], bm.graduation_tier);
             if (!def) return null;
             const scaled = getScaledStats(def, bm.monster_level, bm.quality);
             return (
-              <div key={bm.id} className="p-4 rounded-xl border border-cyan-900 bg-cyan-900/10">
+              <div key={bm.id} className="p-4 rounded-xl border border-cyan-200 bg-cyan-50">
                 <div className="flex items-center gap-4">
                   <button onClick={() => setDetailMonster(bm)} className="flex flex-1 items-center gap-4 text-left rounded-lg min-w-0">
                     <div className={`w-12 h-12 flex-shrink-0 ${getQualityGlowClass(bm.quality)}`}>
                       <MonsterImage monster={def} className="w-full h-full" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-bold text-white">{def.name} <span className="text-gray-400 text-sm">Lv.{bm.monster_level}</span></p>
+                      <p className="font-bold text-gray-900">{def.name} <span className="text-gray-500 text-sm">Lv.{bm.monster_level}</span></p>
                       <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
                     </div>
                     <div className="text-xs text-gray-400 space-y-0.5 flex-shrink-0">
@@ -724,7 +724,7 @@ export default function TeamPanel({
                   </button>
                 </div>
                 {promotingBenchId === bm.id && (
-                  <div className="mt-3 pt-3 border-t border-cyan-900 flex flex-wrap gap-2">
+                  <div className="mt-3 pt-3 border-t border-cyan-200 flex flex-wrap gap-2">
                     {[1, 2, 3].map(slot => {
                       const existing = userMonsters.find(m => m.slot === slot);
                       const isUnlocked = slot <= unlockedSlots || !!existing;
@@ -733,7 +733,7 @@ export default function TeamPanel({
                         <button
                           key={slot}
                           onClick={() => { handleAddMonster(slot, bm.monster_id); setPromotingBenchId(null); }}
-                          className="text-xs bg-neutral-800 hover:bg-neutral-700 px-3 py-2 rounded-lg text-white"
+                          className="text-xs bg-stone-100 hover:bg-stone-200 px-3 py-2 rounded-lg text-gray-900"
                         >
                           {existing ? `Replace ${getOwnedMonsterDisplay(monsterDisplay[existing.monster_id], existing.graduation_tier)?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
                         </button>
@@ -758,13 +758,13 @@ export default function TeamPanel({
             if (!def) return null;
             const scaled = getScaledStats(def, caught.monster_level, caught.quality);
             return (
-              <div key={caught.id} className="p-4 rounded-xl border border-cyan-900 bg-cyan-900/10">
+              <div key={caught.id} className="p-4 rounded-xl border border-cyan-200 bg-cyan-50">
                 <div className="flex items-center gap-4">
                   <div className={`w-12 h-12 flex-shrink-0 ${getQualityGlowClass(caught.quality)}`}>
                     <MonsterImage monster={def} className="w-full h-full" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-bold text-white">{def.name} <span className="text-gray-400 text-sm">Lv.{caught.monster_level}</span></p>
+                    <p className="font-bold text-gray-900">{def.name} <span className="text-gray-500 text-sm">Lv.{caught.monster_level}</span></p>
                     <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
                   </div>
                   <div className="text-xs text-gray-400 space-y-0.5">
@@ -781,7 +781,7 @@ export default function TeamPanel({
                   </button>
                 </div>
                 {promotingId === caught.id && (
-                  <div className="mt-3 pt-3 border-t border-cyan-900 flex flex-wrap gap-2">
+                  <div className="mt-3 pt-3 border-t border-cyan-200 flex flex-wrap gap-2">
                     {[1, 2, 3].map(slot => {
                       const existing = userMonsters.find(m => m.slot === slot);
                       const isUnlocked = slot <= unlockedSlots || !!existing;
@@ -790,7 +790,7 @@ export default function TeamPanel({
                         <button
                           key={slot}
                           onClick={() => { onPromote(caught, slot); setPromotingId(null); }}
-                          className="text-xs bg-neutral-800 hover:bg-neutral-700 px-3 py-2 rounded-lg text-white"
+                          className="text-xs bg-stone-100 hover:bg-stone-200 px-3 py-2 rounded-lg text-gray-900"
                         >
                           {existing ? `Replace ${getOwnedMonsterDisplay(monsterDisplay[existing.monster_id], existing.graduation_tier)?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
                         </button>
