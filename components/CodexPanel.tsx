@@ -44,11 +44,11 @@ const GUILD_KEY_TO_GUARDIAN: Record<GuildKey, GuardianGuild> = {
 };
 
 const GUILD_ACCENT: Record<GuildKey, { text: string; border: string; bg: string }> = {
-  lorekeeper: { text: 'text-emerald-400', border: 'border-emerald-800', bg: 'bg-emerald-950/20' },
-  spellcaster: { text: 'text-violet-400', border: 'border-violet-800', bg: 'bg-violet-950/20' },
-  number_realm: { text: 'text-amber-400', border: 'border-amber-800', bg: 'bg-amber-950/20' },
-  logic_labyrinth: { text: 'text-cyan-400', border: 'border-cyan-800', bg: 'bg-cyan-950/20' },
-  lexicon_arena: { text: 'text-rose-400', border: 'border-rose-800', bg: 'bg-rose-950/20' },
+  lorekeeper: { text: 'text-emerald-700', border: 'border-emerald-200', bg: 'bg-emerald-50' },
+  spellcaster: { text: 'text-violet-700', border: 'border-violet-200', bg: 'bg-violet-50' },
+  number_realm: { text: 'text-amber-700', border: 'border-amber-200', bg: 'bg-amber-50' },
+  logic_labyrinth: { text: 'text-cyan-700', border: 'border-cyan-200', bg: 'bg-cyan-50' },
+  lexicon_arena: { text: 'text-rose-700', border: 'border-rose-200', bg: 'bg-rose-50' },
 };
 
 const GUILD_TEACHES: Record<GuildKey, string> = {
@@ -111,14 +111,14 @@ const GLOSSARY: { term: string; definition: string }[] = [
 
 function TLDR({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-sm font-bold text-amber-300 bg-amber-950/30 border border-amber-900/50 rounded-lg px-3 py-2 mb-4">
+    <p className="text-sm font-bold text-amber-800 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mb-4">
       {children}
     </p>
   );
 }
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
-  return <h3 className="text-2xl font-display font-bold text-white mb-3">{children}</h3>;
+  return <h3 className="text-2xl font-bold text-gray-900 mb-3">{children}</h3>;
 }
 
 // ─── Element wheel (SVG, relationships derived live from getCounterElement) ─
@@ -190,8 +190,8 @@ export default function CodexPanel() {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-3xl font-display font-bold text-white">The Codex</h1>
-        <p className="text-xs text-gray-500 mt-1">Everything about this world, and how it actually works.</p>
+        <h1 className="text-3xl font-display font-bold text-gray-900">The Codex</h1>
+        <p className="text-sm text-gray-500 mt-1">Everything about this world, and how it actually works.</p>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-6">
@@ -203,8 +203,8 @@ export default function CodexPanel() {
               onClick={() => setActiveSection(s.id)}
               className={`px-3 py-2 text-sm font-bold text-left rounded-lg whitespace-nowrap transition-colors ${
                 activeSection === s.id
-                  ? 'bg-amber-900/30 text-amber-400 border border-amber-800'
-                  : 'text-gray-400 hover:text-white hover:bg-neutral-900 border border-transparent'
+                  ? 'bg-amber-100 text-amber-700 border border-amber-300'
+                  : 'text-gray-500 hover:text-gray-900 hover:bg-stone-100 border border-transparent'
               }`}
             >
               {s.label}
@@ -212,7 +212,7 @@ export default function CodexPanel() {
           ))}
         </nav>
 
-        <div className="flex-1 min-w-0 bg-[#111] border border-neutral-800 rounded-2xl p-5">
+        <div className="flex-1 min-w-0 border border-stone-200 rounded-2xl p-5" style={{ background: 'linear-gradient(150deg, #fefce8 0%, #ffffff 55%)' }}>
           {activeSection === 'ledger' && <LedgerSection />}
           {activeSection === 'elements' && <ElementsSection />}
           {activeSection === 'worldmap' && <WorldMapSection />}
@@ -241,20 +241,20 @@ function LedgerSection() {
       <img
         src="/codex/ledger_header.webp"
         alt="The Ledger"
-        className="w-full max-w-2xl rounded-xl border border-neutral-800 mb-4 object-cover"
+        className="w-full max-w-2xl rounded-xl border border-stone-200 mb-4 object-cover"
       />
       <SectionTitle>The Ledger</SectionTitle>
       <TLDR>Everything in this world — every curio, every guild, every point of XP — is part of one story: the fight to keep knowledge from fading.</TLDR>
-      <div className="space-y-3 text-gray-300 text-sm leading-relaxed max-w-2xl">
+      <div className="space-y-3 text-gray-700 text-sm leading-relaxed max-w-2xl">
         <p>
-          Long before anyone kept score, the world was held together by something called the <b className="text-white">Ledger</b> — a
+          Long before anyone kept score, the world was held together by something called the <b className="text-gray-900">Ledger</b> — a
           living record that remembered everything worth remembering: every story, every word, every number, every path, every true
           thing. The Ledger never sat still in one place. It broke apart and hid itself inside small sleeping creatures called{' '}
-          <b className="text-white">curios</b> — so every curio you catch, raise, or battle with is really a tiny piece of that memory,
+          <b className="text-gray-900">curios</b> — so every curio you catch, raise, or battle with is really a tiny piece of that memory,
           waking up because you're paying attention to it.
         </p>
         <p>
-          The Ledger has one enemy, and it isn't a monster. It's called the <b className="text-white">Forgetting</b> — and it's just
+          The Ledger has one enemy, and it isn't a monster. It's called the <b className="text-gray-900">Forgetting</b> — and it's just
           what happens naturally when nobody practices, nobody reads, nobody keeps going. It doesn't attack. It just quietly erases
           things that go unused. Left alone, curios go quiet, guild halls fall silent, and whole subjects blur back into blank pages.
         </p>
@@ -279,14 +279,14 @@ function ElementsSection() {
           const strongAgainst = getCounterElements(el);
           const weakAgainst = ELEMENTS.filter(other => getCounterElements(other).includes(el));
           return (
-            <div key={el} className="flex items-start gap-2 bg-neutral-900 border border-neutral-800 rounded-lg p-3">
+            <div key={el} className="flex items-start gap-2 bg-stone-50 border border-stone-200 rounded-lg p-3">
               <img src={ELEMENT_ICON_SRC[el]} alt={el} className="w-6 h-6 mt-0.5" />
               <div>
-                <p className="text-sm text-gray-300">{ELEMENT_MEANING[el]}</p>
-                <p className="text-xs text-emerald-400 mt-1.5">
+                <p className="text-sm text-gray-700">{ELEMENT_MEANING[el]}</p>
+                <p className="text-xs text-emerald-600 mt-1.5">
                   Strong against: {strongAgainst.map(e => e[0].toUpperCase() + e.slice(1)).join(', ')}
                 </p>
-                <p className="text-xs text-rose-400 mt-0.5">
+                <p className="text-xs text-rose-600 mt-0.5">
                   Weak against: {weakAgainst.length > 0 ? weakAgainst.map(e => e[0].toUpperCase() + e.slice(1)).join(', ') : 'None'}
                 </p>
               </div>
@@ -308,8 +308,8 @@ function WorldMapSection() {
     <div>
       <SectionTitle>The World Map</SectionTitle>
       <TLDR>Explore The Ledger's Heart from the start, or unlock an elemental region at Player Level 10 to hunt one kind of curio at a time.</TLDR>
-      <p className="text-sm text-gray-300 max-w-2xl mb-4">
-        The World Map is where wild encounters happen. <b className="text-white">The Ledger's Heart</b> holds every element mixed
+      <p className="text-sm text-gray-700 max-w-2xl mb-4">
+        The World Map is where wild encounters happen. <b className="text-gray-900">The Ledger's Heart</b> holds every element mixed
         together, same as it always has. Each of the other 6 regions is tuned to a single element — every curio you meet there
         shares that region's element, nothing else.
       </p>
@@ -331,7 +331,7 @@ function RegionCard({ region }: { region: typeof REGIONS[string] }) {
         background: color ? `linear-gradient(135deg, ${color.from}33, transparent)` : 'rgba(212,175,55,0.06)',
       }}
     >
-      <p className="font-bold text-white text-sm flex items-center gap-1.5">
+      <p className="font-bold text-gray-900 text-sm flex items-center gap-1.5">
         {region.element !== 'all' && <img src={ELEMENT_ICON_SRC[region.element]} alt={region.element} className="w-4 h-4" />}
         {region.name}
       </p>
@@ -430,14 +430,14 @@ function TutoringSection() {
     <div>
       <SectionTitle>Tutoring & Quality</SectionTitle>
       <TLDR>Every curio has a hidden Quality Tier — a permanent stat boost you can only raise by spending gold at the Tutor.</TLDR>
-      <div className="space-y-3 max-w-2xl text-sm text-gray-300">
+      <div className="space-y-3 max-w-2xl text-sm text-gray-700">
         <p>
-          Open any owned curio's detail screen in <b className="text-white">My Team</b> and, once it's not still climbing
-          levels for its next Graduation, a <b className="text-white">Tutor</b> option appears. Spend gold and roll — a
+          Open any owned curio's detail screen in <b className="text-gray-900">My Team</b> and, once it's not still climbing
+          levels for its next Graduation, a <b className="text-gray-900">Tutor</b> option appears. Spend gold and roll — a
           roll only ever holds a curio's tier or bumps it up one step. It can never make a curio worse.
         </p>
         <div className="grid sm:grid-cols-2 gap-3">
-          <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-3">
+          <div className="bg-stone-50 border border-stone-200 rounded-lg p-3">
             <p className="font-bold text-white text-sm mb-1.5">Quality tiers & stat bonus</p>
             <div className="space-y-1 text-xs">
               {QUALITY_TIERS.map(t => (
@@ -448,7 +448,7 @@ function TutoringSection() {
               ))}
             </div>
           </div>
-          <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-3">
+          <div className="bg-stone-50 border border-stone-200 rounded-lg p-3">
             <p className="font-bold text-white text-sm mb-1.5">Tutor cost by current tier</p>
             <div className="space-y-1 text-xs">
               {tierCosts.map(c => (
@@ -459,13 +459,13 @@ function TutoringSection() {
           </div>
         </div>
         <p>
-          Roll odds are the same every attempt regardless of current tier: <b className="text-white">{Math.round(TUTOR_ROLL_TABLE.fail * 100)}%</b> no
-          change, <b className="text-white">{Math.round(TUTOR_ROLL_TABLE.good * 100)}%</b> Good, <b className="text-white">{Math.round(TUTOR_ROLL_TABLE.outstanding * 100)}%</b> Outstanding,{' '}
-          <b className="text-white">{(TUTOR_ROLL_TABLE.perfect * 100).toFixed(1)}%</b> Perfect — only the outcomes ranked above a curio's
+          Roll odds are the same every attempt regardless of current tier: <b className="text-gray-900">{Math.round(TUTOR_ROLL_TABLE.fail * 100)}%</b> no
+          change, <b className="text-gray-900">{Math.round(TUTOR_ROLL_TABLE.good * 100)}%</b> Good, <b className="text-gray-900">{Math.round(TUTOR_ROLL_TABLE.outstanding * 100)}%</b> Outstanding,{' '}
+          <b className="text-gray-900">{(TUTOR_ROLL_TABLE.perfect * 100).toFixed(1)}%</b> Perfect — only the outcomes ranked above a curio's
           current tier actually count as an upgrade.
         </p>
         <p>
-          A <b className="text-white">Tome of Knowledge</b> (bought in the Vault, {TOME_CATALOG.length} tiers) boosts the odds on
+          A <b className="text-gray-900">Tome of Knowledge</b> (bought in the Vault, {TOME_CATALOG.length} tiers) boosts the odds on
           one specific attempt, consumed automatically the moment it's used. Each tome is matched to the tier it helps a
           curio climb past — a Tome of Novice Knowledge only helps a Normal-quality roll, and so on up the ladder.
         </p>
@@ -479,30 +479,30 @@ function EggsSection() {
     <div>
       <SectionTitle>Eggs & The Hatchery</SectionTitle>
       <TLDR>A graduated, high-leveled curio can lay one egg in its lifetime — hatch it with a 5-day login streak into a different, earlier species.</TLDR>
-      <div className="space-y-3 max-w-2xl text-sm text-gray-300">
+      <div className="space-y-3 max-w-2xl text-sm text-gray-700">
         <p>
-          Once a curio has graduated and reached <b className="text-white">Graduation level + 3</b> (Tier 1 → Lv.{eggReadyLevel(1)},
+          Once a curio has graduated and reached <b className="text-gray-900">Graduation level + 3</b> (Tier 1 → Lv.{eggReadyLevel(1)},
           Tier 2 → Lv.{eggReadyLevel(2)}), a "Claim Egg" prompt appears on its card in My Team. Claiming is one-time and
           permanent — the parent curio itself is untouched, staying exactly where it was.
         </p>
         <div className="grid sm:grid-cols-2 gap-3">
-          <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-3">
-            <p className="font-bold text-white text-sm">Incubating</p>
+          <div className="bg-stone-50 border border-stone-200 rounded-lg p-3">
+            <p className="font-bold text-gray-900 text-sm">Incubating</p>
             <p className="text-xs text-gray-400 mt-1">
               Counts a consecutive daily login streak toward 5 days. Opening the app each day is all it takes to keep it
               growing.
             </p>
           </div>
-          <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-3">
-            <p className="font-bold text-white text-sm">Stalled</p>
+          <div className="bg-stone-50 border border-stone-200 rounded-lg p-3">
+            <p className="font-bold text-gray-900 text-sm">Stalled</p>
             <p className="text-xs text-gray-400 mt-1">
               Missing a day resets progress to 0 and pauses it — nothing is lost, but growth won't resume until you press{' '}
-              <b className="text-white">Incubate</b> in the Hatchery.
+              <b className="text-gray-900">Incubate</b> in the Hatchery.
             </p>
           </div>
         </div>
         <p>
-          At 5 days, the egg hatches into an admin-defined <b className="text-white">predecessor species</b> — an earlier
+          At 5 days, the egg hatches into an admin-defined <b className="text-gray-900">predecessor species</b> — an earlier
           curio in that species' own line, not another copy of the parent — starting at level 1, ungraduated, benched and
           ready to raise. It also gets a free quality-tier roll on the spot, using the same odds as a Tutor attempt.
         </p>
@@ -520,9 +520,9 @@ function TradingSection() {
     <div>
       <SectionTitle>Trading</SectionTitle>
       <TLDR>Offer a curio (and optionally gold) to another player; they can accept, decline, or counter — nothing moves until both sides agree.</TLDR>
-      <div className="space-y-3 max-w-2xl text-sm text-gray-300">
+      <div className="space-y-3 max-w-2xl text-sm text-gray-700">
         <p>
-          Trading lives in the Curio Arena's <b className="text-white">Trade</b> tab. Search for another player, build an
+          Trading lives in the Curio Arena's <b className="text-gray-900">Trade</b> tab. Search for another player, build an
           offer from your own team/bench, and send it. They can accept it outright, decline it, or send back a counter-offer
           — every back-and-forth on the same deal is kept together as one negotiation thread.
         </p>
@@ -541,11 +541,11 @@ function FamilySection() {
     <div>
       <SectionTitle>Family & Parents</SectionTitle>
       <TLDR>A self-registered child can link a parent from inside the app — it unlocks leaderboards and PvP, and pays a one-time gold bonus.</TLDR>
-      <div className="space-y-3 max-w-2xl text-sm text-gray-300">
+      <div className="space-y-3 max-w-2xl text-sm text-gray-700">
         <p>
           Kids who sign themselves up start unlinked. A small "Link a Parent" prompt lets them send their parent's email
           an invite; once the parent confirms it, the two accounts are connected. Linking unlocks leaderboards and PvP
-          challenges, and rewards the child <b className="text-white">100 gold</b> for finishing the link.
+          challenges, and rewards the child <b className="text-gray-900">100 gold</b> for finishing the link.
         </p>
         <p>
           Parents get their own dashboard to follow a linked child's progress, streaks, and journal entries, and can view
@@ -558,12 +558,12 @@ function FamilySection() {
 
 function Fact({ label, value, children }: { label: string; value: string; children: React.ReactNode }) {
   return (
-    <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-3">
+    <div className="bg-stone-50 border border-stone-200 rounded-lg p-3">
       <p className="flex items-baseline justify-between gap-2">
-        <span className="font-bold text-white">{label}</span>
-        <span className="text-amber-400 text-xs font-mono">{value}</span>
+        <span className="font-bold text-gray-900">{label}</span>
+        <span className="text-amber-600 text-xs font-mono">{value}</span>
       </p>
-      <p className="text-gray-400 text-xs mt-1">{children}</p>
+      <p className="text-gray-500 text-xs mt-1">{children}</p>
     </div>
   );
 }
@@ -573,22 +573,22 @@ function CuriosSection() {
     <div>
       <SectionTitle>Curios & Evolution</SectionTitle>
       <TLDR>Curios are fragments of the Ledger — some grow with their guild, some graduate on their own, and the rarest are barely ever found at all.</TLDR>
-      <div className="space-y-3 max-w-2xl text-sm text-gray-300">
+      <div className="space-y-3 max-w-2xl text-sm text-gray-700">
         <p>
           Every curio is a small piece of the world's memory, sorted by element and by where it was found. Want to browse every
-          species in the game, one by one? That's what the <b className="text-white">Compendium</b> tab (inside Curio Arena) is for
+          species in the game, one by one? That's what the <b className="text-gray-900">Compendium</b> tab (inside Curio Arena) is for
           — the Codex only covers the systems, not each individual curio.
         </p>
         <div className="grid sm:grid-cols-2 gap-3">
-          <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-3">
-            <p className="font-bold text-white text-sm">Guild Evolution</p>
+          <div className="bg-stone-50 border border-stone-200 rounded-lg p-3">
+            <p className="font-bold text-gray-900 text-sm">Guild Evolution</p>
             <p className="text-xs text-gray-400 mt-1">
               Free, and tied to your guild's level — not the curio's own level. Each guild has one dedicated familiar that changes
               shape as its guild grows stronger.
             </p>
           </div>
-          <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-3">
-            <p className="font-bold text-white text-sm">Graduation</p>
+          <div className="bg-stone-50 border border-stone-200 rounded-lg p-3">
+            <p className="font-bold text-gray-900 text-sm">Graduation</p>
             <p className="text-xs text-gray-400 mt-1">
               A permanent, purchased upgrade for a regular curio — needs Level {GRADUATION_LEVEL_REQUIREMENT[1]} and a{' '}
               {GRADUATION_SCROLL_COST}-gold Graduation Scroll. Tied to the curio's own level, unrelated to any guild.
@@ -601,9 +601,9 @@ function CuriosSection() {
           already own.
         </p>
         <p>
-          Two more permanent upgrades live outside leveling entirely: a curio's <b className="text-white">Quality Tier</b> (see{' '}
-          <b className="text-white">Tutoring & Quality</b>) is a separate stat boost bought with gold, and a graduated curio
-          can eventually lay a one-time <b className="text-white">Egg</b> (see <b className="text-white">Eggs & The Hatchery</b>)
+          Two more permanent upgrades live outside leveling entirely: a curio's <b className="text-gray-900">Quality Tier</b> (see{' '}
+          <b className="text-gray-900">Tutoring & Quality</b>) is a separate stat boost bought with gold, and a graduated curio
+          can eventually lay a one-time <b className="text-gray-900">Egg</b> (see <b className="text-gray-900">Eggs & The Hatchery</b>)
           that hatches into a whole new curio of its own.
         </p>
       </div>
@@ -623,18 +623,18 @@ function ItemsSection() {
       <SectionTitle>Items & Scrolls</SectionTitle>
       <TLDR>Items are single-use battle tools bought with gold; Scrolls teach your curios new skills.</TLDR>
 
-      <p className="text-sm font-bold text-white mb-2">Items</p>
+      <p className="text-sm font-bold text-gray-900 mb-2">Items</p>
       <p className="text-xs text-gray-500 mb-3 max-w-2xl">
         Bought with gold in the <b className="text-gray-300">Rewards Vault</b>, used mid-battle for a one-time effect.
       </p>
       <div className="grid sm:grid-cols-2 gap-2 max-w-2xl mb-6">
         {SHOP_CATALOG.map(item => (
-          <div key={item.key} className="flex items-center gap-2.5 bg-neutral-900 border border-neutral-800 rounded-lg p-2.5">
+          <div key={item.key} className="flex items-center gap-2.5 bg-stone-50 border border-stone-200 rounded-lg p-2.5">
             <img src={item.icon} alt={item.name} className="w-8 h-8 flex-shrink-0" />
             <div className="min-w-0">
-              <p className="text-sm font-bold text-white flex items-baseline gap-1.5">
+              <p className="text-sm font-bold text-gray-900 flex items-baseline gap-1.5">
                 {item.name}
-                <span className="text-[11px] text-amber-400 font-mono">{item.cost}g</span>
+                <span className="text-[11px] text-amber-600 font-mono">{item.cost}g</span>
               </p>
               <p className="text-xs text-gray-500">{item.desc}</p>
             </div>
@@ -642,10 +642,10 @@ function ItemsSection() {
         ))}
       </div>
 
-      <p className="text-sm font-bold text-white mb-2">Scrolls</p>
+      <p className="text-sm font-bold text-gray-900 mb-2">Scrolls</p>
       <p className="text-xs text-gray-500 mb-3 max-w-2xl">
         Also bought in the Vault, then taught to a specific curio from its loadout screen in the{' '}
-        <b className="text-gray-300">Compendium</b>. There are <b className="text-white">{SCROLL_CATALOG.length} scrolls</b> in
+        <b className="text-gray-300">Compendium</b>. There are <b className="text-gray-900">{SCROLL_CATALOG.length} scrolls</b> in
         total — one {unlearnScroll?.name.toLowerCase()} ({unlearnScroll?.cost}g, clears a skill slot) plus one scroll per skill in
         the game, split across three categories:
       </p>
@@ -670,19 +670,19 @@ function ItemsSection() {
         />
       </div>
 
-      <p className="text-sm font-bold text-white mb-2 mt-6">Tomes of Knowledge</p>
+      <p className="text-sm font-bold text-gray-900 mb-2 mt-6">Tomes of Knowledge</p>
       <p className="text-xs text-gray-500 mb-3 max-w-2xl">
         Also bought in the Vault — a one-time boost to a single Tutor roll's odds, consumed the moment it's used. See{' '}
         <b className="text-gray-300">Tutoring & Quality</b> for the full mechanic.
       </p>
       <div className="grid sm:grid-cols-3 gap-2 max-w-2xl">
         {TOME_CATALOG.map(tome => (
-          <div key={tome.key} className="flex items-center gap-2.5 bg-neutral-900 border border-neutral-800 rounded-lg p-2.5">
+          <div key={tome.key} className="flex items-center gap-2.5 bg-stone-50 border border-stone-200 rounded-lg p-2.5">
             <img src={tome.icon} alt={tome.name} className="w-8 h-8 flex-shrink-0" />
             <div className="min-w-0">
-              <p className="text-sm font-bold text-white flex items-baseline gap-1.5">
+              <p className="text-sm font-bold text-gray-900 flex items-baseline gap-1.5">
                 {tome.name}
-                <span className="text-[11px] text-amber-400 font-mono">{tome.cost}g</span>
+                <span className="text-[11px] text-amber-600 font-mono">{tome.cost}g</span>
               </p>
               <p className="text-xs text-gray-500">{tome.desc}</p>
             </div>
@@ -695,10 +695,10 @@ function ItemsSection() {
 
 function ScrollCategoryCard({ label, count, costs, desc }: { label: string; count: number; costs: (number | undefined)[]; desc: string }) {
   return (
-    <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-3">
-      <p className="font-bold text-white text-sm">{label} <span className="text-gray-500 font-normal">({count})</span></p>
+    <div className="bg-stone-50 border border-stone-200 rounded-lg p-3">
+      <p className="font-bold text-gray-900 text-sm">{label} <span className="text-gray-400 font-normal">({count})</span></p>
       <p className="text-xs text-gray-500 mt-1">{desc}</p>
-      <p className="text-[11px] text-amber-400 font-mono mt-1.5">Tier 1/2/3: {costs.map(c => c ?? '—').join(' / ')}g</p>
+      <p className="text-[11px] text-amber-600 font-mono mt-1.5">Tier 1/2/3: {costs.map(c => c ?? '—').join(' / ')}g</p>
     </div>
   );
 }
@@ -710,21 +710,21 @@ function AchievementsSection() {
       <TLDR>Titles and achievements are the world's own record of how reliable a keeper you've become.</TLDR>
       <div className="max-w-2xl space-y-4">
         <div>
-          <p className="text-sm text-gray-300 mb-2">
+          <p className="text-sm text-gray-700 mb-2">
             Your title rises automatically with your player level — no separate unlock needed.
           </p>
           <div className="flex flex-wrap gap-2">
             {TITLE_TIERS.map(t => (
-              <div key={t.title} className="flex items-center gap-1.5 bg-neutral-900 border border-neutral-800 rounded-full px-3 py-1.5">
+              <div key={t.title} className="flex items-center gap-1.5 bg-stone-50 border border-stone-200 rounded-full px-3 py-1.5">
                 <span>{t.icon}</span>
-                <span className="text-sm font-bold text-white">{t.title}</span>
+                <span className="text-sm font-bold text-gray-900">{t.title}</span>
                 <span className="text-[11px] text-gray-500">Lv.{t.minLevel}+</span>
               </div>
             ))}
           </div>
         </div>
-        <p className="text-sm text-gray-300">
-          There are <b className="text-white">{ACHIEVEMENTS.length} achievements</b> to earn across the whole app — leveling up,
+        <p className="text-sm text-gray-700">
+          There are <b className="text-gray-900">{ACHIEVEMENTS.length} achievements</b> to earn across the whole app — leveling up,
           gold milestones, guild sessions, battles won, and more. Every one of them is the world noticing something you actually
           did, not something handed out for free.
         </p>
@@ -738,11 +738,11 @@ function GlossarySection() {
     <div>
       <SectionTitle>Glossary</SectionTitle>
       <TLDR>Quick lookups for words used everywhere else in the app.</TLDR>
-      <div className="max-w-2xl divide-y divide-neutral-800">
+      <div className="max-w-2xl divide-y divide-stone-200">
         {GLOSSARY.map(g => (
           <div key={g.term} className="py-2.5">
-            <p className="font-bold text-white text-sm">{g.term}</p>
-            <p className="text-xs text-gray-400 mt-0.5">{g.definition}</p>
+            <p className="font-bold text-gray-900 text-sm">{g.term}</p>
+            <p className="text-xs text-gray-500 mt-0.5">{g.definition}</p>
           </div>
         ))}
       </div>
