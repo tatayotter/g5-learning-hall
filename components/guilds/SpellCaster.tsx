@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState, useEffect, useRef } from 'react';
 import { useTimeAttack } from '@/hooks/useTimeAttack';
 import {
@@ -159,10 +159,10 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
           const typed = typedValue[i];
           let color = 'text-gray-600'; // untyped
           if (typed !== undefined) {
-            color = typed.toLowerCase() === char.toLowerCase() ? 'text-violet-300' : 'text-red-400';
+            color = typed.toLowerCase() === char.toLowerCase() ? 'text-violet-300' : 'text-red-500';
           }
           return (
-            <span key={i} className={`text-4xl font-mono font-bold tracking-widest ${color}`}>
+            <span key={i} className={`text-4xl font-mono font-bold tracking-widest text-gray-900 ${color}`}>
               {char}
             </span>
           );
@@ -173,7 +173,7 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
 
   if (screen === 'loading') {
     return (
-      <div className="bg-[#13111c] border-2 border-violet-800 rounded-xl p-12 text-center text-violet-300 font-mono">
+      <div className="bg-white border border-stone-200 rounded-2xl p-8 text-center text-gray-400 animate-pulse">
         Summoning spell library...
       </div>
     );
@@ -182,42 +182,42 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
   if (screen === 'ready') {
     return (
       <div className="max-w-2xl mx-auto battle-panel-in">
-        <div className="bg-[#13111c] border-2 border-violet-800 rounded-2xl p-10 text-center shadow-2xl">
+        <div className="bg-white/90 border border-stone-200 rounded-2xl shadow-sm p-8 text-center">
           <div className="w-40 h-40 mx-auto mb-4">
             <GuardianSprite guild="spellcaster" pose="idle" className="w-full h-full" />
           </div>
-          <h2 className="text-4xl font-display font-bold text-violet-300 mb-2">SpellCaster Guild</h2>
-          <p className="text-violet-600 font-mono italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'spellcaster')?.lore}</p>
-          <p className="text-violet-500 font-mono mb-1">Lvl {profile?.spellcaster_lvl || 1} · {profile?.spellcaster_xp || 0}/500 XP</p>
-          <p className="text-gray-400 mb-8 font-mono text-sm max-w-md mx-auto">Type each word exactly as shown. The moment you spell it correctly, it vanishes and the next appears. No Enter key — pure speed.</p>
+          <h2 className="text-4xl font-display font-bold text-violet-700 mb-2">SpellCaster Guild</h2>
+          <p className="text-gray-500 italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'spellcaster')?.lore}</p>
+          <p className="text-violet-600 font-medium mb-1">Lvl {profile?.spellcaster_lvl || 1} · {profile?.spellcaster_xp || 0}/500 XP</p>
+          <p className="text-gray-500 mb-6 text-sm max-w-md mx-auto">Type each word exactly as shown. The moment you spell it correctly, it vanishes and the next appears. No Enter key — pure speed.</p>
 
           <div className="grid grid-cols-3 gap-4 mb-8 text-center">
-            <div className="bg-black/40 rounded-xl p-4">
+            <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
               <p className="text-2xl font-bold font-mono text-white">⏱ {timeLimit}s</p>
               <p className="text-xs text-gray-500 mt-1">Time Limit</p>
             </div>
-            <div className="bg-black/40 rounded-xl p-4">
+            <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
               <p className="text-2xl font-bold font-mono text-violet-400">+{XP_PER_CORRECT} XP</p>
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
-            <div className="bg-black/40 rounded-xl p-4">
-              <p className="text-2xl font-bold font-mono text-yellow-400">+{GOLD_PER_CORRECT}<img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /></p>
+            <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
+              <p className="text-2xl font-bold font-mono text-amber-600">+{GOLD_PER_CORRECT}<img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /></p>
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
           </div>
 
           {questions.length === 0 ? (
-            <p className="text-red-400">No active words found for this term. Ask Tatay to add some in Supabase.</p>
+            <p className="text-red-500">No active words found for this term. Ask Tatay to add some in Supabase.</p>
           ) : (
             <GameButton
               onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'spellcaster' }); }}
-              className="bg-violet-700 hover:bg-violet-600 text-white font-bold py-3 px-10 rounded-xl transition-colors font-mono text-lg"
+              className="bg-yellow-400 text-black border-2 border-black shadow-[3px_3px_0_0_#000] hover:-translate-y-0.5 hover:shadow-[3px_4px_0_0_#000] active:shadow-none active:translate-y-0.5 transition-all font-extrabold py-3 px-10 rounded-xl font-display text-lg"
             >
               ⚔️ Begin Time Attack
             </GameButton>
           )}
           <div className="mt-6">
-            <GameButton onClick={onExit} className="text-sm text-gray-500 hover:text-gray-300">← Retreat to Map</GameButton>
+            <GameButton onClick={onExit} className="text-sm text-gray-400 hover:text-gray-700 font-bold">← Retreat to Map</GameButton>
           </div>
         </div>
       </div>
@@ -231,94 +231,131 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
     const feedbackClass = flashResult === 'correct' ? 'battle-answer-correct' : flashResult === 'wrong' ? 'battle-answer-wrong' : '';
 
     return (
-      <div className="max-w-2xl mx-auto">
+      <div className="fixed inset-0 font-serif flex flex-col lg:flex-row lg:items-center lg:justify-center lg:bg-violet-900" style={{ zIndex: 80 }}>
         <CritBonusToast event={engine.lastCrit} />
-        <div className="flex justify-between items-center mb-4">
-          <div className="flex items-center gap-3">
-            <span className={`text-2xl font-bold font-mono ${engine.timeLeft <= 10 ? 'text-red-400 animate-pulse' : 'text-violet-300'}`}>⏱ {engine.timeLeft}s</span>
-            <div className="w-32 bg-neutral-800 rounded-full h-2">
-              <div className={`h-2 rounded-full transition-all ${timerColor}`} style={{ width: `${timerPct}%` }} />
+        <div className="flex flex-col w-full lg:max-w-xl lg:max-h-[90vh] lg:rounded-2xl lg:overflow-hidden lg:shadow-2xl flex-1 min-h-0 lg:flex-none">
+
+          {/* HUD */}
+          <div className="flex-shrink-0 bg-stone-900">
+            <div className="flex justify-between items-center px-4 py-2">
+              <span className={`text-lg font-bold ${engine.timeLeft <= 10 ? 'text-red-400 animate-pulse' : 'text-violet-400'}`}>⏱ {engine.timeLeft}s</span>
+              <span className="text-sm text-orange-400 font-bold">🔥 x{engine.currentMultiplier}</span>
+              <span className="text-sm text-violet-400 font-bold">Score: {engine.score}</span>
+            </div>
+            <div className="h-1.5 bg-stone-700 w-full">
+              <div className="h-1.5 bg-violet-500 transition-all" style={{ width: `${timerPct}%` }} />
             </div>
           </div>
-          <span className="text-violet-400 font-mono">🔥 x{engine.currentMultiplier}</span>
-          <span className="text-violet-300 font-bold font-mono">Score: {engine.score}</span>
-        </div>
 
-        <div className="w-28 h-28 mx-auto mb-2">
-          <GuardianSprite guild="spellcaster" pose={flashResult === 'correct' ? 'hurt' : 'idle'} className="w-full h-full" />
-        </div>
-
-        {/* Static wrapper (not remounted per word) — SpellCaster is real-time
-            typing with no submit step, so the input must never lose focus or
-            unmount between words. Only the feedback pulse/shake class changes. */}
-        <div className={`bg-[#13111c] border-2 border-violet-800 rounded-xl p-8 shadow-2xl transition-colors ${feedbackClass}`}>
-          <p className="text-center text-xs text-gray-600 font-mono mb-4">{difficultyStars}</p>
-
-          {renderWordDisplay()}
-
-          <input
-            ref={inputRef}
-            type="text"
-            value={typedValue}
-            onChange={handleInput}
-            autoComplete="off"
-            autoCorrect="off"
-            autoCapitalize="off"
-            spellCheck={false}
-            className="w-full bg-black/50 border-2 border-violet-700 rounded-lg p-4 text-center text-xl font-mono text-white focus:outline-none focus:border-violet-400 caret-violet-400"
-            placeholder="Type the word..."
-          />
-
-          <div className="flex justify-between text-xs text-gray-600 font-mono mt-4">
-            <span>✅ {engine.correctCount}</span>
-            <span>❌ {engine.wrongCount}</span>
+          {/* Sprite strip */}
+          <div
+            className="flex-shrink-0 flex items-center justify-center py-2"
+            style={{ backgroundImage: "url('/guilds/spell-bg.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+          >
+            <div className="w-40 h-40 landscape:w-20 landscape:h-20 lg:w-52 lg:h-52">
+              <GuardianSprite guild="spellcaster" pose={flashResult === 'correct' ? 'hurt' : 'idle'} className="w-full h-full" />
+            </div>
           </div>
+
+          {/* Game card — static wrapper, input must never unmount between words */}
+          <div className="flex-1 flex flex-col min-h-0">
+            <div className={`bg-white border-t border-stone-200 p-4 shadow-sm transition-colors ${feedbackClass} flex flex-col flex-1 landscape:overflow-y-auto`}>
+              <p className="text-center text-xs text-gray-500 font-mono mb-4">{difficultyStars}</p>
+
+              {renderWordDisplay()}
+
+              <input
+                ref={inputRef}
+                type="text"
+                value={typedValue}
+                onChange={handleInput}
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck={false}
+                className="w-full bg-stone-900 border-2 border-violet-700 rounded-lg p-4 text-center text-xl font-mono text-white focus:outline-none focus:border-violet-400 caret-violet-400"
+                placeholder="Type the word..."
+              />
+
+              <div className="flex justify-between text-xs text-gray-500 font-mono mt-4">
+                <span>✅ {engine.correctCount}</span>
+                <span>❌ {engine.wrongCount}</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     );
   }
 
+  // --- RESULTS ---
+  const rank = engine.correctCount >= 10 ? { emoji: '🏆', label: 'Master Speller', color: 'text-yellow-500' }
+    : engine.correctCount >= 5 ? { emoji: '⭐', label: 'Adept Mage', color: 'text-violet-400' }
+    : { emoji: '🧙', label: 'Apprentice', color: 'text-stone-400' };
+
   return (
-    <div className="max-w-2xl mx-auto battle-panel-in">
+    <div className="fixed inset-0 font-serif flex flex-col lg:flex-row lg:items-center lg:justify-center lg:bg-violet-900 battle-panel-in" style={{ zIndex: 80 }}>
       {newCurioId && ALL_MONSTERS[newCurioId] && (
         <CurioRevealModal monster={ALL_MONSTERS[newCurioId]} userId={userId} onClose={() => setNewCurioId(null)} />
       )}
       {companionGraduation && (
-        <GraduationCeremonyModal
-          {...companionGraduation}
-          userId={userId}
-          onGoToCompendium={() => setCompanionGraduation(null)}
-        />
+        <GraduationCeremonyModal {...companionGraduation} userId={userId} onGoToCompendium={() => setCompanionGraduation(null)} />
       )}
-      <div className="bg-[#13111c] border-2 border-violet-800 rounded-2xl p-10 text-center shadow-2xl font-mono">
-        <div className="w-40 h-40 mx-auto mb-4">
-          <GuardianSprite guild="spellcaster" pose="defeated" className="w-full h-full" />
+      <div className="flex flex-col w-full lg:max-w-xl lg:max-h-[90vh] lg:rounded-2xl lg:overflow-hidden lg:shadow-2xl flex-1 min-h-0 lg:flex-none">
+        <div className="flex-shrink-0 bg-stone-900 px-4 py-3 flex items-center justify-between">
+          <span className="text-violet-400 font-bold text-sm tracking-wide uppercase">Session Complete</span>
+          <span className={`text-lg font-bold ${rank.color}`}>{rank.emoji} {rank.label}</span>
         </div>
-        <div className="text-5xl mb-2">{engine.correctCount >= 10 ? '🏆' : engine.correctCount >= 5 ? '⭐' : '🧙‍♂️'}</div>
-        <h2 className="text-3xl font-bold text-violet-300 mb-4 font-display">Guardian Defeated!</h2>
-
-        <div className="grid grid-cols-2 gap-4 mb-8">
-          <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-green-400">{engine.correctCount}</p>
-            <p className="text-sm text-gray-500 mt-1">Words Spelled</p>
+        <div className="flex flex-col landscape:flex-row flex-1 min-h-0">
+          <div
+            className="flex-shrink-0 flex items-center justify-center py-4 landscape:w-2/5 landscape:py-0"
+            style={{ backgroundImage: "url('/guilds/spell-bg.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+          >
+            <div className="w-44 h-44 landscape:w-32 landscape:h-32 lg:w-52 lg:h-52">
+              <GuardianSprite guild="spellcaster" pose="defeated" className="w-full h-full" />
+            </div>
           </div>
-          <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-red-400">{engine.wrongCount}</p>
-            <p className="text-sm text-gray-500 mt-1">Missed</p>
+          <div className="flex-1 bg-white overflow-y-auto flex flex-col min-h-0">
+          <div className="p-4 flex flex-col gap-3 flex-1">
+            <div className="grid grid-cols-2 gap-2">
+              <div className="bg-green-50 border border-green-200 rounded-2xl p-3 text-center">
+                <p className="text-3xl font-bold font-mono text-green-600">{engine.correctCount}</p>
+                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Words Spelled</p>
+              </div>
+              <div className="bg-red-50 border border-red-200 rounded-2xl p-3 text-center">
+                <p className="text-3xl font-bold font-mono text-red-500">{engine.wrongCount}</p>
+                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Missed</p>
+              </div>
+              <div className="bg-violet-50 border border-violet-200 rounded-2xl p-3 text-center">
+                <p className="text-3xl font-bold font-mono text-violet-700">+{engine.totalXpEarned}</p>
+                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Subclass XP</p>
+              </div>
+              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-3 text-center">
+                <p className="text-3xl font-bold font-mono text-amber-600 flex items-center justify-center gap-1">
+                  <img src="/icons/rewards/gold_coin.svg" alt="" className="w-5 h-5" />{engine.totalGoldEarned}
+                </p>
+                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Gold Earned</p>
+              </div>
+            </div>
+            {(engine.correctCount + engine.wrongCount) > 0 && (() => {
+              const pct = Math.round((engine.correctCount / (engine.correctCount + engine.wrongCount)) * 100);
+              return (
+                <div>
+                  <div className="flex justify-between text-xs text-gray-500 mb-1"><span>Accuracy</span><span className="font-bold text-violet-700">{pct}%</span></div>
+                  <div className="h-2 bg-stone-100 rounded-full overflow-hidden">
+                    <div className="h-2 bg-violet-500 rounded-full transition-all" style={{ width: `${pct}%` }} />
+                  </div>
+                </div>
+              );
+            })()}
+            <div className="flex flex-col gap-3 mt-auto pt-2">
+              <GameButton onClick={() => { engine.start(); setScreen('playing'); }} className="w-full bg-violet-600 hover:bg-violet-700 text-white font-bold py-3 px-6 rounded-xl transition-colors text-base">⚔️ Play Again</GameButton>
+              <GameButton onClick={onExit} className="w-full bg-stone-100 hover:bg-stone-200 text-gray-600 font-bold py-3 px-6 rounded-xl transition-colors text-sm">← Return to Campaign Map</GameButton>
+            </div>
           </div>
-          <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-violet-400">{engine.totalXpEarned}</p>
-            <p className="text-sm text-gray-500 mt-1">Subclass XP</p>
-          </div>
-          <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-yellow-400"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {engine.totalGoldEarned}</p>
-            <p className="text-sm text-gray-500 mt-1">Gold Earned</p>
           </div>
         </div>
-
-        <GameButton onClick={onExit} className="bg-neutral-800 hover:bg-neutral-700 text-white font-bold py-3 px-6 rounded-xl transition-colors">
-          Return to Campaign Map
-        </GameButton>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { GUILDS } from '@/lib/dailyChecklist';
@@ -88,13 +88,13 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
   const completedIdsRef = useRef<string[]>([]);
 
   // Theme colors
-  const accent = isTala ? 'text-pink-400' : 'text-amber-400';
+  const accent = isTala ? 'text-pink-600' : 'text-amber-600';
   const accentBg = isTala ? 'bg-pink-600 hover:bg-pink-500' : 'bg-amber-600 hover:bg-amber-500';
   const correctBorder = isTala ? 'border-pink-400 bg-pink-900/20' : 'border-green-400 bg-green-900/20';
   const wrongBorder = 'border-red-500 bg-red-900/20';
   const langBadge = isTala
-    ? 'bg-pink-900/30 text-pink-300 border border-pink-800'
-    : 'bg-blue-900/30 text-blue-300 border border-blue-800';
+    ? 'bg-pink-50 text-pink-700 border border-pink-200'
+    : 'bg-blue-50 text-blue-700 border border-blue-200';
 
   // Load words — routed through the shared guild engine so Lexicon Arena
   // gets the same no-repeat completion tracking and tier progression/prestige
@@ -249,10 +249,10 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
   if (phase === 'intro') {
     return (
       <div className="max-w-2xl mx-auto">
-        <GameButton onClick={onExit} className="text-gray-400 hover:text-white text-sm font-bold mb-6 flex items-center gap-1">
+        <GameButton onClick={onExit} className="text-gray-400 hover:text-gray-700 text-sm font-bold mb-6 flex items-center gap-1">
           ← Back to Guilds
         </GameButton>
-        <div className="bg-[#111] border border-[#333] rounded-2xl p-10 text-center">
+        <div className="bg-white/90 border border-stone-200 rounded-2xl shadow-sm p-8 text-center">
           <div className="w-40 h-40 mx-auto mb-4">
             <GuardianSprite guild="lexiconarena" pose="idle" className="w-full h-full" />
           </div>
@@ -260,27 +260,27 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
           <p className="text-gray-500 italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'lexicon_arena')?.lore}</p>
           <p className={`${accent} font-mono mb-1`}>Lvl {profile?.lexicon_arena_lvl || 1} · {profile?.lexicon_arena_xp || 0}/500 XP</p>
           <p className="text-gray-500 text-xs mb-1">Difficulty {'★'.repeat(profile?.lexicon_arena_tier || 1)}{'☆'.repeat(Math.max(0, 3 - (profile?.lexicon_arena_tier || 1)))}</p>
-          <p className="text-gray-400 mb-8 max-w-md mx-auto">
+          <p className="text-gray-500 mb-6 text-sm max-w-md mx-auto">
             Read the definition carefully, then pick the <span className="font-bold text-white">correctly spelled word</span> from the four choices. Watch out — the wrong ones look very close!
           </p>
           <div className="grid grid-cols-3 gap-4 mb-8 text-center">
-            <div className="bg-black/40 rounded-xl p-4">
+            <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
               <p className="text-2xl font-bold font-mono text-white">⏱ {isTala ? '120s' : '60s'}</p>
               <p className="text-xs text-gray-500 mt-1">Time Limit</p>
             </div>
-            <div className="bg-black/40 rounded-xl p-4">
+            <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
               <p className={`text-2xl font-bold font-mono ${accent}`}>+{XP_PER_CORRECT} XP</p>
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
-            <div className="bg-black/40 rounded-xl p-4">
-              <p className="text-2xl font-bold font-mono text-yellow-400">+{GOLD_PER_CORRECT}<img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /></p>
+            <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
+              <p className="text-2xl font-bold font-mono text-amber-600">+{GOLD_PER_CORRECT}<img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /></p>
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
           </div>
           {loading ? (
             <p className="text-gray-500 animate-pulse">Loading word pool...</p>
           ) : words.length === 0 ? (
-            <p className="text-red-400">No words loaded for your grade yet.</p>
+            <p className="text-red-500">No words loaded for your grade yet.</p>
           ) : (
             <GameButton
               onClick={() => { setPhase('playing'); trackEvent('guild_quiz_start', { guild_key: 'lexicon_arena' }); }}
@@ -299,73 +299,85 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
     const goldEarned = weightedGold + bonusGold;
     const xpEarned = weightedXp;
     const accuracy = score + wrongCount > 0 ? Math.round((score / (score + wrongCount)) * 100) : 0;
+    const rank = score >= 10 ? { emoji: '🏆', label: 'Lexicon Master', color: 'text-yellow-500' }
+      : score >= 5 ? { emoji: '⭐', label: 'Word Adept', color: 'text-blue-400' }
+      : { emoji: '📜', label: 'Apprentice', color: 'text-stone-400' };
 
     return (
-      <div className="max-w-2xl mx-auto">
+      <div className="fixed inset-0 font-serif flex flex-col lg:flex-row lg:items-center lg:justify-center lg:bg-blue-900 battle-panel-in" style={{ zIndex: 80 }}>
         {newCurioId && ALL_MONSTERS[newCurioId] && (
           <CurioRevealModal monster={ALL_MONSTERS[newCurioId]} userId={userId} onClose={() => { setNewCurioId(null); onExit(); }} />
         )}
         {companionGraduation && (
-          <GraduationCeremonyModal
-            {...companionGraduation}
-            userId={userId}
-            onGoToCompendium={() => { setCompanionGraduation(null); onExit(); }}
-          />
+          <GraduationCeremonyModal {...companionGraduation} userId={userId} onGoToCompendium={() => { setCompanionGraduation(null); onExit(); }} />
         )}
-        <div className="bg-[#111] border border-[#333] rounded-2xl p-10 text-center">
-          <div className="w-40 h-40 mx-auto mb-4">
-            <GuardianSprite guild="lexiconarena" pose="defeated" className="w-full h-full" />
+        <div className="flex flex-col w-full lg:max-w-xl lg:max-h-[90vh] lg:rounded-2xl lg:overflow-hidden lg:shadow-2xl flex-1 min-h-0 lg:flex-none">
+          <div className="flex-shrink-0 bg-stone-900 px-4 py-3 flex items-center justify-between">
+            <span className="text-blue-400 font-bold text-sm tracking-wide uppercase">Session Complete</span>
+            <span className={`text-lg font-bold ${rank.color}`}>{rank.emoji} {rank.label}</span>
           </div>
-          <div className="text-5xl mb-4">{score >= 10 ? '🏆' : score >= 5 ? '⭐' : '📜'}</div>
-          <h2 className="text-3xl font-display font-bold text-white mb-2">Time's Up!</h2>
-          <p className="text-gray-400 mb-8">Here's how you did in the Lexicon Arena</p>
-
-          <div className="grid grid-cols-2 gap-4 mb-8">
-            <div className="bg-black/40 rounded-xl p-5">
-              <p className="text-4xl font-bold font-mono text-green-400">{score}</p>
-              <p className="text-sm text-gray-500 mt-1">Correct</p>
-            </div>
-            <div className="bg-black/40 rounded-xl p-5">
-              <p className="text-4xl font-bold font-mono text-red-400">{wrongCount}</p>
-              <p className="text-sm text-gray-500 mt-1">Wrong</p>
-            </div>
-            <div className="bg-black/40 rounded-xl p-5">
-              <p className={`text-4xl font-bold font-mono ${accent}`}>{accuracy}%</p>
-              <p className="text-sm text-gray-500 mt-1">Accuracy</p>
-            </div>
-            <div className="bg-black/40 rounded-xl p-5">
-              <p className="text-4xl font-bold font-mono text-yellow-400"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {goldEarned}</p>
-              <p className="text-sm text-gray-500 mt-1">Gold Earned</p>
-            </div>
-          </div>
-
-          <p className="text-gray-400 mb-6">
-            You also earned <span className={`font-bold ${accent}`}>{xpEarned} XP</span>!
-          </p>
-
-          <div className="flex gap-4 justify-center">
-            <GameButton
-              onClick={() => {
-                setPhase('intro');
-                setScore(0);
-                setWrongCount(0);
-                setBonusGold(0);
-                setWeightedGold(0);
-                setWeightedXp(0);
-                setTimeLeft(isTala ? TIME_LIMIT_TALA : TIME_LIMIT_DEFAULT);
-                setCurrentIndex(0);
-                setWords(prev => shuffle([...prev]));
-              }}
-              className="bg-neutral-800 hover:bg-neutral-700 text-white font-bold py-3 px-6 rounded-xl transition-colors"
+          <div className="flex flex-col landscape:flex-row flex-1 min-h-0">
+            <div
+              className="flex-shrink-0 flex items-center justify-center py-4 landscape:w-2/5 landscape:py-0"
+              style={{ backgroundImage: "url('/guilds/lex-bg.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
             >
-              🔁 Play Again
-            </GameButton>
-            <GameButton
-              onClick={handleFinish}
-              className={`${accentBg} text-white font-bold py-3 px-6 rounded-xl transition-colors`}
-            >
-              ✅ Collect Rewards
-            </GameButton>
+              <div className="w-44 h-44 landscape:w-32 landscape:h-32 lg:w-52 lg:h-52">
+                <GuardianSprite guild="lexiconarena" pose="defeated" className="w-full h-full" />
+              </div>
+            </div>
+            <div className="flex-1 bg-white overflow-y-auto flex flex-col min-h-0">
+            <div className="p-4 flex flex-col gap-3 flex-1">
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-green-50 border border-green-200 rounded-2xl p-3 text-center">
+                  <p className="text-3xl font-bold font-mono text-green-600">{score}</p>
+                  <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Correct</p>
+                </div>
+                <div className="bg-red-50 border border-red-200 rounded-2xl p-3 text-center">
+                  <p className="text-3xl font-bold font-mono text-red-500">{wrongCount}</p>
+                  <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Wrong</p>
+                </div>
+                <div className="bg-blue-50 border border-blue-200 rounded-2xl p-3 text-center">
+                  <p className={`text-3xl font-bold font-mono ${accent}`}>{accuracy}%</p>
+                  <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Accuracy</p>
+                </div>
+                <div className="bg-amber-50 border border-amber-200 rounded-2xl p-3 text-center">
+                  <p className="text-3xl font-bold font-mono text-amber-600 flex items-center justify-center gap-1">
+                    <img src="/icons/rewards/gold_coin.svg" alt="" className="w-5 h-5" />{goldEarned}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Gold Earned</p>
+                </div>
+              </div>
+              {xpEarned > 0 && (
+                <p className="text-center text-sm text-gray-500">
+                  Also earned <span className={`font-bold ${accent}`}>+{xpEarned} Subclass XP</span>
+                </p>
+              )}
+              <div className="flex flex-col gap-3 mt-auto pt-2">
+                <GameButton
+                  onClick={() => {
+                    setPhase('playing');
+                    setScore(0);
+                    setWrongCount(0);
+                    setBonusGold(0);
+                    setWeightedGold(0);
+                    setWeightedXp(0);
+                    setTimeLeft(isTala ? TIME_LIMIT_TALA : TIME_LIMIT_DEFAULT);
+                    setCurrentIndex(0);
+                    setWords(prev => shuffle([...prev]));
+                  }}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-colors text-base"
+                >
+                  🔁 Play Again
+                </GameButton>
+                <GameButton
+                  onClick={handleFinish}
+                  className="w-full bg-stone-100 hover:bg-stone-200 text-gray-600 font-bold py-3 px-6 rounded-xl transition-colors text-sm"
+                >
+                  ✅ Collect Rewards
+                </GameButton>
+              </div>
+            </div>
+            </div>
           </div>
         </div>
       </div>
@@ -374,90 +386,93 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
 
   // ── PLAYING ──
   return (
-    <div className="max-w-2xl mx-auto">
-      {/* Header: timer + score */}
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center gap-3">
-          <span className={`text-2xl font-bold font-mono ${timeLeft <= 10 ? 'text-red-400 animate-pulse' : 'text-white'}`}>
-            ⏱ {timeLeft}s
-          </span>
-          <div className="w-40 bg-neutral-800 rounded-full h-2">
-            <div
-              className={`h-2 rounded-full transition-all ${timerColor}`}
-              style={{ width: `${timerPct}%` }}
-            />
+    <div className="fixed inset-0 font-serif flex flex-col lg:flex-row lg:items-center lg:justify-center lg:bg-blue-900" style={{ zIndex: 80 }}>
+      <CritBonusToast event={lastCrit} />
+      <div className="flex flex-col w-full lg:max-w-xl lg:max-h-[90vh] lg:rounded-2xl lg:overflow-hidden lg:shadow-2xl flex-1 min-h-0 lg:flex-none">
+
+        {/* HUD */}
+        <div className="flex-shrink-0 bg-stone-900">
+          <div className="flex justify-between items-center px-4 py-2">
+            <span className={`text-lg font-bold ${timeLeft <= 10 ? 'text-red-400 animate-pulse' : 'text-blue-400'}`}>⏱ {timeLeft}s</span>
+            <span className="text-sm text-green-400 font-bold">✓ {score}</span>
+            <span className="text-sm text-amber-400 font-bold flex items-center gap-1">
+              <img src="/icons/rewards/gold_coin.svg" alt="" className="w-4 h-4" />{weightedGold + bonusGold}
+            </span>
+          </div>
+          <div className="h-1.5 bg-stone-700 w-full">
+            <div className={`h-1.5 transition-all ${timerColor}`} style={{ width: `${timerPct}%` }} />
           </div>
         </div>
-        <div className="flex items-center gap-4 font-mono text-sm">
-          <span className="text-green-400">✓ {score}</span>
-          <span className="text-red-400">✗ {wrongCount}</span>
-          <span className="text-yellow-400"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {weightedGold + bonusGold}</span>
+
+        {/* Sprite strip */}
+        <div
+          className="flex-shrink-0 flex items-center justify-center py-2"
+          style={{ backgroundImage: "url('/guilds/lex-bg.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
+          <div className="w-40 h-40 landscape:w-20 landscape:h-20 lg:w-52 lg:h-52">
+            <GuardianSprite guild="lexiconarena" pose={feedback === 'correct' ? 'hurt' : 'idle'} className="w-full h-full" />
+          </div>
         </div>
+
+        {/* Word card */}
+        <div className="flex-1 flex flex-col min-h-0">
+          <AnimatePresence mode="wait">
+            {current && (
+              <motion.div
+                key={current.id + currentIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.15 }}
+                className="bg-white border-t border-stone-200 p-4 shadow-sm flex flex-col flex-1 landscape:overflow-y-auto"
+              >
+                {/* Language badge + counter */}
+                <div className="flex justify-between items-center mb-3">
+                  <span className={`text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${langBadge}`}>
+                    {current.language}
+                  </span>
+                  <span className="text-xs text-gray-500 font-mono">
+                    Word {currentIndex + 1} of {words.length}
+                  </span>
+                </div>
+
+                {/* Definition */}
+                <p className="text-center text-xs text-gray-500 mb-1">
+                  {'★'.repeat(current.difficulty_tier)}{'☆'.repeat(Math.max(0, 3 - current.difficulty_tier))}
+                </p>
+                <p className="text-base text-gray-800 leading-relaxed mb-4 text-center font-medium">
+                  "{current.definition}"
+                </p>
+
+                {/* Choices */}
+                <div className="grid grid-cols-2 gap-2 landscape:grid-cols-2">
+                  {choices.map((choice, idx) => {
+                    const isSelected = selected === choice;
+                    const isCorrect = choice === current.correct_spelling;
+                    let cardStyle = 'bg-amber-50 border-amber-200 hover:border-blue-400 hover:bg-blue-50 text-gray-800';
+                    if (feedback && isSelected) {
+                      cardStyle = feedback === 'correct' ? 'bg-green-50 border-green-400 text-gray-800' : 'bg-red-50 border-red-400 text-gray-800';
+                    } else if (feedback && isCorrect) {
+                      cardStyle = 'bg-green-50 border-green-400 text-gray-800';
+                    }
+                    return (
+                      <GameButton
+                        key={`${choice}-${idx}`}
+                        onClick={() => handleChoice(choice)}
+                        disabled={!!selected}
+                        className={`w-full p-3 rounded-xl border-2 text-center font-bold text-sm transition-all ${cardStyle} disabled:cursor-default`}
+                      >
+                        {choice}
+                      </GameButton>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
       </div>
-
-      <CritBonusToast event={lastCrit} />
-
-      <div className="w-28 h-28 mx-auto mb-2">
-        <GuardianSprite guild="lexiconarena" pose={feedback === 'correct' ? 'hurt' : 'idle'} className="w-full h-full" />
-      </div>
-
-      {/* Word card */}
-      <AnimatePresence mode="wait">
-        {current && (
-          <motion.div
-            key={current.id + currentIndex}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.15 }}
-            className="bg-[#111] border border-[#333] rounded-2xl p-8"
-          >
-            {/* Language badge */}
-            <div className="flex justify-between items-center mb-5">
-              <span className={`text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${langBadge}`}>
-                {current.language}
-              </span>
-              <span className="text-xs text-gray-600 font-mono">
-                Word {currentIndex + 1} of {words.length}
-              </span>
-            </div>
-
-            {/* Definition */}
-            <p className="text-center text-xs text-gray-600 mb-2">
-              {'★'.repeat(current.difficulty_tier)}{'☆'.repeat(Math.max(0, 3 - current.difficulty_tier))}
-            </p>
-            <p className="text-lg text-gray-200 leading-relaxed mb-8 text-center font-medium">
-              "{current.definition}"
-            </p>
-
-            {/* Choices */}
-            <div className="grid grid-cols-2 gap-3">
-              {choices.map((choice, idx) => {
-                const isSelected = selected === choice;
-                const isCorrect = choice === current.correct_spelling;
-                let borderClass = 'border-neutral-700 hover:border-neutral-500';
-
-                if (feedback && isSelected) {
-                  borderClass = feedback === 'correct' ? correctBorder : wrongBorder;
-                } else if (feedback && isCorrect) {
-                  borderClass = correctBorder;
-                }
-
-                return (
-                  <GameButton
-                    key={`${choice}-${idx}`}
-                    onClick={() => handleChoice(choice)}
-                    disabled={!!selected}
-                    className={`w-full p-4 rounded-xl border-2 text-center font-bold text-base transition-all ${borderClass} disabled:cursor-default`}
-                  >
-                    {choice}
-                  </GameButton>
-                );
-              })}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }

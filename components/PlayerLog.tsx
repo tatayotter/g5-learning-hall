@@ -58,11 +58,11 @@ export default function PlayerLog({ userId }: { userId: string }) {
   }, [userId]);
 
   if (loading) {
-    return <div className="text-gray-500 animate-pulse">Loading player log...</div>;
+    return <div className="text-gray-400 animate-pulse text-sm">Loading player log…</div>;
   }
 
   if (entries.length === 0) {
-    return <p className="text-gray-500 italic">No log entries yet. Start a quest to write your legend!</p>;
+    return <p className="text-gray-400 italic text-sm">No log entries yet. Start a quest to write your legend!</p>;
   }
 
   const totalPages = Math.max(1, Math.ceil(entries.length / PAGE_SIZE));
@@ -85,41 +85,49 @@ export default function PlayerLog({ userId }: { userId: string }) {
         const totalGold = weekEntries.reduce((s, e) => s + (e.gold_change || 0), 0);
         return (
           <div key={week}>
-            <div className="flex justify-between items-center mb-3">
-              <h3 className="font-bold font-display text-blue-400">
-                Week of {format(new Date(week + 'T00:00:00'), 'MMMM d, yyyy')}
-              </h3>
-              <span className="text-xs font-mono text-gray-400">
-                {totalXp > 0 && <span className="text-blue-300 mr-2">+{totalXp} XP</span>}
+            {/* Week header */}
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-xs font-extrabold text-amber-700 uppercase tracking-widest whitespace-nowrap">
+                Week of {format(new Date(week + 'T00:00:00'), 'MMM d, yyyy')}
+              </span>
+              <div className="flex-1 h-px bg-amber-200" />
+              <span className="text-xs font-mono text-gray-500 flex items-center gap-2 flex-shrink-0">
+                {totalXp > 0 && (
+                  <span className="text-blue-600 font-bold">+{totalXp} XP</span>
+                )}
                 {totalGold !== 0 && (
-                  <span className={totalGold > 0 ? 'text-yellow-400' : 'text-red-400'}>
-                    {totalGold > 0 ? '+' : ''}{totalGold} <img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" />
+                  <span className={`font-bold flex items-center gap-0.5 ${totalGold > 0 ? 'text-amber-600' : 'text-red-500'}`}>
+                    {totalGold > 0 ? '+' : ''}{totalGold}
+                    <img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" />
                   </span>
                 )}
               </span>
             </div>
+
+            {/* Entry cards */}
             <div className="space-y-2">
               {weekEntries.map((entry) => (
                 <div
                   key={entry.id}
-                  className="flex justify-between items-start bg-black border border-neutral-800 rounded-lg p-3"
+                  className="flex justify-between items-start bg-amber-50 border border-amber-100 rounded-xl p-3 shadow-sm"
                 >
                   <div className="flex gap-3 items-start">
-                    <span className="text-lg">{ACTION_ICONS[entry.action_type] || '📌'}</span>
+                    <span className="text-base leading-none mt-0.5">{ACTION_ICONS[entry.action_type] || '📌'}</span>
                     <div>
-                      <p className="text-sm text-gray-200">{entry.description}</p>
-                      <p className="text-xs text-gray-600 mt-0.5">
+                      <p className="text-sm text-gray-800 font-medium">{entry.description}</p>
+                      <p className="text-xs text-gray-400 mt-0.5">
                         {format(new Date(entry.created_at), 'EEE, MMM d — h:mm a')}
                       </p>
                     </div>
                   </div>
-                  <div className="text-right text-xs font-mono ml-4 flex-shrink-0">
+                  <div className="text-right text-xs font-mono ml-4 flex-shrink-0 space-y-0.5">
                     {entry.xp_change !== 0 && (
-                      <div className="text-blue-400">+{entry.xp_change} XP</div>
+                      <div className="text-blue-600 font-bold">+{entry.xp_change} XP</div>
                     )}
                     {entry.gold_change !== 0 && (
-                      <div className={entry.gold_change > 0 ? 'text-yellow-400' : 'text-red-400'}>
-                        {entry.gold_change > 0 ? '+' : ''}{entry.gold_change} <img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" />
+                      <div className={`font-bold flex items-center justify-end gap-0.5 ${entry.gold_change > 0 ? 'text-amber-600' : 'text-red-500'}`}>
+                        {entry.gold_change > 0 ? '+' : ''}{entry.gold_change}
+                        <img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-3.5 h-3.5 align-[-1px]" />
                       </div>
                     )}
                   </div>
@@ -133,7 +141,7 @@ export default function PlayerLog({ userId }: { userId: string }) {
       {!showAll && entries.length > COLLAPSED_COUNT && (
         <button
           onClick={() => { setShowAll(true); setPage(0); }}
-          className="w-full text-center text-sm font-bold text-amber-400 hover:text-amber-300 py-2 border border-neutral-800 rounded-lg hover:bg-neutral-900 transition-colors"
+          className="w-full text-center text-sm font-bold text-amber-700 hover:text-amber-900 py-2.5 border border-amber-200 rounded-xl bg-amber-50 hover:bg-amber-100 transition-colors"
         >
           View All ({entries.length})
         </button>
@@ -143,7 +151,7 @@ export default function PlayerLog({ userId }: { userId: string }) {
         <div className="flex items-center justify-between pt-2">
           <button
             onClick={() => setShowAll(false)}
-            className="text-xs font-bold text-gray-500 hover:text-white transition-colors"
+            className="text-xs font-bold text-gray-400 hover:text-gray-700 transition-colors"
           >
             ← Show Recent Only
           </button>
@@ -152,15 +160,15 @@ export default function PlayerLog({ userId }: { userId: string }) {
               <button
                 onClick={() => setPage((p) => Math.max(0, p - 1))}
                 disabled={page === 0}
-                className="text-xs font-bold text-gray-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                className="text-xs font-bold text-gray-500 hover:text-gray-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
               >
                 ← Prev
               </button>
-              <span className="text-xs text-gray-500">Page {page + 1} of {totalPages}</span>
+              <span className="text-xs text-gray-400">Page {page + 1} of {totalPages}</span>
               <button
                 onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
                 disabled={page >= totalPages - 1}
-                className="text-xs font-bold text-gray-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                className="text-xs font-bold text-gray-500 hover:text-gray-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
               >
                 Next →
               </button>

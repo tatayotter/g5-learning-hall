@@ -25,6 +25,7 @@ export function useTimeAttack<T>(questionPool: T[], duration: number = TIME_ATTA
 
   useEffect(() => {
     if (phase !== 'active') return;
+    if (process.env.NEXT_PUBLIC_PAUSE_TIMER === 'true') return; // DEV: set to false in .env.local to re-enable
     if (timeLeft <= 0) {
       setPhase('ended');
       return;

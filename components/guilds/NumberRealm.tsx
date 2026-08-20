@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTimeAttack } from '@/hooks/useTimeAttack';
@@ -172,7 +172,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
   };
 
   const renderInputLayout = (q: NumberRealmQuestion) => {
-    const inputBase = "bg-black border-2 border-amber-700 rounded-lg text-center text-2xl font-bold font-mono text-white focus:outline-none focus:border-amber-400 p-3";
+    const inputBase = "bg-white border-2 border-amber-300 rounded-lg text-center text-2xl font-bold font-mono text-gray-900 focus:outline-none focus:border-amber-500 p-3";
 
     if (q.expected_layout === 'fraction') {
       return (
@@ -215,39 +215,39 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
   };
 
   if (screen === 'loading') {
-    return <div className="bg-[#0d0c08] border-2 border-amber-800 rounded-xl p-12 text-center text-amber-300 font-mono">Loading number arrays...</div>;
+    return <div className="bg-white border border-stone-200 rounded-2xl p-8 text-center text-gray-400 animate-pulse">Loading number arrays...</div>;
   }
 
   if (screen === 'ready') {
     return (
       <div className="max-w-2xl mx-auto battle-panel-in">
-        <div className="bg-[#0d0c08] border-2 border-amber-800 rounded-2xl p-10 text-center shadow-2xl">
+        <div className="bg-white/90 border border-stone-200 rounded-2xl shadow-sm p-8 text-center">
           <div className="w-40 h-40 mx-auto mb-4">
             <GuardianSprite guild="numberrealm" pose="idle" className="w-full h-full" />
           </div>
-          <h2 className="text-4xl font-display font-bold text-amber-300 mb-2">Number Realm</h2>
-          <p className="text-amber-700 font-mono italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'number_realm')?.lore}</p>
-          <p className="text-amber-600 font-mono mb-1">Lvl {profile?.number_realm_lvl || 1} · {profile?.number_realm_xp || 0}/500 XP</p>
-          <p className="text-amber-700 text-xs font-mono mb-1">Difficulty {'★'.repeat(profile?.number_realm_tier || 1)}{'☆'.repeat(Math.max(0, 3 - (profile?.number_realm_tier || 1)))}</p>
-          <p className="text-gray-400 mb-8 font-mono text-sm max-w-md mx-auto">Solve math problems in {timeLimit} seconds. Correct answers build your streak — the longer the streak, the greater the gold multiplier.</p>
+          <h2 className="text-4xl font-display font-bold text-amber-700 mb-2">Number Realm</h2>
+          <p className="text-gray-500 italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'number_realm')?.lore}</p>
+          <p className="text-amber-600 font-medium mb-1">Lvl {profile?.number_realm_lvl || 1} · {profile?.number_realm_xp || 0}/500 XP</p>
+          <p className="text-amber-600 text-xs font-medium mb-1">Difficulty {'★'.repeat(profile?.number_realm_tier || 1)}{'☆'.repeat(Math.max(0, 3 - (profile?.number_realm_tier || 1)))}</p>
+          <p className="text-gray-500 mb-6 text-sm max-w-md mx-auto">Solve math problems in {timeLimit} seconds. Correct answers build your streak — the longer the streak, the greater the gold multiplier.</p>
 
           <div className="grid grid-cols-3 gap-4 mb-8 text-center">
-            <div className="bg-black/40 rounded-xl p-4">
+            <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
               <p className="text-2xl font-bold font-mono text-white">⏱ {timeLimit}s</p>
               <p className="text-xs text-gray-500 mt-1">Time Limit</p>
             </div>
-            <div className="bg-black/40 rounded-xl p-4">
+            <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
               <p className="text-2xl font-bold font-mono text-amber-400">+{XP_PER_CORRECT} XP</p>
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
-            <div className="bg-black/40 rounded-xl p-4">
-              <p className="text-2xl font-bold font-mono text-yellow-400">+{GOLD_PER_CORRECT}<img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /></p>
+            <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
+              <p className="text-2xl font-bold font-mono text-amber-600">+{GOLD_PER_CORRECT}<img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /></p>
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
           </div>
 
           {questions.length === 0 ? (
-            <p className="text-red-400">No active problems found for this term.</p>
+            <p className="text-red-500">No active problems found for this term.</p>
           ) : (
             <GameButton onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'number_realm' }); }}
               className="bg-amber-700 hover:bg-amber-600 text-white font-bold py-3 px-10 rounded-xl transition-colors font-mono text-lg">
@@ -255,7 +255,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
             </GameButton>
           )}
           <div className="mt-6">
-            <GameButton onClick={onExit} className="text-sm text-gray-500 hover:text-gray-300">← Retreat to Map</GameButton>
+            <GameButton onClick={onExit} className="text-sm text-gray-400 hover:text-gray-700 font-bold">← Retreat to Map</GameButton>
           </div>
         </div>
       </div>
@@ -270,93 +270,133 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
     const feedbackClass = flashResult === 'correct' ? 'battle-answer-correct' : flashResult === 'wrong' ? 'battle-answer-wrong' : '';
 
     return (
-      <div className="max-w-2xl mx-auto">
+      <div className="fixed inset-0 font-serif flex flex-col lg:flex-row lg:items-center lg:justify-center lg:bg-amber-900" style={{ zIndex: 80 }}>
         <CritBonusToast event={engine.lastCrit} />
-        <div className="flex justify-between items-center mb-4">
-          <div className="flex items-center gap-3">
-            <span className={`text-2xl font-bold font-mono ${engine.timeLeft <= 10 ? 'text-red-400 animate-pulse' : 'text-amber-300'}`}>⏱ {engine.timeLeft}s</span>
-            <div className="w-32 bg-neutral-800 rounded-full h-2">
-              <div className={`h-2 rounded-full transition-all ${timerColor}`} style={{ width: `${timerPct}%` }} />
+        <div className="flex flex-col w-full lg:max-w-xl lg:max-h-[90vh] lg:rounded-2xl lg:overflow-hidden lg:shadow-2xl flex-1 min-h-0 lg:flex-none">
+
+          {/* HUD */}
+          <div className="flex-shrink-0 bg-stone-900">
+            <div className="flex justify-between items-center px-4 py-2">
+              <span className={`text-lg font-bold ${engine.timeLeft <= 10 ? 'text-red-400 animate-pulse' : 'text-amber-400'}`}>⏱ {engine.timeLeft}s</span>
+              <span className="text-sm text-orange-400 font-bold">🔥 x{engine.currentMultiplier}</span>
+              <span className="text-sm text-amber-400 font-bold">Score: {engine.score}</span>
+            </div>
+            <div className="h-1.5 bg-stone-700 w-full">
+              <div className="h-1.5 bg-amber-500 transition-all" style={{ width: `${timerPct}%` }} />
             </div>
           </div>
-          <span className="text-amber-400 font-mono">🔥 x{engine.currentMultiplier}</span>
-          <span className="text-amber-300 font-bold font-mono">Score: {engine.score}</span>
-        </div>
 
-        <div className="w-28 h-28 mx-auto mb-2">
-          <GuardianSprite guild="numberrealm" pose={flashResult === 'correct' ? 'hurt' : 'idle'} className="w-full h-full" />
-        </div>
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={q.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.15 }}
-            className={`bg-[#0d0c08] border-2 border-amber-800 rounded-xl p-8 shadow-2xl ${feedbackClass}`}
+          {/* Sprite strip */}
+          <div
+            className="flex-shrink-0 flex items-center justify-center py-2"
+            style={{ backgroundImage: "url('/guilds/number-bg.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
           >
-            <p className="text-center text-xs text-gray-600 font-mono mb-2">{difficultyStars}</p>
-            <p className="text-xl font-bold text-white text-center mb-6 leading-relaxed">{q.problem_prompt}</p>
-
-            {renderInputLayout(q)}
-
-            <GameButton onClick={checkAnswer}
-              className="w-full bg-amber-700 hover:bg-amber-600 text-white font-bold py-3 rounded-xl transition-colors font-mono">
-              Submit ↵
-            </GameButton>
-
-            <div className="flex justify-between text-xs text-gray-600 font-mono mt-4">
-              <span>✅ {engine.correctCount}</span>
-              <span>❌ {engine.wrongCount}</span>
+            <div className="w-40 h-40 landscape:w-20 landscape:h-20 lg:w-52 lg:h-52">
+              <GuardianSprite guild="numberrealm" pose={flashResult === 'correct' ? 'hurt' : 'idle'} className="w-full h-full" />
             </div>
-          </motion.div>
-        </AnimatePresence>
+          </div>
+
+          {/* Question card */}
+          <div className="flex-1 flex flex-col min-h-0">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={q.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.15 }}
+                className={`bg-white border-t border-stone-200 p-4 shadow-sm ${feedbackClass} flex flex-col flex-1 landscape:overflow-y-auto`}
+              >
+                <p className="text-center text-xs text-gray-500 font-mono mb-2">{difficultyStars}</p>
+                <p className="text-xl font-bold text-gray-900 text-center mb-4 leading-relaxed">{q.problem_prompt}</p>
+
+                {renderInputLayout(q)}
+
+                <GameButton onClick={checkAnswer}
+                  className="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-xl transition-colors font-mono">
+                  Submit ↵
+                </GameButton>
+
+                <div className="flex justify-between text-xs text-gray-500 font-mono mt-4">
+                  <span>✅ {engine.correctCount}</span>
+                  <span>❌ {engine.wrongCount}</span>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+        </div>
       </div>
     );
   }
 
+  // --- RESULTS ---
+  const rank = engine.correctCount >= 10 ? { emoji: '🏆', label: 'Math Champion', color: 'text-yellow-500' }
+    : engine.correctCount >= 5 ? { emoji: '⭐', label: 'Number Adept', color: 'text-amber-400' }
+    : { emoji: '🔢', label: 'Apprentice', color: 'text-stone-400' };
+
   return (
-    <div className="max-w-2xl mx-auto battle-panel-in">
+    <div className="fixed inset-0 font-serif flex flex-col lg:flex-row lg:items-center lg:justify-center lg:bg-amber-900 battle-panel-in" style={{ zIndex: 80 }}>
       {newCurioId && ALL_MONSTERS[newCurioId] && (
         <CurioRevealModal monster={ALL_MONSTERS[newCurioId]} userId={userId} onClose={() => setNewCurioId(null)} />
       )}
       {companionGraduation && (
-        <GraduationCeremonyModal
-          {...companionGraduation}
-          userId={userId}
-          onGoToCompendium={() => setCompanionGraduation(null)}
-        />
+        <GraduationCeremonyModal {...companionGraduation} userId={userId} onGoToCompendium={() => setCompanionGraduation(null)} />
       )}
-      <div className="bg-[#0d0c08] border-2 border-amber-800 rounded-2xl p-10 text-center shadow-2xl font-mono">
-        <div className="w-40 h-40 mx-auto mb-4">
-          <GuardianSprite guild="numberrealm" pose="defeated" className="w-full h-full" />
+      <div className="flex flex-col w-full lg:max-w-xl lg:max-h-[90vh] lg:rounded-2xl lg:overflow-hidden lg:shadow-2xl flex-1 min-h-0 lg:flex-none">
+        <div className="flex-shrink-0 bg-stone-900 px-4 py-3 flex items-center justify-between">
+          <span className="text-amber-400 font-bold text-sm tracking-wide uppercase">Session Complete</span>
+          <span className={`text-lg font-bold ${rank.color}`}>{rank.emoji} {rank.label}</span>
         </div>
-        <div className="text-5xl mb-2">{engine.correctCount >= 10 ? '🏆' : engine.correctCount >= 5 ? '⭐' : '🔢'}</div>
-        <h2 className="text-3xl font-bold text-amber-300 mb-4 font-display">Guardian Defeated!</h2>
-
-        <div className="grid grid-cols-2 gap-4 mb-8">
-          <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-green-400">{engine.correctCount}</p>
-            <p className="text-sm text-gray-500 mt-1">Correct</p>
+        <div className="flex flex-col landscape:flex-row flex-1 min-h-0">
+          <div
+            className="flex-shrink-0 flex items-center justify-center py-4 landscape:w-2/5 landscape:py-0"
+            style={{ backgroundImage: "url('/guilds/number-bg.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+          >
+            <div className="w-44 h-44 landscape:w-32 landscape:h-32 lg:w-52 lg:h-52">
+              <GuardianSprite guild="numberrealm" pose="defeated" className="w-full h-full" />
+            </div>
           </div>
-          <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-red-400">{engine.wrongCount}</p>
-            <p className="text-sm text-gray-500 mt-1">Wrong</p>
+          <div className="flex-1 bg-white overflow-y-auto flex flex-col min-h-0">
+          <div className="p-4 flex flex-col gap-3 flex-1">
+            <div className="grid grid-cols-2 gap-2">
+              <div className="bg-green-50 border border-green-200 rounded-2xl p-3 text-center">
+                <p className="text-3xl font-bold font-mono text-green-600">{engine.correctCount}</p>
+                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Correct</p>
+              </div>
+              <div className="bg-red-50 border border-red-200 rounded-2xl p-3 text-center">
+                <p className="text-3xl font-bold font-mono text-red-500">{engine.wrongCount}</p>
+                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Wrong</p>
+              </div>
+              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-3 text-center">
+                <p className="text-3xl font-bold font-mono text-amber-700">+{engine.totalXpEarned}</p>
+                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Subclass XP</p>
+              </div>
+              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-3 text-center">
+                <p className="text-3xl font-bold font-mono text-amber-600 flex items-center justify-center gap-1">
+                  <img src="/icons/rewards/gold_coin.svg" alt="" className="w-5 h-5" />{engine.totalGoldEarned}
+                </p>
+                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Gold Earned</p>
+              </div>
+            </div>
+            {(engine.correctCount + engine.wrongCount) > 0 && (() => {
+              const pct = Math.round((engine.correctCount / (engine.correctCount + engine.wrongCount)) * 100);
+              return (
+                <div>
+                  <div className="flex justify-between text-xs text-gray-500 mb-1"><span>Accuracy</span><span className="font-bold text-amber-700">{pct}%</span></div>
+                  <div className="h-2 bg-stone-100 rounded-full overflow-hidden">
+                    <div className="h-2 bg-amber-500 rounded-full transition-all" style={{ width: `${pct}%` }} />
+                  </div>
+                </div>
+              );
+            })()}
+            <div className="flex flex-col gap-3 mt-auto pt-2">
+              <GameButton onClick={() => { engine.start(); setScreen('playing'); }} className="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-xl transition-colors text-base">⚔️ Play Again</GameButton>
+              <GameButton onClick={onExit} className="w-full bg-stone-100 hover:bg-stone-200 text-gray-600 font-bold py-3 px-6 rounded-xl transition-colors text-sm">← Return to Campaign Map</GameButton>
+            </div>
           </div>
-          <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-amber-400">{engine.totalXpEarned}</p>
-            <p className="text-sm text-gray-500 mt-1">Subclass XP</p>
-          </div>
-          <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-yellow-400"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {engine.totalGoldEarned}</p>
-            <p className="text-sm text-gray-500 mt-1">Gold Earned</p>
           </div>
         </div>
-
-        <GameButton onClick={onExit} className="bg-neutral-800 hover:bg-neutral-700 text-white font-bold py-3 px-6 rounded-xl transition-colors">
-          Return to Campaign Map
-        </GameButton>
       </div>
     </div>
   );

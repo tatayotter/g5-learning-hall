@@ -24,11 +24,11 @@ export type GuildKey = 'lorekeeper' | 'spellcaster' | 'number_realm' | 'logic_la
 // gratitude, spent to keep curios fed. Every lore/flavor string in this
 // codebase should trace back to this same premise.
 export const GUILDS: { key: GuildKey; label: string; lore: string }[] = [
-  { key: 'lorekeeper', label: 'Lorekeeper', lore: 'Keeper of the Old Stories — a watch-post where the Ledger of memory runs thinnest. Every passage you master seals a page against the Forgetting.' },
-  { key: 'spellcaster', label: 'SpellCaster', lore: 'Word-Weaver of the Spelling Spire — its wards are woven from the Ledger itself. Each letter cast true strengthens the wards that guard the Lexicon.' },
-  { key: 'number_realm', label: 'Number Realm', lore: 'Warden of the Shifting Equations — a fragment of the Ledger holding its shape by sheer solved arithmetic. The Realm only stands while its numbers stay solved.' },
   { key: 'logic_labyrinth', label: 'Logic Labyrinth', lore: 'Wayfinder of the Endless Maze — a corridor the Forgetting keeps trying to tangle back into nonsense. Its walls rearrange for those who reason their way through.' },
   { key: 'lexicon_arena', label: 'Lexicon Arena', lore: 'Champion of the Living Dictionary — the Ledger\'s own vocabulary, kept awake one claimed word at a time. Every definition claimed adds a word to your legend.' },
+  { key: 'number_realm', label: 'Number Realm', lore: 'Warden of the Shifting Equations — a fragment of the Ledger holding its shape by sheer solved arithmetic. The Realm only stands while its numbers stay solved.' },
+  { key: 'spellcaster', label: 'SpellCaster', lore: 'Word-Weaver of the Spelling Spire — its wards are woven from the Ledger itself. Each letter cast true strengthens the wards that guard the Lexicon.' },
+  { key: 'lorekeeper', label: 'Lorekeeper', lore: 'Keeper of the Old Stories — a watch-post where the Ledger of memory runs thinnest. Every passage you master seals a page against the Forgetting.' },
 ];
 
 export interface ChecklistBattleFlags {

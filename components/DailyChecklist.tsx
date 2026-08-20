@@ -29,8 +29,6 @@ const GUILD_SPRITE_KEY: Record<string, GuardianGuild> = {
 
 interface DailyChecklistProps {
   userId: string;
-  // Needed by claim_daily_checklist_bonus to resolve this week's content —
-  // see lib/dailyChecklist.ts's claimChecklistBonus.
   grade: number;
   currentSunday: string;
   currentDayName: string;
@@ -39,12 +37,20 @@ interface DailyChecklistProps {
   masteredQuizzes: string[] | undefined;
   onGoldAwarded: (amount: number) => void;
   onPlayGuild: (guildKey: GuildKey) => void;
+  onGoToJournal?: () => void;
+  onGoToMainQuest?: () => void;
+  onGoToTrainingMap?: () => void;
+  onCountChange?: (done: number, total: number) => void;
 }
 
 interface ChecklistItem {
   label: string;
   done: boolean;
+  actionLabel?: string;
+  onAction?: () => void;
 }
+
+const BTN_STYLE = 'bg-yellow-400 text-black border-2 border-black shadow-[3px_3px_0_0_#000] hover:-translate-y-0.5 hover:shadow-[3px_4px_0_0_#000] active:shadow-none active:translate-y-0.5 transition-all font-extrabold';
 
 export default function DailyChecklist({
   userId,
@@ -56,6 +62,10 @@ export default function DailyChecklist({
   masteredQuizzes,
   onGoldAwarded,
   onPlayGuild,
+  onGoToJournal,
+  onGoToMainQuest,
+  onGoToTrainingMap,
+  onCountChange,
 }: DailyChecklistProps) {
   const todayKey = format(new Date(), 'yyyy-MM-dd');
   const [battleFlags, setBattleFlags] = useState<ChecklistBattleFlags>({
@@ -81,15 +91,6 @@ export default function DailyChecklist({
     if (isInitial) setLoading(false);
   }, [userId, todayKey]);
 
-  // Wild-encounter wins and guild sessions happen on sibling tabs (MonsterGuild,
-  // the 5 guild components) — but this component is itself gated behind
-  // `activeTab === 'todo'` in app/page.tsx, so it fully unmounts when the user
-  // switches away and remounts (re-running this effect) when they come back.
-  // That remount-triggered fetch is already exactly-when-needed fresh data, so
-  // no background polling is required — a 15s setInterval used to run here
-  // regardless of whether the tab was even visible, costing 3 queries every
-  // 15s per active user for no reason (see docs/weekly-progress-redesign-plan.md-
-  // adjacent capacity notes). Removed 2026-08-11.
   useEffect(() => {
     loadFlags(true);
   }, [loadFlags]);
@@ -101,16 +102,35 @@ export default function DailyChecklist({
   const guildsAllDone = guildsPlayedToday.length === GUILDS.length;
 
   const items: ChecklistItem[] = [
-    { label: '📜 Fill out today\'s journal entry', done: journalDone },
-    { label: questDone && Object.keys(packageData?.[currentDayName] || {}).length === 0
-        ? `🗺️ No quest scheduled today`
-        : `🗺️ Finish today's Main Quest`, done: questDone },
-    { label: '🐉 Answer a training map question correctly', done: battleDone },
+    {
+      label: "Fill out today's journal entry",
+      done: journalDone,
+      actionLabel: 'Write Journal',
+      onAction: onGoToJournal,
+    },
+    {
+      label: Object.keys(packageData?.[currentDayName] || {}).length === 0
+        ? 'No quest scheduled today'
+        : "Finish today's Main Quest",
+      done: questDone,
+      actionLabel: 'Go to Main Quest',
+      onAction: onGoToMainQuest,
+    },
+    {
+      label: 'Answer a training map question correctly',
+      done: battleDone,
+      actionLabel: 'Go to Map',
+      onAction: onGoToTrainingMap,
+    },
   ];
 
   const allDone = items.every(i => i.done) && guildsAllDone;
   const doneCount = items.filter(i => i.done).length + (guildsAllDone ? 1 : 0);
   const totalCount = items.length + 1;
+
+  useEffect(() => {
+    onCountChange?.(doneCount, totalCount);
+  }, [doneCount, totalCount, onCountChange]);
 
   const handleClaim = async () => {
     if (claiming || claimed) return;
@@ -131,113 +151,115 @@ export default function DailyChecklist({
 
   if (loading) {
     return (
-      <div className="bg-[#111] border border-[#333] p-8 rounded-xl shadow-2xl mb-6 text-gray-500 animate-pulse">
-        <h3 className="font-bold mb-2 font-display">✅ Loading Daily To-Dos...</h3>
+      <div className="bg-white border border-stone-200 p-6 rounded-2xl shadow-sm mb-6 text-gray-400 animate-pulse">
+        <p className="font-bold font-display">Loading...</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-[#111] border border-[#333] p-8 rounded-xl shadow-2xl mb-6 text-white">
-      <div className="flex justify-between items-center border-b border-neutral-800 pb-4 mb-6">
-        <h2 className="text-2xl font-bold text-blue-400 font-display">Daily To-Dos</h2>
-        <span className="bg-blue-900/30 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-800">
-          {doneCount}/{totalCount} DONE
-        </span>
-      </div>
+    <div className="mb-8">
 
-      {streakInfo && (
-        <div className="mb-6 bg-black border border-neutral-800 rounded-lg p-3">
-          <div className="flex items-center justify-between mb-2 gap-2">
-            <span className="text-xs font-bold text-gray-300 whitespace-nowrap">
-              🔥 {streakInfo.currentStreak}-day streak
-            </span>
-            <span className="text-[10px] text-gray-500 text-right">
-              {streakInfo.claimedToday
-                ? 'Come back tomorrow to keep it going!'
-                : `Finish today's to-dos for ${streakInfo.nextGold} gold`}
-            </span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            {STREAK_GOLD_LADDER.map((tierGold, i) => {
-              const day = i + 1;
-              const achieved = streakInfo.currentStreak >= day;
-              const isNextTarget = !streakInfo.claimedToday && streakInfo.nextStreak === day;
-              return (
-                <div key={day} className="flex-1 flex flex-col items-center gap-1">
-                  <div
-                    className={`w-full h-1.5 rounded-full ${
-                      achieved ? 'bg-blue-500' : isNextTarget ? 'bg-blue-900/50 border border-dashed border-blue-700' : 'bg-neutral-800'
-                    }`}
-                  />
-                  <span className={`text-[9px] ${achieved ? 'text-blue-400 font-bold' : 'text-gray-600'}`}>{tierGold}g</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
-      <div className="space-y-3 mb-6">
+      {/* ── Checklist items ── */}
+      <div className="space-y-3">
         {items.map((item, i) => (
-          <div key={i} className={`flex items-center gap-3 bg-black border rounded-lg p-4 text-sm ${item.done ? 'border-green-800' : 'border-neutral-800'}`}>
-            <span className={item.done ? 'text-green-500' : 'text-gray-600'}>
-              {item.done ? '✅' : '⬜'}
+          <div
+            key={i}
+            className={`flex items-center gap-3 py-4 px-4 rounded-2xl border transition-all
+              ${item.done
+                ? 'bg-green-50 border-green-200'
+                : 'bg-amber-50 border-amber-100 shadow-sm'
+              }`}
+          >
+            <span className={`w-7 h-7 rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-all
+              ${item.done ? 'bg-green-500 border-green-600' : 'bg-white border-stone-300'}`}>
+              {item.done && <svg className="w-4 h-4 text-white" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>}
             </span>
-            <span className={item.done ? 'line-through text-gray-500' : 'text-gray-200'}>
+            <span className={`flex-1 text-sm font-bold leading-snug ${item.done ? 'line-through text-gray-400' : 'text-gray-800'}`}>
               {item.label}
             </span>
+            {!item.done && item.onAction && item.actionLabel && (
+              <button
+                type="button"
+                onClick={item.onAction}
+                className={`flex-shrink-0 text-xs px-3 py-1.5 rounded-lg ${BTN_STYLE}`}
+              >
+                {item.actionLabel}
+              </button>
+            )}
           </div>
         ))}
 
-        <div className={`bg-black border rounded-lg p-4 ${guildsAllDone ? 'border-green-800' : 'border-neutral-800'}`}>
-          <div className="flex items-center gap-3 text-sm">
-            <span className={guildsAllDone ? 'text-green-500' : 'text-gray-600'}>
-              {guildsAllDone ? '✅' : '⬜'}
+        {/* ── Guilds ── */}
+        <div className={`py-4 px-4 rounded-2xl border transition-all
+          ${guildsAllDone ? 'bg-green-50 border-green-200' : 'bg-amber-50 border-amber-100 shadow-sm'}`}>
+          <div className="flex items-center gap-3">
+            <span className={`w-7 h-7 rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-all
+              ${guildsAllDone ? 'bg-green-500 border-green-600' : 'bg-white border-stone-300'}`}>
+              {guildsAllDone && <svg className="w-4 h-4 text-white" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>}
             </span>
-            <span className={guildsAllDone ? 'line-through text-gray-500' : 'text-gray-200'}>
-              ⚔️ Play each Learning Guild ({guildsPlayedToday.length}/{GUILDS.length})
+            <span className={`flex-1 text-base font-bold leading-snug ${guildsAllDone ? 'line-through text-gray-400' : 'text-gray-800'}`}>
+              Play each Learning Guild
+              <span className="ml-2 text-sm font-extrabold text-amber-600">({guildsPlayedToday.length}/{GUILDS.length})</span>
             </span>
           </div>
-          <div className="flex gap-1.5 mt-2 ml-6">
-            {GUILDS.map(g => {
-              const done = battleFlags.guild_last_played?.[g.key] === todayKey;
-              return (
-                <button
-                  key={g.key}
-                  type="button"
-                  title={done ? g.label : `Play ${g.label}`}
-                  onClick={() => onPlayGuild(g.key)}
-                  className={`w-7 h-7 rounded-full bg-black/30 overflow-hidden transition-opacity ${done ? 'opacity-100' : 'opacity-30 grayscale hover:opacity-60'}`}
-                >
-                  <GuardianSprite guild={GUILD_SPRITE_KEY[g.key]} pose="idle" animate={false} className="w-full h-full" />
-                </button>
-              );
-            })}
-          </div>
+          {!guildsAllDone && (
+            <div className="grid grid-cols-3 gap-3 mt-4">
+              {GUILDS.map(g => {
+                const done = battleFlags.guild_last_played?.[g.key] === todayKey;
+                if (done) return null;
+                return (
+                  <div key={g.key} className="flex flex-col items-center gap-2 bg-white border border-stone-200 rounded-2xl px-3 pt-4 pb-3 shadow-sm">
+                    <GuardianSprite guild={GUILD_SPRITE_KEY[g.key]} pose="idle" animate={false} className="w-14 h-14" />
+                    <span className="text-xs font-bold text-gray-600 text-center leading-tight">{g.label}</span>
+                    <button
+                      type="button"
+                      onClick={() => onPlayGuild(g.key)}
+                      className={`w-full text-xs py-1.5 rounded-lg ${BTN_STYLE}`}
+                    >
+                      Play
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
 
-      {claimed ? (
-        <div className="border-t border-neutral-800 pt-6 text-center text-sm text-green-500 font-bold">
-          <img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px]" /> Bonus claimed for today
-          {streakInfo?.todayGold ? ` — ${streakInfo.todayGold} gold!` : '!'}
-        </div>
-      ) : allDone ? (
-        <div className="border-t border-neutral-800 pt-6 flex justify-center">
-          <GameButton
+      {/* ── Footer — claim / claimed ── */}
+      <div className="mt-4">
+        {claimed ? (
+          <div className="flex items-center justify-center gap-2 text-base text-green-700 font-extrabold py-4 bg-green-50 rounded-2xl border-2 border-green-200">
+            Bonus claimed{streakInfo?.todayGold ? ` — ${streakInfo.todayGold} gold!` : '!'}
+          </div>
+        ) : allDone ? (
+          <button
             onClick={handleClaim}
             disabled={claiming}
-            className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-10 rounded transition-colors font-display text-lg disabled:opacity-50"
+            className="w-full py-4 rounded-2xl font-extrabold text-lg uppercase tracking-wide font-display
+              bg-amber-400 text-black border-2 border-black
+              shadow-[4px_4px_0_0_#000] active:shadow-none active:translate-x-1 active:translate-y-1
+              transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px] mr-1" /> Claim {streakInfo?.nextGold ?? STREAK_GOLD_LADDER[0]} Gold
-          </GameButton>
-        </div>
-      ) : (
-        <p className="text-[11px] text-gray-500 text-center border-t border-neutral-800 pt-6">
-          Complete every task to earn {streakInfo?.nextGold ?? STREAK_GOLD_LADDER[0]} bonus gold!
-        </p>
-      )}
+            Claim {streakInfo?.nextGold ?? STREAK_GOLD_LADDER[0]} Gold!
+          </button>
+        ) : (
+          <div className="text-center py-2 space-y-1">
+            <p className="text-sm text-gray-400 font-semibold">
+              Finish all tasks to claim your gold!
+            </p>
+            <p className="flex items-center justify-center gap-1.5 text-sm font-bold text-amber-700">
+              Reward:
+              <img src="/icons/rewards/gold_coin.svg" alt="gold" className="w-4 h-4" />
+              {streakInfo?.nextGold ?? STREAK_GOLD_LADDER[0]}
+              <span className="text-gray-400 font-normal text-xs">
+                (Day {(streakInfo?.currentStreak ?? 0) + 1} streak bonus)
+              </span>
+            </p>
+          </div>
+        )}
+      </div>
 
       {bonusEvent && (
         <DailyBonusModal

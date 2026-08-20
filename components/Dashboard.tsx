@@ -1,4 +1,4 @@
-// components/Dashboard.tsx
+﻿// components/Dashboard.tsx
 //
 // Extracted from app/page.tsx so the exact same component can be rendered by
 // both the online app (app/page.tsx, a thin wrapper) and the Android offline
@@ -17,7 +17,7 @@ import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
 import HeroProfile from '@/components/HeroProfile';
 import GuildJournal from '@/components/GuildJournal';
 import DailyChecklist from '@/components/DailyChecklist';
-import { markGuildSessionToday, GuildKey, GUILDS } from '@/lib/dailyChecklist';
+import { markGuildSessionToday, GuildKey, GUILDS, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
 import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
 import QuestModule, { markdownComponents } from '@/components/QuestModule';
 import { useReadTimer } from '@/hooks/useReadTimer';
@@ -54,6 +54,7 @@ import CurioRevealModal from '@/components/CurioRevealModal';
 import DemoBanner from '@/components/DemoBanner';
 import LinkParentBanner from '@/components/LinkParentBanner';
 import SidebarRail, { RailTabId } from '@/components/SidebarRail';
+import WelcomeCard from '@/components/WelcomeCard';
 import QuestCard from '@/components/QuestCard';
 import OnboardingTour from '@/components/OnboardingTour';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
@@ -330,6 +331,19 @@ export default function Dashboard() {
   }, [activeTab]);
   // Retriggers the Vault Keeper's slide-in greeting each time the player
   // (re)enters the vault tab, rather than just once on mount.
+  // HUD login streak — fetched once when the active user is known.
+  const [loginStreak, setLoginStreak] = useState(0);
+  const [checklistClaimedToday, setChecklistClaimedToday] = useState(false);
+  const [todoCount, setTodoCount] = useState<{ done: number; total: number } | null>(null);
+  useEffect(() => {
+    if (!activeUserId) return;
+    const today = new Date().toISOString().slice(0, 10);
+    fetchDailyChecklistStreak(activeUserId, today).then(info => {
+      setLoginStreak(info.currentStreak);
+      setChecklistClaimedToday(info.claimedToday);
+    });
+  }, [activeUserId]);
+
   const [vaultGreetKey, setVaultGreetKey] = useState(0);
   // Retriggers the Curio Expert's slide-in greeting each time the player
   // (re)enters the Curio Arena tab, rather than just once on mount.
@@ -619,18 +633,8 @@ export default function Dashboard() {
   // pool (which reads `packageData` directly) is left untouched.
   const mainQuestPackageData = { ...packageData, Friday: buildWeeklyReviewDay(packageData) };
 
-  const rotationScreen = (
-    <div className="landscape-only fixed inset-0 z-[999] bg-black flex-col items-center justify-center text-center p-8" style={{ display: 'none' }}>
-      <div className="text-6xl mb-6">📱</div>
-      <h2 className="text-white text-2xl font-bold mb-3">Rotate Your Device</h2>
-      <p className="text-gray-400 text-sm">Learning Hall works best in landscape mode. Please rotate your phone sideways to continue.</p>
-      <div className="mt-8 text-4xl animate-bounce">↻</div>
-    </div>
-  );
-
   return (
     <>
-      {rotationScreen}
       {bossEventActive && (
         <BossMistOverlay defeated={bossProgress.defeated.size} total={bossProgress.total} />
       )}
@@ -642,8 +646,8 @@ export default function Dashboard() {
       {!activeUserId.startsWith('demo_') && <LinkParentBanner />}
       {showOnboarding && <OnboardingTour onComplete={handleCompleteOnboarding} />}
       <div className="app-content flex-1 min-h-0 flex flex-col">
-        <div className="h-full bg-black text-white flex flex-row">
-      {/* Sidebar rail */}
+        <div className="h-full bg-black text-white">
+      {/* Floating nav — fixed-position, no layout impact */}
       {pendingEggHatches[0] && (
         <EggHatchModal
           speciesId={pendingEggHatches[0].species_id}
@@ -660,7 +664,18 @@ export default function Dashboard() {
 
       <SidebarRail
         activeTab={activeTab}
-        railBadges={{ monster: eggBadge }}
+        railBadges={{
+          monster: eggBadge,
+          board: !!data && (() => {
+            const allQuests = Object.entries(data.package_data ?? {}).flatMap(([day, subjects]) =>
+              Object.keys(subjects as object).map(sub => `${day}_${sub}`)
+            );
+            const mastered = new Set(data.mastered_quizzes ?? []);
+            return allQuests.some(q => !mastered.has(q));
+          })(),
+          todo: !checklistClaimedToday,
+          journal: !!data && !data.journal_logs?.[new Date().toISOString().slice(0, 10)],
+        }}
         onNavigate={(tab) => {
           playPageFlip();
           // Curio Arena defaults to the full-screen World Map stage; landing
@@ -673,6 +688,23 @@ export default function Dashboard() {
           setActiveBossFight(null);
         }}
         onLogout={handleSwitchUser}
+        sfxOn={sfxOn}
+        musicOn={musicOn}
+        onToggleSfx={toggleSfx}
+        onToggleMusic={toggleMusic}
+        playerName={activeUserId ? USERS[activeUserId]?.name : undefined}
+        playerGrade={activeUserId ? USERS[activeUserId]?.grade : undefined}
+        playerLevel={data?.character_stats.level}
+        playerXp={data?.character_stats.xp}
+        playerGold={data?.character_stats.gold}
+        playerStreak={loginStreak}
+        weekLabel={(() => {
+          if (!currentSunday) return undefined;
+          // SY 2026-2027: continuous week numbers, Week 1 = Sunday June 14 2026.
+          const SY_START = new Date('2026-06-14').getTime();
+          const weekNum = Math.floor((new Date(currentSunday).getTime() - SY_START) / (7 * 24 * 60 * 60 * 1000)) + 1;
+          return weekNum > 0 ? `Week ${weekNum}` : undefined;
+        })()}
       />
 
       {/* Main Content Area */}
@@ -690,7 +722,7 @@ export default function Dashboard() {
           down this file) was resolving off-screen: fixed elements pin to
           the viewport, but only once nothing upstream is still stretching
           it. */}
-      <main className="flex-1 min-w-0 p-8 overflow-y-auto overflow-x-hidden relative">
+      <main className="h-full w-full pt-16 lg:pt-24 px-4 lg:px-8 pb-28 lg:pb-12 overflow-y-auto overflow-x-hidden relative bg-white">
 
 
         {/* Tab switches from the sidebar rail fade/slide the content area
@@ -708,8 +740,15 @@ export default function Dashboard() {
         {/* --- TAB A: QUEST BOARD --- */}
         {activeTab === 'board' && activeQuest === null && activeEventQuest === null && activeBossFight === null && (
           <div>
-            <h1 className="text-3xl font-bold mb-2 font-display">Active Campaign Map</h1>
-            <p className="text-gray-400 mb-8">Select an open, active quest card from the schedule below to begin your training.</p>
+            <h1 className="text-2xl lg:text-3xl font-bold mt-4 mb-2 font-display text-gray-900">Active Campaign Map</h1>
+            <p className="text-gray-500 mb-4 text-sm">Select an open, active quest card from the schedule below to begin your training.</p>
+
+            <WelcomeCard
+              playerName={USERS[activeUserId]?.name ?? activeUserId}
+              loginStreak={loginStreak}
+              totalQuests={Object.values(data.package_data ?? {}).flatMap(subjects => Object.keys(subjects as object)).length}
+              completedQuests={data.mastered_quizzes?.length ?? 0}
+            />
 
             {activeEvent && (
               <div className="mb-10">
@@ -822,17 +861,17 @@ export default function Dashboard() {
               return (
                 <div key={day} className="mb-8">
                   <div className="flex items-center gap-3 mb-4">
-                    <h2 className={`text-sm font-bold uppercase tracking-wide whitespace-nowrap ${isToday ? 'text-amber-400' : 'text-gray-500'}`}>
-                      {day} Objectives {isToday && <span className="text-amber-300">⚡ (Current Run)</span>}
+                    <h2 className={`text-sm font-bold uppercase tracking-wide whitespace-nowrap ${isToday ? 'text-amber-600' : 'text-gray-400'}`}>
+                      {day} Objectives {isToday && <span className="text-amber-500">⚡ (Current Run)</span>}
                     </h2>
-                    <div className={`flex-1 h-px ${isToday ? 'bg-amber-900/50' : 'bg-neutral-800'}`} />
+                    <div className={`flex-1 h-px ${isToday ? 'bg-amber-400/50' : 'bg-gray-200'}`} />
                   </div>
 
                   {dayFullyMastered ? (
-                    <p className="text-sm text-green-400 font-bold">✅ {day} Quests Completed</p>
+                    <p className="text-sm text-green-600 font-bold">✅ {day} Quests Completed</p>
                   ) : isToday || subjectKeys.length > 0 ? (
                     subjectKeys.length === 0 ? (
-                      <p className="text-sm text-gray-500">No quests registered for this specific calendar path.</p>
+                      <p className="text-sm text-gray-400">No quests registered for this specific calendar path.</p>
                     ) : (
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                         {subjectKeys.map((subjectName) => (
@@ -857,7 +896,7 @@ export default function Dashboard() {
               );
             })}
 
-            <AchievementsBoard data={data} userId={activeUserId} />
+            {/* AchievementsBoard removed — accessible via Hero Profile tab */}
           </div>
         )}
 
@@ -1209,7 +1248,7 @@ export default function Dashboard() {
         {activeTab === 'vault' && USERS[activeUserId].isFamily && (
           <div>
             <div className="flex items-center justify-between gap-4 mb-2">
-              <h1 className="text-3xl font-bold font-display">The Gold Token Rewards Vault</h1>
+              <h1 className="text-3xl font-bold font-display text-gray-900">The Gold Token Rewards Vault</h1>
               <div className="flex items-center gap-1.5 bg-[#161010] border-2 border-[#000000] rounded-full px-3 py-1.5 shadow-[2px_2px_0_0_#000] flex-shrink-0">
                 <img src="/icons/rewards/gold_coin.svg" alt="" className="w-4 h-4" />
                 <span className="text-yellow-400 font-extrabold text-sm">{data.character_stats.gold}</span>
@@ -1338,94 +1377,121 @@ export default function Dashboard() {
           <div>
             {activeGuild === null ? (
               <div className="battle-panel-in">
-                <h1 className="text-3xl font-bold mb-8 font-display">Side Quest Guilds</h1>
+                <h1 className="text-2xl lg:text-3xl font-bold mt-4 mb-4 font-display text-gray-900">Side Quest Guilds</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {([
-                    { key: 'lorekeeper' as GuildKey, guild: 'lorekeeper' as const, name: 'Lorekeeper', desc: 'English guild — Time Attack reading & grammar challenges.', bg: 'bg-[#121a16]', border: 'border-emerald-800 hover:border-emerald-500', title: 'text-emerald-300', lvl: guildProfile?.lorekeeper_lvl, tier: guildProfile?.lorekeeper_tier },
-                    { key: 'spellcaster' as GuildKey, guild: 'spellcaster' as const, name: 'SpellCaster', desc: 'Typing guild — Real-time speed spelling under the clock.', bg: 'bg-[#13111c]', border: 'border-violet-800 hover:border-violet-500', title: 'text-violet-300', lvl: guildProfile?.spellcaster_lvl, tier: guildProfile?.spellcaster_tier },
-                    { key: 'number_realm' as GuildKey, guild: 'numberrealm' as const, name: 'Number Realm', desc: 'Math guild — Fractions, time, and operations at speed.', bg: 'bg-[#0d0c08]', border: 'border-amber-800 hover:border-amber-500', title: 'text-amber-300', lvl: guildProfile?.number_realm_lvl, tier: guildProfile?.number_realm_tier },
-                    { key: 'logic_labyrinth' as GuildKey, guild: 'logiclabyrinth' as const, name: 'Logic Labyrinth', desc: 'IQ guild — Pattern matrices and deduction puzzles.', bg: 'bg-[#0b0d12]', border: 'border-cyan-800 hover:border-cyan-500', title: 'text-cyan-300', lvl: guildProfile?.logic_labyrinth_lvl, tier: guildProfile?.logic_labyrinth_tier },
-                    { key: 'lexicon_arena' as GuildKey, guild: 'lexiconarena' as const, name: 'Lexicon Arena', desc: 'Spelling guild — Read the definition, pick the correct spelling before time runs out.', bg: 'bg-neutral-900', border: 'border-indigo-800 hover:border-indigo-500', title: 'text-indigo-300', lvl: guildProfile?.lexicon_arena_lvl, tier: guildProfile?.lexicon_arena_tier },
+                    { key: 'lorekeeper' as GuildKey, guild: 'lorekeeper' as const, name: 'Lorekeeper', desc: 'English guild — Time Attack reading & grammar challenges.', border: 'border-[#251616] hover:border-[#3a2020]', title: 'text-emerald-700', badge: 'bg-emerald-50 text-emerald-700', contentBg: 'bg-emerald-50', bg: '/guilds/lorekeeper-bg.png', lvl: guildProfile?.lorekeeper_lvl, tier: guildProfile?.lorekeeper_tier },
+                    { key: 'spellcaster' as GuildKey, guild: 'spellcaster' as const, name: 'SpellCaster', desc: 'Typing guild — Real-time speed spelling under the clock.', border: 'border-[#251616] hover:border-[#3a2020]', title: 'text-violet-700', badge: 'bg-violet-50 text-violet-700', contentBg: 'bg-violet-50', bg: '/guilds/spell-bg.png', lvl: guildProfile?.spellcaster_lvl, tier: guildProfile?.spellcaster_tier },
+                    { key: 'number_realm' as GuildKey, guild: 'numberrealm' as const, name: 'Number Realm', desc: 'Math guild — Fractions, time, and operations at speed.', border: 'border-[#251616] hover:border-[#3a2020]', title: 'text-amber-700', badge: 'bg-amber-50 text-amber-700', contentBg: 'bg-amber-50', bg: '/guilds/number-bg.png', lvl: guildProfile?.number_realm_lvl, tier: guildProfile?.number_realm_tier },
+                    { key: 'logic_labyrinth' as GuildKey, guild: 'logiclabyrinth' as const, name: 'Logic Labyrinth', desc: 'IQ guild — Pattern matrices and deduction puzzles.', border: 'border-[#251616] hover:border-[#3a2020]', title: 'text-cyan-700', badge: 'bg-cyan-50 text-cyan-700', contentBg: 'bg-cyan-50', bg: '/guilds/logic-bg.png', lvl: guildProfile?.logic_labyrinth_lvl, tier: guildProfile?.logic_labyrinth_tier },
+                    { key: 'lexicon_arena' as GuildKey, guild: 'lexiconarena' as const, name: 'Lexicon Arena', desc: 'Spelling guild — Read the definition, pick the correct spelling before time runs out.', border: 'border-[#251616] hover:border-[#3a2020]', title: 'text-indigo-700', badge: 'bg-indigo-50 text-indigo-700', contentBg: 'bg-indigo-50', bg: '/guilds/lex-bg.png', lvl: guildProfile?.lexicon_arena_lvl, tier: guildProfile?.lexicon_arena_tier },
                   ]).map(g => (
                     <motion.button
                       key={g.key}
                       onClick={() => setActiveGuild(g.key)}
-                      whileHover={{ scale: 1.02, y: -2 }}
+                      whileHover="hover"
                       whileTap={{ scale: 0.98 }}
-                      className={`${g.bg} border-2 ${g.border} rounded-xl p-6 text-left transition-colors flex items-center gap-4`}
+                      variants={{ hover: {} }}
+                      className={`overflow-hidden bg-white border-2 ${g.border} rounded-2xl text-center transition-colors flex flex-col items-center shadow-sm`}
                     >
-                      <div className="w-16 h-16 shrink-0">
-                        <GuardianSprite guild={g.guild} pose="idle" className="w-full h-full" />
+                      {/* Sprite zone — bg image only here */}
+                      <div className="relative overflow-hidden w-full flex justify-center pt-5 pb-3 px-5">
+                        {g.bg && (
+                          <motion.img
+                            src={g.bg}
+                            alt=""
+                            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                            initial={{ scale: 1.08 }}
+                            variants={{ hover: { scale: 1.0 } }}
+                            transition={{ duration: 0.4, ease: 'easeOut' }}
+                          />
+                        )}
+                        <div className="relative z-10 w-32 h-32">
+                          <GuardianSprite guild={g.guild} pose="idle" className="w-full h-full" />
+                        </div>
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-2">
-                          <h3 className={`text-xl font-bold ${g.title} font-display mb-1`}>{g.name}</h3>
+                      {/* Content zone — always plain white */}
+                      <div className={`w-full flex flex-col items-center gap-1.5 px-5 pb-5 pt-3 ${g.contentBg}`}>
+                        <div className="flex items-center gap-2">
+                          <h3 className={`text-xl font-extrabold ${g.title} font-display`}>{g.name}</h3>
                           {typeof g.lvl === 'number' && (
-                            <span className={`text-xs font-mono font-bold ${g.title} bg-black/40 rounded-full px-2 py-0.5 shrink-0`}>
-                              Lvl {g.lvl} {typeof g.tier === 'number' && (
-                                <>· {'★'.repeat(g.tier)}{'☆'.repeat(Math.max(0, 3 - g.tier))}</>
-                              )}
+                            <span className={`text-xs font-mono font-bold ${g.badge} rounded-full px-2 py-0.5 shrink-0`}>
+                              Lvl {g.lvl}
                             </span>
                           )}
                         </div>
-                        <p className="text-sm text-gray-400">{g.desc}</p>
-                        <p className="text-xs text-gray-500 italic mt-1">
-                          {GUILDS.find(guild => guild.key === g.key)?.lore}
-                        </p>
+                        <p className="text-xs text-gray-600 font-medium">{g.desc}</p>
+                        <div className="mt-1">
+                          <span className="inline-block text-xs font-extrabold px-4 py-1.5 rounded-lg bg-yellow-400 text-black border-2 border-black shadow-[2px_2px_0_0_#000]">
+                            Enter
+                          </span>
+                        </div>
                       </div>
                     </motion.button>
                   ))}
                 </div>
               </div>
-            ) : activeGuild === 'lorekeeper' ? (
-              <Lorekeeper
-                userId={activeUserId}
-                weekStartingDate={data.week_starting_date}
-                currentStats={data.character_stats}
-                onGoldEarned={handleGuildGoldEarned}
-                onExit={() => setActiveGuild(null)}
-              />
-            ) : activeGuild === 'spellcaster' ? (
-              <SpellCaster
-                userId={activeUserId}
-                weekStartingDate={data.week_starting_date}
-                currentStats={data.character_stats}
-                onGoldEarned={handleGuildGoldEarned}
-                onExit={() => setActiveGuild(null)}
-              />
-            ) : activeGuild === 'number_realm' ? (
-              <NumberRealm
-                userId={activeUserId}
-                weekStartingDate={data.week_starting_date}
-                currentStats={data.character_stats}
-                onGoldEarned={handleGuildGoldEarned}
-                onExit={() => setActiveGuild(null)}
-              />
-            ) : activeGuild === 'logic_labyrinth' ? (
-              <LogicLabyrinth
-                userId={activeUserId}
-                weekStartingDate={data.week_starting_date}
-                currentStats={data.character_stats}
-                onGoldEarned={handleGuildGoldEarned}
-                onExit={() => setActiveGuild(null)}
-              />
-            ) : activeGuild === 'lexicon_arena' ? (
-              <LexiconArena
-                userId={activeUserId}
-                weekStartingDate={data.week_starting_date}
-                currentStats={data.character_stats}
-                onGoldEarned={handleGuildGoldEarned}
-                onExit={() => setActiveGuild(null)}
-              />
-            ) : null}
+            ) : (
+              <div className="relative -mx-4 lg:-mx-8">
+                <img
+                  src={({ lorekeeper: '/guilds/lorekeeper-bg.png', spellcaster: '/guilds/spell-bg.png', number_realm: '/guilds/number-bg.png', logic_labyrinth: '/guilds/logic-bg.png', lexicon_arena: '/guilds/lex-bg.png' } as Record<string, string>)[activeGuild] ?? ''}
+                  alt=""
+                  className="fixed inset-0 w-full h-full object-contain landscape:object-cover object-top pointer-events-none lg:blur-sm" style={{ zIndex: 0 }}
+                  style={{ zIndex: 0 }}
+                />
+                <div className="relative px-4 lg:px-8 pt-6 pb-12">
+                  {activeGuild === 'lorekeeper' ? (
+                    <Lorekeeper
+                      userId={activeUserId}
+                      weekStartingDate={data.week_starting_date}
+                      currentStats={data.character_stats}
+                      onGoldEarned={handleGuildGoldEarned}
+                      onExit={() => setActiveGuild(null)}
+                    />
+                  ) : activeGuild === 'spellcaster' ? (
+                    <SpellCaster
+                      userId={activeUserId}
+                      weekStartingDate={data.week_starting_date}
+                      currentStats={data.character_stats}
+                      onGoldEarned={handleGuildGoldEarned}
+                      onExit={() => setActiveGuild(null)}
+                    />
+                  ) : activeGuild === 'number_realm' ? (
+                    <NumberRealm
+                      userId={activeUserId}
+                      weekStartingDate={data.week_starting_date}
+                      currentStats={data.character_stats}
+                      onGoldEarned={handleGuildGoldEarned}
+                      onExit={() => setActiveGuild(null)}
+                    />
+                  ) : activeGuild === 'logic_labyrinth' ? (
+                    <LogicLabyrinth
+                      userId={activeUserId}
+                      weekStartingDate={data.week_starting_date}
+                      currentStats={data.character_stats}
+                      onGoldEarned={handleGuildGoldEarned}
+                      onExit={() => setActiveGuild(null)}
+                    />
+                  ) : activeGuild === 'lexicon_arena' ? (
+                    <LexiconArena
+                      userId={activeUserId}
+                      weekStartingDate={data.week_starting_date}
+                      currentStats={data.character_stats}
+                      onGoldEarned={handleGuildGoldEarned}
+                      onExit={() => setActiveGuild(null)}
+                    />
+                  ) : null}
+                </div>
+              </div>
+            )}
           </div>
         )}
 
         {/* --- TAB: JOURNAL --- */}
         {activeTab === 'journal' && (
           <div>
-            <h1 className="text-3xl font-bold mb-2 font-display">Guild Journal</h1>
-            <p className="text-gray-400 mb-8">Reflect on today's run and seal your ledger entry to claim your reward.</p>
+            <h1 className="text-2xl lg:text-3xl font-bold mb-2 font-display text-gray-900">Guild Journal</h1>
+            <p className="text-gray-500 mb-8">Reflect on today's run and seal your ledger entry to claim your reward.</p>
             <GuildJournal
               userId={activeUserId}
               journalLogs={data.journal_logs || {}}
@@ -1441,8 +1507,16 @@ export default function Dashboard() {
         {/* --- TAB: TO-DO --- */}
         {activeTab === 'todo' && (
           <div>
-            <h1 className="text-3xl font-bold mb-2 font-display">Daily To-Dos</h1>
-            <p className="text-gray-400 mb-8">Clear today's checklist to claim your daily bonus gold.</p>
+            <div className="flex items-center justify-between gap-3 mt-4 mb-2">
+              <h1 className="text-2xl lg:text-3xl font-bold font-display text-gray-900">Daily To-Dos</h1>
+              {todoCount && (
+                <span className={`text-xs font-bold px-3 py-1 rounded-full flex-shrink-0
+                  ${todoCount.done === todoCount.total ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}`}>
+                  {todoCount.done}/{todoCount.total} done
+                </span>
+              )}
+            </div>
+            <p className="text-gray-500 mb-6">Clear today's checklist to claim your daily bonus gold.</p>
             <DailyChecklist
               userId={activeUserId}
               grade={gradeToNumber(USERS[activeUserId]?.grade)}
@@ -1453,6 +1527,10 @@ export default function Dashboard() {
               masteredQuizzes={data.mastered_quizzes}
               onGoldAwarded={applyGoldDelta}
               onPlayGuild={(guildKey) => { setActiveTab('guilds'); setActiveGuild(guildKey); }}
+              onGoToJournal={() => setActiveTab('journal')}
+              onGoToMainQuest={() => { setActiveTab('board'); setActiveQuest(null); }}
+              onGoToTrainingMap={() => setActiveTab('monster')}
+              onCountChange={(done, total) => setTodoCount({ done, total })}
             />
           </div>
         )}
@@ -1460,13 +1538,13 @@ export default function Dashboard() {
         {/* --- TAB: PROFILE --- */}
         {activeTab === 'profile' && (
           <div>
-            <h1 className="text-3xl font-bold mb-2 font-display">Hero Profile</h1>
-            <p className="text-gray-400 mb-8">Your rank, stats, and everything you've earned on the journey so far.</p>
+            <h1 className="text-3xl font-bold mb-2 font-display text-gray-900">Hero Profile</h1>
+            <p className="text-gray-500 mb-8">Your rank, stats, and everything you've earned on the journey so far.</p>
             <HeroProfile
               userId={activeUserId}
               data={data}
               currentDay={currentDayName}
-              onViewAchievements={() => setActiveTab('board')}
+              onViewAchievements={() => setActiveTab('profile')}
             />
           </div>
         )}
@@ -1537,38 +1615,7 @@ export default function Dashboard() {
           />
         )}
 
-        {/* ── Floating utility rail ── fixed bottom-right of the dashboard:
-            music toggle, sound-effects toggle, Replay Tutorial. Icon-only
-            buttons stacked to keep the footprint small. */}
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
-          <motion.button
-            onClick={toggleMusic}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-10 h-10 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-gray-400 hover:text-white rounded-full shadow-lg transition-colors flex items-center justify-center"
-            title={musicOn ? 'Mute Music' : 'Unmute Music'}
-          >
-            <span className="text-base leading-none">{musicOn ? '🎵' : '🔇'}</span>
-          </motion.button>
-          <motion.button
-            onClick={toggleSfx}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-10 h-10 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-gray-400 hover:text-white rounded-full shadow-lg transition-colors flex items-center justify-center"
-            title={sfxOn ? 'Mute Sound Effects' : 'Unmute Sound Effects'}
-          >
-            <span className="text-base leading-none">{sfxOn ? '🔊' : '🔈'}</span>
-          </motion.button>
-          <motion.button
-            onClick={() => setShowOnboarding(true)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-10 h-10 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-gray-400 hover:text-white rounded-full shadow-lg transition-colors flex items-center justify-center"
-            title="Replay Tutorial"
-          >
-            <span className="text-base leading-none">❓</span>
-          </motion.button>
-        </div>
+        {/* Floating utility rail removed — music/sfx moved into nav drawer */}
       </main>
     </div>
       </div>

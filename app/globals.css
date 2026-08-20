@@ -511,7 +511,7 @@ html {
 }
 @keyframes battle-float {
   0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-10px); }
+  50%       { transform: translateY(-5px); }
 }
 
 /* "X used Y!" banner shown over the stage for the duration of each battle
@@ -776,16 +776,34 @@ html {
 .quality-glow-outstanding { --quality-glow-color: rgba(34, 211, 238, 0.55); }
 .quality-glow-perfect { --quality-glow-color: rgba(251, 146, 60, 0.6); }
 
-/* ── Landscape lock ─────────────────────────────── */
-@media screen and (orientation: portrait) and (max-width: 1024px) {
-  .landscape-only {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+/* ── Floating nav button (compass trigger) ──────────────────────────────
+   Portrait default: bottom-center — both thumbs reach it easily.
+   Landscape: shifts to left-middle — mirrors the old sidebar rail position
+   so returning users find it where they expect it.                       */
+.nav-fab {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 80;
+}
+
+@media (orientation: landscape) {
+  .nav-fab {
+    bottom: 1.5rem;
+    left: 1rem;
+    top: auto;
+    transform: none;
   }
-  .app-content {
-    display: none !important;
-  }
+}
+
+/* ── Amber glow pulse — used on the active nav icon in SidebarRail */
+@keyframes amber-glow {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(251,191,36,0.8)) drop-shadow(0 0 12px rgba(251,191,36,0.5)); }
+  50%       { filter: drop-shadow(0 0 14px rgba(251,191,36,1)) drop-shadow(0 0 28px rgba(251,191,36,0.8)); }
+}
+.nav-icon-active {
+  animation: amber-glow 2s ease-in-out infinite;
 }
 
 /* ── Haptic hover — quick scale pulse that reads like a controller-button

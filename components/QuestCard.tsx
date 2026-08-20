@@ -3,13 +3,17 @@
 
 import { CheckCircle2, AlertTriangle } from 'lucide-react';
 
-const SUBJECT_STYLE: Record<string, { emoji: string; bg: string }> = {
-  GMRC: { emoji: '🤝', bg: 'bg-pink-500' },
-  English: { emoji: '📖', bg: 'bg-orange-500' },
-  Filipino: { emoji: '📕', bg: 'bg-red-600' },
-  Mathematics: { emoji: '➗', bg: 'bg-blue-600' },
-  'Araling Panlipunan': { emoji: '🌏', bg: 'bg-emerald-600' },
-  Science: { emoji: '🔬', bg: 'bg-cyan-600' },
+const SUBJECT_STYLE: Record<string, { emoji: string; bg: string; cardBg?: string }> = {
+  GMRC: { emoji: '🤝', bg: 'bg-pink-500', cardBg: '/subjects/gmrc-card-bg.png' },
+  English: { emoji: '📖', bg: 'bg-orange-500', cardBg: '/subjects/english-card-bg.png' },
+  Filipino: { emoji: '📕', bg: 'bg-red-600', cardBg: '/subjects/filipino-card-bg.png' },
+  Mathematics: { emoji: '➗', bg: 'bg-blue-600', cardBg: '/subjects/math-card-bg.png' },
+  'Araling Panlipunan': { emoji: '🌏', bg: 'bg-emerald-600', cardBg: '/subjects/ap-card-bg.png' },
+  Science: { emoji: '🔬', bg: 'bg-cyan-600', cardBg: '/subjects/science-card-bg.png' },
+  MAPEH: { emoji: '🎨', bg: 'bg-purple-600', cardBg: '/subjects/mapeh-card-bg.png' },
+  'EPP (ICT)': { emoji: '💻', bg: 'bg-indigo-600', cardBg: '/subjects/epp-card-bg.png' },
+  'EPP (AFA/FCS/IA)': { emoji: '🛠️', bg: 'bg-indigo-600', cardBg: '/subjects/epp-card-bg.png' },
+  'Weekly Review': { emoji: '📋', bg: 'bg-amber-600', cardBg: '/subjects/weekly-review-card-bg.png' },
 };
 const DEFAULT_STYLE = { emoji: '📘', bg: 'bg-neutral-600' };
 
@@ -24,7 +28,77 @@ interface QuestCardProps {
 
 export default function QuestCard({ subjectName, subtitle, completed, xp = 200, gold = 50, onEnter }: QuestCardProps) {
   const style = SUBJECT_STYLE[subjectName] ?? DEFAULT_STYLE;
+  const hasBg = Boolean(style.cardBg);
 
+  if (hasBg) {
+    // Image is the card — content floats over it, no overlay
+    return (
+      <div className="rounded-2xl overflow-hidden grid transition-transform duration-200 ease-out hover:-translate-y-1">
+
+        {/* Full scene image — occupies grid cell 1/1 */}
+        <img
+          src={style.cardBg}
+          alt=""
+          aria-hidden="true"
+          className="w-full block [grid-area:1/1]"
+          draggable={false}
+        />
+
+        {/* Radial white vignette — softens the scene without a flat overlay */}
+        <div
+          className="[grid-area:1/1]"
+          style={{ background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.3) 50%, transparent 80%)' }}
+        />
+
+        {/* Quest Cleared stamp — bottom-right, slightly rotated, only when completed */}
+        {completed && (
+          <div className="[grid-area:1/1] flex items-end justify-end p-3 pointer-events-none">
+            <img
+              src="/subjects/quest_cleared.png"
+              alt="Quest Cleared"
+              className="w-20 h-20 object-contain"
+              style={{ transform: 'rotate(12deg)', filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.5))' }}
+              draggable={false}
+            />
+          </div>
+        )}
+
+        {/* Content overlaid via same grid cell — sits on top of image */}
+        <div className="[grid-area:1/1] flex flex-col items-center justify-center p-3 gap-2 text-center">
+
+          <h3 className="text-xl font-extrabold text-amber-900 leading-tight" style={{ textShadow: '0 0 8px rgba(255,255,255,1), 0 0 16px rgba(255,255,255,0.8), 0 1px 3px rgba(255,255,255,0.9)' }}>
+            {subjectName}
+          </h3>
+
+          {!completed && (
+            <div className="flex items-center justify-center gap-2 flex-wrap">
+              <span className="flex items-center gap-1 bg-white rounded-full px-2 py-1 text-[10px] font-bold text-green-700">
+                <img src="/icons/stats/stat_up.svg" alt="" className="w-3 h-3" /> {xp} EXP
+              </span>
+              <span className="flex items-center gap-1 bg-white rounded-full px-2 py-1 text-[10px] font-bold text-yellow-700">
+                <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3 h-3" /> {gold} GOLD
+              </span>
+            </div>
+          )}
+
+          <button
+            onClick={onEnter}
+            disabled={completed}
+            className={`px-6 py-2 rounded-lg font-extrabold text-sm uppercase tracking-wide border-2 border-[#000000] transition-all
+              ${completed
+                ? 'bg-green-700 text-white shadow-none cursor-not-allowed'
+                : 'text-black bg-yellow-400 hover:bg-yellow-300 shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] btn-haptic'
+              }`}
+          >
+            {completed ? '✓ Completed' : 'Start Quest'}
+          </button>
+
+        </div>
+      </div>
+    );
+  }
+
+  // Default card: plain dark panel with border
   return (
     <div className="bg-[#161010] border-2 border-[#000000] rounded-2xl p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.08)]">
       <div className="flex items-start gap-3 mb-3">
@@ -63,9 +137,9 @@ export default function QuestCard({ subjectName, subtitle, completed, xp = 200, 
       <button
         onClick={onEnter}
         disabled={completed}
-        className={`w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide text-white bg-amber-600 hover:bg-amber-500 border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-neutral-700 disabled:text-gray-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all ${completed ? '' : 'btn-haptic'}`}
+        className={`w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-neutral-700 disabled:text-gray-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all ${completed ? 'bg-green-700 text-white' : 'text-black bg-yellow-400 hover:bg-yellow-300 btn-haptic'}`}
       >
-        {completed ? 'Completed' : 'Enter Module'}
+        {completed ? '✓ Completed' : 'Start Quest'}
       </button>
     </div>
   );

@@ -1,4 +1,4 @@
-// components/guilds/Lorekeeper.tsx
+﻿// components/guilds/Lorekeeper.tsx
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -162,7 +162,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
 
   if (screen === 'loading') {
     return (
-      <div className="bg-[#121a16] border-2 border-emerald-800 rounded-xl p-12 text-center text-emerald-300 font-serif">
+      <div className="bg-white border border-stone-200 rounded-2xl p-8 text-center text-gray-400 animate-pulse">
         Gathering scrolls from the archive...
       </div>
     );
@@ -170,44 +170,48 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
 
   if (screen === 'ready') {
     return (
-      <div className="max-w-2xl mx-auto battle-panel-in">
-        <div className="bg-[#121a16] border-2 border-emerald-800 rounded-2xl p-10 text-center shadow-2xl">
-          <div className="w-40 h-40 mx-auto mb-4">
+      <div className="fixed inset-0 flex flex-col battle-panel-in" style={{ top: '4rem', zIndex: 2 }}>
+        {/* Sprite strip — bg image shows through */}
+        <div className="flex-shrink-0 flex items-end justify-center pt-4 pb-2">
+          <div className="w-40 h-40">
             <GuardianSprite guild="lorekeeper" pose="idle" className="w-full h-full" />
           </div>
-          <h2 className="text-4xl font-display font-bold text-emerald-300 mb-2">Lorekeeper Guild Hall</h2>
-          <p className="text-emerald-600 font-serif italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'lorekeeper')?.lore}</p>
-          <p className="text-emerald-500 font-serif mb-1">Lvl {profile?.lorekeeper_lvl || 1} · {profile?.lorekeeper_xp || 0}/500 XP</p>
-          <p className="text-emerald-600 text-xs mb-1">Difficulty {'★'.repeat(profile?.lorekeeper_tier || 1)}{'☆'.repeat(Math.max(0, 3 - (profile?.lorekeeper_tier || 1)))}</p>
-          <p className="text-gray-400 mb-8 font-serif max-w-md mx-auto">Answer as many passage questions as you can in {timeLimit} seconds. Correct answers build your streak — the longer the streak, the greater the gold multiplier.</p>
+        </div>
+        {/* Full-bleed white content panel */}
+        <div className="flex-1 bg-white overflow-y-auto px-6 pt-6 pb-24 text-center border-t border-stone-200">
+          <h2 className="text-4xl font-display font-bold text-emerald-700 mb-2">Lorekeeper Guild Hall</h2>
+          <p className="text-gray-500 italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'lorekeeper')?.lore}</p>
+          <p className="text-emerald-600 font-medium mb-1">Lvl {profile?.lorekeeper_lvl || 1} · {profile?.lorekeeper_xp || 0}/500 XP</p>
+          <p className="text-emerald-600 text-xs mb-4">Difficulty {'★'.repeat(profile?.lorekeeper_tier || 1)}{'☆'.repeat(Math.max(0, 3 - (profile?.lorekeeper_tier || 1)))}</p>
+          <p className="text-gray-500 mb-6 text-sm max-w-md mx-auto">Answer as many passage questions as you can in {timeLimit} seconds. Correct answers build your streak — the longer the streak, the greater the gold multiplier.</p>
 
           <div className="grid grid-cols-3 gap-4 mb-8 text-center">
-            <div className="bg-black/40 rounded-xl p-4">
-              <p className="text-2xl font-bold font-mono text-white">⏱ {timeLimit}s</p>
+            <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
+              <p className="text-2xl font-bold font-mono text-gray-700">⏱ {timeLimit}s</p>
               <p className="text-xs text-gray-500 mt-1">Time Limit</p>
             </div>
-            <div className="bg-black/40 rounded-xl p-4">
-              <p className="text-2xl font-bold font-mono text-emerald-400">+{XP_PER_CORRECT} XP</p>
+            <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
+              <p className="text-2xl font-bold font-mono text-emerald-500">+{XP_PER_CORRECT} XP</p>
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
-            <div className="bg-black/40 rounded-xl p-4">
-              <p className="text-2xl font-bold font-mono text-yellow-400">+{GOLD_PER_CORRECT}<img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /></p>
+            <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
+              <p className="text-2xl font-bold font-mono text-amber-600">+{GOLD_PER_CORRECT}<img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /></p>
               <p className="text-xs text-gray-500 mt-1">Per Correct</p>
             </div>
           </div>
 
           {questions.length === 0 ? (
-            <p className="text-red-400">No active questions found for this term. Ask Tatay to add some in Supabase.</p>
+            <p className="text-red-500">No active questions found for this term. Ask Tatay to add some in Supabase.</p>
           ) : (
             <GameButton
               onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'lorekeeper' }); }}
-              className="bg-emerald-700 hover:bg-emerald-600 text-white font-bold py-3 px-10 rounded-xl transition-colors font-display text-lg"
+              className="bg-yellow-400 text-black border-2 border-black shadow-[3px_3px_0_0_#000] hover:-translate-y-0.5 hover:shadow-[3px_4px_0_0_#000] active:shadow-none active:translate-y-0.5 transition-all font-extrabold py-3 px-10 rounded-xl font-display text-lg"
             >
               ⚔️ Begin Time Attack
             </GameButton>
           )}
           <div className="mt-6">
-            <GameButton onClick={onExit} className="text-sm text-gray-500 hover:text-gray-300">← Retreat to Map</GameButton>
+            <GameButton onClick={onExit} className="text-sm text-gray-400 hover:text-gray-700 font-bold">← Retreat to Map</GameButton>
           </div>
         </div>
       </div>
@@ -223,23 +227,36 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
     const feedbackClass = flashResult === 'correct' ? 'battle-answer-correct' : flashResult === 'wrong' ? 'battle-answer-wrong' : '';
 
     return (
-      <div className="max-w-2xl mx-auto font-serif">
+      <div className="fixed inset-0 font-serif flex flex-col lg:flex-row lg:items-center lg:justify-center lg:bg-emerald-800" style={{ zIndex: 80 }}>
         <CritBonusToast event={engine.lastCrit} />
-        <div className="flex justify-between items-center mb-4">
-          <div className="flex items-center gap-3">
-            <span className={`text-2xl font-bold ${engine.timeLeft <= 10 ? 'text-red-400 animate-pulse' : 'text-emerald-300'}`}>⏱ {engine.timeLeft}s</span>
-            <div className="w-32 bg-neutral-800 rounded-full h-2">
-              <div className={`h-2 rounded-full transition-all ${timerColor}`} style={{ width: `${timerPct}%` }} />
-            </div>
+        {/* Centered column — full width on mobile, max-w-xl on desktop */}
+        <div className="flex flex-col w-full lg:max-w-xl lg:max-h-[90vh] lg:rounded-2xl lg:overflow-hidden lg:shadow-2xl flex-1 min-h-0 lg:flex-none">
+
+        {/* HUD */}
+        <div className="flex-shrink-0 bg-stone-900">
+          <div className="flex justify-between items-center px-4 py-2">
+            <span className={`text-lg font-bold ${engine.timeLeft <= 10 ? 'text-red-400 animate-pulse' : 'text-emerald-400'}`}>⏱ {engine.timeLeft}s</span>
+            <span className="text-sm text-orange-400 font-bold">🔥 x{engine.currentMultiplier}</span>
+            <span className="text-sm text-emerald-400 font-bold">Score: {engine.score}</span>
           </div>
-          <span className="text-emerald-400">🔥 x{engine.currentMultiplier} streak</span>
-          <span className="text-emerald-300 font-bold">Score: {engine.score}</span>
+          {/* Full-width timer bar — always Lorekeeper emerald */}
+          <div className="h-1.5 bg-stone-700 w-full">
+            <div className="h-1.5 bg-emerald-500 transition-all" style={{ width: `${timerPct}%` }} />
+          </div>
         </div>
 
-        <div className="w-28 h-28 mx-auto mb-2">
-          <GuardianSprite guild="lorekeeper" pose={flashResult === 'correct' ? 'hurt' : 'idle'} className="w-full h-full" />
+        {/* Sprite strip — explicit bg image so it always shows the guild scene */}
+        <div
+          className="flex-shrink-0 flex items-center justify-center py-2"
+          style={{ backgroundImage: "url('/guilds/lorekeeper-bg.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
+          <div className="w-40 h-40 landscape:w-20 landscape:h-20 lg:w-52 lg:h-52">
+            <GuardianSprite guild="lorekeeper" pose={flashResult === 'correct' ? 'hurt' : 'idle'} className="w-full h-full" />
+          </div>
         </div>
 
+        {/* Question card */}
+        <div className="flex-1 flex flex-col min-h-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={q.id}
@@ -247,45 +264,62 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.15 }}
-            className={`bg-[#121a16] border-2 border-emerald-800 rounded-xl p-8 shadow-2xl ${feedbackClass}`}
+            className={`bg-white border-t border-stone-200 p-4 shadow-sm ${feedbackClass} flex flex-col flex-1 landscape:overflow-y-auto`}
           >
-            <p className="text-center text-xs text-gray-600 mb-2">{difficultyStars}</p>
+            <p className="text-center text-xs text-gray-500 mb-1">{difficultyStars}</p>
 
             {q.passage && (
-              <div className="bg-black/30 border border-emerald-900 rounded-lg p-4 mb-4 text-gray-300 leading-relaxed">
+              <div className="bg-amber-50 border border-amber-100 rounded-xl p-3 mb-3 text-gray-700 text-base leading-snug">
                 {q.passage}
               </div>
             )}
 
-            <p className="text-lg font-bold text-white mb-6">{q.question}</p>
+            <p className="text-base font-bold text-gray-900 mb-3">{q.question}</p>
 
-            <div className="space-y-3">
-              {choices.map(c => {
-                let style = 'border-emerald-800 hover:border-emerald-500 hover:bg-emerald-900/20';
-                if (selectedChoice === c.key) {
-                  style = c.key.toLowerCase() === q.correct_choice.toLowerCase() ? 'border-green-500 bg-green-900/30' : 'border-red-500 bg-red-900/30';
+            <div className="grid grid-cols-1 landscape:grid-cols-2 gap-2">
+              {choices.map((c, idx) => {
+                const label = ['A', 'B', 'C', 'D'][idx];
+                const isSelected = selectedChoice === c.key;
+                const isCorrect = c.key.toLowerCase() === q.correct_choice.toLowerCase();
+                let cardStyle = 'bg-amber-50 border-amber-200 hover:border-emerald-400 hover:bg-emerald-50';
+                let badgeStyle = 'bg-amber-200 text-amber-800';
+                if (isSelected) {
+                  if (isCorrect) {
+                    cardStyle = 'bg-green-50 border-green-400';
+                    badgeStyle = 'bg-green-500 text-white';
+                  } else {
+                    cardStyle = 'bg-red-50 border-red-400';
+                    badgeStyle = 'bg-red-500 text-white';
+                  }
                 }
                 return (
                   <GameButton
                     key={c.key}
                     onClick={() => handleAnswer(c.key)}
                     disabled={selectedChoice !== null}
-                    className={`w-full text-left p-4 rounded-lg border-2 transition-colors text-gray-200 ${style} disabled:cursor-default`}
+                    className={`w-full text-left px-3 py-3 rounded-xl border-2 transition-colors text-base text-gray-800 ${cardStyle} disabled:cursor-default flex items-center gap-3`}
                   >
-                    {c.text}
+                    <span className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold ${badgeStyle}`}>{label}</span>
+                    <span>{c.text}</span>
                   </GameButton>
                 );
               })}
             </div>
           </motion.div>
         </AnimatePresence>
+        </div>
+        </div>{/* end centered column */}
       </div>
     );
   }
 
   // --- RESULTS ---
+  const rank = engine.correctCount >= 10 ? { emoji: '🏆', label: 'Master Scholar', color: 'text-yellow-500' }
+    : engine.correctCount >= 5 ? { emoji: '⭐', label: 'Adept Reader', color: 'text-emerald-400' }
+    : { emoji: '📜', label: 'Apprentice', color: 'text-stone-400' };
+
   return (
-    <div className="max-w-2xl mx-auto battle-panel-in">
+    <div className="fixed inset-0 font-serif flex flex-col lg:flex-row lg:items-center lg:justify-center lg:bg-emerald-800 battle-panel-in" style={{ zIndex: 80 }}>
       {newCurioId && ALL_MONSTERS[newCurioId] && (
         <CurioRevealModal monster={ALL_MONSTERS[newCurioId]} userId={userId} onClose={() => setNewCurioId(null)} />
       )}
@@ -296,39 +330,93 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
           onGoToCompendium={() => setCompanionGraduation(null)}
         />
       )}
-      <div className="bg-[#121a16] border-2 border-emerald-800 rounded-2xl p-10 text-center shadow-2xl font-serif">
-        <div className="w-40 h-40 mx-auto mb-4">
-          <GuardianSprite guild="lorekeeper" pose="defeated" className="w-full h-full" />
-        </div>
-        <div className="text-5xl mb-2">{engine.correctCount >= 10 ? '🏆' : engine.correctCount >= 5 ? '⭐' : '📜'}</div>
-        <h2 className="text-3xl font-bold text-emerald-300 mb-4 font-display">Guardian Defeated!</h2>
 
-        <div className="grid grid-cols-2 gap-4 mb-8">
-          <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-green-400">{engine.correctCount}</p>
-            <p className="text-sm text-gray-500 mt-1">Correct</p>
-          </div>
-          <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-red-400">{engine.wrongCount}</p>
-            <p className="text-sm text-gray-500 mt-1">Wrong</p>
-          </div>
-          <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-emerald-400">{engine.totalXpEarned}</p>
-            <p className="text-sm text-gray-500 mt-1">Subclass XP</p>
-          </div>
-          <div className="bg-black/40 rounded-xl p-5">
-            <p className="text-4xl font-bold font-mono text-yellow-400"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {engine.totalGoldEarned}</p>
-            <p className="text-sm text-gray-500 mt-1">Gold Earned</p>
-          </div>
+      {/* Centered column */}
+      <div className="flex flex-col w-full lg:max-w-xl lg:max-h-[90vh] lg:rounded-2xl lg:overflow-hidden lg:shadow-2xl flex-1 min-h-0 lg:flex-none">
+
+        {/* Header bar — always full width */}
+        <div className="flex-shrink-0 bg-stone-900 px-4 py-3 flex items-center justify-between">
+          <span className="text-emerald-400 font-bold text-sm tracking-wide uppercase">Session Complete</span>
+          <span className={`text-lg font-bold ${rank.color}`}>{rank.emoji} {rank.label}</span>
         </div>
 
-        <GameButton
-          onClick={onExit}
-          className="bg-neutral-800 hover:bg-neutral-700 text-white font-bold py-3 px-6 rounded-xl transition-colors"
-        >
-          Return to Campaign Map
-        </GameButton>
-      </div>
+        {/* Body — portrait: stacked | landscape: side-by-side */}
+        <div className="flex flex-col landscape:flex-row flex-1 min-h-0">
+
+          {/* Sprite strip */}
+          <div
+            className="flex-shrink-0 flex items-center justify-center py-4 landscape:w-2/5 landscape:py-0"
+            style={{ backgroundImage: "url('/guilds/lorekeeper-bg.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+          >
+            <div className="w-44 h-44 landscape:w-32 landscape:h-32 lg:w-52 lg:h-52">
+              <GuardianSprite guild="lorekeeper" pose="defeated" className="w-full h-full" />
+            </div>
+          </div>
+
+          {/* Results card */}
+          <div className="flex-1 bg-white overflow-y-auto flex flex-col min-h-0">
+          <div className="p-4 flex flex-col gap-3 flex-1">
+
+            {/* Stats grid */}
+            <div className="grid grid-cols-2 gap-2">
+              <div className="bg-green-50 border border-green-200 rounded-2xl p-3 text-center">
+                <p className="text-3xl font-bold font-mono text-green-600">{engine.correctCount}</p>
+                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Correct</p>
+              </div>
+              <div className="bg-red-50 border border-red-200 rounded-2xl p-3 text-center">
+                <p className="text-3xl font-bold font-mono text-red-500">{engine.wrongCount}</p>
+                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Wrong</p>
+              </div>
+              <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-3 text-center">
+                <p className="text-3xl font-bold font-mono text-emerald-700">+{engine.totalXpEarned}</p>
+                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Subclass XP</p>
+              </div>
+              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-3 text-center">
+                <p className="text-3xl font-bold font-mono text-amber-600 flex items-center justify-center gap-1">
+                  <img src="/icons/rewards/gold_coin.svg" alt="" className="w-5 h-5" />
+                  {engine.totalGoldEarned}
+                </p>
+                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Gold Earned</p>
+              </div>
+            </div>
+
+            {/* Accuracy bar */}
+            {(engine.correctCount + engine.wrongCount) > 0 && (() => {
+              const total = engine.correctCount + engine.wrongCount;
+              const pct = Math.round((engine.correctCount / total) * 100);
+              return (
+                <div>
+                  <div className="flex justify-between text-xs text-gray-500 mb-1">
+                    <span>Accuracy</span>
+                    <span className="font-bold text-emerald-700">{pct}%</span>
+                  </div>
+                  <div className="h-2 bg-stone-100 rounded-full overflow-hidden">
+                    <div className="h-2 bg-emerald-500 rounded-full transition-all" style={{ width: `${pct}%` }} />
+                  </div>
+                </div>
+              );
+            })()}
+
+            {/* Actions */}
+            <div className="flex flex-col gap-3 mt-auto pt-2">
+              <GameButton
+                onClick={() => { engine.start(); setScreen('playing'); }}
+                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-xl transition-colors text-base"
+              >
+                ⚔️ Play Again
+              </GameButton>
+              <GameButton
+                onClick={onExit}
+                className="w-full bg-stone-100 hover:bg-stone-200 text-gray-600 font-bold py-3 px-6 rounded-xl transition-colors text-sm"
+              >
+                ← Return to Campaign Map
+              </GameButton>
+            </div>
+          </div>
+          </div>{/* end results card */}
+        </div>{/* end body row */}
+
+      </div>{/* end centered column */}
     </div>
   );
 }
