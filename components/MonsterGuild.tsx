@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { playCurioLevelUp } from '@/lib/sounds';
 import { logAction } from '@/lib/playerlog';
@@ -150,6 +151,16 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const selfProfile = USERS[userId];
   const liveBattleInbox = useLiveBattleInbox(userId, selfProfile?.name || userId, selfProfile?.grade);
   const isDemo = userId.startsWith('demo_');
+
+  // Arena sub-nav drawer
+  const [arenaNavOpen, setArenaNavOpen] = useState(false);
+  const [isLandscape, setIsLandscape] = useState(false);
+  useEffect(() => {
+    const check = () => setIsLandscape(window.innerWidth > window.innerHeight);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
   // Gates trading, PvP/live battle, map presence, and egg-catch inserts —
   // the roster/team view still renders from the local_owned_monsters cache
   // (see loadData below) regardless of this flag.
@@ -915,41 +926,92 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         <p className="text-xs text-gray-500 mt-1">Train, catch, and battle with every curio species in the game.</p>
       </div>
 
-      {/* Sub-nav */}
-      <div className="flex gap-2 mb-8 border-b border-stone-200">
-        {([
-          { id: 'map',        label: 'Training Map' },
-          { id: 'team',       label: 'My Team' },
-          { id: 'trainers',   label: 'Trainers' },
-          { id: 'compendium', label: `Compendium${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}` },
-          // Trading is disabled for demo accounts (ephemeral/single-player,
-          // see app/api/demo-login and create_trade_request's own server-side
-          // guard) — hidden here so a demo player never hits a dead-end tab.
-          ...(userId.startsWith('demo_') ? [] : [{ id: 'trade' as GuildView, label: 'Trade' }]),
-          { id: 'leaderboard', label: 'Leaderboard' },
-          // Excluded for demo accounts — a demo session is too short-lived
-          // to ever complete a 5-day streak, so the tab would be a dead end.
-          ...(userId.startsWith('demo_') ? [] : [{ id: 'hatchery' as GuildView, label: 'Hatchery' }]),
-        ] as { id: GuildView; label: string }[]).map(tab => {
-          // These four need a live connection (wild encounters, trainer/PvP
-          // battles, trading, ranking) — still clickable so their own
-          // "needs a connection" message shows, just visually marked.
-          const needsConnection = offline && (tab.id === 'map' || tab.id === 'trainers' || tab.id === 'trade' || tab.id === 'leaderboard');
-          return (
+      {/* Arena sub-nav: trigger button shows current view; tap opens drawer */}
+      {(() => {
+        const ARENA_TABS = ([
+          { id: 'map'        as GuildView, label: 'Training Map', icon: '🗺️' },
+          { id: 'team'       as GuildView, label: 'My Team',      icon: '🐾' },
+          { id: 'trainers'   as GuildView, label: 'Trainers',     icon: '⚔️' },
+          { id: 'compendium' as GuildView, label: `Compendium${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}`, icon: '📖' },
+          ...(isDemo ? [] : [{ id: 'trade'       as GuildView, label: 'Trade',       icon: '🤝' }]),
+          { id: 'leaderboard' as GuildView, label: 'Leaderboard', icon: '🏆' },
+          ...(isDemo ? [] : [{ id: 'hatchery'    as GuildView, label: 'Hatchery',    icon: '🥚' }]),
+        ]);
+        const current = ARENA_TABS.find(t => t.id === view) ?? ARENA_TABS[0];
+        const needsConnection = (id: GuildView) =>
+          offline && (id === 'map' || id === 'trainers' || id === 'trade' || id === 'leaderboard');
+        return (
+          <>
+            {/* Current-view trigger */}
             <button
-              key={tab.id}
-              onClick={() => setView(tab.id)}
-              className={`px-4 py-2 text-sm font-bold transition-colors border-b-2 -mb-px ${
-                view === tab.id
-                  ? 'border-amber-500 text-amber-600'
-                  : 'border-transparent text-gray-500 hover:text-gray-900'
-              }`}
+              onClick={() => setArenaNavOpen(true)}
+              className="mb-6 w-full flex items-center gap-3 px-4 py-3 bg-amber-50 border border-amber-200 rounded-xl hover:bg-amber-100 transition-colors"
             >
-              {needsConnection && '🔒 '}{tab.label}
+              <span className="text-xl leading-none">{current.icon}</span>
+              <span className="font-bold text-gray-900 flex-1 text-left">{current.label}</span>
+              <span className="text-gray-400 text-sm">▼</span>
             </button>
-          );
-        })}
-      </div>
+
+            {/* Drawer overlay */}
+            <AnimatePresence>
+              {arenaNavOpen && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className={`fixed inset-0 bg-black/50 z-[85] flex ${isLandscape ? 'items-stretch justify-start' : 'items-end justify-center'}`}
+                  onClick={() => setArenaNavOpen(false)}
+                >
+                  <motion.div
+                    initial={isLandscape ? { x: '-100%' } : { y: '100%' }}
+                    animate={isLandscape ? { x: 0 } : { y: 0 }}
+                    exit={isLandscape ? { x: '-100%' } : { y: '100%' }}
+                    transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
+                    style={isLandscape ? { position: 'absolute', top: 0, left: 0, bottom: 0, width: '22rem' } : undefined}
+                    className={`relative bg-white border-stone-200 shadow-2xl
+                      ${isLandscape
+                        ? 'rounded-tr-3xl pt-4 pb-6 pl-6 pr-8 flex flex-col'
+                        : 'border border-b-0 rounded-t-3xl pt-6 pb-10 px-6 w-full'
+                      }`}
+                    onClick={e => e.stopPropagation()}
+                  >
+                    {/* Title */}
+                    <div className={`${isLandscape ? 'mb-4 text-left' : 'mb-5 text-center'}`}>
+                      <span className="text-amber-700 font-extrabold text-lg uppercase tracking-widest">Curio Arena</span>
+                    </div>
+
+                    {/* Tab grid */}
+                    <div className={`grid gap-2 ${isLandscape ? 'grid-cols-2' : 'grid-cols-3'}`}>
+                      {ARENA_TABS.map(tab => {
+                        const isActive = view === tab.id;
+                        const locked = needsConnection(tab.id);
+                        return (
+                          <button
+                            key={tab.id}
+                            onClick={() => { setView(tab.id); setArenaNavOpen(false); }}
+                            className={`flex flex-col items-center gap-2 p-4 rounded-2xl border transition-all duration-150
+                              hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-95
+                              ${isActive
+                                ? 'bg-amber-50 border-amber-300'
+                                : 'border-transparent hover:bg-stone-50'
+                              }`}
+                          >
+                            <span className="text-3xl leading-none">{locked ? '🔒' : tab.icon}</span>
+                            <span className="text-[10px] font-bold uppercase tracking-wide text-gray-600 text-center leading-tight">
+                              {tab.label}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </>
+        );
+      })()}
 
       {/* Map view — World Map region picker, or the selected region's Training Map.
           Requires battleState, which loadData() leaves null offline (see
