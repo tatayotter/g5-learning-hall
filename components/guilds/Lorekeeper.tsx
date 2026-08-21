@@ -170,24 +170,20 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
 
   if (screen === 'ready') {
     return (
-      <div className="fixed inset-0 flex flex-col battle-panel-in" style={{ top: '4rem', zIndex: 2 }}>
-        {/* Sprite strip — bg image shows through */}
-        <div className="flex-shrink-0 flex items-end justify-center pt-4 pb-2">
-          <div className="w-40 h-40">
+      <div className="max-w-2xl mx-auto battle-panel-in">
+        <div className="bg-white/90 border border-stone-200 rounded-2xl shadow-sm p-8 text-center">
+          <div className="w-40 h-40 mx-auto mb-4">
             <GuardianSprite guild="lorekeeper" pose="idle" className="w-full h-full" />
           </div>
-        </div>
-        {/* Full-bleed white content panel */}
-        <div className="flex-1 bg-white overflow-y-auto px-6 pt-6 pb-24 text-center border-t border-stone-200">
           <h2 className="text-4xl font-display font-bold text-emerald-700 mb-2">Lorekeeper Guild Hall</h2>
-          <p className="text-gray-500 italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'lorekeeper')?.lore}</p>
-          <p className="text-emerald-600 font-medium mb-1">Lvl {profile?.lorekeeper_lvl || 1} · {profile?.lorekeeper_xp || 0}/500 XP</p>
-          <p className="text-emerald-600 text-xs mb-4">Difficulty {'★'.repeat(profile?.lorekeeper_tier || 1)}{'☆'.repeat(Math.max(0, 3 - (profile?.lorekeeper_tier || 1)))}</p>
+          <p className="text-emerald-700 font-mono italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'lorekeeper')?.lore}</p>
+          <p className="text-gray-500 font-mono mb-1">Lvl {profile?.lorekeeper_lvl || 1} · {profile?.lorekeeper_xp || 0}/500 XP</p>
+          <p className="text-emerald-700 text-xs font-mono mb-4">Difficulty {'★'.repeat(profile?.lorekeeper_tier || 1)}{'☆'.repeat(Math.max(0, 3 - (profile?.lorekeeper_tier || 1)))}</p>
           <p className="text-gray-500 mb-6 text-sm max-w-md mx-auto">Answer as many passage questions as you can in {timeLimit} seconds. Correct answers build your streak — the longer the streak, the greater the gold multiplier.</p>
 
           <div className="grid grid-cols-3 gap-4 mb-8 text-center">
             <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
-              <p className="text-2xl font-bold font-mono text-gray-700">⏱ {timeLimit}s</p>
+              <p className="text-2xl font-bold font-mono text-white">⏱ {timeLimit}s</p>
               <p className="text-xs text-gray-500 mt-1">Time Limit</p>
             </div>
             <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
@@ -205,7 +201,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
           ) : (
             <GameButton
               onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'lorekeeper' }); }}
-              className="bg-yellow-400 text-black border-2 border-black shadow-[3px_3px_0_0_#000] hover:-translate-y-0.5 hover:shadow-[3px_4px_0_0_#000] active:shadow-none active:translate-y-0.5 transition-all font-extrabold py-3 px-10 rounded-xl font-display text-lg"
+              className="bg-emerald-800 hover:bg-emerald-700 text-white font-bold py-3 px-10 rounded-xl transition-colors font-display text-lg"
             >
               ⚔️ Begin Time Attack
             </GameButton>
