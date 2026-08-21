@@ -432,29 +432,32 @@ export default function MapCanvas({
       {trainerMarker && (
         <div
           ref={registerMarker(`trainer:${trainerMarker.id}`, trainerMarker.x, trainerMarker.y)}
-          className="absolute pointer-events-none flex items-end justify-center"
+          className="absolute pointer-events-none"
           style={{
             left: `${leftPct(trainerMarker.x)}%`, top: `${topPct(trainerMarker.y)}%`,
             width: `${tileWPct}%`, height: `${tileHPct}%`,
           }}
         >
-          {/* Bouncing emoji badge above the tile — catches the eye from afar */}
+          {/* Trainer sprite — bottom-anchored to the tile, overflows upward
+              like a standee (same pattern as portal markers). h-16 = ~64px,
+              roughly 2 tiles tall, so it reads clearly on the map. */}
+          <img
+            src={trainerMarker.spriteOverride ?? `/trainers/${trainerMarker.id}.png`}
+            alt={trainerMarker.name}
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 h-16 w-auto
+                       object-contain object-bottom
+                       drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]"
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+          />
+          {/* Bouncing emoji badge — floats above the sprite */}
           <span
-            className="absolute -top-6 left-1/2 -translate-x-1/2 text-xl select-none
+            className="absolute -top-10 left-1/2 -translate-x-1/2 text-lg select-none
                        drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] animate-bounce"
             style={{ animationDuration: '0.9s' }}
           >
             {trainerMarker.emoji}
           </span>
-          {/* Trainer sprite portrait — mirrors the roster's spriteOverride
-              fallback so every trainer shows the correct art. */}
-          <img
-            src={trainerMarker.spriteOverride ?? `/trainers/${trainerMarker.id}.png`}
-            alt={trainerMarker.name}
-            className="w-7 h-7 object-contain object-bottom drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]"
-            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-          />
-          {/* Name tag */}
+          {/* Name tag below the tile */}
           <p className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[9px] bg-black/70
                         text-amber-300 font-bold px-1 rounded whitespace-nowrap">
             {trainerMarker.name}
