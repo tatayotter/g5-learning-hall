@@ -6,7 +6,7 @@
 import { supabase } from '@/lib/supabase';
 import { USERS, UserId, loadClassmates } from '@/lib/userSession';
 import { MONSTER_ARENA_QUEST_TYPE } from '@/lib/guildEngine';
-import { BOT_PROFILES, getBotProgress } from '@/lib/botProfiles';
+import { BOT_PROFILES, getBotProgress, botAllMonsterIds, teamSizeForLevel } from '@/lib/botProfiles';
 
 export interface LeaderboardTeamMonster {
   monster_id: string;
@@ -186,7 +186,9 @@ async function computeLeaderboard(): Promise<LeaderboardEntry[]> {
   const botEntries: LeaderboardEntry[] = BOT_PROFILES.map(bot => {
     const p = getBotProgress(bot, now);
     const score = p.level * 5 + p.trainerBattlesWon * 10 + p.liveBattleWins * 25 + p.questionsAnswered;
-    const team: LeaderboardTeamMonster[] = bot.monsterIds.map(mId => ({
+    // Only show the team slots the bot has actually unlocked at their current level.
+    const teamSize = teamSizeForLevel(p.level);
+    const team: LeaderboardTeamMonster[] = botAllMonsterIds(bot).slice(0, teamSize).map(mId => ({
       monster_id: mId,
       monster_level: p.level,
       nickname: null,
