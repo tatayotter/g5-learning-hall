@@ -627,20 +627,8 @@ export default class TrainingMapScene extends Phaser.Scene {
     }
   }
 
-  private applyDustPuffs(state: MapCanvasSyncState) {
-    for (const puff of state.dustPuffs) {
-      if (this.renderedDustPuffIds.has(puff.id)) continue;
-      this.renderedDustPuffIds.add(puff.id);
-      const { tileW: w, tileH: h, offsetX, offsetY } = this.lastTransform;
-      const px = offsetX + (puff.x + 0.5) * w;
-      const py = offsetY + (puff.y + 0.8) * h;
-      const circle = this.add.circle(px, py, 5, 0xd6c496, 0.9);
-      circle.setDepth(8);
-      this.tweens.add({
-        targets: circle, alpha: 0, scale: 1.8, duration: 450, ease: 'Cubic.easeOut',
-        onComplete: () => { circle.destroy(); this.renderedDustPuffIds.delete(puff.id); },
-      });
-    }
+  private applyDustPuffs(_state: MapCanvasSyncState) {
+    // Footstep dust puffs removed — effect was distracting.
   }
 
 }
