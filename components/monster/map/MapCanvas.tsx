@@ -151,6 +151,19 @@ export default function MapCanvas({
   // imperatively every animation frame (see the rAF effect below), bypassing
   // React re-render entirely so 60fps movement doesn't churn this component.
   const selfWrapRef = useRef<HTMLDivElement>(null);
+  // Other-player overlays (name tags / status icons) suffer the same camera-
+  // drift problem as static markers if only repositioned on React re-renders
+  // (once per tile crossed). Keep their DOM nodes and current world-tile
+  // positions in refs so the rAF loop can reposition them every frame, just
+  // like selfWrapRef and markerElsRef below.
+  const otherPlayerElsRef = useRef<Map<string, HTMLDivElement>>(new Map());
+  // Mutated every render so the rAF loop always reads the latest tile position
+  // without needing to re-subscribe to `onlinePlayers` as a dep.
+  const otherPlayerPosRef = useRef<Map<string, { x: number; y: number }>>(new Map());
+  // Update positions synchronously during render — ref writes are safe here.
+  otherPlayerPosRef.current = new Map(
+    Object.values(onlinePlayers).map(p => [p.userId, { x: p.x, y: p.y }]),
+  );
   // Every OTHER stationary-tile marker (town, portals, scrolls, curio) also
   // needs its left/top repositioned every frame the camera pans — earlier
   // these only used the once-per-tile posX/posY-derived leftPct/topPct
@@ -258,6 +271,14 @@ export default function MapCanvas({
         markerElsRef.current.forEach(({ el, x: mx, y: my }) => {
           el.style.left = `${lp(mx)}%`;
           el.style.top = `${tp(my)}%`;
+        });
+        // Other-player overlays use the same per-frame camera transform so
+        // they track the world correctly even while the camera is panning.
+        otherPlayerElsRef.current.forEach((el, uid) => {
+          const pos = otherPlayerPosRef.current.get(uid);
+          if (!pos) return;
+          el.style.left = `${lp(pos.x)}%`;
+          el.style.top = `${tp(pos.y)}%`;
         });
       }
     };
@@ -417,11 +438,19 @@ export default function MapCanvas({
         </div>
       </div>
 
-      {/* Other online players — clickable to open stats popup */}
+      {/* Other online players — clickable to open stats popup.
+          Position is written imperatively every rAF frame (otherPlayerElsRef)
+          so it tracks the camera continuously, matching selfWrapRef and
+          markerElsRef. No CSS transition — rAF runs at 60fps and a transition
+          would fight the per-frame style writes. */}
       {Object.values(onlinePlayers).map(p => (
         <div
           key={p.userId}
-          className="absolute transition-[left,top] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer flex items-center justify-center"
+          ref={(el) => {
+            if (el) otherPlayerElsRef.current.set(p.userId, el);
+            else otherPlayerElsRef.current.delete(p.userId);
+          }}
+          className="absolute cursor-pointer flex items-center justify-center"
           style={{ left: `${leftPct(p.x)}%`, top: `${topPct(p.y)}%`, width: `${tileWPct}%`, height: `${tileHPct}%` }}
           onClick={() => onPlayerClick(p.userId)}
           title={USERS[p.userId]?.name || p.name}
