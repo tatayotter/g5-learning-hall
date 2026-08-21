@@ -1,5 +1,4 @@
 'use client';
-import { STARTER_AVATARS } from '@/lib/starterAvatars';
 
 export interface ChildFormData {
   fullName: string;
@@ -13,6 +12,14 @@ export interface ChildFormData {
 
 export const GRADES = ['Grade 2', 'Grade 3', 'Grade 4', 'Grade 5', 'Grade 6'];
 
+/** Default avatar for a given gender — assigned automatically at account
+ *  creation; the child can change it later via the Avatar Picker. */
+export function defaultAvatarForGender(gender: 'boy' | 'girl'): string {
+  return gender === 'girl'
+    ? '/userpics/userpics_premium/ssg3.png'
+    : '/userpics/userpics_premium/ssb3.png';
+}
+
 export const emptyChildForm = (): ChildFormData => ({
   fullName: '',
   grade: 'Grade 5',
@@ -20,7 +27,7 @@ export const emptyChildForm = (): ChildFormData => ({
   schoolName: '',
   username: '',
   pin: '',
-  avatar: STARTER_AVATARS[0],
+  avatar: defaultAvatarForGender('boy'),
 });
 
 interface ChildAccountFormProps {
@@ -33,6 +40,9 @@ interface ChildAccountFormProps {
 export default function ChildAccountForm({ data, onChange, onRemove, label }: ChildAccountFormProps) {
   const set = <K extends keyof ChildFormData>(key: K, value: ChildFormData[K]) =>
     onChange({ ...data, [key]: value });
+
+  const setGender = (gender: 'boy' | 'girl') =>
+    onChange({ ...data, gender, avatar: defaultAvatarForGender(gender) });
 
   return (
     <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-4 space-y-3">
@@ -67,7 +77,7 @@ export default function ChildAccountForm({ data, onChange, onRemove, label }: Ch
 
         <select
           value={data.gender}
-          onChange={(e) => set('gender', e.target.value as 'boy' | 'girl')}
+          onChange={(e) => setGender(e.target.value as 'boy' | 'girl')}
           className="rounded-lg bg-neutral-950 border border-neutral-700 px-3 py-2 text-sm text-white"
         >
           <option value="boy">Boy</option>
@@ -104,22 +114,15 @@ export default function ChildAccountForm({ data, onChange, onRemove, label }: Ch
         />
       </div>
 
-      <div>
-        <p className="text-xs text-gray-500 mb-1.5">Choose an avatar</p>
-        <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
-          {STARTER_AVATARS.map((avatar) => (
-            <button
-              key={avatar}
-              type="button"
-              onClick={() => set('avatar', avatar)}
-              className={`relative aspect-square rounded-lg border-2 overflow-hidden bg-neutral-950 transition-all ${
-                data.avatar === avatar ? 'border-amber-400' : 'border-neutral-700 hover:border-neutral-500'
-              }`}
-            >
-              <img src={avatar} alt="" className="w-full h-full object-cover" />
-            </button>
-          ))}
-        </div>
+      {/* Avatar is auto-assigned from gender — no picker needed here.
+          The child can customise it later via the Hero Profile → Avatar Picker. */}
+      <div className="flex items-center gap-2 text-xs text-gray-500">
+        <img
+          src={data.avatar}
+          alt="default avatar"
+          className="w-8 h-8 object-contain rounded"
+        />
+        <span>Default avatar assigned by gender — can be changed after account creation.</span>
       </div>
     </div>
   );

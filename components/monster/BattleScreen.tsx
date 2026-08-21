@@ -594,7 +594,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
 
   if (phase === 'ended' && battleResult) {
     const me = USERS[userId];
-    const opponentAvatarSrc = trainer ? (trainer.spriteOverride ?? `/trainers/${trainer.id}.png`) : '/userpics/Spr_RS_School_Kid_M.png';
+    const opponentAvatarSrc = trainer ? (trainer.spriteOverride ?? `/trainers/${trainer.id}.png`) : '/userpics/userpics_premium/ssb3.png';
     const opponentFallbackEmoji = trainer?.emoji ?? '⚔️';
     const reasonLabel = battleResult.reason === 'surrender' ? 'You surrendered' : 'Fight complete';
 
@@ -602,7 +602,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       <PostBattleSummary
         outcome={battleResult.won ? 'win' : 'loss'}
         reasonLabel={reasonLabel}
-        left={{ avatarSrc: me?.avatar || '/userpics/Spr_RS_School_Kid_M.png', name: me?.fullName ?? userId, mon: playerMon, isWinner: battleResult.won }}
+        left={{ avatarSrc: me?.avatar || '/userpics/userpics_premium/ssb3.png', name: me?.fullName ?? userId, mon: playerMon, isWinner: battleResult.won }}
         right={{ avatarSrc: opponentAvatarSrc, avatarFallbackEmoji: opponentFallbackEmoji, avatarContain: !!trainer?.spriteOverride, name: opponentName, mon: npcMon, isWinner: !battleResult.won }}
         log={log}
         rewardLine={battleResult.won && battleResult.exp > 0 ? `+${battleResult.exp} Curio EXP earned!` : undefined}

@@ -142,8 +142,8 @@ function TopEntryCard({ entry, rank, badge, highlight, currentUserId, reactionCo
         <img
           src={entry.avatar}
           alt={entry.name}
-          className="w-16 h-16 rounded-full object-cover border-2 border-amber-500 flex-shrink-0"
-          onError={(e) => { (e.target as HTMLImageElement).src = '/userpics/Spr_RS_School_Kid_M.png'; }}
+          className="w-16 h-16 rounded-full object-contain bg-neutral-950 border-2 border-amber-500 flex-shrink-0"
+          onError={(e) => { (e.target as HTMLImageElement).src = '/userpics/userpics_premium/ssb3.png'; }}
         />
         <div className="flex-1">
           <p className="text-white font-bold text-lg flex items-center gap-1.5">
@@ -184,8 +184,8 @@ function RankRow({ entry, rank, currentUserId, reactionCounts, onReactionSent }:
       <img
         src={entry.avatar}
         alt={entry.name}
-        className="w-9 h-9 rounded-full object-cover border border-neutral-600 flex-shrink-0"
-        onError={(e) => { (e.target as HTMLImageElement).src = '/userpics/Spr_RS_School_Kid_M.png'; }}
+        className="w-9 h-9 rounded-full object-contain bg-neutral-950 border border-neutral-600 flex-shrink-0"
+        onError={(e) => { (e.target as HTMLImageElement).src = '/userpics/userpics_premium/ssb3.png'; }}
       />
       <div className="flex-1 min-w-0">
         <p className="text-white text-sm font-bold flex items-center gap-1 truncate">

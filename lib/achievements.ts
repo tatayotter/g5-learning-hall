@@ -547,6 +547,40 @@ export const ACHIEVEMENTS: Achievement[] = [
     goldReward: 350
   },
 
+  // ─── TRASH SCAVENGING ACHIEVEMENTS ────────────────────────────────────────
+  {
+    id: 'litter_picker',
+    title: 'Litter Picker',
+    description: 'Every piece counts. Pick up 10 trash items on the map.',
+    criteria: (d) => (d.trash_collected || 0) >= 10,
+    xpReward: 50,
+    goldReward: 25,
+  },
+  {
+    id: 'litter_patrol',
+    title: 'Litter Patrol',
+    description: 'The campus is cleaner because of you. Pick up 100 trash items.',
+    criteria: (d) => (d.trash_collected || 0) >= 100,
+    xpReward: 200,
+    goldReward: 100,
+  },
+  {
+    id: 'eco_starter',
+    title: 'Eco Starter',
+    description: 'Turning garbage into gold — literally. Earn your first 5 Gold from the Recycler.',
+    criteria: (d) => (d.trash_gold_earned || 0) >= 5,
+    xpReward: 50,
+    goldReward: 25,
+  },
+  {
+    id: 'eco_warrior',
+    title: 'Eco Warrior',
+    description: 'A champion of the environment. Earn 50 Gold from recycling trash.',
+    criteria: (d) => (d.trash_gold_earned || 0) >= 50,
+    xpReward: 300,
+    goldReward: 150,
+  },
+
   // ─── TATAY (JOKE CAPSTONE) ACHIEVEMENTS ────────────────────────────────────
   {
     id: 'no_power_here',

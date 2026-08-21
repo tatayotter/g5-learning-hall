@@ -26,6 +26,8 @@ export interface PlayerProgress {
   tutor_rerolls_total: number;
   tatay_battles_won_total: number;
   tatay_battles_lost_total: number;
+  trash_collected_total: number;
+  trash_gold_earned_total: number;
   achievements: Record<string, boolean>;
 }
 
@@ -66,6 +68,8 @@ export function mergeProgressForAchievements(data: WeeklyData, progress: PlayerP
     tutor_rerolls: progress.tutor_rerolls_total,
     tatay_battles_won: progress.tatay_battles_won_total,
     tatay_battles_lost: progress.tatay_battles_lost_total,
+    trash_collected: progress.trash_collected_total,
+    trash_gold_earned: progress.trash_gold_earned_total,
   };
 }
 

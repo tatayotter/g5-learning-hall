@@ -540,7 +540,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
                     isCurrent ? 'border-amber-400' : 'border-stone-200 hover:border-stone-400'
                   }`}
                 >
-                  <img src={avatar} alt={item.name} className="w-full h-full object-cover" />
+                  <img src={avatar} alt={item.name} className="w-full h-full object-contain bg-neutral-950" />
                   {isCurrent && (
                     <span className="absolute bottom-0.5 right-0.5 bg-amber-500 text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">✓</span>
                   )}

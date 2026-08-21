@@ -164,7 +164,7 @@ async function computeLeaderboard(): Promise<LeaderboardEntry[]> {
     return {
       userId: id,
       name: profile?.fullName ?? id,
-      avatar: profile?.avatar ?? '/userpics/Spr_RS_School_Kid_M.png',
+      avatar: profile?.avatar ?? '/userpics/userpics_premium/ssb3.png',
       grade: profile?.grade ?? '',
       isFamily: !!profile?.isFamily,
       level: stats.level,
@@ -196,7 +196,7 @@ async function computeLeaderboard(): Promise<LeaderboardEntry[]> {
     return {
       userId: bot.id as UserId,
       name: bot.fullName,
-      avatar: bot.gender === 'girl' ? '/userpics/Spr_RS_School_Kid_F.png' : '/userpics/Spr_RS_School_Kid_M.png',
+      avatar: bot.userpic,
       grade: bot.grade,
       isFamily: false,
       level: p.level,

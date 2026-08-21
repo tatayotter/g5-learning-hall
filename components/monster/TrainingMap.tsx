@@ -24,6 +24,7 @@ import { CaughtMonster, BattleState } from '@/components/monster/types';
 import type { QualityTier } from '@/lib/curioQuality';
 import { useTrashItems } from '@/hooks/useTrashItems';
 import { TRASH_DEFS, TRASH_ORDER, RECYCLER_TILES } from '@/lib/trashConfig';
+import { BOT_IDS } from '@/lib/botProfiles';
 
 // The training map is a single painted background image (public/maps/map-1.webp)
 // with an invisible logical grid overlaid for walkability + markers. The grid and
@@ -419,14 +420,18 @@ export default function TrainingMap({
       setTimeout(() => {
         collectTrash(trashHere.id);
         setCollectingTrashIds(prev => { const n = new Set(prev); n.delete(trashHere.id); return n; });
+        // Persist to player_progress for achievement tracking; skip for bots.
+        if (!BOT_IDS.has(userId)) {
+          supabase.rpc('add_trash_stats', { p_user_id: userId, p_collected: 1, p_gold: 0 });
+        }
       }, 450);
     }
 
     // Recycler NPC proximity — show trade panel when within 1 tile
     if (recyclerTile &&
         !pendingRecyclerTrade &&
-        Math.abs(newX - recyclerTile.x) <= 1 &&
-        Math.abs(newY - recyclerTile.y) <= 1) {
+        Math.abs(newX - recyclerTile.x) === 0 &&
+        Math.abs(newY - recyclerTile.y) === 0) {
       setPendingRecyclerTrade(true);
       return;
     }
@@ -449,6 +454,7 @@ export default function TrainingMap({
     initialTile: { x: posX, y: posY },
     onTileCrossed: handleTileEnter,
     onBlocked: handleBlocked,
+    extraBlockedTiles: recyclerTile ? [recyclerTile] : undefined,
   });
 
   const handleScrollAnswer = async (correctCount: number, answeredQuestions: any[]) => {
@@ -705,41 +711,33 @@ export default function TrainingMap({
 
       {infoTab === 'bag' && (
         <div>
-          {/* 2×3 item grid */}
-          <div className="grid grid-cols-3 gap-2 mb-3">
+          {/* 1×6 item list */}
+          <div className="flex flex-col gap-1 mb-3">
             {TRASH_ORDER.map(type => {
               const def = TRASH_DEFS[type];
               const count = trashInventory[type];
               return (
                 <div
                   key={type}
-                  className="relative flex flex-col items-center justify-center rounded-lg border border-neutral-700 bg-neutral-800 p-2 aspect-square"
-                  title={`${def.label} (${def.bundleSize} = 1g)`}
+                  className="flex items-center gap-2 rounded-md border border-neutral-700 bg-neutral-800 px-2 py-1"
+                  title={`${def.bundleSize} pcs = 1g`}
                 >
-                  <span className="text-2xl leading-none select-none">{def.emoji}</span>
-                  {count > 0 && (
-                    <span className="absolute bottom-1 right-1.5 text-[10px] font-bold text-white leading-none">
-                      {count}
-                    </span>
-                  )}
+                  <img
+                    src={`/trash/${type}.png`}
+                    alt={def.label}
+                    className="w-6 h-6 object-contain flex-shrink-0"
+                    style={{ imageRendering: 'auto' }}
+                  />
+                  <span className="flex-1 text-[10px] text-gray-300 leading-none">{def.label}</span>
+                  <span className="text-[10px] text-gray-500 leading-none">{def.bundleSize}=1g</span>
+                  <span className={`text-[11px] font-bold leading-none w-5 text-right ${count > 0 ? 'text-white' : 'text-neutral-600'}`}>
+                    {count}
+                  </span>
                 </div>
               );
             })}
             {/* 6th slot empty */}
-            <div className="rounded-lg border border-neutral-800 bg-neutral-900/50 aspect-square" />
-          </div>
-
-          {/* Bundle rate hints */}
-          <div className="space-y-0.5 mb-3">
-            {TRASH_ORDER.map(type => {
-              const def = TRASH_DEFS[type];
-              return (
-                <p key={type} className="text-[10px] text-gray-500">
-                  {def.emoji} {def.label}:{' '}
-                  <span className="text-gray-400">{def.bundleSize} pcs = 1g</span>
-                </p>
-              );
-            })}
+            <div className="rounded-md border border-neutral-800 bg-neutral-900/40 h-8" />
           </div>
 
           {respawnSecsLeft !== null && (
@@ -783,8 +781,8 @@ export default function TrainingMap({
         </div>
       </div>
 
-      {/* 2×3 inventory grid */}
-      <div className="grid grid-cols-3 gap-2 mb-4">
+      {/* 1×6 inventory list */}
+      <div className="flex flex-col gap-1 mb-4">
         {TRASH_ORDER.map(type => {
           const def = TRASH_DEFS[type];
           const count = trashInventory[type];
@@ -792,23 +790,26 @@ export default function TrainingMap({
           return (
             <div
               key={type}
-              className={`relative flex flex-col items-center justify-center rounded-lg border p-2 aspect-square ${
-                complete
-                  ? 'bg-green-900/30 border-green-700'
-                  : 'bg-neutral-800 border-neutral-700'
+              className={`flex items-center gap-2 rounded-md border px-2 py-1 ${
+                complete ? 'bg-green-900/30 border-green-700' : 'bg-neutral-800 border-neutral-700'
               }`}
             >
-              <span className="text-2xl leading-none select-none">{def.emoji}</span>
-              {count > 0 && (
-                <span className="absolute bottom-1 right-1.5 text-[10px] font-bold text-white leading-none">
-                  {count}
-                </span>
-              )}
+              <img
+                src={`/trash/${type}.png`}
+                alt={def.label}
+                className="w-6 h-6 object-contain flex-shrink-0"
+                style={{ imageRendering: 'auto' }}
+              />
+              <span className="flex-1 text-[10px] text-gray-300 leading-none">{def.label}</span>
+              <span className="text-[10px] text-gray-500 leading-none">{def.bundleSize}=1g</span>
+              <span className={`text-[11px] font-bold leading-none w-5 text-right ${count > 0 ? 'text-white' : 'text-neutral-600'}`}>
+                {count}
+              </span>
             </div>
           );
         })}
         {/* 6th slot empty */}
-        <div className="rounded-lg border border-neutral-800 bg-neutral-900 aspect-square" />
+        <div className="rounded-md border border-neutral-800 bg-neutral-900/40 h-8" />
       </div>
 
       {canTrade && (
@@ -837,6 +838,10 @@ export default function TrainingMap({
               onTrashTraded?.(gold);
               setGoldEarnedFlash(gold);
               setTimeout(() => setGoldEarnedFlash(null), 1800);
+              // Persist gold-from-recycling counter for achievements; skip for bots.
+              if (!BOT_IDS.has(userId)) {
+                supabase.rpc('add_trash_stats', { p_user_id: userId, p_collected: 0, p_gold: gold });
+              }
             }
             setPendingRecyclerTrade(false);
           }}

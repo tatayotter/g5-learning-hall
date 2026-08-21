@@ -87,7 +87,7 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
               src={profile.avatar}
               alt=""
               onError={() => setAvatarFailed(true)}
-              className="w-10 h-10 rounded-full object-cover border-2 border-neutral-700"
+              className="w-10 h-10 rounded-full object-contain bg-neutral-950 border-2 border-neutral-700"
             />
           ) : (
             <span className="text-3xl">{profile?.isFamily ? '⚔️' : '🎮'}</span>

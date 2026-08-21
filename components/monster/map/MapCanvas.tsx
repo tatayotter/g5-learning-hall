@@ -27,13 +27,10 @@ function spriteSrcFor(userId: string, userpicOverride?: string): string {
   if (userpicOverride) return userpicOverride;
   const profile = USERS[userId];
   // Use whatever avatar the profile has (covers /userpics/…, /tala-avatar.png,
-  // and any other path from the avatar picker). The old check for startsWith
-  // '/userpics/' is gone because girl1.webp/boy1.webp (the previous fallbacks)
-  // were removed; Spr_RS_School_Kid_F/M.png are the safe gender defaults now.
   if (profile?.avatar) return profile.avatar;
   return profile?.gender === 'girl'
-    ? '/userpics/Spr_RS_School_Kid_F.png'
-    : '/userpics/Spr_RS_School_Kid_M.png';
+    ? '/userpics/userpics_premium/ssg3.png'
+    : '/userpics/userpics_premium/ssb3.png';
 }
 
 // Translates tile coordinates into percentages of the canvas box so the DOM
@@ -250,6 +247,14 @@ export default function MapCanvas({
       dustPuffs,
       onPlayerClick,
       visibleCanvasW,
+      trashItems: trashItems?.map(i => ({
+        id: i.id,
+        type: i.type,
+        x: i.x,
+        y: i.y,
+      })),
+      collectingTrashIds: collectingTrashIds ? [...collectingTrashIds] : [],
+      recyclerTile: recyclerTile ?? null,
     };
     latestStateRef.current = state;
     sceneRef.current?.sync(state);
@@ -270,6 +275,7 @@ export default function MapCanvas({
       const isMoving = movement.isMoving();
       const facingRight = movement.isFacingRight();
       sceneRef.current?.updateSelfPosition(x - 0.5, y - 0.5, isMoving, facingRight);
+      sceneRef.current?.updateTrashPositions(x - 0.5, y - 0.5);
       if (selfWrapRef.current) {
         // overlayPositioning's leftPct/topPct expect a raw tile-index-style
         // coordinate (same convention as posX/posY elsewhere) — the
@@ -452,6 +458,13 @@ export default function MapCanvas({
             width: `${tileWPct}%`, height: `${tileHPct}%`,
           }}
         >
+          {/* Ground shadow — ellipse radial gradient at the trainer's feet */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none"
+            style={{
+              width: '60%', height: '12%',
+              background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.30) 0%, transparent 70%)',
+            }}
+          />
           {/* Trainer sprite — bottom-anchored, overflows upward like a standee */}
           <img
             src={trainerMarker.spriteOverride ?? `/trainers/${trainerMarker.id}.png`}
@@ -514,28 +527,13 @@ export default function MapCanvas({
         </div>
       ))}
 
-      {/* ── Trash items ─────────────────────────────────────────────────────── */}
-      {trashItems?.map(item => (
-        <div
-          key={item.id}
-          ref={registerMarker(`trash:${item.id}`, item.x, item.y)}
-          className={`absolute pointer-events-none flex items-end justify-center${
-            collectingTrashIds?.has(item.id) ? ' trash-pickup-anim' : ''
-          }`}
-          style={{
-            left: `${leftPct(item.x)}%`,
-            top:  `${topPct(item.y)}%`,
-            width: `${tileWPct}%`,
-            height: `${tileHPct}%`,
-          }}
-        >
-          <span className="text-base leading-none select-none" style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.7))' }}>
-            {TRASH_DEFS[item.type].emoji}
-          </span>
-        </div>
-      ))}
+      {/* Trash items are rendered inside the Phaser scene at depth 9 (below
+          foliage at depth 12+) via applyTrashItems / updateTrashPositions —
+          no DOM element needed here. */}
 
       {/* ── Recycler NPC ────────────────────────────────────────────────────── */}
+      {/* The recycler sprite is rendered in the Phaser canvas at depth 8 so the
+          player (depth 10) always appears in front. Only the name tag stays DOM. */}
       {recyclerTile && (
         <div
           ref={registerMarker('recycler', recyclerTile.x, recyclerTile.y)}
@@ -547,12 +545,6 @@ export default function MapCanvas({
             height: `${tileHPct}%`,
           }}
         >
-          <img
-            src="/npcs/recycler.png"
-            alt="Recycler"
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 h-20 w-auto object-contain object-bottom"
-            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-          />
           <p className="absolute -top-5 left-1/2 -translate-x-1/2 text-[9px] bg-black/70 text-green-300 font-bold px-1 rounded whitespace-nowrap">
             ♻️ Recycler
           </p>

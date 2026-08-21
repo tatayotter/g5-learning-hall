@@ -4,6 +4,12 @@ import { saveAvatar } from '@/lib/userSession';
 import { fetchInventory, InventoryMap } from '@/lib/inventory';
 import { USERPIC_CATALOG, userpicPath } from '@/lib/userpicShop';
 
+// Default sprites — always selectable, never purchaseable.
+const DEFAULT_USERPICS = [
+  { file: 'ssb3.png', label: 'Default Boy' },
+  { file: 'ssg3.png', label: 'Default Girl' },
+];
+
 interface AvatarPickerProps {
   userId: string;
   currentAvatar: string;
@@ -59,6 +65,36 @@ export default function AvatarPicker({ userId, currentAvatar, onClose, onSaved }
           <p className="text-gray-500 text-sm">No avatars available yet.</p>
         ) : (
           <div className="overflow-y-auto flex-1 min-h-0">
+            {/* Default avatars — always available, no purchase needed */}
+            <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Default</p>
+            <div className="grid grid-cols-4 sm:grid-cols-5 gap-3 mb-4">
+              {DEFAULT_USERPICS.map(({ file, label }) => {
+                const avatar = userpicPath(file);
+                const isCurrent = avatar === currentAvatar;
+                const isSaving = saving === avatar;
+                return (
+                  <button
+                    key={file}
+                    onClick={() => handlePick(avatar)}
+                    disabled={!!saving}
+                    title={label}
+                    className={`relative aspect-square rounded-xl border-2 overflow-hidden bg-neutral-950 transition-all disabled:opacity-50 ${
+                      isCurrent ? 'border-amber-400' : 'border-neutral-700 hover:border-neutral-500'
+                    }`}
+                  >
+                    <img src={avatar} alt={label} className="w-full h-full object-contain" />
+                    {isCurrent && (
+                      <span className="absolute bottom-0.5 right-0.5 bg-amber-500 text-black text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">✓</span>
+                    )}
+                    {isSaving && (
+                      <span className="absolute inset-0 bg-black/60 flex items-center justify-center text-xs text-white">...</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
+            <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Classic</p>
             <div className="grid grid-cols-4 sm:grid-cols-5 gap-3">
               {files.map(file => {
                 const avatar = `/userpics/${file}`;

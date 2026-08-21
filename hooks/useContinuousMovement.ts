@@ -48,6 +48,8 @@ export interface ContinuousMovementOptions {
   initialTile: Tile;
   onTileCrossed: (tile: Tile, prevTile: Tile) => void;
   onBlocked: () => void;
+  /** Additional tiles treated as walls (e.g. NPC positions). */
+  extraBlockedTiles?: Tile[];
 }
 
 export interface ContinuousMovementHandle {
@@ -65,7 +67,11 @@ export interface ContinuousMovementHandle {
   resetTo(tile: Tile): void;
 }
 
-function isBlocked(map: MapTile[][], mapWidth: number, mapHeight: number, cx: number, cy: number): boolean {
+function isBlocked(
+  map: MapTile[][], mapWidth: number, mapHeight: number,
+  cx: number, cy: number,
+  extraBlockedTiles?: Tile[],
+): boolean {
   // Sample all 4 corners of the footprint AABB — centered horizontally on
   // cx, but vertically offset down from cy (the sprite's center) toward
   // the feet.
@@ -78,6 +84,7 @@ function isBlocked(map: MapTile[][], mapWidth: number, mapHeight: number, cx: nu
       const ty = Math.floor(y);
       if (tx < 0 || tx >= mapWidth || ty < 0 || ty >= mapHeight) return true;
       if (map[ty]?.[tx]?.type === 'wall') return true;
+      if (extraBlockedTiles?.some(t => t.x === tx && t.y === ty)) return true;
     }
   }
   return false;
@@ -94,11 +101,13 @@ export function useContinuousMovement(opts: ContinuousMovementOptions): Continuo
   const enabledRef = useRef(opts.enabled);
   const onTileCrossedRef = useRef(onTileCrossed);
   const onBlockedRef = useRef(onBlocked);
+  const extraBlockedRef = useRef(opts.extraBlockedTiles);
   useEffect(() => { mapRef.current = opts.map; }, [opts.map]);
   useEffect(() => { mapWidthRef.current = opts.mapWidth; }, [opts.mapWidth]);
   useEffect(() => { mapHeightRef.current = opts.mapHeight; }, [opts.mapHeight]);
   useEffect(() => { onTileCrossedRef.current = onTileCrossed; }, [onTileCrossed]);
   useEffect(() => { onBlockedRef.current = onBlocked; }, [onBlocked]);
+  useEffect(() => { extraBlockedRef.current = opts.extraBlockedTiles; }, [opts.extraBlockedTiles]);
 
   const posRef = useRef({ x: opts.initialTile.x + 0.5, y: opts.initialTile.y + 0.5 });
   const prevTileRef = useRef<Tile>({ x: opts.initialTile.x, y: opts.initialTile.y });
@@ -169,14 +178,14 @@ export function useContinuousMovement(opts: ContinuousMovementOptions): Continuo
       let moved = false;
       if (dx !== 0) {
         const candidateX = pos.x + dx * step;
-        if (!isBlocked(map, mapWidth, mapHeight, candidateX, pos.y)) {
+        if (!isBlocked(map, mapWidth, mapHeight, candidateX, pos.y, extraBlockedRef.current)) {
           pos.x = candidateX;
           moved = true;
         }
       }
       if (dy !== 0) {
         const candidateY = pos.y + dy * step;
-        if (!isBlocked(map, mapWidth, mapHeight, pos.x, candidateY)) {
+        if (!isBlocked(map, mapWidth, mapHeight, pos.x, candidateY, extraBlockedRef.current)) {
           pos.y = candidateY;
           moved = true;
         }

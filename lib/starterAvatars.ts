@@ -1,15 +1,9 @@
-// Curated subset of /public/userpics used for picking a starter avatar at
-// child-account creation, before the child has any unlocked inventory (see
-// components/AvatarPicker.tsx for the post-account, unlock-based picker).
-export const STARTER_AVATARS: string[] = [
-  '/userpics/Spr_RS_School_Kid_M.png',
-  '/userpics/Spr_RS_School_Kid_F.png',
-  '/userpics/Spr_RS_Rich_Boy.png',
-  '/userpics/Spr_RS_Hex_Maniac.png',
-  '/userpics/Spr_FRLG_Bug_Catcher.png',
-  '/userpics/Spr_FRLG_Picnicker.png',
-  '/userpics/Spr_RS_Wally.png',
-  '/userpics/Spr_FRLG_Rocker.png',
-];
+// Avatar selection was removed from account creation — the child's starter
+// avatar is now auto-assigned from gender (ssb3 for boys, ssg3 for girls).
+// See lib/userSession.ts (loadClassmates / loadChildren) and
+// components/ChildAccountForm.tsx (defaultAvatarForGender).
+// This file is kept as a tombstone so existing imports surface a compile error
+// rather than silently serving stale data.
 
-export const DEFAULT_STARTER_AVATAR = STARTER_AVATARS[0];
+export const STARTER_AVATARS: string[] = [];
+export const DEFAULT_STARTER_AVATAR = '';

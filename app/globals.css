@@ -1189,9 +1189,9 @@ html {
   flex-direction: column;
   border-radius: 8px 8px 0 0;
 }
-.mstage-drawer.open { height: 220px; }
+.mstage-drawer.open { height: 270px; }
 .mstage-drawer-content {
-  overflow-y: auto;
+  overflow-y: hidden;
   flex: 1;
 }
 

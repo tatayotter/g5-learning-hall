@@ -31,7 +31,7 @@ export const USERS: Record<UserId, UserProfile> = {
     name: 'Damien',
     fullName: 'Damien Zamir Ruelo',
     grade: 'Grade 5',
-    avatar: '/userpics/Spr_RS_School_Kid_M.png',
+    avatar: '/userpics/userpics_premium/ssb3.png',
     theme: 'theme_default',
     gender: 'boy',
     isFamily: true,
@@ -106,14 +106,17 @@ export async function loadClassmates(): Promise<void> {
   const data = await fetchAllRows<any>('classmates_public', 'id, full_name, grade, gender, school_name');
 
   (data || []).forEach((c: any) => {
+    const gender = c.gender === 'girl' ? 'girl' : 'boy';
     USERS[c.id] = {
       id: c.id,
       name: c.full_name.split(' ')[0],
       fullName: c.full_name,
       grade: c.grade,
-      avatar: '/userpics/Spr_RS_School_Kid_M.png',
+      avatar: gender === 'girl'
+        ? '/userpics/userpics_premium/ssg3.png'
+        : '/userpics/userpics_premium/ssb3.png',
       theme: 'theme_default',
-      gender: c.gender === 'girl' ? 'girl' : 'boy',
+      gender,
       isFamily: false,
       school: c.school_name || undefined,
     };
@@ -146,14 +149,18 @@ export async function loadChildren(): Promise<void> {
   const data = await fetchAllRows<any>('children_public', 'id, full_name, grade, gender, avatar, school_name');
 
   (data || []).forEach((c: any) => {
+    const gender = c.gender === 'girl' ? 'girl' : 'boy';
+    const defaultAvatar = gender === 'girl'
+      ? '/userpics/userpics_premium/ssg3.png'
+      : '/userpics/userpics_premium/ssb3.png';
     USERS[c.id] = {
       id: c.id,
       name: c.full_name.split(' ')[0],
       fullName: c.full_name,
       grade: c.grade,
-      avatar: c.avatar,
+      avatar: c.avatar || defaultAvatar,
       theme: 'theme_default',
-      gender: c.gender === 'girl' ? 'girl' : 'boy',
+      gender,
       isFamily: false,
       school: c.school_name || undefined,
     };
@@ -341,7 +348,7 @@ export function registerDemoUser(userId: UserId): void {
     name: 'Guest',
     fullName: 'Guest Explorer',
     grade: '',
-    avatar: '/userpics/Spr_RS_School_Kid_M.png',
+    avatar: '/userpics/userpics_premium/ssb3.png',
     theme: 'theme_default',
     gender: 'boy',
     isFamily: false,

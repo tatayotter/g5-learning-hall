@@ -124,6 +124,8 @@ export interface WeeklyData {
   tutor_rerolls: number;
   tatay_battles_won: number;
   tatay_battles_lost: number;
+  trash_collected: number;
+  trash_gold_earned: number;
 }
 
 export function useWeeklyData(userId: string = 'damien') {
@@ -218,6 +220,8 @@ export function useWeeklyData(userId: string = 'damien') {
         ...(journalRow || {}),
         achievements: progressData?.achievements || {},
         package_data: gradeContent,
+        trash_collected: progressData?.trash_collected_total ?? 0,
+        trash_gold_earned: progressData?.trash_gold_earned_total ?? 0,
       });
       setLoading(false);
     }
@@ -307,7 +311,11 @@ export function useWeeklyData(userId: string = 'damien') {
         legendaries_caught: projectLifetime(progress?.legendaries_caught_total || 0, newLegendariesCaught, data.legendaries_caught || 0),
         tutor_rerolls: projectLifetime(progress?.tutor_rerolls_total || 0, newTutorRerolls, data.tutor_rerolls || 0),
         tatay_battles_won: projectLifetime(progress?.tatay_battles_won_total || 0, newTatayBattlesWon, data.tatay_battles_won || 0),
-        tatay_battles_lost: projectLifetime(progress?.tatay_battles_lost_total || 0, newTatayBattlesLost, data.tatay_battles_lost || 0)
+        tatay_battles_lost: projectLifetime(progress?.tatay_battles_lost_total || 0, newTatayBattlesLost, data.tatay_battles_lost || 0),
+        // Trash stats are lifetime-only (no weekly reset) — read directly from player_progress.
+        // The add_trash_stats RPC keeps them current independently of updateStatsAndJournal.
+        trash_collected: progress?.trash_collected_total || 0,
+        trash_gold_earned: progress?.trash_gold_earned_total || 0,
       })) {
         newUnlocked[ach.id] = true;
         addedXp += ach.xpReward;

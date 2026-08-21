@@ -1215,10 +1215,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                     <div key={player.id} className="flex items-center justify-between bg-white border border-stone-200 rounded-lg px-4 py-3">
                       <div className="flex items-center gap-3">
                         <img
-                          src={player.avatar || '/userpics/Spr_RS_School_Kid_M.png'}
+                          src={player.avatar || '/userpics/userpics_premium/ssb3.png'}
                           alt={player.name}
-                          className="w-9 h-9 rounded-full object-cover border border-stone-300 flex-shrink-0"
-                          onError={(e) => { (e.target as HTMLImageElement).src = '/userpics/Spr_RS_School_Kid_M.png'; }}
+                          className="w-9 h-9 rounded-full object-contain bg-neutral-950 border border-stone-300 flex-shrink-0"
+                          onError={(e) => { (e.target as HTMLImageElement).src = '/userpics/userpics_premium/ssb3.png'; }}
                         />
                         <div>
                           <p className="text-gray-900 text-sm font-bold">{player.fullName}</p>

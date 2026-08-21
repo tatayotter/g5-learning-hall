@@ -88,10 +88,18 @@ export interface MapCanvasSyncState {
    *  CSS scale crops both sides. Used to tighten the camera clamp so the
    *  player sprite stays within the visible viewport. */
   visibleCanvasW?: number;
+  /** Trash items to render below the foliage layer (depth 9). */
+  trashItems?: Array<{ id: string; type: string; x: number; y: number }>;
+  /** IDs of trash items currently in pickup animation. */
+  collectingTrashIds?: string[];
+  /** Recycler NPC tile position — rendered in canvas at depth 8 so the player
+   *  sprite (depth 10) always appears in front of it. */
+  recyclerTile?: { x: number; y: number } | null;
 }
 
 interface TrackedSprite {
   image: Phaser.GameObjects.Sprite;
+  shadow: Phaser.GameObjects.Ellipse;
   x: number;
   y: number;
   // The sprite's "resting" (post-setDisplaySize) scale — used as the base
@@ -176,6 +184,15 @@ export default class TrainingMapScene extends Phaser.Scene {
   // the very first placement snaps instead of tweening (see applyState).
   private followInitialized = false;
   private selfWasMoving = false;
+  // Trash items rendered below the foliage layer.
+  // Key = trash id; value = { image sprite, tile coords }.
+  private trashTexts = new Map<string, { sprite: Phaser.GameObjects.Image; tx: number; ty: number }>();
+  // IDs currently mid-pickup-tween — excluded from per-frame repositioning.
+  private trashAnimating = new Set<string>();
+  // Recycler NPC sprite — depth 8, below player sprites (depth 9/10).
+  private recyclerSprite: Phaser.GameObjects.Image | null = null;
+  private recyclerShadow: Phaser.GameObjects.Ellipse | null = null;
+  private recyclerTilePos: { x: number; y: number } | null = null;
 
   constructor() {
     super('TrainingMapScene');
@@ -211,9 +228,10 @@ export default class TrainingMapScene extends Phaser.Scene {
     for (const layer of this.tilemapLayers) layer.setPosition(this.lastTransform.offsetX, this.lastTransform.offsetY);
     if (this.tilemapLayers.length > 0) this.followInitialized = true;
 
-    const { px, py } = this.tileToPixel(this.lastTransform, xTile, yTile);
+    const { px, py, h } = this.tileToPixel(this.lastTransform, xTile, yTile);
     this.self.image.setPosition(px, py);
     this.self.image.setFlipX(facingRight);
+    if (this.self.shadow) this.self.shadow.setPosition(px, py + h * 0.44);
     this.self.x = xTile;
     this.self.y = yTile;
 
@@ -222,8 +240,9 @@ export default class TrainingMapScene extends Phaser.Scene {
     // tile — without this they stay at the pixel position `sync()` computed
     // for them, which drifts relative to the scrolling tilemap.
     for (const [, tracked] of this.others) {
-      const { px: opx, py: opy } = this.tileToPixel(this.lastTransform, tracked.x, tracked.y);
+      const { px: opx, py: opy, h: oh } = this.tileToPixel(this.lastTransform, tracked.x, tracked.y);
       tracked.image.setPosition(opx, opy);
+      tracked.shadow.setPosition(opx, opy + oh * 0.44);
     }
 
     this.updateSelfAnimation(isMoving);
@@ -315,11 +334,17 @@ export default class TrainingMapScene extends Phaser.Scene {
     const animated = ANIMATED_AVATARS[spriteSrc];
     if (!animated) {
       const key = textureKeyFor(spriteSrc);
-      this.ensureTexture(key, spriteSrc, () => onReady(key));
+      this.ensureTexture(key, spriteSrc, () => {
+        // Override pixelArt:true global setting — player avatars are smooth
+        // PNG art, not pixel sprites, and need bilinear filtering.
+        this.setLinearFilter(key);
+        onReady(key);
+      });
       return;
     }
     const key = textureKeyFor(spriteSrc);
     this.ensureSpritesheet(key, animated.spriteSheet, animated.frameWidth, animated.frameHeight, () => {
+      this.setLinearFilter(key);
       if (!this.anims.exists(animated.animKey)) {
         this.anims.create({
           key: animated.animKey,
@@ -360,6 +385,8 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.applySelf(state);
     this.applyOthers(state);
     this.applyDustPuffs(state);
+    this.applyTrashItems(state, this.lastTransform);
+    this.applyRecycler(state, this.lastTransform);
     // Wall-bump screen shake was removed (felt too jarring) — `bumping`
     // still flows through from TrainingMap.tsx (it still drives the bump
     // sound there) but this scene no longer reacts to it visually.
@@ -512,7 +539,8 @@ export default class TrainingMapScene extends Phaser.Scene {
         image.setInteractive({ useHandCursor: true });
         image.on('pointerdown', () => onClick(player.id));
       }
-      const next: TrackedSprite = { image, x: player.x, y: player.y, baseScaleY: image.scaleY };
+      const shadow = this.makeShadow(px, py, h, depth);
+      const next: TrackedSprite = { image, shadow, x: player.x, y: player.y, baseScaleY: image.scaleY };
       this.loadSpriteVisual(player.spriteSrc, (texKey) => {
         // setTexture() swaps the frame but doesn't preserve the display size
         // set above (it was computed against the tiny placeholder frame) —
@@ -520,7 +548,7 @@ export default class TrainingMapScene extends Phaser.Scene {
         // native pixel size instead of staying tile-sized.
         if (next.image.active) {
           next.image.setTexture(texKey, 0);
-          next.image.setDisplaySize(h * 0.95, h * 0.95);
+          this.fitSprite(next.image, h * 0.95);
           next.baseScaleY = next.image.scaleY;
         }
       });
@@ -539,7 +567,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.loadSpriteVisual(player.spriteSrc, (texKey) => {
         if (tracked.image.active) {
           tracked.image.setTexture(texKey, 0);
-          tracked.image.setDisplaySize(h * 0.95, h * 0.95);
+          this.fitSprite(tracked.image, h * 0.95);
           tracked.baseScaleY = tracked.image.scaleY;
         }
       });
@@ -560,12 +588,13 @@ export default class TrainingMapScene extends Phaser.Scene {
       const image = this.add.sprite(px, py, placeholder);
       image.setDisplaySize(h * 0.95, h * 0.95);
       image.setDepth(10);
-      const next: TrackedSprite = { image, x: state.self.x, y: state.self.y, baseScaleY: image.scaleY };
+      const shadow = this.makeShadow(px, py, h, 10);
+      const next: TrackedSprite = { image, shadow, x: state.self.x, y: state.self.y, baseScaleY: image.scaleY };
       this.self = next;
       this.loadSpriteVisual(state.self.spriteSrc, (texKey) => {
         if (next.image.active) {
           next.image.setTexture(texKey, 0);
-          next.image.setDisplaySize(h * 0.95, h * 0.95);
+          this.fitSprite(next.image, h * 0.95);
           next.baseScaleY = next.image.scaleY;
         }
       });
@@ -577,7 +606,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.loadSpriteVisual(state.self.spriteSrc, (texKey) => {
         if (self.image.active) {
           self.image.setTexture(texKey, 0);
-          self.image.setDisplaySize(h * 0.95, h * 0.95);
+          this.fitSprite(self.image, h * 0.95);
           self.baseScaleY = self.image.scaleY;
         }
       });
@@ -619,6 +648,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       if (!seen.has(id)) {
         this.others.delete(id);
         // Spawn-out fade rather than disappearing instantly.
+        tracked.shadow.destroy();
         this.tweens.add({
           targets: tracked.image, alpha: 0, duration: 250, ease: 'Sine.easeIn',
           onComplete: () => tracked.image.destroy(),
@@ -629,6 +659,161 @@ export default class TrainingMapScene extends Phaser.Scene {
 
   private applyDustPuffs(_state: MapCanvasSyncState) {
     // Footstep dust puffs removed — effect was distracting.
+  }
+
+  /** Scale a sprite uniformly so its longest dimension fits within `size`
+   *  pixels. Replaces setDisplaySize(size, size) which would stretch
+   *  non-square art. The sprite's texture must already be set before calling. */
+  private fitSprite(img: Phaser.GameObjects.Sprite, size: number) {
+    const maxDim = Math.max(img.width, img.height) || 1;
+    img.setScale(size / maxDim);
+  }
+
+  /** Ellipse ground-shadow beneath a sprite's feet.
+   *  depth: same as the owning sprite — the ellipse renders on top of the
+   *  ground tiles but behind the sprite because Phaser draws objects at the
+   *  same integer depth in insertion order, and shadows are always added first. */
+  private makeShadow(px: number, py: number, h: number, depth: number): Phaser.GameObjects.Ellipse {
+    const shadow = this.add.ellipse(px, py + h * 0.44, h * 0.5, h * 0.12, 0x000000, 0.28);
+    shadow.setDepth(depth - 0.5);
+    return shadow;
+  }
+
+  // ── Trash items ─────────────────────────────────────────────────────────────
+  // Rendered at depth 9 (same as other player sprites), below the "Above Player"
+  // foliage layers at depth 12+. Called from applyState (once per tile crossed);
+  // updateTrashPositions() repositions them every rAF frame as the camera pans.
+
+  private applyTrashItems(state: MapCanvasSyncState, t: Transform) {
+    const items = state.trashItems ?? [];
+    const collecting = new Set(state.collectingTrashIds ?? []);
+
+    // Create image sprites for newly-spawned trash items.
+    // Textures are type-keyed (5 total) and loaded lazily on first use.
+    const seen = new Set<string>();
+    for (const item of items) {
+      seen.add(item.id);
+      if (!this.trashTexts.has(item.id) && !this.trashAnimating.has(item.id)) {
+        const key = `trash:${item.type}`;
+        const url = `/trash/${item.type}.png`;
+        const { tx, ty } = { tx: item.x, ty: item.y };
+        this.ensureTexture(key, url, () => {
+          // Guard: item may have been collected or respawned while loading.
+          if (this.trashTexts.has(item.id) || this.trashAnimating.has(item.id)) return;
+          // Override global pixelArt:true so smooth PNGs render with bilinear filtering.
+          this.setLinearFilter(key);
+          const { px, py, h } = this.tileToPixel(this.lastTransform, tx, ty);
+          const sprite = this.add.image(px, py, key);
+          sprite.setOrigin(0.5, 0.5).setDepth(9);
+          // Scale so the longest edge fits within 22% of a tile.
+          sprite.setScale((h * 0.22) / Math.max(sprite.width, sprite.height));
+          this.trashTexts.set(item.id, { sprite, tx, ty });
+        });
+      }
+    }
+
+    // Start pickup animations for newly-collecting items.
+    for (const id of collecting) {
+      if (!this.trashAnimating.has(id)) {
+        const entry = this.trashTexts.get(id);
+        if (entry) {
+          this.trashAnimating.add(id);
+          this.trashTexts.delete(id);
+          this.tweens.add({
+            targets: entry.sprite,
+            y: entry.sprite.y - 28,
+            alpha: 0,
+            scaleX: entry.sprite.scaleX * 1.4,
+            scaleY: entry.sprite.scaleY * 1.4,
+            duration: 450,
+            ease: 'Cubic.easeOut',
+            onComplete: () => {
+              entry.sprite.destroy();
+              this.trashAnimating.delete(id);
+            },
+          });
+        }
+      }
+    }
+
+    // Destroy items that are no longer on the map (respawn reset).
+    for (const [id, entry] of this.trashTexts) {
+      if (!seen.has(id)) {
+        entry.sprite.destroy();
+        this.trashTexts.delete(id);
+      }
+    }
+  }
+
+  // ── Recycler NPC ────────────────────────────────────────────────────────────
+  // Rendered at depth 8 so the player sprite (depth 10) always draws on top.
+  // The name-tag stays as a DOM overlay (registerMarker in MapCanvas.tsx).
+
+  private applyRecycler(state: MapCanvasSyncState, t: Transform) {
+    const tile = state.recyclerTile ?? null;
+    if (!tile) {
+      if (this.recyclerSprite) {
+        this.recyclerSprite.destroy();
+        this.recyclerSprite = null;
+        this.recyclerTilePos = null;
+      }
+      if (this.recyclerShadow) { this.recyclerShadow.destroy(); this.recyclerShadow = null; }
+      return;
+    }
+
+    const { px, py, h } = this.tileToPixel(t, tile.x, tile.y);
+    const key = 'npc:recycler';
+    const placeSprite = () => {
+      if (this.recyclerSprite) this.recyclerSprite.destroy();
+      // Override global pixelArt:true for this smooth PNG.
+      this.setLinearFilter(key);
+      const img = this.add.image(px, py + h * 0.5, key);
+      // Bottom-anchor: sprite's bottom edge sits at the tile's bottom edge.
+      img.setOrigin(0.5, 1);
+      // Scale uniformly so the image keeps its natural aspect ratio;
+      // target display height is ~1.4× a tile height.
+      const targetH = h * 0.85;
+      img.setScale(targetH / img.height);
+      img.setDepth(8);
+      this.recyclerSprite = img;
+      this.recyclerTilePos = { x: tile.x, y: tile.y };
+      // Shadow at depth 7 — beneath the recycler sprite.
+      if (this.recyclerShadow) this.recyclerShadow.destroy();
+      // Recycler bottom-anchor sits at py + h*0.5; shadow goes near its feet.
+      this.recyclerShadow = this.add.ellipse(px, py + h * 0.5, h * 0.55, h * 0.12, 0x000000, 0.25);
+      this.recyclerShadow.setDepth(7);
+    };
+
+    this.ensureTexture(key, '/npcs/recycler.png', placeSprite);
+  }
+
+  /** Called every rAF frame by MapCanvas.tsx to keep trash and recycler NPC
+   *  positions aligned with the panning camera — same pattern as updateSelfPosition(). */
+  /** Apply bilinear (LINEAR) filtering to one texture, overriding the global
+   *  pixelArt:true setting. Safe to call repeatedly — no-ops once set. */
+  private setLinearFilter(key: string) {
+    try {
+      // Phaser stores FilterMode as integer: NEAREST=0, LINEAR=1.
+      this.textures.get(key).setFilter(1 as any);
+    } catch {
+      // Silently ignore if the API differs in this Phaser build.
+    }
+  }
+
+  updateTrashPositions(floatX: number, floatY: number) {
+    if (!this.ready || !this.lastBackground) return;
+    const t = this.computeTransform(
+      this.lastBackground, this.lastMapWidth, this.lastMapHeight, floatX, floatY,
+    );
+    for (const [, entry] of this.trashTexts) {
+      const { px, py } = this.tileToPixel(t, entry.tx, entry.ty);
+      entry.sprite.setPosition(px, py);
+    }
+    if (this.recyclerSprite && this.recyclerTilePos) {
+      const { px, py, h } = this.tileToPixel(t, this.recyclerTilePos.x, this.recyclerTilePos.y);
+      this.recyclerSprite.setPosition(px, py + h * 0.5);
+      if (this.recyclerShadow) this.recyclerShadow.setPosition(px, py + h * 0.5);
+    }
   }
 
 }
