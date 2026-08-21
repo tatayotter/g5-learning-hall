@@ -13,6 +13,8 @@ export interface BotProfile {
   fullName: string;
   gender: 'boy' | 'girl';
   grade: string;
+  /** Path relative to /public — shown as the bot's avatar / userpic. */
+  userpic: string;
   /**
    * Fraction of questions the bot "answers correctly" per round (0–1).
    * Used in useLiveBattle's bot mode to randomise correctCount.
@@ -47,6 +49,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'bote_john',
     firstName: 'John', fullName: 'John Bote', gender: 'boy', grade: 'G5',
+    userpic: '/userpics/Spr_RS_School_Kid_M.png',
     accuracy: 0.35,
     homeX: 7, homeY: 5,
     starterId: 'torrenth',
@@ -58,6 +61,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'abotig_anna',
     firstName: 'Anna', fullName: 'Anna Abotig', gender: 'girl', grade: 'G5',
+    userpic: '/userpics/Spr_RS_School_Kid_F.png',
     accuracy: 0.45,
     homeX: 13, homeY: 3,
     starterId: 'solarch',
@@ -70,6 +74,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'kibot_rose',
     firstName: 'Rose', fullName: 'Rose Kibot', gender: 'girl', grade: 'G5',
+    userpic: '/userpics/Spr_RS_Roxanne.png',
     accuracy: 0.50,
     homeX: 5, homeY: 12,
     starterId: 'pyravex',
@@ -81,6 +86,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'gabot_kyle',
     firstName: 'Kyle', fullName: 'Kyle Gabot', gender: 'boy', grade: 'G5',
+    userpic: '/userpics/Spr_RS_Rich_Boy.png',
     accuracy: 0.55,
     homeX: 18, homeY: 8,
     starterId: 'voltmane',
@@ -93,6 +99,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'botero_chloe',
     firstName: 'Chloe', fullName: 'Chloe Botero', gender: 'girl', grade: 'G5',
+    userpic: '/userpics/Spr_E_Anabel_AGB-001.png',
     accuracy: 0.60,
     homeX: 10, homeY: 14,
     starterId: 'fernix',
@@ -104,6 +111,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'cabote_josh',
     firstName: 'Josh', fullName: 'Josh Cabote', gender: 'boy', grade: 'G5',
+    userpic: '/userpics/Spr_FRLG_Bug_Catcher.png',
     accuracy: 0.65,
     homeX: 15, homeY: 11,
     starterId: 'shadrak',
@@ -116,6 +124,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'abot_ian',
     firstName: 'Ian', fullName: 'Ian Abot', gender: 'boy', grade: 'G5',
+    userpic: '/userpics/Spr_RS_Wally.png',
     accuracy: 0.70,
     homeX: 3, homeY: 8,
     starterId: 'pyravex',
@@ -128,6 +137,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'sabot_kent',
     firstName: 'Kent', fullName: 'Kent Sabot', gender: 'boy', grade: 'G5',
+    userpic: '/userpics/Spr_FRLG_Brock.png',
     accuracy: 0.75,
     homeX: 16, homeY: 4,
     starterId: 'voltmane',
@@ -139,6 +149,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'labot_mark',
     firstName: 'Mark', fullName: 'Mark Labot', gender: 'boy', grade: 'G5',
+    userpic: '/userpics/Spr_FRLG_Blue_3.png',
     accuracy: 0.80,
     homeX: 8, homeY: 15,
     starterId: 'torrenth',
@@ -151,6 +162,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'tibot_clark',
     firstName: 'Clark', fullName: 'Clark Tibot', gender: 'boy', grade: 'G5',
+    userpic: '/userpics/Spr_FRLG_Bill.png',
     accuracy: 0.88,
     homeX: 12, homeY: 7,
     starterId: 'shadrak',

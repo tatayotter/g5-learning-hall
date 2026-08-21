@@ -90,10 +90,11 @@ export function useBotPresence(): Record<string, OnlinePlayer> {
           b.id,
           {
             userId: b.id,
-            name: b.fullName,
+            name: b.firstName,
             gender: b.gender,
             x: positions[b.id]?.x ?? b.homeX,
             y: positions[b.id]?.y ?? b.homeY,
+            userpic: b.userpic,
           } satisfies OnlinePlayer,
         ]),
       ),

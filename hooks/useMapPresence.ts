@@ -9,6 +9,8 @@ export interface OnlinePlayer {
   gender: 'boy' | 'girl';
   x: number;
   y: number;
+  /** Optional avatar path — bots supply their assigned userpic here. */
+  userpic?: string;
 }
 
 const WAVE_TTL_MS = 1500;

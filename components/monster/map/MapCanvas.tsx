@@ -20,7 +20,9 @@ import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM } from '@/lib/phaserMap/cons
 import type { OnlinePlayer } from '@/hooks/useMapPresence';
 import type { ContinuousMovementHandle } from '@/hooks/useContinuousMovement';
 
-function spriteSrcFor(userId: string): string {
+function spriteSrcFor(userId: string, userpicOverride?: string): string {
+  // Bot userpic takes highest priority — set explicitly in BotProfile.
+  if (userpicOverride) return userpicOverride;
   const profile = USERS[userId];
   // Use whatever avatar the profile has (covers /userpics/…, /tala-avatar.png,
   // and any other path from the avatar picker). The old check for startsWith
@@ -226,7 +228,7 @@ export default function MapCanvas({
 
   useEffect(() => {
     const others: MapCanvasPlayer[] = Object.values(onlinePlayers).map(p => ({
-      id: p.userId, x: p.x, y: p.y, spriteSrc: spriteSrcFor(p.userId),
+      id: p.userId, x: p.x, y: p.y, spriteSrc: spriteSrcFor(p.userId, p.userpic),
     }));
     const state: MapCanvasSyncState = {
       mapWidth,
@@ -290,11 +292,14 @@ export default function MapCanvas({
 
   const { tileWPct, tileHPct, leftPct, topPct } = overlayPositioning(mapWidth, mapHeight, background, posX, posY, visibleCanvasW);
 
-  const nameTag = (targetId: string) => {
+  const nameTag = (targetId: string, displayName?: string) => {
     const profile = USERS[targetId];
+    // Use the passed displayName first (e.g. bot firstName), then the USERS
+    // record, then the raw id as last resort.
+    const label = displayName ?? profile?.name ?? targetId;
     return (
-      <p className="absolute -bottom-4 flex items-center gap-1 text-[10px] map-name-tag bg-black/60 px-1 rounded whitespace-nowrap">
-        {profile?.name || targetId}
+      <p className="absolute -top-5 left-1/2 -translate-x-1/2 flex items-center gap-1 text-[10px] map-name-tag bg-black/60 px-1 rounded whitespace-nowrap">
+        {label}
         {profile?.isFamily && <GMBadge />}
       </p>
     );
@@ -495,7 +500,7 @@ export default function MapCanvas({
           <div className="w-full h-full flex items-center justify-center relative">
             {statusIcon(p.userId)}
             {bubbles(p.userId)}
-            {nameTag(p.userId)}
+            {nameTag(p.userId, p.name)}
           </div>
         </div>
       ))}
