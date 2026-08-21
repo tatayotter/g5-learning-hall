@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState } from 'react';
 import {
   Element, ELEMENT_ICON_SRC, getCounterElements, BATTLE_CONSTANTS,
@@ -21,6 +21,7 @@ import {
 import { TOME_CATALOG } from '@/lib/tomeShop';
 import { eggReadyLevel } from '@/lib/curioEggs';
 import { STREAK_GOLD_LADDER } from '@/lib/dailyChecklist';
+import { TRASH_DEFS, TRASH_ORDER, TRASH_SPAWN_COUNT, TRASH_RESPAWN_MS } from '@/lib/trashConfig';
 
 // ─── Static config shared by a few sections ────────────────────────────────
 
@@ -71,6 +72,8 @@ const SECTIONS = [
   { id: 'eggs', label: 'Eggs & The Hatchery' },
   { id: 'items', label: 'Items & Scrolls' },
   { id: 'trading', label: 'Trading' },
+  { id: 'trainers', label: 'Trainers & Classmates' },
+  { id: 'trash', label: 'Trash & Recycling' },
   { id: 'achievements', label: 'Achievements & Titles' },
   { id: 'family', label: 'Family & Parents' },
   { id: 'glossary', label: 'Glossary' },
@@ -104,7 +107,11 @@ const GLOSSARY: { term: string; definition: string }[] = [
   { term: 'Catch Inbox', definition: "Where a duplicate catch of a curio you already own lands — keep it as a second copy, or convert it straight to gold." },
   { term: 'Deed', definition: 'A real-world chore or good behavior an adult logs by hand for bonus gold — tracked separately in Deed History.' },
   { term: 'Daily To-Dos', definition: "A short daily checklist that pays escalating bonus gold the more days in a row you clear it, up to a 5-day streak cap." },
-  { term: 'Journal', definition: 'A short daily reflection (what you did, tomorrow’s plan, hardest part, one gratitude) — submitted once per day for flat XP and gold.' },
+  { term: "Journal", definition: "A short daily reflection (what you did, tomorrow's plan, hardest part, one gratitude) — submitted once per day for flat XP and gold." },
+  { term: 'Trainer NPC', definition: 'A challenger that spawns on the World Map after a correct guild answer. Walk within one tile to trigger a dialogue, then Accept or Run Away.' },
+  { term: 'Bot Classmate', definition: 'One of ten simulated Filipino student bots that wander the map. They appear on the leaderboard, can be challenged to battle, and carry real curio teams.' },
+  { term: 'Scavenger Bag', definition: 'Your on-map inventory for trash items. Shown as a counter on the map HUD; emptied at the Recycler NPC when you trade bundles for gold.' },
+  { term: 'Recycler NPC', definition: 'A fixed character in every region. Trade trash bundles here — the rarer the trash type, the fewer items needed to earn one gold.' },
 ];
 
 // ─── Small shared UI ────────────────────────────────────────────────────────
@@ -224,6 +231,8 @@ export default function CodexPanel() {
           {activeSection === 'eggs' && <EggsSection />}
           {activeSection === 'items' && <ItemsSection />}
           {activeSection === 'trading' && <TradingSection />}
+          {activeSection === 'trainers' && <TrainersSection />}
+          {activeSection === 'trash' && <TrashSection />}
           {activeSection === 'achievements' && <AchievementsSection />}
           {activeSection === 'family' && <FamilySection />}
           {activeSection === 'glossary' && <GlossarySection />}
@@ -699,6 +708,85 @@ function ScrollCategoryCard({ label, count, costs, desc }: { label: string; coun
       <p className="font-bold text-gray-900 text-sm">{label} <span className="text-gray-400 font-normal">({count})</span></p>
       <p className="text-xs text-gray-500 mt-1">{desc}</p>
       <p className="text-[11px] text-amber-600 font-mono mt-1.5">Tier 1/2/3: {costs.map(c => c ?? '—').join(' / ')}g</p>
+    </div>
+  );
+}
+
+function TrainersSection() {
+  return (
+    <div>
+      <SectionTitle>Trainers &amp; Classmates</SectionTitle>
+      <TLDR>Answer a question right and a Trainer NPC may appear on the map — walk up to challenge them. Classmate bots are always wandering, and always ready for a battle.</TLDR>
+      <div className="space-y-4 max-w-2xl text-sm text-gray-700">
+
+        <div className="bg-stone-50 border border-stone-200 rounded-xl p-4">
+          <p className="font-bold text-gray-900 mb-1.5">Trainer NPCs</p>
+          <p className="text-xs text-gray-500 leading-relaxed">
+            Every correct answer in a guild has a chance to spawn a <b className="text-gray-900">Trainer NPC</b> on the World Map near
+            you. Trainers look like standee sprites with a ⚔️ badge. Walk within one tile and a short dialogue pops up — you can{' '}
+            <b className="text-gray-900">Accept</b> the challenge or <b className="text-gray-900">Run Away</b>. Accept, and it's a
+            standard curio battle, same rules as any other fight. The trainer disappears after you beat them (or flee).
+          </p>
+        </div>
+
+        <div className="bg-stone-50 border border-stone-200 rounded-xl p-4">
+          <p className="font-bold text-gray-900 mb-1.5">Bot Classmates</p>
+          <p className="text-xs text-gray-500 leading-relaxed">
+            Ten Filipino student bots share the map with you — they wander on their own, each with a unique name tag and avatar.
+            Bots behave like real players: they show up on the leaderboard, wander the region, and can be challenged via their
+            floating toast. A bot's team grows with its simulated level — lower-level bots field only a starter; higher-level bots
+            bring wilds too. Battles against bots count as real PvP matches for your record.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+function TrashSection() {
+  const respawnMin = Math.round(TRASH_RESPAWN_MS / 60000);
+  return (
+    <div>
+      <SectionTitle>Trash &amp; Recycling</SectionTitle>
+      <TLDR>Litter spawns on every region's map. Pick it up, bring a full bundle to the Recycler NPC, and turn garbage into gold.</TLDR>
+      <div className="space-y-3 max-w-2xl text-sm text-gray-700">
+        <p>
+          Up to <b className="text-gray-900">{TRASH_SPAWN_COUNT} trash items</b> scatter across the grass tiles of each
+          region whenever you enter. Walk over any piece to pick it up (a small animation plays). Items go straight into your{' '}
+          <b className="text-gray-900">Scavenger Bag</b> — a counter visible on the map HUD. Once the field is completely
+          cleared, it respawns after <b className="text-gray-900">{respawnMin} minutes</b>.
+        </p>
+        <div className="grid sm:grid-cols-2 gap-2">
+          {TRASH_ORDER.map(type => {
+            const def = TRASH_DEFS[type];
+            return (
+              <div key={type} className="flex items-center gap-2.5 bg-stone-50 border border-stone-200 rounded-lg p-2.5">
+                <span className="text-2xl leading-none">{def.emoji}</span>
+                <div>
+                  <p className="text-sm font-bold text-gray-900">{def.label}</p>
+                  <p className="text-xs text-gray-500">{def.bundleSize} = 1 gold at the Recycler</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <p>
+          Each region has a fixed <b className="text-gray-900">Recycler NPC</b> — a small character standing on the map.
+          Walk up to it to open a trade screen showing how many bundles you can cash out right now. Any leftover items stay
+          in your bag for next time. Rarer trash types have smaller bundle sizes, so a single chip bag is worth as much as
+          ten crumpled papers.
+        </p>
+        <div className="bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
+          <p className="text-xs font-bold text-amber-800">Trash Achievements</p>
+          <ul className="text-xs text-amber-700 mt-1 space-y-0.5 list-disc list-inside">
+            <li><b>Litter Picker</b> — pick up 10 items (+25 gold)</li>
+            <li><b>Litter Patrol</b> — pick up 100 items (+100 gold)</li>
+            <li><b>Eco Starter</b> — earn 5 gold from the Recycler (+25 gold)</li>
+            <li><b>Eco Warrior</b> — earn 50 gold from the Recycler (+50 gold)</li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
