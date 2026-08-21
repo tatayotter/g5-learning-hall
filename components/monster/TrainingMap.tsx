@@ -123,6 +123,8 @@ interface TrainingMapProps {
   // public/maps-tiled-art/README.md) against each region's unlockLevel.
   playerLevel: number;
   onEnterRegion?: (regionId: string) => void;
+  /** Pass through to MapStage — renders the map as a fixed full-viewport layer. */
+  fullscreen?: boolean;
 }
 
 export default function TrainingMap({
@@ -130,14 +132,14 @@ export default function TrainingMap({
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll,
   activeCurio, onEnterCurio, onChallengePlayer,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
-  regionId, onExitRegion, playerLevel, onEnterRegion,
+  regionId, onExitRegion, playerLevel, onEnterRegion, fullscreen,
 }: TrainingMapProps) {
   const [scrolls, setScrolls] = useState<{ id: number; x: number; y: number }[]>([]);
   const [activeScroll, setActiveScroll] = useState<{ id: number; x: number; y: number } | null>(null);
   const [curioPos, setCurioPos] = useState<{ x: number; y: number } | null>(null);
   const scrollIdRef = useRef(0);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
-  const [infoTab, setInfoTab] = useState<'team' | 'online' | 'legend' | 'tips'>('team');
+  const [infoTab, setInfoTab] = useState<'team' | 'online'>('team');
   const [stepping, setStepping] = useState(false);
   const [bumping, setBumping] = useState(false);
   const [dustPuffs, setDustPuffs] = useState<{ id: number; x: number; y: number }[]>([]);
@@ -480,8 +482,6 @@ export default function TrainingMap({
         {([
           { id: 'team' as const, label: 'Team' },
           { id: 'online' as const, label: `Online (${Object.keys(onlinePlayers).length})` },
-          { id: 'legend' as const, label: 'Legend' },
-          { id: 'tips' as const, label: 'Tips' },
         ]).map(tab => (
           <button
             key={tab.id}
@@ -567,48 +567,6 @@ export default function TrainingMap({
         )
       )}
 
-      {infoTab === 'legend' && (
-        <div className="space-y-1.5 text-xs">
-          <div className="flex items-center gap-2">
-            <span>📜</span>
-            <div>
-              <p className="text-white font-medium">Scroll</p>
-              <p className="text-[10px] text-gray-400">Walk onto one for a training question. Answer correctly for +{BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER} monster EXP — and a chance at a wild curio appearing nearby.</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <span>🏠</span>
-            <div>
-              <p className="text-white font-medium">Town</p>
-              <p className="text-[10px] text-gray-400">Safe zone. Walking here heals your full team.</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <span>🧒</span>
-            <div>
-              <p className="text-white font-medium">You</p>
-              <p className="text-[10px] text-gray-400">Your current position on the map.</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <span>🟢</span>
-            <div>
-              <p className="text-white font-medium">Other players</p>
-              <p className="text-[10px] text-gray-400">Tap a player on the map or in the roster to view their stats or wave.</p>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {infoTab === 'tips' && (
-        <div className="space-y-1.5 text-[11px] text-gray-400">
-          <p>⌨️ Use <span className="text-white font-bold">arrow keys</span> or the on-map buttons to move.</p>
-          <p>📜 Walk into a <span className="text-white font-bold">floating scroll</span> to answer a question and grind curio EXP.</p>
-          <p>⚔️ Curio reaches <span className="text-white font-bold">Lv.5</span> to unlock Tier 2 skill, <span className="text-white font-bold">Lv.10</span> for Tier 3.</p>
-          <p>🏠 Return to <span className="text-white font-bold">town</span> to heal before challenging a trainer.</p>
-          <p>💡 Defeat trainers in order from the <span className="text-white font-bold">Trainers</span> tab — each one gets harder and requires a higher player level.</p>
-        </div>
-      )}
     </div>
   );
 
@@ -651,6 +609,7 @@ export default function TrainingMap({
         drawerLabel="Info"
         drawer={drawer}
         overlay={overlay}
+        fullscreen={fullscreen}
       />
 
       {statsTargetId && (

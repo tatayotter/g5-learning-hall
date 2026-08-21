@@ -797,21 +797,23 @@ html {
   }
 }
 
-/* ── Arena sub-nav FAB — sits above the main compass (nav-fab).
-   Portrait: centered above bottom edge.
+/* ── Arena sub-nav FAB
+   Portrait: sits to the RIGHT of the compass (nav-fab).
+     Compass is centered at 50%; it's w-20 (80px), so right edge = 50% + 40px.
+     Arena FAB left edge starts 8px beyond that.
    Landscape: stacked above the compass on the left edge.
    Desktop (≥1024px): compass is w-24 (96px); mobile: w-20 (80px).      */
 .arena-fab {
   position: fixed;
-  bottom: calc(1rem + 80px + 10px); /* compass (80px) + gap */
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 1rem;                          /* same row as compass */
+  left: calc(50% + 40px + 8px);         /* right of compass + 8px gap */
+  transform: none;
   z-index: 80;
 }
 
 @media (orientation: landscape) {
   .arena-fab {
-    bottom: calc(1.5rem + 80px + 10px);
+    bottom: calc(1.5rem + 80px + 10px); /* stacked above compass on left */
     left: 1rem;
     transform: none;
   }
@@ -820,6 +822,29 @@ html {
 @media (min-width: 1024px) and (orientation: landscape) {
   .arena-fab {
     bottom: calc(1.5rem + 96px + 10px); /* desktop compass is w-24 */
+  }
+}
+
+/* ── Fullscreen joystick wrapper
+   Portrait: bottom-left corner (same column as before).
+   Landscape: bottom row, to the RIGHT of the compass (nav-fab sits at
+   left:1rem, is w-20 = 80px wide; joystick starts 8px beyond its right edge).
+   Desktop landscape: compass is w-24 (96px).                               */
+.map-joystick-wrap {
+  bottom: 1rem;
+  left: 1rem;                            /* portrait: bottom-left */
+}
+
+@media (orientation: landscape) {
+  .map-joystick-wrap {
+    bottom: 1.5rem;
+    left: calc(1rem + 80px + 8px);       /* right of compass (w-20) */
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .map-joystick-wrap {
+    left: calc(1rem + 96px + 8px);       /* right of desktop compass (w-24) */
   }
 }
 

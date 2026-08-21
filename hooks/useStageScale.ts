@@ -14,7 +14,7 @@ import { useState, useEffect, useRef } from 'react';
 // Typography Scale" media query in app/globals.css).
 const MOBILE_QUERY = '(max-width: 1024px)';
 
-export function useStageScale(canvasWidth: number, canvasHeight: number) {
+export function useStageScale(canvasWidth: number, canvasHeight: number, coverMode = false) {
   const shellRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
@@ -29,7 +29,14 @@ export function useStageScale(canvasWidth: number, canvasHeight: number) {
 
   useEffect(() => {
     if (isMobile) {
-      const update = () => setScale(Math.min(window.innerWidth / canvasWidth, window.innerHeight / canvasHeight));
+      const update = () => {
+        const scaleW = window.innerWidth / canvasWidth;
+        const scaleH = window.innerHeight / canvasHeight;
+        // coverMode = fill viewport (map fullscreen): scale by the larger axis so
+        // both dimensions are at least as big as the viewport (overflow is cropped).
+        // Default = fit/contain: scale by the smaller axis (letterbox).
+        setScale(coverMode ? Math.max(scaleW, scaleH) : Math.min(scaleW, scaleH));
+      };
       update();
       window.addEventListener('resize', update);
       return () => window.removeEventListener('resize', update);
@@ -41,7 +48,7 @@ export function useStageScale(canvasWidth: number, canvasHeight: number) {
     const ro = new ResizeObserver(update);
     ro.observe(el);
     return () => ro.disconnect();
-  }, [isMobile, canvasWidth, canvasHeight]);
+  }, [isMobile, canvasWidth, canvasHeight, coverMode]);
 
   return { shellRef, scale, isMobile };
 }

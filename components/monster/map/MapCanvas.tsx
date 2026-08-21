@@ -8,7 +8,8 @@
 // the old CSS grid used) since canvas text/rounded-rect primitives would
 // only regress that polish's fidelity for no gameplay benefit — see the
 // scene file's header comment for the full rationale.
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useContext } from 'react';
+import { MapScaleContext } from '@/components/MapStage';
 import { USERS } from '@/lib/userSession';
 import { GMBadge, MonsterImage } from '@/components/battle/shared';
 import { ELEMENT_ICON_SRC, type MonsterDef } from '@/lib/monsterConfig';
@@ -45,7 +46,11 @@ function spriteSrcFor(userId: string): string {
 // producing a one-frame mismatch), this recomputes the exact same clamped
 // scroll target independently: it's a pure function of props already
 // available here, using the identical formula, so both always agree.
-function overlayPositioning(mapWidth: number, mapHeight: number, background: MapBackground, selfX: number, selfY: number) {
+// visibleCanvasW: the actual number of canvas pixels visible horizontally,
+// which equals CANVAS_WIDTH except in cover-mode fullscreen (where CSS
+// transform scale > 1 crops both sides). Passed so the scroll clamps keep
+// the player sprite within the visible viewport rather than the full canvas.
+function overlayPositioning(mapWidth: number, mapHeight: number, background: MapBackground, selfX: number, selfY: number, visibleCanvasW = CANVAS_WIDTH) {
   if (background.type === 'image') {
     const tileWPct = 100 / mapWidth;
     const tileHPct = 100 / mapHeight;
@@ -59,7 +64,30 @@ function overlayPositioning(mapWidth: number, mapHeight: number, background: Map
   const mapPixelH = mapHeight * tileSize;
   const selfWorldX = (selfX + 0.5) * tileSize;
   const selfWorldY = (selfY + 0.5) * tileSize;
-  const scrollX = Math.min(Math.max(selfWorldX - viewW / 2, 0), Math.max(0, mapPixelW - viewW));
+
+  // Horizontal scroll: in cover mode use PURE VISIBILITY clamping — the player
+  // must stay inside the visible canvas window [visLeft, visRight] even at map
+  // edges (may briefly show transparent void past the map edge, but the player
+  // never leaves the visible strip). This mirrors TrainingMapScene.computeTransform
+  // exactly; both must stay in sync.
+  // visLeft = (CANVAS_WIDTH - visibleCanvasW) / 2  (canvas px cropped from each side)
+  // Player canvas X = (selfWorldX - scrollX) * zoom
+  //   Visible-left  → scrollX <= selfWorldX - visLeft/zoom
+  //   Visible-right → scrollX >= selfWorldX - visRight/zoom
+  let scrollX: number;
+  if (visibleCanvasW < CANVAS_WIDTH) {
+    const visLeft = (CANVAS_WIDTH - visibleCanvasW) / 2;
+    const visRight = CANVAS_WIDTH - visLeft;
+    // Prefer centering; clamp only to keep player within visible strip.
+    scrollX = Math.min(
+      Math.max(selfWorldX - viewW / 2, selfWorldX - visRight / zoom),
+      selfWorldX - visLeft / zoom,
+    );
+  } else {
+    // Normal mode: standard map-boundary clamp.
+    scrollX = Math.min(Math.max(selfWorldX - viewW / 2, 0), Math.max(0, mapPixelW - viewW));
+  }
+
   const scrollY = Math.min(Math.max(selfWorldY - viewH / 2, 0), Math.max(0, mapPixelH - viewH));
   const tileWPct = (tileSize * zoom / CANVAS_WIDTH) * 100;
   const tileHPct = (tileSize * zoom / CANVAS_HEIGHT) * 100;
@@ -105,6 +133,17 @@ export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
   dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers, curioMarker, onPlayerClick,
 }: MapCanvasProps) {
+  // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
+  // central strip of the canvas is visible. Consume the scale so we can
+  // tighten the overlay scroll clamps to match the actual visible window.
+  const mapScale = useContext(MapScaleContext);
+  // Visible strip of the canvas in CSS pixels = viewport width ÷ CSS scale.
+  // (CANVAS_WIDTH is the canvas's own pre-transform CSS pixel width; the
+  // transform scales it up so only viewport_width / scale pixels are visible.)
+  const visibleCanvasW = (mapScale > 1 && typeof window !== 'undefined')
+    ? Math.round(window.innerWidth / mapScale)
+    : CANVAS_WIDTH;
+
   const containerRef = useRef<HTMLDivElement>(null);
   const gameRef = useRef<import('phaser').Game | null>(null);
   const sceneRef = useRef<import('@/lib/phaserMap/TrainingMapScene').default | null>(null);
@@ -184,6 +223,7 @@ export default function MapCanvas({
       stepping,
       dustPuffs,
       onPlayerClick,
+      visibleCanvasW,
     };
     latestStateRef.current = state;
     sceneRef.current?.sync(state);
@@ -209,7 +249,7 @@ export default function MapCanvas({
         // coordinate (same convention as posX/posY elsewhere) — the
         // movement hook's float position is center-based, so subtract 0.5
         // to convert back before reusing the same pure function.
-        const { leftPct: lp, topPct: tp } = overlayPositioning(mapWidth, mapHeight, background, x - 0.5, y - 0.5);
+        const { leftPct: lp, topPct: tp } = overlayPositioning(mapWidth, mapHeight, background, x - 0.5, y - 0.5, visibleCanvasW);
         selfWrapRef.current.style.left = `${lp(x - 0.5)}%`;
         selfWrapRef.current.style.top = `${tp(y - 0.5)}%`;
         // Every other stationary marker (town/portals/scrolls/curio) shares
@@ -223,9 +263,9 @@ export default function MapCanvas({
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [movement, mapWidth, mapHeight, background]);
+  }, [movement, mapWidth, mapHeight, background, visibleCanvasW]);
 
-  const { tileWPct, tileHPct, leftPct, topPct } = overlayPositioning(mapWidth, mapHeight, background, posX, posY);
+  const { tileWPct, tileHPct, leftPct, topPct } = overlayPositioning(mapWidth, mapHeight, background, posX, posY, visibleCanvasW);
 
   const nameTag = (targetId: string) => {
     const profile = USERS[targetId];

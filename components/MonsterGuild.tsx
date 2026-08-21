@@ -1049,6 +1049,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           regionId={activeRegion}
           playerLevel={playerLevel}
           onEnterRegion={setActiveRegion}
+          fullscreen
         />
       )}
 

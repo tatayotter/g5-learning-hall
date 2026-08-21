@@ -83,6 +83,11 @@ export interface MapCanvasSyncState {
   stepping: boolean;
   dustPuffs: { id: number; x: number; y: number }[];
   onPlayerClick: (userId: string) => void;
+  /** Visible canvas width in CSS pixels (pre-transform). Equals CANVAS_WIDTH
+   *  normally; narrower in cover-mode fullscreen (portrait mobile) where the
+   *  CSS scale crops both sides. Used to tighten the camera clamp so the
+   *  player sprite stays within the visible viewport. */
+  visibleCanvasW?: number;
 }
 
 interface TrackedSprite {
@@ -166,6 +171,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   private lastBackground: MapBackground | null = null;
   private lastMapWidth = 0;
   private lastMapHeight = 0;
+  private visibleCanvasW = CANVAS_WIDTH;
   // Whether the follow offset has ever been placed for the current tilemap —
   // the very first placement snaps instead of tweening (see applyState).
   private followInitialized = false;
@@ -247,7 +253,24 @@ export default class TrainingMapScene extends Phaser.Scene {
     const mapPixelH = mapHeight * tileH;
     const playerCenterX = (selfX + 0.5) * tileW;
     const playerCenterY = (selfY + 0.5) * tileH;
-    const offsetX = Phaser.Math.Clamp(CANVAS_WIDTH / 2 - playerCenterX, Math.min(0, CANVAS_WIDTH - mapPixelW), 0);
+    let offsetX: number;
+    if (this.visibleCanvasW < CANVAS_WIDTH) {
+      // Cover-mode fullscreen: only the central strip [visLeft, visRight] of
+      // the canvas is visible. Clamp purely to keep the player inside that
+      // strip — the camera may scroll slightly past the map boundary at edges,
+      // briefly revealing a transparent void, which is better than the player
+      // disappearing off-screen.
+      const visLeft = (CANVAS_WIDTH - this.visibleCanvasW) / 2;
+      const visRight = CANVAS_WIDTH - visLeft;
+      offsetX = Phaser.Math.Clamp(
+        CANVAS_WIDTH / 2 - playerCenterX,
+        visLeft - playerCenterX,   // player ≥ visLeft
+        visRight - playerCenterX,  // player ≤ visRight
+      );
+    } else {
+      // Normal mode: keep tilemap within canvas edges (no void).
+      offsetX = Phaser.Math.Clamp(CANVAS_WIDTH / 2 - playerCenterX, Math.min(0, CANVAS_WIDTH - mapPixelW), 0);
+    }
     const offsetY = Phaser.Math.Clamp(CANVAS_HEIGHT / 2 - playerCenterY, Math.min(0, CANVAS_HEIGHT - mapPixelH), 0);
     return { tileW, tileH, offsetX, offsetY };
   }
@@ -304,6 +327,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.lastMapWidth = state.mapWidth;
     this.lastMapHeight = state.mapHeight;
     this.lastBackground = state.background;
+    if (state.visibleCanvasW !== undefined) this.visibleCanvasW = state.visibleCanvasW;
     const prevTransform = this.lastTransform;
     if (this.self) {
       // Once the self sprite exists, updateSelfPosition() (called every
