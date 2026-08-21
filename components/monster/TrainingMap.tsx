@@ -142,8 +142,11 @@ export default function TrainingMap({
   const [curioPos, setCurioPos] = useState<{ x: number; y: number } | null>(null);
   // Trainer NPC that has spawned on the map — null when none is present.
   // Spawns on a correct scroll answer; cleared when the player walks within
-  // 1 tile (battle triggered) or when the region changes.
+  // 1 tile (dialogue triggered) or when the region changes.
   const [activeMapTrainer, setActiveMapTrainer] = useState<(NpcTrainer & { x: number; y: number }) | null>(null);
+  // Set when the player enters the trainer's 3×3 proximity zone — shows the
+  // dialogue overlay with Accept/Run Away buttons before starting the battle.
+  const [pendingTrainerChallenge, setPendingTrainerChallenge] = useState<NpcTrainer | null>(null);
   const scrollIdRef = useRef(0);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
   const [infoTab, setInfoTab] = useState<'team' | 'online'>('team');
@@ -256,6 +259,7 @@ export default function TrainingMap({
     setActiveScroll(null);
     setCurioPos(null);
     setActiveMapTrainer(null);
+    setPendingTrainerChallenge(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [regionId]);
 
@@ -322,15 +326,15 @@ export default function TrainingMap({
       return;
     }
 
-    // Trainer NPC encounter — triggers when the player enters any of the 8
-    // tiles adjacent to (or the tile of) the trainer, giving a 1-grid-box
-    // detection radius so the player doesn't have to walk exactly onto them.
+    // Trainer NPC detection — when the player steps into the 3×3 zone around
+    // the trainer, show the dialogue bubble (intro text + Accept/Run Away).
+    // Movement is disabled while the dialogue is up (see contMove below),
+    // so this won't fire a second time until the player dismisses it.
     if (activeMapTrainer &&
+        !pendingTrainerChallenge &&
         Math.abs(newX - activeMapTrainer.x) <= 1 &&
         Math.abs(newY - activeMapTrainer.y) <= 1) {
-      const trainer = activeMapTrainer;
-      setActiveMapTrainer(null);
-      onTrainerEncounter?.(trainer);
+      setPendingTrainerChallenge(activeMapTrainer);
       return;
     }
 
@@ -350,7 +354,7 @@ export default function TrainingMap({
     if (tileData.type === 'town') {
       onHeal();
     }
-  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, onEnterCurio, activeMapTrainer, onTrainerEncounter]);
+  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, onEnterCurio, activeMapTrainer, pendingTrainerChallenge, onTrainerEncounter]);
 
   const handleBlocked = useCallback(() => {
     playWallBump();
@@ -361,7 +365,7 @@ export default function TrainingMap({
     map,
     mapWidth: activeRegion.mapWidth,
     mapHeight: activeRegion.mapHeight,
-    enabled: !activeScroll && !movementLocked,
+    enabled: !activeScroll && !movementLocked && !pendingTrainerChallenge,
     initialTile: { x: posX, y: posY },
     onTileCrossed: handleTileEnter,
     onBlocked: handleBlocked,
@@ -607,7 +611,46 @@ export default function TrainingMap({
     </div>
   );
 
-  const overlay = activeScroll ? (
+  const overlay = pendingTrainerChallenge ? (
+    // Trainer challenge dialogue — shown when the player enters the trainer's
+    // 3×3 detection zone. Accept launches the battle; Run Away dismisses.
+    <div className="w-full max-w-sm bg-neutral-900 border border-amber-700 rounded-2xl p-4 battle-panel-in">
+      <div className="flex items-start gap-3 mb-4">
+        <span className="text-4xl flex-shrink-0 select-none">{pendingTrainerChallenge.emoji}</span>
+        <div className="min-w-0">
+          <p className="font-bold text-amber-300 text-sm leading-tight">{pendingTrainerChallenge.name}</p>
+          <p className="text-gray-300 text-sm italic mt-1 leading-snug">
+            "{pendingTrainerChallenge.intro}"
+          </p>
+        </div>
+      </div>
+      <div className="flex gap-2">
+        <button
+          className="flex-1 bg-amber-600 hover:bg-amber-500 active:bg-amber-700
+                     text-white font-bold text-sm py-2.5 rounded-xl transition-colors"
+          onClick={() => {
+            const trainer = pendingTrainerChallenge;
+            setPendingTrainerChallenge(null);
+            setActiveMapTrainer(null);
+            onTrainerEncounter?.(trainer);
+          }}
+        >
+          ⚔️ Accept!
+        </button>
+        <button
+          className="flex-1 bg-neutral-800 hover:bg-neutral-700 active:bg-neutral-900
+                     text-gray-400 font-bold text-sm py-2.5 rounded-xl border border-neutral-700
+                     transition-colors"
+          onClick={() => {
+            setPendingTrainerChallenge(null);
+            setActiveMapTrainer(null);
+          }}
+        >
+          🏃 Run Away!
+        </button>
+      </div>
+    </div>
+  ) : activeScroll ? (
     <div className="w-full max-w-xl bg-neutral-900 border border-emerald-700 rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in">
       <div className="flex items-center gap-3 mb-3 bg-emerald-900/30 border border-emerald-800 rounded-xl px-3 py-2">
         {activeMonster && (
