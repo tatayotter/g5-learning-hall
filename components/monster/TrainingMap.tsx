@@ -251,12 +251,23 @@ export default function TrainingMap({
     return tiles;
   }, [map, foliage, activeRegion.mapWidth, activeRegion.mapHeight]);
 
-  // Tiles that trash must not spawn on (portals, town, spawn point).
-  const trashOccupied = useMemo(() => [
-    activeRegion.spawn,
-    activeRegion.townCenter,
-    ...portals.map(p => ({ x: p.x, y: p.y })),
-  ], [activeRegion, portals]);
+  // Tiles that trash must not spawn on — exact tiles plus a 3-tile buffer
+  // around each portal so trash never appears directly next to an exit.
+  const trashOccupied = useMemo(() => {
+    const PORTAL_BUFFER = 3;
+    const blocked: { x: number; y: number }[] = [
+      activeRegion.spawn,
+      activeRegion.townCenter,
+    ];
+    for (const p of portals) {
+      for (let dy = -PORTAL_BUFFER; dy <= PORTAL_BUFFER; dy++) {
+        for (let dx = -PORTAL_BUFFER; dx <= PORTAL_BUFFER; dx++) {
+          blocked.push({ x: p.x + dx, y: p.y + dy });
+        }
+      }
+    }
+    return blocked;
+  }, [activeRegion, portals]);
 
   const {
     items: trashItems,
