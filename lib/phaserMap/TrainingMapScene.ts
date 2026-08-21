@@ -217,6 +217,15 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.self.x = xTile;
     this.self.y = yTile;
 
+    // The camera (transform offset) changes every frame as the player moves.
+    // Reposition every other-player sprite to keep them locked to their world
+    // tile — without this they stay at the pixel position `sync()` computed
+    // for them, which drifts relative to the scrolling tilemap.
+    for (const [, tracked] of this.others) {
+      const { px: opx, py: opy } = this.tileToPixel(this.lastTransform, tracked.x, tracked.y);
+      tracked.image.setPosition(opx, opy);
+    }
+
     this.updateSelfAnimation(isMoving);
   }
 
