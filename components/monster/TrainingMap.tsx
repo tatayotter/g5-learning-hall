@@ -147,6 +147,9 @@ export default function TrainingMap({
   // Set when the player enters the trainer's 3×3 proximity zone — shows the
   // dialogue overlay with Accept/Run Away buttons before starting the battle.
   const [pendingTrainerChallenge, setPendingTrainerChallenge] = useState<NpcTrainer | null>(null);
+  // Set when the player steps onto the curio tile — shows a confirmation
+  // dialogue before entering the wild encounter.
+  const [pendingCurioChallenge, setPendingCurioChallenge] = useState(false);
   const scrollIdRef = useRef(0);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
   const [infoTab, setInfoTab] = useState<'team' | 'online'>('team');
@@ -260,6 +263,7 @@ export default function TrainingMap({
     setCurioPos(null);
     setActiveMapTrainer(null);
     setPendingTrainerChallenge(null);
+    setPendingCurioChallenge(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [regionId]);
 
@@ -347,14 +351,14 @@ export default function TrainingMap({
       return;
     }
     if (curioPos && curioPos.x === newX && curioPos.y === newY) {
-      onEnterCurio?.();
+      setPendingCurioChallenge(true);
       return;
     }
 
     if (tileData.type === 'town') {
       onHeal();
     }
-  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, onEnterCurio, activeMapTrainer, pendingTrainerChallenge, onTrainerEncounter]);
+  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, onEnterCurio, activeMapTrainer, pendingTrainerChallenge, pendingCurioChallenge, onTrainerEncounter]);
 
   const handleBlocked = useCallback(() => {
     playWallBump();
@@ -365,7 +369,7 @@ export default function TrainingMap({
     map,
     mapWidth: activeRegion.mapWidth,
     mapHeight: activeRegion.mapHeight,
-    enabled: !activeScroll && !movementLocked && !pendingTrainerChallenge,
+    enabled: !activeScroll && !movementLocked && !pendingTrainerChallenge && !pendingCurioChallenge,
     initialTile: { x: posX, y: posY },
     onTileCrossed: handleTileEnter,
     onBlocked: handleBlocked,
@@ -611,7 +615,42 @@ export default function TrainingMap({
     </div>
   );
 
-  const overlay = pendingTrainerChallenge ? (
+  const curioDef = activeCurio ? monsterDisplay[activeCurio.monsterId] : null;
+
+  const overlay = pendingCurioChallenge && activeCurio && curioDef ? (
+    // Wild curio encounter dialogue — shown when the player steps onto the
+    // curio tile. Battle! enters the encounter; Run Away lets the player
+    // walk away (curio remains on the map).
+    <div className="w-full max-w-sm bg-neutral-900 border border-emerald-700 rounded-2xl p-4 battle-panel-in">
+      <div className="flex items-start gap-3 mb-4">
+        <MonsterImage monster={curioDef} className="w-14 h-14 flex-shrink-0" />
+        <div className="min-w-0">
+          <p className="font-bold text-emerald-300 text-sm leading-tight">{curioDef.name} appeared!</p>
+          <p className="text-gray-400 text-xs mt-0.5 capitalize">{activeCurio.quality} · {curioDef.element} type</p>
+          <p className="text-gray-300 text-sm italic mt-1 leading-snug">
+            "A wild curio is challenging you!"
+          </p>
+        </div>
+      </div>
+      <div className="flex gap-2">
+        <button
+          className="flex-1 bg-emerald-700 hover:bg-emerald-600 active:bg-emerald-800
+                     text-white font-bold text-sm py-2.5 rounded-xl transition-colors"
+          onClick={() => { setPendingCurioChallenge(false); onEnterCurio?.(); }}
+        >
+          ⚔️ Battle!
+        </button>
+        <button
+          className="flex-1 bg-neutral-800 hover:bg-neutral-700 active:bg-neutral-900
+                     text-gray-400 font-bold text-sm py-2.5 rounded-xl border border-neutral-700
+                     transition-colors"
+          onClick={() => setPendingCurioChallenge(false)}
+        >
+          🏃 Run Away!
+        </button>
+      </div>
+    </div>
+  ) : pendingTrainerChallenge ? (
     // Trainer challenge dialogue — shown when the player enters the trainer's
     // 3×3 detection zone. Accept launches the battle; Run Away dismisses.
     <div className="w-full max-w-sm bg-neutral-900 border border-amber-700 rounded-2xl p-4 battle-panel-in">
