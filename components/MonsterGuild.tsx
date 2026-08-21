@@ -703,6 +703,22 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     // Demo accounts are single-player only (see app/api/demo-login) — never
     // let one start a live battle against a real student.
     if (userId.startsWith('demo_')) return;
+
+    // Bot players are not in Supabase — bypass the real invite flow and launch
+    // a local bot battle directly, the same way the challenge toast does.
+    if (BOT_IDS.has(opponentId)) {
+      const bot = BOT_PROFILES.find(b => b.id === opponentId);
+      if (!bot) return;
+      const myTeam = buildPlayerTeam();
+      const oppTeam = buildBotTeam(bot);
+      setLiveBattleId(`${bot.id}_${Date.now()}`);
+      setLiveBattleOpponent({ id: bot.id as UserId, name: bot.fullName });
+      setLiveBattleSide('challenger');
+      setLiveBattleTeams({ mine: myTeam, opp: oppTeam });
+      setLiveBattleBotAccuracy(bot.accuracy);
+      setView('live_battle');
+      return;
+    }
     if (!liveBattleInbox.onlinePlayerIds.has(opponentId)) {
       showNotification(`${opponentName} isn't online right now.`);
       return;
@@ -1365,7 +1381,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
             return ok;
           }}
           onBattleResultKnown={(won) => {
-            liveBattleInbox.sendBattleResultFlash(won);
+            // Bot battles have no real inbox — skip the Supabase flash.
+            if (!liveBattleBotAccuracy) liveBattleInbox.sendBattleResultFlash(won);
             liveBattleInbox.setInBattleStatus(false);
           }}
           onBattleEnd={(won) => {
