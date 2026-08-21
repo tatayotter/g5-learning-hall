@@ -156,6 +156,8 @@ export default function TrainingMap({
   const [pendingCurioChallenge, setPendingCurioChallenge] = useState(false);
   // Recycler NPC trade panel — shown when the player steps within 1 tile.
   const [pendingRecyclerTrade, setPendingRecyclerTrade] = useState(false);
+  // Gold amount flash shown after a successful trash trade.
+  const [goldEarnedFlash, setGoldEarnedFlash] = useState<number | null>(null);
   // Trash items currently mid-pickup animation (lifted + fading).
   const [collectingTrashIds, setCollectingTrashIds] = useState<Set<string>>(new Set());
   const scrollIdRef = useRef(0);
@@ -575,6 +577,16 @@ export default function TrainingMap({
           🔒 {lockedPortalMsg}
         </div>
       )}
+
+      {/* Gold earned flash — floats up from screen centre after a trash trade */}
+      {goldEarnedFlash !== null && (
+        <span
+          key={goldEarnedFlash}
+          className="gold-earn-float absolute left-1/2 top-1/3 z-30 pointer-events-none select-none"
+        >
+          +{goldEarnedFlash}g 🪙
+        </span>
+      )}
     </div>
   );
 
@@ -816,7 +828,11 @@ export default function TrainingMap({
                      text-white font-bold text-sm py-2.5 rounded-xl transition-colors"
           onClick={() => {
             const gold = tradeAll();
-            if (gold > 0) onTrashTraded?.(gold);
+            if (gold > 0) {
+              onTrashTraded?.(gold);
+              setGoldEarnedFlash(gold);
+              setTimeout(() => setGoldEarnedFlash(null), 1800);
+            }
             setPendingRecyclerTrade(false);
           }}
         >

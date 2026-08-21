@@ -565,6 +565,17 @@ html {
 }
 .dmg-text-hit  { color: #ef1111; }
 .dmg-text-miss { color: #ff9d1f; }
+/* Gold-earn float — reuses damage-float keyframes with an amber palette. */
+.gold-earn-float {
+  animation: damage-float 1.8s ease-out forwards;
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #fbbf24;
+  -webkit-text-stroke: 2px #78350f;
+  paint-order: stroke fill;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
 
 /* ── Training Map: name tag always readable on its dark pill, ── */
 /* regardless of theme (Tala's theme repaints .text-white elsewhere) */
