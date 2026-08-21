@@ -665,7 +665,10 @@ export default class TrainingMapScene extends Phaser.Scene {
    *  pixels. Replaces setDisplaySize(size, size) which would stretch
    *  non-square art. The sprite's texture must already be set before calling. */
   private fitSprite(img: Phaser.GameObjects.Sprite, size: number) {
-    const maxDim = Math.max(img.width, img.height) || 1;
+    // Use the frame's *natural* pixel dimensions, not img.width/img.height which
+    // are (natural × currentScale) — wrong when setDisplaySize was previously
+    // applied to a placeholder frame with different native dimensions.
+    const maxDim = Math.max(img.frame.realWidth, img.frame.realHeight) || 1;
     img.setScale(size / maxDim);
   }
 
