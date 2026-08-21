@@ -6,6 +6,8 @@ import { playCurioLevelUp } from '@/lib/sounds';
 import { logAction } from '@/lib/playerlog';
 import { getOtherPlayers, UserId, USERS, gradeToNumber } from '@/lib/userSession';
 import { useMapPresence } from '@/hooks/useMapPresence';
+import { useBotPresence } from '@/hooks/useBotPresence';
+import { BOT_PROFILES, BOT_IDS, buildBotTeam, type BotProfile } from '@/lib/botProfiles';
 import WildEncounterModal from '@/components/WildEncounterModal';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import DuplicateCatchModal from '@/components/DuplicateCatchModal';
@@ -200,6 +202,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const [liveBattleOpponent, setLiveBattleOpponent] = useState<{ id: UserId; name: string } | null>(null);
   const [liveBattleSide, setLiveBattleSide] = useState<'challenger' | 'opponent'>('challenger');
   const [liveBattleTeams, setLiveBattleTeams] = useState<{ mine: ActiveBattleMonster[]; opp: ActiveBattleMonster[] } | null>(null);
+  /** Accuracy (0–1) for the current bot battle, undefined for real PvP. */
+  const [liveBattleBotAccuracy, setLiveBattleBotAccuracy] = useState<number | undefined>(undefined);
+  /** Bot that has "challenged" the player — shown via LiveBattleInviteToast. */
+  const [pendingBotChallenge, setPendingBotChallenge] = useState<BotProfile | null>(null);
   const [notification, setNotification] = useState<string | null>(null);
   const [revealMonster, setRevealMonster] = useState<MonsterDef | null>(null);
   const [pendingDuplicate, setPendingDuplicate] = useState<{ monsterId: string; level: number; name: string } | null>(null);
@@ -410,6 +416,13 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     battleState?.map_y ?? 0,
     !offline,
   );
+  const botOnlinePlayers = useBotPresence();
+  // Merge bots into onlinePlayers so TrainingMap's Online tab, sprite renderer,
+  // and 🟢 count all include them automatically — no other changes needed.
+  const mergedMapPresence = {
+    ...mapPresence,
+    onlinePlayers: { ...mapPresence.onlinePlayers, ...botOnlinePlayers },
+  };
 
   // The invitee accepts/declines from LiveBattleInviteToast, rendered below
   // — both are only reachable while this component is mounted (Curio Arena
@@ -449,6 +462,22 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view]);
 
+  // Random bot challenge — fires once per time the player opens the Arena tab,
+  // after a 20–60 s idle delay. Skipped when already in a battle or offline.
+  useEffect(() => {
+    if (offline || view === 'live_battle') return;
+    if (isDemo) return; // demo accounts excluded from bot challenges
+    const delay = 20_000 + Math.random() * 40_000;
+    const timer = setTimeout(() => {
+      // Don't interrupt an active battle or a real incoming invite.
+      if (liveBattleInbox.incomingInvite) return;
+      const bot = BOT_PROFILES[Math.floor(Math.random() * BOT_PROFILES.length)];
+      setPendingBotChallenge(bot);
+    }, delay);
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [view]);
+
   // Challenger's side: if the invitee declines, back out of the waiting screen.
   useEffect(() => {
     const resp = liveBattleInbox.inviteResponse;
@@ -458,6 +487,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       setLiveBattleId(null);
       setLiveBattleOpponent(null);
       setLiveBattleTeams(null);
+      setLiveBattleBotAccuracy(undefined);
       setView('trainers');
     }
     liveBattleInbox.clearInviteResponse();
@@ -1042,7 +1072,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           onEnterCurio={handleEnterCurio}
           onChallengePlayer={(targetId, name) => handleChallengePlayer(targetId as UserId, name)}
           liveBattleInbox={liveBattleInbox}
-          mapPresence={mapPresence}
+          mapPresence={mergedMapPresence}
           movementLocked={!!wildEncounter || walkLocked}
           walkLockActive={walkLocked}
           monsterDisplay={displayMonsters}
@@ -1325,6 +1355,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           side={liveBattleSide}
           myTeam={liveBattleTeams.mine}
           opponentTeam={liveBattleTeams.opp}
+          botAccuracy={liveBattleBotAccuracy}
           questions={questions}
           gradingUserId={userId}
           inventory={inventory}
@@ -1341,17 +1372,14 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
             showNotification(won ? `🏆 Defeated ${liveBattleOpponent.name}!` : `💀 ${liveBattleOpponent.name} was too strong!`);
             if (won) {
               onBattleWon('sibling');
-              // resolve-live-battle (Edge Function) already credited any gold
-              // reward straight to player_progress server-side — this is a
-              // pure resync of local display state, not another credit. By
-              // the time the player has clicked through the result screen to
-              // get here, that call (fired when the battle ended, well
-              // before this handler) has had plenty of time to land.
-              onProgressSynced();
+              // Bot battles: no Edge Function ran, so skip onProgressSynced()
+              // (there's no server-side gold credit to resync).
+              if (!liveBattleBotAccuracy) onProgressSynced();
             }
             setLiveBattleId(null);
             setLiveBattleOpponent(null);
             setLiveBattleTeams(null);
+            setLiveBattleBotAccuracy(undefined);
             setView('trainers');
             loadData();
           }}
@@ -1389,6 +1417,27 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           fromName={liveBattleInbox.incomingInvite.fromName}
           onAccept={handleAcceptLiveBattleInvite}
           onDecline={handleDeclineLiveBattleInvite}
+        />
+      )}
+
+      {/* Bot challenge toast — shown when a simulated classmate sends a challenge */}
+      {pendingBotChallenge && !liveBattleInbox.incomingInvite && (
+        <LiveBattleInviteToast
+          fromName={pendingBotChallenge.fullName}
+          onAccept={() => {
+            const bot = pendingBotChallenge;
+            setPendingBotChallenge(null);
+            const myTeam = buildPlayerTeam();
+            const oppTeam = buildBotTeam(bot);
+            const fakeId = `${bot.id}_${Date.now()}`;
+            setLiveBattleId(fakeId);
+            setLiveBattleOpponent({ id: bot.id as UserId, name: bot.fullName });
+            setLiveBattleSide('challenger');
+            setLiveBattleTeams({ mine: myTeam, opp: oppTeam });
+            setLiveBattleBotAccuracy(bot.accuracy);
+            setView('live_battle');
+          }}
+          onDecline={() => setPendingBotChallenge(null)}
         />
       )}
     </div>

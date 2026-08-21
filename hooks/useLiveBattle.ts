@@ -124,7 +124,11 @@ export function useLiveBattle(
   userId: string,
   side: 'challenger' | 'opponent',
   skills: Record<string, Skill>,
+  /** When defined the hook runs in local bot mode: no Supabase channel,
+   *  opponent answers are auto-generated with this accuracy (0–1). */
+  botAccuracy?: number,
 ) {
+  const isBotMode = botAccuracy !== undefined;
   const [phase, setPhase] = useState<BattlePhase>('waiting_for_opponent');
   const [round, setRound] = useState(0);
   const [deadlineAt, setDeadlineAt] = useState<number | null>(null);
@@ -145,6 +149,8 @@ export function useLiveBattle(
     getOpponent: () => ActiveBattleMonster | null;
   } | null>(null);
   const forfeitTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  /** Pending bot-answer timer — cleared on unmount to avoid state updates after cleanup. */
+  const botTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // LiveBattleScreen registers accessors here so round resolution always
   // reads the current (possibly just-switched-in) active monster on each side.
@@ -331,8 +337,20 @@ export function useLiveBattle(
     setPhase('select_skill');
   }, []);
 
+  // Bot mode: simulate the opponent "joining" and kick off round 1 after a
+  // short connecting delay, then clean up any pending bot answer on unmount.
   useEffect(() => {
-    if (!battleId || !userId) return;
+    if (!isBotMode) return;
+    const t = setTimeout(() => startNextRound(1), 1500);
+    return () => {
+      clearTimeout(t);
+      if (botTimerRef.current) clearTimeout(botTimerRef.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isBotMode]);
+
+  useEffect(() => {
+    if (!battleId || !userId || isBotMode) return;
 
     const channel = supabase.channel(`battle-${battleId}`, {
       config: { presence: { key: userId }, broadcast: { self: true } },
@@ -500,41 +518,80 @@ export function useLiveBattle(
   const submitRoundAnswer = useCallback((skillId: string, correctCount: number, totalQuestions: number, isPerfect: boolean) => {
     const answer: RoundAnswer = { round, userId, skillId, correctCount, totalQuestions, isPerfect };
     myAnswerRef.current = answer;
-    channelRef.current?.send({ type: 'broadcast', event: 'round_answer_submitted', payload: answer });
-    setPhase(prev => (opponentAnswerRef.current ? prev : 'awaiting_opponent'));
-    if (opponentAnswerRef.current && opponentAnswerRef.current.round === round) {
-      resolveRound(answer, opponentAnswerRef.current);
+
+    if (isBotMode) {
+      // Don't immediately flip to awaiting_opponent — keep the normal flow so
+      // LiveBattleScreen's UI can finish its own animation first, then the bot
+      // "responds" after a randomised think delay (2–6 s).
+      setPhase('awaiting_opponent');
+      const thinkMs = 2000 + Math.random() * 4000;
+      botTimerRef.current = setTimeout(() => {
+        // Pick a skill from the bot's active monster's def.skills list, tiered
+        // by level (same thresholds as LiveBattleScreen's skillUnlocks).
+        const oppMon = monsterGettersRef.current?.getOpponent();
+        const botSkillIds = oppMon?.def.skills ?? ['ember'];
+        const oppLevel = oppMon?.level ?? 1;
+        const tierIdx = oppLevel >= 30 ? 2 : oppLevel >= 18 ? 1 : 0;
+        const botSkillId = botSkillIds[Math.min(tierIdx, botSkillIds.length - 1)];
+
+        // Randomise correct count around the bot's accuracy — clamp to [0, total].
+        const raw = Math.round((botAccuracy ?? 0.5) * totalQuestions + (Math.random() - 0.5));
+        const botCorrect = Math.max(0, Math.min(totalQuestions, raw));
+        const botAnswer: RoundAnswer = {
+          round,
+          userId: 'bot_opponent',
+          skillId: botSkillId,
+          correctCount: botCorrect,
+          totalQuestions,
+          isPerfect: botCorrect === totalQuestions,
+        };
+        opponentAnswerRef.current = botAnswer;
+        resolveRound(answer, botAnswer);
+      }, thinkMs);
+    } else {
+      channelRef.current?.send({ type: 'broadcast', event: 'round_answer_submitted', payload: answer });
+      setPhase(prev => (opponentAnswerRef.current ? prev : 'awaiting_opponent'));
+      if (opponentAnswerRef.current && opponentAnswerRef.current.round === round) {
+        resolveRound(answer, opponentAnswerRef.current);
+      }
     }
-  }, [round, userId, resolveRound]);
+  }, [round, userId, resolveRound, isBotMode, botAccuracy]);
 
   const advanceToNextRound = useCallback(() => {
     const next = round + 1;
-    if (side === 'challenger') {
+    if (isBotMode) {
+      // In bot mode both sides are local — just advance directly instead of
+      // broadcasting a round_start that nobody would receive.
+      startNextRound(next);
+    } else if (side === 'challenger') {
       channelRef.current?.send({ type: 'broadcast', event: 'round_start', payload: { round: next, deadlineAt: Date.now() + ROUND_DURATION_MS } });
     }
-  }, [round, side]);
+  }, [round, side, isBotMode, startNextRound]);
 
   const declareBattleEnd = useCallback((winnerId: string | null, reason: string) => {
-    channelRef.current?.send({ type: 'broadcast', event: 'battle_end', payload: { winnerId, reason } });
+    // In bot mode there's no channel — just update local state.
+    if (!isBotMode) {
+      channelRef.current?.send({ type: 'broadcast', event: 'battle_end', payload: { winnerId, reason } });
+    }
     setBattleEnded({ winnerId, reason });
     setPhase('ended');
-  }, []);
+  }, [isBotMode]);
 
   const sendStatusEffectToOpponent = useCallback((status: StatusEffect, statusTurns: number) => {
-    channelRef.current?.send({ type: 'broadcast', event: 'status_effect', payload: { status, statusTurns, from: userId } });
-  }, [userId]);
+    if (!isBotMode) channelRef.current?.send({ type: 'broadcast', event: 'status_effect', payload: { status, statusTurns, from: userId } });
+  }, [userId, isBotMode]);
 
   const sendSelfStateSync = useCallback((patch: SelfStatePatch) => {
-    channelRef.current?.send({ type: 'broadcast', event: 'self_state_sync', payload: { ...patch, from: userId } });
-  }, [userId]);
+    if (!isBotMode) channelRef.current?.send({ type: 'broadcast', event: 'self_state_sync', payload: { ...patch, from: userId } });
+  }, [userId, isBotMode]);
 
   const sendMonsterSwitch = useCallback((idx: number, forced: boolean) => {
-    channelRef.current?.send({ type: 'broadcast', event: 'monster_switch', payload: { idx, forced, from: userId } });
-  }, [userId]);
+    if (!isBotMode) channelRef.current?.send({ type: 'broadcast', event: 'monster_switch', payload: { idx, forced, from: userId } });
+  }, [userId, isBotMode]);
 
   const sendBenchRevive = useCallback((idx: number, newHp: number) => {
-    channelRef.current?.send({ type: 'broadcast', event: 'bench_revive', payload: { idx, newHp, from: userId } });
-  }, [userId]);
+    if (!isBotMode) channelRef.current?.send({ type: 'broadcast', event: 'bench_revive', payload: { idx, newHp, from: userId } });
+  }, [userId, isBotMode]);
 
   const clearIncomingStatusEffect = useCallback(() => setIncomingStatusEffect(null), []);
   const clearIncomingSelfSync = useCallback(() => setIncomingSelfSync(null), []);

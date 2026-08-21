@@ -6,6 +6,7 @@
 import { supabase } from '@/lib/supabase';
 import { USERS, UserId, loadClassmates } from '@/lib/userSession';
 import { MONSTER_ARENA_QUEST_TYPE } from '@/lib/guildEngine';
+import { BOT_PROFILES, getBotProgress } from '@/lib/botProfiles';
 
 export interface LeaderboardTeamMonster {
   monster_id: string;
@@ -178,7 +179,37 @@ async function computeLeaderboard(): Promise<LeaderboardEntry[]> {
     };
   });
 
-  return entries.sort((a, b) => b.score - a.score);
+  // Append simulated classmate bots so the leaderboard is never empty and
+  // always shows realistic competing progress. Bots use the same score formula
+  // as real players and grow deterministically each day.
+  const now = new Date();
+  const botEntries: LeaderboardEntry[] = BOT_PROFILES.map(bot => {
+    const p = getBotProgress(bot, now);
+    const score = p.level * 5 + p.trainerBattlesWon * 10 + p.liveBattleWins * 25 + p.questionsAnswered;
+    const team: LeaderboardTeamMonster[] = bot.monsterIds.map(mId => ({
+      monster_id: mId,
+      monster_level: p.level,
+      nickname: null,
+    }));
+    return {
+      userId: bot.id as UserId,
+      name: bot.fullName,
+      avatar: bot.gender === 'girl' ? '/userpics/Spr_RS_School_Kid_F.png' : '/userpics/Spr_RS_School_Kid_M.png',
+      grade: bot.grade,
+      isFamily: false,
+      level: p.level,
+      gold: p.gold,
+      questionsAnswered: p.questionsAnswered,
+      trainerBattlesWon: p.trainerBattlesWon,
+      liveBattleWins: p.liveBattleWins,
+      team,
+      monstersCollected: p.monstersCollected,
+      topMonster: team[0] ?? null,
+      score,
+    };
+  });
+
+  return [...entries, ...botEntries].sort((a, b) => b.score - a.score);
 }
 
 export interface ReactionCounts {

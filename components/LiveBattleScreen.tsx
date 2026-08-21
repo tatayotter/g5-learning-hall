@@ -46,11 +46,14 @@ interface LiveBattleScreenProps {
   onUseItem: (key: string) => Promise<boolean>;
   onBattleEnd: (won: boolean) => void;
   onBattleResultKnown?: (won: boolean) => void;
+  /** When defined, the battle runs in local bot mode (no Supabase channel).
+   *  Value is the bot's answer accuracy (0–1). */
+  botAccuracy?: number;
 }
 
 export default function LiveBattleScreen({
   battleId, myUserId, opponentId, opponentName, side, myTeam, opponentTeam, questions, gradingUserId, inventory, onUseItem, onBattleEnd,
-  onBattleResultKnown,
+  onBattleResultKnown, botAccuracy,
 }: LiveBattleScreenProps) {
   const [myRoster, setMyRoster] = useState<ActiveBattleMonster[]>(myTeam);
   const [myActiveIdx, setMyActiveIdx] = useState(0);
@@ -93,7 +96,7 @@ export default function LiveBattleScreen({
     sendSelfStateSync, clearIncomingSelfSync,
     sendMonsterSwitch, clearIncomingSwitch,
     sendBenchRevive, clearIncomingBenchRevive,
-  } = useLiveBattle(battleId, myUserId, side, SKILLS);
+  } = useLiveBattle(battleId, myUserId, side, SKILLS, botAccuracy);
   const timedOutRoundRef = useRef<number | null>(null);
 
   const updateMyActive = (updater: (m: ActiveBattleMonster) => ActiveBattleMonster) => {
