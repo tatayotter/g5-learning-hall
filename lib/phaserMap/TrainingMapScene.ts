@@ -600,8 +600,6 @@ export default class TrainingMapScene extends Phaser.Scene {
           // Kill any stepping tween launched while we were still showing the
           // placeholder — its target was the placeholder's inflated baseScaleY
           // and would override fitSprite's correction.
-          // DEBUG: remove after sprite-size investigation
-          console.log('[self-spawn-cb]', { h, tileH: this.lastTransform.tileH, texKey, size: h * 0.95 });
           this.tweens.killTweensOf(next.image);
           next.image.setTexture(texKey, 0);
           this.fitSprite(next.image, h * 0.95);
@@ -681,8 +679,6 @@ export default class TrainingMapScene extends Phaser.Scene {
     // applied to a placeholder frame with different native dimensions.
     const maxDim = Math.max(img.frame.realWidth, img.frame.realHeight) || 1;
     const scale = size / maxDim;
-    // DEBUG: remove after sprite-size investigation
-    console.log('[fitSprite]', { texKey: img.texture.key, frameRealW: img.frame.realWidth, frameRealH: img.frame.realHeight, size, maxDim, scale, displayW: scale * img.frame.realWidth });
     img.setScale(scale);
   }
 
