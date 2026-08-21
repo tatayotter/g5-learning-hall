@@ -580,12 +580,13 @@ export default function TrainingMap({
 
       {/* Gold earned flash — floats up from screen centre after a trash trade */}
       {goldEarnedFlash !== null && (
-        <span
+        <div
           key={goldEarnedFlash}
-          className="gold-earn-float absolute left-1/2 top-1/3 z-30 pointer-events-none select-none"
+          className="gold-earn-float absolute left-1/2 top-1/3 z-30 pointer-events-none select-none flex items-center gap-1"
         >
-          +{goldEarnedFlash}g 🪙
-        </span>
+          +{goldEarnedFlash}g
+          <img src="/icons/rewards/gold_coin.svg" alt="gold" className="w-6 h-6 object-contain" />
+        </div>
       )}
     </div>
   );
@@ -812,7 +813,11 @@ export default function TrainingMap({
 
       {canTrade && (
         <p className="text-center text-xs text-green-400 font-bold mb-3">
-          Ready to trade → <span className="text-amber-300">+{pendingTradeGold}g</span>
+          Ready to trade →{' '}
+          <span className="text-amber-300 inline-flex items-center gap-0.5">
+            +{pendingTradeGold}g
+            <img src="/icons/rewards/gold_coin.svg" alt="gold" className="w-3.5 h-3.5 object-contain inline" />
+          </span>
         </p>
       )}
       {!canTrade && (
