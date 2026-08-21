@@ -46,7 +46,7 @@ export default function WildEncounterModal({ monster, level, question, attemptsL
   const handleAnswer = (key: string) => {
     if (selected) return;
     setSelected(key);
-    const isCorrect = key.toLowerCase() === question.correct_choice.toLowerCase();
+    const isCorrect = key.toLowerCase() === (question.correct_choice ?? '').toLowerCase();
     if (isCorrect) playChime(); else playClash();
     setTimeout(() => {
       if (isCorrect) onCorrect();
@@ -78,10 +78,16 @@ export default function WildEncounterModal({ monster, level, question, attemptsL
         <div className="space-y-3">
           {choices.map(c => {
             const isSelected = selected === c.key;
-            const isCorrect = c.key.toLowerCase() === question.correct_choice.toLowerCase();
+            // Guard: correct_choice may be null if a question was inserted without it.
+            // Moving this inside the `if (selected)` block also avoids computing it
+            // on every render before the player has answered — previously it ran
+            // unconditionally and crashed the component on mount when correct_choice
+            // was null (TypeError: null.toLowerCase).
+            const correctChoice = (question.correct_choice ?? '').toLowerCase();
             let style = 'border-neutral-700 hover:border-neutral-500';
             let feedbackAnim = '';
             if (selected) {
+              const isCorrect = c.key.toLowerCase() === correctChoice;
               if (isSelected && isCorrect) { style = 'border-green-500 bg-green-900/30'; feedbackAnim = 'battle-answer-correct'; }
               else if (isSelected && !isCorrect) { style = 'border-red-500 bg-red-900/30'; feedbackAnim = 'battle-answer-wrong'; }
               else if (isCorrect) style = 'border-green-500 bg-green-900/20';
