@@ -185,22 +185,6 @@ export default function TrainingMap({
   const [foliage, setFoliage] = useState<boolean[][] | null>(null);
   const [lockedPortalMsg, setLockedPortalMsg] = useState<string | null>(null);
 
-  // Tiles that trash must not spawn on (portals, town, spawn point).
-  const trashOccupied = useMemo(() => [
-    activeRegion.spawn,
-    activeRegion.townCenter,
-    ...portals.map(p => ({ x: p.x, y: p.y })),
-  ], [activeRegion, portals]);
-
-  const {
-    items: trashItems,
-    inventory: trashInventory,
-    collectTrash,
-    tradeAll,
-    canTrade,
-    respawnSecsLeft,
-  } = useTrashItems(activeRegion.mapWidth, activeRegion.mapHeight, activeRegion.id, trashOccupied);
-
   const recyclerTile = RECYCLER_TILES[activeRegion.id] ?? null;
   useEffect(() => {
     let cancelled = false;
@@ -252,6 +236,37 @@ export default function TrainingMap({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const map = regionMap;
+
+  // Walkable (grass) tiles excluding foliage canopy — same eligibility rules
+  // as scroll/curio spawning so trash never lands on trees or fences.
+  const walkableTiles = useMemo(() => {
+    const tiles: { x: number; y: number }[] = [];
+    for (let y = 0; y < activeRegion.mapHeight; y++) {
+      for (let x = 0; x < activeRegion.mapWidth; x++) {
+        if (map[y]?.[x]?.type !== 'grass') continue;
+        if (foliage?.[y]?.[x]) continue;
+        tiles.push({ x, y });
+      }
+    }
+    return tiles;
+  }, [map, foliage, activeRegion.mapWidth, activeRegion.mapHeight]);
+
+  // Tiles that trash must not spawn on (portals, town, spawn point).
+  const trashOccupied = useMemo(() => [
+    activeRegion.spawn,
+    activeRegion.townCenter,
+    ...portals.map(p => ({ x: p.x, y: p.y })),
+  ], [activeRegion, portals]);
+
+  const {
+    items: trashItems,
+    inventory: trashInventory,
+    collectTrash,
+    tradeAll,
+    canTrade,
+    respawnSecsLeft,
+  } = useTrashItems(walkableTiles, activeRegion.id, trashOccupied);
+
   // Elemental regions always start at their fixed spawn point and never
   // persist position — this local state naturally resets on region re-entry
   // since TrainingMap remounts when regionId changes.

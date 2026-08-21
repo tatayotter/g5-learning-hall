@@ -26,30 +26,27 @@ function buildPool(): TrashType[] {
 }
 
 function spawnTrash(
-  mapWidth: number,
-  mapHeight: number,
+  walkableTiles: { x: number; y: number }[],
   occupied: { x: number; y: number }[],
 ): TrashItem[] {
   const blocked = new Set(occupied.map(o => `${o.x},${o.y}`));
+  // Filter to eligible tiles (walkable and not occupied by a static entity)
+  const eligible = walkableTiles.filter(t => !blocked.has(`${t.x},${t.y}`));
+  if (eligible.length === 0) return [];
+  // Shuffle a copy so we can slice without replacement
+  const shuffled = [...eligible].sort(() => Math.random() - 0.5);
   const pool = buildPool();
-  const items: TrashItem[] = [];
-  let attempts = 0;
-  while (items.length < TRASH_SPAWN_COUNT && attempts < 2000) {
-    attempts++;
-    const x = Math.floor(Math.random() * mapWidth);
-    const y = Math.floor(Math.random() * mapHeight);
-    const key = `${x},${y}`;
-    if (blocked.has(key)) continue;
-    blocked.add(key);
-    const type = pool[Math.floor(Math.random() * pool.length)];
-    items.push({ id: `trash_${Date.now()}_${items.length}`, type, x, y });
-  }
-  return items;
+  return shuffled.slice(0, TRASH_SPAWN_COUNT).map((tile, i) => ({
+    id: `trash_${Date.now()}_${i}`,
+    type: pool[Math.floor(Math.random() * pool.length)],
+    x: tile.x,
+    y: tile.y,
+  }));
 }
 
 export function useTrashItems(
-  mapWidth: number,
-  mapHeight: number,
+  /** Grass/walkable tiles for the current map — trash only spawns here. */
+  walkableTiles: { x: number; y: number }[],
   regionId: string,
   occupied: { x: number; y: number }[],
 ) {
@@ -57,17 +54,19 @@ export function useTrashItems(
   const [inventory, setInventory]       = useState<TrashInventory>(emptyInv());
   const [respawnSecsLeft, setSecsLeft]  = useState<number | null>(null);
 
-  const timerRef      = useRef<ReturnType<typeof setTimeout>  | null>(null);
-  const tickRef       = useRef<ReturnType<typeof setInterval> | null>(null);
-  const endTimeRef    = useRef<number | null>(null);
-  const occupiedRef   = useRef(occupied);
-  occupiedRef.current = occupied;
+  const timerRef          = useRef<ReturnType<typeof setTimeout>  | null>(null);
+  const tickRef           = useRef<ReturnType<typeof setInterval> | null>(null);
+  const endTimeRef        = useRef<number | null>(null);
+  const occupiedRef       = useRef(occupied);
+  const walkableRef       = useRef(walkableTiles);
+  occupiedRef.current     = occupied;
+  walkableRef.current     = walkableTiles;
 
   const doRespawn = useCallback(() => {
     endTimeRef.current = null;
     setSecsLeft(null);
-    setItems(spawnTrash(mapWidth, mapHeight, occupiedRef.current));
-  }, [mapWidth, mapHeight]);
+    setItems(spawnTrash(walkableRef.current, occupiedRef.current));
+  }, []);
 
   const startRespawn = useCallback(() => {
     if (timerRef.current) clearTimeout(timerRef.current);
@@ -92,13 +91,13 @@ export function useTrashItems(
     endTimeRef.current = null;
     setSecsLeft(null);
     setInventory(emptyInv());
-    setItems(spawnTrash(mapWidth, mapHeight, occupiedRef.current));
+    setItems(spawnTrash(walkableRef.current, occupiedRef.current));
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
       if (tickRef.current)  clearInterval(tickRef.current);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [regionId, mapWidth, mapHeight]);
+  }, [regionId]);
 
   /** Remove item from the map and add to inventory. */
   const collectTrash = useCallback((id: string) => {
