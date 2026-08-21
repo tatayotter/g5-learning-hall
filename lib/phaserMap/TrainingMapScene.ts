@@ -547,6 +547,9 @@ export default class TrainingMapScene extends Phaser.Scene {
         // without reapplying it here, the real sprite art snaps to its own
         // native pixel size instead of staying tile-sized.
         if (next.image.active) {
+          // Kill any in-flight stepping tween — it was aimed at the placeholder
+          // baseScaleY (h/32 ≈ 1.9×) and would fight fitSprite's correction.
+          this.tweens.killTweensOf(next.image);
           next.image.setTexture(texKey, 0);
           this.fitSprite(next.image, h * 0.95);
           next.baseScaleY = next.image.scaleY;
@@ -566,6 +569,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     if (tracked.image.texture.key !== key) {
       this.loadSpriteVisual(player.spriteSrc, (texKey) => {
         if (tracked.image.active) {
+          this.tweens.killTweensOf(tracked.image);
           tracked.image.setTexture(texKey, 0);
           this.fitSprite(tracked.image, h * 0.95);
           tracked.baseScaleY = tracked.image.scaleY;
@@ -593,6 +597,10 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.self = next;
       this.loadSpriteVisual(state.self.spriteSrc, (texKey) => {
         if (next.image.active) {
+          // Kill any stepping tween launched while we were still showing the
+          // placeholder — its target was the placeholder's inflated baseScaleY
+          // and would override fitSprite's correction.
+          this.tweens.killTweensOf(next.image);
           next.image.setTexture(texKey, 0);
           this.fitSprite(next.image, h * 0.95);
           next.baseScaleY = next.image.scaleY;
@@ -605,6 +613,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       const self = this.self;
       this.loadSpriteVisual(state.self.spriteSrc, (texKey) => {
         if (self.image.active) {
+          this.tweens.killTweensOf(self.image);
           self.image.setTexture(texKey, 0);
           this.fitSprite(self.image, h * 0.95);
           self.baseScaleY = self.image.scaleY;
