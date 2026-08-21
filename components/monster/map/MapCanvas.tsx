@@ -518,6 +518,7 @@ export default function MapCanvas({
       {trashItems?.map(item => (
         <div
           key={item.id}
+          ref={registerMarker(`trash:${item.id}`, item.x, item.y)}
           className={`absolute pointer-events-none flex items-end justify-center${
             collectingTrashIds?.has(item.id) ? ' trash-pickup-anim' : ''
           }`}
