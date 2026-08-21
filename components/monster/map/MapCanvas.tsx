@@ -127,7 +127,7 @@ interface MapCanvasProps {
   scrollMarkers?: { id: number; x: number; y: number }[];
   curioMarker?: { x: number; y: number; monsterDef: MonsterDef; quality: QualityTier } | null;
   /** Trainer NPC currently on the map — renders as a DOM overlay; cleared on encounter. */
-  trainerMarker?: { id: string; x: number; y: number; emoji: string; name: string } | null;
+  trainerMarker?: { id: string; x: number; y: number; emoji: string; name: string; spriteOverride?: string } | null;
   onPlayerClick: (userId: string) => void;
 }
 
@@ -446,9 +446,10 @@ export default function MapCanvas({
           >
             {trainerMarker.emoji}
           </span>
-          {/* Trainer sprite portrait — small, falls back to hidden on 404 */}
+          {/* Trainer sprite portrait — mirrors the roster's spriteOverride
+              fallback so every trainer shows the correct art. */}
           <img
-            src={`/trainers/${trainerMarker.id}.png`}
+            src={trainerMarker.spriteOverride ?? `/trainers/${trainerMarker.id}.png`}
             alt={trainerMarker.name}
             className="w-7 h-7 object-contain object-bottom drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]"
             onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
