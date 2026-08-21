@@ -72,7 +72,7 @@ const SECTIONS = [
   { id: 'eggs', label: 'Eggs & The Hatchery' },
   { id: 'items', label: 'Items & Scrolls' },
   { id: 'trading', label: 'Trading' },
-  { id: 'trainers', label: 'Trainers & Classmates' },
+  { id: 'trainers', label: 'Trainer Battles' },
   { id: 'trash', label: 'Trash & Recycling' },
   { id: 'achievements', label: 'Achievements & Titles' },
   { id: 'family', label: 'Family & Parents' },
@@ -109,7 +109,6 @@ const GLOSSARY: { term: string; definition: string }[] = [
   { term: 'Daily To-Dos', definition: "A short daily checklist that pays escalating bonus gold the more days in a row you clear it, up to a 5-day streak cap." },
   { term: "Journal", definition: "A short daily reflection (what you did, tomorrow's plan, hardest part, one gratitude) — submitted once per day for flat XP and gold." },
   { term: 'Trainer NPC', definition: 'A challenger that spawns on the World Map after a correct guild answer. Walk within one tile to trigger a dialogue, then Accept or Run Away.' },
-  { term: 'Bot Classmate', definition: 'One of ten simulated Filipino student bots that wander the map. They appear on the leaderboard, can be challenged to battle, and carry real curio teams.' },
   { term: 'Scavenger Bag', definition: 'Your on-map inventory for trash items. Shown as a counter on the map HUD; emptied at the Recycler NPC when you trade bundles for gold.' },
   { term: 'Recycler NPC', definition: 'A fixed character in every region. Trade trash bundles here — the rarer the trash type, the fewer items needed to earn one gold.' },
 ];
@@ -715,27 +714,17 @@ function ScrollCategoryCard({ label, count, costs, desc }: { label: string; coun
 function TrainersSection() {
   return (
     <div>
-      <SectionTitle>Trainers &amp; Classmates</SectionTitle>
-      <TLDR>Answer a question right and a Trainer NPC may appear on the map — walk up to challenge them. Classmate bots are always wandering, and always ready for a battle.</TLDR>
+      <SectionTitle>Trainer Battles</SectionTitle>
+      <TLDR>Answer a question right and a Trainer may appear on the map — walk up to challenge them or slip away.</TLDR>
       <div className="space-y-4 max-w-2xl text-sm text-gray-700">
 
         <div className="bg-stone-50 border border-stone-200 rounded-xl p-4">
-          <p className="font-bold text-gray-900 mb-1.5">Trainer NPCs</p>
+          <p className="font-bold text-gray-900 mb-1.5">How Trainers Spawn</p>
           <p className="text-xs text-gray-500 leading-relaxed">
-            Every correct answer in a guild has a chance to spawn a <b className="text-gray-900">Trainer NPC</b> on the World Map near
-            you. Trainers look like standee sprites with a ⚔️ badge. Walk within one tile and a short dialogue pops up — you can{' '}
+            Every correct answer in a guild has a chance to spawn a <b className="text-gray-900">Trainer</b> on the World Map near
+            you. Trainers appear as standee sprites with a ⚔️ badge. Walk within one tile and a short dialogue pops up — you can{' '}
             <b className="text-gray-900">Accept</b> the challenge or <b className="text-gray-900">Run Away</b>. Accept, and it's a
-            standard curio battle, same rules as any other fight. The trainer disappears after you beat them (or flee).
-          </p>
-        </div>
-
-        <div className="bg-stone-50 border border-stone-200 rounded-xl p-4">
-          <p className="font-bold text-gray-900 mb-1.5">Bot Classmates</p>
-          <p className="text-xs text-gray-500 leading-relaxed">
-            Ten Filipino student bots share the map with you — they wander on their own, each with a unique name tag and avatar.
-            Bots behave like real players: they show up on the leaderboard, wander the region, and can be challenged via their
-            floating toast. A bot's team grows with its simulated level — lower-level bots field only a starter; higher-level bots
-            bring wilds too. Battles against bots count as real PvP matches for your record.
+            standard curio battle with the same rules as any other fight. The trainer disappears once the battle is resolved.
           </p>
         </div>
 
