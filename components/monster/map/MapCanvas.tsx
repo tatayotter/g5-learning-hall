@@ -19,6 +19,8 @@ import type { MapCanvasSyncState, MapCanvasPlayer, MapBackground } from '@/lib/p
 import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM } from '@/lib/phaserMap/constants';
 import type { OnlinePlayer } from '@/hooks/useMapPresence';
 import type { ContinuousMovementHandle } from '@/hooks/useContinuousMovement';
+import type { TrashItem } from '@/hooks/useTrashItems';
+import { TRASH_DEFS } from '@/lib/trashConfig';
 
 function spriteSrcFor(userId: string, userpicOverride?: string): string {
   // Bot userpic takes highest priority — set explicitly in BotProfile.
@@ -130,12 +132,19 @@ interface MapCanvasProps {
   curioMarker?: { x: number; y: number; monsterDef: MonsterDef; quality: QualityTier } | null;
   /** Trainer NPC currently on the map — renders as a DOM overlay; cleared on encounter. */
   trainerMarker?: { id: string; x: number; y: number; emoji: string; name: string; spriteOverride?: string } | null;
+  /** Trash items currently on the map (uncollected). */
+  trashItems?: TrashItem[];
+  /** IDs of trash items currently mid-pickup animation. */
+  collectingTrashIds?: Set<string>;
+  /** Recycler NPC tile for the active region. */
+  recyclerTile?: { x: number; y: number } | null;
   onPlayerClick: (userId: string) => void;
 }
 
 export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
-  dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers, curioMarker, trainerMarker, onPlayerClick,
+  dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers,
+  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, onPlayerClick,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
   // central strip of the canvas is visible. Consume the scale so we can
@@ -504,6 +513,50 @@ export default function MapCanvas({
           </div>
         </div>
       ))}
+
+      {/* ── Trash items ─────────────────────────────────────────────────────── */}
+      {trashItems?.map(item => (
+        <div
+          key={item.id}
+          className={`absolute pointer-events-none flex items-end justify-center${
+            collectingTrashIds?.has(item.id) ? ' trash-pickup-anim' : ''
+          }`}
+          style={{
+            left: `${leftPct(item.x)}%`,
+            top:  `${topPct(item.y)}%`,
+            width: `${tileWPct}%`,
+            height: `${tileHPct}%`,
+          }}
+        >
+          <span className="text-base leading-none select-none" style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.7))' }}>
+            {TRASH_DEFS[item.type].emoji}
+          </span>
+        </div>
+      ))}
+
+      {/* ── Recycler NPC ────────────────────────────────────────────────────── */}
+      {recyclerTile && (
+        <div
+          ref={registerMarker('recycler', recyclerTile.x, recyclerTile.y)}
+          className="absolute pointer-events-none"
+          style={{
+            left: `${leftPct(recyclerTile.x)}%`,
+            top:  `${topPct(recyclerTile.y)}%`,
+            width: `${tileWPct}%`,
+            height: `${tileHPct}%`,
+          }}
+        >
+          <img
+            src="/npcs/recycler.png"
+            alt="Recycler"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 h-20 w-auto object-contain object-bottom"
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+          />
+          <p className="absolute -top-5 left-1/2 -translate-x-1/2 text-[9px] bg-black/70 text-green-300 font-bold px-1 rounded whitespace-nowrap">
+            ♻️ Recycler
+          </p>
+        </div>
+      )}
     </div>
   );
 }

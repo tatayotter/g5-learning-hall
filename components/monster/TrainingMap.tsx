@@ -1,7 +1,7 @@
 'use client';
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { supabase } from '@/lib/supabase';
-import { playMonsterAppear, playChime, playClash, playFootstepGrass, playFootstepTown, playWallBump } from '@/lib/sounds';
+import { playMonsterAppear, playChime, playClash, playFootstepGrass, playFootstepTown, playWallBump, playCoins } from '@/lib/sounds';
 import { USERS } from '@/lib/userSession';
 import { useMapPresence } from '@/hooks/useMapPresence';
 import { useContinuousMovement } from '@/hooks/useContinuousMovement';
@@ -22,6 +22,8 @@ import { loadTiledArtMap, type TiledArtPortal } from '@/lib/tiledArtMap';
 import type { MapBackground } from '@/lib/phaserMap/TrainingMapScene';
 import { CaughtMonster, BattleState } from '@/components/monster/types';
 import type { QualityTier } from '@/lib/curioQuality';
+import { useTrashItems } from '@/hooks/useTrashItems';
+import { TRASH_DEFS, TRASH_ORDER, RECYCLER_TILES } from '@/lib/trashConfig';
 
 // The training map is a single painted background image (public/maps/map-1.webp)
 // with an invisible logical grid overlaid for walkability + markers. The grid and
@@ -111,6 +113,8 @@ interface TrainingMapProps {
   onChallengePlayer?: (targetId: string, name: string) => void;
   /** Called when the player walks within 1 tile of a trainer NPC on the map. */
   onTrainerEncounter?: (trainer: NpcTrainer) => void;
+  /** Called with gold earned when the player trades trash at the Recycler NPC. */
+  onTrashTraded?: (gold: number) => void;
   liveBattleInbox?: ReturnType<typeof useLiveBattleInbox>;
   mapPresence: ReturnType<typeof useMapPresence>;
   movementLocked?: boolean;
@@ -133,7 +137,7 @@ interface TrainingMapProps {
 export default function TrainingMap({
   userId, battleState, userMonsters, caughtMonsters, questions, gradingUserId,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll,
-  activeCurio, onEnterCurio, onChallengePlayer, onTrainerEncounter,
+  activeCurio, onEnterCurio, onChallengePlayer, onTrainerEncounter, onTrashTraded,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
   regionId, onExitRegion, playerLevel, onEnterRegion, fullscreen,
 }: TrainingMapProps) {
@@ -150,9 +154,13 @@ export default function TrainingMap({
   // Set when the player steps onto the curio tile — shows a confirmation
   // dialogue before entering the wild encounter.
   const [pendingCurioChallenge, setPendingCurioChallenge] = useState(false);
+  // Recycler NPC trade panel — shown when the player steps within 1 tile.
+  const [pendingRecyclerTrade, setPendingRecyclerTrade] = useState(false);
+  // Trash items currently mid-pickup animation (lifted + fading).
+  const [collectingTrashIds, setCollectingTrashIds] = useState<Set<string>>(new Set());
   const scrollIdRef = useRef(0);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
-  const [infoTab, setInfoTab] = useState<'team' | 'online'>('team');
+  const [infoTab, setInfoTab] = useState<'team' | 'online' | 'bag'>('team');
   const [stepping, setStepping] = useState(false);
   const [bumping, setBumping] = useState(false);
   const [dustPuffs, setDustPuffs] = useState<{ id: number; x: number; y: number }[]>([]);
@@ -176,6 +184,24 @@ export default function TrainingMap({
   // regions, which have no such layer to derive this from.
   const [foliage, setFoliage] = useState<boolean[][] | null>(null);
   const [lockedPortalMsg, setLockedPortalMsg] = useState<string | null>(null);
+
+  // Tiles that trash must not spawn on (portals, town, spawn point).
+  const trashOccupied = useMemo(() => [
+    activeRegion.spawn,
+    activeRegion.townCenter,
+    ...portals.map(p => ({ x: p.x, y: p.y })),
+  ], [activeRegion, portals]);
+
+  const {
+    items: trashItems,
+    inventory: trashInventory,
+    collectTrash,
+    tradeAll,
+    canTrade,
+    respawnSecsLeft,
+  } = useTrashItems(activeRegion.mapWidth, activeRegion.mapHeight, activeRegion.id, trashOccupied);
+
+  const recyclerTile = RECYCLER_TILES[activeRegion.id] ?? null;
   useEffect(() => {
     let cancelled = false;
     if (activeRegion.tileArtPath) {
@@ -264,6 +290,8 @@ export default function TrainingMap({
     setActiveMapTrainer(null);
     setPendingTrainerChallenge(null);
     setPendingCurioChallenge(false);
+    setPendingRecyclerTrade(false);
+    setCollectingTrashIds(new Set());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [regionId]);
 
@@ -355,10 +383,30 @@ export default function TrainingMap({
       return;
     }
 
+    // Trash pickup — play coin sound + start lift animation, then remove from map
+    const trashHere = trashItems.find(t => t.x === newX && t.y === newY);
+    if (trashHere && !collectingTrashIds.has(trashHere.id)) {
+      playCoins();
+      setCollectingTrashIds(prev => new Set([...prev, trashHere.id]));
+      setTimeout(() => {
+        collectTrash(trashHere.id);
+        setCollectingTrashIds(prev => { const n = new Set(prev); n.delete(trashHere.id); return n; });
+      }, 450);
+    }
+
+    // Recycler NPC proximity — show trade panel when within 1 tile
+    if (recyclerTile &&
+        !pendingRecyclerTrade &&
+        Math.abs(newX - recyclerTile.x) <= 1 &&
+        Math.abs(newY - recyclerTile.y) <= 1) {
+      setPendingRecyclerTrade(true);
+      return;
+    }
+
     if (tileData.type === 'town') {
       onHeal();
     }
-  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, onEnterCurio, activeMapTrainer, pendingTrainerChallenge, pendingCurioChallenge, onTrainerEncounter]);
+  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, onEnterCurio, activeMapTrainer, pendingTrainerChallenge, pendingCurioChallenge, onTrainerEncounter, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade]);
 
   const handleBlocked = useCallback(() => {
     playWallBump();
@@ -369,7 +417,7 @@ export default function TrainingMap({
     map,
     mapWidth: activeRegion.mapWidth,
     mapHeight: activeRegion.mapHeight,
-    enabled: !activeScroll && !movementLocked && !pendingTrainerChallenge && !pendingCurioChallenge,
+    enabled: !activeScroll && !movementLocked && !pendingTrainerChallenge && !pendingCurioChallenge && !pendingRecyclerTrade,
     initialTile: { x: posX, y: posY },
     onTileCrossed: handleTileEnter,
     onBlocked: handleBlocked,
@@ -491,6 +539,9 @@ export default function TrainingMap({
         scrollMarkers={scrolls}
         curioMarker={activeCurio && curioPos ? { ...curioPos, monsterDef: monsterDisplay[activeCurio.monsterId], quality: activeCurio.quality } : null}
         trainerMarker={activeMapTrainer ? { id: activeMapTrainer.id, x: activeMapTrainer.x, y: activeMapTrainer.y, emoji: activeMapTrainer.emoji, name: activeMapTrainer.name, spriteOverride: activeMapTrainer.spriteOverride } : null}
+        trashItems={trashItems}
+        collectingTrashIds={collectingTrashIds}
+        recyclerTile={recyclerTile}
         onPlayerClick={setStatsTargetId}
       />
       {lockedPortalMsg && (
@@ -527,6 +578,7 @@ export default function TrainingMap({
         {([
           { id: 'team' as const, label: 'Team' },
           { id: 'online' as const, label: `Online (${Object.keys(onlinePlayers).length})` },
+          { id: 'bag' as const, label: '🎒 Bag' },
         ]).map(tab => (
           <button
             key={tab.id}
@@ -612,12 +664,149 @@ export default function TrainingMap({
         )
       )}
 
+      {infoTab === 'bag' && (
+        <div>
+          {/* 2×3 item grid */}
+          <div className="grid grid-cols-3 gap-2 mb-3">
+            {TRASH_ORDER.map(type => {
+              const def = TRASH_DEFS[type];
+              const count = trashInventory[type];
+              return (
+                <div
+                  key={type}
+                  className="relative flex flex-col items-center justify-center rounded-lg border border-neutral-700 bg-neutral-800 p-2 aspect-square"
+                  title={`${def.label} (${def.bundleSize} = 1g)`}
+                >
+                  <span className="text-2xl leading-none select-none">{def.emoji}</span>
+                  {count > 0 && (
+                    <span className="absolute bottom-1 right-1.5 text-[10px] font-bold text-white leading-none">
+                      {count}
+                    </span>
+                  )}
+                </div>
+              );
+            })}
+            {/* 6th slot empty */}
+            <div className="rounded-lg border border-neutral-800 bg-neutral-900/50 aspect-square" />
+          </div>
+
+          {/* Bundle rate hints */}
+          <div className="space-y-0.5 mb-3">
+            {TRASH_ORDER.map(type => {
+              const def = TRASH_DEFS[type];
+              return (
+                <p key={type} className="text-[10px] text-gray-500">
+                  {def.emoji} {def.label}:{' '}
+                  <span className="text-gray-400">{def.bundleSize} pcs = 1g</span>
+                </p>
+              );
+            })}
+          </div>
+
+          {respawnSecsLeft !== null && (
+            <p className="text-[10px] text-amber-500 text-center font-medium">
+              Trash respawns in {Math.floor(respawnSecsLeft / 60)}:{String(respawnSecsLeft % 60).padStart(2, '0')}…
+            </p>
+          )}
+          {respawnSecsLeft === null && (
+            <p className="text-[10px] text-gray-500 text-center">
+              {trashItems.length} trash items on the map
+            </p>
+          )}
+        </div>
+      )}
+
     </div>
   );
 
   const curioDef = activeCurio ? monsterDisplay[activeCurio.monsterId] : null;
 
-  const overlay = pendingCurioChallenge && activeCurio && curioDef ? (
+  // Gold the player will earn if they trade all complete bundles right now.
+  const pendingTradeGold = (Object.keys(TRASH_DEFS) as (keyof typeof TRASH_DEFS)[]).reduce(
+    (sum, t) => sum + Math.floor(trashInventory[t] / TRASH_DEFS[t].bundleSize), 0,
+  );
+
+  const overlay = pendingRecyclerTrade ? (
+    // Recycler NPC trade panel — player stepped within 1 tile of the recycler.
+    <div className="w-full max-w-sm bg-neutral-900 border border-green-700 rounded-2xl p-4 battle-panel-in">
+      <div className="flex items-start gap-3 mb-4">
+        <img
+          src="/npcs/recycler.png"
+          alt="Recycler"
+          className="w-14 h-14 flex-shrink-0 object-contain object-bottom rounded-lg bg-neutral-800"
+          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+        />
+        <div className="min-w-0">
+          <p className="font-bold text-green-300 text-sm leading-tight">♻️ Recycler</p>
+          <p className="text-gray-300 text-sm italic mt-1 leading-snug">
+            "Got trash? I'll give you gold for it!"
+          </p>
+        </div>
+      </div>
+
+      {/* 2×3 inventory grid */}
+      <div className="grid grid-cols-3 gap-2 mb-4">
+        {TRASH_ORDER.map(type => {
+          const def = TRASH_DEFS[type];
+          const count = trashInventory[type];
+          const complete = count >= def.bundleSize;
+          return (
+            <div
+              key={type}
+              className={`relative flex flex-col items-center justify-center rounded-lg border p-2 aspect-square ${
+                complete
+                  ? 'bg-green-900/30 border-green-700'
+                  : 'bg-neutral-800 border-neutral-700'
+              }`}
+            >
+              <span className="text-2xl leading-none select-none">{def.emoji}</span>
+              {count > 0 && (
+                <span className="absolute bottom-1 right-1.5 text-[10px] font-bold text-white leading-none">
+                  {count}
+                </span>
+              )}
+            </div>
+          );
+        })}
+        {/* 6th slot empty */}
+        <div className="rounded-lg border border-neutral-800 bg-neutral-900 aspect-square" />
+      </div>
+
+      {canTrade && (
+        <p className="text-center text-xs text-green-400 font-bold mb-3">
+          Ready to trade → <span className="text-amber-300">+{pendingTradeGold}g</span>
+        </p>
+      )}
+      {!canTrade && (
+        <p className="text-center text-xs text-gray-500 mb-3">
+          Collect more trash to make a bundle.
+        </p>
+      )}
+
+      <div className="flex gap-2">
+        <button
+          disabled={!canTrade}
+          className="flex-1 bg-green-700 hover:bg-green-600 active:bg-green-800 disabled:opacity-40
+                     text-white font-bold text-sm py-2.5 rounded-xl transition-colors"
+          onClick={() => {
+            const gold = tradeAll();
+            if (gold > 0) onTrashTraded?.(gold);
+            setPendingRecyclerTrade(false);
+          }}
+        >
+          ♻️ Trade All
+        </button>
+        <button
+          className="flex-1 bg-neutral-800 hover:bg-neutral-700 active:bg-neutral-900
+                     text-gray-400 font-bold text-sm py-2.5 rounded-xl border border-neutral-700
+                     transition-colors"
+          onClick={() => setPendingRecyclerTrade(false)}
+        >
+          Maybe Later
+        </button>
+      </div>
+    </div>
+  ) : pendingCurioChallenge && activeCurio && curioDef ? (
     // Wild curio encounter dialogue — shown when the player steps onto the
     // curio tile. Battle! enters the encounter; Run Away lets the player
     // walk away (curio remains on the map).

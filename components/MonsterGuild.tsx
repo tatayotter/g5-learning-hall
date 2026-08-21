@@ -1087,6 +1087,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           activeCurio={curio}
           onEnterCurio={handleEnterCurio}
           onTrainerEncounter={handleTrainerBattle}
+          onTrashTraded={onGoldAwarded}
           onChallengePlayer={(targetId, name) => handleChallengePlayer(targetId as UserId, name)}
           liveBattleInbox={liveBattleInbox}
           mapPresence={mergedMapPresence}
