@@ -126,12 +126,14 @@ interface MapCanvasProps {
   // the spawn/lifecycle logic; this component only draws them.
   scrollMarkers?: { id: number; x: number; y: number }[];
   curioMarker?: { x: number; y: number; monsterDef: MonsterDef; quality: QualityTier } | null;
+  /** Trainer NPC currently on the map — renders as a DOM overlay; cleared on encounter. */
+  trainerMarker?: { id: string; x: number; y: number; emoji: string; name: string } | null;
   onPlayerClick: (userId: string) => void;
 }
 
 export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
-  dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers, curioMarker, onPlayerClick,
+  dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers, curioMarker, trainerMarker, onPlayerClick,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
   // central strip of the canvas is visible. Consume the scale so we can
@@ -420,6 +422,42 @@ export default function MapCanvas({
               continuous bounce, so a spawned curio still reads as "idle"
               most of the time. */}
           <MonsterImage monster={curioMarker.monsterDef} className="relative w-8 h-8 map-curio-hop" />
+        </div>
+      )}
+
+      {/* Trainer NPC marker — a stationary spawned trainer the player can
+          encounter by walking into their 1-tile detection radius. Uses the
+          same registerMarker pattern as scrolls/curio so the rAF loop
+          repositions it every frame as the camera pans. */}
+      {trainerMarker && (
+        <div
+          ref={registerMarker(`trainer:${trainerMarker.id}`, trainerMarker.x, trainerMarker.y)}
+          className="absolute pointer-events-none flex items-end justify-center"
+          style={{
+            left: `${leftPct(trainerMarker.x)}%`, top: `${topPct(trainerMarker.y)}%`,
+            width: `${tileWPct}%`, height: `${tileHPct}%`,
+          }}
+        >
+          {/* Bouncing emoji badge above the tile — catches the eye from afar */}
+          <span
+            className="absolute -top-6 left-1/2 -translate-x-1/2 text-xl select-none
+                       drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] animate-bounce"
+            style={{ animationDuration: '0.9s' }}
+          >
+            {trainerMarker.emoji}
+          </span>
+          {/* Trainer sprite portrait — small, falls back to hidden on 404 */}
+          <img
+            src={`/trainers/${trainerMarker.id}.png`}
+            alt={trainerMarker.name}
+            className="w-7 h-7 object-contain object-bottom drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]"
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+          />
+          {/* Name tag */}
+          <p className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[9px] bg-black/70
+                        text-amber-300 font-bold px-1 rounded whitespace-nowrap">
+            {trainerMarker.name}
+          </p>
         </div>
       )}
 

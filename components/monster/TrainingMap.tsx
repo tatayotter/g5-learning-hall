@@ -9,6 +9,7 @@ import PlayerStatsPopup from '@/components/PlayerStatsPopup';
 import {
   MonsterDef, BATTLE_CONSTANTS, getScaledStats, getMonsterLevel,
   getWildEncounterChance, WILD_ENCOUNTER_PITY_THRESHOLD,
+  NpcTrainer, NPC_TRAINERS,
 } from '@/lib/monsterConfig';
 import { MonsterImage, BattleQuestionModal, GMBadge, UserMonster } from '@/components/battle/shared';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
@@ -108,6 +109,8 @@ interface TrainingMapProps {
   activeCurio?: { id: number; monsterId: string; quality: QualityTier } | null;
   onEnterCurio?: () => void;
   onChallengePlayer?: (targetId: string, name: string) => void;
+  /** Called when the player walks within 1 tile of a trainer NPC on the map. */
+  onTrainerEncounter?: (trainer: NpcTrainer) => void;
   liveBattleInbox?: ReturnType<typeof useLiveBattleInbox>;
   mapPresence: ReturnType<typeof useMapPresence>;
   movementLocked?: boolean;
@@ -130,13 +133,17 @@ interface TrainingMapProps {
 export default function TrainingMap({
   userId, battleState, userMonsters, caughtMonsters, questions, gradingUserId,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll,
-  activeCurio, onEnterCurio, onChallengePlayer,
+  activeCurio, onEnterCurio, onChallengePlayer, onTrainerEncounter,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
   regionId, onExitRegion, playerLevel, onEnterRegion, fullscreen,
 }: TrainingMapProps) {
   const [scrolls, setScrolls] = useState<{ id: number; x: number; y: number }[]>([]);
   const [activeScroll, setActiveScroll] = useState<{ id: number; x: number; y: number } | null>(null);
   const [curioPos, setCurioPos] = useState<{ x: number; y: number } | null>(null);
+  // Trainer NPC that has spawned on the map — null when none is present.
+  // Spawns on a correct scroll answer; cleared when the player walks within
+  // 1 tile (battle triggered) or when the region changes.
+  const [activeMapTrainer, setActiveMapTrainer] = useState<(NpcTrainer & { x: number; y: number }) | null>(null);
   const scrollIdRef = useRef(0);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
   const [infoTab, setInfoTab] = useState<'team' | 'online'>('team');
@@ -248,6 +255,7 @@ export default function TrainingMap({
     setScrolls([]);
     setActiveScroll(null);
     setCurioPos(null);
+    setActiveMapTrainer(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [regionId]);
 
@@ -314,6 +322,18 @@ export default function TrainingMap({
       return;
     }
 
+    // Trainer NPC encounter — triggers when the player enters any of the 8
+    // tiles adjacent to (or the tile of) the trainer, giving a 1-grid-box
+    // detection radius so the player doesn't have to walk exactly onto them.
+    if (activeMapTrainer &&
+        Math.abs(newX - activeMapTrainer.x) <= 1 &&
+        Math.abs(newY - activeMapTrainer.y) <= 1) {
+      const trainer = activeMapTrainer;
+      setActiveMapTrainer(null);
+      onTrainerEncounter?.(trainer);
+      return;
+    }
+
     // Scroll/curio are visible, walked-into map entities — replaces the old
     // "40% chance while stepping on any grass tile" random roll entirely.
     const scrollHere = scrolls.find(s => s.x === newX && s.y === newY);
@@ -330,7 +350,7 @@ export default function TrainingMap({
     if (tileData.type === 'town') {
       onHeal();
     }
-  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, onEnterCurio]);
+  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, onEnterCurio, activeMapTrainer, onTrainerEncounter]);
 
   const handleBlocked = useCallback(() => {
     playWallBump();
@@ -379,6 +399,22 @@ export default function TrainingMap({
         return [...prev, { id: scrollIdRef.current++, x: tile.x, y: tile.y }];
       });
     }, SCROLL_RESPAWN_DELAY_MS);
+
+    // Trainer NPC spawn — one trainer appears on the map on every correct
+    // answer if no trainer is already present. Eligible trainers are those
+    // whose levelRequirement the player has met. Spawned on a random grass
+    // tile far enough from the player that the battle isn't instant.
+    if (correctCount > 0 && !activeMapTrainer && mapReady) {
+      const eligibleTrainers = NPC_TRAINERS.filter(t => playerLevel >= t.levelRequirement);
+      if (eligibleTrainers.length > 0) {
+        const trainer = eligibleTrainers[Math.floor(Math.random() * eligibleTrainers.length)];
+        // Exclude current player tile + all current scrolls (incl. the one
+        // just consumed, still in scrolls state here) + curio tile.
+        const occupied = [...scrolls, { x: posX, y: posY }, ...(curioPos ? [curioPos] : [])];
+        const tile = pickEligibleTile(map, activeRegion.mapWidth, activeRegion.mapHeight, occupied, foliage);
+        if (tile) setActiveMapTrainer({ ...trainer, x: tile.x, y: tile.y });
+      }
+    }
 
     // Wild-monster (curio) encounter roll — gated on a CORRECT scroll answer
     // (previously rolled once per answered question regardless of
@@ -446,6 +482,7 @@ export default function TrainingMap({
         portalMarkers={portalMarkers}
         scrollMarkers={scrolls}
         curioMarker={activeCurio && curioPos ? { ...curioPos, monsterDef: monsterDisplay[activeCurio.monsterId], quality: activeCurio.quality } : null}
+        trainerMarker={activeMapTrainer ? { id: activeMapTrainer.id, x: activeMapTrainer.x, y: activeMapTrainer.y, emoji: activeMapTrainer.emoji, name: activeMapTrainer.name } : null}
         onPlayerClick={setStatsTargetId}
       />
       {lockedPortalMsg && (
