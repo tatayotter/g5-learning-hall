@@ -616,7 +616,12 @@ export default function TrainingMap({
     // 3×3 detection zone. Accept launches the battle; Run Away dismisses.
     <div className="w-full max-w-sm bg-neutral-900 border border-amber-700 rounded-2xl p-4 battle-panel-in">
       <div className="flex items-start gap-3 mb-4">
-        <span className="text-4xl flex-shrink-0 select-none">{pendingTrainerChallenge.emoji}</span>
+        <img
+          src={pendingTrainerChallenge.spriteOverride ?? `/trainers/${pendingTrainerChallenge.id}.png`}
+          alt={pendingTrainerChallenge.name}
+          className="w-14 h-14 flex-shrink-0 object-contain object-bottom rounded-lg bg-neutral-800"
+          onError={(e) => { (e.target as HTMLImageElement).src = ''; (e.target as HTMLImageElement).alt = pendingTrainerChallenge?.emoji ?? ''; }}
+        />
         <div className="min-w-0">
           <p className="font-bold text-amber-300 text-sm leading-tight">{pendingTrainerChallenge.name}</p>
           <p className="text-gray-300 text-sm italic mt-1 leading-snug">
