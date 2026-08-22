@@ -23,24 +23,24 @@ function shuffleArray<T>(arr: T[]): T[] {
 // pre-quest "Study Session" screens in app/page.tsx) can match this styling
 // instead of falling back to plain/unstyled markdown.
 export const markdownComponents = {
-  h1: (props: any) => <h1 className="text-2xl font-bold font-display text-white mt-6 mb-3 first:mt-0" {...props} />,
-  h2: (props: any) => <h2 className="text-xl font-bold font-display text-white mt-6 mb-3 first:mt-0" {...props} />,
-  h3: (props: any) => <h3 className="text-lg font-bold font-display text-blue-400 mt-6 mb-2 first:mt-0" {...props} />,
-  p: (props: any) => <p className="text-gray-300 leading-relaxed mb-4" {...props} />,
-  strong: (props: any) => <strong className="text-white font-bold" {...props} />,
-  ul: (props: any) => <ul className="list-disc list-outside pl-5 mb-4 space-y-1 text-gray-300" {...props} />,
-  ol: (props: any) => <ol className="list-decimal list-outside pl-5 mb-4 space-y-1 text-gray-300" {...props} />,
+  h1: (props: any) => <h1 className="text-2xl font-bold font-display text-[#2a1505] mt-6 mb-3 first:mt-0" {...props} />,
+  h2: (props: any) => <h2 className="text-xl font-bold font-display text-[#2a1505] mt-6 mb-3 first:mt-0" {...props} />,
+  h3: (props: any) => <h3 className="text-lg font-bold font-display text-[#7a4a0f] mt-6 mb-2 first:mt-0" {...props} />,
+  p: (props: any) => <p className="text-[#3a2610] leading-relaxed mb-4" {...props} />,
+  strong: (props: any) => <strong className="text-[#1a0d05] font-bold" {...props} />,
+  ul: (props: any) => <ul className="list-disc list-outside pl-5 mb-4 space-y-1 text-[#3a2610]" {...props} />,
+  ol: (props: any) => <ol className="list-decimal list-outside pl-5 mb-4 space-y-1 text-[#3a2610]" {...props} />,
   li: (props: any) => <li className="pl-1" {...props} />,
-  hr: () => <hr className="border-neutral-700 my-6" />,
-  blockquote: (props: any) => <blockquote className="border-l-4 border-blue-600 pl-4 italic text-gray-400 my-4" {...props} />,
+  hr: () => <hr className="border-[#c9a87a] my-6" />,
+  blockquote: (props: any) => <blockquote className="border-l-4 border-[#c9781a] pl-4 italic text-[#6b4820] my-4" {...props} />,
   // GFM tables (needs remarkPlugins={[remarkGfm]} passed alongside this map —
   // plain react-markdown doesn't parse table syntax at all, it just falls
   // through as a literal pipe-delimited paragraph).
   table: (props: any) => <div className="overflow-x-auto mb-4"><table className="w-full text-sm border-collapse" {...props} /></div>,
-  thead: (props: any) => <thead className="text-white" {...props} />,
-  tr: (props: any) => <tr className="border-b border-neutral-800" {...props} />,
-  th: (props: any) => <th className="text-left font-bold py-2 px-3 border-b border-neutral-700" {...props} />,
-  td: (props: any) => <td className="py-2 px-3 text-gray-300" {...props} />,
+  thead: (props: any) => <thead className="text-[#2a1505]" {...props} />,
+  tr: (props: any) => <tr className="border-b border-[#c9a87a]" {...props} />,
+  th: (props: any) => <th className="text-left font-bold py-2 px-3 border-b border-[#c9a87a]" {...props} />,
+  td: (props: any) => <td className="py-2 px-3 text-[#3a2610]" {...props} />,
 };
 
 interface QuizQuestion {
@@ -199,13 +199,13 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
   if (isMastered) {
     const recap = calculateReward(safeAttemptsSoFar);
     return (
-      <div className="bg-green-900/20 border border-green-800 p-8 rounded-xl text-center">
-        <h2 className="text-3xl font-bold text-green-400 mb-4 font-display">Quest Completed!</h2>
-        <p className="text-gray-400 mb-2">Mastered in {safeAttemptsSoFar || 1} attempt{safeAttemptsSoFar !== 1 ? 's' : ''}.</p>
-        <p className="text-xl mb-6">You earned <span className="font-bold text-blue-400 font-mono">{recap.xp} XP</span> and <span className="font-bold text-yellow-400 font-mono">{recap.gold} Gold</span>.</p>
+      <div className="bg-[#e8f5e0] border border-green-700 p-8 rounded-xl text-center">
+        <h2 className="text-3xl font-bold text-green-700 mb-4 font-display">Quest Completed!</h2>
+        <p className="text-[#6b4820] mb-2">Mastered in {safeAttemptsSoFar || 1} attempt{safeAttemptsSoFar !== 1 ? 's' : ''}.</p>
+        <p className="text-xl text-[#2a1505] mb-6">You earned <span className="font-bold text-[#c9781a] font-mono">{recap.xp} XP</span> and <span className="font-bold text-yellow-600 font-mono">{recap.gold} Gold</span>.</p>
         <GameButton
           onClick={onExit}
-          className="bg-neutral-800 hover:bg-neutral-700 text-white font-bold py-3 px-6 rounded transition-colors"
+          className="bg-[#8b5e2a] hover:bg-[#6b4820] text-white font-bold py-3 px-6 rounded transition-colors"
         >
           Return to Campaign Map
         </GameButton>
@@ -216,14 +216,14 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
   // --- OFFLINE: SUBMITTED, GRADING DEFERRED ---
   if (offlinePending) {
     return (
-      <div className="bg-blue-900/20 border border-blue-800 p-8 rounded-xl text-center">
-        <h2 className="text-3xl font-bold text-blue-400 mb-4 font-display">🔌 Submitted — Results Pending</h2>
-        <p className="text-gray-400 mb-6 max-w-md mx-auto">
+      <div className="bg-[#f0ddb8] border border-[#8b5e2a] p-8 rounded-xl text-center">
+        <h2 className="text-3xl font-bold text-[#7a4a0f] mb-4 font-display">🔌 Submitted — Results Pending</h2>
+        <p className="text-[#6b4820] mb-6 max-w-md mx-auto">
           Your answers are saved and will be graded automatically the next time you're back online — no answer key is stored on this device, so grading can't happen until then.
         </p>
         <GameButton
           onClick={onExit}
-          className="bg-neutral-800 hover:bg-neutral-700 text-white font-bold py-3 px-6 rounded transition-colors"
+          className="bg-[#8b5e2a] hover:bg-[#6b4820] text-white font-bold py-3 px-6 rounded transition-colors"
         >
           Return to Campaign Map
         </GameButton>
@@ -234,13 +234,13 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
   // --- JUST HIT A PERFECT SCORE ---
   if (submitted && lastResult?.isPerfect) {
     return (
-      <div className="bg-green-900/20 border border-green-800 p-8 rounded-xl text-center">
-        <h2 className="text-3xl font-bold text-green-400 mb-4 font-display">Quest Completed!</h2>
-        <p className="text-gray-400 mb-2">Perfect score: {lastResult.score}/{lastResult.total} in {lastResult.attemptNumber} attempt(s).</p>
-        <p className="text-xl mb-6">You earned <span className="font-bold text-blue-400 font-mono">{lastResult.xp} XP</span> and <span className="font-bold text-yellow-400 font-mono">{lastResult.gold} Gold</span>.</p>
+      <div className="bg-[#e8f5e0] border border-green-700 p-8 rounded-xl text-center">
+        <h2 className="text-3xl font-bold text-green-700 mb-4 font-display">Quest Completed!</h2>
+        <p className="text-[#6b4820] mb-2">Perfect score: {lastResult.score}/{lastResult.total} in {lastResult.attemptNumber} attempt(s).</p>
+        <p className="text-xl text-[#2a1505] mb-6">You earned <span className="font-bold text-[#c9781a] font-mono">{lastResult.xp} XP</span> and <span className="font-bold text-yellow-600 font-mono">{lastResult.gold} Gold</span>.</p>
         <GameButton
           onClick={onExit}
-          className="bg-neutral-800 hover:bg-neutral-700 text-white font-bold py-3 px-6 rounded transition-colors"
+          className="bg-[#8b5e2a] hover:bg-[#6b4820] text-white font-bold py-3 px-6 rounded transition-colors"
         >
           Return to Campaign Map
         </GameButton>
@@ -249,22 +249,22 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
   }
 
   return (
-    <div className="bg-[#111] border border-[#333] p-8 rounded-xl shadow-2xl">
-      <div className="flex justify-between items-center border-b border-neutral-800 pb-4 mb-6">
-        <h2 className="text-2xl font-bold text-blue-400 font-display">{questName.replace('_', ' ')}</h2>
-        <span className="bg-blue-900/30 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-800">
+    <div className="bg-[#f0ddb8] border border-[#8b5e2a] p-8 rounded-xl shadow-2xl">
+      <div className="flex justify-between items-center border-b border-[#c9a87a] pb-4 mb-6">
+        <h2 className="text-2xl font-bold text-[#7a4a0f] font-display">{questName.replace('_', ' ')}</h2>
+        <span className="bg-[#c9781a]/20 text-[#7a4a0f] text-xs font-bold px-3 py-1 rounded-full border border-[#8b5e2a]">
           {safeAttemptsSoFar > 0 ? `ATTEMPT ${safeAttemptsSoFar + 1}` : 'IN PROGRESS'}
         </span>
       </div>
 
       {!hasStarted && (
-        <div className="mb-10 bg-black/30 border border-neutral-800 rounded-xl p-6">
+        <div className="mb-10 bg-[#e8d0a0]/60 border border-[#c9a87a] rounded-xl p-6">
           <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{content}</ReactMarkdown>
         </div>
       )}
 
       {!hasStarted && quiz.length > 0 && (
-        <div className="border-t border-neutral-800 pt-6 flex justify-center">
+        <div className="border-t border-[#c9a87a] pt-6 flex justify-center">
           <GameButton
             onClick={() => setHasStarted(true)}
             className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-10 rounded transition-colors font-display text-lg"
@@ -275,13 +275,13 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
       )}
 
       {hasStarted && quiz.length > 0 ? (
-        <div className="border-t border-neutral-800 pt-6">
-          <h3 className="text-xl font-bold mb-4 font-display">Quiz: Score a perfect round to claim loot!</h3>
+        <div className="border-t border-[#c9a87a] pt-6">
+          <h3 className="text-xl font-bold mb-4 font-display text-[#2a1505]">Quiz: Score a perfect round to claim loot!</h3>
 
           {submitted && !lastResult?.isPerfect && (
-            <div className="bg-red-900/20 border border-red-800 rounded-lg p-4 mb-6 text-red-400">
+            <div className="bg-red-100 border border-red-500 rounded-lg p-4 mb-6 text-red-700">
               <p className="font-bold mb-1">❌ Not quite — {lastResult?.score}/{lastResult?.total} correct.</p>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-red-600">
                 No loot awarded this attempt. 📖 Review your mistakes and remember the correct answers below before your next try — it'll help more than guessing.
               </p>
             </div>
@@ -289,19 +289,19 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
 
           <div className="space-y-6">
             {quiz.map((q, i) => (
-              <div key={i} className="bg-black border border-neutral-800 rounded-lg p-4">
-                <p className="font-bold mb-3">{i + 1}. {q.question}</p>
+              <div key={i} className="bg-white border border-[#c9a87a] rounded-lg p-4">
+                <p className="font-bold mb-3 text-[#2a1505]">{i + 1}. {q.question}</p>
                 <div className="space-y-2">
                   {(shuffledOptions[i] || q.options).map((opt) => {
                     const isSelected = selectedAnswers[i] === opt;
                     const showFeedback = submitted;
                     const isCorrectOption = opt === correctAnswers[i];
-                    let optionStyle = 'border-neutral-700 hover:border-blue-500';
+                    let optionStyle = 'bg-[#f0ddb8] border-[#c9a87a] hover:border-[#c9781a] hover:bg-[#e8c88a] text-[#2a1505]';
                     if (showFeedback) {
-                      if (isCorrectOption) optionStyle = 'border-green-600 bg-green-900/20';
-                      else if (isSelected && !isCorrectOption) optionStyle = 'border-red-600 bg-red-900/20';
+                      if (isCorrectOption) optionStyle = 'bg-green-100 border-green-600 text-[#2a1505]';
+                      else if (isSelected && !isCorrectOption) optionStyle = 'bg-red-100 border-red-500 text-[#2a1505]';
                     } else if (isSelected) {
-                      optionStyle = 'border-blue-500 bg-blue-900/20';
+                      optionStyle = 'bg-[#c9781a]/20 border-[#c9781a] text-[#2a1505]';
                     }
                     return (
                       <GameButton
@@ -323,7 +323,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
             {submitted ? (
               <>
                 {cooldownRemaining > 0 && (
-                  <span className="text-sm text-gray-500 font-mono">
+                  <span className="text-sm text-[#6b4820] font-mono">
                     ⏳ Review time: {cooldownRemaining}s
                   </span>
                 )}
@@ -352,8 +352,8 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
           </div>
         </div>
       ) : !hasStarted ? null : (
-        <div className="mt-8 pt-6 border-t border-neutral-800 flex justify-between items-center">
-          <p className="text-sm text-gray-400">No quiz for this module — read the material above.</p>
+        <div className="mt-8 pt-6 border-t border-[#c9a87a] flex justify-between items-center">
+          <p className="text-sm text-[#6b4820]">No quiz for this module — read the material above.</p>
         </div>
       )}
     <CelebrationOverlay

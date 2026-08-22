@@ -29,7 +29,7 @@ export default function CritBonusToast({ event }: CritBonusToastProps) {
           animate={{ opacity: 1, y: -30, scale: 1 }}
           exit={{ opacity: 0, y: -50, scale: 0.9 }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-          className="fixed top-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none"
+          className="fixed top-[63px] left-1/2 -translate-x-1/2 z-[80] pointer-events-none"
         >
           <div className="bg-yellow-400 text-black font-bold font-mono text-sm px-4 py-2 rounded-full shadow-xl whitespace-nowrap">
             ✨ Lucky Find! +{visible.bonus} Bonus Gold

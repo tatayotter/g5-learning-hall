@@ -18,7 +18,7 @@ export default function Toast({ message, show, onClose }: ToastProps) {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-right fade-in duration-300">
+    <div className="fixed top-[63px] left-1/2 -translate-x-1/2 z-[80] animate-in slide-in-from-top fade-in duration-300 w-full max-w-sm px-4">
       <div className="bg-green-900 border border-green-500 text-green-100 px-6 py-4 rounded-lg shadow-2xl flex items-center gap-3">
         <span>🎉</span>
         <p className="font-bold">{message}</p>

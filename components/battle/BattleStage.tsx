@@ -81,26 +81,38 @@ function Creature({ mon, side }: { mon: BattleStageMonster; side: 'left' | 'righ
 // One button in the moves/utils grid — icon + title/sub, same shape for a
 // skill, Rest, Items, Switch, or Surrender so the grid reads as one
 // consistent control instead of four different button styles.
-export function ActionTile({ icon, title, sub, onClick, disabled, danger }: {
+const ELEMENT_STYLES: Record<string, { bg: string; border: string; hover: string }> = {
+  fire:   { bg: 'bg-orange-100',  border: 'border-orange-400', hover: 'hover:bg-orange-200 hover:border-orange-500' },
+  water:  { bg: 'bg-sky-100',     border: 'border-sky-400',    hover: 'hover:bg-sky-200 hover:border-sky-500' },
+  leaf:   { bg: 'bg-green-100',   border: 'border-green-500',  hover: 'hover:bg-green-200 hover:border-green-600' },
+  storm:  { bg: 'bg-yellow-100',  border: 'border-yellow-500', hover: 'hover:bg-yellow-200 hover:border-yellow-600' },
+  shadow: { bg: 'bg-purple-100',  border: 'border-purple-400', hover: 'hover:bg-purple-200 hover:border-purple-500' },
+  light:  { bg: 'bg-amber-100',   border: 'border-amber-400',  hover: 'hover:bg-amber-200 hover:border-amber-500' },
+};
+const DEFAULT_TILE_STYLE = { bg: 'bg-white', border: 'border-[#c9a87a]', hover: 'hover:bg-[#f0ddb8] hover:border-[#c9781a]' };
+
+export function ActionTile({ icon, title, sub, onClick, disabled, danger, element }: {
   icon: ReactNode;
   title: ReactNode;
   sub?: ReactNode;
   onClick?: () => void;
   disabled?: boolean;
   danger?: boolean;
+  element?: string | null;
 }) {
+  const { bg, border, hover } = (element && ELEMENT_STYLES[element]) || DEFAULT_TILE_STYLE;
   return (
     <button
       onClick={onClick}
       disabled={disabled}
-      className="flex items-center gap-2 text-left bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 hover:border-amber-500 rounded-lg px-2 py-[7px] transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:border-neutral-700 btn-tactile"
+      className={`flex items-center gap-2 text-left ${bg} ${border} ${hover} border rounded-lg px-2 py-[7px] transition-colors disabled:opacity-40 disabled:cursor-not-allowed btn-tactile`}
     >
       <span className="w-[34px] h-[34px] flex items-center justify-center flex-shrink-0">
         {icon}
       </span>
       <span className="min-w-0">
-        <span className={`flex items-center gap-1 text-[13px] font-extrabold leading-tight ${danger ? 'text-red-400' : 'text-white'}`}>{title}</span>
-        {sub && <span className="block text-[11px] text-gray-400 truncate">{sub}</span>}
+        <span className={`flex items-center gap-1 text-[13px] font-extrabold leading-tight ${danger ? 'text-red-600' : 'text-[#2a1505]'}`}>{title}</span>
+        {sub && <span className="block text-[11px] text-[#6b4820] truncate">{sub}</span>}
       </span>
     </button>
   );
@@ -110,9 +122,9 @@ export function ActionTile({ icon, title, sub, onClick, disabled, danger }: {
 // grid at a steady 3 columns instead of collapsing/reflowing around a hole.
 export function PlaceholderTile({ title, sub }: { title: ReactNode; sub: ReactNode }) {
   return (
-    <div className="rounded-lg border-2 border-dashed border-neutral-800 bg-neutral-950/50 px-2 py-[7px] opacity-60 flex items-center min-h-[52px]">
+    <div className="rounded-lg border-2 border-dashed border-[#c9a87a] bg-white/50 px-2 py-[7px] opacity-60 flex items-center min-h-[52px]">
       <span className="min-w-0">
-        <span className="block text-[13px] font-bold text-gray-500 truncate">{title}</span>
+        <span className="block text-[13px] font-bold text-[#6b4820] truncate">{title}</span>
         <span className="block text-[10px] text-amber-500/80 truncate">{sub}</span>
       </span>
     </div>
@@ -172,25 +184,25 @@ export default function BattleStage({
         <div className="bstage-status-banner">{statusBanner}</div>
       )}
 
-      <div className={`bstage-log-panel bg-black/95 ${logOpen ? 'open border-2 border-neutral-700' : ''} ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}>
-        <div className="flex items-center justify-between px-3 py-1.5 border-b border-neutral-800 text-[11px] font-bold uppercase tracking-wide text-gray-400 flex-shrink-0">
+      <div className={`bstage-log-panel bg-white/95 ${logOpen ? 'open border-2 border-[#c9a87a]' : ''} ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}>
+        <div className="flex items-center justify-between px-3 py-1.5 border-b border-[#c9a87a] text-[11px] font-bold uppercase tracking-wide text-[#6b4820] flex-shrink-0">
           <span>Battle Log</span>
         </div>
         <div className="bstage-log-content px-2.5 py-1.5 space-y-1">
           {log.map((msg, i) => (
-            <p key={i} className="text-[11px] text-gray-300 bg-neutral-900 border border-neutral-800 rounded px-2 py-1">{msg}</p>
+            <p key={i} className="text-[11px] text-[#3a2610] bg-white border border-[#c9a87a] rounded px-2 py-1">{msg}</p>
           ))}
         </div>
       </div>
 
       <button
         onClick={() => setLogOpen(o => !o)}
-        className={`bstage-show-log bg-neutral-800 hover:bg-neutral-700 text-gray-200 font-bold text-[11px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}
+        className={`bstage-show-log bg-white hover:bg-[#f0ddb8] text-[#2a1505] font-bold text-[11px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}
       >
         {logOpen ? 'Hide Log' : 'Show Log'}
       </button>
 
-      <div className={`bstage-action-panel bg-neutral-900/95 border border-neutral-700 rounded-xl p-[7px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}>
+      <div className={`bstage-action-panel bg-white/95 border border-[#c9a87a] rounded-xl p-[7px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}>
         {actionPanel}
       </div>
     </div>

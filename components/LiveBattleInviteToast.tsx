@@ -24,11 +24,11 @@ export default function LiveBattleInviteToast({ fromName, onAccept, onDecline }:
     <AnimatePresence>
       <motion.div
         key="live-battle-invite"
-        initial={{ opacity: 0, y: -80, scale: 0.9 }}
+        initial={{ opacity: 0, y: -16, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: -40, scale: 0.95 }}
+        exit={{ opacity: 0, y: -12, scale: 0.97 }}
         transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-sm border rounded-2xl shadow-2xl overflow-hidden bg-[#1c1611] border-amber-700"
+        className="fixed top-[63px] left-1/2 -translate-x-1/2 z-[80] w-full max-w-sm px-4 border rounded-2xl shadow-2xl overflow-hidden bg-[#1c1611] border-amber-700"
       >
         <div className="p-5">
           <div className="flex items-center gap-2 mb-3">

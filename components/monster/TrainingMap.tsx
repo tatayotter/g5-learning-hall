@@ -180,7 +180,14 @@ export default function TrainingMap({
   // lazy useState initializer, called once, so regionMap only ever holds
   // its return VALUE, never the function itself).
   const [mapReady, setMapReady] = useState(false);
-  const [background, setBackground] = useState<MapBackground>({ type: 'image', src: activeRegion.mapImage });
+  // Start as null when a tileArtPath region is pending — avoids the one-frame
+  // flash of the old painted image before the real tilemap finishes loading.
+  // Painted-background regions (no tileArtPath) still init to the image
+  // immediately because their async step (tiledMapPath) only produces a
+  // collision map, not a new background, so there's nothing to wait for.
+  const [background, setBackground] = useState<MapBackground | null>(
+    activeRegion.tileArtPath ? null : { type: 'image', src: activeRegion.mapImage }
+  );
   const [portals, setPortals] = useState<TiledArtPortal[]>([]);
   // Tree-canopy exclusion zone for scroll/curio spawning (real-tile-art maps
   // only — see lib/tiledArtMap.ts). null for painted-background elemental
@@ -553,7 +560,7 @@ export default function TrainingMap({
     : undefined;
   const frameContent = (
     <div className="relative w-full h-full">
-      <MapCanvas
+      {background && <MapCanvas
         mapWidth={activeRegion.mapWidth}
         mapHeight={activeRegion.mapHeight}
         background={background}
@@ -577,7 +584,7 @@ export default function TrainingMap({
         collectingTrashIds={collectingTrashIds}
         recyclerTile={recyclerTile}
         onPlayerClick={setStatsTargetId}
-      />
+      />}
       {lockedPortalMsg && (
         <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-black/80 border border-amber-600 text-amber-400 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap z-20">
           🔒 {lockedPortalMsg}

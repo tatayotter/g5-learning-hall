@@ -363,6 +363,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.lastBackground = state.background;
     if (state.visibleCanvasW !== undefined) this.visibleCanvasW = state.visibleCanvasW;
     const prevTransform = this.lastTransform;
+    const prevTileH = this.lastTransform.tileH;
     if (this.self) {
       // Once the self sprite exists, updateSelfPosition() (called every
       // animation frame from MapCanvas.tsx's continuous-movement loop) is
@@ -379,6 +380,26 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.lastTransform = { ...this.lastTransform, tileW: t.tileW, tileH: t.tileH };
     } else {
       this.lastTransform = this.computeTransform(state.background, state.mapWidth, state.mapHeight, state.self.x, state.self.y);
+    }
+    // If tileH changed (e.g. image→tilemap background transition while sprites
+    // were already spawned), refit every sprite to the new tile size — they were
+    // sized against the old tileH and would otherwise stay visually wrong
+    // indefinitely since applySelf/spawnOrMoveSprite only resize on first-spawn
+    // or texture-swap, not on background-type transitions.
+    const newTileH = this.lastTransform.tileH;
+    if (newTileH !== prevTileH) {
+      if (this.self?.image.active) {
+        this.tweens.killTweensOf(this.self.image);
+        this.fitSprite(this.self.image, newTileH * 0.95);
+        this.self.baseScaleY = this.self.image.scaleY;
+      }
+      for (const [, tracked] of this.others) {
+        if (tracked.image.active) {
+          this.tweens.killTweensOf(tracked.image);
+          this.fitSprite(tracked.image, newTileH * 0.95);
+          tracked.baseScaleY = tracked.image.scaleY;
+        }
+      }
     }
     this.applyBackground(state);
     if (!this.self) this.applyFollowOffset(prevTransform);

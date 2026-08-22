@@ -755,6 +755,7 @@ export default function LiveBattleScreen({
               icon={<img src={getSkillIconSrc(equippedSkill)} alt="" className="w-7 h-7 object-contain" />}
               title={equippedSkill.name}
               sub={`${equippedSkill.questionCount} question${equippedSkill.questionCount > 1 ? 's' : ''}`}
+              element={equippedSkill.element}
             />
           );
         })}

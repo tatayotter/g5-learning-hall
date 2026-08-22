@@ -217,36 +217,36 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
   // Keyed on index so each new question replays the entrance animation below,
   // rather than only playing once for the whole modal.
   const inner = (
-    <div className={embedded ? 'mt-2' : 'bg-neutral-900 border border-neutral-700 rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in'}>
+    <div className={embedded ? 'mt-2' : 'bg-white border border-[#8b5e2a] rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in'}>
       <div key={index} className="battle-panel-in">
         <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs text-gray-500 font-mono">Question {index + 1} of {askedCount}</p>
+          <p className="text-xs text-[#6b4820] font-mono">Question {index + 1} of {askedCount}</p>
           {current.subject && (
-            <span className="text-[10px] font-bold uppercase tracking-wide text-amber-300 bg-amber-900/40 border border-amber-700/60 rounded-full px-2 py-0.5">
+            <span className="text-[10px] font-bold uppercase tracking-wide text-[#7a4a0f] bg-[#c9781a]/20 border border-[#8b5e2a] rounded-full px-2 py-0.5">
               {current.subject}
             </span>
           )}
         </div>
-        <p className="text-base font-bold text-white mb-3 leading-snug">{current.question || current.problem_prompt}</p>
+        <p className="text-base font-bold text-[#2a1505] mb-3 leading-snug">{current.question || current.problem_prompt}</p>
         <div className="space-y-2">
         {(current.options || []).map((opt: any) => {
           const key = typeof opt === 'string' ? opt : opt.key;
           const text = typeof opt === 'string' ? opt : opt.text;
           const isSelected = selected === key;
           const isCorrect = revealedCorrect !== null && key === revealedCorrect;
-          let style = 'border-neutral-700 hover:border-neutral-500';
+          let style = 'bg-white border-[#c9a87a] hover:border-[#c9781a] hover:bg-[#f0ddb8]';
           let feedbackAnim = '';
           if (revealedCorrect !== null) {
-            if (isSelected && isCorrect) { style = 'border-green-500 bg-green-900/30'; feedbackAnim = 'battle-answer-correct'; }
-            else if (isSelected && !isCorrect) { style = 'border-red-500 bg-red-900/30'; feedbackAnim = 'battle-answer-wrong'; }
-            else if (isCorrect) style = 'border-green-500 bg-green-900/20';
+            if (isSelected && isCorrect) { style = 'bg-green-100 border-green-600'; feedbackAnim = 'battle-answer-correct'; }
+            else if (isSelected && !isCorrect) { style = 'bg-red-100 border-red-500'; feedbackAnim = 'battle-answer-wrong'; }
+            else if (isCorrect) style = 'bg-green-100 border-green-600';
           }
           return (
             <button
               key={key}
               onClick={() => handleAnswer(key)}
               disabled={!!selected}
-              className={`w-full text-left p-3 rounded-xl border-2 text-gray-200 transition-all btn-tactile ${style} ${feedbackAnim}`}
+              className={`w-full text-left p-3 rounded-xl border-2 text-[#2a1505] transition-all btn-tactile ${style} ${feedbackAnim}`}
             >
               {text}
             </button>

@@ -916,12 +916,12 @@ export default function Dashboard() {
                     ← Retreat to Map
                   </GameButton>
 
-                  <div className="bg-neutral-900 border border-neutral-800 p-8 rounded-xl shadow-lg">
-                    <h2 className="text-3xl font-bold mb-6 text-blue-400 font-display">Study Session: {subject}</h2>
-                    <div className="border-t border-neutral-800 pt-6">
+                  <div className="bg-[#f0ddb8] border border-[#8b5e2a] p-8 rounded-xl shadow-lg">
+                    <h2 className="text-3xl font-bold mb-6 text-[#7a4a0f] font-display">Study Session: {subject}</h2>
+                    <div className="border-t border-[#c9a87a] pt-6">
                       {questData?.summary_markdown
                         ? <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{questData.summary_markdown}</ReactMarkdown>
-                        : <p className="text-gray-300 leading-relaxed">No notes available for this module.</p>}
+                        : <p className="text-[#3a2610] leading-relaxed">No notes available for this module.</p>}
                     </div>
                   </div>
 
@@ -936,16 +936,16 @@ export default function Dashboard() {
               )}
 
               {quizPhase === 'ready' && (
-                <div className="bg-[#111] border border-neutral-800 p-12 rounded-2xl text-center shadow-2xl">
-                  <p className="text-blue-400 font-bold uppercase tracking-wider text-sm mb-2 font-display">{subject} Encounter</p>
-                  <h2 className="text-4xl font-display font-bold mb-4">Prepare for Battle</h2>
-                  <p className="text-gray-400 mb-8 max-w-sm mx-auto">
+                <div className="bg-[#f0ddb8] border border-[#8b5e2a] p-12 rounded-2xl text-center shadow-2xl">
+                  <p className="text-[#c9781a] font-bold uppercase tracking-wider text-sm mb-2 font-display">{subject} Encounter</p>
+                  <h2 className="text-4xl font-display font-bold text-[#2a1505] mb-4">Prepare for Battle</h2>
+                  <p className="text-[#6b4820] mb-8 max-w-sm mx-auto">
                     You are about to start the assessment. Once you enter the exam, there is no turning back.
                   </p>
                   <div className="flex gap-4 justify-center">
                     <GameButton
                       onClick={() => setQuizPhase('study')}
-                      className="px-6 py-3 text-gray-400 hover:text-white font-bold"
+                      className="px-6 py-3 text-[#6b4820] hover:text-[#2a1505] font-bold"
                     >
                       Go Back to Notes
                     </GameButton>
@@ -1135,12 +1135,12 @@ export default function Dashboard() {
                     ← Retreat to Map
                   </GameButton>
 
-                  <div className="bg-neutral-900 border border-amber-900 p-8 rounded-xl shadow-lg">
-                    <h2 className="text-3xl font-bold mb-6 text-amber-400 font-display">Study Session: {eventQuest?.subject_name}</h2>
-                    <div className="border-t border-neutral-800 pt-6">
+                  <div className="bg-[#f0ddb8] border border-[#8b5e2a] p-8 rounded-xl shadow-lg">
+                    <h2 className="text-3xl font-bold mb-6 text-[#7a4a0f] font-display">Study Session: {eventQuest?.subject_name}</h2>
+                    <div className="border-t border-[#c9a87a] pt-6">
                       {eventQuest?.summary_markdown
                         ? <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{eventQuest.summary_markdown}</ReactMarkdown>
-                        : <p className="text-gray-300 leading-relaxed">No notes available for this module.</p>}
+                        : <p className="text-[#3a2610] leading-relaxed">No notes available for this module.</p>}
                     </div>
                   </div>
 
@@ -1155,16 +1155,16 @@ export default function Dashboard() {
               )}
 
               {eventQuizPhase === 'ready' && (
-                <div className="bg-[#111] border border-amber-900 p-12 rounded-2xl text-center shadow-2xl">
-                  <p className="text-amber-400 font-bold uppercase tracking-wider text-sm mb-2 font-display">{eventQuest?.subject_name} Encounter</p>
-                  <h2 className="text-4xl font-display font-bold mb-4">Prepare for Battle</h2>
-                  <p className="text-gray-400 mb-8 max-w-sm mx-auto">
+                <div className="bg-[#f0ddb8] border border-[#8b5e2a] p-12 rounded-2xl text-center shadow-2xl">
+                  <p className="text-[#c9781a] font-bold uppercase tracking-wider text-sm mb-2 font-display">{eventQuest?.subject_name} Encounter</p>
+                  <h2 className="text-4xl font-display font-bold text-[#2a1505] mb-4">Prepare for Battle</h2>
+                  <p className="text-[#6b4820] mb-8 max-w-sm mx-auto">
                     You are about to start the event assessment. Once you enter the exam, there is no turning back.
                   </p>
                   <div className="flex gap-4 justify-center">
                     <GameButton
                       onClick={() => setEventQuizPhase('study')}
-                      className="px-6 py-3 text-gray-400 hover:text-white font-bold"
+                      className="px-6 py-3 text-[#6b4820] hover:text-[#2a1505] font-bold"
                     >
                       Go Back to Notes
                     </GameButton>

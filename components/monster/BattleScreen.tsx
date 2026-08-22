@@ -784,6 +784,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
               icon={<img src={getSkillIconSrc(equippedSkill)} alt="" className="w-7 h-7 object-contain" />}
               title={equippedSkill.name}
               sub={`${equippedSkill.questionCount} question${equippedSkill.questionCount > 1 ? 's' : ''} · Tier ${tier}`}
+              element={equippedSkill.element}
             />
           );
         })}

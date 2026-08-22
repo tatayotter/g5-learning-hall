@@ -13,7 +13,7 @@ function AvatarImage({ src, fallbackEmoji, alt, contain }: { src: string; fallba
   const [failed, setFailed] = useState(false);
   if (failed && fallbackEmoji) {
     return (
-      <span className="w-16 h-16 rounded-full border border-neutral-600 mx-auto mb-2 flex items-center justify-center text-3xl bg-neutral-950">
+      <span className="w-16 h-16 rounded-full border border-[#c9a87a] mx-auto mb-2 flex items-center justify-center text-3xl bg-[#f5f0e8]">
         {fallbackEmoji}
       </span>
     );
@@ -22,7 +22,7 @@ function AvatarImage({ src, fallbackEmoji, alt, contain }: { src: string; fallba
     <img
       src={src}
       alt={alt}
-      className={`w-16 h-16 rounded-full border border-neutral-600 mx-auto mb-2 ${contain ? 'object-contain bg-neutral-950' : 'object-cover'}`}
+      className={`w-16 h-16 rounded-full border border-[#c9a87a] mx-auto mb-2 ${contain ? 'object-contain bg-[#f5f0e8]' : 'object-cover'}`}
       onError={() => (fallbackEmoji ? setFailed(true) : undefined)}
     />
   );
@@ -54,24 +54,24 @@ interface PostBattleSummaryProps {
 function Side({ avatarSrc, avatarFallbackEmoji, avatarContain, name, subtitle, mon, isWinner }: PostBattleSideInfo) {
   const scaled = getScaledStats(mon.def, mon.level, mon.userMonster?.quality);
   return (
-    <div className={`flex-1 rounded-2xl border-2 p-5 text-center ${isWinner ? 'border-amber-500 bg-amber-900/10' : 'border-neutral-700 bg-neutral-950'}`}>
+    <div className={`flex-1 rounded-2xl border-2 p-5 text-center ${isWinner ? 'border-[#c9781a] bg-[#c9781a]/10' : 'border-[#c9a87a] bg-white'}`}>
       {isWinner && (
-        <p className="text-xs font-bold text-amber-400 mb-2 flex items-center justify-center gap-1">
+        <p className="text-xs font-bold text-[#7a4a0f] mb-2 flex items-center justify-center gap-1">
           <img src="/icons/stats/victory.svg" alt="Winner" className="w-4 h-4 object-contain" /> WINNER
         </p>
       )}
       <AvatarImage src={avatarSrc} fallbackEmoji={avatarFallbackEmoji} alt={name} contain={avatarContain} />
-      <p className="font-bold text-white">{name}</p>
-      {subtitle && <p className="text-xs text-gray-500 mb-1">{subtitle}</p>}
+      <p className="font-bold text-[#2a1505]">{name}</p>
+      {subtitle && <p className="text-xs text-[#6b4820] mb-1">{subtitle}</p>}
       <div className="w-14 h-14 mx-auto my-2">
         <MonsterImage monster={mon.def} className="w-full h-full" emojiClassName="text-3xl" />
       </div>
-      <p className="text-sm text-gray-300">{mon.def.name} · Lv.{mon.level}</p>
-      <p className="text-xs text-gray-500 capitalize">{mon.def.element} · {mon.def.archetype.replace('_', ' ')}</p>
-      <p className={`text-sm font-mono mt-2 ${mon.currentHp <= 0 ? 'text-red-500' : 'text-green-400'}`}>
+      <p className="text-sm text-[#3a2610]">{mon.def.name} · Lv.{mon.level}</p>
+      <p className="text-xs text-[#6b4820] capitalize">{mon.def.element} · {mon.def.archetype.replace('_', ' ')}</p>
+      <p className={`text-sm font-mono mt-2 ${mon.currentHp <= 0 ? 'text-red-600' : 'text-green-700'}`}>
         {Math.max(0, mon.currentHp)}/{mon.maxHp} HP
       </p>
-      <p className="text-xs text-gray-500 mt-1 flex items-center justify-center gap-1 flex-wrap">
+      <p className="text-xs text-[#6b4820] mt-1 flex items-center justify-center gap-1 flex-wrap">
         <img src="/icons/stats/atk.svg" alt="ATK" className="w-3.5 h-3.5 object-contain" /> {scaled.attack} ATK ·
         <img src="/icons/stats/def.svg" alt="DEF" className="w-3.5 h-3.5 object-contain" /> {scaled.defense} DEF ·
         <img src="/icons/stats/spd.svg" alt="SPD" className="w-3.5 h-3.5 object-contain" /> {scaled.speed} SPD
@@ -85,21 +85,21 @@ export default function PostBattleSummary({ outcome, reasonLabel, left, right, l
   const titleText = outcome === 'draw' ? "It's a Draw!" : outcome === 'win' ? 'Victory!' : 'Defeat...';
 
   return (
-    <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 battle-panel-in">
-      <p className="text-center text-2xl font-display font-bold text-white mb-1 flex items-center justify-center gap-2">
+    <div className="bg-white border border-[#c9a87a] rounded-2xl p-6 battle-panel-in">
+      <p className="text-center text-2xl font-display font-bold text-[#2a1505] mb-1 flex items-center justify-center gap-2">
         <img src={titleIcon} alt={outcome} className="w-7 h-7 object-contain" />
         {titleText}
       </p>
-      <p className="text-center text-xs text-gray-500 mb-1">{reasonLabel}</p>
-      {rewardLine && <p className="text-center text-xs text-amber-400 font-bold mb-4">{rewardLine}</p>}
+      <p className="text-center text-xs text-[#6b4820] mb-1">{reasonLabel}</p>
+      {rewardLine && <p className="text-center text-xs text-[#c9781a] font-bold mb-4">{rewardLine}</p>}
       {!rewardLine && <div className="mb-4" />}
       <div className="flex gap-4 mb-6">
         <Side {...left} />
         <Side {...right} />
       </div>
-      <div className="bg-black/30 rounded-xl p-3 max-h-40 overflow-y-auto mb-6">
+      <div className="bg-[#f5f0e8] rounded-xl p-3 max-h-40 overflow-y-auto mb-6">
         {log.map((msg, i) => (
-          <p key={i} className="text-xs text-gray-400 mb-1">{msg}</p>
+          <p key={i} className="text-xs text-[#6b4820] mb-1">{msg}</p>
         ))}
       </div>
       <button
