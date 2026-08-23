@@ -25,6 +25,7 @@ import TeachSkillModal from '@/components/monster/TeachSkillModal';
 import UnlearnSkillModal from '@/components/monster/UnlearnSkillModal';
 import TutorRollModal from '@/components/TutorRollModal';
 import { EggChainMap, claimCurioEgg, eggReadyLevel } from '@/lib/curioEggs';
+import MissionsPanel from '@/components/monster/MissionsPanel';
 
 const ELEMENT_STYLES: Record<Element, string> = {
   fire:   'text-orange-700 border-orange-200 bg-orange-50',
@@ -97,6 +98,8 @@ export default function TeamPanel({
   const [tutorOutcome, setTutorOutcome] = useState<{ outcome: TutorOutcome; monsterName: string; def: MonsterDef; monsterLevel: number } | null>(null);
   const [confirmingEgg, setConfirmingEgg] = useState<{ monsterRowId: string; name: string } | null>(null);
   const [eggClaimBusy, setEggClaimBusy] = useState(false);
+  // Curio IDs currently locked on a training mission — blocks bench "Move to Team" while away.
+  const [missionLockedIds, setMissionLockedIds] = useState<Set<string>>(new Set());
 
   const handleClaimEgg = async (monsterRowId: string) => {
     setEggClaimBusy(true);
@@ -684,6 +687,16 @@ export default function TeamPanel({
         );
       })}
 
+      {/* Training Missions — between Your Team and Your Bench. */}
+      <MissionsPanel
+        playerLevel={playerLevel}
+        userId={userId}
+        benchedMonsters={benchedMonsters}
+        monsterDisplay={monsterDisplay}
+        onMissionLockedIdsChange={setMissionLockedIds}
+        onLoadoutChange={onLoadoutChange}
+      />
+
       {/* Everything not currently sitting in slot 1-3: monsters already owned but
           benched (slot IS NULL — displaced teammates, guild-reward familiars) and
           rare wild catches waiting to join for the first time. This has to be an
@@ -716,12 +729,18 @@ export default function TeamPanel({
                       <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.speed}</p>
                     </div>
                   </button>
-                  <button
-                    onClick={() => setPromotingBenchId(promotingBenchId === bm.id ? null : bm.id)}
-                    className="bg-cyan-700 hover:bg-cyan-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors flex-shrink-0"
-                  >
-                    → Move to Team
-                  </button>
+                  {missionLockedIds.has(bm.id) ? (
+                    <span className="text-xs text-amber-700 font-bold px-3 py-2 rounded-lg bg-amber-50 border border-amber-200 flex-shrink-0">
+                      ⚔️ On Mission
+                    </span>
+                  ) : (
+                    <button
+                      onClick={() => setPromotingBenchId(promotingBenchId === bm.id ? null : bm.id)}
+                      className="bg-cyan-700 hover:bg-cyan-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors flex-shrink-0"
+                    >
+                      → Move to Team
+                    </button>
+                  )}
                 </div>
                 {promotingBenchId === bm.id && (
                   <div className="mt-3 pt-3 border-t border-cyan-200 flex flex-wrap gap-2">
