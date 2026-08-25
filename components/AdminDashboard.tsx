@@ -198,7 +198,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
             passcode={password}
           />
         )}
-        {section === 'prompts' && <PromptsSection />}
+        {section === 'prompts' && <PromptsSection passcode={password} />}
       </main>
     </div>
   );
