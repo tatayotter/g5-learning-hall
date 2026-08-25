@@ -13,7 +13,7 @@ import { useGrowthPill } from '@/lib/growthPill';
 import { MonsterImage, UserMonster } from '@/components/battle/shared';
 import { CaughtMonster } from '@/components/monster/types';
 import {
-  QualityTier, QUALITY_LABEL, TUTOR_COST_BY_TIER, totalAdvanceChance, getQualityGlowClass,
+  QualityTier, QUALITY_TIERS, QUALITY_LABEL, TUTOR_COST_BY_TIER, totalAdvanceChance, getQualityGlowClass,
 } from '@/lib/curioQuality';
 import { getTomeForTier } from '@/lib/tomeShop';
 import { tutorCurio, TutorOutcome } from '@/lib/tutorCurio';
@@ -492,6 +492,26 @@ export default function TeamPanel({
                     <p className="text-xs text-gray-600 mb-2">
                       Spend gold for a chance to permanently raise this curio's quality (boosts HP &amp; Attack). Never downgrades — a failed roll just costs the gold.
                     </p>
+                    {/* Stat preview — shows what HP/Attack become at the next quality tier */}
+                    {(() => {
+                      const nextQuality = QUALITY_TIERS[QUALITY_TIERS.indexOf(quality) + 1];
+                      if (!nextQuality) return null;
+                      const cur = getScaledStats(def, monster.monster_level, quality);
+                      const nxt = getScaledStats(def, monster.monster_level, nextQuality);
+                      return (
+                        <div className="flex items-center gap-3 bg-white/70 border border-indigo-100 rounded-md px-3 py-2 mb-2 text-xs">
+                          <span className="text-gray-500 shrink-0">If {QUALITY_LABEL[nextQuality]}:</span>
+                          <span className="flex items-center gap-1 text-gray-700">
+                            <img src="/icons/stats/hp.svg" alt="HP" className="w-3.5 h-3.5 object-contain" />
+                            {cur.hp} <span className="text-green-600 font-bold">→ {nxt.hp}</span>
+                          </span>
+                          <span className="flex items-center gap-1 text-gray-700">
+                            <img src="/icons/stats/atk.svg" alt="ATK" className="w-3.5 h-3.5 object-contain" />
+                            {cur.attack} <span className="text-green-600 font-bold">→ {nxt.attack}</span>
+                          </span>
+                        </div>
+                      );
+                    })()}
                     {tome && (
                       <label className="flex items-center gap-2 text-xs text-gray-400 mb-2">
                         <input
