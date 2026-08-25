@@ -2,7 +2,8 @@
 // Displays the player's referral key with a tap-to-copy share link button.
 // Used on Dashboard (compact) and HeroProfile (full).
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getMyReferralStats, ReferralStats } from '@/lib/referral';
 
 interface ReferralKeyDisplayProps {
   referralKey: string;
@@ -19,6 +20,11 @@ export default function ReferralKeyDisplay({
   compact = false,
 }: ReferralKeyDisplayProps) {
   const [copied, setCopied] = useState(false);
+  const [stats, setStats] = useState<ReferralStats | null>(null);
+
+  useEffect(() => {
+    if (!compact) getMyReferralStats().then(setStats);
+  }, [compact]);
 
   async function handleCopy() {
     const url = buildShareUrl(referralKey);
@@ -99,6 +105,36 @@ export default function ReferralKeyDisplay({
           <p className="text-xs text-gray-400 mt-1">credited on first login</p>
         </div>
       </div>
+
+      {/* Referral stats — only shown once there's activity */}
+      {stats && stats.total_referrals > 0 && (
+        <div className="bg-white border border-stone-200 rounded-xl p-4 space-y-3">
+          <p className="text-xs font-bold text-gray-500 uppercase tracking-wide">Your Referral Activity</p>
+          <div className="grid grid-cols-3 gap-2 text-center">
+            <div className="bg-amber-50 rounded-lg p-2">
+              <p className="text-2xl font-bold text-amber-600">{stats.total_referrals}</p>
+              <p className="text-[10px] text-gray-500 mt-0.5 leading-tight">Friend{stats.total_referrals !== 1 ? 's' : ''} joined</p>
+            </div>
+            <div className="bg-green-50 rounded-lg p-2">
+              <p className="text-2xl font-bold text-green-600">{stats.rewarded_referrals}</p>
+              <p className="text-[10px] text-gray-500 mt-0.5 leading-tight">Reached Lv.5</p>
+            </div>
+            <div className="bg-blue-50 rounded-lg p-2">
+              <p className="text-2xl font-bold text-blue-500">{stats.pending_referrals}</p>
+              <p className="text-[10px] text-gray-500 mt-0.5 leading-tight">Still leveling</p>
+            </div>
+          </div>
+          {stats.rewarded_referrals > 0 && (
+            <p className="text-xs text-gray-400 text-center">
+              You&apos;ve earned{' '}
+              <span className="font-bold text-amber-600">
+                {stats.rewarded_referrals} Growth Pill{stats.rewarded_referrals !== 1 ? 's' : ''} + {stats.rewarded_referrals * 300} Gold
+              </span>{' '}
+              from referrals 🎉
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 }

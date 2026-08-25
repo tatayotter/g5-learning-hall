@@ -196,7 +196,7 @@ BEGIN
 END;
 $$;
 
-GRANT EXECUTE ON FUNCTION public.apply_referral_code(uuid, text) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.apply_referral_code(text, text) TO authenticated;
 
 -- ── 9. claim_registrant_referral_reward ────────────────────
 -- First-login reward for the registrant: 1 Growth Pill + 100 Gold.

@@ -96,3 +96,16 @@ export async function getMyReferralKey(): Promise<string | null> {
   if (error) return null;
   return (data as string) ?? null;
 }
+
+export interface ReferralStats {
+  total_referrals: number;
+  rewarded_referrals: number;
+  pending_referrals: number;
+}
+
+/** Fetch aggregate referral stats for the current player. */
+export async function getMyReferralStats(): Promise<ReferralStats | null> {
+  const { data, error } = await supabase.rpc('get_my_referral_stats');
+  if (error) return null;
+  return (data as ReferralStats) ?? null;
+}
