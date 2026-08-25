@@ -384,18 +384,24 @@ export default function MapCanvas({
             }}
             title={portal.locked ? `${region.name} — locked until level ${region.unlockLevel}` : region.name}
           >
+            {/* Name label above portal */}
+            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 flex items-center gap-0.5 whitespace-nowrap">
+              {region.element !== 'all' && (
+                <img
+                  src={ELEMENT_ICON_SRC[region.element]}
+                  alt=""
+                  className="w-3.5 h-3.5 object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] flex-shrink-0"
+                />
+              )}
+              <span className="text-[10px] font-bold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,1)] leading-none">
+                {region.name}
+              </span>
+              {portal.locked && <span className="text-[10px] leading-none">🔒</span>}
+            </div>
             {/* The sprite (public/tilesets/portals/portal-orange.png) is
                 32x48 — taller than a tile — so it's bottom-anchored to sit on
                 the tile like a standee instead of being squashed to fit. */}
             <div className="map-portal-sprite absolute left-1/2 bottom-0 -translate-x-1/2" style={{ width: '100%', aspectRatio: '32 / 48' }} />
-            {region.element !== 'all' && (
-              <img
-                src={ELEMENT_ICON_SRC[region.element]}
-                alt={region.name}
-                className="absolute -bottom-1 -right-1 w-4 h-4 object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]"
-              />
-            )}
-            {portal.locked && <span className="absolute top-0 left-1/2 -translate-x-1/2 text-xs drop-shadow">🔒</span>}
           </div>
         );
       })}
