@@ -118,7 +118,9 @@ export async function claimMission(
   userId: string,
   mission: CurioMission,
 ): Promise<{ success: boolean; newExp?: number; newLevel?: number; leveled?: boolean; error?: string }> {
-  // 1. Read current curio exp/level
+  // 1. Read current curio exp/level — check user_monsters first, then
+  //    user_caught_monsters (wild catches and guild familiars live there until
+  //    the player promotes them to the team).
   const { data: row, error: fetchErr } = await supabase
     .from('user_monsters')
     .select('monster_exp, monster_level')
@@ -126,7 +128,44 @@ export async function claimMission(
     .eq('user_id', userId)
     .maybeSingle();
 
-  if (fetchErr || !row) return { success: false, error: 'Monster not found' };
+  if (fetchErr) return { success: false, error: fetchErr.message };
+
+  // Fall back to user_caught_monsters if not found in user_monsters
+  if (!row) {
+    const { data: cRow, error: cFetchErr } = await supabase
+      .from('user_caught_monsters')
+      .select('monster_exp, monster_level')
+      .eq('id', mission.monster_row_id)
+      .eq('user_id', userId)
+      .maybeSingle();
+
+    if (cFetchErr || !cRow) return { success: false, error: 'Monster not found' };
+
+    const oldLevel = cRow.monster_level as number;
+    const newExp   = (cRow.monster_exp as number) + mission.exp_reward;
+    const newLevel = Math.min(
+      Math.floor(newExp / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) + 1,
+      BATTLE_CONSTANTS.MONSTER_LEVEL_CAP,
+    );
+
+    const { error: updateErr } = await supabase
+      .from('user_caught_monsters')
+      .update({ monster_exp: newExp, monster_level: newLevel })
+      .eq('id', mission.monster_row_id)
+      .eq('user_id', userId);
+
+    if (updateErr) return { success: false, error: updateErr.message };
+
+    const { error: claimErr } = await supabase
+      .from('curio_missions')
+      .update({ claimed_at: new Date().toISOString() })
+      .eq('id', mission.id)
+      .eq('user_id', userId);
+
+    if (claimErr) return { success: false, error: claimErr.message };
+
+    return { success: true, newExp, newLevel, leveled: newLevel > oldLevel };
+  }
 
   const oldLevel  = row.monster_level as number;
   const newExp    = (row.monster_exp as number) + mission.exp_reward;

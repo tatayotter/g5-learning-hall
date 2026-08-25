@@ -692,6 +692,7 @@ export default function TeamPanel({
         playerLevel={playerLevel}
         userId={userId}
         benchedMonsters={benchedMonsters}
+        caughtMonsters={caughtMonsters}
         monsterDisplay={monsterDisplay}
         onMissionLockedIdsChange={setMissionLockedIds}
         onLoadoutChange={onLoadoutChange}

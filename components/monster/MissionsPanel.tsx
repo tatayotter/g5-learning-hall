@@ -4,6 +4,7 @@
 // 5-column horizontal grid; picker drops below as a full-width panel.
 import { useCallback, useEffect, useState } from 'react';
 import { MonsterImage, UserMonster } from '@/components/battle/shared';
+import { CaughtMonster } from '@/components/monster/types';
 import { MonsterDef, getOwnedMonsterDisplay } from '@/lib/monsterConfig';
 import { getQualityGlowClass } from '@/lib/curioQuality';
 import {
@@ -101,14 +102,15 @@ interface MissionsPanelProps {
   playerLevel: number;
   userId: string;
   benchedMonsters: UserMonster[];
+  caughtMonsters?: CaughtMonster[];
   monsterDisplay: Record<string, MonsterDef>;
   onMissionLockedIdsChange: (ids: Set<string>) => void;
   onLoadoutChange: () => Promise<void> | void;
 }
 
 export default function MissionsPanel({
-  playerLevel, userId, benchedMonsters, monsterDisplay,
-  onMissionLockedIdsChange, onLoadoutChange,
+  playerLevel, userId, benchedMonsters, caughtMonsters = [],
+  monsterDisplay, onMissionLockedIdsChange, onLoadoutChange,
 }: MissionsPanelProps) {
   const unlockedSlots = getUnlockedMissionSlots(playerLevel);
 
@@ -163,7 +165,26 @@ export default function MissionsPanel({
   };
 
   const lockedIds = new Set(missions.map(m => m.monster_row_id));
-  const available = benchedMonsters.filter(m => !lockedIds.has(m.id));
+
+  // Normalise caught monsters to the minimal UserMonster shape needed by the
+  // picker (id, monster_id, graduation_tier, quality, monster_level). Wild
+  // catches and guild familiars live in user_caught_monsters until promoted;
+  // they deserve missions too. claimMission() falls back to that table.
+  const normalizedCaught: UserMonster[] = caughtMonsters.map(cm => ({
+    id: cm.id,
+    user_id: cm.user_id,
+    monster_id: cm.monster_id,
+    nickname: cm.nickname,
+    monster_exp: cm.monster_exp,
+    monster_level: cm.monster_level,
+    slot: null,
+    rest_used: 0,
+    equipped_skills: [],
+    graduation_tier: 0,
+    quality: cm.quality,
+  }));
+
+  const available = [...benchedMonsters, ...normalizedCaught].filter(m => !lockedIds.has(m.id));
 
   if (loading) return null;
 
