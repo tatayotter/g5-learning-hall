@@ -338,29 +338,10 @@ export async function recordLastLogin(userId: UserId): Promise<void> {
     .upsert({ user_id: userId, last_login: new Date().toISOString() }, { onConflict: 'user_id' });
 }
 
-// Demo accounts never come from `children`/`classmates` (see app/api/demo-login
-// and the create_demo_account RPC), so they're added to USERS directly here
-// instead of through a loader — which also keeps them out of every other
-// loader-driven surface (leaderboard, online-players list, etc.) by construction.
-export function registerDemoUser(userId: UserId): void {
-  USERS[userId] = {
-    id: userId,
-    name: 'Guest',
-    fullName: 'Guest Explorer',
-    grade: '',
-    avatar: '/userpics/userpics_premium/ssb3.png',
-    theme: 'theme_default',
-    gender: 'boy',
-    isFamily: false,
-  };
-}
-
 // Self-registered children (create_unclaimed_child_account) are real rows
-// in `children`, unlike demo accounts — a later full page load will pick
-// them up naturally through loadChildren(). This just makes the brand new
-// account usable immediately in the current session, mirroring
-// registerDemoUser but with the child's actual chosen profile instead of a
-// generic "Guest" placeholder.
+// in `children` — a later full page load will pick them up naturally through
+// loadChildren(). This makes the brand new account usable immediately in the
+// current session with the child's actual chosen profile.
 export function registerChildUser(profile: {
   id: UserId;
   fullName: string;

@@ -25,8 +25,7 @@ export default async function RegisterPage({
 }: {
   searchParams: Promise<{ ref?: string }>;
 }) {
-  const { ref } = await searchParams;
-  const source = ref === 'demo' ? 'demo_banner' : 'organic';
+  const source = 'organic';
 
   return (
     <main className="min-h-screen bg-black py-10 px-4">

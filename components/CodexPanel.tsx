@@ -538,7 +538,6 @@ function TradingSection() {
           A small gold fee applies to any completed trade — charged per curio moved and on any gold either side includes —
           so trades always cost a little to discourage spam, but nothing ever changes hands until someone actually accepts.
         </p>
-        <p className="text-xs text-gray-500">Not available on demo accounts.</p>
       </div>
     </div>
   );

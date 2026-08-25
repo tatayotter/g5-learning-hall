@@ -152,8 +152,6 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // notes for the accepted cost of this change.
   const selfProfile = USERS[userId];
   const liveBattleInbox = useLiveBattleInbox(userId, selfProfile?.name || userId, selfProfile?.grade);
-  const isDemo = userId.startsWith('demo_');
-
   // Arena sub-nav drawer + responsive state (mirrors SidebarRail hooks)
   const [arenaNavOpen, setArenaNavOpen] = useState(false);
   const [isLandscape, setIsLandscape] = useState(false);
@@ -212,12 +210,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [answeredArenaIds, setAnsweredArenaIds] = useState<Set<string>>(new Set());
   const [subclassProfile, setSubclassProfile] = useState<SubclassProfile | null>(null);
-  // Curio egg mechanism (see docs/curio-egg-mechanism-design.md) — excluded
-  // entirely for demo accounts, same guard as Trade below.
+  // Curio egg mechanism (see docs/curio-egg-mechanism-design.md)
   const [eggChainMap, setEggChainMap] = useState<EggChainMap>({});
   const [userEggs, setUserEggs] = useState<CurioEgg[]>([]);
   const loadEggs = async () => {
-    if (isDemo) return;
     setUserEggs(await fetchUserEggs(userId));
   };
   // Claiming happens from inside TeamPanel's curio detail modal — jump the
@@ -382,14 +378,13 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   useEffect(() => { loadData(); }, [userId, eggRefreshSignal]);
 
   // Chain map is admin-authored content, not per-user — fetch once.
-  useEffect(() => { if (!isDemo) fetchEggChainMap().then(setEggChainMap); }, [isDemo]);
+  useEffect(() => { fetchEggChainMap().then(setEggChainMap); }, []);
 
   // Sidebar badge: any owned curio (team or bench) that's graduated,
   // crossed its egg-ready level threshold, has a defined chain, and hasn't
   // already laid its one egg.
   useEffect(() => {
     if (!onEggBadgeChange) return;
-    if (isDemo) { onEggBadgeChange(false); return; }
     const claimedParentIds = new Set(userEggs.map(e => e.parent_user_monster_id));
     const ready = userMonsters.some(m => {
       const tier = m.graduation_tier as 1 | 2;
@@ -401,7 +396,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     });
     onEggBadgeChange(ready);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userMonsters, eggChainMap, userEggs, isDemo]);
+  }, [userMonsters, eggChainMap, userEggs]);
 
   // Mounted here (not inside TrainingMap) so a player's presence on the
   // training-map channel survives switching to the live-battle view —
@@ -466,7 +461,6 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // after a 20–60 s idle delay. Skipped when already in a battle or offline.
   useEffect(() => {
     if (offline || view === 'live_battle') return;
-    if (isDemo) return; // demo accounts excluded from bot challenges
     const delay = 20_000 + Math.random() * 40_000;
     const timer = setTimeout(() => {
       // Don't interrupt an active battle or a real incoming invite.
@@ -700,10 +694,6 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   };
 
   const handleChallengePlayer = async (opponentId: UserId, opponentName: string) => {
-    // Demo accounts are single-player only (see app/api/demo-login) — never
-    // let one start a live battle against a real student.
-    if (userId.startsWith('demo_')) return;
-
     // Bot players are not in Supabase — bypass the real invite flow and launch
     // a local bot battle directly, the same way the challenge toast does.
     if (BOT_IDS.has(opponentId)) {
@@ -978,9 +968,9 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           { id: 'team'        as GuildView, label: 'My Team',      icon: '🐾' },
           { id: 'trainers'    as GuildView, label: 'Trainers',     icon: '⚔️' },
           { id: 'compendium'  as GuildView, label: `Compendium${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}`, icon: '📖' },
-          ...(isDemo ? [] : [{ id: 'trade'      as GuildView, label: 'Trade',       icon: '🤝' }]),
+          { id: 'trade'       as GuildView, label: 'Trade',       icon: '🤝' },
           { id: 'leaderboard' as GuildView, label: 'Leaderboard',  icon: '🏆' },
-          ...(isDemo ? [] : [{ id: 'hatchery'   as GuildView, label: 'Hatchery',    icon: '🥚' }]),
+          { id: 'hatchery'    as GuildView, label: 'Hatchery',    icon: '🥚' },
         ]);
         const needsConnection = (id: GuildView) =>
           offline && (id === 'map' || id === 'trainers' || id === 'trade' || id === 'leaderboard');
@@ -1125,7 +1115,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       )}
 
       {/* Hatchery view — claimed eggs, incubating/stalled, per docs/curio-egg-mechanism-design.md */}
-      {view === 'hatchery' && !isDemo && (
+      {view === 'hatchery' && (
         <HatcheryPanel userId={userId} eggs={userEggs} onEggsChanged={loadEggs} />
       )}
 
@@ -1174,9 +1164,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       )}
       {view === 'trainers' && !offline && battleState && (
         <div className="space-y-4">
-          {/* PvP — Challenge To A Battle (never shown to demo accounts —
-              single-player only, see app/api/demo-login) */}
-          {!userId.startsWith('demo_') && (() => {
+          {/* PvP — Challenge To A Battle */}
+          {(() => {
             const today = new Date().toISOString().split('T')[0];
             const alreadyWonToday = battleState?.last_pvp_win === today;
             const otherPlayers = getOtherPlayers(userId as UserId).filter(p => liveBattleInbox.onlinePlayerIds.has(p.id));

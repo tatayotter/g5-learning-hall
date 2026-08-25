@@ -66,10 +66,7 @@ export async function fetchLeaderboard(options?: { force?: boolean }): Promise<L
 
 async function computeLeaderboard(): Promise<LeaderboardEntry[]> {
   await loadClassmates();
-  // Demo accounts never come from loadClassmates()/loadChildren() (they're
-  // registered directly via registerDemoUser), so they're already excluded
-  // by construction — this filter is defense-in-depth in case that changes.
-  const ids = Object.keys(USERS).filter(id => !id.startsWith('demo_'));
+  const ids = Object.keys(USERS);
   if (ids.length === 0) return [];
 
   const [battleStateRes, monstersRes, caughtRes, progressRes, questionsRes, battleLogRes] = await Promise.all([

@@ -2,10 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { ensureAnonymousSession, supabase } from '@/lib/supabase';
-import { setActiveUser, registerDemoUser, recordLastLogin } from '@/lib/userSession';
 
 const GUILDS = [
   {
@@ -308,34 +305,6 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 }
 
 function CTAButtons({ align = 'center' }: { align?: 'center' | 'left' }) {
-  const router = useRouter();
-  const [demoState, setDemoState] = useState<'idle' | 'loading' | 'error'>('idle');
-
-  const handleTryDemo = async () => {
-    setDemoState('loading');
-    try {
-      const authUid = await ensureAnonymousSession();
-      if (!authUid) throw new Error('no anonymous session');
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session?.access_token) throw new Error('no session token');
-
-      const res = await fetch('/api/demo-login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ accessToken: session.access_token }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.success) throw new Error(data.error || 'demo login failed');
-
-      registerDemoUser(data.userId);
-      setActiveUser(data.userId);
-      await recordLastLogin(data.userId);
-      router.push('/');
-    } catch {
-      setDemoState('error');
-    }
-  };
-
   return (
     <div className={`flex flex-col items-center mt-8 ${align === 'left' ? 'sm:items-start' : ''}`}>
       <div className={`flex flex-col sm:flex-row items-center gap-3 ${align === 'left' ? 'sm:justify-start' : 'justify-center'}`}>
@@ -347,25 +316,15 @@ function CTAButtons({ align = 'center' }: { align?: 'center' | 'left' }) {
         >
           Register Your Family
         </motion.a>
-        <motion.button
-          type="button"
-          onClick={handleTryDemo}
-          disabled={demoState === 'loading'}
+        <motion.a
+          href="/child-signup"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          className="w-full sm:w-auto text-center bg-white hover:bg-slate-50 border-2 border-dashed border-slate-300 hover:border-orange-400 text-slate-700 font-bold px-8 py-3.5 rounded-[14px] transition-colors disabled:opacity-60 shadow-sm"
+          className="w-full sm:w-auto text-center bg-white hover:bg-slate-50 border-2 border-slate-200 hover:border-orange-400 text-slate-700 font-bold px-8 py-3.5 rounded-[14px] transition-colors shadow-sm"
         >
-          {demoState === 'loading' ? 'Loading demo…' : 'Try the Demo'}
-        </motion.button>
+          I&apos;m a Student →
+        </motion.a>
       </div>
-      <p className={`text-xs text-slate-400 mt-2 ${align === 'left' ? 'sm:text-left' : ''}`}>
-        No sign-up needed
-      </p>
-      {demoState === 'error' && (
-        <p className="text-xs text-red-400 mt-1">
-          Couldn&apos;t start the demo right now — please try again in a bit.
-        </p>
-      )}
     </div>
   );
 }

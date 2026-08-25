@@ -14,9 +14,9 @@ export default async function ChildSignupPage({
   searchParams: Promise<{ ref?: string }>;
 }) {
   const { ref } = await searchParams;
-  const source = ref === 'demo' ? 'demo_banner' : 'organic';
-  // ?ref=XXXX pre-fills the referral code (any value that isn't 'demo')
-  const initialReferralCode = ref && ref !== 'demo' ? ref : undefined;
+  const source = 'organic';
+  // ?ref=XXXX pre-fills the referral code
+  const initialReferralCode = ref || undefined;
 
   return (
     <main className="min-h-screen bg-[#0e1220]">

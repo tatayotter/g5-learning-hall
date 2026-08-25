@@ -9,7 +9,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { UserId, getActiveUser, clearActiveUser, loadAllUsersData, saveTheme, linkIdentity, recordLastLogin, registerDemoUser, USERS, gradeToNumber } from '@/lib/userSession';
+import { UserId, getActiveUser, clearActiveUser, loadAllUsersData, saveTheme, linkIdentity, recordLastLogin, USERS, gradeToNumber } from '@/lib/userSession';
 import { THEME_CLASSES, getThemeItem } from '@/lib/themeShop';
 import SplashScreen from '@/components/SplashScreen';
 import LoadingScreen from '@/components/LoadingScreen';
@@ -54,7 +54,6 @@ import VaultKeeperNpc from '@/components/VaultKeeperNpc';
 import CurioExpertNpc from '@/components/CurioExpertNpc';
 import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
 import CurioRevealModal from '@/components/CurioRevealModal';
-import DemoBanner from '@/components/DemoBanner';
 import LinkParentBanner from '@/components/LinkParentBanner';
 import SidebarRail, { RailTabId } from '@/components/SidebarRail';
 import WelcomeCard from '@/components/WelcomeCard';
@@ -141,13 +140,6 @@ export default function Dashboard() {
       if (!saved && isOfflineStorageAvailable()) {
         const local = await getActiveUserLocal();
         saved = local?.userId ?? null;
-      }
-      // Demo profiles are registered into USERS purely in-memory at login
-      // (never stored in `children`/`classmates`), so a page refresh loses
-      // them — registerDemoUser is a pure function of the id, so it's safe
-      // to just call it again here rather than losing the session.
-      if (saved && saved.startsWith('demo_') && !USERS[saved]) {
-        registerDemoUser(saved);
       }
       if (saved && USERS[saved]) {
         setActiveUserId(saved);
@@ -240,9 +232,6 @@ export default function Dashboard() {
           return;
         }
         recordLastLogin(activeUserId);
-        // Curio egg check-in — a demo account (excluded server-side, RPC
-        // no-ops) doesn't need this, but calling unconditionally keeps this
-        // block simple; the RPC itself is the source of truth on eligibility.
         syncEggProgress(activeUserId).then(result => {
           if (result?.hatched?.length) {
             setPendingEggHatches(prev => [...prev, ...result.hatched]);
@@ -470,17 +459,6 @@ export default function Dashboard() {
   const eventStudyReadRemaining = useReadTimer(activeEventQuestForTimer?.summary_markdown, activeEventQuest || '');
 
   const loadEventData = async (userId: UserId) => {
-    // Demo accounts never see Special Events (sidebar panel, board section,
-    // or the announcement popup) — not real progress worth showcasing, and
-    // events are tied to grade-specific curriculum content demo profiles
-    // don't have.
-    if (userId.startsWith('demo_')) {
-      setActiveEvent(null);
-      setEventQuests([]);
-      setEventProgress([]);
-      setEventClaimed(false);
-      return;
-    }
     const ev = await fetchActiveEvent();
     setActiveEvent(ev);
     if (!ev) {
@@ -678,8 +656,7 @@ export default function Dashboard() {
         <BossCutscene personas={getPersonasForGrade(bossGradeLevel)} onDismiss={dismissBossCutscene} />
       )}
       <div className="h-screen flex flex-col">
-      {activeUserId.startsWith('demo_') && <DemoBanner />}
-      {!activeUserId.startsWith('demo_') && <LinkParentBanner />}
+      <LinkParentBanner />
       {showOnboarding && <OnboardingTour onComplete={handleCompleteOnboarding} />}
       <div className="app-content flex-1 min-h-0 flex flex-col">
         <div className="h-full bg-black text-white">

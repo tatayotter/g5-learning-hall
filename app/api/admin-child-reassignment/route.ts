@@ -7,8 +7,7 @@ import { requireAdminPasscode } from '@/lib/adminAuth';
 // only opens a 48h objection window, and this route's job after that is
 // just to fire the two notification emails via the admin-reassignment-notify
 // edge function (invoked with the service role key, not exposed to the
-// browser, mirroring how create_demo_account's route scopes to a caller
-// token — this one instead uses full service credentials since it's an
+// browser — this one uses full service credentials since it's an
 // admin-only, server-to-server call with no end-user session involved).
 export async function POST(request: NextRequest) {
   const { passcode, childId, newParentEmail, reason } = await request.json();

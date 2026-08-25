@@ -8,15 +8,13 @@ import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/Ch
 import { validateReferralCode } from '@/lib/referral';
 
 interface ChildSignupFormProps {
-  source: 'demo_banner' | 'organic';
+  source: 'organic';
   initialReferralCode?: string;
 }
 
 // Lets a child create their own account with no parent required yet — see
-// docs/parent-child-linking-design.md. Mirrors the "Try Demo" flow in
-// app/welcome/page.tsx (anonymous session -> server route -> RPC), except
-// this creates a real, permanent `children` row instead of an ephemeral
-// demo account, and logs the child straight into it afterward.
+// docs/parent-child-linking-design.md. Creates a real, permanent `children`
+// row and logs the child straight into it afterward.
 export default function ChildSignupForm({ source, initialReferralCode }: ChildSignupFormProps) {
   const router = useRouter();
   const [data, setData] = useState<ChildFormData>(emptyChildForm());

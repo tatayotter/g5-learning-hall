@@ -6,7 +6,7 @@ import { getOrCreateSessionId } from '@/lib/analytics';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
 
 interface ParentRegisterFormProps {
-  source: 'demo_banner' | 'organic';
+  source: 'organic';
 }
 
 export default function ParentRegisterForm({ source }: ParentRegisterFormProps) {

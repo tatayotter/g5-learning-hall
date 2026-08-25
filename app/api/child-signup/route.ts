@@ -2,11 +2,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
 // Child self-registration (no parent required yet) — see
-// docs/parent-child-linking-design.md. Mirrors app/api/demo-login/route.ts:
-// the client establishes its own anonymous session and passes the access
-// token here so create_unclaimed_child_account's auth.uid() resolves to
-// this exact browser, and so the real client IP (unavailable to browser JS)
-// can be attached for the RPC's own rate limiting.
+// docs/parent-child-linking-design.md. The client establishes its own
+// anonymous session and passes the access token here so
+// create_unclaimed_child_account's auth.uid() resolves to this exact
+// browser, and so the real client IP (unavailable to browser JS) can be
+// attached for the RPC's own rate limiting.
 export async function POST(request: NextRequest) {
   const { accessToken, username, pin, fullName, grade, gender, schoolName, avatar, source, sessionId, referralCode } = await request.json();
 
@@ -43,14 +43,13 @@ export async function POST(request: NextRequest) {
 
   // Mirrors ParentRegisterForm's direct insert: this child has no
   // g5_active_user session yet, so trackEvent()'s getActiveUser() gate
-  // would silently drop it. Feeds get_demo_stats' registrations CTE — see
-  // docs/parent-child-linking-design.md. Awaited (not fire-and-forget) since
-  // a serverless function can be torn down right after the response is sent.
+  // would silently drop it. Awaited (not fire-and-forget) since a serverless
+  // function can be torn down right after the response is sent.
   const { error: analyticsError } = await authedClient.from('analytics_events').insert({
     user_id: row.id,
     session_id: typeof sessionId === 'string' && sessionId ? sessionId : 'server',
     event_name: 'child_self_registration_submitted',
-    properties: { source: source === 'demo_banner' ? 'demo_banner' : 'organic' },
+    properties: { source: 'organic' },
     is_family: false,
     client_ts: new Date().toISOString(),
   });

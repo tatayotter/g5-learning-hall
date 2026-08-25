@@ -90,7 +90,7 @@ export async function fetchEggChainMap(): Promise<EggChainMap> {
 
 export interface ClaimEggResult {
   success: boolean;
-  error?: 'demo_not_supported' | 'not_found' | 'not_graduated' | 'level_too_low' | 'already_claimed' | 'no_chain_defined';
+  error?: 'not_found' | 'not_graduated' | 'level_too_low' | 'already_claimed' | 'no_chain_defined';
   egg_id?: string;
   egg_species_id?: string;
   element?: Element;
@@ -140,9 +140,7 @@ export interface SyncEggProgressResult {
 // Called once per app session (see app/page.tsx, right alongside
 // recordLastLogin) — advances every incubating egg's streak by a day,
 // stalls any that missed a day, and hatches any that reach 5. Safe to call
-// more than once per day (no-ops if today's already counted) and safe for
-// demo accounts (no-ops server-side, they're excluded from the mechanism
-// entirely).
+// more than once per day (no-ops if today's already counted).
 export async function syncEggProgress(userId: string): Promise<SyncEggProgressResult | null> {
   const { data, error } = await supabase.rpc('sync_egg_progress', { p_user_id: userId });
   if (error) {

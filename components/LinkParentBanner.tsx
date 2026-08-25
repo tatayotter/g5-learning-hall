@@ -5,10 +5,9 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 
 // Nudge, not a wall — see docs/parent-child-linking-design.md. Shown to
-// self-registered children who haven't linked a parent yet; mirrors
-// DemoBanner's collapsed-pill/expanded-card pattern. am_i_linked() is a
-// SECURITY DEFINER RPC because the existing children RLS policy doesn't
-// expose an unclaimed child's own row to itself.
+// self-registered children who haven't linked a parent yet.
+// am_i_linked() is a SECURITY DEFINER RPC because the existing children
+// RLS policy doesn't expose an unclaimed child's own row to itself.
 export default function LinkParentBanner() {
   const [linked, setLinked] = useState<boolean | null>(null);
   const [expanded, setExpanded] = useState(false);
