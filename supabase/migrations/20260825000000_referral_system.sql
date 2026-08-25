@@ -20,9 +20,10 @@
 
 -- ── 1. Columns on children ─────────────────────────────────
 
+-- children.id is text, not uuid — all FK columns must match
 ALTER TABLE public.children
-  ADD COLUMN IF NOT EXISTS referral_key   text UNIQUE,
-  ADD COLUMN IF NOT EXISTS referred_by_child_id uuid
+  ADD COLUMN IF NOT EXISTS referral_key         text UNIQUE,
+  ADD COLUMN IF NOT EXISTS referred_by_child_id text
     REFERENCES public.children(id) ON DELETE SET NULL;
 
 -- ── 2. Key-generation helper ───────────────────────────────
@@ -90,8 +91,8 @@ ALTER TABLE public.children
 
 CREATE TABLE IF NOT EXISTS public.referral_rewards (
   id                          uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  referrer_child_id           uuid NOT NULL REFERENCES public.children(id) ON DELETE CASCADE,
-  registrant_child_id         uuid NOT NULL UNIQUE
+  referrer_child_id           text NOT NULL REFERENCES public.children(id) ON DELETE CASCADE,
+  registrant_child_id         text NOT NULL UNIQUE
                                 REFERENCES public.children(id) ON DELETE CASCADE,
   registrant_reward_credited  boolean NOT NULL DEFAULT false,
   referrer_reward_credited    boolean NOT NULL DEFAULT false,
@@ -131,7 +132,7 @@ CREATE POLICY "player_notifications: read own"
 
 DROP FUNCTION IF EXISTS public.validate_referral_code(text);
 CREATE OR REPLACE FUNCTION public.validate_referral_code(p_code text)
-RETURNS TABLE(referrer_id uuid, referrer_username text)
+RETURNS TABLE(referrer_id text, referrer_username text)
 LANGUAGE sql
 STABLE SECURITY DEFINER
 AS $$
@@ -150,8 +151,9 @@ GRANT EXECUTE ON FUNCTION public.validate_referral_code(text) TO authenticated;
 -- No-ops silently if code is invalid, demo, or self-referral.
 
 DROP FUNCTION IF EXISTS public.apply_referral_code(uuid, text);
+DROP FUNCTION IF EXISTS public.apply_referral_code(text, text);
 CREATE OR REPLACE FUNCTION public.apply_referral_code(
-  p_registrant_id uuid,
+  p_registrant_id text,
   p_code          text
 )
 RETURNS boolean
@@ -159,7 +161,7 @@ LANGUAGE plpgsql
 VOLATILE SECURITY DEFINER
 AS $$
 DECLARE
-  v_referrer_id uuid;
+  v_referrer_id text;
 BEGIN
   -- Resolve referrer (exclude demo accounts)
   SELECT id INTO v_referrer_id
@@ -267,7 +269,7 @@ BEGIN
 
   SELECT * INTO v_row
   FROM public.referral_rewards
-  WHERE registrant_child_id::text = NEW.user_id
+  WHERE registrant_child_id = NEW.user_id
     AND NOT referrer_reward_credited
   FOR UPDATE SKIP LOCKED;
 
@@ -280,11 +282,11 @@ BEGIN
   ) THEN RETURN NEW; END IF;
 
   -- Grant Growth Pill to referrer
-  PERFORM public.upsert_inventory(v_row.referrer_child_id::text, 'growth_pill', 1);
+  PERFORM public.upsert_inventory(v_row.referrer_child_id, 'growth_pill', 1);
 
   -- Grant 300 Gold to referrer
   INSERT INTO public.player_progress (user_id, gold)
-  VALUES (v_row.referrer_child_id::text, 300)
+  VALUES (v_row.referrer_child_id, 300)
   ON CONFLICT (user_id) DO UPDATE
     SET gold = public.player_progress.gold + 300;
 
