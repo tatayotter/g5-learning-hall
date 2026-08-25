@@ -25,11 +25,11 @@ function TeamStrip({ team }: { team: LeaderboardEntry['team'] }) {
         const def = ALL_MONSTERS[m.monster_id];
         if (!def) return null;
         return (
-          <div key={i} className="flex items-center gap-1.5 bg-black/30 rounded-lg px-2 py-1">
+          <div key={i} className="flex items-center gap-1.5 bg-amber-100 border border-amber-300 rounded-lg px-2 py-1">
             <div className="w-6 h-6 flex-shrink-0">
               <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-sm" />
             </div>
-            <span className="text-xs text-gray-300">{m.nickname || def.name} Lv.{m.monster_level}</span>
+            <span className="text-xs text-stone-700 font-semibold">{m.nickname || def.name} Lv.{m.monster_level}</span>
           </div>
         );
       })}
@@ -79,7 +79,7 @@ function CheerButton({ fromUserId, toUserId, count, onSent }: { fromUserId: stri
       disabled={sending || onCooldown}
       title={onCooldown ? 'Already cheered — come back later' : 'Send a cheer!'}
       className={`flex items-center gap-1 text-xs font-bold rounded-full px-2 py-1 transition-colors flex-shrink-0 ${
-        onCooldown ? 'bg-black/20 text-gray-600 cursor-default' : 'bg-black/30 text-amber-300 hover:bg-amber-900/30'
+        onCooldown ? 'bg-stone-200 text-stone-500 cursor-default' : 'bg-amber-200 text-amber-700 hover:bg-amber-300'
       }`}
     >
       👏 {count}
@@ -89,9 +89,9 @@ function CheerButton({ fromUserId, toUserId, count, onSent }: { fromUserId: stri
 
 function StatChip({ label, value }: { label: string; value: number | string }) {
   return (
-    <div className="bg-stone-200/70 rounded-lg px-3 py-2 text-center">
-      <p className="text-lg font-bold text-stone-800 font-mono">{value}</p>
-      <p className="text-[10px] text-stone-500 uppercase tracking-wide">{label}</p>
+    <div className="bg-white border border-amber-200 rounded-lg px-3 py-2 text-center shadow-sm">
+      <p className="text-xl font-bold text-stone-900 font-mono">{value}</p>
+      <p className="text-[10px] text-stone-500 font-semibold uppercase tracking-wide mt-0.5">{label}</p>
     </div>
   );
 }
@@ -107,7 +107,7 @@ function TopCurioChip({ topMonster }: { topMonster: LeaderboardEntry['topMonster
   const def = topMonster ? ALL_MONSTERS[topMonster.monster_id] : null;
   const name = topMonster ? (topMonster.nickname || def?.name || topMonster.monster_id) : null;
   return (
-    <div className="bg-stone-200/70 rounded-lg px-2 py-2 text-center overflow-hidden">
+    <div className="bg-white border border-amber-200 rounded-lg px-2 py-2 text-center overflow-hidden shadow-sm">
       {def && (
         <div className="w-8 h-8 mx-auto mb-1">
           <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-xl" />
@@ -134,7 +134,7 @@ interface Highlight {
 
 function TopEntryCard({ entry, rank, badge, highlight, currentUserId, reactionCounts, onReactionSent }: { entry: LeaderboardEntry; rank: number; badge: ReactNode; highlight: Highlight; currentUserId: string; reactionCounts: ReactionCounts; onReactionSent: () => void }) {
   return (
-    <div className="border-2 border-amber-500 bg-amber-900/10 rounded-2xl p-6">
+    <div className="border-2 border-amber-500 bg-amber-50 rounded-2xl p-6 shadow-md">
       <p className="text-center text-xs font-bold text-amber-400 mb-3 flex items-center justify-center gap-1">
         {rank === 1 ? badge : `#${rank}`}
       </p>
