@@ -746,7 +746,7 @@ export default function Dashboard() {
             <WelcomeCard
               playerName={USERS[activeUserId]?.name ?? activeUserId}
               loginStreak={loginStreak}
-              totalQuests={Object.values(data.package_data ?? {}).flatMap(subjects => Object.keys(subjects as object)).length}
+              totalQuests={Object.values(mainQuestPackageData).flatMap(subjects => Object.keys(subjects as object)).length}
               completedQuests={data.mastered_quizzes?.length ?? 0}
             />
 
