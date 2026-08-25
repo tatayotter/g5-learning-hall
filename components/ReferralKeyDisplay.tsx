@@ -1,5 +1,5 @@
 'use client';
-// Displays the player's referral key with a tap-to-copy button.
+// Displays the player's referral key with a tap-to-copy share link button.
 // Used on Dashboard (compact) and HeroProfile (full).
 
 import { useState } from 'react';
@@ -9,6 +9,11 @@ interface ReferralKeyDisplayProps {
   compact?: boolean; // Dashboard card vs HeroProfile panel
 }
 
+function buildShareUrl(referralKey: string): string {
+  if (typeof window === 'undefined') return `/child-signup?ref=${referralKey}`;
+  return `${window.location.origin}/child-signup?ref=${referralKey}`;
+}
+
 export default function ReferralKeyDisplay({
   referralKey,
   compact = false,
@@ -16,12 +21,12 @@ export default function ReferralKeyDisplay({
   const [copied, setCopied] = useState(false);
 
   async function handleCopy() {
+    const url = buildShareUrl(referralKey);
     try {
-      await navigator.clipboard.writeText(referralKey);
+      await navigator.clipboard.writeText(url);
     } catch {
-      // Fallback for older browsers / WebView
       const el = document.createElement('textarea');
-      el.value = referralKey;
+      el.value = url;
       document.body.appendChild(el);
       el.select();
       document.execCommand('copy');
@@ -33,46 +38,67 @@ export default function ReferralKeyDisplay({
 
   if (compact) {
     return (
-      <div className="flex items-center gap-2">
-        <span className="text-xs text-amber-300 font-semibold tracking-widest font-mono">
+      <div className="flex items-center gap-2 shrink-0">
+        <span className="text-xs text-amber-700 font-bold tracking-widest font-mono">
           {referralKey}
         </span>
         <button
           onClick={handleCopy}
-          title="Copy referral code"
-          className="text-xs px-2 py-0.5 rounded bg-amber-700/40 border border-amber-500/50
-                     text-amber-300 hover:bg-amber-600/50 transition-colors"
+          title="Copy invite link"
+          className="text-xs px-2 py-0.5 rounded-md bg-amber-100 border border-amber-300
+                     text-amber-700 hover:bg-amber-200 transition-colors font-semibold whitespace-nowrap"
         >
-          {copied ? '✓' : 'Copy'}
+          {copied ? '✓ Copied!' : 'Copy Link'}
         </button>
       </div>
     );
   }
 
   return (
-    <div className="bg-amber-950/40 border border-amber-600/40 rounded-xl p-4 space-y-2">
-      <p className="text-xs text-amber-400 font-semibold uppercase tracking-wider">
-        Your Referral Code
-      </p>
-      <div className="flex items-center gap-3">
-        <span className="text-3xl font-bold tracking-[0.25em] font-mono text-amber-300">
-          {referralKey}
-        </span>
-        <button
-          onClick={handleCopy}
-          className="px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500
-                     text-white text-sm font-semibold transition-colors"
-        >
-          {copied ? '✓ Copied!' : 'Copy'}
-        </button>
+    <div className="space-y-4">
+      {/* Code + share link */}
+      <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 space-y-3">
+        <div>
+          <p className="text-xs text-amber-600 font-semibold uppercase tracking-wider mb-1">
+            Your Referral Code
+          </p>
+          <div className="flex items-center gap-3">
+            <span className="text-3xl font-bold tracking-[0.3em] font-mono text-amber-700">
+              {referralKey}
+            </span>
+          </div>
+        </div>
+
+        {/* Share URL row */}
+        <div className="flex items-center gap-2 bg-white border border-amber-100 rounded-lg px-3 py-2">
+          <span className="text-xs text-gray-400 truncate flex-1 font-mono select-all">
+            /child-signup?ref={referralKey}
+          </span>
+          <button
+            onClick={handleCopy}
+            className="shrink-0 px-3 py-1 rounded-lg bg-amber-500 hover:bg-amber-600
+                       text-white text-xs font-bold transition-colors shadow-sm whitespace-nowrap"
+          >
+            {copied ? '✓ Copied!' : '🔗 Copy Link'}
+          </button>
+        </div>
       </div>
-      <p className="text-xs text-amber-500/80 leading-relaxed">
-        Share this code with friends. When they sign up and reach{' '}
-        <span className="text-amber-400 font-semibold">Level 5</span>, you earn{' '}
-        <span className="text-amber-400 font-semibold">1 Growth Pill + 300 Gold</span>.
-        They also get <span className="text-amber-400 font-semibold">1 Growth Pill + 100 Gold</span>{' '}
-        just for signing up!
-      </p>
+
+      {/* Reward description */}
+      <div className="grid grid-cols-2 gap-3">
+        <div className="bg-white border border-stone-200 rounded-xl p-3">
+          <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">You earn (per referral)</p>
+          <p className="text-sm font-bold text-amber-600">🌱 1 Growth Pill</p>
+          <p className="text-sm font-bold text-amber-600">💰 300 Gold</p>
+          <p className="text-xs text-gray-400 mt-1">when they reach Level 5</p>
+        </div>
+        <div className="bg-white border border-stone-200 rounded-xl p-3">
+          <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">They earn on signup</p>
+          <p className="text-sm font-bold text-amber-600">🌱 1 Growth Pill</p>
+          <p className="text-sm font-bold text-amber-600">💰 100 Gold</p>
+          <p className="text-xs text-gray-400 mt-1">credited on first login</p>
+        </div>
+      </div>
     </div>
   );
 }

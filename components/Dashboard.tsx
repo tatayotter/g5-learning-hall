@@ -801,14 +801,15 @@ export default function Dashboard() {
 
             {/* Compact referral key — invite friends from the board */}
             {dashReferralKey && (
-              <div className="mb-6 rounded-xl border border-amber-700/40 bg-amber-950/30 px-4 py-3 flex items-center justify-between gap-3 flex-wrap">
-                <div>
-                  <p className="text-xs font-semibold text-amber-400 uppercase tracking-wider mb-0.5">
-                    Your Referral Code
-                  </p>
-                  <p className="text-xs text-amber-500/70">
-                    Friends who sign up with your code earn 100 Gold. When they hit Level 5, you earn 300 Gold + 1 Growth Pill!
-                  </p>
+              <div className="mb-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="text-amber-500 text-base">🔗</span>
+                  <div>
+                    <p className="text-xs font-bold text-amber-700 uppercase tracking-wider leading-tight">
+                      Invite Friends
+                    </p>
+                    <p className="text-xs text-gray-500 leading-tight">Share your code — you both earn rewards</p>
+                  </div>
                 </div>
                 <ReferralKeyDisplay referralKey={dashReferralKey} compact />
               </div>

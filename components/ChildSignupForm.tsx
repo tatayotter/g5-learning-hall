@@ -9,6 +9,7 @@ import { validateReferralCode } from '@/lib/referral';
 
 interface ChildSignupFormProps {
   source: 'demo_banner' | 'organic';
+  initialReferralCode?: string;
 }
 
 // Lets a child create their own account with no parent required yet — see
@@ -16,14 +17,14 @@ interface ChildSignupFormProps {
 // app/welcome/page.tsx (anonymous session -> server route -> RPC), except
 // this creates a real, permanent `children` row instead of an ephemeral
 // demo account, and logs the child straight into it afterward.
-export default function ChildSignupForm({ source }: ChildSignupFormProps) {
+export default function ChildSignupForm({ source, initialReferralCode }: ChildSignupFormProps) {
   const router = useRouter();
   const [data, setData] = useState<ChildFormData>(emptyChildForm());
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
 
-  // Referral code state
-  const [referralCode, setReferralCode] = useState('');
+  // Referral code state — pre-filled from ?ref= URL param if provided
+  const [referralCode, setReferralCode] = useState(initialReferralCode ?? '');
   const [referralState, setReferralState] = useState<
     'idle' | 'checking' | 'valid' | 'invalid'
   >('idle');
@@ -107,13 +108,13 @@ export default function ChildSignupForm({ source }: ChildSignupFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 max-w-lg mx-auto">
-      <ChildAccountForm label="Your details" data={data} onChange={setData} />
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <ChildAccountForm label="Your hero details" data={data} onChange={setData} theme="light" />
 
-      {/* Optional referral code field */}
-      <div className="space-y-1.5">
-        <label className="block text-sm font-semibold text-gray-300">
-          Referral Code <span className="text-gray-500 font-normal">(optional)</span>
+      {/* Referral code */}
+      <div className="space-y-2">
+        <label className="block text-xs font-bold text-amber-700 uppercase tracking-wider">
+          Referral Code <span className="text-stone-400 font-normal normal-case">— optional</span>
         </label>
         <div className="relative">
           <input
@@ -122,53 +123,64 @@ export default function ChildSignupForm({ source }: ChildSignupFormProps) {
             placeholder="e.g. aB3z"
             value={referralCode}
             onChange={(e) => setReferralCode(e.target.value)}
-            className={`w-full rounded-lg px-4 py-2.5 bg-gray-800 border font-mono tracking-widest
-                        text-white placeholder-gray-600 outline-none transition-colors
+            className={`w-full rounded-xl px-4 py-3 bg-white border font-mono tracking-widest
+                        text-gray-900 placeholder-stone-400 outline-none transition-all
                         ${referralState === 'valid'
-                          ? 'border-green-500 focus:border-green-400'
+                          ? 'border-green-400 focus:border-green-500 focus:ring-2 focus:ring-green-100'
                           : referralState === 'invalid'
-                          ? 'border-amber-500 focus:border-amber-400'
-                          : 'border-gray-700 focus:border-indigo-500'}`}
+                          ? 'border-amber-400 focus:border-amber-500 focus:ring-2 focus:ring-amber-100'
+                          : 'border-stone-300 focus:border-amber-400 focus:ring-2 focus:ring-amber-100'}`}
           />
           {referralState === 'checking' && (
-            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-500">
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-stone-400">
               Checking…
             </span>
           )}
         </div>
 
         {referralState === 'valid' && (
-          <p className="text-xs text-green-400">
-            ✓ Valid code from{' '}
-            <span className="font-semibold">{referralReferrerName}</span>!
-            You&apos;ll receive 1 Growth Pill + 100 Gold on your first login.
-          </p>
+          <div className="flex items-start gap-2 bg-green-50 border border-green-200 rounded-xl px-3 py-2">
+            <span className="text-green-500 mt-0.5">✓</span>
+            <p className="text-xs text-green-700">
+              Code from <span className="font-bold">{referralReferrerName}</span> — you&apos;ll receive{' '}
+              <span className="font-bold">1 Growth Pill + 100 Gold</span> on your first login!
+            </p>
+          </div>
         )}
         {referralState === 'invalid' && (
-          <p className="text-xs text-amber-400">
-            ⚠ That code wasn&apos;t found — double-check and try again, or leave it blank to continue.
-          </p>
+          <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2">
+            <span className="text-amber-500 mt-0.5">⚠</span>
+            <p className="text-xs text-amber-700">
+              That code wasn&apos;t found — double-check it, or leave it blank to continue.
+            </p>
+          </div>
         )}
         {referralState === 'idle' && referralCode.trim().length === 0 && (
-          <p className="text-xs text-gray-600">
-            Have a friend&apos;s referral code? Enter it here for a bonus!
+          <p className="text-xs text-stone-400 flex items-center gap-1">
+            🎁 Have a friend&apos;s code? Enter it to earn bonus Gold on signup!
           </p>
         )}
       </div>
 
-      {error && <p className="text-red-400 text-sm">{error}</p>}
+      {error && (
+        <div className="bg-red-50 border border-red-200 rounded-xl px-3 py-2">
+          <p className="text-sm text-red-600">{error}</p>
+        </div>
+      )}
 
       <button
         type="submit"
         disabled={submitting}
-        className="w-full rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-bold py-3"
+        className="w-full rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700
+                   disabled:opacity-50 text-white font-bold py-3.5 text-base
+                   shadow-lg shadow-amber-500/30 transition-all"
       >
-        {submitting ? 'Creating your account…' : 'Start Playing'}
+        {submitting ? 'Creating your hero…' : '⚔️ Start Your Adventure!'}
       </button>
 
-      <p className="text-center text-xs text-gray-500">
-        You can play right away. Ask a parent to link their email later from inside the
-        game to unlock leaderboards and PvP battles, and earn a 100 gold bonus.
+      <p className="text-center text-xs text-stone-400 leading-relaxed">
+        You can play right away. Link a parent email later from inside the game to
+        unlock leaderboards, PvP battles, and earn a bonus 💰 100 Gold.
       </p>
     </form>
   );
