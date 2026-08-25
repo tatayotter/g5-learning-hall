@@ -19,6 +19,44 @@ interface GuildJournalProps {
 
 const BTN_STYLE = 'bg-yellow-400 text-black border-2 border-black shadow-[3px_3px_0_0_#000] hover:-translate-y-0.5 hover:shadow-[3px_4px_0_0_#000] active:shadow-none active:translate-y-0.5 transition-all font-extrabold';
 
+const INPUT_CLASS = 'w-full bg-transparent text-gray-800 placeholder:text-gray-400 outline-none text-sm';
+
+function JournalField({
+  label,
+  multiline = true,
+  onChange,
+}: {
+  label: string;
+  multiline?: boolean;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <div className="bg-amber-50 border border-amber-300 rounded-xl p-4">
+      <p className="text-xs font-bold text-amber-700 mb-1.5 uppercase tracking-wide">{label}</p>
+      {multiline ? (
+        <textarea
+          placeholder="Write at least 20 characters…"
+          className={`${INPUT_CLASS} resize-none`}
+          rows={2}
+          required
+          minLength={20}
+          title="At least 20 characters"
+          onChange={e => onChange(e.target.value)}
+        />
+      ) : (
+        <input
+          placeholder="Write at least 20 characters…"
+          className={INPUT_CLASS}
+          required
+          minLength={20}
+          title="At least 20 characters"
+          onChange={e => onChange(e.target.value)}
+        />
+      )}
+    </div>
+  );
+}
+
 export default function GuildJournal({ userId, journalLogs, stats, currentSunday, onSave }: GuildJournalProps) {
   const todayKey = format(new Date(), 'yyyy-MM-dd');
 
@@ -116,60 +154,23 @@ export default function GuildJournal({ userId, journalLogs, stats, currentSunday
       </div>
 
       <form onSubmit={handleSubmit} className="p-5 space-y-3 text-sm">
-        {/* Field: What I did today */}
-        <div className="bg-amber-50 border border-amber-300 rounded-xl p-4">
-          <p className="text-xs font-bold text-amber-700 mb-1.5 uppercase tracking-wide">What I did today</p>
-          <textarea
-            placeholder="Write at least 20 characters…"
-            className="w-full bg-transparent text-gray-800 placeholder:text-gray-400 outline-none resize-none text-sm"
-            rows={2}
-            required
-            minLength={20}
-            title="At least 20 characters"
-            onChange={e => setFormData({ ...formData, done_today: e.target.value })}
-          />
-        </div>
-
-        {/* Field: What I will do tomorrow */}
-        <div className="bg-amber-50 border border-amber-300 rounded-xl p-4">
-          <p className="text-xs font-bold text-amber-700 mb-1.5 uppercase tracking-wide">What I will do tomorrow</p>
-          <textarea
-            placeholder="Write at least 20 characters…"
-            className="w-full bg-transparent text-gray-800 placeholder:text-gray-400 outline-none resize-none text-sm"
-            rows={2}
-            required
-            minLength={20}
-            title="At least 20 characters"
-            onChange={e => setFormData({ ...formData, tomorrow_plan: e.target.value })}
-          />
-        </div>
-
-        {/* Field: Hardest challenge */}
-        <div className="bg-amber-50 border border-amber-300 rounded-xl p-4">
-          <p className="text-xs font-bold text-amber-700 mb-1.5 uppercase tracking-wide">Hardest challenge today</p>
-          <textarea
-            placeholder="Write at least 20 characters…"
-            className="w-full bg-transparent text-gray-800 placeholder:text-gray-400 outline-none resize-none text-sm"
-            rows={2}
-            required
-            minLength={20}
-            title="At least 20 characters"
-            onChange={e => setFormData({ ...formData, hardest_challenge: e.target.value })}
-          />
-        </div>
-
-        {/* Field: Gratitude */}
-        <div className="bg-amber-50 border border-amber-300 rounded-xl p-4">
-          <p className="text-xs font-bold text-amber-700 mb-1.5 uppercase tracking-wide">One thing I&rsquo;m grateful for</p>
-          <input
-            placeholder="Write at least 20 characters…"
-            className="w-full bg-transparent text-gray-800 placeholder:text-gray-400 outline-none text-sm"
-            required
-            minLength={20}
-            title="At least 20 characters"
-            onChange={e => setFormData({ ...formData, gratitude: e.target.value })}
-          />
-        </div>
+        <JournalField
+          label="What I did today"
+          onChange={v => setFormData({ ...formData, done_today: v })}
+        />
+        <JournalField
+          label="What I will do tomorrow"
+          onChange={v => setFormData({ ...formData, tomorrow_plan: v })}
+        />
+        <JournalField
+          label="Hardest challenge today"
+          onChange={v => setFormData({ ...formData, hardest_challenge: v })}
+        />
+        <JournalField
+          label="One thing I'm grateful for"
+          multiline={false}
+          onChange={v => setFormData({ ...formData, gratitude: v })}
+        />
 
         <p className="text-xs text-amber-600 text-center font-semibold">
           Earn +50 XP and +50 Gold for sealing today&rsquo;s entry · min. 20 characters per field

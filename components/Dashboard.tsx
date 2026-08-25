@@ -6,7 +6,7 @@
 // no more hand-maintained parallel page that drifts.
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { UserId, getActiveUser, clearActiveUser, loadAllUsersData, saveTheme, linkIdentity, recordLastLogin, registerDemoUser, USERS, gradeToNumber } from '@/lib/userSession';
@@ -583,6 +583,26 @@ export default function Dashboard() {
     }
   };
 
+  // These memos must sit above every early return so the hook call order
+  // stays stable across renders (Rules of Hooks).
+  const packageData = useMemo(() => {
+    if (!data) return {};
+    return typeof data.package_data === 'string' && data.package_data.trim() !== ''
+      ? JSON.parse(data.package_data)
+      : (data.package_data || {});
+  }, [data?.package_data]);
+  // Main Quest board shows Friday as one auto-built "Weekly Review" quest
+  // instead of whatever's stored under Friday — the Monster Arena question
+  // pool (which reads `packageData` directly) is left untouched.
+  const mainQuestPackageData = useMemo(
+    () => ({ ...packageData, Friday: buildWeeklyReviewDay(packageData) }),
+    [packageData]
+  );
+  const totalQuests = useMemo(
+    () => Object.values(mainQuestPackageData).flatMap(subjects => Object.keys(subjects as object)).length,
+    [mainQuestPackageData]
+  );
+
   if (!hydrated) {
     return <LoadingScreen />;
   }
@@ -625,13 +645,6 @@ export default function Dashboard() {
   };
 
   const currentDayName = format(new Date(), 'EEEE');
-  const packageData = typeof data.package_data === 'string' && data.package_data.trim() !== ''
-    ? JSON.parse(data.package_data)
-    : (data.package_data || {});
-  // Main Quest board shows Friday as one auto-built "Weekly Review" quest
-  // instead of whatever's stored under Friday — the Monster Arena question
-  // pool (which reads `packageData` directly) is left untouched.
-  const mainQuestPackageData = { ...packageData, Friday: buildWeeklyReviewDay(packageData) };
 
   return (
     <>
@@ -746,7 +759,7 @@ export default function Dashboard() {
             <WelcomeCard
               playerName={USERS[activeUserId]?.name ?? activeUserId}
               loginStreak={loginStreak}
-              totalQuests={Object.values(mainQuestPackageData).flatMap(subjects => Object.keys(subjects as object)).length}
+              totalQuests={totalQuests}
               completedQuests={data.mastered_quizzes?.length ?? 0}
             />
 

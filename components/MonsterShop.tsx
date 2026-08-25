@@ -34,6 +34,74 @@ interface Props {
   onThemeChange: (themeKey: string) => void;
 }
 
+// ---------------------------------------------------------------------------
+// Shared item card — used by every shop section so the layout stays in sync.
+// ---------------------------------------------------------------------------
+
+interface ShopCardProps {
+  icon: string;
+  name: string;
+  cost: number;
+  desc?: string;
+  inBag?: number;
+  affordable: boolean;
+  owned?: boolean;
+  buying: boolean;
+  imageSize?: string;
+  onBuy: () => void;
+}
+
+function ShopCard({
+  icon, name, cost, desc, inBag = 0,
+  affordable, owned = false, buying,
+  imageSize = 'w-9 h-9', onBuy,
+}: ShopCardProps) {
+  return (
+    <div className="bg-[#fdf6e3] border border-amber-200 rounded-xl p-3 shadow-md hover:shadow-lg hover:border-amber-300 transition-all flex flex-col justify-between">
+      <div>
+        {/* Icon + name row */}
+        <div className="flex items-center gap-2 mb-2">
+          <div className="bg-amber-100 border border-amber-200 rounded-lg p-1.5 flex-shrink-0">
+            <img src={icon} alt={name} className={`${imageSize} object-contain`} />
+          </div>
+          <h3 className="text-amber-900 font-bold text-sm leading-tight">{name}</h3>
+        </div>
+
+        {/* Gold price badge */}
+        <div className="mb-2">
+          <span className={`inline-flex items-center gap-1 border-2 border-black text-[9px] font-extrabold uppercase tracking-wide px-2 py-0.5 rounded-full ${(affordable || owned) ? 'bg-amber-400 text-black shadow-[2px_2px_0_0_#000]' : 'bg-stone-200 text-stone-400'}`}>
+            <img src="/icons/rewards/gold_coin.svg" alt="" className="w-2.5 h-2.5" /> {cost} GOLD
+          </span>
+        </div>
+
+        {desc && <p className="text-stone-500 text-[11px] mb-2 leading-relaxed">{desc}</p>}
+
+        {inBag > 0 && (
+          <span className="inline-flex items-center gap-1 bg-green-100 text-green-700 border border-green-200 text-[10px] font-bold px-2 py-0.5 rounded-full mb-2">
+            🎒 ×{inBag}
+          </span>
+        )}
+      </div>
+
+      {owned ? (
+        <div className="w-full bg-stone-100 border-2 border-stone-300 text-stone-500 font-extrabold uppercase tracking-wide text-xs py-2 rounded-lg text-center mt-1">
+          ✓ Owned
+        </div>
+      ) : (
+        <button
+          onClick={onBuy}
+          disabled={!affordable || buying}
+          className="w-full py-2 rounded-lg font-extrabold text-xs uppercase tracking-wide text-black bg-yellow-400 hover:bg-yellow-300 border-2 border-black shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-stone-200 disabled:text-stone-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all mt-1"
+        >
+          {buying ? 'Buying…' : affordable ? 'Buy' : 'Not Enough Gold'}
+        </button>
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+
 export default function MonsterShop({ userId, currentStats, onSpendGold }: Props) {
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [loading, setLoading] = useState(true);
@@ -97,10 +165,11 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
     }
   };
 
-  if (loading) return <p className="text-gray-500 animate-pulse">Loading shop...</p>;
+  if (loading) return <p className="text-stone-500 animate-pulse">Loading shop…</p>;
 
   return (
     <div>
+      {/* Header */}
       <div className="mb-2">
         <h1 className="text-3xl font-bold font-display text-gray-900">Curio Arena Shop</h1>
       </div>
@@ -113,9 +182,11 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
       {isFamily && (
         <div className={`mb-6 p-4 rounded-xl border ${claimedToday ? 'bg-green-50 border-green-300' : 'bg-amber-50 border-amber-300'}`}>
           {claimedToday ? (
-            <p className="text-green-700 text-sm font-bold">✅ Daily supply claimed! 3x Health Potion + 1x Iron Shield added to your inventory.</p>
+            <p className="text-green-700 text-sm font-bold">✅ Daily supply claimed! 3× Health Potion + 1× Iron Shield added to your inventory.</p>
           ) : (
-            <p className="text-amber-700 text-sm font-bold"><img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px]" /> Claiming your daily supply...</p>
+            <p className="text-amber-700 text-sm font-bold">
+              <img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px]" /> Claiming your daily supply…
+            </p>
           )}
         </div>
       )}
@@ -124,17 +195,17 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
       <div className="bg-amber-50 border border-amber-200 p-5 rounded-xl mb-8">
         <h2 className="text-sm font-bold text-amber-800 uppercase tracking-widest mb-3">My Inventory</h2>
         {Object.keys(inventory).length === 0 ? (
-          <p className="text-gray-500 text-sm italic">No items yet. Buy some below!</p>
+          <p className="text-stone-500 text-sm italic">No items yet. Buy some below!</p>
         ) : (
           <div className="flex flex-wrap gap-3">
             {SHOP_CATALOG.map(item => {
               const qty = inventory[item.key] || 0;
               if (qty === 0) return null;
               return (
-                <div key={item.key} className="bg-white border border-stone-200 rounded-lg px-3 py-2 flex items-center gap-2">
+                <div key={item.key} className="bg-white border border-amber-200 rounded-lg px-3 py-2 flex items-center gap-2 shadow-sm">
                   <img src={item.icon} alt={item.name} className="w-6 h-6 object-contain" />
-                  <span className="text-gray-800 text-sm font-bold">{item.name}</span>
-                  <span className="bg-amber-100 text-amber-800 text-xs font-bold px-2 py-0.5 rounded-full">x{qty}</span>
+                  <span className="text-amber-900 text-sm font-bold">{item.name}</span>
+                  <span className="bg-amber-100 text-amber-800 text-xs font-bold px-2 py-0.5 rounded-full border border-amber-200">×{qty}</span>
                 </div>
               );
             })}
@@ -143,7 +214,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
       </div>
 
       {/* Section tabs */}
-      <div className="flex border-b border-stone-200 mb-6 space-x-2">
+      <div className="flex border-b-2 border-amber-200 mb-6 space-x-1">
         {([
           { id: 'items',   label: '⚔️ Curio Arena Shop' },
           { id: 'scrolls', label: '📜 Skill Scrolls' },
@@ -153,10 +224,10 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
           <button
             key={tab.id}
             onClick={() => setActiveSection(tab.id)}
-            className={`px-4 py-2.5 font-bold text-sm whitespace-nowrap transition-colors ${
+            className={`px-4 py-2.5 font-bold text-sm whitespace-nowrap transition-colors rounded-t-lg ${
               activeSection === tab.id
-                ? 'border-b-2 border-amber-500 text-amber-700'
-                : 'text-gray-500 hover:text-gray-700 hover:bg-stone-100 rounded-t'
+                ? 'border-b-2 border-amber-500 text-amber-700 bg-amber-50 -mb-[2px]'
+                : 'text-stone-500 hover:text-stone-700 hover:bg-stone-100'
             }`}
           >
             {tab.label}
@@ -167,33 +238,19 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
       {/* Curio Arena Shop — consumables */}
       {activeSection === 'items' && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {SHOP_CATALOG.map(item => {
-            const affordable = currentStats.gold >= item.cost;
-            return (
-              <div key={item.key} className="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm flex flex-col justify-between">
-                <div>
-                  <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
-                  <h3 className="text-gray-800 font-bold mb-2">{item.name}</h3>
-                  <div className="mb-3">
-                    <span className={`inline-flex items-center gap-1 border-2 border-[#000000] text-[10px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full ${affordable ? 'bg-amber-400 text-black shadow-[2px_2px_0_0_#000]' : 'bg-stone-100 text-stone-400'}`}>
-                      <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3 h-3" /> {item.cost} GOLD
-                    </span>
-                  </div>
-                  <p className="text-gray-500 text-xs mb-4">{item.desc}</p>
-                  {(inventory[item.key] || 0) > 0 && (
-                    <p className="text-green-400 text-xs mb-2 font-bold">In bag: x{inventory[item.key]}</p>
-                  )}
-                </div>
-                <button
-                  onClick={() => handleBuy(item.key, item.cost, item.name)}
-                  disabled={!affordable || buyingKey === item.key}
-                  className="w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide text-black bg-yellow-400 hover:bg-yellow-300 border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-stone-100 disabled:text-stone-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all"
-                >
-                  {buyingKey === item.key ? 'Buying...' : affordable ? 'Buy' : 'Not Enough Gold'}
-                </button>
-              </div>
-            );
-          })}
+          {SHOP_CATALOG.map(item => (
+            <ShopCard
+              key={item.key}
+              icon={item.icon}
+              name={item.name}
+              cost={item.cost}
+              desc={item.desc}
+              inBag={inventory[item.key] || 0}
+              affordable={currentStats.gold >= item.cost}
+              buying={buyingKey === item.key}
+              onBuy={() => handleBuy(item.key, item.cost, item.name)}
+            />
+          ))}
         </div>
       )}
 
@@ -202,18 +259,19 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
           unlearning a monster's skill in the Compendium. */}
       {activeSection === 'scrolls' && (
         <div>
-          <p className="text-gray-500 text-sm mb-4">
+          <p className="text-stone-500 text-sm mb-4">
             Buy an Unlearn Scroll to open a monster&apos;s skill slot in the Compendium, then a
             named scroll to teach it something new.
           </p>
 
+          {/* Category filter */}
           <div className="flex flex-wrap gap-2 mb-3">
             {(['all', 'unlearn', 'base', 'alt', 'universal'] as const).map(cat => (
               <button
                 key={cat}
                 onClick={() => setScrollCategory(cat)}
                 className={`text-xs font-bold px-3 py-1.5 rounded-full transition-colors ${
-                  scrollCategory === cat ? 'bg-amber-500 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
+                  scrollCategory === cat ? 'bg-amber-500 text-white shadow-sm' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
                 }`}
               >
                 {cat === 'all' ? 'All' : SCROLL_CATEGORY_LABELS[cat]}
@@ -221,6 +279,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
             ))}
           </div>
 
+          {/* Element filter */}
           {(scrollCategory === 'all' || scrollCategory === 'base' || scrollCategory === 'alt') && (
             <div className="flex flex-wrap gap-2 mb-4">
               {(['all', ...ELEMENTS] as const).map(el => (
@@ -228,7 +287,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
                   key={el}
                   onClick={() => setScrollElement(el)}
                   className={`text-xs font-bold px-3 py-1 rounded-full capitalize transition-colors ${
-                    scrollElement === el ? 'bg-stone-700 text-white' : 'bg-white border border-stone-200 text-gray-500 hover:text-gray-700'
+                    scrollElement === el ? 'bg-amber-800 text-white' : 'bg-white border border-amber-200 text-stone-500 hover:text-stone-700'
                   }`}
                 >
                   {el}
@@ -241,33 +300,19 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
             {SCROLL_CATALOG
               .filter(item => scrollCategory === 'all' || item.category === scrollCategory)
               .filter(item => scrollElement === 'all' || item.element === scrollElement || item.category === 'unlearn' || item.category === 'universal')
-              .map(item => {
-                const affordable = currentStats.gold >= item.cost;
-                return (
-                  <div key={item.key} className="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm flex flex-col justify-between">
-                    <div>
-                      <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
-                      <h3 className="text-gray-800 font-bold mb-2">{item.name}</h3>
-                      <div className="mb-3">
-                        <span className={`inline-flex items-center gap-1 border-2 border-[#000000] text-[10px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full ${affordable ? 'bg-amber-400 text-black shadow-[2px_2px_0_0_#000]' : 'bg-stone-100 text-stone-400'}`}>
-                          <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3 h-3" /> {item.cost} GOLD
-                        </span>
-                      </div>
-                      <p className="text-gray-500 text-xs mb-4">{item.desc}</p>
-                      {(inventory[item.key] || 0) > 0 && (
-                        <p className="text-green-400 text-xs mb-2 font-bold">In bag: x{inventory[item.key]}</p>
-                      )}
-                    </div>
-                    <button
-                      onClick={() => handleBuy(item.key, item.cost, item.name)}
-                      disabled={!affordable || buyingKey === item.key}
-                      className="w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide text-black bg-yellow-400 hover:bg-yellow-300 border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-stone-100 disabled:text-stone-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all"
-                    >
-                      {buyingKey === item.key ? 'Buying...' : affordable ? 'Buy' : 'Not Enough Gold'}
-                    </button>
-                  </div>
-                );
-              })}
+              .map(item => (
+                <ShopCard
+                  key={item.key}
+                  icon={item.icon}
+                  name={item.name}
+                  cost={item.cost}
+                  desc={item.desc}
+                  inBag={inventory[item.key] || 0}
+                  affordable={currentStats.gold >= item.cost}
+                  buying={buyingKey === item.key}
+                  onBuy={() => handleBuy(item.key, item.cost, item.name)}
+                />
+              ))}
           </div>
         </div>
       )}
@@ -278,38 +323,24 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
           tier; consumed atomically inside the tutor_curio RPC. */}
       {activeSection === 'tomes' && (
         <div>
-          <p className="text-gray-500 text-sm mb-4">
+          <p className="text-stone-500 text-sm mb-4">
             Boost the odds of a single Tutor roll in the Compendium. Each tome only helps a curio
             currently at its matching quality tier.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {TOME_CATALOG.map(item => {
-              const affordable = currentStats.gold >= item.cost;
-              return (
-                <div key={item.key} className="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm flex flex-col justify-between">
-                  <div>
-                    <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain mb-2" />
-                    <h3 className="text-gray-800 font-bold mb-2">{item.name}</h3>
-                    <div className="mb-3">
-                      <span className={`inline-flex items-center gap-1 border-2 border-[#000000] text-[10px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full ${affordable ? 'bg-amber-400 text-black shadow-[2px_2px_0_0_#000]' : 'bg-stone-100 text-stone-400'}`}>
-                        <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3 h-3" /> {item.cost} GOLD
-                      </span>
-                    </div>
-                    <p className="text-gray-500 text-xs mb-4">{item.desc}</p>
-                    {(inventory[item.key] || 0) > 0 && (
-                      <p className="text-green-400 text-xs mb-2 font-bold">In bag: x{inventory[item.key]}</p>
-                    )}
-                  </div>
-                  <button
-                    onClick={() => handleBuy(item.key, item.cost, item.name)}
-                    disabled={!affordable || buyingKey === item.key}
-                    className="w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide text-black bg-yellow-400 hover:bg-yellow-300 border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-stone-100 disabled:text-stone-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all"
-                  >
-                    {buyingKey === item.key ? 'Buying...' : affordable ? 'Buy' : 'Not Enough Gold'}
-                  </button>
-                </div>
-              );
-            })}
+            {TOME_CATALOG.map(item => (
+              <ShopCard
+                key={item.key}
+                icon={item.icon}
+                name={item.name}
+                cost={item.cost}
+                desc={item.desc}
+                inBag={inventory[item.key] || 0}
+                affordable={currentStats.gold >= item.cost}
+                buying={buyingKey === item.key}
+                onBuy={() => handleBuy(item.key, item.cost, item.name)}
+              />
+            ))}
           </div>
         </div>
       )}
@@ -319,45 +350,26 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
           the Hero Profile card once owned. */}
       {activeSection === 'sprites' && (
         <div>
-          <p className="text-gray-500 text-sm mb-4">
+          <p className="text-stone-500 text-sm mb-4">
             Unlock premium portraits for your Hero Profile. Once purchased, equip them anytime from your avatar picker.
           </p>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {USERPIC_CATALOG.map(item => {
-              const owned = (inventory[item.key] || 0) > 0;
-              const affordable = currentStats.gold >= item.cost;
-              return (
-                <div key={item.key} className="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm flex flex-col justify-between">
-                  <div>
-                    <img src={userpicPath(item.file)} alt={item.name} className="w-16 h-16 object-contain mb-2 rounded-lg" />
-                    <h3 className="text-gray-800 font-bold mb-2">{item.name}</h3>
-                    <div className="mb-3">
-                      <span className={`inline-flex items-center gap-1 border-2 border-[#000000] text-[10px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full ${affordable || owned ? 'bg-amber-400 text-black shadow-[2px_2px_0_0_#000]' : 'bg-stone-100 text-stone-400'}`}>
-                        <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3 h-3" /> {item.cost} GOLD
-                      </span>
-                    </div>
-                  </div>
-                  {owned ? (
-                    <div className="w-full bg-stone-100 border-2 border-stone-300 text-gray-500 font-extrabold uppercase tracking-wide text-sm py-2.5 rounded-lg text-center">
-                      ✓ Owned
-                    </div>
-                  ) : (
-                    <button
-                      onClick={() => handleBuy(item.key, item.cost, item.name)}
-                      disabled={!affordable || buyingKey === item.key}
-                      className="w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide text-black bg-yellow-400 hover:bg-yellow-300 border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-stone-100 disabled:text-stone-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all"
-                    >
-                      {buyingKey === item.key ? 'Buying...' : affordable ? 'Buy' : 'Not Enough Gold'}
-                    </button>
-                  )}
-                </div>
-              );
-            })}
+            {USERPIC_CATALOG.map(item => (
+              <ShopCard
+                key={item.key}
+                icon={userpicPath(item.file)}
+                name={item.name}
+                cost={item.cost}
+                affordable={currentStats.gold >= item.cost}
+                owned={(inventory[item.key] || 0) > 0}
+                buying={buyingKey === item.key}
+                imageSize="w-12 h-12"
+                onBuy={() => handleBuy(item.key, item.cost, item.name)}
+              />
+            ))}
           </div>
         </div>
       )}
-
     </div>
   );
 }

@@ -390,7 +390,7 @@ export default function MapCanvas({
                 <img
                   src={ELEMENT_ICON_SRC[region.element]}
                   alt=""
-                  className="w-3.5 h-3.5 object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] flex-shrink-0"
+                  className="w-3.5 h-3.5 object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,1)] flex-shrink-0"
                 />
               )}
               <span className="text-[10px] font-bold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,1)] leading-none">

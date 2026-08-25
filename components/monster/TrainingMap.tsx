@@ -558,6 +558,11 @@ export default function TrainingMap({
   const portalMarkers = isLedgersHeart
     ? portals.map(p => ({ x: p.x, y: p.y, regionId: p.regionId, locked: playerLevel < (REGIONS[p.regionId]?.unlockLevel ?? 0) }))
     : undefined;
+  // Hoisted to avoid an IIFE allocation on every render inside the scroll panel JSX.
+  const activeMonsterExpToNext = activeMonster
+    ? BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - (activeMonster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL)
+    : null;
+
   const frameContent = (
     <div className="relative w-full h-full">
       {background && <MapCanvas
@@ -954,10 +959,9 @@ export default function TrainingMap({
           </p>
           <p className="text-xs text-stone-600 leading-tight">
             Answer correctly → <span className="text-amber-600 font-bold">+{BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER} EXP</span>
-            {activeMonster && (() => {
-              const expToNext = BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - (activeMonster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL);
-              return <span className="text-stone-400 text-[11px] ml-1">({expToNext} to next level)</span>;
-            })()}
+            {activeMonsterExpToNext !== null && (
+              <span className="text-stone-400 text-[11px] ml-1">({activeMonsterExpToNext} to next level)</span>
+            )}
           </p>
         </div>
       </div>
