@@ -46,7 +46,7 @@ import { isOfflineStorageAvailable, getActiveUserLocal, enqueueSync } from '@/li
 import { isAppOffline } from '@/lib/offlineState';
 import { watchAndFlushSyncQueue } from '@/lib/offlineSync';
 import { seedOfflineCache } from '@/lib/offlineSeed';
-import { claimRegistrantReward, fetchNotifications, markNotificationsRead, PlayerNotification } from '@/lib/referral';
+import { claimRegistrantReward, fetchNotifications, markNotificationsRead, getMyReferralKey, PlayerNotification } from '@/lib/referral';
 import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
 import NotificationInbox from '@/components/NotificationInbox';
 import MonsterShop from '@/components/MonsterShop';
@@ -275,14 +275,7 @@ export default function Dashboard() {
         fetchNotifications(activeUserId).then(setNotifications);
 
         // Load referral key for the compact Dashboard display.
-        supabase
-          .from('children')
-          .select('referral_key')
-          .eq('id', activeUserId)
-          .maybeSingle()
-          .then(({ data }) => {
-            if (data?.referral_key) setDashReferralKey(data.referral_key as string);
-          });
+        getMyReferralKey().then(key => { if (key) setDashReferralKey(key); });
 
         // One-shot per browser session, regardless of which user ends up logged
         // in first — guards against firing again on every activeUserId change.

@@ -88,3 +88,16 @@ export async function fetchNotifications(
 export async function markNotificationsRead(userId: string): Promise<void> {
   await supabase.rpc('mark_notifications_read', { p_user_id: userId });
 }
+
+/**
+ * Fetch the current player's own referral key.
+ * Uses a SECURITY DEFINER RPC because RLS on `children` blocks direct selects.
+ */
+export async function getMyReferralKey(): Promise<string | null> {
+  const { data, error } = await supabase.rpc('get_my_referral_key');
+  if (error) {
+    console.error('get_my_referral_key error:', error);
+    return null;
+  }
+  return (data as string) ?? null;
+}

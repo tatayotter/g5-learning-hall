@@ -20,6 +20,7 @@ import { MonsterImage } from '@/components/battle/shared';
 import { isOfflineStorageAvailable } from '@/lib/localDataSource';
 import { isAppOffline } from '@/lib/offlineState';
 import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
+import { getMyReferralKey } from '@/lib/referral';
 
 // Scene grid: 3 cols × 2 rows (back row behind, front row in front)
 const GRID_CELLS = [
@@ -203,17 +204,10 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
     fetchPlayerProgress(userId).then(setProgress);
   }, [userId, offline]);
 
-  // Fetch this player's referral key for display in the profile.
+  // Fetch this player's referral key via RPC (children RLS blocks direct reads).
   useEffect(() => {
     if (offline) return;
-    supabase
-      .from('children')
-      .select('referral_key')
-      .eq('id', userId)
-      .maybeSingle()
-      .then(({ data }) => {
-        if (data?.referral_key) setReferralKey(data.referral_key as string);
-      });
+    getMyReferralKey().then(key => { if (key) setReferralKey(key); });
   }, [userId, offline]);
 
   // guild_sessions_count/monster_battles_won/etc. reset every week (see
