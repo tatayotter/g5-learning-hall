@@ -106,10 +106,10 @@ export default function GuildJournal({ userId, journalLogs, stats, currentSunday
 
   // --- RENDER: SUBMISSION FORM ---
   return (
-    <div className="bg-white border border-stone-200 rounded-2xl shadow-sm mb-6 overflow-hidden">
+    <div className="bg-white border-2 border-amber-400 rounded-2xl shadow-md mb-6 overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between px-5 py-4 border-b border-stone-100">
-        <h2 className="text-sm font-bold text-gray-700 font-display">Guild Journal Ledger</h2>
+      <div className="flex items-center justify-between px-5 py-4 border-b border-amber-200 bg-amber-50">
+        <h2 className="text-sm font-bold text-amber-800 font-display">Guild Journal Ledger</h2>
         <span className="bg-amber-100 text-amber-700 text-xs font-bold px-3 py-1 rounded-full border border-amber-200">
           Today&rsquo;s Entry
         </span>
@@ -117,7 +117,7 @@ export default function GuildJournal({ userId, journalLogs, stats, currentSunday
 
       <form onSubmit={handleSubmit} className="p-5 space-y-3 text-sm">
         {/* Field: What I did today */}
-        <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
+        <div className="bg-amber-50 border border-amber-300 rounded-xl p-4">
           <p className="text-xs font-bold text-amber-700 mb-1.5 uppercase tracking-wide">What I did today</p>
           <textarea
             placeholder="Write at least 20 characters…"
@@ -131,7 +131,7 @@ export default function GuildJournal({ userId, journalLogs, stats, currentSunday
         </div>
 
         {/* Field: What I will do tomorrow */}
-        <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
+        <div className="bg-amber-50 border border-amber-300 rounded-xl p-4">
           <p className="text-xs font-bold text-amber-700 mb-1.5 uppercase tracking-wide">What I will do tomorrow</p>
           <textarea
             placeholder="Write at least 20 characters…"
@@ -145,7 +145,7 @@ export default function GuildJournal({ userId, journalLogs, stats, currentSunday
         </div>
 
         {/* Field: Hardest challenge */}
-        <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
+        <div className="bg-amber-50 border border-amber-300 rounded-xl p-4">
           <p className="text-xs font-bold text-amber-700 mb-1.5 uppercase tracking-wide">Hardest challenge today</p>
           <textarea
             placeholder="Write at least 20 characters…"
@@ -159,7 +159,7 @@ export default function GuildJournal({ userId, journalLogs, stats, currentSunday
         </div>
 
         {/* Field: Gratitude */}
-        <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
+        <div className="bg-amber-50 border border-amber-300 rounded-xl p-4">
           <p className="text-xs font-bold text-amber-700 mb-1.5 uppercase tracking-wide">One thing I&rsquo;m grateful for</p>
           <input
             placeholder="Write at least 20 characters…"
