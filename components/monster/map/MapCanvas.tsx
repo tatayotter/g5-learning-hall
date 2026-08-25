@@ -385,7 +385,7 @@ export default function MapCanvas({
             title={portal.locked ? `${region.name} — locked until level ${region.unlockLevel}` : region.name}
           >
             {/* Name label above portal */}
-            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 flex items-center gap-0.5 whitespace-nowrap">
+            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 flex items-center gap-0.5 whitespace-nowrap z-10">
               {region.element !== 'all' && (
                 <img
                   src={ELEMENT_ICON_SRC[region.element]}
