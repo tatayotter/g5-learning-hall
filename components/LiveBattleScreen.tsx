@@ -374,6 +374,17 @@ export default function LiveBattleScreen({
       }
     }
 
+    // In bot mode the opponent has no real client to send a monster_switch
+    // broadcast — auto-switch the bot's active monster locally so the battle
+    // can continue instead of hanging with oppMon.currentHp === 0 forever.
+    if (oppFainted && !oppWiped && botAccuracy !== undefined) {
+      const nextIdx = oppRoster.findIndex((m, i) => i !== oppActiveIdx && m.currentHp > 0);
+      if (nextIdx !== -1) {
+        addLog(`${oppMon.def.name} fainted! ${opponentName} sends out ${oppRoster[nextIdx].def.name}!`);
+        setOppActiveIdx(nextIdx);
+      }
+    }
+
     if (myWiped || oppWiped) {
       setResolving(true);
       const won = oppWiped && !myWiped;
