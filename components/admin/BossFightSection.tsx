@@ -65,7 +65,7 @@ function PoolReadinessPanel() {
     (async () => {
       const results: Record<number, Record<string, number>> = {};
       await Promise.all(BOSS_FIGHT_GRADES.map(async g => {
-        results[g] = await fetchBossPoolCounts(g);
+        results[g] = await fetchBossPoolCounts(g, CURRENT_TERM);
       }));
       setCounts(results);
       setLoading(false);

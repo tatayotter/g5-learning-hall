@@ -249,7 +249,7 @@ export default function BossFightScreen({ userId, grade, subject, otherPersonas,
   const [claiming, setClaiming] = useState(false);
 
   const load = useCallback(async () => {
-    const all = await fetchBossQuestionPool(grade, subject);
+    const all = await fetchBossQuestionPool(grade, subject, CURRENT_TERM);
     setRawPool(all);
     setPool(buildBossQuestionPool(all));
   }, [grade, subject]);

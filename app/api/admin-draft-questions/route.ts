@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
   }
 
   if (action === 'publish') {
-    const { ids, grade, day, subject, week_starting_date } = body;
+    const { ids, grade, day, subject, week_starting_date, term } = body;
     const validDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
     if (!Array.isArray(ids) || ids.length === 0 || !grade || !validDays.includes(day) || !subject || !week_starting_date) {
       return NextResponse.json({ success: false, error: 'ids, grade, day (weekday name), subject, and week_starting_date are required' }, { status: 400 });
@@ -78,6 +78,7 @@ export async function POST(request: NextRequest) {
       p_day: day,
       p_subject: subject,
       p_week_starting_date: week_starting_date,
+      p_term: typeof term === 'number' ? term : 1,
     });
     if (error) return NextResponse.json({ success: false, error: error.message }, { status: 409 });
     return NextResponse.json({ success: true });

@@ -67,12 +67,14 @@ export function getMistakeBudget(poolSize: number): number {
 }
 
 // One grouped query for the board's persona-list readiness check, rather than
-// a separate query per persona card.
-export async function fetchBossPoolCounts(grade: number): Promise<Record<string, number>> {
+// a separate query per persona card. Term-scoped so Term 2 fights don't
+// include Term 1 questions in their pool counts.
+export async function fetchBossPoolCounts(grade: number, term: number): Promise<Record<string, number>> {
   const { data, error } = await supabase
     .from('draft_questions_public')
     .select('subject')
-    .eq('grade', grade);
+    .eq('grade', grade)
+    .eq('term', term);
   if (error || !data) return {};
   const counts: Record<string, number> = {};
   for (const row of data) {
@@ -81,12 +83,13 @@ export async function fetchBossPoolCounts(grade: number): Promise<Record<string,
   return counts;
 }
 
-export async function fetchBossQuestionPool(grade: number, subject: string): Promise<BossQuestion[]> {
+export async function fetchBossQuestionPool(grade: number, subject: string, term: number): Promise<BossQuestion[]> {
   const { data, error } = await supabase
     .from('draft_questions_public')
     .select('*')
     .eq('grade', grade)
-    .eq('subject', subject);
+    .eq('subject', subject)
+    .eq('term', term);
   if (error || !data) return [];
   return data as BossQuestion[];
 }

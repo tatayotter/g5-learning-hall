@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { getScheduledDay } from '@/lib/subjectSchedule';
 import { callAdminApi } from '@/lib/adminApi';
 import { GRADE_LEVELS } from '@/lib/userSession';
+import { CURRENT_TERM } from '@/lib/guildConfig';
 
 interface DraftSummary {
   id: string;
@@ -324,7 +325,7 @@ function DraftSubjectGroup({ subject, drafts, summary, grade, selectedIds, onTog
     setPublishing(true);
     const result = await callAdminApi('/api/admin-draft-questions', {
       passcode, action: 'publish',
-      ids: idsInThisSubject, grade, day: publishDay, subject, week_starting_date: publishWeek,
+      ids: idsInThisSubject, grade, day: publishDay, subject, week_starting_date: publishWeek, term: CURRENT_TERM,
     });
     if (!result.success) {
       alert(`❌ Publish failed: ${result.error}`);

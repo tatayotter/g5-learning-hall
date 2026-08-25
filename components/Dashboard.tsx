@@ -423,7 +423,7 @@ export default function Dashboard() {
   const [bossPoolCounts, setBossPoolCounts] = useState<Record<string, number>>({});
   useEffect(() => {
     if (!isBossFightGrade(bossGradeLevel) || !bossProgress.bossFightsEnabled) return;
-    fetchBossPoolCounts(bossGradeLevel).then(setBossPoolCounts);
+    fetchBossPoolCounts(bossGradeLevel, CURRENT_TERM).then(setBossPoolCounts);
   }, [bossGradeLevel, bossProgress.bossFightsEnabled]);
   // Term boss ambient overrides the main theme game-wide while the event is
   // active — same gate as the mist overlay. Falls back to whatever was
