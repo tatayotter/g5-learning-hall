@@ -1,5 +1,5 @@
 # TALA — Weekly Package Generation Prompt
-## Grade 2 | G5 Learning Hall
+## Grade 2 | Learning Hall
 
 ---
 

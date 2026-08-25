@@ -1,5 +1,5 @@
 # Weekly Package Generation Prompt
-## Grade 5 | G5 Learning Hall
+## Grade 5 | Learning Hall
 
 ---
 
