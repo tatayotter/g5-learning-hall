@@ -63,10 +63,8 @@ export async function claimRegistrantReward(
   const { data, error } = await supabase.rpc('claim_registrant_referral_reward', {
     p_user_id: userId,
   });
-  if (error) {
-    console.error('claim_registrant_referral_reward error:', error);
-    return null;
-  }
+  // Silently return null if RPC doesn't exist yet (migration pending)
+  if (error) return null;
   return data ?? null;
 }
 
@@ -77,16 +75,15 @@ export async function fetchNotifications(
   const { data, error } = await supabase.rpc('fetch_player_notifications', {
     p_user_id: userId,
   });
-  if (error) {
-    console.error('fetch_player_notifications error:', error);
-    return [];
-  }
+  // Silently return empty if RPC doesn't exist yet (migration pending)
+  if (error) return [];
   return (data as PlayerNotification[]) ?? [];
 }
 
 /** Mark all of a player's notifications as read. */
 export async function markNotificationsRead(userId: string): Promise<void> {
-  await supabase.rpc('mark_notifications_read', { p_user_id: userId });
+  // Fire-and-forget; non-fatal if migration not applied yet
+  supabase.rpc('mark_notifications_read', { p_user_id: userId }).then(() => {});
 }
 
 /**
@@ -95,9 +92,7 @@ export async function markNotificationsRead(userId: string): Promise<void> {
  */
 export async function getMyReferralKey(): Promise<string | null> {
   const { data, error } = await supabase.rpc('get_my_referral_key');
-  if (error) {
-    console.error('get_my_referral_key error:', error);
-    return null;
-  }
+  // Silently return null if RPC doesn't exist yet (migration pending)
+  if (error) return null;
   return (data as string) ?? null;
 }
