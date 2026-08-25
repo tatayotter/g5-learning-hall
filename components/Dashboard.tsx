@@ -46,6 +46,9 @@ import { isOfflineStorageAvailable, getActiveUserLocal, enqueueSync } from '@/li
 import { isAppOffline } from '@/lib/offlineState';
 import { watchAndFlushSyncQueue } from '@/lib/offlineSync';
 import { seedOfflineCache } from '@/lib/offlineSeed';
+import { claimRegistrantReward, fetchNotifications, markNotificationsRead, PlayerNotification } from '@/lib/referral';
+import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
+import NotificationInbox from '@/components/NotificationInbox';
 import MonsterShop from '@/components/MonsterShop';
 import VaultKeeperNpc from '@/components/VaultKeeperNpc';
 import CurioExpertNpc from '@/components/CurioExpertNpc';
@@ -256,6 +259,31 @@ export default function Dashboard() {
         // Fire-and-forget — pre-warms all 5 guild pools for offline play
         // (Android only). Not awaited so it can't delay session_start below.
         void seedOfflineCache(activeUserId, USERS[activeUserId].grade);
+        // Referral: claim registrant welcome reward (idempotent — no-ops if
+        // already claimed or no referral was used). Show a reward toast if
+        // something was actually credited this session.
+        claimRegistrantReward(activeUserId).then(reward => {
+          if (reward) {
+            setToast({
+              show: true,
+              message: `🎁 Referral bonus! +${reward.growth_pills} Growth Pill & +${reward.gold} Gold added to your account!`,
+            });
+          }
+        });
+
+        // Load inbox notifications (unread badge + persistent inbox).
+        fetchNotifications(activeUserId).then(setNotifications);
+
+        // Load referral key for the compact Dashboard display.
+        supabase
+          .from('children')
+          .select('referral_key')
+          .eq('id', activeUserId)
+          .maybeSingle()
+          .then(({ data }) => {
+            if (data?.referral_key) setDashReferralKey(data.referral_key as string);
+          });
+
         // One-shot per browser session, regardless of which user ends up logged
         // in first — guards against firing again on every activeUserId change.
         if (typeof window !== 'undefined' && !sessionStorage.getItem('lh_session_started')) {
@@ -381,6 +409,8 @@ export default function Dashboard() {
   const [quizPhase, setQuizPhase] = useState<'study' | 'ready' | 'quiz'>('study');
   const [myClaims, setMyClaims] = useState<any[]>([]);
   const [toast, setToast] = useState({ show: false, message: '' });
+  const [notifications, setNotifications] = useState<PlayerNotification[]>([]);
+  const [dashReferralKey, setDashReferralKey] = useState<string | null>(null);
   const { newlyUnlocked, clearNotifications } = useAchievementNotifier(data);
 
   // --- Custom Events ---
@@ -660,6 +690,19 @@ export default function Dashboard() {
       {showOnboarding && <OnboardingTour onComplete={handleCompleteOnboarding} />}
       <div className="app-content flex-1 min-h-0 flex flex-col">
         <div className="h-full bg-black text-white">
+      {/* Notifications bell — fixed top-right, no layout impact */}
+      {activeUserId && notifications.length > 0 && (
+        <div className="fixed top-3 right-16 z-[90]">
+          <NotificationInbox
+            notifications={notifications}
+            onMarkRead={() => {
+              markNotificationsRead(activeUserId);
+              setNotifications(prev => prev.map(n => ({ ...n, read: true })));
+            }}
+          />
+        </div>
+      )}
+
       {/* Floating nav — fixed-position, no layout impact */}
       {pendingEggHatches[0] && (
         <EggHatchModal
@@ -762,6 +805,21 @@ export default function Dashboard() {
               totalQuests={totalQuests}
               completedQuests={data.mastered_quizzes?.length ?? 0}
             />
+
+            {/* Compact referral key — invite friends from the board */}
+            {dashReferralKey && (
+              <div className="mb-6 rounded-xl border border-amber-700/40 bg-amber-950/30 px-4 py-3 flex items-center justify-between gap-3 flex-wrap">
+                <div>
+                  <p className="text-xs font-semibold text-amber-400 uppercase tracking-wider mb-0.5">
+                    Your Referral Code
+                  </p>
+                  <p className="text-xs text-amber-500/70">
+                    Friends who sign up with your code earn 100 Gold. When they hit Level 5, you earn 300 Gold + 1 Growth Pill!
+                  </p>
+                </div>
+                <ReferralKeyDisplay referralKey={dashReferralKey} compact />
+              </div>
+            )}
 
             {activeEvent && (
               <div className="mb-10">

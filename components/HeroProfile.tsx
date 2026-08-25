@@ -19,6 +19,7 @@ import { fetchSubclassProfile, guildLevelForKey } from '@/lib/guildEngine';
 import { MonsterImage } from '@/components/battle/shared';
 import { isOfflineStorageAvailable } from '@/lib/localDataSource';
 import { isAppOffline } from '@/lib/offlineState';
+import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
 
 // Scene grid: 3 cols × 2 rows (back row behind, front row in front)
 const GRID_CELLS = [
@@ -62,6 +63,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   const [ownedCuriosCount, setOwnedCuriosCount] = useState(0);
   const [activeSlot, setActiveSlot] = useState<number | null>(null);
   const [subclassProfile, setSubclassProfile] = useState<Awaited<ReturnType<typeof fetchSubclassProfile>> | null>(null);
+  const [referralKey, setReferralKey] = useState<string | null>(null);
   const activeUser = USERS[userId as keyof typeof USERS] ?? USERS['damien'];
 
   // Scene editor
@@ -199,6 +201,19 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   useEffect(() => {
     if (offline) return;
     fetchPlayerProgress(userId).then(setProgress);
+  }, [userId, offline]);
+
+  // Fetch this player's referral key for display in the profile.
+  useEffect(() => {
+    if (offline) return;
+    supabase
+      .from('children')
+      .select('referral_key')
+      .eq('id', userId)
+      .maybeSingle()
+      .then(({ data }) => {
+        if (data?.referral_key) setReferralKey(data.referral_key as string);
+      });
   }, [userId, offline]);
 
   // guild_sessions_count/monster_battles_won/etc. reset every week (see
@@ -553,6 +568,16 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
           </div>
         )}
       </div>
+
+      {/* --- Referral --- */}
+      {referralKey && (
+        <div className="border border-stone-200 p-6 rounded-xl shadow-sm mb-6" style={{ background: 'linear-gradient(150deg, #fffbeb 0%, #ffffff 55%)' }}>
+          <h2 className="text-xl font-bold text-gray-900 border-b border-stone-100 pb-4 mb-5">
+            Invite Friends
+          </h2>
+          <ReferralKeyDisplay referralKey={referralKey} />
+        </div>
+      )}
 
       {pickerOpen && (
         <AvatarPicker

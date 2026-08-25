@@ -8,7 +8,7 @@ import { createClient } from '@supabase/supabase-js';
 // this exact browser, and so the real client IP (unavailable to browser JS)
 // can be attached for the RPC's own rate limiting.
 export async function POST(request: NextRequest) {
-  const { accessToken, username, pin, fullName, grade, gender, schoolName, avatar, source, sessionId } = await request.json();
+  const { accessToken, username, pin, fullName, grade, gender, schoolName, avatar, source, sessionId, referralCode } = await request.json();
 
   if (typeof accessToken !== 'string' || !accessToken) {
     return NextResponse.json({ success: false, error: 'missing session' }, { status: 400 });
@@ -55,6 +55,15 @@ export async function POST(request: NextRequest) {
     client_ts: new Date().toISOString(),
   });
   if (analyticsError) console.error('Failed to write analytics event:', analyticsError);
+
+  // Apply referral code if supplied — non-fatal if it fails or is invalid.
+  if (typeof referralCode === 'string' && referralCode.trim()) {
+    const { error: refError } = await authedClient.rpc('apply_referral_code', {
+      p_registrant_id: row.id,
+      p_code: referralCode.trim(),
+    });
+    if (refError) console.error('apply_referral_code error (non-fatal):', refError);
+  }
 
   return NextResponse.json({ success: true, id: row.id as string, username: row.username as string });
 }
