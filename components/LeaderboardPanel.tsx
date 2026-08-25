@@ -89,9 +89,9 @@ function CheerButton({ fromUserId, toUserId, count, onSent }: { fromUserId: stri
 
 function StatChip({ label, value }: { label: string; value: number | string }) {
   return (
-    <div className="bg-black/30 rounded-lg px-3 py-2 text-center">
-      <p className="text-lg font-bold text-white font-mono">{value}</p>
-      <p className="text-[10px] text-gray-500 uppercase tracking-wide">{label}</p>
+    <div className="bg-stone-200/70 rounded-lg px-3 py-2 text-center">
+      <p className="text-lg font-bold text-stone-800 font-mono">{value}</p>
+      <p className="text-[10px] text-stone-500 uppercase tracking-wide">{label}</p>
     </div>
   );
 }
@@ -107,20 +107,20 @@ function TopCurioChip({ topMonster }: { topMonster: LeaderboardEntry['topMonster
   const def = topMonster ? ALL_MONSTERS[topMonster.monster_id] : null;
   const name = topMonster ? (topMonster.nickname || def?.name || topMonster.monster_id) : null;
   return (
-    <div className="bg-black/30 rounded-lg px-2 py-2 text-center overflow-hidden">
+    <div className="bg-stone-200/70 rounded-lg px-2 py-2 text-center overflow-hidden">
       {def && (
         <div className="w-8 h-8 mx-auto mb-1">
           <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-xl" />
         </div>
       )}
       {topMonster ? (
-        <p className="text-xs font-bold text-white font-mono leading-tight truncate" title={topMonsterLabel(topMonster)}>
-          {name} <span className="text-gray-400">Lv.{topMonster.monster_level}</span>
+        <p className="text-xs font-bold text-stone-800 font-mono leading-tight truncate" title={topMonsterLabel(topMonster)}>
+          {name} <span className="text-stone-500">Lv.{topMonster.monster_level}</span>
         </p>
       ) : (
-        <p className="text-sm font-bold text-white font-mono">—</p>
+        <p className="text-sm font-bold text-stone-800 font-mono">—</p>
       )}
-      <p className="text-[10px] text-gray-500 uppercase tracking-wide mt-0.5">Top Curio</p>
+      <p className="text-[10px] text-stone-500 uppercase tracking-wide mt-0.5">Top Curio</p>
     </div>
   );
 }
@@ -146,11 +146,11 @@ function TopEntryCard({ entry, rank, badge, highlight, currentUserId, reactionCo
           onError={(e) => { (e.target as HTMLImageElement).src = '/userpics/userpics_premium/ssb3.png'; }}
         />
         <div className="flex-1">
-          <p className="text-white font-bold text-lg flex items-center gap-1.5">
+          <p className="text-stone-900 font-bold text-lg flex items-center gap-1.5">
             {entry.name}
             {entry.isFamily && <GMBadge />}
           </p>
-          <p className="text-xs text-gray-500">{entry.grade}{!entry.isFamily && ' · Classmate'}</p>
+          <p className="text-xs text-stone-500">{entry.grade}{!entry.isFamily && ' · Classmate'}</p>
           <p className="text-sm text-amber-400 font-bold font-mono mt-1 flex items-center gap-1">
             {highlight.emoji} {highlight.value}{highlight.label && ` ${highlight.label}`}
             {highlight.info && <InfoTag text={highlight.info} />}
@@ -179,16 +179,16 @@ function TopEntryCard({ entry, rank, badge, highlight, currentUserId, reactionCo
 
 function RankRow({ entry, rank, currentUserId, reactionCounts, onReactionSent }: { entry: LeaderboardEntry; rank: number; currentUserId: string; reactionCounts: ReactionCounts; onReactionSent: () => void }) {
   return (
-    <div className="flex items-center gap-3 bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3">
-      <p className="w-6 text-center text-sm font-bold text-gray-500 flex-shrink-0">#{rank}</p>
+    <div className="flex items-center gap-3 bg-stone-100 border border-stone-200 rounded-xl px-4 py-3">
+      <p className="w-6 text-center text-sm font-bold text-stone-400 flex-shrink-0">#{rank}</p>
       <img
         src={entry.avatar}
         alt={entry.name}
-        className="w-9 h-9 rounded-full object-contain bg-neutral-950 border border-neutral-600 flex-shrink-0"
+        className="w-9 h-9 rounded-full object-contain bg-stone-200 border border-stone-300 flex-shrink-0"
         onError={(e) => { (e.target as HTMLImageElement).src = '/userpics/userpics_premium/ssb3.png'; }}
       />
       <div className="flex-1 min-w-0">
-        <p className="text-white text-sm font-bold flex items-center gap-1 truncate">
+        <p className="text-stone-800 text-sm font-bold flex items-center gap-1 truncate">
           {entry.name}
           {entry.isFamily && <GMBadge />}
         </p>
@@ -198,24 +198,24 @@ function RankRow({ entry, rank, currentUserId, reactionCounts, onReactionSent }:
       </div>
       <div className="flex gap-3 text-right flex-shrink-0">
         <div>
-          <p className="text-xs text-gray-500">Lv</p>
-          <p className="text-sm font-mono text-white">{entry.level}</p>
+          <p className="text-xs text-stone-500">Lv</p>
+          <p className="text-sm font-mono text-stone-800">{entry.level}</p>
         </div>
         <div>
-          <p className="text-xs text-gray-500">🏆 Trainer</p>
-          <p className="text-sm font-mono text-white">{entry.trainerBattlesWon}</p>
+          <p className="text-xs text-stone-500">🏆 Trainer</p>
+          <p className="text-sm font-mono text-stone-800">{entry.trainerBattlesWon}</p>
         </div>
         <div>
-          <p className="text-xs text-gray-500">⚔️ Live</p>
-          <p className="text-sm font-mono text-white">{entry.liveBattleWins}</p>
+          <p className="text-xs text-stone-500">⚔️ Live</p>
+          <p className="text-sm font-mono text-stone-800">{entry.liveBattleWins}</p>
         </div>
         <div>
-          <p className="text-xs text-gray-500">❓ Qs</p>
-          <p className="text-sm font-mono text-white">{entry.questionsAnswered}</p>
+          <p className="text-xs text-stone-500">❓ Qs</p>
+          <p className="text-sm font-mono text-stone-800">{entry.questionsAnswered}</p>
         </div>
         <div>
-          <p className="text-xs text-gray-500">👾 Mons</p>
-          <p className="text-sm font-mono text-white">{entry.monstersCollected}</p>
+          <p className="text-xs text-stone-500">👾 Mons</p>
+          <p className="text-sm font-mono text-stone-800">{entry.monstersCollected}</p>
         </div>
         <div className="flex items-center gap-1.5">
           {entry.topMonster && ALL_MONSTERS[entry.topMonster.monster_id] && (
@@ -224,13 +224,13 @@ function RankRow({ entry, rank, currentUserId, reactionCounts, onReactionSent }:
             </div>
           )}
           <div>
-            <p className="text-xs text-gray-500">Top Curio</p>
-            <p className="text-sm font-mono text-white whitespace-nowrap">{topMonsterLabel(entry.topMonster)}</p>
+            <p className="text-xs text-stone-500">Top Curio</p>
+            <p className="text-sm font-mono text-stone-800 whitespace-nowrap">{topMonsterLabel(entry.topMonster)}</p>
           </div>
         </div>
         <div>
-          <p className="text-xs text-amber-500">Score</p>
-          <p className="text-sm font-mono font-bold text-amber-400">{entry.score}</p>
+          <p className="text-xs text-amber-600">Score</p>
+          <p className="text-sm font-mono font-bold text-amber-600">{entry.score}</p>
         </div>
       </div>
       <CheerButton
@@ -258,7 +258,7 @@ function CategorySection({ category, currentUserId, reactionCounts, onReactionSe
 
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-bold text-white font-display">{category.title}</h3>
+      <h3 className="text-lg font-bold text-stone-800 font-display">{category.title}</h3>
       <TopEntryCard
         entry={top}
         rank={1}
@@ -304,15 +304,15 @@ function TopTraderSection({ traders }: { traders: TopTrader[] }) {
   if (traders.length === 0) return null;
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-bold text-white font-display">🪙 Top Trader Leaderboard</h3>
+      <h3 className="text-lg font-bold text-stone-800 font-display">🪙 Top Trader Leaderboard</h3>
       <div className="space-y-2">
         {traders.map((t, i) => {
           const profile = USERS[t.user_id];
           return (
-            <div key={t.user_id} className="flex items-center gap-3 bg-neutral-900/60 border border-neutral-800 rounded-xl px-4 py-2.5">
-              <span className="text-sm font-bold text-gray-500 w-6">#{i + 1}</span>
-              <span className="flex-1 text-sm font-bold text-white">{profile?.fullName ?? t.user_id}</span>
-              <span className="text-sm text-amber-400 font-bold">{t.total_fees.toLocaleString()} gold</span>
+            <div key={t.user_id} className="flex items-center gap-3 bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5">
+              <span className="text-sm font-bold text-stone-400 w-6">#{i + 1}</span>
+              <span className="flex-1 text-sm font-bold text-stone-800">{profile?.fullName ?? t.user_id}</span>
+              <span className="text-sm text-amber-600 font-bold">{t.total_fees.toLocaleString()} gold</span>
             </div>
           );
         })}
