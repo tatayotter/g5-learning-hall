@@ -28,11 +28,11 @@ export default async function RegisterPage({
   const source = 'organic';
 
   return (
-    <main className="min-h-screen bg-black py-10 px-4">
+    <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 py-10 px-4">
       <div className="max-w-lg mx-auto mb-6 text-center">
-        <h1 className="text-2xl font-display font-bold text-white">Parent Registration</h1>
-        <p className="text-gray-500 text-sm mt-1">
-          Register yourself and your children. An admin will review and approve your account before you can log in to the dashboard.
+        <h1 className="text-3xl font-display font-bold text-slate-800">Parent Registration</h1>
+        <p className="text-slate-500 text-base mt-1">
+          Register yourself and your children — your dashboard unlocks right away, no waiting.
         </p>
       </div>
       <ParentRegisterForm source={source} />

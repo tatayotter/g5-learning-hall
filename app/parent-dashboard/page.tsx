@@ -226,22 +226,25 @@ export default function ParentDashboardPage() {
   };
 
   if (loading) {
-    return <main className="min-h-screen bg-black flex items-center justify-center text-gray-500">Loading…</main>;
+    return <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 flex items-center justify-center text-stone-500">Loading…</main>;
   }
 
   if (!parent) {
-    return <main className="min-h-screen bg-black flex items-center justify-center text-gray-500">Could not load your account.</main>;
+    return <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 flex items-center justify-center text-stone-500">Could not load your account.</main>;
   }
 
   if (parent.status === 'pending') {
+    // New registrations are approved automatically — this only shows for an
+    // account an admin has manually parked back in review.
     return (
-      <main className="min-h-screen bg-black flex items-center justify-center px-4">
+      <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 flex items-center justify-center px-4">
         <div className="max-w-sm text-center space-y-3">
-          <h1 className="text-xl font-display font-bold text-white">⏳ Pending Approval</h1>
-          <p className="text-gray-400 text-sm">
-            Thanks for registering, {parent.full_name}! An admin still needs to review and approve your account before you can manage your children here. Check back later.
+          <h1 className="text-xl font-display font-bold text-slate-800">⏳ Pending Review</h1>
+          <p className="text-stone-500 text-base">
+            Thanks for registering, {parent.full_name}! Your account is being reviewed — check back
+            shortly.
           </p>
-          <button onClick={handleSignOut} className="text-xs text-gray-500 hover:text-gray-300 underline">Sign out</button>
+          <button onClick={handleSignOut} className="text-sm text-stone-500 hover:text-slate-700 underline">Sign out</button>
         </div>
       </main>
     );
@@ -249,43 +252,43 @@ export default function ParentDashboardPage() {
 
   if (parent.status === 'rejected') {
     return (
-      <main className="min-h-screen bg-black flex items-center justify-center px-4">
+      <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 flex items-center justify-center px-4">
         <div className="max-w-sm text-center space-y-3">
-          <h1 className="text-xl font-display font-bold text-white">Registration Rejected</h1>
-          <p className="text-gray-400 text-sm">Your registration was not approved.</p>
-          <button onClick={handleSignOut} className="text-xs text-gray-500 hover:text-gray-300 underline">Sign out</button>
+          <h1 className="text-xl font-display font-bold text-slate-800">Registration Rejected</h1>
+          <p className="text-stone-500 text-base">Your registration was not approved.</p>
+          <button onClick={handleSignOut} className="text-sm text-stone-500 hover:text-slate-700 underline">Sign out</button>
         </div>
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-black py-10 px-4 pb-20">
-      <div className="max-w-lg mx-auto space-y-5">
+    <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 py-10 px-4 pb-20">
+      <div className="max-w-2xl mx-auto space-y-5">
         <div className="flex items-center justify-between">
-          <h1 className="text-xl font-display font-bold text-white">Welcome, {parent.full_name}</h1>
-          <button onClick={handleSignOut} className="text-xs text-gray-500 hover:text-gray-300 underline">Sign out</button>
+          <h1 className="text-2xl font-display font-bold text-slate-800">Welcome, {parent.full_name}</h1>
+          <button onClick={handleSignOut} className="text-sm text-stone-500 hover:text-slate-700 underline">Sign out</button>
         </div>
 
-        <div className="rounded-lg border border-amber-500/40 bg-amber-500/5 px-3 py-2.5 flex items-center justify-between gap-3">
+        <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 flex items-center justify-between gap-3 shadow-sm">
           {isPremium ? (
             <>
-              <span className="text-sm text-amber-300">⭐ Premium · 🪙 {subscription!.coin_pool_balance} coins left</span>
+              <span className="text-base text-amber-700 font-semibold">⭐ Premium · 🪙 {subscription!.coin_pool_balance} coins left</span>
               {subscription!.current_period_end && (
-                <span className="text-[10px] text-gray-500 whitespace-nowrap">
+                <span className="text-xs text-stone-500 whitespace-nowrap">
                   renews {new Date(subscription!.current_period_end).toLocaleDateString()}
                 </span>
               )}
             </>
           ) : isNative ? (
-            <span className="text-sm text-gray-400">Free plan — Premium unlocks journal viewing & coin rewards.</span>
+            <span className="text-base text-stone-600">Free plan — Premium unlocks journal viewing & coin rewards.</span>
           ) : (
             <>
-              <span className="text-sm text-gray-400">Free plan — journal viewing & coin rewards are Premium.</span>
+              <span className="text-base text-stone-600">Free plan — journal viewing & coin rewards are Premium.</span>
               <button
                 onClick={() => handleSubscribe(0)}
                 disabled={checkingOut}
-                className="rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white text-xs font-bold px-3 py-1.5 whitespace-nowrap"
+                className="rounded-lg bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-[#ffffff] text-sm font-bold px-3 py-1.5 whitespace-nowrap transition-colors"
               >
                 {checkingOut ? 'Redirecting…' : 'Subscribe ₱249/yr'}
               </button>
@@ -293,27 +296,27 @@ export default function ParentDashboardPage() {
           )}
         </div>
         {!isPremium && !isNative && (
-          <a href="/parent-dashboard/pricing" className="block text-center text-xs text-indigo-300 hover:text-indigo-200 underline">
+          <a href="/parent-dashboard/pricing" className="block text-center text-sm text-amber-700 hover:text-amber-800 underline">
             See full pricing details
           </a>
         )}
-        {checkoutError && !isPremium && kids.length < maxChildren && <p className="text-red-400 text-xs">{checkoutError}</p>}
+        {checkoutError && !isPremium && kids.length < maxChildren && <p className="text-red-500 text-sm">{checkoutError}</p>}
 
         <div className="space-y-3">
-          {kids.length === 0 && <p className="text-gray-500 text-sm">No children added yet.</p>}
+          {kids.length === 0 && <p className="text-stone-500 text-base">No children added yet.</p>}
           {kids.map((kid) => (
-            <div key={kid.id} className="bg-neutral-900 border border-neutral-700 rounded-xl p-3 space-y-3">
+            <div key={kid.id} className="bg-[#ffffff] border border-stone-200 rounded-xl p-4 space-y-3 shadow-sm">
               <div className="flex items-center gap-3">
-                <img src={kid.avatar} alt="" className="w-12 h-12 rounded-lg object-cover border border-neutral-700" />
+                <img src={kid.avatar} alt="" className="w-12 h-12 rounded-lg object-cover border border-stone-200" />
                 <div className="flex-1">
-                  <p className="text-white text-sm font-bold">{kid.full_name}</p>
-                  <p className="text-gray-500 text-xs">{kid.grade} · {kid.school_name} · @{kid.username}</p>
+                  <p className="text-slate-800 text-base font-bold">{kid.full_name}</p>
+                  <p className="text-stone-500 text-sm">{kid.grade} · {kid.school_name} · @{kid.username}</p>
                 </div>
                 <button
                   type="button"
                   onClick={() => handleTogglePin(kid.id)}
                   disabled={pinLoading === kid.id}
-                  className="text-xs text-indigo-300 hover:text-indigo-200 underline disabled:opacity-50 whitespace-nowrap"
+                  className="text-sm text-amber-700 hover:text-amber-800 underline disabled:opacity-50 whitespace-nowrap"
                 >
                   {pinLoading === kid.id
                     ? '…'
@@ -326,14 +329,14 @@ export default function ParentDashboardPage() {
                 <button
                   type="button"
                   onClick={() => setExpandedLessons(expandedLessons === kid.id ? null : kid.id)}
-                  className="text-xs text-gray-400 hover:text-white underline"
+                  className="text-sm text-stone-500 hover:text-slate-800 underline"
                 >
                   {expandedLessons === kid.id ? 'Hide lessons ▲' : "This week's lessons ▼"}
                 </button>
                 <button
                   type="button"
                   onClick={() => setExpandedChild(expandedChild === kid.id ? null : kid.id)}
-                  className="text-xs text-gray-400 hover:text-white underline"
+                  className="text-sm text-stone-500 hover:text-slate-800 underline"
                 >
                   {expandedChild === kid.id ? 'Hide progress ▲' : 'View progress ▼'}
                 </button>
@@ -358,8 +361,8 @@ export default function ParentDashboardPage() {
         </div>
 
         {kids.length >= maxChildren ? (
-          <div className="rounded-lg border border-dashed border-amber-500/40 bg-amber-500/5 p-3 space-y-2 text-center">
-            <p className="text-sm text-amber-300">
+          <div className="rounded-xl border border-dashed border-amber-300 bg-amber-50 p-4 space-y-2 text-center">
+            <p className="text-base text-amber-700">
               {isPremium
                 ? `You've reached your child limit (${maxChildren}).`
                 : `Free accounts can add 1 child. Subscribe to add more.`}
@@ -368,7 +371,7 @@ export default function ParentDashboardPage() {
               <button
                 onClick={() => handleSubscribe(subscription!.addon_children + 1)}
                 disabled={checkingOut}
-                className="w-full rounded-lg bg-amber-600 hover:bg-amber-500 disabled:opacity-50 text-white text-sm font-bold py-2"
+                className="w-full rounded-xl bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-[#ffffff] text-base font-bold py-2.5 shadow-lg shadow-orange-500/25 transition-colors"
               >
                 {checkingOut ? 'Redirecting…' : `+ Add a child slot (₱99/yr, renews at ₱${249 + (subscription!.addon_children + 1) * 99}/yr)`}
               </button>
@@ -376,29 +379,35 @@ export default function ParentDashboardPage() {
               <button
                 onClick={() => handleSubscribe(0)}
                 disabled={checkingOut}
-                className="w-full rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white text-sm font-bold py-2"
+                className="w-full rounded-xl bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-[#ffffff] text-base font-bold py-2.5 shadow-lg shadow-orange-500/25 transition-colors"
               >
                 {checkingOut ? 'Redirecting…' : 'Subscribe — ₱249/yr'}
               </button>
             ) : null}
-            {checkoutError && <p className="text-red-400 text-xs">{checkoutError}</p>}
+            {checkoutError && <p className="text-red-500 text-sm">{checkoutError}</p>}
           </div>
         ) : showAddChild ? (
           <form onSubmit={handleAddChild} className="space-y-3">
-            <ChildAccountForm label="New Child" data={newChild} onChange={setNewChild} />
-            {addError && <p className="text-red-400 text-sm">{addError}</p>}
+            <div className="bg-[#ffffff] border border-stone-200 rounded-2xl p-5 shadow-sm">
+              <ChildAccountForm theme="light" label="New Child" data={newChild} onChange={setNewChild} />
+            </div>
+            {addError && (
+              <div className="bg-red-50 border border-red-200 rounded-xl px-3 py-2">
+                <p className="text-base text-red-600">{addError}</p>
+              </div>
+            )}
             <div className="flex gap-3">
               <button
                 type="button"
                 onClick={() => { setShowAddChild(false); setAddError(''); }}
-                className="flex-1 rounded-lg border border-neutral-700 text-gray-400 py-2.5"
+                className="flex-1 rounded-xl border border-stone-300 text-stone-500 hover:text-slate-800 hover:border-stone-400 font-bold text-base py-3 transition-colors"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={adding}
-                className="flex-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-bold py-2.5"
+                className="flex-1 rounded-xl bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-[#ffffff] font-bold text-base py-3 shadow-lg shadow-orange-500/25 transition-colors"
               >
                 {adding ? 'Adding…' : 'Add Child'}
               </button>
@@ -407,7 +416,7 @@ export default function ParentDashboardPage() {
         ) : (
           <button
             onClick={() => setShowAddChild(true)}
-            className="w-full rounded-lg border border-dashed border-neutral-700 py-2.5 text-sm text-gray-400 hover:text-indigo-300 hover:border-indigo-400"
+            className="w-full rounded-xl border border-dashed border-stone-300 py-3 text-base text-stone-500 hover:text-amber-700 hover:border-amber-300 transition-colors"
           >
             + Add a child
           </button>
@@ -421,21 +430,22 @@ export default function ParentDashboardPage() {
         )}
 
         {/* ── Danger zone — pushed far from main content ── */}
-        <div className="mt-16 pt-8 border-t border-neutral-800/60 space-y-3">
-          <p className="text-[10px] uppercase tracking-widest text-neutral-600 select-none">More options</p>
+        <div className="mt-16 pt-8 border-t border-stone-200 space-y-3">
+          <p className="text-xs uppercase tracking-widest text-stone-400 select-none">More options</p>
 
           {/* Email updates opt-in/out */}
           {!showOptOutConfirm ? (
             <div className="flex items-center justify-between gap-3">
-              <span className="text-xs text-gray-500">
+              <span className="text-sm text-stone-500">
                 📧 Email updates — progress tips &amp; news
+                {!parent.marketing_opt_in && <span className="text-amber-700"> · get 250 free gold 🪙</span>}
               </span>
               {parent.marketing_opt_in ? (
                 <button
                   type="button"
                   onClick={() => setShowOptOutConfirm(true)}
                   disabled={togglingOptIn}
-                  className="text-[11px] text-gray-600 hover:text-gray-400 underline disabled:opacity-50"
+                  className="text-xs text-stone-500 hover:text-stone-700 underline disabled:opacity-50"
                 >
                   Unsubscribe
                 </button>
@@ -444,20 +454,20 @@ export default function ParentDashboardPage() {
                   type="button"
                   onClick={handleToggleOptIn}
                   disabled={togglingOptIn}
-                  className="text-[11px] text-indigo-400 hover:text-indigo-300 underline disabled:opacity-50"
+                  className="text-xs text-amber-700 hover:text-amber-800 underline disabled:opacity-50"
                 >
                   {togglingOptIn ? '…' : 'Subscribe'}
                 </button>
               )}
             </div>
           ) : (
-            <div className="rounded-lg border border-neutral-700 bg-neutral-900 p-3 space-y-2">
-              <p className="text-xs text-gray-300">Stop receiving email updates from Learning Hall?</p>
+            <div className="rounded-xl border border-stone-200 bg-[#ffffff] p-4 space-y-2 shadow-sm">
+              <p className="text-sm text-slate-700">Stop receiving email updates from Learning Hall?</p>
               <div className="flex gap-2">
                 <button
                   type="button"
                   onClick={() => setShowOptOutConfirm(false)}
-                  className="flex-1 rounded-lg border border-neutral-700 text-gray-400 py-2 text-xs"
+                  className="flex-1 rounded-lg border border-stone-300 text-stone-500 py-2 text-sm"
                 >
                   Keep me subscribed
                 </button>
@@ -465,7 +475,7 @@ export default function ParentDashboardPage() {
                   type="button"
                   onClick={async () => { await handleToggleOptIn(); setShowOptOutConfirm(false); }}
                   disabled={togglingOptIn}
-                  className="flex-1 rounded-lg bg-neutral-700 hover:bg-neutral-600 disabled:opacity-50 text-gray-300 text-xs py-2"
+                  className="flex-1 rounded-lg bg-stone-200 hover:bg-stone-300 disabled:opacity-50 text-stone-700 text-sm py-2"
                 >
                   {togglingOptIn ? '…' : 'Yes, unsubscribe'}
                 </button>
@@ -477,16 +487,16 @@ export default function ParentDashboardPage() {
           {!showBugReport ? (
             <button
               onClick={() => { setShowBugReport(true); setBugSent(false); }}
-              className="block text-xs text-yellow-500/60 hover:text-yellow-400 underline"
+              className="block text-sm text-amber-600 hover:text-amber-700 underline"
             >
               🐛 Report a bug
             </button>
           ) : (
-            <div className="rounded-lg border border-yellow-500/40 bg-yellow-500/5 p-4 space-y-3">
-              <p className="text-sm text-yellow-300 font-semibold">🐛 Report a Bug</p>
-              <p className="text-xs text-gray-400">Describe what happened and we'll look into it.</p>
+            <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 space-y-3">
+              <p className="text-base text-amber-800 font-semibold">🐛 Report a Bug</p>
+              <p className="text-sm text-stone-500">Describe what happened and we'll look into it.</p>
               {bugSent ? (
-                <p className="text-sm text-green-400">✓ Thanks! Your report is on its way.</p>
+                <p className="text-base text-green-600">✓ Thanks! Your report is on its way.</p>
               ) : (
                 <>
                   <textarea
@@ -494,13 +504,13 @@ export default function ParentDashboardPage() {
                     onChange={(e) => setBugText(e.target.value)}
                     rows={4}
                     placeholder="e.g. The progress panel doesn't load for my child…"
-                    className="w-full rounded-lg bg-black border border-neutral-700 px-3 py-2 text-sm text-white resize-none placeholder:text-gray-600 focus:outline-none focus:border-yellow-500/60"
+                    className="w-full rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 resize-none placeholder:text-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
                   />
                   <div className="flex gap-3">
                     <button
                       type="button"
                       onClick={() => { setShowBugReport(false); setBugText(''); }}
-                      className="flex-1 rounded-lg border border-neutral-700 text-gray-400 py-2.5 text-sm"
+                      className="flex-1 rounded-xl border border-stone-300 text-stone-500 py-3 text-base"
                     >
                       Cancel
                     </button>
@@ -508,7 +518,7 @@ export default function ParentDashboardPage() {
                       type="button"
                       onClick={handleBugReport}
                       disabled={!bugText.trim()}
-                      className="flex-1 rounded-lg bg-yellow-600 hover:bg-yellow-500 disabled:opacity-40 text-white font-bold py-2.5 text-sm"
+                      className="flex-1 rounded-xl bg-amber-500 hover:bg-amber-600 disabled:opacity-40 text-[#ffffff] font-bold py-3 text-base transition-colors"
                     >
                       Send Report
                     </button>
@@ -522,27 +532,27 @@ export default function ParentDashboardPage() {
           {!showDeleteConfirm ? (
             <button
               onClick={() => setShowDeleteConfirm(true)}
-              className="block text-xs text-red-500/50 hover:text-red-400 underline"
+              className="block text-sm text-red-500/70 hover:text-red-600 underline"
             >
               Delete my account
             </button>
           ) : (
-            <div className="rounded-lg border border-red-500/40 bg-red-500/5 p-4 space-y-3">
-              <p className="text-sm text-red-300 font-semibold">This permanently deletes your account and every child's progress. This cannot be undone.</p>
-              <p className="text-xs text-gray-400">Type DELETE below to confirm.</p>
+            <div className="rounded-xl border border-red-200 bg-red-50 p-4 space-y-3">
+              <p className="text-base text-red-700 font-semibold">This permanently deletes your account and every child's progress. This cannot be undone.</p>
+              <p className="text-sm text-stone-500">Type DELETE below to confirm.</p>
               <input
                 type="text"
                 value={deleteConfirmText}
                 onChange={(e) => setDeleteConfirmText(e.target.value)}
-                className="w-full rounded-lg bg-black border border-neutral-700 px-3 py-2 text-sm text-white"
+                className="w-full rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all"
                 placeholder="DELETE"
               />
-              {deleteError && <p className="text-red-400 text-sm">{deleteError}</p>}
+              {deleteError && <p className="text-red-500 text-base">{deleteError}</p>}
               <div className="flex gap-3">
                 <button
                   type="button"
                   onClick={() => { setShowDeleteConfirm(false); setDeleteConfirmText(''); setDeleteError(''); }}
-                  className="flex-1 rounded-lg border border-neutral-700 text-gray-400 py-2.5"
+                  className="flex-1 rounded-xl border border-stone-300 text-stone-500 py-3 text-base"
                 >
                   Cancel
                 </button>
@@ -550,7 +560,7 @@ export default function ParentDashboardPage() {
                   type="button"
                   onClick={handleDeleteAccount}
                   disabled={deleteConfirmText !== 'DELETE' || deleting}
-                  className="flex-1 rounded-lg bg-red-600 hover:bg-red-500 disabled:opacity-50 text-white font-bold py-2.5"
+                  className="flex-1 rounded-xl bg-red-600 hover:bg-red-700 disabled:opacity-50 text-[#ffffff] font-bold py-3 text-base transition-colors"
                 >
                   {deleting ? 'Deleting…' : 'Permanently Delete'}
                 </button>

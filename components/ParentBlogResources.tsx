@@ -11,12 +11,12 @@ const GUILD_LABEL: Record<BlogPost['guildKey'], string> = {
 };
 
 const GUILD_COLOR: Record<BlogPost['guildKey'], string> = {
-  lorekeeper:    'bg-sky-900/40 border-sky-700/40 text-sky-300',
-  spellcaster:   'bg-emerald-900/40 border-emerald-700/40 text-emerald-300',
-  numberrealm:   'bg-violet-900/40 border-violet-700/40 text-violet-300',
-  logiclabyrinth:'bg-amber-900/40 border-amber-700/40 text-amber-300',
-  lexiconarena:  'bg-rose-900/40 border-rose-700/40 text-rose-300',
-  resources:     'bg-indigo-900/40 border-indigo-700/40 text-indigo-300',
+  lorekeeper:    'bg-sky-50 border-sky-200 text-sky-700',
+  spellcaster:   'bg-emerald-50 border-emerald-200 text-emerald-700',
+  numberrealm:   'bg-violet-50 border-violet-200 text-violet-700',
+  logiclabyrinth:'bg-amber-50 border-amber-200 text-amber-700',
+  lexiconarena:  'bg-rose-50 border-rose-200 text-rose-700',
+  resources:     'bg-indigo-50 border-indigo-200 text-indigo-700',
 };
 
 interface Props {
@@ -57,12 +57,12 @@ export default function ParentBlogResources({ grades }: Props) {
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-500">
+        <h2 className="text-sm font-semibold uppercase tracking-widest text-stone-500">
           📚 Parent Resources
         </h2>
         <Link
           href="/blog"
-          className="text-[10px] text-indigo-400 hover:text-indigo-300 underline"
+          className="text-xs text-amber-700 hover:text-amber-800 underline"
         >
           View all guides →
         </Link>
@@ -75,18 +75,18 @@ export default function ParentBlogResources({ grades }: Props) {
             href={`/blog/${post.slug}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="block rounded-xl border border-neutral-800 bg-neutral-900/60 px-3 py-2.5 hover:border-neutral-600 hover:bg-neutral-900 transition-colors group"
+            className="block rounded-xl border border-stone-200 bg-[#ffffff] px-4 py-3 hover:border-amber-300 hover:shadow-sm transition-all group shadow-sm"
           >
             <div className="flex items-start gap-2">
               <div className="flex-1 min-w-0 space-y-0.5">
-                <p className="text-xs font-semibold text-gray-200 group-hover:text-white leading-snug line-clamp-2">
+                <p className="text-sm font-semibold text-slate-800 group-hover:text-amber-700 leading-snug line-clamp-2">
                   {post.title}
                 </p>
-                <p className="text-[10px] text-gray-500 leading-snug line-clamp-2">
+                <p className="text-xs text-stone-500 leading-snug line-clamp-2">
                   {post.description}
                 </p>
               </div>
-              <span className={`shrink-0 mt-0.5 rounded border text-[9px] px-1.5 py-0.5 leading-tight ${GUILD_COLOR[post.guildKey]}`}>
+              <span className={`shrink-0 mt-0.5 rounded border text-[10px] px-1.5 py-0.5 leading-tight ${GUILD_COLOR[post.guildKey]}`}>
                 {GUILD_LABEL[post.guildKey]}
               </span>
             </div>

@@ -166,39 +166,39 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
   };
 
   if (loading) {
-    return <p className="text-xs text-gray-500 py-2">Loading progress…</p>;
+    return <p className="text-sm text-stone-500 py-2">Loading progress…</p>;
   }
 
   return (
     <div className="space-y-3 pt-1">
       <div className="grid grid-cols-3 gap-2 text-center">
-        <div className="rounded-lg bg-black/40 border border-neutral-800 py-2">
-          <p className="text-white text-sm font-bold">{level ?? '—'}</p>
-          <p className="text-[10px] text-gray-500 uppercase tracking-wide">Level</p>
+        <div className="rounded-lg bg-stone-50 border border-stone-200 py-2.5">
+          <p className="text-slate-800 text-base font-bold">{level ?? '—'}</p>
+          <p className="text-xs text-stone-400 uppercase tracking-wide">Level</p>
         </div>
-        <div className="rounded-lg bg-black/40 border border-neutral-800 py-2">
-          <p className="text-white text-sm font-bold">{xp ?? 0}</p>
-          <p className="text-[10px] text-gray-500 uppercase tracking-wide">XP</p>
+        <div className="rounded-lg bg-stone-50 border border-stone-200 py-2.5">
+          <p className="text-slate-800 text-base font-bold">{xp ?? 0}</p>
+          <p className="text-xs text-stone-400 uppercase tracking-wide">XP</p>
         </div>
-        <div className="rounded-lg bg-black/40 border border-neutral-800 py-2">
-          <p className="text-white text-sm font-bold">🔥 {streak}</p>
-          <p className="text-[10px] text-gray-500 uppercase tracking-wide">Day streak</p>
+        <div className="rounded-lg bg-stone-50 border border-stone-200 py-2.5">
+          <p className="text-slate-800 text-base font-bold">🔥 {streak}</p>
+          <p className="text-xs text-stone-400 uppercase tracking-wide">Day streak</p>
         </div>
       </div>
 
       {subclass && (
         <div className="grid grid-cols-5 gap-1.5">
           {SKILLS.map((s) => (
-            <div key={s.key} className="rounded-lg bg-black/40 border border-neutral-800 py-1.5 text-center">
+            <div key={s.key} className="rounded-lg bg-stone-50 border border-stone-200 py-2 text-center">
               <p className="text-sm">{s.icon}</p>
-              <p className="text-white text-xs font-bold">Lv{subclass[s.key]}</p>
-              <p className="text-[9px] text-gray-500">{s.label}</p>
+              <p className="text-slate-800 text-xs font-bold">Lv{subclass[s.key]}</p>
+              <p className="text-[10px] text-stone-400">{s.label}</p>
             </div>
           ))}
         </div>
       )}
 
-      <p className="text-xs text-gray-500">
+      <p className="text-sm text-stone-500">
         {masteryCount ?? 0} topics mastered · {perfectQuizzes ?? 0} perfect quizzes (career) · {quizzesLast7Days} questions this week
         {lastLogin && <> · last played {new Date(lastLogin).toLocaleDateString()}</>}
       </p>
@@ -207,55 +207,55 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
         <button
           type="button"
           onClick={handleToggleJournal}
-          className="text-xs text-indigo-300 hover:text-indigo-200 underline"
+          className="text-sm text-amber-700 hover:text-amber-800 underline"
         >
           {showJournal ? 'Hide journal' : 'View journal'}
         </button>
       ) : (
-        <p className="text-xs text-gray-600">🔒 Journal viewing is a Premium feature.</p>
+        <p className="text-sm text-stone-400">🔒 Journal viewing is a Premium feature.</p>
       )}
 
       {isPremium && showJournal && (
         <div className="space-y-2">
-          {journalLoading && <p className="text-xs text-gray-500">Loading journal…</p>}
+          {journalLoading && <p className="text-sm text-stone-500">Loading journal…</p>}
           {!journalLoading && journal?.length === 0 && (
-            <p className="text-xs text-gray-500">No journal entries yet.</p>
+            <p className="text-sm text-stone-500">No journal entries yet.</p>
           )}
           {!journalLoading && journal?.map((entry) => (
-            <div key={entry.entry_date} className="rounded-lg bg-black/40 border border-neutral-800 p-2.5 text-xs space-y-1">
-              <p className="text-gray-500 font-semibold">{new Date(entry.entry_date).toLocaleDateString()}</p>
-              {entry.done_today && <p className="text-gray-300"><span className="text-gray-500">Did today:</span> {entry.done_today}</p>}
-              {entry.hardest_challenge && <p className="text-gray-300"><span className="text-gray-500">Hardest part:</span> {entry.hardest_challenge}</p>}
-              {entry.gratitude && <p className="text-gray-300"><span className="text-gray-500">Grateful for:</span> {entry.gratitude}</p>}
-              {entry.tomorrow_plan && <p className="text-gray-300"><span className="text-gray-500">Tomorrow:</span> {entry.tomorrow_plan}</p>}
+            <div key={entry.entry_date} className="rounded-lg bg-stone-50 border border-stone-200 p-3 text-sm space-y-1">
+              <p className="text-stone-500 font-semibold">{new Date(entry.entry_date).toLocaleDateString()}</p>
+              {entry.done_today && <p className="text-slate-700"><span className="text-stone-500">Did today:</span> {entry.done_today}</p>}
+              {entry.hardest_challenge && <p className="text-slate-700"><span className="text-stone-500">Hardest part:</span> {entry.hardest_challenge}</p>}
+              {entry.gratitude && <p className="text-slate-700"><span className="text-stone-500">Grateful for:</span> {entry.gratitude}</p>}
+              {entry.tomorrow_plan && <p className="text-slate-700"><span className="text-stone-500">Tomorrow:</span> {entry.tomorrow_plan}</p>}
             </div>
           ))}
         </div>
       )}
 
       {isPremium && (
-        <form onSubmit={handleAwardCoins} className="flex items-center gap-2 pt-1 border-t border-neutral-800">
-          <span className="text-xs text-gray-500 whitespace-nowrap">🪙 Award coins</span>
+        <form onSubmit={handleAwardCoins} className="flex items-center gap-2 pt-2 border-t border-stone-200">
+          <span className="text-sm text-stone-500 whitespace-nowrap">🪙 Award coins</span>
           <input
             type="number"
             min={1}
             value={coinAmount}
             onChange={(e) => { setCoinAmount(e.target.value); setAwardSuccess(false); }}
             placeholder="Amount"
-            className="w-20 rounded-lg bg-black border border-neutral-700 px-2 py-1 text-xs text-white"
+            className="w-20 rounded-lg bg-[#ffffff] border border-stone-300 px-2 py-1.5 text-sm text-gray-900"
           />
           <button
             type="submit"
             disabled={awarding || coinBalance <= 0}
-            className="rounded-lg bg-amber-600 hover:bg-amber-500 disabled:opacity-50 text-white text-xs font-bold px-3 py-1.5"
+            className="rounded-lg bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-[#ffffff] text-sm font-bold px-3 py-1.5 transition-colors"
           >
             {awarding ? '…' : 'Award'}
           </button>
-          <span className="text-[10px] text-gray-600 whitespace-nowrap ml-auto">{coinBalance} left</span>
+          <span className="text-xs text-stone-400 whitespace-nowrap ml-auto">{coinBalance} left</span>
         </form>
       )}
-      {isPremium && awardError && <p className="text-red-400 text-xs">{awardError}</p>}
-      {isPremium && awardSuccess && <p className="text-green-400 text-xs">Coins awarded!</p>}
+      {isPremium && awardError && <p className="text-red-500 text-sm">{awardError}</p>}
+      {isPremium && awardSuccess && <p className="text-green-600 text-sm">Coins awarded!</p>}
     </div>
   );
 }

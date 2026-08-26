@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 
@@ -33,6 +33,11 @@ export default function LinkParentConfirm() {
   const [fullName, setFullName] = useState('');
   const [error, setError] = useState('');
   const [goldAwarded, setGoldAwarded] = useState(false);
+  const firstFieldRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (stage === 'ready') firstFieldRef.current?.focus();
+  }, [stage, mode]);
 
   useEffect(() => {
     if (!token) {
@@ -107,14 +112,14 @@ export default function LinkParentConfirm() {
   };
 
   if (stage === 'loading') {
-    return <p className="text-center text-gray-500 text-sm">Checking your invite…</p>;
+    return <p className="text-center text-stone-500 text-base">Checking your invite…</p>;
   }
 
   if (stage === 'invalid') {
     return (
       <div className="text-center space-y-2">
-        <p className="text-red-400 font-semibold">This link is invalid or has expired.</p>
-        <p className="text-gray-500 text-sm">
+        <p className="text-red-500 font-semibold text-lg">This link is invalid or has expired.</p>
+        <p className="text-stone-500 text-base">
           Invite links only last 30 minutes and can only be used once. Ask your child to send a new one
           from inside the game.
         </p>
@@ -125,14 +130,14 @@ export default function LinkParentConfirm() {
   if (stage === 'done') {
     return (
       <div className="text-center space-y-3">
-        <p className="text-2xl">🎉</p>
-        <p className="text-white font-bold">You&apos;re linked to {childFirstName}!</p>
+        <p className="text-3xl">🎉</p>
+        <p className="text-slate-800 font-bold">You&apos;re linked to {childFirstName}!</p>
         {goldAwarded && (
-          <p className="text-amber-400 text-sm">{childFirstName} just earned a 100 gold bonus.</p>
+          <p className="text-amber-600 text-base font-semibold">{childFirstName} just earned a 100 gold bonus.</p>
         )}
         <button
           onClick={() => router.push('/parent-dashboard')}
-          className="mt-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2.5 px-6"
+          className="mt-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-[#ffffff] font-bold text-base py-3 px-6 shadow-lg shadow-orange-500/25 transition-colors"
         >
           Go to your dashboard
         </button>
@@ -143,15 +148,15 @@ export default function LinkParentConfirm() {
   if (stage === 'awaiting-email-confirmation') {
     return (
       <div className="text-center space-y-3">
-        <p className="text-white font-semibold">Almost there — confirm your email</p>
-        <p className="text-gray-500 text-sm">
-          We sent a confirmation link to <span className="text-gray-300">{email}</span>. Click it, then
+        <p className="text-slate-800 font-semibold text-lg">Almost there — confirm your email</p>
+        <p className="text-stone-500 text-base">
+          We sent a confirmation link to <span className="text-slate-700 font-medium">{email}</span>. Click it, then
           come back here.
         </p>
-        {error && <p className="text-red-400 text-xs">{error}</p>}
+        {error && <p className="text-red-500 text-sm">{error}</p>}
         <button
           onClick={retryAfterEmailConfirmation}
-          className="rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2.5 px-6"
+          className="rounded-xl bg-orange-500 hover:bg-orange-600 text-[#ffffff] font-bold text-base py-3 px-6 shadow-lg shadow-orange-500/25 transition-colors"
         >
           I&apos;ve confirmed my email
         </button>
@@ -162,24 +167,24 @@ export default function LinkParentConfirm() {
   return (
     <div className="space-y-5">
       <div className="text-center">
-        <p className="text-white font-semibold">{childFirstName} wants to link you as their parent</p>
-        <p className="text-gray-500 text-sm mt-1">
+        <p className="text-slate-800 font-semibold text-lg">{childFirstName} wants to link you as their parent</p>
+        <p className="text-stone-500 text-base mt-1">
           Confirming lets you see their progress and unlocks leaderboards and PvP for their account.
         </p>
       </div>
 
-      <div className="flex rounded-lg bg-neutral-950 border border-neutral-700 p-1 text-sm">
+      <div className="flex rounded-xl bg-stone-100 border border-stone-200 p-1 text-base">
         <button
           type="button"
           onClick={() => setMode('signup')}
-          className={`flex-1 rounded-md py-1.5 font-semibold ${mode === 'signup' ? 'bg-indigo-600 text-white' : 'text-gray-400'}`}
+          className={`flex-1 rounded-lg py-1.5 font-semibold transition-colors ${mode === 'signup' ? 'bg-orange-500 text-[#ffffff] shadow-sm' : 'text-stone-500'}`}
         >
           I&apos;m new here
         </button>
         <button
           type="button"
           onClick={() => setMode('signin')}
-          className={`flex-1 rounded-md py-1.5 font-semibold ${mode === 'signin' ? 'bg-indigo-600 text-white' : 'text-gray-400'}`}
+          className={`flex-1 rounded-lg py-1.5 font-semibold transition-colors ${mode === 'signin' ? 'bg-orange-500 text-[#ffffff] shadow-sm' : 'text-stone-500'}`}
         >
           I already have an account
         </button>
@@ -188,20 +193,24 @@ export default function LinkParentConfirm() {
       <form onSubmit={handleSubmit} className="space-y-3">
         {mode === 'signup' && (
           <input
+            ref={firstFieldRef}
             type="text"
             placeholder="Your full name"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
-            className="w-full rounded-lg bg-neutral-950 border border-neutral-700 px-3 py-2 text-sm text-white"
+            className="w-full rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 placeholder-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
+            autoComplete="name"
             required
           />
         )}
         <input
+          ref={mode === 'signin' ? firstFieldRef : undefined}
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-lg bg-neutral-950 border border-neutral-700 px-3 py-2 text-sm text-white"
+          className="w-full rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 placeholder-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
+          autoComplete="email"
           required
         />
         <input
@@ -209,20 +218,25 @@ export default function LinkParentConfirm() {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full rounded-lg bg-neutral-950 border border-neutral-700 px-3 py-2 text-sm text-white"
+          className="w-full rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 placeholder-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
+          autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}
           minLength={6}
           required
         />
-        <p className="text-xs text-gray-600">
+        <p className="text-sm text-stone-400">
           Use the same email address this invite was sent to.
         </p>
-        {error && <p className="text-red-400 text-xs">{error}</p>}
+        {error && (
+          <div className="bg-red-50 border border-red-200 rounded-xl px-3 py-2">
+            <p className="text-base text-red-600">{error}</p>
+          </div>
+        )}
         <button
           type="submit"
           disabled={stage === 'confirming'}
-          className="w-full rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-bold py-2.5"
+          className="w-full rounded-xl bg-orange-500 hover:bg-orange-600 active:bg-orange-700 disabled:opacity-50 text-[#ffffff] font-bold text-lg py-3.5 shadow-lg shadow-orange-500/25 transition-all"
         >
-          {stage === 'confirming' ? 'Linking…' : 'Confirm Link'}
+          {stage === 'confirming' ? 'Linking…' : `Confirm & Unlock ${childFirstName}'s Progress`}
         </button>
       </form>
     </div>

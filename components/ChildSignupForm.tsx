@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { setActiveUser, recordLastLogin, registerChildUser } from '@/lib/userSession';
 import { getOrCreateSessionId } from '@/lib/analytics';
+import { trackPixelEvent } from '@/lib/fbPixel';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
 import { validateReferralCode } from '@/lib/referral';
 
@@ -87,6 +88,8 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
       if (!res.ok || !result.success) {
         throw new Error(result.error || 'Could not create your account.');
       }
+
+      trackPixelEvent('CompleteRegistration', { content_name: 'child_signup' });
 
       registerChildUser({
         id: result.id,
