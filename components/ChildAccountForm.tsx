@@ -1,4 +1,5 @@
 'use client';
+import type { RefObject } from 'react';
 
 export interface ChildFormData {
   fullName: string;
@@ -36,9 +37,11 @@ interface ChildAccountFormProps {
   onRemove?: () => void;
   label: string;
   theme?: 'dark' | 'light';
+  /** Optional ref for the full-name input — lets a page autofocus it on mount. */
+  firstFieldRef?: RefObject<HTMLInputElement | null>;
 }
 
-export default function ChildAccountForm({ data, onChange, onRemove, label, theme = 'dark' }: ChildAccountFormProps) {
+export default function ChildAccountForm({ data, onChange, onRemove, label, theme = 'dark', firstFieldRef }: ChildAccountFormProps) {
   const set = <K extends keyof ChildFormData>(key: K, value: ChildFormData[K]) =>
     onChange({ ...data, [key]: value });
 
@@ -58,6 +61,7 @@ export default function ChildAccountForm({ data, onChange, onRemove, label, them
         </div>
 
         <input
+          ref={firstFieldRef}
           type="text"
           placeholder="Full name"
           value={data.fullName}
