@@ -2,29 +2,40 @@ import type { Metadata } from 'next';
 import MarketingAnalytics from '@/components/MarketingAnalytics';
 
 export const metadata: Metadata = {
-  title: 'Learning Hall — DepEd-Aligned Gamified Learning for Grade 2-6',
+  title: 'Learning Hall PH — DepEd-Aligned Gamified Learning for Grade 2-6',
   description:
-    'A free, safe gamified learning app that turns Grade 2-6 DepEd lessons into quests, battles, and collectible curios. No ads, no stranger contact — parent-created accounts only.',
+    'Learning Hall PH turns Grade 2-6 DepEd lessons into quests, battles, and collectible curios — free, no ads, no stranger contact. Parent-created accounts only.',
+  keywords: [
+    'Learning Hall PH',
+    'Learning Hall',
+    'DepEd gamified learning app',
+    'Grade 2 to 6 tutoring Philippines',
+    'MATATAG curriculum app',
+    'gamified homework app Philippines',
+  ],
   alternates: { canonical: '/welcome' },
   openGraph: {
-    title: 'Learning Hall — DepEd-Aligned Gamified Learning for Grade 2-6',
+    type: 'website',
+    siteName: 'Learning Hall PH',
+    locale: 'en_PH',
+    title: 'Learning Hall PH — DepEd-Aligned Gamified Learning for Grade 2-6',
     description:
-      'A free, safe gamified learning app that turns Grade 2-6 DepEd lessons into quests, battles, and collectible curios. No ads, no stranger contact — parent-created accounts only.',
+      'Learning Hall PH turns Grade 2-6 DepEd lessons into quests, battles, and collectible curios — free, no ads, no stranger contact. Parent-created accounts only.',
     url: '/welcome',
     images: [
       {
         url: '/splash1.webp',
-        width: 2096,
-        height: 1184,
-        alt: 'Learning Hall',
+        width: 1200,
+        height: 678,
+        alt: 'Learning Hall — gamified DepEd learning for Grade 2-6',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Learning Hall — DepEd-Aligned Gamified Learning for Grade 2-6',
+    title: 'Learning Hall PH — DepEd-Aligned Gamified Learning for Grade 2-6',
     description:
-      'A free, safe gamified learning app that turns Grade 2-6 DepEd lessons into quests, battles, and collectible curios. No ads, no stranger contact — parent-created accounts only.',
+      'Learning Hall PH turns Grade 2-6 DepEd lessons into quests, battles, and collectible curios — free, no ads, no stranger contact. Parent-created accounts only.',
     images: ['/splash1.webp'],
   },
 };

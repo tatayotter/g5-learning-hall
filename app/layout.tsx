@@ -22,24 +22,44 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://learninghallph.com"),
-  title: "Learning Hall",
-  description: "A gamified learning quest tracker",
+  title: {
+    default: "Learning Hall PH — DepEd-Aligned Gamified Learning for Grade 2-6",
+    template: "%s | Learning Hall PH",
+  },
+  description:
+    "Learning Hall PH turns Grade 2-6 DepEd lessons into quests, battles, and collectible curios — free, no ads, no stranger contact. Parent-created accounts only.",
+  keywords: [
+    "Learning Hall PH",
+    "Learning Hall",
+    "DepEd gamified learning app",
+    "Grade 2 to 6 tutoring Philippines",
+    "MATATAG curriculum app",
+    "gamified homework app Philippines",
+  ],
+  applicationName: "Learning Hall",
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Learning Hall",
-    description: "A gamified learning quest tracker",
+    type: "website",
+    siteName: "Learning Hall PH",
+    locale: "en_PH",
+    title: "Learning Hall PH — DepEd-Aligned Gamified Learning for Grade 2-6",
+    description:
+      "Learning Hall PH turns Grade 2-6 DepEd lessons into quests, battles, and collectible curios — free, no ads, no stranger contact. Parent-created accounts only.",
+    url: "/",
     images: [
       {
         url: "/splash1.webp",
-        width: 2096,
-        height: 1184,
-        alt: "Learning Hall",
+        width: 1200,
+        height: 678,
+        alt: "Learning Hall — gamified DepEd learning for Grade 2-6",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Learning Hall",
-    description: "A gamified learning quest tracker",
+    title: "Learning Hall PH — DepEd-Aligned Gamified Learning for Grade 2-6",
+    description:
+      "Learning Hall PH turns Grade 2-6 DepEd lessons into quests, battles, and collectible curios — free, no ads, no stranger contact. Parent-created accounts only.",
     images: ["/splash1.webp"],
   },
   // Paste the verification string Google Search Console gives you (Settings >
