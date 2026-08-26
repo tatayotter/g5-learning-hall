@@ -21,6 +21,7 @@ import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
 import CritBonusToast from '@/components/CritBonusToast';
 import { ALL_MONSTERS, getGuildMonsterTierDef, MonsterDef } from '@/lib/monsterConfig';
 import { QualityTier } from '@/lib/curioQuality';
+import { takePrefetch } from '@/lib/tabPrefetch';
 
 // Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
 // is heavily biased (see components/battle/shared.tsx's shuffleArray).
@@ -78,8 +79,10 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
     async function loadPool() {
       try {
         const [pool, subProfile] = await Promise.all([
-          fetchQuestionPool(userId, 'sq_logic_labyrinth', 'logic_labyrinth', gradeLevel),
-          fetchSubclassProfile(userId)
+          takePrefetch<any[]>(userId, 'guildPool:logic_labyrinth')
+            ?? fetchQuestionPool(userId, 'sq_logic_labyrinth', 'logic_labyrinth', gradeLevel),
+          takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
+            ?? fetchSubclassProfile(userId)
         ]);
         // Shuffle each puzzle's options too — otherwise correct_option_id
         // tends to sit in the same array slot across puzzles (same class of
