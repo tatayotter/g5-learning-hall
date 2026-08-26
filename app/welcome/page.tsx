@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { trackPixelEvent } from '@/lib/fbPixel';
 
 const GUILDS = [
   {
@@ -307,23 +308,31 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 function CTAButtons({ align = 'center' }: { align?: 'center' | 'left' }) {
   return (
     <div className={`flex flex-col items-center mt-8 ${align === 'left' ? 'sm:items-start' : ''}`}>
-      <div className={`flex flex-col sm:flex-row items-center gap-3 ${align === 'left' ? 'sm:justify-start' : 'justify-center'}`}>
-        <motion.a
-          href="/register"
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          className="w-full sm:w-auto text-center bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-[14px] transition-colors shadow-[0_4px_20px_rgba(249,115,22,0.35)]"
-        >
-          Register Your Family
-        </motion.a>
-        <motion.a
-          href="/child-signup"
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          className="w-full sm:w-auto text-center bg-white hover:bg-slate-50 border-2 border-slate-200 hover:border-orange-400 text-slate-700 font-bold px-8 py-3.5 rounded-[14px] transition-colors shadow-sm"
-        >
-          I&apos;m a Student →
-        </motion.a>
+      <div className={`flex flex-col sm:flex-row items-start gap-3 ${align === 'left' ? 'sm:justify-start' : 'justify-center'}`}>
+        <div className="w-full sm:w-auto flex flex-col items-center">
+          <motion.a
+            href="/child-signup"
+            onClick={() => trackPixelEvent('RegisterCTAClick', { type: 'child' }, true)}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="w-full sm:w-auto text-center bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-[14px] transition-colors shadow-[0_4px_20px_rgba(249,115,22,0.35)]"
+          >
+            I&apos;m a Student →
+          </motion.a>
+          <p className="text-[11px] text-emerald-600 font-semibold mt-1.5">⚡ Play instantly, no waiting</p>
+        </div>
+        <div className="w-full sm:w-auto flex flex-col items-center">
+          <motion.a
+            href="/register"
+            onClick={() => trackPixelEvent('RegisterCTAClick', { type: 'parent' }, true)}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="w-full sm:w-auto text-center bg-white hover:bg-slate-50 border-2 border-slate-200 hover:border-orange-400 text-slate-700 font-bold px-8 py-3.5 rounded-[14px] transition-colors shadow-sm"
+          >
+            Register Your Family
+          </motion.a>
+          <p className="text-[11px] text-emerald-600 font-semibold mt-1.5">⚡ Instant access, manage the whole family</p>
+        </div>
       </div>
     </div>
   );
