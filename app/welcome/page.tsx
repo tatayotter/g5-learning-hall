@@ -181,7 +181,7 @@ function ModalOverlay({ onClose, children }: { onClose: () => void; children: Re
         initial={{ opacity: 0, y: 12, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-xl max-h-[85vh] overflow-y-auto bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-xl"
+        className="relative w-full max-w-xl max-h-[85vh] overflow-y-auto bg-[#ffffff] border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-xl"
       >
         <button
           type="button"
@@ -250,7 +250,7 @@ function GuildSnapshotModal({ guild, onClose }: { guild: (typeof GUILDS)[number]
         </div>
 
         {/* Question card */}
-        <div className="bg-white border border-slate-200 rounded-lg p-5 shadow-sm">
+        <div className="bg-[#ffffff] border border-slate-200 rounded-lg p-5 shadow-sm">
           <p className="text-center text-[10px] tracking-widest text-slate-400 mb-2">★★☆</p>
           <p className="text-center font-bold text-slate-800 mb-4">{guild.question}</p>
 
@@ -287,7 +287,7 @@ function GuildSnapshotModal({ guild, onClose }: { guild: (typeof GUILDS)[number]
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+    <div className="bg-[#ffffff] border border-slate-200 rounded-xl overflow-hidden shadow-sm">
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
@@ -315,7 +315,7 @@ function CTAButtons({ align = 'center' }: { align?: 'center' | 'left' }) {
             onClick={() => trackPixelEvent('RegisterCTAClick', { type: 'child' }, true)}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="w-full sm:w-auto text-center bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-[14px] transition-colors shadow-[0_4px_20px_rgba(249,115,22,0.35)]"
+            className="w-full sm:w-auto text-center bg-orange-500 hover:bg-orange-600 text-[#ffffff] font-bold px-8 py-3.5 rounded-[14px] transition-colors shadow-[0_4px_20px_rgba(249,115,22,0.35)]"
           >
             I&apos;m a Student →
           </motion.a>
@@ -327,7 +327,7 @@ function CTAButtons({ align = 'center' }: { align?: 'center' | 'left' }) {
             onClick={() => trackPixelEvent('RegisterCTAClick', { type: 'parent' }, true)}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="w-full sm:w-auto text-center bg-white hover:bg-slate-50 border-2 border-slate-200 hover:border-orange-400 text-slate-700 font-bold px-8 py-3.5 rounded-[14px] transition-colors shadow-sm"
+            className="w-full sm:w-auto text-center bg-[#ffffff] hover:bg-slate-50 border-2 border-slate-200 hover:border-orange-400 text-slate-700 font-bold px-8 py-3.5 rounded-[14px] transition-colors shadow-sm"
           >
             Register Your Family
           </motion.a>
@@ -367,7 +367,7 @@ export default function WelcomePage() {
             For elementary-age learners who deserve more than boring drills.
           </p>
 
-          <div className="inline-flex items-center gap-2 rounded-full bg-white border border-sky-200 shadow-sm px-4 py-1.5 mb-8">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#ffffff] border border-sky-200 shadow-sm px-4 py-1.5 mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
             <span className="text-[12px] font-semibold tracking-wide text-slate-600">Free · Early Access</span>
           </div>
@@ -410,7 +410,7 @@ export default function WelcomePage() {
               className="absolute -inset-8 pointer-events-none"
               style={{ background: 'radial-gradient(ellipse at 40% 50%, rgba(249,115,22,0.07), transparent 60%)' }}
             />
-            <div className="relative bg-white border-l-4 border-orange-400 rounded-xl px-6 py-5 shadow-md overflow-hidden">
+            <div className="relative bg-[#ffffff] border-l-4 border-orange-400 rounded-xl px-6 py-5 shadow-md overflow-hidden">
               <p className="relative text-slate-700 leading-relaxed italic">
                 &ldquo;The lessons we went over in class today felt easy,&rdquo; she told me, &ldquo;because
                 I already sort of learned it — from playing Learning Hall.&rdquo;
@@ -479,7 +479,7 @@ export default function WelcomePage() {
             <p className="text-slate-400 mb-8 text-sm italic">
               A structured daily loop that turns &ldquo;I don&apos;t want to&rdquo; into &ldquo;What&apos;s next?&rdquo;
             </p>
-            <div className="bg-white border-l-4 border-orange-400 rounded-xl px-6 py-5 shadow-md">
+            <div className="bg-[#ffffff] border-l-4 border-orange-400 rounded-xl px-6 py-5 shadow-md">
               <p className="text-slate-700 leading-relaxed">
                 <strong className="text-amber-500">Nothing advances for free.</strong> Every quest
                 cleared, every skill unlocked, every curio caught, and every battle won requires
@@ -490,7 +490,7 @@ export default function WelcomePage() {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-lg">
+            <div className="bg-[#ffffff] border border-slate-200 rounded-2xl overflow-hidden shadow-lg">
               <div className="p-4 font-bold bg-amber-50 text-amber-600 border-b border-amber-100">
                 🗺️ Active Campaign Map
               </div>
@@ -564,7 +564,7 @@ export default function WelcomePage() {
                 <button
                   type="button"
                   onClick={() => setSelectedGuild(g)}
-                  className={`text-left w-full bg-white border-2 ${g.border} rounded-2xl overflow-hidden h-full hover:shadow-lg transition-shadow cursor-pointer`}
+                  className={`text-left w-full bg-[#ffffff] border-2 ${g.border} rounded-2xl overflow-hidden h-full hover:shadow-lg transition-shadow cursor-pointer`}
                 >
                   <div className={`h-36 ${g.headerBg} flex items-center justify-center p-4`}>
                     <img
@@ -603,7 +603,7 @@ export default function WelcomePage() {
               fill your Codex — but catching, training, and battling a curio is only ever unlocked by
               mastering lessons, never by grinding.
             </p>
-            <div className="bg-white border-l-4 border-amber-400 rounded-xl px-6 py-5 shadow-md">
+            <div className="bg-[#ffffff] border-l-4 border-amber-400 rounded-xl px-6 py-5 shadow-md">
               <p className="text-slate-700 leading-relaxed">
                 <strong className="text-amber-500">What&apos;s a Curio?</strong>{' '}
                 A collectible creature born from your child&apos;s own lesson mastery — the harder
@@ -627,7 +627,7 @@ export default function WelcomePage() {
                 <button
                   type="button"
                   onClick={() => setSelectedMonster(m)}
-                  className="w-full bg-white border-2 border-slate-200 rounded-2xl p-4 text-center hover:border-orange-300 hover:shadow-md transition-all cursor-pointer"
+                  className="w-full bg-[#ffffff] border-2 border-slate-200 rounded-2xl p-4 text-center hover:border-orange-300 hover:shadow-md transition-all cursor-pointer"
                 >
                   <img src={`/monsters/${m.file}.webp`} alt={m.name} className="w-full aspect-square object-contain mb-2" />
                   <p className="text-xs font-bold text-slate-700">{m.name}</p>
@@ -640,7 +640,7 @@ export default function WelcomePage() {
         </div>
 
         <FadeIn delay={0.15}>
-          <div className="mt-14 max-w-3xl mx-auto bg-white border-2 border-slate-200 rounded-2xl p-8 text-center shadow-md">
+          <div className="mt-14 max-w-3xl mx-auto bg-[#ffffff] border-2 border-slate-200 rounded-2xl p-8 text-center shadow-md">
             <p className="flex items-center justify-center gap-2 text-[11px] tracking-[0.22em] font-bold text-amber-500 uppercase mb-3">
               <img src="/icons/encounter/atk.svg" alt="" className="w-4 h-4" />
               Live PvP
@@ -667,7 +667,7 @@ export default function WelcomePage() {
                   <p className="text-[10px] text-slate-400 mt-1">87/140 HP</p>
                 </div>
 
-                <div className="flex-1 max-w-[150px] bg-white border border-slate-200 rounded-xl p-3 self-center shadow-sm">
+                <div className="flex-1 max-w-[150px] bg-[#ffffff] border border-slate-200 rounded-xl p-3 self-center shadow-sm">
                   <p className="text-[10px] text-slate-600 leading-relaxed text-center">Emberwyrm used Flamethrower!</p>
                 </div>
 
@@ -687,7 +687,7 @@ export default function WelcomePage() {
                   <div
                     key={skill}
                     className={`text-xs font-bold px-3 py-2 rounded-lg border text-center ${
-                      i === 1 ? 'border-orange-300 bg-orange-50 text-orange-600' : 'border-slate-200 bg-white text-slate-400'
+                      i === 1 ? 'border-orange-300 bg-orange-50 text-orange-600' : 'border-slate-200 bg-[#ffffff] text-slate-400'
                     }`}
                   >
                     {skill}
@@ -715,7 +715,7 @@ export default function WelcomePage() {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-6 items-center bg-white border-2 border-amber-200 rounded-2xl p-6 sm:p-8 mb-6 shadow-md">
+          <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-6 items-center bg-[#ffffff] border-2 border-amber-200 rounded-2xl p-6 sm:p-8 mb-6 shadow-md">
             <img src="/monsters/tarsipling.webp" alt="Tarsipling" className="w-24 h-24 object-contain mx-auto" />
             <div>
               <p className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-amber-500 mb-1.5">
@@ -733,7 +733,7 @@ export default function WelcomePage() {
         </FadeIn>
 
         <FadeIn delay={0.15}>
-          <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-6 items-center bg-white border-2 border-violet-200 rounded-2xl p-6 sm:p-8 shadow-md">
+          <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-6 items-center bg-[#ffffff] border-2 border-violet-200 rounded-2xl p-6 sm:p-8 shadow-md">
             <img src="/monsters/thundrake.webp" alt="The Forgetting" className="w-24 h-24 object-contain mx-auto opacity-90" />
             <div>
               <p className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-violet-500 mb-1.5">
@@ -773,7 +773,7 @@ export default function WelcomePage() {
                 { icon: '/icons/rewards/gift.svg', label: 'Stock the Vault', desc: 'Parents set the real-world rewards that actually motivate.', color: 'bg-sky-100 border-sky-200' },
                 { icon: '/icons/rewards/package.svg', label: 'Claim & Track', desc: 'Kids redeem, parents approve and fulfill.', color: 'bg-emerald-100 border-emerald-200' },
               ].map((r) => (
-                <div key={r.label} className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                <div key={r.label} className="bg-[#ffffff] border border-slate-200 rounded-2xl p-6 shadow-sm">
                   <div className={`w-12 h-12 mx-auto mb-3 rounded-full ${r.color} border flex items-center justify-center p-2.5`}>
                     <img src={r.icon} alt="" className="w-full h-full object-contain" />
                   </div>
@@ -807,7 +807,7 @@ export default function WelcomePage() {
               { title: 'Free for Your First Child, Premium for the Rest', desc: 'One child account is free forever. Add siblings under the same login, unlock journal viewing, and earn gold to stock the Rewards Vault with a ₱249/year Premium plan.', dot: 'bg-amber-400' },
             ].map((f, i) => (
               <FadeIn key={f.title} delay={i * 0.05}>
-                <div className="bg-white border border-slate-200 rounded-2xl px-5 py-4 flex items-start gap-3 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-[#ffffff] border border-slate-200 rounded-2xl px-5 py-4 flex items-start gap-3 shadow-sm hover:shadow-md transition-shadow">
                   <span className={`w-2.5 h-2.5 rounded-full ${f.dot} mt-1.5 shrink-0 shadow-[0_0_8px_rgba(0,0,0,0.15)]`} />
                   <div>
                     <h3 className="font-bold text-slate-800 mb-1">{f.title}</h3>
@@ -891,7 +891,7 @@ export default function WelcomePage() {
         </FadeIn>
       </section>
 
-      <footer className="px-6 py-8 text-center border-t border-slate-200 bg-white">
+      <footer className="px-6 py-8 text-center border-t border-slate-200 bg-[#ffffff]">
         <a
           href="/blog"
           className="inline-block text-[12px] font-semibold text-sky-500 hover:text-sky-600 transition-colors tracking-wide mb-3"
