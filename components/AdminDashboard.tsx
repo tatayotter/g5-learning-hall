@@ -14,6 +14,7 @@ import DraftQuestionsSection from '@/components/admin/DraftQuestionsSection';
 import AnalyticsSection from '@/components/admin/AnalyticsSection';
 import ApprovalsSection from '@/components/admin/ApprovalsSection';
 import BossFightSection from '@/components/admin/BossFightSection';
+import SiteSettingsSection from '@/components/admin/SiteSettingsSection';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 interface AdminDashboardProps {
@@ -23,7 +24,7 @@ interface AdminDashboardProps {
   onBack: () => void;
 }
 
-type AdminSection = 'packages' | 'draft_questions' | 'questions' | 'children' | 'parents' | 'events' | 'boss_fights' | 'egg_chains' | 'approvals' | 'analytics' | 'tools' | 'content_matrix';
+type AdminSection = 'packages' | 'draft_questions' | 'questions' | 'children' | 'parents' | 'events' | 'boss_fights' | 'egg_chains' | 'approvals' | 'analytics' | 'tools' | 'content_matrix' | 'site_settings';
 
 export default function AdminDashboard({ currentData, currentSunday, onUpdateStats, onBack }: AdminDashboardProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -116,6 +117,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
         { id: 'analytics',      label: 'Analytics' },
         { id: 'tools',          label: 'Tools' },
         { id: 'content_matrix', label: 'Content Matrix' },
+        { id: 'site_settings',  label: 'Site Settings' },
       ],
     },
   ];
@@ -199,6 +201,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
           />
         )}
         {section === 'content_matrix' && <ContentMatrixSection passcode={password} />}
+        {section === 'site_settings' && <SiteSettingsSection passcode={password} />}
       </main>
     </div>
   );
