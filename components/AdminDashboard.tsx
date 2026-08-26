@@ -5,7 +5,7 @@ import { WeeklyData } from '@/hooks/useWeeklyData';
 import WeeklyPackageBuilder from '@/components/admin/PackagesSection';
 import QuestionBankImporter from '@/components/admin/QuestionBankSection';
 import ToolsSection from '@/components/admin/ToolsSection';
-import PromptsSection from '@/components/admin/PromptsSection';
+import ContentMatrixSection from '@/components/admin/ContentMatrixSection';
 import ChildrenSection from '@/components/admin/ChildrenSection';
 import ParentsSection from '@/components/admin/ParentsSection';
 import EventsSection from '@/components/admin/EventsSection';
@@ -23,7 +23,7 @@ interface AdminDashboardProps {
   onBack: () => void;
 }
 
-type AdminSection = 'packages' | 'draft_questions' | 'questions' | 'children' | 'parents' | 'events' | 'boss_fights' | 'egg_chains' | 'approvals' | 'analytics' | 'tools' | 'prompts';
+type AdminSection = 'packages' | 'draft_questions' | 'questions' | 'children' | 'parents' | 'events' | 'boss_fights' | 'egg_chains' | 'approvals' | 'analytics' | 'tools' | 'content_matrix';
 
 export default function AdminDashboard({ currentData, currentSunday, onUpdateStats, onBack }: AdminDashboardProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -113,9 +113,9 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
     {
       heading: 'System',
       items: [
-        { id: 'analytics', label: 'Analytics' },
-        { id: 'tools',     label: 'Tools' },
-        { id: 'prompts',   label: 'Prompts' },
+        { id: 'analytics',      label: 'Analytics' },
+        { id: 'tools',          label: 'Tools' },
+        { id: 'content_matrix', label: 'Content Matrix' },
       ],
     },
   ];
@@ -198,7 +198,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
             passcode={password}
           />
         )}
-        {section === 'prompts' && <PromptsSection passcode={password} />}
+        {section === 'content_matrix' && <ContentMatrixSection passcode={password} />}
       </main>
     </div>
   );
