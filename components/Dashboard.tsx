@@ -46,6 +46,7 @@ import { isOfflineStorageAvailable, getActiveUserLocal, enqueueSync } from '@/li
 import { isAppOffline } from '@/lib/offlineState';
 import { watchAndFlushSyncQueue } from '@/lib/offlineSync';
 import { seedOfflineCache } from '@/lib/offlineSeed';
+import { prefetchAllTabs } from '@/lib/tabPrefetch';
 import { claimRegistrantReward, fetchNotifications, markNotificationsRead, getMyReferralKey, PlayerNotification } from '@/lib/referral';
 import { claimMarketingGoldBonus } from '@/lib/marketingBonus';
 import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
@@ -233,6 +234,11 @@ export default function Dashboard() {
           return;
         }
         recordLastLogin(activeUserId);
+        // Warms every guild tab's data (and the default Training Map's tile
+        // art) in the background so switching tabs for the first time this
+        // session finds it already loaded instead of showing each tab's own
+        // plain "Loading..." placeholder — see lib/tabPrefetch.ts.
+        prefetchAllTabs(activeUserId, USERS[activeUserId].grade);
         syncEggProgress(activeUserId).then(result => {
           if (result?.hatched?.length) {
             setPendingEggHatches(prev => [...prev, ...result.hatched]);

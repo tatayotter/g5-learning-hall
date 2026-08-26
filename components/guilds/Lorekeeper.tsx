@@ -22,6 +22,7 @@ import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
 import CritBonusToast from '@/components/CritBonusToast';
 import { ALL_MONSTERS, getGuildMonsterTierDef, MonsterDef } from '@/lib/monsterConfig';
 import { QualityTier } from '@/lib/curioQuality';
+import { takePrefetch } from '@/lib/tabPrefetch';
 
 // Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
 // is heavily biased (see components/battle/shared.tsx's shuffleArray).
@@ -77,8 +78,10 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
     async function loadPool() {
       try {
         const [pool, subProfile] = await Promise.all([
-          fetchQuestionPool(userId, 'sq_lorekeeper', 'lorekeeper', gradeLevel),
-          fetchSubclassProfile(userId)
+          takePrefetch<any[]>(userId, 'guildPool:lorekeeper')
+            ?? fetchQuestionPool(userId, 'sq_lorekeeper', 'lorekeeper', gradeLevel),
+          takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
+            ?? fetchSubclassProfile(userId)
         ]);
         setQuestions(shuffle(pool as LorekeeperQuestion[]));
         setProfile(subProfile);

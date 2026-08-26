@@ -43,6 +43,7 @@ import HatcheryPanel from '@/components/monster/HatcheryPanel';
 import { EggChainMap, CurioEgg, fetchEggChainMap, fetchUserEggs, eggReadyLevel } from '@/lib/curioEggs';
 import { isOfflineStorageAvailable, getCachedOwnedMonsters, cacheOwnedMonsters } from '@/lib/localDataSource';
 import { isAppOffline } from '@/lib/offlineState';
+import { takePrefetch, MonsterGuildPrefetch } from '@/lib/tabPrefetch';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 
@@ -316,22 +317,41 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     // right after login can race ahead of that link and get silently
     // filtered to zero rows (no error, just an empty result), exactly like
     // useWeeklyData.ts's fetchData already guards against for player_progress.
-    await ensureAnonymousSession();
+    //
+    // A prefetch fired at login (see lib/tabPrefetch.ts) already awaited its
+    // own ensureAnonymousSession() before running this exact set of queries —
+    // reuse that resolved bundle whole on first mount instead of re-querying,
+    // and only fall through to a fresh Promise.all when there's no prefetch
+    // (later reloads, or a login that skipped prefetch, e.g. offline).
+    const prefetched = await takePrefetch<MonsterGuildPrefetch>(userId, 'monsterGuild');
+    let freshMonsters: any[];
+    if (prefetched) {
+      setUserMonsters(prefetched.userMonsters);
+      setBattleState(prefetched.battleState);
+      setInventory(prefetched.inventory);
+      setAnsweredArenaIds(prefetched.answeredArenaIds);
+      setCaughtMonsters(prefetched.caughtMonsters);
+      setSubclassProfile(prefetched.subclassProfile);
+      freshMonsters = prefetched.userMonsters;
+    } else {
+      await ensureAnonymousSession();
 
-    const [monstersRes, stateRes, invData, answeredIds, caughtRes, subProfile] = await Promise.all([
-      supabase.from('user_monsters').select('*').eq('user_id', userId).order('slot'),
-      supabase.from('user_battle_state').select('*').eq('user_id', userId).single(),
-      fetchInventory(userId),
-      fetchAnsweredArenaQuestionIds(userId),
-      supabase.from('user_caught_monsters').select('*').eq('user_id', userId).order('caught_at', { ascending: false }),
-      fetchSubclassProfile(userId),
-    ]);
-    setUserMonsters(monstersRes.data || []);
-    setBattleState(stateRes.data || null);
-    setInventory(invData || {});
-    setAnsweredArenaIds(answeredIds);
-    setCaughtMonsters(caughtRes.data || []);
-    setSubclassProfile(subProfile);
+      const [monstersRes, stateRes, invData, answeredIds, caughtRes, subProfile] = await Promise.all([
+        supabase.from('user_monsters').select('*').eq('user_id', userId).order('slot'),
+        supabase.from('user_battle_state').select('*').eq('user_id', userId).single(),
+        fetchInventory(userId),
+        fetchAnsweredArenaQuestionIds(userId),
+        supabase.from('user_caught_monsters').select('*').eq('user_id', userId).order('caught_at', { ascending: false }),
+        fetchSubclassProfile(userId),
+      ]);
+      setUserMonsters(monstersRes.data || []);
+      setBattleState(stateRes.data || null);
+      setInventory(invData || {});
+      setAnsweredArenaIds(answeredIds);
+      setCaughtMonsters(caughtRes.data || []);
+      setSubclassProfile(subProfile);
+      freshMonsters = monstersRes.data || [];
+    }
     setLoading(false);
     loadEggs();
     // Write-through cache so the roster is available offline next time —
@@ -345,7 +365,6 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     // Curio Arena visit — safer than ever showing "choose your starter"
     // to a player who actually has a team.
     if (isOfflineStorageAvailable()) {
-      const freshMonsters = monstersRes.data || [];
       if (freshMonsters.length > 0) {
         cacheOwnedMonsters(userId, freshMonsters).catch(e => {
           console.error('Offline owned-monsters cache failed (non-fatal):', e);

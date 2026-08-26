@@ -21,6 +21,7 @@ import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
 import CritBonusToast from '@/components/CritBonusToast';
 import { ALL_MONSTERS, getGuildMonsterTierDef, MonsterDef } from '@/lib/monsterConfig';
 import { QualityTier } from '@/lib/curioQuality';
+import { takePrefetch } from '@/lib/tabPrefetch';
 
 // Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
 // is heavily biased (see components/battle/shared.tsx's shuffleArray).
@@ -84,8 +85,10 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
   useEffect(() => {
     async function loadPool() {
       const [pool, subProfile] = await Promise.all([
-        fetchQuestionPool(userId, 'sq_number_realm', 'number_realm', gradeLevel),
-        fetchSubclassProfile(userId)
+        takePrefetch<any[]>(userId, 'guildPool:number_realm')
+          ?? fetchQuestionPool(userId, 'sq_number_realm', 'number_realm', gradeLevel),
+        takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
+          ?? fetchSubclassProfile(userId)
       ]);
       setQuestions(shuffle(pool as NumberRealmQuestion[]));
       setProfile(subProfile);

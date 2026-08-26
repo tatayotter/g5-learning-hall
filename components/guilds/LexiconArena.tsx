@@ -21,6 +21,7 @@ import CritBonusToast from '@/components/CritBonusToast';
 import { CritBonusEvent } from '@/hooks/useTimeAttack';
 import { ALL_MONSTERS, getGuildMonsterTierDef, MonsterDef } from '@/lib/monsterConfig';
 import { QualityTier } from '@/lib/curioQuality';
+import { takePrefetch } from '@/lib/tabPrefetch';
 
 interface LexiconWord {
   id: string;
@@ -104,14 +105,15 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
     async function loadWords() {
       setLoading(true);
       completedIdsRef.current = [];
-      const pool = await fetchQuestionPool(userId, 'sq_lexicon_arena', 'lexicon_arena', gradeLevel);
+      const pool = await (takePrefetch<any[]>(userId, 'guildPool:lexicon_arena')
+        ?? fetchQuestionPool(userId, 'sq_lexicon_arena', 'lexicon_arena', gradeLevel));
       if (pool.length > 0) {
         setWords(shuffle(pool as LexiconWord[]));
       }
       setLoading(false);
     }
     loadWords();
-    fetchSubclassProfile(userId).then(setProfile);
+    (takePrefetch<SubclassProfile | null>(userId, 'subclassProfile') ?? fetchSubclassProfile(userId)).then(setProfile);
   }, [gradeLevel, userId]);
 
   // Build choices for current word
