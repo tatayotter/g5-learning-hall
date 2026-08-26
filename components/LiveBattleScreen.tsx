@@ -619,7 +619,7 @@ export default function LiveBattleScreen({
   const myDisplayName = USERS[myUserId]?.fullName ?? 'You';
 
   const overlay = answering && pendingSkillId ? (
-    <div className="w-full max-w-xl bg-neutral-900 border border-amber-700 rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in">
+    <div className="w-full max-w-xl bg-white border border-[#8b5e2a] rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in">
       <BattleQuestionModal
         questions={questions}
         count={SKILLS[pendingSkillId].questionCount}
