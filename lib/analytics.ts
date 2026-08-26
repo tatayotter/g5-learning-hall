@@ -8,6 +8,15 @@ import { isOfflineStorageAvailable } from '@/lib/localDataSource';
 import { isAppOffline } from '@/lib/offlineState';
 
 const SESSION_STORAGE_KEY = 'g5_analytics_session_id';
+const ATTRIBUTION_STORAGE_KEY = 'g5_analytics_attribution';
+const ATTRIBUTION_PARAMS = [
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_content',
+  'utm_term',
+  'fbclid',
+] as const;
 
 export function getOrCreateSessionId(): string {
   if (typeof window === 'undefined') return 'server';
@@ -17,6 +26,39 @@ export function getOrCreateSessionId(): string {
     sessionStorage.setItem(SESSION_STORAGE_KEY, id);
   }
   return id;
+}
+
+// First-touch ad attribution. Reads utm_*/fbclid off the current URL and
+// pins them in sessionStorage so they survive internal navigation (e.g.
+// /welcome?utm_source=fb -> /register carries no query string of its own).
+// Call once per page load; a no-op once something is already stored, so the
+// *first* landing page a visitor hits within the session wins — later
+// internal navigation never overwrites it with an empty result.
+export function captureAttribution(): void {
+  if (typeof window === 'undefined') return;
+  try {
+    if (sessionStorage.getItem(ATTRIBUTION_STORAGE_KEY)) return;
+    const params = new URLSearchParams(window.location.search);
+    const attribution: Record<string, string> = {};
+    for (const key of ATTRIBUTION_PARAMS) {
+      const value = params.get(key);
+      if (value) attribution[key] = value;
+    }
+    if (Object.keys(attribution).length === 0) return;
+    sessionStorage.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(attribution));
+  } catch {
+    // sessionStorage unavailable (private mode, etc.) — analytics, not worth failing over
+  }
+}
+
+export function getStoredAttribution(): Record<string, string> {
+  if (typeof window === 'undefined') return {};
+  try {
+    const raw = sessionStorage.getItem(ATTRIBUTION_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch {
+    return {};
+  }
 }
 
 export async function trackEvent(
@@ -34,7 +76,7 @@ export async function trackEvent(
     user_id: userId,
     session_id: getOrCreateSessionId(),
     event_name: eventName,
-    properties,
+    properties: { ...getStoredAttribution(), ...properties },
     is_family: USERS[userId]?.isFamily ?? false,
     app_tab: appTab ?? null,
     client_ts: new Date().toISOString(),

@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { setActiveUser, recordLastLogin, registerChildUser } from '@/lib/userSession';
-import { getOrCreateSessionId } from '@/lib/analytics';
+import { getOrCreateSessionId, getStoredAttribution } from '@/lib/analytics';
 import { trackPixelEvent } from '@/lib/fbPixel';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
 import { validateReferralCode } from '@/lib/referral';
@@ -82,6 +82,7 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
           source,
           sessionId: getOrCreateSessionId(),
           referralCode: referralCode.trim() || null,
+          attribution: getStoredAttribution(),
         }),
       });
       const result = await res.json();
