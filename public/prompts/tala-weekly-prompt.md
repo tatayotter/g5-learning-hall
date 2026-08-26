@@ -40,7 +40,7 @@ OUTPUT RULES:
 - Friday is always "Weekly Review" covering all subjects from Mon-Thu
 
 GRADE LEVEL: 2
-LANGUAGE: English for English subject | Filipino for Filipino, GMRC, MAKABANSA subjects | English for Mathematics
+LANGUAGE: English for English, Mathematics, Science, Computer subjects | Filipino for Filipino, GMRC, Makabansa subjects
 
 SUBJECTS AND TOPICS FOR THIS WEEK (from BOW):
 [PASTE THE WEEK'S SUBJECTS AND COMPETENCIES HERE — see BOW reference below]
@@ -51,6 +51,8 @@ Generate the full JSON now.
 ---
 
 ## BOW REFERENCE — TALA GRADE 2
+
+_Regenerated 2026-08-26 directly from the DepEd-audited `budget_of_work` Supabase table (the app's public `/curriculum/grade-2` source), so this file and that table no longer diverge. See [[project_bow_dual_source_discovery]]._
 
 Use this to fill in the `SUBJECTS AND TOPICS` section above each Sunday.
 
@@ -73,138 +75,185 @@ Use this to fill in the `SUBJECTS AND TOPICS` section above each Sunday.
 ### ENGLISH (Grade 2)
 
 **Term 1 — Oneself and Family**
-- Week 1–3: Phonological awareness (rhymes, onset/rime), CVC words, sight words; Common & proper nouns, gender of nouns; Narrative text elements (characters, setting, events)
-- Week 4–6: Verbs (action words), adjectives (describing words), personal pronouns; Telling & asking sentences (declarative & interrogative); Sequence events, problem & solution in stories
-- Week 7–9: Capitalization & punctuation for declarative & interrogative sentences; Time order discourse markers; Informational text — noting details, text type (procedural)
-- Week 10: Review — nouns, verbs, adjectives, sentence types; Summary of narrative text
+- Phonological awareness: rhymes, onset/rime; CVC words, sight words
+- Nouns (common/proper, gender), verbs, adjectives, personal pronouns
+- Declarative and interrogative sentences (capitalization, punctuation, intonation); time-order markers
+- Narrative comprehension: elements, sequencing 3+ events, problem/solution, feelings/traits, cause-effect, predicting, summary
+- Informational text: 3+ details, problem/solution, time-order/procedural type
+- Composing: greetings, retelling myths/legends/fables, reacting to a story, summary
 
 **Term 2 — School and Community**
-- Week 1–3: CVC, CVCe, CVVC words; Common & proper nouns, gender, verbs, adjectives; Declarative, interrogative, imperative, exclamatory sentences
-- Week 4–6: Personal & interrogative pronouns; Capitalization & punctuation for all sentence types; Time order & description discourse markers
-- Week 7–9: Reading comprehension — sequence 3-4 events, problem/solution, cause/effect, character feelings; Informational text — description text type
-- Week 10: Review — all sentence types, pronouns; Summary of narrative text
+- Word patterns expand to CVCe, CVVC; vocabulary shifts to school then community topics
+- Adds interrogative pronouns (who/what/which/whose), then possessive pronouns (mine/yours/his/hers)
+- Adds imperative and exclamatory sentences — all 4 sentence types by term end
+- Comprehension: sequencing grows to 3-4 events; informational texts add description text type
+- Composing centers on school/community experiences using expanded vocabulary and all sentence types
 
 **Term 3 — Physical Environment**
-- Week 1–3: CVCe, CVVC, CVCC, CCVC words (clusters & diphthongs); Personal, interrogative, possessive, demonstrative pronouns; Synonyms & antonyms
-- Week 4–6: All sentence types with correct capitalization & punctuation; Sentence parts (subject & predicate); Time order & description discourse markers
-- Week 7–9: Comprehension — 3-4 events, problem/solution, cause/effect, predict ending, give summary; Informational text — details, problem/solution, description text type
-- Week 10: Review — all word patterns, pronouns, sentence types; Summary of narrative text
+- Word patterns expand to CVCC, CCVC (clusters/diphthongs), VCV, VCCV
+- Vocabulary: physical environment (land/water forms, weather, plants, animals, seasons) + Science terms
+- Completes word-function set with possessive and demonstrative pronouns (this/that/these/those); introduces synonyms/antonyms
+- All 4 sentence types used, sequenced, parsed into subject/predicate, correctly punctuated
+- Comprehension: summarizing narratives, identifying main message/lesson; informational texts continue 3-4 details
+- Composing: reacting to and summarizing texts on physical-environment/Science topics using synonyms/antonyms
 
 ---
 
 ### MATHEMATICS (Grade 2)
 
-**Term 1 — Numbers to 1000, Shapes, Addition**
-- Week 1: Circles, half circles, quarter circles; Composite figures (squares, rectangles, triangles)
-- Week 2: One-step slides/translations of basic shapes
-- Week 3: Count up to 1000
-- Week 4: Read and write numerals up to 1000
-- Week 5: Represent numbers up to 1000 using models and numerals
-- Week 6: Count by 2s, 5s, 10s, 20s, 50s, 100s; Order numbers to 1000
-- Week 7: Ordinal numbers up to 20th; Place value of 3-digit numbers (hundreds, tens, ones)
-- Week 8–9: Addition with sums up to 1000 (with and without regrouping); Expanded form
-- Week 9: Properties of addition; Philippine coins and bills up to ₱1000
-- Week 10: Compare values of coins/bills; Solve addition word problems including money
+**Term 1 — Numbers to 1000, Shapes, Addition, Money**
+- Circles/half/quarter circles; composite figures (squares, rectangles, triangles, circles) using cut-outs and grids
+- One-direction multi-step slide (translation) of basic shapes
+- Numbers to 1000: count, read/write, represent, count by 2s/5s/10s/20s/50s/100s, order, place value (ones/tens/hundreds)
+- Ordinal numbers to 20th
+- Addition to 1000 (expanded form, with/without regrouping); identity/commutative/associative properties
+- Philippine coins and bills to ₱1000 (centavo/peso coins/bills, combined); comparing values
+- Addition word problems including money, with/without regrouping
 
-**Term 2 — Measurement, Subtraction, Patterns, Data**
-- Week 1: Measure & compare length in meters and centimeters
-- Week 2: Estimate length; Solve length & distance problems
-- Week 3–7: Subtraction of numbers less than 1000 (with & without regrouping); Increasing & decreasing patterns
-- Week 8–9: Pictograph with scale — present & interpret data
-- Week 9: Repeated addition / equal groups (intro to multiplication)
-- Week 10: Multiplication as repeated addition (groups, arrays, multiples, number line)
+**Term 2 — Length, Subtraction, Patterns, Pictographs, Multiplication Intro**
+- Measuring/comparing/estimating length and distance (m, cm) using appropriate tools; solving length/distance problems
+- Subtraction where both numbers <100 with regrouping, then <1000 with/without regrouping; 1- and 2-step word problems including money
+- Increasing/decreasing patterns (numbers, letters, rhythm, visual art, repetitions) — determine next term, create new patterns
+- Pictographs with a scale: present raw/tabular data as pictograph and vice versa; interpret with/without scale
+- Multiplication as repeated addition — equal groups ("5 groups of 3"); models: groups, arrays, counting by multiples, number line
 
-**Term 3 — Multiplication, Division, Fractions, Time, Perimeter**
-- Week 1: Multiplication tables for 2, 3, 4, 5, 10
-- Week 2: Solve multiplication word problems; Introduction to division (equal distribution)
-- Week 3: Division expressions — equal sharing, repeated subtraction; Divide using multiplication tables
-- Week 4: Missing number in multiplication/division; Even & odd numbers; Division word problems
-- Week 5: Unit fractions with denominators 2, 3, 4, 5, 6, 8; Read & write in fraction notation
-- Week 6: Order unit fractions; Similar fractions with denominators 2, 3, 4, 5, 6, 8
-- Week 7: Read & write similar fractions; Order similar fractions; Duration using calendar
-- Week 8: Tell & write time in hours and minutes (a.m./p.m.) using analog clock
-- Week 9: Elapsed time problems; Straight vs curved lines; Flat vs curved surfaces; Measure perimeter
-- Week 10: Find perimeter of triangles, squares, rectangles; Solve perimeter problems
+**Term 3 — Multiplication/Division Tables, Fractions, Time, Perimeter**
+- Multiplication and division using 2, 3, 4, 5, 10 tables, including money word problems
+- Division as equal sharing/repeated subtraction; missing number in multiplication/division sentences; even/odd via division by 2
+- Unit fractions (denominators 2,3,4,5,6,8) — represent, read/write, order; similar fractions — represent, read/write, order
+- Duration via calendar (days/weeks); telling time in hours/minutes with a.m./p.m. on an analog clock
+- Elapsed time (minutes/hour, hours/day, days/week, timetables); straight vs. curved lines, flat vs. curved surfaces
+- Perimeter: measure using tools; find and solve problems for triangles, squares, rectangles
 
 ---
 
 ### FILIPINO (Grade 2)
 
-**Term 1 — Sarili at Pamilya (Self and Family)**
-- Phonological awareness: tunog ng Alpabetong Filipino, magkakatugmang salita, mga pantig
-- Talasalitaan: high frequency words tungkol sa sarili at pamilya; salitang tumutukoy sa ngalan (pantangi/pambalana, tiyak/di-tiyak/walang kasarian)
-- Gramatika: salitang naglalarawan (adjectives), salitang kilos (verbs), salitang pangkayarian (ang, ang mga, si, sina), pang-ugnay (at, o)
-- Pangungusap: payak na pangungusap — paturol/pasalaysay at patanong; tamang bantas at malaking letra
-- Teksto: naratibong teksto — tauhan, tagpuan, banghay, suliranin at solusyon, pagkakasunod-sunod; tekstong impormatibo — tuntunin, paalala, panuto
+**Term 1 — Sarili at Pamilya**
+- Kamalayang ponolohikal: tunog ng Alpabeto, tugmang salita, pagbibilang ng pantig, onset-rime, blending/segmenting
+- Sight words (ako, ikaw, siya, ang, ng, sa...); salitang CVC/CVCV; pagbasa ng payak na pangungusap
+- Talasalitaan: pambungad-sa-sarili, pamilya, GMRC/MAKABANSA-tuong salita; pangngalan, pandiwa, pang-uri, panghalip panao
+- Gramatika: payak na pangungusap — paturol at patanong; salitang-pananong; malaking titik at bantas
+- Teksto naratibo: tauhan/tagpuan/pangyayari, damdamin ng tauhan, suliranin-solusyon, sanhi-bunga, buod
+- Teksto impormatibo: tiyak na detalye (sino/ano/saan); pagsasalaysay ng sariling karanasan; personal na reaksiyon
 
-**Term 2 — Sarili at Komunidad (Self and Community)**
-- Phonological awareness: salitang magkakatugma (hanggang 3 pantig), diptonggo, klaster
-- Talasalitaan: high frequency words tungkol sa paaralan, komunidad; salita ng kongkreto/di-kongkreto; salitang paari
-- Gramatika: lahat ng uri ng pangungusap (paturol, patanong, pakiusap/pautos); wastong intonasyon; malaki at maliit na letra
-- Teksto: naratibo at impormatibo — pangunahing idea, suliranin/solusyon, pagkakasunod-sunod, sanhi at bunga, kongklusyon
+**Term 2 — Sarili at Komunidad**
+- Dagdag na tunog: diptonggo (ay/aw/iw/oy/uy), klaster (pl/pr/tr/bl); mas mabilis at may-ekspresyong pagbasa
+- Talasalitaan: paaralan at komunidad; panghalip na pananong (sino/ano/alin/kanino/ilan)
+- Gramatika: pangungusap na pakiusap/pautos at padamdam; pangngalang kongkreto vs. di-kongkreto; pangngalang paari
+- Teksto: pagsunod at pagsasalaysay ng 3-4 pangyayari; pangunahing ideya ng talata; maikling talata (3-5 pangungusap)
 
 **Term 3 — Sarili, Komunidad, at Kapaligiran**
-- Talasalitaan: lansakan, dinaglat; pamatlig; magkasalungat at magkasingkahulugan
-- Gramatika: lahat ng uri ng pangungusap kasama padamdam; simuno at panaguri ng pangungusap
-- Teksto: naratibo at impormatibo — buod, mensahe ng teksto, huwaran ng organisasyon (paglalarawan at pagsusunod-sunod)
+- Dagdag na tunog: KPK/KKP na pantig; mas mataas na antas ng fluency sa 2-3 talataan
+- Talasalitaan: kapaligiran (kalikasan, ilog, bundok, dagat, hangin, ulan, polusyon, basura, pagtatanim); pamatlig; magkasalungat/magkasingkahulugan
+- Gramatika: simuno at panaguri; paglawak gamit ang pang-uri at pang-abay na panlunan/panahon
+- Teksto: pagsunod sa 4-5 pangyayari; mensahe/aral ng kuwento; buod (3-4 pangungusap)
+- Pagsulat: tekstong impormatibo tungkol sa pangangalaga sa kapaligiran, babala, balitang pambata (5W)
 
 ---
 
-### GMRC — Good Manners and Right Conduct (Grade 2)
+### GMRC (Grade 2)
 
-**Term 1 — Pagpapahalaga sa Sarili (Valuing Oneself)**
-- Week 1–2: Batayang impormasyon ng sarili — pangalan, edad, kasarian, tirahan, relihiyon (Self-confidence)
-- Week 3–4: Pangangalaga sa kalusugan gabay ang pamilya — mga paraan ng pag-aalaga ng katawan (Valuing oneself)
-- Week 5–6: Sariling damdamin — pag-iisa-isa ng iba't ibang damdamin; wastong pagpapahayag ng damdamin (Sincerity)
-- Week 7–8: Pansariling panalangin — mga mabuting dulot ng pananalangin; pakikipag-ugnayan sa Diyos (Prayerful)
-- Week 9–10: Pagtitipid na nakabubuti sa kapaligiran — mga wastong paraan ng pagtitipid (Prudent)
-- Week 11: Mga tungkulin ng batang Pilipino sa pamayanan (Obedience)
-- Week 12–13: Pagkilala ng sariling kakayahan o talento sa tulong ng pamilya (Self-confidence)
+**Term 1 — Pagpapahalaga sa Sarili**
+- Wk1-2: Batayang impormasyon ng sarili at pamilya — pangalan, edad, kaarawan, tirahan (Valuing oneself)
+- Wk3-4: Pangangalaga sa kalusugan gabay ang pamilya — kalinisan, kaligtasan (Valuing oneself)
+- Wk5-6: Sariling damdamin — pagkilala at wastong pagpapahayag (Sincerity)
+- Wk7-8: Pansariling panalangin — pasasalamat, kahilingan (Prayerful)
+- Wk9-10: Pagtitipid na nakabubuti sa kapaligiran (Prudent)
+- Wk11: Mga tungkulin ng batang Pilipino sa pamayanan (Obedience)
+- Wk12-13: Pagkilala ng sariling kakayahan/talento sa tulong ng pamilya (Self-confidence)
 
 **Term 2 — Pakikitungo sa Kapuwa**
-- Week 1–2: Wastong paraan ng pakikipagkapuwa (Accountability)
-- Week 3–4: Disiplinang pansarili sa paggamit ng pampublikong pasilidad (Compassion)
-- Week 5–6: Maayos na pag-uusap sa loob ng pamilya (Patience)
-- Week 7: Pagmamahal sa pamilya bilang gabay sa pakikipagkapuwa (Honesty)
-- Week 8–9: Mga gawaing panrelihiyon o paniniwala ng pamilya (Obedience)
-- Week 10–11: Kalinisan sa tahanan (Orderliness)
-- Week 12: Mabuting pagtanggap ng pamilya sa mga bisita (Hospitality)
-- Week 13: Paggawa ng kabutihan sa kapuwa (Loving)
-- Week 14: Pagkilala sa kabutihan ng kapuwa (Gratitude)
+- Wk1-2: Wastong paraan ng pakikipagkapuwa (Accountability)
+- Wk3-4: Disiplinang pansarili sa pampublikong pasilidad (Compassion)
+- Wk5-6: Maayos na pag-uusap sa loob ng pamilya (Patience)
+- Wk7: Katapatan sa pamilya bilang gabay sa pakikipagkapuwa (Honesty)
+- Wk8-9: Gawaing panrelihiyon o paniniwala ng pamilya (Obedience)
+- Wk10-11: Kalinisan sa tahanan (Orderliness)
+- Wk12: Mabuting pagtanggap ng pamilya sa bisita (Hospitality)
+- Wk13: Paggawa ng kabutihan sa kapuwa (Loving)
+- Wk14: Pagkilala sa kabutihan ng kapuwa (Gratitude)
 
 **Term 3 — Pakikibahagi sa Komunidad**
-- Week 1: Paggalang sa iba't ibang relihiyon o paniniwala ng kapuwa (Respect)
-- Week 2–3: Pangangalaga sa kapaligiran katuwang ang kapuwa-bata (Compassion)
-- Week 4–5: Pagbabayanihan ng kapuwa-bata para sa pamayanan (Helpful)
-- Week 6–7: Pakikiisa ng pamilya sa pamayanan (Accountability)
-- Week 8–9: Mga pagdiriwang sa pamayanan (Friendly)
-- Week 10: Mga gawain ng iba't ibang relihiyon na nakatutulong sa pamayanan (Cooperation)
-- Week 11: Pangangalaga ng kapaligiran sa kinabibilangang pamayanan (Compassion)
-- Week 12–13: Mga kabayanihan sa sariling bayan (Love of Country)
+- Wk1: Paggalang sa iba't ibang relihiyon o paniniwala ng kapuwa (Respect)
+- Wk2-3: Pangangalaga sa kapaligiran katuwang ang kapuwa-bata (Compassion)
+- Wk4-5: Pagbabayanihan ng kapuwa-bata para sa pamayanan (Helpful)
+- Wk6-7: Pakikiisa ng pamilya sa pamayanan (Accountability)
+- Wk8-9: Mga pagdiriwang sa pamayanan (Friendly)
+- Wk10: Gawain ng relihiyon na tumutulong sa pamayanan (Cooperation)
+- Wk11: Pangangalaga ng kapaligiran sa pamayanan (Compassion)
+- Wk12-13: Mga kabayanihan sa sariling bayan (Love of Country)
 
 ---
 
 ### MAKABANSA (Grade 2)
 
 **Term 1 — Ang Ating Komunidad**
-- Week 1: Konsepto ng komunidad
-- Week 2–5: Katangian ng sariling komunidad — Lokasyon, Lawak o Sukat, Palatandaang heograpikal (bundok, ilog, dagat, lawa)
-- Week 6–8: Mga bumubuo sa kinabibilangang komunidad (mga tao, institusyon)
-- Week 9–10: Pagpapahalaga sa mga bumubuo ng komunidad
+- Wk1: Konsepto ng komunidad
+- Wk2-5: Sariling komunidad — lokasyon, lawak/sukat, palatandaang heograpikal
+- Wk6-8: Mga bumubuo sa komunidad (mga tao, institusyon)
+- Wk9-10: Pagpapahalaga sa mga bumubuo ng komunidad
 
 **Term 2 — Ang Kultura ng Ating Komunidad**
-- Week 1–2: Kahulugan ng kultura
-- Week 3–5: Kulturang materyal at di-materyal ng kinabibilangang komunidad
-- Week 6–8: Kaugnayan ng kultura sa paghubog ng pagkakakilanlan
-- Week 9–10: Pagpapahalaga sa kultura ng komunidad
+- Wk1-2: Kahulugan ng kultura
+- Wk3-5: Kulturang materyal at di-materyal ng komunidad
+- Wk6-8: Kaugnayan ng kultura sa paghubog ng pagkakakilanlan
+- Wk9-10: Pagpapahalaga sa kultura ng komunidad
 
 **Term 3 — Pakikipagkapuwa at Pakikibahagi**
-- Week 1–3: Iba't ibang uri ng kabuhayan — agrikultural, industriyal, pampinansyal, panserbisyo
-- Week 4–6: Pamumuhay at mga serbisyo ng kinabibilangang komunidad
-- Week 7: Pagpapahalaga sa paraan ng pamumuhay at serbisyo
-- Week 8: Konsepto ng pakikipagkapuwa at pakikibahagi
-- Week 9: Pamamaraan ng pakikipagkapuwa at pakikibahagi
-- Week 10: Pagpapahalaga sa pakikipagkapuwa at pakikibahagi
+- Wk1-3: Uri ng kabuhayan — agrikultural, industriyal, pampinansyal, panserbisyo
+- Wk4-6: Pamumuhay at serbisyo ng komunidad
+- Wk7: Pagpapahalaga sa pamumuhay at serbisyo
+- Wk8: Konsepto ng pakikipagkapuwa at pakikibahagi
+- Wk9: Pamamaraan ng pakikipagkapuwa at pakikibahagi
+- Wk10: Pagpapahalaga sa pakikipagkapuwa at pakikibahagi
+
+---
+
+### COMPUTER (Grade 2 — App-Added Bonus Subject)
+
+_Not part of official MATATAG Grade 2 (which has only 5 subjects) — see [[project_grade2_bow_deped_audit]] — but included in the regular weekly generation schedule as of 2026-08-26, same as any other Grade 2 subject._
+
+**Term 1 — Getting to Know My Computer**
+- What a computer is; recognizing everyday examples (desktop, laptop, tablet, smartphone)
+- Main parts (monitor, CPU, keyboard, mouse) and accessories (speakers, printer, webcam)
+- Turning a computer on/off safely; caring for equipment
+- Mouse skills — grip, single/double-click, click-and-drag, scroll, opening icons
+
+**Term 2 — My Keyboard and Simple Computer Programs**
+- Keyboard layout, special keys (Shift, Backspace, Enter); typing one's name and simple words
+- Simple drawing/paint program — tools, coloring, erasing
+- Simple word-processing/typing program — short sentences, basic formatting
+- Saving and opening a file with adult guidance
+
+**Term 3 — Using Computers Safely and Creatively**
+- What is the internet (age-appropriate); recognizing content made for kids vs. not
+- Screen-time basics; always asking an adult before going online
+- Keeping personal information private; digital manners; recognizing and reporting unsafe situations
+- Combining mouse/keyboard skills in a simple project; year-end review of care habits and online-safety rules
+
+### SCIENCE (Grade 2 — App-Added Bonus Subject)
+
+_Not part of official MATATAG Grade 2 (which has only 5 subjects) — see [[project_grade2_bow_deped_audit]] — but included in the regular weekly generation schedule as of 2026-08-26, same as any other Grade 2 subject._
+
+**Term 1 — Living/Nonliving Things, My Body and Senses**
+- Living vs. nonliving things — characteristics; sorting objects
+- Basic needs of living things (air, food, water, space, shelter)
+- External body parts; the five senses and how they work together
+- Healthful habits protecting senses/body; safety practices at home and school
+
+**Term 2 — Plants and Animals, Weather and Seasons**
+- Plant parts and their jobs; what plants need to grow; observing a growing seed
+- Animals by habitat and movement; animal basic needs and self-protection; simple life cycles
+- Caring for plants and animals
+- Everyday weather conditions and simple weather tools; the two Philippine seasons (rainy/dry)
+- How weather/seasons affect daily life
+
+**Term 3 — Matter, Force and Simple Machines, Earth and Sky, Environment**
+- Matter and its observable properties; three states of matter; simple changes (melting, evaporation)
+- Push and pull; simple machines (lever, wheel-and-axle, inclined plane, pulley, wedge)
+- Day and night, shadows; simple observations of the moon and stars
+- Caring for the environment — reduce/reuse/recycle, waste segregation; saving water/electricity
 
 ---
 
@@ -215,7 +264,7 @@ Tala's fixed weekly subject schedule (matches `GRADE_2_SCHEDULE` in `subjectSche
 | Day | Subjects |
 |-----|---------|
 | Monday | English · Mathematics |
-| Tuesday | Filipino |
+| Tuesday | Filipino · Science |
 | Wednesday | Makabansa · Computer |
 | Thursday | GMRC |
 | Friday | Weekly Review (all subjects) |

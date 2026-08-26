@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { setActiveUser, recordLastLogin, registerChildUser } from '@/lib/userSession';
 import { getOrCreateSessionId } from '@/lib/analytics';
+import { trackPixelEvent } from '@/lib/fbPixel';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
 import { validateReferralCode } from '@/lib/referral';
 
@@ -88,6 +89,8 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
         throw new Error(result.error || 'Could not create your account.');
       }
 
+      trackPixelEvent('CompleteRegistration', { content_name: 'child_signup' });
+
       registerChildUser({
         id: result.id,
         fullName: data.fullName,
@@ -111,7 +114,7 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
 
       {/* Referral code */}
       <div className="space-y-2">
-        <label className="block text-xs font-bold text-amber-700 uppercase tracking-wider">
+        <label className="block text-sm font-bold text-amber-700 uppercase tracking-wider">
           Referral Code <span className="text-stone-400 font-normal normal-case">— optional</span>
         </label>
         <div className="relative">
@@ -121,7 +124,7 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
             placeholder="e.g. aB3z"
             value={referralCode}
             onChange={(e) => setReferralCode(e.target.value)}
-            className={`w-full rounded-xl px-4 py-3 bg-white border font-mono tracking-widest
+            className={`w-full rounded-xl px-4 py-3 bg-[#ffffff] border font-mono text-base tracking-widest
                         text-gray-900 placeholder-stone-400 outline-none transition-all
                         ${referralState === 'valid'
                           ? 'border-green-400 focus:border-green-500 focus:ring-2 focus:ring-green-100'
@@ -130,7 +133,7 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
                           : 'border-stone-300 focus:border-amber-400 focus:ring-2 focus:ring-amber-100'}`}
           />
           {referralState === 'checking' && (
-            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-stone-400">
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-stone-400">
               Checking…
             </span>
           )}
@@ -139,7 +142,7 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
         {referralState === 'valid' && (
           <div className="flex items-start gap-2 bg-green-50 border border-green-200 rounded-xl px-3 py-2">
             <span className="text-green-500 mt-0.5">✓</span>
-            <p className="text-xs text-green-700">
+            <p className="text-sm text-green-700">
               Code from <span className="font-bold">{referralReferrerName}</span> — you&apos;ll receive{' '}
               <span className="font-bold">1 Growth Pill + 100 Gold</span> on your first login!
             </p>
@@ -148,13 +151,13 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
         {referralState === 'invalid' && (
           <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2">
             <span className="text-amber-500 mt-0.5">⚠</span>
-            <p className="text-xs text-amber-700">
+            <p className="text-sm text-amber-700">
               That code wasn&apos;t found — double-check it, or leave it blank to continue.
             </p>
           </div>
         )}
         {referralState === 'idle' && referralCode.trim().length === 0 && (
-          <p className="text-xs text-stone-400 flex items-center gap-1">
+          <p className="text-sm text-stone-400 flex items-center gap-1">
             🎁 Have a friend&apos;s code? Enter it to earn bonus Gold on signup!
           </p>
         )}
@@ -162,7 +165,7 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
 
       {error && (
         <div className="bg-red-50 border border-red-200 rounded-xl px-3 py-2">
-          <p className="text-sm text-red-600">{error}</p>
+          <p className="text-base text-red-600">{error}</p>
         </div>
       )}
 
@@ -170,13 +173,13 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
         type="submit"
         disabled={submitting}
         className="w-full rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700
-                   disabled:opacity-50 text-white font-bold py-3.5 text-base
+                   disabled:opacity-50 text-[#ffffff] font-bold py-3.5 text-lg
                    shadow-lg shadow-amber-500/30 transition-all"
       >
         {submitting ? 'Creating your hero…' : '⚔️ Start Your Adventure!'}
       </button>
 
-      <p className="text-center text-xs text-stone-400 leading-relaxed">
+      <p className="text-center text-sm text-stone-400 leading-relaxed">
         You can play right away. Link a parent email later from inside the game to
         unlock leaderboards, PvP battles, and earn a bonus 💰 100 Gold.
       </p>

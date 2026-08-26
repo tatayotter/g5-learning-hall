@@ -52,230 +52,183 @@ Generate the full JSON now.
 
 ## BOW REFERENCE — GRADE 6
 
+_Regenerated 2026-08-26 directly from the DepEd-audited `budget_of_work` Supabase table (the app's public `/curriculum/grade-6` source), so this file and that table no longer diverge — including merging that table's own leftover "Ikaapat na Termino"/"Term 4" sections into Term 3, since MATATAG runs 3 terms. See [[project_bow_dual_source_discovery]]. Grade 6's own DepEd-CG accuracy audit has not been done yet — only Grades 2, 3, and 5 have been verified against the official curriculum guides so far._
+
 Use this to fill in the `SUBJECTS AND TOPICS` section above each Sunday.
 
 > ### 📅 SY 2026-2027 Week Map
-> BOW entries use internal week numbers (reset per quarter). Convert to continuous school week using the offsets below.
+> BOW entries use internal week numbers (reset per term). Convert to continuous school week using the offsets below.
 >
 > | Period | School Weeks | Approx. Dates | BOW → School |
 > |--------|-------------|---------------|--------------|
 > | **Week 1** — Orientation (no lessons) | 1 | Jun 15–19, 2026 | — |
-> | **Q1 / Term 1** | 2–13 | Jun 22 – Sep 12, 2026 | BOW Week N → **Week N+1** |
+> | **Term 1** | 2–13 | Jun 22 – Sep 12, 2026 | BOW Week N → **Week N+1** |
 > | *(Term 1 break)* | 13–14 | Sep 10–20, 2026 | — |
-> | **Q2 / Term 2** | 15–27 | Sep 21 – Dec 16, 2026 | BOW Week N → **Week N+14** |
+> | **Term 2** | 15–27 | Sep 21 – Dec 16, 2026 | BOW Week N → **Week N+14** |
 > | *(Term 2 break — Christmas)* | 27–29 | Dec 17–31, 2026 | — |
-> | **Q3 / Term 3** | 30–40 | Jan 4 – Mar 19, 2027 | BOW Week N → **Week N+29** |
-> | **Q4 / Term 3 (cont.)** | 41–50 | Mar 22 – May 28, 2027 | BOW Week N → **Week N+40** |
+> | **Term 3** | 30–50 | Jan 4 – May 28, 2027 | BOW Week N → **Week N+29** |
 >
-> *Example: BOW "Q2 Week 3" = School Week 3+14 = **Week 17**.*
+> *Example: BOW "Term 2 Week 3" = School Week 3+14 = **Week 17**.*
 
-> **EPP note:** EPP rotates through four strands across the year. Quarter I = ICT. Quarter II = Fishery Arts (AFA). Quarter III = Family and Consumer Science (FCS). Quarter IV = Industrial Arts (IA). Include the active strand for the current quarter.
+> **EPP note:** EPP is tracked as two BOW rows — ICT (Term 1 only) and AFA/FCS/IA (Term 2 = Fishery Arts, Term 3 = FCS + IA combined).
 
 ---
 
 ### ENGLISH (Grade 6) ★ SSES
 
-**Term 1 — Narrative and Expository Texts**
-- EN6LR: Literary text — narrative; Elements (plot, characterization, setting, theme, conflict resolution); Author's craft (diction, imagery, tone, mood); Inferencing character motives
-- EN6SW: Writing — narrative composition with literary devices; Survey form (print format); Using evidence from text to support interpretations
-- EN6VR: Vocabulary — propaganda techniques in texts (bandwagon, testimonial, plain folks, card stacking); Nuanced word meaning; Figurative language in context
+All terms share the same purpose/context focus: culture-based texts (Indigenous Peoples and regional celebrations).
+
+**Term 1 — Narrative and Persuasive Texts**
+- Literary: story-grammar elements; sequence 8+ events; flashback plot; hyperbole/irony; inferring author's/speaker's purpose, message, audience; predictions; conclusions; main idea; summary
+- Informational: inductive-deductive (diamond) outlining; persuasive text type; author's purpose; fact vs. opinion; propaganda (name-calling, glittering generalities, transfer)
+- Writing: context clues from punctuation; almanac use; intransitive verbs; perfect tenses; prepositional phrases as adjectives; order of adverbs; noun/pronoun/adjective complements; compound-complex sentences; evidence-based writing; non-verbal cues; printed personal-data survey form
 
 **Term 2 — Persuasive and Informational Texts**
-- EN6LR: Persuasive text — claim, evidence, counter-argument, rebuttal; Evaluating the strength of evidence; Identifying logical fallacies (intro); Bias detection
-- EN6SW: Writing — persuasive essay (5-paragraph); Oral survey form; Conducting and reporting a simple survey
-- EN6VR: Vocabulary — advanced propaganda techniques (glittering generalities, name-calling, transfer); Denotation and connotation at the nuanced level; Academic language for argumentation
+- Same literary/informational progression, continued; propaganda adds testimonials, plain folks, bandwagon
+- Writing: directories as reference; open-ended printed survey form; same grammar repertoire continued
 
-**Term 3 — Critical Reading and Research**
-- EN6LR: Synthesizing information from multiple sources; Comparing texts with different perspectives on the same topic; Evaluating author credibility and purpose
-- EN6SW: Writing — research-based essay; Digital survey form creation; In-text citation (basic MLA or APA format); Paraphrasing and quoting correctly
-- EN6VR: Vocabulary — domain-specific vocabulary across subject areas; Etymology and word roots
-
-**Term 4 — Literary Analysis and Reflection**
-- EN6LR: Philippine and world literature — short novels, novellas (selected excerpts); Literary criticism (basic); Comparing cultural perspectives in literature
-- EN6SW: Writing — literary essay; Reflective essay; Self-editing and peer review process
-- EN6VR: Vocabulary — review of all vocabulary strategies; Vocabulary in standardized test formats; Extended metaphor and symbolism
+**Term 3 — Critical Reading, Research, and Literary Analysis**
+- Synthesizing multiple sources; comparing perspectives; evaluating author credibility; propaganda adds fear, half-truths/spin, bad logic, card stacking
+- Writing: handbooks/manuals as reference; research-based essay; in-text citation; oral and digital/online survey forms; literary essay; reflective essay; self-editing/peer review
+- Philippine and world literature excerpts; comparing cultural perspectives; extended metaphor/symbolism
 
 ---
 
 ### FILIPINO (Grade 6)
 
-**Term 1 — Tulang Pambata, Dula, Maikling Kwento at Siyensyang Piksyon + Eksposisyon**
-- Talasalitaan: Arkaismo at neologismo; Jargon at teknikal na salita sa iba't ibang larangan; Salitang may pilosopikong kahulugan
-- Gramatika: Lahat ng pokus ng pandiwa — gamit at epekto sa pagpapahayag; Mga uri ng sugnay at estruktura ng pangungusap para sa retorikal na layunin; Pahayagang may diin (empatikong pangungusap)
-- Teksto: Siyensyang piksyon — katangian, paksa, realismo at imahinasyon; Tulang pambata bilang mapanuring teksto; Eksposisyon — istruktura (thesis, argumento, katibayan, kongklusyon)
+**Term 1 — Tulang Pambata, Dula, Maikling Kwento, Siyensyang Piksyon; Eksposisyon**
+- Talasalitaan: arkaismo/neologismo, jargon, salitang pilosopiko
+- Gramatika: lahat ng pokus ng pandiwa; uri ng sugnay; empatikong pangungusap
+- Teksto: siyensyang piksyon; eksposisyon (thesis, argumento, katibayan, kongklusyon)
 
-**Term 2 — Tula, Dula, Maikling Kwento at Siyensyang Piksyon + Eksposisyon (ikalawang bahagi)**
-- Talasalitaan: Kolokasyon at idiom sa kontekstong pangkultura; Salitang may mataas na antas mula sa panitikang Pilipino
-- Gramatika: Pagpapalawak ng pangungusap gamit ang apositibo at relatibong sugnay; Pahayag at patanong na retorikal
-- Teksto: Mas malalim na pagsusuri ng dula — dramatikong teknik, diyalogo, stage direction; Paghahambing ng dalawang akda tungkol sa iisang paksa
+**Term 2 — Tula, Dula, Maikling Kwento, Siyensyang Piksyon; Eksposisyon (2nd part)**
+- Talasalitaan: kolokasyon/idyoma sa kontekstong pangkultura
+- Gramatika: apositibo, relatibong sugnay
+- Teksto: mas malalim na pagsusuri ng dula; paghahambing ng dalawang akda
 
-**Term 3 — Lahat ng Tekstong Panpanitikan + Persweysib at Editoryal**
-- Talasalitaan: Mga salitang nagpapakita ng posisyon at argumento; Metapora at simbolismo sa panitikan
-- Gramatika: Pasibong anyo at aktibong anyo — epekto sa diin at tono; Retorika ng argumento sa wikang Filipino
-- Teksto: Persweysibong sanaysay — pagtukoy ng claim, warrant, at backing (Toulmin model — basic); Editoryal — pakikinig at pagtugon sa iba't ibang pananaw; Pagsulat ng sariling editoryal
-
-**Term 4 — Lahat ng Genre + Persweysib (panghuling bahagi)**
-- Talasalitaan: Bokabularyo ng panitikan at pagsusuri; Salitang may kultural at historikal na kabuluhan
-- Gramatika: Pagsulat ng mataas na antas — pagpili ng salita, istilo, at tono ayon sa layunin at mambabasa
-- Teksto: Nobela — tema, symbolismo, punto de bista, naratibong estilo; Panghuling pagsusuri ng lahat ng genre na pinag-aralan; Pagsulat ng malikhaing akda (sariling pagpili ng genre)
+**Term 3 — Lahat ng Genre; Persweysib at Editoryal**
+- Talasalitaan: bokabularyo ng panitikan/pagsusuri; salitang kultural/historikal
+- Gramatika: pasibo/aktibong anyo; retorika ng argumento; pagsulat ng mataas na antas
+- Teksto: persweysibong sanaysay (claim/warrant/backing); editoryal; nobela (tema, simbolismo, punto de bista); malikhaing akda
 
 ---
 
 ### MATHEMATICS (Grade 6) ★ SSES
 
-**Term 1 — Transformations and Ratio**
-- Geometric transformations — translation, reflection, rotation, dilation; Describing transformations on the coordinate plane; Tessellations — creating and describing
-- Ratio and rate — simplifying ratios, equivalent ratios; Rate problems (speed, price per unit, density)
-- Proportion — direct and inverse proportion; Solving proportions in real-world contexts; Scale drawings and maps
+**Term 1 — Tessellation and Transformations; Decimals, Fractions, Whole/Mixed Numbers**
+- Tessellation exploration; translation/reflection/rotation of shapes
+- Adding/subtracting decimals to 4 places incl. money; mental multiply/divide decimals by powers of 10; repeating decimal quotients
+- Multiplying/dividing combinations of fractions, whole numbers, mixed numbers
 
-**Term 2 — Percent and Exponents**
-- Percent — percent increase and decrease; Discount, sales tax, commission; Simple interest revisited; Percent problems in real-world contexts
-- Exponents — meaning and notation; Evaluating expressions with exponents; Scientific notation (intro)
-- Order of operations (PEMDAS) — with exponents and grouping symbols; Evaluating algebraic expressions
+**Term 2 — Ratio, Proportion, Percent, Exponential Form**
+- Ratio (part-whole, part-part); equivalent ratios; proportion via tables/double number line
+- Percent-fraction-decimal relationships and uses
+- Exponential form — writing, evaluating, GEMDAS with exponents
 
-**Term 3 — Volume, Area, and Circles**
-- Volume — prisms (rectangular, triangular); Cylinders (V = πr²h); Composite 3D figures
-- Area — circles (A = πr²); Composite figures combining polygons and circles; Surface area of prisms and cylinders (intro)
-- Coordinate geometry — plotting and reading points in all four quadrants; Distance between two points (horizontal/vertical); Real-world applications
-
-**Term 4 — Statistics and Number Theory**
-- Circle (pie) graphs — reading, interpreting, constructing; Percent to degrees; Connecting pie graphs to fractions and percent
-- Statistics — measures of central tendency (mean, median, mode) and spread (range); Choosing the best measure; Misleading graphs and statistics
-- GCF and LCM — revisited with prime factorization; Applications in fractions and real-world problems
-- Number patterns and sequences — arithmetic and geometric sequences; Finding the nth term (intro)
+**Term 3 — Volume, Perimeter/Area, Circles, Area of Circle, Data, GCF/LCM**
+- Volume of cube/rectangular prism (units, conversion cu.cm↔L)
+- Area of composite figures; perimeter/area of triangles, parallelograms, trapezoids
+- Circles — parts, circumference (C=πd/2πr), inductive area (A=πr²); shaded regions
+- Pie graphs — angle/percentage, constructing, interpreting, drawing conclusions
+- GCF and LCM via listing, prime factorization, continuous division
 
 ---
 
 ### SCIENCE (Grade 6) ★ SSES
 
-**Term 1 — Materials: Mixtures and Separation**
-- Review of mixtures — extending to colloids, suspensions, and solutions; Tyndall effect
-- Separation techniques — distillation, chromatography, fractional distillation (concept); Industrial applications
-- Acids and bases — properties, pH scale, indicators; Everyday acids and bases; Neutralization (basic)
-- Chemical changes — types of chemical reactions (combination, decomposition, combustion — basic); Conservation of mass in reactions
+**Term 1 — Materials: Changes of State, Mixtures, Separation Techniques**
+- Changes of state (melting, evaporation, freezing, condensation) and heat energy
+- Physical (reversible) vs. chemical (irreversible) changes
+- Uniform/non-uniform mixtures (solutions, suspensions); air as a mixture
+- Separation techniques (decantation, winnowing, filtering, magnets); fair-test features, 3+ trials
 
-**Term 2 — Living Things: Circulatory System, Reproduction, and Food Webs**
-- Circulatory system — heart structure and function; Blood vessels (arteries, veins, capillaries); Blood components; Blood pressure and pulse
-- Plant reproduction — sexual (flower, pollination, fertilization, seed dispersal) and asexual (vegetative propagation); Advantages of each
-- Food webs — energy pyramids; Trophic levels; Biomagnification (intro); Importance of producers
-- Human impact — antibiotic resistance (basic); GMOs (balanced overview); Endangered species
+**Term 2 — Living Things: Circulatory System, Plant Reproduction, Vertebrates/Invertebrates, Food Webs**
+- Circulatory system parts and function
+- Plant reproduction — pollination, seed production, propagation (cutting, budding, layering, grafting); fair-test investigation of propagation methods
+- Vertebrates vs. invertebrates; producers/consumers/scavengers/decomposers in a food web; biotic vs. abiotic factors
 
-**Term 3 — Force, Motion, and Waves**
-- Simple machines — revisited; Mechanical advantage calculation; Compound machines
-- Work and power — Work = Force × distance; Power = Work ÷ time; Unit analysis
-- Waves — properties (wavelength, frequency, amplitude, speed); Transverse vs. longitudinal waves; Sound and light as waves
-- Electromagnetic spectrum — radio, microwave, infrared, visible, UV, X-ray, gamma; Applications and safety
-
-**Term 4 — Earth and Space: Volcanoes, Seasons, and Earth's Motions**
-- Volcanoes — magma vs. lava; Types (shield, composite, cinder cone); Philippine volcanoes; Volcanic hazards and monitoring
-- Seasons — Earth's axial tilt; Revolution and the seasons; Equinoxes and solstices; Philippine dry and wet seasons
-- Moon — phases and their causes; Lunar and solar eclipses; Tidal patterns
-- Beyond Earth — exoplanets (intro); Space exploration milestones; Careers in astronomy and space science
+**Term 3 — Force/Motion/Energy (Simple Machines, Waves) and Earth/Space**
+- Simple machines (inclined planes, wedges, levers, pulleys) — advantages/limitations; levers changing force
+- Waves carry energy; water-wave investigation; longitudinal vs. transverse waves; sound and moving source/receiver
+- Volcanoes — formation, nearest local volcano, PHIVOLCS Alert Levels
+- Philippine seasons; Earth's rotation (day/night) and Sun-Earth-Moon model (seasons, eclipses); constellations and indigenous night-sky knowledge
 
 ---
 
 ### ARALING PANLIPUNAN (Grade 6)
 
-> **Theme: Mga Hamon at Pagtugon sa Pagkabansa — Philippine History 1872 to the Present**
+_Paksang-Taunan: Mga Hamon at Pagtugon sa Pagkabansa — kasaysayan ng Pilipinas 1872 hanggang kontemporanyong panahon_
 
-**Term 1 — Katipunan at Rebolusyon (1872–1898)**
-- Kalagayan ng Pilipinas bago ang Rebolusyon — ekonomiya, pulitika, kultura sa ilalim ng Espanyol
-- Propaganda Movement — sina Jose Rizal, Marcelo del Pilar, Graciano Lopez Jaena; La Liga Filipina
-- Andres Bonifacio at ang Katipunan — pagkatatag, layunin, Cry of Pugad Lawin; Emilio Aguinaldo at Tejeros Convention
-- Paghahari ng Amerikano — Labanan sa Manila Bay; Malolos Republic; Kasunduan ng Paris (1898); Filipino-American War
+**Term 1 — Tungo sa Kalayaan ng Pilipinas**
+- Katipunan — pagkakatatag, layunin, paglaganap; Himagsikang Pilipino (1896-98) — Pugadlawin, Tejeros, Biak-na-Bato
+- Deklarasyon ng Kasarinlan (1898), Konstitusyon ng Malolos, Republika ng Malolos; papel ng kababaihan sa Himagsikan
 
-**Term 2 — Panahon ng Amerikanong Kolonyalismo (1898–1941)**
-- Amerikanong pamamalakad — edukasyon, demokrasya, ekonomiya; Mga pagbabago sa lipunan at kultura
-- Philippine Commonwealth — Manuel Quezon; Paghahanda para sa kalayaan; Saligang Batas ng 1935
-- Paghahanda ng mga Pilipino para sa kalayaan — repormang panlipunan, ekonomiya, pulitikal
-- Panahon ng Hapon — pananakop (1941); HUKBALAHAP; Pampublikong administrasyon sa ilalim ng Hapon; Paglaya (1945)
+**Term 2 — Ang Pilipinas sa Harap ng Imperyalismong Amerikano at Hapones**
+- Digmaang Pilipino-Amerikano; Batas Sedisyon, edukasyon, kalakalan sa ilalim ng Amerikano
+- Philippine Bill 1902, Pilipinisasyon, Batas Jones; Komonwelt (Saligang Batas 1935, women's suffrage)
+- Imperyalismong Hapones — Bataan-Corregidor, Death March; HUKBALAHAP at kilusang gerilya
 
-**Term 3 — Ikatlong Republika at Batas Militar (1946–1986)**
-- Ikatlong Republika — pagkamit ng kalayaan (Hulyo 4, 1946); Mga unang pangulo; Mga hamon sa pagkabansa (Huk rebellion, pabahay, kabuhayan)
-- Administrasyon ni Marcos — maagang panahon; Batas Militar (1972) — dahilan, epekto sa batas at kalayaan; Marcos era ekonomiya
-- People Power Revolution (EDSA 1986) — dahilan, mga nangyari, kinalabasan; Papel ng simbahan, militar, at mamamayan
-
-**Term 4 — Ikalimang Republika (1987–Kasalukuyan)**
-- Saligang Batas ng 1987 — nilalaman at kahalagahan; Tatlong sangay ng gobyerno
-- Mga administrasyon pagkatapos ng EDSA — pangunahing programa at hamon (Aquino, Ramos, Estrada, Arroyo, Aquino II, Duterte, Marcos Jr.)
-- Mga kontemporaryong hamon — kahirapan, korupsiyon, terorismo, kalamidad; Papel ng kabataan sa pagbabago
-- Pilipinas sa pandaigdigang komunidad — UN, ASEAN, bilateral na relasyon; OFW at diaspora
+**Term 3 — Mga Hamon Bilang Malayang Bansa (1946-Kasalukuyan)**
+- Ikatlong Republika; Cold War; neokolonyalismo (Parity Rights, Bell Trade Act)
+- Diktadurang Marcos — Batas Militar, karapatang pantao; EDSA People Power I
+- Saligang Batas 1987; mga administrasyon pagkatapos ng EDSA; kontemporaryong hamon (kahirapan, korupsiyon, kalamidad); Pilipinas sa UN/ASEAN, OFW/diaspora
 
 ---
 
 ### MAPEH (Grade 6)
 
-**Music and Arts — Philippine History Through Arts**
-- Q1 Music: Revolutionary Period music — patriotic songs (Lupang Hinirang, Bayan Ko); Kundiman; Music as protest and identity; Choral arrangement
-- Q2 Music: American Colonial Period music — brass bands, rondalla, harana; OPM origins; Influence of Western music on Philippine music
-- Q3 Music: Commonwealth and Japanese Occupation period music — wartime songs, folk music preservation; Music as cultural resistance
-- Q4 Music: Contemporary Filipino music — OPM, indie, hip-hop, pop; Music production basics (concept); Filipino artists in world music
+**Term 1 — Music/Arts: Revolutionary Period (1801-1898); PE/Health — Holistic Wellness & Target/Invasion Games**
+- Music: timbre, dynamics in sacred/secular music of the period; Arts: theater forms, character/conflict focus; dance forms
+- Health: interdependence of holistic-wellness dimensions (physical, mental, emotional, social, spiritual, occupational, cultural, financial, environmental)
+- PE: modified target/invasion games — movement concepts, locomotor/manipulative skills, fitness
 
-- Q1 Arts: Revolutionary and late colonial art — Juan Luna, Felix Resurreccion Hidalgo; Portrait and historical painting; Analyzing visual propaganda
-- Q2 Arts: American Period arts — architecture (Escolta, Intramuros), photography, printmaking; Art deco in the Philippines
-- Q3 Arts: Contemporary Philippine visual art — installation, mixed media, street art; Art as social commentary; Creating art with a message
-- Q4 Arts: "My Filipino Identity" — creating a personal artwork that expresses Filipino identity using learned techniques and elements; Artist statement writing
+**Term 2 — Music/Arts: American Colonial Period (1898-1935); PE/Health — Sexual/Reproductive Health & Striking-Fielding/Net-Wall Games**
+- Music: rhythm/meter/tempo of classical/semi-classical/popular music; Arts: symbolic/seditious theater, dramatic structure; dance
+- Health: healthy sexuality, early-pregnancy prevention, assertive/refusal skills, family's role
+- PE: modified striking/fielding or net/wall games
 
-**PE and Health (Terms 1–4)**
-- Q1: Holistic Wellness (physical, mental, emotional, social, spiritual dimensions) + Target and invasion games (basketball, soccer — tactical thinking)
-- Q2: Early Pregnancy Prevention — reproductive health, responsible decision-making, peer pressure; Striking and fielding games (softball, cricket modified)
-- Q3: Communicable Disease Prevention (HIV/AIDS basics, age-appropriate; immunization; handwashing and hygiene) + Rhythmic Activities and Philippine folk dances (Pandanggo sa Ilaw, Cariñosa)
-- Q4: Environmental Health and One Health (ecosystem health linked to human health; zoonotic diseases; climate and health) + Creative and contemporary dance; First aid and BLS basics
-
----
-
-### EPP — ICT (Grade 6, Quarter I Only)
-
-- Web conferencing tools — meeting etiquette, screen sharing, breakout rooms; Responsible online communication
-- Online form builders — creating surveys and quizzes using Google Forms or similar; Data collection and analysis from form responses
-- Cloud storage and file management — organizing, sharing, and collaborating on documents; Version control basics
-- Advanced productivity software — mail merge, spreadsheet pivot tables (concept), presentation design principles
-- Block coding — loops, conditionals, functions, and event handlers in Scratch or similar; Creating a fully interactive project (quiz game, animation, or story)
+**Term 3 — Music/Arts: Commonwealth/Japanese Occupation (1935-46) and Contemporary "My Filipino Identity"; PE/Health — Disease Prevention, Environmental Health, Rhythmic Activities**
+- Music: melody/harmony in period folk music; texture/form in contemporary period; Arts: staging/spectacle then Filipino-identity performance works
+- Health: common communicable diseases (transmission, chain of infection, vaccination); environmental health/One Health, sanitation, 8Rs waste management
+- PE: Dance Exercise, local/regional street dance and festival, traditional/national dances
+- Year-end project: contemporary creative work on historical/cultural/national identity + PE/Health showcase
 
 ---
 
-### EPP — AFA / FCS / IA (Grade 6, Quarters II–IV)
+### EPP (ICT) (Grade 6, Term 1 Only)
 
-**Quarter II — Agriculture and Fishery Arts (AFA): Pangisdaan**
-- Kahalagahan ng pangingisda at pag-aalaga ng isda sa Pilipinas; Iba't ibang uri ng aquaculture (tilapia, bangus, hipon, talaba)
-- Fish pond at cage culture — pagpili ng lugar, pagtatayo, pagbibigay ng pagkain, pamamahala ng tubig
-- Natural at organikong pag-aalaga ng isda; Paggalaw, pag-aani (harvest), pag-iingat (post-harvest)
-- Pagbebenta ng produkto — presyo, market linkage, record-keeping gamit ang spreadsheet
+**Term 1: Online Collaboration Tools, Productivity Software, and Block Coding**
+- Web conferencing, online form builders, cloud storage/file management — safe and responsible use
+- Word processing (watermark, borders, headers/footers), slide recording, desktop publishing (master page, guides), spreadsheets (charts, data validation)
+- Block coding — sensing, operators, variables for an animation/game/digital story
 
-**Quarter III — Family and Consumer Science (FCS)**
-- Pamamahala ng likas na yaman ng pamilya — oras, pera, talento; Paggawa ng family budget
-- Pangangalaga at pag-iimbak ng pagkain — food safety at hygiene; Preservation techniques (salting, pickling, smoking, drying, canning)
-- Pagluluto ng kumpletong simpleng pagkain — pagpaplano ng menu, recipe scaling, costing; Food presentation at serving etiquette
+---
 
-**Quarter IV — Industrial Arts (IA)**
-- Mga pangunahing kasangkapan sa carpentry (kahoy/kawayan), metalworking, at electrical works — ligtas na paggamit
-- Pagtatayo ng simpleng istruktura — hakbang, disenyo, bill of materials; Kaligtasan sa paggawa
-- Basic electrical wiring — light circuit (concept only, safety emphasized); Pagkilala ng mga bahagi ng simple circuit
-- Pagbuo ng produkto — disenyo, gastos, pagpepresyo, pagtatanghal; Entrepreneurship basics
+### EPP (AFA/FCS/IA) (Grade 6, Terms 2-3)
+
+**Term 2 (AFA — Fishery Arts): Natural Fish Raising, Harvesting, Selling**
+- Fish culture/capture/processing branches; support agencies (DA, BFAR, DENR); successful fish raisers
+- Requirements for natural fish raising (water supply, stocking density, feeds); fish anatomy; common diseases
+- Procedure — pond/tank prep, stocking, feeding, water/aeration management, monitoring, harvesting, selling with income/expense recording
+
+**Term 3 (FCS & IA): Family Resources/Food Prep/Preservation; Wood/Metal/Electrical Works**
+- FCS: family resources/budget; meal planning and food hygiene/safety; kitchen tools, measuring/cutting techniques, dry/moist-heat cooking; food preservation (salting, sugar-concentration, pickling, drying), packaging/labeling, selling
+- IA: wood/bamboo joints and finishing; sheet metal joining/finishing; basic electrical (current types, circuit parts, splicing) — all with safety precautions
+- Product Development — creating and selling a simple wood/metal/electrical project
 
 ---
 
 ### GMRC (Grade 6)
 
-**Term 1 — Integridad, Katotohanan, at Katarungan**
-- Integridad sa panahon ng pagsubok — pagiging tapat kahit may presyon mula sa kapuwa; Moral courage
-- Katotohanan at responsibilidad ng impormasyon — fake news, source evaluation, responsible social media use
-- Katarungang panlipunan — kahulugan, halimbawa; Pagtutol sa kawalan ng katarungan sa araw-araw na buhay
+**Term 1 — Pagpapaunlad ng Positibong Pagkilala sa Sarili**
+- Pagkilala sa sarili bilang may dignidad; positibong pagtingin sa sarili; mapanagutang pagpapasiya; pakikipag-ugnayan sa Diyos; pagtitipid ng enerhiya; pagkilala sa mga Pilipinong may kontribusyon sa bayan
 
-**Term 2 — Pagkakapantay-pantay at Dignidad ng Tao**
-- Dignidad ng tao — lahat ng tao ay may likas na karangalan; Pagtanggi sa anumang anyo ng diskriminasyon
-- Kasarian at pagkakapantay-pantay — gender equality at age-appropriate na talakayan; Hamon sa stereotyping
-- Karapatan ng bata — UN Convention on the Rights of the Child; Pagiging tagapagtanggol ng sariling karapatan
+**Term 2 — Pamilya Katuwang sa Paglinang ng mga Mabuting Gawi**
+- Ugnayan sa mga nakatatanda; pagpapahayag ng saloobin; pagtupad ng tungkulin sa pamilya; sama-samang pagsamba; paglilingkod ng pamilya; pagsunod sa batas-pangkapaligiran; pakikipagbayanihan
 
-**Term 3 — Mamamayang may Responsibilidad**
-- Civic responsibility — pagboto (sa hinaharap), pagsunod sa batas, pakikilahok sa komunidad
-- Kalikasan at Buhay — climate change at responsibilidad ng bawat isa; Sustainable living
-- Pagiging aktibong mamamayan — paano makatutulong ang isang Grade 6 learner sa pamamagitan ng simpleng aksyon
-
-**Term 4 — Pandaigdigang Mamamayan at Pilipinong Pagkakakilanlan**
-- Global citizenship — respeto sa iba't ibang kultura, relihiyon, at pananaw; Empathy across borders
-- Pilipinong pagkakakilanlan sa mundo — OFW, diaspora, Filipino contributions to global culture
-- Pagtingin sa kinabukasan — mga kareer at pagkakataon; Pagiging handa bilang susunod na henerasyon ng Pilipino
+**Term 3 — Paglalapat ng mga Mabuting Gawi sa Pakikipagkapuwa**
+- Pagtugon sa pambubulas ng kapuwa (Lakas ng loob) → Pagtugon sa emosyon ng kapuwa (Mapagpasensiya) → Pagiging patas sa kapuwa (Makatarungan) → Pananampalataya tungo sa pakikipagkapuwa (Pananalig sa Diyos) → Espirituwalidad sa pakikipagkapuwa (Mapagmalasakit) → Pagiging mabuting katiwala ng kalikasan (Mapagmalasakit) → Musika/sayaw ng lahi (Nasyonalismo)
+- **(Term 3, continued) — Pamayanan Bilang Tagapaglinang ng mga Mabuting Gawi para sa Bayan:** Pagkalinga sa napapabayaan ng lipunan (Mapagmalasakit) → Pananagutan sa sariling kilos sa pamayanan (Mapanagutan) → Pakikipag-ugnayan sa awtoridad (Magalang) → Kawanggawa bunga ng pananampalataya (Pananalig sa Diyos) → Tradisyon/gawain mula sa pananampalataya (Pakikiisa) → Isyung pangkapaligiran (Pakikiisa) → Pagkabukod-tangi ng lahing Pilipino (Nasyonalismo)
 
 ---
 
@@ -291,5 +244,5 @@ Grade 6 fixed weekly subject schedule (matches `GRADE_5_SCHEDULE` in `subjectSch
 | Thursday | MAPEH · GMRC · EPP (AFA/FCS/IA)* |
 | Friday | Weekly Review (all subjects) |
 
-> *EPP (AFA/FCS/IA) is only active in Q2–Q4. Omit it from Thursday during Q1.
+> *EPP (AFA/FCS/IA) is only active in Terms 2–3. Omit it from Thursday during Term 1.
 > ⚠️ This schedule is fixed in the app — subjects placed on the wrong day will fail the bulk import validator.

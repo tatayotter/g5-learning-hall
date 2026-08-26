@@ -1,4 +1,5 @@
 'use client';
+import type { RefObject } from 'react';
 
 export interface ChildFormData {
   fullName: string;
@@ -36,9 +37,11 @@ interface ChildAccountFormProps {
   onRemove?: () => void;
   label: string;
   theme?: 'dark' | 'light';
+  /** Optional ref for the full-name input — lets a page autofocus it on mount. */
+  firstFieldRef?: RefObject<HTMLInputElement | null>;
 }
 
-export default function ChildAccountForm({ data, onChange, onRemove, label, theme = 'dark' }: ChildAccountFormProps) {
+export default function ChildAccountForm({ data, onChange, onRemove, label, theme = 'dark', firstFieldRef }: ChildAccountFormProps) {
   const set = <K extends keyof ChildFormData>(key: K, value: ChildFormData[K]) =>
     onChange({ ...data, [key]: value });
 
@@ -49,20 +52,21 @@ export default function ChildAccountForm({ data, onChange, onRemove, label, them
     return (
       <div className="space-y-3">
         <div className="flex items-center justify-between mb-1">
-          <h3 className="text-xs font-bold text-amber-700 uppercase tracking-wider">{label}</h3>
+          <h3 className="text-sm font-bold text-amber-700 uppercase tracking-wider">{label}</h3>
           {onRemove && (
-            <button type="button" onClick={onRemove} className="text-gray-400 hover:text-red-500 text-xs">
+            <button type="button" onClick={onRemove} className="text-gray-400 hover:text-red-500 text-sm">
               ✕ Remove
             </button>
           )}
         </div>
 
         <input
+          ref={firstFieldRef}
           type="text"
           placeholder="Full name"
           value={data.fullName}
           onChange={(e) => set('fullName', e.target.value)}
-          className="w-full rounded-xl bg-white border border-stone-300 px-4 py-3 text-sm text-gray-900 placeholder-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
+          className="w-full rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 placeholder-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
           required
         />
 
@@ -70,7 +74,7 @@ export default function ChildAccountForm({ data, onChange, onRemove, label, them
           <select
             value={data.grade}
             onChange={(e) => set('grade', e.target.value)}
-            className="rounded-xl bg-white border border-stone-300 px-4 py-3 text-sm text-gray-900 outline-none focus:border-amber-400 transition-all"
+            className="rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 outline-none focus:border-amber-400 transition-all"
           >
             {GRADES.map((g) => (
               <option key={g} value={g}>{g}</option>
@@ -80,7 +84,7 @@ export default function ChildAccountForm({ data, onChange, onRemove, label, them
           <select
             value={data.gender}
             onChange={(e) => setGender(e.target.value as 'boy' | 'girl')}
-            className="rounded-xl bg-white border border-stone-300 px-4 py-3 text-sm text-gray-900 outline-none focus:border-amber-400 transition-all"
+            className="rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 outline-none focus:border-amber-400 transition-all"
           >
             <option value="boy">Boy</option>
             <option value="girl">Girl</option>
@@ -92,7 +96,7 @@ export default function ChildAccountForm({ data, onChange, onRemove, label, them
           placeholder="School name"
           value={data.schoolName}
           onChange={(e) => set('schoolName', e.target.value)}
-          className="w-full rounded-xl bg-white border border-stone-300 px-4 py-3 text-sm text-gray-900 placeholder-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
+          className="w-full rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 placeholder-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
           required
         />
 
@@ -102,7 +106,7 @@ export default function ChildAccountForm({ data, onChange, onRemove, label, them
             placeholder="Username"
             value={data.username}
             onChange={(e) => set('username', e.target.value)}
-            className="rounded-xl bg-white border border-stone-300 px-4 py-3 text-sm text-gray-900 placeholder-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
+            className="rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 placeholder-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
             required
           />
           <input
@@ -111,14 +115,14 @@ export default function ChildAccountForm({ data, onChange, onRemove, label, them
             placeholder="4-digit PIN"
             value={data.pin}
             onChange={(e) => set('pin', e.target.value.replace(/\D/g, '').slice(0, 4))}
-            className="rounded-xl bg-white border border-stone-300 px-4 py-3 text-sm text-gray-900 placeholder-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
+            className="rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 placeholder-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
             required
           />
         </div>
 
         <div className="flex items-center gap-3 bg-amber-50 border border-amber-100 rounded-xl px-3 py-2.5">
           <img src={data.avatar} alt="avatar preview" className="w-10 h-10 object-contain" />
-          <p className="text-xs text-gray-500 leading-tight">
+          <p className="text-sm text-gray-500 leading-tight">
             Your starting avatar — change it anytime from your profile after signing up.
           </p>
         </div>

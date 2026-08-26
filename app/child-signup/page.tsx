@@ -44,10 +44,10 @@ export default async function ChildSignupPage({
       <div className="max-w-lg mx-auto px-4 pb-12 -mt-10 relative">
         {/* Call-to-action strip above card */}
         <div className="text-center mb-4">
-          <h1 className="text-2xl font-display font-bold text-amber-300 drop-shadow-lg">
+          <h1 className="text-3xl font-display font-bold text-amber-300 drop-shadow-lg">
             Create Your Hero
           </h1>
-          <p className="text-sm text-blue-200/70 mt-1">Join thousands of students on the adventure</p>
+          <p className="text-base text-blue-200/70 mt-1">Join thousands of students on the adventure</p>
         </div>
 
         <div
@@ -57,7 +57,7 @@ export default async function ChildSignupPage({
           <ChildSignupForm source={source} initialReferralCode={initialReferralCode} />
         </div>
 
-        <p className="text-center text-xs text-blue-200/30 mt-5">
+        <p className="text-center text-sm text-blue-200/30 mt-5">
           Already have an account?{' '}
           <a href="/" className="text-amber-500/60 hover:text-amber-400 underline">Go back to the main page</a>.
         </p>

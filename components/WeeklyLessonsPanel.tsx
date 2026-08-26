@@ -12,18 +12,18 @@ const DAY_SHORT: Record<string, string> = {
 };
 
 const SUBJECT_COLOR: Record<string, { chip: string; border: string }> = {
-  English:              { chip: 'bg-sky-900/40 border-sky-700/40 text-sky-200',       border: 'border-sky-800/30' },
-  Mathematics:          { chip: 'bg-violet-900/40 border-violet-700/40 text-violet-200', border: 'border-violet-800/30' },
-  Filipino:             { chip: 'bg-rose-900/40 border-rose-700/40 text-rose-200',     border: 'border-rose-800/30' },
-  Science:              { chip: 'bg-emerald-900/40 border-emerald-700/40 text-emerald-200', border: 'border-emerald-800/30' },
-  'Araling Panlipunan': { chip: 'bg-amber-900/40 border-amber-700/40 text-amber-200', border: 'border-amber-800/30' },
-  Makabansa:            { chip: 'bg-amber-900/40 border-amber-700/40 text-amber-200', border: 'border-amber-800/30' },
-  GMRC:                 { chip: 'bg-pink-900/40 border-pink-700/40 text-pink-200',    border: 'border-pink-800/30' },
-  MAPEH:                { chip: 'bg-teal-900/40 border-teal-700/40 text-teal-200',    border: 'border-teal-800/30' },
-  'EPP (ICT)':          { chip: 'bg-indigo-900/40 border-indigo-700/40 text-indigo-200', border: 'border-indigo-800/30' },
-  Computer:             { chip: 'bg-indigo-900/40 border-indigo-700/40 text-indigo-200', border: 'border-indigo-800/30' },
+  English:              { chip: 'bg-sky-50 border-sky-200 text-sky-700',       border: 'border-sky-200' },
+  Mathematics:          { chip: 'bg-violet-50 border-violet-200 text-violet-700', border: 'border-violet-200' },
+  Filipino:             { chip: 'bg-rose-50 border-rose-200 text-rose-700',     border: 'border-rose-200' },
+  Science:              { chip: 'bg-emerald-50 border-emerald-200 text-emerald-700', border: 'border-emerald-200' },
+  'Araling Panlipunan': { chip: 'bg-amber-50 border-amber-200 text-amber-700', border: 'border-amber-200' },
+  Makabansa:            { chip: 'bg-amber-50 border-amber-200 text-amber-700', border: 'border-amber-200' },
+  GMRC:                 { chip: 'bg-pink-50 border-pink-200 text-pink-700',    border: 'border-pink-200' },
+  MAPEH:                { chip: 'bg-teal-50 border-teal-200 text-teal-700',    border: 'border-teal-200' },
+  'EPP (ICT)':          { chip: 'bg-indigo-50 border-indigo-200 text-indigo-700', border: 'border-indigo-200' },
+  Computer:             { chip: 'bg-indigo-50 border-indigo-200 text-indigo-700', border: 'border-indigo-200' },
 };
-const DEFAULT_COLOR = { chip: 'bg-neutral-800/60 border-neutral-700 text-gray-300', border: 'border-neutral-700/30' };
+const DEFAULT_COLOR = { chip: 'bg-stone-100 border-stone-300 text-stone-600', border: 'border-stone-200' };
 
 function subjectColors(subject: string) {
   return SUBJECT_COLOR[subject] ?? DEFAULT_COLOR;
@@ -113,24 +113,24 @@ export default function WeeklyLessonsPanel({ grade }: Props) {
   }, [grade]);
 
   if (loading) {
-    return <p className="text-xs text-gray-500 animate-pulse py-1">Loading this week's lessons…</p>;
+    return <p className="text-sm text-stone-500 animate-pulse py-1">Loading this week's lessons…</p>;
   }
   if (error) {
-    return <p className="text-xs text-red-500/70 py-1">Could not load lessons.</p>;
+    return <p className="text-sm text-red-500 py-1">Could not load lessons.</p>;
   }
   if (!lessons) {
-    return <p className="text-xs text-gray-600 py-1">No lessons published for this week yet.</p>;
+    return <p className="text-sm text-stone-400 py-1">No lessons published for this week yet.</p>;
   }
 
   return (
     <div className="space-y-3 pt-1">
-      <p className="text-[10px] text-gray-500 uppercase tracking-widest">
+      <p className="text-xs text-stone-400 uppercase tracking-widest">
         Week of {weekLabel}
       </p>
 
       {DAYS.filter(d => lessons[d]).map(day => (
         <div key={day} className="space-y-1.5">
-          <p className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">
+          <p className="text-xs font-mono text-stone-400 uppercase tracking-widest">
             {DAY_SHORT[day]}
           </p>
           <div className="space-y-1.5">
@@ -139,20 +139,20 @@ export default function WeeklyLessonsPanel({ grade }: Props) {
               return (
                 <div
                   key={subject}
-                  className={`rounded-lg border ${colors.border} bg-black/30 px-2.5 py-2 space-y-0.5`}
+                  className={`rounded-lg border ${colors.border} bg-stone-50 px-3 py-2.5 space-y-0.5`}
                 >
                   <div className="flex items-center gap-1.5">
-                    <span className={`rounded border text-[10px] px-1.5 py-0.5 leading-tight shrink-0 ${colors.chip}`}>
+                    <span className={`rounded border text-xs px-1.5 py-0.5 leading-tight shrink-0 ${colors.chip}`}>
                       {subject}
                     </span>
                     {topic && (
-                      <span className="text-[11px] text-gray-200 font-medium leading-tight truncate">
+                      <span className="text-sm text-slate-700 font-medium leading-tight truncate">
                         {topic}
                       </span>
                     )}
                   </div>
                   {blurb && (
-                    <p className="text-[10px] text-gray-500 leading-snug pl-0.5">
+                    <p className="text-xs text-stone-500 leading-snug pl-0.5">
                       {blurb}
                     </p>
                   )}
@@ -163,7 +163,7 @@ export default function WeeklyLessonsPanel({ grade }: Props) {
         </div>
       ))}
 
-      <p className="text-[10px] text-gray-600 pt-0.5">Fri — Weekly Review (all subjects)</p>
+      <p className="text-xs text-stone-400 pt-0.5">Fri — Weekly Review (all subjects)</p>
     </div>
   );
 }

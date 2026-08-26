@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cinzel, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import ContentProtection from "@/components/ContentProtection";
+import FacebookPixel from "@/components/FacebookPixel";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -62,6 +63,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <ContentProtection />
+        <FacebookPixel />
         {children}
       </body>
     </html>
