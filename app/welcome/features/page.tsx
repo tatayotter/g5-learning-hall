@@ -168,7 +168,7 @@ function FeatureCard({ feature, delay, index, muted = false }: { feature: Featur
   return (
     <FadeIn delay={delay}>
       <div
-        className={`h-full rounded-2xl border-2 p-6 bg-white transition-shadow hover:shadow-md ${
+        className={`h-full rounded-2xl border-2 p-6 bg-[#ffffff] transition-shadow hover:shadow-md ${
           muted ? `border-dashed ${accent.border} opacity-80` : accent.border
         }`}
       >
@@ -193,7 +193,7 @@ function CTAButtons() {
         href="/register"
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.97 }}
-        className="w-full sm:w-auto text-center bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-[14px] transition-colors shadow-[0_4px_20px_rgba(249,115,22,0.35)]"
+        className="w-full sm:w-auto text-center bg-orange-500 hover:bg-orange-600 text-[#ffffff] font-bold px-8 py-3.5 rounded-[14px] transition-colors shadow-[0_4px_20px_rgba(249,115,22,0.35)]"
       >
         Register Your Family
       </motion.a>
@@ -201,7 +201,7 @@ function CTAButtons() {
         href="/welcome"
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.97 }}
-        className="w-full sm:w-auto text-center bg-white hover:bg-slate-50 border-2 border-slate-200 hover:border-orange-300 text-slate-700 font-bold px-8 py-3.5 rounded-[14px] transition-colors shadow-sm"
+        className="w-full sm:w-auto text-center bg-[#ffffff] hover:bg-slate-50 border-2 border-slate-200 hover:border-orange-300 text-slate-700 font-bold px-8 py-3.5 rounded-[14px] transition-colors shadow-sm"
       >
         Back to Welcome
       </motion.a>
@@ -275,7 +275,7 @@ export default function FeaturesPage() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="px-6 py-8 text-center border-t border-slate-200 bg-white">
+      <footer className="px-6 py-8 text-center border-t border-slate-200 bg-[#ffffff]">
         <p className="text-[11px] tracking-[0.06em] text-slate-300 font-medium">
           © {new Date().getFullYear()} Ruelo Learning Hall. All Rights Reserved.
         </p>

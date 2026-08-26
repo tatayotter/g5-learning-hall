@@ -282,6 +282,10 @@ export default function ParentDashboardPage() {
             </>
           ) : isNative ? (
             <span className="text-base text-stone-600">Free plan — Premium unlocks journal viewing & coin rewards.</span>
+          ) : kids.length >= maxChildren ? (
+            // Already at the free child limit — the more contextual "Subscribe to
+            // add more" CTA below covers this, so don't repeat the same button here.
+            <span className="text-base text-stone-600">Free plan — journal viewing & coin rewards are Premium.</span>
           ) : (
             <>
               <span className="text-base text-stone-600">Free plan — journal viewing & coin rewards are Premium.</span>
