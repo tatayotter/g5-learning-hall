@@ -10,6 +10,8 @@
  * This module turns grade + school-week → a minimal ~550-token prompt.
  */
 
+import { GRADE_2_SCHEDULE, GRADE_3_SCHEDULE, GRADE_5_SCHEDULE, WEEKDAYS } from './subjectSchedule';
+
 // ─── School calendar helpers ─────────────────────────────────────────────────
 
 /** Monday of the school-opening week (Week 1 = Orientation, Jun 15 2026). */
@@ -41,8 +43,17 @@ export type TermInfo = {
  *   Week 13-14       – Term 1 break  (Sep 10-20)
  *   Weeks 15-27      – Term 2 / Q2   (BOW Week 1 = school Week 15)
  *   Weeks 27-29      – Term 2 break  (Dec 17-31)
- *   Weeks 30-40      – Term 3 / Q3   (BOW Week 1 = school Week 30)
- *   Weeks 41-50      – Term 3 cont / Q4
+ *   Weeks 30-50      – Term 3 / Q3+Q4 (BOW Week 1 = school Week 30)
+ *                        (MATATAG has 3 terms, not 4 quarters — the old
+ *                        Q3/Q4 split doesn't get its own label, it's all
+ *                        just "Term 3".)
+ *
+ * `termWeek` (and the number baked into `label`) is a TEACHING-week count
+ * that keeps climbing across term boundaries — it never resets to 1 at a
+ * new term, it just skips break weeks. So Term 1 ends at teaching-week 12
+ * and Term 2 picks up at 13, not back at 1. This is purely a display
+ * counter; BOW content lookup elsewhere keys off `term` (1/2/3) only, so
+ * it doesn't affect which BOW section gets extracted.
  */
 export function weekToTermInfo(schoolWeek: number): TermInfo {
   if (schoolWeek <= 1)
@@ -50,14 +61,14 @@ export function weekToTermInfo(schoolWeek: number): TermInfo {
   if (schoolWeek <= 13)
     return { term: 1, termWeek: schoolWeek - 1, label: `Term 1 Week ${schoolWeek - 1}`, isBreak: false };
   if (schoolWeek === 14)
-    return { term: 1, termWeek: 13, label: 'Term 1 Break', isBreak: true };
+    return { term: 1, termWeek: 12, label: 'Term 1 Break', isBreak: true };
   if (schoolWeek <= 27)
-    return { term: 2, termWeek: schoolWeek - 14, label: `Term 2 Week ${schoolWeek - 14}`, isBreak: false };
+    return { term: 2, termWeek: schoolWeek - 2, label: `Term 2 Week ${schoolWeek - 2}`, isBreak: false };
   if (schoolWeek <= 29)
-    return { term: 2, termWeek: 13, label: 'Term 2 Break (Christmas)', isBreak: true };
+    return { term: 2, termWeek: 25, label: 'Term 2 Break (Christmas)', isBreak: true };
   if (schoolWeek <= 40)
-    return { term: 3, termWeek: schoolWeek - 29, label: `Term 3 Week ${schoolWeek - 29}`, isBreak: false };
-  return { term: 3, termWeek: schoolWeek - 40, label: `Term 3 (Q4) Week ${schoolWeek - 40}`, isBreak: false };
+    return { term: 3, termWeek: schoolWeek - 4, label: `Term 3 Week ${schoolWeek - 4}`, isBreak: false };
+  return { term: 3, termWeek: schoolWeek - 4, label: `Term 3 Week ${schoolWeek - 4}`, isBreak: false };
 }
 
 // ─── BOW extraction from existing .md prompt files ───────────────────────────
@@ -87,11 +98,14 @@ export function extractBowSummary(
   // First element is the section header — skip it
   for (const block of subjectBlocks.slice(1)) {
     const lines = block.split('\n');
-    // First line is the subject name, possibly with (Grade N) and ★ SSES
+    // First line is the subject name, possibly with (Grade N ...) and ★ SSES.
+    // The trailing "(Grade N...)" parenthetical can carry extra qualifier text
+    // (", Term 1 Only", " — App-Added Bonus Subject", etc.) — strip the whole
+    // parenthetical regardless of what's inside it, not just an exact "(Grade N)".
     const rawName = lines[0].trim();
     const subjectName = rawName
       .replace(/\s*★.*$/, '')
-      .replace(/\s*\(Grade \d\).*$/, '')
+      .replace(/\s*\(Grade\b[^)]*\)\s*$/i, '')
       .trim();
 
     // Find "**Term N" block
@@ -121,45 +135,47 @@ export function extractBowSummary(
 
 export type DaySchedule = Record<string, string[]>; // day → subjects
 
-export const DEFAULT_SCHEDULES: Record<number, DaySchedule> = {
-  2: {
-    Monday: ['English', 'MAKABANSA'],
-    Tuesday: ['GMRC', 'Filipino'],
-    Wednesday: ['English', 'Mathematics'],
-    Thursday: ['Filipino', 'Mathematics'],
-  },
-  3: {
-    Monday: ['English', 'Makabansa'],
-    Tuesday: ['GMRC', 'Filipino'],
-    Wednesday: ['Mathematics', 'Science'],
-    Thursday: ['Filipino', 'Computer'],
-  },
-  4: {
-    Monday: ['English', 'Araling Panlipunan'],
-    Tuesday: ['GMRC', 'Filipino'],
-    Wednesday: ['Mathematics', 'Science'],
-    Thursday: ['EPP (ICT)', 'MAPEH'],
-  },
-  5: {
-    Monday: ['English', 'Araling Panlipunan'],
-    Tuesday: ['GMRC', 'Filipino'],
-    Wednesday: ['Mathematics', 'Science'],
-    Thursday: ['EPP (ICT)', 'MAPEH'],
-  },
-  6: {
-    Monday: ['English', 'Araling Panlipunan'],
-    Tuesday: ['GMRC', 'Filipino'],
-    Wednesday: ['Mathematics', 'Science'],
-    Thursday: ['EPP (ICT)', 'MAPEH'],
-  },
-};
+/**
+ * Builds a DaySchedule by inverting a subject→day map from subjectSchedule.ts
+ * (day→subjects), optionally restricted to a subject allow-list.
+ *
+ * DEFAULT_SCHEDULES used to be a second, hand-maintained day→subject table
+ * that had drifted out of sync with subjectSchedule.ts's GRADE_N_SCHEDULE on
+ * every single grade (wrong days, duplicate subjects on Grades 2/3) — since
+ * subjectSchedule.ts's tables are what the import validator (getScheduledDay)
+ * actually checks against, a prompt built from the old DEFAULT_SCHEDULES
+ * would place subjects on days the validator then flagged as wrong. Deriving
+ * this from the canonical schedule instead of hand-copying it eliminates
+ * that whole class of drift. See memory/feedback_lean_prompt_topic_injection_bug.md.
+ */
+function invertSchedule(subjectToDay: Record<string, string>, allowList?: string[]): DaySchedule {
+  const allowed = allowList ? new Set(allowList) : null;
+  const result: DaySchedule = {};
+  for (const day of WEEKDAYS) {
+    if (day === 'Friday') continue; // Friday is always "Weekly Review", not a real subject day
+    result[day] = [];
+  }
+  for (const [subject, day] of Object.entries(subjectToDay)) {
+    if (allowed && !allowed.has(subject)) continue;
+    (result[day] ??= []).push(subject);
+  }
+  return result;
+}
 
 export const ALL_SUBJECTS_BY_GRADE: Record<number, string[]> = {
-  2: ['English', 'Mathematics', 'Filipino', 'GMRC', 'MAKABANSA'],
+  2: ['English', 'Mathematics', 'Filipino', 'Science', 'GMRC', 'Makabansa', 'Computer'],
   3: ['English', 'Mathematics', 'Filipino', 'Science', 'GMRC', 'Makabansa', 'Computer'],
   4: ['English', 'Mathematics', 'Filipino', 'Science', 'Araling Panlipunan', 'GMRC', 'EPP (ICT)', 'EPP (AFA/FCS/IA)', 'MAPEH'],
   5: ['English', 'Mathematics', 'Filipino', 'Science', 'Araling Panlipunan', 'GMRC', 'EPP (ICT)', 'EPP (AFA/FCS/IA)', 'MAPEH'],
   6: ['English', 'Mathematics', 'Filipino', 'Science', 'Araling Panlipunan', 'GMRC', 'EPP (ICT)', 'EPP (AFA/FCS/IA)', 'MAPEH'],
+};
+
+export const DEFAULT_SCHEDULES: Record<number, DaySchedule> = {
+  2: invertSchedule(GRADE_2_SCHEDULE, ALL_SUBJECTS_BY_GRADE[2]),
+  3: invertSchedule(GRADE_3_SCHEDULE, ALL_SUBJECTS_BY_GRADE[3]),
+  4: invertSchedule(GRADE_5_SCHEDULE, ALL_SUBJECTS_BY_GRADE[4]),
+  5: invertSchedule(GRADE_5_SCHEDULE, ALL_SUBJECTS_BY_GRADE[5]),
+  6: invertSchedule(GRADE_5_SCHEDULE, ALL_SUBJECTS_BY_GRADE[6]),
 };
 
 // ─── Lean prompt templates ────────────────────────────────────────────────────
@@ -184,7 +200,7 @@ function gradeContext(grade: number): string {
 }
 
 function languageRule(grade: number): string {
-  if (grade === 2) return 'English for English/Mathematics | Filipino for Filipino/GMRC/MAKABANSA';
+  if (grade === 2) return 'English for English/Mathematics/Science/Computer | Filipino for Filipino/GMRC/Makabansa';
   return 'English for English/Mathematics/Science/EPP | Filipino for Filipino/Araling Panlipunan/GMRC | MAPEH: Filipino instructions, English technical terms';
 }
 
@@ -202,9 +218,9 @@ function difficultyRule(grade: number): string {
   return '- Quiz difficulty: SSES subjects (English/Mathematics/Science) must have ≥3 of 8 questions requiring analytical thinking or multi-step reasoning. Other subjects: ≥1 higher-order per 8. 4 options per question.';
 }
 
-function weekNote(grade: number, schoolWeek: number, termLabel: string): string {
-  if (grade === 2) return `Term ${termLabel}`;
-  // G3-G6 use continuous week numbers
+function weekNote(schoolWeek: number, termLabel: string): string {
+  // Week number is CONTINUOUS for the whole school year for every grade —
+  // never restart at a new term. (See memory/project_school_calendar_sy2026.md)
   return `Week ${schoolWeek} (${termLabel}).\n(Week number is CONTINUOUS for the whole school year — never restart at a new term.)`;
 }
 
@@ -218,7 +234,7 @@ export function buildLeanPrompt(
 
   return [
     `You are a curriculum assistant for a ${gradeContext(grade)}.`,
-    `Generate a weekly package JSON for the week of ${dateStr} — ${weekNote(grade, schoolWeek, label)}.`,
+    `Generate a weekly package JSON for the week of ${dateStr} — ${weekNote(schoolWeek, label)}.`,
     '',
     SHARED_OUTPUT_RULES_BASE,
     summaryRule(grade),
@@ -246,12 +262,21 @@ export function buildTopicsBlock(
   const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday'];
   const lines: string[] = [];
 
+  // extractBowSummary() derives its keys from ALL-CAPS "### " markdown headers
+  // (e.g. "ENGLISH"), while daySchedule subject names are Title Case (e.g.
+  // "English") — an exact-string lookup between the two never matches. Build
+  // a case-insensitive lookup so the two naming conventions still connect.
+  const bowByUpperSubject: Record<string, string> = {};
+  for (const [key, value] of Object.entries(bowBySubject)) {
+    bowByUpperSubject[key.toUpperCase()] = value;
+  }
+
   for (const day of DAYS) {
     const subjects = daySchedule[day] ?? [];
     if (subjects.length === 0) continue;
     lines.push(`${day}:`);
     for (const subject of subjects) {
-      const rawBullets = bowBySubject[subject] ?? '';
+      const rawBullets = bowByUpperSubject[subject.toUpperCase()] ?? '';
       const bullets = rawBullets
         .split('\n')
         .filter(l => l.trim().startsWith('-'))

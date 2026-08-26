@@ -52,6 +52,8 @@ Generate the full JSON now.
 
 ## BOW REFERENCE — GRADE 3
 
+_Regenerated 2026-08-26 directly from the DepEd-audited `budget_of_work` Supabase table (the app's public `/curriculum/grade-3` source), so this file and that table no longer diverge. See [[project_bow_dual_source_discovery]] and [[project_grade3_bow_deped_audit]]._
+
 Use this to fill in the `SUBJECTS AND TOPICS` section above each Sunday.
 
 > ### 📅 SY 2026-2027 Week Map
@@ -72,158 +74,193 @@ Use this to fill in the `SUBJECTS AND TOPICS` section above each Sunday.
 
 ### ENGLISH (Grade 3) ★ SSES
 
-**Term 1 — Regional Themes (Home Region)**
-- Week 1–3: Phonological awareness — syllable stress, blending/segmenting phonemes; Word families, context clues; Common and proper nouns; Action and linking verbs; Declarative and interrogative sentences
-- Week 4–6: Adjectives (descriptive, possessive); Personal and demonstrative pronouns; Subject-verb agreement (basic); Narrative text — character, setting, problem/solution; Identifying main idea and supporting details
-- Week 7–9: Punctuation for all sentence types; Time-order discourse markers; Informational text — sequence, description; Cause and effect (intro)
-- Week 10: Review — nouns, verbs, adjectives, pronouns, sentence types; Summary of a story
+**Term 1 — Regional Themes and Content-Specific Topics**
+- Phonics: sight words; CVCC, CCVC (clusters/diphthongs), VCV, VCCV word patterns
+- Vocabulary: high-frequency + regional/content-specific words (Math/Science terms); word functions — verbs, adjectives, interrogative/possessive/demonstrative pronouns; synonyms/antonyms; word roots
+- Grammar: sentences vs. non-sentences; all 4 sentence types; parts of a simple sentence; capitalization/punctuation; discourse markers (time-order, description, explanation)
+- Comprehension: story elements, sequence 4-5 events, problem/solution, feelings/traits, cause-effect, predict ending, summary; informational texts — 4-5 details, text types, draw conclusions
+- Composing: greetings, retelling myths/legends/fables, reacting to character/topic, summary
 
-**Term 2 — Regional Themes (continued)**
-- Week 1–3: Multiple-meaning words; Antonyms and synonyms; Subject pronouns vs. object pronouns; Compound words; Interrogative and exclamatory sentences
-- Week 4–6: Paragraph writing — topic sentence and supporting details; Story structure (plot); Compare and contrast
-- Week 7–9: Informational text — problem/solution; Text features (headings, captions, bold words); Point of view (first/third person — intro)
-- Week 10: Review — pronouns, paragraph structure, text comprehension; Written summary
+**Term 2 — Regional Themes, Compound Sentences**
+- Same phonics/vocab/comprehension framework as Term 1, continued mastery
+- Grammar adds compound sentences — two independent clauses, coordinating conjunction, doers/actions in both clauses, correct punctuation
 
-**Term 3 — National Themes (Philippines)**
-- Week 1–3: Figurative language — simile and personification (intro); Adverbs of manner, time, place; Conjunctions (and, but, or, so); Compound sentences
-- Week 4–6: Affixes (prefixes un-, re-, dis-; suffixes -ful, -less, -ness); Informational text — compare/contrast and description
-- Week 7–9: Author's purpose; Denotation vs. connotation (intro); Descriptive paragraph writing; Informational paragraph
-- Week 10: Review — figurative language, compound sentences, affixes; Narrative composition
+**Term 3 — National Themes, Culminating Competencies**
+- Same framework shifted to **national themes**; full sentence-type and compound-sentence repertoire
+- Comprehension: sequencing grows to 5+ events, 5+ significant details on national topics
 
 ---
 
 ### FILIPINO (Grade 3)
 
-**Term 1 — Payak na Pangungusap**
-- Week 1–3: Ponolohiya — diin ng pantig, ponemang katinig at patinig; Talasalitaan — kahulugan sa konteksto, mataas na antas na salita
-- Week 4–6: Gramatika — payak na pangungusap (simuno at panaguri); Pandiwa — pawatas, kontemplatibo, progresibo, perpektibo
-- Week 7–9: Salitang naglalarawan (katangian, dami, pamilang); Naratibong teksto — tauhan, tagpuan, banghay; Tekstong nagbibigay-impormasyon
-- Week 10: Pagsasanay — lahat ng uri ng simpleng pangungusap; Buod ng kwento
+**Term 1**
+- Ponolohiya/palabigkasan: sight words sa Filipino
+- Talasalitaan: high-frequency (sarili/bansa); dinaglat; pamatlig; naglalarawan; kilos; pangkayarian (pangatnig/pang-angkop); salitang-ugat; magkasingkahulugan/magkasalungat
+- Gramatika: simuno at panaguri; pananda sa teksto (pag-iisa-isa/paglalarawan, pagsusunod-sunod)
+- Teksto naratibo (kuwentong pambata, kuwentong-bayan, pabula, alamat, parabula) — elemento, damdamin/katangian ng tauhan, suliranin-solusyon, 5 pangyayari, sanhi-bunga, wakas, buod, sariling karanasan
+- Teksto impormatibo (patalastas, babala, balita, ulat-panahon) — 5 detalye, suliranin-solusyon, huwaran ng organisasyon, kongklusyon
+- Pagsulat: maikling talata tungkol sa sarili/bansa gamit ang academic language
 
-**Term 2 — Tambalang Pangungusap**
-- Week 1–3: Talasalitaan — magkasingkahulugan, magkasalungat, maraming kahulugan; Sugnay na nakapag-iisa at di-nakapag-iisa
-- Week 4–6: Tambalang pangungusap gamit ang pang-ugnay (at, ngunit, o, kaya, sapagkat); Tula at dula; Sanaysay (intro)
-- Week 7–9: Pagbabago ng kahulugan ng salita sa konteksto; Naratibo at impormatibong teksto — pangunahing idea, sanhi at bunga
-- Week 10: Pagsasanay — tambalang pangungusap; Lagom ng kwento
+**Term 2**
+- Talasalitaan: salitang naglalarawan (paraan/panahon/pinangyarihan), pangkayarian (pang-ukol)
+- Gramatika: sugnay na nakapag-iisa sa tambalang pangungusap
+- Teksto: parehong elemento naratibo/impormatibo, ngayo'y pambansang paksa
+- Pagsulat: maikling talata gamit ang tambalang pangungusap
 
-**Term 3 — Hugnayang Pangungusap**
-- Week 1–3: Talasalitaan — idyoma (piling halimbawa); Salitang may panlaping un-, ma-, -an, i-; Tambalang pangungusap batay sa pananda (dahil, bagama't, kung, habang)
-- Week 4–6: Denotasyon at konotasyon; Hugnayang pangungusap; Lahat ng uri ng pangungusap (pasalaysay, patanong, pautos, padamdam)
-- Week 7–9: Maikling kwento; Balita; Buod at lagom ng teksto; Mensahe ng akda
-- Week 10: Pagsasanay — hugnayang pangungusap; Maikling komposisyon
+**Term 3**
+- Talasalitaan: denotasyon at konotasyon
+- Gramatika: tambalang pangungusap batay sa pananda
+- Teksto: 5-7 pangyayari, 5-7 detalye, kongklusyon, mensahe ng teksto — mula sa balita, ulat-panahon, grap/mapa ng bansa
+- Pagsulat: hugnayang pangungusap, pagpapaliwanag bilang huwaran ng organisasyon
 
 ---
 
 ### MATHEMATICS (Grade 3) ★ SSES
 
-**Term 1 — Whole Numbers and Operations**
-- Week 1–2: Numbers up to 100,000 — reading, writing, place value, comparing, ordering, rounding
-- Week 3–4: Addition and subtraction up to 100,000 with regrouping; Estimating sums and differences
-- Week 5–7: Multiplication — 2-3 digit by 1-2 digit; Properties (commutative, associative, distributive); Estimating products
-- Week 8–9: Division — 2-3 digit by 1 digit; Relationship between multiplication and division; Division with remainder
-- Week 10: Review — all operations with whole numbers; Word problems
+**Term 1**
+- Wk1-2: Represent, read/write numbers to 10,000
+- Wk2-3: Place value of digit in 4-digit number; round to nearest ten/hundred/thousand
+- Wk4: Compare (=,>,<) and order numbers to 10,000; ordinal numbers to 100th
+- Wk5-6: Illustrate/estimate area of square/rectangle using tile units; derive area formulas
+- Wk7: Find areas of squares/rectangles in sq.cm/sq.m; solve area problems
+- Wk8-9: Points, lines, line segments, rays; parallel/intersecting/perpendicular lines
+- Wk10: Equal-length line segments using a ruler; term review
 
-**Term 2 — Measurement and Data**
-- Week 1–2: Length — meters, centimeters, millimeters, kilometers; conversion and word problems
-- Week 3: Mass — kilograms and grams; conversion and word problems
-- Week 4: Capacity — liters and milliliters; conversion and word problems
-- Week 5–6: Time — elapsed time; calendar (days, weeks, months, years); word problems
-- Week 7–8: Data — bar graphs; reading, interpreting, and constructing with scale
-- Week 9: Pictographs and bar graphs — comparison; word problems
-- Week 10: Review — measurement conversion; data interpretation
+**Term 2**
+- Wk11: Measure mass in g/kg/mg; estimate/compare using a balance scale
+- Wk12: Measure capacity in L/mL; estimate/compare two containers
+- Wk13: Read/write Philippine money to ₱10,000 (₱ and centavo signs)
+- Wk14-15: Add numbers to 10,000 with/without regrouping; estimate sums; word problems incl. money
+- Wk15-16: Subtract numbers <10,000 with/without regrouping; estimate differences; 3-4 numbers up to 2 digits
+- Wk17: Collect data (dice, coin); present in tables and single bar graphs
+- Wk18: Interpret data in tables/bar graphs; likelihood language (equally/less/most likely, certain, impossible)
+- Wk19-20: Multiply using 6,7,8,9 tables; properties of multiplication; multiply 2-4 digit numbers; estimate products; word problems incl. money
 
-**Term 3 — Fractions and Geometry**
-- Week 1–3: Unit fractions and proper fractions — concept, notation, reading/writing; Similar fractions — comparing, ordering, adding, subtracting
-- Week 4: Problem solving with similar fractions; Introduction to mixed numbers
-- Week 5–6: Lines — parallel, perpendicular, intersecting; Angles — right, acute, obtuse
-- Week 7–8: Plane figures — triangles (types), quadrilaterals (square, rectangle, rhombus, trapezoid); Perimeter of polygons; Area of squares and rectangles
-- Week 9: Number patterns (growing and repeating); Geometric patterns
-- Week 10: Review — fractions, geometry, patterns; Problem solving
+**Term 3**
+- Wk21: Missing terms in repeating/increasing/decreasing patterns; generate patterns
+- Wk22: Division via equal jumps/inverse of multiplication; divide using 6,7,8,9 tables; missing number
+- Wk23-24: Divide 2-4 digit numbers with/without remainder; divide by 10/100/1000; estimate quotients
+- Wk25: 1-2 step division word problems incl. money
+- Wk26: Fractions equal to/greater than one; add/subtract similar fractions using models
+- Wk27: Two-direction multi-step slide (translation) of shapes
+- Wk28: Line symmetry — identify and draw
+- Wk29-30: Term review integrating division, fractions, symmetry
 
 ---
 
 ### SCIENCE (Grade 3) ★ SSES
 
-**Term 1 — Materials and Their Properties**
-- Week 1–3: Properties of materials — texture, hardness, flexibility, solubility, conductivity; Classifying materials by observable properties
-- Week 4–6: Choosing the right material for a specific use; Physical and chemical changes (intro) — burning, rusting, cooking vs. cutting, bending
-- Week 7–9: Natural vs. man-made materials; Responsible use, reuse, and disposal; Reduce, reuse, recycle
-- Week 10: Review — material properties and changes; Problem solving (which material is best for a task?)
+**Term 1**
+- Wk1: Science in daily life — objects/events explainable by science
+- Wk2: Science processes — guided activities; uses of equipment (ruler, hand lens, scissors, balloons, clay, cardboard)
+- Wk3: Observing, predicting, measuring (mm, cm, m)
+- Wk4-5: Physical properties of solid materials (hard, shiny, stretchable)
+- Wk6: Changes in materials can harm living/nonliving things (trash disposal, burning)
+- Wk7: Proper handling/disposal of materials (reuse, recycling)
+- Wk8: How changes make solid materials useful (shaped, pressed, hammered, joined, cut)
+- Wk9-10: Properties/uses of metals (iron, gold, silver, copper); term project — recyclable-materials product
 
-**Term 2 — Living Things**
-- Week 1–3: Parts of a plant and their functions; Seed germination and the plant life cycle
-- Week 4–5: Animal life cycles — butterfly (complete metamorphosis), frog, chicken; Comparing life cycles
-- Week 6–7: Animal adaptations — structural and behavioral; Matching adaptations to environment
-- Week 8–9: Producers, consumers, decomposers; Simple food chains; Food webs (intro)
-- Week 10: Review — plants, animals, food chains
+**Term 2**
+- Wk11: Observing, predicting, measuring in guided activities
+- Wk12: Living vs. nonliving things — examples
+- Wk13: Characteristics of living things — grow, respond, reproduce
+- Wk14: Outer body parts of animals and their role (move, gather food)
+- Wk15: Outer parts of plants and their role (water/nutrients from soil)
+- Wk16: Basic needs of living things; interdependence; protecting the environment
+- Wk17: Ways to move objects (natural causes, people); factors affecting movement
+- Wk18: Describing changes in position (closer, farther, left, right)
+- Wk19: How sound is made/transferred; sources of light and uses
+- Wk20: Light/sound can be harmful; using movement/sound/light to send information
 
-**Term 3 — Force, Motion, Energy, and Earth**
-- Week 1–2: Push and pull as forces; Effects of force on object (speed, direction, shape); Friction — definition, useful and harmful
-- Week 3–4: Simple machines — lever, inclined plane, wheel and axle, pulley; How simple machines make work easier
-- Week 5–6: Light — sources of light; Reflection and refraction (basic); Shadow formation; Transparent, translucent, opaque materials
-- Week 7–8: Earth's layers (crust, mantle, core — basic); Weathering and erosion — causes, effects, prevention
-- Week 9: Natural disasters — earthquake, volcanic eruption, typhoon; Safety measures
-- Week 10: Review — force, light, Earth
+**Term 3**
+- Wk21-22: Non-living things around school (rocks, soil, water, air, metals, clouds, rain, sunlight)
+- Wk23: Useful things from non-living materials ("earth materials")
+- Wk24-25: Observing/recording weather changes; local weather types/patterns
+- Wk26: Weather's effect on activities; dangerous weather
+- Wk27-28: Observing Sun, Moon, planets, stars in day/night sky
+- Wk29: How/when these objects appear to move across the sky
+- Wk30: Effect of sky objects on people's activities; safety re: Sun's light
 
 ---
 
 ### MAKABANSA (Grade 3)
 
-**Term 1 — Ang Ating Bansa**
-- Week 1–3: Lokasyon ng Pilipinas sa mapa ng Asya at mundo; Hangganan; Kapuluan
-- Week 4–6: Mga anyong lupa at anyong tubig sa Pilipinas; Kagubatan at likas na yaman
-- Week 7–9: Pangulo at mga pangunahing pinunong pambansa; Pambansang sagisag at simbolo
-- Week 10: Pagsasanay — mapa ng Pilipinas at pambansang pagkakakilanlan
+**Term 1 — Ang Ating Komunidad sa Paglipas ng Panahon**
+- Wk1-5: Mahahalagang tao, lugar, pangyayari sa kasaysayan ng pook (timeline, kuwentong-bayan)
+- Wk6-8: Pagbabagong naganap sa komunidad — dahilan (populasyon, imprastraktura, teknolohiya)
+- Wk9-10: Pagpapahalaga sa kasaysayan at pagbabago ng komunidad (likhang-sining)
 
-**Term 2 — Kasaysayan ng Ating Bansa**
-- Week 1–3: Sinaunang Pilipinas — pamumuhay, kultura, at paniniwala ng mga unang Pilipino
-- Week 4–6: Mga mananakop at epekto nito sa kultura at lipunan; Mga naging pagbabago
-- Week 7–9: Mga bayani ng bansa — Lapu-Lapu, Gabriela Silang, Andres Bonifacio, Jose Rizal; Kanilang mga ambag
-- Week 10: Pagsasanay — pagkakasunod-sunod ng mga makasaysayang pangyayari
+**Term 2 — Ang Sining at Kultura ng Ating Mas Malawak na Komunidad**
+- Wk11-12: Ugnayan ng kapaligiran at kultura
+- Wk13-15: Pagkakakilanlan at sagisag ng komunidad (himno, coat of arms, bayaning lokal)
+- Wk16-18: Kultura at sariling pagkakakilanlan; likhang-sining gamit ang katutubong materyales
+- Wk19-20: Pagpapahalaga sa sining/kultura ng mas malawak na komunidad
 
-**Term 3 — Kultura, Lipunan, at Ekonomiya**
-- Week 1–3: Iba't ibang grupo ng tao sa Pilipinas — Lumad, Muslim, Kristiyano; Pagkakaisa sa pagkakaiba-iba
-- Week 4–6: Sayaw, musika, sining, at pagkain bilang bahagi ng kulturang Pilipino
-- Week 7–9: Mga trabaho at kabuhayan — agrikultura, kalakalan, serbisyo; Bayanihan at pagtutulungan
-- Week 10: Pagsasanay — kultura at ekonomiya ng Pilipinas
+**Term 3 — Tayo Bilang Aktibong Pilipino**
+- Wk21: Konsepto ng pagka-Pilipino
+- Wk22-23: Sariling katangian at pagka-Pilipino
+- Wk24: Pagpapahalaga sa pagkakakilanlan bilang Pilipino
+- Wk25-26: Papel ng pagiging aktibong Pilipino
+- Wk27-28: Pagpapahalaga sa papel ng pagiging aktibong Pilipino (Laro ng Lahi)
+- Wk29-30: Pagiging aktibo/responsableng batang Pilipino (Panatang Makabayan)
 
 ---
 
 ### GMRC (Grade 3)
 
-**Term 1 — Pagpapahalaga sa Sarili at Pamilya**
-- Week 1–4: Pagpapahalaga sa sariling kakayahan at pagkakakilanlan; Pagiging tapat sa sarili
-- Week 5–8: Tungkulin sa pamilya; Pagmamahal at paggalang sa magulang at kapatid; Katapatan
-- Week 9–10: Disiplina sa tahanan at paaralan; Pananagutan sa sariling gawi
+**Term 1**
+- Wk1-2: Sariling hilig at kakayahan (Self-confidence)
+- Wk3-4: Pag-iimpok/pagtitipid kasama ang pamilya (Compassion)
+- Wk5-6: Gampanin sa tahanan at paaralan (Responsibility)
+- Wk7-8: Pagkilos nang may paggalang sa Diyos (Faith)
+- Wk9-10: Pansariling gawain na nakabubuti sa kapaligiran (Discipline)
+- Wk11: Pansariling karapatan na kinikilala sa pamayanan (Respect)
+- Wk12-13: Sariling paraan ng pakikilahok sa pamilya (Cooperation)
 
-**Term 2 — Pakikitungo sa Kapuwa at Komunidad**
-- Week 1–4: Wastong pakikitungo sa guro, kaklase, at matatanda; Malasakit at pagmamalasakit sa iba
-- Week 5–8: Pagiging responsableng miyembro ng paaralan at komunidad; Kooperasyon
-- Week 9–10: Pagtulong sa kapuwa — kabutihang-loob at pagpapahalaga sa iba
+**Term 2**
+- Wk14-15: Ugnayan ng sarili sa kapuwa (Patience)
+- Wk16-17: Impormasyon tungkol sa sariling barangay (Prudence)
+- Wk18: Pakikipag-ugnayan sa bawat kasapi ng pamilya (Sincerity)
+- Wk19: Pagtupad sa gampanin at inaasahang kilos (Initiative)
+- Wk20-21: Pakikibahagi sa gawaing panrelihiyon ng pamilya (Cooperation)
+- Wk22-23: Gawi ng pamilya sa pangangalaga sa kalikasan (Compassion)
+- Wk24: Mabuting kaugalian ng pamilyang Pilipino sa rehiyon (Obedience)
+- Wk25: Sariling kakayahan para sa kapuwa (Compassion)
+- Wk26: Pagkilala sa mga taong may kapansanan/PWD (Respect)
 
-**Term 3 — Pamumuhay Ayon sa Mabuting Pagpapahalaga**
-- Week 1–4: Pagmamahal sa bansa; Paggalang sa mga batas at patakaran
-- Week 5–8: Pangangalaga sa pampublikong ari-arian at kalikasan; Responsibilidad sa kapaligiran
-- Week 9–10: Katapatan sa salita at gawa; Pagpapasalamat at pagkilala sa kabutihan ng iba
+**Term 3**
+- Wk27: Panalangin para sa kapuwa (Prayerful)
+- Wk28: Pamamahala sa mga bagay na hindi nagagamit — 4Rs (Prudence)
+- Wk29-30: Paghikayat sa kapuwa na igalang ang sagisag ng bansa (Love of Country)
+- Wk31: Mga alituntunin sa sariling barangay (Cooperation)
+- Wk32-33: Mga tungkulin ng mga taong nakatira sa barangay (Responsibility)
+- Wk34-35: Pakikibahagi sa gawain ng relihiyon sa pamayanan (Faith)
+- Wk36-37: Pakikiisa sa pamayanan para sa malinis na hangin (Compassion)
+- Wk38-39: Kontribusyon ng mga makabagong bayani/Modern Day Heroes (Gratitude)
 
 ---
 
-### COMPUTER (Grade 3 — App-Added)
+### COMPUTER (Grade 3 — App-Added Bonus Subject)
 
-**Term 1 — Basic Computing Skills**
-- Parts of a computer and their functions; Input and output devices
-- Basic keyboarding — home row, touch typing introduction; Mouse skills
-- File management: creating, naming, saving, and organizing files and folders
+_Not part of official MATATAG Grade 3 (which has 6 subjects: English, Filipino, Mathematics, Science, GMRC, Makabansa). Kept as intentional enrichment — see [[project_grade3_bow_deped_audit]]._
 
-**Term 2 — Word Processing and Creativity**
-- Opening and closing applications; Typing, selecting, and editing text
-- Formatting: font, size, bold/italic/underline; Paragraph alignment; Saving and printing
-- Creating a simple illustrated report or story using text and inserted images
+**Term 1 — Parts, Care, and Basic Control of a Computer**
+- Naming main parts (monitor, keyboard, mouse/trackpad, CPU, speakers); input vs. output devices
+- Proper posture/screen distance/breaks; hardware care; safe power on/off, log in/out
+- Mouse control (click, double-click, right-click, drag); keyboard keys; opening/closing an app
+- Home-row typing accuracy; following on-screen instructions
 
-**Term 3 — Internet Basics and Presentations**
-- What is the Internet; Safe browsing rules for children; Educational websites
-- Basic search skills; Understanding that information online needs to be verified
-- Creating a short slide presentation: text, images, transitions; Presenting to an audience
+**Term 2 — Creating Simple Digital Work**
+- Word-processing/drawing app — typing/editing text, toolbar (font size/color, bold/underline)
+- Drawing tools (pencil, shapes, fill, eraser) for a labeled picture with caption
+- Saving/opening files with adult guidance
+- Small combined project (drawing + typed paragraph), presented to class
+
+**Term 3 — Introduction to the Internet and Staying Safe Online**
+- What the internet is used for; recognizing browser/search-engine icons
+- Safe vs. inappropriate content; never sharing personal info without a trusted adult; not everything online is true
+- Simple keyboard shortcuts; safe program/computer shutdown habits
+- Year-end multimedia project combining a labeled drawing and short paragraph
 
 ---
 

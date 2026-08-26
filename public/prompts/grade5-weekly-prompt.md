@@ -52,221 +52,243 @@ Generate the full JSON now.
 
 ## BOW REFERENCE — GRADE 5
 
+_Regenerated 2026-08-26 directly from the DepEd-audited `budget_of_work` Supabase table (the app's public `/curriculum/grade-5` source), so this file and that table no longer diverge. See [[project_bow_dual_source_discovery]] and [[project_grade5_bow_deped_audit]] — AP and EPP (AFA/FCS/IA) below reflect the corrected content from that audit (poultry/sewing/repair strands, corrected AP Wk1-5)._
+
 Use this to fill in the `SUBJECTS AND TOPICS` section above each Sunday.
 
 > ### 📅 SY 2026-2027 Week Map
-> BOW entries use internal week numbers (reset per quarter). Convert to continuous school week using the offsets below.
+> BOW entries use internal week numbers (reset per term). Convert to continuous school week using the offsets below.
 >
 > | Period | School Weeks | Approx. Dates | BOW → School |
 > |--------|-------------|---------------|--------------|
 > | **Week 1** — Orientation (no lessons) | 1 | Jun 15–19, 2026 | — |
-> | **Q1 / Term 1** | 2–13 | Jun 22 – Sep 12, 2026 | BOW Week N → **Week N+1** |
+> | **Term 1** | 2–13 | Jun 22 – Sep 12, 2026 | BOW Week N → **Week N+1** |
 > | *(Term 1 break)* | 13–14 | Sep 10–20, 2026 | — |
-> | **Q2 / Term 2** | 15–27 | Sep 21 – Dec 16, 2026 | BOW Week N → **Week N+14** |
+> | **Term 2** | 15–27 | Sep 21 – Dec 16, 2026 | BOW Week N → **Week N+14** |
 > | *(Term 2 break — Christmas)* | 27–29 | Dec 17–31, 2026 | — |
-> | **Q3 / Term 3** | 30–40 | Jan 4 – Mar 19, 2027 | BOW Week N → **Week N+29** |
-> | **Q4 / Term 3 (cont.)** | 41–50 | Mar 22 – May 28, 2027 | BOW Week N → **Week N+40** |
+> | **Term 3** | 30–50 | Jan 4 – May 28, 2027 | BOW Week N → **Week N+29** |
 >
-> *Example: BOW "Q2 Week 3" = School Week 3+14 = **Week 17**.*
+> *Example: BOW "Term 2 Week 3" = School Week 3+14 = **Week 17**.*
 
-> **EPP note:** EPP rotates through four strands across the year. Quarter I = ICT. Quarter II = Agriculture and Fishery Arts (AFA). Quarter III = Family and Consumer Science (FCS). Quarter IV = Industrial Arts (IA). Include the active strand for the current quarter.
+> **EPP note:** EPP is tracked as two BOW rows — ICT (Term 1 only) and AFA/FCS/IA (Terms 1-3: poultry/animal production → sewing → repair).
 
 ---
 
 ### ENGLISH (Grade 5) ★ SSES
 
-**Term 1 — Community and Environment Themes**
-- EN5LR: Literary text — realistic fiction, short story; Characterization (direct and indirect); Flashback and foreshadowing (intro); Point of view (first, second, third person)
-- EN5SW: Writing — multi-paragraph essay (introduction, body, conclusion); Coherence and cohesion devices (transition words); Citing a source in simple format
-- EN5VR: Vocabulary — word analogies; Figurative language (simile, metaphor, hyperbole, personification); Academic vocabulary in context
+**Term 1 (context: national holidays)**
+- Receptive/literary: story grammar (character/setting/plot/conflict/theme); sequencing 7+ events; sequential vs. other plot structures; sound devices (alliteration, onomatopoeia, rhyme) and figurative language (simile, metaphor, personification); inferring feelings/traits/motives; predictions; main idea/details; summary
+- Receptive/informational: text structures (outlining, inverted pyramid); explanation vs. news report; author's purpose; fact vs. opinion
+- Productive: denotative vs. connotative meaning (analogy context clue); verb-forming suffixes (-ize/-ify/-en); dictionary use; formal tone; SVA with collective/concrete/abstract nouns; demonstrative/relative pronouns; helping/linking/transitive verbs; progressive tenses; adjective order; adverbs of manner/time; noun complements; compound-complex sentences
+- Composing: narrative/explanation/news-report text types; friendly letters; non-verbal cues; enrollment forms, permission slips
+- Viewing: visual layout (headlines, captions, images); tone/mood in visuals; media stereotypes (age/gender/socio-economic); audio elements
 
-**Term 2 — Philippine History Themes**
-- EN5LR: Informational text — historical accounts; Distinguishing fact from opinion; Evaluating author's credibility; Text structure (chronological, problem-solution)
-- EN5SW: Writing — research-based paragraph; Summary writing (paraphrasing, not copying); Formal vs. informal writing register
-- EN5VR: Vocabulary — connotation and denotation (advanced); Roots and affixes (Latin/Greek); Technical vocabulary in history texts
+**Term 2 (context: Ramadan & Chinese New Year)**
+- Adds: flashback as plot pattern; metaphor/personification/hyperbole; appositives as context clue; glossary use
+- Productive: adverb-forming suffixes (-ly/-ward/-wise); possessive/compound nouns; relative pronouns in complex sentences; adverbs of place/frequency/intensity; noun/pronoun complements
+- Composing: bank and government forms (deposit slip, application)
+- Viewing: directionality in visual texts; video-specific multimedia elements
 
-**Term 3 — Social Issues Themes**
-- EN5LR: Persuasive text — claim, evidence, counter-argument; Detecting bias and propaganda techniques (bandwagon, emotional appeal, loaded language)
-- EN5SW: Writing — argumentative paragraph; Constructing a claim with supporting evidence; Rebuttal (intro)
-- EN5VR: Vocabulary — idioms and proverbs; Collocations; Word choice for formal writing
-
-**Term 4 — Global and National Themes**
-- EN5LR: Poetry — free verse and structured; Tone, mood, and imagery; Comparing two texts on the same topic
-- EN5SW: Writing — literary essay; Reflective writing; Revision strategies (self-editing checklist)
-- EN5VR: Vocabulary — vocabulary in standardized test formats; Greek and Latin roots review; Nuance in word meaning
+**Term 3 (context: Indigenous Peoples & regional celebrations)**
+- Adds: personification/hyperbole in cultural texts; encyclopedia use
+- Productive: reflexive pronouns; degrees of comparison for adverbs; noun/pronoun/adjective complements
+- Composing: original short multimedia text researching an Indigenous group or regional celebration
 
 ---
 
 ### FILIPINO (Grade 5)
 
-**Term 1 — Tulang Liriko at Dula**
-- Talasalitaan: Mga salitang may mataas na antas; Kasabihan at sawikain; Pagpapalawak ng bokabularyo sa pamamagitan ng pagbabasa
-- Gramatika: Mga panlaping nagbibigay-kahulugan (mag-, mang-, -um-, ma-, i-, -an, -in, -an, -hin); Pokus ng pandiwa (aktor, layon, direksyon, benepisyo, sanhi, kagamitan); Tiyak na paggamit ng mga pananda
-- Teksto: Tulang liriko — estilo, sukat, tugma, talinghaga; Dula — kabanata, diyalogo, tagpuan, tauhan; Pagsusuri ng akda
+**Term 1 (tekstong naratibo: mito/epiko/tulang pambata/kuwentong kababalaghan; impormatibo: panuto/hakbang/proseso)**
+- Pag-unawa: 7+ pangyayari, tayutay (simili, metapora, personipikasyon), context clues
+- Gramatika: denotasyon/konotasyon, kasingkahulugan/kasalungat, diksiyon, hugnayang pangungusap, pang-uri (palansak/pahambing), pang-abay (panang-ayon/panalungat), pandiwa ayon sa pokus (actor/object)
+- Pagsulat: liham pangkaibigan, enrolment form; Sanggunian: diksiyonaryo, ensayklopidya, direktoryo
 
-**Term 2 — Maikling Kwento at Balita**
-- Talasalitaan: Kolokasyon; Salitang may dalawang kahulugan; Gamit ng diksyonaryo at tesawro
-- Gramatika: Pandiwang palipat at katawanin; Aktibo at pasibong pangungusap; Pormal at impormal na wika
-- Teksto: Maikling kwento — paksa, tema, tagpuan, punto de bista, elemento ng plot (introduction, rising action, climax, falling action, resolution); Balita — inverted pyramid, 5W1H
+**Term 2 (kuwentong katatakutan, maikling kuwento, dulang pambata; balita/balitang lathalain) — Ramadan, Chinese New Year**
+- Pag-unawa: kabalintunaan/ironiya, 5W1H, punto de bista ng manunulat
+- Gramatika: langkapang pangungusap, pang-uri (superlative), pang-abay na kondisyonal, pandiwa ayon sa pokus (object/instrumental)
+- Pagsulat: ID form, Library Card form; Sanggunian: almanac, atlas
 
-**Term 3 — Sanaysay at Editoryal**
-- Talasalitaan: Metapora at talinghaga; Mga salitang nagpapakita ng damdamin; Rehistro ng wika
-- Gramatika: Paggamit ng estruktura ng pangungusap para sa diin at epekto; Iba't ibang uri ng sugnay
-- Teksto: Sanaysay — naratibo, deskriptibo, ekspositori, mapanuring sanaysay; Editoryal — layunin, tono, posisyon ng may-akda; Pagbibigay ng sariling opinyon gamit ang ebidensya
-
-**Term 4 — Nobela at Epikong Pilipino**
-- Talasalitaan: Arkaismo at neologismo; Mga salitang kultural na may mataas na halaga; Bokabularyo ng panitikan
-- Gramatika: Lahat ng uri ng pangungusap; Mga estrukturang retorikal (anaphora, rhetorical question — intro)
-- Teksto: Nobela — paghahambing ng katangian ng nobela at maikling kwento; Epikong Pilipino — Biag ni Lam-ang, Hinilawod (piling bahagi); Pagsusuri ng temang pampanitikan
+**Term 3 (tulang pambata, kuwentong katatakutan, dulang pambata; eksposisyon) — katutubo/panrehiyong pagdiriwang**
+- Pag-unawa: pagmamalabis/hyperbole, sanhi-bunga sa eksposisyon, paghahambing ng dalawang teksto
+- Gramatika: pang-uri (patakda), pandiwa ayon sa pokus (causative, benefactive, directional)
+- Pagsulat: Request Form/liham-kahilingan; Sanggunian: pahayagan, magasin, handbook
 
 ---
 
 ### MATHEMATICS (Grade 5) ★ SSES
 
-**Term 1 — Whole Numbers and Operations**
-- Numbers up to 10,000,000 — reading, writing, place value, expanded form; Comparing, ordering, rounding
-- Divisibility rules (2, 3, 4, 5, 6, 8, 9, 10); Prime factorization; GCF and LCM
-- Multi-step word problems — mixed operations with whole numbers; Estimating and checking reasonableness
+**Term 1**
+- Wk1: 12/24-hour time conversion; elapsed-time word problems
+- Wk2: World time zones vs. Philippine Standard Time
+- Wk3-4: GMDAS with 3+ operations; multiplying fractions (area/array models)
+- Wk5: Multi-step fraction-multiplication word problems
+- Wk6-7: Area formulas — parallelogram, triangle, trapezoid; identifying height; grid estimation
+- Wk8: Dividing fractions using visual models
+- Wk9: Multi-step fraction-division word problems
+- Wk10: Decimal place value through thousandths
 
-**Term 2 — Fractions and Decimals**
-- Fractions — multiplication of fractions (fraction × fraction, fraction × whole number); Division of fractions (fraction ÷ whole number, whole number ÷ fraction)
-- Mixed numbers — addition, subtraction, multiplication, division; Multi-step word problems
-- Decimals — multiplication (decimal × decimal, decimal × whole number); Division of decimals
-- Ratio and proportion — meaning, types (direct, inverse — intro); Solving proportion problems
+**Term 2**
+- Wk11: Terminating decimals ↔ fractions; comparing/ordering decimals
+- Wk12: Rounding decimals; adding/subtracting to 3 decimal places
+- Wk13: Multi-step decimal addition/subtraction word problems incl. money
+- Wk14-15: Divisibility rules (2,5,10 / 3,6,9 / 4,8,11,12); prime vs. composite (Sieve of Eratosthenes)
+- Wk16: Collecting/organizing data; bar graph vs. line graph
+- Wk17-18: Constructing/interpreting double bar and double line graphs
+- Wk19: Reading/comparing values on double bar/line graphs
+- Wk20: Theoretical probability of simple events
 
-**Term 3 — Percent, Integers, and Geometry**
-- Percent — meaning; Converting between percent, fraction, and decimal; Percent of a quantity
-- Simple interest — principal, rate, time; Solving simple interest problems
-- Integers — concept, ordering on a number line; Addition and subtraction of integers
-- Geometry — circles (parts: center, radius, diameter, chord, arc, sector); Circumference (C = πd); Area of a circle (A = πr²)
-
-**Term 4 — Measurement and Statistics**
-- Volume — rectangular prism (V = lwh); Solving problems involving volume
-- Area of composite figures — combining rectangles, triangles, and circles
-- Temperature — Celsius and Fahrenheit; Converting between units
-- Statistics — mean, median, mode, range; Interpreting data in tables, bar graphs, line graphs; Reading and constructing pie graphs (intro)
+**Term 3**
+- Wk21-22: Estimating and multiplying decimals (2 decimal places); word problems incl. money
+- Wk23-24: Estimating and dividing decimals; word problems incl. money
+- Wk25: GMDAS combining fractions and decimals
+- Wk26: Solid figures (cube, prism, cylinder, cone, sphere, pyramid)
+- Wk27: Prisms vs. pyramids (vertices/faces/edges); nets
+- Wk28: Surface area by summing face areas
+- Wk29: Surface-area word problems
+- Wk30: Volume estimation (unit cubes); rotation about a point
 
 ---
 
 ### SCIENCE (Grade 5) ★ SSES
 
-**Term 1 — Matter: Physical and Chemical Changes**
-- Pure substances vs. mixtures; Solutions — solute, solvent, solubility factors (temperature, agitation, particle size)
-- Separating mixtures — chromatography, distillation, crystallization (advanced from Grade 4)
-- Physical changes — reversible, no new substance formed; Chemical changes — irreversible, new substance formed; Evidence of chemical reaction
-- Conservation of mass — basic concept; Law of conservation of matter
+**Term 1**
+- Wk1-2: Matter has mass and volume; three states of matter
+- Wk2-4: Properties of solids/liquids/gases; measuring volume; thermometer; heating/cooling causing state change
+- Wk5-7: Steps of a scientific investigation; units for mass/temperature; planning a simple investigation
+- Wk8-10: Classifying plants/animals/microorganisms; specialized plant structures (rhizomes, tubers, thorns, bulbs, aerial roots)
 
-**Term 2 — Living Things: Cells, Systems, and Ecology**
-- Cell theory — all living things made of cells; Cell as the basic unit of life; Levels of organization (cell → tissue → organ → organ system → organism)
-- Human body systems — reproductive system (age-appropriate, puberty); Nervous system; Endocrine system (basic)
-- Ecosystems — types (terrestrial and aquatic); Biodiversity and its importance; Ecological relationships (predation, mutualism, commensalism, parasitism)
-- Human impact on ecosystems — deforestation, pollution, overfishing; Conservation strategies
+**Term 2**
+- Wk11-13: Animal body systems — digestive, respiratory, and reproductive (age-appropriate, functional level)
+- Wk14-16: Viviparous vs. oviparous animals; adaptations (mimicry, camouflage); life cycles of mammals/birds/plants
+- Wk17: Contact forces (push/pull)
+- Wk18-19: Friction — surface texture, heat, reducing/increasing it; controlled investigation
+- Wk20-21: Gravity as a non-contact force
 
-**Term 3 — Force and Motion**
-- Newton's First Law — inertia; Newton's Second Law — force = mass × acceleration (basic application); Newton's Third Law — action-reaction
-- Speed = distance ÷ time; Calculating speed, distance, and time
-- Work = force × distance; Power (concept); Simple machines and mechanical advantage
-- Energy — kinetic and potential; Law of conservation of energy (intro); Energy transformation (mechanical to electrical to thermal)
-
-**Term 4 — Earth and Beyond**
-- Plate tectonics — tectonic plates, continental drift; Earthquakes — seismic waves, magnitude; Volcanoes — types, eruption causes
-- The solar system — characteristics of each planet; Moons, asteroids, comets; Space exploration (satellites, telescopes)
-- Earth's motions — rotation (day and night), revolution (seasons); Moon phases and tides
-- Climate vs. weather; Climate change — causes and effects; Mitigation and adaptation strategies
+**Term 3**
+- Wk22-23: Static electricity; simple series circuit; conductors/insulators; electromagnet
+- Wk24-26: Landforms and bodies of water; rock classification; soil formation, weathering, erosion
+- Wk27: Water cycle stages
+- Wk28-30: Philippine weather disturbances; PAGASA Storm Warning Signals; cyclone safety
+- Wk31-32: Solar system structure; Earth's rotation/revolution; Moon phases
 
 ---
 
 ### ARALING PANLIPUNAN (Grade 5)
 
-**Term 1 — Pilipinas sa Asya: Heograpiya**
-- Lokasyon ng Asya sa mundo; Mga rehiyon ng Asya at kanilang katangian
-- Pilipinas bilang bahagi ng Timog-Silangang Asya (ASEAN); Katangiang pisiko at klima ng mga kalapit-bansa
-- Likas na yaman ng Asya at Pilipinas; Kahalagahan ng ASEAN sa ekonomiya at kaunlaran
+**Term 1: Pinagmulan at Kalinangan ng Sinaunang Pilipinas**
+- Wk1: Kahulugan ng kasaysayan, pinagkukunang-bagay, pamamaraan ng pag-aaral
+- Wk2: Pinagmulan ng Pilipinas — agham (land bridge), kaalamang-bayan (alamat), relihiyon
+- Wk3: Pinagmulan ng sinaunang tao — Wave Migration (Beyer), Core Population (Jocano), Tabon/Callao Man
+- Wk4: Heograpikong lokasyon at ugnayan sa kasaysayan
+- Wk5: Sinaunang bayang Pilipino — organisasyong panlipunan (barangay, datu), pang-ekonomiya, pampolitika
+- Wk6: Papel ng kababaihan; konsepto ng kalinangan
+- Wk7: Paniniwala, relihiyon, tradisyon (animismo, anito, babaylan)
+- Wk8: Sinaunang sining, palamuti, arkitektura (bahay-kubo, torogan, rice terraces)
+- Wk9: Pagdating ng Islam sa Mindanao/Sulu; Sultanato ng Sulu/Maguindanao
+- Wk10: Ugnayang pangkalakalan/kultural sa Tsina, Indya, Arabia, Timog Silangang Asya
 
-**Term 2 — Pilipinas sa Asya: Kasaysayan at Kultura**
-- Sinaunang kabihasnan ng Asya — China, India, Arabia; Impluwensya sa kultura ng Pilipinas
-- Kalakalan at pakikipag-ugnayan ng Pilipinas sa mga kalapit-bansa noong sinaunang panahon
-- Kultura ng mga bansang Asyano — relihiyon, wika, tradisyon; Paghahambing sa kulturang Pilipino
+**Term 2: Kolonyalismong Espanyol**
+- Wk11-12: Kolonisasyon/imperyalismo; God-Gold-Glory; Magellan/Legazpi; Unang Misa; Kasunduan ng Tordesillas
+- Wk13-15: Patakarang kolonyal — pamahalaan, ekonomiya (encomienda, polo y servicio, bandala), panlipunan (reduccion, antas-panlipunan)
+- Wk16-17: Pag-aangkop/pagtugon ng Pilipino — sinkretismo, pag-aalsa (Dagohoy, Tamblot, Sumuroy, Silang)
+- Wk18: Katayuan ng kababaihan sa kolonyal na panahon (Maria Clara, Gabriela Silang)
+- Wk19-20: Pagpupunyagi ng iba't ibang sektor; malayang Cordillera at Sultanato
 
-**Term 3 — Pilipinas sa Asya: Pamahalaan at Ekonomiya**
-- Sistema ng pamahalaan ng mga bansang Asyano — demokrasya, monarkiya, komunismo (basic)
-- Ekonomiya ng Asya — mauunlad at umuusbong na bansa; Industriyalisasyon; Agrikultura
-- ASEAN — kasaysayan, layunin, miyembro; Papel ng Pilipinas sa ASEAN
-
-**Term 4 — Pilipinas sa Asya: Pakikiisa at Pagkakakilanlan**
-- Mga pandaigdigang organisasyon — UN, WHO, UNESCO; Papel ng Pilipinas
-- OFW — kontribusyon sa pamilya at bansa; Hamon at oportunidad
-- Pagkakakilanlan bilang Asyano at Pilipino; Pagpapahalaga sa pagkakaiba-iba ng kultura
+**Term 3: Nasyonalismo at Pagkakakilanlang Pilipino**
+- Wk21: Konsepto ng nasyonalismo
+- Wk22-23: Kaisipang liberal — French Revolution, Konstitusyon ng Cadiz, Suez Canal
+- Wk24-25: Ambag ng ilustrado; Educational Decree of 1863
+- Wk26: Sekularisasyon at Pilipinisasyon ng Parokya (Pelaez, Burgos)
+- Wk27: Cavite Mutiny at GOMBURZA
+- Wk28-29: Layunin ng Kilusang Propaganda; La Solidaridad
+- Wk30: Mga personalidad ng Kilusang Propaganda (Rizal, Lopez Jaena, del Pilar, Ponce)
 
 ---
 
 ### MAPEH (Grade 5)
 
-**Music and Arts — Philippine Regional and Indigenous Arts**
-- Q1: Music of Luzon — Ilocano, Kapampangan, Tagalog folk songs; Vocal music (solo, duet, chorus); Solfège and sight-reading
-- Q2: Music of Visayas — Visayan folk songs, kundiman; Rondalla instruments; Music notation (ledger lines, dynamics markings)
-- Q3: Music of Mindanao — kulintang ensemble, agung, dabakan; Indigenous musical instruments; Playing simple melodic instruments
-- Q4: Philippine contemporary music — OPM, folk-pop, hip-hop; Music composition (simple melody writing)
+**Term 1 — Music/Arts: Pre-Colonial Period; PE/Health**
+- Music: timbre (Hornbostel-Sachs), dynamics; Theater: local forms/symbolisms; Dance: local forms/functions
+- Visual Arts: subjects/themes/mediums of local pre-colonial art
+- Health: mental/emotional health, stress-coping, anti-bullying/harassment skills; puberty changes and family support
+- PE: Striking/Fielding Games (kickball, syato) and Net/Wall Games (pickleball, ringo) — positioning, scoring, defending
 
-- Q1 Arts: Weaving and textile arts of Luzon — patterns, meaning, process
-- Q2 Arts: Pottery and sculpture of the Visayas; Three-dimensional art; Ceramics (basic)
-- Q3 Arts: Batik and indigenous art of Mindanao; Printmaking (intro)
-- Q4 Arts: Philippine contemporary art — installation art, street art; Creating an art portfolio
+**Term 2 — Music/Arts: Early Spanish Colonial Period (1521-1600); PE/Health**
+- Music: melody, musical form; Theater/Dance/Visual Arts of the period, applied to local creative works
+- Health: proper medicine use vs. misuse; effects of gateway drugs
+- PE: Rhythmic Activities/Dances in 2/4 time (DepEd Galaw Pilipinas, movement exploration, social dance mixers)
 
-**PE and Health (Terms 1–4)**
-- Q1: Holistic wellness — physical, mental, emotional, social; Fitness testing; Target and net/wall games (badminton, table tennis)
-- Q2: Puberty — physical and emotional changes; Personal hygiene during puberty; Invasion and striking games (volleyball, softball)
-- Q3: Communicable diseases — prevention, transmission, vaccination; Rhythmic activities (folk dance: Tinikling, Maglalatik)
-- Q4: Non-communicable diseases — lifestyle diseases, prevention; Dance — contemporary and creative movement; First aid basics
-
----
-
-### EPP — ICT (Grade 5, Quarter I Only)
-
-- Advanced word processing — tables, columns, mail merge (intro); Document templates
-- Spreadsheet — formulas (SUM, AVERAGE, COUNT, MAX, MIN); Charts and graphs from data; Basic data analysis
-- Presentation — advanced animations and transitions; Embedding video and audio; Audience design
-- Online collaboration tools — Google Docs/Slides intro; Cloud storage and file sharing; Netiquette
-- Programming concepts — Scratch or similar block coding; Loops, conditions, events; Creating a simple interactive project
+**Term 3 — Music/Arts: Middle Spanish Colonial Period (1600-1800); PE/Health**
+- Music: harmony (intervals); Theater/Dance/Visual Arts of the period, evaluated against period conventions
+- Health: home/school/community/outdoor safety hazards; road safety; injury prevention
+- PE: Rhythmic Activities/Dances in 3/4 time
 
 ---
 
-### EPP — AFA / FCS / IA (Grade 5, Quarters II–IV)
+### EPP (ICT) (Grade 5, Term 1 Only)
 
-**Quarter II — Agriculture and Fishery Arts (AFA): Paghahayupan**
-- Kahalagahan ng pag-aalaga ng hayop sa Pilipinas; Iba't ibang uri ng hayop na pinalaki (baboy, manok, kambing, isda)
-- Pag-aalaga ng isda (tilapia, hito, bangus) — fish pond/cage culture basics; Pagpapakain, pangangalaga, pagkolekta
-- Organikong pag-aalaga ng hayop; Natural na gamot at preventive care; Pagbebenta ng produkto
+**Term 1: Internet Safety**
+- Wk1: Netiquette
+- Wk2: Web browsers — kinds and parts
+- Wk3-6: Safe/responsible search engine use — keywords, credibility, misinformation
+- Wk7-10: Safe/responsible email — interface, composing, attachments, etiquette, phishing awareness
 
-**Quarter III — Family and Consumer Science (FCS)**
-- Pinansyal na pamamahala sa pamilya — badyet, ipon, paggastos nang matalino
-- Pag-iimbak ng pagkain — refrigeration, canning, drying, fermenting (basic); Food safety
-- Pagluluto ng simpleng pagkain nang ligtas — mise en place; Pagsunod sa recipe; Food presentation
+---
 
-**Quarter IV — Industrial Arts (IA)**
-- Pagtatayo ng simpleng istruktura gamit ang kahoy/kawayan — hakbang at kaligtasan
-- Pangunahing kasangkapan — martilyo, lagari, pantasik, baril ng pandikit; Wastong paggamit at pag-iingat
-- Disenyo ng produkto — sketching, bill of materials, pagkalkula ng gastos; Pagbuo at pagpapakita ng natapos na proyekto
+### EPP (AFA/FCS/IA) (Grade 5, Terms 1-3)
+
+**Term 1 — Agriculture and Fishery Arts: Animal Production (Poultry)**
+- Wk1: Animal production definition/branches; importance of raising poultry naturally
+- Wk2: Laws/agencies/NGOs relevant to poultry-raising
+- Wk3: Successful poultry raisers and their traits
+- Wk4: Factors in raising poultry — housing, ventilation, feed, water, cleanliness
+- Wk5: Poultry breeds; common diseases — causes, signs, prevention, treatment
+- Wk6-7: Natural care/management — feeding, cleaning, vitamins, weighing
+- Wk8: Harvesting poultry and products (eggs, meat)
+- Wk9-10: Selling — computing capital, price, expected profit
+
+**Term 2 — Family and Consumer Science: Sewing (Pananahi)**
+- Wk1: Importance of sewing; sewing tools
+- Wk2: Basic hand stitches (running, back, baste, blanket, whip)
+- Wk3: Identifying/repairing simple clothing damage
+- Wk4: Sewing machine parts/use; materials for household items
+- Wk5: Common machine-sewing problems and solutions
+- Wk6-7: Making a simple household item by machine
+- Wk8: Embroidery and crochet tools/procedure
+- Wk9: Making crochet stitches
+- Wk10: Selling the finished household item
+
+**Term 3 — Industrial Arts: Repair (Pagkukumpuni)**
+- Wk1: Common defects/repair methods for wood, bamboo, metal, electrical products
+- Wk2: Careful tool use; repair materials
+- Wk3: Proper care/storage of tools and materials
+- Wk4-5: Repairing wood/bamboo items
+- Wk6-7: Repairing metal items
+- Wk8-9: Repairing electrical items
+- Wk10: Computing service cost (manual or spreadsheet)
 
 ---
 
 ### GMRC (Grade 5)
 
-**Term 1 — Integridad at Responsibilidad**
-- Integridad — pagiging tapat sa salita at gawa kahit walang nanonood; Konsyensya bilang gabay
-- Responsibilidad sa sarili, pamilya, at paaralan; Pagtanggap ng pananagutan para sa mga pagkakamali
+**Term 1 (self-understanding)**
+- Wk1: Respect for life
+- Wk2: Valuing oneself, puberty changes
+- Wk3: Promptness (saving/budgeting)
+- Wk4-5: Faith (prayer, scripture)
+- Wk6: Prudence (e-waste disposal)
+- Wk7: Obedience (traffic rules)
+- Wk8: Gratitude (appreciating parents/guardians)
 
-**Term 2 — Katarungan at Pagkakapantay-pantay**
-- Kahulugan ng katarungan; Pantay-pantay na pagtrato sa lahat anuman ang kasarian, lahi, o relihiyon
-- Pagtutol sa diskriminasyon at panunukso; Pagtayo para sa tama kahit mahirap
+**Term 2 (caring for others)**
+- Wk9: Compassion (sick/elderly/PWD); Wk10: Gratitude (OFWs); Wk11: Respect (welcoming family)
+- Wk12: Accountability (family duties); Wk13: Faith (family religious practices); Wk14: Gratitude (thanking God)
+- Wk15: Cleanliness (home tidiness); Wk16: Nationalism (local products); Wk17: Patience (self-emotion regulation); Wk18: Respect (elders)
 
-**Term 3 — Mamamayang may Malasakit sa Kalikasan**
-- Pangangalaga sa kalikasan bilang moral na tungkulin; Ecological stewardship
-- Partisipasyon sa mga gawaing pangkalikasan — tree planting, recycling, zero waste
-
-**Term 4 — Pagmamahal sa Bayan at Pandaigdigang Pananaw**
-- Pagpapahalaga sa kasaysayan at kultura ng Pilipinas; Nasyonalismo at patriotismo
-- Pandaigdigang pananaw — respeto sa iba't ibang kultura; Pagiging mamamayan ng daigdig
+**Term 3 (community & faith)**
+- Wk19: Faith (respecting others' religious symbols); Wk20: Faith (discernment/wise counsel)
+- Wk21: Carefulness (accident prevention); Wk22: Promptness (punctuality); Wk23: Cheerfulness (neighbors)
+- Wk24: Obedience (community rules); Wk25: Hope; Wk26: Optimism; Wk27: Accountability (environmental care); Wk28: Nationalism (regional artworks)
 
 ---
 
@@ -279,8 +301,7 @@ Grade 5 fixed weekly subject schedule (matches `GRADE_5_SCHEDULE` in `subjectSch
 | Monday | English · Mathematics |
 | Tuesday | Filipino · Science |
 | Wednesday | Araling Panlipunan · EPP (ICT) |
-| Thursday | MAPEH · GMRC · EPP (AFA/FCS/IA)* |
+| Thursday | MAPEH · GMRC · EPP (AFA/FCS/IA) |
 | Friday | Weekly Review (all subjects) |
 
-> *EPP (AFA/FCS/IA) is only active in Q2–Q4. Omit it from Thursday during Q1.
 > ⚠️ This schedule is fixed in the app — subjects placed on the wrong day will fail the bulk import validator.
