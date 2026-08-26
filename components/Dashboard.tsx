@@ -47,6 +47,7 @@ import { isAppOffline } from '@/lib/offlineState';
 import { watchAndFlushSyncQueue } from '@/lib/offlineSync';
 import { seedOfflineCache } from '@/lib/offlineSeed';
 import { claimRegistrantReward, fetchNotifications, markNotificationsRead, getMyReferralKey, PlayerNotification } from '@/lib/referral';
+import { claimMarketingGoldBonus } from '@/lib/marketingBonus';
 import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
 import NotificationInbox from '@/components/NotificationInbox';
 import MonsterShop from '@/components/MonsterShop';
@@ -256,6 +257,18 @@ export default function Dashboard() {
             setToast({
               show: true,
               message: `🎁 Referral bonus! +${reward.growth_pills} Growth Pill & +${reward.gold} Gold added to your account!`,
+            });
+          }
+        });
+
+        // Marketing opt-in welcome bonus: claims once, whether the parent
+        // checked the box at registration or opted in later from the
+        // dashboard — idempotent, no-ops if already claimed or not opted in.
+        claimMarketingGoldBonus(activeUserId).then(reward => {
+          if (reward) {
+            setToast({
+              show: true,
+              message: `🪙 Welcome bonus! +${reward.gold} Gold added to your account!`,
             });
           }
         });
