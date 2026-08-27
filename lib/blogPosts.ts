@@ -57,10 +57,10 @@ export type BlogPost = {
 const GUILD_HERO_IMAGES: Partial<Record<BlogPost['guildKey'], BlogPostImage>> = {
   lorekeeper: {
     url: '/blog-images/child-reading-comprehension-practice.webp',
-    alt: 'Elementary school child reading a book, practicing reading comprehension',
+    alt: 'Grade school boy reading a book intently at home, practicing reading comprehension',
     width: 1200,
     height: 675,
-    credit: { name: 'Toulouse', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/boy-in-gray-jacket-reading-book-3457273/' },
+    credit: { name: 'Timur Weber', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/a-boy-reading-a-book-9127063/' },
   },
   numberrealm: {
     url: '/blog-images/child-mental-math-number-sense.webp',
@@ -1394,10 +1394,10 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     image: {
       url: '/blog-images/deped-aligned-quiz-resources.webp',
-      alt: 'Teacher and student reviewing lesson materials together',
+      alt: 'Student answering a test in a classroom, reviewing lesson materials',
       width: 1200,
       height: 675,
-      credit: { name: 'Ahmet Kurt', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/teacher-and-student-collaborating-in-classroom-35745677/' },
+      credit: { name: 'This And No Internet 25', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/student-taking-exam-in-classroom-setting-31115182/' },
     },
   },
   {
@@ -1477,10 +1477,10 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     image: {
       url: '/blog-images/tutor-helping-student-homework.webp',
-      alt: 'Tutor helping a young student with schoolwork during a one-on-one lesson',
+      alt: 'Tutor explaining a question to a young student during a one-on-one lesson',
       width: 1200,
       height: 675,
-      credit: { name: 'Katerina Holmes', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/smiling-black-woman-supporting-little-pupil-during-lesson-in-classroom-5905486/' },
+      credit: { name: 'Katerina Holmes', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/black-female-tutor-explaining-question-to-asian-girl-in-classroom-5905494/' },
     },
   },
   {
@@ -2354,10 +2354,10 @@ export const BLOG_POSTS: BlogPost[] = [
       "If your Grade 6 child's teacher has mentioned \"RSHS\" or handed home a note about a possible entrance-exam recommendation, you're not alone in not being totally sure what that means — or how it's different from \"Pisay\" (Philippine Science High School), which a lot of families mix it up with. Here's the plain-English version: what RSHS actually is, how admission works, and what to actually do next.",
     image: {
       url: '/blog-images/rshs-entrance-exam-classroom-test.webp',
-      alt: 'Group of students focused and taking a written test in a classroom',
+      alt: 'Students in an Indonesian classroom taking a written exam',
       width: 1200,
       height: 675,
-      credit: { name: 'This And No Internet 25', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/students-focused-on-school-test-in-classroom-31155018/' },
+      credit: { name: 'Haidar Azmi', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/indonesian-students-in-classroom-exam-setting-31940733/' },
     },
     sections: [
       {
@@ -2438,10 +2438,10 @@ export const BLOG_POSTS: BlogPost[] = [
       "Before a Grade 6 pupil can even sit for the RSHS Entrance Exam, they need to clear a real eligibility bar first — this isn't an exam any interested family can just sign up for. Here's what that bar typically looks like, and where the numbers actually come from.",
     image: {
       url: '/blog-images/rshs-eligibility-grading-exam.webp',
-      alt: "Close-up of a teacher grading multiple-choice exam papers with a red pen",
+      alt: "Classroom session in progress at a school in Indonesia",
       width: 1200,
       height: 675,
-      credit: { name: 'Andy Barbour', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/person-checking-test-papers-6684372/' },
+      credit: { name: 'el jusuf', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/indonesian-classroom-scene-with-teacher-and-students-35548841/' },
     },
     sections: [
       {
@@ -2548,6 +2548,13 @@ export const BLOG_POSTS: BlogPost[] = [
           "Published sources differ on the exact proficiency-test cutoff needed to advance to the interview stage — figures of 75% and 80% both appear in different regional materials. Rather than anchor prep to either specific number, treat the real target as \"comfortably above a typical passing grade,\" and confirm the current year's actual cutoff with your specific RSHS admissions office once your child is eligible to apply.",
         ],
       },
+      {
+        heading: "Where to find the actual current-year screening exam details",
+        paragraphs: [
+          "There's no single official \"sample entrance exam\" that DepEd publishes nationwide — what does exist are the actual regional memoranda announcing each year's screening exam, issued by each region's own DepEd office. As one real example of what these look like: DepEd Regional Office 1 publishes its own RSHS screening examination memorandum for incoming Grade 7 (and Grade 10) applicants directly on its official site, covering exam dates, venues, and requirements for that specific school year.",
+          "That's the actual, verifiable source worth checking — not a \"reviewer\" PDF of uncertain origin circulating on Scribd or similar sites. Search your own region's DepEd regional or schools division office site directly (for example, \"DepEd Regional Office [your region] RSHS screening examination memorandum\") for the current year's equivalent.",
+        ],
+      },
     ],
     takeaways: [
       "The exam has two genuinely different parts: a reasoning-based aptitude test (Stage 1) and a Science/English/Math proficiency test (Stage 2) — they need different kinds of preparation.",
@@ -2557,6 +2564,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     externalLinks: [
       { label: 'Admission Test to RSHS Region 02, SY 2020-2021 (TeacherPH)', url: 'https://www.teacherph.com/admission-test-regional-science-high-school-for-region-02/' },
+      { label: 'DepEd Regional Office 1 — official RSHS screening exam memorandum (real example)', url: 'https://depedro1.com/wp-content/uploads/2025/02/rm181s2025.pdf' },
       { label: 'See the full Grade 6 DepEd curriculum for comparison', url: '/curriculum/grade-6' },
       { label: 'Read the RSHS series overview', url: '/blog/regional-science-high-school-rshs-entrance-exam-guide' },
       { label: 'How to actually prepare for the exam', url: '/blog/how-to-prepare-rshs-entrance-exam-grade-6' },
@@ -2577,6 +2585,11 @@ export const BLOG_POSTS: BlogPost[] = [
         answer:
           "Not in the same way as a content subject — it measures general reasoning, pattern recognition, and logical thinking rather than memorized material. Practicing general logic puzzles and reasoning exercises is more useful than reviewing a specific syllabus.",
       },
+      {
+        question: 'Is there an official sample RSHS entrance exam I can download?',
+        answer:
+          "DepEd doesn't publish a single nationwide sample exam. What does exist are each region's own official screening-exam memoranda — for example, DepEd Regional Office 1 posts its RSHS screening exam memorandum directly on its own site. Search your specific region's DepEd office for the current year's version rather than relying on an unofficial reviewer PDF.",
+      },
     ],
   },
   {
@@ -2594,10 +2607,10 @@ export const BLOG_POSTS: BlogPost[] = [
       "Once you understand what the RSHS Entrance Exam actually tests, the preparation question gets a lot more specific than \"study harder.\" Here's a realistic breakdown of what actually helps at each stage — and where it genuinely doesn't help to cram.",
     image: {
       url: '/blog-images/rshs-parent-child-exam-prep.webp',
-      alt: 'Father helping his son with schoolwork together at home',
+      alt: 'Filipino family helping their daughter with homework at home',
       width: 1200,
       height: 675,
-      credit: { name: 'Vitaly Gariev', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/father-and-son-doing-homework-together-in-living-room-39191138/' },
+      credit: { name: 'Annushka Ahuja', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/mother-helping-daughter-with-homework-8054837/' },
     },
     sections: [
       {
