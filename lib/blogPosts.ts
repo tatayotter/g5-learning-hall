@@ -2387,16 +2387,32 @@ export const BLOG_POSTS: BlogPost[] = [
           "Eligibility isn't just \"sign up\" — a pupil generally needs to be recommended by their school principal and rank near the top of their Grade 6 graduating class, on top of meeting specific grade thresholds in core subjects. We walk through the actual requirements, exactly as commonly published by RSHS admission offices, in the next post in this series.",
         ],
       },
+      {
+        heading: 'How many RSHS campuses are there, and where',
+        paragraphs: [
+          "RSHS operates as a union of regional campuses — the Regional Science High School Union (RSHS-Union) — established in the 1994-1995 school year, with one flagship campus per region (17 in total), serving a combined enrollment of several thousand students nationwide. A few confirmed examples: Region I's is in Bangar, La Union; Region II's is in Tumauini, Isabela; Region III's is in Olongapo City; Region IV-A's is the former Cavite National Science High School; the Bicol Region's is in Ligao City, Albay; and Region VI's is in Kalibo, Aklan. This list isn't exhaustive - your own region's DepEd office can confirm exactly which school serves your area.",
+          "Because each campus draws applicants from an entire region rather than a single city, some families do travel a real distance to attend, and some campuses support boarding students while others may not - this varies by campus and isn't something we can state as a blanket fact. If distance or boarding matters to your family's decision, ask the specific RSHS directly rather than assuming either way.",
+        ],
+      },
+      {
+        heading: 'Does RSHS also admit new students at Grade 10?',
+        paragraphs: [
+          "You may see a regional memorandum mention a screening exam for \"incoming Grade 7 and Grade 10\" applicants, and it's worth being precise about what that actually means: Grade 10 admission is a lateral transfer for pupils already enrolled at a different RSHS campus (for example, a family relocating from one region to another) - not a second entry point for a pupil coming from a regular, non-RSHS high school. Transfer into RSHS from a general high school isn't permitted at any grade level. If your child didn't get in at Grade 7, Grade 10 lateral entry isn't a fallback path - it only applies if they're already an RSHS pupil elsewhere.",
+        ],
+      },
     ],
     takeaways: [
       "RSHS (Regional Science High School) is a DepEd public high school with an accelerated science/math curriculum starting at Grade 7 — each region runs its own, entered through a competitive entrance exam.",
       "RSHS, PSHS (\"Pisay\"), and SSES are three separate programs at three different levels (elementary, regional high school, and a national scholarship system) — don't assume they share requirements or a single application process.",
       "Admission runs through three stages: an aptitude test, a Science/English/Math proficiency test, and a scored parent-and-student interview.",
+      "RSHS-Union has 17 regional campuses nationwide — confirm which one serves your family's region with your local DepEd office.",
+      "Grade 10 admission exists only as a lateral transfer between RSHS campuses, not as a second chance for pupils coming from a regular high school.",
       "Exact cutoff percentages and quotas can vary by region and by year — always confirm current-year specifics with your local RSHS admissions office.",
     ],
     externalLinks: [
       { label: 'RSHS Region XII — Admission Policy', url: 'https://rshsxii.edu.ph/about/admission-policy/' },
       { label: 'Admission Test to RSHS Region 02, SY 2020-2021 (TeacherPH)', url: 'https://www.teacherph.com/admission-test-regional-science-high-school-for-region-02/' },
+      { label: 'Regional Science High School Union (background)', url: 'https://en.wikipedia.org/wiki/Regional_Science_High_School_Union' },
       { label: "Read our SSES (Special Science Elementary School) parent guide", url: '/blog/what-is-sses-special-science-elementary-school-parent-guide' },
       { label: 'See what your Grade 6 child is actually learning right now', url: '/curriculum/grade-6' },
     ],
@@ -2420,6 +2436,16 @@ export const BLOG_POSTS: BlogPost[] = [
         question: 'Does every region have the same RSHS admission requirements?',
         answer:
           "The general three-stage structure is consistent, but specific cutoff percentages, quotas, and timelines can vary by region and by school year. Always confirm current details with your specific region's RSHS admissions office.",
+      },
+      {
+        question: 'Is RSHS tuition-free?',
+        answer:
+          "RSHS campuses are public DepEd schools, so tuition itself follows the same no-tuition-fee policy as any Philippine public school. Whether a specific campus offers additional support like free boarding, meals, or supplies varies by school — confirm directly with the RSHS serving your region.",
+      },
+      {
+        question: "Can my child apply to RSHS at Grade 10 if they didn't get in at Grade 7?",
+        answer:
+          "No. Grade 10 admission at RSHS is a lateral transfer available only to pupils already enrolled at a different RSHS campus, not a second entry point for pupils coming from a regular high school. Transfer from a general high school into RSHS isn't permitted at any grade level.",
       },
     ],
   },
@@ -2465,13 +2491,20 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         heading: 'What to actually do, practically',
         paragraphs: [
-          "Since eligibility depends on school-level ranking and a principal's recommendation, the most useful thing a parent can do early is simply ask the Grade 6 adviser directly: does our school participate in RSHS nomination, and roughly where does my child currently stand against these thresholds? Timelines for the recommendation and exam application also vary by region and year, so your child's school is the most reliable source for exact current-year dates — not a general guide like this one.",
+          "Since eligibility depends on school-level ranking and a principal's recommendation, the most useful thing a parent can do early is simply ask the Grade 6 adviser directly: does our school participate in RSHS nomination, and roughly where does my child currently stand against these thresholds? Timelines for the recommendation and exam application also vary by region and year, so your child's school is the most reliable source for exact current-year dates - not a general guide like this one.",
+        ],
+      },
+      {
+        heading: "Getting in isn't the finish line - grades keep mattering afterward",
+        paragraphs: [
+          "It's worth setting expectations correctly here: RSHS admission policies commonly require a pupil to keep meeting a similar grade bar to remain in the program, not just to get in - published figures for continuing RSHS pupils commonly cite the same 85% threshold in English, Science, and Mathematics, with no single grading period allowed to dip below 80% in any of those three subjects, on top of an 83% floor in other subjects. So the eligibility bar isn't a one-time hurdle a family clears at the door; it's closer to an ongoing standard the pupil is expected to sustain once enrolled.",
         ],
       },
     ],
     takeaways: [
       "A commonly published eligibility bar is: upper 10% class rank, an 85% final grade in English/Science/Math, an 83% final grade in other subjects, and an 85% weighted average overall.",
       "Eligibility is tied to a principal's recommendation, not independent sign-up — the first real step is a conversation with your child's Grade 6 adviser or principal.",
+      "The grade requirements don't stop at admission — commonly published policy expects a pupil to keep meeting a similar bar (no single grading period below 80% in English/Science/Math) to remain enrolled.",
       "Exact thresholds and timelines can vary by region and school year — confirm current specifics with your child's school rather than relying on a single source.",
     ],
     externalLinks: [
@@ -2494,6 +2527,11 @@ export const BLOG_POSTS: BlogPost[] = [
         question: 'When should we start asking about RSHS eligibility?',
         answer:
           "As early in Grade 6 as possible, since class rank and grade thresholds are evaluated across the school year, not just at the final grading period. Ask your child's adviser directly rather than waiting for an announcement.",
+      },
+      {
+        question: "Does my child need to keep up their grades after getting into RSHS?",
+        answer:
+          "Yes. Published RSHS policy commonly requires continuing pupils to maintain a similar bar to stay in the program — around 85% in English, Science, and Mathematics with no single grading period falling below 80% in those subjects, and an 83% floor elsewhere. Admission is the start of a standard to sustain, not a one-time hurdle.",
       },
     ],
   },
