@@ -6,6 +6,7 @@ import {
   fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile,
   ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile,
   getCompanionTierCrossed, fetchCompanionInstanceStats, getCompanionSpeciesDef,
+  gradeStageIndex, gradeStageStars, MIN_GRADE_STAGE,
 } from '@/lib/guildEngine';
 import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
@@ -13,7 +14,6 @@ import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { GUILDS } from '@/lib/dailyChecklist';
-import { USERS, gradeToNumber } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
@@ -41,7 +41,7 @@ interface NumberRealmQuestion {
   correct_numerator: number | null;
   correct_denominator: number | null;
   correct_standard_ans: string | null;
-  difficulty_tier: number;
+  grade_level: number;
 }
 
 interface NumberRealmProps {
@@ -78,7 +78,6 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
   const standardRef = useRef<HTMLInputElement>(null);
 
   const isTala = userId === 'tala';
-  const gradeLevel = gradeToNumber(USERS[userId]?.grade);
   const timeLimit = isTala ? 120 : 60;
   const engine = useTimeAttack<NumberRealmQuestion>(questions, timeLimit)
 
@@ -86,7 +85,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
     async function loadPool() {
       const [pool, subProfile] = await Promise.all([
         takePrefetch<any[]>(userId, 'guildPool:number_realm')
-          ?? fetchQuestionPool(userId, 'sq_number_realm', 'number_realm', gradeLevel),
+          ?? fetchQuestionPool(userId, 'sq_number_realm', 'number_realm'),
         takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
           ?? fetchSubclassProfile(userId)
       ]);
@@ -138,7 +137,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
 
     if (isCorrect) playChime(); else playClash();
     setFlashResult(isCorrect ? 'correct' : 'wrong');
-    engine.submitResult(isCorrect, q.id, q.difficulty_tier);
+    engine.submitResult(isCorrect, q.id, gradeStageIndex(q.grade_level));
     clearInputs();
     setTimeout(() => setFlashResult(null), 300);
   };
@@ -231,7 +230,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
           <h2 className="text-4xl font-display font-bold text-amber-700 mb-2">Number Realm</h2>
           <p className="text-gray-500 italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'number_realm')?.lore}</p>
           <p className="text-amber-600 font-medium mb-1">Lvl {profile?.number_realm_lvl || 1} · {profile?.number_realm_xp || 0}/500 XP</p>
-          <p className="text-amber-600 text-xs font-medium mb-1">Difficulty {'★'.repeat(profile?.number_realm_tier || 1)}{'☆'.repeat(Math.max(0, 3 - (profile?.number_realm_tier || 1)))}</p>
+          <p className="text-amber-600 text-xs font-medium mb-1">Grade {profile?.number_realm_tier || MIN_GRADE_STAGE} · {gradeStageStars(profile?.number_realm_tier || MIN_GRADE_STAGE)}</p>
           <p className="text-gray-500 mb-6 text-sm max-w-md mx-auto">Solve math problems in {timeLimit} seconds. Correct answers build your streak — the longer the streak, the greater the gold multiplier.</p>
 
           <div className="grid grid-cols-3 gap-4 mb-8 text-center">
@@ -267,7 +266,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
 
   if (screen === 'playing' && engine.currentQuestion) {
     const q = engine.currentQuestion;
-    const difficultyStars = '★'.repeat(q.difficulty_tier) + '☆'.repeat(Math.max(0, 3 - q.difficulty_tier));
+    const difficultyStars = gradeStageStars(q.grade_level);
     const timerPct = (engine.timeLeft / timeLimit) * 100;
     const timerColor = engine.timeLeft <= 10 ? 'bg-red-500' : engine.timeLeft <= 20 ? 'bg-yellow-500' : 'bg-amber-500';
     const feedbackClass = flashResult === 'correct' ? 'battle-answer-correct' : flashResult === 'wrong' ? 'battle-answer-wrong' : '';

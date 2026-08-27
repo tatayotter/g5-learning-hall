@@ -69,6 +69,7 @@ export default function BlogHeader({ theme = 'dark' }: { theme?: 'light' | 'dark
         <nav className="hidden md:flex items-center gap-1">
           <Link href="/blog" className={linkClass}>All Guides</Link>
           <Link href="/curriculum" className={linkClass}>Curriculum</Link>
+          <Link href="/guilds" className={linkClass}>Guilds</Link>
           {topics.map(([key]) => (
             <Link key={key} href={`/blog/topic/${key}`} className={linkClass}>
               {NAV_LABELS[key]}
@@ -112,6 +113,7 @@ export default function BlogHeader({ theme = 'dark' }: { theme?: 'light' | 'dark
         <div className={dropdownClass}>
           <Link href="/blog" className={linkClass} onClick={() => setOpen(false)}>All Guides</Link>
           <Link href="/curriculum" className={linkClass} onClick={() => setOpen(false)}>Curriculum</Link>
+          <Link href="/guilds" className={linkClass} onClick={() => setOpen(false)}>Guilds</Link>
           {topics.map(([key]) => (
             <Link key={key} href={`/blog/topic/${key}`} className={linkClass} onClick={() => setOpen(false)}>
               {NAV_LABELS[key]}

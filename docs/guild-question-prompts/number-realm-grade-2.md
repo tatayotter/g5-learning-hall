@@ -11,21 +11,18 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
   {
     "problem_prompt": "5 + 8 = ?",
     "expected_layout": "standard",
-    "correct_standard_ans": "13",
-    "difficulty_tier": 1
+    "correct_standard_ans": "13"
   },
   {
     "problem_prompt": "1/4 + 1/4 = ?",
     "expected_layout": "fraction",
     "correct_numerator": 1,
-    "correct_denominator": 2,
-    "difficulty_tier": 2
+    "correct_denominator": 2
   },
   {
     "problem_prompt": "What time is half past 6?",
     "expected_layout": "time",
-    "correct_standard_ans": "6:30",
-    "difficulty_tier": 1
+    "correct_standard_ans": "6:30"
   }
 ]
 ```
@@ -36,14 +33,6 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 | `"standard"` | `correct_standard_ans` (string) | Numbers, money (₱25), days, etc. |
 | `"fraction"` | `correct_numerator` (integer) + `correct_denominator` (integer) | Store in **simplified** form (e.g., 2/4 → 1/2) |
 | `"time"` | `correct_standard_ans` in `"H:MM"` format | e.g., `"3:00"`, `"6:30"`, `"9:15"` |
-
-## Difficulty Tiers
-
-| Tier | Description |
-|---|---|
-| 1 | Single-step; small numbers (≤20); direct computation |
-| 2 | Two-step or slightly larger numbers; simple word problems; multiplication facts; basic fractions |
-| 3 | Multi-step word problems; three-digit arithmetic; perimeter; harder time problems |
 
 ## Grade 2 Math Topics (DepEd Term 1)
 
@@ -81,4 +70,4 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 - Distribute layouts roughly: 60 % standard / 20 % fraction / 20 % time.
 
 ## Generation Instruction
-Generate [N] Number Realm problems for Grade 2, Term 1. Distribute roughly 35 % tier 1 / 40 % tier 2 / 25 % tier 3. Return only the JSON array. No commentary.
+Generate [N] Number Realm problems for Grade 2, Term 1. Return only the JSON array. No commentary.

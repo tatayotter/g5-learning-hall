@@ -1,11 +1,11 @@
 // lib/guildEngine.ts
 import { supabase } from '@/lib/supabase';
-import { CURRENT_TERM, PREFETCH_BATCH_SIZE, MIN_SESSION_POOL_SIZE } from '@/lib/guildConfig';
+import { PREFETCH_BATCH_SIZE, MIN_SESSION_POOL_SIZE } from '@/lib/guildConfig';
 import type { GuildKey } from '@/lib/dailyChecklist';
 import { GUILD_MONSTERS, MonsterDef } from '@/lib/monsterConfig';
 import type { QualityTier } from '@/lib/curioQuality';
 import {
-  isOfflineStorageAvailable, cacheGuildPool, getCachedGuildPoolAnyTier,
+  isOfflineStorageAvailable, cacheGuildPool, getCachedGuildPoolAnyGrade,
   getLocallyCompletedQuestionIds, markQuestionsCompletedLocal,
   getCachedSubclassProfile, updateSubclassProfileLocal, cacheSubclassProfile,
 } from '@/lib/localDataSource';
@@ -15,10 +15,17 @@ import { isAppOffline } from '@/lib/offlineState';
 // SQLite cache, so the Android offline shell has something to serve next
 // time there's no connection. Never allowed to affect the online path —
 // swallow any failure (missing native plugin, disk error, etc).
-async function cacheGuildPoolSafe(tableName: string, questType: string, gradeLevel: number | undefined, tier: number | null, questions: any[]) {
+//
+// The local_guild_pools table's primary key still has a difficulty_tier
+// column (see lib/localDataSource.ts) left over from the old per-guild tier
+// system — SQLite treats NULL as distinct from NULL for uniqueness, so a
+// real NULL there would insert a fresh duplicate row on every cache write
+// instead of replacing the previous one. Tier is gone now, so this always
+// passes the constant 0 rather than null to keep that key stable.
+async function cacheGuildPoolSafe(tableName: string, questType: string, gradeLevel: number | undefined, questions: any[]) {
   if (!isOfflineStorageAvailable()) return;
   try {
-    await cacheGuildPool(tableName, questType, gradeLevel, tier, questions);
+    await cacheGuildPool(tableName, questType, gradeLevel, 0, questions);
   } catch (e) {
     console.error('Offline cache write failed (non-fatal):', e);
   }
@@ -45,12 +52,31 @@ export interface SubclassProfile {
   lexicon_arena_tier: number;
 }
 
-export const MAX_DIFFICULTY_TIER = 3;
+// Difficulty tiers are gone — the 5 sq_* guild quizzes now progress through
+// grade-level content directly (grade 2 → 3 → 4 → 5 → 6), regardless of the
+// player's own real grade. The *_tier columns on user_subclass_profiles are
+// reused (unrenamed) to store this grade-stage instead of the old 1-3 tier.
+export const MIN_GRADE_STAGE = 2;
+export const MAX_GRADE_STAGE = 6;
+const GRADE_STAGE_COUNT = MAX_GRADE_STAGE - MIN_GRADE_STAGE + 1; // 5
 
-// Only the 5 sq_* guild quizzes track a difficulty tier — Monster Arena
+// 1-based index of a grade stage within [MIN_GRADE_STAGE, MAX_GRADE_STAGE] —
+// used both for the "filled stars" difficulty display and as the reward
+// multiplier (harder/later stages pay out more XP/gold, same idea the old
+// difficulty_tier reward scaling had).
+export function gradeStageIndex(stage: number): number {
+  return Math.max(1, Math.min(GRADE_STAGE_COUNT, stage - MIN_GRADE_STAGE + 1));
+}
+
+export function gradeStageStars(stage: number): string {
+  const filled = gradeStageIndex(stage);
+  return '★'.repeat(filled) + '☆'.repeat(GRADE_STAGE_COUNT - filled);
+}
+
+// Only the 5 sq_* guild quizzes progress through grade stages — Monster Arena
 // (questType 'monster_arena') pulls from embedded weekly_packages JSON and
-// isn't in this map, so it falls back to the untiered fetch path below.
-const GUILD_TIER_FIELD: Partial<Record<string, keyof SubclassProfile>> = {
+// isn't in this map, so it falls back to the ungraded fetch path below.
+const GUILD_GRADE_STAGE_FIELD: Partial<Record<string, keyof SubclassProfile>> = {
   lorekeeper: 'lorekeeper_tier',
   spellcaster: 'spellcaster_tier',
   number_realm: 'number_realm_tier',
@@ -204,25 +230,37 @@ export async function fetchCompanionInstanceStats(userId: string, guildKey: Guil
   return { level: row.monster_level ?? 1, quality: (row.quality as QualityTier) ?? 'normal' };
 }
 
-// Fetch a fresh, non-repeating batch of questions for a given guild's table,
-// scoped to the player's current difficulty tier for that guild (1-3).
+// Fetch a fresh, non-repeating batch of questions for a given guild's table.
 //
-// When the tier's pool is exhausted (everything already completed), we
-// advance the player's stored tier by 1 and serve that tier's pool instead —
-// no history wipe needed, since user_completed_questions only contains this
-// tier's question ids, so the next tier's rows are naturally "not completed"
-// yet. Only once tier 3 itself is exhausted do we fall back to the old
-// "prestige" behavior: wipe history for this guild and recycle its hardest pool.
+// For the 5 sq_* subclass guilds (tracked in GUILD_GRADE_STAGE_FIELD), the
+// `gradeLevel` param is unused — every player, regardless of their real
+// grade, progresses through the same grade-2..6 content ladder, tracked as
+// their "grade stage" on user_subclass_profiles (still the *_tier columns).
+// Monster Arena's untiered sibling (questType 'monster_arena', not in that
+// map) is the only caller that still passes a real gradeLevel to filter by.
+//
+// When a stage's pool is exhausted (everything already completed), we
+// advance the player's stored stage by 1 and serve that stage's pool
+// instead — no history wipe needed, since user_completed_questions only
+// contains this stage's question ids, so the next stage's rows are
+// naturally "not completed" yet. If a stage in between has no content
+// authored yet (true for grades 3/4/6 at launch of this redesign), we keep
+// walking forward until we find one that does, rather than stalling the
+// player on an empty stage. Only once grade 6 itself is exhausted (or no
+// stage ahead has any content) do we fall back to the old "prestige"
+// behavior: wipe history for this guild and recycle the pool we landed on.
 export async function fetchQuestionPool(userId: string, tableName: string, questType: string, gradeLevel?: number): Promise<any[]> {
   const USER_ID = userId;
-  const tierField = GUILD_TIER_FIELD[questType];
+  const stageField = GUILD_GRADE_STAGE_FIELD[questType];
 
-  // Offline: serve from whatever's cached, no tier-advance/prestige logic
-  // (that requires writing back to the subclass profile's tier field — kept
-  // simple here since it resolves correctly once back online anyway).
+  // Offline: serve from whatever's cached, no stage-advance/prestige logic
+  // (that requires writing back to the subclass profile's stage field — kept
+  // simple here since it resolves correctly once back online anyway). Merges
+  // across every grade cached for this guild rather than requiring an exact
+  // match — the offline shell just needs *a* pool to practice from.
   if (isOfflineStorageAvailable() && isAppOffline()) {
     const [pool, completedIds] = await Promise.all([
-      getCachedGuildPoolAnyTier(tableName, questType, gradeLevel),
+      getCachedGuildPoolAnyGrade(tableName, questType),
       getLocallyCompletedQuestionIds(USER_ID, questType),
     ]);
     const remaining = pool.filter((q: any) => !completedIds.has(q.id));
@@ -236,7 +274,7 @@ export async function fetchQuestionPool(userId: string, tableName: string, quest
       .select('question_id')
       .eq('user_id', USER_ID)
       .eq('quest_type', questType),
-    tierField ? fetchSubclassProfile(USER_ID) : Promise.resolve(null),
+    stageField ? fetchSubclassProfile(USER_ID) : Promise.resolve(null),
   ]);
 
   // Completed IDs are excluded client-side rather than via a `.not(id, in, ...)`
@@ -244,20 +282,19 @@ export async function fetchQuestionPool(userId: string, tableName: string, quest
   // server/proxy length limits and the request fails outright.
   const completedIds = new Set((completed || []).map((c: any) => c.question_id));
 
-  async function fetchPool(tier: number | null): Promise<any[]> {
+  async function fetchPool(grade: number | null): Promise<any[]> {
+    // No term_id filter — questions are no longer sorted/scoped by term.
     let query = supabase
       .from(tableName)
       .select('*')
-      .eq('term_id', CURRENT_TERM)
       .eq('is_active', true);
-    if (gradeLevel !== undefined) query = query.eq('grade_level', gradeLevel);
-    if (tier !== null) query = query.eq('difficulty_tier', tier);
+    if (grade !== null) query = query.eq('grade_level', grade);
     const { data, error } = await query;
     if (error) {
       console.error(`Failed to fetch ${tableName} questions:`, error);
       return [];
     }
-    void cacheGuildPoolSafe(tableName, questType, gradeLevel, tier, data || []);
+    void cacheGuildPoolSafe(tableName, questType, grade ?? undefined, data || []);
     return data || [];
   }
 
@@ -271,41 +308,62 @@ export async function fetchQuestionPool(userId: string, tableName: string, quest
     return [...remaining, ...topUp.slice(0, MIN_SESSION_POOL_SIZE - remaining.length)];
   }
 
-  if (!tierField) {
-    const data = await fetchPool(null);
+  if (!stageField) {
+    const data = await fetchPool(gradeLevel ?? null);
     const remaining = data.filter((q: any) => !completedIds.has(q.id));
     if (remaining.length > 0) return withTopUp(remaining, data).slice(0, PREFETCH_BATCH_SIZE);
     await supabase.from('user_completed_questions').delete().eq('user_id', USER_ID).eq('quest_type', questType);
     return data.slice(0, PREFETCH_BATCH_SIZE);
   }
 
-  const currentTier = (profile?.[tierField] as number | undefined) ?? 1;
+  // Walks forward from `fromStage` until it finds a grade stage with any
+  // active content (or hits MAX_GRADE_STAGE), so an unauthored stage never
+  // strands a player — they just skip straight past it.
+  async function fetchNonEmptyPoolFrom(fromStage: number): Promise<{ pool: any[]; stage: number }> {
+    let stage = fromStage;
+    let pool = await fetchPool(stage);
+    while (pool.length === 0 && stage < MAX_GRADE_STAGE) {
+      stage += 1;
+      pool = await fetchPool(stage);
+    }
+    return { pool, stage };
+  }
 
-  // Fallback guard: this guild may not have any content authored yet at the
-  // player's tier (all 4 non-SpellCaster guilds start here) — serve whatever
-  // exists across all tiers rather than an empty pool.
-  let tierPool = await fetchPool(currentTier);
-  if (tierPool.length === 0) tierPool = await fetchPool(null);
+  const startStage = (profile?.[stageField] as number | undefined) ?? MIN_GRADE_STAGE;
+  let { pool: stagePool, stage: currentStage } = await fetchNonEmptyPoolFrom(startStage);
+  // Absolute fallback: nothing authored anywhere from startStage through
+  // grade 6 (e.g. a brand-new guild with no content yet) — serve whatever
+  // exists across all grades rather than an empty pool.
+  if (stagePool.length === 0) stagePool = await fetchPool(null);
 
-  const remaining = tierPool.filter((q: any) => !completedIds.has(q.id));
+  // If we skipped forward past unauthored stages, persist the corrected
+  // stage now so future sessions don't redo the same skip-forward walk.
+  if (currentStage !== startStage) await updateSubclassProfile(USER_ID, { [stageField]: currentStage } as Partial<SubclassProfile>);
+
+  const remaining = stagePool.filter((q: any) => !completedIds.has(q.id));
   if (remaining.length > 0) {
-    return withTopUp(remaining, tierPool).slice(0, PREFETCH_BATCH_SIZE);
+    return withTopUp(remaining, stagePool).slice(0, PREFETCH_BATCH_SIZE);
   }
 
-  if (currentTier < MAX_DIFFICULTY_TIER) {
-    const nextTier = currentTier + 1;
-    await updateSubclassProfile(USER_ID, { [tierField]: nextTier } as Partial<SubclassProfile>);
-    let nextPool = await fetchPool(nextTier);
-    if (nextPool.length === 0) nextPool = await fetchPool(null);
-    return nextPool.slice(0, PREFETCH_BATCH_SIZE);
+  if (currentStage < MAX_GRADE_STAGE) {
+    const { pool: nextPool, stage: nextStage } = await fetchNonEmptyPoolFrom(currentStage + 1);
+    if (nextPool.length > 0) {
+      await updateSubclassProfile(USER_ID, { [stageField]: nextStage } as Partial<SubclassProfile>);
+      return nextPool.slice(0, PREFETCH_BATCH_SIZE);
+    }
   }
 
-  // Already at max tier and its pool is exhausted — prestige: wipe history
-  // for this guild and recycle the hardest pool.
+  // Already at (or past) the highest reachable stage and its pool is
+  // exhausted — prestige: wipe history for this guild and recycle it.
   await supabase.from('user_completed_questions').delete().eq('user_id', USER_ID).eq('quest_type', questType);
-  return tierPool.slice(0, PREFETCH_BATCH_SIZE);
+  return stagePool.slice(0, PREFETCH_BATCH_SIZE);
 }
 
+// Callers must pass only correctly-answered question ids — a wrong answer
+// should never be marked completed, since fetchQuestionPool treats
+// "completed" as "done with this grade" and advances the player once every
+// question in their current grade is completed. See hooks/useTimeAttack.ts's
+// submitResult for where that correct-only filtering happens.
 export async function markQuestionsCompleted(userId: string, questType: string, questionIds: string[]) {
   if (questionIds.length === 0) return;
 

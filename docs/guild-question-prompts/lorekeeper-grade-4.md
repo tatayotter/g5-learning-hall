@@ -15,8 +15,7 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "choice_b": "Rusting iron",
     "choice_c": "Melting butter",
     "choice_d": "Cooking an egg",
-    "correct_choice": "c",
-    "difficulty_tier": 2
+    "correct_choice": "c"
   },
   {
     "question": "What literary device compares two unlike things using the words 'like' or 'as'?",
@@ -24,23 +23,13 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "choice_b": "Simile",
     "choice_c": "Personification",
     "choice_d": "Hyperbole",
-    "correct_choice": "b",
-    "difficulty_tier": 1
+    "correct_choice": "b"
   }
 ]
 ```
 
 - `passage` is optional.
 - `correct_choice` must be exactly `"a"`, `"b"`, `"c"`, or `"d"`.
-- `difficulty_tier` must be `1`, `2`, or `3`.
-
-## Difficulty Tiers
-
-| Tier | Label | Cognitive Level |
-|---|---|---|
-| 1 | Easy | Direct recall; single-concept identification |
-| 2 | Developing | Understanding and simple application; comparing two concepts |
-| 3 | Advanced | Analysis, inference from text, multi-step reasoning, or evaluation |
 
 ## Grade 4 Curriculum Topics
 
@@ -76,7 +65,6 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 - Language level: 9–10-year-old (compound-complex sentences in questions are fine).
 - Passage-based: 3–6 sentences; can introduce a concept then test understanding or inference.
 - Topic mix: 30 % Science, 25 % AP, 25 % English, 20 % Filipino.
-- Tier distribution: 30 % tier 1 / 40 % tier 2 / 30 % tier 3.
 - For figurative language questions: always include the actual sentence in the question stem.
 - Science distractors should target common misconceptions (physical vs chemical change confusion is very common).
 

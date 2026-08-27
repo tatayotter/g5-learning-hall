@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import { GRADE_LEVELS } from '@/lib/userSession';
+import { CURRENT_TERM } from '@/lib/guildConfig';
 
 export type GuildTable = 'sq_lorekeeper' | 'sq_spellcaster' | 'sq_number_realm' | 'sq_logic_labyrinth' | 'sq_lexicon_arena' | 'sq_wild_encounter';
 
@@ -25,7 +26,7 @@ function PoolCountPanel() {
 
       await Promise.all(guilds.map(async (guild) => {
         const perGrade = await Promise.all(GRADE_LEVELS.map(g =>
-          supabase.from(guild).select('id', { count: 'exact', head: true }).eq('is_active', true).eq('grade_level', g).eq('term_id', 1)
+          supabase.from(guild).select('id', { count: 'exact', head: true }).eq('is_active', true).eq('grade_level', g)
         ));
         results[guild] = Object.fromEntries(GRADE_LEVELS.map((g, i) => [g, perGrade[i].count || 0]));
       }));
@@ -44,7 +45,7 @@ function PoolCountPanel() {
 
   return (
     <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-5 mb-6">
-      <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">Question Pool Status — Term 1</p>
+      <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">Question Pool Status</p>
       {loading ? (
         <p className="text-gray-500 text-sm animate-pulse">Loading counts...</p>
       ) : (
@@ -253,7 +254,6 @@ const GUILD_JSON_EXAMPLES: Record<GuildTable, string> = {
 export default function QuestionBankImporter() {
   const [guild, setGuild] = useState<GuildTable>('sq_lorekeeper');
   const [gradeLevel, setGradeLevel] = useState<number>(5);
-  const [termId, setTermId] = useState(1);
   const [jsonInput, setJsonInput] = useState('');
   const [preview, setPreview] = useState<any[]>([]);
   const [parseError, setParseError] = useState('');
@@ -298,7 +298,6 @@ export default function QuestionBankImporter() {
     const { data: existing } = await supabase
       .from(guild)
       .select(DEDUPE_FIELDS[guild])
-      .eq('term_id', termId)
       .eq('grade_level', gradeLevel)
       .eq('is_active', true);
 
@@ -316,7 +315,9 @@ export default function QuestionBankImporter() {
         return;
       }
       if (key) seenInBatch.add(key);
-      toInsert.push({ ...q, term_id: termId, grade_level: gradeLevel, is_active: true });
+      // term_id is a required column but no longer surfaced in the UI or used
+      // to filter/scope questions anywhere — always written as CURRENT_TERM.
+      toInsert.push({ ...q, term_id: CURRENT_TERM, grade_level: gradeLevel, is_active: true });
     });
 
     if (toInsert.length > 0) {
@@ -386,7 +387,7 @@ export default function QuestionBankImporter() {
       <PoolCountPanel key={refreshPool} />
 
       {/* Config */}
-      <div className="grid grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-2 gap-4 mb-6">
         <div>
           <label className="text-xs text-gray-500 uppercase tracking-widest block mb-2">Guild</label>
           <select
@@ -412,15 +413,6 @@ export default function QuestionBankImporter() {
               </button>
             ))}
           </div>
-        </div>
-        <div>
-          <label className="text-xs text-gray-500 uppercase tracking-widest block mb-2">Term ID</label>
-          <input
-            type="number"
-            value={termId}
-            onChange={e => setTermId(Number(e.target.value))}
-            className="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-2 text-white text-sm font-mono focus:outline-none focus:border-neutral-500"
-          />
         </div>
       </div>
 
@@ -476,7 +468,7 @@ export default function QuestionBankImporter() {
               {preview.length} questions parsed
               {invalidCount > 0 && <span className="text-red-400"> · {invalidCount} invalid (won't be imported)</span>}
             </p>
-            <p className="text-xs text-gray-500">{GUILD_LABELS[guild]} · Grade {gradeLevel} · Term {termId}</p>
+            <p className="text-xs text-gray-500">{GUILD_LABELS[guild]} · Grade {gradeLevel}</p>
           </div>
           {invalidCount > 0 && (
             <p className="text-red-400 text-xs mb-3">⚠️ Fix the flagged rows below and re-paste, or continue to import only the {validCount} valid question{validCount === 1 ? '' : 's'}.</p>

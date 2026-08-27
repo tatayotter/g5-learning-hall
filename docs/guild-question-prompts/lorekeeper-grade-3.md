@@ -15,8 +15,7 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "choice_b": "Sunlight, water, and carbon dioxide",
     "choice_c": "Fertilizer, water, and oxygen",
     "choice_d": "Sunlight, salt, and carbon dioxide",
-    "correct_choice": "b",
-    "difficulty_tier": 1
+    "correct_choice": "b"
   },
   {
     "question": "What is a coordinating conjunction used for in a compound sentence?",
@@ -24,23 +23,13 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "choice_b": "To join two independent clauses",
     "choice_c": "To describe a noun",
     "choice_d": "To ask a question",
-    "correct_choice": "b",
-    "difficulty_tier": 2
+    "correct_choice": "b"
   }
 ]
 ```
 
 - `passage` is optional.
 - `correct_choice` must be exactly `"a"`, `"b"`, `"c"`, or `"d"`.
-- `difficulty_tier` must be `1`, `2`, or `3`.
-
-## Difficulty Tiers
-
-| Tier | Label | Cognitive Level |
-|---|---|---|
-| 1 | Easy | Single-fact recall from content just learned |
-| 2 | Developing | Understanding, simple application, or short inference |
-| 3 | Advanced | Multi-step reasoning, text analysis, or cross-subject connection |
 
 ## Grade 3 Curriculum Topics
 
@@ -77,7 +66,6 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 - Pitch language at an 8–9-year-old reading level.
 - Passage-based: 3–5 sentences per passage; 1–2 questions per passage.
 - Topic mix roughly: 30 % Science, 25 % AP, 25 % English, 20 % Filipino.
-- Tier distribution: 35 % tier 1 / 40 % tier 2 / 25 % tier 3.
 - For compound-sentence questions, supply the actual sentence in the question so students don't need prior text.
 - Distractors should represent plausible misconceptions (e.g., confusing photosynthesis with respiration).
 

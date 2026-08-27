@@ -14,8 +14,7 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "correct_spelling": "dog",
     "wrong_a": "dag",
     "wrong_b": "doge",
-    "wrong_c": "dg",
-    "difficulty_tier": 1
+    "wrong_c": "dg"
   },
   {
     "language": "Filipino",
@@ -23,8 +22,7 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "correct_spelling": "paaralan",
     "wrong_a": "paarlan",
     "wrong_b": "palaran",
-    "wrong_c": "panaralan",
-    "difficulty_tier": 2
+    "wrong_c": "panaralan"
   }
 ]
 ```
@@ -32,15 +30,6 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 - `language` must be exactly `"English"` or `"Filipino"`.
 - `correct_spelling` — lowercase; the full correct spelling.
 - `wrong_a`, `wrong_b`, `wrong_c` — plausible misspellings; each must differ from `correct_spelling` AND from each other.
-- `difficulty_tier` — `1`, `2`, or `3`.
-
-## Difficulty Tiers
-
-| Tier | Word complexity | Misspelling strategy |
-|---|---|---|
-| 1 | 3–5 letters; common sight words; phonetically transparent | Simple vowel swap (a↔e), doubled letter added/removed |
-| 2 | 5–7 letters; common vocabulary; one silent letter or tricky blend | Silent letter dropped, blend jumbled (tch→ch), vowel pair swapped |
-| 3 | 6–9 letters; slightly above-grade words; multiple spelling conventions | Two combined errors, less phonetic (gh, igh, -tion, -ness misspelled) |
 
 ## Grade 2 Word Pool
 
@@ -67,7 +56,6 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 
 ## Balance
 - Aim for roughly 50 % English / 50 % Filipino entries.
-- Tier distribution: 40 % tier 1 / 40 % tier 2 / 20 % tier 3.
 
 ## Generation Instruction
 Generate [N] Lexicon Arena entries for Grade 2, Term 1. Return only the JSON array. No commentary.

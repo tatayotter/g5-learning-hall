@@ -8,22 +8,13 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 
 ```json
 [
-  { "word_string": "village",   "difficulty_tier": 1 },
-  { "word_string": "mixture",   "difficulty_tier": 2 },
-  { "word_string": "paragraph", "difficulty_tier": 3 }
+  { "word_string": "village" },
+  { "word_string": "mixture" },
+  { "word_string": "paragraph" }
 ]
 ```
 
 - `word_string` — exact correct spelling, lowercase, no punctuation.
-- `difficulty_tier` — `1`, `2`, or `3`.
-
-## Difficulty Tiers
-
-| Tier | Pattern | Examples |
-|---|---|---|
-| 1 | 5–7 letters; common vocabulary a G3 student reads regularly | bridge, useful, people, follow, answer |
-| 2 | 6–8 letters; content-area vocabulary; common silent letters or doubled consonants | science, special, drawing, weather, correct |
-| 3 | 8–11 letters; academic or cross-subject terms a strong G3 student should master | community, paragraph, properties, adventure, irregular |
 
 ## Grade 3 Word Categories
 
@@ -37,10 +28,8 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 ## Quality Rules
 - American English spelling (DepEd standard).
 - No proper nouns, abbreviations, or hyphenated words.
-- Tier 1 words: students encounter these in everyday reading; misspellings are common (silent letters, doubled letters).
-- Tier 2 words: content-area vocabulary from G3 subjects; slightly irregular spelling patterns.
-- Tier 3 words: multi-syllable academic words; students may know the meaning but struggle to spell them.
+- Mix difficulty naturally: everyday-reading words with common misspellings (silent letters, doubled letters), content-area vocabulary from G3 subjects with slightly irregular spelling, and a few multi-syllable academic words students may know the meaning of but struggle to spell.
 - Avoid duplicating words already in the Grade 2 pool.
 
 ## Generation Instruction
-Generate [N] SpellCaster words for Grade 3, Term 1. Distribute roughly 35 % tier 1 / 40 % tier 2 / 25 % tier 3. Return only the JSON array. No commentary.
+Generate [N] SpellCaster words for Grade 3, Term 1. Return only the JSON array. No commentary.

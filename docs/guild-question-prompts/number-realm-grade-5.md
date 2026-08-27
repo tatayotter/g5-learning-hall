@@ -12,20 +12,17 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "problem_prompt": "2/3 × 3/5 = ?",
     "expected_layout": "fraction",
     "correct_numerator": 2,
-    "correct_denominator": 5,
-    "difficulty_tier": 2
+    "correct_denominator": 5
   },
   {
     "problem_prompt": "What is 15% of 360?",
     "expected_layout": "standard",
-    "correct_standard_ans": "54",
-    "difficulty_tier": 2
+    "correct_standard_ans": "54"
   },
   {
     "problem_prompt": "A rectangular box is 8 cm long, 5 cm wide, and 4 cm tall. What is its volume?",
     "expected_layout": "standard",
-    "correct_standard_ans": "160",
-    "difficulty_tier": 2
+    "correct_standard_ans": "160"
   }
 ]
 ```
@@ -36,14 +33,6 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 | `"standard"` | `correct_standard_ans` (string) | Decimals, percentages, area (cm²), volume (cm³), GCF, LCM, mean, n in simple equations |
 | `"fraction"` | `correct_numerator` + `correct_denominator` | Always simplify; improper fractions acceptable |
 | `"time"` | `correct_standard_ans` as `"H:MM"` | Rare; only for rate/time word problems |
-
-## Difficulty Tiers
-
-| Tier | Description |
-|---|---|
-| 1 | Single-step; straightforward formula or conversion (e.g., decimal ↔ fraction, single LCM/GCF, percentage of a round number) |
-| 2 | Two-step; moderate word problems; multiply/divide fractions; area of triangles; solve simple equations; ratio problems |
-| 3 | Multi-step; complex word problems; volume; percentage discount chains; statistics (mean/median/mode); working backwards; rate × time |
 
 ## Grade 5 Math Topics (DepEd BOW)
 
@@ -93,4 +82,4 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 - Distribute layouts roughly: 60 % standard / 35 % fraction / 5 % time.
 
 ## Generation Instruction
-Generate [N] Number Realm problems for Grade 5, Term 1. Distribute roughly 25 % tier 1 / 45 % tier 2 / 30 % tier 3. Return only the JSON array. No commentary.
+Generate [N] Number Realm problems for Grade 5, Term 1. Return only the JSON array. No commentary.

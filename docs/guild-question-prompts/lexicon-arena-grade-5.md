@@ -14,8 +14,7 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "correct_spelling": "hyperbole",
     "wrong_a": "hyperboly",
     "wrong_b": "hpyerbole",
-    "wrong_c": "hyperbol",
-    "difficulty_tier": 2
+    "wrong_c": "hyperbol"
   },
   {
     "language": "Filipino",
@@ -23,8 +22,7 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "correct_spelling": "pahiwatig",
     "wrong_a": "pahiwateg",
     "wrong_b": "pahwatiq",
-    "wrong_c": "pahiyatig",
-    "difficulty_tier": 2
+    "wrong_c": "pahiyatig"
   }
 ]
 ```
@@ -33,15 +31,6 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 
 - `language` must be exactly `"English"` or `"Filipino"`.
 - `correct_spelling` — lowercase; the full correct spelling.
-- `difficulty_tier` — `1`, `2`, or `3`.
-
-## Difficulty Tiers
-
-| Tier | Word complexity | Misspelling strategy |
-|---|---|---|
-| 1 | 5–8 letters; subject-area vocabulary; one rule (silent letter, vowel pair) | Vowel team swap (ei↔ie), silent letter drop, wrong plural (-s vs -es) |
-| 2 | 8–12 letters; cross-subject academic words; Greek/Latin roots | Root distortion (bio→ bio, photo→phto), suffix error (-tion/-sion/-cion), prefix assimilation missed |
-| 3 | 10–15 letters; advanced literary/scientific terms; layered spelling conventions | Combined errors: root + suffix both wrong; unusual borrowings (French/Spanish origin words in Filipino) |
 
 ## Grade 5 Word Pool
 
@@ -63,12 +52,11 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 2. No wrong option may coincidentally spell a real word.
 3. Greek/Latin root errors for English: swap ph↔f, drop silent letters, rearrange vowel clusters (oe↔eo, ae↔ea).
 4. Filipino suffix/prefix errors: -an vs -in endings, dropped ligature (-ng vs -g), vowel length confusion (i vs e in closed syllables).
-5. Tier-3 wrong options may combine two independent errors, but the result must still look word-like.
+5. The hardest wrong options may combine two independent errors, but the result must still look word-like.
 6. **Never repeat a `correct_spelling` value** — each entry must spell a unique word.
 
 ## Balance
 - Aim for roughly 55 % English / 45 % Filipino entries.
-- Tier distribution: 20 % tier 1 / 45 % tier 2 / 35 % tier 3.
 
 ## Generation Instruction
 Generate [N] Lexicon Arena entries for Grade 5, Term 1. Return only the JSON array. No commentary.

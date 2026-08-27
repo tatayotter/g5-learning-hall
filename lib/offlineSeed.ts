@@ -9,7 +9,6 @@
 // guild instead of relying on the player to trigger each one.
 import { isOfflineStorageAvailable } from '@/lib/localDataSource';
 import { fetchQuestionPool } from '@/lib/guildEngine';
-import { gradeToNumber } from '@/lib/userSession';
 
 const GUILD_TABLES: [tableName: string, questType: string][] = [
   ['sq_lorekeeper', 'lorekeeper'],
@@ -19,12 +18,15 @@ const GUILD_TABLES: [tableName: string, questType: string][] = [
   ['sq_lexicon_arena', 'lexicon_arena'],
 ];
 
+// grade param kept for call-site compatibility (this used to filter the
+// seeded pool by the player's real grade) — the 5 subclass guilds now
+// progress through the same grade-2..6 content ladder for everyone, so it's
+// unused here.
 export async function seedOfflineCache(userId: string, grade: string | number | undefined) {
   if (!isOfflineStorageAvailable()) return;
-  const gradeLevel = gradeToNumber(grade);
   await Promise.all(
     GUILD_TABLES.map(([tableName, questType]) =>
-      fetchQuestionPool(userId, tableName, questType, gradeLevel).catch(e => {
+      fetchQuestionPool(userId, tableName, questType).catch(e => {
         console.error(`Offline seed failed for ${questType} (non-fatal):`, e);
       })
     )

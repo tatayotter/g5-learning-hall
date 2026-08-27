@@ -12,20 +12,17 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "problem_prompt": "What is 3/4 + 5/8?",
     "expected_layout": "fraction",
     "correct_numerator": 11,
-    "correct_denominator": 8,
-    "difficulty_tier": 3
+    "correct_denominator": 8
   },
   {
     "problem_prompt": "A rectangle has a perimeter of 36 cm and a width of 7 cm. What is its length?",
     "expected_layout": "standard",
-    "correct_standard_ans": "11",
-    "difficulty_tier": 3
+    "correct_standard_ans": "11"
   },
   {
     "problem_prompt": "Express 3/4 as a decimal.",
     "expected_layout": "standard",
-    "correct_standard_ans": "0.75",
-    "difficulty_tier": 2
+    "correct_standard_ans": "0.75"
   }
 ]
 ```
@@ -36,14 +33,6 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 | `"standard"` | `correct_standard_ans` (string) | Numbers, decimals, money, area in cm²/m², angle in degrees |
 | `"fraction"` | `correct_numerator` + `correct_denominator` | Simplify when possible; improper fractions OK for G4 |
 | `"time"` | `correct_standard_ans` as `"H:MM"` | Use sparingly — only for elapsed-time problems |
-
-## Difficulty Tiers
-
-| Tier | Description |
-|---|---|
-| 1 | Single-step; direct formula or fact (e.g., finding area of a rectangle, converting a fraction to decimal with a denominator of 10 or 100) |
-| 2 | Two-step; moderate numbers; finding equivalent fractions; add/subtract dissimilar fractions with simple LCDs; reading angles; simple word problems |
-| 3 | Multi-step word problems; combining two skills (e.g., fraction + area); unlike fractions with larger LCDs; working backwards from perimeter/area |
 
 ## Grade 4 Math Topics (DepEd BOW)
 
@@ -80,4 +69,4 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 - Distribute layouts roughly: 65 % standard / 30 % fraction / 5 % time.
 
 ## Generation Instruction
-Generate [N] Number Realm problems for Grade 4, Term 1. Distribute roughly 25 % tier 1 / 45 % tier 2 / 30 % tier 3. Return only the JSON array. No commentary.
+Generate [N] Number Realm problems for Grade 4, Term 1. Return only the JSON array. No commentary.

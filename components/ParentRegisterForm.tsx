@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import { getOrCreateSessionId } from '@/lib/analytics';
+import { getOrCreateSessionId, getStoredAttribution } from '@/lib/analytics';
 import { trackPixelEvent } from '@/lib/fbPixel';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
 
@@ -90,7 +90,7 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
         user_id: signUpData.user.id,
         session_id: getOrCreateSessionId(),
         event_name: 'parent_registration_submitted',
-        properties: { source },
+        properties: { source, ...getStoredAttribution() },
         is_family: false,
         client_ts: new Date().toISOString(),
       }).then(({ error }) => {

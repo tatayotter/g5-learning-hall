@@ -8,7 +8,7 @@ import { createClient } from '@supabase/supabase-js';
 // browser, and so the real client IP (unavailable to browser JS) can be
 // attached for the RPC's own rate limiting.
 export async function POST(request: NextRequest) {
-  const { accessToken, username, pin, fullName, grade, gender, schoolName, avatar, source, sessionId, referralCode } = await request.json();
+  const { accessToken, username, pin, fullName, grade, gender, schoolName, avatar, source, sessionId, referralCode, attribution } = await request.json();
 
   if (typeof accessToken !== 'string' || !accessToken) {
     return NextResponse.json({ success: false, error: 'missing session' }, { status: 400 });
@@ -49,7 +49,10 @@ export async function POST(request: NextRequest) {
     user_id: row.id,
     session_id: typeof sessionId === 'string' && sessionId ? sessionId : 'server',
     event_name: 'child_self_registration_submitted',
-    properties: { source: 'organic' },
+    properties: {
+      source: typeof source === 'string' && source ? source : 'organic',
+      ...(attribution && typeof attribution === 'object' && !Array.isArray(attribution) ? attribution : {}),
+    },
     is_family: false,
     client_ts: new Date().toISOString(),
   });

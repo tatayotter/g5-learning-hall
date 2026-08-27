@@ -11,20 +11,17 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
   {
     "problem_prompt": "A shirt costs ₱500. After a 20% discount and then a further 10% discount on the sale price, what is the final price?",
     "expected_layout": "standard",
-    "correct_standard_ans": "360",
-    "difficulty_tier": 3
+    "correct_standard_ans": "360"
   },
   {
     "problem_prompt": "What is the circumference of a circle with radius 7 cm? Use π = 22/7.",
     "expected_layout": "standard",
-    "correct_standard_ans": "44",
-    "difficulty_tier": 2
+    "correct_standard_ans": "44"
   },
   {
     "problem_prompt": "Express 2³ × 3² as a single number.",
     "expected_layout": "standard",
-    "correct_standard_ans": "72",
-    "difficulty_tier": 2
+    "correct_standard_ans": "72"
   }
 ]
 ```
@@ -35,14 +32,6 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 | `"standard"` | `correct_standard_ans` (string) | Decimals, integers, area (cm²), volume (cm³/L), GCF, LCM, percent, circumference |
 | `"fraction"` | `correct_numerator` + `correct_denominator` | Simplify; use for ratio and proportion results expressed as fractions |
 | `"time"` | `correct_standard_ans` as `"H:MM"` | Only for rate × time word problems |
-
-## Difficulty Tiers
-
-| Tier | Description |
-|---|---|
-| 1 | Single-step; direct formula application (GCF/LCM, circumference, simple percent, exponential value) |
-| 2 | Two-step; moderate word problems; volume of prism/cube; composite area; ratio/proportion; percent increase/decrease |
-| 3 | Multi-step; chained discounts; area of circle + composite; pie-graph computation; real-world rate problems; combined GCF/LCM with context |
 
 ## Grade 6 Math Topics (DepEd BOW)
 
@@ -78,4 +67,4 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 - Distribute layouts roughly: 70 % standard / 25 % fraction / 5 % time.
 
 ## Generation Instruction
-Generate [N] Number Realm problems for Grade 6, Term 1. Distribute roughly 20 % tier 1 / 45 % tier 2 / 35 % tier 3. Return only the JSON array. No commentary.
+Generate [N] Number Realm problems for Grade 6, Term 1. Return only the JSON array. No commentary.

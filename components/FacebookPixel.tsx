@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Script from 'next/script';
 import { supabase } from '@/lib/supabase';
+import { captureAttribution } from '@/lib/analytics';
 
 declare global {
   interface Window {
@@ -22,6 +23,13 @@ export default function FacebookPixel() {
   const pathname = usePathname();
   const [pixelId, setPixelId] = useState<string | null>(null);
   const readyRef = useRef(false);
+
+  // Pins utm_*/fbclid off the landing URL into sessionStorage, independent of
+  // whether a Pixel ID is even configured — first-party attribution shouldn't
+  // depend on the Pixel being set up.
+  useEffect(() => {
+    captureAttribution();
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
