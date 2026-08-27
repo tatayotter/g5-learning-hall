@@ -1,9 +1,4 @@
 ﻿// components/Dashboard.tsx
-//
-// Extracted from app/page.tsx so the exact same component can be rendered by
-// both the online app (app/page.tsx, a thin wrapper) and the Android offline
-// shell (offline-shell/app/page.tsx) — one source of truth for every tab,
-// no more hand-maintained parallel page that drifts.
 'use client';
 
 import { useState, useEffect, useRef, useMemo } from 'react';
@@ -42,10 +37,6 @@ import { useAchievementNotifier } from '@/hooks/useAchievementNotifier';
 import LexiconArena from '@/components/guilds/LexiconArena';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import { fetchSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
-import { isOfflineStorageAvailable, getActiveUserLocal, enqueueSync } from '@/lib/localDataSource';
-import { isAppOffline } from '@/lib/offlineState';
-import { watchAndFlushSyncQueue } from '@/lib/offlineSync';
-import { seedOfflineCache } from '@/lib/offlineSeed';
 import { prefetchAllTabs } from '@/lib/tabPrefetch';
 import { claimRegistrantReward, fetchNotifications, markNotificationsRead, getMyReferralKey, PlayerNotification } from '@/lib/referral';
 import { claimMarketingGoldBonus } from '@/lib/marketingBonus';
@@ -117,32 +108,13 @@ function applyThemeClass(themeKey: string) {
 export default function Dashboard() {
   const [activeUserId, setActiveUserId] = useState<UserId | null>(null);
   const [hydrated, setHydrated] = useState(false);
-  // Computed once up top so every offline gate in this component (egg sync,
-  // onboarding check, Vault claims, etc.) reads the same value.
-  const offline = isOfflineStorageAvailable() && isAppOffline();
 
   useEffect(() => {
     async function hydrate() {
       // Classmates/children/etc. must be populated into USERS before
-      // anything reads USERS[savedUserId] below. loadAllUsersData() is
-      // offline-aware: online it's the same live Supabase loads as before
-      // (write-through cached afterward for next time); offline (native +
-      // isAppOffline()) it reads that cache instead of hanging on live calls
-      // that have no chance of resolving with no connection.
+      // anything reads USERS[savedUserId] below.
       await loadAllUsersData();
-      // getActiveUser() reads localStorage, which is scoped to the online
-      // origin (https://learninghall.vercel.app) — the Android offline shell
-      // runs from a different, locally-bundled origin and can't see it.
-      // Falls back to the SQLite active-user handoff (reachable from both
-      // origins via the same native Capacitor bridge — see
-      // lib/localDataSource.ts's local_active_user table) so Dashboard can
-      // resolve a session either way without offline-shell needing its own
-      // separate session-resolution code.
-      let saved = getActiveUser();
-      if (!saved && isOfflineStorageAvailable()) {
-        const local = await getActiveUserLocal();
-        saved = local?.userId ?? null;
-      }
+      const saved = getActiveUser();
       if (saved && USERS[saved]) {
         setActiveUserId(saved);
         applyThemeClass(USERS[saved].theme);
@@ -154,11 +126,6 @@ export default function Dashboard() {
     }
     hydrate();
   }, []);
-
-  // Drains anything queued while the Android offline shell was in use (see
-  // lib/offlineSync.ts) — a no-op on web/desktop and on first install where
-  // no offline session has happened yet.
-  useEffect(() => watchAndFlushSyncQueue(), []);
 
   // Main theme plays for the whole logged-in session; BattleScreen and
   // LiveBattleScreen duck it (pauseMainTheme/resumeMainTheme) while their
@@ -209,12 +176,6 @@ export default function Dashboard() {
     if (!hydrated) return;
     if (activeUserId) {
       applyThemeClass(USERS[activeUserId].theme);
-      // Everything below (identity linking, session tracking, egg check-in,
-      // offline-cache seeding) is either live-only or pointless while
-      // already offline — skip the whole block rather than let each call
-      // fail individually and spam the console (seen as "sync_egg_progress
-      // error"/"fetchUserEggs error" during offline testing).
-      if (offline) return;
       // linkIdentity must resolve first — analytics_events/player_log RLS now
       // requires the user_identity_map row it writes, so firing trackEvent
       // before it lands would silently drop the session_start event.
@@ -252,9 +213,6 @@ export default function Dashboard() {
         fetchUserEggs(activeUserId).then(eggs => {
           setHasStalledEgg(eggs.some(e => e.status === 'stalled'));
         });
-        // Fire-and-forget — pre-warms all 5 guild pools for offline play
-        // (Android only). Not awaited so it can't delay session_start below.
-        void seedOfflineCache(activeUserId, USERS[activeUserId].grade);
         // Referral: claim registrant welcome reward (idempotent — no-ops if
         // already claimed or no referral was used). Show a reward toast if
         // something was actually credited this session.
@@ -300,12 +258,7 @@ export default function Dashboard() {
   const [showOnboarding, setShowOnboarding] = useState(false);
 
   useEffect(() => {
-    // No safe way to tell whether onboarding was already completed without
-    // a live read — defaulting to "don't show" offline is the better
-    // failure mode (a kid who's seen the tour before doesn't get it shoved
-    // back in front of them every offline launch); worst case, a genuinely
-    // new offline-first player just sees it once they're online instead.
-    if (!activeUserId || offline) return;
+    if (!activeUserId) return;
     (async () => {
       const { data: row } = await supabase
         .from('user_last_login')
@@ -519,7 +472,7 @@ export default function Dashboard() {
 
   // Fetch claims filtered to the active user
   const fetchMyClaims = async () => {
-    if (!activeUserId || offline) return;
+    if (!activeUserId) return;
     const { data: claimsData } = await supabase
       .from('reward_claims')
       .select('*')
@@ -536,7 +489,7 @@ export default function Dashboard() {
   // soon as an admin marks a reward "supplied" from the Admin Dashboard,
   // without the kid needing to reload the page.
   useEffect(() => {
-    if (!activeUserId || offline) return;
+    if (!activeUserId) return;
     const channel = supabase
       .channel(`reward-claims-${activeUserId}`)
       .on(
@@ -551,11 +504,7 @@ export default function Dashboard() {
   }, [activeUserId]);
 
   const handleClaimReward = async (cost: number, itemName: string, itemKey: string) => {
-    // No safe offline path — the gold-deduct + reward_claims insert has to
-    // be atomic against the server to avoid double-spending gold across
-    // devices, so this stays gated (the Claim button below is disabled
-    // offline too, this is just the belt-and-suspenders guard).
-    if (!data || !activeUserId || offline) return;
+    if (!data || !activeUserId) return;
     // Guards against a rapid double-click firing two claims before the gold
     // deduction above re-renders — without this, both clicks read the same
     // pre-deduction `data.character_stats.gold` and both pass the balance
@@ -1090,60 +1039,6 @@ export default function Dashboard() {
                     setActiveQuest(null);
                     setQuizPhase('study');
                   }}
-                  offline={offline}
-                  onOfflineSubmit={(selectedAnswers) => {
-                    // Grading needs the server-only answer key, so it can't
-                    // happen on-device — queue the raw answers instead and
-                    // let lib/offlineSync.ts's 'submit_quiz_answers' replay
-                    // case grade + apply rewards once back online. The
-                    // `snapshot` fields mirror this exact onQuizSubmit call
-                    // below so replay can rebuild the same
-                    // apply_progress_update args later; like every other
-                    // queued write in this app, that snapshot can go stale
-                    // if other progress syncs in between (accepted tradeoff,
-                    // same as the rest of lib/offlineSync.ts — single-player,
-                    // ordered replay, no conflict resolution).
-                    const quizQuestions: { id: string }[] = questData?.quiz || [];
-                    const answers = quizQuestions.map((q, i) => ({
-                      question_id: q.id,
-                      selected: selectedAnswers[i],
-                    }));
-                    enqueueSync('submit_quiz_answers', 'rpc', {
-                      userId: activeUserId,
-                      questKey: activeQuest,
-                      subject,
-                      answers,
-                      attemptsSoFar: (data.quiz_attempts || {})[activeQuest] || 0,
-                      contentWeekId,
-                      // Full journalChanges shape (see useWeeklyData.ts's
-                      // updateStatsAndJournal) — the player_weekly_journal
-                      // upsert below writes every field each time, so
-                      // anything omitted here would get nulled out rather
-                      // than left alone.
-                      snapshot: {
-                        characterStats: data.character_stats,
-                        journalLogs: data.journal_logs,
-                        purchasedItems: data.purchased_items,
-                        masteryCount: data.mastery_count,
-                        honorGrants: data.honor_grants,
-                        quizAttempts: data.quiz_attempts || {},
-                        masteredQuizzes: data.mastered_quizzes || [],
-                        guildSessionsCount: data.guild_sessions_count || 0,
-                        monsterBattlesWon: data.monster_battles_won || 0,
-                        siblingBattlesWon: data.sibling_battles_won || 0,
-                        perfectQuizzes: data.perfect_quizzes || 0,
-                        dummyBattlesWon: data.dummy_battles_won || 0,
-                        eggsHatched: data.eggs_hatched || 0,
-                        curiosGraduated: data.curios_graduated || 0,
-                        tradesCompleted: data.trades_completed || 0,
-                        legendariesCaught: data.legendaries_caught || 0,
-                        tutorRerolls: data.tutor_rerolls || 0,
-                        tatayBattlesWon: data.tatay_battles_won || 0,
-                        tatayBattlesLost: data.tatay_battles_lost || 0,
-                        weekStartingDate: data.week_starting_date,
-                      },
-                    }).catch(e => console.error('Failed to queue offline quiz submission (non-fatal):', e));
-                  }}
                 />
               )}
             </div>
@@ -1317,7 +1212,6 @@ export default function Dashboard() {
             </div>
             <p className="text-gray-400 mb-8">
               Spend your hard-earned Gold on real-world rewards from the catalog below.
-              {offline && <span className="block text-amber-400 font-bold mt-2">🔌 Claiming needs a connection — browse the catalog, then reconnect to claim.</span>}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -1336,12 +1230,12 @@ export default function Dashboard() {
                     </div>
                     <motion.button
                       onClick={() => handleClaimReward(item.cost, item.name, key)}
-                      whileHover={affordable && !offline ? { scale: 1.02 } : {}}
-                      whileTap={affordable && !offline ? { scale: 0.95 } : {}}
+                      whileHover={affordable ? { scale: 1.02 } : {}}
+                      whileTap={affordable ? { scale: 0.95 } : {}}
                       className="w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide text-black bg-yellow-500 hover:bg-yellow-400 border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-neutral-700 disabled:text-gray-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all"
-                      disabled={offline || !affordable || claimingKey === key}
+                      disabled={!affordable || claimingKey === key}
                     >
-                      {offline ? '🔒 Reconnect to Claim' : claimingKey === key ? 'Claiming...' : affordable ? 'Claim Reward' : 'Not Enough Gold'}
+                      {claimingKey === key ? 'Claiming...' : affordable ? 'Claim Reward' : 'Not Enough Gold'}
                     </motion.button>
                   </div>
                 );

@@ -4,32 +4,6 @@ import { PREFETCH_BATCH_SIZE, MIN_SESSION_POOL_SIZE } from '@/lib/guildConfig';
 import type { GuildKey } from '@/lib/dailyChecklist';
 import { GUILD_MONSTERS, MonsterDef } from '@/lib/monsterConfig';
 import type { QualityTier } from '@/lib/curioQuality';
-import {
-  isOfflineStorageAvailable, cacheGuildPool, getCachedGuildPoolAnyGrade,
-  getLocallyCompletedQuestionIds, markQuestionsCompletedLocal,
-  getCachedSubclassProfile, updateSubclassProfileLocal, cacheSubclassProfile,
-} from '@/lib/localDataSource';
-import { isAppOffline } from '@/lib/offlineState';
-
-// Best-effort mirror of a freshly fetched guild pool into the on-device
-// SQLite cache, so the Android offline shell has something to serve next
-// time there's no connection. Never allowed to affect the online path —
-// swallow any failure (missing native plugin, disk error, etc).
-//
-// The local_guild_pools table's primary key still has a difficulty_tier
-// column (see lib/localDataSource.ts) left over from the old per-guild tier
-// system — SQLite treats NULL as distinct from NULL for uniqueness, so a
-// real NULL there would insert a fresh duplicate row on every cache write
-// instead of replacing the previous one. Tier is gone now, so this always
-// passes the constant 0 rather than null to keep that key stable.
-async function cacheGuildPoolSafe(tableName: string, questType: string, gradeLevel: number | undefined, questions: any[]) {
-  if (!isOfflineStorageAvailable()) return;
-  try {
-    await cacheGuildPool(tableName, questType, gradeLevel, 0, questions);
-  } catch (e) {
-    console.error('Offline cache write failed (non-fatal):', e);
-  }
-}
 
 // Guild level at which a player is rewarded their guild's companion monster.
 export const GUILD_MONSTER_GRANT_LEVEL = 5;
@@ -85,10 +59,6 @@ const GUILD_GRADE_STAGE_FIELD: Partial<Record<string, keyof SubclassProfile>> = 
 };
 
 export async function fetchSubclassProfile(userId: string): Promise<SubclassProfile | null> {
-  if (isOfflineStorageAvailable() && isAppOffline()) {
-    return getCachedSubclassProfile(userId);
-  }
-
   const USER_ID = userId;
   const { data, error } = await supabase
     .from('user_subclass_profiles')
@@ -99,26 +69,10 @@ export async function fetchSubclassProfile(userId: string): Promise<SubclassProf
     console.error('Failed to fetch subclass profile:', error);
     return null;
   }
-  if (data && isOfflineStorageAvailable()) {
-    void cacheSubclassProfileSafe(userId, data as SubclassProfile);
-  }
   return data as SubclassProfile | null;
 }
 
-async function cacheSubclassProfileSafe(userId: string, profile: SubclassProfile) {
-  try {
-    await cacheSubclassProfile(userId, profile);
-  } catch (e) {
-    console.error('Offline cache write failed (non-fatal):', e);
-  }
-}
-
 export async function updateSubclassProfile(userId: string, fields: Partial<SubclassProfile>) {
-  if (isOfflineStorageAvailable() && isAppOffline()) {
-    await updateSubclassProfileLocal(userId, fields);
-    return;
-  }
-
   const USER_ID = userId;
   const { error } = await supabase
     .from('user_subclass_profiles')
@@ -161,11 +115,6 @@ export function guildLevelForKey(profile: SubclassProfile | null | undefined, gu
 export async function ensureGuildMonsterGranted(userId: string, guildKey: GuildKey): Promise<string | null> {
   const monsterId = GUILD_MONSTER_ID[guildKey];
   if (!monsterId || !GUILD_MONSTERS[monsterId]) return null;
-
-  // Simplified offline: skip the companion-monster grant/reveal entirely —
-  // it resolves correctly next time this level-up condition is evaluated
-  // online (the caller already treats a null return as "nothing granted").
-  if (isOfflineStorageAvailable() && isAppOffline()) return null;
 
   const [{ data: owned }, { data: caught }] = await Promise.all([
     supabase.from('user_monsters').select('id').eq('user_id', userId).eq('monster_id', monsterId).limit(1),
@@ -253,21 +202,6 @@ export async function fetchQuestionPool(userId: string, tableName: string, quest
   const USER_ID = userId;
   const stageField = GUILD_GRADE_STAGE_FIELD[questType];
 
-  // Offline: serve from whatever's cached, no stage-advance/prestige logic
-  // (that requires writing back to the subclass profile's stage field — kept
-  // simple here since it resolves correctly once back online anyway). Merges
-  // across every grade cached for this guild rather than requiring an exact
-  // match — the offline shell just needs *a* pool to practice from.
-  if (isOfflineStorageAvailable() && isAppOffline()) {
-    const [pool, completedIds] = await Promise.all([
-      getCachedGuildPoolAnyGrade(tableName, questType),
-      getLocallyCompletedQuestionIds(USER_ID, questType),
-    ]);
-    const remaining = pool.filter((q: any) => !completedIds.has(q.id));
-    const source = remaining.length > 0 ? remaining : pool;
-    return source.slice(0, PREFETCH_BATCH_SIZE);
-  }
-
   const [{ data: completed }, profile] = await Promise.all([
     supabase
       .from('user_completed_questions')
@@ -294,7 +228,6 @@ export async function fetchQuestionPool(userId: string, tableName: string, quest
       console.error(`Failed to fetch ${tableName} questions:`, error);
       return [];
     }
-    void cacheGuildPoolSafe(tableName, questType, grade ?? undefined, data || []);
     return data || [];
   }
 
@@ -366,11 +299,6 @@ export async function fetchQuestionPool(userId: string, tableName: string, quest
 // submitResult for where that correct-only filtering happens.
 export async function markQuestionsCompleted(userId: string, questType: string, questionIds: string[]) {
   if (questionIds.length === 0) return;
-
-  if (isOfflineStorageAvailable() && isAppOffline()) {
-    await markQuestionsCompletedLocal(userId, questType, questionIds);
-    return;
-  }
 
   const USER_ID = userId;
   const rows = questionIds.map((id: string) => ({

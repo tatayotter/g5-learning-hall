@@ -1,6 +1,4 @@
 import { supabase } from './supabase';
-import { isOfflineStorageAvailable, markGuildSessionTodayLocal, claimChecklistBonusLocal, getLocalChecklistState } from '@/lib/localDataSource';
-import { isAppOffline } from '@/lib/offlineState';
 
 export type GuildKey = 'lorekeeper' | 'spellcaster' | 'number_realm' | 'logic_labyrinth' | 'lexicon_arena';
 
@@ -37,16 +35,6 @@ export interface ChecklistBattleFlags {
 }
 
 export async function fetchChecklistBattleFlags(userId: string): Promise<ChecklistBattleFlags> {
-  if (isOfflineStorageAvailable() && isAppOffline()) {
-    const today = new Date().toISOString().slice(0, 10);
-    const state = await getLocalChecklistState(userId, today);
-    const guild_last_played: Partial<Record<GuildKey, string>> = {};
-    (state?.guildSessions || []).forEach(g => { guild_last_played[g] = today; });
-    // No offline data source for wild-encounter wins (Monster Arena is
-    // online-only) — this sub-item just always shows undone offline.
-    return { last_wild_encounter_win: null, guild_last_played };
-  }
-
   const { data, error } = await supabase
     .from('user_battle_state')
     .select('last_wild_encounter_win, guild_last_played')
@@ -64,10 +52,6 @@ export async function fetchChecklistBattleFlags(userId: string): Promise<Checkli
 // the Monster Arena yet (no user_battle_state row) still gets one created
 // atomically rather than racing a client-side read-then-upsert.
 export async function markGuildSessionToday(userId: string, guildKey: GuildKey, today: string) {
-  if (isOfflineStorageAvailable() && isAppOffline()) {
-    await markGuildSessionTodayLocal(userId, guildKey, today);
-    return;
-  }
   await supabase.rpc('mark_guild_session_today', {
     p_user_id: userId,
     p_guild_key: guildKey,
@@ -86,11 +70,6 @@ export function isQuestDayDone(
 }
 
 export async function hasClaimedChecklistBonus(userId: string, today: string): Promise<boolean> {
-  if (isOfflineStorageAvailable() && isAppOffline()) {
-    const state = await getLocalChecklistState(userId, today);
-    return state?.claimed ?? false;
-  }
-
   const { data } = await supabase
     .from('daily_checklist_claims')
     .select('claim_date')
@@ -122,15 +101,8 @@ export interface ChecklistStreakInfo {
 
 // Preview of the streak ladder — how many consecutive days the player is
 // on, and what claiming today would earn — so the To-Dos panel can show
-// this before the claim button is even pressed. No offline data source for
-// claim history (same limitation as fetchChecklistBattleFlags), so offline
-// this just reports "no known streak" and the real value catches up once
-// the queued claim syncs.
+// this before the claim button is even pressed.
 export async function fetchDailyChecklistStreak(userId: string, today: string): Promise<ChecklistStreakInfo> {
-  if (isOfflineStorageAvailable() && isAppOffline()) {
-    return { claimedToday: false, currentStreak: 0, nextStreak: 1, todayGold: null, nextGold: STREAK_GOLD_LADDER[0] };
-  }
-
   const { data, error } = await supabase.rpc('get_daily_checklist_streak', {
     p_user_id: userId,
     p_today: today,
@@ -160,13 +132,6 @@ export async function claimChecklistBonus(
   dayName: string,
   grade: number
 ): Promise<ChecklistClaimResult> {
-  if (isOfflineStorageAvailable() && isAppOffline()) {
-    await claimChecklistBonusLocal(userId, today, dayName, grade);
-    // Streak/gold aren't knowable offline (no local claim history) — the
-    // real values land once this queued claim syncs and the panel refetches.
-    return { granted: true };
-  }
-
   const { data, error } = await supabase.rpc('claim_daily_checklist_bonus', {
     p_user_id: userId,
     p_today: today,

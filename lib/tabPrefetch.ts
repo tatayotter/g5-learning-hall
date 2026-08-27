@@ -12,20 +12,15 @@
 // promises here so the first real mount of each tab can await an
 // already-started (often already-resolved) fetch instead of starting from
 // scratch. Best-effort only: any entry that isn't ready yet (or was never
-// requested, e.g. offline login) just falls through to `undefined`, and the
-// calling component runs its normal fetch path exactly as before — nothing
-// here is required for correctness, only for perceived speed.
+// requested) just falls through to `undefined`, and the calling component
+// runs its normal fetch path exactly as before — nothing here is required
+// for correctness, only for perceived speed.
 import { fetchQuestionPool, fetchSubclassProfile, fetchAnsweredArenaQuestionIds, SubclassProfile } from '@/lib/guildEngine';
 import { fetchInventory, InventoryMap } from '@/lib/inventory';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
-import { isOfflineStorageAvailable } from '@/lib/localDataSource';
-import { isAppOffline } from '@/lib/offlineState';
 import { loadTiledArtMap } from '@/lib/tiledArtMap';
 import { REGIONS } from '@/lib/regions';
 
-// Same 5 guild tables offlineSeed.ts pre-warms into the SQLite cache — kept
-// as a separate literal (rather than importing from there) since that file's
-// list is offline-cache-specific and this one feeds the in-memory cache below.
 const GUILD_TABLES: [tableName: string, questType: string][] = [
   ['sq_lorekeeper', 'lorekeeper'],
   ['sq_spellcaster', 'spellcaster'],
@@ -48,13 +43,8 @@ const cache = new Map<string, Promise<any>>();
 // "switch user") from leaking into the next session's tabs.
 let cachedForUserId: string | null = null;
 
-// Fire-and-forget — call once right after login resolves. Skipped entirely
-// offline: seedOfflineCache() already pre-warms the SQLite cache for the 5
-// guild pools, and none of these live queries would resolve without a
-// connection anyway.
+// Fire-and-forget — call once right after login resolves.
 export function prefetchAllTabs(userId: string, grade: string | number | undefined) {
-  if (isOfflineStorageAvailable() && isAppOffline()) return;
-
   cache.clear();
   cachedForUserId = userId;
 

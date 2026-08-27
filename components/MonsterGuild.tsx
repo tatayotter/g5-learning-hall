@@ -41,8 +41,6 @@ import BattleScreen from '@/components/monster/BattleScreen';
 import StarterSelection from '@/components/monster/StarterSelection';
 import HatcheryPanel from '@/components/monster/HatcheryPanel';
 import { EggChainMap, CurioEgg, fetchEggChainMap, fetchUserEggs, eggReadyLevel } from '@/lib/curioEggs';
-import { isOfflineStorageAvailable, getCachedOwnedMonsters, cacheOwnedMonsters } from '@/lib/localDataSource';
-import { isAppOffline } from '@/lib/offlineState';
 import { takePrefetch, MonsterGuildPrefetch } from '@/lib/tabPrefetch';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
@@ -166,10 +164,6 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
-  // Gates trading, PvP/live battle, map presence, and egg-catch inserts —
-  // the roster/team view still renders from the local_owned_monsters cache
-  // (see loadData below) regardless of this flag.
-  const offline = isOfflineStorageAvailable() && isAppOffline();
   const [loading, setLoading] = useState(true);
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
   const [battleState, setBattleState] = useState<BattleState | null>(null);
@@ -286,31 +280,6 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
     setLoading(true);
 
-    // Offline: the roster (userMonsters) is the one piece of Curio Arena
-    // worth showing without a connection — read it from the write-through
-    // cache below rather than a live query that can't resolve. Battle state
-    // and caught-monster history are inherently tied to live play (map
-    // presence, wild encounters) so they fall back to their normal empty
-    // state, same as the rest of the app's offline gating (see
-    // HeroProfile.tsx/GuildJournal.tsx) — trading/PvP/live battle themselves
-    // stay gated separately, below.
-    if (isOfflineStorageAvailable() && isAppOffline()) {
-      const [monsters, invData, answeredIds, subProfile] = await Promise.all([
-        getCachedOwnedMonsters(userId),
-        fetchInventory(userId),
-        fetchAnsweredArenaQuestionIds(userId),
-        fetchSubclassProfile(userId),
-      ]);
-      setUserMonsters(monsters);
-      setBattleState(null);
-      setInventory(invData || {});
-      setAnsweredArenaIds(answeredIds);
-      setCaughtMonsters([]);
-      setSubclassProfile(subProfile);
-      setLoading(false);
-      return;
-    }
-
     // user_monsters is RLS-scoped to current_app_user_id(), which resolves
     // through the anon-auth identity link (see lib/userSession.ts's
     // linkIdentity) — without waiting for a session here, a query fired
@@ -322,9 +291,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     // own ensureAnonymousSession() before running this exact set of queries —
     // reuse that resolved bundle whole on first mount instead of re-querying,
     // and only fall through to a fresh Promise.all when there's no prefetch
-    // (later reloads, or a login that skipped prefetch, e.g. offline).
+    // (later reloads, or a login that skipped prefetch).
     const prefetched = await takePrefetch<MonsterGuildPrefetch>(userId, 'monsterGuild');
-    let freshMonsters: any[];
     if (prefetched) {
       setUserMonsters(prefetched.userMonsters);
       setBattleState(prefetched.battleState);
@@ -332,7 +300,6 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       setAnsweredArenaIds(prefetched.answeredArenaIds);
       setCaughtMonsters(prefetched.caughtMonsters);
       setSubclassProfile(prefetched.subclassProfile);
-      freshMonsters = prefetched.userMonsters;
     } else {
       await ensureAnonymousSession();
 
@@ -350,35 +317,9 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       setAnsweredArenaIds(answeredIds);
       setCaughtMonsters(caughtRes.data || []);
       setSubclassProfile(subProfile);
-      freshMonsters = monstersRes.data || [];
     }
     setLoading(false);
     loadEggs();
-    // Write-through cache so the roster is available offline next time —
-    // same pattern as cacheWeeklyData/cacheGuildPool elsewhere. Never
-    // destructively overwrite a non-empty cache with an empty fetch result —
-    // ensureAnonymousSession() above closes most of the RLS-race window, but
-    // can't guarantee the identity link (a separate RPC) has landed yet, and
-    // an empty roster is otherwise indistinguishable from a genuine new
-    // player. A real roster wipe (e.g. every monster released) just leaves
-    // the offline cache one visit stale, which self-heals next real online
-    // Curio Arena visit — safer than ever showing "choose your starter"
-    // to a player who actually has a team.
-    if (isOfflineStorageAvailable()) {
-      if (freshMonsters.length > 0) {
-        cacheOwnedMonsters(userId, freshMonsters).catch(e => {
-          console.error('Offline owned-monsters cache failed (non-fatal):', e);
-        });
-      } else {
-        getCachedOwnedMonsters(userId).then(cached => {
-          if (cached.length === 0) {
-            return cacheOwnedMonsters(userId, freshMonsters);
-          }
-        }).catch(e => {
-          console.error('Offline owned-monsters cache failed (non-fatal):', e);
-        });
-      }
-    }
   };
 
   // Refreshes just userMonsters + inventory after a Compendium learn/unlearn
@@ -428,7 +369,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     selfProfileForMap?.gender || 'boy',
     battleState?.map_x ?? 0,
     battleState?.map_y ?? 0,
-    !offline,
+    true,
   );
   const botOnlinePlayers = useBotPresence();
   // Merge bots into onlinePlayers so TrainingMap's Online tab, sprite renderer,
@@ -477,9 +418,9 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   }, [view]);
 
   // Random bot challenge — fires once per time the player opens the Arena tab,
-  // after a 20–60 s idle delay. Skipped when already in a battle or offline.
+  // after a 20–60 s idle delay. Skipped when already in a battle.
   useEffect(() => {
-    if (offline || view === 'live_battle') return;
+    if (view === 'live_battle') return;
     const delay = 20_000 + Math.random() * 40_000;
     const timer = setTimeout(() => {
       // Don't interrupt an active battle or a real incoming invite.
@@ -949,21 +890,6 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   }
 
   if (userMonsters.length === 0) {
-    // Offline, an empty roster is ambiguous — it might mean this player
-    // genuinely has no curios yet, or it might just mean this device's
-    // local_owned_monsters cache was never populated (e.g. they've never
-    // opened Curio Arena while online on this install). Starter selection
-    // locks in a one-time, consequential choice, so it must never fire on
-    // a guess — show a "needs a connection" message instead and let the
-    // real (live-confirmed) roster state decide once back online.
-    if (offline) {
-      return (
-        <div className="text-center py-16 text-gray-400">
-          <p className="text-lg font-bold text-white mb-2">🔌 Curio Arena needs a connection</p>
-          <p className="text-sm">Connect once so your team can be loaded and cached for offline play.</p>
-        </div>
-      );
-    }
     return (
       <div className="py-10">
         <StarterSelection userId={userId} onComplete={loadData} />
@@ -991,8 +917,6 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           { id: 'leaderboard' as GuildView, label: 'Leaderboard',  icon: '🏆' },
           { id: 'hatchery'    as GuildView, label: 'Hatchery',    icon: '🥚' },
         ]);
-        const needsConnection = (id: GuildView) =>
-          offline && (id === 'map' || id === 'trainers' || id === 'trade' || id === 'leaderboard');
         return (
           <>
             {/* Floating FAB — Curio Arena icon, sits above the main compass */}
@@ -1042,7 +966,6 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                     <div className={`grid gap-2 ${isLandscape ? 'grid-cols-2' : 'grid-cols-3'}`}>
                       {ARENA_TABS.map(tab => {
                         const isActive = view === tab.id;
-                        const locked = needsConnection(tab.id);
                         return (
                           <button
                             key={tab.id}
@@ -1054,7 +977,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                                 : 'border-transparent hover:bg-stone-50'
                               }`}
                           >
-                            <span className="text-3xl leading-none">{locked ? '🔒' : tab.icon}</span>
+                            <span className="text-3xl leading-none">{tab.icon}</span>
                             <span className="text-[10px] font-bold uppercase tracking-wide text-gray-600 text-center leading-tight">
                               {tab.label}
                             </span>
@@ -1070,17 +993,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         );
       })()}
 
-      {/* Map view — World Map region picker, or the selected region's Training Map.
-          Requires battleState, which loadData() leaves null offline (see
-          above) — wild encounters, trainer challenges, and PvP invites all
-          live here, so there's nothing safe to render without a connection. */}
-      {view === 'map' && offline && (
-        <div className="text-center py-16 text-gray-400">
-          <p className="text-lg font-bold text-gray-900 mb-2">🔌 The Training Map needs a connection</p>
-          <p className="text-sm">Wild encounters and trainer battles sync live — reconnect to explore.</p>
-        </div>
-      )}
-      {view === 'map' && !offline && battleState && (
+      {/* Map view — World Map region picker, or the selected region's Training Map. */}
+      {view === 'map' && battleState && (
         <TrainingMap
           userId={userId}
           battleState={battleState}
@@ -1150,13 +1064,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         />
       )}
 
-      {view === 'trade' && offline && (
-        <div className="text-center py-16 text-gray-400">
-          <p className="text-lg font-bold text-white mb-2">🔌 Trading needs a connection</p>
-          <p className="text-sm">Reconnect to trade curios with other players.</p>
-        </div>
-      )}
-      {view === 'trade' && !offline && (
+      {view === 'trade' && (
         <TradePanel
           userId={userId as UserId}
           userMonsters={userMonsters}
@@ -1166,22 +1074,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         />
       )}
 
-      {view === 'leaderboard' && offline && (
-        <div className="text-center py-16 text-gray-400">
-          <p className="text-lg font-bold text-white mb-2">🔌 The Leaderboard needs a connection</p>
-          <p className="text-sm">Reconnect to see how you rank against other players.</p>
-        </div>
-      )}
-      {view === 'leaderboard' && !offline && <LeaderboardPanel userId={userId} />}
+      {view === 'leaderboard' && <LeaderboardPanel userId={userId} />}
 
       {/* Trainers view */}
-      {view === 'trainers' && offline && (
-        <div className="text-center py-16 text-gray-400">
-          <p className="text-lg font-bold text-gray-900 mb-2">🔌 Trainer battles need a connection</p>
-          <p className="text-sm">Battle results and rewards sync live — reconnect to challenge a trainer.</p>
-        </div>
-      )}
-      {view === 'trainers' && !offline && battleState && (
+      {view === 'trainers' && battleState && (
         <div className="space-y-4">
           {/* PvP — Challenge To A Battle */}
           {(() => {

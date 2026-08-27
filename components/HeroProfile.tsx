@@ -17,8 +17,6 @@ import {
 } from '@/lib/monsterConfig';
 import { fetchSubclassProfile, guildLevelForKey } from '@/lib/guildEngine';
 import { MonsterImage } from '@/components/battle/shared';
-import { isOfflineStorageAvailable } from '@/lib/localDataSource';
-import { isAppOffline } from '@/lib/offlineState';
 import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
 import { getMyReferralKey } from '@/lib/referral';
 
@@ -137,22 +135,14 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
     dragStartPos.current = null;
   };
 
-  // Cosmetics/inventory, team roster, and lifetime stats are all live-only
-  // fetches with no offline cache — skip cleanly (empty state) rather than
-  // hang or error; the core stats/level/achievements below all render from
-  // the already-cached `data` prop regardless.
-  const offline = isOfflineStorageAvailable() && isAppOffline();
-
   useEffect(() => {
-    if (offline) return;
     fetchInventory(userId).then(setInventory);
-  }, [userId, avatarTick, offline]);
+  }, [userId, avatarTick]);
 
   // Team roster for the Trainer Card — same fetch shape as PlayerStatsPopup's
   // "Team" section, so a guild companion or graduated species displays
   // identically here as it does when a classmate looks this player up.
   useEffect(() => {
-    if (offline) return;
     let cancelled = false;
     async function loadTeam() {
       const [stateRes, monstersRes, ownedRes, subProfile] = await Promise.all([
@@ -169,7 +159,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
     }
     loadTeam();
     return () => { cancelled = true; };
-  }, [userId, avatarTick, offline]);
+  }, [userId, avatarTick]);
 
   // Same display-override pattern as MonsterGuild.tsx/PlayerStatsPopup: guild
   // companions show the name/sprite their owner's guild level currently
@@ -200,34 +190,31 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   // regardless of which battle-record view is showing — see
   // docs/weekly-progress-redesign-plan.md Phase 4 Wave 2.
   useEffect(() => {
-    if (offline) return;
     fetchPlayerProgress(userId).then(setProgress);
-  }, [userId, offline]);
+  }, [userId]);
 
   // Fetch this player's referral key via RPC (children RLS blocks direct reads).
   useEffect(() => {
-    if (offline) return;
     getMyReferralKey().then(key => { if (key) setReferralKey(key); });
-  }, [userId, offline]);
+  }, [userId]);
 
   // guild_sessions_count/monster_battles_won/etc. reset every week (see
   // hooks/useWeeklyData.ts), so "lifetime" means summing across every past
   // weekly_packages row — fetched eagerly now so the Trainer Card stat panel
   // always shows lifetime totals without needing a toggle click.
   useEffect(() => {
-    if (offline || lifetimeStats) return;
+    if (lifetimeStats) return;
     setLifetimeLoading(true);
     fetchLifetimeBattleStats(userId).then(stats => {
       setLifetimeStats(stats);
       setLifetimeLoading(false);
     });
-  }, [userId, lifetimeStats, offline]);
+  }, [userId, lifetimeStats]);
 
   useEffect(() => {
-    if (offline) return;
     const today = new Date().toISOString().slice(0, 10);
     fetchDailyChecklistStreak(userId, today).then(info => setCurrentStreak(info.currentStreak));
-  }, [userId, offline]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [userId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const stats = data.character_stats;
   const level = stats?.level || 1;
@@ -252,7 +239,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   const ownedUserpics = USERPIC_CATALOG.filter(item => (inventory[item.key] || 0) > 0);
 
   const handleQuickSwitch = async (avatar: string) => {
-    if (avatar === activeUser.avatar || switchingAvatar || offline) return;
+    if (avatar === activeUser.avatar || switchingAvatar) return;
     setSwitchingAvatar(avatar);
     const ok = await saveAvatar(userId, avatar);
     setSwitchingAvatar(null);

@@ -5,8 +5,6 @@ import { startOfWeek, format } from 'date-fns';
 import { ACHIEVEMENTS, Achievement } from '@/lib/achievements';
 import { logAction } from '@/lib/playerlog';
 import { USERS, UserId, gradeToNumber } from '@/lib/userSession';
-import { isOfflineStorageAvailable, cacheWeeklyData, getCachedWeeklyData, enqueueSync } from '@/lib/localDataSource';
-import { isAppOffline } from '@/lib/offlineState';
 import { fetchPlayerProgress, PlayerProgress } from '@/lib/lifetimeStats';
 
 export interface CharacterStats {
@@ -27,19 +25,6 @@ function totalXpForLevelState(level: number, xp: number): number {
     total += 500 + l * 100;
   }
   return total;
-}
-
-// Same level-up loop as the apply_character_deltas Postgres RPC — used to
-// keep the offline (no-RPC) path's level/xp consistent with what the server
-// would compute once the queued delta replays.
-function applyXpDelta(level: number, xp: number, delta: number): { level: number; xp: number } {
-  let newLevel = level;
-  let newXp = xp + delta;
-  while (newXp >= 500 + newLevel * 100) {
-    newXp -= 500 + newLevel * 100;
-    newLevel += 1;
-  }
-  return { level: newLevel, xp: newXp };
 }
 
 // Reconstructs a package_data-shaped object (weekday -> subject -> {summary_markdown,
@@ -153,27 +138,6 @@ export function useWeeklyData(userId: string = 'damien') {
   useEffect(() => {
     let cancelled = false;
     async function fetchData() {
-      // Native (Android): cache-first, stale-while-revalidate — render
-      // whatever's on-device immediately regardless of connectivity, so
-      // opening the app never blocks on a network round trip just to show
-      // last-known progress. True offline, that's as fresh as it gets (same
-      // behavior as before). Online, execution falls through to the live
-      // fetch below, which silently refreshes `data` (and re-caches it, see
-      // the write-through effect further down) once it resolves — no second
-      // loading flash, since `loading` is already false by then.
-      if (isOfflineStorageAvailable()) {
-        const cached = await getCachedWeeklyData(userId);
-        if (cached) {
-          setData(cached);
-          setLoading(false);
-        }
-        if (isAppOffline()) {
-          if (!cached) setData(null);
-          setLoading(false);
-          return;
-        }
-      }
-
       // player_progress/player_weekly_journal RLS only grants access to the `authenticated`
       // role, which this app's anonymous-auth bridge (lib/supabase.ts) provides — but that
       // sign-in happens in a separate effect (userSession.linkIdentity), so without waiting
@@ -228,20 +192,6 @@ export function useWeeklyData(userId: string = 'damien') {
     fetchData();
     return () => { cancelled = true; };
   }, [currentSunday, userId, grade]);
-
-  // Mirror the full WeeklyData snapshot (stats, journal, achievements,
-  // package_data — also what Monster Arena wild encounters draw from, quiz
-  // history, etc.) into the on-device SQLite cache, so the Android offline
-  // shell has everything it needs next time there's no connection. Skipped
-  // when we just loaded `data` FROM the cache (offline) to avoid a pointless
-  // write-back of the same data. Best-effort only — never allowed to affect
-  // the online experience.
-  useEffect(() => {
-    if (!data || !isOfflineStorageAvailable() || isAppOffline()) return;
-    cacheWeeklyData(userId, data).catch(e => {
-      console.error('Offline cache write failed (non-fatal):', e);
-    });
-  }, [data, userId]);
 
   const updateStatsAndJournal = async (
     newStats: CharacterStats,
@@ -325,11 +275,9 @@ export function useWeeklyData(userId: string = 'damien') {
       }
     });
 
-    if (!isAppOffline()) {
-      newlyUnlockedTitles.forEach(({ title, xp, gold }) => {
-        logAction(userId, currentSunday, 'achievement', `Unlocked achievement: ${title}`, xp, gold);
-      });
-    }
+    newlyUnlockedTitles.forEach(({ title, xp, gold }) => {
+      logAction(userId, currentSunday, 'achievement', `Unlocked achievement: ${title}`, xp, gold);
+    });
 
     // xp/gold/level are applied server-side as atomic deltas (not written as
     // an absolute snapshot of local state) so that two saves firing close
@@ -388,34 +336,6 @@ export function useWeeklyData(userId: string = 'damien') {
       tatayWon: newTatayBattlesWon - (data.tatay_battles_won || 0),
       tatayLost: newTatayBattlesLost - (data.tatay_battles_lost || 0),
     };
-
-    if (isOfflineStorageAvailable() && isAppOffline()) {
-      // No RPC available offline — apply the delta locally (safe: offline
-      // means single-device/single-session, no concurrent-save race to guard
-      // against) and queue the same delta to replay against the real RPC
-      // once back online, so the server-side atomicity guarantee still holds
-      // for the eventual write.
-      const { level: finalLevel, xp: finalXp } = applyXpDelta(data.character_stats.level, data.character_stats.xp, xpDelta);
-      const finalStats: CharacterStats = {
-        level: finalLevel,
-        xp: finalXp,
-        gold: data.character_stats.gold + goldDelta,
-      };
-      const updated = { ...data, character_stats: finalStats, ...journalChanges, achievements: newUnlocked };
-      setData(updated);
-      await cacheWeeklyData(userId, updated);
-      await enqueueSync('apply_progress_update', 'rpc', {
-        userId, xpDelta, goldDelta,
-        mastery: newMasteryCount, purchased: newPurchasedItems, honor: newHonorGrants,
-        counterDeltas, newAchievementIds: newlyUnlockedIds,
-      });
-      if (contentWeekId) {
-        await enqueueSync('player_weekly_journal_upsert', 'upsert', {
-          userId, contentWeekId, journalChanges,
-        });
-      }
-      return;
-    }
 
     // xp/gold/level/counters/mastery-purchased-honor/achievements all live on player_progress
     // (lifetime, not week-keyed) now — applied atomically in one round trip by
@@ -509,17 +429,6 @@ export function useWeeklyData(userId: string = 'damien') {
 
   const applyGoldDelta = async (amount: number) => {
     if (!data) return;
-
-    if (isOfflineStorageAvailable() && isAppOffline()) {
-      const finalStats: CharacterStats = { ...data.character_stats, gold: data.character_stats.gold + amount };
-      const updated = { ...data, character_stats: finalStats };
-      setData(updated);
-      await cacheWeeklyData(userId, updated);
-      await enqueueSync('apply_character_deltas', 'rpc', {
-        userId, xpDelta: 0, goldDelta: amount,
-      });
-      return;
-    }
 
     const { data: finalStats, error } = await supabase.rpc('apply_progress_deltas', {
       p_user_id: userId,
