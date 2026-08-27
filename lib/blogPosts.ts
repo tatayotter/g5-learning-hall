@@ -1882,6 +1882,169 @@ export const BLOG_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'what-is-sses-special-science-elementary-school-parent-guide',
+    title: "What Is SSES (Special Science Elementary School)? A Parent's Guide to the Entrance Exam",
+    description:
+      "A plain-English explainer on DepEd's Special Science Elementary School program — what it actually is, how the qualifying exam works, and what Learning Hall's own 'SSES enrichment' label means and doesn't mean.",
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 'all',
+    publishedAt: '2026-08-27',
+    updatedAt: '2026-08-27',
+    intro:
+      "\"SSES\" shows up in a lot of places a parent might not expect — a division memorandum shared in a class group chat, a reviewer being sold online, a neighbor mentioning their child \"passed the SSES exam.\" Almost everything written about it is either a raw DepEd memo full of administrative language or a PDF being resold as an exam reviewer. Here's the plain-English version: what SSES actually is, how the entrance exam really works, and — since Learning Hall uses the term too — what our own \"SSES enrichment\" label means and, just as importantly, what it doesn't.",
+    image: {
+      url: '/blog-images/child-microscope-science-sses.webp',
+      alt: 'Young student examining a sample through a microscope in a science classroom',
+      width: 1200,
+      height: 675,
+      credit: { name: 'MART PRODUCTION', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/a-boy-using-a-microscope-8471902/' },
+    },
+    sections: [
+      {
+        heading: 'What SSES actually is',
+        paragraphs: [
+          "Special Science Elementary School (SSES) is a DepEd program that identifies gifted and talented elementary pupils and gives them a deeper, faster-paced track in Science, Mathematics, and English specifically — the three subjects the program is built around. It isn't a separate curriculum invented from scratch; it's an accelerated, more intensive version of those three subjects, layered on top of standard elementary schooling, delivered at specific designated schools rather than every school.",
+          "The typical entry point is Grade 1, based on the admission guidelines DepEd's schools division offices issue each year, though exact entry points and available slots vary by division and by school. Because it's a selective, limited-slot program, admission runs through a qualifying process rather than simple enrollment.",
+        ],
+      },
+      {
+        heading: 'How the entrance exam actually works',
+        paragraphs: [
+          "Admission to SSES runs through a qualifying exam and, typically, an interview, assessing a child's readiness and aptitude specifically in Science, Mathematics, and English. The framework for this qualifying exam was originally set out in DepEd Memorandum No. 13, s. 2017, and — this is the part most reviewer-sellers don't mention — a new admission-test memorandum gets issued nearly every year by each schools division office, updating the schedule, venue, and specific guidelines for that year's applicants (for example, DM No. 186, s. 2026 covers the SSES and STE admission test for School Year 2026-2027).",
+          "That yearly reissue matters practically: the exact exam format, question style, and schedule can shift from one division and one year to the next. A reviewer built around a previous year's memo isn't guaranteed to match this year's version. The reliable move is checking directly with the specific SSES school (or your local Schools Division Office) for the current year's official memorandum, rather than relying on an old PDF circulating online.",
+        ],
+      },
+      {
+        heading: 'How SSES actually differs from a regular elementary school',
+        paragraphs: [
+          "The core difference isn't a different set of subjects — it's depth and pace within Science, Mathematics, and English specifically. An SSES pupil covers those three subjects with more advanced content and a faster pace than the standard MATATAG competencies for their grade level, while other subjects generally follow the regular curriculum.",
+          "Because slots are limited and the program is selective, admission is competitive by design, and it feeds into a longer track — a good number of SSES completers go on to Science, Technology, and Engineering (STE) programs at the junior high level, which follow a similar accelerated-track logic starting at Grade 7.",
+        ],
+      },
+      {
+        heading: "What Learning Hall's \"SSES Enrichment\" label means — and what it doesn't",
+        paragraphs: [
+          "This is worth stating plainly, since the same three letters appear on our own /curriculum pages: Learning Hall's \"SSES Enrichment\" tag on English, Mathematics, and Science quests refers to an applied-reasoning task style inspired by the rigor of the SSES program's approach to those three subjects — layered on top of the standard MATATAG competencies, for every child using the app, regardless of which school they attend.",
+          "It is not admission to an actual SSES school, it does not prepare a child specifically for that school's qualifying exam, and finishing our SSES-tagged quests doesn't function as a substitute for or a guarantee toward passing the real entrance exam. The two things share a name and a general spirit — deeper reasoning in English, Math, and Science — but they are not the same program, and we don't want a parent assuming otherwise.",
+        ],
+      },
+      {
+        heading: 'How to actually prepare, if your child is applying',
+        paragraphs: [
+          "Since exam specifics change division by division and year by year, the single most reliable step is contacting the specific SSES school or your Schools Division Office directly for the current year's official admission memorandum — it will state the actual schedule, venue, and any permitted reviewer materials for that cycle.",
+          "Beyond that, the exam is ultimately assessing genuine reasoning ability in Science, Math, and English at an accelerated level for the grade being applied to — not a fixed list of memorized trivia. Building real comprehension and applied reasoning in those three subjects (which is exactly what our own SSES-enrichment quests, and honestly most solid Grade 1 preparation, already aim at) is a more durable use of a child's remaining prep time than cramming a single old reviewer of uncertain relevance.",
+        ],
+      },
+    ],
+    takeaways: [
+      "SSES (Special Science Elementary School) is a DepEd program offering an accelerated track in Science, Math, and English specifically, entered through a competitive qualifying exam — typically starting at Grade 1.",
+      "The admission-test memorandum is reissued yearly by each Schools Division Office (DM No. 13, s. 2017 set the original framework; DM No. 186, s. 2026 covers SY 2026-2027) — always check the current year's official memo rather than an old reviewer.",
+      "Learning Hall's own \"SSES Enrichment\" label describes a pedagogical style — applied-reasoning tasks inspired by SSES's rigor — for every child using the app. It is not admission to, or exam prep specifically for, an actual SSES school.",
+      "The most reliable exam prep is contacting the specific SSES school or Schools Division Office for that year's official guidelines, and building real reasoning ability in Science, Math, and English rather than memorizing an uncertain reviewer.",
+    ],
+    externalLinks: [
+      { label: 'DM No. 13, s. 2017 — Qualifying Exam for SSES (DepEd SDO Dasmariñas)', url: 'https://www.depeddasma.edu.ph/dm-no-13-s-2017-qualifying-exam-for-special-science-elementary-school-sses/' },
+      { label: 'DM No. 186, s. 2026 — SSES/STE Admission Test, SY 2026-2027 (DepEd SDO Dasmariñas)', url: 'https://www.depeddasma.edu.ph/dm-no-186-s-2026-administration-of-admission-test-for-special-science-elementary-school-sses-and-science-technology-and-engineering-ste-program-for-school-year-2026-2027/' },
+      { label: 'See how SSES Enrichment shows up in the actual curriculum, grade by grade', url: '/curriculum' },
+      { label: "Read our plain-English MATATAG curriculum guide", url: '/blog/matatag-curriculum-parent-guide' },
+    ],
+    faq: [
+      {
+        question: 'What does SSES stand for?',
+        answer:
+          'SSES stands for Special Science Elementary School, a DepEd program that gives selected pupils an accelerated, deeper track in Science, Mathematics, and English specifically, starting typically at Grade 1.',
+      },
+      {
+        question: 'How do I find the current SSES entrance exam schedule?',
+        answer:
+          "Contact the specific SSES school you're applying to, or your local Schools Division Office, directly. DepEd reissues an updated admission-test memorandum every year, so the schedule, venue, and guidelines from a previous year aren't guaranteed to match the current one.",
+      },
+      {
+        question: "Does Learning Hall prepare my child for the actual SSES entrance exam?",
+        answer:
+          "No. Learning Hall's \"SSES Enrichment\" tag describes an applied-reasoning task style in English, Math, and Science quests, inspired by the rigor of the SSES program, available to every child using the app. It is not admission to an SSES school and isn't built as exam-specific prep for that school's qualifying test.",
+      },
+      {
+        question: 'What is the difference between SSES and STE?',
+        answer:
+          "SSES (Special Science Elementary School) is the elementary-level accelerated track in Science, Math, and English. STE (Science, Technology, and Engineering) is the continuation of that accelerated-track approach at the junior high school level, starting at Grade 7 — many SSES completers go on to STE programs.",
+      },
+    ],
+  },
+  {
+    slug: 'matatag-three-term-school-calendar-explained',
+    title: "DepEd's New Three-Term School Calendar, Explained for Parents",
+    description:
+      "Why report cards suddenly say 'Term 1' instead of '1st Quarter,' how the three-term calendar is different from (but related to) the MATATAG curriculum, and what it actually means for your child's school year.",
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 'all',
+    publishedAt: '2026-08-27',
+    updatedAt: '2026-08-27',
+    intro:
+      "If a recent report card or school memo said \"Term 1\" where it used to say \"1st Quarter,\" you didn't miss an announcement — DepEd has been rolling out a shift from a four-quarter school year to a three-term one. It's a real, current change, and it's easy to mix up with the MATATAG curriculum itself, since both have been rolling out around the same time. Here's what's actually different, and what it means day to day.",
+    image: {
+      url: '/blog-images/filipino-students-classroom-calendar.webp',
+      alt: 'Group of elementary school students in uniform in a classroom',
+      width: 1200,
+      height: 675,
+      credit: { name: 'Ron Lach', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/group-of-student-in-green-uniform-10637942/' },
+    },
+    sections: [
+      {
+        heading: 'What actually changed: 4 quarters became 3 terms',
+        paragraphs: [
+          "The change itself is about how the school year is divided for pacing, grading, and breaks — not about what's being taught. Instead of four grading quarters, the school year is now divided into three terms, each running longer than an old quarter did. Report cards, school memos, and academic calendars now refer to \"Term 1,\" \"Term 2,\" and \"Term 3\" rather than \"1st Quarter\" through \"4th Quarter.\"",
+          "For context on how this actually plays out across a school year, Learning Hall's own weekly quest schedule for SY 2026-2027 follows this real academic calendar directly — Term 1 runs before a break around September 10-20, and Term 2 runs before a longer break from December 17-31, with Term 3 completing the year. We had to build our own internal pacing around these exact dates to keep quests aligned with what's actually happening in a real classroom that week.",
+        ],
+      },
+      {
+        heading: "How this is different from MATATAG — they're related, but not the same thing",
+        paragraphs: [
+          "It's an easy mix-up, since both changes have rolled out in the same general period: MATATAG is a curriculum reform — it changes what gets taught and how much gets covered per grading period, decongesting a curriculum that was widely seen as packing in too many competencies (we cover this in more depth in our MATATAG explainer). The three-term calendar is a scheduling reform — it changes how the school year itself is divided into grading periods and breaks, independent of which specific competencies are being taught inside each period.",
+          "They've moved together because DepEd is treating both as part of the same broader push to make the school year less fragmented and give teachers more sustained time per topic — fewer, longer terms mean fewer disruptive testing-and-transition periods per year compared to four separate quarters.",
+        ],
+      },
+      {
+        heading: 'Is the rollout the same for every grade level right now?',
+        paragraphs: [
+          "As with MATATAG itself, the three-term calendar has been phased in rather than switched on everywhere at once, and the exact rollout status can differ by school and division. If you're unsure whether it's already in effect for your child's specific grade level and school, your child's teacher or school registrar will have the most current, accurate answer — that's also the best source for your school's actual term-break dates, which can vary somewhat by division.",
+        ],
+      },
+    ],
+    takeaways: [
+      "DepEd shifted the school year from four grading quarters to three longer terms — a scheduling and pacing change, not a change to what's being taught.",
+      "MATATAG (curriculum content) and the three-term calendar (school-year structure) are two related but separate DepEd reforms that happened to roll out around the same period.",
+      "Fewer, longer terms are meant to reduce fragmented testing-and-transition periods and give more sustained instructional time per topic.",
+      "Rollout timing and exact term-break dates can vary by school and division — check with your child's school for specifics.",
+    ],
+    externalLinks: [
+      { label: 'Philippine public schools roll out three-term calendar (Rappler)', url: 'https://www.rappler.com/philippines/three-term-calendar-public-schools-opening-classes-june-2026/' },
+      { label: "Read our plain-English MATATAG curriculum guide", url: '/blog/matatag-curriculum-parent-guide' },
+      { label: 'See what MATATAG covers in your child\'s grade', url: '/curriculum' },
+    ],
+    faq: [
+      {
+        question: 'Why does my child\'s report card say "Term 1" instead of "1st Quarter"?',
+        answer:
+          'DepEd has shifted the school year from four grading quarters to three longer terms as part of a broader scheduling reform, so report cards and school calendars now use "Term 1," "Term 2," and "Term 3" instead of quarter labels.',
+      },
+      {
+        question: 'Is the three-term calendar the same thing as the MATATAG curriculum?',
+        answer:
+          "No, though the two are related. MATATAG changes what gets taught and how content is decongested per period. The three-term calendar changes how the school year itself is divided into grading periods and breaks. They've rolled out around the same time, which is why they're often confused for one another.",
+      },
+      {
+        question: 'Has the three-term calendar taken effect at every school yet?',
+        answer:
+          "Rollout has been phased rather than universal on day one, and the exact status can vary by school and division. Your child's school or teacher will have the most accurate, current answer for your specific school.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
