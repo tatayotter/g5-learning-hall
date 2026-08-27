@@ -217,7 +217,7 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
   // Keyed on index so each new question replays the entrance animation below,
   // rather than only playing once for the whole modal.
   const inner = (
-    <div className={embedded ? 'mt-2' : 'bg-white border border-[#8b5e2a] rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in'}>
+    <div className={embedded ? 'mt-2 bg-[#f5e8c8] border border-[#8b5e2a] rounded-xl p-3' : 'bg-white border border-[#8b5e2a] rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in'}>
       <div key={index} className="battle-panel-in">
         <div className="flex items-center justify-between mb-1.5">
           <p className="text-xs text-[#6b4820] font-mono">Question {index + 1} of {askedCount}</p>
