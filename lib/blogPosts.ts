@@ -2244,6 +2244,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { label: 'DM No. 186, s. 2026 — SSES/STE Admission Test, SY 2026-2027 (DepEd SDO Dasmariñas)', url: 'https://www.depeddasma.edu.ph/dm-no-186-s-2026-administration-of-admission-test-for-special-science-elementary-school-sses-and-science-technology-and-engineering-ste-program-for-school-year-2026-2027/' },
       { label: 'See how SSES Enrichment shows up in the actual curriculum, grade by grade', url: '/curriculum' },
       { label: "Read our plain-English MATATAG curriculum guide", url: '/blog/matatag-curriculum-parent-guide' },
+      { label: "What comes after SSES? Read our RSHS and PSHS guides", url: '/blog/regional-science-high-school-rshs-entrance-exam-guide' },
     ],
     faq: [
       {
@@ -2414,6 +2415,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { label: 'Admission Test to RSHS Region 02, SY 2020-2021 (TeacherPH)', url: 'https://www.teacherph.com/admission-test-regional-science-high-school-for-region-02/' },
       { label: 'Regional Science High School Union (background)', url: 'https://en.wikipedia.org/wiki/Regional_Science_High_School_Union' },
       { label: "Read our SSES (Special Science Elementary School) parent guide", url: '/blog/what-is-sses-special-science-elementary-school-parent-guide' },
+      { label: "Considering \"Pisay\" instead? Read our PSHS parent guide", url: '/blog/philippine-science-high-school-pshs-entrance-exam-guide' },
       { label: 'See what your Grade 6 child is actually learning right now', url: '/curriculum/grade-6' },
     ],
     faq: [
@@ -2708,6 +2710,339 @@ export const BLOG_POSTS: BlogPost[] = [
         question: 'Does Learning Hall prepare a child specifically for the RSHS entrance exam?',
         answer:
           "No. Learning Hall's Grade 6 quests reinforce genuine Math, English, and Science fundamentals through daily practice, which supports general readiness — but they are not an RSHS-specific reviewer and don't replace the above-grade-level math exposure or direct conversation with your child's school that real RSHS preparation requires.",
+      },
+    ],
+  },
+  {
+    slug: 'philippine-science-high-school-pshs-entrance-exam-guide',
+    title: "Philippine Science High School (PSHS) Entrance Exam: A Complete Parent's Guide",
+    description:
+      "What PSHS ('Pisay') actually is, how the National Competitive Examination (NCE) works, real recent exam dates and pass rates, and what the full scholarship actually asks of a family — a plain-English guide for parents of a Grade 6 pupil.",
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 6,
+    publishedAt: '2026-08-27',
+    updatedAt: '2026-08-27',
+    intro:
+      "\"Pisay\" comes up constantly among parents of a Grade 6 pupil, usually alongside some version of \"my niece got in, it's free, but I heard it's really hard.\" All of that is roughly true, but the details matter — Pisay (the Philippine Science High School System, or PSHS) is a genuinely different program from RSHS and SSES, run by a different government agency entirely, with its own exam, its own campuses, and a scholarship that comes with real obligations most parents don't hear about until after their child is already in. Here's the plain-English version.",
+    image: {
+      url: '/blog-images/pshs-nce-biology-whiteboard.webp',
+      alt: 'Teenage student writing biology concepts on a whiteboard in a classroom',
+      width: 1200,
+      height: 675,
+      credit: { name: 'Katerina Holmes', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/asian-teen-writing-structure-of-primitive-organism-on-whiteboard-5905526/' },
+    },
+    sections: [
+      {
+        heading: 'What PSHS actually is',
+        paragraphs: [
+          "The Philippine Science High School System (PSHS) is a nationwide network of specialized science high schools administered by the Department of Science and Technology (DOST) — not DepEd. That's the single most important fact to get right, since it's the reason PSHS has its own separate exam, application process, and campus system entirely apart from RSHS or any DepEd-run school.",
+          "PSHS offers a fully subsidized six-year secondary education (Grade 7 through Grade 12) to academically gifted Filipino students who pass its national entrance exam. Scholars receive free tuition, a monthly living allowance, and book support for the full six years — a genuinely different scale of support than a typical public school scholarship.",
+        ],
+      },
+      {
+        heading: 'PSHS vs. RSHS vs. SSES — three different agencies, not variations of one program',
+        paragraphs: [
+          "It's worth being direct about this, since the three get lumped together constantly in parent group chats: SSES (Special Science Elementary School) is a DepEd elementary-level program entered around Grade 1 — we cover that in our SSES parent guide. RSHS (Regional Science High School) is also DepEd-run, starting at Grade 7, with its own regional entrance exam — covered in our RSHS series. PSHS is the only one of the three run by DOST rather than DepEd, and it's a full scholarship (stipend and books included) rather than simply tuition-free schooling.",
+          "If your child's teacher mentioned \"the NCE\" specifically, or you've heard the name \"Pisay,\" that's PSHS — the rest of this series is about that program specifically, not RSHS or SSES.",
+        ],
+      },
+      {
+        heading: 'The NCE: one nationwide exam, genuinely competitive',
+        paragraphs: [
+          "Admission runs through the National Competitive Examination (NCE), administered once a year, nationwide, on a set date — for the 2026-2027 school year cycle, sittings were held on January 31 and February 7, 2026, with official results released March 30, 2026. Application windows for that cycle ran from June to November the year before, meaning the realistic planning horizon is closer to a full year, not a few months.",
+          "It's worth setting expectations honestly here: for that same 2026-2027 cycle, only 1,738 of 20,232 examinees passed — about 8.6%. This isn't meant to discourage a genuinely capable child from trying, but it's a real number worth knowing going in, rather than assuming \"good grades\" alone make admission likely.",
+        ],
+      },
+      {
+        heading: 'Where the PSHS campuses actually are',
+        paragraphs: [
+          "PSHS has a Main Campus in Diliman, Quezon City, plus regional campuses covering the rest of the country: Ilocos Region (San Ildefonso, Ilocos Sur), Cagayan Valley (Bayombong, Nueva Vizcaya), Cordillera Administrative Region (Baguio City), Central Luzon (Angeles City, Pampanga), CALABARZON (Batangas City), MIMAROPA (Odiongan, Romblon), Bicol Region (Goa, Camarines Sur), Western Visayas (Iloilo City), Central Visayas (Argao, Cebu), Eastern Visayas (Palo, Leyte), Central Mindanao (Lanao del Norte), Southern Mindanao (Davao City), SOCCSKSARGEN (Koronadal City, South Cotabato), and Caraga (Butuan City).",
+          "Because campuses draw from an entire region, some families relocate or board their child away from home — whether a specific campus has dormitory facilities and what that involves is worth confirming directly with that campus or at pshs.edu.ph, since we couldn't verify this consistently across every campus.",
+        ],
+      },
+      {
+        heading: 'The scholarship comes with real obligations — know this before your child applies',
+        paragraphs: [
+          "This is the part that surprises a lot of families after the fact, so it's worth stating clearly upfront: PSHS scholars are required to render full-time service in the Philippines for a period equal to the length of scholarship support received — one year of service for every year of scholarship. Scholars must post a cash or surety bond covering the value of assistance received before being allowed to travel abroad, and must refund all financial assistance plus 12% interest if the service obligation isn't completed.",
+          "None of this is a reason to avoid PSHS — a fully-funded six-year science education is a genuinely significant opportunity for a family, and the service obligation is a standard feature of DOST scholarships generally, not something unique or punitive to PSHS. But it's a real commitment worth discussing as a family before applying, not something to discover for the first time years later.",
+        ],
+      },
+    ],
+    takeaways: [
+      "PSHS (\"Pisay\") is a DOST-administered — not DepEd — national scholarship system offering a fully subsidized 6-year secondary education, distinct from RSHS and SSES.",
+      "Admission runs through one nationwide exam, the NCE, held annually — for the 2026-2027 cycle, only about 8.6% of examinees passed (1,738 of 20,232).",
+      "PSHS has a Main Campus in Quezon City plus 14 regional campuses covering the rest of the country.",
+      "The scholarship includes a real service obligation (one year of service per year of support) and a bond requirement before traveling abroad — worth discussing as a family before applying, not discovering later.",
+    ],
+    externalLinks: [
+      { label: 'PSHS System — official site', url: 'https://pshs.edu.ph/' },
+      { label: 'NCE Application — official PSHS portal', url: 'https://nce.pshs.edu.ph/' },
+      { label: 'NCE Frequently Asked Questions (official)', url: 'https://pshs.edu.ph/nce-faqs/' },
+      { label: 'Read our RSHS (Regional Science High School) series', url: '/blog/regional-science-high-school-rshs-entrance-exam-guide' },
+      { label: 'Read our SSES (Special Science Elementary School) parent guide', url: '/blog/what-is-sses-special-science-elementary-school-parent-guide' },
+    ],
+    faq: [
+      {
+        question: 'What does PSHS stand for, and is it the same as "Pisay"?',
+        answer:
+          "PSHS stands for Philippine Science High School System. \"Pisay\" is the common nickname Filipinos use for it. It's a DOST-administered national scholarship system offering a fully subsidized six-year secondary education to students who pass its National Competitive Examination (NCE).",
+      },
+      {
+        question: 'Is PSHS the same as RSHS?',
+        answer:
+          "No. PSHS is run by the Department of Science and Technology (DOST) and is a full scholarship (tuition, stipend, and books). RSHS (Regional Science High School) is run by DepEd and is tuition-free schooling without the same stipend structure. They have separate exams, separate campuses, and separate application processes.",
+      },
+      {
+        question: 'How hard is it to get into PSHS?',
+        answer:
+          "Genuinely competitive. For the 2026-2027 school year cycle, only 1,738 of 20,232 examinees passed the NCE — about 8.6%. Strong grades help meet the eligibility bar, but passing the exam itself is a separate, harder challenge.",
+      },
+      {
+        question: 'Does the PSHS scholarship have any obligations attached?',
+        answer:
+          "Yes. Scholars are required to render full-time service in the Philippines equal to the number of years of scholarship received, must post a bond before traveling abroad, and must refund all assistance plus 12% interest if the service obligation isn't completed. This is standard for DOST scholarships generally.",
+      },
+    ],
+  },
+  {
+    slug: 'pshs-nce-eligibility-requirements',
+    title: "Does My Child Qualify for the PSHS NCE? Eligibility & Requirements Explained",
+    description:
+      "The exact academic, age, citizenship, and character-rating requirements a Grade 6 pupil needs to apply for the PSHS National Competitive Examination — plus the one rule that catches families off guard.",
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 6,
+    publishedAt: '2026-08-27',
+    updatedAt: '2026-08-27',
+    intro:
+      "Unlike RSHS, where eligibility is mostly about class rank and a principal's recommendation, PSHS eligibility is published as a specific, checkable list of requirements straight from the PSHS System itself. Here's exactly what's on it.",
+    image: {
+      url: '/blog-images/pshs-eligibility-students-studying.webp',
+      alt: 'High school students studying together in a classroom in Indonesia',
+      width: 1200,
+      height: 675,
+      credit: { name: 'Airlangga Jati', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/indonesian-high-school-students-in-classroom-35865718/' },
+    },
+    sections: [
+      {
+        heading: 'The academic requirement',
+        paragraphs: [
+          "An applicant must be a Grade 6 pupil from a DepEd-recognized elementary school, with a final grade of at least 85% in both Science and Mathematics on their Grade 5 report card. If either grade falls below 85%, the applicant can still qualify by providing evidence that they belong to the upper 10% of their batch — a real second path for a strong all-around student whose Science or Math grade happens to sit just under the cutoff.",
+        ],
+      },
+      {
+        heading: 'Citizenship, age, and character requirements',
+        paragraphs: [
+          "Applicants must be Filipino citizens with no pending or approved application to immigrate to another country, and must not be more than 15 years old by June 30 of the application year. They also need at least a \"Satisfactory\" Character Rating (or its equivalent) on their most recent report card.",
+        ],
+      },
+      {
+        heading: "The rule that catches families off guard: you only get one shot",
+        paragraphs: [
+          "PSHS explicitly disqualifies applicants who have previously applied for admission before — there's no retaking the NCE in a later year if your child doesn't pass the first time. This is a real, meaningful difference from some other entrance exams, and it's worth making sure your child is genuinely ready before the year they apply, since there's no \"try again next year\" built into the system.",
+        ],
+      },
+      {
+        heading: 'Application process and cost',
+        paragraphs: [
+          "Applications can be filed online through the official NCE portal or through the nearest DOST regional or provincial office. Private school applicants pay a ₱300 application fee; public school students and full scholars apply free of charge. For the 2026-2027 cycle, the application window ran from June 16 to November 7 — a roughly five-month window worth planning around well before it opens, since exact dates shift year to year.",
+        ],
+      },
+    ],
+    takeaways: [
+      "Core academic requirement: at least 85% in Science and Math on the Grade 5 report card, or top 10% of the batch if either grade falls short.",
+      "Applicants must be Filipino citizens, no more than 15 years old by June 30 of the application year, with at least a \"Satisfactory\" Character Rating.",
+      "PSHS does not allow repeat applicants — there's no retaking the NCE in a later year if your child doesn't pass the first time.",
+      "Application costs ₱300 for private school students; it's free for public school students and full scholars, filed online or through a DOST regional/provincial office.",
+    ],
+    externalLinks: [
+      { label: 'NCE Application — official PSHS portal', url: 'https://nce.pshs.edu.ph/' },
+      { label: 'NCE Frequently Asked Questions (official)', url: 'https://pshs.edu.ph/nce-faqs/' },
+      { label: 'Read the PSHS series overview', url: '/blog/philippine-science-high-school-pshs-entrance-exam-guide' },
+      { label: "See what's actually tested on the exam", url: '/blog/pshs-nce-subject-coverage' },
+    ],
+    faq: [
+      {
+        question: 'What grades does my child need for the PSHS NCE?',
+        answer:
+          "At least 85% in both Science and Mathematics on their Grade 5 report card. If either grade is below 85%, the applicant can still qualify by showing they belong to the upper 10% of their batch.",
+      },
+      {
+        question: "Can my child retake the PSHS NCE if they don't pass the first time?",
+        answer:
+          "No. PSHS explicitly disqualifies applicants who have previously applied for admission — there is no retaking the exam in a later year. This makes the one attempt a pupil gets meaningfully different from exams that allow repeat attempts.",
+      },
+      {
+        question: 'How much does it cost to apply to PSHS?',
+        answer:
+          "₱300 for private school applicants. Public school students and full scholars can apply free of charge, either online through the official NCE portal or through the nearest DOST regional or provincial office.",
+      },
+    ],
+  },
+  {
+    slug: 'pshs-nce-subject-coverage',
+    title: "What's Actually on the PSHS NCE? The 4 Areas Explained",
+    description:
+      "A breakdown of the four areas the PSHS National Competitive Examination actually tests — Science, Mathematics, Verbal/English, and Abstract Reasoning — including the one area most parents have never heard of.",
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 6,
+    publishedAt: '2026-08-27',
+    updatedAt: '2026-08-27',
+    intro:
+      "The PSHS NCE isn't structured like a typical school exam, and it isn't structured the same way as the RSHS entrance exam either — it's a single nationwide test covering four distinct areas in one sitting, and one of those areas (abstract reasoning) is genuinely unfamiliar to most parents. Here's what's actually on it.",
+    image: {
+      url: '/blog-images/pshs-abstract-reasoning-pattern-cards.webp',
+      alt: 'Child matching colorful shape and pattern cards, practicing analytic thinking',
+      width: 1200,
+      height: 675,
+      credit: { name: 'Nicola Barts', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/high-angle-shot-of-a-girl-holding-cards-7943703/' },
+    },
+    sections: [
+      {
+        heading: 'Science and Mathematics',
+        paragraphs: [
+          "These two sections test the expected learning competencies of a graduating Grade 6 pupil — in other words, they're meant to measure how well a child has mastered the actual elementary curriculum, not content from beyond it. That said, because the exam is genuinely competitive (roughly 8.6% of examinees passed in the most recent cycle), performing well means real mastery and speed under time pressure, not just passing familiarity.",
+        ],
+      },
+      {
+        heading: 'Verbal Aptitude / English',
+        paragraphs: [
+          "This section assesses reading comprehension, vocabulary, and language reasoning at a level appropriate to a graduating Grade 6 pupil — closer to a standard English competency test than to a specialized reasoning task, but still calibrated for a highly competitive applicant pool.",
+        ],
+      },
+      {
+        heading: "Abstract / Non-Verbal Reasoning — the one most parents haven't heard of",
+        paragraphs: [
+          "This is the section that most distinguishes the PSHS NCE from a typical school test, and it's worth explaining clearly since it isn't part of any regular subject: abstract reasoning measures a child's ability to recognize patterns, sequences, and relationships between shapes or figures — without relying on language, numbers, or memorized content at all. A typical question might show a sequence of shapes and ask which one logically comes next, or ask a child to spot what rule connects a set of figures.",
+          "Because it isn't taught as a school subject, it's also the area where genuine, low-stakes practice (pattern games, sequence puzzles, sorting-and-classifying activities) tends to help the most relative to how little most children have been exposed to it beforehand.",
+        ],
+      },
+      {
+        heading: 'How this differs from the RSHS entrance exam structure',
+        paragraphs: [
+          "If you've also looked into RSHS, it's worth noting the structural difference: RSHS runs a two-stage process (a general aptitude test first, then a separate Science/English/Math proficiency test). The PSHS NCE instead combines all four areas — Science, Math, Verbal, and Abstract Reasoning — into one nationwide sitting. Different exams, different structures, and worth not assuming one score or one stage of prep is interchangeable with the other.",
+        ],
+      },
+    ],
+    takeaways: [
+      "The PSHS NCE tests four areas in one sitting: Science, Mathematics, Verbal Aptitude/English, and Abstract/Non-Verbal Reasoning.",
+      "Science and Math questions are pegged to the expected Grade 6 curriculum, but the exam's competitiveness means real mastery is needed, not just familiarity.",
+      "Abstract reasoning tests pattern and relationship recognition using shapes and figures, not language or numbers — it isn't a school subject, so most children haven't been exposed to it beforehand.",
+      "The PSHS NCE's single four-area sitting is structurally different from the RSHS entrance exam's two-stage aptitude-then-proficiency process — don't assume prep for one directly transfers to the other.",
+    ],
+    externalLinks: [
+      { label: 'NCE Frequently Asked Questions (official)', url: 'https://pshs.edu.ph/nce-faqs/' },
+      { label: 'Read the PSHS series overview', url: '/blog/philippine-science-high-school-pshs-entrance-exam-guide' },
+      { label: 'How to actually prepare for the NCE', url: '/blog/how-to-prepare-pshs-nce-grade-6' },
+      { label: 'See what your Grade 6 child is actually learning right now', url: '/curriculum/grade-6' },
+    ],
+    faq: [
+      {
+        question: 'What subjects are on the PSHS NCE?',
+        answer:
+          "Four areas in one nationwide sitting: Science, Mathematics, Verbal Aptitude/English, and Abstract/Non-Verbal Reasoning. The first three are pegged to expected Grade 6 competencies; abstract reasoning tests pattern recognition using shapes and figures rather than curriculum content.",
+      },
+      {
+        question: 'What is abstract reasoning, and why is it on the exam?',
+        answer:
+          "Abstract (non-verbal) reasoning measures a child's ability to spot patterns, sequences, and relationships between shapes or figures without using language or numbers. It isn't taught as a school subject, which is exactly why PSHS includes it — it tests raw reasoning ability separate from what's been memorized in class.",
+      },
+      {
+        question: 'Is the PSHS NCE the same format as the RSHS entrance exam?',
+        answer:
+          "No. RSHS uses a two-stage process — a general aptitude test, then a separate Science/English/Math proficiency test. The PSHS NCE combines Science, Math, Verbal, and Abstract Reasoning into one nationwide sitting instead.",
+      },
+    ],
+  },
+  {
+    slug: 'how-to-prepare-pshs-nce-grade-6',
+    title: 'How to Prepare for the PSHS NCE — Timeline, Study Tips, and What the Scholarship Really Requires',
+    description:
+      "A realistic year-long timeline for the PSHS application cycle, how to prepare for each of the 4 NCE areas including abstract reasoning, and an honest look at what accepting the scholarship actually commits your family to.",
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 6,
+    publishedAt: '2026-08-27',
+    updatedAt: '2026-08-27',
+    intro:
+      "Because PSHS runs on one nationwide exam date with a single attempt allowed, preparation benefits from planning a full year ahead rather than cramming once an exam date is announced. Here's a realistic breakdown of the timeline, what actually helps for each of the four NCE areas, and the scholarship commitment worth discussing as a family before applying.",
+    image: {
+      url: '/blog-images/pshs-parent-child-scholarship-talk.webp',
+      alt: 'Mother and daughter talking together at home',
+      width: 1200,
+      height: 675,
+      credit: { name: 'Nicola Barts', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/a-woman-in-yellow-shirt-sitting-near-her-daughter-while-having-conversation-7943943/' },
+    },
+    sections: [
+      {
+        heading: 'The realistic timeline: plan a year ahead, not a few months',
+        paragraphs: [
+          "For the 2026-2027 school year cycle, applications opened in mid-June and closed in early November, the NCE itself was held at the end of January and in early February, and results were released at the end of March — with slot-confirmation deadlines in late April and early May. That's roughly a year from application opening to a confirmed seat. Since your child can only apply once, it's worth starting the conversation with your Grade 6 pupil (and gathering the Grade 5 report card and other documents) well before the application window opens rather than scrambling to meet it.",
+        ],
+      },
+      {
+        heading: 'Preparing for Science and Math',
+        paragraphs: [
+          "Since these sections are pegged to expected Grade 6 competencies, the most reliable prep is genuine mastery of the actual elementary curriculum, reinforced consistently rather than crammed — the same principle that applies to regular schoolwork, just held to a higher bar given how competitive the exam is. Speed under time pressure matters too, since this is a timed nationwide test, not an untimed classroom quiz.",
+        ],
+      },
+      {
+        heading: 'Preparing for Verbal Aptitude and Abstract Reasoning',
+        paragraphs: [
+          "For the Verbal/English section, reading widely and building genuine vocabulary through use (not just memorized word lists) tends to transfer better than cramming. For Abstract Reasoning specifically — the section with no equivalent school subject — regular, low-stakes practice with pattern and sequence puzzles, sorting-and-classifying games, and \"what comes next\" reasoning exercises is the most direct way to build the skill, since a child genuinely hasn't had much other exposure to it before this exam.",
+        ],
+      },
+      {
+        heading: "Before you commit: what accepting the scholarship actually asks of your family",
+        paragraphs: [
+          "This is worth discussing honestly as a family before your child even sits the exam, not after they've been accepted: PSHS scholars take on a service obligation of one year for every year of scholarship support received, must post a bond before being allowed to travel abroad during or shortly after that obligation period, and must refund all financial assistance plus 12% interest if the obligation isn't fulfilled. None of this is unusual for a government-funded scholarship, and it doesn't make PSHS a bad choice — but it is a real, multi-year commitment worth weighing deliberately rather than discovering years later.",
+        ],
+      },
+      {
+        heading: 'Where everyday learning fits into this — including Learning Hall',
+        paragraphs: [
+          "None of the preparation above needs to be NCE-specific to be useful. A Grade 6 learner with genuinely solid Math, English, and Science fundamentals — built through consistent daily practice rather than last-minute cramming — walks into the NCE from a stronger position regardless of the exact questions that come up. Learning Hall's Grade 6 quests, including the SSES-enrichment-style applied-reasoning tasks in English, Math, and Science, are built around reinforcing exactly those fundamentals day to day. That said, they're general skill-building, not NCE-specific prep, and they don't cover abstract reasoning specifically — that skill is worth building separately, through the kind of pattern-and-puzzle practice described above.",
+        ],
+      },
+    ],
+    takeaways: [
+      "The full PSHS application cycle runs close to a year, from application opening to a confirmed seat — start preparing documents and having the conversation with your child well before the window opens.",
+      "Science and Math prep benefits from genuine, consistent mastery of the Grade 6 curriculum rather than cramming, held to a higher bar given how competitive the exam is.",
+      "Abstract reasoning has no school-subject equivalent — regular practice with pattern, sequence, and sorting puzzles is the most direct way to build it.",
+      "The scholarship comes with a real service obligation and bond requirement — discuss this as a family before your child applies, not after they're accepted.",
+    ],
+    externalLinks: [
+      { label: 'NCE Application — official PSHS portal', url: 'https://nce.pshs.edu.ph/' },
+      { label: 'Read the PSHS series overview', url: '/blog/philippine-science-high-school-pshs-entrance-exam-guide' },
+      { label: "See what's actually tested on the exam", url: '/blog/pshs-nce-subject-coverage' },
+      { label: 'Check the eligibility requirements first', url: '/blog/pshs-nce-eligibility-requirements' },
+    ],
+    faq: [
+      {
+        question: 'How far in advance should we start preparing for the PSHS NCE?',
+        answer:
+          "Given the full cycle runs close to a year (application opening to confirmed seat) and your child can only apply once, it's worth starting preparation and gathering documents (like the Grade 5 report card) well before the application window opens, rather than a few months before the exam itself.",
+      },
+      {
+        question: 'How do you prepare for the abstract reasoning section specifically?',
+        answer:
+          "Since it has no equivalent school subject, regular low-stakes practice with pattern-completion puzzles, sequence games, and sorting-and-classifying activities is the most direct way to build this skill, as most children have little other exposure to it before the exam.",
+      },
+      {
+        question: 'Does Learning Hall prepare a child specifically for the PSHS NCE?',
+        answer:
+          "No. Learning Hall's Grade 6 quests reinforce genuine Math, English, and Science fundamentals through daily practice, which supports general readiness, but they are not NCE-specific prep and don't cover abstract reasoning, which is worth building separately through pattern-and-puzzle practice.",
+      },
+      {
+        question: 'What should our family know before accepting a PSHS scholarship?',
+        answer:
+          "That it comes with a real, multi-year service obligation (one year of service per year of scholarship received), a bond requirement before traveling abroad, and a refund-plus-interest requirement if the obligation isn't completed. It's a genuine opportunity, but worth discussing as a family with full information before applying.",
       },
     ],
   },
