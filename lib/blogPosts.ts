@@ -2045,6 +2045,327 @@ export const BLOG_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'regional-science-high-school-rshs-entrance-exam-guide',
+    title: 'Regional Science High School (RSHS) Entrance Exam: A Complete Parent\'s Guide',
+    description:
+      "What the RSHS Entrance Exam (RSHS-EE) actually is, how the three-stage admission process works, and how RSHS differs from Philippine Science High School (PSHS) and SSES — a plain-English guide for parents of a Grade 6 pupil.",
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 6,
+    publishedAt: '2026-08-27',
+    updatedAt: '2026-08-27',
+    intro:
+      "If your Grade 6 child's teacher has mentioned \"RSHS\" or handed home a note about a possible entrance-exam recommendation, you're not alone in not being totally sure what that means — or how it's different from \"Pisay\" (Philippine Science High School), which a lot of families mix it up with. Here's the plain-English version: what RSHS actually is, how admission works, and what to actually do next.",
+    image: {
+      url: '/blog-images/rshs-entrance-exam-classroom-test.webp',
+      alt: 'Group of students focused and taking a written test in a classroom',
+      width: 1200,
+      height: 675,
+      credit: { name: 'This And No Internet 25', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/students-focused-on-school-test-in-classroom-31155018/' },
+    },
+    sections: [
+      {
+        heading: 'What RSHS actually is',
+        paragraphs: [
+          "A Regional Science High School (RSHS) is a DepEd public high school offering an advanced, accelerated science and mathematics curriculum, starting at Grade 7. Unlike a single national school, there isn't just one RSHS — each DepEd region runs its own (Regional Science High School for Region 1, Region VI, Eastern Visayas Regional Science High School, and so on), so \"which RSHS\" depends entirely on which region your family is in.",
+          "Entry is selective and exam-based: a Grade 6 pupil doesn't simply enroll — they're recommended by their school, then go through a multi-stage entrance examination (the RSHS-EE) before being admitted for Grade 7.",
+        ],
+      },
+      {
+        heading: 'RSHS vs. PSHS (\"Pisay\") vs. SSES — three different programs, not one',
+        paragraphs: [
+          "These three get confused constantly, so it's worth being direct: SSES (Special Science Elementary School) is the elementary-level version, entered around Grade 1, and we cover that separately in our SSES parent guide. RSHS is the next step up — a regional, DepEd-run high school starting at Grade 7. Philippine Science High School (PSHS, or \"Pisay\") is a distinct, nationally administered scholarship system with its own separate entrance exam and campuses — different enough that it deserves (and will get) its own guide rather than a quick comparison here.",
+          "The short version for this guide: if your child is finishing Grade 6 and their school has mentioned an entrance exam for a regional science high school specifically, you're most likely looking at RSHS, which is what the rest of this series covers.",
+        ],
+      },
+      {
+        heading: 'The three-stage admission process',
+        paragraphs: [
+          "Selection is done in three stages, conducted by the RSHS itself. Stage 1 is a standardized mental ability and aptitude test — applicants generally need to place in the top percentage of this stage to advance (commonly cited as the top 40%, though this can vary by region and year). Stage 2 is a proficiency test specifically in Science, English, and Mathematics, requiring a passing score to advance (sources differ on the exact cutoff — commonly cited as 75-80% — so treat any specific number as indicative, not official, until you confirm with your region's RSHS). Stage 3 is a scored interview of both the student and a parent, conducted by the RSHS screening committee.",
+          "We break down exactly what's tested at each stage — and how to actually prepare — in the rest of this series (linked below).",
+        ],
+      },
+      {
+        heading: 'How a pupil actually becomes eligible to take the exam',
+        paragraphs: [
+          "Eligibility isn't just \"sign up\" — a pupil generally needs to be recommended by their school principal and rank near the top of their Grade 6 graduating class, on top of meeting specific grade thresholds in core subjects. We walk through the actual requirements, exactly as commonly published by RSHS admission offices, in the next post in this series.",
+        ],
+      },
+    ],
+    takeaways: [
+      "RSHS (Regional Science High School) is a DepEd public high school with an accelerated science/math curriculum starting at Grade 7 — each region runs its own, entered through a competitive entrance exam.",
+      "RSHS, PSHS (\"Pisay\"), and SSES are three separate programs at three different levels (elementary, regional high school, and a national scholarship system) — don't assume they share requirements or a single application process.",
+      "Admission runs through three stages: an aptitude test, a Science/English/Math proficiency test, and a scored parent-and-student interview.",
+      "Exact cutoff percentages and quotas can vary by region and by year — always confirm current-year specifics with your local RSHS admissions office.",
+    ],
+    externalLinks: [
+      { label: 'RSHS Region XII — Admission Policy', url: 'https://rshsxii.edu.ph/about/admission-policy/' },
+      { label: 'Admission Test to RSHS Region 02, SY 2020-2021 (TeacherPH)', url: 'https://www.teacherph.com/admission-test-regional-science-high-school-for-region-02/' },
+      { label: "Read our SSES (Special Science Elementary School) parent guide", url: '/blog/what-is-sses-special-science-elementary-school-parent-guide' },
+      { label: 'See what your Grade 6 child is actually learning right now', url: '/curriculum/grade-6' },
+    ],
+    faq: [
+      {
+        question: 'What does RSHS stand for?',
+        answer:
+          'RSHS stands for Regional Science High School, a DepEd public high school offering an accelerated science and mathematics curriculum starting at Grade 7. Each DepEd region operates its own RSHS.',
+      },
+      {
+        question: 'Is RSHS the same as Philippine Science High School (Pisay)?',
+        answer:
+          "No. RSHS is a regional, DepEd-run high school starting at Grade 7. Philippine Science High School (PSHS, or \"Pisay\") is a separate, nationally administered scholarship system with its own campuses and entrance exam. They're commonly confused but are different programs with different application processes.",
+      },
+      {
+        question: 'How many stages does the RSHS entrance exam have?',
+        answer:
+          "Three: a standardized mental ability and aptitude test, a proficiency test in Science, English, and Mathematics, and a scored interview of the student and a parent, conducted by the RSHS screening committee.",
+      },
+      {
+        question: 'Does every region have the same RSHS admission requirements?',
+        answer:
+          "The general three-stage structure is consistent, but specific cutoff percentages, quotas, and timelines can vary by region and by school year. Always confirm current details with your specific region's RSHS admissions office.",
+      },
+    ],
+  },
+  {
+    slug: 'rshs-entrance-exam-eligibility-requirements',
+    title: 'Does My Child Qualify for the RSHS Entrance Exam? Eligibility & Requirements Explained',
+    description:
+      "A breakdown of the grade thresholds, class-rank requirement, and principal's recommendation a Grade 6 pupil typically needs to sit for the RSHS Entrance Exam — and why the exact numbers are worth confirming locally.",
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 6,
+    publishedAt: '2026-08-27',
+    updatedAt: '2026-08-27',
+    intro:
+      "Before a Grade 6 pupil can even sit for the RSHS Entrance Exam, they need to clear a real eligibility bar first — this isn't an exam any interested family can just sign up for. Here's what that bar typically looks like, and where the numbers actually come from.",
+    image: {
+      url: '/blog-images/rshs-eligibility-grading-exam.webp',
+      alt: "Close-up of a teacher grading multiple-choice exam papers with a red pen",
+      width: 1200,
+      height: 675,
+      credit: { name: 'Andy Barbour', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/person-checking-test-papers-6684372/' },
+    },
+    sections: [
+      {
+        heading: "The \"upper 10%\" class-rank requirement",
+        paragraphs: [
+          "A commonly published requirement is that an applicant must belong to the upper 10% of their Grade 6 graduating class. In practice, this means a pupil's overall academic standing relative to classmates matters as much as any single subject grade — it's a school-level ranking, determined by the school itself, not something a family calculates independently.",
+        ],
+      },
+      {
+        heading: 'The specific grade thresholds',
+        paragraphs: [
+          "Beyond class rank, RSHS admission policies commonly require a final grade of at least 85% in English, Science, and Mathematics specifically, a final grade of at least 83% in all other learning areas, and a weighted average of at least 85% overall. These are the thresholds published by RSHS admission offices such as Region XII's — treat them as a strong general guide, since some regions or specific school years may set slightly different cutoffs.",
+        ],
+      },
+      {
+        heading: "The school's recommendation",
+        paragraphs: [
+          "A pupil doesn't apply independently — eligibility to receive an entrance exam form is tied to a recommendation from the school principal, based on the pupil meeting the class-rank and grade requirements above. This means the actual first step for an interested family is a conversation with your child's Grade 6 adviser or principal, not a form found online.",
+        ],
+      },
+      {
+        heading: 'What to actually do, practically',
+        paragraphs: [
+          "Since eligibility depends on school-level ranking and a principal's recommendation, the most useful thing a parent can do early is simply ask the Grade 6 adviser directly: does our school participate in RSHS nomination, and roughly where does my child currently stand against these thresholds? Timelines for the recommendation and exam application also vary by region and year, so your child's school is the most reliable source for exact current-year dates — not a general guide like this one.",
+        ],
+      },
+    ],
+    takeaways: [
+      "A commonly published eligibility bar is: upper 10% class rank, an 85% final grade in English/Science/Math, an 83% final grade in other subjects, and an 85% weighted average overall.",
+      "Eligibility is tied to a principal's recommendation, not independent sign-up — the first real step is a conversation with your child's Grade 6 adviser or principal.",
+      "Exact thresholds and timelines can vary by region and school year — confirm current specifics with your child's school rather than relying on a single source.",
+    ],
+    externalLinks: [
+      { label: 'RSHS Region XII — Admission Policy', url: 'https://rshsxii.edu.ph/about/admission-policy/' },
+      { label: 'Read the RSHS series overview', url: '/blog/regional-science-high-school-rshs-entrance-exam-guide' },
+      { label: "See what's actually tested on the exam", url: '/blog/rshs-entrance-exam-subject-coverage' },
+    ],
+    faq: [
+      {
+        question: 'What grades does my child need to qualify for the RSHS entrance exam?',
+        answer:
+          "Commonly published thresholds are a final grade of at least 85% in English, Science, and Mathematics, at least 83% in other subjects, and an overall weighted average of at least 85%, in addition to ranking in the upper 10% of the Grade 6 graduating class. Exact cutoffs can vary slightly by region.",
+      },
+      {
+        question: 'Can my child apply to take the RSHS entrance exam on their own?',
+        answer:
+          "No — eligibility is tied to a recommendation from the school principal based on class rank and grades. The first step is asking your child's Grade 6 adviser or principal whether your school participates in RSHS nomination.",
+      },
+      {
+        question: 'When should we start asking about RSHS eligibility?',
+        answer:
+          "As early in Grade 6 as possible, since class rank and grade thresholds are evaluated across the school year, not just at the final grading period. Ask your child's adviser directly rather than waiting for an announcement.",
+      },
+    ],
+  },
+  {
+    slug: 'rshs-entrance-exam-subject-coverage',
+    title: "What's Actually on the RSHS Entrance Exam? Subject Coverage Explained",
+    description:
+      "A breakdown of the RSHS Entrance Exam's two testable stages — the mental ability/aptitude test and the Science, English, and Mathematics proficiency test — and how far the content actually goes beyond standard Grade 6 material.",
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 6,
+    publishedAt: '2026-08-27',
+    updatedAt: '2026-08-27',
+    intro:
+      "Once a pupil is eligible to sit for the RSHS Entrance Exam, the natural next question is simple: what's actually on it? The honest answer is that it's two genuinely different kinds of test bundled into one process — and one of them goes further than standard Grade 6 material.",
+    image: {
+      url: '/blog-images/rshs-math-equations-subject-coverage.webp',
+      alt: "Close-up of a hand writing mathematical equations on paper",
+      width: 1200,
+      height: 675,
+      credit: { name: 'Monstera Production', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/crop-person-solving-equations-on-paper-6238030/' },
+    },
+    sections: [
+      {
+        heading: 'Stage 1: the mental ability and aptitude test',
+        paragraphs: [
+          "This first stage isn't a subject test at all — it's a standardized measure of reasoning and aptitude: pattern recognition, logical sequencing, spatial reasoning, and similar general problem-solving skills, rather than memorized curriculum content. That's an important distinction for prep purposes, which we cover in the next post in this series: you can't really \"review\" for it the way you'd review for a Science quiz.",
+        ],
+      },
+      {
+        heading: 'Stage 2: the Mathematics portion',
+        paragraphs: [
+          "The proficiency test's Math component commonly spans pre-algebra, algebra, geometry, trigonometry, and statistics. Worth flagging directly: trigonometry and formal algebra are typically beyond what a standard Grade 6 MATATAG curriculum covers (see our Grade 6 curriculum breakdown) — meaning a genuinely well-prepared applicant usually has some exposure to math beyond the standard Grade 6 scope, not just strong grades within it.",
+        ],
+      },
+      {
+        heading: 'Stage 2: the English portion',
+        paragraphs: [
+          "The English component commonly covers parts of speech, sentence structure, and grammar mechanics — closer to standard Grade 6 English competencies than the Math portion is, though still at a more rigorous level of application than a typical classroom quiz.",
+        ],
+      },
+      {
+        heading: 'Stage 2: the Science portion',
+        paragraphs: [
+          "The Science component commonly spans biology, chemistry, physics, and earth/space science — a broader spread across scientific disciplines than a single Grade 6 quarter typically covers in depth, since it's assessing general science reasoning across topics rather than one term's specific competencies.",
+        ],
+      },
+      {
+        heading: 'A note on passing thresholds',
+        paragraphs: [
+          "Published sources differ on the exact proficiency-test cutoff needed to advance to the interview stage — figures of 75% and 80% both appear in different regional materials. Rather than anchor prep to either specific number, treat the real target as \"comfortably above a typical passing grade,\" and confirm the current year's actual cutoff with your specific RSHS admissions office once your child is eligible to apply.",
+        ],
+      },
+    ],
+    takeaways: [
+      "The exam has two genuinely different parts: a reasoning-based aptitude test (Stage 1) and a Science/English/Math proficiency test (Stage 2) — they need different kinds of preparation.",
+      "The Math portion (pre-algebra through trigonometry and statistics) commonly goes beyond standard Grade 6 MATATAG content, so exposure to more advanced math matters, not just strong Grade 6 grades.",
+      "English and Science portions stay closer to core Grade 6 competencies, but are tested at a more rigorous, cross-topic level than a typical classroom quiz.",
+      "Passing-score figures vary across sources (75-80%) — confirm the actual current-year cutoff with your region's RSHS rather than anchoring to either number.",
+    ],
+    externalLinks: [
+      { label: 'Admission Test to RSHS Region 02, SY 2020-2021 (TeacherPH)', url: 'https://www.teacherph.com/admission-test-regional-science-high-school-for-region-02/' },
+      { label: 'See the full Grade 6 DepEd curriculum for comparison', url: '/curriculum/grade-6' },
+      { label: 'Read the RSHS series overview', url: '/blog/regional-science-high-school-rshs-entrance-exam-guide' },
+      { label: 'How to actually prepare for the exam', url: '/blog/how-to-prepare-rshs-entrance-exam-grade-6' },
+    ],
+    faq: [
+      {
+        question: 'What subjects are on the RSHS entrance exam?',
+        answer:
+          "The exam has two stages: a general mental ability/aptitude test (not subject-specific), followed by a proficiency test covering Mathematics (pre-algebra through trigonometry and statistics), English (grammar and sentence structure), and Science (biology, chemistry, physics, and earth/space science).",
+      },
+      {
+        question: 'Does the RSHS entrance exam cover material beyond Grade 6?',
+        answer:
+          "The Math portion commonly does — topics like trigonometry and formal algebra typically go beyond the standard Grade 6 MATATAG curriculum. The English and Science portions stay closer to core Grade 6-level competencies, tested more rigorously.",
+      },
+      {
+        question: 'Can you review for the mental ability/aptitude test?',
+        answer:
+          "Not in the same way as a content subject — it measures general reasoning, pattern recognition, and logical thinking rather than memorized material. Practicing general logic puzzles and reasoning exercises is more useful than reviewing a specific syllabus.",
+      },
+    ],
+  },
+  {
+    slug: 'how-to-prepare-rshs-entrance-exam-grade-6',
+    title: 'How to Prepare Your Grade 6 Child for the RSHS Entrance Exam',
+    description:
+      "A realistic, honest preparation timeline for the RSHS Entrance Exam — covering the aptitude test, the Science/English/Math proficiency test, and the parent-and-student interview.",
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 6,
+    publishedAt: '2026-08-27',
+    updatedAt: '2026-08-27',
+    intro:
+      "Once you understand what the RSHS Entrance Exam actually tests, the preparation question gets a lot more specific than \"study harder.\" Here's a realistic breakdown of what actually helps at each stage — and where it genuinely doesn't help to cram.",
+    image: {
+      url: '/blog-images/rshs-parent-child-exam-prep.webp',
+      alt: 'Father helping his son with schoolwork together at home',
+      width: 1200,
+      height: 675,
+      credit: { name: 'Vitaly Gariev', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/father-and-son-doing-homework-together-in-living-room-39191138/' },
+    },
+    sections: [
+      {
+        heading: 'Start early — this isn\'t a two-week cram situation',
+        paragraphs: [
+          "Because eligibility itself depends on a full school year of class rank and grades, real preparation effectively starts well before the exam date — a strong, consistent Grade 6 school year is itself the first stage of preparation, not a separate step. Waiting until an exam date is announced to begin building math and science fundamentals is starting from behind.",
+        ],
+      },
+      {
+        heading: "Don't try to \"review\" for the aptitude test — build reasoning instead",
+        paragraphs: [
+          "Since the mental ability/aptitude stage measures general reasoning rather than a fixed syllabus, the highest-value prep here isn't memorization — it's regular practice with logic puzzles, pattern-completion exercises, and \"why did this happen\" reasoning conversations, built up over months rather than crammed the week before.",
+        ],
+      },
+      {
+        heading: "For the proficiency test, go beyond the Grade 6 basics deliberately",
+        paragraphs: [
+          "Since the Math portion in particular commonly reaches into algebra and trigonometry — beyond standard Grade 6 content — deliberately exposing your child to slightly more advanced math concepts (not just drilling what's already in their current textbook) is worth the extra effort. For English and Science, reinforcing core Grade 6 competencies more rigorously (not just to a passing grade, but to real fluency) closes most of the gap, since those two sections stay closer to grade-level material.",
+        ],
+      },
+      {
+        heading: 'Prepare for the interview as a real conversation, not a script',
+        paragraphs: [
+          "The interview stage involves both the student and a parent, and it's scored — but a rehearsed, memorized script tends to read as exactly that to an interviewer. It's more useful to have a genuine conversation at home about why your child is interested in science, what they'd want to explore if admitted, and how they handle a hard problem — the substance of those answers, not polish, is what actually carries an interview.",
+        ],
+      },
+      {
+        heading: "Where everyday learning fits into this — including Learning Hall",
+        paragraphs: [
+          "None of this preparation needs to be RSHS-specific to be useful. A Grade 6 learner who has genuinely solid Math, English, and Science fundamentals — built through consistent daily practice rather than last-minute review — walks into both the proficiency test and the interview from a stronger position, regardless of which specific questions come up. Learning Hall's Grade 6 quests (including the SSES-enrichment-style applied-reasoning tasks in English, Math, and Science) are built around reinforcing exactly those real fundamentals day to day. That said, they're general skill-building, not an RSHS-specific reviewer — they won't substitute for the deliberate above-grade-level math exposure or the direct conversation with your child's school that this series has walked through.",
+        ],
+      },
+    ],
+    takeaways: [
+      "Real preparation starts with a strong, consistent Grade 6 school year, since eligibility itself is based on class rank and grades across the year.",
+      "The aptitude test rewards ongoing reasoning practice (logic puzzles, pattern exercises) over last-minute review — there's no fixed syllabus to cram.",
+      "For the proficiency test, deliberately go beyond Grade 6 math basics (the section most likely to exceed grade-level content), while reinforcing English and Science fundamentals more rigorously.",
+      "Treat the interview as a genuine conversation to prepare for, not a script — authentic answers about your child's interest in science carry more weight than rehearsed polish.",
+    ],
+    externalLinks: [
+      { label: 'Read the RSHS series overview', url: '/blog/regional-science-high-school-rshs-entrance-exam-guide' },
+      { label: "See exactly what's tested at each stage", url: '/blog/rshs-entrance-exam-subject-coverage' },
+      { label: 'Check the eligibility requirements first', url: '/blog/rshs-entrance-exam-eligibility-requirements' },
+    ],
+    faq: [
+      {
+        question: 'When should I start preparing my child for the RSHS entrance exam?',
+        answer:
+          "As early as possible in Grade 6, since eligibility itself depends on class rank and grades built up across the full school year — not just exam-day performance. A consistent, strong school year is the real first stage of preparation.",
+      },
+      {
+        question: 'How do you prepare for the RSHS aptitude test specifically?',
+        answer:
+          "Since it measures general reasoning rather than a fixed syllabus, regular practice with logic puzzles, pattern-completion exercises, and reasoning conversations over months is more effective than last-minute review.",
+      },
+      {
+        question: 'Does Learning Hall prepare a child specifically for the RSHS entrance exam?',
+        answer:
+          "No. Learning Hall's Grade 6 quests reinforce genuine Math, English, and Science fundamentals through daily practice, which supports general readiness — but they are not an RSHS-specific reviewer and don't replace the above-grade-level math exposure or direct conversation with your child's school that real RSHS preparation requires.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
