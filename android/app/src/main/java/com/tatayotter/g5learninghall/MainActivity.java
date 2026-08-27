@@ -1,6 +1,7 @@
 package com.tatayotter.g5learninghall;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.net.ConnectivityManager;
@@ -8,7 +9,6 @@ import android.net.NetworkCapabilities;
 import android.os.Bundle;
 import android.util.Log;
 import com.getcapacitor.BridgeActivity;
-import com.getcapacitor.CapConfig;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -16,16 +16,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-// Online (unchanged): server.url from capacitor.config.ts loads the live
-// Vercel app exactly as before.
-//
-// Offline: no connection at cold start, so loading the remote server.url
-// would just show a network-error page. Instead, fall back to the
-// locally-bundled offline shell (a separate, small static export — see
-// offline-shell/ and lib/localDataSource.ts). It IS webDir (www/) in its
-// entirety — the online path never uses webDir at all (server.url always
-// overrides it) — so this just loads webDir's own root index.html, no
-// custom start path needed.
+// This app is online-only — server.url from capacitor.config.ts always
+// loads the live Vercel app. No connection at cold start means there's
+// nothing safe to show in the WebView, so we hand off to
+// NoConnectionActivity instead of ever starting the bridge/WebView.
 public class MainActivity extends BridgeActivity {
 
     private static final String TAG = "MainActivity";
@@ -35,10 +29,15 @@ public class MainActivity extends BridgeActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        if (!isOnline()) {
-            this.config = new CapConfig.Builder(this).setServerUrl(null).create();
-        }
         super.onCreate(savedInstanceState);
+        if (!isOnline()) {
+            // Bail out before the WebView gets a chance to render/load
+            // anything — finish() here happens before the first frame draws,
+            // so there's no visible flash of the (now-unreachable) live URL.
+            startActivity(new Intent(this, NoConnectionActivity.class));
+            finish();
+            return;
+        }
         // Layers a transparent disk cache under the WebView for static
         // assets and Next.js's content-hashed JS/CSS chunks — see
         // CachingWebViewClient's own header comment for why this replaces

@@ -7,7 +7,6 @@ on:
     paths:
       - "android/**"
       - "capacitor.config.ts"
-      - "offline-shell/**"
       - "lib/**"
       - ".github/workflows/android-apk.yml"
 
@@ -27,24 +26,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build offline shell (static export)
-        working-directory: offline-shell
-        env:
-          # Public (NEXT_PUBLIC_*) values, same as the main app's Vercel config
-          # — needed because importing lib/guildEngine.ts/lib/userSession.ts
-          # transitively constructs the Supabase client (lib/supabase.ts) at
-          # module load, even though the offline path itself never calls it.
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+      - name: Create placeholder webDir
+        # The app is online-only (capacitor.config.ts's server.url always
+        # wins, see MainActivity.java) — webDir is never actually shown, but
+        # `npx cap sync` still expects it to exist.
         run: |
-          npm ci
-          npm run build
-
-      - name: Copy offline shell into webDir
-        run: |
-          rm -rf www
           mkdir -p www
-          cp -r offline-shell/out/. www/
+          echo "<!doctype html><title>Learning Hall</title>" > www/index.html
 
       - name: Sync Capacitor Android project
         run: npx cap sync android

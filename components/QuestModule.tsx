@@ -65,35 +65,20 @@ interface QuestModuleProps {
   isMastered: boolean;
   // Grading happens server-side (grade_content_quiz / grade_event_quiz RPCs) —
   // questData never carries correct_answer, so this module can't compare
-  // locally even if it wanted to. Encrypting/hashing an answer key for
-  // offline grading wouldn't help either — whatever grades it locally has to
-  // decrypt it, and most quizzes are multiple-choice so even a hash is
-  // trivially crackable by hashing each visible option. Offline, submission
-  // queues instead (see onOfflineSubmit) rather than grading locally.
+  // locally even if it wanted to.
   gradeQuiz: (selectedAnswers: Record<number, string>) => Promise<QuizGradeResult>;
   onQuizSubmit: (isPerfect: boolean, newAttempts: number, newStats: CharacterStats, xpEarned: number, goldEarned: number) => void;
   onExit: () => void;
-  // When true, Submit queues the answers (via onOfflineSubmit) instead of
-  // calling gradeQuiz — grading happens once back online (lib/offlineSync.ts's
-  // 'submit_quiz_answers' replay case). Optional: event quizzes don't pass
-  // this (Events stay live-only — see docs), so they keep the original
-  // always-live behavior when the prop is omitted.
-  offline?: boolean;
-  onOfflineSubmit?: (selectedAnswers: Record<number, string>) => void;
 }
 
 const COOLDOWN_SECONDS = 20;
 
-export default function QuestModule({ userId, questName, questKey, questData, currentStats, attemptsSoFar, isMastered, gradeQuiz, onQuizSubmit, onExit, offline, onOfflineSubmit }: QuestModuleProps) {
+export default function QuestModule({ userId, questName, questKey, questData, currentStats, attemptsSoFar, isMastered, gradeQuiz, onQuizSubmit, onExit }: QuestModuleProps) {
   const safeAttemptsSoFar = Number.isFinite(attemptsSoFar) ? attemptsSoFar : 0;
 
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [grading, setGrading] = useState(false);
-  // Offline: the answers were queued, not graded — no right/wrong to show,
-  // just confirmation. Distinct from `submitted` (which drives the graded
-  // review UI) so the two states render differently below.
-  const [offlinePending, setOfflinePending] = useState(false);
   const [shuffledOptions, setShuffledOptions] = useState<Record<number, string[]>>({});
   const [correctAnswers, setCorrectAnswers] = useState<string[]>([]);
   const [lastResult, setLastResult] = useState<{ isPerfect: boolean; score: number; total: number; xp: number; gold: number; attemptNumber: number } | null>(null);
@@ -129,11 +114,6 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
 
   const handleSubmitQuiz = async () => {
     if (grading) return;
-    if (offline && onOfflineSubmit) {
-      onOfflineSubmit(selectedAnswers);
-      setOfflinePending(true);
-      return;
-    }
     setGrading(true);
     let graded: QuizGradeResult;
     try {
@@ -203,24 +183,6 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
         <h2 className="text-3xl font-bold text-green-700 mb-4 font-display">Quest Completed!</h2>
         <p className="text-[#6b4820] mb-2">Mastered in {safeAttemptsSoFar || 1} attempt{safeAttemptsSoFar !== 1 ? 's' : ''}.</p>
         <p className="text-xl text-[#2a1505] mb-6">You earned <span className="font-bold text-[#c9781a] font-mono">{recap.xp} XP</span> and <span className="font-bold text-yellow-600 font-mono">{recap.gold} Gold</span>.</p>
-        <GameButton
-          onClick={onExit}
-          className="bg-[#8b5e2a] hover:bg-[#6b4820] text-white font-bold py-3 px-6 rounded transition-colors"
-        >
-          Return to Campaign Map
-        </GameButton>
-      </div>
-    );
-  }
-
-  // --- OFFLINE: SUBMITTED, GRADING DEFERRED ---
-  if (offlinePending) {
-    return (
-      <div className="bg-[#f0ddb8] border border-[#8b5e2a] p-8 rounded-xl text-center">
-        <h2 className="text-3xl font-bold text-[#7a4a0f] mb-4 font-display">🔌 Submitted — Results Pending</h2>
-        <p className="text-[#6b4820] mb-6 max-w-md mx-auto">
-          Your answers are saved and will be graded automatically the next time you're back online — no answer key is stored on this device, so grading can't happen until then.
-        </p>
         <GameButton
           onClick={onExit}
           className="bg-[#8b5e2a] hover:bg-[#6b4820] text-white font-bold py-3 px-6 rounded transition-colors"
@@ -337,9 +299,6 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
               </>
             ) : (
               <>
-                {offline && (
-                  <span className="text-xs text-blue-400 font-bold">🔌 Offline — results deferred until reconnected</span>
-                )}
                 <GameButton
                   onClick={handleSubmitQuiz}
                   disabled={!allAnswered || grading}
