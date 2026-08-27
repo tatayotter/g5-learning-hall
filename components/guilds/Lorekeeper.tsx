@@ -7,6 +7,7 @@ import {
   fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile,
   ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile,
   getCompanionTierCrossed, fetchCompanionInstanceStats, getCompanionSpeciesDef,
+  gradeStageIndex, gradeStageStars, MIN_GRADE_STAGE,
 } from '@/lib/guildEngine';
 import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
@@ -14,7 +15,6 @@ import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { GUILDS } from '@/lib/dailyChecklist';
-import { USERS, gradeToNumber } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
@@ -44,7 +44,7 @@ interface LorekeeperQuestion {
   choice_c: string;
   choice_d: string;
   correct_choice: string;
-  difficulty_tier: number;
+  grade_level: number;
 }
 
 interface LorekeeperProps {
@@ -70,7 +70,6 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
   const [shuffledChoices, setShuffledChoices] = useState<{ key: string; text: string }[]>([]);
 
   const isTala = userId === 'tala';
-  const gradeLevel = gradeToNumber(USERS[userId]?.grade);
   const timeLimit = isTala ? 120 : 60;
   const engine = useTimeAttack<LorekeeperQuestion>(questions, timeLimit);
 
@@ -79,7 +78,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
       try {
         const [pool, subProfile] = await Promise.all([
           takePrefetch<any[]>(userId, 'guildPool:lorekeeper')
-            ?? fetchQuestionPool(userId, 'sq_lorekeeper', 'lorekeeper', gradeLevel),
+            ?? fetchQuestionPool(userId, 'sq_lorekeeper', 'lorekeeper'),
           takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
             ?? fetchSubclassProfile(userId)
         ]);
@@ -121,7 +120,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
     setFlashResult(isCorrect ? 'correct' : 'wrong');
     if (isCorrect) playChime(); else playClash();
     setTimeout(() => {
-      engine.submitResult(isCorrect, engine.currentQuestion!.id, engine.currentQuestion!.difficulty_tier);
+      engine.submitResult(isCorrect, engine.currentQuestion!.id, gradeStageIndex(engine.currentQuestion!.grade_level));
       setSelectedChoice(null);
       setFlashResult(null);
     }, 400);
@@ -181,7 +180,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
           <h2 className="text-4xl font-display font-bold text-emerald-700 mb-2">Lorekeeper Guild Hall</h2>
           <p className="text-emerald-700 font-mono italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'lorekeeper')?.lore}</p>
           <p className="text-gray-500 font-mono mb-1">Lvl {profile?.lorekeeper_lvl || 1} · {profile?.lorekeeper_xp || 0}/500 XP</p>
-          <p className="text-emerald-700 text-xs font-mono mb-4">Difficulty {'★'.repeat(profile?.lorekeeper_tier || 1)}{'☆'.repeat(Math.max(0, 3 - (profile?.lorekeeper_tier || 1)))}</p>
+          <p className="text-emerald-700 text-xs font-mono mb-4">Grade {profile?.lorekeeper_tier || MIN_GRADE_STAGE} · {gradeStageStars(profile?.lorekeeper_tier || MIN_GRADE_STAGE)}</p>
           <p className="text-gray-500 mb-6 text-sm max-w-md mx-auto">Answer as many passage questions as you can in {timeLimit} seconds. Correct answers build your streak — the longer the streak, the greater the gold multiplier.</p>
 
           <div className="grid grid-cols-3 gap-4 mb-8 text-center">
@@ -220,7 +219,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
   if (screen === 'playing' && engine.currentQuestion) {
     const q = engine.currentQuestion;
     const choices = shuffledChoices;
-    const difficultyStars = '★'.repeat(q.difficulty_tier) + '☆'.repeat(Math.max(0, 3 - q.difficulty_tier));
+    const difficultyStars = gradeStageStars(q.grade_level);
     const timerPct = (engine.timeLeft / timeLimit) * 100;
     const timerColor = engine.timeLeft <= 10 ? 'bg-red-500' : engine.timeLeft <= 20 ? 'bg-yellow-500' : 'bg-emerald-500';
     const feedbackClass = flashResult === 'correct' ? 'battle-answer-correct' : flashResult === 'wrong' ? 'battle-answer-wrong' : '';

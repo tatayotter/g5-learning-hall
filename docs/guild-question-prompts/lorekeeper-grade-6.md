@@ -15,8 +15,7 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "choice_b": "Because it lies along the Pacific Ring of Fire where tectonic plates meet",
     "choice_c": "Because it is an archipelago with many islands",
     "choice_d": "Because of its tropical climate",
-    "correct_choice": "b",
-    "difficulty_tier": 2
+    "correct_choice": "b"
   },
   {
     "question": "What is the difference between a persuasive and an informational essay?",
@@ -24,23 +23,13 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "choice_b": "Persuasive essays aim to convince the reader of a position; informational essays aim to explain or describe a topic objectively",
     "choice_c": "Persuasive essays only use facts; informational essays use opinions",
     "choice_d": "They are the same type of writing",
-    "correct_choice": "b",
-    "difficulty_tier": 2
+    "correct_choice": "b"
   }
 ]
 ```
 
 - `passage` is optional.
 - `correct_choice` must be exactly `"a"`, `"b"`, `"c"`, or `"d"`.
-- `difficulty_tier` must be `1`, `2`, or `3`.
-
-## Difficulty Tiers
-
-| Tier | Label | Cognitive Level |
-|---|---|---|
-| 1 | Easy | Direct recall of a key fact or definition |
-| 2 | Developing | Understanding, comparison, short inference from a passage |
-| 3 | Advanced | Critical analysis, evaluation, multi-cause reasoning, or synthesis across topics |
 
 ## Grade 6 Curriculum Topics
 
@@ -63,7 +52,7 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 - Argumentative/persuasive writing: claim, evidence, warrant, counterargument, rebuttal
 - Research skills: evaluating sources (primary vs secondary; reliable vs unreliable); avoiding plagiarism; citation basics
 - Complex grammar: conditional sentences (Types 1, 2, 3); reported speech; relative clauses; gerunds and infinitives
-- Vocabulary: nuance between near-synonyms; idiomatic expressions; academic vocabulary (tier 3 words)
+- Vocabulary: nuance between near-synonyms; idiomatic expressions; advanced academic vocabulary
 
 ### Filipino (Panitikan at Wika)
 - Dulaan (drama): uri ng dula, elemento (tagpuan, tauhan, banghay, diyalogo), tayutay sa dula
@@ -76,7 +65,6 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 - Language level: 11–12-year-old academic language; technical terms are expected and appropriate.
 - Passage-based: 5–8 sentences; include both informational/scientific and literary passages.
 - Topic mix: 30 % Science, 30 % Philippine/Asian History + Governance, 25 % English, 15 % Filipino.
-- Tier distribution: 20 % tier 1 / 40 % tier 2 / 40 % tier 3.
 - Historical questions must be factually accurate; use precise dates and names.
 - Science questions should test understanding of mechanisms, not just label memorization.
 - Avoid questions that can be answered purely by elimination.

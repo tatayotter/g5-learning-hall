@@ -5,6 +5,7 @@ import {
   fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile,
   ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile,
   getCompanionTierCrossed, fetchCompanionInstanceStats, getCompanionSpeciesDef,
+  gradeStageIndex, gradeStageStars,
 } from '@/lib/guildEngine';
 import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
@@ -12,7 +13,6 @@ import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { GUILDS } from '@/lib/dailyChecklist';
-import { USERS, gradeToNumber } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
@@ -36,7 +36,7 @@ function shuffle<T>(arr: T[]): T[] {
 interface SpellCasterQuestion {
   id: string;
   word_string: string;
-  difficulty_tier: number;
+  grade_level: number;
 }
 
 interface SpellCasterProps {
@@ -62,7 +62,6 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
   const inputRef = useRef<HTMLInputElement>(null);
 
   const isTala = userId === 'tala';
-  const gradeLevel = gradeToNumber(USERS[userId]?.grade);
   const timeLimit = isTala ? 120 : 60;
   const engine = useTimeAttack<SpellCasterQuestion>(questions, timeLimit)
 
@@ -70,7 +69,7 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
     async function loadPool() {
       const [pool, subProfile] = await Promise.all([
         takePrefetch<any[]>(userId, 'guildPool:spellcaster')
-          ?? fetchQuestionPool(userId, 'sq_spellcaster', 'spellcaster', gradeLevel),
+          ?? fetchQuestionPool(userId, 'sq_spellcaster', 'spellcaster'),
         takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
           ?? fetchSubclassProfile(userId)
       ]);
@@ -108,7 +107,7 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
       // Correct match
       playChime();
       setFlashResult('correct');
-      engine.submitResult(true, engine.currentQuestion.id, engine.currentQuestion.difficulty_tier);
+      engine.submitResult(true, engine.currentQuestion.id, gradeStageIndex(engine.currentQuestion.grade_level));
       setTypedValue('');
       setTimeout(() => setFlashResult(null), 300);
     } else if (val.length >= target.length && !target.toLowerCase().startsWith(val.toLowerCase())) {
@@ -228,7 +227,7 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
   }
 
   if (screen === 'playing' && engine.currentQuestion) {
-    const difficultyStars = '★'.repeat(engine.currentQuestion.difficulty_tier) + '☆'.repeat(Math.max(0, 3 - engine.currentQuestion.difficulty_tier));
+    const difficultyStars = gradeStageStars(engine.currentQuestion.grade_level);
     const timerPct = (engine.timeLeft / timeLimit) * 100;
     const timerColor = engine.timeLeft <= 10 ? 'bg-red-500' : engine.timeLeft <= 20 ? 'bg-yellow-500' : 'bg-violet-500';
     const feedbackClass = flashResult === 'correct' ? 'battle-answer-correct' : flashResult === 'wrong' ? 'battle-answer-wrong' : '';

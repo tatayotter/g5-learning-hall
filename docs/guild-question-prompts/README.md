@@ -17,7 +17,7 @@ guild-question-prompts/
 
 1. **Open the relevant file** (e.g. `number-realm-grade-5.md`).
 2. **Paste it as the system prompt** (or first user message) to Claude / another model.
-3. **Add**: `Generate 50 questions. Distribute across tiers: 17 tier-1 / 17 tier-2 / 16 tier-3.`
+3. **Add**: `Generate 50 questions for this grade.`
 4. **Copy the JSON output** and paste it into the Admin → Question Bank importer (select the correct guild and grade there — do NOT include `term_id`, `grade_level`, or `is_active` in the JSON; the importer adds those).
 
 Alternatively, wrap the JSON in a SQL migration (see existing migration `20260821000001_sq_guild_questions_g2_g5_batch1.sql` for the INSERT pattern).
@@ -27,9 +27,8 @@ Alternatively, wrap the JSON in a SQL migration (see existing migration `2026082
 | Rule | Detail |
 |---|---|
 | Term | Always `term_id = 1` (current term) |
-| Grades | `grade_level` 2–6; questions should be pitched at that grade's DepEd curriculum |
+| Grades | `grade_level` 2–6; questions should be pitched at that grade's DepEd curriculum — this is now the *only* difficulty axis. There's no separate difficulty tier: every player, regardless of their real grade, progresses through the same grade-2→6 content ladder, so a grade's pool should read as a coherent, self-contained difficulty level on its own (see [lib/guildEngine.ts](../../lib/guildEngine.ts)) |
 | Active | `is_active = true` always |
-| Difficulty | Tier 1 = straightforward recall, Tier 2 = application/understanding, Tier 3 = analysis/reasoning |
 | No duplicates | Check existing questions before importing; the importer deduplicates on the field listed per guild |
 | Language | English unless the prompt file specifies Filipino content |
 | Avoid | Trivially obvious distractors (e.g. "None of the above"); all four choices should be plausible |

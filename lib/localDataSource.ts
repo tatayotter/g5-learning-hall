@@ -174,6 +174,28 @@ export async function getCachedGuildPoolAnyTier(tableName: string, questType: st
   return merged;
 }
 
+// The 5 subclass guilds no longer filter by the player's real grade — their
+// "grade_level" cache rows are keyed by grade *stage* instead (see
+// fetchQuestionPool in lib/guildEngine.ts), which the offline shell doesn't
+// track locally. Rather than needing an exact stage match, this merges every
+// grade cached for the guild — same "just needs *a* pool" philosophy as
+// getCachedGuildPoolAnyTier above, one dimension wider.
+export async function getCachedGuildPoolAnyGrade(tableName: string, questType: string): Promise<any[]> {
+  const db = await getDb();
+  const result = await db.query(
+    `SELECT questions_json FROM local_guild_pools WHERE table_name = ? AND quest_type = ?`,
+    [tableName, questType]
+  );
+  const seen = new Set<string>();
+  const merged: any[] = [];
+  for (const row of result.values || []) {
+    for (const q of JSON.parse(row.questions_json)) {
+      if (!seen.has(q.id)) { seen.add(q.id); merged.push(q); }
+    }
+  }
+  return merged;
+}
+
 // ─── Weekly data (full WeeklyData snapshot: stats, journal, achievements, ─────
 // package_data/Main Quest content, quiz history, etc.) ─────────────────────
 

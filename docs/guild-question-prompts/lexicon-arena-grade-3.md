@@ -14,8 +14,7 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "correct_spelling": "thunderstorm",
     "wrong_a": "thunderstrom",
     "wrong_b": "thundestorm",
-    "wrong_c": "thunderstorm",
-    "difficulty_tier": 2
+    "wrong_c": "thunderstorm"
   },
   {
     "language": "Filipino",
@@ -23,8 +22,7 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "correct_spelling": "kalungkutan",
     "wrong_a": "kalungktan",
     "wrong_b": "kalunkutan",
-    "wrong_c": "kalungkotan",
-    "difficulty_tier": 2
+    "wrong_c": "kalungkotan"
   }
 ]
 ```
@@ -33,15 +31,6 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 
 - `language` must be exactly `"English"` or `"Filipino"`.
 - `correct_spelling` — lowercase; the full correct spelling.
-- `difficulty_tier` — `1`, `2`, or `3`.
-
-## Difficulty Tiers
-
-| Tier | Word complexity | Misspelling strategy |
-|---|---|---|
-| 1 | 4–6 letters; high-frequency words; one common spelling rule | Vowel swap (ea↔ee, ou↔ow), doubled consonant error, dropped silent letter |
-| 2 | 6–9 letters; subject-area vocabulary; blends, digraphs, soft-c/g | Blend error (str→sr, tch→ch), soft-g/-c missed, vowel-pair reversed (ie↔ei) |
-| 3 | 8–12 letters; slightly advanced; suffix/prefix spelling conventions | Wrong suffix (-tion vs -sion, -ness vs -nes), prefix assimilation dropped, double-error |
 
 ## Grade 3 Word Pool
 
@@ -70,7 +59,6 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 
 ## Balance
 - Aim for roughly 55 % English / 45 % Filipino entries.
-- Tier distribution: 30 % tier 1 / 45 % tier 2 / 25 % tier 3.
 
 ## Generation Instruction
 Generate [N] Lexicon Arena entries for Grade 3, Term 1. Return only the JSON array. No commentary.

@@ -72,7 +72,11 @@ export default function CurriculumHubPage() {
               <Link href="/blog/matatag-curriculum-parent-guide" className="text-[#a3610c] hover:text-[#c9781a] underline">
                 MATATAG curriculum guide
               </Link>
-              .
+              . To see how this curriculum turns into actual gameplay, see{' '}
+              <Link href="/guilds" className="text-[#a3610c] hover:text-[#c9781a] underline">
+                The Guild Ledger
+              </Link>
+              , which explains what each of the app's 5 side-quest guilds trains and why.
             </p>
           </section>
 

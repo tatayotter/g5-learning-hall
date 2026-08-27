@@ -20,7 +20,6 @@ import { fetchInventory, InventoryMap } from '@/lib/inventory';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { isOfflineStorageAvailable } from '@/lib/localDataSource';
 import { isAppOffline } from '@/lib/offlineState';
-import { gradeToNumber } from '@/lib/userSession';
 import { loadTiledArtMap } from '@/lib/tiledArtMap';
 import { REGIONS } from '@/lib/regions';
 
@@ -58,12 +57,14 @@ export function prefetchAllTabs(userId: string, grade: string | number | undefin
 
   cache.clear();
   cachedForUserId = userId;
-  const gradeLevel = gradeToNumber(grade);
 
   const subclassProfilePromise = fetchSubclassProfile(userId);
   cache.set('subclassProfile', subclassProfilePromise);
+  // No gradeLevel passed — the 5 subclass guilds progress through the same
+  // grade-2..6 content ladder regardless of the player's real grade now
+  // (see fetchQuestionPool in lib/guildEngine.ts).
   for (const [tableName, questType] of GUILD_TABLES) {
-    cache.set(`guildPool:${questType}`, fetchQuestionPool(userId, tableName, questType, gradeLevel));
+    cache.set(`guildPool:${questType}`, fetchQuestionPool(userId, tableName, questType));
   }
 
   // Curio Guild (MonsterGuild.tsx) — same fetch set as its own loadData().

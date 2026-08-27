@@ -11,27 +11,23 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
   {
     "problem_prompt": "347 + 486 = ?",
     "expected_layout": "standard",
-    "correct_standard_ans": "833",
-    "difficulty_tier": 2
+    "correct_standard_ans": "833"
   },
   {
     "problem_prompt": "A rectangle is 8 cm long and 5 cm wide. What is its area?",
     "expected_layout": "standard",
-    "correct_standard_ans": "40",
-    "difficulty_tier": 2
+    "correct_standard_ans": "40"
   },
   {
     "problem_prompt": "1/3 + 1/3 = ?",
     "expected_layout": "fraction",
     "correct_numerator": 2,
-    "correct_denominator": 3,
-    "difficulty_tier": 1
+    "correct_denominator": 3
   },
   {
     "problem_prompt": "School starts at 7:00 AM. Lunch is 2 hours and 30 minutes later. What time is lunch?",
     "expected_layout": "time",
-    "correct_standard_ans": "9:30",
-    "difficulty_tier": 3
+    "correct_standard_ans": "9:30"
   }
 ]
 ```
@@ -42,14 +38,6 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 | `"standard"` | `correct_standard_ans` (string) | Numbers, money (₱), area in cm² or m², mass in g or kg |
 | `"fraction"` | `correct_numerator` + `correct_denominator` (integers) | Always simplify |
 | `"time"` | `correct_standard_ans` as `"H:MM"` | e.g., `"9:30"`, `"11:00"` |
-
-## Difficulty Tiers
-
-| Tier | Description |
-|---|---|
-| 1 | Single-step; direct application of one skill (e.g., a single multiplication fact, simple fraction addition) |
-| 2 | Two-step or moderate numbers; area/perimeter formula; multi-digit multiplication; word problems |
-| 3 | Multi-step word problems; combining two skills; division with remainders; bar-graph reading + computation |
 
 ## Grade 3 Math Topics (DepEd BOW)
 
@@ -84,4 +72,4 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 - Distribute layouts roughly: 65 % standard / 20 % fraction / 15 % time.
 
 ## Generation Instruction
-Generate [N] Number Realm problems for Grade 3, Term 1. Distribute roughly 30 % tier 1 / 45 % tier 2 / 25 % tier 3. Return only the JSON array. No commentary.
+Generate [N] Number Realm problems for Grade 3, Term 1. Return only the JSON array. No commentary.

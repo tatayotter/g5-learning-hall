@@ -15,8 +15,7 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "choice_b": "He is determined and devoted to his family",
     "choice_c": "He is wealthy and buys everything he wants",
     "choice_d": "He is afraid of the rain",
-    "correct_choice": "b",
-    "difficulty_tier": 2
+    "correct_choice": "b"
   },
   {
     "question": "What is Newton's First Law of Motion?",
@@ -24,23 +23,13 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
     "choice_b": "For every action there is an equal and opposite reaction",
     "choice_c": "An object at rest stays at rest unless acted upon by an unbalanced external force",
     "choice_d": "Objects with greater mass fall faster",
-    "correct_choice": "c",
-    "difficulty_tier": 3
+    "correct_choice": "c"
   }
 ]
 ```
 
 - `passage` is optional.
 - `correct_choice` must be exactly `"a"`, `"b"`, `"c"`, or `"d"`.
-- `difficulty_tier` must be `1`, `2`, or `3`.
-
-## Difficulty Tiers
-
-| Tier | Label | Cognitive Level |
-|---|---|---|
-| 1 | Easy | Direct recall of a key fact or definition |
-| 2 | Developing | Understanding, application, short inference from text, or comparison of two concepts |
-| 3 | Advanced | Analysis, multi-step reasoning, historical interpretation, literary analysis, evaluation |
 
 ## Grade 5 Curriculum Topics
 
@@ -81,7 +70,6 @@ Output a **JSON array**. Do NOT include `id`, `term_id`, `grade_level`, or `is_a
 - Language level: 10–11-year-old; academic language is appropriate, define terms only when necessary.
 - Passage-based: 4–7 sentences; test inference, not just recall; include both literary and informational passages.
 - Topic mix: 30 % Science, 30 % Philippine History/AP, 25 % English, 15 % Filipino.
-- Tier distribution: 25 % tier 1 / 40 % tier 2 / 35 % tier 3.
 - Historical questions must be factually accurate; cite specific names, dates, or terms when possible.
 - For literary device questions, always include the actual sentence example in the stem.
 - Distractors: common misconceptions (e.g., confusing Newton's laws; confusing Katipunan with Propaganda Movement).

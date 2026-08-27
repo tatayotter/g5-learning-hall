@@ -6,6 +6,7 @@ import {
   fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile,
   ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile,
   getCompanionTierCrossed, fetchCompanionInstanceStats, getCompanionSpeciesDef,
+  gradeStageIndex, gradeStageStars, MIN_GRADE_STAGE,
 } from '@/lib/guildEngine';
 import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
@@ -13,7 +14,6 @@ import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { GUILDS } from '@/lib/dailyChecklist';
-import { USERS, gradeToNumber } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
@@ -46,7 +46,7 @@ interface LogicLabyrinthQuestion {
   matrix_image_url: string | null;
   options_array: LogicOption[];
   correct_option_id: string;
-  difficulty_tier: number;
+  grade_level: number;
 }
 
 interface LogicLabyrinthProps {
@@ -71,7 +71,6 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
   } | null>(null);
 
   const isTala = userId === 'tala';
-  const gradeLevel = gradeToNumber(USERS[userId]?.grade);
   const timeLimit = isTala ? 120 : 60;
   const engine = useTimeAttack<LogicLabyrinthQuestion>(questions, timeLimit);
 
@@ -80,7 +79,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
       try {
         const [pool, subProfile] = await Promise.all([
           takePrefetch<any[]>(userId, 'guildPool:logic_labyrinth')
-            ?? fetchQuestionPool(userId, 'sq_logic_labyrinth', 'logic_labyrinth', gradeLevel),
+            ?? fetchQuestionPool(userId, 'sq_logic_labyrinth', 'logic_labyrinth'),
           takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
             ?? fetchSubclassProfile(userId)
         ]);
@@ -114,7 +113,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
     if (isCorrect) playChime(); else playClash();
 
     setTimeout(() => {
-      engine.submitResult(isCorrect, engine.currentQuestion!.id, engine.currentQuestion!.difficulty_tier);
+      engine.submitResult(isCorrect, engine.currentQuestion!.id, gradeStageIndex(engine.currentQuestion!.grade_level));
       setSelectedOption(null);
       setFlashResult(null);
     }, 500);
@@ -166,7 +165,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
           <h2 className="text-4xl font-display font-bold text-cyan-700 mb-2">Logic Labyrinth</h2>
           <p className="text-cyan-700 font-mono italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'logic_labyrinth')?.lore}</p>
           <p className="text-gray-500 font-mono mb-1">Lvl {profile?.logic_labyrinth_lvl || 1} · {profile?.logic_labyrinth_xp || 0}/500 XP</p>
-          <p className="text-cyan-700 text-xs font-mono mb-1">Difficulty {'★'.repeat(profile?.logic_labyrinth_tier || 1)}{'☆'.repeat(Math.max(0, 3 - (profile?.logic_labyrinth_tier || 1)))}</p>
+          <p className="text-cyan-700 text-xs font-mono mb-1">Grade {profile?.logic_labyrinth_tier || MIN_GRADE_STAGE} · {gradeStageStars(profile?.logic_labyrinth_tier || MIN_GRADE_STAGE)}</p>
           <p className="text-gray-500 mb-6 text-sm max-w-md mx-auto">Study the pattern or puzzle above, then tap the correct answer from the grid below. Speed and accuracy both matter.</p>
 
           <div className="grid grid-cols-3 gap-4 mb-8 text-center">
@@ -202,7 +201,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
 
   if (screen === 'playing' && engine.currentQuestion) {
     const q = engine.currentQuestion;
-    const difficultyStars = '★'.repeat(q.difficulty_tier) + '☆'.repeat(Math.max(0, 3 - q.difficulty_tier));
+    const difficultyStars = gradeStageStars(q.grade_level);
     const timerPct = (engine.timeLeft / timeLimit) * 100;
     const timerColor = engine.timeLeft <= 10 ? 'bg-red-500' : engine.timeLeft <= 20 ? 'bg-yellow-500' : 'bg-cyan-500';
     const feedbackClass = flashResult === 'correct' ? 'battle-answer-correct' : flashResult === 'wrong' ? 'battle-answer-wrong' : '';

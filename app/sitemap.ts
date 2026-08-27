@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { BLOG_POSTS, BLOG_TOPICS, getBlogIndexPageCount } from '@/lib/blogPosts';
 import { CURRICULUM_GRADES } from '@/lib/curriculum';
+import { GUILD_SLUGS } from '@/lib/guilds';
 
 const BASE_URL = 'https://learninghallph.com';
 
@@ -56,6 +57,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...CURRICULUM_GRADES.map((grade) => ({
       url: `${BASE_URL}/curriculum/grade-${grade}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    {
+      url: `${BASE_URL}/guilds`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    ...GUILD_SLUGS.map((slug) => ({
+      url: `${BASE_URL}/guilds/${slug}`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
