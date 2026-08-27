@@ -1,4 +1,4 @@
-package com.tatayotter.g5learninghall;
+package com.tatayotter.learninghall;
 
 import android.content.Context;
 import android.content.Intent;

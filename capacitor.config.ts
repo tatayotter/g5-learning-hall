@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.tatayotter.g5learninghall',
+  appId: 'com.tatayotter.learninghall',
   appName: 'Learning Hall',
   webDir: 'www',
   server: {
