@@ -80,6 +80,8 @@ export type GuildEntry = {
   accent: GuildAccent;
   purpose: string;
   science: string;
+  /** Slug of the BLOG_POSTS entry that expands the science paragraph above into a full, cited article. */
+  sciencePostSlug: string;
   rungs: GuildRung[];
   depedTags: string[];
   curio: {
@@ -129,6 +131,7 @@ export const GUILDS: GuildEntry[] = [
     accent: ACCENTS['lorekeeper'],
     purpose:
       "Builds reading comprehension and broad general knowledge by pulling questions from across a child's other subjects — Science, Araling Panlipunan, English, Filipino, and values education — instead of drilling any one of them in isolation.",
+    sciencePostSlug: 'testing-effect-why-quizzing-beats-rereading',
     science:
       "Lorekeeper leans on the testing effect: the well-replicated finding that actively recalling information (being asked a question and answering it) cements it in long-term memory far better than re-reading or re-watching the same material. Mixing subjects in one sitting also uses interleaving — switching between related topics instead of blocking one at a time — which research links to better long-term retention, even though it feels harder in the moment.",
     rungs: [
@@ -180,6 +183,7 @@ export const GUILDS: GuildEntry[] = [
     accent: ACCENTS['spellcaster'],
     purpose:
       "A straightforward typing game: hear or read a word, type it correctly before time runs out. It's deliberately simple by design — the goal is raw spelling automaticity, not a teaching moment.",
+    sciencePostSlug: 'orthographic-mapping-why-spelling-practice-must-be-timed',
     science:
       "Spelling well frees up working memory for everything else writing requires — ideas, grammar, structure. When a child has to consciously puzzle out a spelling, that effort is coming out of the same mental budget they'd otherwise spend on composing a good sentence. Repeated, timed, correct production builds the word's orthographic pattern into fast, automatic recall, the same way multiplication tables need repetition before they become instant instead of calculated.",
     rungs: [
@@ -216,6 +220,7 @@ export const GUILDS: GuildEntry[] = [
     accent: ACCENTS['number-realm'],
     purpose:
       "Math word problems and computation, answered in whichever format fits the question — typed numbers, a fraction's numerator and denominator, or a time picker for elapsed-time problems.",
+    sciencePostSlug: 'procedural-fluency-why-math-facts-need-to-be-automatic',
     science:
       "Just like spelling, shaky number facts eat into the working memory a child needs for the actual reasoning in a word problem. Building procedural fluency — instant recall of facts and operations — is what lets a child spend their thinking on the structure of a problem instead of the arithmetic inside it. The timed, repeated format is deliberately built for this: it's spaced retrieval practice for the number sense that everything later in math is built on top of.",
     rungs: [
@@ -252,6 +257,7 @@ export const GUILDS: GuildEntry[] = [
     accent: ACCENTS['logic-labyrinth'],
     purpose:
       "Pattern and sequence puzzles, analogies, “which one doesn’t belong,” and — from Grade 4 onward — ordering puzzles, simple logic (“if all X are Y…”), and word/number ciphers. Nothing here is tied to a school subject; it's reasoning for its own sake.",
+    sciencePostSlug: 'fluid-intelligence-why-puzzles-build-real-thinking-skills',
     science:
       "This guild trains fluid intelligence — the ability to spot patterns and solve novel problems you haven't been explicitly taught how to solve, as opposed to crystallized intelligence, which is what you already know. Ordering and multi-clue puzzles also exercise working memory, since the child has to hold several constraints in mind at once to rule out wrong answers. The step up from simple analogies toward formal logical statements in the later grades mirrors children's real cognitive development, as they move from concrete to more abstract reasoning through upper elementary.",
     rungs: [
@@ -288,6 +294,7 @@ export const GUILDS: GuildEntry[] = [
     accent: ACCENTS['lexicon-arena'],
     purpose:
       "A definition is shown, and the child picks the correctly spelled word from four close-looking options — in a mix of English and Filipino. It's spelling and vocabulary at once, rather than either alone.",
+    sciencePostSlug: 'dual-coding-why-meaning-and-spelling-should-be-learned-together',
     science:
       "Pairing a word's meaning with its written form in the same moment is a form of dual coding — learning sticks better when it's anchored to two different kinds of memory (in this case, semantic and orthographic) instead of one. Building this in both English and Filipino also mirrors how Filipino children actually acquire vocabulary — moving between two languages rather than mastering one in isolation.",
     rungs: [

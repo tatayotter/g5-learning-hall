@@ -1882,6 +1882,300 @@ export const BLOG_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'testing-effect-why-quizzing-beats-rereading',
+    title: 'The Testing Effect: Why Quizzing Your Child Beats Having Them Re-Read Notes',
+    description:
+      "The research behind why actively answering questions cements knowledge far better than re-reading a textbook or notes — and why Lorekeeper mixes subjects in one sitting instead of drilling them one at a time.",
+    guildKey: 'lorekeeper',
+    guildName: 'Lorekeeper',
+    skill: 'Reading Comprehension',
+    grade: 'all',
+    publishedAt: '2026-08-27',
+    updatedAt: '2026-08-27',
+    intro:
+      "If a child has a test on Friday, the instinctive move is to hand them the textbook and say \"review this.\" It feels productive — pages get turned, notes get re-read, time gets spent. But decades of cognitive science point to something almost the opposite: being asked questions and forced to answer them, even when the answers come out wrong at first, builds far stronger long-term memory than re-reading the same material ever does. This is called the testing effect, and it's the actual mechanism behind why Lorekeeper is built as a quiz instead of a reading list.",
+    sections: [
+      {
+        heading: 'The core finding: retrieval beats re-reading',
+        paragraphs: [
+          "In a landmark 2006 study published in Psychological Science, cognitive scientists Henry Roediger and Jeffrey Karpicke had students study passages of prose, then either re-read them again or take a practice test on the content. On an immediate test, the re-readers actually did slightly better. But on a test given a week later — which is what actually matters for anything a child needs to still know at exam time — the group that had been quizzed outperformed the re-readers by a wide margin, even though the quizzed group had spent less total time \"studying.\"",
+          "The explanation isn't just that testing reveals what you don't know (though it does that too). Actively retrieving a fact from memory — reconstructing it, rather than having it handed back to you on the page — physically strengthens the memory pathway used to retrieve it. Re-reading strengthens familiarity with the text; testing strengthens the ability to produce the answer without the text in front of you, which is the actual skill a real test requires.",
+        ],
+      },
+      {
+        heading: 'Why mixing subjects in one sitting helps more than it hurts',
+        paragraphs: [
+          "The second piece of Lorekeeper's design — pulling questions from Science, Araling Panlipunan, English, Filipino, and values education all in the same session, instead of one subject at a time — is called interleaving. It has its own separate research base. In a 2010 study published in Applied Cognitive Psychology, researchers Kelli Taylor and Doug Rohrer had students practice math problems either blocked by type (all of one kind, then all of another) or interleaved (mixed together, unpredictably).",
+          "The interleaved group did worse during practice — it's genuinely harder, since you can't just run the same procedure on autopilot for ten problems in a row. But on a test given the next day, the interleaved group's scores were roughly double the blocked group's. The struggle during practice was the point: interleaving forces a learner to first identify what kind of problem they're looking at before they can solve it, which is exactly what an unpredictable real test — or an unpredictable real-life question — demands.",
+        ],
+      },
+      {
+        heading: 'What this means for how you help at home',
+        paragraphs: [
+          "The practical takeaway isn't complicated, even if it runs against instinct: when a child says they've \"reviewed\" a topic by reading it over, that's the weaker half of studying. Asking them questions about it — even quick, informal ones out loud — does more for what they'll actually remember next week. And there's no need to separate subjects into their own neat blocks of review time; mixing them, the way an actual exam eventually will, builds a more durable and more flexible kind of knowledge.",
+        ],
+      },
+    ],
+    takeaways: [
+      "Roediger and Karpicke (2006) found that students quizzed on material outperformed students who re-read the same material on a test given a week later, even though the quizzed group studied less overall.",
+      'Retrieval — actively producing an answer from memory — strengthens the specific pathway needed to recall that answer later; re-reading mostly builds familiarity with the text itself.',
+      "Taylor and Rohrer (2010) found that mixing topic types together (interleaving) roughly doubled next-day test scores compared to practicing one type at a time, despite feeling harder in the moment.",
+      "A quick round of questions about something a child just read builds more durable knowledge than having them read it a second time.",
+    ],
+    externalLinks: [
+      { label: 'Test-Enhanced Learning (Roediger & Karpicke, 2006)', url: 'https://journals.sagepub.com/doi/10.1111/j.1467-9280.2006.01693.x' },
+      { label: 'The Effect of Interleaved Practice (Taylor & Rohrer, 2010)', url: 'https://onlinelibrary.wiley.com/doi/abs/10.1002/acp.1598' },
+      { label: 'See how the Lorekeeper guild is built, grade by grade', url: '/guilds/lorekeeper' },
+    ],
+    faq: [
+      {
+        question: 'Is quizzing really better than reviewing notes before a test?',
+        answer:
+          "For what's remembered a week or more later, yes. Roediger and Karpicke's 2006 research found students who were tested on material retained it better on a delayed test than students who simply re-read the same material, even though re-reading felt more thorough at the time.",
+      },
+      {
+        question: 'Why does mixing subjects in one study session help instead of causing confusion?',
+        answer:
+          "Interleaving research (Taylor & Rohrer, 2010) found that mixing problem types, rather than blocking them one type at a time, forces a learner to first figure out what kind of problem they're facing before solving it — the same skill an unpredictable real test requires. It feels harder during practice but roughly doubled scores on a test given the next day.",
+      },
+      {
+        question: "Does it matter if my child gets quiz questions wrong at first?",
+        answer:
+          "Not for the underlying benefit — the act of attempting retrieval is what strengthens the memory pathway, and a wrong answer immediately corrected still produces a stronger memory than never having attempted retrieval at all.",
+      },
+    ],
+  },
+  {
+    slug: 'orthographic-mapping-why-spelling-practice-must-be-timed',
+    title: 'Orthographic Mapping: The Science of Why Timed Spelling Practice Works',
+    description:
+      "How a word's spelling gets permanently mapped into memory, and why repeated, timed, correct production — not just seeing a word once — is what makes spelling automatic.",
+    guildKey: 'spellcaster',
+    guildName: 'SpellCaster',
+    skill: 'Typing Speed',
+    grade: 'all',
+    publishedAt: '2026-08-27',
+    updatedAt: '2026-08-27',
+    intro:
+      "A child can be shown a word's correct spelling a dozen times and still misspell it on the thirteenth. What actually fixes a spelling into memory for good isn't exposure — it's a specific process called orthographic mapping, and understanding it explains why SpellCaster is built as a timed typing drill instead of a copy-the-word worksheet.",
+    sections: [
+      {
+        heading: 'What orthographic mapping actually is',
+        paragraphs: [
+          "Reading researcher Linnea Ehri's orthographic mapping theory, most recently detailed in a 2014 paper in Scientific Studies of Reading, describes how a word's sounds, its spelling, and its meaning get bonded together in memory. When that bonding is complete, a reader can recognize or reproduce the word instantly, without consciously sounding it out or recalling it letter by letter — the word has moved from something they have to work out to something they simply know.",
+          "The bonding doesn't happen from passive exposure. It requires the learner to actively connect the sounds in a word to its specific letters, which is a different mental action than glancing at a word on a page or copying it from a model. Typing a word from memory — recalling its spelling and producing it letter by letter without the answer in front of you — is exactly the kind of active retrieval this mapping process depends on.",
+        ],
+      },
+      {
+        heading: 'Why the timer matters, not just the correct answer',
+        paragraphs: [
+          "Once a spelling is mapped, the goal shifts from correctness to automaticity — being able to produce it without conscious effort. This matters because working memory is limited: research on cognitive load (the same body of work behind why Learning Hall resurfaces topics over time, covered in our post on the science of repetition) shows that any mental effort spent consciously puzzling out a spelling is effort that isn't available for the actual point of writing — composing ideas, building sentences, getting a thought down before it's lost.",
+          "A timed format is what pushes a spelling from \"I can get this right if I think about it\" to \"I don't have to think about it at all.\" That's the entire design intent behind SpellCaster's Time Attack format — it isn't there to add pressure for its own sake, it's there because automaticity, not just correctness, is the actual target.",
+        ],
+      },
+    ],
+    takeaways: [
+      "Ehri's orthographic mapping research (2014) shows a word becomes truly known only once its sounds, spelling, and meaning are bonded together in memory — not just recognized on sight.",
+      "That bonding requires active retrieval (recalling and producing a spelling from memory), not passive exposure like reading or copying a word.",
+      "Automatic spelling frees up working memory for the actual task of writing — composing ideas — instead of spending that effort on how to spell each word.",
+      'A timed, repeated typing format is specifically what pushes a correct spelling toward automatic recall, which is why SpellCaster is a clock-based game rather than a copy-the-word worksheet.',
+    ],
+    externalLinks: [
+      { label: 'Orthographic Mapping in the Acquisition of Sight Word Reading, Spelling Memory, and Vocabulary Learning (Ehri, 2014)', url: 'https://www.tandfonline.com/doi/abs/10.1080/10888438.2013.819356' },
+      { label: 'The science of why repeated practice works', url: '/blog/science-of-repetition-why-practice-works' },
+      { label: 'See how the SpellCaster guild is built, grade by grade', url: '/guilds/spellcaster' },
+    ],
+    faq: [
+      {
+        question: 'What is orthographic mapping?',
+        answer:
+          "It's the process, described in reading researcher Linnea Ehri's work, of bonding a word's sounds, spelling, and meaning together in memory so it can be read or spelled instantly without conscious effort.",
+      },
+      {
+        question: 'Why does my child still misspell words they\'ve seen many times?',
+        answer:
+          "Seeing a word is passive exposure, not the active retrieval orthographic mapping requires. A child needs to practice recalling and producing the spelling from memory — not just recognizing it — for the mapping to actually form.",
+      },
+      {
+        question: 'Does a timer actually help with spelling, or does it just add pressure?',
+        answer:
+          "A time limit pushes practice past simple correctness toward automatic recall, which is the point where spelling stops using up working memory that a child needs for the rest of writing — composing sentences and ideas.",
+      },
+    ],
+  },
+  {
+    slug: 'procedural-fluency-why-math-facts-need-to-be-automatic',
+    title: 'Procedural Fluency: Why Math Facts Need to Be Automatic, Not Just Understood',
+    description:
+      "The National Mathematics Advisory Panel's research on why instant recall of number facts — not just conceptual understanding — is what frees a child's working memory for actual problem-solving.",
+    guildKey: 'numberrealm',
+    guildName: 'Number Realm',
+    skill: 'Mental Math',
+    grade: 'all',
+    publishedAt: '2026-08-27',
+    updatedAt: '2026-08-27',
+    intro:
+      'A child can understand exactly why 7 × 8 = 56 — and still take ten seconds to arrive at it, count on their fingers, or guess. Conceptual understanding and automatic recall are two different achievements, and mixing them up is one of the most common misreadings of what "good at math" actually means. The research on procedural fluency explains why Number Realm drills straightforward computation as hard as it drills word problems.',
+    sections: [
+      {
+        heading: "What the research actually says",
+        paragraphs: [
+          "The U.S. National Mathematics Advisory Panel's 2008 Final Report — a review of the existing research commissioned to settle exactly this question — concluded that conceptual understanding, procedural fluency, and automatic fact recall are \"mutually reinforcing,\" not competing priorities where one can substitute for another. The panel was explicit that automaticity — fast, effortless retrieval of a fact or procedure — is central to actually using math, not a lesser, rote version of understanding it.",
+          "The mechanism is the same limited-working-memory constraint that shows up across nearly every subject: a child solving a multi-step word problem has to hold the problem's structure, the relevant quantities, and the operation needed all in mind at once. If retrieving 7 × 8 itself takes conscious effort, that effort is competing directly with the effort needed to actually solve the problem it's embedded in.",
+        ],
+      },
+      {
+        heading: 'Understanding without automaticity still creates a bottleneck',
+        paragraphs: [
+          "This is why a child who \"gets\" the concept of multiplication but still has to work out each fact by hand can genuinely struggle with a word problem that a less conceptually strong but more automatic peer solves faster — not because they understand less, but because their working memory is spent on retrieval instead of reasoning. The panel's report frames this directly: automatic recall of facts is what frees attention for the new, harder aspects of a problem, at every grade level from basic arithmetic through algebra.",
+          "This is the direct reasoning behind why Number Realm treats a plain \"55 + 27 = ?\" drill and a multi-step word problem as part of the same guild rather than separate skills — the drill is what buys the working memory the word problem needs.",
+        ],
+      },
+    ],
+    takeaways: [
+      'The National Mathematics Advisory Panel (2008) found conceptual understanding, procedural fluency, and automatic fact recall are mutually reinforcing — not a hierarchy where understanding alone is sufficient.',
+      'Automatic recall — fast, effortless retrieval of a math fact — is what frees working memory for the actual reasoning a word problem requires.',
+      "A child who understands a concept but hasn't automated the underlying facts can still be bottlenecked on multi-step problems, not from lack of understanding but from working memory spent on computation.",
+      'Plain computation drills and word problems build the same underlying skill, which is why timed number-fact practice matters even for a child who already understands the concept.',
+    ],
+    externalLinks: [
+      { label: 'Foundations for Success: The Final Report of the National Mathematics Advisory Panel (2008)', url: 'https://files.eric.ed.gov/fulltext/ED500486.pdf' },
+      { label: 'See how the Number Realm guild is built, grade by grade', url: '/guilds/number-realm' },
+    ],
+    faq: [
+      {
+        question: 'Is it enough for my child to understand a math concept, without memorizing the facts?',
+        answer:
+          "The National Mathematics Advisory Panel's 2008 report found that conceptual understanding and automatic fact recall reinforce each other rather than one substituting for the other — a child needs both, since automatic recall is what frees the working memory that understanding-based problem-solving actually depends on.",
+      },
+      {
+        question: 'Why does my child understand math but still solve word problems slowly?',
+        answer:
+          "If retrieving basic facts still takes conscious effort, that effort competes with the working memory needed to hold a word problem's structure in mind. Automating the underlying facts is often what's actually missing, not conceptual understanding.",
+      },
+      {
+        question: 'Are timed math drills still useful, or outdated?',
+        answer:
+          "Timed practice is specifically what builds the automatic recall the National Mathematics Advisory Panel's research identifies as central to mathematical fluency — it's a different goal than conceptual teaching, and both are necessary.",
+      },
+    ],
+  },
+  {
+    slug: 'fluid-intelligence-why-puzzles-build-real-thinking-skills',
+    title: 'Fluid Intelligence: Why Puzzles Build a Different Kind of Smart Than Schoolwork Does',
+    description:
+      "Psychologist Raymond Cattell's fluid vs. crystallized intelligence research, and why solving novel puzzles trains a different mental skill than the subject-specific knowledge most schoolwork builds.",
+    guildKey: 'logiclabyrinth',
+    guildName: 'Logic Labyrinth',
+    skill: 'Critical Thinking & Reasoning',
+    grade: 'all',
+    publishedAt: '2026-08-27',
+    updatedAt: '2026-08-27',
+    intro:
+      "Most schoolwork — reading, spelling, math facts, science content — builds knowledge a child has been taught. Logic Labyrinth is deliberately different: nothing in it is tied to a subject a child studied beforehand. That's not an oversight. It's built around a distinct kind of intelligence that psychological research treats as separate from what a subject-based test measures, and it needs its own kind of practice.",
+    sections: [
+      {
+        heading: "Two kinds of intelligence, not one",
+        paragraphs: [
+          "In 1943, psychologist Raymond Cattell proposed a distinction that's held up remarkably well in the decades since: general intelligence splits into fluid intelligence (Gf) and crystallized intelligence (Gc). Crystallized intelligence is accumulated knowledge — facts, vocabulary, procedures a person has learned. Fluid intelligence is the capacity to reason through a genuinely novel problem, spot a pattern, or solve something you haven't been taught how to solve, independent of what you already know.",
+          "Most of a school curriculum — and most of what Lorekeeper, SpellCaster, Number Realm, and Lexicon Arena each build — sits closer to crystallized intelligence: real, valuable, taught knowledge. Fluid intelligence is a different capacity, and Cattell's own research found it develops through a different kind of practice: being handed problems with no prior template for solving them.",
+        ],
+      },
+      {
+        heading: 'Why an analogy or a sequence puzzle counts as real practice',
+        paragraphs: [
+          "This is why Logic Labyrinth's puzzles — pattern sequences, analogies, \"which one doesn't belong,\" and later, formal logic and ciphers — are deliberately not about anything a child studied in class. A puzzle a child has seen the type of before is really testing crystallized memory of the puzzle format, not fluid reasoning. A genuinely novel one forces the actual skill: identifying the underlying rule with no worked example to fall back on.",
+          "Multi-clue ordering puzzles add a second, related skill on top: working memory, since solving \"Ana is older than Ben but younger than Cris\" requires holding several constraints in mind simultaneously to rule out wrong answers. The shift toward more formal logical statements in later grades tracks how children's reasoning capacity actually develops through upper elementary — from very concrete comparisons toward genuinely abstract if-then reasoning.",
+        ],
+      },
+    ],
+    takeaways: [
+      'Cattell\'s 1943 theory of fluid and crystallized intelligence treats "knowledge you have" and "ability to reason through something new" as distinct mental capacities.',
+      "Most subject-based schoolwork builds crystallized intelligence — fluid intelligence needs its own practice, specifically on problems with no prior template to fall back on.",
+      "A puzzle a child recognizes the type of tests memory of the format, not fluid reasoning — which is why novelty, not repetition of a puzzle style, is what actually builds this skill.",
+      "Multi-clue ordering puzzles add working memory practice on top of fluid reasoning, since several constraints need to be held in mind at once to rule out wrong answers.",
+    ],
+    externalLinks: [
+      { label: 'Fluid and Crystallized Intelligence (overview)', url: 'https://en.wikipedia.org/wiki/Fluid_and_crystallized_intelligence' },
+      { label: 'See how the Logic Labyrinth guild is built, grade by grade', url: '/guilds/logic-labyrinth' },
+    ],
+    faq: [
+      {
+        question: 'What is fluid intelligence?',
+        answer:
+          "Fluid intelligence, a concept introduced by psychologist Raymond Cattell in 1943, is the capacity to reason through a novel problem or spot a pattern independent of what a person already knows — distinct from crystallized intelligence, which is accumulated knowledge.",
+      },
+      {
+        question: "Why don't Logic Labyrinth puzzles connect to what my child is studying in school?",
+        answer:
+          "That's deliberate. Puzzles tied to studied material would mostly test memory of that material (crystallized intelligence). Fluid intelligence — the target skill here — specifically requires problems with no prior template, since recognizing a familiar puzzle type is a different skill than reasoning through a new one.",
+      },
+      {
+        question: 'Do logic puzzles actually build a real, transferable skill?',
+        answer:
+          "Fluid reasoning and working memory, which puzzles like sequences and multi-clue ordering problems exercise, are the same underlying capacities used any time a child faces an unfamiliar problem with no worked example available — not just in a game.",
+      },
+    ],
+  },
+  {
+    slug: 'dual-coding-why-meaning-and-spelling-should-be-learned-together',
+    title: "Dual Coding: Why Learning a Word's Meaning and Spelling Together Beats Either Alone",
+    description:
+      "Allan Paivio's dual coding theory, and the research on bilingual vocabulary transfer, explain why pairing a definition with a spelling challenge — in both English and Filipino — builds vocabulary that actually lasts.",
+    guildKey: 'lexiconarena',
+    guildName: 'Lexicon Arena',
+    skill: 'Spelling Recognition & Vocabulary',
+    grade: 'all',
+    publishedAt: '2026-08-27',
+    updatedAt: '2026-08-27',
+    intro:
+      "A word list with definitions on one side and spellings on the other treats meaning and spelling as two separate homework tasks. The research on how memory actually stores words suggests that's backwards — a word learned as one bundled experience, meaning and form together, sticks better than either learned alone. That's the reasoning behind Lexicon Arena's core format: a definition appears, and a child has to produce the correctly spelled word that matches it.",
+    sections: [
+      {
+        heading: 'One system for meaning, another for form',
+        paragraphs: [
+          "Psychologist Allan Paivio's dual coding theory, first proposed in 1971, describes memory as running on two separate but connected systems: a verbal system, handling language and abstract meaning, and a nonverbal system, handling concrete imagery and form. Information encoded through both systems at once is retained better than information encoded through only one — because there are now two independent paths back to it in memory instead of one.",
+          "Applied to vocabulary, this means a word's meaning and its written form are genuinely different kinds of information, stored differently. A child who only memorizes a definition has one retrieval path; a child who connects that meaning to the word's actual spelling, in the same moment, has two. Lexicon Arena's format — read a definition, produce the matching spelling — is built to force that connection every time, rather than treating meaning and spelling as separate study tasks that happen to be practiced back to back.",
+        ],
+      },
+      {
+        heading: 'Why doing this in two languages helps rather than confuses',
+        paragraphs: [
+          "The second half of Lexicon Arena's design — mixing English and Filipino vocabulary rather than keeping them in separate modes — mirrors research on bilingual vocabulary development rather than working against it. A 2021 study published in Frontiers in Psychology on bilingual kindergarten children found meaningful cross-language transfer: vocabulary skill built in one language measurably supported vocabulary growth in the other, particularly where concepts and structures overlapped between the two languages.",
+          "The explanation researchers give is that a bilingual child's two vocabularies aren't stored in fully separate mental filing cabinets — both are connected to a shared conceptual network, so building the network itself (understanding what a word means, in either language) helps regardless of which language the word surfaces in first. This is the direct reason Lexicon Arena moves between English and Filipino terms rather than running them as two disconnected tracks.",
+        ],
+      },
+    ],
+    takeaways: [
+      "Paivio's dual coding theory (1971) holds that meaning and written form are stored through two separate memory systems, and information encoded through both is retained better than through either alone.",
+      "Pairing a definition with a spelling challenge in the same moment forces that dual connection, rather than treating vocabulary and spelling as two separate study tasks.",
+      "A 2021 Frontiers in Psychology study on bilingual kindergarteners found real cross-language vocabulary transfer — skill built in one language supported growth in the other.",
+      "Mixing English and Filipino vocabulary in one guild reflects how bilingual vocabulary is actually stored — through a shared conceptual network — rather than working against it.",
+    ],
+    externalLinks: [
+      { label: 'Dual-coding theory (overview)', url: 'https://en.wikipedia.org/wiki/Dual-coding_theory' },
+      { label: 'Crosslinguistic Influence of Lexical Breadth and Depth in Bilingual Kindergarten Children (Frontiers in Psychology, 2021)', url: 'https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.671928/full' },
+      { label: 'See how the Lexicon Arena guild is built, grade by grade', url: '/guilds/lexicon-arena' },
+    ],
+    faq: [
+      {
+        question: 'What is dual coding theory?',
+        answer:
+          "Dual coding theory, proposed by psychologist Allan Paivio in 1971, holds that memory uses two separate systems — one for verbal/meaning-based information and one for visual/form-based information — and that information encoded through both is remembered better than information encoded through only one.",
+      },
+      {
+        question: 'Does learning vocabulary in two languages at once confuse a child?',
+        answer:
+          "Research on bilingual children — including a 2021 Frontiers in Psychology study on bilingual kindergarteners — found the opposite: vocabulary skill built in one language measurably transferred to and supported the other, since both languages connect to a shared conceptual network rather than separate ones.",
+      },
+      {
+        question: "Why does Lexicon Arena show a definition instead of just a word list to spell?",
+        answer:
+          "Pairing a word's meaning with its spelling in the same moment gives that word two connected paths in memory instead of one, which dual coding research links to stronger, more durable retention than memorizing spelling or meaning in isolation.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

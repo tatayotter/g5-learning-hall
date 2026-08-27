@@ -112,7 +112,13 @@ export default async function GuildDetailPage({
 
           <section className="mb-8">
             <h2 className="font-display text-lg font-black mb-2">The science</h2>
-            <p className="text-[#5c5245] leading-relaxed">{guild.science}</p>
+            <p className="text-[#5c5245] leading-relaxed mb-2">{guild.science}</p>
+            <Link
+              href={`/blog/${guild.sciencePostSlug}`}
+              className={`text-sm font-semibold ${guild.accent.hoverText} text-[#948975] underline underline-offset-2`}
+            >
+              Read the full research behind this →
+            </Link>
           </section>
 
           <section className="mb-8">
