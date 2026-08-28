@@ -30,10 +30,19 @@ export default function LoadingScreen({ message }: { message?: string }) {
 
   return (
     <div className="min-h-screen bg-[#0a0807] flex flex-col items-center justify-end overflow-hidden">
+      {/* Portrait art on phones, landscape art on wider viewports — the
+          portrait piece crops brutally on a wide screen (object-cover on a
+          1152x2048 image in a landscape viewport slices the logo down to a
+          sliver), so desktop gets a composition made for its aspect ratio. */}
       <img
         src="/loading_screen_vertical.webp"
         alt=""
-        className="absolute inset-0 w-full h-full object-cover"
+        className="block sm:hidden absolute inset-0 w-full h-full object-cover"
+      />
+      <img
+        src="/loading_screen_landscape.webp"
+        alt=""
+        className="hidden sm:block absolute inset-0 w-full h-full object-cover"
       />
       <div className="relative z-10 w-full flex flex-col items-center gap-3 pb-2 sm:pb-3 px-10">
         <div className="w-full max-w-xs h-3 rounded-full bg-black/50 border border-[#c9a87a]/60 overflow-hidden shadow-lg">
