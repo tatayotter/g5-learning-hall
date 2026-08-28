@@ -6,6 +6,15 @@ const nextConfig = {
   images: {
     qualities: [20, 75],
   },
+  async redirects() {
+    return [
+      {
+        source: '/child-signup/welcome',
+        destination: '/welcome',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
