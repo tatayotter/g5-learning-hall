@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { UserId, USERS } from '@/lib/userSession';
 import {
   SHOP_CATALOG,
@@ -17,6 +17,9 @@ import { CharacterStats } from '@/hooks/useWeeklyData';
 import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
 import { playShopPurchase } from '@/lib/sounds';
+import { hasSeenTabTutorial, markTabTutorialSeen } from '@/lib/tutorial';
+import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
+import TutorialSpotlight from '@/components/TutorialSpotlight';
 
 const SCROLL_CATEGORY_LABELS: Record<ScrollItem['category'], string> = {
   unlearn: 'Unlearn',
@@ -113,6 +116,37 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
   const buyBusyRef = useRef(false);
   const isFamily = USERS[userId].isFamily;
 
+  // First-visit tutorial for this tab — same mount-once pattern as
+  // MonsterGuild's (this component unmounts when leaving the vault tab, so
+  // a fresh mount already IS the "just switched here" signal). Step 2's
+  // real action is switching shop sections rather than an actual purchase —
+  // spending gold is the tab's whole point, but gating the tutorial on a
+  // real currency spend felt like too heavy a first touch; browsing what's
+  // on offer is the safer, reversible equivalent.
+  const [shopTutorialActive, setShopTutorialActive] = useState(() => !hasSeenTabTutorial('vault', userId));
+  const shopTutorialSteps: TutorialStep[] = useMemo(() => [
+    {
+      id: 'vault-welcome',
+      title: 'Rewards Vault',
+      body: 'Spend the Gold you earn here on real rewards and in-game items.',
+    },
+    {
+      id: 'vault-sections',
+      title: 'Browse the Shop',
+      body: 'Tap a tab to see Skill Scrolls, Tomes, and Trainer Sprites — not just the starter shop.',
+      waitFor: activeSection !== 'items',
+    },
+  ], [activeSection]);
+  const shopTutorial = useTutorialSequence({
+    tabKey: 'vault',
+    active: shopTutorialActive,
+    steps: shopTutorialSteps,
+    onDone: () => {
+      markTabTutorialSeen('vault', userId);
+      setShopTutorialActive(false);
+    },
+  });
+
   const loadInventory = async () => {
     const inv = await fetchInventory(userId);
     setInventory(inv);
@@ -169,8 +203,21 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
 
   return (
     <div>
+      {shopTutorial.step && (
+        <TutorialSpotlight
+          key={shopTutorial.step.id}
+          step={shopTutorial.step}
+          stepIndex={shopTutorial.stepIndex}
+          totalSteps={shopTutorial.totalSteps}
+          isLast={shopTutorial.isLast}
+          onNext={shopTutorial.next}
+          onSkip={shopTutorial.skip}
+          waitingForAction={shopTutorial.step.waitFor !== undefined}
+        />
+      )}
+
       {/* Header */}
-      <div className="mb-2">
+      <div className="mb-2" data-tutorial-id="vault-welcome">
         <h1 className="text-3xl font-bold font-display text-gray-900">Curio Arena Shop</h1>
       </div>
       <p className="text-gray-500 text-sm mb-6">
@@ -214,7 +261,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
       </div>
 
       {/* Section tabs */}
-      <div className="flex border-b-2 border-amber-200 mb-6 space-x-1">
+      <div className="flex border-b-2 border-amber-200 mb-6 space-x-1" data-tutorial-id="vault-sections">
         {([
           { id: 'items',   label: '⚔️ Curio Arena Shop' },
           { id: 'scrolls', label: '📜 Skill Scrolls' },

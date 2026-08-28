@@ -51,7 +51,9 @@ import LinkParentBanner from '@/components/LinkParentBanner';
 import SidebarRail, { RailTabId } from '@/components/SidebarRail';
 import WelcomeCard from '@/components/WelcomeCard';
 import QuestCard from '@/components/QuestCard';
-import OnboardingTour from '@/components/OnboardingTour';
+import TutorialSpotlight from '@/components/TutorialSpotlight';
+import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
+import { useTabTutorialGate } from '@/hooks/useTabTutorialGate';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 import { syncEggProgress, fetchUserEggs, HatchedEgg } from '@/lib/curioEggs';
@@ -572,6 +574,115 @@ export default function Dashboard() {
     [mainQuestPackageData]
   );
 
+  // The weekday whose quest section the board tutorial should spotlight:
+  // the first one with quests that aren't all mastered yet. Deliberately NOT
+  // "today" — a returning kid can easily have today's section already fully
+  // cleared, which would point the spotlight at an empty "✅ Completed" box
+  // instead of something actually tappable.
+  const openTutorialDayName = useMemo(() => {
+    const masteredQuizzes = data?.mastered_quizzes || [];
+    for (const day of WEEKDAYS) {
+      const daySubjects = mainQuestPackageData[day] || {};
+      const subjectKeys = Object.keys(daySubjects);
+      if (subjectKeys.length === 0) continue;
+      const dayFullyMastered = subjectKeys.every((subjectName) => masteredQuizzes.includes(`${day}_${subjectName}`));
+      if (!dayFullyMastered) return day;
+    }
+    return null;
+  }, [mainQuestPackageData, data?.mastered_quizzes]);
+
+  // Board-tab first-visit tutorial: real spotlight on real elements instead
+  // of an upfront slideshow. Gated by the same server-tracked
+  // showOnboarding/handleCompleteOnboarding flag the old OnboardingTour
+  // modal used, so it still only auto-shows once per account, ever. The
+  // second step only exists when there's an open quest section to point at
+  // (openTutorialDayName), and completes itself once a real quest is opened.
+  const boardTutorialSteps: TutorialStep[] = useMemo(() => {
+    const steps: TutorialStep[] = [{
+      id: 'board-welcome',
+      title: 'Welcome to Home Base',
+      body: "This is your Active Campaign Map — your weekly quests live here. Let's find an open one.",
+    }];
+    if (openTutorialDayName) {
+      steps.push({
+        id: 'board-today-quest',
+        title: 'Open Quest',
+        body: "This is an open quest card. Tap it to open your study notes, then take the quiz for XP and Gold.",
+        waitFor: activeQuest !== null,
+      });
+    }
+    return steps;
+  }, [openTutorialDayName, activeQuest]);
+
+  const boardTutorial = useTutorialSequence({
+    tabKey: 'board',
+    active: showOnboarding && activeTab === 'board',
+    steps: boardTutorialSteps,
+    onDone: () => { handleCompleteOnboarding(); },
+  });
+
+  // Guilds-tab first-visit tutorial — same spotlight pattern as board's, but
+  // gated by localStorage (lib/tutorial.ts) since this tab has no DB column
+  // tracking it. Only shows on the guild-picker screen (activeGuild ===
+  // null); the second step completes itself once a real guild is entered.
+  const guildsTutorialGate = useTabTutorialGate('guilds', activeTab, activeUserId);
+  const guildsTutorialSteps: TutorialStep[] = useMemo(() => [
+    {
+      id: 'guilds-welcome',
+      title: 'Side Quest Guilds',
+      body: 'Five guilds, five skills — reading, typing, math, logic, and spelling. Playing any of them earns extra XP and Gold.',
+    },
+    {
+      id: 'guilds-first-tile',
+      title: 'Pick a Guild',
+      body: 'Tap a guild tile to jump in and start playing.',
+      waitFor: activeGuild !== null,
+    },
+  ], [activeGuild]);
+
+  const guildsTutorial = useTutorialSequence({
+    tabKey: 'guilds',
+    // NOT also gated on `activeGuild === null` — that's exactly the signal
+    // step 2's waitFor watches for completion. Gating `active` on it too
+    // would flip both `active` and `waitFor` false→derived-from-undefined
+    // in the very same render as the real click, so the sequence would see
+    // itself deactivate before ever observing waitFor turn true. The
+    // picker-only target (guilds-first-tile) naturally vanishes from the
+    // DOM once inside a guild anyway, so there's nothing left to spotlight.
+    active: guildsTutorialGate.active,
+    steps: guildsTutorialSteps,
+    onDone: () => { guildsTutorialGate.markDone(); },
+  });
+
+  // Journal and To-Do tabs are low-stakes — a single non-blocking pointer,
+  // no forced action. Both single-step, so isLast is true immediately and
+  // the coachmark shows "Got it!" rather than a real-action gate.
+  const journalTutorialGate = useTabTutorialGate('journal', activeTab, activeUserId);
+  const journalTutorialSteps: TutorialStep[] = useMemo(() => [{
+    id: 'journal-welcome',
+    title: 'Guild Journal',
+    body: "Reflect on today's run here, then check Player Log below for a full history of everything you've earned.",
+  }], []);
+  const journalTutorial = useTutorialSequence({
+    tabKey: 'journal',
+    active: journalTutorialGate.active,
+    steps: journalTutorialSteps,
+    onDone: () => { journalTutorialGate.markDone(); },
+  });
+
+  const todoTutorialGate = useTabTutorialGate('todo', activeTab, activeUserId);
+  const todoTutorialSteps: TutorialStep[] = useMemo(() => [{
+    id: 'todo-welcome',
+    title: 'Daily To-Dos',
+    body: 'Clear this checklist each day for bonus Gold — it tracks your journal, quest, guilds, and training map progress.',
+  }], []);
+  const todoTutorial = useTutorialSequence({
+    tabKey: 'todo',
+    active: todoTutorialGate.active,
+    steps: todoTutorialSteps,
+    onDone: () => { todoTutorialGate.markDone(); },
+  });
+
   if (!hydrated) {
     return <LoadingScreen />;
   }
@@ -625,7 +736,61 @@ export default function Dashboard() {
       )}
       <div className="h-screen flex flex-col">
       <LinkParentBanner />
-      {showOnboarding && <OnboardingTour onComplete={handleCompleteOnboarding} />}
+      {boardTutorial.step && (
+        <TutorialSpotlight
+          key={boardTutorial.step.id}
+          step={boardTutorial.step}
+          stepIndex={boardTutorial.stepIndex}
+          totalSteps={boardTutorial.totalSteps}
+          isLast={boardTutorial.isLast}
+          onNext={boardTutorial.next}
+          onSkip={boardTutorial.skip}
+          // `waitFor` is the live truthiness of the step's completion
+          // condition, which starts false and only flips true right as the
+          // hook auto-advances away from this step — checking it directly
+          // would always read false while the step is actually showing.
+          // Whether the step *has* a waitFor mechanism at all (i.e. requires
+          // a real action rather than a Next click) is a structural fact —
+          // the key's presence, independent of its current value.
+          waitingForAction={boardTutorial.step.waitFor !== undefined}
+        />
+      )}
+      {guildsTutorial.step && (
+        <TutorialSpotlight
+          key={guildsTutorial.step.id}
+          step={guildsTutorial.step}
+          stepIndex={guildsTutorial.stepIndex}
+          totalSteps={guildsTutorial.totalSteps}
+          isLast={guildsTutorial.isLast}
+          onNext={guildsTutorial.next}
+          onSkip={guildsTutorial.skip}
+          waitingForAction={guildsTutorial.step.waitFor !== undefined}
+        />
+      )}
+      {journalTutorial.step && (
+        <TutorialSpotlight
+          key={journalTutorial.step.id}
+          step={journalTutorial.step}
+          stepIndex={journalTutorial.stepIndex}
+          totalSteps={journalTutorial.totalSteps}
+          isLast={journalTutorial.isLast}
+          onNext={journalTutorial.next}
+          onSkip={journalTutorial.skip}
+          waitingForAction={journalTutorial.step.waitFor !== undefined}
+        />
+      )}
+      {todoTutorial.step && (
+        <TutorialSpotlight
+          key={todoTutorial.step.id}
+          step={todoTutorial.step}
+          stepIndex={todoTutorial.stepIndex}
+          totalSteps={todoTutorial.totalSteps}
+          isLast={todoTutorial.isLast}
+          onNext={todoTutorial.next}
+          onSkip={todoTutorial.skip}
+          waitingForAction={todoTutorial.step.waitFor !== undefined}
+        />
+      )}
       <div className="app-content flex-1 min-h-0 flex flex-col">
         <div className="h-full bg-black text-white">
       {/* Notifications bell — fixed top-right, no layout impact */}
@@ -737,12 +902,14 @@ export default function Dashboard() {
             <h1 className="text-2xl lg:text-3xl font-bold mt-4 mb-2 font-display text-gray-900">Active Campaign Map</h1>
             <p className="text-gray-500 mb-4 text-sm">Select an open, active quest card from the schedule below to begin your training.</p>
 
-            <WelcomeCard
-              playerName={USERS[activeUserId]?.name ?? activeUserId}
-              loginStreak={loginStreak}
-              totalQuests={totalQuests}
-              completedQuests={data.mastered_quizzes?.length ?? 0}
-            />
+            <div data-tutorial-id="board-welcome">
+              <WelcomeCard
+                playerName={USERS[activeUserId]?.name ?? activeUserId}
+                loginStreak={loginStreak}
+                totalQuests={totalQuests}
+                completedQuests={data.mastered_quizzes?.length ?? 0}
+              />
+            </div>
 
             {/* Compact referral key — invite friends from the board */}
             {dashReferralKey && (
@@ -869,7 +1036,7 @@ export default function Dashboard() {
                 subjectKeys.every((subjectName) => (data.mastered_quizzes || []).includes(`${day}_${subjectName}`));
 
               return (
-                <div key={day} className="mb-8">
+                <div key={day} className="mb-8" data-tutorial-id={day === openTutorialDayName ? 'board-today-quest' : undefined}>
                   <div className="flex items-center gap-3 mb-4">
                     <h2 className={`text-sm font-bold uppercase tracking-wide whitespace-nowrap ${isToday ? 'text-amber-600' : 'text-gray-400'}`}>
                       {day} Objectives {isToday && <span className="text-amber-500">⚡ (Current Run)</span>}
@@ -1331,7 +1498,7 @@ export default function Dashboard() {
         {activeTab === 'guilds' && (
           <div>
             {activeGuild === null ? (
-              <div className="battle-panel-in">
+              <div className="battle-panel-in" data-tutorial-id="guilds-welcome">
                 <h1 className="text-2xl lg:text-3xl font-bold mt-4 mb-4 font-display text-gray-900">Side Quest Guilds</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {([
@@ -1340,13 +1507,14 @@ export default function Dashboard() {
                     { key: 'number_realm' as GuildKey, guild: 'numberrealm' as const, name: 'Number Realm', desc: 'Math guild — Fractions, time, and operations at speed.', border: 'border-[#251616] hover:border-[#3a2020]', title: 'text-amber-700', badge: 'bg-amber-50 text-amber-700', contentBg: 'bg-amber-50', bg: '/guilds/number-bg.png', lvl: guildProfile?.number_realm_lvl, tier: guildProfile?.number_realm_tier },
                     { key: 'logic_labyrinth' as GuildKey, guild: 'logiclabyrinth' as const, name: 'Logic Labyrinth', desc: 'IQ guild — Pattern matrices and deduction puzzles.', border: 'border-[#251616] hover:border-[#3a2020]', title: 'text-cyan-700', badge: 'bg-cyan-50 text-cyan-700', contentBg: 'bg-cyan-50', bg: '/guilds/logic-bg.png', lvl: guildProfile?.logic_labyrinth_lvl, tier: guildProfile?.logic_labyrinth_tier },
                     { key: 'lexicon_arena' as GuildKey, guild: 'lexiconarena' as const, name: 'Lexicon Arena', desc: 'Spelling guild — Read the definition, pick the correct spelling before time runs out.', border: 'border-[#251616] hover:border-[#3a2020]', title: 'text-indigo-700', badge: 'bg-indigo-50 text-indigo-700', contentBg: 'bg-indigo-50', bg: '/guilds/lex-bg.png', lvl: guildProfile?.lexicon_arena_lvl, tier: guildProfile?.lexicon_arena_tier },
-                  ]).map(g => (
+                  ]).map((g, i) => (
                     <motion.button
                       key={g.key}
                       onClick={() => setActiveGuild(g.key)}
                       whileHover="hover"
                       whileTap={{ scale: 0.98 }}
                       variants={{ hover: {} }}
+                      data-tutorial-id={i === 0 ? 'guilds-first-tile' : undefined}
                       className={`overflow-hidden bg-white border-2 ${g.border} rounded-2xl text-center transition-colors flex flex-col items-center shadow-sm`}
                     >
                       {/* Sprite zone — bg image only here */}
@@ -1444,7 +1612,7 @@ export default function Dashboard() {
 
         {/* --- TAB: JOURNAL --- */}
         {activeTab === 'journal' && (
-          <div>
+          <div data-tutorial-id="journal-welcome">
             <h1 className="text-2xl lg:text-3xl font-bold mb-2 font-display text-gray-900">Guild Journal</h1>
             <p className="text-gray-500 mb-8">Reflect on today's run and seal your ledger entry to claim your reward.</p>
             <GuildJournal
@@ -1462,7 +1630,7 @@ export default function Dashboard() {
         {/* --- TAB: TO-DO --- */}
         {activeTab === 'todo' && (
           <div>
-            <div className="flex items-center justify-between gap-3 mt-4 mb-2">
+            <div className="flex items-center justify-between gap-3 mt-4 mb-2" data-tutorial-id="todo-welcome">
               <h1 className="text-2xl lg:text-3xl font-bold font-display text-gray-900">Daily To-Dos</h1>
               {todoCount && (
                 <span className={`text-xs font-bold px-3 py-1 rounded-full flex-shrink-0
