@@ -984,7 +984,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className={`fixed inset-0 bg-black/50 z-[85] flex ${isLandscape ? 'items-stretch justify-start' : 'items-end justify-center'}`}
+                  className={`fixed inset-0 bg-[#0a0807]/50 z-[85] flex ${isLandscape ? 'items-stretch justify-start' : 'items-end justify-center'}`}
                   onClick={() => setArenaNavOpen(false)}
                 >
                   <motion.div

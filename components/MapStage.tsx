@@ -77,11 +77,11 @@ export default function MapStage({
   const canvas = (
     <div className="mstage-container">
       <div className="mstage-top-tags">
-        <div className="bg-black/70 text-white font-bold text-[13px] px-3 py-1 rounded-br-lg truncate max-w-[45%]">
+        <div className="bg-[#0a0807]/70 text-[#ffffff] font-bold text-[13px] px-3 py-1 rounded-br-lg truncate max-w-[45%]">
           {leftTag}
         </div>
         {rightTag && (
-          <div className="bg-black/70 text-white font-bold text-[13px] px-3 py-1 rounded-bl-lg truncate max-w-[45%]">
+          <div className="bg-[#0a0807]/70 text-[#ffffff] font-bold text-[13px] px-3 py-1 rounded-bl-lg truncate max-w-[45%]">
             {rightTag}
           </div>
         )}
@@ -98,8 +98,8 @@ export default function MapStage({
           so they aren't inside the scaled/cropped canvas. */}
       {drawer && !fullscreen && (
         <>
-          <div className={`mstage-drawer bg-black/95 ${drawerOpen ? 'open border-2 border-neutral-700' : ''}`}>
-            <div className="flex items-center justify-between px-3 py-1.5 border-b border-neutral-800 text-[11px] font-bold uppercase tracking-wide text-gray-400 flex-shrink-0">
+          <div className={`mstage-drawer bg-[#0a0807]/95 ${drawerOpen ? 'open border-2 border-[#3d3225]' : ''}`}>
+            <div className="flex items-center justify-between px-3 py-1.5 border-b border-[#2a2119] text-[11px] font-bold uppercase tracking-wide text-[#a89c86] flex-shrink-0">
               <span>{drawerLabel}</span>
             </div>
             <div className="mstage-drawer-content px-2.5 py-1.5">
@@ -108,7 +108,7 @@ export default function MapStage({
           </div>
           <button
             onClick={() => setDrawerOpen(o => !o)}
-            className="mstage-show-drawer bg-neutral-800 hover:bg-neutral-700 text-gray-200 font-bold text-[11px]"
+            className="mstage-show-drawer bg-[#2a2119] hover:bg-[#3d3225] text-gray-200 font-bold text-[11px]"
           >
             {drawerOpen ? `Hide ${drawerLabel}` : `Show ${drawerLabel}`}
           </button>
@@ -118,7 +118,7 @@ export default function MapStage({
   );
 
   const overlayLayer = overlay ? (
-    <div className="stage-overlay bg-black/70">
+    <div className="stage-overlay bg-[#0a0807]/70">
       {overlay}
     </div>
   ) : null;
@@ -134,7 +134,7 @@ export default function MapStage({
   if (fullscreen) {
     return (
       <MapScaleContext.Provider value={scale}>
-        <div className="fixed inset-0 z-[78] overflow-hidden flex items-center justify-center bg-black">
+        <div className="fixed inset-0 z-[78] overflow-hidden flex items-center justify-center bg-[#0a0807]">
           {shell}
           {overlayLayer}
           {controls && (
@@ -149,10 +149,10 @@ export default function MapStage({
             >
               {drawerOpen && (
                 <div
-                  className="pointer-events-auto w-full max-w-sm mx-auto bg-black/90 border border-neutral-700 rounded-b-xl overflow-hidden"
+                  className="pointer-events-auto w-full max-w-sm mx-auto bg-[#0a0807]/90 border border-[#3d3225] rounded-b-xl overflow-hidden"
                   style={{ maxHeight: 220 }}
                 >
-                  <div className="flex items-center px-3 py-1.5 border-b border-neutral-800 text-[11px] font-bold uppercase tracking-wide text-gray-400">
+                  <div className="flex items-center px-3 py-1.5 border-b border-[#2a2119] text-[11px] font-bold uppercase tracking-wide text-[#a89c86]">
                     <span>{drawerLabel}</span>
                   </div>
                   <div className="overflow-y-auto px-2.5 py-1.5" style={{ maxHeight: 180 }}>
@@ -162,7 +162,7 @@ export default function MapStage({
               )}
               <button
                 onClick={() => setDrawerOpen(o => !o)}
-                className="pointer-events-auto bg-black/80 hover:bg-black/95 text-gray-200 font-bold text-[11px] px-4 py-1 rounded-b-lg"
+                className="pointer-events-auto bg-[#0a0807]/80 hover:bg-[#0a0807]/95 text-gray-200 font-bold text-[11px] px-4 py-1 rounded-b-lg"
               >
                 {drawerOpen ? `Hide ${drawerLabel}` : `Show ${drawerLabel}`}
               </button>

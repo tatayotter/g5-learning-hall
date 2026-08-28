@@ -36,10 +36,10 @@ const DRAFT_GRADES = GRADE_LEVELS.map(grade => ({ grade, label: `Grade ${grade}`
 const WEEKDAYS_FOR_PUBLISH = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] as const;
 
 const DRAFT_STATUS_COLORS: Record<DraftQuestion['status'], string> = {
-  pending_review: 'bg-neutral-800 text-gray-400 border-neutral-700',
-  approved: 'bg-blue-900/30 text-blue-400 border-blue-800',
-  rejected: 'bg-red-900/30 text-red-400 border-red-800',
-  published: 'bg-green-900/30 text-green-400 border-green-800',
+  pending_review: 'bg-[#2a2119] text-[#a89c86] border-[#3d3225]',
+  approved: 'bg-[#4a2e0a]/30 text-[#f0b429] border-[#7a4a0f]',
+  rejected: 'bg-[#4a0e0c]/30 text-[#e0605a] border-[#6e1512]',
+  published: 'bg-[#223616]/30 text-[#7fae52] border-[#33501f]',
 };
 
 function DraftQuestionRow({ draft, selected, onToggleSelect, onReload, passcode }: {
@@ -90,11 +90,11 @@ function DraftQuestionRow({ draft, selected, onToggleSelect, onReload, passcode 
 
   if (editing) {
     return (
-      <div className="bg-neutral-950 border border-blue-800 rounded-lg p-4 space-y-3">
+      <div className="bg-neutral-950 border border-[#7a4a0f] rounded-lg p-4 space-y-3">
         <textarea
           value={form.question}
           onChange={e => setForm({ ...form, question: e.target.value })}
-          className="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-white"
+          className="w-full bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-2 text-sm text-[#ede4d3]"
           rows={2}
         />
         <div className="grid grid-cols-2 gap-2">
@@ -107,7 +107,7 @@ function DraftQuestionRow({ draft, selected, onToggleSelect, onReload, passcode 
                 next[i] = e.target.value;
                 setForm({ ...form, options: next });
               }}
-              className="bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-white"
+              className="bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-2 text-sm text-[#ede4d3]"
               placeholder={`Option ${i + 1}`}
             />
           ))}
@@ -116,7 +116,7 @@ function DraftQuestionRow({ draft, selected, onToggleSelect, onReload, passcode 
           <select
             value={form.correct_answer}
             onChange={e => setForm({ ...form, correct_answer: e.target.value })}
-            className="bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-white"
+            className="bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-2 text-sm text-[#ede4d3]"
           >
             <option value="">Select correct answer…</option>
             {form.options.filter(Boolean).map((opt, i) => (
@@ -126,7 +126,7 @@ function DraftQuestionRow({ draft, selected, onToggleSelect, onReload, passcode 
           <select
             value={form.tier}
             onChange={e => setForm({ ...form, tier: Number(e.target.value) })}
-            className="bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-white"
+            className="bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-2 text-sm text-[#ede4d3]"
           >
             <option value={1}>Tier 1</option>
             <option value={2}>Tier 2</option>
@@ -136,20 +136,20 @@ function DraftQuestionRow({ draft, selected, onToggleSelect, onReload, passcode 
         <input
           value={form.topic}
           onChange={e => setForm({ ...form, topic: e.target.value })}
-          className="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-white"
+          className="w-full bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-2 text-sm text-[#ede4d3]"
           placeholder="Topic"
         />
         <div className="flex gap-2">
           <button
             onClick={handleSave}
             disabled={saving}
-            className="bg-blue-700 hover:bg-blue-600 disabled:opacity-50 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors"
+            className="bg-[#a8620f] hover:bg-[#c9781a] disabled:opacity-50 text-[#ede4d3] text-xs font-bold px-3 py-1.5 rounded-lg transition-colors"
           >
             {saving ? 'Saving…' : 'Save'}
           </button>
           <button
             onClick={() => setEditing(false)}
-            className="bg-neutral-800 hover:bg-neutral-700 text-gray-300 text-xs font-bold px-3 py-1.5 rounded-lg transition-colors"
+            className="bg-[#2a2119] hover:bg-[#3d3225] text-[#c9bfae] text-xs font-bold px-3 py-1.5 rounded-lg transition-colors"
           >
             Cancel
           </button>
@@ -159,7 +159,7 @@ function DraftQuestionRow({ draft, selected, onToggleSelect, onReload, passcode 
   }
 
   return (
-    <div className="bg-neutral-950 border border-neutral-800 rounded-lg p-4 flex items-start gap-3">
+    <div className="bg-neutral-950 border border-[#2a2119] rounded-lg p-4 flex items-start gap-3">
       {draft.status === 'approved' && (
         <input type="checkbox" checked={selected} onChange={onToggleSelect} className="mt-1" />
       )}
@@ -168,23 +168,23 @@ function DraftQuestionRow({ draft, selected, onToggleSelect, onReload, passcode 
           <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full border ${DRAFT_STATUS_COLORS[draft.status]}`}>
             {draft.status.replace('_', ' ')}
           </span>
-          <span className="text-[10px] text-gray-500">Tier {draft.tier} · {draft.topic}</span>
+          <span className="text-[10px] text-[#8a7c66]">Tier {draft.tier} · {draft.topic}</span>
         </div>
-        <p className="text-white text-sm mb-1">{draft.question}</p>
-        <p className="text-xs text-gray-500">
+        <p className="text-[#ede4d3] text-sm mb-1">{draft.question}</p>
+        <p className="text-xs text-[#8a7c66]">
           {draft.options.join(' · ')} — <span className="text-green-500">{draft.correct_answer}</span>
         </p>
       </div>
       <div className="flex flex-col gap-1.5 flex-shrink-0">
         {draft.status === 'pending_review' && (
           <>
-            <button onClick={() => setEditing(true)} className="bg-neutral-800 hover:bg-neutral-700 text-gray-300 text-xs font-bold px-3 py-1 rounded-lg transition-colors">Edit</button>
-            <button onClick={() => handleStatus('approved')} className="bg-blue-900/40 hover:bg-blue-900/60 text-blue-400 text-xs font-bold px-3 py-1 rounded-lg transition-colors">Approve</button>
-            <button onClick={() => handleStatus('rejected')} className="bg-red-900/40 hover:bg-red-900/60 text-red-400 text-xs font-bold px-3 py-1 rounded-lg transition-colors">Reject</button>
+            <button onClick={() => setEditing(true)} className="bg-[#2a2119] hover:bg-[#3d3225] text-[#c9bfae] text-xs font-bold px-3 py-1 rounded-lg transition-colors">Edit</button>
+            <button onClick={() => handleStatus('approved')} className="bg-[#4a2e0a]/40 hover:bg-[#4a2e0a]/60 text-[#f0b429] text-xs font-bold px-3 py-1 rounded-lg transition-colors">Approve</button>
+            <button onClick={() => handleStatus('rejected')} className="bg-[#4a0e0c]/40 hover:bg-[#4a0e0c]/60 text-[#e0605a] text-xs font-bold px-3 py-1 rounded-lg transition-colors">Reject</button>
           </>
         )}
         {draft.status === 'approved' && (
-          <button onClick={() => handleStatus('pending_review')} className="bg-neutral-800 hover:bg-neutral-700 text-gray-300 text-xs font-bold px-3 py-1 rounded-lg transition-colors">Unapprove</button>
+          <button onClick={() => handleStatus('pending_review')} className="bg-[#2a2119] hover:bg-[#3d3225] text-[#c9bfae] text-xs font-bold px-3 py-1 rounded-lg transition-colors">Unapprove</button>
         )}
       </div>
     </div>
@@ -258,38 +258,38 @@ function DraftSummaryCard({ summary, onReload, passcode, publishDay, publishWeek
           <textarea
             value={text}
             onChange={e => setText(e.target.value)}
-            className="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-white"
+            className="w-full bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-2 text-sm text-[#ede4d3]"
             rows={5}
           />
           <div className="flex gap-2">
-            <button onClick={handleSave} disabled={saving} className="bg-blue-700 hover:bg-blue-600 disabled:opacity-50 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">
+            <button onClick={handleSave} disabled={saving} className="bg-[#a8620f] hover:bg-[#c9781a] disabled:opacity-50 text-[#ede4d3] text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">
               {saving ? 'Saving…' : 'Save'}
             </button>
-            <button onClick={() => setEditing(false)} className="bg-neutral-800 hover:bg-neutral-700 text-gray-300 text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">
+            <button onClick={() => setEditing(false)} className="bg-[#2a2119] hover:bg-[#3d3225] text-[#c9bfae] text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">
               Cancel
             </button>
           </div>
         </div>
       ) : (
-        <p className="text-gray-300 text-sm whitespace-pre-wrap mb-3">{summary.summary_markdown}</p>
+        <p className="text-[#c9bfae] text-sm whitespace-pre-wrap mb-3">{summary.summary_markdown}</p>
       )}
 
       {!editing && (
         <div className="flex items-center gap-2 flex-wrap">
           {summary.status === 'pending_review' && (
             <>
-              <button onClick={() => setEditing(true)} className="bg-neutral-800 hover:bg-neutral-700 text-gray-300 text-xs font-bold px-3 py-1 rounded-lg transition-colors">Edit</button>
-              <button onClick={() => handleStatus('approved')} className="bg-blue-900/40 hover:bg-blue-900/60 text-blue-400 text-xs font-bold px-3 py-1 rounded-lg transition-colors">Approve</button>
-              <button onClick={() => handleStatus('rejected')} className="bg-red-900/40 hover:bg-red-900/60 text-red-400 text-xs font-bold px-3 py-1 rounded-lg transition-colors">Reject</button>
+              <button onClick={() => setEditing(true)} className="bg-[#2a2119] hover:bg-[#3d3225] text-[#c9bfae] text-xs font-bold px-3 py-1 rounded-lg transition-colors">Edit</button>
+              <button onClick={() => handleStatus('approved')} className="bg-[#4a2e0a]/40 hover:bg-[#4a2e0a]/60 text-[#f0b429] text-xs font-bold px-3 py-1 rounded-lg transition-colors">Approve</button>
+              <button onClick={() => handleStatus('rejected')} className="bg-[#4a0e0c]/40 hover:bg-[#4a0e0c]/60 text-[#e0605a] text-xs font-bold px-3 py-1 rounded-lg transition-colors">Reject</button>
             </>
           )}
           {summary.status === 'approved' && (
             <>
-              <button onClick={() => handleStatus('pending_review')} className="bg-neutral-800 hover:bg-neutral-700 text-gray-300 text-xs font-bold px-3 py-1 rounded-lg transition-colors">Unapprove</button>
+              <button onClick={() => handleStatus('pending_review')} className="bg-[#2a2119] hover:bg-[#3d3225] text-[#c9bfae] text-xs font-bold px-3 py-1 rounded-lg transition-colors">Unapprove</button>
               <button
                 onClick={handlePublish}
                 disabled={publishing || !publishWeek}
-                className="bg-green-700 hover:bg-green-600 disabled:opacity-50 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors ml-auto"
+                className="bg-[#3f6428] hover:bg-[#4d7a32] disabled:opacity-50 text-[#ede4d3] text-xs font-bold px-3 py-1.5 rounded-lg transition-colors ml-auto"
               >
                 {publishing ? 'Publishing…' : `Publish summary to ${publishDay}`}
               </button>
@@ -337,9 +337,9 @@ function DraftSubjectGroup({ subject, drafts, summary, grade, selectedIds, onTog
 
   return (
     <div className="mb-6">
-      <h3 className="text-white font-bold text-sm mb-2">{subject}</h3>
+      <h3 className="text-[#ede4d3] font-bold text-sm mb-2">{subject}</h3>
       {approvedIds.length > 0 && (
-        <label className="flex items-center gap-2 mb-2 text-xs text-gray-400 cursor-pointer select-none w-fit">
+        <label className="flex items-center gap-2 mb-2 text-xs text-[#a89c86] cursor-pointer select-none w-fit">
           <input
             type="checkbox"
             checked={allApprovedSelected}
@@ -364,13 +364,13 @@ function DraftSubjectGroup({ subject, drafts, summary, grade, selectedIds, onTog
         ))}
       </div>
       {(idsInThisSubject.length > 0 || summary?.status === 'approved') && (
-        <div className="bg-neutral-900 border border-blue-800 rounded-lg p-3 flex items-center gap-3 flex-wrap">
-          <span className="text-xs text-blue-400 font-bold">
+        <div className="bg-[#1c1611] border border-[#7a4a0f] rounded-lg p-3 flex items-center gap-3 flex-wrap">
+          <span className="text-xs text-[#f0b429] font-bold">
             {idsInThisSubject.length > 0 ? `${idsInThisSubject.length} selected` : 'Publish target'}
           </span>
           <span
             title="Day is fixed by the subject schedule"
-            className="text-[10px] font-bold px-2 py-1 rounded-md bg-neutral-800 text-white"
+            className="text-[10px] font-bold px-2 py-1 rounded-md bg-[#2a2119] text-[#ede4d3]"
           >
             🔒 {publishDay}
           </span>
@@ -378,13 +378,13 @@ function DraftSubjectGroup({ subject, drafts, summary, grade, selectedIds, onTog
             type="date"
             value={publishWeek}
             onChange={e => setPublishWeek(e.target.value)}
-            className="bg-neutral-950 border border-neutral-700 rounded-lg px-2 py-1 text-xs text-white font-mono"
+            className="bg-neutral-950 border border-[#3d3225] rounded-lg px-2 py-1 text-xs text-[#ede4d3] font-mono"
           />
           {idsInThisSubject.length > 0 && (
             <button
               onClick={handlePublish}
               disabled={publishing || !publishWeek}
-              className="bg-green-700 hover:bg-green-600 disabled:opacity-50 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors ml-auto"
+              className="bg-[#3f6428] hover:bg-[#4d7a32] disabled:opacity-50 text-[#ede4d3] text-xs font-bold px-3 py-1.5 rounded-lg transition-colors ml-auto"
             >
               {publishing ? 'Publishing…' : `Publish ${idsInThisSubject.length} to ${publishDay}`}
             </button>
@@ -452,8 +452,8 @@ export default function DraftQuestionsSection({ passcode }: { passcode: string }
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-white mb-1">📝 Draft Questions</h2>
-      <p className="text-gray-500 text-sm mb-6">
+      <h2 className="text-xl font-bold text-[#ede4d3] mb-1">📝 Draft Questions</h2>
+      <p className="text-[#8a7c66] text-sm mb-6">
         AI-generated Main Quest questions and lesson summaries, tiered and topic-tagged, awaiting review
         before publishing into a grade's shared weekly content. Publishing does not touch the 5 Guilds.
       </p>
@@ -465,7 +465,7 @@ export default function DraftQuestionsSection({ passcode }: { passcode: string }
               key={g.grade}
               onClick={() => setGrade(g.grade)}
               className={`text-xs font-bold px-3 py-1.5 rounded-lg transition-colors ${
-                grade === g.grade ? 'bg-white text-black' : 'bg-neutral-800 text-gray-400 hover:text-white'
+                grade === g.grade ? 'bg-[#ede4d3] text-[#0a0807]' : 'bg-[#2a2119] text-[#a89c86] hover:text-[#ede4d3]'
               }`}
             >
               {g.label}
@@ -475,7 +475,7 @@ export default function DraftQuestionsSection({ passcode }: { passcode: string }
         <select
           value={statusFilter}
           onChange={e => setStatusFilter(e.target.value as DraftQuestion['status'])}
-          className="bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-1.5 text-xs text-white"
+          className="bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-1.5 text-xs text-[#ede4d3]"
         >
           <option value="pending_review">Pending Review</option>
           <option value="approved">Approved</option>
@@ -484,7 +484,7 @@ export default function DraftQuestionsSection({ passcode }: { passcode: string }
         </select>
       </div>
 
-      {loading && <p className="text-gray-500">Loading drafts...</p>}
+      {loading && <p className="text-[#8a7c66]">Loading drafts...</p>}
       {!loading && allSubjects.length === 0 && (
         <p className="text-gray-600 text-sm">No {statusFilter.replace('_', ' ')} drafts for this grade.</p>
       )}

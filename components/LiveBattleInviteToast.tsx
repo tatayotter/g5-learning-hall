@@ -8,6 +8,7 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playPvpChallenge } from '@/lib/sounds';
+import GameButton from '@/components/GameButton';
 
 interface LiveBattleInviteToastProps {
   fromName: string;
@@ -28,29 +29,23 @@ export default function LiveBattleInviteToast({ fromName, onAccept, onDecline }:
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -12, scale: 0.97 }}
         transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-        className="fixed top-[63px] left-1/2 -translate-x-1/2 z-[80] w-full max-w-sm px-4 border rounded-2xl shadow-2xl overflow-hidden bg-[#1c1611] border-amber-700"
+        className="fixed top-[63px] left-1/2 -translate-x-1/2 z-[80] w-full max-w-sm px-4 border rounded-2xl shadow-2xl overflow-hidden bg-[#f0ddb8] border-amber-600"
       >
         <div className="p-5">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-2xl">⚔️</span>
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-amber-600">Live Battle Challenge!</p>
-              <h3 className="text-lg font-display font-bold leading-tight text-amber-300">{fromName} wants to battle!</h3>
+              <p className="text-xs font-bold uppercase tracking-widest text-amber-700">Live Battle Challenge!</p>
+              <h3 className="text-lg font-display font-bold leading-tight text-amber-900">{fromName} wants to battle!</h3>
             </div>
           </div>
-          <div className="flex gap-3 mt-4">
-            <button
-              onClick={onAccept}
-              className="flex-1 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-sm transition-colors"
-            >
+          <div className="flex gap-3 mt-4" style={{ fontSize: 15 }}>
+            <GameButton variant="quest" color="#16a34a" onClick={onAccept} className="flex-1">
               Accept
-            </button>
-            <button
-              onClick={onDecline}
-              className="flex-1 py-2 rounded-xl border border-neutral-600 hover:border-neutral-400 text-gray-300 font-bold text-sm transition-colors"
-            >
+            </GameButton>
+            <GameButton variant="quest" color="#57534e" onClick={onDecline} className="flex-1">
               Decline
-            </button>
+            </GameButton>
           </div>
         </div>
       </motion.div>

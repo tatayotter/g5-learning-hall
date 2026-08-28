@@ -87,42 +87,42 @@ export default function EggChainsSection({ passcode }: { passcode: string }) {
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-white mb-1">🥚 Egg Chains</h2>
-      <p className="text-gray-500 text-sm mb-6">
+      <h2 className="text-xl font-bold text-[#ede4d3] mb-1">🥚 Egg Chains</h2>
+      <p className="text-[#8a7c66] text-sm mb-6">
         Which species hatches out of which graduated curio's egg. A species with no chain here never
         becomes egg-ready — guild companions and event curios are left out of both dropdowns on purpose.
       </p>
 
-      <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4 mb-8 space-y-3">
+      <div className="bg-[#1c1611] border border-[#2a2119] rounded-xl p-4 mb-8 space-y-3">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div>
-            <label className="text-[10px] text-gray-500 uppercase tracking-widest block mb-1">Graduated species (layer)</label>
+            <label className="text-[10px] text-[#8a7c66] uppercase tracking-widest block mb-1">Graduated species (layer)</label>
             <select
               value={speciesId}
               onChange={e => setSpeciesId(e.target.value)}
-              className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-2 py-2 text-xs text-white"
+              className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-2 py-2 text-xs text-[#ede4d3]"
             >
               <option value="">Select...</option>
               {LAYER_SPECIES.map(m => <option key={m.id} value={m.id}>{layerDisplayName(m)}</option>)}
             </select>
           </div>
           <div>
-            <label className="text-[10px] text-gray-500 uppercase tracking-widest block mb-1">Hatches into (predecessor)</label>
+            <label className="text-[10px] text-[#8a7c66] uppercase tracking-widest block mb-1">Hatches into (predecessor)</label>
             <select
               value={predecessorId}
               onChange={e => handlePredecessorChange(e.target.value)}
-              className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-2 py-2 text-xs text-white"
+              className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-2 py-2 text-xs text-[#ede4d3]"
             >
               <option value="">Select...</option>
               {PREDECESSOR_SPECIES.map(m => <option key={m.id} value={m.id}>{m.name}</option>)}
             </select>
           </div>
           <div>
-            <label className="text-[10px] text-gray-500 uppercase tracking-widest block mb-1">Egg element</label>
+            <label className="text-[10px] text-[#8a7c66] uppercase tracking-widest block mb-1">Egg element</label>
             <select
               value={element}
               onChange={e => setElement(e.target.value as Element)}
-              className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-2 py-2 text-xs text-white capitalize"
+              className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-2 py-2 text-xs text-[#ede4d3] capitalize"
             >
               {ELEMENTS.map(el => <option key={el} value={el} className="capitalize">{el}</option>)}
             </select>
@@ -131,7 +131,7 @@ export default function EggChainsSection({ passcode }: { passcode: string }) {
         <button
           onClick={handleSave}
           disabled={saving}
-          className="bg-cyan-700 hover:bg-cyan-600 disabled:opacity-40 text-white text-sm font-bold px-4 py-2 rounded-lg"
+          className="bg-cyan-700 hover:bg-cyan-600 disabled:opacity-40 text-[#ede4d3] text-sm font-bold px-4 py-2 rounded-lg"
         >
           {saving ? 'Saving...' : 'Save Chain'}
         </button>
@@ -144,18 +144,18 @@ export default function EggChainsSection({ passcode }: { passcode: string }) {
       ) : (
         <div className="space-y-2">
           {chains.map(chain => (
-            <div key={chain.species_id} className="bg-neutral-900 border border-neutral-800 rounded-xl p-4 flex items-center justify-between gap-4">
+            <div key={chain.species_id} className="bg-[#1c1611] border border-[#2a2119] rounded-xl p-4 flex items-center justify-between gap-4">
               <div>
-                <p className="text-white font-bold text-sm">
+                <p className="text-[#ede4d3] font-bold text-sm">
                   {(() => { const d = ALL_MONSTERS[chain.species_id]; return d ? layerDisplayName(d) : chain.species_id; })()}
-                  <span className="text-gray-500 font-normal"> → </span>
+                  <span className="text-[#8a7c66] font-normal"> → </span>
                   {ALL_MONSTERS[chain.predecessor_species_id]?.name || chain.predecessor_species_id}
                 </p>
-                <p className="text-xs text-gray-500 capitalize">{chain.element} egg</p>
+                <p className="text-xs text-[#8a7c66] capitalize">{chain.element} egg</p>
               </div>
               <button
                 onClick={() => handleDelete(chain.species_id)}
-                className="text-xs bg-neutral-800 hover:bg-red-900 text-gray-400 hover:text-red-300 px-3 py-1.5 rounded-lg flex-shrink-0"
+                className="text-xs bg-[#2a2119] hover:bg-[#4a0e0c] text-[#a89c86] hover:text-red-300 px-3 py-1.5 rounded-lg flex-shrink-0"
               >
                 Remove
               </button>

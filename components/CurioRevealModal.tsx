@@ -7,6 +7,7 @@ import { MonsterDef } from '@/lib/monsterConfig';
 import { playCurioCaught } from '@/lib/sounds';
 import { MonsterImage } from '@/components/battle/shared';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
+import GameButton from '@/components/GameButton';
 
 interface CurioRevealModalProps {
   monster: MonsterDef;
@@ -31,28 +32,23 @@ export default function CurioRevealModal({ monster, userId, onClose }: CurioReve
         onClick={onClose}
       >
         <div
-          className={`bg-neutral-900 border-2 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in ${
-            isTala ? 'border-pink-500' : 'border-amber-500'
+          className={`bg-[#f0ddb8] border-2 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in ${
+            isTala ? 'border-pink-500' : 'border-amber-600'
           }`}
           onClick={e => e.stopPropagation()}
         >
-          <p className={`font-bold text-sm tracking-wide mb-4 ${isTala ? 'text-pink-400' : 'text-amber-400'}`}>
+          <p className={`font-bold text-sm tracking-wide mb-4 ${isTala ? 'text-pink-700' : 'text-amber-700'}`}>
             ✨ NEW CURIO OBTAINED! ✨
           </p>
           <div className="flex justify-center mb-4">
             <MonsterImage monster={monster} className="w-28 h-28 battle-float" emojiClassName="text-8xl" />
           </div>
-          <p className="text-white font-bold text-xl mb-1">{monster.name}</p>
-          <p className="text-xs text-gray-500 capitalize mb-6">{monster.element} · {monster.archetype}</p>
-          <p className="text-sm text-gray-400 mb-6">Added to your Curio Arena collection!</p>
-          <button
-            onClick={onClose}
-            className={`w-full py-3 rounded-xl font-bold text-white btn-tactile ${
-              isTala ? 'bg-pink-600 hover:bg-pink-500' : 'bg-amber-600 hover:bg-amber-500'
-            }`}
-          >
+          <p className="text-[#2a1505] font-bold text-xl mb-1">{monster.name}</p>
+          <p className="text-xs text-[#6b4820] capitalize mb-6">{monster.element} · {monster.archetype}</p>
+          <p className="text-sm text-[#6b4820] mb-6">Added to your Curio Arena collection!</p>
+          <GameButton variant="quest" color={isTala ? '#db2777' : '#d97706'} onClick={onClose} className="w-full" style={{ fontSize: 15 }}>
             Awesome!
-          </button>
+          </GameButton>
         </div>
       </div>
     </>

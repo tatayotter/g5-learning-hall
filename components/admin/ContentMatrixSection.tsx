@@ -61,7 +61,7 @@ function CellBadge({ status }: { status: CellStatus }) {
 function cellBg(status: CellStatus) {
   if (status === 'imported') return 'bg-emerald-950/60 border-emerald-800/40 hover:bg-emerald-900/60';
   if (status === 'file')     return 'bg-amber-950/60   border-amber-800/40   hover:bg-amber-900/60';
-  return                            'bg-neutral-900     border-neutral-800     hover:bg-neutral-800';
+  return                            'bg-[#1c1611]     border-[#2a2119]     hover:bg-[#2a2119]';
 }
 
 // ─── Paste/Import modal ───────────────────────────────────────────────────────
@@ -168,26 +168,26 @@ function CellModal({ grade, week, initialStatus, passcode, onClose, onSaved }: M
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 bg-[#0a0807]/70 flex items-center justify-center p-4"
       onClick={e => { if (e.target === e.currentTarget) onClose(); }}
     >
-      <div className="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+      <div className="bg-[#1c1611] border border-[#3d3225] rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="flex items-start justify-between p-6 border-b border-neutral-800">
+        <div className="flex items-start justify-between p-6 border-b border-[#2a2119]">
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="bg-indigo-900/60 text-indigo-300 text-xs font-bold px-2 py-0.5 rounded-full border border-indigo-700/40">
                 Grade {grade}
               </span>
-              <span className="text-gray-500 text-xs">{week.termLabel}</span>
+              <span className="text-[#8a7c66] text-xs">{week.termLabel}</span>
             </div>
-            <h2 className="text-white font-bold text-lg">
+            <h2 className="text-[#ede4d3] font-bold text-lg">
               Week of {shortDate(week.date)}, {week.date.slice(0, 4)}
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-white text-xl leading-none transition-colors"
+            className="text-[#8a7c66] hover:text-[#ede4d3] text-xl leading-none transition-colors"
           >
             ✕
           </button>
@@ -208,28 +208,28 @@ function CellModal({ grade, week, initialStatus, passcode, onClose, onSaved }: M
 
           {/* Step 1 — Get the Claude.ai prompt */}
           <div>
-            <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">
+            <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-3">
               Step 1 — Copy the prompt for Claude.ai
             </p>
             {!prompt ? (
               <button
                 onClick={loadPrompt}
                 disabled={loadingPrompt}
-                className="bg-neutral-800 hover:bg-neutral-700 disabled:opacity-50 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+                className="bg-[#2a2119] hover:bg-[#3d3225] disabled:opacity-50 text-[#ede4d3] text-sm font-medium px-4 py-2 rounded-lg transition-colors"
               >
                 {loadingPrompt ? '⚙️ Loading…' : '📄 Load prompt'}
               </button>
             ) : (
               <div>
-                <pre className="bg-neutral-950 border border-neutral-800 rounded-xl p-4 text-xs text-gray-300 font-mono overflow-auto max-h-48 whitespace-pre-wrap mb-2">
+                <pre className="bg-neutral-950 border border-[#2a2119] rounded-xl p-4 text-xs text-[#c9bfae] font-mono overflow-auto max-h-48 whitespace-pre-wrap mb-2">
                   {prompt}
                 </pre>
                 <button
                   onClick={copyPrompt}
                   className={`text-sm font-bold px-4 py-2 rounded-lg transition-all ${
                     copied
-                      ? 'bg-emerald-700 text-white'
-                      : 'bg-indigo-600 hover:bg-indigo-500 text-white'
+                      ? 'bg-emerald-700 text-[#ede4d3]'
+                      : 'bg-indigo-600 hover:bg-indigo-500 text-[#ede4d3]'
                   }`}
                 >
                   {copied ? '✅ Copied!' : '📋 Copy prompt'}
@@ -240,7 +240,7 @@ function CellModal({ grade, week, initialStatus, passcode, onClose, onSaved }: M
 
           {/* Step 2 — Paste the JSON response */}
           <div>
-            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">
+            <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-2">
               Step 2 — Paste Claude's JSON response
             </p>
             <textarea
@@ -248,10 +248,10 @@ function CellModal({ grade, week, initialStatus, passcode, onClose, onSaved }: M
               value={pasteValue}
               onChange={e => handlePasteChange(e.target.value)}
               placeholder={'Paste the full JSON here — the object that starts with { "Monday": ... }'}
-              className="w-full h-40 bg-neutral-950 border border-neutral-700 rounded-xl p-3 text-xs text-gray-300 font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 resize-none placeholder:text-neutral-600"
+              className="w-full h-40 bg-neutral-950 border border-[#3d3225] rounded-xl p-3 text-xs text-[#c9bfae] font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 resize-none placeholder:text-neutral-600"
             />
             {parseError && (
-              <p className="text-red-400 text-xs mt-1">⚠️ {parseError}</p>
+              <p className="text-[#e0605a] text-xs mt-1">⚠️ {parseError}</p>
             )}
             {parsed && !parseError && (
               <p className="text-emerald-400 text-xs mt-1">
@@ -262,23 +262,23 @@ function CellModal({ grade, week, initialStatus, passcode, onClose, onSaved }: M
 
           {/* Step 3 — Save */}
           <div>
-            <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">
+            <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-3">
               Step 3 — Save to file + Supabase
             </p>
             {saveError && (
-              <div className="bg-red-950 border border-red-800 text-red-300 text-xs rounded-xl p-3 mb-3">
+              <div className="bg-red-950 border border-[#6e1512] text-red-300 text-xs rounded-xl p-3 mb-3">
                 ⚠️ {saveError}
               </div>
             )}
             <button
               onClick={save}
               disabled={!parsed || saving}
-              className="bg-emerald-700 hover:bg-emerald-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold px-6 py-2.5 rounded-xl transition-colors"
+              className="bg-emerald-700 hover:bg-emerald-600 disabled:opacity-40 disabled:cursor-not-allowed text-[#ede4d3] font-bold px-6 py-2.5 rounded-xl transition-colors"
             >
               {saving ? '💾 Saving…' : '💾 Save to file + Supabase'}
             </button>
             <p className="text-gray-600 text-xs mt-2">
-              Writes <code className="bg-neutral-800 px-1 rounded">week-{week.date}-g{grade}.json</code> and imports to DB.
+              Writes <code className="bg-[#2a2119] px-1 rounded">week-{week.date}-g{grade}.json</code> and imports to DB.
             </p>
           </div>
         </div>
@@ -352,7 +352,7 @@ export default function ContentMatrixSection({ passcode }: { passcode: string })
 
   if (loading) {
     return (
-      <div className="text-gray-500 text-sm animate-pulse">Loading content matrix…</div>
+      <div className="text-[#8a7c66] text-sm animate-pulse">Loading content matrix…</div>
     );
   }
 
@@ -361,15 +361,15 @@ export default function ContentMatrixSection({ passcode }: { passcode: string })
       {/* Header */}
       <div className="flex items-start justify-between mb-6">
         <div>
-          <h2 className="text-xl font-bold text-white mb-1">Content Matrix</h2>
-          <p className="text-gray-500 text-sm">SY 2026–2027 · {ALL_WEEKS.length} teaching weeks · Grades 2–6</p>
+          <h2 className="text-xl font-bold text-[#ede4d3] mb-1">Content Matrix</h2>
+          <p className="text-[#8a7c66] text-sm">SY 2026–2027 · {ALL_WEEKS.length} teaching weeks · Grades 2–6</p>
         </div>
         <div className="flex items-center gap-3">
           {importResult && (
             <span className={`text-xs px-3 py-1.5 rounded-full font-medium ${
               importResult.fail === 0
                 ? 'bg-emerald-900/50 text-emerald-300 border border-emerald-700/40'
-                : 'bg-red-900/50 text-red-300 border border-red-700/40'
+                : 'bg-[#4a0e0c]/50 text-red-300 border border-[#8a1c17]/40'
             }`}>
               {importResult.ok} imported{importResult.fail > 0 ? `, ${importResult.fail} failed` : ''}
             </span>
@@ -377,7 +377,7 @@ export default function ContentMatrixSection({ passcode }: { passcode: string })
           <button
             onClick={importAll}
             disabled={importing || fileCount === 0}
-            className="bg-indigo-600 hover:bg-indigo-500 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold px-5 py-2 rounded-xl text-sm transition-colors"
+            className="bg-indigo-600 hover:bg-indigo-500 disabled:opacity-40 disabled:cursor-not-allowed text-[#ede4d3] font-bold px-5 py-2 rounded-xl text-sm transition-colors"
           >
             {importing ? '⚙️ Importing…' : '⬆ Import all files'}
           </button>
@@ -386,34 +386,34 @@ export default function ContentMatrixSection({ passcode }: { passcode: string })
 
       {/* Legend + stats */}
       <div className="flex items-center gap-6 mb-5">
-        <div className="flex items-center gap-2 text-xs text-gray-500">
-          <span className="w-3 h-3 rounded-sm bg-neutral-800 border border-neutral-700 inline-block" />
+        <div className="flex items-center gap-2 text-xs text-[#8a7c66]">
+          <span className="w-3 h-3 rounded-sm bg-[#2a2119] border border-[#3d3225] inline-block" />
           No file
         </div>
-        <div className="flex items-center gap-2 text-xs text-gray-500">
+        <div className="flex items-center gap-2 text-xs text-[#8a7c66]">
           <span className="w-3 h-3 rounded-sm bg-amber-950 border border-amber-800 inline-block" />
           File ready ({fileCount})
         </div>
-        <div className="flex items-center gap-2 text-xs text-gray-500">
+        <div className="flex items-center gap-2 text-xs text-[#8a7c66]">
           <span className="w-3 h-3 rounded-sm bg-emerald-950 border border-emerald-800 inline-block" />
           Saved to DB ({importedCount} / {totalCells})
         </div>
         <button
           onClick={loadStatus}
-          className="ml-auto text-xs text-gray-600 hover:text-gray-300 transition-colors"
+          className="ml-auto text-xs text-gray-600 hover:text-[#c9bfae] transition-colors"
         >
           ↺ Refresh
         </button>
       </div>
 
       {/* Matrix table */}
-      <div className="overflow-x-auto rounded-xl border border-neutral-800">
+      <div className="overflow-x-auto rounded-xl border border-[#2a2119]">
         <table className="w-full border-collapse text-xs">
           <thead>
-            <tr className="bg-neutral-900 border-b border-neutral-800">
-              <th className="text-left px-4 py-3 text-gray-500 font-medium w-48">Week</th>
+            <tr className="bg-[#1c1611] border-b border-[#2a2119]">
+              <th className="text-left px-4 py-3 text-[#8a7c66] font-medium w-48">Week</th>
               {GRADES.map(g => (
-                <th key={g} className="px-3 py-3 text-gray-400 font-bold text-center">G{g}</th>
+                <th key={g} className="px-3 py-3 text-[#a89c86] font-bold text-center">G{g}</th>
               ))}
             </tr>
           </thead>
@@ -430,7 +430,7 @@ export default function ContentMatrixSection({ passcode }: { passcode: string })
                   <tr key={`divider-${week.date}`}>
                     <td
                       colSpan={6}
-                      className="px-4 py-2 text-[10px] text-gray-600 uppercase tracking-widest font-semibold bg-neutral-950 border-t border-b border-neutral-800"
+                      className="px-4 py-2 text-[10px] text-gray-600 uppercase tracking-widest font-semibold bg-neutral-950 border-t border-b border-[#2a2119]"
                     >
                       Term {thisTerm}
                     </td>
@@ -438,11 +438,11 @@ export default function ContentMatrixSection({ passcode }: { passcode: string })
                 ),
                 <tr
                   key={week.date}
-                  className="border-b border-neutral-800/60 hover:bg-neutral-900/30 transition-colors"
+                  className="border-b border-[#2a2119]/60 hover:bg-[#1c1611]/30 transition-colors"
                 >
                   {/* Week label */}
                   <td className="px-4 py-2.5">
-                    <span className="text-gray-300 font-medium">{shortDate(week.date)}</span>
+                    <span className="text-[#c9bfae] font-medium">{shortDate(week.date)}</span>
                     <span className="text-gray-600 ml-2">{week.date.slice(0, 4)}</span>
                     <div className="text-gray-600 text-[10px] mt-0.5">{week.termLabel}</div>
                   </td>
@@ -469,17 +469,17 @@ export default function ContentMatrixSection({ passcode }: { passcode: string })
       </div>
 
       {/* Instructions */}
-      <div className="mt-6 bg-neutral-900 border border-neutral-800 rounded-xl p-5 text-xs text-gray-500 leading-relaxed">
-        <p className="font-semibold text-gray-400 mb-2">How to fill a week</p>
+      <div className="mt-6 bg-[#1c1611] border border-[#2a2119] rounded-xl p-5 text-xs text-[#8a7c66] leading-relaxed">
+        <p className="font-semibold text-[#a89c86] mb-2">How to fill a week</p>
         <ol className="list-decimal list-inside space-y-1">
           <li>Click any cell to open the import panel.</li>
           <li>Load the prompt → copy it → paste into Claude.ai → get the JSON response.</li>
           <li>Paste the JSON response into the panel → Save.</li>
-          <li>Or drop JSON files into <code className="bg-neutral-800 px-1 rounded">content/generated-packages/</code> and click <strong className="text-gray-300">Import all files</strong>.</li>
+          <li>Or drop JSON files into <code className="bg-[#2a2119] px-1 rounded">content/generated-packages/</code> and click <strong className="text-[#c9bfae]">Import all files</strong>.</li>
         </ol>
         <p className="mt-3">
-          File naming convention: <code className="bg-neutral-800 px-1 rounded">week-YYYY-MM-DD-gN.json</code>
-          &nbsp;(e.g. <code className="bg-neutral-800 px-1 rounded">week-2026-08-24-g5.json</code>).
+          File naming convention: <code className="bg-[#2a2119] px-1 rounded">week-YYYY-MM-DD-gN.json</code>
+          &nbsp;(e.g. <code className="bg-[#2a2119] px-1 rounded">week-2026-08-24-g5.json</code>).
           The "week" date is the Monday of that week.
         </p>
       </div>

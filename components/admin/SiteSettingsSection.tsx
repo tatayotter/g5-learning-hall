@@ -41,19 +41,19 @@ export default function SiteSettingsSection({ passcode }: { passcode: string }) 
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-white mb-1">Site Settings</h2>
-      <p className="text-gray-500 text-sm mb-6">App-wide settings that apply across every page.</p>
+      <h2 className="text-xl font-bold text-[#ede4d3] mb-1">Site Settings</h2>
+      <p className="text-[#8a7c66] text-sm mb-6">App-wide settings that apply across every page.</p>
 
-      <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-5 max-w-xl">
+      <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5 max-w-xl">
         <div className="flex items-center justify-between mb-4">
-          <p className="text-xs text-gray-500 uppercase tracking-widest">📘 Facebook Pixel</p>
+          <p className="text-xs text-[#8a7c66] uppercase tracking-widest">📘 Facebook Pixel</p>
           {savedPixelId ? (
-            <span className="text-xs font-bold text-green-400 bg-green-900/40 border border-green-800 px-2 py-0.5 rounded-full">Active</span>
+            <span className="text-xs font-bold text-[#7fae52] bg-[#223616]/40 border border-[#33501f] px-2 py-0.5 rounded-full">Active</span>
           ) : (
-            <span className="text-xs font-bold text-gray-500 bg-neutral-800 border border-neutral-700 px-2 py-0.5 rounded-full">Not Set</span>
+            <span className="text-xs font-bold text-[#8a7c66] bg-[#2a2119] border border-[#3d3225] px-2 py-0.5 rounded-full">Not Set</span>
           )}
         </div>
-        <p className="text-gray-500 text-xs mb-3">
+        <p className="text-[#8a7c66] text-xs mb-3">
           Paste your Pixel ID (the numeric ID from Meta Events Manager — not the full script). Once saved,
           it loads automatically on every page of the app and site, and tracks a PageView on every navigation.
         </p>
@@ -66,12 +66,12 @@ export default function SiteSettingsSection({ passcode }: { passcode: string }) 
               placeholder="Insert Facebook Pixel ID here (e.g. 1234567890123456)"
               value={pixelId}
               onChange={e => setPixelId(e.target.value)}
-              className="flex-1 bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-white font-mono focus:outline-none focus:border-neutral-500"
+              className="flex-1 bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] font-mono focus:outline-none focus:border-neutral-500"
             />
             <button
               onClick={handleSave}
               disabled={saving}
-              className="bg-blue-700 hover:bg-blue-600 disabled:opacity-40 text-white font-bold px-5 py-2 rounded-lg transition-colors"
+              className="bg-[#a8620f] hover:bg-[#c9781a] disabled:opacity-40 text-[#ede4d3] font-bold px-5 py-2 rounded-lg transition-colors"
             >
               {saving ? 'Saving...' : 'Save'}
             </button>

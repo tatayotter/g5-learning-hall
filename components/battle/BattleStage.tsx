@@ -22,6 +22,7 @@ import { MonsterImage, DamageNumber, AttackBanner } from '@/components/battle/sh
 import MonsterHpPanel from '@/components/battle/MonsterHpPanel';
 import { useStageScale } from '@/hooks/useStageScale';
 import { QualityTier, getQualityGlowClass } from '@/lib/curioQuality';
+import GameButton from '@/components/GameButton';
 
 export interface BattleStageMonster {
   name: string;
@@ -91,7 +92,19 @@ const ELEMENT_STYLES: Record<string, { bg: string; border: string; hover: string
 };
 const DEFAULT_TILE_STYLE = { bg: 'bg-white', border: 'border-[#c9a87a]', hover: 'hover:bg-[#f0ddb8] hover:border-[#c9781a]' };
 
-export function ActionTile({ icon, title, sub, onClick, disabled, danger, element }: {
+// Strong per-element fills for the 'quest' variant (GameButton's gold-pill
+// shape recolored per element) — approved 2026-08-29, replacing the pastel
+// ELEMENT_STYLES set above for the real move/utility grids. BossFightScreen
+// and MasteryGauntletScreen also reuse ActionTile for multiple-choice answer
+// options, which is a different job (a plain answer list, not a skill grid)
+// — those keep the default 'panel' look and don't opt into 'quest'.
+const ELEMENT_QUEST_COLORS: Record<string, string> = {
+  fire: '#dc2626', water: '#2563eb', leaf: '#16a34a', storm: '#ca8a04', shadow: '#7c3aed', light: '#eab308',
+};
+const NEUTRAL_QUEST_COLOR = '#78716c';
+const DANGER_QUEST_COLOR = '#7f1d1d';
+
+export function ActionTile({ icon, title, sub, onClick, disabled, danger, element, color, variant = 'panel' }: {
   icon: ReactNode;
   title: ReactNode;
   sub?: ReactNode;
@@ -99,7 +112,29 @@ export function ActionTile({ icon, title, sub, onClick, disabled, danger, elemen
   disabled?: boolean;
   danger?: boolean;
   element?: string | null;
+  // Explicit fill for the 'quest' variant — overrides the element/danger
+  // lookup below. Lets non-elemental actions (Items, Switch) each get their
+  // own identity instead of collapsing into one flat neutral gray.
+  color?: string;
+  variant?: 'panel' | 'quest';
 }) {
+  if (variant === 'quest') {
+    const fill = color ?? (danger ? DANGER_QUEST_COLOR : (element && ELEMENT_QUEST_COLORS[element]) || NEUTRAL_QUEST_COLOR);
+    return (
+      <GameButton
+        variant="quest"
+        color={fill}
+        onClick={onClick}
+        disabled={disabled}
+        icon={icon}
+        sub={sub}
+        className="w-full"
+        style={{ fontSize: 14 }}
+      >
+        {title}
+      </GameButton>
+    );
+  }
   const { bg, border, hover } = (element && ELEMENT_STYLES[element]) || DEFAULT_TILE_STYLE;
   return (
     <button
@@ -120,14 +155,13 @@ export function ActionTile({ icon, title, sub, onClick, disabled, danger, elemen
 
 // Placeholder tile for a locked or unequipped skill slot — keeps the moves
 // grid at a steady 3 columns instead of collapsing/reflowing around a hole.
+// Only ever used inside the real skill grids (never the answer-option
+// lists), so it always gets the quest-locked look, no variant needed.
 export function PlaceholderTile({ title, sub }: { title: ReactNode; sub: ReactNode }) {
   return (
-    <div className="rounded-lg border-2 border-dashed border-[#c9a87a] bg-white/50 px-2 py-[7px] opacity-60 flex items-center min-h-[52px]">
-      <span className="min-w-0">
-        <span className="block text-[13px] font-bold text-[#6b4820] truncate">{title}</span>
-        <span className="block text-[10px] text-amber-500/80 truncate">{sub}</span>
-      </span>
-    </div>
+    <GameButton variant="quest" color="#57534e" disabled sub={sub} className="w-full" style={{ fontSize: 14 }}>
+      {title}
+    </GameButton>
   );
 }
 
@@ -142,7 +176,7 @@ export default function BattleStage({
 
   const canvas = (
     <div
-      className={`bstage-container border-2 border-black ${logOpen ? 'log-open' : ''}`}
+      className={`bstage-container border-2 border-[#0a0807] ${logOpen ? 'log-open' : ''}`}
       style={{
         backgroundImage: 'url(/battleui/battle_bg_normal.webp)',
         backgroundSize: 'cover',
@@ -150,16 +184,16 @@ export default function BattleStage({
       }}
     >
       <div className="bstage-top-tags">
-        <div className="bg-black/70 text-white font-bold text-[13px] px-3 py-1 rounded-br-lg truncate max-w-[38%]">
+        <div className="bg-[#0a0807]/70 text-[#ffffff] font-bold text-[13px] px-3 py-1 rounded-br-lg truncate max-w-[38%]">
           {leftName}
         </div>
-        <div className="bg-black/70 text-white font-bold text-[13px] px-3 py-1 rounded-bl-lg truncate max-w-[38%]">
+        <div className="bg-[#0a0807]/70 text-[#ffffff] font-bold text-[13px] px-3 py-1 rounded-bl-lg truncate max-w-[38%]">
           {rightName}
         </div>
       </div>
 
       {roundBadge && (
-        <div className="bstage-round-badge bg-black/60 text-amber-400 font-mono text-xs font-bold px-2 py-0.5 rounded-full">
+        <div className="bstage-round-badge bg-[#0a0807]/60 text-amber-400 font-mono text-xs font-bold px-2 py-0.5 rounded-full">
           {roundBadge}
         </div>
       )}
@@ -214,7 +248,7 @@ export default function BattleStage({
   // without it scrolling. Sizing against the actual viewport instead gives
   // it much more headroom regardless of how small the canvas is scaled.
   const overlayLayer = overlay && (
-    <div className="stage-overlay bg-black/70">
+    <div className="stage-overlay bg-[#0a0807]/70">
       {overlay}
     </div>
   );

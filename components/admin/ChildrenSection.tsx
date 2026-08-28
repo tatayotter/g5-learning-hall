@@ -224,53 +224,53 @@ export default function ChildrenSection({ passcode }: { passcode: string }) {
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-white mb-1">Children</h2>
-      <p className="text-gray-500 text-sm mb-6">
+      <h2 className="text-xl font-bold text-[#ede4d3] mb-1">Children</h2>
+      <p className="text-[#8a7c66] text-sm mb-6">
         Every child account — legacy classmates and parent-registered kids alike — organized by school and grade.
       </p>
 
       {/* Add classmate */}
-      <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-5 mb-6">
-        <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">Add Classmate</p>
+      <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5 mb-6">
+        <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-4">Add Classmate</p>
         <form onSubmit={handleAdd} className="grid grid-cols-2 gap-4 mb-4">
           <div className="col-span-2">
-            <label className="text-xs text-gray-500 block mb-1">Full Name</label>
+            <label className="text-xs text-[#8a7c66] block mb-1">Full Name</label>
             <input type="text" placeholder="e.g. Juan Dela Cruz" value={fullName} onChange={e => handleFullNameChange(e.target.value)}
-              className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-neutral-500" />
+              className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] focus:outline-none focus:border-neutral-500" />
           </div>
           <div>
-            <label className="text-xs text-gray-500 block mb-1">Username (login)</label>
+            <label className="text-xs text-[#8a7c66] block mb-1">Username (login)</label>
             <input type="text" placeholder="FirstNameLastname" value={username} onChange={e => { setUsername(e.target.value); setUsernameTouched(true); }}
-              className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-white font-mono focus:outline-none focus:border-neutral-500" />
+              className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] font-mono focus:outline-none focus:border-neutral-500" />
           </div>
           <div>
-            <label className="text-xs text-gray-500 block mb-1">Password</label>
+            <label className="text-xs text-[#8a7c66] block mb-1">Password</label>
             <input type="text" placeholder="Set their password" value={newPassword} onChange={e => setNewPassword(e.target.value)}
-              className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-white font-mono focus:outline-none focus:border-neutral-500" />
+              className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] font-mono focus:outline-none focus:border-neutral-500" />
           </div>
           <div>
-            <label className="text-xs text-gray-500 block mb-1">Grade</label>
+            <label className="text-xs text-[#8a7c66] block mb-1">Grade</label>
             <select value={grade} onChange={e => setGrade(e.target.value)}
-              className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-neutral-500">
+              className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] focus:outline-none focus:border-neutral-500">
               {GRADES.map(g => <option key={g} value={g}>{g}</option>)}
             </select>
           </div>
           <div>
-            <label className="text-xs text-gray-500 block mb-1">Gender (sprite)</label>
+            <label className="text-xs text-[#8a7c66] block mb-1">Gender (sprite)</label>
             <select value={gender} onChange={e => setGender(e.target.value as 'boy' | 'girl')}
-              className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-neutral-500">
+              className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] focus:outline-none focus:border-neutral-500">
               <option value="boy">Boy</option>
               <option value="girl">Girl</option>
             </select>
           </div>
           <div className="col-span-2">
-            <label className="text-xs text-gray-500 block mb-1">School</label>
+            <label className="text-xs text-[#8a7c66] block mb-1">School</label>
             <input type="text" value={schoolName} onChange={e => setSchoolName(e.target.value)}
-              className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-neutral-500" />
+              className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] focus:outline-none focus:border-neutral-500" />
           </div>
           <div className="col-span-2">
-            {error && <p className="text-red-400 text-xs mb-3">{error}</p>}
-            <button type="submit" disabled={submitting} className="bg-green-700 hover:bg-green-600 disabled:opacity-40 text-white font-bold px-6 py-2 rounded-lg transition-colors">
+            {error && <p className="text-[#e0605a] text-xs mb-3">{error}</p>}
+            <button type="submit" disabled={submitting} className="bg-[#3f6428] hover:bg-[#4d7a32] disabled:opacity-40 text-[#ede4d3] font-bold px-6 py-2 rounded-lg transition-colors">
               {submitting ? 'Adding...' : '➕ Add Classmate'}
             </button>
           </div>
@@ -279,35 +279,35 @@ export default function ChildrenSection({ passcode }: { passcode: string }) {
 
       {/* Parent-registered children note / login gate */}
       {userEmail === null && (
-        <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-5 mb-6">
-          <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Parent-Registered Children</p>
-          <p className="text-gray-500 text-sm mb-4">Sign in with the admin account to also see and manage parent-registered children here.</p>
+        <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5 mb-6">
+          <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-3">Parent-Registered Children</p>
+          <p className="text-[#8a7c66] text-sm mb-4">Sign in with the admin account to also see and manage parent-registered children here.</p>
           <form onSubmit={handleLogin} className="max-w-sm space-y-3">
             <input type="email" placeholder="Admin email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)}
-              className="w-full rounded-lg bg-neutral-950 border border-neutral-700 px-3 py-2 text-sm text-white" required />
+              className="w-full rounded-lg bg-neutral-950 border border-[#3d3225] px-3 py-2 text-sm text-[#ede4d3]" required />
             <input type="password" placeholder="Password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)}
-              className="w-full rounded-lg bg-neutral-950 border border-neutral-700 px-3 py-2 text-sm text-white" required />
-            {loginError && <p className="text-red-400 text-xs">{loginError}</p>}
-            <button type="submit" disabled={loggingIn} className="w-full rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-bold py-2.5">
+              className="w-full rounded-lg bg-neutral-950 border border-[#3d3225] px-3 py-2 text-sm text-[#ede4d3]" required />
+            {loginError && <p className="text-[#e0605a] text-xs">{loginError}</p>}
+            <button type="submit" disabled={loggingIn} className="w-full rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-[#ede4d3] font-bold py-2.5">
               {loggingIn ? 'Logging in…' : 'Log In'}
             </button>
           </form>
         </div>
       )}
       {userEmail && userEmail !== ADMIN_EMAIL && (
-        <p className="text-gray-500 text-sm mb-6">Signed in as {userEmail}, which isn&apos;t the admin account, so parent-registered children aren&apos;t shown.</p>
+        <p className="text-[#8a7c66] text-sm mb-6">Signed in as {userEmail}, which isn&apos;t the admin account, so parent-registered children aren&apos;t shown.</p>
       )}
-      {childrenError && <p className="text-red-400 text-sm mb-4">{childrenError}</p>}
+      {childrenError && <p className="text-[#e0605a] text-sm mb-4">{childrenError}</p>}
 
       {/* Filters */}
       <div className="flex gap-3 mb-4">
         <select value={schoolFilter} onChange={e => setSchoolFilter(e.target.value)}
-          className="bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-white">
+          className="bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-2 text-sm text-[#ede4d3]">
           <option value="All">All Schools</option>
           {schools.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
         <select value={gradeFilter} onChange={e => setGradeFilter(e.target.value)}
-          className="bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-white">
+          className="bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-2 text-sm text-[#ede4d3]">
           <option value="All">All Grades</option>
           {GRADES.map(g => <option key={g} value={g}>{g}</option>)}
         </select>
@@ -315,7 +315,7 @@ export default function ChildrenSection({ passcode }: { passcode: string }) {
 
       {/* List */}
       {loading ? (
-        <p className="text-gray-500 text-sm animate-pulse">Loading...</p>
+        <p className="text-[#8a7c66] text-sm animate-pulse">Loading...</p>
       ) : grouped.size === 0 ? (
         <p className="text-gray-600 text-sm">No children match these filters.</p>
       ) : (
@@ -324,26 +324,26 @@ export default function ChildrenSection({ passcode }: { passcode: string }) {
             <p className="text-sm font-bold text-indigo-300 mb-3">{school}</p>
             {Array.from(byGrade.entries()).sort(([a], [b]) => a.localeCompare(b)).map(([gradeName, list]) => (
               <div key={gradeName} className="mb-4">
-                <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">{gradeName} · {list.length}</p>
+                <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-2">{gradeName} · {list.length}</p>
                 <div className="space-y-2">
                   {list.map(p => p.source === 'classmate' ? (
-                    <div key={`classmate-${p.data.id}`} className="bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3">
+                    <div key={`classmate-${p.data.id}`} className="bg-neutral-950 border border-[#2a2119] rounded-lg px-4 py-3">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-white font-medium text-sm">{p.data.full_name} <span className="text-gray-600 text-xs font-normal">· classmate</span></p>
-                          <p className="text-xs text-gray-500 font-mono">{p.data.username}</p>
+                          <p className="text-[#ede4d3] font-medium text-sm">{p.data.full_name} <span className="text-gray-600 text-xs font-normal">· classmate</span></p>
+                          <p className="text-xs text-[#8a7c66] font-mono">{p.data.username}</p>
                         </div>
                         <div className="flex items-center gap-2">
                           <button onClick={() => handleToggleGender(p.data)}
-                            className="bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors" title="Toggle sprite gender">
+                            className="bg-[#2a2119] hover:bg-[#3d3225] text-[#ede4d3] text-xs font-bold px-3 py-1.5 rounded-lg transition-colors" title="Toggle sprite gender">
                             {p.data.gender === 'girl' ? '👧 Girl' : '👦 Boy'}
                           </button>
                           <button onClick={() => { setResetTargetId(resetTargetId === p.data.id ? null : p.data.id); setResetPassword(''); }}
-                            className="bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">
+                            className="bg-[#2a2119] hover:bg-[#3d3225] text-[#ede4d3] text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">
                             🔑 Reset Password
                           </button>
                           <button onClick={() => handleToggleActive(p.data)}
-                            className={`text-xs font-bold px-3 py-1.5 rounded-lg transition-colors ${p.data.is_active ? 'bg-green-900/50 text-green-400 border border-green-800 hover:bg-red-900/50 hover:text-red-400 hover:border-red-800' : 'bg-neutral-800 text-gray-500 border border-neutral-700 hover:bg-green-900/50 hover:text-green-400'}`}>
+                            className={`text-xs font-bold px-3 py-1.5 rounded-lg transition-colors ${p.data.is_active ? 'bg-[#223616]/50 text-[#7fae52] border border-[#33501f] hover:bg-[#4a0e0c]/50 hover:text-[#e0605a] hover:border-[#6e1512]' : 'bg-[#2a2119] text-[#8a7c66] border border-[#3d3225] hover:bg-[#223616]/50 hover:text-[#7fae52]'}`}>
                             {p.data.is_active ? '✅ Active' : '⛔ Inactive'}
                           </button>
                         </div>
@@ -351,25 +351,25 @@ export default function ChildrenSection({ passcode }: { passcode: string }) {
                       {resetTargetId === p.data.id && (
                         <div className="mt-3 flex gap-2">
                           <input type="text" placeholder="New password" value={resetPassword} onChange={e => setResetPassword(e.target.value)}
-                            className="flex-1 bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-1.5 text-white text-sm font-mono focus:outline-none focus:border-neutral-500" />
+                            className="flex-1 bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-1.5 text-[#ede4d3] text-sm font-mono focus:outline-none focus:border-neutral-500" />
                           <button onClick={() => handleResetPassword(p.data)}
-                            className="bg-blue-700 hover:bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-lg transition-colors">
+                            className="bg-[#a8620f] hover:bg-[#c9781a] text-[#ede4d3] text-xs font-bold px-4 py-1.5 rounded-lg transition-colors">
                             Save
                           </button>
                         </div>
                       )}
                     </div>
                   ) : (
-                    <div key={`child-${p.data.id}`} className="bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3">
+                    <div key={`child-${p.data.id}`} className="bg-neutral-950 border border-[#2a2119] rounded-lg px-4 py-3">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-white font-medium text-sm">
+                          <p className="text-[#ede4d3] font-medium text-sm">
                             {p.data.full_name}{' '}
                             <span className="text-gray-600 text-xs font-normal">
                               · {p.data.parent_id ? 'parent-registered' : 'self-registered, unlinked'}
                             </span>
                           </p>
-                          <p className="text-xs text-gray-500 font-mono">
+                          <p className="text-xs text-[#8a7c66] font-mono">
                             {p.data.username}{' '}
                             {p.data.parent_id
                               ? `· parent: ${p.data.parent_email}`
@@ -377,7 +377,7 @@ export default function ChildrenSection({ passcode }: { passcode: string }) {
                           </p>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="text-white text-xs font-bold px-3 py-1.5 rounded-lg bg-neutral-800">
+                          <span className="text-[#ede4d3] text-xs font-bold px-3 py-1.5 rounded-lg bg-[#2a2119]">
                             {p.data.gender === 'girl' ? '👧 Girl' : '👦 Boy'}
                           </span>
                           {p.data.parent_id && (
@@ -385,32 +385,32 @@ export default function ChildrenSection({ passcode }: { passcode: string }) {
                               setReassignTargetId(reassignTargetId === p.data.id ? null : p.data.id);
                               setReassignEmail(''); setReassignReason(''); setReassignMessage('');
                             }}
-                              className="bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">
+                              className="bg-[#2a2119] hover:bg-[#3d3225] text-[#ede4d3] text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">
                               🔁 Reassign Parent
                             </button>
                           )}
                           <button onClick={() => handleToggleChildActive(p.data)}
-                            className={`text-xs font-bold px-3 py-1.5 rounded-lg transition-colors ${p.data.is_active ? 'bg-green-900/50 text-green-400 border border-green-800 hover:bg-red-900/50 hover:text-red-400 hover:border-red-800' : 'bg-neutral-800 text-gray-500 border border-neutral-700 hover:bg-green-900/50 hover:text-green-400'}`}>
+                            className={`text-xs font-bold px-3 py-1.5 rounded-lg transition-colors ${p.data.is_active ? 'bg-[#223616]/50 text-[#7fae52] border border-[#33501f] hover:bg-[#4a0e0c]/50 hover:text-[#e0605a] hover:border-[#6e1512]' : 'bg-[#2a2119] text-[#8a7c66] border border-[#3d3225] hover:bg-[#223616]/50 hover:text-[#7fae52]'}`}>
                             {p.data.is_active ? '✅ Active' : '⛔ Inactive'}
                           </button>
                         </div>
                       </div>
                       {reassignTargetId === p.data.id && (
-                        <div className="mt-3 space-y-2 border-t border-neutral-800 pt-3">
-                          <p className="text-xs text-gray-500">
+                        <div className="mt-3 space-y-2 border-t border-[#2a2119] pt-3">
+                          <p className="text-xs text-[#8a7c66]">
                             Moves this child to a different (already-registered) parent account. Takes effect in
                             48 hours — the current parent gets a cancel link, the new parent gets a heads-up.
                             Requires a written reason for the audit trail.
                           </p>
                           <input type="email" placeholder="New parent's email (must already have an account)"
                             value={reassignEmail} onChange={e => setReassignEmail(e.target.value)}
-                            className="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:border-neutral-500" />
+                            className="w-full bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-1.5 text-[#ede4d3] text-sm focus:outline-none focus:border-neutral-500" />
                           <input type="text" placeholder="Reason (required, e.g. support ticket #)"
                             value={reassignReason} onChange={e => setReassignReason(e.target.value)}
-                            className="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:border-neutral-500" />
+                            className="w-full bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-1.5 text-[#ede4d3] text-sm focus:outline-none focus:border-neutral-500" />
                           {reassignMessage && <p className="text-xs">{reassignMessage}</p>}
                           <button onClick={() => handleReassign(p.data)} disabled={reassignSubmitting}
-                            className="bg-amber-700 hover:bg-amber-600 disabled:opacity-40 text-white text-xs font-bold px-4 py-1.5 rounded-lg transition-colors">
+                            className="bg-amber-700 hover:bg-amber-600 disabled:opacity-40 text-[#ede4d3] text-xs font-bold px-4 py-1.5 rounded-lg transition-colors">
                             {reassignSubmitting ? 'Requesting…' : 'Request Reassignment'}
                           </button>
                         </div>

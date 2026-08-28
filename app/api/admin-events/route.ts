@@ -10,9 +10,15 @@ export async function POST(request: NextRequest) {
   if (authError) return authError;
 
   if (action === 'upsert_event') {
-    const { id, title, banner_url, details_markdown, reward_lore_markdown, reward_monster_id, start_date, end_date } = body;
+    const {
+      id, title, banner_url, details_markdown, reward_lore_markdown, reward_monster_id, start_date, end_date,
+      content_source, gauntlet_term,
+    } = body;
     if (!title || !reward_monster_id || !start_date || !end_date) {
       return NextResponse.json({ success: false, error: 'Title, curio reward, start date, and end date are required.' }, { status: 400 });
+    }
+    if (content_source === 'gauntlet' && !gauntlet_term) {
+      return NextResponse.json({ success: false, error: 'A gauntlet event needs a term to review.' }, { status: 400 });
     }
     const { data, error } = await supabase.rpc('admin_upsert_custom_event', {
       p_passcode: process.env.ADMIN_PASSCODE,
@@ -24,6 +30,8 @@ export async function POST(request: NextRequest) {
       p_reward_monster_id: reward_monster_id,
       p_start_date: start_date,
       p_end_date: end_date,
+      p_content_source: content_source || 'authored',
+      p_gauntlet_term: content_source === 'gauntlet' ? gauntlet_term : null,
     });
     if (error) return NextResponse.json({ success: false, error: error.message }, { status: 409 });
     return NextResponse.json({ success: true, id: data });

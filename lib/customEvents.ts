@@ -24,6 +24,11 @@ export interface CustomEvent {
   start_date: string;
   end_date: string;
   status: 'draft' | 'scheduled' | 'active' | 'archived';
+  // 'gauntlet' events (Topic Mastery Gauntlet) have no event_quests rows —
+  // their pool is assembled dynamically from draft_questions_public for
+  // gauntlet_term instead. See supabase/migrations/20260828140000_topic_mastery_gauntlet.sql.
+  content_source: 'authored' | 'gauntlet';
+  gauntlet_term: number | null;
 }
 
 export interface UserEventProgressRow {
@@ -48,6 +53,11 @@ export async function fetchActiveEvent(today: string = format(new Date(), 'yyyy-
     .maybeSingle();
 
   if (error || !data) return null;
+
+  // Gauntlet events have no event_quests rows by design (their pool is
+  // dynamic, not admin-authored) — only gate 'authored' events on having
+  // quests actually loaded.
+  if (data.content_source === 'gauntlet') return data as CustomEvent;
 
   const { count } = await supabase
     .from('event_quests')

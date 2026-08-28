@@ -602,10 +602,10 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       <PostBattleSummary
         outcome={battleResult.won ? 'win' : 'loss'}
         reasonLabel={reasonLabel}
-        left={{ avatarSrc: me?.avatar || '/userpics/userpics_premium/ssb3.png', name: me?.fullName ?? userId, mon: playerMon, isWinner: battleResult.won }}
-        right={{ avatarSrc: opponentAvatarSrc, avatarFallbackEmoji: opponentFallbackEmoji, avatarContain: !!trainer?.spriteOverride, name: opponentName, mon: npcMon, isWinner: !battleResult.won }}
+        left={{ avatarSrc: me?.avatar || '/userpics/userpics_premium/ssb3.png', name: me?.fullName ?? userId, mon: playerMon, team: playerMonsters, isWinner: battleResult.won }}
+        right={{ avatarSrc: opponentAvatarSrc, avatarFallbackEmoji: opponentFallbackEmoji, avatarContain: !!trainer?.spriteOverride, name: opponentName, mon: npcMon, team: npcMonsters, isWinner: !battleResult.won }}
         log={log}
-        rewardLine={battleResult.won && battleResult.exp > 0 ? `+${battleResult.exp} Curio EXP earned!` : undefined}
+        expEarned={battleResult.won && battleResult.exp > 0 ? battleResult.exp : undefined}
         onContinue={() => onBattleEnd(battleResult.won, battleResult.exp)}
       />
     );
@@ -780,8 +780,9 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
           return (
             <ActionTile
               key={tier}
+              variant="quest"
               onClick={() => handleSkillSelect(equippedSkill.id)}
-              icon={<img src={getSkillIconSrc(equippedSkill)} alt="" className="w-7 h-7 object-contain" />}
+              icon={<img src={getSkillIconSrc(equippedSkill)} alt="" className="w-full h-full object-contain" />}
               title={equippedSkill.name}
               sub={`${equippedSkill.questionCount} question${equippedSkill.questionCount > 1 ? 's' : ''} · Tier ${tier}`}
               element={equippedSkill.element}
@@ -792,29 +793,35 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
 
       <div className="bstage-utils mt-[7px]">
         <ActionTile
+          variant="quest"
           onClick={handleRest}
           disabled={playerMon.restUsed >= restConfig.maxUsesPerBattle}
-          icon={<img src="/icons/stats/rest.svg" alt="" className="w-7 h-7 object-contain" />}
+          icon={<img src="/icons/stats/rest.svg" alt="" className="w-full h-full object-contain" />}
           title={<>Rest <InfoTag text="Heals your curio and uses up this turn — the trainer's curio still attacks normally. Limited uses per battle." /></>}
           sub={`Restore ${Math.round(restConfig.hpRestorePercent * 100)}% HP`}
         />
         <ActionTile
+          variant="quest"
+          color="#4f46e5"
           onClick={() => setPhase('select_item')}
-          icon={<img src="/icons/stats/items.svg" alt="" className="w-7 h-7 object-contain" />}
+          icon={<img src="/icons/stats/items.svg" alt="" className="w-full h-full object-contain" />}
           title={<>Items <InfoTag text="Using an item also uses up this turn — the trainer's curio still attacks normally." /></>}
           sub="Use items from inventory"
         />
         <ActionTile
+          variant="quest"
+          color="#0d9488"
           onClick={() => setPhase('select_switch')}
           disabled={otherAlivePlayerMonsters.length === 0}
-          icon={<img src="/icons/stats/switch.svg" alt="" className="w-7 h-7 object-contain" />}
+          icon={<img src="/icons/stats/switch.svg" alt="" className="w-full h-full object-contain" />}
           title={<>Switch <InfoTag text="Swap to another curio on your team — also uses up this turn." /></>}
           sub={otherAlivePlayerMonsters.length > 0 ? 'Change your curio' : 'No other curios'}
         />
         <ActionTile
+          variant="quest"
           onClick={() => setConfirmSurrender(true)}
           danger
-          icon={<img src="/icons/stats/surrender.svg" alt="" className="w-7 h-7 object-contain" />}
+          icon={<img src="/icons/stats/surrender.svg" alt="" className="w-full h-full object-contain" />}
           title={<>Surrender <InfoTag text="Ends the battle immediately with no Curio EXP earned." /></>}
           sub="Forfeit the match"
         />

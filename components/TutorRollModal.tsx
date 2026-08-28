@@ -12,6 +12,7 @@ import { MonsterDef, getScaledStats } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 import { playPageFlip, playCurioLevelUp, playMiss } from '@/lib/sounds';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
+import GameButton from '@/components/GameButton';
 
 interface TutorRollModalProps {
   outcome: TutorOutcome;
@@ -71,16 +72,16 @@ export default function TutorRollModal({ outcome, monsterName, def, monsterLevel
         onClick={handleBackdropClick}
       >
         <div
-          className={`relative bg-neutral-900 border-2 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in ${
+          className={`relative bg-[#f0ddb8] border-2 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in ${
             success
-              ? outcome.new_quality === 'good' ? 'border-green-500'
-                : outcome.new_quality === 'outstanding' ? 'border-cyan-500'
-                : 'border-orange-500'
-              : isTala ? 'border-pink-800' : 'border-neutral-700'
+              ? outcome.new_quality === 'good' ? 'border-green-600'
+                : outcome.new_quality === 'outstanding' ? 'border-cyan-600'
+                : 'border-orange-600'
+              : isTala ? 'border-pink-400' : 'border-[#c9a87a]'
           }`}
           onClick={e => e.stopPropagation()}
         >
-          <p className={`font-bold text-sm tracking-wide mb-4 font-display ${success ? 'text-white' : 'text-gray-400'}`}>
+          <p className={`font-bold text-sm tracking-wide mb-4 font-display ${success ? 'text-[#2a1505]' : 'text-[#8a7c66]'}`}>
             Curio Tutoring
           </p>
 
@@ -97,47 +98,41 @@ export default function TutorRollModal({ outcome, monsterName, def, monsterLevel
           </div>
 
           {phase !== 'reveal' ? (
-            <p className="text-white font-bold text-lg">Consulting the tutor...</p>
+            <p className="text-[#2a1505] font-bold text-lg">Consulting the tutor...</p>
           ) : success ? (
             <div className="space-y-4">
               <div>
-                <p className="text-white font-bold text-xl">{monsterName}</p>
-                <p className={`text-2xl font-bold mt-1 ${accentClass ? '' : 'text-white'}`}>
+                <p className="text-[#2a1505] font-bold text-xl">{monsterName}</p>
+                <p className={`text-2xl font-bold mt-1 ${accentClass ? '' : 'text-[#2a1505]'}`}>
                   → {QUALITY_LABEL[outcome.new_quality!]}!
                 </p>
-                <p className="text-gray-400 text-xs mt-1">HP and Attack permanently increased.</p>
+                <p className="text-[#6b4820] text-xs mt-1">HP and Attack permanently increased.</p>
                 {afterStats && (
                   <div className="flex items-center justify-center gap-4 mt-2 text-xs">
-                    <span className="flex items-center gap-1 text-white">
+                    <span className="flex items-center gap-1 text-[#2a1505]">
                       <img src="/icons/stats/hp.svg" alt="" className="w-3.5 h-3.5 object-contain" />
-                      {beforeStats.hp} <span className="text-green-400">→ {afterStats.hp}</span>
+                      {beforeStats.hp} <span className="text-green-700">→ {afterStats.hp}</span>
                     </span>
-                    <span className="flex items-center gap-1 text-white">
+                    <span className="flex items-center gap-1 text-[#2a1505]">
                       <img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" />
-                      {beforeStats.attack} <span className="text-green-400">→ {afterStats.attack}</span>
+                      {beforeStats.attack} <span className="text-green-700">→ {afterStats.attack}</span>
                     </span>
                   </div>
                 )}
               </div>
-              <button
-                onClick={onClose}
-                className="w-full py-3 rounded-xl font-bold text-white btn-tactile battle-panel-in bg-amber-600 hover:bg-amber-500"
-              >
+              <GameButton variant="quest" color="#d97706" onClick={onClose} className="w-full" style={{ fontSize: 15 }}>
                 Awesome!
-              </button>
+              </GameButton>
             </div>
           ) : (
             <div className="space-y-4">
               <div>
-                <p className="text-white font-bold text-lg">No change this time</p>
-                <p className="text-gray-500 text-xs mt-1">{monsterName} stays {QUALITY_LABEL[outcome.previous_quality!]}. Try again anytime.</p>
+                <p className="text-[#2a1505] font-bold text-lg">No change this time</p>
+                <p className="text-[#6b4820] text-xs mt-1">{monsterName} stays {QUALITY_LABEL[outcome.previous_quality!]}. Try again anytime.</p>
               </div>
-              <button
-                onClick={onClose}
-                className="w-full py-3 rounded-xl font-bold text-white btn-tactile battle-panel-in bg-neutral-700 hover:bg-neutral-600"
-              >
+              <GameButton variant="quest" color="#78716c" onClick={onClose} className="w-full" style={{ fontSize: 15 }}>
                 Okay
-              </button>
+              </GameButton>
             </div>
           )}
         </div>

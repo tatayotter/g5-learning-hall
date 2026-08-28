@@ -39,16 +39,16 @@ function GlobalToggle({ passcode }: { passcode: string }) {
   };
 
   return (
-    <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-5 flex items-center justify-between">
+    <div className="bg-[#1c1611] border border-[#2a2119] rounded-xl p-5 flex items-center justify-between">
       <div>
-        <p className="text-white font-bold mb-1">Boss Fights — Global Switch</p>
-        <p className="text-gray-500 text-sm">Opens the Term Boss for every Grade 5 and Grade 2 player at once.</p>
+        <p className="text-[#ede4d3] font-bold mb-1">Boss Fights — Global Switch</p>
+        <p className="text-[#8a7c66] text-sm">Opens the Term Boss for every Grade 5 and Grade 2 player at once.</p>
       </div>
       <button
         onClick={handleToggle}
         disabled={loading || saving}
         className={`px-6 py-2.5 rounded-lg font-bold text-sm transition-colors disabled:opacity-40 ${
-          enabled ? 'bg-green-700 hover:bg-green-600 text-white' : 'bg-neutral-800 hover:bg-neutral-700 text-gray-300'
+          enabled ? 'bg-[#3f6428] hover:bg-[#4d7a32] text-[#ede4d3]' : 'bg-[#2a2119] hover:bg-[#3d3225] text-[#c9bfae]'
         }`}
       >
         {loading ? '…' : enabled ? '🟢 Enabled' : '⚪ Disabled'}
@@ -72,22 +72,22 @@ function PoolReadinessPanel() {
     })();
   }, []);
 
-  if (loading) return <p className="text-gray-500 text-sm">Loading pool counts...</p>;
+  if (loading) return <p className="text-[#8a7c66] text-sm">Loading pool counts...</p>;
 
   return (
-    <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-5">
-      <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">Persona Pool Readiness (needs {POOL_READY_THRESHOLD}+ published questions)</p>
+    <div className="bg-[#1c1611] border border-[#2a2119] rounded-xl p-5">
+      <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-4">Persona Pool Readiness (needs {POOL_READY_THRESHOLD}+ published questions)</p>
       {BOSS_FIGHT_GRADES.map(grade => (
         <div key={grade} className="mb-4 last:mb-0">
-          <p className="text-white font-bold text-sm mb-2">Grade {grade}</p>
+          <p className="text-[#ede4d3] font-bold text-sm mb-2">Grade {grade}</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
             {getPersonasForGrade(grade).map(persona => {
               const count = counts[grade]?.[persona.subject] || 0;
               const ready = count >= POOL_READY_THRESHOLD;
               return (
-                <div key={persona.subject} className={`rounded-lg border px-3 py-2 ${ready ? 'border-green-800 bg-green-900/20' : 'border-red-800 bg-red-900/20'}`}>
-                  <p className="text-xs text-gray-300 truncate">{persona.subject}</p>
-                  <p className={`text-sm font-bold ${ready ? 'text-green-400' : 'text-red-400'}`}>{count} q</p>
+                <div key={persona.subject} className={`rounded-lg border px-3 py-2 ${ready ? 'border-[#33501f] bg-[#223616]/20' : 'border-[#6e1512] bg-[#4a0e0c]/20'}`}>
+                  <p className="text-xs text-[#c9bfae] truncate">{persona.subject}</p>
+                  <p className={`text-sm font-bold ${ready ? 'text-[#7fae52]' : 'text-[#e0605a]'}`}>{count} q</p>
                 </div>
               );
             })}
@@ -147,53 +147,53 @@ function GauntletRewardEditor({ passcode }: { passcode: string }) {
   };
 
   return (
-    <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-5">
-      <p className="text-white font-bold mb-1">Final Curio — Per Grade/Term</p>
-      <p className="text-gray-500 text-sm mb-4">Granted once a player defeats every persona for this grade+term. Distinct per term.</p>
+    <div className="bg-[#1c1611] border border-[#2a2119] rounded-xl p-5">
+      <p className="text-[#ede4d3] font-bold mb-1">Final Curio — Per Grade/Term</p>
+      <p className="text-[#8a7c66] text-sm mb-4">Granted once a player defeats every persona for this grade+term. Distinct per term.</p>
 
       <div className="flex gap-2 mb-4">
         {BOSS_FIGHT_GRADES.map(g => (
-          <button key={g} onClick={() => setGrade(g)} className={`px-4 py-2 rounded-lg text-sm font-bold ${grade === g ? 'bg-blue-600 text-white' : 'bg-neutral-800 text-gray-400'}`}>
+          <button key={g} onClick={() => setGrade(g)} className={`px-4 py-2 rounded-lg text-sm font-bold ${grade === g ? 'bg-[#c9781a] text-[#ede4d3]' : 'bg-[#2a2119] text-[#a89c86]'}`}>
             Grade {g}
           </button>
         ))}
         <input
           type="number" min={1} value={term} onChange={e => setTerm(Number(e.target.value))}
-          className="w-20 bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-white ml-2"
+          className="w-20 bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-sm text-[#ede4d3] ml-2"
         />
-        <span className="text-xs text-gray-500 self-center">Term</span>
+        <span className="text-xs text-[#8a7c66] self-center">Term</span>
       </div>
 
-      <label className="text-xs text-gray-500 block mb-1">
+      <label className="text-xs text-[#8a7c66] block mb-1">
         Curio Reward{rewardMonsterId && ` — selected: ${ALL_MONSTERS[rewardMonsterId]?.name || rewardMonsterId}`}
       </label>
       <input
         value={monsterFilter} onChange={e => setMonsterFilter(e.target.value)} placeholder="Search curios..."
-        className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-white mb-2"
+        className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-sm text-[#ede4d3] mb-2"
       />
-      <div className="grid grid-cols-4 sm:grid-cols-6 gap-2 max-h-48 overflow-y-auto bg-neutral-950 border border-neutral-800 rounded-lg p-2 mb-4">
+      <div className="grid grid-cols-4 sm:grid-cols-6 gap-2 max-h-48 overflow-y-auto bg-neutral-950 border border-[#2a2119] rounded-lg p-2 mb-4">
         {monsterOptions.map(m => (
           <button
             key={m.id} onClick={() => setRewardMonsterId(m.id)} title={m.name}
             className={`flex flex-col items-center gap-1 p-2 rounded-lg border text-center transition-colors ${
-              rewardMonsterId === m.id ? 'border-purple-500 bg-purple-900/20' : 'border-neutral-800 hover:border-neutral-600'
+              rewardMonsterId === m.id ? 'border-purple-500 bg-purple-900/20' : 'border-[#2a2119] hover:border-neutral-600'
             }`}
           >
             <span className="text-2xl">{m.emoji}</span>
-            <span className="text-[10px] text-gray-400 truncate w-full">{m.name}</span>
+            <span className="text-[10px] text-[#a89c86] truncate w-full">{m.name}</span>
           </button>
         ))}
       </div>
 
-      <label className="text-xs text-gray-500 block mb-1">Reward Lore (markdown)</label>
+      <label className="text-xs text-[#8a7c66] block mb-1">Reward Lore (markdown)</label>
       <textarea
         value={loreMarkdown} onChange={e => setLoreMarkdown(e.target.value)}
-        className="w-full h-20 bg-neutral-950 border border-neutral-700 rounded-lg p-3 text-xs text-gray-300 font-mono resize-none mb-4"
+        className="w-full h-20 bg-neutral-950 border border-[#3d3225] rounded-lg p-3 text-xs text-[#c9bfae] font-mono resize-none mb-4"
       />
 
       <button
         onClick={handleSave} disabled={saving}
-        className="bg-purple-700 hover:bg-purple-600 disabled:opacity-40 text-white font-bold px-6 py-2 rounded-lg transition-colors"
+        className="bg-purple-700 hover:bg-purple-600 disabled:opacity-40 text-[#ede4d3] font-bold px-6 py-2 rounded-lg transition-colors"
       >
         Save
       </button>
@@ -204,7 +204,7 @@ function GauntletRewardEditor({ passcode }: { passcode: string }) {
 export default function BossFightSection({ passcode }: { passcode: string }) {
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-bold text-white mb-1">👹 Term Boss Fight</h2>
+      <h2 className="text-xl font-bold text-[#ede4d3] mb-1">👹 Term Boss Fight</h2>
       <GlobalToggle passcode={passcode} />
       <PoolReadinessPanel />
       <GauntletRewardEditor passcode={passcode} />

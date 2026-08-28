@@ -608,8 +608,8 @@ export default function LiveBattleScreen({
       <PostBattleSummary
         outcome={isDraw ? 'draw' : iWon ? 'win' : 'loss'}
         reasonLabel={reasonLabel}
-        left={{ avatarSrc: me?.avatar || '/userpics/userpics_premium/ssb3.png', name: me?.fullName ?? myUserId, mon: myMon, isWinner: iWon }}
-        right={{ avatarSrc: opponent?.avatar || '/userpics/userpics_premium/ssb3.png', name: opponent?.fullName ?? opponentName, mon: oppMon, isWinner: !iWon && !isDraw }}
+        left={{ avatarSrc: me?.avatar || '/userpics/userpics_premium/ssb3.png', name: me?.fullName ?? myUserId, mon: myMon, team: myRoster, isWinner: iWon }}
+        right={{ avatarSrc: opponent?.avatar || '/userpics/userpics_premium/ssb3.png', name: opponent?.fullName ?? opponentName, mon: oppMon, team: oppRoster, isWinner: !iWon && !isDraw }}
         log={log}
         onContinue={() => onBattleEnd(iWon)}
       />
@@ -762,8 +762,9 @@ export default function LiveBattleScreen({
           return (
             <ActionTile
               key={tier}
+              variant="quest"
               onClick={() => handleSkillSelect(equippedSkill.id)}
-              icon={<img src={getSkillIconSrc(equippedSkill)} alt="" className="w-7 h-7 object-contain" />}
+              icon={<img src={getSkillIconSrc(equippedSkill)} alt="" className="w-full h-full object-contain" />}
               title={equippedSkill.name}
               sub={`${equippedSkill.questionCount} question${equippedSkill.questionCount > 1 ? 's' : ''}`}
               element={equippedSkill.element}
@@ -774,29 +775,35 @@ export default function LiveBattleScreen({
 
       <div className="bstage-utils mt-[7px]">
         <ActionTile
+          variant="quest"
           onClick={handleRest}
           disabled={myMon.restUsed >= restConfig.maxUsesPerBattle}
-          icon={<img src="/icons/stats/rest.svg" alt="" className="w-7 h-7 object-contain" />}
+          icon={<img src="/icons/stats/rest.svg" alt="" className="w-full h-full object-contain" />}
           title={<>Rest <InfoTag text="Heals your monster and uses up this round's turn — the opponent still attacks normally. Limited uses per battle." /></>}
           sub={`Restore ${Math.round(restConfig.hpRestorePercent * 100)}% HP`}
         />
         <ActionTile
+          variant="quest"
+          color="#4f46e5"
           onClick={() => { setShowItemMenu(true); setShowSwitchMenu(false); setConfirmSurrender(false); }}
-          icon={<img src="/icons/stats/items.svg" alt="" className="w-7 h-7 object-contain" />}
+          icon={<img src="/icons/stats/items.svg" alt="" className="w-full h-full object-contain" />}
           title={<>Items <InfoTag text="Using an item also uses up this round's turn — the opponent still attacks normally." /></>}
           sub="Use an item"
         />
         <ActionTile
+          variant="quest"
+          color="#0d9488"
           onClick={() => { setShowSwitchMenu(true); setShowItemMenu(false); setConfirmSurrender(false); }}
           disabled={otherAliveMonsters.length === 0}
-          icon={<img src="/icons/stats/switch.svg" alt="" className="w-7 h-7 object-contain" />}
+          icon={<img src="/icons/stats/switch.svg" alt="" className="w-full h-full object-contain" />}
           title={<>Switch <InfoTag text="Swap to another curio on your team — also uses up this round's turn." /></>}
           sub={otherAliveMonsters.length > 0 ? 'Change your curio' : 'No other curios'}
         />
         <ActionTile
+          variant="quest"
           onClick={() => { setConfirmSurrender(true); setShowItemMenu(false); setShowSwitchMenu(false); }}
           danger
-          icon={<img src="/icons/stats/surrender.svg" alt="" className="w-7 h-7 object-contain" />}
+          icon={<img src="/icons/stats/surrender.svg" alt="" className="w-full h-full object-contain" />}
           title={<>Surrender <InfoTag text="Ends the match immediately. You earn no EXP or Gold; your opponent wins with half EXP and no Gold." /></>}
           sub="Forfeit the match"
         />

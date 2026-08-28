@@ -1,5 +1,12 @@
 @AGENTS.md
 
+## Styling
+
+Before styling or restyling any quest, quiz, battle, or event-facing screen, read
+`docs/STYLE_GUIDE.md` first. The app uses a deliberate two-layer look (dark shell + parchment
+content panels) that's easy to get backwards by copying an older component — that file has the
+exact tokens and a checklist.
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.

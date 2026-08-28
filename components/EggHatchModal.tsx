@@ -13,6 +13,7 @@ import { QUALITY_LABEL, QualityTier, getQualityGlowClass } from '@/lib/curioQual
 import { MonsterImage } from '@/components/battle/shared';
 import { playPageFlip, playCurioCaught, playCurioLevelUp } from '@/lib/sounds';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
+import GameButton from '@/components/GameButton';
 
 interface EggHatchModalProps {
   speciesId: string;
@@ -60,10 +61,10 @@ export default function EggHatchModal({ speciesId, element, quality, userId, onC
         onClick={handleBackdropClick}
       >
         <div
-          className="relative bg-neutral-900 border-2 border-cyan-700 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in"
+          className="relative bg-[#f0ddb8] border-2 border-cyan-600 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in"
           onClick={e => e.stopPropagation()}
         >
-          <p className="font-bold text-sm tracking-wide mb-4 font-display text-white">
+          <p className="font-bold text-sm tracking-wide mb-4 font-display text-[#2a1505]">
             The Hatchery
           </p>
 
@@ -94,23 +95,20 @@ export default function EggHatchModal({ speciesId, element, quality, userId, onC
           </div>
 
           {phase !== 'reveal' ? (
-            <p className="text-white font-bold text-lg">Your egg is hatching...</p>
+            <p className="text-[#2a1505] font-bold text-lg">Your egg is hatching...</p>
           ) : (
             <div className="space-y-4">
               <div>
-                <p className="text-gray-400 text-xs mb-1">Your egg hatched into</p>
-                <p className="text-white font-bold text-xl">{def.name}!</p>
-                <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-neutral-800 text-white mt-2">
+                <p className="text-[#6b4820] text-xs mb-1">Your egg hatched into</p>
+                <p className="text-[#2a1505] font-bold text-xl">{def.name}!</p>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-cyan-600/20 border border-cyan-600 text-cyan-800 mt-2">
                   {QUALITY_LABEL[quality]}
                 </span>
-                <p className="text-gray-500 text-xs mt-2">Added to your team, benched, at Level 1.</p>
+                <p className="text-[#6b4820] text-xs mt-2">Added to your team, benched, at Level 1.</p>
               </div>
-              <button
-                onClick={onClose}
-                className="w-full py-3 rounded-xl font-bold text-white btn-tactile battle-panel-in bg-cyan-700 hover:bg-cyan-600"
-              >
+              <GameButton variant="quest" color="#0891b2" onClick={onClose} className="w-full" style={{ fontSize: 15 }}>
                 Welcome it home!
-              </button>
+              </GameButton>
             </div>
           )}
         </div>

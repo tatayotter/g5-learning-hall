@@ -20,32 +20,32 @@ function PromptCard({ title, subtitle, url }: { title: string; subtitle: string;
   }
 
   return (
-    <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4 mb-3">
+    <div className="bg-[#1c1611] border border-[#2a2119] rounded-xl p-4 mb-3">
       <div className="flex justify-between items-center">
         <div>
-          <p className="text-xs text-gray-500 uppercase tracking-widest mb-0.5">{subtitle}</p>
-          <p className="text-white text-sm font-semibold">{title}</p>
+          <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-0.5">{subtitle}</p>
+          <p className="text-[#ede4d3] text-sm font-semibold">{title}</p>
         </div>
         <div className="flex gap-2">
           {content && (
             <button
               onClick={() => { navigator.clipboard.writeText(content!); alert('Copied full prompt!'); }}
-              className="text-xs bg-neutral-800 hover:bg-neutral-700 text-gray-300 px-3 py-1.5 rounded-lg transition-colors"
+              className="text-xs bg-[#2a2119] hover:bg-[#3d3225] text-[#c9bfae] px-3 py-1.5 rounded-lg transition-colors"
             >
               📋 Copy
             </button>
           )}
           <button
             onClick={load}
-            className="text-xs bg-neutral-800 hover:bg-neutral-700 text-gray-300 px-3 py-1.5 rounded-lg transition-colors"
+            className="text-xs bg-[#2a2119] hover:bg-[#3d3225] text-[#c9bfae] px-3 py-1.5 rounded-lg transition-colors"
           >
             {loading ? '…' : open ? '▲ Hide' : '▼ View'}
           </button>
         </div>
       </div>
-      {error && <p className="text-red-400 text-xs mt-2">File not found: <code className="bg-neutral-800 px-1 rounded">{url}</code></p>}
+      {error && <p className="text-[#e0605a] text-xs mt-2">File not found: <code className="bg-[#2a2119] px-1 rounded">{url}</code></p>}
       {open && content && (
-        <pre className="mt-3 bg-neutral-950 rounded-xl p-3 text-xs text-gray-400 overflow-auto max-h-72 whitespace-pre-wrap font-mono">
+        <pre className="mt-3 bg-neutral-950 rounded-xl p-3 text-xs text-[#a89c86] overflow-auto max-h-72 whitespace-pre-wrap font-mono">
           {content}
         </pre>
       )}
@@ -77,8 +77,8 @@ function ScheduleEditor({
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
       {DAYS.map(day => (
-        <div key={day} className="bg-neutral-900 rounded-xl p-3 border border-neutral-800">
-          <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">{day}</p>
+        <div key={day} className="bg-[#1c1611] rounded-xl p-3 border border-[#2a2119]">
+          <p className="text-xs font-bold text-[#a89c86] uppercase tracking-widest mb-2">{day}</p>
           <div className="flex flex-col gap-1">
             {subjects.map(subject => (
               <label key={subject} className="flex items-center gap-2 cursor-pointer group">
@@ -88,7 +88,7 @@ function ScheduleEditor({
                   onChange={() => toggle(day, subject)}
                   className="accent-indigo-500"
                 />
-                <span className="text-xs text-gray-300 group-hover:text-white transition-colors">
+                <span className="text-xs text-[#c9bfae] group-hover:text-[#ede4d3] transition-colors">
                   {subject}
                 </span>
               </label>
@@ -162,13 +162,13 @@ function PromptBuilder({ passcode }: { passcode: string }) {
     : null;
 
   return (
-    <div className="bg-neutral-900 border border-indigo-900/50 rounded-2xl p-6 mb-8">
+    <div className="bg-[#1c1611] border border-indigo-900/50 rounded-2xl p-6 mb-8">
       {/* Header */}
       <div className="flex items-center gap-3 mb-1">
         <span className="text-2xl">⚡</span>
         <div>
-          <p className="text-white font-bold">Prompt Builder</p>
-          <p className="text-gray-500 text-xs">Assembles a lean AI prompt from the current week's BOW only — no full-year noise.</p>
+          <p className="text-[#ede4d3] font-bold">Prompt Builder</p>
+          <p className="text-[#8a7c66] text-xs">Assembles a lean AI prompt from the current week's BOW only — no full-year noise.</p>
         </div>
         {result && savings !== null && (
           <span className="ml-auto bg-emerald-900/60 text-emerald-300 text-xs font-bold px-3 py-1 rounded-full border border-emerald-700/50">
@@ -177,13 +177,13 @@ function PromptBuilder({ passcode }: { passcode: string }) {
         )}
       </div>
 
-      <hr className="border-neutral-800 my-4" />
+      <hr className="border-[#2a2119] my-4" />
 
       {/* Controls */}
       <div className="flex flex-wrap gap-4 mb-5">
         {/* Grade picker */}
         <div>
-          <label className="block text-xs text-gray-500 uppercase tracking-widest mb-1">Grade</label>
+          <label className="block text-xs text-[#8a7c66] uppercase tracking-widest mb-1">Grade</label>
           <div className="flex gap-1">
             {[2, 3, 4, 5, 6].map(g => (
               <button
@@ -191,8 +191,8 @@ function PromptBuilder({ passcode }: { passcode: string }) {
                 onClick={() => setGrade(g)}
                 className={`w-9 h-9 rounded-lg text-sm font-bold transition-colors ${
                   grade === g
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-neutral-800 text-gray-400 hover:bg-neutral-700'
+                    ? 'bg-indigo-600 text-[#ede4d3]'
+                    : 'bg-[#2a2119] text-[#a89c86] hover:bg-[#3d3225]'
                 }`}
               >
                 {g}
@@ -203,7 +203,7 @@ function PromptBuilder({ passcode }: { passcode: string }) {
 
         {/* Week number */}
         <div>
-          <label className="block text-xs text-gray-500 uppercase tracking-widest mb-1">
+          <label className="block text-xs text-[#8a7c66] uppercase tracking-widest mb-1">
             School Week #
           </label>
           <input
@@ -212,7 +212,7 @@ function PromptBuilder({ passcode }: { passcode: string }) {
             max={52}
             value={weekNumber}
             onChange={e => setWeekNumber(Number(e.target.value))}
-            className="w-20 bg-neutral-800 border border-neutral-700 text-white text-sm rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-20 bg-[#2a2119] border border-[#3d3225] text-[#ede4d3] text-sm rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
         </div>
 
@@ -221,8 +221,8 @@ function PromptBuilder({ passcode }: { passcode: string }) {
           <div className="self-end pb-1">
             <span className={`text-xs px-3 py-1.5 rounded-full font-semibold ${
               result.isBreak
-                ? 'bg-yellow-900/50 text-yellow-400 border border-yellow-700/40'
-                : 'bg-blue-900/50 text-blue-300 border border-blue-700/40'
+                ? 'bg-yellow-900/50 text-[#f5c542] border border-yellow-700/40'
+                : 'bg-[#4a2e0a]/50 text-blue-300 border border-[#a8620f]/40'
             }`}>
               {result.termLabel}
             </span>
@@ -232,7 +232,7 @@ function PromptBuilder({ passcode }: { passcode: string }) {
 
       {/* Day schedule */}
       <div className="mb-5">
-        <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Day Schedule</p>
+        <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-2">Day Schedule</p>
         <ScheduleEditor grade={grade} schedule={schedule} onChange={setSchedule} />
       </div>
 
@@ -240,13 +240,13 @@ function PromptBuilder({ passcode }: { passcode: string }) {
       <button
         onClick={build}
         disabled={building}
-        className="bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-bold px-6 py-2.5 rounded-xl transition-colors mb-5"
+        className="bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-[#ede4d3] font-bold px-6 py-2.5 rounded-xl transition-colors mb-5"
       >
         {building ? '⚙️ Building…' : '🔨 Build Prompt'}
       </button>
 
       {error && (
-        <div className="bg-red-950 border border-red-800 text-red-300 text-xs rounded-xl p-3 mb-4">
+        <div className="bg-red-950 border border-[#6e1512] text-red-300 text-xs rounded-xl p-3 mb-4">
           ⚠️ {error}
         </div>
       )}
@@ -256,19 +256,19 @@ function PromptBuilder({ passcode }: { passcode: string }) {
         <div>
           {/* Stats row */}
           <div className="flex items-center gap-3 mb-3 flex-wrap">
-            <span className="text-xs text-gray-500">Week of {result.weekDate}</span>
+            <span className="text-xs text-[#8a7c66]">Week of {result.weekDate}</span>
             <span className="text-gray-700">·</span>
             <span className="text-xs">
               <span className="font-bold text-indigo-300">~{result.tokenCount}</span>
-              <span className="text-gray-500"> tokens </span>
+              <span className="text-[#8a7c66]"> tokens </span>
               <span className="text-gray-600 line-through">{FULL_PROMPT_TOKENS[grade] ?? '?'}</span>
             </span>
             <button
               onClick={copy}
               className={`ml-auto font-bold text-sm px-5 py-2 rounded-xl transition-all ${
                 copied
-                  ? 'bg-emerald-700 text-white'
-                  : 'bg-indigo-600 hover:bg-indigo-500 text-white'
+                  ? 'bg-emerald-700 text-[#ede4d3]'
+                  : 'bg-indigo-600 hover:bg-indigo-500 text-[#ede4d3]'
               }`}
             >
               {copied ? '✅ Copied!' : '📋 Copy Prompt'}
@@ -276,21 +276,21 @@ function PromptBuilder({ passcode }: { passcode: string }) {
           </div>
 
           {/* Prompt preview */}
-          <pre className="bg-neutral-950 rounded-xl p-4 text-xs text-gray-300 overflow-auto max-h-80 whitespace-pre-wrap font-mono border border-neutral-800">
+          <pre className="bg-neutral-950 rounded-xl p-4 text-xs text-[#c9bfae] overflow-auto max-h-80 whitespace-pre-wrap font-mono border border-[#2a2119]">
             {result.prompt}
           </pre>
 
           {/* BOW bullets used */}
           {Object.keys(result.bowBySubject).length > 0 && (
             <details className="mt-3">
-              <summary className="text-xs text-gray-500 cursor-pointer hover:text-gray-300 transition-colors">
+              <summary className="text-xs text-[#8a7c66] cursor-pointer hover:text-[#c9bfae] transition-colors">
                 ▶ BOW bullets extracted for Term {result.prompt.match(/Term (\d)/)?.[1] ?? '?'} (full reference)
               </summary>
               <div className="mt-2 grid gap-2 sm:grid-cols-2">
                 {Object.entries(result.bowBySubject).map(([subj, bullets]) => (
-                  <div key={subj} className="bg-neutral-950 rounded-lg p-3 border border-neutral-800">
+                  <div key={subj} className="bg-neutral-950 rounded-lg p-3 border border-[#2a2119]">
                     <p className="text-xs font-bold text-indigo-400 mb-1">{subj}</p>
-                    <pre className="text-xs text-gray-400 whitespace-pre-wrap font-mono">{bullets}</pre>
+                    <pre className="text-xs text-[#a89c86] whitespace-pre-wrap font-mono">{bullets}</pre>
                   </div>
                 ))}
               </div>
@@ -307,8 +307,8 @@ function PromptBuilder({ passcode }: { passcode: string }) {
 export default function PromptsSection({ passcode }: { passcode: string }) {
   return (
     <div>
-      <h2 className="text-xl font-bold text-white mb-1">Prompts</h2>
-      <p className="text-gray-500 text-sm mb-6">
+      <h2 className="text-xl font-bold text-[#ede4d3] mb-1">Prompts</h2>
+      <p className="text-[#8a7c66] text-sm mb-6">
         Build a lean AI prompt for this week (~500 tokens) instead of pasting the full
         4 000-token prompt file. Or expand the reference cards below to grab the original.
       </p>

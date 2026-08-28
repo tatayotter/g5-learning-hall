@@ -25,8 +25,8 @@ interface Parent {
 
 const STATUS_STYLES: Record<Parent['status'], string> = {
   pending: 'bg-amber-900/50 text-amber-400 border border-amber-800',
-  approved: 'bg-green-900/50 text-green-400 border border-green-800',
-  rejected: 'bg-red-900/50 text-red-400 border border-red-800',
+  approved: 'bg-[#223616]/50 text-[#7fae52] border border-[#33501f]',
+  rejected: 'bg-[#4a0e0c]/50 text-[#e0605a] border border-[#6e1512]',
 };
 
 export default function ParentsSection() {
@@ -97,21 +97,21 @@ export default function ParentsSection() {
   };
 
   if (userEmail === undefined) {
-    return <p className="text-gray-500 text-sm">Loading…</p>;
+    return <p className="text-[#8a7c66] text-sm">Loading…</p>;
   }
 
   if (!userEmail) {
     return (
       <div>
-        <h2 className="text-xl font-bold text-white mb-1">Parents</h2>
-        <p className="text-gray-500 text-sm mb-6">Sign in with the admin account to manage parent accounts.</p>
-        <form onSubmit={handleLogin} className="w-full max-w-sm bg-neutral-900 border border-neutral-700 rounded-xl p-6 space-y-4">
+        <h2 className="text-xl font-bold text-[#ede4d3] mb-1">Parents</h2>
+        <p className="text-[#8a7c66] text-sm mb-6">Sign in with the admin account to manage parent accounts.</p>
+        <form onSubmit={handleLogin} className="w-full max-w-sm bg-[#1c1611] border border-[#3d3225] rounded-xl p-6 space-y-4">
           <input
             type="email"
             placeholder="Admin email"
             value={loginEmail}
             onChange={(e) => setLoginEmail(e.target.value)}
-            className="w-full rounded-lg bg-neutral-950 border border-neutral-700 px-3 py-2 text-sm text-white"
+            className="w-full rounded-lg bg-neutral-950 border border-[#3d3225] px-3 py-2 text-sm text-[#ede4d3]"
             required
           />
           <input
@@ -119,14 +119,14 @@ export default function ParentsSection() {
             placeholder="Password"
             value={loginPassword}
             onChange={(e) => setLoginPassword(e.target.value)}
-            className="w-full rounded-lg bg-neutral-950 border border-neutral-700 px-3 py-2 text-sm text-white"
+            className="w-full rounded-lg bg-neutral-950 border border-[#3d3225] px-3 py-2 text-sm text-[#ede4d3]"
             required
           />
-          {loginError && <p className="text-red-400 text-xs">{loginError}</p>}
+          {loginError && <p className="text-[#e0605a] text-xs">{loginError}</p>}
           <button
             type="submit"
             disabled={loggingIn}
-            className="w-full rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-bold py-2.5"
+            className="w-full rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-[#ede4d3] font-bold py-2.5"
           >
             {loggingIn ? 'Logging in…' : 'Log In'}
           </button>
@@ -136,7 +136,7 @@ export default function ParentsSection() {
   }
 
   if (userEmail !== ADMIN_EMAIL) {
-    return <p className="text-gray-500 text-sm">Signed in as {userEmail}, which isn&apos;t the admin account.</p>;
+    return <p className="text-[#8a7c66] text-sm">Signed in as {userEmail}, which isn&apos;t the admin account.</p>;
   }
 
   const filtered = parents.filter(p => {
@@ -150,36 +150,36 @@ export default function ParentsSection() {
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-white mb-1">Parents</h2>
-      <p className="text-gray-500 text-sm mb-6">Manage every parent account — pending, approved, and rejected.</p>
+      <h2 className="text-xl font-bold text-[#ede4d3] mb-1">Parents</h2>
+      <p className="text-[#8a7c66] text-sm mb-6">Manage every parent account — pending, approved, and rejected.</p>
 
       <div className="flex gap-3 mb-4">
         <select value={statusFilter} onChange={e => setStatusFilter(e.target.value as typeof statusFilter)}
-          className="bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-white">
+          className="bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-2 text-sm text-[#ede4d3]">
           <option value="All">All Statuses</option>
           <option value="pending">Pending</option>
           <option value="approved">Approved</option>
           <option value="rejected">Rejected</option>
         </select>
         <input type="text" placeholder="Search name or email…" value={search} onChange={e => setSearch(e.target.value)}
-          className="flex-1 bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-white" />
+          className="flex-1 bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-2 text-sm text-[#ede4d3]" />
       </div>
 
-      {listError && <p className="text-red-400 text-sm mb-4">{listError}</p>}
+      {listError && <p className="text-[#e0605a] text-sm mb-4">{listError}</p>}
       <div className="space-y-3">
-        {filtered.length === 0 && <p className="text-gray-500 text-sm">No parents match these filters.</p>}
+        {filtered.length === 0 && <p className="text-[#8a7c66] text-sm">No parents match these filters.</p>}
         {filtered.map((p) => (
-          <div key={p.id} className="bg-neutral-900 border border-neutral-700 rounded-xl p-4">
+          <div key={p.id} className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-4">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <p className="text-white font-bold text-sm">{p.full_name}</p>
+                  <p className="text-[#ede4d3] font-bold text-sm">{p.full_name}</p>
                   <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded ${STATUS_STYLES[p.status]}`}>{p.status}</span>
                 </div>
-                <p className="text-gray-500 text-xs">{p.email}{p.phone ? ` · ${p.phone}` : ''}</p>
+                <p className="text-[#8a7c66] text-xs">{p.email}{p.phone ? ` · ${p.phone}` : ''}</p>
                 <p className="text-gray-600 text-xs">Registered {new Date(p.created_at).toLocaleString()}</p>
                 {p.children.length > 0 && (
-                  <p className="text-gray-500 text-xs mt-2">
+                  <p className="text-[#8a7c66] text-xs mt-2">
                     Children: {p.children.map(c => `${c.full_name} (${c.grade}${c.is_active ? '' : ', inactive'})`).join(', ')}
                   </p>
                 )}
@@ -188,24 +188,24 @@ export default function ParentsSection() {
                 {p.status === 'pending' && (
                   <>
                     <button onClick={() => handleDecision(p.id, 'approve')} disabled={busyId === p.id}
-                      className="rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white text-xs font-bold px-4 py-1.5">
+                      className="rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-[#ede4d3] text-xs font-bold px-4 py-1.5">
                       Approve
                     </button>
                     <button onClick={() => handleDecision(p.id, 'reject')} disabled={busyId === p.id}
-                      className="rounded-lg border border-red-800 text-red-400 hover:bg-red-950 disabled:opacity-50 text-xs font-bold px-4 py-1.5">
+                      className="rounded-lg border border-[#6e1512] text-[#e0605a] hover:bg-red-950 disabled:opacity-50 text-xs font-bold px-4 py-1.5">
                       Reject
                     </button>
                   </>
                 )}
                 {p.status === 'approved' && (
                   <button onClick={() => handleSetStatus(p.id, 'rejected')} disabled={busyId === p.id}
-                    className="rounded-lg border border-red-800 text-red-400 hover:bg-red-950 disabled:opacity-50 text-xs font-bold px-4 py-1.5">
+                    className="rounded-lg border border-[#6e1512] text-[#e0605a] hover:bg-red-950 disabled:opacity-50 text-xs font-bold px-4 py-1.5">
                     Suspend
                   </button>
                 )}
                 {p.status === 'rejected' && (
                   <button onClick={() => handleSetStatus(p.id, 'approved')} disabled={busyId === p.id}
-                    className="rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white text-xs font-bold px-4 py-1.5">
+                    className="rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-[#ede4d3] text-xs font-bold px-4 py-1.5">
                     Reinstate
                   </button>
                 )}

@@ -2,6 +2,7 @@
 'use client';
 
 import { CheckCircle2, AlertTriangle } from 'lucide-react';
+import GameButton from '@/components/GameButton';
 
 const SUBJECT_STYLE: Record<string, { emoji: string; bg: string; cardBg?: string }> = {
   GMRC: { emoji: '🤝', bg: 'bg-pink-500', cardBg: '/subjects/gmrc-card-bg.png' },
@@ -81,17 +82,15 @@ export default function QuestCard({ subjectName, subtitle, completed, xp = 200, 
             </div>
           )}
 
-          <button
+          <GameButton
+            variant="quest"
+            color={completed ? '#7f7f7f' : undefined}
             onClick={onEnter}
             disabled={completed}
-            className={`px-6 py-2 rounded-lg font-extrabold text-sm uppercase tracking-wide border-2 border-[#000000] transition-all
-              ${completed
-                ? 'bg-green-700 text-white shadow-none cursor-not-allowed'
-                : 'text-black bg-yellow-400 hover:bg-yellow-300 shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] btn-haptic'
-              }`}
+            style={{ fontSize: '1.1rem' }}
           >
             {completed ? '✓ Completed' : 'Start Quest'}
-          </button>
+          </GameButton>
 
         </div>
       </div>
@@ -134,13 +133,16 @@ export default function QuestCard({ subjectName, subtitle, completed, xp = 200, 
         </span>
       </div>
 
-      <button
+      <GameButton
+        variant="quest"
+        color={completed ? '#7f7f7f' : undefined}
         onClick={onEnter}
         disabled={completed}
-        className={`w-full py-2.5 rounded-lg font-extrabold text-sm uppercase tracking-wide border-2 border-[#000000] shadow-[3px_3px_0_0_#000] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] disabled:bg-neutral-700 disabled:text-gray-400 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 transition-all ${completed ? 'bg-green-700 text-white' : 'text-black bg-yellow-400 hover:bg-yellow-300 btn-haptic'}`}
+        className="w-full"
+        style={{ fontSize: '1.1rem' }}
       >
         {completed ? '✓ Completed' : 'Start Quest'}
-      </button>
+      </GameButton>
     </div>
   );
 }
