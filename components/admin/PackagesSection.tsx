@@ -83,16 +83,16 @@ function WeeklyPackageHistory({ grade }: { grade: number }) {
   if (weeks.length === 0) return null;
 
   return (
-    <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-5 mb-6">
-      <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Recent Weeks — Grade {grade}</p>
+    <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5 mb-6">
+      <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-3">Recent Weeks — Grade {grade}</p>
       <div className="space-y-2">
         {weeks.map(w => (
           <div key={w.week_starting_date} className="flex items-center justify-between">
-            <span className="text-sm text-gray-300 font-mono">{w.week_starting_date}</span>
+            <span className="text-sm text-[#c9bfae] font-mono">{w.week_starting_date}</span>
             {w.has_content ? (
-              <span className="text-xs bg-green-900/40 text-green-400 border border-green-800 px-2 py-0.5 rounded-full font-bold">✅ Has Content</span>
+              <span className="text-xs bg-[#223616]/40 text-[#7fae52] border border-[#33501f] px-2 py-0.5 rounded-full font-bold">✅ Has Content</span>
             ) : (
-              <span className="text-xs bg-neutral-800 text-gray-500 border border-neutral-700 px-2 py-0.5 rounded-full">Empty</span>
+              <span className="text-xs bg-[#2a2119] text-[#8a7c66] border border-[#3d3225] px-2 py-0.5 rounded-full">Empty</span>
             )}
           </div>
         ))}
@@ -168,20 +168,20 @@ function BulkImportPanel({ passcode }: { passcode: string }) {
 
   return (
     <div className="space-y-3">
-      <p className="text-gray-500 text-xs">
-        Paste an array of weeks: <code className="text-gray-400">[{'{'}"grade": 5, "week_starting_date": "2026-09-06", "days": {'{'}...{'}'}{'}'}, ...]</code>
+      <p className="text-[#8a7c66] text-xs">
+        Paste an array of weeks: <code className="text-[#a89c86]">[{'{'}"grade": 5, "week_starting_date": "2026-09-06", "days": {'{'}...{'}'}{'}'}, ...]</code>
       </p>
       <textarea
         value={bulkInput}
         onChange={e => setBulkInput(e.target.value)}
         placeholder="Paste multiple weeks' JSON here..."
-        className="w-full h-48 bg-neutral-950 border border-neutral-700 rounded-xl p-4 font-mono text-xs text-gray-300 focus:outline-none focus:border-neutral-500 resize-none"
+        className="w-full h-48 bg-neutral-950 border border-[#3d3225] rounded-xl p-4 font-mono text-xs text-[#c9bfae] focus:outline-none focus:border-neutral-500 resize-none"
       />
-      {parseError && <p className="text-red-400 text-xs">{parseError}</p>}
+      {parseError && <p className="text-[#e0605a] text-xs">{parseError}</p>}
       <button
         onClick={handleParse}
         disabled={!bulkInput.trim()}
-        className="bg-blue-600 hover:bg-blue-500 disabled:opacity-40 text-white font-bold px-6 py-2 rounded-lg transition-colors"
+        className="bg-[#c9781a] hover:bg-[#e2921e] disabled:opacity-40 text-[#ede4d3] font-bold px-6 py-2 rounded-lg transition-colors"
       >
         Parse & Preview Batch
       </button>
@@ -190,8 +190,8 @@ function BulkImportPanel({ passcode }: { passcode: string }) {
         <div className="space-y-3 mt-4">
           <div className="space-y-2">
             {entries.map((e, i) => (
-              <div key={i} className={`rounded-lg p-3 border ${e.warnings.length > 0 ? 'bg-yellow-900/20 border-yellow-800' : 'bg-green-900/20 border-green-800'}`}>
-                <p className={`text-sm font-bold ${e.warnings.length > 0 ? 'text-yellow-400' : 'text-green-400'}`}>
+              <div key={i} className={`rounded-lg p-3 border ${e.warnings.length > 0 ? 'bg-yellow-900/20 border-yellow-800' : 'bg-[#223616]/20 border-[#33501f]'}`}>
+                <p className={`text-sm font-bold ${e.warnings.length > 0 ? 'text-[#f5c542]' : 'text-[#7fae52]'}`}>
                   Grade {e.grade} — week of {e.week_starting_date} — {e.warnings.length === 0 ? '✅ valid' : `⚠️ ${e.warnings.length} warning${e.warnings.length > 1 ? 's' : ''}`}
                 </p>
                 {e.warnings.map((w, wi) => (
@@ -205,19 +205,19 @@ function BulkImportPanel({ passcode }: { passcode: string }) {
             onClick={handleSaveAll}
             disabled={saving || totalWarnings > 0}
             title={totalWarnings > 0 ? 'Fix every warning above before saving' : undefined}
-            className="bg-green-700 hover:bg-green-600 disabled:opacity-40 text-white font-bold px-6 py-2 rounded-lg transition-colors"
+            className="bg-[#3f6428] hover:bg-[#4d7a32] disabled:opacity-40 text-[#ede4d3] font-bold px-6 py-2 rounded-lg transition-colors"
           >
             {saving ? 'Saving...' : totalWarnings > 0 ? `⚠️ Fix ${totalWarnings} warning${totalWarnings > 1 ? 's' : ''} to save` : `💾 Save all ${entries.length} weeks`}
           </button>
 
           {results && (
-            <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-4 space-y-1">
-              <p className="text-xs text-gray-400 font-bold mb-2">
+            <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-4 space-y-1">
+              <p className="text-xs text-[#a89c86] font-bold mb-2">
                 {results.filter(r => r.success).length} of {results.length} weeks saved
                 {results.some(r => !r.success) ? `, ${results.filter(r => !r.success).length} failed` : ''}
               </p>
               {results.map((r, i) => (
-                <p key={i} className={`text-xs ${r.success ? 'text-green-400' : 'text-red-400'}`}>
+                <p key={i} className={`text-xs ${r.success ? 'text-[#7fae52]' : 'text-[#e0605a]'}`}>
                   {r.success ? '✅' : '❌'} Grade {r.grade} — {r.week}{r.error ? ` — ${r.error}` : ''}
                 </p>
               ))}
@@ -332,19 +332,19 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-white mb-1">Weekly Content Builder</h2>
-      <p className="text-gray-500 text-sm mb-6">Paste AI-generated JSON, review, edit if needed, then save for a grade.</p>
+      <h2 className="text-xl font-bold text-[#ede4d3] mb-1">Weekly Content Builder</h2>
+      <p className="text-[#8a7c66] text-sm mb-6">Paste AI-generated JSON, review, edit if needed, then save for a grade.</p>
 
       <div className="flex gap-2 mb-4">
         <button
           onClick={() => setMode('single')}
-          className={`px-4 py-1.5 rounded-lg text-sm font-bold transition-colors ${mode === 'single' ? 'bg-blue-600 text-white' : 'bg-neutral-800 text-gray-400 hover:text-white'}`}
+          className={`px-4 py-1.5 rounded-lg text-sm font-bold transition-colors ${mode === 'single' ? 'bg-[#c9781a] text-[#ede4d3]' : 'bg-[#2a2119] text-[#a89c86] hover:text-[#ede4d3]'}`}
         >
           Single Week
         </button>
         <button
           onClick={() => setMode('bulk')}
-          className={`px-4 py-1.5 rounded-lg text-sm font-bold transition-colors ${mode === 'bulk' ? 'bg-blue-600 text-white' : 'bg-neutral-800 text-gray-400 hover:text-white'}`}
+          className={`px-4 py-1.5 rounded-lg text-sm font-bold transition-colors ${mode === 'bulk' ? 'bg-[#c9781a] text-[#ede4d3]' : 'bg-[#2a2119] text-[#a89c86] hover:text-[#ede4d3]'}`}
         >
           Bulk Import
         </button>
@@ -361,7 +361,7 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
             key={g}
             onClick={() => setGrade(g)}
             className={`px-5 py-2 rounded-lg font-bold text-sm transition-all ${
-              grade === g ? 'bg-amber-600 text-white' : 'bg-neutral-800 text-gray-400 hover:text-white'
+              grade === g ? 'bg-amber-600 text-[#ede4d3]' : 'bg-[#2a2119] text-[#a89c86] hover:text-[#ede4d3]'
             }`}
           >
             Grade {g}
@@ -382,10 +382,10 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
       )}
 
       {/* Week selector */}
-      <div className="flex items-center gap-2 mb-6 bg-neutral-900 border border-neutral-700 rounded-xl p-3">
+      <div className="flex items-center gap-2 mb-6 bg-[#1c1611] border border-[#3d3225] rounded-xl p-3">
         <button
           onClick={() => shiftWeek(-7)}
-          className="bg-neutral-800 hover:bg-neutral-700 text-gray-300 rounded-lg px-3 py-1.5 text-sm font-bold transition-colors"
+          className="bg-[#2a2119] hover:bg-[#3d3225] text-[#c9bfae] rounded-lg px-3 py-1.5 text-sm font-bold transition-colors"
         >
           ← Prev
         </button>
@@ -393,18 +393,18 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
           type="date"
           value={selectedWeek}
           onChange={e => e.target.value && setSelectedWeek(format(startOfWeek(new Date(e.target.value + 'T00:00:00')), 'yyyy-MM-dd'))}
-          className="bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-1.5 text-sm text-white font-mono"
+          className="bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-1.5 text-sm text-[#ede4d3] font-mono"
         />
         <button
           onClick={() => shiftWeek(7)}
-          className="bg-neutral-800 hover:bg-neutral-700 text-gray-300 rounded-lg px-3 py-1.5 text-sm font-bold transition-colors"
+          className="bg-[#2a2119] hover:bg-[#3d3225] text-[#c9bfae] rounded-lg px-3 py-1.5 text-sm font-bold transition-colors"
         >
           Next →
         </button>
         {selectedWeek !== currentSunday && (
           <button
             onClick={() => setSelectedWeek(currentSunday)}
-            className="text-xs text-blue-400 hover:text-blue-300 ml-1"
+            className="text-xs text-[#f0b429] hover:text-blue-300 ml-1"
           >
             Jump to this week
           </button>
@@ -425,13 +425,13 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
             value={jsonInput}
             onChange={e => setJsonInput(e.target.value)}
             placeholder={`Paste Grade ${grade}'s weekly content JSON here...`}
-            className="w-full h-48 bg-neutral-950 border border-neutral-700 rounded-xl p-4 font-mono text-xs text-gray-300 focus:outline-none focus:border-neutral-500 resize-none"
+            className="w-full h-48 bg-neutral-950 border border-[#3d3225] rounded-xl p-4 font-mono text-xs text-[#c9bfae] focus:outline-none focus:border-neutral-500 resize-none"
           />
-          {parseError && <p className="text-red-400 text-xs">{parseError}</p>}
+          {parseError && <p className="text-[#e0605a] text-xs">{parseError}</p>}
           <button
             onClick={handleParse}
             disabled={!jsonInput.trim()}
-            className="bg-blue-600 hover:bg-blue-500 disabled:opacity-40 text-white font-bold px-6 py-2 rounded-lg transition-colors"
+            className="bg-[#c9781a] hover:bg-[#e2921e] disabled:opacity-40 text-[#ede4d3] font-bold px-6 py-2 rounded-lg transition-colors"
           >
             Parse & Preview
           </button>
@@ -444,7 +444,7 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
           {/* Warnings */}
           {parsed.warnings.length > 0 && (
             <div className="bg-yellow-900/20 border border-yellow-800 rounded-xl p-4 mb-4">
-              <p className="text-yellow-400 font-bold text-sm mb-2">⚠️ {parsed.warnings.length} warning{parsed.warnings.length > 1 ? 's' : ''} — fix these before saving</p>
+              <p className="text-[#f5c542] font-bold text-sm mb-2">⚠️ {parsed.warnings.length} warning{parsed.warnings.length > 1 ? 's' : ''} — fix these before saving</p>
               {parsed.warnings.map((w: string, i: number) => (
                 <p key={i} className="text-yellow-300 text-xs">{w}</p>
               ))}
@@ -452,8 +452,8 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
           )}
 
           {parsed.warnings.length === 0 && (
-            <div className="bg-green-900/20 border border-green-800 rounded-xl p-3 mb-4">
-              <p className="text-green-400 text-sm font-bold">✅ JSON is valid — {Object.keys(parsed.data).length} days detected</p>
+            <div className="bg-[#223616]/20 border border-[#33501f] rounded-xl p-3 mb-4">
+              <p className="text-[#7fae52] text-sm font-bold">✅ JSON is valid — {Object.keys(parsed.data).length} days detected</p>
             </div>
           )}
 
@@ -463,16 +463,16 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
               const subjects = parsed.data[day];
               const isExpanded = expandedDays.has(day);
               return (
-                <div key={day} className="bg-neutral-900 border border-neutral-700 rounded-xl overflow-hidden">
+                <div key={day} className="bg-[#1c1611] border border-[#3d3225] rounded-xl overflow-hidden">
                   <button
                     onClick={() => toggleDay(day)}
-                    className="w-full flex justify-between items-center px-5 py-3 text-left hover:bg-neutral-800 transition-colors"
+                    className="w-full flex justify-between items-center px-5 py-3 text-left hover:bg-[#2a2119] transition-colors"
                   >
-                    <span className="font-bold text-white">{day}</span>
-                    <span className="text-gray-500 text-xs">{Object.keys(subjects).length} subjects {isExpanded ? '▲' : '▼'}</span>
+                    <span className="font-bold text-[#ede4d3]">{day}</span>
+                    <span className="text-[#8a7c66] text-xs">{Object.keys(subjects).length} subjects {isExpanded ? '▲' : '▼'}</span>
                   </button>
                   {isExpanded && (
-                    <div className="px-5 pb-4 space-y-4 border-t border-neutral-800 pt-4">
+                    <div className="px-5 pb-4 space-y-4 border-t border-[#2a2119] pt-4">
                       {Object.keys(subjects).map(subject => {
                         const s = subjects[subject];
                         return (
@@ -482,12 +482,12 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
                               {(s.quiz || []).map((q: any, idx: number) => {
                                 const isEditing = editingQuestion?.day === day && editingQuestion?.subject === subject && editingQuestion?.idx === idx;
                                 return (
-                                  <div key={idx} className="bg-neutral-900 rounded-lg p-3 border border-neutral-800">
+                                  <div key={idx} className="bg-[#1c1611] rounded-lg p-3 border border-[#2a2119]">
                                     <div className="flex justify-between items-start mb-2">
-                                      <p className="text-xs text-gray-500 font-mono">Q{idx + 1}</p>
+                                      <p className="text-xs text-[#8a7c66] font-mono">Q{idx + 1}</p>
                                       <button
                                         onClick={() => setEditingQuestion(isEditing ? null : { day, subject, idx })}
-                                        className="text-xs text-gray-600 hover:text-gray-300 transition-colors"
+                                        className="text-xs text-gray-600 hover:text-[#c9bfae] transition-colors"
                                       >
                                         {isEditing ? 'Done' : 'Edit'}
                                       </button>
@@ -497,11 +497,11 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
                                         <input
                                           value={q.question}
                                           onChange={e => updateQuestion(day, subject, idx, 'question', e.target.value)}
-                                          className="w-full bg-black border border-neutral-700 rounded p-2 text-sm text-white"
+                                          className="w-full bg-[#0a0807] border border-[#3d3225] rounded p-2 text-sm text-[#ede4d3]"
                                         />
                                         {q.options.map((opt: string, oi: number) => (
                                           <div key={oi} className="flex items-center gap-2">
-                                            <span className={`text-xs font-mono w-4 ${q.correct_answer === opt ? 'text-green-400' : 'text-gray-600'}`}>
+                                            <span className={`text-xs font-mono w-4 ${q.correct_answer === opt ? 'text-[#7fae52]' : 'text-gray-600'}`}>
                                               {q.correct_answer === opt ? '✓' : '○'}
                                             </span>
                                             <input
@@ -513,11 +513,11 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
                                                 updateQuestion(day, subject, idx, 'options', newOpts as any);
                                                 if (wasCorrect) updateQuestion(day, subject, idx, 'correct_answer', e.target.value);
                                               }}
-                                              className="flex-1 bg-black border border-neutral-700 rounded p-1.5 text-xs text-white"
+                                              className="flex-1 bg-[#0a0807] border border-[#3d3225] rounded p-1.5 text-xs text-[#ede4d3]"
                                             />
                                             <button
                                               onClick={() => updateQuestion(day, subject, idx, 'correct_answer', opt)}
-                                              className={`text-xs px-2 py-1 rounded ${q.correct_answer === opt ? 'bg-green-800 text-green-300' : 'bg-neutral-800 text-gray-500 hover:text-white'}`}
+                                              className={`text-xs px-2 py-1 rounded ${q.correct_answer === opt ? 'bg-[#33501f] text-green-300' : 'bg-[#2a2119] text-[#8a7c66] hover:text-[#ede4d3]'}`}
                                             >
                                               Correct
                                             </button>
@@ -531,7 +531,7 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
                                           {q.options.map((opt: string, oi: number) => (
                                             <span
                                               key={oi}
-                                              className={`text-xs px-2 py-0.5 rounded-full ${opt === q.correct_answer ? 'bg-green-900/50 text-green-400 border border-green-800' : 'bg-neutral-800 text-gray-400'}`}
+                                              className={`text-xs px-2 py-0.5 rounded-full ${opt === q.correct_answer ? 'bg-[#223616]/50 text-[#7fae52] border border-[#33501f]' : 'bg-[#2a2119] text-[#a89c86]'}`}
                                             >
                                               {opt}
                                             </span>
@@ -557,7 +557,7 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
           <div className="flex gap-3">
             <button
               onClick={() => { setParsed(null); setJsonInput(''); }}
-              className="bg-neutral-800 hover:bg-neutral-700 text-white font-bold px-5 py-2 rounded-lg transition-colors"
+              className="bg-[#2a2119] hover:bg-[#3d3225] text-[#ede4d3] font-bold px-5 py-2 rounded-lg transition-colors"
             >
               ← Start Over
             </button>
@@ -565,7 +565,7 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
               onClick={handleSave}
               disabled={saving || parsed.warnings.length > 0}
               title={parsed.warnings.length > 0 ? 'Fix all warnings above before saving' : undefined}
-              className="bg-green-700 hover:bg-green-600 disabled:opacity-40 text-white font-bold px-6 py-2 rounded-lg transition-colors"
+              className="bg-[#3f6428] hover:bg-[#4d7a32] disabled:opacity-40 text-[#ede4d3] font-bold px-6 py-2 rounded-lg transition-colors"
             >
               {saving ? 'Saving...' : parsed.warnings.length > 0 ? `⚠️ Fix ${parsed.warnings.length} warning${parsed.warnings.length > 1 ? 's' : ''} to save` : `💾 Save for Grade ${grade}`}
             </button>

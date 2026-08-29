@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel, Inter, JetBrains_Mono } from "next/font/google";
+import { Bungee, Cinzel, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import ContentProtection from "@/components/ContentProtection";
 import FacebookPixel from "@/components/FacebookPixel";
@@ -18,6 +18,15 @@ const inter = Inter({
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+});
+
+// GameButton's "quest" variant (components/GameButton.tsx) — matches the
+// Photoshop reference's chunky game-CTA typeface. Bungee only ships one
+// weight (400).
+const bungee = Bungee({
+  variable: "--font-bungee",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -79,7 +88,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cinzel.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${cinzel.variable} ${inter.variable} ${jetbrainsMono.variable} ${bungee.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <ContentProtection />

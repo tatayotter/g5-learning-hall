@@ -10,6 +10,21 @@ import { guildLevelForKey, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/
 import { GUILDS } from '@/lib/dailyChecklist';
 import { UserMonster, MonsterImage, LegendaryBadge } from '@/components/battle/shared';
 import { CaughtMonster } from '@/components/monster/types';
+import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
+import { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+
+// White parchment inset with a gold outline — the modal's own content
+// sections (description/stats/attacks) sit inside these rather than
+// directly on the wood, the same "frame + insets" layering the dex tiles use
+// (2026-08-29). No corner nails here (kept only on the outer modal frame and
+// the dex grid tiles) — plain gold trim reads cleaner at this smaller scale.
+function WhiteNailBox({ className = '', children }: { className?: string; children: React.ReactNode }) {
+  return (
+    <div className={`relative bg-white border-2 border-[#4a2f18] rounded-xl p-3 ${className}`} style={{ boxShadow: '0 0 0 2px #d4a017' }}>
+      {children}
+    </div>
+  );
+}
 
 const ELEMENT_STYLES: Record<Element, string> = {
   fire:   'text-orange-400 border-orange-800 bg-orange-900/20',
@@ -65,18 +80,20 @@ function GraduationStream({ entries, knownByKey, activeKey, onSelect }: {
 }) {
   return (
     <div>
-      <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1.5">Graduation Stream</p>
+      <p className="text-[10px] text-gray-200 font-bold uppercase tracking-widest mb-1.5" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Graduation Stream</p>
       <div className="flex items-center gap-1.5 flex-wrap">
         {entries.map((stage, i) => {
           const known = knownByKey[stage.key];
           return (
             <div key={stage.key} className="flex items-center gap-1.5">
-              {i > 0 && <span className="text-gray-700 text-sm">→</span>}
+              {i > 0 && <span className="text-gray-200 text-sm" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>→</span>}
+              {/* White card + gold nail, same family as the description/
+                  stats/attacks insets below — a small stage tile rather than
+                  the dark neutral swatch this used to be (2026-08-29). */}
               <button
                 onClick={() => onSelect(stage.key)}
-                className={`p-1.5 rounded-lg border text-center transition-colors ${
-                  stage.key === activeKey ? 'border-amber-400 bg-amber-900/10' : 'border-neutral-800 bg-neutral-900/50 hover:border-neutral-700'
-                }`}
+                className="relative p-1.5 rounded-lg border-2 bg-white text-center transition-colors"
+                style={{ borderColor: stage.key === activeKey ? '#f5c542' : '#4a2f18' }}
               >
                 <div className="relative w-12 h-12 mx-auto mb-1">
                   {known ? (
@@ -88,8 +105,8 @@ function GraduationStream({ entries, knownByKey, activeKey, onSelect }: {
                     </>
                   )}
                 </div>
-                <p className="text-[9px] font-bold text-white truncate max-w-[64px]">{known ? stage.def.name : '???'}</p>
-                <p className="text-[9px] text-gray-600">
+                <p className="text-[9px] font-bold text-[#2a1505] truncate max-w-[64px]">{known ? stage.def.name : '???'}</p>
+                <p className="text-[9px] text-[#6b4820]">
                   {stage.tier === 1 ? 'Base' : stage.guildLabel ? `${stage.guildLabel} Lv.${stage.unlockLevel}+` : `Lv.${stage.unlockLevel}+`}
                 </p>
               </button>
@@ -109,11 +126,11 @@ const STAT_BAR_MAX = { hp: 250, atk: 50, def: 40, spd: 30 } as const;
 function CompendiumStatBar({ label, value, max }: { label: string; value: number; max: number }) {
   return (
     <div>
-      <div className="flex justify-between text-[10px] text-gray-500 mb-0.5">
+      <div className="flex justify-between text-[10px] text-[#6b4820] font-bold mb-0.5">
         <span>{label}</span>
         <span>{value}</span>
       </div>
-      <div className="w-full h-1.5 bg-neutral-800 rounded-full overflow-hidden">
+      <div className="w-full h-1.5 bg-[#e8d0a0] border border-[#c9a87a] rounded-full overflow-hidden">
         <div className="h-full bg-amber-500 rounded-full" style={{ width: `${Math.min(100, (value / max) * 100)}%` }} />
       </div>
     </div>
@@ -250,43 +267,58 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
           onClick={() => setSelectedKey(null)}
         >
           <div
-            className="relative w-full max-w-xl max-h-[85vh] overflow-y-auto p-5 rounded-2xl border border-neutral-800 bg-neutral-900 shadow-2xl battle-panel-in"
+            className="relative w-full max-w-xl max-h-[85vh] overflow-y-auto p-5 rounded-2xl border-2 border-[#4a2f18] battle-panel-in"
+            style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Same wood-plank + gold trim + corner-nail frame as the
+                battle screen's MonsterHpPanel and the dex grid tiles above
+                (2026-08-29). */}
+            <Nail className="top-2 left-2" />
+            <Nail className="top-2 right-2" />
+            <Nail className="bottom-2 left-2" />
+            <Nail className="bottom-2 right-2" />
             <button
               onClick={() => setSelectedKey(null)}
-              className="absolute top-3 right-3 text-gray-500 hover:text-white text-xl leading-none btn-tactile"
+              className="absolute top-3 right-3 text-gray-200 hover:text-white text-xl leading-none btn-tactile"
+              style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}
               aria-label="Close"
             >
               ✕
             </button>
           {selectedKnown ? (
-            <div className="flex flex-col sm:flex-row gap-5">
-              <div className="w-28 h-28 mx-auto sm:mx-0 flex-shrink-0">
-                <MonsterImage monster={selected} className="w-full h-full" emojiClassName="text-6xl" />
-              </div>
-              <div className="flex-1 space-y-3">
-                <div>
-                  <p className="text-xl font-bold text-white font-display flex items-center gap-2">
-                    {selected.name}
-                    {selected.isLegendary && <span title="Legendary">👑</span>}
-                  </p>
-                  <div className="flex flex-wrap items-center gap-2 mt-1">
-                    <span className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full border capitalize ${ELEMENT_STYLES[selected.element]}`}>
-                      <img src={ELEMENT_ICON_SRC[selected.element]} alt="" className="w-3 h-3 object-contain" />
-                      {selected.element}
+            <div className="flex flex-col gap-4">
+              {/* Portrait through the Graduation Stream is one centered
+                  column (2026-08-29) — the insets below stay left-aligned
+                  text inside their own white boxes. */}
+              <div className="flex flex-col items-center text-center gap-2">
+                <div className="w-28 h-28">
+                  <MonsterImage monster={selected} className="w-full h-full" emojiClassName="text-6xl" />
+                </div>
+                {/* Same Bungee/stroke/shadow text treatment as the quest
+                    GameButton's label (2026-08-29). */}
+                <p className="text-xl font-bold flex items-center justify-center gap-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+                  <span style={{ position: 'relative', display: 'inline-block' }}>
+                    <span aria-hidden style={questTextShadowStyle}>{selected.name}</span>
+                    <span style={questTextStyle}>{selected.name}</span>
+                  </span>
+                  {selected.isLegendary && <span title="Legendary">👑</span>}
+                </p>
+                <div className="flex flex-wrap items-center justify-center gap-2">
+                  <span className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full border capitalize ${ELEMENT_STYLES[selected.element]}`}>
+                    <img src={ELEMENT_ICON_SRC[selected.element]} alt="" className="w-3 h-3 object-contain" />
+                    {selected.element}
+                  </span>
+                  <span className="text-[10px] text-gray-200 capitalize" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>{selected.archetype.replace('_', ' ')}</span>
+                  {selectedOwned && selectedIsActiveTier && <span className="text-[10px] text-green-400 font-bold" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>✅ In your collection</span>}
+                  {selectedEntry?.guildLabel && (
+                    <span className="text-[10px] text-gray-200" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Tier {selectedEntry.tier} · {selectedEntry.guildLabel} Lv.{selectedEntry.unlockLevel}+</span>
+                  )}
+                  {selectedEntry?.isGraduationTier && (
+                    <span className="text-[10px] text-amber-300 font-semibold" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
+                      ✨ Grad {selectedEntry.tier - 1} · Lv.{selectedEntry.unlockLevel}+
                     </span>
-                    <span className="text-[10px] text-gray-500 capitalize">{selected.archetype.replace('_', ' ')}</span>
-                    {selectedOwned && selectedIsActiveTier && <span className="text-[10px] text-green-500 font-bold">✅ In your collection</span>}
-                    {selectedEntry?.guildLabel && (
-                      <span className="text-[10px] text-gray-500">Tier {selectedEntry.tier} · {selectedEntry.guildLabel} Lv.{selectedEntry.unlockLevel}+</span>
-                    )}
-                    {selectedEntry?.isGraduationTier && (
-                      <span className="text-[10px] text-amber-600 font-semibold">
-                        ✨ Grad {selectedEntry.tier - 1} · Lv.{selectedEntry.unlockLevel}+
-                      </span>
-                    )}
-                  </div>
+                  )}
                 </div>
                 {graduationStreamEntries.length > 1 && (
                   <GraduationStream
@@ -296,36 +328,43 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
                     onSelect={setSelectedKey}
                   />
                 )}
-                <p className="text-sm text-gray-400">{selected.description}</p>
-                <div className="grid grid-cols-2 gap-x-6 gap-y-2 max-w-sm">
+              </div>
+
+              <WhiteNailBox>
+                <p className="text-sm text-[#3a2610] leading-relaxed">{selected.description}</p>
+              </WhiteNailBox>
+
+              <WhiteNailBox>
+                <div className="grid grid-cols-2 gap-x-6 gap-y-2">
                   <CompendiumStatBar label="HP" value={selected.baseHp} max={STAT_BAR_MAX.hp} />
                   <CompendiumStatBar label="Attack" value={selected.baseAttack} max={STAT_BAR_MAX.atk} />
                   <CompendiumStatBar label="Defense" value={selected.baseDefense} max={STAT_BAR_MAX.def} />
                   <CompendiumStatBar label="Speed" value={selected.baseSpeed} max={STAT_BAR_MAX.spd} />
                 </div>
-                <div>
-                  <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Default attacks</p>
-                  <div className="space-y-1">
-                    {selected.skills.map((skillId, i) => {
-                      const skill = SKILLS[skillId];
-                      if (!skill) return null;
-                      const unlockLevel = i === 0 ? 1 : i === 1 ? selected.skillUnlocks.tier2 : selected.skillUnlocks.tier3;
-                      return (
-                        <div key={skillId} className="flex items-center gap-2 text-xs">
-                          <span className="text-gray-600 w-14 flex-shrink-0">Lv.{unlockLevel}</span>
-                          <span className="font-bold text-white">{skill.name}</span>
-                          <span className="text-gray-500">— {skill.description}</span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                  {selectedOwned && selectedIsActiveTier && (
-                    <p className="text-[10px] text-gray-600 italic mt-2">
-                      This is the species' default loadout — visit My Team to see this curio's actual equipped skills, live stats, and Tutor/Graduate it.
-                    </p>
-                  )}
+              </WhiteNailBox>
+
+              <WhiteNailBox>
+                <p className="text-[10px] text-[#6b4820] font-bold uppercase tracking-widest mb-1">Default attacks</p>
+                <div className="space-y-1">
+                  {selected.skills.map((skillId, i) => {
+                    const skill = SKILLS[skillId];
+                    if (!skill) return null;
+                    const unlockLevel = i === 0 ? 1 : i === 1 ? selected.skillUnlocks.tier2 : selected.skillUnlocks.tier3;
+                    return (
+                      <div key={skillId} className="flex items-center gap-2 text-xs">
+                        <span className="text-[#6b4820] w-14 flex-shrink-0">Lv.{unlockLevel}</span>
+                        <span className="font-bold text-[#2a1505]">{skill.name}</span>
+                        <span className="text-[#6b4820]">— {skill.description}</span>
+                      </div>
+                    );
+                  })}
                 </div>
-              </div>
+                {selectedOwned && selectedIsActiveTier && (
+                  <p className="text-[10px] text-[#8b5e2a] italic mt-2">
+                    This is the species' default loadout — visit My Team to see this curio's actual equipped skills, live stats, and Tutor/Graduate it.
+                  </p>
+                )}
+              </WhiteNailBox>
             </div>
           ) : (
             <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start">
@@ -382,13 +421,24 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
             : entry.tier === graduationTierForSpecies(entry.speciesId) + 1;
           const inTeam = userMonsters.find(m => m.monster_id === entry.speciesId);
           return (
+            // Same wood-plank + gold trim + corner-nail frame as the battle
+            // screen's MonsterHpPanel, reusing its exported style pieces
+            // rather than re-deriving them (2026-08-29).
             <button
               key={entry.key}
               onClick={() => setSelectedKey(entry.key)}
-              className={`p-3 rounded-xl border text-center transition-colors ${
-                selectedKey === entry.key ? 'border-amber-400 bg-amber-900/10' : 'border-neutral-800 bg-neutral-900/50 hover:border-neutral-700'
-              }`}
+              className="relative p-3 rounded-xl border-2 border-[#4a2f18] text-center transition-shadow"
+              style={{
+                ...woodTextureStyle,
+                boxShadow: selectedKey === entry.key
+                  ? `0 0 0 3px #f5c542, ${questButtonDropShadow}`
+                  : `0 0 0 2px #d4a017, ${questButtonDropShadow}`,
+              }}
             >
+              <Nail className="top-1 left-1" />
+              <Nail className="top-1 right-1" />
+              <Nail className="bottom-1 left-1" />
+              <Nail className="bottom-1 right-1" />
               <div className="relative w-14 h-14 mx-auto mb-2">
                 {known ? (
                   <MonsterImage monster={entry.def} className="w-full h-full" emojiClassName="text-3xl" />
@@ -399,14 +449,14 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
                   </>
                 )}
               </div>
-              <p className="text-xs font-bold text-white truncate">{known ? entry.def.name : '???'}</p>
-              {entry.guildLabel && <p className="text-[9px] text-gray-600">Tier {entry.tier}</p>}
-              {entry.isGraduationTier && <p className="text-[9px] text-amber-700">Grad {entry.tier - 1} · Lv.{entry.unlockLevel}</p>}
+              <p className="text-xs font-bold text-white truncate" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>{known ? entry.def.name : '???'}</p>
+              {entry.guildLabel && <p className="text-[9px] text-gray-200" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Tier {entry.tier}</p>}
+              {entry.isGraduationTier && <p className="text-[9px] text-amber-300" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Grad {entry.tier - 1} · Lv.{entry.unlockLevel}</p>}
               {known && owned && isActiveTier && (
                 inTeam ? (
-                  <p className="text-[9px] text-green-500">✅ In Team</p>
+                  <p className="text-[9px] text-green-400" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>✅ In Team</p>
                 ) : (
-                  <p className="text-[9px] text-amber-500">📦 Benched</p>
+                  <p className="text-[9px] text-amber-300" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>📦 Benched</p>
                 )
               )}
             </button>

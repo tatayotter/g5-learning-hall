@@ -38,28 +38,28 @@ function PoolCountPanel() {
   }, []);
 
   const badge = (n: number) => {
-    if (n >= 20) return 'bg-green-900/40 text-green-400 border border-green-800';
-    if (n >= 10) return 'bg-yellow-900/40 text-yellow-400 border border-yellow-800';
-    return 'bg-red-900/40 text-red-400 border border-red-800';
+    if (n >= 20) return 'bg-[#223616]/40 text-[#7fae52] border border-[#33501f]';
+    if (n >= 10) return 'bg-yellow-900/40 text-[#f5c542] border border-yellow-800';
+    return 'bg-[#4a0e0c]/40 text-[#e0605a] border border-[#6e1512]';
   };
 
   return (
-    <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-5 mb-6">
-      <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">Question Pool Status</p>
+    <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5 mb-6">
+      <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-4">Question Pool Status</p>
       {loading ? (
-        <p className="text-gray-500 text-sm animate-pulse">Loading counts...</p>
+        <p className="text-[#8a7c66] text-sm animate-pulse">Loading counts...</p>
       ) : (
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-xs text-gray-500 border-b border-neutral-800">
+            <tr className="text-xs text-[#8a7c66] border-b border-[#2a2119]">
               <th className="text-left pb-2">Guild</th>
               {GRADE_LEVELS.map(g => <th key={g} className="text-center pb-2">Grade {g}</th>)}
             </tr>
           </thead>
-          <tbody className="divide-y divide-neutral-800">
+          <tbody className="divide-y divide-[#2a2119]">
             {(Object.keys(GUILD_LABELS) as GuildTable[]).map(guild => (
               <tr key={guild}>
-                <td className="py-2 text-gray-300 font-medium">{GUILD_LABELS[guild]}</td>
+                <td className="py-2 text-[#c9bfae] font-medium">{GUILD_LABELS[guild]}</td>
                 {GRADE_LEVELS.map(g => (
                   <td key={g} className="py-2 text-center">
                     <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${badge(counts[guild]?.[g] || 0)}`}>
@@ -344,17 +344,17 @@ export default function QuestionBankImporter() {
   // Guild-specific field renderer for preview
   const renderQuestionPreview = (q: any, i: number) => {
     const errors = previewErrors[i];
-    const wrapClass = `rounded-lg px-4 py-2 border ${errors.length > 0 ? 'bg-red-950/30 border-red-800' : 'bg-neutral-900 border-neutral-800'}`;
+    const wrapClass = `rounded-lg px-4 py-2 border ${errors.length > 0 ? 'bg-red-950/30 border-[#6e1512]' : 'bg-[#1c1611] border-[#2a2119]'}`;
     const errorFooter = errors.length > 0 && (
-      <p className="text-red-400 text-xs mt-1">⚠️ {errors.join('; ')}</p>
+      <p className="text-[#e0605a] text-xs mt-1">⚠️ {errors.join('; ')}</p>
     );
 
     if (guild === 'sq_spellcaster') {
       return (
         <div key={i} className={wrapClass}>
           <div className="flex items-center justify-between">
-            <span className="text-white font-mono">{q.word_string}</span>
-            <span className="text-xs text-gray-500">Tier {q.difficulty_tier}</span>
+            <span className="text-[#ede4d3] font-mono">{q.word_string}</span>
+            <span className="text-xs text-[#8a7c66]">Tier {q.difficulty_tier}</span>
           </div>
           {errorFooter}
         </div>
@@ -363,17 +363,17 @@ export default function QuestionBankImporter() {
     if (guild === 'sq_number_realm') {
       return (
         <div key={i} className={wrapClass}>
-          <p className="text-white text-sm">{q.problem_prompt}</p>
-          <p className="text-xs text-green-400 mt-1">Answer: {q.correct_standard_ans || `${q.correct_numerator}/${q.correct_denominator}`}</p>
+          <p className="text-[#ede4d3] text-sm">{q.problem_prompt}</p>
+          <p className="text-xs text-[#7fae52] mt-1">Answer: {q.correct_standard_ans || `${q.correct_numerator}/${q.correct_denominator}`}</p>
           {errorFooter}
         </div>
       );
     }
     return (
       <div key={i} className={wrapClass}>
-        {q.passage && <p className="text-xs text-gray-500 mb-1 italic truncate">{q.passage.slice(0, 80)}...</p>}
-        <p className="text-white text-sm">{q.question}</p>
-        <p className="text-xs text-green-400 mt-1">✓ {q.correct_choice || q.correct_answer}</p>
+        {q.passage && <p className="text-xs text-[#8a7c66] mb-1 italic truncate">{q.passage.slice(0, 80)}...</p>}
+        <p className="text-[#ede4d3] text-sm">{q.question}</p>
+        <p className="text-xs text-[#7fae52] mt-1">✓ {q.correct_choice || q.correct_answer}</p>
         {errorFooter}
       </div>
     );
@@ -381,19 +381,19 @@ export default function QuestionBankImporter() {
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-white mb-1">Question Bank Importer</h2>
-      <p className="text-gray-500 text-sm mb-6">Bulk-import questions into any guild's question pool.</p>
+      <h2 className="text-xl font-bold text-[#ede4d3] mb-1">Question Bank Importer</h2>
+      <p className="text-[#8a7c66] text-sm mb-6">Bulk-import questions into any guild's question pool.</p>
 
       <PoolCountPanel key={refreshPool} />
 
       {/* Config */}
       <div className="grid grid-cols-2 gap-4 mb-6">
         <div>
-          <label className="text-xs text-gray-500 uppercase tracking-widest block mb-2">Guild</label>
+          <label className="text-xs text-[#8a7c66] uppercase tracking-widest block mb-2">Guild</label>
           <select
             value={guild}
             onChange={e => setGuild(e.target.value as GuildTable)}
-            className="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-neutral-500"
+            className="w-full bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] text-sm focus:outline-none focus:border-neutral-500"
           >
             {(Object.keys(GUILD_LABELS) as GuildTable[]).map(g => (
               <option key={g} value={g}>{GUILD_LABELS[g]}</option>
@@ -401,13 +401,13 @@ export default function QuestionBankImporter() {
           </select>
         </div>
         <div>
-          <label className="text-xs text-gray-500 uppercase tracking-widest block mb-2">Grade Level</label>
+          <label className="text-xs text-[#8a7c66] uppercase tracking-widest block mb-2">Grade Level</label>
           <div className="flex gap-1.5 flex-wrap">
             {GRADE_LEVELS.map(g => (
               <button
                 key={g}
                 onClick={() => setGradeLevel(g)}
-                className={`flex-1 py-2 rounded-lg font-bold text-sm transition-all ${gradeLevel === g ? 'bg-blue-600 text-white' : 'bg-neutral-800 text-gray-400 hover:text-white'}`}
+                className={`flex-1 py-2 rounded-lg font-bold text-sm transition-all ${gradeLevel === g ? 'bg-[#c9781a] text-[#ede4d3]' : 'bg-[#2a2119] text-[#a89c86] hover:text-[#ede4d3]'}`}
               >
                 {g}
               </button>
@@ -419,24 +419,24 @@ export default function QuestionBankImporter() {
       {/* JSON paste */}
       {preview.length === 0 && !importResult && (
         <div className="space-y-3">
-          <div className="bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden">
+          <div className="bg-neutral-950 border border-[#2a2119] rounded-xl overflow-hidden">
             <button
               onClick={() => setShowFormat(v => !v)}
               className="w-full flex items-center justify-between px-4 py-3 text-left"
             >
-              <span className="text-sm font-bold text-gray-300">
+              <span className="text-sm font-bold text-[#c9bfae]">
                 📋 {GUILD_LABELS[guild]} JSON format {showFormat ? '▲' : '▼'}
               </span>
-              <span className="text-xs text-gray-500">Use this to prompt an AI to generate questions</span>
+              <span className="text-xs text-[#8a7c66]">Use this to prompt an AI to generate questions</span>
             </button>
             {showFormat && (
               <div className="px-4 pb-4">
-                <pre className="bg-black border border-neutral-800 rounded-lg p-3 text-xs text-gray-300 font-mono overflow-x-auto whitespace-pre">
+                <pre className="bg-[#0a0807] border border-[#2a2119] rounded-lg p-3 text-xs text-[#c9bfae] font-mono overflow-x-auto whitespace-pre">
                   {GUILD_JSON_EXAMPLES[guild]}
                 </pre>
                 <button
                   onClick={copyFormatExample}
-                  className="mt-2 bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors"
+                  className="mt-2 bg-[#2a2119] hover:bg-[#3d3225] text-[#ede4d3] text-xs font-bold px-3 py-1.5 rounded-lg transition-colors"
                 >
                   {copied ? '✅ Copied!' : '📋 Copy format'}
                 </button>
@@ -447,13 +447,13 @@ export default function QuestionBankImporter() {
             value={jsonInput}
             onChange={e => setJsonInput(e.target.value)}
             placeholder={`Paste JSON array of ${GUILD_LABELS[guild]} questions here...`}
-            className="w-full h-48 bg-neutral-950 border border-neutral-700 rounded-xl p-4 font-mono text-xs text-gray-300 focus:outline-none focus:border-neutral-500 resize-none"
+            className="w-full h-48 bg-neutral-950 border border-[#3d3225] rounded-xl p-4 font-mono text-xs text-[#c9bfae] focus:outline-none focus:border-neutral-500 resize-none"
           />
-          {parseError && <p className="text-red-400 text-xs">{parseError}</p>}
+          {parseError && <p className="text-[#e0605a] text-xs">{parseError}</p>}
           <button
             onClick={handleParse}
             disabled={!jsonInput.trim()}
-            className="bg-blue-600 hover:bg-blue-500 disabled:opacity-40 text-white font-bold px-6 py-2 rounded-lg transition-colors"
+            className="bg-[#c9781a] hover:bg-[#e2921e] disabled:opacity-40 text-[#ede4d3] font-bold px-6 py-2 rounded-lg transition-colors"
           >
             Preview Questions
           </button>
@@ -464,14 +464,14 @@ export default function QuestionBankImporter() {
       {preview.length > 0 && (
         <div>
           <div className="flex justify-between items-center mb-3">
-            <p className="text-white font-bold">
+            <p className="text-[#ede4d3] font-bold">
               {preview.length} questions parsed
-              {invalidCount > 0 && <span className="text-red-400"> · {invalidCount} invalid (won't be imported)</span>}
+              {invalidCount > 0 && <span className="text-[#e0605a]"> · {invalidCount} invalid (won't be imported)</span>}
             </p>
-            <p className="text-xs text-gray-500">{GUILD_LABELS[guild]} · Grade {gradeLevel}</p>
+            <p className="text-xs text-[#8a7c66]">{GUILD_LABELS[guild]} · Grade {gradeLevel}</p>
           </div>
           {invalidCount > 0 && (
-            <p className="text-red-400 text-xs mb-3">⚠️ Fix the flagged rows below and re-paste, or continue to import only the {validCount} valid question{validCount === 1 ? '' : 's'}.</p>
+            <p className="text-[#e0605a] text-xs mb-3">⚠️ Fix the flagged rows below and re-paste, or continue to import only the {validCount} valid question{validCount === 1 ? '' : 's'}.</p>
           )}
           <div className="space-y-2 max-h-80 overflow-y-auto mb-4 pr-1">
             {preview.map((q, i) => renderQuestionPreview(q, i))}
@@ -479,14 +479,14 @@ export default function QuestionBankImporter() {
           <div className="flex gap-3">
             <button
               onClick={() => { setPreview([]); setJsonInput(''); }}
-              className="bg-neutral-800 hover:bg-neutral-700 text-white font-bold px-5 py-2 rounded-lg transition-colors"
+              className="bg-[#2a2119] hover:bg-[#3d3225] text-[#ede4d3] font-bold px-5 py-2 rounded-lg transition-colors"
             >
               ← Back
             </button>
             <button
               onClick={handleImport}
               disabled={importing || validCount === 0}
-              className="bg-green-700 hover:bg-green-600 disabled:opacity-40 text-white font-bold px-6 py-2 rounded-lg transition-colors"
+              className="bg-[#3f6428] hover:bg-[#4d7a32] disabled:opacity-40 text-[#ede4d3] font-bold px-6 py-2 rounded-lg transition-colors"
             >
               {importing ? 'Importing...' : `⬆️ Import ${validCount} Valid Question${validCount === 1 ? '' : 's'}`}
             </button>
@@ -496,14 +496,14 @@ export default function QuestionBankImporter() {
 
       {/* Result */}
       {importResult && (
-        <div className="bg-green-900/20 border border-green-800 rounded-xl p-5">
-          <p className="text-green-400 font-bold text-lg mb-1">✅ Import Complete</p>
-          <p className="text-gray-300 text-sm">Inserted: <span className="text-white font-bold">{importResult.inserted}</span></p>
-          <p className="text-gray-300 text-sm">Skipped (duplicates): <span className="text-white font-bold">{importResult.skipped}</span></p>
+        <div className="bg-[#223616]/20 border border-[#33501f] rounded-xl p-5">
+          <p className="text-[#7fae52] font-bold text-lg mb-1">✅ Import Complete</p>
+          <p className="text-[#c9bfae] text-sm">Inserted: <span className="text-[#ede4d3] font-bold">{importResult.inserted}</span></p>
+          <p className="text-[#c9bfae] text-sm">Skipped (duplicates): <span className="text-[#ede4d3] font-bold">{importResult.skipped}</span></p>
           {importResult.invalid > 0 && (
             <>
-              <p className="text-red-400 text-sm mt-1">Skipped (invalid, not imported): <span className="font-bold">{importResult.invalid}</span></p>
-              <div className="mt-2 bg-red-950/30 border border-red-800 rounded-lg p-3 max-h-40 overflow-y-auto">
+              <p className="text-[#e0605a] text-sm mt-1">Skipped (invalid, not imported): <span className="font-bold">{importResult.invalid}</span></p>
+              <div className="mt-2 bg-red-950/30 border border-[#6e1512] rounded-lg p-3 max-h-40 overflow-y-auto">
                 {importResult.invalidDetails.map((d, i) => (
                   <p key={i} className="text-red-300 text-xs">{d}</p>
                 ))}
@@ -512,7 +512,7 @@ export default function QuestionBankImporter() {
           )}
           <button
             onClick={() => setImportResult(null)}
-            className="mt-4 bg-neutral-800 hover:bg-neutral-700 text-white font-bold px-5 py-2 rounded-lg transition-colors text-sm"
+            className="mt-4 bg-[#2a2119] hover:bg-[#3d3225] text-[#ede4d3] font-bold px-5 py-2 rounded-lg transition-colors text-sm"
           >
             Import More
           </button>

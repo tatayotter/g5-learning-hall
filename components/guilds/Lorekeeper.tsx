@@ -202,14 +202,16 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
             <p className="text-red-500">No active questions found for this term. Ask Tatay to add some in Supabase.</p>
           ) : (
             <GameButton
+              variant="quest"
+              color={isTala ? '#db2777' : '#047857'}
               onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'lorekeeper' }); }}
-              className="bg-emerald-800 hover:bg-emerald-700 text-white font-bold py-3 px-10 rounded-xl transition-colors font-display text-lg"
+              style={{ fontSize: 17 }}
             >
               ⚔️ Begin Time Attack
             </GameButton>
           )}
           <div className="mt-6">
-            <GameButton onClick={onExit} className="text-sm text-gray-400 hover:text-gray-700 font-bold">← Retreat to Map</GameButton>
+            <GameButton variant="quest" color="#d4d4d4" onClick={onExit} style={{ fontSize: 13 }}>← Retreat to Map</GameButton>
           </div>
         </div>
       </div>
@@ -397,16 +399,10 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
 
             {/* Actions */}
             <div className="flex flex-col gap-3 mt-auto pt-2">
-              <GameButton
-                onClick={() => { engine.start(); setScreen('playing'); }}
-                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-xl transition-colors text-base"
-              >
+              <GameButton variant="quest" color="#047857" onClick={() => { engine.start(); setScreen('playing'); }} className="w-full" style={{ fontSize: 15 }}>
                 ⚔️ Play Again
               </GameButton>
-              <GameButton
-                onClick={onExit}
-                className="w-full bg-stone-100 hover:bg-stone-200 text-gray-600 font-bold py-3 px-6 rounded-xl transition-colors text-sm"
-              >
+              <GameButton variant="quest" color="#8b5e2a" onClick={onExit} className="w-full" style={{ fontSize: 14 }}>
                 ← Return to Campaign Map
               </GameButton>
             </div>

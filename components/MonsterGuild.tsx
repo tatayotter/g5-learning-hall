@@ -1,6 +1,9 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { hasSeenTabTutorial, markTabTutorialSeen } from '@/lib/tutorial';
+import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
+import TutorialSpotlight from '@/components/TutorialSpotlight';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { playCurioLevelUp } from '@/lib/sounds';
 import { logAction } from '@/lib/playerlog';
@@ -153,6 +156,32 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const liveBattleInbox = useLiveBattleInbox(userId, selfProfile?.name || userId, selfProfile?.grade);
   // Arena sub-nav drawer + responsive state (mirrors SidebarRail hooks)
   const [arenaNavOpen, setArenaNavOpen] = useState(false);
+
+  // First-visit tutorial for this tab (see components/Dashboard.tsx for the
+  // board/guilds equivalents). This component mounts fresh each time the
+  // kid enters the Curio Arena tab (Dashboard conditionally renders it, it
+  // doesn't stay mounted in the background) and unmounts on leaving, so
+  // "mounted" already IS the "just switched to this tab" signal — no
+  // separate tab-transition gate hook needed, just a lazy one-time check.
+  // Single step, since the arena's own sub-nav (map/team/trainers/...) lives
+  // behind this FAB+drawer rather than being always-visible tiles like
+  // board/guilds — that's the one thing worth teaching up front.
+  const [monsterTutorialActive, setMonsterTutorialActive] = useState(() => !hasSeenTabTutorial('monster', userId));
+  const monsterTutorialSteps: TutorialStep[] = useMemo(() => [{
+    id: 'monster-open-menu',
+    title: 'Curio Arena',
+    body: 'Battle trainers and wild Curios to earn XP and Gold. Tap this compass to see your team, trainers, and more.',
+    waitFor: arenaNavOpen,
+  }], [arenaNavOpen]);
+  const monsterTutorial = useTutorialSequence({
+    tabKey: 'monster',
+    active: monsterTutorialActive,
+    steps: monsterTutorialSteps,
+    onDone: () => {
+      markTabTutorialSeen('monster', userId);
+      setMonsterTutorialActive(false);
+    },
+  });
   const [isLandscape, setIsLandscape] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   useEffect(() => {
@@ -906,6 +935,19 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         </div>
       )}
 
+      {monsterTutorial.step && (
+        <TutorialSpotlight
+          key={monsterTutorial.step.id}
+          step={monsterTutorial.step}
+          stepIndex={monsterTutorial.stepIndex}
+          totalSteps={monsterTutorial.totalSteps}
+          isLast={monsterTutorial.isLast}
+          onNext={monsterTutorial.next}
+          onSkip={monsterTutorial.skip}
+          waitingForAction={monsterTutorial.step.waitFor !== undefined}
+        />
+      )}
+
       {/* Arena sub-nav — floating Curio Arena icon FAB + drawer overlay */}
       {(() => {
         const ARENA_TABS = ([
@@ -925,6 +967,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
               className="arena-fab hover:-translate-y-1 hover:drop-shadow-lg active:translate-y-0 active:scale-95 transition-all duration-150 ease-out"
               aria-label="Open Curio Arena menu"
               title="Curio Arena"
+              data-tutorial-id="monster-open-menu"
             >
               <img
                 src="/main ui/curioarena.png"
@@ -941,7 +984,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className={`fixed inset-0 bg-black/50 z-[85] flex ${isLandscape ? 'items-stretch justify-start' : 'items-end justify-center'}`}
+                  className={`fixed inset-0 bg-[#0a0807]/50 z-[85] flex ${isLandscape ? 'items-stretch justify-start' : 'items-end justify-center'}`}
                   onClick={() => setArenaNavOpen(false)}
                 >
                   <motion.div

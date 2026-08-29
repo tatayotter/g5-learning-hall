@@ -13,6 +13,7 @@ import { QualityTier } from '@/lib/curioQuality';
 import { playCurioLevelUp } from '@/lib/sounds';
 import { MonsterImage } from '@/components/battle/shared';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
+import GameButton from '@/components/GameButton';
 
 interface GrowthPillCeremonyModalProps {
   def: MonsterDef;
@@ -76,12 +77,12 @@ export default function GrowthPillCeremonyModal({ def, fromLevel, toLevel, quali
         onClick={handleBackdropClick}
       >
         <div
-          className={`relative bg-neutral-900 border-2 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in ${
-            isTala ? 'border-pink-500' : 'border-purple-500'
+          className={`relative bg-[#f0ddb8] border-2 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in ${
+            isTala ? 'border-pink-500' : 'border-purple-600'
           }`}
           onClick={e => e.stopPropagation()}
         >
-          <p className={`font-bold text-sm tracking-wide mb-4 ${isTala ? 'text-pink-400' : 'text-purple-400'}`}>
+          <p className={`font-bold text-sm tracking-wide mb-4 ${isTala ? 'text-pink-700' : 'text-purple-700'}`}>
             💊 GROWTH SURGE 💊
           </p>
 
@@ -107,14 +108,14 @@ export default function GrowthPillCeremonyModal({ def, fromLevel, toLevel, quali
           </div>
 
           {phase !== 'reveal' ? (
-            <p className="text-white font-bold text-lg">{def.name}...</p>
+            <p className="text-[#2a1505] font-bold text-lg">{def.name}...</p>
           ) : (
             <div className="space-y-4">
               <div>
-                <p className="text-white font-bold text-xl">Congratulations!</p>
-                <p className="text-sm text-gray-400 mt-1">
-                  <span className="font-bold text-white">{def.name}</span> surged from Lv.{fromLevel} to{' '}
-                  <span className={`font-bold ${isTala ? 'text-pink-400' : 'text-purple-400'}`}>Lv.{toLevel}</span>!
+                <p className="text-[#2a1505] font-bold text-xl">Congratulations!</p>
+                <p className="text-sm text-[#6b4820] mt-1">
+                  <span className="font-bold text-[#2a1505]">{def.name}</span> surged from Lv.{fromLevel} to{' '}
+                  <span className={`font-bold ${isTala ? 'text-pink-700' : 'text-purple-700'}`}>Lv.{toLevel}</span>!
                 </p>
               </div>
 
@@ -131,11 +132,11 @@ export default function GrowthPillCeremonyModal({ def, fromLevel, toLevel, quali
                         className="flex items-center justify-between text-xs battle-panel-in"
                         style={{ animationDelay: `${i * 120}ms`, animationFillMode: 'backwards' }}
                       >
-                        <span className="text-gray-500">{row.label}</span>
-                        <span className="text-gray-400">
-                          {from} <span className="text-gray-600">→</span>{' '}
-                          <span className="text-green-400 font-bold">{to}</span>{' '}
-                          <span className="text-green-500 text-[10px]">(+{to - from})</span>
+                        <span className="text-[#6b4820]">{row.label}</span>
+                        <span className="text-[#3a2610]">
+                          {from} <span className="text-[#a89c86]">→</span>{' '}
+                          <span className="text-green-700 font-bold">{to}</span>{' '}
+                          <span className="text-green-700 text-[10px]">(+{to - from})</span>
                         </span>
                       </div>
                     );
@@ -143,15 +144,15 @@ export default function GrowthPillCeremonyModal({ def, fromLevel, toLevel, quali
                 })()}
               </div>
 
-              <button
+              <GameButton
+                variant="quest"
+                color={isTala ? '#db2777' : '#9333ea'}
                 onClick={onDismiss}
-                className={`w-full py-3 rounded-xl font-bold text-white btn-tactile battle-panel-in ${
-                  isTala ? 'bg-pink-600 hover:bg-pink-500' : 'bg-purple-600 hover:bg-purple-500'
-                }`}
-                style={{ animationDelay: `${STAT_ROWS.length * 120}ms`, animationFillMode: 'backwards' }}
+                className="w-full battle-panel-in"
+                style={{ fontSize: 15, animationDelay: `${STAT_ROWS.length * 120}ms`, animationFillMode: 'backwards' }}
               >
                 Continue
-              </button>
+              </GameButton>
             </div>
           )}
         </div>

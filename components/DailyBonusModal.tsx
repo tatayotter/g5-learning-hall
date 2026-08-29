@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { STREAK_GOLD_LADDER, goldForStreak } from '@/lib/dailyChecklist';
 import { playCoins } from '@/lib/sounds';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
+import GameButton from '@/components/GameButton';
 
 interface DailyBonusModalProps {
   streak: number;
@@ -47,12 +48,12 @@ export default function DailyBonusModal({ streak, gold, userId, onClose }: Daily
         onClick={handleBackdropClick}
       >
         <div
-          className={`relative bg-neutral-900 border-2 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in ${
-            isTala ? 'border-pink-500' : 'border-amber-500'
+          className={`relative bg-[#f0ddb8] border-2 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in ${
+            isTala ? 'border-pink-500' : 'border-amber-600'
           }`}
           onClick={e => e.stopPropagation()}
         >
-          <p className={`font-bold text-sm tracking-wide mb-4 ${isTala ? 'text-pink-400' : 'text-amber-400'}`}>
+          <p className={`font-bold text-sm tracking-wide mb-4 ${isTala ? 'text-pink-700' : 'text-amber-700'}`}>
             🔥 DAILY BONUS CLAIMED 🔥
           </p>
 
@@ -71,12 +72,12 @@ export default function DailyBonusModal({ streak, gold, userId, onClose }: Daily
           </div>
 
           {phase !== 'reveal' ? (
-            <p className="text-white font-bold text-lg">Tallying today's work...</p>
+            <p className="text-[#2a1505] font-bold text-lg">Tallying today's work...</p>
           ) : (
             <div className="space-y-4">
               <div>
-                <p className="text-white font-bold text-2xl">+{gold} Gold</p>
-                <p className={`text-sm font-bold mt-1 ${isTala ? 'text-pink-400' : 'text-amber-400'}`}>
+                <p className="text-[#2a1505] font-bold text-2xl">+{gold} Gold</p>
+                <p className={`text-sm font-bold mt-1 ${isTala ? 'text-pink-700' : 'text-amber-700'}`}>
                   🔥 {streak}-day streak{isMaxed ? ' · MAX' : ''}
                 </p>
               </div>
@@ -93,30 +94,25 @@ export default function DailyBonusModal({ streak, gold, userId, onClose }: Daily
                             ? isTala
                               ? 'bg-pink-600 border-pink-400 text-white'
                               : 'bg-amber-600 border-amber-400 text-white'
-                            : 'bg-neutral-800 border-neutral-700 text-gray-600'
+                            : 'bg-[#e8d0a0]/60 border-[#c9a87a] text-[#a89c86]'
                         }`}
                       >
                         {day}
                       </div>
-                      <span className={`text-[9px] ${reached ? 'text-gray-300' : 'text-gray-600'}`}>{tierGold}g</span>
+                      <span className={`text-[9px] ${reached ? 'text-[#3a2610]' : 'text-[#a89c86]'}`}>{tierGold}g</span>
                     </div>
                   );
                 })}
               </div>
-              <p className="text-[10px] text-gray-500">
+              <p className="text-[10px] text-[#6b4820]">
                 {isMaxed
                   ? 'Streak bonus maxed out — keep it alive to keep earning 90 gold a day!'
                   : `Come back tomorrow for a ${goldForStreak(streak + 1)}-gold streak day. Miss a day and it resets to 50.`}
               </p>
 
-              <button
-                onClick={onClose}
-                className={`w-full py-3 rounded-xl font-bold text-white btn-tactile battle-panel-in ${
-                  isTala ? 'bg-pink-600 hover:bg-pink-500' : 'bg-amber-600 hover:bg-amber-500'
-                }`}
-              >
+              <GameButton variant="quest" color={isTala ? '#db2777' : '#d97706'} onClick={onClose} className="w-full" style={{ fontSize: 15 }}>
                 Sweet!
-              </button>
+              </GameButton>
             </div>
           )}
         </div>

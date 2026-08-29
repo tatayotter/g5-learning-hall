@@ -313,7 +313,7 @@ export default function MapCanvas({
     // record, then the raw id as last resort.
     const label = displayName ?? profile?.name ?? targetId;
     return (
-      <p className="absolute -top-5 left-1/2 -translate-x-1/2 flex items-center gap-1 text-[10px] map-name-tag bg-black/60 px-1 rounded whitespace-nowrap">
+      <p className="absolute -top-5 left-1/2 -translate-x-1/2 flex items-center gap-1 text-[10px] map-name-tag bg-[#0a0807]/60 px-1 rounded whitespace-nowrap">
         {label}
         {profile?.isFamily && <GMBadge />}
       </p>
@@ -393,7 +393,7 @@ export default function MapCanvas({
                   className="w-3.5 h-3.5 object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,1)] flex-shrink-0"
                 />
               )}
-              <span className="text-[10px] font-bold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,1)] leading-none">
+              <span className="text-[10px] font-bold text-[#ffffff] drop-shadow-[0_1px_2px_rgba(0,0,0,1)] leading-none">
                 {region.name}
               </span>
               {portal.locked && <span className="text-[10px] leading-none">🔒</span>}
@@ -486,7 +486,7 @@ export default function MapCanvas({
             style={{ animationDuration: '0.9s' }}
           />
           {/* Name tag below the tile */}
-          <p className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[9px] bg-black/70
+          <p className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[9px] bg-[#0a0807]/70
                         text-amber-300 font-bold px-1 rounded whitespace-nowrap">
             {trainerMarker.name}
           </p>
@@ -551,7 +551,7 @@ export default function MapCanvas({
             height: `${tileHPct}%`,
           }}
         >
-          <p className="absolute -top-5 left-1/2 -translate-x-1/2 text-[9px] bg-black/70 text-green-300 font-bold px-1 rounded whitespace-nowrap">
+          <p className="absolute -top-5 left-1/2 -translate-x-1/2 text-[9px] bg-[#0a0807]/70 text-green-300 font-bold px-1 rounded whitespace-nowrap">
             ♻️ Recycler
           </p>
         </div>

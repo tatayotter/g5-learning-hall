@@ -40,25 +40,26 @@ export default function AchievementToast({ userId, newlyUnlocked, onDismissAll }
 
   const current = visible[currentIndex];
 
-  // Theme colors based on active user
+  // Theme colors based on active user — both are light/parchment now, just
+  // a different accent hue (pink for Tala, gold for everyone else).
   const colors = isTala ? {
     bg: 'bg-pink-50 border-pink-300',
     title: 'text-pink-700',
     sub: 'text-pink-500',
     xp: 'text-pink-600',
-    gold: 'text-pink-400',
+    gold: 'text-pink-500',
     bar: 'bg-pink-400',
     dismiss: 'text-pink-400 hover:text-pink-600',
     counter: 'text-pink-400',
   } : {
-    bg: 'bg-[#1c1611] border-amber-700',
-    title: 'text-amber-300',
-    sub: 'text-amber-600',
-    xp: 'text-blue-400',
-    gold: 'text-yellow-400',
+    bg: 'bg-[#f0ddb8] border-amber-600',
+    title: 'text-amber-800',
+    sub: 'text-amber-700',
+    xp: 'text-blue-700',
+    gold: 'text-yellow-700',
     bar: 'bg-amber-500',
-    dismiss: 'text-gray-500 hover:text-gray-300',
-    counter: 'text-gray-500',
+    dismiss: 'text-[#8a7c66] hover:text-[#2a1505]',
+    counter: 'text-[#8a7c66]',
   };
 
   return (
@@ -100,7 +101,7 @@ export default function AchievementToast({ userId, newlyUnlocked, onDismissAll }
             </div>
 
             {/* Description */}
-            <p className="text-sm text-gray-500 mb-4 leading-relaxed">
+            <p className="text-sm text-[#6b4820] mb-4 leading-relaxed">
               {current.description}
             </p>
 

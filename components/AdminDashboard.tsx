@@ -53,23 +53,23 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
     return (
       <div className="min-h-screen bg-neutral-950 flex items-center justify-center">
         <div className="w-full max-w-sm">
-          <button onClick={onBack} className="text-gray-600 hover:text-gray-400 text-sm mb-8 flex items-center gap-2 transition-colors">
+          <button onClick={onBack} className="text-gray-600 hover:text-[#a89c86] text-sm mb-8 flex items-center gap-2 transition-colors">
             ← Back to Learning Hall
           </button>
-          <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8">
+          <div className="bg-[#1c1611] border border-[#2a2119] rounded-2xl p-8">
             <div className="text-3xl mb-4">🔑</div>
-            <h1 className="text-xl font-bold text-white mb-1">Admin Access</h1>
-            <p className="text-gray-500 text-sm mb-6">Enter the master passcode to continue.</p>
+            <h1 className="text-xl font-bold text-[#ede4d3] mb-1">Admin Access</h1>
+            <p className="text-[#8a7c66] text-sm mb-6">Enter the master passcode to continue.</p>
             <form onSubmit={handleLogin} className="space-y-4">
               <input
                 type="password"
                 placeholder="Passcode"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
-                className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neutral-500"
+                className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-4 py-3 text-[#ede4d3] focus:outline-none focus:border-neutral-500"
                 autoFocus
               />
-              <button type="submit" className="w-full bg-white text-black font-bold py-3 rounded-lg hover:bg-gray-100 transition-colors">
+              <button type="submit" className="w-full bg-[#ede4d3] text-[#0a0807] font-bold py-3 rounded-lg hover:bg-gray-100 transition-colors">
                 Unlock
               </button>
             </form>
@@ -112,11 +112,11 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
   return (
     <div className="min-h-screen bg-neutral-950 flex">
       {/* Left sidebar */}
-      <aside className="w-56 flex-shrink-0 bg-neutral-900 border-r border-neutral-800 flex flex-col">
+      <aside className="w-56 flex-shrink-0 bg-[#1c1611] border-r border-[#2a2119] flex flex-col">
         {/* Header */}
-        <div className="px-5 py-6 border-b border-neutral-800">
-          <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">G5 Admin</p>
-          <p className="text-white font-bold">Control Panel</p>
+        <div className="px-5 py-6 border-b border-[#2a2119]">
+          <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-1">G5 Admin</p>
+          <p className="text-[#ede4d3] font-bold">Control Panel</p>
         </div>
 
         {/* Nav */}
@@ -133,8 +133,8 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
                     onClick={() => setSection(item.id)}
                     className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-left ${
                       section === item.id
-                        ? 'bg-white text-black'
-                        : 'text-gray-400 hover:text-white hover:bg-neutral-800'
+                        ? 'bg-[#ede4d3] text-[#0a0807]'
+                        : 'text-[#a89c86] hover:text-[#ede4d3] hover:bg-[#2a2119]'
                     }`}
                   >
                     <span className="flex-1">{item.label}</span>
@@ -146,10 +146,10 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
         </nav>
 
         {/* Back button */}
-        <div className="p-3 border-t border-neutral-800">
+        <div className="p-3 border-t border-[#2a2119]">
           <button
             onClick={onBack}
-            className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-gray-500 hover:text-white hover:bg-neutral-800 transition-colors"
+            className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#8a7c66] hover:text-[#ede4d3] hover:bg-[#2a2119] transition-colors"
           >
             ← Back to Learning Hall
           </button>

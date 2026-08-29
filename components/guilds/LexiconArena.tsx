@@ -73,7 +73,6 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
 
   // Theme colors
   const accent = isTala ? 'text-pink-600' : 'text-amber-600';
-  const accentBg = isTala ? 'bg-pink-600 hover:bg-pink-500' : 'bg-amber-600 hover:bg-amber-500';
   const langBadge = isTala
     ? 'bg-pink-50 text-pink-700 border border-pink-200'
     : 'bg-blue-50 text-blue-700 border border-blue-200';
@@ -221,14 +220,16 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
             <p className="text-red-500">No active words found for this term.</p>
           ) : (
             <GameButton
+              variant="quest"
+              color={isTala ? '#db2777' : '#d97706'}
               onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'lexicon_arena' }); }}
-              className={`${accentBg} text-white font-bold py-4 px-12 rounded-xl text-lg transition-all`}
+              style={{ fontSize: 17 }}
             >
               ⚔️ Enter the Arena
             </GameButton>
           )}
           <div className="mt-6">
-            <GameButton onClick={onExit} className="text-sm text-gray-400 hover:text-gray-700 font-bold">← Retreat to Map</GameButton>
+            <GameButton variant="quest" color="#d4d4d4" onClick={onExit} style={{ fontSize: 13 }}>← Retreat to Map</GameButton>
           </div>
         </div>
       </div>
@@ -389,8 +390,8 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
               );
             })()}
             <div className="flex flex-col gap-3 mt-auto pt-2">
-              <GameButton onClick={() => { engine.start(); setScreen('playing'); }} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-colors text-base">⚔️ Play Again</GameButton>
-              <GameButton onClick={onExit} className="w-full bg-stone-100 hover:bg-stone-200 text-gray-600 font-bold py-3 px-6 rounded-xl transition-colors text-sm">← Return to Campaign Map</GameButton>
+              <GameButton variant="quest" color="#3b82f6" onClick={() => { engine.start(); setScreen('playing'); }} className="w-full" style={{ fontSize: 15 }}>⚔️ Play Again</GameButton>
+              <GameButton variant="quest" color="#8b5e2a" onClick={onExit} className="w-full" style={{ fontSize: 14 }}>← Return to Campaign Map</GameButton>
             </div>
           </div>
           </div>

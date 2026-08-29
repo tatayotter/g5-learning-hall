@@ -137,8 +137,8 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-white mb-1">Tools</h2>
-      <p className="text-gray-500 text-sm mb-6">Stat overrides, deed grants, and reward management.</p>
+      <h2 className="text-xl font-bold text-[#ede4d3] mb-1">Tools</h2>
+      <p className="text-[#8a7c66] text-sm mb-6">Stat overrides, deed grants, and reward management.</p>
 
       {/* User selector */}
       <div className="flex gap-3 mb-8">
@@ -148,8 +148,8 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
             onClick={() => setUserId(id)}
             className={`px-5 py-2 rounded-lg font-bold text-sm transition-all ${
               userId === id
-                ? id === 'damien' ? 'bg-amber-600 text-white' : 'bg-pink-600 text-white'
-                : 'bg-neutral-800 text-gray-400 hover:text-white'
+                ? id === 'damien' ? 'bg-amber-600 text-[#ede4d3]' : 'bg-pink-600 text-[#ede4d3]'
+                : 'bg-[#2a2119] text-[#a89c86] hover:text-[#ede4d3]'
             }`}
           >
             {id === 'damien' ? '⚔️ Damien' : '✨ Tala'}
@@ -158,21 +158,21 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
       </div>
 
       {loadingData ? (
-        <p className="text-gray-500 animate-pulse">Loading...</p>
+        <p className="text-[#8a7c66] animate-pulse">Loading...</p>
       ) : (
         <div className="space-y-6">
 
           {/* Login password */}
-          <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-5">
+          <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5">
             <div className="flex items-center justify-between mb-4">
-              <p className="text-xs text-gray-500 uppercase tracking-widest">🔒 Login Password</p>
+              <p className="text-xs text-[#8a7c66] uppercase tracking-widest">🔒 Login Password</p>
               {protectedIds.has(userId) ? (
-                <span className="text-xs font-bold text-green-400 bg-green-900/40 border border-green-800 px-2 py-0.5 rounded-full">Protected</span>
+                <span className="text-xs font-bold text-[#7fae52] bg-[#223616]/40 border border-[#33501f] px-2 py-0.5 rounded-full">Protected</span>
               ) : (
-                <span className="text-xs font-bold text-gray-500 bg-neutral-800 border border-neutral-700 px-2 py-0.5 rounded-full">Not Set — instant login</span>
+                <span className="text-xs font-bold text-[#8a7c66] bg-[#2a2119] border border-[#3d3225] px-2 py-0.5 rounded-full">Not Set — instant login</span>
               )}
             </div>
-            <p className="text-gray-500 text-xs mb-3">
+            <p className="text-[#8a7c66] text-xs mb-3">
               Once set, {userId === 'damien' ? 'Damien' : 'Tala'} will need this password to open their dashboard from the splash screen — classmates won't be able to click into it.
             </p>
             <div className="flex gap-3">
@@ -181,12 +181,12 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
                 placeholder="Set or change password"
                 value={loginPassword}
                 onChange={e => setLoginPassword(e.target.value)}
-                className="flex-1 bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-white font-mono focus:outline-none focus:border-neutral-500"
+                className="flex-1 bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] font-mono focus:outline-none focus:border-neutral-500"
               />
               <button
                 onClick={handleSetLoginPassword}
                 disabled={savingPassword || !loginPassword.trim()}
-                className="bg-blue-700 hover:bg-blue-600 disabled:opacity-40 text-white font-bold px-5 py-2 rounded-lg transition-colors"
+                className="bg-[#a8620f] hover:bg-[#c9781a] disabled:opacity-40 text-[#ede4d3] font-bold px-5 py-2 rounded-lg transition-colors"
               >
                 {savingPassword ? 'Saving...' : 'Save'}
               </button>
@@ -194,69 +194,69 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
           </div>
 
           {/* Current stats display */}
-          <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-5">
-            <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">Current Stats</p>
+          <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5">
+            <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-4">Current Stats</p>
             <div className="flex gap-6">
-              <div><p className="text-xs text-gray-500">Level</p><p className="text-2xl font-bold text-white font-mono">{stats.level}</p></div>
-              <div><p className="text-xs text-gray-500">XP</p><p className="text-2xl font-bold text-blue-400 font-mono">{stats.xp}</p></div>
-              <div><p className="text-xs text-gray-500">Gold</p><p className="text-2xl font-bold text-yellow-400 font-mono"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {stats.gold}</p></div>
+              <div><p className="text-xs text-[#8a7c66]">Level</p><p className="text-2xl font-bold text-[#ede4d3] font-mono">{stats.level}</p></div>
+              <div><p className="text-xs text-[#8a7c66]">XP</p><p className="text-2xl font-bold text-[#f0b429] font-mono">{stats.xp}</p></div>
+              <div><p className="text-xs text-[#8a7c66]">Gold</p><p className="text-2xl font-bold text-[#f5c542] font-mono"><img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {stats.gold}</p></div>
             </div>
           </div>
 
           {/* Stat override */}
-          <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-5">
-            <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">Override Stats</p>
+          <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5">
+            <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-4">Override Stats</p>
             <div className="grid grid-cols-3 gap-4 mb-4">
               <div>
-                <label className="text-xs text-gray-500 block mb-1">Level</label>
+                <label className="text-xs text-[#8a7c66] block mb-1">Level</label>
                 <input type="number" value={stats.level} onChange={e => setStats({ ...stats, level: Number(e.target.value) })}
-                  className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-white font-mono focus:outline-none" />
+                  className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] font-mono focus:outline-none" />
               </div>
               <div>
-                <label className="text-xs text-gray-500 block mb-1">XP</label>
+                <label className="text-xs text-[#8a7c66] block mb-1">XP</label>
                 <input type="number" value={stats.xp} onChange={e => setStats({ ...stats, xp: Number(e.target.value) })}
-                  className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-white font-mono focus:outline-none" />
+                  className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] font-mono focus:outline-none" />
               </div>
               <div>
-                <label className="text-xs text-gray-500 block mb-1">Gold</label>
+                <label className="text-xs text-[#8a7c66] block mb-1">Gold</label>
                 <input type="number" value={stats.gold} onChange={e => setStats({ ...stats, gold: Number(e.target.value) })}
-                  className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-yellow-400 font-mono focus:outline-none" />
+                  className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#f5c542] font-mono focus:outline-none" />
               </div>
             </div>
-            <button onClick={handleSaveStats} className="bg-blue-700 hover:bg-blue-600 text-white font-bold px-5 py-2 rounded-lg transition-colors text-sm">
+            <button onClick={handleSaveStats} className="bg-[#a8620f] hover:bg-[#c9781a] text-[#ede4d3] font-bold px-5 py-2 rounded-lg transition-colors text-sm">
               Save Stats
             </button>
           </div>
 
           {/* Award deed */}
-          <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-5">
-            <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">Award Good Deed</p>
+          <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5">
+            <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-4">Award Good Deed</p>
             <div className="grid grid-cols-3 gap-4 mb-4">
               <div className="col-span-2">
-                <label className="text-xs text-gray-500 block mb-1">Deed Name</label>
+                <label className="text-xs text-[#8a7c66] block mb-1">Deed Name</label>
                 <input type="text" placeholder="e.g. Cleaned the garage" value={deedName} onChange={e => setDeedName(e.target.value)}
-                  className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-white focus:outline-none" />
+                  className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] focus:outline-none" />
               </div>
               <div>
-                <label className="text-xs text-gray-500 block mb-1">Gold</label>
+                <label className="text-xs text-[#8a7c66] block mb-1">Gold</label>
                 <input type="number" placeholder="50" value={deedGold} onChange={e => setDeedGold(e.target.value)}
-                  className="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-3 py-2 text-yellow-400 font-mono focus:outline-none" />
+                  className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#f5c542] font-mono focus:outline-none" />
               </div>
             </div>
-            <button onClick={handleAwardDeed} className="bg-green-700 hover:bg-green-600 text-white font-bold px-5 py-2 rounded-lg transition-colors text-sm">
+            <button onClick={handleAwardDeed} className="bg-[#3f6428] hover:bg-[#4d7a32] text-[#ede4d3] font-bold px-5 py-2 rounded-lg transition-colors text-sm">
               🎉 Award Gold
             </button>
           </div>
 
           {/* Deed history */}
-          <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-5">
-            <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">Deed History</p>
+          <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5">
+            <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-4">Deed History</p>
             <DeedHistory userId={userId} />
           </div>
 
           {/* Reward queue */}
-          <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-5">
-            <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">Reward Queue</p>
+          <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5">
+            <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-4">Reward Queue</p>
             {claims.length === 0 ? (
               <p className="text-gray-600 text-sm">No pending rewards.</p>
             ) : (
@@ -268,15 +268,15 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
                     return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
                   })
                   .map(claim => (
-                  <div key={claim.id} className="flex justify-between items-center bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3">
+                  <div key={claim.id} className="flex justify-between items-center bg-neutral-950 border border-[#2a2119] rounded-lg px-4 py-3">
                     <div>
-                      <p className="text-white font-medium text-sm">{claim.item_name}</p>
-                      <p className="text-xs text-gray-500">{new Date(claim.created_at).toLocaleDateString()} · <img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {claim.cost}</p>
+                      <p className="text-[#ede4d3] font-medium text-sm">{claim.item_name}</p>
+                      <p className="text-xs text-[#8a7c66]">{new Date(claim.created_at).toLocaleDateString()} · <img src="/icons/rewards/gold_coin.svg" alt="Gold" className="inline w-4 h-4 align-[-2px]" /> {claim.cost}</p>
                     </div>
                     <button
                       onClick={() => toggleClaim(claim.id, claim.status)}
                       className={`px-3 py-1 rounded-lg text-xs font-bold transition-colors ${
-                        claim.status === 'pending' ? 'bg-yellow-900/50 text-yellow-400 border border-yellow-800 hover:bg-yellow-800' : 'bg-green-900/50 text-green-400 border border-green-800'
+                        claim.status === 'pending' ? 'bg-yellow-900/50 text-[#f5c542] border border-yellow-800 hover:bg-yellow-800' : 'bg-[#223616]/50 text-[#7fae52] border border-[#33501f]'
                       }`}
                     >
                       {claim.status === 'pending' ? 'Mark Supplied' : '✅ Supplied'}
@@ -288,8 +288,8 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
           </div>
 
           {/* Quiz attempts */}
-          <div className="bg-neutral-900 border border-neutral-700 rounded-xl p-5">
-            <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">Quiz Attempts This Week</p>
+          <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5">
+            <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-4">Quiz Attempts This Week</p>
             {Object.keys(toolData.quiz_attempts || {}).length === 0 ? (
               <p className="text-gray-600 text-sm">No attempts yet.</p>
             ) : (
@@ -297,11 +297,11 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
                 {Object.entries(toolData.quiz_attempts || {}).map(([key, count]) => {
                   const mastered = (toolData.mastered_quizzes || []).includes(key);
                   return (
-                    <div key={key} className="flex justify-between items-center bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-2">
-                      <span className="text-sm text-gray-300">{key.replace('_', ' — ')}</span>
+                    <div key={key} className="flex justify-between items-center bg-neutral-950 border border-[#2a2119] rounded-lg px-4 py-2">
+                      <span className="text-sm text-[#c9bfae]">{key.replace('_', ' — ')}</span>
                       <div className="flex items-center gap-3">
-                        <span className="text-xs text-gray-500 font-mono">{count} attempt{count !== 1 ? 's' : ''}</span>
-                        <span className={`text-xs font-bold ${mastered ? 'text-green-400' : 'text-gray-600'}`}>
+                        <span className="text-xs text-[#8a7c66] font-mono">{count} attempt{count !== 1 ? 's' : ''}</span>
+                        <span className={`text-xs font-bold ${mastered ? 'text-[#7fae52]' : 'text-gray-600'}`}>
                           {mastered ? '✅' : '…'}
                         </span>
                       </div>

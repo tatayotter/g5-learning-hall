@@ -38,7 +38,7 @@ export default function AnalyticsSection() {
     fetchAnalytics();
   }, [rangeDays]);
 
-  if (loading) return <p className="text-gray-500 animate-pulse">Loading analytics...</p>;
+  if (loading) return <p className="text-[#8a7c66] animate-pulse">Loading analytics...</p>;
 
   const rows = allRows;
 
@@ -81,7 +81,7 @@ export default function AnalyticsSection() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
-        <h1 className="text-2xl font-bold text-white">📊 Analytics — Freemium Feasibility</h1>
+        <h1 className="text-2xl font-bold text-[#ede4d3]">📊 Analytics — Freemium Feasibility</h1>
         <div className="flex gap-3 flex-wrap">
           <div className="flex gap-2">
             {RANGE_OPTIONS.map(opt => (
@@ -89,7 +89,7 @@ export default function AnalyticsSection() {
                 key={opt.id}
                 onClick={() => setRangeDays(opt.id)}
                 className={`text-xs font-bold px-3 py-1.5 rounded-full transition-colors ${
-                  rangeDays === opt.id ? 'bg-white text-black' : 'bg-neutral-800 text-gray-400 hover:bg-neutral-700'
+                  rangeDays === opt.id ? 'bg-[#ede4d3] text-[#0a0807]' : 'bg-[#2a2119] text-[#a89c86] hover:bg-[#3d3225]'
                 }`}
               >
                 {opt.label}
@@ -100,57 +100,57 @@ export default function AnalyticsSection() {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4">
-          <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">Total Events</p>
-          <p className="text-2xl font-bold text-white">{rows.length}</p>
+        <div className="bg-[#1c1611] border border-[#2a2119] rounded-xl p-4">
+          <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-1">Total Events</p>
+          <p className="text-2xl font-bold text-[#ede4d3]">{rows.length}</p>
         </div>
-        <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4">
-          <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">Active Users</p>
-          <p className="text-2xl font-bold text-white">{distinctUsers.size}</p>
+        <div className="bg-[#1c1611] border border-[#2a2119] rounded-xl p-4">
+          <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-1">Active Users</p>
+          <p className="text-2xl font-bold text-[#ede4d3]">{distinctUsers.size}</p>
         </div>
-        <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4">
-          <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">Sessions</p>
-          <p className="text-2xl font-bold text-white">{distinctSessions.size}</p>
+        <div className="bg-[#1c1611] border border-[#2a2119] rounded-xl p-4">
+          <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-1">Sessions</p>
+          <p className="text-2xl font-bold text-[#ede4d3]">{distinctSessions.size}</p>
         </div>
-        <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4">
-          <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">Active Days</p>
-          <p className="text-2xl font-bold text-white">{activeDays.size}</p>
+        <div className="bg-[#1c1611] border border-[#2a2119] rounded-xl p-4">
+          <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-1">Active Days</p>
+          <p className="text-2xl font-bold text-[#ede4d3]">{activeDays.size}</p>
         </div>
       </div>
 
       {/* Monetizable friction — the core "would they pay" signal */}
-      <div className="bg-neutral-900 border border-amber-800 rounded-xl p-5 mb-8">
+      <div className="bg-[#1c1611] border border-amber-800 rounded-xl p-5 mb-8">
         <p className="text-xs text-amber-500 uppercase tracking-widest mb-3">Monetizable Friction Signal</p>
         <div className="grid grid-cols-3 gap-4 text-center">
           <div>
-            <p className="text-2xl font-bold text-green-400">{purchaseSuccess}</p>
-            <p className="text-xs text-gray-500 mt-1">Successful Purchases</p>
+            <p className="text-2xl font-bold text-[#7fae52]">{purchaseSuccess}</p>
+            <p className="text-xs text-[#8a7c66] mt-1">Successful Purchases</p>
           </div>
           <div>
-            <p className="text-2xl font-bold text-red-400">{purchaseBlocked}</p>
-            <p className="text-xs text-gray-500 mt-1">Blocked (Not Enough Gold)</p>
+            <p className="text-2xl font-bold text-[#e0605a]">{purchaseBlocked}</p>
+            <p className="text-xs text-[#8a7c66] mt-1">Blocked (Not Enough Gold)</p>
           </div>
           <div>
             <p className="text-2xl font-bold text-amber-400">{blockedPct}%</p>
-            <p className="text-xs text-gray-500 mt-1">of purchase intents blocked</p>
+            <p className="text-xs text-[#8a7c66] mt-1">of purchase intents blocked</p>
           </div>
         </div>
       </div>
 
       {/* Funnel */}
-      <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-5 mb-8">
-        <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Funnel — Distinct Users Reaching Each Step</p>
+      <div className="bg-[#1c1611] border border-[#2a2119] rounded-xl p-5 mb-8">
+        <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-3">Funnel — Distinct Users Reaching Each Step</p>
         <div className="space-y-2">
           {funnelCounts.map(step => (
             <div key={step.eventName} className="flex items-center gap-3">
-              <span className="text-sm text-gray-300 w-56 shrink-0">{step.label}</span>
-              <div className="flex-1 bg-neutral-800 rounded-full h-3 overflow-hidden">
+              <span className="text-sm text-[#c9bfae] w-56 shrink-0">{step.label}</span>
+              <div className="flex-1 bg-[#2a2119] rounded-full h-3 overflow-hidden">
                 <div
-                  className="bg-blue-500 h-3 rounded-full"
+                  className="bg-[#e2921e] h-3 rounded-full"
                   style={{ width: distinctUsers.size > 0 ? `${(step.users / distinctUsers.size) * 100}%` : '0%' }}
                 />
               </div>
-              <span className="text-sm font-bold text-white w-10 text-right">{step.users}</span>
+              <span className="text-sm font-bold text-[#ede4d3] w-10 text-right">{step.users}</span>
             </div>
           ))}
         </div>
@@ -158,29 +158,29 @@ export default function AnalyticsSection() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Feature usage */}
-        <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-5">
-          <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Feature Usage (Event Counts)</p>
+        <div className="bg-[#1c1611] border border-[#2a2119] rounded-xl p-5">
+          <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-3">Feature Usage (Event Counts)</p>
           <div className="space-y-1.5 max-h-96 overflow-y-auto pr-1">
             {sortedEvents.map(([name, count]) => (
-              <div key={name} className="flex justify-between text-sm border-b border-neutral-800 py-1.5">
-                <span className="text-gray-300 font-mono">{name}</span>
-                <span className="text-white font-bold">{count}</span>
+              <div key={name} className="flex justify-between text-sm border-b border-[#2a2119] py-1.5">
+                <span className="text-[#c9bfae] font-mono">{name}</span>
+                <span className="text-[#ede4d3] font-bold">{count}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Per-user breakdown */}
-        <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-5">
-          <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Per-User Activity</p>
+        <div className="bg-[#1c1611] border border-[#2a2119] rounded-xl p-5">
+          <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-3">Per-User Activity</p>
           <div className="space-y-1.5 max-h-96 overflow-y-auto pr-1">
             {perUserRows.map(([userId, info]) => (
-              <div key={userId} className="flex justify-between items-center text-sm border-b border-neutral-800 py-1.5">
-                <span className="text-gray-300">
-                  {userId} {info.isFamily && <span className="text-[10px] text-blue-400">(family)</span>}
+              <div key={userId} className="flex justify-between items-center text-sm border-b border-[#2a2119] py-1.5">
+                <span className="text-[#c9bfae]">
+                  {userId} {info.isFamily && <span className="text-[10px] text-[#f0b429]">(family)</span>}
                 </span>
-                <span className="text-xs text-gray-500">{info.sessions.size} sessions</span>
-                <span className="text-white font-bold">{info.count} events</span>
+                <span className="text-xs text-[#8a7c66]">{info.sessions.size} sessions</span>
+                <span className="text-[#ede4d3] font-bold">{info.count} events</span>
               </div>
             ))}
           </div>

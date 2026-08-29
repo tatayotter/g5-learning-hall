@@ -113,11 +113,11 @@ export default function Joystick({ disabled, setDirectionPressed }: JoystickProp
     <div
       ref={baseRef}
       onPointerDown={handlePointerDown}
-      className={`relative rounded-full bg-black/40 border border-white/20 ${disabled ? 'opacity-40' : ''}`}
+      className={`relative rounded-full bg-[#0a0807]/40 border border-[#ffffff]/20 ${disabled ? 'opacity-40' : ''}`}
       style={{ width: OUTER_SIZE, height: OUTER_SIZE, touchAction: 'none' }}
     >
       <div
-        className="absolute rounded-full bg-white/80 shadow pointer-events-none"
+        className="absolute rounded-full bg-[#ffffff]/80 shadow pointer-events-none"
         style={{
           width: KNOB_SIZE, height: KNOB_SIZE,
           left: '50%', top: '50%',

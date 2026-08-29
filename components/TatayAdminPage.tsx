@@ -9,7 +9,7 @@ export default function TatayAdminPage() {
 
   if (loading || !data) {
     return (
-      <div className="min-h-screen bg-neutral-950 flex items-center justify-center text-gray-500">
+      <div className="min-h-screen bg-neutral-950 flex items-center justify-center text-[#8a7c66]">
         Loading…
       </div>
     );

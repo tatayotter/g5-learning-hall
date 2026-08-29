@@ -3,6 +3,8 @@
 
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Nail } from '@/components/battle/MonsterHpPanel';
+import { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 
 function useIsLandscape() {
   const [isLandscape, setIsLandscape] = useState(false);
@@ -137,8 +139,14 @@ export default function SidebarRail({
             <CompassIcon large={isDesktop} />
           </button>
 
-          {/* Full-width HUD stat bar — pinned to the top */}
-          <div className={`fixed top-0 left-0 right-0 z-[79] bg-black/85 backdrop-blur-sm border-b border-white/10 select-none pointer-events-none font-display
+          {/* Full-width HUD stat bar — pinned to the top.
+              Deliberately dark regardless of the shell's light/dark theme (a
+              persistent overlay bar, same category as a modal scrim) — colors
+              below are hardcoded to today's dark-shell values rather than the
+              bg-black/text-white/bg-white/NN tokens, so this bar doesn't go
+              illegible if the base theme ever flips again. See
+              docs/STYLE_GUIDE.md. */}
+          <div className={`fixed top-0 left-0 right-0 z-[79] bg-[#0a0807]/85 backdrop-blur-sm border-b border-[#ffffff]/10 select-none pointer-events-none font-display
             ${isDesktop ? 'px-8 py-3' : 'px-5'}
             ${isLandscape ? 'py-2 flex items-center gap-4' : 'pt-3 pb-2 flex flex-col gap-1.5'}`}>
 
@@ -146,19 +154,19 @@ export default function SidebarRail({
               /* ── Landscape / Desktop: single row ── */
               <>
                 <span className={`text-amber-500 font-bold leading-none tracking-widest uppercase shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>⚔ {rankForLevel(playerLevel)}</span>
-                <div className={`w-px bg-white/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
-                <span className={`text-white font-bold leading-none tracking-wide shrink-0 ${isDesktop ? 'text-base' : 'text-sm'}`}>{playerName}</span>
-                <div className={`w-px bg-white/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
+                <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
+                <span className={`text-[#ffffff] font-bold leading-none tracking-wide shrink-0 ${isDesktop ? 'text-base' : 'text-sm'}`}>{playerName}</span>
+                <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
                 <span className={`text-amber-400 font-bold leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>Lv.{playerLevel}</span>
-                <div className={`flex-1 min-w-8 rounded-full bg-white/15 overflow-hidden ${isDesktop ? 'h-2' : 'h-1.5'}`}>
+                <div className={`flex-1 min-w-8 rounded-full bg-[#ffffff]/15 overflow-hidden ${isDesktop ? 'h-2' : 'h-1.5'}`}>
                   <div className="h-full bg-amber-400 rounded-full" style={{ width: `${xpPct}%` }} />
                 </div>
-                <span className={`text-yellow-400 font-bold leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>🪙 {playerGold.toLocaleString()}</span>
-                <div className={`w-px bg-white/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
+                <span className={`text-[#f5c542] font-bold leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>🪙 {playerGold.toLocaleString()}</span>
+                <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
                 <span className={`text-orange-400 font-bold leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>🔥 {playerStreak}</span>
-                <div className={`w-px bg-white/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
-                {playerGrade && <span className={`text-gray-500 font-bold leading-none tracking-wide uppercase shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>{playerGrade}</span>}
-                {weekLabel && <span className={`text-gray-400 font-bold leading-none tracking-wide uppercase shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>{weekLabel}</span>}
+                <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
+                {playerGrade && <span className={`text-[#8a7c66] font-bold leading-none tracking-wide uppercase shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>{playerGrade}</span>}
+                {weekLabel && <span className={`text-[#a89c86] font-bold leading-none tracking-wide uppercase shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>{weekLabel}</span>}
               </>
             ) : (
               /* ── Portrait: two rows ── */
@@ -166,21 +174,21 @@ export default function SidebarRail({
                 <div className="flex items-center justify-between">
                   <span className="text-amber-500 font-bold text-xs leading-none tracking-widest uppercase">⚔ {rankForLevel(playerLevel)}</span>
                   <div className="flex items-center gap-2">
-                    {playerGrade && <span className="text-gray-500 font-bold text-xs leading-none tracking-wide uppercase">{playerGrade}</span>}
-                    {weekLabel && <span className="text-gray-400 font-bold text-xs leading-none tracking-wide uppercase">{weekLabel}</span>}
+                    {playerGrade && <span className="text-[#8a7c66] font-bold text-xs leading-none tracking-wide uppercase">{playerGrade}</span>}
+                    {weekLabel && <span className="text-[#a89c86] font-bold text-xs leading-none tracking-wide uppercase">{weekLabel}</span>}
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <span className="text-white font-bold text-sm leading-none tracking-wide shrink-0">{playerName}</span>
-                  <div className="w-px h-4 bg-white/20 shrink-0" />
+                  <span className="text-[#ffffff] font-bold text-sm leading-none tracking-wide shrink-0">{playerName}</span>
+                  <div className="w-px h-4 bg-[#ffffff]/20 shrink-0" />
                   <div className="flex items-center gap-2 flex-1 min-w-0">
                     <span className="text-amber-400 font-bold text-xs leading-none shrink-0">Lv.{playerLevel}</span>
-                    <div className="flex-1 min-w-8 h-1.5 rounded-full bg-white/15 overflow-hidden">
+                    <div className="flex-1 min-w-8 h-1.5 rounded-full bg-[#ffffff]/15 overflow-hidden">
                       <div className="h-full bg-amber-400 rounded-full" style={{ width: `${xpPct}%` }} />
                     </div>
                   </div>
-                  <span className="text-yellow-400 font-bold text-xs leading-none shrink-0">🪙 {playerGold.toLocaleString()}</span>
-                  <div className="w-px h-4 bg-white/20 shrink-0" />
+                  <span className="text-[#f5c542] font-bold text-xs leading-none shrink-0">🪙 {playerGold.toLocaleString()}</span>
+                  <div className="w-px h-4 bg-[#ffffff]/20 shrink-0" />
                   <span className="text-orange-400 font-bold text-xs leading-none shrink-0">🔥 {playerStreak}</span>
                 </div>
               </>
@@ -197,7 +205,7 @@ export default function SidebarRail({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className={`fixed inset-0 bg-black/50 z-[90] flex ${isLandscape ? 'items-stretch justify-start' : 'items-end justify-center'}`}
+            className={`fixed inset-0 bg-[#0a0807]/50 z-[90] flex ${isLandscape ? 'items-stretch justify-start' : 'items-end justify-center'}`}
             onClick={() => setIsOpen(false)}
           >
             <motion.div
@@ -205,14 +213,22 @@ export default function SidebarRail({
               animate={isLandscape ? { x: 0 } : { y: 0 }}
               exit={isLandscape ? { x: '-100%' } : { y: '100%' }}
               transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
-              style={isLandscape ? { position: 'absolute', top: 0, left: 0, bottom: 0, width: '24rem' } : undefined}
-              className={`relative bg-white border-stone-200 shadow-2xl
+              style={{
+                ...(isLandscape ? { position: 'absolute', top: 0, left: 0, bottom: 0, width: '24rem' } : {}),
+                boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`,
+              }}
+              className={`relative bg-white border-2 border-[#4a2f18]
                 ${isLandscape
                   ? 'rounded-tr-3xl pt-4 pb-5 pl-6 pr-16 flex flex-col'
-                  : 'border border-b-0 rounded-t-3xl pt-10 pb-6 px-6 w-full'
+                  : 'border-b-0 rounded-t-3xl pt-10 pb-6 px-6 w-full'
                 }`}
               onClick={e => e.stopPropagation()}
             >
+              {/* Gold nails, top corners only — the bottom edge either runs
+                  off the bottom sheet or sits under the compass trigger in
+                  the landscape drawer, so nails there wouldn't read (2026-08-29). */}
+              <Nail className="top-2 left-2" />
+              <Nail className="top-2 right-2" />
               {/* Compass — bottom-sheet: top edge center / drawer: right edge middle */}
               <button
                 onClick={() => setIsOpen(false)}
@@ -226,9 +242,16 @@ export default function SidebarRail({
                 <CompassIcon large={isDesktop} />
               </button>
 
-              {/* "Navigation" label */}
+              {/* "Navigation" label — same Bungee/stroke/shadow text treatment
+                  as the quest GameButton's label (2026-08-29), in quest gold
+                  instead of the button's white. */}
               <div className={`${isLandscape ? 'mb-3 text-left' : 'mb-5 text-center'}`}>
-                <span className="text-amber-700 font-extrabold text-xl uppercase tracking-widest font-display">Navigation</span>
+                <span className="text-xl" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+                  <span style={{ position: 'relative', display: 'inline-block' }}>
+                    <span aria-hidden style={questTextShadowStyle}>Navigation</span>
+                    <span style={{ ...questTextStyle, color: '#f5c542' }}>Navigation</span>
+                  </span>
+                </span>
               </div>
 
               {/* Nav grid — 3 cols portrait, 4 cols landscape (2 rows, no scroll) */}
@@ -299,26 +322,28 @@ export default function SidebarRail({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/70 z-[80] flex items-center justify-center p-6"
+            className="fixed inset-0 bg-[#0a0807]/70 z-[80] flex items-center justify-center p-6"
           >
+            {/* Deliberately dark regardless of the shell's theme — a modal
+                scrim + confirm dialog, same treatment as the HUD bar above. */}
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               className="bg-neutral-950 border border-amber-800 rounded-xl p-6 w-full max-w-xs text-center"
             >
-              <p className="text-white font-bold mb-1">Log out of this hero?</p>
-              <p className="text-gray-500 text-xs mb-5">You'll return to the hero select screen.</p>
+              <p className="text-[#ffffff] font-bold mb-1">Log out of this hero?</p>
+              <p className="text-[#8a7c66] text-xs mb-5">You'll return to the hero select screen.</p>
               <div className="flex gap-3">
                 <button
                   onClick={() => setConfirmingLogout(false)}
-                  className="flex-1 py-2 rounded-lg font-bold text-sm bg-neutral-800 hover:bg-neutral-700 text-gray-300 transition-colors"
+                  className="flex-1 py-2 rounded-lg font-bold text-sm bg-[#2a2119] hover:bg-[#3d3225] text-[#c9bfae] transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={() => { setConfirmingLogout(false); onLogout(); }}
-                  className="flex-1 py-2 rounded-lg font-bold text-sm bg-amber-700 hover:bg-amber-600 text-white transition-colors"
+                  className="flex-1 py-2 rounded-lg font-bold text-sm bg-amber-700 hover:bg-amber-600 text-[#ffffff] transition-colors"
                 >
                   Logout
                 </button>

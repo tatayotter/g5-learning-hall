@@ -183,10 +183,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
         <h2 className="text-3xl font-bold text-green-700 mb-4 font-display">Quest Completed!</h2>
         <p className="text-[#6b4820] mb-2">Mastered in {safeAttemptsSoFar || 1} attempt{safeAttemptsSoFar !== 1 ? 's' : ''}.</p>
         <p className="text-xl text-[#2a1505] mb-6">You earned <span className="font-bold text-[#c9781a] font-mono">{recap.xp} XP</span> and <span className="font-bold text-yellow-600 font-mono">{recap.gold} Gold</span>.</p>
-        <GameButton
-          onClick={onExit}
-          className="bg-[#8b5e2a] hover:bg-[#6b4820] text-white font-bold py-3 px-6 rounded transition-colors"
-        >
+        <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>
           Return to Campaign Map
         </GameButton>
       </div>
@@ -200,10 +197,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
         <h2 className="text-3xl font-bold text-green-700 mb-4 font-display">Quest Completed!</h2>
         <p className="text-[#6b4820] mb-2">Perfect score: {lastResult.score}/{lastResult.total} in {lastResult.attemptNumber} attempt(s).</p>
         <p className="text-xl text-[#2a1505] mb-6">You earned <span className="font-bold text-[#c9781a] font-mono">{lastResult.xp} XP</span> and <span className="font-bold text-yellow-600 font-mono">{lastResult.gold} Gold</span>.</p>
-        <GameButton
-          onClick={onExit}
-          className="bg-[#8b5e2a] hover:bg-[#6b4820] text-white font-bold py-3 px-6 rounded transition-colors"
-        >
+        <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>
           Return to Campaign Map
         </GameButton>
       </div>
@@ -227,10 +221,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
 
       {!hasStarted && quiz.length > 0 && (
         <div className="border-t border-[#c9a87a] pt-6 flex justify-center">
-          <GameButton
-            onClick={() => setHasStarted(true)}
-            className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-10 rounded transition-colors font-display text-lg"
-          >
+          <GameButton variant="quest" color="#3b82f6" onClick={() => setHasStarted(true)} style={{ fontSize: 16 }}>
             ▶ Start Exam
           </GameButton>
         </div>
@@ -290,9 +281,11 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
                   </span>
                 )}
                 <GameButton
+                  variant="quest"
+                  color="#3b82f6"
                   onClick={handleRetry}
                   disabled={cooldownRemaining > 0}
-                  className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                  style={{ fontSize: 15 }}
                 >
                   {cooldownRemaining > 0 ? `🔒 Wait ${cooldownRemaining}s` : '🔁 Try Again'}
                 </GameButton>
@@ -300,9 +293,11 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
             ) : (
               <>
                 <GameButton
+                  variant="quest"
+                  color="#3b82f6"
                   onClick={handleSubmitQuiz}
                   disabled={!allAnswered || grading}
-                  className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                  style={{ fontSize: 15 }}
                 >
                   {grading ? '⏳ Grading...' : '✅ Submit Quiz'}
                 </GameButton>
