@@ -30,8 +30,11 @@ const STATUS_PILL_COLORS: Record<NonNullable<StatusEffect>, { bg: string; border
 
 // CSS-only wood grain: two layers of fine repeating streaks (dark + a
 // lighter one offset in spacing so they don't just cancel out) over a warm
-// brown gradient base — no image asset needed.
-const woodTextureStyle: React.CSSProperties = {
+// brown gradient base — no image asset needed. Exported (alongside Nail
+// below) so other battle-adjacent surfaces (e.g. PostBattleSummary) can
+// reuse the exact same wood/gold-nail frame instead of re-deriving it
+// (2026-08-29).
+export const woodTextureStyle: React.CSSProperties = {
   backgroundImage:
     'repeating-linear-gradient(94deg, rgba(0,0,0,0.16) 0px, rgba(0,0,0,0.16) 1px, transparent 1px, transparent 4px), ' +
     'repeating-linear-gradient(94deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 9px), ' +
@@ -40,8 +43,8 @@ const woodTextureStyle: React.CSSProperties = {
 
 // A small flat metal nail head — solid fill, thin outline, tiny off-center
 // dot for the screw detail — deliberately flat (no gradient/bevel) to read
-// as a 2D icon rather than a 3D stud.
-function Nail({ className }: { className: string }) {
+// as a 2D icon rather than a 3D stud. Exported — see woodTextureStyle above.
+export function Nail({ className }: { className: string }) {
   return (
     <span
       aria-hidden

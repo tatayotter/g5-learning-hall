@@ -20,6 +20,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { ActionTile } from '@/components/battle/BattleStage';
 import { shuffle, BossQuestion } from '@/lib/bossFightEngine';
 import { gradeGauntletQuestion, useGauntletQueue } from '@/lib/masteryGauntletEngine';
+import GameButton from '@/components/GameButton';
 
 interface MasteryGauntletScreenProps {
   userId: string;
@@ -48,33 +49,45 @@ function ProgressBar({ pct }: { pct: number }) {
   );
 }
 
+// Extracted (rather than left inline) so components/dev/UiGallery.tsx can
+// preview the real empty/finished screens instead of a static JSX copy that
+// could drift out of sync.
+export function GauntletEmptyScreen({ day, onExit }: { day: string; onExit: () => void }) {
+  return (
+    <div className="bg-[#f0ddb8] border border-[#8b5e2a] rounded-2xl p-6 text-center">
+      <p className="text-[#6b4820] text-sm mb-4">No review questions landed on {day} — try another day's card.</p>
+      <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>
+        Back
+      </GameButton>
+    </div>
+  );
+}
+
+// Same reasoning as GauntletEmptyScreen above.
+export function GauntletFinishedScreen({ day, onExit }: { day: string; onExit: () => void }) {
+  return (
+    <div className="bg-[#e8f5e0] border border-green-700 rounded-2xl p-8 text-center">
+      <p className="text-2xl mb-2">🏅</p>
+      <p className="text-green-700 font-bold text-lg mb-1">{day}'s Gauntlet Complete!</p>
+      <p className="text-[#6b4820] text-sm mb-6">Finish every weekday's gauntlet to claim this event's reward.</p>
+      <GameButton variant="quest" color="#15803d" onClick={onExit} style={{ fontSize: 15 }}>
+        Done
+      </GameButton>
+    </div>
+  );
+}
+
 export default function MasteryGauntletScreen({
   userId, grade, term, day, pool, eventTitle, onExit,
 }: MasteryGauntletScreenProps) {
   const [finished, setFinished] = useState(false);
 
   if (pool.length === 0) {
-    return (
-      <div className="bg-[#f0ddb8] border border-[#8b5e2a] rounded-2xl p-6 text-center">
-        <p className="text-[#6b4820] text-sm mb-4">No review questions landed on {day} — try another day's card.</p>
-        <button onClick={() => onExit(false)} className="bg-[#8b5e2a] hover:bg-[#6b4820] text-white font-bold px-6 py-2 rounded-lg">
-          Back
-        </button>
-      </div>
-    );
+    return <GauntletEmptyScreen day={day} onExit={() => onExit(false)} />;
   }
 
   if (finished) {
-    return (
-      <div className="bg-[#e8f5e0] border border-green-700 rounded-2xl p-8 text-center">
-        <p className="text-2xl mb-2">🏅</p>
-        <p className="text-green-700 font-bold text-lg mb-1">{day}'s Gauntlet Complete!</p>
-        <p className="text-[#6b4820] text-sm mb-6">Finish every weekday's gauntlet to claim this event's reward.</p>
-        <button onClick={() => onExit(true)} className="bg-green-700 hover:bg-green-600 text-white font-bold px-6 py-2 rounded-lg">
-          Done
-        </button>
-      </div>
-    );
+    return <GauntletFinishedScreen day={day} onExit={() => onExit(true)} />;
   }
 
   return (
@@ -89,7 +102,10 @@ export default function MasteryGauntletScreen({
   );
 }
 
-function GauntletBattle({
+// Exported (alongside the Empty/Finished screens above) so
+// components/dev/UiGallery.tsx can preview the real battle UI with a mock
+// pool instead of a static JSX copy.
+export function GauntletBattle({
   pool, eventTitle, userId, grade, term, onFinished,
 }: {
   pool: BossQuestion[];

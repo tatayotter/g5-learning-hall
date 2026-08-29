@@ -5,9 +5,35 @@
 // button the player clicks to leave. Used by both LiveBattleScreen (PVP) and
 // the solo BattleScreen (NPC trainers + wild encounters) so every battle mode
 // in the game ends the same way instead of PVP alone getting a proper recap.
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ActiveBattleMonster, MonsterImage } from '@/components/battle/shared';
-import GameButton from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questButtonDropShadow } from '@/components/GameButton';
+import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
+
+const TITLE_COLOR: Record<'win' | 'loss' | 'draw', string> = {
+  win: '#f5c542', // quest-button gold
+  loss: '#dc2626',
+  draw: '#2563eb',
+};
+
+// A short, warm nudge shown only under "Defeat..." — same encouraging,
+// no-shame tone as WelcomeCard's MOTD lines. Picked once per mount rather
+// than per render so it doesn't flicker between lines on a re-render.
+const DEFEAT_ENCOURAGEMENT = [
+  "Every loss teaches something a win can't.",
+  "Rest up, review your notes, and try again.",
+  "Champions lose plenty of rounds before they don't.",
+  "That one stings — but you'll come back sharper.",
+];
+
+// Same idea, but for "It's a Draw!" — leans on strategy/tactics rather than
+// resilience, since a draw usually means the plan was close, not wrong.
+const DRAW_ENCOURAGEMENT = [
+  "So close! A sharper move order might've tipped this one.",
+  "Dead even — try switching up your curio order next time.",
+  "A draw means your strategy is almost there. Fine-tune it.",
+  "Neither side broke through — time to rethink your lineup.",
+];
 
 // The player's userpic and the trainer's sprite, unframed — no border, no
 // background chip, no rounding of any kind. Just the art itself, sized and
@@ -51,7 +77,11 @@ export interface PostBattleSideInfo {
 
 interface PostBattleSummaryProps {
   outcome: 'win' | 'loss' | 'draw';
-  reasonLabel: string;
+  // No longer displayed (the small reason line under the title was dropped
+  // for every outcome, 2026-08-29) — kept optional so existing callers that
+  // still pass one (e.g. "You surrendered" vs "Fight complete") don't need
+  // an immediate follow-up edit.
+  reasonLabel?: string;
   left: PostBattleSideInfo;
   right: PostBattleSideInfo;
   log: string[];
@@ -68,13 +98,27 @@ function Side({ avatarSrc, avatarFallbackEmoji, avatarContain, name, subtitle, t
   const roster = team && team.length > 0 ? team : [mon];
   return (
     <div
-      className={`flex-1 rounded-2xl border-2 p-5 text-center ${
+      className={`relative flex-1 rounded-2xl border-2 bg-white p-5 text-center ${
         isWinner
-          ? 'border-green-500 bg-green-50 py-8 shadow-[0_0_18px_3px_rgba(34,197,94,0.4)]'
-          : 'border-red-500 bg-red-50'
+          ? 'border-green-500 py-8 shadow-[0_0_18px_3px_rgba(34,197,94,0.4)]'
+          : 'border-red-500'
       }`}
     >
-      {isWinner && <p className="text-xs font-extrabold tracking-widest text-green-700 mb-2">WINNER</p>}
+      <Nail className="top-3 left-3" />
+      <Nail className="top-3 right-3" />
+      <Nail className="bottom-3 left-3" />
+      <Nail className="bottom-3 right-3" />
+      {isWinner && (
+        // Same Bungee/stroke/shadow text treatment as the quest GameButton's
+        // label (2026-08-29), in the card's own green instead of the
+        // button's white.
+        <p className="text-sm mb-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+          <span style={{ position: 'relative', display: 'inline-block' }}>
+            <span aria-hidden style={questTextShadowStyle}>WINNER</span>
+            <span style={{ position: 'relative', color: '#22c55e', WebkitTextStroke: '0.0952em #000', paintOrder: 'stroke fill' as const }}>WINNER</span>
+          </span>
+        </p>
+      )}
       <AvatarImage src={avatarSrc} fallbackEmoji={avatarFallbackEmoji} alt={name} contain={avatarContain} />
       <p className="font-bold text-[#2a1505]">{name}</p>
       {subtitle && <p className="text-xs text-[#6b4820] mb-1">{subtitle}</p>}
@@ -97,7 +141,7 @@ function Side({ avatarSrc, avatarFallbackEmoji, avatarContain, name, subtitle, t
   );
 }
 
-export default function PostBattleSummary({ outcome, reasonLabel, left, right, log, expEarned, goldEarned, rewardLine, onContinue }: PostBattleSummaryProps) {
+export default function PostBattleSummary({ outcome, left, right, log, expEarned, goldEarned, rewardLine, onContinue }: PostBattleSummaryProps) {
   const titleIcon = outcome === 'draw' ? '/icons/stats/draw.svg' : outcome === 'win' ? '/icons/stats/victory.svg' : '/icons/stats/defeat.svg';
   const titleText = outcome === 'draw' ? "It's a Draw!" : outcome === 'win' ? 'Victory!' : 'Defeat...';
 
@@ -107,17 +151,50 @@ export default function PostBattleSummary({ outcome, reasonLabel, left, right, l
       : undefined
   );
 
+  const encouragement = useMemo(() => {
+    const pool = outcome === 'draw' ? DRAW_ENCOURAGEMENT : DEFEAT_ENCOURAGEMENT;
+    return pool[Math.floor(Math.random() * pool.length)];
+  }, [outcome]);
+
   return (
-    <div className="bg-white border border-[#c9a87a] rounded-2xl p-6 battle-panel-in">
+    <div
+      className="relative border-2 border-[#4a2f18] rounded-2xl p-6 battle-panel-in"
+      style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
+    >
+      {/* Same wood-plank + gold trim + corner-nail frame as the battle
+          screen's MonsterHpPanel, reusing its exported style pieces rather
+          than re-deriving them (2026-08-29). */}
+      <Nail className="top-2 left-2" />
+      <Nail className="top-2 right-2" />
+      <Nail className="bottom-2 left-2" />
+      <Nail className="bottom-2 right-2" />
       <div className="flex flex-col items-center justify-center gap-1 mb-1">
         <img src={titleIcon} alt={outcome} className="w-10 h-10 object-contain" />
-        <p className="text-center text-2xl font-display font-bold text-[#2a1505]">{titleText}</p>
+        {/* Same Bungee/stroke/shadow text treatment as the quest GameButton's
+            label, colored per outcome (gold win / red loss / blue draw)
+            instead of the button's white (2026-08-29). */}
+        <p className="text-center text-2xl font-bold" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+          <span style={{ position: 'relative', display: 'inline-block' }}>
+            <span aria-hidden style={questTextShadowStyle}>{titleText}</span>
+            <span style={{ position: 'relative', color: TITLE_COLOR[outcome], WebkitTextStroke: '0.0952em #000', paintOrder: 'stroke fill' as const, textTransform: 'uppercase' as const }}>{titleText}</span>
+          </span>
+        </p>
       </div>
-      {/* The reason line ("Fight complete") is redundant with "Victory!" on
-          a win — only shown when it's actually informative (a loss/draw, or
-          a non-default reason like a surrender). */}
-      {outcome !== 'win' && <p className="text-center text-xs text-[#6b4820] mb-1">{reasonLabel}</p>}
-      {computedRewardLine && <p className="text-center text-xs text-[#c9781a] font-bold mb-4">{computedRewardLine}</p>}
+      {/* The small reason line ("Fight complete") is redundant with the
+          title text (Victory!/Defeat.../It's a Draw!) on every outcome now —
+          dropped entirely rather than only on a win (2026-08-29). A loss gets
+          a short encouraging byline in its place, a draw gets a
+          strategy-focused one — both from a small rotating pool (2026-08-29). */}
+      {(outcome === 'loss' || outcome === 'draw') && (
+        <p className="text-center text-xs mb-4 text-[#f0ddb8]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
+          {encouragement}
+        </p>
+      )}
+      {computedRewardLine && (
+        <p className="text-center text-xs font-bold mb-4 text-[#fde68a]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
+          {computedRewardLine}
+        </p>
+      )}
       {!computedRewardLine && outcome === 'win' && <div className="mb-4" />}
       <div className="flex items-start gap-4 mb-6">
         <Side {...left} />

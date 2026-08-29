@@ -22,7 +22,7 @@
 // or a new overlay case for whatever screen you're about to restyle next.
 import { useState } from 'react';
 import QuestCard from '@/components/QuestCard';
-import GameButton from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle } from '@/components/GameButton';
 import InfoTag from '@/components/InfoTag';
 import { ActionTile, PlaceholderTile } from '@/components/battle/BattleStage';
 import PostBattleSummary, { PostBattleSideInfo } from '@/components/battle/PostBattleSummary';
@@ -56,7 +56,10 @@ import BossVictoryPopup from '@/components/monster/BossVictoryPopup';
 import BossCutscene from '@/components/BossCutscene';
 import BossMistOverlay from '@/components/BossMistOverlay';
 import BossPersonaFan from '@/components/monster/BossPersonaFan';
+import { BossFightBattle, BossFightLostScreen, BossFightEmptyScreen } from '@/components/monster/BossFightScreen';
+import { GauntletBattle, GauntletEmptyScreen, GauntletFinishedScreen } from '@/components/monster/MasteryGauntletScreen';
 import { BOSS_PERSONAS } from '@/lib/bossPersonas';
+import type { BossQuestion } from '@/lib/bossFightEngine';
 import { ACHIEVEMENTS } from '@/lib/achievements';
 
 function Section({ title, note, children }: { title: string; note?: string; children: React.ReactNode }) {
@@ -190,6 +193,16 @@ export default function UiGallery() {
 
   const mockAchievements = ACHIEVEMENTS.slice(0, 2);
 
+  // BossFightScreen / MasteryGauntletScreen both take a real BossQuestion[]
+  // pool — three is plenty to see the layout, and answering doesn't need to
+  // work (grading hits Supabase) since this is styling-only.
+  const mockBossPool: BossQuestion[] = [
+    { id: 'demo-boss-1', week_starting_date: '2026-08-24', grade: 5, subject: 'Mathematics', tier: 1, topic: 'Fractions', question: 'What is 3/4 + 1/4?', options: ['1', '1/2', '4/8', '2'] },
+    { id: 'demo-boss-2', week_starting_date: '2026-08-24', grade: 5, subject: 'Mathematics', tier: 1, topic: 'Fractions', question: 'Which fraction is equivalent to 1/2?', options: ['2/4', '1/3', '3/5', '2/3'] },
+    { id: 'demo-boss-3', week_starting_date: '2026-08-24', grade: 5, subject: 'Mathematics', tier: 2, topic: 'Decimals', question: 'What is 0.5 as a fraction?', options: ['1/2', '1/5', '5/10th', '2/5'] },
+  ];
+  const bossPersona = BOSS_PERSONAS['Mathematics'];
+
   function renderOverlay() {
     switch (activeOverlay) {
       case 'toast':
@@ -299,8 +312,8 @@ export default function UiGallery() {
           <QuestCard subjectName="Mathematics" completed={false} xp={200} gold={50} onEnter={() => {}} />
           <QuestCard subjectName="Mathematics" completed={true} xp={200} gold={50} onEnter={() => {}} />
           <div>
-            <QuestCard subjectName="Demo Subject" subtitle="No cardBg entry" completed={false} onEnter={() => {}} />
-            <p className="text-[10px] text-amber-500 mt-2">⚠ Falls to DEFAULT_STYLE (dark panel) — documented style debt. See STYLE_GUIDE.md.</p>
+            <QuestCard subjectName="Demo Subject" subtitle="No SUBJECT_STYLE entry" completed={false} onEnter={() => {}} />
+            <p className="text-[10px] text-[#6b4820] mt-2">Unassigned subject — falls back to DEFAULT_STYLE, which now reuses the Weekly Review art instead of a separate dark-panel look (2026-08-29).</p>
           </div>
         </div>
       </Section>
@@ -345,6 +358,55 @@ export default function UiGallery() {
         </div>
       </Section>
 
+      <Section
+        title="Boss Fight & Mastery Gauntlet screens"
+        note="components/monster/BossFightScreen.tsx, components/monster/MasteryGauntletScreen.tsx — real components, mock 3-question pool. Answering won't grade correctly (grading hits Supabase) but every layout state is live here for restyling. BossVictoryPopup is previewable above via the 'BossVictoryPopup' overlay button."
+      >
+        <div className="space-y-3">
+          <p className="text-xs font-bold text-[#6b4820] uppercase tracking-wide">Boss Fight — in combat</p>
+          <div className="max-w-lg">
+            <BossFightBattle
+              pool={mockBossPool}
+              personaName={bossPersona.name}
+              artUrl={bossPersona.artUrl}
+              glowColor={bossPersona.glowColor}
+              otherPersonas={Object.values(BOSS_PERSONAS).slice(1, 4)}
+              onWon={() => {}}
+              onLost={() => {}}
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+          <div className="space-y-3">
+            <p className="text-xs font-bold text-[#6b4820] uppercase tracking-wide">Boss Fight — lost</p>
+            <BossFightLostScreen personaName={bossPersona.name} onRetry={() => {}} onExit={() => {}} />
+          </div>
+          <div className="space-y-3">
+            <p className="text-xs font-bold text-[#6b4820] uppercase tracking-wide">Boss Fight — not enough questions</p>
+            <BossFightEmptyScreen onExit={() => {}} />
+          </div>
+        </div>
+
+        <div className="space-y-3 mt-6">
+          <p className="text-xs font-bold text-[#6b4820] uppercase tracking-wide">Mastery Gauntlet — in progress</p>
+          <div className="max-w-lg">
+            <GauntletBattle pool={mockBossPool} eventTitle="The Tarsipling Festival" userId="demo" grade={5} term={1} onFinished={() => {}} />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+          <div className="space-y-3">
+            <p className="text-xs font-bold text-[#6b4820] uppercase tracking-wide">Gauntlet — no questions this day</p>
+            <GauntletEmptyScreen day="Monday" onExit={() => {}} />
+          </div>
+          <div className="space-y-3">
+            <p className="text-xs font-bold text-[#6b4820] uppercase tracking-wide">Gauntlet — day complete</p>
+            <GauntletFinishedScreen day="Monday" onExit={() => {}} />
+          </div>
+        </div>
+      </Section>
+
       <Section title="Info tag" note="components/InfoTag.tsx">
         <p className="text-[#2a1505] text-sm flex items-center gap-2">
           Arena Score combines wins, level, and collection size.
@@ -378,8 +440,8 @@ export default function UiGallery() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {([
-            { key: 'lorekeeper', guild: 'lorekeeper' as const, name: 'Lorekeeper', desc: 'English guild — Time Attack reading & grammar challenges.', title: 'text-emerald-700', badge: 'bg-emerald-50 text-emerald-700', contentBg: 'bg-emerald-50', bg: '/guilds/lorekeeper-bg.png', lvl: 4 },
-            { key: 'number_realm', guild: 'numberrealm' as const, name: 'Number Realm', desc: 'Math guild — Fractions, time, and operations at speed.', title: 'text-amber-700', badge: 'bg-amber-50 text-amber-700', contentBg: 'bg-amber-50', bg: '/guilds/number-bg.png', lvl: 2 },
+            { key: 'lorekeeper', guild: 'lorekeeper' as const, name: 'Lorekeeper', desc: 'English guild — Time Attack reading & grammar challenges.', titleColor: '#34d399', badge: 'bg-emerald-50 text-emerald-700', contentBg: 'bg-emerald-50', bg: '/guilds/lorekeeper-bg.png', lvl: 4 },
+            { key: 'number_realm', guild: 'numberrealm' as const, name: 'Number Realm', desc: 'Math guild — Fractions, time, and operations at speed.', titleColor: '#fbbf24', badge: 'bg-amber-50 text-amber-700', contentBg: 'bg-amber-50', bg: '/guilds/number-bg.png', lvl: 2 },
           ]).map(g => (
             <div
               key={g.key}
@@ -395,7 +457,12 @@ export default function UiGallery() {
               </div>
               <div className={`w-full flex flex-col items-center gap-1.5 px-5 pb-5 pt-3 ${g.contentBg}`}>
                 <div className="flex items-center gap-2">
-                  <h3 className={`text-xl font-extrabold ${g.title} font-display`}>{g.name}</h3>
+                  <h3 className="text-xl font-extrabold" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+                    <span style={{ position: 'relative', display: 'inline-block' }}>
+                      <span aria-hidden style={questTextShadowStyle}>{g.name}</span>
+                      <span style={{ position: 'relative', color: g.titleColor, WebkitTextStroke: '0.0952em #000', paintOrder: 'stroke fill' as const, textTransform: 'uppercase' as const }}>{g.name}</span>
+                    </span>
+                  </h3>
                   <span className={`text-xs font-mono font-bold ${g.badge} rounded-full px-2 py-0.5 shrink-0`}>
                     Lvl {g.lvl}
                   </span>

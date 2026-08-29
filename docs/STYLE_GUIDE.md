@@ -152,18 +152,14 @@ border, one shade darker on hover:
 | Secondary / "return to map" / dismiss | `bg-[#8b5e2a] hover:bg-[#6b4820] text-white` |
 | Ghost / "go back" text button | `text-[#6b4820] hover:text-[#2a1505] font-bold` |
 
-## Worked reference: `QuestCard.tsx`'s two variants
+## Worked reference: `QuestCard.tsx`
 
-`components/QuestCard.tsx` already shows both layers side by side and is a good sanity check:
-- Subjects with `cardBg` (an illustrated scene image) get a white radial vignette over the art
-  with `text-amber-900` — this **is** the parchment family, just image-backed instead of flat
-  color.
-- Subjects without one fall through to `DEFAULT_STYLE` — a plain dark panel
-  (`bg-[#161010] border-2 border-[#000000]`). **This default variant predates the parchment
-  pass and was never migrated** — it's the same trap the Gauntlet fell into, just not yet
-  fixed. Don't treat it as a valid "second style" to copy from; if you're styling something new
-  that lands on this fallback, override it explicitly with the parchment tokens above instead
-  of matching what's already there.
+`components/QuestCard.tsx` is a good sanity check for the image-backed parchment look: every
+subject renders as an illustrated scene image (`cardBg`) with a white radial vignette over the art
+and `text-amber-900` text. Subjects without a `SUBJECT_STYLE` entry fall through to
+`DEFAULT_STYLE`, which reuses the Weekly Review art rather than a separate look — as of
+2026-08-29 there is only one card style, not a real/fallback split, so there's nothing to avoid
+copying here.
 
 ## Checklist before shipping a new quest/quiz/battle-adjacent screen
 

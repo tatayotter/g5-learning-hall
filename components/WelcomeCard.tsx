@@ -3,6 +3,7 @@
 
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 
 // One motivational line per day of week (Sun–Sat).
 // Tone: warm, academic, kid-appropriate — "how does it feel to understand things better?"
@@ -58,9 +59,17 @@ export default function WelcomeCard({
             ×
           </button>
 
-          {/* Greeting */}
-          <h2 className="font-display font-bold text-lg text-[#f5c542] leading-tight mb-1 pr-6">
-            Welcome back, {playerName}!
+          {/* Greeting — same Bungee/stroke/shadow text treatment as the
+              quest GameButton's label, reusing its exported style constants
+              rather than re-deriving the em ratios (2026-08-29). */}
+          <h2
+            className="text-lg leading-tight mb-1 pr-6"
+            style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}
+          >
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              <span aria-hidden style={questTextShadowStyle}>Welcome back, {playerName}!</span>
+              <span style={questTextStyle}>Welcome back, {playerName}!</span>
+            </span>
           </h2>
 
           {/* Motivational line */}

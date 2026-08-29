@@ -3,6 +3,8 @@
 
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Nail } from '@/components/battle/MonsterHpPanel';
+import { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 
 function useIsLandscape() {
   const [isLandscape, setIsLandscape] = useState(false);
@@ -211,14 +213,22 @@ export default function SidebarRail({
               animate={isLandscape ? { x: 0 } : { y: 0 }}
               exit={isLandscape ? { x: '-100%' } : { y: '100%' }}
               transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
-              style={isLandscape ? { position: 'absolute', top: 0, left: 0, bottom: 0, width: '24rem' } : undefined}
-              className={`relative bg-white border-stone-200 shadow-2xl
+              style={{
+                ...(isLandscape ? { position: 'absolute', top: 0, left: 0, bottom: 0, width: '24rem' } : {}),
+                boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`,
+              }}
+              className={`relative bg-white border-2 border-[#4a2f18]
                 ${isLandscape
                   ? 'rounded-tr-3xl pt-4 pb-5 pl-6 pr-16 flex flex-col'
-                  : 'border border-b-0 rounded-t-3xl pt-10 pb-6 px-6 w-full'
+                  : 'border-b-0 rounded-t-3xl pt-10 pb-6 px-6 w-full'
                 }`}
               onClick={e => e.stopPropagation()}
             >
+              {/* Gold nails, top corners only — the bottom edge either runs
+                  off the bottom sheet or sits under the compass trigger in
+                  the landscape drawer, so nails there wouldn't read (2026-08-29). */}
+              <Nail className="top-2 left-2" />
+              <Nail className="top-2 right-2" />
               {/* Compass — bottom-sheet: top edge center / drawer: right edge middle */}
               <button
                 onClick={() => setIsOpen(false)}
@@ -232,9 +242,16 @@ export default function SidebarRail({
                 <CompassIcon large={isDesktop} />
               </button>
 
-              {/* "Navigation" label */}
+              {/* "Navigation" label — same Bungee/stroke/shadow text treatment
+                  as the quest GameButton's label (2026-08-29), in quest gold
+                  instead of the button's white. */}
               <div className={`${isLandscape ? 'mb-3 text-left' : 'mb-5 text-center'}`}>
-                <span className="text-amber-700 font-extrabold text-xl uppercase tracking-widest font-display">Navigation</span>
+                <span className="text-xl" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+                  <span style={{ position: 'relative', display: 'inline-block' }}>
+                    <span aria-hidden style={questTextShadowStyle}>Navigation</span>
+                    <span style={{ ...questTextStyle, color: '#f5c542' }}>Navigation</span>
+                  </span>
+                </span>
               </div>
 
               {/* Nav grid — 3 cols portrait, 4 cols landscape (2 rows, no scroll) */}

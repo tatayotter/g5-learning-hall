@@ -31,7 +31,7 @@ import CodexPanel from '@/components/CodexPanel';
 import { playShopPurchase, playPageFlip, startMainTheme, stopMainTheme, startTermBossTheme, stopTermBossTheme, isSfxEnabled, isMusicEnabled, setSfxEnabled, setMusicEnabled } from '@/lib/sounds';
 import Toast from '@/components/Toast';
 import { motion, AnimatePresence } from 'framer-motion';
-import GameButton from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle } from '@/components/GameButton';
 import AchievementToast from '@/components/AchievementToast';
 import { useAchievementNotifier } from '@/hooks/useAchievementNotifier';
 import LexiconArena from '@/components/guilds/LexiconArena';
@@ -1152,10 +1152,7 @@ export default function Dashboard() {
             <div className="w-full max-w-4xl mx-auto animate-in fade-in duration-500">
               {quizPhase === 'study' && (
                 <div className="space-y-6">
-                  <GameButton
-                    onClick={() => { setActiveQuest(null); setQuizPhase('study'); }}
-                    className="text-[#6b4820] hover:text-[#2a1505] flex items-center text-sm font-bold transition-colors"
-                  >
+                  <GameButton variant="quest" color="#d4d4d4" onClick={() => { setActiveQuest(null); setQuizPhase('study'); }} style={{ fontSize: 13 }}>
                     ← Retreat to Map
                   </GameButton>
 
@@ -1169,9 +1166,12 @@ export default function Dashboard() {
                   </div>
 
                   <GameButton
+                    variant="quest"
+                    color="#eab308"
                     onClick={() => { if (studyReadRemaining <= 0) setQuizPhase('ready'); }}
                     disabled={studyReadRemaining > 0}
-                    className="w-full bg-yellow-600 hover:bg-yellow-500 text-black py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-[1.01] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    className="w-full"
+                    style={{ fontSize: 18 }}
                   >
                     {studyReadRemaining > 0 ? `🔒 Keep Reading... ${studyReadRemaining}s` : 'I Am Ready To Fight'}
                   </GameButton>
@@ -1186,16 +1186,10 @@ export default function Dashboard() {
                     You are about to start the assessment. Once you enter the exam, there is no turning back.
                   </p>
                   <div className="flex gap-4 justify-center">
-                    <GameButton
-                      onClick={() => setQuizPhase('study')}
-                      className="px-6 py-3 text-[#6b4820] hover:text-[#2a1505] font-bold"
-                    >
+                    <GameButton variant="quest" color="#d4d4d4" onClick={() => setQuizPhase('study')} style={{ fontSize: 15 }}>
                       Go Back to Notes
                     </GameButton>
-                    <GameButton
-                      onClick={() => setQuizPhase('quiz')}
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition-all"
-                    >
+                    <GameButton variant="quest" color="#3b82f6" onClick={() => setQuizPhase('quiz')} style={{ fontSize: 15 }}>
                       Start Exam
                     </GameButton>
                   </div>
@@ -1317,10 +1311,7 @@ export default function Dashboard() {
             <div className="w-full max-w-4xl mx-auto animate-in fade-in duration-500">
               {eventQuizPhase === 'study' && (
                 <div className="space-y-6">
-                  <GameButton
-                    onClick={() => { setActiveEventQuest(null); setEventQuizPhase('study'); }}
-                    className="text-[#6b4820] hover:text-[#2a1505] flex items-center text-sm font-bold transition-colors"
-                  >
+                  <GameButton variant="quest" color="#d4d4d4" onClick={() => { setActiveEventQuest(null); setEventQuizPhase('study'); }} style={{ fontSize: 13 }}>
                     ← Retreat to Map
                   </GameButton>
 
@@ -1334,9 +1325,12 @@ export default function Dashboard() {
                   </div>
 
                   <GameButton
+                    variant="quest"
+                    color="#d97706"
                     onClick={() => { if (eventStudyReadRemaining <= 0) setEventQuizPhase('ready'); }}
                     disabled={eventStudyReadRemaining > 0}
-                    className="w-full bg-amber-600 hover:bg-amber-500 text-black py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-[1.01] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    className="w-full"
+                    style={{ fontSize: 18 }}
                   >
                     {eventStudyReadRemaining > 0 ? `🔒 Keep Reading... ${eventStudyReadRemaining}s` : 'I Am Ready To Fight'}
                   </GameButton>
@@ -1351,16 +1345,10 @@ export default function Dashboard() {
                     You are about to start the event assessment. Once you enter the exam, there is no turning back.
                   </p>
                   <div className="flex gap-4 justify-center">
-                    <GameButton
-                      onClick={() => setEventQuizPhase('study')}
-                      className="px-6 py-3 text-[#6b4820] hover:text-[#2a1505] font-bold"
-                    >
+                    <GameButton variant="quest" color="#d4d4d4" onClick={() => setEventQuizPhase('study')} style={{ fontSize: 15 }}>
                       Go Back to Notes
                     </GameButton>
-                    <GameButton
-                      onClick={() => setEventQuizPhase('quiz')}
-                      className="bg-amber-600 hover:bg-amber-500 text-white px-8 py-3 rounded-lg font-bold transition-all"
-                    >
+                    <GameButton variant="quest" color="#d97706" onClick={() => setEventQuizPhase('quiz')} style={{ fontSize: 15 }}>
                       Start Exam
                     </GameButton>
                   </div>
@@ -1403,10 +1391,7 @@ export default function Dashboard() {
         {/* --- ACTIVE BOSS FIGHT VIEW --- */}
         {activeTab === 'board' && activeBossFight !== null && (
           <div className="w-full max-w-2xl mx-auto animate-in fade-in duration-500">
-            <GameButton
-              onClick={() => setActiveBossFight(null)}
-              className="text-[#6b4820] hover:text-[#2a1505] flex items-center text-sm font-bold transition-colors mb-4"
-            >
+            <GameButton variant="quest" color="#d4d4d4" onClick={() => setActiveBossFight(null)} className="mb-4" style={{ fontSize: 13 }}>
               ← Retreat to Map
             </GameButton>
             <BossFightScreen
@@ -1611,11 +1596,11 @@ export default function Dashboard() {
                 <h1 className="text-2xl lg:text-3xl font-bold mt-4 mb-4 font-display text-gray-900">Side Quest Guilds</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {([
-                    { key: 'lorekeeper' as GuildKey, guild: 'lorekeeper' as const, name: 'Lorekeeper', desc: 'English guild — Time Attack reading & grammar challenges.', border: 'border-[#251616] hover:border-[#3a2020]', title: 'text-emerald-700', badge: 'bg-emerald-50 text-emerald-700', contentBg: 'bg-emerald-50', bg: '/guilds/lorekeeper-bg.png', lvl: guildProfile?.lorekeeper_lvl, tier: guildProfile?.lorekeeper_tier },
-                    { key: 'spellcaster' as GuildKey, guild: 'spellcaster' as const, name: 'SpellCaster', desc: 'Typing guild — Real-time speed spelling under the clock.', border: 'border-[#251616] hover:border-[#3a2020]', title: 'text-violet-700', badge: 'bg-violet-50 text-violet-700', contentBg: 'bg-violet-50', bg: '/guilds/spell-bg.png', lvl: guildProfile?.spellcaster_lvl, tier: guildProfile?.spellcaster_tier },
-                    { key: 'number_realm' as GuildKey, guild: 'numberrealm' as const, name: 'Number Realm', desc: 'Math guild — Fractions, time, and operations at speed.', border: 'border-[#251616] hover:border-[#3a2020]', title: 'text-amber-700', badge: 'bg-amber-50 text-amber-700', contentBg: 'bg-amber-50', bg: '/guilds/number-bg.png', lvl: guildProfile?.number_realm_lvl, tier: guildProfile?.number_realm_tier },
-                    { key: 'logic_labyrinth' as GuildKey, guild: 'logiclabyrinth' as const, name: 'Logic Labyrinth', desc: 'IQ guild — Pattern matrices and deduction puzzles.', border: 'border-[#251616] hover:border-[#3a2020]', title: 'text-cyan-700', badge: 'bg-cyan-50 text-cyan-700', contentBg: 'bg-cyan-50', bg: '/guilds/logic-bg.png', lvl: guildProfile?.logic_labyrinth_lvl, tier: guildProfile?.logic_labyrinth_tier },
-                    { key: 'lexicon_arena' as GuildKey, guild: 'lexiconarena' as const, name: 'Lexicon Arena', desc: 'Spelling guild — Read the definition, pick the correct spelling before time runs out.', border: 'border-[#251616] hover:border-[#3a2020]', title: 'text-indigo-700', badge: 'bg-indigo-50 text-indigo-700', contentBg: 'bg-indigo-50', bg: '/guilds/lex-bg.png', lvl: guildProfile?.lexicon_arena_lvl, tier: guildProfile?.lexicon_arena_tier },
+                    { key: 'lorekeeper' as GuildKey, guild: 'lorekeeper' as const, name: 'Lorekeeper', desc: 'English guild — Time Attack reading & grammar challenges.', border: 'border-[#251616] hover:border-[#3a2020]', titleColor: '#34d399', badge: 'bg-emerald-50 text-emerald-700', contentBg: 'bg-emerald-50', bg: '/guilds/lorekeeper-bg.png', lvl: guildProfile?.lorekeeper_lvl, tier: guildProfile?.lorekeeper_tier },
+                    { key: 'spellcaster' as GuildKey, guild: 'spellcaster' as const, name: 'SpellCaster', desc: 'Typing guild — Real-time speed spelling under the clock.', border: 'border-[#251616] hover:border-[#3a2020]', titleColor: '#a78bfa', badge: 'bg-violet-50 text-violet-700', contentBg: 'bg-violet-50', bg: '/guilds/spell-bg.png', lvl: guildProfile?.spellcaster_lvl, tier: guildProfile?.spellcaster_tier },
+                    { key: 'number_realm' as GuildKey, guild: 'numberrealm' as const, name: 'Number Realm', desc: 'Math guild — Fractions, time, and operations at speed.', border: 'border-[#251616] hover:border-[#3a2020]', titleColor: '#fbbf24', badge: 'bg-amber-50 text-amber-700', contentBg: 'bg-amber-50', bg: '/guilds/number-bg.png', lvl: guildProfile?.number_realm_lvl, tier: guildProfile?.number_realm_tier },
+                    { key: 'logic_labyrinth' as GuildKey, guild: 'logiclabyrinth' as const, name: 'Logic Labyrinth', desc: 'IQ guild — Pattern matrices and deduction puzzles.', border: 'border-[#251616] hover:border-[#3a2020]', titleColor: '#22d3ee', badge: 'bg-cyan-50 text-cyan-700', contentBg: 'bg-cyan-50', bg: '/guilds/logic-bg.png', lvl: guildProfile?.logic_labyrinth_lvl, tier: guildProfile?.logic_labyrinth_tier },
+                    { key: 'lexicon_arena' as GuildKey, guild: 'lexiconarena' as const, name: 'Lexicon Arena', desc: 'Spelling guild — Read the definition, pick the correct spelling before time runs out.', border: 'border-[#251616] hover:border-[#3a2020]', titleColor: '#818cf8', badge: 'bg-indigo-50 text-indigo-700', contentBg: 'bg-indigo-50', bg: '/guilds/lex-bg.png', lvl: guildProfile?.lexicon_arena_lvl, tier: guildProfile?.lexicon_arena_tier },
                   ]).map((g, i) => (
                     <motion.div
                       key={g.key}
@@ -1648,7 +1633,17 @@ export default function Dashboard() {
                       {/* Content zone — always plain white */}
                       <div className={`w-full flex flex-col items-center gap-1.5 px-5 pb-5 pt-3 ${g.contentBg}`}>
                         <div className="flex items-center gap-2">
-                          <h3 className={`text-xl font-extrabold ${g.title} font-display`}>{g.name}</h3>
+                          {/* Same Bungee/stroke/shadow text treatment as the quest
+                              GameButton's label, but keeping each guild's own theme
+                              hue as the fill instead of the button's white
+                              (2026-08-29) — reuses GameButton's exported style
+                              constants rather than re-deriving the em ratios. */}
+                          <h3 className="text-xl font-extrabold" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+                            <span style={{ position: 'relative', display: 'inline-block' }}>
+                              <span aria-hidden style={questTextShadowStyle}>{g.name}</span>
+                              <span style={{ position: 'relative', color: g.titleColor, WebkitTextStroke: '0.0952em #000', paintOrder: 'stroke fill' as const, textTransform: 'uppercase' as const }}>{g.name}</span>
+                            </span>
+                          </h3>
                           {typeof g.lvl === 'number' && (
                             <span className={`text-xs font-mono font-bold ${g.badge} rounded-full px-2 py-0.5 shrink-0`}>
                               Lvl {g.lvl}

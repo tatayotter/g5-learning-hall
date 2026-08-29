@@ -10,6 +10,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import type { CSSProperties } from 'react';
 import { ActionTile } from '@/components/battle/BattleStage';
 import { AttackBanner, DamageNumber, runBattleBeats, BattleBeat } from '@/components/battle/shared';
+import GameButton from '@/components/GameButton';
 import { supabase } from '@/lib/supabase';
 import { BOSS_PERSONAS, BossPersona } from '@/lib/bossPersonas';
 import {
@@ -99,7 +100,9 @@ function CorruptionMeter({ pct }: { pct: number }) {
 
 // Inner fight — keyed by the parent on each retry so a fresh pool truly
 // resets all local state instead of trying to mutate the hook's queue.
-function BossFightBattle({
+// Exported (alongside the Lost/Empty screens below) so components/dev/UiGallery.tsx
+// can preview the real battle UI with a mock pool instead of a static JSX copy.
+export function BossFightBattle({
   pool, personaName, artUrl, glowColor, otherPersonas, onWon, onLost,
 }: {
   pool: BossQuestion[];
@@ -239,6 +242,39 @@ function BossFightBattle({
   );
 }
 
+// Extracted (rather than left inline) so components/dev/UiGallery.tsx can
+// preview the real "lost" screen instead of a static JSX copy that could
+// drift out of sync.
+export function BossFightLostScreen({ personaName, onRetry, onExit }: { personaName: string; onRetry: () => void; onExit: () => void }) {
+  return (
+    <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 text-center">
+      <p className="text-2xl mb-2">💨</p>
+      <p className="text-white font-bold text-lg mb-1">{personaName} held on.</p>
+      <p className="text-gray-400 text-sm mb-6">Go review and come back stronger — no rush.</p>
+      <div className="flex gap-3 justify-center">
+        <GameButton variant="quest" color="#d97706" onClick={onRetry} style={{ fontSize: 15 }}>
+          Try Again
+        </GameButton>
+        <GameButton variant="quest" color="#57534e" onClick={onExit} style={{ fontSize: 15 }}>
+          Retreat
+        </GameButton>
+      </div>
+    </div>
+  );
+}
+
+// Same reasoning as BossFightLostScreen above.
+export function BossFightEmptyScreen({ onExit }: { onExit: () => void }) {
+  return (
+    <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 text-center">
+      <p className="text-gray-400 text-sm mb-4">This boss isn't ready to be fought yet — not enough published questions.</p>
+      <GameButton variant="quest" color="#57534e" onClick={onExit} style={{ fontSize: 15 }}>
+        Back
+      </GameButton>
+    </div>
+  );
+}
+
 export default function BossFightScreen({ userId, grade, subject, otherPersonas, onExit }: BossFightScreenProps) {
   const persona = BOSS_PERSONAS[subject];
   const [rawPool, setRawPool] = useState<BossQuestion[] | null>(null);
@@ -309,32 +345,11 @@ export default function BossFightScreen({ userId, grade, subject, otherPersonas,
   }
 
   if (pool.length === 0) {
-    return (
-      <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 text-center">
-        <p className="text-gray-400 text-sm mb-4">This boss isn't ready to be fought yet — not enough published questions.</p>
-        <button onClick={() => onExit(false)} className="bg-neutral-800 hover:bg-neutral-700 text-white font-bold px-6 py-2 rounded-lg">
-          Back
-        </button>
-      </div>
-    );
+    return <BossFightEmptyScreen onExit={() => onExit(false)} />;
   }
 
   if (lost) {
-    return (
-      <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 text-center">
-        <p className="text-2xl mb-2">💨</p>
-        <p className="text-white font-bold text-lg mb-1">{persona.name} held on.</p>
-        <p className="text-gray-400 text-sm mb-6">Go review and come back stronger — no rush.</p>
-        <div className="flex gap-3 justify-center">
-          <button onClick={handleRetry} className="bg-amber-600 hover:bg-amber-500 text-white font-bold px-6 py-2 rounded-lg">
-            Try Again
-          </button>
-          <button onClick={() => onExit(false)} className="bg-neutral-800 hover:bg-neutral-700 text-gray-300 font-bold px-6 py-2 rounded-lg">
-            Retreat
-          </button>
-        </div>
-      </div>
-    );
+    return <BossFightLostScreen personaName={persona.name} onRetry={handleRetry} onExit={() => onExit(false)} />;
   }
 
   if (claiming) {
