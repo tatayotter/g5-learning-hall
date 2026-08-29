@@ -122,8 +122,8 @@ export default function GameButton({ children, className, variant = 'plain', col
         {icon && <span style={{ position: 'relative', flexShrink: 0, width: '2.2em', height: '2.2em', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{icon}</span>}
         <span style={{ position: 'relative', minWidth: 0 }}>
           <span style={{ position: 'relative', display: 'inline-block' }}>
-            <span aria-hidden style={questTextShadowStyle}>{children}</span>
-            <span style={questTextStyle}>{children}</span>
+            <span aria-hidden style={questTextShadowStyle}>{children as React.ReactNode}</span>
+            <span style={questTextStyle}>{children as React.ReactNode}</span>
           </span>
           {sub && (
             <span style={{ display: 'block', fontFamily: 'var(--font-inter), sans-serif', fontSize: '0.5em', color: 'rgba(0,0,0,0.6)', textTransform: 'none', letterSpacing: 'normal', fontWeight: 700 }}>
