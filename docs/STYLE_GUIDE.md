@@ -52,10 +52,12 @@ art/photo content underneath.
 
 **Also excluded on purpose**: `/tatayadmin` (all of `components/admin/*`, `AdminDashboard.tsx`,
 `TatayAdminPage.tsx`) stays dark — it's a separate internal tool, not the player-facing shell (see
-"What this doc does *not* cover" below). The hero-select splash (`SplashScreen.tsx`) and the
-loading screens (`LoadingScreen.tsx`) also stay dark/atmospheric on purpose — deliberate
-title-screen moments using painted art that isn't theme-token-driven, a decision made explicitly
-when this change shipped rather than an oversight.
+"What this doc does *not* cover" below). The loading screens (`LoadingScreen.tsx`) stay
+dark/atmospheric on purpose — a deliberate title-screen moment using painted art that isn't
+theme-token-driven. **`SplashScreen.tsx` (the hero-select/login screen) no longer belongs on this
+list** — it moved to the parchment palette on 2026-08-29 (same tokens as everywhere else in this
+doc, plus the `GameButton` quest variant for its "Enter →" CTA); the splash art still shows behind
+a light parchment wash instead of a dark one.
 
 ## The two layers — don't flatten them into one
 

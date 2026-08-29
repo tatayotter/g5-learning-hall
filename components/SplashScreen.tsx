@@ -2,6 +2,7 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { UserId, USERS, setActiveUser, getClassmateIds, getChildIds, isFamilyProtected, linkIdentity } from '@/lib/userSession';
+import GameButton from '@/components/GameButton';
 
 interface SplashScreenProps {
   onSelect: (id: UserId) => void;
@@ -10,15 +11,17 @@ interface SplashScreenProps {
 const FAMILY_IDS: UserId[] = ['damien', 'tala'];
 
 // Cosmetic variety for the roster tiles — cycled by roster position so
-// colors stay stable regardless of search filtering. Warm/earthy tones to
-// match the in-game torchlight-dungeon palette (amber/ember/moss/stone).
+// colors stay stable regardless of search filtering. Light pastel chips to
+// match the parchment palette (docs/STYLE_GUIDE.md), swapped from the
+// original dark/torchlight set when this screen moved to light theme
+// (2026-08-29).
 const AVATAR_PALETTES = [
-  { bg: '#2a1f0f', border: '#3d2e1a', text: '#c9911a' },
-  { bg: '#2e1f1a', border: '#4a2e22', text: '#c9581a' },
-  { bg: '#1a2416', border: '#2a3d22', text: '#7fae52' },
-  { bg: '#201d1a', border: '#3a352e', text: '#a89c86' },
-  { bg: '#2a1414', border: '#4a1c1c', text: '#b5453a' },
-  { bg: '#241a10', border: '#3a2a18', text: '#b5824a' },
+  { bg: '#fdf3e0', border: '#e8c88a', text: '#c9781a' },
+  { bg: '#fdece0', border: '#e8b088', text: '#c9581a' },
+  { bg: '#eaf5e0', border: '#c5e0a8', text: '#5a8a3a' },
+  { bg: '#f0ede6', border: '#d8d0c0', text: '#8b7c5e' },
+  { bg: '#fbe4e4', border: '#e8b0b0', text: '#b5453a' },
+  { bg: '#f5e8d0', border: '#e0c088', text: '#a5701a' },
 ];
 
 function RosterAvatar({
@@ -33,10 +36,10 @@ function RosterAvatar({
   const [failed, setFailed] = useState(false);
   return (
     <div
-      className="shrink-0 w-[42px] h-[42px] rounded-[10px] border flex items-center justify-center relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.06)]"
+      className="shrink-0 w-[42px] h-[42px] rounded-[10px] border flex items-center justify-center relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.5)]"
       style={{ backgroundColor: palette.bg, borderColor: palette.border }}
     >
-      <div className="absolute inset-0 opacity-[0.07] bg-[linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] bg-[size:6px_6px]" />
+      <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(#2a1505_1px,transparent_1px),linear-gradient(90deg,#2a1505_1px,transparent_1px)] bg-[size:6px_6px]" />
       {failed ? (
         <span
           className="relative text-[18px] font-black tracking-tighter"
@@ -52,7 +55,6 @@ function RosterAvatar({
           className="relative w-full h-full object-contain"
         />
       )}
-      <div className="absolute top-[2px] left-[3px] right-[3px] h-[1px] bg-white/10 rounded-full" />
     </div>
   );
 }
@@ -137,12 +139,15 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
   };
 
   return (
-    <div className="relative h-[100dvh] w-full bg-[#0a0807] overflow-hidden flex justify-center font-[Inter,system-ui,sans-serif] selection:bg-[#4a2e0a]">
+    <div className="relative h-[100dvh] w-full bg-[#0c2456] overflow-hidden flex justify-center font-[Inter,system-ui,sans-serif] selection:bg-[#0c2456]">
       <div className="absolute inset-0">
         <img src="/splash1.webp" alt="" className="w-full h-full object-cover object-center" />
-        <div className="absolute inset-0 bg-black/75" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0807]/40 via-transparent to-[#0a0807]/80" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(0,0,0,0.7)_100%)]" />
+        {/* Logo-blue wash over the art (2026-08-29: swapped from an earlier
+            parchment-beige wash to match the logo's blue) — the art stays a
+            faint backdrop, white content cards do the actual "light" work. */}
+        <div className="absolute inset-0 bg-[#0c2456]/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0c2456]/30 via-transparent to-[#0c2456]/80" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(12,36,86,0.75)_100%)]" />
       </div>
 
       <div className="relative z-10 w-full max-w-[480px] h-[100dvh] flex flex-col px-[18px] sm:px-6 py-5 overflow-hidden">
@@ -154,7 +159,7 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
             className="h-20 w-auto object-contain"
           />
           {loginTarget && (
-            <h1 className="text-[11px] tracking-[0.18em] text-white/20 font-medium uppercase text-center px-4">
+            <h1 className="text-[11px] tracking-[0.18em] text-blue-100/70 font-medium uppercase text-center px-4">
               {`Welcome back, ${loginTarget.name}`}
             </h1>
           )}
@@ -162,9 +167,9 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
 
         {!loginTarget && allIds.length > 6 && (
           <div className="relative group mb-5">
-            <div className="absolute -inset-px rounded-[14px] bg-gradient-to-b from-[#7a4a0f]/50 to-transparent opacity-0 group-focus-within:opacity-100 blur-[1px] transition-opacity" />
-            <div className="relative flex items-center rounded-[14px] bg-[#1c1611] border border-[#3d3225] shadow-[0_0_0_1px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.04),0_0_20px_rgba(100,60,20,0.15)]">
-              <div className="pl-4 pr-2 text-[#8a7c66]">
+            <div className="absolute -inset-px rounded-[14px] bg-gradient-to-b from-[#c9781a]/40 to-transparent opacity-0 group-focus-within:opacity-100 blur-[1px] transition-opacity" />
+            <div className="relative flex items-center rounded-[14px] bg-white border border-[#c9a87a] shadow-[0_0_0_1px_rgba(0,0,0,0.03),inset_0_1px_0_rgba(255,255,255,0.6)]">
+              <div className="pl-4 pr-2 text-[#8b5e2a]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="11" cy="11" r="8" />
                   <path d="m21 21-4.3-4.3" />
@@ -175,7 +180,7 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search players..."
-                className="w-full bg-transparent py-[13px] pr-4 text-[14px] font-medium text-white/80 placeholder:text-[#8a7c66] focus:outline-none"
+                className="w-full bg-transparent py-[13px] pr-4 text-[14px] font-medium text-[#2a1505] placeholder:text-[#8b5e2a]/70 focus:outline-none"
               />
             </div>
           </div>
@@ -185,7 +190,7 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
           <div className="flex-1 min-h-0 relative">
             <div className="h-full overflow-y-auto pr-1 -mr-1 custom-scrollbar space-y-[10px] pb-4">
               {visibleIds.length === 0 && (
-                <p className="text-center text-gray-600 text-sm py-6">No players match &quot;{searchQuery}&quot;</p>
+                <p className="text-center text-blue-100/60 text-sm py-6">No players match &quot;{searchQuery}&quot;</p>
               )}
               {visibleIds.map((id, i) => {
                 const user = USERS[id];
@@ -200,19 +205,19 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: Math.min(i, 10) * 0.03 }}
-                    className="group w-full text-left relative rounded-[14px] bg-[#1c1611] border border-[#3d3225] p-3 flex items-center gap-3 transition-colors duration-200 hover:border-[#c9781a] hover:bg-[#241d16]"
+                    className="group w-full text-left relative rounded-[14px] bg-white border border-[#c9a87a] p-3 flex items-center gap-3 transition-colors duration-200 hover:border-[#c9781a] hover:bg-[#fdf6e8]"
                   >
                     <RosterAvatar avatar={user.avatar} name={user.name} palette={palette} />
 
                     <div className="flex-1 min-w-0 flex flex-col gap-[1px]">
-                      <span className="text-[15px] font-bold leading-none tracking-[-0.01em] text-white/90 group-hover:text-white transition-colors truncate">
+                      <span className="text-[15px] font-bold leading-none tracking-[-0.01em] text-[#2a1505] transition-colors truncate">
                         {user.name}
                       </span>
-                      <span className="text-[11.5px] font-medium tracking-wide text-[#a89c86] mt-[3px]">{user.grade}</span>
+                      <span className="text-[11.5px] font-medium tracking-wide text-[#6b4820] mt-[3px]">{user.grade}</span>
                     </div>
 
                     {user.school && (
-                      <span className="shrink-0 max-w-[110px] text-right text-[11px] font-medium text-[#6b5f4a] tracking-wide truncate">
+                      <span className="shrink-0 max-w-[110px] text-right text-[11px] font-medium text-[#8b5e2a] tracking-wide truncate">
                         {user.school}
                       </span>
                     )}
@@ -221,8 +226,6 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
               })}
               <div className="h-2" />
             </div>
-            <div className="pointer-events-none absolute top-0 left-0 right-1 h-4 bg-gradient-to-b from-[#0a0807] to-transparent" />
-            <div className="pointer-events-none absolute bottom-0 left-0 right-1 h-6 bg-gradient-to-t from-[#0a0807]/80 to-transparent" />
           </div>
         )}
 
@@ -232,35 +235,41 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="w-full rounded-[14px] bg-[#1c1611] border border-[#3d3225] p-8 shadow-[0_0_0_1px_rgba(0,0,0,0.5),0_0_30px_rgba(100,60,20,0.15)]"
+              className="w-full rounded-[14px] bg-white border border-[#c9a87a] p-8 shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_10px_30px_rgba(201,120,26,0.15)]"
             >
-              <h2 className="text-lg font-bold text-white/90 mb-1">{loginTarget.name}</h2>
-              <p className="text-[#8a7c66] text-sm mb-5">Enter your password to continue.</p>
+              <h2 className="text-lg font-bold text-[#2a1505] mb-1">{loginTarget.name}</h2>
+              <p className="text-[#6b4820] text-sm mb-5">Enter your password to continue.</p>
               <form onSubmit={handlePasswordSubmit} className="space-y-4">
                 <input
                   type="password"
                   autoFocus
                   placeholder="Password"
-                  className="w-full bg-[#14100d] border border-[#3d3225] rounded-[14px] p-3 text-white focus:border-[#c9781a] outline-none"
+                  className="w-full bg-white border border-[#c9a87a] rounded-[14px] p-3 text-[#2a1505] placeholder:text-[#8b5e2a]/60 focus:border-[#c9781a] outline-none"
                   value={passwordInput}
                   onChange={(e) => setPasswordInput(e.target.value)}
                 />
-                {loginError && <p className="text-red-400 text-xs">{loginError}</p>}
-                <div className="flex gap-3">
-                  <button
+                {loginError && <p className="text-red-600 text-xs">{loginError}</p>}
+                <div className="flex gap-3 items-stretch">
+                  <GameButton
                     type="button"
+                    variant="quest"
+                    color="#d4d4d4"
                     onClick={() => setLoginTarget(null)}
-                    className="flex-1 bg-[#2a2119] hover:bg-[#3d3225] border border-[#3d3225] text-white font-bold py-2 rounded-[14px] transition-colors"
+                    className="flex-1"
+                    style={{ fontSize: 15 }}
                   >
                     ← Back
-                  </button>
-                  <button
+                  </GameButton>
+                  <GameButton
                     type="submit"
+                    variant="quest"
+                    color="#d97706"
                     disabled={loggingIn || !passwordInput}
-                    className="flex-1 bg-[#c9781a] hover:bg-[#e2921e] disabled:opacity-40 text-white font-bold py-2 rounded-[14px] transition-colors"
+                    className="flex-1"
+                    style={{ fontSize: 15 }}
                   >
                     {loggingIn ? 'Checking...' : 'Enter →'}
-                  </button>
+                  </GameButton>
                 </div>
               </form>
             </motion.div>
@@ -275,18 +284,18 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
               transition={{ delay: 0.55 }}
               className="flex items-center gap-2.5 text-[12.5px] font-medium"
             >
-              <a href="/register" className="text-[#b5824a] hover:text-[#f0b429] transition-colors tracking-wide">Register as a Parent</a>
-              <span className="text-[#4a4038] text-[10px]">·</span>
-              <a href="/parent-login" className="text-[#b5824a] hover:text-[#f0b429] transition-colors tracking-wide">Parent Login</a>
-              <span className="text-[#4a4038] text-[10px]">·</span>
-              <a href="/child-signup" className="text-[#b5824a] hover:text-[#f0b429] transition-colors tracking-wide">Kids: Play Now</a>
+              <a href="/register" className="text-[#f5c542] hover:text-[#ffdd88] transition-colors tracking-wide">Register as a Parent</a>
+              <span className="text-blue-100/30 text-[10px]">·</span>
+              <a href="/parent-login" className="text-[#f5c542] hover:text-[#ffdd88] transition-colors tracking-wide">Parent Login</a>
+              <span className="text-blue-100/30 text-[10px]">·</span>
+              <a href="/child-signup" className="text-[#f5c542] hover:text-[#ffdd88] transition-colors tracking-wide">Kids: Play Now</a>
             </motion.div>
 
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-[11px] tracking-[0.06em] text-white/25 font-medium mt-1"
+              className="text-[11px] tracking-[0.06em] text-blue-100/40 font-medium mt-1"
             >
               Ruelo Learning Hall · Family Edition
             </motion.p>
