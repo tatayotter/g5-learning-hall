@@ -66,6 +66,7 @@ import {
   fetchEventQuests,
   fetchUserEventProgress,
   hasClaimedEventReward,
+  fetchClaimedMonsterId,
   recordEventQuizMastery,
   claimEventReward,
 } from '@/lib/customEvents';
@@ -383,6 +384,10 @@ export default function Dashboard() {
   const [eventQuests, setEventQuests] = useState<EventQuest[]>([]);
   const [eventProgress, setEventProgress] = useState<UserEventProgressRow[]>([]);
   const [eventClaimed, setEventClaimed] = useState(false);
+  // What this student actually got, persisted on the claims row — needed
+  // because a 'random_starter' event's activeEvent.reward_monster_id is
+  // just a sentinel, not a real curio id.
+  const [claimedMonsterId, setClaimedMonsterId] = useState<string | null>(null);
   const [revealEventMonster, setRevealEventMonster] = useState<string | null>(null);
   const [activeEventQuest, setActiveEventQuest] = useState<string | null>(null);
   const [eventQuizPhase, setEventQuizPhase] = useState<'study' | 'ready' | 'quiz'>('study');
@@ -455,6 +460,7 @@ export default function Dashboard() {
       setEventQuests([]);
       setEventProgress([]);
       setEventClaimed(false);
+      setClaimedMonsterId(null);
       return;
     }
     const gradeLevel = gradeToNumber(USERS[userId]?.grade);
@@ -466,6 +472,7 @@ export default function Dashboard() {
     setEventQuests(quests);
     setEventProgress(progress);
     setEventClaimed(claimed);
+    setClaimedMonsterId(claimed ? await fetchClaimedMonsterId(userId, ev.id) : null);
 
     if (
       !claimed &&
@@ -484,25 +491,27 @@ export default function Dashboard() {
   // Builds the gauntlet's full-week pool once per active event and splits
   // it into the 5 weekday chunks the board renders in place of the normal
   // per-subject cards. Re-runs if the event or grade changes; does nothing
-  // for 'authored' events.
+  // for 'authored' events. Pulls from content_questions_public — every
+  // grade's own weekly lessons from before the event started — rather than
+  // a term-scoped authored bank, so this works for every grade, not just
+  // the two that ever had draft_questions content.
   useEffect(() => {
-    if (!activeUserId || !activeEvent || activeEvent.content_source !== 'gauntlet' || !activeEvent.gauntlet_term) {
+    if (!activeUserId || !activeEvent || activeEvent.content_source !== 'gauntlet') {
       setGauntletDayPools({});
       setGauntletDaysDone(new Set());
       return;
     }
     const grade = gradeToNumber(USERS[activeUserId]?.grade);
-    const term = activeEvent.gauntlet_term;
     Promise.all([
-      fetchGauntletQuestionPool(grade, term),
-      fetchGauntletMistakes(activeUserId, grade, term),
+      fetchGauntletQuestionPool(grade, activeEvent.start_date),
+      fetchGauntletMistakes(activeUserId),
       fetchGauntletDaysDone(activeUserId, activeEvent.id),
     ]).then(([all, mistakes, daysDone]) => {
       const pool = buildMasteryGauntletPool(all, mistakes);
       setGauntletDayPools(splitPoolIntoDays(pool, WEEKDAYS));
       setGauntletDaysDone(daysDone);
     });
-  }, [activeUserId, activeEvent?.id, activeEvent?.content_source, activeEvent?.gauntlet_term]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [activeUserId, activeEvent?.id, activeEvent?.content_source, activeEvent?.start_date]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleDismissEventPopup = () => {
     setShowEventPopup(false);
@@ -986,9 +995,9 @@ export default function Dashboard() {
                   {eventClaimed ? (
                     <div className="px-6 pb-6 flex flex-col items-center text-center gap-3">
                       <p className="text-green-400 font-bold">
-                        ✅ Special Event Completed. You have collected {ALL_MONSTERS[activeEvent.reward_monster_id]?.name ?? 'your reward'}!
+                        ✅ Special Event Completed. You have collected {(claimedMonsterId && ALL_MONSTERS[claimedMonsterId]?.name) ?? 'your reward'}!
                       </p>
-                      {ALL_MONSTERS[activeEvent.reward_monster_id] && (
+                      {claimedMonsterId && ALL_MONSTERS[claimedMonsterId] && (
                         <button
                           type="button"
                           onClick={() => { setGuildInitialView('compendium'); setActiveTab('monster'); }}
@@ -996,7 +1005,7 @@ export default function Dashboard() {
                           title="View in Compendium"
                         >
                           <MonsterImage
-                            monster={ALL_MONSTERS[activeEvent.reward_monster_id]}
+                            monster={ALL_MONSTERS[claimedMonsterId]}
                             className="w-24 h-24 hover:scale-105 transition-transform"
                             emojiClassName="text-7xl"
                           />
@@ -1295,10 +1304,10 @@ export default function Dashboard() {
                 );
                 if (allMastered) {
                   const gradeLevel = gradeToNumber(USERS[activeUserId]?.grade);
-                  const granted = await claimEventReward(activeUserId, activeEvent.id, gradeLevel);
-                  if (granted) {
+                  const grantedMonsterId = await claimEventReward(activeUserId, activeEvent.id, gradeLevel);
+                  if (grantedMonsterId) {
                     setEventClaimed(true);
-                    setRevealEventMonster(activeEvent.reward_monster_id);
+                    setRevealEventMonster(grantedMonsterId);
                     logAction(activeUserId, data.week_starting_date, 'event_reward', `Completed event: ${activeEvent.title}`, 0, 0);
                     trackEvent('event_reward_claimed', { event_id: activeEvent.id });
                   }
@@ -1435,13 +1444,13 @@ export default function Dashboard() {
                 const daysDone = await fetchGauntletDaysDone(activeUserId, activeEvent.id);
                 setGauntletDaysDone(daysDone);
                 if (daysDone.size >= WEEKDAYS.length) {
-                  const { data: granted } = await supabase.rpc('claim_event_reward', {
+                  const { data: grantedMonsterId } = await supabase.rpc('claim_event_reward', {
                     p_event_id: activeEvent.id,
                     p_user_id: activeUserId,
                     p_grade_level: grade,
                   });
-                  if (granted) {
-                    setRevealEventMonster(activeEvent.reward_monster_id);
+                  if (grantedMonsterId) {
+                    setRevealEventMonster(grantedMonsterId);
                     logAction(activeUserId, data.week_starting_date, 'event_reward', `Completed event: ${activeEvent.title}`, 0, 0);
                     trackEvent('event_reward_claimed', { event_id: activeEvent.id });
                   }

@@ -1,49 +1,114 @@
 // lib/masteryGauntletEngine.ts
-// Topic Mastery Gauntlet — a term-break event quest. Unlike admin-authored
-// event_quests, the question pool is assembled dynamically from
-// draft_questions_public for the grade + term that just ended, reusing the
-// Term Exam Boss Fight's topic-balancing helper. See
-// supabase/migrations/20260828140000_topic_mastery_gauntlet.sql and
-// project_term_break_special_content_plan memory for the full design.
+// Topic Mastery Gauntlet — a term-break event quest that reviews questions
+// from the student's own weekly lessons (content_questions_public), not a
+// separately-authored bank. This is what makes it work for every grade:
+// content_questions_public is populated every week by ordinary BOW content
+// generation for grades 2-6 alike, unlike draft_questions (the Term Exam
+// Boss Fight's bank), which was only ever authored for Grade 2 and 5. See
+// supabase/migrations/20260902130000_gauntlet_sources_weekly_content.sql
+// and project_term_break_special_content_plan memory for the full history.
+//
+// Grading reuses the Monster Arena's own grade_content_question RPC (via
+// lib/guildEngine.ts's gradeMonsterQuestion) and its existing
+// player_question_attempts correctness log — no gauntlet-specific grading
+// path or attempts table needed.
 //
 // Practice mode, not exam mode: no hearts, no lose condition. A wrong answer
 // just requeues the question to the end so the student sees it again before
 // finishing — the point is repetition, not risk.
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback } from 'react';
 import { supabase } from './supabase';
-import { BossQuestion, buildBossQuestionPool, POOL_MIN, POOL_MAX } from './bossFightEngine';
+import { BossQuestion, shuffle } from './bossFightEngine';
 
-export async function fetchGauntletQuestionPool(grade: number, term: number): Promise<BossQuestion[]> {
+// 10 questions/day x 5 weekdays. Deliberately not reusing bossFightEngine's
+// POOL_MIN/POOL_MAX (12/20) here — those are sized for a single boss fight
+// session, not a 5-day weekly pool, and reusing them silently capped every
+// bucket at 20 regardless of how many days it needed to cover (see
+// balanceBucket below for why that's handled differently here).
+export const QUESTIONS_PER_DAY = 10;
+const WEEKDAY_COUNT = 5;
+const GAUNTLET_POOL_TARGET = QUESTIONS_PER_DAY * WEEKDAY_COUNT;
+
+// Everything published for this grade from before the break started —
+// literally "the previous weeks' questions," per the brief. content_questions_public
+// has no per-question topic, only subject — `topic` below is set to the
+// subject name just to satisfy BossQuestion's shape; balanceBucket (below)
+// keys on `.subject` directly for the actual balancing.
+export async function fetchGauntletQuestionPool(grade: number, beforeDate: string): Promise<BossQuestion[]> {
   const { data, error } = await supabase
-    .from('draft_questions_public')
-    .select('*')
+    .from('content_questions_public')
+    .select('id, prompt, options, subject, grade, week_starting_date, status')
     .eq('grade', grade)
-    .eq('term', term);
+    .eq('status', 'published')
+    .lt('week_starting_date', beforeDate);
   if (error || !data) return [];
-  return data as BossQuestion[];
+  return data.map((row: any) => ({
+    id: row.id,
+    week_starting_date: row.week_starting_date,
+    grade: row.grade,
+    subject: row.subject,
+    tier: 0,
+    topic: row.subject,
+    question: row.prompt,
+    options: row.options,
+  }));
 }
 
-// question_id -> most recent correctness, scoped to this student's own attempts
-// for this grade + term (RLS-enforced read-own on mastery_gauntlet_attempts).
-export async function fetchGauntletMistakes(userId: string, grade: number, term: number): Promise<Map<string, boolean>> {
+// question_id -> most recent correctness, from the Monster Arena's own
+// attempt log (already RLS read-own) — no gauntlet-specific tracking table.
+// Fetches this student's whole history rather than filtering by the pool's
+// ids up front: a single student's lifetime attempt count is small, and it
+// avoids an unbounded `.in()` list against a pool that can run into the
+// hundreds of rows for grades with several weeks of content.
+export async function fetchGauntletMistakes(userId: string): Promise<Map<string, boolean>> {
   const { data, error } = await supabase
-    .from('mastery_gauntlet_attempts')
-    .select('question_id, is_correct')
-    .eq('user_id', userId)
-    .eq('grade', grade)
-    .eq('term', term);
+    .from('player_question_attempts')
+    .select('content_question_id, correct')
+    .eq('user_id', userId);
   if (error || !data) return new Map();
-  return new Map(data.map((row: any) => [row.question_id as string, row.is_correct as boolean]));
+  return new Map(data.map((row: any) => [row.content_question_id as string, row.correct as boolean]));
+}
+
+// Subject-balanced sample of up to `limit` questions from one bucket — same
+// proportional-per-subject idea as bossFightEngine's buildBossQuestionPool,
+// but with a caller-supplied limit instead of a fixed cap, since a bucket
+// here may need to fill anywhere from a few slots up to the whole weekly
+// target depending on how much the other buckets already covered.
+function balanceBucket(qs: BossQuestion[], limit: number): BossQuestion[] {
+  if (qs.length <= limit) return shuffle(qs);
+
+  const bySubject = new Map<string, BossQuestion[]>();
+  for (const q of qs) {
+    const key = q.subject || '__unknown';
+    if (!bySubject.has(key)) bySubject.set(key, []);
+    bySubject.get(key)!.push(q);
+  }
+
+  const subjects = [...bySubject.keys()];
+  const perSubject = Math.max(1, Math.floor(limit / subjects.length));
+  const picked: BossQuestion[] = [];
+  for (const subject of subjects) {
+    picked.push(...shuffle(bySubject.get(subject)!).slice(0, perSubject));
+  }
+  if (picked.length < limit) {
+    const pickedIds = new Set(picked.map(q => q.id));
+    const leftovers = shuffle(qs.filter(q => !pickedIds.has(q.id)));
+    picked.push(...leftovers.slice(0, limit - picked.length));
+  }
+  return shuffle(picked).slice(0, limit);
 }
 
 // First run per student: no attempts yet, every question falls into the
-// "unseen" bucket, so this degrades to buildBossQuestionPool's plain
-// topic-balanced random sample. Once mastery_gauntlet_attempts has rows
-// (i.e. the student has done a gauntlet for this grade/term before, or
-// answered these questions elsewhere), previously-wrong questions are
+// "unseen" bucket, so this degrades to a plain subject-balanced random
+// sample of the full weekly target. Once player_question_attempts has rows
+// for these questions (from a prior gauntlet, or just from playing the
+// Monster Arena normally that week), previously-wrong questions are
 // prioritized first, then unseen, then already-correct — so a repeat trip
-// through the same break's gauntlet (or next year's, if a term ever
-// repeats) actually targets real mistakes instead of re-randomizing.
+// through the gauntlet actually targets real mistakes instead of
+// re-randomizing. Each bucket only takes as many slots as are still needed
+// to reach the weekly target, so a single well-stocked bucket (e.g. "unseen"
+// on a first run) can fill the whole 50 rather than being capped at 20 and
+// leaving the other days short.
 export function buildMasteryGauntletPool(all: BossQuestion[], mistakes: Map<string, boolean>): BossQuestion[] {
   const wrong: BossQuestion[] = [];
   const unseen: BossQuestion[] = [];
@@ -54,36 +119,12 @@ export function buildMasteryGauntletPool(all: BossQuestion[], mistakes: Map<stri
     else correct.push(q);
   }
 
-  // Topic-balance within each priority bucket independently so a student
-  // with many wrong answers in one subject doesn't get a pool that's all
-  // that one subject — then concatenate in priority order and cap at
-  // POOL_MAX. buildBossQuestionPool already no-ops (just shuffles) when a
-  // bucket is small.
-  const prioritized = [
-    ...buildBossQuestionPool(wrong),
-    ...buildBossQuestionPool(unseen),
-    ...buildBossQuestionPool(correct),
-  ];
-  if (prioritized.length <= POOL_MAX) return prioritized;
-  return prioritized.slice(0, Math.max(POOL_MIN, POOL_MAX));
-}
-
-// SECURITY DEFINER RPC — reads draft_questions.correct_answer server-side
-// (locked down from direct client SELECT) and upserts the correctness log
-// in the same call.
-export async function gradeGauntletQuestion(
-  userId: string, questionId: string, selected: string, grade: number, subject: string, term: number
-): Promise<boolean> {
-  const { data, error } = await supabase.rpc('grade_mastery_gauntlet_question', {
-    p_question_id: questionId,
-    p_selected: selected,
-    p_user_id: userId,
-    p_grade: grade,
-    p_subject: subject,
-    p_term: term,
-  });
-  if (error) return false;
-  return !!data;
+  const picked: BossQuestion[] = [];
+  for (const bucket of [wrong, unseen, correct]) {
+    if (picked.length >= GAUNTLET_POOL_TARGET) break;
+    picked.push(...balanceBucket(bucket, GAUNTLET_POOL_TARGET - picked.length));
+  }
+  return picked;
 }
 
 // Splits the full-week pool into one chunk per weekday, round-robin so
@@ -116,6 +157,9 @@ export async function fetchGauntletDaysDone(userId: string, eventId: string): Pr
 // Marks one weekday's chunk complete so claim_event_reward's gauntlet
 // branch can see it — plain client insert, RLS-enforced insert-own, same
 // pattern as recordEventQuizMastery writing user_event_progress directly.
+// `term` is kept only as informational metadata on the row now (no longer
+// used to filter the question pool) — pass whatever the event's
+// gauntlet_term happens to be, or 1 if unset.
 export async function markGauntletDayComplete(userId: string, eventId: string, grade: number, term: number, day: string) {
   await supabase.from('mastery_gauntlet_sessions').upsert(
     { user_id: userId, event_id: eventId, grade, term, day },

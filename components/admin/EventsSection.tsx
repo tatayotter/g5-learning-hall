@@ -152,7 +152,7 @@ function EventManager({ events, questCounts, onReload, passcode }: {
               <p className="text-xs text-[#8a7c66]">
                 {ev.start_date} → {ev.end_date}
                 {ev.content_source === 'gauntlet' ? ' · dynamic pool' : ` · ${questCounts[ev.id] || 0} quest(s)`}
-                {' '}· reward: {ALL_MONSTERS[ev.reward_monster_id]?.name || ev.reward_monster_id}
+                {' '}· reward: {ev.reward_monster_id === 'random_starter' ? '🎲 Random Starter' : (ALL_MONSTERS[ev.reward_monster_id]?.name || ev.reward_monster_id)}
               </p>
             </div>
             <div className="flex items-center gap-2 flex-shrink-0">
@@ -298,8 +298,20 @@ function EventManager({ events, questCounts, onReload, passcode }: {
 
           <div>
             <label className="text-xs text-[#8a7c66] block mb-1">
-              Curio Reward{form.reward_monster_id && ` — selected: ${ALL_MONSTERS[form.reward_monster_id]?.name || form.reward_monster_id}`}
+              Curio Reward{form.reward_monster_id && ` — selected: ${form.reward_monster_id === 'random_starter' ? '🎲 Random Starter' : (ALL_MONSTERS[form.reward_monster_id]?.name || form.reward_monster_id)}`}
             </label>
+            <button
+              type="button"
+              onClick={() => setForm({ ...form, reward_monster_id: 'random_starter' })}
+              className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm mb-2 transition-colors ${
+                form.reward_monster_id === 'random_starter'
+                  ? 'border-[#e0a92c] bg-yellow-900/20 text-[#ede4d3]'
+                  : 'border-[#2a2119] text-[#a89c86] hover:border-neutral-600'
+              }`}
+            >
+              🎲 <span className="font-bold">Random Starter</span>
+              <span className="text-[10px] text-[#8a7c66]">— rolls one of the 6 official starters per student at claim time</span>
+            </button>
             <input
               value={monsterFilter}
               onChange={e => setMonsterFilter(e.target.value)}
