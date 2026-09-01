@@ -106,6 +106,20 @@ export async function hasClaimedEventReward(userId: string, eventId: string): Pr
   return !!data;
 }
 
+// For the persistent "you already claimed this" display on revisit — needed
+// because a 'random_starter' reward means custom_events.reward_monster_id is
+// just a sentinel, not the curio this particular student actually got.
+// claim_event_reward writes the real id onto the claims row at claim time.
+export async function fetchClaimedMonsterId(userId: string, eventId: string): Promise<string | null> {
+  const { data } = await supabase
+    .from('user_event_claims')
+    .select('granted_monster_id')
+    .eq('user_id', userId)
+    .eq('event_id', eventId)
+    .maybeSingle();
+  return data?.granted_monster_id ?? null;
+}
+
 export async function recordEventQuizMastery(
   userId: string,
   eventId: string,
@@ -131,7 +145,13 @@ export async function recordEventQuizMastery(
 // Atomic, idempotent — the RPC re-verifies every event_quest is mastered
 // and inserts a one-row claim ledger entry before granting the curio, so
 // calling this more than once (e.g. a retried request) never double-grants.
-export async function claimEventReward(userId: string, eventId: string, gradeLevel: number): Promise<boolean> {
+//
+// Returns the granted monster id (not just a boolean) because a reward can
+// be the 'random_starter' sentinel on custom_events.reward_monster_id — the
+// RPC rolls the actual curio server-side and this is the only way the
+// client learns which one, for the post-claim reveal. Returns null on
+// failure/not-yet-eligible/already-claimed.
+export async function claimEventReward(userId: string, eventId: string, gradeLevel: number): Promise<string | null> {
   const { data, error } = await supabase.rpc('claim_event_reward', {
     p_event_id: eventId,
     p_user_id: userId,
@@ -139,9 +159,9 @@ export async function claimEventReward(userId: string, eventId: string, gradeLev
   });
   if (error) {
     console.error('Failed to claim event reward:', error);
-    return false;
+    return null;
   }
-  return !!data;
+  return data ?? null;
 }
 
 // Admin-side: list every event, newest first.

@@ -19,7 +19,8 @@
 import { useState, useEffect, useMemo } from 'react';
 import { ActionTile } from '@/components/battle/BattleStage';
 import { shuffle, BossQuestion } from '@/lib/bossFightEngine';
-import { gradeGauntletQuestion, useGauntletQueue } from '@/lib/masteryGauntletEngine';
+import { useGauntletQueue } from '@/lib/masteryGauntletEngine';
+import { gradeMonsterQuestion } from '@/lib/guildEngine';
 import GameButton from '@/components/GameButton';
 
 interface MasteryGauntletScreenProps {
@@ -129,7 +130,7 @@ export function GauntletBattle({
     if (grading || selected || !current) return;
     setSelected(opt);
     setGrading(true);
-    const isCorrect = await gradeGauntletQuestion(userId, current.id, opt, grade, current.subject, term);
+    const { correct: isCorrect } = await gradeMonsterQuestion(userId, current.id, opt);
     setGrading(false);
     setFeedback(isCorrect ? 'correct' : 'wrong');
     setTimeout(() => {
