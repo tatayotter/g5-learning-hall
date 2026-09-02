@@ -1,0 +1,2266 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-10-04",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📋 English — Filling Out Bank and Government Forms\n\nGrade 5, Week 17! Let's learn a real-life skill. 💼\n\n## 📋 Why Learn to Fill Out Forms?\nForms are used everywhere — banks, schools, government offices. Filling them out **accurately** avoids delays and mistakes.\n\n## 🏦 Parts of a Bank Deposit Slip\n| Field | What to Write |\n|---|---|\n| **Date** | today's date |\n| **Account Name** | full legal name |\n| **Account Number** | your bank account number |\n| **Amount** | how much you're depositing, in numbers **and** words |\n| **Signature** | your signature |\n\n## 📝 Parts of a Government Application Form\n| Field | What to Write |\n|---|---|\n| **Full Name** | Last name, First name, Middle name |\n| **Date of Birth** | MM/DD/YYYY format |\n| **Address** | complete home address |\n| **Contact Number** | phone number |\n\n## ✅ Rules for Filling Out Forms Accurately\n- Use **BLOCK LETTERS** (capital letters) unless told otherwise\n- Write **clearly** — no messy handwriting\n- **Double-check** spelling of your name\n- Fill in **every required field** — don't leave blanks\n- Use **black or blue ink** (not pencil, unless specified)\n\n## 🧠 Worked Example 1\n*You're filling out a deposit slip for ₱500. How do you write the amount in words?*\n- **\"Five hundred pesos only\"** — the word \"only\" prevents anyone from adding extra digits.\n\n## 🧠 Worked Example 2\n*You wrote your birthdate as \"5/3/2015\" but the form asks for MM/DD/YYYY. Is this correct if your birthday is May 3, 2015?*\n- **Yes** — MM/DD/YYYY means Month/Day/Year, so 05/03/2015 is correct.\n\n## ⚠️ Common Mistakes to Avoid\n- Leaving fields **blank**\n- **Misspelling** your own name\n- Forgetting to **sign**\n- Writing in the **wrong format** (e.g., date order)\n\nGreat practical skills! 🌟",
+        "quiz": [
+          {
+            "question": "Why is it important to fill out forms accurately?",
+            "options": [
+              "To avoid delays and mistakes",
+              "To make the form colorful",
+              "To finish as quickly as possible",
+              "To use as much space as possible"
+            ],
+            "correct_answer": "To avoid delays and mistakes"
+          },
+          {
+            "question": "What should you write in the 'Amount' field of a deposit slip?",
+            "options": [
+              "The amount in numbers and words",
+              "Only your name",
+              "Only the date",
+              "Only your signature"
+            ],
+            "correct_answer": "The amount in numbers and words"
+          },
+          {
+            "question": "How should you write ₱500 in words on a deposit slip?",
+            "options": [
+              "Five hundred pesos only",
+              "500 pesos",
+              "Five hundred",
+              "500"
+            ],
+            "correct_answer": "Five hundred pesos only"
+          },
+          {
+            "question": "What does MM/DD/YYYY stand for?",
+            "options": [
+              "Month/Day/Year",
+              "Minute/Day/Year",
+              "Month/Date/Yearly",
+              "Money/Day/Year"
+            ],
+            "correct_answer": "Month/Day/Year"
+          },
+          {
+            "question": "What kind of letters should you usually use on official forms?",
+            "options": [
+              "BLOCK LETTERS (capitals)",
+              "Cursive writing",
+              "Emoji symbols",
+              "Random doodles"
+            ],
+            "correct_answer": "BLOCK LETTERS (capitals)"
+          },
+          {
+            "question": "Why does 'only' appear after writing an amount in words?",
+            "options": [
+              "To prevent anyone from adding extra digits",
+              "To make the sentence longer",
+              "To confuse the reader",
+              "It has no real purpose"
+            ],
+            "correct_answer": "To prevent anyone from adding extra digits"
+          },
+          {
+            "question": "What should you check before submitting a form?",
+            "options": [
+              "That every required field is filled in",
+              "That the form is the most colorful",
+              "That you used a pencil only",
+              "That you left some fields blank"
+            ],
+            "correct_answer": "That every required field is filled in"
+          },
+          {
+            "question": "Which is a common mistake when filling out forms?",
+            "options": [
+              "Leaving fields blank",
+              "Writing clearly",
+              "Signing the form",
+              "Using black ink"
+            ],
+            "correct_answer": "Leaving fields blank"
+          },
+          {
+            "question": "What is usually required at the end of a bank form?",
+            "options": [
+              "Signature",
+              "A drawing",
+              "A joke",
+              "A different form"
+            ],
+            "correct_answer": "Signature"
+          },
+          {
+            "question": "Your birthday is May 3, 2015. How do you write this in MM/DD/YYYY format?",
+            "options": [
+              "05/03/2015",
+              "03/05/2015",
+              "2015/05/03",
+              "5-2015-03"
+            ],
+            "correct_answer": "05/03/2015"
+          },
+          {
+            "question": "Why should you avoid messy handwriting on official forms?",
+            "options": [
+              "It could be misread and cause errors",
+              "It makes the form more interesting",
+              "It is required by law to write messily",
+              "It has no effect on processing"
+            ],
+            "correct_answer": "It could be misread and cause errors"
+          },
+          {
+            "question": "A form asks for your 'Account Name'. What should you write?",
+            "options": [
+              "Your full legal name",
+              "Your favorite nickname",
+              "Your school's name",
+              "Your friend's name"
+            ],
+            "correct_answer": "Your full legal name"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💵 Mathematics — Multi-Step Decimal Word Problems\n\nGrade 5, Week 17! Let's solve real-money problems. 💪\n\n## 💰 Budgeting Problems\n**Budgeting** means planning how to **spend** a set amount of money.\n\n## 🧠 Worked Example 1\n*Ana has ₱500 for groceries. She buys rice for ₱185.50, vegetables for ₱95.25, and fish for ₱150.75. How much money does she have left?*\n- Step 1: Total spent = 185.50 + 95.25 + 150.75 = **₱431.50**\n- Step 2: Remaining = 500 − 431.50 = **₱68.50** ✅\n\n## 💳 Computing Change\n**Change** = amount paid − cost of item(s)\n\n## 🧠 Worked Example 2\n*Ben buys a toy for ₱234.75 and pays with a ₱500 bill. How much change does he get?*\n- 500 − 234.75 = **₱265.25** ✅\n\n## 📋 Steps for Multi-Step Decimal Problems\n1. **Identify** what is being asked\n2. **List** all the amounts involved\n3. **Decide** the operations needed (add? subtract? both?)\n4. **Solve** step by step\n5. **Check** — does the answer make sense?\n\n## 🧠 Worked Example 3\n*A family budget is ₱2,000 for the week. They spend ₱875.50 on food and ₱320.25 on transportation. How much is left for other expenses?*\n- Step 1: Total spent = 875.50 + 320.25 = **₱1,195.75**\n- Step 2: Remaining = 2,000 − 1,195.75 = **₱804.25** ✅\n\n## 📝 Word Problem\n*A store item costs ₱149.90. You pay with two ₱100 bills. How much change?*\n- 200 − 149.90 = **₱50.10** ✅\n\nExcellent decimal problem-solving! ⭐",
+        "quiz": [
+          {
+            "question": "Ana has ₱500. She spends ₱185.50, ₱95.25, and ₱150.75. How much is left?",
+            "options": [
+              "₱68.50",
+              "₱78.50",
+              "₱58.50",
+              "₱88.50"
+            ],
+            "correct_answer": "₱68.50"
+          },
+          {
+            "question": "Ben buys a toy for ₱234.75 and pays with ₱500. How much change?",
+            "options": [
+              "₱265.25",
+              "₱255.25",
+              "₱275.25",
+              "₱245.25"
+            ],
+            "correct_answer": "₱265.25"
+          },
+          {
+            "question": "What is the first step in solving a multi-step decimal problem?",
+            "options": [
+              "Identify what is being asked",
+              "Guess the final answer",
+              "Skip straight to subtracting",
+              "Round all numbers immediately"
+            ],
+            "correct_answer": "Identify what is being asked"
+          },
+          {
+            "question": "A family spends ₱875.50 and ₱320.25 from a ₱2,000 budget. How much is left?",
+            "options": [
+              "₱804.25",
+              "₱814.25",
+              "₱794.25",
+              "₱824.25"
+            ],
+            "correct_answer": "₱804.25"
+          },
+          {
+            "question": "A store item costs ₱149.90. You pay with two ₱100 bills. How much change?",
+            "options": [
+              "₱50.10",
+              "₱49.10",
+              "₱50.90",
+              "₱51.10"
+            ],
+            "correct_answer": "₱50.10"
+          },
+          {
+            "question": "What does 'budgeting' mean?",
+            "options": [
+              "Planning how to spend a set amount of money",
+              "Spending money without any plan",
+              "Never spending any money at all",
+              "Only saving money forever"
+            ],
+            "correct_answer": "Planning how to spend a set amount of money"
+          },
+          {
+            "question": "How do you compute change?",
+            "options": [
+              "Amount paid minus cost of item",
+              "Amount paid plus cost of item",
+              "Cost of item minus amount paid",
+              "Amount paid times cost of item"
+            ],
+            "correct_answer": "Amount paid minus cost of item"
+          },
+          {
+            "question": "Why should you check your answer after solving a word problem?",
+            "options": [
+              "To see if it makes sense",
+              "To make the problem longer",
+              "To avoid ever finishing",
+              "To skip a step on purpose"
+            ],
+            "correct_answer": "To see if it makes sense"
+          },
+          {
+            "question": "A recipe costs ₱235.40 in ingredients, and you have ₱300. How much is left?",
+            "options": [
+              "₱64.60",
+              "₱65.60",
+              "₱54.60",
+              "₱74.60"
+            ],
+            "correct_answer": "₱64.60"
+          },
+          {
+            "question": "You buy two items for ₱125.50 and ₱89.25, paying with a ₱500 bill. How much change?",
+            "options": [
+              "₱285.25",
+              "₱275.25",
+              "₱295.25",
+              "₱265.25"
+            ],
+            "correct_answer": "₱285.25"
+          },
+          {
+            "question": "Why is it useful to list all amounts before solving a multi-step problem?",
+            "options": [
+              "It helps organize which operations to use",
+              "It makes the problem harder to solve",
+              "It replaces the need to add",
+              "It has no practical benefit"
+            ],
+            "correct_answer": "It helps organize which operations to use"
+          },
+          {
+            "question": "A student computes change as cost minus amount paid instead of the reverse, getting a negative number. What was the mistake?",
+            "options": [
+              "The subtraction order was reversed",
+              "The amounts were added instead",
+              "The decimal point was moved",
+              "Nothing was done incorrectly"
+            ],
+            "correct_answer": "The subtraction order was reversed"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📝 Filipino — Wastong Pagsagot sa ID Form at Library Card\n\nGrade 5, Linggo 17! Matuto tayong magsagot ng form. 📋\n\n## 🆔 Bahagi ng ID Application Form\n| Bahagi | Sasagutin |\n|---|---|\n| **Buong Pangalan** | apelyido, unang pangalan, gitnang pangalan |\n| **Petsa ng Kapanganakan** | araw/buwan/taon |\n| **Tirahan** | kumpletong address |\n| **Numero ng Telepono** | contact number |\n\n## 📚 Bahagi ng Library Card Application Form\n| Bahagi | Sasagutin |\n|---|---|\n| **Pangalan ng Mag-aaral** | buong pangalan |\n| **Baitang/Seksyon** | Grade 5, seksyon |\n| **Guro** | pangalan ng adviser |\n| **Lagda** | pirma |\n\n## ✅ Mga Panuntunan sa Pagsagot ng Form\n- Gumamit ng **malinaw na sulat-kamay**\n- **Gamitin ang BLOCK LETTERS** kung hindi sinabihan na iba\n- **Sagutan ang lahat** ng kailangang bahagi — huwag mag-iwan ng blangko\n- **Suriin** ang iyong pangalan bago isumite\n\n## 🧠 Halimbawa 1\n*Paano isusulat ang buong pangalan sa form?*\n- **Apelyido, Unang Pangalan, Gitnang Pangalan** — hal. \"Dela Cruz, Juan, Santos\"\n\n## 🧠 Halimbawa 2\n*Nakalimutan mong pumirma sa iyong ID application. Ano ang mangyayari?*\n- Maaaring **hindi ito matanggap** — ang lagda ay kailangang bahagi ng form.\n\n## ⚠️ Karaniwang Pagkakamali\n- Pag-iwan ng blangkong bahagi\n- Maling pagbaybay ng sariling pangalan\n- Hindi pagpirma\n- Maling format ng petsa\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang unang bahagi ng buong pangalan sa isang form?",
+            "options": [
+              "Apelyido",
+              "Gitnang pangalan",
+              "Unang pangalan",
+              "Palayaw"
+            ],
+            "correct_answer": "Apelyido"
+          },
+          {
+            "question": "Ano ang isusulat sa 'Petsa ng Kapanganakan'?",
+            "options": [
+              "Araw, buwan, at taon ng kapanganakan",
+              "Pangalan ng magulang lamang",
+              "Tirahan lamang dito",
+              "Numero ng telepono lamang"
+            ],
+            "correct_answer": "Araw, buwan, at taon ng kapanganakan"
+          },
+          {
+            "question": "Ano ang isusulat sa 'Baitang/Seksyon' sa library card form?",
+            "options": [
+              "Ang iyong Grade at seksyon",
+              "Ang pangalan ng magulang",
+              "Ang tirahan",
+              "Ang numero ng telepono"
+            ],
+            "correct_answer": "Ang iyong Grade at seksyon"
+          },
+          {
+            "question": "Anong uri ng sulat ang dapat gamitin sa form?",
+            "options": [
+              "Malinaw na BLOCK LETTERS",
+              "Mabilis na sulat na hindi maintindihan",
+              "Sulat na may kulay",
+              "Guhit na larawan"
+            ],
+            "correct_answer": "Malinaw na BLOCK LETTERS"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi ka pumirma sa form?",
+            "options": [
+              "Maaaring hindi ito matanggap",
+              "Awtomatikong matatanggap ito",
+              "Wala itong epekto",
+              "Mas mabilis itong maproseso"
+            ],
+            "correct_answer": "Maaaring hindi ito matanggap"
+          },
+          {
+            "question": "Ano ang tamang paraan ng pagsulat ng buong pangalan?",
+            "options": [
+              "Apelyido, Unang Pangalan, Gitnang Pangalan",
+              "Palayaw lamang",
+              "Unang pangalan lamang",
+              "Random na pagkakasunod-sunod"
+            ],
+            "correct_answer": "Apelyido, Unang Pangalan, Gitnang Pangalan"
+          },
+          {
+            "question": "Ano ang dapat isulat sa bahaging 'Guro' sa library card form?",
+            "options": [
+              "Pangalan ng adviser",
+              "Pangalan ng magulang",
+              "Pangalan ng kaibigan",
+              "Pangalan ng punong-guro lamang"
+            ],
+            "correct_answer": "Pangalan ng adviser"
+          },
+          {
+            "question": "Alin ang karaniwang pagkakamali sa pagsagot ng form?",
+            "options": [
+              "Pag-iwan ng blangkong bahagi",
+              "Pagsagot sa lahat ng bahagi",
+              "Malinaw na pagsulat",
+              "Pagpirma sa dulo"
+            ],
+            "correct_answer": "Pag-iwan ng blangkong bahagi"
+          },
+          {
+            "question": "Bakit dapat suriin ang iyong pangalan bago isumite ang form?",
+            "options": [
+              "Upang maiwasan ang maling baybay",
+              "Upang mabilis matapos",
+              "Walang dahilan ito",
+              "Upang gawing maikli ang pangalan"
+            ],
+            "correct_answer": "Upang maiwasan ang maling baybay"
+          },
+          {
+            "question": "Ano ang isusulat sa 'Tirahan' sa isang ID application?",
+            "options": [
+              "Kumpletong address",
+              "Pangalan ng paaralan",
+              "Numero ng telepono lamang",
+              "Petsa ng kapanganakan lamang"
+            ],
+            "correct_answer": "Kumpletong address"
+          },
+          {
+            "question": "Isang estudyante ang nag-iwan ng blangko sa bahaging petsa ng kapanganakan. Ano ang maaaring mangyari?",
+            "options": [
+              "Maaaring hindi kompleto ang form at hindi matanggap",
+              "Awtomatikong lalagyan ito ng petsa",
+              "Wala itong epekto sa proseso",
+              "Mas mabilis pa itong maproseso"
+            ],
+            "correct_answer": "Maaaring hindi kompleto ang form at hindi matanggap"
+          },
+          {
+            "question": "Bakit gumagamit ng itim o asul na tinta sa pagsagot ng opisyal na form?",
+            "options": [
+              "Mas madaling basahin at hindi mabura",
+              "Mas maganda ang kulay nito",
+              "Bawal gumamit ng lapis kailanman",
+              "Wala itong dahilan"
+            ],
+            "correct_answer": "Mas madaling basahin at hindi mabura"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 💪 Science — Contact Forces: Push and Pull\n\nGrade 5, Week 17! Let's explore forces that move things. 🔬\n\n## 💪 What Is a Contact Force?\nA **contact force** is a force that requires **touching** an object to affect it — like pushing or pulling.\n\n## ↔️ Push vs Pull\n| Force | Direction | Example |\n|---|---|---|\n| **Push** | away from you | pushing a door open |\n| **Pull** | toward you | pulling a drawer open |\n\n## 🎯 How Force Changes Motion\nApplying a **push or pull** can:\n- **Start** an object moving (from rest)\n- **Stop** a moving object\n- **Speed up** a moving object\n- **Slow down** a moving object\n- **Change direction** of a moving object\n\n## 🧠 Worked Example 1\n*A soccer ball is at rest. A player kicks it. What happened?*\n- The **push** (kick) made the ball go from **rest to motion**.\n\n## 🧠 Worked Example 2\n*A moving skateboard hits a wall and stops. What kind of force acted on it?*\n- A **push force** (from the wall) **stopped** the skateboard's motion.\n\n## 📋 Everyday Examples of Contact Forces\n| Activity | Push or Pull? |\n|---|---|\n| Opening a jeepney door | Pull or push |\n| Kicking a ball | Push |\n| Pulling a cart | Pull |\n| Pushing a swing | Push |\n| Tug-of-war | Pull |\n\n## 🧠 Worked Example 3\n*Two students play tug-of-war. Both pull the rope in opposite directions. What determines who wins?*\n- The team with the **stronger pull force** overcomes the other and wins.\n\n## 💡 Force Changes Direction Too\nHitting a ball with a bat doesn't just speed it up — it can also **change its direction** entirely.\n\nGreat force scientist! 🌟",
+        "quiz": [
+          {
+            "question": "What is a contact force?",
+            "options": [
+              "A force that requires touching an object",
+              "A force that never touches anything",
+              "A force found only in space",
+              "A force with no direction"
+            ],
+            "correct_answer": "A force that requires touching an object"
+          },
+          {
+            "question": "What direction does a push move an object?",
+            "options": [
+              "Away from you",
+              "Toward you",
+              "Sideways always",
+              "It never moves anything"
+            ],
+            "correct_answer": "Away from you"
+          },
+          {
+            "question": "What direction does a pull move an object?",
+            "options": [
+              "Toward you",
+              "Away from you",
+              "Downward always",
+              "It never moves anything"
+            ],
+            "correct_answer": "Toward you"
+          },
+          {
+            "question": "A soccer ball at rest is kicked. What happened?",
+            "options": [
+              "A push made it start moving",
+              "A pull made it start moving",
+              "Nothing changed at all",
+              "It moved by itself"
+            ],
+            "correct_answer": "A push made it start moving"
+          },
+          {
+            "question": "A skateboard hits a wall and stops. What kind of force caused this?",
+            "options": [
+              "A push force from the wall",
+              "A pull force from the wall",
+              "No force at all",
+              "Gravity alone"
+            ],
+            "correct_answer": "A push force from the wall"
+          },
+          {
+            "question": "Which of these can a force do to a moving object?",
+            "options": [
+              "Pwede itong pabilisin, pabagalin, o baguhin",
+              "Ginagawa lamang itong invisible",
+              "Ginagawa lamang itong may kulay",
+              "Ginagawa lamang itong mas mabigat"
+            ],
+            "correct_answer": "Pwede itong pabilisin, pabagalin, o baguhin"
+          },
+          {
+            "question": "Is kicking a ball a push or a pull?",
+            "options": [
+              "Push",
+              "Pull",
+              "Neither",
+              "Both equally"
+            ],
+            "correct_answer": "Push"
+          },
+          {
+            "question": "Is pulling a cart a push or a pull?",
+            "options": [
+              "Pull",
+              "Push",
+              "Neither",
+              "Both equally"
+            ],
+            "correct_answer": "Pull"
+          },
+          {
+            "question": "In tug-of-war, what determines which team wins?",
+            "options": [
+              "The team with the stronger pull force",
+              "The team that is heavier only",
+              "The team that shouts louder",
+              "The team with more players always"
+            ],
+            "correct_answer": "The team with the stronger pull force"
+          },
+          {
+            "question": "Can a force change the direction of a moving object?",
+            "options": [
+              "Yes, like hitting a ball with a bat",
+              "No, force can only speed things up",
+              "No, force only stops objects",
+              "Yes, but only underwater"
+            ],
+            "correct_answer": "Yes, like hitting a ball with a bat"
+          },
+          {
+            "question": "Which activity is an example of a push?",
+            "options": [
+              "Pushing a swing",
+              "Pulling a drawer",
+              "Tug-of-war",
+              "Pulling a cart"
+            ],
+            "correct_answer": "Pushing a swing"
+          },
+          {
+            "question": "A ball rolling on the ground gradually slows down and stops on its own. What force is likely acting on it?",
+            "options": [
+              "Friction, a type of contact force",
+              "No force is acting on it",
+              "A pull from outer space",
+              "Only gravity pulling it sideways"
+            ],
+            "correct_answer": "Friction, a type of contact force"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# ⚔️ Araling Panlipunan — Pag-aangkop at Pagtugon ng Pilipino sa Kolonyalismo\n\nGrade 5, Linggo 17! Paano tumugon ang mga Pilipino sa pananakop? 🇵🇭\n\n## 🙏 Sinkretismong Relihiyoso at Kultural\nAng **sinkretismo** ay ang **paghahalo** ng luma at bagong paniniwala.\n\n**Halimbawa:** Ang mga Pilipino ay nagsimulang sumamba sa Diyos ng Kristiyanismo, ngunit **hindi tuluyang nawala** ang paniniwala sa **anito** — naghalo ang dalawa (hal. pananalig sa santo AT sa mga pamahiin).\n\n## ⚔️ Mga Pag-aalsa sa Sinaunang Panahon ng Kolonya\n\n| Pag-aalsa | Lugar | Sanhi |\n|---|---|---|\n| **Dagohoy Rebellion** | Bohol | pagtanggi ng simbahang Kristiyano na ilibing ang kapatid ni Dagohoy nang Kristiyano |\n| **Tamblot Uprising** | Bohol | pagbabalik sa lumang paniniwala |\n| **Sumuroy Revolt** | Samar | tutol sa polo y servicio |\n| **Silang Revolt** | Ilocos | tutol sa buwis at pang-aabuso |\n\n## ❓ Bakit Paulit-ulit na Nabigo ang mga Pag-aalsa?\n\n1. **Kawalan ng pagkakaisang pambansa** — magkakahiwalay ang bawat rebelyon, hindi sabay-sabay\n2. **Limitadong sandata** — mas maunlad ang armas ng Espanyol\n3. **Lokal na saklaw** — bawat pag-aalsa ay sa iisang lugar lamang, madaling supilin\n\n## 🧠 Halimbawa 1\n*Bakit itinuturing na matagumpay ang Dagohoy Rebellion kahit pinaikli?*\n- Ito ay **pinakamahabang** rebelyon (mahigit 80 taon) — nagpapakita ng **matibay na paglaban** kahit hindi ganap na tagumpay.\n\n## 🧠 Halimbawa 2\n*Bakit sinasabing 'sinkretismo' ang pagsasama ng Kristiyanismo at katutubong paniniwala?*\n- Dahil **hindi lubos na nawala** ang mga lumang gawi — sila ay **naghalo** sa bagong relihiyon.\n\n## 💡 Kongklusyon\nAng mga pag-aangkop at pagtugon ay nagpapakita na **hindi basta sumuko** ang mga Pilipino — sila ay **nag-adapt** at **lumaban** sa iba't ibang paraan.\n\nMagaling sa Linggo 17! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang sinkretismo?",
+            "options": [
+              "Paghahalo ng luma at bagong paniniwala",
+              "Kumpletong pagtanggi sa bagong relihiyon",
+              "Kumpletong pagtanggap sa bagong relihiyon",
+              "Isang uri ng digmaan"
+            ],
+            "correct_answer": "Paghahalo ng luma at bagong paniniwala"
+          },
+          {
+            "question": "Saan naganap ang Dagohoy Rebellion?",
+            "options": [
+              "Bohol",
+              "Samar",
+              "Ilocos",
+              "Cebu"
+            ],
+            "correct_answer": "Bohol"
+          },
+          {
+            "question": "Saan naganap ang Sumuroy Revolt?",
+            "options": [
+              "Samar",
+              "Bohol",
+              "Ilocos",
+              "Batangas"
+            ],
+            "correct_answer": "Samar"
+          },
+          {
+            "question": "Saan naganap ang Silang Revolt?",
+            "options": [
+              "Ilocos",
+              "Bohol",
+              "Samar",
+              "Cebu"
+            ],
+            "correct_answer": "Ilocos"
+          },
+          {
+            "question": "Ano ang sanhi ng Sumuroy Revolt?",
+            "options": [
+              "Tutol sa polo y servicio",
+              "Tutol sa buwis lamang",
+              "Pagbabalik sa lumang paniniwala",
+              "Pagtanggi sa relihiyon"
+            ],
+            "correct_answer": "Tutol sa polo y servicio"
+          },
+          {
+            "question": "Ano ang isa sa dahilan kung bakit nabigo ang mga pag-aalsa?",
+            "options": [
+              "Kawalan ng pagkakaisang pambansa",
+              "Sobrang lakas ng mga Pilipino",
+              "Suporta ng Espanya sa mga Pilipino",
+              "Kawalan ng dahilan sa paglaban"
+            ],
+            "correct_answer": "Kawalan ng pagkakaisang pambansa"
+          },
+          {
+            "question": "Bakit itinuturing na matibay ang Dagohoy Rebellion?",
+            "options": [
+              "Ito ang pinakamahabang rebelyon, mahigit 80 taon",
+              "Ito ay tumagal lamang ng isang araw",
+              "Ito ay agad natalo",
+              "Wala itong naging epekto"
+            ],
+            "correct_answer": "Ito ang pinakamahabang rebelyon, mahigit 80 taon"
+          },
+          {
+            "question": "Bakit sinasabing sinkretismo ang paghahalo ng Kristiyanismo at katutubong paniniwala?",
+            "options": [
+              "Hindi lubos na nawala ang lumang gawi",
+              "Ganap na nawala ang lumang paniniwala",
+              "Walang bagong paniniwalang pumasok",
+              "Walang naganap na pagbabago"
+            ],
+            "correct_answer": "Hindi lubos na nawala ang lumang gawi"
+          },
+          {
+            "question": "Bakit lokal lamang ang saklaw ng mga pag-aalsa noong sinaunang panahon?",
+            "options": [
+              "Bawat pag-aalsa ay hiwalay-hiwalay, hindi nagkasama",
+              "Sama-sama silang nag-alsa sa buong bansa",
+              "Walang naganap na pag-aalsa",
+              "Iisang lugar lamang ang may mga tao"
+            ],
+            "correct_answer": "Bawat pag-aalsa ay hiwalay-hiwalay, hindi nagkasama"
+          },
+          {
+            "question": "Ano ang ipinapakita ng mga pag-aangkop at pagtugon ng mga Pilipino sa kolonyalismo?",
+            "options": [
+              "Hindi sila basta sumuko, nag-adapt at lumaban",
+              "Agad silang sumuko sa Espanya",
+              "Wala silang ginawang paglaban",
+              "Sinuportahan nila ang Espanya"
+            ],
+            "correct_answer": "Hindi sila basta sumuko, nag-adapt at lumaban"
+          },
+          {
+            "question": "Ano ang sanhi ng Tamblot Uprising?",
+            "options": [
+              "Pagbabalik sa lumang paniniwala",
+              "Tutol sa polo y servicio",
+              "Tutol sa buwis lamang",
+              "Pagsunod sa Kristiyanismo"
+            ],
+            "correct_answer": "Pagbabalik sa lumang paniniwala"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang mga pag-aalsang ito kahit natalo?",
+            "options": [
+              "Nagpapakita ito ng katatagan ng loob ng Pilipino",
+              "Wala itong halaga sa kasaysayan",
+              "Ito ay hindi totoong nangyari",
+              "Hindi mahalaga sa kasalukuyan"
+            ],
+            "correct_answer": "Nagpapakita ito ng katatagan ng loob ng Pilipino"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 📰 EPP (ICT) — Creating Brochures and Flyers\n\nGrade 5, Linggo 17! Gumawa tayo ng desktop publishing document. 💻\n\n## 📰 Ano ang Desktop Publishing?\nAng **desktop publishing** ay ang paggawa ng propesyonal na dokumento tulad ng **brochure** (tri-fold na babasahin) o **flyer** (isang pahinang paanunsiyo).\n\n## 🎨 Page Design at Layout\n**Layout** ay ang **pagkakaayos** ng mga elemento sa pahina.\n\n**Mga bahagi ng magandang layout:**\n- **Headline** — malaking teksto sa itaas\n- **Larawan** — kaakit-akit na biswal\n- **Katawan ng teksto** — impormasyon\n- **Contact info** — paraan ng pakikipag-ugnayan\n\n## 🖼️ Borders/Accents\nGinagamit ang **borders** (kwadro) at **accents** (dekorasyon) upang **gawing kaakit-akit** ang dokumento.\n\n## 📄 Building Blocks/Templates\nMaraming programa ang may **ready-made templates** (paunang disenyo) — maaari kang **magsimula** dito at **baguhin** ayon sa iyong pangangailangan.\n\n## 🧠 Halimbawa 1\n*Gumagawa ka ng flyer para sa isang school event. Ano ang dapat mong isama?*\n- **Headline** (pangalan ng event), **petsa at oras**, **lokasyon**, at **larawan** na kaakit-akit.\n\n## 🧠 Halimbawa 2\n*Bakit mainam gumamit ng template kaysa magsimula sa blangkong pahina?*\n- Nagtitipid ito ng **oras** at nagsisiguro ng **maayos na layout** mula sa umpisa.\n\n## 💡 Mga Tip sa Paggawa ng Brochure/Flyer\n- Panatilihing **simple** — huwag sobrahan ang teksto\n- Gumamit ng **malinaw na larawan**\n- Siguraduhing **madaling basahin** ang font\n- Isama ang **mahahalagang detalye lamang**\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang desktop publishing?",
+            "options": [
+              "Paggawa ng propesyonal na dokumento",
+              "Paggawa ng spreadsheet na lamang",
+              "Paglalaro ng computer game lamang",
+              "Pagsulat lamang ng email"
+            ],
+            "correct_answer": "Paggawa ng propesyonal na dokumento"
+          },
+          {
+            "question": "Ano ang layout?",
+            "options": [
+              "Pagkakaayos ng mga elemento sa pahina",
+              "Kulay ng dokumento lamang",
+              "Bilang ng pahina lamang",
+              "Uri ng font lamang"
+            ],
+            "correct_answer": "Pagkakaayos ng mga elemento sa pahina"
+          },
+          {
+            "question": "Ano ang headline sa isang flyer?",
+            "options": [
+              "Malaking teksto sa itaas",
+              "Maliit na teksto sa ibaba",
+              "Larawan lamang",
+              "Contact number lamang"
+            ],
+            "correct_answer": "Malaking teksto sa itaas"
+          },
+          {
+            "question": "Ano ang ginagamit upang gawing kaakit-akit ang dokumento?",
+            "options": [
+              "Borders at accents",
+              "Random na numero lamang",
+              "Blangkong espasyo lamang",
+              "Isang kulay lamang"
+            ],
+            "correct_answer": "Borders at accents"
+          },
+          {
+            "question": "Ano ang template?",
+            "options": [
+              "Paunang disenyo na maaaring baguhin",
+              "Isang uri ng larawan lamang",
+              "Isang uri ng font lamang",
+              "Isang uri ng kulay lamang"
+            ],
+            "correct_answer": "Paunang disenyo na maaaring baguhin"
+          },
+          {
+            "question": "Bakit mainam gumamit ng template?",
+            "options": [
+              "Nagtitipid ng oras at may maayos na layout",
+              "Nagpapahirap lamang ito ng gawain",
+              "Wala itong kabuluhan dito",
+              "Ginagawang mas mahirap ang proyekto"
+            ],
+            "correct_answer": "Nagtitipid ng oras at may maayos na layout"
+          },
+          {
+            "question": "Ano ang dapat isama sa isang flyer ng school event?",
+            "options": [
+              "Headline, petsa, lokasyon, at larawan",
+              "Isang random na larawan lamang",
+              "Walang teksto, larawan lamang",
+              "Isang blangkong pahina lamang"
+            ],
+            "correct_answer": "Headline, petsa, lokasyon, at larawan"
+          },
+          {
+            "question": "Bakit dapat panatilihing simple ang isang brochure?",
+            "options": [
+              "Upang hindi malito ang mambabasa",
+              "Upang tumagal ang paggawa",
+              "Upang mas mahaba ang teksto",
+              "Walang dahilan ito"
+            ],
+            "correct_answer": "Upang hindi malito ang mambabasa"
+          },
+          {
+            "question": "Ano ang isang tri-fold na babasahin?",
+            "options": [
+              "Brochure",
+              "Flyer",
+              "Poster",
+              "Sulat"
+            ],
+            "correct_answer": "Brochure"
+          },
+          {
+            "question": "Ano ang dapat isama sa contact info ng isang flyer?",
+            "options": [
+              "Paraan ng pakikipag-ugnayan",
+              "Kulay ng damit",
+              "Presyo ng papel",
+              "Uri ng printer"
+            ],
+            "correct_answer": "Paraan ng pakikipag-ugnayan"
+          },
+          {
+            "question": "Bakit dapat malinaw ang font sa isang brochure?",
+            "options": [
+              "Upang madaling basahin ang impormasyon",
+              "Upang mas maganda ito tingnan lamang",
+              "Upang mabilis matapos ang trabaho",
+              "Walang dahilan ito"
+            ],
+            "correct_answer": "Upang madaling basahin ang impormasyon"
+          },
+          {
+            "question": "Isang mag-aaral ang gumawa ng flyer na puno ng teksto na hindi maintindihan. Ano ang problema dito?",
+            "options": [
+              "Sobra ang impormasyon, kulang sa kalinawan",
+              "Masyadong simple ang disenyo",
+              "Walang problema dito",
+              "Masyadong maliit ang papel"
+            ],
+            "correct_answer": "Sobra ang impormasyon, kulang sa kalinawan"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎭 MAPEH — Theater at Dance noong Early Spanish Colonial Period\n\nGrade 5, Linggo 17! Alamin natin ang teatro at sayaw noong 1521-1600. 🎭\n\n## 🎭 Theater Strand: Paksa, Tema, at Simbolismo\nAng mga dulang panteatro noong panahong ito ay:\n- **Paksa:** ritwal ng simbahan, buhay ng mga santo\n- **Tema:** himala, kaligtasan, pananampalataya\n- **Simbolismo:** paggamit ng mga imahen upang ituro ang aral ng relihiyon\n\n**Halimbawa:** Ang **cenaculo** — dulang naglalarawan ng **buhay at paghihirap ni Kristo**.\n\n## 💃 Dance Strand: Movement Vocabulary\nAng **movement vocabulary** ay ang **hanay ng mga galaw** na ginagamit sa isang sayaw.\n\n**Naghalo ang katutubong at Europeong sayaw:**\n- **Katutubong galaw** — malayang paggalaw ng katawan\n- **Europeong impluwensiya** — mas pormal na hakbang, tulad ng pares na sayaw\n\n## 🧠 Halimbawa 1\n*Ano ang cenaculo?*\n- Isang dulang naglalarawan ng **buhay at paghihirap ni Kristo** — halimbawa ng symbolic theater noong panahong ito.\n\n## 🧠 Halimbawa 2\n*Paano naghalo ang katutubong at Europeong sayaw noong panahong ito?*\n- Ang **libreng galaw** ng katutubo ay **pinagsama** sa **pormal na hakbang** ng Europa — lumikha ng bagong istilo ng sayaw.\n\n## 🎨 Kaugnayan sa Kasalukuyan\nMaraming **pasyon at senakulo** na ginagawa pa rin hanggang ngayon tuwing **Semana Santa** — patunay na buhay pa rin ang tradisyong ito.\n\n## 💡 Bakit Mahalaga ang Pag-aaral ng Sining na Ito?\nIpinapakita nito kung paano **naghalo** ang dalawang kultura upang lumikha ng **bagong anyo ng sining** na natatangi sa Pilipinas.\n\nMagaling sa Linggo 17! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang paksa ng mga dula noong panahong ito?",
+            "options": [
+              "Ritwal ng simbahan at buhay ng santo",
+              "Kasalukuyang balita na lamang",
+              "Modernong agham na lamang",
+              "Digmaang pandaigdig lamang"
+            ],
+            "correct_answer": "Ritwal ng simbahan at buhay ng santo"
+          },
+          {
+            "question": "Ano ang cenaculo?",
+            "options": [
+              "Dulang naglalarawan ng buhay ni Kristo",
+              "Sayaw pandigma",
+              "Awit sa piyesta",
+              "Instrumentong pangmusika"
+            ],
+            "correct_answer": "Dulang naglalarawan ng buhay ni Kristo"
+          },
+          {
+            "question": "Ano ang movement vocabulary?",
+            "options": [
+              "Hanay ng mga galaw na ginagamit sa sayaw",
+              "Listahan ng salita sa dula",
+              "Pangalan ng mananayaw",
+              "Kulay ng costume"
+            ],
+            "correct_answer": "Hanay ng mga galaw na ginagamit sa sayaw"
+          },
+          {
+            "question": "Paano naghalo ang katutubong at Europeong sayaw?",
+            "options": [
+              "Libreng galaw pinagsama sa pormal na hakbang",
+              "Walang paghahalo na naganap",
+              "Espanyol lamang ang naging batayan",
+              "Katutubo lamang ang naging batayan"
+            ],
+            "correct_answer": "Libreng galaw pinagsama sa pormal na hakbang"
+          },
+          {
+            "question": "Ano ang tema ng mga dula noong Early Spanish Colonial Period?",
+            "options": [
+              "Himala at pananampalataya",
+              "Modernong agham",
+              "Digmaang pandaigdig",
+              "Palakasan"
+            ],
+            "correct_answer": "Himala at pananampalataya"
+          },
+          {
+            "question": "Ano ang ginagamit ng simbolismo sa mga dulang ito?",
+            "options": [
+              "Imahen upang ituro ang aral ng relihiyon",
+              "Bagong makabagong teknolohiya",
+              "Modernong musika lamang",
+              "Sportang laro"
+            ],
+            "correct_answer": "Imahen upang ituro ang aral ng relihiyon"
+          },
+          {
+            "question": "Kailan pa rin ginagawa ang pasyon at senakulo hanggang ngayon?",
+            "options": [
+              "Tuwing Semana Santa",
+              "Tuwing Pasko",
+              "Tuwing kaarawan",
+              "Tuwing graduation"
+            ],
+            "correct_answer": "Tuwing Semana Santa"
+          },
+          {
+            "question": "Ano ang ipinapakita ng paghahalo ng dalawang kultura sa sining?",
+            "options": [
+              "Bagong anyo ng sining na natatangi",
+              "Kumpletong pagkawala ng katutubong sining",
+              "Walang pagbabago sa sining",
+              "Kumpletong pananaig ng Europeong sining"
+            ],
+            "correct_answer": "Bagong anyo ng sining na natatangi"
+          },
+          {
+            "question": "Alin ang halimbawa ng Europeong impluwensiya sa sayaw?",
+            "options": [
+              "Mas pormal na hakbang, tulad ng pares",
+              "Basta libreng galaw na lamang",
+              "Walang anumang istruktura dito",
+              "Puro katutubong galaw na lamang"
+            ],
+            "correct_answer": "Mas pormal na hakbang, tulad ng pares"
+          },
+          {
+            "question": "Bakit mahalaga ang pag-aaral ng sining noong panahong ito?",
+            "options": [
+              "Ipinapakita nito kung paano naghalo ang dalawang kultura",
+              "Wala itong kaugnayan sa kasalukuyan",
+              "Ito ay hindi na ginagawa ngayon",
+              "Walang kaugnayan sa Pilipinas"
+            ],
+            "correct_answer": "Ipinapakita nito kung paano naghalo ang dalawang kultura"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng symbolic theater sa panahong ito?",
+            "options": [
+              "Cenaculo tungkol sa buhay ni Kristo",
+              "Modernong pelikula na lamang",
+              "Palabas sa telebisyon lamang",
+              "Konsiyerto ng OPM na lamang"
+            ],
+            "correct_answer": "Cenaculo tungkol sa buhay ni Kristo"
+          },
+          {
+            "question": "Isang mag-aaral ang nanonood ng senakulo tuwing Semana Santa sa kanilang bayan. Ano ang ipinapakita nito?",
+            "options": [
+              "Buhay pa rin ang tradisyong sining na ito",
+              "Bagong-bago lamang ang sining na ito",
+              "Wala itong kaugnayan sa kasaysayan",
+              "Ito ay makabagong imbensyon lamang"
+            ],
+            "correct_answer": "Buhay pa rin ang tradisyong sining na ito"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🤝 GMRC — Respect: Pagtanggap sa mga Bisita\n\nGrade 5, Linggo 17! Pagpapahalaga: **Respeto**. 🌟\n\n## 🏠 Hospitality: Pagtanggap sa mga Kamag-anak at Bisita\nAng **hospitality** ay ang **magiliw na pagtanggap** sa mga bisita at kamag-anak.\n\n## 🙏 Tamang Asal sa Pagtanggap ng Bisita\n- **Batiin** sila nang magiliw sa pintuan\n- **Alukin** sila ng inumin o pagkain\n- **Ihanda** ang upuan para sa kanila\n- **Makinig** at **makipag-usap** nang magalang\n- **Ihatid** sila hanggang sa pintuan kapag aalis na\n\n## 🧠 Halimbawa 1\n*Dumating ang tita mo mula sa malayo. Ano ang tamang gawin mo?*\n- **Batiin** siya nang magiliw, **tulungan** magbuhat ng gamit, at **alukin** ng inumin. ✅\n\n## 🧠 Halimbawa 2\n*Bisita ang isang kaibigan ng iyong magulang. Ano ang tamang gawin?*\n- **Batiin** nang magalang kahit hindi mo siya kilala, at **magpakita ng respeto** bilang bisita ng iyong tahanan.\n\n## 💛 Bakit Mahalaga ang Hospitality?\n- Nagpapakita ito ng **paggalang** sa bisita\n- Nagbibigay ng **magandang unang impresyon** ng iyong pamilya\n- Nagpapalakas ng **ugnayan** sa pamilya at kaibigan\n\n## 🎯 Respeto sa Iba't Ibang Kamag-anak\nBawat kamag-anak — malapit man o malayo — ay dapat **tratuhin nang may respeto**, kahit hindi mo sila madalas makita.\n\nMagaling! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang hospitality?",
+            "options": [
+              "Magiliw na pagtanggap sa bisita",
+              "Pag-iwas sa mga bisita",
+              "Pagbabalewala sa panauhin",
+              "Pagtatago sa kwarto"
+            ],
+            "correct_answer": "Magiliw na pagtanggap sa bisita"
+          },
+          {
+            "question": "Dumating ang tita mo mula sa malayo. Ano ang tamang gawin mo?",
+            "options": [
+              "Batiin siya nang magiliw at tulungan",
+              "Iwasan siya nang tuluyan",
+              "Umalis sa bahay agad",
+              "Hindi na siya kausapin"
+            ],
+            "correct_answer": "Batiin siya nang magiliw at tulungan"
+          },
+          {
+            "question": "Ano ang tamang gawin sa isang bisitang hindi mo kilala?",
+            "options": [
+              "Batiin nang magalang bilang bisita",
+              "Hindi na siya pansinin dito",
+              "Iwasan siya nang tuluyan",
+              "Tumakbo palayo agad"
+            ],
+            "correct_answer": "Batiin nang magalang bilang bisita"
+          },
+          {
+            "question": "Ano ang tamang gawin kapag aalis na ang bisita?",
+            "options": [
+              "Ihatid hanggang sa pintuan",
+              "Hayaan silang umalis nang tahimik",
+              "Hindi na sila batiin",
+              "Tumakbo palayo agad"
+            ],
+            "correct_answer": "Ihatid hanggang sa pintuan"
+          },
+          {
+            "question": "Bakit mahalaga ang hospitality?",
+            "options": [
+              "Nagpapakita ito ng paggalang sa bisita",
+              "Wala itong kabuluhan",
+              "Ginagawa lamang ito sa piyesta",
+              "Nagpapahirap lamang ito"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang sa bisita"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag may dumating na bisita sa bahay?",
+            "options": [
+              "Batiin sila nang magiliw sa pintuan",
+              "Hayaan silang maghintay sa labas",
+              "Iwasan silang tanggapin",
+              "Tumakbo sa kwarto"
+            ],
+            "correct_answer": "Batiin sila nang magiliw sa pintuan"
+          },
+          {
+            "question": "Ano ang epekto ng magandang hospitality sa impresyon ng bisita?",
+            "options": [
+              "Nagbibigay ito ng magandang unang impresyon",
+              "Nagbibigay ito ng masamang impresyon",
+              "Wala itong epekto",
+              "Nagpapabagal lamang ito"
+            ],
+            "correct_answer": "Nagbibigay ito ng magandang unang impresyon"
+          },
+          {
+            "question": "Paano dapat tratuhin ang malayong kamag-anak?",
+            "options": [
+              "Nang may respeto kahit bihira makita",
+              "Hindi na pansinin",
+              "Iwasan nang tuluyan",
+              "Basta ipagsawalang-bahala"
+            ],
+            "correct_answer": "Nang may respeto kahit bihira makita"
+          },
+          {
+            "question": "Ano ang tamang gawin habang nakikipag-usap sa bisita?",
+            "options": [
+              "Makinig at makipag-usap nang magalang",
+              "Umiwas sa usapan nang tuluyan",
+              "Manahimik nang tuluyan dito",
+              "Umalis nang bigla dito"
+            ],
+            "correct_answer": "Makinig at makipag-usap nang magalang"
+          },
+          {
+            "question": "Ano ang isa sa mga paraan ng pagpapakita ng hospitality?",
+            "options": [
+              "Pag-aalok ng inumin o pagkain",
+              "Pagtatago ng pagkain",
+              "Pag-iwas sa bisita",
+              "Pagsara ng pintuan"
+            ],
+            "correct_answer": "Pag-aalok ng inumin o pagkain"
+          },
+          {
+            "question": "Bakit dapat ihanda ang upuan para sa bisita?",
+            "options": [
+              "Upang maging komportable sila",
+              "Upang mapabilis silang umalis",
+              "Wala itong dahilan",
+              "Upang hindi sila makaupo"
+            ],
+            "correct_answer": "Upang maging komportable sila"
+          },
+          {
+            "question": "Ang lolo mo ay may bisitang kaibigan. Ano ang mabuting gawin mo bilang apo?",
+            "options": [
+              "Batiin sila nang magalang",
+              "Hindi na sila pansinin",
+              "Umalis sa bahay",
+              "Sarhan ang pinto"
+            ],
+            "correct_answer": "Batiin sila nang magalang"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 EPP (AFA/FCS/IA) — Pagkukumpuni ng Sira ng Kasuotan\n\nGrade 5, Linggo 17! Matuto tayong ayusin ang punit na damit. ✂️\n\n## 🔍 Pagtukoy sa mga Payak na Sira\n| Uri ng Sira | Paglalarawan |\n|---|---|\n| **Punit sa tahi** | tumanggal ang tahi ng seam |\n| **Naputulang butones** | nawala o naputol ang butones |\n| **Butas** | maliit na butas dulot ng pagkakasabit |\n| **Nalagas na kupas** | tumatanggal na gilid |\n\n## 🧵 Pagkukumpuni Gamit ang Basic Hand Stitch\n\n**Para sa punit na seam:**\n- Gamitin ang **back stitch** — matibay para sa tahing madalas gamitin\n\n**Para sa naputulang butones:**\n1. Ilagay ang butones sa tamang posisyon\n2. Gamitin ang **running stitch** paikot sa mga butas\n3. Tiyaking **matibay** ang tahi\n\n**Para sa maliit na butas:**\n- Gamitin ang **whip stitch** upang isara ang gilid\n\n## 🧠 Halimbawa 1\n*Nawala ang isang butones sa iyong uniporme. Ano ang gagawin mo?*\n- **Kumuha ng katumbas na butones**, ilagay sa tamang posisyon, at **tahiin** gamit ang running stitch.\n\n## 🧠 Halimbawa 2\n*May maliit na butas ang iyong medyas. Anong tahi ang gagamitin?*\n- **Whip stitch** — angkop ito sa pagsara ng maliliit na butas.\n\n## ⚠️ Kailan Hindi Na Puwedeng Ayusin?\nKung ang sira ay **napakalaki** o ang tela ay **sobrang gasgas**, mas mainam na **magpatulong sa nakatatanda** o gumamit ng **sewing machine**.\n\n## 💡 Bakit Mahalagang Matutong Magkumpuni?\n- **Nakatitipid** — hindi na kailangang bumili ng bago\n- **Nagpapahaba** ng buhay ng kasuotan\n- **Kapaki-pakinabang** na kasanayan sa buhay\n\nMagaling sa Linggo 17! 🌟",
+        "quiz": [
+          {
+            "question": "Alin ang uri ng payak na sira sa kasuotan?",
+            "options": [
+              "Punit sa tahi",
+              "Bagong damit",
+              "Malinis na tela",
+              "Bagong butones"
+            ],
+            "correct_answer": "Punit sa tahi"
+          },
+          {
+            "question": "Anong tahi ang mainam para sa punit na seam?",
+            "options": [
+              "Back stitch",
+              "Blanket stitch",
+              "Baste stitch",
+              "Walang tahi"
+            ],
+            "correct_answer": "Back stitch"
+          },
+          {
+            "question": "Anong tahi ang ginagamit sa pagtatahi ng butones?",
+            "options": [
+              "Running stitch",
+              "Back stitch",
+              "Blanket stitch",
+              "Whip stitch"
+            ],
+            "correct_answer": "Running stitch"
+          },
+          {
+            "question": "Anong tahi ang gagamitin sa maliit na butas?",
+            "options": [
+              "Whip stitch",
+              "Back stitch",
+              "Running stitch",
+              "Baste stitch"
+            ],
+            "correct_answer": "Whip stitch"
+          },
+          {
+            "question": "Nawala ang isang butones sa iyong uniporme. Ano ang unang gagawin mo?",
+            "options": [
+              "Kumuha ng katumbas na butones",
+              "Itapon ang buong damit",
+              "Hindi na ito ayusin",
+              "Magbili ng bagong uniporme agad"
+            ],
+            "correct_answer": "Kumuha ng katumbas na butones"
+          },
+          {
+            "question": "Kailan mainam magpatulong sa nakatatanda o gumamit ng makina?",
+            "options": [
+              "Kapag napakalaki ng sira",
+              "Kapag maliit lamang ang butas",
+              "Kapag walang problema sa tela",
+              "Kapag bago pa lamang ang damit"
+            ],
+            "correct_answer": "Kapag napakalaki ng sira"
+          },
+          {
+            "question": "Bakit mahalagang matutong magkumpuni ng damit?",
+            "options": [
+              "Nakatitipid at nagpapahaba ng buhay ng damit",
+              "Wala itong kabuluhan",
+              "Nagpapabilis lamang ito ng gastos",
+              "Hindi ito magagamit sa totoong buhay"
+            ],
+            "correct_answer": "Nakatitipid at nagpapahaba ng buhay ng damit"
+          },
+          {
+            "question": "Ano ang una mong gagawin bago tahiin ang butones?",
+            "options": [
+              "Ilagay ito sa tamang posisyon",
+              "Basta tahiin agad kahit saan",
+              "Itapon ang lumang butones",
+              "Kumuha ng gunting"
+            ],
+            "correct_answer": "Ilagay ito sa tamang posisyon"
+          },
+          {
+            "question": "Ano ang punit sa tahi?",
+            "options": [
+              "Tumanggal na tahi ng seam",
+              "Bagong kasuotan",
+              "Malinis na tela",
+              "Bagong disenyo"
+            ],
+            "correct_answer": "Tumanggal na tahi ng seam"
+          },
+          {
+            "question": "Bakit dapat matibay ang tahi sa pagtatahi ng butones?",
+            "options": [
+              "Upang hindi ito madaling matanggal muli",
+              "Upang mas maganda ito tingnan",
+              "Walang dahilan ito",
+              "Upang mabilis matapos"
+            ],
+            "correct_answer": "Upang hindi ito madaling matanggal muli"
+          },
+          {
+            "question": "May maliit na butas ang iyong medyas. Anong tahi ang gagamitin?",
+            "options": [
+              "Whip stitch",
+              "Blanket stitch",
+              "Baste stitch",
+              "Walang tahi"
+            ],
+            "correct_answer": "Whip stitch"
+          },
+          {
+            "question": "Isang bata ang naghahanap ng paraan upang ayusin ang punit na manggas ng kanyang damit. Ano ang PINAKAMABUTING gawin?",
+            "options": [
+              "Gamitin ang back stitch para matibay",
+              "Itapon na lamang ang damit",
+              "Iwanan itong punit magpakailanman",
+              "Bumili agad ng bagong damit"
+            ],
+            "correct_answer": "Gamitin ang back stitch para matibay"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📋 Friday Review — English (Grade 5)\n\n- Forms: deposit slip (date, account, amount, signature)\n- **BLOCK LETTERS**, no blanks, black/blue ink\n- Amount in words ends with **\"only\"**\n\nGreat practical skills! 🌟",
+        "quiz": [
+          {
+            "question": "Why is it important to fill out forms accurately?",
+            "options": [
+              "To avoid delays and mistakes",
+              "To make the form colorful",
+              "To finish as quickly as possible",
+              "To use as much space as possible"
+            ],
+            "correct_answer": "To avoid delays and mistakes"
+          },
+          {
+            "question": "What should you write in the 'Amount' field of a deposit slip?",
+            "options": [
+              "The amount in numbers and words",
+              "Only your name",
+              "Only the date",
+              "Only your signature"
+            ],
+            "correct_answer": "The amount in numbers and words"
+          },
+          {
+            "question": "How should you write ₱500 in words on a deposit slip?",
+            "options": [
+              "Five hundred pesos only",
+              "500 pesos",
+              "Five hundred",
+              "500"
+            ],
+            "correct_answer": "Five hundred pesos only"
+          },
+          {
+            "question": "What does MM/DD/YYYY stand for?",
+            "options": [
+              "Month/Day/Year",
+              "Minute/Day/Year",
+              "Month/Date/Yearly",
+              "Money/Day/Year"
+            ],
+            "correct_answer": "Month/Day/Year"
+          },
+          {
+            "question": "What kind of letters should you usually use on official forms?",
+            "options": [
+              "BLOCK LETTERS (capitals)",
+              "Cursive writing",
+              "Emoji symbols",
+              "Random doodles"
+            ],
+            "correct_answer": "BLOCK LETTERS (capitals)"
+          },
+          {
+            "question": "Why does 'only' appear after writing an amount in words?",
+            "options": [
+              "To prevent anyone from adding extra digits",
+              "To make the sentence longer",
+              "To confuse the reader",
+              "It has no real purpose"
+            ],
+            "correct_answer": "To prevent anyone from adding extra digits"
+          },
+          {
+            "question": "What should you check before submitting a form?",
+            "options": [
+              "That every required field is filled in",
+              "That the form is the most colorful",
+              "That you used a pencil only",
+              "That you left some fields blank"
+            ],
+            "correct_answer": "That every required field is filled in"
+          },
+          {
+            "question": "Which is a common mistake when filling out forms?",
+            "options": [
+              "Leaving fields blank",
+              "Writing clearly",
+              "Signing the form",
+              "Using black ink"
+            ],
+            "correct_answer": "Leaving fields blank"
+          },
+          {
+            "question": "What is usually required at the end of a bank form?",
+            "options": [
+              "Signature",
+              "A drawing",
+              "A joke",
+              "A different form"
+            ],
+            "correct_answer": "Signature"
+          },
+          {
+            "question": "Your birthday is May 3, 2015. How do you write this in MM/DD/YYYY format?",
+            "options": [
+              "05/03/2015",
+              "03/05/2015",
+              "2015/05/03",
+              "5-2015-03"
+            ],
+            "correct_answer": "05/03/2015"
+          },
+          {
+            "question": "Why should you avoid messy handwriting on official forms?",
+            "options": [
+              "It could be misread and cause errors",
+              "It makes the form more interesting",
+              "It is required by law to write messily",
+              "It has no effect on processing"
+            ],
+            "correct_answer": "It could be misread and cause errors"
+          },
+          {
+            "question": "A form asks for your 'Account Name'. What should you write?",
+            "options": [
+              "Your full legal name",
+              "Your favorite nickname",
+              "Your school's name",
+              "Your friend's name"
+            ],
+            "correct_answer": "Your full legal name"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💵 Friday Review — Mathematics (Grade 5)\n\n- **Budgeting** = plan how to spend | **Change** = amount paid − cost\n- Steps: identify → list → decide operation → solve → check\n\n**Quick check:** ₱500 − 234.75 = **₱265.25**\n\nExcellent decimal problem-solving! ⭐",
+        "quiz": [
+          {
+            "question": "Ana has ₱500. She spends ₱185.50, ₱95.25, and ₱150.75. How much is left?",
+            "options": [
+              "₱68.50",
+              "₱78.50",
+              "₱58.50",
+              "₱88.50"
+            ],
+            "correct_answer": "₱68.50"
+          },
+          {
+            "question": "Ben buys a toy for ₱234.75 and pays with ₱500. How much change?",
+            "options": [
+              "₱265.25",
+              "₱255.25",
+              "₱275.25",
+              "₱245.25"
+            ],
+            "correct_answer": "₱265.25"
+          },
+          {
+            "question": "What is the first step in solving a multi-step decimal problem?",
+            "options": [
+              "Identify what is being asked",
+              "Guess the final answer",
+              "Skip straight to subtracting",
+              "Round all numbers immediately"
+            ],
+            "correct_answer": "Identify what is being asked"
+          },
+          {
+            "question": "A family spends ₱875.50 and ₱320.25 from a ₱2,000 budget. How much is left?",
+            "options": [
+              "₱804.25",
+              "₱814.25",
+              "₱794.25",
+              "₱824.25"
+            ],
+            "correct_answer": "₱804.25"
+          },
+          {
+            "question": "A store item costs ₱149.90. You pay with two ₱100 bills. How much change?",
+            "options": [
+              "₱50.10",
+              "₱49.10",
+              "₱50.90",
+              "₱51.10"
+            ],
+            "correct_answer": "₱50.10"
+          },
+          {
+            "question": "What does 'budgeting' mean?",
+            "options": [
+              "Planning how to spend a set amount of money",
+              "Spending money without any plan",
+              "Never spending any money at all",
+              "Only saving money forever"
+            ],
+            "correct_answer": "Planning how to spend a set amount of money"
+          },
+          {
+            "question": "How do you compute change?",
+            "options": [
+              "Amount paid minus cost of item",
+              "Amount paid plus cost of item",
+              "Cost of item minus amount paid",
+              "Amount paid times cost of item"
+            ],
+            "correct_answer": "Amount paid minus cost of item"
+          },
+          {
+            "question": "Why should you check your answer after solving a word problem?",
+            "options": [
+              "To see if it makes sense",
+              "To make the problem longer",
+              "To avoid ever finishing",
+              "To skip a step on purpose"
+            ],
+            "correct_answer": "To see if it makes sense"
+          },
+          {
+            "question": "A recipe costs ₱235.40 in ingredients, and you have ₱300. How much is left?",
+            "options": [
+              "₱64.60",
+              "₱65.60",
+              "₱54.60",
+              "₱74.60"
+            ],
+            "correct_answer": "₱64.60"
+          },
+          {
+            "question": "You buy two items for ₱125.50 and ₱89.25, paying with a ₱500 bill. How much change?",
+            "options": [
+              "₱285.25",
+              "₱275.25",
+              "₱295.25",
+              "₱265.25"
+            ],
+            "correct_answer": "₱285.25"
+          },
+          {
+            "question": "Why is it useful to list all amounts before solving a multi-step problem?",
+            "options": [
+              "It helps organize which operations to use",
+              "It makes the problem harder to solve",
+              "It replaces the need to add",
+              "It has no practical benefit"
+            ],
+            "correct_answer": "It helps organize which operations to use"
+          },
+          {
+            "question": "A student computes change as cost minus amount paid instead of the reverse, getting a negative number. What was the mistake?",
+            "options": [
+              "The subtraction order was reversed",
+              "The amounts were added instead",
+              "The decimal point was moved",
+              "Nothing was done incorrectly"
+            ],
+            "correct_answer": "The subtraction order was reversed"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📝 Biyernes na Balik-Aral — Filipino (Grade 5)\n\n- **Apelyido, Unang Pangalan, Gitnang Pangalan** — pagkakasunod-sunod ng pangalan sa form\n- Gumamit ng **BLOCK LETTERS**, sagutan lahat ng bahagi, huwag makalimot pumirma\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang unang bahagi ng buong pangalan sa isang form?",
+            "options": [
+              "Apelyido",
+              "Gitnang pangalan",
+              "Unang pangalan",
+              "Palayaw"
+            ],
+            "correct_answer": "Apelyido"
+          },
+          {
+            "question": "Ano ang isusulat sa 'Petsa ng Kapanganakan'?",
+            "options": [
+              "Araw, buwan, at taon ng kapanganakan",
+              "Pangalan ng magulang lamang",
+              "Tirahan lamang dito",
+              "Numero ng telepono lamang"
+            ],
+            "correct_answer": "Araw, buwan, at taon ng kapanganakan"
+          },
+          {
+            "question": "Ano ang isusulat sa 'Baitang/Seksyon' sa library card form?",
+            "options": [
+              "Ang iyong Grade at seksyon",
+              "Ang pangalan ng magulang",
+              "Ang tirahan",
+              "Ang numero ng telepono"
+            ],
+            "correct_answer": "Ang iyong Grade at seksyon"
+          },
+          {
+            "question": "Anong uri ng sulat ang dapat gamitin sa form?",
+            "options": [
+              "Malinaw na BLOCK LETTERS",
+              "Mabilis na sulat na hindi maintindihan",
+              "Sulat na may kulay",
+              "Guhit na larawan"
+            ],
+            "correct_answer": "Malinaw na BLOCK LETTERS"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi ka pumirma sa form?",
+            "options": [
+              "Maaaring hindi ito matanggap",
+              "Awtomatikong matatanggap ito",
+              "Wala itong epekto",
+              "Mas mabilis itong maproseso"
+            ],
+            "correct_answer": "Maaaring hindi ito matanggap"
+          },
+          {
+            "question": "Ano ang tamang paraan ng pagsulat ng buong pangalan?",
+            "options": [
+              "Apelyido, Unang Pangalan, Gitnang Pangalan",
+              "Palayaw lamang",
+              "Unang pangalan lamang",
+              "Random na pagkakasunod-sunod"
+            ],
+            "correct_answer": "Apelyido, Unang Pangalan, Gitnang Pangalan"
+          },
+          {
+            "question": "Ano ang dapat isulat sa bahaging 'Guro' sa library card form?",
+            "options": [
+              "Pangalan ng adviser",
+              "Pangalan ng magulang",
+              "Pangalan ng kaibigan",
+              "Pangalan ng punong-guro lamang"
+            ],
+            "correct_answer": "Pangalan ng adviser"
+          },
+          {
+            "question": "Alin ang karaniwang pagkakamali sa pagsagot ng form?",
+            "options": [
+              "Pag-iwan ng blangkong bahagi",
+              "Pagsagot sa lahat ng bahagi",
+              "Malinaw na pagsulat",
+              "Pagpirma sa dulo"
+            ],
+            "correct_answer": "Pag-iwan ng blangkong bahagi"
+          },
+          {
+            "question": "Bakit dapat suriin ang iyong pangalan bago isumite ang form?",
+            "options": [
+              "Upang maiwasan ang maling baybay",
+              "Upang mabilis matapos",
+              "Walang dahilan ito",
+              "Upang gawing maikli ang pangalan"
+            ],
+            "correct_answer": "Upang maiwasan ang maling baybay"
+          },
+          {
+            "question": "Ano ang isusulat sa 'Tirahan' sa isang ID application?",
+            "options": [
+              "Kumpletong address",
+              "Pangalan ng paaralan",
+              "Numero ng telepono lamang",
+              "Petsa ng kapanganakan lamang"
+            ],
+            "correct_answer": "Kumpletong address"
+          },
+          {
+            "question": "Isang estudyante ang nag-iwan ng blangko sa bahaging petsa ng kapanganakan. Ano ang maaaring mangyari?",
+            "options": [
+              "Maaaring hindi kompleto ang form at hindi matanggap",
+              "Awtomatikong lalagyan ito ng petsa",
+              "Wala itong epekto sa proseso",
+              "Mas mabilis pa itong maproseso"
+            ],
+            "correct_answer": "Maaaring hindi kompleto ang form at hindi matanggap"
+          },
+          {
+            "question": "Bakit gumagamit ng itim o asul na tinta sa pagsagot ng opisyal na form?",
+            "options": [
+              "Mas madaling basahin at hindi mabura",
+              "Mas maganda ang kulay nito",
+              "Bawal gumamit ng lapis kailanman",
+              "Wala itong dahilan"
+            ],
+            "correct_answer": "Mas madaling basahin at hindi mabura"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 💪 Friday Review — Science (Grade 5)\n\n- **Contact force** = requires touching | **Push** (away) vs **Pull** (toward)\n- Force can: start, stop, speed up, slow down, or **change direction**\n\nGreat force scientist! 🌟",
+        "quiz": [
+          {
+            "question": "What is a contact force?",
+            "options": [
+              "A force that requires touching an object",
+              "A force that never touches anything",
+              "A force found only in space",
+              "A force with no direction"
+            ],
+            "correct_answer": "A force that requires touching an object"
+          },
+          {
+            "question": "What direction does a push move an object?",
+            "options": [
+              "Away from you",
+              "Toward you",
+              "Sideways always",
+              "It never moves anything"
+            ],
+            "correct_answer": "Away from you"
+          },
+          {
+            "question": "What direction does a pull move an object?",
+            "options": [
+              "Toward you",
+              "Away from you",
+              "Downward always",
+              "It never moves anything"
+            ],
+            "correct_answer": "Toward you"
+          },
+          {
+            "question": "A soccer ball at rest is kicked. What happened?",
+            "options": [
+              "A push made it start moving",
+              "A pull made it start moving",
+              "Nothing changed at all",
+              "It moved by itself"
+            ],
+            "correct_answer": "A push made it start moving"
+          },
+          {
+            "question": "A skateboard hits a wall and stops. What kind of force caused this?",
+            "options": [
+              "A push force from the wall",
+              "A pull force from the wall",
+              "No force at all",
+              "Gravity alone"
+            ],
+            "correct_answer": "A push force from the wall"
+          },
+          {
+            "question": "Which of these can a force do to a moving object?",
+            "options": [
+              "Pwede itong pabilisin, pabagalin, o baguhin",
+              "Ginagawa lamang itong invisible",
+              "Ginagawa lamang itong may kulay",
+              "Ginagawa lamang itong mas mabigat"
+            ],
+            "correct_answer": "Pwede itong pabilisin, pabagalin, o baguhin"
+          },
+          {
+            "question": "Is kicking a ball a push or a pull?",
+            "options": [
+              "Push",
+              "Pull",
+              "Neither",
+              "Both equally"
+            ],
+            "correct_answer": "Push"
+          },
+          {
+            "question": "Is pulling a cart a push or a pull?",
+            "options": [
+              "Pull",
+              "Push",
+              "Neither",
+              "Both equally"
+            ],
+            "correct_answer": "Pull"
+          },
+          {
+            "question": "In tug-of-war, what determines which team wins?",
+            "options": [
+              "The team with the stronger pull force",
+              "The team that is heavier only",
+              "The team that shouts louder",
+              "The team with more players always"
+            ],
+            "correct_answer": "The team with the stronger pull force"
+          },
+          {
+            "question": "Can a force change the direction of a moving object?",
+            "options": [
+              "Yes, like hitting a ball with a bat",
+              "No, force can only speed things up",
+              "No, force only stops objects",
+              "Yes, but only underwater"
+            ],
+            "correct_answer": "Yes, like hitting a ball with a bat"
+          },
+          {
+            "question": "Which activity is an example of a push?",
+            "options": [
+              "Pushing a swing",
+              "Pulling a drawer",
+              "Tug-of-war",
+              "Pulling a cart"
+            ],
+            "correct_answer": "Pushing a swing"
+          },
+          {
+            "question": "A ball rolling on the ground gradually slows down and stops on its own. What force is likely acting on it?",
+            "options": [
+              "Friction, a type of contact force",
+              "No force is acting on it",
+              "A pull from outer space",
+              "Only gravity pulling it sideways"
+            ],
+            "correct_answer": "Friction, a type of contact force"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# ⚔️ Biyernes na Balik-Aral — Araling Panlipunan (Grade 5)\n\n- **Sinkretismo** = paghahalo ng luma at bagong paniniwala\n- **Dagohoy (Bohol) · Tamblot (Bohol) · Sumuroy (Samar) · Silang (Ilocos)** = mga pag-aalsa\n- Kawalan ng pagkakaisa = sanhi ng paulit-ulit na pagkabigo\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang sinkretismo?",
+            "options": [
+              "Paghahalo ng luma at bagong paniniwala",
+              "Kumpletong pagtanggi sa bagong relihiyon",
+              "Kumpletong pagtanggap sa bagong relihiyon",
+              "Isang uri ng digmaan"
+            ],
+            "correct_answer": "Paghahalo ng luma at bagong paniniwala"
+          },
+          {
+            "question": "Saan naganap ang Dagohoy Rebellion?",
+            "options": [
+              "Bohol",
+              "Samar",
+              "Ilocos",
+              "Cebu"
+            ],
+            "correct_answer": "Bohol"
+          },
+          {
+            "question": "Saan naganap ang Sumuroy Revolt?",
+            "options": [
+              "Samar",
+              "Bohol",
+              "Ilocos",
+              "Batangas"
+            ],
+            "correct_answer": "Samar"
+          },
+          {
+            "question": "Saan naganap ang Silang Revolt?",
+            "options": [
+              "Ilocos",
+              "Bohol",
+              "Samar",
+              "Cebu"
+            ],
+            "correct_answer": "Ilocos"
+          },
+          {
+            "question": "Ano ang sanhi ng Sumuroy Revolt?",
+            "options": [
+              "Tutol sa polo y servicio",
+              "Tutol sa buwis lamang",
+              "Pagbabalik sa lumang paniniwala",
+              "Pagtanggi sa relihiyon"
+            ],
+            "correct_answer": "Tutol sa polo y servicio"
+          },
+          {
+            "question": "Ano ang isa sa dahilan kung bakit nabigo ang mga pag-aalsa?",
+            "options": [
+              "Kawalan ng pagkakaisang pambansa",
+              "Sobrang lakas ng mga Pilipino",
+              "Suporta ng Espanya sa mga Pilipino",
+              "Kawalan ng dahilan sa paglaban"
+            ],
+            "correct_answer": "Kawalan ng pagkakaisang pambansa"
+          },
+          {
+            "question": "Bakit itinuturing na matibay ang Dagohoy Rebellion?",
+            "options": [
+              "Ito ang pinakamahabang rebelyon, mahigit 80 taon",
+              "Ito ay tumagal lamang ng isang araw",
+              "Ito ay agad natalo",
+              "Wala itong naging epekto"
+            ],
+            "correct_answer": "Ito ang pinakamahabang rebelyon, mahigit 80 taon"
+          },
+          {
+            "question": "Bakit sinasabing sinkretismo ang paghahalo ng Kristiyanismo at katutubong paniniwala?",
+            "options": [
+              "Hindi lubos na nawala ang lumang gawi",
+              "Ganap na nawala ang lumang paniniwala",
+              "Walang bagong paniniwalang pumasok",
+              "Walang naganap na pagbabago"
+            ],
+            "correct_answer": "Hindi lubos na nawala ang lumang gawi"
+          },
+          {
+            "question": "Bakit lokal lamang ang saklaw ng mga pag-aalsa noong sinaunang panahon?",
+            "options": [
+              "Bawat pag-aalsa ay hiwalay-hiwalay, hindi nagkasama",
+              "Sama-sama silang nag-alsa sa buong bansa",
+              "Walang naganap na pag-aalsa",
+              "Iisang lugar lamang ang may mga tao"
+            ],
+            "correct_answer": "Bawat pag-aalsa ay hiwalay-hiwalay, hindi nagkasama"
+          },
+          {
+            "question": "Ano ang ipinapakita ng mga pag-aangkop at pagtugon ng mga Pilipino sa kolonyalismo?",
+            "options": [
+              "Hindi sila basta sumuko, nag-adapt at lumaban",
+              "Agad silang sumuko sa Espanya",
+              "Wala silang ginawang paglaban",
+              "Sinuportahan nila ang Espanya"
+            ],
+            "correct_answer": "Hindi sila basta sumuko, nag-adapt at lumaban"
+          },
+          {
+            "question": "Ano ang sanhi ng Tamblot Uprising?",
+            "options": [
+              "Pagbabalik sa lumang paniniwala",
+              "Tutol sa polo y servicio",
+              "Tutol sa buwis lamang",
+              "Pagsunod sa Kristiyanismo"
+            ],
+            "correct_answer": "Pagbabalik sa lumang paniniwala"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang mga pag-aalsang ito kahit natalo?",
+            "options": [
+              "Nagpapakita ito ng katatagan ng loob ng Pilipino",
+              "Wala itong halaga sa kasaysayan",
+              "Ito ay hindi totoong nangyari",
+              "Hindi mahalaga sa kasalukuyan"
+            ],
+            "correct_answer": "Nagpapakita ito ng katatagan ng loob ng Pilipino"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 📰 Friday Review — EPP (ICT) (Grade 5)\n\n- **Desktop publishing** = brochure/flyer creation\n- **Layout:** headline, larawan, katawan ng teksto, contact info\n- Gumamit ng **template** para makatipid ng oras\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang desktop publishing?",
+            "options": [
+              "Paggawa ng propesyonal na dokumento",
+              "Paggawa ng spreadsheet na lamang",
+              "Paglalaro ng computer game lamang",
+              "Pagsulat lamang ng email"
+            ],
+            "correct_answer": "Paggawa ng propesyonal na dokumento"
+          },
+          {
+            "question": "Ano ang layout?",
+            "options": [
+              "Pagkakaayos ng mga elemento sa pahina",
+              "Kulay ng dokumento lamang",
+              "Bilang ng pahina lamang",
+              "Uri ng font lamang"
+            ],
+            "correct_answer": "Pagkakaayos ng mga elemento sa pahina"
+          },
+          {
+            "question": "Ano ang headline sa isang flyer?",
+            "options": [
+              "Malaking teksto sa itaas",
+              "Maliit na teksto sa ibaba",
+              "Larawan lamang",
+              "Contact number lamang"
+            ],
+            "correct_answer": "Malaking teksto sa itaas"
+          },
+          {
+            "question": "Ano ang ginagamit upang gawing kaakit-akit ang dokumento?",
+            "options": [
+              "Borders at accents",
+              "Random na numero lamang",
+              "Blangkong espasyo lamang",
+              "Isang kulay lamang"
+            ],
+            "correct_answer": "Borders at accents"
+          },
+          {
+            "question": "Ano ang template?",
+            "options": [
+              "Paunang disenyo na maaaring baguhin",
+              "Isang uri ng larawan lamang",
+              "Isang uri ng font lamang",
+              "Isang uri ng kulay lamang"
+            ],
+            "correct_answer": "Paunang disenyo na maaaring baguhin"
+          },
+          {
+            "question": "Bakit mainam gumamit ng template?",
+            "options": [
+              "Nagtitipid ng oras at may maayos na layout",
+              "Nagpapahirap lamang ito ng gawain",
+              "Wala itong kabuluhan dito",
+              "Ginagawang mas mahirap ang proyekto"
+            ],
+            "correct_answer": "Nagtitipid ng oras at may maayos na layout"
+          },
+          {
+            "question": "Ano ang dapat isama sa isang flyer ng school event?",
+            "options": [
+              "Headline, petsa, lokasyon, at larawan",
+              "Isang random na larawan lamang",
+              "Walang teksto, larawan lamang",
+              "Isang blangkong pahina lamang"
+            ],
+            "correct_answer": "Headline, petsa, lokasyon, at larawan"
+          },
+          {
+            "question": "Bakit dapat panatilihing simple ang isang brochure?",
+            "options": [
+              "Upang hindi malito ang mambabasa",
+              "Upang tumagal ang paggawa",
+              "Upang mas mahaba ang teksto",
+              "Walang dahilan ito"
+            ],
+            "correct_answer": "Upang hindi malito ang mambabasa"
+          },
+          {
+            "question": "Ano ang isang tri-fold na babasahin?",
+            "options": [
+              "Brochure",
+              "Flyer",
+              "Poster",
+              "Sulat"
+            ],
+            "correct_answer": "Brochure"
+          },
+          {
+            "question": "Ano ang dapat isama sa contact info ng isang flyer?",
+            "options": [
+              "Paraan ng pakikipag-ugnayan",
+              "Kulay ng damit",
+              "Presyo ng papel",
+              "Uri ng printer"
+            ],
+            "correct_answer": "Paraan ng pakikipag-ugnayan"
+          },
+          {
+            "question": "Bakit dapat malinaw ang font sa isang brochure?",
+            "options": [
+              "Upang madaling basahin ang impormasyon",
+              "Upang mas maganda ito tingnan lamang",
+              "Upang mabilis matapos ang trabaho",
+              "Walang dahilan ito"
+            ],
+            "correct_answer": "Upang madaling basahin ang impormasyon"
+          },
+          {
+            "question": "Isang mag-aaral ang gumawa ng flyer na puno ng teksto na hindi maintindihan. Ano ang problema dito?",
+            "options": [
+              "Sobra ang impormasyon, kulang sa kalinawan",
+              "Masyadong simple ang disenyo",
+              "Walang problema dito",
+              "Masyadong maliit ang papel"
+            ],
+            "correct_answer": "Sobra ang impormasyon, kulang sa kalinawan"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎭 Biyernes na Balik-Aral — MAPEH (Grade 5)\n\n- **Theater strand:** paksa (ritwal), tema (himala), simbolismo — hal. **cenaculo**\n- **Dance strand:** movement vocabulary — libreng galaw + pormal na hakbang ng Europa\n- Buhay pa rin ang tradisyon tuwing **Semana Santa**\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang paksa ng mga dula noong panahong ito?",
+            "options": [
+              "Ritwal ng simbahan at buhay ng santo",
+              "Kasalukuyang balita na lamang",
+              "Modernong agham na lamang",
+              "Digmaang pandaigdig lamang"
+            ],
+            "correct_answer": "Ritwal ng simbahan at buhay ng santo"
+          },
+          {
+            "question": "Ano ang cenaculo?",
+            "options": [
+              "Dulang naglalarawan ng buhay ni Kristo",
+              "Sayaw pandigma",
+              "Awit sa piyesta",
+              "Instrumentong pangmusika"
+            ],
+            "correct_answer": "Dulang naglalarawan ng buhay ni Kristo"
+          },
+          {
+            "question": "Ano ang movement vocabulary?",
+            "options": [
+              "Hanay ng mga galaw na ginagamit sa sayaw",
+              "Listahan ng salita sa dula",
+              "Pangalan ng mananayaw",
+              "Kulay ng costume"
+            ],
+            "correct_answer": "Hanay ng mga galaw na ginagamit sa sayaw"
+          },
+          {
+            "question": "Paano naghalo ang katutubong at Europeong sayaw?",
+            "options": [
+              "Libreng galaw pinagsama sa pormal na hakbang",
+              "Walang paghahalo na naganap",
+              "Espanyol lamang ang naging batayan",
+              "Katutubo lamang ang naging batayan"
+            ],
+            "correct_answer": "Libreng galaw pinagsama sa pormal na hakbang"
+          },
+          {
+            "question": "Ano ang tema ng mga dula noong Early Spanish Colonial Period?",
+            "options": [
+              "Himala at pananampalataya",
+              "Modernong agham",
+              "Digmaang pandaigdig",
+              "Palakasan"
+            ],
+            "correct_answer": "Himala at pananampalataya"
+          },
+          {
+            "question": "Ano ang ginagamit ng simbolismo sa mga dulang ito?",
+            "options": [
+              "Imahen upang ituro ang aral ng relihiyon",
+              "Bagong makabagong teknolohiya",
+              "Modernong musika lamang",
+              "Sportang laro"
+            ],
+            "correct_answer": "Imahen upang ituro ang aral ng relihiyon"
+          },
+          {
+            "question": "Kailan pa rin ginagawa ang pasyon at senakulo hanggang ngayon?",
+            "options": [
+              "Tuwing Semana Santa",
+              "Tuwing Pasko",
+              "Tuwing kaarawan",
+              "Tuwing graduation"
+            ],
+            "correct_answer": "Tuwing Semana Santa"
+          },
+          {
+            "question": "Ano ang ipinapakita ng paghahalo ng dalawang kultura sa sining?",
+            "options": [
+              "Bagong anyo ng sining na natatangi",
+              "Kumpletong pagkawala ng katutubong sining",
+              "Walang pagbabago sa sining",
+              "Kumpletong pananaig ng Europeong sining"
+            ],
+            "correct_answer": "Bagong anyo ng sining na natatangi"
+          },
+          {
+            "question": "Alin ang halimbawa ng Europeong impluwensiya sa sayaw?",
+            "options": [
+              "Mas pormal na hakbang, tulad ng pares",
+              "Basta libreng galaw na lamang",
+              "Walang anumang istruktura dito",
+              "Puro katutubong galaw na lamang"
+            ],
+            "correct_answer": "Mas pormal na hakbang, tulad ng pares"
+          },
+          {
+            "question": "Bakit mahalaga ang pag-aaral ng sining noong panahong ito?",
+            "options": [
+              "Ipinapakita nito kung paano naghalo ang dalawang kultura",
+              "Wala itong kaugnayan sa kasalukuyan",
+              "Ito ay hindi na ginagawa ngayon",
+              "Walang kaugnayan sa Pilipinas"
+            ],
+            "correct_answer": "Ipinapakita nito kung paano naghalo ang dalawang kultura"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng symbolic theater sa panahong ito?",
+            "options": [
+              "Cenaculo tungkol sa buhay ni Kristo",
+              "Modernong pelikula na lamang",
+              "Palabas sa telebisyon lamang",
+              "Konsiyerto ng OPM na lamang"
+            ],
+            "correct_answer": "Cenaculo tungkol sa buhay ni Kristo"
+          },
+          {
+            "question": "Isang mag-aaral ang nanonood ng senakulo tuwing Semana Santa sa kanilang bayan. Ano ang ipinapakita nito?",
+            "options": [
+              "Buhay pa rin ang tradisyong sining na ito",
+              "Bagong-bago lamang ang sining na ito",
+              "Wala itong kaugnayan sa kasaysayan",
+              "Ito ay makabagong imbensyon lamang"
+            ],
+            "correct_answer": "Buhay pa rin ang tradisyong sining na ito"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🤝 Biyernes na Balik-Aral — GMRC (Grade 5)\n\n- **Hospitality** = magiliw na pagtanggap sa bisita\n- Batiin, alukin, ihanda ang upuan, makinig, ihatid pauwi\n- Igalang ang lahat ng kamag-anak kahit malayo o bihira makita\n\nMagaling! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang hospitality?",
+            "options": [
+              "Magiliw na pagtanggap sa bisita",
+              "Pag-iwas sa mga bisita",
+              "Pagbabalewala sa panauhin",
+              "Pagtatago sa kwarto"
+            ],
+            "correct_answer": "Magiliw na pagtanggap sa bisita"
+          },
+          {
+            "question": "Dumating ang tita mo mula sa malayo. Ano ang tamang gawin mo?",
+            "options": [
+              "Batiin siya nang magiliw at tulungan",
+              "Iwasan siya nang tuluyan",
+              "Umalis sa bahay agad",
+              "Hindi na siya kausapin"
+            ],
+            "correct_answer": "Batiin siya nang magiliw at tulungan"
+          },
+          {
+            "question": "Ano ang tamang gawin sa isang bisitang hindi mo kilala?",
+            "options": [
+              "Batiin nang magalang bilang bisita",
+              "Hindi na siya pansinin dito",
+              "Iwasan siya nang tuluyan",
+              "Tumakbo palayo agad"
+            ],
+            "correct_answer": "Batiin nang magalang bilang bisita"
+          },
+          {
+            "question": "Ano ang tamang gawin kapag aalis na ang bisita?",
+            "options": [
+              "Ihatid hanggang sa pintuan",
+              "Hayaan silang umalis nang tahimik",
+              "Hindi na sila batiin",
+              "Tumakbo palayo agad"
+            ],
+            "correct_answer": "Ihatid hanggang sa pintuan"
+          },
+          {
+            "question": "Bakit mahalaga ang hospitality?",
+            "options": [
+              "Nagpapakita ito ng paggalang sa bisita",
+              "Wala itong kabuluhan",
+              "Ginagawa lamang ito sa piyesta",
+              "Nagpapahirap lamang ito"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang sa bisita"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag may dumating na bisita sa bahay?",
+            "options": [
+              "Batiin sila nang magiliw sa pintuan",
+              "Hayaan silang maghintay sa labas",
+              "Iwasan silang tanggapin",
+              "Tumakbo sa kwarto"
+            ],
+            "correct_answer": "Batiin sila nang magiliw sa pintuan"
+          },
+          {
+            "question": "Ano ang epekto ng magandang hospitality sa impresyon ng bisita?",
+            "options": [
+              "Nagbibigay ito ng magandang unang impresyon",
+              "Nagbibigay ito ng masamang impresyon",
+              "Wala itong epekto",
+              "Nagpapabagal lamang ito"
+            ],
+            "correct_answer": "Nagbibigay ito ng magandang unang impresyon"
+          },
+          {
+            "question": "Paano dapat tratuhin ang malayong kamag-anak?",
+            "options": [
+              "Nang may respeto kahit bihira makita",
+              "Hindi na pansinin",
+              "Iwasan nang tuluyan",
+              "Basta ipagsawalang-bahala"
+            ],
+            "correct_answer": "Nang may respeto kahit bihira makita"
+          },
+          {
+            "question": "Ano ang tamang gawin habang nakikipag-usap sa bisita?",
+            "options": [
+              "Makinig at makipag-usap nang magalang",
+              "Umiwas sa usapan nang tuluyan",
+              "Manahimik nang tuluyan dito",
+              "Umalis nang bigla dito"
+            ],
+            "correct_answer": "Makinig at makipag-usap nang magalang"
+          },
+          {
+            "question": "Ano ang isa sa mga paraan ng pagpapakita ng hospitality?",
+            "options": [
+              "Pag-aalok ng inumin o pagkain",
+              "Pagtatago ng pagkain",
+              "Pag-iwas sa bisita",
+              "Pagsara ng pintuan"
+            ],
+            "correct_answer": "Pag-aalok ng inumin o pagkain"
+          },
+          {
+            "question": "Bakit dapat ihanda ang upuan para sa bisita?",
+            "options": [
+              "Upang maging komportable sila",
+              "Upang mapabilis silang umalis",
+              "Wala itong dahilan",
+              "Upang hindi sila makaupo"
+            ],
+            "correct_answer": "Upang maging komportable sila"
+          },
+          {
+            "question": "Ang lolo mo ay may bisitang kaibigan. Ano ang mabuting gawin mo bilang apo?",
+            "options": [
+              "Batiin sila nang magalang",
+              "Hindi na sila pansinin",
+              "Umalis sa bahay",
+              "Sarhan ang pinto"
+            ],
+            "correct_answer": "Batiin sila nang magalang"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 Friday Review — EPP (AFA/FCS/IA) (Grade 5)\n\n- **Back stitch** (punit sa seam) · **Running stitch** (butones) · **Whip stitch** (maliit na butas)\n- Kumuha ng katumbas na butones bago tahiin\n- Nakatitipid at nagpapahaba ng buhay ng damit\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Alin ang uri ng payak na sira sa kasuotan?",
+            "options": [
+              "Punit sa tahi",
+              "Bagong damit",
+              "Malinis na tela",
+              "Bagong butones"
+            ],
+            "correct_answer": "Punit sa tahi"
+          },
+          {
+            "question": "Anong tahi ang mainam para sa punit na seam?",
+            "options": [
+              "Back stitch",
+              "Blanket stitch",
+              "Baste stitch",
+              "Walang tahi"
+            ],
+            "correct_answer": "Back stitch"
+          },
+          {
+            "question": "Anong tahi ang ginagamit sa pagtatahi ng butones?",
+            "options": [
+              "Running stitch",
+              "Back stitch",
+              "Blanket stitch",
+              "Whip stitch"
+            ],
+            "correct_answer": "Running stitch"
+          },
+          {
+            "question": "Anong tahi ang gagamitin sa maliit na butas?",
+            "options": [
+              "Whip stitch",
+              "Back stitch",
+              "Running stitch",
+              "Baste stitch"
+            ],
+            "correct_answer": "Whip stitch"
+          },
+          {
+            "question": "Nawala ang isang butones sa iyong uniporme. Ano ang unang gagawin mo?",
+            "options": [
+              "Kumuha ng katumbas na butones",
+              "Itapon ang buong damit",
+              "Hindi na ito ayusin",
+              "Magbili ng bagong uniporme agad"
+            ],
+            "correct_answer": "Kumuha ng katumbas na butones"
+          },
+          {
+            "question": "Kailan mainam magpatulong sa nakatatanda o gumamit ng makina?",
+            "options": [
+              "Kapag napakalaki ng sira",
+              "Kapag maliit lamang ang butas",
+              "Kapag walang problema sa tela",
+              "Kapag bago pa lamang ang damit"
+            ],
+            "correct_answer": "Kapag napakalaki ng sira"
+          },
+          {
+            "question": "Bakit mahalagang matutong magkumpuni ng damit?",
+            "options": [
+              "Nakatitipid at nagpapahaba ng buhay ng damit",
+              "Wala itong kabuluhan",
+              "Nagpapabilis lamang ito ng gastos",
+              "Hindi ito magagamit sa totoong buhay"
+            ],
+            "correct_answer": "Nakatitipid at nagpapahaba ng buhay ng damit"
+          },
+          {
+            "question": "Ano ang una mong gagawin bago tahiin ang butones?",
+            "options": [
+              "Ilagay ito sa tamang posisyon",
+              "Basta tahiin agad kahit saan",
+              "Itapon ang lumang butones",
+              "Kumuha ng gunting"
+            ],
+            "correct_answer": "Ilagay ito sa tamang posisyon"
+          },
+          {
+            "question": "Ano ang punit sa tahi?",
+            "options": [
+              "Tumanggal na tahi ng seam",
+              "Bagong kasuotan",
+              "Malinis na tela",
+              "Bagong disenyo"
+            ],
+            "correct_answer": "Tumanggal na tahi ng seam"
+          },
+          {
+            "question": "Bakit dapat matibay ang tahi sa pagtatahi ng butones?",
+            "options": [
+              "Upang hindi ito madaling matanggal muli",
+              "Upang mas maganda ito tingnan",
+              "Walang dahilan ito",
+              "Upang mabilis matapos"
+            ],
+            "correct_answer": "Upang hindi ito madaling matanggal muli"
+          },
+          {
+            "question": "May maliit na butas ang iyong medyas. Anong tahi ang gagamitin?",
+            "options": [
+              "Whip stitch",
+              "Blanket stitch",
+              "Baste stitch",
+              "Walang tahi"
+            ],
+            "correct_answer": "Whip stitch"
+          },
+          {
+            "question": "Isang bata ang naghahanap ng paraan upang ayusin ang punit na manggas ng kanyang damit. Ano ang PINAKAMABUTING gawin?",
+            "options": [
+              "Gamitin ang back stitch para matibay",
+              "Itapon na lamang ang damit",
+              "Iwanan itong punit magpakailanman",
+              "Bumili agad ng bagong damit"
+            ],
+            "correct_answer": "Gamitin ang back stitch para matibay"
+          }
+        ]
+      }
+    }
+  }
+}

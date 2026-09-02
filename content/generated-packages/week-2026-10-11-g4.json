@@ -1,0 +1,2016 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-10-11",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🎊 English — Vocabulary: Ceremonial and Content-Specific Terms\n\nGrade 4, Week 18! Let's build our vocabulary about family celebrations. 🎉\n\n## 📖 Ceremonial Vocabulary\nWhen reading about christenings and weddings, we meet special **ceremonial words**:\n\n| Word | Meaning |\n|---|---|\n| **Ninong/Ninang** | godfather/godmother (sponsor) of a baby or couple |\n| **Sponsor** | someone who supports the person being christened or married |\n| **Reception** | the celebration/gathering after the main ceremony |\n| **Entourage** | the group of people (like bridesmaids, groomsmen) who take part in a wedding |\n\n## 🔍 Using Context Clues\nWhen we meet a new word, we can use **context clues** — the words around it — to figure out its meaning.\n\n**Example:** *\"The ninong gave the baby a gift, just like a godfather would.\"* — the phrase \"just like a godfather\" is a context clue for \"ninong.\"\n\n## 🧠 Worked Example 1\n*\"After the ceremony, everyone went to the reception to eat and celebrate.\"* What is a reception?\n- The **celebration or gathering** after the main ceremony.\n\n## 🧠 Worked Example 2\n*\"The bride's entourage included her sister and best friends.\"* What is an entourage?\n- The **group of people** who take part in the wedding alongside the bride or groom.\n\n## 💡 Why Vocabulary Matters\nLearning ceremonial and content-specific words helps us **understand and enjoy** texts about important family events.\n\nGreat vocabulary building! 🌟",
+        "quiz": [
+          {
+            "question": "What does \"ninong\" or \"ninang\" mean?",
+            "options": [
+              "Godfather or godmother (sponsor)",
+              "The main celebration hall",
+              "A type of wedding cake",
+              "The wedding invitation"
+            ],
+            "correct_answer": "Godfather or godmother (sponsor)"
+          },
+          {
+            "question": "What is a reception?",
+            "options": [
+              "The celebration or gathering after the main ceremony",
+              "The wedding rings exchanged during the vows",
+              "The invitation card sent before the wedding",
+              "The church building where the ceremony happens"
+            ],
+            "correct_answer": "The celebration or gathering after the main ceremony"
+          },
+          {
+            "question": "What is an entourage?",
+            "options": [
+              "The group of people who take part in a wedding",
+              "The single cake served at the wedding reception",
+              "The exact date chosen for the wedding",
+              "The street address of the wedding venue"
+            ],
+            "correct_answer": "The group of people who take part in a wedding"
+          },
+          {
+            "question": "What are context clues?",
+            "options": [
+              "The words around a new word that help explain its meaning",
+              "The pictures printed inside a storybook",
+              "The title printed on the cover of a book",
+              "The very last page of a story"
+            ],
+            "correct_answer": "The words around a new word that help explain its meaning"
+          },
+          {
+            "question": "\"The ninong gave the baby a gift, just like a godfather would.\" What context clue explains \"ninong\"?",
+            "options": [
+              "\"just like a godfather would\"",
+              "\"gave the baby a gift\"",
+              "The word \"the\"",
+              "There is no context clue"
+            ],
+            "correct_answer": "\"just like a godfather would\""
+          },
+          {
+            "question": "\"After the ceremony, everyone went to the reception to eat and celebrate.\" What is the reception?",
+            "options": [
+              "The celebration after the ceremony",
+              "The ceremony itself happening earlier",
+              "The wedding rings exchanged that day",
+              "The invitation letter sent beforehand"
+            ],
+            "correct_answer": "The celebration after the ceremony"
+          },
+          {
+            "question": "\"The bride's entourage included her sister and best friends.\" Who is in the entourage?",
+            "options": [
+              "Her sister and best friends",
+              "Only the bride herself",
+              "Only the groom",
+              "The wedding photographer only"
+            ],
+            "correct_answer": "Her sister and best friends"
+          },
+          {
+            "question": "What is a sponsor in a christening?",
+            "options": [
+              "Someone who supports the person being christened",
+              "The baby who is being christened that day",
+              "The church building where it takes place",
+              "The exact date of the ceremony"
+            ],
+            "correct_answer": "Someone who supports the person being christened"
+          },
+          {
+            "question": "Why do we use context clues when reading?",
+            "options": [
+              "To figure out the meaning of new words",
+              "To skip reading the whole text",
+              "To ignore unfamiliar words completely",
+              "To make the text longer"
+            ],
+            "correct_answer": "To figure out the meaning of new words"
+          },
+          {
+            "question": "Which word describes a wedding celebration held after the ceremony?",
+            "options": [
+              "Reception",
+              "Entourage",
+              "Sponsor",
+              "Ninong"
+            ],
+            "correct_answer": "Reception"
+          },
+          {
+            "question": "Why is it useful to learn ceremonial vocabulary?",
+            "options": [
+              "It helps us understand texts about family celebrations",
+              "It only helps with math problems",
+              "It replaces the need to read stories",
+              "It is only useful for adults"
+            ],
+            "correct_answer": "It helps us understand texts about family celebrations"
+          },
+          {
+            "question": "A student reads \"the groom's entourage wore matching suits.\" What can the student conclude about entourage?",
+            "options": [
+              "It refers to a group of people dressed similarly for the wedding",
+              "It refers to a single piece of clothing worn alone",
+              "It refers to the venue where the wedding is held",
+              "It refers to the exact date of the wedding"
+            ],
+            "correct_answer": "It refers to a group of people dressed similarly for the wedding"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📏 Mathematics — Converting Units\n\nGrade 4, Week 18! Let's learn to convert between units of measurement. 🔄\n\n## 📐 Units of Length\n| Larger Unit | Smaller Unit | Conversion |\n|---|---|---|\n| **Kilometer (km)** | Meter (m) | 1 km = 1,000 m |\n| **Meter (m)** | Centimeter (cm) | 1 m = 100 cm |\n\n## ⚖️ Units of Mass\n| Larger Unit | Smaller Unit | Conversion |\n|---|---|---|\n| **Kilogram (kg)** | Gram (g) | 1 kg = 1,000 g |\n| **Gram (g)** | Milligram (mg) | 1 g = 1,000 mg |\n\n## 🧴 Units of Capacity\n| Larger Unit | Smaller Unit | Conversion |\n|---|---|---|\n| **Liter (L)** | Milliliter (mL) | 1 L = 1,000 mL |\n\n## ⏳ Units of Time\n60 seconds = 1 minute | 60 minutes = 1 hour | 24 hours = 1 day | 7 days = 1 week\n\n## 🔄 Converting Larger to Smaller\n**Multiply** when converting from a larger unit to a smaller unit.\n**Example:** 3 km = 3 × 1,000 = **3,000 m**\n\n## 🔄 Converting Smaller to Larger\n**Divide** when converting from a smaller unit to a larger unit.\n**Example:** 5,000 g = 5,000 ÷ 1,000 = **5 kg**\n\n## 🧠 Worked Example — Elapsed Time\n*A movie starts at 2:15 PM and ends at 4:00 PM. How long is the movie?*\n- From 2:15 to 4:00 = **1 hour and 45 minutes**\n\nGreat conversion work! ⭐",
+        "quiz": [
+          {
+            "question": "How many meters are in 1 kilometer?",
+            "options": [
+              "1,000 meters",
+              "100 meters",
+              "10 meters",
+              "10,000 meters"
+            ],
+            "correct_answer": "1,000 meters"
+          },
+          {
+            "question": "How many grams are in 1 kilogram?",
+            "options": [
+              "1,000 grams",
+              "100 grams",
+              "10 grams",
+              "10,000 grams"
+            ],
+            "correct_answer": "1,000 grams"
+          },
+          {
+            "question": "How many milliliters are in 1 liter?",
+            "options": [
+              "1,000 milliliters",
+              "100 milliliters",
+              "10 milliliters",
+              "10,000 milliliters"
+            ],
+            "correct_answer": "1,000 milliliters"
+          },
+          {
+            "question": "What do you do when converting from a larger unit to a smaller unit?",
+            "options": [
+              "Multiply",
+              "Divide",
+              "Subtract",
+              "Do nothing"
+            ],
+            "correct_answer": "Multiply"
+          },
+          {
+            "question": "What do you do when converting from a smaller unit to a larger unit?",
+            "options": [
+              "Divide",
+              "Multiply",
+              "Add",
+              "Do nothing"
+            ],
+            "correct_answer": "Divide"
+          },
+          {
+            "question": "Convert 3 km to meters.",
+            "options": [
+              "3,000 m",
+              "300 m",
+              "30 m",
+              "30,000 m"
+            ],
+            "correct_answer": "3,000 m"
+          },
+          {
+            "question": "Convert 5,000 g to kilograms.",
+            "options": [
+              "5 kg",
+              "50 kg",
+              "500 kg",
+              "0.5 kg"
+            ],
+            "correct_answer": "5 kg"
+          },
+          {
+            "question": "How many seconds are in 1 minute?",
+            "options": [
+              "60 seconds",
+              "100 seconds",
+              "24 seconds",
+              "30 seconds"
+            ],
+            "correct_answer": "60 seconds"
+          },
+          {
+            "question": "How many minutes are in 1 hour?",
+            "options": [
+              "60 minutes",
+              "100 minutes",
+              "24 minutes",
+              "30 minutes"
+            ],
+            "correct_answer": "60 minutes"
+          },
+          {
+            "question": "A movie starts at 2:15 PM and ends at 4:00 PM. How long is the movie?",
+            "options": [
+              "1 hour and 45 minutes",
+              "2 hours",
+              "1 hour and 15 minutes",
+              "45 minutes"
+            ],
+            "correct_answer": "1 hour and 45 minutes"
+          },
+          {
+            "question": "Convert 2 m to centimeters.",
+            "options": [
+              "200 cm",
+              "20 cm",
+              "2,000 cm",
+              "2 cm"
+            ],
+            "correct_answer": "200 cm"
+          },
+          {
+            "question": "Convert 2,000 mL to liters.",
+            "options": [
+              "2 L",
+              "20 L",
+              "200 L",
+              "0.2 L"
+            ],
+            "correct_answer": "2 L"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📝 Filipino — Pangngalan, Panghalip, at Pang-uri\n\nGrade 4, Linggo 18! Alamin natin ang kayarian ng mga salita sa Filipino. ✍️\n\n## 🏷️ Pangngalan (Noun)\nAng **pangngalan** ay tumutukoy sa pangalan ng tao, bagay, lugar, o pangyayari.\n\n## 👤 Panghalip (Pronoun)\nAng **panghalip** ay pumapalit sa pangngalan (hal. siya, sila, ako, ikaw).\n\n## 🎨 Pang-uri (Adjective)\nAng **pang-uri** ay naglalarawan sa pangngalan o panghalip.\n\n## 🧩 Mga Kayarian ng Salita\n| Kayarian | Paliwanag | Halimbawa |\n|---|---|---|\n| **Payak** | isang salitang-ugat lamang | bahay, pusa |\n| **Maylapi** | may unlapi, gitlapi, o hulapi | ma**ganda**, kumain |\n| **Tambalan** | dalawang salitang pinagsama | bahay-kubo, alat-nga |\n| **Inuulit** | inuulit ang buo o bahagi ng salita | araw-araw, halu-halo |\n\n## 📔 Wastong Paggamit sa Talaarawan\nSa pagsulat ng **talaarawan**, mahalagang gamitin nang wasto ang pangngalan, panghalip, at pang-uri upang maging malinaw ang isinusulat na karanasan.\n\n## 🧠 Worked Example 1\n*Ano ang kayarian ng salitang \"kumakain\"?*\n- **Maylapi** — may gitlapi na \"um\" at inuulit ang unang pantig.\n\n## 🧠 Worked Example 2\n*\"Maganda ang bulaklak sa hardin.\" Alin ang pang-uri?*\n- **\"Maganda\"** — naglalarawan ito sa bulaklak.\n\nMagaling sa gramatika! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pangngalan?",
+            "options": [
+              "Tumutukoy sa pangalan ng tao, bagay, lugar, o pangyayari",
+              "Pumapalit lamang sa isang pangngalan",
+              "Naglalarawan lamang sa isang pangngalan",
+              "Nagsasaad lamang ng isang kilos"
+            ],
+            "correct_answer": "Tumutukoy sa pangalan ng tao, bagay, lugar, o pangyayari"
+          },
+          {
+            "question": "Ano ang panghalip?",
+            "options": [
+              "Pumapalit sa pangngalan",
+              "Naglalarawan sa pangngalan",
+              "Nagsasaad ng kilos",
+              "Nagbibilang ng bagay"
+            ],
+            "correct_answer": "Pumapalit sa pangngalan"
+          },
+          {
+            "question": "Ano ang pang-uri?",
+            "options": [
+              "Naglalarawan sa pangngalan o panghalip",
+              "Pumapalit sa pangngalan",
+              "Tumutukoy sa lugar lamang",
+              "Nagsasaad ng bilang lamang"
+            ],
+            "correct_answer": "Naglalarawan sa pangngalan o panghalip"
+          },
+          {
+            "question": "Ano ang kayariang payak?",
+            "options": [
+              "Isang salitang-ugat lamang",
+              "May unlapi o hulapi",
+              "Dalawang salitang pinagsama",
+              "Inuulit na salita"
+            ],
+            "correct_answer": "Isang salitang-ugat lamang"
+          },
+          {
+            "question": "Ano ang kayariang maylapi?",
+            "options": [
+              "May unlapi, gitlapi, o hulapi",
+              "Isang salitang-ugat lamang",
+              "Dalawang magkaibang salita",
+              "Walang anumang panlapi"
+            ],
+            "correct_answer": "May unlapi, gitlapi, o hulapi"
+          },
+          {
+            "question": "Ano ang kayariang tambalan?",
+            "options": [
+              "Dalawang salitang pinagsama",
+              "Isang salitang-ugat lamang",
+              "Salitang inuulit",
+              "Salitang may hulapi lamang"
+            ],
+            "correct_answer": "Dalawang salitang pinagsama"
+          },
+          {
+            "question": "Ano ang kayariang inuulit?",
+            "options": [
+              "Inuulit ang buo o bahagi ng salita",
+              "Isang salitang-ugat lamang",
+              "Dalawang magkaibang salita",
+              "Salitang walang kahulugan"
+            ],
+            "correct_answer": "Inuulit ang buo o bahagi ng salita"
+          },
+          {
+            "question": "Alin ang halimbawa ng salitang tambalan?",
+            "options": [
+              "Bahay-kubo",
+              "Pusa",
+              "Maganda",
+              "Araw-araw"
+            ],
+            "correct_answer": "Bahay-kubo"
+          },
+          {
+            "question": "Alin ang halimbawa ng salitang inuulit?",
+            "options": [
+              "Araw-araw",
+              "Bahay",
+              "Kumain",
+              "Maganda"
+            ],
+            "correct_answer": "Araw-araw"
+          },
+          {
+            "question": "Ano ang kayarian ng salitang \"kumakain\"?",
+            "options": [
+              "Maylapi",
+              "Payak",
+              "Tambalan",
+              "Inuulit"
+            ],
+            "correct_answer": "Maylapi"
+          },
+          {
+            "question": "\"Maganda ang bulaklak sa hardin.\" Alin ang pang-uri?",
+            "options": [
+              "Maganda",
+              "Bulaklak",
+              "Hardin",
+              "Ang"
+            ],
+            "correct_answer": "Maganda"
+          },
+          {
+            "question": "Bakit mahalagang gamitin nang wasto ang pangngalan, panghalip, at pang-uri sa talaarawan?",
+            "options": [
+              "Upang maging malinaw ang isinusulat na karanasan",
+              "Upang mahaba ang bawat pangungusap",
+              "Upang mahirap unawain ang teksto",
+              "Walang epekto ito sa pagsulat"
+            ],
+            "correct_answer": "Upang maging malinaw ang isinusulat na karanasan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🦋 Science — Life Cycles\n\nGrade 4, Week 18! Let's compare the life cycle stages of different animals. 🐸\n\n## 🦋 Life Cycle of a Butterfly (Complete Metamorphosis)\nEgg → Larva (caterpillar) → Pupa (chrysalis) → Adult butterfly\n\n## 🐸 Life Cycle of a Frog (Complete Metamorphosis)\nEgg → Tadpole → Tadpole with legs → Adult frog\n\n## 🐔 Life Cycle of a Chicken (No Metamorphosis)\nEgg → Chick → Young chicken → Adult chicken\n\n## 👶 Life Cycle of a Human\nBaby → Child → Teenager → Adult → Older adult\n\n## 📊 Using Flow Charts to Compare\nA **flow chart** shows the stages of a life cycle **in order**, using arrows to show what comes next.\n\n| Animal | Number of Major Stages | Big Body Change? |\n|---|---|---|\n| **Butterfly** | 4 stages | Yes — complete metamorphosis |\n| **Frog** | Several stages | Yes — tadpole to frog |\n| **Chicken** | Simple growth | No — just grows bigger |\n| **Human** | Several stages | No — just grows bigger |\n\n## 🧠 Worked Example 1\n*How is a butterfly's life cycle different from a chicken's?*\n- A butterfly goes through **complete metamorphosis** (very different body forms), while a chicken just **grows bigger** without changing body form.\n\n## 🧠 Worked Example 2\n*What comes after the \"tadpole\" stage in a frog's life cycle?*\n- **Tadpole with legs**, then **adult frog**.\n\nGreat life cycle science! 🌟",
+        "quiz": [
+          {
+            "question": "What are the four stages of a butterfly's life cycle?",
+            "options": [
+              "Egg, larva, pupa, adult",
+              "Egg, chick, young, adult",
+              "Baby, child, teenager, adult",
+              "Tadpole, frog, egg, larva"
+            ],
+            "correct_answer": "Egg, larva, pupa, adult"
+          },
+          {
+            "question": "What is a caterpillar in the butterfly life cycle?",
+            "options": [
+              "The larva stage",
+              "The egg stage",
+              "The pupa stage",
+              "The adult stage"
+            ],
+            "correct_answer": "The larva stage"
+          },
+          {
+            "question": "What comes after the egg stage in a frog's life cycle?",
+            "options": [
+              "Tadpole",
+              "Adult frog",
+              "Pupa",
+              "Chick"
+            ],
+            "correct_answer": "Tadpole"
+          },
+          {
+            "question": "What comes after the \"tadpole\" stage in a frog's life cycle?",
+            "options": [
+              "Tadpole with legs, then adult frog",
+              "Egg, followed by larva again",
+              "Pupa, followed by chrysalis",
+              "Chick, followed by chicken"
+            ],
+            "correct_answer": "Tadpole with legs, then adult frog"
+          },
+          {
+            "question": "How is a chicken's life cycle different from a butterfly's?",
+            "options": [
+              "A chicken just grows bigger without a big body change",
+              "A chicken goes through metamorphosis like a butterfly",
+              "A chicken has no life cycle at all",
+              "A chicken skips the egg stage"
+            ],
+            "correct_answer": "A chicken just grows bigger without a big body change"
+          },
+          {
+            "question": "What is a flow chart used for in comparing life cycles?",
+            "options": [
+              "Showing the stages of a life cycle in order using arrows",
+              "Showing the weight of an animal only",
+              "Showing the color of an animal only",
+              "Showing where an animal lives only"
+            ],
+            "correct_answer": "Showing the stages of a life cycle in order using arrows"
+          },
+          {
+            "question": "What is the human life cycle stage that comes after \"child\"?",
+            "options": [
+              "Teenager",
+              "Baby",
+              "Older adult",
+              "Egg"
+            ],
+            "correct_answer": "Teenager"
+          },
+          {
+            "question": "How is a butterfly's life cycle different from a chicken's?",
+            "options": [
+              "A butterfly goes through complete metamorphosis; a chicken just grows bigger",
+              "Both go through the exact same stages",
+              "A chicken changes body form completely, unlike a butterfly",
+              "Neither animal has a life cycle"
+            ],
+            "correct_answer": "A butterfly goes through complete metamorphosis; a chicken just grows bigger"
+          },
+          {
+            "question": "What is the pupa stage also called in a butterfly's life cycle?",
+            "options": [
+              "Chrysalis",
+              "Larva",
+              "Tadpole",
+              "Egg"
+            ],
+            "correct_answer": "Chrysalis"
+          },
+          {
+            "question": "Which animals go through complete metamorphosis, changing body form dramatically?",
+            "options": [
+              "Butterflies and frogs",
+              "Chickens and humans",
+              "Only chickens",
+              "Only humans"
+            ],
+            "correct_answer": "Butterflies and frogs"
+          },
+          {
+            "question": "What is the FIRST stage in most animal life cycles shown in these flow charts?",
+            "options": [
+              "Egg or baby",
+              "Adult",
+              "Pupa",
+              "Teenager"
+            ],
+            "correct_answer": "Egg or baby"
+          },
+          {
+            "question": "Why are flow charts useful for comparing life cycles?",
+            "options": [
+              "They make it easy to see and compare the order of stages",
+              "They remove the need to study animals at all",
+              "They only work for butterflies",
+              "They show colors instead of stages"
+            ],
+            "correct_answer": "They make it easy to see and compare the order of stages"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎣 Araling Panlipunan — Pangingisda at Industriya sa Pilipinas\n\nGrade 4, Linggo 18! Alamin natin ang ibang gawaing pangkabuhayan ng bansa. 🏭\n\n## 🎣 Pangingisda Bilang Gawaing Pangkabuhayan\nAng **pangingisda** ay isang mahalagang gawaing pangkabuhayan, lalo na sa mga lugar na **malapit sa dagat, ilog, o lawa**.\n\n**Mga produkto:** isda, hipon, alimango, at iba pang produktong-dagat\n**Kahalagahan:** pinagkukunan ng pagkain, hanapbuhay, at kita ng maraming pamilya\n\n## 🏭 Industriya Bilang Gawaing Pangkabuhayan\nAng **industriya** ay tumutukoy sa **paggawa o pagproseso** ng mga produkto, tulad ng pagmamanupaktura ng damit, pagkain, o kagamitan.\n\n**Mga halimbawa:** pabrika ng damit, pagawaan ng pagkain, planta ng semento\n\n## 🗺️ Saan Karaniwang Matatagpuan ang mga Gawaing Ito?\n| Gawain | Karaniwang Lokasyon |\n|---|---|\n| **Pangingisda** | mga lugar malapit sa dagat, ilog, o lawa |\n| **Industriya** | mga lungsod o lugar na may magandang transportasyon |\n\n## 🧠 Halimbawa 1\n*Bakit karaniwang matatagpuan ang pangingisda sa mga lugar malapit sa dagat?*\n- Dahil doon **madaling makakuha** ng isda at iba pang produktong-dagat.\n\n## 🧠 Halimbawa 2\n*Bakit mahalaga ang industriya sa kabuhayan ng bansa?*\n- Nagbibigay ito ng **trabaho** at nagpoproseso ng mga hilaw na materyales tungo sa mga produktong magagamit.\n\n## 💡 Kongklusyon\nAng pangingisda at industriya, tulad ng agrikultura, ay **mahahalagang bahagi** ng kabuhayan ng ating bansa.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pangingisda?",
+            "options": [
+              "Isang gawaing pangkabuhayan na nagbibigay ng isda at produktong-dagat",
+              "Isang uri ng industriya na matatagpuan sa lungsod",
+              "Isang paaralang nagtuturo lamang sa mga mangingisda",
+              "Isang uri ng turismong pang-isla lamang"
+            ],
+            "correct_answer": "Isang gawaing pangkabuhayan na nagbibigay ng isda at produktong-dagat"
+          },
+          {
+            "question": "Saan karaniwang matatagpuan ang pangingisda?",
+            "options": [
+              "Malapit sa dagat, ilog, o lawa",
+              "Sa gitna ng bundok lamang",
+              "Sa disyerto lamang",
+              "Sa lungsod na walang tubig"
+            ],
+            "correct_answer": "Malapit sa dagat, ilog, o lawa"
+          },
+          {
+            "question": "Ano ang industriya?",
+            "options": [
+              "Paggawa o pagproseso ng mga produkto",
+              "Pangingisda sa dagat lamang",
+              "Pagsasaka ng palay lamang",
+              "Turismo sa isla"
+            ],
+            "correct_answer": "Paggawa o pagproseso ng mga produkto"
+          },
+          {
+            "question": "Alin ang halimbawa ng industriya?",
+            "options": [
+              "Pabrika ng damit",
+              "Isang bangka ng mangingisda",
+              "Isang bukid ng palay",
+              "Isang resort sa dagat"
+            ],
+            "correct_answer": "Pabrika ng damit"
+          },
+          {
+            "question": "Bakit karaniwang matatagpuan ang pangingisda sa mga lugar malapit sa dagat?",
+            "options": [
+              "Dahil doon madaling makakuha ng isda at produktong-dagat",
+              "Dahil walang ibang gawaing pangkabuhayan doon",
+              "Dahil ipinagbabawal ang pagsasaka sa lugar na iyon",
+              "Dahil ang lugar na iyon ay malayo sa mga tao"
+            ],
+            "correct_answer": "Dahil doon madaling makakuha ng isda at produktong-dagat"
+          },
+          {
+            "question": "Bakit mahalaga ang industriya sa kabuhayan ng bansa?",
+            "options": [
+              "Nagbibigay ito ng trabaho at nagpoproseso ng materyales",
+              "Wala itong kaugnayan sa trabaho",
+              "Ginagawa lamang ito sa ibang bansa",
+              "Hindi ito nakatutulong sa ekonomiya"
+            ],
+            "correct_answer": "Nagbibigay ito ng trabaho at nagpoproseso ng materyales"
+          },
+          {
+            "question": "Ano ang halimbawa ng produkto mula sa pangingisda?",
+            "options": [
+              "Isda, hipon, at alimango",
+              "Bigas at mais",
+              "Semento at bakal",
+              "Damit at sapatos"
+            ],
+            "correct_answer": "Isda, hipon, at alimango"
+          },
+          {
+            "question": "Saan karaniwang matatagpuan ang mga industriya?",
+            "options": [
+              "Sa mga lungsod na may magandang transportasyon",
+              "Sa gitna ng malawak na karagatan",
+              "Sa mga liblib na lugar na walang tao",
+              "Sa tuktok ng mataas na bundok"
+            ],
+            "correct_answer": "Sa mga lungsod na may magandang transportasyon"
+          },
+          {
+            "question": "Paano nakatutulong ang pangingisda sa mga pamilyang naninirahan malapit sa dagat?",
+            "options": [
+              "Nagbibigay ito ng pagkain, hanapbuhay, at kita",
+              "Wala itong benepisyo sa pamilya",
+              "Nagpapahirap lamang ito ng buhay",
+              "Ginagawa lamang ito bilang libangan"
+            ],
+            "correct_answer": "Nagbibigay ito ng pagkain, hanapbuhay, at kita"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang bahagi ng kabuhayan ng bansa ang industriya, tulad ng agrikultura?",
+            "options": [
+              "Kapwa ito nagbibigay ng trabaho at produkto sa mamamayan",
+              "Wala itong pagkakatulad sa agrikultura",
+              "Isa lang dito ang totoong mahalaga",
+              "Hindi ito bahagi ng ekonomiya ng bansa"
+            ],
+            "correct_answer": "Kapwa ito nagbibigay ng trabaho at produkto sa mamamayan"
+          },
+          {
+            "question": "Ano ang maaaring maging produkto ng isang pabrika ng pagkain?",
+            "options": [
+              "Mga naprosesong produktong pagkain",
+              "Mga hilaw na isda lamang",
+              "Mga hindi kailanman naprosesong bagay",
+              "Mga produktong pang-agrikultura lamang"
+            ],
+            "correct_answer": "Mga naprosesong produktong pagkain"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang iba't ibang gawaing pangkabuhayan tulad ng pangingisda at industriya?",
+            "options": [
+              "Upang maunawaan kung paano kumikita ang iba't ibang bahagi ng bansa",
+              "Upang malaman lamang ang mga pangalan ng lugar",
+              "Upang hindi na kailangang mag-aral pa ng ibang paksa",
+              "Upang maiwasan ang pag-aaral ng agrikultura"
+            ],
+            "correct_answer": "Upang maunawaan kung paano kumikita ang iba't ibang bahagi ng bansa"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 👨‍👩‍👧‍👦 MAPEH — Family Health\n\nGrade 4, Week 18! Let's learn what makes a family healthy. 💚\n\n## 💚 Characteristics of a Healthy Family\n| Characteristic | What It Looks Like |\n|---|---|\n| **Respecting members' opinions** | listening to what each person thinks and feels |\n| **Fair rules** | rules that apply equally to everyone in the family |\n| **Open communication** | talking honestly and listening to each other |\n\n## 🙋 Roles and Responsibilities in Family Health\nEvery family member has a **role** in promoting family health — like helping cook healthy meals, keeping the house clean, or encouraging exercise.\n\n## 🏃 Activities That Improve Family Health\n| Activity | Benefit |\n|---|---|\n| **Dance** | improves fitness and brings the family together |\n| **Exercise** | strengthens the body |\n| **Cooking together** | builds bonding and healthy eating habits |\n| **Gardening** | provides fresh air and physical activity |\n\n## 🧠 Worked Example 1\n*Why is open communication important for a healthy family?*\n- It helps family members **understand each other** and solve problems together.\n\n## 🧠 Worked Example 2\n*A family cooks a healthy meal together every Sunday. What benefit does this bring?*\n- It builds **bonding** and encourages **healthy eating habits**.\n\n## 💡 Why Family Health Matters\nA healthy family supports each member's **physical and emotional well-being**.\n\nGreat learning about family health! 🌟",
+        "quiz": [
+          {
+            "question": "What is one characteristic of a healthy family?",
+            "options": [
+              "Respecting members' opinions",
+              "Ignoring everyone's feelings",
+              "Having no rules at all",
+              "Never talking to each other"
+            ],
+            "correct_answer": "Respecting members' opinions"
+          },
+          {
+            "question": "What are fair rules in a family?",
+            "options": [
+              "Rules that apply equally to everyone",
+              "Rules that only apply to children",
+              "Rules that change every day randomly",
+              "Rules that only one person follows"
+            ],
+            "correct_answer": "Rules that apply equally to everyone"
+          },
+          {
+            "question": "What is open communication?",
+            "options": [
+              "Talking honestly and listening to each other",
+              "Staying silent about everything",
+              "Only talking when angry",
+              "Avoiding conversations completely"
+            ],
+            "correct_answer": "Talking honestly and listening to each other"
+          },
+          {
+            "question": "Why is open communication important for a healthy family?",
+            "options": [
+              "It helps family members understand each other",
+              "It makes family members argue more",
+              "It has no real benefit at all",
+              "It only matters for strangers"
+            ],
+            "correct_answer": "It helps family members understand each other"
+          },
+          {
+            "question": "A family cooks a healthy meal together every Sunday. What benefit does this bring?",
+            "options": [
+              "It builds bonding and healthy eating habits",
+              "It wastes time that could be used elsewhere",
+              "It has no effect on the family at all",
+              "It only benefits one family member"
+            ],
+            "correct_answer": "It builds bonding and healthy eating habits"
+          },
+          {
+            "question": "What activity can improve fitness and bring the family together?",
+            "options": [
+              "Dance",
+              "Watching TV alone",
+              "Sleeping all day",
+              "Ignoring each other"
+            ],
+            "correct_answer": "Dance"
+          },
+          {
+            "question": "What does gardening provide for family health?",
+            "options": [
+              "Fresh air and physical activity",
+              "Only entertainment with no benefit",
+              "A way to avoid exercise",
+              "Nothing useful at all"
+            ],
+            "correct_answer": "Fresh air and physical activity"
+          },
+          {
+            "question": "What is a role family members can take to promote family health?",
+            "options": [
+              "Helping cook healthy meals",
+              "Refusing to help with anything",
+              "Avoiding the whole family",
+              "Eating unhealthy food only"
+            ],
+            "correct_answer": "Helping cook healthy meals"
+          },
+          {
+            "question": "Why do healthy families listen to each member's opinions?",
+            "options": [
+              "To show respect and understanding",
+              "To ignore what they actually think",
+              "To argue about everything",
+              "To avoid talking altogether"
+            ],
+            "correct_answer": "To show respect and understanding"
+          },
+          {
+            "question": "What does a healthy family support in each member?",
+            "options": [
+              "Physical and emotional well-being",
+              "Only physical strength",
+              "Only academic grades",
+              "Only financial success"
+            ],
+            "correct_answer": "Physical and emotional well-being"
+          },
+          {
+            "question": "Which of these is an example of a physical activity that improves family health?",
+            "options": [
+              "Exercising together",
+              "Watching television alone all day",
+              "Avoiding all movement",
+              "Arguing over small things"
+            ],
+            "correct_answer": "Exercising together"
+          },
+          {
+            "question": "Why are fair rules important in a healthy family?",
+            "options": [
+              "They help everyone feel treated equally",
+              "They only benefit the parents",
+              "They cause more conflict in the home",
+              "They have no effect on family life"
+            ],
+            "correct_answer": "They help everyone feel treated equally"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 GMRC — Pagbibigay-halaga sa Pamilya Bilang Paglalapat ng Aral ng Pananampalataya\n\nGrade 4, Linggo 18! Pagpapahalaga: **Masunurin**. 🌟\n\n## ❤️ Mapagkalingang Pakikitungo sa mga Kasapi ng Pamilya\nAng **pananampalataya** ay hindi lamang panalangin — dapat din itong **ipakita** sa araw-araw na pakikitungo sa pamilya.\n\n**Halimbawa:** pagtulong sa gawaing-bahay, pagbibigay ng oras sa magulang, pakikinig sa kapatid\n\n## 🙇 Ano ang Masunurin?\nAng **masunurin** na anak ay **sumusunod** sa magulang o nakatatanda, hindi dahil natatakot lamang, kundi dahil **may paggalang at pagmamahal**.\n\n## 🧠 Halimbawa 1\n*Hiniling ng iyong ina na tulungan mo siya sa gawaing-bahay habang nag-aaral ka pa. Ano ang tamang gawin?*\n- **Tulungan siya** — ipinapakita nito ang mapagkalingang pakikitungo at pagsunod sa magulang.\n\n## 🧠 Halimbawa 2\n*Bakit itinuturing na paglalapat ng pananampalataya ang mabuting pakikitungo sa pamilya?*\n- Dahil ang **pagmamahal at pagtulong sa kapwa**, lalo na sa sariling pamilya, ay bahagi ng mga aral ng pananampalataya.\n\n## 💪 Bunga ng Pagiging Masunurin\n- Nagiging **maayos** ang ugnayan ng pamilya\n- Nakatutulong ito upang **matupad** ang mga gawain sa bahay\n- Nagpapakita ito ng **paggalang** sa nakatatanda\n\n## 💡 Kongklusyon\nAng pagbibigay-halaga sa pamilya sa pamamagitan ng pagsunod at pagtulong ay isang **tunay na kabuhayan ng pananampalataya**.\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Paano dapat ipakita ang pananampalataya sa pamilya?",
+            "options": [
+              "Sa araw-araw na mapagkalingang pakikitungo",
+              "Sa panalangin lamang na walang gawa",
+              "Sa pananahimik lamang",
+              "Wala itong paraan para ipakita"
+            ],
+            "correct_answer": "Sa araw-araw na mapagkalingang pakikitungo"
+          },
+          {
+            "question": "Ano ang masunurin?",
+            "options": [
+              "Sumusunod sa magulang dahil sa paggalang at pagmamahal",
+              "Sumusunod lamang dahil natatakot",
+              "Ayaw sumunod sa anumang bagay",
+              "Sumusunod lamang kung may gantimpala"
+            ],
+            "correct_answer": "Sumusunod sa magulang dahil sa paggalang at pagmamahal"
+          },
+          {
+            "question": "Hiniling ng iyong ina na tulungan mo siya sa gawaing-bahay habang nag-aaral ka pa. Ano ang tamang gawin?",
+            "options": [
+              "Tulungan siya",
+              "Tanggihan siya dahil abala ka",
+              "Magalit sa kanya",
+              "Iwasan siya nang tuluyan"
+            ],
+            "correct_answer": "Tulungan siya"
+          },
+          {
+            "question": "Bakit itinuturing na paglalapat ng pananampalataya ang mabuting pakikitungo sa pamilya?",
+            "options": [
+              "Dahil ang pagmamahal sa pamilya ay bahagi ng aral ng pananampalataya",
+              "Dahil walang kaugnayan ang pananampalataya sa pamilya",
+              "Dahil ipinagbabawal ito ng pananampalataya",
+              "Dahil hindi kailanman itinuturo ito"
+            ],
+            "correct_answer": "Dahil ang pagmamahal sa pamilya ay bahagi ng aral ng pananampalataya"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagiging masunurin sa pamilya?",
+            "options": [
+              "Nagiging maayos ang ugnayan ng pamilya",
+              "Nasisira ang tiwala sa pamilya",
+              "Nagiging mas magulo ang tahanan",
+              "Wala itong anumang bunga"
+            ],
+            "correct_answer": "Nagiging maayos ang ugnayan ng pamilya"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng mapagkalingang pakikitungo sa pamilya?",
+            "options": [
+              "Pagtulong sa gawaing-bahay",
+              "Pagpapabaya sa mga kapatid",
+              "Pananahimik palagi",
+              "Pag-iwas sa magulang"
+            ],
+            "correct_answer": "Pagtulong sa gawaing-bahay"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Masunurin",
+              "Matiyaga",
+              "Mapagpasensiya",
+              "Tiwala sa Sarili"
+            ],
+            "correct_answer": "Masunurin"
+          },
+          {
+            "question": "Bakit hindi sapat ang panalangin lamang para ipakita ang pananampalataya?",
+            "options": [
+              "Dahil dapat din itong ipakita sa mabuting gawa",
+              "Dahil hindi mahalaga ang panalangin",
+              "Dahil sapat na ang panalangin lamang",
+              "Dahil hindi kinakailangan ang gawa"
+            ],
+            "correct_answer": "Dahil dapat din itong ipakita sa mabuting gawa"
+          },
+          {
+            "question": "Anong pakinabang ang idinudulot ng pagiging masunurin sa gawain sa bahay?",
+            "options": [
+              "Nakatutulong ito upang matupad ang mga gawain sa bahay",
+              "Nagpapabagal lamang ito ng gawain",
+              "Wala itong epekto sa bahay",
+              "Nagpapahirap lamang ito sa pamilya"
+            ],
+            "correct_answer": "Nakatutulong ito upang matupad ang mga gawain sa bahay"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagiging masunurin sa nakatatanda?",
+            "options": [
+              "Paggalang",
+              "Kawalang-galang",
+              "Pagmamataas",
+              "Kapabayaan"
+            ],
+            "correct_answer": "Paggalang"
+          },
+          {
+            "question": "Isang batang laging tumutulong sa kanyang lolo sa bahay. Ano ang ipinapakita nito?",
+            "options": [
+              "Mapagkalingang pakikitungo at pagsunod",
+              "Kawalan ng pakialam sa pamilya",
+              "Pagsuway sa mga magulang",
+              "Kapabayaan sa mga gawain"
+            ],
+            "correct_answer": "Mapagkalingang pakikitungo at pagsunod"
+          },
+          {
+            "question": "Bakit mahalagang isabuhay ang aral ng pananampalataya sa loob ng tahanan?",
+            "options": [
+              "Dahil doon una natin natututuhan ang pagmamahal at paggalang",
+              "Dahil hindi kailangan doon ang pananampalataya",
+              "Dahil ito lamang ang tanging lugar na mahalaga",
+              "Dahil walang kinalaman ang tahanan sa pananampalataya"
+            ],
+            "correct_answer": "Dahil doon una natin natututuhan ang pagmamahal at paggalang"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌿 EPP (AFA/FCS/IA) — Compost, Organikong Pataba, at Natural na Pestisidyo\n\nGrade 4, Linggo 18! Alamin natin kung paano gumawa ng sariling pataba at pestisidyo. 🌱\n\n## 🍂 Paggawa ng Compost\nAng **compost** ay isang uri ng **organikong pataba** na gawa sa mga natural na materyales (basura sa kusina, dahon).\n\n**Katangian ng magandang compost:** madilim ang kulay, mabango tulad ng lupa, mabuhaghag ang tekstura\n\n**Vermicomposting:** paggamit ng **bulate (earthworms)** upang mapabilis ang pagkabulok ng organikong materyales patungong compost.\n\n## 🧪 Organic Concoctions and Extracts\n| Konkoksyon | Ginagawa Mula sa |\n|---|---|\n| **FFJ** (Fermented Fruit Juice) | hinog na prutas |\n| **FPJ** (Fermented Plant Juice) | mabilis lumagong bahagi ng halaman |\n| **FAA** (Fish Amino Acid) | isda |\n| **BOKASHI** | naprosesong organikong basura |\n\n## 🌿 Natural na Pestisidyo\n| Pestisidyo | Nilalaman |\n|---|---|\n| **OHN 1** | white vinegar, bawang, molasses |\n| **OHN 2** | luya, sibuyas, bawang, molasses, sili |\n| **Neem tree oil** | mula sa puno ng neem |\n\n## 🧠 Halimbawa 1\n*Bakit ginagamit ang bulate sa vermicomposting?*\n- Upang **mapabilis** ang pagkabulok ng basura patungong compost.\n\n## 🧠 Halimbawa 2\n*Anong konkoksyon ang gawa mula sa hinog na prutas?*\n- **FFJ (Fermented Fruit Juice)**\n\n## 💡 Bakit Mahalaga Ito?\nAng paggamit ng organikong pataba at natural na pestisidyo ay **mas ligtas** sa kalikasan kaysa sa kemikal.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang compost?",
+            "options": [
+              "Isang uri ng organikong pataba",
+              "Isang kemikal na pestisidyo",
+              "Isang uri ng semilya",
+              "Isang kagamitan sa paghahalaman"
+            ],
+            "correct_answer": "Isang uri ng organikong pataba"
+          },
+          {
+            "question": "Ano ang katangian ng magandang compost?",
+            "options": [
+              "Madilim ang kulay at mabango tulad ng lupa",
+              "Maputi ang kulay at mabaho",
+              "Maasul ang kulay at matigas",
+              "Walang amoy at buhaghag"
+            ],
+            "correct_answer": "Madilim ang kulay at mabango tulad ng lupa"
+          },
+          {
+            "question": "Ano ang vermicomposting?",
+            "options": [
+              "Paggamit ng bulate upang mapabilis ang compost",
+              "Paggamit ng kemikal na pestisidyo",
+              "Paggamit ng makina sa pagtatanim",
+              "Paggamit ng tubig lamang sa halaman"
+            ],
+            "correct_answer": "Paggamit ng bulate upang mapabilis ang compost"
+          },
+          {
+            "question": "Anong konkoksyon ang gawa mula sa hinog na prutas?",
+            "options": [
+              "FFJ (Fermented Fruit Juice)",
+              "FPJ (Fermented Plant Juice)",
+              "FAA (Fish Amino Acid)",
+              "BOKASHI"
+            ],
+            "correct_answer": "FFJ (Fermented Fruit Juice)"
+          },
+          {
+            "question": "Anong konkoksyon ang gawa mula sa isda?",
+            "options": [
+              "FAA (Fish Amino Acid)",
+              "FFJ (Fermented Fruit Juice)",
+              "FPJ (Fermented Plant Juice)",
+              "Neem tree oil"
+            ],
+            "correct_answer": "FAA (Fish Amino Acid)"
+          },
+          {
+            "question": "Ano ang nilalaman ng OHN 1 na natural na pestisidyo?",
+            "options": [
+              "White vinegar, bawang, at molasses",
+              "Luya at sibuyas lamang",
+              "Neem tree oil lamang",
+              "Tubig at asin lamang"
+            ],
+            "correct_answer": "White vinegar, bawang, at molasses"
+          },
+          {
+            "question": "Ano ang nilalaman ng OHN 2 na natural na pestisidyo?",
+            "options": [
+              "Luya, sibuyas, bawang, molasses, at sili",
+              "White vinegar at bawang lamang",
+              "Neem tree oil na walang iba pa",
+              "Tubig at asin na lamang"
+            ],
+            "correct_answer": "Luya, sibuyas, bawang, molasses, at sili"
+          },
+          {
+            "question": "Saan nanggagaling ang Neem tree oil?",
+            "options": [
+              "Mula sa puno ng neem",
+              "Mula sa isda",
+              "Mula sa hinog na prutas",
+              "Mula sa gatas ng baka"
+            ],
+            "correct_answer": "Mula sa puno ng neem"
+          },
+          {
+            "question": "Bakit ginagamit ang bulate sa vermicomposting?",
+            "options": [
+              "Upang mapabilis ang pagkabulok ng basura patungong compost",
+              "Upang pumatay sa mga peste sa halaman",
+              "Upang magpaganda lamang ng hardin",
+              "Upang magbigay ng tubig sa halaman"
+            ],
+            "correct_answer": "Upang mapabilis ang pagkabulok ng basura patungong compost"
+          },
+          {
+            "question": "Ano ang BOKASHI?",
+            "options": [
+              "Naprosesong organikong basura",
+              "Isang uri ng kemikal na pestisidyo",
+              "Isang kagamitan sa pananim",
+              "Isang uri ng buto ng halaman"
+            ],
+            "correct_answer": "Naprosesong organikong basura"
+          },
+          {
+            "question": "Bakit mas mainam gumamit ng natural na pestisidyo kaysa kemikal?",
+            "options": [
+              "Mas ligtas ito sa kalikasan",
+              "Mas mabilis itong pumatay ng lahat ng insekto",
+              "Mas mahal ito kaysa kemikal",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Mas ligtas ito sa kalikasan"
+          },
+          {
+            "question": "Ano ang FPJ?",
+            "options": [
+              "Fermented Plant Juice, mula sa bahagi ng halaman",
+              "Fermented Fruit Juice, mula sa prutas",
+              "Fish Amino Acid, mula sa isda",
+              "Isang uri ng compost lamang"
+            ],
+            "correct_answer": "Fermented Plant Juice, mula sa bahagi ng halaman"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🎊 Friday Review — English (Grade 4)\n\n- **Ninong/Ninang** = sponsors; **Reception** = celebration after; **Entourage** = wedding party\n- Use **context clues** to find word meanings\n\nGreat vocabulary building! 🌟",
+        "quiz": [
+          {
+            "question": "What does \"ninong\" or \"ninang\" mean?",
+            "options": [
+              "Godfather or godmother (sponsor)",
+              "The main celebration hall",
+              "A type of wedding cake",
+              "The wedding invitation"
+            ],
+            "correct_answer": "Godfather or godmother (sponsor)"
+          },
+          {
+            "question": "What is a reception?",
+            "options": [
+              "The celebration or gathering after the main ceremony",
+              "The wedding rings exchanged during the vows",
+              "The invitation card sent before the wedding",
+              "The church building where the ceremony happens"
+            ],
+            "correct_answer": "The celebration or gathering after the main ceremony"
+          },
+          {
+            "question": "What is an entourage?",
+            "options": [
+              "The group of people who take part in a wedding",
+              "The single cake served at the wedding reception",
+              "The exact date chosen for the wedding",
+              "The street address of the wedding venue"
+            ],
+            "correct_answer": "The group of people who take part in a wedding"
+          },
+          {
+            "question": "What are context clues?",
+            "options": [
+              "The words around a new word that help explain its meaning",
+              "The pictures printed inside a storybook",
+              "The title printed on the cover of a book",
+              "The very last page of a story"
+            ],
+            "correct_answer": "The words around a new word that help explain its meaning"
+          },
+          {
+            "question": "\"The ninong gave the baby a gift, just like a godfather would.\" What context clue explains \"ninong\"?",
+            "options": [
+              "\"just like a godfather would\"",
+              "\"gave the baby a gift\"",
+              "The word \"the\"",
+              "There is no context clue"
+            ],
+            "correct_answer": "\"just like a godfather would\""
+          },
+          {
+            "question": "\"After the ceremony, everyone went to the reception to eat and celebrate.\" What is the reception?",
+            "options": [
+              "The celebration after the ceremony",
+              "The ceremony itself happening earlier",
+              "The wedding rings exchanged that day",
+              "The invitation letter sent beforehand"
+            ],
+            "correct_answer": "The celebration after the ceremony"
+          },
+          {
+            "question": "\"The bride's entourage included her sister and best friends.\" Who is in the entourage?",
+            "options": [
+              "Her sister and best friends",
+              "Only the bride herself",
+              "Only the groom",
+              "The wedding photographer only"
+            ],
+            "correct_answer": "Her sister and best friends"
+          },
+          {
+            "question": "What is a sponsor in a christening?",
+            "options": [
+              "Someone who supports the person being christened",
+              "The baby who is being christened that day",
+              "The church building where it takes place",
+              "The exact date of the ceremony"
+            ],
+            "correct_answer": "Someone who supports the person being christened"
+          },
+          {
+            "question": "Why do we use context clues when reading?",
+            "options": [
+              "To figure out the meaning of new words",
+              "To skip reading the whole text",
+              "To ignore unfamiliar words completely",
+              "To make the text longer"
+            ],
+            "correct_answer": "To figure out the meaning of new words"
+          },
+          {
+            "question": "Which word describes a wedding celebration held after the ceremony?",
+            "options": [
+              "Reception",
+              "Entourage",
+              "Sponsor",
+              "Ninong"
+            ],
+            "correct_answer": "Reception"
+          },
+          {
+            "question": "Why is it useful to learn ceremonial vocabulary?",
+            "options": [
+              "It helps us understand texts about family celebrations",
+              "It only helps with math problems",
+              "It replaces the need to read stories",
+              "It is only useful for adults"
+            ],
+            "correct_answer": "It helps us understand texts about family celebrations"
+          },
+          {
+            "question": "A student reads \"the groom's entourage wore matching suits.\" What can the student conclude about entourage?",
+            "options": [
+              "It refers to a group of people dressed similarly for the wedding",
+              "It refers to a single piece of clothing worn alone",
+              "It refers to the venue where the wedding is held",
+              "It refers to the exact date of the wedding"
+            ],
+            "correct_answer": "It refers to a group of people dressed similarly for the wedding"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📏 Friday Review — Mathematics (Grade 4)\n\n- **Multiply** larger→smaller units; **divide** smaller→larger\n- 1km=1000m, 1kg=1000g, 1L=1000mL\n\nGreat conversion work! ⭐",
+        "quiz": [
+          {
+            "question": "How many meters are in 1 kilometer?",
+            "options": [
+              "1,000 meters",
+              "100 meters",
+              "10 meters",
+              "10,000 meters"
+            ],
+            "correct_answer": "1,000 meters"
+          },
+          {
+            "question": "How many grams are in 1 kilogram?",
+            "options": [
+              "1,000 grams",
+              "100 grams",
+              "10 grams",
+              "10,000 grams"
+            ],
+            "correct_answer": "1,000 grams"
+          },
+          {
+            "question": "How many milliliters are in 1 liter?",
+            "options": [
+              "1,000 milliliters",
+              "100 milliliters",
+              "10 milliliters",
+              "10,000 milliliters"
+            ],
+            "correct_answer": "1,000 milliliters"
+          },
+          {
+            "question": "What do you do when converting from a larger unit to a smaller unit?",
+            "options": [
+              "Multiply",
+              "Divide",
+              "Subtract",
+              "Do nothing"
+            ],
+            "correct_answer": "Multiply"
+          },
+          {
+            "question": "What do you do when converting from a smaller unit to a larger unit?",
+            "options": [
+              "Divide",
+              "Multiply",
+              "Add",
+              "Do nothing"
+            ],
+            "correct_answer": "Divide"
+          },
+          {
+            "question": "Convert 3 km to meters.",
+            "options": [
+              "3,000 m",
+              "300 m",
+              "30 m",
+              "30,000 m"
+            ],
+            "correct_answer": "3,000 m"
+          },
+          {
+            "question": "Convert 5,000 g to kilograms.",
+            "options": [
+              "5 kg",
+              "50 kg",
+              "500 kg",
+              "0.5 kg"
+            ],
+            "correct_answer": "5 kg"
+          },
+          {
+            "question": "How many seconds are in 1 minute?",
+            "options": [
+              "60 seconds",
+              "100 seconds",
+              "24 seconds",
+              "30 seconds"
+            ],
+            "correct_answer": "60 seconds"
+          },
+          {
+            "question": "How many minutes are in 1 hour?",
+            "options": [
+              "60 minutes",
+              "100 minutes",
+              "24 minutes",
+              "30 minutes"
+            ],
+            "correct_answer": "60 minutes"
+          },
+          {
+            "question": "A movie starts at 2:15 PM and ends at 4:00 PM. How long is the movie?",
+            "options": [
+              "1 hour and 45 minutes",
+              "2 hours",
+              "1 hour and 15 minutes",
+              "45 minutes"
+            ],
+            "correct_answer": "1 hour and 45 minutes"
+          },
+          {
+            "question": "Convert 2 m to centimeters.",
+            "options": [
+              "200 cm",
+              "20 cm",
+              "2,000 cm",
+              "2 cm"
+            ],
+            "correct_answer": "200 cm"
+          },
+          {
+            "question": "Convert 2,000 mL to liters.",
+            "options": [
+              "2 L",
+              "20 L",
+              "200 L",
+              "0.2 L"
+            ],
+            "correct_answer": "2 L"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📝 Friday Review — Filipino (Grade 4)\n\n- **Payak, maylapi, tambalan, inuulit** — mga kayarian ng salita\n- Pangngalan, panghalip, pang-uri\n\nMagaling sa gramatika! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pangngalan?",
+            "options": [
+              "Tumutukoy sa pangalan ng tao, bagay, lugar, o pangyayari",
+              "Pumapalit lamang sa isang pangngalan",
+              "Naglalarawan lamang sa isang pangngalan",
+              "Nagsasaad lamang ng isang kilos"
+            ],
+            "correct_answer": "Tumutukoy sa pangalan ng tao, bagay, lugar, o pangyayari"
+          },
+          {
+            "question": "Ano ang panghalip?",
+            "options": [
+              "Pumapalit sa pangngalan",
+              "Naglalarawan sa pangngalan",
+              "Nagsasaad ng kilos",
+              "Nagbibilang ng bagay"
+            ],
+            "correct_answer": "Pumapalit sa pangngalan"
+          },
+          {
+            "question": "Ano ang pang-uri?",
+            "options": [
+              "Naglalarawan sa pangngalan o panghalip",
+              "Pumapalit sa pangngalan",
+              "Tumutukoy sa lugar lamang",
+              "Nagsasaad ng bilang lamang"
+            ],
+            "correct_answer": "Naglalarawan sa pangngalan o panghalip"
+          },
+          {
+            "question": "Ano ang kayariang payak?",
+            "options": [
+              "Isang salitang-ugat lamang",
+              "May unlapi o hulapi",
+              "Dalawang salitang pinagsama",
+              "Inuulit na salita"
+            ],
+            "correct_answer": "Isang salitang-ugat lamang"
+          },
+          {
+            "question": "Ano ang kayariang maylapi?",
+            "options": [
+              "May unlapi, gitlapi, o hulapi",
+              "Isang salitang-ugat lamang",
+              "Dalawang magkaibang salita",
+              "Walang anumang panlapi"
+            ],
+            "correct_answer": "May unlapi, gitlapi, o hulapi"
+          },
+          {
+            "question": "Ano ang kayariang tambalan?",
+            "options": [
+              "Dalawang salitang pinagsama",
+              "Isang salitang-ugat lamang",
+              "Salitang inuulit",
+              "Salitang may hulapi lamang"
+            ],
+            "correct_answer": "Dalawang salitang pinagsama"
+          },
+          {
+            "question": "Ano ang kayariang inuulit?",
+            "options": [
+              "Inuulit ang buo o bahagi ng salita",
+              "Isang salitang-ugat lamang",
+              "Dalawang magkaibang salita",
+              "Salitang walang kahulugan"
+            ],
+            "correct_answer": "Inuulit ang buo o bahagi ng salita"
+          },
+          {
+            "question": "Alin ang halimbawa ng salitang tambalan?",
+            "options": [
+              "Bahay-kubo",
+              "Pusa",
+              "Maganda",
+              "Araw-araw"
+            ],
+            "correct_answer": "Bahay-kubo"
+          },
+          {
+            "question": "Alin ang halimbawa ng salitang inuulit?",
+            "options": [
+              "Araw-araw",
+              "Bahay",
+              "Kumain",
+              "Maganda"
+            ],
+            "correct_answer": "Araw-araw"
+          },
+          {
+            "question": "Ano ang kayarian ng salitang \"kumakain\"?",
+            "options": [
+              "Maylapi",
+              "Payak",
+              "Tambalan",
+              "Inuulit"
+            ],
+            "correct_answer": "Maylapi"
+          },
+          {
+            "question": "\"Maganda ang bulaklak sa hardin.\" Alin ang pang-uri?",
+            "options": [
+              "Maganda",
+              "Bulaklak",
+              "Hardin",
+              "Ang"
+            ],
+            "correct_answer": "Maganda"
+          },
+          {
+            "question": "Bakit mahalagang gamitin nang wasto ang pangngalan, panghalip, at pang-uri sa talaarawan?",
+            "options": [
+              "Upang maging malinaw ang isinusulat na karanasan",
+              "Upang mahaba ang bawat pangungusap",
+              "Upang mahirap unawain ang teksto",
+              "Walang epekto ito sa pagsulat"
+            ],
+            "correct_answer": "Upang maging malinaw ang isinusulat na karanasan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🦋 Friday Review — Science (Grade 4)\n\n- Butterfly: egg→larva→pupa→adult\n- Frog: egg→tadpole→adult; Chicken/Human: gradual growth\n\nGreat life cycle science! 🌟",
+        "quiz": [
+          {
+            "question": "What are the four stages of a butterfly's life cycle?",
+            "options": [
+              "Egg, larva, pupa, adult",
+              "Egg, chick, young, adult",
+              "Baby, child, teenager, adult",
+              "Tadpole, frog, egg, larva"
+            ],
+            "correct_answer": "Egg, larva, pupa, adult"
+          },
+          {
+            "question": "What is a caterpillar in the butterfly life cycle?",
+            "options": [
+              "The larva stage",
+              "The egg stage",
+              "The pupa stage",
+              "The adult stage"
+            ],
+            "correct_answer": "The larva stage"
+          },
+          {
+            "question": "What comes after the egg stage in a frog's life cycle?",
+            "options": [
+              "Tadpole",
+              "Adult frog",
+              "Pupa",
+              "Chick"
+            ],
+            "correct_answer": "Tadpole"
+          },
+          {
+            "question": "What comes after the \"tadpole\" stage in a frog's life cycle?",
+            "options": [
+              "Tadpole with legs, then adult frog",
+              "Egg, followed by larva again",
+              "Pupa, followed by chrysalis",
+              "Chick, followed by chicken"
+            ],
+            "correct_answer": "Tadpole with legs, then adult frog"
+          },
+          {
+            "question": "How is a chicken's life cycle different from a butterfly's?",
+            "options": [
+              "A chicken just grows bigger without a big body change",
+              "A chicken goes through metamorphosis like a butterfly",
+              "A chicken has no life cycle at all",
+              "A chicken skips the egg stage"
+            ],
+            "correct_answer": "A chicken just grows bigger without a big body change"
+          },
+          {
+            "question": "What is a flow chart used for in comparing life cycles?",
+            "options": [
+              "Showing the stages of a life cycle in order using arrows",
+              "Showing the weight of an animal only",
+              "Showing the color of an animal only",
+              "Showing where an animal lives only"
+            ],
+            "correct_answer": "Showing the stages of a life cycle in order using arrows"
+          },
+          {
+            "question": "What is the human life cycle stage that comes after \"child\"?",
+            "options": [
+              "Teenager",
+              "Baby",
+              "Older adult",
+              "Egg"
+            ],
+            "correct_answer": "Teenager"
+          },
+          {
+            "question": "How is a butterfly's life cycle different from a chicken's?",
+            "options": [
+              "A butterfly goes through complete metamorphosis; a chicken just grows bigger",
+              "Both go through the exact same stages",
+              "A chicken changes body form completely, unlike a butterfly",
+              "Neither animal has a life cycle"
+            ],
+            "correct_answer": "A butterfly goes through complete metamorphosis; a chicken just grows bigger"
+          },
+          {
+            "question": "What is the pupa stage also called in a butterfly's life cycle?",
+            "options": [
+              "Chrysalis",
+              "Larva",
+              "Tadpole",
+              "Egg"
+            ],
+            "correct_answer": "Chrysalis"
+          },
+          {
+            "question": "Which animals go through complete metamorphosis, changing body form dramatically?",
+            "options": [
+              "Butterflies and frogs",
+              "Chickens and humans",
+              "Only chickens",
+              "Only humans"
+            ],
+            "correct_answer": "Butterflies and frogs"
+          },
+          {
+            "question": "What is the FIRST stage in most animal life cycles shown in these flow charts?",
+            "options": [
+              "Egg or baby",
+              "Adult",
+              "Pupa",
+              "Teenager"
+            ],
+            "correct_answer": "Egg or baby"
+          },
+          {
+            "question": "Why are flow charts useful for comparing life cycles?",
+            "options": [
+              "They make it easy to see and compare the order of stages",
+              "They remove the need to study animals at all",
+              "They only work for butterflies",
+              "They show colors instead of stages"
+            ],
+            "correct_answer": "They make it easy to see and compare the order of stages"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎣 Friday Review — Araling Panlipunan (Grade 4)\n\n- **Pangingisda** = malapit sa dagat/ilog/lawa\n- **Industriya** = paggawa/pagproseso ng produkto\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pangingisda?",
+            "options": [
+              "Isang gawaing pangkabuhayan na nagbibigay ng isda at produktong-dagat",
+              "Isang uri ng industriya na matatagpuan sa lungsod",
+              "Isang paaralang nagtuturo lamang sa mga mangingisda",
+              "Isang uri ng turismong pang-isla lamang"
+            ],
+            "correct_answer": "Isang gawaing pangkabuhayan na nagbibigay ng isda at produktong-dagat"
+          },
+          {
+            "question": "Saan karaniwang matatagpuan ang pangingisda?",
+            "options": [
+              "Malapit sa dagat, ilog, o lawa",
+              "Sa gitna ng bundok lamang",
+              "Sa disyerto lamang",
+              "Sa lungsod na walang tubig"
+            ],
+            "correct_answer": "Malapit sa dagat, ilog, o lawa"
+          },
+          {
+            "question": "Ano ang industriya?",
+            "options": [
+              "Paggawa o pagproseso ng mga produkto",
+              "Pangingisda sa dagat lamang",
+              "Pagsasaka ng palay lamang",
+              "Turismo sa isla"
+            ],
+            "correct_answer": "Paggawa o pagproseso ng mga produkto"
+          },
+          {
+            "question": "Alin ang halimbawa ng industriya?",
+            "options": [
+              "Pabrika ng damit",
+              "Isang bangka ng mangingisda",
+              "Isang bukid ng palay",
+              "Isang resort sa dagat"
+            ],
+            "correct_answer": "Pabrika ng damit"
+          },
+          {
+            "question": "Bakit karaniwang matatagpuan ang pangingisda sa mga lugar malapit sa dagat?",
+            "options": [
+              "Dahil doon madaling makakuha ng isda at produktong-dagat",
+              "Dahil walang ibang gawaing pangkabuhayan doon",
+              "Dahil ipinagbabawal ang pagsasaka sa lugar na iyon",
+              "Dahil ang lugar na iyon ay malayo sa mga tao"
+            ],
+            "correct_answer": "Dahil doon madaling makakuha ng isda at produktong-dagat"
+          },
+          {
+            "question": "Bakit mahalaga ang industriya sa kabuhayan ng bansa?",
+            "options": [
+              "Nagbibigay ito ng trabaho at nagpoproseso ng materyales",
+              "Wala itong kaugnayan sa trabaho",
+              "Ginagawa lamang ito sa ibang bansa",
+              "Hindi ito nakatutulong sa ekonomiya"
+            ],
+            "correct_answer": "Nagbibigay ito ng trabaho at nagpoproseso ng materyales"
+          },
+          {
+            "question": "Ano ang halimbawa ng produkto mula sa pangingisda?",
+            "options": [
+              "Isda, hipon, at alimango",
+              "Bigas at mais",
+              "Semento at bakal",
+              "Damit at sapatos"
+            ],
+            "correct_answer": "Isda, hipon, at alimango"
+          },
+          {
+            "question": "Saan karaniwang matatagpuan ang mga industriya?",
+            "options": [
+              "Sa mga lungsod na may magandang transportasyon",
+              "Sa gitna ng malawak na karagatan",
+              "Sa mga liblib na lugar na walang tao",
+              "Sa tuktok ng mataas na bundok"
+            ],
+            "correct_answer": "Sa mga lungsod na may magandang transportasyon"
+          },
+          {
+            "question": "Paano nakatutulong ang pangingisda sa mga pamilyang naninirahan malapit sa dagat?",
+            "options": [
+              "Nagbibigay ito ng pagkain, hanapbuhay, at kita",
+              "Wala itong benepisyo sa pamilya",
+              "Nagpapahirap lamang ito ng buhay",
+              "Ginagawa lamang ito bilang libangan"
+            ],
+            "correct_answer": "Nagbibigay ito ng pagkain, hanapbuhay, at kita"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang bahagi ng kabuhayan ng bansa ang industriya, tulad ng agrikultura?",
+            "options": [
+              "Kapwa ito nagbibigay ng trabaho at produkto sa mamamayan",
+              "Wala itong pagkakatulad sa agrikultura",
+              "Isa lang dito ang totoong mahalaga",
+              "Hindi ito bahagi ng ekonomiya ng bansa"
+            ],
+            "correct_answer": "Kapwa ito nagbibigay ng trabaho at produkto sa mamamayan"
+          },
+          {
+            "question": "Ano ang maaaring maging produkto ng isang pabrika ng pagkain?",
+            "options": [
+              "Mga naprosesong produktong pagkain",
+              "Mga hilaw na isda lamang",
+              "Mga hindi kailanman naprosesong bagay",
+              "Mga produktong pang-agrikultura lamang"
+            ],
+            "correct_answer": "Mga naprosesong produktong pagkain"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang iba't ibang gawaing pangkabuhayan tulad ng pangingisda at industriya?",
+            "options": [
+              "Upang maunawaan kung paano kumikita ang iba't ibang bahagi ng bansa",
+              "Upang malaman lamang ang mga pangalan ng lugar",
+              "Upang hindi na kailangang mag-aral pa ng ibang paksa",
+              "Upang maiwasan ang pag-aaral ng agrikultura"
+            ],
+            "correct_answer": "Upang maunawaan kung paano kumikita ang iba't ibang bahagi ng bansa"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 👨‍👩‍👧‍👦 Friday Review — MAPEH (Grade 4)\n\n- Healthy family: respect, fair rules, open communication\n- Activities: dance, exercise, cooking together, gardening\n\nGreat learning about family health! 🌟",
+        "quiz": [
+          {
+            "question": "What is one characteristic of a healthy family?",
+            "options": [
+              "Respecting members' opinions",
+              "Ignoring everyone's feelings",
+              "Having no rules at all",
+              "Never talking to each other"
+            ],
+            "correct_answer": "Respecting members' opinions"
+          },
+          {
+            "question": "What are fair rules in a family?",
+            "options": [
+              "Rules that apply equally to everyone",
+              "Rules that only apply to children",
+              "Rules that change every day randomly",
+              "Rules that only one person follows"
+            ],
+            "correct_answer": "Rules that apply equally to everyone"
+          },
+          {
+            "question": "What is open communication?",
+            "options": [
+              "Talking honestly and listening to each other",
+              "Staying silent about everything",
+              "Only talking when angry",
+              "Avoiding conversations completely"
+            ],
+            "correct_answer": "Talking honestly and listening to each other"
+          },
+          {
+            "question": "Why is open communication important for a healthy family?",
+            "options": [
+              "It helps family members understand each other",
+              "It makes family members argue more",
+              "It has no real benefit at all",
+              "It only matters for strangers"
+            ],
+            "correct_answer": "It helps family members understand each other"
+          },
+          {
+            "question": "A family cooks a healthy meal together every Sunday. What benefit does this bring?",
+            "options": [
+              "It builds bonding and healthy eating habits",
+              "It wastes time that could be used elsewhere",
+              "It has no effect on the family at all",
+              "It only benefits one family member"
+            ],
+            "correct_answer": "It builds bonding and healthy eating habits"
+          },
+          {
+            "question": "What activity can improve fitness and bring the family together?",
+            "options": [
+              "Dance",
+              "Watching TV alone",
+              "Sleeping all day",
+              "Ignoring each other"
+            ],
+            "correct_answer": "Dance"
+          },
+          {
+            "question": "What does gardening provide for family health?",
+            "options": [
+              "Fresh air and physical activity",
+              "Only entertainment with no benefit",
+              "A way to avoid exercise",
+              "Nothing useful at all"
+            ],
+            "correct_answer": "Fresh air and physical activity"
+          },
+          {
+            "question": "What is a role family members can take to promote family health?",
+            "options": [
+              "Helping cook healthy meals",
+              "Refusing to help with anything",
+              "Avoiding the whole family",
+              "Eating unhealthy food only"
+            ],
+            "correct_answer": "Helping cook healthy meals"
+          },
+          {
+            "question": "Why do healthy families listen to each member's opinions?",
+            "options": [
+              "To show respect and understanding",
+              "To ignore what they actually think",
+              "To argue about everything",
+              "To avoid talking altogether"
+            ],
+            "correct_answer": "To show respect and understanding"
+          },
+          {
+            "question": "What does a healthy family support in each member?",
+            "options": [
+              "Physical and emotional well-being",
+              "Only physical strength",
+              "Only academic grades",
+              "Only financial success"
+            ],
+            "correct_answer": "Physical and emotional well-being"
+          },
+          {
+            "question": "Which of these is an example of a physical activity that improves family health?",
+            "options": [
+              "Exercising together",
+              "Watching television alone all day",
+              "Avoiding all movement",
+              "Arguing over small things"
+            ],
+            "correct_answer": "Exercising together"
+          },
+          {
+            "question": "Why are fair rules important in a healthy family?",
+            "options": [
+              "They help everyone feel treated equally",
+              "They only benefit the parents",
+              "They cause more conflict in the home",
+              "They have no effect on family life"
+            ],
+            "correct_answer": "They help everyone feel treated equally"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 Friday Review — GMRC (Grade 4)\n\n- Ipakita ang pananampalataya sa mapagkalingang pakikitungo sa pamilya\n- Pagpapahalaga: **Masunurin**\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Paano dapat ipakita ang pananampalataya sa pamilya?",
+            "options": [
+              "Sa araw-araw na mapagkalingang pakikitungo",
+              "Sa panalangin lamang na walang gawa",
+              "Sa pananahimik lamang",
+              "Wala itong paraan para ipakita"
+            ],
+            "correct_answer": "Sa araw-araw na mapagkalingang pakikitungo"
+          },
+          {
+            "question": "Ano ang masunurin?",
+            "options": [
+              "Sumusunod sa magulang dahil sa paggalang at pagmamahal",
+              "Sumusunod lamang dahil natatakot",
+              "Ayaw sumunod sa anumang bagay",
+              "Sumusunod lamang kung may gantimpala"
+            ],
+            "correct_answer": "Sumusunod sa magulang dahil sa paggalang at pagmamahal"
+          },
+          {
+            "question": "Hiniling ng iyong ina na tulungan mo siya sa gawaing-bahay habang nag-aaral ka pa. Ano ang tamang gawin?",
+            "options": [
+              "Tulungan siya",
+              "Tanggihan siya dahil abala ka",
+              "Magalit sa kanya",
+              "Iwasan siya nang tuluyan"
+            ],
+            "correct_answer": "Tulungan siya"
+          },
+          {
+            "question": "Bakit itinuturing na paglalapat ng pananampalataya ang mabuting pakikitungo sa pamilya?",
+            "options": [
+              "Dahil ang pagmamahal sa pamilya ay bahagi ng aral ng pananampalataya",
+              "Dahil walang kaugnayan ang pananampalataya sa pamilya",
+              "Dahil ipinagbabawal ito ng pananampalataya",
+              "Dahil hindi kailanman itinuturo ito"
+            ],
+            "correct_answer": "Dahil ang pagmamahal sa pamilya ay bahagi ng aral ng pananampalataya"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagiging masunurin sa pamilya?",
+            "options": [
+              "Nagiging maayos ang ugnayan ng pamilya",
+              "Nasisira ang tiwala sa pamilya",
+              "Nagiging mas magulo ang tahanan",
+              "Wala itong anumang bunga"
+            ],
+            "correct_answer": "Nagiging maayos ang ugnayan ng pamilya"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng mapagkalingang pakikitungo sa pamilya?",
+            "options": [
+              "Pagtulong sa gawaing-bahay",
+              "Pagpapabaya sa mga kapatid",
+              "Pananahimik palagi",
+              "Pag-iwas sa magulang"
+            ],
+            "correct_answer": "Pagtulong sa gawaing-bahay"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Masunurin",
+              "Matiyaga",
+              "Mapagpasensiya",
+              "Tiwala sa Sarili"
+            ],
+            "correct_answer": "Masunurin"
+          },
+          {
+            "question": "Bakit hindi sapat ang panalangin lamang para ipakita ang pananampalataya?",
+            "options": [
+              "Dahil dapat din itong ipakita sa mabuting gawa",
+              "Dahil hindi mahalaga ang panalangin",
+              "Dahil sapat na ang panalangin lamang",
+              "Dahil hindi kinakailangan ang gawa"
+            ],
+            "correct_answer": "Dahil dapat din itong ipakita sa mabuting gawa"
+          },
+          {
+            "question": "Anong pakinabang ang idinudulot ng pagiging masunurin sa gawain sa bahay?",
+            "options": [
+              "Nakatutulong ito upang matupad ang mga gawain sa bahay",
+              "Nagpapabagal lamang ito ng gawain",
+              "Wala itong epekto sa bahay",
+              "Nagpapahirap lamang ito sa pamilya"
+            ],
+            "correct_answer": "Nakatutulong ito upang matupad ang mga gawain sa bahay"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagiging masunurin sa nakatatanda?",
+            "options": [
+              "Paggalang",
+              "Kawalang-galang",
+              "Pagmamataas",
+              "Kapabayaan"
+            ],
+            "correct_answer": "Paggalang"
+          },
+          {
+            "question": "Isang batang laging tumutulong sa kanyang lolo sa bahay. Ano ang ipinapakita nito?",
+            "options": [
+              "Mapagkalingang pakikitungo at pagsunod",
+              "Kawalan ng pakialam sa pamilya",
+              "Pagsuway sa mga magulang",
+              "Kapabayaan sa mga gawain"
+            ],
+            "correct_answer": "Mapagkalingang pakikitungo at pagsunod"
+          },
+          {
+            "question": "Bakit mahalagang isabuhay ang aral ng pananampalataya sa loob ng tahanan?",
+            "options": [
+              "Dahil doon una natin natututuhan ang pagmamahal at paggalang",
+              "Dahil hindi kailangan doon ang pananampalataya",
+              "Dahil ito lamang ang tanging lugar na mahalaga",
+              "Dahil walang kinalaman ang tahanan sa pananampalataya"
+            ],
+            "correct_answer": "Dahil doon una natin natututuhan ang pagmamahal at paggalang"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌿 Friday Review — EPP (Grade 4)\n\n- **Compost, FFJ, FPJ, FAA, BOKASHI** — organikong pataba\n- **OHN 1, OHN 2, Neem oil** — natural na pestisidyo\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang compost?",
+            "options": [
+              "Isang uri ng organikong pataba",
+              "Isang kemikal na pestisidyo",
+              "Isang uri ng semilya",
+              "Isang kagamitan sa paghahalaman"
+            ],
+            "correct_answer": "Isang uri ng organikong pataba"
+          },
+          {
+            "question": "Ano ang katangian ng magandang compost?",
+            "options": [
+              "Madilim ang kulay at mabango tulad ng lupa",
+              "Maputi ang kulay at mabaho",
+              "Maasul ang kulay at matigas",
+              "Walang amoy at buhaghag"
+            ],
+            "correct_answer": "Madilim ang kulay at mabango tulad ng lupa"
+          },
+          {
+            "question": "Ano ang vermicomposting?",
+            "options": [
+              "Paggamit ng bulate upang mapabilis ang compost",
+              "Paggamit ng kemikal na pestisidyo",
+              "Paggamit ng makina sa pagtatanim",
+              "Paggamit ng tubig lamang sa halaman"
+            ],
+            "correct_answer": "Paggamit ng bulate upang mapabilis ang compost"
+          },
+          {
+            "question": "Anong konkoksyon ang gawa mula sa hinog na prutas?",
+            "options": [
+              "FFJ (Fermented Fruit Juice)",
+              "FPJ (Fermented Plant Juice)",
+              "FAA (Fish Amino Acid)",
+              "BOKASHI"
+            ],
+            "correct_answer": "FFJ (Fermented Fruit Juice)"
+          },
+          {
+            "question": "Anong konkoksyon ang gawa mula sa isda?",
+            "options": [
+              "FAA (Fish Amino Acid)",
+              "FFJ (Fermented Fruit Juice)",
+              "FPJ (Fermented Plant Juice)",
+              "Neem tree oil"
+            ],
+            "correct_answer": "FAA (Fish Amino Acid)"
+          },
+          {
+            "question": "Ano ang nilalaman ng OHN 1 na natural na pestisidyo?",
+            "options": [
+              "White vinegar, bawang, at molasses",
+              "Luya at sibuyas lamang",
+              "Neem tree oil lamang",
+              "Tubig at asin lamang"
+            ],
+            "correct_answer": "White vinegar, bawang, at molasses"
+          },
+          {
+            "question": "Ano ang nilalaman ng OHN 2 na natural na pestisidyo?",
+            "options": [
+              "Luya, sibuyas, bawang, molasses, at sili",
+              "White vinegar at bawang lamang",
+              "Neem tree oil na walang iba pa",
+              "Tubig at asin na lamang"
+            ],
+            "correct_answer": "Luya, sibuyas, bawang, molasses, at sili"
+          },
+          {
+            "question": "Saan nanggagaling ang Neem tree oil?",
+            "options": [
+              "Mula sa puno ng neem",
+              "Mula sa isda",
+              "Mula sa hinog na prutas",
+              "Mula sa gatas ng baka"
+            ],
+            "correct_answer": "Mula sa puno ng neem"
+          },
+          {
+            "question": "Bakit ginagamit ang bulate sa vermicomposting?",
+            "options": [
+              "Upang mapabilis ang pagkabulok ng basura patungong compost",
+              "Upang pumatay sa mga peste sa halaman",
+              "Upang magpaganda lamang ng hardin",
+              "Upang magbigay ng tubig sa halaman"
+            ],
+            "correct_answer": "Upang mapabilis ang pagkabulok ng basura patungong compost"
+          },
+          {
+            "question": "Ano ang BOKASHI?",
+            "options": [
+              "Naprosesong organikong basura",
+              "Isang uri ng kemikal na pestisidyo",
+              "Isang kagamitan sa pananim",
+              "Isang uri ng buto ng halaman"
+            ],
+            "correct_answer": "Naprosesong organikong basura"
+          },
+          {
+            "question": "Bakit mas mainam gumamit ng natural na pestisidyo kaysa kemikal?",
+            "options": [
+              "Mas ligtas ito sa kalikasan",
+              "Mas mabilis itong pumatay ng lahat ng insekto",
+              "Mas mahal ito kaysa kemikal",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Mas ligtas ito sa kalikasan"
+          },
+          {
+            "question": "Ano ang FPJ?",
+            "options": [
+              "Fermented Plant Juice, mula sa bahagi ng halaman",
+              "Fermented Fruit Juice, mula sa prutas",
+              "Fish Amino Acid, mula sa isda",
+              "Isang uri ng compost lamang"
+            ],
+            "correct_answer": "Fermented Plant Juice, mula sa bahagi ng halaman"
+          }
+        ]
+      }
+    }
+  }
+}

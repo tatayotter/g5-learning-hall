@@ -1,0 +1,2266 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-10-11",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🎥 English — Viewing: Directionality and Multimedia Elements\n\nGrade 5, Week 18! Let's learn how visuals and videos are organized. 👀\n\n## 👁️ Directionality in Visual Texts\n**Directionality** is the **direction** our eyes move when reading a visual text.\n\n| Type | Reading Path |\n|---|---|\n| **Left-to-right** | most Western texts, comic panels |\n| **Top-to-bottom** | lists, some infographics |\n| **Culturally specific paths** | some cultures read differently (e.g., right-to-left, top-to-bottom columns) |\n\n## 🎬 Video-Specific Multimedia Elements\nWhen we watch videos, we notice special elements:\n\n| Element | What It Does |\n|---|---|\n| **Transitions** | how one scene changes to the next (fade, cut, wipe) |\n| **Captions** | text shown on screen, often for dialogue or descriptions |\n| **Pacing** | how fast or slow the video moves |\n\n## 🧠 Worked Example 1\n*A comic strip shows panels in rows, read left to right, top to bottom. What is this called?*\n- **Directionality** — it shows the reading path of the visual text.\n\n## 🧠 Worked Example 2\n*A video slowly fades from one scene to the next. What multimedia element is this?*\n- **Transition** — specifically a **fade** transition.\n\n## 🧠 Worked Example 3\n*A video moves very quickly between short clips. What element does this describe?*\n- **Pacing** — in this case, **fast pacing**.\n\n## 💡 Why This Matters\nUnderstanding directionality and multimedia elements helps us **better understand and analyze** visual and video texts.\n\nGreat viewing skills! 🌟",
+        "quiz": [
+          {
+            "question": "What is directionality in a visual text?",
+            "options": [
+              "The direction our eyes move when reading it",
+              "The color scheme of the text",
+              "The title of the visual text",
+              "The number of pages in the text"
+            ],
+            "correct_answer": "The direction our eyes move when reading it"
+          },
+          {
+            "question": "What is the most common reading path in Western texts?",
+            "options": [
+              "Left-to-right",
+              "Right-to-left",
+              "Bottom-to-top",
+              "Random order"
+            ],
+            "correct_answer": "Left-to-right"
+          },
+          {
+            "question": "What are transitions in a video?",
+            "options": [
+              "How one scene changes to the next",
+              "The actors in the video",
+              "The music playing in the background",
+              "The title shown at the start"
+            ],
+            "correct_answer": "How one scene changes to the next"
+          },
+          {
+            "question": "What are captions in a video?",
+            "options": [
+              "Text shown on screen, often for dialogue or descriptions",
+              "The background music playing throughout",
+              "The camera angle chosen by the director",
+              "The video's total file size in megabytes"
+            ],
+            "correct_answer": "Text shown on screen, often for dialogue or descriptions"
+          },
+          {
+            "question": "What is pacing in a video?",
+            "options": [
+              "How fast or slow the video moves",
+              "The color of the video",
+              "The length of the title",
+              "The number of actors shown"
+            ],
+            "correct_answer": "How fast or slow the video moves"
+          },
+          {
+            "question": "A comic strip shows panels read left to right, top to bottom. What is this called?",
+            "options": [
+              "Directionality",
+              "Pacing",
+              "Captioning",
+              "Transition"
+            ],
+            "correct_answer": "Directionality"
+          },
+          {
+            "question": "A video slowly fades from one scene to the next. What element is this?",
+            "options": [
+              "A transition (fade)",
+              "A caption",
+              "A directionality path",
+              "A soundtrack"
+            ],
+            "correct_answer": "A transition (fade)"
+          },
+          {
+            "question": "A video moves very quickly between short clips. What element does this describe?",
+            "options": [
+              "Fast pacing",
+              "Slow captioning",
+              "Top-to-bottom directionality",
+              "A missing transition"
+            ],
+            "correct_answer": "Fast pacing"
+          },
+          {
+            "question": "Why might some visual texts have culturally specific reading paths?",
+            "options": [
+              "Different cultures may read and organize visuals differently",
+              "All cultures always read visuals the same exact way",
+              "Reading paths never vary from one text to another",
+              "Only video texts ever have a reading path at all"
+            ],
+            "correct_answer": "Different cultures may read and organize visuals differently"
+          },
+          {
+            "question": "Why are captions useful in a video?",
+            "options": [
+              "They help viewers understand dialogue or descriptions",
+              "They make the video load faster",
+              "They remove the need for any sound",
+              "They only appear in silent films"
+            ],
+            "correct_answer": "They help viewers understand dialogue or descriptions"
+          },
+          {
+            "question": "Why is understanding multimedia elements important when viewing a video?",
+            "options": [
+              "It helps us better understand and analyze the video",
+              "It has no real use when watching videos",
+              "It only matters for making videos, not watching them",
+              "It replaces the need to listen to the video"
+            ],
+            "correct_answer": "It helps us better understand and analyze the video"
+          },
+          {
+            "question": "Which of these is a video-specific multimedia element?",
+            "options": [
+              "Transitions",
+              "Book chapters",
+              "Page numbers",
+              "Table of contents"
+            ],
+            "correct_answer": "Transitions"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Divisibility Rules and Prime/Composite Numbers\n\nGrade 5, Week 18! Let's learn quick tricks to check divisibility. ⚡\n\n## ➗ Divisibility Rules\n| Divisible by | Rule |\n|---|---|\n| **2** | last digit is even (0,2,4,6,8) |\n| **5** | last digit is 0 or 5 |\n| **10** | last digit is 0 |\n| **3** | sum of digits is divisible by 3 |\n| **6** | divisible by both 2 AND 3 |\n| **9** | sum of digits is divisible by 9 |\n| **4** | last 2 digits divisible by 4 |\n| **8** | last 3 digits divisible by 8 |\n| **11** | alternating sum of digits divisible by 11 |\n| **12** | divisible by both 3 AND 4 |\n\n## 🧠 Worked Example 1\n*Is 342 divisible by 3?*\n- 3+4+2 = 9, and 9 is divisible by 3 → **Yes, 342 is divisible by 3.**\n\n## 🧠 Worked Example 2\n*Is 4,536 divisible by 9?*\n- 4+5+3+6 = 18, and 18 is divisible by 9 → **Yes.**\n\n## 🔢 Prime vs. Composite Numbers\n- A **prime number** has exactly **2 factors**: 1 and itself (e.g., 2, 3, 5, 7, 11)\n- A **composite number** has **more than 2 factors** (e.g., 4, 6, 8, 9, 10)\n- **1** is neither prime nor composite\n\n## 🧮 Sieve of Eratosthenes\nThe **Sieve of Eratosthenes** is a method to find prime numbers: cross out multiples of each prime, starting from 2, and what's left (besides 1) are the primes.\n\n## 🧠 Worked Example 3\n*Using the sieve method for numbers 1-20, cross out multiples of 2, 3, and so on. What primes remain?*\n- **2, 3, 5, 7, 11, 13, 17, 19**\n\nGreat number work! ⭐",
+        "quiz": [
+          {
+            "question": "What is the divisibility rule for 2?",
+            "options": [
+              "The last digit is even (0,2,4,6,8)",
+              "The sum of digits is divisible by 2",
+              "The number ends in 5",
+              "The number has 2 digits"
+            ],
+            "correct_answer": "The last digit is even (0,2,4,6,8)"
+          },
+          {
+            "question": "What is the divisibility rule for 5?",
+            "options": [
+              "The last digit is 0 or 5",
+              "The last digit is even",
+              "The sum of digits is 5",
+              "The number is less than 5"
+            ],
+            "correct_answer": "The last digit is 0 or 5"
+          },
+          {
+            "question": "Is 342 divisible by 3?",
+            "options": [
+              "Yes, because 3+4+2=9 is divisible by 3",
+              "No, because 342 is an even number",
+              "Yes, because 342 ends in 2",
+              "No, because 3+4+2 is not divisible by 3"
+            ],
+            "correct_answer": "Yes, because 3+4+2=9 is divisible by 3"
+          },
+          {
+            "question": "What is the divisibility rule for 6?",
+            "options": [
+              "Divisible by both 2 AND 3",
+              "Divisible by 2 only",
+              "Divisible by 3 only",
+              "The last digit is 6"
+            ],
+            "correct_answer": "Divisible by both 2 AND 3"
+          },
+          {
+            "question": "Is 4,536 divisible by 9?",
+            "options": [
+              "Yes, because 4+5+3+6=18 is divisible by 9",
+              "No, because 4,536 is an odd number",
+              "Yes, because it ends in 6",
+              "No, because 18 is not divisible by 9"
+            ],
+            "correct_answer": "Yes, because 4+5+3+6=18 is divisible by 9"
+          },
+          {
+            "question": "What is a prime number?",
+            "options": [
+              "A number with exactly 2 factors: 1 and itself",
+              "A number with more than 2 factors",
+              "Any even number",
+              "Any number greater than 10"
+            ],
+            "correct_answer": "A number with exactly 2 factors: 1 and itself"
+          },
+          {
+            "question": "What is a composite number?",
+            "options": [
+              "A number with more than 2 factors",
+              "A number with exactly 1 factor",
+              "A number with exactly 2 factors",
+              "Any odd number"
+            ],
+            "correct_answer": "A number with more than 2 factors"
+          },
+          {
+            "question": "Is the number 1 prime or composite?",
+            "options": [
+              "Neither prime nor composite",
+              "Prime",
+              "Composite",
+              "Both prime and composite"
+            ],
+            "correct_answer": "Neither prime nor composite"
+          },
+          {
+            "question": "What is the Sieve of Eratosthenes used for?",
+            "options": [
+              "Finding prime numbers by crossing out multiples",
+              "Adding large numbers quickly",
+              "Converting fractions to decimals",
+              "Measuring the length of objects"
+            ],
+            "correct_answer": "Finding prime numbers by crossing out multiples"
+          },
+          {
+            "question": "Which of these numbers is prime?",
+            "options": [
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "correct_answer": "7"
+          },
+          {
+            "question": "Which of these numbers is composite?",
+            "options": [
+              "12",
+              "13",
+              "17",
+              "19"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "What is the divisibility rule for 4?",
+            "options": [
+              "The last 2 digits are divisible by 4",
+              "The last digit is even",
+              "The last 3 digits are divisible by 4",
+              "The number ends in 0"
+            ],
+            "correct_answer": "The last 2 digits are divisible by 4"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📚 Filipino — Paggamit ng Almanac at Atlas\n\nGrade 5, Linggo 18! Alamin natin ang mga karagdagang sanggunian. 🗺️\n\n## 📖 Ano ang Almanac?\nAng **almanac** ay isang aklat na naglalaman ng **taunang impormasyon** tulad ng datos sa panahon, kalendaryo, at mga katotohanan tungkol sa iba't ibang paksa.\n\n**Halimbawa ng nilalaman:** petsa ng mga pista opisyal, datos sa populasyon, impormasyon sa klima\n\n## 🗺️ Ano ang Atlas?\nAng **atlas** ay isang koleksyon ng **mga mapa** — ginagamit upang matukoy ang lokasyon ng mga lugar, bansa, o katangiang heograpikal.\n\n**Halimbawa ng gamit:** paghahanap ng lokasyon ng isang bansa, pagsukat ng distansya sa pagitan ng dalawang lugar\n\n## 🔍 Kailan Gagamitin ang Almanac o Atlas?\n| Sanggunian | Kailan Gagamitin |\n|---|---|\n| **Almanac** | kapag kailangan ng taunang datos o katotohanan |\n| **Atlas** | kapag kailangan malaman ang lokasyon ng isang lugar |\n\n## 🧠 Halimbawa 1\n*Gusto mong malaman ang eksaktong lokasyon ng Mindanao sa mapa ng Pilipinas. Anong sanggunian ang gagamitin?*\n- **Atlas** — dahil ito ay naglalaman ng mga mapa.\n\n## 🧠 Halimbawa 2\n*Gusto mong malaman ang petsa ng susunod na eklipse ng buwan. Anong sanggunian ang gagamitin?*\n- **Almanac** — dahil naglalaman ito ng taunang impormasyon tulad nito.\n\n## 💡 Bakit Mahalaga Ito?\nAng paggamit ng tamang sanggunian ay tumutulong upang **mabilis at tumpak** makahanap ng impormasyon.\n\nMagaling sa pananaliksik! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang almanac?",
+            "options": [
+              "Isang aklat na naglalaman ng taunang impormasyon",
+              "Isang koleksyon ng mga mapa",
+              "Isang diksyunaryo ng mga salita",
+              "Isang aklat ng kuwentong-bayan"
+            ],
+            "correct_answer": "Isang aklat na naglalaman ng taunang impormasyon"
+          },
+          {
+            "question": "Ano ang atlas?",
+            "options": [
+              "Isang koleksyon ng mga mapa",
+              "Isang aklat ng taunang datos",
+              "Isang diksyunaryo ng salita",
+              "Isang listahan ng mga pangalan"
+            ],
+            "correct_answer": "Isang koleksyon ng mga mapa"
+          },
+          {
+            "question": "Anong impormasyon ang matatagpuan sa almanac?",
+            "options": [
+              "Petsa ng pista opisyal at datos sa panahon",
+              "Mapa ng bawat bansa lamang",
+              "Larawan ng mga hayop lamang",
+              "Kasaysayan ng musika lamang"
+            ],
+            "correct_answer": "Petsa ng pista opisyal at datos sa panahon"
+          },
+          {
+            "question": "Bakit ginagamit ang atlas?",
+            "options": [
+              "Upang matukoy ang lokasyon ng mga lugar",
+              "Upang malaman ang kahulugan ng salita",
+              "Upang malaman ang petsa ng kapanganakan",
+              "Upang matuto ng bagong awit"
+            ],
+            "correct_answer": "Upang matukoy ang lokasyon ng mga lugar"
+          },
+          {
+            "question": "Gusto mong malaman ang eksaktong lokasyon ng Mindanao sa mapa. Anong sanggunian ang gagamitin?",
+            "options": [
+              "Atlas",
+              "Almanac",
+              "Diksyunaryo",
+              "Ensiklopedya ng salita"
+            ],
+            "correct_answer": "Atlas"
+          },
+          {
+            "question": "Gusto mong malaman ang petsa ng susunod na eklipse ng buwan. Anong sanggunian ang gagamitin?",
+            "options": [
+              "Almanac",
+              "Atlas",
+              "Diksyunaryo",
+              "Aklat ng tula"
+            ],
+            "correct_answer": "Almanac"
+          },
+          {
+            "question": "Kailan ginagamit ang almanac?",
+            "options": [
+              "Kapag kailangan ng taunang datos o katotohanan",
+              "Kapag kailangan lamang ng mapa",
+              "Kapag kailangan lamang ng kahulugan ng salita",
+              "Kapag kailangan lamang ng kuwento"
+            ],
+            "correct_answer": "Kapag kailangan ng taunang datos o katotohanan"
+          },
+          {
+            "question": "Kailan ginagamit ang atlas?",
+            "options": [
+              "Kapag kailangang malaman ang lokasyon ng isang lugar",
+              "Kapag kailangan lamang ng datos sa panahon",
+              "Kapag kailangan lamang ng kahulugan ng salita",
+              "Kapag kailangan lamang ng listahan ng pangalan"
+            ],
+            "correct_answer": "Kapag kailangang malaman ang lokasyon ng isang lugar"
+          },
+          {
+            "question": "Alin ang halimbawa ng gamit ng atlas?",
+            "options": [
+              "Pagsukat ng distansya sa pagitan ng dalawang lugar",
+              "Paghahanap ng kahulugan ng bagong salita",
+              "Pagbabasa ng kuwentong-bayan",
+              "Paghahanap ng petsa ng kapanganakan"
+            ],
+            "correct_answer": "Pagsukat ng distansya sa pagitan ng dalawang lugar"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang tamang sanggunian sa pananaliksik?",
+            "options": [
+              "Tumutulong ito upang mabilis at tumpak makahanap ng impormasyon",
+              "Wala itong anumang epekto sa gawaing pananaliksik",
+              "Nagpapahirap lamang ito sa buong gawain natin",
+              "Ginagamit lamang ito bilang uri ng libangan"
+            ],
+            "correct_answer": "Tumutulong ito upang mabilis at tumpak makahanap ng impormasyon"
+          },
+          {
+            "question": "Alin ang HINDI matatagpuan sa isang atlas?",
+            "options": [
+              "Petsa ng kapanganakan ng isang tao",
+              "Mapa ng iba't ibang bansa",
+              "Lokasyon ng mga bundok",
+              "Hangganan ng mga rehiyon"
+            ],
+            "correct_answer": "Petsa ng kapanganakan ng isang tao"
+          },
+          {
+            "question": "Isang mag-aaral ang naghahanap ng impormasyon tungkol sa populasyon ng Pilipinas noong nakaraang taon. Anong sanggunian ang pinakaangkop?",
+            "options": [
+              "Almanac",
+              "Atlas",
+              "Diksyunaryo",
+              "Aklat ng pabula"
+            ],
+            "correct_answer": "Almanac"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🛹 Science — Friction as a Contact Force\n\nGrade 5, Week 18! Let's investigate the force that slows things down. 🧊\n\n## 🤝 Friction as a Contact Force\n**Friction** is a **contact force** that happens when two surfaces **rub against each other**, slowing down or resisting motion.\n\n## 🪨 How Surface Texture Affects Friction\n| Surface | Friction Level |\n|---|---|\n| **Rough surface** (sandpaper, gravel) | more friction |\n| **Smooth surface** (ice, polished floor) | less friction |\n\n## 🔥 Heat from Friction\nFriction produces **heat** — that's why rubbing your hands together makes them feel warm!\n\n## ⬇️ Ways to Reduce Friction\n- **Lubricants** (oil, grease) — makes surfaces slippery\n- **Wheels** — rolling reduces friction compared to sliding\n- **Smoother surfaces** — less resistance to motion\n\n## ⬆️ Ways to Increase Friction\n- **Treads** (like on shoes or tires) — grip the surface better\n- **Grip material** (rubber, sandpaper) — increases resistance\n\n## 🧪 Planning a Fair Test on Friction\nTo investigate friction, we must **identify and control variables**:\n- **Independent variable:** surface type, weight, or contact area (only change ONE)\n- **Controlled variables:** everything else stays the same\n\n## 🧠 Worked Example\n*A student wants to test if a rough surface or smooth surface creates more friction. What should stay the same in the test?*\n- The **object used, its weight, and the force applied** should stay the same — only the **surface type** should change.\n\n## 🧠 Worked Example 2\n*Why do cars use treads on their tires?*\n- To **increase friction** and grip the road better, especially when wet.\n\nGreat force investigation! 🌟",
+        "quiz": [
+          {
+            "question": "What is friction?",
+            "options": [
+              "A contact force that happens when two surfaces rub together",
+              "A force that pulls objects toward Earth",
+              "A force that only works underwater",
+              "A force that only exists in space"
+            ],
+            "correct_answer": "A contact force that happens when two surfaces rub together"
+          },
+          {
+            "question": "Which surface creates MORE friction?",
+            "options": [
+              "A rough surface like gravel",
+              "A smooth surface like ice",
+              "A polished floor",
+              "Both create the same amount"
+            ],
+            "correct_answer": "A rough surface like gravel"
+          },
+          {
+            "question": "What does friction produce, which is why rubbing your hands together feels warm?",
+            "options": [
+              "Heat",
+              "Light",
+              "Sound only",
+              "Cold"
+            ],
+            "correct_answer": "Heat"
+          },
+          {
+            "question": "What can be used to REDUCE friction?",
+            "options": [
+              "Lubricants like oil or grease",
+              "Rough sandpaper on the surface",
+              "Rubber treads with deep grooves",
+              "Grip material added to the surface"
+            ],
+            "correct_answer": "Lubricants like oil or grease"
+          },
+          {
+            "question": "Why do wheels reduce friction compared to sliding?",
+            "options": [
+              "Rolling motion creates less resistance than sliding",
+              "Wheels always create more friction",
+              "Wheels remove the need for any force",
+              "Wheels only work on smooth surfaces"
+            ],
+            "correct_answer": "Rolling motion creates less resistance than sliding"
+          },
+          {
+            "question": "What can be used to INCREASE friction?",
+            "options": [
+              "Treads and grip material",
+              "Oil and grease",
+              "Smoother surfaces",
+              "Ice and polished floors"
+            ],
+            "correct_answer": "Treads and grip material"
+          },
+          {
+            "question": "Why do cars use treads on their tires?",
+            "options": [
+              "To increase friction and grip the road better",
+              "To reduce friction as much as possible",
+              "To make the car lighter",
+              "To make the car quieter"
+            ],
+            "correct_answer": "To increase friction and grip the road better"
+          },
+          {
+            "question": "A student tests friction on rough vs. smooth surfaces. What is the independent variable?",
+            "options": [
+              "The surface type",
+              "The weight of the object",
+              "The color of the object",
+              "The time of day"
+            ],
+            "correct_answer": "The surface type"
+          },
+          {
+            "question": "A student wants to test if a rough or smooth surface creates more friction. What should stay the same?",
+            "options": [
+              "The object used, its weight, and the force applied",
+              "The surface type that is being tested here",
+              "Absolutely nothing needs to stay the same",
+              "Only the time of day the experiment runs"
+            ],
+            "correct_answer": "The object used, its weight, and the force applied"
+          },
+          {
+            "question": "What happens to motion when friction is present?",
+            "options": [
+              "It slows down or resists the motion",
+              "It always speeds up the motion",
+              "It has no effect on motion at all",
+              "It only affects motion in water"
+            ],
+            "correct_answer": "It slows down or resists the motion"
+          },
+          {
+            "question": "Which surface would allow an object to slide the FASTEST?",
+            "options": [
+              "A smooth, polished surface",
+              "A rough gravel surface",
+              "A surface covered in sandpaper",
+              "A surface with rubber treads"
+            ],
+            "correct_answer": "A smooth, polished surface"
+          },
+          {
+            "question": "Why is it important to control variables when investigating friction?",
+            "options": [
+              "So we can be sure which factor actually caused the change",
+              "So the experiment becomes impossible to complete",
+              "So we can skip measuring anything",
+              "So the results become less reliable"
+            ],
+            "correct_answer": "So we can be sure which factor actually caused the change"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 👩 Araling Panlipunan — Katayuan ng Kababaihan sa Kolonyal na Panahon\n\nGrade 5, Linggo 18! Alamin natin ang naging papel ng kababaihan noong panahon ng Espanyol. 🌸\n\n## ⚖️ Pagbabago sa Katayuan ng Kababaihan\nBago dumating ang mga Espanyol, may mga **karapatang pampolitika at relihiyoso** ang kababaihan (tulad ng pagiging babaylan o pinuno). Ngunit sa panahon ng kolonyal, **nawala** ang maraming karapatang ito.\n\n## 👗 Ang Idyal na \"Maria Clara\"\nSa panahon ng Espanyol, hinubog ng lipunan ang **idyal na \"Maria Clara\"** — isang larawan ng babaeng **mahinhin, mapagpakumbaba, at nakatuon sa gawaing-bahay**, hango sa katauhan sa nobelang *Noli Me Tangere*.\n\n## 🏫 Edukasyon sa mga Beaterio\nAng edukasyon ng kababaihan noon ay pangunahing **nakatuon sa gawaing-bahay** — tinuturuan sila sa mga **beaterio** (paaralang pang-relihiyoso para sa babae) ng pananahi, pagluluto, at relihiyon, hindi ng agham o matematika tulad ng mga lalaki.\n\n## ⚔️ Gabriela Silang: Halimbawa ng Kababaihang Lumaban\nSi **Gabriela Silang** ay isang halimbawa ng babaeng **lumaban** laban sa mga Espanyol — pinamunuan niya ang rebelyon matapos mapatay ang kanyang asawang si Diego Silang.\n\n## 🧠 Halimbawa 1\n*Bakit hinubog ang idyal na \"Maria Clara\" sa panahon ng Espanyol?*\n- Upang ipakita ang **inaasahang katangian** ng babae sa lipunang kolonyal — mahinhin at nakatuon sa tahanan.\n\n## 🧠 Halimbawa 2\n*Bakit itinuturing na natatangi si Gabriela Silang sa kanyang panahon?*\n- Dahil **naging pinuno siya ng rebelyon**, isang bagay na bihira para sa kababaihan noong panahong iyon.\n\n## 💡 Kongklusyon\nSa kabila ng limitadong karapatan, may mga kababaihan tulad ni Gabriela Silang na **nagpakita ng tapang at pamumuno**.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang nangyari sa mga karapatang pampolitika ng kababaihan sa panahon ng kolonyal?",
+            "options": [
+              "Nawala ang maraming karapatang mayroon sila dati",
+              "Naging mas marami ang kanilang karapatan",
+              "Walang pagbabagong naganap",
+              "Naging pantay sila sa mga lalaki agad"
+            ],
+            "correct_answer": "Nawala ang maraming karapatang mayroon sila dati"
+          },
+          {
+            "question": "Ano ang idyal na \"Maria Clara\"?",
+            "options": [
+              "Larawan ng babaeng mahinhin at nakatuon sa gawaing-bahay",
+              "Isang uri ng pananim noong panahong iyon",
+              "Pangalan ng isang lungsod sa Pilipinas",
+              "Isang batas laban sa kababaihan"
+            ],
+            "correct_answer": "Larawan ng babaeng mahinhin at nakatuon sa gawaing-bahay"
+          },
+          {
+            "question": "Saan tinuturuan ang kababaihan noong panahon ng Espanyol?",
+            "options": [
+              "Sa mga beaterio",
+              "Sa mga unibersidad ng lalaki",
+              "Sa mga sundalong kampo",
+              "Sa mga pabrika ng tela"
+            ],
+            "correct_answer": "Sa mga beaterio"
+          },
+          {
+            "question": "Ano ang itinuturo sa kababaihan sa mga beaterio?",
+            "options": [
+              "Pananahi, pagluluto, at relihiyon",
+              "Agham at matematika",
+              "Pagsasaka at pangingisda",
+              "Pandaigdigang kasaysayan"
+            ],
+            "correct_answer": "Pananahi, pagluluto, at relihiyon"
+          },
+          {
+            "question": "Sino si Gabriela Silang?",
+            "options": [
+              "Isang babaeng namuno sa rebelyon laban sa Espanyol",
+              "Isang gurong nagtuturo sa isang beaterio",
+              "Isang prinsesang nagmula sa Espanya",
+              "Isang manunulat ng sikat na nobela"
+            ],
+            "correct_answer": "Isang babaeng namuno sa rebelyon laban sa Espanyol"
+          },
+          {
+            "question": "Bakit namuno si Gabriela Silang sa rebelyon?",
+            "options": [
+              "Matapos mapatay ang kanyang asawang si Diego Silang",
+              "Dahil gusto niyang maging reyna",
+              "Dahil pinilit siya ng mga Espanyol",
+              "Dahil walang ibang gustong mamuno"
+            ],
+            "correct_answer": "Matapos mapatay ang kanyang asawang si Diego Silang"
+          },
+          {
+            "question": "Bakit hinubog ang idyal na \"Maria Clara\" sa panahon ng Espanyol?",
+            "options": [
+              "Upang ipakita ang inaasahang katangian ng babae sa lipunan",
+              "Upang parangalan ang lahat ng kababaihan",
+              "Upang ibigay sa kanila ang karapatang bumoto",
+              "Upang bigyan sila ng edukasyong pang-agham"
+            ],
+            "correct_answer": "Upang ipakita ang inaasahang katangian ng babae sa lipunan"
+          },
+          {
+            "question": "Bakit itinuturing na natatangi si Gabriela Silang sa kanyang panahon?",
+            "options": [
+              "Naging pinuno siya ng rebelyon, bihira para sa kababaihan noon",
+              "Naging guro siya sa isang paaralan",
+              "Naging mangangalakal siya ng tela",
+              "Nanatili siyang tahimik sa buong buhay niya"
+            ],
+            "correct_answer": "Naging pinuno siya ng rebelyon, bihira para sa kababaihan noon"
+          },
+          {
+            "question": "Ano ang uri ng edukasyon na ibinibigay sa mga beaterio?",
+            "options": [
+              "Edukasyong nakatuon sa gawaing-bahay",
+              "Edukasyong pang-medisina",
+              "Edukasyong militar",
+              "Edukasyong pang-agrikultura lamang"
+            ],
+            "correct_answer": "Edukasyong nakatuon sa gawaing-bahay"
+          },
+          {
+            "question": "Anong uri ng karapatan ang taglay ng kababaihan bago dumating ang mga Espanyol?",
+            "options": [
+              "Karapatang pampolitika at relihiyoso, tulad ng pagiging babaylan",
+              "Wala silang anumang karapatan noong panahong iyon",
+              "Karapatan lamang sa gawaing-bahay ng pamilya",
+              "Karapatang bumoto lamang sa mga halalan"
+            ],
+            "correct_answer": "Karapatang pampolitika at relihiyoso, tulad ng pagiging babaylan"
+          },
+          {
+            "question": "Saan hango ang katauhang \"Maria Clara\"?",
+            "options": [
+              "Sa nobelang Noli Me Tangere",
+              "Sa isang katutubong alamat",
+              "Sa isang aklat-aralin sa matematika",
+              "Sa isang balitang pang-agham"
+            ],
+            "correct_answer": "Sa nobelang Noli Me Tangere"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang buhay ni Gabriela Silang?",
+            "options": [
+              "Nagpapakita ito ng tapang at pamumuno ng kababaihan sa kasaysayan",
+              "Dahil siya lamang ang babaeng kilala sa kasaysayan",
+              "Dahil hindi siya bahagi ng tunay na kasaysayan",
+              "Dahil hindi mahalaga ang kanyang naging papel"
+            ],
+            "correct_answer": "Nagpapakita ito ng tapang at pamumuno ng kababaihan sa kasaysayan"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🎨 EPP (ICT) — Combining ICT Skills: A Mini Digital Portfolio\n\nGrade 5, Week 18! Let's combine everything we've learned into one project. 💻\n\n## 🧩 Reviewing Our ICT Skills\nThis term we've learned:\n- **Word documents** — inserting/formatting images, tables, bullets, page backgrounds\n- **Presentations** — animations, slide transitions, audio/video elements\n- **Brochures/flyers** — page design, layout, borders, templates\n\n## 📁 Building a Mini Digital Portfolio\nA **digital portfolio** combines several documents to **showcase your work**. This week, we practice choosing the RIGHT document type for a task.\n\n| Task | Best Document Type |\n|---|---|\n| A detailed report with images and tables | **Word document** |\n| A slideshow to present in front of the class | **Presentation** |\n| A one-page flyer to advertise an event | **Brochure/flyer** |\n\n## 🧠 Worked Example 1\n*You need to create a one-page advertisement for a school fair. Which document type is best?*\n- A **brochure/flyer** — it's designed for eye-catching, one-page layouts.\n\n## 🧠 Worked Example 2\n*You need to present your science project findings to the class with slides. Which document type is best?*\n- A **presentation** — it supports slides, transitions, and multimedia.\n\n## 🧠 Worked Example 3\n*You need to write a long report with tables of data. Which document type is best?*\n- A **Word document** — it's best for detailed text and tables.\n\n## 💡 Why This Matters\nKnowing which ICT tool fits a task helps us **communicate our ideas effectively**.\n\nGreat ICT skills work! 🌟",
+        "quiz": [
+          {
+            "question": "What ICT skills have we learned this term?",
+            "options": [
+              "Word documents, presentations, and brochures/flyers",
+              "Only how to turn a computer on and off",
+              "Only how to browse the internet for fun",
+              "Only how to send and receive emails"
+            ],
+            "correct_answer": "Word documents, presentations, and brochures/flyers"
+          },
+          {
+            "question": "What is a digital portfolio?",
+            "options": [
+              "A collection of documents that showcase your work",
+              "A single photograph saved on the desktop",
+              "A type of harmful computer virus",
+              "A secret password used for your computer"
+            ],
+            "correct_answer": "A collection of documents that showcase your work"
+          },
+          {
+            "question": "You need to create a one-page advertisement for a school fair. Which document type is best?",
+            "options": [
+              "A brochure/flyer",
+              "A long Word document",
+              "A spreadsheet",
+              "An audio recording only"
+            ],
+            "correct_answer": "A brochure/flyer"
+          },
+          {
+            "question": "You need to present your science project findings with slides. Which document type is best?",
+            "options": [
+              "A presentation",
+              "A brochure/flyer",
+              "A single photograph",
+              "A plain text file"
+            ],
+            "correct_answer": "A presentation"
+          },
+          {
+            "question": "You need to write a long report with tables of data. Which document type is best?",
+            "options": [
+              "A Word document",
+              "A brochure/flyer",
+              "A presentation slideshow",
+              "A single image file"
+            ],
+            "correct_answer": "A Word document"
+          },
+          {
+            "question": "What can you insert and format in a Word document?",
+            "options": [
+              "Images, tables, and bullets",
+              "Only plain text with no formatting",
+              "Only video files",
+              "Only audio files"
+            ],
+            "correct_answer": "Images, tables, and bullets"
+          },
+          {
+            "question": "What multimedia elements can be added to a presentation?",
+            "options": [
+              "Animations, transitions, and audio/video",
+              "Only plain white slides with no design",
+              "Only page borders around the text",
+              "Only bullet points listing ideas"
+            ],
+            "correct_answer": "Animations, transitions, and audio/video"
+          },
+          {
+            "question": "What makes a brochure/flyer different from a Word document?",
+            "options": [
+              "It focuses on eye-catching, one-page layout design",
+              "It cannot contain any images at all",
+              "It cannot be printed at all",
+              "It is always longer than a Word document"
+            ],
+            "correct_answer": "It focuses on eye-catching, one-page layout design"
+          },
+          {
+            "question": "Why is it useful to know which ICT tool fits a task?",
+            "options": [
+              "It helps us communicate our ideas effectively",
+              "It makes every task exactly the same",
+              "It removes the need to plan a project",
+              "It only matters for computer experts"
+            ],
+            "correct_answer": "It helps us communicate our ideas effectively"
+          },
+          {
+            "question": "Which document type is best suited for slide transitions and animations?",
+            "options": [
+              "A presentation",
+              "A brochure",
+              "A Word document",
+              "A plain list"
+            ],
+            "correct_answer": "A presentation"
+          },
+          {
+            "question": "What is one benefit of combining ICT skills into a single project?",
+            "options": [
+              "It shows we can use different tools together effectively",
+              "It makes learning ICT completely unnecessary",
+              "It only works for one type of task",
+              "It removes the need for any planning"
+            ],
+            "correct_answer": "It shows we can use different tools together effectively"
+          },
+          {
+            "question": "What should you consider first before choosing a document type for a task?",
+            "options": [
+              "What the task actually needs to communicate",
+              "The color of your computer screen",
+              "The time of day you are working",
+              "The brand of your keyboard"
+            ],
+            "correct_answer": "What the task actually needs to communicate"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎨 MAPEH — Visual Arts sa Early Spanish Colonial Period\n\nGrade 5, Linggo 18! Alamin natin ang biswal na sining noong unang bahagi ng panahon ng Espanyol. 🖼️\n\n## 🖌️ Visual Arts Strand\nAng **Visual Arts** ay sumasaklaw sa mga paksa, tema, istilo, at midyum na ginamit noong Early Spanish Colonial Period (1521-1600).\n\n## 🎨 Mga Paksa at Tema\nKaramihan sa sining noong panahong ito ay may temang **relihiyoso** — mga larawan ng mga santo, mga eksena mula sa Bibliya, at simbahan.\n\n## 🖼️ Mga Istilo at Midyum\n| Midyum | Paliwanag |\n|---|---|\n| **Pag-obserba (Observing)** | pagmamasid sa kapaligiran bago gumuhit o magpinta |\n| **Pagpepersepsiyon (Perceiving)** | pag-unawa sa hugis, liwanag, at anino |\n| **Pagguhit (Drawing)** | paggamit ng lapis o karbon upang lumikha ng larawan |\n| **Pagpinta (Painting)** | paggamit ng kulay sa isang kanbas o ibabaw |\n| **Pag-print (Printing)** | paglikha ng maraming kopya gamit ang isang orihinal na plantilya |\n| **Pag-ukit (Engraving)** | pag-ukit ng disenyo sa isang matigas na ibabaw |\n\n## 🧠 Halimbawa 1\n*Bakit karamihan sa sining noong Early Spanish Colonial Period ay may temang relihiyoso?*\n- Dahil malaking impluwensya ang **Simbahang Katoliko** sa lipunan noong panahong iyon.\n\n## 🧠 Halimbawa 2\n*Ano ang pagkakaiba ng pagguhit at pagpinta?*\n- Ang **pagguhit** ay gumagamit ng lapis o karbon, habang ang **pagpinta** ay gumagamit ng kulay.\n\n## 💡 Bakit Mahalaga Ito?\nAng pag-aaral ng biswal na sining noong panahong ito ay tumutulong upang maunawaan natin ang **kultura at paniniwala** ng ating mga ninuno.\n\nMagaling sa sining! 🌟",
+        "quiz": [
+          {
+            "question": "Anong panahon ang saklaw ng Visual Arts strand na ito?",
+            "options": [
+              "Early Spanish Colonial Period (1521-1600)",
+              "Panahon ng pananakop ng Amerikano",
+              "Panahon ng pananakop ng Hapon",
+              "Ang kasalukuyang panahon ngayon"
+            ],
+            "correct_answer": "Early Spanish Colonial Period (1521-1600)"
+          },
+          {
+            "question": "Bakit karamihan sa sining noong panahong ito ay may temang relihiyoso?",
+            "options": [
+              "Dahil malaking impluwensya ang Simbahang Katoliko",
+              "Dahil bawal ang ibang tema noon",
+              "Dahil walang ibang paksang alam ang mga tao",
+              "Dahil ipinagbawal ang sekular na sining"
+            ],
+            "correct_answer": "Dahil malaking impluwensya ang Simbahang Katoliko"
+          },
+          {
+            "question": "Ano ang pag-obserba (observing) sa sining?",
+            "options": [
+              "Pagmamasid sa kapaligiran bago gumuhit o magpinta",
+              "Pagbebenta ng likhang-sining",
+              "Paglilinis ng mga gamit sa sining",
+              "Pagbibigay ng pangalan sa larawan"
+            ],
+            "correct_answer": "Pagmamasid sa kapaligiran bago gumuhit o magpinta"
+          },
+          {
+            "question": "Ano ang pagpepersepsiyon (perceiving) sa sining?",
+            "options": [
+              "Pag-unawa sa hugis, liwanag, at anino",
+              "Pagbenta ng gawang sining",
+              "Pagsulat ng pamagat ng larawan",
+              "Pagtatapon ng lumang gamit"
+            ],
+            "correct_answer": "Pag-unawa sa hugis, liwanag, at anino"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng pagguhit at pagpinta?",
+            "options": [
+              "Pagguhit ay gumagamit ng lapis; pagpinta ay gumagamit ng kulay",
+              "Parehong gumagamit lamang ng kulay sa dalawa",
+              "Parehong gumagamit lamang ng lapis sa dalawa",
+              "Walang anumang pagkakaiba sa dalawang ito"
+            ],
+            "correct_answer": "Pagguhit ay gumagamit ng lapis; pagpinta ay gumagamit ng kulay"
+          },
+          {
+            "question": "Ano ang pag-print (printing) sa sining?",
+            "options": [
+              "Paglikha ng maraming kopya gamit ang isang plantilya",
+              "Pagguhit lamang gamit ang isang lapis",
+              "Pagpinta lamang gamit ang isang kulay",
+              "Pag-uukit lamang sa piraso ng kahoy"
+            ],
+            "correct_answer": "Paglikha ng maraming kopya gamit ang isang plantilya"
+          },
+          {
+            "question": "Ano ang pag-ukit (engraving)?",
+            "options": [
+              "Pag-ukit ng disenyo sa isang matigas na ibabaw",
+              "Pagguhit gamit ang lapis lamang",
+              "Pagpinta gamit ang tubig-kulay",
+              "Pagbenta ng likhang-sining"
+            ],
+            "correct_answer": "Pag-ukit ng disenyo sa isang matigas na ibabaw"
+          },
+          {
+            "question": "Alin ang karaniwang paksa ng sining noong Early Spanish Colonial Period?",
+            "options": [
+              "Mga larawan ng santo at eksena mula sa Bibliya",
+              "Mga larawan ng makabagong sasakyan",
+              "Mga larawan ng kompyuter",
+              "Mga larawan ng mga planeta"
+            ],
+            "correct_answer": "Mga larawan ng santo at eksena mula sa Bibliya"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang biswal na sining ng nakaraan?",
+            "options": [
+              "Tumutulong ito upang maunawaan ang kultura ng ating mga ninuno",
+              "Wala itong anumang kabuluhan sa kasalukuyang panahon",
+              "Ginagawa lamang ito bilang isang uri ng libangan",
+              "Hindi ito talaga bahagi ng ating kasaysayan"
+            ],
+            "correct_answer": "Tumutulong ito upang maunawaan ang kultura ng ating mga ninuno"
+          },
+          {
+            "question": "Ano ang unang hakbang bago gumuhit o magpinta, ayon sa Visual Arts strand?",
+            "options": [
+              "Pag-obserba sa kapaligiran",
+              "Direktang pagbenta ng gawa",
+              "Pagtatapon ng gamit",
+              "Paglimot sa paksa"
+            ],
+            "correct_answer": "Pag-obserba sa kapaligiran"
+          },
+          {
+            "question": "Anong midyum ang gumagamit ng kulay sa isang kanbas o ibabaw?",
+            "options": [
+              "Pagpinta",
+              "Pagguhit",
+              "Pag-ukit",
+              "Pag-obserba"
+            ],
+            "correct_answer": "Pagpinta"
+          },
+          {
+            "question": "Bakit mahalaga ang pagpepersepsiyon sa paglikha ng sining?",
+            "options": [
+              "Tumutulong ito upang maipakita nang tama ang hugis at liwanag",
+              "Wala itong anumang papel sa paglikha ng sining",
+              "Ginagamit lamang ito kapag ibinebenta ang gawa",
+              "Hindi ito bahagi ng proseso ng paglikha"
+            ],
+            "correct_answer": "Tumutulong ito upang maipakita nang tama ang hugis at liwanag"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙋 GMRC — Accountability: Pagtupad sa Tungkulin sa Pamilya\n\nGrade 5, Linggo 18! Pagpapahalaga: **Accountability (Pananagutan)**. 🌟\n\n## 📋 Pananagutan sa Gawaing-Bahay\nAng **pananagutan** ay ang **pagmamay-ari** ng mga gawaing itinalaga sa iyo sa tahanan — hindi ito basta iniiwasan o ipinapasa sa iba.\n\n## 💪 Maging Maaasahang Kasapi ng Pamilya\nAng isang **maaasahang kasapi ng pamilya** ay:\n- Ginagawa ang tungkulin nang **buo at maayos**\n- Hindi naghihintay na paalalahanan pa\n- **Tumutugon** kapag may kailangang tulong\n\n## 🧠 Halimbawa 1\n*Itinalaga sa iyo ang paglilinis ng pinggan pagkatapos kumain. Isang araw, wala kang gana. Ano ang tamang gawin?*\n- **Gawin pa rin ang tungkulin** — ipinapakita nito ang pananagutan kahit mahirap.\n\n## 🧠 Halimbawa 2\n*Nakalimutan mong gawin ang iyong tungkulin. Ano ang dapat mong gawin kapag napansin mo ito?*\n- **Aminin at gawin agad** ang tungkulin — huwag magsinungaling o umiwas.\n\n## 🌟 Bunga ng Pananagutan\n- Nagiging **mas maayos** ang tahanan\n- **Tumataas** ang tiwala ng pamilya sa iyo\n- Natututuhan mo ang **disiplina** para sa hinaharap\n\n## 💡 Kongklusyon\nAng pananagutan sa mga gawaing-bahay ay nagpapakita na ikaw ay isang **mapagkakatiwalaan at kontribusyong kasapi** ng iyong pamilya.\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang pananagutan (accountability)?",
+            "options": [
+              "Pagmamay-ari ng mga gawaing itinalaga sa iyo",
+              "Pag-iwas sa lahat ng gawaing itinalaga",
+              "Pagpasa ng gawain sa ibang tao",
+              "Paglimot na sinasadya sa mga tungkulin"
+            ],
+            "correct_answer": "Pagmamay-ari ng mga gawaing itinalaga sa iyo"
+          },
+          {
+            "question": "Itinalaga sa iyo ang paglilinis ng pinggan. Isang araw, wala kang gana. Ano ang tamang gawin?",
+            "options": [
+              "Gawin pa rin ang tungkulin",
+              "Iwasan ito nang tuluyan",
+              "Ipasa sa kapatid ang gawain",
+              "Magsinungaling na nagawa mo na ito"
+            ],
+            "correct_answer": "Gawin pa rin ang tungkulin"
+          },
+          {
+            "question": "Nakalimutan mong gawin ang iyong tungkulin. Ano ang dapat mong gawin kapag napansin mo ito?",
+            "options": [
+              "Aminin at gawin agad ang tungkulin",
+              "Magsinungaling na nagawa mo na ito",
+              "Isisi sa ibang kapamilya",
+              "Balewalain na lamang ito"
+            ],
+            "correct_answer": "Aminin at gawin agad ang tungkulin"
+          },
+          {
+            "question": "Ano ang katangian ng isang maaasahang kasapi ng pamilya?",
+            "options": [
+              "Ginagawa ang tungkulin nang buo at maayos",
+              "Naghihintay na palagi paalalahanan",
+              "Umiiwas sa lahat ng gawain",
+              "Nagsasabi ng dahilan para hindi gumawa"
+            ],
+            "correct_answer": "Ginagawa ang tungkulin nang buo at maayos"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagiging may pananagutan sa tahanan?",
+            "options": [
+              "Tumataas ang tiwala ng pamilya sa iyo",
+              "Nawawala ang tiwala sa iyo",
+              "Nagiging mas magulo ang tahanan",
+              "Walang epekto ito sa pamilya"
+            ],
+            "correct_answer": "Tumataas ang tiwala ng pamilya sa iyo"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Accountability (Pananagutan)",
+              "Compassion (Pagmamalasakit)",
+              "Gratitude (Pasasalamat)",
+              "Respect (Paggalang)"
+            ],
+            "correct_answer": "Accountability (Pananagutan)"
+          },
+          {
+            "question": "Bakit mahalagang tuparin ang tungkulin kahit walang nakatingin?",
+            "options": [
+              "Nagpapakita ito ng tunay na pananagutan",
+              "Wala itong pagkakaiba kung may nakatingin",
+              "Ginagawa lamang ito para papurihan",
+              "Hindi na kailangang gawin kapag walang nakatingin"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na pananagutan"
+          },
+          {
+            "question": "Ano ang dapat iwasan kapag nakalimutan mong gawin ang iyong tungkulin?",
+            "options": [
+              "Ang pagsisinungaling na nagawa mo na ito",
+              "Ang pag-amin sa iyong nakalimutan",
+              "Ang pagtupad sa iyong tungkulin agad",
+              "Ang paghingi ng tawad sa pamilya"
+            ],
+            "correct_answer": "Ang pagsisinungaling na nagawa mo na ito"
+          },
+          {
+            "question": "Paano nakatutulong ang pananagutan sa pagpapaunlad ng disiplina?",
+            "options": [
+              "Natututuhan nating gawin ang tama kahit walang nagpapaalala",
+              "Wala itong kaugnayan sa disiplina",
+              "Nagpapabagal lamang ito ng paglaki",
+              "Ginagawa lamang ito para sa gantimpala"
+            ],
+            "correct_answer": "Natututuhan nating gawin ang tama kahit walang nagpapaalala"
+          },
+          {
+            "question": "Ano ang tawag sa taong tumutupad sa kanyang gawain nang buo, kahit walang nakatingin?",
+            "options": [
+              "Isang mapagkakatiwalaan at kontribusyong kasapi",
+              "Isang taong walang pakialam sa pamilya",
+              "Isang taong palaging umiiwas sa gawain",
+              "Isang taong madalas magsinungaling"
+            ],
+            "correct_answer": "Isang mapagkakatiwalaan at kontribusyong kasapi"
+          },
+          {
+            "question": "Isang kapatid ang laging umaasa na ikaw na lang ang gagawa ng kanyang tungkulin. Ano ang dapat mong gawin bilang tanda ng pananagutan sa sarili mong tungkulin?",
+            "options": [
+              "Gawin ang iyong tungkulin at hikayatin siyang gawin din ang kanya",
+              "Gawin na lamang ang lahat ng tungkulin para sa kanya",
+              "Huwag na gawin ang alinman sa mga tungkulin",
+              "Isumbong lamang sa magulang nang walang paghikayat"
+            ],
+            "correct_answer": "Gawin ang iyong tungkulin at hikayatin siyang gawin din ang kanya"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang katangian ang pananagutan sa isang pamilya?",
+            "options": [
+              "Nagpapakita ito na maaasahan ka ng iyong pamilya",
+              "Wala itong kabuluhan sa loob ng tahanan",
+              "Ginagawa lamang ito para sa iba",
+              "Hindi ito nakakaapekto sa relasyon ng pamilya"
+            ],
+            "correct_answer": "Nagpapakita ito na maaasahan ka ng iyong pamilya"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 EPP (AFA/FCS/IA) — Sewing Machine: Mga Bahagi at Wastong Gamit\n\nGrade 5, Linggo 18! Alamin natin ang mga pangunahing bahagi ng sewing machine. 🪡\n\n## 🧵 Mga Bahagi ng Sewing Machine\n| Bahagi | Gamit |\n|---|---|\n| **Needle (Karayom)** | tumutusok sa tela para bumuo ng tahi |\n| **Bobbin** | naglalaman ng ilalim na sinulid para sa tahi |\n| **Presser foot** | pumipigil sa tela habang tinatahi |\n| **Hand wheel** | ginagamit upang i-adjust ang posisyon ng karayom nang manu-mano |\n| **Foot pedal/Power switch** | kumokontrol sa bilis ng makina |\n\n## ✅ Wastong Gamit ng Sewing Machine\n1. **I-thread** nang tama ang makina bago magsimula\n2. **I-adjust** ang tensyon ng sinulid para sa uri ng tela\n3. **Subukan muna** sa isang piraso ng tela bago sa aktwal na proyekto\n4. **Alagaan** ang makina — linisin pagkatapos gamitin\n\n## 🧰 Materyales sa Paggawa ng Kagamitang Pambahay\nKailangan ang mga sumusunod na materyales: **tela, sinulid, karayom, guntingan, at panukat**, depende sa proyektong gagawin (hal. unan, tote bag, table runner).\n\n## 🧠 Halimbawa 1\n*Anong bahagi ng sewing machine ang naglalaman ng ilalim na sinulid?*\n- Ang **bobbin**.\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang subukan muna sa isang piraso ng tela bago sa aktwal na proyekto?*\n- Upang matiyak na **tama ang tensyon at setting** ng makina bago gamitin sa tunay na proyekto.\n\n## 💡 Bakit Mahalaga Ito?\nAng pag-unawa sa mga bahagi at wastong gamit ng sewing machine ay tumutulong upang **maiwasan ang aksidente** at makagawa ng **magandang produkto**.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Anong bahagi ng sewing machine ang tumutusok sa tela?",
+            "options": [
+              "Needle (Karayom)",
+              "Bobbin",
+              "Presser foot",
+              "Hand wheel"
+            ],
+            "correct_answer": "Needle (Karayom)"
+          },
+          {
+            "question": "Anong bahagi ng sewing machine ang naglalaman ng ilalim na sinulid?",
+            "options": [
+              "Bobbin",
+              "Needle",
+              "Foot pedal",
+              "Hand wheel"
+            ],
+            "correct_answer": "Bobbin"
+          },
+          {
+            "question": "Anong bahagi ng sewing machine ang pumipigil sa tela habang tinatahi?",
+            "options": [
+              "Presser foot",
+              "Bobbin",
+              "Needle",
+              "Hand wheel"
+            ],
+            "correct_answer": "Presser foot"
+          },
+          {
+            "question": "Anong bahagi ang kumokontrol sa bilis ng makina?",
+            "options": [
+              "Foot pedal/Power switch",
+              "Needle",
+              "Bobbin",
+              "Presser foot"
+            ],
+            "correct_answer": "Foot pedal/Power switch"
+          },
+          {
+            "question": "Bakit mahalagang i-thread nang tama ang makina bago magsimula?",
+            "options": [
+              "Upang gumana nang maayos ang pananahi",
+              "Upang mapabilis ang paggawa lamang",
+              "Upang mapaganda ang kulay ng tela",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang gumana nang maayos ang pananahi"
+          },
+          {
+            "question": "Bakit mahalagang subukan muna sa isang piraso ng tela bago sa aktwal na proyekto?",
+            "options": [
+              "Upang matiyak na tama ang tensyon at setting ng makina",
+              "Upang mapabilis lamang ang buong proseso",
+              "Upang makatipid lamang ng sinulid",
+              "Walang dahilan talaga ito sa proyekto"
+            ],
+            "correct_answer": "Upang matiyak na tama ang tensyon at setting ng makina"
+          },
+          {
+            "question": "Anong materyales ang kailangan sa paggawa ng kagamitang pambahay?",
+            "options": [
+              "Tela, sinulid, karayom, guntingan, at panukat",
+              "Papel at lapis na lamang ang gagamitin",
+              "Bato at kahoy na lamang ang gagamitin",
+              "Kemikal at pintura na lamang ang gagamitin"
+            ],
+            "correct_answer": "Tela, sinulid, karayom, guntingan, at panukat"
+          },
+          {
+            "question": "Ano ang ginagamit upang i-adjust ang posisyon ng karayom nang manu-mano?",
+            "options": [
+              "Hand wheel",
+              "Bobbin",
+              "Presser foot",
+              "Foot pedal"
+            ],
+            "correct_answer": "Hand wheel"
+          },
+          {
+            "question": "Ano ang dapat gawin sa makina pagkatapos itong gamitin?",
+            "options": [
+              "Linisin ito",
+              "Iwanan nang buksan",
+              "Basagin ang mga bahagi",
+              "Iwanan sa labas ng bahay"
+            ],
+            "correct_answer": "Linisin ito"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi wastong i-adjust ang tensyon ng sinulid?",
+            "options": [
+              "Maaaring hindi maganda ang resulta ng tahi",
+              "Palaging perpekto ang tahi kahit ano ang setting",
+              "Wala itong epekto sa tahi",
+              "Mas mabilis ang pananahi"
+            ],
+            "correct_answer": "Maaaring hindi maganda ang resulta ng tahi"
+          },
+          {
+            "question": "Alin ang halimbawa ng kagamitang pambahay na magagawa gamit ang sewing machine?",
+            "options": [
+              "Unan, tote bag, o table runner",
+              "Kompyuter o telepono",
+              "Sasakyan o motorsiklo",
+              "Kagamitang panluto na de-koryente"
+            ],
+            "correct_answer": "Unan, tote bag, o table runner"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga bahagi ng sewing machine bago ito gamitin?",
+            "options": [
+              "Upang maiwasan ang aksidente at makagawa ng magandang produkto",
+              "Upang mapabilis lamang ang pagbili ng makina",
+              "Dahil hindi na kailangan pang matuto ng iba pa",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang maiwasan ang aksidente at makagawa ng magandang produkto"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🎥 Friday Review — English (Grade 5)\n\n- **Directionality:** the reading path of a visual text\n- **Transitions, captions, pacing** — video multimedia elements\n\nGreat viewing skills! 🌟",
+        "quiz": [
+          {
+            "question": "What is directionality in a visual text?",
+            "options": [
+              "The direction our eyes move when reading it",
+              "The color scheme of the text",
+              "The title of the visual text",
+              "The number of pages in the text"
+            ],
+            "correct_answer": "The direction our eyes move when reading it"
+          },
+          {
+            "question": "What is the most common reading path in Western texts?",
+            "options": [
+              "Left-to-right",
+              "Right-to-left",
+              "Bottom-to-top",
+              "Random order"
+            ],
+            "correct_answer": "Left-to-right"
+          },
+          {
+            "question": "What are transitions in a video?",
+            "options": [
+              "How one scene changes to the next",
+              "The actors in the video",
+              "The music playing in the background",
+              "The title shown at the start"
+            ],
+            "correct_answer": "How one scene changes to the next"
+          },
+          {
+            "question": "What are captions in a video?",
+            "options": [
+              "Text shown on screen, often for dialogue or descriptions",
+              "The background music playing throughout",
+              "The camera angle chosen by the director",
+              "The video's total file size in megabytes"
+            ],
+            "correct_answer": "Text shown on screen, often for dialogue or descriptions"
+          },
+          {
+            "question": "What is pacing in a video?",
+            "options": [
+              "How fast or slow the video moves",
+              "The color of the video",
+              "The length of the title",
+              "The number of actors shown"
+            ],
+            "correct_answer": "How fast or slow the video moves"
+          },
+          {
+            "question": "A comic strip shows panels read left to right, top to bottom. What is this called?",
+            "options": [
+              "Directionality",
+              "Pacing",
+              "Captioning",
+              "Transition"
+            ],
+            "correct_answer": "Directionality"
+          },
+          {
+            "question": "A video slowly fades from one scene to the next. What element is this?",
+            "options": [
+              "A transition (fade)",
+              "A caption",
+              "A directionality path",
+              "A soundtrack"
+            ],
+            "correct_answer": "A transition (fade)"
+          },
+          {
+            "question": "A video moves very quickly between short clips. What element does this describe?",
+            "options": [
+              "Fast pacing",
+              "Slow captioning",
+              "Top-to-bottom directionality",
+              "A missing transition"
+            ],
+            "correct_answer": "Fast pacing"
+          },
+          {
+            "question": "Why might some visual texts have culturally specific reading paths?",
+            "options": [
+              "Different cultures may read and organize visuals differently",
+              "All cultures always read visuals the same exact way",
+              "Reading paths never vary from one text to another",
+              "Only video texts ever have a reading path at all"
+            ],
+            "correct_answer": "Different cultures may read and organize visuals differently"
+          },
+          {
+            "question": "Why are captions useful in a video?",
+            "options": [
+              "They help viewers understand dialogue or descriptions",
+              "They make the video load faster",
+              "They remove the need for any sound",
+              "They only appear in silent films"
+            ],
+            "correct_answer": "They help viewers understand dialogue or descriptions"
+          },
+          {
+            "question": "Why is understanding multimedia elements important when viewing a video?",
+            "options": [
+              "It helps us better understand and analyze the video",
+              "It has no real use when watching videos",
+              "It only matters for making videos, not watching them",
+              "It replaces the need to listen to the video"
+            ],
+            "correct_answer": "It helps us better understand and analyze the video"
+          },
+          {
+            "question": "Which of these is a video-specific multimedia element?",
+            "options": [
+              "Transitions",
+              "Book chapters",
+              "Page numbers",
+              "Table of contents"
+            ],
+            "correct_answer": "Transitions"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 5)\n\n- Divisibility rules for 2,5,10,3,6,9,4,8,11,12\n- **Prime** = 2 factors; **composite** = more than 2\n\nGreat number work! ⭐",
+        "quiz": [
+          {
+            "question": "What is the divisibility rule for 2?",
+            "options": [
+              "The last digit is even (0,2,4,6,8)",
+              "The sum of digits is divisible by 2",
+              "The number ends in 5",
+              "The number has 2 digits"
+            ],
+            "correct_answer": "The last digit is even (0,2,4,6,8)"
+          },
+          {
+            "question": "What is the divisibility rule for 5?",
+            "options": [
+              "The last digit is 0 or 5",
+              "The last digit is even",
+              "The sum of digits is 5",
+              "The number is less than 5"
+            ],
+            "correct_answer": "The last digit is 0 or 5"
+          },
+          {
+            "question": "Is 342 divisible by 3?",
+            "options": [
+              "Yes, because 3+4+2=9 is divisible by 3",
+              "No, because 342 is an even number",
+              "Yes, because 342 ends in 2",
+              "No, because 3+4+2 is not divisible by 3"
+            ],
+            "correct_answer": "Yes, because 3+4+2=9 is divisible by 3"
+          },
+          {
+            "question": "What is the divisibility rule for 6?",
+            "options": [
+              "Divisible by both 2 AND 3",
+              "Divisible by 2 only",
+              "Divisible by 3 only",
+              "The last digit is 6"
+            ],
+            "correct_answer": "Divisible by both 2 AND 3"
+          },
+          {
+            "question": "Is 4,536 divisible by 9?",
+            "options": [
+              "Yes, because 4+5+3+6=18 is divisible by 9",
+              "No, because 4,536 is an odd number",
+              "Yes, because it ends in 6",
+              "No, because 18 is not divisible by 9"
+            ],
+            "correct_answer": "Yes, because 4+5+3+6=18 is divisible by 9"
+          },
+          {
+            "question": "What is a prime number?",
+            "options": [
+              "A number with exactly 2 factors: 1 and itself",
+              "A number with more than 2 factors",
+              "Any even number",
+              "Any number greater than 10"
+            ],
+            "correct_answer": "A number with exactly 2 factors: 1 and itself"
+          },
+          {
+            "question": "What is a composite number?",
+            "options": [
+              "A number with more than 2 factors",
+              "A number with exactly 1 factor",
+              "A number with exactly 2 factors",
+              "Any odd number"
+            ],
+            "correct_answer": "A number with more than 2 factors"
+          },
+          {
+            "question": "Is the number 1 prime or composite?",
+            "options": [
+              "Neither prime nor composite",
+              "Prime",
+              "Composite",
+              "Both prime and composite"
+            ],
+            "correct_answer": "Neither prime nor composite"
+          },
+          {
+            "question": "What is the Sieve of Eratosthenes used for?",
+            "options": [
+              "Finding prime numbers by crossing out multiples",
+              "Adding large numbers quickly",
+              "Converting fractions to decimals",
+              "Measuring the length of objects"
+            ],
+            "correct_answer": "Finding prime numbers by crossing out multiples"
+          },
+          {
+            "question": "Which of these numbers is prime?",
+            "options": [
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "correct_answer": "7"
+          },
+          {
+            "question": "Which of these numbers is composite?",
+            "options": [
+              "12",
+              "13",
+              "17",
+              "19"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "What is the divisibility rule for 4?",
+            "options": [
+              "The last 2 digits are divisible by 4",
+              "The last digit is even",
+              "The last 3 digits are divisible by 4",
+              "The number ends in 0"
+            ],
+            "correct_answer": "The last 2 digits are divisible by 4"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📚 Friday Review — Filipino (Grade 5)\n\n- **Almanac** = taunang datos; **Atlas** = koleksyon ng mapa\n\nMagaling sa pananaliksik! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang almanac?",
+            "options": [
+              "Isang aklat na naglalaman ng taunang impormasyon",
+              "Isang koleksyon ng mga mapa",
+              "Isang diksyunaryo ng mga salita",
+              "Isang aklat ng kuwentong-bayan"
+            ],
+            "correct_answer": "Isang aklat na naglalaman ng taunang impormasyon"
+          },
+          {
+            "question": "Ano ang atlas?",
+            "options": [
+              "Isang koleksyon ng mga mapa",
+              "Isang aklat ng taunang datos",
+              "Isang diksyunaryo ng salita",
+              "Isang listahan ng mga pangalan"
+            ],
+            "correct_answer": "Isang koleksyon ng mga mapa"
+          },
+          {
+            "question": "Anong impormasyon ang matatagpuan sa almanac?",
+            "options": [
+              "Petsa ng pista opisyal at datos sa panahon",
+              "Mapa ng bawat bansa lamang",
+              "Larawan ng mga hayop lamang",
+              "Kasaysayan ng musika lamang"
+            ],
+            "correct_answer": "Petsa ng pista opisyal at datos sa panahon"
+          },
+          {
+            "question": "Bakit ginagamit ang atlas?",
+            "options": [
+              "Upang matukoy ang lokasyon ng mga lugar",
+              "Upang malaman ang kahulugan ng salita",
+              "Upang malaman ang petsa ng kapanganakan",
+              "Upang matuto ng bagong awit"
+            ],
+            "correct_answer": "Upang matukoy ang lokasyon ng mga lugar"
+          },
+          {
+            "question": "Gusto mong malaman ang eksaktong lokasyon ng Mindanao sa mapa. Anong sanggunian ang gagamitin?",
+            "options": [
+              "Atlas",
+              "Almanac",
+              "Diksyunaryo",
+              "Ensiklopedya ng salita"
+            ],
+            "correct_answer": "Atlas"
+          },
+          {
+            "question": "Gusto mong malaman ang petsa ng susunod na eklipse ng buwan. Anong sanggunian ang gagamitin?",
+            "options": [
+              "Almanac",
+              "Atlas",
+              "Diksyunaryo",
+              "Aklat ng tula"
+            ],
+            "correct_answer": "Almanac"
+          },
+          {
+            "question": "Kailan ginagamit ang almanac?",
+            "options": [
+              "Kapag kailangan ng taunang datos o katotohanan",
+              "Kapag kailangan lamang ng mapa",
+              "Kapag kailangan lamang ng kahulugan ng salita",
+              "Kapag kailangan lamang ng kuwento"
+            ],
+            "correct_answer": "Kapag kailangan ng taunang datos o katotohanan"
+          },
+          {
+            "question": "Kailan ginagamit ang atlas?",
+            "options": [
+              "Kapag kailangang malaman ang lokasyon ng isang lugar",
+              "Kapag kailangan lamang ng datos sa panahon",
+              "Kapag kailangan lamang ng kahulugan ng salita",
+              "Kapag kailangan lamang ng listahan ng pangalan"
+            ],
+            "correct_answer": "Kapag kailangang malaman ang lokasyon ng isang lugar"
+          },
+          {
+            "question": "Alin ang halimbawa ng gamit ng atlas?",
+            "options": [
+              "Pagsukat ng distansya sa pagitan ng dalawang lugar",
+              "Paghahanap ng kahulugan ng bagong salita",
+              "Pagbabasa ng kuwentong-bayan",
+              "Paghahanap ng petsa ng kapanganakan"
+            ],
+            "correct_answer": "Pagsukat ng distansya sa pagitan ng dalawang lugar"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang tamang sanggunian sa pananaliksik?",
+            "options": [
+              "Tumutulong ito upang mabilis at tumpak makahanap ng impormasyon",
+              "Wala itong anumang epekto sa gawaing pananaliksik",
+              "Nagpapahirap lamang ito sa buong gawain natin",
+              "Ginagamit lamang ito bilang uri ng libangan"
+            ],
+            "correct_answer": "Tumutulong ito upang mabilis at tumpak makahanap ng impormasyon"
+          },
+          {
+            "question": "Alin ang HINDI matatagpuan sa isang atlas?",
+            "options": [
+              "Petsa ng kapanganakan ng isang tao",
+              "Mapa ng iba't ibang bansa",
+              "Lokasyon ng mga bundok",
+              "Hangganan ng mga rehiyon"
+            ],
+            "correct_answer": "Petsa ng kapanganakan ng isang tao"
+          },
+          {
+            "question": "Isang mag-aaral ang naghahanap ng impormasyon tungkol sa populasyon ng Pilipinas noong nakaraang taon. Anong sanggunian ang pinakaangkop?",
+            "options": [
+              "Almanac",
+              "Atlas",
+              "Diksyunaryo",
+              "Aklat ng pabula"
+            ],
+            "correct_answer": "Almanac"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🛹 Friday Review — Science (Grade 5)\n\n- **Friction** = contact force that resists motion\n- Rough=more friction; smooth=less; lubricants/wheels reduce it\n\nGreat force investigation! 🌟",
+        "quiz": [
+          {
+            "question": "What is friction?",
+            "options": [
+              "A contact force that happens when two surfaces rub together",
+              "A force that pulls objects toward Earth",
+              "A force that only works underwater",
+              "A force that only exists in space"
+            ],
+            "correct_answer": "A contact force that happens when two surfaces rub together"
+          },
+          {
+            "question": "Which surface creates MORE friction?",
+            "options": [
+              "A rough surface like gravel",
+              "A smooth surface like ice",
+              "A polished floor",
+              "Both create the same amount"
+            ],
+            "correct_answer": "A rough surface like gravel"
+          },
+          {
+            "question": "What does friction produce, which is why rubbing your hands together feels warm?",
+            "options": [
+              "Heat",
+              "Light",
+              "Sound only",
+              "Cold"
+            ],
+            "correct_answer": "Heat"
+          },
+          {
+            "question": "What can be used to REDUCE friction?",
+            "options": [
+              "Lubricants like oil or grease",
+              "Rough sandpaper on the surface",
+              "Rubber treads with deep grooves",
+              "Grip material added to the surface"
+            ],
+            "correct_answer": "Lubricants like oil or grease"
+          },
+          {
+            "question": "Why do wheels reduce friction compared to sliding?",
+            "options": [
+              "Rolling motion creates less resistance than sliding",
+              "Wheels always create more friction",
+              "Wheels remove the need for any force",
+              "Wheels only work on smooth surfaces"
+            ],
+            "correct_answer": "Rolling motion creates less resistance than sliding"
+          },
+          {
+            "question": "What can be used to INCREASE friction?",
+            "options": [
+              "Treads and grip material",
+              "Oil and grease",
+              "Smoother surfaces",
+              "Ice and polished floors"
+            ],
+            "correct_answer": "Treads and grip material"
+          },
+          {
+            "question": "Why do cars use treads on their tires?",
+            "options": [
+              "To increase friction and grip the road better",
+              "To reduce friction as much as possible",
+              "To make the car lighter",
+              "To make the car quieter"
+            ],
+            "correct_answer": "To increase friction and grip the road better"
+          },
+          {
+            "question": "A student tests friction on rough vs. smooth surfaces. What is the independent variable?",
+            "options": [
+              "The surface type",
+              "The weight of the object",
+              "The color of the object",
+              "The time of day"
+            ],
+            "correct_answer": "The surface type"
+          },
+          {
+            "question": "A student wants to test if a rough or smooth surface creates more friction. What should stay the same?",
+            "options": [
+              "The object used, its weight, and the force applied",
+              "The surface type that is being tested here",
+              "Absolutely nothing needs to stay the same",
+              "Only the time of day the experiment runs"
+            ],
+            "correct_answer": "The object used, its weight, and the force applied"
+          },
+          {
+            "question": "What happens to motion when friction is present?",
+            "options": [
+              "It slows down or resists the motion",
+              "It always speeds up the motion",
+              "It has no effect on motion at all",
+              "It only affects motion in water"
+            ],
+            "correct_answer": "It slows down or resists the motion"
+          },
+          {
+            "question": "Which surface would allow an object to slide the FASTEST?",
+            "options": [
+              "A smooth, polished surface",
+              "A rough gravel surface",
+              "A surface covered in sandpaper",
+              "A surface with rubber treads"
+            ],
+            "correct_answer": "A smooth, polished surface"
+          },
+          {
+            "question": "Why is it important to control variables when investigating friction?",
+            "options": [
+              "So we can be sure which factor actually caused the change",
+              "So the experiment becomes impossible to complete",
+              "So we can skip measuring anything",
+              "So the results become less reliable"
+            ],
+            "correct_answer": "So we can be sure which factor actually caused the change"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 👩 Friday Review — Araling Panlipunan (Grade 5)\n\n- Idyal na **\"Maria Clara\"**; edukasyon sa **beaterio**\n- **Gabriela Silang** — babaeng namuno sa rebelyon\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang nangyari sa mga karapatang pampolitika ng kababaihan sa panahon ng kolonyal?",
+            "options": [
+              "Nawala ang maraming karapatang mayroon sila dati",
+              "Naging mas marami ang kanilang karapatan",
+              "Walang pagbabagong naganap",
+              "Naging pantay sila sa mga lalaki agad"
+            ],
+            "correct_answer": "Nawala ang maraming karapatang mayroon sila dati"
+          },
+          {
+            "question": "Ano ang idyal na \"Maria Clara\"?",
+            "options": [
+              "Larawan ng babaeng mahinhin at nakatuon sa gawaing-bahay",
+              "Isang uri ng pananim noong panahong iyon",
+              "Pangalan ng isang lungsod sa Pilipinas",
+              "Isang batas laban sa kababaihan"
+            ],
+            "correct_answer": "Larawan ng babaeng mahinhin at nakatuon sa gawaing-bahay"
+          },
+          {
+            "question": "Saan tinuturuan ang kababaihan noong panahon ng Espanyol?",
+            "options": [
+              "Sa mga beaterio",
+              "Sa mga unibersidad ng lalaki",
+              "Sa mga sundalong kampo",
+              "Sa mga pabrika ng tela"
+            ],
+            "correct_answer": "Sa mga beaterio"
+          },
+          {
+            "question": "Ano ang itinuturo sa kababaihan sa mga beaterio?",
+            "options": [
+              "Pananahi, pagluluto, at relihiyon",
+              "Agham at matematika",
+              "Pagsasaka at pangingisda",
+              "Pandaigdigang kasaysayan"
+            ],
+            "correct_answer": "Pananahi, pagluluto, at relihiyon"
+          },
+          {
+            "question": "Sino si Gabriela Silang?",
+            "options": [
+              "Isang babaeng namuno sa rebelyon laban sa Espanyol",
+              "Isang gurong nagtuturo sa isang beaterio",
+              "Isang prinsesang nagmula sa Espanya",
+              "Isang manunulat ng sikat na nobela"
+            ],
+            "correct_answer": "Isang babaeng namuno sa rebelyon laban sa Espanyol"
+          },
+          {
+            "question": "Bakit namuno si Gabriela Silang sa rebelyon?",
+            "options": [
+              "Matapos mapatay ang kanyang asawang si Diego Silang",
+              "Dahil gusto niyang maging reyna",
+              "Dahil pinilit siya ng mga Espanyol",
+              "Dahil walang ibang gustong mamuno"
+            ],
+            "correct_answer": "Matapos mapatay ang kanyang asawang si Diego Silang"
+          },
+          {
+            "question": "Bakit hinubog ang idyal na \"Maria Clara\" sa panahon ng Espanyol?",
+            "options": [
+              "Upang ipakita ang inaasahang katangian ng babae sa lipunan",
+              "Upang parangalan ang lahat ng kababaihan",
+              "Upang ibigay sa kanila ang karapatang bumoto",
+              "Upang bigyan sila ng edukasyong pang-agham"
+            ],
+            "correct_answer": "Upang ipakita ang inaasahang katangian ng babae sa lipunan"
+          },
+          {
+            "question": "Bakit itinuturing na natatangi si Gabriela Silang sa kanyang panahon?",
+            "options": [
+              "Naging pinuno siya ng rebelyon, bihira para sa kababaihan noon",
+              "Naging guro siya sa isang paaralan",
+              "Naging mangangalakal siya ng tela",
+              "Nanatili siyang tahimik sa buong buhay niya"
+            ],
+            "correct_answer": "Naging pinuno siya ng rebelyon, bihira para sa kababaihan noon"
+          },
+          {
+            "question": "Ano ang uri ng edukasyon na ibinibigay sa mga beaterio?",
+            "options": [
+              "Edukasyong nakatuon sa gawaing-bahay",
+              "Edukasyong pang-medisina",
+              "Edukasyong militar",
+              "Edukasyong pang-agrikultura lamang"
+            ],
+            "correct_answer": "Edukasyong nakatuon sa gawaing-bahay"
+          },
+          {
+            "question": "Anong uri ng karapatan ang taglay ng kababaihan bago dumating ang mga Espanyol?",
+            "options": [
+              "Karapatang pampolitika at relihiyoso, tulad ng pagiging babaylan",
+              "Wala silang anumang karapatan noong panahong iyon",
+              "Karapatan lamang sa gawaing-bahay ng pamilya",
+              "Karapatang bumoto lamang sa mga halalan"
+            ],
+            "correct_answer": "Karapatang pampolitika at relihiyoso, tulad ng pagiging babaylan"
+          },
+          {
+            "question": "Saan hango ang katauhang \"Maria Clara\"?",
+            "options": [
+              "Sa nobelang Noli Me Tangere",
+              "Sa isang katutubong alamat",
+              "Sa isang aklat-aralin sa matematika",
+              "Sa isang balitang pang-agham"
+            ],
+            "correct_answer": "Sa nobelang Noli Me Tangere"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang buhay ni Gabriela Silang?",
+            "options": [
+              "Nagpapakita ito ng tapang at pamumuno ng kababaihan sa kasaysayan",
+              "Dahil siya lamang ang babaeng kilala sa kasaysayan",
+              "Dahil hindi siya bahagi ng tunay na kasaysayan",
+              "Dahil hindi mahalaga ang kanyang naging papel"
+            ],
+            "correct_answer": "Nagpapakita ito ng tapang at pamumuno ng kababaihan sa kasaysayan"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🎨 Friday Review — EPP (ICT) (Grade 5)\n\n- Word doc = reports; Presentation = slides; Brochure = one-page ad\n\nGreat ICT skills work! 🌟",
+        "quiz": [
+          {
+            "question": "What ICT skills have we learned this term?",
+            "options": [
+              "Word documents, presentations, and brochures/flyers",
+              "Only how to turn a computer on and off",
+              "Only how to browse the internet for fun",
+              "Only how to send and receive emails"
+            ],
+            "correct_answer": "Word documents, presentations, and brochures/flyers"
+          },
+          {
+            "question": "What is a digital portfolio?",
+            "options": [
+              "A collection of documents that showcase your work",
+              "A single photograph saved on the desktop",
+              "A type of harmful computer virus",
+              "A secret password used for your computer"
+            ],
+            "correct_answer": "A collection of documents that showcase your work"
+          },
+          {
+            "question": "You need to create a one-page advertisement for a school fair. Which document type is best?",
+            "options": [
+              "A brochure/flyer",
+              "A long Word document",
+              "A spreadsheet",
+              "An audio recording only"
+            ],
+            "correct_answer": "A brochure/flyer"
+          },
+          {
+            "question": "You need to present your science project findings with slides. Which document type is best?",
+            "options": [
+              "A presentation",
+              "A brochure/flyer",
+              "A single photograph",
+              "A plain text file"
+            ],
+            "correct_answer": "A presentation"
+          },
+          {
+            "question": "You need to write a long report with tables of data. Which document type is best?",
+            "options": [
+              "A Word document",
+              "A brochure/flyer",
+              "A presentation slideshow",
+              "A single image file"
+            ],
+            "correct_answer": "A Word document"
+          },
+          {
+            "question": "What can you insert and format in a Word document?",
+            "options": [
+              "Images, tables, and bullets",
+              "Only plain text with no formatting",
+              "Only video files",
+              "Only audio files"
+            ],
+            "correct_answer": "Images, tables, and bullets"
+          },
+          {
+            "question": "What multimedia elements can be added to a presentation?",
+            "options": [
+              "Animations, transitions, and audio/video",
+              "Only plain white slides with no design",
+              "Only page borders around the text",
+              "Only bullet points listing ideas"
+            ],
+            "correct_answer": "Animations, transitions, and audio/video"
+          },
+          {
+            "question": "What makes a brochure/flyer different from a Word document?",
+            "options": [
+              "It focuses on eye-catching, one-page layout design",
+              "It cannot contain any images at all",
+              "It cannot be printed at all",
+              "It is always longer than a Word document"
+            ],
+            "correct_answer": "It focuses on eye-catching, one-page layout design"
+          },
+          {
+            "question": "Why is it useful to know which ICT tool fits a task?",
+            "options": [
+              "It helps us communicate our ideas effectively",
+              "It makes every task exactly the same",
+              "It removes the need to plan a project",
+              "It only matters for computer experts"
+            ],
+            "correct_answer": "It helps us communicate our ideas effectively"
+          },
+          {
+            "question": "Which document type is best suited for slide transitions and animations?",
+            "options": [
+              "A presentation",
+              "A brochure",
+              "A Word document",
+              "A plain list"
+            ],
+            "correct_answer": "A presentation"
+          },
+          {
+            "question": "What is one benefit of combining ICT skills into a single project?",
+            "options": [
+              "It shows we can use different tools together effectively",
+              "It makes learning ICT completely unnecessary",
+              "It only works for one type of task",
+              "It removes the need for any planning"
+            ],
+            "correct_answer": "It shows we can use different tools together effectively"
+          },
+          {
+            "question": "What should you consider first before choosing a document type for a task?",
+            "options": [
+              "What the task actually needs to communicate",
+              "The color of your computer screen",
+              "The time of day you are working",
+              "The brand of your keyboard"
+            ],
+            "correct_answer": "What the task actually needs to communicate"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎨 Friday Review — MAPEH (Grade 5)\n\n- Visual Arts: observing, perceiving, drawing, painting, printing, engraving\n- Karamihang tema: relihiyoso\n\nMagaling sa sining! 🌟",
+        "quiz": [
+          {
+            "question": "Anong panahon ang saklaw ng Visual Arts strand na ito?",
+            "options": [
+              "Early Spanish Colonial Period (1521-1600)",
+              "Panahon ng pananakop ng Amerikano",
+              "Panahon ng pananakop ng Hapon",
+              "Ang kasalukuyang panahon ngayon"
+            ],
+            "correct_answer": "Early Spanish Colonial Period (1521-1600)"
+          },
+          {
+            "question": "Bakit karamihan sa sining noong panahong ito ay may temang relihiyoso?",
+            "options": [
+              "Dahil malaking impluwensya ang Simbahang Katoliko",
+              "Dahil bawal ang ibang tema noon",
+              "Dahil walang ibang paksang alam ang mga tao",
+              "Dahil ipinagbawal ang sekular na sining"
+            ],
+            "correct_answer": "Dahil malaking impluwensya ang Simbahang Katoliko"
+          },
+          {
+            "question": "Ano ang pag-obserba (observing) sa sining?",
+            "options": [
+              "Pagmamasid sa kapaligiran bago gumuhit o magpinta",
+              "Pagbebenta ng likhang-sining",
+              "Paglilinis ng mga gamit sa sining",
+              "Pagbibigay ng pangalan sa larawan"
+            ],
+            "correct_answer": "Pagmamasid sa kapaligiran bago gumuhit o magpinta"
+          },
+          {
+            "question": "Ano ang pagpepersepsiyon (perceiving) sa sining?",
+            "options": [
+              "Pag-unawa sa hugis, liwanag, at anino",
+              "Pagbenta ng gawang sining",
+              "Pagsulat ng pamagat ng larawan",
+              "Pagtatapon ng lumang gamit"
+            ],
+            "correct_answer": "Pag-unawa sa hugis, liwanag, at anino"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng pagguhit at pagpinta?",
+            "options": [
+              "Pagguhit ay gumagamit ng lapis; pagpinta ay gumagamit ng kulay",
+              "Parehong gumagamit lamang ng kulay sa dalawa",
+              "Parehong gumagamit lamang ng lapis sa dalawa",
+              "Walang anumang pagkakaiba sa dalawang ito"
+            ],
+            "correct_answer": "Pagguhit ay gumagamit ng lapis; pagpinta ay gumagamit ng kulay"
+          },
+          {
+            "question": "Ano ang pag-print (printing) sa sining?",
+            "options": [
+              "Paglikha ng maraming kopya gamit ang isang plantilya",
+              "Pagguhit lamang gamit ang isang lapis",
+              "Pagpinta lamang gamit ang isang kulay",
+              "Pag-uukit lamang sa piraso ng kahoy"
+            ],
+            "correct_answer": "Paglikha ng maraming kopya gamit ang isang plantilya"
+          },
+          {
+            "question": "Ano ang pag-ukit (engraving)?",
+            "options": [
+              "Pag-ukit ng disenyo sa isang matigas na ibabaw",
+              "Pagguhit gamit ang lapis lamang",
+              "Pagpinta gamit ang tubig-kulay",
+              "Pagbenta ng likhang-sining"
+            ],
+            "correct_answer": "Pag-ukit ng disenyo sa isang matigas na ibabaw"
+          },
+          {
+            "question": "Alin ang karaniwang paksa ng sining noong Early Spanish Colonial Period?",
+            "options": [
+              "Mga larawan ng santo at eksena mula sa Bibliya",
+              "Mga larawan ng makabagong sasakyan",
+              "Mga larawan ng kompyuter",
+              "Mga larawan ng mga planeta"
+            ],
+            "correct_answer": "Mga larawan ng santo at eksena mula sa Bibliya"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang biswal na sining ng nakaraan?",
+            "options": [
+              "Tumutulong ito upang maunawaan ang kultura ng ating mga ninuno",
+              "Wala itong anumang kabuluhan sa kasalukuyang panahon",
+              "Ginagawa lamang ito bilang isang uri ng libangan",
+              "Hindi ito talaga bahagi ng ating kasaysayan"
+            ],
+            "correct_answer": "Tumutulong ito upang maunawaan ang kultura ng ating mga ninuno"
+          },
+          {
+            "question": "Ano ang unang hakbang bago gumuhit o magpinta, ayon sa Visual Arts strand?",
+            "options": [
+              "Pag-obserba sa kapaligiran",
+              "Direktang pagbenta ng gawa",
+              "Pagtatapon ng gamit",
+              "Paglimot sa paksa"
+            ],
+            "correct_answer": "Pag-obserba sa kapaligiran"
+          },
+          {
+            "question": "Anong midyum ang gumagamit ng kulay sa isang kanbas o ibabaw?",
+            "options": [
+              "Pagpinta",
+              "Pagguhit",
+              "Pag-ukit",
+              "Pag-obserba"
+            ],
+            "correct_answer": "Pagpinta"
+          },
+          {
+            "question": "Bakit mahalaga ang pagpepersepsiyon sa paglikha ng sining?",
+            "options": [
+              "Tumutulong ito upang maipakita nang tama ang hugis at liwanag",
+              "Wala itong anumang papel sa paglikha ng sining",
+              "Ginagamit lamang ito kapag ibinebenta ang gawa",
+              "Hindi ito bahagi ng proseso ng paglikha"
+            ],
+            "correct_answer": "Tumutulong ito upang maipakita nang tama ang hugis at liwanag"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙋 Friday Review — GMRC (Grade 5)\n\n- Pananagutan sa gawaing-bahay\n- Pagpapahalaga: **Accountability**\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang pananagutan (accountability)?",
+            "options": [
+              "Pagmamay-ari ng mga gawaing itinalaga sa iyo",
+              "Pag-iwas sa lahat ng gawaing itinalaga",
+              "Pagpasa ng gawain sa ibang tao",
+              "Paglimot na sinasadya sa mga tungkulin"
+            ],
+            "correct_answer": "Pagmamay-ari ng mga gawaing itinalaga sa iyo"
+          },
+          {
+            "question": "Itinalaga sa iyo ang paglilinis ng pinggan. Isang araw, wala kang gana. Ano ang tamang gawin?",
+            "options": [
+              "Gawin pa rin ang tungkulin",
+              "Iwasan ito nang tuluyan",
+              "Ipasa sa kapatid ang gawain",
+              "Magsinungaling na nagawa mo na ito"
+            ],
+            "correct_answer": "Gawin pa rin ang tungkulin"
+          },
+          {
+            "question": "Nakalimutan mong gawin ang iyong tungkulin. Ano ang dapat mong gawin kapag napansin mo ito?",
+            "options": [
+              "Aminin at gawin agad ang tungkulin",
+              "Magsinungaling na nagawa mo na ito",
+              "Isisi sa ibang kapamilya",
+              "Balewalain na lamang ito"
+            ],
+            "correct_answer": "Aminin at gawin agad ang tungkulin"
+          },
+          {
+            "question": "Ano ang katangian ng isang maaasahang kasapi ng pamilya?",
+            "options": [
+              "Ginagawa ang tungkulin nang buo at maayos",
+              "Naghihintay na palagi paalalahanan",
+              "Umiiwas sa lahat ng gawain",
+              "Nagsasabi ng dahilan para hindi gumawa"
+            ],
+            "correct_answer": "Ginagawa ang tungkulin nang buo at maayos"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagiging may pananagutan sa tahanan?",
+            "options": [
+              "Tumataas ang tiwala ng pamilya sa iyo",
+              "Nawawala ang tiwala sa iyo",
+              "Nagiging mas magulo ang tahanan",
+              "Walang epekto ito sa pamilya"
+            ],
+            "correct_answer": "Tumataas ang tiwala ng pamilya sa iyo"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Accountability (Pananagutan)",
+              "Compassion (Pagmamalasakit)",
+              "Gratitude (Pasasalamat)",
+              "Respect (Paggalang)"
+            ],
+            "correct_answer": "Accountability (Pananagutan)"
+          },
+          {
+            "question": "Bakit mahalagang tuparin ang tungkulin kahit walang nakatingin?",
+            "options": [
+              "Nagpapakita ito ng tunay na pananagutan",
+              "Wala itong pagkakaiba kung may nakatingin",
+              "Ginagawa lamang ito para papurihan",
+              "Hindi na kailangang gawin kapag walang nakatingin"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na pananagutan"
+          },
+          {
+            "question": "Ano ang dapat iwasan kapag nakalimutan mong gawin ang iyong tungkulin?",
+            "options": [
+              "Ang pagsisinungaling na nagawa mo na ito",
+              "Ang pag-amin sa iyong nakalimutan",
+              "Ang pagtupad sa iyong tungkulin agad",
+              "Ang paghingi ng tawad sa pamilya"
+            ],
+            "correct_answer": "Ang pagsisinungaling na nagawa mo na ito"
+          },
+          {
+            "question": "Paano nakatutulong ang pananagutan sa pagpapaunlad ng disiplina?",
+            "options": [
+              "Natututuhan nating gawin ang tama kahit walang nagpapaalala",
+              "Wala itong kaugnayan sa disiplina",
+              "Nagpapabagal lamang ito ng paglaki",
+              "Ginagawa lamang ito para sa gantimpala"
+            ],
+            "correct_answer": "Natututuhan nating gawin ang tama kahit walang nagpapaalala"
+          },
+          {
+            "question": "Ano ang tawag sa taong tumutupad sa kanyang gawain nang buo, kahit walang nakatingin?",
+            "options": [
+              "Isang mapagkakatiwalaan at kontribusyong kasapi",
+              "Isang taong walang pakialam sa pamilya",
+              "Isang taong palaging umiiwas sa gawain",
+              "Isang taong madalas magsinungaling"
+            ],
+            "correct_answer": "Isang mapagkakatiwalaan at kontribusyong kasapi"
+          },
+          {
+            "question": "Isang kapatid ang laging umaasa na ikaw na lang ang gagawa ng kanyang tungkulin. Ano ang dapat mong gawin bilang tanda ng pananagutan sa sarili mong tungkulin?",
+            "options": [
+              "Gawin ang iyong tungkulin at hikayatin siyang gawin din ang kanya",
+              "Gawin na lamang ang lahat ng tungkulin para sa kanya",
+              "Huwag na gawin ang alinman sa mga tungkulin",
+              "Isumbong lamang sa magulang nang walang paghikayat"
+            ],
+            "correct_answer": "Gawin ang iyong tungkulin at hikayatin siyang gawin din ang kanya"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang katangian ang pananagutan sa isang pamilya?",
+            "options": [
+              "Nagpapakita ito na maaasahan ka ng iyong pamilya",
+              "Wala itong kabuluhan sa loob ng tahanan",
+              "Ginagawa lamang ito para sa iba",
+              "Hindi ito nakakaapekto sa relasyon ng pamilya"
+            ],
+            "correct_answer": "Nagpapakita ito na maaasahan ka ng iyong pamilya"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 Friday Review — EPP (Grade 5)\n\n- Needle, bobbin, presser foot, hand wheel, foot pedal\n- Wastong gamit ng sewing machine\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Anong bahagi ng sewing machine ang tumutusok sa tela?",
+            "options": [
+              "Needle (Karayom)",
+              "Bobbin",
+              "Presser foot",
+              "Hand wheel"
+            ],
+            "correct_answer": "Needle (Karayom)"
+          },
+          {
+            "question": "Anong bahagi ng sewing machine ang naglalaman ng ilalim na sinulid?",
+            "options": [
+              "Bobbin",
+              "Needle",
+              "Foot pedal",
+              "Hand wheel"
+            ],
+            "correct_answer": "Bobbin"
+          },
+          {
+            "question": "Anong bahagi ng sewing machine ang pumipigil sa tela habang tinatahi?",
+            "options": [
+              "Presser foot",
+              "Bobbin",
+              "Needle",
+              "Hand wheel"
+            ],
+            "correct_answer": "Presser foot"
+          },
+          {
+            "question": "Anong bahagi ang kumokontrol sa bilis ng makina?",
+            "options": [
+              "Foot pedal/Power switch",
+              "Needle",
+              "Bobbin",
+              "Presser foot"
+            ],
+            "correct_answer": "Foot pedal/Power switch"
+          },
+          {
+            "question": "Bakit mahalagang i-thread nang tama ang makina bago magsimula?",
+            "options": [
+              "Upang gumana nang maayos ang pananahi",
+              "Upang mapabilis ang paggawa lamang",
+              "Upang mapaganda ang kulay ng tela",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang gumana nang maayos ang pananahi"
+          },
+          {
+            "question": "Bakit mahalagang subukan muna sa isang piraso ng tela bago sa aktwal na proyekto?",
+            "options": [
+              "Upang matiyak na tama ang tensyon at setting ng makina",
+              "Upang mapabilis lamang ang buong proseso",
+              "Upang makatipid lamang ng sinulid",
+              "Walang dahilan talaga ito sa proyekto"
+            ],
+            "correct_answer": "Upang matiyak na tama ang tensyon at setting ng makina"
+          },
+          {
+            "question": "Anong materyales ang kailangan sa paggawa ng kagamitang pambahay?",
+            "options": [
+              "Tela, sinulid, karayom, guntingan, at panukat",
+              "Papel at lapis na lamang ang gagamitin",
+              "Bato at kahoy na lamang ang gagamitin",
+              "Kemikal at pintura na lamang ang gagamitin"
+            ],
+            "correct_answer": "Tela, sinulid, karayom, guntingan, at panukat"
+          },
+          {
+            "question": "Ano ang ginagamit upang i-adjust ang posisyon ng karayom nang manu-mano?",
+            "options": [
+              "Hand wheel",
+              "Bobbin",
+              "Presser foot",
+              "Foot pedal"
+            ],
+            "correct_answer": "Hand wheel"
+          },
+          {
+            "question": "Ano ang dapat gawin sa makina pagkatapos itong gamitin?",
+            "options": [
+              "Linisin ito",
+              "Iwanan nang buksan",
+              "Basagin ang mga bahagi",
+              "Iwanan sa labas ng bahay"
+            ],
+            "correct_answer": "Linisin ito"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi wastong i-adjust ang tensyon ng sinulid?",
+            "options": [
+              "Maaaring hindi maganda ang resulta ng tahi",
+              "Palaging perpekto ang tahi kahit ano ang setting",
+              "Wala itong epekto sa tahi",
+              "Mas mabilis ang pananahi"
+            ],
+            "correct_answer": "Maaaring hindi maganda ang resulta ng tahi"
+          },
+          {
+            "question": "Alin ang halimbawa ng kagamitang pambahay na magagawa gamit ang sewing machine?",
+            "options": [
+              "Unan, tote bag, o table runner",
+              "Kompyuter o telepono",
+              "Sasakyan o motorsiklo",
+              "Kagamitang panluto na de-koryente"
+            ],
+            "correct_answer": "Unan, tote bag, o table runner"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga bahagi ng sewing machine bago ito gamitin?",
+            "options": [
+              "Upang maiwasan ang aksidente at makagawa ng magandang produkto",
+              "Upang mapabilis lamang ang pagbili ng makina",
+              "Dahil hindi na kailangan pang matuto ng iba pa",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang maiwasan ang aksidente at makagawa ng magandang produkto"
+          }
+        ]
+      }
+    }
+  }
+}

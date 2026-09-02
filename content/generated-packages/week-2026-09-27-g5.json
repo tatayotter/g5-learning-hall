@@ -1,0 +1,2266 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-09-27",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🔤 English — Adverbs, Nouns, and Relative Pronouns\n\nGrade 5, Week 16! Let's sharpen our grammar. 💪\n\n## 🔤 Adverb-Forming Suffixes\nAdding certain endings turns a word into an **adverb**.\n\n| Suffix | Example | Meaning |\n|---|---|---|\n| **-ly** | quickly, carefully | describes *how* |\n| **-ward** | forward, homeward | describes *direction* |\n| **-wise** | clockwise, likewise | describes *manner* |\n\n## 🏠 Possessive and Compound Nouns\n- **Possessive noun** — shows ownership: *Maria's bag*, *the students' project*\n- **Compound noun** — two words joined: *classroom, notebook, sunflower*\n\n## 🔗 Relative Pronouns in Complex Sentences\n**Who, which, that** connect a description to a noun.\n\n**Example:** *\"The teacher **who** helped me is kind.\"*\n- **who** = refers to a **person**\n- **which** = refers to a **thing**\n- **that** = refers to **person or thing**\n\n## 🎯 Adverbs of Place, Frequency, and Intensity\n| Type | Examples |\n|---|---|\n| **Place** | here, there, everywhere |\n| **Frequency** | always, sometimes, never |\n| **Intensity** | very, extremely, quite |\n\n## 🧠 Worked Example 1\n*Add the suffix -ly to 'quick' to make an adverb.*\n- quick + ly = **quickly** — \"She ran quickly.\"\n\n## 🧠 Worked Example 2\n*\"The book, which I borrowed, is interesting.\"* Identify the relative pronoun.\n- **\"which\"** — refers to the **book**, a thing.\n\n## 📝 Noun and Pronoun Complements\nA **complement** completes the meaning of a sentence.\n> *\"She is a **teacher**.\"* (noun complement)\n\nGreat grammar work! 🌟",
+        "quiz": [
+          {
+            "question": "Which suffix turns a word into an adverb describing 'how'?",
+            "options": [
+              "-ly",
+              "-ward",
+              "-wise",
+              "-ing"
+            ],
+            "correct_answer": "-ly"
+          },
+          {
+            "question": "Which is a possessive noun?",
+            "options": [
+              "Maria's bag",
+              "classroom",
+              "quickly",
+              "which"
+            ],
+            "correct_answer": "Maria's bag"
+          },
+          {
+            "question": "Which is a compound noun?",
+            "options": [
+              "sunflower",
+              "quickly",
+              "very",
+              "which"
+            ],
+            "correct_answer": "sunflower"
+          },
+          {
+            "question": "\"The teacher who helped me is kind.\" Which word is the relative pronoun?",
+            "options": [
+              "who",
+              "teacher",
+              "helped",
+              "kind"
+            ],
+            "correct_answer": "who"
+          },
+          {
+            "question": "Which relative pronoun refers to a THING?",
+            "options": [
+              "which",
+              "who",
+              "quickly",
+              "everywhere"
+            ],
+            "correct_answer": "which"
+          },
+          {
+            "question": "Which word is an adverb of frequency?",
+            "options": [
+              "always",
+              "here",
+              "very",
+              "quickly"
+            ],
+            "correct_answer": "always"
+          },
+          {
+            "question": "Which word is an adverb of place?",
+            "options": [
+              "everywhere",
+              "always",
+              "very",
+              "quickly"
+            ],
+            "correct_answer": "everywhere"
+          },
+          {
+            "question": "Which word is an adverb of intensity?",
+            "options": [
+              "extremely",
+              "here",
+              "always",
+              "which"
+            ],
+            "correct_answer": "extremely"
+          },
+          {
+            "question": "Add -ly to 'quick' to form an adverb.",
+            "options": [
+              "quickly",
+              "quickward",
+              "quickwise",
+              "quicking"
+            ],
+            "correct_answer": "quickly"
+          },
+          {
+            "question": "\"The book, which I borrowed, is interesting.\" What does 'which' refer to?",
+            "options": [
+              "The book",
+              "The person",
+              "The library",
+              "The author"
+            ],
+            "correct_answer": "The book"
+          },
+          {
+            "question": "\"She is a teacher.\" What role does 'teacher' play in this sentence?",
+            "options": [
+              "Noun complement",
+              "Relative pronoun",
+              "Adverb of place",
+              "Compound noun"
+            ],
+            "correct_answer": "Noun complement"
+          },
+          {
+            "question": "Which suffix describes direction, as in 'homeward'?",
+            "options": [
+              "-ward",
+              "-ly",
+              "-wise",
+              "-ing"
+            ],
+            "correct_answer": "-ward"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Rounding and Adding/Subtracting Decimals\n\nGrade 5, Week 16! Let's work with decimals to three places. 💪\n\n## 🎯 Rounding Decimals\n**Rule:** look at the digit to the right — **5 or more rounds up**, 4 or less stays.\n\n**Example: Round 3.746 to the nearest hundredth**\n- Look at the thousandths digit: **6** (5 or more)\n- Round up: **3.75** ✅\n\n**Example: Round 8.23 to the nearest whole number**\n- Look at the tenths digit: **2** (4 or less)\n- Stay: **8** ✅\n\n## ➕ Adding Decimals (up to 3 places)\nLine up the **decimal points**, then add like whole numbers.\n\n**Example: 4.256 + 2.879**\n```\n  4.256\n+ 2.879\n-------\n  7.135\n```\n- 6+9=15, write 5 carry 1\n- 5+7+1=13, write 3 carry 1\n- 2+8+1=11, write 1 carry 1\n- 4+2+1=7\n- Answer: **7.135** ✅\n\n## ➖ Subtracting Decimals with Regrouping\n**Example: 5.203 − 1.658**\n```\n  5.203\n- 1.658\n-------\n  3.545\n```\nRegroup across zeros just like whole numbers, keeping the decimal point lined up.\n\n## 🧠 Worked Example 1\n*Round 12.635 to the nearest tenth.*\n- Thousandths digit doesn't matter here; look at hundredths: **3** → stays\n- Answer: **12.6** ✅\n\n## 🧠 Worked Example 2\n*Solve 9.4 − 3.756*\n- Write as 9.400 − 3.756\n- Regroup: **5.644** ✅\n\n## 📝 Word Problem\n*Ana bought items worth ₱125.475 and ₱89.325. What is the total?*\n- 125.475 + 89.325 = **₱214.800** ✅\n\nGreat decimal work! ⭐",
+        "quiz": [
+          {
+            "question": "Round 3.746 to the nearest hundredth.",
+            "options": [
+              "3.75",
+              "3.74",
+              "3.7",
+              "3.8"
+            ],
+            "correct_answer": "3.75"
+          },
+          {
+            "question": "Round 8.23 to the nearest whole number.",
+            "options": [
+              "8",
+              "9",
+              "8.2",
+              "8.3"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is 4.256 + 2.879?",
+            "options": [
+              "7.135",
+              "7.125",
+              "6.135",
+              "7.235"
+            ],
+            "correct_answer": "7.135"
+          },
+          {
+            "question": "What is 5.203 − 1.658?",
+            "options": [
+              "3.545",
+              "3.555",
+              "4.545",
+              "3.445"
+            ],
+            "correct_answer": "3.545"
+          },
+          {
+            "question": "Round 12.635 to the nearest tenth.",
+            "options": [
+              "12.6",
+              "12.7",
+              "13.0",
+              "12.5"
+            ],
+            "correct_answer": "12.6"
+          },
+          {
+            "question": "What is 9.4 − 3.756?",
+            "options": [
+              "5.644",
+              "5.744",
+              "6.644",
+              "5.634"
+            ],
+            "correct_answer": "5.644"
+          },
+          {
+            "question": "Ana bought items worth ₱125.475 and ₱89.325. What is the total?",
+            "options": [
+              "₱214.800",
+              "₱213.800",
+              "₱215.800",
+              "₱204.800"
+            ],
+            "correct_answer": "₱214.800"
+          },
+          {
+            "question": "When rounding, a digit of 5 or more means you round:",
+            "options": [
+              "up",
+              "down",
+              "to zero",
+              "to ten"
+            ],
+            "correct_answer": "up"
+          },
+          {
+            "question": "What is 15.09 + 6.911?",
+            "options": [
+              "22.001",
+              "21.001",
+              "22.101",
+              "21.901"
+            ],
+            "correct_answer": "22.001"
+          },
+          {
+            "question": "Round 0.847 to the nearest hundredth.",
+            "options": [
+              "0.85",
+              "0.84",
+              "0.8",
+              "0.9"
+            ],
+            "correct_answer": "0.85"
+          },
+          {
+            "question": "What is 20.000 − 8.375?",
+            "options": [
+              "11.625",
+              "11.725",
+              "12.625",
+              "11.635"
+            ],
+            "correct_answer": "11.625"
+          },
+          {
+            "question": "A runner's time improved from 42.658 seconds to 39.204 seconds. How much faster is the new time?",
+            "options": [
+              "3.454 seconds",
+              "3.554 seconds",
+              "3.444 seconds",
+              "2.454 seconds"
+            ],
+            "correct_answer": "3.454 seconds"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# ✍️ Filipino — Langkapang Pangungusap at Pang-uri sa Antas Pasukdol\n\nGrade 5, Linggo 16! Palawakin natin ang gramatika. 💪\n\n## 🔗 Ano ang Langkapang Pangungusap?\nAng **langkapang pangungusap** ay may **punong sugnay** (independiyenteng ideya) at **kaugnay na sugnay** (dependent, hindi kompleto mag-isa).\n\n**Halimbawa:** *\"Nag-aral si Ana **dahil gusto niyang pumasa**.\"*\n- Punong sugnay: *Nag-aral si Ana*\n- Kaugnay na sugnay: *dahil gusto niyang pumasa*\n\n## 📈 Pang-uri sa Antas Pahambing Pasukdol (Superlative)\nGinagamit kapag inihahambing ang **higit sa dalawang bagay**, at isa ang **pinakamataas**.\n\n| Antas | Halimbawa |\n|---|---|\n| **Payak** | mataas |\n| **Pahambing** | mas mataas |\n| **Pasukdol** | pinakamataas |\n\n**Halimbawa:** *Si Ben ang **pinakamatangkad** sa buong klase.*\n\n## ⏳ Pang-abay na Kondisyonal\nNaglalarawan ng **kondisyon** — ipinapahayag kung ano ang mangyayari **kung** may isang bagay na nangyari.\n\n**Halimbawa:** *\"**Kung** mag-aaral ka nang mabuti, makakapasa ka.\"*\n\n## 🎯 Pandiwa Ayon sa Pokus\n- **Panlayon (object focus)** — ang binibigyang-diin ay ang **layon** ng kilos\n  > *\"**Kinain** ni Ben ang tinapay.\"* (tinapay ang layon)\n- **Pangkagamitan (instrumental focus)** — ang binibigyang-diin ay ang **kagamitan**\n  > *\"**Ipinunas** ni Ana ang tela sa mesa.\"* (tela ang kagamitan)\n\n## 🧠 Halimbawa 1\n*Alin ang pang-uri sa antas pasukdol sa pangungusap: \"Si Ana ang pinakamatalino sa kanilang barkada.\"?*\n- **Pinakamatalino** — ipinapakita nito na siya ang **pinakamataas** kumpara sa lahat.\n\n## 🧠 Halimbawa 2\n*Tukuyin ang kaugnay na sugnay: \"Umuwi siya kaagad dahil umuulan.\"*\n- **\"dahil umuulan\"** — hindi kompleto mag-isa, nagbibigay ito ng dahilan.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang langkapang pangungusap?",
+            "options": [
+              "May punong sugnay at kaugnay na sugnay",
+              "Isang salita lamang",
+              "Bantas sa dulo ng talata",
+              "Pangngalan sa pangungusap"
+            ],
+            "correct_answer": "May punong sugnay at kaugnay na sugnay"
+          },
+          {
+            "question": "Alin ang pang-uri sa antas pasukdol?",
+            "options": [
+              "Pinakamatangkad",
+              "Mataas",
+              "Mas mataas",
+              "Hindi mataas"
+            ],
+            "correct_answer": "Pinakamatangkad"
+          },
+          {
+            "question": "Kailan ginagamit ang antas pasukdol?",
+            "options": [
+              "Kapag higit sa dalawang bagay ang inihahambing",
+              "Kapag isang bagay lamang ang tinutukoy",
+              "Kapag walang inihahambing",
+              "Kapag pareho lamang ang dalawang bagay"
+            ],
+            "correct_answer": "Kapag higit sa dalawang bagay ang inihahambing"
+          },
+          {
+            "question": "Ano ang pang-abay na kondisyonal?",
+            "options": [
+              "Naglalarawan ng kondisyon gamit ang 'kung'",
+              "Naglalarawan ng lugar",
+              "Naglalarawan ng dami",
+              "Naglalarawan ng oras lamang"
+            ],
+            "correct_answer": "Naglalarawan ng kondisyon gamit ang 'kung'"
+          },
+          {
+            "question": "\"Kung mag-aaral ka, makakapasa ka.\" Anong uri ng pang-abay ang 'kung mag-aaral ka'?",
+            "options": [
+              "Kondisyonal",
+              "Panlunan",
+              "Pamanahon",
+              "Pamaraan"
+            ],
+            "correct_answer": "Kondisyonal"
+          },
+          {
+            "question": "Sa \"Kinain ni Ben ang tinapay,\" ano ang pokus ng pandiwa?",
+            "options": [
+              "Panlayon (object focus)",
+              "Pangkagamitan",
+              "Pamanggagawa",
+              "Panlunan"
+            ],
+            "correct_answer": "Panlayon (object focus)"
+          },
+          {
+            "question": "Sa \"Ipinunas ni Ana ang tela sa mesa,\" ano ang pokus ng pandiwa?",
+            "options": [
+              "Pangkagamitan, dahil binigyang-diin ang tela",
+              "Panlayon, dahil ang mesa ang layon",
+              "Pamanggagawa, dahil si Ana ang gumawa",
+              "Panlunan, dahil sa mesa ang tagpuan"
+            ],
+            "correct_answer": "Pangkagamitan, dahil binigyang-diin ang tela"
+          },
+          {
+            "question": "Tukuyin ang punong sugnay sa \"Nag-aral si Ana dahil gusto niyang pumasa.\"",
+            "options": [
+              "Nag-aral si Ana",
+              "dahil gusto niyang pumasa",
+              "gusto niyang pumasa",
+              "si Ana"
+            ],
+            "correct_answer": "Nag-aral si Ana"
+          },
+          {
+            "question": "Tukuyin ang kaugnay na sugnay sa \"Umuwi siya kaagad dahil umuulan.\"",
+            "options": [
+              "dahil umuulan",
+              "Umuwi siya kaagad",
+              "siya kaagad",
+              "Umuwi siya"
+            ],
+            "correct_answer": "dahil umuulan"
+          },
+          {
+            "question": "Alin ang halimbawa ng antas pahambing (hindi pasukdol)?",
+            "options": [
+              "Mas mataas",
+              "Pinakamataas",
+              "Mataas",
+              "Napakataas"
+            ],
+            "correct_answer": "Mas mataas"
+          },
+          {
+            "question": "Bakit hindi kompleto mag-isa ang kaugnay na sugnay?",
+            "options": [
+              "Umaasa ito sa punong sugnay para maunawaan",
+              "Wala itong kahulugan kailanman",
+              "Hindi ito gumagamit ng pandiwa",
+              "Palagi itong nasa simula ng pangungusap"
+            ],
+            "correct_answer": "Umaasa ito sa punong sugnay para maunawaan"
+          },
+          {
+            "question": "Si Ana ang pinakamatalino sa kanilang barkada. Ano ang ipinapakita ng 'pinakamatalino'?",
+            "options": [
+              "Siya ang pinakamataas kumpara sa lahat",
+              "Siya ay katulad lamang ng iba",
+              "Siya ay mas mababa sa iba",
+              "Wala itong kaugnayan sa paghahambing"
+            ],
+            "correct_answer": "Siya ang pinakamataas kumpara sa lahat"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🐾 Science — Animal Adaptations and Reproduction\n\nGrade 5, Week 16! Let's explore how animals survive. 🔬\n\n## 🥚 Viviparous vs Oviparous Animals\n\n| Type | Meaning | Examples |\n|---|---|---|\n| **Viviparous** | gives birth to **live young** | dogs, cats, humans, whales |\n| **Oviparous** | lays **eggs** that hatch outside the body | chickens, frogs, fish, turtles |\n\n## 🎭 Animal Adaptations for Survival\n\n**1. Mimicry** — looking like another animal or object for protection\n> Example: a stick insect looks like a **twig**\n\n**2. Camouflage** — blending in with surroundings\n> Example: a chameleon changing color to match **leaves**\n\n**3. Protective Coloration** — bright colors that **warn** predators\n> Example: a poisonous frog with **bright orange** skin\n\n**4. Structural Adaptations** — body parts built for survival\n> Example: sharp claws for **digging or defense**, thick fur for **warmth**\n\n## 🧠 Worked Example 1\n*A snake is brown and blends with dry leaves. What adaptation is this?*\n- **Camouflage** — it blends into its surroundings to hide from predators or prey.\n\n## 🧠 Worked Example 2\n*A bird lays eggs in a nest. Is it viviparous or oviparous?*\n- **Oviparous** — it reproduces by laying eggs.\n\n## 🔄 Comparing Life Cycles\n| Animal | Life Cycle Stages |\n|---|---|\n| **Mammal** | born live → grows → adult |\n| **Bird** | egg → hatchling → grows → adult |\n| **Plant** | seed → seedling → grows → mature plant |\n\n**Key similarity:** all involve **growth and development** over time.\n**Key difference:** mammals are born live; birds and many other animals hatch from eggs.\n\n## 💡 Why Adaptations Matter\nEach adaptation helps an animal **survive** in its specific environment — whether by hiding, warning, or being built for a task.\n\nGreat scientist work! 🌟",
+        "quiz": [
+          {
+            "question": "What does 'viviparous' mean?",
+            "options": [
+              "Gives birth to live young",
+              "Lays eggs",
+              "Never reproduces",
+              "Only lives in water"
+            ],
+            "correct_answer": "Gives birth to live young"
+          },
+          {
+            "question": "What does 'oviparous' mean?",
+            "options": [
+              "Lays eggs that hatch outside the body",
+              "Gives birth to live young",
+              "Never reproduces",
+              "Only lives on land"
+            ],
+            "correct_answer": "Lays eggs that hatch outside the body"
+          },
+          {
+            "question": "Which animal is viviparous?",
+            "options": [
+              "Dog",
+              "Chicken",
+              "Frog",
+              "Turtle"
+            ],
+            "correct_answer": "Dog"
+          },
+          {
+            "question": "Which animal is oviparous?",
+            "options": [
+              "Chicken",
+              "Dog",
+              "Cat",
+              "Whale"
+            ],
+            "correct_answer": "Chicken"
+          },
+          {
+            "question": "A stick insect looks like a twig. What adaptation is this?",
+            "options": [
+              "Mimicry",
+              "Camouflage",
+              "Protective coloration",
+              "Structural adaptation"
+            ],
+            "correct_answer": "Mimicry"
+          },
+          {
+            "question": "A chameleon changes color to match leaves. What adaptation is this?",
+            "options": [
+              "Camouflage",
+              "Mimicry",
+              "Protective coloration",
+              "Structural adaptation"
+            ],
+            "correct_answer": "Camouflage"
+          },
+          {
+            "question": "A poisonous frog has bright orange skin. What is this an example of?",
+            "options": [
+              "Protective coloration",
+              "Camouflage",
+              "Mimicry",
+              "Structural adaptation"
+            ],
+            "correct_answer": "Protective coloration"
+          },
+          {
+            "question": "Sharp claws for digging is an example of:",
+            "options": [
+              "Structural adaptation",
+              "Camouflage",
+              "Mimicry",
+              "Protective coloration"
+            ],
+            "correct_answer": "Structural adaptation"
+          },
+          {
+            "question": "A snake is brown and blends with dry leaves. What adaptation is this?",
+            "options": [
+              "Camouflage",
+              "Mimicry",
+              "Protective coloration",
+              "Structural adaptation"
+            ],
+            "correct_answer": "Camouflage"
+          },
+          {
+            "question": "What do the life cycles of mammals and birds have in common?",
+            "options": [
+              "Both involve growth and development over time",
+              "Both are born live",
+              "Both hatch from eggs",
+              "Both stay exactly the same their whole life"
+            ],
+            "correct_answer": "Both involve growth and development over time"
+          },
+          {
+            "question": "What is a key difference between mammal and bird life cycles?",
+            "options": [
+              "Mammals are born live, birds hatch from eggs",
+              "Both hatch from eggs",
+              "Both are born live",
+              "Neither one grows or changes"
+            ],
+            "correct_answer": "Mammals are born live, birds hatch from eggs"
+          },
+          {
+            "question": "A harmless insect has bright colors that look like a dangerous wasp. What adaptation helps it avoid predators?",
+            "options": [
+              "Mimicry",
+              "Camouflage only",
+              "A structural claw",
+              "Live birth"
+            ],
+            "correct_answer": "Mimicry"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🏛️ Araling Panlipunan — Patakarang Kolonyal ng Espanya\n\nGrade 5, Linggo 16! Alamin natin kung paano namuno ang Espanya. 🇵🇭\n\n## 🏛️ Sistema ng Pamahalaang Kolonyal\n| Katungkulan | Gampanin |\n|---|---|\n| **Gobernador-Heneral** | pinakamataas na opisyal sa Pilipinas, kinatawan ng hari ng Espanya |\n| **Real Audiencia** | mataas na hukuman |\n| **Alcalde Mayor** | pinuno ng lalawigan |\n| **Gobernadorcillo** | pinuno ng bayan |\n| **Cabeza de Barangay** | pinuno ng barangay |\n\n## 💰 Patakarang Pang-ekonomiya\n\n**1. Sistemang Encomienda**\nBinigyan ang mga Espanyol ng **karapatang mangolekta ng buwis** mula sa mga Pilipino sa isang lugar, kapalit ng \"proteksyon\" at pagtuturo ng relihiyon.\n\n**2. Polo y Servicio (Sapilitang Paggawa)**\nKinailangan ng mga lalaking Pilipino na **magtrabaho nang libre** (karaniwan sa pagtatayo ng simbahan, kalsada, o barko) sa loob ng 40 araw kada taon.\n\n**3. Bandala**\nSapilitang **pagbebenta** ng ani ng mga Pilipino sa gobyerno sa **mababang presyo**.\n\n**4. Tributo (Buwis)**\nTaunang buwis na binabayaran ng bawat pamilya sa gobyerno.\n\n**5. Monopolyo sa Galyon Trade**\nAng **Manila-Acapulco Galleon Trade** ay nagpapalitan ng kalakal sa pagitan ng Pilipinas at Mexico — ngunit ang benepisyo ay **napunta lamang** sa iilang Espanyol.\n\n## 🧠 Halimbawa 1\n*Bakit itinuturing na mabigat sa mga Pilipino ang polo y servicio?*\n- Kinailangan nilang magtrabaho nang **libre**, iniiwan ang kanilang **sariling bukid o pamilya**.\n\n## 🧠 Halimbawa 2\n*Sino ang pinuno ng isang barangay noong panahon ng Espanyol?*\n- Ang **cabeza de barangay** — ang pinakamababang antas ng pamahalaang kolonyal.\n\n## 💡 Ang Kabuuang Epekto\nAng mga patakarang ito ay nagdulot ng **pagsasamantala** sa mga Pilipino — dahilan kung bakit sumiklab ang mga **pag-aalsa** sa iba't ibang bahagi ng bansa.\n\nMagaling sa Linggo 16! 🌟",
+        "quiz": [
+          {
+            "question": "Sino ang pinakamataas na opisyal ng Espanya sa Pilipinas?",
+            "options": [
+              "Gobernador-Heneral",
+              "Alcalde Mayor",
+              "Gobernadorcillo",
+              "Cabeza de Barangay"
+            ],
+            "correct_answer": "Gobernador-Heneral"
+          },
+          {
+            "question": "Sino ang pinuno ng isang barangay noong panahon ng Espanyol?",
+            "options": [
+              "Cabeza de Barangay",
+              "Gobernador-Heneral",
+              "Alcalde Mayor",
+              "Real Audiencia"
+            ],
+            "correct_answer": "Cabeza de Barangay"
+          },
+          {
+            "question": "Ano ang sistemang encomienda?",
+            "options": [
+              "Karapatang mangolekta ng buwis mula sa Pilipino",
+              "Sistema ng pagsasaka ng palay dito",
+              "Kasunduan sa Estados Unidos noon",
+              "Batas na laban sa pananakop noon"
+            ],
+            "correct_answer": "Karapatang mangolekta ng buwis mula sa Pilipino"
+          },
+          {
+            "question": "Ano ang polo y servicio?",
+            "options": [
+              "Sapilitang paggawa nang libre sa loob ng 40 araw",
+              "Buwis na binabayaran taon-taon",
+              "Sistema ng pagbebenta ng ani",
+              "Sistema ng kalakalan sa Mexico"
+            ],
+            "correct_answer": "Sapilitang paggawa nang libre sa loob ng 40 araw"
+          },
+          {
+            "question": "Ano ang bandala?",
+            "options": [
+              "Sapilitang pagbebenta ng ani sa mababang presyo",
+              "Sapilitang paggawa nang libre",
+              "Buwis na binabayaran taon-taon",
+              "Batas ukol sa relihiyon"
+            ],
+            "correct_answer": "Sapilitang pagbebenta ng ani sa mababang presyo"
+          },
+          {
+            "question": "Ano ang tributo?",
+            "options": [
+              "Taunang buwis na binabayaran ng pamilya",
+              "Uri lamang ng kalakalan noon",
+              "Sistema lamang ng edukasyon",
+              "Uri lamang ng ritwal noon"
+            ],
+            "correct_answer": "Taunang buwis na binabayaran ng pamilya"
+          },
+          {
+            "question": "Ano ang Galleon Trade?",
+            "options": [
+              "Kalakalan sa pagitan ng Maynila at Acapulco",
+              "Kalakalan sa pagitan ng Pilipinas at Tsina lamang",
+              "Isang batas laban sa buwis",
+              "Isang uri ng edukasyon"
+            ],
+            "correct_answer": "Kalakalan sa pagitan ng Maynila at Acapulco"
+          },
+          {
+            "question": "Sino ang nakinabang sa Galleon Trade?",
+            "options": [
+              "Iilang Espanyol",
+              "Lahat ng Pilipino nang pantay",
+              "Mga katutubong pinuno lamang",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Iilang Espanyol"
+          },
+          {
+            "question": "Bakit itinuturing na mabigat ang polo y servicio?",
+            "options": [
+              "Kinailangan magtrabaho nang libre sa 40 araw",
+              "Ito ay boluntaryong gawain lamang",
+              "Binabayaran ito nang mataas noon",
+              "Isang beses lamang ito ginagawa"
+            ],
+            "correct_answer": "Kinailangan magtrabaho nang libre sa 40 araw"
+          },
+          {
+            "question": "Ano ang Real Audiencia?",
+            "options": [
+              "Mataas na hukuman",
+              "Pinuno ng barangay",
+              "Pinuno ng bayan",
+              "Batas laban sa buwis"
+            ],
+            "correct_answer": "Mataas na hukuman"
+          },
+          {
+            "question": "Ano ang naging kabuuang epekto ng mga patakarang kolonyal na ito?",
+            "options": [
+              "Nagdulot ito ng pagsasamantala at pag-aalsa",
+              "Napasaya nito ang lahat ng Pilipino",
+              "Wala itong naging epekto",
+              "Naging mas mayaman ang lahat ng Pilipino"
+            ],
+            "correct_answer": "Nagdulot ito ng pagsasamantala at pag-aalsa"
+          },
+          {
+            "question": "Sino ang pinuno ng isang lalawigan noong panahon ng Espanyol?",
+            "options": [
+              "Alcalde Mayor",
+              "Cabeza de Barangay",
+              "Gobernadorcillo",
+              "Real Audiencia"
+            ],
+            "correct_answer": "Alcalde Mayor"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🖥️ EPP (ICT) — Creating Presentation Slides\n\nGrade 5, Linggo 16! Gumawa tayo ng slide presentation. 💻\n\n## 🎬 Bahagi ng Isang Presentation\n| Bahagi | Layunin |\n|---|---|\n| **Slide** | isang \"pahina\" ng presentation |\n| **Animation** | paggalaw ng teksto o larawan sa loob ng isang slide |\n| **Slide Transition** | epekto sa paglipat mula sa isang slide papunta sa susunod |\n| **Audio/Video** | tunog o video na naka-embed sa slide |\n\n## ✨ Pagdaragdag ng Animation\n**Hakbang:**\n1. Piliin ang **teksto o larawan** na gusto mong bigyan ng animation\n2. Pumunta sa **Animations tab**\n3. Piliin ang **epekto** (Fade In, Fly In, Zoom)\n4. I-preview upang makita ang resulta\n\n## 🎞️ Pagdaragdag ng Slide Transition\n**Hakbang:**\n1. Piliin ang slide\n2. Pumunta sa **Transitions tab**\n3. Piliin ang **epekto** ng paglipat (Fade, Push, Wipe)\n\n## 🎵 Pagdaragdag ng Audio/Video\n1. Pumunta sa **Insert tab**\n2. Piliin ang **Audio** o **Video**\n3. Piliin ang file mula sa iyong computer\n4. Ayusin kung **kailan** ito tutugtog (automatic o kapag na-click)\n\n## 🧠 Halimbawa 1\n*Gusto mong lumitaw ang bawat punto ng listahan nang paisa-isa. Ano ang gagamitin mo?*\n- **Animation** — para sa bawat item, gamit ang epekto tulad ng **Fade In**.\n\n## 🧠 Halimbawa 2\n*Gusto mong may makinis na epekto sa paglipat mula slide 1 patungo sa slide 2.*\n- Gamitin ang **Slide Transition** (hal. **Fade** o **Wipe**).\n\n## 💡 Mga Alituntunin\n- Huwag **sobrahan** ang animation — makakagambala ito sa mensahe\n- Piliin ang audio/video na **may kaugnayan** sa paksa\n- Panatilihing **simple at malinaw** ang bawat slide\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang slide?",
+            "options": [
+              "Isang 'pahina' ng presentation",
+              "Isang uri ng tunog",
+              "Isang uri ng larawan lamang",
+              "Isang uri ng dokumento"
+            ],
+            "correct_answer": "Isang 'pahina' ng presentation"
+          },
+          {
+            "question": "Ano ang animation sa presentation?",
+            "options": [
+              "Paggalaw ng teksto o larawan sa isang slide",
+              "Paglipat mula sa isang slide papunta sa iba",
+              "Tunog na naka-embed",
+              "Video na naka-embed"
+            ],
+            "correct_answer": "Paggalaw ng teksto o larawan sa isang slide"
+          },
+          {
+            "question": "Ano ang slide transition?",
+            "options": [
+              "Epekto sa paglipat mula slide patungo sa slide",
+              "Paggalaw ng teksto sa loob ng slide",
+              "Tunog na naka-embed",
+              "Kulay ng background"
+            ],
+            "correct_answer": "Epekto sa paglipat mula slide patungo sa slide"
+          },
+          {
+            "question": "Saan mo pipiliin ang epekto ng animation?",
+            "options": [
+              "Animations tab",
+              "Transitions tab",
+              "Insert tab lamang",
+              "File tab"
+            ],
+            "correct_answer": "Animations tab"
+          },
+          {
+            "question": "Saan mo pipiliin ang epekto ng slide transition?",
+            "options": [
+              "Transitions tab",
+              "Animations tab",
+              "Insert tab lamang",
+              "File tab"
+            ],
+            "correct_answer": "Transitions tab"
+          },
+          {
+            "question": "Saan mo idadagdag ang audio o video?",
+            "options": [
+              "Insert tab",
+              "Animations tab",
+              "Transitions tab",
+              "Design tab lamang"
+            ],
+            "correct_answer": "Insert tab"
+          },
+          {
+            "question": "Gusto mong lumitaw ang bawat punto ng listahan nang paisa-isa. Ano ang gagamitin mo?",
+            "options": [
+              "Animation",
+              "Slide transition lamang",
+              "Audio lamang",
+              "Video lamang"
+            ],
+            "correct_answer": "Animation"
+          },
+          {
+            "question": "Gusto mong may makinis na epekto sa paglipat mula slide 1 papunta sa slide 2. Ano ang gagamitin mo?",
+            "options": [
+              "Slide transition",
+              "Animation lamang",
+              "Audio lamang",
+              "Video lamang"
+            ],
+            "correct_answer": "Slide transition"
+          },
+          {
+            "question": "Bakit hindi dapat sobrahan ang animation?",
+            "options": [
+              "Makakagambala ito sa mensahe",
+              "Mas mabilis itong gawin",
+              "Wala itong dahilan",
+              "Mas maganda ito palagi"
+            ],
+            "correct_answer": "Makakagambala ito sa mensahe"
+          },
+          {
+            "question": "Ano ang dapat isaalang-alang sa pagpili ng audio o video?",
+            "options": [
+              "Dapat may kaugnayan sa paksa",
+              "Dapat ito ang pinakamahaba",
+              "Dapat ito ay random lamang",
+              "Dapat walang kaugnayan sa paksa"
+            ],
+            "correct_answer": "Dapat may kaugnayan sa paksa"
+          },
+          {
+            "question": "Ano ang halimbawa ng epekto ng animation?",
+            "options": [
+              "Fade In",
+              "Push",
+              "Wipe",
+              "Common Time"
+            ],
+            "correct_answer": "Fade In"
+          },
+          {
+            "question": "Isang mag-aaral ang gumamit ng maraming animation sa bawat salita sa kanyang slide. Ano ang problema dito?",
+            "options": [
+              "Nagiging magulo at nakakagambala ito",
+              "Wala itong problema",
+              "Mas propesyonal ito tingnan",
+              "Nagpapabilis ito ng presentation"
+            ],
+            "correct_answer": "Nagiging magulo at nakakagambala ito"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 💪 MAPEH — Health: Using Medicine Safely + Rhythmic Dance\n\nGrade 5, Week 16! Let's learn about medicine safety and dance. 🩺💃\n\n---\n\n# PART 1 — HEALTH: Using Medicine the Right Way\n\n## 💊 Proper Use of Medicine\nMedicine can **help** us when used correctly, but can be **harmful** when misused.\n\n**Rules for proper use:**\n- Only take medicine **prescribed by a doctor** or given by a **trusted adult**\n- Follow the **exact dosage** and **schedule**\n- **Never** take medicine meant for someone else\n- **Never** take more than the recommended amount, even if you feel it's not working\n- Always **tell an adult** if you feel strange after taking medicine\n\n## ⚠️ What Is Misuse?\n**Misuse** means using medicine the **wrong way** — taking too much, taking someone else's medicine, or taking it without a real reason.\n\n**Why this matters:** even medicine that helps in the right amount can **harm** the body if misused.\n\n## 🧠 Worked Example 1\n*You have a headache and find medicine in the cabinet. What should you do?*\n- **Ask a trusted adult first** — never take medicine on your own, even if it seems harmless.\n\n## 🧠 Worked Example 2\n*Your friend offers you a pill, saying it will make you feel better.*\n- **Say no and tell a trusted adult** — never take medicine or any substance from someone who isn't a doctor or your parent/guardian.\n\n## 🛡️ Staying Safe\nThe safest rule: **only take what a trusted adult or doctor gives you, exactly as instructed.** If you ever feel pressured to take something unfamiliar, **say no and tell a trusted adult right away.**\n\n---\n\n# PART 2 — PE: Rhythmic Activities in 2/4 Time\n\n## 🎵 What Is 2/4 Time?\nA **time signature** of 2/4 means **2 beats** per measure — a simple, steady rhythm.\n\n## 💃 Dance Exercises\n- **Galaw Pilipinas** — a DepEd fitness dance program using Filipino music\n- **Fundamental dance movements** — step-together-step, sway, turn\n- **Social dance steps** — basic steps used in group or partner dances\n\n## 🧠 Worked Example\n*Count the beat of a 2/4 song while stepping.*\n- Step on **beat 1**, step on **beat 2**, repeat — a simple **step-step** pattern.\n\n## 🛡️ Safety in Dance\n- Wear **comfortable clothing and shoes**\n- **Warm up** before dancing\n- Keep **enough space** from others\n\nGreat work this week! 🌟",
+        "quiz": [
+          {
+            "question": "Who should give you medicine to take?",
+            "options": [
+              "A doctor or trusted adult",
+              "Any classmate",
+              "Yourself, without asking",
+              "A stranger who offers"
+            ],
+            "correct_answer": "A doctor or trusted adult"
+          },
+          {
+            "question": "What is medicine misuse?",
+            "options": [
+              "Using medicine the wrong way",
+              "Taking medicine exactly as prescribed",
+              "Asking a doctor for advice",
+              "Telling an adult about side effects"
+            ],
+            "correct_answer": "Using medicine the wrong way"
+          },
+          {
+            "question": "You have a headache and find medicine in the cabinet. What should you do?",
+            "options": [
+              "Ask a trusted adult first",
+              "Take it right away yourself",
+              "Take extra to feel better faster",
+              "Give some to a friend too"
+            ],
+            "correct_answer": "Ask a trusted adult first"
+          },
+          {
+            "question": "Your friend offers you an unfamiliar pill. What should you do?",
+            "options": [
+              "Say no and tell a trusted adult",
+              "Take it to be polite",
+              "Keep it a secret",
+              "Share it with others"
+            ],
+            "correct_answer": "Say no and tell a trusted adult"
+          },
+          {
+            "question": "Why is it dangerous to take someone else's medicine?",
+            "options": [
+              "It may not be safe or right for your body",
+              "It always works better for everyone",
+              "It has no possible risk at all",
+              "It is always the same as your own medicine"
+            ],
+            "correct_answer": "It may not be safe or right for your body"
+          },
+          {
+            "question": "What should you do if you feel strange after taking medicine?",
+            "options": [
+              "Tell an adult right away",
+              "Keep it to yourself",
+              "Take more medicine",
+              "Ignore the feeling completely"
+            ],
+            "correct_answer": "Tell an adult right away"
+          },
+          {
+            "question": "How many beats are in a 2/4 time signature?",
+            "options": [
+              "2 beats",
+              "4 beats",
+              "3 beats",
+              "6 beats"
+            ],
+            "correct_answer": "2 beats"
+          },
+          {
+            "question": "What is Galaw Pilipinas?",
+            "options": [
+              "A DepEd fitness dance program",
+              "A type of medicine",
+              "A math formula",
+              "A science experiment"
+            ],
+            "correct_answer": "A DepEd fitness dance program"
+          },
+          {
+            "question": "What should you wear for a dance activity?",
+            "options": [
+              "Comfortable clothing and shoes",
+              "Formal dress shoes",
+              "Heavy winter clothing",
+              "No shoes at all"
+            ],
+            "correct_answer": "Comfortable clothing and shoes"
+          },
+          {
+            "question": "Why should you warm up before dancing?",
+            "options": [
+              "To prepare your body and avoid injury",
+              "To make the dance longer",
+              "To skip the actual dance steps",
+              "To avoid following the rhythm"
+            ],
+            "correct_answer": "To prepare your body and avoid injury"
+          },
+          {
+            "question": "What is the safest rule about taking medicine?",
+            "options": [
+              "Only take what a trusted adult gives you as instructed",
+              "Take any medicine that looks helpful",
+              "Take medicine whenever you feel like it",
+              "Take double the dose to feel better faster"
+            ],
+            "correct_answer": "Only take what a trusted adult gives you as instructed"
+          },
+          {
+            "question": "A classmate says taking extra vitamins will make you stronger faster. What should you do?",
+            "options": [
+              "Ask a trusted adult before taking more than instructed",
+              "Take as many as your classmate suggests",
+              "Take them secretly at home",
+              "Share your own vitamins with others"
+            ],
+            "correct_answer": "Ask a trusted adult before taking more than instructed"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 GMRC — Gratitude: Pagpapahalaga sa mga OFW\n\nGrade 5, Linggo 16! Pagpapahalaga: **Pasasalamat**. 🌟\n\n## ✈️ Sino ang mga OFW?\nAng **OFW (Overseas Filipino Worker)** ay Pilipinong nagtatrabaho sa **ibang bansa** upang **suportahan** ang kanilang pamilya.\n\n## 💔 Sakripisyo ng mga OFW\n- **Malayo sa pamilya** — hindi nakakasama ang mga anak sa araw-araw\n- **Hirap sa bagong kapaligiran** — ibang wika, kultura, at klima\n- **Nag-iisa sa Pasko at kaarawan** ng mahal sa buhay\n- **Mahirap na trabaho** upang kumita para sa pamilya\n\n## 🇵🇭 Kontribusyon ng mga OFW\n- Suporta sa **pamilya** sa Pilipinas (tuition, gastusin, negosyo)\n- Nagpapalakas ng **ekonomiya** ng bansa sa pamamagitan ng **remittances**\n- Nagsisilbing **inspirasyon** ng sipag at pagmamahal sa pamilya\n\n## 💌 Paano Ipakita ang Pasasalamat\n- **Regular na pakikipag-usap** sa kanila (tawag, video call, mensahe)\n- **Pagsulat ng liham o mensahe** ng pasasalamat\n- **Pagsisikap sa pag-aaral** bilang tanda ng pagpapahalaga sa kanilang sakripisyo\n- **Pagtulong sa gawaing bahay** habang wala sila\n\n## 🧠 Halimbawa 1\n*Ang tatay mo ay OFW sa Saudi Arabia. Ano ang mabuting gawin upang ipakita ang pasasalamat?*\n- **Regular na makipag-usap** sa kanya, at **magsikap sa pag-aaral** bilang tanda ng pagmamahal at pasasalamat. ✅\n\n## 🧠 Halimbawa 2\n*Bakit itinuturing na sakripisyo ang pagiging OFW?*\n- Kailangan nilang **lumayo sa pamilya** at magtiis ng **kalungkutan** upang **magbigay ng magandang buhay** sa kanila. ✅\n\n## 💡 Bakit Mahalaga ang Pasasalamat sa mga OFW?\nAng kanilang sakripisyo ay hindi dapat **balewalain** — ipinapakita ng pasasalamat na **inaalala** at **iginagalang** natin ang kanilang pagsisikap.\n\nMagaling! 💫",
+        "quiz": [
+          {
+            "question": "Sino ang OFW?",
+            "options": [
+              "Pilipinong nagtatrabaho sa ibang bansa",
+              "Guro na nagtuturo sa paaralan",
+              "Doktor na nagtatrabaho sa ospital",
+              "Pulis na nagbabantay sa komunidad"
+            ],
+            "correct_answer": "Pilipinong nagtatrabaho sa ibang bansa"
+          },
+          {
+            "question": "Ano ang pangunahing dahilan kung bakit nagtatrabaho sa ibang bansa ang mga OFW?",
+            "options": [
+              "Upang suportahan ang kanilang pamilya",
+              "Upang makapaglakbay lamang",
+              "Upang makalimutan ang Pilipinas",
+              "Upang iwasan ang pamilya"
+            ],
+            "correct_answer": "Upang suportahan ang kanilang pamilya"
+          },
+          {
+            "question": "Ano ang sakripisyo ng mga OFW?",
+            "options": [
+              "Malayo sa pamilya, nag-iisa sa mahahalagang araw",
+              "Palaging kasama ang buong pamilya",
+              "Walang anumang hirap sa trabaho",
+              "Palaging nasa Pilipinas silang lahat"
+            ],
+            "correct_answer": "Malayo sa pamilya, nag-iisa sa mahahalagang araw"
+          },
+          {
+            "question": "Paano nakatutulong ang mga OFW sa ekonomiya ng Pilipinas?",
+            "options": [
+              "Sa pamamagitan ng remittances",
+              "Sa pamamagitan ng pagboto",
+              "Sa pamamagitan ng pagtuturo",
+              "Sa pamamagitan ng pagsulat ng batas"
+            ],
+            "correct_answer": "Sa pamamagitan ng remittances"
+          },
+          {
+            "question": "Ang tatay mo ay OFW sa Saudi Arabia. Ano ang mabuting gawin upang ipakita ang pasasalamat?",
+            "options": [
+              "Regular na makipag-usap at magsikap sa pag-aaral",
+              "Kalimutan siya at huwag makipag-usap",
+              "Gastusin ang lahat ng ipinadala niya nang basta-basta",
+              "Huwag nang mag-aral pa"
+            ],
+            "correct_answer": "Regular na makipag-usap at magsikap sa pag-aaral"
+          },
+          {
+            "question": "Bakit itinuturing na sakripisyo ang pagiging OFW?",
+            "options": [
+              "Lumalayo sila para sa magandang buhay",
+              "Wala itong hirap kahit kailan",
+              "Palagi silang nasa piyesta",
+              "Hindi ito nakaaapekto sa kanila"
+            ],
+            "correct_answer": "Lumalayo sila para sa magandang buhay"
+          },
+          {
+            "question": "Ano ang remittance?",
+            "options": [
+              "Pera na ipinapadala ng OFW sa pamilya sa Pilipinas",
+              "Buwis na binabayaran ng pamilya",
+              "Sahod ng guro sa paaralan",
+              "Gastos sa pang-araw-araw na pamumuhay"
+            ],
+            "correct_answer": "Pera na ipinapadala ng OFW sa pamilya sa Pilipinas"
+          },
+          {
+            "question": "Paano makapagpapakita ng pasasalamat sa OFW nang malayo?",
+            "options": [
+              "Sa pamamagitan ng video call at mensahe",
+              "Sa pamamagitan ng pagbabalewala sa kanila",
+              "Sa pamamagitan ng pagsisinungaling sa kanila",
+              "Sa pamamagitan ng hindi pagsagot sa kanilang tawag"
+            ],
+            "correct_answer": "Sa pamamagitan ng video call at mensahe"
+          },
+          {
+            "question": "Bakit itinuturing na inspirasyon ang mga OFW?",
+            "options": [
+              "Ipinapakita nila ang sipag at pagmamahal sa pamilya",
+              "Wala silang naiaambag sa lipunan",
+              "Sila lamang ang mahalaga sa lipunan",
+              "Wala itong kaugnayan sa pamilya"
+            ],
+            "correct_answer": "Ipinapakita nila ang sipag at pagmamahal sa pamilya"
+          },
+          {
+            "question": "Ano ang mabuting gawin habang wala ang OFW na magulang sa bahay?",
+            "options": [
+              "Tumulong sa gawaing bahay",
+              "Kalimutan ang gawaing bahay",
+              "Magreklamo sa kanilang pagkawala",
+              "Huwag makipag-usap sa ibang kapamilya"
+            ],
+            "correct_answer": "Tumulong sa gawaing bahay"
+          },
+          {
+            "question": "Bakit hindi dapat balewalain ang sakripisyo ng mga OFW?",
+            "options": [
+              "Dapat itong igalang at pahalagahan",
+              "Wala itong kabuluhan sa atin",
+              "Ito ay karaniwang gawain lamang",
+              "Hindi ito nangangailangan ng pagpapahalaga"
+            ],
+            "correct_answer": "Dapat itong igalang at pahalagahan"
+          },
+          {
+            "question": "Isang batang anak ng OFW ang nag-aral nang mabuti bilang paraan ng pasasalamat. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagpapahalaga sa sakripisyo ng magulang",
+              "Kawalang-interes sa magulang",
+              "Kapabayaan sa pag-aaral",
+              "Kawalan ng pasasalamat"
+            ],
+            "correct_answer": "Pagpapahalaga sa sakripisyo ng magulang"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 EPP (AFA/FCS/IA) — Mga Basic Hand Stitch\n\nGrade 5, Linggo 16! Matuto tayo ng mga pangunahing tahi. ✂️\n\n## 🪡 Limang Basic Hand Stitch\n\n**1. RUNNING STITCH**\nPinakasimpleng tahi — pataas-pababa nang magkakasunod, tulad ng tuldok-tuldok na linya. Gamit: pangkaraniwang pananahi at pagtitipon (gathering).\n\n**2. BACK STITCH**\nMatibay na tahi — bumabalik ang karayom sa nakaraang butas bago sumulong. Gamit: para sa **matibay** na tahi, tulad ng laylayan.\n\n**3. BASTE STITCH**\nMahaba at maluwag na tahi — pansamantala lamang, madaling tanggalin. Gamit: pagdikit ng tela **bago** tahiin nang permanente.\n\n**4. BLANKET STITCH**\nTahing pangguhit sa gilid — parang hakbang na pattern. Gamit: para sa **gilid ng tela** upang hindi mag-unravel.\n\n**5. WHIP STITCH**\nMaliliit na paikot na tahi sa gilid — mabilis at simple. Gamit: pagdikit ng dalawang gilid ng tela nang mabilis.\n\n## 🧠 Halimbawa 1\n*Gusto mong pansamantalang idikit ang dalawang piraso ng tela bago tahiin nang permanente. Anong tahi ang gagamitin?*\n- **Baste stitch** — ito ay pansamantala at madaling tanggalin.\n\n## 🧠 Halimbawa 2\n*Gusto mong matibay ang tahi ng laylayan ng damit. Anong tahi ang pinakamainam?*\n- **Back stitch** — matibay dahil bumabalik ang karayom sa nakaraang butas.\n\n## ⚠️ Pag-iingat\n- Gamitin ang **thimble** upang protektahan ang daliri\n- Itago ang **karayom** sa ligtas na lugar pagkatapos gamitin\n- Magsanay muna sa **lumang tela** bago sa tunay na proyekto\n\nMagaling sa Linggo 16! 🌟",
+        "quiz": [
+          {
+            "question": "Alin ang pinakasimpleng tahi?",
+            "options": [
+              "Running stitch",
+              "Back stitch",
+              "Blanket stitch",
+              "Whip stitch"
+            ],
+            "correct_answer": "Running stitch"
+          },
+          {
+            "question": "Aling tahi ang matibay dahil bumabalik ang karayom sa nakaraang butas?",
+            "options": [
+              "Back stitch",
+              "Running stitch",
+              "Baste stitch",
+              "Whip stitch"
+            ],
+            "correct_answer": "Back stitch"
+          },
+          {
+            "question": "Aling tahi ang pansamantala lamang at madaling tanggalin?",
+            "options": [
+              "Baste stitch",
+              "Back stitch",
+              "Blanket stitch",
+              "Whip stitch"
+            ],
+            "correct_answer": "Baste stitch"
+          },
+          {
+            "question": "Aling tahi ang ginagamit sa gilid ng tela upang hindi mag-unravel?",
+            "options": [
+              "Blanket stitch",
+              "Running stitch",
+              "Baste stitch",
+              "Back stitch"
+            ],
+            "correct_answer": "Blanket stitch"
+          },
+          {
+            "question": "Aling tahi ang maliliit na paikot na tahi sa gilid?",
+            "options": [
+              "Whip stitch",
+              "Back stitch",
+              "Baste stitch",
+              "Blanket stitch"
+            ],
+            "correct_answer": "Whip stitch"
+          },
+          {
+            "question": "Gusto mong pansamantalang idikit ang tela bago tahiin nang permanente. Anong tahi ang gagamitin?",
+            "options": [
+              "Baste stitch",
+              "Back stitch",
+              "Blanket stitch",
+              "Whip stitch"
+            ],
+            "correct_answer": "Baste stitch"
+          },
+          {
+            "question": "Gusto mong matibay ang tahi ng laylayan ng damit. Anong tahi ang pinakamainam?",
+            "options": [
+              "Back stitch",
+              "Baste stitch",
+              "Running stitch",
+              "Whip stitch"
+            ],
+            "correct_answer": "Back stitch"
+          },
+          {
+            "question": "Ano ang gamit ng running stitch?",
+            "options": [
+              "Pangkaraniwang pananahi at pagtitipon",
+              "Panandaliang pagdikit lamang",
+              "Panggilid na pananahi",
+              "Pangmatibay na tahi lamang"
+            ],
+            "correct_answer": "Pangkaraniwang pananahi at pagtitipon"
+          },
+          {
+            "question": "Bakit dapat gumamit ng thimble kapag tumatahi?",
+            "options": [
+              "Pinoprotektahan ang daliri mula sa tusok ng karayom",
+              "Pinapabilis nito ang pananahi",
+              "Pinapaganda nito ang tahi",
+              "Wala itong kaugnayan sa pananahi"
+            ],
+            "correct_answer": "Pinoprotektahan ang daliri mula sa tusok ng karayom"
+          },
+          {
+            "question": "Bakit dapat magsanay muna sa lumang tela bago sa tunay na proyekto?",
+            "options": [
+              "Upang mapraktis ang tamang pananahi",
+              "Upang matapos agad ang proyekto",
+              "Upang makatipid sa oras",
+              "Walang dahilan ito"
+            ],
+            "correct_answer": "Upang mapraktis ang tamang pananahi"
+          },
+          {
+            "question": "Aling dalawang tahi ang parehong ginagamit sa gilid ng tela?",
+            "options": [
+              "Blanket stitch at whip stitch",
+              "Running stitch at back stitch",
+              "Baste stitch at running stitch",
+              "Back stitch at baste stitch"
+            ],
+            "correct_answer": "Blanket stitch at whip stitch"
+          },
+          {
+            "question": "Isang estudyante ang gustong mabilis na idikit ang dalawang gilid ng tela nang permanente. Anong tahi ang pinakaangkop?",
+            "options": [
+              "Whip stitch",
+              "Baste stitch",
+              "Running stitch lamang",
+              "Walang angkop na tahi"
+            ],
+            "correct_answer": "Whip stitch"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🔤 Friday Review — English (Grade 5)\n\n- **Adverb suffixes:** -ly (how), -ward (direction), -wise (manner)\n- **Possessive noun** (Maria's) vs **Compound noun** (sunflower)\n- **Relative pronouns:** who (person), which (thing), that (either)\n- **Adverbs:** place, frequency, intensity\n\nGreat grammar work! 🌟",
+        "quiz": [
+          {
+            "question": "Which suffix turns a word into an adverb describing 'how'?",
+            "options": [
+              "-ly",
+              "-ward",
+              "-wise",
+              "-ing"
+            ],
+            "correct_answer": "-ly"
+          },
+          {
+            "question": "Which is a possessive noun?",
+            "options": [
+              "Maria's bag",
+              "classroom",
+              "quickly",
+              "which"
+            ],
+            "correct_answer": "Maria's bag"
+          },
+          {
+            "question": "Which is a compound noun?",
+            "options": [
+              "sunflower",
+              "quickly",
+              "very",
+              "which"
+            ],
+            "correct_answer": "sunflower"
+          },
+          {
+            "question": "\"The teacher who helped me is kind.\" Which word is the relative pronoun?",
+            "options": [
+              "who",
+              "teacher",
+              "helped",
+              "kind"
+            ],
+            "correct_answer": "who"
+          },
+          {
+            "question": "Which relative pronoun refers to a THING?",
+            "options": [
+              "which",
+              "who",
+              "quickly",
+              "everywhere"
+            ],
+            "correct_answer": "which"
+          },
+          {
+            "question": "Which word is an adverb of frequency?",
+            "options": [
+              "always",
+              "here",
+              "very",
+              "quickly"
+            ],
+            "correct_answer": "always"
+          },
+          {
+            "question": "Which word is an adverb of place?",
+            "options": [
+              "everywhere",
+              "always",
+              "very",
+              "quickly"
+            ],
+            "correct_answer": "everywhere"
+          },
+          {
+            "question": "Which word is an adverb of intensity?",
+            "options": [
+              "extremely",
+              "here",
+              "always",
+              "which"
+            ],
+            "correct_answer": "extremely"
+          },
+          {
+            "question": "Add -ly to 'quick' to form an adverb.",
+            "options": [
+              "quickly",
+              "quickward",
+              "quickwise",
+              "quicking"
+            ],
+            "correct_answer": "quickly"
+          },
+          {
+            "question": "\"The book, which I borrowed, is interesting.\" What does 'which' refer to?",
+            "options": [
+              "The book",
+              "The person",
+              "The library",
+              "The author"
+            ],
+            "correct_answer": "The book"
+          },
+          {
+            "question": "\"She is a teacher.\" What role does 'teacher' play in this sentence?",
+            "options": [
+              "Noun complement",
+              "Relative pronoun",
+              "Adverb of place",
+              "Compound noun"
+            ],
+            "correct_answer": "Noun complement"
+          },
+          {
+            "question": "Which suffix describes direction, as in 'homeward'?",
+            "options": [
+              "-ward",
+              "-ly",
+              "-wise",
+              "-ing"
+            ],
+            "correct_answer": "-ward"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 5)\n\n- Rounding: **5 or more rounds up**, digit to the right decides\n- Add/subtract decimals: line up **decimal points**, regroup as needed\n\n**Quick check:** 4.256 + 2.879 = **7.135**\n\nGreat decimal work! ⭐",
+        "quiz": [
+          {
+            "question": "Round 3.746 to the nearest hundredth.",
+            "options": [
+              "3.75",
+              "3.74",
+              "3.7",
+              "3.8"
+            ],
+            "correct_answer": "3.75"
+          },
+          {
+            "question": "Round 8.23 to the nearest whole number.",
+            "options": [
+              "8",
+              "9",
+              "8.2",
+              "8.3"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is 4.256 + 2.879?",
+            "options": [
+              "7.135",
+              "7.125",
+              "6.135",
+              "7.235"
+            ],
+            "correct_answer": "7.135"
+          },
+          {
+            "question": "What is 5.203 − 1.658?",
+            "options": [
+              "3.545",
+              "3.555",
+              "4.545",
+              "3.445"
+            ],
+            "correct_answer": "3.545"
+          },
+          {
+            "question": "Round 12.635 to the nearest tenth.",
+            "options": [
+              "12.6",
+              "12.7",
+              "13.0",
+              "12.5"
+            ],
+            "correct_answer": "12.6"
+          },
+          {
+            "question": "What is 9.4 − 3.756?",
+            "options": [
+              "5.644",
+              "5.744",
+              "6.644",
+              "5.634"
+            ],
+            "correct_answer": "5.644"
+          },
+          {
+            "question": "Ana bought items worth ₱125.475 and ₱89.325. What is the total?",
+            "options": [
+              "₱214.800",
+              "₱213.800",
+              "₱215.800",
+              "₱204.800"
+            ],
+            "correct_answer": "₱214.800"
+          },
+          {
+            "question": "When rounding, a digit of 5 or more means you round:",
+            "options": [
+              "up",
+              "down",
+              "to zero",
+              "to ten"
+            ],
+            "correct_answer": "up"
+          },
+          {
+            "question": "What is 15.09 + 6.911?",
+            "options": [
+              "22.001",
+              "21.001",
+              "22.101",
+              "21.901"
+            ],
+            "correct_answer": "22.001"
+          },
+          {
+            "question": "Round 0.847 to the nearest hundredth.",
+            "options": [
+              "0.85",
+              "0.84",
+              "0.8",
+              "0.9"
+            ],
+            "correct_answer": "0.85"
+          },
+          {
+            "question": "What is 20.000 − 8.375?",
+            "options": [
+              "11.625",
+              "11.725",
+              "12.625",
+              "11.635"
+            ],
+            "correct_answer": "11.625"
+          },
+          {
+            "question": "A runner's time improved from 42.658 seconds to 39.204 seconds. How much faster is the new time?",
+            "options": [
+              "3.454 seconds",
+              "3.554 seconds",
+              "3.444 seconds",
+              "2.454 seconds"
+            ],
+            "correct_answer": "3.454 seconds"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# ✍️ Biyernes na Balik-Aral — Filipino (Grade 5)\n\n- **Langkapang pangungusap** = punong sugnay + kaugnay na sugnay\n- **Antas pasukdol** = pinakamataas (higit sa dalawa ang inihahambing)\n- **Pang-abay kondisyonal:** gamit ang \"kung\"\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang langkapang pangungusap?",
+            "options": [
+              "May punong sugnay at kaugnay na sugnay",
+              "Isang salita lamang",
+              "Bantas sa dulo ng talata",
+              "Pangngalan sa pangungusap"
+            ],
+            "correct_answer": "May punong sugnay at kaugnay na sugnay"
+          },
+          {
+            "question": "Alin ang pang-uri sa antas pasukdol?",
+            "options": [
+              "Pinakamatangkad",
+              "Mataas",
+              "Mas mataas",
+              "Hindi mataas"
+            ],
+            "correct_answer": "Pinakamatangkad"
+          },
+          {
+            "question": "Kailan ginagamit ang antas pasukdol?",
+            "options": [
+              "Kapag higit sa dalawang bagay ang inihahambing",
+              "Kapag isang bagay lamang ang tinutukoy",
+              "Kapag walang inihahambing",
+              "Kapag pareho lamang ang dalawang bagay"
+            ],
+            "correct_answer": "Kapag higit sa dalawang bagay ang inihahambing"
+          },
+          {
+            "question": "Ano ang pang-abay na kondisyonal?",
+            "options": [
+              "Naglalarawan ng kondisyon gamit ang 'kung'",
+              "Naglalarawan ng lugar",
+              "Naglalarawan ng dami",
+              "Naglalarawan ng oras lamang"
+            ],
+            "correct_answer": "Naglalarawan ng kondisyon gamit ang 'kung'"
+          },
+          {
+            "question": "\"Kung mag-aaral ka, makakapasa ka.\" Anong uri ng pang-abay ang 'kung mag-aaral ka'?",
+            "options": [
+              "Kondisyonal",
+              "Panlunan",
+              "Pamanahon",
+              "Pamaraan"
+            ],
+            "correct_answer": "Kondisyonal"
+          },
+          {
+            "question": "Sa \"Kinain ni Ben ang tinapay,\" ano ang pokus ng pandiwa?",
+            "options": [
+              "Panlayon (object focus)",
+              "Pangkagamitan",
+              "Pamanggagawa",
+              "Panlunan"
+            ],
+            "correct_answer": "Panlayon (object focus)"
+          },
+          {
+            "question": "Sa \"Ipinunas ni Ana ang tela sa mesa,\" ano ang pokus ng pandiwa?",
+            "options": [
+              "Pangkagamitan, dahil binigyang-diin ang tela",
+              "Panlayon, dahil ang mesa ang layon",
+              "Pamanggagawa, dahil si Ana ang gumawa",
+              "Panlunan, dahil sa mesa ang tagpuan"
+            ],
+            "correct_answer": "Pangkagamitan, dahil binigyang-diin ang tela"
+          },
+          {
+            "question": "Tukuyin ang punong sugnay sa \"Nag-aral si Ana dahil gusto niyang pumasa.\"",
+            "options": [
+              "Nag-aral si Ana",
+              "dahil gusto niyang pumasa",
+              "gusto niyang pumasa",
+              "si Ana"
+            ],
+            "correct_answer": "Nag-aral si Ana"
+          },
+          {
+            "question": "Tukuyin ang kaugnay na sugnay sa \"Umuwi siya kaagad dahil umuulan.\"",
+            "options": [
+              "dahil umuulan",
+              "Umuwi siya kaagad",
+              "siya kaagad",
+              "Umuwi siya"
+            ],
+            "correct_answer": "dahil umuulan"
+          },
+          {
+            "question": "Alin ang halimbawa ng antas pahambing (hindi pasukdol)?",
+            "options": [
+              "Mas mataas",
+              "Pinakamataas",
+              "Mataas",
+              "Napakataas"
+            ],
+            "correct_answer": "Mas mataas"
+          },
+          {
+            "question": "Bakit hindi kompleto mag-isa ang kaugnay na sugnay?",
+            "options": [
+              "Umaasa ito sa punong sugnay para maunawaan",
+              "Wala itong kahulugan kailanman",
+              "Hindi ito gumagamit ng pandiwa",
+              "Palagi itong nasa simula ng pangungusap"
+            ],
+            "correct_answer": "Umaasa ito sa punong sugnay para maunawaan"
+          },
+          {
+            "question": "Si Ana ang pinakamatalino sa kanilang barkada. Ano ang ipinapakita ng 'pinakamatalino'?",
+            "options": [
+              "Siya ang pinakamataas kumpara sa lahat",
+              "Siya ay katulad lamang ng iba",
+              "Siya ay mas mababa sa iba",
+              "Wala itong kaugnayan sa paghahambing"
+            ],
+            "correct_answer": "Siya ang pinakamataas kumpara sa lahat"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🐾 Friday Review — Science (Grade 5)\n\n- **Viviparous** = live young | **Oviparous** = lays eggs\n- **Mimicry** (looks like another thing) · **Camouflage** (blends in) · **Protective coloration** (warns) · **Structural adaptation**\n- Mammals born live, birds hatch from eggs — both grow over time\n\nGreat scientist work! 🌟",
+        "quiz": [
+          {
+            "question": "What does 'viviparous' mean?",
+            "options": [
+              "Gives birth to live young",
+              "Lays eggs",
+              "Never reproduces",
+              "Only lives in water"
+            ],
+            "correct_answer": "Gives birth to live young"
+          },
+          {
+            "question": "What does 'oviparous' mean?",
+            "options": [
+              "Lays eggs that hatch outside the body",
+              "Gives birth to live young",
+              "Never reproduces",
+              "Only lives on land"
+            ],
+            "correct_answer": "Lays eggs that hatch outside the body"
+          },
+          {
+            "question": "Which animal is viviparous?",
+            "options": [
+              "Dog",
+              "Chicken",
+              "Frog",
+              "Turtle"
+            ],
+            "correct_answer": "Dog"
+          },
+          {
+            "question": "Which animal is oviparous?",
+            "options": [
+              "Chicken",
+              "Dog",
+              "Cat",
+              "Whale"
+            ],
+            "correct_answer": "Chicken"
+          },
+          {
+            "question": "A stick insect looks like a twig. What adaptation is this?",
+            "options": [
+              "Mimicry",
+              "Camouflage",
+              "Protective coloration",
+              "Structural adaptation"
+            ],
+            "correct_answer": "Mimicry"
+          },
+          {
+            "question": "A chameleon changes color to match leaves. What adaptation is this?",
+            "options": [
+              "Camouflage",
+              "Mimicry",
+              "Protective coloration",
+              "Structural adaptation"
+            ],
+            "correct_answer": "Camouflage"
+          },
+          {
+            "question": "A poisonous frog has bright orange skin. What is this an example of?",
+            "options": [
+              "Protective coloration",
+              "Camouflage",
+              "Mimicry",
+              "Structural adaptation"
+            ],
+            "correct_answer": "Protective coloration"
+          },
+          {
+            "question": "Sharp claws for digging is an example of:",
+            "options": [
+              "Structural adaptation",
+              "Camouflage",
+              "Mimicry",
+              "Protective coloration"
+            ],
+            "correct_answer": "Structural adaptation"
+          },
+          {
+            "question": "A snake is brown and blends with dry leaves. What adaptation is this?",
+            "options": [
+              "Camouflage",
+              "Mimicry",
+              "Protective coloration",
+              "Structural adaptation"
+            ],
+            "correct_answer": "Camouflage"
+          },
+          {
+            "question": "What do the life cycles of mammals and birds have in common?",
+            "options": [
+              "Both grow and develop over time",
+              "Both are always born alive",
+              "Both hatch from eggs always",
+              "Neither one grows or changes"
+            ],
+            "correct_answer": "Both grow and develop over time"
+          },
+          {
+            "question": "What is a key difference between mammal and bird life cycles?",
+            "options": [
+              "Mammals are born live, birds hatch from eggs",
+              "Both hatch from eggs",
+              "Both are born live",
+              "Neither one grows or changes"
+            ],
+            "correct_answer": "Mammals are born live, birds hatch from eggs"
+          },
+          {
+            "question": "A harmless insect has bright colors that look like a dangerous wasp. What adaptation helps it avoid predators?",
+            "options": [
+              "Mimicry",
+              "Camouflage only",
+              "A structural claw",
+              "Live birth"
+            ],
+            "correct_answer": "Mimicry"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🏛️ Biyernes na Balik-Aral — Araling Panlipunan (Grade 5)\n\n- **Gobernador-Heneral** → **Alcalde Mayor** → **Gobernadorcillo** → **Cabeza de Barangay**\n- **Encomienda, polo y servicio, bandala, tributo** = mga patakarang pang-ekonomiya\n- **Galleon Trade** = Maynila-Acapulco, nakinabang ang iilang Espanyol lamang\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Sino ang pinakamataas na opisyal ng Espanya sa Pilipinas?",
+            "options": [
+              "Gobernador-Heneral",
+              "Alcalde Mayor",
+              "Gobernadorcillo",
+              "Cabeza de Barangay"
+            ],
+            "correct_answer": "Gobernador-Heneral"
+          },
+          {
+            "question": "Sino ang pinuno ng isang barangay noong panahon ng Espanyol?",
+            "options": [
+              "Cabeza de Barangay",
+              "Gobernador-Heneral",
+              "Alcalde Mayor",
+              "Real Audiencia"
+            ],
+            "correct_answer": "Cabeza de Barangay"
+          },
+          {
+            "question": "Ano ang sistemang encomienda?",
+            "options": [
+              "Karapatang mangolekta ng buwis mula sa Pilipino",
+              "Sistema ng pagsasaka ng palay dito",
+              "Kasunduan sa Estados Unidos noon",
+              "Batas na laban sa pananakop noon"
+            ],
+            "correct_answer": "Karapatang mangolekta ng buwis mula sa Pilipino"
+          },
+          {
+            "question": "Ano ang polo y servicio?",
+            "options": [
+              "Sapilitang paggawa nang libre sa loob ng 40 araw",
+              "Buwis na binabayaran taon-taon",
+              "Sistema ng pagbebenta ng ani",
+              "Sistema ng kalakalan sa Mexico"
+            ],
+            "correct_answer": "Sapilitang paggawa nang libre sa loob ng 40 araw"
+          },
+          {
+            "question": "Ano ang bandala?",
+            "options": [
+              "Sapilitang pagbebenta ng ani sa mababang presyo",
+              "Sapilitang paggawa nang libre",
+              "Buwis na binabayaran taon-taon",
+              "Batas ukol sa relihiyon"
+            ],
+            "correct_answer": "Sapilitang pagbebenta ng ani sa mababang presyo"
+          },
+          {
+            "question": "Ano ang tributo?",
+            "options": [
+              "Taunang buwis na binabayaran ng pamilya",
+              "Uri lamang ng kalakalan noon",
+              "Sistema lamang ng edukasyon",
+              "Uri lamang ng ritwal noon"
+            ],
+            "correct_answer": "Taunang buwis na binabayaran ng pamilya"
+          },
+          {
+            "question": "Ano ang Galleon Trade?",
+            "options": [
+              "Kalakalan sa pagitan ng Maynila at Acapulco",
+              "Kalakalan sa pagitan ng Pilipinas at Tsina lamang",
+              "Isang batas laban sa buwis",
+              "Isang uri ng edukasyon"
+            ],
+            "correct_answer": "Kalakalan sa pagitan ng Maynila at Acapulco"
+          },
+          {
+            "question": "Sino ang nakinabang sa Galleon Trade?",
+            "options": [
+              "Iilang Espanyol",
+              "Lahat ng Pilipino nang pantay",
+              "Mga katutubong pinuno lamang",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Iilang Espanyol"
+          },
+          {
+            "question": "Bakit itinuturing na mabigat ang polo y servicio?",
+            "options": [
+              "Kinailangan magtrabaho nang libre sa 40 araw",
+              "Ito ay boluntaryong gawain lamang",
+              "Binabayaran ito nang mataas noon",
+              "Isang beses lamang ito ginagawa"
+            ],
+            "correct_answer": "Kinailangan magtrabaho nang libre sa 40 araw"
+          },
+          {
+            "question": "Ano ang Real Audiencia?",
+            "options": [
+              "Mataas na hukuman",
+              "Pinuno ng barangay",
+              "Pinuno ng bayan",
+              "Batas laban sa buwis"
+            ],
+            "correct_answer": "Mataas na hukuman"
+          },
+          {
+            "question": "Ano ang naging kabuuang epekto ng mga patakarang kolonyal na ito?",
+            "options": [
+              "Nagdulot ito ng pagsasamantala at pag-aalsa",
+              "Napasaya nito ang lahat ng Pilipino",
+              "Wala itong naging epekto",
+              "Naging mas mayaman ang lahat ng Pilipino"
+            ],
+            "correct_answer": "Nagdulot ito ng pagsasamantala at pag-aalsa"
+          },
+          {
+            "question": "Sino ang pinuno ng isang lalawigan noong panahon ng Espanyol?",
+            "options": [
+              "Alcalde Mayor",
+              "Cabeza de Barangay",
+              "Gobernadorcillo",
+              "Real Audiencia"
+            ],
+            "correct_answer": "Alcalde Mayor"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🖥️ Friday Review — EPP (ICT) (Grade 5)\n\n- **Slide** = pahina ng presentation\n- **Animation** (loob ng slide) vs **Transition** (paglipat ng slide)\n- **Insert tab** para sa audio/video\n- Huwag sobrahan ang animation — nakakagambala ito\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang slide?",
+            "options": [
+              "Isang 'pahina' ng presentation",
+              "Isang uri ng tunog",
+              "Isang uri ng larawan lamang",
+              "Isang uri ng dokumento"
+            ],
+            "correct_answer": "Isang 'pahina' ng presentation"
+          },
+          {
+            "question": "Ano ang animation sa presentation?",
+            "options": [
+              "Paggalaw ng teksto o larawan sa isang slide",
+              "Paglipat mula sa isang slide papunta sa iba",
+              "Tunog na naka-embed",
+              "Video na naka-embed"
+            ],
+            "correct_answer": "Paggalaw ng teksto o larawan sa isang slide"
+          },
+          {
+            "question": "Ano ang slide transition?",
+            "options": [
+              "Epekto sa paglipat mula slide patungo sa slide",
+              "Paggalaw ng teksto sa loob ng slide",
+              "Tunog na naka-embed",
+              "Kulay ng background"
+            ],
+            "correct_answer": "Epekto sa paglipat mula slide patungo sa slide"
+          },
+          {
+            "question": "Saan mo pipiliin ang epekto ng animation?",
+            "options": [
+              "Animations tab",
+              "Transitions tab",
+              "Insert tab lamang",
+              "File tab"
+            ],
+            "correct_answer": "Animations tab"
+          },
+          {
+            "question": "Saan mo pipiliin ang epekto ng slide transition?",
+            "options": [
+              "Transitions tab",
+              "Animations tab",
+              "Insert tab lamang",
+              "File tab"
+            ],
+            "correct_answer": "Transitions tab"
+          },
+          {
+            "question": "Saan mo idadagdag ang audio o video?",
+            "options": [
+              "Insert tab",
+              "Animations tab",
+              "Transitions tab",
+              "Design tab lamang"
+            ],
+            "correct_answer": "Insert tab"
+          },
+          {
+            "question": "Gusto mong lumitaw ang bawat punto ng listahan nang paisa-isa. Ano ang gagamitin mo?",
+            "options": [
+              "Animation",
+              "Slide transition lamang",
+              "Audio lamang",
+              "Video lamang"
+            ],
+            "correct_answer": "Animation"
+          },
+          {
+            "question": "Gusto mong may makinis na epekto sa paglipat mula slide 1 papunta sa slide 2. Ano ang gagamitin mo?",
+            "options": [
+              "Slide transition",
+              "Animation lamang",
+              "Audio lamang",
+              "Video lamang"
+            ],
+            "correct_answer": "Slide transition"
+          },
+          {
+            "question": "Bakit hindi dapat sobrahan ang animation?",
+            "options": [
+              "Makakagambala ito sa mensahe",
+              "Mas mabilis itong gawin",
+              "Wala itong dahilan",
+              "Mas maganda ito palagi"
+            ],
+            "correct_answer": "Makakagambala ito sa mensahe"
+          },
+          {
+            "question": "Ano ang dapat isaalang-alang sa pagpili ng audio o video?",
+            "options": [
+              "Dapat may kaugnayan sa paksa",
+              "Dapat ito ang pinakamahaba",
+              "Dapat ito ay random lamang",
+              "Dapat walang kaugnayan sa paksa"
+            ],
+            "correct_answer": "Dapat may kaugnayan sa paksa"
+          },
+          {
+            "question": "Ano ang halimbawa ng epekto ng animation?",
+            "options": [
+              "Fade In",
+              "Push",
+              "Wipe",
+              "Common Time"
+            ],
+            "correct_answer": "Fade In"
+          },
+          {
+            "question": "Isang mag-aaral ang gumamit ng maraming animation sa bawat salita sa kanyang slide. Ano ang problema dito?",
+            "options": [
+              "Nagiging magulo at nakakagambala ito",
+              "Wala itong problema",
+              "Mas propesyonal ito tingnan",
+              "Nagpapabilis ito ng presentation"
+            ],
+            "correct_answer": "Nagiging magulo at nakakagambala ito"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 💪 Friday Review — MAPEH (Grade 5)\n\n- Only take medicine from a **doctor or trusted adult** — never someone else's, never extra\n- Misuse = using medicine the wrong way\n- **2/4 time** = 2 beats per measure | **Galaw Pilipinas** = DepEd fitness dance\n\nGreat work! 🌟",
+        "quiz": [
+          {
+            "question": "Who should give you medicine to take?",
+            "options": [
+              "A doctor or trusted adult",
+              "Any classmate",
+              "Yourself, without asking",
+              "A stranger who offers"
+            ],
+            "correct_answer": "A doctor or trusted adult"
+          },
+          {
+            "question": "What is medicine misuse?",
+            "options": [
+              "Using medicine the wrong way",
+              "Taking medicine exactly as prescribed",
+              "Asking a doctor for advice",
+              "Telling an adult about side effects"
+            ],
+            "correct_answer": "Using medicine the wrong way"
+          },
+          {
+            "question": "You have a headache and find medicine in the cabinet. What should you do?",
+            "options": [
+              "Ask a trusted adult first",
+              "Take it right away yourself",
+              "Take extra to feel better faster",
+              "Give some to a friend too"
+            ],
+            "correct_answer": "Ask a trusted adult first"
+          },
+          {
+            "question": "Your friend offers you an unfamiliar pill. What should you do?",
+            "options": [
+              "Say no and tell a trusted adult",
+              "Take it to be polite",
+              "Keep it a secret",
+              "Share it with others"
+            ],
+            "correct_answer": "Say no and tell a trusted adult"
+          },
+          {
+            "question": "Why is it dangerous to take someone else's medicine?",
+            "options": [
+              "It may not be safe or right for your body",
+              "It always works better for everyone",
+              "It has no possible risk at all",
+              "It is always the same as your own medicine"
+            ],
+            "correct_answer": "It may not be safe or right for your body"
+          },
+          {
+            "question": "What should you do if you feel strange after taking medicine?",
+            "options": [
+              "Tell an adult right away",
+              "Keep it to yourself",
+              "Take more medicine",
+              "Ignore the feeling completely"
+            ],
+            "correct_answer": "Tell an adult right away"
+          },
+          {
+            "question": "How many beats are in a 2/4 time signature?",
+            "options": [
+              "2 beats",
+              "4 beats",
+              "3 beats",
+              "6 beats"
+            ],
+            "correct_answer": "2 beats"
+          },
+          {
+            "question": "What is Galaw Pilipinas?",
+            "options": [
+              "A DepEd fitness dance program",
+              "A type of medicine",
+              "A math formula",
+              "A science experiment"
+            ],
+            "correct_answer": "A DepEd fitness dance program"
+          },
+          {
+            "question": "What should you wear for a dance activity?",
+            "options": [
+              "Comfortable clothing and shoes",
+              "Formal dress shoes",
+              "Heavy winter clothing",
+              "No shoes at all"
+            ],
+            "correct_answer": "Comfortable clothing and shoes"
+          },
+          {
+            "question": "Why should you warm up before dancing?",
+            "options": [
+              "To prepare your body and avoid injury",
+              "To make the dance longer",
+              "To skip the actual dance steps",
+              "To avoid following the rhythm"
+            ],
+            "correct_answer": "To prepare your body and avoid injury"
+          },
+          {
+            "question": "What is the safest rule about taking medicine?",
+            "options": [
+              "Only take what a trusted adult gives you as instructed",
+              "Take any medicine that looks helpful",
+              "Take medicine whenever you feel like it",
+              "Take double the dose to feel better faster"
+            ],
+            "correct_answer": "Only take what a trusted adult gives you as instructed"
+          },
+          {
+            "question": "A classmate says taking extra vitamins will make you stronger faster. What should you do?",
+            "options": [
+              "Ask a trusted adult before taking more than instructed",
+              "Take as many as your classmate suggests",
+              "Take them secretly at home",
+              "Share your own vitamins with others"
+            ],
+            "correct_answer": "Ask a trusted adult before taking more than instructed"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 Biyernes na Balik-Aral — GMRC (Grade 5)\n\n- **OFW** = Pilipinong nagtatrabaho sa ibang bansa para sa pamilya\n- **Sakripisyo:** malayo sa pamilya, nag-iisa sa mahahalagang araw\n- **Pasasalamat:** regular na pakikipag-usap, pagsisikap sa pag-aaral\n\nMagaling! 💫",
+        "quiz": [
+          {
+            "question": "Sino ang OFW?",
+            "options": [
+              "Pilipinong nagtatrabaho sa ibang bansa",
+              "Guro na nagtuturo sa paaralan",
+              "Doktor na nagtatrabaho sa ospital",
+              "Pulis na nagbabantay sa komunidad"
+            ],
+            "correct_answer": "Pilipinong nagtatrabaho sa ibang bansa"
+          },
+          {
+            "question": "Ano ang pangunahing dahilan kung bakit nagtatrabaho sa ibang bansa ang mga OFW?",
+            "options": [
+              "Upang suportahan ang kanilang pamilya",
+              "Upang makapaglakbay lamang",
+              "Upang makalimutan ang Pilipinas",
+              "Upang iwasan ang pamilya"
+            ],
+            "correct_answer": "Upang suportahan ang kanilang pamilya"
+          },
+          {
+            "question": "Ano ang sakripisyo ng mga OFW?",
+            "options": [
+              "Malayo sa pamilya, nag-iisa sa mahahalagang araw",
+              "Palaging kasama ang buong pamilya",
+              "Walang anumang hirap sa trabaho",
+              "Palaging nasa Pilipinas silang lahat"
+            ],
+            "correct_answer": "Malayo sa pamilya, nag-iisa sa mahahalagang araw"
+          },
+          {
+            "question": "Paano nakatutulong ang mga OFW sa ekonomiya ng Pilipinas?",
+            "options": [
+              "Sa pamamagitan ng remittances",
+              "Sa pamamagitan ng pagboto",
+              "Sa pamamagitan ng pagtuturo",
+              "Sa pamamagitan ng pagsulat ng batas"
+            ],
+            "correct_answer": "Sa pamamagitan ng remittances"
+          },
+          {
+            "question": "Ang tatay mo ay OFW sa Saudi Arabia. Ano ang mabuting gawin upang ipakita ang pasasalamat?",
+            "options": [
+              "Regular na makipag-usap at magsikap sa pag-aaral",
+              "Kalimutan siya at huwag makipag-usap",
+              "Gastusin ang lahat ng ipinadala niya nang basta-basta",
+              "Huwag nang mag-aral pa"
+            ],
+            "correct_answer": "Regular na makipag-usap at magsikap sa pag-aaral"
+          },
+          {
+            "question": "Bakit itinuturing na sakripisyo ang pagiging OFW?",
+            "options": [
+              "Lumalayo sila para sa magandang buhay",
+              "Wala itong hirap kahit kailan",
+              "Palagi silang nasa piyesta",
+              "Hindi ito nakaaapekto sa kanila"
+            ],
+            "correct_answer": "Lumalayo sila para sa magandang buhay"
+          },
+          {
+            "question": "Ano ang remittance?",
+            "options": [
+              "Pera na ipinapadala ng OFW sa pamilya sa Pilipinas",
+              "Buwis na binabayaran ng pamilya",
+              "Sahod ng guro sa paaralan",
+              "Gastos sa pang-araw-araw na pamumuhay"
+            ],
+            "correct_answer": "Pera na ipinapadala ng OFW sa pamilya sa Pilipinas"
+          },
+          {
+            "question": "Paano makapagpapakita ng pasasalamat sa OFW nang malayo?",
+            "options": [
+              "Sa pamamagitan ng video call at mensahe",
+              "Sa pamamagitan ng pagbabalewala sa kanila",
+              "Sa pamamagitan ng pagsisinungaling sa kanila",
+              "Sa pamamagitan ng hindi pagsagot sa kanilang tawag"
+            ],
+            "correct_answer": "Sa pamamagitan ng video call at mensahe"
+          },
+          {
+            "question": "Bakit itinuturing na inspirasyon ang mga OFW?",
+            "options": [
+              "Ipinapakita nila ang sipag at pagmamahal sa pamilya",
+              "Wala silang naiaambag sa lipunan",
+              "Sila lamang ang mahalaga sa lipunan",
+              "Wala itong kaugnayan sa pamilya"
+            ],
+            "correct_answer": "Ipinapakita nila ang sipag at pagmamahal sa pamilya"
+          },
+          {
+            "question": "Ano ang mabuting gawin habang wala ang OFW na magulang sa bahay?",
+            "options": [
+              "Tumulong sa gawaing bahay",
+              "Kalimutan ang gawaing bahay",
+              "Magreklamo sa kanilang pagkawala",
+              "Huwag makipag-usap sa ibang kapamilya"
+            ],
+            "correct_answer": "Tumulong sa gawaing bahay"
+          },
+          {
+            "question": "Bakit hindi dapat balewalain ang sakripisyo ng mga OFW?",
+            "options": [
+              "Dapat itong igalang at pahalagahan",
+              "Wala itong kabuluhan sa atin",
+              "Ito ay karaniwang gawain lamang",
+              "Hindi ito nangangailangan ng pagpapahalaga"
+            ],
+            "correct_answer": "Dapat itong igalang at pahalagahan"
+          },
+          {
+            "question": "Isang batang anak ng OFW ang nag-aral nang mabuti bilang paraan ng pasasalamat. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagpapahalaga sa sakripisyo ng magulang",
+              "Kawalang-interes sa magulang",
+              "Kapabayaan sa pag-aaral",
+              "Kawalan ng pasasalamat"
+            ],
+            "correct_answer": "Pagpapahalaga sa sakripisyo ng magulang"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 Friday Review — EPP (AFA/FCS/IA) (Grade 5)\n\n- **Running stitch** (simple) · **Back stitch** (matibay) · **Baste stitch** (pansamantala)\n- **Blanket stitch** (panggilid) · **Whip stitch** (mabilis na pagdikit)\n- Gumamit ng **thimble** at magsanay sa lumang tela muna\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Alin ang pinakasimpleng tahi?",
+            "options": [
+              "Running stitch",
+              "Back stitch",
+              "Blanket stitch",
+              "Whip stitch"
+            ],
+            "correct_answer": "Running stitch"
+          },
+          {
+            "question": "Aling tahi ang matibay dahil bumabalik ang karayom sa nakaraang butas?",
+            "options": [
+              "Back stitch",
+              "Running stitch",
+              "Baste stitch",
+              "Whip stitch"
+            ],
+            "correct_answer": "Back stitch"
+          },
+          {
+            "question": "Aling tahi ang pansamantala lamang at madaling tanggalin?",
+            "options": [
+              "Baste stitch",
+              "Back stitch",
+              "Blanket stitch",
+              "Whip stitch"
+            ],
+            "correct_answer": "Baste stitch"
+          },
+          {
+            "question": "Aling tahi ang ginagamit sa gilid ng tela upang hindi mag-unravel?",
+            "options": [
+              "Blanket stitch",
+              "Running stitch",
+              "Baste stitch",
+              "Back stitch"
+            ],
+            "correct_answer": "Blanket stitch"
+          },
+          {
+            "question": "Aling tahi ang maliliit na paikot na tahi sa gilid?",
+            "options": [
+              "Whip stitch",
+              "Back stitch",
+              "Baste stitch",
+              "Blanket stitch"
+            ],
+            "correct_answer": "Whip stitch"
+          },
+          {
+            "question": "Gusto mong pansamantalang idikit ang tela bago tahiin nang permanente. Anong tahi ang gagamitin?",
+            "options": [
+              "Baste stitch",
+              "Back stitch",
+              "Blanket stitch",
+              "Whip stitch"
+            ],
+            "correct_answer": "Baste stitch"
+          },
+          {
+            "question": "Gusto mong matibay ang tahi ng laylayan ng damit. Anong tahi ang pinakamainam?",
+            "options": [
+              "Back stitch",
+              "Baste stitch",
+              "Running stitch",
+              "Whip stitch"
+            ],
+            "correct_answer": "Back stitch"
+          },
+          {
+            "question": "Ano ang gamit ng running stitch?",
+            "options": [
+              "Pangkaraniwang pananahi at pagtitipon",
+              "Panandaliang pagdikit lamang",
+              "Panggilid na pananahi",
+              "Pangmatibay na tahi lamang"
+            ],
+            "correct_answer": "Pangkaraniwang pananahi at pagtitipon"
+          },
+          {
+            "question": "Bakit dapat gumamit ng thimble kapag tumatahi?",
+            "options": [
+              "Pinoprotektahan ang daliri mula sa tusok ng karayom",
+              "Pinapabilis nito ang pananahi",
+              "Pinapaganda nito ang tahi",
+              "Wala itong kaugnayan sa pananahi"
+            ],
+            "correct_answer": "Pinoprotektahan ang daliri mula sa tusok ng karayom"
+          },
+          {
+            "question": "Bakit dapat magsanay muna sa lumang tela bago sa tunay na proyekto?",
+            "options": [
+              "Upang mapraktis ang tamang pananahi",
+              "Upang matapos agad ang proyekto",
+              "Upang makatipid sa oras",
+              "Walang dahilan ito"
+            ],
+            "correct_answer": "Upang mapraktis ang tamang pananahi"
+          },
+          {
+            "question": "Aling dalawang tahi ang parehong ginagamit sa gilid ng tela?",
+            "options": [
+              "Blanket stitch at whip stitch",
+              "Running stitch at back stitch",
+              "Baste stitch at running stitch",
+              "Back stitch at baste stitch"
+            ],
+            "correct_answer": "Blanket stitch at whip stitch"
+          },
+          {
+            "question": "Isang estudyante ang gustong mabilis na idikit ang dalawang gilid ng tela nang permanente. Anong tahi ang pinakaangkop?",
+            "options": [
+              "Whip stitch",
+              "Baste stitch",
+              "Running stitch lamang",
+              "Walang angkop na tahi"
+            ],
+            "correct_answer": "Whip stitch"
+          }
+        ]
+      }
+    }
+  }
+}

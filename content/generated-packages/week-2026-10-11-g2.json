@@ -1,0 +1,1766 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-10-11",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🔢 English — Sequencing Events and Text Types\n\nGrade 2, Week 18! Let's put story events in order and learn about text types. 📖\n\n## 🔢 Sequencing 3-4 Events\nWhen we **sequence**, we put events **in the order they happened**. Look for order words: **first, next, then, after that, finally**.\n\n**Example:** *\"First, Ana woke up. Next, she brushed her teeth. Then, she ate breakfast. Finally, she went to school.\"*\n\n## 📋 Noticing Important Details\nWhen reading, look for **3 to 4 important details** that tell you the most about the text.\n\n## 📚 Types of Informational Text\n| Type | What It Does |\n|---|---|\n| **Time-order text** | tells events in the order they happened |\n| **Procedural text** | tells the steps to do something (like a recipe) |\n| **Descriptive text** | describes what something looks, sounds, or feels like |\n\n## 🧠 Worked Example\n*Read: \"To make a sandwich: First, get two slices of bread. Next, spread the peanut butter. Then, put the slices together.\" What type of text is this?*\n- **Procedural text** — it tells the **steps** to do something.\n\n## 🧠 Worked Example 2\n*Read: \"The mango is yellow, sweet, and smooth.\" What type of text is this?*\n- **Descriptive text** — it **describes** what the mango is like.\n\nGreat reading detective work! 🌟",
+        "quiz": [
+          {
+            "question": "What does it mean to sequence events?",
+            "options": [
+              "To put events in the order they happened",
+              "To draw a picture of the events",
+              "To count how many events there are",
+              "To find the title of the story"
+            ],
+            "correct_answer": "To put events in the order they happened"
+          },
+          {
+            "question": "Which word signals the FIRST event in a sequence?",
+            "options": [
+              "First",
+              "Then",
+              "After that",
+              "Finally"
+            ],
+            "correct_answer": "First"
+          },
+          {
+            "question": "Which word signals the LAST event in a sequence?",
+            "options": [
+              "Finally",
+              "First",
+              "Next",
+              "Before"
+            ],
+            "correct_answer": "Finally"
+          },
+          {
+            "question": "\"First, Ana woke up. Next, she brushed her teeth. Then, she ate breakfast.\" What happened SECOND?",
+            "options": [
+              "She brushed her teeth",
+              "She woke up",
+              "She ate breakfast",
+              "She went to school"
+            ],
+            "correct_answer": "She brushed her teeth"
+          },
+          {
+            "question": "What is a procedural text?",
+            "options": [
+              "A text that tells the steps to do something",
+              "A text that describes how something looks",
+              "A text about made-up characters",
+              "A text with no order at all"
+            ],
+            "correct_answer": "A text that tells the steps to do something"
+          },
+          {
+            "question": "What is a descriptive text?",
+            "options": [
+              "A text that describes what something looks, sounds, or feels like",
+              "A text that only lists numbers",
+              "A text that gives step-by-step directions",
+              "A text with no details at all"
+            ],
+            "correct_answer": "A text that describes what something looks, sounds, or feels like"
+          },
+          {
+            "question": "\"To make a sandwich: First, get bread. Next, spread peanut butter.\" What type of text is this?",
+            "options": [
+              "Procedural text",
+              "Descriptive text",
+              "Time-order text about history",
+              "A poem about food"
+            ],
+            "correct_answer": "Procedural text"
+          },
+          {
+            "question": "\"The mango is yellow, sweet, and smooth.\" What type of text is this?",
+            "options": [
+              "Descriptive text",
+              "Procedural text",
+              "A set of instructions",
+              "A sequence of events"
+            ],
+            "correct_answer": "Descriptive text"
+          },
+          {
+            "question": "What is a time-order text?",
+            "options": [
+              "A text that tells events in the order they happened",
+              "A text that only describes colors",
+              "A text with no events at all",
+              "A text that lists ingredients only"
+            ],
+            "correct_answer": "A text that tells events in the order they happened"
+          },
+          {
+            "question": "How many important details should you look for while reading?",
+            "options": [
+              "3 to 4 important details",
+              "Only 1 detail",
+              "Every single word",
+              "None at all"
+            ],
+            "correct_answer": "3 to 4 important details"
+          },
+          {
+            "question": "Which sentence uses a sequencing word?",
+            "options": [
+              "After that, she opened the door.",
+              "The door is blue.",
+              "She likes the color blue.",
+              "The door is made of wood."
+            ],
+            "correct_answer": "After that, she opened the door."
+          },
+          {
+            "question": "Why is sequencing important when telling a story?",
+            "options": [
+              "It helps the listener understand the order of events clearly",
+              "It makes the story much shorter than before",
+              "It removes all the characters from the story",
+              "It changes the story's ending completely"
+            ],
+            "correct_answer": "It helps the listener understand the order of events clearly"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ✖️ Mathematics — Multiplication as Repeated Addition\n\nGrade 2, Week 18! Let's learn a faster way to add equal groups. ➕➕➕\n\n## 🍎 What Is Repeated Addition?\nWhen you add the **same number** over and over, that's **repeated addition**.\n\n**Example:** 3 + 3 + 3 + 3 + 3 = 15\n\n## 🔢 Equal Groups\nWe can describe repeated addition using **equal groups**:\n- **\"5 groups of 3\"** means 5 groups, each with 3 items\n- We can also say **\"5 threes\"**\n\n**Picture it:** 🍎🍎🍎  🍎🍎🍎  🍎🍎🍎  🍎🍎🍎  🍎🍎🍎 = 5 groups of 3 = 15 apples\n\n## 🧮 Writing It as Multiplication\n\"5 groups of 3\" can be written as **5 × 3 = 15** (this is the same as 3+3+3+3+3).\n\n## 🧠 Worked Example 1\n*There are 4 baskets. Each basket has 2 mangoes. How many mangoes in all?*\n- 4 groups of 2 → 2 + 2 + 2 + 2 = **8 mangoes**\n\n## 🧠 Worked Example 2\n*Write \"6 groups of 4\" as repeated addition.*\n- 4 + 4 + 4 + 4 + 4 + 4 = **24**\n\n## 🖼️ Models We Can Use\n- **Concrete objects** — actual counters or blocks in groups\n- **Pictures** — drawings of groups of objects\n- **Number line** — jumping by the same amount repeatedly\n\nGreat counting work! ⭐",
+        "quiz": [
+          {
+            "question": "What is repeated addition?",
+            "options": [
+              "Adding the same number over and over",
+              "Subtracting numbers one at a time",
+              "Counting backwards from ten",
+              "Dividing a number into halves"
+            ],
+            "correct_answer": "Adding the same number over and over"
+          },
+          {
+            "question": "What does \"5 groups of 3\" mean?",
+            "options": [
+              "5 groups, each with 3 items",
+              "3 groups, each with 5 items",
+              "A single group of 8 items",
+              "5 items total"
+            ],
+            "correct_answer": "5 groups, each with 3 items"
+          },
+          {
+            "question": "Write \"5 groups of 3\" as repeated addition.",
+            "options": [
+              "3 + 3 + 3 + 3 + 3",
+              "5 + 5 + 5",
+              "3 + 5",
+              "5 + 3 + 3"
+            ],
+            "correct_answer": "3 + 3 + 3 + 3 + 3"
+          },
+          {
+            "question": "What is the value of 3 + 3 + 3 + 3 + 3?",
+            "options": [
+              "15",
+              "12",
+              "18",
+              "9"
+            ],
+            "correct_answer": "15"
+          },
+          {
+            "question": "There are 4 baskets, each with 2 mangoes. How many mangoes in all?",
+            "options": [
+              "8 mangoes",
+              "6 mangoes",
+              "10 mangoes",
+              "4 mangoes"
+            ],
+            "correct_answer": "8 mangoes"
+          },
+          {
+            "question": "Write \"6 groups of 4\" as repeated addition.",
+            "options": [
+              "4 + 4 + 4 + 4 + 4 + 4",
+              "6 + 6 + 6 + 6",
+              "4 + 6",
+              "6 + 4 + 4"
+            ],
+            "correct_answer": "4 + 4 + 4 + 4 + 4 + 4"
+          },
+          {
+            "question": "What is the value of 4 + 4 + 4 + 4 + 4 + 4?",
+            "options": [
+              "24",
+              "20",
+              "28",
+              "16"
+            ],
+            "correct_answer": "24"
+          },
+          {
+            "question": "What is another way to say \"5 groups of 3\"?",
+            "options": [
+              "5 threes",
+              "3 fives added once",
+              "5 divided by 3",
+              "3 minus 5"
+            ],
+            "correct_answer": "5 threes"
+          },
+          {
+            "question": "Which model can be used to show repeated addition?",
+            "options": [
+              "Concrete objects, pictures, or a number line",
+              "A calculator app with no pictures shown",
+              "Spoken words with no pictures at all",
+              "A wall clock hanging in the classroom"
+            ],
+            "correct_answer": "Concrete objects, pictures, or a number line"
+          },
+          {
+            "question": "There are 3 rows of chairs with 5 chairs in each row. How many chairs in all?",
+            "options": [
+              "15 chairs",
+              "8 chairs",
+              "10 chairs",
+              "20 chairs"
+            ],
+            "correct_answer": "15 chairs"
+          },
+          {
+            "question": "What is \"2 groups of 6\" written as repeated addition?",
+            "options": [
+              "6 + 6",
+              "2 + 2 + 2 + 2 + 2 + 2",
+              "6 + 2",
+              "2 + 6"
+            ],
+            "correct_answer": "6 + 6"
+          },
+          {
+            "question": "Why is repeated addition useful for equal groups?",
+            "options": [
+              "It helps count the total quickly when groups have the same amount",
+              "It only works when groups are different sizes",
+              "It replaces the need for counting altogether",
+              "It only works with the number 1"
+            ],
+            "correct_answer": "It helps count the total quickly when groups have the same amount"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📖 Filipino — Pagsunod sa Pangyayari at Pangunahing Ideya\n\nGrade 2, Linggo 18! Alamin natin ang pagkakasunod-sunod ng pangyayari sa kuwento. 📚\n\n## 🔢 Pagsunod sa Pangyayari (Sequencing)\nAng **pagkakasunod-sunod** ay ang **wastong ayos** ng mga pangyayari sa isang kuwento o proseso — 3 hanggang 4 na pangyayari.\n\n**Mga salitang pananda:** una, sunod, pagkatapos, sa wakas\n\n**Halimbawa:** *\"Una, gumising si Maria. Sunod, naligo siya. Pagkatapos, kumain siya ng almusal. Sa wakas, pumasok siya sa paaralan.\"*\n\n## 🔄 Muling Pagsasalaysay\nAng **muling pagsasalaysay** ay ang **pagkukuwento ulit** ng isang kuwento gamit ang sariling salita, sinusunod ang tamang ayos ng pangyayari.\n\n## 💡 Pangunahing Ideya\nAng **pangunahing ideya** ay ang **pinakamahalagang punto** ng isang maikling talata.\n\n## 🧠 Halimbawa 1\n*\"Una, pumunta si Ben sa palengke. Sunod, bumili siya ng gulay. Pagkatapos, umuwi siya.\" Ano ang nangyari SUNOD?*\n- **Bumili siya ng gulay** — ito ang pangalawang pangyayari.\n\n## 🧠 Halimbawa 2\n*Basahin: \"Ang paaralan namin ay malinis at maganda. Maraming puno at halaman sa paligid. Masaya kaming mag-aral doon.\" Ano ang pangunahing ideya?*\n- **Ang paaralan ay malinis, maganda, at masaya pag-aralan.**\n\nMagaling sa pagbasa! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pagkakasunod-sunod ng pangyayari?",
+            "options": [
+              "Ang wastong ayos ng mga pangyayari sa kuwento",
+              "Ang bilang ng mga tauhan sa kuwento",
+              "Ang pamagat ng kuwento",
+              "Ang haba ng kuwento"
+            ],
+            "correct_answer": "Ang wastong ayos ng mga pangyayari sa kuwento"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang salitang pananda ng UNANG pangyayari?",
+            "options": [
+              "Una",
+              "Sunod",
+              "Pagkatapos",
+              "Sa wakas"
+            ],
+            "correct_answer": "Una"
+          },
+          {
+            "question": "Alin ang salitang pananda ng HULING pangyayari?",
+            "options": [
+              "Sa wakas",
+              "Una",
+              "Sunod",
+              "Pagkatapos ng una"
+            ],
+            "correct_answer": "Sa wakas"
+          },
+          {
+            "question": "\"Una, gumising si Maria. Sunod, naligo siya. Pagkatapos, kumain siya.\" Ano ang ikatlong pangyayari?",
+            "options": [
+              "Kumain siya ng almusal",
+              "Gumising siya",
+              "Naligo siya",
+              "Pumasok siya sa paaralan"
+            ],
+            "correct_answer": "Kumain siya ng almusal"
+          },
+          {
+            "question": "Ano ang muling pagsasalaysay?",
+            "options": [
+              "Pagkukuwento ulit gamit ang sariling salita",
+              "Pagguhit ng bagong kuwento",
+              "Pagbabasa nang tahimik lamang",
+              "Pagsulat ng bagong pamagat"
+            ],
+            "correct_answer": "Pagkukuwento ulit gamit ang sariling salita"
+          },
+          {
+            "question": "Ano ang pangunahing ideya ng isang talata?",
+            "options": [
+              "Ang pinakamahalagang punto ng talata",
+              "Ang huling salita ng talata",
+              "Ang bilang ng pangungusap",
+              "Ang kulay ng papel"
+            ],
+            "correct_answer": "Ang pinakamahalagang punto ng talata"
+          },
+          {
+            "question": "\"Una, pumunta si Ben sa palengke. Sunod, bumili siya ng gulay. Pagkatapos, umuwi siya.\" Ano ang nangyari SUNOD?",
+            "options": [
+              "Bumili siya ng gulay",
+              "Pumunta siya sa palengke",
+              "Umuwi siya",
+              "Naligo siya"
+            ],
+            "correct_answer": "Bumili siya ng gulay"
+          },
+          {
+            "question": "Basahin: \"Ang paaralan namin ay malinis at maganda. Masaya kaming mag-aral doon.\" Ano ang pangunahing ideya?",
+            "options": [
+              "Ang paaralan ay malinis, maganda, at masaya pag-aralan",
+              "Ang paaralan ay napakalayo mula sa aming bahay",
+              "Walang puno o halaman sa buong paaralan",
+              "Ang paaralan namin ay bagong-bago lamang"
+            ],
+            "correct_answer": "Ang paaralan ay malinis, maganda, at masaya pag-aralan"
+          },
+          {
+            "question": "Bakit mahalaga ang wastong pagkakasunod-sunod sa pagkukuwento?",
+            "options": [
+              "Para maunawaan nang malinaw ang kuwento",
+              "Para paikliin lamang ang kuwento",
+              "Para mapalitan ang mga tauhan",
+              "Para hindi na kailangang magbasa"
+            ],
+            "correct_answer": "Para maunawaan nang malinaw ang kuwento"
+          },
+          {
+            "question": "Ilang pangyayari ang karaniwang sinusunod sa aralin natin ngayon?",
+            "options": [
+              "3 hanggang 4 na pangyayari",
+              "1 pangyayari lamang",
+              "10 pangyayari",
+              "Walang tiyak na bilang"
+            ],
+            "correct_answer": "3 hanggang 4 na pangyayari"
+          },
+          {
+            "question": "Alin ang tamang sagot: \"Sa wakas, natulog na si Ben.\" Ano ang ipinapakita ng \"Sa wakas\"?",
+            "options": [
+              "Ito ang huling pangyayari sa kuwento",
+              "Ito ang unang pangyayari sa kuwento",
+              "Ito ang pamagat ng kuwento",
+              "Ito ang tauhan sa kuwento"
+            ],
+            "correct_answer": "Ito ang huling pangyayari sa kuwento"
+          },
+          {
+            "question": "Anong uri ng salita ang \"una,\" \"sunod,\" at \"pagkatapos\"?",
+            "options": [
+              "Mga salitang pananda ng pagkakasunod-sunod",
+              "Mga pangngalan ng tao at bagay",
+              "Mga pang-uri na naglalarawan",
+              "Mga panghalip na pamalit sa pangalan"
+            ],
+            "correct_answer": "Mga salitang pananda ng pagkakasunod-sunod"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🐾 Science — Basic Needs and Protection of Animals\n\nGrade 2, Week 18! Let's learn how animals meet their needs and stay safe. 🦔\n\n## 🍎 Basic Needs of Animals\nAll animals need:\n| Need | Why |\n|---|---|\n| **Food** | for energy to grow and move |\n| **Water** | to stay healthy |\n| **Air** | to breathe |\n| **Shelter** | for safety and protection from weather |\n\n## 🍽️ How Animals Get Food\nDifferent animals find food in different ways — some **hunt**, some **graze** on plants, and some **search** for food.\n\n## 🏠 How Animals Find Shelter\nAnimals find shelter in **nests, burrows, trees, caves, or shells**, depending on the animal.\n\n## 🛡️ How Animals Protect Themselves\n\n| Way of Protecting | Example |\n|---|---|\n| **Shells** | turtles hide inside their hard shell |\n| **Running fast** | deer run away from danger |\n| **Hiding** | rabbits hide in bushes |\n| **Blending with surroundings (camouflage)** | chameleons change color to match leaves |\n\n## 🧠 Worked Example\n*A turtle sees danger nearby. What does it do to protect itself?*\n- It **hides inside its shell** — the hard shell protects its soft body.\n\n## 🧠 Worked Example 2\n*Why does a chameleon change its color?*\n- To **blend with its surroundings** so predators can't easily see it.\n\nGreat animal science work! 🌟",
+        "quiz": [
+          {
+            "question": "What are the basic needs of animals?",
+            "options": [
+              "Food, water, air, and shelter",
+              "Toys, books, and games",
+              "Money and clothes",
+              "Television and music"
+            ],
+            "correct_answer": "Food, water, air, and shelter"
+          },
+          {
+            "question": "Why do animals need shelter?",
+            "options": [
+              "For safety and protection from weather",
+              "To play games all day long",
+              "To learn how to read books",
+              "To watch other animals move"
+            ],
+            "correct_answer": "For safety and protection from weather"
+          },
+          {
+            "question": "How does a turtle protect itself from danger?",
+            "options": [
+              "It hides inside its hard shell",
+              "It flies away quickly",
+              "It changes color completely",
+              "It digs a deep hole"
+            ],
+            "correct_answer": "It hides inside its hard shell"
+          },
+          {
+            "question": "How does a deer protect itself from danger?",
+            "options": [
+              "By running fast away from danger",
+              "By hiding in a shell",
+              "By changing its color",
+              "By staying perfectly still forever"
+            ],
+            "correct_answer": "By running fast away from danger"
+          },
+          {
+            "question": "What is camouflage?",
+            "options": [
+              "Blending with surroundings so predators can't see you easily",
+              "Running as fast as your legs allow",
+              "Hiding inside a hard protective shell",
+              "Making loud noises to scare others away"
+            ],
+            "correct_answer": "Blending with surroundings so predators can't see you easily"
+          },
+          {
+            "question": "Why does a chameleon change its color?",
+            "options": [
+              "To blend with its surroundings and stay safe",
+              "To look pretty for other chameleons",
+              "To become faster at running",
+              "To find water more easily"
+            ],
+            "correct_answer": "To blend with its surroundings and stay safe"
+          },
+          {
+            "question": "Where might a bird find shelter?",
+            "options": [
+              "In a nest built in a tree",
+              "Inside a hard shell",
+              "Underneath a rock only",
+              "Inside a cave only"
+            ],
+            "correct_answer": "In a nest built in a tree"
+          },
+          {
+            "question": "Where might a rabbit hide from danger?",
+            "options": [
+              "In bushes",
+              "In the sky",
+              "In deep water",
+              "On top of a mountain"
+            ],
+            "correct_answer": "In bushes"
+          },
+          {
+            "question": "Why do animals need water, just like people do?",
+            "options": [
+              "To stay healthy",
+              "To fly higher",
+              "To grow a shell",
+              "To change color"
+            ],
+            "correct_answer": "To stay healthy"
+          },
+          {
+            "question": "What do animals need air for?",
+            "options": [
+              "To breathe",
+              "To swim faster",
+              "To grow taller",
+              "To find shelter"
+            ],
+            "correct_answer": "To breathe"
+          },
+          {
+            "question": "Which of these shows an animal protecting itself using its body?",
+            "options": [
+              "A turtle hiding in its shell",
+              "A bird building a nest",
+              "A fish swimming in water",
+              "A dog eating its food"
+            ],
+            "correct_answer": "A turtle hiding in its shell"
+          },
+          {
+            "question": "Why is it important for animals to be able to find food, water, air, and shelter?",
+            "options": [
+              "These are their basic needs for survival",
+              "These are just for fun activities",
+              "These only matter for pet animals",
+              "These are needed only once in their life"
+            ],
+            "correct_answer": "These are their basic needs for survival"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🎉 Makabansa — Pagpapahalaga sa Kultura ng Komunidad\n\nGrade 2, Linggo 18! Alamin natin kung paano ipinapakita ang pagmamahal sa sariling kultura. 🎊\n\n## 💛 Pagpapahalaga sa Sariling Kultura\nAng **pagpapahalaga sa kultura** ay ang **pagmamalaki at paggalang** sa sariling tradisyon, wika, at kaugalian.\n\n## 🎊 Pakikilahok sa mga Gawaing Pangkultura\nAng pamilya at komunidad ay may mga **gawaing pangkultura** — tulad ng pista, pagdiriwang, at tradisyonal na palatuntunan. Ang **pakikilahok** dito ay nagpapakita ng pagmamahal sa kultura.\n\n**Mga halimbawa:** pagsayaw sa pista, pagluluto ng tradisyonal na pagkain, pagsali sa parada\n\n## 🤝 Paggalang sa Ibang Kultura\nKahit magkaiba ang kultura ng ibang komunidad sa atin, dapat pa rin natin itong **igalang**.\n\n## 🧠 Halimbawa 1\n*Bakit dapat lumahok ang isang bata sa pista ng kanilang barangay?*\n- Upang **ipakita ang pagmamahal at paggalang** sa sariling tradisyon at kultura.\n\n## 🧠 Halimbawa 2\n*May kaklase kang may ibang kaugalian sa iyo. Ano ang tamang gawin?*\n- **Igalang ang kanilang kultura** kahit magkaiba ito sa atin.\n\n## 💡 Bakit Mahalaga Ito?\nAng pagpapahalaga sa kultura ay tumutulong upang **mapanatili ang tradisyon** para sa susunod na henerasyon.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pagpapahalaga sa kultura?",
+            "options": [
+              "Pagmamalaki at paggalang sa sariling tradisyon",
+              "Pag-iwas sa lahat ng tradisyon",
+              "Pagbabago ng sariling kultura palagi",
+              "Pagkalimot sa sariling kaugalian"
+            ],
+            "correct_answer": "Pagmamalaki at paggalang sa sariling tradisyon"
+          },
+          {
+            "question": "Ano ang halimbawa ng gawaing pangkultura?",
+            "options": [
+              "Pista at pagdiriwang",
+              "Pagtulog buong araw",
+              "Panonood ng TV lamang",
+              "Paglalaro ng video game lamang"
+            ],
+            "correct_answer": "Pista at pagdiriwang"
+          },
+          {
+            "question": "Bakit dapat lumahok ang isang bata sa pista ng kanilang barangay?",
+            "options": [
+              "Upang ipakita ang pagmamahal sa sariling kultura",
+              "Upang makakuha ng maraming pera lamang",
+              "Upang makatakas mula sa paaralan",
+              "Wala talagang dahilan para dito"
+            ],
+            "correct_answer": "Upang ipakita ang pagmamahal sa sariling kultura"
+          },
+          {
+            "question": "May kaklase kang may ibang kaugalian sa iyo. Ano ang tamang gawin?",
+            "options": [
+              "Igalang ang kanilang kultura",
+              "Tuksuhin sila dahil sa pagkakaiba",
+              "Iwasan sila palagi",
+              "Sabihing mali ang kanilang kultura"
+            ],
+            "correct_answer": "Igalang ang kanilang kultura"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng pakikilahok sa gawaing pangkultura?",
+            "options": [
+              "Pagsayaw sa pista ng barangay",
+              "Pag-aaral ng ibang wika lamang",
+              "Panonood ng balita araw-araw",
+              "Paglalaro sa labas ng bahay"
+            ],
+            "correct_answer": "Pagsayaw sa pista ng barangay"
+          },
+          {
+            "question": "Bakit mahalagang igalang ang kultura ng ibang komunidad?",
+            "options": [
+              "Dahil bawat kultura ay may sariling halaga",
+              "Dahil mas mataas ang ating kultura",
+              "Dahil hindi mahalaga ang ibang kultura",
+              "Dahil pareho lang naman lahat"
+            ],
+            "correct_answer": "Dahil bawat kultura ay may sariling halaga"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi natin pahahalagahan ang sariling kultura?",
+            "options": [
+              "Maaaring maglaho ito sa paglipas ng panahon",
+              "Mas lalago ito nang mas mabilis",
+              "Wala itong epekto",
+              "Mas maraming taong magpapahalaga rito"
+            ],
+            "correct_answer": "Maaaring maglaho ito sa paglipas ng panahon"
+          },
+          {
+            "question": "Alin ang ipinapakita ng pagluluto ng tradisyonal na pagkain sa pista?",
+            "options": [
+              "Pagpapahalaga sa kultura",
+              "Pagbabago ng kultura",
+              "Pagkalimot sa kultura",
+              "Pagsira sa kultura"
+            ],
+            "correct_answer": "Pagpapahalaga sa kultura"
+          },
+          {
+            "question": "Bakit mahalagang ipasa ang tradisyon sa susunod na henerasyon?",
+            "options": [
+              "Upang mapanatili ang kultura",
+              "Upang mabilis itong mawala",
+              "Dahil wala itong kabuluhan",
+              "Upang hindi na ito matutunan"
+            ],
+            "correct_answer": "Upang mapanatili ang kultura"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag may parada sa iyong barangay?",
+            "options": [
+              "Maaaring lumahok bilang tanda ng pagmamahal sa kultura",
+              "Iwasan itong tuluyan",
+              "Sabihin na walang saysay ito",
+              "Manatili na lamang sa bahay palagi"
+            ],
+            "correct_answer": "Maaaring lumahok bilang tanda ng pagmamahal sa kultura"
+          },
+          {
+            "question": "Ano ang tawag sa pagsali sa mga tradisyonal na palatuntunan ng komunidad?",
+            "options": [
+              "Pakikilahok sa gawaing pangkultura",
+              "Pag-iwas sa gawaing pangkultura",
+              "Pagbabalewala sa kultura",
+              "Pagsira sa tradisyon"
+            ],
+            "correct_answer": "Pakikilahok sa gawaing pangkultura"
+          },
+          {
+            "question": "Paano natin maipapakita ang pagmamalaki sa sariling kultura sa paaralan?",
+            "options": [
+              "Sa pagsasabi at pagsasagawa ng mga tradisyon nito",
+              "Sa pagtatago ng ating kaugalian",
+              "Sa pagsasabing hindi ito mahalaga",
+              "Sa hindi pakikilahok sa anumang gawain"
+            ],
+            "correct_answer": "Sa pagsasabi at pagsasagawa ng mga tradisyon nito"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🎨 Computer — Drawing Programs and Basic Tools\n\nGrade 2, Week 18! Let's explore how to draw on the computer. 🖌️\n\n## 🖥️ Opening a Drawing Program\nA **drawing (paint) program** lets us create pictures using the computer. To use it, we must first **open** the program.\n\n## 🛠️ Basic Tools in a Drawing Program\n\n| Tool | What It Does |\n|---|---|\n| **Pencil/Brush** | draws lines and shapes freely |\n| **Eraser** | removes parts of the drawing we don't want |\n| **Fill/Paint Bucket** | fills a closed shape with color |\n| **Shapes** | draws ready-made shapes like circles and squares |\n\n## 🖌️ Using the Pencil/Brush Tool\nThe **pencil or brush tool** is used to draw **freely** — like drawing with a real pencil.\n\n## 🧽 Using the Eraser Tool\nThe **eraser tool** removes mistakes without deleting the whole drawing.\n\n## 🪣 Using the Fill/Paint Bucket Tool\nThe **fill tool** quickly **colors the inside** of a closed shape, like filling a circle with blue.\n\n## 🧠 Worked Example\n*You drew a circle but want to color it red. What tool should you use?*\n- The **fill/paint bucket tool** — click inside the circle to fill it with red.\n\n## 🧠 Worked Example 2\n*You made a mistake while drawing a line. What tool fixes this?*\n- The **eraser tool** — it removes the mistake.\n\nGreat computer skills! 🌟",
+        "quiz": [
+          {
+            "question": "What is a drawing (paint) program used for?",
+            "options": [
+              "Creating pictures using the computer",
+              "Typing long essays only",
+              "Playing video games only",
+              "Sending emails only"
+            ],
+            "correct_answer": "Creating pictures using the computer"
+          },
+          {
+            "question": "What does the pencil or brush tool do?",
+            "options": [
+              "Draws lines and shapes freely",
+              "Erases the whole drawing",
+              "Fills a shape with color",
+              "Saves the file automatically"
+            ],
+            "correct_answer": "Draws lines and shapes freely"
+          },
+          {
+            "question": "What does the eraser tool do?",
+            "options": [
+              "Removes parts of the drawing we don't want",
+              "Adds new colors to the drawing",
+              "Draws perfect circles",
+              "Saves the drawing as a file"
+            ],
+            "correct_answer": "Removes parts of the drawing we don't want"
+          },
+          {
+            "question": "What does the fill or paint bucket tool do?",
+            "options": [
+              "Fills a closed shape with color",
+              "Erases the entire drawing",
+              "Draws freehand lines only",
+              "Types text into the picture"
+            ],
+            "correct_answer": "Fills a closed shape with color"
+          },
+          {
+            "question": "What does the shapes tool help you draw?",
+            "options": [
+              "Ready-made shapes like circles and squares",
+              "Only straight lines with no curves",
+              "Only the single letter A",
+              "Only imported photographs from a folder"
+            ],
+            "correct_answer": "Ready-made shapes like circles and squares"
+          },
+          {
+            "question": "You drew a circle but want to color it red. What tool should you use?",
+            "options": [
+              "The fill/paint bucket tool",
+              "The eraser tool",
+              "The pencil tool only",
+              "The shapes tool only"
+            ],
+            "correct_answer": "The fill/paint bucket tool"
+          },
+          {
+            "question": "You made a mistake while drawing a line. What tool fixes this?",
+            "options": [
+              "The eraser tool",
+              "The fill tool",
+              "The shapes tool",
+              "The pencil tool"
+            ],
+            "correct_answer": "The eraser tool"
+          },
+          {
+            "question": "What must you do first before using a drawing program?",
+            "options": [
+              "Open the program",
+              "Close the computer",
+              "Turn off the monitor",
+              "Unplug the mouse"
+            ],
+            "correct_answer": "Open the program"
+          },
+          {
+            "question": "Which tool would you use to draw a line freely, like with a real pencil?",
+            "options": [
+              "Pencil/brush tool",
+              "Eraser tool",
+              "Fill tool",
+              "Shapes tool only"
+            ],
+            "correct_answer": "Pencil/brush tool"
+          },
+          {
+            "question": "Which tool is best for quickly coloring the inside of a large shape?",
+            "options": [
+              "Fill/paint bucket tool",
+              "Eraser tool",
+              "Pencil tool only",
+              "None of these tools"
+            ],
+            "correct_answer": "Fill/paint bucket tool"
+          },
+          {
+            "question": "If you want to draw a perfect square quickly, which tool helps most?",
+            "options": [
+              "The shapes tool",
+              "The eraser tool",
+              "The fill tool only",
+              "No tool can do this"
+            ],
+            "correct_answer": "The shapes tool"
+          },
+          {
+            "question": "Why is the eraser tool useful when drawing on a computer?",
+            "options": [
+              "It lets you fix mistakes without starting over",
+              "It automatically colors your drawing",
+              "It saves your file to the computer",
+              "It makes the drawing program open faster"
+            ],
+            "correct_answer": "It lets you fix mistakes without starting over"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💛 GMRC — Katotohanan at Kasinungalingan\n\nGrade 2, Linggo 18! Pagpapahalaga: **Honesty (Katapatan)**. 🌟\n\n## ✅ Ano ang Katotohanan?\nAng **katotohanan** ay ang **totoong nangyari o totoong bagay**.\n\n## ❌ Ano ang Kasinungalingan?\nAng **kasinungalingan** ay ang **sinasabi na hindi totoo**, kahit alam mong ibang bagay ang totoo.\n\n## ⚠️ Bunga ng Kasinungalingan\n- Nawawala ang **tiwala** ng iba sa atin\n- Maaaring **magkaroon ng mas malaking problema**\n- **Nasasaktan** ang damdamin ng iba\n\n## 🌟 Bunga ng Pagsasabi ng Katotohanan\n- Ipinapakita nito na tayo ay **mapagkakatiwalaan**\n- Nakatutulong ito upang **malutas ang problema** nang tama\n- Nakapagpapalakas ito ng **relasyon** sa iba\n\n## 🧠 Halimbawa 1\n*Nasira mo ang laruan ng kapatid mo nang hindi sinasadya. Ano ang dapat mong gawin?*\n- **Sabihin ang totoo** sa kapatid o magulang, kahit mahirap — ito ang tamang gawin.\n\n## 🧠 Halimbawa 2\n*Nakita mong kumopya ang kaklase mo sa pagsusulit. Sinabi niyang hindi siya kumopya. Ano ito?*\n- Ito ay **kasinungalingan** — dapat maging tapat sa gawaing pampaaralan.\n\n## 💡 Bakit Mahalaga ang Katapatan?\nAng **pagiging tapat**, kahit mahirap, ay nagpapakita ng **magandang ugali** at nagpapalakas ng tiwala ng iba sa atin.\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang katotohanan?",
+            "options": [
+              "Ang totoong nangyari o totoong bagay",
+              "Ang sinasabing hindi totoo",
+              "Ang guhit sa papel",
+              "Ang laruang paborito"
+            ],
+            "correct_answer": "Ang totoong nangyari o totoong bagay"
+          },
+          {
+            "question": "Ano ang kasinungalingan?",
+            "options": [
+              "Ang sinasabing hindi totoo kahit alam mong iba ang totoo",
+              "Ang totoong nangyari sa buhay natin",
+              "Ang pagsabi ng magandang balita sa iba",
+              "Ang pagsasabi ng tamang oras sa orasan"
+            ],
+            "correct_answer": "Ang sinasabing hindi totoo kahit alam mong iba ang totoo"
+          },
+          {
+            "question": "Nasira mo ang laruan ng kapatid mo nang hindi sinasadya. Ano ang dapat mong gawin?",
+            "options": [
+              "Sabihin ang totoo sa kapatid o magulang",
+              "Itago at huwag sabihin kahit kailan",
+              "Sisihin ang kapatid mo dito",
+              "Umalis at huwag na bumalik"
+            ],
+            "correct_answer": "Sabihin ang totoo sa kapatid o magulang"
+          },
+          {
+            "question": "Nakita mong kumopya ang kaklase mo sa pagsusulit, pero sinabi niyang hindi siya kumopya. Ano ito?",
+            "options": [
+              "Kasinungalingan",
+              "Katotohanan",
+              "Magandang gawa",
+              "Wastong sagot"
+            ],
+            "correct_answer": "Kasinungalingan"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagsasabi ng kasinungalingan?",
+            "options": [
+              "Nawawala ang tiwala ng iba sa atin",
+              "Lumalakas ang tiwala ng iba",
+              "Wala itong epekto",
+              "Nagiging mas masaya ang lahat"
+            ],
+            "correct_answer": "Nawawala ang tiwala ng iba sa atin"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagsasabi ng katotohanan?",
+            "options": [
+              "Ipinapakita nito na tayo ay mapagkakatiwalaan",
+              "Nagiging mas malaki ang problema",
+              "Nasasaktan lagi ang damdamin ng iba",
+              "Nawawala ang lahat ng kaibigan"
+            ],
+            "correct_answer": "Ipinapakita nito na tayo ay mapagkakatiwalaan"
+          },
+          {
+            "question": "Bakit mahalagang maging tapat sa gawaing pampaaralan?",
+            "options": [
+              "Upang maipakita ang tunay nating kakayahan",
+              "Upang makakuha ng mataas na marka kahit hindi totoo",
+              "Upang hindi na mag-aral pa",
+              "Upang magalit ang guro"
+            ],
+            "correct_answer": "Upang maipakita ang tunay nating kakayahan"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Katapatan (Honesty)",
+              "Pagpapasensiya",
+              "Pakikiisa",
+              "Pagmamahal sa bayan"
+            ],
+            "correct_answer": "Katapatan (Honesty)"
+          },
+          {
+            "question": "Ano ang mangyayari kung palagi kang nagsisinungaling?",
+            "options": [
+              "Mahihirapan nang magtiwala sa iyo ang ibang tao",
+              "Mas marami kang magiging kaibigan",
+              "Mas madaling malutas ang problema",
+              "Wala itong anumang epekto"
+            ],
+            "correct_answer": "Mahihirapan nang magtiwala sa iyo ang ibang tao"
+          },
+          {
+            "question": "Bakit mahirap minsan sabihin ang totoo?",
+            "options": [
+              "Dahil natatakot tayo sa maaaring reaksiyon ng iba",
+              "Dahil laging madali itong sabihin",
+              "Dahil hindi kailanman importante ito",
+              "Dahil walang epekto ang totoo"
+            ],
+            "correct_answer": "Dahil natatakot tayo sa maaaring reaksiyon ng iba"
+          },
+          {
+            "question": "Isang kaklase ang nagtanong kung ikaw ang gumawa ng gulo sa silid-aralan. Ano ang tamang sagot?",
+            "options": [
+              "Sabihin ang totoo kung ikaw nga ang gumawa nito",
+              "Magsinungaling para hindi mapagalitan",
+              "Isisi sa ibang kaklase",
+              "Huwag sumagot kailanman"
+            ],
+            "correct_answer": "Sabihin ang totoo kung ikaw nga ang gumawa nito"
+          },
+          {
+            "question": "Paano natin maipapakita ang katapatan araw-araw?",
+            "options": [
+              "Sa pagsasabi ng totoo kahit mahirap ito",
+              "Sa pagtatago ng ating mga pagkakamali palagi",
+              "Sa pagsisinungaling kapag kailangan",
+              "Sa hindi pakikipag-usap sa iba"
+            ],
+            "correct_answer": "Sa pagsasabi ng totoo kahit mahirap ito"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🔢 Friday Review — English (Grade 2)\n\n- **Sequence** words: first, next, then, after that, finally\n- **Procedural text** = steps; **Descriptive text** = what it's like; **Time-order text** = event order\n\nGreat reading detective work! 🌟",
+        "quiz": [
+          {
+            "question": "What does it mean to sequence events?",
+            "options": [
+              "To put events in the order they happened",
+              "To draw a picture of the events",
+              "To count how many events there are",
+              "To find the title of the story"
+            ],
+            "correct_answer": "To put events in the order they happened"
+          },
+          {
+            "question": "Which word signals the FIRST event in a sequence?",
+            "options": [
+              "First",
+              "Then",
+              "After that",
+              "Finally"
+            ],
+            "correct_answer": "First"
+          },
+          {
+            "question": "Which word signals the LAST event in a sequence?",
+            "options": [
+              "Finally",
+              "First",
+              "Next",
+              "Before"
+            ],
+            "correct_answer": "Finally"
+          },
+          {
+            "question": "\"First, Ana woke up. Next, she brushed her teeth. Then, she ate breakfast.\" What happened SECOND?",
+            "options": [
+              "She brushed her teeth",
+              "She woke up",
+              "She ate breakfast",
+              "She went to school"
+            ],
+            "correct_answer": "She brushed her teeth"
+          },
+          {
+            "question": "What is a procedural text?",
+            "options": [
+              "A text that tells the steps to do something",
+              "A text that describes how something looks",
+              "A text about made-up characters",
+              "A text with no order at all"
+            ],
+            "correct_answer": "A text that tells the steps to do something"
+          },
+          {
+            "question": "What is a descriptive text?",
+            "options": [
+              "A text that describes what something looks, sounds, or feels like",
+              "A text that only lists numbers",
+              "A text that gives step-by-step directions",
+              "A text with no details at all"
+            ],
+            "correct_answer": "A text that describes what something looks, sounds, or feels like"
+          },
+          {
+            "question": "\"To make a sandwich: First, get bread. Next, spread peanut butter.\" What type of text is this?",
+            "options": [
+              "Procedural text",
+              "Descriptive text",
+              "Time-order text about history",
+              "A poem about food"
+            ],
+            "correct_answer": "Procedural text"
+          },
+          {
+            "question": "\"The mango is yellow, sweet, and smooth.\" What type of text is this?",
+            "options": [
+              "Descriptive text",
+              "Procedural text",
+              "A set of instructions",
+              "A sequence of events"
+            ],
+            "correct_answer": "Descriptive text"
+          },
+          {
+            "question": "What is a time-order text?",
+            "options": [
+              "A text that tells events in the order they happened",
+              "A text that only describes colors",
+              "A text with no events at all",
+              "A text that lists ingredients only"
+            ],
+            "correct_answer": "A text that tells events in the order they happened"
+          },
+          {
+            "question": "How many important details should you look for while reading?",
+            "options": [
+              "3 to 4 important details",
+              "Only 1 detail",
+              "Every single word",
+              "None at all"
+            ],
+            "correct_answer": "3 to 4 important details"
+          },
+          {
+            "question": "Which sentence uses a sequencing word?",
+            "options": [
+              "After that, she opened the door.",
+              "The door is blue.",
+              "She likes the color blue.",
+              "The door is made of wood."
+            ],
+            "correct_answer": "After that, she opened the door."
+          },
+          {
+            "question": "Why is sequencing important when telling a story?",
+            "options": [
+              "It helps the listener understand the order of events clearly",
+              "It makes the story much shorter than before",
+              "It removes all the characters from the story",
+              "It changes the story's ending completely"
+            ],
+            "correct_answer": "It helps the listener understand the order of events clearly"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ✖️ Friday Review — Mathematics (Grade 2)\n\n- **Repeated addition:** adding the same number over and over\n- **\"5 groups of 3\"** = 3+3+3+3+3 = 15\n\nGreat counting work! ⭐",
+        "quiz": [
+          {
+            "question": "What is repeated addition?",
+            "options": [
+              "Adding the same number over and over",
+              "Subtracting numbers one at a time",
+              "Counting backwards from ten",
+              "Dividing a number into halves"
+            ],
+            "correct_answer": "Adding the same number over and over"
+          },
+          {
+            "question": "What does \"5 groups of 3\" mean?",
+            "options": [
+              "5 groups, each with 3 items",
+              "3 groups, each with 5 items",
+              "A single group of 8 items",
+              "5 items total"
+            ],
+            "correct_answer": "5 groups, each with 3 items"
+          },
+          {
+            "question": "Write \"5 groups of 3\" as repeated addition.",
+            "options": [
+              "3 + 3 + 3 + 3 + 3",
+              "5 + 5 + 5",
+              "3 + 5",
+              "5 + 3 + 3"
+            ],
+            "correct_answer": "3 + 3 + 3 + 3 + 3"
+          },
+          {
+            "question": "What is the value of 3 + 3 + 3 + 3 + 3?",
+            "options": [
+              "15",
+              "12",
+              "18",
+              "9"
+            ],
+            "correct_answer": "15"
+          },
+          {
+            "question": "There are 4 baskets, each with 2 mangoes. How many mangoes in all?",
+            "options": [
+              "8 mangoes",
+              "6 mangoes",
+              "10 mangoes",
+              "4 mangoes"
+            ],
+            "correct_answer": "8 mangoes"
+          },
+          {
+            "question": "Write \"6 groups of 4\" as repeated addition.",
+            "options": [
+              "4 + 4 + 4 + 4 + 4 + 4",
+              "6 + 6 + 6 + 6",
+              "4 + 6",
+              "6 + 4 + 4"
+            ],
+            "correct_answer": "4 + 4 + 4 + 4 + 4 + 4"
+          },
+          {
+            "question": "What is the value of 4 + 4 + 4 + 4 + 4 + 4?",
+            "options": [
+              "24",
+              "20",
+              "28",
+              "16"
+            ],
+            "correct_answer": "24"
+          },
+          {
+            "question": "What is another way to say \"5 groups of 3\"?",
+            "options": [
+              "5 threes",
+              "3 fives added once",
+              "5 divided by 3",
+              "3 minus 5"
+            ],
+            "correct_answer": "5 threes"
+          },
+          {
+            "question": "Which model can be used to show repeated addition?",
+            "options": [
+              "Concrete objects, pictures, or a number line",
+              "A calculator app with no pictures shown",
+              "Spoken words with no pictures at all",
+              "A wall clock hanging in the classroom"
+            ],
+            "correct_answer": "Concrete objects, pictures, or a number line"
+          },
+          {
+            "question": "There are 3 rows of chairs with 5 chairs in each row. How many chairs in all?",
+            "options": [
+              "15 chairs",
+              "8 chairs",
+              "10 chairs",
+              "20 chairs"
+            ],
+            "correct_answer": "15 chairs"
+          },
+          {
+            "question": "What is \"2 groups of 6\" written as repeated addition?",
+            "options": [
+              "6 + 6",
+              "2 + 2 + 2 + 2 + 2 + 2",
+              "6 + 2",
+              "2 + 6"
+            ],
+            "correct_answer": "6 + 6"
+          },
+          {
+            "question": "Why is repeated addition useful for equal groups?",
+            "options": [
+              "It helps count the total quickly when groups have the same amount",
+              "It only works when groups are different sizes",
+              "It replaces the need for counting altogether",
+              "It only works with the number 1"
+            ],
+            "correct_answer": "It helps count the total quickly when groups have the same amount"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📖 Friday Review — Filipino (Grade 2)\n\n- **Pagkakasunod-sunod:** una, sunod, pagkatapos, sa wakas\n- **Pangunahing ideya** = pinakamahalagang punto ng talata\n\nMagaling sa pagbasa! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pagkakasunod-sunod ng pangyayari?",
+            "options": [
+              "Ang wastong ayos ng mga pangyayari sa kuwento",
+              "Ang bilang ng mga tauhan sa kuwento",
+              "Ang pamagat ng kuwento",
+              "Ang haba ng kuwento"
+            ],
+            "correct_answer": "Ang wastong ayos ng mga pangyayari sa kuwento"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang salitang pananda ng UNANG pangyayari?",
+            "options": [
+              "Una",
+              "Sunod",
+              "Pagkatapos",
+              "Sa wakas"
+            ],
+            "correct_answer": "Una"
+          },
+          {
+            "question": "Alin ang salitang pananda ng HULING pangyayari?",
+            "options": [
+              "Sa wakas",
+              "Una",
+              "Sunod",
+              "Pagkatapos ng una"
+            ],
+            "correct_answer": "Sa wakas"
+          },
+          {
+            "question": "\"Una, gumising si Maria. Sunod, naligo siya. Pagkatapos, kumain siya.\" Ano ang ikatlong pangyayari?",
+            "options": [
+              "Kumain siya ng almusal",
+              "Gumising siya",
+              "Naligo siya",
+              "Pumasok siya sa paaralan"
+            ],
+            "correct_answer": "Kumain siya ng almusal"
+          },
+          {
+            "question": "Ano ang muling pagsasalaysay?",
+            "options": [
+              "Pagkukuwento ulit gamit ang sariling salita",
+              "Pagguhit ng bagong kuwento",
+              "Pagbabasa nang tahimik lamang",
+              "Pagsulat ng bagong pamagat"
+            ],
+            "correct_answer": "Pagkukuwento ulit gamit ang sariling salita"
+          },
+          {
+            "question": "Ano ang pangunahing ideya ng isang talata?",
+            "options": [
+              "Ang pinakamahalagang punto ng talata",
+              "Ang huling salita ng talata",
+              "Ang bilang ng pangungusap",
+              "Ang kulay ng papel"
+            ],
+            "correct_answer": "Ang pinakamahalagang punto ng talata"
+          },
+          {
+            "question": "\"Una, pumunta si Ben sa palengke. Sunod, bumili siya ng gulay. Pagkatapos, umuwi siya.\" Ano ang nangyari SUNOD?",
+            "options": [
+              "Bumili siya ng gulay",
+              "Pumunta siya sa palengke",
+              "Umuwi siya",
+              "Naligo siya"
+            ],
+            "correct_answer": "Bumili siya ng gulay"
+          },
+          {
+            "question": "Basahin: \"Ang paaralan namin ay malinis at maganda. Masaya kaming mag-aral doon.\" Ano ang pangunahing ideya?",
+            "options": [
+              "Ang paaralan ay malinis, maganda, at masaya pag-aralan",
+              "Ang paaralan ay napakalayo mula sa aming bahay",
+              "Walang puno o halaman sa buong paaralan",
+              "Ang paaralan namin ay bagong-bago lamang"
+            ],
+            "correct_answer": "Ang paaralan ay malinis, maganda, at masaya pag-aralan"
+          },
+          {
+            "question": "Bakit mahalaga ang wastong pagkakasunod-sunod sa pagkukuwento?",
+            "options": [
+              "Para maunawaan nang malinaw ang kuwento",
+              "Para paikliin lamang ang kuwento",
+              "Para mapalitan ang mga tauhan",
+              "Para hindi na kailangang magbasa"
+            ],
+            "correct_answer": "Para maunawaan nang malinaw ang kuwento"
+          },
+          {
+            "question": "Ilang pangyayari ang karaniwang sinusunod sa aralin natin ngayon?",
+            "options": [
+              "3 hanggang 4 na pangyayari",
+              "1 pangyayari lamang",
+              "10 pangyayari",
+              "Walang tiyak na bilang"
+            ],
+            "correct_answer": "3 hanggang 4 na pangyayari"
+          },
+          {
+            "question": "Alin ang tamang sagot: \"Sa wakas, natulog na si Ben.\" Ano ang ipinapakita ng \"Sa wakas\"?",
+            "options": [
+              "Ito ang huling pangyayari sa kuwento",
+              "Ito ang unang pangyayari sa kuwento",
+              "Ito ang pamagat ng kuwento",
+              "Ito ang tauhan sa kuwento"
+            ],
+            "correct_answer": "Ito ang huling pangyayari sa kuwento"
+          },
+          {
+            "question": "Anong uri ng salita ang \"una,\" \"sunod,\" at \"pagkatapos\"?",
+            "options": [
+              "Mga salitang pananda ng pagkakasunod-sunod",
+              "Mga pangngalan ng tao at bagay",
+              "Mga pang-uri na naglalarawan",
+              "Mga panghalip na pamalit sa pangalan"
+            ],
+            "correct_answer": "Mga salitang pananda ng pagkakasunod-sunod"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🐾 Friday Review — Science (Grade 2)\n\n- Basic needs: **food, water, air, shelter**\n- Protection: **shells, running fast, hiding, camouflage**\n\nGreat animal science work! 🌟",
+        "quiz": [
+          {
+            "question": "What are the basic needs of animals?",
+            "options": [
+              "Food, water, air, and shelter",
+              "Toys, books, and games",
+              "Money and clothes",
+              "Television and music"
+            ],
+            "correct_answer": "Food, water, air, and shelter"
+          },
+          {
+            "question": "Why do animals need shelter?",
+            "options": [
+              "For safety and protection from weather",
+              "To play games all day long",
+              "To learn how to read books",
+              "To watch other animals move"
+            ],
+            "correct_answer": "For safety and protection from weather"
+          },
+          {
+            "question": "How does a turtle protect itself from danger?",
+            "options": [
+              "It hides inside its hard shell",
+              "It flies away quickly",
+              "It changes color completely",
+              "It digs a deep hole"
+            ],
+            "correct_answer": "It hides inside its hard shell"
+          },
+          {
+            "question": "How does a deer protect itself from danger?",
+            "options": [
+              "By running fast away from danger",
+              "By hiding in a shell",
+              "By changing its color",
+              "By staying perfectly still forever"
+            ],
+            "correct_answer": "By running fast away from danger"
+          },
+          {
+            "question": "What is camouflage?",
+            "options": [
+              "Blending with surroundings so predators can't see you easily",
+              "Running as fast as your legs allow",
+              "Hiding inside a hard protective shell",
+              "Making loud noises to scare others away"
+            ],
+            "correct_answer": "Blending with surroundings so predators can't see you easily"
+          },
+          {
+            "question": "Why does a chameleon change its color?",
+            "options": [
+              "To blend with its surroundings and stay safe",
+              "To look pretty for other chameleons",
+              "To become faster at running",
+              "To find water more easily"
+            ],
+            "correct_answer": "To blend with its surroundings and stay safe"
+          },
+          {
+            "question": "Where might a bird find shelter?",
+            "options": [
+              "In a nest built in a tree",
+              "Inside a hard shell",
+              "Underneath a rock only",
+              "Inside a cave only"
+            ],
+            "correct_answer": "In a nest built in a tree"
+          },
+          {
+            "question": "Where might a rabbit hide from danger?",
+            "options": [
+              "In bushes",
+              "In the sky",
+              "In deep water",
+              "On top of a mountain"
+            ],
+            "correct_answer": "In bushes"
+          },
+          {
+            "question": "Why do animals need water, just like people do?",
+            "options": [
+              "To stay healthy",
+              "To fly higher",
+              "To grow a shell",
+              "To change color"
+            ],
+            "correct_answer": "To stay healthy"
+          },
+          {
+            "question": "What do animals need air for?",
+            "options": [
+              "To breathe",
+              "To swim faster",
+              "To grow taller",
+              "To find shelter"
+            ],
+            "correct_answer": "To breathe"
+          },
+          {
+            "question": "Which of these shows an animal protecting itself using its body?",
+            "options": [
+              "A turtle hiding in its shell",
+              "A bird building a nest",
+              "A fish swimming in water",
+              "A dog eating its food"
+            ],
+            "correct_answer": "A turtle hiding in its shell"
+          },
+          {
+            "question": "Why is it important for animals to be able to find food, water, air, and shelter?",
+            "options": [
+              "These are their basic needs for survival",
+              "These are just for fun activities",
+              "These only matter for pet animals",
+              "These are needed only once in their life"
+            ],
+            "correct_answer": "These are their basic needs for survival"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🎉 Friday Review — Makabansa (Grade 2)\n\n- Pagpapahalaga sa sariling kultura = pagmamalaki at paggalang\n- Igalang din ang kultura ng ibang komunidad\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pagpapahalaga sa kultura?",
+            "options": [
+              "Pagmamalaki at paggalang sa sariling tradisyon",
+              "Pag-iwas sa lahat ng tradisyon",
+              "Pagbabago ng sariling kultura palagi",
+              "Pagkalimot sa sariling kaugalian"
+            ],
+            "correct_answer": "Pagmamalaki at paggalang sa sariling tradisyon"
+          },
+          {
+            "question": "Ano ang halimbawa ng gawaing pangkultura?",
+            "options": [
+              "Pista at pagdiriwang",
+              "Pagtulog buong araw",
+              "Panonood ng TV lamang",
+              "Paglalaro ng video game lamang"
+            ],
+            "correct_answer": "Pista at pagdiriwang"
+          },
+          {
+            "question": "Bakit dapat lumahok ang isang bata sa pista ng kanilang barangay?",
+            "options": [
+              "Upang ipakita ang pagmamahal sa sariling kultura",
+              "Upang makakuha ng maraming pera lamang",
+              "Upang makatakas mula sa paaralan",
+              "Wala talagang dahilan para dito"
+            ],
+            "correct_answer": "Upang ipakita ang pagmamahal sa sariling kultura"
+          },
+          {
+            "question": "May kaklase kang may ibang kaugalian sa iyo. Ano ang tamang gawin?",
+            "options": [
+              "Igalang ang kanilang kultura",
+              "Tuksuhin sila dahil sa pagkakaiba",
+              "Iwasan sila palagi",
+              "Sabihing mali ang kanilang kultura"
+            ],
+            "correct_answer": "Igalang ang kanilang kultura"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng pakikilahok sa gawaing pangkultura?",
+            "options": [
+              "Pagsayaw sa pista ng barangay",
+              "Pag-aaral ng ibang wika lamang",
+              "Panonood ng balita araw-araw",
+              "Paglalaro sa labas ng bahay"
+            ],
+            "correct_answer": "Pagsayaw sa pista ng barangay"
+          },
+          {
+            "question": "Bakit mahalagang igalang ang kultura ng ibang komunidad?",
+            "options": [
+              "Dahil bawat kultura ay may sariling halaga",
+              "Dahil mas mataas ang ating kultura",
+              "Dahil hindi mahalaga ang ibang kultura",
+              "Dahil pareho lang naman lahat"
+            ],
+            "correct_answer": "Dahil bawat kultura ay may sariling halaga"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi natin pahahalagahan ang sariling kultura?",
+            "options": [
+              "Maaaring maglaho ito sa paglipas ng panahon",
+              "Mas lalago ito nang mas mabilis",
+              "Wala itong epekto",
+              "Mas maraming taong magpapahalaga rito"
+            ],
+            "correct_answer": "Maaaring maglaho ito sa paglipas ng panahon"
+          },
+          {
+            "question": "Alin ang ipinapakita ng pagluluto ng tradisyonal na pagkain sa pista?",
+            "options": [
+              "Pagpapahalaga sa kultura",
+              "Pagbabago ng kultura",
+              "Pagkalimot sa kultura",
+              "Pagsira sa kultura"
+            ],
+            "correct_answer": "Pagpapahalaga sa kultura"
+          },
+          {
+            "question": "Bakit mahalagang ipasa ang tradisyon sa susunod na henerasyon?",
+            "options": [
+              "Upang mapanatili ang kultura",
+              "Upang mabilis itong mawala",
+              "Dahil wala itong kabuluhan",
+              "Upang hindi na ito matutunan"
+            ],
+            "correct_answer": "Upang mapanatili ang kultura"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag may parada sa iyong barangay?",
+            "options": [
+              "Maaaring lumahok bilang tanda ng pagmamahal sa kultura",
+              "Iwasan itong tuluyan",
+              "Sabihin na walang saysay ito",
+              "Manatili na lamang sa bahay palagi"
+            ],
+            "correct_answer": "Maaaring lumahok bilang tanda ng pagmamahal sa kultura"
+          },
+          {
+            "question": "Ano ang tawag sa pagsali sa mga tradisyonal na palatuntunan ng komunidad?",
+            "options": [
+              "Pakikilahok sa gawaing pangkultura",
+              "Pag-iwas sa gawaing pangkultura",
+              "Pagbabalewala sa kultura",
+              "Pagsira sa tradisyon"
+            ],
+            "correct_answer": "Pakikilahok sa gawaing pangkultura"
+          },
+          {
+            "question": "Paano natin maipapakita ang pagmamalaki sa sariling kultura sa paaralan?",
+            "options": [
+              "Sa pagsasabi at pagsasagawa ng mga tradisyon nito",
+              "Sa pagtatago ng ating kaugalian",
+              "Sa pagsasabing hindi ito mahalaga",
+              "Sa hindi pakikilahok sa anumang gawain"
+            ],
+            "correct_answer": "Sa pagsasabi at pagsasagawa ng mga tradisyon nito"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🎨 Friday Review — Computer (Grade 2)\n\n- **Pencil/brush** draws freely, **eraser** fixes mistakes\n- **Fill tool** colors shapes, **shapes tool** draws ready-made shapes\n\nGreat computer skills! 🌟",
+        "quiz": [
+          {
+            "question": "What is a drawing (paint) program used for?",
+            "options": [
+              "Creating pictures using the computer",
+              "Typing long essays only",
+              "Playing video games only",
+              "Sending emails only"
+            ],
+            "correct_answer": "Creating pictures using the computer"
+          },
+          {
+            "question": "What does the pencil or brush tool do?",
+            "options": [
+              "Draws lines and shapes freely",
+              "Erases the whole drawing",
+              "Fills a shape with color",
+              "Saves the file automatically"
+            ],
+            "correct_answer": "Draws lines and shapes freely"
+          },
+          {
+            "question": "What does the eraser tool do?",
+            "options": [
+              "Removes parts of the drawing we don't want",
+              "Adds new colors to the drawing",
+              "Draws perfect circles",
+              "Saves the drawing as a file"
+            ],
+            "correct_answer": "Removes parts of the drawing we don't want"
+          },
+          {
+            "question": "What does the fill or paint bucket tool do?",
+            "options": [
+              "Fills a closed shape with color",
+              "Erases the entire drawing",
+              "Draws freehand lines only",
+              "Types text into the picture"
+            ],
+            "correct_answer": "Fills a closed shape with color"
+          },
+          {
+            "question": "What does the shapes tool help you draw?",
+            "options": [
+              "Ready-made shapes like circles and squares",
+              "Only straight lines with no curves",
+              "Only the single letter A",
+              "Only imported photographs from a folder"
+            ],
+            "correct_answer": "Ready-made shapes like circles and squares"
+          },
+          {
+            "question": "You drew a circle but want to color it red. What tool should you use?",
+            "options": [
+              "The fill/paint bucket tool",
+              "The eraser tool",
+              "The pencil tool only",
+              "The shapes tool only"
+            ],
+            "correct_answer": "The fill/paint bucket tool"
+          },
+          {
+            "question": "You made a mistake while drawing a line. What tool fixes this?",
+            "options": [
+              "The eraser tool",
+              "The fill tool",
+              "The shapes tool",
+              "The pencil tool"
+            ],
+            "correct_answer": "The eraser tool"
+          },
+          {
+            "question": "What must you do first before using a drawing program?",
+            "options": [
+              "Open the program",
+              "Close the computer",
+              "Turn off the monitor",
+              "Unplug the mouse"
+            ],
+            "correct_answer": "Open the program"
+          },
+          {
+            "question": "Which tool would you use to draw a line freely, like with a real pencil?",
+            "options": [
+              "Pencil/brush tool",
+              "Eraser tool",
+              "Fill tool",
+              "Shapes tool only"
+            ],
+            "correct_answer": "Pencil/brush tool"
+          },
+          {
+            "question": "Which tool is best for quickly coloring the inside of a large shape?",
+            "options": [
+              "Fill/paint bucket tool",
+              "Eraser tool",
+              "Pencil tool only",
+              "None of these tools"
+            ],
+            "correct_answer": "Fill/paint bucket tool"
+          },
+          {
+            "question": "If you want to draw a perfect square quickly, which tool helps most?",
+            "options": [
+              "The shapes tool",
+              "The eraser tool",
+              "The fill tool only",
+              "No tool can do this"
+            ],
+            "correct_answer": "The shapes tool"
+          },
+          {
+            "question": "Why is the eraser tool useful when drawing on a computer?",
+            "options": [
+              "It lets you fix mistakes without starting over",
+              "It automatically colors your drawing",
+              "It saves your file to the computer",
+              "It makes the drawing program open faster"
+            ],
+            "correct_answer": "It lets you fix mistakes without starting over"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 Friday Review — GMRC (Grade 2)\n\n- **Katotohanan** vs **kasinungalingan**\n- Pagpapahalaga: **Katapatan (Honesty)**\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang katotohanan?",
+            "options": [
+              "Ang totoong nangyari o totoong bagay",
+              "Ang sinasabing hindi totoo",
+              "Ang guhit sa papel",
+              "Ang laruang paborito"
+            ],
+            "correct_answer": "Ang totoong nangyari o totoong bagay"
+          },
+          {
+            "question": "Ano ang kasinungalingan?",
+            "options": [
+              "Ang sinasabing hindi totoo kahit alam mong iba ang totoo",
+              "Ang totoong nangyari sa buhay natin",
+              "Ang pagsabi ng magandang balita sa iba",
+              "Ang pagsasabi ng tamang oras sa orasan"
+            ],
+            "correct_answer": "Ang sinasabing hindi totoo kahit alam mong iba ang totoo"
+          },
+          {
+            "question": "Nasira mo ang laruan ng kapatid mo nang hindi sinasadya. Ano ang dapat mong gawin?",
+            "options": [
+              "Sabihin ang totoo sa kapatid o magulang",
+              "Itago at huwag sabihin kahit kailan",
+              "Sisihin ang kapatid mo dito",
+              "Umalis at huwag na bumalik"
+            ],
+            "correct_answer": "Sabihin ang totoo sa kapatid o magulang"
+          },
+          {
+            "question": "Nakita mong kumopya ang kaklase mo sa pagsusulit, pero sinabi niyang hindi siya kumopya. Ano ito?",
+            "options": [
+              "Kasinungalingan",
+              "Katotohanan",
+              "Magandang gawa",
+              "Wastong sagot"
+            ],
+            "correct_answer": "Kasinungalingan"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagsasabi ng kasinungalingan?",
+            "options": [
+              "Nawawala ang tiwala ng iba sa atin",
+              "Lumalakas ang tiwala ng iba",
+              "Wala itong epekto",
+              "Nagiging mas masaya ang lahat"
+            ],
+            "correct_answer": "Nawawala ang tiwala ng iba sa atin"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagsasabi ng katotohanan?",
+            "options": [
+              "Ipinapakita nito na tayo ay mapagkakatiwalaan",
+              "Nagiging mas malaki ang problema",
+              "Nasasaktan lagi ang damdamin ng iba",
+              "Nawawala ang lahat ng kaibigan"
+            ],
+            "correct_answer": "Ipinapakita nito na tayo ay mapagkakatiwalaan"
+          },
+          {
+            "question": "Bakit mahalagang maging tapat sa gawaing pampaaralan?",
+            "options": [
+              "Upang maipakita ang tunay nating kakayahan",
+              "Upang makakuha ng mataas na marka kahit hindi totoo",
+              "Upang hindi na mag-aral pa",
+              "Upang magalit ang guro"
+            ],
+            "correct_answer": "Upang maipakita ang tunay nating kakayahan"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Katapatan (Honesty)",
+              "Pagpapasensiya",
+              "Pakikiisa",
+              "Pagmamahal sa bayan"
+            ],
+            "correct_answer": "Katapatan (Honesty)"
+          },
+          {
+            "question": "Ano ang mangyayari kung palagi kang nagsisinungaling?",
+            "options": [
+              "Mahihirapan nang magtiwala sa iyo ang ibang tao",
+              "Mas marami kang magiging kaibigan",
+              "Mas madaling malutas ang problema",
+              "Wala itong anumang epekto"
+            ],
+            "correct_answer": "Mahihirapan nang magtiwala sa iyo ang ibang tao"
+          },
+          {
+            "question": "Bakit mahirap minsan sabihin ang totoo?",
+            "options": [
+              "Dahil natatakot tayo sa maaaring reaksiyon ng iba",
+              "Dahil laging madali itong sabihin",
+              "Dahil hindi kailanman importante ito",
+              "Dahil walang epekto ang totoo"
+            ],
+            "correct_answer": "Dahil natatakot tayo sa maaaring reaksiyon ng iba"
+          },
+          {
+            "question": "Isang kaklase ang nagtanong kung ikaw ang gumawa ng gulo sa silid-aralan. Ano ang tamang sagot?",
+            "options": [
+              "Sabihin ang totoo kung ikaw nga ang gumawa nito",
+              "Magsinungaling para hindi mapagalitan",
+              "Isisi sa ibang kaklase",
+              "Huwag sumagot kailanman"
+            ],
+            "correct_answer": "Sabihin ang totoo kung ikaw nga ang gumawa nito"
+          },
+          {
+            "question": "Paano natin maipapakita ang katapatan araw-araw?",
+            "options": [
+              "Sa pagsasabi ng totoo kahit mahirap ito",
+              "Sa pagtatago ng ating mga pagkakamali palagi",
+              "Sa pagsisinungaling kapag kailangan",
+              "Sa hindi pakikipag-usap sa iba"
+            ],
+            "correct_answer": "Sa pagsasabi ng totoo kahit mahirap ito"
+          }
+        ]
+      }
+    }
+  }
+}

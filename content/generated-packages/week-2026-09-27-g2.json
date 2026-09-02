@@ -1,0 +1,1766 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-09-27",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🏫 English — Vocabulary: School and Community\n\nGrade 2, Week 16! Let's learn new words about our world. 🌟\n\n## 🏫 School Vocabulary\n| Category | Words |\n|---|---|\n| **People** | teacher, principal, classmate, guard |\n| **Places** | classroom, library, playground, canteen |\n| **Objects** | chalkboard, notebook, chair, bag |\n\n## 🏘️ Community Vocabulary\n| Category | Words |\n|---|---|\n| **Helpers/Workers** | police officer, firefighter, doctor, farmer |\n| **Places** | barangay hall, market, hospital, police station |\n| **Activities** | shopping, voting, cleaning, gathering |\n\n## 🧠 Worked Example 1\n*Where would you find a librarian?*\n- A librarian works in the **library**, helping people find and borrow **books**.\n\n## 🧠 Worked Example 2\n*Who helps put out fires in the community?*\n- The **firefighter** — a community helper who keeps people safe from fire.\n\n## 📝 Using Words in Sentences\n> *\"The teacher wrote on the chalkboard.\"* (school)\n> *\"The farmer sold vegetables at the market.\"* (community)\n\nGreat vocabulary work! 🌈",
+        "quiz": [
+          {
+            "question": "Where would you find a librarian?",
+            "options": [
+              "In the library",
+              "In the market",
+              "At the hospital",
+              "At the police station"
+            ],
+            "correct_answer": "In the library"
+          },
+          {
+            "question": "Who helps put out fires?",
+            "options": [
+              "A firefighter",
+              "A farmer",
+              "A teacher",
+              "A guard"
+            ],
+            "correct_answer": "A firefighter"
+          },
+          {
+            "question": "Which is a school place?",
+            "options": [
+              "Classroom",
+              "Market",
+              "Barangay hall",
+              "Hospital"
+            ],
+            "correct_answer": "Classroom"
+          },
+          {
+            "question": "Which is a community place?",
+            "options": [
+              "Market",
+              "Classroom",
+              "Canteen",
+              "Playground"
+            ],
+            "correct_answer": "Market"
+          },
+          {
+            "question": "Who helps sick people get better?",
+            "options": [
+              "A doctor",
+              "A guard",
+              "A principal",
+              "A farmer"
+            ],
+            "correct_answer": "A doctor"
+          },
+          {
+            "question": "Which word names a school object?",
+            "options": [
+              "Chalkboard",
+              "Market",
+              "Barangay",
+              "Hospital"
+            ],
+            "correct_answer": "Chalkboard"
+          },
+          {
+            "question": "Which is a community activity?",
+            "options": [
+              "Shopping",
+              "Reading in class",
+              "Recess",
+              "Raising your hand"
+            ],
+            "correct_answer": "Shopping"
+          },
+          {
+            "question": "Who grows the food we eat?",
+            "options": [
+              "A farmer",
+              "A guard",
+              "A librarian",
+              "A principal"
+            ],
+            "correct_answer": "A farmer"
+          },
+          {
+            "question": "Where does the barangay captain usually work?",
+            "options": [
+              "Barangay hall",
+              "Classroom",
+              "Canteen",
+              "Library"
+            ],
+            "correct_answer": "Barangay hall"
+          },
+          {
+            "question": "\"The teacher wrote on the chalkboard\" is a sentence about:",
+            "options": [
+              "School",
+              "The market",
+              "The hospital",
+              "The barangay hall"
+            ],
+            "correct_answer": "School"
+          },
+          {
+            "question": "Who keeps the school safe at the gate?",
+            "options": [
+              "The guard",
+              "The farmer",
+              "The doctor",
+              "The firefighter"
+            ],
+            "correct_answer": "The guard"
+          },
+          {
+            "question": "You need to borrow a book. Where should you go?",
+            "options": [
+              "The library",
+              "The market",
+              "The hospital",
+              "The police station"
+            ],
+            "correct_answer": "The library"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➖ Mathematics — Subtraction on the Number Line\n\nGrade 2, Week 16! Let's subtract using number lines. 🔢\n\n## 🔢 Subtraction as \"Jumping Back\"\nSubtraction means moving **backward** on a number line.\n\n**Example: 8 − 3**\n```\n0  1  2  3  4  5  [6] 7  8\n         <--<--<--\n```\n- Start at **8**, jump back **3** spaces → land on **5**\n- **8 − 3 = 5** ✅\n\n## 🔄 Subtraction is the Inverse of Addition\nIf **5 + 3 = 8**, then **8 − 3 = 5** and **8 − 5 = 3**.\n\n**Check your subtraction by adding back!**\n- 8 − 3 = 5 → check: 5 + 3 = 8 ✓\n\n## 🧮 Subtracting 2-Digit Minus 1-Digit\n**Example: 24 − 6**\n- Since 4 < 6, **regroup**: borrow a ten from the tens place\n- 24 becomes 1 ten + 14 ones\n- 14 − 6 = 8\n- Answer: **18** ✅\n\n## 🧠 Worked Example 1\n*Solve 15 − 7 using a number line.*\n- Start at 15, jump back 7 → land on **8** ✅\n\n## 🧠 Worked Example 2\n*Solve 32 − 5 with regrouping.*\n- 2 < 5, so regroup: 32 = 2 tens + 12 ones\n- 12 − 5 = 7\n- Answer: **27** ✅\n\n## 📝 Word Problem\n*Ben has 20 marbles. He gives 8 to his friend. How many are left?*\n- 20 − 8 = **12 marbles** ✅\n\nGreat subtracting! ⭐",
+        "quiz": [
+          {
+            "question": "What is 8 − 3 using a number line?",
+            "options": [
+              "5",
+              "11",
+              "3",
+              "8"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "If 5 + 3 = 8, what is 8 − 3?",
+            "options": [
+              "5",
+              "8",
+              "3",
+              "11"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "What is 24 − 6?",
+            "options": [
+              "18",
+              "20",
+              "17",
+              "19"
+            ],
+            "correct_answer": "18"
+          },
+          {
+            "question": "What is 15 − 7?",
+            "options": [
+              "8",
+              "22",
+              "7",
+              "9"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is 32 − 5?",
+            "options": [
+              "27",
+              "37",
+              "26",
+              "28"
+            ],
+            "correct_answer": "27"
+          },
+          {
+            "question": "Ben has 20 marbles and gives 8 away. How many are left?",
+            "options": [
+              "12",
+              "28",
+              "11",
+              "13"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "How do you check that 8 − 3 = 5 is correct?",
+            "options": [
+              "Add 5 and 3 to check",
+              "Subtract 5 minus 3",
+              "Multiply 5 times 3",
+              "Divide 8 by 3"
+            ],
+            "correct_answer": "Add 5 and 3 to check"
+          },
+          {
+            "question": "On a number line, subtraction means moving:",
+            "options": [
+              "backward",
+              "forward",
+              "up",
+              "down"
+            ],
+            "correct_answer": "backward"
+          },
+          {
+            "question": "What is 40 − 9?",
+            "options": [
+              "31",
+              "49",
+              "30",
+              "32"
+            ],
+            "correct_answer": "31"
+          },
+          {
+            "question": "When do you need to regroup in subtraction?",
+            "options": [
+              "When the ones digit on top is smaller",
+              "When both numbers are even",
+              "When the answer is zero",
+              "When you are adding, not subtracting"
+            ],
+            "correct_answer": "When the ones digit on top is smaller"
+          },
+          {
+            "question": "What is 18 − 9?",
+            "options": [
+              "9",
+              "27",
+              "8",
+              "10"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "A jeepney has 25 seats. 17 are filled. How many are empty?",
+            "options": [
+              "8",
+              "42",
+              "7",
+              "9"
+            ],
+            "correct_answer": "8"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🏫 Filipino — Talasalitaan tungkol sa Paaralan at Komunidad\n\nGrade 2, Linggo 16! Matuto tayo ng bagong salita. 🌟\n\n## 🏫 Talasalitaan sa Paaralan\n| Kategorya | Salita |\n|---|---|\n| **Tao** | guro, kaklase, punong-guro |\n| **Lugar** | silid-aralan, aklatan, patyo |\n| **Gamit** | tsart, aklat, mesa |\n\n## 🏘️ Talasalitaan sa Komunidad\n| Kategorya | Salita |\n|---|---|\n| **Lugar** | barangay, tindahan, palengke, ospital, himpilan ng pulisya |\n| **Tao** | kapitbahay, punong barangay |\n\n## ❓ Panghalip na Pananong\nGinagamit ang mga ito sa pagtatanong: **sino, ano, alin, kanino, ilan**\n\n**Halimbawa:**\n- *\"**Sino** ang guro mo?\"*\n- *\"**Ano** ang binabasa mo?\"*\n- *\"**Ilan** ang kaklase mo?\"*\n\n## 🧠 Halimbawa 1\n*Saan ka pupunta kung gusto mong humiram ng aklat?*\n- Sa **aklatan** — dito nakatago ang mga aklat na maaaring hiramin.\n\n## 🧠 Halimbawa 2\n*Sino ang namumuno sa barangay?*\n- Ang **punong barangay** — siya ang tumutulong sa mga kapitbahay sa komunidad.\n\nMagaling! 🌈",
+        "quiz": [
+          {
+            "question": "Saan ka pupunta kung gusto mong humiram ng aklat?",
+            "options": [
+              "Aklatan",
+              "Tindahan",
+              "Ospital",
+              "Himpilan ng pulisya"
+            ],
+            "correct_answer": "Aklatan"
+          },
+          {
+            "question": "Sino ang namumuno sa barangay?",
+            "options": [
+              "Punong barangay",
+              "Guro",
+              "Kapitbahay",
+              "Kaklase"
+            ],
+            "correct_answer": "Punong barangay"
+          },
+          {
+            "question": "Alin ang lugar sa paaralan?",
+            "options": [
+              "Silid-aralan",
+              "Palengke",
+              "Barangay",
+              "Tindahan"
+            ],
+            "correct_answer": "Silid-aralan"
+          },
+          {
+            "question": "Alin ang lugar sa komunidad?",
+            "options": [
+              "Palengke",
+              "Silid-aralan",
+              "Patyo",
+              "Aklatan"
+            ],
+            "correct_answer": "Palengke"
+          },
+          {
+            "question": "Sino ang namamahala sa buong paaralan?",
+            "options": [
+              "Punong-guro",
+              "Kapitbahay",
+              "Punong barangay",
+              "Tindera"
+            ],
+            "correct_answer": "Punong-guro"
+          },
+          {
+            "question": "Aling salita ang ginagamit sa pagtatanong ng dami?",
+            "options": [
+              "Ilan",
+              "Sino",
+              "Ano",
+              "Alin"
+            ],
+            "correct_answer": "Ilan"
+          },
+          {
+            "question": "\"Sino ang guro mo?\" — anong panghalip na pananong ang ginamit?",
+            "options": [
+              "Sino",
+              "Ano",
+              "Saan",
+              "Ilan"
+            ],
+            "correct_answer": "Sino"
+          },
+          {
+            "question": "Saan ka pupunta kung may sakit ka?",
+            "options": [
+              "Ospital",
+              "Aklatan",
+              "Silid-aralan",
+              "Patyo"
+            ],
+            "correct_answer": "Ospital"
+          },
+          {
+            "question": "Sino ang kausap mo kapag magkatabi kayong nakaupo sa klase?",
+            "options": [
+              "Kaklase",
+              "Punong barangay",
+              "Tindera",
+              "Doktor"
+            ],
+            "correct_answer": "Kaklase"
+          },
+          {
+            "question": "Saan ka bibili ng gulay at isda?",
+            "options": [
+              "Palengke",
+              "Aklatan",
+              "Ospital",
+              "Silid-aralan"
+            ],
+            "correct_answer": "Palengke"
+          },
+          {
+            "question": "Sino ang tumutulong kapag may sakit sa ospital?",
+            "options": [
+              "Doktor",
+              "Kapitbahay",
+              "Guro",
+              "Punong barangay"
+            ],
+            "correct_answer": "Doktor"
+          },
+          {
+            "question": "\"Ilan ang kaklase mo?\" — ano ang tinatanong nito?",
+            "options": [
+              "Bilang ng kaklase",
+              "Pangalan ng kaklase",
+              "Lugar ng kaklase",
+              "Kulay ng kaklase"
+            ],
+            "correct_answer": "Bilang ng kaklase"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌱 Science — What Plants Need to Grow\n\nGrade 2, Week 16! Let's learn what keeps plants healthy. 🌿\n\n## 🌞 Five Things Plants Need\n| Need | Why |\n|---|---|\n| **Sunlight** | leaves use it to make food |\n| **Water** | carried up by the stem to every part |\n| **Air** | plants breathe too! |\n| **Soil** | anchors roots, has nutrients |\n| **Space** | roots need room to spread |\n\n## 🔍 Observing a Growing Seed\nA fun science activity: plant a seed and **watch it change** over several days.\n\n**Steps:**\n1. Plant a bean seed in a cup with soil\n2. Water it a little each day\n3. **Draw** what you see each day\n4. Watch it **sprout** and grow!\n\n## 🧠 Worked Example 1\n*A plant is kept in a dark closet. What happens?*\n- Without **sunlight**, the plant cannot make food. It will grow **weak and pale**, and may eventually die.\n\n## 🧠 Worked Example 2\n*Two plants — one watered, one not — after a week?*\n- The **watered plant** stays green and healthy.\n- The **unwatered plant** wilts and droops.\n\n## 📝 Recording Changes\nWhen you observe your growing seed, **draw** what you see each day — this is like a scientist's **journal**!\n\nGreat plant scientist! 🌸",
+        "quiz": [
+          {
+            "question": "Which of these do plants need to grow?",
+            "options": [
+              "Sunlight, water, air, soil, space",
+              "Only darkness and cold",
+              "Only sand and rocks",
+              "Only wind and dust"
+            ],
+            "correct_answer": "Sunlight, water, air, soil, space"
+          },
+          {
+            "question": "What happens to a plant kept in a dark closet?",
+            "options": [
+              "It grows weak and pale",
+              "It grows extra strong",
+              "It changes color to blue",
+              "Nothing happens at all"
+            ],
+            "correct_answer": "It grows weak and pale"
+          },
+          {
+            "question": "What happens to an unwatered plant after a week?",
+            "options": [
+              "It wilts and droops",
+              "It grows taller",
+              "It becomes greener",
+              "It grows more flowers"
+            ],
+            "correct_answer": "It wilts and droops"
+          },
+          {
+            "question": "Why do plant roots need space?",
+            "options": [
+              "To spread out and grow properly",
+              "To make food from sunlight",
+              "To attract insects nearby",
+              "To hold the flower petals"
+            ],
+            "correct_answer": "To spread out and grow properly"
+          },
+          {
+            "question": "What should you do each day when observing a growing seed?",
+            "options": [
+              "Draw what you see",
+              "Ignore it completely",
+              "Remove it from soil",
+              "Keep it in the dark"
+            ],
+            "correct_answer": "Draw what you see"
+          },
+          {
+            "question": "Why do plants need soil?",
+            "options": [
+              "It anchors roots and has nutrients",
+              "It blocks sunlight completely",
+              "It stops the plant from growing",
+              "It replaces the need for water"
+            ],
+            "correct_answer": "It anchors roots and has nutrients"
+          },
+          {
+            "question": "What is the first step in growing a seed for observation?",
+            "options": [
+              "Plant it in a cup with soil",
+              "Draw a picture of a flower",
+              "Leave it in a dark room",
+              "Cut the seed in half"
+            ],
+            "correct_answer": "Plant it in a cup with soil"
+          },
+          {
+            "question": "Why do plants need air?",
+            "options": [
+              "Plants need air just like animals do",
+              "Air makes soil heavier",
+              "Air changes the plant's color",
+              "Plants do not need air at all"
+            ],
+            "correct_answer": "Plants need air just like animals do"
+          },
+          {
+            "question": "Recording daily observations is like being a:",
+            "options": [
+              "scientist keeping a journal",
+              "chef cooking food",
+              "painter making art",
+              "singer performing music"
+            ],
+            "correct_answer": "scientist keeping a journal"
+          },
+          {
+            "question": "Which plant will most likely stay healthiest: one in sunlight and watered, or one in a dark closet, never watered?",
+            "options": [
+              "The one in sunlight and watered",
+              "The one in the dark closet",
+              "Both will be equally healthy",
+              "Neither will survive at all"
+            ],
+            "correct_answer": "The one in sunlight and watered"
+          },
+          {
+            "question": "What does the stem do with the water a plant absorbs?",
+            "options": [
+              "Carries it to every part of the plant",
+              "Turns it into soil",
+              "Blocks it from the leaves",
+              "Changes it into sunlight"
+            ],
+            "correct_answer": "Carries it to every part of the plant"
+          },
+          {
+            "question": "You planted a seed two weeks ago and it has not sprouted despite watering. What should you check?",
+            "options": [
+              "Whether it is getting enough sunlight",
+              "Whether the cup is too colorful",
+              "Whether the seed is too small",
+              "Whether the room is too quiet"
+            ],
+            "correct_answer": "Whether it is getting enough sunlight"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🎨 Makabansa — Materyal at Di-Materyal na Kultura\n\nGrade 2, Linggo 16! Alamin natin ang dalawang uri ng kultura. 🇵🇭\n\n## 🖐️ Materyal na Kultura (Nakikita/Nahahawakan)\n\n| Uri | Halimbawa |\n|---|---|\n| **Pagkain** | suman, kakanin, ulam na katutubo |\n| **Kasuotan** | Barong Tagalog, Baro't Saya, malong |\n| **Bahay** | bahay-kubo |\n| **Kagamitan** | banig, palayok |\n\n## 💭 Di-Materyal na Kultura (Hindi Nakikita/Nahahawakan)\nBagay na **hindi hawakan** ngunit **naramdaman o naiisip**:\n- **Wika** — Filipino, Ilocano, Bisaya\n- **Paniniwala** — relihiyon, pamahiin\n- **Kaugalian** — bayanihan, pagmamano\n\n## 🧠 Halimbawa 1\n*Ang Barong Tagalog ay materyal o di-materyal na kultura?*\n- **Materyal** — dahil ito ay **nakikita at nahahawakan**.\n\n## 🧠 Halimbawa 2\n*Ang bayanihan ay materyal o di-materyal na kultura?*\n- **Di-materyal** — ito ay isang **kaugalian**, hindi isang bagay na hawak-hawak.\n\n## 🏠 Ang Bahay-Kubo\nAng **bahay-kubo** ay tradisyonal na bahay na gawa sa **kawayan at kugon**, itinaas mula sa lupa upang maiwasan ang baha at hayop.\n\n## 🍚 Mga Kakanin\nMga tradisyonal na matamis na pagkain tulad ng **suman, bibingka, at kutsinta** — bahagi ng ating materyal na kultura.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang materyal na kultura?",
+            "options": [
+              "Bagay na nakikita at nahahawakan",
+              "Damdamin at paniniwala lamang",
+              "Wika ng isang grupo",
+              "Kaugaliang hindi nakikita"
+            ],
+            "correct_answer": "Bagay na nakikita at nahahawakan"
+          },
+          {
+            "question": "Ano ang di-materyal na kultura?",
+            "options": [
+              "Wika, paniniwala, at kaugalian",
+              "Damit at pagkain lamang",
+              "Bahay at kagamitan lamang",
+              "Larawan at guhit lamang"
+            ],
+            "correct_answer": "Wika, paniniwala, at kaugalian"
+          },
+          {
+            "question": "Ang Barong Tagalog ay anong uri ng kultura?",
+            "options": [
+              "Materyal",
+              "Di-materyal",
+              "Pareho",
+              "Wala sa dalawa"
+            ],
+            "correct_answer": "Materyal"
+          },
+          {
+            "question": "Ang bayanihan ay anong uri ng kultura?",
+            "options": [
+              "Di-materyal",
+              "Materyal",
+              "Pareho",
+              "Wala sa dalawa"
+            ],
+            "correct_answer": "Di-materyal"
+          },
+          {
+            "question": "Alin ang halimbawa ng tradisyonal na kakanin?",
+            "options": [
+              "Suman",
+              "Cellphone",
+              "Kotse",
+              "Robot"
+            ],
+            "correct_answer": "Suman"
+          },
+          {
+            "question": "Ang bahay-kubo ay gawa sa:",
+            "options": [
+              "Kawayan at kugon",
+              "Bakal at semento",
+              "Salamin at plastik",
+              "Papel at goma"
+            ],
+            "correct_answer": "Kawayan at kugon"
+          },
+          {
+            "question": "Bakit itinataas ang bahay-kubo mula sa lupa?",
+            "options": [
+              "Upang maiwasan ang baha at hayop",
+              "Upang mas maganda tingnan",
+              "Upang mas malamig sa loob",
+              "Upang mas madaling gawin"
+            ],
+            "correct_answer": "Upang maiwasan ang baha at hayop"
+          },
+          {
+            "question": "Alin ang halimbawa ng wika bilang di-materyal na kultura?",
+            "options": [
+              "Filipino",
+              "Malong",
+              "Palayok",
+              "Banig"
+            ],
+            "correct_answer": "Filipino"
+          },
+          {
+            "question": "Alin ang halimbawa ng kagamitang tradisyonal?",
+            "options": [
+              "Banig",
+              "Cellphone",
+              "Kompyuter",
+              "Kotse"
+            ],
+            "correct_answer": "Banig"
+          },
+          {
+            "question": "Ang malong ay ginagamit sa aling bahagi ng Pilipinas?",
+            "options": [
+              "Mindanao",
+              "Luzon lamang",
+              "Visayas lamang",
+              "Wala sa Pilipinas"
+            ],
+            "correct_answer": "Mindanao"
+          },
+          {
+            "question": "Ang pagmamano ay halimbawa ng anong uri ng kultura?",
+            "options": [
+              "Di-materyal, dahil kaugalian ito",
+              "Materyal, dahil hawak-hawak ito",
+              "Wala sa dalawa",
+              "Parehong materyal at di-materyal"
+            ],
+            "correct_answer": "Di-materyal, dahil kaugalian ito"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang pagkakaiba ng materyal at di-materyal na kultura?",
+            "options": [
+              "Upang maunawaan natin ang lahat ng uri ng kultura",
+              "Upang mas madaling magbenta ng bagay",
+              "Upang mas mabilis matapos ang klase",
+              "Walang dahilan ito"
+            ],
+            "correct_answer": "Upang maunawaan natin ang lahat ng uri ng kultura"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# ⌨️ Computer — Special Keys and Their Jobs\n\nGrade 2, Week 16! Let's learn special keyboard keys. 💻\n\n## 🔑 Special Keys\n| Key | Job |\n|---|---|\n| **Shift** | makes **capital letters** when held down |\n| **Backspace/Delete** | fixes **typing mistakes** |\n| **Enter** | starts a **new line** |\n\n## 🧠 Worked Example 1\n*You want to type a capital \"A\" instead of lowercase \"a\".*\n- **Hold Shift**, then press **A** → you get **\"A\"** ✅\n\n## 🧠 Worked Example 2\n*You typed \"Helo\" but meant \"Hello\".*\n- Click after the mistake, use **Backspace** to remove the wrong letters, then retype correctly.\n\n## ✋ Using Both Hands Comfortably\nAt this stage, we're not learning full touch-typing yet — just getting comfortable:\n- **Left hand** can reach keys on the **left side**\n- **Right hand** can reach keys on the **right side**\n- Keep hands **relaxed**, not tense\n\n## 💡 Practice Tips\n- Practice holding **Shift** while pressing a letter\n- Practice using **Backspace** to fix small mistakes\n- Practice pressing **Enter** to move to a new line\n\nGreat keyboard skills! 🌟",
+        "quiz": [
+          {
+            "question": "Which key makes a capital letter?",
+            "options": [
+              "Shift",
+              "Enter",
+              "Backspace",
+              "Spacebar"
+            ],
+            "correct_answer": "Shift"
+          },
+          {
+            "question": "Which key fixes typing mistakes?",
+            "options": [
+              "Backspace/Delete",
+              "Shift",
+              "Enter",
+              "Spacebar"
+            ],
+            "correct_answer": "Backspace/Delete"
+          },
+          {
+            "question": "Which key starts a new line?",
+            "options": [
+              "Enter",
+              "Shift",
+              "Backspace",
+              "Spacebar"
+            ],
+            "correct_answer": "Enter"
+          },
+          {
+            "question": "You want to type a capital 'A'. What do you do?",
+            "options": [
+              "Hold Shift and press A",
+              "Press Enter first",
+              "Press Backspace first",
+              "Press the number keys"
+            ],
+            "correct_answer": "Hold Shift and press A"
+          },
+          {
+            "question": "You typed 'Helo' instead of 'Hello'. What key helps fix it?",
+            "options": [
+              "Backspace",
+              "Shift",
+              "Enter",
+              "Spacebar"
+            ],
+            "correct_answer": "Backspace"
+          },
+          {
+            "question": "At this stage, are we learning full touch-typing?",
+            "options": [
+              "No, just getting comfortable with both hands",
+              "Yes, full touch-typing right away",
+              "No, we are not using hands at all",
+              "Yes, using only one hand"
+            ],
+            "correct_answer": "No, just getting comfortable with both hands"
+          },
+          {
+            "question": "How should your hands feel while typing?",
+            "options": [
+              "Relaxed, not tense",
+              "Very tight and stiff",
+              "Lifted far away",
+              "Crossed over each other"
+            ],
+            "correct_answer": "Relaxed, not tense"
+          },
+          {
+            "question": "Which hand reaches keys on the left side more easily?",
+            "options": [
+              "Left hand",
+              "Right hand",
+              "Neither hand",
+              "Both feet"
+            ],
+            "correct_answer": "Left hand"
+          },
+          {
+            "question": "What happens if you press Enter in the middle of typing?",
+            "options": [
+              "It starts a new line",
+              "It deletes your work",
+              "It makes letters capital",
+              "It adds a space only"
+            ],
+            "correct_answer": "It starts a new line"
+          },
+          {
+            "question": "Which key would you use to type 'PHILIPPINES' in all capitals if you held it down the whole time?",
+            "options": [
+              "Shift",
+              "Enter",
+              "Backspace",
+              "Spacebar"
+            ],
+            "correct_answer": "Shift"
+          },
+          {
+            "question": "Why is it useful to know the Backspace key?",
+            "options": [
+              "It lets you correct mistakes easily",
+              "It makes your typing faster only",
+              "It changes the font color",
+              "It saves your document"
+            ],
+            "correct_answer": "It lets you correct mistakes easily"
+          },
+          {
+            "question": "You want to write two separate sentences on two separate lines. Which key helps?",
+            "options": [
+              "Enter",
+              "Shift",
+              "Backspace",
+              "Spacebar only"
+            ],
+            "correct_answer": "Enter"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💛 GMRC — Self-Discipline in Public Places\n\nGrade 2, Linggo 16! Pagpapahalaga: **Compassion (Pagmamalasakit)**. 🌟\n\n## 🏛️ Tamang Asal sa Pampublikong Lugar\n\n| Lugar | Tamang Asal |\n|---|---|\n| **Palengke** | huwag maingay, sundin ang pila |\n| **Simbahan** | manahimik, magalang na umupo |\n| **Ospital** | mahinang boses, huwag tumakbo |\n| **Sasakyang Pampubliko** | umupo nang maayos, bigyan ng puwesto ang matanda |\n| **Parke** | huwag manira ng halaman, ligtas na paglalaro |\n\n## ❤️ Pagsasaalang-alang sa Iba (Compassion)\nAng **compassion** sa pampublikong lugar ay pag-iisip sa **ginhawa ng iba**, hindi lamang sa sarili.\n\n**Halimbawa:**\n- **Pagbibigay ng puwesto** sa buntis o matanda sa jeep\n- **Paghihintay sa pila** nang hindi sumisingit\n- **Pagpapahinahon** ng boses sa ospital dahil may mga pasyenteng nagpapahinga\n\n## 🧠 Halimbawa 1\n*Nasa sasakyang pampubliko kayo at may matandang walang upuan. Ano ang gagawin mo?*\n- **Bigyan siya ng puwesto** — ito ay pagpapakita ng compassion at paggalang. ✅\n\n## 🧠 Halimbawa 2\n*Nasa ospital kayo bibisita ng kamag-anak. Ano ang tamang asal?*\n- Magsalita nang **mahina** at huwag tumakbo — iginagalang mo ang mga pasyenteng nagpapahinga. ✅\n\n## 💡 Bakit Mahalaga ang Pagsunod sa Panuntunan?\nAng pagsunod sa panuntunan sa pampublikong lugar ay hindi lamang pagsunod — ito ay **pagmamalasakit** sa kapakanan ng lahat.\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang tamang asal sa palengke?",
+            "options": [
+              "Huwag maingay, sundin ang pila",
+              "Sumigaw at tumakbo",
+              "Sumingit sa pila",
+              "Manira ng paninda"
+            ],
+            "correct_answer": "Huwag maingay, sundin ang pila"
+          },
+          {
+            "question": "Ano ang tamang asal sa simbahan?",
+            "options": [
+              "Manahimik at magalang na umupo",
+              "Maglaro at tumakbo",
+              "Sumigaw ng malakas",
+              "Kumain habang nasa loob"
+            ],
+            "correct_answer": "Manahimik at magalang na umupo"
+          },
+          {
+            "question": "May matandang walang upuan sa jeep. Ano ang gagawin mo?",
+            "options": [
+              "Bigyan siya ng puwesto",
+              "Hayaan siyang nakatayo",
+              "Tumingin sa ibang direksiyon",
+              "Umupo nang mas mahigpit"
+            ],
+            "correct_answer": "Bigyan siya ng puwesto"
+          },
+          {
+            "question": "Ano ang tamang asal sa ospital?",
+            "options": [
+              "Magsalita nang mahina, huwag tumakbo",
+              "Sumigaw nang malakas dito",
+              "Tumakbo sa mga pasilyo",
+              "Maglaro ng bola dito"
+            ],
+            "correct_answer": "Magsalita nang mahina, huwag tumakbo"
+          },
+          {
+            "question": "Ano ang compassion sa pampublikong lugar?",
+            "options": [
+              "Pagsasaalang-alang sa ginhawa ng iba",
+              "Pag-iisip lamang sa sarili",
+              "Pagbabalewala sa iba",
+              "Pagtatago sa kwarto"
+            ],
+            "correct_answer": "Pagsasaalang-alang sa ginhawa ng iba"
+          },
+          {
+            "question": "Ano ang tamang gawin sa parke?",
+            "options": [
+              "Huwag manira ng halaman",
+              "Pumitas ng maraming bulaklak",
+              "Tumapon ng basura kahit saan",
+              "Sumigaw nang malakas"
+            ],
+            "correct_answer": "Huwag manira ng halaman"
+          },
+          {
+            "question": "Bakit dapat sundin ang pila sa palengke?",
+            "options": [
+              "Nagpapakita ng respeto sa mamimili",
+              "Para makauna sa lahat lang",
+              "Para mabilis makauwi lang",
+              "Walang dahilan ito"
+            ],
+            "correct_answer": "Nagpapakita ng respeto sa mamimili"
+          },
+          {
+            "question": "Bakit mahalagang mahina magsalita sa ospital?",
+            "options": [
+              "May mga pasyenteng nagpapahinga",
+              "Bawal magsalita doon",
+              "Wala itong dahilan",
+              "Para mabilis matapos ang bisita"
+            ],
+            "correct_answer": "May mga pasyenteng nagpapahinga"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng pagsunod sa panuntunan sa pampublikong lugar?",
+            "options": [
+              "Pagmamalasakit sa kapakanan ng lahat",
+              "Pagsunod lamang dahil sa takot",
+              "Pagsunod upang mapuri",
+              "Walang kabuluhan ito"
+            ],
+            "correct_answer": "Pagmamalasakit sa kapakanan ng lahat"
+          },
+          {
+            "question": "Nakita mong maingay ang isang bata sa simbahan. Ano ang tamang gawin ng bata?",
+            "options": [
+              "Manahimik at umupo nang maayos",
+              "Tumakbo sa palibot",
+              "Sumigaw pa nang malakas",
+              "Maglaro ng laruan"
+            ],
+            "correct_answer": "Manahimik at umupo nang maayos"
+          },
+          {
+            "question": "Nasa pila ka sa palengke at may sumingit. Ano ang tamang gawin mo?",
+            "options": [
+              "Manahimik at umupo nang maayos",
+              "Tumakbo sa palibot nito",
+              "Sumigaw pa nang malakas",
+              "Maglaro ng laruan dito"
+            ],
+            "correct_answer": "Manahimik at umupo nang maayos"
+          },
+          {
+            "question": "Bakit itinuturing na compassion ang pagbibigay ng puwesto sa buntis?",
+            "options": [
+              "Iniisip mo ang kanyang ginhawa",
+              "Iniisip mo lamang ang sarili mo",
+              "Wala itong kaugnayan sa compassion",
+              "Ginagawa lamang ito para papurihan"
+            ],
+            "correct_answer": "Iniisip mo ang kanyang ginhawa"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🏫 Friday Review — English (Grade 2)\n\n- **School vocab:** teacher, classroom, library, chalkboard\n- **Community vocab:** police officer, market, barangay hall\n- Community helpers keep us **safe, healthy, and fed**\n\nGreat work this week! 🌟",
+        "quiz": [
+          {
+            "question": "Where would you find a librarian?",
+            "options": [
+              "In the library",
+              "In the market",
+              "At the hospital",
+              "At the police station"
+            ],
+            "correct_answer": "In the library"
+          },
+          {
+            "question": "Who helps put out fires?",
+            "options": [
+              "A firefighter",
+              "A farmer",
+              "A teacher",
+              "A guard"
+            ],
+            "correct_answer": "A firefighter"
+          },
+          {
+            "question": "Which is a school place?",
+            "options": [
+              "Classroom",
+              "Market",
+              "Barangay hall",
+              "Hospital"
+            ],
+            "correct_answer": "Classroom"
+          },
+          {
+            "question": "Which is a community place?",
+            "options": [
+              "Market",
+              "Classroom",
+              "Canteen",
+              "Playground"
+            ],
+            "correct_answer": "Market"
+          },
+          {
+            "question": "Who helps sick people get better?",
+            "options": [
+              "A doctor",
+              "A guard",
+              "A principal",
+              "A farmer"
+            ],
+            "correct_answer": "A doctor"
+          },
+          {
+            "question": "Which word names a school object?",
+            "options": [
+              "Chalkboard",
+              "Market",
+              "Barangay",
+              "Hospital"
+            ],
+            "correct_answer": "Chalkboard"
+          },
+          {
+            "question": "Which is a community activity?",
+            "options": [
+              "Shopping",
+              "Reading in class",
+              "Recess",
+              "Raising your hand"
+            ],
+            "correct_answer": "Shopping"
+          },
+          {
+            "question": "Who grows the food we eat?",
+            "options": [
+              "A farmer",
+              "A guard",
+              "A librarian",
+              "A principal"
+            ],
+            "correct_answer": "A farmer"
+          },
+          {
+            "question": "Where does the barangay captain usually work?",
+            "options": [
+              "Barangay hall",
+              "Classroom",
+              "Canteen",
+              "Library"
+            ],
+            "correct_answer": "Barangay hall"
+          },
+          {
+            "question": "Who keeps the school safe at the gate?",
+            "options": [
+              "The guard",
+              "The farmer",
+              "The doctor",
+              "The firefighter"
+            ],
+            "correct_answer": "The guard"
+          },
+          {
+            "question": "You need to borrow a book. Where should you go?",
+            "options": [
+              "The library",
+              "The market",
+              "The hospital",
+              "The police station"
+            ],
+            "correct_answer": "The library"
+          },
+          {
+            "question": "\"The farmer sold vegetables at the market\" describes:",
+            "options": [
+              "A community scene",
+              "A school scene",
+              "A hospital scene",
+              "A library scene"
+            ],
+            "correct_answer": "A community scene"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➖ Friday Review — Mathematics (Grade 2)\n\n- **Subtraction on a number line** = jump backward\n- **Inverse of addition:** if 5+3=8, then 8−3=5\n- **Regroup** when the ones digit on top is smaller\n\n**Quick check:** 24 − 6 = **18**\n\nGreat subtracting! ⭐",
+        "quiz": [
+          {
+            "question": "What is 8 − 3 using a number line?",
+            "options": [
+              "5",
+              "11",
+              "3",
+              "8"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "If 5 + 3 = 8, what is 8 − 3?",
+            "options": [
+              "5",
+              "8",
+              "3",
+              "11"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "What is 24 − 6?",
+            "options": [
+              "18",
+              "20",
+              "17",
+              "19"
+            ],
+            "correct_answer": "18"
+          },
+          {
+            "question": "What is 15 − 7?",
+            "options": [
+              "8",
+              "22",
+              "7",
+              "9"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is 32 − 5?",
+            "options": [
+              "27",
+              "37",
+              "26",
+              "28"
+            ],
+            "correct_answer": "27"
+          },
+          {
+            "question": "Ben has 20 marbles and gives 8 away. How many are left?",
+            "options": [
+              "12",
+              "28",
+              "11",
+              "13"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "How do you check that 8 − 3 = 5 is correct?",
+            "options": [
+              "Add 5 and 3 to check",
+              "Subtract 5 minus 3",
+              "Multiply 5 times 3",
+              "Divide 8 by 3"
+            ],
+            "correct_answer": "Add 5 and 3 to check"
+          },
+          {
+            "question": "On a number line, subtraction means moving:",
+            "options": [
+              "backward",
+              "forward",
+              "up",
+              "down"
+            ],
+            "correct_answer": "backward"
+          },
+          {
+            "question": "What is 40 − 9?",
+            "options": [
+              "31",
+              "49",
+              "30",
+              "32"
+            ],
+            "correct_answer": "31"
+          },
+          {
+            "question": "When do you need to regroup in subtraction?",
+            "options": [
+              "When the ones digit on top is smaller",
+              "When both numbers are even",
+              "When the answer is zero",
+              "When you are adding, not subtracting"
+            ],
+            "correct_answer": "When the ones digit on top is smaller"
+          },
+          {
+            "question": "What is 18 − 9?",
+            "options": [
+              "9",
+              "27",
+              "8",
+              "10"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "A jeepney has 25 seats. 17 are filled. How many are empty?",
+            "options": [
+              "8",
+              "42",
+              "7",
+              "9"
+            ],
+            "correct_answer": "8"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🏫 Biyernes na Balik-Aral — Filipino (Grade 2)\n\n- **Talasalitaan sa paaralan:** guro, silid-aralan, aklatan\n- **Talasalitaan sa komunidad:** palengke, ospital, barangay\n- **Panghalip na pananong:** sino, ano, alin, kanino, ilan\n\nMagaling! 🌈",
+        "quiz": [
+          {
+            "question": "Saan ka pupunta kung gusto mong humiram ng aklat?",
+            "options": [
+              "Aklatan",
+              "Tindahan",
+              "Ospital",
+              "Himpilan ng pulisya"
+            ],
+            "correct_answer": "Aklatan"
+          },
+          {
+            "question": "Sino ang namumuno sa barangay?",
+            "options": [
+              "Punong barangay",
+              "Guro",
+              "Kapitbahay",
+              "Kaklase"
+            ],
+            "correct_answer": "Punong barangay"
+          },
+          {
+            "question": "Alin ang lugar sa paaralan?",
+            "options": [
+              "Silid-aralan",
+              "Palengke",
+              "Barangay",
+              "Tindahan"
+            ],
+            "correct_answer": "Silid-aralan"
+          },
+          {
+            "question": "Alin ang lugar sa komunidad?",
+            "options": [
+              "Palengke",
+              "Silid-aralan",
+              "Patyo",
+              "Aklatan"
+            ],
+            "correct_answer": "Palengke"
+          },
+          {
+            "question": "Sino ang namamahala sa buong paaralan?",
+            "options": [
+              "Punong-guro",
+              "Kapitbahay",
+              "Punong barangay",
+              "Tindera"
+            ],
+            "correct_answer": "Punong-guro"
+          },
+          {
+            "question": "Aling salita ang ginagamit sa pagtatanong ng dami?",
+            "options": [
+              "Ilan",
+              "Sino",
+              "Ano",
+              "Alin"
+            ],
+            "correct_answer": "Ilan"
+          },
+          {
+            "question": "\"Sino ang guro mo?\" — anong panghalip na pananong ang ginamit?",
+            "options": [
+              "Sino",
+              "Ano",
+              "Saan",
+              "Ilan"
+            ],
+            "correct_answer": "Sino"
+          },
+          {
+            "question": "Saan ka pupunta kung may sakit ka?",
+            "options": [
+              "Ospital",
+              "Aklatan",
+              "Silid-aralan",
+              "Patyo"
+            ],
+            "correct_answer": "Ospital"
+          },
+          {
+            "question": "Sino ang kausap mo kapag magkatabi kayong nakaupo sa klase?",
+            "options": [
+              "Kaklase",
+              "Punong barangay",
+              "Tindera",
+              "Doktor"
+            ],
+            "correct_answer": "Kaklase"
+          },
+          {
+            "question": "Saan ka bibili ng gulay at isda?",
+            "options": [
+              "Palengke",
+              "Aklatan",
+              "Ospital",
+              "Silid-aralan"
+            ],
+            "correct_answer": "Palengke"
+          },
+          {
+            "question": "Sino ang tumutulong kapag may sakit sa ospital?",
+            "options": [
+              "Doktor",
+              "Kapitbahay",
+              "Guro",
+              "Punong barangay"
+            ],
+            "correct_answer": "Doktor"
+          },
+          {
+            "question": "\"Ilan ang kaklase mo?\" — ano ang tinatanong nito?",
+            "options": [
+              "Bilang ng kaklase",
+              "Pangalan ng kaklase",
+              "Lugar ng kaklase",
+              "Kulay ng kaklase"
+            ],
+            "correct_answer": "Bilang ng kaklase"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌱 Friday Review — Science (Grade 2)\n\n- Plants need **sunlight, water, air, soil, and space**\n- No sunlight → weak, pale plant | No water → wilting\n- Observing a growing seed = drawing changes each day\n\nGreat plant scientist! 🌸",
+        "quiz": [
+          {
+            "question": "Which of these do plants need to grow?",
+            "options": [
+              "Sunlight, water, air, soil, space",
+              "Only darkness and cold",
+              "Only sand and rocks",
+              "Only wind and dust"
+            ],
+            "correct_answer": "Sunlight, water, air, soil, space"
+          },
+          {
+            "question": "What happens to a plant kept in a dark closet?",
+            "options": [
+              "It grows weak and pale",
+              "It grows extra strong",
+              "It changes color to blue",
+              "Nothing happens at all"
+            ],
+            "correct_answer": "It grows weak and pale"
+          },
+          {
+            "question": "What happens to an unwatered plant after a week?",
+            "options": [
+              "It wilts and droops",
+              "It grows taller",
+              "It becomes greener",
+              "It grows more flowers"
+            ],
+            "correct_answer": "It wilts and droops"
+          },
+          {
+            "question": "Why do plant roots need space?",
+            "options": [
+              "To spread out and grow properly",
+              "To make food from sunlight",
+              "To attract insects nearby",
+              "To hold the flower petals"
+            ],
+            "correct_answer": "To spread out and grow properly"
+          },
+          {
+            "question": "What should you do each day when observing a growing seed?",
+            "options": [
+              "Draw what you see",
+              "Ignore it completely",
+              "Remove it from soil",
+              "Keep it in the dark"
+            ],
+            "correct_answer": "Draw what you see"
+          },
+          {
+            "question": "Why do plants need soil?",
+            "options": [
+              "It anchors roots and has nutrients",
+              "It blocks sunlight completely",
+              "It stops the plant from growing",
+              "It replaces the need for water"
+            ],
+            "correct_answer": "It anchors roots and has nutrients"
+          },
+          {
+            "question": "What is the first step in growing a seed for observation?",
+            "options": [
+              "Plant it in a cup with soil",
+              "Draw a picture of a flower",
+              "Leave it in a dark room",
+              "Cut the seed in half"
+            ],
+            "correct_answer": "Plant it in a cup with soil"
+          },
+          {
+            "question": "Why do plants need air?",
+            "options": [
+              "Plants need air just like animals do",
+              "Air makes soil heavier",
+              "Air changes the plant's color",
+              "Plants do not need air at all"
+            ],
+            "correct_answer": "Plants need air just like animals do"
+          },
+          {
+            "question": "Recording daily observations is like being a:",
+            "options": [
+              "scientist keeping a journal",
+              "chef cooking food",
+              "painter making art",
+              "singer performing music"
+            ],
+            "correct_answer": "scientist keeping a journal"
+          },
+          {
+            "question": "Which plant will most likely stay healthiest: one in sunlight and watered, or one in a dark closet, never watered?",
+            "options": [
+              "The one in sunlight and watered",
+              "The one in the dark closet",
+              "Both will be equally healthy",
+              "Neither will survive at all"
+            ],
+            "correct_answer": "The one in sunlight and watered"
+          },
+          {
+            "question": "What does the stem do with the water a plant absorbs?",
+            "options": [
+              "Carries it to every part of the plant",
+              "Turns it into soil",
+              "Blocks it from the leaves",
+              "Changes it into sunlight"
+            ],
+            "correct_answer": "Carries it to every part of the plant"
+          },
+          {
+            "question": "You planted a seed two weeks ago and it has not sprouted despite watering. What should you check?",
+            "options": [
+              "Whether it is getting enough sunlight",
+              "Whether the cup is too colorful",
+              "Whether the seed is too small",
+              "Whether the room is too quiet"
+            ],
+            "correct_answer": "Whether it is getting enough sunlight"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🎨 Biyernes na Balik-Aral — Makabansa (Grade 2)\n\n- **Materyal na kultura** = nakikita/nahahawakan (pagkain, kasuotan, bahay-kubo)\n- **Di-materyal na kultura** = wika, paniniwala, kaugalian\n- Barong Tagalog = materyal | Bayanihan = di-materyal\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang materyal na kultura?",
+            "options": [
+              "Bagay na nakikita at nahahawakan",
+              "Damdamin at paniniwala lamang",
+              "Wika ng isang grupo",
+              "Kaugaliang hindi nakikita"
+            ],
+            "correct_answer": "Bagay na nakikita at nahahawakan"
+          },
+          {
+            "question": "Ano ang di-materyal na kultura?",
+            "options": [
+              "Wika, paniniwala, at kaugalian",
+              "Damit at pagkain lamang",
+              "Bahay at kagamitan lamang",
+              "Larawan at guhit lamang"
+            ],
+            "correct_answer": "Wika, paniniwala, at kaugalian"
+          },
+          {
+            "question": "Ang Barong Tagalog ay anong uri ng kultura?",
+            "options": [
+              "Materyal",
+              "Di-materyal",
+              "Pareho",
+              "Wala sa dalawa"
+            ],
+            "correct_answer": "Materyal"
+          },
+          {
+            "question": "Ang bayanihan ay anong uri ng kultura?",
+            "options": [
+              "Di-materyal",
+              "Materyal",
+              "Pareho",
+              "Wala sa dalawa"
+            ],
+            "correct_answer": "Di-materyal"
+          },
+          {
+            "question": "Alin ang halimbawa ng tradisyonal na kakanin?",
+            "options": [
+              "Suman",
+              "Cellphone",
+              "Kotse",
+              "Robot"
+            ],
+            "correct_answer": "Suman"
+          },
+          {
+            "question": "Ang bahay-kubo ay gawa sa:",
+            "options": [
+              "Kawayan at kugon",
+              "Bakal at semento",
+              "Salamin at plastik",
+              "Papel at goma"
+            ],
+            "correct_answer": "Kawayan at kugon"
+          },
+          {
+            "question": "Bakit itinataas ang bahay-kubo mula sa lupa?",
+            "options": [
+              "Upang maiwasan ang baha at hayop",
+              "Upang mas maganda tingnan",
+              "Upang mas malamig sa loob",
+              "Upang mas madaling gawin"
+            ],
+            "correct_answer": "Upang maiwasan ang baha at hayop"
+          },
+          {
+            "question": "Alin ang halimbawa ng wika bilang di-materyal na kultura?",
+            "options": [
+              "Filipino",
+              "Malong",
+              "Palayok",
+              "Banig"
+            ],
+            "correct_answer": "Filipino"
+          },
+          {
+            "question": "Alin ang halimbawa ng kagamitang tradisyonal?",
+            "options": [
+              "Banig",
+              "Cellphone",
+              "Kompyuter",
+              "Kotse"
+            ],
+            "correct_answer": "Banig"
+          },
+          {
+            "question": "Ang malong ay ginagamit sa aling bahagi ng Pilipinas?",
+            "options": [
+              "Mindanao",
+              "Luzon lamang",
+              "Visayas lamang",
+              "Wala sa Pilipinas"
+            ],
+            "correct_answer": "Mindanao"
+          },
+          {
+            "question": "Ang pagmamano ay halimbawa ng anong uri ng kultura?",
+            "options": [
+              "Di-materyal, dahil kaugalian ito",
+              "Materyal, dahil hawak-hawak ito",
+              "Wala sa dalawa",
+              "Parehong materyal at di-materyal"
+            ],
+            "correct_answer": "Di-materyal, dahil kaugalian ito"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang pagkakaiba ng materyal at di-materyal na kultura?",
+            "options": [
+              "Upang maunawaan natin ang lahat ng uri ng kultura",
+              "Upang mas madaling magbenta ng bagay",
+              "Upang mas mabilis matapos ang klase",
+              "Walang dahilan ito"
+            ],
+            "correct_answer": "Upang maunawaan natin ang lahat ng uri ng kultura"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# ⌨️ Friday Review — Computer (Grade 2)\n\n- **Shift** = capital letters | **Backspace/Delete** = fixes mistakes | **Enter** = new line\n- Not full touch-typing yet — just comfortable use of both hands\n- Keep hands **relaxed**\n\nGreat keyboard skills! 💻",
+        "quiz": [
+          {
+            "question": "Which key makes a capital letter?",
+            "options": [
+              "Shift",
+              "Enter",
+              "Backspace",
+              "Spacebar"
+            ],
+            "correct_answer": "Shift"
+          },
+          {
+            "question": "Which key fixes typing mistakes?",
+            "options": [
+              "Backspace/Delete",
+              "Shift",
+              "Enter",
+              "Spacebar"
+            ],
+            "correct_answer": "Backspace/Delete"
+          },
+          {
+            "question": "Which key starts a new line?",
+            "options": [
+              "Enter",
+              "Shift",
+              "Backspace",
+              "Spacebar"
+            ],
+            "correct_answer": "Enter"
+          },
+          {
+            "question": "You want to type a capital 'A'. What do you do?",
+            "options": [
+              "Hold Shift and press A",
+              "Press Enter first",
+              "Press Backspace first",
+              "Press the number keys"
+            ],
+            "correct_answer": "Hold Shift and press A"
+          },
+          {
+            "question": "You typed 'Helo' instead of 'Hello'. What key helps fix it?",
+            "options": [
+              "Backspace",
+              "Shift",
+              "Enter",
+              "Spacebar"
+            ],
+            "correct_answer": "Backspace"
+          },
+          {
+            "question": "At this stage, are we learning full touch-typing?",
+            "options": [
+              "No, just getting comfortable with both hands",
+              "Yes, full touch-typing right away",
+              "No, we are not using hands at all",
+              "Yes, using only one hand"
+            ],
+            "correct_answer": "No, just getting comfortable with both hands"
+          },
+          {
+            "question": "How should your hands feel while typing?",
+            "options": [
+              "Relaxed, not tense",
+              "Very tight and stiff",
+              "Lifted far away",
+              "Crossed over each other"
+            ],
+            "correct_answer": "Relaxed, not tense"
+          },
+          {
+            "question": "Which hand reaches keys on the left side more easily?",
+            "options": [
+              "Left hand",
+              "Right hand",
+              "Neither hand",
+              "Both feet"
+            ],
+            "correct_answer": "Left hand"
+          },
+          {
+            "question": "What happens if you press Enter in the middle of typing?",
+            "options": [
+              "It starts a new line",
+              "It deletes your work",
+              "It makes letters capital",
+              "It adds a space only"
+            ],
+            "correct_answer": "It starts a new line"
+          },
+          {
+            "question": "Which key would you use to type 'PHILIPPINES' in all capitals if you held it down the whole time?",
+            "options": [
+              "Shift",
+              "Enter",
+              "Backspace",
+              "Spacebar"
+            ],
+            "correct_answer": "Shift"
+          },
+          {
+            "question": "Why is it useful to know the Backspace key?",
+            "options": [
+              "It lets you correct mistakes easily",
+              "It makes your typing faster only",
+              "It changes the font color",
+              "It saves your document"
+            ],
+            "correct_answer": "It lets you correct mistakes easily"
+          },
+          {
+            "question": "You want to write two separate sentences on two separate lines. Which key helps?",
+            "options": [
+              "Enter",
+              "Shift",
+              "Backspace",
+              "Spacebar only"
+            ],
+            "correct_answer": "Enter"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 Biyernes na Balik-Aral — GMRC (Grade 2)\n\n- **Tamang asal:** palengke (walang ingay), simbahan (tahimik), ospital (mahinang boses)\n- **Compassion** = pagsasaalang-alang sa ginhawa ng iba\n- Bigyan ng puwesto ang matanda/buntis sa sasakyan\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang tamang asal sa palengke?",
+            "options": [
+              "Huwag maingay, sundin ang pila",
+              "Sumigaw at tumakbo",
+              "Sumingit sa pila",
+              "Manira ng paninda"
+            ],
+            "correct_answer": "Huwag maingay, sundin ang pila"
+          },
+          {
+            "question": "Ano ang tamang asal sa simbahan?",
+            "options": [
+              "Manahimik at magalang na umupo",
+              "Maglaro at tumakbo",
+              "Sumigaw ng malakas",
+              "Kumain habang nasa loob"
+            ],
+            "correct_answer": "Manahimik at magalang na umupo"
+          },
+          {
+            "question": "May matandang walang upuan sa jeep. Ano ang gagawin mo?",
+            "options": [
+              "Bigyan siya ng puwesto",
+              "Hayaan siyang nakatayo",
+              "Tumingin sa ibang direksiyon",
+              "Umupo nang mas mahigpit"
+            ],
+            "correct_answer": "Bigyan siya ng puwesto"
+          },
+          {
+            "question": "Ano ang tamang asal sa ospital?",
+            "options": [
+              "Magsalita nang mahina, huwag tumakbo",
+              "Sumigaw nang malakas dito",
+              "Tumakbo sa mga pasilyo",
+              "Maglaro ng bola dito"
+            ],
+            "correct_answer": "Magsalita nang mahina, huwag tumakbo"
+          },
+          {
+            "question": "Ano ang compassion sa pampublikong lugar?",
+            "options": [
+              "Pagsasaalang-alang sa ginhawa ng iba",
+              "Pag-iisip lamang sa sarili",
+              "Pagbabalewala sa iba",
+              "Pagtatago sa kwarto"
+            ],
+            "correct_answer": "Pagsasaalang-alang sa ginhawa ng iba"
+          },
+          {
+            "question": "Ano ang tamang gawin sa parke?",
+            "options": [
+              "Huwag manira ng halaman",
+              "Pumitas ng maraming bulaklak",
+              "Tumapon ng basura kahit saan",
+              "Sumigaw nang malakas"
+            ],
+            "correct_answer": "Huwag manira ng halaman"
+          },
+          {
+            "question": "Bakit dapat sundin ang pila sa palengke?",
+            "options": [
+              "Nagpapakita ng respeto sa mamimili",
+              "Para makauna sa lahat lang",
+              "Para mabilis makauwi lang",
+              "Walang dahilan ito"
+            ],
+            "correct_answer": "Nagpapakita ng respeto sa mamimili"
+          },
+          {
+            "question": "Bakit mahalagang mahina magsalita sa ospital?",
+            "options": [
+              "May mga pasyenteng nagpapahinga",
+              "Bawal magsalita doon",
+              "Wala itong dahilan",
+              "Para mabilis matapos ang bisita"
+            ],
+            "correct_answer": "May mga pasyenteng nagpapahinga"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng pagsunod sa panuntunan sa pampublikong lugar?",
+            "options": [
+              "Pagmamalasakit sa kapakanan ng lahat",
+              "Pagsunod lamang dahil sa takot",
+              "Pagsunod upang mapuri",
+              "Walang kabuluhan ito"
+            ],
+            "correct_answer": "Pagmamalasakit sa kapakanan ng lahat"
+          },
+          {
+            "question": "Nakita mong maingay ang isang bata sa simbahan. Ano ang tamang gawin ng bata?",
+            "options": [
+              "Manahimik at umupo nang maayos",
+              "Tumakbo sa palibot",
+              "Sumigaw pa nang malakas",
+              "Maglaro ng laruan"
+            ],
+            "correct_answer": "Manahimik at umupo nang maayos"
+          },
+          {
+            "question": "Nasa pila ka sa palengke at may sumingit. Ano ang tamang gawin mo?",
+            "options": [
+              "Manahimik at umupo nang maayos",
+              "Tumakbo sa palibot nito",
+              "Sumigaw pa nang malakas",
+              "Maglaro ng laruan dito"
+            ],
+            "correct_answer": "Manahimik at umupo nang maayos"
+          },
+          {
+            "question": "Bakit itinuturing na compassion ang pagbibigay ng puwesto sa buntis?",
+            "options": [
+              "Iniisip mo ang kanyang ginhawa",
+              "Iniisip mo lamang ang sarili mo",
+              "Wala itong kaugnayan sa compassion",
+              "Ginagawa lamang ito para papurihan"
+            ],
+            "correct_answer": "Iniisip mo ang kanyang ginhawa"
+          }
+        ]
+      }
+    }
+  }
+}

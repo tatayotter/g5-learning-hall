@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-10-11",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📚 English — Comprehending Stories and Informational Texts\n\nGrade 3, Week 18! Let's dig deeper into stories and information texts. 📖\n\n## 📖 Comprehending Stories\nWhen we comprehend a story, we look for:\n| Element | Meaning |\n|---|---|\n| **Story elements** | characters, setting, problem, solution |\n| **Sequence** | 4-5 events in order |\n| **Feelings/traits** | how characters feel and act |\n| **Cause/effect** | why something happened and what resulted |\n| **Predicting endings** | guessing what happens next |\n| **Summary** | a short retelling of the main points |\n\n## 📋 Comprehending Informational Texts\nFor informational texts, we look for:\n- **5 significant details**\n- **Problem and solution**\n- **Text types** (time-order, procedural, descriptive)\n- **Drawing conclusions** — using clues to figure something out\n\n## 🧠 Worked Example 1\n*Read: \"Ben forgot his umbrella. It started to rain. He got wet on the way home.\" What is the cause and effect?*\n- **Cause:** Ben forgot his umbrella and it rained. **Effect:** He got wet.\n\n## 🧠 Worked Example 2\n*Read a story where the character always shares his food. What can you conclude about his trait?*\n- We can conclude he is **generous** — this is drawn from his actions.\n\n## 💡 Why Comprehension Matters\nUnderstanding both stories and information helps us **learn, enjoy reading, and think critically**.\n\nGreat reading work! 🌟",
+        "quiz": [
+          {
+            "question": "What are story elements?",
+            "options": [
+              "Characters, setting, problem, and solution",
+              "Only the title and author name",
+              "Only the numbered pages",
+              "Only the book's front cover"
+            ],
+            "correct_answer": "Characters, setting, problem, and solution"
+          },
+          {
+            "question": "How many events are sequenced in a Grade 3 story?",
+            "options": [
+              "4 to 5 events",
+              "Only 1 event",
+              "10 events always",
+              "No events at all"
+            ],
+            "correct_answer": "4 to 5 events"
+          },
+          {
+            "question": "\"Ben forgot his umbrella. It started to rain. He got wet.\" What is the EFFECT?",
+            "options": [
+              "He got wet",
+              "He forgot his umbrella",
+              "It started to rain",
+              "He stayed home"
+            ],
+            "correct_answer": "He got wet"
+          },
+          {
+            "question": "\"Ben forgot his umbrella. It started to rain. He got wet.\" What is one CAUSE?",
+            "options": [
+              "He forgot his umbrella",
+              "He got wet",
+              "He was happy",
+              "He read a book"
+            ],
+            "correct_answer": "He forgot his umbrella"
+          },
+          {
+            "question": "How many significant details should you find in an informational text?",
+            "options": [
+              "5 significant details",
+              "Only 1 detail",
+              "Every single word",
+              "None at all"
+            ],
+            "correct_answer": "5 significant details"
+          },
+          {
+            "question": "What does it mean to draw a conclusion?",
+            "options": [
+              "Using clues to figure something out",
+              "Copying the text word for word",
+              "Ignoring all the details",
+              "Reading only the title"
+            ],
+            "correct_answer": "Using clues to figure something out"
+          },
+          {
+            "question": "A story character always shares his food with others. What trait can we conclude he has?",
+            "options": [
+              "Generous",
+              "Selfish",
+              "Lazy",
+              "Angry"
+            ],
+            "correct_answer": "Generous"
+          },
+          {
+            "question": "What is a summary?",
+            "options": [
+              "A short retelling of the main points",
+              "A list of every word in the story",
+              "The name of the author only",
+              "A drawing of the setting"
+            ],
+            "correct_answer": "A short retelling of the main points"
+          },
+          {
+            "question": "What does predicting an ending mean?",
+            "options": [
+              "Guessing what will happen next in the story",
+              "Reading the last page first always",
+              "Ignoring the story's problem",
+              "Copying the ending word for word"
+            ],
+            "correct_answer": "Guessing what will happen next in the story"
+          },
+          {
+            "question": "What is the problem and solution structure used for?",
+            "options": [
+              "Showing a challenge and how it was resolved",
+              "Listing the characters only",
+              "Describing the weather only",
+              "Naming the illustrator only"
+            ],
+            "correct_answer": "Showing a challenge and how it was resolved"
+          },
+          {
+            "question": "Which of these is an informational text type?",
+            "options": [
+              "Time-order, procedural, or descriptive text",
+              "A made-up fairy tale about dragons",
+              "A song lyric with no real facts",
+              "A riddle with a hidden answer"
+            ],
+            "correct_answer": "Time-order, procedural, or descriptive text"
+          },
+          {
+            "question": "Why is understanding cause and effect useful when reading?",
+            "options": [
+              "It helps explain why events happen in a story",
+              "It only helps with math problems",
+              "It replaces the need to read the story",
+              "It only matters for poems"
+            ],
+            "correct_answer": "It helps explain why events happen in a story"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💰 Mathematics — Adding Numbers up to 10,000\n\nGrade 3, Week 18! Let's add larger numbers with regrouping. ➕\n\n## 🔢 Adding with Regrouping\nWhen adding numbers, if a column's sum is **10 or more**, we **regroup** (carry over) to the next column.\n\n**Example:** 2,456 + 3,678\n1. Ones: 6+8=14 → write 4, carry 1\n2. Tens: 5+7+1=13 → write 3, carry 1\n3. Hundreds: 4+6+1=11 → write 1, carry 1\n4. Thousands: 2+3+1=6\n- Answer: **6,134**\n\n## 🔢 Estimating Sums\nTo **estimate**, round each number to the nearest thousand (or hundred), then add.\n\n**Example:** Estimate 2,456 + 3,678\n- Round: 2,000 + 4,000 = **6,000** (close to the exact answer of 6,134)\n\n## 📝 Addition Word Problems\n**Example:** *A school raised ₱4,250 on Monday and ₱3,890 on Tuesday. How much in total?*\n- 4,250 + 3,890 = **₱8,140**\n\n## 🧠 Worked Example\n*Add 5,678 + 2,345.*\n1. Ones: 8+5=13 → write 3, carry 1\n2. Tens: 7+4+1=12 → write 2, carry 1\n3. Hundreds: 6+3+1=10 → write 0, carry 1\n4. Thousands: 5+2+1=8\n- Answer: **8,023**\n\nGreat addition work! ⭐",
+        "quiz": [
+          {
+            "question": "What do we do when a column's sum is 10 or more while adding?",
+            "options": [
+              "Regroup (carry over) to the next column",
+              "Ignore the extra number",
+              "Subtract instead of adding",
+              "Start the problem over"
+            ],
+            "correct_answer": "Regroup (carry over) to the next column"
+          },
+          {
+            "question": "What is 2,456 + 3,678?",
+            "options": [
+              "6,134",
+              "6,034",
+              "5,134",
+              "6,234"
+            ],
+            "correct_answer": "6,134"
+          },
+          {
+            "question": "How do you estimate a sum?",
+            "options": [
+              "Round each number, then add",
+              "Multiply the numbers instead",
+              "Subtract the smaller from the larger",
+              "Divide both numbers by 2"
+            ],
+            "correct_answer": "Round each number, then add"
+          },
+          {
+            "question": "Estimate 2,456 + 3,678 by rounding to the nearest thousand.",
+            "options": [
+              "6,000",
+              "5,000",
+              "7,000",
+              "6,500"
+            ],
+            "correct_answer": "6,000"
+          },
+          {
+            "question": "A school raised ₱4,250 on Monday and ₱3,890 on Tuesday. How much in total?",
+            "options": [
+              "₱8,140",
+              "₱7,140",
+              "₱8,040",
+              "₱8,240"
+            ],
+            "correct_answer": "₱8,140"
+          },
+          {
+            "question": "What is 5,678 + 2,345?",
+            "options": [
+              "8,023",
+              "7,923",
+              "8,123",
+              "7,023"
+            ],
+            "correct_answer": "8,023"
+          },
+          {
+            "question": "In 5,678 + 2,345, what do you carry after adding the ones column (8+5=13)?",
+            "options": [
+              "1",
+              "3",
+              "13",
+              "0"
+            ],
+            "correct_answer": "1"
+          },
+          {
+            "question": "What is 1,234 + 4,321?",
+            "options": [
+              "5,555",
+              "5,545",
+              "5,565",
+              "5,455"
+            ],
+            "correct_answer": "5,555"
+          },
+          {
+            "question": "Why do we estimate sums before solving exactly?",
+            "options": [
+              "To check if our exact answer makes sense",
+              "To avoid solving the problem at all",
+              "To make the problem harder",
+              "To skip the addition step"
+            ],
+            "correct_answer": "To check if our exact answer makes sense"
+          },
+          {
+            "question": "What is 6,789 + 1,111?",
+            "options": [
+              "7,900",
+              "7,800",
+              "7,890",
+              "8,900"
+            ],
+            "correct_answer": "7,900"
+          },
+          {
+            "question": "A store sold ₱6,540 worth of goods in the morning and ₱2,370 in the afternoon. What is the total?",
+            "options": [
+              "₱8,910",
+              "₱8,810",
+              "₱9,910",
+              "₱8,900"
+            ],
+            "correct_answer": "₱8,910"
+          },
+          {
+            "question": "Which number, when rounded to the nearest thousand, becomes 4,000?",
+            "options": [
+              "3,789",
+              "4,600",
+              "3,400",
+              "4,550"
+            ],
+            "correct_answer": "3,789"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🌱 Filipino — Pag-unawa sa Tekstong Naratibo at Impormatibo\n\nGrade 3, Linggo 18! Alamin natin ang mas malalim na pag-unawa sa teksto. 📚\n\n## 📖 Tekstong Naratibo\nKapag binabasa ang **tekstong naratibo** (kuwentong pambata, kuwentong-bayan, pabula, alamat), hanapin ang:\n| Elemento | Kahulugan |\n|---|---|\n| **Elemento ng teksto** | tauhan, tagpuan, suliranin, solusyon |\n| **Damdamin ng tauhan** | kung ano ang nararamdaman ng tauhan |\n| **Sanhi at bunga** | dahilan at resulta ng pangyayari |\n| **Pagkakasunod-sunod** | limang pangyayari sa tamang ayos |\n\n## 📋 Tekstong Impormatibo\nPara sa tekstong impormatibo (patalastas, balita, ulat-panahon), hanapin ang:\n- **Limang mahahalagang detalye**\n- **Suliranin at solusyon**\n- **Huwaran ng organisasyon** (pag-iisa-isa/paglalarawan, pagsusunod-sunod)\n\n## 🧠 Halimbawa 1\n*\"Nakalimutan ni Ben ang payong niya. Umulan. Nabasa siya sa daan.\" Ano ang sanhi at bunga?*\n- **Sanhi:** Nakalimutan niya ang payong at umulan. **Bunga:** Nabasa siya.\n\n## 🧠 Halimbawa 2\n*Sa isang kuwento, palaging nagbabahagi ng pagkain ang tauhan. Ano ang maaaring katangian niya?*\n- **Mapagbigay** — hinango ito mula sa kanyang mga kilos.\n\n## 💡 Bakit Mahalaga Ito?\nAng pag-unawa sa naratibo at impormatibong teksto ay nakatutulong upang **matuto at mag-isip nang mabuti**.\n\nMagaling sa pagbasa! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa tauhan, tagpuan, suliranin, at solusyon ng isang kuwento?",
+            "options": [
+              "Elemento ng teksto",
+              "Pamagat ng kuwento",
+              "Pahina ng aklat",
+              "May-akda ng kuwento"
+            ],
+            "correct_answer": "Elemento ng teksto"
+          },
+          {
+            "question": "Ano ang sanhi at bunga?",
+            "options": [
+              "Dahilan at resulta ng pangyayari",
+              "Pangalan ng tauhan lamang",
+              "Bilang ng pahina",
+              "Kulay ng pabalat ng aklat"
+            ],
+            "correct_answer": "Dahilan at resulta ng pangyayari"
+          },
+          {
+            "question": "\"Nakalimutan ni Ben ang payong niya. Umulan. Nabasa siya sa daan.\" Ano ang BUNGA?",
+            "options": [
+              "Nabasa siya sa daan",
+              "Nakalimutan niya ang payong",
+              "Umulan",
+              "Umuwi siya agad"
+            ],
+            "correct_answer": "Nabasa siya sa daan"
+          },
+          {
+            "question": "\"Nakalimutan ni Ben ang payong niya. Umulan. Nabasa siya.\" Ano ang isang SANHI?",
+            "options": [
+              "Nakalimutan niya ang payong",
+              "Nabasa siya sa daan",
+              "Masaya siya",
+              "Nagbasa siya ng libro"
+            ],
+            "correct_answer": "Nakalimutan niya ang payong"
+          },
+          {
+            "question": "Ilang mahahalagang detalye ang dapat hanapin sa tekstong impormatibo?",
+            "options": [
+              "Limang mahahalagang detalye",
+              "Isang detalye lamang",
+              "Sampung detalye",
+              "Walang tiyak na bilang"
+            ],
+            "correct_answer": "Limang mahahalagang detalye"
+          },
+          {
+            "question": "Ilang pangyayari ang isinasaayos sa tamang pagkakasunod-sunod?",
+            "options": [
+              "Limang pangyayari",
+              "Isang pangyayari lamang",
+              "Sampung pangyayari",
+              "Walang pangyayari"
+            ],
+            "correct_answer": "Limang pangyayari"
+          },
+          {
+            "question": "Sa isang kuwento, palaging nagbabahagi ng pagkain ang tauhan. Ano ang maaaring katangian niya?",
+            "options": [
+              "Mapagbigay",
+              "Sakim",
+              "Tamad",
+              "Galit"
+            ],
+            "correct_answer": "Mapagbigay"
+          },
+          {
+            "question": "Ano ang huwaran ng organisasyon sa tekstong impormatibo?",
+            "options": [
+              "Pag-iisa-isa/paglalarawan o pagsusunod-sunod",
+              "Ang bilang ng pahina ng aklat",
+              "Ang laki ng titik na ginamit",
+              "Ang kulay ng papel na ginamit"
+            ],
+            "correct_answer": "Pag-iisa-isa/paglalarawan o pagsusunod-sunod"
+          },
+          {
+            "question": "Alin ang halimbawa ng tekstong naratibo?",
+            "options": [
+              "Kuwentong-bayan o pabula",
+              "Balitang pangkalikasan",
+              "Patalastas ng produkto",
+              "Ulat-panahon"
+            ],
+            "correct_answer": "Kuwentong-bayan o pabula"
+          },
+          {
+            "question": "Alin ang halimbawa ng tekstong impormatibo?",
+            "options": [
+              "Ulat-panahon o balita",
+              "Kuwentong pambata",
+              "Alamat ng bundok",
+              "Pabula ng hayop"
+            ],
+            "correct_answer": "Ulat-panahon o balita"
+          },
+          {
+            "question": "Bakit mahalagang unawain ang damdamin ng tauhan sa isang kuwento?",
+            "options": [
+              "Para mas maunawaan ang buong kuwento",
+              "Para mabilang lamang ang tauhan",
+              "Para malaman ang kulay ng damit nito",
+              "Walang kabuluhan ito"
+            ],
+            "correct_answer": "Para mas maunawaan ang buong kuwento"
+          },
+          {
+            "question": "Ano ang suliranin at solusyon sa isang tekstong impormatibo?",
+            "options": [
+              "Isang problema at ang paraan ng paglutas nito",
+              "Ang pamagat lamang ng teksto",
+              "Ang bilang ng talata lamang",
+              "Ang pangalan ng nagsulat lamang"
+            ],
+            "correct_answer": "Isang problema at ang paraan ng paglutas nito"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌟 Science — Outer Body Parts of Animals\n\nGrade 3, Week 18! Let's observe how animal body parts help them survive. 🐦\n\n## 🔍 Outer Body Parts of Animals\nDifferent animals have different outer body parts that help them **move and gather food**.\n\n| Body Part | Role |\n|---|---|\n| **Head** | holds eyes, ears, mouth — helps sense the world and eat |\n| **Legs** | help the animal walk, run, jump, or stand |\n| **Wings** | help birds and insects fly |\n\n## 🚶 Role in Moving\nAnimals move in different ways depending on their body parts:\n- **Legs** — walking, running, jumping (dogs, frogs, kangaroos)\n- **Wings** — flying (birds, bats, insects)\n- **Fins** — swimming (fish)\n\n## 🍽️ Role in Gathering Food\n- **Beaks** (part of the head) — birds use beaks to pick up seeds or catch insects\n- **Mouths** — animals use mouths to bite, chew, or suck food\n- **Legs/claws** — some animals use legs or claws to catch or dig for food\n\n## 🧠 Worked Example 1\n*Why does a bird have wings?*\n- To **fly** — this helps it travel and search for food from the air.\n\n## 🧠 Worked Example 2\n*A dog uses its legs to run after a ball. What is the role of its legs here?*\n- **Moving** — the legs allow the dog to run and chase things.\n\n## 🧠 Worked Example 3\n*A bird uses its beak to pick up a worm. What is the role of the beak?*\n- **Gathering food** — the beak helps the bird pick up and eat food.\n\nGreat animal observation! 🌟",
+        "quiz": [
+          {
+            "question": "What outer body part helps an animal sense the world and eat?",
+            "options": [
+              "Head",
+              "Wings",
+              "Legs",
+              "Tail"
+            ],
+            "correct_answer": "Head"
+          },
+          {
+            "question": "What do legs help an animal do?",
+            "options": [
+              "Walk, run, jump, or stand",
+              "Fly through the air",
+              "Swim underwater only",
+              "Sense smells only"
+            ],
+            "correct_answer": "Walk, run, jump, or stand"
+          },
+          {
+            "question": "What do wings help an animal do?",
+            "options": [
+              "Fly",
+              "Swim",
+              "Dig",
+              "Chew"
+            ],
+            "correct_answer": "Fly"
+          },
+          {
+            "question": "Why does a bird have wings?",
+            "options": [
+              "To fly and search for food from the air",
+              "To swim underwater quickly",
+              "To dig holes in the ground",
+              "To make loud sounds only"
+            ],
+            "correct_answer": "To fly and search for food from the air"
+          },
+          {
+            "question": "A dog uses its legs to run after a ball. What is the role of its legs here?",
+            "options": [
+              "Moving",
+              "Gathering food only",
+              "Sensing danger only",
+              "Breathing"
+            ],
+            "correct_answer": "Moving"
+          },
+          {
+            "question": "A bird uses its beak to pick up a worm. What is the role of the beak?",
+            "options": [
+              "Gathering food",
+              "Moving from place to place",
+              "Making the bird fly higher",
+              "Protecting the bird's eyes"
+            ],
+            "correct_answer": "Gathering food"
+          },
+          {
+            "question": "Which body part do fish use to swim?",
+            "options": [
+              "Fins",
+              "Wings",
+              "Legs",
+              "Beaks"
+            ],
+            "correct_answer": "Fins"
+          },
+          {
+            "question": "What might an animal use its legs or claws for besides moving?",
+            "options": [
+              "Catching or digging for food",
+              "Flying through clouds",
+              "Breathing underwater",
+              "Growing feathers"
+            ],
+            "correct_answer": "Catching or digging for food"
+          },
+          {
+            "question": "Which animals use wings to move from place to place?",
+            "options": [
+              "Birds and insects",
+              "Fish and frogs",
+              "Dogs and cats",
+              "Snakes and worms"
+            ],
+            "correct_answer": "Birds and insects"
+          },
+          {
+            "question": "What is the role of a mouth in an animal's body?",
+            "options": [
+              "To bite, chew, or suck in food",
+              "To help the animal fly",
+              "To help the animal swim faster",
+              "To sense sounds only"
+            ],
+            "correct_answer": "To bite, chew, or suck in food"
+          },
+          {
+            "question": "How do kangaroos mainly move using their legs?",
+            "options": [
+              "By jumping",
+              "By flying",
+              "By swimming",
+              "By crawling only"
+            ],
+            "correct_answer": "By jumping"
+          },
+          {
+            "question": "Why is it useful to observe an animal's outer body parts?",
+            "options": [
+              "It helps us understand how the animal moves and gathers food",
+              "It only helps us name the animal",
+              "It has no connection to how animals survive",
+              "It only matters for animals in zoos"
+            ],
+            "correct_answer": "It helps us understand how the animal moves and gathers food"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🎨 Makabansa — Pagpapahalaga sa Sining at Kultura\n\nGrade 3, Linggo 18! Alamin natin kung paano ipinapakita ang pagmamalaki sa mas malawak na kultura. 🎭\n\n## 🌏 Sining at Kultura ng Mas Malawak na Komunidad\nBukod sa sariling barangay, may sariling **sining at kultura** din ang bayan, lungsod, lalawigan, o rehiyon.\n\n**Mga halimbawa:** festival dance (hal. Sinulog, Ati-Atihan), cultural decoration, paggamit ng katutubong materyales sa mga proyekto\n\n## 🎊 Paglahok sa mga Gawaing Pangkultura\nAng **paglahok** sa mga gawaing ito — tulad ng pagsayaw ng festival dance o paggawa ng cultural decoration — ay isang paraan ng pagpapakita ng **pagmamalaki sa pamana**.\n\n## 🧵 Paggamit ng Katutubong Materyales\nAng paggamit ng **katutubong materyales** (hal. abaka, buri, kawayan) sa mga proyekto ay isa ring paraan ng pagpapahalaga sa kultura ng lugar.\n\n## 🧠 Halimbawa 1\n*Bakit itinuturing na pagpapakita ng pagmamalaki ang paglahok sa festival dance ng lalawigan?*\n- Dahil ipinapakita nito ang **paggalang at pagmamahal** sa kultura ng mas malawak na komunidad.\n\n## 🧠 Halimbawa 2\n*Gumawa ng proyekto ang isang mag-aaral gamit ang kawayan mula sa kanilang lalawigan. Ano ang ipinapakita nito?*\n- **Pagpapahalaga sa katutubong materyales** at kultura ng kanilang lalawigan.\n\n## 💡 Bakit Mahalaga Ito?\nAng pakikilahok sa sining at kultura ng mas malawak na komunidad ay nagpapalakas ng **pagkakakilanlan** at pagmamalaki sa ating pamana.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang halimbawa ng sining at kultura ng mas malawak na komunidad?",
+            "options": [
+              "Festival dance tulad ng Sinulog o Ati-Atihan",
+              "Isang laruang de-baterya sa tindahan",
+              "Isang libro tungkol sa matematika",
+              "Isang aparatong elektroniko sa bahay"
+            ],
+            "correct_answer": "Festival dance tulad ng Sinulog o Ati-Atihan"
+          },
+          {
+            "question": "Ano ang ipinapakita ng paglahok sa mga gawaing pangkultura?",
+            "options": [
+              "Pagmamalaki sa pamana",
+              "Pagwawalang-bahala sa kultura",
+              "Pagkalimot sa tradisyon",
+              "Pagsira sa kultura"
+            ],
+            "correct_answer": "Pagmamalaki sa pamana"
+          },
+          {
+            "question": "Ano ang katutubong materyales na maaaring gamitin sa proyekto?",
+            "options": [
+              "Abaka, buri, o kawayan",
+              "Plastik at bakal lamang",
+              "Salamin at semento lamang",
+              "Papel de-koreo lamang"
+            ],
+            "correct_answer": "Abaka, buri, o kawayan"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapakita ng pagmamalaki ang paglahok sa festival dance ng lalawigan?",
+            "options": [
+              "Dahil ipinapakita nito ang paggalang sa kultura ng komunidad",
+              "Dahil ito ay libreng aktibidad lamang",
+              "Dahil walang ibang gagawin ang mga bata",
+              "Dahil ipinag-uutos ito ng gobyerno"
+            ],
+            "correct_answer": "Dahil ipinapakita nito ang paggalang sa kultura ng komunidad"
+          },
+          {
+            "question": "Gumawa ng proyekto ang isang mag-aaral gamit ang kawayan mula sa kanilang lalawigan. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagpapahalaga sa katutubong materyales at kultura",
+              "Kawalan ng pagpaplano sa proyekto",
+              "Pagkalimot sa aralin",
+              "Kakulangan sa materyales lamang"
+            ],
+            "correct_answer": "Pagpapahalaga sa katutubong materyales at kultura"
+          },
+          {
+            "question": "Bakit mahalagang lumahok sa mga gawaing pangkultura ng mas malawak na komunidad?",
+            "options": [
+              "Nagpapalakas ito ng pagkakakilanlan at pagmamalaki",
+              "Wala itong kabuluhan sa buhay",
+              "Ginagawa lamang ito para sa turista",
+              "Hindi ito nakatutulong sa anumang paraan"
+            ],
+            "correct_answer": "Nagpapalakas ito ng pagkakakilanlan at pagmamalaki"
+          },
+          {
+            "question": "Alin ang halimbawa ng cultural decoration sa isang pagdiriwang?",
+            "options": [
+              "Palamuting gawa sa katutubong materyales",
+              "Isang de-koryenteng gamit",
+              "Isang libro ng kuwento",
+              "Isang laruang de-baterya"
+            ],
+            "correct_answer": "Palamuting gawa sa katutubong materyales"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang katutubong materyales sa proyekto kaysa sa iba pang bagay?",
+            "options": [
+              "Nagpapakita ito ng koneksyon sa kultura ng lugar",
+              "Mas mura lamang ito palagi",
+              "Mas madali lamang itong hanapin",
+              "Walang ibang dahilan para dito"
+            ],
+            "correct_answer": "Nagpapakita ito ng koneksyon sa kultura ng lugar"
+          },
+          {
+            "question": "Ano ang pangkalahatang layunin ng paglahok sa sining at kultura ng bayan, lungsod, lalawigan, o rehiyon?",
+            "options": [
+              "Ipakita ang pagpapahalaga sa mas malawak na pamana",
+              "Makakuha ng gantimpalang pera",
+              "Makatakas sa mga tungkulin sa bahay",
+              "Maiwasan ang pag-aaral"
+            ],
+            "correct_answer": "Ipakita ang pagpapahalaga sa mas malawak na pamana"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HINDI halimbawa ng pagpapahalaga sa sining at kultura?",
+            "options": [
+              "Pagwawalang-bahala sa mga tradisyonal na kaugalian",
+              "Paglahok sa festival dance",
+              "Paggamit ng katutubong materyales sa proyekto",
+              "Paggawa ng cultural decoration"
+            ],
+            "correct_answer": "Pagwawalang-bahala sa mga tradisyonal na kaugalian"
+          },
+          {
+            "question": "Paano maipapakita ng isang mag-aaral ang pagpapahalaga sa kultura ng kanilang rehiyon sa paaralan?",
+            "options": [
+              "Sa pakikilahok sa mga proyekto at gawaing pangkultura",
+              "Sa hindi pakikilahok sa anumang gawain",
+              "Sa pagsasabing walang saysay ang tradisyon",
+              "Sa pag-iwas sa mga kaklase"
+            ],
+            "correct_answer": "Sa pakikilahok sa mga proyekto at gawaing pangkultura"
+          },
+          {
+            "question": "Bakit dapat ipagmalaki ang sining at kultura ng bayan o rehiyon?",
+            "options": [
+              "Dahil ito ay bahagi ng ating pagkakakilanlan bilang Pilipino",
+              "Dahil kailangan ito para sa eksamen lamang",
+              "Dahil walang kabuluhan ito sa totoong buhay",
+              "Dahil ginagawa lamang ito minsan sa isang taon"
+            ],
+            "correct_answer": "Dahil ito ay bahagi ng ating pagkakakilanlan bilang Pilipino"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💾 Computer — Combining Skills into a Small Project\n\nGrade 3, Week 18! Let's put all our computer skills together in one project. 🖥️\n\n## 🧩 Combining Skills\nThis week, we combine everything we've learned: **typing, formatting, and saving** — into ONE small project.\n\n## 📝 Project Options\n- A **labeled drawing** (e.g., \"My Family\" with names labeled)\n- A **short typed paragraph** (e.g., \"My Favorite Animal\")\n\n## 🛠️ Steps to Complete the Project\n1. **Plan** — decide on your topic (e.g., \"My Family\" or \"My Favorite Animal\")\n2. **Create** — type your paragraph OR draw and label your picture\n3. **Format** — use bold, font size, or font color to make it neat\n4. **Save** — save the file with a sensible file name in your folder\n5. **Present** — share the finished work with a partner or the class\n\n## 🎤 Presenting Your Work\nWhen presenting, **explain your project clearly** and be ready to answer questions from your partner or classmates.\n\n## 🧠 Worked Example\n*You finished typing a paragraph about your favorite animal. What should you do next?*\n- **Save the file** with a sensible name, then **present it** to a partner or the class.\n\n## 💡 Why Combining Skills Matters\nCombining typing, formatting, and saving into one project shows that we can **use computer skills together**, just like in real life.\n\nGreat computer project work! 🌟",
+        "quiz": [
+          {
+            "question": "What three skills are combined in this week's project?",
+            "options": [
+              "Typing, formatting, and saving",
+              "Only drawing with no typing",
+              "Only saving with no typing",
+              "Only typing with no saving"
+            ],
+            "correct_answer": "Typing, formatting, and saving"
+          },
+          {
+            "question": "What are the two project options this week?",
+            "options": [
+              "A labeled drawing or a short typed paragraph",
+              "Only a video recording of the class",
+              "Only a printed photo from home",
+              "Only a spoken presentation with no writing"
+            ],
+            "correct_answer": "A labeled drawing or a short typed paragraph"
+          },
+          {
+            "question": "What is the first step in completing the project?",
+            "options": [
+              "Plan and decide on your topic",
+              "Save the file immediately",
+              "Present to the class first",
+              "Format the text before writing"
+            ],
+            "correct_answer": "Plan and decide on your topic"
+          },
+          {
+            "question": "You finished typing a paragraph about your favorite animal. What should you do next?",
+            "options": [
+              "Save the file with a sensible name, then present it",
+              "Delete the file immediately",
+              "Start a completely new topic",
+              "Turn off the computer right away"
+            ],
+            "correct_answer": "Save the file with a sensible name, then present it"
+          },
+          {
+            "question": "What can you use to make your project neat and organized?",
+            "options": [
+              "Bold, font size, or font color",
+              "Only the eraser tool",
+              "Only the volume control",
+              "Only the power button"
+            ],
+            "correct_answer": "Bold, font size, or font color"
+          },
+          {
+            "question": "What should you do when presenting your project?",
+            "options": [
+              "Explain it clearly and answer questions",
+              "Stay completely silent",
+              "Hide the project from others",
+              "Refuse to answer any questions"
+            ],
+            "correct_answer": "Explain it clearly and answer questions"
+          },
+          {
+            "question": "Why is it important to save your file with a sensible name?",
+            "options": [
+              "So you and others can find and understand the file later",
+              "So the computer turns off automatically",
+              "So no one else can ever open it",
+              "So the file becomes invisible"
+            ],
+            "correct_answer": "So you and others can find and understand the file later"
+          },
+          {
+            "question": "What is an example topic for a labeled drawing project?",
+            "options": [
+              "My Family",
+              "The history of computers",
+              "A math equation only",
+              "A blank page"
+            ],
+            "correct_answer": "My Family"
+          },
+          {
+            "question": "Why do we combine typing, formatting, and saving into ONE project?",
+            "options": [
+              "To show we can use computer skills together, like in real life",
+              "Because each skill must always be used separately",
+              "Because only one skill is actually useful",
+              "Because it makes the project take longer for no reason"
+            ],
+            "correct_answer": "To show we can use computer skills together, like in real life"
+          },
+          {
+            "question": "Who can you present your finished project to?",
+            "options": [
+              "A partner or the class",
+              "No one at all",
+              "Only the computer itself",
+              "Only your pet at home"
+            ],
+            "correct_answer": "A partner or the class"
+          },
+          {
+            "question": "What is the LAST step in completing this week's project?",
+            "options": [
+              "Present the finished work",
+              "Plan the topic",
+              "Open the program",
+              "Turn on the computer"
+            ],
+            "correct_answer": "Present the finished work"
+          },
+          {
+            "question": "If you choose the drawing option, what should your picture include?",
+            "options": [
+              "Labels identifying parts of the drawing",
+              "No labels at all",
+              "Only random scribbles",
+              "Only one color used throughout"
+            ],
+            "correct_answer": "Labels identifying parts of the drawing"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🤝 GMRC — Pagtupad sa Gampanin sa Tahanan at Paaralan\n\nGrade 3, Linggo 18! Pagpapahalaga: **Initiative (Pagkukusa)**. 🌟\n\n## 📋 Gampanin at Inaasahang Kilos\nBawat bata ay may **gampanin** (roles) at **inaasahang kilos** (expected behavior) sa tahanan at paaralan.\n\n**Halimbawa sa tahanan:** paglilinis ng sariling gamit, pagtulong sa gawaing-bahay\n**Halimbawa sa paaralan:** pagsunod sa patakaran, pakikiisa sa gawain ng klase\n\n## 🌟 Ano ang Pagkukusa (Initiative)?\nAng **pagkukusa** ay ang paggawa ng tamang bagay **kahit walang nag-uutos** — hindi naghihintay na sabihan pa.\n\n## 💪 Bakit Mahalagang Tumupad sa Gampanin?\nAng **pagtupad sa gampanin at inaasahang kilos** ay:\n- Nagpapaunlad ng **mabubuting ugali**\n- Nagpapabuti ng **kasanayan** natin\n- Nagpapalakas ng **relasyon** sa iba\n\n## 🧠 Halimbawa 1\n*Nakita mong may basura sa sahig ng silid-aralan. Walang nag-utos sa iyo. Ano ang dapat mong gawin?*\n- **Pulutin ito agad** kahit walang nag-utos — ito ay pagkukusa.\n\n## 🧠 Halimbawa 2\n*Sa bahay, alam mong oras na para maglinis ng iyong kwarto. Ano ang tamang gawin?*\n- **Linisin ito nang wala pang nagpapaalala** — ipinapakita nito ang pagtupad sa gampanin nang may pagkukusa.\n\n## 💡 Kongklusyon\nAng **pagtupad sa gampanin nang may pagkukusa** ay nagpapakita ng pagiging responsable at handang tumulong kahit walang nag-uutos.\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang gampanin (roles)?",
+            "options": [
+              "Mga tungkuling dapat gampanan ng isang bata",
+              "Mga laruang paborito sa bahay",
+              "Mga kaibigan sa paaralan lamang",
+              "Mga paboritong pagkain sa tahanan"
+            ],
+            "correct_answer": "Mga tungkuling dapat gampanan ng isang bata"
+          },
+          {
+            "question": "Ano ang pagkukusa (initiative)?",
+            "options": [
+              "Paggawa ng tamang bagay kahit walang nag-uutos",
+              "Paghihintay na sabihan bago kumilos",
+              "Pag-iwas sa lahat ng gawain",
+              "Paggawa lamang kung may gantimpala"
+            ],
+            "correct_answer": "Paggawa ng tamang bagay kahit walang nag-uutos"
+          },
+          {
+            "question": "Nakita mong may basura sa sahig. Walang nag-utos sa iyo. Ano ang dapat mong gawin?",
+            "options": [
+              "Pulutin ito agad kahit walang nag-utos",
+              "Hayaan na lamang ito roon",
+              "Hintayin ang guro na mag-utos",
+              "Iwasan ang lugar na iyon"
+            ],
+            "correct_answer": "Pulutin ito agad kahit walang nag-utos"
+          },
+          {
+            "question": "Sa bahay, alam mong oras na para maglinis ng iyong kwarto. Ano ang tamang gawin?",
+            "options": [
+              "Linisin ito nang wala pang nagpapaalala",
+              "Hintayin munang sabihan ka",
+              "Hayaan na lamang itong magulo",
+              "Ipaubaya sa kapatid ang paglilinis"
+            ],
+            "correct_answer": "Linisin ito nang wala pang nagpapaalala"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng gampanin sa tahanan?",
+            "options": [
+              "Paglilinis ng sariling gamit",
+              "Panonood ng TV buong araw",
+              "Paglalaro sa labas buong araw",
+              "Pagtulog buong araw"
+            ],
+            "correct_answer": "Paglilinis ng sariling gamit"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng gampanin sa paaralan?",
+            "options": [
+              "Pagsunod sa patakaran ng paaralan",
+              "Pag-iwas sa lahat ng gawain",
+              "Pagsagot nang basta-basta sa guro",
+              "Pagtulog sa klase"
+            ],
+            "correct_answer": "Pagsunod sa patakaran ng paaralan"
+          },
+          {
+            "question": "Bakit mahalagang tumupad sa gampanin at inaasahang kilos?",
+            "options": [
+              "Nagpapaunlad ito ng mabubuting ugali at kasanayan",
+              "Wala itong epekto sa atin",
+              "Nagpapahirap lamang ito ng buhay",
+              "Ginagawa lamang ito para sa gantimpala"
+            ],
+            "correct_answer": "Nagpapaunlad ito ng mabubuting ugali at kasanayan"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Pagkukusa (Initiative)",
+              "Pagpapasensiya",
+              "Pagmamahal sa bayan",
+              "Pakikiisa"
+            ],
+            "correct_answer": "Pagkukusa (Initiative)"
+          },
+          {
+            "question": "Ano ang nagpapakita ng tunay na pagkukusa?",
+            "options": [
+              "Paggawa ng tama nang wala pang nag-uutos",
+              "Paghihintay na palagi sabihan",
+              "Pagsuway sa lahat ng patakaran",
+              "Paggawa lamang kung may nanonood"
+            ],
+            "correct_answer": "Paggawa ng tama nang wala pang nag-uutos"
+          },
+          {
+            "question": "Ano ang mangyayari kapag hindi natin tinutupad ang ating gampanin?",
+            "options": [
+              "Hindi natin napapaunlad ang mabubuting kasanayan",
+              "Mas lumalakas ang ating relasyon sa iba",
+              "Mas maayos ang tahanan at paaralan",
+              "Wala itong anumang epekto"
+            ],
+            "correct_answer": "Hindi natin napapaunlad ang mabubuting kasanayan"
+          },
+          {
+            "question": "Isang kaklase ang nakalimutan magbalik ng aklat sa aklatan. Ano ang tamang gawin kung ikaw ay may pagkukusa?",
+            "options": [
+              "Paalalahanan siya nang magalang",
+              "Huwag na lamang pansinin",
+              "Isumbong agad sa guro",
+              "Kunin na lamang ang aklat para sa sarili"
+            ],
+            "correct_answer": "Paalalahanan siya nang magalang"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang katangian ang pagkukusa sa tahanan at paaralan?",
+            "options": [
+              "Nagpapakita ito ng responsableng pag-uugali",
+              "Nagpapabagal lamang ito ng gawain",
+              "Wala itong kinalaman sa pag-aaral",
+              "Ginagawa lamang ito kapag may nanonood"
+            ],
+            "correct_answer": "Nagpapakita ito ng responsableng pag-uugali"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📚 Friday Review — English (Grade 3)\n\n- **Story elements:** characters, setting, problem, solution\n- **Cause/effect**, **draw conclusions**, **summary**\n- Informational texts: **5 significant details**\n\nGreat reading work! 🌟",
+        "quiz": [
+          {
+            "question": "What are story elements?",
+            "options": [
+              "Characters, setting, problem, and solution",
+              "Only the title and author name",
+              "Only the numbered pages",
+              "Only the book's front cover"
+            ],
+            "correct_answer": "Characters, setting, problem, and solution"
+          },
+          {
+            "question": "How many events are sequenced in a Grade 3 story?",
+            "options": [
+              "4 to 5 events",
+              "Only 1 event",
+              "10 events always",
+              "No events at all"
+            ],
+            "correct_answer": "4 to 5 events"
+          },
+          {
+            "question": "\"Ben forgot his umbrella. It started to rain. He got wet.\" What is the EFFECT?",
+            "options": [
+              "He got wet",
+              "He forgot his umbrella",
+              "It started to rain",
+              "He stayed home"
+            ],
+            "correct_answer": "He got wet"
+          },
+          {
+            "question": "\"Ben forgot his umbrella. It started to rain. He got wet.\" What is one CAUSE?",
+            "options": [
+              "He forgot his umbrella",
+              "He got wet",
+              "He was happy",
+              "He read a book"
+            ],
+            "correct_answer": "He forgot his umbrella"
+          },
+          {
+            "question": "How many significant details should you find in an informational text?",
+            "options": [
+              "5 significant details",
+              "Only 1 detail",
+              "Every single word",
+              "None at all"
+            ],
+            "correct_answer": "5 significant details"
+          },
+          {
+            "question": "What does it mean to draw a conclusion?",
+            "options": [
+              "Using clues to figure something out",
+              "Copying the text word for word",
+              "Ignoring all the details",
+              "Reading only the title"
+            ],
+            "correct_answer": "Using clues to figure something out"
+          },
+          {
+            "question": "A story character always shares his food with others. What trait can we conclude he has?",
+            "options": [
+              "Generous",
+              "Selfish",
+              "Lazy",
+              "Angry"
+            ],
+            "correct_answer": "Generous"
+          },
+          {
+            "question": "What is a summary?",
+            "options": [
+              "A short retelling of the main points",
+              "A list of every word in the story",
+              "The name of the author only",
+              "A drawing of the setting"
+            ],
+            "correct_answer": "A short retelling of the main points"
+          },
+          {
+            "question": "What does predicting an ending mean?",
+            "options": [
+              "Guessing what will happen next in the story",
+              "Reading the last page first always",
+              "Ignoring the story's problem",
+              "Copying the ending word for word"
+            ],
+            "correct_answer": "Guessing what will happen next in the story"
+          },
+          {
+            "question": "What is the problem and solution structure used for?",
+            "options": [
+              "Showing a challenge and how it was resolved",
+              "Listing the characters only",
+              "Describing the weather only",
+              "Naming the illustrator only"
+            ],
+            "correct_answer": "Showing a challenge and how it was resolved"
+          },
+          {
+            "question": "Which of these is an informational text type?",
+            "options": [
+              "Time-order, procedural, or descriptive text",
+              "A made-up fairy tale about dragons",
+              "A song lyric with no real facts",
+              "A riddle with a hidden answer"
+            ],
+            "correct_answer": "Time-order, procedural, or descriptive text"
+          },
+          {
+            "question": "Why is understanding cause and effect useful when reading?",
+            "options": [
+              "It helps explain why events happen in a story",
+              "It only helps with math problems",
+              "It replaces the need to read the story",
+              "It only matters for poems"
+            ],
+            "correct_answer": "It helps explain why events happen in a story"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💰 Friday Review — Mathematics (Grade 3)\n\n- Adding with **regrouping** when a column sums to 10+\n- **Estimate** by rounding, then add\n\nGreat addition work! ⭐",
+        "quiz": [
+          {
+            "question": "What do we do when a column's sum is 10 or more while adding?",
+            "options": [
+              "Regroup (carry over) to the next column",
+              "Ignore the extra number",
+              "Subtract instead of adding",
+              "Start the problem over"
+            ],
+            "correct_answer": "Regroup (carry over) to the next column"
+          },
+          {
+            "question": "What is 2,456 + 3,678?",
+            "options": [
+              "6,134",
+              "6,034",
+              "5,134",
+              "6,234"
+            ],
+            "correct_answer": "6,134"
+          },
+          {
+            "question": "How do you estimate a sum?",
+            "options": [
+              "Round each number, then add",
+              "Multiply the numbers instead",
+              "Subtract the smaller from the larger",
+              "Divide both numbers by 2"
+            ],
+            "correct_answer": "Round each number, then add"
+          },
+          {
+            "question": "Estimate 2,456 + 3,678 by rounding to the nearest thousand.",
+            "options": [
+              "6,000",
+              "5,000",
+              "7,000",
+              "6,500"
+            ],
+            "correct_answer": "6,000"
+          },
+          {
+            "question": "A school raised ₱4,250 on Monday and ₱3,890 on Tuesday. How much in total?",
+            "options": [
+              "₱8,140",
+              "₱7,140",
+              "₱8,040",
+              "₱8,240"
+            ],
+            "correct_answer": "₱8,140"
+          },
+          {
+            "question": "What is 5,678 + 2,345?",
+            "options": [
+              "8,023",
+              "7,923",
+              "8,123",
+              "7,023"
+            ],
+            "correct_answer": "8,023"
+          },
+          {
+            "question": "In 5,678 + 2,345, what do you carry after adding the ones column (8+5=13)?",
+            "options": [
+              "1",
+              "3",
+              "13",
+              "0"
+            ],
+            "correct_answer": "1"
+          },
+          {
+            "question": "What is 1,234 + 4,321?",
+            "options": [
+              "5,555",
+              "5,545",
+              "5,565",
+              "5,455"
+            ],
+            "correct_answer": "5,555"
+          },
+          {
+            "question": "Why do we estimate sums before solving exactly?",
+            "options": [
+              "To check if our exact answer makes sense",
+              "To avoid solving the problem at all",
+              "To make the problem harder",
+              "To skip the addition step"
+            ],
+            "correct_answer": "To check if our exact answer makes sense"
+          },
+          {
+            "question": "What is 6,789 + 1,111?",
+            "options": [
+              "7,900",
+              "7,800",
+              "7,890",
+              "8,900"
+            ],
+            "correct_answer": "7,900"
+          },
+          {
+            "question": "A store sold ₱6,540 worth of goods in the morning and ₱2,370 in the afternoon. What is the total?",
+            "options": [
+              "₱8,910",
+              "₱8,810",
+              "₱9,910",
+              "₱8,900"
+            ],
+            "correct_answer": "₱8,910"
+          },
+          {
+            "question": "Which number, when rounded to the nearest thousand, becomes 4,000?",
+            "options": [
+              "3,789",
+              "4,600",
+              "3,400",
+              "4,550"
+            ],
+            "correct_answer": "3,789"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🌱 Friday Review — Filipino (Grade 3)\n\n- **Sanhi at bunga:** dahilan at resulta\n- Tekstong impormatibo: **5 mahahalagang detalye**\n\nMagaling sa pagbasa! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa tauhan, tagpuan, suliranin, at solusyon ng isang kuwento?",
+            "options": [
+              "Elemento ng teksto",
+              "Pamagat ng kuwento",
+              "Pahina ng aklat",
+              "May-akda ng kuwento"
+            ],
+            "correct_answer": "Elemento ng teksto"
+          },
+          {
+            "question": "Ano ang sanhi at bunga?",
+            "options": [
+              "Dahilan at resulta ng pangyayari",
+              "Pangalan ng tauhan lamang",
+              "Bilang ng pahina",
+              "Kulay ng pabalat ng aklat"
+            ],
+            "correct_answer": "Dahilan at resulta ng pangyayari"
+          },
+          {
+            "question": "\"Nakalimutan ni Ben ang payong niya. Umulan. Nabasa siya sa daan.\" Ano ang BUNGA?",
+            "options": [
+              "Nabasa siya sa daan",
+              "Nakalimutan niya ang payong",
+              "Umulan",
+              "Umuwi siya agad"
+            ],
+            "correct_answer": "Nabasa siya sa daan"
+          },
+          {
+            "question": "\"Nakalimutan ni Ben ang payong niya. Umulan. Nabasa siya.\" Ano ang isang SANHI?",
+            "options": [
+              "Nakalimutan niya ang payong",
+              "Nabasa siya sa daan",
+              "Masaya siya",
+              "Nagbasa siya ng libro"
+            ],
+            "correct_answer": "Nakalimutan niya ang payong"
+          },
+          {
+            "question": "Ilang mahahalagang detalye ang dapat hanapin sa tekstong impormatibo?",
+            "options": [
+              "Limang mahahalagang detalye",
+              "Isang detalye lamang",
+              "Sampung detalye",
+              "Walang tiyak na bilang"
+            ],
+            "correct_answer": "Limang mahahalagang detalye"
+          },
+          {
+            "question": "Ilang pangyayari ang isinasaayos sa tamang pagkakasunod-sunod?",
+            "options": [
+              "Limang pangyayari",
+              "Isang pangyayari lamang",
+              "Sampung pangyayari",
+              "Walang pangyayari"
+            ],
+            "correct_answer": "Limang pangyayari"
+          },
+          {
+            "question": "Sa isang kuwento, palaging nagbabahagi ng pagkain ang tauhan. Ano ang maaaring katangian niya?",
+            "options": [
+              "Mapagbigay",
+              "Sakim",
+              "Tamad",
+              "Galit"
+            ],
+            "correct_answer": "Mapagbigay"
+          },
+          {
+            "question": "Ano ang huwaran ng organisasyon sa tekstong impormatibo?",
+            "options": [
+              "Pag-iisa-isa/paglalarawan o pagsusunod-sunod",
+              "Ang bilang ng pahina ng aklat",
+              "Ang laki ng titik na ginamit",
+              "Ang kulay ng papel na ginamit"
+            ],
+            "correct_answer": "Pag-iisa-isa/paglalarawan o pagsusunod-sunod"
+          },
+          {
+            "question": "Alin ang halimbawa ng tekstong naratibo?",
+            "options": [
+              "Kuwentong-bayan o pabula",
+              "Balitang pangkalikasan",
+              "Patalastas ng produkto",
+              "Ulat-panahon"
+            ],
+            "correct_answer": "Kuwentong-bayan o pabula"
+          },
+          {
+            "question": "Alin ang halimbawa ng tekstong impormatibo?",
+            "options": [
+              "Ulat-panahon o balita",
+              "Kuwentong pambata",
+              "Alamat ng bundok",
+              "Pabula ng hayop"
+            ],
+            "correct_answer": "Ulat-panahon o balita"
+          },
+          {
+            "question": "Bakit mahalagang unawain ang damdamin ng tauhan sa isang kuwento?",
+            "options": [
+              "Para mas maunawaan ang buong kuwento",
+              "Para mabilang lamang ang tauhan",
+              "Para malaman ang kulay ng damit nito",
+              "Walang kabuluhan ito"
+            ],
+            "correct_answer": "Para mas maunawaan ang buong kuwento"
+          },
+          {
+            "question": "Ano ang suliranin at solusyon sa isang tekstong impormatibo?",
+            "options": [
+              "Isang problema at ang paraan ng paglutas nito",
+              "Ang pamagat lamang ng teksto",
+              "Ang bilang ng talata lamang",
+              "Ang pangalan ng nagsulat lamang"
+            ],
+            "correct_answer": "Isang problema at ang paraan ng paglutas nito"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌟 Friday Review — Science (Grade 3)\n\n- **Legs** = moving, **wings** = flying, **beaks/mouths** = gathering food\n\nGreat animal observation! 🌟",
+        "quiz": [
+          {
+            "question": "What outer body part helps an animal sense the world and eat?",
+            "options": [
+              "Head",
+              "Wings",
+              "Legs",
+              "Tail"
+            ],
+            "correct_answer": "Head"
+          },
+          {
+            "question": "What do legs help an animal do?",
+            "options": [
+              "Walk, run, jump, or stand",
+              "Fly through the air",
+              "Swim underwater only",
+              "Sense smells only"
+            ],
+            "correct_answer": "Walk, run, jump, or stand"
+          },
+          {
+            "question": "What do wings help an animal do?",
+            "options": [
+              "Fly",
+              "Swim",
+              "Dig",
+              "Chew"
+            ],
+            "correct_answer": "Fly"
+          },
+          {
+            "question": "Why does a bird have wings?",
+            "options": [
+              "To fly and search for food from the air",
+              "To swim underwater quickly",
+              "To dig holes in the ground",
+              "To make loud sounds only"
+            ],
+            "correct_answer": "To fly and search for food from the air"
+          },
+          {
+            "question": "A dog uses its legs to run after a ball. What is the role of its legs here?",
+            "options": [
+              "Moving",
+              "Gathering food only",
+              "Sensing danger only",
+              "Breathing"
+            ],
+            "correct_answer": "Moving"
+          },
+          {
+            "question": "A bird uses its beak to pick up a worm. What is the role of the beak?",
+            "options": [
+              "Gathering food",
+              "Moving from place to place",
+              "Making the bird fly higher",
+              "Protecting the bird's eyes"
+            ],
+            "correct_answer": "Gathering food"
+          },
+          {
+            "question": "Which body part do fish use to swim?",
+            "options": [
+              "Fins",
+              "Wings",
+              "Legs",
+              "Beaks"
+            ],
+            "correct_answer": "Fins"
+          },
+          {
+            "question": "What might an animal use its legs or claws for besides moving?",
+            "options": [
+              "Catching or digging for food",
+              "Flying through clouds",
+              "Breathing underwater",
+              "Growing feathers"
+            ],
+            "correct_answer": "Catching or digging for food"
+          },
+          {
+            "question": "Which animals use wings to move from place to place?",
+            "options": [
+              "Birds and insects",
+              "Fish and frogs",
+              "Dogs and cats",
+              "Snakes and worms"
+            ],
+            "correct_answer": "Birds and insects"
+          },
+          {
+            "question": "What is the role of a mouth in an animal's body?",
+            "options": [
+              "To bite, chew, or suck in food",
+              "To help the animal fly",
+              "To help the animal swim faster",
+              "To sense sounds only"
+            ],
+            "correct_answer": "To bite, chew, or suck in food"
+          },
+          {
+            "question": "How do kangaroos mainly move using their legs?",
+            "options": [
+              "By jumping",
+              "By flying",
+              "By swimming",
+              "By crawling only"
+            ],
+            "correct_answer": "By jumping"
+          },
+          {
+            "question": "Why is it useful to observe an animal's outer body parts?",
+            "options": [
+              "It helps us understand how the animal moves and gathers food",
+              "It only helps us name the animal",
+              "It has no connection to how animals survive",
+              "It only matters for animals in zoos"
+            ],
+            "correct_answer": "It helps us understand how the animal moves and gathers food"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🎨 Friday Review — Makabansa (Grade 3)\n\n- Paglahok sa festival dance at cultural decoration = pagmamalaki sa pamana\n- Katutubong materyales sa proyekto\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang halimbawa ng sining at kultura ng mas malawak na komunidad?",
+            "options": [
+              "Festival dance tulad ng Sinulog o Ati-Atihan",
+              "Isang laruang de-baterya sa tindahan",
+              "Isang libro tungkol sa matematika",
+              "Isang aparatong elektroniko sa bahay"
+            ],
+            "correct_answer": "Festival dance tulad ng Sinulog o Ati-Atihan"
+          },
+          {
+            "question": "Ano ang ipinapakita ng paglahok sa mga gawaing pangkultura?",
+            "options": [
+              "Pagmamalaki sa pamana",
+              "Pagwawalang-bahala sa kultura",
+              "Pagkalimot sa tradisyon",
+              "Pagsira sa kultura"
+            ],
+            "correct_answer": "Pagmamalaki sa pamana"
+          },
+          {
+            "question": "Ano ang katutubong materyales na maaaring gamitin sa proyekto?",
+            "options": [
+              "Abaka, buri, o kawayan",
+              "Plastik at bakal lamang",
+              "Salamin at semento lamang",
+              "Papel de-koreo lamang"
+            ],
+            "correct_answer": "Abaka, buri, o kawayan"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapakita ng pagmamalaki ang paglahok sa festival dance ng lalawigan?",
+            "options": [
+              "Dahil ipinapakita nito ang paggalang sa kultura ng komunidad",
+              "Dahil ito ay libreng aktibidad lamang",
+              "Dahil walang ibang gagawin ang mga bata",
+              "Dahil ipinag-uutos ito ng gobyerno"
+            ],
+            "correct_answer": "Dahil ipinapakita nito ang paggalang sa kultura ng komunidad"
+          },
+          {
+            "question": "Gumawa ng proyekto ang isang mag-aaral gamit ang kawayan mula sa kanilang lalawigan. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagpapahalaga sa katutubong materyales at kultura",
+              "Kawalan ng pagpaplano sa proyekto",
+              "Pagkalimot sa aralin",
+              "Kakulangan sa materyales lamang"
+            ],
+            "correct_answer": "Pagpapahalaga sa katutubong materyales at kultura"
+          },
+          {
+            "question": "Bakit mahalagang lumahok sa mga gawaing pangkultura ng mas malawak na komunidad?",
+            "options": [
+              "Nagpapalakas ito ng pagkakakilanlan at pagmamalaki",
+              "Wala itong kabuluhan sa buhay",
+              "Ginagawa lamang ito para sa turista",
+              "Hindi ito nakatutulong sa anumang paraan"
+            ],
+            "correct_answer": "Nagpapalakas ito ng pagkakakilanlan at pagmamalaki"
+          },
+          {
+            "question": "Alin ang halimbawa ng cultural decoration sa isang pagdiriwang?",
+            "options": [
+              "Palamuting gawa sa katutubong materyales",
+              "Isang de-koryenteng gamit",
+              "Isang libro ng kuwento",
+              "Isang laruang de-baterya"
+            ],
+            "correct_answer": "Palamuting gawa sa katutubong materyales"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang katutubong materyales sa proyekto kaysa sa iba pang bagay?",
+            "options": [
+              "Nagpapakita ito ng koneksyon sa kultura ng lugar",
+              "Mas mura lamang ito palagi",
+              "Mas madali lamang itong hanapin",
+              "Walang ibang dahilan para dito"
+            ],
+            "correct_answer": "Nagpapakita ito ng koneksyon sa kultura ng lugar"
+          },
+          {
+            "question": "Ano ang pangkalahatang layunin ng paglahok sa sining at kultura ng bayan, lungsod, lalawigan, o rehiyon?",
+            "options": [
+              "Ipakita ang pagpapahalaga sa mas malawak na pamana",
+              "Makakuha ng gantimpalang pera",
+              "Makatakas sa mga tungkulin sa bahay",
+              "Maiwasan ang pag-aaral"
+            ],
+            "correct_answer": "Ipakita ang pagpapahalaga sa mas malawak na pamana"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HINDI halimbawa ng pagpapahalaga sa sining at kultura?",
+            "options": [
+              "Pagwawalang-bahala sa mga tradisyonal na kaugalian",
+              "Paglahok sa festival dance",
+              "Paggamit ng katutubong materyales sa proyekto",
+              "Paggawa ng cultural decoration"
+            ],
+            "correct_answer": "Pagwawalang-bahala sa mga tradisyonal na kaugalian"
+          },
+          {
+            "question": "Paano maipapakita ng isang mag-aaral ang pagpapahalaga sa kultura ng kanilang rehiyon sa paaralan?",
+            "options": [
+              "Sa pakikilahok sa mga proyekto at gawaing pangkultura",
+              "Sa hindi pakikilahok sa anumang gawain",
+              "Sa pagsasabing walang saysay ang tradisyon",
+              "Sa pag-iwas sa mga kaklase"
+            ],
+            "correct_answer": "Sa pakikilahok sa mga proyekto at gawaing pangkultura"
+          },
+          {
+            "question": "Bakit dapat ipagmalaki ang sining at kultura ng bayan o rehiyon?",
+            "options": [
+              "Dahil ito ay bahagi ng ating pagkakakilanlan bilang Pilipino",
+              "Dahil kailangan ito para sa eksamen lamang",
+              "Dahil walang kabuluhan ito sa totoong buhay",
+              "Dahil ginagawa lamang ito minsan sa isang taon"
+            ],
+            "correct_answer": "Dahil ito ay bahagi ng ating pagkakakilanlan bilang Pilipino"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💾 Friday Review — Computer (Grade 3)\n\n- Combine **typing, formatting, and saving** into one project\n- Plan → Create → Format → Save → Present\n\nGreat computer project work! 🌟",
+        "quiz": [
+          {
+            "question": "What three skills are combined in this week's project?",
+            "options": [
+              "Typing, formatting, and saving",
+              "Only drawing with no typing",
+              "Only saving with no typing",
+              "Only typing with no saving"
+            ],
+            "correct_answer": "Typing, formatting, and saving"
+          },
+          {
+            "question": "What are the two project options this week?",
+            "options": [
+              "A labeled drawing or a short typed paragraph",
+              "Only a video recording of the class",
+              "Only a printed photo from home",
+              "Only a spoken presentation with no writing"
+            ],
+            "correct_answer": "A labeled drawing or a short typed paragraph"
+          },
+          {
+            "question": "What is the first step in completing the project?",
+            "options": [
+              "Plan and decide on your topic",
+              "Save the file immediately",
+              "Present to the class first",
+              "Format the text before writing"
+            ],
+            "correct_answer": "Plan and decide on your topic"
+          },
+          {
+            "question": "You finished typing a paragraph about your favorite animal. What should you do next?",
+            "options": [
+              "Save the file with a sensible name, then present it",
+              "Delete the file immediately",
+              "Start a completely new topic",
+              "Turn off the computer right away"
+            ],
+            "correct_answer": "Save the file with a sensible name, then present it"
+          },
+          {
+            "question": "What can you use to make your project neat and organized?",
+            "options": [
+              "Bold, font size, or font color",
+              "Only the eraser tool",
+              "Only the volume control",
+              "Only the power button"
+            ],
+            "correct_answer": "Bold, font size, or font color"
+          },
+          {
+            "question": "What should you do when presenting your project?",
+            "options": [
+              "Explain it clearly and answer questions",
+              "Stay completely silent",
+              "Hide the project from others",
+              "Refuse to answer any questions"
+            ],
+            "correct_answer": "Explain it clearly and answer questions"
+          },
+          {
+            "question": "Why is it important to save your file with a sensible name?",
+            "options": [
+              "So you and others can find and understand the file later",
+              "So the computer turns off automatically",
+              "So no one else can ever open it",
+              "So the file becomes invisible"
+            ],
+            "correct_answer": "So you and others can find and understand the file later"
+          },
+          {
+            "question": "What is an example topic for a labeled drawing project?",
+            "options": [
+              "My Family",
+              "The history of computers",
+              "A math equation only",
+              "A blank page"
+            ],
+            "correct_answer": "My Family"
+          },
+          {
+            "question": "Why do we combine typing, formatting, and saving into ONE project?",
+            "options": [
+              "To show we can use computer skills together, like in real life",
+              "Because each skill must always be used separately",
+              "Because only one skill is actually useful",
+              "Because it makes the project take longer for no reason"
+            ],
+            "correct_answer": "To show we can use computer skills together, like in real life"
+          },
+          {
+            "question": "Who can you present your finished project to?",
+            "options": [
+              "A partner or the class",
+              "No one at all",
+              "Only the computer itself",
+              "Only your pet at home"
+            ],
+            "correct_answer": "A partner or the class"
+          },
+          {
+            "question": "What is the LAST step in completing this week's project?",
+            "options": [
+              "Present the finished work",
+              "Plan the topic",
+              "Open the program",
+              "Turn on the computer"
+            ],
+            "correct_answer": "Present the finished work"
+          },
+          {
+            "question": "If you choose the drawing option, what should your picture include?",
+            "options": [
+              "Labels identifying parts of the drawing",
+              "No labels at all",
+              "Only random scribbles",
+              "Only one color used throughout"
+            ],
+            "correct_answer": "Labels identifying parts of the drawing"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🤝 Friday Review — GMRC (Grade 3)\n\n- Tupdin ang gampanin sa tahanan at paaralan\n- Pagpapahalaga: **Pagkukusa (Initiative)**\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang gampanin (roles)?",
+            "options": [
+              "Mga tungkuling dapat gampanan ng isang bata",
+              "Mga laruang paborito sa bahay",
+              "Mga kaibigan sa paaralan lamang",
+              "Mga paboritong pagkain sa tahanan"
+            ],
+            "correct_answer": "Mga tungkuling dapat gampanan ng isang bata"
+          },
+          {
+            "question": "Ano ang pagkukusa (initiative)?",
+            "options": [
+              "Paggawa ng tamang bagay kahit walang nag-uutos",
+              "Paghihintay na sabihan bago kumilos",
+              "Pag-iwas sa lahat ng gawain",
+              "Paggawa lamang kung may gantimpala"
+            ],
+            "correct_answer": "Paggawa ng tamang bagay kahit walang nag-uutos"
+          },
+          {
+            "question": "Nakita mong may basura sa sahig. Walang nag-utos sa iyo. Ano ang dapat mong gawin?",
+            "options": [
+              "Pulutin ito agad kahit walang nag-utos",
+              "Hayaan na lamang ito roon",
+              "Hintayin ang guro na mag-utos",
+              "Iwasan ang lugar na iyon"
+            ],
+            "correct_answer": "Pulutin ito agad kahit walang nag-utos"
+          },
+          {
+            "question": "Sa bahay, alam mong oras na para maglinis ng iyong kwarto. Ano ang tamang gawin?",
+            "options": [
+              "Linisin ito nang wala pang nagpapaalala",
+              "Hintayin munang sabihan ka",
+              "Hayaan na lamang itong magulo",
+              "Ipaubaya sa kapatid ang paglilinis"
+            ],
+            "correct_answer": "Linisin ito nang wala pang nagpapaalala"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng gampanin sa tahanan?",
+            "options": [
+              "Paglilinis ng sariling gamit",
+              "Panonood ng TV buong araw",
+              "Paglalaro sa labas buong araw",
+              "Pagtulog buong araw"
+            ],
+            "correct_answer": "Paglilinis ng sariling gamit"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng gampanin sa paaralan?",
+            "options": [
+              "Pagsunod sa patakaran ng paaralan",
+              "Pag-iwas sa lahat ng gawain",
+              "Pagsagot nang basta-basta sa guro",
+              "Pagtulog sa klase"
+            ],
+            "correct_answer": "Pagsunod sa patakaran ng paaralan"
+          },
+          {
+            "question": "Bakit mahalagang tumupad sa gampanin at inaasahang kilos?",
+            "options": [
+              "Nagpapaunlad ito ng mabubuting ugali at kasanayan",
+              "Wala itong epekto sa atin",
+              "Nagpapahirap lamang ito ng buhay",
+              "Ginagawa lamang ito para sa gantimpala"
+            ],
+            "correct_answer": "Nagpapaunlad ito ng mabubuting ugali at kasanayan"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Pagkukusa (Initiative)",
+              "Pagpapasensiya",
+              "Pagmamahal sa bayan",
+              "Pakikiisa"
+            ],
+            "correct_answer": "Pagkukusa (Initiative)"
+          },
+          {
+            "question": "Ano ang nagpapakita ng tunay na pagkukusa?",
+            "options": [
+              "Paggawa ng tama nang wala pang nag-uutos",
+              "Paghihintay na palagi sabihan",
+              "Pagsuway sa lahat ng patakaran",
+              "Paggawa lamang kung may nanonood"
+            ],
+            "correct_answer": "Paggawa ng tama nang wala pang nag-uutos"
+          },
+          {
+            "question": "Ano ang mangyayari kapag hindi natin tinutupad ang ating gampanin?",
+            "options": [
+              "Hindi natin napapaunlad ang mabubuting kasanayan",
+              "Mas lumalakas ang ating relasyon sa iba",
+              "Mas maayos ang tahanan at paaralan",
+              "Wala itong anumang epekto"
+            ],
+            "correct_answer": "Hindi natin napapaunlad ang mabubuting kasanayan"
+          },
+          {
+            "question": "Isang kaklase ang nakalimutan magbalik ng aklat sa aklatan. Ano ang tamang gawin kung ikaw ay may pagkukusa?",
+            "options": [
+              "Paalalahanan siya nang magalang",
+              "Huwag na lamang pansinin",
+              "Isumbong agad sa guro",
+              "Kunin na lamang ang aklat para sa sarili"
+            ],
+            "correct_answer": "Paalalahanan siya nang magalang"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang katangian ang pagkukusa sa tahanan at paaralan?",
+            "options": [
+              "Nagpapakita ito ng responsableng pag-uugali",
+              "Nagpapabagal lamang ito ng gawain",
+              "Wala itong kinalaman sa pag-aaral",
+              "Ginagawa lamang ito kapag may nanonood"
+            ],
+            "correct_answer": "Nagpapakita ito ng responsableng pag-uugali"
+          }
+        ]
+      }
+    }
+  }
+}

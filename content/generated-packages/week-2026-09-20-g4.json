@@ -1,0 +1,2016 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-09-20",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 💒 English — Reading Time-Order Texts: Christening & Wedding Customs\n\nWelcome to Term 2, Grade 4! Let's explore Filipino celebration customs. 🎉\n\n## 📖 What Is a Time-Order (Chronological) Text?\nA **time-order text** tells events in the **order they happen** — first, then, next, finally.\n\nA **procedural text** gives **steps** to follow, like a recipe or a set of instructions.\n\n## 👶 Christening (Binyag) Customs — In Order\n1. **Preparation** — choosing godparents (ninong/ninang), preparing the church\n2. **The Ceremony** — the priest pours water and says the baby's name\n3. **Reception (Handaan)** — family and guests celebrate with food\n4. **Gift-giving** — godparents often give the baby money or gifts (\"pakimkim\")\n\n## 💍 Wedding Customs — In Order\n1. **Engagement (Pamamanhikan)** — the groom's family formally asks for the bride's hand\n2. **Preparation** — choosing sponsors, the church, the reception venue\n3. **The Ceremony** — vows, the **veil, cord, and coins** (arras) ceremony\n4. **Reception** — the couple's first dance, toasts, and the cutting of the cake\n\n## 🧠 Worked Example 1\n*Sequencing: put these wedding events in the correct order.*\n- Pamamanhikan → Ceremony → Reception → First Dance\n- The **first dance** happens **after** the ceremony, during the **reception**. ✅\n\n## 🧠 Worked Example 2\n*Vocabulary in context: what is \"ninong\"?*\n- In a christening text, **ninong** means **godfather** — a person chosen to help guide the child spiritually.\n\n## 📚 Content-Specific and Ceremonial Vocabulary\n| Word | Meaning |\n|---|---|\n| **Ninong/Ninang** | godfather/godmother |\n| **Arras** | the 13 coins symbolizing prosperity in a wedding |\n| **Pamamanhikan** | formal visit to ask for marriage |\n| **Handaan** | feast or celebration |\n\n## 💡 Why Sequencing Matters\nUnderstanding the **correct order** of events helps you follow a story or set of instructions **without confusion** — especially important when reading about traditions with many steps.\n\nGreat reading! 🌟",
+        "quiz": [
+          {
+            "question": "What does a time-order text do?",
+            "options": [
+              "Tells events in the order they happen",
+              "Describes only one object",
+              "Explains why something happens",
+              "Gives an opinion about a topic"
+            ],
+            "correct_answer": "Tells events in the order they happen"
+          },
+          {
+            "question": "What is a 'ninong' in a christening?",
+            "options": [
+              "Godfather",
+              "The baby's father",
+              "The church priest",
+              "A wedding guest"
+            ],
+            "correct_answer": "Godfather"
+          },
+          {
+            "question": "What happens FIRST in a Filipino wedding, according to custom?",
+            "options": [
+              "Formal visit to ask for marriage",
+              "The wedding ceremony itself",
+              "The christening of the baby",
+              "A traditional Filipino food"
+            ],
+            "correct_answer": "Formal visit to ask for marriage"
+          },
+          {
+            "question": "What are the 'arras' in a wedding ceremony?",
+            "options": [
+              "13 coins symbolizing prosperity",
+              "The wedding rings",
+              "The bride's bouquet",
+              "The wedding invitations"
+            ],
+            "correct_answer": "13 coins symbolizing prosperity"
+          },
+          {
+            "question": "What does 'handaan' mean?",
+            "options": [
+              "Feast or celebration",
+              "A church ceremony",
+              "A wedding dress",
+              "A baby's name"
+            ],
+            "correct_answer": "Feast or celebration"
+          },
+          {
+            "question": "In a christening, when does the reception happen?",
+            "options": [
+              "After the ceremony",
+              "Before the ceremony",
+              "During the ceremony",
+              "Before the preparation"
+            ],
+            "correct_answer": "After the ceremony"
+          },
+          {
+            "question": "What is 'pamamanhikan'?",
+            "options": [
+              "Formal visit to ask for marriage",
+              "The wedding ceremony itself",
+              "The baby's christening",
+              "A type of Filipino food"
+            ],
+            "correct_answer": "Formal visit to ask for marriage"
+          },
+          {
+            "question": "When does the first dance happen at a wedding?",
+            "options": [
+              "During the reception, after the ceremony",
+              "Before the pamamanhikan",
+              "During the ceremony itself",
+              "Before any preparation begins"
+            ],
+            "correct_answer": "During the reception, after the ceremony"
+          },
+          {
+            "question": "Why is sequencing important when reading about customs?",
+            "options": [
+              "It helps you follow events without confusion",
+              "It makes the story shorter",
+              "It changes the meaning of words",
+              "It removes the need for vocabulary"
+            ],
+            "correct_answer": "It helps you follow events without confusion"
+          },
+          {
+            "question": "Who typically gives the baby a gift called 'pakimkim'?",
+            "options": [
+              "The godparents",
+              "The priest",
+              "The bride",
+              "The groom"
+            ],
+            "correct_answer": "The godparents"
+          },
+          {
+            "question": "Read: 'First, the groom's family visits. Then, the couple marries. Finally, they celebrate.' Which event comes SECOND?",
+            "options": [
+              "The couple marries",
+              "The groom's family visits",
+              "They celebrate",
+              "None of these happen"
+            ],
+            "correct_answer": "The couple marries"
+          },
+          {
+            "question": "A text about a wedding lists steps like a recipe: Step 1, Step 2, Step 3. What type of text is this?",
+            "options": [
+              "Procedural",
+              "Descriptive",
+              "Persuasive",
+              "Poetic"
+            ],
+            "correct_answer": "Procedural"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ✖️ Mathematics — Multiplying Multi-Digit Numbers\n\nWelcome to Term 2, Grade 4! Let's multiply bigger numbers. 💪\n\n## ✖️ Multiplying by a 1-Digit Number\nMultiply each place value, **regrouping** when needed.\n\n**Example: 234 × 3**\n```\n  234\n×   3\n-----\n```\n- Ones: 4 × 3 = 12 → write **2**, carry **1**\n- Tens: 3 × 3 = 9, + 1 = **10** → write **0**, carry **1**\n- Hundreds: 2 × 3 = 6, + 1 = **7**\n- Answer: **702**\n\n## ✖️ Multiplying 2-Digit by 2-Digit Numbers\nMultiply by **each digit** separately, then **add** the results.\n\n**Example: 34 × 12**\n```\n   34\n×  12\n-----\n   68   (34 × 2)\n+ 340   (34 × 10)\n-----\n  408\n```\n- Step 1: 34 × 2 = **68**\n- Step 2: 34 × 10 = **340**\n- Step 3: 68 + 340 = **408** ✅\n\n## 🎯 Estimating Products\nRound each number **first**, then multiply — useful for checking if your exact answer is reasonable.\n\n**Example:** Estimate 289 × 4\n- Round 289 to **300**\n- 300 × 4 = **1,200** (close estimate)\n- Exact answer: 1,156 — the estimate confirms it's reasonable ✅\n\n## 🧠 Worked Example 1\n*Solve 3,142 × 3*\n- Ones: 2×3=6\n- Tens: 4×3=12 → write 2, carry 1\n- Hundreds: 1×3=3, +1=4\n- Thousands: 3×3=9\n- Answer: **9,426** ✅\n\n## 🧠 Worked Example 2\n*Solve 56 × 24*\n- 56 × 4 = 224\n- 56 × 20 = 1,120\n- 224 + 1,120 = **1,344** ✅\n\n## 📝 Word Problem\n*A school has 24 classrooms with 32 students each. How many students in total?*\n- 32 × 24 = **768 students** ✅\n\nExcellent multiplying! ⭐",
+        "quiz": [
+          {
+            "question": "What is 234 × 3?",
+            "options": [
+              "702",
+              "692",
+              "712",
+              "602"
+            ],
+            "correct_answer": "702"
+          },
+          {
+            "question": "What is 3,142 × 3?",
+            "options": [
+              "9,426",
+              "9,326",
+              "9,416",
+              "8,426"
+            ],
+            "correct_answer": "9,426"
+          },
+          {
+            "question": "When multiplying 34 × 12, what is 34 × 2?",
+            "options": [
+              "68",
+              "78",
+              "64",
+              "48"
+            ],
+            "correct_answer": "68"
+          },
+          {
+            "question": "What is 34 × 10?",
+            "options": [
+              "340",
+              "34",
+              "3,400",
+              "304"
+            ],
+            "correct_answer": "340"
+          },
+          {
+            "question": "What is 34 × 12?",
+            "options": [
+              "408",
+              "398",
+              "418",
+              "348"
+            ],
+            "correct_answer": "408"
+          },
+          {
+            "question": "What is 56 × 24?",
+            "options": [
+              "1,344",
+              "1,244",
+              "1,444",
+              "1,334"
+            ],
+            "correct_answer": "1,344"
+          },
+          {
+            "question": "To estimate 289 × 4, what should you round 289 to?",
+            "options": [
+              "300",
+              "290",
+              "280",
+              "250"
+            ],
+            "correct_answer": "300"
+          },
+          {
+            "question": "What is 300 × 4?",
+            "options": [
+              "1,200",
+              "1,100",
+              "1,300",
+              "900"
+            ],
+            "correct_answer": "1,200"
+          },
+          {
+            "question": "A school has 24 classrooms with 32 students each. How many students in total?",
+            "options": [
+              "768",
+              "756",
+              "778",
+              "648"
+            ],
+            "correct_answer": "768"
+          },
+          {
+            "question": "What is 407 × 2?",
+            "options": [
+              "814",
+              "804",
+              "824",
+              "714"
+            ],
+            "correct_answer": "814"
+          },
+          {
+            "question": "Why is estimating useful before doing an exact multiplication?",
+            "options": [
+              "It helps check if your exact answer is reasonable",
+              "It replaces the need to multiply exactly",
+              "It always gives the exact correct answer",
+              "It only works for addition problems"
+            ],
+            "correct_answer": "It helps check if your exact answer is reasonable"
+          },
+          {
+            "question": "A vendor sells 48 mangoes per day for 15 days. How many mangoes did they sell in total?",
+            "options": [
+              "720",
+              "700",
+              "740",
+              "680"
+            ],
+            "correct_answer": "720"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📖 Filipino — Pakikinig at Pagbasa: Anekdota, Tula, Kuwentong-Bayan\n\nMaligayang pagdating sa Ikalawang Termino, Grade 4! 🎉\n\n## 📚 Tatlong Uri ng Teksto\n\n**1. ANEKDOTA**\nMaikling kuwento tungkol sa **totoong pangyayari**, kadalasang nakakatawa o may aral.\n\n**2. TULANG PAMBATA**\nTulang isinulat **para sa mga bata**, may tugma at may aral na madaling maintindihan.\n\n**3. KUWENTONG-BAYAN**\nKuwentong **ipinasa mula sa isang henerasyon patungo sa iba**, madalas may kahiwagaan o alamat.\n\n## 🔢 Pagtukoy ng Pagkakasunod-sunod (Sequencing)\nSa **recount** (retelling ng totoong pangyayari) o **talambuhay** (biography), mahalagang malaman ang **wastong pagkakasunod-sunod** ng mga pangyayari.\n\n**Mga salitang nagpapakita ng pagkakasunod-sunod:**\n> **noong una** → **pagkatapos** → **kasunod** → **sa huli**\n\n## 🧠 Halimbawa 1\n*Anekdota tungkol kay Lolo: \"Noong bata pa si Lolo, naglakad siya ng tatlong kilometro papuntang paaralan. Pagkatapos, natutunan niyang magbisikleta. Sa huli, siya ang naging pinakamahusay na siklista sa kanilang bayan.\"*\n- Ang pagkakasunod-sunod: **1) naglakad, 2) natuto ng bisikleta, 3) naging pinakamahusay** ✅\n\n## 🧠 Halimbawa 2\n*Kuwentong-bayan: \"Ang Alamat ng Pinya\"*\n- Ang mga kuwentong-bayan ay **madalas nagpapaliwanag** kung bakit umiiral ang isang bagay (hal. kung paano nagkaroon ng \"mata\" ang pinya).\n\n## 🎯 Pagkakaiba ng Tatlong Uri\n| Uri | Layunin |\n|---|---|\n| **Anekdota** | magbahagi ng totoong karanasan, madalas nakakatawa |\n| **Tulang Pambata** | magturo ng aral sa magaan na paraan |\n| **Kuwentong-Bayan** | ipaliwanag ang pinagmulan ng isang bagay o lugar |\n\n## 💡 Bakit Mahalaga ang Wastong Pagkakasunod-sunod?\nKung magkakahalo-halo ang pagkakasunod-sunod ng mga pangyayari, **malilito** ang mambabasa. Kaya mahalagang **sundan** ang tamang ayos.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang anekdota?",
+            "options": [
+              "Kuwentong tungkol sa totoong buhay",
+              "Tulang may tugma lamang dito",
+              "Alamat tungkol sa isang diyos",
+              "Balitang pang-araw-araw lamang"
+            ],
+            "correct_answer": "Kuwentong tungkol sa totoong buhay"
+          },
+          {
+            "question": "Ano ang kuwentong-bayan?",
+            "options": [
+              "Kuwentong ipinasa sa henerasyon",
+              "Balitang may petsa lamang",
+              "Anunsyo mula sa paaralan",
+              "Liham para sa isang kaibigan"
+            ],
+            "correct_answer": "Kuwentong ipinasa sa henerasyon"
+          },
+          {
+            "question": "Alin ang layunin ng tulang pambata?",
+            "options": [
+              "Magturo ng aral sa magaan",
+              "Magbigay lamang ng balita",
+              "Magpaliwanag ng agham lamang",
+              "Magbenta ng isang produkto"
+            ],
+            "correct_answer": "Magturo ng aral sa magaan"
+          },
+          {
+            "question": "Anong salita ang nagpapakita ng unang pangyayari?",
+            "options": [
+              "noong una",
+              "sa huli",
+              "pagkatapos",
+              "kasunod"
+            ],
+            "correct_answer": "noong una"
+          },
+          {
+            "question": "Ano ang recount?",
+            "options": [
+              "Pagsasalaysay ng totoong pangyayari",
+              "Kuwentong gawa-gawa lamang",
+              "Alamat tungkol sa hayop",
+              "Tula tungkol sa bulaklak"
+            ],
+            "correct_answer": "Pagsasalaysay ng totoong pangyayari"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang pagkakasunod-sunod sa isang recount?",
+            "options": [
+              "Para hindi malito ang mambabasa",
+              "Para humaba ang kuwento",
+              "Para magkaroon ng maraming salita",
+              "Para magmukhang mas mahirap"
+            ],
+            "correct_answer": "Para hindi malito ang mambabasa"
+          },
+          {
+            "question": "Ano ang madalas ipinapaliwanag ng kuwentong-bayan?",
+            "options": [
+              "Kung bakit umiiral ang isang bagay o lugar",
+              "Kung paano gumawa ng pagkain",
+              "Kung sino ang kasalukuyang pangulo",
+              "Kung ano ang panahon ngayon"
+            ],
+            "correct_answer": "Kung bakit umiiral ang isang bagay o lugar"
+          },
+          {
+            "question": "Ano ang talambuhay?",
+            "options": [
+              "Kuwento ng buhay ng isang tunay na tao",
+              "Kuwentong gawa-gawa lamang",
+              "Tula tungkol sa kalikasan",
+              "Balita sa dyaryo"
+            ],
+            "correct_answer": "Kuwento ng buhay ng isang tunay na tao"
+          },
+          {
+            "question": "Alin ang halimbawa ng salitang nagpapakita ng huling pangyayari?",
+            "options": [
+              "sa huli",
+              "noong una",
+              "kasunod",
+              "habang"
+            ],
+            "correct_answer": "sa huli"
+          },
+          {
+            "question": "Bakit madalas nakakatawa ang mga anekdota?",
+            "options": [
+              "Ibinabahagi nila ang kakaibang totoong karanasan",
+              "Ito ay palaging kathang-isip lamang",
+              "Ito ay palaging tungkol sa hayop",
+              "Ito ay laging tungkol sa panahon"
+            ],
+            "correct_answer": "Ibinabahagi nila ang kakaibang totoong karanasan"
+          },
+          {
+            "question": "Basahin: \"Noong una, naglakad si Lolo. Pagkatapos, natuto siyang magbisikleta. Sa huli, siya ang naging pinakamahusay.\" Ano ang pangalawang pangyayari?",
+            "options": [
+              "Natuto siyang magbisikleta",
+              "Naglakad siya papuntang paaralan",
+              "Naging pinakamahusay siya",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Natuto siyang magbisikleta"
+          },
+          {
+            "question": "Isang bata ay nagbabasa ng alamat tungkol sa pinagmulan ng pinya. Anong uri ito ng teksto?",
+            "options": [
+              "Kuwentong-bayan",
+              "Anekdota",
+              "Tulang pambata",
+              "Balitang pang-araw-araw"
+            ],
+            "correct_answer": "Kuwentong-bayan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🦴 Science — Body Systems\n\nWelcome to Term 2, Grade 4! Let's explore how our bodies work. 🔬\n\n## 🏗️ Five Body Systems\n\n**1. SKELETAL SYSTEM**\nMade of **bones** — gives the body **shape** and **support**, protects organs.\n\n**2. MUSCULAR SYSTEM**\nMade of **muscles** — works with bones to let the body **move**.\n\n**3. DIGESTIVE SYSTEM**\nBreaks down **food** into nutrients the body can use. Path: mouth → esophagus → stomach → intestines.\n\n**4. CIRCULATORY SYSTEM**\nThe **heart** pumps **blood** through **blood vessels**, carrying oxygen and nutrients everywhere.\n\n**5. RESPIRATORY SYSTEM**\nLets us **breathe** — path: nose → windpipe (trachea) → lungs.\n\n## 🤝 How Systems Work Together\n\n**Example:** When you run:\n- **Muscular system** moves your legs\n- **Skeletal system** supports your weight\n- **Respiratory system** brings in more oxygen (you breathe faster!)\n- **Circulatory system** pumps blood faster to deliver that oxygen to muscles\n\n## 🧠 Worked Example 1\n*Why do you breathe faster when running?*\n- Step 1: Muscles need more **oxygen** to keep working.\n- Step 2: The **respiratory system** breathes faster to take in more air.\n- Step 3: The **circulatory system** pumps that oxygen to the muscles quickly. ✅\n\n## 🧠 Worked Example 2\n*What happens to food after you swallow it?*\n- Step 1: It travels down the **esophagus**.\n- Step 2: It reaches the **stomach**, where it's broken down further.\n- Step 3: It moves to the **intestines**, where nutrients are absorbed into the blood. ✅\n\n## 💡 Taking Care of Your Body Systems\n- **Exercise** — strengthens muscles and bones\n- **Eat healthy food** — helps digestion\n- **Drink water** — helps blood flow\n- **Rest** — lets all systems recover\n\nGreat body-systems scientist! 🌟",
+        "quiz": [
+          {
+            "question": "Which system gives the body shape and support?",
+            "options": [
+              "Skeletal system",
+              "Muscular system",
+              "Digestive system",
+              "Circulatory system"
+            ],
+            "correct_answer": "Skeletal system"
+          },
+          {
+            "question": "Which system pumps blood through the body?",
+            "options": [
+              "Circulatory system",
+              "Skeletal system",
+              "Digestive system",
+              "Respiratory system"
+            ],
+            "correct_answer": "Circulatory system"
+          },
+          {
+            "question": "What organ pumps blood?",
+            "options": [
+              "The heart",
+              "The lungs",
+              "The stomach",
+              "The brain"
+            ],
+            "correct_answer": "The heart"
+          },
+          {
+            "question": "Which system lets us breathe?",
+            "options": [
+              "Respiratory system",
+              "Skeletal system",
+              "Muscular system",
+              "Digestive system"
+            ],
+            "correct_answer": "Respiratory system"
+          },
+          {
+            "question": "What is the path air takes when we breathe?",
+            "options": [
+              "Nose, windpipe, lungs",
+              "Mouth, esophagus, stomach",
+              "Nose, heart, muscles",
+              "Mouth, lungs, heart"
+            ],
+            "correct_answer": "Nose, windpipe, lungs"
+          },
+          {
+            "question": "What is the path food takes after swallowing?",
+            "options": [
+              "Esophagus, stomach, intestines",
+              "Windpipe, lungs, heart",
+              "Mouth, lungs, blood",
+              "Nose, stomach, muscles"
+            ],
+            "correct_answer": "Esophagus, stomach, intestines"
+          },
+          {
+            "question": "Which system works with bones to let the body move?",
+            "options": [
+              "Muscular system",
+              "Digestive system",
+              "Respiratory system",
+              "Circulatory system"
+            ],
+            "correct_answer": "Muscular system"
+          },
+          {
+            "question": "Why do you breathe faster when running?",
+            "options": [
+              "Muscles need more oxygen",
+              "The stomach needs more food",
+              "Bones need more support",
+              "The skin needs more air"
+            ],
+            "correct_answer": "Muscles need more oxygen"
+          },
+          {
+            "question": "Which system breaks down food into usable nutrients?",
+            "options": [
+              "Digestive system",
+              "Skeletal system",
+              "Respiratory system",
+              "Muscular system"
+            ],
+            "correct_answer": "Digestive system"
+          },
+          {
+            "question": "How does exercise help your body systems?",
+            "options": [
+              "It strengthens muscles and bones",
+              "It stops digestion completely",
+              "It slows the heart down forever",
+              "It removes the need for oxygen"
+            ],
+            "correct_answer": "It strengthens muscles and bones"
+          },
+          {
+            "question": "After running, your heart beats faster and you breathe harder. Which two systems are working together here?",
+            "options": [
+              "Circulatory and respiratory",
+              "Digestive and skeletal",
+              "Muscular and digestive",
+              "Skeletal and respiratory"
+            ],
+            "correct_answer": "Circulatory and respiratory"
+          },
+          {
+            "question": "A student eats a heavy meal right before a race and feels sluggish. Which system is likely working hard at the same time the muscles need energy?",
+            "options": [
+              "Digestive system",
+              "Skeletal system",
+              "Respiratory system alone",
+              "None of the systems"
+            ],
+            "correct_answer": "Digestive system"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🌾 Araling Panlipunan — Likas na Yaman at Gawaing Pangkabuhayan\n\nMaligayang pagdating sa Ikalawang Termino, Grade 4! 🇵🇭\n\n## 🌿 Ano ang Likas na Yaman?\nAng **likas na yaman** ay mga bagay na **natural na matatagpuan** sa kalikasan na ginagamit ng tao — lupa, tubig, kagubatan, mineral.\n\n## 💼 Mga Gawaing Pangkabuhayan Batay sa Likas na Yaman\n\n| Gawaing Pangkabuhayan | Likas na Yamang Ginagamit |\n|---|---|\n| **Agrikultura** | matabang lupa, tubig |\n| **Pangingisda** | dagat, look, ilog |\n| **Industriya** | mineral, enerhiya |\n| **Turismo** | tanawin, dalampasigan, kultura |\n\n## 🧠 Halimbawa 1\n*Bakit malaking industriya ang agrikultura sa Gitnang Luzon?*\n- Step 1: Ang Gitnang Luzon ay may **matabang kapatagan**.\n- Step 2: Angkop ito sa pagtatanim ng **palay**.\n- Step 3: Kaya naging pangunahing **kabuhayan** dito ang agrikultura. ✅\n\n## 🌍 Sustainable Development (Pangmatagalang Kaunlaran)\nAng **sustainable development** ay ang paggamit ng likas na yaman sa paraang:\n- Sapat para sa **kasalukuyang pangangailangan**\n- Ngunit **hindi naubos** para sa **susunod na henerasyon**\n\n## ♻️ Pangangalaga sa Kapaligiran\nMga paraan ng pangangalaga habang gumagamit ng likas na yaman:\n- **Muling pagtatanim** ng puno (reforestation)\n- **Responsableng pangingisda** — hindi labis-labis\n- **Wastong pagtatapon** ng basura mula sa pabrika\n- **Paggamit ng malinis na enerhiya**\n\n## 🧠 Halimbawa 2\n*Ang isang lugar ay may maraming isda. Paano ito magagamit nang matalino?*\n- **Hindi labis** ang panghuhuli — dapat may batas sa saklaw at panahon ng pangingisda upang **dumami pa rin** ang isda sa hinaharap. ✅\n\n## 💛 Bakit Mahalaga Ito?\nKung labis nating gagamitin ang likas na yaman nang walang pag-iingat, **maubos** ito at **maapektuhan** ang kabuhayan ng susunod na henerasyon.\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang likas na yaman?",
+            "options": [
+              "Natural na bagay mula sa kalikasan",
+              "Gawa ng tao lamang dito",
+              "Pera na inipon ng pamilya",
+              "Kagamitan sa paaralan lamang"
+            ],
+            "correct_answer": "Natural na bagay mula sa kalikasan"
+          },
+          {
+            "question": "Alin ang gawaing pangkabuhayan na gumagamit ng dagat?",
+            "options": [
+              "Pangingisda",
+              "Agrikultura",
+              "Turismo lamang",
+              "Pagmimina"
+            ],
+            "correct_answer": "Pangingisda"
+          },
+          {
+            "question": "Bakit maganda ang agrikultura sa Gitnang Luzon?",
+            "options": [
+              "Matabang kapatagan angkop sa palayan",
+              "Maraming bundok doon",
+              "Malapit ito sa dagat lamang",
+              "Wala itong tubig"
+            ],
+            "correct_answer": "Matabang kapatagan angkop sa palayan"
+          },
+          {
+            "question": "Ano ang sustainable development?",
+            "options": [
+              "Paggamit ng yaman nang hindi ito naubos",
+              "Paggamit ng lahat ng yaman agad",
+              "Pagtigil sa paggamit ng yaman",
+              "Pagbenta ng lahat ng likas na yaman"
+            ],
+            "correct_answer": "Paggamit ng yaman nang hindi ito naubos"
+          },
+          {
+            "question": "Alin ang halimbawa ng pangangalaga sa kapaligiran?",
+            "options": [
+              "Muling pagtatanim ng puno",
+              "Labis na pangingisda",
+              "Pagtatapon ng basura sa ilog",
+              "Pagputol ng maraming puno"
+            ],
+            "correct_answer": "Muling pagtatanim ng puno"
+          },
+          {
+            "question": "Alin ang likas na yamang ginagamit sa turismo?",
+            "options": [
+              "Tanawin at dalampasigan",
+              "Mineral sa lupa",
+              "Tubig sa gripo",
+              "Bakal at semento"
+            ],
+            "correct_answer": "Tanawin at dalampasigan"
+          },
+          {
+            "question": "Ano ang mangyayari kung labis nating gagamitin ang likas na yaman?",
+            "options": [
+              "Maapektuhan ang susunod na henerasyon",
+              "Dadami ang yaman kaagad dito",
+              "Walang mangyayari sa kalikasan",
+              "Bababa ang presyo ng lahat"
+            ],
+            "correct_answer": "Maapektuhan ang susunod na henerasyon"
+          },
+          {
+            "question": "Bakit mahalaga ang responsableng pangingisda?",
+            "options": [
+              "Upang dumami pa rin ang isda sa hinaharap",
+              "Upang mabilis maubos ang isda",
+              "Upang mabawasan ang trabaho",
+              "Upang tumaas lamang ang presyo"
+            ],
+            "correct_answer": "Upang dumami pa rin ang isda sa hinaharap"
+          },
+          {
+            "question": "Alin ang halimbawa ng industriyang gumagamit ng mineral?",
+            "options": [
+              "Pagmimina",
+              "Pangingisda",
+              "Turismo",
+              "Agrikultura"
+            ],
+            "correct_answer": "Pagmimina"
+          },
+          {
+            "question": "Ano ang layunin ng reforestation?",
+            "options": [
+              "Muling pagtatanim ng puno na naputol",
+              "Pagputol ng lahat ng puno",
+              "Paggawa ng bagong bahay",
+              "Pagtatayo ng pabrika"
+            ],
+            "correct_answer": "Muling pagtatanim ng puno na naputol"
+          },
+          {
+            "question": "Isang lugar ay maraming isda. Paano ito magagamit nang matalino?",
+            "options": [
+              "May batas sa saklaw at panahon ng pangingisda",
+              "Manghuli nang walang tigil",
+              "Ibenta agad ang lahat ng isda",
+              "Huwag na mangisda kailanman"
+            ],
+            "correct_answer": "May batas sa saklaw at panahon ng pangingisda"
+          },
+          {
+            "question": "Bakit itinuturing na 'pangmatagalang kaunlaran' ang sustainable development?",
+            "options": [
+              "Iniisip nito ang pangangailangan ng susunod na henerasyon",
+              "Ginagamit lamang ito para sa kasalukuyan",
+              "Wala itong kinalaman sa kinabukasan",
+              "Ito ay panandaliang solusyon lamang"
+            ],
+            "correct_answer": "Iniisip nito ang pangangailangan ng susunod na henerasyon"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎵 MAPEH — Music: Rhythm and Tempo\n\nMaligayang pagdating sa Ikalawang Termino, Grade 4! Alamin natin ang ritmo. 🎶\n\n## 🥁 Ano ang Rhythm (Ritmo)?\nAng **ritmo** ay ang **paulit-ulit na tunog** sa musika — parang **puso ng isang kanta**.\n\n**Dalawang mahalagang bahagi:**\n- **Beat** — ang **regular na tibok** ng musika, tulad ng ticking ng orasan\n- **Rhythmic pattern** — kombinasyon ng **mahaba at maikling tunog** na binubuo ang isang parte ng kanta\n\n## ⏱️ Ano ang Tempo?\nAng **tempo** ay ang **bilis o bagal** ng musika.\n\n| Tempo | Ibig Sabihin |\n|---|---|\n| **Mabilis (fast)** | maenerhiyang kanta, sayaw |\n| **Katamtaman (moderate)** | pangkaraniwang bilis |\n| **Mabagal (slow)** | payapa, malungkot na kanta |\n\n## 🙏 Musikang Kaugnay ng Paniniwala\nMaraming katutubong musika sa Pilipinas ang **kaugnay ng relihiyon o paniniwala** ng komunidad.\n\n**Halimbawa:**\n- **Pasyon** — inaawit tuwing Semana Santa, mabagal at may ritmo ng pagninilay\n- **Musika sa ani** — mabilis na tempo bilang pagdiriwang ng masaganang ani\n- **Awit sa pananalangin** — kadalasang mabagal at kalmado\n\n## 🧠 Halimbawa 1\n*Anong tempo ang mas bagay sa isang awiting pang-libing?*\n- **Mabagal** — para ipahayag ang kalungkutan at paggalang. ✅\n\n## 🧠 Halimbawa 2\n*Anong tempo ang mas bagay sa isang awiting pang-piyesta?*\n- **Mabilis** — para ipakita ang saya at pagdiriwang. ✅\n\n## 🎵 Pagsasanay: Paggaya at Pag-improvise ng Ritmo\n1. **Makinig** sa isang rhythmic pattern\n2. **Ulitin** ito sa pamamagitan ng pagpalakpak\n3. **Subukang lumikha** ng sarili mong bagong pattern (improvisation)\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang ritmo?",
+            "options": [
+              "Paulit-ulit na tunog sa musika",
+              "Kulay ng damit sa sayaw",
+              "Pangalan ng kanta",
+              "Instrumentong ginagamit"
+            ],
+            "correct_answer": "Paulit-ulit na tunog sa musika"
+          },
+          {
+            "question": "Ano ang beat?",
+            "options": [
+              "Regular na tibok ng musika",
+              "Mabagal na kanta",
+              "Instrumentong pangmusika",
+              "Titulo ng isang awit"
+            ],
+            "correct_answer": "Regular na tibok ng musika"
+          },
+          {
+            "question": "Ano ang tempo?",
+            "options": [
+              "Bilis o bagal ng musika",
+              "Lakas ng tunog",
+              "Bilang ng mang-aawit",
+              "Uri ng instrumento"
+            ],
+            "correct_answer": "Bilis o bagal ng musika"
+          },
+          {
+            "question": "Anong tempo ang bagay sa awiting pang-libing?",
+            "options": [
+              "Mabagal",
+              "Mabilis",
+              "Katamtaman lamang",
+              "Walang tempo"
+            ],
+            "correct_answer": "Mabagal"
+          },
+          {
+            "question": "Anong tempo ang bagay sa awiting pang-piyesta?",
+            "options": [
+              "Mabilis",
+              "Mabagal",
+              "Walang ritmo",
+              "Tahimik lamang"
+            ],
+            "correct_answer": "Mabilis"
+          },
+          {
+            "question": "Ano ang rhythmic pattern?",
+            "options": [
+              "Kombinasyon ng tunog na mahaba/maikli",
+              "Isang instrumento lamang dito",
+              "Pangalan ng mang-aawit lamang",
+              "Uri lamang ng sayaw dito"
+            ],
+            "correct_answer": "Kombinasyon ng tunog na mahaba/maikli"
+          },
+          {
+            "question": "Ano ang Pasyon?",
+            "options": [
+              "Inaawit tuwing Semana Santa",
+              "Sayaw sa piyesta",
+              "Instrumentong pangmusika",
+              "Uri ng damit"
+            ],
+            "correct_answer": "Inaawit tuwing Semana Santa"
+          },
+          {
+            "question": "Ano ang tamang tempo ng musika sa ani bilang pagdiriwang?",
+            "options": [
+              "Mabilis",
+              "Mabagal",
+              "Walang tunog",
+              "Tahimik"
+            ],
+            "correct_answer": "Mabilis"
+          },
+          {
+            "question": "Ano ang layunin ng pag-improvise ng ritmo?",
+            "options": [
+              "Lumikha ng sariling bagong pattern",
+              "Kopyahin lamang ang kanta ng iba",
+              "Manahimik sa buong sesyon",
+              "Basahin ang mga titik lamang"
+            ],
+            "correct_answer": "Lumikha ng sariling bagong pattern"
+          },
+          {
+            "question": "Bakit maraming katutubong musika ang kaugnay ng paniniwala?",
+            "options": [
+              "Ginagamit ito sa mga ritwal at pagdiriwang ng komunidad",
+              "Wala itong kaugnayan sa buhay ng tao",
+              "Gawa lamang ito ng mga bata",
+              "Isinulat lamang ito para sa turista"
+            ],
+            "correct_answer": "Ginagamit ito sa mga ritwal at pagdiriwang ng komunidad"
+          },
+          {
+            "question": "Paano mo mapapalakpak nang tama ang isang rhythmic pattern?",
+            "options": [
+              "Makinig muna bago ulitin ito",
+              "Palakpak nang basta-basta lamang",
+              "Basahin ang titik ng kanta",
+              "Bumili ng bagong instrumento"
+            ],
+            "correct_answer": "Makinig muna bago ulitin ito"
+          },
+          {
+            "question": "Isang kanta ang binabagalan ang tempo sa gitna ng awit. Ano ang malamang na epekto nito sa damdamin ng nakikinig?",
+            "options": [
+              "Nagiging mas malungkot o payapa ang pakiramdam",
+              "Nagiging mas masaya at masigla ito",
+              "Walang epekto sa damdamin",
+              "Nagiging mas malakas ang tunog"
+            ],
+            "correct_answer": "Nagiging mas malungkot o payapa ang pakiramdam"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 GMRC — Pagpapaunlad ng Sariling Kakayahan\n\nMaligayang pagdating sa Ikalawang Termino, Grade 4! Pagpapahalaga: **Tiwala sa Sarili**. 🌟\n\n## 🎯 Ano ang Kakayahan, Talento, at Hilig?\n- **Kakayahan** — ang magagawa mo nang mahusay\n- **Talento** — likas na kahusayan na kaloob mo\n- **Hilig** — ang bagay na **gusto** mong gawin\n\n## 🏫 Programang Pampaaralan para sa Pagpapaunlad\nMaraming paaralan ang nag-aalok ng mga programa upang mapaunlad ang mga ito:\n- **Sports clubs** — para sa mga may hilig sa isports\n- **Art clubs** — para sa mga may talento sa sining\n- **Music clubs** — para sa mga mahilig kumanta o tumugtog\n- **Academic clubs** — para sa mga interesado sa science, math, o pagsulat\n\n## 👨‍👩‍👧 Ang Papel ng Pamilya\nMahalaga ang **paggabay ng pamilya** sa pagpapaunlad ng kakayahan:\n- **Suporta** — pagpapapunta sa klase, pagbili ng gamit\n- **Paghikayat** — pagsasabing kaya niya ito\n- **Pagpuri** — pagkilala sa pagsisikap, hindi lamang sa panalo\n\n## 💪 Ano ang Tiwala sa Sarili?\nAng **tiwala sa sarili** ay ang **paniniwala na kaya mong** gawin ang isang bagay, kahit mahirap ito.\n\n**Mga palatandaan ng tiwala sa sarili:**\n- Handang **subukan** ang bagong bagay\n- Hindi natatakot **magkamali**\n- Nagpapatuloy kahit **mahirap**\n\n## 🧠 Halimbawa 1\n*Gusto ni Ben sumali sa dance club pero natatakot siyang magkamali.*\n- Kung **susubukan** niya ito, **matututo** siya at unti-unting **lalago** ang tiwala niya sa sarili. ✅\n\n## 🧠 Halimbawa 2\n*Sinuportahan ng Nanay ni Ana ang kanyang hilig sa pagguhit sa pamamagitan ng pagbili ng krayola.*\n- Ito ay **paggabay ng pamilya** — nagpapaunlad ito ng talento at tiwala sa sarili ni Ana. ✅\n\n## 💡 Bakit Mahalaga ang Tiwala sa Sarili?\nKapag may tiwala ka sa sarili, hindi ka natatakot **subukan** ang bago, at nagiging **handa** kang **lumago** bilang tao.\n\nMagaling! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang kakayahan?",
+            "options": [
+              "Ang magagawa mo nang mahusay",
+              "Ang gusto mong kainin",
+              "Ang pangalan ng iyong paaralan",
+              "Ang edad mo ngayon"
+            ],
+            "correct_answer": "Ang magagawa mo nang mahusay"
+          },
+          {
+            "question": "Ano ang talento?",
+            "options": [
+              "Likas na kahusayan na kaloob mo",
+              "Kagamitang panuluyan",
+              "Gawaing bahay lamang",
+              "Kaarawan ng isang tao"
+            ],
+            "correct_answer": "Likas na kahusayan na kaloob mo"
+          },
+          {
+            "question": "Ano ang hilig?",
+            "options": [
+              "Ang bagay na gusto mong gawin",
+              "Ang bagay na iniiwasan mo",
+              "Ang gawaing ipinapataw sa iyo",
+              "Ang oras ng pagtulog"
+            ],
+            "correct_answer": "Ang bagay na gusto mong gawin"
+          },
+          {
+            "question": "Ano ang tiwala sa sarili?",
+            "options": [
+              "Paniniwalang kaya mong gawin ang isang bagay",
+              "Pagmamataas sa iba",
+              "Pagsisisi sa nagawa",
+              "Takot sa lahat ng bagong bagay"
+            ],
+            "correct_answer": "Paniniwalang kaya mong gawin ang isang bagay"
+          },
+          {
+            "question": "Alin ang programang pampaaralan para sa may hilig sa sining?",
+            "options": [
+              "Art club",
+              "Sports club lamang",
+              "Cafeteria staff",
+              "Security team"
+            ],
+            "correct_answer": "Art club"
+          },
+          {
+            "question": "Paano makatutulong ang pamilya sa pagpapaunlad ng kakayahan ng bata?",
+            "options": [
+              "Sa pagbibigay ng suporta at paghikayat",
+              "Sa pagpigil sa kanya laging sumubok",
+              "Sa pagpuna lamang sa pagkatalo",
+              "Sa pag-iwas sa lahat ng gawain"
+            ],
+            "correct_answer": "Sa pagbibigay ng suporta at paghikayat"
+          },
+          {
+            "question": "Alin ang palatandaan ng tiwala sa sarili?",
+            "options": [
+              "Handang subukan ang bagong bagay",
+              "Takot palaging magkamali",
+              "Umaayaw sa lahat ng hamon",
+              "Nag-iiwas sa bagong karanasan"
+            ],
+            "correct_answer": "Handang subukan ang bagong bagay"
+          },
+          {
+            "question": "Gusto ni Ben sumali sa dance club pero natatakot siyang magkamali. Ano ang tama mong payo?",
+            "options": [
+              "Susubukan mo ito, matututo ka rito",
+              "Iwasan mo na lang ito",
+              "Huwag nang subukan kailanman",
+              "Sabihin mong hindi mo kaya"
+            ],
+            "correct_answer": "Susubukan mo ito, matututo ka rito"
+          },
+          {
+            "question": "Sinuportahan ng Nanay ni Ana ang kanyang hilig sa pagguhit. Ano ang ipinapakita nito?",
+            "options": [
+              "Paggabay ng pamilya sa pagpapaunlad ng talento",
+              "Pagpigil sa kanyang paglaki",
+              "Kawalan ng pakialam ng pamilya",
+              "Pagpapabaya sa kanyang oras"
+            ],
+            "correct_answer": "Paggabay ng pamilya sa pagpapaunlad ng talento"
+          },
+          {
+            "question": "Bakit mahalaga ang pagpuri sa pagsisikap, hindi lamang sa panalo?",
+            "options": [
+              "Nagtuturo itong mahalaga ang proseso, hindi lamang ang resulta",
+              "Nagtuturo itong ang panalo lamang ang mahalaga",
+              "Wala itong epekto sa bata",
+              "Nagpapatigil ito sa pagsisikap"
+            ],
+            "correct_answer": "Nagtuturo itong mahalaga ang proseso, hindi lamang ang resulta"
+          },
+          {
+            "question": "Ano ang mangyayari kung palaging pinipigilan ng magulang ang anak na subukan ang bagong gawain?",
+            "options": [
+              "Maaaring mahirapan magkatiwala sa sarili",
+              "Mas mabilis lalago ang tiwala",
+              "Walang epekto ito sa bata",
+              "Mas magiging matapang ang bata"
+            ],
+            "correct_answer": "Maaaring mahirapan magkatiwala sa sarili"
+          },
+          {
+            "question": "Isang bata ang natatakot sumali sa quiz bee dahil baka magkamali siya. Ano ang PINAKAMABUTING payo?",
+            "options": [
+              "Ang pagkakamali ay bahagi ng pagkatuto — subukan pa rin",
+              "Huwag na lang sumali kailanman",
+              "Hintayin na lang ang ibang mag-aaral",
+              "Isipin na hindi na siya kakayanin"
+            ],
+            "correct_answer": "Ang pagkakamali ay bahagi ng pagkatuto — subukan pa rin"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 EPP (AFA/FCS/IA) — Kahalagahan ng Paghahalaman\n\nMaligayang pagdating sa Ikalawang Termino, Grade 4! Simulan natin ang Agriculture and Fishery Arts. 🌿\n\n## 🌾 Ano ang Paghahalaman?\nAng **paghahalaman** ay ang **pagtatanim** at **pag-aalaga** ng halaman — sa hardin, paso, o taniman.\n\n## 💚 Kabutihang-Dulot ng Paghahalaman sa TAO\n- **Stress reliever** — nakakatulong sa pagpapakalma ng isip\n- **Medicinal value** — maraming halaman ang may **gamot na halaga** (hal. sambong, bayabas)\n- **Napagkakakitaan** — maaaring **ipagbili** ang mga bunga o gulay\n- **Nagbibigay ng sariwang hangin, tubig, at pagkain**\n\n## 🐾 Kabutihang-Dulot sa HAYOP\n- Nagbibigay ng **sariwang hangin** para huminga\n- Nagbibigay ng **tubig** (sa pamamagitan ng ulan na kinukuha ng mga puno)\n- Nagbibigay ng **pagkain** — dahon, prutas, buto\n\n## 🌍 Kabutihang-Dulot sa KALIKASAN\n- **Nakapipigil sa baha** — ang mga ugat ay humahawak sa lupa\n- **Naiiwasan ang pagguho ng lupa** (landslide)\n- **Naiiwasan ang polusyon** — mga halaman ay lumilinis ng hangin\n- **Nagbibigay ng lilim at sariwang hangin**\n- **Nagpapaganda ng kapaligiran**\n\n## 🧠 Halimbawa 1\n*Bakit itinuturing na 'stress reliever' ang paghahalaman?*\n- Ang pag-aalaga ng halaman ay **kalmadong gawain** na nagbibigay-**kasiyahan** at **relaxation**. ✅\n\n## 🧠 Halimbawa 2\n*Paano nakapipigil sa baha ang mga puno?*\n- Step 1: Ang **ugat** ng mga puno ay **humahawak** sa lupa.\n- Step 2: Kapag umuulan, **sinisipsip** ng ugat ang tubig sa halip na basta na lang umagos.\n- Step 3: Nakakatulong ito upang **mabawasan** ang baha. ✅\n\n## 💡 Simpleng Paraan ng Pagsisimula\n1. Pumili ng **madaling alagaan** na halaman (kamatis, sili)\n2. Ihanda ang **maayos na lupa**\n3. **Diligan** nang regular\n4. **Bantayan** ang paglaki\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang paghahalaman?",
+            "options": [
+              "Pagtatanim at pag-aalaga ng halaman",
+              "Pag-aalaga ng hayop lamang",
+              "Paggawa ng damit",
+              "Pagluluto ng pagkain"
+            ],
+            "correct_answer": "Pagtatanim at pag-aalaga ng halaman"
+          },
+          {
+            "question": "Alin ang kabutihang-dulot ng paghahalaman sa tao?",
+            "options": [
+              "Stress reliever at may gamot",
+              "Pagdami lamang ng basura",
+              "Pagbawas lamang ng pagkain",
+              "Pagbawas lamang ng oxygen"
+            ],
+            "correct_answer": "Stress reliever at may gamot"
+          },
+          {
+            "question": "Paano nakapipigil sa baha ang mga puno?",
+            "options": [
+              "Humahawak ang ugat sa lupa at sumisipsip ng tubig",
+              "Nagpapabigat sila sa lupa",
+              "Nagpapadagdag sila ng tubig-ulan",
+              "Wala silang kaugnayan sa baha"
+            ],
+            "correct_answer": "Humahawak ang ugat sa lupa at sumisipsip ng tubig"
+          },
+          {
+            "question": "Alin ang halimbawa ng halamang may medicinal value?",
+            "options": [
+              "Sambong",
+              "Kamatis",
+              "Sili",
+              "Talong"
+            ],
+            "correct_answer": "Sambong"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'napagkakakitaan' na kabutihang-dulot ng paghahalaman?",
+            "options": [
+              "Maaaring ipagbili ang bunga o gulay",
+              "Wala itong halaga sa pananalapi",
+              "Ito ay palaging libre",
+              "Hindi ito maaaring ibenta"
+            ],
+            "correct_answer": "Maaaring ipagbili ang bunga o gulay"
+          },
+          {
+            "question": "Alin ang kabutihang-dulot ng paghahalaman sa hayop?",
+            "options": [
+              "Nagbibigay ng sariwang hangin at pagkain",
+              "Nagpapataas ng presyo ng karne",
+              "Nagpapababa ng populasyon ng hayop",
+              "Wala itong benepisyo sa hayop"
+            ],
+            "correct_answer": "Nagbibigay ng sariwang hangin at pagkain"
+          },
+          {
+            "question": "Paano nakatutulong ang mga halaman sa polusyon?",
+            "options": [
+              "Lumilinis sila ng hangin",
+              "Nagpaparumi sila ng hangin",
+              "Wala silang kaugnayan sa hangin",
+              "Nagpapalabas sila ng usok"
+            ],
+            "correct_answer": "Lumilinis sila ng hangin"
+          },
+          {
+            "question": "Bakit itinuturing na stress reliever ang paghahalaman?",
+            "options": [
+              "Ito ay kalmadong gawaing nagbibigay-kasiyahan",
+              "Nagpapabilis ito ng oras ng klase",
+              "Nagpapataas ito ng presyon",
+              "Nagpapadagdag ito ng gawain sa bahay"
+            ],
+            "correct_answer": "Ito ay kalmadong gawaing nagbibigay-kasiyahan"
+          },
+          {
+            "question": "Ano ang unang hakbang sa pagsisimula ng paghahalaman?",
+            "options": [
+              "Pumili ng madaling alagaan na halaman",
+              "Bumili ng malaking traktora",
+              "Magtanim sa gitna ng gabi",
+              "Huwag magbigay ng tubig"
+            ],
+            "correct_answer": "Pumili ng madaling alagaan na halaman"
+          },
+          {
+            "question": "Paano nakapipigil ang mga puno sa pagguho ng lupa?",
+            "options": [
+              "Humahawak ang ugat sa lupa upang hindi ito matangay",
+              "Nagpapatuyo sila ng lupa nang mabilis",
+              "Nagpapataas sila ng temperatura",
+              "Wala silang kinalaman sa lupa"
+            ],
+            "correct_answer": "Humahawak ang ugat sa lupa upang hindi ito matangay"
+          },
+          {
+            "question": "Isang lugar na dating maraming puno ngayon ay tuluyang punong-lupa. Ano ang MALAMANG na naging epekto?",
+            "options": [
+              "Dumaming baha at pagguho ng lupa",
+              "Bumuti ang kalidad ng hangin",
+              "Bumaba ang temperatura ng lugar",
+              "Dumami ang halaman sa paligid"
+            ],
+            "correct_answer": "Dumaming baha at pagguho ng lupa"
+          },
+          {
+            "question": "Bakit dapat regular na diligan ang halaman?",
+            "options": [
+              "Kailangan ng halaman ang tubig upang lumago",
+              "Nagpapabilis ito ng pagbulok",
+              "Hindi mahalaga ang tubig sa halaman",
+              "Nagpapababa ito ng temperatura lamang"
+            ],
+            "correct_answer": "Kailangan ng halaman ang tubig upang lumago"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 💒 Friday Review — English (Grade 4)\n\n- **Time-order text** = tells events in the order they happen\n- **Christening:** preparation → ceremony → handaan → gift-giving (pakimkim)\n- **Wedding:** pamamanhikan → preparation → ceremony (arras) → reception (first dance)\n- **Ninong/Ninang** = godfather/godmother | **Arras** = 13 coins of prosperity\n\nStrong start to Term 2! 🌟",
+        "quiz": [
+          {
+            "question": "What does a time-order text do?",
+            "options": [
+              "Tells events in the order they happen",
+              "Describes only one object",
+              "Explains why something happens",
+              "Gives an opinion"
+            ],
+            "correct_answer": "Tells events in the order they happen"
+          },
+          {
+            "question": "What is a 'ninang' in a christening?",
+            "options": [
+              "Godmother",
+              "The baby's mother",
+              "The church priest",
+              "A wedding guest"
+            ],
+            "correct_answer": "Godmother"
+          },
+          {
+            "question": "What happens FIRST in a Filipino wedding custom?",
+            "options": [
+              "Pamamanhikan",
+              "The reception",
+              "The first dance",
+              "The cutting of the cake"
+            ],
+            "correct_answer": "Pamamanhikan"
+          },
+          {
+            "question": "What are the 'arras'?",
+            "options": [
+              "13 coins symbolizing prosperity",
+              "The wedding rings",
+              "The bride's bouquet",
+              "The invitations"
+            ],
+            "correct_answer": "13 coins symbolizing prosperity"
+          },
+          {
+            "question": "What does 'handaan' mean?",
+            "options": [
+              "Feast or celebration",
+              "A church ceremony",
+              "A wedding dress",
+              "A baby's name"
+            ],
+            "correct_answer": "Feast or celebration"
+          },
+          {
+            "question": "When does the reception happen in a christening?",
+            "options": [
+              "After the ceremony",
+              "Before the ceremony",
+              "During the ceremony",
+              "Before preparation"
+            ],
+            "correct_answer": "After the ceremony"
+          },
+          {
+            "question": "What is 'pamamanhikan'?",
+            "options": [
+              "Formal visit to ask for marriage",
+              "The wedding ceremony",
+              "The christening ceremony",
+              "A type of food"
+            ],
+            "correct_answer": "Formal visit to ask for marriage"
+          },
+          {
+            "question": "When does the first dance happen at a wedding?",
+            "options": [
+              "During the reception, after the ceremony",
+              "Before the pamamanhikan",
+              "During the ceremony",
+              "Before preparation begins"
+            ],
+            "correct_answer": "During the reception, after the ceremony"
+          },
+          {
+            "question": "Why is sequencing important when reading about customs?",
+            "options": [
+              "It helps you follow events clearly",
+              "It makes the story shorter always",
+              "It changes word meanings often",
+              "It removes the need for words"
+            ],
+            "correct_answer": "It helps you follow events clearly"
+          },
+          {
+            "question": "Who typically gives the baby a 'pakimkim'?",
+            "options": [
+              "The godparents",
+              "The priest",
+              "The bride",
+              "The groom"
+            ],
+            "correct_answer": "The godparents"
+          },
+          {
+            "question": "Read: 'First, the family visits. Then, they marry. Finally, they celebrate.' Which comes SECOND?",
+            "options": [
+              "They marry",
+              "The family visits",
+              "They celebrate",
+              "None of these"
+            ],
+            "correct_answer": "They marry"
+          },
+          {
+            "question": "A wedding text lists Step 1, Step 2, Step 3 like a recipe. What kind of text is this?",
+            "options": [
+              "Procedural",
+              "Descriptive",
+              "Persuasive",
+              "Poetic"
+            ],
+            "correct_answer": "Procedural"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ✖️ Friday Review — Mathematics (Grade 4)\n\n- Multi-digit multiplication: multiply each place value, **regroup** as needed\n- 2-digit × 2-digit: multiply by each digit **separately**, then **add**\n- **Estimate first** by rounding, to check if your exact answer is reasonable\n\n**Quick check:** 34 × 12 = **408**\n\nStrong start to Term 2! ⭐",
+        "quiz": [
+          {
+            "question": "What is 234 × 3?",
+            "options": [
+              "702",
+              "692",
+              "712",
+              "602"
+            ],
+            "correct_answer": "702"
+          },
+          {
+            "question": "What is 34 × 12?",
+            "options": [
+              "408",
+              "398",
+              "418",
+              "348"
+            ],
+            "correct_answer": "408"
+          },
+          {
+            "question": "What is 56 × 24?",
+            "options": [
+              "1,344",
+              "1,244",
+              "1,444",
+              "1,334"
+            ],
+            "correct_answer": "1,344"
+          },
+          {
+            "question": "To estimate 289 × 4, what do you round 289 to?",
+            "options": [
+              "300",
+              "290",
+              "280",
+              "250"
+            ],
+            "correct_answer": "300"
+          },
+          {
+            "question": "What is 407 × 2?",
+            "options": [
+              "814",
+              "804",
+              "824",
+              "714"
+            ],
+            "correct_answer": "814"
+          },
+          {
+            "question": "A school has 24 classrooms with 32 students each. How many students total?",
+            "options": [
+              "768",
+              "756",
+              "778",
+              "648"
+            ],
+            "correct_answer": "768"
+          },
+          {
+            "question": "What is 3,142 × 3?",
+            "options": [
+              "9,426",
+              "9,326",
+              "9,416",
+              "8,426"
+            ],
+            "correct_answer": "9,426"
+          },
+          {
+            "question": "Why is estimating useful before an exact multiplication?",
+            "options": [
+              "It helps check if your answer is reasonable",
+              "It replaces the need to multiply",
+              "It always gives the exact answer",
+              "It only works for addition"
+            ],
+            "correct_answer": "It helps check if your answer is reasonable"
+          },
+          {
+            "question": "What is 34 × 2?",
+            "options": [
+              "68",
+              "78",
+              "64",
+              "48"
+            ],
+            "correct_answer": "68"
+          },
+          {
+            "question": "What is 34 × 10?",
+            "options": [
+              "340",
+              "34",
+              "3,400",
+              "304"
+            ],
+            "correct_answer": "340"
+          },
+          {
+            "question": "A vendor sells 48 mangoes per day for 15 days. How many mangoes in total?",
+            "options": [
+              "720",
+              "700",
+              "740",
+              "680"
+            ],
+            "correct_answer": "720"
+          },
+          {
+            "question": "What is 300 × 4?",
+            "options": [
+              "1,200",
+              "1,100",
+              "1,300",
+              "900"
+            ],
+            "correct_answer": "1,200"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📖 Biyernes na Balik-Aral — Filipino (Grade 4)\n\n- **Anekdota** = totoong pangyayari, madalas nakakatawa\n- **Tulang pambata** = may tugma, may aral\n- **Kuwentong-bayan** = ipinapasa sa henerasyon, may kahiwagaan\n- **Pagkakasunod-sunod:** noong una → pagkatapos → kasunod → sa huli\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang anekdota?",
+            "options": [
+              "Kuwentong tungkol sa totoong buhay",
+              "Tulang may tugma lamang dito",
+              "Alamat tungkol sa isang diyos",
+              "Balitang pang-araw-araw lamang"
+            ],
+            "correct_answer": "Kuwentong tungkol sa totoong buhay"
+          },
+          {
+            "question": "Ano ang kuwentong-bayan?",
+            "options": [
+              "Kuwentong ipinasa sa henerasyon",
+              "Balitang may petsa lamang",
+              "Anunsyo mula sa paaralan",
+              "Liham para sa isang kaibigan"
+            ],
+            "correct_answer": "Kuwentong ipinasa sa henerasyon"
+          },
+          {
+            "question": "Alin ang layunin ng tulang pambata?",
+            "options": [
+              "Magturo ng aral sa magaan",
+              "Magbigay lamang ng balita",
+              "Magpaliwanag ng agham lamang",
+              "Magbenta ng isang produkto"
+            ],
+            "correct_answer": "Magturo ng aral sa magaan"
+          },
+          {
+            "question": "Anong salita ang nagpapakita ng unang pangyayari?",
+            "options": [
+              "noong una",
+              "sa huli",
+              "pagkatapos",
+              "kasunod"
+            ],
+            "correct_answer": "noong una"
+          },
+          {
+            "question": "Ano ang recount?",
+            "options": [
+              "Pagsasalaysay ng totoong pangyayari",
+              "Kuwentong gawa-gawa lamang",
+              "Alamat tungkol sa hayop",
+              "Tula tungkol sa bulaklak"
+            ],
+            "correct_answer": "Pagsasalaysay ng totoong pangyayari"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang pagkakasunod-sunod sa isang recount?",
+            "options": [
+              "Para hindi malito ang mambabasa",
+              "Para humaba ang kuwento",
+              "Para magkaroon ng maraming salita",
+              "Para magmukhang mas mahirap"
+            ],
+            "correct_answer": "Para hindi malito ang mambabasa"
+          },
+          {
+            "question": "Ano ang madalas ipinapaliwanag ng kuwentong-bayan?",
+            "options": [
+              "Kung bakit umiiral ang isang bagay o lugar",
+              "Kung paano gumawa ng pagkain",
+              "Kung sino ang kasalukuyang pangulo",
+              "Kung ano ang panahon ngayon"
+            ],
+            "correct_answer": "Kung bakit umiiral ang isang bagay o lugar"
+          },
+          {
+            "question": "Ano ang talambuhay?",
+            "options": [
+              "Kuwento ng buhay ng isang tunay na tao",
+              "Kuwentong gawa-gawa lamang",
+              "Tula tungkol sa kalikasan",
+              "Balita sa dyaryo"
+            ],
+            "correct_answer": "Kuwento ng buhay ng isang tunay na tao"
+          },
+          {
+            "question": "Alin ang halimbawa ng salitang nagpapakita ng huling pangyayari?",
+            "options": [
+              "sa huli",
+              "noong una",
+              "kasunod",
+              "habang"
+            ],
+            "correct_answer": "sa huli"
+          },
+          {
+            "question": "Bakit madalas nakakatawa ang mga anekdota?",
+            "options": [
+              "Ibinabahagi nila ang kakaibang totoong karanasan",
+              "Ito ay palaging kathang-isip lamang",
+              "Ito ay palaging tungkol sa hayop",
+              "Ito ay laging tungkol sa panahon"
+            ],
+            "correct_answer": "Ibinabahagi nila ang kakaibang totoong karanasan"
+          },
+          {
+            "question": "Basahin: \"Noong una, naglakad si Lolo. Pagkatapos, natuto siyang magbisikleta. Sa huli, siya ang naging pinakamahusay.\" Ano ang pangalawang pangyayari?",
+            "options": [
+              "Natuto siyang magbisikleta",
+              "Naglakad siya papuntang paaralan",
+              "Naging pinakamahusay siya",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Natuto siyang magbisikleta"
+          },
+          {
+            "question": "Isang bata ay nagbabasa ng alamat tungkol sa pinagmulan ng pinya. Anong uri ito ng teksto?",
+            "options": [
+              "Kuwentong-bayan",
+              "Anekdota",
+              "Tulang pambata",
+              "Balitang pang-araw-araw"
+            ],
+            "correct_answer": "Kuwentong-bayan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🦴 Friday Review — Science (Grade 4)\n\n**Five body systems:**\n- **Skeletal** — shape, support\n- **Muscular** — movement\n- **Digestive** — breaks down food (mouth → esophagus → stomach → intestines)\n- **Circulatory** — heart pumps blood\n- **Respiratory** — breathing (nose → windpipe → lungs)\n\nSystems **work together** — e.g. running needs muscular + skeletal + respiratory + circulatory.\n\nGreat body-systems scientist! 🌟",
+        "quiz": [
+          {
+            "question": "Which system gives the body shape and support?",
+            "options": [
+              "Skeletal system",
+              "Muscular system",
+              "Digestive system",
+              "Circulatory system"
+            ],
+            "correct_answer": "Skeletal system"
+          },
+          {
+            "question": "Which system pumps blood through the body?",
+            "options": [
+              "Circulatory system",
+              "Skeletal system",
+              "Digestive system",
+              "Respiratory system"
+            ],
+            "correct_answer": "Circulatory system"
+          },
+          {
+            "question": "What organ pumps blood?",
+            "options": [
+              "The heart",
+              "The lungs",
+              "The stomach",
+              "The brain"
+            ],
+            "correct_answer": "The heart"
+          },
+          {
+            "question": "Which system lets us breathe?",
+            "options": [
+              "Respiratory system",
+              "Skeletal system",
+              "Muscular system",
+              "Digestive system"
+            ],
+            "correct_answer": "Respiratory system"
+          },
+          {
+            "question": "What is the path air takes when breathing?",
+            "options": [
+              "Nose, windpipe, lungs",
+              "Mouth, esophagus, stomach",
+              "Nose, heart, muscles",
+              "Mouth, lungs, heart"
+            ],
+            "correct_answer": "Nose, windpipe, lungs"
+          },
+          {
+            "question": "What is the path food takes after swallowing?",
+            "options": [
+              "Esophagus, stomach, intestines",
+              "Windpipe, lungs, heart",
+              "Mouth, lungs, blood",
+              "Nose, stomach, muscles"
+            ],
+            "correct_answer": "Esophagus, stomach, intestines"
+          },
+          {
+            "question": "Which system works with bones to let the body move?",
+            "options": [
+              "Muscular system",
+              "Digestive system",
+              "Respiratory system",
+              "Circulatory system"
+            ],
+            "correct_answer": "Muscular system"
+          },
+          {
+            "question": "Why do you breathe faster when running?",
+            "options": [
+              "Muscles need more oxygen",
+              "The stomach needs more food",
+              "Bones need more support",
+              "The skin needs more air"
+            ],
+            "correct_answer": "Muscles need more oxygen"
+          },
+          {
+            "question": "Which system breaks down food into usable nutrients?",
+            "options": [
+              "Digestive system",
+              "Skeletal system",
+              "Respiratory system",
+              "Muscular system"
+            ],
+            "correct_answer": "Digestive system"
+          },
+          {
+            "question": "How does exercise help your body systems?",
+            "options": [
+              "It strengthens muscles and bones",
+              "It stops digestion completely",
+              "It slows the heart down forever",
+              "It removes the need for oxygen"
+            ],
+            "correct_answer": "It strengthens muscles and bones"
+          },
+          {
+            "question": "After running, your heart beats faster and you breathe harder. Which two systems work together here?",
+            "options": [
+              "Circulatory and respiratory",
+              "Digestive and skeletal",
+              "Muscular and digestive",
+              "Skeletal and respiratory"
+            ],
+            "correct_answer": "Circulatory and respiratory"
+          },
+          {
+            "question": "A student eats a heavy meal right before a race and feels sluggish. Which system is likely competing for energy?",
+            "options": [
+              "Digestive system",
+              "Skeletal system",
+              "Respiratory system alone",
+              "None of the systems"
+            ],
+            "correct_answer": "Digestive system"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🌾 Biyernes na Balik-Aral — Araling Panlipunan (Grade 4)\n\n- **Likas na yaman** = natural na bagay mula sa kalikasan\n- **Gawaing pangkabuhayan:** agrikultura (lupa), pangingisda (dagat), industriya (mineral), turismo (tanawin)\n- **Sustainable development** = paggamit ng yaman nang hindi ito naubos\n- **Pangangalaga:** reforestation, responsableng pangingisda\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang likas na yaman?",
+            "options": [
+              "Natural na bagay mula sa kalikasan",
+              "Gawa ng tao lamang dito",
+              "Pera na inipon ng pamilya",
+              "Kagamitan sa paaralan lamang"
+            ],
+            "correct_answer": "Natural na bagay mula sa kalikasan"
+          },
+          {
+            "question": "Alin ang gawaing pangkabuhayan na gumagamit ng dagat?",
+            "options": [
+              "Pangingisda",
+              "Agrikultura",
+              "Turismo lamang",
+              "Pagmimina"
+            ],
+            "correct_answer": "Pangingisda"
+          },
+          {
+            "question": "Bakit maganda ang agrikultura sa Gitnang Luzon?",
+            "options": [
+              "Matabang kapatagan angkop sa palayan",
+              "Maraming bundok doon",
+              "Malapit ito sa dagat lamang",
+              "Wala itong tubig"
+            ],
+            "correct_answer": "Matabang kapatagan angkop sa palayan"
+          },
+          {
+            "question": "Ano ang sustainable development?",
+            "options": [
+              "Paggamit ng yaman nang hindi ito naubos",
+              "Paggamit ng lahat ng yaman agad",
+              "Pagtigil sa paggamit ng yaman",
+              "Pagbenta ng lahat ng likas na yaman"
+            ],
+            "correct_answer": "Paggamit ng yaman nang hindi ito naubos"
+          },
+          {
+            "question": "Alin ang halimbawa ng pangangalaga sa kapaligiran?",
+            "options": [
+              "Muling pagtatanim ng puno",
+              "Labis na pangingisda",
+              "Pagtatapon ng basura sa ilog",
+              "Pagputol ng maraming puno"
+            ],
+            "correct_answer": "Muling pagtatanim ng puno"
+          },
+          {
+            "question": "Alin ang likas na yamang ginagamit sa turismo?",
+            "options": [
+              "Tanawin at dalampasigan",
+              "Mineral sa lupa",
+              "Tubig sa gripo",
+              "Bakal at semento"
+            ],
+            "correct_answer": "Tanawin at dalampasigan"
+          },
+          {
+            "question": "Ano ang mangyayari kung labis nating gagamitin ang likas na yaman?",
+            "options": [
+              "Maapektuhan ang susunod na henerasyon",
+              "Dadami ang yaman kaagad dito",
+              "Walang mangyayari sa kalikasan",
+              "Bababa ang presyo ng lahat"
+            ],
+            "correct_answer": "Maapektuhan ang susunod na henerasyon"
+          },
+          {
+            "question": "Bakit mahalaga ang responsableng pangingisda?",
+            "options": [
+              "Upang dumami pa rin ang isda sa hinaharap",
+              "Upang mabilis maubos ang isda",
+              "Upang mabawasan ang trabaho",
+              "Upang tumaas lamang ang presyo"
+            ],
+            "correct_answer": "Upang dumami pa rin ang isda sa hinaharap"
+          },
+          {
+            "question": "Alin ang halimbawa ng industriyang gumagamit ng mineral?",
+            "options": [
+              "Pagmimina",
+              "Pangingisda",
+              "Turismo",
+              "Agrikultura"
+            ],
+            "correct_answer": "Pagmimina"
+          },
+          {
+            "question": "Ano ang layunin ng reforestation?",
+            "options": [
+              "Muling pagtatanim ng puno na naputol",
+              "Pagputol ng lahat ng puno",
+              "Paggawa ng bagong bahay",
+              "Pagtatayo ng pabrika"
+            ],
+            "correct_answer": "Muling pagtatanim ng puno na naputol"
+          },
+          {
+            "question": "Isang lugar ay maraming isda. Paano ito magagamit nang matalino?",
+            "options": [
+              "May batas sa saklaw at panahon ng pangingisda",
+              "Manghuli nang walang tigil",
+              "Ibenta agad ang lahat ng isda",
+              "Huwag na mangisda kailanman"
+            ],
+            "correct_answer": "May batas sa saklaw at panahon ng pangingisda"
+          },
+          {
+            "question": "Bakit itinuturing na 'pangmatagalang kaunlaran' ang sustainable development?",
+            "options": [
+              "Iniisip nito ang pangangailangan ng susunod na henerasyon",
+              "Ginagamit lamang ito para sa kasalukuyan",
+              "Wala itong kinalaman sa kinabukasan",
+              "Ito ay panandaliang solusyon lamang"
+            ],
+            "correct_answer": "Iniisip nito ang pangangailangan ng susunod na henerasyon"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎵 Biyernes na Balik-Aral — MAPEH (Grade 4)\n\n- **Ritmo** = paulit-ulit na tunog | **Beat** = regular na tibok | **Tempo** = bilis o bagal\n- **Mabagal** = payapa/malungkot | **Mabilis** = masaya/piyesta\n- Musikang kaugnay ng paniniwala: **Pasyon**, musika sa ani\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang ritmo?",
+            "options": [
+              "Paulit-ulit na tunog sa musika",
+              "Kulay ng damit sa sayaw",
+              "Pangalan ng kanta",
+              "Instrumentong ginagamit"
+            ],
+            "correct_answer": "Paulit-ulit na tunog sa musika"
+          },
+          {
+            "question": "Ano ang beat?",
+            "options": [
+              "Regular na tibok ng musika",
+              "Mabagal na kanta",
+              "Instrumentong pangmusika",
+              "Titulo ng isang awit"
+            ],
+            "correct_answer": "Regular na tibok ng musika"
+          },
+          {
+            "question": "Ano ang tempo?",
+            "options": [
+              "Bilis o bagal ng musika",
+              "Lakas ng tunog",
+              "Bilang ng mang-aawit",
+              "Uri ng instrumento"
+            ],
+            "correct_answer": "Bilis o bagal ng musika"
+          },
+          {
+            "question": "Anong tempo ang bagay sa awiting pang-libing?",
+            "options": [
+              "Mabagal",
+              "Mabilis",
+              "Katamtaman lamang",
+              "Walang tempo"
+            ],
+            "correct_answer": "Mabagal"
+          },
+          {
+            "question": "Anong tempo ang bagay sa awiting pang-piyesta?",
+            "options": [
+              "Mabilis",
+              "Mabagal",
+              "Walang ritmo",
+              "Tahimik lamang"
+            ],
+            "correct_answer": "Mabilis"
+          },
+          {
+            "question": "Ano ang rhythmic pattern?",
+            "options": [
+              "Kombinasyon ng tunog na mahaba/maikli",
+              "Isang instrumento lamang dito",
+              "Pangalan ng mang-aawit lamang",
+              "Uri lamang ng sayaw dito"
+            ],
+            "correct_answer": "Kombinasyon ng tunog na mahaba/maikli"
+          },
+          {
+            "question": "Ano ang Pasyon?",
+            "options": [
+              "Inaawit tuwing Semana Santa",
+              "Sayaw sa piyesta",
+              "Instrumentong pangmusika",
+              "Uri ng damit"
+            ],
+            "correct_answer": "Inaawit tuwing Semana Santa"
+          },
+          {
+            "question": "Ano ang tamang tempo ng musika sa ani bilang pagdiriwang?",
+            "options": [
+              "Mabilis",
+              "Mabagal",
+              "Walang tunog",
+              "Tahimik"
+            ],
+            "correct_answer": "Mabilis"
+          },
+          {
+            "question": "Ano ang layunin ng pag-improvise ng ritmo?",
+            "options": [
+              "Lumikha ng sariling bagong pattern",
+              "Kopyahin lamang ang kanta ng iba",
+              "Manahimik sa buong sesyon",
+              "Basahin ang mga titik lamang"
+            ],
+            "correct_answer": "Lumikha ng sariling bagong pattern"
+          },
+          {
+            "question": "Bakit maraming katutubong musika ang kaugnay ng paniniwala?",
+            "options": [
+              "Ginagamit ito sa mga ritwal at pagdiriwang ng komunidad",
+              "Wala itong kaugnayan sa buhay ng tao",
+              "Gawa lamang ito ng mga bata",
+              "Isinulat lamang ito para sa turista"
+            ],
+            "correct_answer": "Ginagamit ito sa mga ritwal at pagdiriwang ng komunidad"
+          },
+          {
+            "question": "Paano mo mapapalakpak nang tama ang isang rhythmic pattern?",
+            "options": [
+              "Makinig muna bago ulitin ito",
+              "Palakpak nang basta-basta lamang",
+              "Basahin ang titik ng kanta",
+              "Bumili ng bagong instrumento"
+            ],
+            "correct_answer": "Makinig muna bago ulitin ito"
+          },
+          {
+            "question": "Isang kanta ang binabagalan ang tempo sa gitna ng awit. Ano ang malamang na epekto nito sa damdamin ng nakikinig?",
+            "options": [
+              "Nagiging mas malungkot o payapa ang pakiramdam",
+              "Nagiging mas masaya at masigla ito",
+              "Walang epekto sa damdamin",
+              "Nagiging mas malakas ang tunog"
+            ],
+            "correct_answer": "Nagiging mas malungkot o payapa ang pakiramdam"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 Biyernes na Balik-Aral — GMRC (Grade 4)\n\n- **Kakayahan** = magagawa mo mahusay | **Talento** = likas na kahusayan | **Hilig** = gustong gawin\n- **Tiwala sa sarili** = paniniwalang kaya mo — handang subukan, hindi natatakot magkamali\n- Ang **paggabay ng pamilya** ay mahalaga sa pagpapaunlad ng kakayahan\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang kakayahan?",
+            "options": [
+              "Ang magagawa mo nang mahusay",
+              "Ang gusto mong kainin",
+              "Ang pangalan ng iyong paaralan",
+              "Ang edad mo ngayon"
+            ],
+            "correct_answer": "Ang magagawa mo nang mahusay"
+          },
+          {
+            "question": "Ano ang talento?",
+            "options": [
+              "Likas na kahusayan na kaloob mo",
+              "Kagamitang panuluyan",
+              "Gawaing bahay lamang",
+              "Kaarawan ng isang tao"
+            ],
+            "correct_answer": "Likas na kahusayan na kaloob mo"
+          },
+          {
+            "question": "Ano ang hilig?",
+            "options": [
+              "Ang bagay na gusto mong gawin",
+              "Ang bagay na iniiwasan mo",
+              "Ang gawaing ipinapataw sa iyo",
+              "Ang oras ng pagtulog"
+            ],
+            "correct_answer": "Ang bagay na gusto mong gawin"
+          },
+          {
+            "question": "Ano ang tiwala sa sarili?",
+            "options": [
+              "Paniniwalang kaya mong gawin ang isang bagay",
+              "Pagmamataas sa iba",
+              "Pagsisisi sa nagawa",
+              "Takot sa lahat ng bagong bagay"
+            ],
+            "correct_answer": "Paniniwalang kaya mong gawin ang isang bagay"
+          },
+          {
+            "question": "Alin ang programang pampaaralan para sa may hilig sa sining?",
+            "options": [
+              "Art club",
+              "Sports club lamang",
+              "Cafeteria staff",
+              "Security team"
+            ],
+            "correct_answer": "Art club"
+          },
+          {
+            "question": "Paano makatutulong ang pamilya sa pagpapaunlad ng kakayahan ng bata?",
+            "options": [
+              "Sa pagbibigay ng suporta at paghikayat",
+              "Sa pagpigil sa kanya laging sumubok",
+              "Sa pagpuna lamang sa pagkatalo",
+              "Sa pag-iwas sa lahat ng gawain"
+            ],
+            "correct_answer": "Sa pagbibigay ng suporta at paghikayat"
+          },
+          {
+            "question": "Alin ang palatandaan ng tiwala sa sarili?",
+            "options": [
+              "Handang subukan ang bagong bagay",
+              "Takot palaging magkamali",
+              "Umaayaw sa lahat ng hamon",
+              "Nag-iiwas sa bagong karanasan"
+            ],
+            "correct_answer": "Handang subukan ang bagong bagay"
+          },
+          {
+            "question": "Gusto ni Ben sumali sa dance club pero natatakot siyang magkamali. Ano ang tama mong payo?",
+            "options": [
+              "Susubukan mo ito, matututo ka rito",
+              "Iwasan mo na lang ito",
+              "Huwag nang subukan kailanman",
+              "Sabihin mong hindi mo kaya"
+            ],
+            "correct_answer": "Susubukan mo ito, matututo ka rito"
+          },
+          {
+            "question": "Sinuportahan ng Nanay ni Ana ang kanyang hilig sa pagguhit. Ano ang ipinapakita nito?",
+            "options": [
+              "Paggabay ng pamilya sa pagpapaunlad ng talento",
+              "Pagpigil sa kanyang paglaki",
+              "Kawalan ng pakialam ng pamilya",
+              "Pagpapabaya sa kanyang oras"
+            ],
+            "correct_answer": "Paggabay ng pamilya sa pagpapaunlad ng talento"
+          },
+          {
+            "question": "Bakit mahalaga ang pagpuri sa pagsisikap, hindi lamang sa panalo?",
+            "options": [
+              "Nagtuturo itong mahalaga ang proseso, hindi lamang ang resulta",
+              "Nagtuturo itong ang panalo lamang ang mahalaga",
+              "Wala itong epekto sa bata",
+              "Nagpapatigil ito sa pagsisikap"
+            ],
+            "correct_answer": "Nagtuturo itong mahalaga ang proseso, hindi lamang ang resulta"
+          },
+          {
+            "question": "Ano ang mangyayari kung palaging pinipigilan ng magulang ang anak na subukan ang bagong gawain?",
+            "options": [
+              "Maaaring mahirapan magkatiwala sa sarili",
+              "Mas mabilis lalago ang tiwala",
+              "Walang epekto ito sa bata",
+              "Mas magiging matapang ang bata"
+            ],
+            "correct_answer": "Maaaring mahirapan magkatiwala sa sarili"
+          },
+          {
+            "question": "Isang bata ang natatakot sumali sa quiz bee dahil baka magkamali siya. Ano ang PINAKAMABUTING payo?",
+            "options": [
+              "Ang pagkakamali ay bahagi ng pagkatuto — subukan pa rin",
+              "Huwag na lang sumali kailanman",
+              "Hintayin na lang ang ibang mag-aaral",
+              "Isipin na hindi na siya kakayanin"
+            ],
+            "correct_answer": "Ang pagkakamali ay bahagi ng pagkatuto — subukan pa rin"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 Friday Review — EPP (AFA/FCS/IA) (Grade 4)\n\n- **Paghahalaman** = pagtatanim at pag-aalaga ng halaman\n- **Sa tao:** stress reliever, medicinal, napagkakakitaan\n- **Sa kalikasan:** nakapipigil sa baha at pagguho, naiiwasan ang polusyon\n- Ugat ng puno = humahawak sa lupa, sumisipsip ng tubig\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang paghahalaman?",
+            "options": [
+              "Pagtatanim at pag-aalaga ng halaman",
+              "Pag-aalaga ng hayop lamang",
+              "Paggawa ng damit",
+              "Pagluluto ng pagkain"
+            ],
+            "correct_answer": "Pagtatanim at pag-aalaga ng halaman"
+          },
+          {
+            "question": "Alin ang kabutihang-dulot ng paghahalaman sa tao?",
+            "options": [
+              "Stress reliever at may gamot",
+              "Pagdami lamang ng basura",
+              "Pagbawas lamang ng pagkain",
+              "Pagbawas lamang ng oxygen"
+            ],
+            "correct_answer": "Stress reliever at may gamot"
+          },
+          {
+            "question": "Paano nakapipigil sa baha ang mga puno?",
+            "options": [
+              "Humahawak ang ugat sa lupa at sumisipsip ng tubig",
+              "Nagpapabigat sila sa lupa",
+              "Nagpapadagdag sila ng tubig-ulan",
+              "Wala silang kaugnayan sa baha"
+            ],
+            "correct_answer": "Humahawak ang ugat sa lupa at sumisipsip ng tubig"
+          },
+          {
+            "question": "Alin ang halimbawa ng halamang may medicinal value?",
+            "options": [
+              "Sambong",
+              "Kamatis",
+              "Sili",
+              "Talong"
+            ],
+            "correct_answer": "Sambong"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'napagkakakitaan' na kabutihang-dulot ng paghahalaman?",
+            "options": [
+              "Maaaring ipagbili ang bunga o gulay",
+              "Wala itong halaga sa pananalapi",
+              "Ito ay palaging libre",
+              "Hindi ito maaaring ibenta"
+            ],
+            "correct_answer": "Maaaring ipagbili ang bunga o gulay"
+          },
+          {
+            "question": "Alin ang kabutihang-dulot ng paghahalaman sa hayop?",
+            "options": [
+              "Nagbibigay ng sariwang hangin at pagkain",
+              "Nagpapataas ng presyo ng karne",
+              "Nagpapababa ng populasyon ng hayop",
+              "Wala itong benepisyo sa hayop"
+            ],
+            "correct_answer": "Nagbibigay ng sariwang hangin at pagkain"
+          },
+          {
+            "question": "Paano nakatutulong ang mga halaman sa polusyon?",
+            "options": [
+              "Lumilinis sila ng hangin",
+              "Nagpaparumi sila ng hangin",
+              "Wala silang kaugnayan sa hangin",
+              "Nagpapalabas sila ng usok"
+            ],
+            "correct_answer": "Lumilinis sila ng hangin"
+          },
+          {
+            "question": "Bakit itinuturing na stress reliever ang paghahalaman?",
+            "options": [
+              "Ito ay kalmadong gawaing nagbibigay-kasiyahan",
+              "Nagpapabilis ito ng oras ng klase",
+              "Nagpapataas ito ng presyon",
+              "Nagpapadagdag ito ng gawain sa bahay"
+            ],
+            "correct_answer": "Ito ay kalmadong gawaing nagbibigay-kasiyahan"
+          },
+          {
+            "question": "Ano ang unang hakbang sa pagsisimula ng paghahalaman?",
+            "options": [
+              "Pumili ng madaling alagaan na halaman",
+              "Bumili ng malaking traktora",
+              "Magtanim sa gitna ng gabi",
+              "Huwag magbigay ng tubig"
+            ],
+            "correct_answer": "Pumili ng madaling alagaan na halaman"
+          },
+          {
+            "question": "Paano nakapipigil ang mga puno sa pagguho ng lupa?",
+            "options": [
+              "Humahawak ang ugat sa lupa upang hindi ito matangay",
+              "Nagpapatuyo sila ng lupa nang mabilis",
+              "Nagpapataas sila ng temperatura",
+              "Wala silang kinalaman sa lupa"
+            ],
+            "correct_answer": "Humahawak ang ugat sa lupa upang hindi ito matangay"
+          },
+          {
+            "question": "Isang lugar na dating maraming puno ngayon ay tuluyang punong-lupa. Ano ang MALAMANG na naging epekto?",
+            "options": [
+              "Dumaming baha at pagguho ng lupa",
+              "Bumuti ang kalidad ng hangin",
+              "Bumaba ang temperatura ng lugar",
+              "Dumami ang halaman sa paligid"
+            ],
+            "correct_answer": "Dumaming baha at pagguho ng lupa"
+          },
+          {
+            "question": "Bakit dapat regular na diligan ang halaman?",
+            "options": [
+              "Kailangan ng halaman ang tubig upang lumago",
+              "Nagpapabilis ito ng pagbulok",
+              "Hindi mahalaga ang tubig sa halaman",
+              "Nagpapababa ito ng temperatura lamang"
+            ],
+            "correct_answer": "Kailangan ng halaman ang tubig upang lumago"
+          }
+        ]
+      }
+    }
+  }
+}

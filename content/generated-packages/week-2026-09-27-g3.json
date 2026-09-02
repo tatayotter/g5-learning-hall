@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-09-27",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📚 English — Vocabulary and Word Knowledge\n\nGrade 3, Week 16! Let's build our word bank. 💪\n\n## 🔠 High-Frequency Words\nWords used **often** in reading and writing — you should recognize them **instantly**.\n\n**Examples:** *because, through, again, people, though*\n\n## 🌏 Vocabulary for Regional Themes and Content Topics\n- **Regional themes:** words about your local area's geography, culture, and history\n- **Content-specific:** Math terms (sum, difference), Science terms (habitat, organism)\n\n## 🔤 Words with Different Functions\n| Function | Examples |\n|---|---|\n| **Verbs** | run, jump, discover |\n| **Adjectives** | tall, colorful, ancient |\n| **Possessive pronouns** | my, your, his, her, their |\n| **Demonstrative pronouns** | this, that, these, those |\n\n## 🧠 Worked Example 1\n*\"This is my book, but that is her book.\"* Identify the possessive and demonstrative pronouns.\n- **Possessive:** my, her\n- **Demonstrative:** this, that\n\n## 🧠 Worked Example 2\n*Which word is a verb: 'discover', 'discovery', or 'discoverable'?*\n- **'Discover'** is the verb — it names an **action**.\n\n## 📝 Using Content-Specific Words\n> *\"The scientist studied the animal's habitat.\"* — 'habitat' is a Science content word.\n\nGreat vocabulary work! 🌟",
+        "quiz": [
+          {
+            "question": "What are high-frequency words?",
+            "options": [
+              "Words used often that should be recognized instantly",
+              "Words that only appear in Science",
+              "Words with no meaning",
+              "Words that rhyme with each other"
+            ],
+            "correct_answer": "Words used often that should be recognized instantly"
+          },
+          {
+            "question": "Which is a possessive pronoun?",
+            "options": [
+              "her",
+              "run",
+              "tall",
+              "this"
+            ],
+            "correct_answer": "her"
+          },
+          {
+            "question": "Which is a demonstrative pronoun?",
+            "options": [
+              "this",
+              "her",
+              "run",
+              "tall"
+            ],
+            "correct_answer": "this"
+          },
+          {
+            "question": "Which word is a verb?",
+            "options": [
+              "discover",
+              "discovery",
+              "discoverable",
+              "discovered thing"
+            ],
+            "correct_answer": "discover"
+          },
+          {
+            "question": "Which word is an adjective?",
+            "options": [
+              "colorful",
+              "run",
+              "jump",
+              "their"
+            ],
+            "correct_answer": "colorful"
+          },
+          {
+            "question": "'The scientist studied the animal's habitat.' What kind of word is 'habitat'?",
+            "options": [
+              "A Science content word",
+              "A Math content word",
+              "A possessive pronoun",
+              "A demonstrative pronoun"
+            ],
+            "correct_answer": "A Science content word"
+          },
+          {
+            "question": "Which is a Math content-specific word?",
+            "options": [
+              "sum",
+              "habitat",
+              "organism",
+              "ancient"
+            ],
+            "correct_answer": "sum"
+          },
+          {
+            "question": "'This is my book, but that is her book.' Which word is demonstrative?",
+            "options": [
+              "This",
+              "my",
+              "her",
+              "book"
+            ],
+            "correct_answer": "This"
+          },
+          {
+            "question": "Which sentence uses a possessive pronoun correctly?",
+            "options": [
+              "This is my bag.",
+              "This is run bag.",
+              "This is tall bag.",
+              "This is discover bag."
+            ],
+            "correct_answer": "This is my bag."
+          },
+          {
+            "question": "Which word describes HOW something looks or feels?",
+            "options": [
+              "An adjective",
+              "A verb",
+              "A possessive pronoun",
+              "A demonstrative pronoun"
+            ],
+            "correct_answer": "An adjective"
+          },
+          {
+            "question": "Why is it important to learn content-specific vocabulary?",
+            "options": [
+              "It helps you understand subject-specific texts",
+              "It replaces the need for grammar",
+              "It is only used in poems",
+              "It has no real classroom use"
+            ],
+            "correct_answer": "It helps you understand subject-specific texts"
+          },
+          {
+            "question": "'Those are their books, not these.' Identify one demonstrative pronoun.",
+            "options": [
+              "Those",
+              "their",
+              "books",
+              "not"
+            ],
+            "correct_answer": "Those"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🧴 Mathematics — Measuring Capacity\n\nGrade 3, Week 16! Let's measure how much liquid fits. 💧\n\n## 🧴 Units of Capacity\n| Unit | Used for |\n|---|---|\n| **Milliliter (mL)** | small amounts — a spoonful, a small cup |\n| **Liter (L)** | larger amounts — a bottle, a pail |\n\n**Rule of thumb:** small container → **mL**. Large container → **L**.\n\n## 📏 Using Measuring Tools\n- **Measuring cup** — has markings in mL or L\n- **Graduated cylinder** — used in science for precise measurement\n\n**How to read:** look at the liquid's surface **at eye level**, and read the number it lines up with.\n\n## 🧠 Worked Example 1\n*A juice box holds 250 mL. A water jug holds 5 L. Which holds more?*\n- Convert: 5 L = 5,000 mL\n- Compare: 5,000 mL > 250 mL\n- **The water jug holds more.** ✅\n\n## 🧠 Worked Example 2\n*Estimate: would a teaspoon of medicine be measured in mL or L?*\n- **mL** — a teaspoon is a **small** amount.\n\n## ⚖️ Comparing Capacities\n**Example:** Container A holds 750 mL. Container B holds 1 L (1,000 mL).\n- 1,000 mL > 750 mL → **Container B holds more**, by **250 mL**.\n\n## 📝 Word Problem\n*A recipe needs 2 L of water. You have a 500 mL cup. How many cups do you need?*\n- 2 L = 2,000 mL\n- 2,000 ÷ 500 = **4 cups** ✅\n\nGreat measuring! ⭐",
+        "quiz": [
+          {
+            "question": "Which unit is best for measuring a spoonful of medicine?",
+            "options": [
+              "Milliliters",
+              "Liters",
+              "Meters",
+              "Grams"
+            ],
+            "correct_answer": "Milliliters"
+          },
+          {
+            "question": "Which unit is best for measuring a large water jug?",
+            "options": [
+              "Liters",
+              "Milliliters",
+              "Centimeters",
+              "Kilograms"
+            ],
+            "correct_answer": "Liters"
+          },
+          {
+            "question": "How many milliliters are in 1 liter?",
+            "options": [
+              "1,000 mL",
+              "100 mL",
+              "10 mL",
+              "10,000 mL"
+            ],
+            "correct_answer": "1,000 mL"
+          },
+          {
+            "question": "A juice box holds 250 mL, a jug holds 5 L. Which holds more?",
+            "options": [
+              "The jug",
+              "The juice box",
+              "They are equal",
+              "Cannot be compared"
+            ],
+            "correct_answer": "The jug"
+          },
+          {
+            "question": "Container A holds 750 mL, Container B holds 1 L. How much more does B hold?",
+            "options": [
+              "250 mL",
+              "150 mL",
+              "350 mL",
+              "500 mL"
+            ],
+            "correct_answer": "250 mL"
+          },
+          {
+            "question": "A recipe needs 2 L of water and you have a 500 mL cup. How many cups do you need?",
+            "options": [
+              "4 cups",
+              "2 cups",
+              "5 cups",
+              "8 cups"
+            ],
+            "correct_answer": "4 cups"
+          },
+          {
+            "question": "How should you read a liquid's level in a measuring cup?",
+            "options": [
+              "At eye level",
+              "From above looking down",
+              "From below looking up",
+              "From the side without looking"
+            ],
+            "correct_answer": "At eye level"
+          },
+          {
+            "question": "Which tool is used in science for precise liquid measurement?",
+            "options": [
+              "Graduated cylinder",
+              "Ruler",
+              "Balance scale",
+              "Thermometer"
+            ],
+            "correct_answer": "Graduated cylinder"
+          },
+          {
+            "question": "A small teacup most likely holds about:",
+            "options": [
+              "200 mL",
+              "200 L",
+              "2 L",
+              "20 L"
+            ],
+            "correct_answer": "200 mL"
+          },
+          {
+            "question": "A big water dispenser holds about how much?",
+            "options": [
+              "18 to 20 liters",
+              "18 to 20 milliliters",
+              "1 to 2 milliliters",
+              "180 to 200 grams"
+            ],
+            "correct_answer": "18 to 20 liters"
+          },
+          {
+            "question": "What is 3 L converted to milliliters?",
+            "options": [
+              "3,000 mL",
+              "300 mL",
+              "30 mL",
+              "30,000 mL"
+            ],
+            "correct_answer": "3,000 mL"
+          },
+          {
+            "question": "A pitcher holds 1.5 L of juice. You pour 600 mL into a glass. How much juice remains in the pitcher?",
+            "options": [
+              "900 mL",
+              "1,000 mL",
+              "800 mL",
+              "1,500 mL"
+            ],
+            "correct_answer": "900 mL"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📖 Filipino — Paglinang ng Talasalitaan\n\nGrade 3, Linggo 16! Palawakin natin ang ating bokabularyo. 💪\n\n## 🗣️ Salitang Madalas Gamitin\nMga salitang **karaniwang ginagamit** sa pang-araw-araw na usapan at pagbasa.\n\n**Halimbawa:** *totoo, siguro, ngunit, dahil, kaya*\n\n## 📚 High-Frequency Words tungkol sa GMRC at MAKABANSA\nMay mga salitang **madalas lumitaw** sa mga aralin ng GMRC (paggalang, pananagutan) at Makabansa (kultura, komunidad).\n\n**Halimbawa:**\n- GMRC: **paggalang, katapatan, pananagutan**\n- Makabansa: **komunidad, kaugalian, kasaysayan**\n\n## 🔍 Salitang May Tiyak na Tuon sa Nilalaman\nAng mga ito ay salitang **partikular sa isang paksa** — hindi ginagamit sa lahat ng usapan.\n\n**Halimbawa (Sitwasyong Pambansa):**\n- *sensus, populasyon, imigrasyon* — mga salitang may kinalaman sa pambansang paksa\n\n## 🧠 Halimbawa 1\n*Alin ang salita na may kaugnayan sa GMRC?*\n- **Paggalang** — dahil ito ay tungkol sa magandang asal.\n\n## 🧠 Halimbawa 2\n*Alin ang salitang partikular sa isang pambansang paksa?*\n- **Sensus** — ginagamit lamang kapag pinag-uusapan ang bilang ng populasyon.\n\n## 📝 Paggamit sa Pangungusap\n> *\"Mahalaga ang paggalang sa ating komunidad.\"*\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang salitang madalas gamitin?",
+            "options": [
+              "Salitang karaniwang ginagamit sa pang-araw-araw",
+              "Salitang bihira lamang gamitin",
+              "Salitang wala nang kahulugan",
+              "Salitang ginagamit lamang sa tula"
+            ],
+            "correct_answer": "Salitang karaniwang ginagamit sa pang-araw-araw"
+          },
+          {
+            "question": "Alin ang salitang may kaugnayan sa GMRC?",
+            "options": [
+              "Paggalang",
+              "Sensus",
+              "Populasyon",
+              "Imigrasyon"
+            ],
+            "correct_answer": "Paggalang"
+          },
+          {
+            "question": "Alin ang salitang may kaugnayan sa Makabansa?",
+            "options": [
+              "Komunidad",
+              "Paggalang",
+              "Katapatan",
+              "Pananagutan"
+            ],
+            "correct_answer": "Komunidad"
+          },
+          {
+            "question": "Ano ang salitang may tiyak na tuon sa nilalaman?",
+            "options": [
+              "Salitang partikular sa isang paksa lamang",
+              "Salitang ginagamit sa lahat ng usapan",
+              "Salitang walang kahulugan",
+              "Salitang laging maikli"
+            ],
+            "correct_answer": "Salitang partikular sa isang paksa lamang"
+          },
+          {
+            "question": "Alin ang salitang ginagamit kapag pinag-uusapan ang bilang ng populasyon?",
+            "options": [
+              "Sensus",
+              "Paggalang",
+              "Kaugalian",
+              "Kasaysayan"
+            ],
+            "correct_answer": "Sensus"
+          },
+          {
+            "question": "\"Mahalaga ang paggalang sa ating komunidad.\" Ano ang tinutukoy ng salitang 'komunidad' dito?",
+            "options": [
+              "Ang lugar na ating tinitirhan",
+              "Ang isang uri ng pagkain",
+              "Ang isang uri ng damit",
+              "Ang isang laro"
+            ],
+            "correct_answer": "Ang lugar na ating tinitirhan"
+          },
+          {
+            "question": "Bakit mahalagang matutuhan ang salitang partikular sa isang paksa?",
+            "options": [
+              "Nakatutulong ito sa pag-unawa ng partikular na aralin",
+              "Wala itong gamit sa pag-aaral",
+              "Ginagamit lamang ito sa laro",
+              "Nagpapahaba lamang ito ng pangungusap"
+            ],
+            "correct_answer": "Nakatutulong ito sa pag-unawa ng partikular na aralin"
+          },
+          {
+            "question": "Alin ang salitang tungkol sa katapatan sa GMRC?",
+            "options": [
+              "Katapatan",
+              "Sensus",
+              "Imigrasyon",
+              "Populasyon"
+            ],
+            "correct_answer": "Katapatan"
+          },
+          {
+            "question": "Alin ang salitang tungkol sa kasaysayan ng komunidad?",
+            "options": [
+              "Kasaysayan",
+              "Sensus",
+              "Populasyon",
+              "Imigrasyon"
+            ],
+            "correct_answer": "Kasaysayan"
+          },
+          {
+            "question": "Ano ang halimbawa ng salitang madalas gamitin?",
+            "options": [
+              "Dahil",
+              "Sensus",
+              "Imigrasyon",
+              "Populasyon"
+            ],
+            "correct_answer": "Dahil"
+          },
+          {
+            "question": "Bakit dapat malaman ang salitang tungkol sa sitwasyong pambansa?",
+            "options": [
+              "Nakatutulong ito sa pag-unawa ng balita at isyu",
+              "Wala itong kaugnayan sa pang-araw-araw",
+              "Ginagamit lamang ito sa tula",
+              "Hindi ito importante sa pag-aaral"
+            ],
+            "correct_answer": "Nakatutulong ito sa pag-unawa ng balita at isyu"
+          },
+          {
+            "question": "Isang guro ang gumamit ng salitang 'pananagutan' sa aralin. Anong asignatura ang malamang na tinatalakay?",
+            "options": [
+              "GMRC",
+              "Agham",
+              "Matematika",
+              "Musika"
+            ],
+            "correct_answer": "GMRC"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌿 Science — Living and Non-Living Things\n\nGrade 3, Week 16! Let's classify our world. 🔬\n\n## 🌱 What Makes Something Living?\nLiving things:\n- **Grow** and change over time\n- **Respond** to their surroundings\n- **Need** food, water, and air\n- Can **reproduce** (make more of their kind)\n\n## 🪨 What Makes Something Non-Living?\nNon-living things:\n- Do **NOT** grow, respond, or reproduce on their own\n- Do **NOT** need food or water\n\n## 📋 Examples from the Local Environment\n| Living | Non-Living |\n|---|---|\n| Mango tree | Rock |\n| Dog | Chair |\n| Ant | Water (by itself) |\n| Person | Cellphone |\n\n## 🧠 Worked Example 1\n*Is a rock living or non-living? Why?*\n- **Non-living** — it does not grow, eat, or respond to its surroundings.\n\n## 🧠 Worked Example 2\n*Is a growing mango tree living or non-living? Why?*\n- **Living** — it grows taller, needs water and sunlight, and produces new mangoes.\n\n## ⚠️ Tricky Cases\n- **Fire** — it grows and spreads, but is **non-living** (does not eat, breathe, or reproduce the way living things do)\n- **A seed** — looks still, but is **living** (it can sprout and grow when conditions are right)\n\n## 🔍 Observation Activity\nLook around your surroundings and **sort** what you see into living and non-living groups!\n\nGreat scientist work! 🌟",
+        "quiz": [
+          {
+            "question": "Which is a characteristic of living things?",
+            "options": [
+              "They grow and respond to surroundings",
+              "They never change at all",
+              "They cannot need food",
+              "They are always man-made"
+            ],
+            "correct_answer": "They grow and respond to surroundings"
+          },
+          {
+            "question": "Is a rock living or non-living?",
+            "options": [
+              "Non-living",
+              "Living",
+              "Both",
+              "Neither"
+            ],
+            "correct_answer": "Non-living"
+          },
+          {
+            "question": "Is a growing mango tree living or non-living?",
+            "options": [
+              "Living",
+              "Non-living",
+              "Both",
+              "Neither"
+            ],
+            "correct_answer": "Living"
+          },
+          {
+            "question": "Which is an example of a non-living thing?",
+            "options": [
+              "Chair",
+              "Dog",
+              "Ant",
+              "Person"
+            ],
+            "correct_answer": "Chair"
+          },
+          {
+            "question": "Which is an example of a living thing?",
+            "options": [
+              "Mango tree",
+              "Rock",
+              "Cellphone",
+              "Chair"
+            ],
+            "correct_answer": "Mango tree"
+          },
+          {
+            "question": "Why is a seed considered living even though it looks still?",
+            "options": [
+              "It can sprout and grow",
+              "It never changes at all",
+              "It is made of plastic",
+              "It cannot respond to water"
+            ],
+            "correct_answer": "It can sprout and grow"
+          },
+          {
+            "question": "Why is fire considered non-living even though it grows and spreads?",
+            "options": [
+              "Fire spreads but does not eat or breathe",
+              "Fire never moves at all",
+              "Fire is a kind of animal",
+              "Fire only exists underwater"
+            ],
+            "correct_answer": "Fire spreads but does not eat or breathe"
+          },
+          {
+            "question": "Which is NOT a need of a living thing?",
+            "options": [
+              "Electricity",
+              "Food",
+              "Water",
+              "Air"
+            ],
+            "correct_answer": "Electricity"
+          },
+          {
+            "question": "What does it mean for something to 'reproduce'?",
+            "options": [
+              "To make more of its own kind",
+              "To move very quickly",
+              "To change color often",
+              "To stay perfectly still"
+            ],
+            "correct_answer": "To make more of its own kind"
+          },
+          {
+            "question": "Which pair correctly matches living and non-living?",
+            "options": [
+              "Ant (living), water bottle (non-living)",
+              "Rock (living), dog (non-living)",
+              "Chair (living), tree (non-living)",
+              "Cellphone (living), rock (non-living)"
+            ],
+            "correct_answer": "Ant (living), water bottle (non-living)"
+          },
+          {
+            "question": "A student finds an object that does not grow, eat, or respond. What is it most likely?",
+            "options": [
+              "Non-living",
+              "Living",
+              "Both living and non-living",
+              "Cannot be determined at all"
+            ],
+            "correct_answer": "Non-living"
+          },
+          {
+            "question": "Why might a plastic flower be confused for a living thing at first glance?",
+            "options": [
+              "A plastic flower looks real but does not grow",
+              "A plastic flower actually grows daily",
+              "A plastic flower needs sunlight",
+              "A plastic flower can reproduce"
+            ],
+            "correct_answer": "A plastic flower looks real but does not grow"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏛️ Makabansa — Pagkakakilanlan at Sagisag ng Komunidad\n\nGrade 3, Linggo 16! Alamin natin ang mga sagisag ng ating bayan. 🇵🇭\n\n## 🏆 Ano ang Sagisag?\nAng **sagisag** (symbol) ay isang bagay na **kumakatawan** sa isang komunidad, bayan, o rehiyon.\n\n## 🎖️ Mga Halimbawa ng Sagisag\n| Sagisag | Kahulugan |\n|---|---|\n| **Himno** | awit na kumakatawan sa pagkakakilanlan ng lugar |\n| **Coat of Arms** | opisyal na simbolong grapiko ng bayan/lungsod |\n| **Bayaning Lokal** | taong iginagalang dahil sa ambag sa komunidad |\n\n## 🧠 Halimbawa 1\n*Bakit mahalaga ang himno ng isang bayan?*\n- Ipinapakita nito ang **kasaysayan, pagmamalaki, at pagkakaisa** ng mga taong nakatira roon.\n\n## 🧠 Halimbawa 2\n*Bakit itinuturing na sagisag ang coat of arms ng isang lungsod?*\n- Naglalaman ito ng **mga simbolong** kumakatawan sa kasaysayan, kabuhayan, o katangiang natatangi ng lugar (hal. simbolo ng dagat kung sikat sa pangingisda).\n\n## 🎯 Kahalagahan ng Simbolo sa Pagbuo ng Pagkakakilanlan\n- Ang mga sagisag ay tumutulong sa mga tao na **maging matatag ang pakiramdam** ng pagiging bahagi ng isang komunidad.\n- Kapag nakikita natin ang sagisag ng ating bayan, **naaalala natin** ang ating kasaysayan at kaugalian.\n\n## 🏅 Bayaning Lokal\nHalimbawa: isang guro na nagtatag ng paaralan noong unang panahon, o isang lider na tumulong sa panahon ng sakuna — sila ay maaaring maging **bayaning lokal**.\n\nMagaling sa Linggo 16! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang sagisag?",
+            "options": [
+              "Bagay na kumakatawan sa isang komunidad",
+              "Uri ng pagkain sa piyesta",
+              "Pangalan lamang ng bayan",
+              "Bilang ng tao sa lugar"
+            ],
+            "correct_answer": "Bagay na kumakatawan sa isang komunidad"
+          },
+          {
+            "question": "Ano ang himno?",
+            "options": [
+              "Awit ng pagkakakilanlan ng lugar",
+              "Sayaw sa isang piyesta",
+              "Uri lamang ng pagkain",
+              "Pangalan ng isang lider"
+            ],
+            "correct_answer": "Awit ng pagkakakilanlan ng lugar"
+          },
+          {
+            "question": "Ano ang coat of arms?",
+            "options": [
+              "Opisyal na simbolong grapiko",
+              "Uri lamang ng damit",
+              "Pangalan ng isang himno",
+              "Kagamitan lamang sa bahay"
+            ],
+            "correct_answer": "Opisyal na simbolong grapiko"
+          },
+          {
+            "question": "Sino ang tinatawag na bayaning lokal?",
+            "options": [
+              "Taong iginagalang dahil sa ambag sa komunidad",
+              "Sinumang naninirahan sa bayan",
+              "Sinumang bisita lamang",
+              "Sinumang bata sa paaralan"
+            ],
+            "correct_answer": "Taong iginagalang dahil sa ambag sa komunidad"
+          },
+          {
+            "question": "Bakit mahalaga ang himno ng isang bayan?",
+            "options": [
+              "Ipinapakita nito ang kasaysayan at pagkakaisa",
+              "Ginagamit lamang ito sa pagsayaw",
+              "Wala itong kabuluhan",
+              "Ginagamit lamang sa palakasan"
+            ],
+            "correct_answer": "Ipinapakita nito ang kasaysayan at pagkakaisa"
+          },
+          {
+            "question": "Bakit itinuturing na sagisag ang coat of arms?",
+            "options": [
+              "Naglalaman ito ng simbolo ng kasaysayan",
+              "Ginagamit lamang ito bilang palamuti",
+              "Wala itong kahulugan dito",
+              "Ito ay basta guhit na lamang"
+            ],
+            "correct_answer": "Naglalaman ito ng simbolo ng kasaysayan"
+          },
+          {
+            "question": "Ano ang tumutulong sa mga sagisag na makabuo sa mamamayan?",
+            "options": [
+              "Matatag na pakiramdam ng pagkakaisa",
+              "Pagdami lamang ng populasyon",
+              "Pagbabago lamang ng klima",
+              "Pagtaas lamang ng presyo"
+            ],
+            "correct_answer": "Matatag na pakiramdam ng pagkakaisa"
+          },
+          {
+            "question": "Alin ang halimbawa ng bayaning lokal?",
+            "options": [
+              "Isang lider na tumulong sa panahon ng sakuna",
+              "Isang bisitang dayuhan lamang",
+              "Isang mangangalakal na dumaan lang",
+              "Isang turista"
+            ],
+            "correct_answer": "Isang lider na tumulong sa panahon ng sakuna"
+          },
+          {
+            "question": "Ano ang naaalala natin kapag nakikita ang sagisag ng ating bayan?",
+            "options": [
+              "Ang ating kasaysayan at kaugalian",
+              "Ang presyo ng bilihin",
+              "Ang oras ng klase",
+              "Ang bilang ng estudyante"
+            ],
+            "correct_answer": "Ang ating kasaysayan at kaugalian"
+          },
+          {
+            "question": "Bakit posibleng may simbolo ng dagat ang coat of arms ng isang bayang mangingisda?",
+            "options": [
+              "Kumakatawan sa kanilang kabuhayan",
+              "Wala itong dahilan dito",
+              "Random lamang ang pagpili",
+              "Kopya lamang ng ibang bayan"
+            ],
+            "correct_answer": "Kumakatawan sa kanilang kabuhayan"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng himno at coat of arms?",
+            "options": [
+              "Himno ay awit, coat of arms ay biswal na simbolo",
+              "Parehong awit ang dalawa",
+              "Parehong larawan lamang ang dalawa",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Himno ay awit, coat of arms ay biswal na simbolo"
+          },
+          {
+            "question": "Isang guro ang nagtatag ng unang paaralan sa isang liblib na bayan. Bakit siya maituturing na bayaning lokal?",
+            "options": [
+              "Nag-ambag siya sa pag-unlad ng komunidad",
+              "Siya lamang ang may sasakyan doon",
+              "Siya ang pinakamayaman sa bayan",
+              "Siya ay dayuhan lamang na dumalaw"
+            ],
+            "correct_answer": "Nag-ambag siya sa pag-unlad ng komunidad"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🎨 Computer — Drawing and Simple Formatting\n\nGrade 3, Week 16! Let's create labeled drawings. 🖌️\n\n## 🖌️ Basic Drawing Tools\n| Tool | What it does |\n|---|---|\n| **Pencil/Brush** | draws freehand lines |\n| **Shapes** | draws circles, rectangles, triangles |\n| **Fill Color** | colors inside a closed shape |\n| **Eraser** | removes mistakes |\n\n## 🖼️ Creating a Labeled Picture\n**Goal:** draw a picture with a **caption** (a short title or description).\n\n**Steps:**\n1. Use **shapes** and **pencil/brush** to sketch your picture\n2. Use **fill color** to add color\n3. Use the **eraser** for mistakes\n4. Add a **short typed caption** below or beside the drawing\n\n## 🧠 Worked Example 1\n*You want to draw your favorite animal with a caption.*\n- Draw the animal using shapes and pencil tools\n- Color it using **fill color**\n- Type a caption: *\"My Favorite Animal: A Cat\"*\n\n## 🧠 Worked Example 2\n*You made a mistake with the fill color.*\n- Use the **eraser** or the **undo** option to fix it, then try again.\n\n## 📝 Example Project: \"My Family\"\n1. Draw simple figures representing family members\n2. Color each one\n3. Add a caption: *\"My Family: Nanay, Tatay, and Me\"*\n\n## 💡 Tips\n- Keep your drawing **simple and clear**\n- Choose colors that make your picture **easy to understand**\n- Always **check your caption** for spelling\n\nGreat drawing skills! 🌟",
+        "quiz": [
+          {
+            "question": "Which tool draws freehand lines?",
+            "options": [
+              "Pencil/Brush",
+              "Fill Color",
+              "Eraser",
+              "Shapes"
+            ],
+            "correct_answer": "Pencil/Brush"
+          },
+          {
+            "question": "Which tool colors inside a closed shape?",
+            "options": [
+              "Fill Color",
+              "Pencil/Brush",
+              "Eraser",
+              "Shapes"
+            ],
+            "correct_answer": "Fill Color"
+          },
+          {
+            "question": "Which tool removes mistakes?",
+            "options": [
+              "Eraser",
+              "Fill Color",
+              "Pencil/Brush",
+              "Shapes"
+            ],
+            "correct_answer": "Eraser"
+          },
+          {
+            "question": "What is a caption?",
+            "options": [
+              "A short title or description",
+              "A type of drawing tool",
+              "A color palette",
+              "A file format"
+            ],
+            "correct_answer": "A short title or description"
+          },
+          {
+            "question": "What is the FIRST step in making a labeled picture?",
+            "options": [
+              "Sketch gamit ang shapes at pencil",
+              "I-type muna ang caption",
+              "I-save agad ang file",
+              "I-print ang larawan"
+            ],
+            "correct_answer": "Sketch gamit ang shapes at pencil"
+          },
+          {
+            "question": "You made a mistake with fill color. What should you do?",
+            "options": [
+              "Use the eraser or undo option",
+              "Close the program immediately",
+              "Ignore the mistake",
+              "Restart the computer"
+            ],
+            "correct_answer": "Use the eraser or undo option"
+          },
+          {
+            "question": "Which tool would you use to draw a circle for a sun?",
+            "options": [
+              "Shapes",
+              "Eraser",
+              "Fill Color only",
+              "Caption tool"
+            ],
+            "correct_answer": "Shapes"
+          },
+          {
+            "question": "Where is a caption usually placed?",
+            "options": [
+              "Below or beside the drawing",
+              "Only at the very top",
+              "Hidden inside the shape",
+              "Outside the program window"
+            ],
+            "correct_answer": "Below or beside the drawing"
+          },
+          {
+            "question": "Why should a drawing be kept simple and clear?",
+            "options": [
+              "So it is easy to understand",
+              "So it takes longer to make",
+              "So it uses more colors",
+              "So it has no caption"
+            ],
+            "correct_answer": "So it is easy to understand"
+          },
+          {
+            "question": "What should you check about your caption before finishing?",
+            "options": [
+              "Spelling",
+              "Font color only",
+              "Shape size only",
+              "Screen brightness"
+            ],
+            "correct_answer": "Spelling"
+          },
+          {
+            "question": "For a 'My Family' project, what should the caption include?",
+            "options": [
+              "Maikling paglalarawan ng pamilya",
+              "Wala itong laman kailanman",
+              "Random na mga numero lamang",
+              "Mahabang talata na hiwalay"
+            ],
+            "correct_answer": "Maikling paglalarawan ng pamilya"
+          },
+          {
+            "question": "A student draws a picture but forgets to add a caption. What is missing from the project?",
+            "options": [
+              "A short title or description of the drawing",
+              "The colors used in the drawing",
+              "The shapes used in the drawing",
+              "The size of the drawing"
+            ],
+            "correct_answer": "A short title or description of the drawing"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💛 GMRC — Impormasyon tungkol sa Sariling Barangay\n\nGrade 3, Linggo 16! Pagpapahalaga: **Prudence (Kabaitang-loob sa Pagpili)**. 🌟\n\n## 🏘️ Impormasyon tungkol sa Barangay\nMahalagang malaman ng bawat residente ang:\n- **Pangalan ng barangay** at kapitan\n- **Mga hotline** (pulisya, bumbero, ospital)\n- **Mga tuntunin** ng barangay (curfew, iskedyul ng basura)\n- **Mga programa** para sa kalusugan at kaligtasan\n\n## 🛡️ Bakit Mahalaga ang Impormasyong Ito?\nTumutulong ito sa pagpapanatili ng:\n- **Kaayusan** — alam ng lahat kung ano ang sinusunod\n- **Kaligtasan** — alam kung sino ang tatawagan sa emergency\n- **Kapayapaan** — nabubuo ang pagtitiwala sa pagitan ng mga residente\n\n## 🤐 Prudence: Pagbabahagi nang May Pag-iingat\nAng **prudence** ay ang **pag-iisip nang mabuti** bago kumilos o magsalita.\n\n**Sa pagbabahagi ng impormasyon tungkol sa barangay:**\n- Ibahagi ang **totoo at kapaki-pakinabang** na impormasyon\n- **Huwag magkalat** ng maling balita o tsismis\n- Isipin kung ang impormasyon ay **makatutulong o makasasama**\n\n## 🧠 Halimbawa 1\n*May kapitbahay kang nagtanong kung sino ang tatawagan kapag may sunog. Ano ang gagawin mo?*\n- **Ibigay ang tamang numero** ng bumbero — makatutulong ito sa kanyang kaligtasan. ✅\n\n## 🧠 Halimbawa 2\n*Nakarinig ka ng tsismis tungkol sa isang kapitbahay. Ano ang tama mong gawin?*\n- **Huwag ikalat** ang hindi pa napatunayang impormasyon — ito ay pagpapakita ng prudence. ✅\n\n## 💡 Bakit Mahalaga ang Prudence?\nAng pag-iingat sa pagbabahagi ng impormasyon ay tumutulong upang **maiwasan ang gulo** at mapanatili ang **kapayapaan** sa komunidad.\n\nMagaling! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang dapat malaman ng bawat residente tungkol sa barangay?",
+            "options": [
+              "Pangalan ng kapitan at mga hotline",
+              "Pangalan ng lahat ng dayuhan",
+              "Presyo ng lahat ng bilihin",
+              "Bilang ng bahay sa ibang bayan"
+            ],
+            "correct_answer": "Pangalan ng kapitan at mga hotline"
+          },
+          {
+            "question": "Bakit mahalaga ang impormasyon tungkol sa barangay?",
+            "options": [
+              "Tumutulong ito sa kaayusan at kaligtasan",
+              "Wala itong kabuluhan",
+              "Ginagamit lamang sa piyesta",
+              "Para lamang sa mga bisita"
+            ],
+            "correct_answer": "Tumutulong ito sa kaayusan at kaligtasan"
+          },
+          {
+            "question": "Ano ang prudence?",
+            "options": [
+              "Pag-iisip nang mabuti bago kumilos",
+              "Pagsigaw nang malakas",
+              "Pagtatago ng lahat ng bagay",
+              "Pagmamadali sa lahat ng bagay"
+            ],
+            "correct_answer": "Pag-iisip nang mabuti bago kumilos"
+          },
+          {
+            "question": "May kapitbahay kang nagtanong kung sino ang tatawagan kapag may sunog. Ano ang gagawin mo?",
+            "options": [
+              "Ibigay ang tamang numero ng bumbero",
+              "Sabihing hindi mo alam",
+              "Iwasan ang tanong niya",
+              "Sabihin ang maling numero"
+            ],
+            "correct_answer": "Ibigay ang tamang numero ng bumbero"
+          },
+          {
+            "question": "Nakarinig ka ng tsismis tungkol sa isang kapitbahay. Ano ang tama mong gawin?",
+            "options": [
+              "Huwag ikalat ang di-napatunayan",
+              "Ikalat agad ito sa lahat",
+              "Idagdag pa ang sariling kuwento",
+              "I-post agad sa social media"
+            ],
+            "correct_answer": "Huwag ikalat ang di-napatunayan"
+          },
+          {
+            "question": "Ano ang halimbawa ng tuntunin ng barangay?",
+            "options": [
+              "Curfew para sa mga bata",
+              "Presyo ng gulay sa palengke",
+              "Kulay ng bahay",
+              "Uri ng damit"
+            ],
+            "correct_answer": "Curfew para sa mga bata"
+          },
+          {
+            "question": "Bakit dapat ibahagi ang totoo at kapaki-pakinabang na impormasyon lamang?",
+            "options": [
+              "Upang maiwasan ang gulo at maling akala",
+              "Upang mapabilis ang usapan",
+              "Walang dahilan ito",
+              "Upang mapaganda ang balita"
+            ],
+            "correct_answer": "Upang maiwasan ang gulo at maling akala"
+          },
+          {
+            "question": "Ano ang tumutulong sa pagbuo ng pagtitiwala sa komunidad?",
+            "options": [
+              "Pagbabahagi ng tamang impormasyon",
+              "Pagkakalat ng tsismis",
+              "Pagtatago ng impormasyon",
+              "Pananakot sa kapitbahay"
+            ],
+            "correct_answer": "Pagbabahagi ng tamang impormasyon"
+          },
+          {
+            "question": "Alin ang halimbawa ng mahalagang impormasyon sa barangay?",
+            "options": [
+              "Iskedyul ng koleksiyon ng basura",
+              "Paboritong kanta ng kapitan",
+              "Kulay ng bahay ng kapitbahay",
+              "Bilang ng alagang hayop"
+            ],
+            "correct_answer": "Iskedyul ng koleksiyon ng basura"
+          },
+          {
+            "question": "Bakit itinuturing na prudence ang hindi pagkakalat ng tsismis?",
+            "options": [
+              "Nag-iisip muna bago kumilos o magsalita",
+              "Wala itong kaugnayan sa prudence",
+              "Ipinapakita nito ang kawalang-interes",
+              "Ito ay tanda ng kayabangan"
+            ],
+            "correct_answer": "Nag-iisip muna bago kumilos o magsalita"
+          },
+          {
+            "question": "May bagong pamilya sa inyong kapitbahayan na hindi alam kung saan ang barangay hall. Ano ang mabuting gawin?",
+            "options": [
+              "Tulungan silang ituro ang daan nang magalang",
+              "Iwasan silang tulungan",
+              "Pagtawanan ang kanilang tanong",
+              "Hindi na pansinin sila"
+            ],
+            "correct_answer": "Tulungan silang ituro ang daan nang magalang"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang hotline number ng ospital sa inyong barangay?",
+            "options": [
+              "Makatutulong ito sa emergency situations",
+              "Ginagamit lamang ito sa paglalaro",
+              "Wala itong kaugnayan sa kaligtasan",
+              "Ginagamit lamang para sa pagpapatawa"
+            ],
+            "correct_answer": "Makatutulong ito sa emergency situations"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📚 Friday Review — English (Grade 3)\n\n- **High-frequency words** = recognized instantly (because, through, again)\n- **Verbs** (action) · **Adjectives** (describe) · **Possessive pronouns** (my, her) · **Demonstrative pronouns** (this, that)\n- Content-specific words help understand subject texts (habitat, sum)\n\nGreat work this week! 🌟",
+        "quiz": [
+          {
+            "question": "What are high-frequency words?",
+            "options": [
+              "Words used often that should be recognized instantly",
+              "Words that only appear in Science",
+              "Words with no meaning",
+              "Words that rhyme with each other"
+            ],
+            "correct_answer": "Words used often that should be recognized instantly"
+          },
+          {
+            "question": "Which is a possessive pronoun?",
+            "options": [
+              "her",
+              "run",
+              "tall",
+              "this"
+            ],
+            "correct_answer": "her"
+          },
+          {
+            "question": "Which is a demonstrative pronoun?",
+            "options": [
+              "this",
+              "her",
+              "run",
+              "tall"
+            ],
+            "correct_answer": "this"
+          },
+          {
+            "question": "Which word is a verb?",
+            "options": [
+              "discover",
+              "discovery",
+              "discoverable",
+              "discovered thing"
+            ],
+            "correct_answer": "discover"
+          },
+          {
+            "question": "Which word is an adjective?",
+            "options": [
+              "colorful",
+              "run",
+              "jump",
+              "their"
+            ],
+            "correct_answer": "colorful"
+          },
+          {
+            "question": "'The scientist studied the animal's habitat.' What kind of word is 'habitat'?",
+            "options": [
+              "A Science content word",
+              "A Math content word",
+              "A possessive pronoun",
+              "A demonstrative pronoun"
+            ],
+            "correct_answer": "A Science content word"
+          },
+          {
+            "question": "Which is a Math content-specific word?",
+            "options": [
+              "sum",
+              "habitat",
+              "organism",
+              "ancient"
+            ],
+            "correct_answer": "sum"
+          },
+          {
+            "question": "'This is my book, but that is her book.' Which word is demonstrative?",
+            "options": [
+              "This",
+              "my",
+              "her",
+              "book"
+            ],
+            "correct_answer": "This"
+          },
+          {
+            "question": "Which sentence uses a possessive pronoun correctly?",
+            "options": [
+              "This is my bag.",
+              "This is run bag.",
+              "This is tall bag.",
+              "This is discover bag."
+            ],
+            "correct_answer": "This is my bag."
+          },
+          {
+            "question": "Which word describes HOW something looks or feels?",
+            "options": [
+              "An adjective",
+              "A verb",
+              "A possessive pronoun",
+              "A demonstrative pronoun"
+            ],
+            "correct_answer": "An adjective"
+          },
+          {
+            "question": "Why is it important to learn content-specific vocabulary?",
+            "options": [
+              "It helps you understand subject-specific texts",
+              "It replaces the need for grammar",
+              "It is only used in poems",
+              "It has no real classroom use"
+            ],
+            "correct_answer": "It helps you understand subject-specific texts"
+          },
+          {
+            "question": "'Those are their books, not these.' Identify one demonstrative pronoun.",
+            "options": [
+              "Those",
+              "their",
+              "books",
+              "not"
+            ],
+            "correct_answer": "Those"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🧴 Friday Review — Mathematics (Grade 3)\n\n- **mL** for small amounts, **L** for large amounts\n- **1 L = 1,000 mL**\n- Read liquid level **at eye level**\n\n**Quick check:** 5 L jug vs 250 mL juice box → the jug holds more\n\nGreat measuring! ⭐",
+        "quiz": [
+          {
+            "question": "Which unit is best for measuring a spoonful of medicine?",
+            "options": [
+              "Milliliters",
+              "Liters",
+              "Meters",
+              "Grams"
+            ],
+            "correct_answer": "Milliliters"
+          },
+          {
+            "question": "Which unit is best for measuring a large water jug?",
+            "options": [
+              "Liters",
+              "Milliliters",
+              "Centimeters",
+              "Kilograms"
+            ],
+            "correct_answer": "Liters"
+          },
+          {
+            "question": "How many milliliters are in 1 liter?",
+            "options": [
+              "1,000 mL",
+              "100 mL",
+              "10 mL",
+              "10,000 mL"
+            ],
+            "correct_answer": "1,000 mL"
+          },
+          {
+            "question": "A juice box holds 250 mL, a jug holds 5 L. Which holds more?",
+            "options": [
+              "The jug",
+              "The juice box",
+              "They are equal",
+              "Cannot be compared"
+            ],
+            "correct_answer": "The jug"
+          },
+          {
+            "question": "Container A holds 750 mL, Container B holds 1 L. How much more does B hold?",
+            "options": [
+              "250 mL",
+              "150 mL",
+              "350 mL",
+              "500 mL"
+            ],
+            "correct_answer": "250 mL"
+          },
+          {
+            "question": "A recipe needs 2 L of water and you have a 500 mL cup. How many cups do you need?",
+            "options": [
+              "4 cups",
+              "2 cups",
+              "5 cups",
+              "8 cups"
+            ],
+            "correct_answer": "4 cups"
+          },
+          {
+            "question": "How should you read a liquid's level in a measuring cup?",
+            "options": [
+              "At eye level",
+              "From above looking down",
+              "From below looking up",
+              "From the side without looking"
+            ],
+            "correct_answer": "At eye level"
+          },
+          {
+            "question": "Which tool is used in science for precise liquid measurement?",
+            "options": [
+              "Graduated cylinder",
+              "Ruler",
+              "Balance scale",
+              "Thermometer"
+            ],
+            "correct_answer": "Graduated cylinder"
+          },
+          {
+            "question": "A small teacup most likely holds about:",
+            "options": [
+              "200 mL",
+              "200 L",
+              "2 L",
+              "20 L"
+            ],
+            "correct_answer": "200 mL"
+          },
+          {
+            "question": "A big water dispenser holds about how much?",
+            "options": [
+              "18 to 20 liters",
+              "18 to 20 milliliters",
+              "1 to 2 milliliters",
+              "180 to 200 grams"
+            ],
+            "correct_answer": "18 to 20 liters"
+          },
+          {
+            "question": "What is 3 L converted to milliliters?",
+            "options": [
+              "3,000 mL",
+              "300 mL",
+              "30 mL",
+              "30,000 mL"
+            ],
+            "correct_answer": "3,000 mL"
+          },
+          {
+            "question": "A pitcher holds 1.5 L of juice. You pour 600 mL into a glass. How much juice remains in the pitcher?",
+            "options": [
+              "900 mL",
+              "1,000 mL",
+              "800 mL",
+              "1,500 mL"
+            ],
+            "correct_answer": "900 mL"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📖 Biyernes na Balik-Aral — Filipino (Grade 3)\n\n- **Salitang madalas gamitin:** dahil, ngunit, kaya\n- **GMRC:** paggalang, katapatan, pananagutan | **Makabansa:** komunidad, kaugalian, kasaysayan\n- Salitang may tiyak na tuon = partikular sa isang paksa\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang salitang madalas gamitin?",
+            "options": [
+              "Salitang karaniwang ginagamit sa pang-araw-araw",
+              "Salitang bihira lamang gamitin",
+              "Salitang wala nang kahulugan",
+              "Salitang ginagamit lamang sa tula"
+            ],
+            "correct_answer": "Salitang karaniwang ginagamit sa pang-araw-araw"
+          },
+          {
+            "question": "Alin ang salitang may kaugnayan sa GMRC?",
+            "options": [
+              "Paggalang",
+              "Sensus",
+              "Populasyon",
+              "Imigrasyon"
+            ],
+            "correct_answer": "Paggalang"
+          },
+          {
+            "question": "Alin ang salitang may kaugnayan sa Makabansa?",
+            "options": [
+              "Komunidad",
+              "Paggalang",
+              "Katapatan",
+              "Pananagutan"
+            ],
+            "correct_answer": "Komunidad"
+          },
+          {
+            "question": "Ano ang salitang may tiyak na tuon sa nilalaman?",
+            "options": [
+              "Salitang partikular sa isang paksa lamang",
+              "Salitang ginagamit sa lahat ng usapan",
+              "Salitang walang kahulugan",
+              "Salitang laging maikli"
+            ],
+            "correct_answer": "Salitang partikular sa isang paksa lamang"
+          },
+          {
+            "question": "Alin ang salitang ginagamit kapag pinag-uusapan ang bilang ng populasyon?",
+            "options": [
+              "Sensus",
+              "Paggalang",
+              "Kaugalian",
+              "Kasaysayan"
+            ],
+            "correct_answer": "Sensus"
+          },
+          {
+            "question": "\"Mahalaga ang paggalang sa ating komunidad.\" Ano ang tinutukoy ng salitang 'komunidad' dito?",
+            "options": [
+              "Ang lugar na ating tinitirhan",
+              "Ang isang uri ng pagkain",
+              "Ang isang uri ng damit",
+              "Ang isang laro"
+            ],
+            "correct_answer": "Ang lugar na ating tinitirhan"
+          },
+          {
+            "question": "Bakit mahalagang matutuhan ang salitang partikular sa isang paksa?",
+            "options": [
+              "Nakatutulong ito sa pag-unawa ng partikular na aralin",
+              "Wala itong gamit sa pag-aaral",
+              "Ginagamit lamang ito sa laro",
+              "Nagpapahaba lamang ito ng pangungusap"
+            ],
+            "correct_answer": "Nakatutulong ito sa pag-unawa ng partikular na aralin"
+          },
+          {
+            "question": "Alin ang salitang tungkol sa katapatan sa GMRC?",
+            "options": [
+              "Katapatan",
+              "Sensus",
+              "Imigrasyon",
+              "Populasyon"
+            ],
+            "correct_answer": "Katapatan"
+          },
+          {
+            "question": "Alin ang salitang tungkol sa kasaysayan ng komunidad?",
+            "options": [
+              "Kasaysayan",
+              "Sensus",
+              "Populasyon",
+              "Imigrasyon"
+            ],
+            "correct_answer": "Kasaysayan"
+          },
+          {
+            "question": "Ano ang halimbawa ng salitang madalas gamitin?",
+            "options": [
+              "Dahil",
+              "Sensus",
+              "Imigrasyon",
+              "Populasyon"
+            ],
+            "correct_answer": "Dahil"
+          },
+          {
+            "question": "Bakit dapat malaman ang salitang tungkol sa sitwasyong pambansa?",
+            "options": [
+              "Nakatutulong ito sa pag-unawa ng balita at isyu",
+              "Wala itong kaugnayan sa pang-araw-araw",
+              "Ginagamit lamang ito sa tula",
+              "Hindi ito importante sa pag-aaral"
+            ],
+            "correct_answer": "Nakatutulong ito sa pag-unawa ng balita at isyu"
+          },
+          {
+            "question": "Isang guro ang gumamit ng salitang 'pananagutan' sa aralin. Anong asignatura ang malamang na tinatalakay?",
+            "options": [
+              "GMRC",
+              "Agham",
+              "Matematika",
+              "Musika"
+            ],
+            "correct_answer": "GMRC"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌿 Friday Review — Science (Grade 3)\n\n- **Living:** grow, respond, need food/water/air, can reproduce\n- **Non-living:** do not grow, respond, or need food\n- **Tricky:** fire (non-living, even though it spreads) | seed (living, even though still)\n\nGreat scientist work! 🌟",
+        "quiz": [
+          {
+            "question": "Which is a characteristic of living things?",
+            "options": [
+              "They grow and respond to surroundings",
+              "They never change at all",
+              "They cannot need food",
+              "They are always man-made"
+            ],
+            "correct_answer": "They grow and respond to surroundings"
+          },
+          {
+            "question": "Is a rock living or non-living?",
+            "options": [
+              "Non-living",
+              "Living",
+              "Both",
+              "Neither"
+            ],
+            "correct_answer": "Non-living"
+          },
+          {
+            "question": "Is a growing mango tree living or non-living?",
+            "options": [
+              "Living",
+              "Non-living",
+              "Both",
+              "Neither"
+            ],
+            "correct_answer": "Living"
+          },
+          {
+            "question": "Which is an example of a non-living thing?",
+            "options": [
+              "Chair",
+              "Dog",
+              "Ant",
+              "Person"
+            ],
+            "correct_answer": "Chair"
+          },
+          {
+            "question": "Which is an example of a living thing?",
+            "options": [
+              "Mango tree",
+              "Rock",
+              "Cellphone",
+              "Chair"
+            ],
+            "correct_answer": "Mango tree"
+          },
+          {
+            "question": "Why is a seed considered living even though it looks still?",
+            "options": [
+              "It can sprout and grow",
+              "It never changes at all",
+              "It is made of plastic",
+              "It cannot respond to water"
+            ],
+            "correct_answer": "It can sprout and grow"
+          },
+          {
+            "question": "Why is fire considered non-living even though it grows and spreads?",
+            "options": [
+              "Fire spreads but does not eat or breathe",
+              "Fire never moves at all",
+              "Fire is a kind of animal",
+              "Fire only exists underwater"
+            ],
+            "correct_answer": "Fire spreads but does not eat or breathe"
+          },
+          {
+            "question": "Which is NOT a need of a living thing?",
+            "options": [
+              "Electricity",
+              "Food",
+              "Water",
+              "Air"
+            ],
+            "correct_answer": "Electricity"
+          },
+          {
+            "question": "What does it mean for something to 'reproduce'?",
+            "options": [
+              "To make more of its own kind",
+              "To move very quickly",
+              "To change color often",
+              "To stay perfectly still"
+            ],
+            "correct_answer": "To make more of its own kind"
+          },
+          {
+            "question": "Which pair correctly matches living and non-living?",
+            "options": [
+              "Ant (living), water bottle (non-living)",
+              "Rock (living), dog (non-living)",
+              "Chair (living), tree (non-living)",
+              "Cellphone (living), rock (non-living)"
+            ],
+            "correct_answer": "Ant (living), water bottle (non-living)"
+          },
+          {
+            "question": "A student finds an object that does not grow, eat, or respond. What is it most likely?",
+            "options": [
+              "Non-living",
+              "Living",
+              "Both living and non-living",
+              "Cannot be determined at all"
+            ],
+            "correct_answer": "Non-living"
+          },
+          {
+            "question": "Why might a plastic flower be confused for a living thing at first glance?",
+            "options": [
+              "A plastic flower looks real but does not grow",
+              "A plastic flower actually grows daily",
+              "A plastic flower needs sunlight",
+              "A plastic flower can reproduce"
+            ],
+            "correct_answer": "A plastic flower looks real but does not grow"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏛️ Biyernes na Balik-Aral — Makabansa (Grade 3)\n\n- **Sagisag** = bagay na kumakatawan sa komunidad\n- **Himno** = awit ng pagkakakilanlan | **Coat of Arms** = opisyal na simbolong grapiko\n- **Bayaning lokal** = taong iginagalang dahil sa ambag\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang sagisag?",
+            "options": [
+              "Bagay na kumakatawan sa isang komunidad",
+              "Uri ng pagkain sa piyesta",
+              "Pangalan lamang ng bayan",
+              "Bilang ng tao sa lugar"
+            ],
+            "correct_answer": "Bagay na kumakatawan sa isang komunidad"
+          },
+          {
+            "question": "Ano ang himno?",
+            "options": [
+              "Awit ng pagkakakilanlan ng lugar",
+              "Sayaw sa isang piyesta",
+              "Uri lamang ng pagkain",
+              "Pangalan ng isang lider"
+            ],
+            "correct_answer": "Awit ng pagkakakilanlan ng lugar"
+          },
+          {
+            "question": "Ano ang coat of arms?",
+            "options": [
+              "Opisyal na simbolong grapiko",
+              "Uri lamang ng damit",
+              "Pangalan ng isang himno",
+              "Kagamitan lamang sa bahay"
+            ],
+            "correct_answer": "Opisyal na simbolong grapiko"
+          },
+          {
+            "question": "Sino ang tinatawag na bayaning lokal?",
+            "options": [
+              "Taong iginagalang dahil sa ambag sa komunidad",
+              "Sinumang naninirahan sa bayan",
+              "Sinumang bisita lamang",
+              "Sinumang bata sa paaralan"
+            ],
+            "correct_answer": "Taong iginagalang dahil sa ambag sa komunidad"
+          },
+          {
+            "question": "Bakit mahalaga ang himno ng isang bayan?",
+            "options": [
+              "Ipinapakita nito ang kasaysayan at pagkakaisa",
+              "Ginagamit lamang ito sa pagsayaw",
+              "Wala itong kabuluhan",
+              "Ginagamit lamang sa palakasan"
+            ],
+            "correct_answer": "Ipinapakita nito ang kasaysayan at pagkakaisa"
+          },
+          {
+            "question": "Bakit itinuturing na sagisag ang coat of arms?",
+            "options": [
+              "Naglalaman ito ng simbolo ng kasaysayan",
+              "Ginagamit lamang ito bilang palamuti",
+              "Wala itong kahulugan dito",
+              "Ito ay basta guhit na lamang"
+            ],
+            "correct_answer": "Naglalaman ito ng simbolo ng kasaysayan"
+          },
+          {
+            "question": "Ano ang tumutulong sa mga sagisag na makabuo sa mamamayan?",
+            "options": [
+              "Matatag na pakiramdam ng pagkakaisa",
+              "Pagdami lamang ng populasyon",
+              "Pagbabago lamang ng klima",
+              "Pagtaas lamang ng presyo"
+            ],
+            "correct_answer": "Matatag na pakiramdam ng pagkakaisa"
+          },
+          {
+            "question": "Alin ang halimbawa ng bayaning lokal?",
+            "options": [
+              "Isang lider na tumulong sa panahon ng sakuna",
+              "Isang bisitang dayuhan lamang",
+              "Isang mangangalakal na dumaan lang",
+              "Isang turista"
+            ],
+            "correct_answer": "Isang lider na tumulong sa panahon ng sakuna"
+          },
+          {
+            "question": "Ano ang naaalala natin kapag nakikita ang sagisag ng ating bayan?",
+            "options": [
+              "Ang ating kasaysayan at kaugalian",
+              "Ang presyo ng bilihin",
+              "Ang oras ng klase",
+              "Ang bilang ng estudyante"
+            ],
+            "correct_answer": "Ang ating kasaysayan at kaugalian"
+          },
+          {
+            "question": "Bakit posibleng may simbolo ng dagat ang coat of arms ng isang bayang mangingisda?",
+            "options": [
+              "Kumakatawan sa kanilang kabuhayan",
+              "Wala itong dahilan dito",
+              "Random lamang ang pagpili",
+              "Kopya lamang ng ibang bayan"
+            ],
+            "correct_answer": "Kumakatawan sa kanilang kabuhayan"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng himno at coat of arms?",
+            "options": [
+              "Himno ay awit, coat of arms ay biswal na simbolo",
+              "Parehong awit ang dalawa",
+              "Parehong larawan lamang ang dalawa",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Himno ay awit, coat of arms ay biswal na simbolo"
+          },
+          {
+            "question": "Isang guro ang nagtatag ng unang paaralan sa isang liblib na bayan. Bakit siya maituturing na bayaning lokal?",
+            "options": [
+              "Nag-ambag siya sa pag-unlad ng komunidad",
+              "Siya lamang ang may sasakyan doon",
+              "Siya ang pinakamayaman sa bayan",
+              "Siya ay dayuhan lamang na dumalaw"
+            ],
+            "correct_answer": "Nag-ambag siya sa pag-unlad ng komunidad"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🎨 Friday Review — Computer (Grade 3)\n\n- **Pencil/Brush** (draw) · **Shapes** (circles/rectangles) · **Fill Color** · **Eraser**\n- Labeled picture = drawing + **caption**\n- Keep drawings **simple and clear**, check spelling of captions\n\nGreat drawing skills! 🌟",
+        "quiz": [
+          {
+            "question": "Which tool draws freehand lines?",
+            "options": [
+              "Pencil/Brush",
+              "Fill Color",
+              "Eraser",
+              "Shapes"
+            ],
+            "correct_answer": "Pencil/Brush"
+          },
+          {
+            "question": "Which tool colors inside a closed shape?",
+            "options": [
+              "Fill Color",
+              "Pencil/Brush",
+              "Eraser",
+              "Shapes"
+            ],
+            "correct_answer": "Fill Color"
+          },
+          {
+            "question": "Which tool removes mistakes?",
+            "options": [
+              "Eraser",
+              "Fill Color",
+              "Pencil/Brush",
+              "Shapes"
+            ],
+            "correct_answer": "Eraser"
+          },
+          {
+            "question": "What is a caption?",
+            "options": [
+              "A short title or description",
+              "A type of drawing tool",
+              "A color palette",
+              "A file format"
+            ],
+            "correct_answer": "A short title or description"
+          },
+          {
+            "question": "What is the FIRST step in making a labeled picture?",
+            "options": [
+              "Sketch gamit ang shapes at pencil",
+              "I-type muna ang caption",
+              "I-save agad ang file",
+              "I-print ang larawan"
+            ],
+            "correct_answer": "Sketch gamit ang shapes at pencil"
+          },
+          {
+            "question": "You made a mistake with fill color. What should you do?",
+            "options": [
+              "Use the eraser or undo option",
+              "Close the program immediately",
+              "Ignore the mistake",
+              "Restart the computer"
+            ],
+            "correct_answer": "Use the eraser or undo option"
+          },
+          {
+            "question": "Which tool would you use to draw a circle for a sun?",
+            "options": [
+              "Shapes",
+              "Eraser",
+              "Fill Color only",
+              "Caption tool"
+            ],
+            "correct_answer": "Shapes"
+          },
+          {
+            "question": "Where is a caption usually placed?",
+            "options": [
+              "Below or beside the drawing",
+              "Only at the very top",
+              "Hidden inside the shape",
+              "Outside the program window"
+            ],
+            "correct_answer": "Below or beside the drawing"
+          },
+          {
+            "question": "Why should a drawing be kept simple and clear?",
+            "options": [
+              "So it is easy to understand",
+              "So it takes longer to make",
+              "So it uses more colors",
+              "So it has no caption"
+            ],
+            "correct_answer": "So it is easy to understand"
+          },
+          {
+            "question": "What should you check about your caption before finishing?",
+            "options": [
+              "Spelling",
+              "Font color only",
+              "Shape size only",
+              "Screen brightness"
+            ],
+            "correct_answer": "Spelling"
+          },
+          {
+            "question": "For a 'My Family' project, what should the caption include?",
+            "options": [
+              "Maikling paglalarawan ng pamilya",
+              "Wala itong laman kailanman",
+              "Random na mga numero lamang",
+              "Mahabang talata na hiwalay"
+            ],
+            "correct_answer": "Maikling paglalarawan ng pamilya"
+          },
+          {
+            "question": "A student draws a picture but forgets to add a caption. What is missing from the project?",
+            "options": [
+              "A short title or description of the drawing",
+              "The colors used in the drawing",
+              "The shapes used in the drawing",
+              "The size of the drawing"
+            ],
+            "correct_answer": "A short title or description of the drawing"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 Biyernes na Balik-Aral — GMRC (Grade 3)\n\n- Dapat alam ng residente: **kapitan, hotline, tuntunin ng barangay**\n- **Prudence** = pag-iisip nang mabuti bago kumilos\n- Ibahagi ang **totoo at kapaki-pakinabang** na impormasyon lamang, huwag ikalat ang tsismis\n\nMagaling! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang dapat malaman ng bawat residente tungkol sa barangay?",
+            "options": [
+              "Pangalan ng kapitan at mga hotline",
+              "Pangalan ng lahat ng dayuhan",
+              "Presyo ng lahat ng bilihin",
+              "Bilang ng bahay sa ibang bayan"
+            ],
+            "correct_answer": "Pangalan ng kapitan at mga hotline"
+          },
+          {
+            "question": "Bakit mahalaga ang impormasyon tungkol sa barangay?",
+            "options": [
+              "Tumutulong ito sa kaayusan at kaligtasan",
+              "Wala itong kabuluhan",
+              "Ginagamit lamang sa piyesta",
+              "Para lamang sa mga bisita"
+            ],
+            "correct_answer": "Tumutulong ito sa kaayusan at kaligtasan"
+          },
+          {
+            "question": "Ano ang prudence?",
+            "options": [
+              "Pag-iisip nang mabuti bago kumilos",
+              "Pagsigaw nang malakas",
+              "Pagtatago ng lahat ng bagay",
+              "Pagmamadali sa lahat ng bagay"
+            ],
+            "correct_answer": "Pag-iisip nang mabuti bago kumilos"
+          },
+          {
+            "question": "May kapitbahay kang nagtanong kung sino ang tatawagan kapag may sunog. Ano ang gagawin mo?",
+            "options": [
+              "Ibigay ang tamang numero ng bumbero",
+              "Sabihing hindi mo alam",
+              "Iwasan ang tanong niya",
+              "Sabihin ang maling numero"
+            ],
+            "correct_answer": "Ibigay ang tamang numero ng bumbero"
+          },
+          {
+            "question": "Nakarinig ka ng tsismis tungkol sa isang kapitbahay. Ano ang tama mong gawin?",
+            "options": [
+              "Huwag ikalat ang di-napatunayan",
+              "Ikalat agad ito sa lahat",
+              "Idagdag pa ang sariling kuwento",
+              "I-post agad sa social media"
+            ],
+            "correct_answer": "Huwag ikalat ang di-napatunayan"
+          },
+          {
+            "question": "Ano ang halimbawa ng tuntunin ng barangay?",
+            "options": [
+              "Curfew para sa mga bata",
+              "Presyo ng gulay sa palengke",
+              "Kulay ng bahay",
+              "Uri ng damit"
+            ],
+            "correct_answer": "Curfew para sa mga bata"
+          },
+          {
+            "question": "Bakit dapat ibahagi ang totoo at kapaki-pakinabang na impormasyon lamang?",
+            "options": [
+              "Upang maiwasan ang gulo at maling akala",
+              "Upang mapabilis ang usapan",
+              "Walang dahilan ito",
+              "Upang mapaganda ang balita"
+            ],
+            "correct_answer": "Upang maiwasan ang gulo at maling akala"
+          },
+          {
+            "question": "Ano ang tumutulong sa pagbuo ng pagtitiwala sa komunidad?",
+            "options": [
+              "Pagbabahagi ng tamang impormasyon",
+              "Pagkakalat ng tsismis",
+              "Pagtatago ng impormasyon",
+              "Pananakot sa kapitbahay"
+            ],
+            "correct_answer": "Pagbabahagi ng tamang impormasyon"
+          },
+          {
+            "question": "Alin ang halimbawa ng mahalagang impormasyon sa barangay?",
+            "options": [
+              "Iskedyul ng koleksiyon ng basura",
+              "Paboritong kanta ng kapitan",
+              "Kulay ng bahay ng kapitbahay",
+              "Bilang ng alagang hayop"
+            ],
+            "correct_answer": "Iskedyul ng koleksiyon ng basura"
+          },
+          {
+            "question": "Bakit itinuturing na prudence ang hindi pagkakalat ng tsismis?",
+            "options": [
+              "Nag-iisip muna bago kumilos o magsalita",
+              "Wala itong kaugnayan sa prudence",
+              "Ipinapakita nito ang kawalang-interes",
+              "Ito ay tanda ng kayabangan"
+            ],
+            "correct_answer": "Nag-iisip muna bago kumilos o magsalita"
+          },
+          {
+            "question": "May bagong pamilya sa inyong kapitbahayan na hindi alam kung saan ang barangay hall. Ano ang mabuting gawin?",
+            "options": [
+              "Tulungan silang ituro ang daan nang magalang",
+              "Iwasan silang tulungan",
+              "Pagtawanan ang kanilang tanong",
+              "Hindi na pansinin sila"
+            ],
+            "correct_answer": "Tulungan silang ituro ang daan nang magalang"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang hotline number ng ospital sa inyong barangay?",
+            "options": [
+              "Makatutulong ito sa emergency situations",
+              "Ginagamit lamang ito sa paglalaro",
+              "Wala itong kaugnayan sa kaligtasan",
+              "Ginagamit lamang para sa pagpapatawa"
+            ],
+            "correct_answer": "Makatutulong ito sa emergency situations"
+          }
+        ]
+      }
+    }
+  }
+}

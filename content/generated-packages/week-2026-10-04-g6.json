@@ -1,0 +1,2016 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-10-04",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# ✍️ English — Grammar and Survey Forms in Writing\n\nGrade 6, Week 17! Let's sharpen our sentence tools for writing. 🖋️\n\n## 📇 Using Directories as a Reference\nA **directory** is a reference list of **acronyms and abbreviations** used by organizations (e.g., DepEd, LGU, NGO, DSWD). Writers consult directories to use these terms correctly and avoid confusion.\n\n## 🏃 Intransitive Verbs\nAn **intransitive verb** does **not** take a direct object — the action is complete without one.\n- *\"The baby sleeps.\"* (no object needed)\n- *\"They arrived early.\"* (no object needed)\n\nCompare to a **transitive verb**, which needs an object: *\"She reads the book.\"* (book = object)\n\n## ⏳ Perfect Tenses\n| Tense | Formula | Example |\n|---|---|---|\n| **Present perfect** | has/have + past participle | \"She **has finished** her project.\" |\n| **Past perfect** | had + past participle | \"They **had left** before we arrived.\" |\n\nPerfect tenses show an action **completed** relative to another point in time.\n\n## 🔗 Prepositional Phrases as Adjectives\nA prepositional phrase can act like an **adjective**, describing a noun.\n- *\"The book **on the table** is mine.\"* (describes *which book*)\n- *\"The girl **with the red bag** is my cousin.\"* (describes *which girl*)\n\n## 🧩 Noun, Pronoun, and Adjective Complements\nA **complement** completes the meaning of a noun, pronoun, or adjective.\n- *\"The fact **that he apologized** surprised everyone.\"* (completes \"fact\")\n- *\"She is proud **of her grades**.\"* (completes \"proud\")\n\n## 🔀 Compound-Complex Sentences\nA **compound-complex sentence** has **two or more independent clauses** and **at least one dependent clause**.\n- *\"Because the rain stopped, we played outside, and we finished our chores.\"*\n  - Dependent: \"Because the rain stopped\"\n  - Independent 1: \"we played outside\"\n  - Independent 2: \"we finished our chores\"\n\n## 📋 Creating an Open-Ended Printed Survey Form\nAn **open-ended question** lets the respondent answer **freely in their own words**, unlike a **closed question** (yes/no or multiple choice).\n- Closed: *\"Do you like reading?\"* (Yes/No)\n- Open-ended: *\"Why do you enjoy reading?\"* (free response)\n\n## 🧠 Worked Example\n*Identify the sentence type: \"Although it was late, she finished her homework, and she went to bed.\"*\n- **Compound-complex** — one dependent clause (\"Although it was late\") + two independent clauses.\n\nExcellent grammar detective work! 🌟",
+        "quiz": [
+          {
+            "question": "What is a directory used for in writing?",
+            "options": [
+              "A reference list of acronyms and abbreviations used by organizations",
+              "A collection of stories about famous characters",
+              "A gathering of poems from different countries",
+              "A dictionary that only lists rhyming words"
+            ],
+            "correct_answer": "A reference list of acronyms and abbreviations used by organizations"
+          },
+          {
+            "question": "Which sentence uses an intransitive verb?",
+            "options": [
+              "The baby sleeps.",
+              "She reads the book.",
+              "They painted the wall.",
+              "He kicked the ball."
+            ],
+            "correct_answer": "The baby sleeps."
+          },
+          {
+            "question": "What formula makes the present perfect tense?",
+            "options": [
+              "has/have + past participle",
+              "will + base verb",
+              "was/were + verb-ing",
+              "did + base verb"
+            ],
+            "correct_answer": "has/have + past participle"
+          },
+          {
+            "question": "\"They had left before we arrived.\" Which tense is \"had left\"?",
+            "options": [
+              "Past perfect",
+              "Present perfect",
+              "Simple future",
+              "Simple present"
+            ],
+            "correct_answer": "Past perfect"
+          },
+          {
+            "question": "In \"The book on the table is mine,\" what does the prepositional phrase describe?",
+            "options": [
+              "Which book",
+              "Where the table is only",
+              "The color of the book",
+              "The size of the table"
+            ],
+            "correct_answer": "Which book"
+          },
+          {
+            "question": "In \"She is proud of her grades,\" what does \"of her grades\" complete?",
+            "options": [
+              "The adjective \"proud\"",
+              "The verb \"is\" only",
+              "The subject \"She\" only",
+              "Nothing in the sentence"
+            ],
+            "correct_answer": "The adjective \"proud\""
+          },
+          {
+            "question": "What makes a sentence compound-complex?",
+            "options": [
+              "Two or more independent clauses plus at least one dependent clause",
+              "Just a single independent clause standing alone",
+              "Two or more dependent clauses with no independent one",
+              "A sentence that has no clauses whatsoever"
+            ],
+            "correct_answer": "Two or more independent clauses plus at least one dependent clause"
+          },
+          {
+            "question": "\"Although it was late, she finished her homework, and she went to bed.\" What type of sentence is this?",
+            "options": [
+              "Compound-complex",
+              "Simple",
+              "Compound only",
+              "Complex only"
+            ],
+            "correct_answer": "Compound-complex"
+          },
+          {
+            "question": "What is an open-ended survey question?",
+            "options": [
+              "A question that lets the respondent answer freely",
+              "A question answered only with Yes or No",
+              "A question with fixed choices only",
+              "A question that has no answer"
+            ],
+            "correct_answer": "A question that lets the respondent answer freely"
+          },
+          {
+            "question": "\"Do you like reading?\" is what type of survey question?",
+            "options": [
+              "Closed question",
+              "Open-ended question",
+              "Compound question",
+              "Rhetorical question"
+            ],
+            "correct_answer": "Closed question"
+          },
+          {
+            "question": "Which is a transitive verb, unlike an intransitive one?",
+            "options": [
+              "Reads (needs an object, like \"the book\")",
+              "Sleeps (needs no object)",
+              "Arrived (needs no object)",
+              "Laughed (needs no object)"
+            ],
+            "correct_answer": "Reads (needs an object, like \"the book\")"
+          },
+          {
+            "question": "Why might a writer create an open-ended printed survey form?",
+            "options": [
+              "To collect detailed responses in the respondent's own words",
+              "To limit every respondent to only Yes or No answers",
+              "To make sure no information is ever collected",
+              "To replace a written story with a blank form"
+            ],
+            "correct_answer": "To collect detailed responses in the respondent's own words"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Exponential Form\n\nGrade 6, Week 17! Let's write repeated multiplication the fast way. ⚡\n\n## 🧮 What Is Exponential Form?\n**Exponential form** writes repeated multiplication of the same number using a **base** and an **exponent**.\n\n$$2 \\times 2 \\times 2 = 2^3$$\n\n- **Base** = 2 (the number being multiplied)\n- **Exponent** = 3 (how many times the base is multiplied by itself)\n- We read $2^3$ as **\"2 to the third power\"** or **\"2 cubed\"**\n\n## 🔄 Writing Numbers in Exponential Form\n**Example:** Write $5 \\times 5 \\times 5 \\times 5$ in exponential form.\n- The base is 5, multiplied 4 times → $5^4$\n\n## 🔢 Finding the Value of Exponential Numbers\n**Example:** Find the value of $4^3$.\n- $4^3 = 4 \\times 4 \\times 4 = 64$\n\n**Example:** Find the value of $2^5$.\n- $2^5 = 2 \\times 2 \\times 2 \\times 2 \\times 2 = 32$\n\n## 📐 GEMDAS with Exponents\n**GEMDAS** order: **G**rouping → **E**xponents → **M**ultiplication/**D**ivision → **A**ddition/**S**ubtraction.\n\n**Example:** Solve $3 + 2^3 \\times 2$.\n1. Exponent first: $2^3 = 8$\n2. Multiply: $8 \\times 2 = 16$\n3. Add: $3 + 16 = 19$\n\n**Example:** Solve $(1 + 2)^2 \\times 3$.\n1. Grouping first: $(1+2) = 3$\n2. Exponent: $3^2 = 9$\n3. Multiply: $9 \\times 3 = 27$\n\n## 🧠 Worked Example\n*A square garden has sides of 6 meters. Write its area using exponential form and find the value.*\n- Area = side × side = $6^2$\n- $6^2 = 6 \\times 6 = 36$ square meters\n\nGreat power of numbers work! ⭐",
+        "quiz": [
+          {
+            "question": "What is $2 \\times 2 \\times 2$ written in exponential form?",
+            "options": [
+              "2³",
+              "3²",
+              "2×3",
+              "6"
+            ],
+            "correct_answer": "2³"
+          },
+          {
+            "question": "In 2³, what is the number 2 called?",
+            "options": [
+              "Base",
+              "Exponent",
+              "Product",
+              "Sum"
+            ],
+            "correct_answer": "Base"
+          },
+          {
+            "question": "In 2³, what is the number 3 called?",
+            "options": [
+              "Exponent",
+              "Base",
+              "Factor",
+              "Remainder"
+            ],
+            "correct_answer": "Exponent"
+          },
+          {
+            "question": "Write 5 × 5 × 5 × 5 in exponential form.",
+            "options": [
+              "5⁴",
+              "4⁵",
+              "5×4",
+              "20"
+            ],
+            "correct_answer": "5⁴"
+          },
+          {
+            "question": "What is the value of 4³?",
+            "options": [
+              "64",
+              "12",
+              "43",
+              "16"
+            ],
+            "correct_answer": "64"
+          },
+          {
+            "question": "What is the value of 2⁵?",
+            "options": [
+              "32",
+              "10",
+              "25",
+              "16"
+            ],
+            "correct_answer": "32"
+          },
+          {
+            "question": "Following GEMDAS, what do you compute first in 3 + 2³ × 2?",
+            "options": [
+              "The exponent 2³",
+              "The addition 3 + 2",
+              "The multiplication ×2 first",
+              "It does not matter"
+            ],
+            "correct_answer": "The exponent 2³"
+          },
+          {
+            "question": "What is the value of 3 + 2³ × 2?",
+            "options": [
+              "19",
+              "16",
+              "22",
+              "13"
+            ],
+            "correct_answer": "19"
+          },
+          {
+            "question": "What is the value of (1 + 2)² × 3?",
+            "options": [
+              "27",
+              "9",
+              "18",
+              "11"
+            ],
+            "correct_answer": "27"
+          },
+          {
+            "question": "How do you read 2³ aloud?",
+            "options": [
+              "2 to the third power",
+              "2 plus 3",
+              "2 divided by 3",
+              "23 as a whole number"
+            ],
+            "correct_answer": "2 to the third power"
+          },
+          {
+            "question": "A square garden has sides of 6 meters. Which expression gives its area in exponential form?",
+            "options": [
+              "6²",
+              "6×2",
+              "2⁶",
+              "6+2"
+            ],
+            "correct_answer": "6²"
+          },
+          {
+            "question": "What is the value of 6²?",
+            "options": [
+              "36",
+              "12",
+              "62",
+              "18"
+            ],
+            "correct_answer": "36"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📝 Filipino — Salawikain at Kaganapan ng Pandiwa\n\nGrade 6, Linggo 17! Alamin natin ang gramatika sa pagsasalita at pagsulat. 🖊️\n\n## 💬 Salawikain Bilang Panandang Konteksto\nAng **salawikain** ay maikling kasabihan na naglalaman ng **aral o katotohanan** tungkol sa buhay. Magagamit ito bilang **panandang konteksto** — ibig sabihin, ginagamit ito upang **ipakilala o buod-in ang paksa** ng isang sanaysay o talakayan.\n\n**Halimbawa:** *\"Aanhin pa ang damo kung patay na ang kabayo\"* — maaaring gamiting simula ng sanaysay tungkol sa **kahalagahan ng maagang paghahanda**.\n\n## 🎯 Kaganapan (Komplemento) ng Pandiwa\nAng **kaganapan** ng pandiwa ay salita o parirala na **nagbibigay-diin o nagbubuo** sa kahulugan ng pandiwa.\n\n| Uri ng Kaganapan | Sagot sa Tanong | Halimbawa |\n|---|---|---|\n| **Tagatanggap** | Kanino ibinigay/sinabi? | \"Nagbigay siya **ng regalo sa nanay**.\" |\n| **Benepaktibo** | Para kanino ginawa? | \"Nagluto siya **para sa kapatid**.\" |\n\n## 🧠 Halimbawa 1\n*Alin ang salawikain sa mga sumusunod: \"Kung may tiyaga, may nilaga\" o \"Ang bahay ay malaki\"?*\n- **\"Kung may tiyaga, may nilaga\"** — ito ay salawikain na may aral tungkol sa pagpupursige.\n\n## 🧠 Halimbawa 2\n*\"Nagbahagi si Ana ng pagkain sa mga kapitbahay.\" Ano ang kaganapang tagatanggap dito?*\n- **\"sa mga kapitbahay\"** — ito ang tumanggap ng ibinahaging pagkain.\n\n## 🧠 Halimbawa 3\n*\"Gumawa ako ng proyekto para sa aking guro.\" Ano ang uri ng kaganapan sa \"para sa aking guro\"?*\n- **Benepaktibo** — ipinapakita nito kung **para kanino** ginawa ang kilos.\n\n## 💡 Bakit Mahalaga Ito?\nNakatutulong ang salawikain upang **ipahiwatig ang aral** ng isang sanaysay, at nakatutulong ang kaganapan ng pandiwa upang **lubos na maunawaan** ang kahulugan ng pangungusap.\n\nMagaling sa gramatika! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang salawikain?",
+            "options": [
+              "Maikling kasabihang may aral tungkol sa buhay",
+              "Mahabang kuwentong pambata na walang katapusan",
+              "Awiting-bayang inaawit lamang tuwing pista",
+              "Tulang may tugma tungkol sa pag-ibig"
+            ],
+            "correct_answer": "Maikling kasabihang may aral tungkol sa buhay"
+          },
+          {
+            "question": "Paano magagamit ang salawikain bilang panandang konteksto?",
+            "options": [
+              "Bilang pambungad na nagbubuod sa paksa",
+              "Bilang katapusan ng liham lamang",
+              "Bilang pamagat ng aklat lamang",
+              "Bilang listahan ng bokabularyo"
+            ],
+            "correct_answer": "Bilang pambungad na nagbubuod sa paksa"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang isang salawikain?",
+            "options": [
+              "Kung may tiyaga, may nilaga",
+              "Ang bahay ay malaki",
+              "Umuulan ngayon",
+              "Maganda ang panahon"
+            ],
+            "correct_answer": "Kung may tiyaga, may nilaga"
+          },
+          {
+            "question": "Ano ang kaganapan (komplemento) ng pandiwa?",
+            "options": [
+              "Salita o parirala na nagbubuo sa kahulugan ng pandiwa",
+              "Ang paksa lamang ng buong pangungusap",
+              "Ang bantas na nasa dulo ng pangungusap",
+              "Ang unang salitang ginamit sa pangungusap"
+            ],
+            "correct_answer": "Salita o parirala na nagbubuo sa kahulugan ng pandiwa"
+          },
+          {
+            "question": "Anong tanong ang sinasagot ng kaganapang tagatanggap?",
+            "options": [
+              "Kanino ibinigay o sinabi?",
+              "Kailan nangyari?",
+              "Bakit nangyari?",
+              "Ilan ang bilang?"
+            ],
+            "correct_answer": "Kanino ibinigay o sinabi?"
+          },
+          {
+            "question": "Anong tanong ang sinasagot ng kaganapang benepaktibo?",
+            "options": [
+              "Para kanino ginawa?",
+              "Saan nangyari?",
+              "Kailan nagsimula?",
+              "Ano ang kulay nito?"
+            ],
+            "correct_answer": "Para kanino ginawa?"
+          },
+          {
+            "question": "\"Nagbigay siya ng regalo sa nanay.\" Ano ang kaganapang tagatanggap?",
+            "options": [
+              "sa nanay",
+              "Nagbigay",
+              "siya",
+              "ng regalo"
+            ],
+            "correct_answer": "sa nanay"
+          },
+          {
+            "question": "\"Nagluto siya para sa kapatid.\" Anong uri ng kaganapan ang \"para sa kapatid\"?",
+            "options": [
+              "Benepaktibo",
+              "Tagatanggap",
+              "Panaguri",
+              "Simuno"
+            ],
+            "correct_answer": "Benepaktibo"
+          },
+          {
+            "question": "\"Gumawa ako ng proyekto para sa aking guro.\" Ano ang uri ng kaganapan sa \"para sa aking guro\"?",
+            "options": [
+              "Benepaktibo",
+              "Tagatanggap",
+              "Pang-uri",
+              "Pandiwari"
+            ],
+            "correct_answer": "Benepaktibo"
+          },
+          {
+            "question": "\"Nagbahagi si Ana ng pagkain sa mga kapitbahay.\" Ano ang kaganapang tagatanggap?",
+            "options": [
+              "sa mga kapitbahay",
+              "si Ana",
+              "ng pagkain",
+              "Nagbahagi"
+            ],
+            "correct_answer": "sa mga kapitbahay"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang salawikain sa isang sanaysay?",
+            "options": [
+              "Nakatutulong itong ipahiwatig ang aral ng sanaysay",
+              "Pinapahaba lamang nito ang teksto",
+              "Wala itong epekto sa mambabasa",
+              "Ginagamit lamang ito sa awit"
+            ],
+            "correct_answer": "Nakatutulong itong ipahiwatig ang aral ng sanaysay"
+          },
+          {
+            "question": "Isang mag-aaral ang magsisimula ng sanaysay tungkol sa pagtitiyaga gamit ang \"Kung may tiyaga, may nilaga.\" Ano ang ginagamit niyang teknik?",
+            "options": [
+              "Salawikain bilang panandang konteksto",
+              "Talata ng konklusyon sa huling bahagi",
+              "Talatanungang ginamit lamang sa pagsusulit",
+              "Talasalitaang inilagay sa dulo ng sanaysay"
+            ],
+            "correct_answer": "Salawikain bilang panandang konteksto"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Planning a Fair Test on Plant Propagation\n\nGrade 6, Week 17! Let's design an investigation like a real scientist. 🧪\n\n## 🌱 Reviewing Plant Propagation\nRecall the propagation methods: **cutting, budding, layering, grafting**. Each method might grow roots at a **different speed**.\n\n## ⚖️ What Is a Fair Test?\nA **fair test** is an investigation where **only one variable (factor) is changed** at a time, while **everything else is kept the same**, so the results can be trusted.\n\n**Key parts of a fair test:**\n| Term | Meaning |\n|---|---|\n| **Independent variable** | the ONE thing you change on purpose |\n| **Dependent variable** | the thing you measure/observe |\n| **Controlled variables** | the things you keep the SAME |\n| **Replication** | repeating the test multiple times to check results |\n\n## 🧠 Worked Example — Planning the Investigation\n*Question: Which propagation method — cutting or layering — grows roots fastest for a garden plant?*\n\n1. **Independent variable:** the propagation method (cutting vs. layering)\n2. **Dependent variable:** number of days until roots appear\n3. **Controlled variables:** same plant type, same amount of water, same sunlight, same soil\n4. **Replication:** test at least 3 plants per method, not just 1\n\n## 🔁 Why Replication Matters\nTesting **only one plant** might give a result caused by chance (like one weak plant). Testing **several plants per method** makes the results more **reliable**.\n\n## 🧠 Worked Example 2\n*A student tests cutting in sunlight and layering in shade. Is this a fair test?*\n- **No** — sunlight is a variable that should be **controlled** (kept the same), not changed along with the method. This makes the comparison unfair.\n\n## 💡 Why Planning Matters\nA well-planned investigation lets us find **which method truly works best**, not just guess.\n\nGreat scientific thinking! 🌟",
+        "quiz": [
+          {
+            "question": "What is a fair test?",
+            "options": [
+              "An investigation where only one variable is changed at a time",
+              "An investigation where everything is changed at once",
+              "A test with no measurements",
+              "A test done only one time"
+            ],
+            "correct_answer": "An investigation where only one variable is changed at a time"
+          },
+          {
+            "question": "In testing which propagation method grows roots fastest, what is the independent variable?",
+            "options": [
+              "The propagation method used",
+              "The number of days that pass",
+              "The size of the pot",
+              "The color of the leaves"
+            ],
+            "correct_answer": "The propagation method used"
+          },
+          {
+            "question": "What is the dependent variable in this investigation?",
+            "options": [
+              "Number of days until roots appear",
+              "The propagation method used",
+              "The type of plant chosen",
+              "The name of the student"
+            ],
+            "correct_answer": "Number of days until roots appear"
+          },
+          {
+            "question": "What are controlled variables?",
+            "options": [
+              "The things kept the same during the test",
+              "The one thing you change on purpose",
+              "The final result of the test",
+              "The student conducting the test"
+            ],
+            "correct_answer": "The things kept the same during the test"
+          },
+          {
+            "question": "What is replication in an investigation?",
+            "options": [
+              "Repeating the test multiple times to check results",
+              "Changing the variable every time",
+              "Doing the test only once",
+              "Skipping the measurement step"
+            ],
+            "correct_answer": "Repeating the test multiple times to check results"
+          },
+          {
+            "question": "Why should you test several plants per method instead of just one?",
+            "options": [
+              "To make the results more reliable",
+              "To use up extra plants",
+              "To make the test take longer",
+              "To confuse the results"
+            ],
+            "correct_answer": "To make the results more reliable"
+          },
+          {
+            "question": "A student tests cutting in sunlight and layering in shade. Is this a fair test?",
+            "options": [
+              "No, because sunlight should be controlled, not changed",
+              "Yes, because the method changed",
+              "Yes, because plants like different light",
+              "No, because layering never needs light"
+            ],
+            "correct_answer": "No, because sunlight should be controlled, not changed"
+          },
+          {
+            "question": "Which of these should be kept the SAME across all test plants for a fair comparison?",
+            "options": [
+              "Amount of water given",
+              "The propagation method",
+              "The number of roots that grow",
+              "The days until roots appear"
+            ],
+            "correct_answer": "Amount of water given"
+          },
+          {
+            "question": "Why is planning a scientific investigation important?",
+            "options": [
+              "It lets us find which method truly works best, not just guess",
+              "It makes the experiment take less time always",
+              "It removes the need for any variables",
+              "It guarantees every plant will grow"
+            ],
+            "correct_answer": "It lets us find which method truly works best, not just guess"
+          },
+          {
+            "question": "Which propagation methods were reviewed as possible choices for the investigation?",
+            "options": [
+              "Cutting, budding, layering, grafting",
+              "Pollination and fertilization only",
+              "Photosynthesis and respiration only",
+              "Germination and sprouting only"
+            ],
+            "correct_answer": "Cutting, budding, layering, grafting"
+          },
+          {
+            "question": "If a fair test changes two variables at once, what happens to the results?",
+            "options": [
+              "They become unreliable because we can't tell which variable caused the change",
+              "They become more accurate than a single-variable test",
+              "They are always correct no matter what happens",
+              "Nothing at all changes about the final results"
+            ],
+            "correct_answer": "They become unreliable because we can't tell which variable caused the change"
+          },
+          {
+            "question": "What should a student measure to compare cutting vs. layering fairly?",
+            "options": [
+              "The same measurement (like days to root) for both methods",
+              "A different measurement for each method",
+              "Only how the plant looks",
+              "Only the price of each method"
+            ],
+            "correct_answer": "The same measurement (like days to root) for both methods"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Araling Panlipunan — Tungo sa Ganap na Kalayaan: Hapones at Kabayanihan\n\nGrade 6, Linggo 17! Bago tayo bumuo ng proyekto, alamin muna natin ang huling bahagi ng ating kasaysayan tungo sa kalayaan. 🕊️\n\n## ⚔️ Imperyalismong Hapones\nNoong **Ikalawang Digmaang Pandaigdig**, sinakop ng Hapon ang Pilipinas.\n\n- **Labanan sa Bataan-Corregidor** — matinding pakikipaglaban ng mga Pilipino at Amerikanong sundalo\n- **Death March (Martsa ng Kamatayan)** — puwersahang paglalakad ng libu-libong bihag na sundalo, kung saan marami ang namatay sa kapaguran at kagutuman\n- **Pang-aabuso** — maraming Pilipino ang naranasan ang kalupitan ng mga sundalong Hapones sa panahon ng pananakop\n\n## ✊ Kabayanihan sa Panahon ng Digmaan\nSa kabila ng kahirapan, nagpakita ang mga Pilipino ng **kabayanihan**:\n\n| Grupo/Pangyayari | Kahalagahan |\n|---|---|\n| **HUKBALAHAP** (Hukbong Bayan Laban sa Hapon) | kilusang gerilyang nakipaglaban sa mga Hapones |\n| **Kilusang Gerilya** | mga lihim na grupong nagsagawa ng paglaban sa buong bansa |\n| **Karapatang Bumoto ng Kababaihan** | patuloy na pakikibaka ng kababaihan para sa pantay na karapatan kahit sa gitna ng digmaan |\n\n## 🧠 Halimbawa 1\n*Ano ang Death March?*\n- Ang **puwersahang paglalakad** ng libu-libong bihag na sundalo mula Bataan patungong kampo ng Hapones, kung saan marami ang namatay dahil sa kapaguran at kagutuman.\n\n## 🧠 Halimbawa 2\n*Ano ang HUKBALAHAP?*\n- Isang **kilusang gerilya** na nakipaglaban sa mga sundalong Hapones sa panahon ng Ikalawang Digmaang Pandaigdig.\n\n## 🎨 Paghahanda sa Proyekto\nNgayong natutunan na natin ang buong hanay ng kasaysayan — mula sa Digmaang Pilipino-Amerikano hanggang sa Imperyalismong Hapones — handa na tayong bumuo ng **proyekto** na nagpapakita ng **pagmamalaki** sa pagpupunyagi ng mga Pilipino tungo sa ganap na kalayaan.\n\n**Maaaring anyo ng proyekto:** isang timeline poster, isang maikling dula, o isang collage na nagpapakita ng mga yugto ng pakikibaka.\n\n## 💡 Kongklusyon\nAng kalayaan ng Pilipinas ay **hindi biglang dumating** — ito ay bunga ng **matagal at magkakasunod na pakikibaka** laban sa dalawang mananakop.\n\nMagaling sa Linggo 17! 🌟",
+        "quiz": [
+          {
+            "question": "Anong digmaang pandaigdig ang naganap noong sinakop ng Hapon ang Pilipinas?",
+            "options": [
+              "Ikalawang Digmaang Pandaigdig",
+              "Unang Digmaang Pandaigdig",
+              "Digmaang Pilipino-Amerikano",
+              "Digmaang Pilipino-Espanyol"
+            ],
+            "correct_answer": "Ikalawang Digmaang Pandaigdig"
+          },
+          {
+            "question": "Ano ang Death March?",
+            "options": [
+              "Puwersahang paglalakad ng mga bihag na sundalo",
+              "Isang sayaw ng mga Pilipino",
+              "Isang kasunduang pangkapayapaan",
+              "Isang pistang bayan"
+            ],
+            "correct_answer": "Puwersahang paglalakad ng mga bihag na sundalo"
+          },
+          {
+            "question": "Saan naganap ang matinding labanan laban sa mga Hapones?",
+            "options": [
+              "Bataan-Corregidor",
+              "Tirad Pass",
+              "Sta. Mesa",
+              "Balangiga"
+            ],
+            "correct_answer": "Bataan-Corregidor"
+          },
+          {
+            "question": "Ano ang HUKBALAHAP?",
+            "options": [
+              "Kilusang gerilyang nakipaglaban sa mga Hapones",
+              "Ahensya ng gobyernong Amerikano",
+              "Batas laban sa mga Pilipino",
+              "Grupong pangkalakalan"
+            ],
+            "correct_answer": "Kilusang gerilyang nakipaglaban sa mga Hapones"
+          },
+          {
+            "question": "Ano ang kilusang gerilya sa panahon ng Hapon?",
+            "options": [
+              "Mga lihim na grupong nagsagawa ng paglaban",
+              "Opisyal na hukbong Hapones sa Maynila",
+              "Kumpanyang pangkalakalang Amerikano",
+              "Paaralang pang-militar ng mga Kastila"
+            ],
+            "correct_answer": "Mga lihim na grupong nagsagawa ng paglaban"
+          },
+          {
+            "question": "Ano ang naranasan ng maraming Pilipino sa ilalim ng Hapon?",
+            "options": [
+              "Pang-aabuso mula sa mga sundalo",
+              "Malayang pamahalaan agad",
+              "Kaunlarang pang-ekonomiya",
+              "Kapayapaan sa buong bansa"
+            ],
+            "correct_answer": "Pang-aabuso mula sa mga sundalo"
+          },
+          {
+            "question": "Ano ang patuloy na ipinaglaban ng kababaihan kahit sa gitna ng digmaan?",
+            "options": [
+              "Karapatang bumoto",
+              "Karapatang magmay-ari ng lupa lamang",
+              "Karapatang magpundar ng negosyo lamang",
+              "Karapatang mangibang-bansa lamang"
+            ],
+            "correct_answer": "Karapatang bumoto"
+          },
+          {
+            "question": "Bakit itinuturing na mga bayani ang mga kasapi ng HUKBALAHAP?",
+            "options": [
+              "Nakipaglaban sila para sa kalayaan ng bayan",
+              "Sumuko agad sila sa Hapon nang walang laban",
+              "Tumulong sila sa mga Hapones na sundalo",
+              "Umalis sila palayo sa bansang Pilipinas"
+            ],
+            "correct_answer": "Nakipaglaban sila para sa kalayaan ng bayan"
+          },
+          {
+            "question": "Ano ang layunin ng proyektong gagawin tungkol sa kasaysayan?",
+            "options": [
+              "Ipakita ang pagmamalaki sa pagpupunyagi ng mga Pilipino tungo sa kalayaan",
+              "Ipakita lamang ang mga larawang kuha noong panahon ng Hapon",
+              "Kalimutan na lamang ang buong nakaraang kasaysayan ng bansa",
+              "Purihin lamang ang mga dayuhang mananakop sa Pilipinas"
+            ],
+            "correct_answer": "Ipakita ang pagmamalaki sa pagpupunyagi ng mga Pilipino tungo sa kalayaan"
+          },
+          {
+            "question": "Ilang mananakop ang pinaglabanan ng mga Pilipino ayon sa buong kasaysayang pinag-aralan?",
+            "options": [
+              "Dalawa — Amerikano at Hapones",
+              "Isa lamang — Espanyol",
+              "Tatlo — Espanyol, Amerikano, Hapones",
+              "Wala — laging malaya ang Pilipinas"
+            ],
+            "correct_answer": "Dalawa — Amerikano at Hapones"
+          },
+          {
+            "question": "Ano ang isang maaaring anyo ng proyektong pantapos ng yunit na ito?",
+            "options": [
+              "Timeline poster, maikling dula, o collage",
+              "Isang liham sa pangulo lamang",
+              "Isang awiting pambata lamang",
+              "Isang guhit ng hayop lamang"
+            ],
+            "correct_answer": "Timeline poster, maikling dula, o collage"
+          },
+          {
+            "question": "Bakit sinasabing hindi biglaan ang pagkamit ng kalayaan ng Pilipinas?",
+            "options": [
+              "Ito ay bunga ng matagal at magkakasunod na pakikibaka",
+              "Ibinigay ito kaagad ng mga mananakop",
+              "Wala itong kinalaman sa mga bayani",
+              "Nangyari ito sa loob lamang ng isang araw"
+            ],
+            "correct_answer": "Ito ay bunga ng matagal at magkakasunod na pakikibaka"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎭 MAPEH — Sining, Damdamin, at Pagbabago sa Sarili\n\nGrade 6, Linggo 17! Pag-usapan natin ang sining ng panahon ng digmaan at ang mga pagbabagong dinaranas ng kabataan. 🎨\n\n## 🎭 Balik-Aral: Symbolic Theater at Seditious Plays\nNatutunan na natin na ang mga Pilipino ay gumamit ng **simbolismo sa dulaan** upang tahasang maipahayag ang damdaming makabayan kahit ipinagbabawal ang tuwirang pagsalungat.\n\n## 🌱 Mga Pagbabago Habang Papalaki\nHabang papalaki ang isang bata patungo sa pagbibinata o pagdadalaga, nararanasan niya ang **pisikal, emosyonal, at panlipunang pagbabago**. Normal lamang ang mga ito, at mahalagang maunawaan ang mga ito nang tama.\n\n**Ilang halimbawa ng pagbabago:**\n- **Pisikal** — pagtaas ng tangkad, pagbabago ng tinig\n- **Emosyonal** — mas madalas na pagbabago ng mood, mas malalim na damdamin\n- **Panlipunan** — mas nagmamalasakit sa opinyon ng mga kaibigan\n\n## 💬 Bukas na Komunikasyon sa Pamilya\nMahalagang **makipag-usap nang bukas** sa mga magulang o nakatatanda tungkol sa mga bagong nararamdaman o katanungan tungkol sa paglaki — sila ang pinaka-mapagkakatiwalaang gabay.\n\n## 💪 Pagpapahalaga sa Sarili (Self-Esteem)\nAng **positibong pagtingin sa sarili** ay tumutulong sa isang bata na:\n- Manatiling tapat sa kanyang mga pagpapahalaga\n- Huwag padalos-dalos sumunod sa impluwensya ng iba\n- Magtiwala sa sariling desisyon\n\n## 🚫 Kasanayan sa Pagtanggi (Assertiveness)\nKapag may nag-aanyaya o humihikayat na gumawa ng bagay na labag sa iyong kalooban, mahalagang matutong **magsabi ng \"hindi\" nang buong tiwala** at hindi mahiya dito.\n\n## 👨‍👩‍👧 Papel ng Pamilya\nAng pamilya ang unang **gabay** ng bata sa paglaki — sila ang nagtuturo ng tamang pagpapasya at nagbibigay ng suporta sa panahon ng pagbabago.\n\n## 🧠 Halimbawa\n*May kaklase kang sumusubok pilitin kang gumawa ng bagay na hindi mo gusto. Ano ang dapat mong gawin?*\n- Magsabi ng **\"hindi\" nang tiyak at magalang**, at kausapin ang isang **pinagkakatiwalaang matanda** kung kinakailangan.\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang ginamit ng mga Pilipino sa dulaan noong panahon ng Amerikano upang ipahayag ang damdaming makabayan?",
+            "options": [
+              "Simbolismo sa dulaan",
+              "Tuwirang pagsalungat",
+              "Pagsunod sa gobyerno",
+              "Pananahimik lamang"
+            ],
+            "correct_answer": "Simbolismo sa dulaan"
+          },
+          {
+            "question": "Ano ang tawag sa panahon kung kailan nararanasan ng bata ang pisikal, emosyonal, at panlipunang pagbabago patungo sa pagbibinata o pagdadalaga?",
+            "options": [
+              "Normal na bahagi ng paglaki",
+              "Isang sakit na dapat gamutin",
+              "Isang bagay na dapat ikahiya",
+              "Isang bagay na dapat itago sa lahat"
+            ],
+            "correct_answer": "Normal na bahagi ng paglaki"
+          },
+          {
+            "question": "Alin ang halimbawa ng PISIKAL na pagbabago habang papalaki?",
+            "options": [
+              "Pagtaas ng tangkad",
+              "Pagbabago ng opinyon sa kaibigan",
+              "Pagiging mas madaling magalit",
+              "Pagiging mas mahiyain sa lahat"
+            ],
+            "correct_answer": "Pagtaas ng tangkad"
+          },
+          {
+            "question": "Bakit mahalaga ang bukas na komunikasyon sa pamilya habang lumalaki ang isang bata?",
+            "options": [
+              "Sila ang pinaka-mapagkakatiwalaang gabay sa mga bagong katanungan",
+              "Hindi na kailangan ng gabay sa yugtong ito",
+              "Mas mabuting itago ang lahat ng tanong",
+              "Hindi na dapat makinig sa magulang"
+            ],
+            "correct_answer": "Sila ang pinaka-mapagkakatiwalaang gabay sa mga bagong katanungan"
+          },
+          {
+            "question": "Ano ang self-esteem o pagpapahalaga sa sarili?",
+            "options": [
+              "Positibong pagtingin sa sarili",
+              "Palaging pagdududa sa sarili",
+              "Palaging pagsunod sa kaibigan",
+              "Kawalan ng pagpapahalaga sa sarili"
+            ],
+            "correct_answer": "Positibong pagtingin sa sarili"
+          },
+          {
+            "question": "Paano nakatutulong ang mataas na self-esteem sa isang bata?",
+            "options": [
+              "Nakatutulong itong manatiling tapat sa kanyang pagpapahalaga",
+              "Nagiging madaling maimpluwensiyahan siya",
+              "Nawawalan siya ng sariling opinyon",
+              "Nagiging palaging nagdududa siya"
+            ],
+            "correct_answer": "Nakatutulong itong manatiling tapat sa kanyang pagpapahalaga"
+          },
+          {
+            "question": "Ano ang kasanayan sa pagtanggi (assertiveness)?",
+            "options": [
+              "Kakayahang magsabi ng \"hindi\" nang buong tiwala",
+              "Kakayahang palaging sumang-ayon sa iba",
+              "Kakayahang manahimik lamang palagi",
+              "Kakayahang iwasan ang lahat ng usapan"
+            ],
+            "correct_answer": "Kakayahang magsabi ng \"hindi\" nang buong tiwala"
+          },
+          {
+            "question": "May kaklase kang sumusubok pilitin kang gumawa ng bagay na hindi mo gusto. Ano ang dapat mong gawin?",
+            "options": [
+              "Magsabi ng \"hindi\" nang tiyak at kausapin ang pinagkakatiwalaang matanda",
+              "Sumunod na lamang para hindi mainis ang kaklase",
+              "Itago ang nangyari sa lahat",
+              "Iwasan ang kaklase magpakailanman"
+            ],
+            "correct_answer": "Magsabi ng \"hindi\" nang tiyak at kausapin ang pinagkakatiwalaang matanda"
+          },
+          {
+            "question": "Ano ang papel ng pamilya sa paglaki ng isang bata?",
+            "options": [
+              "Unang gabay ng bata sa tamang pagpapasya",
+              "Walang anumang papel sa yugtong ito ng buhay",
+              "Dapat lamang silang manood mula sa malayo",
+              "Sila lamang ang dapat magpasya para sa bata"
+            ],
+            "correct_answer": "Unang gabay ng bata sa tamang pagpapasya"
+          },
+          {
+            "question": "Alin ang halimbawa ng EMOSYONAL na pagbabago habang papalaki?",
+            "options": [
+              "Mas malalim na damdamin at pagbabago ng mood",
+              "Pagtaas ng tangkad ng bata habang papalaki",
+              "Pagbabago sa kulay ng buhok ng bata",
+              "Paglaki ng paa ng bata habang lumalaki"
+            ],
+            "correct_answer": "Mas malalim na damdamin at pagbabago ng mood"
+          },
+          {
+            "question": "Bakit dapat ituring na normal ang mga pagbabago habang papalaki?",
+            "options": [
+              "Karaniwang bahagi ito ng paglaki ng bawat tao",
+              "Ito ay bihirang mangyari sa mga bata",
+              "Dapat itong ikahiya at itago",
+              "Nangyayari lamang ito sa ilang bata"
+            ],
+            "correct_answer": "Karaniwang bahagi ito ng paglaki ng bawat tao"
+          },
+          {
+            "question": "Sino ang dapat lapitan ng batang may katanungan tungkol sa kanyang pagbabago?",
+            "options": [
+              "Isang pinagkakatiwalaang magulang o nakatatanda",
+              "Kahit sinong estranghero",
+              "Walang sinuman, dapat itago na lamang",
+              "Isang kaklaseng hindi rin nakakaalam"
+            ],
+            "correct_answer": "Isang pinagkakatiwalaang magulang o nakatatanda"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 GMRC — Pagtupad ng Tungkulin sa Pamilya\n\nGrade 6, Linggo 17! Pagpapahalaga: **Masipag**. 🌟\n\n## 📅 Pagtupad ng mga Tungkulin sa Pamilya Ayon sa Iskedyul\nBawat miyembro ng pamilya ay may **tungkulin** — mga gawaing dapat gampanan sa bahay. Mahalagang gawin ang mga ito **sa oras at ayon sa iskedyul**, hindi lamang kapag gusto.\n\n**Halimbawa ng tungkulin:**\n- Paglilinis ng sariling kwarto araw-araw\n- Pagtulong sa gawaing-bahay tuwing Sabado\n- Pag-aalaga ng alagang hayop sa umaga at gabi\n\n## 💪 Ano ang Masipag?\nAng **masipag** na tao ay **hindi nag-aantala** sa gawain at **gumagawa nang may pagpupursige**, kahit mahirap o nakakapagod.\n\n## 🧠 Halimbawa 1\n*May iskedyul kang paglilinis tuwing Sabado ngunit gusto mong maglaro. Ano ang dapat gawin ng masipag na bata?*\n- Tapusin muna ang **tungkulin** bago maglaro — o hanapin ang **paraan para gawin pareho** kung posible.\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang sundin ang iskedyul ng gawain sa halip na gawin lang kung kailan gusto?*\n- Nagpapakita ito ng **disiplina** at **pagiging maaasahan** — mas maayos ang tahanan kapag sinusunod ang iskedyul.\n\n## 🎯 Bunga ng Pagiging Masipag\n- Natututunan ang **responsibilidad**\n- Nagiging mas **maayos** ang buhay-pamilya\n- Nakatutulong ito sa **kapakanan ng buong sambahayan**\n\n## ⚠️ Bunga ng Pagiging Tamad\n- Naiiwan ang mga gawain\n- Nadadagdagan ang pasanin ng ibang miyembro ng pamilya\n- Nasisira ang tiwala sa loob ng tahanan\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang tungkulin ng bawat miyembro ng pamilya?",
+            "options": [
+              "Mga gawaing dapat gampanan sa bahay",
+              "Mga bagay na dapat balewalain",
+              "Mga gawaing para lamang sa magulang",
+              "Mga bagay na hindi dapat pansinin"
+            ],
+            "correct_answer": "Mga gawaing dapat gampanan sa bahay"
+          },
+          {
+            "question": "Ano ang masipag?",
+            "options": [
+              "Taong gumagawa nang may pagpupursige kahit mahirap",
+              "Taong madaling sumuko sa harap ng gawain",
+              "Taong laging nag-aantala sa kanyang gawain",
+              "Taong ayaw tumulong sa kapwa niya tao"
+            ],
+            "correct_answer": "Taong gumagawa nang may pagpupursige kahit mahirap"
+          },
+          {
+            "question": "May iskedyul kang paglilinis tuwing Sabado ngunit gusto mong maglaro. Ano ang dapat gawin?",
+            "options": [
+              "Tapusin muna ang tungkulin bago maglaro",
+              "Kalimutan na lamang ang paglilinis",
+              "Ipaubaya sa kapatid ang gawain",
+              "Maglaro muna at huwag nang linisin"
+            ],
+            "correct_answer": "Tapusin muna ang tungkulin bago maglaro"
+          },
+          {
+            "question": "Bakit mahalagang sundin ang iskedyul ng gawain sa bahay?",
+            "options": [
+              "Nagpapakita ito ng disiplina at pagiging maaasahan",
+              "Wala itong kabuluhan sa tahanan",
+              "Ginagawa lamang ito para maparusahan",
+              "Hindi ito nakakaapekto sa pamilya"
+            ],
+            "correct_answer": "Nagpapakita ito ng disiplina at pagiging maaasahan"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagiging masipag sa tahanan?",
+            "options": [
+              "Natututunan ang responsibilidad",
+              "Nadaragdagan ang pasanin ng iba",
+              "Nasisira ang tiwala sa tahanan",
+              "Naiiwan ang mga gawain"
+            ],
+            "correct_answer": "Natututunan ang responsibilidad"
+          },
+          {
+            "question": "Ano ang mangyayari kapag palaging naiiwan ang mga tungkulin sa bahay?",
+            "options": [
+              "Nadaragdagan ang pasanin ng ibang miyembro ng pamilya",
+              "Nagiging mas magaan ang buhay-pamilya",
+              "Walang epekto ito sa sinuman",
+              "Lumalakas ang tiwala sa isa't isa"
+            ],
+            "correct_answer": "Nadaragdagan ang pasanin ng ibang miyembro ng pamilya"
+          },
+          {
+            "question": "Bakit hindi dapat gawin ang tungkulin 'kapag gusto lang'?",
+            "options": [
+              "Dahil kailangan ito sa oras para sa maayos na tahanan",
+              "Dahil bawal itong pag-usapan",
+              "Dahil walang saysay ang iskedyul",
+              "Dahil ito'y para sa magulang lamang"
+            ],
+            "correct_answer": "Dahil kailangan ito sa oras para sa maayos na tahanan"
+          },
+          {
+            "question": "Alin ang halimbawa ng tungkulin sa pamilya?",
+            "options": [
+              "Paglilinis ng sariling kwarto araw-araw",
+              "Panonood ng TV buong araw",
+              "Paglalaro ng video game buong araw",
+              "Pagtulog nang buong araw"
+            ],
+            "correct_answer": "Paglilinis ng sariling kwarto araw-araw"
+          },
+          {
+            "question": "Anong pagpapahalaga ang linalantad sa aralin ngayong linggo?",
+            "options": [
+              "Masipag",
+              "Matapat",
+              "Mapagpasensiya",
+              "Mapagkawang-gawa"
+            ],
+            "correct_answer": "Masipag"
+          },
+          {
+            "question": "Ano ang isang paraan para matapos ang tungkulin at malaro pa rin?",
+            "options": [
+              "Hanapin ang paraan para gawin ang dalawa nang maayos",
+              "Kalimutan ang gawain nang tuluyan",
+              "Isumbat sa kapatid ang gawain",
+              "Umiwas sa lahat ng usapan"
+            ],
+            "correct_answer": "Hanapin ang paraan para gawin ang dalawa nang maayos"
+          },
+          {
+            "question": "Bakit mahalaga ang pag-aalaga ng alagang hayop sa iskedyul na itinakda?",
+            "options": [
+              "Ito ay isang tungkuling dapat gampanan nang regular",
+              "Hindi na kailangan pang pakainin ang hayop",
+              "Ginagawa lamang ito minsan sa isang buwan",
+              "Hindi ito bahagi ng tungkulin sa bahay"
+            ],
+            "correct_answer": "Ito ay isang tungkuling dapat gampanan nang regular"
+          },
+          {
+            "question": "Isang bata ang laging umaantala sa kanyang mga gawain sa bahay. Ano ang dapat niyang paunlarin?",
+            "options": [
+              "Pagiging masipag at disiplinado",
+              "Pagiging palaaway sa kapatid",
+              "Pagiging mapili sa gawain",
+              "Pag-iwas sa lahat ng tungkulin"
+            ],
+            "correct_answer": "Pagiging masipag at disiplinado"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP (AFA/FCS/IA) — Kailangan sa Natural na Pag-aalaga ng Isda\n\nGrade 6, Linggo 17! Alamin natin ang mga teknikal na kaalaman sa fish raising. 🐠\n\n## 💧 Kailangan sa Natural na Pag-aalaga ng Isda\n| Pangangailangan | Paliwanag |\n|---|---|\n| **Suplay ng tubig (water supply)** | dapat malinis at sapat ang dami ng tubig para sa isda |\n| **Densidad ng pagstock (stocking density)** | hindi dapat masyadong marami ang isda sa isang lugar upang hindi maubusan ng oxygen |\n| **Pakain (feeds)** | dapat sapat at wastong uri ng pagkain para sa uri ng isda |\n\n## 🐟 Anatomiya ng Isda\n| Bahagi | Gamit |\n|---|---|\n| **Bibig (mouth)** | pagkain ng pagkain |\n| **Buntot (tail)** | pantulak papunta sa paglangoy |\n| **Kaliskis (scales)** | proteksyon ng balat ng isda |\n| **Hasang (gills)** | paghinga sa ilalim ng tubig |\n\n## 🦠 Karaniwang Sakit ng Isda\n| Sakit | Sanhi/Palatandaan | Pag-iwas/Lunas |\n|---|---|---|\n| **Fungal infection** | maruming tubig | linisin ang tubig, huwag masyadong dumami ang isda |\n| **Parasites** | hindi malinis na kapaligiran | regular na paglilinis ng tangke o palaisdaan |\n| **Fin rot** | maruming tubig, sugat | palitan ang tubig, gamutin agad ang sugat |\n\n## 🧠 Halimbawa 1\n*Bakit mahalaga ang tamang stocking density?*\n- Kapag sobrang dami ng isda sa maliit na lugar, **kulang ang oxygen** at madaling **magkasakit** ang mga ito.\n\n## 🧠 Halimbawa 2\n*Anong bahagi ng isda ang ginagamit sa paghinga?*\n- Ang **hasang (gills)** — dito kinukuha ng isda ang oxygen mula sa tubig.\n\n## 🧠 Halimbawa 3\n*Ang isda ay may maruming tubig at nagpapakita ng sugat sa palikpik. Ano ang maaaring sakit?*\n- **Fin rot** — sanhi ng maruming tubig; dapat palitan ang tubig at gamutin agad.\n\n## 💡 Bakit Mahalaga Ito?\nAng pag-unawa sa mga pangangailangan at anatomiya ng isda ay tumutulong upang **mapanatiling malusog** ang mga ito at **maiwasan ang malaking pagkalugi** sa pag-aalaga.\n\nMagaling sa Linggo 17! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tatlong kailangan sa natural na pag-aalaga ng isda?",
+            "options": [
+              "Suplay ng tubig, stocking density, at feeds",
+              "Tubig, lupa, at bato lamang",
+              "Pera, oras, at lakas lamang",
+              "Guro, aklat, at papel lamang"
+            ],
+            "correct_answer": "Suplay ng tubig, stocking density, at feeds"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang stocking density?",
+            "options": [
+              "Upang may sapat na oxygen ang mga isda",
+              "Upang mabilis maubos ang pagkain",
+              "Upang maging magulo ang tangke",
+              "Walang epekto ito sa isda"
+            ],
+            "correct_answer": "Upang may sapat na oxygen ang mga isda"
+          },
+          {
+            "question": "Anong bahagi ng isda ang ginagamit sa paghinga?",
+            "options": [
+              "Hasang (gills)",
+              "Bibig (mouth)",
+              "Buntot (tail)",
+              "Kaliskis (scales)"
+            ],
+            "correct_answer": "Hasang (gills)"
+          },
+          {
+            "question": "Anong bahagi ng isda ang gamit sa pantulak papunta sa paglangoy?",
+            "options": [
+              "Buntot (tail)",
+              "Hasang (gills)",
+              "Bibig (mouth)",
+              "Kaliskis (scales)"
+            ],
+            "correct_answer": "Buntot (tail)"
+          },
+          {
+            "question": "Ano ang gamit ng kaliskis (scales) ng isda?",
+            "options": [
+              "Proteksyon ng balat ng isda",
+              "Paghinga sa ilalim ng tubig",
+              "Pagkain ng pagkain",
+              "Pananalig sa paglangoy lamang"
+            ],
+            "correct_answer": "Proteksyon ng balat ng isda"
+          },
+          {
+            "question": "Ang isda ay may maruming tubig at nagpapakita ng sugat sa palikpik. Ano ang maaaring sakit?",
+            "options": [
+              "Fin rot",
+              "Malaria",
+              "Sipon",
+              "Trangkaso"
+            ],
+            "correct_answer": "Fin rot"
+          },
+          {
+            "question": "Ano ang sanhi ng fungal infection sa isda?",
+            "options": [
+              "Maruming tubig",
+              "Sobrang linis ng tubig",
+              "Sariwang pagkain",
+              "Malamig na panahon lamang"
+            ],
+            "correct_answer": "Maruming tubig"
+          },
+          {
+            "question": "Paano maiiwasan ang parasites sa palaisdaan?",
+            "options": [
+              "Regular na paglilinis ng tangke o palaisdaan",
+              "Huwag na lang linisin ang tangke",
+              "Dagdagan ang bilang ng isda",
+              "Bawasan ang tubig sa tangke"
+            ],
+            "correct_answer": "Regular na paglilinis ng tangke o palaisdaan"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag nagkaroon ng fin rot ang isda?",
+            "options": [
+              "Palitan ang tubig at gamutin agad ang sugat",
+              "Hayaan na lamang ito nang walang gamot",
+              "Dagdagan pa ang isda sa tangke",
+              "Alisin ang lahat ng tubig"
+            ],
+            "correct_answer": "Palitan ang tubig at gamutin agad ang sugat"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang anatomiya ng isda para sa isang nag-aalaga?",
+            "options": [
+              "Nakatutulong ito upang maintindihan kung paano panatilihing malusog ang isda",
+              "Wala itong anumang kaugnayan sa pag-aalaga ng isda",
+              "Ginagamit lamang ito sa eksamen sa paaralan",
+              "Hindi na ito kailangan pang pag-aralan ngayon"
+            ],
+            "correct_answer": "Nakatutulong ito upang maintindihan kung paano panatilihing malusog ang isda"
+          },
+          {
+            "question": "Ano ang mangyayari kung labis ang bilang ng isda sa maliit na tangke?",
+            "options": [
+              "Kukulangin ang oxygen at madaling magkasakit ang isda",
+              "Mas lalago ang isda nang mas mabilis kaysa dati",
+              "Wala itong anumang epekto sa mga isda",
+              "Nagiging mas malinis pa ang tubig sa tangke"
+            ],
+            "correct_answer": "Kukulangin ang oxygen at madaling magkasakit ang isda"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga karaniwang sakit ng isda?",
+            "options": [
+              "Upang maiwasan ang malaking pagkalugi sa pag-aalaga",
+              "Upang mabilis maubos ang stock ng isda",
+              "Dahil wala itong silbi sa negosyo",
+              "Upang hindi na kailangan pang linisin ang tangke"
+            ],
+            "correct_answer": "Upang maiwasan ang malaking pagkalugi sa pag-aalaga"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# ✍️ Friday Review — English (Grade 6)\n\n- **Intransitive verbs** need no object\n- **Perfect tenses:** has/have or had + past participle\n- **Compound-complex:** 2+ independent clauses + 1 dependent clause\n- **Open-ended survey questions** let respondents answer freely\n\nExcellent grammar detective work! 🌟",
+        "quiz": [
+          {
+            "question": "What is a directory used for in writing?",
+            "options": [
+              "A reference list of acronyms and abbreviations used by organizations",
+              "A collection of stories about famous characters",
+              "A gathering of poems from different countries",
+              "A dictionary that only lists rhyming words"
+            ],
+            "correct_answer": "A reference list of acronyms and abbreviations used by organizations"
+          },
+          {
+            "question": "Which sentence uses an intransitive verb?",
+            "options": [
+              "The baby sleeps.",
+              "She reads the book.",
+              "They painted the wall.",
+              "He kicked the ball."
+            ],
+            "correct_answer": "The baby sleeps."
+          },
+          {
+            "question": "What formula makes the present perfect tense?",
+            "options": [
+              "has/have + past participle",
+              "will + base verb",
+              "was/were + verb-ing",
+              "did + base verb"
+            ],
+            "correct_answer": "has/have + past participle"
+          },
+          {
+            "question": "\"They had left before we arrived.\" Which tense is \"had left\"?",
+            "options": [
+              "Past perfect",
+              "Present perfect",
+              "Simple future",
+              "Simple present"
+            ],
+            "correct_answer": "Past perfect"
+          },
+          {
+            "question": "In \"The book on the table is mine,\" what does the prepositional phrase describe?",
+            "options": [
+              "Which book",
+              "Where the table is only",
+              "The color of the book",
+              "The size of the table"
+            ],
+            "correct_answer": "Which book"
+          },
+          {
+            "question": "In \"She is proud of her grades,\" what does \"of her grades\" complete?",
+            "options": [
+              "The adjective \"proud\"",
+              "The verb \"is\" only",
+              "The subject \"She\" only",
+              "Nothing in the sentence"
+            ],
+            "correct_answer": "The adjective \"proud\""
+          },
+          {
+            "question": "What makes a sentence compound-complex?",
+            "options": [
+              "Two or more independent clauses plus at least one dependent clause",
+              "Just a single independent clause standing alone",
+              "Two or more dependent clauses with no independent one",
+              "A sentence that has no clauses whatsoever"
+            ],
+            "correct_answer": "Two or more independent clauses plus at least one dependent clause"
+          },
+          {
+            "question": "\"Although it was late, she finished her homework, and she went to bed.\" What type of sentence is this?",
+            "options": [
+              "Compound-complex",
+              "Simple",
+              "Compound only",
+              "Complex only"
+            ],
+            "correct_answer": "Compound-complex"
+          },
+          {
+            "question": "What is an open-ended survey question?",
+            "options": [
+              "A question that lets the respondent answer freely",
+              "A question answered only with Yes or No",
+              "A question with fixed choices only",
+              "A question that has no answer"
+            ],
+            "correct_answer": "A question that lets the respondent answer freely"
+          },
+          {
+            "question": "\"Do you like reading?\" is what type of survey question?",
+            "options": [
+              "Closed question",
+              "Open-ended question",
+              "Compound question",
+              "Rhetorical question"
+            ],
+            "correct_answer": "Closed question"
+          },
+          {
+            "question": "Which is a transitive verb, unlike an intransitive one?",
+            "options": [
+              "Reads (needs an object, like \"the book\")",
+              "Sleeps (needs no object)",
+              "Arrived (needs no object)",
+              "Laughed (needs no object)"
+            ],
+            "correct_answer": "Reads (needs an object, like \"the book\")"
+          },
+          {
+            "question": "Why might a writer create an open-ended printed survey form?",
+            "options": [
+              "To collect detailed responses in the respondent's own words",
+              "To limit every respondent to only Yes or No answers",
+              "To make sure no information is ever collected",
+              "To replace a written story with a blank form"
+            ],
+            "correct_answer": "To collect detailed responses in the respondent's own words"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 6)\n\n- **Exponential form:** base^exponent (2×2×2 = 2³)\n- Find the **value** by multiplying the base by itself\n- **GEMDAS:** solve exponents before multiply/divide/add/subtract\n\nGreat power of numbers work! ⭐",
+        "quiz": [
+          {
+            "question": "What is $2 \\times 2 \\times 2$ written in exponential form?",
+            "options": [
+              "2³",
+              "3²",
+              "2×3",
+              "6"
+            ],
+            "correct_answer": "2³"
+          },
+          {
+            "question": "In 2³, what is the number 2 called?",
+            "options": [
+              "Base",
+              "Exponent",
+              "Product",
+              "Sum"
+            ],
+            "correct_answer": "Base"
+          },
+          {
+            "question": "In 2³, what is the number 3 called?",
+            "options": [
+              "Exponent",
+              "Base",
+              "Factor",
+              "Remainder"
+            ],
+            "correct_answer": "Exponent"
+          },
+          {
+            "question": "Write 5 × 5 × 5 × 5 in exponential form.",
+            "options": [
+              "5⁴",
+              "4⁵",
+              "5×4",
+              "20"
+            ],
+            "correct_answer": "5⁴"
+          },
+          {
+            "question": "What is the value of 4³?",
+            "options": [
+              "64",
+              "12",
+              "43",
+              "16"
+            ],
+            "correct_answer": "64"
+          },
+          {
+            "question": "What is the value of 2⁵?",
+            "options": [
+              "32",
+              "10",
+              "25",
+              "16"
+            ],
+            "correct_answer": "32"
+          },
+          {
+            "question": "Following GEMDAS, what do you compute first in 3 + 2³ × 2?",
+            "options": [
+              "The exponent 2³",
+              "The addition 3 + 2",
+              "The multiplication ×2 first",
+              "It does not matter"
+            ],
+            "correct_answer": "The exponent 2³"
+          },
+          {
+            "question": "What is the value of 3 + 2³ × 2?",
+            "options": [
+              "19",
+              "16",
+              "22",
+              "13"
+            ],
+            "correct_answer": "19"
+          },
+          {
+            "question": "What is the value of (1 + 2)² × 3?",
+            "options": [
+              "27",
+              "9",
+              "18",
+              "11"
+            ],
+            "correct_answer": "27"
+          },
+          {
+            "question": "How do you read 2³ aloud?",
+            "options": [
+              "2 to the third power",
+              "2 plus 3",
+              "2 divided by 3",
+              "23 as a whole number"
+            ],
+            "correct_answer": "2 to the third power"
+          },
+          {
+            "question": "A square garden has sides of 6 meters. Which expression gives its area in exponential form?",
+            "options": [
+              "6²",
+              "6×2",
+              "2⁶",
+              "6+2"
+            ],
+            "correct_answer": "6²"
+          },
+          {
+            "question": "What is the value of 6²?",
+            "options": [
+              "36",
+              "12",
+              "62",
+              "18"
+            ],
+            "correct_answer": "36"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📝 Friday Review — Filipino (Grade 6)\n\n- **Salawikain:** maikling kasabihang may aral, magagamit bilang pambungad\n- **Tagatanggap:** kanino ibinigay/sinabi\n- **Benepaktibo:** para kanino ginawa\n\nMagaling sa gramatika! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang salawikain?",
+            "options": [
+              "Maikling kasabihang may aral tungkol sa buhay",
+              "Mahabang kuwentong pambata na walang katapusan",
+              "Awiting-bayang inaawit lamang tuwing pista",
+              "Tulang may tugma tungkol sa pag-ibig"
+            ],
+            "correct_answer": "Maikling kasabihang may aral tungkol sa buhay"
+          },
+          {
+            "question": "Paano magagamit ang salawikain bilang panandang konteksto?",
+            "options": [
+              "Bilang pambungad na nagbubuod sa paksa",
+              "Bilang katapusan ng liham lamang",
+              "Bilang pamagat ng aklat lamang",
+              "Bilang listahan ng bokabularyo"
+            ],
+            "correct_answer": "Bilang pambungad na nagbubuod sa paksa"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang isang salawikain?",
+            "options": [
+              "Kung may tiyaga, may nilaga",
+              "Ang bahay ay malaki",
+              "Umuulan ngayon",
+              "Maganda ang panahon"
+            ],
+            "correct_answer": "Kung may tiyaga, may nilaga"
+          },
+          {
+            "question": "Ano ang kaganapan (komplemento) ng pandiwa?",
+            "options": [
+              "Salita o parirala na nagbubuo sa kahulugan ng pandiwa",
+              "Ang paksa lamang ng buong pangungusap",
+              "Ang bantas na nasa dulo ng pangungusap",
+              "Ang unang salitang ginamit sa pangungusap"
+            ],
+            "correct_answer": "Salita o parirala na nagbubuo sa kahulugan ng pandiwa"
+          },
+          {
+            "question": "Anong tanong ang sinasagot ng kaganapang tagatanggap?",
+            "options": [
+              "Kanino ibinigay o sinabi?",
+              "Kailan nangyari?",
+              "Bakit nangyari?",
+              "Ilan ang bilang?"
+            ],
+            "correct_answer": "Kanino ibinigay o sinabi?"
+          },
+          {
+            "question": "Anong tanong ang sinasagot ng kaganapang benepaktibo?",
+            "options": [
+              "Para kanino ginawa?",
+              "Saan nangyari?",
+              "Kailan nagsimula?",
+              "Ano ang kulay nito?"
+            ],
+            "correct_answer": "Para kanino ginawa?"
+          },
+          {
+            "question": "\"Nagbigay siya ng regalo sa nanay.\" Ano ang kaganapang tagatanggap?",
+            "options": [
+              "sa nanay",
+              "Nagbigay",
+              "siya",
+              "ng regalo"
+            ],
+            "correct_answer": "sa nanay"
+          },
+          {
+            "question": "\"Nagluto siya para sa kapatid.\" Anong uri ng kaganapan ang \"para sa kapatid\"?",
+            "options": [
+              "Benepaktibo",
+              "Tagatanggap",
+              "Panaguri",
+              "Simuno"
+            ],
+            "correct_answer": "Benepaktibo"
+          },
+          {
+            "question": "\"Gumawa ako ng proyekto para sa aking guro.\" Ano ang uri ng kaganapan sa \"para sa aking guro\"?",
+            "options": [
+              "Benepaktibo",
+              "Tagatanggap",
+              "Pang-uri",
+              "Pandiwari"
+            ],
+            "correct_answer": "Benepaktibo"
+          },
+          {
+            "question": "\"Nagbahagi si Ana ng pagkain sa mga kapitbahay.\" Ano ang kaganapang tagatanggap?",
+            "options": [
+              "sa mga kapitbahay",
+              "si Ana",
+              "ng pagkain",
+              "Nagbahagi"
+            ],
+            "correct_answer": "sa mga kapitbahay"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang salawikain sa isang sanaysay?",
+            "options": [
+              "Nakatutulong itong ipahiwatig ang aral ng sanaysay",
+              "Pinapahaba lamang nito ang teksto",
+              "Wala itong epekto sa mambabasa",
+              "Ginagamit lamang ito sa awit"
+            ],
+            "correct_answer": "Nakatutulong itong ipahiwatig ang aral ng sanaysay"
+          },
+          {
+            "question": "Isang mag-aaral ang magsisimula ng sanaysay tungkol sa pagtitiyaga gamit ang \"Kung may tiyaga, may nilaga.\" Ano ang ginagamit niyang teknik?",
+            "options": [
+              "Salawikain bilang panandang konteksto",
+              "Talata ng konklusyon sa huling bahagi",
+              "Talatanungang ginamit lamang sa pagsusulit",
+              "Talasalitaang inilagay sa dulo ng sanaysay"
+            ],
+            "correct_answer": "Salawikain bilang panandang konteksto"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Friday Review — Science (Grade 6)\n\n- **Fair test:** change ONE variable, keep others the same\n- **Independent variable** = what you change; **dependent** = what you measure\n- **Replication** makes results reliable\n\nGreat scientific thinking! 🌟",
+        "quiz": [
+          {
+            "question": "What is a fair test?",
+            "options": [
+              "An investigation where only one variable is changed at a time",
+              "An investigation where everything is changed at once",
+              "A test with no measurements",
+              "A test done only one time"
+            ],
+            "correct_answer": "An investigation where only one variable is changed at a time"
+          },
+          {
+            "question": "In testing which propagation method grows roots fastest, what is the independent variable?",
+            "options": [
+              "The propagation method used",
+              "The number of days that pass",
+              "The size of the pot",
+              "The color of the leaves"
+            ],
+            "correct_answer": "The propagation method used"
+          },
+          {
+            "question": "What is the dependent variable in this investigation?",
+            "options": [
+              "Number of days until roots appear",
+              "The propagation method used",
+              "The type of plant chosen",
+              "The name of the student"
+            ],
+            "correct_answer": "Number of days until roots appear"
+          },
+          {
+            "question": "What are controlled variables?",
+            "options": [
+              "The things kept the same during the test",
+              "The one thing you change on purpose",
+              "The final result of the test",
+              "The student conducting the test"
+            ],
+            "correct_answer": "The things kept the same during the test"
+          },
+          {
+            "question": "What is replication in an investigation?",
+            "options": [
+              "Repeating the test multiple times to check results",
+              "Changing the variable every time",
+              "Doing the test only once",
+              "Skipping the measurement step"
+            ],
+            "correct_answer": "Repeating the test multiple times to check results"
+          },
+          {
+            "question": "Why should you test several plants per method instead of just one?",
+            "options": [
+              "To make the results more reliable",
+              "To use up extra plants",
+              "To make the test take longer",
+              "To confuse the results"
+            ],
+            "correct_answer": "To make the results more reliable"
+          },
+          {
+            "question": "A student tests cutting in sunlight and layering in shade. Is this a fair test?",
+            "options": [
+              "No, because sunlight should be controlled, not changed",
+              "Yes, because the method changed",
+              "Yes, because plants like different light",
+              "No, because layering never needs light"
+            ],
+            "correct_answer": "No, because sunlight should be controlled, not changed"
+          },
+          {
+            "question": "Which of these should be kept the SAME across all test plants for a fair comparison?",
+            "options": [
+              "Amount of water given",
+              "The propagation method",
+              "The number of roots that grow",
+              "The days until roots appear"
+            ],
+            "correct_answer": "Amount of water given"
+          },
+          {
+            "question": "Why is planning a scientific investigation important?",
+            "options": [
+              "It lets us find which method truly works best, not just guess",
+              "It makes the experiment take less time always",
+              "It removes the need for any variables",
+              "It guarantees every plant will grow"
+            ],
+            "correct_answer": "It lets us find which method truly works best, not just guess"
+          },
+          {
+            "question": "Which propagation methods were reviewed as possible choices for the investigation?",
+            "options": [
+              "Cutting, budding, layering, grafting",
+              "Pollination and fertilization only",
+              "Photosynthesis and respiration only",
+              "Germination and sprouting only"
+            ],
+            "correct_answer": "Cutting, budding, layering, grafting"
+          },
+          {
+            "question": "If a fair test changes two variables at once, what happens to the results?",
+            "options": [
+              "They become unreliable because we can't tell which variable caused the change",
+              "They become more accurate than a single-variable test",
+              "They are always correct no matter what happens",
+              "Nothing at all changes about the final results"
+            ],
+            "correct_answer": "They become unreliable because we can't tell which variable caused the change"
+          },
+          {
+            "question": "What should a student measure to compare cutting vs. layering fairly?",
+            "options": [
+              "The same measurement (like days to root) for both methods",
+              "A different measurement for each method",
+              "Only how the plant looks",
+              "Only the price of each method"
+            ],
+            "correct_answer": "The same measurement (like days to root) for both methods"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Friday Review — Araling Panlipunan (Grade 6)\n\n- **Death March:** puwersahang paglalakad ng mga bihag na sundalo\n- **HUKBALAHAP:** kilusang gerilya laban sa Hapon\n- Kalayaan ng Pilipinas = bunga ng matagal na pakikibaka laban sa dalawang mananakop\n\nMagaling sa Linggo 17! 🌟",
+        "quiz": [
+          {
+            "question": "Anong digmaang pandaigdig ang naganap noong sinakop ng Hapon ang Pilipinas?",
+            "options": [
+              "Ikalawang Digmaang Pandaigdig",
+              "Unang Digmaang Pandaigdig",
+              "Digmaang Pilipino-Amerikano",
+              "Digmaang Pilipino-Espanyol"
+            ],
+            "correct_answer": "Ikalawang Digmaang Pandaigdig"
+          },
+          {
+            "question": "Ano ang Death March?",
+            "options": [
+              "Puwersahang paglalakad ng mga bihag na sundalo",
+              "Isang sayaw ng mga Pilipino",
+              "Isang kasunduang pangkapayapaan",
+              "Isang pistang bayan"
+            ],
+            "correct_answer": "Puwersahang paglalakad ng mga bihag na sundalo"
+          },
+          {
+            "question": "Saan naganap ang matinding labanan laban sa mga Hapones?",
+            "options": [
+              "Bataan-Corregidor",
+              "Tirad Pass",
+              "Sta. Mesa",
+              "Balangiga"
+            ],
+            "correct_answer": "Bataan-Corregidor"
+          },
+          {
+            "question": "Ano ang HUKBALAHAP?",
+            "options": [
+              "Kilusang gerilyang nakipaglaban sa mga Hapones",
+              "Ahensya ng gobyernong Amerikano",
+              "Batas laban sa mga Pilipino",
+              "Grupong pangkalakalan"
+            ],
+            "correct_answer": "Kilusang gerilyang nakipaglaban sa mga Hapones"
+          },
+          {
+            "question": "Ano ang kilusang gerilya sa panahon ng Hapon?",
+            "options": [
+              "Mga lihim na grupong nagsagawa ng paglaban",
+              "Opisyal na hukbong Hapones sa Maynila",
+              "Kumpanyang pangkalakalang Amerikano",
+              "Paaralang pang-militar ng mga Kastila"
+            ],
+            "correct_answer": "Mga lihim na grupong nagsagawa ng paglaban"
+          },
+          {
+            "question": "Ano ang naranasan ng maraming Pilipino sa ilalim ng Hapon?",
+            "options": [
+              "Pang-aabuso mula sa mga sundalo",
+              "Malayang pamahalaan agad",
+              "Kaunlarang pang-ekonomiya",
+              "Kapayapaan sa buong bansa"
+            ],
+            "correct_answer": "Pang-aabuso mula sa mga sundalo"
+          },
+          {
+            "question": "Ano ang patuloy na ipinaglaban ng kababaihan kahit sa gitna ng digmaan?",
+            "options": [
+              "Karapatang bumoto",
+              "Karapatang magmay-ari ng lupa lamang",
+              "Karapatang magpundar ng negosyo lamang",
+              "Karapatang mangibang-bansa lamang"
+            ],
+            "correct_answer": "Karapatang bumoto"
+          },
+          {
+            "question": "Bakit itinuturing na mga bayani ang mga kasapi ng HUKBALAHAP?",
+            "options": [
+              "Nakipaglaban sila para sa kalayaan ng bayan",
+              "Sumuko agad sila sa Hapon nang walang laban",
+              "Tumulong sila sa mga Hapones na sundalo",
+              "Umalis sila palayo sa bansang Pilipinas"
+            ],
+            "correct_answer": "Nakipaglaban sila para sa kalayaan ng bayan"
+          },
+          {
+            "question": "Ano ang layunin ng proyektong gagawin tungkol sa kasaysayan?",
+            "options": [
+              "Ipakita ang pagmamalaki sa pagpupunyagi ng mga Pilipino tungo sa kalayaan",
+              "Ipakita lamang ang mga larawang kuha noong panahon ng Hapon",
+              "Kalimutan na lamang ang buong nakaraang kasaysayan ng bansa",
+              "Purihin lamang ang mga dayuhang mananakop sa Pilipinas"
+            ],
+            "correct_answer": "Ipakita ang pagmamalaki sa pagpupunyagi ng mga Pilipino tungo sa kalayaan"
+          },
+          {
+            "question": "Ilang mananakop ang pinaglabanan ng mga Pilipino ayon sa buong kasaysayang pinag-aralan?",
+            "options": [
+              "Dalawa — Amerikano at Hapones",
+              "Isa lamang — Espanyol",
+              "Tatlo — Espanyol, Amerikano, Hapones",
+              "Wala — laging malaya ang Pilipinas"
+            ],
+            "correct_answer": "Dalawa — Amerikano at Hapones"
+          },
+          {
+            "question": "Ano ang isang maaaring anyo ng proyektong pantapos ng yunit na ito?",
+            "options": [
+              "Timeline poster, maikling dula, o collage",
+              "Isang liham sa pangulo lamang",
+              "Isang awiting pambata lamang",
+              "Isang guhit ng hayop lamang"
+            ],
+            "correct_answer": "Timeline poster, maikling dula, o collage"
+          },
+          {
+            "question": "Bakit sinasabing hindi biglaan ang pagkamit ng kalayaan ng Pilipinas?",
+            "options": [
+              "Ito ay bunga ng matagal at magkakasunod na pakikibaka",
+              "Ibinigay ito kaagad ng mga mananakop",
+              "Wala itong kinalaman sa mga bayani",
+              "Nangyari ito sa loob lamang ng isang araw"
+            ],
+            "correct_answer": "Ito ay bunga ng matagal at magkakasunod na pakikibaka"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎭 Friday Review — MAPEH (Grade 6)\n\n- Mga pagbabago habang papalaki ay **normal** — pisikal, emosyonal, panlipunan\n- **Bukas na komunikasyon** sa pamilya ay mahalaga\n- **Self-esteem** at kasanayan sa **pagtanggi** ay tumutulong sa tamang desisyon\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang ginamit ng mga Pilipino sa dulaan noong panahon ng Amerikano upang ipahayag ang damdaming makabayan?",
+            "options": [
+              "Simbolismo sa dulaan",
+              "Tuwirang pagsalungat",
+              "Pagsunod sa gobyerno",
+              "Pananahimik lamang"
+            ],
+            "correct_answer": "Simbolismo sa dulaan"
+          },
+          {
+            "question": "Ano ang tawag sa panahon kung kailan nararanasan ng bata ang pisikal, emosyonal, at panlipunang pagbabago patungo sa pagbibinata o pagdadalaga?",
+            "options": [
+              "Normal na bahagi ng paglaki",
+              "Isang sakit na dapat gamutin",
+              "Isang bagay na dapat ikahiya",
+              "Isang bagay na dapat itago sa lahat"
+            ],
+            "correct_answer": "Normal na bahagi ng paglaki"
+          },
+          {
+            "question": "Alin ang halimbawa ng PISIKAL na pagbabago habang papalaki?",
+            "options": [
+              "Pagtaas ng tangkad",
+              "Pagbabago ng opinyon sa kaibigan",
+              "Pagiging mas madaling magalit",
+              "Pagiging mas mahiyain sa lahat"
+            ],
+            "correct_answer": "Pagtaas ng tangkad"
+          },
+          {
+            "question": "Bakit mahalaga ang bukas na komunikasyon sa pamilya habang lumalaki ang isang bata?",
+            "options": [
+              "Sila ang pinaka-mapagkakatiwalaang gabay sa mga bagong katanungan",
+              "Hindi na kailangan ng gabay sa yugtong ito",
+              "Mas mabuting itago ang lahat ng tanong",
+              "Hindi na dapat makinig sa magulang"
+            ],
+            "correct_answer": "Sila ang pinaka-mapagkakatiwalaang gabay sa mga bagong katanungan"
+          },
+          {
+            "question": "Ano ang self-esteem o pagpapahalaga sa sarili?",
+            "options": [
+              "Positibong pagtingin sa sarili",
+              "Palaging pagdududa sa sarili",
+              "Palaging pagsunod sa kaibigan",
+              "Kawalan ng pagpapahalaga sa sarili"
+            ],
+            "correct_answer": "Positibong pagtingin sa sarili"
+          },
+          {
+            "question": "Paano nakatutulong ang mataas na self-esteem sa isang bata?",
+            "options": [
+              "Nakatutulong itong manatiling tapat sa kanyang pagpapahalaga",
+              "Nagiging madaling maimpluwensiyahan siya",
+              "Nawawalan siya ng sariling opinyon",
+              "Nagiging palaging nagdududa siya"
+            ],
+            "correct_answer": "Nakatutulong itong manatiling tapat sa kanyang pagpapahalaga"
+          },
+          {
+            "question": "Ano ang kasanayan sa pagtanggi (assertiveness)?",
+            "options": [
+              "Kakayahang magsabi ng \"hindi\" nang buong tiwala",
+              "Kakayahang palaging sumang-ayon sa iba",
+              "Kakayahang manahimik lamang palagi",
+              "Kakayahang iwasan ang lahat ng usapan"
+            ],
+            "correct_answer": "Kakayahang magsabi ng \"hindi\" nang buong tiwala"
+          },
+          {
+            "question": "May kaklase kang sumusubok pilitin kang gumawa ng bagay na hindi mo gusto. Ano ang dapat mong gawin?",
+            "options": [
+              "Magsabi ng \"hindi\" nang tiyak at kausapin ang pinagkakatiwalaang matanda",
+              "Sumunod na lamang para hindi mainis ang kaklase",
+              "Itago ang nangyari sa lahat",
+              "Iwasan ang kaklase magpakailanman"
+            ],
+            "correct_answer": "Magsabi ng \"hindi\" nang tiyak at kausapin ang pinagkakatiwalaang matanda"
+          },
+          {
+            "question": "Ano ang papel ng pamilya sa paglaki ng isang bata?",
+            "options": [
+              "Unang gabay ng bata sa tamang pagpapasya",
+              "Walang anumang papel sa yugtong ito ng buhay",
+              "Dapat lamang silang manood mula sa malayo",
+              "Sila lamang ang dapat magpasya para sa bata"
+            ],
+            "correct_answer": "Unang gabay ng bata sa tamang pagpapasya"
+          },
+          {
+            "question": "Alin ang halimbawa ng EMOSYONAL na pagbabago habang papalaki?",
+            "options": [
+              "Mas malalim na damdamin at pagbabago ng mood",
+              "Pagtaas ng tangkad ng bata habang papalaki",
+              "Pagbabago sa kulay ng buhok ng bata",
+              "Paglaki ng paa ng bata habang lumalaki"
+            ],
+            "correct_answer": "Mas malalim na damdamin at pagbabago ng mood"
+          },
+          {
+            "question": "Bakit dapat ituring na normal ang mga pagbabago habang papalaki?",
+            "options": [
+              "Karaniwang bahagi ito ng paglaki ng bawat tao",
+              "Ito ay bihirang mangyari sa mga bata",
+              "Dapat itong ikahiya at itago",
+              "Nangyayari lamang ito sa ilang bata"
+            ],
+            "correct_answer": "Karaniwang bahagi ito ng paglaki ng bawat tao"
+          },
+          {
+            "question": "Sino ang dapat lapitan ng batang may katanungan tungkol sa kanyang pagbabago?",
+            "options": [
+              "Isang pinagkakatiwalaang magulang o nakatatanda",
+              "Kahit sinong estranghero",
+              "Walang sinuman, dapat itago na lamang",
+              "Isang kaklaseng hindi rin nakakaalam"
+            ],
+            "correct_answer": "Isang pinagkakatiwalaang magulang o nakatatanda"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 Friday Review — GMRC (Grade 6)\n\n- Tuparin ang tungkulin sa pamilya **ayon sa iskedyul**\n- Pagpapahalaga: **Masipag**\n- Nagpapakita ito ng disiplina at pagiging maaasahan\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang tungkulin ng bawat miyembro ng pamilya?",
+            "options": [
+              "Mga gawaing dapat gampanan sa bahay",
+              "Mga bagay na dapat balewalain",
+              "Mga gawaing para lamang sa magulang",
+              "Mga bagay na hindi dapat pansinin"
+            ],
+            "correct_answer": "Mga gawaing dapat gampanan sa bahay"
+          },
+          {
+            "question": "Ano ang masipag?",
+            "options": [
+              "Taong gumagawa nang may pagpupursige kahit mahirap",
+              "Taong madaling sumuko sa harap ng gawain",
+              "Taong laging nag-aantala sa kanyang gawain",
+              "Taong ayaw tumulong sa kapwa niya tao"
+            ],
+            "correct_answer": "Taong gumagawa nang may pagpupursige kahit mahirap"
+          },
+          {
+            "question": "May iskedyul kang paglilinis tuwing Sabado ngunit gusto mong maglaro. Ano ang dapat gawin?",
+            "options": [
+              "Tapusin muna ang tungkulin bago maglaro",
+              "Kalimutan na lamang ang paglilinis",
+              "Ipaubaya sa kapatid ang gawain",
+              "Maglaro muna at huwag nang linisin"
+            ],
+            "correct_answer": "Tapusin muna ang tungkulin bago maglaro"
+          },
+          {
+            "question": "Bakit mahalagang sundin ang iskedyul ng gawain sa bahay?",
+            "options": [
+              "Nagpapakita ito ng disiplina at pagiging maaasahan",
+              "Wala itong kabuluhan sa tahanan",
+              "Ginagawa lamang ito para maparusahan",
+              "Hindi ito nakakaapekto sa pamilya"
+            ],
+            "correct_answer": "Nagpapakita ito ng disiplina at pagiging maaasahan"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagiging masipag sa tahanan?",
+            "options": [
+              "Natututunan ang responsibilidad",
+              "Nadaragdagan ang pasanin ng iba",
+              "Nasisira ang tiwala sa tahanan",
+              "Naiiwan ang mga gawain"
+            ],
+            "correct_answer": "Natututunan ang responsibilidad"
+          },
+          {
+            "question": "Ano ang mangyayari kapag palaging naiiwan ang mga tungkulin sa bahay?",
+            "options": [
+              "Nadaragdagan ang pasanin ng ibang miyembro ng pamilya",
+              "Nagiging mas magaan ang buhay-pamilya",
+              "Walang epekto ito sa sinuman",
+              "Lumalakas ang tiwala sa isa't isa"
+            ],
+            "correct_answer": "Nadaragdagan ang pasanin ng ibang miyembro ng pamilya"
+          },
+          {
+            "question": "Bakit hindi dapat gawin ang tungkulin 'kapag gusto lang'?",
+            "options": [
+              "Dahil kailangan ito sa oras para sa maayos na tahanan",
+              "Dahil bawal itong pag-usapan",
+              "Dahil walang saysay ang iskedyul",
+              "Dahil ito'y para sa magulang lamang"
+            ],
+            "correct_answer": "Dahil kailangan ito sa oras para sa maayos na tahanan"
+          },
+          {
+            "question": "Alin ang halimbawa ng tungkulin sa pamilya?",
+            "options": [
+              "Paglilinis ng sariling kwarto araw-araw",
+              "Panonood ng TV buong araw",
+              "Paglalaro ng video game buong araw",
+              "Pagtulog nang buong araw"
+            ],
+            "correct_answer": "Paglilinis ng sariling kwarto araw-araw"
+          },
+          {
+            "question": "Anong pagpapahalaga ang linalantad sa aralin ngayong linggo?",
+            "options": [
+              "Masipag",
+              "Matapat",
+              "Mapagpasensiya",
+              "Mapagkawang-gawa"
+            ],
+            "correct_answer": "Masipag"
+          },
+          {
+            "question": "Ano ang isang paraan para matapos ang tungkulin at malaro pa rin?",
+            "options": [
+              "Hanapin ang paraan para gawin ang dalawa nang maayos",
+              "Kalimutan ang gawain nang tuluyan",
+              "Isumbat sa kapatid ang gawain",
+              "Umiwas sa lahat ng usapan"
+            ],
+            "correct_answer": "Hanapin ang paraan para gawin ang dalawa nang maayos"
+          },
+          {
+            "question": "Bakit mahalaga ang pag-aalaga ng alagang hayop sa iskedyul na itinakda?",
+            "options": [
+              "Ito ay isang tungkuling dapat gampanan nang regular",
+              "Hindi na kailangan pang pakainin ang hayop",
+              "Ginagawa lamang ito minsan sa isang buwan",
+              "Hindi ito bahagi ng tungkulin sa bahay"
+            ],
+            "correct_answer": "Ito ay isang tungkuling dapat gampanan nang regular"
+          },
+          {
+            "question": "Isang bata ang laging umaantala sa kanyang mga gawain sa bahay. Ano ang dapat niyang paunlarin?",
+            "options": [
+              "Pagiging masipag at disiplinado",
+              "Pagiging palaaway sa kapatid",
+              "Pagiging mapili sa gawain",
+              "Pag-iwas sa lahat ng tungkulin"
+            ],
+            "correct_answer": "Pagiging masipag at disiplinado"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Friday Review — EPP (Grade 6)\n\n- Kailangan sa pag-aalaga ng isda: **tubig, stocking density, feeds**\n- Anatomiya: **bibig, buntot, kaliskis, hasang**\n- Karaniwang sakit: fungal infection, parasites, fin rot\n\nMagaling sa Linggo 17! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tatlong kailangan sa natural na pag-aalaga ng isda?",
+            "options": [
+              "Suplay ng tubig, stocking density, at feeds",
+              "Tubig, lupa, at bato lamang",
+              "Pera, oras, at lakas lamang",
+              "Guro, aklat, at papel lamang"
+            ],
+            "correct_answer": "Suplay ng tubig, stocking density, at feeds"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang stocking density?",
+            "options": [
+              "Upang may sapat na oxygen ang mga isda",
+              "Upang mabilis maubos ang pagkain",
+              "Upang maging magulo ang tangke",
+              "Walang epekto ito sa isda"
+            ],
+            "correct_answer": "Upang may sapat na oxygen ang mga isda"
+          },
+          {
+            "question": "Anong bahagi ng isda ang ginagamit sa paghinga?",
+            "options": [
+              "Hasang (gills)",
+              "Bibig (mouth)",
+              "Buntot (tail)",
+              "Kaliskis (scales)"
+            ],
+            "correct_answer": "Hasang (gills)"
+          },
+          {
+            "question": "Anong bahagi ng isda ang gamit sa pantulak papunta sa paglangoy?",
+            "options": [
+              "Buntot (tail)",
+              "Hasang (gills)",
+              "Bibig (mouth)",
+              "Kaliskis (scales)"
+            ],
+            "correct_answer": "Buntot (tail)"
+          },
+          {
+            "question": "Ano ang gamit ng kaliskis (scales) ng isda?",
+            "options": [
+              "Proteksyon ng balat ng isda",
+              "Paghinga sa ilalim ng tubig",
+              "Pagkain ng pagkain",
+              "Pananalig sa paglangoy lamang"
+            ],
+            "correct_answer": "Proteksyon ng balat ng isda"
+          },
+          {
+            "question": "Ang isda ay may maruming tubig at nagpapakita ng sugat sa palikpik. Ano ang maaaring sakit?",
+            "options": [
+              "Fin rot",
+              "Malaria",
+              "Sipon",
+              "Trangkaso"
+            ],
+            "correct_answer": "Fin rot"
+          },
+          {
+            "question": "Ano ang sanhi ng fungal infection sa isda?",
+            "options": [
+              "Maruming tubig",
+              "Sobrang linis ng tubig",
+              "Sariwang pagkain",
+              "Malamig na panahon lamang"
+            ],
+            "correct_answer": "Maruming tubig"
+          },
+          {
+            "question": "Paano maiiwasan ang parasites sa palaisdaan?",
+            "options": [
+              "Regular na paglilinis ng tangke o palaisdaan",
+              "Huwag na lang linisin ang tangke",
+              "Dagdagan ang bilang ng isda",
+              "Bawasan ang tubig sa tangke"
+            ],
+            "correct_answer": "Regular na paglilinis ng tangke o palaisdaan"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag nagkaroon ng fin rot ang isda?",
+            "options": [
+              "Palitan ang tubig at gamutin agad ang sugat",
+              "Hayaan na lamang ito nang walang gamot",
+              "Dagdagan pa ang isda sa tangke",
+              "Alisin ang lahat ng tubig"
+            ],
+            "correct_answer": "Palitan ang tubig at gamutin agad ang sugat"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang anatomiya ng isda para sa isang nag-aalaga?",
+            "options": [
+              "Nakatutulong ito upang maintindihan kung paano panatilihing malusog ang isda",
+              "Wala itong anumang kaugnayan sa pag-aalaga ng isda",
+              "Ginagamit lamang ito sa eksamen sa paaralan",
+              "Hindi na ito kailangan pang pag-aralan ngayon"
+            ],
+            "correct_answer": "Nakatutulong ito upang maintindihan kung paano panatilihing malusog ang isda"
+          },
+          {
+            "question": "Ano ang mangyayari kung labis ang bilang ng isda sa maliit na tangke?",
+            "options": [
+              "Kukulangin ang oxygen at madaling magkasakit ang isda",
+              "Mas lalago ang isda nang mas mabilis kaysa dati",
+              "Wala itong anumang epekto sa mga isda",
+              "Nagiging mas malinis pa ang tubig sa tangke"
+            ],
+            "correct_answer": "Kukulangin ang oxygen at madaling magkasakit ang isda"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga karaniwang sakit ng isda?",
+            "options": [
+              "Upang maiwasan ang malaking pagkalugi sa pag-aalaga",
+              "Upang mabilis maubos ang stock ng isda",
+              "Dahil wala itong silbi sa negosyo",
+              "Upang hindi na kailangan pang linisin ang tangke"
+            ],
+            "correct_answer": "Upang maiwasan ang malaking pagkalugi sa pag-aalaga"
+          }
+        ]
+      }
+    }
+  }
+}

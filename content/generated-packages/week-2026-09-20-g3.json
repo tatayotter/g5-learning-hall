@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-09-20",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📖 English — Sight Words and VCV/VCCV Words\n\nWelcome to Term 2, Grade 3! Let's sharpen our reading. 💪\n\n## 👀 Sight Words\n**Sight words** are common words you should recognize **instantly** — without sounding them out.\n\n**Examples:** *the, said, because, friend, again, people*\n\nThese words are often **not spelled the way they sound**, so memorizing them helps you read **faster and smoother**.\n\n## 🔤 VCV Words (Vowel-Consonant-Vowel)\nWhen a word has the pattern **Vowel-Consonant-Vowel**, the first vowel is usually **long**.\n\n| Word | Pattern | Sound |\n|---|---|---|\n| **tiger** | i-g-e | long **i** |\n| **music** | u-s-i | long **u** |\n| **paper** | a-p-e | long **a** |\n\n## 🔤 VCCV Words (Vowel-Consonant-Consonant-Vowel)\nWhen there are **two consonants** between vowels, the **first vowel is usually short**, and the word splits **between the two consonants**.\n\n| Word | Split | Sound |\n|---|---|---|\n| **rabbit** | rab-bit | short **a** |\n| **basket** | bas-ket | short **a** |\n| **sudden** | sud-den | short **u** |\n\n## 🧠 Worked Example 1\n*Read the word 'tiger'. Is it VCV or VCCV?*\n- Step 1: t-**i**-g-**e**-r → one consonant (g) between two vowels (i, e)\n- Step 2: This is **VCV**\n- Step 3: The first vowel **i** is **long** → \"TY-ger\" ✅\n\n## 🧠 Worked Example 2\n*Read the word 'rabbit'. Is it VCV or VCCV?*\n- Step 1: r-**a**-b-b-**i**-t → two consonants (b, b) between vowels\n- Step 2: This is **VCCV**\n- Step 3: Split between the consonants: **rab-bit**, first vowel is **short** → \"RAB-bit\" ✅\n\n## 💡 Why This Matters\nKnowing these patterns helps you **sound out new words** you haven't seen before, without needing someone to tell you how!\n\nGreat reading! 🌟",
+        "quiz": [
+          {
+            "question": "What are sight words?",
+            "options": [
+              "Common words recognized instantly without sounding out",
+              "Words that only appear in science books",
+              "Words with silent letters only",
+              "Words that rhyme with each other"
+            ],
+            "correct_answer": "Common words recognized instantly without sounding out"
+          },
+          {
+            "question": "In a VCV word, how many consonants are between the two vowels?",
+            "options": [
+              "One",
+              "Two",
+              "Three",
+              "None"
+            ],
+            "correct_answer": "One"
+          },
+          {
+            "question": "In a VCCV word, how many consonants are between the two vowels?",
+            "options": [
+              "Two",
+              "One",
+              "Three",
+              "None"
+            ],
+            "correct_answer": "Two"
+          },
+          {
+            "question": "Which word follows the VCV pattern?",
+            "options": [
+              "tiger",
+              "rabbit",
+              "basket",
+              "sudden"
+            ],
+            "correct_answer": "tiger"
+          },
+          {
+            "question": "Which word follows the VCCV pattern?",
+            "options": [
+              "rabbit",
+              "tiger",
+              "paper",
+              "music"
+            ],
+            "correct_answer": "rabbit"
+          },
+          {
+            "question": "In a VCV word, the first vowel is usually:",
+            "options": [
+              "long",
+              "short",
+              "silent",
+              "doubled"
+            ],
+            "correct_answer": "long"
+          },
+          {
+            "question": "In a VCCV word, the first vowel is usually:",
+            "options": [
+              "short",
+              "long",
+              "silent",
+              "doubled"
+            ],
+            "correct_answer": "short"
+          },
+          {
+            "question": "How do you split the word 'basket'?",
+            "options": [
+              "bas-ket",
+              "ba-sket",
+              "b-asket",
+              "bask-et"
+            ],
+            "correct_answer": "bas-ket"
+          },
+          {
+            "question": "Which is a sight word?",
+            "options": [
+              "because",
+              "elephant",
+              "purple",
+              "jumping"
+            ],
+            "correct_answer": "because"
+          },
+          {
+            "question": "Why are sight words often memorized instead of sounded out?",
+            "options": [
+              "They are not spelled the way they sound",
+              "They are the longest words in English",
+              "They only appear in poems",
+              "They have no vowels at all"
+            ],
+            "correct_answer": "They are not spelled the way they sound"
+          },
+          {
+            "question": "Read 'paper'. Which vowel sound does the first 'a' make?",
+            "options": [
+              "Long a",
+              "Short a",
+              "Silent a",
+              "Long o"
+            ],
+            "correct_answer": "Long a"
+          },
+          {
+            "question": "A student sees the new word 'sudden' for the first time. Using VCCV rules, how should they split it?",
+            "options": [
+              "sud-den",
+              "su-dden",
+              "s-udden",
+              "sudd-en"
+            ],
+            "correct_answer": "sud-den"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ⚖️ Mathematics — Measuring Mass\n\nWelcome to Term 2, Grade 3! Let's learn about mass. ⚖️\n\n## ⚖️ Units of Mass\n| Unit | Used for | Example |\n|---|---|---|\n| **Milligram (mg)** | tiny amounts | a grain of sand |\n| **Gram (g)** | small objects | a spoon, an egg |\n| **Kilogram (kg)** | heavier objects | a bag of rice, a person |\n\n**Rule of thumb:** if you can lift it easily with one hand, it's likely in **grams**. If it's heavy, it's in **kilograms**.\n\n## 🎚️ Using a Balance Scale\nA **balance scale** has two sides. When both sides are **level**, the weights on each side are **equal**.\n\n**Steps:**\n1. Place the object on **one side**\n2. Add **known weights** to the other side\n3. Keep adding until the scale is **balanced**\n4. Add up the weights — that's the object's **mass**\n\n## 🧠 Worked Example 1\n*A balance scale is level when an apple is on one side and three 50g weights are on the other.*\n- Step 1: 50g + 50g + 50g = **150g**\n- Step 2: The apple has a mass of **150 grams** ✅\n\n## 🧠 Worked Example 2\n*Estimating: Would a school bag be measured in grams or kilograms?*\n- A school bag full of books is **heavy** — too heavy for grams to be a natural unit.\n- We measure it in **kilograms** (about 3-5 kg). ✅\n\n## ⚖️ Comparing Mass\n**Heavier** objects push a balance scale **down**. **Lighter** objects rise **up**.\n\n**Example:** A mango (150g) vs. a grape (5g)\n- The mango's side of the scale goes **down** — it is **heavier**.\n\n## 📝 Word Problem\n*A bag of rice is 5 kg. A bag of sugar is 2 kg. How much heavier is the rice?*\n- 5 kg − 2 kg = **3 kg heavier** ✅\n\nGreat weighing! ⭐",
+        "quiz": [
+          {
+            "question": "Which unit is best for measuring a spoon?",
+            "options": [
+              "Grams",
+              "Kilograms",
+              "Meters",
+              "Liters"
+            ],
+            "correct_answer": "Grams"
+          },
+          {
+            "question": "Which unit is best for measuring a bag of rice?",
+            "options": [
+              "Kilograms",
+              "Grams",
+              "Centimeters",
+              "Seconds"
+            ],
+            "correct_answer": "Kilograms"
+          },
+          {
+            "question": "When a balance scale is level, what does it mean?",
+            "options": [
+              "Both sides weigh the same",
+              "One side is heavier",
+              "The scale is broken",
+              "The object has no mass"
+            ],
+            "correct_answer": "Both sides weigh the same"
+          },
+          {
+            "question": "An apple balances with three 50g weights. What is the apple's mass?",
+            "options": [
+              "150 grams",
+              "100 grams",
+              "50 grams",
+              "200 grams"
+            ],
+            "correct_answer": "150 grams"
+          },
+          {
+            "question": "A bag of rice is 5 kg and a bag of sugar is 2 kg. How much heavier is the rice?",
+            "options": [
+              "3 kg",
+              "2 kg",
+              "7 kg",
+              "5 kg"
+            ],
+            "correct_answer": "3 kg"
+          },
+          {
+            "question": "On a balance scale, the heavier side moves:",
+            "options": [
+              "down",
+              "up",
+              "sideways",
+              "does not move"
+            ],
+            "correct_answer": "down"
+          },
+          {
+            "question": "Which is the smallest unit of mass listed?",
+            "options": [
+              "Milligram",
+              "Gram",
+              "Kilogram",
+              "They are all equal"
+            ],
+            "correct_answer": "Milligram"
+          },
+          {
+            "question": "A mango weighs 150g and a grape weighs 5g. Which is heavier?",
+            "options": [
+              "The mango",
+              "The grape",
+              "They are equal",
+              "Cannot be told"
+            ],
+            "correct_answer": "The mango"
+          },
+          {
+            "question": "About how much does a school bag full of books weigh?",
+            "options": [
+              "3 to 5 kilograms",
+              "3 to 5 grams",
+              "3 to 5 milligrams",
+              "3 to 5 meters"
+            ],
+            "correct_answer": "3 to 5 kilograms"
+          },
+          {
+            "question": "What is the first step in using a balance scale?",
+            "options": [
+              "Place the object on one side",
+              "Add all weights at once",
+              "Remove the scale's base",
+              "Guess the mass first"
+            ],
+            "correct_answer": "Place the object on one side"
+          },
+          {
+            "question": "Two identical bags balance perfectly on a scale. What can you conclude?",
+            "options": [
+              "They have the same mass",
+              "One bag is empty",
+              "The scale is not working",
+              "The bags are different sizes"
+            ],
+            "correct_answer": "They have the same mass"
+          },
+          {
+            "question": "A recipe needs 250 grams of flour. Which tool should you use to measure it accurately?",
+            "options": [
+              "A kitchen scale measures it best",
+              "A ruler measures it best",
+              "A measuring tape measures it",
+              "A stopwatch measures it"
+            ],
+            "correct_answer": "A kitchen scale measures it best"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Sight Words sa Filipino\n\nMaligayang pagdating sa Ikalawang Termino, Grade 3! 🎉\n\n## 👀 Ano ang Sight Words?\nAng **sight words** ay mga **karaniwang salita** na dapat **agad makilala** kapag nakita, hindi na kailangang bigkasin nang paisa-isa ang bawat pantig.\n\n**Halimbawa:** *ang, ng, sa, at, ay, na, mga, ito, iyon*\n\n## 🎯 Bakit Mahalaga ang Sight Words?\n- Ginagawang **mas mabilis** ang pagbasa\n- Binabawasan ang **pagkatigil-tigil** sa pagbasa ng pangungusap\n- Tumutulong para sa **maayos na daloy** kapag nagbabasa nang malakas\n\n## 📖 Mga Halimbawa ng Sight Words sa Pangungusap\n> **\"Ang** bata **ay** naglalaro **sa** parke **ng** kanyang mga kaibigan.\"\n\nMabilis mong makikilala ang mga salitang **ang, ay, sa, ng** kahit hindi mo ito binibigkas nang paisa-isa — dahil **paulit-ulit** mong nakikita ang mga ito.\n\n## 🧠 Pagsasanay\nBasahin nang mabilis, kilalanin ang sight words:\n> *\"Ito ang bahay namin. Malaki ito at may hardin sa likod.\"*\n\nSight words: **ito, ang, at, sa**\n\n## 🔤 Pagkakaiba ng Sight Words sa Ibang Salita\n| Sight words | Halimbawa |\n|---|---|\n| Kadalasang gamit | ang, ng, sa, at, ay |\n| Panghalip | ako, ikaw, siya, kami |\n| Pangatnig | dahil, kaya, subalit |\n\n## 💡 Paano Magsanay\n1. Basahin nang **paulit-ulit** ang parehong listahan ng salita\n2. **I-flashcard** ang mga ito\n3. Basahin nang **malakas** araw-araw upang maging **awtomatiko** ang pagkilala\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang sight words?",
+            "options": [
+              "Karaniwang salitang agad na makikilala",
+              "Mahabang salitang siyentipiko",
+              "Salitang tanging ginagamit sa tula",
+              "Salitang may kahulugang kabaligtaran"
+            ],
+            "correct_answer": "Karaniwang salitang agad na makikilala"
+          },
+          {
+            "question": "Alin ang halimbawa ng sight word sa Filipino?",
+            "options": [
+              "ang",
+              "kabataan",
+              "pananampalataya",
+              "pagpapahalaga"
+            ],
+            "correct_answer": "ang"
+          },
+          {
+            "question": "Bakit mahalaga ang sight words sa pagbasa?",
+            "options": [
+              "Ginagawang mas mabilis ang pagbasa",
+              "Nagpapahaba ito ng pangungusap",
+              "Nagpapalabo ito ng kahulugan",
+              "Nagpapabagal ito ng pagbasa"
+            ],
+            "correct_answer": "Ginagawang mas mabilis ang pagbasa"
+          },
+          {
+            "question": "Sa pangungusap na \"Ang bata ay naglalaro sa parke,\" alin ang sight word?",
+            "options": [
+              "ay",
+              "bata",
+              "naglalaro",
+              "parke"
+            ],
+            "correct_answer": "ay"
+          },
+          {
+            "question": "Paano dapat basahin ang sight words?",
+            "options": [
+              "Agad na makilala nang hindi binibigkas paisa-isa",
+              "Bigkasin nang paisa-isa ang bawat titik",
+              "Basahin nang tahimik lamang",
+              "Isulat muna bago basahin"
+            ],
+            "correct_answer": "Agad na makilala nang hindi binibigkas paisa-isa"
+          },
+          {
+            "question": "Alin ang panghalip, hindi sight word?",
+            "options": [
+              "siya",
+              "ang",
+              "ng",
+              "sa"
+            ],
+            "correct_answer": "siya"
+          },
+          {
+            "question": "Paano pinakamahusay magsanay ng sight words?",
+            "options": [
+              "Basahin nang paulit-ulit at gumamit ng flashcard",
+              "Basahin nang isang beses lamang",
+              "Kalimutan ang mga ito",
+              "Isulat lamang nang isang beses"
+            ],
+            "correct_answer": "Basahin nang paulit-ulit at gumamit ng flashcard"
+          },
+          {
+            "question": "Sa pangungusap na \"Ito ang bahay namin,\" ilang sight word mayroon?",
+            "options": [
+              "Dalawa",
+              "Isa",
+              "Tatlo",
+              "Wala"
+            ],
+            "correct_answer": "Dalawa"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi agad makilala ang sight words?",
+            "options": [
+              "Nagiging mabagal ang pagbasa",
+              "Nagiging mas maganda ang tinig",
+              "Wala itong epekto sa pagbasa",
+              "Nagiging mas madali ang pag-unawa"
+            ],
+            "correct_answer": "Nagiging mabagal ang pagbasa"
+          },
+          {
+            "question": "Alin ang halimbawa ng pangatnig, hindi sight word?",
+            "options": [
+              "dahil",
+              "ang",
+              "ng",
+              "sa"
+            ],
+            "correct_answer": "dahil"
+          },
+          {
+            "question": "Bakit tinatawag na 'sight' (paningin) ang mga salitang ito?",
+            "options": [
+              "Dahil agad makikilala kapag nakita, hindi kailangang bigkasin muna",
+              "Dahil ito ang tanging salitang nakikita sa aklat",
+              "Dahil ito lamang ang may kulay sa teksto",
+              "Dahil hindi ito nakikita sa mga pangungusap"
+            ],
+            "correct_answer": "Dahil agad makikilala kapag nakita, hindi kailangang bigkasin muna"
+          },
+          {
+            "question": "Isang bata ay nahihirapang bumasa nang mabilis dahil binibigkas niya ang bawat titik ng 'ang' at 'ng'. Ano ang PINAKAMABUTING payo?",
+            "options": [
+              "Sanayin siyang agad kilalanin ang mga ito bilang sight words",
+              "Payuhan siyang huminto sa pagbasa",
+              "Payuhan siyang basahin nang mas mabagal pa",
+              "Payuhan siyang laktawan na lamang ang mga ito"
+            ],
+            "correct_answer": "Sanayin siyang agad kilalanin ang mga ito bilang sight words"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Observing, Predicting, and Measuring\n\nWelcome to Term 2, Grade 3! Let's think like real scientists. 🔎\n\n## 👀 Three Important Science Skills\n\n**1. OBSERVING**\nUsing your **five senses** to notice details carefully.\n\n**Example:** Looking at a plant and noticing its leaves are **wilting** and **turning brown**.\n\n**2. PREDICTING**\nMaking a **smart guess** about what will happen, based on what you already know.\n\n**Example:** *\"If I water the wilting plant, I predict it will look healthy again in two days.\"*\n\n**3. MEASURING**\nUsing tools to find **exact amounts** — length, mass, temperature, or volume.\n\n**Example:** Using a ruler to measure that the plant grew **2 cm** taller this week.\n\n## 🧪 Doing a Simple Guided Activity\n\n**Steps of a simple investigation:**\n1. **Observe** — what do you notice?\n2. **Predict** — what do you think will happen?\n3. **Test** — do the activity\n4. **Measure** — record the results with numbers\n5. **Conclude** — was your prediction correct?\n\n## 🧠 Worked Example 1\n*You place an ice cube in the sun and another in the shade.*\n- **Observe:** both are solid and cold\n- **Predict:** the one in the sun will melt **faster**\n- **Measure:** time how long each takes to melt\n- **Conclude:** if the sun-ice melted first, your prediction was **correct**\n\n## 🧠 Worked Example 2\n*You want to know which plant grows taller with more sunlight.*\n- **Observe** two plants — one in a sunny spot, one in shade\n- **Predict** the sunny one will grow taller\n- **Measure** their height with a ruler each week\n- **Conclude** based on the actual numbers\n\n## 💡 Why Guided Activities Matter\nScientists **don't guess randomly** — they observe carefully, predict thoughtfully, and **measure** to check if they were right.\n\nGreat young scientist! 🌟",
+        "quiz": [
+          {
+            "question": "What does 'observing' mean in science?",
+            "options": [
+              "Using your senses to notice details",
+              "Guessing without looking",
+              "Measuring exact numbers",
+              "Writing a conclusion"
+            ],
+            "correct_answer": "Using your senses to notice details"
+          },
+          {
+            "question": "What does 'predicting' mean?",
+            "options": [
+              "Making a smart guess based on what you know",
+              "Measuring with a ruler",
+              "Observing with your eyes only",
+              "Writing down the date"
+            ],
+            "correct_answer": "Making a smart guess based on what you know"
+          },
+          {
+            "question": "What tool would you use for measuring in an experiment?",
+            "options": [
+              "A ruler",
+              "Your imagination",
+              "A guess",
+              "A story"
+            ],
+            "correct_answer": "A ruler"
+          },
+          {
+            "question": "What is the FIRST step in a simple science investigation?",
+            "options": [
+              "Observe",
+              "Conclude",
+              "Measure",
+              "Predict"
+            ],
+            "correct_answer": "Observe"
+          },
+          {
+            "question": "You see two plants — one wilting, one healthy. This is an example of:",
+            "options": [
+              "observing",
+              "predicting",
+              "measuring",
+              "concluding"
+            ],
+            "correct_answer": "observing"
+          },
+          {
+            "question": "\"If I water this plant, it will look healthy in two days\" is an example of:",
+            "options": [
+              "predicting",
+              "observing",
+              "measuring",
+              "concluding"
+            ],
+            "correct_answer": "predicting"
+          },
+          {
+            "question": "Using a ruler to check a plant grew 2 cm is an example of:",
+            "options": [
+              "measuring",
+              "predicting",
+              "observing",
+              "guessing"
+            ],
+            "correct_answer": "measuring"
+          },
+          {
+            "question": "What is the LAST step in a simple investigation?",
+            "options": [
+              "Conclude",
+              "Observe",
+              "Predict",
+              "Test"
+            ],
+            "correct_answer": "Conclude"
+          },
+          {
+            "question": "Why is measuring important in science?",
+            "options": [
+              "It gives exact numbers instead of guesses",
+              "It replaces the need to observe",
+              "It is only used for math class",
+              "It makes predictions unnecessary"
+            ],
+            "correct_answer": "It gives exact numbers instead of guesses"
+          },
+          {
+            "question": "Two ice cubes are placed in sun and shade. What should you do to find out which melts faster?",
+            "options": [
+              "Time and measure how long each takes to melt",
+              "Guess without checking either one",
+              "Only look at the one in the shade",
+              "Skip straight to a conclusion"
+            ],
+            "correct_answer": "Time and measure how long each takes to melt"
+          },
+          {
+            "question": "A student predicts a plant in sunlight will grow taller than one in shade. After measuring for a month, the shaded plant is actually taller. What should the student do?",
+            "options": [
+              "Accept that the prediction was wrong based on the data",
+              "Change the measurements to match the prediction",
+              "Ignore the results and repeat the same guess",
+              "Stop measuring since predictions are always right"
+            ],
+            "correct_answer": "Accept that the prediction was wrong based on the data"
+          },
+          {
+            "question": "Why do scientists predict BEFORE testing, instead of just testing right away?",
+            "options": [
+              "It lets them check if their thinking matches the real result",
+              "It makes the experiment take less time",
+              "It replaces the need for measuring",
+              "It is required by law in science"
+            ],
+            "correct_answer": "It lets them check if their thinking matches the real result"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🌏 Makabansa — Ugnayan ng Kapaligiran at Kultura\n\nMaligayang pagdating sa Ikalawang Termino, Grade 3! 🎨\n\n## 🗺️ Paano Nakaaapekto ang Heograpiya sa Kultura?\nAng **likas na yaman**, **klima**, at **heograpiya** ng isang lugar ay humuhubog sa uri ng **sining, kabuhayan, at kaugalian** nito.\n\n## 🏔️ Mga Halimbawa\n\n**Sa Bulubunduking Lugar (Cordillera):**\n- **Kabuhayan:** paggawa ng terrace farming (hagdan-hagdang palayan)\n- **Sining:** paghahabi ng tela, pag-uukit sa kahoy\n- **Kaugalian:** mga ritwal na may kaugnayan sa pananim\n\n**Sa Baybaying Lugar (Pangasinan, Bicol):**\n- **Kabuhayan:** pangingisda\n- **Sining:** paggawa ng bangka, paghahabi ng lambat\n- **Kaugalian:** mga pagdiriwang na may kaugnayan sa dagat (pistang dagat)\n\n**Sa Kapatagan (Gitnang Luzon):**\n- **Kabuhayan:** pagsasaka ng palay\n- **Sining:** mga kanta at sayaw tungkol sa pag-aani\n- **Kaugalian:** pagdiriwang ng ani (harvest festival)\n\n## 🧠 Halimbawa 1\n*Bakit mahusay sa paghahabi ang mga taga-Cordillera?*\n- Step 1: Bulubundukin ang kanilang lugar, kaya limitado ang lupang taniman.\n- Step 2: Kailangan nilang bumuo ng **karagdagang hanapbuhay** — ang paghahabi ng tela.\n- Step 3: Naging bahagi na ito ng kanilang **kultura at sining**. ✅\n\n## 🧠 Halimbawa 2\n*Bakit mahalaga ang bangka sa kultura ng mga taga-baybayin?*\n- Ang kanilang lugar ay **napapaligiran ng tubig**, kaya ang bangka ay hindi lamang sasakyan — ito ay bahagi ng kanilang **kabuhayan at kasaysayan**. ✅\n\n## 🔗 Paghahambing ng Kultura\nMagkaiba ang kultura ng **bayan, lungsod, lalawigan, at rehiyon** dahil magkaiba rin ang kanilang **heograpiya**.\n\n| Lugar | Kultura na Humubog dito |\n|---|---|\n| Baguio (bulubundukin) | Ukit sa kahoy, habing tela |\n| Palawan (isla) | Pangingisda, paglalayag |\n| Batangas (kapatagan/baybayin) | Pagsasaka at pangingisda |\n\n## 💛 Bakit Mahalaga Ito?\nKapag naiintindihan natin **bakit** iba ang kultura ng ibang lugar, natututo tayong **magalang** na tumingin dito — hindi bilang \"kakaiba\" kundi bilang **angkop sa kanilang kapaligiran**.\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang humuhubog sa kultura ng isang lugar?",
+            "options": [
+              "Likas na yaman, klima, at heograpiya",
+              "Bilang ng tao lamang",
+              "Kulay ng damit na ginagamit",
+              "Pangalan ng bayan"
+            ],
+            "correct_answer": "Likas na yaman, klima, at heograpiya"
+          },
+          {
+            "question": "Bakit mahusay sa paghahabi ng tela ang mga taga-Cordillera?",
+            "options": [
+              "Limitado ang lupang taniman doon",
+              "Wala silang ibang gagawin",
+              "Iniutos ito sa kanila",
+              "Kopya lamang ito ng iba"
+            ],
+            "correct_answer": "Limitado ang lupang taniman doon"
+          },
+          {
+            "question": "Alin ang pangunahing kabuhayan ng mga naninirahan sa baybayin?",
+            "options": [
+              "Pangingisda",
+              "Pagmimina",
+              "Paggawa ng kotse",
+              "Pananahi ng damit"
+            ],
+            "correct_answer": "Pangingisda"
+          },
+          {
+            "question": "Ano ang tawag sa hagdan-hagdang palayan sa bulubunduking lugar?",
+            "options": [
+              "Terrace farming",
+              "Kapatagan",
+              "Look",
+              "Talampas"
+            ],
+            "correct_answer": "Terrace farming"
+          },
+          {
+            "question": "Bakit mahalaga ang bangka sa kultura ng mga taga-baybayin?",
+            "options": [
+              "Bahagi ito ng kanilang kabuhayan at kasaysayan",
+              "Ginagamit lamang ito sa palakasan",
+              "Wala itong gamit sa kanilang buhay",
+              "Gawa lamang ito para sa turista"
+            ],
+            "correct_answer": "Bahagi ito ng kanilang kabuhayan at kasaysayan"
+          },
+          {
+            "question": "Alin ang halimbawa ng kabuhayan sa kapatagan?",
+            "options": [
+              "Pagsasaka ng palay",
+              "Pangingisda sa dagat",
+              "Pag-uukit ng kahoy",
+              "Paghahabi ng tela"
+            ],
+            "correct_answer": "Pagsasaka ng palay"
+          },
+          {
+            "question": "Ano ang halimbawa ng sining na mula sa buhay-pangingisda?",
+            "options": [
+              "Paghahabi ng lambat",
+              "Pag-aani ng palay",
+              "Terrace farming",
+              "Pag-uukit sa bato"
+            ],
+            "correct_answer": "Paghahabi ng lambat"
+          },
+          {
+            "question": "Bakit magkaiba ang kultura ng bayan, lungsod, at rehiyon?",
+            "options": [
+              "Magkaiba rin ang kanilang heograpiya",
+              "Iisa lang ang kanilang wika",
+              "Iisa lang ang klima nila",
+              "Walang pagkakaiba sa kanila"
+            ],
+            "correct_answer": "Magkaiba rin ang kanilang heograpiya"
+          },
+          {
+            "question": "Ano ang pagdiriwang na may kaugnayan sa ani ng palay?",
+            "options": [
+              "Harvest festival",
+              "Pistang dagat",
+              "Kadayawan",
+              "Pahiyas"
+            ],
+            "correct_answer": "Harvest festival"
+          },
+          {
+            "question": "Paano dapat tingnan ang kulturang iba sa atin?",
+            "options": [
+              "Bilang angkop sa kanilang sariling kapaligiran",
+              "Bilang kakaiba at hindi normal",
+              "Bilang mas mababa sa atin",
+              "Bilang dapat baguhin agad"
+            ],
+            "correct_answer": "Bilang angkop sa kanilang sariling kapaligiran"
+          },
+          {
+            "question": "Alin ang halimbawa ng sining mula sa bulubunduking lugar?",
+            "options": [
+              "Pag-uukit sa kahoy",
+              "Paggawa ng bangka",
+              "Paghahabi ng lambat",
+              "Pagsasaka sa kapatagan"
+            ],
+            "correct_answer": "Pag-uukit sa kahoy"
+          },
+          {
+            "question": "Ang Batangas ay may pagsasaka AT pangingisda dahil ito ay:",
+            "options": [
+              "kapatagan na malapit din sa baybayin",
+              "bulubunduking lugar lamang",
+              "isla na malayo sa dagat",
+              "lungsod na walang lupa"
+            ],
+            "correct_answer": "kapatagan na malapit din sa baybayin"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Intro to Word Processing and Drawing\n\nMaligayang pagdating sa Ikalawang Termino, Grade 3! Simulan natin ang word processing. 💻\n\n## 📝 Opening the Program\n1. **Double-click** the program icon (word processor or drawing app)\n2. **Wait** for it to open fully\n3. A **blank document** appears — ready for you to type or draw\n\n## ✍️ Typing and Editing Text\n**Typing:** click where you want text to appear, then type.\n\n**Editing (fixing mistakes):**\n- **Backspace** — deletes the letter **before** the cursor\n- **Delete** — deletes the letter **after** the cursor\n- Click to **place your cursor** exactly where you need to fix something\n\n## 🎨 Using the Toolbar\n| Button | What it does |\n|---|---|\n| **Font size** | makes text **bigger** or **smaller** |\n| **Font color** | changes the **color** of text |\n| **Bold (B)** | makes text **darker and thicker** |\n| **Underline (U)** | adds a **line under** the text |\n\n## 🧠 Worked Example 1\n*You typed \"My naem is Ana\" — how do you fix the mistake?*\n- Step 1: Click **right after the 'm' in 'naem'**\n- Step 2: Press **Backspace** to delete 'mea'\n- Step 3: Retype the correct letters: **name**\n\n## 🧠 Worked Example 2\n*You want your title to stand out.*\n- Highlight the title text\n- Click **Bold (B)** to make it **thicker**\n- Optionally click **Font size** to make it **bigger**\n\n## 📋 Typing Your Own Name and a Short List\n**Practice steps:**\n1. Type your **own name**\n2. Press **Enter** for a new line\n3. Type a **short list** (like your favorite fruits), one item per line\n\n## 💡 Good Habits\n- **Save** your work often\n- Check for **mistakes** before printing\n- Use the toolbar to make your work **neat and clear**\n\nGreat computer skills! 🌟",
+        "quiz": [
+          {
+            "question": "How do you open a word-processing program?",
+            "options": [
+              "Double-click the program icon",
+              "Type the password first",
+              "Press Backspace twice",
+              "Turn off the computer"
+            ],
+            "correct_answer": "Double-click the program icon"
+          },
+          {
+            "question": "Which key deletes the letter BEFORE the cursor?",
+            "options": [
+              "Backspace",
+              "Delete",
+              "Enter",
+              "Shift"
+            ],
+            "correct_answer": "Backspace"
+          },
+          {
+            "question": "Which key deletes the letter AFTER the cursor?",
+            "options": [
+              "Delete",
+              "Backspace",
+              "Enter",
+              "Shift"
+            ],
+            "correct_answer": "Delete"
+          },
+          {
+            "question": "Which toolbar button makes text darker and thicker?",
+            "options": [
+              "Bold",
+              "Italic",
+              "Underline",
+              "Font size"
+            ],
+            "correct_answer": "Bold"
+          },
+          {
+            "question": "Which toolbar button changes the color of text?",
+            "options": [
+              "Font color",
+              "Bold",
+              "Underline",
+              "Font size"
+            ],
+            "correct_answer": "Font color"
+          },
+          {
+            "question": "Which button adds a line under the text?",
+            "options": [
+              "Underline",
+              "Bold",
+              "Font color",
+              "Font size"
+            ],
+            "correct_answer": "Underline"
+          },
+          {
+            "question": "You typed \"naem\" instead of \"name\". What should you do first?",
+            "options": [
+              "Click right after the mistake",
+              "Close the program",
+              "Restart the computer",
+              "Print the document"
+            ],
+            "correct_answer": "Click right after the mistake"
+          },
+          {
+            "question": "What appears when you open a word-processing program?",
+            "options": [
+              "A blank document",
+              "A printed page",
+              "A photo gallery",
+              "A music player"
+            ],
+            "correct_answer": "A blank document"
+          },
+          {
+            "question": "Which toolbar button makes text bigger or smaller?",
+            "options": [
+              "Font size",
+              "Bold",
+              "Underline",
+              "Font color"
+            ],
+            "correct_answer": "Font size"
+          },
+          {
+            "question": "Why should you save your work often?",
+            "options": [
+              "So you don't lose your progress",
+              "So the toolbar disappears",
+              "So the document becomes smaller",
+              "So the font changes automatically"
+            ],
+            "correct_answer": "So you don't lose your progress"
+          },
+          {
+            "question": "You want your document title to stand out. Which is the BEST combination?",
+            "options": [
+              "Bold and a larger font size",
+              "Delete and Backspace together",
+              "Only the spacebar",
+              "Turning off the screen"
+            ],
+            "correct_answer": "Bold and a larger font size"
+          },
+          {
+            "question": "After typing your name, how do you move to a new line to start a list?",
+            "options": [
+              "Press Enter",
+              "Press Backspace",
+              "Press Bold",
+              "Press Font color"
+            ],
+            "correct_answer": "Press Enter"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💛 GMRC — Ugnayan ng Sarili sa Kapuwa: Patience\n\nMaligayang pagdating sa Ikalawang Termino, Grade 3! Pag-usapan natin ang **pasensiya**. 🌟\n\n## 🤝 Ano ang Ugnayan sa Kapuwa?\nAng **ugnayan** ay ang **kaugnayan** natin sa ibang tao — pamilya, kaklase, kaibigan, kapitbahay.\n\nMaganda ang ugnayan kapag mayroon tayong:\n- **Paggalang**\n- **Pang-unawa**\n- **Pasensiya (Patience)**\n\n## ⏳ Ano ang Patience o Pasensiya?\nAng **pasensiya** ay ang **kakayahang manatiling kalmado** kahit mahirap ang sitwasyon o matagal ang paghihintay.\n\n**Halimbawa:**\n- Naghihintay sa pila nang hindi umuungol\n- Nagpapaliwanag nang paulit-ulit sa nahihirapang kaklase\n- Hindi agad nagagalit kapag may pagkakamali ang iba\n\n## 🎯 Bakit Nakatutulong ang Pasensiya sa Ugnayan?\nAng mga ugnayang may pasensiya ay:\n- Nagiging **mas matatag** at **mas matagal**\n- Nakatutulong sa **pagsasanay ng interpersonal skills** (kasanayan sa pakikitungo)\n- Nagpapahintulot sa **maayos na komunikasyon**, kahit may hindi pagkakaunawaan\n\n## 🧠 Halimbawa 1\n*Ang kapatid mo ay mabagal magsalita. Ano ang tama mong gawin?*\n- **Makinig nang may pasensiya**, hindi siya pinuputol o pinapagmamadali. ✅\n\n## 🧠 Halimbawa 2\n*Ang kaklase mo ay hindi agad naiintindihan ang leksiyon.*\n- **Ipaliwanag ito nang paulit-ulit**, nang walang inis sa boses. Ito ay **nagpapakita ng pasensiya at pagmamalasakit**. ✅\n\n## ✅ Mga Kilos na Nagpapakita ng Tamang Pakikitungo\n- **Salita:** magalang na pananalita, walang panunumbat\n- **Kilos:** paghihintay nang mahinahon, pagbibigay ng pagkakataon sa iba\n- **Damdamin:** kontrol sa galit, pag-unawa sa sitwasyon ng iba\n\n## 💡 Ano ang Nangyayari Kung Walang Pasensiya?\n- Napapasama ang **ugnayan**\n- Nagkakaroon ng **hindi pagkakaunawaan** at alitan\n- Nasasaktan ang damdamin ng iba\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang patience o pasensiya?",
+            "options": [
+              "Kakayahang manatiling kalmado",
+              "Kakayahang tumakbo nang mabilis",
+              "Kakayahang manalo sa laro",
+              "Kakayahang magbilang nang mabilis"
+            ],
+            "correct_answer": "Kakayahang manatiling kalmado"
+          },
+          {
+            "question": "Ano ang ugnayan?",
+            "options": [
+              "Kaugnayan natin sa ibang tao",
+              "Bilang ng kaibigan",
+              "Uri ng laruan",
+              "Uri ng damit"
+            ],
+            "correct_answer": "Kaugnayan natin sa ibang tao"
+          },
+          {
+            "question": "Alin ang halimbawa ng pasensiya?",
+            "options": [
+              "Naghihintay sa pila nang hindi umuungol",
+              "Umaalis kapag nahihirapan maghintay",
+              "Nagagalit kapag matagal ang pila",
+              "Umiiwas sa mga taong naghihintay"
+            ],
+            "correct_answer": "Naghihintay sa pila nang hindi umuungol"
+          },
+          {
+            "question": "Bakit mahalaga ang pasensiya sa ugnayan?",
+            "options": [
+              "Nagpapatibay ito sa relasyon",
+              "Nagpapabagal lamang ito ng lahat",
+              "Wala itong epekto sa relasyon",
+              "Nagdudulot lamang ito ng problema"
+            ],
+            "correct_answer": "Nagpapatibay ito sa relasyon"
+          },
+          {
+            "question": "Ang kapatid mo ay mabagal magsalita. Ano ang tamang gawin?",
+            "options": [
+              "Makinig nang may pasensiya",
+              "Putulin siya agad",
+              "Sabihan siyang magmadali",
+              "Umalis na lamang"
+            ],
+            "correct_answer": "Makinig nang may pasensiya"
+          },
+          {
+            "question": "Ang kaklase mo ay hindi agad naiintindihan ang leksiyon. Ano ang mabuting gawin?",
+            "options": [
+              "Ipaliwanag ito nang paulit-ulit nang walang inis",
+              "Iwanan siya at huwag tulungan",
+              "Pagtawanan siya sa harap ng iba",
+              "Sabihan siyang bobo"
+            ],
+            "correct_answer": "Ipaliwanag ito nang paulit-ulit nang walang inis"
+          },
+          {
+            "question": "Ano ang mangyayari sa ugnayan kung walang pasensiya?",
+            "options": [
+              "Nagkakaroon ng alitan sa ugnayan",
+              "Nagiging mas matatag ito",
+              "Wala itong pagbabago rito",
+              "Nagiging mas maganda ito"
+            ],
+            "correct_answer": "Nagkakaroon ng alitan sa ugnayan"
+          },
+          {
+            "question": "Alin ang kilos na nagpapakita ng tamang pakikitungo?",
+            "options": [
+              "Paghihintay nang mahinahon",
+              "Pagsigaw kapag nainis",
+              "Pananakit sa kapwa",
+              "Pag-iwas sa lahat"
+            ],
+            "correct_answer": "Paghihintay nang mahinahon"
+          },
+          {
+            "question": "Ang pagpapaliwanag nang paulit-ulit sa nahihirapang kaklase ay nagpapakita ng:",
+            "options": [
+              "pasensiya at pagmamalasakit",
+              "kayabangan at pagmamataas",
+              "galit at inis",
+              "kawalan ng interes"
+            ],
+            "correct_answer": "pasensiya at pagmamalasakit"
+          },
+          {
+            "question": "Ano ang layunin ng pagkakaroon ng interpersonal skills?",
+            "options": [
+              "Mas maayos na pakikitungo sa iba",
+              "Mas mabilis na pagsulat",
+              "Mas mataas na marka sa pagsusulit",
+              "Mas malakas na katawan"
+            ],
+            "correct_answer": "Mas maayos na pakikitungo sa iba"
+          },
+          {
+            "question": "Nag-aalala kang matagal ang pila sa canteen. Ano ang pinakamabuting gawin?",
+            "options": [
+              "Maghintay nang may pasensiya",
+              "Sumingit sa unahan",
+              "Sumigaw sa mga tao",
+              "Umuwi na lang"
+            ],
+            "correct_answer": "Maghintay nang may pasensiya"
+          },
+          {
+            "question": "Bakit sinasabing tumutulong ang pasensiya sa kasanayan sa pakikitungo?",
+            "options": [
+              "Nagbibigay ng pagkakataong magkaunawaan",
+              "Nagpapabilis ito ng usapan",
+              "Nagpapasama ito ng relasyon",
+              "Wala itong kaugnayan dito"
+            ],
+            "correct_answer": "Nagbibigay ng pagkakataong magkaunawaan"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📖 Friday Review — English (Grade 3)\n\n- **Sight words** = common words recognized instantly (the, said, because)\n- **VCV** = one consonant between vowels, first vowel usually **long** (tiger)\n- **VCCV** = two consonants between vowels, first vowel usually **short**, split between them (rab-bit)\n\nGreat start to Term 2! 🌟",
+        "quiz": [
+          {
+            "question": "What is a sight word?",
+            "options": [
+              "A common word recognized instantly",
+              "A rare scientific term",
+              "A word with no vowels",
+              "A word that only rhymes"
+            ],
+            "correct_answer": "A common word recognized instantly"
+          },
+          {
+            "question": "In VCV words, the first vowel is usually:",
+            "options": [
+              "long",
+              "short",
+              "silent",
+              "doubled"
+            ],
+            "correct_answer": "long"
+          },
+          {
+            "question": "In VCCV words, the first vowel is usually:",
+            "options": [
+              "short",
+              "long",
+              "silent",
+              "doubled"
+            ],
+            "correct_answer": "short"
+          },
+          {
+            "question": "Which word is VCV?",
+            "options": [
+              "music",
+              "rabbit",
+              "basket",
+              "sudden"
+            ],
+            "correct_answer": "music"
+          },
+          {
+            "question": "Which word is VCCV?",
+            "options": [
+              "sudden",
+              "tiger",
+              "paper",
+              "music"
+            ],
+            "correct_answer": "sudden"
+          },
+          {
+            "question": "How do you split 'rabbit'?",
+            "options": [
+              "rab-bit",
+              "ra-bbit",
+              "r-abbit",
+              "rabb-it"
+            ],
+            "correct_answer": "rab-bit"
+          },
+          {
+            "question": "How many consonants sit between the vowels in a VCV word?",
+            "options": [
+              "One",
+              "Two",
+              "Three",
+              "None"
+            ],
+            "correct_answer": "One"
+          },
+          {
+            "question": "How many consonants sit between the vowels in a VCCV word?",
+            "options": [
+              "Two",
+              "One",
+              "Three",
+              "None"
+            ],
+            "correct_answer": "Two"
+          },
+          {
+            "question": "Why are sight words memorized instead of sounded out?",
+            "options": [
+              "They are not spelled the way they sound",
+              "They only appear in math books",
+              "They have no letters",
+              "They are always the shortest words"
+            ],
+            "correct_answer": "They are not spelled the way they sound"
+          },
+          {
+            "question": "Which word has a long first vowel sound?",
+            "options": [
+              "paper",
+              "basket",
+              "rabbit",
+              "sudden"
+            ],
+            "correct_answer": "paper"
+          },
+          {
+            "question": "A student reads the new word 'wagon' for the first time. Using VCV rules, how should the first vowel sound?",
+            "options": [
+              "Long, like 'way'",
+              "Short, like 'wag'",
+              "Silent",
+              "Doubled"
+            ],
+            "correct_answer": "Long, like 'way'"
+          },
+          {
+            "question": "Which is the correct split for 'basket'?",
+            "options": [
+              "bas-ket",
+              "ba-sket",
+              "b-asket",
+              "bask-et"
+            ],
+            "correct_answer": "bas-ket"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ⚖️ Friday Review — Mathematics (Grade 3)\n\n- **mg** tiny · **g** small objects · **kg** heavier objects\n- A **balance scale** is level when both sides weigh the **same**\n- Heavier side moves **down**\n\n**Quick check:** apple + three 50g weights level → apple = 150g\n\nGreat start to Term 2! ⭐",
+        "quiz": [
+          {
+            "question": "Which unit is best for measuring an egg?",
+            "options": [
+              "Grams",
+              "Kilograms",
+              "Meters",
+              "Liters"
+            ],
+            "correct_answer": "Grams"
+          },
+          {
+            "question": "Which unit is best for measuring a person?",
+            "options": [
+              "Kilograms",
+              "Grams",
+              "Milligrams",
+              "Centimeters"
+            ],
+            "correct_answer": "Kilograms"
+          },
+          {
+            "question": "On a balance scale, the heavier side moves:",
+            "options": [
+              "down",
+              "up",
+              "sideways",
+              "stays still"
+            ],
+            "correct_answer": "down"
+          },
+          {
+            "question": "An apple balances with three 50g weights. What is its mass?",
+            "options": [
+              "150 grams",
+              "100 grams",
+              "50 grams",
+              "200 grams"
+            ],
+            "correct_answer": "150 grams"
+          },
+          {
+            "question": "A bag of rice is 5 kg and a bag of sugar is 2 kg. How much heavier is the rice?",
+            "options": [
+              "3 kg",
+              "2 kg",
+              "7 kg",
+              "5 kg"
+            ],
+            "correct_answer": "3 kg"
+          },
+          {
+            "question": "When a balance scale is level, what does it mean?",
+            "options": [
+              "Both sides weigh the same",
+              "One side is heavier",
+              "The scale is broken",
+              "There is no mass"
+            ],
+            "correct_answer": "Both sides weigh the same"
+          },
+          {
+            "question": "What is the smallest unit of mass?",
+            "options": [
+              "Milligram",
+              "Gram",
+              "Kilogram",
+              "They are equal"
+            ],
+            "correct_answer": "Milligram"
+          },
+          {
+            "question": "A mango weighs 150g, a grape weighs 5g. Which is heavier?",
+            "options": [
+              "The mango",
+              "The grape",
+              "They are equal",
+              "Cannot be told"
+            ],
+            "correct_answer": "The mango"
+          },
+          {
+            "question": "What tool is used to compare the mass of two objects?",
+            "options": [
+              "A balance scale",
+              "A ruler",
+              "A clock",
+              "A thermometer"
+            ],
+            "correct_answer": "A balance scale"
+          },
+          {
+            "question": "About how much does a school bag full of books weigh?",
+            "options": [
+              "3 to 5 kilograms",
+              "3 to 5 grams",
+              "3 to 5 milligrams",
+              "3 to 5 meters"
+            ],
+            "correct_answer": "3 to 5 kilograms"
+          },
+          {
+            "question": "Two identical bags balance perfectly. What can you conclude?",
+            "options": [
+              "They have the same mass",
+              "One is empty",
+              "The scale is broken",
+              "They are different sizes"
+            ],
+            "correct_answer": "They have the same mass"
+          },
+          {
+            "question": "A recipe needs 250 grams of flour. What tool measures it best?",
+            "options": [
+              "A kitchen scale",
+              "A ruler",
+              "A measuring tape",
+              "A stopwatch"
+            ],
+            "correct_answer": "A kitchen scale"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes na Balik-Aral — Filipino (Grade 3)\n\n- **Sight words** = karaniwang salitang agad makilala (ang, ng, sa, at, ay)\n- Ginagawang **mas mabilis** ang pagbasa\n- Sanayin sa pamamagitan ng **paulit-ulit na pagbasa** at flashcard\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang sight words?",
+            "options": [
+              "Karaniwang salitang agad makilala",
+              "Mahabang salitang siyentipiko",
+              "Salitang tanging para sa tula",
+              "Salitang laging kabaligtaran"
+            ],
+            "correct_answer": "Karaniwang salitang agad makilala"
+          },
+          {
+            "question": "Alin ang halimbawa ng sight word?",
+            "options": [
+              "ang",
+              "kabataan",
+              "pananampalataya",
+              "pagpapahalaga"
+            ],
+            "correct_answer": "ang"
+          },
+          {
+            "question": "Bakit mahalaga ang sight words?",
+            "options": [
+              "Ginagawang mas mabilis ang pagbasa",
+              "Nagpapahaba ito ng pangungusap",
+              "Nagpapalabo ito ng kahulugan",
+              "Nagpapabagal ito ng pagbasa"
+            ],
+            "correct_answer": "Ginagawang mas mabilis ang pagbasa"
+          },
+          {
+            "question": "Paano dapat basahin ang sight words?",
+            "options": [
+              "Agad na makilala nang hindi binibigkas paisa-isa",
+              "Bigkasin nang paisa-isa ang bawat titik",
+              "Basahin nang tahimik lamang",
+              "Isulat muna bago basahin"
+            ],
+            "correct_answer": "Agad na makilala nang hindi binibigkas paisa-isa"
+          },
+          {
+            "question": "Paano pinakamahusay magsanay ng sight words?",
+            "options": [
+              "Basahin nang paulit-ulit at gumamit ng flashcard",
+              "Basahin nang isang beses lamang",
+              "Kalimutan ang mga ito",
+              "Isulat lamang nang isang beses"
+            ],
+            "correct_answer": "Basahin nang paulit-ulit at gumamit ng flashcard"
+          },
+          {
+            "question": "Sa pangungusap na \"Ito ang bahay namin,\" ilang sight word mayroon?",
+            "options": [
+              "Dalawa",
+              "Isa",
+              "Tatlo",
+              "Wala"
+            ],
+            "correct_answer": "Dalawa"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi agad makilala ang sight words?",
+            "options": [
+              "Nagiging mabagal ang pagbasa",
+              "Nagiging mas maganda ang tinig",
+              "Wala itong epekto",
+              "Nagiging mas madali ang pag-unawa"
+            ],
+            "correct_answer": "Nagiging mabagal ang pagbasa"
+          },
+          {
+            "question": "Alin ang panghalip, hindi sight word?",
+            "options": [
+              "siya",
+              "ang",
+              "ng",
+              "sa"
+            ],
+            "correct_answer": "siya"
+          },
+          {
+            "question": "Alin ang pangatnig, hindi sight word?",
+            "options": [
+              "dahil",
+              "ang",
+              "ng",
+              "sa"
+            ],
+            "correct_answer": "dahil"
+          },
+          {
+            "question": "Bakit tinatawag na 'sight' ang mga salitang ito?",
+            "options": [
+              "Dahil agad makikilala kapag nakita",
+              "Dahil ito lamang ang may kulay",
+              "Dahil hindi ito nakikita",
+              "Dahil ito ang tanging salita sa aklat"
+            ],
+            "correct_answer": "Dahil agad makikilala kapag nakita"
+          },
+          {
+            "question": "Sa pangungusap \"Ang mga bata ay masaya,\" alin ang sight word?",
+            "options": [
+              "ay",
+              "bata",
+              "masaya",
+              "mga"
+            ],
+            "correct_answer": "ay"
+          },
+          {
+            "question": "Isang bata ay nahihirapang bumasa dahil binibigkas niya ang bawat titik ng 'ang'. Ano ang PINAKAMABUTING payo?",
+            "options": [
+              "Sanayin siyang agad kilalanin ito bilang sight word",
+              "Payuhan siyang huminto sa pagbasa",
+              "Payuhan siyang basahin nang mabagal",
+              "Payuhan siyang laktawan na lamang"
+            ],
+            "correct_answer": "Sanayin siyang agad kilalanin ito bilang sight word"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Friday Review — Science (Grade 3)\n\n- **Observing** = using senses to notice details\n- **Predicting** = smart guess based on what you know\n- **Measuring** = using tools for exact amounts\n- **Steps:** observe → predict → test → measure → conclude\n\nGreat young scientist! 🌟",
+        "quiz": [
+          {
+            "question": "What does 'observing' mean?",
+            "options": [
+              "Using senses to notice details",
+              "Guessing without looking",
+              "Measuring exact numbers",
+              "Writing a conclusion"
+            ],
+            "correct_answer": "Using senses to notice details"
+          },
+          {
+            "question": "What does 'predicting' mean?",
+            "options": [
+              "Making a smart guess based on what you know",
+              "Measuring with a ruler",
+              "Observing with your eyes only",
+              "Writing the date"
+            ],
+            "correct_answer": "Making a smart guess based on what you know"
+          },
+          {
+            "question": "What is the FIRST step in a science investigation?",
+            "options": [
+              "Observe",
+              "Conclude",
+              "Measure",
+              "Predict"
+            ],
+            "correct_answer": "Observe"
+          },
+          {
+            "question": "What is the LAST step in a science investigation?",
+            "options": [
+              "Conclude",
+              "Observe",
+              "Predict",
+              "Test"
+            ],
+            "correct_answer": "Conclude"
+          },
+          {
+            "question": "Using a ruler to measure plant growth is an example of:",
+            "options": [
+              "measuring",
+              "predicting",
+              "observing",
+              "guessing"
+            ],
+            "correct_answer": "measuring"
+          },
+          {
+            "question": "\"I think it will rain today\" based on dark clouds is an example of:",
+            "options": [
+              "predicting",
+              "measuring",
+              "observing only",
+              "concluding"
+            ],
+            "correct_answer": "predicting"
+          },
+          {
+            "question": "Why is measuring important in science?",
+            "options": [
+              "It gives exact numbers instead of guesses",
+              "It replaces observing entirely",
+              "It is only for math class",
+              "It makes predictions unnecessary"
+            ],
+            "correct_answer": "It gives exact numbers instead of guesses"
+          },
+          {
+            "question": "Two ice cubes are placed in sun and shade. What should you do to compare them?",
+            "options": [
+              "Time and measure how long each takes to melt",
+              "Guess without checking either",
+              "Only look at the shaded one",
+              "Skip to a conclusion"
+            ],
+            "correct_answer": "Time and measure how long each takes to melt"
+          },
+          {
+            "question": "What tool would help you measure temperature?",
+            "options": [
+              "A thermometer",
+              "A ruler",
+              "A calendar",
+              "A magnifying glass"
+            ],
+            "correct_answer": "A thermometer"
+          },
+          {
+            "question": "A student predicts a plant in sunlight grows taller, but after measuring, the shaded one is taller. What should they do?",
+            "options": [
+              "Accept the data even though it differs from the prediction",
+              "Change the numbers to match the guess",
+              "Ignore the results",
+              "Stop measuring since guesses are always right"
+            ],
+            "correct_answer": "Accept the data even though it differs from the prediction"
+          },
+          {
+            "question": "Why do scientists predict before testing?",
+            "options": [
+              "To check if their thinking matches the real result",
+              "To skip the testing step",
+              "To avoid measuring anything",
+              "Because it is required to finish faster"
+            ],
+            "correct_answer": "To check if their thinking matches the real result"
+          },
+          {
+            "question": "Which is an example of a simple guided science activity?",
+            "options": [
+              "Comparing plant growth in sun versus shade",
+              "Watching cartoons about animals",
+              "Coloring a picture of a flower",
+              "Copying facts from a textbook"
+            ],
+            "correct_answer": "Comparing plant growth in sun versus shade"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🌏 Biyernes na Balik-Aral — Makabansa (Grade 3)\n\n- **Likas na yaman, klima, at heograpiya** → humuhubog sa sining, kabuhayan, kaugalian\n- **Bulubundukin** = paghahabi, ukit sa kahoy | **Baybayin** = pangingisda, bangka | **Kapatagan** = pagsasaka\n- Magkaiba ang kultura ng iba't ibang lugar dahil magkaiba ang kanilang heograpiya\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang humuhubog sa kultura ng isang lugar?",
+            "options": [
+              "Likas na yaman at heograpiya",
+              "Bilang ng tao lamang dito",
+              "Kulay ng damit na suot",
+              "Pangalan lamang ng bayan"
+            ],
+            "correct_answer": "Likas na yaman at heograpiya"
+          },
+          {
+            "question": "Bakit mahusay sa paghahabi ang mga taga-Cordillera?",
+            "options": [
+              "Limitado ang lupang taniman doon",
+              "Wala silang ibang gagawin",
+              "Iniutos ito sa kanila",
+              "Kopya lamang ito ng iba"
+            ],
+            "correct_answer": "Limitado ang lupang taniman doon"
+          },
+          {
+            "question": "Alin ang pangunahing kabuhayan sa baybayin?",
+            "options": [
+              "Pangingisda",
+              "Pagmimina",
+              "Paggawa ng kotse",
+              "Pananahi"
+            ],
+            "correct_answer": "Pangingisda"
+          },
+          {
+            "question": "Ano ang tawag sa hagdan-hagdang palayan?",
+            "options": [
+              "Terrace farming",
+              "Kapatagan",
+              "Look",
+              "Talampas"
+            ],
+            "correct_answer": "Terrace farming"
+          },
+          {
+            "question": "Bakit mahalaga ang bangka sa kultura ng mga taga-baybayin?",
+            "options": [
+              "Bahagi ito ng kanilang kabuhayan at kasaysayan",
+              "Ginagamit lamang sa palakasan",
+              "Wala itong gamit",
+              "Para lamang sa turista"
+            ],
+            "correct_answer": "Bahagi ito ng kanilang kabuhayan at kasaysayan"
+          },
+          {
+            "question": "Alin ang halimbawa ng kabuhayan sa kapatagan?",
+            "options": [
+              "Pagsasaka ng palay",
+              "Pangingisda sa dagat",
+              "Pag-uukit ng kahoy",
+              "Paghahabi ng tela"
+            ],
+            "correct_answer": "Pagsasaka ng palay"
+          },
+          {
+            "question": "Bakit magkaiba ang kultura ng bayan, lungsod, at rehiyon?",
+            "options": [
+              "Magkaiba rin ang kanilang heograpiya",
+              "Iisa lang ang kanilang wika",
+              "Iisa lang ang klima nila",
+              "Walang pagkakaiba sa kanila"
+            ],
+            "correct_answer": "Magkaiba rin ang kanilang heograpiya"
+          },
+          {
+            "question": "Ano ang pagdiriwang na may kaugnayan sa ani ng palay?",
+            "options": [
+              "Harvest festival",
+              "Pistang dagat",
+              "Kadayawan",
+              "Pahiyas"
+            ],
+            "correct_answer": "Harvest festival"
+          },
+          {
+            "question": "Paano dapat tingnan ang kulturang iba sa atin?",
+            "options": [
+              "Bilang angkop sa kanilang sariling kapaligiran",
+              "Bilang kakaiba at hindi normal",
+              "Bilang mas mababa sa atin",
+              "Bilang dapat baguhin agad"
+            ],
+            "correct_answer": "Bilang angkop sa kanilang sariling kapaligiran"
+          },
+          {
+            "question": "Alin ang halimbawa ng sining mula sa bulubunduking lugar?",
+            "options": [
+              "Pag-uukit sa kahoy",
+              "Paggawa ng bangka",
+              "Paghahabi ng lambat",
+              "Pagsasaka sa kapatagan"
+            ],
+            "correct_answer": "Pag-uukit sa kahoy"
+          },
+          {
+            "question": "Ang Batangas ay may pagsasaka AT pangingisda dahil ito ay:",
+            "options": [
+              "kapatagan na malapit din sa baybayin",
+              "bulubunduking lugar lamang",
+              "isla na malayo sa dagat",
+              "lungsod na walang lupa"
+            ],
+            "correct_answer": "kapatagan na malapit din sa baybayin"
+          },
+          {
+            "question": "Alin ang halimbawa ng sining na mula sa buhay-pangingisda?",
+            "options": [
+              "Paghahabi ng lambat",
+              "Pag-aani ng palay",
+              "Terrace farming",
+              "Pag-uukit sa bato"
+            ],
+            "correct_answer": "Paghahabi ng lambat"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Friday Review — Computer (Grade 3)\n\n- Opening a program: **double-click** the icon\n- **Backspace** deletes before cursor, **Delete** deletes after\n- **Bold** = darker/thicker | **Underline** = line under | **Font color** = changes color | **Font size** = bigger/smaller\n- **Save your work often!**\n\nGreat computer skills! 💻",
+        "quiz": [
+          {
+            "question": "How do you open a word-processing program?",
+            "options": [
+              "Double-click the program icon",
+              "Type the password first",
+              "Press Backspace twice",
+              "Turn off the computer"
+            ],
+            "correct_answer": "Double-click the program icon"
+          },
+          {
+            "question": "Which key deletes the letter BEFORE the cursor?",
+            "options": [
+              "Backspace",
+              "Delete",
+              "Enter",
+              "Shift"
+            ],
+            "correct_answer": "Backspace"
+          },
+          {
+            "question": "Which key deletes the letter AFTER the cursor?",
+            "options": [
+              "Delete",
+              "Backspace",
+              "Enter",
+              "Shift"
+            ],
+            "correct_answer": "Delete"
+          },
+          {
+            "question": "Which toolbar button makes text darker and thicker?",
+            "options": [
+              "Bold",
+              "Italic",
+              "Underline",
+              "Font size"
+            ],
+            "correct_answer": "Bold"
+          },
+          {
+            "question": "Which toolbar button changes the color of text?",
+            "options": [
+              "Font color",
+              "Bold",
+              "Underline",
+              "Font size"
+            ],
+            "correct_answer": "Font color"
+          },
+          {
+            "question": "Which button adds a line under the text?",
+            "options": [
+              "Underline",
+              "Bold",
+              "Font color",
+              "Font size"
+            ],
+            "correct_answer": "Underline"
+          },
+          {
+            "question": "What appears when you first open a word-processing program?",
+            "options": [
+              "A blank document",
+              "A printed page",
+              "A photo gallery",
+              "A music player"
+            ],
+            "correct_answer": "A blank document"
+          },
+          {
+            "question": "Which toolbar button makes text bigger or smaller?",
+            "options": [
+              "Font size",
+              "Bold",
+              "Underline",
+              "Font color"
+            ],
+            "correct_answer": "Font size"
+          },
+          {
+            "question": "Why should you save your work often?",
+            "options": [
+              "So you don't lose your progress",
+              "So the toolbar disappears",
+              "So the document becomes smaller",
+              "So the font changes automatically"
+            ],
+            "correct_answer": "So you don't lose your progress"
+          },
+          {
+            "question": "You want your title to stand out. Which combination works best?",
+            "options": [
+              "Bold and a larger font size",
+              "Delete and Backspace together",
+              "Only the spacebar",
+              "Turning off the screen"
+            ],
+            "correct_answer": "Bold and a larger font size"
+          },
+          {
+            "question": "After typing your name, how do you move to a new line?",
+            "options": [
+              "Press Enter",
+              "Press Backspace",
+              "Press Bold",
+              "Press Font color"
+            ],
+            "correct_answer": "Press Enter"
+          },
+          {
+            "question": "You typed 'naem' instead of 'name'. What is your first step to fix it?",
+            "options": [
+              "Click right after the mistake",
+              "Close the program",
+              "Restart the computer",
+              "Print the document"
+            ],
+            "correct_answer": "Click right after the mistake"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 Biyernes na Balik-Aral — GMRC (Grade 3)\n\n- **Patience/Pasensiya** = manatiling kalmado kahit mahirap ang sitwasyon\n- Nagpapatibay ito ng **ugnayan** at kasanayan sa pakikitungo\n- Kilos: **paghihintay nang mahinahon, pagpapaliwanag nang paulit-ulit nang walang inis**\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang patience o pasensiya?",
+            "options": [
+              "Kakayahang manatiling kalmado kahit mahirap",
+              "Kakayahang tumakbo nang mabilis",
+              "Kakayahang manalo sa laro",
+              "Kakayahang magbilang nang mabilis"
+            ],
+            "correct_answer": "Kakayahang manatiling kalmado kahit mahirap"
+          },
+          {
+            "question": "Alin ang halimbawa ng pasensiya?",
+            "options": [
+              "Naghihintay sa pila nang hindi umuungol",
+              "Umaalis kapag nahihirapan maghintay",
+              "Nagagalit kapag matagal ang pila",
+              "Umiiwas sa mga taong naghihintay"
+            ],
+            "correct_answer": "Naghihintay sa pila nang hindi umuungol"
+          },
+          {
+            "question": "Bakit mahalaga ang pasensiya sa ugnayan?",
+            "options": [
+              "Nagpapatibay ito sa relasyon",
+              "Nagpapabagal lamang ito ng lahat",
+              "Wala itong epekto",
+              "Nagdudulot lamang ng problema"
+            ],
+            "correct_answer": "Nagpapatibay ito sa relasyon"
+          },
+          {
+            "question": "Ang kapatid mo ay mabagal magsalita. Ano ang tama mong gawin?",
+            "options": [
+              "Makinig nang may pasensiya",
+              "Putulin siya agad",
+              "Sabihan siyang magmadali",
+              "Umalis na lamang"
+            ],
+            "correct_answer": "Makinig nang may pasensiya"
+          },
+          {
+            "question": "Ang kaklase mo ay hindi agad naiintindihan ang leksiyon. Ano ang mabuting gawin?",
+            "options": [
+              "Ipaliwanag nang paulit-ulit nang walang inis",
+              "Iwanan siya at huwag tulungan",
+              "Pagtawanan siya",
+              "Sabihan siyang bobo"
+            ],
+            "correct_answer": "Ipaliwanag nang paulit-ulit nang walang inis"
+          },
+          {
+            "question": "Ano ang mangyayari sa ugnayan kung walang pasensiya?",
+            "options": [
+              "Nagkakaroon ng alitan sa ugnayan",
+              "Nagiging mas matatag ito",
+              "Wala itong pagbabago rito",
+              "Nagiging mas maganda ito"
+            ],
+            "correct_answer": "Nagkakaroon ng alitan sa ugnayan"
+          },
+          {
+            "question": "Alin ang kilos na nagpapakita ng tamang pakikitungo?",
+            "options": [
+              "Paghihintay nang mahinahon",
+              "Pagsigaw kapag nainis",
+              "Pananakit sa kapwa",
+              "Pag-iwas sa lahat"
+            ],
+            "correct_answer": "Paghihintay nang mahinahon"
+          },
+          {
+            "question": "Ang pagpapaliwanag nang paulit-ulit sa nahihirapang kaklase ay nagpapakita ng:",
+            "options": [
+              "pasensiya at pagmamalasakit",
+              "kayabangan at pagmamataas",
+              "galit at inis",
+              "kawalan ng interes"
+            ],
+            "correct_answer": "pasensiya at pagmamalasakit"
+          },
+          {
+            "question": "Ano ang layunin ng pagkakaroon ng interpersonal skills?",
+            "options": [
+              "Mas maayos na pakikitungo sa iba",
+              "Mas mabilis na pagsulat",
+              "Mas mataas na marka",
+              "Mas malakas na katawan"
+            ],
+            "correct_answer": "Mas maayos na pakikitungo sa iba"
+          },
+          {
+            "question": "Nag-aalala kang matagal ang pila sa canteen. Ano ang pinakamabuting gawin?",
+            "options": [
+              "Maghintay nang may pasensiya",
+              "Sumingit sa unahan",
+              "Sumigaw sa mga tao",
+              "Umuwi na lang"
+            ],
+            "correct_answer": "Maghintay nang may pasensiya"
+          },
+          {
+            "question": "Bakit sinasabing tumutulong ang pasensiya sa kasanayan sa pakikitungo?",
+            "options": [
+              "Nagbibigay ng pagkakataong magkaunawaan",
+              "Nagpapabilis ito ng usapan",
+              "Nagpapasama ito ng relasyon",
+              "Wala itong kaugnayan dito"
+            ],
+            "correct_answer": "Nagbibigay ng pagkakataong magkaunawaan"
+          },
+          {
+            "question": "Ano ang unang hakbang sa mabuting ugnayan sa kapuwa?",
+            "options": [
+              "Paggalang at pang-unawa",
+              "Pagmamadali sa lahat",
+              "Pagsisi sa iba",
+              "Pananahimik lamang"
+            ],
+            "correct_answer": "Paggalang at pang-unawa"
+          }
+        ]
+      }
+    }
+  }
+}

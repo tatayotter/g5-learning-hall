@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-10-04",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🔗 English — Compound Sentences\n\nGrade 3, Week 17! Let's join sentences together. 💪\n\n## 🔗 What Is a Compound Sentence?\nA **compound sentence** joins **two complete sentences** using a **conjunction** (and, but, or, so).\n\n**Example:** *\"I like dogs, **and** I like cats.\"*\n- Sentence 1: I like dogs.\n- Sentence 2: I like cats.\n- Joined by: **and**\n\n## 🔤 Common Conjunctions\n| Word | Use |\n|---|---|\n| **and** | adds information |\n| **but** | shows contrast |\n| **or** | shows a choice |\n| **so** | shows a result |\n\n## ✅ Sentences vs Non-Sentences\nA **sentence** has a **subject** and a **predicate**, and expresses a **complete thought**.\n\n**Sentence:** *\"The dog barks.\"* ✅\n**Non-sentence:** *\"Barking loudly.\"* ❌ (no clear subject doing the action)\n\n## 🎯 Simple Sentences with Proper Intonation\nWhen reading aloud, your **voice should rise** for questions and **fall** for statements.\n\n## 🔢 Sequence Words\n**Declarative:** *\"First, I woke up. Then, I brushed my teeth.\"*\n**Interrogative:** *\"Did you wake up first, or brush your teeth first?\"*\n\n## 🧠 Worked Example 1\n*\"It rained, but we still played outside.\"* Identify the two sentences and conjunction.\n- Sentence 1: It rained.\n- Sentence 2: We still played outside.\n- Conjunction: **but** (shows contrast)\n\n## 🧠 Worked Example 2\n*Combine: \"I was tired.\" + \"I kept studying.\" Use 'but'.*\n- **\"I was tired, but I kept studying.\"** ✅\n\nGreat sentence building! 🌟",
+        "quiz": [
+          {
+            "question": "What is a compound sentence?",
+            "options": [
+              "Two complete sentences joined by a conjunction",
+              "A sentence with only one word",
+              "A sentence with no subject",
+              "A question with no answer"
+            ],
+            "correct_answer": "Two complete sentences joined by a conjunction"
+          },
+          {
+            "question": "Which conjunction shows contrast?",
+            "options": [
+              "but",
+              "and",
+              "so",
+              "the"
+            ],
+            "correct_answer": "but"
+          },
+          {
+            "question": "Which conjunction adds information?",
+            "options": [
+              "and",
+              "but",
+              "however",
+              "yet"
+            ],
+            "correct_answer": "and"
+          },
+          {
+            "question": "Which conjunction shows a choice?",
+            "options": [
+              "or",
+              "and",
+              "so",
+              "but"
+            ],
+            "correct_answer": "or"
+          },
+          {
+            "question": "Which conjunction shows a result?",
+            "options": [
+              "so",
+              "or",
+              "but",
+              "and"
+            ],
+            "correct_answer": "so"
+          },
+          {
+            "question": "\"It rained, but we still played outside.\" What conjunction is used?",
+            "options": [
+              "but",
+              "and",
+              "or",
+              "so"
+            ],
+            "correct_answer": "but"
+          },
+          {
+            "question": "Which is a complete sentence?",
+            "options": [
+              "The dog barks.",
+              "Barking loudly.",
+              "Under the table.",
+              "Very quickly."
+            ],
+            "correct_answer": "The dog barks."
+          },
+          {
+            "question": "What must every sentence have?",
+            "options": [
+              "A subject and a predicate",
+              "Only a question mark",
+              "Only a long word",
+              "Only a conjunction"
+            ],
+            "correct_answer": "A subject and a predicate"
+          },
+          {
+            "question": "Combine: 'I was tired.' + 'I kept studying.' using 'but'.",
+            "options": [
+              "I was tired, but I kept studying.",
+              "I was tired, and I kept studying.",
+              "I was tired, or I kept studying.",
+              "I was tired, so I stopped studying."
+            ],
+            "correct_answer": "I was tired, but I kept studying."
+          },
+          {
+            "question": "Should your voice rise or fall when reading a question aloud?",
+            "options": [
+              "Rise",
+              "Fall",
+              "Stay flat",
+              "Whisper only"
+            ],
+            "correct_answer": "Rise"
+          },
+          {
+            "question": "'I finished my homework, so I can play now.' What does 'so' show here?",
+            "options": [
+              "A result",
+              "A contrast",
+              "A choice",
+              "A question"
+            ],
+            "correct_answer": "A result"
+          },
+          {
+            "question": "A student writes 'Running very fast down the street' as a full sentence. What is missing?",
+            "options": [
+              "A clear subject performing the action",
+              "An exclamation point at the end",
+              "A conjunction placed inside",
+              "A question mark somewhere"
+            ],
+            "correct_answer": "A clear subject performing the action"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💰 Mathematics — Reading and Writing Money\n\nGrade 3, Week 17! Let's work with Philippine currency. 💰\n\n## 💵 Philippine Peso Symbol\nThe symbol for peso is **₱**, and \"PhP\" is also used.\n\n**Example:** ₱250 = PhP250 = \"two hundred fifty pesos\"\n\n## 🪙 The Centavo Sign\n**Centavos** are smaller than pesos — 100 centavos = ₱1.\n\n**Written as:** ₱25.50 = \"twenty-five pesos and fifty centavos\"\n\n## ✍️ Writing Money in Words\n| Numeral | Words |\n|---|---|\n| ₱150 | one hundred fifty pesos |\n| ₱2,340 | two thousand three hundred forty pesos |\n| ₱75.25 | seventy-five pesos and twenty-five centavos |\n\n## 🧠 Worked Example 1\n*Write ₱1,205 in words.*\n- **\"One thousand two hundred five pesos\"** ✅\n\n## 🧠 Worked Example 2\n*Write \"three thousand six hundred pesos\" in numerals.*\n- **₱3,600** ✅\n\n## 💳 Reading Money up to ₱10,000\nPractice reading larger amounts:\n- ₱8,750 = \"eight thousand seven hundred fifty pesos\"\n- ₱9,999 = \"nine thousand nine hundred ninety-nine pesos\"\n\n## 📝 Word Problem\n*Ana has ₱4,500. Write this in words.*\n- **\"Four thousand five hundred pesos\"** ✅\n\nGreat money reading! ⭐",
+        "quiz": [
+          {
+            "question": "What symbol represents the Philippine peso?",
+            "options": [
+              "₱",
+              "$",
+              "€",
+              "£"
+            ],
+            "correct_answer": "₱"
+          },
+          {
+            "question": "How many centavos make up ₱1?",
+            "options": [
+              "100",
+              "10",
+              "1,000",
+              "50"
+            ],
+            "correct_answer": "100"
+          },
+          {
+            "question": "How do you write ₱150 in words?",
+            "options": [
+              "One hundred fifty pesos",
+              "Fifteen pesos",
+              "One thousand fifty pesos",
+              "One hundred five pesos"
+            ],
+            "correct_answer": "One hundred fifty pesos"
+          },
+          {
+            "question": "Write ₱1,205 in words.",
+            "options": [
+              "One thousand two hundred five pesos",
+              "One thousand twenty-five pesos",
+              "Twelve hundred pesos",
+              "One thousand two hundred fifty pesos"
+            ],
+            "correct_answer": "One thousand two hundred five pesos"
+          },
+          {
+            "question": "Write 'three thousand six hundred pesos' in numerals.",
+            "options": [
+              "₱3,600",
+              "₱3,060",
+              "₱36,000",
+              "₱3,006"
+            ],
+            "correct_answer": "₱3,600"
+          },
+          {
+            "question": "How do you write ₱75.25 in words?",
+            "options": [
+              "Seventy-five pesos and twenty-five centavos",
+              "Seventy-five pesos exactly only",
+              "Seven hundred fifty pesos exactly",
+              "Seventy-five centavos exactly only"
+            ],
+            "correct_answer": "Seventy-five pesos and twenty-five centavos"
+          },
+          {
+            "question": "What does 'PhP' stand for?",
+            "options": [
+              "Philippine Peso",
+              "Philippine Product",
+              "Philippine Price",
+              "Philippine Payment"
+            ],
+            "correct_answer": "Philippine Peso"
+          },
+          {
+            "question": "How do you write ₱8,750 in words?",
+            "options": [
+              "Eight thousand seven hundred fifty pesos",
+              "Eight hundred seventy-five pesos",
+              "Eighty-seven hundred fifty pesos",
+              "Eight thousand seventy-five pesos"
+            ],
+            "correct_answer": "Eight thousand seven hundred fifty pesos"
+          },
+          {
+            "question": "Ana has ₱4,500. Write this in words.",
+            "options": [
+              "Four thousand five hundred pesos",
+              "Four hundred fifty pesos",
+              "Forty-five hundred fifty pesos",
+              "Four thousand fifty pesos"
+            ],
+            "correct_answer": "Four thousand five hundred pesos"
+          },
+          {
+            "question": "What is the maximum amount discussed in this lesson for reading/writing money?",
+            "options": [
+              "₱10,000",
+              "₱1,000",
+              "₱100,000",
+              "₱100"
+            ],
+            "correct_answer": "₱10,000"
+          },
+          {
+            "question": "Write 'nine thousand nine hundred ninety-nine pesos' in numerals.",
+            "options": [
+              "₱9,999",
+              "₱9,909",
+              "₱9,990",
+              "₱999"
+            ],
+            "correct_answer": "₱9,999"
+          },
+          {
+            "question": "A receipt shows ₱2,340. How is this read aloud correctly?",
+            "options": [
+              "Two thousand three hundred forty pesos",
+              "Twenty-three hundred forty pesos only",
+              "Two hundred thirty-four pesos",
+              "Two thousand thirty-four pesos"
+            ],
+            "correct_answer": "Two thousand three hundred forty pesos"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🌱 Filipino — Katangian ng Nabubuhay na Bagay\n\nGrade 3, Linggo 17! Alamin natin ang katangian ng buhay. 🔬\n\n## 🌟 Tatlong Katangian ng Nabubuhay na Bagay\n\n**1. LUMALAKI (Grow)**\nAng mga nabubuhay na bagay ay **dumadami ang laki** sa paglipas ng panahon.\n\n**2. TUMUTUGON (Respond)**\nSila ay **tumutugon** sa kanilang paligid — hal. umiiwas sa init, gumagalaw palayo sa panganib.\n\n**3. NAGPAPAPAROON (Reproduce)**\nSila ay may kakayahang **magparami** — gumawa ng bagong bagay katulad nila.\n\n## 🧠 Halimbawa 1\n*Bakit itinuturing na nabubuhay ang isang puno?*\n- Ito ay **lumalaki**, **tumutugon** sa liwanag (yumuyuko papunta rito), at **nagpaparami** sa pamamagitan ng buto.\n\n## 🧠 Halimbawa 2\n*Bakit hindi nabubuhay ang isang bato?*\n- Hindi ito **lumalaki**, hindi **tumutugon**, at hindi **nagpaparami**.\n\n## 🌸 Iba Pang Halimbawa\n| Nabubuhay na Bagay | Paano Ipinapakita ang mga Katangian |\n|---|---|\n| **Halaman** | lumalago, yumuyuko papunta sa araw, gumagawa ng buto |\n| **Aso** | lumalaki, kumikibot kapag nagulat, nagkakaanak |\n| **Tao** | lumalaki, umiiwas sa panganib, nagkakaanak |\n\n## 🔍 Pagsusuri sa Isang Bagay\nTanungin ang sarili:\n1. **Lumalaki ba ito?**\n2. **Tumutugon ba ito** sa kapaligiran?\n3. **Nagpaparami ba ito?**\n\nKung **oo** sa lahat, ito ay **nabubuhay**.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang isang katangian ng nabubuhay na bagay?",
+            "options": [
+              "Lumalaki",
+              "Hindi gumagalaw kailanman",
+              "Bato lamang",
+              "Manggas lamang"
+            ],
+            "correct_answer": "Lumalaki"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'tumutugon'?",
+            "options": [
+              "Tumutugon sa kapaligiran",
+              "Lumalaki nang mabilis",
+              "Hindi kumikilos",
+              "Gawa sa plastik"
+            ],
+            "correct_answer": "Tumutugon sa kapaligiran"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'nagpaparami'?",
+            "options": [
+              "May kakayahang gumawa ng bagong katulad",
+              "Kumakain ng maraming pagkain araw-araw",
+              "Tumatakbo nang mabilis kahit saan",
+              "Nagbabago ng kulay palagi"
+            ],
+            "correct_answer": "May kakayahang gumawa ng bagong katulad"
+          },
+          {
+            "question": "Bakit itinuturing na nabubuhay ang isang puno?",
+            "options": [
+              "Lumalaki, tumutugon, at nagpaparami ito",
+              "Hindi ito gumagalaw kahit kailan",
+              "Gawa ito sa plastik",
+              "Wala itong dahon"
+            ],
+            "correct_answer": "Lumalaki, tumutugon, at nagpaparami ito"
+          },
+          {
+            "question": "Bakit hindi nabubuhay ang isang bato?",
+            "options": [
+              "Hindi ito lumalaki, tumutugon, o nagpaparami",
+              "Ito ay lumalaki nang mabilis",
+              "Ito ay tumutugon sa init",
+              "Ito ay nagpaparami"
+            ],
+            "correct_answer": "Hindi ito lumalaki, tumutugon, o nagpaparami"
+          },
+          {
+            "question": "Paano ipinapakita ng aso ang katangiang tumutugon?",
+            "options": [
+              "Kumikibot kapag nagulat",
+              "Gawa ito sa metal",
+              "Hindi ito kumikilos",
+              "Wala itong buhok"
+            ],
+            "correct_answer": "Kumikibot kapag nagulat"
+          },
+          {
+            "question": "Ano ang tatlong tanong na dapat itanong kapag sinusuri kung nabubuhay ang isang bagay?",
+            "options": [
+              "Lumalaki ba, tumutugon ba, nagpaparami ba",
+              "Malaki ba, maliit ba, gitna ba",
+              "Mabilis ba, mabagal ba, katamtaman ba",
+              "Malakas ba, mahina ba, katamtaman ba"
+            ],
+            "correct_answer": "Lumalaki ba, tumutugon ba, nagpaparami ba"
+          },
+          {
+            "question": "Paano nagpaparami ang halaman?",
+            "options": [
+              "Sa pamamagitan ng buto",
+              "Sa pamamagitan ng pagsulat",
+              "Sa pamamagitan ng pagsasayaw",
+              "Sa pamamagitan ng pagbibiyahe"
+            ],
+            "correct_answer": "Sa pamamagitan ng buto"
+          },
+          {
+            "question": "Alin ang halimbawa ng bagay na hindi nabubuhay?",
+            "options": [
+              "Bato",
+              "Puno",
+              "Aso",
+              "Tao"
+            ],
+            "correct_answer": "Bato"
+          },
+          {
+            "question": "Paano tumutugon ang halaman sa liwanag ng araw?",
+            "options": [
+              "Yumuyuko papunta sa araw",
+              "Tumatalikod dito",
+              "Wala itong reaksiyon",
+              "Lumalaki paatras"
+            ],
+            "correct_answer": "Yumuyuko papunta sa araw"
+          },
+          {
+            "question": "Bakit itinuturing na katangian ng buhay ang paglaki?",
+            "options": [
+              "Ipinapakita nito ang pag-unlad ng bagay",
+              "Wala itong kaugnayan sa buhay dito",
+              "Ginagawa lamang ito ng bata",
+              "Hindi ito nagbabago kahit kailan"
+            ],
+            "correct_answer": "Ipinapakita nito ang pag-unlad ng bagay"
+          },
+          {
+            "question": "Isang bagay ang hindi gumagalaw, hindi lumalaki, at hindi nagpaparami. Ano ito?",
+            "options": [
+              "Bagay na hindi nabubuhay",
+              "Isang halaman lamang",
+              "Isang hayop lamang",
+              "Isang tao lamang"
+            ],
+            "correct_answer": "Bagay na hindi nabubuhay"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌟 Science — Characteristics of Living Things\n\nGrade 3, Week 17! Let's explore what makes something alive. 🔬\n\n## 🌟 Three Key Characteristics of Living Things\n\n**1. THEY GROW**\nLiving things become **bigger** and **change** over time.\n\n**2. THEY RESPOND**\nLiving things **react** to things around them — light, touch, danger.\n\n**3. THEY REPRODUCE**\nLiving things can **make more of their own kind**.\n\n## 🧠 Worked Example 1\n*Why is a tree considered a living thing?*\n- It **grows** taller, **responds** to sunlight by bending toward it, and **reproduces** through seeds.\n\n## 🧠 Worked Example 2\n*Why is a rock NOT a living thing?*\n- It does **not grow**, does **not respond**, and does **not reproduce**.\n\n## 🌸 More Examples\n| Living Thing | How It Shows Each Characteristic |\n|---|---|\n| **Plant** | grows taller, bends toward light, makes seeds |\n| **Dog** | grows bigger, jumps when startled, has puppies |\n| **Human** | grows up, moves away from danger, has children |\n\n## 🔍 The Three-Question Test\nAsk:\n1. **Does it grow?**\n2. **Does it respond** to its surroundings?\n3. **Does it reproduce?**\n\nIf **yes to all three**, it is a **living thing**.\n\nGreat scientist work! 🌟",
+        "quiz": [
+          {
+            "question": "Which is a characteristic of living things?",
+            "options": [
+              "They grow",
+              "They never change",
+              "They are man-made",
+              "They cannot need food"
+            ],
+            "correct_answer": "They grow"
+          },
+          {
+            "question": "What does 'respond' mean for living things?",
+            "options": [
+              "React to their surroundings",
+              "Grow very fast",
+              "Never move at all",
+              "Made of plastic"
+            ],
+            "correct_answer": "React to their surroundings"
+          },
+          {
+            "question": "What does 'reproduce' mean?",
+            "options": [
+              "Make more of their own kind",
+              "Eat large amounts of food",
+              "Run very quickly",
+              "Change color often"
+            ],
+            "correct_answer": "Make more of their own kind"
+          },
+          {
+            "question": "Why is a tree considered living?",
+            "options": [
+              "It grows, responds, and reproduces too",
+              "It never moves or changes at all",
+              "It is made of plastic only",
+              "It has no leaves at all"
+            ],
+            "correct_answer": "It grows, responds, and reproduces too"
+          },
+          {
+            "question": "Why is a rock NOT a living thing?",
+            "options": [
+              "It does not grow, respond, or reproduce",
+              "It grows very quickly each day",
+              "It responds to sunlight directly",
+              "It reproduces once every year"
+            ],
+            "correct_answer": "It does not grow, respond, or reproduce"
+          },
+          {
+            "question": "How does a dog show it responds to surroundings?",
+            "options": [
+              "Jumps when startled",
+              "Made of metal",
+              "Does not move",
+              "Has no fur"
+            ],
+            "correct_answer": "Jumps when startled"
+          },
+          {
+            "question": "What are the three questions in the living-thing test?",
+            "options": [
+              "Does it grow, respond, and reproduce?",
+              "Is it big, small, or medium?",
+              "Is it fast, slow, or average?",
+              "Is it strong, weak, or average?"
+            ],
+            "correct_answer": "Does it grow, respond, and reproduce?"
+          },
+          {
+            "question": "How does a plant reproduce?",
+            "options": [
+              "Through seeds",
+              "Through writing",
+              "Through dancing",
+              "Through traveling"
+            ],
+            "correct_answer": "Through seeds"
+          },
+          {
+            "question": "Which is an example of a non-living thing?",
+            "options": [
+              "Rock",
+              "Tree",
+              "Dog",
+              "Human"
+            ],
+            "correct_answer": "Rock"
+          },
+          {
+            "question": "How does a plant respond to sunlight?",
+            "options": [
+              "Bends toward it",
+              "Turns away from it",
+              "Has no reaction",
+              "Grows backward"
+            ],
+            "correct_answer": "Bends toward it"
+          },
+          {
+            "question": "Why is growth considered a characteristic of life?",
+            "options": [
+              "It shows development over time",
+              "It has no connection to life",
+              "It is only done by babies",
+              "It never changes"
+            ],
+            "correct_answer": "It shows development over time"
+          },
+          {
+            "question": "An object does not move, grow, or reproduce. What is it most likely?",
+            "options": [
+              "A non-living thing",
+              "A living thing",
+              "Both living and non-living",
+              "Cannot be determined at all"
+            ],
+            "correct_answer": "A non-living thing"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🎨 Makabansa — Kultura at Sariling Pagkakakilanlan\n\nGrade 3, Linggo 17! Paano hinuhubog ng kultura ang ating pagkatao? 🇵🇭\n\n## 🪞 Ugnayan ng Sining, Kasanayan, at Pagkain sa Pagkakakilanlan\n\nAng **sining, kasanayan, produkto, pagkain, at kasuotan** na natatangi sa iyong lokalidad ay bahagi ng iyong **pagkakakilanlan**.\n\n| Aspeto | Halimbawa | Kaugnayan sa Pagkakakilanlan |\n|---|---|---|\n| **Sining** | pag-uukit, paghahabi | ipinapakita ang kasanayan ng ninuno |\n| **Kasanayan** | pangingisda, pagsasaka | nagpapakita ng kabuhayan ng lugar |\n| **Pagkain** | tradisyonal na putahe | nagpapaalala ng kultura ng pamilya |\n| **Kasuotan** | tradisyonal na damit | nagpapakita ng pinagmulang lugar |\n\n## 🧠 Halimbawa 1\n*Paano nakaaapekto ang kasanayan sa paghahabi sa pagkakakilanlan ng isang lugar?*\n- Ang **paghahabi** ay ipinasa mula sa nakatatanda — ito ay nagpapakita ng **kahusayan at kasaysayan** ng komunidad.\n\n## 🎨 Paglikha ng Likhang-Sining Gamit ang Katutubong Materyales\nMaaari kang lumikha ng sining gamit ang mga materyales na **available sa iyong sariling komunidad**.\n\n**Halimbawa ng proyekto:**\n- Gumawa ng **collage** gamit ang tuyong dahon\n- Gumawa ng **habi** gamit ang lumang tela\n- Gumawa ng **guhit** ng tradisyonal na pagkain ng inyong lugar\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang gumamit ng katutubong materyales sa paggawa ng sining?*\n- Nagpapakita ito ng **pagpapahalaga** sa likas na yaman at kultura ng sariling lugar, at **pinatitipid** din ang gastos.\n\n## 💛 Bakit Mahalaga ang Koneksiyong Ito?\nKapag naiintindihan natin kung paano hinuhubog ng lokal na kultura ang ating pagkatao, natututo tayong **maging mapagmalaki** sa ating pinagmulan.\n\nMagaling sa Linggo 17! 🌟",
+        "quiz": [
+          {
+            "question": "Alin ang bahagi ng pagkakakilanlan ng isang lugar?",
+            "options": [
+              "Sining, kasanayan, at pagkain",
+              "Bilang ng tao lamang",
+              "Presyo ng bilihin lamang",
+              "Panahon lamang"
+            ],
+            "correct_answer": "Sining, kasanayan, at pagkain"
+          },
+          {
+            "question": "Paano nakaaapekto ang paghahabi sa pagkakakilanlan ng isang lugar?",
+            "options": [
+              "Nagpapakita ito ng kahusayan at kasaysayan",
+              "Wala itong kaugnayan sa kultura",
+              "Ginagamit lamang ito sa palaruan",
+              "Hindi ito bahagi ng kasanayan"
+            ],
+            "correct_answer": "Nagpapakita ito ng kahusayan at kasaysayan"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng katutubong materyales sa sining?",
+            "options": [
+              "Nagpapakita ng pagpapahalaga sa yaman",
+              "Wala itong kabuluhan sa proyekto",
+              "Mas mahal ito kaysa ibang materyales",
+              "Hindi ito magagamit kailanman"
+            ],
+            "correct_answer": "Nagpapakita ng pagpapahalaga sa yaman"
+          },
+          {
+            "question": "Alin ang halimbawa ng likhang-sining gamit ang katutubong materyales?",
+            "options": [
+              "Collage gamit ang tuyong dahon",
+              "Gadgetong elektroniko",
+              "Larawang naka-print sa kompyuter",
+              "Kompyuter game"
+            ],
+            "correct_answer": "Collage gamit ang tuyong dahon"
+          },
+          {
+            "question": "Ano ang ipinapakita ng tradisyonal na pagkain sa isang komunidad?",
+            "options": [
+              "Nagpapaalala ito ng kultura ng pamilya",
+              "Wala itong kaugnayan sa kultura",
+              "Ginagamit lamang ito para mabusog",
+              "Hindi ito bahagi ng pagkakakilanlan"
+            ],
+            "correct_answer": "Nagpapaalala ito ng kultura ng pamilya"
+          },
+          {
+            "question": "Ano ang ipinapakita ng tradisyonal na kasuotan?",
+            "options": [
+              "Ang pinagmulang lugar ng tao",
+              "Ang kanyang edad lamang",
+              "Ang kanyang pangalan lamang",
+              "Ang kanyang tirahan lamang"
+            ],
+            "correct_answer": "Ang pinagmulang lugar ng tao"
+          },
+          {
+            "question": "Bakit mahalagang maunawaan ang koneksiyon ng kultura sa pagkakakilanlan?",
+            "options": [
+              "Natututo tayong maging mapagmalaki sa pinagmulan",
+              "Walang kabuluhan ito",
+              "Ito ay panandalian lamang",
+              "Ginagawa lamang ito sa piyesta"
+            ],
+            "correct_answer": "Natututo tayong maging mapagmalaki sa pinagmulan"
+          },
+          {
+            "question": "Ano ang halimbawa ng kasanayang katangi-tangi sa isang komunidad ng mangingisda?",
+            "options": [
+              "Pangingisda",
+              "Pagbuburda",
+              "Pananahi",
+              "Pagluluto ng adobo"
+            ],
+            "correct_answer": "Pangingisda"
+          },
+          {
+            "question": "Bakit itinuturing na natatangi ang produktong lokal ng isang lugar?",
+            "options": [
+              "Nakabatay sa likas na yaman ng lugar",
+              "Wala itong kaugnayan sa lugar dito",
+              "Ito ay pareho sa lahat ng lugar",
+              "Ginagawa lamang ito nang random"
+            ],
+            "correct_answer": "Nakabatay sa likas na yaman ng lugar"
+          },
+          {
+            "question": "Alin ang tamang paraan ng paglikha ng sining gamit ang materyales sa iyong komunidad?",
+            "options": [
+              "Paggamit ng available na materyales sa paligid",
+              "Pagbili lamang ng mamahaling gamit",
+              "Pag-iwas sa lahat ng materyales",
+              "Paggamit lamang ng elektronikong gamit"
+            ],
+            "correct_answer": "Paggamit ng available na materyales sa paligid"
+          },
+          {
+            "question": "Bakit mahalaga ang paggamit ng katutubong materyales sa pagtitipid?",
+            "options": [
+              "Pinatitipid nito ang gastos",
+              "Nagpapataas ito ng gastos",
+              "Wala itong kaugnayan sa gastos",
+              "Nagdaragdag lamang ito ng problema"
+            ],
+            "correct_answer": "Pinatitipid nito ang gastos"
+          },
+          {
+            "question": "Isang bata ang gumawa ng habi gamit ang lumang tela mula sa kanyang lola. Ano ang ipinapakita nito?",
+            "options": [
+              "Paggamit ng katutubong materyales sa sining",
+              "Kawalan ng interes sa sining",
+              "Pag-aaksaya ng oras",
+              "Kawalan ng kaugnayan sa kultura"
+            ],
+            "correct_answer": "Paggamit ng katutubong materyales sa sining"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💾 Computer — Saving and Opening Files\n\nGrade 3, Week 17! Let's learn to save our work properly. 💻\n\n## 💾 Saving a File\n**Steps:**\n1. Click **File → Save** (or press **Ctrl+S**)\n2. Choose a **folder** to save it in\n3. Give it a **sensible file name** (e.g., \"My_Drawing\" not \"asdf123\")\n4. Click **Save**\n\n## 📁 Choosing a Good File Name\n| Good Name | Why |\n|---|---|\n| **My_Family_Drawing** | clear and describes the content |\n| **asdf123** | ❌ meaningless, hard to find later |\n\n## 📂 Reopening a Saved File\n**Steps:**\n1. Click **File → Open**\n2. Find the **folder** where you saved it\n3. Click the **file name**\n4. Click **Open**\n\n## 🧠 Worked Example 1\n*You made a drawing and want to save it in the \"My Projects\" folder with a clear name.*\n- File → Save → choose \"My Projects\" folder → type \"My_Favorite_Animal\" → Save\n\n## 🧠 Worked Example 2\n*You want to continue working on a drawing you saved yesterday.*\n- File → Open → find the folder → click the file name → Open\n\n## ⚠️ Why Saving Regularly Matters\nIf the computer **shuts down unexpectedly** or there's a **power outage**, unsaved work is **lost forever**.\n\n**Rule of thumb:** Save every few minutes, especially before taking a break!\n\n## 💡 Adult Guidance\nAt this stage, it's okay to **ask an adult for help** finding the right folder — the important part is understanding **why** and **how** to save.\n\nGreat computer skills! 🌟",
+        "quiz": [
+          {
+            "question": "What is the keyboard shortcut for saving a file?",
+            "options": [
+              "Ctrl+S",
+              "Ctrl+O",
+              "Ctrl+P",
+              "Ctrl+N"
+            ],
+            "correct_answer": "Ctrl+S"
+          },
+          {
+            "question": "Which is a good, sensible file name?",
+            "options": [
+              "My_Family_Drawing",
+              "asdf123",
+              "file1",
+              "xxxxx"
+            ],
+            "correct_answer": "My_Family_Drawing"
+          },
+          {
+            "question": "What is the first step to reopen a saved file?",
+            "options": [
+              "File → Open",
+              "File → Save",
+              "File → Print",
+              "File → Close"
+            ],
+            "correct_answer": "File → Open"
+          },
+          {
+            "question": "Why is it important to save your work regularly?",
+            "options": [
+              "Unsaved work can be lost in a power outage",
+              "It makes your file colorful",
+              "It slows down the computer on purpose",
+              "It changes the file's name automatically"
+            ],
+            "correct_answer": "Unsaved work can be lost in a power outage"
+          },
+          {
+            "question": "What should you choose before saving a file?",
+            "options": [
+              "A folder to save it in",
+              "A random color",
+              "A new computer",
+              "A different program entirely"
+            ],
+            "correct_answer": "A folder to save it in"
+          },
+          {
+            "question": "Why is 'asdf123' a poor file name?",
+            "options": [
+              "It is meaningless and hard to find later",
+              "It is too long to type",
+              "It uses too many numbers",
+              "It cannot be saved at all"
+            ],
+            "correct_answer": "It is meaningless and hard to find later"
+          },
+          {
+            "question": "What is the last step when saving a file?",
+            "options": [
+              "Click Save",
+              "Click Open",
+              "Click Print",
+              "Click Delete"
+            ],
+            "correct_answer": "Click Save"
+          },
+          {
+            "question": "When should you ask an adult for help with saving files?",
+            "options": [
+              "When finding the right folder",
+              "Never, it is not allowed",
+              "Only when printing",
+              "Only when drawing"
+            ],
+            "correct_answer": "When finding the right folder"
+          },
+          {
+            "question": "What happens if the computer shuts down before you save?",
+            "options": [
+              "Unsaved work is lost",
+              "The file saves automatically",
+              "Nothing happens at all",
+              "The file becomes larger"
+            ],
+            "correct_answer": "Unsaved work is lost"
+          },
+          {
+            "question": "Which menu do you use to save AND to open files?",
+            "options": [
+              "File menu",
+              "Edit menu",
+              "View menu",
+              "Help menu"
+            ],
+            "correct_answer": "File menu"
+          },
+          {
+            "question": "Why should you save before taking a break from your work?",
+            "options": [
+              "To avoid losing progress unexpectedly",
+              "To make the break longer",
+              "To change the file's color",
+              "To close the whole program"
+            ],
+            "correct_answer": "To avoid losing progress unexpectedly"
+          },
+          {
+            "question": "A student worked for an hour but never saved, then the power went out. What happened to the work?",
+            "options": [
+              "It was lost since it was never saved",
+              "It was saved automatically",
+              "It printed by itself",
+              "Nothing was affected"
+            ],
+            "correct_answer": "It was lost since it was never saved"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🤝 GMRC — Pakikipag-ugnayan sa Bawat Kasapi ng Pamilya\n\nGrade 3, Linggo 17! Pagpapahalaga: **Sincerity (Katapatan)**. 🌟\n\n## 👨‍👩‍👧‍👦 Iba't Ibang Kasapi, Iba't Ibang Ugnayan\nMay iba't ibang paraan ng pakikipag-ugnayan sa bawat kasapi ng pamilya:\n\n| Kasapi | Paraan ng Pakikipag-ugnayan |\n|---|---|\n| **Magulang** | paggalang, pagsunod, pagbabahagi ng saloobin |\n| **Kapatid** | pagtutulungan, paglalaro nang patas |\n| **Lolo/Lola** | paggalang, pakikinig sa kuwento |\n| **Tita/Tito** | pagbati, pagpapasalamat |\n\n## 💛 Ano ang Sincerity (Katapatan)?\nAng **katapatan** ay ang pagiging **totoo** sa iyong mga salita at kilos — hindi nagkukunwari.\n\n**Halimbawa:** Kapag sinabi mong mahal mo ang iyong pamilya, **ipinapakita** mo rin ito sa iyong mga kilos.\n\n## 🎯 Bakit Nagbubuo ng Pagmamahalan ang Wastong Pakikipag-ugnayan?\n- Nagpapakita ng **paggalang** sa bawat isa\n- Nagpapatibay ng **tiwala**\n- Nagpapalago ng **pagmamahalan**\n\n## 🧠 Halimbawa 1\n*Paano mo dapat kausapin ang iyong Lolo o Lola?*\n- Nang may **paggalang**, **pakikinig** sa kanilang kuwento, at **paggamit ng po at opo**.\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang maging tapat sa pamilya?*\n- Ang **katapatan** ay nagpapatibay ng **tiwala** — kapag alam nilang totoo ka, mas malapit ang inyong ugnayan.\n\n## 💡 Sariling Paraan ng Pakikipag-ugnayan\nBawat bata ay maaaring may **sariling paraan** ng pagpapakita ng pagmamahal — mahalaga ang **pagiging tapat** dito.\n\nMagaling! 💫",
+        "quiz": [
+          {
+            "question": "Paano dapat makipag-ugnayan sa magulang?",
+            "options": [
+              "Paggalang at pagsunod",
+              "Pagsuway lamang",
+              "Pananahimik palagi",
+              "Pag-iwas sa kanila"
+            ],
+            "correct_answer": "Paggalang at pagsunod"
+          },
+          {
+            "question": "Ano ang katapatan (sincerity)?",
+            "options": [
+              "Pagiging totoo sa salita at kilos",
+              "Pagsisinungaling nang palagi",
+              "Pagkukunwari sa lahat",
+              "Pag-iwas sa katotohanan"
+            ],
+            "correct_answer": "Pagiging totoo sa salita at kilos"
+          },
+          {
+            "question": "Paano mo dapat kausapin ang iyong Lolo o Lola?",
+            "options": [
+              "Nang may paggalang at pakikinig",
+              "Nang walang pakialam",
+              "Nang mabilis lamang",
+              "Nang mapanunuya"
+            ],
+            "correct_answer": "Nang may paggalang at pakikinig"
+          },
+          {
+            "question": "Bakit mahalagang maging tapat sa pamilya?",
+            "options": [
+              "Nagpapatibay ito ng tiwala",
+              "Wala itong kabuluhan",
+              "Nagpapahirap lamang ito",
+              "Ginagawa lamang ito sa piyesta"
+            ],
+            "correct_answer": "Nagpapatibay ito ng tiwala"
+          },
+          {
+            "question": "Paano ipinapakita ang pagmamahal sa kapatid?",
+            "options": [
+              "Pagtutulungan at pagpapatas sa laro",
+              "Pang-aaway lamang",
+              "Pag-iwas sa kanya",
+              "Pagkuha ng kanyang gamit"
+            ],
+            "correct_answer": "Pagtutulungan at pagpapatas sa laro"
+          },
+          {
+            "question": "Ano ang epekto ng wastong pakikipag-ugnayan sa pamilya?",
+            "options": [
+              "Nagpapalago ng pagmamahalan",
+              "Nagpapasama ng relasyon",
+              "Wala itong epekto",
+              "Nagdadagdag ng alitan"
+            ],
+            "correct_answer": "Nagpapalago ng pagmamahalan"
+          },
+          {
+            "question": "Ano ang tamang gawin sa Tita o Tito na binibisita ang bahay?",
+            "options": [
+              "Pagbati at pagpapasalamat",
+              "Hindi na pansinin sila",
+              "Umalis sa kwarto",
+              "Magtago sa kanila"
+            ],
+            "correct_answer": "Pagbati at pagpapasalamat"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang katapatan sa relasyon?",
+            "options": [
+              "Kapag alam nilang totoo ka, lumalapit ang ugnayan",
+              "Wala itong epekto sa relasyon",
+              "Nagpapahirap lamang ito ng usapan",
+              "Hindi ito importante"
+            ],
+            "correct_answer": "Kapag alam nilang totoo ka, lumalapit ang ugnayan"
+          },
+          {
+            "question": "Ano ang tamang gawin kapag sinabi mong mahal mo ang pamilya?",
+            "options": [
+              "Ipakita rin ito sa kilos",
+              "Sabihin lamang, hindi na kailangang ipakita",
+              "Kalimutan agad ito",
+              "Wala itong dapat gawin pa"
+            ],
+            "correct_answer": "Ipakita rin ito sa kilos"
+          },
+          {
+            "question": "Ano ang dapat gawin sa magulang kapag nagbabahagi sila ng saloobin?",
+            "options": [
+              "Makinig at igalang ang kanilang saloobin",
+              "Hindi pansinin ang sinasabi nila",
+              "Tumawa lamang sa sinasabi nila",
+              "Umalis habang nagsasalita sila"
+            ],
+            "correct_answer": "Makinig at igalang ang kanilang saloobin"
+          },
+          {
+            "question": "Bakit magkaiba ang paraan ng pakikipag-ugnayan sa bawat kasapi ng pamilya?",
+            "options": [
+              "May iba't ibang tungkulin at ugnayan ang bawat isa",
+              "Iisa lamang ang paraan sa lahat",
+              "Walang pagkakaiba sa kanila",
+              "Hindi na kailangang makipag-ugnayan"
+            ],
+            "correct_answer": "May iba't ibang tungkulin at ugnayan ang bawat isa"
+          },
+          {
+            "question": "Isang bata ang laging naglalaro nang patas sa kapatid at tumutulong sa gawaing bahay. Ano ang ipinapakita nito?",
+            "options": [
+              "Wastong pakikipag-ugnayan sa pamilya",
+              "Kawalan ng pakialam sa pamilya",
+              "Pagsuway sa magulang",
+              "Kakulangan sa katapatan"
+            ],
+            "correct_answer": "Wastong pakikipag-ugnayan sa pamilya"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🔗 Friday Review — English (Grade 3)\n\n- **Compound sentence** = two sentences joined by a conjunction (and, but, or, so)\n- **and** = adds | **but** = contrast | **or** = choice | **so** = result\n- Every sentence needs a **subject and predicate**\n\nGreat sentence building! 🌟",
+        "quiz": [
+          {
+            "question": "What is a compound sentence?",
+            "options": [
+              "Two complete sentences joined by a conjunction",
+              "A sentence with only one word",
+              "A sentence with no subject",
+              "A question with no answer"
+            ],
+            "correct_answer": "Two complete sentences joined by a conjunction"
+          },
+          {
+            "question": "Which conjunction shows contrast?",
+            "options": [
+              "but",
+              "and",
+              "so",
+              "the"
+            ],
+            "correct_answer": "but"
+          },
+          {
+            "question": "Which conjunction adds information?",
+            "options": [
+              "and",
+              "but",
+              "however",
+              "yet"
+            ],
+            "correct_answer": "and"
+          },
+          {
+            "question": "Which conjunction shows a choice?",
+            "options": [
+              "or",
+              "and",
+              "so",
+              "but"
+            ],
+            "correct_answer": "or"
+          },
+          {
+            "question": "Which conjunction shows a result?",
+            "options": [
+              "so",
+              "or",
+              "but",
+              "and"
+            ],
+            "correct_answer": "so"
+          },
+          {
+            "question": "\"It rained, but we still played outside.\" What conjunction is used?",
+            "options": [
+              "but",
+              "and",
+              "or",
+              "so"
+            ],
+            "correct_answer": "but"
+          },
+          {
+            "question": "Which is a complete sentence?",
+            "options": [
+              "The dog barks.",
+              "Barking loudly.",
+              "Under the table.",
+              "Very quickly."
+            ],
+            "correct_answer": "The dog barks."
+          },
+          {
+            "question": "What must every sentence have?",
+            "options": [
+              "A subject and a predicate",
+              "Only a question mark",
+              "Only a long word",
+              "Only a conjunction"
+            ],
+            "correct_answer": "A subject and a predicate"
+          },
+          {
+            "question": "Combine: 'I was tired.' + 'I kept studying.' using 'but'.",
+            "options": [
+              "I was tired, but I kept studying.",
+              "I was tired, and I kept studying.",
+              "I was tired, or I kept studying.",
+              "I was tired, so I stopped studying."
+            ],
+            "correct_answer": "I was tired, but I kept studying."
+          },
+          {
+            "question": "Should your voice rise or fall when reading a question aloud?",
+            "options": [
+              "Rise",
+              "Fall",
+              "Stay flat",
+              "Whisper only"
+            ],
+            "correct_answer": "Rise"
+          },
+          {
+            "question": "'I finished my homework, so I can play now.' What does 'so' show here?",
+            "options": [
+              "A result",
+              "A contrast",
+              "A choice",
+              "A question"
+            ],
+            "correct_answer": "A result"
+          },
+          {
+            "question": "A student writes 'Running very fast down the street' as a full sentence. What is missing?",
+            "options": [
+              "A clear subject performing the action",
+              "An exclamation point at the end",
+              "A conjunction placed inside",
+              "A question mark somewhere"
+            ],
+            "correct_answer": "A clear subject performing the action"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💰 Friday Review — Mathematics (Grade 3)\n\n- **₱** = peso symbol | 100 centavos = ₱1\n- Read/write money up to **₱10,000**\n\n**Quick check:** ₱1,205 = \"one thousand two hundred five pesos\"\n\nGreat money reading! ⭐",
+        "quiz": [
+          {
+            "question": "What symbol represents the Philippine peso?",
+            "options": [
+              "₱",
+              "$",
+              "€",
+              "£"
+            ],
+            "correct_answer": "₱"
+          },
+          {
+            "question": "How many centavos make up ₱1?",
+            "options": [
+              "100",
+              "10",
+              "1,000",
+              "50"
+            ],
+            "correct_answer": "100"
+          },
+          {
+            "question": "How do you write ₱150 in words?",
+            "options": [
+              "One hundred fifty pesos",
+              "Fifteen pesos",
+              "One thousand fifty pesos",
+              "One hundred five pesos"
+            ],
+            "correct_answer": "One hundred fifty pesos"
+          },
+          {
+            "question": "Write ₱1,205 in words.",
+            "options": [
+              "One thousand two hundred five pesos",
+              "One thousand twenty-five pesos",
+              "Twelve hundred pesos",
+              "One thousand two hundred fifty pesos"
+            ],
+            "correct_answer": "One thousand two hundred five pesos"
+          },
+          {
+            "question": "Write 'three thousand six hundred pesos' in numerals.",
+            "options": [
+              "₱3,600",
+              "₱3,060",
+              "₱36,000",
+              "₱3,006"
+            ],
+            "correct_answer": "₱3,600"
+          },
+          {
+            "question": "How do you write ₱75.25 in words?",
+            "options": [
+              "Seventy-five pesos and twenty-five centavos",
+              "Seventy-five pesos exactly only",
+              "Seven hundred fifty pesos exactly",
+              "Seventy-five centavos exactly only"
+            ],
+            "correct_answer": "Seventy-five pesos and twenty-five centavos"
+          },
+          {
+            "question": "What does 'PhP' stand for?",
+            "options": [
+              "Philippine Peso",
+              "Philippine Product",
+              "Philippine Price",
+              "Philippine Payment"
+            ],
+            "correct_answer": "Philippine Peso"
+          },
+          {
+            "question": "How do you write ₱8,750 in words?",
+            "options": [
+              "Eight thousand seven hundred fifty pesos",
+              "Eight hundred seventy-five pesos",
+              "Eighty-seven hundred fifty pesos",
+              "Eight thousand seventy-five pesos"
+            ],
+            "correct_answer": "Eight thousand seven hundred fifty pesos"
+          },
+          {
+            "question": "Ana has ₱4,500. Write this in words.",
+            "options": [
+              "Four thousand five hundred pesos",
+              "Four hundred fifty pesos",
+              "Forty-five hundred fifty pesos",
+              "Four thousand fifty pesos"
+            ],
+            "correct_answer": "Four thousand five hundred pesos"
+          },
+          {
+            "question": "What is the maximum amount discussed in this lesson for reading/writing money?",
+            "options": [
+              "₱10,000",
+              "₱1,000",
+              "₱100,000",
+              "₱100"
+            ],
+            "correct_answer": "₱10,000"
+          },
+          {
+            "question": "Write 'nine thousand nine hundred ninety-nine pesos' in numerals.",
+            "options": [
+              "₱9,999",
+              "₱9,909",
+              "₱9,990",
+              "₱999"
+            ],
+            "correct_answer": "₱9,999"
+          },
+          {
+            "question": "A receipt shows ₱2,340. How is this read aloud correctly?",
+            "options": [
+              "Two thousand three hundred forty pesos",
+              "Twenty-three hundred forty pesos only",
+              "Two hundred thirty-four pesos",
+              "Two thousand thirty-four pesos"
+            ],
+            "correct_answer": "Two thousand three hundred forty pesos"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🌱 Biyernes na Balik-Aral — Filipino (Grade 3)\n\n- **Lumalaki, tumutugon, nagpaparami** = katangian ng nabubuhay na bagay\n- Puno = lumalaki, tumutugon sa liwanag, nagpaparami sa buto\n- Bato = walang alinman sa tatlong katangian\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang isang katangian ng nabubuhay na bagay?",
+            "options": [
+              "Lumalaki",
+              "Hindi gumagalaw kailanman",
+              "Bato lamang",
+              "Manggas lamang"
+            ],
+            "correct_answer": "Lumalaki"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'tumutugon'?",
+            "options": [
+              "Tumutugon sa kapaligiran",
+              "Lumalaki nang mabilis",
+              "Hindi kumikilos",
+              "Gawa sa plastik"
+            ],
+            "correct_answer": "Tumutugon sa kapaligiran"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'nagpaparami'?",
+            "options": [
+              "May kakayahang gumawa ng bagong katulad",
+              "Kumakain ng maraming pagkain araw-araw",
+              "Tumatakbo nang mabilis kahit saan",
+              "Nagbabago ng kulay palagi"
+            ],
+            "correct_answer": "May kakayahang gumawa ng bagong katulad"
+          },
+          {
+            "question": "Bakit itinuturing na nabubuhay ang isang puno?",
+            "options": [
+              "Lumalaki, tumutugon, at nagpaparami ito",
+              "Hindi ito gumagalaw kahit kailan",
+              "Gawa ito sa plastik",
+              "Wala itong dahon"
+            ],
+            "correct_answer": "Lumalaki, tumutugon, at nagpaparami ito"
+          },
+          {
+            "question": "Bakit hindi nabubuhay ang isang bato?",
+            "options": [
+              "Hindi ito lumalaki, tumutugon, o nagpaparami",
+              "Ito ay lumalaki nang mabilis",
+              "Ito ay tumutugon sa init",
+              "Ito ay nagpaparami"
+            ],
+            "correct_answer": "Hindi ito lumalaki, tumutugon, o nagpaparami"
+          },
+          {
+            "question": "Paano ipinapakita ng aso ang katangiang tumutugon?",
+            "options": [
+              "Kumikibot kapag nagulat",
+              "Gawa ito sa metal",
+              "Hindi ito kumikilos",
+              "Wala itong buhok"
+            ],
+            "correct_answer": "Kumikibot kapag nagulat"
+          },
+          {
+            "question": "Ano ang tatlong tanong na dapat itanong kapag sinusuri kung nabubuhay ang isang bagay?",
+            "options": [
+              "Lumalaki ba, tumutugon ba, nagpaparami ba",
+              "Malaki ba, maliit ba, gitna ba",
+              "Mabilis ba, mabagal ba, katamtaman ba",
+              "Malakas ba, mahina ba, katamtaman ba"
+            ],
+            "correct_answer": "Lumalaki ba, tumutugon ba, nagpaparami ba"
+          },
+          {
+            "question": "Paano nagpaparami ang halaman?",
+            "options": [
+              "Sa pamamagitan ng buto",
+              "Sa pamamagitan ng pagsulat",
+              "Sa pamamagitan ng pagsasayaw",
+              "Sa pamamagitan ng pagbibiyahe"
+            ],
+            "correct_answer": "Sa pamamagitan ng buto"
+          },
+          {
+            "question": "Alin ang halimbawa ng bagay na hindi nabubuhay?",
+            "options": [
+              "Bato",
+              "Puno",
+              "Aso",
+              "Tao"
+            ],
+            "correct_answer": "Bato"
+          },
+          {
+            "question": "Paano tumutugon ang halaman sa liwanag ng araw?",
+            "options": [
+              "Yumuyuko papunta sa araw",
+              "Tumatalikod dito",
+              "Wala itong reaksiyon",
+              "Lumalaki paatras"
+            ],
+            "correct_answer": "Yumuyuko papunta sa araw"
+          },
+          {
+            "question": "Bakit itinuturing na katangian ng buhay ang paglaki?",
+            "options": [
+              "Ipinapakita nito ang pag-unlad ng bagay",
+              "Wala itong kaugnayan sa buhay dito",
+              "Ginagawa lamang ito ng bata",
+              "Hindi ito nagbabago kahit kailan"
+            ],
+            "correct_answer": "Ipinapakita nito ang pag-unlad ng bagay"
+          },
+          {
+            "question": "Isang bagay ang hindi gumagalaw, hindi lumalaki, at hindi nagpaparami. Ano ito?",
+            "options": [
+              "Bagay na hindi nabubuhay",
+              "Isang halaman lamang",
+              "Isang hayop lamang",
+              "Isang tao lamang"
+            ],
+            "correct_answer": "Bagay na hindi nabubuhay"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌟 Friday Review — Science (Grade 3)\n\n- **Grow, respond, reproduce** = three characteristics of living things\n- Tree = living (grows, responds to light, reproduces via seeds)\n- Rock = non-living (none of the three)\n\nGreat scientist work! 🌟",
+        "quiz": [
+          {
+            "question": "Which is a characteristic of living things?",
+            "options": [
+              "They grow",
+              "They never change",
+              "They are man-made",
+              "They cannot need food"
+            ],
+            "correct_answer": "They grow"
+          },
+          {
+            "question": "What does 'respond' mean for living things?",
+            "options": [
+              "React to their surroundings",
+              "Grow very fast",
+              "Never move at all",
+              "Made of plastic"
+            ],
+            "correct_answer": "React to their surroundings"
+          },
+          {
+            "question": "What does 'reproduce' mean?",
+            "options": [
+              "Make more of their own kind",
+              "Eat large amounts of food",
+              "Run very quickly",
+              "Change color often"
+            ],
+            "correct_answer": "Make more of their own kind"
+          },
+          {
+            "question": "Why is a tree considered living?",
+            "options": [
+              "It grows, responds, and reproduces too",
+              "It never moves or changes at all",
+              "It is made of plastic only",
+              "It has no leaves at all"
+            ],
+            "correct_answer": "It grows, responds, and reproduces too"
+          },
+          {
+            "question": "Why is a rock NOT a living thing?",
+            "options": [
+              "It does not grow, respond, or reproduce",
+              "It grows very quickly each day",
+              "It responds to sunlight directly",
+              "It reproduces once every year"
+            ],
+            "correct_answer": "It does not grow, respond, or reproduce"
+          },
+          {
+            "question": "How does a dog show it responds to surroundings?",
+            "options": [
+              "Jumps when startled",
+              "Made of metal",
+              "Does not move",
+              "Has no fur"
+            ],
+            "correct_answer": "Jumps when startled"
+          },
+          {
+            "question": "What are the three questions in the living-thing test?",
+            "options": [
+              "Does it grow, respond, and reproduce?",
+              "Is it big, small, or medium?",
+              "Is it fast, slow, or average?",
+              "Is it strong, weak, or average?"
+            ],
+            "correct_answer": "Does it grow, respond, and reproduce?"
+          },
+          {
+            "question": "How does a plant reproduce?",
+            "options": [
+              "Through seeds",
+              "Through writing",
+              "Through dancing",
+              "Through traveling"
+            ],
+            "correct_answer": "Through seeds"
+          },
+          {
+            "question": "Which is an example of a non-living thing?",
+            "options": [
+              "Rock",
+              "Tree",
+              "Dog",
+              "Human"
+            ],
+            "correct_answer": "Rock"
+          },
+          {
+            "question": "How does a plant respond to sunlight?",
+            "options": [
+              "Bends toward it",
+              "Turns away from it",
+              "Has no reaction",
+              "Grows backward"
+            ],
+            "correct_answer": "Bends toward it"
+          },
+          {
+            "question": "Why is growth considered a characteristic of life?",
+            "options": [
+              "It shows development over time",
+              "It has no connection to life",
+              "It is only done by babies",
+              "It never changes"
+            ],
+            "correct_answer": "It shows development over time"
+          },
+          {
+            "question": "An object does not move, grow, or reproduce. What is it most likely?",
+            "options": [
+              "A non-living thing",
+              "A living thing",
+              "Both living and non-living",
+              "Cannot be determined at all"
+            ],
+            "correct_answer": "A non-living thing"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🎨 Biyernes na Balik-Aral — Makabansa (Grade 3)\n\n- **Sining, kasanayan, pagkain, kasuotan** = bahagi ng pagkakakilanlan ng lugar\n- Gumamit ng **katutubong materyales** sa sining — nagpapahalaga sa likas na yaman\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Alin ang bahagi ng pagkakakilanlan ng isang lugar?",
+            "options": [
+              "Sining, kasanayan, at pagkain",
+              "Bilang ng tao lamang",
+              "Presyo ng bilihin lamang",
+              "Panahon lamang"
+            ],
+            "correct_answer": "Sining, kasanayan, at pagkain"
+          },
+          {
+            "question": "Paano nakaaapekto ang paghahabi sa pagkakakilanlan ng isang lugar?",
+            "options": [
+              "Nagpapakita ito ng kahusayan at kasaysayan",
+              "Wala itong kaugnayan sa kultura",
+              "Ginagamit lamang ito sa palaruan",
+              "Hindi ito bahagi ng kasanayan"
+            ],
+            "correct_answer": "Nagpapakita ito ng kahusayan at kasaysayan"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng katutubong materyales sa sining?",
+            "options": [
+              "Nagpapakita ng pagpapahalaga sa yaman",
+              "Wala itong kabuluhan sa proyekto",
+              "Mas mahal ito kaysa ibang materyales",
+              "Hindi ito magagamit kailanman"
+            ],
+            "correct_answer": "Nagpapakita ng pagpapahalaga sa yaman"
+          },
+          {
+            "question": "Alin ang halimbawa ng likhang-sining gamit ang katutubong materyales?",
+            "options": [
+              "Collage gamit ang tuyong dahon",
+              "Gadgetong elektroniko",
+              "Larawang naka-print sa kompyuter",
+              "Kompyuter game"
+            ],
+            "correct_answer": "Collage gamit ang tuyong dahon"
+          },
+          {
+            "question": "Ano ang ipinapakita ng tradisyonal na pagkain sa isang komunidad?",
+            "options": [
+              "Nagpapaalala ito ng kultura ng pamilya",
+              "Wala itong kaugnayan sa kultura",
+              "Ginagamit lamang ito para mabusog",
+              "Hindi ito bahagi ng pagkakakilanlan"
+            ],
+            "correct_answer": "Nagpapaalala ito ng kultura ng pamilya"
+          },
+          {
+            "question": "Ano ang ipinapakita ng tradisyonal na kasuotan?",
+            "options": [
+              "Ang pinagmulang lugar ng tao",
+              "Ang kanyang edad lamang",
+              "Ang kanyang pangalan lamang",
+              "Ang kanyang tirahan lamang"
+            ],
+            "correct_answer": "Ang pinagmulang lugar ng tao"
+          },
+          {
+            "question": "Bakit mahalagang maunawaan ang koneksiyon ng kultura sa pagkakakilanlan?",
+            "options": [
+              "Natututo tayong maging mapagmalaki sa pinagmulan",
+              "Walang kabuluhan ito",
+              "Ito ay panandalian lamang",
+              "Ginagawa lamang ito sa piyesta"
+            ],
+            "correct_answer": "Natututo tayong maging mapagmalaki sa pinagmulan"
+          },
+          {
+            "question": "Ano ang halimbawa ng kasanayang katangi-tangi sa isang komunidad ng mangingisda?",
+            "options": [
+              "Pangingisda",
+              "Pagbuburda",
+              "Pananahi",
+              "Pagluluto ng adobo"
+            ],
+            "correct_answer": "Pangingisda"
+          },
+          {
+            "question": "Bakit itinuturing na natatangi ang produktong lokal ng isang lugar?",
+            "options": [
+              "Nakabatay sa likas na yaman ng lugar",
+              "Wala itong kaugnayan sa lugar dito",
+              "Ito ay pareho sa lahat ng lugar",
+              "Ginagawa lamang ito nang random"
+            ],
+            "correct_answer": "Nakabatay sa likas na yaman ng lugar"
+          },
+          {
+            "question": "Alin ang tamang paraan ng paglikha ng sining gamit ang materyales sa iyong komunidad?",
+            "options": [
+              "Paggamit ng available na materyales sa paligid",
+              "Pagbili lamang ng mamahaling gamit",
+              "Pag-iwas sa lahat ng materyales",
+              "Paggamit lamang ng elektronikong gamit"
+            ],
+            "correct_answer": "Paggamit ng available na materyales sa paligid"
+          },
+          {
+            "question": "Bakit mahalaga ang paggamit ng katutubong materyales sa pagtitipid?",
+            "options": [
+              "Pinatitipid nito ang gastos",
+              "Nagpapataas ito ng gastos",
+              "Wala itong kaugnayan sa gastos",
+              "Nagdaragdag lamang ito ng problema"
+            ],
+            "correct_answer": "Pinatitipid nito ang gastos"
+          },
+          {
+            "question": "Isang bata ang gumawa ng habi gamit ang lumang tela mula sa kanyang lola. Ano ang ipinapakita nito?",
+            "options": [
+              "Paggamit ng katutubong materyales sa sining",
+              "Kawalan ng interes sa sining",
+              "Pag-aaksaya ng oras",
+              "Kawalan ng kaugnayan sa kultura"
+            ],
+            "correct_answer": "Paggamit ng katutubong materyales sa sining"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💾 Friday Review — Computer (Grade 3)\n\n- **Ctrl+S** to save | **File → Open** to reopen\n- Give files **sensible names**\n- Save regularly — unsaved work can be **lost**\n\nGreat computer skills! 🌟",
+        "quiz": [
+          {
+            "question": "What is the keyboard shortcut for saving a file?",
+            "options": [
+              "Ctrl+S",
+              "Ctrl+O",
+              "Ctrl+P",
+              "Ctrl+N"
+            ],
+            "correct_answer": "Ctrl+S"
+          },
+          {
+            "question": "Which is a good, sensible file name?",
+            "options": [
+              "My_Family_Drawing",
+              "asdf123",
+              "file1",
+              "xxxxx"
+            ],
+            "correct_answer": "My_Family_Drawing"
+          },
+          {
+            "question": "What is the first step to reopen a saved file?",
+            "options": [
+              "File → Open",
+              "File → Save",
+              "File → Print",
+              "File → Close"
+            ],
+            "correct_answer": "File → Open"
+          },
+          {
+            "question": "Why is it important to save your work regularly?",
+            "options": [
+              "Unsaved work can be lost in a power outage",
+              "It makes your file colorful",
+              "It slows down the computer on purpose",
+              "It changes the file's name automatically"
+            ],
+            "correct_answer": "Unsaved work can be lost in a power outage"
+          },
+          {
+            "question": "What should you choose before saving a file?",
+            "options": [
+              "A folder to save it in",
+              "A random color",
+              "A new computer",
+              "A different program entirely"
+            ],
+            "correct_answer": "A folder to save it in"
+          },
+          {
+            "question": "Why is 'asdf123' a poor file name?",
+            "options": [
+              "It is meaningless and hard to find later",
+              "It is too long to type",
+              "It uses too many numbers",
+              "It cannot be saved at all"
+            ],
+            "correct_answer": "It is meaningless and hard to find later"
+          },
+          {
+            "question": "What is the last step when saving a file?",
+            "options": [
+              "Click Save",
+              "Click Open",
+              "Click Print",
+              "Click Delete"
+            ],
+            "correct_answer": "Click Save"
+          },
+          {
+            "question": "When should you ask an adult for help with saving files?",
+            "options": [
+              "When finding the right folder",
+              "Never, it is not allowed",
+              "Only when printing",
+              "Only when drawing"
+            ],
+            "correct_answer": "When finding the right folder"
+          },
+          {
+            "question": "What happens if the computer shuts down before you save?",
+            "options": [
+              "Unsaved work is lost",
+              "The file saves automatically",
+              "Nothing happens at all",
+              "The file becomes larger"
+            ],
+            "correct_answer": "Unsaved work is lost"
+          },
+          {
+            "question": "Which menu do you use to save AND to open files?",
+            "options": [
+              "File menu",
+              "Edit menu",
+              "View menu",
+              "Help menu"
+            ],
+            "correct_answer": "File menu"
+          },
+          {
+            "question": "Why should you save before taking a break from your work?",
+            "options": [
+              "To avoid losing progress unexpectedly",
+              "To make the break longer",
+              "To change the file's color",
+              "To close the whole program"
+            ],
+            "correct_answer": "To avoid losing progress unexpectedly"
+          },
+          {
+            "question": "A student worked for an hour but never saved, then the power went out. What happened to the work?",
+            "options": [
+              "It was lost since it was never saved",
+              "It was saved automatically",
+              "It printed by itself",
+              "Nothing was affected"
+            ],
+            "correct_answer": "It was lost since it was never saved"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🤝 Biyernes na Balik-Aral — GMRC (Grade 3)\n\n- **Iba't ibang kasapi** = iba't ibang paraan ng pakikipag-ugnayan\n- **Sincerity (katapatan)** = pagiging totoo sa salita at kilos\n- Nagpapatibay ng **tiwala** ang katapatan\n\nMagaling! 💫",
+        "quiz": [
+          {
+            "question": "Paano dapat makipag-ugnayan sa magulang?",
+            "options": [
+              "Paggalang at pagsunod",
+              "Pagsuway lamang",
+              "Pananahimik palagi",
+              "Pag-iwas sa kanila"
+            ],
+            "correct_answer": "Paggalang at pagsunod"
+          },
+          {
+            "question": "Ano ang katapatan (sincerity)?",
+            "options": [
+              "Pagiging totoo sa salita at kilos",
+              "Pagsisinungaling nang palagi",
+              "Pagkukunwari sa lahat",
+              "Pag-iwas sa katotohanan"
+            ],
+            "correct_answer": "Pagiging totoo sa salita at kilos"
+          },
+          {
+            "question": "Paano mo dapat kausapin ang iyong Lolo o Lola?",
+            "options": [
+              "Nang may paggalang at pakikinig",
+              "Nang walang pakialam",
+              "Nang mabilis lamang",
+              "Nang mapanunuya"
+            ],
+            "correct_answer": "Nang may paggalang at pakikinig"
+          },
+          {
+            "question": "Bakit mahalagang maging tapat sa pamilya?",
+            "options": [
+              "Nagpapatibay ito ng tiwala",
+              "Wala itong kabuluhan",
+              "Nagpapahirap lamang ito",
+              "Ginagawa lamang ito sa piyesta"
+            ],
+            "correct_answer": "Nagpapatibay ito ng tiwala"
+          },
+          {
+            "question": "Paano ipinapakita ang pagmamahal sa kapatid?",
+            "options": [
+              "Pagtutulungan at pagpapatas sa laro",
+              "Pang-aaway lamang",
+              "Pag-iwas sa kanya",
+              "Pagkuha ng kanyang gamit"
+            ],
+            "correct_answer": "Pagtutulungan at pagpapatas sa laro"
+          },
+          {
+            "question": "Ano ang epekto ng wastong pakikipag-ugnayan sa pamilya?",
+            "options": [
+              "Nagpapalago ng pagmamahalan",
+              "Nagpapasama ng relasyon",
+              "Wala itong epekto",
+              "Nagdadagdag ng alitan"
+            ],
+            "correct_answer": "Nagpapalago ng pagmamahalan"
+          },
+          {
+            "question": "Ano ang tamang gawin sa Tita o Tito na binibisita ang bahay?",
+            "options": [
+              "Pagbati at pagpapasalamat",
+              "Hindi na pansinin sila",
+              "Umalis sa kwarto",
+              "Magtago sa kanila"
+            ],
+            "correct_answer": "Pagbati at pagpapasalamat"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang katapatan sa relasyon?",
+            "options": [
+              "Kapag alam nilang totoo ka, lumalapit ang ugnayan",
+              "Wala itong epekto sa relasyon",
+              "Nagpapahirap lamang ito ng usapan",
+              "Hindi ito importante"
+            ],
+            "correct_answer": "Kapag alam nilang totoo ka, lumalapit ang ugnayan"
+          },
+          {
+            "question": "Ano ang tamang gawin kapag sinabi mong mahal mo ang pamilya?",
+            "options": [
+              "Ipakita rin ito sa kilos",
+              "Sabihin lamang, hindi na kailangang ipakita",
+              "Kalimutan agad ito",
+              "Wala itong dapat gawin pa"
+            ],
+            "correct_answer": "Ipakita rin ito sa kilos"
+          },
+          {
+            "question": "Ano ang dapat gawin sa magulang kapag nagbabahagi sila ng saloobin?",
+            "options": [
+              "Makinig at igalang ang kanilang saloobin",
+              "Hindi pansinin ang sinasabi nila",
+              "Tumawa lamang sa sinasabi nila",
+              "Umalis habang nagsasalita sila"
+            ],
+            "correct_answer": "Makinig at igalang ang kanilang saloobin"
+          },
+          {
+            "question": "Bakit magkaiba ang paraan ng pakikipag-ugnayan sa bawat kasapi ng pamilya?",
+            "options": [
+              "May iba't ibang tungkulin at ugnayan ang bawat isa",
+              "Iisa lamang ang paraan sa lahat",
+              "Walang pagkakaiba sa kanila",
+              "Hindi na kailangang makipag-ugnayan"
+            ],
+            "correct_answer": "May iba't ibang tungkulin at ugnayan ang bawat isa"
+          },
+          {
+            "question": "Isang bata ang laging naglalaro nang patas sa kapatid at tumutulong sa gawaing bahay. Ano ang ipinapakita nito?",
+            "options": [
+              "Wastong pakikipag-ugnayan sa pamilya",
+              "Kawalan ng pakialam sa pamilya",
+              "Pagsuway sa magulang",
+              "Kakulangan sa katapatan"
+            ],
+            "correct_answer": "Wastong pakikipag-ugnayan sa pamilya"
+          }
+        ]
+      }
+    }
+  }
+}

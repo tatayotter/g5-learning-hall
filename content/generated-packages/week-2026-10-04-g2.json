@@ -1,0 +1,1766 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-10-04",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# ❗ English — Imperative and Exclamatory Sentences\n\nGrade 2, Week 17! Let's learn two new kinds of sentences. 🌟\n\n## 📢 Four Kinds of Sentences (Review + New)\n| Kind | Purpose | Example | End Mark |\n|---|---|---|---|\n| **Declarative** | tells something | \"I like dogs.\" | . |\n| **Interrogative** | asks a question | \"Do you like dogs?\" | ? |\n| **Imperative** | gives a command or request | \"Close the door.\" | . |\n| **Exclamatory** | shows strong feeling | \"What a big dog!\" | ! |\n\n## 📋 Imperative Sentences\nAn **imperative sentence** gives a **command** or makes a **request**.\n\n**Examples:**\n- *\"Please close the door.\"*\n- *\"Sit down.\"*\n- *\"Pass me the pencil.\"*\n\n**Notice:** the subject \"you\" is often **hidden** — *\"(You) sit down.\"*\n\n## 🎉 Exclamatory Sentences\nAn **exclamatory sentence** shows **strong emotion** — excitement, surprise, or fear.\n\n**Examples:**\n- *\"What a beautiful sunset!\"*\n- *\"I won the game!\"*\n- *\"Watch out!\"*\n\n## 🧠 Worked Example 1\n*\"Please close the door.\"* What kind of sentence is this?\n- **Imperative** — it makes a **request**.\n\n## 🧠 Worked Example 2\n*\"What a big dog!\"* What kind of sentence is this?\n- **Exclamatory** — it shows **strong feeling** about the dog's size.\n\n## ✍️ Capitalization and Punctuation\n- Start every sentence with a **capital letter**\n- Imperative sentences usually end with a **period**\n- Exclamatory sentences end with an **exclamation point**\n\nGreat sentence work! 🌈",
+        "quiz": [
+          {
+            "question": "What kind of sentence gives a command?",
+            "options": [
+              "Imperative",
+              "Declarative",
+              "Interrogative",
+              "Exclamatory"
+            ],
+            "correct_answer": "Imperative"
+          },
+          {
+            "question": "What kind of sentence shows strong feeling?",
+            "options": [
+              "Exclamatory",
+              "Declarative",
+              "Interrogative",
+              "Imperative"
+            ],
+            "correct_answer": "Exclamatory"
+          },
+          {
+            "question": "\"Please close the door.\" What kind of sentence is this?",
+            "options": [
+              "Imperative",
+              "Declarative",
+              "Interrogative",
+              "Exclamatory"
+            ],
+            "correct_answer": "Imperative"
+          },
+          {
+            "question": "\"What a big dog!\" What kind of sentence is this?",
+            "options": [
+              "Exclamatory",
+              "Declarative",
+              "Imperative",
+              "Interrogative"
+            ],
+            "correct_answer": "Exclamatory"
+          },
+          {
+            "question": "Which end mark do exclamatory sentences use?",
+            "options": [
+              "!",
+              ".",
+              "?",
+              ","
+            ],
+            "correct_answer": "!"
+          },
+          {
+            "question": "Which end mark do imperative sentences usually use?",
+            "options": [
+              ".",
+              "!",
+              "?",
+              ","
+            ],
+            "correct_answer": "."
+          },
+          {
+            "question": "Which is an imperative sentence?",
+            "options": [
+              "Sit down.",
+              "I like dogs.",
+              "Do you like dogs?",
+              "What a big dog!"
+            ],
+            "correct_answer": "Sit down."
+          },
+          {
+            "question": "Which is an exclamatory sentence?",
+            "options": [
+              "I won the game!",
+              "I like dogs.",
+              "Do you like dogs?",
+              "Sit down."
+            ],
+            "correct_answer": "I won the game!"
+          },
+          {
+            "question": "In \"Sit down,\" what subject is hidden?",
+            "options": [
+              "You",
+              "I",
+              "He",
+              "They"
+            ],
+            "correct_answer": "You"
+          },
+          {
+            "question": "What should every sentence start with?",
+            "options": [
+              "A capital letter",
+              "A number",
+              "An exclamation point",
+              "A lowercase letter"
+            ],
+            "correct_answer": "A capital letter"
+          },
+          {
+            "question": "Which sentence type asks something?",
+            "options": [
+              "Interrogative",
+              "Imperative",
+              "Exclamatory",
+              "Declarative"
+            ],
+            "correct_answer": "Interrogative"
+          },
+          {
+            "question": "\"Watch out!\" What kind of sentence is this, and why?",
+            "options": [
+              "Exclamatory, because it shows strong feeling",
+              "Imperative, because it gives information",
+              "Declarative, because it asks a question",
+              "Interrogative, because it commands"
+            ],
+            "correct_answer": "Exclamatory, because it shows strong feeling"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📊 Mathematics — Reading Pictographs\n\nGrade 2, Week 17! Let's read graphs with pictures. 📈\n\n## 📊 What Is a Pictograph?\nA **pictograph** uses **pictures or symbols** to show data (numbers of things).\n\n## 🔑 The Key (Scale)\nEvery pictograph has a **key** that tells you what **one picture** stands for.\n\n**Example Key:** 🍎 = 2 apples\n\nSo if a row has **3 apple pictures**, that means: 3 × 2 = **6 apples**\n\n## 🧠 Worked Example 1\n*A pictograph shows fruits sold. Key: 🍌 = 5 bananas. Monday row has 4 bananas symbols.*\n- 4 × 5 = **20 bananas sold on Monday** ✅\n\n## 🧠 Worked Example 2\n*The same pictograph shows Tuesday with 2 banana symbols. How many bananas?*\n- 2 × 5 = **10 bananas** ✅\n\n## 📋 Reading a Full Pictograph\n| Day | Bananas Sold (🍌 = 5) |\n|---|---|\n| Monday | 🍌🍌🍌🍌 (20) |\n| Tuesday | 🍌🍌 (10) |\n| Wednesday | 🍌🍌🍌 (15) |\n\n**Question:** Which day sold the most? → **Monday**, with 20 bananas.\n\n## ✏️ Making Your Own Pictograph\n1. Collect your **data** (count something)\n2. Choose a **symbol** and a **key** (what each symbol equals)\n3. Draw the correct **number of symbols** for each category\n\n## 📝 Word Problem\n*Using the table above, how many MORE bananas were sold on Monday than Tuesday?*\n- 20 − 10 = **10 more bananas** ✅\n\nGreat graph reading! ⭐",
+        "quiz": [
+          {
+            "question": "What is a pictograph?",
+            "options": [
+              "A graph using pictures to show data",
+              "A graph with numbers written only",
+              "A short list of names",
+              "A type of school calendar"
+            ],
+            "correct_answer": "A graph using pictures to show data"
+          },
+          {
+            "question": "What does the key on a pictograph tell you?",
+            "options": [
+              "What one picture stands for",
+              "The title of the graph",
+              "The color of the symbols",
+              "The day of the week"
+            ],
+            "correct_answer": "What one picture stands for"
+          },
+          {
+            "question": "If 🍎 = 2 apples and a row has 3 symbols, how many apples?",
+            "options": [
+              "6",
+              "3",
+              "5",
+              "2"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "If 🍌 = 5 bananas and Monday has 4 symbols, how many bananas?",
+            "options": [
+              "20",
+              "9",
+              "24",
+              "15"
+            ],
+            "correct_answer": "20"
+          },
+          {
+            "question": "If 🍌 = 5 bananas and Tuesday has 2 symbols, how many bananas?",
+            "options": [
+              "10",
+              "7",
+              "12",
+              "5"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "Using the table (Monday 20, Tuesday 10, Wednesday 15), which day sold the most?",
+            "options": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "They are all equal"
+            ],
+            "correct_answer": "Monday"
+          },
+          {
+            "question": "How many MORE bananas were sold Monday than Tuesday (20 vs 10)?",
+            "options": [
+              "10",
+              "20",
+              "30",
+              "5"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "What is the FIRST step in making your own pictograph?",
+            "options": [
+              "Collect your data",
+              "Draw the symbols",
+              "Choose a key",
+              "Write the title"
+            ],
+            "correct_answer": "Collect your data"
+          },
+          {
+            "question": "If 🍌 = 5 bananas and Wednesday has 3 symbols, how many bananas?",
+            "options": [
+              "15",
+              "8",
+              "18",
+              "10"
+            ],
+            "correct_answer": "15"
+          },
+          {
+            "question": "Why is a key important on a pictograph?",
+            "options": [
+              "It tells you the value of each symbol",
+              "It tells you the color to use",
+              "It tells you the day of the week",
+              "It tells you the title only"
+            ],
+            "correct_answer": "It tells you the value of each symbol"
+          },
+          {
+            "question": "A pictograph shows 5 star symbols for a class, and each star = 4 students. How many students in that class?",
+            "options": [
+              "20",
+              "9",
+              "25",
+              "15"
+            ],
+            "correct_answer": "20"
+          },
+          {
+            "question": "Why do we use symbols instead of writing every single number on a pictograph?",
+            "options": [
+              "It makes data easier to compare quickly",
+              "It makes the graph harder to read",
+              "It hides the information completely",
+              "It replaces the need for a key"
+            ],
+            "correct_answer": "It makes data easier to compare quickly"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📢 Filipino — Pangungusap na Pakiusap, Pautos, at Padamdam\n\nGrade 2, Linggo 17! Bagong uri ng pangungusap! 🌟\n\n## 🙏 Pangungusap na Pakiusap\nGinagamit upang **magalang na humingi** ng tulong o gawa.\n\n**Halimbawa:** *\"Pakisara ang pinto.\"*\n\n## 📋 Pangungusap na Pautos\nNagbibigay ng **utos o direksiyon**.\n\n**Halimbawa:** *\"Umupo ka.\"*\n\n## 🎉 Pangungusap na Padamdam\nNagpapahayag ng **matinding damdamin** — gamit ang **tandang padamdam (!)**\n\n**Halimbawa:** *\"Ang saya-saya naman!\"*\n\n## 🖐️ Pangngalang Kongkreto vs Di-Kongkreto\n\n| Uri | Kahulugan | Halimbawa |\n|---|---|---|\n| **Kongkreto** | nakikita o nahahawakan | mesa, bahay, aklat |\n| **Di-kongkreto** | hindi nakikita o nahahawakan | pag-ibig, kagalakan, katapatan |\n\n## 🧠 Halimbawa 1\n*\"Pakisara ang pinto.\" Anong uri ng pangungusap ito?*\n- **Pakiusap** — magalang na humihingi ng tulong.\n\n## 🧠 Halimbawa 2\n*Ang salitang \"pag-ibig\" ay kongkreto o di-kongkreto?*\n- **Di-kongkreto** — hindi ito nakikita o nahahawakan, ngunit naramdaman.\n\n## 📝 Paggamit sa Pangungusap\n> *\"Pakiabot mo ang lapis.\"* (pakiusap)\n> *\"Kumuha ka ng papel.\"* (pautos)\n> *\"Ang ganda ng bulaklak!\"* (padamdam)\n\nMagaling! 🌈",
+        "quiz": [
+          {
+            "question": "Ano ang pangungusap na pakiusap?",
+            "options": [
+              "Magalang na paghingi ng tulong",
+              "Utos na walang paggalang",
+              "Pahayag ng matinding damdamin",
+              "Tanong lamang"
+            ],
+            "correct_answer": "Magalang na paghingi ng tulong"
+          },
+          {
+            "question": "Ano ang pangungusap na pautos?",
+            "options": [
+              "Nagbibigay ng utos o direksiyon",
+              "Nagtatanong lamang",
+              "Nagpapahayag ng damdamin",
+              "Naglalarawan ng bagay"
+            ],
+            "correct_answer": "Nagbibigay ng utos o direksiyon"
+          },
+          {
+            "question": "\"Pakisara ang pinto.\" Anong uri ng pangungusap ito?",
+            "options": [
+              "Pakiusap",
+              "Pautos",
+              "Padamdam",
+              "Patanong"
+            ],
+            "correct_answer": "Pakiusap"
+          },
+          {
+            "question": "\"Ang saya-saya naman!\" Anong uri ng pangungusap ito?",
+            "options": [
+              "Padamdam",
+              "Pakiusap",
+              "Pautos",
+              "Patanong"
+            ],
+            "correct_answer": "Padamdam"
+          },
+          {
+            "question": "Ano ang tandang ginagamit sa pangungusap na padamdam?",
+            "options": [
+              "Tandang padamdam (!)",
+              "Tuldok (.)",
+              "Tandang pananong (?)",
+              "Kuwit (,)"
+            ],
+            "correct_answer": "Tandang padamdam (!)"
+          },
+          {
+            "question": "Alin ang halimbawa ng pangngalang kongkreto?",
+            "options": [
+              "Mesa",
+              "Pag-ibig",
+              "Kagalakan",
+              "Katapatan"
+            ],
+            "correct_answer": "Mesa"
+          },
+          {
+            "question": "Alin ang halimbawa ng pangngalang di-kongkreto?",
+            "options": [
+              "Pag-ibig",
+              "Bahay",
+              "Aklat",
+              "Lapis"
+            ],
+            "correct_answer": "Pag-ibig"
+          },
+          {
+            "question": "Ang salitang 'pag-ibig' ay kongkreto o di-kongkreto?",
+            "options": [
+              "Di-kongkreto",
+              "Kongkreto",
+              "Pareho",
+              "Wala sa dalawa"
+            ],
+            "correct_answer": "Di-kongkreto"
+          },
+          {
+            "question": "\"Umupo ka.\" Anong uri ng pangungusap ito?",
+            "options": [
+              "Pautos",
+              "Pakiusap",
+              "Padamdam",
+              "Patanong"
+            ],
+            "correct_answer": "Pautos"
+          },
+          {
+            "question": "Bakit di-kongkreto ang salitang 'kagalakan'?",
+            "options": [
+              "Hindi ito nakikita o nahahawakan",
+              "Nakikita ito sa mesa",
+              "Hawak-hawak ito sa kamay",
+              "Nasa aklatan ito"
+            ],
+            "correct_answer": "Hindi ito nakikita o nahahawakan"
+          },
+          {
+            "question": "\"Pakiabot mo ang lapis.\" Anong uri ng pangungusap ito?",
+            "options": [
+              "Pakiusap",
+              "Padamdam",
+              "Pautos",
+              "Patanong"
+            ],
+            "correct_answer": "Pakiusap"
+          },
+          {
+            "question": "\"Ang ganda ng bulaklak!\" — bakit ito tinatawag na pangungusap na padamdam?",
+            "options": [
+              "Nagpapahayag ito ng matinding damdamin",
+              "Nagbibigay ito ng utos",
+              "Naghihingi ito ng tulong",
+              "Nagtatanong ito"
+            ],
+            "correct_answer": "Nagpapahayag ito ng matinding damdamin"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🐾 Science — Animals in Our Community\n\nGrade 2, Week 17! Let's classify animals around us. 🔬\n\n## 🏠 Classifying by Where They Live\n| Where | Examples |\n|---|---|\n| **Land** | dog, cat, chicken, cow |\n| **Water** | fish, frog, shrimp |\n| **Air** | birds, butterflies, bees |\n\n## 🏃 Classifying by How They Move\n| Movement | Examples |\n|---|---|\n| **Walk** | dog, cat, cow |\n| **Swim** | fish, frog |\n| **Fly** | bird, butterfly |\n| **Crawl** | snail, caterpillar |\n| **Hop** | frog, rabbit, grasshopper |\n\n## 🧠 Worked Example 1\n*A fish — where does it live, and how does it move?*\n- Lives in **water**, moves by **swimming**.\n\n## 🧠 Worked Example 2\n*A butterfly — where does it live, and how does it move?*\n- Lives in the **air** (though it also lands on plants), moves by **flying**.\n\n## 🐸 Some Animals Can Do More Than One!\nA **frog** can both **swim** (as a tadpole and adult) and **hop** on land — it lives in **both water and land**.\n\n## 🔍 Observation Activity\nLook around your community. **List** 5 animals and classify them by:\n1. Where they **live**\n2. How they **move**\n\nGreat scientist work! 🌟",
+        "quiz": [
+          {
+            "question": "Where does a fish live?",
+            "options": [
+              "Water",
+              "Land",
+              "Air",
+              "Underground only"
+            ],
+            "correct_answer": "Water"
+          },
+          {
+            "question": "How does a fish move?",
+            "options": [
+              "Swims",
+              "Walks",
+              "Flies",
+              "Hops"
+            ],
+            "correct_answer": "Swims"
+          },
+          {
+            "question": "Where does a bird live?",
+            "options": [
+              "Air",
+              "Water only",
+              "Underground only",
+              "Ice only"
+            ],
+            "correct_answer": "Air"
+          },
+          {
+            "question": "How does a bird move?",
+            "options": [
+              "Flies",
+              "Swims",
+              "Crawls",
+              "Hops"
+            ],
+            "correct_answer": "Flies"
+          },
+          {
+            "question": "Which animal moves by crawling?",
+            "options": [
+              "Snail",
+              "Bird",
+              "Fish",
+              "Dog"
+            ],
+            "correct_answer": "Snail"
+          },
+          {
+            "question": "Which animal moves by hopping?",
+            "options": [
+              "Frog",
+              "Fish",
+              "Bird",
+              "Cow"
+            ],
+            "correct_answer": "Frog"
+          },
+          {
+            "question": "Where does a dog usually live?",
+            "options": [
+              "Land",
+              "Water",
+              "Air only",
+              "Underwater only"
+            ],
+            "correct_answer": "Land"
+          },
+          {
+            "question": "How does a dog move?",
+            "options": [
+              "Walks",
+              "Swims only",
+              "Flies",
+              "Crawls only"
+            ],
+            "correct_answer": "Walks"
+          },
+          {
+            "question": "Why can a frog be classified as living in both water and land?",
+            "options": [
+              "It swims young, hops on land as adult",
+              "It only ever lives underwater",
+              "It only ever lives on land",
+              "It cannot move at all ever"
+            ],
+            "correct_answer": "It swims young, hops on land as adult"
+          },
+          {
+            "question": "Which animal lives in water?",
+            "options": [
+              "Shrimp",
+              "Dog",
+              "Bird",
+              "Cow"
+            ],
+            "correct_answer": "Shrimp"
+          },
+          {
+            "question": "Which animal moves by flying?",
+            "options": [
+              "Butterfly",
+              "Snail",
+              "Fish",
+              "Cow"
+            ],
+            "correct_answer": "Butterfly"
+          },
+          {
+            "question": "A student finds an animal that swims in a pond but also hops onto rocks. Which animal is this most likely?",
+            "options": [
+              "A frog",
+              "A bird",
+              "A dog",
+              "A snail"
+            ],
+            "correct_answer": "A frog"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🧩 Makabansa — Papel ng Kultura sa Pagkakakilanlan\n\nGrade 2, Linggo 17! Paano humuhubog ang kultura sa atin? 🇵🇭\n\n## 🪞 Ano ang Pagkakakilanlan (Identity)?\nAng **pagkakakilanlan** ay ang **kung sino ka** — kasama na ang iyong wika, pinagmulan, at kaugalian.\n\n## 🔤 Wika Bilang Bahagi ng Pagkakakilanlan\nAng **wikang** ginagamit mo (Filipino, Ilocano, Bisaya) ay bahagi ng kung **sino ka**.\n\n**Halimbawa:** Kapag sinabi mong \"Kumusta ka?\" imbes na \"Hello,\" ipinapakita mo ang iyong **pagiging Pilipino**.\n\n## 🍚 Pagkain Bilang Bahagi ng Pagkakakilanlan\nAng **paboritong pagkain** ng iyong pamilya (adobo, sinigang) ay nagpapakita ng iyong **kultural na ugat**.\n\n## 🎊 Tradisyon Bilang Bahagi ng Pagkakakilanlan\nAng mga **tradisyon** (pagmamano, bayanihan) ay bahagi ng kung paano ka **lumaki**.\n\n## 🧠 Halimbawa 1\n*Bakit mahalaga ang wika sa pagkakakilanlan ng isang tao?*\n- Ipinapakita nito ang **kaniyang kultura at pinagmulan** — bahagi ito ng kung sino siya.\n\n## 🧠 Halimbawa 2\n*Paano nakaaapekto ang pagkain sa pagkakakilanlan?*\n- Ang mga **tradisyonal na putahe** ay nagpapaalala sa atin ng ating **pamilya at kultura**.\n\n## 🔗 Koneksiyon ng Pamilya sa Mas Malawak na Komunidad\nAng **kultura ng iyong pamilya** (hal. pananalita, pagkain) ay **konektado** sa mas malawak na **kultura ng barangay o rehiyon**.\n\n## 💛 Bakit Mahalaga Ito?\nKapag naiintindihan natin kung paano hinuhubog ng kultura ang ating pagkakakilanlan, natututo tayong **ipagmalaki** ito.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pagkakakilanlan?",
+            "options": [
+              "Kung sino ka, wika at kaugalian",
+              "Ang iyong pangalan na lamang",
+              "Ang iyong edad na lamang",
+              "Ang iyong tirahan na lamang"
+            ],
+            "correct_answer": "Kung sino ka, wika at kaugalian"
+          },
+          {
+            "question": "Bakit mahalaga ang wika sa pagkakakilanlan?",
+            "options": [
+              "Ipinapakita nito ang kultura at pinagmulan",
+              "Wala itong kaugnayan sa pagkatao",
+              "Ginagamit lamang ito sa paaralan",
+              "Hindi ito bahagi ng ating buhay"
+            ],
+            "correct_answer": "Ipinapakita nito ang kultura at pinagmulan"
+          },
+          {
+            "question": "Paano nakaaapekto ang pagkain sa pagkakakilanlan?",
+            "options": [
+              "Nagpapaalala ito sa pamilya at kultura",
+              "Wala itong kaugnayan sa kultura",
+              "Ginagamit lamang ito para mabusog",
+              "Hindi ito mahalaga sa buhay"
+            ],
+            "correct_answer": "Nagpapaalala ito sa pamilya at kultura"
+          },
+          {
+            "question": "Alin ang halimbawa ng tradisyong nagpapakita ng pagkakakilanlan?",
+            "options": [
+              "Pagmamano",
+              "Paglalaro ng cellphone",
+              "Panonood ng TV",
+              "Pagtulog"
+            ],
+            "correct_answer": "Pagmamano"
+          },
+          {
+            "question": "Ano ang koneksiyon ng kultura ng pamilya sa mas malawak na komunidad?",
+            "options": [
+              "Konektado ang wika/pagkain ng pamilya sa barangay/rehiyon",
+              "Walang koneksiyon ang dalawa",
+              "Iba't ibang bansa lamang ang may koneksiyon",
+              "Wala itong kabuluhan"
+            ],
+            "correct_answer": "Konektado ang wika/pagkain ng pamilya sa barangay/rehiyon"
+          },
+          {
+            "question": "Bakit sinasabing 'Kumusta ka?' ay bahagi ng pagkakakilanlan?",
+            "options": [
+              "Ipinapakita nito ang pagiging Pilipino",
+              "Wala itong kahulugan",
+              "Ginagamit lamang ito sa Ingles",
+              "Hindi ito bahagi ng wika"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagiging Pilipino"
+          },
+          {
+            "question": "Ano ang halimbawa ng pagkaing Pilipino na bahagi ng kultura?",
+            "options": [
+              "Adobo",
+              "Pizza",
+              "Sushi",
+              "Hamburger"
+            ],
+            "correct_answer": "Adobo"
+          },
+          {
+            "question": "Bakit mahalagang maunawaan ang papel ng kultura sa pagkakakilanlan?",
+            "options": [
+              "Natututo tayong ipagmalaki ito",
+              "Walang kabuluhan ang kultura",
+              "Hindi ito kailangang alamin",
+              "Ginagamit lamang ito sa piyesta"
+            ],
+            "correct_answer": "Natututo tayong ipagmalaki ito"
+          },
+          {
+            "question": "Alin ang bahagi ng pagkakakilanlan ng isang bata?",
+            "options": [
+              "Wika, pagkain, at tradisyon ng pamilya",
+              "Ang laki ng kanyang bahay lamang",
+              "Ang halaga ng kanyang laruan",
+              "Ang kulay ng kanyang bag"
+            ],
+            "correct_answer": "Wika, pagkain, at tradisyon ng pamilya"
+          },
+          {
+            "question": "Bakit itinuturing na bahagi ng ating pagkatao ang wikang ginagamit natin?",
+            "options": [
+              "Ipinapakita nito kung saan tayo nagmula",
+              "Wala itong kaugnayan sa atin",
+              "Ginagamit lamang ito sa opisina",
+              "Hindi ito mahalaga sa ating buhay"
+            ],
+            "correct_answer": "Ipinapakita nito kung saan tayo nagmula"
+          },
+          {
+            "question": "Isang batang gumagamit ng Ilocano sa bahay. Ano ang ipinapakita nito?",
+            "options": [
+              "Bahagi ng kanyang pagkakakilanlan",
+              "Wala itong kabuluhan",
+              "Kamalian sa pagsasalita",
+              "Kakulangan sa edukasyon"
+            ],
+            "correct_answer": "Bahagi ng kanyang pagkakakilanlan"
+          },
+          {
+            "question": "Bakit mahalagang ipagmalaki ang sariling kultura?",
+            "options": [
+              "Nagpapakita ng respeto sa pinagmulan",
+              "Wala itong kabuluhan dito",
+              "Ito ay panandalian lamang",
+              "Ginagawa lamang sa piyesta"
+            ],
+            "correct_answer": "Nagpapakita ng respeto sa pinagmulan"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# ⌨️ Computer — Typing My Name and Simple Words\n\nGrade 2, Week 17! Let's practice typing carefully. 💻\n\n## 🎯 Focus: Accuracy Over Speed\nAt this stage, **accuracy** (typing correctly) matters more than **speed** (typing fast).\n\n## ✍️ Practicing with Your Own Name\n**Steps:**\n1. Find each **letter** of your name on the keyboard\n2. Type it **slowly and carefully**\n3. **Check** if it looks correct\n4. Use **Backspace** to fix mistakes\n\n## 📝 Practicing Simple Familiar Words\nPractice typing words you know well:\n- Your **name**\n- **\"Mama\", \"Papa\"**\n- **\"Cat\", \"Dog\"**\n- Simple **numbers** (1, 2, 3)\n\n## 🧠 Worked Example 1\n*You want to type your name \"Ana\". How should you approach it?*\n- Find **A**, then **n**, then **a** — one letter at a time, checking each one.\n\n## 🧠 Worked Example 2\n*You typed \"Anna\" but your name is \"Ana\". What should you do?*\n- Use **Backspace** to remove the extra **n**, then check again.\n\n## 💡 Good Typing Habits\n- **Look at the screen** to check your work\n- **Slow down** if you're making mistakes\n- **Celebrate** small improvements — typing takes practice!\n\n## 🌟 Why Accuracy Matters More Than Speed (For Now)\nIf you type fast but make many mistakes, you'll need to **fix them anyway** — which takes even more time! Accuracy first, speed comes later.\n\nGreat typing practice! 🌟",
+        "quiz": [
+          {
+            "question": "What should you focus on more at this stage?",
+            "options": [
+              "Accuracy",
+              "Speed",
+              "Loudness",
+              "Font color"
+            ],
+            "correct_answer": "Accuracy"
+          },
+          {
+            "question": "What is the first step in typing your name?",
+            "options": [
+              "Find each letter carefully",
+              "Type as fast as possible",
+              "Close the program",
+              "Skip to the last letter"
+            ],
+            "correct_answer": "Find each letter carefully"
+          },
+          {
+            "question": "You typed 'Anna' but your name is 'Ana'. What should you do?",
+            "options": [
+              "Use Backspace to fix it",
+              "Leave it as is",
+              "Restart the computer",
+              "Close the program"
+            ],
+            "correct_answer": "Use Backspace to fix it"
+          },
+          {
+            "question": "Which of these is a simple familiar word to practice typing?",
+            "options": [
+              "Cat",
+              "Photosynthesis",
+              "Constitution",
+              "Archipelago"
+            ],
+            "correct_answer": "Cat"
+          },
+          {
+            "question": "Why is accuracy more important than speed right now?",
+            "options": [
+              "Mistakes need fixing anyway, which takes more time",
+              "Speed is never useful at all",
+              "Accuracy is not important yet",
+              "Fast typing has no mistakes ever"
+            ],
+            "correct_answer": "Mistakes need fixing anyway, which takes more time"
+          },
+          {
+            "question": "Where should you look while typing to check your work?",
+            "options": [
+              "The screen",
+              "Your lap",
+              "The ceiling",
+              "Your shoes"
+            ],
+            "correct_answer": "The screen"
+          },
+          {
+            "question": "What should you do if you keep making mistakes?",
+            "options": [
+              "Slow down",
+              "Type even faster",
+              "Stop looking at the screen",
+              "Give up completely"
+            ],
+            "correct_answer": "Slow down"
+          },
+          {
+            "question": "What is a good practice word for a young typist?",
+            "options": [
+              "Dog",
+              "Encyclopedia",
+              "Government",
+              "Mathematics"
+            ],
+            "correct_answer": "Dog"
+          },
+          {
+            "question": "Why should you check your typing after each letter when learning?",
+            "options": [
+              "To catch mistakes early",
+              "To make typing take longer on purpose",
+              "To avoid using the keyboard",
+              "To skip using Backspace"
+            ],
+            "correct_answer": "To catch mistakes early"
+          },
+          {
+            "question": "What key helps you fix a mistake while typing your name?",
+            "options": [
+              "Backspace",
+              "Enter",
+              "Shift",
+              "Spacebar"
+            ],
+            "correct_answer": "Backspace"
+          },
+          {
+            "question": "Why is typing practice important even if it's slow at first?",
+            "options": [
+              "It builds accuracy, which speed can follow later",
+              "It has no real benefit",
+              "It should always be skipped",
+              "It replaces the need for reading"
+            ],
+            "correct_answer": "It builds accuracy, which speed can follow later"
+          },
+          {
+            "question": "A student rushes and types 'Jhon' instead of 'John'. What is the BEST next step?",
+            "options": [
+              "Slow down and correct it with Backspace",
+              "Keep typing faster to finish quickly",
+              "Ignore the mistake completely",
+              "Turn off the computer"
+            ],
+            "correct_answer": "Slow down and correct it with Backspace"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💬 GMRC — Good Communication Within the Family\n\nGrade 2, Linggo 17! Pagpapahalaga: **Patience (Pasensiya)**. 🌟\n\n## 👂 Pakikinig nang Mabuti\nAng **mabuting pakikinig** sa magulang at kapatid ay:\n- **Tumingin** sa taong nagsasalita\n- **Huwag putulin** ang usapan\n- **Umintindi** bago sumagot\n\n## 🗣️ Pagsasalita nang May Paggalang\n- Gumamit ng **magalang na tono**\n- **Huwag sumigaw** kahit nagagalit\n- Gamitin ang **\"po\" at \"opo\"**\n\n## 🔄 Pagpapalitan ng Turno sa Pagsasalita\nHuwag **magsabay-sabay magsalita**. **Maghintay** ng iyong turno.\n\n## ⏳ Paghihintay nang May Pasensiya\nMinsan, **abala** ang magulang o kapatid. Kailangan mong **maghintay nang may pasensiya**.\n\n## 🤝 Pagresolba ng Maliliit na Hindi Pagkakaunawaan\nKung may hindi pagkakaunawaan, **pag-usapan ito nang kalmado** — hindi sa pamamagitan ng galit.\n\n## 🧠 Halimbawa 1\n*Abala ang Nanay mo pero gusto mong magkuwento. Ano ang gagawin mo?*\n- **Maghintay nang may pasensiya** hanggang sa may oras na siya. ✅\n\n## 🧠 Halimbawa 2\n*Nagtatalo ka sa kapatid mo tungkol sa laruan. Ano ang tamang gawin?*\n- **Pag-usapan ito nang kalmado**, hindi sa pamamagitan ng sigawan. ✅\n\n## 💡 Bakit Mahalaga ang Mabuting Komunikasyon?\nTumutulong ito sa pamilya na **magkaunawaan** at **magmahalan** nang higit pa.\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang mabuting pakikinig?",
+            "options": [
+              "Tumingin at hindi putulin ang usapan",
+              "Sumigaw habang nagsasalita ang iba",
+              "Iwasan makinig sa lahat",
+              "Magsalita habang may nagsasalita"
+            ],
+            "correct_answer": "Tumingin at hindi putulin ang usapan"
+          },
+          {
+            "question": "Ano ang tamang tono kapag nagsasalita sa magulang?",
+            "options": [
+              "Magalang na tono",
+              "Malakas na sigaw",
+              "Bulong-bulong",
+              "Walang tono lamang"
+            ],
+            "correct_answer": "Magalang na tono"
+          },
+          {
+            "question": "Abala ang Nanay mo pero gusto mong magkuwento. Ano ang gagawin mo?",
+            "options": [
+              "Maghintay nang may pasensiya",
+              "Sumigaw hanggang pansinin ka",
+              "Umiyak nang malakas",
+              "Iwanan ang bahay"
+            ],
+            "correct_answer": "Maghintay nang may pasensiya"
+          },
+          {
+            "question": "Nagtatalo ka sa kapatid mo. Ano ang tamang gawin?",
+            "options": [
+              "Pag-usapan ito nang kalmado",
+              "Sumigaw sa kanya",
+              "Ipagsabi sa lahat",
+              "Iwasan siya magpakailanman"
+            ],
+            "correct_answer": "Pag-usapan ito nang kalmado"
+          },
+          {
+            "question": "Ano ang dapat gawin habang naghihintay ng iyong turno sa pagsasalita?",
+            "options": [
+              "Manahimik at makinig",
+              "Sumabat agad",
+              "Umalis na lamang",
+              "Magsalita nang sabay"
+            ],
+            "correct_answer": "Manahimik at makinig"
+          },
+          {
+            "question": "Bakit mahalaga ang paggamit ng po at opo?",
+            "options": [
+              "Nagpapakita ito ng paggalang",
+              "Wala itong kahulugan",
+              "Ginagamit lamang sa paaralan",
+              "Hindi ito mahalaga"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang"
+          },
+          {
+            "question": "Ano ang tamang gawin kapag may hindi pagkakaunawaan sa pamilya?",
+            "options": [
+              "Pag-usapan ito nang kalmado",
+              "Sumigaw at magalit",
+              "Iwasan ang usapan",
+              "Magtago sa kwarto"
+            ],
+            "correct_answer": "Pag-usapan ito nang kalmado"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi ka makikinig nang mabuti sa magulang?",
+            "options": [
+              "Maaaring magkaroon ng hindi pagkakaunawaan",
+              "Wala itong epekto",
+              "Mas maayos ang komunikasyon",
+              "Mas mabilis matapos ang usapan"
+            ],
+            "correct_answer": "Maaaring magkaroon ng hindi pagkakaunawaan"
+          },
+          {
+            "question": "Bakit mahalaga ang mabuting komunikasyon sa pamilya?",
+            "options": [
+              "Tumutulong ito sa pagkakaunawaan at pagmamahalan",
+              "Wala itong kabuluhan",
+              "Ginagamit lamang ito sa paaralan",
+              "Hindi ito kailangan sa bahay"
+            ],
+            "correct_answer": "Tumutulong ito sa pagkakaunawaan at pagmamahalan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng pasensiya sa komunikasyon?",
+            "options": [
+              "Paghihintay nang mahinahon",
+              "Pagmamadali sa lahat",
+              "Pagsigaw hanggang mapansin",
+              "Pag-iwas sa usapan"
+            ],
+            "correct_answer": "Paghihintay nang mahinahon"
+          },
+          {
+            "question": "Ano ang tamang gawin kapag may nagsasalita sa iyo?",
+            "options": [
+              "Tumingin at makinig nang mabuti",
+              "Tumingin sa ibang direksiyon",
+              "Maglaro ng cellphone",
+              "Umalis na lamang"
+            ],
+            "correct_answer": "Tumingin at makinig nang mabuti"
+          },
+          {
+            "question": "Ang kapatid mo ay nagkamali. Ano ang mabuting paraan ng pakikipag-usap tungkol dito?",
+            "options": [
+              "Magalang na sabihin ang iyong nararamdaman",
+              "Sumigaw at pagalitan siya",
+              "Ikwento sa lahat ng kaibigan",
+              "Huwag na siyang kausapin muli"
+            ],
+            "correct_answer": "Magalang na sabihin ang iyong nararamdaman"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# ❗ Friday Review — English (Grade 2)\n\n- **Imperative** = command/request (\"Sit down.\")\n- **Exclamatory** = strong feeling (\"What a big dog!\")\n- Imperative ends with **.** | Exclamatory ends with **!**\n\nGreat sentence work! 🌈",
+        "quiz": [
+          {
+            "question": "What kind of sentence gives a command?",
+            "options": [
+              "Imperative",
+              "Declarative",
+              "Interrogative",
+              "Exclamatory"
+            ],
+            "correct_answer": "Imperative"
+          },
+          {
+            "question": "What kind of sentence shows strong feeling?",
+            "options": [
+              "Exclamatory",
+              "Declarative",
+              "Interrogative",
+              "Imperative"
+            ],
+            "correct_answer": "Exclamatory"
+          },
+          {
+            "question": "\"Please close the door.\" What kind of sentence is this?",
+            "options": [
+              "Imperative",
+              "Declarative",
+              "Interrogative",
+              "Exclamatory"
+            ],
+            "correct_answer": "Imperative"
+          },
+          {
+            "question": "\"What a big dog!\" What kind of sentence is this?",
+            "options": [
+              "Exclamatory",
+              "Declarative",
+              "Imperative",
+              "Interrogative"
+            ],
+            "correct_answer": "Exclamatory"
+          },
+          {
+            "question": "Which end mark do exclamatory sentences use?",
+            "options": [
+              "!",
+              ".",
+              "?",
+              ","
+            ],
+            "correct_answer": "!"
+          },
+          {
+            "question": "Which end mark do imperative sentences usually use?",
+            "options": [
+              ".",
+              "!",
+              "?",
+              ","
+            ],
+            "correct_answer": "."
+          },
+          {
+            "question": "Which is an imperative sentence?",
+            "options": [
+              "Sit down.",
+              "I like dogs.",
+              "Do you like dogs?",
+              "What a big dog!"
+            ],
+            "correct_answer": "Sit down."
+          },
+          {
+            "question": "Which is an exclamatory sentence?",
+            "options": [
+              "I won the game!",
+              "I like dogs.",
+              "Do you like dogs?",
+              "Sit down."
+            ],
+            "correct_answer": "I won the game!"
+          },
+          {
+            "question": "In \"Sit down,\" what subject is hidden?",
+            "options": [
+              "You",
+              "I",
+              "He",
+              "They"
+            ],
+            "correct_answer": "You"
+          },
+          {
+            "question": "What should every sentence start with?",
+            "options": [
+              "A capital letter",
+              "A number",
+              "An exclamation point",
+              "A lowercase letter"
+            ],
+            "correct_answer": "A capital letter"
+          },
+          {
+            "question": "Which sentence type asks something?",
+            "options": [
+              "Interrogative",
+              "Imperative",
+              "Exclamatory",
+              "Declarative"
+            ],
+            "correct_answer": "Interrogative"
+          },
+          {
+            "question": "\"Watch out!\" What kind of sentence is this, and why?",
+            "options": [
+              "Exclamatory, because it shows strong feeling",
+              "Imperative, because it gives information",
+              "Declarative, because it asks a question",
+              "Interrogative, because it commands"
+            ],
+            "correct_answer": "Exclamatory, because it shows strong feeling"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📊 Friday Review — Mathematics (Grade 2)\n\n- **Pictograph** = graph using pictures\n- **Key** tells what one picture equals\n\n**Quick check:** if 🍌 = 5 and there are 4 symbols → 20 bananas\n\nGreat graph reading! ⭐",
+        "quiz": [
+          {
+            "question": "What is a pictograph?",
+            "options": [
+              "A graph using pictures to show data",
+              "A graph with numbers written only",
+              "A short list of names",
+              "A type of school calendar"
+            ],
+            "correct_answer": "A graph using pictures to show data"
+          },
+          {
+            "question": "What does the key on a pictograph tell you?",
+            "options": [
+              "What one picture stands for",
+              "The title of the graph",
+              "The color of the symbols",
+              "The day of the week"
+            ],
+            "correct_answer": "What one picture stands for"
+          },
+          {
+            "question": "If 🍎 = 2 apples and a row has 3 symbols, how many apples?",
+            "options": [
+              "6",
+              "3",
+              "5",
+              "2"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "If 🍌 = 5 bananas and Monday has 4 symbols, how many bananas?",
+            "options": [
+              "20",
+              "9",
+              "24",
+              "15"
+            ],
+            "correct_answer": "20"
+          },
+          {
+            "question": "If 🍌 = 5 bananas and Tuesday has 2 symbols, how many bananas?",
+            "options": [
+              "10",
+              "7",
+              "12",
+              "5"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "Using the table (Monday 20, Tuesday 10, Wednesday 15), which day sold the most?",
+            "options": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "They are all equal"
+            ],
+            "correct_answer": "Monday"
+          },
+          {
+            "question": "How many MORE bananas were sold Monday than Tuesday (20 vs 10)?",
+            "options": [
+              "10",
+              "20",
+              "30",
+              "5"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "What is the FIRST step in making your own pictograph?",
+            "options": [
+              "Collect your data",
+              "Draw the symbols",
+              "Choose a key",
+              "Write the title"
+            ],
+            "correct_answer": "Collect your data"
+          },
+          {
+            "question": "If 🍌 = 5 bananas and Wednesday has 3 symbols, how many bananas?",
+            "options": [
+              "15",
+              "8",
+              "18",
+              "10"
+            ],
+            "correct_answer": "15"
+          },
+          {
+            "question": "Why is a key important on a pictograph?",
+            "options": [
+              "It tells you the value of each symbol",
+              "It tells you the color to use",
+              "It tells you the day of the week",
+              "It tells you the title only"
+            ],
+            "correct_answer": "It tells you the value of each symbol"
+          },
+          {
+            "question": "A pictograph shows 5 star symbols for a class, and each star = 4 students. How many students in that class?",
+            "options": [
+              "20",
+              "9",
+              "25",
+              "15"
+            ],
+            "correct_answer": "20"
+          },
+          {
+            "question": "Why do we use symbols instead of writing every single number on a pictograph?",
+            "options": [
+              "It makes data easier to compare quickly",
+              "It makes the graph harder to read",
+              "It hides the information completely",
+              "It replaces the need for a key"
+            ],
+            "correct_answer": "It makes data easier to compare quickly"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📢 Biyernes na Balik-Aral — Filipino (Grade 2)\n\n- **Pakiusap** (\"Pakisara ang pinto.\") | **Pautos** (\"Umupo ka.\") | **Padamdam** (\"Ang saya-saya naman!\")\n- **Kongkreto** = nakikita/nahahawakan | **Di-kongkreto** = hindi nakikita/nahahawakan\n\nMagaling! 🌈",
+        "quiz": [
+          {
+            "question": "Ano ang pangungusap na pakiusap?",
+            "options": [
+              "Magalang na paghingi ng tulong",
+              "Utos na walang paggalang",
+              "Pahayag ng matinding damdamin",
+              "Tanong lamang"
+            ],
+            "correct_answer": "Magalang na paghingi ng tulong"
+          },
+          {
+            "question": "Ano ang pangungusap na pautos?",
+            "options": [
+              "Nagbibigay ng utos o direksiyon",
+              "Nagtatanong lamang",
+              "Nagpapahayag ng damdamin",
+              "Naglalarawan ng bagay"
+            ],
+            "correct_answer": "Nagbibigay ng utos o direksiyon"
+          },
+          {
+            "question": "\"Pakisara ang pinto.\" Anong uri ng pangungusap ito?",
+            "options": [
+              "Pakiusap",
+              "Pautos",
+              "Padamdam",
+              "Patanong"
+            ],
+            "correct_answer": "Pakiusap"
+          },
+          {
+            "question": "\"Ang saya-saya naman!\" Anong uri ng pangungusap ito?",
+            "options": [
+              "Padamdam",
+              "Pakiusap",
+              "Pautos",
+              "Patanong"
+            ],
+            "correct_answer": "Padamdam"
+          },
+          {
+            "question": "Ano ang tandang ginagamit sa pangungusap na padamdam?",
+            "options": [
+              "Tandang padamdam (!)",
+              "Tuldok (.)",
+              "Tandang pananong (?)",
+              "Kuwit (,)"
+            ],
+            "correct_answer": "Tandang padamdam (!)"
+          },
+          {
+            "question": "Alin ang halimbawa ng pangngalang kongkreto?",
+            "options": [
+              "Mesa",
+              "Pag-ibig",
+              "Kagalakan",
+              "Katapatan"
+            ],
+            "correct_answer": "Mesa"
+          },
+          {
+            "question": "Alin ang halimbawa ng pangngalang di-kongkreto?",
+            "options": [
+              "Pag-ibig",
+              "Bahay",
+              "Aklat",
+              "Lapis"
+            ],
+            "correct_answer": "Pag-ibig"
+          },
+          {
+            "question": "Ang salitang 'pag-ibig' ay kongkreto o di-kongkreto?",
+            "options": [
+              "Di-kongkreto",
+              "Kongkreto",
+              "Pareho",
+              "Wala sa dalawa"
+            ],
+            "correct_answer": "Di-kongkreto"
+          },
+          {
+            "question": "\"Umupo ka.\" Anong uri ng pangungusap ito?",
+            "options": [
+              "Pautos",
+              "Pakiusap",
+              "Padamdam",
+              "Patanong"
+            ],
+            "correct_answer": "Pautos"
+          },
+          {
+            "question": "Bakit di-kongkreto ang salitang 'kagalakan'?",
+            "options": [
+              "Hindi ito nakikita o nahahawakan",
+              "Nakikita ito sa mesa",
+              "Hawak-hawak ito sa kamay",
+              "Nasa aklatan ito"
+            ],
+            "correct_answer": "Hindi ito nakikita o nahahawakan"
+          },
+          {
+            "question": "\"Pakiabot mo ang lapis.\" Anong uri ng pangungusap ito?",
+            "options": [
+              "Pakiusap",
+              "Padamdam",
+              "Pautos",
+              "Patanong"
+            ],
+            "correct_answer": "Pakiusap"
+          },
+          {
+            "question": "\"Ang ganda ng bulaklak!\" — bakit ito tinatawag na pangungusap na padamdam?",
+            "options": [
+              "Nagpapahayag ito ng matinding damdamin",
+              "Nagbibigay ito ng utos",
+              "Naghihingi ito ng tulong",
+              "Nagtatanong ito"
+            ],
+            "correct_answer": "Nagpapahayag ito ng matinding damdamin"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🐾 Friday Review — Science (Grade 2)\n\n- **Land** (walk) · **Water** (swim) · **Air** (fly)\n- **Crawl** (snail) · **Hop** (frog, rabbit)\n- Frogs live in **both** water and land\n\nGreat scientist work! 🌟",
+        "quiz": [
+          {
+            "question": "Where does a fish live?",
+            "options": [
+              "Water",
+              "Land",
+              "Air",
+              "Underground only"
+            ],
+            "correct_answer": "Water"
+          },
+          {
+            "question": "How does a fish move?",
+            "options": [
+              "Swims",
+              "Walks",
+              "Flies",
+              "Hops"
+            ],
+            "correct_answer": "Swims"
+          },
+          {
+            "question": "Where does a bird live?",
+            "options": [
+              "Air",
+              "Water only",
+              "Underground only",
+              "Ice only"
+            ],
+            "correct_answer": "Air"
+          },
+          {
+            "question": "How does a bird move?",
+            "options": [
+              "Flies",
+              "Swims",
+              "Crawls",
+              "Hops"
+            ],
+            "correct_answer": "Flies"
+          },
+          {
+            "question": "Which animal moves by crawling?",
+            "options": [
+              "Snail",
+              "Bird",
+              "Fish",
+              "Dog"
+            ],
+            "correct_answer": "Snail"
+          },
+          {
+            "question": "Which animal moves by hopping?",
+            "options": [
+              "Frog",
+              "Fish",
+              "Bird",
+              "Cow"
+            ],
+            "correct_answer": "Frog"
+          },
+          {
+            "question": "Where does a dog usually live?",
+            "options": [
+              "Land",
+              "Water",
+              "Air only",
+              "Underwater only"
+            ],
+            "correct_answer": "Land"
+          },
+          {
+            "question": "How does a dog move?",
+            "options": [
+              "Walks",
+              "Swims only",
+              "Flies",
+              "Crawls only"
+            ],
+            "correct_answer": "Walks"
+          },
+          {
+            "question": "Why can a frog be classified as living in both water and land?",
+            "options": [
+              "It swims young, hops on land as adult",
+              "It only ever lives underwater",
+              "It only ever lives on land",
+              "It cannot move at all ever"
+            ],
+            "correct_answer": "It swims young, hops on land as adult"
+          },
+          {
+            "question": "Which animal lives in water?",
+            "options": [
+              "Shrimp",
+              "Dog",
+              "Bird",
+              "Cow"
+            ],
+            "correct_answer": "Shrimp"
+          },
+          {
+            "question": "Which animal moves by flying?",
+            "options": [
+              "Butterfly",
+              "Snail",
+              "Fish",
+              "Cow"
+            ],
+            "correct_answer": "Butterfly"
+          },
+          {
+            "question": "A student finds an animal that swims in a pond but also hops onto rocks. Which animal is this most likely?",
+            "options": [
+              "A frog",
+              "A bird",
+              "A dog",
+              "A snail"
+            ],
+            "correct_answer": "A frog"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🧩 Biyernes na Balik-Aral — Makabansa (Grade 2)\n\n- **Pagkakakilanlan** = wika, pagkain, tradisyon\n- Konektado ang kultura ng pamilya sa mas malawak na komunidad\n- Ipagmalaki ang sariling kultura\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pagkakakilanlan?",
+            "options": [
+              "Kung sino ka, wika at kaugalian",
+              "Ang iyong pangalan na lamang",
+              "Ang iyong edad na lamang",
+              "Ang iyong tirahan na lamang"
+            ],
+            "correct_answer": "Kung sino ka, wika at kaugalian"
+          },
+          {
+            "question": "Bakit mahalaga ang wika sa pagkakakilanlan?",
+            "options": [
+              "Ipinapakita nito ang kultura at pinagmulan",
+              "Wala itong kaugnayan sa pagkatao",
+              "Ginagamit lamang ito sa paaralan",
+              "Hindi ito bahagi ng ating buhay"
+            ],
+            "correct_answer": "Ipinapakita nito ang kultura at pinagmulan"
+          },
+          {
+            "question": "Paano nakaaapekto ang pagkain sa pagkakakilanlan?",
+            "options": [
+              "Nagpapaalala ito sa pamilya at kultura",
+              "Wala itong kaugnayan sa kultura",
+              "Ginagamit lamang ito para mabusog",
+              "Hindi ito mahalaga sa buhay"
+            ],
+            "correct_answer": "Nagpapaalala ito sa pamilya at kultura"
+          },
+          {
+            "question": "Alin ang halimbawa ng tradisyong nagpapakita ng pagkakakilanlan?",
+            "options": [
+              "Pagmamano",
+              "Paglalaro ng cellphone",
+              "Panonood ng TV",
+              "Pagtulog"
+            ],
+            "correct_answer": "Pagmamano"
+          },
+          {
+            "question": "Ano ang koneksiyon ng kultura ng pamilya sa mas malawak na komunidad?",
+            "options": [
+              "Konektado ang wika/pagkain ng pamilya sa barangay/rehiyon",
+              "Walang koneksiyon ang dalawa",
+              "Iba't ibang bansa lamang ang may koneksiyon",
+              "Wala itong kabuluhan"
+            ],
+            "correct_answer": "Konektado ang wika/pagkain ng pamilya sa barangay/rehiyon"
+          },
+          {
+            "question": "Bakit sinasabing 'Kumusta ka?' ay bahagi ng pagkakakilanlan?",
+            "options": [
+              "Ipinapakita nito ang pagiging Pilipino",
+              "Wala itong kahulugan",
+              "Ginagamit lamang ito sa Ingles",
+              "Hindi ito bahagi ng wika"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagiging Pilipino"
+          },
+          {
+            "question": "Ano ang halimbawa ng pagkaing Pilipino na bahagi ng kultura?",
+            "options": [
+              "Adobo",
+              "Pizza",
+              "Sushi",
+              "Hamburger"
+            ],
+            "correct_answer": "Adobo"
+          },
+          {
+            "question": "Bakit mahalagang maunawaan ang papel ng kultura sa pagkakakilanlan?",
+            "options": [
+              "Natututo tayong ipagmalaki ito",
+              "Walang kabuluhan ang kultura",
+              "Hindi ito kailangang alamin",
+              "Ginagamit lamang ito sa piyesta"
+            ],
+            "correct_answer": "Natututo tayong ipagmalaki ito"
+          },
+          {
+            "question": "Alin ang bahagi ng pagkakakilanlan ng isang bata?",
+            "options": [
+              "Wika, pagkain, at tradisyon ng pamilya",
+              "Ang laki ng kanyang bahay lamang",
+              "Ang halaga ng kanyang laruan",
+              "Ang kulay ng kanyang bag"
+            ],
+            "correct_answer": "Wika, pagkain, at tradisyon ng pamilya"
+          },
+          {
+            "question": "Bakit itinuturing na bahagi ng ating pagkatao ang wikang ginagamit natin?",
+            "options": [
+              "Ipinapakita nito kung saan tayo nagmula",
+              "Wala itong kaugnayan sa atin",
+              "Ginagamit lamang ito sa opisina",
+              "Hindi ito mahalaga sa ating buhay"
+            ],
+            "correct_answer": "Ipinapakita nito kung saan tayo nagmula"
+          },
+          {
+            "question": "Isang batang gumagamit ng Ilocano sa bahay. Ano ang ipinapakita nito?",
+            "options": [
+              "Bahagi ng kanyang pagkakakilanlan",
+              "Wala itong kabuluhan",
+              "Kamalian sa pagsasalita",
+              "Kakulangan sa edukasyon"
+            ],
+            "correct_answer": "Bahagi ng kanyang pagkakakilanlan"
+          },
+          {
+            "question": "Bakit mahalagang ipagmalaki ang sariling kultura?",
+            "options": [
+              "Nagpapakita ng respeto sa pinagmulan",
+              "Wala itong kabuluhan dito",
+              "Ito ay panandalian lamang",
+              "Ginagawa lamang sa piyesta"
+            ],
+            "correct_answer": "Nagpapakita ng respeto sa pinagmulan"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# ⌨️ Friday Review — Computer (Grade 2)\n\n- **Accuracy over speed** at this stage\n- Type name/simple words one letter at a time\n- Use **Backspace** to fix mistakes, then check the screen\n\nGreat typing practice! 🌟",
+        "quiz": [
+          {
+            "question": "What should you focus on more at this stage?",
+            "options": [
+              "Accuracy",
+              "Speed",
+              "Loudness",
+              "Font color"
+            ],
+            "correct_answer": "Accuracy"
+          },
+          {
+            "question": "What is the first step in typing your name?",
+            "options": [
+              "Find each letter carefully",
+              "Type as fast as possible",
+              "Close the program",
+              "Skip to the last letter"
+            ],
+            "correct_answer": "Find each letter carefully"
+          },
+          {
+            "question": "You typed 'Anna' but your name is 'Ana'. What should you do?",
+            "options": [
+              "Use Backspace to fix it",
+              "Leave it as is",
+              "Restart the computer",
+              "Close the program"
+            ],
+            "correct_answer": "Use Backspace to fix it"
+          },
+          {
+            "question": "Which of these is a simple familiar word to practice typing?",
+            "options": [
+              "Cat",
+              "Photosynthesis",
+              "Constitution",
+              "Archipelago"
+            ],
+            "correct_answer": "Cat"
+          },
+          {
+            "question": "Why is accuracy more important than speed right now?",
+            "options": [
+              "Mistakes need fixing anyway, which takes more time",
+              "Speed is never useful at all",
+              "Accuracy is not important yet",
+              "Fast typing has no mistakes ever"
+            ],
+            "correct_answer": "Mistakes need fixing anyway, which takes more time"
+          },
+          {
+            "question": "Where should you look while typing to check your work?",
+            "options": [
+              "The screen",
+              "Your lap",
+              "The ceiling",
+              "Your shoes"
+            ],
+            "correct_answer": "The screen"
+          },
+          {
+            "question": "What should you do if you keep making mistakes?",
+            "options": [
+              "Slow down",
+              "Type even faster",
+              "Stop looking at the screen",
+              "Give up completely"
+            ],
+            "correct_answer": "Slow down"
+          },
+          {
+            "question": "What is a good practice word for a young typist?",
+            "options": [
+              "Dog",
+              "Encyclopedia",
+              "Government",
+              "Mathematics"
+            ],
+            "correct_answer": "Dog"
+          },
+          {
+            "question": "Why should you check your typing after each letter when learning?",
+            "options": [
+              "To catch mistakes early",
+              "To make typing take longer on purpose",
+              "To avoid using the keyboard",
+              "To skip using Backspace"
+            ],
+            "correct_answer": "To catch mistakes early"
+          },
+          {
+            "question": "What key helps you fix a mistake while typing your name?",
+            "options": [
+              "Backspace",
+              "Enter",
+              "Shift",
+              "Spacebar"
+            ],
+            "correct_answer": "Backspace"
+          },
+          {
+            "question": "Why is typing practice important even if it's slow at first?",
+            "options": [
+              "It builds accuracy, which speed can follow later",
+              "It has no real benefit",
+              "It should always be skipped",
+              "It replaces the need for reading"
+            ],
+            "correct_answer": "It builds accuracy, which speed can follow later"
+          },
+          {
+            "question": "A student rushes and types 'Jhon' instead of 'John'. What is the BEST next step?",
+            "options": [
+              "Slow down and correct it with Backspace",
+              "Keep typing faster to finish quickly",
+              "Ignore the mistake completely",
+              "Turn off the computer"
+            ],
+            "correct_answer": "Slow down and correct it with Backspace"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💬 Biyernes na Balik-Aral — GMRC (Grade 2)\n\n- **Mabuting pakikinig:** tumingin, huwag putulin ang usapan\n- **Pasensiya** sa paghihintay kapag abala ang pamilya\n- Pag-usapan ang alitan nang **kalmado**\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang mabuting pakikinig?",
+            "options": [
+              "Tumingin at hindi putulin ang usapan",
+              "Sumigaw habang nagsasalita ang iba",
+              "Iwasan makinig sa lahat",
+              "Magsalita habang may nagsasalita"
+            ],
+            "correct_answer": "Tumingin at hindi putulin ang usapan"
+          },
+          {
+            "question": "Ano ang tamang tono kapag nagsasalita sa magulang?",
+            "options": [
+              "Magalang na tono",
+              "Malakas na sigaw",
+              "Bulong-bulong",
+              "Walang tono lamang"
+            ],
+            "correct_answer": "Magalang na tono"
+          },
+          {
+            "question": "Abala ang Nanay mo pero gusto mong magkuwento. Ano ang gagawin mo?",
+            "options": [
+              "Maghintay nang may pasensiya",
+              "Sumigaw hanggang pansinin ka",
+              "Umiyak nang malakas",
+              "Iwanan ang bahay"
+            ],
+            "correct_answer": "Maghintay nang may pasensiya"
+          },
+          {
+            "question": "Nagtatalo ka sa kapatid mo. Ano ang tamang gawin?",
+            "options": [
+              "Pag-usapan ito nang kalmado",
+              "Sumigaw sa kanya",
+              "Ipagsabi sa lahat",
+              "Iwasan siya magpakailanman"
+            ],
+            "correct_answer": "Pag-usapan ito nang kalmado"
+          },
+          {
+            "question": "Ano ang dapat gawin habang naghihintay ng iyong turno sa pagsasalita?",
+            "options": [
+              "Manahimik at makinig",
+              "Sumabat agad",
+              "Umalis na lamang",
+              "Magsalita nang sabay"
+            ],
+            "correct_answer": "Manahimik at makinig"
+          },
+          {
+            "question": "Bakit mahalaga ang paggamit ng po at opo?",
+            "options": [
+              "Nagpapakita ito ng paggalang",
+              "Wala itong kahulugan",
+              "Ginagamit lamang sa paaralan",
+              "Hindi ito mahalaga"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang"
+          },
+          {
+            "question": "Ano ang tamang gawin kapag may hindi pagkakaunawaan sa pamilya?",
+            "options": [
+              "Pag-usapan ito nang kalmado",
+              "Sumigaw at magalit",
+              "Iwasan ang usapan",
+              "Magtago sa kwarto"
+            ],
+            "correct_answer": "Pag-usapan ito nang kalmado"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi ka makikinig nang mabuti sa magulang?",
+            "options": [
+              "Maaaring magkaroon ng hindi pagkakaunawaan",
+              "Wala itong epekto",
+              "Mas maayos ang komunikasyon",
+              "Mas mabilis matapos ang usapan"
+            ],
+            "correct_answer": "Maaaring magkaroon ng hindi pagkakaunawaan"
+          },
+          {
+            "question": "Bakit mahalaga ang mabuting komunikasyon sa pamilya?",
+            "options": [
+              "Tumutulong ito sa pagkakaunawaan at pagmamahalan",
+              "Wala itong kabuluhan",
+              "Ginagamit lamang ito sa paaralan",
+              "Hindi ito kailangan sa bahay"
+            ],
+            "correct_answer": "Tumutulong ito sa pagkakaunawaan at pagmamahalan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng pasensiya sa komunikasyon?",
+            "options": [
+              "Paghihintay nang mahinahon",
+              "Pagmamadali sa lahat",
+              "Pagsigaw hanggang mapansin",
+              "Pag-iwas sa usapan"
+            ],
+            "correct_answer": "Paghihintay nang mahinahon"
+          },
+          {
+            "question": "Ano ang tamang gawin kapag may nagsasalita sa iyo?",
+            "options": [
+              "Tumingin at makinig nang mabuti",
+              "Tumingin sa ibang direksiyon",
+              "Maglaro ng cellphone",
+              "Umalis na lamang"
+            ],
+            "correct_answer": "Tumingin at makinig nang mabuti"
+          },
+          {
+            "question": "Ang kapatid mo ay nagkamali. Ano ang mabuting paraan ng pakikipag-usap tungkol dito?",
+            "options": [
+              "Magalang na sabihin ang iyong nararamdaman",
+              "Sumigaw at pagalitan siya",
+              "Ikwento sa lahat ng kaibigan",
+              "Huwag na siyang kausapin muli"
+            ],
+            "correct_answer": "Magalang na sabihin ang iyong nararamdaman"
+          }
+        ]
+      }
+    }
+  }
+}

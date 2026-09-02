@@ -1,0 +1,2016 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-10-18",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🎬 English — Creating a Multimedia Presentation\n\nGrade 6, Week 19! Let's combine reading, writing, and viewing skills into one project. 💻\n\n## 🧩 Combining Our Skills\nThis term, we've learned about **reading** (literary and informational texts), **writing** (grammar and structure), and **viewing** (multimedia elements and purpose). Now, let's combine them!\n\n## 📋 Steps to Create a Multimedia Presentation\n1. **Choose a topic** — something you've read about or researched\n2. **Write a script** — using proper grammar and sentence structures\n3. **Plan visuals** — images, slides, or video clips that support your message\n4. **Add multimedia elements** — transitions, captions, or music that fit your purpose\n5. **Present** — deliver your presentation clearly to an audience\n\n## 🎯 Considering Purpose and Audience\nBefore creating, ask:\n- What is my **purpose** — to inform, persuade, or entertain?\n- Who is my **audience**, and what do they need to know?\n\n## 🧠 Worked Example 1\n*You want to inform classmates about a local hero's story. What should your presentation include?*\n- Clear **facts**, relevant **images**, and a **script** written with correct grammar.\n\n## 🧠 Worked Example 2\n*Why should you plan your visuals BEFORE recording or presenting?*\n- So the **visuals directly support** your message instead of distracting from it.\n\n## 💡 Why This Matters\nCreating a multimedia presentation shows we can **apply everything we've learned** about reading, writing, and viewing together.\n\nGreat multimedia creation! 🌟",
+        "quiz": [
+          {
+            "question": "What three skills are we combining in this project?",
+            "options": [
+              "Reading, writing, and viewing",
+              "Only drawing and coloring",
+              "Only singing and dancing",
+              "Only counting and measuring"
+            ],
+            "correct_answer": "Reading, writing, and viewing"
+          },
+          {
+            "question": "What is the first step in creating a multimedia presentation?",
+            "options": [
+              "Choose a topic",
+              "Add music immediately",
+              "Present to the class first",
+              "Print the final version"
+            ],
+            "correct_answer": "Choose a topic"
+          },
+          {
+            "question": "Why should you write a script using proper grammar?",
+            "options": [
+              "To communicate the message clearly and correctly",
+              "Grammar does not matter in presentations",
+              "To make the presentation longer",
+              "To confuse the audience on purpose"
+            ],
+            "correct_answer": "To communicate the message clearly and correctly"
+          },
+          {
+            "question": "Why should you plan your visuals BEFORE recording or presenting?",
+            "options": [
+              "So the visuals directly support your message",
+              "Visuals should always be random and unplanned",
+              "Planning visuals wastes valuable time",
+              "Visuals have no effect on a presentation"
+            ],
+            "correct_answer": "So the visuals directly support your message"
+          },
+          {
+            "question": "What question should you ask about your purpose before creating a presentation?",
+            "options": [
+              "Am I trying to inform, persuade, or entertain?",
+              "What is the exact file size limit?",
+              "What font style looks the coolest?",
+              "How many minutes will editing take?"
+            ],
+            "correct_answer": "Am I trying to inform, persuade, or entertain?"
+          },
+          {
+            "question": "Why is it important to consider your audience?",
+            "options": [
+              "So the content is appropriate and clear for who will watch it",
+              "Audience never matters in any presentation",
+              "Only the presenter's opinion matters",
+              "Audience only matters for written texts, not presentations"
+            ],
+            "correct_answer": "So the content is appropriate and clear for who will watch it"
+          },
+          {
+            "question": "You want to inform classmates about a local hero's story. What should your presentation include?",
+            "options": [
+              "Clear facts, relevant images, and a well-written script",
+              "Only loud music and no information",
+              "Only a blank screen with no content",
+              "Random unrelated images with no facts"
+            ],
+            "correct_answer": "Clear facts, relevant images, and a well-written script"
+          },
+          {
+            "question": "What multimedia elements can be added to support your presentation's purpose?",
+            "options": [
+              "Transitions, captions, or music",
+              "Only silence throughout",
+              "Only black and white slides",
+              "Only text with no visuals at all"
+            ],
+            "correct_answer": "Transitions, captions, or music"
+          },
+          {
+            "question": "What is the LAST step in creating a multimedia presentation?",
+            "options": [
+              "Present to an audience",
+              "Choose a topic",
+              "Write the script",
+              "Plan the visuals"
+            ],
+            "correct_answer": "Present to an audience"
+          },
+          {
+            "question": "Why is combining reading, writing, and viewing skills valuable?",
+            "options": [
+              "It shows we can apply everything we've learned together",
+              "These skills have no connection to each other",
+              "Only one of these skills is ever useful",
+              "Combining skills makes learning pointless"
+            ],
+            "correct_answer": "It shows we can apply everything we've learned together"
+          },
+          {
+            "question": "What should a presentation's visuals do?",
+            "options": [
+              "Support and clarify the message being presented",
+              "Distract from the main message entirely",
+              "Have no connection to the topic at all",
+              "Replace the need for any script"
+            ],
+            "correct_answer": "Support and clarify the message being presented"
+          },
+          {
+            "question": "Why is it useful to choose a topic you've already read about or researched?",
+            "options": [
+              "You already have knowledge and facts to build your presentation on",
+              "Research is never actually necessary",
+              "Any random unfamiliar topic works just as well",
+              "It makes the presentation harder to prepare"
+            ],
+            "correct_answer": "You already have knowledge and facts to build your presentation on"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# √ Mathematics — Square Roots\n\nGrade 6, Week 19! Let's learn the inverse of squaring a number. 🔢\n\n## 🔄 What Is a Square Root?\nA **square root** is the **inverse operation** of squaring. If $4^2 = 16$, then the square root of 16 is 4.\n\nWe write it as: $\\sqrt{16} = 4$\n\n## 🔢 Perfect Squares\nA **perfect square** is a number that is the square of a whole number.\n\n| Number | Square | Perfect Square |\n|---|---|---|\n| 1 | 1² | 1 |\n| 2 | 2² | 4 |\n| 3 | 3² | 9 |\n| 4 | 4² | 16 |\n| 5 | 5² | 25 |\n\n## 🧮 Finding Square Roots of Perfect Squares\n**Example:** Find $\\sqrt{25}$.\n- Since $5^2 = 25$, then $\\sqrt{25} = 5$\n\n## 🧮 Estimating Square Roots\nFor numbers that are NOT perfect squares, we can **estimate** between two perfect squares.\n\n**Example:** Estimate $\\sqrt{20}$.\n- $\\sqrt{16} = 4$ and $\\sqrt{25} = 5$, so $\\sqrt{20}$ is between 4 and 5 (closer to 4.5)\n\n## 📐 GEMDAS with Square Roots\nSquare roots are solved like exponents — **before** multiplication/division/addition/subtraction.\n\n**Example:** Solve $\\sqrt{9} + 3 \\times 2$\n1. Square root: $\\sqrt{9} = 3$\n2. Multiply: $3 \\times 2 = 6$\n3. Add: $3 + 6 = 9$\n\n## 🧠 Worked Example\n*A square garden has an area of 36 square meters. What is the length of one side?*\n- Side = $\\sqrt{36} = 6$ meters\n\nGreat square root work! ⭐",
+        "quiz": [
+          {
+            "question": "What is a square root?",
+            "options": [
+              "The inverse operation of squaring a number",
+              "The same thing as multiplying by 2",
+              "The same thing as adding a number to itself",
+              "A number divided by zero"
+            ],
+            "correct_answer": "The inverse operation of squaring a number"
+          },
+          {
+            "question": "What is √16?",
+            "options": [
+              "4",
+              "8",
+              "2",
+              "16"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "What is √25?",
+            "options": [
+              "5",
+              "10",
+              "25",
+              "2.5"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "What is a perfect square?",
+            "options": [
+              "A number that is the square of a whole number",
+              "Any odd number chosen at random",
+              "Any number that is divisible by two",
+              "A number that has no factors at all"
+            ],
+            "correct_answer": "A number that is the square of a whole number"
+          },
+          {
+            "question": "Which of these is a perfect square?",
+            "options": [
+              "9",
+              "10",
+              "11",
+              "12"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "√20 is between which two whole numbers?",
+            "options": [
+              "4 and 5",
+              "3 and 4",
+              "5 and 6",
+              "2 and 3"
+            ],
+            "correct_answer": "4 and 5"
+          },
+          {
+            "question": "Following GEMDAS, what do you compute first in √9 + 3 × 2?",
+            "options": [
+              "The square root √9",
+              "The multiplication 3 × 2",
+              "The addition first",
+              "It does not matter"
+            ],
+            "correct_answer": "The square root √9"
+          },
+          {
+            "question": "What is √9 + 3 × 2?",
+            "options": [
+              "9",
+              "15",
+              "12",
+              "6"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "A square garden has an area of 36 square meters. What is the length of one side?",
+            "options": [
+              "6 meters",
+              "18 meters",
+              "12 meters",
+              "9 meters"
+            ],
+            "correct_answer": "6 meters"
+          },
+          {
+            "question": "What is √49?",
+            "options": [
+              "7",
+              "14",
+              "24.5",
+              "49"
+            ],
+            "correct_answer": "7"
+          },
+          {
+            "question": "What is √64?",
+            "options": [
+              "8",
+              "16",
+              "32",
+              "4"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "Why is finding a square root considered the inverse of squaring?",
+            "options": [
+              "Squaring multiplies a number by itself; square root undoes that",
+              "They are actually the exact same operation",
+              "Square roots have nothing to do with squaring",
+              "Square roots only work with negative numbers"
+            ],
+            "correct_answer": "Squaring multiplies a number by itself; square root undoes that"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📝 Filipino — Pagrerebisa ng Sanaysay\n\nGrade 6, Linggo 19! Balikan at pagandahin natin ang ating sanaysay. ✍️\n\n## 🔍 Bakit Mahalaga ang Pagrerebisa?\nAng **pagrerebisa** ay ang pagbabalik-tingin sa isang isinulat upang **pagbutihin** ito — hindi ito basta pag-check ng typo lamang.\n\n## ✅ Checklist sa Pagrerebisa ng Sanaysay\n| Tanong | Layunin |\n|---|---|\n| Malinaw ba ang panimula? | Tinitiyak na naipakilala nang maayos ang paksa |\n| May sapat bang katwiran ang katawan? | Tinitiyak na suportado ang opinyon |\n| Malinaw ba ang konklusyon? | Tinitiyak na nabuod nang maayos ang sanaysay |\n| Tama ba ang gramatika at bantas? | Tinitiyak ang propesyonal na kalidad |\n\n## 🤝 Pakikinig sa Puna ng Kapwa Mag-aaral (Peer Review)\nAng pagbabasa ng sanaysay ng kaklase, at pagtanggap ng puna mula sa kanila, ay tumutulong upang **makita ang mga bagay na hindi natin napansin sa sarili nating sulat**.\n\n## ✏️ Paggawa ng Pagbabago\nMatapos suriin, gumawa ng **mga pagbabago** — tulad ng pagdaragdag ng ebidensiya, pagwawasto ng gramatika, o pagpapalinaw ng ideya.\n\n## 🧠 Halimbawa 1\n*Sinabi ng iyong kaklase na hindi malinaw ang iyong panimula. Ano ang tamang gawin?*\n- **Muling isulat ang panimula** upang mas malinaw na maipakilala ang paksa.\n\n## 🧠 Halimbawa 2\n*Bakit mahalaga ang pagrerebisa bago ipasa ang sanaysay?*\n- Dahil nakatutulong ito upang **mapabuti ang kalidad** ng isinulat.\n\n## 💡 Kongklusyon\nAng pagrerebisa ay mahalagang bahagi ng **proseso ng pagsulat**, hindi lamang ang unang draft.\n\nMagaling sa pagsulat! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pagrerebisa?",
+            "options": [
+              "Pagbabalik-tingin sa isinulat upang pagbutihin ito",
+              "Pagsulat ng bagong sanaysay mula sa umpisa",
+              "Pagbabasa lamang nang minsan",
+              "Pagbura ng buong sanaysay"
+            ],
+            "correct_answer": "Pagbabalik-tingin sa isinulat upang pagbutihin ito"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa panimula?",
+            "options": [
+              "Na naipakilala nang maayos ang paksa",
+              "Na tama ang bilang ng pahina",
+              "Na maganda ang kulay ng papel",
+              "Na mabilis matapos ang sanaysay"
+            ],
+            "correct_answer": "Na naipakilala nang maayos ang paksa"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa konklusyon?",
+            "options": [
+              "Na nabuod nang maayos ang buong sanaysay",
+              "Na mahaba ang buong sanaysay",
+              "Na tama ang laki ng papel",
+              "Na maraming larawan ang ginamit"
+            ],
+            "correct_answer": "Na nabuod nang maayos ang buong sanaysay"
+          },
+          {
+            "question": "Ano ang peer review?",
+            "options": [
+              "Pagbabasa at pagbibigay ng puna mula sa kapwa mag-aaral",
+              "Isang uri ng pagsusulit na sinasagot nang pasulat",
+              "Isang uri ng aklat na matatagpuan sa aklatan",
+              "Isang bahagi lamang ng isang dulang pang-eskuwela"
+            ],
+            "correct_answer": "Pagbabasa at pagbibigay ng puna mula sa kapwa mag-aaral"
+          },
+          {
+            "question": "Sinabi ng iyong kaklase na hindi malinaw ang iyong panimula. Ano ang tamang gawin?",
+            "options": [
+              "Muling isulat ang panimula upang maging mas malinaw",
+              "Balewalain ang puna",
+              "Alisin na lamang ang buong sanaysay",
+              "Magalit sa nagbigay ng puna"
+            ],
+            "correct_answer": "Muling isulat ang panimula upang maging mas malinaw"
+          },
+          {
+            "question": "Bakit mahalaga ang pagrerebisa bago ipasa ang sanaysay?",
+            "options": [
+              "Nakatutulong ito upang mapabuti ang kalidad ng isinulat",
+              "Wala itong anumang kabuluhan sa pagsulat",
+              "Ginagawa lamang ito para sa marka lamang",
+              "Nagpapahaba lamang ito ng buong proseso"
+            ],
+            "correct_answer": "Nakatutulong ito upang mapabuti ang kalidad ng isinulat"
+          },
+          {
+            "question": "Ano ang halimbawa ng pagbabagong maaaring gawin matapos ang pagrerebisa?",
+            "options": [
+              "Pagdaragdag ng ebidensiya o pagwawasto ng gramatika",
+              "Pagbura ng buong sanaysay",
+              "Pagsulat ng bagong pamagat lamang",
+              "Pagpapalit ng wikang ginamit"
+            ],
+            "correct_answer": "Pagdaragdag ng ebidensiya o pagwawasto ng gramatika"
+          },
+          {
+            "question": "Bakit kapaki-pakinabang ang puna mula sa kapwa mag-aaral?",
+            "options": [
+              "Makikita nila ang mga bagay na hindi natin napansin sa sarili nating sulat",
+              "Wala itong anumang tunay na gamit para sa ating pag-aaral",
+              "Ginagawa lamang ito bilang isang parusa sa mag-aaral",
+              "Hindi ito dapat pakinggan kailanman ng isang mag-aaral"
+            ],
+            "correct_answer": "Makikita nila ang mga bagay na hindi natin napansin sa sarili nating sulat"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa gramatika at bantas?",
+            "options": [
+              "Ang propesyonal na kalidad ng sanaysay",
+              "Ang bilang ng talata lamang",
+              "Ang laki ng titik lamang",
+              "Ang kulay ng background"
+            ],
+            "correct_answer": "Ang propesyonal na kalidad ng sanaysay"
+          },
+          {
+            "question": "Ano ang dapat tiyakin sa katawan ng sanaysay kapag rinerebisa?",
+            "options": [
+              "May sapat na katwiran na sumusuporta sa opinyon",
+              "May sapat na bilang ng larawan lamang",
+              "May sapat na bilang ng pahina lamang",
+              "May sapat na malaking titik lamang"
+            ],
+            "correct_answer": "May sapat na katwiran na sumusuporta sa opinyon"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang bahagi ng pagsulat ang pagrerebisa?",
+            "options": [
+              "Dahil ang unang draft ay bihirang naging perpekto agad",
+              "Dahil hindi na kailangan pang basahin ulit ang isinulat",
+              "Dahil ang unang draft ay palaging perpekto",
+              "Dahil walang benepisyo ang pagbabalik-tingin"
+            ],
+            "correct_answer": "Dahil ang unang draft ay bihirang naging perpekto agad"
+          },
+          {
+            "question": "Isang mag-aaral ang nagbasa ulit ng kanyang sanaysay at nakakita ng maling gramatika. Ano ang dapat niyang gawin?",
+            "options": [
+              "Ituwid ang mga pagkakamali bago ipasa ang sanaysay",
+              "Balewalain ang mga pagkakamali",
+              "Isulat ang buong sanaysay ulit mula sa simula",
+              "Huwag na lamang ipasa ang sanaysay"
+            ],
+            "correct_answer": "Ituwid ang mga pagkakamali bago ipasa ang sanaysay"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🍃 Science — Producers, Consumers, Scavengers, and Decomposers\n\nGrade 6, Week 19! Let's learn the different roles in a food web. 🐛\n\n## 🌱 Producers\n**Producers** are living things (mostly plants) that **make their own food** using sunlight (photosynthesis).\n\n## 🦌 Consumers\n**Consumers** are living things that **eat other living things** to get energy.\n| Type | What They Eat |\n|---|---|\n| **Herbivore** | plants only |\n| **Carnivore** | other animals only |\n| **Omnivore** | both plants and animals |\n\n## 🦅 Scavengers\n**Scavengers** eat **dead animals** that they did not kill themselves (e.g., vultures, crabs).\n\n## 🍄 Decomposers\n**Decomposers** (like fungi and bacteria) **break down dead plants and animals**, returning nutrients to the soil.\n\n## 🔗 How They Work Together in a Food Web\n| Role | Example |\n|---|---|\n| **Producer** | grass |\n| **Consumer (herbivore)** | deer |\n| **Consumer (carnivore)** | wolf |\n| **Scavenger** | vulture eating a dead deer |\n| **Decomposer** | fungi breaking down leftover remains |\n\n## 🧠 Worked Example 1\n*Why are decomposers important in a food web?*\n- They **break down dead matter**, returning nutrients to the soil so producers can use them again.\n\n## 🧠 Worked Example 2\n*A vulture eats an animal that died naturally. What role does the vulture play?*\n- **Scavenger** — it eats dead animals it did not kill.\n\n## 💡 Why This Matters\nUnderstanding these roles helps us see how **nutrients and energy cycle** through an ecosystem.\n\nGreat food web science! 🌟",
+        "quiz": [
+          {
+            "question": "What are producers?",
+            "options": [
+              "Living things that make their own food using sunlight",
+              "Living things that only eat other animals",
+              "Living things that eat dead animals",
+              "Living things that break down dead matter"
+            ],
+            "correct_answer": "Living things that make their own food using sunlight"
+          },
+          {
+            "question": "What are consumers?",
+            "options": [
+              "Living things that eat other living things for energy",
+              "Living things that make their own food",
+              "Living things that only break down dead matter",
+              "Living things that never eat anything"
+            ],
+            "correct_answer": "Living things that eat other living things for energy"
+          },
+          {
+            "question": "What are scavengers?",
+            "options": [
+              "Animals that eat dead animals they did not kill",
+              "Animals that only eat plants",
+              "Animals that make their own food",
+              "Animals that break down soil nutrients only"
+            ],
+            "correct_answer": "Animals that eat dead animals they did not kill"
+          },
+          {
+            "question": "What are decomposers?",
+            "options": [
+              "Living things that break down dead plants and animals",
+              "Living things that only eat live prey",
+              "Living things that make their own food",
+              "Living things that never interact with soil"
+            ],
+            "correct_answer": "Living things that break down dead plants and animals"
+          },
+          {
+            "question": "Why are decomposers important in a food web?",
+            "options": [
+              "They return nutrients to the soil for producers to use",
+              "They have no real role in the ecosystem",
+              "They only harm the environment",
+              "They prevent plants from growing at all"
+            ],
+            "correct_answer": "They return nutrients to the soil for producers to use"
+          },
+          {
+            "question": "A vulture eats an animal that died naturally. What role does the vulture play?",
+            "options": [
+              "Scavenger",
+              "Producer",
+              "Decomposer only",
+              "Herbivore"
+            ],
+            "correct_answer": "Scavenger"
+          },
+          {
+            "question": "What is an example of a producer?",
+            "options": [
+              "Grass",
+              "Deer",
+              "Wolf",
+              "Vulture"
+            ],
+            "correct_answer": "Grass"
+          },
+          {
+            "question": "What is an example of a decomposer?",
+            "options": [
+              "Fungi",
+              "Deer",
+              "Grass",
+              "Wolf"
+            ],
+            "correct_answer": "Fungi"
+          },
+          {
+            "question": "What type of consumer eats only plants?",
+            "options": [
+              "Herbivore",
+              "Carnivore",
+              "Scavenger",
+              "Decomposer"
+            ],
+            "correct_answer": "Herbivore"
+          },
+          {
+            "question": "What type of consumer eats both plants and animals?",
+            "options": [
+              "Omnivore",
+              "Herbivore",
+              "Carnivore",
+              "Producer"
+            ],
+            "correct_answer": "Omnivore"
+          },
+          {
+            "question": "How do producers, consumers, scavengers, and decomposers work together?",
+            "options": [
+              "They form a cycle of energy and nutrients through the ecosystem",
+              "They have no connection to each other at all",
+              "Only producers matter in an ecosystem",
+              "They all compete with no cooperation at all"
+            ],
+            "correct_answer": "They form a cycle of energy and nutrients through the ecosystem"
+          },
+          {
+            "question": "Why is it useful to understand these different roles in a food web?",
+            "options": [
+              "It helps us see how nutrients and energy cycle through an ecosystem",
+              "It has no real scientific value at all",
+              "It only matters for animals in a zoo",
+              "It replaces the need to study individual animals"
+            ],
+            "correct_answer": "It helps us see how nutrients and energy cycle through an ecosystem"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎨 Araling Panlipunan — Paglikha at Pagtatapos ng Proyekto\n\nGrade 6, Linggo 19! Tapusin at ipakita natin ang ating proyekto. 🖼️\n\n## 🖼️ Paglikha ng Proyekto\nNgayong linggo, ganapin ang plano mula sa nakaraang linggo — **buoin** ang timeline, dula, o collage gamit ang mga kasangkapang inihanda.\n\n## 📋 Mga Bahagi na Dapat Suriin Bago Ipakita\n| Sinusuri | Layunin |\n|---|---|\n| **Tamang pagkakasunod-sunod** | tinitiyak na tama ang timeline ng mga pangyayari |\n| **Kumpletong impormasyon** | tinitiyak na wala nang kulang na mahalagang detalye |\n| **Kalinisan at kaayusan** | tinitiyak na madaling maunawaan ng manonood |\n\n## 🎤 Pagtatanghal ng Proyekto\nSa **gallery walk** o presentasyon, ipapaliwanag ng bawat grupo o mag-aaral ang kanilang proyekto sa klase.\n\n## 💭 Pagninilay (Reflection)\nMatapos ipakita ang proyekto, mag-isip tungkol sa: *Ano ang natutuhan ko sa buong yunit na ito tungkol sa pakikibaka ng mga Pilipino para sa kalayaan?*\n\n## 🧠 Halimbawa 1\n*Bakit mahalagang suriin muna ang proyekto bago ito ipakita sa klase?*\n- Upang matiyak na **tama at kumpleto** ang impormasyong ipapakita.\n\n## 🧠 Halimbawa 2\n*Ano ang layunin ng pagninilay pagkatapos ng proyekto?*\n- Upang **pagtibayin** ang natutuhan tungkol sa kasaysayan at pagpapahalaga sa kalayaan.\n\n## 💡 Kongklusyon\nAng pagtatapos at pagtatanghal ng proyekto ay nagbibigay-diin sa **kahalagahan ng pagpupunyagi ng mga Pilipino** tungo sa ganap na kalayaan.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang unang gagawin ngayong linggo tungkol sa proyekto?",
+            "options": [
+              "Buoin ang proyekto gamit ang plano at kasangkapang inihanda",
+              "Simulan mula sa umpisa ang buong pagpaplano",
+              "Kalimutan na lamang ang proyekto",
+              "Huwag na ituloy ang gawain"
+            ],
+            "correct_answer": "Buoin ang proyekto gamit ang plano at kasangkapang inihanda"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa tamang pagkakasunod-sunod ng proyekto?",
+            "options": [
+              "Na tama ang timeline ng mga pangyayari",
+              "Na maganda ang kulay ng proyekto",
+              "Na mabilis lamang matapos ang gawain",
+              "Na maliit ang laki ng proyekto"
+            ],
+            "correct_answer": "Na tama ang timeline ng mga pangyayari"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa kumpletong impormasyon?",
+            "options": [
+              "Na wala nang kulang na mahalagang detalye",
+              "Na maganda ang disenyo lamang",
+              "Na maikli ang proyekto",
+              "Na maraming kulay ang ginamit"
+            ],
+            "correct_answer": "Na wala nang kulang na mahalagang detalye"
+          },
+          {
+            "question": "Ano ang gallery walk?",
+            "options": [
+              "Isang paraan ng pagtatanghal kung saan ipinapaliwanag ng bawat grupo ang kanilang proyekto",
+              "Isang uri ng laro na karaniwang ginagawa sa labas ng silid-aralan",
+              "Isang uri ng pagsusulit na kailangang sagutin nang pasulat",
+              "Isang uri ng aklat na matatagpuan lamang sa loob ng aklatan"
+            ],
+            "correct_answer": "Isang paraan ng pagtatanghal kung saan ipinapaliwanag ng bawat grupo ang kanilang proyekto"
+          },
+          {
+            "question": "Bakit mahalagang suriin muna ang proyekto bago ito ipakita sa klase?",
+            "options": [
+              "Upang matiyak na tama at kumpleto ang impormasyon",
+              "Upang mapabilis lamang ang gawain",
+              "Walang dahilan ito talaga",
+              "Upang malito ang gagawa ng proyekto"
+            ],
+            "correct_answer": "Upang matiyak na tama at kumpleto ang impormasyon"
+          },
+          {
+            "question": "Ano ang layunin ng pagninilay pagkatapos ng proyekto?",
+            "options": [
+              "Pagtibayin ang natutuhan tungkol sa kasaysayan at kalayaan",
+              "Kalimutan agad ang lahat ng natutuhang bagay",
+              "Isara ang paksa nang walang anumang pag-iisip",
+              "Bumuo agad ng bagong proyekto na walang plano"
+            ],
+            "correct_answer": "Pagtibayin ang natutuhan tungkol sa kasaysayan at kalayaan"
+          },
+          {
+            "question": "Ano ang tanong na dapat sagutin sa pagninilay?",
+            "options": [
+              "Ano ang natutuhan ko tungkol sa pakikibaka ng mga Pilipino?",
+              "Ano ang paborito kong kulay ng damit?",
+              "Ilang taon na ba ako ngayong taon?",
+              "Ano ang gusto kong kainin mamayang gabi?"
+            ],
+            "correct_answer": "Ano ang natutuhan ko tungkol sa pakikibaka ng mga Pilipino?"
+          },
+          {
+            "question": "Bakit mahalaga ang kalinisan at kaayusan ng proyekto?",
+            "options": [
+              "Tinitiyak nito na madaling maunawaan ng manonood ang proyekto",
+              "Wala itong kaugnayan sa pag-unawa ng mga manonood dito",
+              "Ginagawa lamang ito para sa isang parangal",
+              "Hindi ito totoong mahalaga sa buong proyekto"
+            ],
+            "correct_answer": "Tinitiyak nito na madaling maunawaan ng manonood ang proyekto"
+          },
+          {
+            "question": "Sino ang magpapaliwanag ng proyekto sa gallery walk?",
+            "options": [
+              "Ang bawat grupo o mag-aaral na gumawa ng proyekto",
+              "Ang guro na lamang mag-isa",
+              "Ang mga magulang na lamang mag-isa",
+              "Walang sinumang magpapaliwanag nito"
+            ],
+            "correct_answer": "Ang bawat grupo o mag-aaral na gumawa ng proyekto"
+          },
+          {
+            "question": "Ano ang pangkalahatang diin ng pagtatapos at pagtatanghal ng proyekto?",
+            "options": [
+              "Ang kahalagahan ng pagpupunyagi ng mga Pilipino tungo sa kalayaan",
+              "Ang bilang lamang ng mga gumawa ng proyekto",
+              "Ang presyo ng mga materyales na ginamit dito",
+              "Ang oras lamang na ginamit sa paggawa nito"
+            ],
+            "correct_answer": "Ang kahalagahan ng pagpupunyagi ng mga Pilipino tungo sa kalayaan"
+          },
+          {
+            "question": "Ano ang maaaring maging huling hakbang matapos ang pagtatanghal ng proyekto?",
+            "options": [
+              "Pagninilay tungkol sa natutuhan",
+              "Pagsisimula ng bagong proyekto agad",
+              "Pagtatapon ng ginawang proyekto",
+              "Pagkalimot sa lahat ng natutuhan"
+            ],
+            "correct_answer": "Pagninilay tungkol sa natutuhan"
+          },
+          {
+            "question": "Bakit mahalagang ipakita sa klase ang natapos na proyekto?",
+            "options": [
+              "Upang maibahagi ang natutuhan sa iba at magbigay-halaga sa kasaysayan",
+              "Upang makakuha lamang ng papuri mula sa guro",
+              "Wala itong anumang kabuluhan sa pag-aaral",
+              "Upang matapos lamang agad ang buong gawain"
+            ],
+            "correct_answer": "Upang maibahagi ang natutuhan sa iba at magbigay-halaga sa kasaysayan"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 👨‍👩‍👧‍👦 MAPEH — Pagpaplano ng Gawaing Pangkalusugan ng Pamilya\n\nGrade 6, Linggo 19! Pagsamahin natin ang natutuhan tungkol sa larong pisikal at kalusugan. 🏃‍♀️\n\n## 🔄 Balik-Aral\nNatutuhan na natin ang **striking/fielding at net/wall games**, gayundin ang mga **konsepto ng agility, balance, at coordination**.\n\n## 📅 Pagpaplano ng Family Wellness Day\nNgayong linggo, magplano tayo ng isang **araw ng gawaing pangkalusugan** para sa buong pamilya, gamit ang mga larong natutuhan.\n\n## 📋 Mga Elemento ng Isang Magandang Plano\n| Elemento | Paliwanag |\n|---|---|\n| **Pagpili ng laro** | pumili ng modipikadong laro na angkop sa lahat ng edad |\n| **Iskedyul** | magtakda ng tiyak na oras at araw |\n| **Kagamitan** | ihanda ang mga kailangang kagamitan (bola, lubid, atbp.) |\n| **Kaligtasan** | tiyakin na ligtas ang lugar at gawain para sa lahat |\n\n## 🧠 Halimbawa 1\n*Bakit mahalagang pumili ng modipikadong laro para sa family wellness day?*\n- Upang **magamit ito ng lahat ng edad**, mula bata hanggang matanda.\n\n## 🧠 Halimbawa 2\n*Bakit dapat isaalang-alang ang kaligtasan sa pagpaplano ng gawain?*\n- Upang **maiwasan ang aksidente** at masiguro na masaya at ligtas ang lahat ng kalahok.\n\n## 💡 Kahalagahan\nAng pagpaplano ng gawaing pangkalusugan ng pamilya ay nagpapatibay ng **samahan at kalusugan** ng buong sambahayan.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Anong dalawang uri ng laro ang natutuhan natin sa nakaraang mga linggo?",
+            "options": [
+              "Striking/fielding at net/wall games",
+              "Board games at card games lamang",
+              "Video games lamang",
+              "Larong walang anumang kilos"
+            ],
+            "correct_answer": "Striking/fielding at net/wall games"
+          },
+          {
+            "question": "Ano ang family wellness day?",
+            "options": [
+              "Isang araw ng gawaing pangkalusugan para sa buong pamilya",
+              "Isang araw na gugugulin sa pamimili lamang",
+              "Isang araw na gugugulin sa pagtulog lamang",
+              "Isang araw na gugugulin sa panonood ng TV"
+            ],
+            "correct_answer": "Isang araw ng gawaing pangkalusugan para sa buong pamilya"
+          },
+          {
+            "question": "Bakit mahalagang pumili ng modipikadong laro para sa family wellness day?",
+            "options": [
+              "Upang magamit ito ng lahat ng edad",
+              "Upang para lamang sa mga bata",
+              "Upang para lamang sa mga matatanda",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang magamit ito ng lahat ng edad"
+          },
+          {
+            "question": "Bakit dapat isaalang-alang ang kaligtasan sa pagpaplano ng gawain?",
+            "options": [
+              "Upang maiwasan ang aksidente at masigurong ligtas ang lahat",
+              "Wala itong kaugnayan sa gawain",
+              "Upang mapabilis lamang ang laro",
+              "Upang hindi na kailangan pang magplano"
+            ],
+            "correct_answer": "Upang maiwasan ang aksidente at masigurong ligtas ang lahat"
+          },
+          {
+            "question": "Ano ang isa sa mga elemento ng magandang plano para sa wellness day?",
+            "options": [
+              "Pagpili ng laro na angkop sa lahat ng edad",
+              "Pagtakbo nang walang plano",
+              "Pagbibigay ng gawain nang walang iskedyul",
+              "Pag-iwas sa lahat ng kagamitan"
+            ],
+            "correct_answer": "Pagpili ng laro na angkop sa lahat ng edad"
+          },
+          {
+            "question": "Bakit kailangang maghanda ng kagamitan bago ang wellness day?",
+            "options": [
+              "Upang maging maayos at handa ang gawain",
+              "Wala itong kabuluhan sa gawain",
+              "Upang mapabilis lamang ang oras",
+              "Hindi kailangang maghanda ng anuman"
+            ],
+            "correct_answer": "Upang maging maayos at handa ang gawain"
+          },
+          {
+            "question": "Ano ang layunin ng pagtatakda ng tiyak na iskedyul para sa wellness day?",
+            "options": [
+              "Upang lahat ay handa at nakaayos sa tamang oras",
+              "Upang malito ang lahat ng kasapi ng pamilya",
+              "Walang layunin ang pagtatakda ng iskedyul",
+              "Upang bawasan ang bilang ng kalahok"
+            ],
+            "correct_answer": "Upang lahat ay handa at nakaayos sa tamang oras"
+          },
+          {
+            "question": "Ano ang idinudulot ng pagpaplano ng gawaing pangkalusugan ng pamilya?",
+            "options": [
+              "Nagpapatibay ito ng samahan at kalusugan ng sambahayan",
+              "Nagpapahina lamang ito ng samahan ng pamilya",
+              "Wala itong anumang benepisyo sa buong pamilya",
+              "Nagdudulot lamang ito ng away sa tahanan"
+            ],
+            "correct_answer": "Nagpapatibay ito ng samahan at kalusugan ng sambahayan"
+          },
+          {
+            "question": "Anong konsepto ang natutuhan natin na tumutulong sa mabilis na paggalaw?",
+            "options": [
+              "Agility",
+              "Kahirapan",
+              "Kalungkutan",
+              "Kapabayaan"
+            ],
+            "correct_answer": "Agility"
+          },
+          {
+            "question": "Anong konsepto ang tumutulong sa pananatiling matatag habang gumagalaw?",
+            "options": [
+              "Balance",
+              "Kalungkutan",
+              "Kapabayaan",
+              "Kahirapan"
+            ],
+            "correct_answer": "Balance"
+          },
+          {
+            "question": "Bakit mahalagang isama ang buong pamilya sa gawaing pangkalusugan?",
+            "options": [
+              "Nagpapalakas ito ng ugnayan habang nagpapataas ng kalusugan",
+              "Wala itong kabuluhan kung sama-sama ang lahat",
+              "Mas mainam na mag-isa lamang gawin ito",
+              "Hindi na kailangan ang pamilya sa gawaing ito"
+            ],
+            "correct_answer": "Nagpapalakas ito ng ugnayan habang nagpapataas ng kalusugan"
+          },
+          {
+            "question": "Ano ang unang hakbang sa pagpaplano ng family wellness day?",
+            "options": [
+              "Pagpili ng laro na angkop sa lahat",
+              "Direktang pagsisimula ng laro",
+              "Pagbibigay ng gantimpala agad",
+              "Pagtatapos ng gawain agad"
+            ],
+            "correct_answer": "Pagpili ng laro na angkop sa lahat"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# ❤️ GMRC — Paglilingkod ng Pamilya bilang Tanda ng Pananampalataya\n\nGrade 6, Linggo 19! Pagpapahalaga: **Mapagkawang-gawa (Charity)**. 🌟\n\n## 🤲 Paglilingkod bilang Indikasyon ng Pananampalataya\nAng **paglilingkod** sa iba, lalo na sa mga **nangangailangan**, ay isang tunay na tanda ng pananampalataya sa Diyos — hindi lamang panalangin ang nagpapakita ng ating pananampalataya, kundi ang mga **gawa** din.\n\n## 🙏 Ano ang Mapagkawang-gawa (Charity)?\nAng **mapagkawang-gawa** ay ang **pagiging bukas-palad** at handang **tumulong** sa mga taong nangangailangan.\n\n## 🧠 Halimbawa 1\n*Nagbahagi ang iyong pamilya ng pagkain sa mga nangangailangan sa inyong komunidad. Ano ang ipinapakita nito?*\n- Ang **paglilingkod bilang tanda ng tunay na pananampalataya** — ipinapakita sa gawa, hindi lamang sa salita.\n\n## 🧠 Halimbawa 2\n*Bakit itinuturing na mahalagang gawain ang pagtulong sa mga nangangailangan?*\n- Dahil ipinapakita nito ang **pagmamahal sa kapwa**, isang mahalagang aral ng pananampalataya.\n\n## 💛 Mga Paraan ng Paglilingkod bilang Pamilya\n- Pagbabahagi ng pagkain o damit sa mga nangangailangan\n- Pagboboluntaryo sa mga gawaing pangkomunidad\n- Pagtulong sa mga kapitbahay na may kailangan\n\n## 💡 Kongklusyon\nAng paglilingkod ng pamilya sa mga nangangailangan ay isang **buhay na patotoo** ng ating pananampalataya sa Diyos.\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang paglilingkod bilang indikasyon ng pananampalataya?",
+            "options": [
+              "Pagtulong sa mga nangangailangan bilang tanda ng pananampalataya",
+              "Panalangin na lamang na walang anumang gawa",
+              "Pananahimik na lamang palagi kahit kailan",
+              "Pag-iwas sa mga taong nangangailangan"
+            ],
+            "correct_answer": "Pagtulong sa mga nangangailangan bilang tanda ng pananampalataya"
+          },
+          {
+            "question": "Ano ang mapagkawang-gawa (charity)?",
+            "options": [
+              "Pagiging bukas-palad at handang tumulong sa nangangailangan",
+              "Pagiging maramot at makasarili sa kapwa",
+              "Pag-iwas sa lahat ng uri ng pagtulong",
+              "Pananahimik na lamang palagi kahit kailan"
+            ],
+            "correct_answer": "Pagiging bukas-palad at handang tumulong sa nangangailangan"
+          },
+          {
+            "question": "Nagbahagi ang iyong pamilya ng pagkain sa mga nangangailangan. Ano ang ipinapakita nito?",
+            "options": [
+              "Paglilingkod bilang tanda ng tunay na pananampalataya",
+              "Kawalan ng pakialam sa kapwa",
+              "Pagsuway sa aral ng pananampalataya",
+              "Kapabayaan sa mga nangangailangan"
+            ],
+            "correct_answer": "Paglilingkod bilang tanda ng tunay na pananampalataya"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang gawain ang pagtulong sa mga nangangailangan?",
+            "options": [
+              "Ipinapakita nito ang pagmamahal sa kapwa",
+              "Wala itong kaugnayan sa pananampalataya",
+              "Ginagawa lamang ito para sa papuri",
+              "Hindi ito importanteng gawain"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagmamahal sa kapwa"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Mapagkawang-gawa (Charity)",
+              "Masipag",
+              "Pakikiisa",
+              "Mapagpasensiya"
+            ],
+            "correct_answer": "Mapagkawang-gawa (Charity)"
+          },
+          {
+            "question": "Ano ang halimbawa ng paglilingkod ng pamilya sa komunidad?",
+            "options": [
+              "Pagboboluntaryo sa mga gawaing pangkomunidad",
+              "Pag-iwas sa lahat ng gawaing pangkomunidad",
+              "Pagtanggi sa lahat ng tulong",
+              "Pananahimik lamang sa bahay"
+            ],
+            "correct_answer": "Pagboboluntaryo sa mga gawaing pangkomunidad"
+          },
+          {
+            "question": "Bakit hindi sapat ang panalangin lamang bilang tanda ng pananampalataya?",
+            "options": [
+              "Dapat din itong ipakita sa mabuting gawa tulad ng paglilingkod",
+              "Sapat na talaga ang panalangin nang mag-isa",
+              "Hindi mahalaga ang pananampalataya sa buhay",
+              "Ang gawa ay hindi kailanman talaga kailangan"
+            ],
+            "correct_answer": "Dapat din itong ipakita sa mabuting gawa tulad ng paglilingkod"
+          },
+          {
+            "question": "Ano ang isang paraan ng paglilingkod bilang pamilya?",
+            "options": [
+              "Pagbabahagi ng pagkain o damit sa nangangailangan",
+              "Pag-iwas sa lahat ng nangangailangan",
+              "Pagtatago ng lahat ng pag-aari",
+              "Pananahimik lamang palagi"
+            ],
+            "correct_answer": "Pagbabahagi ng pagkain o damit sa nangangailangan"
+          },
+          {
+            "question": "Bakit itinuturing na buhay na patotoo ng pananampalataya ang paglilingkod?",
+            "options": [
+              "Ipinapakita nito ang tunay na pananampalataya sa gawa, hindi lamang sa salita",
+              "Wala itong anumang kaugnayan sa pananampalataya natin",
+              "Ito ay ginagawa lamang para sa papuri ng ibang tao",
+              "Hindi ito totoong bahagi ng ating pananampalataya"
+            ],
+            "correct_answer": "Ipinapakita nito ang tunay na pananampalataya sa gawa, hindi lamang sa salita"
+          },
+          {
+            "question": "Isang pamilya ang laging tumutulong sa mga kapitbahay na may kailangan. Ano ang ipinapakita nito?",
+            "options": [
+              "Mapagkawang-gawa at tunay na pananampalataya",
+              "Kawalan ng pakialam sa kapwa",
+              "Pagsuway sa aral ng pananampalataya",
+              "Kapabayaan sa kapwa"
+            ],
+            "correct_answer": "Mapagkawang-gawa at tunay na pananampalataya"
+          },
+          {
+            "question": "Bakit mahalagang maging bukas-palad sa mga taong nangangailangan?",
+            "options": [
+              "Ipinapakita nito ang pagmamahal at pagmamalasakit sa kapwa",
+              "Wala itong kabuluhan sa buhay",
+              "Ginagawa lamang ito upang mapansin ng iba",
+              "Hindi ito bahagi ng magandang ugali"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagmamahal at pagmamalasakit sa kapwa"
+          },
+          {
+            "question": "Ano ang dapat ipadama natin sa mga taong ating tinutulungan?",
+            "options": [
+              "Tunay na pagmamahal at respeto, hindi awa lamang",
+              "Awa lamang na walang paggalang",
+              "Pagmamataas sa kanila",
+              "Kawalang-interes sa kanilang kalagayan"
+            ],
+            "correct_answer": "Tunay na pagmamahal at respeto, hindi awa lamang"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP (AFA/FCS/IA) — Pagpapatupad ng Pamantayan sa Pagganap\n\nGrade 6, Linggo 19! Isabuhay natin ang natutuhan tungkol sa pag-aalaga at pagbebenta ng isda. 💰\n\n## 🎯 Pamantayan sa Pagganap\nAng pamantayan sa pagganap ay: **nagagampanan ng mag-aaral ang natural na pamamaraan ng pag-aalaga, pag-aani, at pagbebenta ng isda nang may pag-iingat sa kaligtasan.**\n\n## 🛡️ Mga Panuntunang Pangkaligtasan sa Pagbebenta ng Isda\n- Panatilihing **malinis** ang isdang ibebenta\n- Gumamit ng **malinis na sisidlan**\n- Iwasan ang **kontaminasyon** sa panahon ng pagbebenta\n\n## 💰 Simpleng Pagkalkula ng Kita at Gastos\n**Halimbawa:** Ginastos ng isang mag-aaral ang ₱500 sa pagpapakain ng isda. Naibenta ang mga isda sa halagang ₱800.\n- Kita = Benta - Gastos = ₱800 - ₱500 = **₱300 kita**\n\n## 🧠 Halimbawa 1\n*Bakit mahalagang panatilihing malinis ang isdang ibebenta?*\n- Upang **maiwasan ang sakit** at makuha ang tiwala ng mga bumibili.\n\n## 🧠 Halimbawa 2\n*Ginastos ng isang estudyante ang ₱600 sa pag-aalaga ng isda. Naibenta ang mga ito sa halagang ₱950. Magkano ang kita?*\n- ₱950 - ₱600 = **₱350 na kita**\n\n## 🧠 Halimbawa 3\n*Bakit mahalagang isabuhay ang natutuhang teknikal na kaalaman sa aktwal na proyekto?*\n- Upang **matiyak ang tagumpay** ng pag-aalaga, pag-aani, at pagbebenta ng isda.\n\n## 💡 Kongklusyon\nAng pagsasabuhay ng mga natutuhang kasanayan sa pag-aalaga ng isda ay tumutulong upang maging **matagumpay na mangingisda** sa hinaharap.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pamantayan sa pagganap sa yunit na ito?",
+            "options": [
+              "Nagagampanan ang natural na pamamaraan ng pag-aalaga, pag-aani, at pagbebenta ng isda",
+              "Nakakagawa lamang ng isang simpleng guhit tungkol sa buhay ng isda",
+              "Nakakabasa lamang ng isang aklat na pumapaksa tungkol sa isda",
+              "Nakakapagsalita lamang nang basta-basta tungkol sa kahit anong isda"
+            ],
+            "correct_answer": "Nagagampanan ang natural na pamamaraan ng pag-aalaga, pag-aani, at pagbebenta ng isda"
+          },
+          {
+            "question": "Ano ang isang panuntunang pangkaligtasan sa pagbebenta ng isda?",
+            "options": [
+              "Panatilihing malinis ang isdang ibebenta",
+              "Gamitin ang maruming sisidlan",
+              "Hayaang kontaminado ang isda",
+              "Ibenta ang isda kahit sira na"
+            ],
+            "correct_answer": "Panatilihing malinis ang isdang ibebenta"
+          },
+          {
+            "question": "Ginastos ng estudyante ang ₱500 sa pagpapakain ng isda. Naibenta ang mga ito sa ₱800. Magkano ang kita?",
+            "options": [
+              "₱300",
+              "₱500",
+              "₱800",
+              "₱200"
+            ],
+            "correct_answer": "₱300"
+          },
+          {
+            "question": "Ginastos ng estudyante ang ₱600 sa pag-aalaga ng isda. Naibenta ang mga ito sa ₱950. Magkano ang kita?",
+            "options": [
+              "₱350",
+              "₱600",
+              "₱950",
+              "₱250"
+            ],
+            "correct_answer": "₱350"
+          },
+          {
+            "question": "Bakit mahalagang panatilihing malinis ang isdang ibebenta?",
+            "options": [
+              "Upang maiwasan ang sakit at makuha ang tiwala ng bumibili",
+              "Upang mapabilis lamang ang pagbebenta",
+              "Walang dahilan ito talaga",
+              "Upang mapaganda lamang ang hitsura"
+            ],
+            "correct_answer": "Upang maiwasan ang sakit at makuha ang tiwala ng bumibili"
+          },
+          {
+            "question": "Ano ang formula sa pagkalkula ng kita?",
+            "options": [
+              "Kita = Benta - Gastos",
+              "Kita = Benta + Gastos",
+              "Kita = Gastos - Benta",
+              "Kita = Benta x Gastos"
+            ],
+            "correct_answer": "Kita = Benta - Gastos"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng malinis na sisidlan sa pagbebenta ng isda?",
+            "options": [
+              "Upang maiwasan ang kontaminasyon",
+              "Upang mapaganda lamang ang tindahan",
+              "Walang dahilan ito talaga",
+              "Upang mapabilis ang benta"
+            ],
+            "correct_answer": "Upang maiwasan ang kontaminasyon"
+          },
+          {
+            "question": "Bakit mahalagang isabuhay ang natutuhang teknikal na kaalaman sa aktwal na proyekto?",
+            "options": [
+              "Upang matiyak ang tagumpay ng pag-aalaga, pag-aani, at pagbebenta",
+              "Upang mapabilis lamang ang gawain",
+              "Walang dahilan ito talaga",
+              "Upang mapaganda lamang ang hitsura ng proyekto"
+            ],
+            "correct_answer": "Upang matiyak ang tagumpay ng pag-aalaga, pag-aani, at pagbebenta"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi maayos na maialaga ang isda bago ibenta?",
+            "options": [
+              "Maaaring hindi kumita ang negosyo o magkasakit ang mamimili",
+              "Palaging kikita ang negosyo kahit ano ang mangyari",
+              "Wala itong epekto sa negosyo",
+              "Mas dadami pa ang kikitain"
+            ],
+            "correct_answer": "Maaaring hindi kumita ang negosyo o magkasakit ang mamimili"
+          },
+          {
+            "question": "Bakit mahalagang matutunan ang buong proseso mula sa pag-aalaga hanggang pagbebenta ng isda?",
+            "options": [
+              "Upang maging handa sa isang tunay na negosyo sa hinaharap",
+              "Upang lamang makapasa sa isang eksamen",
+              "Walang praktikal na gamit ang kaalamang ito",
+              "Upang mapabilis lamang ang klase"
+            ],
+            "correct_answer": "Upang maging handa sa isang tunay na negosyo sa hinaharap"
+          },
+          {
+            "question": "Ano ang dapat gawin bago ibenta ang mga naaning isda sa palengke?",
+            "options": [
+              "Tiyakin na malinis at sariwa ang mga ito",
+              "Ihalo lamang ang mga sira sa magandang isda",
+              "Iwasan ang paglilinis ng isda",
+              "Ibenta agad kahit hindi pa handa"
+            ],
+            "correct_answer": "Tiyakin na malinis at sariwa ang mga ito"
+          },
+          {
+            "question": "Bakit mahalagang itala ang gastos at kita sa negosyo ng pag-aalaga ng isda?",
+            "options": [
+              "Upang malaman kung kumikita talaga ang negosyo",
+              "Upang mapabilis lamang ang pagbebenta",
+              "Walang kabuluhan ang pagtatala nito",
+              "Upang mapaganda lamang ang tala"
+            ],
+            "correct_answer": "Upang malaman kung kumikita talaga ang negosyo"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🎬 Friday Review — English (Grade 6)\n\n- Combine reading, writing, viewing into one multimedia presentation\n- Consider purpose and audience first\n\nGreat multimedia creation! 🌟",
+        "quiz": [
+          {
+            "question": "What three skills are we combining in this project?",
+            "options": [
+              "Reading, writing, and viewing",
+              "Only drawing and coloring",
+              "Only singing and dancing",
+              "Only counting and measuring"
+            ],
+            "correct_answer": "Reading, writing, and viewing"
+          },
+          {
+            "question": "What is the first step in creating a multimedia presentation?",
+            "options": [
+              "Choose a topic",
+              "Add music immediately",
+              "Present to the class first",
+              "Print the final version"
+            ],
+            "correct_answer": "Choose a topic"
+          },
+          {
+            "question": "Why should you write a script using proper grammar?",
+            "options": [
+              "To communicate the message clearly and correctly",
+              "Grammar does not matter in presentations",
+              "To make the presentation longer",
+              "To confuse the audience on purpose"
+            ],
+            "correct_answer": "To communicate the message clearly and correctly"
+          },
+          {
+            "question": "Why should you plan your visuals BEFORE recording or presenting?",
+            "options": [
+              "So the visuals directly support your message",
+              "Visuals should always be random and unplanned",
+              "Planning visuals wastes valuable time",
+              "Visuals have no effect on a presentation"
+            ],
+            "correct_answer": "So the visuals directly support your message"
+          },
+          {
+            "question": "What question should you ask about your purpose before creating a presentation?",
+            "options": [
+              "Am I trying to inform, persuade, or entertain?",
+              "What is the exact file size limit?",
+              "What font style looks the coolest?",
+              "How many minutes will editing take?"
+            ],
+            "correct_answer": "Am I trying to inform, persuade, or entertain?"
+          },
+          {
+            "question": "Why is it important to consider your audience?",
+            "options": [
+              "So the content is appropriate and clear for who will watch it",
+              "Audience never matters in any presentation",
+              "Only the presenter's opinion matters",
+              "Audience only matters for written texts, not presentations"
+            ],
+            "correct_answer": "So the content is appropriate and clear for who will watch it"
+          },
+          {
+            "question": "You want to inform classmates about a local hero's story. What should your presentation include?",
+            "options": [
+              "Clear facts, relevant images, and a well-written script",
+              "Only loud music and no information",
+              "Only a blank screen with no content",
+              "Random unrelated images with no facts"
+            ],
+            "correct_answer": "Clear facts, relevant images, and a well-written script"
+          },
+          {
+            "question": "What multimedia elements can be added to support your presentation's purpose?",
+            "options": [
+              "Transitions, captions, or music",
+              "Only silence throughout",
+              "Only black and white slides",
+              "Only text with no visuals at all"
+            ],
+            "correct_answer": "Transitions, captions, or music"
+          },
+          {
+            "question": "What is the LAST step in creating a multimedia presentation?",
+            "options": [
+              "Present to an audience",
+              "Choose a topic",
+              "Write the script",
+              "Plan the visuals"
+            ],
+            "correct_answer": "Present to an audience"
+          },
+          {
+            "question": "Why is combining reading, writing, and viewing skills valuable?",
+            "options": [
+              "It shows we can apply everything we've learned together",
+              "These skills have no connection to each other",
+              "Only one of these skills is ever useful",
+              "Combining skills makes learning pointless"
+            ],
+            "correct_answer": "It shows we can apply everything we've learned together"
+          },
+          {
+            "question": "What should a presentation's visuals do?",
+            "options": [
+              "Support and clarify the message being presented",
+              "Distract from the main message entirely",
+              "Have no connection to the topic at all",
+              "Replace the need for any script"
+            ],
+            "correct_answer": "Support and clarify the message being presented"
+          },
+          {
+            "question": "Why is it useful to choose a topic you've already read about or researched?",
+            "options": [
+              "You already have knowledge and facts to build your presentation on",
+              "Research is never actually necessary",
+              "Any random unfamiliar topic works just as well",
+              "It makes the presentation harder to prepare"
+            ],
+            "correct_answer": "You already have knowledge and facts to build your presentation on"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# √ Friday Review — Mathematics (Grade 6)\n\n- **Square root** is the inverse of squaring\n- √25=5, √16=4; estimate between perfect squares\n\nGreat square root work! ⭐",
+        "quiz": [
+          {
+            "question": "What is a square root?",
+            "options": [
+              "The inverse operation of squaring a number",
+              "The same thing as multiplying by 2",
+              "The same thing as adding a number to itself",
+              "A number divided by zero"
+            ],
+            "correct_answer": "The inverse operation of squaring a number"
+          },
+          {
+            "question": "What is √16?",
+            "options": [
+              "4",
+              "8",
+              "2",
+              "16"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "What is √25?",
+            "options": [
+              "5",
+              "10",
+              "25",
+              "2.5"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "What is a perfect square?",
+            "options": [
+              "A number that is the square of a whole number",
+              "Any odd number chosen at random",
+              "Any number that is divisible by two",
+              "A number that has no factors at all"
+            ],
+            "correct_answer": "A number that is the square of a whole number"
+          },
+          {
+            "question": "Which of these is a perfect square?",
+            "options": [
+              "9",
+              "10",
+              "11",
+              "12"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "√20 is between which two whole numbers?",
+            "options": [
+              "4 and 5",
+              "3 and 4",
+              "5 and 6",
+              "2 and 3"
+            ],
+            "correct_answer": "4 and 5"
+          },
+          {
+            "question": "Following GEMDAS, what do you compute first in √9 + 3 × 2?",
+            "options": [
+              "The square root √9",
+              "The multiplication 3 × 2",
+              "The addition first",
+              "It does not matter"
+            ],
+            "correct_answer": "The square root √9"
+          },
+          {
+            "question": "What is √9 + 3 × 2?",
+            "options": [
+              "9",
+              "15",
+              "12",
+              "6"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "A square garden has an area of 36 square meters. What is the length of one side?",
+            "options": [
+              "6 meters",
+              "18 meters",
+              "12 meters",
+              "9 meters"
+            ],
+            "correct_answer": "6 meters"
+          },
+          {
+            "question": "What is √49?",
+            "options": [
+              "7",
+              "14",
+              "24.5",
+              "49"
+            ],
+            "correct_answer": "7"
+          },
+          {
+            "question": "What is √64?",
+            "options": [
+              "8",
+              "16",
+              "32",
+              "4"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "Why is finding a square root considered the inverse of squaring?",
+            "options": [
+              "Squaring multiplies a number by itself; square root undoes that",
+              "They are actually the exact same operation",
+              "Square roots have nothing to do with squaring",
+              "Square roots only work with negative numbers"
+            ],
+            "correct_answer": "Squaring multiplies a number by itself; square root undoes that"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📝 Friday Review — Filipino (Grade 6)\n\n- Pagrerebisa: panimula, katawan, konklusyon, gramatika\n- Peer review para mapabuti ang sanaysay\n\nMagaling sa pagsulat! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pagrerebisa?",
+            "options": [
+              "Pagbabalik-tingin sa isinulat upang pagbutihin ito",
+              "Pagsulat ng bagong sanaysay mula sa umpisa",
+              "Pagbabasa lamang nang minsan",
+              "Pagbura ng buong sanaysay"
+            ],
+            "correct_answer": "Pagbabalik-tingin sa isinulat upang pagbutihin ito"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa panimula?",
+            "options": [
+              "Na naipakilala nang maayos ang paksa",
+              "Na tama ang bilang ng pahina",
+              "Na maganda ang kulay ng papel",
+              "Na mabilis matapos ang sanaysay"
+            ],
+            "correct_answer": "Na naipakilala nang maayos ang paksa"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa konklusyon?",
+            "options": [
+              "Na nabuod nang maayos ang buong sanaysay",
+              "Na mahaba ang buong sanaysay",
+              "Na tama ang laki ng papel",
+              "Na maraming larawan ang ginamit"
+            ],
+            "correct_answer": "Na nabuod nang maayos ang buong sanaysay"
+          },
+          {
+            "question": "Ano ang peer review?",
+            "options": [
+              "Pagbabasa at pagbibigay ng puna mula sa kapwa mag-aaral",
+              "Isang uri ng pagsusulit na sinasagot nang pasulat",
+              "Isang uri ng aklat na matatagpuan sa aklatan",
+              "Isang bahagi lamang ng isang dulang pang-eskuwela"
+            ],
+            "correct_answer": "Pagbabasa at pagbibigay ng puna mula sa kapwa mag-aaral"
+          },
+          {
+            "question": "Sinabi ng iyong kaklase na hindi malinaw ang iyong panimula. Ano ang tamang gawin?",
+            "options": [
+              "Muling isulat ang panimula upang maging mas malinaw",
+              "Balewalain ang puna",
+              "Alisin na lamang ang buong sanaysay",
+              "Magalit sa nagbigay ng puna"
+            ],
+            "correct_answer": "Muling isulat ang panimula upang maging mas malinaw"
+          },
+          {
+            "question": "Bakit mahalaga ang pagrerebisa bago ipasa ang sanaysay?",
+            "options": [
+              "Nakatutulong ito upang mapabuti ang kalidad ng isinulat",
+              "Wala itong anumang kabuluhan sa pagsulat",
+              "Ginagawa lamang ito para sa marka lamang",
+              "Nagpapahaba lamang ito ng buong proseso"
+            ],
+            "correct_answer": "Nakatutulong ito upang mapabuti ang kalidad ng isinulat"
+          },
+          {
+            "question": "Ano ang halimbawa ng pagbabagong maaaring gawin matapos ang pagrerebisa?",
+            "options": [
+              "Pagdaragdag ng ebidensiya o pagwawasto ng gramatika",
+              "Pagbura ng buong sanaysay",
+              "Pagsulat ng bagong pamagat lamang",
+              "Pagpapalit ng wikang ginamit"
+            ],
+            "correct_answer": "Pagdaragdag ng ebidensiya o pagwawasto ng gramatika"
+          },
+          {
+            "question": "Bakit kapaki-pakinabang ang puna mula sa kapwa mag-aaral?",
+            "options": [
+              "Makikita nila ang mga bagay na hindi natin napansin sa sarili nating sulat",
+              "Wala itong anumang tunay na gamit para sa ating pag-aaral",
+              "Ginagawa lamang ito bilang isang parusa sa mag-aaral",
+              "Hindi ito dapat pakinggan kailanman ng isang mag-aaral"
+            ],
+            "correct_answer": "Makikita nila ang mga bagay na hindi natin napansin sa sarili nating sulat"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa gramatika at bantas?",
+            "options": [
+              "Ang propesyonal na kalidad ng sanaysay",
+              "Ang bilang ng talata lamang",
+              "Ang laki ng titik lamang",
+              "Ang kulay ng background"
+            ],
+            "correct_answer": "Ang propesyonal na kalidad ng sanaysay"
+          },
+          {
+            "question": "Ano ang dapat tiyakin sa katawan ng sanaysay kapag rinerebisa?",
+            "options": [
+              "May sapat na katwiran na sumusuporta sa opinyon",
+              "May sapat na bilang ng larawan lamang",
+              "May sapat na bilang ng pahina lamang",
+              "May sapat na malaking titik lamang"
+            ],
+            "correct_answer": "May sapat na katwiran na sumusuporta sa opinyon"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang bahagi ng pagsulat ang pagrerebisa?",
+            "options": [
+              "Dahil ang unang draft ay bihirang naging perpekto agad",
+              "Dahil hindi na kailangan pang basahin ulit ang isinulat",
+              "Dahil ang unang draft ay palaging perpekto",
+              "Dahil walang benepisyo ang pagbabalik-tingin"
+            ],
+            "correct_answer": "Dahil ang unang draft ay bihirang naging perpekto agad"
+          },
+          {
+            "question": "Isang mag-aaral ang nagbasa ulit ng kanyang sanaysay at nakakita ng maling gramatika. Ano ang dapat niyang gawin?",
+            "options": [
+              "Ituwid ang mga pagkakamali bago ipasa ang sanaysay",
+              "Balewalain ang mga pagkakamali",
+              "Isulat ang buong sanaysay ulit mula sa simula",
+              "Huwag na lamang ipasa ang sanaysay"
+            ],
+            "correct_answer": "Ituwid ang mga pagkakamali bago ipasa ang sanaysay"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🍃 Friday Review — Science (Grade 6)\n\n- **Producer, consumer, scavenger, decomposer** — roles in a food web\n\nGreat food web science! 🌟",
+        "quiz": [
+          {
+            "question": "What are producers?",
+            "options": [
+              "Living things that make their own food using sunlight",
+              "Living things that only eat other animals",
+              "Living things that eat dead animals",
+              "Living things that break down dead matter"
+            ],
+            "correct_answer": "Living things that make their own food using sunlight"
+          },
+          {
+            "question": "What are consumers?",
+            "options": [
+              "Living things that eat other living things for energy",
+              "Living things that make their own food",
+              "Living things that only break down dead matter",
+              "Living things that never eat anything"
+            ],
+            "correct_answer": "Living things that eat other living things for energy"
+          },
+          {
+            "question": "What are scavengers?",
+            "options": [
+              "Animals that eat dead animals they did not kill",
+              "Animals that only eat plants",
+              "Animals that make their own food",
+              "Animals that break down soil nutrients only"
+            ],
+            "correct_answer": "Animals that eat dead animals they did not kill"
+          },
+          {
+            "question": "What are decomposers?",
+            "options": [
+              "Living things that break down dead plants and animals",
+              "Living things that only eat live prey",
+              "Living things that make their own food",
+              "Living things that never interact with soil"
+            ],
+            "correct_answer": "Living things that break down dead plants and animals"
+          },
+          {
+            "question": "Why are decomposers important in a food web?",
+            "options": [
+              "They return nutrients to the soil for producers to use",
+              "They have no real role in the ecosystem",
+              "They only harm the environment",
+              "They prevent plants from growing at all"
+            ],
+            "correct_answer": "They return nutrients to the soil for producers to use"
+          },
+          {
+            "question": "A vulture eats an animal that died naturally. What role does the vulture play?",
+            "options": [
+              "Scavenger",
+              "Producer",
+              "Decomposer only",
+              "Herbivore"
+            ],
+            "correct_answer": "Scavenger"
+          },
+          {
+            "question": "What is an example of a producer?",
+            "options": [
+              "Grass",
+              "Deer",
+              "Wolf",
+              "Vulture"
+            ],
+            "correct_answer": "Grass"
+          },
+          {
+            "question": "What is an example of a decomposer?",
+            "options": [
+              "Fungi",
+              "Deer",
+              "Grass",
+              "Wolf"
+            ],
+            "correct_answer": "Fungi"
+          },
+          {
+            "question": "What type of consumer eats only plants?",
+            "options": [
+              "Herbivore",
+              "Carnivore",
+              "Scavenger",
+              "Decomposer"
+            ],
+            "correct_answer": "Herbivore"
+          },
+          {
+            "question": "What type of consumer eats both plants and animals?",
+            "options": [
+              "Omnivore",
+              "Herbivore",
+              "Carnivore",
+              "Producer"
+            ],
+            "correct_answer": "Omnivore"
+          },
+          {
+            "question": "How do producers, consumers, scavengers, and decomposers work together?",
+            "options": [
+              "They form a cycle of energy and nutrients through the ecosystem",
+              "They have no connection to each other at all",
+              "Only producers matter in an ecosystem",
+              "They all compete with no cooperation at all"
+            ],
+            "correct_answer": "They form a cycle of energy and nutrients through the ecosystem"
+          },
+          {
+            "question": "Why is it useful to understand these different roles in a food web?",
+            "options": [
+              "It helps us see how nutrients and energy cycle through an ecosystem",
+              "It has no real scientific value at all",
+              "It only matters for animals in a zoo",
+              "It replaces the need to study individual animals"
+            ],
+            "correct_answer": "It helps us see how nutrients and energy cycle through an ecosystem"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎨 Friday Review — Araling Panlipunan (Grade 6)\n\n- Paglikha, pagsuri, at pagtatanghal ng culminating project\n- Pagninilay sa natutuhan\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang unang gagawin ngayong linggo tungkol sa proyekto?",
+            "options": [
+              "Buoin ang proyekto gamit ang plano at kasangkapang inihanda",
+              "Simulan mula sa umpisa ang buong pagpaplano",
+              "Kalimutan na lamang ang proyekto",
+              "Huwag na ituloy ang gawain"
+            ],
+            "correct_answer": "Buoin ang proyekto gamit ang plano at kasangkapang inihanda"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa tamang pagkakasunod-sunod ng proyekto?",
+            "options": [
+              "Na tama ang timeline ng mga pangyayari",
+              "Na maganda ang kulay ng proyekto",
+              "Na mabilis lamang matapos ang gawain",
+              "Na maliit ang laki ng proyekto"
+            ],
+            "correct_answer": "Na tama ang timeline ng mga pangyayari"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa kumpletong impormasyon?",
+            "options": [
+              "Na wala nang kulang na mahalagang detalye",
+              "Na maganda ang disenyo lamang",
+              "Na maikli ang proyekto",
+              "Na maraming kulay ang ginamit"
+            ],
+            "correct_answer": "Na wala nang kulang na mahalagang detalye"
+          },
+          {
+            "question": "Ano ang gallery walk?",
+            "options": [
+              "Isang paraan ng pagtatanghal kung saan ipinapaliwanag ng bawat grupo ang kanilang proyekto",
+              "Isang uri ng laro na karaniwang ginagawa sa labas ng silid-aralan",
+              "Isang uri ng pagsusulit na kailangang sagutin nang pasulat",
+              "Isang uri ng aklat na matatagpuan lamang sa loob ng aklatan"
+            ],
+            "correct_answer": "Isang paraan ng pagtatanghal kung saan ipinapaliwanag ng bawat grupo ang kanilang proyekto"
+          },
+          {
+            "question": "Bakit mahalagang suriin muna ang proyekto bago ito ipakita sa klase?",
+            "options": [
+              "Upang matiyak na tama at kumpleto ang impormasyon",
+              "Upang mapabilis lamang ang gawain",
+              "Walang dahilan ito talaga",
+              "Upang malito ang gagawa ng proyekto"
+            ],
+            "correct_answer": "Upang matiyak na tama at kumpleto ang impormasyon"
+          },
+          {
+            "question": "Ano ang layunin ng pagninilay pagkatapos ng proyekto?",
+            "options": [
+              "Pagtibayin ang natutuhan tungkol sa kasaysayan at kalayaan",
+              "Kalimutan agad ang lahat ng natutuhang bagay",
+              "Isara ang paksa nang walang anumang pag-iisip",
+              "Bumuo agad ng bagong proyekto na walang plano"
+            ],
+            "correct_answer": "Pagtibayin ang natutuhan tungkol sa kasaysayan at kalayaan"
+          },
+          {
+            "question": "Ano ang tanong na dapat sagutin sa pagninilay?",
+            "options": [
+              "Ano ang natutuhan ko tungkol sa pakikibaka ng mga Pilipino?",
+              "Ano ang paborito kong kulay ng damit?",
+              "Ilang taon na ba ako ngayong taon?",
+              "Ano ang gusto kong kainin mamayang gabi?"
+            ],
+            "correct_answer": "Ano ang natutuhan ko tungkol sa pakikibaka ng mga Pilipino?"
+          },
+          {
+            "question": "Bakit mahalaga ang kalinisan at kaayusan ng proyekto?",
+            "options": [
+              "Tinitiyak nito na madaling maunawaan ng manonood ang proyekto",
+              "Wala itong kaugnayan sa pag-unawa ng mga manonood dito",
+              "Ginagawa lamang ito para sa isang parangal",
+              "Hindi ito totoong mahalaga sa buong proyekto"
+            ],
+            "correct_answer": "Tinitiyak nito na madaling maunawaan ng manonood ang proyekto"
+          },
+          {
+            "question": "Sino ang magpapaliwanag ng proyekto sa gallery walk?",
+            "options": [
+              "Ang bawat grupo o mag-aaral na gumawa ng proyekto",
+              "Ang guro na lamang mag-isa",
+              "Ang mga magulang na lamang mag-isa",
+              "Walang sinumang magpapaliwanag nito"
+            ],
+            "correct_answer": "Ang bawat grupo o mag-aaral na gumawa ng proyekto"
+          },
+          {
+            "question": "Ano ang pangkalahatang diin ng pagtatapos at pagtatanghal ng proyekto?",
+            "options": [
+              "Ang kahalagahan ng pagpupunyagi ng mga Pilipino tungo sa kalayaan",
+              "Ang bilang lamang ng mga gumawa ng proyekto",
+              "Ang presyo ng mga materyales na ginamit dito",
+              "Ang oras lamang na ginamit sa paggawa nito"
+            ],
+            "correct_answer": "Ang kahalagahan ng pagpupunyagi ng mga Pilipino tungo sa kalayaan"
+          },
+          {
+            "question": "Ano ang maaaring maging huling hakbang matapos ang pagtatanghal ng proyekto?",
+            "options": [
+              "Pagninilay tungkol sa natutuhan",
+              "Pagsisimula ng bagong proyekto agad",
+              "Pagtatapon ng ginawang proyekto",
+              "Pagkalimot sa lahat ng natutuhan"
+            ],
+            "correct_answer": "Pagninilay tungkol sa natutuhan"
+          },
+          {
+            "question": "Bakit mahalagang ipakita sa klase ang natapos na proyekto?",
+            "options": [
+              "Upang maibahagi ang natutuhan sa iba at magbigay-halaga sa kasaysayan",
+              "Upang makakuha lamang ng papuri mula sa guro",
+              "Wala itong anumang kabuluhan sa pag-aaral",
+              "Upang matapos lamang agad ang buong gawain"
+            ],
+            "correct_answer": "Upang maibahagi ang natutuhan sa iba at magbigay-halaga sa kasaysayan"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 👨‍👩‍👧‍👦 Friday Review — MAPEH (Grade 6)\n\n- Pagpaplano ng family wellness day gamit ang natutuhang laro\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Anong dalawang uri ng laro ang natutuhan natin sa nakaraang mga linggo?",
+            "options": [
+              "Striking/fielding at net/wall games",
+              "Board games at card games lamang",
+              "Video games lamang",
+              "Larong walang anumang kilos"
+            ],
+            "correct_answer": "Striking/fielding at net/wall games"
+          },
+          {
+            "question": "Ano ang family wellness day?",
+            "options": [
+              "Isang araw ng gawaing pangkalusugan para sa buong pamilya",
+              "Isang araw na gugugulin sa pamimili lamang",
+              "Isang araw na gugugulin sa pagtulog lamang",
+              "Isang araw na gugugulin sa panonood ng TV"
+            ],
+            "correct_answer": "Isang araw ng gawaing pangkalusugan para sa buong pamilya"
+          },
+          {
+            "question": "Bakit mahalagang pumili ng modipikadong laro para sa family wellness day?",
+            "options": [
+              "Upang magamit ito ng lahat ng edad",
+              "Upang para lamang sa mga bata",
+              "Upang para lamang sa mga matatanda",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang magamit ito ng lahat ng edad"
+          },
+          {
+            "question": "Bakit dapat isaalang-alang ang kaligtasan sa pagpaplano ng gawain?",
+            "options": [
+              "Upang maiwasan ang aksidente at masigurong ligtas ang lahat",
+              "Wala itong kaugnayan sa gawain",
+              "Upang mapabilis lamang ang laro",
+              "Upang hindi na kailangan pang magplano"
+            ],
+            "correct_answer": "Upang maiwasan ang aksidente at masigurong ligtas ang lahat"
+          },
+          {
+            "question": "Ano ang isa sa mga elemento ng magandang plano para sa wellness day?",
+            "options": [
+              "Pagpili ng laro na angkop sa lahat ng edad",
+              "Pagtakbo nang walang plano",
+              "Pagbibigay ng gawain nang walang iskedyul",
+              "Pag-iwas sa lahat ng kagamitan"
+            ],
+            "correct_answer": "Pagpili ng laro na angkop sa lahat ng edad"
+          },
+          {
+            "question": "Bakit kailangang maghanda ng kagamitan bago ang wellness day?",
+            "options": [
+              "Upang maging maayos at handa ang gawain",
+              "Wala itong kabuluhan sa gawain",
+              "Upang mapabilis lamang ang oras",
+              "Hindi kailangang maghanda ng anuman"
+            ],
+            "correct_answer": "Upang maging maayos at handa ang gawain"
+          },
+          {
+            "question": "Ano ang layunin ng pagtatakda ng tiyak na iskedyul para sa wellness day?",
+            "options": [
+              "Upang lahat ay handa at nakaayos sa tamang oras",
+              "Upang malito ang lahat ng kasapi ng pamilya",
+              "Walang layunin ang pagtatakda ng iskedyul",
+              "Upang bawasan ang bilang ng kalahok"
+            ],
+            "correct_answer": "Upang lahat ay handa at nakaayos sa tamang oras"
+          },
+          {
+            "question": "Ano ang idinudulot ng pagpaplano ng gawaing pangkalusugan ng pamilya?",
+            "options": [
+              "Nagpapatibay ito ng samahan at kalusugan ng sambahayan",
+              "Nagpapahina lamang ito ng samahan ng pamilya",
+              "Wala itong anumang benepisyo sa buong pamilya",
+              "Nagdudulot lamang ito ng away sa tahanan"
+            ],
+            "correct_answer": "Nagpapatibay ito ng samahan at kalusugan ng sambahayan"
+          },
+          {
+            "question": "Anong konsepto ang natutuhan natin na tumutulong sa mabilis na paggalaw?",
+            "options": [
+              "Agility",
+              "Kahirapan",
+              "Kalungkutan",
+              "Kapabayaan"
+            ],
+            "correct_answer": "Agility"
+          },
+          {
+            "question": "Anong konsepto ang tumutulong sa pananatiling matatag habang gumagalaw?",
+            "options": [
+              "Balance",
+              "Kalungkutan",
+              "Kapabayaan",
+              "Kahirapan"
+            ],
+            "correct_answer": "Balance"
+          },
+          {
+            "question": "Bakit mahalagang isama ang buong pamilya sa gawaing pangkalusugan?",
+            "options": [
+              "Nagpapalakas ito ng ugnayan habang nagpapataas ng kalusugan",
+              "Wala itong kabuluhan kung sama-sama ang lahat",
+              "Mas mainam na mag-isa lamang gawin ito",
+              "Hindi na kailangan ang pamilya sa gawaing ito"
+            ],
+            "correct_answer": "Nagpapalakas ito ng ugnayan habang nagpapataas ng kalusugan"
+          },
+          {
+            "question": "Ano ang unang hakbang sa pagpaplano ng family wellness day?",
+            "options": [
+              "Pagpili ng laro na angkop sa lahat",
+              "Direktang pagsisimula ng laro",
+              "Pagbibigay ng gantimpala agad",
+              "Pagtatapos ng gawain agad"
+            ],
+            "correct_answer": "Pagpili ng laro na angkop sa lahat"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# ❤️ Friday Review — GMRC (Grade 6)\n\n- Paglilingkod sa nangangailangan bilang tanda ng pananampalataya\n- Pagpapahalaga: **Mapagkawang-gawa**\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang paglilingkod bilang indikasyon ng pananampalataya?",
+            "options": [
+              "Pagtulong sa mga nangangailangan bilang tanda ng pananampalataya",
+              "Panalangin na lamang na walang anumang gawa",
+              "Pananahimik na lamang palagi kahit kailan",
+              "Pag-iwas sa mga taong nangangailangan"
+            ],
+            "correct_answer": "Pagtulong sa mga nangangailangan bilang tanda ng pananampalataya"
+          },
+          {
+            "question": "Ano ang mapagkawang-gawa (charity)?",
+            "options": [
+              "Pagiging bukas-palad at handang tumulong sa nangangailangan",
+              "Pagiging maramot at makasarili sa kapwa",
+              "Pag-iwas sa lahat ng uri ng pagtulong",
+              "Pananahimik na lamang palagi kahit kailan"
+            ],
+            "correct_answer": "Pagiging bukas-palad at handang tumulong sa nangangailangan"
+          },
+          {
+            "question": "Nagbahagi ang iyong pamilya ng pagkain sa mga nangangailangan. Ano ang ipinapakita nito?",
+            "options": [
+              "Paglilingkod bilang tanda ng tunay na pananampalataya",
+              "Kawalan ng pakialam sa kapwa",
+              "Pagsuway sa aral ng pananampalataya",
+              "Kapabayaan sa mga nangangailangan"
+            ],
+            "correct_answer": "Paglilingkod bilang tanda ng tunay na pananampalataya"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang gawain ang pagtulong sa mga nangangailangan?",
+            "options": [
+              "Ipinapakita nito ang pagmamahal sa kapwa",
+              "Wala itong kaugnayan sa pananampalataya",
+              "Ginagawa lamang ito para sa papuri",
+              "Hindi ito importanteng gawain"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagmamahal sa kapwa"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Mapagkawang-gawa (Charity)",
+              "Masipag",
+              "Pakikiisa",
+              "Mapagpasensiya"
+            ],
+            "correct_answer": "Mapagkawang-gawa (Charity)"
+          },
+          {
+            "question": "Ano ang halimbawa ng paglilingkod ng pamilya sa komunidad?",
+            "options": [
+              "Pagboboluntaryo sa mga gawaing pangkomunidad",
+              "Pag-iwas sa lahat ng gawaing pangkomunidad",
+              "Pagtanggi sa lahat ng tulong",
+              "Pananahimik lamang sa bahay"
+            ],
+            "correct_answer": "Pagboboluntaryo sa mga gawaing pangkomunidad"
+          },
+          {
+            "question": "Bakit hindi sapat ang panalangin lamang bilang tanda ng pananampalataya?",
+            "options": [
+              "Dapat din itong ipakita sa mabuting gawa tulad ng paglilingkod",
+              "Sapat na talaga ang panalangin nang mag-isa",
+              "Hindi mahalaga ang pananampalataya sa buhay",
+              "Ang gawa ay hindi kailanman talaga kailangan"
+            ],
+            "correct_answer": "Dapat din itong ipakita sa mabuting gawa tulad ng paglilingkod"
+          },
+          {
+            "question": "Ano ang isang paraan ng paglilingkod bilang pamilya?",
+            "options": [
+              "Pagbabahagi ng pagkain o damit sa nangangailangan",
+              "Pag-iwas sa lahat ng nangangailangan",
+              "Pagtatago ng lahat ng pag-aari",
+              "Pananahimik lamang palagi"
+            ],
+            "correct_answer": "Pagbabahagi ng pagkain o damit sa nangangailangan"
+          },
+          {
+            "question": "Bakit itinuturing na buhay na patotoo ng pananampalataya ang paglilingkod?",
+            "options": [
+              "Ipinapakita nito ang tunay na pananampalataya sa gawa, hindi lamang sa salita",
+              "Wala itong anumang kaugnayan sa pananampalataya natin",
+              "Ito ay ginagawa lamang para sa papuri ng ibang tao",
+              "Hindi ito totoong bahagi ng ating pananampalataya"
+            ],
+            "correct_answer": "Ipinapakita nito ang tunay na pananampalataya sa gawa, hindi lamang sa salita"
+          },
+          {
+            "question": "Isang pamilya ang laging tumutulong sa mga kapitbahay na may kailangan. Ano ang ipinapakita nito?",
+            "options": [
+              "Mapagkawang-gawa at tunay na pananampalataya",
+              "Kawalan ng pakialam sa kapwa",
+              "Pagsuway sa aral ng pananampalataya",
+              "Kapabayaan sa kapwa"
+            ],
+            "correct_answer": "Mapagkawang-gawa at tunay na pananampalataya"
+          },
+          {
+            "question": "Bakit mahalagang maging bukas-palad sa mga taong nangangailangan?",
+            "options": [
+              "Ipinapakita nito ang pagmamahal at pagmamalasakit sa kapwa",
+              "Wala itong kabuluhan sa buhay",
+              "Ginagawa lamang ito upang mapansin ng iba",
+              "Hindi ito bahagi ng magandang ugali"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagmamahal at pagmamalasakit sa kapwa"
+          },
+          {
+            "question": "Ano ang dapat ipadama natin sa mga taong ating tinutulungan?",
+            "options": [
+              "Tunay na pagmamahal at respeto, hindi awa lamang",
+              "Awa lamang na walang paggalang",
+              "Pagmamataas sa kanila",
+              "Kawalang-interes sa kanilang kalagayan"
+            ],
+            "correct_answer": "Tunay na pagmamahal at respeto, hindi awa lamang"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Friday Review — EPP (Grade 6)\n\n- Pamantayan sa pagganap: pag-aalaga, pag-aani, pagbebenta ng isda\n- Kalkulasyon ng kita: Benta - Gastos\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pamantayan sa pagganap sa yunit na ito?",
+            "options": [
+              "Nagagampanan ang natural na pamamaraan ng pag-aalaga, pag-aani, at pagbebenta ng isda",
+              "Nakakagawa lamang ng isang simpleng guhit tungkol sa buhay ng isda",
+              "Nakakabasa lamang ng isang aklat na pumapaksa tungkol sa isda",
+              "Nakakapagsalita lamang nang basta-basta tungkol sa kahit anong isda"
+            ],
+            "correct_answer": "Nagagampanan ang natural na pamamaraan ng pag-aalaga, pag-aani, at pagbebenta ng isda"
+          },
+          {
+            "question": "Ano ang isang panuntunang pangkaligtasan sa pagbebenta ng isda?",
+            "options": [
+              "Panatilihing malinis ang isdang ibebenta",
+              "Gamitin ang maruming sisidlan",
+              "Hayaang kontaminado ang isda",
+              "Ibenta ang isda kahit sira na"
+            ],
+            "correct_answer": "Panatilihing malinis ang isdang ibebenta"
+          },
+          {
+            "question": "Ginastos ng estudyante ang ₱500 sa pagpapakain ng isda. Naibenta ang mga ito sa ₱800. Magkano ang kita?",
+            "options": [
+              "₱300",
+              "₱500",
+              "₱800",
+              "₱200"
+            ],
+            "correct_answer": "₱300"
+          },
+          {
+            "question": "Ginastos ng estudyante ang ₱600 sa pag-aalaga ng isda. Naibenta ang mga ito sa ₱950. Magkano ang kita?",
+            "options": [
+              "₱350",
+              "₱600",
+              "₱950",
+              "₱250"
+            ],
+            "correct_answer": "₱350"
+          },
+          {
+            "question": "Bakit mahalagang panatilihing malinis ang isdang ibebenta?",
+            "options": [
+              "Upang maiwasan ang sakit at makuha ang tiwala ng bumibili",
+              "Upang mapabilis lamang ang pagbebenta",
+              "Walang dahilan ito talaga",
+              "Upang mapaganda lamang ang hitsura"
+            ],
+            "correct_answer": "Upang maiwasan ang sakit at makuha ang tiwala ng bumibili"
+          },
+          {
+            "question": "Ano ang formula sa pagkalkula ng kita?",
+            "options": [
+              "Kita = Benta - Gastos",
+              "Kita = Benta + Gastos",
+              "Kita = Gastos - Benta",
+              "Kita = Benta x Gastos"
+            ],
+            "correct_answer": "Kita = Benta - Gastos"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng malinis na sisidlan sa pagbebenta ng isda?",
+            "options": [
+              "Upang maiwasan ang kontaminasyon",
+              "Upang mapaganda lamang ang tindahan",
+              "Walang dahilan ito talaga",
+              "Upang mapabilis ang benta"
+            ],
+            "correct_answer": "Upang maiwasan ang kontaminasyon"
+          },
+          {
+            "question": "Bakit mahalagang isabuhay ang natutuhang teknikal na kaalaman sa aktwal na proyekto?",
+            "options": [
+              "Upang matiyak ang tagumpay ng pag-aalaga, pag-aani, at pagbebenta",
+              "Upang mapabilis lamang ang gawain",
+              "Walang dahilan ito talaga",
+              "Upang mapaganda lamang ang hitsura ng proyekto"
+            ],
+            "correct_answer": "Upang matiyak ang tagumpay ng pag-aalaga, pag-aani, at pagbebenta"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi maayos na maialaga ang isda bago ibenta?",
+            "options": [
+              "Maaaring hindi kumita ang negosyo o magkasakit ang mamimili",
+              "Palaging kikita ang negosyo kahit ano ang mangyari",
+              "Wala itong epekto sa negosyo",
+              "Mas dadami pa ang kikitain"
+            ],
+            "correct_answer": "Maaaring hindi kumita ang negosyo o magkasakit ang mamimili"
+          },
+          {
+            "question": "Bakit mahalagang matutunan ang buong proseso mula sa pag-aalaga hanggang pagbebenta ng isda?",
+            "options": [
+              "Upang maging handa sa isang tunay na negosyo sa hinaharap",
+              "Upang lamang makapasa sa isang eksamen",
+              "Walang praktikal na gamit ang kaalamang ito",
+              "Upang mapabilis lamang ang klase"
+            ],
+            "correct_answer": "Upang maging handa sa isang tunay na negosyo sa hinaharap"
+          },
+          {
+            "question": "Ano ang dapat gawin bago ibenta ang mga naaning isda sa palengke?",
+            "options": [
+              "Tiyakin na malinis at sariwa ang mga ito",
+              "Ihalo lamang ang mga sira sa magandang isda",
+              "Iwasan ang paglilinis ng isda",
+              "Ibenta agad kahit hindi pa handa"
+            ],
+            "correct_answer": "Tiyakin na malinis at sariwa ang mga ito"
+          },
+          {
+            "question": "Bakit mahalagang itala ang gastos at kita sa negosyo ng pag-aalaga ng isda?",
+            "options": [
+              "Upang malaman kung kumikita talaga ang negosyo",
+              "Upang mapabilis lamang ang pagbebenta",
+              "Walang kabuluhan ang pagtatala nito",
+              "Upang mapaganda lamang ang tala"
+            ],
+            "correct_answer": "Upang malaman kung kumikita talaga ang negosyo"
+          }
+        ]
+      }
+    }
+  }
+}

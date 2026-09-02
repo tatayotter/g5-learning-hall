@@ -1,0 +1,2016 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-09-27",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 💎 English — Diamond Outlining and Persuasive Text\n\nGrade 6, Week 16! Let's organize informational texts. 📊\n\n## 💎 What Is Diamond Outlining?\nA **diamond outline** is a way to organize an essay from **broad to narrow to broad again**, shaped like a diamond:\n\n```\n        [General Statement]\n       /                  \\\n[Supporting Idea]   [Supporting Idea]\n       \\                  /\n        [General Conclusion]\n```\n\n**Why use it?** It helps writers move from a **broad opening** to **specific supporting points**, then back to a **broad closing** that ties everything together.\n\n## 📢 What Is Persuasive Text?\nA **persuasive text** tries to convince the reader to **believe** or **do** something.\n\n**Structure:**\n1. **Claim** — the writer's main position\n2. **Reasons** — why the reader should agree\n3. **Evidence** — facts or examples supporting the reasons\n4. **Call to action** — what the reader should do\n\n## 🎯 Author's Purpose in Informational Texts\nEven informational texts can have a **purpose beyond just informing** — sometimes to **persuade** subtly.\n\n## 🔍 Drawing Conclusions and Generalizations\n- **Conclusion** — an understanding from specific clues\n- **Generalization** — a broad statement based on multiple examples\n\n## ⚖️ Fact vs. Opinion\n| Fact | Opinion |\n|---|---|\n| Can be proven true or false | A belief or feeling |\n| \"The Philippines has 7,641 islands.\" | \"The Philippines is the most beautiful country.\" |\n\n## 🧠 Worked Example\n*\"Recycling reduces waste. Studies show recycled plastic reduces landfill volume by 30%. We should all recycle.\"* Identify the claim, reason, evidence, and call to action.\n- **Claim:** We should recycle\n- **Reason:** Reduces waste\n- **Evidence:** 30% landfill reduction study\n- **Call to action:** \"We should all recycle\"\n\nGreat critical reading! 🌟",
+        "quiz": [
+          {
+            "question": "What shape does a diamond outline follow?",
+            "options": [
+              "Broad to narrow to broad again",
+              "Narrow to broad only",
+              "A straight line only",
+              "A circle shape"
+            ],
+            "correct_answer": "Broad to narrow to broad again"
+          },
+          {
+            "question": "What is the first part of a persuasive text's structure?",
+            "options": [
+              "Claim",
+              "Evidence",
+              "Call to action",
+              "Conclusion only"
+            ],
+            "correct_answer": "Claim"
+          },
+          {
+            "question": "What is a 'call to action' in persuasive writing?",
+            "options": [
+              "What the reader should do",
+              "A fact with no opinion",
+              "The title of the text",
+              "A random example"
+            ],
+            "correct_answer": "What the reader should do"
+          },
+          {
+            "question": "Which is a FACT?",
+            "options": [
+              "The Philippines has 7,641 islands.",
+              "The Philippines is the most beautiful country.",
+              "Manila is a fun place to visit.",
+              "Filipino food is the best in the world."
+            ],
+            "correct_answer": "The Philippines has 7,641 islands."
+          },
+          {
+            "question": "Which is an OPINION?",
+            "options": [
+              "The Philippines is the most beautiful country.",
+              "The Philippines has 7,641 islands.",
+              "Manila is the capital of the Philippines.",
+              "The Philippines is in Southeast Asia."
+            ],
+            "correct_answer": "The Philippines is the most beautiful country."
+          },
+          {
+            "question": "What is a generalization?",
+            "options": [
+              "A broad statement based on multiple examples",
+              "A single specific fact only",
+              "A random guess with no basis",
+              "A direct quote from the text"
+            ],
+            "correct_answer": "A broad statement based on multiple examples"
+          },
+          {
+            "question": "In the diamond outline, where do supporting ideas go?",
+            "options": [
+              "In the middle, branching from the top",
+              "Only at the very top",
+              "Only at the very bottom",
+              "Outside the diamond shape"
+            ],
+            "correct_answer": "In the middle, branching from the top"
+          },
+          {
+            "question": "\"Recycling reduces waste\" is which part of a persuasive argument?",
+            "options": [
+              "Reason",
+              "Call to action",
+              "Evidence",
+              "Claim only"
+            ],
+            "correct_answer": "Reason"
+          },
+          {
+            "question": "\"Studies show recycled plastic reduces landfill volume by 30%\" is which part?",
+            "options": [
+              "Evidence",
+              "Claim",
+              "Call to action",
+              "Reason only"
+            ],
+            "correct_answer": "Evidence"
+          },
+          {
+            "question": "Why do writers use a diamond outline?",
+            "options": [
+              "This suggests a hidden persuasive purpose",
+              "The text is purely factual only",
+              "The text cannot be trusted",
+              "The text has no purpose"
+            ],
+            "correct_answer": "This suggests a hidden persuasive purpose"
+          },
+          {
+            "question": "An author writes an 'informational' article that only shows one company's product in a positive light. What might this suggest?",
+            "options": [
+              "The text may have a persuasive purpose despite its informational format",
+              "The text is purely factual with no other purpose",
+              "The text cannot be trusted at all",
+              "The text has no author's purpose"
+            ],
+            "correct_answer": "The text may have a persuasive purpose despite its informational format"
+          },
+          {
+            "question": "Which statement can be proven true or false?",
+            "options": [
+              "Water boils at 100°C at sea level.",
+              "Summer is the best season.",
+              "Blue is the prettiest color.",
+              "Dogs are better than cats."
+            ],
+            "correct_answer": "Water boils at 100°C at sea level."
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💯 Mathematics — Percentages, Fractions, and Decimals\n\nGrade 6, Week 16! Let's connect these three forms of numbers. 💪\n\n## 🔄 The Relationship\nPercentages, fractions, and decimals are **three ways to show the same value**.\n\n| Fraction | Decimal | Percent |\n|---|---|---|\n| 1/2 | 0.5 | 50% |\n| 1/4 | 0.25 | 25% |\n| 3/4 | 0.75 | 75% |\n| 1/10 | 0.1 | 10% |\n\n## 🔢 Converting Fraction to Percent\n**Steps:** divide numerator by denominator, then multiply by 100.\n\n**Example: Convert 3/5 to a percent**\n- 3 ÷ 5 = 0.6\n- 0.6 × 100 = **60%** ✅\n\n## 🔢 Converting Percent to Decimal\n**Steps:** divide by 100 (move the decimal point 2 places left).\n\n**Example: Convert 45% to a decimal**\n- 45 ÷ 100 = **0.45** ✅\n\n## 🔢 Converting Decimal to Fraction\n**Example: Convert 0.8 to a fraction**\n- 0.8 = 8/10 = **4/5** (simplified) ✅\n\n## 🎯 Uses of Percentages\n- **Discounts:** \"20% off\" means you pay 80% of the price\n- **Grades:** \"85%\" means 85 out of 100\n- **Statistics:** \"60% of students prefer Math\"\n\n## 🧠 Worked Example 1\n*A shirt costs ₱500. It's on sale for 20% off. What is the discount amount?*\n- 20% of 500 = 0.20 × 500 = **₱100 off** ✅\n\n## 🧠 Worked Example 2\n*Convert 7/8 to a percent.*\n- 7 ÷ 8 = 0.875\n- 0.875 × 100 = **87.5%** ✅\n\n## 📝 Word Problem\n*A class has 40 students. 25% are boys. How many boys are there?*\n- 25% × 40 = 0.25 × 40 = **10 boys** ✅\n\nExcellent number work! ⭐",
+        "quiz": [
+          {
+            "question": "What is 1/2 as a percent?",
+            "options": [
+              "50%",
+              "25%",
+              "75%",
+              "10%"
+            ],
+            "correct_answer": "50%"
+          },
+          {
+            "question": "What is 3/5 as a percent?",
+            "options": [
+              "60%",
+              "35%",
+              "65%",
+              "30%"
+            ],
+            "correct_answer": "60%"
+          },
+          {
+            "question": "What is 45% as a decimal?",
+            "options": [
+              "0.45",
+              "4.5",
+              "0.045",
+              "45.0"
+            ],
+            "correct_answer": "0.45"
+          },
+          {
+            "question": "What is 0.8 as a fraction in lowest terms?",
+            "options": [
+              "4/5",
+              "8/10",
+              "4/10",
+              "8/5"
+            ],
+            "correct_answer": "4/5"
+          },
+          {
+            "question": "A shirt costs ₱500 and is 20% off. What is the discount amount?",
+            "options": [
+              "₱100",
+              "₱80",
+              "₱120",
+              "₱400"
+            ],
+            "correct_answer": "₱100"
+          },
+          {
+            "question": "What is 7/8 as a percent?",
+            "options": [
+              "87.5%",
+              "78%",
+              "80%",
+              "85%"
+            ],
+            "correct_answer": "87.5%"
+          },
+          {
+            "question": "A class has 40 students, and 25% are boys. How many boys are there?",
+            "options": [
+              "10",
+              "8",
+              "12",
+              "15"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "What is 1/4 as a decimal?",
+            "options": [
+              "0.25",
+              "0.4",
+              "0.14",
+              "0.45"
+            ],
+            "correct_answer": "0.25"
+          },
+          {
+            "question": "What does '85%' mean on a test score?",
+            "options": [
+              "85 out of 100",
+              "85 out of 10",
+              "85 out of 1000",
+              "85 out of 50"
+            ],
+            "correct_answer": "85 out of 100"
+          },
+          {
+            "question": "What is 90% as a fraction in lowest terms?",
+            "options": [
+              "9/10",
+              "90/100 unsimplified",
+              "9/100",
+              "1/9"
+            ],
+            "correct_answer": "9/10"
+          },
+          {
+            "question": "How do you convert a fraction to a percent?",
+            "options": [
+              "Divide, then multiply by 100",
+              "Multiply numerator by denominator",
+              "Add 100 to the fraction",
+              "Subtract denominator from 100"
+            ],
+            "correct_answer": "Divide, then multiply by 100"
+          },
+          {
+            "question": "A survey shows 3/4 of students like Math. What percent is this?",
+            "options": [
+              "75%",
+              "34%",
+              "43%",
+              "70%"
+            ],
+            "correct_answer": "75%"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📰 Filipino — Tekstong Impormatibo (Eksposisyon)\n\nGrade 6, Linggo 16! Alamin natin ang tekstong impormatibo. 📖\n\n## 📄 Ano ang Tekstong Impormatibo (Eksposisyon)?\nAng **eksposisyon** ay isang uri ng teksto na **nagpapaliwanag** ng isang paksa nang **malinaw at makatotohanan**.\n\n**Layunin:** magbigay ng **impormasyon**, hindi lamang magkuwento o mangumbinsi.\n\n## 🔍 Mahahalagang Detalye\nAng **mahahalagang detalye** ay ang mga **impormasyong sumusuporta** sa pangunahing ideya.\n\n**Halimbawa:** Sa tekstong tungkol sa Pilipinas, ang \"7,641 na pulo\" ay isang mahalagang detalye.\n\n## 💭 Pagbabahagi ng Sariling Ideya o Opinyon\nMaaaring magbahagi ng **opinyon** matapos basahin ang teksto — ngunit dapat ito ay **may batayan** mula sa binasa.\n\n**Halimbawa:** *\"Sa palagay ko, dapat pahalagahan natin ang ating mga isla dahil bawat isa ay may natatanging kultura.\"*\n\n## 🎯 Pangunahing Diwa/Ideya at Sumusuportang Detalye\n| Bahagi | Kahulugan |\n|---|---|\n| **Pangunahing diwa** | ang **pinakamahalagang** punto ng teksto |\n| **Sumusuportang detalye** | mga **halimbawa o datos** na nagpapatunay sa pangunahing diwa |\n\n## 🧠 Halimbawa 1\n*Basahin: \"Ang Pilipinas ay binubuo ng 7,641 na pulo. Nahahati ito sa tatlong pangkat: Luzon, Visayas, at Mindanao.\" Ano ang pangunahing diwa?*\n- **Ang Pilipinas ay binubuo ng maraming pulo, nahahati sa tatlong pangkat.**\n\n## 🧠 Halimbawa 2\n*Ano ang sumusuportang detalye sa parehong talata?*\n- Ang \"7,641 na pulo\" at ang tatlong pangkat (**Luzon, Visayas, Mindanao**) ay mga sumusuportang detalye.\n\n## 💡 Bakit Mahalaga ang Eksposisyon?\nTumutulong ito upang **maintindihan natin nang malinaw** ang mga paksang pang-agham, pangkasaysayan, o pang-araw-araw.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang eksposisyon?",
+            "options": [
+              "Tekstong nagpapaliwanag nang malinaw",
+              "Kuwentong may tauhan lamang",
+              "Tulang may tugma lamang",
+              "Liham para sa kaibigan"
+            ],
+            "correct_answer": "Tekstong nagpapaliwanag nang malinaw"
+          },
+          {
+            "question": "Ano ang layunin ng tekstong eksposisyon?",
+            "options": [
+              "Magbigay ng impormasyon",
+              "Kumbinsihin ang mambabasa",
+              "Magpatawa lamang",
+              "Magkuwento ng gawa-gawa"
+            ],
+            "correct_answer": "Magbigay ng impormasyon"
+          },
+          {
+            "question": "Ano ang mahahalagang detalye?",
+            "options": [
+              "Impormasyong sumusuporta sa diwa",
+              "Anumang bagay sa teksto",
+              "Ang pamagat lamang nito",
+              "Ang pangalan ng may-akda"
+            ],
+            "correct_answer": "Impormasyong sumusuporta sa diwa"
+          },
+          {
+            "question": "Ano ang pangunahing diwa?",
+            "options": [
+              "Ang pinakamahalagang punto ng teksto",
+              "Ang huling salita ng teksto",
+              "Ang haba ng teksto",
+              "Ang pangalan ng publisher"
+            ],
+            "correct_answer": "Ang pinakamahalagang punto ng teksto"
+          },
+          {
+            "question": "Basahin: \"Ang Pilipinas ay binubuo ng 7,641 na pulo, nahahati sa tatlong pangkat.\" Ano ang pangunahing diwa?",
+            "options": [
+              "Ang Pilipinas ay binubuo ng maraming pulo",
+              "Ang Pilipinas ay may isang pulo lamang",
+              "Ang Pilipinas ay walang pangkat",
+              "Ang Pilipinas ay walang tao"
+            ],
+            "correct_answer": "Ang Pilipinas ay binubuo ng maraming pulo"
+          },
+          {
+            "question": "Ano ang sumusuportang detalye sa parehong talata?",
+            "options": [
+              "Ang 7,641 na pulo at tatlong pangkat",
+              "Ang pamagat ng teksto lamang",
+              "Ang pangalan ng may-akda lamang",
+              "Ang bilang ng pahina"
+            ],
+            "correct_answer": "Ang 7,641 na pulo at tatlong pangkat"
+          },
+          {
+            "question": "Ano ang dapat taglayin ng isang opinyon matapos magbasa?",
+            "options": [
+              "Batayan mula sa binasa",
+              "Walang kaugnayan sa binasa",
+              "Basta bagay lamang",
+              "Hindi dapat may dahilan"
+            ],
+            "correct_answer": "Batayan mula sa binasa"
+          },
+          {
+            "question": "Bakit mahalaga ang tekstong eksposisyon?",
+            "options": [
+              "Tumutulong ito sa malinaw na pag-unawa",
+              "Ginagamit lamang ito sa tula",
+              "Wala itong gamit sa pag-aaral",
+              "Ginagawa lamang para sa libangan"
+            ],
+            "correct_answer": "Tumutulong ito sa malinaw na pag-unawa"
+          },
+          {
+            "question": "Alin ang halimbawa ng sumusuportang detalye?",
+            "options": [
+              "Isang datos o halimbawa",
+              "Ang pamagat lamang",
+              "Ang unang titik ng talata",
+              "Ang bantas sa dulo"
+            ],
+            "correct_answer": "Isang datos o halimbawa"
+          },
+          {
+            "question": "Aling paksa ang kadalasang ginagamitan ng eksposisyon?",
+            "options": [
+              "Pang-agham o pangkasaysayan",
+              "Purong kathang-isip lamang",
+              "Tula tungkol sa pag-ibig",
+              "Awiting-bayan"
+            ],
+            "correct_answer": "Pang-agham o pangkasaysayan"
+          },
+          {
+            "question": "\"Sa palagay ko, dapat pahalagahan natin ang ating mga isla.\" Ano ito?",
+            "options": [
+              "Opinyon na may batayan",
+              "Pangunahing diwa lamang",
+              "Sumusuportang detalye lamang",
+              "Pamagat ng teksto"
+            ],
+            "correct_answer": "Opinyon na may batayan"
+          },
+          {
+            "question": "Isang mag-aaral ang nagsulat ng eksposisyon tungkol sa tubig-baha sa Pilipinas na puno ng datos at ebidensiya. Ano ang layunin ng ganitong pagsulat?",
+            "options": [
+              "Magbigay ng malinaw na impormasyon",
+              "Kumbinsihin ang mambabasa lamang",
+              "Magpasaya lamang sa mambabasa",
+              "Magkuwento ng gawa-gawang tauhan"
+            ],
+            "correct_answer": "Magbigay ng malinaw na impormasyon"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌸 Science — How Plants Reproduce\n\nGrade 6, Week 16! Let's explore plant reproduction. 🔬\n\n## 🌸 Pollination\n**Pollination** is the transfer of **pollen** from the male part (anther) to the female part (stigma) of a flower.\n\n**How it happens:**\n- **Wind** — carries pollen through the air\n- **Insects** (bees, butterflies) — carry pollen while collecting nectar\n- **Water** — some aquatic plants\n\n## 🌰 Seed Production\nAfter pollination, the flower's ovary develops into a **fruit**, and the ovule becomes a **seed**.\n\n**Journey:** Pollination → Fertilization → Seed and Fruit Formation\n\n## 🌱 Plant Propagation (Growing New Plants Without Seeds)\n\n| Method | How It Works | Example |\n|---|---|---|\n| **Cutting** | a piece of stem is cut and planted to grow roots | roses, sugarcane |\n| **Budding** | a bud from one plant is attached to another | fruit trees like mango |\n| **Layering** | a stem is bent to touch soil while still attached to the parent | strawberries |\n| **Grafting** | a cutting from one plant is joined to the stem of another | citrus trees |\n\n## 🧠 Worked Example 1\n*Why do bees help plants reproduce?*\n- Bees carry **pollen** from flower to flower while collecting nectar, causing **pollination**.\n\n## 🧠 Worked Example 2\n*A farmer wants to grow more mango trees exactly like a great one he already has. What method should he use?*\n- **Grafting** or **budding** — these create new plants that are **genetically identical** to the parent, unlike growing from seeds.\n\n## 💡 Why Propagation Matters\nPropagation lets farmers and gardeners **reproduce a plant's exact traits** (like sweetness or disease resistance) faster than waiting for seeds to grow.\n\nGreat scientist work! 🌟",
+        "quiz": [
+          {
+            "question": "What is pollination?",
+            "options": [
+              "Transfer of pollen from anther to stigma",
+              "Growth of roots underground",
+              "The process of a seed sprouting",
+              "The making of fruit skin"
+            ],
+            "correct_answer": "Transfer of pollen from anther to stigma"
+          },
+          {
+            "question": "Which of these can carry pollen?",
+            "options": [
+              "Bees",
+              "Rocks",
+              "Metal",
+              "Plastic"
+            ],
+            "correct_answer": "Bees"
+          },
+          {
+            "question": "What does the flower's ovary develop into after fertilization?",
+            "options": [
+              "Fruit",
+              "Root",
+              "Leaf",
+              "Stem"
+            ],
+            "correct_answer": "Fruit"
+          },
+          {
+            "question": "What is cutting as a propagation method?",
+            "options": [
+              "A piece of stem is cut and planted to grow roots",
+              "Joining a cutting to another plant's stem",
+              "Bending a stem to touch soil",
+              "Attaching a bud to another plant"
+            ],
+            "correct_answer": "A piece of stem is cut and planted to grow roots"
+          },
+          {
+            "question": "What is grafting?",
+            "options": [
+              "Joining a cutting from one plant to the stem of another",
+              "Cutting a stem and planting it directly",
+              "Bending a stem to touch soil",
+              "Waiting for a seed to sprout"
+            ],
+            "correct_answer": "Joining a cutting from one plant to the stem of another"
+          },
+          {
+            "question": "What is layering?",
+            "options": [
+              "Bending a stem to touch the soil while attached",
+              "Cutting a stem completely off the plant",
+              "Joining two entirely different plants",
+              "Planting many seeds all at once"
+            ],
+            "correct_answer": "Bending a stem to touch the soil while attached"
+          },
+          {
+            "question": "Why do bees help plants reproduce?",
+            "options": [
+              "They carry pollen from flower to flower",
+              "They eat the flower's petals",
+              "They dig underground tunnels",
+              "They provide shade for the plant"
+            ],
+            "correct_answer": "They carry pollen from flower to flower"
+          },
+          {
+            "question": "A farmer wants to grow more mango trees exactly like a great one he has. What method should he use?",
+            "options": [
+              "Grafting or budding",
+              "Only waiting for seeds",
+              "Only using wind pollination",
+              "Only watering more often"
+            ],
+            "correct_answer": "Grafting or budding"
+          },
+          {
+            "question": "Why is propagation faster than growing from seeds for reproducing exact traits?",
+            "options": [
+              "It creates plants genetically identical to the parent",
+              "It takes much longer than seeds",
+              "It always creates completely different plants",
+              "It never actually works"
+            ],
+            "correct_answer": "It creates plants genetically identical to the parent"
+          },
+          {
+            "question": "What is budding?",
+            "options": [
+              "Attaching a bud from one plant to another",
+              "Cutting a whole branch off a tree",
+              "Bending a stem into the soil",
+              "Waiting for wind pollination"
+            ],
+            "correct_answer": "Attaching a bud from one plant to another"
+          },
+          {
+            "question": "Which method is used for strawberries that spread naturally along the ground?",
+            "options": [
+              "Layering",
+              "Grafting",
+              "Cutting",
+              "Budding"
+            ],
+            "correct_answer": "Layering"
+          },
+          {
+            "question": "Why might a citrus farmer use grafting instead of growing from seeds?",
+            "options": [
+              "To guarantee the same fruit quality as the parent plant",
+              "Because seeds cannot grow into citrus trees",
+              "Because grafting is always slower than seeds",
+              "Because citrus trees cannot reproduce naturally"
+            ],
+            "correct_answer": "To guarantee the same fruit quality as the parent plant"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🏛️ Araling Panlipunan — Pakikibaka ng Pilipino sa Digmaang Pilipino-Amerikano\n\nGrade 6, Linggo 16! Suriin natin ang tagumpay at pagsubok ng ating mga bayani. 🇵🇭\n\n## ⚔️ Imperyalistang Pamamaraan ng mga Amerikano\nAng Estados Unidos ay gumamit ng iba't ibang **taktika** upang sakupin ang Pilipinas:\n\n- **Militar** — paggamit ng sandatahang lakas laban sa mga rebolusyonaryo\n- **Propaganda** — pagpapalaganap ng ideya na \"hindi pa handa\" ang Pilipinas sa sariling pamahalaan\n- **Edukasyon** — pagtuturo ng Ingles at kultura ng Amerika (Thomasites)\n- **Ekonomiya** — kontrol sa kalakalan at yaman ng bansa\n\n## 🧠 Halimbawa 1\n*Bakit ipinadala ang mga Thomasites sa Pilipinas?*\n- Upang **magturo ng Ingles at kulturang Amerikano** — bahagi ito ng estratehiyang \"pagpapalambot\" sa loob-loob ng mga Pilipino tungo sa kontrol ng Amerikano.\n\n## 🏆 Pagsusumikap tungo sa Nagsasariling Pamahalaan\n\n| Batas/Pangyayari | Kahalagahan |\n|---|---|\n| **Philippine Bill of 1902** | unang batas na nagbigay-daan sa limitadong pamahalaang Pilipino |\n| **Pilipinisasyon** | patakaran ng paglalagay ng mas maraming Pilipino sa mga posisyon sa gobyerno |\n| **Batas Jones (1916)** | nagsaad ng pangakong kalayaan sa hinaharap |\n| **Misyong OsRox at Quezon** | mga delegasyong nakipag-usap sa Estados Unidos para sa kalayaan |\n\n## 🏛️ Pamahalaang Komonwelt (1935)\n- Nilagdaan ang **Saligang Batas ng 1935**\n- Nagkaroon ng **women's suffrage** (karapatan ng kababaihang bumoto)\n- Itinatag ang **Pambansang Wika**\n\n## 🧠 Halimbawa 2\n*Bakit itinuturing na mahalagang hakbang ang Batas Jones?*\n- Sa unang pagkakataon, **pormal na ipinangako** ng Estados Unidos ang kalayaan ng Pilipinas sa hinaharap, kahit hindi pa sinasabi kung kailan.\n\n## 💡 Kongklusyon\nAng pagsusumikap tungo sa nagsasariling pamahalaan ay naging **unti-unti** — hindi ito kaagad naibigay, kundi **ipinaglaban** sa pamamagitan ng mga batas, delegasyon, at patuloy na pagsusumikap.\n\nMagaling sa Linggo 16! 🌟",
+        "quiz": [
+          {
+            "question": "Bakit ipinadala ang mga Thomasites sa Pilipinas?",
+            "options": [
+              "Upang magturo ng Ingles at kulturang Amerikano",
+              "Upang lumaban sa mga Pilipino",
+              "Upang magtayo ng bagong bansa",
+              "Upang bumalik sa Espanya"
+            ],
+            "correct_answer": "Upang magturo ng Ingles at kulturang Amerikano"
+          },
+          {
+            "question": "Ano ang Philippine Bill of 1902?",
+            "options": [
+              "Unang batas na nagbigay ng limitadong pamahalaang Pilipino",
+              "Batas na nagpapalaya sa Pilipinas agad",
+              "Batas na tungkol sa buwis lamang",
+              "Kasunduan sa Espanya"
+            ],
+            "correct_answer": "Unang batas na nagbigay ng limitadong pamahalaang Pilipino"
+          },
+          {
+            "question": "Ano ang Pilipinisasyon?",
+            "options": [
+              "Paglalagay ng mas maraming Pilipino sa gobyerno",
+              "Pagpapalayas sa mga Pilipino sa gobyerno",
+              "Batas laban sa mga Pilipino",
+              "Pagtatayo ng bagong bansa"
+            ],
+            "correct_answer": "Paglalagay ng mas maraming Pilipino sa gobyerno"
+          },
+          {
+            "question": "Ano ang naipangako ng Batas Jones noong 1916?",
+            "options": [
+              "Kalayaan sa hinaharap",
+              "Agarang kalayaan noon din",
+              "Bagong hari para sa Pilipinas",
+              "Pagbabalik sa Espanya"
+            ],
+            "correct_answer": "Kalayaan sa hinaharap"
+          },
+          {
+            "question": "Ano ang layunin ng Misyong OsRox at Quezon?",
+            "options": [
+              "Makipag-usap sa US para sa kalayaan",
+              "Makipagdigma sa Hapon",
+              "Magtayo ng paaralan sa US",
+              "Magbenta ng produktong Pilipino"
+            ],
+            "correct_answer": "Makipag-usap sa US para sa kalayaan"
+          },
+          {
+            "question": "Kailan itinatag ang Pamahalaang Komonwelt?",
+            "options": [
+              "1935",
+              "1898",
+              "1902",
+              "1946"
+            ],
+            "correct_answer": "1935"
+          },
+          {
+            "question": "Ano ang naidagdag na karapatan sa panahon ng Komonwelt?",
+            "options": [
+              "Women's suffrage",
+              "Karapatang bumoto ng mga bata",
+              "Karapatang magmay-ari ng bansa",
+              "Karapatang magpalaya sa lahat"
+            ],
+            "correct_answer": "Women's suffrage"
+          },
+          {
+            "question": "Ano ang itinatag sa panahon ng Komonwelt bilang wika?",
+            "options": [
+              "Pambansang Wika",
+              "Wikang Espanyol",
+              "Wikang Hapones",
+              "Wikang Intsik"
+            ],
+            "correct_answer": "Pambansang Wika"
+          },
+          {
+            "question": "Alin ang halimbawa ng imperyalistang pamamaraan ng Amerikano?",
+            "options": [
+              "Propaganda at edukasyon",
+              "Pakikipagkasundo sa lahat",
+              "Agarang pagbibigay ng kalayaan",
+              "Pagbabalik sa Espanya"
+            ],
+            "correct_answer": "Propaganda at edukasyon"
+          },
+          {
+            "question": "Bakit itinuturing na hakbang patungo sa kalayaan ang Batas Jones?",
+            "options": [
+              "Pormal na ipinangako ang kalayaan sa hinaharap",
+              "Agad itong nagbigay ng kalayaan",
+              "Wala itong kaugnayan sa kalayaan",
+              "Ito ay batas laban sa Pilipino"
+            ],
+            "correct_answer": "Pormal na ipinangako ang kalayaan sa hinaharap"
+          },
+          {
+            "question": "Ano ang naging katangian ng pagsusumikap tungo sa kalayaan?",
+            "options": [
+              "Unti-unti, hindi kaagad naibigay",
+              "Bigla na lamang naibigay",
+              "Hindi na kinailangan pang lumaban",
+              "Awtomatiko itong nangyari"
+            ],
+            "correct_answer": "Unti-unti, hindi kaagad naibigay"
+          },
+          {
+            "question": "Isang mag-aaral ang nag-aaral tungkol sa mga delegasyon sa US para sa kalayaan. Anong pangyayari ang kanyang pinag-aaralan?",
+            "options": [
+              "Misyong OsRox at Quezon",
+              "Digmaang Pilipino-Amerikano",
+              "Kasunduan sa Espanya",
+              "Panahon ng Hapon"
+            ],
+            "correct_answer": "Misyong OsRox at Quezon"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎭 MAPEH — Symbolic Theater at Seditious Plays\n\nGrade 6, Linggo 16! Alamin natin ang teatro noong panahon ng Amerikano. 🎭\n\n## 🎭 Symbolic Theater\nAng **symbolic theater** ay gumagamit ng **simbolo** upang ipahayag ang isang mensahe nang **hindi tuwiran** — madalas ito ginagamit noong panahong bawal ang tuwirang pagsalungat.\n\n## ✊ Seditious Plays (Dulang Seditious)\nMga dulang **lihim na kumukundena** sa pananakop ng Amerikano, gamit ang mga **simbolikong tauhan**.\n\n**Halimbawa ng simbolismo:**\n- Isang karakter na kumakatawan sa **\"Inang Bayan\"** (Pilipinas)\n- Isang manlulupig na kumakatawan sa **dayuhang mananakop**\n- Kulay at damit na may **lihim na kahulugan**\n\n## 🏛️ Estruktura ng Dulang Dramatiko\n| Bahagi | Kahulugan |\n|---|---|\n| **Eksposisyon** | pagpapakilala sa tauhan at sitwasyon |\n| **Tunggalian** | ang problema o away sa kuwento |\n| **Kasukdulan** | ang pinakamataas na bahagi ng tunggalian |\n| **Kakalasan** | ang paglutas ng problema |\n\n## 💃 Sayaw ng Panahon\nMaraming sayaw noong panahong ito ang ginagamit din bilang **lihim na pagpapahayag ng damdaming makabayan**.\n\n## 🧠 Halimbawa 1\n*Bakit gumamit ng simbolo ang mga manunulat noong panahon ng Amerikano imbes na tuwirang salungat?*\n- Dahil **ipinagbawal** ng Batas Sedisyon ang tuwirang pagsalungat sa gobyernong Amerikano — kaya gumamit sila ng **simbolo** upang makaiwas sa parusa.\n\n## 🧠 Halimbawa 2\n*Ano ang kasukdulan sa isang dulang dramatiko?*\n- Ang **pinakamataas na bahagi** ng tunggalian — kung saan pinakamalakas ang tensyon bago ito malutas.\n\n## 💡 Kahalagahan ng Ganitong Sining\nNagpapakita ito ng **katalinuhan at katapangan** ng mga Pilipinong sining, kahit sa gitna ng panunupil.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang symbolic theater?",
+            "options": [
+              "Gumagamit ng simbolo upang ipahayag ang mensahe",
+              "Direktang pagsalungat lamang",
+              "Sayaw lamang na walang mensahe",
+              "Kanta lamang na walang kahulugan"
+            ],
+            "correct_answer": "Gumagamit ng simbolo upang ipahayag ang mensahe"
+          },
+          {
+            "question": "Ano ang seditious play?",
+            "options": [
+              "Dulang lihim na kumukundena sa pananakop",
+              "Dulang tungkol sa pag-ibig lamang",
+              "Dulang komedya lamang",
+              "Dulang walang kaugnayan sa kasaysayan"
+            ],
+            "correct_answer": "Dulang lihim na kumukundena sa pananakop"
+          },
+          {
+            "question": "Ano ang kumakatawan sa 'Inang Bayan' sa mga dulang ito?",
+            "options": [
+              "Ang Pilipinas",
+              "Ang Espanya",
+              "Ang Hapon",
+              "Ang Amerika"
+            ],
+            "correct_answer": "Ang Pilipinas"
+          },
+          {
+            "question": "Bakit gumamit ng simbolo ang mga manunulat noong panahon ng Amerikano?",
+            "options": [
+              "Ipinagbawal ang tuwirang pagsalungat",
+              "Wala silang ideya kung ano ang isusulat",
+              "Mas madali itong gawin",
+              "Gustong-gusto lamang nila ang simbolo"
+            ],
+            "correct_answer": "Ipinagbawal ang tuwirang pagsalungat"
+          },
+          {
+            "question": "Ano ang eksposisyon sa dulang dramatiko?",
+            "options": [
+              "Pagpapakilala sa tauhan at sitwasyon",
+              "Ang pinakamataas na bahagi",
+              "Ang paglutas ng problema",
+              "Ang katapusan ng dula"
+            ],
+            "correct_answer": "Pagpapakilala sa tauhan at sitwasyon"
+          },
+          {
+            "question": "Ano ang kasukdulan?",
+            "options": [
+              "Ang pinakamataas na bahagi ng tunggalian",
+              "Ang simula ng dula",
+              "Ang pagpapakilala sa tauhan",
+              "Ang katapusan lamang"
+            ],
+            "correct_answer": "Ang pinakamataas na bahagi ng tunggalian"
+          },
+          {
+            "question": "Ano ang kakalasan?",
+            "options": [
+              "Ang paglutas ng problema",
+              "Ang simula ng problema",
+              "Ang pagpapakilala sa tauhan",
+              "Ang pinakamataas na tensyon"
+            ],
+            "correct_answer": "Ang paglutas ng problema"
+          },
+          {
+            "question": "Ano ang tunggalian sa isang dula?",
+            "options": [
+              "Ang problema o away sa kuwento",
+              "Ang pagtatapos ng kuwento",
+              "Ang pagpapakilala sa tauhan",
+              "Ang pamagat ng dula"
+            ],
+            "correct_answer": "Ang problema o away sa kuwento"
+          },
+          {
+            "question": "Ano ang ginagamit sa mga sayaw ng panahong ito bilang lihim na pagpapahayag?",
+            "options": [
+              "Damdaming makabayan",
+              "Kalungkutan lamang",
+              "Kaligayahan lamang",
+              "Wala itong kahulugan"
+            ],
+            "correct_answer": "Damdaming makabayan"
+          },
+          {
+            "question": "Ano ang ipinapakita ng ganitong sining kahit sa gitna ng panunupil?",
+            "options": [
+              "Katalinuhan at katapangan ng mga Pilipino",
+              "Kawalan ng talento ng mga Pilipino",
+              "Takot ng mga Pilipino",
+              "Kawalan ng interes sa sining"
+            ],
+            "correct_answer": "Katalinuhan at katapangan ng mga Pilipino"
+          },
+          {
+            "question": "Sino ang kumakatawan sa manlulupig sa mga dulang seditious?",
+            "options": [
+              "Ang dayuhang mananakop",
+              "Ang mga Pilipino",
+              "Ang Inang Bayan",
+              "Ang mga bata"
+            ],
+            "correct_answer": "Ang dayuhang mananakop"
+          },
+          {
+            "question": "Isang manunulat ang gumamit ng karakter na 'ahas' upang ilarawan ang mananakop. Ano ang tawag dito?",
+            "options": [
+              "Simbolismo",
+              "Direktang paninindigan",
+              "Katotohanan lamang",
+              "Balitang pang-araw-araw"
+            ],
+            "correct_answer": "Simbolismo"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 GMRC — Wastong Pagpapahayag ng Saloobin sa Pamilya\n\nGrade 6, Linggo 16! Pagpapahalaga: **Mapagpasensiya**. 🌟\n\n## 🗣️ Ano ang Wastong Pagpapahayag ng Saloobin?\nAng **wastong pagpapahayag** ay ang pagsasabi ng **iyong nararamdaman** nang **magalang** at **malinaw**, hindi sa pamamagitan ng galit o pananahimik.\n\n## 🌊 Positibong Pagtanggap sa Mapaghamong Situwasyon\nSa pamilya, may mga sitwasyong **mahirap** — alitan, hindi pagkakaunawaan, o mga pagbabago.\n\n**Positibong pagtanggap ay:**\n- Manatiling **kalmado**\n- **Makinig** bago sumagot\n- Hanapin ang **solusyon**, hindi ang sisihin\n\n## ⏳ Ano ang Mapagpasensiya?\nAng **pasensiya** ay ang kakayahang **manatiling kalmado** at hindi agad magalit kahit **mahirap ang sitwasyon**.\n\n## 🧠 Halimbawa 1\n*Nagkaroon ng alitan ang mga magulang mo. Ano ang tamang gawin mo?*\n- Manatiling **kalmado**, huwag pumili ng panig, at **magtiwala** na malulutas ito ng iyong mga magulang. ✅\n\n## 🧠 Halimbawa 2\n*Ayaw ng magulang mo na sumali ka sa isang gawain na gusto mo. Ano ang tamang gawin?*\n- **Ipahayag ang iyong saloobin nang magalang**, makinig sa kanilang dahilan, at maghanap ng **kompromiso** kung maaari. ✅\n\n## 🎯 Bakit Mahalaga ang Wastong Pagpapahayag?\n- Nakaiiwas ito sa **hindi pagkakaunawaan**\n- Nagpapakita ito ng **paggalang** sa pamilya\n- Tumutulong ito sa **pagsolba ng problema** nang mahinahon\n\n## ⚠️ Ano ang Mangyayari Kung Walang Pasensiya?\n- Nagiging **mas malaki** ang alitan\n- **Nasasaktan** ang damdamin ng iba\n- **Nawawala** ang tiwala sa isa't isa\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang wastong pagpapahayag ng saloobin?",
+            "options": [
+              "Pagsasabi ng nararamdaman nang magalang",
+              "Pagsigaw ng malakas",
+              "Pananahimik palagi",
+              "Pag-iwas sa lahat ng usapan"
+            ],
+            "correct_answer": "Pagsasabi ng nararamdaman nang magalang"
+          },
+          {
+            "question": "Ano ang mapagpasensiya?",
+            "options": [
+              "Kakayahang manatiling kalmado kahit mahirap",
+              "Kakayahang tumakbo nang mabilis",
+              "Kakayahang manalo sa laro",
+              "Kakayahang magbilang nang mabilis"
+            ],
+            "correct_answer": "Kakayahang manatiling kalmado kahit mahirap"
+          },
+          {
+            "question": "Nagkaroon ng alitan ang mga magulang mo. Ano ang tamang gawin mo?",
+            "options": [
+              "Manatiling kalmado, huwag pumili ng panig",
+              "Sumali sa alitan",
+              "Umalis at huwag na bumalik",
+              "Manisi sa isang magulang"
+            ],
+            "correct_answer": "Manatiling kalmado, huwag pumili ng panig"
+          },
+          {
+            "question": "Ayaw ng magulang mo na sumali ka sa isang gawain. Ano ang tamang gawin?",
+            "options": [
+              "Ipahayag ang saloobin nang magalang",
+              "Sumigaw at magalit",
+              "Sumuway nang tahimik",
+              "Umiwas na lang sa magulang"
+            ],
+            "correct_answer": "Ipahayag ang saloobin nang magalang"
+          },
+          {
+            "question": "Ano ang positibong pagtanggap sa mapaghamong situwasyon?",
+            "options": [
+              "Manatiling kalmado at makinig muna",
+              "Sumigaw agad nang malakas",
+              "Umiwas sa lahat ng usapan",
+              "Magtago at huwag kumibo"
+            ],
+            "correct_answer": "Manatiling kalmado at makinig muna"
+          },
+          {
+            "question": "Ano ang mangyayari kung walang pasensiya sa pamilya?",
+            "options": [
+              "Nagiging mas malaki ang alitan",
+              "Nagiging mas maayos ang lahat",
+              "Wala itong pagbabago",
+              "Nagiging mas magaan ang pamilya"
+            ],
+            "correct_answer": "Nagiging mas malaki ang alitan"
+          },
+          {
+            "question": "Bakit mahalaga ang wastong pagpapahayag ng saloobin?",
+            "options": [
+              "Nakaiiwas ito sa hindi pagkakaunawaan",
+              "Nagpapabigat lamang ito ng problema",
+              "Wala itong kabuluhan",
+              "Ginagawa lamang ito para sa iba"
+            ],
+            "correct_answer": "Nakaiiwas ito sa hindi pagkakaunawaan"
+          },
+          {
+            "question": "Ano ang unang hakbang sa positibong pagtanggap ng problema?",
+            "options": [
+              "Manatiling kalmado",
+              "Magalit agad",
+              "Umiwas sa usapan",
+              "Sisihin ang iba"
+            ],
+            "correct_answer": "Manatiling kalmado"
+          },
+          {
+            "question": "Ano ang dapat hanapin sa halip na sisihin sa isang alitan?",
+            "options": [
+              "Solusyon",
+              "Karagdagang alitan",
+              "Bagong dahilan",
+              "Panibagong sisi"
+            ],
+            "correct_answer": "Solusyon"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagiging mapagpasensiya sa pamilya?",
+            "options": [
+              "Paggalang at pagmamahal",
+              "Kawalan ng pakialam",
+              "Pagtatago ng damdamin",
+              "Pagpili ng panig"
+            ],
+            "correct_answer": "Paggalang at pagmamahal"
+          },
+          {
+            "question": "Bakit dapat makinig muna bago sumagot sa isang alitan?",
+            "options": [
+              "Upang maunawaan nang mabuti ang sitwasyon",
+              "Upang mapabilis ang pagtatalo",
+              "Upang manalo sa argumento",
+              "Walang dahilan ito"
+            ],
+            "correct_answer": "Upang maunawaan nang mabuti ang sitwasyon"
+          },
+          {
+            "question": "Isang kapatid ang laging sinisisi ka sa mga pagkakamali. Ano ang PINAKAMABUTING gawin?",
+            "options": [
+              "Ipahayag ang saloobin at hanapin ang solusyon",
+              "Sumigaw pabalik sa kanya",
+              "Manahimik at itago ang sama ng loob",
+              "Iwasan siya magpakailanman"
+            ],
+            "correct_answer": "Ipahayag ang saloobin at hanapin ang solusyon"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP (AFA/FCS/IA) — Support Systems sa Fishery\n\nGrade 6, Linggo 16! Alamin natin ang tumutulong sa mga mangingisda. 🐠\n\n## 🏛️ Mga Ahensya ng Gobyerno\n| Ahensya | Gampanin |\n|---|---|\n| **DA** (Department of Agriculture) | tumutulong sa pangkalahatang agrikultura at pangisdaan |\n| **BFAR** (Bureau of Fisheries and Aquatic Resources) | espesipikong ahensya para sa pangisdaan |\n| **DENR** | nangangalaga sa kapaligiran, kasama ang katubigan |\n\n## 🤝 Mga NGO na Tumutulong\nMaraming NGO ang nagbibigay ng **gabay, pagsasanay, at kagamitan** sa mga mangingisda.\n\n## 🌟 Katangian ng Matagumpay na Mangingisda\n| Katangian | Kahulugan |\n|---|---|\n| **Determinado** | hindi sumusuko kahit mahirap |\n| **Matapat** | tapat sa negosyo at sa kapwa |\n| **Makabago (innovative)** | bukas sa bagong teknolohiya |\n| **Masipag** | patuloy na nagtatrabaho nang mabuti |\n| **Risk-taker** | handang sumubok ng bagong pamamaraan |\n\n## 🧠 Halimbawa 1\n*Sinong ahensya ang tatawagan ng mangingisdang may problema sa kalidad ng tubig sa kanilang lugar?*\n- Ang **DENR** — sila ang nangangalaga sa kapaligiran kasama ang mga katubigan.\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang maging innovative ang isang mangingisda?*\n- Ang **bagong teknolohiya** (tulad ng modernong fish cage) ay nakatutulong upang **mapataas ang ani** at **mabawasan ang gastos**.\n\n## 🎯 Bakit Mahalaga ang mga Support System?\n- Nagbibigay ng **kaalaman** sa modernong pamamaraan\n- Tumutulong sa **pinansyal na suporta**\n- Nangangalaga sa **kapaligiran** upang patuloy na mabuhay ang isda\n\nMagaling sa Linggo 16! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang BFAR?",
+            "options": [
+              "Ahensyang espesipiko para sa pangisdaan",
+              "Batas laban sa polusyon",
+              "Kumpanya ng pagkain",
+              "Ahensya para sa edukasyon"
+            ],
+            "correct_answer": "Ahensyang espesipiko para sa pangisdaan"
+          },
+          {
+            "question": "Aling ahensya ang nangangalaga sa kapaligiran at katubigan?",
+            "options": [
+              "DENR",
+              "DA lamang",
+              "BFAR lamang",
+              "DTI"
+            ],
+            "correct_answer": "DENR"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'determinado' bilang katangian ng matagumpay na mangingisda?",
+            "options": [
+              "Hindi sumusuko kahit mahirap",
+              "Madaling sumuko",
+              "Palaging umiiwas sa hamon",
+              "Ayaw magtrabaho"
+            ],
+            "correct_answer": "Hindi sumusuko kahit mahirap"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'innovative'?",
+            "options": [
+              "Bukas sa bagong teknolohiya",
+              "Ayaw ng anumang pagbabago",
+              "Palaging gumagamit ng lumang pamamaraan",
+              "Hindi interesado sa pagsasaka"
+            ],
+            "correct_answer": "Bukas sa bagong teknolohiya"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'risk-taker'?",
+            "options": [
+              "Handang sumubok ng bagong pamamaraan",
+              "Palaging natatakot subukan",
+              "Ayaw kumilos kailanman",
+              "Palaging sumusunod lamang"
+            ],
+            "correct_answer": "Handang sumubok ng bagong pamamaraan"
+          },
+          {
+            "question": "Sinong ahensya ang tatawagan ng mangingisdang may problema sa kalidad ng tubig?",
+            "options": [
+              "DENR",
+              "TESDA",
+              "DOLE",
+              "DTI"
+            ],
+            "correct_answer": "DENR"
+          },
+          {
+            "question": "Bakit mahalagang maging innovative ang isang mangingisda?",
+            "options": [
+              "Nakatutulong ito upang mapataas ang ani",
+              "Wala itong benepisyo",
+              "Nagpapabagal lamang ito ng trabaho",
+              "Hindi ito kailangan sa pangingisda"
+            ],
+            "correct_answer": "Nakatutulong ito upang mapataas ang ani"
+          },
+          {
+            "question": "Ano ang tumutulong sa mga mangingisda bukod sa mga ahensya ng gobyerno?",
+            "options": [
+              "Mga NGO",
+              "Mga paaralan lamang",
+              "Mga bangko lamang",
+              "Mga simbahan lamang"
+            ],
+            "correct_answer": "Mga NGO"
+          },
+          {
+            "question": "Ano ang naibibigay ng mga NGO sa mga mangingisda?",
+            "options": [
+              "Gabay, pagsasanay, at kagamitan",
+              "Buwis lamang",
+              "Batas laban sa pangingisda",
+              "Trabahong hindi kaugnay sa pangingisda"
+            ],
+            "correct_answer": "Gabay, pagsasanay, at kagamitan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng pagiging matapat sa negosyo ng pangingisda?",
+            "options": [
+              "Tapat sa kliyente at kapwa mangingisda",
+              "Palaging nandaraya sa presyo",
+              "Nagtatago ng impormasyon sa lahat",
+              "Ayaw makipagtulungan sa iba"
+            ],
+            "correct_answer": "Tapat sa kliyente at kapwa mangingisda"
+          },
+          {
+            "question": "Bakit mahalaga ang support system sa fishery arts?",
+            "options": [
+              "Nagbibigay ng kaalaman at suporta sa mga mangingisda",
+              "Wala itong kaugnayan sa mangingisda",
+              "Nagpapabagal lamang ito ng trabaho",
+              "Ginagamit lamang ito ng gobyerno"
+            ],
+            "correct_answer": "Nagbibigay ng kaalaman at suporta sa mga mangingisda"
+          },
+          {
+            "question": "Isang mangingisda ang gustong matuto ng modernong pamamaraan sa fish farming. Sino ang maaaring lapitan niya?",
+            "options": [
+              "DA, BFAR, o isang NGO",
+              "Isang bangko lamang",
+              "Isang paaralan ng musika",
+              "Isang tindahan ng damit"
+            ],
+            "correct_answer": "DA, BFAR, o isang NGO"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 💎 Friday Review — English (Grade 6)\n\n- **Diamond outline:** broad → narrow → broad again\n- **Persuasive text:** claim → reasons → evidence → call to action\n- **Fact** = provable | **Opinion** = a belief or feeling\n\nGreat critical reading! 🌟",
+        "quiz": [
+          {
+            "question": "What shape does a diamond outline follow?",
+            "options": [
+              "Broad to narrow to broad again",
+              "Narrow to broad only",
+              "A straight line only",
+              "A circle shape"
+            ],
+            "correct_answer": "Broad to narrow to broad again"
+          },
+          {
+            "question": "What is the first part of a persuasive text's structure?",
+            "options": [
+              "Claim",
+              "Evidence",
+              "Call to action",
+              "Conclusion only"
+            ],
+            "correct_answer": "Claim"
+          },
+          {
+            "question": "What is a 'call to action' in persuasive writing?",
+            "options": [
+              "What the reader should do",
+              "A fact with no opinion",
+              "The title of the text",
+              "A random example"
+            ],
+            "correct_answer": "What the reader should do"
+          },
+          {
+            "question": "Which is a FACT?",
+            "options": [
+              "The Philippines has 7,641 islands.",
+              "The Philippines is the most beautiful country.",
+              "Manila is a fun place to visit.",
+              "Filipino food is the best in the world."
+            ],
+            "correct_answer": "The Philippines has 7,641 islands."
+          },
+          {
+            "question": "Which is an OPINION?",
+            "options": [
+              "The Philippines is the most beautiful country.",
+              "The Philippines has 7,641 islands.",
+              "Manila is the capital of the Philippines.",
+              "The Philippines is in Southeast Asia."
+            ],
+            "correct_answer": "The Philippines is the most beautiful country."
+          },
+          {
+            "question": "What is a generalization?",
+            "options": [
+              "A broad statement based on multiple examples",
+              "A single specific fact only",
+              "A random guess with no basis",
+              "A direct quote from the text"
+            ],
+            "correct_answer": "A broad statement based on multiple examples"
+          },
+          {
+            "question": "In the diamond outline, where do supporting ideas go?",
+            "options": [
+              "In the middle, branching from the top",
+              "Only at the very top",
+              "Only at the very bottom",
+              "Outside the diamond shape"
+            ],
+            "correct_answer": "In the middle, branching from the top"
+          },
+          {
+            "question": "\"Recycling reduces waste\" is which part of a persuasive argument?",
+            "options": [
+              "Reason",
+              "Call to action",
+              "Evidence",
+              "Claim only"
+            ],
+            "correct_answer": "Reason"
+          },
+          {
+            "question": "\"Studies show recycled plastic reduces landfill volume by 30%\" is which part?",
+            "options": [
+              "Evidence",
+              "Claim",
+              "Call to action",
+              "Reason only"
+            ],
+            "correct_answer": "Evidence"
+          },
+          {
+            "question": "Why do writers use a diamond outline?",
+            "options": [
+              "This suggests a hidden persuasive purpose",
+              "The text is purely factual only",
+              "The text cannot be trusted",
+              "The text has no purpose"
+            ],
+            "correct_answer": "This suggests a hidden persuasive purpose"
+          },
+          {
+            "question": "An author writes an 'informational' article that only shows one company's product in a positive light. What might this suggest?",
+            "options": [
+              "The text may have a persuasive purpose despite its informational format",
+              "The text is purely factual with no other purpose",
+              "The text cannot be trusted at all",
+              "The text has no author's purpose"
+            ],
+            "correct_answer": "The text may have a persuasive purpose despite its informational format"
+          },
+          {
+            "question": "Which statement can be proven true or false?",
+            "options": [
+              "Water boils at 100°C at sea level.",
+              "Summer is the best season.",
+              "Blue is the prettiest color.",
+              "Dogs are better than cats."
+            ],
+            "correct_answer": "Water boils at 100°C at sea level."
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💯 Friday Review — Mathematics (Grade 6)\n\n- **Fraction → percent:** divide, then ×100\n- **Percent → decimal:** ÷100\n- **Decimal → fraction:** write over power of 10, simplify\n\n**Quick check:** 3/5 = 60% | 45% = 0.45\n\nExcellent number work! ⭐",
+        "quiz": [
+          {
+            "question": "What is 1/2 as a percent?",
+            "options": [
+              "50%",
+              "25%",
+              "75%",
+              "10%"
+            ],
+            "correct_answer": "50%"
+          },
+          {
+            "question": "What is 3/5 as a percent?",
+            "options": [
+              "60%",
+              "35%",
+              "65%",
+              "30%"
+            ],
+            "correct_answer": "60%"
+          },
+          {
+            "question": "What is 45% as a decimal?",
+            "options": [
+              "0.45",
+              "4.5",
+              "0.045",
+              "45.0"
+            ],
+            "correct_answer": "0.45"
+          },
+          {
+            "question": "What is 0.8 as a fraction in lowest terms?",
+            "options": [
+              "4/5",
+              "8/10",
+              "4/10",
+              "8/5"
+            ],
+            "correct_answer": "4/5"
+          },
+          {
+            "question": "A shirt costs ₱500 and is 20% off. What is the discount amount?",
+            "options": [
+              "₱100",
+              "₱80",
+              "₱120",
+              "₱400"
+            ],
+            "correct_answer": "₱100"
+          },
+          {
+            "question": "What is 7/8 as a percent?",
+            "options": [
+              "87.5%",
+              "78%",
+              "80%",
+              "85%"
+            ],
+            "correct_answer": "87.5%"
+          },
+          {
+            "question": "A class has 40 students, and 25% are boys. How many boys are there?",
+            "options": [
+              "10",
+              "8",
+              "12",
+              "15"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "What is 1/4 as a decimal?",
+            "options": [
+              "0.25",
+              "0.4",
+              "0.14",
+              "0.45"
+            ],
+            "correct_answer": "0.25"
+          },
+          {
+            "question": "What does '85%' mean on a test score?",
+            "options": [
+              "85 out of 100",
+              "85 out of 10",
+              "85 out of 1000",
+              "85 out of 50"
+            ],
+            "correct_answer": "85 out of 100"
+          },
+          {
+            "question": "What is 90% as a fraction in lowest terms?",
+            "options": [
+              "9/10",
+              "90/100 unsimplified",
+              "9/100",
+              "1/9"
+            ],
+            "correct_answer": "9/10"
+          },
+          {
+            "question": "How do you convert a fraction to a percent?",
+            "options": [
+              "Divide, then multiply by 100",
+              "Multiply numerator by denominator",
+              "Add 100 to the fraction",
+              "Subtract denominator from 100"
+            ],
+            "correct_answer": "Divide, then multiply by 100"
+          },
+          {
+            "question": "A survey shows 3/4 of students like Math. What percent is this?",
+            "options": [
+              "75%",
+              "34%",
+              "43%",
+              "70%"
+            ],
+            "correct_answer": "75%"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📰 Biyernes na Balik-Aral — Filipino (Grade 6)\n\n- **Eksposisyon** = tekstong nagpapaliwanag nang malinaw\n- **Mahahalagang detalye** = sumusuporta sa pangunahing ideya\n- Opinyon matapos magbasa ay dapat may **batayan**\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang eksposisyon?",
+            "options": [
+              "Tekstong nagpapaliwanag nang malinaw",
+              "Kuwentong may tauhan lamang",
+              "Tulang may tugma lamang",
+              "Liham para sa kaibigan"
+            ],
+            "correct_answer": "Tekstong nagpapaliwanag nang malinaw"
+          },
+          {
+            "question": "Ano ang layunin ng tekstong eksposisyon?",
+            "options": [
+              "Magbigay ng impormasyon",
+              "Kumbinsihin ang mambabasa",
+              "Magpatawa lamang",
+              "Magkuwento ng gawa-gawa"
+            ],
+            "correct_answer": "Magbigay ng impormasyon"
+          },
+          {
+            "question": "Ano ang mahahalagang detalye?",
+            "options": [
+              "Impormasyong sumusuporta sa diwa",
+              "Anumang bagay sa teksto",
+              "Ang pamagat lamang nito",
+              "Ang pangalan ng may-akda"
+            ],
+            "correct_answer": "Impormasyong sumusuporta sa diwa"
+          },
+          {
+            "question": "Ano ang pangunahing diwa?",
+            "options": [
+              "Ang pinakamahalagang punto ng teksto",
+              "Ang huling salita ng teksto",
+              "Ang haba ng teksto",
+              "Ang pangalan ng publisher"
+            ],
+            "correct_answer": "Ang pinakamahalagang punto ng teksto"
+          },
+          {
+            "question": "Basahin: \"Ang Pilipinas ay binubuo ng 7,641 na pulo, nahahati sa tatlong pangkat.\" Ano ang pangunahing diwa?",
+            "options": [
+              "Ang Pilipinas ay binubuo ng maraming pulo",
+              "Ang Pilipinas ay may isang pulo lamang",
+              "Ang Pilipinas ay walang pangkat",
+              "Ang Pilipinas ay walang tao"
+            ],
+            "correct_answer": "Ang Pilipinas ay binubuo ng maraming pulo"
+          },
+          {
+            "question": "Ano ang sumusuportang detalye sa parehong talata?",
+            "options": [
+              "Ang 7,641 na pulo at tatlong pangkat",
+              "Ang pamagat ng teksto lamang",
+              "Ang pangalan ng may-akda lamang",
+              "Ang bilang ng pahina"
+            ],
+            "correct_answer": "Ang 7,641 na pulo at tatlong pangkat"
+          },
+          {
+            "question": "Ano ang dapat taglayin ng isang opinyon matapos magbasa?",
+            "options": [
+              "Batayan mula sa binasa",
+              "Walang kaugnayan sa binasa",
+              "Basta bagay lamang",
+              "Hindi dapat may dahilan"
+            ],
+            "correct_answer": "Batayan mula sa binasa"
+          },
+          {
+            "question": "Bakit mahalaga ang tekstong eksposisyon?",
+            "options": [
+              "Tumutulong ito sa malinaw na pag-unawa",
+              "Ginagamit lamang ito sa tula",
+              "Wala itong gamit sa pag-aaral",
+              "Ginagawa lamang para sa libangan"
+            ],
+            "correct_answer": "Tumutulong ito sa malinaw na pag-unawa"
+          },
+          {
+            "question": "Alin ang halimbawa ng sumusuportang detalye?",
+            "options": [
+              "Isang datos o halimbawa",
+              "Ang pamagat lamang",
+              "Ang unang titik ng talata",
+              "Ang bantas sa dulo"
+            ],
+            "correct_answer": "Isang datos o halimbawa"
+          },
+          {
+            "question": "Aling paksa ang kadalasang ginagamitan ng eksposisyon?",
+            "options": [
+              "Pang-agham o pangkasaysayan",
+              "Purong kathang-isip lamang",
+              "Tula tungkol sa pag-ibig",
+              "Awiting-bayan"
+            ],
+            "correct_answer": "Pang-agham o pangkasaysayan"
+          },
+          {
+            "question": "\"Sa palagay ko, dapat pahalagahan natin ang ating mga isla.\" Ano ito?",
+            "options": [
+              "Opinyon na may batayan",
+              "Pangunahing diwa lamang",
+              "Sumusuportang detalye lamang",
+              "Pamagat ng teksto"
+            ],
+            "correct_answer": "Opinyon na may batayan"
+          },
+          {
+            "question": "Isang mag-aaral ang nagsulat ng eksposisyon tungkol sa tubig-baha sa Pilipinas na puno ng datos at ebidensiya. Ano ang layunin ng ganitong pagsulat?",
+            "options": [
+              "Magbigay ng malinaw na impormasyon",
+              "Kumbinsihin ang mambabasa lamang",
+              "Magpasaya lamang sa mambabasa",
+              "Magkuwento ng gawa-gawang tauhan"
+            ],
+            "correct_answer": "Magbigay ng malinaw na impormasyon"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌸 Friday Review — Science (Grade 6)\n\n- **Pollination** = pollen transfer, by wind/insects/water\n- **Propagation:** cutting, budding, layering, grafting — all create identical copies of the parent plant\n- Faster than seeds for reproducing exact traits\n\nGreat scientist work! 🌟",
+        "quiz": [
+          {
+            "question": "What is pollination?",
+            "options": [
+              "Transfer of pollen from anther to stigma",
+              "Growth of roots underground",
+              "The process of a seed sprouting",
+              "The making of fruit skin"
+            ],
+            "correct_answer": "Transfer of pollen from anther to stigma"
+          },
+          {
+            "question": "Which of these can carry pollen?",
+            "options": [
+              "Bees",
+              "Rocks",
+              "Metal",
+              "Plastic"
+            ],
+            "correct_answer": "Bees"
+          },
+          {
+            "question": "What does the flower's ovary develop into after fertilization?",
+            "options": [
+              "Fruit",
+              "Root",
+              "Leaf",
+              "Stem"
+            ],
+            "correct_answer": "Fruit"
+          },
+          {
+            "question": "What is cutting as a propagation method?",
+            "options": [
+              "A piece of stem is cut and planted to grow roots",
+              "Joining a cutting to another plant's stem",
+              "Bending a stem to touch soil",
+              "Attaching a bud to another plant"
+            ],
+            "correct_answer": "A piece of stem is cut and planted to grow roots"
+          },
+          {
+            "question": "What is grafting?",
+            "options": [
+              "Joining a cutting from one plant to the stem of another",
+              "Cutting a stem and planting it directly",
+              "Bending a stem to touch soil",
+              "Waiting for a seed to sprout"
+            ],
+            "correct_answer": "Joining a cutting from one plant to the stem of another"
+          },
+          {
+            "question": "What is layering?",
+            "options": [
+              "Bending a stem to touch the soil while attached",
+              "Cutting a stem completely off the plant",
+              "Joining two entirely different plants",
+              "Planting many seeds all at once"
+            ],
+            "correct_answer": "Bending a stem to touch the soil while attached"
+          },
+          {
+            "question": "Why do bees help plants reproduce?",
+            "options": [
+              "They carry pollen from flower to flower",
+              "They eat the flower's petals",
+              "They dig underground tunnels",
+              "They provide shade for the plant"
+            ],
+            "correct_answer": "They carry pollen from flower to flower"
+          },
+          {
+            "question": "A farmer wants to grow more mango trees exactly like a great one he has. What method should he use?",
+            "options": [
+              "Grafting or budding",
+              "Only waiting for seeds",
+              "Only using wind pollination",
+              "Only watering more often"
+            ],
+            "correct_answer": "Grafting or budding"
+          },
+          {
+            "question": "Why is propagation faster than growing from seeds for reproducing exact traits?",
+            "options": [
+              "It creates plants genetically identical to the parent",
+              "It takes much longer than seeds",
+              "It always creates completely different plants",
+              "It never actually works"
+            ],
+            "correct_answer": "It creates plants genetically identical to the parent"
+          },
+          {
+            "question": "What is budding?",
+            "options": [
+              "Attaching a bud from one plant to another",
+              "Cutting a whole branch off a tree",
+              "Bending a stem into the soil",
+              "Waiting for wind pollination"
+            ],
+            "correct_answer": "Attaching a bud from one plant to another"
+          },
+          {
+            "question": "Which method is used for strawberries that spread naturally along the ground?",
+            "options": [
+              "Layering",
+              "Grafting",
+              "Cutting",
+              "Budding"
+            ],
+            "correct_answer": "Layering"
+          },
+          {
+            "question": "Why might a citrus farmer use grafting instead of growing from seeds?",
+            "options": [
+              "To guarantee the same fruit quality as the parent plant",
+              "Because seeds cannot grow into citrus trees",
+              "Because grafting is always slower than seeds",
+              "Because citrus trees cannot reproduce naturally"
+            ],
+            "correct_answer": "To guarantee the same fruit quality as the parent plant"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🏛️ Biyernes na Balik-Aral — Araling Panlipunan (Grade 6)\n\n- **Imperyalistang pamamaraan:** militar, propaganda, edukasyon (Thomasites), ekonomiya\n- **Philippine Bill of 1902 → Pilipinisasyon → Batas Jones (1916) → Misyong OsRox/Quezon**\n- **Komonwelt (1935):** Saligang Batas, women's suffrage, Pambansang Wika\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Bakit ipinadala ang mga Thomasites sa Pilipinas?",
+            "options": [
+              "Upang magturo ng Ingles at kulturang Amerikano",
+              "Upang lumaban sa mga Pilipino",
+              "Upang magtayo ng bagong bansa",
+              "Upang bumalik sa Espanya"
+            ],
+            "correct_answer": "Upang magturo ng Ingles at kulturang Amerikano"
+          },
+          {
+            "question": "Ano ang Philippine Bill of 1902?",
+            "options": [
+              "Unang batas na nagbigay ng limitadong pamahalaang Pilipino",
+              "Batas na nagpapalaya sa Pilipinas agad",
+              "Batas na tungkol sa buwis lamang",
+              "Kasunduan sa Espanya"
+            ],
+            "correct_answer": "Unang batas na nagbigay ng limitadong pamahalaang Pilipino"
+          },
+          {
+            "question": "Ano ang Pilipinisasyon?",
+            "options": [
+              "Paglalagay ng mas maraming Pilipino sa gobyerno",
+              "Pagpapalayas sa mga Pilipino sa gobyerno",
+              "Batas laban sa mga Pilipino",
+              "Pagtatayo ng bagong bansa"
+            ],
+            "correct_answer": "Paglalagay ng mas maraming Pilipino sa gobyerno"
+          },
+          {
+            "question": "Ano ang naipangako ng Batas Jones noong 1916?",
+            "options": [
+              "Kalayaan sa hinaharap",
+              "Agarang kalayaan noon din",
+              "Bagong hari para sa Pilipinas",
+              "Pagbabalik sa Espanya"
+            ],
+            "correct_answer": "Kalayaan sa hinaharap"
+          },
+          {
+            "question": "Ano ang layunin ng Misyong OsRox at Quezon?",
+            "options": [
+              "Makipag-usap sa US para sa kalayaan",
+              "Makipagdigma sa Hapon",
+              "Magtayo ng paaralan sa US",
+              "Magbenta ng produktong Pilipino"
+            ],
+            "correct_answer": "Makipag-usap sa US para sa kalayaan"
+          },
+          {
+            "question": "Kailan itinatag ang Pamahalaang Komonwelt?",
+            "options": [
+              "1935",
+              "1898",
+              "1902",
+              "1946"
+            ],
+            "correct_answer": "1935"
+          },
+          {
+            "question": "Ano ang naidagdag na karapatan sa panahon ng Komonwelt?",
+            "options": [
+              "Women's suffrage",
+              "Karapatang bumoto ng mga bata",
+              "Karapatang magmay-ari ng bansa",
+              "Karapatang magpalaya sa lahat"
+            ],
+            "correct_answer": "Women's suffrage"
+          },
+          {
+            "question": "Ano ang itinatag sa panahon ng Komonwelt bilang wika?",
+            "options": [
+              "Pambansang Wika",
+              "Wikang Espanyol",
+              "Wikang Hapones",
+              "Wikang Intsik"
+            ],
+            "correct_answer": "Pambansang Wika"
+          },
+          {
+            "question": "Alin ang halimbawa ng imperyalistang pamamaraan ng Amerikano?",
+            "options": [
+              "Propaganda at edukasyon",
+              "Pakikipagkasundo sa lahat",
+              "Agarang pagbibigay ng kalayaan",
+              "Pagbabalik sa Espanya"
+            ],
+            "correct_answer": "Propaganda at edukasyon"
+          },
+          {
+            "question": "Bakit itinuturing na hakbang patungo sa kalayaan ang Batas Jones?",
+            "options": [
+              "Pormal na ipinangako ang kalayaan sa hinaharap",
+              "Agad itong nagbigay ng kalayaan",
+              "Wala itong kaugnayan sa kalayaan",
+              "Ito ay batas laban sa Pilipino"
+            ],
+            "correct_answer": "Pormal na ipinangako ang kalayaan sa hinaharap"
+          },
+          {
+            "question": "Ano ang naging katangian ng pagsusumikap tungo sa kalayaan?",
+            "options": [
+              "Unti-unti, hindi kaagad naibigay",
+              "Bigla na lamang naibigay",
+              "Hindi na kinailangan pang lumaban",
+              "Awtomatiko itong nangyari"
+            ],
+            "correct_answer": "Unti-unti, hindi kaagad naibigay"
+          },
+          {
+            "question": "Isang mag-aaral ang nag-aaral tungkol sa mga delegasyon sa US para sa kalayaan. Anong pangyayari ang kanyang pinag-aaralan?",
+            "options": [
+              "Misyong OsRox at Quezon",
+              "Digmaang Pilipino-Amerikano",
+              "Kasunduan sa Espanya",
+              "Panahon ng Hapon"
+            ],
+            "correct_answer": "Misyong OsRox at Quezon"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎭 Biyernes na Balik-Aral — MAPEH (Grade 6)\n\n- **Symbolic theater** = simbolo, hindi tuwirang pagsalungat\n- **Seditious plays** = lihim na kumukundena sa pananakop\n- **Estruktura ng dula:** eksposisyon → tunggalian → kasukdulan → kakalasan\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang symbolic theater?",
+            "options": [
+              "Gumagamit ng simbolo upang ipahayag ang mensahe",
+              "Direktang pagsalungat lamang",
+              "Sayaw lamang na walang mensahe",
+              "Kanta lamang na walang kahulugan"
+            ],
+            "correct_answer": "Gumagamit ng simbolo upang ipahayag ang mensahe"
+          },
+          {
+            "question": "Ano ang seditious play?",
+            "options": [
+              "Dulang lihim na kumukundena sa pananakop",
+              "Dulang tungkol sa pag-ibig lamang",
+              "Dulang komedya lamang",
+              "Dulang walang kaugnayan sa kasaysayan"
+            ],
+            "correct_answer": "Dulang lihim na kumukundena sa pananakop"
+          },
+          {
+            "question": "Ano ang kumakatawan sa 'Inang Bayan' sa mga dulang ito?",
+            "options": [
+              "Ang Pilipinas",
+              "Ang Espanya",
+              "Ang Hapon",
+              "Ang Amerika"
+            ],
+            "correct_answer": "Ang Pilipinas"
+          },
+          {
+            "question": "Bakit gumamit ng simbolo ang mga manunulat noong panahon ng Amerikano?",
+            "options": [
+              "Ipinagbawal ang tuwirang pagsalungat",
+              "Wala silang ideya kung ano ang isusulat",
+              "Mas madali itong gawin",
+              "Gustong-gusto lamang nila ang simbolo"
+            ],
+            "correct_answer": "Ipinagbawal ang tuwirang pagsalungat"
+          },
+          {
+            "question": "Ano ang eksposisyon sa dulang dramatiko?",
+            "options": [
+              "Pagpapakilala sa tauhan at sitwasyon",
+              "Ang pinakamataas na bahagi",
+              "Ang paglutas ng problema",
+              "Ang katapusan ng dula"
+            ],
+            "correct_answer": "Pagpapakilala sa tauhan at sitwasyon"
+          },
+          {
+            "question": "Ano ang kasukdulan?",
+            "options": [
+              "Ang pinakamataas na bahagi ng tunggalian",
+              "Ang simula ng dula",
+              "Ang pagpapakilala sa tauhan",
+              "Ang katapusan lamang"
+            ],
+            "correct_answer": "Ang pinakamataas na bahagi ng tunggalian"
+          },
+          {
+            "question": "Ano ang kakalasan?",
+            "options": [
+              "Ang paglutas ng problema",
+              "Ang simula ng problema",
+              "Ang pagpapakilala sa tauhan",
+              "Ang pinakamataas na tensyon"
+            ],
+            "correct_answer": "Ang paglutas ng problema"
+          },
+          {
+            "question": "Ano ang tunggalian sa isang dula?",
+            "options": [
+              "Ang problema o away sa kuwento",
+              "Ang pagtatapos ng kuwento",
+              "Ang pagpapakilala sa tauhan",
+              "Ang pamagat ng dula"
+            ],
+            "correct_answer": "Ang problema o away sa kuwento"
+          },
+          {
+            "question": "Ano ang ginagamit sa mga sayaw ng panahong ito bilang lihim na pagpapahayag?",
+            "options": [
+              "Damdaming makabayan",
+              "Kalungkutan lamang",
+              "Kaligayahan lamang",
+              "Wala itong kahulugan"
+            ],
+            "correct_answer": "Damdaming makabayan"
+          },
+          {
+            "question": "Ano ang ipinapakita ng ganitong sining kahit sa gitna ng panunupil?",
+            "options": [
+              "Katalinuhan at katapangan ng mga Pilipino",
+              "Kawalan ng talento ng mga Pilipino",
+              "Takot ng mga Pilipino",
+              "Kawalan ng interes sa sining"
+            ],
+            "correct_answer": "Katalinuhan at katapangan ng mga Pilipino"
+          },
+          {
+            "question": "Sino ang kumakatawan sa manlulupig sa mga dulang seditious?",
+            "options": [
+              "Ang dayuhang mananakop",
+              "Ang mga Pilipino",
+              "Ang Inang Bayan",
+              "Ang mga bata"
+            ],
+            "correct_answer": "Ang dayuhang mananakop"
+          },
+          {
+            "question": "Isang manunulat ang gumamit ng karakter na 'ahas' upang ilarawan ang mananakop. Ano ang tawag dito?",
+            "options": [
+              "Simbolismo",
+              "Direktang paninindigan",
+              "Katotohanan lamang",
+              "Balitang pang-araw-araw"
+            ],
+            "correct_answer": "Simbolismo"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 Biyernes na Balik-Aral — GMRC (Grade 6)\n\n- **Wastong pagpapahayag** = malinaw at magalang, hindi galit o pananahimik\n- **Mapagpasensiya** = manatiling kalmado kahit mahirap\n- Hanapin ang **solusyon**, hindi ang sisihin\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang wastong pagpapahayag ng saloobin?",
+            "options": [
+              "Pagsasabi ng nararamdaman nang magalang",
+              "Pagsigaw ng malakas",
+              "Pananahimik palagi",
+              "Pag-iwas sa lahat ng usapan"
+            ],
+            "correct_answer": "Pagsasabi ng nararamdaman nang magalang"
+          },
+          {
+            "question": "Ano ang mapagpasensiya?",
+            "options": [
+              "Kakayahang manatiling kalmado kahit mahirap",
+              "Kakayahang tumakbo nang mabilis",
+              "Kakayahang manalo sa laro",
+              "Kakayahang magbilang nang mabilis"
+            ],
+            "correct_answer": "Kakayahang manatiling kalmado kahit mahirap"
+          },
+          {
+            "question": "Nagkaroon ng alitan ang mga magulang mo. Ano ang tamang gawin mo?",
+            "options": [
+              "Manatiling kalmado, huwag pumili ng panig",
+              "Sumali sa alitan",
+              "Umalis at huwag na bumalik",
+              "Manisi sa isang magulang"
+            ],
+            "correct_answer": "Manatiling kalmado, huwag pumili ng panig"
+          },
+          {
+            "question": "Ayaw ng magulang mo na sumali ka sa isang gawain. Ano ang tamang gawin?",
+            "options": [
+              "Ipahayag ang saloobin nang magalang",
+              "Sumigaw at magalit",
+              "Sumuway nang tahimik",
+              "Umiwas na lang sa magulang"
+            ],
+            "correct_answer": "Ipahayag ang saloobin nang magalang"
+          },
+          {
+            "question": "Ano ang positibong pagtanggap sa mapaghamong situwasyon?",
+            "options": [
+              "Manatiling kalmado at makinig muna",
+              "Sumigaw agad nang malakas",
+              "Umiwas sa lahat ng usapan",
+              "Magtago at huwag kumibo"
+            ],
+            "correct_answer": "Manatiling kalmado at makinig muna"
+          },
+          {
+            "question": "Ano ang mangyayari kung walang pasensiya sa pamilya?",
+            "options": [
+              "Nagiging mas malaki ang alitan",
+              "Nagiging mas maayos ang lahat",
+              "Wala itong pagbabago",
+              "Nagiging mas magaan ang pamilya"
+            ],
+            "correct_answer": "Nagiging mas malaki ang alitan"
+          },
+          {
+            "question": "Bakit mahalaga ang wastong pagpapahayag ng saloobin?",
+            "options": [
+              "Nakaiiwas ito sa hindi pagkakaunawaan",
+              "Nagpapabigat lamang ito ng problema",
+              "Wala itong kabuluhan",
+              "Ginagawa lamang ito para sa iba"
+            ],
+            "correct_answer": "Nakaiiwas ito sa hindi pagkakaunawaan"
+          },
+          {
+            "question": "Ano ang unang hakbang sa positibong pagtanggap ng problema?",
+            "options": [
+              "Manatiling kalmado",
+              "Magalit agad",
+              "Umiwas sa usapan",
+              "Sisihin ang iba"
+            ],
+            "correct_answer": "Manatiling kalmado"
+          },
+          {
+            "question": "Ano ang dapat hanapin sa halip na sisihin sa isang alitan?",
+            "options": [
+              "Solusyon",
+              "Karagdagang alitan",
+              "Bagong dahilan",
+              "Panibagong sisi"
+            ],
+            "correct_answer": "Solusyon"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagiging mapagpasensiya sa pamilya?",
+            "options": [
+              "Paggalang at pagmamahal",
+              "Kawalan ng pakialam",
+              "Pagtatago ng damdamin",
+              "Pagpili ng panig"
+            ],
+            "correct_answer": "Paggalang at pagmamahal"
+          },
+          {
+            "question": "Bakit dapat makinig muna bago sumagot sa isang alitan?",
+            "options": [
+              "Upang maunawaan nang mabuti ang sitwasyon",
+              "Upang mapabilis ang pagtatalo",
+              "Upang manalo sa argumento",
+              "Walang dahilan ito"
+            ],
+            "correct_answer": "Upang maunawaan nang mabuti ang sitwasyon"
+          },
+          {
+            "question": "Isang kapatid ang laging sinisisi ka sa mga pagkakamali. Ano ang PINAKAMABUTING gawin?",
+            "options": [
+              "Ipahayag ang saloobin at hanapin ang solusyon",
+              "Sumigaw pabalik sa kanya",
+              "Manahimik at itago ang sama ng loob",
+              "Iwasan siya magpakailanman"
+            ],
+            "correct_answer": "Ipahayag ang saloobin at hanapin ang solusyon"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Friday Review — EPP (AFA/FCS/IA) (Grade 6)\n\n- **BFAR** = espesipikong ahensya para sa pangisdaan | **DENR** = kapaligiran/katubigan\n- Katangian ng matagumpay na mangingisda: **determinado, matapat, innovative, masipag, risk-taker**\n- **NGO** = gabay, pagsasanay, kagamitan\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang BFAR?",
+            "options": [
+              "Ahensyang espesipiko para sa pangisdaan",
+              "Batas laban sa polusyon",
+              "Kumpanya ng pagkain",
+              "Ahensya para sa edukasyon"
+            ],
+            "correct_answer": "Ahensyang espesipiko para sa pangisdaan"
+          },
+          {
+            "question": "Aling ahensya ang nangangalaga sa kapaligiran at katubigan?",
+            "options": [
+              "DENR",
+              "DA lamang",
+              "BFAR lamang",
+              "DTI"
+            ],
+            "correct_answer": "DENR"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'determinado' bilang katangian ng matagumpay na mangingisda?",
+            "options": [
+              "Hindi sumusuko kahit mahirap",
+              "Madaling sumuko",
+              "Palaging umiiwas sa hamon",
+              "Ayaw magtrabaho"
+            ],
+            "correct_answer": "Hindi sumusuko kahit mahirap"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'innovative'?",
+            "options": [
+              "Bukas sa bagong teknolohiya",
+              "Ayaw ng anumang pagbabago",
+              "Palaging gumagamit ng lumang pamamaraan",
+              "Hindi interesado sa pagsasaka"
+            ],
+            "correct_answer": "Bukas sa bagong teknolohiya"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'risk-taker'?",
+            "options": [
+              "Handang sumubok ng bagong pamamaraan",
+              "Palaging natatakot subukan",
+              "Ayaw kumilos kailanman",
+              "Palaging sumusunod lamang"
+            ],
+            "correct_answer": "Handang sumubok ng bagong pamamaraan"
+          },
+          {
+            "question": "Sinong ahensya ang tatawagan ng mangingisdang may problema sa kalidad ng tubig?",
+            "options": [
+              "DENR",
+              "TESDA",
+              "DOLE",
+              "DTI"
+            ],
+            "correct_answer": "DENR"
+          },
+          {
+            "question": "Bakit mahalagang maging innovative ang isang mangingisda?",
+            "options": [
+              "Nakatutulong ito upang mapataas ang ani",
+              "Wala itong benepisyo",
+              "Nagpapabagal lamang ito ng trabaho",
+              "Hindi ito kailangan sa pangingisda"
+            ],
+            "correct_answer": "Nakatutulong ito upang mapataas ang ani"
+          },
+          {
+            "question": "Ano ang tumutulong sa mga mangingisda bukod sa mga ahensya ng gobyerno?",
+            "options": [
+              "Mga NGO",
+              "Mga paaralan lamang",
+              "Mga bangko lamang",
+              "Mga simbahan lamang"
+            ],
+            "correct_answer": "Mga NGO"
+          },
+          {
+            "question": "Ano ang naibibigay ng mga NGO sa mga mangingisda?",
+            "options": [
+              "Gabay, pagsasanay, at kagamitan",
+              "Buwis lamang",
+              "Batas laban sa pangingisda",
+              "Trabahong hindi kaugnay sa pangingisda"
+            ],
+            "correct_answer": "Gabay, pagsasanay, at kagamitan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng pagiging matapat sa negosyo ng pangingisda?",
+            "options": [
+              "Tapat sa kliyente at kapwa mangingisda",
+              "Palaging nandaraya sa presyo",
+              "Nagtatago ng impormasyon sa lahat",
+              "Ayaw makipagtulungan sa iba"
+            ],
+            "correct_answer": "Tapat sa kliyente at kapwa mangingisda"
+          },
+          {
+            "question": "Bakit mahalaga ang support system sa fishery arts?",
+            "options": [
+              "Nagbibigay ng kaalaman at suporta sa mga mangingisda",
+              "Wala itong kaugnayan sa mangingisda",
+              "Nagpapabagal lamang ito ng trabaho",
+              "Ginagamit lamang ito ng gobyerno"
+            ],
+            "correct_answer": "Nagbibigay ng kaalaman at suporta sa mga mangingisda"
+          },
+          {
+            "question": "Isang mangingisda ang gustong matuto ng modernong pamamaraan sa fish farming. Sino ang maaaring lapitan niya?",
+            "options": [
+              "DA, BFAR, o isang NGO",
+              "Isang bangko lamang",
+              "Isang paaralan ng musika",
+              "Isang tindahan ng damit"
+            ],
+            "correct_answer": "DA, BFAR, o isang NGO"
+          }
+        ]
+      }
+    }
+  }
+}

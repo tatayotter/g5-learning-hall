@@ -1,0 +1,2266 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-09-20",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🎭 English — Flashback, Figurative Language, and Context Clues\n\nWelcome to Term 2, Grade 5! Let's build on what we know. 💪\n\n## ⏪ Flashback\nA **flashback** interrupts the present story to show something that happened **earlier**.\n\n**Why authors use it:** to explain **why** a character acts a certain way, or to reveal a **secret** from the past.\n\n**Example:** *Maria stared at the old photo. Suddenly, she was back at her grandmother's farm, running through the rice fields as a child.* — this is a flashback to Maria's childhood.\n\n## 🎨 Figurative Language: Three New Terms\n\n**1. METAPHOR** — comparing two things **directly**, without \"like\" or \"as\"\n> *\"Her smile was sunshine.\"*\n\n**2. PERSONIFICATION** — giving **human qualities** to non-human things\n> *\"The wind whispered through the trees.\"*\n\n**3. HYPERBOLE** — extreme **exaggeration** for effect, not meant literally\n> *\"I've told you a million times!\"*\n\n## 🔍 Using Appositives as Context Clues\nAn **appositive** is a phrase that **renames or explains** a noun right next to it, usually set off by commas.\n\n**Example:** *\"The archipelago, a group of islands, stretches across the sea.\"*\n- \"a group of islands\" **explains** what archipelago means — a context clue!\n\n## 📚 Using a Glossary\nA **glossary** is a **list of specific words and their meanings**, usually found at the back of a book.\n\n**When to use it:** when you meet a word specific to the **topic** of that text (a science or history term), not a word you'd find in an everyday dictionary.\n\n## 🧠 Worked Example 1\n*\"The typhoon, a powerful tropical storm, hit the coast hard.\"* What is the appositive, and what does it tell you?\n- The appositive is **\"a powerful tropical storm\"** — it explains what a **typhoon** is.\n\n## 🧠 Worked Example 2\n*Identify the figurative language: \"Time crawled by as we waited.\"*\n- This is **personification** — time (non-human) is given the human/animal action of **crawling**.\n\nGreat reading skills! 🌟",
+        "quiz": [
+          {
+            "question": "What does a flashback do in a story?",
+            "options": [
+              "Interrupts the present to show something earlier",
+              "Predicts what will happen next",
+              "Describes a character's appearance",
+              "Ends the story suddenly"
+            ],
+            "correct_answer": "Interrupts the present to show something earlier"
+          },
+          {
+            "question": "\"Her smile was sunshine\" is an example of:",
+            "options": [
+              "Metaphor",
+              "Simile",
+              "Hyperbole",
+              "Personification"
+            ],
+            "correct_answer": "Metaphor"
+          },
+          {
+            "question": "\"The wind whispered through the trees\" is an example of:",
+            "options": [
+              "Personification",
+              "Metaphor",
+              "Hyperbole",
+              "Simile"
+            ],
+            "correct_answer": "Personification"
+          },
+          {
+            "question": "\"I've told you a million times\" is an example of:",
+            "options": [
+              "Hyperbole",
+              "Metaphor",
+              "Personification",
+              "Simile"
+            ],
+            "correct_answer": "Hyperbole"
+          },
+          {
+            "question": "What is an appositive?",
+            "options": [
+              "A phrase that renames or explains a nearby noun",
+              "A word that means the opposite",
+              "A type of punctuation mark",
+              "A question at the end of a sentence"
+            ],
+            "correct_answer": "A phrase that renames or explains a nearby noun"
+          },
+          {
+            "question": "\"The archipelago, a group of islands, stretches across the sea.\" What is the appositive?",
+            "options": [
+              "a group of islands",
+              "the archipelago",
+              "stretches across",
+              "the sea"
+            ],
+            "correct_answer": "a group of islands"
+          },
+          {
+            "question": "When should you use a glossary?",
+            "options": [
+              "When you meet a word specific to the text's topic",
+              "Whenever you see any long word",
+              "Only at the start of a book",
+              "Never, dictionaries are always better"
+            ],
+            "correct_answer": "When you meet a word specific to the text's topic"
+          },
+          {
+            "question": "\"Time crawled by as we waited\" uses which figurative language?",
+            "options": [
+              "Personification",
+              "Metaphor",
+              "Hyperbole",
+              "Simile"
+            ],
+            "correct_answer": "Personification"
+          },
+          {
+            "question": "Why do authors use flashbacks?",
+            "options": [
+              "To explain a character's actions or reveal the past",
+              "To make the story end faster",
+              "To introduce a brand new character only",
+              "To skip describing the setting"
+            ],
+            "correct_answer": "To explain a character's actions or reveal the past"
+          },
+          {
+            "question": "A glossary is usually found:",
+            "options": [
+              "At the back of a book",
+              "On the front cover",
+              "In the table of contents",
+              "Inside the index only"
+            ],
+            "correct_answer": "At the back of a book"
+          },
+          {
+            "question": "\"The typhoon, a powerful tropical storm, hit the coast.\" What does the appositive tell you?",
+            "options": [
+              "What a typhoon is",
+              "Where the coast is located",
+              "When the storm happened",
+              "Who was affected by it"
+            ],
+            "correct_answer": "What a typhoon is"
+          },
+          {
+            "question": "A story begins in the present, then suddenly shows the main character as a child ten years earlier. What technique is this?",
+            "options": [
+              "Flashback",
+              "Hyperbole",
+              "Personification",
+              "Foreshadowing"
+            ],
+            "correct_answer": "Flashback"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Decimals and Fractions\n\nWelcome to Term 2, Grade 5! Let's connect decimals and fractions. 💪\n\n## 🔄 Converting Terminating Decimals to Fractions\nA **terminating decimal** ends after a certain number of digits (it doesn't repeat forever).\n\n**Steps:**\n1. Write the decimal as a fraction over a power of 10\n2. **Simplify** to lowest terms\n\n## 🧠 Worked Example 1\n*Convert 0.75 to a fraction.*\n- Step 1: 0.75 = 75/100\n- Step 2: Find the GCF of 75 and 100 → **25**\n- Step 3: 75÷25 = 3, 100÷25 = 4\n- Answer: **3/4** ✅\n\n## 🧠 Worked Example 2\n*Convert 0.6 to a fraction.*\n- Step 1: 0.6 = 6/10\n- Step 2: GCF of 6 and 10 is **2**\n- Step 3: 6÷2 = 3, 10÷2 = 5\n- Answer: **3/5** ✅\n\n## 🔄 Converting Fractions Back to Decimals\nDivide the **numerator** by the **denominator**.\n\n**Example:** 3/4 = 3 ÷ 4 = **0.75**\n\n## ⚖️ Comparing and Ordering Decimals\nLine up the **decimal points**, then compare digit by digit from **left to right**.\n\n**Example:** Compare 0.45 and 0.6\n- Add a zero: 0.45 and **0.60**\n- Compare tenths: 4 vs 6 → **0.6 is greater**\n\n**Ordering:** 0.3, 0.08, 0.75\n- Line up: 0.30, 0.08, 0.75\n- Order from least to greatest: **0.08, 0.30, 0.75**\n\n## 🧠 Worked Example 3\n*Which is greater: 0.5 or 0.45?*\n- Add a zero: 0.50 vs 0.45\n- Compare tenths: 5 vs 4 → **0.5 is greater** ✅\n\n## 📝 Word Problem\n*Ana ran 0.8 km. Ben ran 3/4 km. Who ran farther?*\n- Convert 3/4 to a decimal: 3 ÷ 4 = **0.75**\n- Compare: 0.8 > 0.75\n- **Ana ran farther** ✅\n\nGreat decimal work! ⭐",
+        "quiz": [
+          {
+            "question": "Convert 0.75 to a fraction in lowest terms.",
+            "options": [
+              "3/4",
+              "75/100",
+              "3/40",
+              "7/5"
+            ],
+            "correct_answer": "3/4"
+          },
+          {
+            "question": "Convert 0.6 to a fraction in lowest terms.",
+            "options": [
+              "3/5",
+              "6/10",
+              "3/50",
+              "6/1"
+            ],
+            "correct_answer": "3/5"
+          },
+          {
+            "question": "Convert 3/4 to a decimal.",
+            "options": [
+              "0.75",
+              "0.34",
+              "0.43",
+              "0.25"
+            ],
+            "correct_answer": "0.75"
+          },
+          {
+            "question": "Which is greater, 0.45 or 0.6?",
+            "options": [
+              "0.6",
+              "0.45",
+              "They are equal",
+              "Cannot be compared"
+            ],
+            "correct_answer": "0.6"
+          },
+          {
+            "question": "Order from least to greatest: 0.3, 0.08, 0.75",
+            "options": [
+              "0.08, 0.3, 0.75",
+              "0.3, 0.08, 0.75",
+              "0.75, 0.3, 0.08",
+              "0.08, 0.75, 0.3"
+            ],
+            "correct_answer": "0.08, 0.3, 0.75"
+          },
+          {
+            "question": "Ana ran 0.8 km and Ben ran 3/4 km. Who ran farther?",
+            "options": [
+              "Ana",
+              "Ben",
+              "They ran the same",
+              "Cannot be compared"
+            ],
+            "correct_answer": "Ana"
+          },
+          {
+            "question": "What is the first step to convert a decimal to a fraction?",
+            "options": [
+              "Write it as a fraction over a power of 10",
+              "Multiply it by 100 only",
+              "Add a zero at the end",
+              "Round it to the nearest whole number"
+            ],
+            "correct_answer": "Write it as a fraction over a power of 10"
+          },
+          {
+            "question": "Convert 1/2 to a decimal.",
+            "options": [
+              "0.5",
+              "0.12",
+              "0.21",
+              "0.2"
+            ],
+            "correct_answer": "0.5"
+          },
+          {
+            "question": "What is the GCF of 75 and 100?",
+            "options": [
+              "25",
+              "10",
+              "5",
+              "50"
+            ],
+            "correct_answer": "25"
+          },
+          {
+            "question": "Which decimal is the SMALLEST: 0.5, 0.05, 0.55?",
+            "options": [
+              "0.05",
+              "0.5",
+              "0.55",
+              "They are all equal"
+            ],
+            "correct_answer": "0.05"
+          },
+          {
+            "question": "Convert 0.25 to a fraction in lowest terms.",
+            "options": [
+              "1/4",
+              "25/100",
+              "1/40",
+              "2/5"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "A recipe uses 0.4 kg of flour, another uses 2/5 kg. Are these the same amount?",
+            "options": [
+              "Yes, both equal 0.4 kg",
+              "No, 2/5 is larger",
+              "No, 0.4 is larger",
+              "Cannot be compared"
+            ],
+            "correct_answer": "Yes, both equal 0.4 kg"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🎭 Filipino — Ironiya at Pagsusuri ng Balita\n\nMaligayang pagdating sa Ikalawang Termino, Grade 5! 🎉\n\n## 🎭 Ano ang Kabalintunaan (Ironiya)?\nAng **ironiya** ay tayutay kung saan ang **nangyayari ay salungat** sa inaasahan.\n\n**Halimbawa:** *Isang bumbero ang may bahay na nasunog.* — hindi ito inaasahan dahil siya mismo ang dapat pumapatay ng sunog.\n\n## 📰 Pagsusuri ng Balita gamit ang 5W1H\n| Tanong | Kahulugan |\n|---|---|\n| **Sino (Who)** | sino ang kasangkot |\n| **Ano (What)** | ano ang nangyari |\n| **Saan (Where)** | saan ito naganap |\n| **Kailan (When)** | kailan ito nangyari |\n| **Bakit (Why)** | bakit ito nangyari |\n| **Paano (How)** | paano ito naganap |\n\n## 🧠 Halimbawa 1: Pagsusuri ng Balita\n*\"Nagkaroon ng malaking sunog sa Maynila noong Martes ng gabi dahil sa maling koneksiyon ng kuryente, at 20 pamilya ang nasira ang bahay.\"*\n\n| Tanong | Sagot |\n|---|---|\n| Sino | 20 pamilya |\n| Ano | Nagkasunog |\n| Saan | Maynila |\n| Kailan | Martes ng gabi |\n| Bakit | Maling koneksiyon ng kuryente |\n\n## 🗣️ Punto de Bista ng Manunulat\nAng **punto de bista** ay ang **paraan ng pagtingin** ng may-akda sa isang paksa.\n\n**Paano makikilala:**\n- Ano ang **salitang pinili** ng may-akda? (positibo ba o negatibo?)\n- Anong bahagi ang **binigyang-diin**?\n- May **opinyon** ba na ipinasok sa loob ng balita?\n\n## 🧠 Halimbawa 2\n*\"Matagumpay na naisagawa ang proyekto ng barangay, ayon sa mga opisyal.\"*\n- Ang parirala **\"ayon sa mga opisyal\"** ay nagpapakita ng **punto de bista** — mula ito sa panig ng pamahalaan, hindi neutral na balita lamang.\n\n## 💡 Bakit Mahalaga ang Pagsusuri?\nSa pagsusuri ng balita sa pamamagitan ng **5W1H**, natututo tayong maging **mapanuring mambabasa**, hindi basta-basta lang naniniwala sa lahat ng nababasa.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang ironiya?",
+            "options": [
+              "Ang nangyayari ay salungat sa inaasahan",
+              "Ang pag-uulit ng parehong tunog",
+              "Ang paghahambing gamit ang 'tulad ng'",
+              "Ang pagbibigay ng katangiang tao sa bagay"
+            ],
+            "correct_answer": "Ang nangyayari ay salungat sa inaasahan"
+          },
+          {
+            "question": "Alin ang halimbawa ng ironiya?",
+            "options": [
+              "Isang bumbero na may bahay na nasunog",
+              "Isang doktor na may sakit",
+              "Isang guro na nag-aaral",
+              "Isang bata na naglalaro"
+            ],
+            "correct_answer": "Isang bumbero na may bahay na nasunog"
+          },
+          {
+            "question": "Ano ang tinatanong ng 'Sino' sa 5W1H?",
+            "options": [
+              "Sino ang kasangkot sa balita",
+              "Ano ang nangyari",
+              "Saan ito naganap",
+              "Kailan ito nangyari"
+            ],
+            "correct_answer": "Sino ang kasangkot sa balita"
+          },
+          {
+            "question": "Ano ang tinatanong ng 'Bakit' sa 5W1H?",
+            "options": [
+              "Bakit ito nangyari",
+              "Sino ang kasangkot",
+              "Saan ito naganap",
+              "Paano ito ginawa"
+            ],
+            "correct_answer": "Bakit ito nangyari"
+          },
+          {
+            "question": "Ano ang punto de bista ng manunulat?",
+            "options": [
+              "Ang paraan ng pagtingin ng may-akda sa paksa",
+              "Ang oras na isinulat ang balita",
+              "Ang haba ng balita",
+              "Ang pangalan ng patnugot"
+            ],
+            "correct_answer": "Ang paraan ng pagtingin ng may-akda sa paksa"
+          },
+          {
+            "question": "Alin ang HINDI kabilang sa 5W1H?",
+            "options": [
+              "Ilan",
+              "Sino",
+              "Ano",
+              "Bakit"
+            ],
+            "correct_answer": "Ilan"
+          },
+          {
+            "question": "Sa parirala \"ayon sa mga opisyal,\" ano ang ipinapakita nito?",
+            "options": [
+              "Punto de bista mula sa panig ng pamahalaan",
+              "Isang uri ng ironiya",
+              "Isang tayutay na paghahambing",
+              "Isang tanong na 5W1H"
+            ],
+            "correct_answer": "Punto de bista mula sa panig ng pamahalaan"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsusuri ng balita gamit ang 5W1H?",
+            "options": [
+              "Nagiging mapanuring mambabasa tayo",
+              "Nagiging mas mahaba ang balita",
+              "Nagiging mas kaunti ang detalye",
+              "Nagiging mas mabilis ang pagbasa"
+            ],
+            "correct_answer": "Nagiging mapanuring mambabasa tayo"
+          },
+          {
+            "question": "Basahin: \"Nagkasunog sa Maynila noong Martes.\" Aling tanong sa 5W1H ang sinasagot nito?",
+            "options": [
+              "Kailan at Saan",
+              "Sino at Bakit",
+              "Ano at Paano",
+              "Bakit lamang"
+            ],
+            "correct_answer": "Kailan at Saan"
+          },
+          {
+            "question": "Ano ang layunin ng pagkilala sa punto de bista sa isang balita?",
+            "options": [
+              "Malaman kung may bahid ng opinyon ang balita",
+              "Malaman kung sino ang naglathala nito",
+              "Malaman kung ano ang petsa nito",
+              "Malaman kung ilang salita mayroon"
+            ],
+            "correct_answer": "Malaman kung may bahid ng opinyon ang balita"
+          },
+          {
+            "question": "Isang bata ay natakot sa dilim pero hindi natakot sa malaking aso. Bakit ito ironiko?",
+            "options": [
+              "Salungat ito sa karaniwang inaasahan",
+              "Ito ay normal na pangyayari",
+              "Wala itong kaugnayan sa ironiya",
+              "Ito ay uri ng balita lamang"
+            ],
+            "correct_answer": "Salungat ito sa karaniwang inaasahan"
+          },
+          {
+            "question": "Ano ang PINAKAMAHUSAY na dahilan kung bakit dapat suriin ang balita bago ito paniwalaan?",
+            "options": [
+              "Maaaring may punto de bista o opinyon ang manunulat",
+              "Palaging mali ang lahat ng balita",
+              "Palagi itong tama nang walang pag-aalinlangan",
+              "Hindi na kailangang basahin ang balita"
+            ],
+            "correct_answer": "Maaaring may punto de bista o opinyon ang manunulat"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🫁 Science — Animal Body Systems\n\nWelcome to Term 2, Grade 5! Let's study animal body systems as models. 🔬\n\n## 🍽️ The Digestive System\nPath food takes:\n> **Mouth → Esophagus (Gullet) → Stomach → Small Intestine → Large Intestine**\n\n| Part | Job |\n|---|---|\n| **Mouth** | chews food, mixes with saliva |\n| **Esophagus** | tube that carries food to the stomach |\n| **Stomach** | breaks food down further using acid |\n| **Small intestine** | absorbs nutrients into the blood |\n| **Large intestine** | absorbs water, forms waste |\n\n## 🫁 The Respiratory System\nPath air takes:\n> **Nose → Trachea (Windpipe) → Lungs**\n\n| Part | Job |\n|---|---|\n| **Nose** | filters and warms air |\n| **Trachea** | tube carrying air to the lungs |\n| **Lungs** | exchange oxygen and carbon dioxide with blood |\n\n## 🧬 The Reproductive System (Age-Appropriate Overview)\nAt this level, we focus on **its role in growth and life cycles** — how living things **grow, develop, and produce offspring** — rather than detailed anatomy.\n\n**Key idea:** every living thing has a way to produce **new generations**, ensuring the species **continues**.\n\n## 🧠 Worked Example 1\n*Draw and label the path food takes through the digestive system.*\n- Mouth → Esophagus → Stomach → Small Intestine → Large Intestine\n- Each part has a **specific job** in breaking down food and using its nutrients. ✅\n\n## 🧠 Worked Example 2\n*Why do animals need both a digestive and a respiratory system?*\n- The **digestive system** provides **energy** (from food).\n- The **respiratory system** provides **oxygen** needed to release that energy.\n- Both systems **work together** to keep the animal alive. ✅\n\n## 🎨 Making a Labeled Model\nWhen building a model of a body system:\n1. **Research** the correct order of parts\n2. **Draw or build** each part in sequence\n3. **Label** each part with its name and job\n4. **Explain** how the parts work together\n\nGreat body-systems scientist! 🌟",
+        "quiz": [
+          {
+            "question": "What is the correct path food takes through the digestive system?",
+            "options": [
+              "Mouth, esophagus, stomach, intestines",
+              "Nose, trachea, lungs",
+              "Mouth, lungs, stomach",
+              "Esophagus, nose, stomach"
+            ],
+            "correct_answer": "Mouth, esophagus, stomach, intestines"
+          },
+          {
+            "question": "What is the job of the esophagus?",
+            "options": [
+              "Carries food to the stomach",
+              "Filters the air we breathe",
+              "Absorbs nutrients into blood",
+              "Pumps blood through the body"
+            ],
+            "correct_answer": "Carries food to the stomach"
+          },
+          {
+            "question": "What is the correct path air takes through the respiratory system?",
+            "options": [
+              "Nose, trachea, lungs",
+              "Mouth, esophagus, stomach",
+              "Nose, stomach, lungs",
+              "Trachea, mouth, lungs"
+            ],
+            "correct_answer": "Nose, trachea, lungs"
+          },
+          {
+            "question": "What is another name for the trachea?",
+            "options": [
+              "Windpipe",
+              "Gullet",
+              "Intestine",
+              "Esophagus"
+            ],
+            "correct_answer": "Windpipe"
+          },
+          {
+            "question": "Which part absorbs nutrients into the blood?",
+            "options": [
+              "Small intestine",
+              "Mouth",
+              "Trachea",
+              "Nose"
+            ],
+            "correct_answer": "Small intestine"
+          },
+          {
+            "question": "What is the job of the lungs?",
+            "options": [
+              "Exchange oxygen and carbon dioxide",
+              "Break down food using acid",
+              "Filter and warm the incoming air",
+              "Absorb water to form waste"
+            ],
+            "correct_answer": "Exchange oxygen and carbon dioxide"
+          },
+          {
+            "question": "At the Grade 5 level, the reproductive system is studied mainly for its role in:",
+            "options": [
+              "growth and life cycles",
+              "detailed internal anatomy",
+              "digestion of food",
+              "breathing and oxygen"
+            ],
+            "correct_answer": "growth and life cycles"
+          },
+          {
+            "question": "What is the job of the large intestine?",
+            "options": [
+              "Absorbs water and forms waste",
+              "Breaks food down with acid",
+              "Filters incoming air",
+              "Pumps blood through the body"
+            ],
+            "correct_answer": "Absorbs water and forms waste"
+          },
+          {
+            "question": "Why do animals need both digestive and respiratory systems?",
+            "options": [
+              "Digestion gives energy, breathing gives oxygen",
+              "They perform the exact same job",
+              "Only digestion matters for animals",
+              "Only breathing matters for animals"
+            ],
+            "correct_answer": "Digestion gives energy, breathing gives oxygen"
+          },
+          {
+            "question": "What is the FIRST step in making a labeled body-system model?",
+            "options": [
+              "Research the correct order of parts",
+              "Label the parts before researching",
+              "Build the model without any plan",
+              "Skip straight to explaining it"
+            ],
+            "correct_answer": "Research the correct order of parts"
+          },
+          {
+            "question": "Which organ breaks down food further using acid?",
+            "options": [
+              "Stomach",
+              "Nose",
+              "Trachea",
+              "Large intestine"
+            ],
+            "correct_answer": "Stomach"
+          },
+          {
+            "question": "A student's model shows air going Nose → Lungs → Trachea. What is wrong with this order?",
+            "options": [
+              "The trachea should come before the lungs",
+              "Nothing is wrong with this order",
+              "The nose should come after the lungs",
+              "Air does not pass through the nose"
+            ],
+            "correct_answer": "The trachea should come before the lungs"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# ⛵ Araling Panlipunan — Pananakop ng Espanya: God, Gold, Glory\n\nMaligayang pagdating sa Ikalawang Termino, Grade 5! 🇵🇭\n\n## 🌍 Ano ang Kolonisasyon at Imperyalismo?\n- **Kolonisasyon** — ang pagsasakop ng isang bansa sa ibang lupain at pamumuno rito\n- **Imperyalismo** — ang pagpapalawak ng kapangyarihan ng isang bansa sa ibang teritoryo\n\n## 🎯 Tatlong Dahilan ng Pananakop ng Espanya: \"God, Gold, Glory\"\n\n**1. GOD (Diyos)** ✝️\nPagpapalaganap ng **Kristiyanismo** — layunin na gawing Kristiyano ang mga katutubo.\n\n**2. GOLD (Ginto)** 💰\nPagkuha ng **kayamanan at espesya** (rekado tulad ng paminta) — mahalaga ito noon para sa kalakalan sa Europa.\n\n**3. GLORY (Kapangyarihan)** 👑\nPaghahangad ng **kapangyarihan at prestihiyo** — pagpapalawak ng imperyo ng Espanya.\n\n## 🗺️ Layuning Maabot ang Moluccas (Spice Islands)\nAng mga Espanyol ay naghahanap ng **bagong ruta** patungo sa **Moluccas (Spice Islands)** sa Indonesia — mayaman ito sa espesya.\n\n## ⛵ Mga Ekspedisyon\n\n**Ferdinand Magellan (1521)**\n- Unang Espanyol na dumating sa Pilipinas\n- Nagdaos ng **Unang Misa sa Limasawa**\n- Namatay sa **Labanan sa Mactan** laban kay Lapu-Lapu\n\n**Miguel Lopez de Legazpi (1565)**\n- Nagtatag ng **unang permanenteng kolonya** ng Espanya sa Pilipinas\n- Nagsimula ang **333 taong** pananakop\n\n## 📜 Kasunduan ng Tordesillas (1494)\nKasunduan sa pagitan ng **Espanya at Portugal**, hinati nito ang mundo sa **dalawang bahagi** para sa **pagsakop** — kahit hindi pa alam noon ang eksaktong lawak ng mundo.\n\n## 🧠 Halimbawa 1\n*Bakit mahalaga ang espesya noong panahong iyon?*\n- Ginagamit itong **pampalasa** at **pampreserba** ng pagkain sa Europa — kaya **napakamahal** at **napakahalaga** nito sa kalakalan. ✅\n\n## 🧠 Halimbawa 2\n*Ano ang pagkakaiba ng layunin nina Magellan at Legazpi?*\n- Si **Magellan** ay naghahanap ng **ruta patungo sa Moluccas**.\n- Si **Legazpi** ay nagtatag ng **permanenteng kolonya** — dito nagsimula ang tunay na pananakop. ✅\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tatlong dahilan ng pananakop ng Espanya?",
+            "options": [
+              "God, Gold, Glory",
+              "Time, Land, Sea",
+              "War, Peace, Trade",
+              "Food, Water, Land"
+            ],
+            "correct_answer": "God, Gold, Glory"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'God' sa tatlong dahilan?",
+            "options": [
+              "Pagpapalaganap ng Kristiyanismo",
+              "Pagkuha ng ginto",
+              "Paghahangad ng kapangyarihan",
+              "Pagsasagawa ng digmaan"
+            ],
+            "correct_answer": "Pagpapalaganap ng Kristiyanismo"
+          },
+          {
+            "question": "Sino ang unang Espanyol na dumating sa Pilipinas noong 1521?",
+            "options": [
+              "Ferdinand Magellan",
+              "Miguel Lopez de Legazpi",
+              "Andres Bonifacio",
+              "Jose Rizal"
+            ],
+            "correct_answer": "Ferdinand Magellan"
+          },
+          {
+            "question": "Saan nagdaos ng Unang Misa si Magellan?",
+            "options": [
+              "Limasawa",
+              "Mactan",
+              "Cebu City",
+              "Manila"
+            ],
+            "correct_answer": "Limasawa"
+          },
+          {
+            "question": "Sino ang nagtatag ng unang permanenteng kolonya ng Espanya sa Pilipinas?",
+            "options": [
+              "Miguel Lopez de Legazpi",
+              "Ferdinand Magellan",
+              "Lapu-Lapu",
+              "Jose Rizal"
+            ],
+            "correct_answer": "Miguel Lopez de Legazpi"
+          },
+          {
+            "question": "Ano ang Moluccas?",
+            "options": [
+              "Isang grupo ng isla na mayaman sa espesya",
+              "Isang lungsod sa Pilipinas",
+              "Isang uri ng bangka",
+              "Isang kasunduan sa pagitan ng bansa"
+            ],
+            "correct_answer": "Isang grupo ng isla na mayaman sa espesya"
+          },
+          {
+            "question": "Ano ang Kasunduan ng Tordesillas?",
+            "options": [
+              "Sa Labanan sa Mactan laban kay Lapu-Lapu",
+              "Sa isang bagyo sa dagat noon",
+              "Sa Labanan sa Limasawa noon",
+              "Sa isang sakit na dinanas niya"
+            ],
+            "correct_answer": "Sa Labanan sa Mactan laban kay Lapu-Lapu"
+          },
+          {
+            "question": "Bakit namatay si Magellan sa Pilipinas?",
+            "options": [
+              "Sa Labanan sa Mactan laban kay Lapu-Lapu",
+              "Sa isang bagyo sa dagat",
+              "Sa Labanan sa Limasawa",
+              "Sa isang sakit noong panahong iyon"
+            ],
+            "correct_answer": "Sa Labanan sa Mactan laban kay Lapu-Lapu"
+          },
+          {
+            "question": "Bakit mahalaga ang espesya noong panahong iyon?",
+            "options": [
+              "Ginagamit itong pampalasa at pampreserba ng pagkain",
+              "Ginagamit itong panggamot lamang",
+              "Ginagamit itong pandekorasyon lamang",
+              "Wala itong halaga sa kalakalan"
+            ],
+            "correct_answer": "Ginagamit itong pampalasa at pampreserba ng pagkain"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng layunin nina Magellan at Legazpi?",
+            "options": [
+              "Naghanap ng ruta si Magellan",
+              "Nagtatag ng kolonya si Legazpi",
+              "Pareho silang naghanap ng ginto",
+              "Pareho silang nagtatag ng paaralan"
+            ],
+            "correct_answer": "Naghanap ng ruta si Magellan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'Glory' bilang dahilan ng pananakop?",
+            "options": [
+              "Paghahangad ng kapangyarihan at prestihiyo",
+              "Pagpapalaganap ng relihiyon",
+              "Pagkuha ng kayamanan",
+              "Pagtuklas ng bagong isla"
+            ],
+            "correct_answer": "Paghahangad ng kapangyarihan at prestihiyo"
+          },
+          {
+            "question": "Bakit itinuturing na simula ng tunay na pananakop ang pagdating ni Legazpi?",
+            "options": [
+              "Nagtatag siya ng permanenteng kolonya",
+              "Siya ang unang dumating sa Pilipinas",
+              "Siya lamang ang naghanap ng espesya",
+              "Wala siyang naitulong sa Espanya"
+            ],
+            "correct_answer": "Nagtatag siya ng permanenteng kolonya"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 📄 EPP (ICT) — Creating Word Documents\n\nMaligayang pagdating sa Ikalawang Termino, Grade 5! Gumawa tayo ng propesyonal na dokumento! 💻\n\n## 🖼️ Inserting and Formatting Illustrations\n\n**Types of illustrations you can insert:**\n- **Shapes** — circles, arrows, boxes for diagrams\n- **Images** — photos or pictures\n- **SmartArt** — ready-made diagrams (flowcharts, cycles, lists)\n\n**Formatting an image:**\n1. Click the image to **select** it\n2. Drag the **corner handles** to resize (keeps proportions)\n3. Use **\"Wrap Text\"** to let text flow around the image\n\n## 📊 Inserting and Formatting Tables\nA **table** organizes information into **rows** and **columns**.\n\n**Steps:**\n1. Go to **Insert → Table**\n2. Choose the number of **rows** and **columns**\n3. Click into cells to **type** your data\n4. Use **Borders** to make it easy to read\n\n## 🔘 Using Bullets and Numbering\n- **Bullets** — for lists where **order doesn't matter**\n- **Numbering** — for lists where **order matters** (like steps)\n\n**Example:**\n> **Bullets:** Materials needed — pencil, paper, ruler\n> **Numbering:** Steps — 1. Cut the paper 2. Fold it 3. Glue it\n\n## 🎨 Setting a Page Background\nA **page background** adds color or a subtle design behind your text.\n\n**Steps:**\n1. Go to **Design → Page Color** (or Page Background)\n2. Choose a **light color** so text stays readable\n3. Avoid backgrounds that make text **hard to read**\n\n## 🧠 Worked Example 1\n*You want to show the steps of planting a seed. Should you use bullets or numbering?*\n- **Numbering** — because the **order** of steps matters (you can't water before planting)! ✅\n\n## 🧠 Worked Example 2\n*You're making a report comparing 3 fruits' vitamin content. What should you use?*\n- A **table** — it organizes the comparison **clearly** by fruit and vitamin. ✅\n\n## 💡 Producing a Complete Document\nCombine all these tools: a **title**, an **image**, a **table** of data, a **numbered** list of steps, and a light **background** — for a polished, professional-looking document.\n\nGreat ICT work! 🌟",
+        "quiz": [
+          {
+            "question": "Which tool organizes information into rows and columns?",
+            "options": [
+              "A table",
+              "SmartArt",
+              "Bullets",
+              "Page background"
+            ],
+            "correct_answer": "A table"
+          },
+          {
+            "question": "When should you use numbering instead of bullets?",
+            "options": [
+              "When the order of items matters",
+              "When items have no particular order",
+              "When you want colored text",
+              "When inserting an image"
+            ],
+            "correct_answer": "When the order of items matters"
+          },
+          {
+            "question": "What are SmartArt graphics used for?",
+            "options": [
+              "Ready-made diagrams like flowcharts",
+              "Changing the page color",
+              "Correcting spelling errors",
+              "Adding page numbers"
+            ],
+            "correct_answer": "Ready-made diagrams like flowcharts"
+          },
+          {
+            "question": "How do you resize an image while keeping its proportions?",
+            "options": [
+              "Drag the corner handles",
+              "Drag the middle of the image",
+              "Delete and retype it",
+              "Change the font size"
+            ],
+            "correct_answer": "Drag the corner handles"
+          },
+          {
+            "question": "What should you consider when choosing a page background color?",
+            "options": [
+              "That text stays easy to read",
+              "That it matches your favorite color",
+              "That it is always black",
+              "That it hides all the text"
+            ],
+            "correct_answer": "That text stays easy to read"
+          },
+          {
+            "question": "You're listing steps to plant a seed. Which format is BEST?",
+            "options": [
+              "Numbering",
+              "Bullets",
+              "A table",
+              "A page background"
+            ],
+            "correct_answer": "Numbering"
+          },
+          {
+            "question": "You're comparing 3 fruits' vitamin content. Which format is BEST?",
+            "options": [
+              "A table",
+              "Bullets",
+              "Numbering",
+              "A page background"
+            ],
+            "correct_answer": "A table"
+          },
+          {
+            "question": "Where do you go to insert a table?",
+            "options": [
+              "Insert → Table",
+              "Design → Table",
+              "File → Table",
+              "View → Table"
+            ],
+            "correct_answer": "Insert → Table"
+          },
+          {
+            "question": "What does 'Wrap Text' do to an inserted image?",
+            "options": [
+              "Lets text flow around the image",
+              "Deletes the image completely",
+              "Changes the image's color",
+              "Rotates the image upside down"
+            ],
+            "correct_answer": "Lets text flow around the image"
+          },
+          {
+            "question": "Which tool makes a table easier to read?",
+            "options": [
+              "Borders",
+              "Bullets",
+              "Numbering",
+              "Page background"
+            ],
+            "correct_answer": "Borders"
+          },
+          {
+            "question": "You are listing materials needed for a craft project where order doesn't matter. Which format fits BEST?",
+            "options": [
+              "Bullets",
+              "Numbering",
+              "A table",
+              "A page background"
+            ],
+            "correct_answer": "Bullets"
+          },
+          {
+            "question": "A student's page background is dark red with black text. What is the problem?",
+            "options": [
+              "The text becomes hard to read",
+              "The document loads too slowly",
+              "The table cannot be inserted",
+              "The image will not resize"
+            ],
+            "correct_answer": "The text becomes hard to read"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎨 MAPEH — Music and Arts in the Early Spanish Colonial Period\n\nMaligayang pagdating sa Ikalawang Termino, Grade 5! Ika-16 na siglong sining. 🎭\n\n## 🕰️ Ang Panahon: 1521–1600\nAng aralin na ito ay sumasaklaw sa **Early Spanish Colonial Period** — mula sa pagdating ni Magellan (1521) hanggang huling bahagi ng ika-16 na siglo (1600).\n\n## 🔄 Paghahambing: Pre-Colonial vs Early Spanish Colonial\n\n| Aspeto | Pre-Colonial | Early Spanish Colonial |\n|---|---|---|\n| **Layunin ng sining** | ritwal, pagdiriwang, komunidad | ebanghelisasyon, simbahan |\n| **Paksa** | kalikasan, ninuno, diyos-diyosan | banal na larawan, mga santo |\n| **Estilo** | katutubong disenyo | maimpluwensiyahan ng Europa |\n\n## 🎵 Musika: Melody at Musical Form\n\n**Melody (Himig)**\n- **Systems of writing melody** — paraan ng pagsulat ng tono (musical notation)\n- **Melodic direction** — pataas, pababa, o pantay ang daloy ng tono\n\n**Musical Form (Anyo)**\n- **Strophic** — paulit-ulit ang parehong himig sa bawat saknong (tulad ng maraming himno)\n- **Binary** — dalawang bahagi (A-B)\n- **Free-form** — walang tiyak na pattern\n\n## 🎭 Theater: Paksa at Simbolismo\nAng mga dulang panteatro noong panahong ito ay tumatalakay sa mga **paksang panrelihiyon** — mga ritwal at pagganap na nagpapakita ng mga **santo, himala, at aral ng Kristiyanismo**.\n\n## 💃 Dance: Kilos ng Panahong Iyon\nNag-iba ang **kilos at galaw** sa sayaw habang naghalo ang katutubong tradisyon at impluwensiyang Europeo.\n\n## 🎨 Visual Arts: Paksa, Tema, Istilo, Midyum\n- **Paksa:** mga santo, eksena mula sa Biblia\n- **Midyum:** pintura, iskultura, arkitektura ng simbahan\n- **Layunin:** ituro ang Kristiyanismo sa mga hindi marunong bumasa (ang mga larawan bilang \"aklat\" para sa mga tao)\n\n## 🧠 Halimbawa 1\n*Bakit maraming larawan ng santo ang ginawa noong panahong ito?*\n- Ginamit ang sining para **ituro ang relihiyon** sa mga katutubong hindi marunong magbasa o magsulat. ✅\n\n## 🧠 Halimbawa 2\n*Ano ang strophic form?*\n- Isang anyo kung saan **paulit-ulit** ang himig sa bawat saknong ng awit — halimbawa, karamihan sa mga **himno sa simbahan**. ✅\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Anong panahon ang sinasaklaw ng aralin na ito?",
+            "options": [
+              "1521–1600",
+              "1900–1950",
+              "1898–1946",
+              "1565–1600 lamang"
+            ],
+            "correct_answer": "1521–1600"
+          },
+          {
+            "question": "Ano ang melodic direction?",
+            "options": [
+              "Pataas, pababa, o pantay ang daloy ng tono",
+              "Ang bilis ng musika",
+              "Ang lakas ng tunog",
+              "Ang instrumentong ginagamit"
+            ],
+            "correct_answer": "Pataas, pababa, o pantay ang daloy ng tono"
+          },
+          {
+            "question": "Ano ang strophic form?",
+            "options": [
+              "Paulit-ulit ang himig sa bawat saknong",
+              "Dalawang magkaibang bahagi",
+              "Walang tiyak na pattern",
+              "Isang beses lang ang himig"
+            ],
+            "correct_answer": "Paulit-ulit ang himig sa bawat saknong"
+          },
+          {
+            "question": "Bakit maraming larawan ng santo ang ginawa noong Early Spanish Colonial Period?",
+            "options": [
+              "Para ituro ang relihiyon sa mga tao",
+              "Para lang sa palamuti sa bahay",
+              "Para ipagbili sa ibang bansa",
+              "Wala itong layunin noon"
+            ],
+            "correct_answer": "Para ituro ang relihiyon sa mga tao"
+          },
+          {
+            "question": "Ano ang paksa ng theater noong panahong ito?",
+            "options": [
+              "Mga paksang panrelihiyon",
+              "Mga paksang pampolitika",
+              "Mga paksang pang-agham",
+              "Mga paksang pangnegosyo"
+            ],
+            "correct_answer": "Mga paksang panrelihiyon"
+          },
+          {
+            "question": "Ano ang binary form sa musika?",
+            "options": [
+              "Dalawang bahagi (A-B)",
+              "Isang bahagi lamang",
+              "Tatlong bahagi",
+              "Walang anyo"
+            ],
+            "correct_answer": "Dalawang bahagi (A-B)"
+          },
+          {
+            "question": "Ano ang pangunahing paksa ng visual arts noong panahong ito?",
+            "options": [
+              "Mga santo at eksena sa Biblia",
+              "Mga hayop na nasa gubat",
+              "Mga tanawin sa tabing-dagat",
+              "Mga larawan ng hari noon"
+            ],
+            "correct_answer": "Mga santo at eksena sa Biblia"
+          },
+          {
+            "question": "Ano ang midyum na ginamit sa visual arts noong panahong ito?",
+            "options": [
+              "Pintura at iskultura",
+              "Digital na larawan",
+              "Pelikula",
+              "Musika lamang"
+            ],
+            "correct_answer": "Pintura at iskultura"
+          },
+          {
+            "question": "Ano ang naging pagkakaiba ng pre-colonial at early Spanish colonial na sining?",
+            "options": [
+              "Maimpluwensiyahan ng Europa ang huli",
+              "Magkatulad silang lubos",
+              "Wala itong pagkakaiba",
+              "Pre-colonial ang mas modernong estilo"
+            ],
+            "correct_answer": "Maimpluwensiyahan ng Europa ang huli"
+          },
+          {
+            "question": "Ano ang systems of writing melody?",
+            "options": [
+              "Paraan ng pagsulat ng tono",
+              "Paraan ng pagsayaw",
+              "Paraan ng pagguhit",
+              "Paraan ng paglalaro"
+            ],
+            "correct_answer": "Paraan ng pagsulat ng tono"
+          },
+          {
+            "question": "Bakit ginamit ang larawan bilang 'aklat' para sa mga tao noon?",
+            "options": [
+              "Karamihan ay hindi marunong magbasa",
+              "Wala silang papel noong panahon iyon",
+              "Mas mura ang larawan kaysa aklat",
+              "Mas mabilis gumawa ng larawan"
+            ],
+            "correct_answer": "Karamihan ay hindi marunong magbasa"
+          },
+          {
+            "question": "Isang himno sa simbahan ay may parehong himig sa bawat saknong. Anong anyo ang ipinapakita nito?",
+            "options": [
+              "Strophic",
+              "Binary",
+              "Free-form",
+              "Walang anyo"
+            ],
+            "correct_answer": "Strophic"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 GMRC — Compassion: Pag-aalaga sa Maysakit, Matanda, at PWD\n\nMaligayang pagdating sa Ikalawang Termino, Grade 5! Pag-usapan natin ang **compassion**. 🌟\n\n## ❤️ Ano ang Compassion (Pagmamalasakit)?\nAng **compassion** ay ang **pakikiramay** at **pagkilos** upang **tumulong** sa taong nahihirapan.\n\nHindi lamang ito **pakiramdam** — ito ay **kilos** din.\n\n## 👴 Pag-aalaga sa Maysakit\n- **Pakikinig** sa kanilang pangangailangan\n- **Pagtulong** sa simpleng gawain (paglalakad, pagkuha ng gamot)\n- **Pagbisita** upang hindi sila makaramdam ng kalungkutan\n\n## 👵 Pag-aalaga sa Matanda\n- **Paggalang** sa kanilang karanasan at karunungan\n- **Pagtulong** sa pang-araw-araw na gawain\n- **Pakikinig** sa kanilang mga kuwento nang may interes\n\n## ♿ Pag-aalaga sa PWD (Person with Disability)\n- **Pagkilala** sa kanilang **dignidad** — hindi sila dapat kaawaan, kundi **igalang**\n- **Pagtulong** kung hinihingi, hindi ipilit ang tulong\n- **Pagbibigay-daan** sa access — hal. pagbibigay-priyoridad sa upuan\n\n## 🧠 Halimbawa 1\n*Ang iyong Lolo ay may sakit sa tuhod. Ano ang mabuting gawin?*\n- **Tulungan siyang** maglakad at kunin ang kanyang mga gamit — nagpapakita ito ng compassion sa isang matanda. ✅\n\n## 🧠 Halimbawa 2\n*May kaklase kang naka-wheelchair. Paano mo siya matutulungan nang may paggalang?*\n- **Itanong muna** kung kailangan niya ng tulong, huwag ipilit — igalang ang kanyang **kakayahan** na gawin ang mga bagay nang mag-isa kung kaya niya. ✅\n\n## 🎯 Bakit Mahalaga ang Pagkilala sa Pangangailangan at Dignidad?\n- Ang **empatiya** ay ang pag-unawa sa **nararamdaman** ng iba\n- Ang **praktikal na pagkilos** ay ang aktuwal na **pagtulong**\n- Ang **dignidad** ay ang pagturing sa lahat bilang **karapat-dapat sa paggalang**, hindi awa lamang\n\n## 💡 Paalala\nHindi dapat **kaawaan** ang taong may sakit, matanda, o may kapansanan — dapat silang **tulungan at igalang** bilang **karapat-dapat na miyembro** ng lipunan.\n\nMagaling! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang compassion?",
+            "options": [
+              "Pakikiramay at pagkilos upang tumulong",
+              "Pagkaawa lamang sa iba",
+              "Pagpansin lamang sa sarili",
+              "Pag-iwas sa problema ng iba"
+            ],
+            "correct_answer": "Pakikiramay at pagkilos upang tumulong"
+          },
+          {
+            "question": "Paano matutulungan ang isang maysakit?",
+            "options": [
+              "Pakikinig sa kanilang pangangailangan",
+              "Pag-iwas sa kanilang kalagayan",
+              "Pananakot sa kanilang damdamin",
+              "Pagbabalewala sa kanilang hiling"
+            ],
+            "correct_answer": "Pakikinig sa kanilang pangangailangan"
+          },
+          {
+            "question": "Paano ipinapakita ang paggalang sa matanda?",
+            "options": [
+              "Pakikinig sa kanilang karanasan at kuwento",
+              "Pagtawag sa kanila ng bastos na pangalan",
+              "Pag-iwas sa kanilang tanong",
+              "Pagpigil sa kanilang pagsasalita"
+            ],
+            "correct_answer": "Pakikinig sa kanilang karanasan at kuwento"
+          },
+          {
+            "question": "Paano dapat tulungan ang isang PWD?",
+            "options": [
+              "Itanong muna kung kailangan nila ng tulong",
+              "Ipilit ang tulong kahit ayaw nila",
+              "Iwasan silang lapitan",
+              "Kaawaan sila palagi"
+            ],
+            "correct_answer": "Itanong muna kung kailangan nila ng tulong"
+          },
+          {
+            "question": "Ano ang dignidad?",
+            "options": [
+              "Karapat-dapat sa paggalang bilang tao",
+              "Kaunting halaga bilang tao",
+              "Kawalan ng karapatan",
+              "Pagkakaroon ng sakit"
+            ],
+            "correct_answer": "Karapat-dapat sa paggalang bilang tao"
+          },
+          {
+            "question": "Ang iyong Lolo ay may sakit sa tuhod. Ano ang mabuting gawin?",
+            "options": [
+              "Tulungan siyang maglakad",
+              "Iwasan siyang lapitan",
+              "Sabihan siyang mag-isa na lang",
+              "Ipagsawalang-bahala siya"
+            ],
+            "correct_answer": "Tulungan siyang maglakad"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng empatiya at praktikal na pagkilos?",
+            "options": [
+              "Empatiya ay unawa, pagkilos ay tulong",
+              "Magkapareho lang sila sa lahat",
+              "Walang kaugnayan ang dalawa",
+              "Ang pagkilos ay hindi mahalaga"
+            ],
+            "correct_answer": "Empatiya ay unawa, pagkilos ay tulong"
+          },
+          {
+            "question": "Bakit hindi dapat kaawaan ang isang PWD?",
+            "options": [
+              "Dapat silang igalang bilang tao",
+              "Wala silang karapatan sa paggalang",
+              "Mas mababa sila sa ibang tao",
+              "Wala itong epekto sa kanila"
+            ],
+            "correct_answer": "Dapat silang igalang bilang tao"
+          },
+          {
+            "question": "May kaklase kang naka-wheelchair. Paano mo siya matutulungan nang may paggalang?",
+            "options": [
+              "Itanong muna kung kailangan ng tulong",
+              "Ipilit ang tulong kaagad dito",
+              "Iwasan siyang lapitan agad",
+              "Sabihan siyang mahina siya"
+            ],
+            "correct_answer": "Itanong muna kung kailangan ng tulong"
+          },
+          {
+            "question": "Alin ang HINDI nagpapakita ng compassion?",
+            "options": [
+              "Pagbabalewala sa nangangailangan",
+              "Pagtulong sa maysakit",
+              "Pakikinig sa matanda",
+              "Paggalang sa PWD"
+            ],
+            "correct_answer": "Pagbabalewala sa nangangailangan"
+          },
+          {
+            "question": "Bakit mahalagang bisitahin ang isang maysakit na kamag-anak?",
+            "options": [
+              "Upang hindi sila makaramdam ng kalungkutan",
+              "Upang makuha ang kanilang gamit",
+              "Upang makapagpahinga tayo",
+              "Walang dahilan ito"
+            ],
+            "correct_answer": "Upang hindi sila makaramdam ng kalungkutan"
+          },
+          {
+            "question": "Isang matanda ang mahirap tumawid sa kalsada. Ano ang pinakamabuting gawin?",
+            "options": [
+              "Alukin siya ng tulong nang magalang",
+              "Dumaan na lamang agad",
+              "Sabihan siyang mag-isa na lang tumawid",
+              "Kunwaring hindi mo siya nakita"
+            ],
+            "correct_answer": "Alukin siya ng tulong nang magalang"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 EPP (AFA/FCS/IA) — Kahalagahan ng Pananahi\n\nMaligayang pagdating sa Ikalawang Termino, Grade 5! Simulan natin ang Pananahi. ✂️\n\n## 🧵 Bakit Mahalaga ang Pananahi Bilang Kasanayan?\n- **Praktikal na kasanayan** — matuto kang **magsaayos** ng punit na damit\n- **Pagtitipid** — hindi na kailangang bumili ng bago kapag maaayos lamang\n- **Sining** — maaari kang gumawa ng **sariling disenyo**\n- **Hanapbuhay** — maaaring maging pinagkakakitaan sa hinaharap\n\n## 🧰 Mga Kagamitan sa Pananahi\n\n| Kagamitan | Gamit |\n|---|---|\n| **Karayom (needle)** | tumatahi ng tela |\n| **Sinulid (thread)** | dumudugtong sa tela |\n| **Gunting (scissors)** | pumuputol ng tela |\n| **Metro (measuring tape)** | sumusukat ng tela |\n| **Diperensyal na tisa (tailor's chalk)** | naglalagay ng marka bago tahiin |\n| **Pin (pins)** | pansamantalang pagdikit ng tela bago tahiin |\n| **Thimble** | proteksyon ng daliri habang tumatahi |\n\n## 🧠 Halimbawa 1\n*Bakit kailangan ang thimble kapag tumatahi?*\n- Pinoprotektahan nito ang daliri mula sa **tusok ng karayom** habang itinutulak ito sa makapal na tela. ✅\n\n## 🧠 Halimbawa 2\n*Bakit kailangan munang lagyan ng marka gamit ang tailor's chalk bago tahiin?*\n- Ang marka ay gabay upang **tumpak** ang linya ng pagtahi — nakaiiwas ito sa **maling pagputol** o **hindi pantay** na tahi. ✅\n\n## ✋ Wastong Paghawak ng Kagamitan\n- Hawakan ang **gunting** nang tama, huwag ituro sa iba\n- Itago ang **karayom at pin** sa ligtas na lugar, hindi kalat-kalat\n- Gamitin ang **thimble** upang maiwasan ang pagkatusok\n\n## 💡 Simpleng Proyekto para Simulan\n1. Magsanay munang **magtahi ng tuwid na linya** sa lumang tela\n2. Sumunod, magsanay ng **pagtahi ng butas** (button)\n3. Panghuli, subukang **tagpiin** ang isang maliit na punit\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Bakit mahalaga ang pananahi bilang kasanayan?",
+            "options": [
+              "Nakatutulong ito sa pagtitipid at pagsasaayos ng damit",
+              "Wala itong kabuluhan sa pang-araw-araw",
+              "Ginagamit lamang ito sa paaralan",
+              "Hindi ito kailangan sa buhay"
+            ],
+            "correct_answer": "Nakatutulong ito sa pagtitipid at pagsasaayos ng damit"
+          },
+          {
+            "question": "Alin ang gamit ng karayom?",
+            "options": [
+              "Tumatahi ng tela",
+              "Sumusukat ng tela",
+              "Pumuputol ng tela",
+              "Naglalagay ng marka"
+            ],
+            "correct_answer": "Tumatahi ng tela"
+          },
+          {
+            "question": "Alin ang gamit ng gunting?",
+            "options": [
+              "Pumuputol ng tela",
+              "Tumatahi ng tela",
+              "Sumusukat ng tela",
+              "Nagmamarka ng tela"
+            ],
+            "correct_answer": "Pumuputol ng tela"
+          },
+          {
+            "question": "Bakit kailangan ang thimble?",
+            "options": [
+              "Pinoprotektahan ang daliri sa tusok",
+              "Sumusukat ng haba ng tela dito",
+              "Pumuputol ng makapal na tela",
+              "Naglalagay ng kulay sa tela"
+            ],
+            "correct_answer": "Pinoprotektahan ang daliri sa tusok"
+          },
+          {
+            "question": "Ano ang gamit ng tailor's chalk?",
+            "options": [
+              "Naglalagay ng marka bago tahiin",
+              "Pumuputol ng sinulid",
+              "Sumusukat ng temperatura",
+              "Tumatahi ng butones"
+            ],
+            "correct_answer": "Naglalagay ng marka bago tahiin"
+          },
+          {
+            "question": "Ano ang gamit ng metro (measuring tape) sa pananahi?",
+            "options": [
+              "Sumusukat ng tela",
+              "Pumuputol ng tela",
+              "Tumatahi ng tela",
+              "Nagdidikit ng tela"
+            ],
+            "correct_answer": "Sumusukat ng tela"
+          },
+          {
+            "question": "Bakit gumagamit ng pin bago tahiin ang tela?",
+            "options": [
+              "Pansamantalang pagdikit ng tela",
+              "Permanenteng pagtahi ng tela",
+              "Pagsukat ng haba ng tela",
+              "Pagputol ng tela"
+            ],
+            "correct_answer": "Pansamantalang pagdikit ng tela"
+          },
+          {
+            "question": "Bakit mahalaga ang marka bago tahiin?",
+            "options": [
+              "Gabay ito upang tumpak ang linya ng pagtahi",
+              "Pinapaganda lamang nito ang hitsura",
+              "Pinapabilis nito ang paggawa",
+              "Wala itong ginagawang tulong"
+            ],
+            "correct_answer": "Gabay ito upang tumpak ang linya ng pagtahi"
+          },
+          {
+            "question": "Alin ang unang gawin sa simpleng proyekto ng pananahi?",
+            "options": [
+              "Gabay ito sa tumpak na tahi",
+              "Pinapaganda lamang ang hitsura",
+              "Pinapabilis lamang ang gawa",
+              "Wala itong ginagawang tulong"
+            ],
+            "correct_answer": "Gabay ito sa tumpak na tahi"
+          },
+          {
+            "question": "Bakit mahalagang itago nang maayos ang karayom at pin?",
+            "options": [
+              "Upang maiwasan ang aksidenteng pagkatusok",
+              "Upang mapaganda ang kahon",
+              "Upang mabilis mabili ang bago",
+              "Walang partikular na dahilan"
+            ],
+            "correct_answer": "Upang maiwasan ang aksidenteng pagkatusok"
+          },
+          {
+            "question": "Paano makatutulong ang pananahi bilang hanapbuhay?",
+            "options": [
+              "Maaari itong maging pinagkakakitaan",
+              "Wala itong kinalaman sa kita",
+              "Ginagawa lamang ito bilang libangan",
+              "Hindi ito maaaring maging trabaho"
+            ],
+            "correct_answer": "Maaari itong maging pinagkakakitaan"
+          },
+          {
+            "question": "Punit ang manggas ng iyong damit. Anong hakbang ang unang gagawin?",
+            "options": [
+              "Markahan ang linya gamit ang tailor's chalk",
+              "Gupitin agad nang walang plano",
+              "Ihagis na lamang ang damit",
+              "Ipatahi sa ibang tao lagi"
+            ],
+            "correct_answer": "Markahan ang linya gamit ang tailor's chalk"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🎭 Friday Review — English (Grade 5)\n\n- **Flashback** = interrupts the present to show something earlier\n- **Metaphor** (direct comparison) · **Personification** (human qualities) · **Hyperbole** (exaggeration)\n- **Appositive** = renames/explains a nearby noun, set off by commas\n- **Glossary** = word list at the back of a book for topic-specific terms\n\nStrong start to Term 2! 🌟",
+        "quiz": [
+          {
+            "question": "What does a flashback do?",
+            "options": [
+              "Interrupts the present to show earlier events",
+              "Predicts what will happen next scene",
+              "Describes a character in full detail",
+              "Ends the story very suddenly"
+            ],
+            "correct_answer": "Interrupts the present to show earlier events"
+          },
+          {
+            "question": "\"Her smile was sunshine\" is an example of:",
+            "options": [
+              "Metaphor",
+              "Simile",
+              "Hyperbole",
+              "Personification"
+            ],
+            "correct_answer": "Metaphor"
+          },
+          {
+            "question": "\"The wind whispered through the trees\" is an example of:",
+            "options": [
+              "Personification",
+              "Metaphor",
+              "Hyperbole",
+              "Simile"
+            ],
+            "correct_answer": "Personification"
+          },
+          {
+            "question": "\"I've told you a million times\" is an example of:",
+            "options": [
+              "Hyperbole",
+              "Metaphor",
+              "Personification",
+              "Simile"
+            ],
+            "correct_answer": "Hyperbole"
+          },
+          {
+            "question": "What is an appositive?",
+            "options": [
+              "A phrase that renames a nearby noun",
+              "A word that means the opposite",
+              "A type of punctuation used often",
+              "A question placed at the end"
+            ],
+            "correct_answer": "A phrase that renames a nearby noun"
+          },
+          {
+            "question": "When should you use a glossary?",
+            "options": [
+              "When you meet a word specific to the text's topic",
+              "For any long word you see",
+              "Only at the start of a book",
+              "Never — dictionaries are always better"
+            ],
+            "correct_answer": "When you meet a word specific to the text's topic"
+          },
+          {
+            "question": "Why do authors use flashbacks?",
+            "options": [
+              "To explain a character's actions or reveal the past",
+              "To make the story end faster",
+              "To skip the setting entirely",
+              "To introduce a new character only"
+            ],
+            "correct_answer": "To explain a character's actions or reveal the past"
+          },
+          {
+            "question": "A glossary is usually found:",
+            "options": [
+              "At the back of a book",
+              "On the front cover",
+              "In the table of contents",
+              "Inside the index only"
+            ],
+            "correct_answer": "At the back of a book"
+          },
+          {
+            "question": "\"The typhoon, a powerful tropical storm, hit the coast.\" What does the appositive tell you?",
+            "options": [
+              "What a typhoon is",
+              "Where the coast is located",
+              "When the storm happened",
+              "Who was affected"
+            ],
+            "correct_answer": "What a typhoon is"
+          },
+          {
+            "question": "\"Time crawled by as we waited\" uses:",
+            "options": [
+              "Personification",
+              "Metaphor",
+              "Hyperbole",
+              "Simile"
+            ],
+            "correct_answer": "Personification"
+          },
+          {
+            "question": "A story shows the main character as a child ten years earlier, mid-scene. What technique is this?",
+            "options": [
+              "Flashback",
+              "Hyperbole",
+              "Personification",
+              "Foreshadowing"
+            ],
+            "correct_answer": "Flashback"
+          },
+          {
+            "question": "\"The archipelago, a group of islands, stretches across the sea.\" What is the appositive?",
+            "options": [
+              "a group of islands",
+              "the archipelago",
+              "stretches across",
+              "the sea"
+            ],
+            "correct_answer": "a group of islands"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 5)\n\n- **Decimal → fraction:** write over a power of 10, simplify\n- **Fraction → decimal:** divide numerator by denominator\n- **Comparing decimals:** line up decimal points, compare left to right\n\n**Quick check:** 0.75 = **3/4** | 3/4 = **0.75**\n\nStrong start to Term 2! ⭐",
+        "quiz": [
+          {
+            "question": "Convert 0.75 to a fraction in lowest terms.",
+            "options": [
+              "3/4",
+              "75/100",
+              "3/40",
+              "7/5"
+            ],
+            "correct_answer": "3/4"
+          },
+          {
+            "question": "Convert 0.6 to a fraction in lowest terms.",
+            "options": [
+              "3/5",
+              "6/10",
+              "3/50",
+              "6/1"
+            ],
+            "correct_answer": "3/5"
+          },
+          {
+            "question": "Convert 3/4 to a decimal.",
+            "options": [
+              "0.75",
+              "0.34",
+              "0.43",
+              "0.25"
+            ],
+            "correct_answer": "0.75"
+          },
+          {
+            "question": "Which is greater, 0.45 or 0.6?",
+            "options": [
+              "0.6",
+              "0.45",
+              "They are equal",
+              "Cannot be compared"
+            ],
+            "correct_answer": "0.6"
+          },
+          {
+            "question": "Order from least to greatest: 0.3, 0.08, 0.75",
+            "options": [
+              "0.08, 0.3, 0.75",
+              "0.3, 0.08, 0.75",
+              "0.75, 0.3, 0.08",
+              "0.08, 0.75, 0.3"
+            ],
+            "correct_answer": "0.08, 0.3, 0.75"
+          },
+          {
+            "question": "Ana ran 0.8 km and Ben ran 3/4 km. Who ran farther?",
+            "options": [
+              "Ana",
+              "Ben",
+              "They ran the same",
+              "Cannot be compared"
+            ],
+            "correct_answer": "Ana"
+          },
+          {
+            "question": "Convert 1/2 to a decimal.",
+            "options": [
+              "0.5",
+              "0.12",
+              "0.21",
+              "0.2"
+            ],
+            "correct_answer": "0.5"
+          },
+          {
+            "question": "What is the GCF of 75 and 100?",
+            "options": [
+              "25",
+              "10",
+              "5",
+              "50"
+            ],
+            "correct_answer": "25"
+          },
+          {
+            "question": "Which decimal is the SMALLEST: 0.5, 0.05, 0.55?",
+            "options": [
+              "0.05",
+              "0.5",
+              "0.55",
+              "They are all equal"
+            ],
+            "correct_answer": "0.05"
+          },
+          {
+            "question": "Convert 0.25 to a fraction in lowest terms.",
+            "options": [
+              "1/4",
+              "25/100",
+              "1/40",
+              "2/5"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "What is the first step to convert a decimal to a fraction?",
+            "options": [
+              "Write it as a fraction over a power of 10",
+              "Multiply it by 100 only",
+              "Add a zero at the end",
+              "Round it to the nearest whole"
+            ],
+            "correct_answer": "Write it as a fraction over a power of 10"
+          },
+          {
+            "question": "A recipe uses 0.4 kg of flour, another uses 2/5 kg. Are these the same?",
+            "options": [
+              "Yes, both equal 0.4 kg",
+              "No, 2/5 is larger",
+              "No, 0.4 is larger",
+              "Cannot be compared"
+            ],
+            "correct_answer": "Yes, both equal 0.4 kg"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🎭 Biyernes na Balik-Aral — Filipino (Grade 5)\n\n- **Ironiya** = salungat sa inaasahan\n- **5W1H:** Sino, Ano, Saan, Kailan, Bakit, Paano\n- **Punto de bista** = paraan ng pagtingin ng manunulat sa paksa\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang ironiya?",
+            "options": [
+              "Ang nangyayari ay salungat sa inaasahan",
+              "Ang pag-uulit ng parehong tunog",
+              "Ang paghahambing gamit ang 'tulad ng'",
+              "Ang pagbibigay ng katangiang tao sa bagay"
+            ],
+            "correct_answer": "Ang nangyayari ay salungat sa inaasahan"
+          },
+          {
+            "question": "Alin ang halimbawa ng ironiya?",
+            "options": [
+              "Isang bumbero na may bahay na nasunog",
+              "Isang doktor na may sakit",
+              "Isang guro na nag-aaral",
+              "Isang bata na naglalaro"
+            ],
+            "correct_answer": "Isang bumbero na may bahay na nasunog"
+          },
+          {
+            "question": "Ano ang tinatanong ng 'Sino' sa 5W1H?",
+            "options": [
+              "Sino ang kasangkot sa balita",
+              "Ano ang nangyari",
+              "Saan ito naganap",
+              "Kailan ito nangyari"
+            ],
+            "correct_answer": "Sino ang kasangkot sa balita"
+          },
+          {
+            "question": "Ano ang tinatanong ng 'Bakit' sa 5W1H?",
+            "options": [
+              "Bakit ito nangyari",
+              "Sino ang kasangkot",
+              "Saan ito naganap",
+              "Paano ito ginawa"
+            ],
+            "correct_answer": "Bakit ito nangyari"
+          },
+          {
+            "question": "Ano ang punto de bista ng manunulat?",
+            "options": [
+              "Ang paraan ng pagtingin ng may-akda sa paksa",
+              "Ang oras na isinulat ang balita",
+              "Ang haba ng balita",
+              "Ang pangalan ng patnugot"
+            ],
+            "correct_answer": "Ang paraan ng pagtingin ng may-akda sa paksa"
+          },
+          {
+            "question": "Alin ang HINDI kabilang sa 5W1H?",
+            "options": [
+              "Ilan",
+              "Sino",
+              "Ano",
+              "Bakit"
+            ],
+            "correct_answer": "Ilan"
+          },
+          {
+            "question": "Sa parirala \"ayon sa mga opisyal,\" ano ang ipinapakita nito?",
+            "options": [
+              "Punto de bista mula sa panig ng pamahalaan",
+              "Isang uri ng ironiya",
+              "Isang tayutay na paghahambing",
+              "Isang tanong na 5W1H"
+            ],
+            "correct_answer": "Punto de bista mula sa panig ng pamahalaan"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsusuri ng balita gamit ang 5W1H?",
+            "options": [
+              "Nagiging mapanuring mambabasa tayo",
+              "Nagiging mas mahaba ang balita",
+              "Nagiging mas kaunti ang detalye",
+              "Nagiging mas mabilis ang pagbasa"
+            ],
+            "correct_answer": "Nagiging mapanuring mambabasa tayo"
+          },
+          {
+            "question": "Basahin: \"Nagkasunog sa Maynila noong Martes.\" Aling tanong sa 5W1H ang sinasagot nito?",
+            "options": [
+              "Kailan at Saan",
+              "Sino at Bakit",
+              "Ano at Paano",
+              "Bakit lamang"
+            ],
+            "correct_answer": "Kailan at Saan"
+          },
+          {
+            "question": "Ano ang layunin ng pagkilala sa punto de bista sa isang balita?",
+            "options": [
+              "Malaman kung may bahid ng opinyon ang balita",
+              "Malaman kung sino ang naglathala nito",
+              "Malaman kung ano ang petsa nito",
+              "Malaman kung ilang salita mayroon"
+            ],
+            "correct_answer": "Malaman kung may bahid ng opinyon ang balita"
+          },
+          {
+            "question": "Isang bata ay natakot sa dilim pero hindi natakot sa malaking aso. Bakit ito ironiko?",
+            "options": [
+              "Salungat ito sa karaniwang inaasahan",
+              "Ito ay normal na pangyayari",
+              "Wala itong kaugnayan sa ironiya",
+              "Ito ay uri ng balita lamang"
+            ],
+            "correct_answer": "Salungat ito sa karaniwang inaasahan"
+          },
+          {
+            "question": "Ano ang PINAKAMAHUSAY na dahilan kung bakit dapat suriin ang balita bago ito paniwalaan?",
+            "options": [
+              "Maaaring may punto de bista o opinyon ang manunulat",
+              "Palaging mali ang lahat ng balita",
+              "Palagi itong tama nang walang pag-aalinlangan",
+              "Hindi na kailangang basahin ang balita"
+            ],
+            "correct_answer": "Maaaring may punto de bista o opinyon ang manunulat"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🫁 Friday Review — Science (Grade 5)\n\n- **Digestive:** mouth → esophagus → stomach → small intestine → large intestine\n- **Respiratory:** nose → trachea (windpipe) → lungs\n- **Reproductive system:** studied for its role in growth and life cycles, age-appropriate level\n- Digestion provides **energy**, respiration provides **oxygen** to use it\n\nGreat body-systems scientist! 🌟",
+        "quiz": [
+          {
+            "question": "What is the correct path food takes through the digestive system?",
+            "options": [
+              "Mouth, esophagus, stomach, intestines",
+              "Nose, trachea, lungs",
+              "Mouth, lungs, stomach",
+              "Esophagus, nose, stomach"
+            ],
+            "correct_answer": "Mouth, esophagus, stomach, intestines"
+          },
+          {
+            "question": "What is the job of the esophagus?",
+            "options": [
+              "Carries food to the stomach",
+              "Filters the air we breathe",
+              "Absorbs nutrients into blood",
+              "Pumps blood through the body"
+            ],
+            "correct_answer": "Carries food to the stomach"
+          },
+          {
+            "question": "What is the correct path air takes through the respiratory system?",
+            "options": [
+              "Nose, trachea, lungs",
+              "Mouth, esophagus, stomach",
+              "Nose, stomach, lungs",
+              "Trachea, mouth, lungs"
+            ],
+            "correct_answer": "Nose, trachea, lungs"
+          },
+          {
+            "question": "What is another name for the trachea?",
+            "options": [
+              "Windpipe",
+              "Gullet",
+              "Intestine",
+              "Esophagus"
+            ],
+            "correct_answer": "Windpipe"
+          },
+          {
+            "question": "Which part absorbs nutrients into the blood?",
+            "options": [
+              "Small intestine",
+              "Mouth",
+              "Trachea",
+              "Nose"
+            ],
+            "correct_answer": "Small intestine"
+          },
+          {
+            "question": "What is the job of the lungs?",
+            "options": [
+              "Exchange oxygen and carbon dioxide",
+              "Break down food using acid",
+              "Filter and warm the incoming air",
+              "Absorb water to form waste"
+            ],
+            "correct_answer": "Exchange oxygen and carbon dioxide"
+          },
+          {
+            "question": "At the Grade 5 level, the reproductive system is studied mainly for its role in:",
+            "options": [
+              "growth and life cycles",
+              "detailed internal anatomy",
+              "digestion of food",
+              "breathing and oxygen"
+            ],
+            "correct_answer": "growth and life cycles"
+          },
+          {
+            "question": "What is the job of the large intestine?",
+            "options": [
+              "Absorbs water and forms waste",
+              "Breaks food down with acid",
+              "Filters incoming air",
+              "Pumps blood through the body"
+            ],
+            "correct_answer": "Absorbs water and forms waste"
+          },
+          {
+            "question": "Why do animals need both digestive and respiratory systems?",
+            "options": [
+              "Digestion gives energy, breathing gives oxygen",
+              "They perform the exact same job",
+              "Only digestion matters for animals",
+              "Only breathing matters for animals"
+            ],
+            "correct_answer": "Digestion gives energy, breathing gives oxygen"
+          },
+          {
+            "question": "What is the FIRST step in making a labeled body-system model?",
+            "options": [
+              "Research the correct order of parts",
+              "Label the parts before researching",
+              "Build the model without any plan",
+              "Skip straight to explaining it"
+            ],
+            "correct_answer": "Research the correct order of parts"
+          },
+          {
+            "question": "Which organ breaks down food further using acid?",
+            "options": [
+              "Stomach",
+              "Nose",
+              "Trachea",
+              "Large intestine"
+            ],
+            "correct_answer": "Stomach"
+          },
+          {
+            "question": "A student's model shows air going Nose → Lungs → Trachea. What is wrong?",
+            "options": [
+              "The trachea should come before the lungs",
+              "Nothing is wrong with this order",
+              "The nose should come after the lungs",
+              "Air does not pass through the nose"
+            ],
+            "correct_answer": "The trachea should come before the lungs"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# ⛵ Biyernes na Balik-Aral — Araling Panlipunan (Grade 5)\n\n- **God, Gold, Glory** = tatlong dahilan ng pananakop ng Espanya\n- **Magellan (1521)** = Unang Misa sa Limasawa, namatay sa Mactan\n- **Legazpi (1565)** = nagtatag ng unang permanenteng kolonya\n- **Kasunduan ng Tordesillas** = naghati sa mundo para sa Espanya at Portugal\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tatlong dahilan ng pananakop ng Espanya?",
+            "options": [
+              "God, Gold, Glory",
+              "Time, Land, Sea",
+              "War, Peace, Trade",
+              "Food, Water, Land"
+            ],
+            "correct_answer": "God, Gold, Glory"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'God' sa tatlong dahilan?",
+            "options": [
+              "Pagpapalaganap ng Kristiyanismo",
+              "Pagkuha ng ginto",
+              "Paghahangad ng kapangyarihan",
+              "Pagsasagawa ng digmaan"
+            ],
+            "correct_answer": "Pagpapalaganap ng Kristiyanismo"
+          },
+          {
+            "question": "Sino ang unang Espanyol na dumating sa Pilipinas noong 1521?",
+            "options": [
+              "Ferdinand Magellan",
+              "Miguel Lopez de Legazpi",
+              "Andres Bonifacio",
+              "Jose Rizal"
+            ],
+            "correct_answer": "Ferdinand Magellan"
+          },
+          {
+            "question": "Saan nagdaos ng Unang Misa si Magellan?",
+            "options": [
+              "Limasawa",
+              "Mactan",
+              "Cebu City",
+              "Manila"
+            ],
+            "correct_answer": "Limasawa"
+          },
+          {
+            "question": "Sino ang nagtatag ng unang permanenteng kolonya ng Espanya sa Pilipinas?",
+            "options": [
+              "Miguel Lopez de Legazpi",
+              "Ferdinand Magellan",
+              "Lapu-Lapu",
+              "Jose Rizal"
+            ],
+            "correct_answer": "Miguel Lopez de Legazpi"
+          },
+          {
+            "question": "Ano ang Moluccas?",
+            "options": [
+              "Isang grupo ng isla na mayaman sa espesya",
+              "Isang lungsod sa Pilipinas",
+              "Isang uri ng bangka",
+              "Isang kasunduan sa pagitan ng bansa"
+            ],
+            "correct_answer": "Isang grupo ng isla na mayaman sa espesya"
+          },
+          {
+            "question": "Ano ang Kasunduan ng Tordesillas?",
+            "options": [
+              "Sa Labanan sa Mactan laban kay Lapu-Lapu",
+              "Sa isang bagyo sa dagat noon",
+              "Sa Labanan sa Limasawa noon",
+              "Sa isang sakit na dinanas niya"
+            ],
+            "correct_answer": "Sa Labanan sa Mactan laban kay Lapu-Lapu"
+          },
+          {
+            "question": "Bakit namatay si Magellan sa Pilipinas?",
+            "options": [
+              "Sa Labanan sa Mactan laban kay Lapu-Lapu",
+              "Sa isang bagyo sa dagat",
+              "Sa Labanan sa Limasawa",
+              "Sa isang sakit noong panahong iyon"
+            ],
+            "correct_answer": "Sa Labanan sa Mactan laban kay Lapu-Lapu"
+          },
+          {
+            "question": "Bakit mahalaga ang espesya noong panahong iyon?",
+            "options": [
+              "Ginagamit itong pampalasa at pampreserba ng pagkain",
+              "Ginagamit itong panggamot lamang",
+              "Ginagamit itong pandekorasyon lamang",
+              "Wala itong halaga sa kalakalan"
+            ],
+            "correct_answer": "Ginagamit itong pampalasa at pampreserba ng pagkain"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng layunin nina Magellan at Legazpi?",
+            "options": [
+              "Naghanap ng ruta si Magellan",
+              "Nagtatag ng kolonya si Legazpi",
+              "Pareho silang naghanap ng ginto",
+              "Pareho silang nagtatag ng paaralan"
+            ],
+            "correct_answer": "Naghanap ng ruta si Magellan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'Glory' bilang dahilan ng pananakop?",
+            "options": [
+              "Paghahangad ng kapangyarihan at prestihiyo",
+              "Pagpapalaganap ng relihiyon",
+              "Pagkuha ng kayamanan",
+              "Pagtuklas ng bagong isla"
+            ],
+            "correct_answer": "Paghahangad ng kapangyarihan at prestihiyo"
+          },
+          {
+            "question": "Bakit itinuturing na simula ng tunay na pananakop ang pagdating ni Legazpi?",
+            "options": [
+              "Nagtatag siya ng permanenteng kolonya",
+              "Siya ang unang dumating sa Pilipinas",
+              "Siya lamang ang naghanap ng espesya",
+              "Wala siyang naitulong sa Espanya"
+            ],
+            "correct_answer": "Nagtatag siya ng permanenteng kolonya"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 📄 Friday Review — EPP (ICT) (Grade 5)\n\n- **Table** = organizes data in rows/columns | **SmartArt** = ready-made diagrams\n- **Bullets** = order doesn't matter | **Numbering** = order matters (steps)\n- **Page background** = keep it light so text stays readable\n- Resize images by dragging **corner handles**\n\nGreat ICT work! 💻",
+        "quiz": [
+          {
+            "question": "Which tool organizes information into rows and columns?",
+            "options": [
+              "A table",
+              "SmartArt",
+              "Bullets",
+              "Page background"
+            ],
+            "correct_answer": "A table"
+          },
+          {
+            "question": "When should you use numbering instead of bullets?",
+            "options": [
+              "When the order of items matters",
+              "When items have no particular order",
+              "When you want colored text",
+              "When inserting an image"
+            ],
+            "correct_answer": "When the order of items matters"
+          },
+          {
+            "question": "What are SmartArt graphics used for?",
+            "options": [
+              "Ready-made diagrams like flowcharts",
+              "Changing the page color",
+              "Correcting spelling errors",
+              "Adding page numbers"
+            ],
+            "correct_answer": "Ready-made diagrams like flowcharts"
+          },
+          {
+            "question": "How do you resize an image while keeping its proportions?",
+            "options": [
+              "Drag the corner handles",
+              "Drag the middle of the image",
+              "Delete and retype it",
+              "Change the font size"
+            ],
+            "correct_answer": "Drag the corner handles"
+          },
+          {
+            "question": "What should you consider when choosing a page background color?",
+            "options": [
+              "That text stays easy to read",
+              "That it matches your favorite color",
+              "That it is always black",
+              "That it hides all the text"
+            ],
+            "correct_answer": "That text stays easy to read"
+          },
+          {
+            "question": "You're listing steps to plant a seed. Which format is BEST?",
+            "options": [
+              "Numbering",
+              "Bullets",
+              "A table",
+              "A page background"
+            ],
+            "correct_answer": "Numbering"
+          },
+          {
+            "question": "You're comparing 3 fruits' vitamin content. Which format is BEST?",
+            "options": [
+              "A table",
+              "Bullets",
+              "Numbering",
+              "A page background"
+            ],
+            "correct_answer": "A table"
+          },
+          {
+            "question": "Where do you go to insert a table?",
+            "options": [
+              "Insert → Table",
+              "Design → Table",
+              "File → Table",
+              "View → Table"
+            ],
+            "correct_answer": "Insert → Table"
+          },
+          {
+            "question": "What does 'Wrap Text' do to an inserted image?",
+            "options": [
+              "Lets text flow around the image",
+              "Deletes the image completely",
+              "Changes the image's color",
+              "Rotates the image upside down"
+            ],
+            "correct_answer": "Lets text flow around the image"
+          },
+          {
+            "question": "Which tool makes a table easier to read?",
+            "options": [
+              "Borders",
+              "Bullets",
+              "Numbering",
+              "Page background"
+            ],
+            "correct_answer": "Borders"
+          },
+          {
+            "question": "You are listing materials where order doesn't matter. Which format fits BEST?",
+            "options": [
+              "Bullets",
+              "Numbering",
+              "A table",
+              "A page background"
+            ],
+            "correct_answer": "Bullets"
+          },
+          {
+            "question": "A student's page background is dark red with black text. What is the problem?",
+            "options": [
+              "The text becomes hard to read",
+              "The document loads too slowly",
+              "The table cannot be inserted",
+              "The image will not resize"
+            ],
+            "correct_answer": "The text becomes hard to read"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎨 Biyernes na Balik-Aral — MAPEH (Grade 5)\n\n- Panahon: **1521–1600**, Early Spanish Colonial Period\n- **Melody:** systems of writing melody, melodic direction\n- **Musical form:** strophic (paulit-ulit) · binary (A-B) · free-form\n- Theater/Visual Arts: paksang **panrelihiyon** — santo, eksena mula sa Biblia\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Anong panahon ang sinasaklaw ng aralin na ito?",
+            "options": [
+              "1521–1600",
+              "1900–1950",
+              "1898–1946",
+              "1565–1600 lamang"
+            ],
+            "correct_answer": "1521–1600"
+          },
+          {
+            "question": "Ano ang melodic direction?",
+            "options": [
+              "Pataas, pababa, o pantay ang daloy ng tono",
+              "Ang bilis ng musika",
+              "Ang lakas ng tunog",
+              "Ang instrumentong ginagamit"
+            ],
+            "correct_answer": "Pataas, pababa, o pantay ang daloy ng tono"
+          },
+          {
+            "question": "Ano ang strophic form?",
+            "options": [
+              "Paulit-ulit ang himig sa bawat saknong",
+              "Dalawang magkaibang bahagi",
+              "Walang tiyak na pattern",
+              "Isang beses lang ang himig"
+            ],
+            "correct_answer": "Paulit-ulit ang himig sa bawat saknong"
+          },
+          {
+            "question": "Bakit maraming larawan ng santo ang ginawa noong Early Spanish Colonial Period?",
+            "options": [
+              "Para ituro ang relihiyon sa mga tao",
+              "Para lang sa palamuti sa bahay",
+              "Para ipagbili sa ibang bansa",
+              "Wala itong layunin noon"
+            ],
+            "correct_answer": "Para ituro ang relihiyon sa mga tao"
+          },
+          {
+            "question": "Ano ang paksa ng theater noong panahong ito?",
+            "options": [
+              "Mga paksang panrelihiyon",
+              "Mga paksang pampolitika",
+              "Mga paksang pang-agham",
+              "Mga paksang pangnegosyo"
+            ],
+            "correct_answer": "Mga paksang panrelihiyon"
+          },
+          {
+            "question": "Ano ang binary form sa musika?",
+            "options": [
+              "Dalawang bahagi (A-B)",
+              "Isang bahagi lamang",
+              "Tatlong bahagi",
+              "Walang anyo"
+            ],
+            "correct_answer": "Dalawang bahagi (A-B)"
+          },
+          {
+            "question": "Ano ang pangunahing paksa ng visual arts noong panahong ito?",
+            "options": [
+              "Mga santo at eksena sa Biblia",
+              "Mga hayop na nasa gubat",
+              "Mga tanawin sa tabing-dagat",
+              "Mga larawan ng hari noon"
+            ],
+            "correct_answer": "Mga santo at eksena sa Biblia"
+          },
+          {
+            "question": "Ano ang midyum na ginamit sa visual arts noong panahong ito?",
+            "options": [
+              "Pintura at iskultura",
+              "Digital na larawan",
+              "Pelikula",
+              "Musika lamang"
+            ],
+            "correct_answer": "Pintura at iskultura"
+          },
+          {
+            "question": "Ano ang naging pagkakaiba ng pre-colonial at early Spanish colonial na sining?",
+            "options": [
+              "Maimpluwensiyahan ng Europa ang huli",
+              "Magkatulad silang lubos",
+              "Wala itong pagkakaiba",
+              "Pre-colonial ang mas modernong estilo"
+            ],
+            "correct_answer": "Maimpluwensiyahan ng Europa ang huli"
+          },
+          {
+            "question": "Ano ang systems of writing melody?",
+            "options": [
+              "Paraan ng pagsulat ng tono",
+              "Paraan ng pagsayaw",
+              "Paraan ng pagguhit",
+              "Paraan ng paglalaro"
+            ],
+            "correct_answer": "Paraan ng pagsulat ng tono"
+          },
+          {
+            "question": "Bakit ginamit ang larawan bilang 'aklat' para sa mga tao noon?",
+            "options": [
+              "Karamihan ay hindi marunong magbasa",
+              "Wala silang papel noong panahon iyon",
+              "Mas mura ang larawan kaysa aklat",
+              "Mas mabilis gumawa ng larawan"
+            ],
+            "correct_answer": "Karamihan ay hindi marunong magbasa"
+          },
+          {
+            "question": "Isang himno sa simbahan ay may parehong himig sa bawat saknong. Anong anyo ang ipinapakita nito?",
+            "options": [
+              "Strophic",
+              "Binary",
+              "Free-form",
+              "Walang anyo"
+            ],
+            "correct_answer": "Strophic"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 Biyernes na Balik-Aral — GMRC (Grade 5)\n\n- **Compassion** = pakikiramay + pagkilos upang tumulong\n- Sa maysakit: pakikinig, tulong sa simpleng gawain\n- Sa matanda: paggalang, pakikinig sa kuwento\n- Sa PWD: **itanong muna kung kailangan ng tulong**, igalang ang dignidad\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang compassion?",
+            "options": [
+              "Pakikiramay at pagkilos upang tumulong",
+              "Pagkaawa lamang sa iba",
+              "Pagpansin lamang sa sarili",
+              "Pag-iwas sa problema ng iba"
+            ],
+            "correct_answer": "Pakikiramay at pagkilos upang tumulong"
+          },
+          {
+            "question": "Paano matutulungan ang isang maysakit?",
+            "options": [
+              "Pakikinig sa kanilang pangangailangan",
+              "Pag-iwas sa kanilang kalagayan",
+              "Pananakot sa kanilang damdamin",
+              "Pagbabalewala sa kanilang hiling"
+            ],
+            "correct_answer": "Pakikinig sa kanilang pangangailangan"
+          },
+          {
+            "question": "Paano ipinapakita ang paggalang sa matanda?",
+            "options": [
+              "Pakikinig sa kanilang karanasan at kuwento",
+              "Pagtawag sa kanila ng bastos na pangalan",
+              "Pag-iwas sa kanilang tanong",
+              "Pagpigil sa kanilang pagsasalita"
+            ],
+            "correct_answer": "Pakikinig sa kanilang karanasan at kuwento"
+          },
+          {
+            "question": "Paano dapat tulungan ang isang PWD?",
+            "options": [
+              "Itanong muna kung kailangan nila ng tulong",
+              "Ipilit ang tulong kahit ayaw nila",
+              "Iwasan silang lapitan",
+              "Kaawaan sila palagi"
+            ],
+            "correct_answer": "Itanong muna kung kailangan nila ng tulong"
+          },
+          {
+            "question": "Ano ang dignidad?",
+            "options": [
+              "Karapat-dapat sa paggalang bilang tao",
+              "Kaunting halaga bilang tao",
+              "Kawalan ng karapatan",
+              "Pagkakaroon ng sakit"
+            ],
+            "correct_answer": "Karapat-dapat sa paggalang bilang tao"
+          },
+          {
+            "question": "Ang iyong Lolo ay may sakit sa tuhod. Ano ang mabuting gawin?",
+            "options": [
+              "Tulungan siyang maglakad",
+              "Iwasan siyang lapitan",
+              "Sabihan siyang mag-isa na lang",
+              "Ipagsawalang-bahala siya"
+            ],
+            "correct_answer": "Tulungan siyang maglakad"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng empatiya at praktikal na pagkilos?",
+            "options": [
+              "Empatiya ay unawa, pagkilos ay tulong",
+              "Magkapareho lang sila sa lahat",
+              "Walang kaugnayan ang dalawa",
+              "Ang pagkilos ay hindi mahalaga"
+            ],
+            "correct_answer": "Empatiya ay unawa, pagkilos ay tulong"
+          },
+          {
+            "question": "Bakit hindi dapat kaawaan ang isang PWD?",
+            "options": [
+              "Dapat silang igalang bilang tao",
+              "Wala silang karapatan sa paggalang",
+              "Mas mababa sila sa ibang tao",
+              "Wala itong epekto sa kanila"
+            ],
+            "correct_answer": "Dapat silang igalang bilang tao"
+          },
+          {
+            "question": "May kaklase kang naka-wheelchair. Paano mo siya matutulungan nang may paggalang?",
+            "options": [
+              "Itanong muna kung kailangan ng tulong",
+              "Ipilit ang tulong kaagad dito",
+              "Iwasan siyang lapitan agad",
+              "Sabihan siyang mahina siya"
+            ],
+            "correct_answer": "Itanong muna kung kailangan ng tulong"
+          },
+          {
+            "question": "Alin ang HINDI nagpapakita ng compassion?",
+            "options": [
+              "Pagbabalewala sa nangangailangan",
+              "Pagtulong sa maysakit",
+              "Pakikinig sa matanda",
+              "Paggalang sa PWD"
+            ],
+            "correct_answer": "Pagbabalewala sa nangangailangan"
+          },
+          {
+            "question": "Bakit mahalagang bisitahin ang isang maysakit na kamag-anak?",
+            "options": [
+              "Upang hindi sila makaramdam ng kalungkutan",
+              "Upang makuha ang kanilang gamit",
+              "Upang makapagpahinga tayo",
+              "Walang dahilan ito"
+            ],
+            "correct_answer": "Upang hindi sila makaramdam ng kalungkutan"
+          },
+          {
+            "question": "Isang matanda ang mahirap tumawid sa kalsada. Ano ang pinakamabuting gawin?",
+            "options": [
+              "Alukin siya ng tulong nang magalang",
+              "Dumaan na lamang agad",
+              "Sabihan siyang mag-isa na lang tumawid",
+              "Kunwaring hindi mo siya nakita"
+            ],
+            "correct_answer": "Alukin siya ng tulong nang magalang"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 Friday Review — EPP (AFA/FCS/IA) (Grade 5)\n\n- **Pananahi** = praktikal na kasanayan, pagtitipid, sining, hanapbuhay\n- **Kagamitan:** karayom, sinulid, gunting, metro, tailor's chalk, pin, thimble\n- **Thimble** = proteksyon sa daliri | **Tailor's chalk** = marka bago tahiin\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Bakit mahalaga ang pananahi bilang kasanayan?",
+            "options": [
+              "Nakatutulong ito sa pagtitipid at pagsasaayos ng damit",
+              "Wala itong kabuluhan sa pang-araw-araw",
+              "Ginagamit lamang ito sa paaralan",
+              "Hindi ito kailangan sa buhay"
+            ],
+            "correct_answer": "Nakatutulong ito sa pagtitipid at pagsasaayos ng damit"
+          },
+          {
+            "question": "Alin ang gamit ng karayom?",
+            "options": [
+              "Tumatahi ng tela",
+              "Sumusukat ng tela",
+              "Pumuputol ng tela",
+              "Naglalagay ng marka"
+            ],
+            "correct_answer": "Tumatahi ng tela"
+          },
+          {
+            "question": "Alin ang gamit ng gunting?",
+            "options": [
+              "Pumuputol ng tela",
+              "Tumatahi ng tela",
+              "Sumusukat ng tela",
+              "Nagmamarka ng tela"
+            ],
+            "correct_answer": "Pumuputol ng tela"
+          },
+          {
+            "question": "Bakit kailangan ang thimble?",
+            "options": [
+              "Pinoprotektahan ang daliri sa tusok",
+              "Sumusukat ng haba ng tela dito",
+              "Pumuputol ng makapal na tela",
+              "Naglalagay ng kulay sa tela"
+            ],
+            "correct_answer": "Pinoprotektahan ang daliri sa tusok"
+          },
+          {
+            "question": "Ano ang gamit ng tailor's chalk?",
+            "options": [
+              "Naglalagay ng marka bago tahiin",
+              "Pumuputol ng sinulid",
+              "Sumusukat ng temperatura",
+              "Tumatahi ng butones"
+            ],
+            "correct_answer": "Naglalagay ng marka bago tahiin"
+          },
+          {
+            "question": "Ano ang gamit ng metro (measuring tape) sa pananahi?",
+            "options": [
+              "Sumusukat ng tela",
+              "Pumuputol ng tela",
+              "Tumatahi ng tela",
+              "Nagdidikit ng tela"
+            ],
+            "correct_answer": "Sumusukat ng tela"
+          },
+          {
+            "question": "Bakit gumagamit ng pin bago tahiin ang tela?",
+            "options": [
+              "Pansamantalang pagdikit ng tela",
+              "Permanenteng pagtahi ng tela",
+              "Pagsukat ng haba ng tela",
+              "Pagputol ng tela"
+            ],
+            "correct_answer": "Pansamantalang pagdikit ng tela"
+          },
+          {
+            "question": "Bakit mahalaga ang marka bago tahiin?",
+            "options": [
+              "Gabay ito upang tumpak ang linya ng pagtahi",
+              "Pinapaganda lamang nito ang hitsura",
+              "Pinapabilis nito ang paggawa",
+              "Wala itong ginagawang tulong"
+            ],
+            "correct_answer": "Gabay ito upang tumpak ang linya ng pagtahi"
+          },
+          {
+            "question": "Alin ang unang gawin sa simpleng proyekto ng pananahi?",
+            "options": [
+              "Gabay ito sa tumpak na tahi",
+              "Pinapaganda lamang ang hitsura",
+              "Pinapabilis lamang ang gawa",
+              "Wala itong ginagawang tulong"
+            ],
+            "correct_answer": "Gabay ito sa tumpak na tahi"
+          },
+          {
+            "question": "Bakit mahalagang itago nang maayos ang karayom at pin?",
+            "options": [
+              "Upang maiwasan ang aksidenteng pagkatusok",
+              "Upang mapaganda ang kahon",
+              "Upang mabilis mabili ang bago",
+              "Walang partikular na dahilan"
+            ],
+            "correct_answer": "Upang maiwasan ang aksidenteng pagkatusok"
+          },
+          {
+            "question": "Paano makatutulong ang pananahi bilang hanapbuhay?",
+            "options": [
+              "Maaari itong maging pinagkakakitaan",
+              "Wala itong kinalaman sa kita",
+              "Ginagawa lamang ito bilang libangan",
+              "Hindi ito maaaring maging trabaho"
+            ],
+            "correct_answer": "Maaari itong maging pinagkakakitaan"
+          },
+          {
+            "question": "Punit ang manggas ng iyong damit. Anong hakbang ang unang gagawin?",
+            "options": [
+              "Markahan ang linya gamit ang tailor's chalk",
+              "Gupitin agad nang walang plano",
+              "Ihagis na lamang ang damit",
+              "Ipatahi sa ibang tao lagi"
+            ],
+            "correct_answer": "Markahan ang linya gamit ang tailor's chalk"
+          }
+        ]
+      }
+    }
+  }
+}

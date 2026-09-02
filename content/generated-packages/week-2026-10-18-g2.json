@@ -1,0 +1,1766 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-10-18",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# ✍️ English — Composing Texts About School and Community\n\nGrade 2, Week 19! Let's write about our own experiences. 📝\n\n## ✍️ Composing Texts\nWhen we **compose** a text, we put our own ideas into **sentences** about a topic we know well.\n\n## 🏫 Writing About School and Community\nWe can retell and express ideas about:\n- Our **classroom** and **school people** (teacher, principal, classmates)\n- Our **community** (barangay, neighbors, community helpers)\n\n## 📋 Using All Four Sentence Types\n| Sentence Type | Example |\n|---|---|\n| **Declarative** (tells) | \"My school is near my house.\" |\n| **Interrogative** (asks) | \"Where is your school?\" |\n| **Imperative** (commands) | \"Walk quietly in the hallway.\" |\n| **Exclamatory** (shows feeling) | \"I love my school!\" |\n\n## 🧠 Worked Example 1\n*Write a declarative sentence about your community.*\n- *\"Our barangay has a clean park.\"*\n\n## 🧠 Worked Example 2\n*Write an exclamatory sentence about school.*\n- *\"I made a new friend today!\"*\n\n## 💡 Why Composing Matters\nComposing our own texts helps us **share our ideas** clearly with others.\n\nGreat writing work! 🌟",
+        "quiz": [
+          {
+            "question": "What does it mean to compose a text?",
+            "options": [
+              "To put our own ideas into sentences about a topic",
+              "To copy a text word for word",
+              "To read a text out loud only",
+              "To draw a picture with no words"
+            ],
+            "correct_answer": "To put our own ideas into sentences about a topic"
+          },
+          {
+            "question": "Which sentence is DECLARATIVE (tells something)?",
+            "options": [
+              "My school is near my house.",
+              "Where is your school?",
+              "Walk quietly!",
+              "I love my school!"
+            ],
+            "correct_answer": "My school is near my house."
+          },
+          {
+            "question": "Which sentence is INTERROGATIVE (asks a question)?",
+            "options": [
+              "Where is your school?",
+              "My school is near my house.",
+              "Walk quietly in the hall.",
+              "I love my school!"
+            ],
+            "correct_answer": "Where is your school?"
+          },
+          {
+            "question": "Which sentence is IMPERATIVE (gives a command)?",
+            "options": [
+              "Walk quietly in the hallway.",
+              "Where is your school?",
+              "I love my school!",
+              "My school is near my house."
+            ],
+            "correct_answer": "Walk quietly in the hallway."
+          },
+          {
+            "question": "Which sentence is EXCLAMATORY (shows strong feeling)?",
+            "options": [
+              "I made a new friend today!",
+              "Where is your school?",
+              "My school is near my house.",
+              "Walk quietly in the hall."
+            ],
+            "correct_answer": "I made a new friend today!"
+          },
+          {
+            "question": "What can we write about when composing texts about school?",
+            "options": [
+              "Our teacher, principal, and classmates",
+              "Only the color of the walls",
+              "Only the school's address",
+              "Only the number of chairs"
+            ],
+            "correct_answer": "Our teacher, principal, and classmates"
+          },
+          {
+            "question": "What can we write about when composing texts about community?",
+            "options": [
+              "Our barangay and community helpers",
+              "Only foreign countries",
+              "Only outer space",
+              "Only made-up places"
+            ],
+            "correct_answer": "Our barangay and community helpers"
+          },
+          {
+            "question": "Write a declarative sentence about your community.",
+            "options": [
+              "Our barangay has a clean park.",
+              "Is our barangay clean?",
+              "Clean the park now!",
+              "Our barangay is so clean!"
+            ],
+            "correct_answer": "Our barangay has a clean park."
+          },
+          {
+            "question": "Why do we use different sentence types when writing?",
+            "options": [
+              "To express different kinds of ideas and feelings clearly",
+              "To make every sentence sound the same",
+              "To confuse the reader on purpose",
+              "To avoid using any punctuation"
+            ],
+            "correct_answer": "To express different kinds of ideas and feelings clearly"
+          },
+          {
+            "question": "What punctuation mark usually ends an exclamatory sentence?",
+            "options": [
+              "An exclamation point (!)",
+              "A question mark (?)",
+              "A comma (,)",
+              "No punctuation at all"
+            ],
+            "correct_answer": "An exclamation point (!)"
+          },
+          {
+            "question": "What punctuation mark usually ends an interrogative sentence?",
+            "options": [
+              "A question mark (?)",
+              "An exclamation point (!)",
+              "A period (.)",
+              "A comma (,)"
+            ],
+            "correct_answer": "A question mark (?)"
+          },
+          {
+            "question": "Why is it helpful to compose texts about our own experiences?",
+            "options": [
+              "It helps us share our ideas clearly with others",
+              "It makes writing harder to understand",
+              "It removes the need to think about the topic",
+              "It only works for made-up stories"
+            ],
+            "correct_answer": "It helps us share our ideas clearly with others"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Multiplication Models\n\nGrade 2, Week 19! Let's see multiplication in different ways. 🎨\n\n## 🍬 Groups Model\nWe can show multiplication using **equal groups** of objects.\n\n**Example:** 4 groups of 3 candies = 4 × 3 = 12 candies\n\n## 🔲 Array Model\nAn **array** shows multiplication using **rows and columns**.\n\n**Example:** 3 rows × 4 columns = 3 × 4 = 12 (arranged in a neat grid)\n\n## 🔢 Counting by Multiples\nWe can also multiply by **skip counting**: 3, 6, 9, 12 (counting by 3s, four times) = 4 × 3 = 12\n\n## ➡️ Number Line Model\nOn a **number line**, multiplication is shown as **equal jumps**.\n\n**Example:** 4 jumps of 3 on a number line = 0→3→6→9→12, showing 4 × 3 = 12\n\n## 🧠 Worked Example 1\n*Show 3 × 5 using groups.*\n- **3 groups of 5** = 5+5+5 = 15\n\n## 🧠 Worked Example 2\n*Show 2 × 6 using an array.*\n- **2 rows of 6** dots arranged in a grid = 12 dots total\n\n## 🧠 Worked Example 3\n*Show 5 × 2 on a number line.*\n- **5 jumps of 2**: 0→2→4→6→8→10\n\n## 💡 Why Different Models Matter\nUsing groups, arrays, and number lines helps us **see multiplication in different ways**, making it easier to understand.\n\nGreat multiplication modeling! ⭐",
+        "quiz": [
+          {
+            "question": "What does the groups model show for multiplication?",
+            "options": [
+              "Equal groups of objects",
+              "A single random object",
+              "Only subtraction",
+              "Only division"
+            ],
+            "correct_answer": "Equal groups of objects"
+          },
+          {
+            "question": "What does an array show?",
+            "options": [
+              "Rows and columns arranged in a grid",
+              "A single line of objects",
+              "A random scattering of objects",
+              "Only letters, no numbers"
+            ],
+            "correct_answer": "Rows and columns arranged in a grid"
+          },
+          {
+            "question": "4 groups of 3 candies equals how many candies?",
+            "options": [
+              "12",
+              "7",
+              "9",
+              "15"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "An array has 3 rows and 4 columns. How many total objects?",
+            "options": [
+              "12",
+              "7",
+              "9",
+              "16"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "What is skip counting by 3s, four times?",
+            "options": [
+              "3, 6, 9, 12",
+              "3, 5, 7, 9",
+              "1, 2, 3, 4",
+              "3, 6, 12, 24"
+            ],
+            "correct_answer": "3, 6, 9, 12"
+          },
+          {
+            "question": "On a number line, how is multiplication shown?",
+            "options": [
+              "As equal jumps",
+              "As random dots",
+              "As a single point only",
+              "As a straight line with no marks"
+            ],
+            "correct_answer": "As equal jumps"
+          },
+          {
+            "question": "5 jumps of 2 on a number line ends at what number?",
+            "options": [
+              "10",
+              "7",
+              "12",
+              "8"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "Show 3 × 5 using groups. What is the answer?",
+            "options": [
+              "15",
+              "8",
+              "12",
+              "20"
+            ],
+            "correct_answer": "15"
+          },
+          {
+            "question": "Show 2 × 6 using an array. How many total dots?",
+            "options": [
+              "12",
+              "8",
+              "10",
+              "14"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "Why do we use different models (groups, arrays, number lines) for multiplication?",
+            "options": [
+              "To see multiplication in different ways, making it easier to understand",
+              "To make multiplication seem more confusing than it is",
+              "Because only one single model is ever correct",
+              "To avoid learning any multiplication facts at all"
+            ],
+            "correct_answer": "To see multiplication in different ways, making it easier to understand"
+          },
+          {
+            "question": "What is 4 × 2 shown as equal jumps on a number line?",
+            "options": [
+              "4 jumps of 2, ending at 8",
+              "2 jumps of 4, ending at 6",
+              "4 jumps of 4, ending at 16",
+              "2 jumps of 2, ending at 4"
+            ],
+            "correct_answer": "4 jumps of 2, ending at 8"
+          },
+          {
+            "question": "An array has 5 rows and 2 columns. What multiplication fact does this show?",
+            "options": [
+              "5 × 2 = 10",
+              "5 × 5 = 25",
+              "2 × 2 = 4",
+              "5 + 2 = 7"
+            ],
+            "correct_answer": "5 × 2 = 10"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📝 Filipino — Pagbuo ng Maikling Talata\n\nGrade 2, Linggo 19! Alamin natin kung paano bumuo ng maikling talata. ✍️\n\n## 📄 Ano ang Maikling Talata?\nAng **maikling talata** ay binubuo ng **3 hanggang 5 pangungusap na magkakaugnay** tungkol sa isang paksa.\n\n## 🏗️ Mga Bahagi ng Talata\n| Bahagi | Nilalaman |\n|---|---|\n| **Simula** | ipinapakilala ang paksa |\n| **Gitna** | naglalahad ng detalye tungkol sa paksa |\n| **Wakas** | nagtatapos o nagbubuod ng ideya |\n\n## 🏫 Pagsulat Tungkol sa Sariling Paaralan\n**Halimbawa:** *\"Ang paaralan ko ay malinis at maganda. May maraming puno at halaman doon. Masaya akong mag-aral kasama ang aking mga kaibigan.\"*\n\n## 👩‍🏫 Pagsulat Tungkol sa Guro\n**Halimbawa:** *\"Ang aking guro ay mabait at matiyaga. Tinuturuan niya kami nang may pagmamahal. Natututo ako nang marami sa kanya.\"*\n\n## 🏘️ Pagsulat Tungkol sa Kapitbahayan\n**Halimbawa:** *\"Ang aming kapitbahayan ay tahimik at ligtas. Magkakakilala ang mga kapitbahay. Tumutulong sila sa isa't isa.\"*\n\n## 🧠 Worked Example\n*Alin ang simula ng talata: \"Ang paaralan ko ay malinis\" o \"Masaya akong mag-aral doon\"?*\n- **\"Ang paaralan ko ay malinis\"** — ito ang nagpapakilala sa paksa.\n\n## 💡 Bakit Mahalaga Ito?\nAng pagbuo ng maikling talata ay tumutulong upang **maipahayag nang malinaw** ang ating mga ideya.\n\nMagaling sa pagsulat! 🌟",
+        "quiz": [
+          {
+            "question": "Ilang pangungusap ang binubuo ng maikling talata?",
+            "options": [
+              "3 hanggang 5 pangungusap",
+              "1 pangungusap lamang",
+              "10 pangungusap",
+              "Walang tiyak na bilang"
+            ],
+            "correct_answer": "3 hanggang 5 pangungusap"
+          },
+          {
+            "question": "Ano ang simula ng isang talata?",
+            "options": [
+              "Ipinapakilala ang paksa",
+              "Nagtatapos ng ideya",
+              "Naglalahad ng detalye",
+              "Ang huling salita lamang"
+            ],
+            "correct_answer": "Ipinapakilala ang paksa"
+          },
+          {
+            "question": "Ano ang gitna ng isang talata?",
+            "options": [
+              "Naglalahad ng detalye tungkol sa paksa",
+              "Ipinapakilala lamang ang paksa",
+              "Nagtatapos ng talata",
+              "Ang unang salita lamang"
+            ],
+            "correct_answer": "Naglalahad ng detalye tungkol sa paksa"
+          },
+          {
+            "question": "Ano ang wakas ng isang talata?",
+            "options": [
+              "Nagtatapos o nagbubuod ng ideya",
+              "Ipinapakilala ang paksa",
+              "Naglalahad lamang ng detalye",
+              "Ang pamagat ng talata"
+            ],
+            "correct_answer": "Nagtatapos o nagbubuod ng ideya"
+          },
+          {
+            "question": "\"Ang paaralan ko ay malinis at maganda.\" Ano itong bahagi ng talata?",
+            "options": [
+              "Simula",
+              "Gitna",
+              "Wakas",
+              "Pamagat"
+            ],
+            "correct_answer": "Simula"
+          },
+          {
+            "question": "Alin ang halimbawa ng pangungusap tungkol sa guro?",
+            "options": [
+              "Ang aking guro ay mabait at matiyaga.",
+              "Ang paaralan ko ay malinis.",
+              "Tahimik ang aming kapitbahayan.",
+              "Masaya ang pista sa barangay."
+            ],
+            "correct_answer": "Ang aking guro ay mabait at matiyaga."
+          },
+          {
+            "question": "Alin ang halimbawa ng pangungusap tungkol sa kapitbahayan?",
+            "options": [
+              "Ang aming kapitbahayan ay tahimik at ligtas.",
+              "Ang aking guro ay mabait sa amin.",
+              "Ang paaralan ko ay napakaganda.",
+              "Masaya akong mag-aral araw-araw."
+            ],
+            "correct_answer": "Ang aming kapitbahayan ay tahimik at ligtas."
+          },
+          {
+            "question": "Bakit mahalagang magkaugnay ang mga pangungusap sa isang talata?",
+            "options": [
+              "Upang malinaw na maipahayag ang ideya",
+              "Upang mahaba lamang ang buong talata",
+              "Upang malito ang bumabasang tao",
+              "Walang tunay na dahilan para dito"
+            ],
+            "correct_answer": "Upang malinaw na maipahayag ang ideya"
+          },
+          {
+            "question": "Ano ang unang bahaging isusulat kapag gagawa ng talata?",
+            "options": [
+              "Ang simula na nagpapakilala sa paksa",
+              "Ang wakas na lamang",
+              "Ang gitna na lamang",
+              "Kahit anong bahagi lang"
+            ],
+            "correct_answer": "Ang simula na nagpapakilala sa paksa"
+          },
+          {
+            "question": "Bakit mahalaga ang pagbuo ng maikling talata?",
+            "options": [
+              "Tumutulong ito upang maipahayag nang malinaw ang ating ideya",
+              "Wala itong kabuluhan sa pag-aaral",
+              "Ginagawa lamang ito para sa gantimpala",
+              "Nakakalito lamang ito sa mag-aaral"
+            ],
+            "correct_answer": "Tumutulong ito upang maipahayag nang malinaw ang ating ideya"
+          },
+          {
+            "question": "Alin ang maaaring maging paksa ng isang talata?",
+            "options": [
+              "Sariling paaralan, guro, o kapitbahayan",
+              "Isang bansa na hindi umiiral",
+              "Isang bagay na hindi natin alam",
+              "Walang paksa kailanman"
+            ],
+            "correct_answer": "Sariling paaralan, guro, o kapitbahayan"
+          },
+          {
+            "question": "\"Natututo ako nang marami sa kanya.\" Alin ito sa talata: simula, gitna, o wakas?",
+            "options": [
+              "Wakas",
+              "Simula",
+              "Gitna",
+              "Pamagat"
+            ],
+            "correct_answer": "Wakas"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌱 Science — Simple Life Cycles\n\nGrade 2, Week 19! Let's follow the journey of plants and animals as they grow. 🦋\n\n## 🌱 A Plant's Life Cycle\nA plant's journey: **Seed → Seedling → Full-grown plant**\n\n1. **Seed** — the very beginning, planted in soil\n2. **Seedling** — a young plant with small leaves, just starting to grow\n3. **Full-grown plant** — the mature plant that can make flowers, fruits, and new seeds\n\n## 🐣 An Animal's Life Cycle: Egg to Chick\n1. **Egg** — the beginning of a chicken's life\n2. **Chick** — a baby chicken hatches from the egg\n3. **Adult chicken** — the chick grows into a full-grown chicken\n\n## 🐛 An Animal's Life Cycle: Caterpillar to Butterfly\n1. **Egg** — a tiny egg laid on a leaf\n2. **Caterpillar** — hatches and eats leaves to grow\n3. **Cocoon/Chrysalis** — the caterpillar changes inside a cocoon\n4. **Butterfly** — a beautiful butterfly emerges\n\n## 🧠 Worked Example 1\n*What comes first in a plant's life cycle?*\n- The **seed** — it is planted first before anything else grows.\n\n## 🧠 Worked Example 2\n*What happens between \"caterpillar\" and \"butterfly\"?*\n- The caterpillar forms a **cocoon/chrysalis**, where it changes into a butterfly.\n\n## 💡 Why Life Cycles Matter\nLearning about life cycles helps us understand how **living things grow and change** over time.\n\nGreat life cycle learning! 🌟",
+        "quiz": [
+          {
+            "question": "What is the first stage of a plant's life cycle?",
+            "options": [
+              "Seed",
+              "Seedling",
+              "Full-grown plant",
+              "Flower"
+            ],
+            "correct_answer": "Seed"
+          },
+          {
+            "question": "What comes after \"seed\" in a plant's life cycle?",
+            "options": [
+              "Seedling",
+              "Full-grown plant",
+              "Fruit",
+              "Root"
+            ],
+            "correct_answer": "Seedling"
+          },
+          {
+            "question": "What is a seedling?",
+            "options": [
+              "A young plant with small leaves, just starting to grow",
+              "A fully grown tree with many branches",
+              "A type of seed still in the ground",
+              "A dried-up plant that has died"
+            ],
+            "correct_answer": "A young plant with small leaves, just starting to grow"
+          },
+          {
+            "question": "What is the first stage of a chicken's life cycle?",
+            "options": [
+              "Egg",
+              "Chick",
+              "Adult chicken",
+              "Feather"
+            ],
+            "correct_answer": "Egg"
+          },
+          {
+            "question": "What comes after \"egg\" in a chicken's life cycle?",
+            "options": [
+              "Chick",
+              "Adult chicken",
+              "Full-grown plant",
+              "Seedling"
+            ],
+            "correct_answer": "Chick"
+          },
+          {
+            "question": "What is the first stage of a butterfly's life cycle?",
+            "options": [
+              "Egg",
+              "Caterpillar",
+              "Cocoon",
+              "Butterfly"
+            ],
+            "correct_answer": "Egg"
+          },
+          {
+            "question": "What happens between \"caterpillar\" and \"butterfly\"?",
+            "options": [
+              "The caterpillar forms a cocoon/chrysalis",
+              "The caterpillar becomes an egg again",
+              "Nothing happens at all",
+              "The caterpillar becomes a chick"
+            ],
+            "correct_answer": "The caterpillar forms a cocoon/chrysalis"
+          },
+          {
+            "question": "What does a caterpillar do before forming a cocoon?",
+            "options": [
+              "Eats leaves to grow",
+              "Flies around looking for food",
+              "Lays its own eggs",
+              "Builds a nest in a tree"
+            ],
+            "correct_answer": "Eats leaves to grow"
+          },
+          {
+            "question": "What is the last stage of a plant's life cycle mentioned this week?",
+            "options": [
+              "Full-grown plant",
+              "Seed",
+              "Seedling",
+              "Root"
+            ],
+            "correct_answer": "Full-grown plant"
+          },
+          {
+            "question": "Why is learning about life cycles important?",
+            "options": [
+              "It helps us understand how living things grow and change",
+              "It has no real use for learning",
+              "It only matters for plants, not animals",
+              "It only matters for animals, not plants"
+            ],
+            "correct_answer": "It helps us understand how living things grow and change"
+          },
+          {
+            "question": "What can a full-grown plant make that a seedling cannot?",
+            "options": [
+              "Flowers, fruits, and new seeds",
+              "Only more soil",
+              "Only more water",
+              "Only more sunlight"
+            ],
+            "correct_answer": "Flowers, fruits, and new seeds"
+          },
+          {
+            "question": "Which life cycle involves a cocoon or chrysalis stage?",
+            "options": [
+              "Caterpillar to butterfly",
+              "Egg to chick",
+              "Seed to plant",
+              "None of these have a cocoon stage"
+            ],
+            "correct_answer": "Caterpillar to butterfly"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🎨 Makabansa — Pagsasabuhay ng Ating Natutuhang Kultura\n\nGrade 2, Linggo 19! Balikan natin ang lahat ng natutuhan tungkol sa kultura. 🌟\n\n## 🔄 Balik-Aral: Ang Kultura\nNatutunan na natin:\n- Ang **kahulugan ng kultura** — paraan ng pamumuhay, paniniwala, at kaugalian\n- **Materyal na kultura** (nakikita/nahahawakan) at **di-materyal na kultura** (paniniwala/kaugalian)\n- Ang **papel ng kultura** sa paghubog ng ating pagkakakilanlan\n- Ang **pagpapahalaga sa kultura** ng komunidad\n\n## 📋 Paglalapat ng Natutuhan\nNgayong linggo, isasabuhay natin ang mga natutuhang ito sa pamamagitan ng pagsusuri ng mga sitwasyon sa totoong buhay.\n\n## 🧠 Halimbawa 1\n*Nakita mo ang iyong lolo na gumagawa ng basket mula sa kawayan. Ano itong halimbawa ng kultura?*\n- Ito ay **materyal na kultura** — isang kasanayang naipapasa mula sa henerasyon patungo sa henerasyon.\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang alamin ang kultura ng ating komunidad?*\n- Dahil ito ang **humuhubog sa ating pagkakakilanlan** bilang mga Pilipino.\n\n## 🧠 Halimbawa 3\n*Paano mo maipapakita ang pagpapahalaga sa kultura ng iyong komunidad?*\n- Sa pamamagitan ng **paglahok sa mga gawaing pangkultura** at paggalang sa mga tradisyon.\n\n## 💡 Kongklusyon\nAng kultura ay bahagi ng ating **pang-araw-araw na buhay** — dapat natin itong pahalagahan at ipagmalaki.\n\nMagaling sa Makabansa! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang kultura?",
+            "options": [
+              "Paraan ng pamumuhay, paniniwala, at kaugalian",
+              "Isang uri lamang ng pagkain natin",
+              "Isang uri lamang ng laruan natin",
+              "Isang uri lamang ng damit natin"
+            ],
+            "correct_answer": "Paraan ng pamumuhay, paniniwala, at kaugalian"
+          },
+          {
+            "question": "Ano ang materyal na kultura?",
+            "options": [
+              "Kultura na nakikita o nahahawakan",
+              "Kultura na hindi nakikita",
+              "Isang paniniwala lamang",
+              "Isang kaugalian lamang"
+            ],
+            "correct_answer": "Kultura na nakikita o nahahawakan"
+          },
+          {
+            "question": "Ano ang di-materyal na kultura?",
+            "options": [
+              "Kultura na hindi nakikita, tulad ng paniniwala",
+              "Kultura na nakikita at nahahawakan",
+              "Isang uri ng pagkain lamang",
+              "Isang uri ng gusali lamang"
+            ],
+            "correct_answer": "Kultura na hindi nakikita, tulad ng paniniwala"
+          },
+          {
+            "question": "Nakita mo ang iyong lolo na gumagawa ng basket mula sa kawayan. Ano itong halimbawa ng kultura?",
+            "options": [
+              "Materyal na kultura",
+              "Di-materyal na kultura",
+              "Wala itong kaugnayan sa kultura",
+              "Isang bagong imbensyon lamang"
+            ],
+            "correct_answer": "Materyal na kultura"
+          },
+          {
+            "question": "Bakit mahalagang alamin ang kultura ng ating komunidad?",
+            "options": [
+              "Dahil ito ang humuhubog sa ating pagkakakilanlan",
+              "Dahil wala itong anumang kabuluhan",
+              "Dahil ipinag-uutos lamang ito ng guro",
+              "Dahil hindi ito talaga importante"
+            ],
+            "correct_answer": "Dahil ito ang humuhubog sa ating pagkakakilanlan"
+          },
+          {
+            "question": "Paano mo maipapakita ang pagpapahalaga sa kultura ng iyong komunidad?",
+            "options": [
+              "Sa paglahok sa mga gawaing pangkultura",
+              "Sa hindi pagpansin sa tradisyon",
+              "Sa pagsasabing walang saysay ito",
+              "Sa pag-iwas sa lahat ng gawain"
+            ],
+            "correct_answer": "Sa paglahok sa mga gawaing pangkultura"
+          },
+          {
+            "question": "Ano ang halimbawa ng di-materyal na kultura?",
+            "options": [
+              "Isang paniniwala o tradisyon",
+              "Isang bahay na kawayan",
+              "Isang piraso ng damit",
+              "Isang kagamitang bakal"
+            ],
+            "correct_answer": "Isang paniniwala o tradisyon"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang kultura sa pang-araw-araw na buhay?",
+            "options": [
+              "Dahil bahagi ito ng ating pagkakakilanlan bilang tao",
+              "Dahil ginagamit lamang ito sa pista",
+              "Dahil hindi ito ginagamit sa totoong buhay",
+              "Dahil bihira lamang itong makita"
+            ],
+            "correct_answer": "Dahil bahagi ito ng ating pagkakakilanlan bilang tao"
+          },
+          {
+            "question": "Sino ang karaniwang nagtuturo ng kultura sa mga bata?",
+            "options": [
+              "Mga nakatatanda sa pamilya at komunidad",
+              "Mga estrangherong hindi kilala",
+              "Walang nagtuturo nito kailanman",
+              "Mga hayop lamang"
+            ],
+            "correct_answer": "Mga nakatatanda sa pamilya at komunidad"
+          },
+          {
+            "question": "Ano ang dapat gawin natin sa kultura ng ating komunidad?",
+            "options": [
+              "Pahalagahan at ipagmalaki ito",
+              "Kalimutan ito agad",
+              "Iwasan itong pag-usapan",
+              "Sabihing walang saysay ito"
+            ],
+            "correct_answer": "Pahalagahan at ipagmalaki ito"
+          },
+          {
+            "question": "Ano ang natutuhan natin tungkol sa papel ng kultura sa ating buhay?",
+            "options": [
+              "Humuhubog ito sa ating pagkakakilanlan",
+              "Wala itong papel sa ating buhay",
+              "Nagpapabagal lamang ito ng pag-unlad",
+              "Ginagamit lamang ito noong unang panahon"
+            ],
+            "correct_answer": "Humuhubog ito sa ating pagkakakilanlan"
+          },
+          {
+            "question": "Ano ang pangkalahatang aral ng ating pag-aaral tungkol sa kultura ngayong term?",
+            "options": [
+              "Ang kultura ay bahagi ng ating pang-araw-araw na buhay",
+              "Ang kultura ay hindi na kailangan pag-aralan",
+              "Ang kultura ay para lamang sa matatanda",
+              "Ang kultura ay walang kaugnayan sa atin"
+            ],
+            "correct_answer": "Ang kultura ay bahagi ng ating pang-araw-araw na buhay"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🎨 Computer — Coloring and Drawing Simple Pictures\n\nGrade 2, Week 19! Let's practice choosing colors and fixing mistakes. 🖍️\n\n## 🎨 Choosing Colors\nWhen drawing on the computer, we can **choose colors** from a color palette to make our pictures colorful and interesting.\n\n## 🧽 Using the Eraser Tool Correctly\nThe **eraser tool** helps us fix mistakes without deleting our whole drawing.\n\n**Tips for using the eraser:**\n1. Click and select the eraser tool\n2. Carefully erase only the part you want to fix\n3. Continue drawing after fixing the mistake\n\n## 🖌️ Drawing Simple Pictures\nWe can draw simple pictures like a house, a sun, or a flower — using the pencil/brush tool and adding color with the fill tool or by coloring carefully.\n\n## 🧠 Worked Example 1\n*You drew a house but colored the roof the wrong color. What should you do?*\n- Use the **eraser tool** to remove the wrong color, then use the **fill tool** to color it correctly.\n\n## 🧠 Worked Example 2\n*You want your flower drawing to have a yellow center and pink petals. What tool helps you do this?*\n- The **fill/paint bucket tool** — click each part and choose the right color.\n\n## 💡 Why Practice Matters\nPracticing coloring and fixing mistakes helps us become **more careful and skilled** at using drawing programs.\n\nGreat drawing practice! 🌟",
+        "quiz": [
+          {
+            "question": "What can we choose from a color palette when drawing?",
+            "options": [
+              "Colors to make our pictures colorful",
+              "Only the colors black and white",
+              "Only the eraser tool to use",
+              "Only the text fonts available"
+            ],
+            "correct_answer": "Colors to make our pictures colorful"
+          },
+          {
+            "question": "What is the first step in using the eraser tool correctly?",
+            "options": [
+              "Click and select the eraser tool",
+              "Delete the whole picture immediately",
+              "Save the file right away",
+              "Turn off the computer"
+            ],
+            "correct_answer": "Click and select the eraser tool"
+          },
+          {
+            "question": "You drew a house but colored the roof the wrong color. What should you do?",
+            "options": [
+              "Erase the wrong color, then fill it correctly",
+              "Delete the entire drawing and start over",
+              "Leave the mistake as it is",
+              "Turn off the computer immediately"
+            ],
+            "correct_answer": "Erase the wrong color, then fill it correctly"
+          },
+          {
+            "question": "You want a yellow center and pink petals on your flower. What tool helps?",
+            "options": [
+              "The fill/paint bucket tool",
+              "Only the eraser tool",
+              "Only the pencil tool",
+              "The shapes tool only"
+            ],
+            "correct_answer": "The fill/paint bucket tool"
+          },
+          {
+            "question": "What simple pictures can we draw using the pencil/brush tool?",
+            "options": [
+              "A house, a sun, or a flower",
+              "Only complicated machines",
+              "Only photographs",
+              "Only maps of the world"
+            ],
+            "correct_answer": "A house, a sun, or a flower"
+          },
+          {
+            "question": "Why should we carefully erase only the part we want to fix?",
+            "options": [
+              "So we don't accidentally delete other parts of our drawing",
+              "So the whole picture disappears",
+              "So we can save time by erasing everything",
+              "So the computer works faster"
+            ],
+            "correct_answer": "So we don't accidentally delete other parts of our drawing"
+          },
+          {
+            "question": "What should you do after fixing a mistake with the eraser?",
+            "options": [
+              "Continue drawing",
+              "Turn off the computer",
+              "Close the program without saving",
+              "Delete the whole picture"
+            ],
+            "correct_answer": "Continue drawing"
+          },
+          {
+            "question": "Why is practicing coloring and fixing mistakes important?",
+            "options": [
+              "It helps us become more careful and skilled at drawing",
+              "It has no benefit at all",
+              "It only matters for professional artists",
+              "It makes drawing pointless"
+            ],
+            "correct_answer": "It helps us become more careful and skilled at drawing"
+          },
+          {
+            "question": "What tool would you use to draw the outline of a flower?",
+            "options": [
+              "Pencil/brush tool",
+              "Eraser tool",
+              "Fill tool only",
+              "Save button"
+            ],
+            "correct_answer": "Pencil/brush tool"
+          },
+          {
+            "question": "What happens if you use the eraser tool carelessly?",
+            "options": [
+              "You might accidentally remove parts you wanted to keep",
+              "Your drawing automatically becomes perfect",
+              "Nothing changes in your drawing",
+              "The computer will turn off"
+            ],
+            "correct_answer": "You might accidentally remove parts you wanted to keep"
+          },
+          {
+            "question": "Which tool lets you quickly add color inside a shape you drew?",
+            "options": [
+              "Fill/paint bucket tool",
+              "Eraser tool",
+              "Save tool",
+              "Undo tool only"
+            ],
+            "correct_answer": "Fill/paint bucket tool"
+          },
+          {
+            "question": "Why might you choose different colors for different parts of your drawing?",
+            "options": [
+              "To make the picture more colorful and interesting",
+              "To make the picture harder to see",
+              "Because only one color is ever allowed",
+              "Because color does not matter at all"
+            ],
+            "correct_answer": "To make the picture more colorful and interesting"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🙏 GMRC — Gawaing Panrelihiyoso ng Pamilya\n\nGrade 2, Linggo 19! Pagpapahalaga: **Obedience (Pagsunod)**. 🌟\n\n## ⛪ Paggalang sa Gawaing Panrelihiyoso ng Pamilya\nAng bawat pamilya ay may **sariling gawaing panrelihiyoso** — tulad ng pagsimba, pananalangin sa hapag-kainan, o pagdiriwang ng mga pista.\n\n**Halimbawa:** simbahan, moske, o templo; panalangin bago kumain; pagdiriwang ng Pasko o iba pang pista\n\n## 🙇 Pagsunod bilang Tanda ng Pananampalataya\nAng **kusang-loob na paglahok** sa mga gawaing panrelihiyoso ng pamilya ay tanda ng **pagsunod at pananampalataya**.\n\n## 🧠 Halimbawa 1\n*Bawat gabi, may panalangin ang iyong pamilya bago kumain. Ano ang tamang gawin mo?*\n- **Sumali nang may paggalang** — ipinapakita nito ang pagsunod sa tradisyon ng pamilya.\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang igalang ang gawaing panrelihiyoso ng ibang pamilya, kahit iba ito sa atin?*\n- Dahil ang **bawat pamilya ay may karapatang** sumunod sa sariling paniniwala.\n\n## 💛 Bunga ng Pagsunod sa Gawaing Panrelihiyoso\n- Nagpapalakas ng **ugnayan** ng pamilya\n- Nagtuturo ng **disiplina at respeto**\n- Nagpapatibay ng **pananampalataya**\n\n## 💡 Kongklusyon\nAng pagsunod sa mga gawaing panrelihiyoso ng pamilya, kahit simple lamang, ay nagpapakita ng **paggalang at pananampalataya**.\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang halimbawa ng gawaing panrelihiyoso ng pamilya?",
+            "options": [
+              "Panalangin bago kumain",
+              "Paglalaro ng video game",
+              "Panonood ng TV buong araw",
+              "Pagtulog buong araw"
+            ],
+            "correct_answer": "Panalangin bago kumain"
+          },
+          {
+            "question": "Bawat gabi, may panalangin ang iyong pamilya bago kumain. Ano ang tamang gawin mo?",
+            "options": [
+              "Sumali nang may paggalang",
+              "Umalis sa mesa agad",
+              "Manood ng TV habang nananalangin sila",
+              "Kausapin ang kaibigan sa telepono"
+            ],
+            "correct_answer": "Sumali nang may paggalang"
+          },
+          {
+            "question": "Bakit mahalagang igalang ang gawaing panrelihiyoso ng ibang pamilya?",
+            "options": [
+              "Dahil bawat pamilya ay may karapatang sumunod sa sariling paniniwala",
+              "Dahil pareho ang paniniwala ng bawat pamilya sa mundo",
+              "Dahil ipinagbabawal ang ibang uri ng paniniwala",
+              "Dahil hindi mahalaga ang paniniwala ng ibang pamilya"
+            ],
+            "correct_answer": "Dahil bawat pamilya ay may karapatang sumunod sa sariling paniniwala"
+          },
+          {
+            "question": "Ano ang ipinapakita ng kusang-loob na paglahok sa gawaing panrelihiyoso?",
+            "options": [
+              "Pagsunod at pananampalataya",
+              "Kawalan ng interes",
+              "Pagsuway sa pamilya",
+              "Kapabayaan"
+            ],
+            "correct_answer": "Pagsunod at pananampalataya"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Obedience (Pagsunod)",
+              "Honesty",
+              "Masipag",
+              "Pakikiisa"
+            ],
+            "correct_answer": "Obedience (Pagsunod)"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagsunod sa gawaing panrelihiyoso ng pamilya?",
+            "options": [
+              "Nagpapalakas ng ugnayan ng pamilya",
+              "Nagpapahina ng ugnayan ng pamilya",
+              "Walang epekto ito sa pamilya",
+              "Nagdudulot lamang ito ng away"
+            ],
+            "correct_answer": "Nagpapalakas ng ugnayan ng pamilya"
+          },
+          {
+            "question": "Alin ang halimbawa ng lugar na ginagamit sa pagsamba?",
+            "options": [
+              "Simbahan, moske, o templo",
+              "Palengke o tindahan",
+              "Palaruan lamang",
+              "Ospital lamang"
+            ],
+            "correct_answer": "Simbahan, moske, o templo"
+          },
+          {
+            "question": "Ano ang natutuhan natin mula sa pagsunod sa gawaing panrelihiyoso ng pamilya?",
+            "options": [
+              "Disiplina at respeto",
+              "Kawalang-galang",
+              "Pagmamataas",
+              "Kapabayaan"
+            ],
+            "correct_answer": "Disiplina at respeto"
+          },
+          {
+            "question": "Bakit dapat sumunod ang bata sa gawaing panrelihiyoso ng pamilya kahit minsan ayaw niya?",
+            "options": [
+              "Nagpapakita ito ng paggalang at pananampalataya",
+              "Dahil wala siyang ibang gagawin",
+              "Dahil kailangan niya itong gawin lamang",
+              "Walang tunay na dahilan"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang at pananampalataya"
+          },
+          {
+            "question": "Ano ang halimbawa ng pagdiriwang na panrelihiyoso ng pamilya?",
+            "options": [
+              "Pasko o iba pang pista",
+              "Kaarawan ng kaibigan",
+              "Araw ng pasukan",
+              "Bakasyon sa dagat"
+            ],
+            "correct_answer": "Pasko o iba pang pista"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang panalangin bago kumain?",
+            "options": [
+              "Ito ay bahagi ng tradisyon at pananampalataya ng pamilya",
+              "Wala itong kahulugan sa pamilya",
+              "Ginagawa lamang ito para masarap ang pagkain",
+              "Hindi na kailangan ito ngayon"
+            ],
+            "correct_answer": "Ito ay bahagi ng tradisyon at pananampalataya ng pamilya"
+          },
+          {
+            "question": "Isang bata ang laging tumutulong sa paghahanda ng gawaing panrelihiyoso ng kanilang pamilya. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagsunod at pananampalataya",
+              "Kawalan ng pakialam",
+              "Pagsuway sa magulang",
+              "Kapabayaan sa gawain"
+            ],
+            "correct_answer": "Pagsunod at pananampalataya"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# ✍️ Friday Review — English (Grade 2)\n\n- **Declarative, interrogative, imperative, exclamatory** sentences\n- Compose texts about school and community\n\nGreat writing work! 🌟",
+        "quiz": [
+          {
+            "question": "What does it mean to compose a text?",
+            "options": [
+              "To put our own ideas into sentences about a topic",
+              "To copy a text word for word",
+              "To read a text out loud only",
+              "To draw a picture with no words"
+            ],
+            "correct_answer": "To put our own ideas into sentences about a topic"
+          },
+          {
+            "question": "Which sentence is DECLARATIVE (tells something)?",
+            "options": [
+              "My school is near my house.",
+              "Where is your school?",
+              "Walk quietly!",
+              "I love my school!"
+            ],
+            "correct_answer": "My school is near my house."
+          },
+          {
+            "question": "Which sentence is INTERROGATIVE (asks a question)?",
+            "options": [
+              "Where is your school?",
+              "My school is near my house.",
+              "Walk quietly in the hall.",
+              "I love my school!"
+            ],
+            "correct_answer": "Where is your school?"
+          },
+          {
+            "question": "Which sentence is IMPERATIVE (gives a command)?",
+            "options": [
+              "Walk quietly in the hallway.",
+              "Where is your school?",
+              "I love my school!",
+              "My school is near my house."
+            ],
+            "correct_answer": "Walk quietly in the hallway."
+          },
+          {
+            "question": "Which sentence is EXCLAMATORY (shows strong feeling)?",
+            "options": [
+              "I made a new friend today!",
+              "Where is your school?",
+              "My school is near my house.",
+              "Walk quietly in the hall."
+            ],
+            "correct_answer": "I made a new friend today!"
+          },
+          {
+            "question": "What can we write about when composing texts about school?",
+            "options": [
+              "Our teacher, principal, and classmates",
+              "Only the color of the walls",
+              "Only the school's address",
+              "Only the number of chairs"
+            ],
+            "correct_answer": "Our teacher, principal, and classmates"
+          },
+          {
+            "question": "What can we write about when composing texts about community?",
+            "options": [
+              "Our barangay and community helpers",
+              "Only foreign countries",
+              "Only outer space",
+              "Only made-up places"
+            ],
+            "correct_answer": "Our barangay and community helpers"
+          },
+          {
+            "question": "Write a declarative sentence about your community.",
+            "options": [
+              "Our barangay has a clean park.",
+              "Is our barangay clean?",
+              "Clean the park now!",
+              "Our barangay is so clean!"
+            ],
+            "correct_answer": "Our barangay has a clean park."
+          },
+          {
+            "question": "Why do we use different sentence types when writing?",
+            "options": [
+              "To express different kinds of ideas and feelings clearly",
+              "To make every sentence sound the same",
+              "To confuse the reader on purpose",
+              "To avoid using any punctuation"
+            ],
+            "correct_answer": "To express different kinds of ideas and feelings clearly"
+          },
+          {
+            "question": "What punctuation mark usually ends an exclamatory sentence?",
+            "options": [
+              "An exclamation point (!)",
+              "A question mark (?)",
+              "A comma (,)",
+              "No punctuation at all"
+            ],
+            "correct_answer": "An exclamation point (!)"
+          },
+          {
+            "question": "What punctuation mark usually ends an interrogative sentence?",
+            "options": [
+              "A question mark (?)",
+              "An exclamation point (!)",
+              "A period (.)",
+              "A comma (,)"
+            ],
+            "correct_answer": "A question mark (?)"
+          },
+          {
+            "question": "Why is it helpful to compose texts about our own experiences?",
+            "options": [
+              "It helps us share our ideas clearly with others",
+              "It makes writing harder to understand",
+              "It removes the need to think about the topic",
+              "It only works for made-up stories"
+            ],
+            "correct_answer": "It helps us share our ideas clearly with others"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 2)\n\n- Multiplication shown as **groups, arrays, or number line jumps**\n\nGreat multiplication modeling! ⭐",
+        "quiz": [
+          {
+            "question": "What does the groups model show for multiplication?",
+            "options": [
+              "Equal groups of objects",
+              "A single random object",
+              "Only subtraction",
+              "Only division"
+            ],
+            "correct_answer": "Equal groups of objects"
+          },
+          {
+            "question": "What does an array show?",
+            "options": [
+              "Rows and columns arranged in a grid",
+              "A single line of objects",
+              "A random scattering of objects",
+              "Only letters, no numbers"
+            ],
+            "correct_answer": "Rows and columns arranged in a grid"
+          },
+          {
+            "question": "4 groups of 3 candies equals how many candies?",
+            "options": [
+              "12",
+              "7",
+              "9",
+              "15"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "An array has 3 rows and 4 columns. How many total objects?",
+            "options": [
+              "12",
+              "7",
+              "9",
+              "16"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "What is skip counting by 3s, four times?",
+            "options": [
+              "3, 6, 9, 12",
+              "3, 5, 7, 9",
+              "1, 2, 3, 4",
+              "3, 6, 12, 24"
+            ],
+            "correct_answer": "3, 6, 9, 12"
+          },
+          {
+            "question": "On a number line, how is multiplication shown?",
+            "options": [
+              "As equal jumps",
+              "As random dots",
+              "As a single point only",
+              "As a straight line with no marks"
+            ],
+            "correct_answer": "As equal jumps"
+          },
+          {
+            "question": "5 jumps of 2 on a number line ends at what number?",
+            "options": [
+              "10",
+              "7",
+              "12",
+              "8"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "Show 3 × 5 using groups. What is the answer?",
+            "options": [
+              "15",
+              "8",
+              "12",
+              "20"
+            ],
+            "correct_answer": "15"
+          },
+          {
+            "question": "Show 2 × 6 using an array. How many total dots?",
+            "options": [
+              "12",
+              "8",
+              "10",
+              "14"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "Why do we use different models (groups, arrays, number lines) for multiplication?",
+            "options": [
+              "To see multiplication in different ways, making it easier to understand",
+              "To make multiplication seem more confusing than it is",
+              "Because only one single model is ever correct",
+              "To avoid learning any multiplication facts at all"
+            ],
+            "correct_answer": "To see multiplication in different ways, making it easier to understand"
+          },
+          {
+            "question": "What is 4 × 2 shown as equal jumps on a number line?",
+            "options": [
+              "4 jumps of 2, ending at 8",
+              "2 jumps of 4, ending at 6",
+              "4 jumps of 4, ending at 16",
+              "2 jumps of 2, ending at 4"
+            ],
+            "correct_answer": "4 jumps of 2, ending at 8"
+          },
+          {
+            "question": "An array has 5 rows and 2 columns. What multiplication fact does this show?",
+            "options": [
+              "5 × 2 = 10",
+              "5 × 5 = 25",
+              "2 × 2 = 4",
+              "5 + 2 = 7"
+            ],
+            "correct_answer": "5 × 2 = 10"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📝 Friday Review — Filipino (Grade 2)\n\n- **Simula, gitna, wakas** ng talata\n- 3-5 pangungusap na magkakaugnay\n\nMagaling sa pagsulat! 🌟",
+        "quiz": [
+          {
+            "question": "Ilang pangungusap ang binubuo ng maikling talata?",
+            "options": [
+              "3 hanggang 5 pangungusap",
+              "1 pangungusap lamang",
+              "10 pangungusap",
+              "Walang tiyak na bilang"
+            ],
+            "correct_answer": "3 hanggang 5 pangungusap"
+          },
+          {
+            "question": "Ano ang simula ng isang talata?",
+            "options": [
+              "Ipinapakilala ang paksa",
+              "Nagtatapos ng ideya",
+              "Naglalahad ng detalye",
+              "Ang huling salita lamang"
+            ],
+            "correct_answer": "Ipinapakilala ang paksa"
+          },
+          {
+            "question": "Ano ang gitna ng isang talata?",
+            "options": [
+              "Naglalahad ng detalye tungkol sa paksa",
+              "Ipinapakilala lamang ang paksa",
+              "Nagtatapos ng talata",
+              "Ang unang salita lamang"
+            ],
+            "correct_answer": "Naglalahad ng detalye tungkol sa paksa"
+          },
+          {
+            "question": "Ano ang wakas ng isang talata?",
+            "options": [
+              "Nagtatapos o nagbubuod ng ideya",
+              "Ipinapakilala ang paksa",
+              "Naglalahad lamang ng detalye",
+              "Ang pamagat ng talata"
+            ],
+            "correct_answer": "Nagtatapos o nagbubuod ng ideya"
+          },
+          {
+            "question": "\"Ang paaralan ko ay malinis at maganda.\" Ano itong bahagi ng talata?",
+            "options": [
+              "Simula",
+              "Gitna",
+              "Wakas",
+              "Pamagat"
+            ],
+            "correct_answer": "Simula"
+          },
+          {
+            "question": "Alin ang halimbawa ng pangungusap tungkol sa guro?",
+            "options": [
+              "Ang aking guro ay mabait at matiyaga.",
+              "Ang paaralan ko ay malinis.",
+              "Tahimik ang aming kapitbahayan.",
+              "Masaya ang pista sa barangay."
+            ],
+            "correct_answer": "Ang aking guro ay mabait at matiyaga."
+          },
+          {
+            "question": "Alin ang halimbawa ng pangungusap tungkol sa kapitbahayan?",
+            "options": [
+              "Ang aming kapitbahayan ay tahimik at ligtas.",
+              "Ang aking guro ay mabait sa amin.",
+              "Ang paaralan ko ay napakaganda.",
+              "Masaya akong mag-aral araw-araw."
+            ],
+            "correct_answer": "Ang aming kapitbahayan ay tahimik at ligtas."
+          },
+          {
+            "question": "Bakit mahalagang magkaugnay ang mga pangungusap sa isang talata?",
+            "options": [
+              "Upang malinaw na maipahayag ang ideya",
+              "Upang mahaba lamang ang buong talata",
+              "Upang malito ang bumabasang tao",
+              "Walang tunay na dahilan para dito"
+            ],
+            "correct_answer": "Upang malinaw na maipahayag ang ideya"
+          },
+          {
+            "question": "Ano ang unang bahaging isusulat kapag gagawa ng talata?",
+            "options": [
+              "Ang simula na nagpapakilala sa paksa",
+              "Ang wakas na lamang",
+              "Ang gitna na lamang",
+              "Kahit anong bahagi lang"
+            ],
+            "correct_answer": "Ang simula na nagpapakilala sa paksa"
+          },
+          {
+            "question": "Bakit mahalaga ang pagbuo ng maikling talata?",
+            "options": [
+              "Tumutulong ito upang maipahayag nang malinaw ang ating ideya",
+              "Wala itong kabuluhan sa pag-aaral",
+              "Ginagawa lamang ito para sa gantimpala",
+              "Nakakalito lamang ito sa mag-aaral"
+            ],
+            "correct_answer": "Tumutulong ito upang maipahayag nang malinaw ang ating ideya"
+          },
+          {
+            "question": "Alin ang maaaring maging paksa ng isang talata?",
+            "options": [
+              "Sariling paaralan, guro, o kapitbahayan",
+              "Isang bansa na hindi umiiral",
+              "Isang bagay na hindi natin alam",
+              "Walang paksa kailanman"
+            ],
+            "correct_answer": "Sariling paaralan, guro, o kapitbahayan"
+          },
+          {
+            "question": "\"Natututo ako nang marami sa kanya.\" Alin ito sa talata: simula, gitna, o wakas?",
+            "options": [
+              "Wakas",
+              "Simula",
+              "Gitna",
+              "Pamagat"
+            ],
+            "correct_answer": "Wakas"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌱 Friday Review — Science (Grade 2)\n\n- Plant: seed→seedling→full-grown plant\n- Chicken: egg→chick→adult; Butterfly: egg→caterpillar→cocoon→butterfly\n\nGreat life cycle learning! 🌟",
+        "quiz": [
+          {
+            "question": "What is the first stage of a plant's life cycle?",
+            "options": [
+              "Seed",
+              "Seedling",
+              "Full-grown plant",
+              "Flower"
+            ],
+            "correct_answer": "Seed"
+          },
+          {
+            "question": "What comes after \"seed\" in a plant's life cycle?",
+            "options": [
+              "Seedling",
+              "Full-grown plant",
+              "Fruit",
+              "Root"
+            ],
+            "correct_answer": "Seedling"
+          },
+          {
+            "question": "What is a seedling?",
+            "options": [
+              "A young plant with small leaves, just starting to grow",
+              "A fully grown tree with many branches",
+              "A type of seed still in the ground",
+              "A dried-up plant that has died"
+            ],
+            "correct_answer": "A young plant with small leaves, just starting to grow"
+          },
+          {
+            "question": "What is the first stage of a chicken's life cycle?",
+            "options": [
+              "Egg",
+              "Chick",
+              "Adult chicken",
+              "Feather"
+            ],
+            "correct_answer": "Egg"
+          },
+          {
+            "question": "What comes after \"egg\" in a chicken's life cycle?",
+            "options": [
+              "Chick",
+              "Adult chicken",
+              "Full-grown plant",
+              "Seedling"
+            ],
+            "correct_answer": "Chick"
+          },
+          {
+            "question": "What is the first stage of a butterfly's life cycle?",
+            "options": [
+              "Egg",
+              "Caterpillar",
+              "Cocoon",
+              "Butterfly"
+            ],
+            "correct_answer": "Egg"
+          },
+          {
+            "question": "What happens between \"caterpillar\" and \"butterfly\"?",
+            "options": [
+              "The caterpillar forms a cocoon/chrysalis",
+              "The caterpillar becomes an egg again",
+              "Nothing happens at all",
+              "The caterpillar becomes a chick"
+            ],
+            "correct_answer": "The caterpillar forms a cocoon/chrysalis"
+          },
+          {
+            "question": "What does a caterpillar do before forming a cocoon?",
+            "options": [
+              "Eats leaves to grow",
+              "Flies around looking for food",
+              "Lays its own eggs",
+              "Builds a nest in a tree"
+            ],
+            "correct_answer": "Eats leaves to grow"
+          },
+          {
+            "question": "What is the last stage of a plant's life cycle mentioned this week?",
+            "options": [
+              "Full-grown plant",
+              "Seed",
+              "Seedling",
+              "Root"
+            ],
+            "correct_answer": "Full-grown plant"
+          },
+          {
+            "question": "Why is learning about life cycles important?",
+            "options": [
+              "It helps us understand how living things grow and change",
+              "It has no real use for learning",
+              "It only matters for plants, not animals",
+              "It only matters for animals, not plants"
+            ],
+            "correct_answer": "It helps us understand how living things grow and change"
+          },
+          {
+            "question": "What can a full-grown plant make that a seedling cannot?",
+            "options": [
+              "Flowers, fruits, and new seeds",
+              "Only more soil",
+              "Only more water",
+              "Only more sunlight"
+            ],
+            "correct_answer": "Flowers, fruits, and new seeds"
+          },
+          {
+            "question": "Which life cycle involves a cocoon or chrysalis stage?",
+            "options": [
+              "Caterpillar to butterfly",
+              "Egg to chick",
+              "Seed to plant",
+              "None of these have a cocoon stage"
+            ],
+            "correct_answer": "Caterpillar to butterfly"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🎨 Friday Review — Makabansa (Grade 2)\n\n- Balik-aral: kahulugan, materyal/di-materyal na kultura, pagkakakilanlan, pagpapahalaga\n\nMagaling sa Makabansa! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang kultura?",
+            "options": [
+              "Paraan ng pamumuhay, paniniwala, at kaugalian",
+              "Isang uri lamang ng pagkain natin",
+              "Isang uri lamang ng laruan natin",
+              "Isang uri lamang ng damit natin"
+            ],
+            "correct_answer": "Paraan ng pamumuhay, paniniwala, at kaugalian"
+          },
+          {
+            "question": "Ano ang materyal na kultura?",
+            "options": [
+              "Kultura na nakikita o nahahawakan",
+              "Kultura na hindi nakikita",
+              "Isang paniniwala lamang",
+              "Isang kaugalian lamang"
+            ],
+            "correct_answer": "Kultura na nakikita o nahahawakan"
+          },
+          {
+            "question": "Ano ang di-materyal na kultura?",
+            "options": [
+              "Kultura na hindi nakikita, tulad ng paniniwala",
+              "Kultura na nakikita at nahahawakan",
+              "Isang uri ng pagkain lamang",
+              "Isang uri ng gusali lamang"
+            ],
+            "correct_answer": "Kultura na hindi nakikita, tulad ng paniniwala"
+          },
+          {
+            "question": "Nakita mo ang iyong lolo na gumagawa ng basket mula sa kawayan. Ano itong halimbawa ng kultura?",
+            "options": [
+              "Materyal na kultura",
+              "Di-materyal na kultura",
+              "Wala itong kaugnayan sa kultura",
+              "Isang bagong imbensyon lamang"
+            ],
+            "correct_answer": "Materyal na kultura"
+          },
+          {
+            "question": "Bakit mahalagang alamin ang kultura ng ating komunidad?",
+            "options": [
+              "Dahil ito ang humuhubog sa ating pagkakakilanlan",
+              "Dahil wala itong anumang kabuluhan",
+              "Dahil ipinag-uutos lamang ito ng guro",
+              "Dahil hindi ito talaga importante"
+            ],
+            "correct_answer": "Dahil ito ang humuhubog sa ating pagkakakilanlan"
+          },
+          {
+            "question": "Paano mo maipapakita ang pagpapahalaga sa kultura ng iyong komunidad?",
+            "options": [
+              "Sa paglahok sa mga gawaing pangkultura",
+              "Sa hindi pagpansin sa tradisyon",
+              "Sa pagsasabing walang saysay ito",
+              "Sa pag-iwas sa lahat ng gawain"
+            ],
+            "correct_answer": "Sa paglahok sa mga gawaing pangkultura"
+          },
+          {
+            "question": "Ano ang halimbawa ng di-materyal na kultura?",
+            "options": [
+              "Isang paniniwala o tradisyon",
+              "Isang bahay na kawayan",
+              "Isang piraso ng damit",
+              "Isang kagamitang bakal"
+            ],
+            "correct_answer": "Isang paniniwala o tradisyon"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang kultura sa pang-araw-araw na buhay?",
+            "options": [
+              "Dahil bahagi ito ng ating pagkakakilanlan bilang tao",
+              "Dahil ginagamit lamang ito sa pista",
+              "Dahil hindi ito ginagamit sa totoong buhay",
+              "Dahil bihira lamang itong makita"
+            ],
+            "correct_answer": "Dahil bahagi ito ng ating pagkakakilanlan bilang tao"
+          },
+          {
+            "question": "Sino ang karaniwang nagtuturo ng kultura sa mga bata?",
+            "options": [
+              "Mga nakatatanda sa pamilya at komunidad",
+              "Mga estrangherong hindi kilala",
+              "Walang nagtuturo nito kailanman",
+              "Mga hayop lamang"
+            ],
+            "correct_answer": "Mga nakatatanda sa pamilya at komunidad"
+          },
+          {
+            "question": "Ano ang dapat gawin natin sa kultura ng ating komunidad?",
+            "options": [
+              "Pahalagahan at ipagmalaki ito",
+              "Kalimutan ito agad",
+              "Iwasan itong pag-usapan",
+              "Sabihing walang saysay ito"
+            ],
+            "correct_answer": "Pahalagahan at ipagmalaki ito"
+          },
+          {
+            "question": "Ano ang natutuhan natin tungkol sa papel ng kultura sa ating buhay?",
+            "options": [
+              "Humuhubog ito sa ating pagkakakilanlan",
+              "Wala itong papel sa ating buhay",
+              "Nagpapabagal lamang ito ng pag-unlad",
+              "Ginagamit lamang ito noong unang panahon"
+            ],
+            "correct_answer": "Humuhubog ito sa ating pagkakakilanlan"
+          },
+          {
+            "question": "Ano ang pangkalahatang aral ng ating pag-aaral tungkol sa kultura ngayong term?",
+            "options": [
+              "Ang kultura ay bahagi ng ating pang-araw-araw na buhay",
+              "Ang kultura ay hindi na kailangan pag-aralan",
+              "Ang kultura ay para lamang sa matatanda",
+              "Ang kultura ay walang kaugnayan sa atin"
+            ],
+            "correct_answer": "Ang kultura ay bahagi ng ating pang-araw-araw na buhay"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🎨 Friday Review — Computer (Grade 2)\n\n- Pagpili ng kulay at wastong paggamit ng eraser tool\n\nGreat drawing practice! 🌟",
+        "quiz": [
+          {
+            "question": "What can we choose from a color palette when drawing?",
+            "options": [
+              "Colors to make our pictures colorful",
+              "Only the colors black and white",
+              "Only the eraser tool to use",
+              "Only the text fonts available"
+            ],
+            "correct_answer": "Colors to make our pictures colorful"
+          },
+          {
+            "question": "What is the first step in using the eraser tool correctly?",
+            "options": [
+              "Click and select the eraser tool",
+              "Delete the whole picture immediately",
+              "Save the file right away",
+              "Turn off the computer"
+            ],
+            "correct_answer": "Click and select the eraser tool"
+          },
+          {
+            "question": "You drew a house but colored the roof the wrong color. What should you do?",
+            "options": [
+              "Erase the wrong color, then fill it correctly",
+              "Delete the entire drawing and start over",
+              "Leave the mistake as it is",
+              "Turn off the computer immediately"
+            ],
+            "correct_answer": "Erase the wrong color, then fill it correctly"
+          },
+          {
+            "question": "You want a yellow center and pink petals on your flower. What tool helps?",
+            "options": [
+              "The fill/paint bucket tool",
+              "Only the eraser tool",
+              "Only the pencil tool",
+              "The shapes tool only"
+            ],
+            "correct_answer": "The fill/paint bucket tool"
+          },
+          {
+            "question": "What simple pictures can we draw using the pencil/brush tool?",
+            "options": [
+              "A house, a sun, or a flower",
+              "Only complicated machines",
+              "Only photographs",
+              "Only maps of the world"
+            ],
+            "correct_answer": "A house, a sun, or a flower"
+          },
+          {
+            "question": "Why should we carefully erase only the part we want to fix?",
+            "options": [
+              "So we don't accidentally delete other parts of our drawing",
+              "So the whole picture disappears",
+              "So we can save time by erasing everything",
+              "So the computer works faster"
+            ],
+            "correct_answer": "So we don't accidentally delete other parts of our drawing"
+          },
+          {
+            "question": "What should you do after fixing a mistake with the eraser?",
+            "options": [
+              "Continue drawing",
+              "Turn off the computer",
+              "Close the program without saving",
+              "Delete the whole picture"
+            ],
+            "correct_answer": "Continue drawing"
+          },
+          {
+            "question": "Why is practicing coloring and fixing mistakes important?",
+            "options": [
+              "It helps us become more careful and skilled at drawing",
+              "It has no benefit at all",
+              "It only matters for professional artists",
+              "It makes drawing pointless"
+            ],
+            "correct_answer": "It helps us become more careful and skilled at drawing"
+          },
+          {
+            "question": "What tool would you use to draw the outline of a flower?",
+            "options": [
+              "Pencil/brush tool",
+              "Eraser tool",
+              "Fill tool only",
+              "Save button"
+            ],
+            "correct_answer": "Pencil/brush tool"
+          },
+          {
+            "question": "What happens if you use the eraser tool carelessly?",
+            "options": [
+              "You might accidentally remove parts you wanted to keep",
+              "Your drawing automatically becomes perfect",
+              "Nothing changes in your drawing",
+              "The computer will turn off"
+            ],
+            "correct_answer": "You might accidentally remove parts you wanted to keep"
+          },
+          {
+            "question": "Which tool lets you quickly add color inside a shape you drew?",
+            "options": [
+              "Fill/paint bucket tool",
+              "Eraser tool",
+              "Save tool",
+              "Undo tool only"
+            ],
+            "correct_answer": "Fill/paint bucket tool"
+          },
+          {
+            "question": "Why might you choose different colors for different parts of your drawing?",
+            "options": [
+              "To make the picture more colorful and interesting",
+              "To make the picture harder to see",
+              "Because only one color is ever allowed",
+              "Because color does not matter at all"
+            ],
+            "correct_answer": "To make the picture more colorful and interesting"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 Friday Review — GMRC (Grade 2)\n\n- Paggalang sa gawaing panrelihiyoso ng pamilya\n- Pagpapahalaga: **Obedience (Pagsunod)**\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang halimbawa ng gawaing panrelihiyoso ng pamilya?",
+            "options": [
+              "Panalangin bago kumain",
+              "Paglalaro ng video game",
+              "Panonood ng TV buong araw",
+              "Pagtulog buong araw"
+            ],
+            "correct_answer": "Panalangin bago kumain"
+          },
+          {
+            "question": "Bawat gabi, may panalangin ang iyong pamilya bago kumain. Ano ang tamang gawin mo?",
+            "options": [
+              "Sumali nang may paggalang",
+              "Umalis sa mesa agad",
+              "Manood ng TV habang nananalangin sila",
+              "Kausapin ang kaibigan sa telepono"
+            ],
+            "correct_answer": "Sumali nang may paggalang"
+          },
+          {
+            "question": "Bakit mahalagang igalang ang gawaing panrelihiyoso ng ibang pamilya?",
+            "options": [
+              "Dahil bawat pamilya ay may karapatang sumunod sa sariling paniniwala",
+              "Dahil pareho ang paniniwala ng bawat pamilya sa mundo",
+              "Dahil ipinagbabawal ang ibang uri ng paniniwala",
+              "Dahil hindi mahalaga ang paniniwala ng ibang pamilya"
+            ],
+            "correct_answer": "Dahil bawat pamilya ay may karapatang sumunod sa sariling paniniwala"
+          },
+          {
+            "question": "Ano ang ipinapakita ng kusang-loob na paglahok sa gawaing panrelihiyoso?",
+            "options": [
+              "Pagsunod at pananampalataya",
+              "Kawalan ng interes",
+              "Pagsuway sa pamilya",
+              "Kapabayaan"
+            ],
+            "correct_answer": "Pagsunod at pananampalataya"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Obedience (Pagsunod)",
+              "Honesty",
+              "Masipag",
+              "Pakikiisa"
+            ],
+            "correct_answer": "Obedience (Pagsunod)"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagsunod sa gawaing panrelihiyoso ng pamilya?",
+            "options": [
+              "Nagpapalakas ng ugnayan ng pamilya",
+              "Nagpapahina ng ugnayan ng pamilya",
+              "Walang epekto ito sa pamilya",
+              "Nagdudulot lamang ito ng away"
+            ],
+            "correct_answer": "Nagpapalakas ng ugnayan ng pamilya"
+          },
+          {
+            "question": "Alin ang halimbawa ng lugar na ginagamit sa pagsamba?",
+            "options": [
+              "Simbahan, moske, o templo",
+              "Palengke o tindahan",
+              "Palaruan lamang",
+              "Ospital lamang"
+            ],
+            "correct_answer": "Simbahan, moske, o templo"
+          },
+          {
+            "question": "Ano ang natutuhan natin mula sa pagsunod sa gawaing panrelihiyoso ng pamilya?",
+            "options": [
+              "Disiplina at respeto",
+              "Kawalang-galang",
+              "Pagmamataas",
+              "Kapabayaan"
+            ],
+            "correct_answer": "Disiplina at respeto"
+          },
+          {
+            "question": "Bakit dapat sumunod ang bata sa gawaing panrelihiyoso ng pamilya kahit minsan ayaw niya?",
+            "options": [
+              "Nagpapakita ito ng paggalang at pananampalataya",
+              "Dahil wala siyang ibang gagawin",
+              "Dahil kailangan niya itong gawin lamang",
+              "Walang tunay na dahilan"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang at pananampalataya"
+          },
+          {
+            "question": "Ano ang halimbawa ng pagdiriwang na panrelihiyoso ng pamilya?",
+            "options": [
+              "Pasko o iba pang pista",
+              "Kaarawan ng kaibigan",
+              "Araw ng pasukan",
+              "Bakasyon sa dagat"
+            ],
+            "correct_answer": "Pasko o iba pang pista"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang panalangin bago kumain?",
+            "options": [
+              "Ito ay bahagi ng tradisyon at pananampalataya ng pamilya",
+              "Wala itong kahulugan sa pamilya",
+              "Ginagawa lamang ito para masarap ang pagkain",
+              "Hindi na kailangan ito ngayon"
+            ],
+            "correct_answer": "Ito ay bahagi ng tradisyon at pananampalataya ng pamilya"
+          },
+          {
+            "question": "Isang bata ang laging tumutulong sa paghahanda ng gawaing panrelihiyoso ng kanilang pamilya. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagsunod at pananampalataya",
+              "Kawalan ng pakialam",
+              "Pagsuway sa magulang",
+              "Kapabayaan sa gawain"
+            ],
+            "correct_answer": "Pagsunod at pananampalataya"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,2016 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-10-25",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📚 English — Term Review: Reading, Writing, and Viewing\n\nGrade 6, Week 20! Let's review everything we've learned in English this term. 🎓\n\n## 🔄 Review: Literary Reading\nSequencing, flashback, irony, drawing conclusions, inferring author's purpose.\n\n## 🔄 Review: Informational Reading\nDiamond outlining, persuasive text, fact vs. opinion, propaganda techniques.\n\n## 🔄 Review: Speaking and Writing\nIntransitive verbs, perfect tenses, prepositional phrases as adjectives, compound-complex sentences.\n\n## 🔄 Review: Viewing and Representing\nMultimedia elements (transitions, captions, pacing), author's purpose and point of view in multimedia.\n\n## 🧠 Worked Example 1\n*\"The Philippines has 7,641 islands\" is an example of what?*\n- A **fact** — it can be proven true or false.\n\n## 🧠 Worked Example 2\n*\"Although it rained, we finished the game, and we celebrated.\" What sentence type is this?*\n- A **compound-complex sentence**.\n\n## 💡 Why Review Matters\nReviewing helps us **connect** all our reading, writing, and viewing skills learned this term.\n\nGreat term review! 🌟",
+        "quiz": [
+          {
+            "question": "What is a flashback in a story?",
+            "options": [
+              "A scene that shows events from earlier in time",
+              "A scene that shows the future only",
+              "A character's name only",
+              "The title of the story"
+            ],
+            "correct_answer": "A scene that shows events from earlier in time"
+          },
+          {
+            "question": "What is a diamond outline used for?",
+            "options": [
+              "Organizing an essay from broad to narrow to broad again",
+              "Drawing a picture of a diamond",
+              "Measuring a shape's angles in this case",
+              "Listing random facts only at all"
+            ],
+            "correct_answer": "Organizing an essay from broad to narrow to broad again"
+          },
+          {
+            "question": "\"The Philippines has 7,641 islands\" is an example of what?",
+            "options": [
+              "A fact",
+              "An opinion",
+              "A propaganda technique",
+              "A metaphor"
+            ],
+            "correct_answer": "A fact"
+          },
+          {
+            "question": "What is an intransitive verb?",
+            "options": [
+              "A verb that does not take a direct object",
+              "A verb that always takes an object",
+              "A word that describes a noun",
+              "A word that replaces a noun"
+            ],
+            "correct_answer": "A verb that does not take a direct object"
+          },
+          {
+            "question": "\"Although it rained, we finished the game, and we celebrated.\" What sentence type is this?",
+            "options": [
+              "Compound-complex sentence",
+              "Simple sentence",
+              "Compound sentence only",
+              "Complex sentence only"
+            ],
+            "correct_answer": "Compound-complex sentence"
+          },
+          {
+            "question": "What are video-specific multimedia elements?",
+            "options": [
+              "Transitions, captions, and pacing",
+              "Only the title of the video",
+              "Only the actors' names",
+              "Only the running time"
+            ],
+            "correct_answer": "Transitions, captions, and pacing"
+          },
+          {
+            "question": "What is author's purpose?",
+            "options": [
+              "The reason a writer creates a text — to inform, persuade, or entertain",
+              "The exact date a text was written",
+              "The title of the text only at all for this task",
+              "The length of the text only in this case"
+            ],
+            "correct_answer": "The reason a writer creates a text — to inform, persuade, or entertain"
+          },
+          {
+            "question": "What is a propaganda technique?",
+            "options": [
+              "A method used to persuade, like testimonials or bandwagon",
+              "A method used only to inform neutrally",
+              "A grammar rule for sentences",
+              "A punctuation mark"
+            ],
+            "correct_answer": "A method used to persuade, like testimonials or bandwagon"
+          },
+          {
+            "question": "What is the present perfect tense formula?",
+            "options": [
+              "has/have + past participle",
+              "will + base verb",
+              "was/were + verb-ing",
+              "did + base verb"
+            ],
+            "correct_answer": "has/have + past participle"
+          },
+          {
+            "question": "What does a prepositional phrase used as an adjective do?",
+            "options": [
+              "Describes a noun, like \"the book on the table\"",
+              "Replaces a noun completely",
+              "Shows an action only",
+              "Connects two independent clauses"
+            ],
+            "correct_answer": "Describes a noun, like \"the book on the table\""
+          },
+          {
+            "question": "Why is it useful to review reading, writing, and viewing skills together?",
+            "options": [
+              "It helps us see how they connect and support each other",
+              "These skills have no connection to each other",
+              "Only one skill is ever truly useful",
+              "Reviewing wastes valuable time"
+            ],
+            "correct_answer": "It helps us see how they connect and support each other"
+          },
+          {
+            "question": "What is point of view in multimedia?",
+            "options": [
+              "The perspective being shown in the content",
+              "The volume of the background sound",
+              "The screen resolution used",
+              "The number of scenes shown"
+            ],
+            "correct_answer": "The perspective being shown in the content"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🧮 Mathematics — Term Review: Ratio to Square Roots\n\nGrade 6, Week 20! Let's review all the math we've learned this term. 🔢\n\n## 🔄 Review: Ratio\nComparing two quantities (part-to-part or part-to-whole).\n\n## 🔄 Review: Percent, Fraction, Decimal\nThree ways to show the same value (e.g., 1/2 = 0.5 = 50%).\n\n## 🔄 Review: Exponential Form\nBase^exponent = repeated multiplication (e.g., 2³ = 2×2×2 = 8).\n\n## 🔄 Review: Square Roots\nThe inverse of squaring (e.g., √25 = 5, since 5² = 25).\n\n## 🧠 Worked Example 1\n*Convert 3/4 to a percent.*\n- 3 ÷ 4 = 0.75 → **75%**\n\n## 🧠 Worked Example 2\n*What is √49?*\n- Since 7² = 49, then √49 = **7**\n\n## 🧠 Worked Example 3\n*A ratio of 2:5 means what?*\n- For every **2** of one thing, there are **5** of another.\n\n## 💡 Why Review Matters\nReviewing helps us **connect** ratio, percent, exponents, and square roots for future math challenges.\n\nGreat term review! ⭐",
+        "quiz": [
+          {
+            "question": "Convert 3/4 to a percent.",
+            "options": [
+              "75%",
+              "34%",
+              "43%",
+              "70%"
+            ],
+            "correct_answer": "75%"
+          },
+          {
+            "question": "What is 2³?",
+            "options": [
+              "8",
+              "6",
+              "5",
+              "9"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is √49?",
+            "options": [
+              "7",
+              "24.5",
+              "14",
+              "49"
+            ],
+            "correct_answer": "7"
+          },
+          {
+            "question": "A ratio of 2:5 means what?",
+            "options": [
+              "For every 2 of one thing, there are 5 of another",
+              "The two amounts are always equal",
+              "One amount is always 5 times smaller",
+              "It only applies to money"
+            ],
+            "correct_answer": "For every 2 of one thing, there are 5 of another"
+          },
+          {
+            "question": "What is 45% as a decimal?",
+            "options": [
+              "0.45",
+              "4.5",
+              "0.045",
+              "45.0"
+            ],
+            "correct_answer": "0.45"
+          },
+          {
+            "question": "What is a perfect square?",
+            "options": [
+              "A number that is the square of a whole number",
+              "Any odd number at all in this case",
+              "Any number divisible by 5",
+              "A number with no factors"
+            ],
+            "correct_answer": "A number that is the square of a whole number"
+          },
+          {
+            "question": "What is √64?",
+            "options": [
+              "8",
+              "16",
+              "32",
+              "4"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is 5² percent of 200?",
+            "options": [
+              "50",
+              "25",
+              "100",
+              "10"
+            ],
+            "correct_answer": "50"
+          },
+          {
+            "question": "In a class of 30, the ratio of boys to girls is 2:3. How many boys are there?",
+            "options": [
+              "12",
+              "18",
+              "15",
+              "10"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "What is 7/8 as a percent?",
+            "options": [
+              "87.5%",
+              "78%",
+              "80%",
+              "85%"
+            ],
+            "correct_answer": "87.5%"
+          },
+          {
+            "question": "Solve: 2³ + √16",
+            "options": [
+              "12",
+              "10",
+              "8",
+              "14"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "Why is it useful to know ratio, percent, exponents, and square roots together?",
+            "options": [
+              "They help us solve many different kinds of real-world problems",
+              "They have no connection to each other",
+              "Only one of these is ever useful",
+              "They make math impossible to understand"
+            ],
+            "correct_answer": "They help us solve many different kinds of real-world problems"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📝 Filipino — Balik-Aral: Term 2\n\nGrade 6, Linggo 20! Balikan natin ang lahat ng natutuhan sa Filipino ngayong term. 📖\n\n## 🔄 Balik-Aral: Pakikinig at Pagbasa\nMahahalagang detalye, damdamin ng tauhan, salawikain, tunay na pangyayari.\n\n## 🔄 Balik-Aral: Tekstong Impormatibo\nMahahalagang detalye, sariling ideya, pangunahing diwa, sumusuportang detalye.\n\n## 🔄 Balik-Aral: Gramatika\nSalawikain bilang panandang konteksto, kaganapan (komplemento) ng pandiwa.\n\n## 🔄 Balik-Aral: Pagsulat ng Sanaysay\nPanimula, katawan, konklusyon; pagrerebisa gamit ang peer review.\n\n## 🧠 Halimbawa 1\n*Ano ang tawag sa maikling kasabihang may aral tungkol sa buhay?*\n- **Salawikain.**\n\n## 🧠 Halimbawa 2\n*Ano ang mga bahagi ng sanaysay?*\n- **Panimula, katawan, at konklusyon.**\n\n## 💡 Bakit Mahalaga Ito?\nAng pagbabalik-aral sa buong term ay nagpapatibay sa ating **kasanayan sa pagbasa at pagsulat**.\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa maikling kasabihang may aral tungkol sa buhay?",
+            "options": [
+              "Salawikain",
+              "Tekstong impormatibo",
+              "Sanaysay",
+              "Kaganapan"
+            ],
+            "correct_answer": "Salawikain"
+          },
+          {
+            "question": "Ano ang mga bahagi ng sanaysay?",
+            "options": [
+              "Panimula, katawan, at konklusyon",
+              "Simula at wakas lamang",
+              "Isang bahagi lamang",
+              "Walang tiyak na bahagi"
+            ],
+            "correct_answer": "Panimula, katawan, at konklusyon"
+          },
+          {
+            "question": "Ano ang kaganapang tagatanggap ng pandiwa?",
+            "options": [
+              "Sumasagot sa tanong na kanino ibinigay",
+              "Sumasagot sa tanong na kailan nangyari",
+              "Sumasagot sa tanong na saan nangyari",
+              "Sumasagot sa tanong na ilan ang bilang"
+            ],
+            "correct_answer": "Sumasagot sa tanong na kanino ibinigay"
+          },
+          {
+            "question": "Ano ang kaganapang benepaktibo ng pandiwa?",
+            "options": [
+              "Sumasagot sa tanong na para kanino ginawa",
+              "Sumasagot sa tanong na kailan nangyari",
+              "Sumasagot sa tanong na saan nangyari",
+              "Sumasagot sa tanong na ano ang kulay nito"
+            ],
+            "correct_answer": "Sumasagot sa tanong na para kanino ginawa"
+          },
+          {
+            "question": "Ano ang tinitiyak ng malinaw na panimula ng sanaysay?",
+            "options": [
+              "Na naipakilala nang maayos ang paksa",
+              "Na tama ang bilang ng pahina",
+              "Na maganda ang kulay ng papel",
+              "Na mabilis matapos ang sanaysay"
+            ],
+            "correct_answer": "Na naipakilala nang maayos ang paksa"
+          },
+          {
+            "question": "Ano ang layunin ng tekstong impormatibo?",
+            "options": [
+              "Magbigay ng impormasyon nang malinaw",
+              "Kumbinsihin ang mambabasa lamang",
+              "Magpatawa lamang",
+              "Magkuwento ng gawa-gawa"
+            ],
+            "correct_answer": "Magbigay ng impormasyon nang malinaw"
+          },
+          {
+            "question": "Ano ang pangunahing diwa ng isang teksto?",
+            "options": [
+              "Ang pinakamahalagang punto ng teksto",
+              "Ang huling salita ng teksto",
+              "Ang haba ng teksto",
+              "Ang pangalan ng publisher"
+            ],
+            "correct_answer": "Ang pinakamahalagang punto ng teksto"
+          },
+          {
+            "question": "Ano ang peer review?",
+            "options": [
+              "Pagbabasa at pagbibigay ng puna mula sa kapwa mag-aaral",
+              "Isang uri ng pagsusulit sa gawaing ito",
+              "Isang uri ng aklat dito ngayon",
+              "Isang bahagi ng dula lamang"
+            ],
+            "correct_answer": "Pagbabasa at pagbibigay ng puna mula sa kapwa mag-aaral"
+          },
+          {
+            "question": "Bakit mahalagang magpahayag ng sariling opinyon matapos magbasa ng teksto?",
+            "options": [
+              "Nagpapakita ito ng pag-unawa at pananaw sa binasa",
+              "Wala itong kabuluhan sa pagbasa",
+              "Ginagawa lamang ito para sa marka",
+              "Hindi ito bahagi ng pag-unawa"
+            ],
+            "correct_answer": "Nagpapakita ito ng pag-unawa at pananaw sa binasa"
+          },
+          {
+            "question": "Ano ang sumusuportang detalye sa isang teksto?",
+            "options": [
+              "Impormasyong sumusuporta sa pangunahing diwa",
+              "Ang pamagat lamang ng teksto",
+              "Ang bilang ng talata lamang",
+              "Ang pangalan ng may-akda lamang"
+            ],
+            "correct_answer": "Impormasyong sumusuporta sa pangunahing diwa"
+          },
+          {
+            "question": "Bakit mahalagang pagbutihin ang isang sanaysay sa pamamagitan ng pagrerebisa?",
+            "options": [
+              "Nakatutulong ito upang mapabuti ang kalidad ng isinulat",
+              "Wala itong kabuluhan sa pagsulat dito",
+              "Ginagawa lamang ito para sa marka",
+              "Nagpapahaba lamang ito ng proseso"
+            ],
+            "correct_answer": "Nakatutulong ito upang mapabuti ang kalidad ng isinulat"
+          },
+          {
+            "question": "Isang mag-aaral ang gumamit ng salawikain bilang simula ng kanyang sanaysay. Anong kasanayan ang ipinapakita nito?",
+            "options": [
+              "Salawikain bilang panandang konteksto",
+              "Talata ng konklusyon",
+              "Talatanungan lamang at all",
+              "Talasalitaan lamang"
+            ],
+            "correct_answer": "Salawikain bilang panandang konteksto"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌍 Science — Biotic and Abiotic Factors in an Ecosystem\n\nGrade 6, Week 20! Let's learn how living and non-living things interact in an ecosystem. 🌳\n\n## 🐾 Biotic Factors\n**Biotic factors** are **living things** in an ecosystem — plants, animals, fungi, bacteria.\n\n## 🌤️ Abiotic Factors\n**Abiotic factors** are **non-living things** that affect an ecosystem — light, water, temperature, and soil type.\n\n## 🔄 How They Interact\nLiving things (biotic) **depend on** non-living factors (abiotic) to survive:\n| Abiotic Factor | Why It Matters |\n|---|---|\n| **Light** | needed for photosynthesis |\n| **Water** | needed for drinking, growth |\n| **Temperature** | affects what species can survive |\n| **Soil type** | affects what plants can grow |\n\n## ⚖️ How Interactions Can Help or Harm\n- **Help:** Enough sunlight and water lets plants thrive, supporting the whole food web\n- **Harm:** Pollution (an abiotic change) can poison water, harming biotic factors like fish\n\n## 🧠 Worked Example 1\n*A drought (lack of water) hits an area. How does this affect biotic factors?*\n- Plants may **wilt or die**, and animals that depend on them for food may also **struggle to survive**.\n\n## 🧠 Worked Example 2\n*Why is soil type an important abiotic factor?*\n- Different soil types affect **which plants can grow**, which affects the entire food web.\n\n## 💡 Why This Matters\nUnderstanding biotic and abiotic factors helps us see how **ecosystems are balanced and interconnected**.\n\nGreat ecosystem science! 🌟",
+        "quiz": [
+          {
+            "question": "What are biotic factors?",
+            "options": [
+              "Living things in an ecosystem",
+              "Non-living things in an ecosystem",
+              "Only plants in an ecosystem",
+              "Only rocks and soil"
+            ],
+            "correct_answer": "Living things in an ecosystem"
+          },
+          {
+            "question": "What are abiotic factors?",
+            "options": [
+              "Non-living things like light, water, temperature, and soil",
+              "Only animals in an ecosystem",
+              "Only plants in an ecosystem",
+              "Living things that eat other living things"
+            ],
+            "correct_answer": "Non-living things like light, water, temperature, and soil"
+          },
+          {
+            "question": "Why is light an important abiotic factor?",
+            "options": [
+              "It is needed for photosynthesis",
+              "It has no effect on living things",
+              "It only affects animals, not plants",
+              "It only matters at nighttime"
+            ],
+            "correct_answer": "It is needed for photosynthesis"
+          },
+          {
+            "question": "A drought (lack of water) hits an area. How does this affect biotic factors?",
+            "options": [
+              "Plants may wilt and animals may struggle to survive",
+              "Nothing changes for living things",
+              "All plants immediately grow larger",
+              "Animals become unaffected by water loss"
+            ],
+            "correct_answer": "Plants may wilt and animals may struggle to survive"
+          },
+          {
+            "question": "Why is soil type an important abiotic factor?",
+            "options": [
+              "It affects which plants can grow, impacting the food web",
+              "Soil type has no effect on plants at all",
+              "Only animals are affected by soil type",
+              "Soil type only matters underground"
+            ],
+            "correct_answer": "It affects which plants can grow, impacting the food web"
+          },
+          {
+            "question": "How can pollution (an abiotic change) harm an ecosystem?",
+            "options": [
+              "It can poison water, harming living things like fish",
+              "Pollution always helps living things thrive",
+              "Pollution has no effect on biotic factors",
+              "Pollution only affects non-living things"
+            ],
+            "correct_answer": "It can poison water, harming living things like fish"
+          },
+          {
+            "question": "Which of these is an example of a biotic factor?",
+            "options": [
+              "A fish in a pond",
+              "Sunlight",
+              "Temperature",
+              "Soil type"
+            ],
+            "correct_answer": "A fish in a pond"
+          },
+          {
+            "question": "Which of these is an example of an abiotic factor?",
+            "options": [
+              "Temperature",
+              "A tree",
+              "A bird",
+              "A fungus"
+            ],
+            "correct_answer": "Temperature"
+          },
+          {
+            "question": "Why does temperature affect which species can survive in an ecosystem?",
+            "options": [
+              "Different species need different temperature ranges to live",
+              "Temperature has no effect on any species",
+              "All species can survive at any temperature",
+              "Temperature only affects plants, not animals"
+            ],
+            "correct_answer": "Different species need different temperature ranges to live"
+          },
+          {
+            "question": "How do biotic factors depend on abiotic factors?",
+            "options": [
+              "They need things like water, light, and temperature to survive",
+              "They do not depend on abiotic factors at all",
+              "Only plants depend on abiotic factors",
+              "Abiotic factors depend on biotic factors instead"
+            ],
+            "correct_answer": "They need things like water, light, and temperature to survive"
+          },
+          {
+            "question": "Why is understanding biotic and abiotic factors together important?",
+            "options": [
+              "It helps us see how ecosystems are balanced and interconnected",
+              "It has no real value in understanding ecosystems",
+              "Only biotic factors matter in an ecosystem",
+              "Only abiotic factors matter in an ecosystem"
+            ],
+            "correct_answer": "It helps us see how ecosystems are balanced and interconnected"
+          },
+          {
+            "question": "What might happen if an ecosystem loses access to enough water?",
+            "options": [
+              "Both plants and animals in that ecosystem could suffer",
+              "Nothing would change in the ecosystem",
+              "Only abiotic factors would be affected",
+              "The ecosystem would automatically become healthier"
+            ],
+            "correct_answer": "Both plants and animals in that ecosystem could suffer"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎓 Araling Panlipunan — Term Review: Pananakop Hanggang Kalayaan\n\nGrade 6, Linggo 20! Balikan natin ang buong yunit tungkol sa pakikibaka ng mga Pilipino. 🇵🇭\n\n## 🔄 Balik-Aral: Digmaang Pilipino-Amerikano\nKonsepto ng imperyalismo; Unang Putok sa Sta. Mesa; pamahalaang militar/sibil.\n\n## 🔄 Balik-Aral: Pagsusumikap Tungo sa Nagsasariling Pamahalaan\nPhilippine Bill of 1902, Pilipinisasyon, Batas Jones, Pamahalaang Komonwelt (1935).\n\n## 🔄 Balik-Aral: Imperyalismong Hapones\nIkalawang Digmaang Pandaigdig, Labanan sa Bataan-Corregidor, Death March.\n\n## 🔄 Balik-Aral: Kabayanihan sa Panahon ng Digmaan\nHUKBALAHAP, kilusang gerilya, karapatang bumoto ng kababaihan.\n\n## 🧠 Halimbawa 1\n*Ano ang naipangako ng Batas Jones noong 1916?*\n- **Kalayaan sa hinaharap.**\n\n## 🧠 Halimbawa 2\n*Ano ang HUKBALAHAP?*\n- Isang **kilusang gerilya** na nakipaglaban sa mga Hapones.\n\n## 💡 Kongklusyon\nAng buong yunit na ito ay nagpapakita na ang kalayaan ng Pilipinas ay bunga ng **matagal at magkakasunod na pakikibaka**.\n\nMagaling sa Araling Panlipunan! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang Philippine Bill of 1902?",
+            "options": [
+              "Unang batas na nagbigay ng limitadong pamahalaang Pilipino",
+              "Batas na nagpapalaya sa Pilipinas agad",
+              "Batas na tungkol sa buwis lamang",
+              "Kasunduan sa Espanya"
+            ],
+            "correct_answer": "Unang batas na nagbigay ng limitadong pamahalaang Pilipino"
+          },
+          {
+            "question": "Ano ang Pilipinisasyon?",
+            "options": [
+              "Paglalagay ng mas maraming Pilipino sa gobyerno",
+              "Pagpapalayas sa mga Pilipino sa gobyerno",
+              "Batas laban sa mga Pilipino",
+              "Pagtatayo ng bagong bansa"
+            ],
+            "correct_answer": "Paglalagay ng mas maraming Pilipino sa gobyerno"
+          },
+          {
+            "question": "Ano ang naipangako ng Batas Jones noong 1916?",
+            "options": [
+              "Kalayaan sa hinaharap",
+              "Agarang kalayaan noon din",
+              "Bagong hari para sa Pilipinas",
+              "Pagbabalik sa Espanya"
+            ],
+            "correct_answer": "Kalayaan sa hinaharap"
+          },
+          {
+            "question": "Kailan itinatag ang Pamahalaang Komonwelt?",
+            "options": [
+              "1935",
+              "1898",
+              "1902",
+              "1946"
+            ],
+            "correct_answer": "1935"
+          },
+          {
+            "question": "Ano ang Death March?",
+            "options": [
+              "Puwersahang paglalakad ng mga bihag na sundalo",
+              "Isang sayaw ng mga Pilipino",
+              "Isang kasunduang pangkapayapaan",
+              "Isang pistang bayan"
+            ],
+            "correct_answer": "Puwersahang paglalakad ng mga bihag na sundalo"
+          },
+          {
+            "question": "Saan naganap ang matinding labanan laban sa mga Hapones?",
+            "options": [
+              "Bataan-Corregidor",
+              "Tirad Pass",
+              "Sta. Mesa",
+              "Balangiga"
+            ],
+            "correct_answer": "Bataan-Corregidor"
+          },
+          {
+            "question": "Ano ang HUKBALAHAP?",
+            "options": [
+              "Kilusang gerilyang nakipaglaban sa mga Hapones",
+              "Ahensya ng gobyernong Amerikano",
+              "Batas laban sa mga Pilipino",
+              "Grupong pangkalakalan"
+            ],
+            "correct_answer": "Kilusang gerilyang nakipaglaban sa mga Hapones"
+          },
+          {
+            "question": "Ano ang patuloy na ipinaglaban ng kababaihan kahit sa gitna ng digmaan?",
+            "options": [
+              "Karapatang bumoto",
+              "Karapatang magmay-ari ng lupa lamang",
+              "Karapatang magpundar ng negosyo lamang",
+              "Karapatang mangibang-bansa lamang"
+            ],
+            "correct_answer": "Karapatang bumoto"
+          },
+          {
+            "question": "Ano ang layunin ng mga imperyalistang pamamaraan ng Amerikano (militar, propaganda, edukasyon)?",
+            "options": [
+              "Palawakin ang kontrol ng Amerika sa Pilipinas",
+              "Bigyan agad ng kalayaan ang Pilipinas",
+              "Palakasin ang Espanya sa Pilipinas",
+              "Wala itong tunay na layunin"
+            ],
+            "correct_answer": "Palawakin ang kontrol ng Amerika sa Pilipinas"
+          },
+          {
+            "question": "Ilang mananakop ang pinaglabanan ng mga Pilipino batay sa buong yunit na ito?",
+            "options": [
+              "Dalawa — Amerikano at Hapones",
+              "Isa lamang — Espanyol",
+              "Tatlo — Espanyol, Amerikano, Hapones",
+              "Wala — laging malaya ang Pilipinas"
+            ],
+            "correct_answer": "Dalawa — Amerikano at Hapones"
+          },
+          {
+            "question": "Ano ang pangkalahatang mensahe ng buong yunit na ito?",
+            "options": [
+              "Ang kalayaan ay bunga ng matagal at magkakasunod na pakikibaka",
+              "Ang kalayaan ay ibinigay lamang kaagad",
+              "Walang naging sakripisyo ang mga Pilipino",
+              "Ang kasaysayan ng Pilipinas ay walang kahalagahan"
+            ],
+            "correct_answer": "Ang kalayaan ay bunga ng matagal at magkakasunod na pakikibaka"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang buong kasaysayan mula sa Digmaang Pilipino-Amerikano hanggang sa Imperyalismong Hapones?",
+            "options": [
+              "Upang maunawaan at maipagmalaki ang pagpupunyagi ng mga Pilipino",
+              "Upang malaman lamang ang mga petsa",
+              "Hindi na kailangang pag-aralan pa ito",
+              "Upang kalimutan ang nakaraang kasaysayan"
+            ],
+            "correct_answer": "Upang maunawaan at maipagmalaki ang pagpupunyagi ng mga Pilipino"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎭 MAPEH — Term Review: Musika, Sining, at PE\n\nGrade 6, Linggo 20! Balikan natin ang lahat ng natutuhan sa MAPEH ngayong term. 🎨\n\n## 🔄 Balik-Aral: Musika\nMeter, time signature, rhythmic dance patterns mula sa musikang Pilipino.\n\n## 🔄 Balik-Aral: Teatro at Sayaw\nSymbolic theater, seditious plays, dramatic structure noong panahon ng Amerikano.\n\n## 🔄 Balik-Aral: Kalusugan\nPuberty at pagbabago sa katawan, bukas na komunikasyon sa pamilya, self-esteem.\n\n## 🔄 Balik-Aral: PE\nStriking/fielding at net/wall games; agility, balance, coordination.\n\n## 🔄 Balik-Aral: Family Wellness\nPagpaplano ng gawaing pangkalusugan para sa buong pamilya.\n\n## 🧠 Halimbawa 1\n*Ano ang symbolic theater?*\n- Gumagamit ng **simbolo** upang ipahayag ang mensahe nang hindi tuwiran.\n\n## 🧠 Halimbawa 2\n*Ano ang pagkakaiba ng striking/fielding sa net/wall games?*\n- Striking/fielding ay may **pagpalo at pagtakbo**; net/wall ay may **hadlang**.\n\n## 💡 Bakit Mahalaga Ito?\nAng pagbabalik-aral sa MAPEH ay tumutulong upang **maalala at maiugnay** ang lahat ng natutuhang konsepto.\n\nMagaling sa MAPEH! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang natutuhan natin tungkol sa musika ngayong term?",
+            "options": [
+              "Meter, time signature, at rhythmic dance patterns",
+              "Kasaysayan ng kompyuter lamang",
+              "Matematika lamang dito sa gawaing ito",
+              "Wala tayong natutuhan ngayon"
+            ],
+            "correct_answer": "Meter, time signature, at rhythmic dance patterns"
+          },
+          {
+            "question": "Ano ang symbolic theater?",
+            "options": [
+              "Gumagamit ng simbolo upang ipahayag ang mensahe",
+              "Direktang pagsalungat lamang",
+              "Sayaw lamang na walang mensahe",
+              "Kanta lamang na walang kahulugan"
+            ],
+            "correct_answer": "Gumagamit ng simbolo upang ipahayag ang mensahe"
+          },
+          {
+            "question": "Ano ang natutuhan natin tungkol sa pagbabago habang papalaki?",
+            "options": [
+              "Ito ay normal na bahagi ng paglaki, kasama ang pisikal at emosyonal na pagbabago",
+              "Ito ay hindi normal at dapat ikahiya kahit kailan",
+              "Wala tayong natutuhan tungkol dito sa gawaing ito",
+              "Ito ay hindi bahagi ng MAPEH dito ngayon sa sitwasyong ito"
+            ],
+            "correct_answer": "Ito ay normal na bahagi ng paglaki, kasama ang pisikal at emosyonal na pagbabago"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng striking/fielding sa net/wall games?",
+            "options": [
+              "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang",
+              "Pareho silang walang bola",
+              "Pareho silang ginagawa lamang habang nakaupo",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang"
+          },
+          {
+            "question": "Ano ang natutuhan natin tungkol sa family wellness ngayong term?",
+            "options": [
+              "Pagpaplano at pagsasagawa ng gawaing pangkalusugan para sa pamilya",
+              "Wala tayong natutuhan tungkol dito",
+              "Isang uri lamang ng laro dito sa gawaing ito",
+              "Isang uri lamang ng pagkain ngayon"
+            ],
+            "correct_answer": "Pagpaplano at pagsasagawa ng gawaing pangkalusugan para sa pamilya"
+          },
+          {
+            "question": "Ano ang agility?",
+            "options": [
+              "Kakayahang mabilis kumilos at magpalit ng direksyon",
+              "Kakayahang manatiling tahimik",
+              "Kakayahang kumain nang mabilis",
+              "Kakayahang matulog nang mahimbing"
+            ],
+            "correct_answer": "Kakayahang mabilis kumilos at magpalit ng direksyon"
+          },
+          {
+            "question": "Ano ang balance sa PE?",
+            "options": [
+              "Kakayahang manatiling matatag habang gumagalaw",
+              "Kakayahang tumakbo nang napakabilis",
+              "Kakayahang magbilang nang mabilis",
+              "Kakayahang kumanta nang malakas"
+            ],
+            "correct_answer": "Kakayahang manatiling matatag habang gumagalaw"
+          },
+          {
+            "question": "Bakit mahalagang balikan ang natutuhan natin sa MAPEH ngayong term?",
+            "options": [
+              "Tumutulong ito upang maalala at maiugnay ang mga konsepto",
+              "Wala itong kabuluhan sa pag-aaral dito",
+              "Ginagawa lamang ito para sa marka",
+              "Nakakalito lamang ito sa mag-aaral"
+            ],
+            "correct_answer": "Tumutulong ito upang maalala at maiugnay ang mga konsepto"
+          },
+          {
+            "question": "Ano ang natutuhan natin tungkol sa dramatic structure ng dula?",
+            "options": [
+              "Eksposisyon, tunggalian, kasukdulan, at kakalasan",
+              "Isang bahagi lamang",
+              "Wala tayong natutuhan tungkol dito",
+              "Kasaysayan lamang ng dula"
+            ],
+            "correct_answer": "Eksposisyon, tunggalian, kasukdulan, at kakalasan"
+          },
+          {
+            "question": "Bakit mahalagang isabuhay ang natutuhan tungkol sa kalusugan at kalinisan?",
+            "options": [
+              "Nakatutulong ito upang mamuhay nang malusog at responsable",
+              "Wala itong kabuluhan sa buhay ngayon",
+              "Ginagawa lamang ito para sa marka",
+              "Hindi ito totoong mahalaga dito sa gawaing ito"
+            ],
+            "correct_answer": "Nakatutulong ito upang mamuhay nang malusog at responsable"
+          },
+          {
+            "question": "Ano ang natutuhan natin tungkol sa mga larong Pilipino sa PE?",
+            "options": [
+              "Nagpapaunlad ang mga ito ng kasanayang pisikal habang pinahahalagahan ang kultura",
+              "Wala tayong natutuhan tungkol dito sa gawaing ito",
+              "Isang uri lamang ng libangan na walang halaga sa sitwasyong ito",
+              "Hindi ito bahagi ng MAPEH dito ngayon kahit kailan"
+            ],
+            "correct_answer": "Nagpapaunlad ang mga ito ng kasanayang pisikal habang pinahahalagahan ang kultura"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang buong saklaw ng MAPEH ngayong term?",
+            "options": [
+              "Nagbibigay ito ng balanseng pagpapaunlad sa sining, kalusugan, at pisikal na kasanayan",
+              "Isa lamang dapat pinag-aralan sa mga ito",
+              "Wala itong kabuluhan sa buhay ng bata ngayon",
+              "Ginagawa lamang ito bilang libangan dito sa gawaing ito"
+            ],
+            "correct_answer": "Nagbibigay ito ng balanseng pagpapaunlad sa sining, kalusugan, at pisikal na kasanayan"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🌍 GMRC — Pagsunod sa mga Batas-Pangkapaligiran\n\nGrade 6, Linggo 20! Pagpapahalaga: **Mapanagutan (Accountability)**. 🌟\n\n## 🌍 Pagsunod ng Pamilya sa mga Batas-Pangkapaligiran\nBawat pamilya ay may **tungkulin** na sundin ang mga **batas-pangkapaligiran** na angkop sa kanilang bayan — tulad ng wastong pagtatapon ng basura, hindi pagsunog ng basura, at pagtitipid sa tubig at kuryente.\n\n## ⚖️ Ano ang Mapanagutan?\nAng **mapanagutan** ay ang pagiging **may pananagutan** sa mga kilos natin, kabilang ang epekto ng mga ito sa kapaligiran.\n\n## 🧠 Halimbawa 1\n*Bakit dapat sundin ng pamilya ang mga batas-pangkapaligiran sa kanilang bayan?*\n- Upang **maiwasan ang polusyon** at mapanatili ang kalusugan ng komunidad.\n\n## 🧠 Halimbawa 2\n*Ano ang ipinapakita ng isang pamilyang laging sumusunod sa segregasyon ng basura?*\n- **Mapanagutang** pakikitungo sa kapaligiran ng kanilang komunidad.\n\n## 💛 Bunga ng Pagsunod sa mga Batas-Pangkapaligiran\n- Nagiging **malinis at malusog** ang komunidad\n- Naiiwasan ang **polusyon at sakit**\n- Nagpapakita ng **magandang halimbawa** sa iba\n\n## 💡 Kongklusyon\nAng pagsunod sa mga batas-pangkapaligiran bilang pamilya ay tunay na tanda ng **pagiging mapanagutan** sa lipunan.\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang batas-pangkapaligiran?",
+            "options": [
+              "Mga alituntuning nagpoprotekta sa kalikasan ng isang lugar",
+              "Mga batas laban sa pamilya dito ngayon",
+              "Mga alituntunin sa paaralan lamang",
+              "Wala itong kaugnayan sa kalikasan"
+            ],
+            "correct_answer": "Mga alituntuning nagpoprotekta sa kalikasan ng isang lugar"
+          },
+          {
+            "question": "Ano ang mapanagutan (accountability)?",
+            "options": [
+              "Pagiging may pananagutan sa mga kilos natin",
+              "Pag-iwas sa lahat ng responsibilidad",
+              "Pagpasa ng pananagutan sa iba",
+              "Paglimot sa mga tungkulin"
+            ],
+            "correct_answer": "Pagiging may pananagutan sa mga kilos natin"
+          },
+          {
+            "question": "Bakit dapat sundin ng pamilya ang mga batas-pangkapaligiran sa kanilang bayan?",
+            "options": [
+              "Upang maiwasan ang polusyon at mapanatili ang kalusugan",
+              "Wala itong kabuluhan sa komunidad",
+              "Upang mapabilis lamang ang gawain",
+              "Hindi ito totoong mahalaga dito ngayon"
+            ],
+            "correct_answer": "Upang maiwasan ang polusyon at mapanatili ang kalusugan"
+          },
+          {
+            "question": "Ano ang ipinapakita ng isang pamilyang laging sumusunod sa segregasyon ng basura?",
+            "options": [
+              "Mapanagutang pakikitungo sa kapaligiran",
+              "Kapabayaan sa komunidad",
+              "Kawalang-interes sa kalikasan",
+              "Pagsuway sa batas"
+            ],
+            "correct_answer": "Mapanagutang pakikitungo sa kapaligiran"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Mapanagutan (Accountability)",
+              "Compassion",
+              "Gratitude in this case",
+              "Respect at all"
+            ],
+            "correct_answer": "Mapanagutan (Accountability)"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng batas-pangkapaligiran na dapat sundin ng pamilya?",
+            "options": [
+              "Wastong pagtatapon ng basura",
+              "Pagsunog ng basura kahit saan",
+              "Pag-aaksaya ng tubig at kuryente",
+              "Pagtapon ng basura sa ilog"
+            ],
+            "correct_answer": "Wastong pagtatapon ng basura"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagsunod sa mga batas-pangkapaligiran?",
+            "options": [
+              "Nagiging malinis at malusog ang komunidad",
+              "Nadaragdagan ang polusyon",
+              "Nagiging mas magulo ang komunidad",
+              "Walang epekto ito sa komunidad"
+            ],
+            "correct_answer": "Nagiging malinis at malusog ang komunidad"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang halimbawa ng pamilya sa pagsunod sa batas-pangkapaligiran?",
+            "options": [
+              "Nagsisilbi itong magandang halimbawa sa ibang kasapi ng komunidad",
+              "Wala itong epekto sa iba",
+              "Hindi ito napapansin ng ibang tao",
+              "Ginagawa lamang ito para sa sariling kapakanan"
+            ],
+            "correct_answer": "Nagsisilbi itong magandang halimbawa sa ibang kasapi ng komunidad"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi susundin ng mga pamilya ang mga batas-pangkapaligiran?",
+            "options": [
+              "Maaaring dumami ang polusyon at sakit sa komunidad",
+              "Awtomatikong magiging malinis pa rin ang komunidad",
+              "Walang magiging epekto ito sa lahat",
+              "Mas gaganda ang kalikasan"
+            ],
+            "correct_answer": "Maaaring dumami ang polusyon at sakit sa komunidad"
+          },
+          {
+            "question": "Bakit itinuturing na tanda ng pagmamahal sa bayan ang pagsunod sa batas-pangkapaligiran?",
+            "options": [
+              "Ipinapakita nito ang pagmamalasakit sa kapaligiran ng sariling bansa",
+              "Wala itong kaugnayan sa pagmamahal sa bayan",
+              "Hindi ito totoong mahalaga sa bansa",
+              "Ginagawa lamang ito para sa ibang bansa"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagmamalasakit sa kapaligiran ng sariling bansa"
+          },
+          {
+            "question": "Isang pamilya ang laging nagtitipid ng tubig at kuryente. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagiging mapanagutan sa likas na yaman",
+              "Kapabayaan sa likas na yaman",
+              "Kawalang-interes sa kapaligiran",
+              "Kasakiman sa likas na yaman"
+            ],
+            "correct_answer": "Pagiging mapanagutan sa likas na yaman"
+          },
+          {
+            "question": "Bakit mahalagang isabuhay ang pagsunod sa batas-pangkapaligiran, hindi lang alamin ito?",
+            "options": [
+              "Upang tunay na makatulong ito sa kapaligiran",
+              "Sapat na ang malaman lamang ito",
+              "Hindi na kailangang isabuhay pa ito",
+              "Walang pagkakaiba kung isasabuhay man o hindi"
+            ],
+            "correct_answer": "Upang tunay na makatulong ito sa kapaligiran"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP (AFA/FCS/IA) — Term Review: Fishery Arts\n\nGrade 6, Linggo 20! Balikan natin ang lahat ng natutuhan sa Fishery Arts ngayong term. 🎣\n\n## 🔄 Balik-Aral: Sangay ng Fishery Arts\nFish culture, fish capture, at fish processing.\n\n## 🔄 Balik-Aral: Support Systems\nDA, BFAR, DENR, at mga NGO na tumutulong sa mga mangingisda.\n\n## 🔄 Balik-Aral: Teknikal na Nilalaman\nKailangan sa natural na pag-aalaga: suplay ng tubig, stocking density, feeds; anatomiya ng isda; karaniwang sakit.\n\n## 🔄 Balik-Aral: Pagsasagawa ng Proseso\nPaghahanda, pagstock, pagpapakain, aeration, pagmomonitor, pag-aani, pagbebenta.\n\n## 🧠 Halimbawa 1\n*Ano ang BFAR?*\n- **Ahensyang** espesipiko para sa pangisdaan.\n\n## 🧠 Halimbawa 2\n*Anong bahagi ng isda ang ginagamit sa paghinga?*\n- Ang **hasang (gills)**.\n\n## 💡 Bakit Mahalaga Ito?\nAng pagbabalik-aral sa fishery arts ay nagpapakita ng ating **kabuuang kaalaman** sa pag-aalaga ng isda.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tatlong sangay ng fishery arts?",
+            "options": [
+              "Fish culture, fish capture, at fish processing",
+              "Fish culture lamang dito sa gawaing ito",
+              "Pangingisda lamang sa ilog",
+              "Fish farming lamang ngayon"
+            ],
+            "correct_answer": "Fish culture, fish capture, at fish processing"
+          },
+          {
+            "question": "Ano ang BFAR?",
+            "options": [
+              "Ahensyang espesipiko para sa pangisdaan",
+              "Batas laban sa polusyon",
+              "Kumpanya ng pagkain",
+              "Ahensya para sa edukasyon"
+            ],
+            "correct_answer": "Ahensyang espesipiko para sa pangisdaan"
+          },
+          {
+            "question": "Anong bahagi ng isda ang ginagamit sa paghinga?",
+            "options": [
+              "Hasang (gills)",
+              "Bibig (mouth)",
+              "Buntot (tail)",
+              "Kaliskis (scales)"
+            ],
+            "correct_answer": "Hasang (gills)"
+          },
+          {
+            "question": "Ano ang aeration?",
+            "options": [
+              "Paglagay ng hangin sa tubig upang magkaroon ng sapat na oxygen",
+              "Paglilinis ng tangke lamang ngayon",
+              "Pagbibigay ng pagkain sa isda",
+              "Pagsukat ng laki ng isda dito sa gawaing ito"
+            ],
+            "correct_answer": "Paglagay ng hangin sa tubig upang magkaroon ng sapat na oxygen"
+          },
+          {
+            "question": "Ano ang mahahalagang katangian ng matagumpay na mangingisda?",
+            "options": [
+              "Determinado, matapat, makabago, masipag, at risk-taker",
+              "Tamad at walang plano dito ngayon",
+              "Palaging sumusuko sa hamon sa gawaing ito",
+              "Ayaw sumubok ng bagong pamamaraan"
+            ],
+            "correct_answer": "Determinado, matapat, makabago, masipag, at risk-taker"
+          },
+          {
+            "question": "Anong ahensya ang nangangalaga sa kapaligiran at katubigan?",
+            "options": [
+              "DENR",
+              "DA lamang",
+              "BFAR lamang",
+              "DTI"
+            ],
+            "correct_answer": "DENR"
+          },
+          {
+            "question": "Ano ang dapat gawin sa pagstock ng isda?",
+            "options": [
+              "Isaalang-alang ang wastong densidad",
+              "Ilagay ang lahat ng isda sa isang lugar nang walang limitasyon",
+              "Huwag na isaalang-alang ang bilang ng isda",
+              "Walang panuntunan sa pagstock"
+            ],
+            "correct_answer": "Isaalang-alang ang wastong densidad"
+          },
+          {
+            "question": "Ano ang huling hakbang sa proseso ng pag-aalaga hanggang pagbebenta ng isda?",
+            "options": [
+              "Pagbebenta ng isda",
+              "Paghahanda ng kagamitan",
+              "Pagstock ng isda",
+              "Pagpapakain ng isda"
+            ],
+            "correct_answer": "Pagbebenta ng isda"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang karaniwang sakit ng isda?",
+            "options": [
+              "Upang maiwasan ang malaking pagkalugi sa pag-aalaga",
+              "Upang mabilis maubos ang stock ng isda",
+              "Dahil wala itong silbi sa negosyo",
+              "Upang hindi na kailangan pang linisin ang tangke"
+            ],
+            "correct_answer": "Upang maiwasan ang malaking pagkalugi sa pag-aalaga"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang buong proseso mula sa pag-aalaga hanggang pagbebenta?",
+            "options": [
+              "Ito ay nagbibigay ng kumpletong kaalaman para sa isang tunay na negosyo",
+              "Isang bahagi lamang ang totoong mahalaga",
+              "Wala itong praktikal na gamit dito ngayon",
+              "Hindi ito kailangang pag-aralan pa sa gawaing ito"
+            ],
+            "correct_answer": "Ito ay nagbibigay ng kumpletong kaalaman para sa isang tunay na negosyo"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga support system tulad ng DA, BFAR, at DENR?",
+            "options": [
+              "Nagbibigay sila ng tulong at gabay sa mga mangingisda",
+              "Wala silang kaugnayan sa mga mangingisda",
+              "Sila lamang ang dapat mangisda",
+              "Ginagawa lamang nila ang trabaho ng mangingisda"
+            ],
+            "correct_answer": "Nagbibigay sila ng tulong at gabay sa mga mangingisda"
+          },
+          {
+            "question": "Isang mag-aaral ang bumalangkas ng kumpletong proseso mula sa pag-aalaga hanggang pagbebenta ng isda. Ano ang ipinapakita nito?",
+            "options": [
+              "Kabuuang pag-unawa sa fishery arts na natutuhan ngayong term",
+              "Kawalan ng kaalaman sa fishery arts",
+              "Kapabayaan sa proyekto dito sa gawaing ito",
+              "Kakulangan sa oras lamang ngayon"
+            ],
+            "correct_answer": "Kabuuang pag-unawa sa fishery arts na natutuhan ngayong term"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📚 Friday Review — English (Grade 6)\n\n- Term review: literary/informational reading, grammar, viewing\n\nGreat term review! 🌟",
+        "quiz": [
+          {
+            "question": "What is a flashback in a story?",
+            "options": [
+              "A scene that shows events from earlier in time",
+              "A scene that shows the future only",
+              "A character's name only",
+              "The title of the story"
+            ],
+            "correct_answer": "A scene that shows events from earlier in time"
+          },
+          {
+            "question": "What is a diamond outline used for?",
+            "options": [
+              "Organizing an essay from broad to narrow to broad again",
+              "Drawing a picture of a diamond",
+              "Measuring a shape's angles in this case",
+              "Listing random facts only at all"
+            ],
+            "correct_answer": "Organizing an essay from broad to narrow to broad again"
+          },
+          {
+            "question": "\"The Philippines has 7,641 islands\" is an example of what?",
+            "options": [
+              "A fact",
+              "An opinion",
+              "A propaganda technique",
+              "A metaphor"
+            ],
+            "correct_answer": "A fact"
+          },
+          {
+            "question": "What is an intransitive verb?",
+            "options": [
+              "A verb that does not take a direct object",
+              "A verb that always takes an object",
+              "A word that describes a noun",
+              "A word that replaces a noun"
+            ],
+            "correct_answer": "A verb that does not take a direct object"
+          },
+          {
+            "question": "\"Although it rained, we finished the game, and we celebrated.\" What sentence type is this?",
+            "options": [
+              "Compound-complex sentence",
+              "Simple sentence",
+              "Compound sentence only",
+              "Complex sentence only"
+            ],
+            "correct_answer": "Compound-complex sentence"
+          },
+          {
+            "question": "What are video-specific multimedia elements?",
+            "options": [
+              "Transitions, captions, and pacing",
+              "Only the title of the video",
+              "Only the actors' names",
+              "Only the running time"
+            ],
+            "correct_answer": "Transitions, captions, and pacing"
+          },
+          {
+            "question": "What is author's purpose?",
+            "options": [
+              "The reason a writer creates a text — to inform, persuade, or entertain",
+              "The exact date a text was written",
+              "The title of the text only at all for this task",
+              "The length of the text only in this case"
+            ],
+            "correct_answer": "The reason a writer creates a text — to inform, persuade, or entertain"
+          },
+          {
+            "question": "What is a propaganda technique?",
+            "options": [
+              "A method used to persuade, like testimonials or bandwagon",
+              "A method used only to inform neutrally",
+              "A grammar rule for sentences",
+              "A punctuation mark"
+            ],
+            "correct_answer": "A method used to persuade, like testimonials or bandwagon"
+          },
+          {
+            "question": "What is the present perfect tense formula?",
+            "options": [
+              "has/have + past participle",
+              "will + base verb",
+              "was/were + verb-ing",
+              "did + base verb"
+            ],
+            "correct_answer": "has/have + past participle"
+          },
+          {
+            "question": "What does a prepositional phrase used as an adjective do?",
+            "options": [
+              "Describes a noun, like \"the book on the table\"",
+              "Replaces a noun completely",
+              "Shows an action only",
+              "Connects two independent clauses"
+            ],
+            "correct_answer": "Describes a noun, like \"the book on the table\""
+          },
+          {
+            "question": "Why is it useful to review reading, writing, and viewing skills together?",
+            "options": [
+              "It helps us see how they connect and support each other",
+              "These skills have no connection to each other",
+              "Only one skill is ever truly useful",
+              "Reviewing wastes valuable time"
+            ],
+            "correct_answer": "It helps us see how they connect and support each other"
+          },
+          {
+            "question": "What is point of view in multimedia?",
+            "options": [
+              "The perspective being shown in the content",
+              "The volume of the background sound",
+              "The screen resolution used",
+              "The number of scenes shown"
+            ],
+            "correct_answer": "The perspective being shown in the content"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🧮 Friday Review — Mathematics (Grade 6)\n\n- Term review: ratio, percent, exponents, square roots\n\nGreat term review! ⭐",
+        "quiz": [
+          {
+            "question": "Convert 3/4 to a percent.",
+            "options": [
+              "75%",
+              "34%",
+              "43%",
+              "70%"
+            ],
+            "correct_answer": "75%"
+          },
+          {
+            "question": "What is 2³?",
+            "options": [
+              "8",
+              "6",
+              "5",
+              "9"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is √49?",
+            "options": [
+              "7",
+              "24.5",
+              "14",
+              "49"
+            ],
+            "correct_answer": "7"
+          },
+          {
+            "question": "A ratio of 2:5 means what?",
+            "options": [
+              "For every 2 of one thing, there are 5 of another",
+              "The two amounts are always equal",
+              "One amount is always 5 times smaller",
+              "It only applies to money"
+            ],
+            "correct_answer": "For every 2 of one thing, there are 5 of another"
+          },
+          {
+            "question": "What is 45% as a decimal?",
+            "options": [
+              "0.45",
+              "4.5",
+              "0.045",
+              "45.0"
+            ],
+            "correct_answer": "0.45"
+          },
+          {
+            "question": "What is a perfect square?",
+            "options": [
+              "A number that is the square of a whole number",
+              "Any odd number at all in this case",
+              "Any number divisible by 5",
+              "A number with no factors"
+            ],
+            "correct_answer": "A number that is the square of a whole number"
+          },
+          {
+            "question": "What is √64?",
+            "options": [
+              "8",
+              "16",
+              "32",
+              "4"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is 5² percent of 200?",
+            "options": [
+              "50",
+              "25",
+              "100",
+              "10"
+            ],
+            "correct_answer": "50"
+          },
+          {
+            "question": "In a class of 30, the ratio of boys to girls is 2:3. How many boys are there?",
+            "options": [
+              "12",
+              "18",
+              "15",
+              "10"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "What is 7/8 as a percent?",
+            "options": [
+              "87.5%",
+              "78%",
+              "80%",
+              "85%"
+            ],
+            "correct_answer": "87.5%"
+          },
+          {
+            "question": "Solve: 2³ + √16",
+            "options": [
+              "12",
+              "10",
+              "8",
+              "14"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "Why is it useful to know ratio, percent, exponents, and square roots together?",
+            "options": [
+              "They help us solve many different kinds of real-world problems",
+              "They have no connection to each other",
+              "Only one of these is ever useful",
+              "They make math impossible to understand"
+            ],
+            "correct_answer": "They help us solve many different kinds of real-world problems"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📝 Friday Review — Filipino (Grade 6)\n\n- Term review: pakikinig/pagbasa, tekstong impormatibo, gramatika, sanaysay\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa maikling kasabihang may aral tungkol sa buhay?",
+            "options": [
+              "Salawikain",
+              "Tekstong impormatibo",
+              "Sanaysay",
+              "Kaganapan"
+            ],
+            "correct_answer": "Salawikain"
+          },
+          {
+            "question": "Ano ang mga bahagi ng sanaysay?",
+            "options": [
+              "Panimula, katawan, at konklusyon",
+              "Simula at wakas lamang",
+              "Isang bahagi lamang",
+              "Walang tiyak na bahagi"
+            ],
+            "correct_answer": "Panimula, katawan, at konklusyon"
+          },
+          {
+            "question": "Ano ang kaganapang tagatanggap ng pandiwa?",
+            "options": [
+              "Sumasagot sa tanong na kanino ibinigay",
+              "Sumasagot sa tanong na kailan nangyari",
+              "Sumasagot sa tanong na saan nangyari",
+              "Sumasagot sa tanong na ilan ang bilang"
+            ],
+            "correct_answer": "Sumasagot sa tanong na kanino ibinigay"
+          },
+          {
+            "question": "Ano ang kaganapang benepaktibo ng pandiwa?",
+            "options": [
+              "Sumasagot sa tanong na para kanino ginawa",
+              "Sumasagot sa tanong na kailan nangyari",
+              "Sumasagot sa tanong na saan nangyari",
+              "Sumasagot sa tanong na ano ang kulay nito"
+            ],
+            "correct_answer": "Sumasagot sa tanong na para kanino ginawa"
+          },
+          {
+            "question": "Ano ang tinitiyak ng malinaw na panimula ng sanaysay?",
+            "options": [
+              "Na naipakilala nang maayos ang paksa",
+              "Na tama ang bilang ng pahina",
+              "Na maganda ang kulay ng papel",
+              "Na mabilis matapos ang sanaysay"
+            ],
+            "correct_answer": "Na naipakilala nang maayos ang paksa"
+          },
+          {
+            "question": "Ano ang layunin ng tekstong impormatibo?",
+            "options": [
+              "Magbigay ng impormasyon nang malinaw",
+              "Kumbinsihin ang mambabasa lamang",
+              "Magpatawa lamang",
+              "Magkuwento ng gawa-gawa"
+            ],
+            "correct_answer": "Magbigay ng impormasyon nang malinaw"
+          },
+          {
+            "question": "Ano ang pangunahing diwa ng isang teksto?",
+            "options": [
+              "Ang pinakamahalagang punto ng teksto",
+              "Ang huling salita ng teksto",
+              "Ang haba ng teksto",
+              "Ang pangalan ng publisher"
+            ],
+            "correct_answer": "Ang pinakamahalagang punto ng teksto"
+          },
+          {
+            "question": "Ano ang peer review?",
+            "options": [
+              "Pagbabasa at pagbibigay ng puna mula sa kapwa mag-aaral",
+              "Isang uri ng pagsusulit sa gawaing ito",
+              "Isang uri ng aklat dito ngayon",
+              "Isang bahagi ng dula lamang"
+            ],
+            "correct_answer": "Pagbabasa at pagbibigay ng puna mula sa kapwa mag-aaral"
+          },
+          {
+            "question": "Bakit mahalagang magpahayag ng sariling opinyon matapos magbasa ng teksto?",
+            "options": [
+              "Nagpapakita ito ng pag-unawa at pananaw sa binasa",
+              "Wala itong kabuluhan sa pagbasa",
+              "Ginagawa lamang ito para sa marka",
+              "Hindi ito bahagi ng pag-unawa"
+            ],
+            "correct_answer": "Nagpapakita ito ng pag-unawa at pananaw sa binasa"
+          },
+          {
+            "question": "Ano ang sumusuportang detalye sa isang teksto?",
+            "options": [
+              "Impormasyong sumusuporta sa pangunahing diwa",
+              "Ang pamagat lamang ng teksto",
+              "Ang bilang ng talata lamang",
+              "Ang pangalan ng may-akda lamang"
+            ],
+            "correct_answer": "Impormasyong sumusuporta sa pangunahing diwa"
+          },
+          {
+            "question": "Bakit mahalagang pagbutihin ang isang sanaysay sa pamamagitan ng pagrerebisa?",
+            "options": [
+              "Nakatutulong ito upang mapabuti ang kalidad ng isinulat",
+              "Wala itong kabuluhan sa pagsulat dito",
+              "Ginagawa lamang ito para sa marka",
+              "Nagpapahaba lamang ito ng proseso"
+            ],
+            "correct_answer": "Nakatutulong ito upang mapabuti ang kalidad ng isinulat"
+          },
+          {
+            "question": "Isang mag-aaral ang gumamit ng salawikain bilang simula ng kanyang sanaysay. Anong kasanayan ang ipinapakita nito?",
+            "options": [
+              "Salawikain bilang panandang konteksto",
+              "Talata ng konklusyon",
+              "Talatanungan lamang at all",
+              "Talasalitaan lamang"
+            ],
+            "correct_answer": "Salawikain bilang panandang konteksto"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌍 Friday Review — Science (Grade 6)\n\n- Biotic vs abiotic factors; ecosystem interactions\n\nGreat ecosystem science! 🌟",
+        "quiz": [
+          {
+            "question": "What are biotic factors?",
+            "options": [
+              "Living things in an ecosystem",
+              "Non-living things in an ecosystem",
+              "Only plants in an ecosystem",
+              "Only rocks and soil"
+            ],
+            "correct_answer": "Living things in an ecosystem"
+          },
+          {
+            "question": "What are abiotic factors?",
+            "options": [
+              "Non-living things like light, water, temperature, and soil",
+              "Only animals in an ecosystem",
+              "Only plants in an ecosystem",
+              "Living things that eat other living things"
+            ],
+            "correct_answer": "Non-living things like light, water, temperature, and soil"
+          },
+          {
+            "question": "Why is light an important abiotic factor?",
+            "options": [
+              "It is needed for photosynthesis",
+              "It has no effect on living things",
+              "It only affects animals, not plants",
+              "It only matters at nighttime"
+            ],
+            "correct_answer": "It is needed for photosynthesis"
+          },
+          {
+            "question": "A drought (lack of water) hits an area. How does this affect biotic factors?",
+            "options": [
+              "Plants may wilt and animals may struggle to survive",
+              "Nothing changes for living things",
+              "All plants immediately grow larger",
+              "Animals become unaffected by water loss"
+            ],
+            "correct_answer": "Plants may wilt and animals may struggle to survive"
+          },
+          {
+            "question": "Why is soil type an important abiotic factor?",
+            "options": [
+              "It affects which plants can grow, impacting the food web",
+              "Soil type has no effect on plants at all",
+              "Only animals are affected by soil type",
+              "Soil type only matters underground"
+            ],
+            "correct_answer": "It affects which plants can grow, impacting the food web"
+          },
+          {
+            "question": "How can pollution (an abiotic change) harm an ecosystem?",
+            "options": [
+              "It can poison water, harming living things like fish",
+              "Pollution always helps living things thrive",
+              "Pollution has no effect on biotic factors",
+              "Pollution only affects non-living things"
+            ],
+            "correct_answer": "It can poison water, harming living things like fish"
+          },
+          {
+            "question": "Which of these is an example of a biotic factor?",
+            "options": [
+              "A fish in a pond",
+              "Sunlight",
+              "Temperature",
+              "Soil type"
+            ],
+            "correct_answer": "A fish in a pond"
+          },
+          {
+            "question": "Which of these is an example of an abiotic factor?",
+            "options": [
+              "Temperature",
+              "A tree",
+              "A bird",
+              "A fungus"
+            ],
+            "correct_answer": "Temperature"
+          },
+          {
+            "question": "Why does temperature affect which species can survive in an ecosystem?",
+            "options": [
+              "Different species need different temperature ranges to live",
+              "Temperature has no effect on any species",
+              "All species can survive at any temperature",
+              "Temperature only affects plants, not animals"
+            ],
+            "correct_answer": "Different species need different temperature ranges to live"
+          },
+          {
+            "question": "How do biotic factors depend on abiotic factors?",
+            "options": [
+              "They need things like water, light, and temperature to survive",
+              "They do not depend on abiotic factors at all",
+              "Only plants depend on abiotic factors",
+              "Abiotic factors depend on biotic factors instead"
+            ],
+            "correct_answer": "They need things like water, light, and temperature to survive"
+          },
+          {
+            "question": "Why is understanding biotic and abiotic factors together important?",
+            "options": [
+              "It helps us see how ecosystems are balanced and interconnected",
+              "It has no real value in understanding ecosystems",
+              "Only biotic factors matter in an ecosystem",
+              "Only abiotic factors matter in an ecosystem"
+            ],
+            "correct_answer": "It helps us see how ecosystems are balanced and interconnected"
+          },
+          {
+            "question": "What might happen if an ecosystem loses access to enough water?",
+            "options": [
+              "Both plants and animals in that ecosystem could suffer",
+              "Nothing would change in the ecosystem",
+              "Only abiotic factors would be affected",
+              "The ecosystem would automatically become healthier"
+            ],
+            "correct_answer": "Both plants and animals in that ecosystem could suffer"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎓 Friday Review — Araling Panlipunan (Grade 6)\n\n- Term review: Digmaang Pilipino-Amerikano hanggang kabayanihan sa digmaan\n\nMagaling sa Araling Panlipunan! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang Philippine Bill of 1902?",
+            "options": [
+              "Unang batas na nagbigay ng limitadong pamahalaang Pilipino",
+              "Batas na nagpapalaya sa Pilipinas agad",
+              "Batas na tungkol sa buwis lamang",
+              "Kasunduan sa Espanya"
+            ],
+            "correct_answer": "Unang batas na nagbigay ng limitadong pamahalaang Pilipino"
+          },
+          {
+            "question": "Ano ang Pilipinisasyon?",
+            "options": [
+              "Paglalagay ng mas maraming Pilipino sa gobyerno",
+              "Pagpapalayas sa mga Pilipino sa gobyerno",
+              "Batas laban sa mga Pilipino",
+              "Pagtatayo ng bagong bansa"
+            ],
+            "correct_answer": "Paglalagay ng mas maraming Pilipino sa gobyerno"
+          },
+          {
+            "question": "Ano ang naipangako ng Batas Jones noong 1916?",
+            "options": [
+              "Kalayaan sa hinaharap",
+              "Agarang kalayaan noon din",
+              "Bagong hari para sa Pilipinas",
+              "Pagbabalik sa Espanya"
+            ],
+            "correct_answer": "Kalayaan sa hinaharap"
+          },
+          {
+            "question": "Kailan itinatag ang Pamahalaang Komonwelt?",
+            "options": [
+              "1935",
+              "1898",
+              "1902",
+              "1946"
+            ],
+            "correct_answer": "1935"
+          },
+          {
+            "question": "Ano ang Death March?",
+            "options": [
+              "Puwersahang paglalakad ng mga bihag na sundalo",
+              "Isang sayaw ng mga Pilipino",
+              "Isang kasunduang pangkapayapaan",
+              "Isang pistang bayan"
+            ],
+            "correct_answer": "Puwersahang paglalakad ng mga bihag na sundalo"
+          },
+          {
+            "question": "Saan naganap ang matinding labanan laban sa mga Hapones?",
+            "options": [
+              "Bataan-Corregidor",
+              "Tirad Pass",
+              "Sta. Mesa",
+              "Balangiga"
+            ],
+            "correct_answer": "Bataan-Corregidor"
+          },
+          {
+            "question": "Ano ang HUKBALAHAP?",
+            "options": [
+              "Kilusang gerilyang nakipaglaban sa mga Hapones",
+              "Ahensya ng gobyernong Amerikano",
+              "Batas laban sa mga Pilipino",
+              "Grupong pangkalakalan"
+            ],
+            "correct_answer": "Kilusang gerilyang nakipaglaban sa mga Hapones"
+          },
+          {
+            "question": "Ano ang patuloy na ipinaglaban ng kababaihan kahit sa gitna ng digmaan?",
+            "options": [
+              "Karapatang bumoto",
+              "Karapatang magmay-ari ng lupa lamang",
+              "Karapatang magpundar ng negosyo lamang",
+              "Karapatang mangibang-bansa lamang"
+            ],
+            "correct_answer": "Karapatang bumoto"
+          },
+          {
+            "question": "Ano ang layunin ng mga imperyalistang pamamaraan ng Amerikano (militar, propaganda, edukasyon)?",
+            "options": [
+              "Palawakin ang kontrol ng Amerika sa Pilipinas",
+              "Bigyan agad ng kalayaan ang Pilipinas",
+              "Palakasin ang Espanya sa Pilipinas",
+              "Wala itong tunay na layunin"
+            ],
+            "correct_answer": "Palawakin ang kontrol ng Amerika sa Pilipinas"
+          },
+          {
+            "question": "Ilang mananakop ang pinaglabanan ng mga Pilipino batay sa buong yunit na ito?",
+            "options": [
+              "Dalawa — Amerikano at Hapones",
+              "Isa lamang — Espanyol",
+              "Tatlo — Espanyol, Amerikano, Hapones",
+              "Wala — laging malaya ang Pilipinas"
+            ],
+            "correct_answer": "Dalawa — Amerikano at Hapones"
+          },
+          {
+            "question": "Ano ang pangkalahatang mensahe ng buong yunit na ito?",
+            "options": [
+              "Ang kalayaan ay bunga ng matagal at magkakasunod na pakikibaka",
+              "Ang kalayaan ay ibinigay lamang kaagad",
+              "Walang naging sakripisyo ang mga Pilipino",
+              "Ang kasaysayan ng Pilipinas ay walang kahalagahan"
+            ],
+            "correct_answer": "Ang kalayaan ay bunga ng matagal at magkakasunod na pakikibaka"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang buong kasaysayan mula sa Digmaang Pilipino-Amerikano hanggang sa Imperyalismong Hapones?",
+            "options": [
+              "Upang maunawaan at maipagmalaki ang pagpupunyagi ng mga Pilipino",
+              "Upang malaman lamang ang mga petsa",
+              "Hindi na kailangang pag-aralan pa ito",
+              "Upang kalimutan ang nakaraang kasaysayan"
+            ],
+            "correct_answer": "Upang maunawaan at maipagmalaki ang pagpupunyagi ng mga Pilipino"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎭 Friday Review — MAPEH (Grade 6)\n\n- Term review: musika, teatro/sayaw, kalusugan, PE, family wellness\n\nMagaling sa MAPEH! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang natutuhan natin tungkol sa musika ngayong term?",
+            "options": [
+              "Meter, time signature, at rhythmic dance patterns",
+              "Kasaysayan ng kompyuter lamang",
+              "Matematika lamang dito sa gawaing ito",
+              "Wala tayong natutuhan ngayon"
+            ],
+            "correct_answer": "Meter, time signature, at rhythmic dance patterns"
+          },
+          {
+            "question": "Ano ang symbolic theater?",
+            "options": [
+              "Gumagamit ng simbolo upang ipahayag ang mensahe",
+              "Direktang pagsalungat lamang",
+              "Sayaw lamang na walang mensahe",
+              "Kanta lamang na walang kahulugan"
+            ],
+            "correct_answer": "Gumagamit ng simbolo upang ipahayag ang mensahe"
+          },
+          {
+            "question": "Ano ang natutuhan natin tungkol sa pagbabago habang papalaki?",
+            "options": [
+              "Ito ay normal na bahagi ng paglaki, kasama ang pisikal at emosyonal na pagbabago",
+              "Ito ay hindi normal at dapat ikahiya kahit kailan",
+              "Wala tayong natutuhan tungkol dito sa gawaing ito",
+              "Ito ay hindi bahagi ng MAPEH dito ngayon sa sitwasyong ito"
+            ],
+            "correct_answer": "Ito ay normal na bahagi ng paglaki, kasama ang pisikal at emosyonal na pagbabago"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng striking/fielding sa net/wall games?",
+            "options": [
+              "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang",
+              "Pareho silang walang bola",
+              "Pareho silang ginagawa lamang habang nakaupo",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang"
+          },
+          {
+            "question": "Ano ang natutuhan natin tungkol sa family wellness ngayong term?",
+            "options": [
+              "Pagpaplano at pagsasagawa ng gawaing pangkalusugan para sa pamilya",
+              "Wala tayong natutuhan tungkol dito",
+              "Isang uri lamang ng laro dito sa gawaing ito",
+              "Isang uri lamang ng pagkain ngayon"
+            ],
+            "correct_answer": "Pagpaplano at pagsasagawa ng gawaing pangkalusugan para sa pamilya"
+          },
+          {
+            "question": "Ano ang agility?",
+            "options": [
+              "Kakayahang mabilis kumilos at magpalit ng direksyon",
+              "Kakayahang manatiling tahimik",
+              "Kakayahang kumain nang mabilis",
+              "Kakayahang matulog nang mahimbing"
+            ],
+            "correct_answer": "Kakayahang mabilis kumilos at magpalit ng direksyon"
+          },
+          {
+            "question": "Ano ang balance sa PE?",
+            "options": [
+              "Kakayahang manatiling matatag habang gumagalaw",
+              "Kakayahang tumakbo nang napakabilis",
+              "Kakayahang magbilang nang mabilis",
+              "Kakayahang kumanta nang malakas"
+            ],
+            "correct_answer": "Kakayahang manatiling matatag habang gumagalaw"
+          },
+          {
+            "question": "Bakit mahalagang balikan ang natutuhan natin sa MAPEH ngayong term?",
+            "options": [
+              "Tumutulong ito upang maalala at maiugnay ang mga konsepto",
+              "Wala itong kabuluhan sa pag-aaral dito",
+              "Ginagawa lamang ito para sa marka",
+              "Nakakalito lamang ito sa mag-aaral"
+            ],
+            "correct_answer": "Tumutulong ito upang maalala at maiugnay ang mga konsepto"
+          },
+          {
+            "question": "Ano ang natutuhan natin tungkol sa dramatic structure ng dula?",
+            "options": [
+              "Eksposisyon, tunggalian, kasukdulan, at kakalasan",
+              "Isang bahagi lamang",
+              "Wala tayong natutuhan tungkol dito",
+              "Kasaysayan lamang ng dula"
+            ],
+            "correct_answer": "Eksposisyon, tunggalian, kasukdulan, at kakalasan"
+          },
+          {
+            "question": "Bakit mahalagang isabuhay ang natutuhan tungkol sa kalusugan at kalinisan?",
+            "options": [
+              "Nakatutulong ito upang mamuhay nang malusog at responsable",
+              "Wala itong kabuluhan sa buhay ngayon",
+              "Ginagawa lamang ito para sa marka",
+              "Hindi ito totoong mahalaga dito sa gawaing ito"
+            ],
+            "correct_answer": "Nakatutulong ito upang mamuhay nang malusog at responsable"
+          },
+          {
+            "question": "Ano ang natutuhan natin tungkol sa mga larong Pilipino sa PE?",
+            "options": [
+              "Nagpapaunlad ang mga ito ng kasanayang pisikal habang pinahahalagahan ang kultura",
+              "Wala tayong natutuhan tungkol dito sa gawaing ito",
+              "Isang uri lamang ng libangan na walang halaga sa sitwasyong ito",
+              "Hindi ito bahagi ng MAPEH dito ngayon kahit kailan"
+            ],
+            "correct_answer": "Nagpapaunlad ang mga ito ng kasanayang pisikal habang pinahahalagahan ang kultura"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang buong saklaw ng MAPEH ngayong term?",
+            "options": [
+              "Nagbibigay ito ng balanseng pagpapaunlad sa sining, kalusugan, at pisikal na kasanayan",
+              "Isa lamang dapat pinag-aralan sa mga ito",
+              "Wala itong kabuluhan sa buhay ng bata ngayon",
+              "Ginagawa lamang ito bilang libangan dito sa gawaing ito"
+            ],
+            "correct_answer": "Nagbibigay ito ng balanseng pagpapaunlad sa sining, kalusugan, at pisikal na kasanayan"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🌍 Friday Review — GMRC (Grade 6)\n\n- Pagsunod sa batas-pangkapaligiran\n- Pagpapahalaga: **Mapanagutan**\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang batas-pangkapaligiran?",
+            "options": [
+              "Mga alituntuning nagpoprotekta sa kalikasan ng isang lugar",
+              "Mga batas laban sa pamilya dito ngayon",
+              "Mga alituntunin sa paaralan lamang",
+              "Wala itong kaugnayan sa kalikasan"
+            ],
+            "correct_answer": "Mga alituntuning nagpoprotekta sa kalikasan ng isang lugar"
+          },
+          {
+            "question": "Ano ang mapanagutan (accountability)?",
+            "options": [
+              "Pagiging may pananagutan sa mga kilos natin",
+              "Pag-iwas sa lahat ng responsibilidad",
+              "Pagpasa ng pananagutan sa iba",
+              "Paglimot sa mga tungkulin"
+            ],
+            "correct_answer": "Pagiging may pananagutan sa mga kilos natin"
+          },
+          {
+            "question": "Bakit dapat sundin ng pamilya ang mga batas-pangkapaligiran sa kanilang bayan?",
+            "options": [
+              "Upang maiwasan ang polusyon at mapanatili ang kalusugan",
+              "Wala itong kabuluhan sa komunidad",
+              "Upang mapabilis lamang ang gawain",
+              "Hindi ito totoong mahalaga dito ngayon"
+            ],
+            "correct_answer": "Upang maiwasan ang polusyon at mapanatili ang kalusugan"
+          },
+          {
+            "question": "Ano ang ipinapakita ng isang pamilyang laging sumusunod sa segregasyon ng basura?",
+            "options": [
+              "Mapanagutang pakikitungo sa kapaligiran",
+              "Kapabayaan sa komunidad",
+              "Kawalang-interes sa kalikasan",
+              "Pagsuway sa batas"
+            ],
+            "correct_answer": "Mapanagutang pakikitungo sa kapaligiran"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Mapanagutan (Accountability)",
+              "Compassion",
+              "Gratitude in this case",
+              "Respect at all"
+            ],
+            "correct_answer": "Mapanagutan (Accountability)"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng batas-pangkapaligiran na dapat sundin ng pamilya?",
+            "options": [
+              "Wastong pagtatapon ng basura",
+              "Pagsunog ng basura kahit saan",
+              "Pag-aaksaya ng tubig at kuryente",
+              "Pagtapon ng basura sa ilog"
+            ],
+            "correct_answer": "Wastong pagtatapon ng basura"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagsunod sa mga batas-pangkapaligiran?",
+            "options": [
+              "Nagiging malinis at malusog ang komunidad",
+              "Nadaragdagan ang polusyon",
+              "Nagiging mas magulo ang komunidad",
+              "Walang epekto ito sa komunidad"
+            ],
+            "correct_answer": "Nagiging malinis at malusog ang komunidad"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang halimbawa ng pamilya sa pagsunod sa batas-pangkapaligiran?",
+            "options": [
+              "Nagsisilbi itong magandang halimbawa sa ibang kasapi ng komunidad",
+              "Wala itong epekto sa iba",
+              "Hindi ito napapansin ng ibang tao",
+              "Ginagawa lamang ito para sa sariling kapakanan"
+            ],
+            "correct_answer": "Nagsisilbi itong magandang halimbawa sa ibang kasapi ng komunidad"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi susundin ng mga pamilya ang mga batas-pangkapaligiran?",
+            "options": [
+              "Maaaring dumami ang polusyon at sakit sa komunidad",
+              "Awtomatikong magiging malinis pa rin ang komunidad",
+              "Walang magiging epekto ito sa lahat",
+              "Mas gaganda ang kalikasan"
+            ],
+            "correct_answer": "Maaaring dumami ang polusyon at sakit sa komunidad"
+          },
+          {
+            "question": "Bakit itinuturing na tanda ng pagmamahal sa bayan ang pagsunod sa batas-pangkapaligiran?",
+            "options": [
+              "Ipinapakita nito ang pagmamalasakit sa kapaligiran ng sariling bansa",
+              "Wala itong kaugnayan sa pagmamahal sa bayan",
+              "Hindi ito totoong mahalaga sa bansa",
+              "Ginagawa lamang ito para sa ibang bansa"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagmamalasakit sa kapaligiran ng sariling bansa"
+          },
+          {
+            "question": "Isang pamilya ang laging nagtitipid ng tubig at kuryente. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagiging mapanagutan sa likas na yaman",
+              "Kapabayaan sa likas na yaman",
+              "Kawalang-interes sa kapaligiran",
+              "Kasakiman sa likas na yaman"
+            ],
+            "correct_answer": "Pagiging mapanagutan sa likas na yaman"
+          },
+          {
+            "question": "Bakit mahalagang isabuhay ang pagsunod sa batas-pangkapaligiran, hindi lang alamin ito?",
+            "options": [
+              "Upang tunay na makatulong ito sa kapaligiran",
+              "Sapat na ang malaman lamang ito",
+              "Hindi na kailangang isabuhay pa ito",
+              "Walang pagkakaiba kung isasabuhay man o hindi"
+            ],
+            "correct_answer": "Upang tunay na makatulong ito sa kapaligiran"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Friday Review — EPP (Grade 6)\n\n- Term review: fishery arts, support systems, teknikal na nilalaman, proseso\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tatlong sangay ng fishery arts?",
+            "options": [
+              "Fish culture, fish capture, at fish processing",
+              "Fish culture lamang dito sa gawaing ito",
+              "Pangingisda lamang sa ilog",
+              "Fish farming lamang ngayon"
+            ],
+            "correct_answer": "Fish culture, fish capture, at fish processing"
+          },
+          {
+            "question": "Ano ang BFAR?",
+            "options": [
+              "Ahensyang espesipiko para sa pangisdaan",
+              "Batas laban sa polusyon",
+              "Kumpanya ng pagkain",
+              "Ahensya para sa edukasyon"
+            ],
+            "correct_answer": "Ahensyang espesipiko para sa pangisdaan"
+          },
+          {
+            "question": "Anong bahagi ng isda ang ginagamit sa paghinga?",
+            "options": [
+              "Hasang (gills)",
+              "Bibig (mouth)",
+              "Buntot (tail)",
+              "Kaliskis (scales)"
+            ],
+            "correct_answer": "Hasang (gills)"
+          },
+          {
+            "question": "Ano ang aeration?",
+            "options": [
+              "Paglagay ng hangin sa tubig upang magkaroon ng sapat na oxygen",
+              "Paglilinis ng tangke lamang ngayon",
+              "Pagbibigay ng pagkain sa isda",
+              "Pagsukat ng laki ng isda dito sa gawaing ito"
+            ],
+            "correct_answer": "Paglagay ng hangin sa tubig upang magkaroon ng sapat na oxygen"
+          },
+          {
+            "question": "Ano ang mahahalagang katangian ng matagumpay na mangingisda?",
+            "options": [
+              "Determinado, matapat, makabago, masipag, at risk-taker",
+              "Tamad at walang plano dito ngayon",
+              "Palaging sumusuko sa hamon sa gawaing ito",
+              "Ayaw sumubok ng bagong pamamaraan"
+            ],
+            "correct_answer": "Determinado, matapat, makabago, masipag, at risk-taker"
+          },
+          {
+            "question": "Anong ahensya ang nangangalaga sa kapaligiran at katubigan?",
+            "options": [
+              "DENR",
+              "DA lamang",
+              "BFAR lamang",
+              "DTI"
+            ],
+            "correct_answer": "DENR"
+          },
+          {
+            "question": "Ano ang dapat gawin sa pagstock ng isda?",
+            "options": [
+              "Isaalang-alang ang wastong densidad",
+              "Ilagay ang lahat ng isda sa isang lugar nang walang limitasyon",
+              "Huwag na isaalang-alang ang bilang ng isda",
+              "Walang panuntunan sa pagstock"
+            ],
+            "correct_answer": "Isaalang-alang ang wastong densidad"
+          },
+          {
+            "question": "Ano ang huling hakbang sa proseso ng pag-aalaga hanggang pagbebenta ng isda?",
+            "options": [
+              "Pagbebenta ng isda",
+              "Paghahanda ng kagamitan",
+              "Pagstock ng isda",
+              "Pagpapakain ng isda"
+            ],
+            "correct_answer": "Pagbebenta ng isda"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang karaniwang sakit ng isda?",
+            "options": [
+              "Upang maiwasan ang malaking pagkalugi sa pag-aalaga",
+              "Upang mabilis maubos ang stock ng isda",
+              "Dahil wala itong silbi sa negosyo",
+              "Upang hindi na kailangan pang linisin ang tangke"
+            ],
+            "correct_answer": "Upang maiwasan ang malaking pagkalugi sa pag-aalaga"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang buong proseso mula sa pag-aalaga hanggang pagbebenta?",
+            "options": [
+              "Ito ay nagbibigay ng kumpletong kaalaman para sa isang tunay na negosyo",
+              "Isang bahagi lamang ang totoong mahalaga",
+              "Wala itong praktikal na gamit dito ngayon",
+              "Hindi ito kailangang pag-aralan pa sa gawaing ito"
+            ],
+            "correct_answer": "Ito ay nagbibigay ng kumpletong kaalaman para sa isang tunay na negosyo"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga support system tulad ng DA, BFAR, at DENR?",
+            "options": [
+              "Nagbibigay sila ng tulong at gabay sa mga mangingisda",
+              "Wala silang kaugnayan sa mga mangingisda",
+              "Sila lamang ang dapat mangisda",
+              "Ginagawa lamang nila ang trabaho ng mangingisda"
+            ],
+            "correct_answer": "Nagbibigay sila ng tulong at gabay sa mga mangingisda"
+          },
+          {
+            "question": "Isang mag-aaral ang bumalangkas ng kumpletong proseso mula sa pag-aalaga hanggang pagbebenta ng isda. Ano ang ipinapakita nito?",
+            "options": [
+              "Kabuuang pag-unawa sa fishery arts na natutuhan ngayong term",
+              "Kawalan ng kaalaman sa fishery arts",
+              "Kapabayaan sa proyekto dito sa gawaing ito",
+              "Kakulangan sa oras lamang ngayon"
+            ],
+            "correct_answer": "Kabuuang pag-unawa sa fishery arts na natutuhan ngayong term"
+          }
+        ]
+      }
+    }
+  }
+}

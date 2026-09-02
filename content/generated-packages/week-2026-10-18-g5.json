@@ -1,0 +1,2266 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-10-18",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🎯 English — Analyzing Multimedia Purpose\n\nGrade 5, Week 19! Let's dig deeper into why multimedia is made the way it is. 🎬\n\n## 🎯 Purpose in Multimedia\nJust like written texts, multimedia (videos, slideshows, ads) has a **purpose**: to **inform**, **persuade**, or **entertain**.\n\n## 👀 Point of View in Multimedia\n**Point of view** is the **perspective** shown — whose side of the story is being told.\n\n## 🎬 How Elements Support Purpose\n| Element | How It Supports Purpose |\n|---|---|\n| **Music** | dramatic music can persuade emotionally |\n| **Pacing** | fast pacing can excite; slow pacing can inform calmly |\n| **Captions** | can clarify or emphasize a message |\n\n## 🧠 Worked Example 1\n*A video for a toy commercial uses upbeat music and shows children laughing. What is its purpose?*\n- To **persuade** viewers (especially children) that the toy is fun and worth buying.\n\n## 🧠 Worked Example 2\n*A news video shows interviews from only one side of a community issue. What might this suggest?*\n- It may reflect a **limited point of view**, missing other perspectives.\n\n## 🔍 Thinking Critically About Multimedia\nWhen we watch multimedia, we should ask:\n1. What is the **purpose** of this?\n2. Whose **point of view** is shown?\n3. What **techniques** are used to achieve that purpose?\n\n## 💡 Why This Matters\nThinking critically about multimedia purpose helps us become **smart viewers** who aren't easily persuaded without noticing.\n\nGreat critical viewing! 🌟",
+        "quiz": [
+          {
+            "question": "What is purpose in multimedia?",
+            "options": [
+              "To inform, persuade, or entertain the viewer",
+              "The exact running time of a video",
+              "The name of the video editor",
+              "The file format used"
+            ],
+            "correct_answer": "To inform, persuade, or entertain the viewer"
+          },
+          {
+            "question": "What is point of view in multimedia?",
+            "options": [
+              "The perspective shown, or whose side is being told",
+              "The volume level of the background sound",
+              "The screen resolution of the display",
+              "The number of actors shown on screen"
+            ],
+            "correct_answer": "The perspective shown, or whose side is being told"
+          },
+          {
+            "question": "A video for a toy commercial uses upbeat music and shows children laughing. What is its purpose?",
+            "options": [
+              "To persuade viewers that the toy is fun",
+              "To purely inform viewers with no persuasion",
+              "To entertain with no other purpose at all",
+              "It has no purpose whatsoever"
+            ],
+            "correct_answer": "To persuade viewers that the toy is fun"
+          },
+          {
+            "question": "A news video shows interviews from only one side of a community issue. What might this suggest?",
+            "options": [
+              "A limited point of view, missing other perspectives",
+              "A perfectly balanced point of view",
+              "No point of view at all",
+              "The video has no purpose"
+            ],
+            "correct_answer": "A limited point of view, missing other perspectives"
+          },
+          {
+            "question": "How can dramatic music support a persuasive purpose?",
+            "options": [
+              "It can persuade viewers emotionally",
+              "It always makes a video purely informational and neutral",
+              "Music has no real effect on viewers at all",
+              "It only ever slows down the video's overall pacing"
+            ],
+            "correct_answer": "It can persuade viewers emotionally"
+          },
+          {
+            "question": "What questions should we ask when thinking critically about multimedia?",
+            "options": [
+              "What is the purpose, whose point of view, and what techniques are used?",
+              "Only what color scheme the creator chose to use",
+              "Only how long the entire video runs for",
+              "Only who was the one who edited the video"
+            ],
+            "correct_answer": "What is the purpose, whose point of view, and what techniques are used?"
+          },
+          {
+            "question": "How can fast pacing affect a viewer's experience?",
+            "options": [
+              "It can make a video feel exciting",
+              "It always makes a video boring",
+              "It has no effect at all on viewers",
+              "It only works for written texts"
+            ],
+            "correct_answer": "It can make a video feel exciting"
+          },
+          {
+            "question": "How can captions support a multimedia's purpose?",
+            "options": [
+              "They can clarify or emphasize a message",
+              "They always make videos confusing",
+              "They remove the need for any sound",
+              "They have no purpose at all"
+            ],
+            "correct_answer": "They can clarify or emphasize a message"
+          },
+          {
+            "question": "Why is it useful to become a critical viewer of multimedia?",
+            "options": [
+              "So we are not easily persuaded without noticing",
+              "So we stop watching multimedia altogether",
+              "So we believe everything we see immediately",
+              "So we avoid thinking about what we watch"
+            ],
+            "correct_answer": "So we are not easily persuaded without noticing"
+          },
+          {
+            "question": "What might a documentary showing multiple perspectives on an issue suggest about its point of view?",
+            "options": [
+              "It aims to be more balanced than a one-sided video",
+              "It has no point of view at all",
+              "It is definitely persuasive propaganda",
+              "It has no purpose whatsoever"
+            ],
+            "correct_answer": "It aims to be more balanced than a one-sided video"
+          },
+          {
+            "question": "Why might an advertisement use only positive images of a product?",
+            "options": [
+              "To persuade viewers by emphasizing only the good qualities",
+              "To purely and neutrally inform viewers",
+              "To entertain with no persuasive intent",
+              "Advertisements never have a purpose"
+            ],
+            "correct_answer": "To persuade viewers by emphasizing only the good qualities"
+          },
+          {
+            "question": "What is the benefit of identifying a multimedia's purpose before believing its message?",
+            "options": [
+              "It helps us evaluate the message more thoughtfully",
+              "It makes the message automatically false",
+              "It has no real benefit at all",
+              "It only matters for professional critics"
+            ],
+            "correct_answer": "It helps us evaluate the message more thoughtfully"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📊 Mathematics — Collecting and Organizing Data\n\nGrade 5, Week 19! Let's learn how to gather and present data effectively. 📈\n\n## 📋 Collecting Data\nWe can collect **bivariate data** (two related sets of data, e.g., height and age) or **categorical data** (data sorted into categories, e.g., favorite subjects).\n\n## 📊 Bar Graph vs. Line Graph\n| Graph Type | Best For |\n|---|---|\n| **Bar graph** | comparing categories (e.g., favorite subjects) |\n| **Line graph** | showing change over time (e.g., temperature over a week) |\n\n## 🧠 Worked Example 1\n*A teacher wants to show how many students prefer Math, Science, English, or Filipino. Which graph is best?*\n- A **bar graph** — it's best for comparing categories.\n\n## 🧠 Worked Example 2\n*A student wants to show how their height changed each year from age 5 to 10. Which graph is best?*\n- A **line graph** — it's best for showing change over time.\n\n## 🗂️ Organizing Data in a Table\nBefore graphing, we organize collected data into a **table** with clear labels.\n\n**Example table:**\n| Subject | Number of Students |\n|---|---|\n| Math | 12 |\n| Science | 8 |\n| English | 10 |\n\n## 🧠 Worked Example 3\n*Why should we decide the graph type BEFORE collecting data?*\n- So we know exactly **what kind of data to collect** and how to organize it clearly.\n\n## 💡 Why This Matters\nChoosing the right graph helps us **communicate data clearly** to others.\n\nGreat data organization work! ⭐",
+        "quiz": [
+          {
+            "question": "What is bivariate data?",
+            "options": [
+              "Two related sets of data, like height and age",
+              "Data that has only a single value",
+              "Data that never uses any numbers",
+              "Data collected only one single time"
+            ],
+            "correct_answer": "Two related sets of data, like height and age"
+          },
+          {
+            "question": "What is categorical data?",
+            "options": [
+              "Data sorted into categories, like favorite subjects",
+              "Only numerical data with decimals",
+              "Only data collected from a survey",
+              "Data that cannot be organized"
+            ],
+            "correct_answer": "Data sorted into categories, like favorite subjects"
+          },
+          {
+            "question": "A teacher wants to show how many students prefer Math, Science, English, or Filipino. Which graph is best?",
+            "options": [
+              "Bar graph",
+              "Line graph",
+              "No graph is needed",
+              "A random drawing"
+            ],
+            "correct_answer": "Bar graph"
+          },
+          {
+            "question": "A student wants to show how their height changed each year from age 5 to 10. Which graph is best?",
+            "options": [
+              "Line graph",
+              "Bar graph",
+              "No graph is needed",
+              "A random drawing"
+            ],
+            "correct_answer": "Line graph"
+          },
+          {
+            "question": "What is a bar graph best used for?",
+            "options": [
+              "Comparing categories",
+              "Showing change over time",
+              "Listing random numbers",
+              "Drawing pictures only"
+            ],
+            "correct_answer": "Comparing categories"
+          },
+          {
+            "question": "What is a line graph best used for?",
+            "options": [
+              "Showing change over time",
+              "Comparing unrelated categories",
+              "Listing random words",
+              "Drawing pictures only"
+            ],
+            "correct_answer": "Showing change over time"
+          },
+          {
+            "question": "What should we organize collected data into before graphing?",
+            "options": [
+              "A table with clear labels",
+              "A random list with no order",
+              "A single unlabeled number",
+              "Nothing, we can graph directly without organizing"
+            ],
+            "correct_answer": "A table with clear labels"
+          },
+          {
+            "question": "Why should we decide the graph type BEFORE collecting data?",
+            "options": [
+              "So we know exactly what kind of data to collect",
+              "It does not matter when we decide",
+              "Data collection has nothing to do with graphing",
+              "We should never decide the graph type at all"
+            ],
+            "correct_answer": "So we know exactly what kind of data to collect"
+          },
+          {
+            "question": "In a table showing subject preferences, what would the columns likely represent?",
+            "options": [
+              "Subject and number of students",
+              "Only random numbers",
+              "Only student names",
+              "Only the date collected"
+            ],
+            "correct_answer": "Subject and number of students"
+          },
+          {
+            "question": "Why is it useful to choose the right type of graph for data?",
+            "options": [
+              "It helps us communicate data clearly to others",
+              "It makes the data harder to understand",
+              "It has no effect on how the data is understood",
+              "It only matters for very large data sets"
+            ],
+            "correct_answer": "It helps us communicate data clearly to others"
+          },
+          {
+            "question": "Which type of data would show a student's test scores over several months?",
+            "options": [
+              "Data best shown with a line graph",
+              "Data best shown with no graph at all",
+              "Only categorical data with no numbers",
+              "Data that cannot be organized in any way"
+            ],
+            "correct_answer": "Data best shown with a line graph"
+          },
+          {
+            "question": "Which type of data would show how many students chose each of four favorite colors?",
+            "options": [
+              "Data best shown with a bar graph",
+              "Data best shown with a line graph only",
+              "Data that cannot be graphed",
+              "Data best shown with no organization"
+            ],
+            "correct_answer": "Data best shown with a bar graph"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🎬 Filipino — Pagsusuri sa Multimedia Text\n\nGrade 5, Linggo 19! Alamin natin kung paano suriin ang audio-video-animation. 🎥\n\n## 🎬 Ano ang Multimedia Text?\nAng **multimedia text** ay isang teksto na gumagamit ng **tunog (audio), biswal (video), at galaw (animation)** upang maghatid ng mensahe.\n\n## 🔊 Epekto ng Tunog\nAng **tunog** (musika, effects) ay tumutulong upang **maghatid ng damdamin** — tulad ng nakakatakot na tunog para sa suspense, o masayang musika para sa kaligayahan.\n\n## 👁️ Epekto ng Biswal\nAng **biswal** (larawan, kulay) ay tumutulong upang **ipakita** ang mensahe sa paraang **nakikita** — tulad ng maliliwanag na kulay para sa saya.\n\n## 🏃 Epekto ng Galaw\nAng **galaw** (animation, paggalaw ng camera) ay tumutulong upang **bigyang-diin** ang isang bahagi ng mensahe.\n\n## 🧠 Halimbawa 1\n*Sa isang video, ginamit ang malungkot na musika habang ipinapakita ang isang matandang gusali. Ano ang layunin ng tunog dito?*\n- Upang **maghatid ng damdaming malungkot o nostalgic** tungkol sa gusali.\n\n## 🧠 Halimbawa 2\n*Sa isang animation, biglang lumaki ang isang karakter sa screen. Ano ang epekto ng galaw na ito?*\n- Upang **bigyang-diin** ang kahalagahan o kapangyarihan ng karakter.\n\n## 💡 Bakit Mahalaga Ito?\nAng pag-unawa sa epekto ng tunog, biswal, at galaw ay tumutulong sa atin na maging **mas mapanuring manonood**.\n\nMagaling sa panonood! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang multimedia text?",
+            "options": [
+              "Tekstong gumagamit ng tunog, biswal, at galaw",
+              "Tekstong nakasulat lamang sa papel",
+              "Isang uri ng tula lamang",
+              "Isang uri ng balita lamang"
+            ],
+            "correct_answer": "Tekstong gumagamit ng tunog, biswal, at galaw"
+          },
+          {
+            "question": "Ano ang epekto ng tunog sa multimedia text?",
+            "options": [
+              "Tumutulong itong maghatid ng damdamin",
+              "Wala itong epekto sa mensahe",
+              "Ginagamit lamang ito upang tumagal ang video",
+              "Nakakasira lamang ito ng video"
+            ],
+            "correct_answer": "Tumutulong itong maghatid ng damdamin"
+          },
+          {
+            "question": "Ano ang epekto ng biswal sa multimedia text?",
+            "options": [
+              "Tumutulong itong ipakita ang mensahe sa nakikitang paraan",
+              "Wala itong kaugnayan sa mensahe",
+              "Ginagamit lamang ito para sa palamuti",
+              "Nagpapahirap lamang ito ng pag-unawa"
+            ],
+            "correct_answer": "Tumutulong itong ipakita ang mensahe sa nakikitang paraan"
+          },
+          {
+            "question": "Ano ang epekto ng galaw sa multimedia text?",
+            "options": [
+              "Tumutulong itong bigyang-diin ang bahagi ng mensahe",
+              "Wala itong tunay na epekto",
+              "Ginagamit lamang ito upang pahabain ang video",
+              "Nagpapahina lamang ito ng mensahe"
+            ],
+            "correct_answer": "Tumutulong itong bigyang-diin ang bahagi ng mensahe"
+          },
+          {
+            "question": "Sa isang video, ginamit ang malungkot na musika habang ipinapakita ang isang matandang gusali. Ano ang layunin ng tunog dito?",
+            "options": [
+              "Maghatid ng damdaming malungkot o nostalgic",
+              "Maghatid ng masayang damdamin lamang",
+              "Walang layunin ang tunog dito",
+              "Upang pahabain lamang ang video"
+            ],
+            "correct_answer": "Maghatid ng damdaming malungkot o nostalgic"
+          },
+          {
+            "question": "Sa isang animation, biglang lumaki ang isang karakter sa screen. Ano ang epekto ng galaw na ito?",
+            "options": [
+              "Bigyang-diin ang kahalagahan ng karakter",
+              "Wala itong epekto sa mensahe",
+              "Pahabain lamang ang video",
+              "Palitan ang buong kuwento"
+            ],
+            "correct_answer": "Bigyang-diin ang kahalagahan ng karakter"
+          },
+          {
+            "question": "Bakit mahalagang suriin ang tunog, biswal, at galaw sa isang multimedia text?",
+            "options": [
+              "Tumutulong ito upang maging mas mapanuring manonood",
+              "Wala itong kabuluhan sa panonood",
+              "Ginagawa lamang ito para sa libangan",
+              "Nakakalito lamang ito sa manonood"
+            ],
+            "correct_answer": "Tumutulong ito upang maging mas mapanuring manonood"
+          },
+          {
+            "question": "Alin ang halimbawa ng tunog na naghahatid ng suspense?",
+            "options": [
+              "Nakakatakot na musika",
+              "Masayang musika",
+              "Katahimikan lamang",
+              "Walang tunog kailanman"
+            ],
+            "correct_answer": "Nakakatakot na musika"
+          },
+          {
+            "question": "Alin ang halimbawa ng biswal na naghahatid ng saya?",
+            "options": [
+              "Maliliwanag na kulay",
+              "Maiitim na larawan lamang",
+              "Larawan na walang kulay",
+              "Puting background lamang"
+            ],
+            "correct_answer": "Maliliwanag na kulay"
+          },
+          {
+            "question": "Paano nakatutulong ang paggalaw ng camera sa isang video?",
+            "options": [
+              "Nakatutulong itong bigyang-diin ang isang bahagi ng mensahe",
+              "Wala itong kaugnayan sa video",
+              "Ginagamit lamang ito upang lituhin ang manonood",
+              "Nakakasira lamang ito ng kalidad ng video"
+            ],
+            "correct_answer": "Nakatutulong itong bigyang-diin ang isang bahagi ng mensahe"
+          },
+          {
+            "question": "Bakit mahalagang maging mapanuri kapag nanonood ng multimedia?",
+            "options": [
+              "Upang maunawaan kung paano tayo hinihikayat ng nakikita at naririnig",
+              "Dahil hindi na kailangang pag-isipan ang panonood",
+              "Dahil walang epekto ang multimedia sa atin",
+              "Dahil laging tama ang lahat ng nakikita natin"
+            ],
+            "correct_answer": "Upang maunawaan kung paano tayo hinihikayat ng nakikita at naririnig"
+          },
+          {
+            "question": "Isang mag-aaral ang napansing gumamit ng mabilis na paggalaw ng camera at malakas na musika sa isang trailer ng pelikula. Ano ang maaaring layunin nito?",
+            "options": [
+              "Upang makahikayat at makapukaw ng interes sa mga manonood",
+              "Upang gawing mabagal ang buong video",
+              "Upang alisin ang lahat ng saya",
+              "Walang layunin ang mga elementong ito"
+            ],
+            "correct_answer": "Upang makahikayat at makapukaw ng interes sa mga manonood"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🍎 Science — Gravity as a Non-Contact Force\n\nGrade 5, Week 19! Let's explore the force that pulls everything toward Earth. 🌍\n\n## 🌍 What Is Gravity?\n**Gravity** is a **non-contact force** that pulls objects **toward Earth's center**, without needing to touch them.\n\n## 🤝 Contact vs. Non-Contact Force\n| Force Type | Meaning |\n|---|---|\n| **Contact force** | needs touching to work (e.g., push, pull, friction) |\n| **Non-contact force** | works without touching (e.g., gravity, magnetism) |\n\n## 🍎 Observing Falling Objects\nWhen you drop an object, **gravity** pulls it down toward the ground — this is why things fall instead of floating away.\n\n## 🎢 How Gravity Shapes Motion\n| Motion | How Gravity Affects It |\n|---|---|\n| **Rolling** | gravity pulls objects downhill on a slope |\n| **Falling** | gravity pulls objects straight down |\n| **Thrown objects** | gravity eventually pulls thrown objects back down (creating a curved path) |\n\n## 🧠 Worked Example 1\n*Why does a ball thrown into the air eventually come back down?*\n- Because **gravity** pulls it back toward the Earth.\n\n## 🧠 Worked Example 2\n*Why is gravity considered a non-contact force?*\n- Because it can pull objects **without touching them directly**.\n\n## 🧠 Worked Example 3\n*A ball rolls down a ramp. What force causes it to roll downhill instead of uphill?*\n- **Gravity** — it pulls the ball toward the Earth, making it roll down the slope.\n\n## 💡 Why This Matters\nUnderstanding gravity helps us explain why objects **fall, roll, and eventually come back down** after being thrown.\n\nGreat force investigation! 🌟",
+        "quiz": [
+          {
+            "question": "What is gravity?",
+            "options": [
+              "A non-contact force that pulls objects toward Earth's center",
+              "A contact force that needs touching to work",
+              "A force that only works in space",
+              "A force that pushes objects away from Earth"
+            ],
+            "correct_answer": "A non-contact force that pulls objects toward Earth's center"
+          },
+          {
+            "question": "What is a non-contact force?",
+            "options": [
+              "A force that works without touching an object",
+              "A force that only works when touching an object",
+              "A force that never exists in nature",
+              "A force that only works underwater"
+            ],
+            "correct_answer": "A force that works without touching an object"
+          },
+          {
+            "question": "What is a contact force?",
+            "options": [
+              "A force that needs touching to work",
+              "A force that works without touching",
+              "A force that only exists in space",
+              "A force that never affects motion"
+            ],
+            "correct_answer": "A force that needs touching to work"
+          },
+          {
+            "question": "Why does a ball thrown into the air eventually come back down?",
+            "options": [
+              "Gravity pulls it back toward the Earth",
+              "The ball simply gets tired of flying",
+              "Air pushes it back down",
+              "There is no reason for this to happen"
+            ],
+            "correct_answer": "Gravity pulls it back toward the Earth"
+          },
+          {
+            "question": "Why is gravity considered a non-contact force?",
+            "options": [
+              "It can pull objects without touching them directly",
+              "It only works when objects are touching",
+              "It is not actually a real force",
+              "It only works on very heavy objects"
+            ],
+            "correct_answer": "It can pull objects without touching them directly"
+          },
+          {
+            "question": "A ball rolls down a ramp. What force causes it to roll downhill?",
+            "options": [
+              "Gravity",
+              "Magnetism",
+              "Friction alone",
+              "Sound waves"
+            ],
+            "correct_answer": "Gravity"
+          },
+          {
+            "question": "What happens to objects when you drop them?",
+            "options": [
+              "Gravity pulls them down toward the ground",
+              "They float upward into the sky",
+              "Nothing happens to them at all",
+              "They stay perfectly still in the air"
+            ],
+            "correct_answer": "Gravity pulls them down toward the ground"
+          },
+          {
+            "question": "Which of these is an example of a contact force?",
+            "options": [
+              "Pushing a door open",
+              "Gravity pulling a ball down",
+              "A magnet attracting metal from a distance",
+              "None of these are contact forces"
+            ],
+            "correct_answer": "Pushing a door open"
+          },
+          {
+            "question": "Which of these is an example of a non-contact force?",
+            "options": [
+              "Gravity pulling an object down",
+              "Pushing a shopping cart",
+              "Kicking a ball",
+              "Pulling a rope"
+            ],
+            "correct_answer": "Gravity pulling an object down"
+          },
+          {
+            "question": "Why do thrown objects follow a curved path instead of flying straight forever?",
+            "options": [
+              "Gravity gradually pulls them back down",
+              "There is no reason for the curved path",
+              "Air always pushes objects straight up",
+              "Objects always travel in perfectly straight lines"
+            ],
+            "correct_answer": "Gravity gradually pulls them back down"
+          },
+          {
+            "question": "Why is it important to understand gravity's effect on motion?",
+            "options": [
+              "It helps us explain how objects fall, roll, and land",
+              "It has no real-world importance",
+              "It only matters for scientists in labs",
+              "It only applies to objects in outer space"
+            ],
+            "correct_answer": "It helps us explain how objects fall, roll, and land"
+          },
+          {
+            "question": "What force is mainly responsible for objects staying on the ground instead of floating away?",
+            "options": [
+              "Gravity",
+              "Friction alone",
+              "Magnetism",
+              "Air resistance alone"
+            ],
+            "correct_answer": "Gravity"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🛡️ Araling Panlipunan — Pagpupunyagi ng Iba't Ibang Sektor para sa Kalayaan\n\nGrade 5, Linggo 19! Alamin natin ang mga sektor na patuloy na nagtanggol ng kalayaan. ⚔️\n\n## 🌾 Papel ng Magsasaka\nAng mga **magsasaka** ay madalas naghirap sa ilalim ng sistemang encomienda at polo y servicio, ngunit marami sa kanila ang **lumaban** sa pang-aabuso sa pamamagitan ng pag-aalsa o pagtanggi sa sapilitang paggawa.\n\n## 👑 Papel ng Katutubong Pinuno\nAng mga **katutubong pinuno** (tulad ng mga datu at sultan) ay nanatiling **nangunguna** sa kanilang mga komunidad, minsan nakikipag-ugnayan, minsan lumalaban sa mga Espanyol upang protektahan ang kanilang kapangyarihan at mamamayan.\n\n## ⛪ Papel ng Grupong Relihiyoso\nKahit ang ilang **prayle at relihiyosong pigura** ay naging boses ng mga inaapi, isinusulong ang **karapatan ng mga Pilipino** laban sa mga pang-aabuso ng ibang kolonisador.\n\n## 🏔️ Cordillera: Hindi Lubos na Nasakop\nAng **Cordillera** (hal. mga Igorot) ay **nanatiling malaya** sa buong panahon ng kolonisasyong Espanyol, dahil sa mabundok na tereyn at matatag na paglaban.\n\n## 🕌 Sultanato ng Sulu at Maguindanao: Hindi Lubos na Nasakop\nAng **Sultanato ng Sulu** at **Maguindanao** ay nanatili ring **malaya** — hindi lubusang nasakop ng Espanya dahil sa kanilang matatag na pamahalaan at pananampalatayang Islam.\n\n## 🧠 Halimbawa 1\n*Bakit itinuturing na patunay ng di-natitinag na diwang makabayan ang pananatiling malaya ng Cordillera?*\n- Dahil sa kabila ng mahabang pananakop ng Espanya, **hindi nila kayang lubusang sakupin** ang rehiyong ito.\n\n## 🧠 Halimbawa 2\n*Bakit mahalaga ang papel ng katutubong pinuno sa pagpupunyagi para sa kalayaan?*\n- Dahil sila ang **nangunguna** sa pagprotekta sa kanilang mamamayan at kapangyarihan.\n\n## 💡 Kongklusyon\nAng pagpupunyagi ng iba't ibang sektor — magsasaka, katutubong pinuno, at grupong relihiyoso — ay nagpapakita ng **matatag na diwang makabayan** ng mga Pilipino.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Sino ang mga taong nagbungkal ng lupa noong panahon ng Espanyol na naghirap sa ilalim ng encomienda?",
+            "options": [
+              "Mga magsasaka",
+              "Mga prayle",
+              "Mga Gobernador-Heneral",
+              "Mga Peninsulares"
+            ],
+            "correct_answer": "Mga magsasaka"
+          },
+          {
+            "question": "Sino ang mga katutubong pinuno noong panahon ng kolonisasyon?",
+            "options": [
+              "Mga datu at sultan",
+              "Mga prayleng Espanyol",
+              "Mga Gobernador-Heneral",
+              "Mga Amerikanong sundalo"
+            ],
+            "correct_answer": "Mga datu at sultan"
+          },
+          {
+            "question": "Ano ang papel ng ilang grupong relihiyoso sa pagpupunyagi para sa kalayaan?",
+            "options": [
+              "Isinulong nila ang karapatan ng mga inaapi",
+              "Sinuportahan nila lahat ng pang-aabuso",
+              "Wala silang papel sa kasaysayan",
+              "Sinira nila ang kalayaan ng mga Pilipino"
+            ],
+            "correct_answer": "Isinulong nila ang karapatan ng mga inaapi"
+          },
+          {
+            "question": "Anong rehiyon ang nanatiling malaya dahil sa mabundok na tereyn?",
+            "options": [
+              "Cordillera",
+              "Kabisayaan",
+              "Kabikolan",
+              "Kalakhang Maynila"
+            ],
+            "correct_answer": "Cordillera"
+          },
+          {
+            "question": "Aling sultanato ang nanatiling malaya dahil sa matatag na pamahalaan at pananampalataya?",
+            "options": [
+              "Sultanato ng Sulu at Maguindanao",
+              "Sultanato ng Espanya",
+              "Sultanato ng Mindoro",
+              "Sultanato ng Palawan"
+            ],
+            "correct_answer": "Sultanato ng Sulu at Maguindanao"
+          },
+          {
+            "question": "Bakit itinuturing na patunay ng di-natitinag na diwang makabayan ang pananatiling malaya ng Cordillera?",
+            "options": [
+              "Hindi nila kayang lubusang sakupin ang rehiyong ito",
+              "Dahil walang taong nakatira doon",
+              "Dahil sumuko agad ang mga Espanyol",
+              "Dahil hindi ito bahagi ng Pilipinas"
+            ],
+            "correct_answer": "Hindi nila kayang lubusang sakupin ang rehiyong ito"
+          },
+          {
+            "question": "Bakit mahalaga ang papel ng katutubong pinuno sa pagpupunyagi para sa kalayaan?",
+            "options": [
+              "Sila ang nangunguna sa pagprotekta sa kanilang mamamayan",
+              "Wala silang anumang papel sa pakikibaka",
+              "Sinuportahan nila lahat ng pananakop",
+              "Sila ang nagsimula ng kolonisasyon"
+            ],
+            "correct_answer": "Sila ang nangunguna sa pagprotekta sa kanilang mamamayan"
+          },
+          {
+            "question": "Paano lumaban ang mga magsasaka laban sa pang-aabuso?",
+            "options": [
+              "Sa pamamagitan ng pag-aalsa o pagtanggi sa sapilitang paggawa",
+              "Sa pamamagitan ng pagsang-ayon sa lahat ng patakaran",
+              "Sa pamamagitan ng pag-alis sa Pilipinas",
+              "Wala silang ginawang paglaban"
+            ],
+            "correct_answer": "Sa pamamagitan ng pag-aalsa o pagtanggi sa sapilitang paggawa"
+          },
+          {
+            "question": "Ano ang pananampalatayang dominante sa Sultanato ng Sulu at Maguindanao?",
+            "options": [
+              "Islam",
+              "Kristiyanismo",
+              "Budismo",
+              "Walang pananampalataya"
+            ],
+            "correct_answer": "Islam"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang pag-aaral sa iba't ibang sektor na lumaban para sa kalayaan?",
+            "options": [
+              "Ipinapakita nito na maraming grupo ang nagtaguyod ng kalayaan",
+              "Isa lang dapat ang dapat pag-aralan",
+              "Wala itong kaugnayan sa kasaysayan ng bansa",
+              "Hindi mahalaga ang paksang ito"
+            ],
+            "correct_answer": "Ipinapakita nito na maraming grupo ang nagtaguyod ng kalayaan"
+          },
+          {
+            "question": "Ano ang pangkalahatang mensahe ng pagpupunyagi ng iba't ibang sektor?",
+            "options": [
+              "Matatag na diwang makabayan ng mga Pilipino",
+              "Kawalan ng pagkakaisa ng mga Pilipino",
+              "Kumpletong pagsuko ng lahat ng sektor",
+              "Kawalan ng papel ng mga ordinaryong mamamayan"
+            ],
+            "correct_answer": "Matatag na diwang makabayan ng mga Pilipino"
+          },
+          {
+            "question": "Bakit hindi lubusang nasakop ng Espanya ang Cordillera at ang Sultanato ng Sulu/Maguindanao?",
+            "options": [
+              "Dahil sa matatag na paglaban at natatanging heograpiya o pananampalataya",
+              "Dahil hindi sila kailanman interesado ng mga Espanyol",
+              "Dahil wala talagang tao doon noong panahong iyon",
+              "Dahil sumuko agad sila sa Espanya noon pa man"
+            ],
+            "correct_answer": "Dahil sa matatag na paglaban at natatanging heograpiya o pananampalataya"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🖊️ EPP (ICT) — Pag-eedit at Pagpapaganda ng Digital Portfolio\n\nGrade 5, Linggo 19! Balikan at pagandahin natin ang ating mga proyekto. 🖥️\n\n## 🔍 Bakit Mahalaga ang Pagre-review ng Sariling Gawa?\nAng **pagre-review** ng sariling proyekto ay tumutulong upang **matukoy ang mga bagay na dapat pagbutihin** bago ito ipakita sa iba.\n\n## ✅ Checklist sa Pagre-review ng Digital Portfolio\n| Tanong | Layunin |\n|---|---|\n| Malinaw ba ang layout? | Tinitiyak ang madaling pagbasa |\n| Tama ba ang ispeling at gramatika? | Tinitiyak ang propesyonal na hitsura |\n| Angkop ba ang mga larawan sa nilalaman? | Tinitiyak ang relevance |\n| May sapat bang detalye? | Tinitiyak ang pagiging kumpleto |\n\n## 🤝 Pakikinig sa Puna ng Iba (Peer Feedback)\nAng **pagtanggap ng puna** mula sa kaklase o guro ay tumutulong upang **mapabuti** ang isang proyekto — hindi ito dapat ikahiya kundi tanggapin bilang tulong.\n\n## ✏️ Paggawa ng Pagbabago\nMatapos makatanggap ng puna, gumawa ng **mga pagbabago** — tulad ng pagbabago ng font, pagdaragdag ng larawan, o pag-aayos ng gramatika.\n\n## 🧠 Halimbawa 1\n*Nabanggit ng iyong kaklase na malabo ang isang larawan sa iyong brochure. Ano ang tamang gawin?*\n- **Palitan ang larawan** ng mas malinaw na bersyon.\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang tanggapin ang puna ng iba tungkol sa iyong proyekto?*\n- Dahil nakatutulong ito upang **mapabuti** ang kalidad ng iyong gawa.\n\n## 💡 Kongklusyon\nAng pagre-review at pagpapaganda ng ating digital portfolio ay nagpapakita ng **propesyonalismo at pagsisikap** sa ating trabaho.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Bakit mahalaga ang pagre-review ng sariling proyekto?",
+            "options": [
+              "Tumutulong ito upang matukoy ang dapat pagbutihin",
+              "Wala itong kabuluhan sa proyekto",
+              "Nagpapahirap lamang ito ng gawain",
+              "Ginagawa lamang ito para sa marka"
+            ],
+            "correct_answer": "Tumutulong ito upang matukoy ang dapat pagbutihin"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa ispeling at gramatika sa isang proyekto?",
+            "options": [
+              "Ang propesyonal na hitsura ng proyekto",
+              "Ang bilis ng pagkumpleto ng proyekto",
+              "Ang presyo ng proyekto",
+              "Ang laki ng file lamang"
+            ],
+            "correct_answer": "Ang propesyonal na hitsura ng proyekto"
+          },
+          {
+            "question": "Ano ang peer feedback?",
+            "options": [
+              "Puna mula sa kaklase o guro tungkol sa iyong gawa",
+              "Isang uri ng file sa kompyuter",
+              "Isang uri ng larawan lamang",
+              "Isang bahagi ng brochure lamang"
+            ],
+            "correct_answer": "Puna mula sa kaklase o guro tungkol sa iyong gawa"
+          },
+          {
+            "question": "Nabanggit ng iyong kaklase na malabo ang isang larawan sa iyong brochure. Ano ang tamang gawin?",
+            "options": [
+              "Palitan ang larawan ng mas malinaw na bersyon",
+              "Balewalain na lamang ang puna",
+              "Alisin ang buong brochure",
+              "Magalit sa kaklase na nagbigay ng puna"
+            ],
+            "correct_answer": "Palitan ang larawan ng mas malinaw na bersyon"
+          },
+          {
+            "question": "Bakit mahalagang tanggapin ang puna ng iba tungkol sa iyong proyekto?",
+            "options": [
+              "Nakatutulong ito upang mapabuti ang kalidad ng gawa",
+              "Wala itong kaugnayan sa kalidad ng gawa",
+              "Dapat itong ikahiya at iwasan",
+              "Hindi dapat pakinggan ang puna ng iba"
+            ],
+            "correct_answer": "Nakatutulong ito upang mapabuti ang kalidad ng gawa"
+          },
+          {
+            "question": "Ano ang dapat gawin matapos makatanggap ng puna sa isang proyekto?",
+            "options": [
+              "Gumawa ng mga pagbabago batay sa puna",
+              "Kalimutan na lamang ang natanggap na puna",
+              "Isara agad ang proyekto",
+              "Ipasa agad kahit walang binago"
+            ],
+            "correct_answer": "Gumawa ng mga pagbabago batay sa puna"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagtingin kung angkop ang mga larawan sa nilalaman?",
+            "options": [
+              "Ang relevance ng mga larawan sa proyekto",
+              "Ang presyo ng mga larawan",
+              "Ang laki ng file lamang",
+              "Ang bilang ng letrang ginamit"
+            ],
+            "correct_answer": "Ang relevance ng mga larawan sa proyekto"
+          },
+          {
+            "question": "Bakit mahalagang malinaw ang layout ng isang proyekto?",
+            "options": [
+              "Upang madaling basahin at maintindihan ito",
+              "Upang mahirap lamang basahin ito",
+              "Wala itong kaugnayan sa pagbabasa",
+              "Upang lumaki lamang ang file"
+            ],
+            "correct_answer": "Upang madaling basahin at maintindihan ito"
+          },
+          {
+            "question": "Ano ang halimbawa ng pagbabagong maaaring gawin matapos ang pagre-review?",
+            "options": [
+              "Pagbabago ng font o pagdaragdag ng larawan",
+              "Pagbura ng buong proyekto",
+              "Pagsara ng programa nang walang pag-save",
+              "Pagsulat ng bagong pangalan lamang"
+            ],
+            "correct_answer": "Pagbabago ng font o pagdaragdag ng larawan"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagre-review at pagpapaganda ng proyekto?",
+            "options": [
+              "Propesyonalismo at pagsisikap sa trabaho",
+              "Kapabayaan sa gawain",
+              "Kawalan ng interes sa proyekto",
+              "Kakulangan sa oras lamang"
+            ],
+            "correct_answer": "Propesyonalismo at pagsisikap sa trabaho"
+          },
+          {
+            "question": "Bakit dapat gamitin ang isang checklist kapag nire-review ang proyekto?",
+            "options": [
+              "Upang matiyak na natugunan ang lahat ng mahahalagang bahagi",
+              "Upang mapabilis lamang ang buong gawain",
+              "Walang tunay na dahilan para dito",
+              "Upang maiwasan na lamang ang pag-eedit"
+            ],
+            "correct_answer": "Upang matiyak na natugunan ang lahat ng mahahalagang bahagi"
+          },
+          {
+            "question": "Isang mag-aaral ang natanggap ng puna na masyadong maliit ang teksto sa kanyang poster. Ano ang dapat niyang gawin?",
+            "options": [
+              "Palakihin ang teksto upang mas madaling basahin",
+              "Balewalain ang puna at huwag baguhin ito",
+              "Alisin ang lahat ng teksto sa poster",
+              "Isara agad ang buong proyekto"
+            ],
+            "correct_answer": "Palakihin ang teksto upang mas madaling basahin"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 💃 MAPEH — Pagsasanib ng Sayaw, Kalusugan, at Sining\n\nGrade 5, Linggo 19! Pagsamahin natin ang natutuhan tungkol sa sining, sayaw, at kalusugan. 🎨\n\n## 🔄 Balik-Aral: Ating Natutuhan\n- **Musika at Sining** noong Early Spanish Colonial Period — melody, teatro, sayaw, visual arts\n- **Kalusugan** — proper use of medicine, negative effects of gateway drugs\n- **PE** — rhythmic activities at dances sa 2/4 time\n\n## 🎨 Pagsasanib ng mga Ito\nNgayong linggo, pagsasamahin natin ang mga natutuhang ito sa pamamagitan ng pagplano ng isang **wellness activity** na gumagamit ng sayaw at sining para sa kalusugan.\n\n## 📋 Halimbawa ng Wellness Activity\nIsang **dance-for-health session**: gumamit ng mga hakbang sa sayaw (mula sa Early Spanish Colonial period o modernong dance mixer) bilang ehersisyo, kasama ang paggawa ng simpleng biswal na sining (poster) tungkol sa kahalagahan ng ehersisyo at pag-iwas sa maling paggamit ng gamot.\n\n## 🧠 Halimbawa 1\n*Bakit mabisang gamitin ang sayaw bilang ehersisyo para sa kalusugan?*\n- Dahil ito ay **nagpapataas ng cardiovascular endurance** habang nagiging masaya.\n\n## 🧠 Halimbawa 2\n*Paano maiugnay ang sining sa kampanya para sa kalusugan?*\n- Sa pamamagitan ng **paggawa ng biswal na materyales** (poster) na nagpapaalala tungkol sa tamang gamit ng gamot at kahalagahan ng ehersisyo.\n\n## 💡 Bakit Mahalaga Ito?\nAng pagsasanib ng sayaw, kalusugan, at sining ay nagpapakita kung paano **konektado** ang iba't ibang aralin sa totoong buhay.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Anong tatlong paksa ang pinagsasama natin ngayong linggo?",
+            "options": [
+              "Sayaw, kalusugan, at sining",
+              "Matematika, agham, at wika",
+              "Kasaysayan, heograpiya, at agrikultura",
+              "Musika lamang"
+            ],
+            "correct_answer": "Sayaw, kalusugan, at sining"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng wellness activity na pinag-aralan natin?",
+            "options": [
+              "Dance-for-health session na may biswal na sining",
+              "Isang eksamen tungkol sa matematika",
+              "Isang liham na isusulat sa magulang",
+              "Isang gawain tungkol sa agrikultura"
+            ],
+            "correct_answer": "Dance-for-health session na may biswal na sining"
+          },
+          {
+            "question": "Bakit mabisang gamitin ang sayaw bilang ehersisyo para sa kalusugan?",
+            "options": [
+              "Nagpapataas ito ng cardiovascular endurance habang masaya",
+              "Wala itong benepisyo sa kalusugan",
+              "Nagpapahina lamang ito ng katawan",
+              "Ginagawa lamang ito para sa libangan"
+            ],
+            "correct_answer": "Nagpapataas ito ng cardiovascular endurance habang masaya"
+          },
+          {
+            "question": "Paano maiugnay ang sining sa kampanya para sa kalusugan?",
+            "options": [
+              "Sa paggawa ng biswal na materyales tungkol sa kalusugan",
+              "Sa pag-iwas sa lahat ng gawaing pansining",
+              "Walang koneksyon ang sining sa kalusugan",
+              "Sa pagtigil ng lahat ng ehersisyo"
+            ],
+            "correct_answer": "Sa paggawa ng biswal na materyales tungkol sa kalusugan"
+          },
+          {
+            "question": "Anong panahon ang pinag-aralan nating musika at sining kanina?",
+            "options": [
+              "Early Spanish Colonial Period",
+              "Panahon ng Amerikano",
+              "Panahon ng Hapon",
+              "Kasalukuyang panahon"
+            ],
+            "correct_answer": "Early Spanish Colonial Period"
+          },
+          {
+            "question": "Anong paksa sa kalusugan ang natutuhan natin kaugnay ng gamot?",
+            "options": [
+              "Proper use versus misuse ng gamot",
+              "Kasaysayan ng gamot sa Pilipinas",
+              "Presyo ng gamot sa botika",
+              "Pangalan ng mga gamot lamang"
+            ],
+            "correct_answer": "Proper use versus misuse ng gamot"
+          },
+          {
+            "question": "Ano ang time signature na natutuhan natin para sa mga rhythmic activity?",
+            "options": [
+              "2/4 time",
+              "10/4 time",
+              "1/8 time",
+              "100/4 time"
+            ],
+            "correct_answer": "2/4 time"
+          },
+          {
+            "question": "Bakit mahalagang pagsamahin ang sayaw, kalusugan, at sining sa isang gawain?",
+            "options": [
+              "Nagpapakita ito kung paano konektado ang iba't ibang aralin sa buhay",
+              "Wala itong anumang kabuluhan sa totoong buhay natin",
+              "Nagpapahirap lamang ito sa pag-aaral ng bata",
+              "Ginagawa lamang ito upang makakuha ng marka"
+            ],
+            "correct_answer": "Nagpapakita ito kung paano konektado ang iba't ibang aralin sa buhay"
+          },
+          {
+            "question": "Ano ang layunin ng paggawa ng poster tungkol sa kahalagahan ng ehersisyo?",
+            "options": [
+              "Upang ipaalala sa iba ang kahalagahan ng aktibong pamumuhay",
+              "Upang palamutihan lamang ang silid-aralan",
+              "Walang layunin ang gawaing ito",
+              "Upang mapabilis ang oras ng klase"
+            ],
+            "correct_answer": "Upang ipaalala sa iba ang kahalagahan ng aktibong pamumuhay"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng dance mixer na natutuhan natin?",
+            "options": [
+              "Isang modernong sayaw na ginagawa bilang ehersisyo",
+              "Isang uri ng pagkain",
+              "Isang uri ng kagamitan sa agrikultura",
+              "Isang uri ng kompyuter program"
+            ],
+            "correct_answer": "Isang modernong sayaw na ginagawa bilang ehersisyo"
+          },
+          {
+            "question": "Bakit itinuturing na kapaki-pakinabang ang pagsasanib ng mga aralin sa buhay ng bata?",
+            "options": [
+              "Nakikita ng bata kung paano ginagamit ang natutuhan sa totoong sitwasyon",
+              "Wala itong tunay na kaugnayan sa totoong buhay natin",
+              "Nagpapahirap lamang ito sa pag-unawa ng bata",
+              "Ginagawa lamang ito upang mapahaba pa ang klase"
+            ],
+            "correct_answer": "Nakikita ng bata kung paano ginagamit ang natutuhan sa totoong sitwasyon"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng negatibong epekto ng maling paggamit ng gamot na natutuhan natin?",
+            "options": [
+              "Maaari itong makasama sa kalusugan ng katawan",
+              "Palaging mabuti ang epekto nito",
+              "Wala itong anumang epekto sa katawan",
+              "Nagpapalakas lamang ito ng katawan"
+            ],
+            "correct_answer": "Maaari itong makasama sa kalusugan ng katawan"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 GMRC — Faith: Pagsali sa Panalanging Pampamilya\n\nGrade 5, Linggo 19! Pagpapahalaga: **Faith (Pananampalataya)**. 🌟\n\n## 🙏 Pagsali sa Panalanging Pampamilya\nAng **aktibong pagsali** sa panalangin at tradisyong panrelihiyoso ng pamilya ay isang paraan ng **pagpapatibay** ng pananampalataya.\n\n## 💛 Bakit Mahalaga ang Sama-samang Panalangin?\n- Nagpapatibay ng **ugnayan ng pamilya**\n- Nagpapalalim ng **pananampalataya** ng bawat kasapi\n- Nagbibigay ng **kapayapaan** sa loob ng tahanan\n\n## 🧠 Halimbawa 1\n*Bawat gabi, sama-samang nananalangin ang iyong pamilya. Ano ang epekto nito sa inyong ugnayan?*\n- **Pinapatibay** nito ang samahan at pananampalataya ng bawat isa.\n\n## 🧠 Halimbawa 2\n*Bakit itinuturing na aktibong pagpapakita ng pananampalataya ang pagsali sa tradisyong panrelihiyoso ng pamilya?*\n- Dahil ipinapakita nito ang **tunay na pagpapahalaga** sa relihiyon at pamilya, hindi lamang pananalita.\n\n## 🙇 Paano Isabuhay ang Faith?\n- Sumali nang **buong-puso** sa panalangin ng pamilya\n- **Igalang** ang tradisyon ng pamilya\n- **Hikayatin** ang ibang kasapi na sumali rin\n\n## 💡 Kongklusyon\nAng pagsali sa panalangin at tradisyong panrelihiyoso ng pamilya ay nagpapakita ng **tunay na pananampalataya at pagmamahal**.\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang pagsali sa panalanging pampamilya?",
+            "options": [
+              "Aktibong pagsali sa panalangin at tradisyon ng pamilya",
+              "Pag-iwas sa lahat ng panalangin",
+              "Pananahimik lamang habang nananalangin ang iba",
+              "Pagtanggi sa lahat ng tradisyon"
+            ],
+            "correct_answer": "Aktibong pagsali sa panalangin at tradisyon ng pamilya"
+          },
+          {
+            "question": "Bawat gabi, sama-samang nananalangin ang iyong pamilya. Ano ang epekto nito sa inyong ugnayan?",
+            "options": [
+              "Pinapatibay nito ang samahan at pananampalataya",
+              "Nagpapahina ito ng samahan ng pamilya",
+              "Walang anumang epekto ito sa ugnayan",
+              "Nagdudulot lamang ito ng away sa bahay"
+            ],
+            "correct_answer": "Pinapatibay nito ang samahan at pananampalataya"
+          },
+          {
+            "question": "Bakit itinuturing na aktibong pagpapakita ng pananampalataya ang pagsali sa tradisyong panrelihiyoso ng pamilya?",
+            "options": [
+              "Ipinapakita nito ang tunay na pagpapahalaga sa relihiyon at pamilya",
+              "Wala itong kaugnayan sa pananampalataya",
+              "Ginagawa lamang ito para sa iba",
+              "Hindi ito totoong bahagi ng pananampalataya"
+            ],
+            "correct_answer": "Ipinapakita nito ang tunay na pagpapahalaga sa relihiyon at pamilya"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Faith (Pananampalataya)",
+              "Compassion (Pagmamalasakit)",
+              "Gratitude (Pasasalamat)",
+              "Respect (Paggalang)"
+            ],
+            "correct_answer": "Faith (Pananampalataya)"
+          },
+          {
+            "question": "Ano ang isang bunga ng sama-samang panalangin ng pamilya?",
+            "options": [
+              "Nagbibigay ito ng kapayapaan sa tahanan",
+              "Nagdudulot lamang ito ng away",
+              "Walang epekto ito sa tahanan",
+              "Nagpapahina ito ng ugnayan"
+            ],
+            "correct_answer": "Nagbibigay ito ng kapayapaan sa tahanan"
+          },
+          {
+            "question": "Paano maisasabuhay ang faith sa pang-araw-araw na buhay?",
+            "options": [
+              "Sa pagsali nang buong-puso sa panalangin ng pamilya",
+              "Sa pag-iwas sa lahat ng gawaing panrelihiyoso",
+              "Sa pananahimik lamang palagi",
+              "Sa pagtanggi sa tradisyon ng pamilya"
+            ],
+            "correct_answer": "Sa pagsali nang buong-puso sa panalangin ng pamilya"
+          },
+          {
+            "question": "Bakit mahalagang igalang ang tradisyon ng pamilya bilang bahagi ng faith?",
+            "options": [
+              "Ipinapakita nito ang pagmamahal at paggalang sa pamilya",
+              "Wala itong kabuluhan sa buhay",
+              "Ginagawa lamang ito bilang gawi",
+              "Hindi ito mahalaga sa pananampalataya"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagmamahal at paggalang sa pamilya"
+          },
+          {
+            "question": "Ano ang dapat gawin ng isang bata upang hikayatin ang ibang kasapi na sumali sa panalangin?",
+            "options": [
+              "Yayain sila nang magalang at may halimbawa",
+              "Pilitin sila nang husto",
+              "Iwanan na lamang sila",
+              "Huwag na lamang sila kausapin"
+            ],
+            "correct_answer": "Yayain sila nang magalang at may halimbawa"
+          },
+          {
+            "question": "Bakit mahalagang isabuhay ang faith hindi lamang sa salita kundi sa gawa?",
+            "options": [
+              "Nagpapakita ito ng tunay na pananampalataya",
+              "Sapat na ang salita lamang",
+              "Hindi mahalaga ang gawa sa pananampalataya",
+              "Wala itong kaugnayan sa faith"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na pananampalataya"
+          },
+          {
+            "question": "Ano ang halimbawa ng tradisyong panrelihiyoso ng pamilya?",
+            "options": [
+              "Sama-samang pananalangin bago matulog",
+              "Panonood ng TV nang mag-isa",
+              "Paglalaro ng video game",
+              "Pag-aaral ng matematika"
+            ],
+            "correct_answer": "Sama-samang pananalangin bago matulog"
+          },
+          {
+            "question": "Isang batang laging aktibong sumasali sa panalangin ng kanyang pamilya. Ano ang ipinapakita nito?",
+            "options": [
+              "Tunay na pananampalataya at pagmamahal sa pamilya",
+              "Kawalan ng interes sa relihiyon",
+              "Pagsuway sa magulang",
+              "Kapabayaan sa tradisyon ng pamilya"
+            ],
+            "correct_answer": "Tunay na pananampalataya at pagmamahal sa pamilya"
+          },
+          {
+            "question": "Bakit itinuturing na paraan ng pagpapatibay ng pananampalataya ang sama-samang panalangin?",
+            "options": [
+              "Nagpapalalim ito ng ugnayan sa Diyos at sa isa't isa",
+              "Wala itong kaugnayan sa pananampalataya",
+              "Ginagawa lamang ito bilang trabaho",
+              "Hindi ito bahagi ng buhay-pananampalataya"
+            ],
+            "correct_answer": "Nagpapalalim ito ng ugnayan sa Diyos at sa isa't isa"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 EPP (AFA/FCS/IA) — Solusyon sa Karaniwang Suliranin sa Pananahi\n\nGrade 5, Linggo 19! Alamin natin kung paano lutasin ang mga karaniwang problema sa makina. 🪡\n\n## ⚠️ Karaniwang Suliranin sa Pananahi Gamit ang Makina\n| Suliranin | Sanhi | Solusyon |\n|---|---|---|\n| **Pagkasabit ng sinulid (thread jam)** | maling pagka-thread ng makina | i-rethread nang tama ang makina |\n| **Sirang tahi (uneven stitches)** | maling tensyon ng sinulid | i-adjust ang tensyon |\n| **Pagkabali ng karayom** | maling laki ng karayom para sa tela | gumamit ng tamang laki ng karayom |\n| **Nasisira ang tela** | masyadong mabilis na pananahi sa manipis na tela | bagalan ang bilis, gumamit ng tamang karayom |\n\n## 🛠️ Mga Hakbang sa Paggamit ng Makina\n1. **I-thread** nang tama bago magsimula\n2. **Subukan muna** sa piraso ng tela\n3. **Ayusin** ang tensyon kung kinakailangan\n4. **Tahiin nang dahan-dahan** lalo na sa manipis na tela\n\n## 🧠 Halimbawa 1\n*Nakita mong hindi pantay ang tahi ng iyong ginagawa. Ano ang maaaring sanhi nito?*\n- **Maling tensyon ng sinulid** — kailangan itong i-adjust.\n\n## 🧠 Halimbawa 2\n*Bakit dapat gumamit ng tamang laki ng karayom sa uri ng tela?*\n- Upang **maiwasan ang pagkabali** ng karayom o pagkasira ng tela.\n\n## 💡 Bakit Mahalaga Ito?\nAng pag-alam sa solusyon sa karaniwang suliranin sa pananahi ay tumutulong upang **maiwasan ang aksidente** at magawa ang proyekto nang maayos.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang sanhi ng thread jam sa sewing machine?",
+            "options": [
+              "Maling pagka-thread ng makina",
+              "Sobrang linis ng makina",
+              "Sobrang bagal ng pananahi",
+              "Tamang laki ng karayom"
+            ],
+            "correct_answer": "Maling pagka-thread ng makina"
+          },
+          {
+            "question": "Ano ang solusyon sa thread jam?",
+            "options": [
+              "I-rethread nang tama ang makina",
+              "Iwanan na lamang ito nang hindi ayos",
+              "Tumigil sa pananahi magpakailanman",
+              "Palitan ang buong makina"
+            ],
+            "correct_answer": "I-rethread nang tama ang makina"
+          },
+          {
+            "question": "Ano ang sanhi ng uneven stitches (sirang tahi)?",
+            "options": [
+              "Maling tensyon ng sinulid",
+              "Sobrang linis ng makina",
+              "Tamang laki ng karayom",
+              "Wastong bilis ng pananahi"
+            ],
+            "correct_answer": "Maling tensyon ng sinulid"
+          },
+          {
+            "question": "Nakita mong hindi pantay ang tahi ng iyong ginagawa. Ano ang maaaring sanhi nito?",
+            "options": [
+              "Maling tensyon ng sinulid",
+              "Sobrang linis ng makina",
+              "Sobrang bagal ng pananahi",
+              "Wastong pagka-thread"
+            ],
+            "correct_answer": "Maling tensyon ng sinulid"
+          },
+          {
+            "question": "Bakit dapat gumamit ng tamang laki ng karayom sa uri ng tela?",
+            "options": [
+              "Upang maiwasan ang pagkabali o pagkasira ng tela",
+              "Upang mapabilis lamang ang pananahi",
+              "Walang kaugnayan ang laki ng karayom sa tela",
+              "Upang mapaganda lamang ang hitsura"
+            ],
+            "correct_answer": "Upang maiwasan ang pagkabali o pagkasira ng tela"
+          },
+          {
+            "question": "Ano ang dapat gawin bago magsimulang manahi gamit ang makina?",
+            "options": [
+              "I-thread nang tama ang makina",
+              "Direktang magsimula nang walang pag-check",
+              "Alisin ang lahat ng sinulid",
+              "Isara agad ang makina"
+            ],
+            "correct_answer": "I-thread nang tama ang makina"
+          },
+          {
+            "question": "Bakit dapat subukan muna sa isang piraso ng tela bago sa aktwal na proyekto?",
+            "options": [
+              "Upang matiyak na tama ang setting ng makina",
+              "Upang mapabilis ang buong proseso",
+              "Upang makatipid ng oras lamang",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang matiyak na tama ang setting ng makina"
+          },
+          {
+            "question": "Bakit dapat magpakabagal sa pananahi ng manipis na tela?",
+            "options": [
+              "Upang maiwasan ang pagkasira ng tela",
+              "Upang mapabilis ang gawain",
+              "Walang kaugnayan ang bilis sa kalidad",
+              "Upang mapaganda lamang ang disenyo"
+            ],
+            "correct_answer": "Upang maiwasan ang pagkasira ng tela"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi ayusin ang tensyon ng sinulid kapag hindi pantay ang tahi?",
+            "options": [
+              "Magpapatuloy ang problema sa tahi",
+              "Awtomatikong maaayos ang tahi",
+              "Wala itong epekto sa proyekto",
+              "Mas gaganda ang resulta"
+            ],
+            "correct_answer": "Magpapatuloy ang problema sa tahi"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga solusyon sa karaniwang suliranin sa pananahi?",
+            "options": [
+              "Nakatutulong ito upang maiwasan ang aksidente at magawa nang maayos ang proyekto",
+              "Wala talagang anumang kabuluhan nito sa gawaing pananahi",
+              "Ginagamit lamang ito tuwing may kinakailangang eksamen",
+              "Hindi na kailangan pang pag-aralan pa ito ngayon"
+            ],
+            "correct_answer": "Nakatutulong ito upang maiwasan ang aksidente at magawa nang maayos ang proyekto"
+          },
+          {
+            "question": "Ano ang unang hakbang kapag nagkaroon ng problema sa makina habang tinatahi?",
+            "options": [
+              "Tigilan ang pananahi at suriin ang sanhi ng problema",
+              "Ipagpatuloy ang pananahi kahit may problema",
+              "Isara ang makina at huwag na ito buksan pa",
+              "Ihagis ang tela na tinatahi"
+            ],
+            "correct_answer": "Tigilan ang pananahi at suriin ang sanhi ng problema"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang tamang paggamit ng makina bago magtahi ng proyekto?",
+            "options": [
+              "Upang makagawa ng magandang produkto at maiwasan ang problema",
+              "Upang mabilis lamang matapos ang gawain",
+              "Walang dahilan ito talaga",
+              "Upang mapaganda lamang ang hitsura ng makina"
+            ],
+            "correct_answer": "Upang makagawa ng magandang produkto at maiwasan ang problema"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🎯 Friday Review — English (Grade 5)\n\n- Multimedia has **purpose** (inform/persuade/entertain) and **point of view**\n- Music, pacing, captions support that purpose\n\nGreat critical viewing! 🌟",
+        "quiz": [
+          {
+            "question": "What is purpose in multimedia?",
+            "options": [
+              "To inform, persuade, or entertain the viewer",
+              "The exact running time of a video",
+              "The name of the video editor",
+              "The file format used"
+            ],
+            "correct_answer": "To inform, persuade, or entertain the viewer"
+          },
+          {
+            "question": "What is point of view in multimedia?",
+            "options": [
+              "The perspective shown, or whose side is being told",
+              "The volume level of the background sound",
+              "The screen resolution of the display",
+              "The number of actors shown on screen"
+            ],
+            "correct_answer": "The perspective shown, or whose side is being told"
+          },
+          {
+            "question": "A video for a toy commercial uses upbeat music and shows children laughing. What is its purpose?",
+            "options": [
+              "To persuade viewers that the toy is fun",
+              "To purely inform viewers with no persuasion",
+              "To entertain with no other purpose at all",
+              "It has no purpose whatsoever"
+            ],
+            "correct_answer": "To persuade viewers that the toy is fun"
+          },
+          {
+            "question": "A news video shows interviews from only one side of a community issue. What might this suggest?",
+            "options": [
+              "A limited point of view, missing other perspectives",
+              "A perfectly balanced point of view",
+              "No point of view at all",
+              "The video has no purpose"
+            ],
+            "correct_answer": "A limited point of view, missing other perspectives"
+          },
+          {
+            "question": "How can dramatic music support a persuasive purpose?",
+            "options": [
+              "It can persuade viewers emotionally",
+              "It always makes a video purely informational and neutral",
+              "Music has no real effect on viewers at all",
+              "It only ever slows down the video's overall pacing"
+            ],
+            "correct_answer": "It can persuade viewers emotionally"
+          },
+          {
+            "question": "What questions should we ask when thinking critically about multimedia?",
+            "options": [
+              "What is the purpose, whose point of view, and what techniques are used?",
+              "Only what color scheme the creator chose to use",
+              "Only how long the entire video runs for",
+              "Only who was the one who edited the video"
+            ],
+            "correct_answer": "What is the purpose, whose point of view, and what techniques are used?"
+          },
+          {
+            "question": "How can fast pacing affect a viewer's experience?",
+            "options": [
+              "It can make a video feel exciting",
+              "It always makes a video boring",
+              "It has no effect at all on viewers",
+              "It only works for written texts"
+            ],
+            "correct_answer": "It can make a video feel exciting"
+          },
+          {
+            "question": "How can captions support a multimedia's purpose?",
+            "options": [
+              "They can clarify or emphasize a message",
+              "They always make videos confusing",
+              "They remove the need for any sound",
+              "They have no purpose at all"
+            ],
+            "correct_answer": "They can clarify or emphasize a message"
+          },
+          {
+            "question": "Why is it useful to become a critical viewer of multimedia?",
+            "options": [
+              "So we are not easily persuaded without noticing",
+              "So we stop watching multimedia altogether",
+              "So we believe everything we see immediately",
+              "So we avoid thinking about what we watch"
+            ],
+            "correct_answer": "So we are not easily persuaded without noticing"
+          },
+          {
+            "question": "What might a documentary showing multiple perspectives on an issue suggest about its point of view?",
+            "options": [
+              "It aims to be more balanced than a one-sided video",
+              "It has no point of view at all",
+              "It is definitely persuasive propaganda",
+              "It has no purpose whatsoever"
+            ],
+            "correct_answer": "It aims to be more balanced than a one-sided video"
+          },
+          {
+            "question": "Why might an advertisement use only positive images of a product?",
+            "options": [
+              "To persuade viewers by emphasizing only the good qualities",
+              "To purely and neutrally inform viewers",
+              "To entertain with no persuasive intent",
+              "Advertisements never have a purpose"
+            ],
+            "correct_answer": "To persuade viewers by emphasizing only the good qualities"
+          },
+          {
+            "question": "What is the benefit of identifying a multimedia's purpose before believing its message?",
+            "options": [
+              "It helps us evaluate the message more thoughtfully",
+              "It makes the message automatically false",
+              "It has no real benefit at all",
+              "It only matters for professional critics"
+            ],
+            "correct_answer": "It helps us evaluate the message more thoughtfully"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📊 Friday Review — Mathematics (Grade 5)\n\n- **Bar graph** = compare categories; **line graph** = change over time\n\nGreat data organization work! ⭐",
+        "quiz": [
+          {
+            "question": "What is bivariate data?",
+            "options": [
+              "Two related sets of data, like height and age",
+              "Data that has only a single value",
+              "Data that never uses any numbers",
+              "Data collected only one single time"
+            ],
+            "correct_answer": "Two related sets of data, like height and age"
+          },
+          {
+            "question": "What is categorical data?",
+            "options": [
+              "Data sorted into categories, like favorite subjects",
+              "Only numerical data with decimals",
+              "Only data collected from a survey",
+              "Data that cannot be organized"
+            ],
+            "correct_answer": "Data sorted into categories, like favorite subjects"
+          },
+          {
+            "question": "A teacher wants to show how many students prefer Math, Science, English, or Filipino. Which graph is best?",
+            "options": [
+              "Bar graph",
+              "Line graph",
+              "No graph is needed",
+              "A random drawing"
+            ],
+            "correct_answer": "Bar graph"
+          },
+          {
+            "question": "A student wants to show how their height changed each year from age 5 to 10. Which graph is best?",
+            "options": [
+              "Line graph",
+              "Bar graph",
+              "No graph is needed",
+              "A random drawing"
+            ],
+            "correct_answer": "Line graph"
+          },
+          {
+            "question": "What is a bar graph best used for?",
+            "options": [
+              "Comparing categories",
+              "Showing change over time",
+              "Listing random numbers",
+              "Drawing pictures only"
+            ],
+            "correct_answer": "Comparing categories"
+          },
+          {
+            "question": "What is a line graph best used for?",
+            "options": [
+              "Showing change over time",
+              "Comparing unrelated categories",
+              "Listing random words",
+              "Drawing pictures only"
+            ],
+            "correct_answer": "Showing change over time"
+          },
+          {
+            "question": "What should we organize collected data into before graphing?",
+            "options": [
+              "A table with clear labels",
+              "A random list with no order",
+              "A single unlabeled number",
+              "Nothing, we can graph directly without organizing"
+            ],
+            "correct_answer": "A table with clear labels"
+          },
+          {
+            "question": "Why should we decide the graph type BEFORE collecting data?",
+            "options": [
+              "So we know exactly what kind of data to collect",
+              "It does not matter when we decide",
+              "Data collection has nothing to do with graphing",
+              "We should never decide the graph type at all"
+            ],
+            "correct_answer": "So we know exactly what kind of data to collect"
+          },
+          {
+            "question": "In a table showing subject preferences, what would the columns likely represent?",
+            "options": [
+              "Subject and number of students",
+              "Only random numbers",
+              "Only student names",
+              "Only the date collected"
+            ],
+            "correct_answer": "Subject and number of students"
+          },
+          {
+            "question": "Why is it useful to choose the right type of graph for data?",
+            "options": [
+              "It helps us communicate data clearly to others",
+              "It makes the data harder to understand",
+              "It has no effect on how the data is understood",
+              "It only matters for very large data sets"
+            ],
+            "correct_answer": "It helps us communicate data clearly to others"
+          },
+          {
+            "question": "Which type of data would show a student's test scores over several months?",
+            "options": [
+              "Data best shown with a line graph",
+              "Data best shown with no graph at all",
+              "Only categorical data with no numbers",
+              "Data that cannot be organized in any way"
+            ],
+            "correct_answer": "Data best shown with a line graph"
+          },
+          {
+            "question": "Which type of data would show how many students chose each of four favorite colors?",
+            "options": [
+              "Data best shown with a bar graph",
+              "Data best shown with a line graph only",
+              "Data that cannot be graphed",
+              "Data best shown with no organization"
+            ],
+            "correct_answer": "Data best shown with a bar graph"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🎬 Friday Review — Filipino (Grade 5)\n\n- Tunog, biswal, galaw — epekto sa multimedia text\n\nMagaling sa panonood! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang multimedia text?",
+            "options": [
+              "Tekstong gumagamit ng tunog, biswal, at galaw",
+              "Tekstong nakasulat lamang sa papel",
+              "Isang uri ng tula lamang",
+              "Isang uri ng balita lamang"
+            ],
+            "correct_answer": "Tekstong gumagamit ng tunog, biswal, at galaw"
+          },
+          {
+            "question": "Ano ang epekto ng tunog sa multimedia text?",
+            "options": [
+              "Tumutulong itong maghatid ng damdamin",
+              "Wala itong epekto sa mensahe",
+              "Ginagamit lamang ito upang tumagal ang video",
+              "Nakakasira lamang ito ng video"
+            ],
+            "correct_answer": "Tumutulong itong maghatid ng damdamin"
+          },
+          {
+            "question": "Ano ang epekto ng biswal sa multimedia text?",
+            "options": [
+              "Tumutulong itong ipakita ang mensahe sa nakikitang paraan",
+              "Wala itong kaugnayan sa mensahe",
+              "Ginagamit lamang ito para sa palamuti",
+              "Nagpapahirap lamang ito ng pag-unawa"
+            ],
+            "correct_answer": "Tumutulong itong ipakita ang mensahe sa nakikitang paraan"
+          },
+          {
+            "question": "Ano ang epekto ng galaw sa multimedia text?",
+            "options": [
+              "Tumutulong itong bigyang-diin ang bahagi ng mensahe",
+              "Wala itong tunay na epekto",
+              "Ginagamit lamang ito upang pahabain ang video",
+              "Nagpapahina lamang ito ng mensahe"
+            ],
+            "correct_answer": "Tumutulong itong bigyang-diin ang bahagi ng mensahe"
+          },
+          {
+            "question": "Sa isang video, ginamit ang malungkot na musika habang ipinapakita ang isang matandang gusali. Ano ang layunin ng tunog dito?",
+            "options": [
+              "Maghatid ng damdaming malungkot o nostalgic",
+              "Maghatid ng masayang damdamin lamang",
+              "Walang layunin ang tunog dito",
+              "Upang pahabain lamang ang video"
+            ],
+            "correct_answer": "Maghatid ng damdaming malungkot o nostalgic"
+          },
+          {
+            "question": "Sa isang animation, biglang lumaki ang isang karakter sa screen. Ano ang epekto ng galaw na ito?",
+            "options": [
+              "Bigyang-diin ang kahalagahan ng karakter",
+              "Wala itong epekto sa mensahe",
+              "Pahabain lamang ang video",
+              "Palitan ang buong kuwento"
+            ],
+            "correct_answer": "Bigyang-diin ang kahalagahan ng karakter"
+          },
+          {
+            "question": "Bakit mahalagang suriin ang tunog, biswal, at galaw sa isang multimedia text?",
+            "options": [
+              "Tumutulong ito upang maging mas mapanuring manonood",
+              "Wala itong kabuluhan sa panonood",
+              "Ginagawa lamang ito para sa libangan",
+              "Nakakalito lamang ito sa manonood"
+            ],
+            "correct_answer": "Tumutulong ito upang maging mas mapanuring manonood"
+          },
+          {
+            "question": "Alin ang halimbawa ng tunog na naghahatid ng suspense?",
+            "options": [
+              "Nakakatakot na musika",
+              "Masayang musika",
+              "Katahimikan lamang",
+              "Walang tunog kailanman"
+            ],
+            "correct_answer": "Nakakatakot na musika"
+          },
+          {
+            "question": "Alin ang halimbawa ng biswal na naghahatid ng saya?",
+            "options": [
+              "Maliliwanag na kulay",
+              "Maiitim na larawan lamang",
+              "Larawan na walang kulay",
+              "Puting background lamang"
+            ],
+            "correct_answer": "Maliliwanag na kulay"
+          },
+          {
+            "question": "Paano nakatutulong ang paggalaw ng camera sa isang video?",
+            "options": [
+              "Nakatutulong itong bigyang-diin ang isang bahagi ng mensahe",
+              "Wala itong kaugnayan sa video",
+              "Ginagamit lamang ito upang lituhin ang manonood",
+              "Nakakasira lamang ito ng kalidad ng video"
+            ],
+            "correct_answer": "Nakatutulong itong bigyang-diin ang isang bahagi ng mensahe"
+          },
+          {
+            "question": "Bakit mahalagang maging mapanuri kapag nanonood ng multimedia?",
+            "options": [
+              "Upang maunawaan kung paano tayo hinihikayat ng nakikita at naririnig",
+              "Dahil hindi na kailangang pag-isipan ang panonood",
+              "Dahil walang epekto ang multimedia sa atin",
+              "Dahil laging tama ang lahat ng nakikita natin"
+            ],
+            "correct_answer": "Upang maunawaan kung paano tayo hinihikayat ng nakikita at naririnig"
+          },
+          {
+            "question": "Isang mag-aaral ang napansing gumamit ng mabilis na paggalaw ng camera at malakas na musika sa isang trailer ng pelikula. Ano ang maaaring layunin nito?",
+            "options": [
+              "Upang makahikayat at makapukaw ng interes sa mga manonood",
+              "Upang gawing mabagal ang buong video",
+              "Upang alisin ang lahat ng saya",
+              "Walang layunin ang mga elementong ito"
+            ],
+            "correct_answer": "Upang makahikayat at makapukaw ng interes sa mga manonood"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🍎 Friday Review — Science (Grade 5)\n\n- **Gravity** = non-contact force pulling objects toward Earth\n\nGreat force investigation! 🌟",
+        "quiz": [
+          {
+            "question": "What is gravity?",
+            "options": [
+              "A non-contact force that pulls objects toward Earth's center",
+              "A contact force that needs touching to work",
+              "A force that only works in space",
+              "A force that pushes objects away from Earth"
+            ],
+            "correct_answer": "A non-contact force that pulls objects toward Earth's center"
+          },
+          {
+            "question": "What is a non-contact force?",
+            "options": [
+              "A force that works without touching an object",
+              "A force that only works when touching an object",
+              "A force that never exists in nature",
+              "A force that only works underwater"
+            ],
+            "correct_answer": "A force that works without touching an object"
+          },
+          {
+            "question": "What is a contact force?",
+            "options": [
+              "A force that needs touching to work",
+              "A force that works without touching",
+              "A force that only exists in space",
+              "A force that never affects motion"
+            ],
+            "correct_answer": "A force that needs touching to work"
+          },
+          {
+            "question": "Why does a ball thrown into the air eventually come back down?",
+            "options": [
+              "Gravity pulls it back toward the Earth",
+              "The ball simply gets tired of flying",
+              "Air pushes it back down",
+              "There is no reason for this to happen"
+            ],
+            "correct_answer": "Gravity pulls it back toward the Earth"
+          },
+          {
+            "question": "Why is gravity considered a non-contact force?",
+            "options": [
+              "It can pull objects without touching them directly",
+              "It only works when objects are touching",
+              "It is not actually a real force",
+              "It only works on very heavy objects"
+            ],
+            "correct_answer": "It can pull objects without touching them directly"
+          },
+          {
+            "question": "A ball rolls down a ramp. What force causes it to roll downhill?",
+            "options": [
+              "Gravity",
+              "Magnetism",
+              "Friction alone",
+              "Sound waves"
+            ],
+            "correct_answer": "Gravity"
+          },
+          {
+            "question": "What happens to objects when you drop them?",
+            "options": [
+              "Gravity pulls them down toward the ground",
+              "They float upward into the sky",
+              "Nothing happens to them at all",
+              "They stay perfectly still in the air"
+            ],
+            "correct_answer": "Gravity pulls them down toward the ground"
+          },
+          {
+            "question": "Which of these is an example of a contact force?",
+            "options": [
+              "Pushing a door open",
+              "Gravity pulling a ball down",
+              "A magnet attracting metal from a distance",
+              "None of these are contact forces"
+            ],
+            "correct_answer": "Pushing a door open"
+          },
+          {
+            "question": "Which of these is an example of a non-contact force?",
+            "options": [
+              "Gravity pulling an object down",
+              "Pushing a shopping cart",
+              "Kicking a ball",
+              "Pulling a rope"
+            ],
+            "correct_answer": "Gravity pulling an object down"
+          },
+          {
+            "question": "Why do thrown objects follow a curved path instead of flying straight forever?",
+            "options": [
+              "Gravity gradually pulls them back down",
+              "There is no reason for the curved path",
+              "Air always pushes objects straight up",
+              "Objects always travel in perfectly straight lines"
+            ],
+            "correct_answer": "Gravity gradually pulls them back down"
+          },
+          {
+            "question": "Why is it important to understand gravity's effect on motion?",
+            "options": [
+              "It helps us explain how objects fall, roll, and land",
+              "It has no real-world importance",
+              "It only matters for scientists in labs",
+              "It only applies to objects in outer space"
+            ],
+            "correct_answer": "It helps us explain how objects fall, roll, and land"
+          },
+          {
+            "question": "What force is mainly responsible for objects staying on the ground instead of floating away?",
+            "options": [
+              "Gravity",
+              "Friction alone",
+              "Magnetism",
+              "Air resistance alone"
+            ],
+            "correct_answer": "Gravity"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🛡️ Friday Review — Araling Panlipunan (Grade 5)\n\n- Magsasaka, katutubong pinuno, grupong relihiyoso — pagpupunyagi\n- Cordillera at Sultanato ng Sulu/Maguindanao — hindi lubos nasakop\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Sino ang mga taong nagbungkal ng lupa noong panahon ng Espanyol na naghirap sa ilalim ng encomienda?",
+            "options": [
+              "Mga magsasaka",
+              "Mga prayle",
+              "Mga Gobernador-Heneral",
+              "Mga Peninsulares"
+            ],
+            "correct_answer": "Mga magsasaka"
+          },
+          {
+            "question": "Sino ang mga katutubong pinuno noong panahon ng kolonisasyon?",
+            "options": [
+              "Mga datu at sultan",
+              "Mga prayleng Espanyol",
+              "Mga Gobernador-Heneral",
+              "Mga Amerikanong sundalo"
+            ],
+            "correct_answer": "Mga datu at sultan"
+          },
+          {
+            "question": "Ano ang papel ng ilang grupong relihiyoso sa pagpupunyagi para sa kalayaan?",
+            "options": [
+              "Isinulong nila ang karapatan ng mga inaapi",
+              "Sinuportahan nila lahat ng pang-aabuso",
+              "Wala silang papel sa kasaysayan",
+              "Sinira nila ang kalayaan ng mga Pilipino"
+            ],
+            "correct_answer": "Isinulong nila ang karapatan ng mga inaapi"
+          },
+          {
+            "question": "Anong rehiyon ang nanatiling malaya dahil sa mabundok na tereyn?",
+            "options": [
+              "Cordillera",
+              "Kabisayaan",
+              "Kabikolan",
+              "Kalakhang Maynila"
+            ],
+            "correct_answer": "Cordillera"
+          },
+          {
+            "question": "Aling sultanato ang nanatiling malaya dahil sa matatag na pamahalaan at pananampalataya?",
+            "options": [
+              "Sultanato ng Sulu at Maguindanao",
+              "Sultanato ng Espanya",
+              "Sultanato ng Mindoro",
+              "Sultanato ng Palawan"
+            ],
+            "correct_answer": "Sultanato ng Sulu at Maguindanao"
+          },
+          {
+            "question": "Bakit itinuturing na patunay ng di-natitinag na diwang makabayan ang pananatiling malaya ng Cordillera?",
+            "options": [
+              "Hindi nila kayang lubusang sakupin ang rehiyong ito",
+              "Dahil walang taong nakatira doon",
+              "Dahil sumuko agad ang mga Espanyol",
+              "Dahil hindi ito bahagi ng Pilipinas"
+            ],
+            "correct_answer": "Hindi nila kayang lubusang sakupin ang rehiyong ito"
+          },
+          {
+            "question": "Bakit mahalaga ang papel ng katutubong pinuno sa pagpupunyagi para sa kalayaan?",
+            "options": [
+              "Sila ang nangunguna sa pagprotekta sa kanilang mamamayan",
+              "Wala silang anumang papel sa pakikibaka",
+              "Sinuportahan nila lahat ng pananakop",
+              "Sila ang nagsimula ng kolonisasyon"
+            ],
+            "correct_answer": "Sila ang nangunguna sa pagprotekta sa kanilang mamamayan"
+          },
+          {
+            "question": "Paano lumaban ang mga magsasaka laban sa pang-aabuso?",
+            "options": [
+              "Sa pamamagitan ng pag-aalsa o pagtanggi sa sapilitang paggawa",
+              "Sa pamamagitan ng pagsang-ayon sa lahat ng patakaran",
+              "Sa pamamagitan ng pag-alis sa Pilipinas",
+              "Wala silang ginawang paglaban"
+            ],
+            "correct_answer": "Sa pamamagitan ng pag-aalsa o pagtanggi sa sapilitang paggawa"
+          },
+          {
+            "question": "Ano ang pananampalatayang dominante sa Sultanato ng Sulu at Maguindanao?",
+            "options": [
+              "Islam",
+              "Kristiyanismo",
+              "Budismo",
+              "Walang pananampalataya"
+            ],
+            "correct_answer": "Islam"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang pag-aaral sa iba't ibang sektor na lumaban para sa kalayaan?",
+            "options": [
+              "Ipinapakita nito na maraming grupo ang nagtaguyod ng kalayaan",
+              "Isa lang dapat ang dapat pag-aralan",
+              "Wala itong kaugnayan sa kasaysayan ng bansa",
+              "Hindi mahalaga ang paksang ito"
+            ],
+            "correct_answer": "Ipinapakita nito na maraming grupo ang nagtaguyod ng kalayaan"
+          },
+          {
+            "question": "Ano ang pangkalahatang mensahe ng pagpupunyagi ng iba't ibang sektor?",
+            "options": [
+              "Matatag na diwang makabayan ng mga Pilipino",
+              "Kawalan ng pagkakaisa ng mga Pilipino",
+              "Kumpletong pagsuko ng lahat ng sektor",
+              "Kawalan ng papel ng mga ordinaryong mamamayan"
+            ],
+            "correct_answer": "Matatag na diwang makabayan ng mga Pilipino"
+          },
+          {
+            "question": "Bakit hindi lubusang nasakop ng Espanya ang Cordillera at ang Sultanato ng Sulu/Maguindanao?",
+            "options": [
+              "Dahil sa matatag na paglaban at natatanging heograpiya o pananampalataya",
+              "Dahil hindi sila kailanman interesado ng mga Espanyol",
+              "Dahil wala talagang tao doon noong panahong iyon",
+              "Dahil sumuko agad sila sa Espanya noon pa man"
+            ],
+            "correct_answer": "Dahil sa matatag na paglaban at natatanging heograpiya o pananampalataya"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🖊️ Friday Review — EPP (ICT) (Grade 5)\n\n- Pagre-review at pagpapaganda ng digital portfolio gamit ang peer feedback\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Bakit mahalaga ang pagre-review ng sariling proyekto?",
+            "options": [
+              "Tumutulong ito upang matukoy ang dapat pagbutihin",
+              "Wala itong kabuluhan sa proyekto",
+              "Nagpapahirap lamang ito ng gawain",
+              "Ginagawa lamang ito para sa marka"
+            ],
+            "correct_answer": "Tumutulong ito upang matukoy ang dapat pagbutihin"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa ispeling at gramatika sa isang proyekto?",
+            "options": [
+              "Ang propesyonal na hitsura ng proyekto",
+              "Ang bilis ng pagkumpleto ng proyekto",
+              "Ang presyo ng proyekto",
+              "Ang laki ng file lamang"
+            ],
+            "correct_answer": "Ang propesyonal na hitsura ng proyekto"
+          },
+          {
+            "question": "Ano ang peer feedback?",
+            "options": [
+              "Puna mula sa kaklase o guro tungkol sa iyong gawa",
+              "Isang uri ng file sa kompyuter",
+              "Isang uri ng larawan lamang",
+              "Isang bahagi ng brochure lamang"
+            ],
+            "correct_answer": "Puna mula sa kaklase o guro tungkol sa iyong gawa"
+          },
+          {
+            "question": "Nabanggit ng iyong kaklase na malabo ang isang larawan sa iyong brochure. Ano ang tamang gawin?",
+            "options": [
+              "Palitan ang larawan ng mas malinaw na bersyon",
+              "Balewalain na lamang ang puna",
+              "Alisin ang buong brochure",
+              "Magalit sa kaklase na nagbigay ng puna"
+            ],
+            "correct_answer": "Palitan ang larawan ng mas malinaw na bersyon"
+          },
+          {
+            "question": "Bakit mahalagang tanggapin ang puna ng iba tungkol sa iyong proyekto?",
+            "options": [
+              "Nakatutulong ito upang mapabuti ang kalidad ng gawa",
+              "Wala itong kaugnayan sa kalidad ng gawa",
+              "Dapat itong ikahiya at iwasan",
+              "Hindi dapat pakinggan ang puna ng iba"
+            ],
+            "correct_answer": "Nakatutulong ito upang mapabuti ang kalidad ng gawa"
+          },
+          {
+            "question": "Ano ang dapat gawin matapos makatanggap ng puna sa isang proyekto?",
+            "options": [
+              "Gumawa ng mga pagbabago batay sa puna",
+              "Kalimutan na lamang ang natanggap na puna",
+              "Isara agad ang proyekto",
+              "Ipasa agad kahit walang binago"
+            ],
+            "correct_answer": "Gumawa ng mga pagbabago batay sa puna"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagtingin kung angkop ang mga larawan sa nilalaman?",
+            "options": [
+              "Ang relevance ng mga larawan sa proyekto",
+              "Ang presyo ng mga larawan",
+              "Ang laki ng file lamang",
+              "Ang bilang ng letrang ginamit"
+            ],
+            "correct_answer": "Ang relevance ng mga larawan sa proyekto"
+          },
+          {
+            "question": "Bakit mahalagang malinaw ang layout ng isang proyekto?",
+            "options": [
+              "Upang madaling basahin at maintindihan ito",
+              "Upang mahirap lamang basahin ito",
+              "Wala itong kaugnayan sa pagbabasa",
+              "Upang lumaki lamang ang file"
+            ],
+            "correct_answer": "Upang madaling basahin at maintindihan ito"
+          },
+          {
+            "question": "Ano ang halimbawa ng pagbabagong maaaring gawin matapos ang pagre-review?",
+            "options": [
+              "Pagbabago ng font o pagdaragdag ng larawan",
+              "Pagbura ng buong proyekto",
+              "Pagsara ng programa nang walang pag-save",
+              "Pagsulat ng bagong pangalan lamang"
+            ],
+            "correct_answer": "Pagbabago ng font o pagdaragdag ng larawan"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagre-review at pagpapaganda ng proyekto?",
+            "options": [
+              "Propesyonalismo at pagsisikap sa trabaho",
+              "Kapabayaan sa gawain",
+              "Kawalan ng interes sa proyekto",
+              "Kakulangan sa oras lamang"
+            ],
+            "correct_answer": "Propesyonalismo at pagsisikap sa trabaho"
+          },
+          {
+            "question": "Bakit dapat gamitin ang isang checklist kapag nire-review ang proyekto?",
+            "options": [
+              "Upang matiyak na natugunan ang lahat ng mahahalagang bahagi",
+              "Upang mapabilis lamang ang buong gawain",
+              "Walang tunay na dahilan para dito",
+              "Upang maiwasan na lamang ang pag-eedit"
+            ],
+            "correct_answer": "Upang matiyak na natugunan ang lahat ng mahahalagang bahagi"
+          },
+          {
+            "question": "Isang mag-aaral ang natanggap ng puna na masyadong maliit ang teksto sa kanyang poster. Ano ang dapat niyang gawin?",
+            "options": [
+              "Palakihin ang teksto upang mas madaling basahin",
+              "Balewalain ang puna at huwag baguhin ito",
+              "Alisin ang lahat ng teksto sa poster",
+              "Isara agad ang buong proyekto"
+            ],
+            "correct_answer": "Palakihin ang teksto upang mas madaling basahin"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 5)\n\n- Pagsasanib ng sayaw, kalusugan, at sining sa isang wellness activity\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Anong tatlong paksa ang pinagsasama natin ngayong linggo?",
+            "options": [
+              "Sayaw, kalusugan, at sining",
+              "Matematika, agham, at wika",
+              "Kasaysayan, heograpiya, at agrikultura",
+              "Musika lamang"
+            ],
+            "correct_answer": "Sayaw, kalusugan, at sining"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng wellness activity na pinag-aralan natin?",
+            "options": [
+              "Dance-for-health session na may biswal na sining",
+              "Isang eksamen tungkol sa matematika",
+              "Isang liham na isusulat sa magulang",
+              "Isang gawain tungkol sa agrikultura"
+            ],
+            "correct_answer": "Dance-for-health session na may biswal na sining"
+          },
+          {
+            "question": "Bakit mabisang gamitin ang sayaw bilang ehersisyo para sa kalusugan?",
+            "options": [
+              "Nagpapataas ito ng cardiovascular endurance habang masaya",
+              "Wala itong benepisyo sa kalusugan",
+              "Nagpapahina lamang ito ng katawan",
+              "Ginagawa lamang ito para sa libangan"
+            ],
+            "correct_answer": "Nagpapataas ito ng cardiovascular endurance habang masaya"
+          },
+          {
+            "question": "Paano maiugnay ang sining sa kampanya para sa kalusugan?",
+            "options": [
+              "Sa paggawa ng biswal na materyales tungkol sa kalusugan",
+              "Sa pag-iwas sa lahat ng gawaing pansining",
+              "Walang koneksyon ang sining sa kalusugan",
+              "Sa pagtigil ng lahat ng ehersisyo"
+            ],
+            "correct_answer": "Sa paggawa ng biswal na materyales tungkol sa kalusugan"
+          },
+          {
+            "question": "Anong panahon ang pinag-aralan nating musika at sining kanina?",
+            "options": [
+              "Early Spanish Colonial Period",
+              "Panahon ng Amerikano",
+              "Panahon ng Hapon",
+              "Kasalukuyang panahon"
+            ],
+            "correct_answer": "Early Spanish Colonial Period"
+          },
+          {
+            "question": "Anong paksa sa kalusugan ang natutuhan natin kaugnay ng gamot?",
+            "options": [
+              "Proper use versus misuse ng gamot",
+              "Kasaysayan ng gamot sa Pilipinas",
+              "Presyo ng gamot sa botika",
+              "Pangalan ng mga gamot lamang"
+            ],
+            "correct_answer": "Proper use versus misuse ng gamot"
+          },
+          {
+            "question": "Ano ang time signature na natutuhan natin para sa mga rhythmic activity?",
+            "options": [
+              "2/4 time",
+              "10/4 time",
+              "1/8 time",
+              "100/4 time"
+            ],
+            "correct_answer": "2/4 time"
+          },
+          {
+            "question": "Bakit mahalagang pagsamahin ang sayaw, kalusugan, at sining sa isang gawain?",
+            "options": [
+              "Nagpapakita ito kung paano konektado ang iba't ibang aralin sa buhay",
+              "Wala itong anumang kabuluhan sa totoong buhay natin",
+              "Nagpapahirap lamang ito sa pag-aaral ng bata",
+              "Ginagawa lamang ito upang makakuha ng marka"
+            ],
+            "correct_answer": "Nagpapakita ito kung paano konektado ang iba't ibang aralin sa buhay"
+          },
+          {
+            "question": "Ano ang layunin ng paggawa ng poster tungkol sa kahalagahan ng ehersisyo?",
+            "options": [
+              "Upang ipaalala sa iba ang kahalagahan ng aktibong pamumuhay",
+              "Upang palamutihan lamang ang silid-aralan",
+              "Walang layunin ang gawaing ito",
+              "Upang mapabilis ang oras ng klase"
+            ],
+            "correct_answer": "Upang ipaalala sa iba ang kahalagahan ng aktibong pamumuhay"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng dance mixer na natutuhan natin?",
+            "options": [
+              "Isang modernong sayaw na ginagawa bilang ehersisyo",
+              "Isang uri ng pagkain",
+              "Isang uri ng kagamitan sa agrikultura",
+              "Isang uri ng kompyuter program"
+            ],
+            "correct_answer": "Isang modernong sayaw na ginagawa bilang ehersisyo"
+          },
+          {
+            "question": "Bakit itinuturing na kapaki-pakinabang ang pagsasanib ng mga aralin sa buhay ng bata?",
+            "options": [
+              "Nakikita ng bata kung paano ginagamit ang natutuhan sa totoong sitwasyon",
+              "Wala itong tunay na kaugnayan sa totoong buhay natin",
+              "Nagpapahirap lamang ito sa pag-unawa ng bata",
+              "Ginagawa lamang ito upang mapahaba pa ang klase"
+            ],
+            "correct_answer": "Nakikita ng bata kung paano ginagamit ang natutuhan sa totoong sitwasyon"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng negatibong epekto ng maling paggamit ng gamot na natutuhan natin?",
+            "options": [
+              "Maaari itong makasama sa kalusugan ng katawan",
+              "Palaging mabuti ang epekto nito",
+              "Wala itong anumang epekto sa katawan",
+              "Nagpapalakas lamang ito ng katawan"
+            ],
+            "correct_answer": "Maaari itong makasama sa kalusugan ng katawan"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 Friday Review — GMRC (Grade 5)\n\n- Pagsali sa panalanging pampamilya\n- Pagpapahalaga: **Faith (Pananampalataya)**\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang pagsali sa panalanging pampamilya?",
+            "options": [
+              "Aktibong pagsali sa panalangin at tradisyon ng pamilya",
+              "Pag-iwas sa lahat ng panalangin",
+              "Pananahimik lamang habang nananalangin ang iba",
+              "Pagtanggi sa lahat ng tradisyon"
+            ],
+            "correct_answer": "Aktibong pagsali sa panalangin at tradisyon ng pamilya"
+          },
+          {
+            "question": "Bawat gabi, sama-samang nananalangin ang iyong pamilya. Ano ang epekto nito sa inyong ugnayan?",
+            "options": [
+              "Pinapatibay nito ang samahan at pananampalataya",
+              "Nagpapahina ito ng samahan ng pamilya",
+              "Walang anumang epekto ito sa ugnayan",
+              "Nagdudulot lamang ito ng away sa bahay"
+            ],
+            "correct_answer": "Pinapatibay nito ang samahan at pananampalataya"
+          },
+          {
+            "question": "Bakit itinuturing na aktibong pagpapakita ng pananampalataya ang pagsali sa tradisyong panrelihiyoso ng pamilya?",
+            "options": [
+              "Ipinapakita nito ang tunay na pagpapahalaga sa relihiyon at pamilya",
+              "Wala itong kaugnayan sa pananampalataya",
+              "Ginagawa lamang ito para sa iba",
+              "Hindi ito totoong bahagi ng pananampalataya"
+            ],
+            "correct_answer": "Ipinapakita nito ang tunay na pagpapahalaga sa relihiyon at pamilya"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Faith (Pananampalataya)",
+              "Compassion (Pagmamalasakit)",
+              "Gratitude (Pasasalamat)",
+              "Respect (Paggalang)"
+            ],
+            "correct_answer": "Faith (Pananampalataya)"
+          },
+          {
+            "question": "Ano ang isang bunga ng sama-samang panalangin ng pamilya?",
+            "options": [
+              "Nagbibigay ito ng kapayapaan sa tahanan",
+              "Nagdudulot lamang ito ng away",
+              "Walang epekto ito sa tahanan",
+              "Nagpapahina ito ng ugnayan"
+            ],
+            "correct_answer": "Nagbibigay ito ng kapayapaan sa tahanan"
+          },
+          {
+            "question": "Paano maisasabuhay ang faith sa pang-araw-araw na buhay?",
+            "options": [
+              "Sa pagsali nang buong-puso sa panalangin ng pamilya",
+              "Sa pag-iwas sa lahat ng gawaing panrelihiyoso",
+              "Sa pananahimik lamang palagi",
+              "Sa pagtanggi sa tradisyon ng pamilya"
+            ],
+            "correct_answer": "Sa pagsali nang buong-puso sa panalangin ng pamilya"
+          },
+          {
+            "question": "Bakit mahalagang igalang ang tradisyon ng pamilya bilang bahagi ng faith?",
+            "options": [
+              "Ipinapakita nito ang pagmamahal at paggalang sa pamilya",
+              "Wala itong kabuluhan sa buhay",
+              "Ginagawa lamang ito bilang gawi",
+              "Hindi ito mahalaga sa pananampalataya"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagmamahal at paggalang sa pamilya"
+          },
+          {
+            "question": "Ano ang dapat gawin ng isang bata upang hikayatin ang ibang kasapi na sumali sa panalangin?",
+            "options": [
+              "Yayain sila nang magalang at may halimbawa",
+              "Pilitin sila nang husto",
+              "Iwanan na lamang sila",
+              "Huwag na lamang sila kausapin"
+            ],
+            "correct_answer": "Yayain sila nang magalang at may halimbawa"
+          },
+          {
+            "question": "Bakit mahalagang isabuhay ang faith hindi lamang sa salita kundi sa gawa?",
+            "options": [
+              "Nagpapakita ito ng tunay na pananampalataya",
+              "Sapat na ang salita lamang",
+              "Hindi mahalaga ang gawa sa pananampalataya",
+              "Wala itong kaugnayan sa faith"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na pananampalataya"
+          },
+          {
+            "question": "Ano ang halimbawa ng tradisyong panrelihiyoso ng pamilya?",
+            "options": [
+              "Sama-samang pananalangin bago matulog",
+              "Panonood ng TV nang mag-isa",
+              "Paglalaro ng video game",
+              "Pag-aaral ng matematika"
+            ],
+            "correct_answer": "Sama-samang pananalangin bago matulog"
+          },
+          {
+            "question": "Isang batang laging aktibong sumasali sa panalangin ng kanyang pamilya. Ano ang ipinapakita nito?",
+            "options": [
+              "Tunay na pananampalataya at pagmamahal sa pamilya",
+              "Kawalan ng interes sa relihiyon",
+              "Pagsuway sa magulang",
+              "Kapabayaan sa tradisyon ng pamilya"
+            ],
+            "correct_answer": "Tunay na pananampalataya at pagmamahal sa pamilya"
+          },
+          {
+            "question": "Bakit itinuturing na paraan ng pagpapatibay ng pananampalataya ang sama-samang panalangin?",
+            "options": [
+              "Nagpapalalim ito ng ugnayan sa Diyos at sa isa't isa",
+              "Wala itong kaugnayan sa pananampalataya",
+              "Ginagawa lamang ito bilang trabaho",
+              "Hindi ito bahagi ng buhay-pananampalataya"
+            ],
+            "correct_answer": "Nagpapalalim ito ng ugnayan sa Diyos at sa isa't isa"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 Friday Review — EPP (Grade 5)\n\n- Thread jam, uneven stitches — sanhi at solusyon\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang sanhi ng thread jam sa sewing machine?",
+            "options": [
+              "Maling pagka-thread ng makina",
+              "Sobrang linis ng makina",
+              "Sobrang bagal ng pananahi",
+              "Tamang laki ng karayom"
+            ],
+            "correct_answer": "Maling pagka-thread ng makina"
+          },
+          {
+            "question": "Ano ang solusyon sa thread jam?",
+            "options": [
+              "I-rethread nang tama ang makina",
+              "Iwanan na lamang ito nang hindi ayos",
+              "Tumigil sa pananahi magpakailanman",
+              "Palitan ang buong makina"
+            ],
+            "correct_answer": "I-rethread nang tama ang makina"
+          },
+          {
+            "question": "Ano ang sanhi ng uneven stitches (sirang tahi)?",
+            "options": [
+              "Maling tensyon ng sinulid",
+              "Sobrang linis ng makina",
+              "Tamang laki ng karayom",
+              "Wastong bilis ng pananahi"
+            ],
+            "correct_answer": "Maling tensyon ng sinulid"
+          },
+          {
+            "question": "Nakita mong hindi pantay ang tahi ng iyong ginagawa. Ano ang maaaring sanhi nito?",
+            "options": [
+              "Maling tensyon ng sinulid",
+              "Sobrang linis ng makina",
+              "Sobrang bagal ng pananahi",
+              "Wastong pagka-thread"
+            ],
+            "correct_answer": "Maling tensyon ng sinulid"
+          },
+          {
+            "question": "Bakit dapat gumamit ng tamang laki ng karayom sa uri ng tela?",
+            "options": [
+              "Upang maiwasan ang pagkabali o pagkasira ng tela",
+              "Upang mapabilis lamang ang pananahi",
+              "Walang kaugnayan ang laki ng karayom sa tela",
+              "Upang mapaganda lamang ang hitsura"
+            ],
+            "correct_answer": "Upang maiwasan ang pagkabali o pagkasira ng tela"
+          },
+          {
+            "question": "Ano ang dapat gawin bago magsimulang manahi gamit ang makina?",
+            "options": [
+              "I-thread nang tama ang makina",
+              "Direktang magsimula nang walang pag-check",
+              "Alisin ang lahat ng sinulid",
+              "Isara agad ang makina"
+            ],
+            "correct_answer": "I-thread nang tama ang makina"
+          },
+          {
+            "question": "Bakit dapat subukan muna sa isang piraso ng tela bago sa aktwal na proyekto?",
+            "options": [
+              "Upang matiyak na tama ang setting ng makina",
+              "Upang mapabilis ang buong proseso",
+              "Upang makatipid ng oras lamang",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang matiyak na tama ang setting ng makina"
+          },
+          {
+            "question": "Bakit dapat magpakabagal sa pananahi ng manipis na tela?",
+            "options": [
+              "Upang maiwasan ang pagkasira ng tela",
+              "Upang mapabilis ang gawain",
+              "Walang kaugnayan ang bilis sa kalidad",
+              "Upang mapaganda lamang ang disenyo"
+            ],
+            "correct_answer": "Upang maiwasan ang pagkasira ng tela"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi ayusin ang tensyon ng sinulid kapag hindi pantay ang tahi?",
+            "options": [
+              "Magpapatuloy ang problema sa tahi",
+              "Awtomatikong maaayos ang tahi",
+              "Wala itong epekto sa proyekto",
+              "Mas gaganda ang resulta"
+            ],
+            "correct_answer": "Magpapatuloy ang problema sa tahi"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga solusyon sa karaniwang suliranin sa pananahi?",
+            "options": [
+              "Nakatutulong ito upang maiwasan ang aksidente at magawa nang maayos ang proyekto",
+              "Wala talagang anumang kabuluhan nito sa gawaing pananahi",
+              "Ginagamit lamang ito tuwing may kinakailangang eksamen",
+              "Hindi na kailangan pang pag-aralan pa ito ngayon"
+            ],
+            "correct_answer": "Nakatutulong ito upang maiwasan ang aksidente at magawa nang maayos ang proyekto"
+          },
+          {
+            "question": "Ano ang unang hakbang kapag nagkaroon ng problema sa makina habang tinatahi?",
+            "options": [
+              "Tigilan ang pananahi at suriin ang sanhi ng problema",
+              "Ipagpatuloy ang pananahi kahit may problema",
+              "Isara ang makina at huwag na ito buksan pa",
+              "Ihagis ang tela na tinatahi"
+            ],
+            "correct_answer": "Tigilan ang pananahi at suriin ang sanhi ng problema"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang tamang paggamit ng makina bago magtahi ng proyekto?",
+            "options": [
+              "Upang makagawa ng magandang produkto at maiwasan ang problema",
+              "Upang mabilis lamang matapos ang gawain",
+              "Walang dahilan ito talaga",
+              "Upang mapaganda lamang ang hitsura ng makina"
+            ],
+            "correct_answer": "Upang makagawa ng magandang produkto at maiwasan ang problema"
+          }
+        ]
+      }
+    }
+  }
+}

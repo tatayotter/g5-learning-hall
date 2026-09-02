@@ -1,0 +1,2016 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-10-18",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 💌 English — Writing an Invitation Card\n\nGrade 4, Week 19! Let's learn to write a polite invitation for a celebration. 🎉\n\n## 💌 What Is an Invitation Card?\nAn **invitation card** is a written message asking someone to **attend an event**, like a christening, wedding, or birthday.\n\n## 🏗️ Parts of an Invitation Card\n| Part | What It Includes |\n|---|---|\n| **Greeting** | polite opening (e.g., \"You are cordially invited...\") |\n| **Event details** | what the event is (e.g., christening) |\n| **Date, time, and place** | when and where the event will happen |\n| **Host's name** | who is inviting the guest |\n| **RSVP** | a polite request to confirm attendance |\n\n## 🙇 Using Polite Expressions\nAn invitation should use **polite expressions**, since we are asking a favor of the guest's time.\n\n**Example:** *\"You are cordially invited to the christening of Baby Miguel on July 5, 2027, at 2:00 PM, at St. Joseph Church. We hope you can join us. Please RSVP by June 28.\"*\n\n## 🧠 Worked Example 1\n*What should an invitation card always include?*\n- **Event details, date, time, place, host's name, and an RSVP request.**\n\n## 🧠 Worked Example 2\n*Why is it important to include an RSVP request?*\n- So the host can **know how many guests** to prepare for.\n\n## 💡 Why This Matters\nWriting invitation cards helps us **communicate important event details politely** and clearly.\n\nGreat invitation writing! 🌟",
+        "quiz": [
+          {
+            "question": "What is an invitation card?",
+            "options": [
+              "A written message asking someone to attend an event",
+              "A card used only for paying bills",
+              "A card that has no real purpose",
+              "A card used only for grades"
+            ],
+            "correct_answer": "A written message asking someone to attend an event"
+          },
+          {
+            "question": "What does the greeting of an invitation card do?",
+            "options": [
+              "Politely opens the message",
+              "Lists the exact price of the event",
+              "Describes the weather that day",
+              "Explains how to cook a recipe"
+            ],
+            "correct_answer": "Politely opens the message"
+          },
+          {
+            "question": "What information should the event details include?",
+            "options": [
+              "What the event is, like a christening",
+              "Only the guest's home address",
+              "Only the host's favorite color",
+              "Only the price of admission"
+            ],
+            "correct_answer": "What the event is, like a christening"
+          },
+          {
+            "question": "Why must an invitation card include the date, time, and place?",
+            "options": [
+              "So guests know when and where to go",
+              "So guests can guess the details themselves",
+              "Because it is not actually necessary",
+              "So the card looks longer"
+            ],
+            "correct_answer": "So guests know when and where to go"
+          },
+          {
+            "question": "What is RSVP used for in an invitation?",
+            "options": [
+              "A polite request to confirm attendance",
+              "A signature required by law",
+              "The exact cost of the event",
+              "The name of the caterer only"
+            ],
+            "correct_answer": "A polite request to confirm attendance"
+          },
+          {
+            "question": "Why is it important to include an RSVP request?",
+            "options": [
+              "So the host can know how many guests to prepare for",
+              "So guests are forced to attend the event",
+              "So the invitation becomes shorter",
+              "It has no real purpose at all"
+            ],
+            "correct_answer": "So the host can know how many guests to prepare for"
+          },
+          {
+            "question": "Why should an invitation card use polite expressions?",
+            "options": [
+              "Because we are asking a favor of the guest's time",
+              "Because polite words are required by law",
+              "Because impolite words are always shorter",
+              "It does not matter how it is written"
+            ],
+            "correct_answer": "Because we are asking a favor of the guest's time"
+          },
+          {
+            "question": "\"You are cordially invited to...\" is an example of what part of an invitation?",
+            "options": [
+              "The greeting",
+              "The RSVP",
+              "The host's name only",
+              "The date only"
+            ],
+            "correct_answer": "The greeting"
+          },
+          {
+            "question": "What should an invitation card include about who is hosting?",
+            "options": [
+              "The host's name",
+              "Only the host's favorite food",
+              "Only the host's birthday",
+              "Nothing about the host at all"
+            ],
+            "correct_answer": "The host's name"
+          },
+          {
+            "question": "Why is writing an invitation card a useful skill?",
+            "options": [
+              "It helps us communicate event details politely and clearly",
+              "It has no practical use in real life",
+              "It only matters for very formal events",
+              "It replaces the need for any other writing skill"
+            ],
+            "correct_answer": "It helps us communicate event details politely and clearly"
+          },
+          {
+            "question": "Which of these events might use an invitation card?",
+            "options": [
+              "A christening, wedding, or birthday",
+              "A private diary entry",
+              "A grocery shopping list",
+              "A math homework assignment"
+            ],
+            "correct_answer": "A christening, wedding, or birthday"
+          },
+          {
+            "question": "A student writes an invitation but forgets to include the venue. What problem could this cause?",
+            "options": [
+              "Guests would not know where to go",
+              "The invitation would become more polite",
+              "Nothing would be affected at all",
+              "The event would automatically be canceled"
+            ],
+            "correct_answer": "Guests would not know where to go"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🍕 Mathematics — Similar Fractions\n\nGrade 4, Week 19! Let's work with fractions that share the same denominator. 🥧\n\n## 🍕 Types of Fractions\n| Type | Description | Example |\n|---|---|---|\n| **Proper fraction** | numerator smaller than denominator | 3/4 |\n| **Improper fraction** | numerator equal to or larger than denominator | 7/4 |\n| **Mixed number** | whole number + fraction | 1¾ |\n\n## 🔄 Converting Improper Fractions to Mixed Numbers\n**Example:** Convert 7/4 to a mixed number.\n- 7 ÷ 4 = 1 remainder 3 → **1¾**\n\n## 🔄 Converting Mixed Numbers to Improper Fractions\n**Example:** Convert 2⅓ to an improper fraction.\n- (2 × 3) + 1 = 7 → **7/3**\n\n## 📏 Plotting Fractions on a Number Line\nFractions can be shown as **points** on a number line between whole numbers.\n\n## ➕ Adding Similar Fractions\n**Similar fractions** have the **same denominator** — just add the numerators.\n**Example:** 2/5 + 1/5 = **3/5**\n\n## ➖ Subtracting Similar Fractions\n**Example:** 4/6 - 1/6 = **3/6**\n\n## 🧠 Worked Example — Mixed Numbers\n*Add: 1½ + 2¼ (same denominator after converting)*\n- 1½ = 1²/4, so 1²/4 + 2¼ = **3¾**\n\nGreat fraction work! ⭐",
+        "quiz": [
+          {
+            "question": "What is a proper fraction?",
+            "options": [
+              "A fraction where the numerator is smaller than the denominator",
+              "A fraction where the numerator is larger",
+              "A whole number with no fraction",
+              "A fraction with no numerator"
+            ],
+            "correct_answer": "A fraction where the numerator is smaller than the denominator"
+          },
+          {
+            "question": "What is an improper fraction?",
+            "options": [
+              "A fraction where the numerator is equal to or larger than the denominator",
+              "A fraction that is always smaller than one single whole",
+              "A fraction that always has a denominator equal to one",
+              "A whole number that never has any fraction part"
+            ],
+            "correct_answer": "A fraction where the numerator is equal to or larger than the denominator"
+          },
+          {
+            "question": "What is a mixed number?",
+            "options": [
+              "A whole number combined with a fraction",
+              "A fraction with two denominators",
+              "Only a whole number",
+              "Only an improper fraction"
+            ],
+            "correct_answer": "A whole number combined with a fraction"
+          },
+          {
+            "question": "Convert 7/4 to a mixed number.",
+            "options": [
+              "1¾",
+              "2¾",
+              "1½",
+              "7/4 cannot be converted"
+            ],
+            "correct_answer": "1¾"
+          },
+          {
+            "question": "Convert 2⅓ to an improper fraction.",
+            "options": [
+              "7/3",
+              "6/3",
+              "8/3",
+              "5/3"
+            ],
+            "correct_answer": "7/3"
+          },
+          {
+            "question": "What are similar fractions?",
+            "options": [
+              "Fractions with the same denominator",
+              "Fractions with the same numerator",
+              "Fractions that are always equal to 1",
+              "Fractions with no denominator"
+            ],
+            "correct_answer": "Fractions with the same denominator"
+          },
+          {
+            "question": "What is 2/5 + 1/5?",
+            "options": [
+              "3/5",
+              "3/10",
+              "2/10",
+              "1/5"
+            ],
+            "correct_answer": "3/5"
+          },
+          {
+            "question": "What is 4/6 - 1/6?",
+            "options": [
+              "3/6",
+              "3/12",
+              "5/6",
+              "4/12"
+            ],
+            "correct_answer": "3/6"
+          },
+          {
+            "question": "What is 1½ + 2¼ (after converting to a common denominator)?",
+            "options": [
+              "3¾",
+              "3½",
+              "4¼",
+              "3¼"
+            ],
+            "correct_answer": "3¾"
+          },
+          {
+            "question": "How do you convert an improper fraction to a mixed number?",
+            "options": [
+              "Divide the numerator by the denominator",
+              "Multiply the numerator by the denominator",
+              "Add the numerator and denominator",
+              "Subtract the denominator from the numerator"
+            ],
+            "correct_answer": "Divide the numerator by the denominator"
+          },
+          {
+            "question": "Which of these is an improper fraction?",
+            "options": [
+              "9/4",
+              "3/4",
+              "1/4",
+              "2/4"
+            ],
+            "correct_answer": "9/4"
+          },
+          {
+            "question": "What is 5/8 + 2/8?",
+            "options": [
+              "7/8",
+              "7/16",
+              "3/8",
+              "6/8"
+            ],
+            "correct_answer": "7/8"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# ✏️ Filipino — Paggamit ng Pangngalan, Panghalip, at Pang-uri sa Pagsulat\n\nGrade 4, Linggo 19! Ilapat natin ang natutuhang gramatika sa pagsulat ng maikling kuwento. 📖\n\n## 🔄 Balik-Aral\nNatutuhan na natin ang **pangngalan** (pangalan ng tao/bagay/lugar), **panghalip** (pumapalit sa pangngalan), at **pang-uri** (naglalarawan sa pangngalan o panghalip).\n\n## ✍️ Paglalapat sa Pagsulat ng Maikling Kuwento\nNgayong linggo, gagamitin natin ang mga ito upang bumuo ng isang **maikling kuwento** — tulad ng isang karanasan sa paaralan o pamilya.\n\n**Halimbawa:** *\"Si Miguel (pangngalan) ay masipag na mag-aaral. Siya (panghalip) ay laging nag-aaral ng maaga. Masaya (pang-uri) siya kapag nakakakuha ng magandang marka.\"*\n\n## 🧩 Bakit Mahalaga ang Wastong Paggamit?\nAng tamang paggamit ng pangngalan, panghalip, at pang-uri ay tumutulong upang maging **malinaw at makulay** ang isang kuwento.\n\n## 🧠 Halimbawa 1\n*Kilalanin ang panghalip sa pangungusap: \"Si Ana ay pumunta sa palengke. Siya ay bumili ng gulay.\"*\n- **\"Siya\"** ang panghalip — pumapalit ito sa pangngalang \"Ana.\"\n\n## 🧠 Halimbawa 2\n*Kilalanin ang pang-uri sa pangungusap: \"Ang masayang bata ay tumakbo sa parke.\"*\n- **\"Masaya\"** ang pang-uri — naglalarawan ito sa bata.\n\n## 💡 Kongklusyon\nAng paggamit ng tamang pangngalan, panghalip, at pang-uri ay nagpapayaman sa ating **pagsulat ng kuwento**.\n\nMagaling sa pagsulat! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pangngalan?",
+            "options": [
+              "Pangalan ng tao, bagay, o lugar",
+              "Pumapalit sa pangngalan",
+              "Naglalarawan sa pangngalan",
+              "Nagsasaad ng kilos"
+            ],
+            "correct_answer": "Pangalan ng tao, bagay, o lugar"
+          },
+          {
+            "question": "Ano ang panghalip?",
+            "options": [
+              "Pumapalit sa pangngalan",
+              "Naglalarawan sa pangngalan",
+              "Pangalan ng tao lamang",
+              "Nagsasaad ng bilang"
+            ],
+            "correct_answer": "Pumapalit sa pangngalan"
+          },
+          {
+            "question": "Ano ang pang-uri?",
+            "options": [
+              "Naglalarawan sa pangngalan o panghalip",
+              "Pumapalit sa pangngalan",
+              "Tumutukoy sa lugar lamang",
+              "Nagsasaad ng kilos lamang"
+            ],
+            "correct_answer": "Naglalarawan sa pangngalan o panghalip"
+          },
+          {
+            "question": "Kilalanin ang panghalip sa pangungusap: \"Si Ana ay pumunta sa palengke. Siya ay bumili ng gulay.\"",
+            "options": [
+              "Siya",
+              "Ana",
+              "Palengke",
+              "Gulay"
+            ],
+            "correct_answer": "Siya"
+          },
+          {
+            "question": "Kilalanin ang pang-uri sa pangungusap: \"Ang masayang bata ay tumakbo sa parke.\"",
+            "options": [
+              "Masaya",
+              "Bata",
+              "Tumakbo",
+              "Parke"
+            ],
+            "correct_answer": "Masaya"
+          },
+          {
+            "question": "\"Si Miguel ay masipag na mag-aaral.\" Ano ang pangngalan dito?",
+            "options": [
+              "Miguel",
+              "Masipag",
+              "Ay",
+              "Na"
+            ],
+            "correct_answer": "Miguel"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang mga panghalip sa pagsulat ng kuwento?",
+            "options": [
+              "Upang maiwasan ang paulit-ulit na pangalan",
+              "Upang mahirap intindihin ang kuwento",
+              "Upang mawala ang mga tauhan",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang maiwasan ang paulit-ulit na pangalan"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang mga pang-uri sa pagsulat ng kuwento?",
+            "options": [
+              "Upang maging malinaw at makulay ang kuwento",
+              "Upang mahirap intindihin ang kuwento",
+              "Upang mapaikli lamang ang pangungusap",
+              "Walang epekto ito sa kuwento"
+            ],
+            "correct_answer": "Upang maging malinaw at makulay ang kuwento"
+          },
+          {
+            "question": "Alin ang halimbawa ng pang-uri?",
+            "options": [
+              "Maganda",
+              "Bahay",
+              "Siya",
+              "Tumakbo"
+            ],
+            "correct_answer": "Maganda"
+          },
+          {
+            "question": "Alin ang halimbawa ng panghalip?",
+            "options": [
+              "Sila",
+              "Bahay",
+              "Maganda",
+              "Pumunta"
+            ],
+            "correct_answer": "Sila"
+          },
+          {
+            "question": "Ano ang benepisyo ng wastong paggamit ng gramatika sa pagsulat?",
+            "options": [
+              "Nagpapayaman ito sa ating pagsulat ng kuwento",
+              "Wala itong benepisyo sa pagsulat",
+              "Nagpapabagal lamang ito ng pagbasa",
+              "Ginagamit lamang ito sa pagsusulit"
+            ],
+            "correct_answer": "Nagpapayaman ito sa ating pagsulat ng kuwento"
+          },
+          {
+            "question": "Isang mag-aaral ang sumulat ng: \"Ang mabait na guro ay tumulong sa amin.\" Ano ang pang-uri dito?",
+            "options": [
+              "Mabait",
+              "Guro",
+              "Tumulong",
+              "Amin"
+            ],
+            "correct_answer": "Mabait"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🍃 Science — Food Chains\n\nGrade 4, Week 19! Let's trace who eats whom in nature. 🐛\n\n## 🍽️ Grouping Animals by Diet\n| Group | What They Eat |\n|---|---|\n| **Herbivores** | only plants (e.g., cow, carabao) |\n| **Carnivores** | only other animals (e.g., eagle, snake) |\n| **Omnivores** | both plants and animals (e.g., pig, chicken) |\n\n## 🔗 What Is a Food Chain?\nA **food chain** shows how **energy flows** from one living thing to another, starting with a plant.\n\n**Example:** Grass → Grasshopper → Frog → Snake → Eagle\n\n## 🇵🇭 A Food Chain Using Philippine Living Things\n**Example:** Palay (rice plant) → Daga (rat) → Ahas (snake) → Agila (eagle)\n\n## 🏷️ Labeling by Feeding Group\n| Organism | Feeding Group |\n|---|---|\n| **Palay (plant)** | Producer |\n| **Daga (rat)** | Herbivore |\n| **Ahas (snake)** | Carnivore |\n| **Agila (eagle)** | Carnivore |\n\n## 🧠 Worked Example 1\n*Why does every food chain start with a plant?*\n- Because plants are **producers** — they make their own food and are the source of energy for the chain.\n\n## 🧠 Worked Example 2\n*In the chain Palay → Daga → Ahas → Agila, what is the daga's feeding group?*\n- **Herbivore** — it eats only the palay (plant).\n\n## 💡 Why This Matters\nUnderstanding food chains helps us see how all living things are **connected** in nature.\n\nGreat food chain science! 🌟",
+        "quiz": [
+          {
+            "question": "What is a herbivore?",
+            "options": [
+              "An animal that eats only plants",
+              "An animal that eats only other animals",
+              "An animal that eats both plants and animals",
+              "An animal that does not eat anything"
+            ],
+            "correct_answer": "An animal that eats only plants"
+          },
+          {
+            "question": "What is a carnivore?",
+            "options": [
+              "An animal that eats only other animals",
+              "An animal that eats only plants",
+              "An animal that eats both plants and animals",
+              "An animal that does not eat anything"
+            ],
+            "correct_answer": "An animal that eats only other animals"
+          },
+          {
+            "question": "What is an omnivore?",
+            "options": [
+              "An animal that eats both plants and animals",
+              "An animal that eats only plants",
+              "An animal that eats only other animals",
+              "An animal that does not eat anything"
+            ],
+            "correct_answer": "An animal that eats both plants and animals"
+          },
+          {
+            "question": "What does a food chain show?",
+            "options": [
+              "How energy flows from one living thing to another",
+              "The weight of different animals",
+              "The colors of different animals",
+              "The habitat of only one animal"
+            ],
+            "correct_answer": "How energy flows from one living thing to another"
+          },
+          {
+            "question": "In the chain Palay → Daga → Ahas → Agila, what starts the food chain?",
+            "options": [
+              "Palay (a plant)",
+              "Daga (a rat)",
+              "Ahas (a snake)",
+              "Agila (an eagle)"
+            ],
+            "correct_answer": "Palay (a plant)"
+          },
+          {
+            "question": "Why does every food chain start with a plant?",
+            "options": [
+              "Plants are producers that make their own food",
+              "Plants are always the biggest living thing",
+              "Plants never get eaten by anything",
+              "Plants do not need sunlight"
+            ],
+            "correct_answer": "Plants are producers that make their own food"
+          },
+          {
+            "question": "In the chain Palay → Daga → Ahas → Agila, what is the daga's feeding group?",
+            "options": [
+              "Herbivore",
+              "Carnivore",
+              "Omnivore",
+              "Producer"
+            ],
+            "correct_answer": "Herbivore"
+          },
+          {
+            "question": "Which of these is an example of a herbivore?",
+            "options": [
+              "Carabao",
+              "Eagle",
+              "Snake",
+              "Lion"
+            ],
+            "correct_answer": "Carabao"
+          },
+          {
+            "question": "Which of these is an example of an omnivore?",
+            "options": [
+              "Pig",
+              "Cow",
+              "Eagle",
+              "Snake"
+            ],
+            "correct_answer": "Pig"
+          },
+          {
+            "question": "In the chain grass → grasshopper → frog → snake → eagle, what eats the grasshopper?",
+            "options": [
+              "Frog",
+              "Grass",
+              "Snake",
+              "Eagle"
+            ],
+            "correct_answer": "Frog"
+          },
+          {
+            "question": "Why is it useful to draw a food chain and label the feeding groups?",
+            "options": [
+              "It helps us see how living things are connected in nature",
+              "It has no scientific use at all",
+              "It only matters for animals in zoos",
+              "It replaces the need to study animals further"
+            ],
+            "correct_answer": "It helps us see how living things are connected in nature"
+          },
+          {
+            "question": "What feeding group does an eagle that eats a snake belong to?",
+            "options": [
+              "Carnivore",
+              "Herbivore",
+              "Producer",
+              "Omnivore only if it eats plants too"
+            ],
+            "correct_answer": "Carnivore"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🏖️ Araling Panlipunan — Turismo Bilang Yamang Pangkabuhayan\n\nGrade 4, Linggo 19! Alamin natin ang turismo bilang bahagi ng ating kabuhayan. 🌴\n\n## 🏖️ Ano ang Turismo?\nAng **turismo** ay ang gawaing pangkabuhayan na kinapapalooban ng **pagbisita ng mga tao** sa magagandang lugar para sa libangan, kultura, o pananaliksik.\n\n## 🗺️ Mga Halimbawa ng Atraksyong Panturista sa Pilipinas\n| Uri | Halimbawa |\n|---|---|\n| **Natural na atraksyon** | Chocolate Hills, Mayon Volcano, Palawan |\n| **Kultural na atraksyon** | mga makasaysayang lugar, museo, pista |\n| **Man-made na atraksyon** | resort, theme park |\n\n## 💰 Kabutihang-dulot ng Turismo\n- Nagbibigay ng **trabaho** sa mga lokal na residente (tour guide, hotel staff, tindera)\n- Nagpapalago ng **kita ng lokal na pamahalaan**\n- Nagpapakilala ng **kultura ng Pilipinas** sa buong mundo\n\n## ⚠️ Responsableng Turismo\nMahalagang **pangalagaan ang kapaligiran** habang pinapaunlad ang turismo — iwasan ang polusyon at sirain ng kalikasan.\n\n## 🧠 Halimbawa 1\n*Bakit mahalaga ang turismo sa kabuhayan ng bansa?*\n- Nagbibigay ito ng **trabaho at kita** sa mga lokal na residente at pamahalaan.\n\n## 🧠 Halimbawa 2\n*Bakit dapat maging responsable sa turismo?*\n- Upang **mapangalagaan ang kapaligiran** kahit na dumarami ang bisita.\n\n## 💡 Kongklusyon\nAng turismo, tulad ng agrikultura, pangingisda, at industriya, ay **mahalagang bahagi** ng kabuhayan ng bansa.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang turismo?",
+            "options": [
+              "Pagbisita ng mga tao sa magagandang lugar para sa libangan",
+              "Isang uri ng industriya sa lungsod lamang",
+              "Isang uri ng pangingisda lamang",
+              "Isang paaralang pang-turista"
+            ],
+            "correct_answer": "Pagbisita ng mga tao sa magagandang lugar para sa libangan"
+          },
+          {
+            "question": "Alin ang halimbawa ng natural na atraksyong panturista?",
+            "options": [
+              "Chocolate Hills",
+              "Isang resort na de-koryente",
+              "Isang theme park lamang",
+              "Isang museo ng makina"
+            ],
+            "correct_answer": "Chocolate Hills"
+          },
+          {
+            "question": "Alin ang halimbawa ng man-made na atraksyong panturista?",
+            "options": [
+              "Resort o theme park",
+              "Bundok o bulkan",
+              "Ilog o dagat",
+              "Kagubatan"
+            ],
+            "correct_answer": "Resort o theme park"
+          },
+          {
+            "question": "Ano ang kabutihang-dulot ng turismo sa mga lokal na residente?",
+            "options": [
+              "Nagbibigay ito ng trabaho",
+              "Wala itong benepisyo sa kanila",
+              "Nagpapabagal lamang ng ekonomiya",
+              "Ginagawa lamang ito para sa turista mismo"
+            ],
+            "correct_answer": "Nagbibigay ito ng trabaho"
+          },
+          {
+            "question": "Bakit mahalaga ang turismo sa kabuhayan ng bansa?",
+            "options": [
+              "Nagbibigay ito ng trabaho at kita sa mga residente at pamahalaan",
+              "Wala itong anumang kaugnayan sa ekonomiya ng bansa",
+              "Ginagawa lamang ito bilang isang uri ng libangan",
+              "Hindi ito talaga bahagi ng kabuhayan ng bansa"
+            ],
+            "correct_answer": "Nagbibigay ito ng trabaho at kita sa mga residente at pamahalaan"
+          },
+          {
+            "question": "Bakit dapat maging responsable sa turismo?",
+            "options": [
+              "Upang mapangalagaan ang kapaligiran",
+              "Upang mapabilis ang polusyon",
+              "Upang masira ang kalikasan",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang mapangalagaan ang kapaligiran"
+          },
+          {
+            "question": "Alin ang halimbawa ng kultural na atraksyong panturista?",
+            "options": [
+              "Makasaysayang lugar o museo",
+              "Isang bulkan lamang",
+              "Isang dagat lamang",
+              "Isang bundok lamang"
+            ],
+            "correct_answer": "Makasaysayang lugar o museo"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi responsable ang turismo sa isang lugar?",
+            "options": [
+              "Maaaring masira ang kapaligiran",
+              "Mas gaganda ang kapaligiran",
+              "Wala itong epekto sa kapaligiran",
+              "Mas dadami ang mga hayop doon"
+            ],
+            "correct_answer": "Maaaring masira ang kapaligiran"
+          },
+          {
+            "question": "Anong trabaho ang maaaring makuha ng lokal na residente dahil sa turismo?",
+            "options": [
+              "Tour guide o hotel staff",
+              "Manggagamot lamang",
+              "Guro sa unibersidad lamang",
+              "Abogado lamang"
+            ],
+            "correct_answer": "Tour guide o hotel staff"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang bahagi ng kabuhayan ng bansa ang turismo, tulad ng agrikultura at industriya?",
+            "options": [
+              "Nagbibigay din ito ng trabaho at kita sa mamamayan",
+              "Wala itong pagkakatulad sa iba pang gawaing pangkabuhayan",
+              "Isa lang dito ang tunay na mahalaga",
+              "Hindi ito totoong bahagi ng ekonomiya"
+            ],
+            "correct_answer": "Nagbibigay din ito ng trabaho at kita sa mamamayan"
+          },
+          {
+            "question": "Ano ang epekto ng turismo sa pagpapakilala ng Pilipinas sa mundo?",
+            "options": [
+              "Nagpapakilala ito ng kultura ng Pilipinas",
+              "Walang epekto ito sa ibang bansa",
+              "Nagtatago lamang ito ng kultura",
+              "Nagpapabagal ito ng pagkilala sa Pilipinas"
+            ],
+            "correct_answer": "Nagpapakilala ito ng kultura ng Pilipinas"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang turismo bilang gawaing pangkabuhayan?",
+            "options": [
+              "Upang maunawaan ang kontribusyon nito sa ekonomiya ng bansa",
+              "Upang malaman lamang ang mga pangalan ng resort",
+              "Upang hindi na kailangang mag-aral ng agrikultura",
+              "Upang maiwasan ang pag-aaral ng ibang paksa"
+            ],
+            "correct_answer": "Upang maunawaan ang kontribusyon nito sa ekonomiya ng bansa"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🏃 MAPEH — PE: Invasion Games\n\nGrade 4, Week 19! Let's play traditional Filipino games that use invasion concepts. 🏃‍♀️\n\n## ⚔️ What Are Invasion Games?\n**Invasion games** involve **attacking** (moving into space to score) and **defending** (denying space to the opponent).\n\n## 🇵🇭 Philippine Traditional Invasion Games\n| Game | How It's Played |\n|---|---|\n| **Agawan Base** | teams try to capture the opponent's base while defending their own |\n| **Agawan Sulok** | players compete to occupy corners/spots before others |\n| **Lawin at Sisiw** | a \"hawk\" tries to catch \"chicks\" while the \"hen\" defends them |\n| **Patintero** | players try to cross lines without being tagged by defenders |\n| **Langit-Lupa** | players move between \"safe\" (lupa) and \"unsafe\" (langit) spaces while avoiding being tagged |\n\n## 💪 Skills and Concepts Used\n| Skill | Meaning |\n|---|---|\n| **Agility** | quick movement and change of direction |\n| **Balance** | staying steady while moving |\n| **Coordination** | using body parts together smoothly |\n\n## 🧠 Worked Example 1\n*In Patintero, what skill helps a player avoid being tagged while crossing a line?*\n- **Agility** — quick movement helps dodge the defenders.\n\n## 🧠 Worked Example 2\n*In Lawin at Sisiw, what is the hen's role?*\n- To **defend** the chicks from being caught by the hawk (lawin).\n\n## 💡 Why This Matters\nPlaying invasion games develops **physical skills** while celebrating **Filipino traditional games**.\n\nGreat game skills! 🌟",
+        "quiz": [
+          {
+            "question": "What are invasion games?",
+            "options": [
+              "Games involving attacking into space and defending space",
+              "Games played only while sitting down",
+              "Games with no rules at all",
+              "Games played only in water"
+            ],
+            "correct_answer": "Games involving attacking into space and defending space"
+          },
+          {
+            "question": "In Agawan Base, what do teams try to do?",
+            "options": [
+              "Capture the opponent's base while defending their own",
+              "Sit quietly and watch the other team play",
+              "Avoid moving at all during the entire game",
+              "Only defend and never attack the other team"
+            ],
+            "correct_answer": "Capture the opponent's base while defending their own"
+          },
+          {
+            "question": "In Lawin at Sisiw, what is the hawk's (lawin) role?",
+            "options": [
+              "To try to catch the chicks (sisiw)",
+              "To defend the chicks",
+              "To avoid all movement",
+              "To be the referee only"
+            ],
+            "correct_answer": "To try to catch the chicks (sisiw)"
+          },
+          {
+            "question": "In Lawin at Sisiw, what is the hen's role?",
+            "options": [
+              "To defend the chicks from being caught",
+              "To catch the chicks itself",
+              "To be caught first",
+              "To stay completely still"
+            ],
+            "correct_answer": "To defend the chicks from being caught"
+          },
+          {
+            "question": "In Patintero, what do players try to do?",
+            "options": [
+              "Cross lines without being tagged by defenders",
+              "Stay in one place the whole game",
+              "Avoid crossing any lines at all",
+              "Catch the ball only"
+            ],
+            "correct_answer": "Cross lines without being tagged by defenders"
+          },
+          {
+            "question": "In Patintero, what skill helps a player avoid being tagged while crossing a line?",
+            "options": [
+              "Agility",
+              "Sleeping",
+              "Reading",
+              "Singing"
+            ],
+            "correct_answer": "Agility"
+          },
+          {
+            "question": "What is agility?",
+            "options": [
+              "Quick movement and change of direction",
+              "Staying completely still",
+              "Singing loudly",
+              "Reading quickly"
+            ],
+            "correct_answer": "Quick movement and change of direction"
+          },
+          {
+            "question": "What is balance?",
+            "options": [
+              "Staying steady while moving",
+              "Moving as fast as possible only",
+              "Sitting down the whole time",
+              "Avoiding all movement"
+            ],
+            "correct_answer": "Staying steady while moving"
+          },
+          {
+            "question": "What is coordination?",
+            "options": [
+              "Using body parts together smoothly",
+              "Standing still without moving",
+              "Only using your eyes",
+              "Only using your voice"
+            ],
+            "correct_answer": "Using body parts together smoothly"
+          },
+          {
+            "question": "In Langit-Lupa, what do players try to avoid?",
+            "options": [
+              "Being tagged while moving between safe and unsafe spaces",
+              "Standing in one single safe spot forever",
+              "Talking quietly to the other players",
+              "Running anywhere at all during the game"
+            ],
+            "correct_answer": "Being tagged while moving between safe and unsafe spaces"
+          },
+          {
+            "question": "In Agawan Sulok, what do players compete to do?",
+            "options": [
+              "Occupy corners or spots before others",
+              "Avoid all corners of the play area completely",
+              "Sit in the very center of the play area only",
+              "Never move away from their starting spot"
+            ],
+            "correct_answer": "Occupy corners or spots before others"
+          },
+          {
+            "question": "Why are these traditional Filipino games valuable to learn?",
+            "options": [
+              "They develop physical skills while celebrating Filipino culture",
+              "They have no real cultural or physical value at all",
+              "They are only ever meant to be played by adults",
+              "They actively discourage teamwork among players"
+            ],
+            "correct_answer": "They develop physical skills while celebrating Filipino culture"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💧 GMRC — Tungkulin ng Pamilya sa Pagpapanatili ng Kalinisan ng Tubig\n\nGrade 4, Linggo 19! Pagpapahalaga: **Mabuting Katiwala (Good Steward)**. 🌟\n\n## 💧 Bakit Mahalaga ang Malinis na Tubig?\nAng **malinis na tubig** ay kailangan para sa **kalusugan, pagluluto, at paglilinis**. Kapag maruming ang tubig, maaaring magdulot ito ng **sakit**.\n\n## 🤲 Tungkulin ng Pamilya sa Pagpapanatili ng Kalinisan ng Tubig\n| Gawain | Paliwanag |\n|---|---|\n| **Wastong pagtapon ng basura** | huwag magtapon ng basura sa ilog o dagat |\n| **Pag-iwas sa polusyon** | huwag gumamit ng kemikal na nakakasira sa tubig |\n| **Pagtitipid ng tubig** | huwag aksayahin ang tubig sa bahay |\n\n## 🌍 Ano ang Mabuting Katiwala (Good Steward)?\nAng **mabuting katiwala** ay ang taong **nangangalaga** sa mga likas na yaman, tulad ng tubig, para sa kapakinabangan ng lahat, kasama ang susunod na henerasyon.\n\n## 🧠 Halimbawa 1\n*Nakita mong nagtapon ang kapitbahay ng basura sa ilog. Ano ang tamang gawin?*\n- **Sabihin nang magalang** na hindi maganda ang gawaing iyon para sa kalinisan ng tubig, o iulat ito sa nakatatanda.\n\n## 🧠 Halimbawa 2\n*Bakit itinuturing na tungkulin ng pamilya ang pagpapanatili ng kalinisan ng tubig?*\n- Dahil ang **bawat miyembro ng pamilya** ay may papel sa pag-iingat ng likas na yaman para sa lahat.\n\n## 💛 Bunga ng Pagiging Mabuting Katiwala\n- Nagkakaroon ng **malinis at ligtas na tubig** ang komunidad\n- Naiiwasan ang **sakit** dulot ng maruming tubig\n- Napapanatili ang **likas na yaman** para sa hinaharap\n\n## 💡 Kongklusyon\nAng pagiging mabuting katiwala ng tubig ay pananagutan ng **bawat kasapi ng pamilya**.\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Bakit mahalaga ang malinis na tubig?",
+            "options": [
+              "Kailangan ito para sa kalusugan, pagluluto, at paglilinis",
+              "Hindi ito mahalaga sa pang-araw-araw na buhay",
+              "Ginagamit lamang ito sa laro",
+              "Wala itong kinalaman sa kalusugan"
+            ],
+            "correct_answer": "Kailangan ito para sa kalusugan, pagluluto, at paglilinis"
+          },
+          {
+            "question": "Ano ang isang tungkulin ng pamilya sa pagpapanatili ng kalinisan ng tubig?",
+            "options": [
+              "Wastong pagtapon ng basura",
+              "Pagtatapon ng basura sa ilog",
+              "Pag-aaksaya ng tubig",
+              "Paggamit ng maruming kemikal sa ilog"
+            ],
+            "correct_answer": "Wastong pagtapon ng basura"
+          },
+          {
+            "question": "Ano ang mabuting katiwala (good steward)?",
+            "options": [
+              "Taong nangangalaga sa likas na yaman para sa lahat",
+              "Taong ayaw pangalagaan ang kapaligiran",
+              "Taong nag-aaksaya ng likas na yaman",
+              "Taong walang pakialam sa kalikasan"
+            ],
+            "correct_answer": "Taong nangangalaga sa likas na yaman para sa lahat"
+          },
+          {
+            "question": "Nakita mong nagtapon ang kapitbahay ng basura sa ilog. Ano ang tamang gawin?",
+            "options": [
+              "Sabihin nang magalang na hindi maganda ang gawaing iyon",
+              "Tumulong ding magtapon ng basura sa ilog",
+              "Balewalain na lamang ito",
+              "Manahimik lamang at wala nang gagawin"
+            ],
+            "correct_answer": "Sabihin nang magalang na hindi maganda ang gawaing iyon"
+          },
+          {
+            "question": "Bakit itinuturing na tungkulin ng pamilya ang pagpapanatili ng kalinisan ng tubig?",
+            "options": [
+              "Dahil bawat miyembro ng pamilya ay may papel dito",
+              "Dahil isa lang dapat ang gumagawa nito",
+              "Dahil hindi ito responsibilidad ng pamilya",
+              "Dahil walang epekto ang pamilya sa tubig"
+            ],
+            "correct_answer": "Dahil bawat miyembro ng pamilya ay may papel dito"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Mabuting Katiwala (Good Steward)",
+              "Tiwala sa Sariling Kakayahan",
+              "Matiyagang Pananampalataya",
+              "Masunuring Pagsasabuhay"
+            ],
+            "correct_answer": "Mabuting Katiwala (Good Steward)"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagiging mabuting katiwala ng tubig?",
+            "options": [
+              "Nagkakaroon ng malinis at ligtas na tubig ang komunidad",
+              "Nadaragdagan pa ang polusyon sa ilog nila",
+              "Nawawala nang tuluyan ang tubig sa lugar",
+              "Wala talagang epekto ito sa komunidad"
+            ],
+            "correct_answer": "Nagkakaroon ng malinis at ligtas na tubig ang komunidad"
+          },
+          {
+            "question": "Ano ang maaaring idulot ng maruming tubig sa isang komunidad?",
+            "options": [
+              "Sakit sa mga naninirahan doon",
+              "Mas magandang kalusugan",
+              "Wala itong epekto sa kalusugan",
+              "Mas malinis na kapaligiran"
+            ],
+            "correct_answer": "Sakit sa mga naninirahan doon"
+          },
+          {
+            "question": "Alin ang halimbawa ng pagtitipid ng tubig sa bahay?",
+            "options": [
+              "Pagsasara ng gripo kapag hindi ginagamit",
+              "Pag-iwan ng bukas na gripo buong araw",
+              "Pag-aaksaya ng tubig kapag naliligo",
+              "Paggamit ng maraming tubig nang walang dahilan"
+            ],
+            "correct_answer": "Pagsasara ng gripo kapag hindi ginagamit"
+          },
+          {
+            "question": "Bakit dapat iwasan ang paggamit ng kemikal na nakakasira sa tubig?",
+            "options": [
+              "Nakakapinsala ito sa kalinisan at kalusugan ng tubig",
+              "Wala itong epekto sa tubig",
+              "Nagpapabuti ito ng kalidad ng tubig",
+              "Ginagawa lamang ito para sa libangan"
+            ],
+            "correct_answer": "Nakakapinsala ito sa kalinisan at kalusugan ng tubig"
+          },
+          {
+            "question": "Bakit mahalagang isabuhay ang pagiging mabuting katiwala ng likas na yaman?",
+            "options": [
+              "Upang mapanatili ito para sa susunod na henerasyon",
+              "Upang mabilis maubos ang mga likas na yaman",
+              "Dahil hindi na kailangan pang pangalagaan ito",
+              "Dahil hindi ito responsibilidad ng tao"
+            ],
+            "correct_answer": "Upang mapanatili ito para sa susunod na henerasyon"
+          },
+          {
+            "question": "Isang batang laging nagsasara ng gripo pagkatapos gamitin. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagiging mabuting katiwala ng tubig",
+              "Kapabayaan sa likas na yaman",
+              "Pag-aaksaya ng tubig",
+              "Kawalang-interes sa kapaligiran"
+            ],
+            "correct_answer": "Pagiging mabuting katiwala ng tubig"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌾 EPP (AFA/FCS/IA) — Mga Salik sa Paghahalaman\n\nGrade 4, Linggo 19! Alamin natin ang mga bagay na dapat isaalang-alang bago magtanim. 🌱\n\n## ⚠️ Panuntunang Pangkaligtasan at Pangkalusugan\nBago magsimula ng paghahalaman, sundin ang mga **panuntunang pangkaligtasan**:\n- Gumamit ng **guwantes** kapag humahawak ng lupa o kagamitan\n- **Ingatan** ang matutulis na kagamitan\n- **Maghugas ng kamay** pagkatapos maghalaman\n\n## 🧰 Kagamitan, Kasangkapan, at Pag-iingat\nDapat **linisin at itago nang maayos** ang mga kagamitan (asarol, pala, panandilig) pagkatapos gamitin.\n\n## 🌱 Mga Salik na Dapat Isaalang-alang sa Paghahalaman\n| Salik | Paliwanag |\n|---|---|\n| **Lugar** | dapat may sapat na espasyo |\n| **Uri ng lupa** | dapat mataba at may magandang drainage |\n| **Uri ng halaman** | angkop sa lugar at panahon |\n| **Partial shade/Full sun** | ilang halaman ay kailangan ng buong sikat ng araw, ilan ay bahagyang lilim |\n| **Suplay ng tubig** | dapat may regular na tubig |\n| **Pataba** | kailangan para sa masustansyang lupa |\n| **Panahon/Kalendaryo ng pagtatanim** | ilang halaman ay mas mainam itanim sa tag-ulan o tag-init |\n| **Pagtatala ng gastos** | itala ang mga ginastos sa paghahalaman |\n\n## 🧠 Halimbawa 1\n*Bakit mahalagang isaalang-alang ang uri ng lupa bago magtanim?*\n- Dahil ang **mataba at may magandang drainage na lupa** ay nakatutulong sa magandang paglago ng halaman.\n\n## 🧠 Halimbawa 2\n*Bakit dapat itala ang gastos sa paghahalaman?*\n- Upang **malaman kung kumikita** ang paghahalaman bilang negosyo.\n\n## 💡 Kongklusyon\nAng pagsasaalang-alang sa mga salik na ito ay tumutulong upang **magtagumpay** ang paghahalaman.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang isang panuntunang pangkaligtasan sa paghahalaman?",
+            "options": [
+              "Gumamit ng guwantes kapag humahawak ng lupa",
+              "Huwag maghugas ng kamay pagkatapos",
+              "Iwanan ang matutulis na kagamitan sa lupa",
+              "Huwag magsuot ng anumang proteksyon"
+            ],
+            "correct_answer": "Gumamit ng guwantes kapag humahawak ng lupa"
+          },
+          {
+            "question": "Ano ang dapat gawin sa mga kagamitan pagkatapos gamitin?",
+            "options": [
+              "Linisin at itago nang maayos",
+              "Iwanan sa labas nang walang linis",
+              "Itapon agad kahit magagamit pa",
+              "Ipahiram sa iba nang hindi na linisin"
+            ],
+            "correct_answer": "Linisin at itago nang maayos"
+          },
+          {
+            "question": "Bakit mahalagang isaalang-alang ang uri ng lupa bago magtanim?",
+            "options": [
+              "Nakatutulong ito sa magandang paglago ng halaman",
+              "Wala itong epekto sa paglago",
+              "Ginagawa lamang ito para sa libangan",
+              "Hindi ito importante"
+            ],
+            "correct_answer": "Nakatutulong ito sa magandang paglago ng halaman"
+          },
+          {
+            "question": "Bakit kailangan isaalang-alang ang partial shade o full sun?",
+            "options": [
+              "Iba't ibang halaman ay may iba't ibang pangangailangan sa sikat ng araw",
+              "Lahat ng halaman ay pareho ang pangangailangan",
+              "Walang halamang nangangailangan ng araw",
+              "Hindi mahalaga ang sikat ng araw"
+            ],
+            "correct_answer": "Iba't ibang halaman ay may iba't ibang pangangailangan sa sikat ng araw"
+          },
+          {
+            "question": "Bakit mahalaga ang regular na suplay ng tubig sa paghahalaman?",
+            "options": [
+              "Kailangan ito ng halaman upang mabuhay at lumago",
+              "Hindi ito kailangan ng halaman",
+              "Nakakasama ito sa halaman",
+              "Ginagamit lamang ito para linisin ang lupa"
+            ],
+            "correct_answer": "Kailangan ito ng halaman upang mabuhay at lumago"
+          },
+          {
+            "question": "Bakit dapat itala ang gastos sa paghahalaman?",
+            "options": [
+              "Upang malaman kung kumikita ang paghahalaman",
+              "Upang mapabilis ang paglago ng halaman",
+              "Walang dahilan ito talaga",
+              "Upang mapaganda lamang ang tala"
+            ],
+            "correct_answer": "Upang malaman kung kumikita ang paghahalaman"
+          },
+          {
+            "question": "Bakit mahalaga ang panahon/kalendaryo ng pagtatanim?",
+            "options": [
+              "Ilang halaman ay mas mainam itanim sa tiyak na panahon",
+              "Wala itong epekto sa paglago ng halaman",
+              "Pareho lang ang lahat ng panahon para sa lahat ng halaman",
+              "Hindi mahalagang isaalang-alang ang panahon"
+            ],
+            "correct_answer": "Ilang halaman ay mas mainam itanim sa tiyak na panahon"
+          },
+          {
+            "question": "Bakit kailangan ang pataba sa paghahalaman?",
+            "options": [
+              "Kailangan ito para sa masustansyang lupa",
+              "Nakakasama ito sa lupa",
+              "Hindi ito kailangan ng anumang halaman",
+              "Ginagamit lamang ito bilang palamuti"
+            ],
+            "correct_answer": "Kailangan ito para sa masustansyang lupa"
+          },
+          {
+            "question": "Bakit dapat magsuot ng guwantes kapag naghahalaman?",
+            "options": [
+              "Upang maprotektahan ang kamay mula sa dumi at matutulis na bagay",
+              "Upang mabilis lamang maubos ang lupa sa hardin",
+              "Upang mahirap gumalaw ang kamay habang nagtatanim",
+              "Walang tunay na dahilan para dito talaga"
+            ],
+            "correct_answer": "Upang maprotektahan ang kamay mula sa dumi at matutulis na bagay"
+          },
+          {
+            "question": "Bakit mahalaga ang sapat na espasyo bilang salik sa paghahalaman?",
+            "options": [
+              "Upang may sapat na lugar lumago ang mga halaman",
+              "Upang mas mabilis maubos ang tubig",
+              "Hindi ito nakakaapekto sa paglago",
+              "Ginagamit lamang ito para sa dekorasyon"
+            ],
+            "correct_answer": "Upang may sapat na lugar lumago ang mga halaman"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi isaalang-alang ang mga salik na ito bago magtanim?",
+            "options": [
+              "Maaaring hindi lumago nang maayos ang halaman",
+              "Palaging lalago nang maayos ang halaman",
+              "Walang epekto ito sa paglago",
+              "Mas mabilis lalago ang halaman"
+            ],
+            "correct_answer": "Maaaring hindi lumago nang maayos ang halaman"
+          },
+          {
+            "question": "Bakit mahalagang sundin ang mga panuntunang pangkaligtasan sa paghahalaman?",
+            "options": [
+              "Upang maiwasan ang aksidente at pinsala",
+              "Upang mapabilis lamang ang gawain",
+              "Walang dahilan ito talaga",
+              "Upang mapaganda lamang ang hardin"
+            ],
+            "correct_answer": "Upang maiwasan ang aksidente at pinsala"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 💌 Friday Review — English (Grade 4)\n\n- Invitation card: greeting, event details, date/time/place, host, RSVP\n\nGreat invitation writing! 🌟",
+        "quiz": [
+          {
+            "question": "What is an invitation card?",
+            "options": [
+              "A written message asking someone to attend an event",
+              "A card used only for paying bills",
+              "A card that has no real purpose",
+              "A card used only for grades"
+            ],
+            "correct_answer": "A written message asking someone to attend an event"
+          },
+          {
+            "question": "What does the greeting of an invitation card do?",
+            "options": [
+              "Politely opens the message",
+              "Lists the exact price of the event",
+              "Describes the weather that day",
+              "Explains how to cook a recipe"
+            ],
+            "correct_answer": "Politely opens the message"
+          },
+          {
+            "question": "What information should the event details include?",
+            "options": [
+              "What the event is, like a christening",
+              "Only the guest's home address",
+              "Only the host's favorite color",
+              "Only the price of admission"
+            ],
+            "correct_answer": "What the event is, like a christening"
+          },
+          {
+            "question": "Why must an invitation card include the date, time, and place?",
+            "options": [
+              "So guests know when and where to go",
+              "So guests can guess the details themselves",
+              "Because it is not actually necessary",
+              "So the card looks longer"
+            ],
+            "correct_answer": "So guests know when and where to go"
+          },
+          {
+            "question": "What is RSVP used for in an invitation?",
+            "options": [
+              "A polite request to confirm attendance",
+              "A signature required by law",
+              "The exact cost of the event",
+              "The name of the caterer only"
+            ],
+            "correct_answer": "A polite request to confirm attendance"
+          },
+          {
+            "question": "Why is it important to include an RSVP request?",
+            "options": [
+              "So the host can know how many guests to prepare for",
+              "So guests are forced to attend the event",
+              "So the invitation becomes shorter",
+              "It has no real purpose at all"
+            ],
+            "correct_answer": "So the host can know how many guests to prepare for"
+          },
+          {
+            "question": "Why should an invitation card use polite expressions?",
+            "options": [
+              "Because we are asking a favor of the guest's time",
+              "Because polite words are required by law",
+              "Because impolite words are always shorter",
+              "It does not matter how it is written"
+            ],
+            "correct_answer": "Because we are asking a favor of the guest's time"
+          },
+          {
+            "question": "\"You are cordially invited to...\" is an example of what part of an invitation?",
+            "options": [
+              "The greeting",
+              "The RSVP",
+              "The host's name only",
+              "The date only"
+            ],
+            "correct_answer": "The greeting"
+          },
+          {
+            "question": "What should an invitation card include about who is hosting?",
+            "options": [
+              "The host's name",
+              "Only the host's favorite food",
+              "Only the host's birthday",
+              "Nothing about the host at all"
+            ],
+            "correct_answer": "The host's name"
+          },
+          {
+            "question": "Why is writing an invitation card a useful skill?",
+            "options": [
+              "It helps us communicate event details politely and clearly",
+              "It has no practical use in real life",
+              "It only matters for very formal events",
+              "It replaces the need for any other writing skill"
+            ],
+            "correct_answer": "It helps us communicate event details politely and clearly"
+          },
+          {
+            "question": "Which of these events might use an invitation card?",
+            "options": [
+              "A christening, wedding, or birthday",
+              "A private diary entry",
+              "A grocery shopping list",
+              "A math homework assignment"
+            ],
+            "correct_answer": "A christening, wedding, or birthday"
+          },
+          {
+            "question": "A student writes an invitation but forgets to include the venue. What problem could this cause?",
+            "options": [
+              "Guests would not know where to go",
+              "The invitation would become more polite",
+              "Nothing would be affected at all",
+              "The event would automatically be canceled"
+            ],
+            "correct_answer": "Guests would not know where to go"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🍕 Friday Review — Mathematics (Grade 4)\n\n- Proper, improper fractions, mixed numbers\n- Add/subtract **similar fractions** (same denominator)\n\nGreat fraction work! ⭐",
+        "quiz": [
+          {
+            "question": "What is a proper fraction?",
+            "options": [
+              "A fraction where the numerator is smaller than the denominator",
+              "A fraction where the numerator is larger",
+              "A whole number with no fraction",
+              "A fraction with no numerator"
+            ],
+            "correct_answer": "A fraction where the numerator is smaller than the denominator"
+          },
+          {
+            "question": "What is an improper fraction?",
+            "options": [
+              "A fraction where the numerator is equal to or larger than the denominator",
+              "A fraction that is always smaller than one single whole",
+              "A fraction that always has a denominator equal to one",
+              "A whole number that never has any fraction part"
+            ],
+            "correct_answer": "A fraction where the numerator is equal to or larger than the denominator"
+          },
+          {
+            "question": "What is a mixed number?",
+            "options": [
+              "A whole number combined with a fraction",
+              "A fraction with two denominators",
+              "Only a whole number",
+              "Only an improper fraction"
+            ],
+            "correct_answer": "A whole number combined with a fraction"
+          },
+          {
+            "question": "Convert 7/4 to a mixed number.",
+            "options": [
+              "1¾",
+              "2¾",
+              "1½",
+              "7/4 cannot be converted"
+            ],
+            "correct_answer": "1¾"
+          },
+          {
+            "question": "Convert 2⅓ to an improper fraction.",
+            "options": [
+              "7/3",
+              "6/3",
+              "8/3",
+              "5/3"
+            ],
+            "correct_answer": "7/3"
+          },
+          {
+            "question": "What are similar fractions?",
+            "options": [
+              "Fractions with the same denominator",
+              "Fractions with the same numerator",
+              "Fractions that are always equal to 1",
+              "Fractions with no denominator"
+            ],
+            "correct_answer": "Fractions with the same denominator"
+          },
+          {
+            "question": "What is 2/5 + 1/5?",
+            "options": [
+              "3/5",
+              "3/10",
+              "2/10",
+              "1/5"
+            ],
+            "correct_answer": "3/5"
+          },
+          {
+            "question": "What is 4/6 - 1/6?",
+            "options": [
+              "3/6",
+              "3/12",
+              "5/6",
+              "4/12"
+            ],
+            "correct_answer": "3/6"
+          },
+          {
+            "question": "What is 1½ + 2¼ (after converting to a common denominator)?",
+            "options": [
+              "3¾",
+              "3½",
+              "4¼",
+              "3¼"
+            ],
+            "correct_answer": "3¾"
+          },
+          {
+            "question": "How do you convert an improper fraction to a mixed number?",
+            "options": [
+              "Divide the numerator by the denominator",
+              "Multiply the numerator by the denominator",
+              "Add the numerator and denominator",
+              "Subtract the denominator from the numerator"
+            ],
+            "correct_answer": "Divide the numerator by the denominator"
+          },
+          {
+            "question": "Which of these is an improper fraction?",
+            "options": [
+              "9/4",
+              "3/4",
+              "1/4",
+              "2/4"
+            ],
+            "correct_answer": "9/4"
+          },
+          {
+            "question": "What is 5/8 + 2/8?",
+            "options": [
+              "7/8",
+              "7/16",
+              "3/8",
+              "6/8"
+            ],
+            "correct_answer": "7/8"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# ✏️ Friday Review — Filipino (Grade 4)\n\n- Pangngalan, panghalip, pang-uri sa pagsulat ng kuwento\n\nMagaling sa pagsulat! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pangngalan?",
+            "options": [
+              "Pangalan ng tao, bagay, o lugar",
+              "Pumapalit sa pangngalan",
+              "Naglalarawan sa pangngalan",
+              "Nagsasaad ng kilos"
+            ],
+            "correct_answer": "Pangalan ng tao, bagay, o lugar"
+          },
+          {
+            "question": "Ano ang panghalip?",
+            "options": [
+              "Pumapalit sa pangngalan",
+              "Naglalarawan sa pangngalan",
+              "Pangalan ng tao lamang",
+              "Nagsasaad ng bilang"
+            ],
+            "correct_answer": "Pumapalit sa pangngalan"
+          },
+          {
+            "question": "Ano ang pang-uri?",
+            "options": [
+              "Naglalarawan sa pangngalan o panghalip",
+              "Pumapalit sa pangngalan",
+              "Tumutukoy sa lugar lamang",
+              "Nagsasaad ng kilos lamang"
+            ],
+            "correct_answer": "Naglalarawan sa pangngalan o panghalip"
+          },
+          {
+            "question": "Kilalanin ang panghalip sa pangungusap: \"Si Ana ay pumunta sa palengke. Siya ay bumili ng gulay.\"",
+            "options": [
+              "Siya",
+              "Ana",
+              "Palengke",
+              "Gulay"
+            ],
+            "correct_answer": "Siya"
+          },
+          {
+            "question": "Kilalanin ang pang-uri sa pangungusap: \"Ang masayang bata ay tumakbo sa parke.\"",
+            "options": [
+              "Masaya",
+              "Bata",
+              "Tumakbo",
+              "Parke"
+            ],
+            "correct_answer": "Masaya"
+          },
+          {
+            "question": "\"Si Miguel ay masipag na mag-aaral.\" Ano ang pangngalan dito?",
+            "options": [
+              "Miguel",
+              "Masipag",
+              "Ay",
+              "Na"
+            ],
+            "correct_answer": "Miguel"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang mga panghalip sa pagsulat ng kuwento?",
+            "options": [
+              "Upang maiwasan ang paulit-ulit na pangalan",
+              "Upang mahirap intindihin ang kuwento",
+              "Upang mawala ang mga tauhan",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang maiwasan ang paulit-ulit na pangalan"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang mga pang-uri sa pagsulat ng kuwento?",
+            "options": [
+              "Upang maging malinaw at makulay ang kuwento",
+              "Upang mahirap intindihin ang kuwento",
+              "Upang mapaikli lamang ang pangungusap",
+              "Walang epekto ito sa kuwento"
+            ],
+            "correct_answer": "Upang maging malinaw at makulay ang kuwento"
+          },
+          {
+            "question": "Alin ang halimbawa ng pang-uri?",
+            "options": [
+              "Maganda",
+              "Bahay",
+              "Siya",
+              "Tumakbo"
+            ],
+            "correct_answer": "Maganda"
+          },
+          {
+            "question": "Alin ang halimbawa ng panghalip?",
+            "options": [
+              "Sila",
+              "Bahay",
+              "Maganda",
+              "Pumunta"
+            ],
+            "correct_answer": "Sila"
+          },
+          {
+            "question": "Ano ang benepisyo ng wastong paggamit ng gramatika sa pagsulat?",
+            "options": [
+              "Nagpapayaman ito sa ating pagsulat ng kuwento",
+              "Wala itong benepisyo sa pagsulat",
+              "Nagpapabagal lamang ito ng pagbasa",
+              "Ginagamit lamang ito sa pagsusulit"
+            ],
+            "correct_answer": "Nagpapayaman ito sa ating pagsulat ng kuwento"
+          },
+          {
+            "question": "Isang mag-aaral ang sumulat ng: \"Ang mabait na guro ay tumulong sa amin.\" Ano ang pang-uri dito?",
+            "options": [
+              "Mabait",
+              "Guro",
+              "Tumulong",
+              "Amin"
+            ],
+            "correct_answer": "Mabait"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🍃 Friday Review — Science (Grade 4)\n\n- **Herbivore, carnivore, omnivore**\n- Food chain: plant (producer) → herbivore → carnivore\n\nGreat food chain science! 🌟",
+        "quiz": [
+          {
+            "question": "What is a herbivore?",
+            "options": [
+              "An animal that eats only plants",
+              "An animal that eats only other animals",
+              "An animal that eats both plants and animals",
+              "An animal that does not eat anything"
+            ],
+            "correct_answer": "An animal that eats only plants"
+          },
+          {
+            "question": "What is a carnivore?",
+            "options": [
+              "An animal that eats only other animals",
+              "An animal that eats only plants",
+              "An animal that eats both plants and animals",
+              "An animal that does not eat anything"
+            ],
+            "correct_answer": "An animal that eats only other animals"
+          },
+          {
+            "question": "What is an omnivore?",
+            "options": [
+              "An animal that eats both plants and animals",
+              "An animal that eats only plants",
+              "An animal that eats only other animals",
+              "An animal that does not eat anything"
+            ],
+            "correct_answer": "An animal that eats both plants and animals"
+          },
+          {
+            "question": "What does a food chain show?",
+            "options": [
+              "How energy flows from one living thing to another",
+              "The weight of different animals",
+              "The colors of different animals",
+              "The habitat of only one animal"
+            ],
+            "correct_answer": "How energy flows from one living thing to another"
+          },
+          {
+            "question": "In the chain Palay → Daga → Ahas → Agila, what starts the food chain?",
+            "options": [
+              "Palay (a plant)",
+              "Daga (a rat)",
+              "Ahas (a snake)",
+              "Agila (an eagle)"
+            ],
+            "correct_answer": "Palay (a plant)"
+          },
+          {
+            "question": "Why does every food chain start with a plant?",
+            "options": [
+              "Plants are producers that make their own food",
+              "Plants are always the biggest living thing",
+              "Plants never get eaten by anything",
+              "Plants do not need sunlight"
+            ],
+            "correct_answer": "Plants are producers that make their own food"
+          },
+          {
+            "question": "In the chain Palay → Daga → Ahas → Agila, what is the daga's feeding group?",
+            "options": [
+              "Herbivore",
+              "Carnivore",
+              "Omnivore",
+              "Producer"
+            ],
+            "correct_answer": "Herbivore"
+          },
+          {
+            "question": "Which of these is an example of a herbivore?",
+            "options": [
+              "Carabao",
+              "Eagle",
+              "Snake",
+              "Lion"
+            ],
+            "correct_answer": "Carabao"
+          },
+          {
+            "question": "Which of these is an example of an omnivore?",
+            "options": [
+              "Pig",
+              "Cow",
+              "Eagle",
+              "Snake"
+            ],
+            "correct_answer": "Pig"
+          },
+          {
+            "question": "In the chain grass → grasshopper → frog → snake → eagle, what eats the grasshopper?",
+            "options": [
+              "Frog",
+              "Grass",
+              "Snake",
+              "Eagle"
+            ],
+            "correct_answer": "Frog"
+          },
+          {
+            "question": "Why is it useful to draw a food chain and label the feeding groups?",
+            "options": [
+              "It helps us see how living things are connected in nature",
+              "It has no scientific use at all",
+              "It only matters for animals in zoos",
+              "It replaces the need to study animals further"
+            ],
+            "correct_answer": "It helps us see how living things are connected in nature"
+          },
+          {
+            "question": "What feeding group does an eagle that eats a snake belong to?",
+            "options": [
+              "Carnivore",
+              "Herbivore",
+              "Producer",
+              "Omnivore only if it eats plants too"
+            ],
+            "correct_answer": "Carnivore"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🏖️ Friday Review — Araling Panlipunan (Grade 4)\n\n- Turismo bilang yamang pangkabuhayan\n- Responsableng turismo para sa kapaligiran\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang turismo?",
+            "options": [
+              "Pagbisita ng mga tao sa magagandang lugar para sa libangan",
+              "Isang uri ng industriya sa lungsod lamang",
+              "Isang uri ng pangingisda lamang",
+              "Isang paaralang pang-turista"
+            ],
+            "correct_answer": "Pagbisita ng mga tao sa magagandang lugar para sa libangan"
+          },
+          {
+            "question": "Alin ang halimbawa ng natural na atraksyong panturista?",
+            "options": [
+              "Chocolate Hills",
+              "Isang resort na de-koryente",
+              "Isang theme park lamang",
+              "Isang museo ng makina"
+            ],
+            "correct_answer": "Chocolate Hills"
+          },
+          {
+            "question": "Alin ang halimbawa ng man-made na atraksyong panturista?",
+            "options": [
+              "Resort o theme park",
+              "Bundok o bulkan",
+              "Ilog o dagat",
+              "Kagubatan"
+            ],
+            "correct_answer": "Resort o theme park"
+          },
+          {
+            "question": "Ano ang kabutihang-dulot ng turismo sa mga lokal na residente?",
+            "options": [
+              "Nagbibigay ito ng trabaho",
+              "Wala itong benepisyo sa kanila",
+              "Nagpapabagal lamang ng ekonomiya",
+              "Ginagawa lamang ito para sa turista mismo"
+            ],
+            "correct_answer": "Nagbibigay ito ng trabaho"
+          },
+          {
+            "question": "Bakit mahalaga ang turismo sa kabuhayan ng bansa?",
+            "options": [
+              "Nagbibigay ito ng trabaho at kita sa mga residente at pamahalaan",
+              "Wala itong anumang kaugnayan sa ekonomiya ng bansa",
+              "Ginagawa lamang ito bilang isang uri ng libangan",
+              "Hindi ito talaga bahagi ng kabuhayan ng bansa"
+            ],
+            "correct_answer": "Nagbibigay ito ng trabaho at kita sa mga residente at pamahalaan"
+          },
+          {
+            "question": "Bakit dapat maging responsable sa turismo?",
+            "options": [
+              "Upang mapangalagaan ang kapaligiran",
+              "Upang mapabilis ang polusyon",
+              "Upang masira ang kalikasan",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang mapangalagaan ang kapaligiran"
+          },
+          {
+            "question": "Alin ang halimbawa ng kultural na atraksyong panturista?",
+            "options": [
+              "Makasaysayang lugar o museo",
+              "Isang bulkan lamang",
+              "Isang dagat lamang",
+              "Isang bundok lamang"
+            ],
+            "correct_answer": "Makasaysayang lugar o museo"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi responsable ang turismo sa isang lugar?",
+            "options": [
+              "Maaaring masira ang kapaligiran",
+              "Mas gaganda ang kapaligiran",
+              "Wala itong epekto sa kapaligiran",
+              "Mas dadami ang mga hayop doon"
+            ],
+            "correct_answer": "Maaaring masira ang kapaligiran"
+          },
+          {
+            "question": "Anong trabaho ang maaaring makuha ng lokal na residente dahil sa turismo?",
+            "options": [
+              "Tour guide o hotel staff",
+              "Manggagamot lamang",
+              "Guro sa unibersidad lamang",
+              "Abogado lamang"
+            ],
+            "correct_answer": "Tour guide o hotel staff"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang bahagi ng kabuhayan ng bansa ang turismo, tulad ng agrikultura at industriya?",
+            "options": [
+              "Nagbibigay din ito ng trabaho at kita sa mamamayan",
+              "Wala itong pagkakatulad sa iba pang gawaing pangkabuhayan",
+              "Isa lang dito ang tunay na mahalaga",
+              "Hindi ito totoong bahagi ng ekonomiya"
+            ],
+            "correct_answer": "Nagbibigay din ito ng trabaho at kita sa mamamayan"
+          },
+          {
+            "question": "Ano ang epekto ng turismo sa pagpapakilala ng Pilipinas sa mundo?",
+            "options": [
+              "Nagpapakilala ito ng kultura ng Pilipinas",
+              "Walang epekto ito sa ibang bansa",
+              "Nagtatago lamang ito ng kultura",
+              "Nagpapabagal ito ng pagkilala sa Pilipinas"
+            ],
+            "correct_answer": "Nagpapakilala ito ng kultura ng Pilipinas"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang turismo bilang gawaing pangkabuhayan?",
+            "options": [
+              "Upang maunawaan ang kontribusyon nito sa ekonomiya ng bansa",
+              "Upang malaman lamang ang mga pangalan ng resort",
+              "Upang hindi na kailangang mag-aral ng agrikultura",
+              "Upang maiwasan ang pag-aaral ng ibang paksa"
+            ],
+            "correct_answer": "Upang maunawaan ang kontribusyon nito sa ekonomiya ng bansa"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🏃 Friday Review — MAPEH (Grade 4)\n\n- Invasion games: Agawan Base, Lawin at Sisiw, Patintero, Langit-Lupa\n- Agility, balance, coordination\n\nGreat game skills! 🌟",
+        "quiz": [
+          {
+            "question": "What are invasion games?",
+            "options": [
+              "Games involving attacking into space and defending space",
+              "Games played only while sitting down",
+              "Games with no rules at all",
+              "Games played only in water"
+            ],
+            "correct_answer": "Games involving attacking into space and defending space"
+          },
+          {
+            "question": "In Agawan Base, what do teams try to do?",
+            "options": [
+              "Capture the opponent's base while defending their own",
+              "Sit quietly and watch the other team play",
+              "Avoid moving at all during the entire game",
+              "Only defend and never attack the other team"
+            ],
+            "correct_answer": "Capture the opponent's base while defending their own"
+          },
+          {
+            "question": "In Lawin at Sisiw, what is the hawk's (lawin) role?",
+            "options": [
+              "To try to catch the chicks (sisiw)",
+              "To defend the chicks",
+              "To avoid all movement",
+              "To be the referee only"
+            ],
+            "correct_answer": "To try to catch the chicks (sisiw)"
+          },
+          {
+            "question": "In Lawin at Sisiw, what is the hen's role?",
+            "options": [
+              "To defend the chicks from being caught",
+              "To catch the chicks itself",
+              "To be caught first",
+              "To stay completely still"
+            ],
+            "correct_answer": "To defend the chicks from being caught"
+          },
+          {
+            "question": "In Patintero, what do players try to do?",
+            "options": [
+              "Cross lines without being tagged by defenders",
+              "Stay in one place the whole game",
+              "Avoid crossing any lines at all",
+              "Catch the ball only"
+            ],
+            "correct_answer": "Cross lines without being tagged by defenders"
+          },
+          {
+            "question": "In Patintero, what skill helps a player avoid being tagged while crossing a line?",
+            "options": [
+              "Agility",
+              "Sleeping",
+              "Reading",
+              "Singing"
+            ],
+            "correct_answer": "Agility"
+          },
+          {
+            "question": "What is agility?",
+            "options": [
+              "Quick movement and change of direction",
+              "Staying completely still",
+              "Singing loudly",
+              "Reading quickly"
+            ],
+            "correct_answer": "Quick movement and change of direction"
+          },
+          {
+            "question": "What is balance?",
+            "options": [
+              "Staying steady while moving",
+              "Moving as fast as possible only",
+              "Sitting down the whole time",
+              "Avoiding all movement"
+            ],
+            "correct_answer": "Staying steady while moving"
+          },
+          {
+            "question": "What is coordination?",
+            "options": [
+              "Using body parts together smoothly",
+              "Standing still without moving",
+              "Only using your eyes",
+              "Only using your voice"
+            ],
+            "correct_answer": "Using body parts together smoothly"
+          },
+          {
+            "question": "In Langit-Lupa, what do players try to avoid?",
+            "options": [
+              "Being tagged while moving between safe and unsafe spaces",
+              "Standing in one single safe spot forever",
+              "Talking quietly to the other players",
+              "Running anywhere at all during the game"
+            ],
+            "correct_answer": "Being tagged while moving between safe and unsafe spaces"
+          },
+          {
+            "question": "In Agawan Sulok, what do players compete to do?",
+            "options": [
+              "Occupy corners or spots before others",
+              "Avoid all corners of the play area completely",
+              "Sit in the very center of the play area only",
+              "Never move away from their starting spot"
+            ],
+            "correct_answer": "Occupy corners or spots before others"
+          },
+          {
+            "question": "Why are these traditional Filipino games valuable to learn?",
+            "options": [
+              "They develop physical skills while celebrating Filipino culture",
+              "They have no real cultural or physical value at all",
+              "They are only ever meant to be played by adults",
+              "They actively discourage teamwork among players"
+            ],
+            "correct_answer": "They develop physical skills while celebrating Filipino culture"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💧 Friday Review — GMRC (Grade 4)\n\n- Pagpapanatili ng kalinisan ng tubig\n- Pagpapahalaga: **Mabuting Katiwala**\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Bakit mahalaga ang malinis na tubig?",
+            "options": [
+              "Kailangan ito para sa kalusugan, pagluluto, at paglilinis",
+              "Hindi ito mahalaga sa pang-araw-araw na buhay",
+              "Ginagamit lamang ito sa laro",
+              "Wala itong kinalaman sa kalusugan"
+            ],
+            "correct_answer": "Kailangan ito para sa kalusugan, pagluluto, at paglilinis"
+          },
+          {
+            "question": "Ano ang isang tungkulin ng pamilya sa pagpapanatili ng kalinisan ng tubig?",
+            "options": [
+              "Wastong pagtapon ng basura",
+              "Pagtatapon ng basura sa ilog",
+              "Pag-aaksaya ng tubig",
+              "Paggamit ng maruming kemikal sa ilog"
+            ],
+            "correct_answer": "Wastong pagtapon ng basura"
+          },
+          {
+            "question": "Ano ang mabuting katiwala (good steward)?",
+            "options": [
+              "Taong nangangalaga sa likas na yaman para sa lahat",
+              "Taong ayaw pangalagaan ang kapaligiran",
+              "Taong nag-aaksaya ng likas na yaman",
+              "Taong walang pakialam sa kalikasan"
+            ],
+            "correct_answer": "Taong nangangalaga sa likas na yaman para sa lahat"
+          },
+          {
+            "question": "Nakita mong nagtapon ang kapitbahay ng basura sa ilog. Ano ang tamang gawin?",
+            "options": [
+              "Sabihin nang magalang na hindi maganda ang gawaing iyon",
+              "Tumulong ding magtapon ng basura sa ilog",
+              "Balewalain na lamang ito",
+              "Manahimik lamang at wala nang gagawin"
+            ],
+            "correct_answer": "Sabihin nang magalang na hindi maganda ang gawaing iyon"
+          },
+          {
+            "question": "Bakit itinuturing na tungkulin ng pamilya ang pagpapanatili ng kalinisan ng tubig?",
+            "options": [
+              "Dahil bawat miyembro ng pamilya ay may papel dito",
+              "Dahil isa lang dapat ang gumagawa nito",
+              "Dahil hindi ito responsibilidad ng pamilya",
+              "Dahil walang epekto ang pamilya sa tubig"
+            ],
+            "correct_answer": "Dahil bawat miyembro ng pamilya ay may papel dito"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Mabuting Katiwala (Good Steward)",
+              "Tiwala sa Sariling Kakayahan",
+              "Matiyagang Pananampalataya",
+              "Masunuring Pagsasabuhay"
+            ],
+            "correct_answer": "Mabuting Katiwala (Good Steward)"
+          },
+          {
+            "question": "Ano ang isang bunga ng pagiging mabuting katiwala ng tubig?",
+            "options": [
+              "Nagkakaroon ng malinis at ligtas na tubig ang komunidad",
+              "Nadaragdagan pa ang polusyon sa ilog nila",
+              "Nawawala nang tuluyan ang tubig sa lugar",
+              "Wala talagang epekto ito sa komunidad"
+            ],
+            "correct_answer": "Nagkakaroon ng malinis at ligtas na tubig ang komunidad"
+          },
+          {
+            "question": "Ano ang maaaring idulot ng maruming tubig sa isang komunidad?",
+            "options": [
+              "Sakit sa mga naninirahan doon",
+              "Mas magandang kalusugan",
+              "Wala itong epekto sa kalusugan",
+              "Mas malinis na kapaligiran"
+            ],
+            "correct_answer": "Sakit sa mga naninirahan doon"
+          },
+          {
+            "question": "Alin ang halimbawa ng pagtitipid ng tubig sa bahay?",
+            "options": [
+              "Pagsasara ng gripo kapag hindi ginagamit",
+              "Pag-iwan ng bukas na gripo buong araw",
+              "Pag-aaksaya ng tubig kapag naliligo",
+              "Paggamit ng maraming tubig nang walang dahilan"
+            ],
+            "correct_answer": "Pagsasara ng gripo kapag hindi ginagamit"
+          },
+          {
+            "question": "Bakit dapat iwasan ang paggamit ng kemikal na nakakasira sa tubig?",
+            "options": [
+              "Nakakapinsala ito sa kalinisan at kalusugan ng tubig",
+              "Wala itong epekto sa tubig",
+              "Nagpapabuti ito ng kalidad ng tubig",
+              "Ginagawa lamang ito para sa libangan"
+            ],
+            "correct_answer": "Nakakapinsala ito sa kalinisan at kalusugan ng tubig"
+          },
+          {
+            "question": "Bakit mahalagang isabuhay ang pagiging mabuting katiwala ng likas na yaman?",
+            "options": [
+              "Upang mapanatili ito para sa susunod na henerasyon",
+              "Upang mabilis maubos ang mga likas na yaman",
+              "Dahil hindi na kailangan pang pangalagaan ito",
+              "Dahil hindi ito responsibilidad ng tao"
+            ],
+            "correct_answer": "Upang mapanatili ito para sa susunod na henerasyon"
+          },
+          {
+            "question": "Isang batang laging nagsasara ng gripo pagkatapos gamitin. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagiging mabuting katiwala ng tubig",
+              "Kapabayaan sa likas na yaman",
+              "Pag-aaksaya ng tubig",
+              "Kawalang-interes sa kapaligiran"
+            ],
+            "correct_answer": "Pagiging mabuting katiwala ng tubig"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌾 Friday Review — EPP (Grade 4)\n\n- Salik sa paghahalaman: lugar, lupa, halaman, araw, tubig, pataba, panahon\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang isang panuntunang pangkaligtasan sa paghahalaman?",
+            "options": [
+              "Gumamit ng guwantes kapag humahawak ng lupa",
+              "Huwag maghugas ng kamay pagkatapos",
+              "Iwanan ang matutulis na kagamitan sa lupa",
+              "Huwag magsuot ng anumang proteksyon"
+            ],
+            "correct_answer": "Gumamit ng guwantes kapag humahawak ng lupa"
+          },
+          {
+            "question": "Ano ang dapat gawin sa mga kagamitan pagkatapos gamitin?",
+            "options": [
+              "Linisin at itago nang maayos",
+              "Iwanan sa labas nang walang linis",
+              "Itapon agad kahit magagamit pa",
+              "Ipahiram sa iba nang hindi na linisin"
+            ],
+            "correct_answer": "Linisin at itago nang maayos"
+          },
+          {
+            "question": "Bakit mahalagang isaalang-alang ang uri ng lupa bago magtanim?",
+            "options": [
+              "Nakatutulong ito sa magandang paglago ng halaman",
+              "Wala itong epekto sa paglago",
+              "Ginagawa lamang ito para sa libangan",
+              "Hindi ito importante"
+            ],
+            "correct_answer": "Nakatutulong ito sa magandang paglago ng halaman"
+          },
+          {
+            "question": "Bakit kailangan isaalang-alang ang partial shade o full sun?",
+            "options": [
+              "Iba't ibang halaman ay may iba't ibang pangangailangan sa sikat ng araw",
+              "Lahat ng halaman ay pareho ang pangangailangan",
+              "Walang halamang nangangailangan ng araw",
+              "Hindi mahalaga ang sikat ng araw"
+            ],
+            "correct_answer": "Iba't ibang halaman ay may iba't ibang pangangailangan sa sikat ng araw"
+          },
+          {
+            "question": "Bakit mahalaga ang regular na suplay ng tubig sa paghahalaman?",
+            "options": [
+              "Kailangan ito ng halaman upang mabuhay at lumago",
+              "Hindi ito kailangan ng halaman",
+              "Nakakasama ito sa halaman",
+              "Ginagamit lamang ito para linisin ang lupa"
+            ],
+            "correct_answer": "Kailangan ito ng halaman upang mabuhay at lumago"
+          },
+          {
+            "question": "Bakit dapat itala ang gastos sa paghahalaman?",
+            "options": [
+              "Upang malaman kung kumikita ang paghahalaman",
+              "Upang mapabilis ang paglago ng halaman",
+              "Walang dahilan ito talaga",
+              "Upang mapaganda lamang ang tala"
+            ],
+            "correct_answer": "Upang malaman kung kumikita ang paghahalaman"
+          },
+          {
+            "question": "Bakit mahalaga ang panahon/kalendaryo ng pagtatanim?",
+            "options": [
+              "Ilang halaman ay mas mainam itanim sa tiyak na panahon",
+              "Wala itong epekto sa paglago ng halaman",
+              "Pareho lang ang lahat ng panahon para sa lahat ng halaman",
+              "Hindi mahalagang isaalang-alang ang panahon"
+            ],
+            "correct_answer": "Ilang halaman ay mas mainam itanim sa tiyak na panahon"
+          },
+          {
+            "question": "Bakit kailangan ang pataba sa paghahalaman?",
+            "options": [
+              "Kailangan ito para sa masustansyang lupa",
+              "Nakakasama ito sa lupa",
+              "Hindi ito kailangan ng anumang halaman",
+              "Ginagamit lamang ito bilang palamuti"
+            ],
+            "correct_answer": "Kailangan ito para sa masustansyang lupa"
+          },
+          {
+            "question": "Bakit dapat magsuot ng guwantes kapag naghahalaman?",
+            "options": [
+              "Upang maprotektahan ang kamay mula sa dumi at matutulis na bagay",
+              "Upang mabilis lamang maubos ang lupa sa hardin",
+              "Upang mahirap gumalaw ang kamay habang nagtatanim",
+              "Walang tunay na dahilan para dito talaga"
+            ],
+            "correct_answer": "Upang maprotektahan ang kamay mula sa dumi at matutulis na bagay"
+          },
+          {
+            "question": "Bakit mahalaga ang sapat na espasyo bilang salik sa paghahalaman?",
+            "options": [
+              "Upang may sapat na lugar lumago ang mga halaman",
+              "Upang mas mabilis maubos ang tubig",
+              "Hindi ito nakakaapekto sa paglago",
+              "Ginagamit lamang ito para sa dekorasyon"
+            ],
+            "correct_answer": "Upang may sapat na lugar lumago ang mga halaman"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi isaalang-alang ang mga salik na ito bago magtanim?",
+            "options": [
+              "Maaaring hindi lumago nang maayos ang halaman",
+              "Palaging lalago nang maayos ang halaman",
+              "Walang epekto ito sa paglago",
+              "Mas mabilis lalago ang halaman"
+            ],
+            "correct_answer": "Maaaring hindi lumago nang maayos ang halaman"
+          },
+          {
+            "question": "Bakit mahalagang sundin ang mga panuntunang pangkaligtasan sa paghahalaman?",
+            "options": [
+              "Upang maiwasan ang aksidente at pinsala",
+              "Upang mapabilis lamang ang gawain",
+              "Walang dahilan ito talaga",
+              "Upang mapaganda lamang ang hardin"
+            ],
+            "correct_answer": "Upang maiwasan ang aksidente at pinsala"
+          }
+        ]
+      }
+    }
+  }
+}
