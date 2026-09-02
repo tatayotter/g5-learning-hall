@@ -1,0 +1,2266 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-09-06",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 👁️ English — Viewing: Layout, Mood, and Stereotypes\n\nFinal week of Term 1, Grade 5. Let's read visuals **critically**. 🔍\n\n## 📐 Visual Layout Elements\nEvery designed page uses layout to guide your eye.\n\n| Element | Job |\n|---|---|\n| **Headline** | the largest text — states the main idea |\n| **Subheading** | smaller text that adds detail |\n| **Caption** | short text under an image explaining it |\n| **Image** | carries emotion and evidence |\n| **White space** | empty area that gives the eye rest and focus |\n\n**Reading order:** your eye goes to the **largest** and **boldest** element first, then follows size downward.\n\n## 🎭 Tone and Mood from Visuals\n**Tone** is the creator's attitude. **Mood** is what the viewer feels.\n\n| Visual choice | Mood created |\n|---|---|\n| Dark colors, heavy shadows | serious, tense, sad |\n| Bright warm colors, sunlight | cheerful, hopeful |\n| Close-up of a face | intimate, personal |\n| Wide empty landscape | lonely, vast |\n| Sharp angles, red tones | urgent, alarming |\n\n**Example:** A news photo of flood victims shot from **low angle in grey light** creates a **somber** mood — it asks you to feel concern, not amusement.\n\n## ⚠️ Recognizing Stereotypes\nA **stereotype** is an oversimplified idea that assumes **all** members of a group are the same. Media often repeats them.\n\n**Age stereotype:** showing all elderly people as weak and confused — when many are active and capable.\n\n**Gender stereotype:** showing only women cooking and only men fixing machines — when both can do either.\n\n**Socio-economic stereotype:** showing poor families as lazy or unhappy — when income does not determine character or effort.\n\n**How to spot one:** ask *\"Is this showing me one person, or claiming this is how a whole group always is?\"*\n\n## 🔊 Audio Elements in Multimedia\n- **Background music** — sets emotion before a word is spoken\n- **Sound effects** — add realism (rain, footsteps, a door)\n- **Narration / voice-over** — guides interpretation\n- **Silence** — creates tension or emphasis\n\n**Example:** The same video of a boy walking home feels **hopeful** with light guitar music, but **frightening** with low strings and slow footsteps. The images never changed — only the **audio** did.\n\n## 🧠 Critical Viewing Questions\n1. What is the creator's **purpose**?\n2. Whose **point of view** is shown — and who is left out?\n3. What am I being made to **feel**, and **how**?\n\nStrong finish to Term 1! 🌟",
+        "quiz": [
+          {
+            "question": "Which layout element states the main idea in the largest text?",
+            "options": [
+              "Headline",
+              "Caption",
+              "Subheading",
+              "Footnote"
+            ],
+            "correct_answer": "Headline"
+          },
+          {
+            "question": "A caption is the short text that:",
+            "options": [
+              "explains an image",
+              "titles the whole page",
+              "lists the sources",
+              "numbers the pages"
+            ],
+            "correct_answer": "explains an image"
+          },
+          {
+            "question": "What is white space in a layout?",
+            "options": [
+              "Empty area that gives the eye focus",
+              "Text printed in white ink",
+              "The margin measurement guide",
+              "A blank page at the end"
+            ],
+            "correct_answer": "Empty area that gives the eye focus"
+          },
+          {
+            "question": "Dark colors and heavy shadows in an image usually create a mood that is:",
+            "options": [
+              "serious or tense",
+              "cheerful and light",
+              "playful and silly",
+              "calm and sleepy"
+            ],
+            "correct_answer": "serious or tense"
+          },
+          {
+            "question": "What is a stereotype?",
+            "options": [
+              "An oversimplified idea about a whole group",
+              "A carefully researched fact",
+              "A type of camera angle",
+              "A kind of sound effect"
+            ],
+            "correct_answer": "An oversimplified idea about a whole group"
+          },
+          {
+            "question": "An advertisement shows only women cooking and only men repairing machines. This is a stereotype based on:",
+            "options": [
+              "gender",
+              "age",
+              "income",
+              "region"
+            ],
+            "correct_answer": "gender"
+          },
+          {
+            "question": "Which is an audio element in a multimedia presentation?",
+            "options": [
+              "Background music",
+              "Headline text",
+              "Page margin",
+              "Photo caption"
+            ],
+            "correct_answer": "Background music"
+          },
+          {
+            "question": "The difference between tone and mood is that tone is the creator's attitude while mood is:",
+            "options": [
+              "what the viewer feels",
+              "the size of the text",
+              "the color of the page",
+              "the length of the video"
+            ],
+            "correct_answer": "what the viewer feels"
+          },
+          {
+            "question": "The same video clip feels hopeful with light guitar but frightening with low strings. What changed?",
+            "options": [
+              "The audio, not the images",
+              "The images, not the audio",
+              "The captions and headlines",
+              "The length of the clip"
+            ],
+            "correct_answer": "The audio, not the images"
+          },
+          {
+            "question": "A documentary shows every elderly person as confused and helpless. Which stereotype is this?",
+            "options": [
+              "Age stereotype",
+              "Gender stereotype",
+              "Income stereotype",
+              "Regional stereotype"
+            ],
+            "correct_answer": "Age stereotype"
+          },
+          {
+            "question": "Which question BEST helps you detect a stereotype in media?",
+            "options": [
+              "Is this claiming a whole group is always this way?",
+              "How many different colors were used in it?",
+              "What size was the printed image made to be?",
+              "When exactly was this photograph first taken?"
+            ],
+            "correct_answer": "Is this claiming a whole group is always this way?"
+          },
+          {
+            "question": "A charity poster uses a close-up of a child's face in grey light with the caption 'Forgotten'. What is the designer MOST likely doing?",
+            "options": [
+              "Creating sympathy to prompt donations",
+              "Reporting neutral statistical facts",
+              "Advertising a new camera model",
+              "Teaching a photography technique"
+            ],
+            "correct_answer": "Creating sympathy to prompt donations"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➗ Mathematics — Dividing Fractions\n\nFinal Math lesson of Term 1, Grade 5. This one rewards careful thinking. 💪\n\n## 🤔 What Does Dividing by a Fraction MEAN?\n`6 ÷ 2` asks: *how many **2s** fit into 6?* → **3**\n\nSo `3 ÷ ½` asks: *how many **halves** fit into 3?*\n\nPicture 3 whole bars, each cut in half:\n```\n[½|½] [½|½] [½|½]  →  6 halves\n```\n**3 ÷ ½ = 6** ✅\n\n**Key insight:** dividing by a fraction **smaller than 1** gives a **bigger** answer, because many small pieces fit inside.\n\n## 🔄 The Reciprocal Method\nThe **reciprocal** flips a fraction upside down.\n- reciprocal of `½` is `2/1` = **2**\n- reciprocal of `¾` is **4/3**\n\n**Rule:** *Keep, Change, Flip*\n> **Keep** the first number → **Change** ÷ to × → **Flip** the second fraction\n\n## 🧠 Worked Example 1 — Whole ÷ Fraction\n*Solve `5 ÷ ⅔`*\n- Step 1: **Keep** 5, **change** ÷ to ×, **flip** ⅔ → 3/2\n- Step 2: `5 × 3/2 = 15/2`\n- Step 3: Convert: `15/2 = **7½**` ✅\n- **Check:** does 7½ groups of ⅔ make 5? `7.5 × 0.667 ≈ 5` ✅\n\n## 🧠 Worked Example 2 — Fraction ÷ Fraction\n*Solve `¾ ÷ ½`*\n- Step 1: Keep ¾, change to ×, flip ½ → 2/1\n- Step 2: `¾ × 2/1 = 6/4`\n- Step 3: Simplify: `6/4 = 3/2 = **1½**` ✅\n- **Number line check:** how many ½s fit in ¾? One full half, plus half of another half → **1½** ✅\n\n## 📏 Using a Number Line\nTo solve `⅔ ÷ ⅙`: mark sixths along a line to ⅔ (which is 4/6). Count how many **⅙ jumps** it takes → **4**.\n\n## ⚠️ Common Mistake\nDo **not** flip the **first** fraction. Only the **divisor** (the one after ÷) gets flipped.\n- ❌ `¾ ÷ ½ = 4/3 × ½`\n- ✅ `¾ ÷ ½ = ¾ × 2/1`\n\n## 📝 Word Problem\n*A ribbon is 4 meters long. Each bow needs ⅖ meter. How many bows?*\n- `4 ÷ ⅖ = 4 × 5/2 = 20/2 = **10 bows**` ✅\n\nExcellent Term 1! ⭐",
+        "quiz": [
+          {
+            "question": "What is the reciprocal of 3/4?",
+            "options": [
+              "4/3",
+              "3/4",
+              "1/4",
+              "1/3"
+            ],
+            "correct_answer": "4/3"
+          },
+          {
+            "question": "What does 3 ÷ 1/2 equal?",
+            "options": [
+              "6",
+              "1 1/2",
+              "3/2",
+              "2/3"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "The rule for dividing fractions is often remembered as:",
+            "options": [
+              "Keep, Change, Flip",
+              "Add, Divide, Solve",
+              "Flip, Flip, Multiply",
+              "Cross, Cancel, Add"
+            ],
+            "correct_answer": "Keep, Change, Flip"
+          },
+          {
+            "question": "What is 1/2 ÷ 1/4?",
+            "options": [
+              "2",
+              "1/8",
+              "1/2",
+              "4"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "What is 3/4 ÷ 1/2?",
+            "options": [
+              "1 1/2",
+              "3/8",
+              "2/3",
+              "1 1/4"
+            ],
+            "correct_answer": "1 1/2"
+          },
+          {
+            "question": "What is 5 ÷ 2/3?",
+            "options": [
+              "7 1/2",
+              "10/3",
+              "3 1/3",
+              "6 2/3"
+            ],
+            "correct_answer": "7 1/2"
+          },
+          {
+            "question": "What is 2/3 ÷ 1/6?",
+            "options": [
+              "4",
+              "1/9",
+              "2/9",
+              "6"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "In 3/5 ÷ 1/10, which fraction gets flipped?",
+            "options": [
+              "1/10 only",
+              "3/5 only",
+              "Both of them",
+              "Neither of them"
+            ],
+            "correct_answer": "1/10 only"
+          },
+          {
+            "question": "Why is the answer to 4 ÷ 1/3 larger than 4?",
+            "options": [
+              "Many small pieces fit inside 4",
+              "Division always makes numbers larger",
+              "Fractions cannot be divided evenly",
+              "The answer was rounded upward"
+            ],
+            "correct_answer": "Many small pieces fit inside 4"
+          },
+          {
+            "question": "A ribbon 4 meters long is cut into pieces of 2/5 meter each. How many pieces?",
+            "options": [
+              "10",
+              "8",
+              "16",
+              "20"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "What is 7/8 ÷ 1/4?",
+            "options": [
+              "3 1/2",
+              "7/32",
+              "2 1/8",
+              "4 1/2"
+            ],
+            "correct_answer": "3 1/2"
+          },
+          {
+            "question": "A student writes 3/4 ÷ 1/2 = 4/3 × 1/2 = 2/3. What mistake was made?",
+            "options": [
+              "The first fraction was flipped instead of the second",
+              "The two fractions were added, not divided",
+              "The answer was simplified incorrectly",
+              "The division sign was never changed"
+            ],
+            "correct_answer": "The first fraction was flipped instead of the second"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📺 Filipino — Panonood at Pagsusuri ng Multimedia\n\nHuling linggo ng Termino 1, Grade 5. Suriin natin ang mga **biswal**. 🔍\n\n## 👀 Ano ang Panonood?\nAng **panonood** ay hindi lamang basta pagtingin. Ito ay **aktibong pagsusuri** ng impormasyong nakikita — sa larawan, tsart, video, o anumang **biswal na teksto**.\n\n## 📊 Mga Uri ng Biswal na Teksto\n\n**1. LARAWAN** — kumukuha ng isang sandali\n- Tanong: *Ano ang ipinapakita? Ano ang **hindi** ipinapakita?*\n\n**2. TSART at GRAP** — nagpapakita ng datos\n- **Bar graph** — paghahambing ng dami\n- **Line graph** — pagbabago sa paglipas ng panahon\n- **Pie chart** — bahagi ng kabuuan\n\n**3. INFOGRAPHIC** — pinagsamang larawan, teksto, at datos\n\n**4. IMPRASTRAKTURANG BISWAL** — mapa, dayagram, palatandaan (signage)\n\n## 🧠 Halimbawa 1: Pagsusuri ng Bar Graph\nIpinapakita ng grap ang bilang ng mag-aaral kada baitang:\n- **Pamagat** — ano ang paksa?\n- **Labels** — ano ang nasa x-axis at y-axis?\n- **Pinakamataas na bar** — alin ang may pinakamalaking bilang?\n- **Kongklusyon** — ano ang masasabi mo batay sa datos?\n\n## 🧠 Halimbawa 2: Pagsusuri ng Larawan\nLarawan ng batang naglilinis ng dagat:\n- **Nakikita:** bata, basura, dagat, sako\n- **Damdamin:** pag-asa at pagmamalasakit\n- **Layunin ng kumuha:** hikayatin tayong tumulong sa kalikasan\n- **Tanong:** *Sino ang nagtapon ng basurang iyon? Hindi ito ipinapakita.*\n\n## ⚠️ Mag-ingat sa Mapanlinlang na Biswal\nMaaaring **iligaw** tayo ng biswal:\n- **Putol na y-axis** — nagpapalaki ng maliit na pagkakaiba\n- **Piling larawan lamang** — ipinapakita ang isang panig\n- **Nakabibighaning pamagat** (clickbait) — hindi tugma sa nilalaman\n\n## ✅ Mga Tanong sa Mapanuring Panonood\n1. **Sino** ang gumawa nito at **bakit**?\n2. **Ano** ang mensahe? Sino ang **pinag-uukulan**?\n3. **Ano ang nawawala** sa ipinapakita?\n4. **Mapagkakatiwalaan** ba ang pinagmulan?\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang panonood bilang kasanayan sa Filipino?",
+            "options": [
+              "Aktibong pagsusuri ng biswal na teksto",
+              "Basta pagtingin sa telebisyon",
+              "Pakikinig sa radyo tuwing umaga",
+              "Pagsulat ng mahabang sanaysay"
+            ],
+            "correct_answer": "Aktibong pagsusuri ng biswal na teksto"
+          },
+          {
+            "question": "Aling grap ang pinakamahusay sa pagpapakita ng pagbabago sa paglipas ng panahon?",
+            "options": [
+              "Line graph",
+              "Pie chart",
+              "Bar graph",
+              "Larawan"
+            ],
+            "correct_answer": "Line graph"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pie chart?",
+            "options": [
+              "Bahagi ng kabuuan",
+              "Pagbabago sa panahon",
+              "Lokasyon sa mapa",
+              "Hakbang sa proseso"
+            ],
+            "correct_answer": "Bahagi ng kabuuan"
+          },
+          {
+            "question": "Ano ang infographic?",
+            "options": [
+              "Pinagsamang larawan, teksto, at datos",
+              "Mahabang tekstong walang larawan",
+              "Awiting may tugma at sukat",
+              "Listahan ng mga pangalan"
+            ],
+            "correct_answer": "Pinagsamang larawan, teksto, at datos"
+          },
+          {
+            "question": "Alin ang halimbawa ng imprastrakturang biswal?",
+            "options": [
+              "Mapa at palatandaan",
+              "Tula at maikling kuwento",
+              "Awit at tugtugin",
+              "Talumpati at sanaysay"
+            ],
+            "correct_answer": "Mapa at palatandaan"
+          },
+          {
+            "question": "Ano ang unang dapat tingnan sa isang tsart?",
+            "options": [
+              "Ang pamagat nito",
+              "Ang kulay ng bar",
+              "Ang laki ng papel",
+              "Ang bilang ng linya"
+            ],
+            "correct_answer": "Ang pamagat nito"
+          },
+          {
+            "question": "Paano nakaliligaw ang isang putol na y-axis sa grap?",
+            "options": [
+              "Pinapalaki nito ang maliit na pagkakaiba",
+              "Pinapaliit nito ang lahat ng datos",
+              "Binubura nito ang mga label",
+              "Binabago nito ang kulay ng grap"
+            ],
+            "correct_answer": "Pinapalaki nito ang maliit na pagkakaiba"
+          },
+          {
+            "question": "Ano ang clickbait?",
+            "options": [
+              "Nakabibighaning pamagat na di-tugma sa nilalaman",
+              "Mabilis na paraan ng pagbabasa",
+              "Uri ng grap na may kulay",
+              "Tamang paraan ng pagsusuri"
+            ],
+            "correct_answer": "Nakabibighaning pamagat na di-tugma sa nilalaman"
+          },
+          {
+            "question": "Sa pagsusuri ng larawan, bakit mahalagang itanong kung ano ang HINDI ipinapakita?",
+            "options": [
+              "Maaaring may itinatagong konteksto",
+              "Mas maganda ang buong larawan",
+              "Mas mahal ang malaking larawan",
+              "Mas mabilis ang pagsusuri nito"
+            ],
+            "correct_answer": "Maaaring may itinatagong konteksto"
+          },
+          {
+            "question": "May grap na nagpapakita na tumaas ang benta ng isang produkto. Sino ang MALAMANG gumawa nito?",
+            "options": [
+              "Ang kompanyang nagbebenta nito",
+              "Ang mga mamimili nito",
+              "Ang guro sa paaralan",
+              "Ang tagalinis ng tindahan"
+            ],
+            "correct_answer": "Ang kompanyang nagbebenta nito"
+          },
+          {
+            "question": "Alin ang PINAKAMAHALAGANG tanong sa mapanuring panonood?",
+            "options": [
+              "Sino ang gumawa nito at bakit?",
+              "Ilang kulay ang ginamit dito?",
+              "Gaano kalaki ang larawan?",
+              "Kailan ito ipinalabas?"
+            ],
+            "correct_answer": "Sino ang gumawa nito at bakit?"
+          },
+          {
+            "question": "Nakakita ka ng larawan ng malinis na ilog na may kapsiyong 'Tagumpay ng aming proyekto'. Ano ang dapat mong suriin?",
+            "options": [
+              "Kung tunay bang mula ito sa proyekto",
+              "Kung maganda ba ang kulay nito",
+              "Kung malaki ba ang laki nito",
+              "Kung sikat ba ang nag-post nito"
+            ],
+            "correct_answer": "Kung tunay bang mula ito sa proyekto"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌿 Science — Classifying Living Things & Plant Survival Structures\n\nFinal Science lesson of Term 1, Grade 5. 🔬\n\n## 🧬 Three Groups of Living Things\n\n| Group | Key characteristics | Examples |\n|---|---|---|\n| **Plants** | make their own food (**photosynthesis**), mostly stay in one place, have cell walls | mango tree, fern, moss |\n| **Animals** | cannot make own food, **move** to find it, respond quickly | tamaraw, tilapia, ant |\n| **Microorganisms** | too small to see without a **microscope** | bacteria, yeast, amoeba |\n\n**Key difference:** plants **produce** their food; animals must **consume** it.\n\n## 🔬 About Microorganisms\nNot all are harmful!\n- **Helpful:** yeast makes bread rise; bacteria turn milk into yogurt; decomposers recycle nutrients\n- **Harmful:** some bacteria and viruses cause disease\n\n## 🌱 Specialized Plant Structures\nPlants developed special parts to **survive difficult conditions**.\n\n### For STORAGE\n- **Tuber** — swollen underground stem storing starch → **potato**, **kamote**\n- **Bulb** — layered underground leaves storing food → **onion**, **garlic**\n- **Rhizome** — horizontal underground stem → **ginger (luya)**, **turmeric**\n\n**Why it helps:** during **drought** or dry season, the plant lives off stored food and regrows later.\n\n### For PROTECTION\n- **Thorns** — sharp points → **rose**, **bougainvillea**, **cactus**\n\n**Why it helps:** discourages animals from **eating** the plant.\n\n### For SUPPORT\n- **Tendrils** — thin coiling threads that grip → **ampalaya**, **patola**, **grape vine**\n- **Aerial roots** — roots above ground → **balete**, **orchid**, **mangrove**\n\n**Why it helps:** tendrils let a weak stem climb toward **sunlight** without growing a thick trunk. Aerial roots **anchor** the plant against strong wind and can absorb moisture from air.\n\n## 🧠 Worked Example 1\n*Why can a kamote plant survive a long dry season?*\n- Step 1: Kamote forms **tubers** underground.\n- Step 2: Tubers store **starch (food)** and **water**.\n- Step 3: When leaves die in drought, the tuber **survives** and sprouts again when rain returns. ✅\n\n## 🧠 Worked Example 2\n*A mangrove grows in soft, muddy, wave-battered soil. Which structure helps most?*\n- Step 1: Soft mud gives poor grip.\n- Step 2: **Aerial roots** spread wide above and into the mud.\n- Step 3: They **anchor** the tree against waves and wind. ✅\n\nGreat scientist work this term! 🔎",
+        "quiz": [
+          {
+            "question": "Which group of living things makes its own food?",
+            "options": [
+              "Plants",
+              "Animals",
+              "Microorganisms",
+              "Fungi only"
+            ],
+            "correct_answer": "Plants"
+          },
+          {
+            "question": "Microorganisms are living things that:",
+            "options": [
+              "need a microscope to be seen",
+              "always cause serious disease",
+              "only live inside the ocean",
+              "grow larger than most plants"
+            ],
+            "correct_answer": "need a microscope to be seen"
+          },
+          {
+            "question": "A potato is an example of which storage structure?",
+            "options": [
+              "Tuber",
+              "Bulb",
+              "Rhizome",
+              "Tendril"
+            ],
+            "correct_answer": "Tuber"
+          },
+          {
+            "question": "Onion and garlic store food in a:",
+            "options": [
+              "bulb",
+              "tuber",
+              "thorn",
+              "tendril"
+            ],
+            "correct_answer": "bulb"
+          },
+          {
+            "question": "Ginger (luya) grows from which structure?",
+            "options": [
+              "Rhizome",
+              "Bulb",
+              "Thorn",
+              "Aerial root"
+            ],
+            "correct_answer": "Rhizome"
+          },
+          {
+            "question": "What is the main purpose of thorns on a plant?",
+            "options": [
+              "Protection from being eaten",
+              "Storage of extra water",
+              "Support for climbing up",
+              "Absorption of sunlight"
+            ],
+            "correct_answer": "Protection from being eaten"
+          },
+          {
+            "question": "Tendrils on an ampalaya vine help the plant to:",
+            "options": [
+              "climb toward sunlight",
+              "store starch underground",
+              "scare away large animals",
+              "make its own flowers"
+            ],
+            "correct_answer": "climb toward sunlight"
+          },
+          {
+            "question": "Which microorganism makes bread rise?",
+            "options": [
+              "Yeast",
+              "Amoeba",
+              "Virus",
+              "Algae"
+            ],
+            "correct_answer": "Yeast"
+          },
+          {
+            "question": "Which structure helps a mangrove stay anchored in soft mud?",
+            "options": [
+              "Aerial roots",
+              "Thorns on stems",
+              "Tendrils on vines",
+              "Bulbs underground"
+            ],
+            "correct_answer": "Aerial roots"
+          },
+          {
+            "question": "Why can a kamote plant survive a long dry season?",
+            "options": [
+              "Its tuber stores food and water",
+              "Its thorns keep animals away",
+              "Its tendrils reach for rain",
+              "Its leaves close up tightly"
+            ],
+            "correct_answer": "Its tuber stores food and water"
+          },
+          {
+            "question": "A plant has thin coiling threads gripping a fence and a soft, weak stem. What does this suggest about how it survives?",
+            "options": [
+              "It climbs instead of building a thick trunk",
+              "It stores all its food in its stem",
+              "It protects itself from grazing animals",
+              "It absorbs water directly from air"
+            ],
+            "correct_answer": "It climbs instead of building a thick trunk"
+          },
+          {
+            "question": "A gardener finds a plant thriving on a windy cliff with roots growing above the soil. Which conclusion is BEST supported?",
+            "options": [
+              "The aerial roots help anchor it against wind",
+              "The plant stores food inside its thorns",
+              "The plant makes food without sunlight",
+              "The roots protect it from being eaten"
+            ],
+            "correct_answer": "The aerial roots help anchor it against wind"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 👩 Araling Panlipunan — Kababaihan at Kalinangan sa Sinaunang Lipunan\n\nHuling aralin ng Termino 1, Grade 5. 🇵🇭\n\n## 👑 Katayuan ng Kababaihan Bago Dumating ang mga Espanyol\nSa **sinaunang lipunang Pilipino**, mataas ang katayuan ng kababaihan — hindi tulad sa maraming lipunan noong panahong iyon.\n\n### Mga Karapatan ng Sinaunang Babaeng Pilipino\n- **Karapatang magmay-ari ng lupa** sa sariling pangalan\n- **Karapatang magmana nang PANTAY** sa lalaki\n- **Karapatang makipagdiborsiyo** sa ilalim ng ilang kaugalian\n- **Karapatang mangalakal** at magpatakbo ng sariling hanapbuhay\n- **Panatilihin ang sariling pangalan** matapos ikasal\n- Nauuna ang babae sa paglakad; iginagalang bilang **tagapamahala ng tahanan**\n\n## 🌿 Ang BABAYLAN (o KATALONAN)\nAng **babaylan** ay karaniwang **babae** — isa sa pinakamataas na katungkulan sa barangay, katumbas ng kapangyarihan ng **datu**.\n\n**Mga tungkulin ng babaylan:**\n- **Pinuno-relihiyoso** — namumuno sa panalangin at ritwal\n- **Manggagamot** — gumagamot gamit ang halamang gamot\n- **Tagapayo ng datu** — sinasangguni bago ang mahalagang pasya\n- **Tagapag-ingat ng kaalaman** — kabisado ang epiko, awit, at kasaysayan\n- **Tagapamagitan** sa mundo ng tao at ng espiritu\n\n**Mahalaga:** Habang ang **datu** ang pinuno sa **pulitika at digmaan**, ang **babaylan** ang pinuno sa **espirituwal at kaalaman**. Magkatuwang sila.\n\n## 🎭 Ang Konsepto ng KALINANGAN (Kultura)\nAng **kalinangan** ay ang **kabuuan ng paraan ng pamumuhay** ng isang grupo, na **ipinapasa sa sunod na salinlahi**.\n\n**Kasama rito:**\n| Bahagi | Halimbawa |\n|---|---|\n| **Wika** | Baybayin, mga katutubong wika |\n| **Sining** | pag-uukit, paghahabi, tattoo (batok) |\n| **Paniniwala** | anito, Bathala, ritwal |\n| **Kaugalian** | bayanihan, pagmamano, pagtitipon |\n| **Kagamitan** | banga, bangka, sandata |\n\n## 🔄 Paano Naipapasa ang Kalinangan?\n- **Pasalitang tradisyon** — epiko, alamat, awit\n- **Pagtuturo ng magulang** sa anak\n- **Pakikilahok** sa ritwal at pagdiriwang\n- **Pagsasanay** sa sining at hanapbuhay\n\n## ⚠️ Pagbabago sa Panahon ng Kolonyalismo\nNang dumating ang mga **Espanyol**, marami sa katayuan ng kababaihan ang **bumaba**. Itinuring na masama ang babaylan, at pinalitan ng paring lalaki ang kaniyang tungkulin.\n\nMagaling sa Termino 1! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa babaeng pinuno-relihiyoso sa sinaunang barangay?",
+            "options": [
+              "Babaylan",
+              "Datu",
+              "Timawa",
+              "Alipin"
+            ],
+            "correct_answer": "Babaylan"
+          },
+          {
+            "question": "Ano ang katayuan ng kababaihan sa sinaunang lipunang Pilipino?",
+            "options": [
+              "Mataas at iginagalang",
+              "Mababa at pinagbabawalan",
+              "Walang anumang karapatan",
+              "Alipin ng kanilang asawa"
+            ],
+            "correct_answer": "Mataas at iginagalang"
+          },
+          {
+            "question": "Alin ang karapatan ng sinaunang babaeng Pilipino?",
+            "options": [
+              "Magmay-ari ng lupa sa sariling pangalan",
+              "Mamuno sa lahat ng digmaan",
+              "Piliin ang datu ng barangay",
+              "Magtakda ng buwis sa bayan"
+            ],
+            "correct_answer": "Magmay-ari ng lupa sa sariling pangalan"
+          },
+          {
+            "question": "Ano ang kalinangan?",
+            "options": [
+              "Kabuuan ng paraan ng pamumuhay ng isang grupo",
+              "Ang lupain ng isang barangay",
+              "Ang bilang ng tao sa pamayanan",
+              "Ang uri ng panahon sa isang pook"
+            ],
+            "correct_answer": "Kabuuan ng paraan ng pamumuhay ng isang grupo"
+          },
+          {
+            "question": "Bukod sa panalangin, ano pa ang tungkulin ng babaylan?",
+            "options": [
+              "Manggagamot gamit ang halamang gamot",
+              "Tagakolekta ng buwis sa barangay",
+              "Tagapagsanay ng mga mandirigma",
+              "Tagagawa ng bangka at sandata"
+            ],
+            "correct_answer": "Manggagamot gamit ang halamang gamot"
+          },
+          {
+            "question": "Paano naipapasa ang kalinangan sa susunod na salinlahi?",
+            "options": [
+              "Sa pasalitang tradisyon at pagtuturo",
+              "Sa pagbili ng mga aklat",
+              "Sa pagpapadala ng sulat",
+              "Sa paglipat ng tirahan"
+            ],
+            "correct_answer": "Sa pasalitang tradisyon at pagtuturo"
+          },
+          {
+            "question": "Sino ang pinuno sa pulitika at digmaan sa sinaunang barangay?",
+            "options": [
+              "Datu",
+              "Babaylan",
+              "Katalonan",
+              "Panday"
+            ],
+            "correct_answer": "Datu"
+          },
+          {
+            "question": "Alin ang bahagi ng kalinangan?",
+            "options": [
+              "Wika, sining, at paniniwala",
+              "Taas at timbang ng tao",
+              "Bilang ng ulan sa taon",
+              "Layo ng isang lalawigan"
+            ],
+            "correct_answer": "Wika, sining, at paniniwala"
+          },
+          {
+            "question": "Ang karapatang magmana nang pantay sa lalaki ay nagpapakita na ang sinaunang babae ay:",
+            "options": [
+              "kinikilala bilang kapantay",
+              "itinuturing na mas mababa",
+              "pinagbabawalang magmay-ari",
+              "nakatali sa kaniyang asawa"
+            ],
+            "correct_answer": "kinikilala bilang kapantay"
+          },
+          {
+            "question": "Bakit sinasangguni ng datu ang babaylan bago ang mahalagang pasya?",
+            "options": [
+              "Siya ang tagapag-ingat ng kaalaman",
+              "Siya ang may pinakamaraming lupa",
+              "Siya ang pinakamatanda sa lahat",
+              "Siya ang namumuno sa digmaan"
+            ],
+            "correct_answer": "Siya ang tagapag-ingat ng kaalaman"
+          },
+          {
+            "question": "Ano ang nangyari sa katayuan ng babaylan nang dumating ang mga Espanyol?",
+            "options": [
+              "Bumaba at pinalitan ng paring lalaki",
+              "Tumaas at lalong iginalang",
+              "Nanatiling pareho ang antas",
+              "Naging pinuno ng buong bayan"
+            ],
+            "correct_answer": "Bumaba at pinalitan ng paring lalaki"
+          },
+          {
+            "question": "Naipapasa ang epiko sa pamamagitan ng pag-awit at pagsasalaysay ng matatanda. Ano ang ipinapakita nito tungkol sa kalinangan?",
+            "options": [
+              "Buhay ito sa pasalitang tradisyon",
+              "Nakasulat ito sa mga aklat",
+              "Nabili ito mula sa ibang bansa",
+              "Nawala ito nang tuluyan"
+            ],
+            "correct_answer": "Buhay ito sa pasalitang tradisyon"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 📧 EPP (ICT) — Safe and Responsible Email\n\nFinal ICT lesson of Term 1, Grade 5. 💻\n\n## 📬 Parts of the Email Interface\n| Field | Purpose |\n|---|---|\n| **To** | main recipient's address |\n| **Cc** | *carbon copy* — others who should see it |\n| **Bcc** | *blind carbon copy* — recipients hidden from each other |\n| **Subject** | short line saying what the email is about |\n| **Body** | your actual message |\n| **Attachment** | a file sent along with the message |\n| **Send** | delivers the message |\n\n## ✉️ Anatomy of an Email Address\n`juandelacruz@example.com`\n- **juandelacruz** — the username\n- **@** — separates user from domain\n- **example.com** — the domain (the mail provider or organization)\n\n## 📝 Writing a Proper Email\n1. **Clear subject line** — \"Science Project Draft\" not \"hi\" or blank\n2. **Greeting** — \"Good morning, Ma'am Reyes,\"\n3. **Body** — get to the point, use complete sentences\n4. **Closing** — \"Thank you,\" then your full name\n5. **Proofread** before sending\n\n## 📎 Attaching Files\n1. Click the **paperclip** icon\n2. Choose your file\n3. **Wait** for the upload bar to finish\n4. **Confirm** the file name appears before pressing Send\n\n**Common mistake:** writing \"see attached\" and forgetting to attach! Always check.\n\n## 🤝 Email Etiquette\n- **Do:** use a clear subject, be polite, reply within a reasonable time\n- **Do:** use Bcc for group emails so you protect others' addresses\n- **Don't:** TYPE IN ALL CAPITALS — it reads as shouting\n- **Don't:** use slang or emoji in a formal email to a teacher\n- **Don't:** \"Reply All\" when only one person needs your answer\n\n## 🛡️ Staying Safe: Recognizing Phishing\n**Phishing** is a fake message that tricks you into giving personal information.\n\n**Warning signs:**\n- Urgent threats — *\"Your account will be closed in 24 hours!\"*\n- Requests for your **password**, PIN, or bank details\n- **Misspelled** sender addresses — `paypa1.com` instead of `paypal.com`\n- Generic greetings — *\"Dear User\"* instead of your name\n- Unexpected **attachments** or shortened links\n- Prizes you never entered to win\n\n**Golden rule:** A legitimate company will **NEVER** ask for your password by email.\n\n## 🔐 Protecting Personal Information\n- **Never** share your password — not even with friends\n- **Never** send your address, phone number, or school to strangers online\n- Use a **strong password**: long, mixed characters, not your birthday\n- **Log out** on shared or school computers\n- Tell a **trusted adult** about any suspicious message\n\nGreat ICT work this term! 🌟",
+        "quiz": [
+          {
+            "question": "Which email field hides recipients from each other?",
+            "options": [
+              "Bcc",
+              "Cc",
+              "To",
+              "Subject"
+            ],
+            "correct_answer": "Bcc"
+          },
+          {
+            "question": "What does the subject line of an email do?",
+            "options": [
+              "Says what the email is about",
+              "Lists all the recipients",
+              "Holds the attached files",
+              "Shows the sending time"
+            ],
+            "correct_answer": "Says what the email is about"
+          },
+          {
+            "question": "In juandelacruz@example.com, what is example.com?",
+            "options": [
+              "The domain",
+              "The username",
+              "The password",
+              "The subject"
+            ],
+            "correct_answer": "The domain"
+          },
+          {
+            "question": "What is phishing?",
+            "options": [
+              "A fake message that steals personal information",
+              "A way of sorting your inbox",
+              "A method of attaching large files",
+              "A tool for blocking spam mail"
+            ],
+            "correct_answer": "A fake message that steals personal information"
+          },
+          {
+            "question": "Why is typing an email IN ALL CAPITALS considered poor etiquette?",
+            "options": [
+              "It reads as shouting",
+              "It takes longer to send",
+              "It cannot be attached",
+              "It deletes the subject"
+            ],
+            "correct_answer": "It reads as shouting"
+          },
+          {
+            "question": "Which icon is usually used to attach a file?",
+            "options": [
+              "Paperclip",
+              "Envelope",
+              "Magnifier",
+              "Printer"
+            ],
+            "correct_answer": "Paperclip"
+          },
+          {
+            "question": "A legitimate company will NEVER ask you by email for your:",
+            "options": [
+              "password",
+              "first name",
+              "city name",
+              "grade level"
+            ],
+            "correct_answer": "password"
+          },
+          {
+            "question": "Which is a warning sign of a phishing email?",
+            "options": [
+              "Urgent threat that your account will close",
+              "A clear subject and your real name",
+              "A reply from a teacher you emailed",
+              "A newsletter you signed up for"
+            ],
+            "correct_answer": "Urgent threat that your account will close"
+          },
+          {
+            "question": "You get an email from 'paypa1.com' asking you to confirm your bank details. What should you do?",
+            "options": [
+              "Delete it and tell a trusted adult",
+              "Reply with the details quickly",
+              "Click the link to check first",
+              "Forward it to your classmates"
+            ],
+            "correct_answer": "Delete it and tell a trusted adult"
+          },
+          {
+            "question": "Before pressing Send after writing 'see attached', what should you check?",
+            "options": [
+              "That the file name actually appears",
+              "That the font is large enough",
+              "That the email is very long",
+              "That the subject is in capitals"
+            ],
+            "correct_answer": "That the file name actually appears"
+          },
+          {
+            "question": "You are emailing 40 classmates about a project. Which field protects everyone's address?",
+            "options": [
+              "Bcc",
+              "To",
+              "Cc",
+              "Subject"
+            ],
+            "correct_answer": "Bcc"
+          },
+          {
+            "question": "An email says you won a contest you never entered and asks for your address to send the prize. What is the BEST response?",
+            "options": [
+              "Ignore it — it is almost certainly a scam",
+              "Send only your street address",
+              "Reply asking for more details",
+              "Forward it to all your friends"
+            ],
+            "correct_answer": "Ignore it — it is almost certainly a scam"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 💚 MAPEH — Mental at Emosyonal na Kalusugan + Striking/Net Games\n\nHuling MAPEH ng Termino 1, Grade 5. 🌟\n\n---\n\n# PART 1 — HEALTH: Mental and Emotional Health\n\n## 😰 Ano ang Stress?\nAng **stress** ay natural na tugon ng katawan sa hamon o pagbabago. Normal ito — ngunit kailangang **pamahalaan** nang maayos.\n\n**Mga karaniwang sanhi:** pagsusulit, gawaing-bahay, alitan sa kaibigan, pagbabago sa pamilya\n\n## ✅ Malusog na Paraan ng Pagharap sa Stress\n| Estratehiya | Paano ginagawa |\n|---|---|\n| **Malalim na paghinga** | huminga nang 4 segundo, hawakan 4, ilabas 4 |\n| **Pisikal na ehersisyo** | maglakad, tumakbo, maglaro |\n| **Sapat na tulog** | 9–11 oras para sa iyong edad |\n| **Pakikipag-usap** | sabihin sa magulang, guro, o kaibigan |\n| **Pamamahala ng oras** | hatiin ang malaking gawain sa maliliit |\n| **Libangan** | pagguhit, musika, pagbabasa |\n\n**❌ Hindi malusog:** pagtatago ng damdamin, pananakit sa iba, pag-iwas sa lahat, sobrang screen time\n\n## 🗣️ Assertive na Pag-uugali\nMay **tatlong paraan** ng pagtugon:\n\n| Uri | Paglalarawan | Halimbawa |\n|---|---|---|\n| **Passive** | hindi ipinapahayag ang damdamin | *tumatahimik na lang* |\n| **Aggressive** | ipinapahayag nang may pananakit | *\"Tanga ka ba?!\"* |\n| **ASSERTIVE ✅** | malinaw at may paggalang | *\"Hindi ko gusto iyon. Pakitigil.\"* |\n\nAng **assertive** ang pinakamabuti — ipinagtatanggol mo ang sarili **nang hindi sinasaktan ang iba**.\n\n## 🛡️ Paglaban sa Bullying at Diskriminasyon\nAng **bullying** ay paulit-ulit na pananakit — pisikal, salita, panlipunan, o **cyberbullying**.\n\n**Ano ang gagawin:**\n1. **Manatiling kalmado** — huwag gumanti nang may karahasan\n2. **Sabihin nang assertive** — *\"Tigilan mo ako.\"*\n3. **Umalis** sa lugar\n4. **Sabihin sa matatandang mapagkakatiwalaan** — magulang, guro, guidance counselor\n5. **I-dokumento** ang cyberbullying — screenshot bago i-block\n\n**Kung ikaw ay nakasaksi (bystander):** huwag manood lamang. **Tumulong** — isumbong sa nakatatanda o samahan ang biktima.\n\n**Ang paghingi ng tulong ay HINDI kahinaan — ito ay katapangan.** 💪\n\n## 🌱 Pagbabago sa Panahon ng Paglaki\nSa edad na 10–12, nagsisimula ang **puberty** — natural na yugto ng paglaki. Nagbabago ang katawan, at minsan ay pabago-bago rin ang damdamin (**mood swings**). **Normal ito para sa lahat.**\n\nAng **pamilya** ang mahalagang suporta: magtanong sa magulang o nakatatandang kapatid, at manatiling bukas ang komunikasyon. Kung may hindi maintindihan, **magtanong sa mapagkakatiwalaang nakatatanda** o sa school nurse.\n\n---\n\n# PART 2 — PE: Striking/Fielding at Net/Wall Games\n\n## 🏏 Striking/Fielding Games\nIsang koponan ang **pumapalo/sumisipa**, ang isa naman ay **sumasalo/humahabol**.\n\n- **Kickball** — sinisipa ang bola, tumatakbo sa base\n- **Syato** — pinapalo ang maikling kahoy gamit ang mahabang kahoy\n\n**Game concepts:**\n- **Batting/kicking:** ipadala ang bola sa **bakanteng espasyo** (open area)\n- **Fielding:** takpan ang espasyo, **mabilis na ihagis** pabalik sa base\n\n## 🏓 Net/Wall Games\nMagkabilang panig na pinaghihiwalay ng **net** o **pader**.\n\n- **Pickleball** — paddle at butas-butas na bola sa ibabaw ng net\n- **Wall ball** — ipinupukol ang bola sa pader\n- **Ringo** — ipinapasa ang singsing sa ibabaw ng net\n\n**Game concepts:**\n- **Scoring:** tirahin ang **open area** o kung saan mahirap abutin ng kalaban\n- **Rally:** panatilihing tuloy-tuloy ang palitan\n- **Court positioning:** bumalik sa **gitna** (ready position) pagkatapos ng bawat tira\n- **Defending:** takpan ang espasyo, asahan ang susunod na tira\n\n## 🏃 Fitness Components\n**Agility** (mabilis na pagbabago ng direksiyon) · **Balance** · **Coordination** · **Speed**\n\n## 🛡️ Kaligtasan\nMag-warm-up, gumamit ng tamang kagamitan, uminom ng tubig, at **igalang ang kalaro**.\n\nMagaling sa Termino 1! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang stress?",
+            "options": [
+              "Natural na tugon ng katawan sa hamon",
+              "Isang uri ng malubhang sakit",
+              "Palaging masamang damdamin",
+              "Kakulangan sa pagkain"
+            ],
+            "correct_answer": "Natural na tugon ng katawan sa hamon"
+          },
+          {
+            "question": "Alin ang MALUSOG na paraan ng pagharap sa stress?",
+            "options": [
+              "Malalim na paghinga at ehersisyo",
+              "Pagtatago ng lahat ng damdamin",
+              "Pananakit sa ibang tao",
+              "Pag-iwas sa lahat ng kaibigan"
+            ],
+            "correct_answer": "Malalim na paghinga at ehersisyo"
+          },
+          {
+            "question": "Ano ang assertive na pag-uugali?",
+            "options": [
+              "Malinaw na pagpapahayag nang may paggalang",
+              "Pananahimik upang maiwasan ang gulo",
+              "Pagsigaw at pananakit sa iba",
+              "Pag-iwas sa lahat ng usapan"
+            ],
+            "correct_answer": "Malinaw na pagpapahayag nang may paggalang"
+          },
+          {
+            "question": "Alin ang halimbawa ng aggressive na tugon?",
+            "options": [
+              "Pagsigaw at pang-iinsulto",
+              "Tahimik na pag-alis",
+              "Magalang na pagtanggi",
+              "Paghingi ng tulong"
+            ],
+            "correct_answer": "Pagsigaw at pang-iinsulto"
+          },
+          {
+            "question": "Ano ang dapat unang gawin kapag binu-bully ka?",
+            "options": [
+              "Manatiling kalmado at huwag gumanti",
+              "Gumanti nang may karahasan",
+              "Manahimik at huwag magsabi",
+              "Umiwas sa paaralan"
+            ],
+            "correct_answer": "Manatiling kalmado at huwag gumanti"
+          },
+          {
+            "question": "Bago i-block ang cyberbully, ano ang dapat gawin?",
+            "options": [
+              "Kumuha ng screenshot bilang ebidensiya",
+              "Burahin agad ang mensahe",
+              "Ipadala ito sa lahat",
+              "Sagutin nang may galit"
+            ],
+            "correct_answer": "Kumuha ng screenshot bilang ebidensiya"
+          },
+          {
+            "question": "Ang paghingi ng tulong sa nakatatanda ay:",
+            "options": [
+              "tanda ng katapangan",
+              "tanda ng kahinaan",
+              "paraan ng pagsusumbong",
+              "pag-iwas sa problema"
+            ],
+            "correct_answer": "tanda ng katapangan"
+          },
+          {
+            "question": "Sa kickball, saan mabuting ipadala ang bola?",
+            "options": [
+              "Sa bakanteng espasyo",
+              "Sa direksiyon ng fielder",
+              "Sa labas ng buong court",
+              "Sa likod ng sarili mong base"
+            ],
+            "correct_answer": "Sa bakanteng espasyo"
+          },
+          {
+            "question": "Alin ang net/wall game?",
+            "options": [
+              "Pickleball",
+              "Kickball",
+              "Syato",
+              "Takbuhan"
+            ],
+            "correct_answer": "Pickleball"
+          },
+          {
+            "question": "Ano ang dapat gawin pagkatapos ng bawat tira sa net game?",
+            "options": [
+              "Bumalik sa gitna o ready position",
+              "Manatili sa dulo ng court",
+              "Umupo upang magpahinga",
+              "Lumapit sa mismong net"
+            ],
+            "correct_answer": "Bumalik sa gitna o ready position"
+          },
+          {
+            "question": "Ikaw ay bystander sa isang pambubully. Ano ang PINAKAMABUTING gawin?",
+            "options": [
+              "Isumbong sa nakatatanda at samahan ang biktima",
+              "Manood lamang nang tahimik sa gilid",
+              "Tumawa kasama ng mga nang-aapi",
+              "Umalis at kalimutan na lamang ito"
+            ],
+            "correct_answer": "Isumbong sa nakatatanda at samahan ang biktima"
+          },
+          {
+            "question": "Palagi kang natatalo sa rally dahil huli ka nang nakakaabot sa bola. Alin ang PINAKAMABUTING pagbabago?",
+            "options": [
+              "Bumalik sa gitna matapos ang bawat tira",
+              "Tumira nang mas malakas palagi",
+              "Tumayo malapit sa isang gilid",
+              "Maghintay sa likod ng court"
+            ],
+            "correct_answer": "Bumalik sa gitna matapos ang bawat tira"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🚦 GMRC — Pagsunod sa Batas Trapiko\n\nHuling aralin ng Termino 1, Grade 5. Pagpapahalaga: **Pagsunod**. 💛\n\n## ⚖️ Bakit May Batas Trapiko?\nAng **batas trapiko** ay halimbawa ng **makatarungang batas** — mga tuntuning ginawa **hindi upang limitahan tayo**, kundi upang **protektahan ang buhay ng lahat**.\n\nAng pagsunod dito ay isang **konkretong paraan ng pagpapakita ng pagsunod** sa mga batas na naglilingkod sa **kabutihang panlahat (common good)**.\n\n## 🚶 Kaligtasan ng Pedestrian\n\n**Mga Tuntunin:**\n1. **Tumawid sa tamang tawiran** — pedestrian lane, overpass, o underpass\n2. **Tumingin sa kaliwa, kanan, at kaliwa muli** bago tumawid\n3. **Maglakad sa bangketa** — hindi sa gitna ng kalsada\n4. Kung walang bangketa, maglakad na **nakaharap sa paparating na sasakyan**\n5. **Huwag maglaro** sa kalsada\n6. Magsuot ng **maliwanag na damit** sa gabi\n7. **Ibaba ang cellphone** habang tumatawid\n\n## 🚥 Ang Ilaw Trapiko\n| Kulay | Sa sasakyan | Sa pedestrian |\n|---|---|---|\n| 🔴 **Pula** | Huminto | Ligtas nang tumawid (kapag may senyas) |\n| 🟡 **Dilaw** | Maghanda, bumagal | Huwag nang simulan ang pagtawid |\n| 🟢 **Berde** | Umandar | Huwag tumawid — umaandar ang sasakyan |\n\n## 🛵 Kaligtasan sa Sasakyan\n- **Seatbelt** — isuot palagi, kahit sa maikling biyahe\n- **Helmet** — kailangan sa motorsiklo at bisikleta\n- **Huwag ilabas** ang kamay o ulo sa bintana\n- **Bumaba sa bangketa**, hindi sa gitna ng kalsada\n- Ang mga batang wala pang tamang taas ay dapat nasa **likurang upuan**\n\n## 🪧 Karaniwang Karatula\n- 🛑 **STOP** — huminto nang lubusan\n- 🚸 **School Crossing** — bagalan, may mga bata\n- ⛔ **No Jaywalking** — bawal tumawid dito\n- ↔️ **Pedestrian Lane** — dito tumawid\n\n## 🧠 Halimbawa 1\n*Nagmamadali ka at malayo ang pedestrian lane. Ano ang tama?*\n- Ang pagmamadali ay **hindi dahilan** upang lumabag.\n- **Lumakad papunta sa tamang tawiran.** Ang ilang segundong natipid ay hindi katumbas ng buhay. ✅\n\n## 🧠 Halimbawa 2\n*Hindi nagsusuot ng helmet ang iyong kaibigan sa bisikleta.*\n- Sabihin nang **magalang at assertive**: *\"Isuot mo ang helmet — para sa kaligtasan mo.\"*\n- Ito ay **pagmamalasakit**, hindi pakikialam. ✅\n\n## 💡 Ang Malalim na Aral\nAng pagsunod sa batas trapiko ay **hindi dahil sa takot sa multa o pulis**. Ito ay dahil:\n- **Iginagalang mo ang buhay** — sa iyo at sa iba\n- **Iniisip mo ang kabutihang panlahat**\n- **May disiplina** ka kahit walang nakatingin\n\n> **Ang tunay na pagsunod ay ginagawa kahit walang nakamasid.**\n\nMabuting mamamayan ka! 💫",
+        "quiz": [
+          {
+            "question": "Bakit ginawa ang mga batas trapiko?",
+            "options": [
+              "Upang protektahan ang buhay ng lahat",
+              "Upang parusahan ang mga tsuper",
+              "Upang bagalan ang mga biyahe",
+              "Upang kumita ng multa ang bayan"
+            ],
+            "correct_answer": "Upang protektahan ang buhay ng lahat"
+          },
+          {
+            "question": "Saan dapat tumawid ang pedestrian?",
+            "options": [
+              "Sa pedestrian lane o overpass",
+              "Sa gitna ng abalang kalsada",
+              "Kahit saan basta walang sasakyan",
+              "Sa likod ng nakaparadang sasakyan"
+            ],
+            "correct_answer": "Sa pedestrian lane o overpass"
+          },
+          {
+            "question": "Ano ang dapat gawin bago tumawid?",
+            "options": [
+              "Tumingin sa kaliwa, kanan, at kaliwa muli",
+              "Tumakbo agad nang mabilis",
+              "Tumingin lamang sa cellphone",
+              "Ipikit ang mata at tumawid"
+            ],
+            "correct_answer": "Tumingin sa kaliwa, kanan, at kaliwa muli"
+          },
+          {
+            "question": "Sa ilaw trapiko, ano ang ibig sabihin ng dilaw para sa sasakyan?",
+            "options": [
+              "Maghanda at bumagal",
+              "Umandar nang mabilis",
+              "Huminto nang tuluyan",
+              "Umatras nang dahan-dahan"
+            ],
+            "correct_answer": "Maghanda at bumagal"
+          },
+          {
+            "question": "Kailan dapat isuot ang seatbelt?",
+            "options": [
+              "Palagi, kahit sa maikling biyahe",
+              "Sa mahabang biyahe lamang",
+              "Kapag may nakikitang pulis",
+              "Kapag mabilis ang takbo"
+            ],
+            "correct_answer": "Palagi, kahit sa maikling biyahe"
+          },
+          {
+            "question": "Kung walang bangketa, paano dapat maglakad?",
+            "options": [
+              "Nakaharap sa paparating na sasakyan",
+              "Nakatalikod sa mga sasakyan",
+              "Sa gitna mismo ng kalsada",
+              "Sa likod ng malalaking trak"
+            ],
+            "correct_answer": "Nakaharap sa paparating na sasakyan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng karatulang School Crossing?",
+            "options": [
+              "Bagalan, may mga batang tumatawid",
+              "Bawal dumaan ang sasakyan",
+              "Paradahan ng school bus",
+              "Simula ng bagong kalsada"
+            ],
+            "correct_answer": "Bagalan, may mga batang tumatawid"
+          },
+          {
+            "question": "Bakit hindi dapat gumamit ng cellphone habang tumatawid?",
+            "options": [
+              "Nawawala ang pokus sa paligid",
+              "Nauubos ang baterya nito",
+              "Bumabagal ang paglalakad",
+              "Nagiging maingay ang daan"
+            ],
+            "correct_answer": "Nawawala ang pokus sa paligid"
+          },
+          {
+            "question": "Nagmamadali ka at malayo ang pedestrian lane. Ano ang tama mong gawin?",
+            "options": [
+              "Lumakad pa rin patungo sa tamang tawiran",
+              "Tumawid agad kung saan ka naroon",
+              "Tumakbo nang mabilis sa kalsada",
+              "Sumunod sa ibang tumatawid doon"
+            ],
+            "correct_answer": "Lumakad pa rin patungo sa tamang tawiran"
+          },
+          {
+            "question": "Hindi nagsusuot ng helmet ang kaibigan mo sa bisikleta. Ano ang mabuting gawin?",
+            "options": [
+              "Magalang siyang paalalahanan",
+              "Pagtawanan ang kaniyang gawa",
+              "Gayahin ang kaniyang ginawa",
+              "Huwag na lamang pansinin"
+            ],
+            "correct_answer": "Magalang siyang paalalahanan"
+          },
+          {
+            "question": "Ang tunay na pagsunod sa batas trapiko ay ginagawa dahil sa:",
+            "options": [
+              "paggalang sa buhay at kabutihang panlahat",
+              "takot sa multa at sa pulis",
+              "pagnanais na mapuri ng iba",
+              "pagsunod sa uso ngayon"
+            ],
+            "correct_answer": "paggalang sa buhay at kabutihang panlahat"
+          },
+          {
+            "question": "Walang pulis at walang sasakyan sa kalsada. Ano ang ipinapakita ng pagtawid mo pa rin sa tamang tawiran?",
+            "options": [
+              "May disiplina ka kahit walang nakamasid",
+              "Natatakot kang mahuli ng iba",
+              "Wala kang ibang mapagpipilian",
+              "Gusto mong tumagal ang biyahe"
+            ],
+            "correct_answer": "May disiplina ka kahit walang nakamasid"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐔 EPP (AFA/FCS/IA) — Natural na Pangangalaga sa Poultry\n\nHuling aralin ng Termino 1, Grade 5. Alagaan natin ang manok! 🌾\n\n## 🐓 Ano ang Poultry?\nAng **poultry** ay mga alagang ibong pinapalaki para sa **karne** at **itlog** — manok, pato, gansa, at pugo.\n\n## 🌿 Bakit NATURAL na Pamamaraan?\nAng **natural o organic na pag-aalaga** ay hindi gumagamit ng sintetikong kemikal o antibiotic na pampalaki.\n\n**Mga bentahe:**\n- **Mas ligtas** at masustansiya ang karne at itlog\n- **Mas mataas** ang halaga sa pamilihan\n- **Hindi nakasasama** sa lupa at tubig\n- **Mas mababa** ang gastos sa gamot\n\n## 🌽 1. PAGPAPAKAIN\n\n**Natural na pagkain:**\n- **Butil** — mais, palay, darak (rice bran)\n- **Berdeng dahon** — kangkong, malunggay, kamote tops\n- **Ipis, uod, insekto** — natural na protina kapag nakakalayang manok\n- **Durog na kabibe o eggshell** — pinagkukunan ng **calcium** para sa matibay na balat ng itlog\n\n**Iskedyul:** karaniwang **dalawang beses** sa isang araw — **umaga** at **hapon**\n\n**Malinis na tubig:** dapat **laging available** at pinapalitan **araw-araw**\n\n## 🧹 2. PAGLILINIS NG KULUNGAN\n\n**Araw-araw:**\n- Alisin ang **dumi** at natirang pagkain\n- Palitan ang **tubig**\n- Suriin kung may **sirang bahagi** ng kulungan\n\n**Lingguhan:**\n- Palitan ang **litter** (ipa, kusot, o pinatuyong dahon)\n- **Disimpektahin** gamit ang natural na paraan — apog (lime) o suka\n- **Patuyuin** bago ibalik ang mga manok\n\n**Bakit mahalaga?** Ang maruming kulungan ay nagdudulot ng **sakit**, **parasito**, at **masamang amoy**. Ang tuyo at maaliwalas na kulungan ay pumipigil sa **coccidiosis** at iba pang sakit.\n\n**Katangian ng magandang kulungan:** may sapat na **bentilasyon**, **tuyo**, may **silungan** sa ulan at araw, at ligtas mula sa **aso, daga, at ahas**.\n\n## 💊 3. PAGBIBIGAY NG BITAMINA\n- Ihalo ang **bitamina** sa inuming tubig, lalo na kapag:\n  - Bagong dating ang mga sisiw (**stress ng paglilipat**)\n  - Panahon ng **matinding init** o malakas na ulan\n  - Pagkatapos ng **pagbabakuna**\n- Natural na alternatibo: **luya**, **bawang**, at **malunggay** na inihahalo sa tubig o pagkain\n\n## ⚖️ 4. LINGGUHANG PAGTITIMBANG\nTinitimbang ang manok **isang beses bawat linggo** upang **subaybayan ang paglaki**.\n\n**Paano:**\n1. Timbangin sa **parehong araw at oras** kada linggo\n2. Gumamit ng **timbangan** at malinis na sisidlan\n3. **Itala** sa isang record book\n4. Ihambing sa **inaasahang timbang** para sa edad nito\n\n**Bakit?** Kung **hindi tumataba** ang manok:\n- Maaaring **kulang** ang pagkain o tubig\n- Maaaring may **sakit** o **parasito**\n- Maaaring **masikip** ang kulungan\n\nAng maagang pagtuklas ay nakapagpapababa ng **pagkalugi**.\n\n## 📋 Talaan ng Pag-aalaga\nItala ang: **petsa**, **timbang**, **dami ng pagkain**, **bilang ng itlog**, at **kalagayan ng kalusugan**.\n\nMagaling sa Termino 1! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang poultry?",
+            "options": [
+              "Mga alagang ibon para sa karne at itlog",
+              "Mga isda sa palaisdaan",
+              "Mga halamang gulay sa bakuran",
+              "Mga hayop na pantrabaho"
+            ],
+            "correct_answer": "Mga alagang ibon para sa karne at itlog"
+          },
+          {
+            "question": "Ilang beses karaniwang pinapakain ang manok sa isang araw?",
+            "options": [
+              "Dalawang beses",
+              "Isang beses",
+              "Limang beses",
+              "Tuwing oras"
+            ],
+            "correct_answer": "Dalawang beses"
+          },
+          {
+            "question": "Bakit binibigyan ng durog na kabibe o eggshell ang manok?",
+            "options": [
+              "Pinagkukunan ito ng calcium",
+              "Pampalinis ito ng kulungan",
+              "Pampalamig ito sa init",
+              "Panlaban ito sa daga"
+            ],
+            "correct_answer": "Pinagkukunan ito ng calcium"
+          },
+          {
+            "question": "Gaano kadalas dapat palitan ang inuming tubig?",
+            "options": [
+              "Araw-araw",
+              "Isang beses sa isang linggo",
+              "Tuwing dalawang linggo",
+              "Buwan-buwan"
+            ],
+            "correct_answer": "Araw-araw"
+          },
+          {
+            "question": "Ano ang dapat gawin sa litter ng kulungan kada linggo?",
+            "options": [
+              "Palitan ito ng bago",
+              "Basain ito ng tubig",
+              "Iwanan ito nang matagal",
+              "Takpan ito ng plastik"
+            ],
+            "correct_answer": "Palitan ito ng bago"
+          },
+          {
+            "question": "Alin ang natural na disimpektante sa kulungan?",
+            "options": [
+              "Apog o suka",
+              "Sabong panlaba",
+              "Gasolina at langis",
+              "Pintura sa pader"
+            ],
+            "correct_answer": "Apog o suka"
+          },
+          {
+            "question": "Gaano kadalas dapat timbangin ang manok?",
+            "options": [
+              "Isang beses bawat linggo",
+              "Tatlong beses bawat araw",
+              "Isang beses bawat taon",
+              "Tuwing pinapakain ito"
+            ],
+            "correct_answer": "Isang beses bawat linggo"
+          },
+          {
+            "question": "Kailan mainam magbigay ng bitamina sa tubig?",
+            "options": [
+              "Kapag bagong dating ang mga sisiw",
+              "Kapag malinis ang kulungan",
+              "Kapag marami nang itlog",
+              "Kapag mahina ang ulan"
+            ],
+            "correct_answer": "Kapag bagong dating ang mga sisiw"
+          },
+          {
+            "question": "Alin ang bentahe ng natural na pag-aalaga ng poultry?",
+            "options": [
+              "Mas ligtas at masustansiya ang produkto",
+              "Mas mabilis lumaki ang manok",
+              "Mas mura ang lahat ng pagkain",
+              "Mas kaunti ang kailangang oras"
+            ],
+            "correct_answer": "Mas ligtas at masustansiya ang produkto"
+          },
+          {
+            "question": "Bakit dapat tuyo at maaliwalas ang kulungan?",
+            "options": [
+              "Pumipigil ito sa sakit at parasito",
+              "Pinapabilis nito ang pangingitlog",
+              "Pinapaganda nito ang balahibo",
+              "Pinapalakas nito ang boses"
+            ],
+            "correct_answer": "Pumipigil ito sa sakit at parasito"
+          },
+          {
+            "question": "Hindi tumataba ang iyong manok sa loob ng tatlong linggo. Ano ang PINAKAMAHUSAY na unang gawin?",
+            "options": [
+              "Suriin ang pagkain, tubig, at kalusugan nito",
+              "Bilhan agad ng bagong manok",
+              "Dagdagan ang laki ng kulungan",
+              "Hintayin ang susunod na buwan"
+            ],
+            "correct_answer": "Suriin ang pagkain, tubig, at kalusugan nito"
+          },
+          {
+            "question": "Bakit mahalaga ang pagtatala ng timbang at pagkain sa record book?",
+            "options": [
+              "Maagang natutuklasan ang problema",
+              "Nagiging mabigat ang aklat",
+              "Napapaganda ang kulungan",
+              "Nadaragdagan ang bilang ng itlog"
+            ],
+            "correct_answer": "Maagang natutuklasan ang problema"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 👁️ Friday Review — English (Grade 5)\n\n- **Layout:** headline (biggest) · subheading · caption · image · white space\n- **Tone** = creator's attitude | **Mood** = what the viewer feels\n- **Dark/shadowy** = serious · **bright/warm** = cheerful · **close-up** = personal\n- **Stereotype** = assuming a whole group is all the same (age, gender, income)\n- **Audio:** music, sound effects, narration, silence — changes meaning without changing images\n- **Ask:** purpose? whose view? what am I made to feel?\n\nStrong finish to Term 1! 🌟",
+        "quiz": [
+          {
+            "question": "Which element usually appears in the largest text?",
+            "options": [
+              "Headline",
+              "Caption",
+              "Footnote",
+              "Byline"
+            ],
+            "correct_answer": "Headline"
+          },
+          {
+            "question": "Mood in a visual text refers to:",
+            "options": [
+              "what the viewer feels",
+              "the creator's attitude",
+              "the size of the image",
+              "the printing method"
+            ],
+            "correct_answer": "what the viewer feels"
+          },
+          {
+            "question": "A stereotype assumes that:",
+            "options": [
+              "everyone in a group is the same",
+              "each person is unique",
+              "facts must be verified",
+              "images can be edited"
+            ],
+            "correct_answer": "everyone in a group is the same"
+          },
+          {
+            "question": "Which is an audio element?",
+            "options": [
+              "Sound effects",
+              "Photo caption",
+              "Page margin",
+              "Bold heading"
+            ],
+            "correct_answer": "Sound effects"
+          },
+          {
+            "question": "A wide, empty landscape shot most often creates a mood of:",
+            "options": [
+              "loneliness",
+              "excitement",
+              "comedy",
+              "anger"
+            ],
+            "correct_answer": "loneliness"
+          },
+          {
+            "question": "White space in a layout is used to:",
+            "options": [
+              "give the eye focus and rest",
+              "hide unwanted information",
+              "reduce the printing cost",
+              "fill in missing photographs"
+            ],
+            "correct_answer": "give the eye focus and rest"
+          },
+          {
+            "question": "An ad showing only elderly people as frail and forgetful uses a stereotype based on:",
+            "options": [
+              "age",
+              "gender",
+              "income",
+              "language"
+            ],
+            "correct_answer": "age"
+          },
+          {
+            "question": "Silence in a multimedia presentation is often used to:",
+            "options": [
+              "create tension or emphasis",
+              "fill unused space",
+              "hide a mistake",
+              "shorten the video"
+            ],
+            "correct_answer": "create tension or emphasis"
+          },
+          {
+            "question": "Two videos use identical footage but different music, and viewers feel opposite emotions. What does this prove?",
+            "options": [
+              "Audio strongly shapes interpretation",
+              "Images have no effect at all",
+              "Music is louder than pictures",
+              "Longer videos feel happier"
+            ],
+            "correct_answer": "Audio strongly shapes interpretation"
+          },
+          {
+            "question": "Which question BEST reveals bias in a visual text?",
+            "options": [
+              "Whose point of view is missing here?",
+              "How large is the printed page?",
+              "What paper quality was used?",
+              "How many colors appear here?"
+            ],
+            "correct_answer": "Whose point of view is missing here?"
+          },
+          {
+            "question": "A poster shows a wealthy family smiling and a poor family frowning, implying income determines happiness. This is:",
+            "options": [
+              "a socio-economic stereotype",
+              "an accurate news report",
+              "a technical design rule",
+              "a standard caption style"
+            ],
+            "correct_answer": "a socio-economic stereotype"
+          },
+          {
+            "question": "A campaign photo is cropped to remove a crowd of supporters, leaving one lone figure. What effect does this create?",
+            "options": [
+              "It makes the subject seem isolated",
+              "It shows the true crowd size",
+              "It improves the photo quality",
+              "It adds factual information"
+            ],
+            "correct_answer": "It makes the subject seem isolated"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➗ Friday Review — Mathematics (Grade 5)\n\n**Keep, Change, Flip** — keep the first, change ÷ to ×, flip the **divisor** only.\n\n| Problem | Working | Answer |\n|---|---|---|\n| `3 ÷ ½` | 3 × 2/1 | **6** |\n| `¾ ÷ ½` | ¾ × 2/1 = 6/4 | **1½** |\n| `5 ÷ ⅔` | 5 × 3/2 = 15/2 | **7½** |\n| `⅔ ÷ ⅙` | ⅔ × 6/1 = 12/3 | **4** |\n\n**Key idea:** dividing by a fraction **less than 1** gives a **bigger** answer.\n\n**Watch out:** never flip the **first** fraction.\n\nExcellent Term 1! ⭐",
+        "quiz": [
+          {
+            "question": "What is the reciprocal of 2/5?",
+            "options": [
+              "5/2",
+              "2/5",
+              "1/5",
+              "1/2"
+            ],
+            "correct_answer": "5/2"
+          },
+          {
+            "question": "What is 4 ÷ 1/2?",
+            "options": [
+              "8",
+              "2",
+              "1/8",
+              "4 1/2"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is 1/3 ÷ 1/9?",
+            "options": [
+              "3",
+              "1/27",
+              "1/3",
+              "9"
+            ],
+            "correct_answer": "3"
+          },
+          {
+            "question": "What is 6 ÷ 3/4?",
+            "options": [
+              "8",
+              "4 1/2",
+              "2",
+              "9"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is 4/5 ÷ 2/5?",
+            "options": [
+              "2",
+              "8/25",
+              "1/2",
+              "4"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "In the expression 5/6 ÷ 2/3, which fraction is flipped?",
+            "options": [
+              "2/3 only",
+              "5/6 only",
+              "Both fractions",
+              "Neither fraction"
+            ],
+            "correct_answer": "2/3 only"
+          },
+          {
+            "question": "What is 2 ÷ 1/8?",
+            "options": [
+              "16",
+              "1/4",
+              "4",
+              "1/16"
+            ],
+            "correct_answer": "16"
+          },
+          {
+            "question": "What is 3/5 ÷ 3/10?",
+            "options": [
+              "2",
+              "9/50",
+              "1/2",
+              "6"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "Why does dividing by 1/4 make a number larger?",
+            "options": [
+              "Many quarters fit inside the number",
+              "Division always increases values",
+              "Fractions are added, not divided",
+              "The answer is always rounded up"
+            ],
+            "correct_answer": "Many quarters fit inside the number"
+          },
+          {
+            "question": "A 3-meter rope is cut into pieces of 3/8 meter. How many pieces?",
+            "options": [
+              "8",
+              "6",
+              "9",
+              "12"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "A recipe needs 2/3 cup of flour per batch. How many batches from 4 cups?",
+            "options": [
+              "6",
+              "8",
+              "2 2/3",
+              "5 1/3"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "A student computes 5 ÷ 1/2 = 2 1/2. What error did they make?",
+            "options": [
+              "They multiplied by 1/2 instead of flipping it",
+              "They flipped the first number instead",
+              "They added the two numbers together",
+              "They simplified the fraction too early"
+            ],
+            "correct_answer": "They multiplied by 1/2 instead of flipping it"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📺 Biyernes na Balik-Aral — Filipino (Grade 5)\n\n- **Panonood** = aktibong pagsusuri ng biswal na teksto\n- **Bar graph** = paghahambing | **Line graph** = pagbabago sa panahon | **Pie chart** = bahagi ng kabuuan\n- **Imprastrakturang biswal** = mapa, dayagram, palatandaan\n- **Mapanlinlang:** putol na y-axis, piling larawan, clickbait\n- **Tanong:** Sino ang gumawa? Bakit? Ano ang nawawala?\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Aling grap ang pinakamahusay sa paghahambing ng dami?",
+            "options": [
+              "Bar graph",
+              "Line graph",
+              "Pie chart",
+              "Mapa"
+            ],
+            "correct_answer": "Bar graph"
+          },
+          {
+            "question": "Ano ang unang dapat basahin sa isang grap?",
+            "options": [
+              "Ang pamagat nito",
+              "Ang pinakamataas na bar",
+              "Ang kulay ng linya",
+              "Ang laki ng papel"
+            ],
+            "correct_answer": "Ang pamagat nito"
+          },
+          {
+            "question": "Ang mapa at palatandaan ay halimbawa ng:",
+            "options": [
+              "imprastrakturang biswal",
+              "pasalitang tradisyon",
+              "tekstong pampanitikan",
+              "awiting bayan"
+            ],
+            "correct_answer": "imprastrakturang biswal"
+          },
+          {
+            "question": "Ano ang panganib ng putol na y-axis sa grap?",
+            "options": [
+              "Lumilitaw na malaki ang maliit na pagkakaiba",
+              "Nawawala ang lahat ng datos",
+              "Nagiging maliit ang buong grap",
+              "Nagbabago ang kulay ng bar"
+            ],
+            "correct_answer": "Lumilitaw na malaki ang maliit na pagkakaiba"
+          },
+          {
+            "question": "Ang pie chart ay pinakamabuting gamitin upang ipakita ang:",
+            "options": [
+              "bahagi ng kabuuan",
+              "pagbabago sa panahon",
+              "lokasyon ng lugar",
+              "hakbang ng proseso"
+            ],
+            "correct_answer": "bahagi ng kabuuan"
+          },
+          {
+            "question": "Ano ang infographic?",
+            "options": [
+              "Pinagsamang larawan, teksto, at datos",
+              "Mahabang tekstong walang larawan",
+              "Listahan ng mga pangalan lamang",
+              "Awiting may saliw ng gitara"
+            ],
+            "correct_answer": "Pinagsamang larawan, teksto, at datos"
+          },
+          {
+            "question": "Bakit mahalagang itanong kung sino ang gumawa ng biswal?",
+            "options": [
+              "Maaaring may sariling layunin siya",
+              "Mas maganda ang kilalang gumawa",
+              "Mas mahal ang gawa ng sikat",
+              "Mas mabilis itong mabasa"
+            ],
+            "correct_answer": "Maaaring may sariling layunin siya"
+          },
+          {
+            "question": "Ang clickbait ay:",
+            "options": [
+              "pamagat na di-tugma sa nilalaman",
+              "uri ng tsart na may kulay",
+              "paraan ng tamang pagsusuri",
+              "bahagi ng isang mapa"
+            ],
+            "correct_answer": "pamagat na di-tugma sa nilalaman"
+          },
+          {
+            "question": "Sa pagsusuri ng larawan, ano ang mahalagang tanungin bukod sa nakikita?",
+            "options": [
+              "Ano ang hindi ipinapakita",
+              "Gaano kalaki ang larawan",
+              "Sino ang unang nakakita",
+              "Kailan ito ipinrint"
+            ],
+            "correct_answer": "Ano ang hindi ipinapakita"
+          },
+          {
+            "question": "May grap sa patalastas na nagpapakitang pinakamabisa ang kanilang produkto. Ano ang dapat mong suriin?",
+            "options": [
+              "Kung sino ang nagpagawa ng grap",
+              "Kung maganda ang kulay nito",
+              "Kung malaki ang mga titik",
+              "Kung sikat ang produkto"
+            ],
+            "correct_answer": "Kung sino ang nagpagawa ng grap"
+          },
+          {
+            "question": "Alin ang nagpapakita ng mapanuring panonood?",
+            "options": [
+              "Pagtatanong sa layunin at pinagmulan",
+              "Agad na paniniwala sa nakita",
+              "Pag-share nito sa lahat agad",
+              "Pagtingin sa kulay lamang"
+            ],
+            "correct_answer": "Pagtatanong sa layunin at pinagmulan"
+          },
+          {
+            "question": "Isang video ang nagpapakita lamang ng magagandang bahagi ng isang lugar. Ano ang malamang na layunin nito?",
+            "options": [
+              "Hikayatin ang mga turista",
+              "Ipakita ang buong katotohanan",
+              "Turuan ang mga mag-aaral",
+              "Ipagbigay-alam ang panganib"
+            ],
+            "correct_answer": "Hikayatin ang mga turista"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌿 Friday Review — Science (Grade 5)\n\n**Three groups:** **Plants** (make own food) · **Animals** (must consume) · **Microorganisms** (need a microscope)\n\n| Structure | Purpose | Examples |\n|---|---|---|\n| **Tuber** | storage | potato, kamote |\n| **Bulb** | storage | onion, garlic |\n| **Rhizome** | storage | ginger, turmeric |\n| **Thorns** | protection | rose, cactus |\n| **Tendrils** | support/climbing | ampalaya, patola |\n| **Aerial roots** | support/anchoring | balete, mangrove |\n\n**Survival link:** storage → survives **drought** · thorns → survives **being eaten** · tendrils/aerial roots → survives **wind** and reaches **light**\n\nGreat scientist work! 🔎",
+        "quiz": [
+          {
+            "question": "Which group must consume food rather than make it?",
+            "options": [
+              "Animals",
+              "Plants",
+              "Algae",
+              "Mosses"
+            ],
+            "correct_answer": "Animals"
+          },
+          {
+            "question": "Garlic stores its food in a:",
+            "options": [
+              "bulb",
+              "tuber",
+              "rhizome",
+              "tendril"
+            ],
+            "correct_answer": "bulb"
+          },
+          {
+            "question": "Turmeric and ginger grow from a:",
+            "options": [
+              "rhizome",
+              "bulb",
+              "tuber",
+              "thorn"
+            ],
+            "correct_answer": "rhizome"
+          },
+          {
+            "question": "Thorns on a cactus mainly provide:",
+            "options": [
+              "protection",
+              "storage",
+              "climbing",
+              "flowering"
+            ],
+            "correct_answer": "protection"
+          },
+          {
+            "question": "A patola vine grips a trellis using its:",
+            "options": [
+              "tendrils",
+              "thorns",
+              "bulbs",
+              "tubers"
+            ],
+            "correct_answer": "tendrils"
+          },
+          {
+            "question": "Which microorganism turns milk into yogurt?",
+            "options": [
+              "Bacteria",
+              "Amoeba",
+              "Virus",
+              "Fern"
+            ],
+            "correct_answer": "Bacteria"
+          },
+          {
+            "question": "A balete tree's roots growing above the ground are called:",
+            "options": [
+              "aerial roots",
+              "tap roots",
+              "tuber roots",
+              "bulb roots"
+            ],
+            "correct_answer": "aerial roots"
+          },
+          {
+            "question": "Plants make their own food through:",
+            "options": [
+              "photosynthesis",
+              "digestion",
+              "respiration",
+              "germination"
+            ],
+            "correct_answer": "photosynthesis"
+          },
+          {
+            "question": "How does a bulb help an onion plant survive a dry season?",
+            "options": [
+              "It stores food underground until rain returns",
+              "It grows sharp spines against animals",
+              "It climbs upward to reach more light",
+              "It anchors the plant against strong wind"
+            ],
+            "correct_answer": "It stores food underground until rain returns"
+          },
+          {
+            "question": "Which statement about microorganisms is TRUE?",
+            "options": [
+              "Some are helpful and some are harmful",
+              "All of them cause serious disease",
+              "None of them can be useful",
+              "All of them are visible to us"
+            ],
+            "correct_answer": "Some are helpful and some are harmful"
+          },
+          {
+            "question": "A vine has a weak stem yet reaches the top of a tall fence. Which structure explains this BEST?",
+            "options": [
+              "Tendrils that grip and climb",
+              "Tubers that store starch",
+              "Thorns that deter animals",
+              "Bulbs that hold water"
+            ],
+            "correct_answer": "Tendrils that grip and climb"
+          },
+          {
+            "question": "A plant in a windy coastal area has wide roots above the mud and no thorns. What does this suggest is its biggest challenge?",
+            "options": [
+              "Staying anchored, not being eaten",
+              "Being eaten, not staying upright",
+              "Finding food, not finding light",
+              "Storing water, not gaining support"
+            ],
+            "correct_answer": "Staying anchored, not being eaten"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 👩 Biyernes na Balik-Aral — Araling Panlipunan (Grade 5)\n\n- **Babaylan (katalonan)** — karaniwang babae; pinuno-relihiyoso, manggagamot, tagapayo ng datu\n- **Datu** = pinuno sa pulitika | **Babaylan** = pinuno sa espirituwal\n- **Karapatan ng sinaunang babae:** magmay-ari ng lupa, magmana nang pantay, mangalakal, panatilihin ang pangalan\n- **Kalinangan** = kabuuan ng paraan ng pamumuhay, **ipinapasa sa salinlahi**\n- Bumaba ang katayuan ng babaylan sa panahon ng **kolonyalismong Espanyol**\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ang babaylan ay karaniwang:",
+            "options": [
+              "babae",
+              "lalaki",
+              "bata",
+              "dayuhan"
+            ],
+            "correct_answer": "babae"
+          },
+          {
+            "question": "Sino ang pinuno sa espirituwal na aspeto ng barangay?",
+            "options": [
+              "Babaylan",
+              "Datu",
+              "Timawa",
+              "Maharlika"
+            ],
+            "correct_answer": "Babaylan"
+          },
+          {
+            "question": "Alin ang karapatan ng sinaunang babaeng Pilipino?",
+            "options": [
+              "Magmana nang pantay sa lalaki",
+              "Mamuno sa lahat ng labanan",
+              "Magtakda ng parusa sa alipin",
+              "Pumili ng bagong datu"
+            ],
+            "correct_answer": "Magmana nang pantay sa lalaki"
+          },
+          {
+            "question": "Ano ang kalinangan?",
+            "options": [
+              "Kabuuang paraan ng pamumuhay ng grupo",
+              "Ang lawak ng lupain nila",
+              "Ang bilang ng kanilang bahay",
+              "Ang uri ng kanilang panahon"
+            ],
+            "correct_answer": "Kabuuang paraan ng pamumuhay ng grupo"
+          },
+          {
+            "question": "Bukod sa ritwal, ano pa ang tungkulin ng babaylan?",
+            "options": [
+              "Manggagamot ng may sakit",
+              "Tagakolekta ng buwis",
+              "Tagagawa ng sandata",
+              "Tagapagbantay ng pinto"
+            ],
+            "correct_answer": "Manggagamot ng may sakit"
+          },
+          {
+            "question": "Alin ang bahagi ng kalinangan?",
+            "options": [
+              "Wika at paniniwala",
+              "Taas at timbang",
+              "Bilang ng ulan",
+              "Layo ng lugar"
+            ],
+            "correct_answer": "Wika at paniniwala"
+          },
+          {
+            "question": "Paano naipapasa ang kalinangan noong sinaunang panahon?",
+            "options": [
+              "Sa pasalitang tradisyon at pagsasanay",
+              "Sa pagbili ng mga aklat",
+              "Sa pagpapadala ng sulat",
+              "Sa paglalakbay sa ibang bansa"
+            ],
+            "correct_answer": "Sa pasalitang tradisyon at pagsasanay"
+          },
+          {
+            "question": "Ano ang nangyari sa babaylan sa panahon ng mga Espanyol?",
+            "options": [
+              "Bumaba ang kaniyang katayuan",
+              "Tumaas ang kaniyang antas",
+              "Naging datu siya",
+              "Nanatiling pareho ang lahat"
+            ],
+            "correct_answer": "Bumaba ang kaniyang katayuan"
+          },
+          {
+            "question": "Ang epiko at alamat ay naipapasa sa pamamagitan ng:",
+            "options": [
+              "pag-awit at pagsasalaysay",
+              "pagsulat sa papel",
+              "pagguhit sa pader",
+              "pag-uukit sa bato"
+            ],
+            "correct_answer": "pag-awit at pagsasalaysay"
+          },
+          {
+            "question": "Ano ang ipinapakita ng karapatang panatilihin ng babae ang sariling pangalan matapos ikasal?",
+            "options": [
+              "May sariling pagkakakilanlan siya",
+              "Wala siyang asawa noon",
+              "Hindi siya kilala ng iba",
+              "Bawal siyang magpakasal"
+            ],
+            "correct_answer": "May sariling pagkakakilanlan siya"
+          },
+          {
+            "question": "Bakit sinasabing magkatuwang ang datu at babaylan?",
+            "options": [
+              "Magkaiba ang larangan ng kanilang pamumuno",
+              "Magkapatid sila sa dugo",
+              "Iisa lamang ang kanilang gawain",
+              "Pareho silang mandirigma"
+            ],
+            "correct_answer": "Magkaiba ang larangan ng kanilang pamumuno"
+          },
+          {
+            "question": "Ang mataas na katayuan ng sinaunang babaeng Pilipino kumpara sa ibang lipunan noon ay nagpapakita na:",
+            "options": [
+              "may sariling pagpapahalaga ang ating kalinangan",
+              "kopya lamang ito ng kaugalian ng ibang bansa",
+              "walang anumang pinuno ang sinaunang barangay",
+              "wala silang sinusunod na anumang kaugalian"
+            ],
+            "correct_answer": "may sariling pagpapahalaga ang ating kalinangan"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 📧 Friday Review — EPP (ICT) (Grade 5)\n\n- **To** (main) · **Cc** (visible copy) · **Bcc** (hidden copy) · **Subject** · **Body** · **Attachment**\n- **Address:** username **@** domain\n- **Etiquette:** clear subject · no ALL CAPS · no needless Reply All\n- **Phishing signs:** urgency, password requests, misspelled sender, \"Dear User\", prizes you never entered\n- **Golden rule:** a real company **never** asks for your password by email\n- **Safety:** strong password, log out on shared computers, tell a trusted adult\n\nGreat ICT work! 💻",
+        "quiz": [
+          {
+            "question": "Which field sends a copy without revealing addresses to others?",
+            "options": [
+              "Bcc",
+              "Cc",
+              "To",
+              "Reply"
+            ],
+            "correct_answer": "Bcc"
+          },
+          {
+            "question": "In an email address, what comes after the @ symbol?",
+            "options": [
+              "The domain",
+              "The username",
+              "The subject",
+              "The password"
+            ],
+            "correct_answer": "The domain"
+          },
+          {
+            "question": "Which is a sign of a phishing email?",
+            "options": [
+              "It asks for your password urgently",
+              "It has a clear, honest subject",
+              "It comes from a known teacher",
+              "It contains no links at all"
+            ],
+            "correct_answer": "It asks for your password urgently"
+          },
+          {
+            "question": "Writing an email in ALL CAPITALS suggests you are:",
+            "options": [
+              "shouting",
+              "whispering",
+              "joking",
+              "apologizing"
+            ],
+            "correct_answer": "shouting"
+          },
+          {
+            "question": "What should a good subject line do?",
+            "options": [
+              "Briefly state the email's topic",
+              "List everyone receiving it",
+              "Contain the whole message",
+              "Include your full address"
+            ],
+            "correct_answer": "Briefly state the email's topic"
+          },
+          {
+            "question": "A legitimate company will never email you asking for your:",
+            "options": [
+              "password",
+              "first name",
+              "grade level",
+              "school name"
+            ],
+            "correct_answer": "password"
+          },
+          {
+            "question": "An email greets you as 'Dear User' and threatens account closure. This is likely:",
+            "options": [
+              "phishing",
+              "a newsletter",
+              "a school notice",
+              "a friend's reply"
+            ],
+            "correct_answer": "phishing"
+          },
+          {
+            "question": "After attaching a file, what should you confirm before sending?",
+            "options": [
+              "The file name appears in the email",
+              "The font size is large enough",
+              "The subject is in capitals",
+              "The message is very long"
+            ],
+            "correct_answer": "The file name appears in the email"
+          },
+          {
+            "question": "Which makes the strongest password?",
+            "options": [
+              "A long mix of different characters",
+              "Your birthday in numbers",
+              "The word password repeated",
+              "Your first name and age"
+            ],
+            "correct_answer": "A long mix of different characters"
+          },
+          {
+            "question": "Why should you log out on a school computer?",
+            "options": [
+              "So others cannot access your account",
+              "So the computer runs faster",
+              "So the screen stays brighter",
+              "So your email loads quicker"
+            ],
+            "correct_answer": "So others cannot access your account"
+          },
+          {
+            "question": "You receive an unexpected attachment from an unknown sender. What is safest?",
+            "options": [
+              "Do not open it and tell an adult",
+              "Open it to see what it is",
+              "Forward it to your classmates",
+              "Reply asking who they are"
+            ],
+            "correct_answer": "Do not open it and tell an adult"
+          },
+          {
+            "question": "One classmate emails a question to 30 people using Reply All for a private answer. Why is this poor etiquette?",
+            "options": [
+              "It fills 29 inboxes needlessly",
+              "It deletes the original message",
+              "It changes the subject line",
+              "It removes all attachments"
+            ],
+            "correct_answer": "It fills 29 inboxes needlessly"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 💚 Biyernes na Balik-Aral — MAPEH (Grade 5)\n\n**HEALTH**\n- **Stress** = natural na tugon; pamahalaan sa **malusog** na paraan (paghinga, ehersisyo, tulog, pakikipag-usap)\n- **Passive · Aggressive · ASSERTIVE ✅** — assertive ang pinakamabuti\n- **Bullying:** manatiling kalmado → assertive → umalis → **isumbong sa nakatatanda**\n- Ang paghingi ng tulong ay **katapangan**, hindi kahinaan\n\n**PE**\n- **Striking/Fielding:** kickball, syato — tirahin ang **open space**\n- **Net/Wall:** pickleball, wall ball, ringo — bumalik sa **ready position**\n- **Fitness:** agility · balance · coordination · speed\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Alin ang malusog na paraan ng pagharap sa stress?",
+            "options": [
+              "Pakikipag-usap sa mapagkakatiwalaan",
+              "Pagtatago ng lahat ng damdamin",
+              "Paglayo sa lahat ng tao",
+              "Pananakit sa mga kaklase"
+            ],
+            "correct_answer": "Pakikipag-usap sa mapagkakatiwalaan"
+          },
+          {
+            "question": "Ang tumahimik na lamang sa halip na magsalita ay tugong:",
+            "options": [
+              "passive",
+              "assertive",
+              "aggressive",
+              "aktibo"
+            ],
+            "correct_answer": "passive"
+          },
+          {
+            "question": "Alin ang assertive na pagtugon?",
+            "options": [
+              "Hindi ko gusto iyon. Pakitigil.",
+              "Wala akong pakialam sa iyo.",
+              "Tanga ka ba talaga?",
+              "Tahimik na aalis na lang."
+            ],
+            "correct_answer": "Hindi ko gusto iyon. Pakitigil."
+          },
+          {
+            "question": "Ilang oras ng tulog ang mainam sa iyong edad?",
+            "options": [
+              "9 hanggang 11 oras",
+              "4 hanggang 5 oras",
+              "13 hanggang 15 oras",
+              "2 hanggang 3 oras"
+            ],
+            "correct_answer": "9 hanggang 11 oras"
+          },
+          {
+            "question": "Ano ang cyberbullying?",
+            "options": [
+              "Pananakit gamit ang teknolohiya",
+              "Laro sa computer laboratory",
+              "Pagsusulat ng email sa guro",
+              "Pag-aaral gamit ang internet"
+            ],
+            "correct_answer": "Pananakit gamit ang teknolohiya"
+          },
+          {
+            "question": "Alin ang striking/fielding game?",
+            "options": [
+              "Kickball",
+              "Pickleball",
+              "Wall ball",
+              "Ringo"
+            ],
+            "correct_answer": "Kickball"
+          },
+          {
+            "question": "Sa net games, saan mabuting tirahin ang bola?",
+            "options": [
+              "Sa open area na malayo sa kalaban",
+              "Sa direksiyon mismo ng kalaban",
+              "Sa labas ng buong court",
+              "Sa ilalim ng net palagi"
+            ],
+            "correct_answer": "Sa open area na malayo sa kalaban"
+          },
+          {
+            "question": "Ano ang ready position sa net games?",
+            "options": [
+              "Pagbalik sa gitna ng court",
+              "Pananatili sa isang gilid",
+              "Pagtayo malapit sa net",
+              "Pag-upo sa likod ng court"
+            ],
+            "correct_answer": "Pagbalik sa gitna ng court"
+          },
+          {
+            "question": "Ang mood swings sa panahon ng paglaki ay:",
+            "options": [
+              "normal na bahagi ng pagbibinata o pagdadalaga",
+              "tanda ng malubhang karamdaman",
+              "dahilan upang lumayo sa pamilya",
+              "senyales ng masamang ugali"
+            ],
+            "correct_answer": "normal na bahagi ng pagbibinata o pagdadalaga"
+          },
+          {
+            "question": "Nakikita mong binu-bully ang kaklase mo. Ano ang PINAKAMABUTING gawin bilang bystander?",
+            "options": [
+              "Isumbong sa guro at samahan siya",
+              "Manood lamang nang tahimik",
+              "Tumawa kasama ng mga bully",
+              "Umalis at huwag pansinin"
+            ],
+            "correct_answer": "Isumbong sa guro at samahan siya"
+          },
+          {
+            "question": "Bakit mahalaga ang malalim na paghinga kapag na-stress?",
+            "options": [
+              "Nakatutulong itong pakalmahin ang katawan",
+              "Nakadaragdag ito ng puntos sa laro",
+              "Nakapagpapataas ito ng timbang",
+              "Nakapagpapabilis ito ng oras"
+            ],
+            "correct_answer": "Nakatutulong itong pakalmahin ang katawan"
+          },
+          {
+            "question": "Sa kickball, palaging nasasalo ng fielder ang sipa mo. Alin ang PINAKAMABUTING pagbabago?",
+            "options": [
+              "Ipadala ang bola sa bakanteng espasyo",
+              "Sipain ito nang mas malakas palagi",
+              "Tumakbo bago pa sipain ito",
+              "Hintayin ang mas madaling bola"
+            ],
+            "correct_answer": "Ipadala ang bola sa bakanteng espasyo"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🚦 Biyernes na Balik-Aral — GMRC (Grade 5)\n\n- **Batas trapiko** = makatarungang batas na nagpoprotekta sa **kabutihang panlahat**\n- **Pedestrian:** tamang tawiran · tumingin sa kaliwa-kanan-kaliwa · bangketa · ibaba ang cellphone\n- **Ilaw:** pula = huminto | dilaw = maghanda | berde = umandar\n- **Sasakyan:** seatbelt palagi · helmet sa motor at bisikleta · bata sa likurang upuan\n- **Ang tunay na pagsunod ay ginagawa kahit walang nakamasid**\n\nMabuting mamamayan ka! 💫",
+        "quiz": [
+          {
+            "question": "Saan ligtas tumawid ang pedestrian?",
+            "options": [
+              "Sa pedestrian lane",
+              "Sa gitna ng kalsada",
+              "Sa likod ng trak",
+              "Kahit saan basta bilis"
+            ],
+            "correct_answer": "Sa pedestrian lane"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng pulang ilaw para sa sasakyan?",
+            "options": [
+              "Huminto",
+              "Umandar",
+              "Bumagal",
+              "Umatras"
+            ],
+            "correct_answer": "Huminto"
+          },
+          {
+            "question": "Kailan dapat magsuot ng helmet?",
+            "options": [
+              "Sa motorsiklo at bisikleta",
+              "Sa loob ng sasakyan lamang",
+              "Kapag umuulan lamang",
+              "Kapag may pulis sa daan"
+            ],
+            "correct_answer": "Sa motorsiklo at bisikleta"
+          },
+          {
+            "question": "Ano ang dapat gawin bago tumawid sa kalsada?",
+            "options": [
+              "Tumingin sa kaliwa, kanan, at kaliwa",
+              "Tumakbo nang napakabilis",
+              "Sumunod sa unang tao",
+              "Tumingin sa cellphone"
+            ],
+            "correct_answer": "Tumingin sa kaliwa, kanan, at kaliwa"
+          },
+          {
+            "question": "Saan dapat umupo ang maliliit na bata sa sasakyan?",
+            "options": [
+              "Sa likurang upuan",
+              "Sa harapang upuan",
+              "Sa kandungan ng driver",
+              "Sa likod ng sasakyan"
+            ],
+            "correct_answer": "Sa likurang upuan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng karatulang School Crossing?",
+            "options": [
+              "Bagalan, may mga bata",
+              "Bawal ang sasakyan dito",
+              "Paradahan ng bus",
+              "Dulo ng kalsada"
+            ],
+            "correct_answer": "Bagalan, may mga bata"
+          },
+          {
+            "question": "Bakit dapat isuot ang seatbelt kahit sa maikling biyahe?",
+            "options": [
+              "Maaaring mangyari ang aksidente kahit kailan",
+              "Kinakailangan lamang ito sa highway",
+              "Nakikita ito ng mga pulis",
+              "Napapabilis nito ang biyahe"
+            ],
+            "correct_answer": "Maaaring mangyari ang aksidente kahit kailan"
+          },
+          {
+            "question": "Kung walang bangketa, paano dapat maglakad?",
+            "options": [
+              "Nakaharap sa paparating na sasakyan",
+              "Nakatalikod sa sasakyan",
+              "Sa gitna ng kalsada",
+              "Sa likod ng bus"
+            ],
+            "correct_answer": "Nakaharap sa paparating na sasakyan"
+          },
+          {
+            "question": "Ang pagsunod sa batas trapiko ay nagpapakita ng paggalang sa:",
+            "options": [
+              "buhay ng sarili at ng iba",
+              "kapangyarihan ng pulis",
+              "presyo ng gasolina",
+              "bilis ng sasakyan"
+            ],
+            "correct_answer": "buhay ng sarili at ng iba"
+          },
+          {
+            "question": "Walang nakatingin at walang sasakyan, ngunit tumawid ka pa rin sa tamang tawiran. Ano ang ipinapakita nito?",
+            "options": [
+              "Tunay na disiplina at pagsunod",
+              "Takot sa mabigat na multa",
+              "Kawalan ng ibang pagpipilian",
+              "Pagsunod sa uso ngayon"
+            ],
+            "correct_answer": "Tunay na disiplina at pagsunod"
+          },
+          {
+            "question": "Nagmamadali kang pumasok at malayo ang overpass. Ano ang tama?",
+            "options": [
+              "Gamitin pa rin ang overpass",
+              "Tumawid sa gitna ng kalsada",
+              "Tumakbo sa pagitan ng sasakyan",
+              "Sumunod sa ibang jaywalker"
+            ],
+            "correct_answer": "Gamitin pa rin ang overpass"
+          },
+          {
+            "question": "Bakit tinatawag na makatarungan ang mga batas trapiko?",
+            "options": [
+              "Pinoprotektahan nito ang kabutihang panlahat",
+              "Ginawa ito ng mga mayayamang tao lamang",
+              "Pinapabilis nito ang biyahe ng lahat",
+              "Pinipili nito kung sino ang susunod"
+            ],
+            "correct_answer": "Pinoprotektahan nito ang kabutihang panlahat"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐔 Biyernes na Balik-Aral — EPP (AFA/FCS/IA) (Grade 5)\n\n- **Poultry** = manok, pato, gansa, pugo (karne at itlog)\n- **Pagpapakain:** 2× araw-araw — butil, berdeng dahon, insekto, durog na kabibe (**calcium**)\n- **Tubig:** malinis, palitan **araw-araw**\n- **Paglilinis:** dumi araw-araw · litter kada linggo · disimpektahin (apog o suka)\n- **Bitamina:** kapag bagong dating, matinding init, o pagkatapos magbakuna\n- **Pagtitimbang:** **lingguhan**, itala sa record book — maagang natutuklasan ang problema\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Alin ang kabilang sa poultry?",
+            "options": [
+              "Manok at pato",
+              "Baboy at baka",
+              "Tilapia at hito",
+              "Aso at pusa"
+            ],
+            "correct_answer": "Manok at pato"
+          },
+          {
+            "question": "Bakit binibigyan ng durog na kabibe ang manok?",
+            "options": [
+              "Pinagkukunan ng calcium",
+              "Panlinis ng kanilang tiyan",
+              "Pampalamig sa tag-init",
+              "Pampatibay ng kulungan"
+            ],
+            "correct_answer": "Pinagkukunan ng calcium"
+          },
+          {
+            "question": "Gaano kadalas dapat timbangin ang manok?",
+            "options": [
+              "Lingguhan",
+              "Araw-araw",
+              "Buwanan",
+              "Taunan"
+            ],
+            "correct_answer": "Lingguhan"
+          },
+          {
+            "question": "Gaano kadalas dapat palitan ang inuming tubig?",
+            "options": [
+              "Araw-araw",
+              "Lingguhan",
+              "Buwanan",
+              "Kapag naubos"
+            ],
+            "correct_answer": "Araw-araw"
+          },
+          {
+            "question": "Alin ang natural na disimpektante para sa kulungan?",
+            "options": [
+              "Apog o suka",
+              "Gasolina at langis",
+              "Sabong panlaba",
+              "Pintura sa dingding"
+            ],
+            "correct_answer": "Apog o suka"
+          },
+          {
+            "question": "Bakit mahalagang tuyo ang kulungan?",
+            "options": [
+              "Pumipigil ito sa sakit at parasito",
+              "Pinapabilis nito ang pangingitlog",
+              "Pinapaganda nito ang balahibo",
+              "Pinapalakas nito ang tunog"
+            ],
+            "correct_answer": "Pumipigil ito sa sakit at parasito"
+          },
+          {
+            "question": "Kailan mainam na magbigay ng bitamina sa tubig?",
+            "options": [
+              "Pagkatapos ng pagbabakuna",
+              "Kapag malinis ang kulungan",
+              "Kapag marami nang itlog",
+              "Kapag malamig ang gabi"
+            ],
+            "correct_answer": "Pagkatapos ng pagbabakuna"
+          },
+          {
+            "question": "Alin ang natural na pagkain para sa manok?",
+            "options": [
+              "Mais at darak",
+              "Kendi at tsokolate",
+              "Plastik at papel",
+              "Bato at buhangin"
+            ],
+            "correct_answer": "Mais at darak"
+          },
+          {
+            "question": "Ano ang bentahe ng natural na pag-aalaga?",
+            "options": [
+              "Mas ligtas at mataas ang halaga sa pamilihan",
+              "Mas mabilis lumaki ang manok",
+              "Mas kaunti ang kailangang pagkain",
+              "Mas maliit ang kailangang lugar"
+            ],
+            "correct_answer": "Mas ligtas at mataas ang halaga sa pamilihan"
+          },
+          {
+            "question": "Ano ang dapat itala sa record book ng pag-aalaga?",
+            "options": [
+              "Petsa, timbang, pagkain, at bilang ng itlog",
+              "Pangalan at edad ng bawat isang manok",
+              "Kulay at haba ng kanilang balahibo",
+              "Presyo ng kulungan at kagamitan"
+            ],
+            "correct_answer": "Petsa, timbang, pagkain, at bilang ng itlog"
+          },
+          {
+            "question": "Bumaba ang timbang ng manok mo sa dalawang sunod na linggo. Ano ang MALAMANG na dahilan?",
+            "options": [
+              "May sakit o kulang sa pagkain",
+              "Masyadong malinis ang kulungan",
+              "Sobra ang bitaminang ibinigay",
+              "Bago pa lamang ang timbangan"
+            ],
+            "correct_answer": "May sakit o kulang sa pagkain"
+          },
+          {
+            "question": "Bakit dapat timbangin sa parehong araw at oras kada linggo?",
+            "options": [
+              "Upang tumpak ang paghahambing ng datos",
+              "Upang mas mabilis matapos",
+              "Upang hindi mainis ang manok",
+              "Upang matipid ang paggamit"
+            ],
+            "correct_answer": "Upang tumpak ang paghahambing ng datos"
+          }
+        ]
+      }
+    }
+  }
+}

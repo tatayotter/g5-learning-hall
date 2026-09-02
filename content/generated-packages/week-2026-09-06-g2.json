@@ -1,0 +1,254 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-09-06",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📖 English — Polite Words & Retelling Stories\n\nLast week of the term, Grade 2! You already know so much. Let's put it together. 💪\n\n## 🌟 Polite Expressions\nWe use **polite words** to show respect.\n- **\"Good morning\"** — before lunch time\n- **\"Good afternoon\"** — after lunch time\n- **\"Thank you\"** — when someone helps or gives you something\n- **\"Excuse me\"** — when you need to pass by or interrupt\n- **\"I'm sorry\"** — when you make a mistake\n\n**Example 1:** Teacher hands you a worksheet. You say: *\"Thank you, Ma'am.\"*\n\n**Example 2:** You need to walk past your classmate's chair. You say: *\"Excuse me.\"*\n\n## 🔁 Retelling a Story\n**Retelling** means telling a story **in your own words** — not copying it word for word.\n\nUse **time-order words** to keep events in the right order:\n> **First** → **Next** → **Then** → **Last**\n\n**Example:** *First, the tortoise and the hare started the race. Next, the hare ran far ahead. Then, the hare took a nap. Last, the tortoise won!*\n\n## ✂️ Making a Summary\nA **summary** is **short**. It keeps only the most important parts.\n\n- ❌ Too long: telling every single thing that happened\n- ✅ Just right: *\"A slow tortoise beat a fast hare because the hare napped.\"*\n\n## 📚 Kinds of Stories\n- **Fable** — animals act like people and teach a **lesson**\n- **Legend** — explains how something began\n- **Myth** — very old story about gods or heroes\n\nYou've got this! 🌈",
+        "quiz": [
+          { "question": "Which greeting do you use before lunch time?", "options": ["Good morning", "Good evening", "Good night", "See you later"], "correct_answer": "Good morning" },
+          { "question": "Your teacher gives you a new notebook. What is the polite thing to say?", "options": ["Thank you.", "Excuse me.", "Good night.", "Come here."], "correct_answer": "Thank you." },
+          { "question": "You need to walk past your classmate's chair. What do you say?", "options": ["Excuse me.", "Thank you.", "Good morning.", "Please sit."], "correct_answer": "Excuse me." },
+          { "question": "What does it mean to retell a story?", "options": ["Tell it in your own words", "Copy every sentence", "Read it again slowly", "Draw the story cover"], "correct_answer": "Tell it in your own words" },
+          { "question": "Which time-order word tells what happened at the very start?", "options": ["First", "Last", "Then", "Next"], "correct_answer": "First" },
+          { "question": "First, next, then, ____. Which word completes the order?", "options": ["Last", "Very", "Some", "More"], "correct_answer": "Last" },
+          { "question": "A fable is a story where animals act like people and teach a ____.", "options": ["lesson", "recipe", "song", "map"], "correct_answer": "lesson" },
+          { "question": "A good summary of a story should be:", "options": ["short and clear", "longer than the story", "a list of names", "a colored drawing"], "correct_answer": "short and clear" },
+          { "question": "\"Nanay cooked rice. Then we ate together.\" Which word shows the order of events?", "options": ["Then", "rice", "cooked", "together"], "correct_answer": "Then" },
+          { "question": "You accidentally bump into a classmate. What should you say?", "options": ["I'm sorry.", "Thank you.", "Good day.", "Come here."], "correct_answer": "I'm sorry." },
+          { "question": "A story tells about a boy who shared his lunch with a hungry friend. What lesson does it teach?", "options": ["Sharing helps others", "Lunch tastes good", "Boys get hungry", "School is far away"], "correct_answer": "Sharing helps others" },
+          { "question": "Which sentence best summarizes 'The Tortoise and the Hare'?", "options": ["A slow tortoise won because the hare napped.", "A hare ran very fast one sunny day.", "A tortoise walked slowly to the market.", "Two animals ate their lunch together."], "correct_answer": "A slow tortoise won because the hare napped." }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Comparing Money & Adding to ₱1000\n\nLet's finish the term strong, Grade 2! 💰\n\n## 💵 Philippine Money\n**Coins:** ₱1, ₱5, ₱10, ₱20\n**Bills:** ₱20, ₱50, ₱100, ₱200, ₱500, ₱1000\n\n## ⚖️ Comparing Money Values\nUse **>** (greater than), **<** (less than), and **=** (equal).\n\n**Example 1:** Compare ₱50 and ₱20.\n- 50 is bigger than 20\n- So: **₱50 > ₱20**\n\n**Example 2:** Compare two ₱20 bills and one ₱50 bill.\n- Step 1: Two ₱20 bills = 20 + 20 = **₱40**\n- Step 2: Compare ₱40 and ₱50\n- Step 3: **₱40 < ₱50**\n\n## ➕ Adding Money (sums up to ₱1000)\nLine up the numbers and add. **Regroup** when a column goes past 9.\n\n**Example: ₱345 + ₱276**\n```\n  345\n+ 276\n-----\n```\n- Step 1: Ones — 5 + 6 = 11. Write **1**, carry **1**.\n- Step 2: Tens — 4 + 7 + 1 = 12. Write **2**, carry **1**.\n- Step 3: Hundreds — 3 + 2 + 1 = 6.\n- Answer: **₱621**\n\n## 📝 Word Problems\nLook for words like **altogether**, **in all**, and **total** — they tell you to **add**.\n\n**Example:** Ana has ₱250. Her Lola gives her ₱175. How much does she have in all?\n- 250 + 175 = **₱425**\n\nKeep counting! ⭐",
+        "quiz": [
+          { "question": "Which is greater, ₱50 or ₱20?", "options": ["₱50", "₱20", "They are equal", "Cannot be compared"], "correct_answer": "₱50" },
+          { "question": "How much are two ₱20 bills altogether?", "options": ["₱40", "₱20", "₱60", "₱22"], "correct_answer": "₱40" },
+          { "question": "What is ₱120 + ₱150?", "options": ["₱270", "₱260", "₱250", "₱280"], "correct_answer": "₱270" },
+          { "question": "Which symbol makes this true: ₱75 ___ ₱90?", "options": ["<", ">", "=", "+"], "correct_answer": "<" },
+          { "question": "Ana has ₱250. Her Lola gives her ₱175. How much does she have in all?", "options": ["₱425", "₱415", "₱325", "₱435"], "correct_answer": "₱425" },
+          { "question": "Which word in a problem tells you to add?", "options": ["altogether", "left", "fewer", "minus"], "correct_answer": "altogether" },
+          { "question": "What is ₱345 + ₱276?", "options": ["₱621", "₱611", "₱521", "₱631"], "correct_answer": "₱621" },
+          { "question": "Which set of coins is worth the most?", "options": ["Four ₱10 coins", "Three ₱10 coins", "Two ₱10 coins", "One ₱10 coin"], "correct_answer": "Four ₱10 coins" },
+          { "question": "Ben bought bread for ₱35 and milk for ₱45. How much did he spend?", "options": ["₱80", "₱70", "₱90", "₱75"], "correct_answer": "₱80" },
+          { "question": "Which is the same value as one ₱100 bill?", "options": ["Two ₱50 bills", "Two ₱20 bills", "Three ₱20 bills", "Five ₱10 coins"], "correct_answer": "Two ₱50 bills" },
+          { "question": "Mia has ₱480. Jun has ₱520. Who has more, and by how much?", "options": ["Jun, by ₱40", "Mia, by ₱40", "Jun, by ₱60", "Mia, by ₱60"], "correct_answer": "Jun, by ₱40" },
+          { "question": "A toy costs ₱365 and a bag costs ₱425. Can you buy both with ₱1000?", "options": ["Yes, they total ₱790", "No, they total ₱1090", "Yes, they total ₱890", "No, they total ₱1010"], "correct_answer": "Yes, they total ₱790" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Pagsasalaysay at Pagbibigay ng Reaksiyon\n\nHuling linggo ng termino, Grade 2! Kaya mo 'yan! 💪\n\n## 🗣️ Ang Pagsasalaysay\nAng **pagsasalaysay** ay pagkukuwento ng iyong **sariling karanasan** — pasalita o pasulat.\n\nGamitin ang **wastong pagkakasunod-sunod** ng pangyayari:\n> **Una** → **Pagkatapos** → **Sunod** → **Panghuli**\n\n**Halimbawa 1:** *Una, gumising ako nang maaga. Pagkatapos, naligo ako. Sunod, kumain ako ng almusal. Panghuli, pumasok ako sa paaralan.*\n\n**Halimbawa 2:** *Una, pumunta kami sa palengke. Pagkatapos, bumili si Nanay ng gulay. Panghuli, umuwi kami nang masaya.*\n\n## 💭 Pagbibigay ng Reaksiyon o Opinyon\nAng **reaksiyon** ay kung ano ang **nararamdaman o iniisip** mo tungkol sa kuwento.\n\nSagutin ang: *\"Ano ang gusto mo sa kuwento? **Bakit**?\"*\n\n- Laging magbigay ng **dahilan** pagkatapos ng iyong sagot.\n- **Halimbawa:** *\"Gusto ko ang kuwento **dahil** matulungin ang bida.\"*\n\n## ✨ Mga Salitang Nagpapakita ng Damdamin\n- **masaya** — kapag natutuwa\n- **malungkot** — kapag nalulungkot\n- **nagulat** — kapag hindi inaasahan\n- **natakot** — kapag kinakabahan\n\nMagaling ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang pagsasalaysay?", "options": ["Pagkukuwento ng karanasan", "Pagbilang ng mga bagay", "Pagguhit ng larawan", "Pagkanta ng awitin"], "correct_answer": "Pagkukuwento ng karanasan" },
+          { "question": "Aling salita ang nagsasabi ng pinakaunang pangyayari?", "options": ["Una", "Panghuli", "Sunod", "Pagkatapos"], "correct_answer": "Una" },
+          { "question": "Una, pagkatapos, sunod, ____. Ano ang nawawala?", "options": ["Panghuli", "Marami", "Malaki", "Mabilis"], "correct_answer": "Panghuli" },
+          { "question": "Ano ang ibig sabihin ng reaksiyon sa kuwento?", "options": ["Ang nararamdaman mo tungkol dito", "Ang bilang ng pahina", "Ang pamagat ng aklat", "Ang pangalan ng may-akda"], "correct_answer": "Ang nararamdaman mo tungkol dito" },
+          { "question": "\"Gusto ko ang kuwento ____ matulungin ang bida.\" Anong salita ang nagbibigay ng dahilan?", "options": ["dahil", "ngunit", "saka", "pero"], "correct_answer": "dahil" },
+          { "question": "Alin ang nagpapakita ng tamang pagkakasunod-sunod sa umaga?", "options": ["Gumising, naligo, kumain", "Kumain, gumising, naligo", "Naligo, kumain, gumising", "Kumain, naligo, gumising"], "correct_answer": "Gumising, naligo, kumain" },
+          { "question": "Anong salita ang ginagamit kapag natutuwa ka?", "options": ["masaya", "malungkot", "galit", "takot"], "correct_answer": "masaya" },
+          { "question": "Kapag hindi mo inaasahan ang nangyari, ikaw ay ____.", "options": ["nagulat", "inantok", "nagutom", "napagod"], "correct_answer": "nagulat" },
+          { "question": "Alin ang pinakamahusay na reaksiyon sa isang kuwento?", "options": ["Masaya ako dahil nagtulungan sila.", "Ang kuwento ay may sampung pahina.", "Ang aklat ay kulay asul.", "Binasa ko ito kahapon."], "correct_answer": "Masaya ako dahil nagtulungan sila." },
+          { "question": "\"Una, nagtanim kami ng kamatis. Panghuli, ____.\" Alin ang bagay na dapat isulat?", "options": ["inani namin ito", "bumili kami ng buto", "naghanda kami ng lupa", "pumili kami ng lugar"], "correct_answer": "inani namin ito" },
+          { "question": "Sa kuwento, tinulungan ni Ana ang matandang tumawid. Ano ang matututuhan dito?", "options": ["Dapat tumulong sa kapwa", "Dapat maglaro sa daan", "Dapat matulog nang maaga", "Dapat kumain ng gulay"], "correct_answer": "Dapat tumulong sa kapwa" },
+          { "question": "Bakit mahalaga ang wastong pagkakasunod-sunod sa pagsasalaysay?", "options": ["Para maintindihan ang kuwento", "Para humaba ang kuwento", "Para maganda ang sulat", "Para marami ang salita"], "correct_answer": "Para maintindihan ang kuwento" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Our Sense Organs Work Together\n\nGreat job this term, Grade 2! Let's put all five senses together. 👀👂👃👅✋\n\n## 🖐️ The Five Sense Organs\n| Sense Organ | Sense | What it does |\n|---|---|---|\n| **Eyes** | sight | see color, shape, size |\n| **Ears** | hearing | hear loud and soft sounds |\n| **Nose** | smell | smell good and bad odors |\n| **Tongue** | taste | taste sweet, salty, sour, bitter |\n| **Skin** | touch | feel hot, cold, rough, smooth |\n\n## 🤝 Working Together\nMost of the time, our senses **work as a team**!\n\n**Example 1: Eating a mango** 🥭\n- **Eyes** see it is yellow and ripe\n- **Nose** smells the sweet smell\n- **Tongue** tastes how sweet it is\n- **Skin** feels that it is soft\n\n**Example 2: Crossing the street** 🚦\n- **Eyes** see the traffic light and the cars\n- **Ears** hear a horn or a motor coming\n- Together they keep you **safe**!\n\n## 🍲 Smell + Taste\nWhen your nose is stuffy from a cold, food tastes **plain**. That is because **smell helps you taste**!\n\n## 💡 Take Care of Your Senses\n- Read in **bright light**\n- Don't play very **loud** music\n- Wash your **hands** before eating\n\nYou're a great scientist! 🔎",
+        "quiz": [
+          { "question": "Which sense organ do you use to see?", "options": ["Eyes", "Ears", "Nose", "Skin"], "correct_answer": "Eyes" },
+          { "question": "Which sense organ helps you taste food?", "options": ["Tongue", "Nose", "Ears", "Eyes"], "correct_answer": "Tongue" },
+          { "question": "You use your skin to feel if water is:", "options": ["hot or cold", "loud or soft", "sweet or sour", "bright or dark"], "correct_answer": "hot or cold" },
+          { "question": "Which two senses work together when you eat a ripe mango?", "options": ["Smell and taste", "Hearing and touch", "Sight and hearing", "Touch and hearing"], "correct_answer": "Smell and taste" },
+          { "question": "Before crossing a street, which two senses keep you safe?", "options": ["Sight and hearing", "Taste and smell", "Touch and taste", "Smell and sight"], "correct_answer": "Sight and hearing" },
+          { "question": "When you have a stuffy nose, food tastes plain. This shows that:", "options": ["smell helps you taste", "eyes help you taste", "ears help you taste", "skin helps you taste"], "correct_answer": "smell helps you taste" },
+          { "question": "Which sense organ do you use to hear a bell?", "options": ["Ears", "Eyes", "Nose", "Tongue"], "correct_answer": "Ears" },
+          { "question": "How can you take care of your eyes?", "options": ["Read in bright light", "Rub them when dirty", "Look at the bright sun", "Read in a dark room"], "correct_answer": "Read in bright light" },
+          { "question": "You touch a cup and pull your hand back quickly. What did your skin sense?", "options": ["It was very hot", "It was very sweet", "It was very loud", "It was very bright"], "correct_answer": "It was very hot" },
+          { "question": "Which senses tell you that bread in the oven is ready?", "options": ["Smell and sight", "Taste and hearing", "Touch and hearing", "Hearing and sight"], "correct_answer": "Smell and sight" },
+          { "question": "Playing very loud music for a long time can harm your:", "options": ["ears", "eyes", "tongue", "nose"], "correct_answer": "ears" },
+          { "question": "A closed box is shaking and making noise. Which senses help you guess what is inside?", "options": ["Hearing and touch", "Taste and smell", "Sight and taste", "Smell and taste"], "correct_answer": "Hearing and touch" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Pagpapahalaga sa mga Miyembro ng Komunidad\n\nHuling linggo na ng termino! Alamin natin kung paano magpasalamat. 💛\n\n## 👨‍🚒 Sino ang mga Naglilingkod sa Komunidad?\n- **Guro** — nagtuturo sa mga bata\n- **Doktor at nars** — nag-aalaga sa may sakit\n- **Pulis** — nagbabantay sa kaligtasan\n- **Bumbero** — pumapatay ng sunog\n- **Basurero** — naglilinis ng basura\n- **Magsasaka** — nagtatanim ng pagkain\n\n## 🙏 Paano Magpakita ng Paggalang at Pasasalamat\n- **Pagbati** — \"Magandang umaga po!\"\n- **Pakikinig** — makinig kapag may sinasabi sila\n- **Pagsunod** — sundin ang kanilang mga tuntunin\n- **Pagpapasalamat** — \"Salamat po!\"\n\n**Halimbawa 1:** Nakita mo ang basurero sa umaga. Sabihin: *\"Magandang umaga po! Salamat po.\"*\n\n**Halimbawa 2:** Nagpapaalala ang pulis na tumawid sa tamang tawiran. **Sumunod** ka — ito ay paggalang.\n\n## 🔗 Magkakaugnay ang Lahat\nAng tawag dito ay **pagtutulungan**. Bawat isa ay may **tungkulin**, at magkakaugnay ang lahat.\n\n- Kung walang **magsasaka**, walang pagkain sa palengke.\n- Kung walang **guro**, mahihirapan tayong matuto.\n- Kung walang **basurero**, magiging marumi ang paligid.\n\nKaya **mahalaga ang kontribusyon ng bawat isa** para sa ikabubuti ng lahat! 🌟",
+        "quiz": [
+          { "question": "Sino ang naglilinis ng basura sa komunidad?", "options": ["Basurero", "Guro", "Doktor", "Magsasaka"], "correct_answer": "Basurero" },
+          { "question": "Sino ang nag-aalaga sa mga taong may sakit?", "options": ["Doktor at nars", "Pulis at guro", "Bumbero at tsuper", "Magsasaka at tindera"], "correct_answer": "Doktor at nars" },
+          { "question": "Ano ang magandang sabihin sa isang naglilingkod sa umaga?", "options": ["Magandang umaga po!", "Umalis ka na po.", "Bakit ka nandito?", "Huwag kang maingay."], "correct_answer": "Magandang umaga po!" },
+          { "question": "Paano mo maipapakita ang paggalang sa pulis na nagbabantay sa daan?", "options": ["Sumunod sa kaniyang tuntunin", "Tumakbo sa kalsada", "Huwag siyang pansinin", "Tumawid kahit saan"], "correct_answer": "Sumunod sa kaniyang tuntunin" },
+          { "question": "Sino ang nagtatanim ng pagkaing kinakain natin?", "options": ["Magsasaka", "Bumbero", "Guro", "Nars"], "correct_answer": "Magsasaka" },
+          { "question": "Ano ang tamang sabihin kapag may tumulong sa iyo?", "options": ["Salamat po!", "Sige na po.", "Ano po iyon?", "Mamaya na po."], "correct_answer": "Salamat po!" },
+          { "question": "Ano ang ibig sabihin ng magkakaugnay ang tungkulin ng bawat isa?", "options": ["Kailangan nating magtulungan", "Mag-isa ang bawat isa", "Iisa lang ang mahalaga", "Walang tungkulin ang bata"], "correct_answer": "Kailangan nating magtulungan" },
+          { "question": "Sino ang tumutulong kapag may sunog?", "options": ["Bumbero", "Basurero", "Tindera", "Guro"], "correct_answer": "Bumbero" },
+          { "question": "Kung walang magsasaka, ano ang mangyayari?", "options": ["Kukulangin ang pagkain", "Dadami ang pagkain", "Lilinis ang paligid", "Iinit ang panahon"], "correct_answer": "Kukulangin ang pagkain" },
+          { "question": "Paano mo maipapakita ang pasasalamat sa iyong guro?", "options": ["Makinig at mag-aral nang mabuti", "Maglaro habang nagtuturo", "Umalis nang maaga", "Huwag sumagot"], "correct_answer": "Makinig at mag-aral nang mabuti" },
+          { "question": "Bakit mahalaga ang kontribusyon ng bawat miyembro ng komunidad?", "options": ["Para maging maayos ang buhay ng lahat", "Para mayaman ang iilan", "Para walang gagawin ang iba", "Para maikli ang trabaho"], "correct_answer": "Para maging maayos ang buhay ng lahat" },
+          { "question": "Nakita mong may nagtatapon ng basura sa kanal. Ano ang tama mong gawin?", "options": ["Magalang siyang paalalahanan", "Tumawa at umalis kaagad", "Gayahin ang kaniyang ginawa", "Itapon din ang iyong basura"], "correct_answer": "Magalang siyang paalalahanan" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🖱️ Computer — Meet the Mouse!\n\nLast Computer lesson of the term, Grade 2! Let's learn the **mouse**. 💻\n\n## 🐭 Parts of the Mouse\n- **Left button** — the one you use **most**. Click it to choose or open things.\n- **Right button** — opens a small **menu** of choices.\n- **Scroll wheel** — the little wheel in the **middle**. Roll it to move the page **up** and **down**.\n\n## ✋ How to Hold the Mouse Properly\n1. Rest your **palm** gently on the back of the mouse.\n2. Put your **pointer finger** on the **left button**.\n3. Put your **middle finger** on the **right button**.\n4. Keep your hand **relaxed** — do not squeeze!\n5. Let your wrist rest on the table.\n\n**Example 1:** To open a folder, put the arrow on it and **double-click** the left button.\n\n**Example 2:** To read the bottom of a long page, roll the **scroll wheel** downward.\n\n## 🪑 Good Sitting Posture\n- Sit with your **back straight**\n- Keep both **feet flat** on the floor\n- Eyes about an **arm's length** from the screen\n- Take a short **rest** for your eyes every few minutes\n\n## ⚠️ Take Care of the Computer\n- **Clean, dry hands** before using\n- **No food or drinks** near the keyboard\n- Move the mouse **gently** — do not bang it\n\nWell done this term! 🌟",
+        "quiz": [
+          { "question": "Which mouse button do you use most often?", "options": ["Left button", "Right button", "Scroll wheel", "Back cover"], "correct_answer": "Left button" },
+          { "question": "What is the wheel in the middle of the mouse called?", "options": ["Scroll wheel", "Left button", "Right button", "Mouse pad"], "correct_answer": "Scroll wheel" },
+          { "question": "What does the scroll wheel help you do?", "options": ["Move the page up and down", "Turn off the computer", "Type your name", "Print a picture"], "correct_answer": "Move the page up and down" },
+          { "question": "Which finger rests on the left button?", "options": ["Pointer finger", "Thumb", "Little finger", "Ring finger"], "correct_answer": "Pointer finger" },
+          { "question": "How should your hand feel when holding the mouse?", "options": ["Relaxed", "Squeezed tight", "Lifted high", "Very stiff"], "correct_answer": "Relaxed" },
+          { "question": "How do you open a folder on the screen?", "options": ["Double-click the left button", "Shake the mouse hard", "Press the scroll wheel", "Tap the screen twice"], "correct_answer": "Double-click the left button" },
+          { "question": "Which button opens a small menu of choices?", "options": ["Right button", "Left button", "Scroll wheel", "Power button"], "correct_answer": "Right button" },
+          { "question": "What is the correct way to sit at a computer?", "options": ["Back straight, feet flat", "Lying on the table", "Standing on the chair", "Leaning very close"], "correct_answer": "Back straight, feet flat" },
+          { "question": "Why should you not eat while using the computer?", "options": ["Crumbs can damage it", "It makes the screen bright", "It makes the mouse faster", "It helps you type better"], "correct_answer": "Crumbs can damage it" },
+          { "question": "About how far should your eyes be from the screen?", "options": ["About an arm's length", "As close as possible", "Across the whole room", "Just a few centimeters"], "correct_answer": "About an arm's length" },
+          { "question": "You want to read the bottom of a long page. What is the easiest way?", "options": ["Roll the scroll wheel down", "Click the right button twice", "Turn off the monitor", "Move the keyboard away"], "correct_answer": "Roll the scroll wheel down" },
+          { "question": "Your hands are sticky after eating. What should you do before using the mouse?", "options": ["Wash and dry your hands", "Wipe them on your shirt", "Use the mouse anyway", "Blow on your hands"], "correct_answer": "Wash and dry your hands" }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💛 GMRC — Ang Pagsunod ng Batang Pilipino\n\nHuling aralin sa termino, Grade 2! Pag-usapan natin ang **pagsunod**. 🌟\n\n## 🏠 Tungkulin sa Tahanan\n- **Pagsunod sa magulang** — gawin ang iniuutos nang maayos at walang reklamo\n- **Pag-alaga sa gamit** — ingatan ang laruan, aklat, at damit\n- Pagtulong sa maliliit na gawain — pagligpit ng plato, pagtupi ng damit\n\n## 🏫 Tungkulin sa Paaralan\n- **Pagsunod sa guro** at sa tuntunin ng silid-aralan\n- Pagdating sa **tamang oras**\n- Pakikinig habang nagtuturo\n- Panatilihing **malinis** ang silid\n\n## 🏘️ Tungkulin sa Barangay\n- **Pagsunod sa tuntunin ng barangay**, tulad ng **curfew** para sa mga bata\n- Pagsunod sa **iskedyul ng pagtatapon ng basura**\n- **Pakikiisa sa gawaing bayan** tulad ng paglilinis\n\n## 🤔 Bakit Tayo Sumusunod?\nAng **pagsunod** ay hindi dahil sa takot. Ito ay dahil:\n- Iniingatan tayo nito sa **panganib**\n- Nagiging **maayos** ang buhay ng lahat\n- Ipinapakita nito ang **paggalang** sa iba\n\n**Halimbawa 1:** Alas-otso na ng gabi at may curfew sa barangay. **Umuwi ka na** — ligtas ka sa gabi.\n\n**Halimbawa 2:** Tuwing Martes ang koleksiyon ng basura. **Ilabas mo ito sa Martes**, hindi sa ibang araw — malinis ang kapaligiran.\n\nMabuting bata ka! 💫",
+        "quiz": [
+          { "question": "Ano ang isang tungkulin ng bata sa tahanan?", "options": ["Pagsunod sa magulang", "Paglalaro buong araw", "Pagtatago ng gamit", "Pag-iwas sa gawain"], "correct_answer": "Pagsunod sa magulang" },
+          { "question": "Paano mo maipapakita ang pag-aalaga sa iyong mga gamit?", "options": ["Ingatan at itago nang maayos", "Iwanan kahit saan", "Ipahiram at kalimutan", "Itapon kapag luma"], "correct_answer": "Ingatan at itago nang maayos" },
+          { "question": "Ano ang dapat gawin kapag nagsasalita ang guro?", "options": ["Makinig nang mabuti", "Makipag-usap sa katabi", "Maglaro ng lapis", "Lumabas ng silid"], "correct_answer": "Makinig nang mabuti" },
+          { "question": "Ano ang curfew sa barangay para sa mga bata?", "options": ["Oras ng pag-uwi sa gabi", "Oras ng pagkain ng tanghalian", "Araw ng paglilinis", "Oras ng pagpasok sa klase"], "correct_answer": "Oras ng pag-uwi sa gabi" },
+          { "question": "Tuwing Martes ang koleksiyon ng basura. Kailan mo ilalabas ang basura?", "options": ["Tuwing Martes", "Tuwing Linggo", "Araw-araw", "Kahit anong araw"], "correct_answer": "Tuwing Martes" },
+          { "question": "Bakit mahalaga ang pagsunod sa tuntunin?", "options": ["Para maging ligtas at maayos ang lahat", "Para matakot ang mga bata", "Para may maipagmalaki", "Para mabilis ang oras"], "correct_answer": "Para maging ligtas at maayos ang lahat" },
+          { "question": "Ano ang pakikiisa sa gawaing bayan?", "options": ["Pagtulong sa paglilinis ng barangay", "Pananatili sa loob ng bahay", "Panonood ng telebisyon", "Paglalaro sa kalsada"], "correct_answer": "Pagtulong sa paglilinis ng barangay" },
+          { "question": "Ano ang dapat gawin kapag inutusan ka ni Nanay?", "options": ["Gawin ito nang maayos", "Magreklamo muna", "Ipagpaliban ito", "Magkunwaring abala"], "correct_answer": "Gawin ito nang maayos" },
+          { "question": "Alin ang nagpapakita ng pagsunod sa paaralan?", "options": ["Pagdating sa tamang oras", "Paglaktaw ng klase", "Pagsulat sa pader", "Pag-iingay sa silid"], "correct_answer": "Pagdating sa tamang oras" },
+          { "question": "Naglalaro ka pa sa labas pero curfew na. Ano ang tama mong gawin?", "options": ["Umuwi na agad", "Magtago sa kapitbahay", "Magpatuloy sa paglalaro", "Pumunta sa ibang lugar"], "correct_answer": "Umuwi na agad" },
+          { "question": "Ang pagsunod ay pinakamabuting gawin dahil sa:", "options": ["pagmamahal at paggalang", "takot sa parusa", "gusto ng gantimpala", "pilit ng kaibigan"], "correct_answer": "pagmamahal at paggalang" },
+          { "question": "Nakita mong maraming kalat sa inyong kalye. Bilang batang Pilipino, ano ang mabuting gawin?", "options": ["Makiisa sa paglilinis nito", "Dumaan na lamang", "Magdagdag pa ng kalat", "Sisihin ang kapitbahay"], "correct_answer": "Makiisa sa paglilinis nito" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📚 Friday Review — English (Grade 2)\n\n- **Polite words:** Good morning · Thank you · Excuse me · I'm sorry\n- **Retelling** = telling a story in **your own words**\n- **Time-order words:** First → Next → Then → Last\n- **Summary** = keeping only the **important** parts, kept short\n- **Fable** = animals teach a **lesson**\n\nYou finished the term strong! 🌟",
+        "quiz": [
+          { "question": "What do you say when someone gives you a gift?", "options": ["Thank you.", "Excuse me.", "Good night.", "I'm sorry."], "correct_answer": "Thank you." },
+          { "question": "Which greeting fits the afternoon?", "options": ["Good afternoon", "Good morning", "Good night", "Goodbye"], "correct_answer": "Good afternoon" },
+          { "question": "Retelling a story means telling it:", "options": ["in your own words", "word for word", "backwards", "in a whisper"], "correct_answer": "in your own words" },
+          { "question": "Which word shows the LAST event?", "options": ["Last", "First", "Next", "Then"], "correct_answer": "Last" },
+          { "question": "A summary should keep only the:", "options": ["important parts", "long sentences", "hard words", "funny parts"], "correct_answer": "important parts" },
+          { "question": "In a fable, who usually acts like people?", "options": ["Animals", "Cars", "Trees", "Rocks"], "correct_answer": "Animals" },
+          { "question": "You interrupt someone by accident. What do you say?", "options": ["Excuse me.", "Thank you.", "Good day.", "Sit down."], "correct_answer": "Excuse me." },
+          { "question": "Which sentence uses a time-order word?", "options": ["First, we washed our hands.", "The soap smells nice.", "My hands are clean.", "We have a sink."], "correct_answer": "First, we washed our hands." },
+          { "question": "A story ends with a boy returning a lost wallet. What lesson does it teach?", "options": ["Being honest is right", "Wallets are useful", "Boys walk fast", "Money is heavy"], "correct_answer": "Being honest is right" },
+          { "question": "Which is the SHORTEST correct summary of a story about a girl planting a seed that grew into a tree?", "options": ["A girl planted a seed and it grew.", "A girl went outside on a sunny day.", "A seed is small and brown in color.", "A tree gives shade to many people."], "correct_answer": "A girl planted a seed and it grew." },
+          { "question": "Which polite word do you use when you are wrong?", "options": ["I'm sorry.", "Thank you.", "Good morning.", "Excuse me."], "correct_answer": "I'm sorry." },
+          { "question": "Put in order: (1) We ate. (2) We cooked. (3) We shopped. Which is correct?", "options": ["3, 2, 1", "1, 2, 3", "2, 3, 1", "3, 1, 2"], "correct_answer": "3, 2, 1" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 2)\n\n- **Coins:** ₱1, ₱5, ₱10, ₱20 | **Bills:** ₱20, ₱50, ₱100, ₱200, ₱500, ₱1000\n- **Comparing:** **>** greater · **<** less · **=** equal\n- **Adding money:** line up the numbers, **regroup** when past 9\n- **Clue words to add:** altogether, in all, total\n\n**Quick check:** ₱250 + ₱175 = **₱425**\n\nExcellent work this term! ⭐",
+        "quiz": [
+          { "question": "What is ₱200 + ₱300?", "options": ["₱500", "₱400", "₱600", "₱550"], "correct_answer": "₱500" },
+          { "question": "Which is less, ₱65 or ₱56?", "options": ["₱56", "₱65", "They are equal", "Cannot be told"], "correct_answer": "₱56" },
+          { "question": "How much are five ₱20 bills altogether?", "options": ["₱100", "₱80", "₱120", "₱90"], "correct_answer": "₱100" },
+          { "question": "What is ₱148 + ₱237?", "options": ["₱385", "₱375", "₱395", "₱485"], "correct_answer": "₱385" },
+          { "question": "Which symbol makes this true: ₱300 ___ ₱300?", "options": ["=", ">", "<", "+"], "correct_answer": "=" },
+          { "question": "Lito has ₱420 and gets ₱260 more. How much now?", "options": ["₱680", "₱670", "₱660", "₱690"], "correct_answer": "₱680" },
+          { "question": "Which word tells you to add in a word problem?", "options": ["in all", "took away", "left", "fewer"], "correct_answer": "in all" },
+          { "question": "One ₱500 bill is the same as:", "options": ["Five ₱100 bills", "Four ₱100 bills", "Three ₱100 bills", "Two ₱100 bills"], "correct_answer": "Five ₱100 bills" },
+          { "question": "A pen costs ₱75 and a notebook costs ₱125. What is the total?", "options": ["₱200", "₱190", "₱210", "₱180"], "correct_answer": "₱200" },
+          { "question": "Rosa saved ₱365 in June and ₱415 in July. How much did she save in all?", "options": ["₱780", "₱770", "₱880", "₱760"], "correct_answer": "₱780" },
+          { "question": "You have ₱1000. You buy a bag for ₱540 and a shirt for ₱380. Is your money enough?", "options": ["Yes, they total ₱920", "No, they total ₱1020", "Yes, they total ₱820", "No, they total ₱1120"], "correct_answer": "Yes, they total ₱920" },
+          { "question": "Which group of coins is worth exactly ₱50?", "options": ["Two ₱20 and one ₱10", "Three ₱20 and one ₱10", "One ₱20 and one ₱10", "Four ₱20 and one ₱5"], "correct_answer": "Two ₱20 and one ₱10" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes na Balik-Aral — Filipino (Grade 2)\n\n- **Pagsasalaysay** = pagkukuwento ng sariling karanasan\n- **Pagkakasunod-sunod:** Una → Pagkatapos → Sunod → Panghuli\n- **Reaksiyon** = ang nararamdaman mo, at laging may **dahilan**\n- **Damdamin:** masaya · malungkot · nagulat · natakot\n\nMagaling! 🌟",
+        "quiz": [
+          { "question": "Alin ang salitang nagpapakita ng unang pangyayari?", "options": ["Una", "Panghuli", "Sunod", "Bago"], "correct_answer": "Una" },
+          { "question": "Ano ang ibig sabihin ng pagsasalaysay?", "options": ["Pagkukuwento ng karanasan", "Pagsulat ng tula", "Pagbilang ng bagay", "Pagguhit ng bahay"], "correct_answer": "Pagkukuwento ng karanasan" },
+          { "question": "\"Masaya ako ____ nanalo kami.\" Anong salita ang nagbibigay ng dahilan?", "options": ["dahil", "ngunit", "kaya", "pero"], "correct_answer": "dahil" },
+          { "question": "Ano ang nararamdaman mo kapag may nawalang alagang hayop?", "options": ["malungkot", "masaya", "gutom", "antok"], "correct_answer": "malungkot" },
+          { "question": "Alin ang tamang pagkakasunod-sunod sa pagluluto?", "options": ["Maghugas, magluto, kumain", "Kumain, magluto, maghugas", "Magluto, kumain, maghugas", "Kumain, maghugas, magluto"], "correct_answer": "Maghugas, magluto, kumain" },
+          { "question": "Kapag hindi mo inaasahan ang isang bagay, ikaw ay:", "options": ["nagulat", "napagod", "nagutom", "nauhaw"], "correct_answer": "nagulat" },
+          { "question": "Alin ang halimbawa ng magandang reaksiyon sa kuwento?", "options": ["Gusto ko ito dahil matapang ang bida.", "May sampung pahina ang aklat.", "Kulay pula ang pabalat nito.", "Binasa ko ito noong Lunes."], "correct_answer": "Gusto ko ito dahil matapang ang bida." },
+          { "question": "Anong salita ang pinakamabuting gamitin bago ang huling pangyayari?", "options": ["Panghuli", "Una", "Simula", "Noong"], "correct_answer": "Panghuli" },
+          { "question": "Sa kuwento, ibinahagi ni Ben ang kaniyang payong sa kaklase. Ano ang aral?", "options": ["Mabuting magbahagi sa kapwa", "Mabigat ang payong", "Malakas ang ulan", "Malayo ang paaralan"], "correct_answer": "Mabuting magbahagi sa kapwa" },
+          { "question": "Bakit dapat maayos ang pagkakasunod-sunod ng kuwento?", "options": ["Para madaling maintindihan", "Para humaba ito", "Para maganda ang sulat", "Para maraming salita"], "correct_answer": "Para madaling maintindihan" },
+          { "question": "\"Una, naghanda kami ng lupa. Pagkatapos, nagtanim kami. Panghuli, ____.\"", "options": ["nadilig namin ito", "pumili kami ng buto", "naghukay kami muna", "namili kami sa tindahan"], "correct_answer": "nadilig namin ito" },
+          { "question": "Alin ang nagpapakita ng magalang na pagbati sa guro?", "options": ["Magandang umaga po!", "Uy, ikaw pala.", "Ano na naman?", "Andiyan ka na."], "correct_answer": "Magandang umaga po!" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Friday Review — Science (Grade 2)\n\n| Organ | Sense |\n|---|---|\n| **Eyes** | sight |\n| **Ears** | hearing |\n| **Nose** | smell |\n| **Tongue** | taste |\n| **Skin** | touch |\n\n- Senses **work together**: eating (smell + taste), crossing the street (sight + hearing)\n- A stuffy nose makes food taste plain → **smell helps taste**\n- Care: bright light for eyes, soft sounds for ears, clean hands\n\nGreat scientist work! 🔎",
+        "quiz": [
+          { "question": "Which sense organ is used for smelling?", "options": ["Nose", "Ears", "Skin", "Tongue"], "correct_answer": "Nose" },
+          { "question": "Your skin helps you feel if something is:", "options": ["rough or smooth", "loud or soft", "sweet or sour", "near or far"], "correct_answer": "rough or smooth" },
+          { "question": "Which senses work together when you cross a busy street?", "options": ["Sight and hearing", "Taste and touch", "Smell and taste", "Touch and taste"], "correct_answer": "Sight and hearing" },
+          { "question": "Which sense organ tastes if food is salty?", "options": ["Tongue", "Nose", "Eyes", "Skin"], "correct_answer": "Tongue" },
+          { "question": "You hear a jeepney horn behind you. Which organ did you use?", "options": ["Ears", "Eyes", "Nose", "Tongue"], "correct_answer": "Ears" },
+          { "question": "Why does food taste plain when you have a cold?", "options": ["Smell helps you taste", "Ears help you taste", "Eyes help you taste", "Skin helps you taste"], "correct_answer": "Smell helps you taste" },
+          { "question": "Which is a good way to care for your ears?", "options": ["Avoid very loud sounds", "Put pencils inside them", "Listen to loud music daily", "Cover them all day"], "correct_answer": "Avoid very loud sounds" },
+          { "question": "You smell something burning in the kitchen. What should you do?", "options": ["Tell an adult right away", "Keep quiet and wait", "Open the oven yourself", "Go outside to play"], "correct_answer": "Tell an adult right away" },
+          { "question": "Which senses help you know a mango is ripe before eating it?", "options": ["Sight and smell", "Hearing and taste", "Touch and hearing", "Hearing and smell"], "correct_answer": "Sight and smell" },
+          { "question": "Reading in a very dark room is bad for your:", "options": ["eyes", "ears", "nose", "tongue"], "correct_answer": "eyes" },
+          { "question": "You touch a glass of juice and it feels cold. Which sense did you use?", "options": ["Touch", "Taste", "Smell", "Sight"], "correct_answer": "Touch" },
+          { "question": "A friend hands you a covered cup. Which two senses best help you guess what is inside?", "options": ["Smell and taste", "Sight and hearing", "Touch and sight", "Hearing and taste"], "correct_answer": "Smell and taste" }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Biyernes na Balik-Aral — Makabansa (Grade 2)\n\n- **Naglilingkod sa komunidad:** guro, doktor, nars, pulis, bumbero, basurero, magsasaka\n- **Paggalang:** pagbati · pakikinig · pagsunod · pagpapasalamat\n- **Magkakaugnay** ang tungkulin ng bawat isa — kailangan ang **pagtutulungan**\n- Mahalaga ang **kontribusyon ng bawat isa**\n\nMabuting mamamayan ka! 💛",
+        "quiz": [
+          { "question": "Sino ang nagbabantay sa kaligtasan ng komunidad?", "options": ["Pulis", "Basurero", "Tindera", "Magsasaka"], "correct_answer": "Pulis" },
+          { "question": "Paano ipinapakita ang paggalang sa mga naglilingkod?", "options": ["Pagbati at pagpapasalamat", "Pagtawa sa kanila", "Hindi pagpansin", "Pagtakbo palayo"], "correct_answer": "Pagbati at pagpapasalamat" },
+          { "question": "Sino ang nagtuturo sa mga bata sa paaralan?", "options": ["Guro", "Doktor", "Bumbero", "Basurero"], "correct_answer": "Guro" },
+          { "question": "Ano ang ibig sabihin ng pagtutulungan sa komunidad?", "options": ["Magkakaugnay ang gawain ng lahat", "Mag-isa ang bawat isa", "Iisa lang ang gumagawa", "Walang tungkulin ang bata"], "correct_answer": "Magkakaugnay ang gawain ng lahat" },
+          { "question": "Kung walang basurero, ano ang mangyayari sa paligid?", "options": ["Magiging marumi ito", "Magiging malinis ito", "Lalamig ang panahon", "Dadami ang halaman"], "correct_answer": "Magiging marumi ito" },
+          { "question": "Ano ang tamang gawin kapag may nagsasalitang matanda?", "options": ["Makinig nang magalang", "Sumingit agad", "Umalis na lamang", "Mag-ingay pa"], "correct_answer": "Makinig nang magalang" },
+          { "question": "Sino ang tumutulong sa mga maysakit sa health center?", "options": ["Nars", "Bumbero", "Pulis", "Magsasaka"], "correct_answer": "Nars" },
+          { "question": "Ano ang magandang gawin kapag may paglilinis sa barangay?", "options": ["Makiisa at tumulong", "Manood na lamang", "Manatili sa bahay", "Maglaro sa kanto"], "correct_answer": "Makiisa at tumulong" },
+          { "question": "Bakit dapat pahalagahan ang magsasaka?", "options": ["Siya ang nagtatanim ng pagkain", "Siya ang naglilinis ng daan", "Siya ang nagtuturo sa klase", "Siya ang nagbabantay sa gabi"], "correct_answer": "Siya ang nagtatanim ng pagkain" },
+          { "question": "Alin ang HINDI nagpapakita ng paggalang sa komunidad?", "options": ["Pagtatapon ng basura kahit saan", "Pagsunod sa tuntunin", "Pagbati sa kapitbahay", "Pagtulong sa paglilinis"], "correct_answer": "Pagtatapon ng basura kahit saan" },
+          { "question": "Ano ang maidudulot ng pagtutulungan ng bawat miyembro?", "options": ["Maayos na buhay para sa lahat", "Trabaho para sa iilan", "Katahimikan sa iilan", "Kaunting gawain sa lahat"], "correct_answer": "Maayos na buhay para sa lahat" },
+          { "question": "Nakita mong nahihirapan ang isang matandang may bitbit. Ano ang tama mong gawin?", "options": ["Magalang na mag-alok ng tulong", "Dumaan na lamang agad", "Tawagin ang iyong kaibigan", "Panoorin siya mula sa malayo"], "correct_answer": "Magalang na mag-alok ng tulong" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🖱️ Friday Review — Computer (Grade 2)\n\n- **Mouse parts:** left button · right button · scroll wheel\n- **Left button** = choose and open (double-click to open)\n- **Right button** = opens a small menu\n- **Scroll wheel** = move the page up and down\n- **Grip:** palm resting, pointer finger on left button, hand **relaxed**\n- **Posture:** back straight, feet flat, screen an arm's length away\n\nGreat computer skills! 💻",
+        "quiz": [
+          { "question": "Which mouse part moves the page up and down?", "options": ["Scroll wheel", "Left button", "Right button", "Mouse cord"], "correct_answer": "Scroll wheel" },
+          { "question": "How many times do you click the left button to open a folder?", "options": ["Two times", "One time", "Three times", "Four times"], "correct_answer": "Two times" },
+          { "question": "Which button shows a small menu of choices?", "options": ["Right button", "Left button", "Scroll wheel", "Power button"], "correct_answer": "Right button" },
+          { "question": "How should your hand be when holding a mouse?", "options": ["Relaxed and resting", "Squeezed very tight", "Lifted off the table", "Held with two hands"], "correct_answer": "Relaxed and resting" },
+          { "question": "Where should your feet be when sitting at a computer?", "options": ["Flat on the floor", "Up on the chair", "Crossed under you", "On the table"], "correct_answer": "Flat on the floor" },
+          { "question": "Which finger goes on the left button?", "options": ["Pointer finger", "Thumb", "Little finger", "Ring finger"], "correct_answer": "Pointer finger" },
+          { "question": "Why should your back be straight at the computer?", "options": ["To keep your body healthy", "To make the screen brighter", "To type much faster", "To save electricity"], "correct_answer": "To keep your body healthy" },
+          { "question": "What should you do before touching the keyboard?", "options": ["Wash and dry your hands", "Eat a quick snack", "Drink some juice", "Rub your hands hard"], "correct_answer": "Wash and dry your hands" },
+          { "question": "Your eyes feel tired from the screen. What should you do?", "options": ["Rest your eyes for a while", "Move much closer", "Make the screen brighter", "Keep working longer"], "correct_answer": "Rest your eyes for a while" },
+          { "question": "Which is the correct way to move the mouse?", "options": ["Gently on the table", "Lift and shake it", "Bang it when stuck", "Drag it on the floor"], "correct_answer": "Gently on the table" },
+          { "question": "You want to pick one picture on the screen. What do you do?", "options": ["Click it once with the left button", "Roll the scroll wheel fast", "Press the right button twice", "Turn the computer off"], "correct_answer": "Click it once with the left button" },
+          { "question": "Why is food kept away from the computer?", "options": ["Crumbs and spills can damage it", "It makes the mouse slower", "It makes the screen dim", "It uses more electricity"], "correct_answer": "Crumbs and spills can damage it" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 Biyernes na Balik-Aral — GMRC (Grade 2)\n\n- **Sa tahanan:** pagsunod sa magulang, pag-alaga sa gamit\n- **Sa paaralan:** pagsunod sa guro, pagdating sa tamang oras\n- **Sa barangay:** curfew, iskedyul ng basura, pakikiisa sa gawaing bayan\n- **Pagsunod** = hindi dahil sa takot, kundi dahil sa **pagmamahal at paggalang**\n\nMabuting bata ka! 💫",
+        "quiz": [
+          { "question": "Alin ang tungkulin ng bata sa paaralan?", "options": ["Pagsunod sa guro", "Paglalaro sa klase", "Pag-iingay palagi", "Pagliban nang madalas"], "correct_answer": "Pagsunod sa guro" },
+          { "question": "Ano ang ipinapakita mo kapag inaalagaan mo ang iyong mga aklat?", "options": ["Pag-iingat sa gamit", "Katamaran sa gawain", "Pagmamadali sa lahat", "Pagkalimot sa tuntunin"], "correct_answer": "Pag-iingat sa gamit" },
+          { "question": "Bakit may curfew para sa mga bata sa barangay?", "options": ["Para maging ligtas sila", "Para hindi sila maglaro", "Para matulog ang matanda", "Para tumahimik ang kalye"], "correct_answer": "Para maging ligtas sila" },
+          { "question": "Ano ang dapat gawin sa iskedyul ng pagtatapon ng basura?", "options": ["Sundin ang tamang araw", "Magtapon kahit kailan", "Ipunin ito nang matagal", "Isunog ito sa bakuran"], "correct_answer": "Sundin ang tamang araw" },
+          { "question": "Alin ang halimbawa ng pakikiisa sa gawaing bayan?", "options": ["Pagtulong sa paglilinis", "Panonood sa bahay", "Paglalaro sa kanto", "Pagtulog buong araw"], "correct_answer": "Pagtulong sa paglilinis" },
+          { "question": "Inutusan ka ni Tatay na magligpit. Ano ang tama mong gawin?", "options": ["Gawin ito agad at maayos", "Magreklamo muna nang matagal", "Magkunwaring may sakit", "Ipagpaliban sa susunod na araw"], "correct_answer": "Gawin ito agad at maayos" },
+          { "question": "Ang tunay na pagsunod ay nagmumula sa:", "options": ["pagmamahal at paggalang", "takot sa parusa", "pag-asa sa regalo", "pilit ng iba"], "correct_answer": "pagmamahal at paggalang" },
+          { "question": "Alin ang nagpapakita ng paggalang sa silid-aralan?", "options": ["Panatilihin itong malinis", "Magsulat sa mesa", "Magkalat ng papel", "Mag-ingay sa klase"], "correct_answer": "Panatilihin itong malinis" },
+          { "question": "Kapag maaga kang dumating sa paaralan, ipinapakita mo ang:", "options": ["pagsunod sa tuntunin", "pagmamadali sa lahat", "pagkainip sa klase", "pag-iwas sa guro"], "correct_answer": "pagsunod sa tuntunin" },
+          { "question": "Naglalaro ka pero panahon nang mag-aral. Ano ang tamang gawin?", "options": ["Itigil ang laro at mag-aral", "Maglaro pa nang matagal", "Magtago sa kuwarto", "Magsinungaling kay Nanay"], "correct_answer": "Itigil ang laro at mag-aral" },
+          { "question": "Bakit mahalaga ang tuntunin sa barangay?", "options": ["Para maayos at ligtas ang lahat", "Para mahirapan ang mga bata", "Para may maipagmalaki", "Para dumami ang tao"], "correct_answer": "Para maayos at ligtas ang lahat" },
+          { "question": "Nakita mong iniwan ng kaklase mo ang basura sa upuan. Ano ang mabuting gawin?", "options": ["Magalang na paalalahanan siya", "Itapon din ang sa iyo", "Isumbong agad sa lahat", "Huwag na lamang pansinin"], "correct_answer": "Magalang na paalalahanan siya" }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,2016 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-09-06",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🎬 English — Multimedia, Purpose, and Propaganda\n\nFinal week of Term 1, Grade 6. Let's become **critical viewers**. 🔍\n\n## 🎯 Purpose of a Visual Text\nEvery visual text is made **for a reason**:\n\n| Purpose | Example |\n|---|---|\n| **To inform** | infographic on dengue prevention |\n| **To persuade** | campaign poster asking for your vote |\n| **To entertain** | movie trailer, comic strip |\n| **To instruct** | assembly diagram, safety sign |\n\n## 🖼️ Visual Elements That Carry Meaning\n- **Color** — red signals urgency or danger; blue suggests calm and trust; green means nature or safety\n- **Size** — bigger elements feel more important\n- **Placement** — top and center get noticed first\n- **Camera angle** — **low angle** makes a subject look powerful; **high angle** makes them look small or vulnerable\n- **Lighting** — bright suggests hope; shadows suggest threat\n\n## 🌏 Cultural Appropriateness\nA visual is **culturally appropriate** when it respects the values, beliefs, and identity of the people shown.\n\n**Ask:**\n- Are people portrayed with **dignity**, or reduced to a costume?\n- Are sacred symbols used **respectfully** or as decoration?\n- Is the group shown as **diverse and real**, or as a single flat stereotype?\n\n**Example:** Using traditional Cordillera attire in a fashion ad **without context or credit** treats a living culture as a costume — that is culturally **inappropriate**.\n\n## 🎥 Multimedia Elements\n- **Video** — moving images with sound\n- **2D animation** — flat drawn movement (traditional cartoons)\n- **3D animation** — modeled objects with depth, light, and shadow\n- **Audio** — music, narration, sound effects\n- **Interactive elements** — buttons, links, quizzes\n\n## 🗣️ Author's Purpose and Point of View\n**Point of view** (or **stand**) is the position the creator takes on an issue.\n\n**How to identify it:**\n1. What is **emphasized** — shown big, bright, repeated?\n2. What is **minimized or missing**?\n3. What **words** are chosen? (\"freedom fighter\" vs \"rebel\" describe the same person differently)\n\n## 📢 Propaganda Techniques\n**Propaganda** persuades using emotion rather than evidence.\n\n| Technique | How it works | Example |\n|---|---|---|\n| **Bandwagon** | everyone is doing it, so should you | \"Millions have switched!\" |\n| **Testimonial** | a famous person endorses it | a celebrity holding the product |\n| **Glittering generality** | vague, grand words with no proof | \"The choice for a better future\" |\n| **Name-calling** | attacks the opponent, not the idea | \"Only fools would disagree\" |\n| **Plain folks** | claims to be an ordinary person | a candidate in farm clothes |\n| **Card stacking** | shows only favorable facts | listing benefits, hiding side effects |\n| **Transfer** | links to a respected symbol | flag waving behind a product |\n\n## 🧠 Critical Questions\n1. **Who** made this and what do they **gain**?\n2. What **evidence** is offered — or is it only feeling?\n3. Whose voice is **missing**?\n\nStrong finish to Term 1! 🌟",
+        "quiz": [
+          {
+            "question": "An infographic explaining how dengue spreads has the purpose to:",
+            "options": [
+              "inform",
+              "entertain",
+              "persuade",
+              "instruct"
+            ],
+            "correct_answer": "inform"
+          },
+          {
+            "question": "A low camera angle usually makes a subject appear:",
+            "options": [
+              "powerful",
+              "weak",
+              "distant",
+              "confused"
+            ],
+            "correct_answer": "powerful"
+          },
+          {
+            "question": "\"Millions have already switched to our brand!\" is which propaganda technique?",
+            "options": [
+              "Bandwagon",
+              "Testimonial",
+              "Name-calling",
+              "Card stacking"
+            ],
+            "correct_answer": "Bandwagon"
+          },
+          {
+            "question": "A famous athlete endorsing a drink is an example of:",
+            "options": [
+              "Testimonial",
+              "Bandwagon",
+              "Plain folks",
+              "Transfer"
+            ],
+            "correct_answer": "Testimonial"
+          },
+          {
+            "question": "Which describes 3D animation?",
+            "options": [
+              "Modeled objects with depth and shadow",
+              "Flat drawings moved in sequence",
+              "Still photographs shown in order",
+              "Recorded sound without images"
+            ],
+            "correct_answer": "Modeled objects with depth and shadow"
+          },
+          {
+            "question": "\"The choice for a brighter tomorrow\" uses vague grand words. This is:",
+            "options": [
+              "Glittering generality",
+              "Name-calling",
+              "Card stacking",
+              "Testimonial"
+            ],
+            "correct_answer": "Glittering generality"
+          },
+          {
+            "question": "The color red in a poster most often signals:",
+            "options": [
+              "urgency or danger",
+              "calm and trust",
+              "growth and nature",
+              "sadness and loss"
+            ],
+            "correct_answer": "urgency or danger"
+          },
+          {
+            "question": "An advertisement lists a medicine's benefits but never its side effects. This is:",
+            "options": [
+              "Card stacking",
+              "Bandwagon",
+              "Plain folks",
+              "Testimonial"
+            ],
+            "correct_answer": "Card stacking"
+          },
+          {
+            "question": "Calling the same person a \"freedom fighter\" or a \"rebel\" shows that:",
+            "options": [
+              "word choice reveals point of view",
+              "both words mean exactly the same",
+              "the person changed their actions",
+              "the writer made a spelling error"
+            ],
+            "correct_answer": "word choice reveals point of view"
+          },
+          {
+            "question": "A fashion ad uses sacred Cordillera attire purely as decoration, with no context or credit. This is BEST described as:",
+            "options": [
+              "culturally inappropriate use",
+              "an accurate documentary record",
+              "a technical lighting choice",
+              "a standard animation method"
+            ],
+            "correct_answer": "culturally inappropriate use"
+          },
+          {
+            "question": "A candidate is filmed in farm clothes talking about simple living. Which technique is this?",
+            "options": [
+              "Plain folks",
+              "Bandwagon",
+              "Name-calling",
+              "Glittering generality"
+            ],
+            "correct_answer": "Plain folks"
+          },
+          {
+            "question": "A campaign video shows a huge cheering crowd but never the empty half of the venue. What should a critical viewer conclude?",
+            "options": [
+              "The framing hides unfavorable information",
+              "The crowd size is fully documented",
+              "The video has poor picture quality",
+              "The event lasted longer than shown"
+            ],
+            "correct_answer": "The framing hides unfavorable information"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ✖️➗ Mathematics — Multiplying and Dividing Fractions and Mixed Numbers\n\nFinal Math lesson of Term 1, Grade 6. 💪\n\n## 🔄 Step 0: Convert Everything First\nBefore multiplying or dividing, convert:\n- **Whole number** → put it over 1: `4` → `4/1`\n- **Mixed number** → improper fraction: `2¼` → `(2×4+1)/4` = `9/4`\n\n## ✖️ Multiplying\n**Rule:** multiply the numerators, multiply the denominators, then simplify.\n\n## 🧠 Worked Example 1\n*Solve `1⅓ × 1½`*\n- Step 1: Convert → `4/3 × 3/2`\n- Step 2: Multiply → `(4×3)/(3×2) = 12/6`\n- Step 3: Simplify → **2** ✅\n- *Shortcut:* cancel the 3s diagonally first → `4/1 × 1/2 = 2`\n\n## ➗ Dividing — Keep, Change, Flip\n**Rule:** keep the first, change ÷ to ×, flip the **second** fraction.\n\n## 🧠 Worked Example 2\n*Solve `2¼ ÷ ¾`*\n- Step 1: Convert → `9/4 ÷ 3/4`\n- Step 2: Keep, change, flip → `9/4 × 4/3`\n- Step 3: Multiply → `36/12`\n- Step 4: Simplify → **3** ✅\n- *Check:* three ¾s make 2¼ ✅\n\n## 📝 Multi-Step Word Problems\nWork **one step at a time** and label each result.\n\n## 🧠 Worked Example 3\n*A 12-meter ribbon: ⅓ is used for a banner. The rest is cut into ⅔-meter pieces. How many pieces?*\n- **Step 1 — used:** `12 × ⅓ = 4` meters\n- **Step 2 — remaining:** `12 − 4 = 8` meters\n- **Step 3 — pieces:** `8 ÷ ⅔ = 8 × 3/2 = 24/2 =` **12 pieces** ✅\n\n## 🧠 Worked Example 4\n*A recipe uses ¾ cup of sugar per batch. How much sugar for 2½ batches?*\n- Step 1: Convert → `¾ × 5/2`\n- Step 2: Multiply → `15/8`\n- Step 3: Convert back → **1⅞ cups** ✅\n\n## ⚠️ Common Errors\n- ❌ Forgetting to convert a **mixed number** before operating\n- ❌ Flipping the **first** fraction instead of the second\n- ❌ Leaving the answer **unsimplified**\n\nExcellent Term 1! ⭐",
+        "quiz": [
+          {
+            "question": "Convert 2 1/4 to an improper fraction.",
+            "options": [
+              "9/4",
+              "8/4",
+              "7/4",
+              "6/4"
+            ],
+            "correct_answer": "9/4"
+          },
+          {
+            "question": "What is 2/3 × 3/4?",
+            "options": [
+              "1/2",
+              "5/7",
+              "6/7",
+              "2/4"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "What is 1 1/3 × 1 1/2?",
+            "options": [
+              "2",
+              "1 1/2",
+              "2 1/2",
+              "1 5/6"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "What is 2 1/4 ÷ 3/4?",
+            "options": [
+              "3",
+              "1 1/2",
+              "2 1/4",
+              "6"
+            ],
+            "correct_answer": "3"
+          },
+          {
+            "question": "What is 3/5 × 10?",
+            "options": [
+              "6",
+              "5",
+              "30",
+              "3/50"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What is 5/6 ÷ 5/12?",
+            "options": [
+              "2",
+              "1/2",
+              "25/72",
+              "10"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "Before dividing 3 1/2 by 1/4, what must you do FIRST?",
+            "options": [
+              "Convert 3 1/2 to 7/2",
+              "Flip the 3 1/2 over",
+              "Add the two numbers",
+              "Simplify 1/4 to 1/2"
+            ],
+            "correct_answer": "Convert 3 1/2 to 7/2"
+          },
+          {
+            "question": "What is 7 ÷ 1 3/4?",
+            "options": [
+              "4",
+              "12 1/4",
+              "5 1/4",
+              "3 1/2"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "What is 3/8 × 4?",
+            "options": [
+              "1 1/2",
+              "3/32",
+              "12/4",
+              "2 1/2"
+            ],
+            "correct_answer": "1 1/2"
+          },
+          {
+            "question": "A recipe needs 3/4 cup of sugar per batch. How much for 2 1/2 batches?",
+            "options": [
+              "1 7/8 cups",
+              "1 1/2 cups",
+              "2 1/4 cups",
+              "3 1/3 cups"
+            ],
+            "correct_answer": "1 7/8 cups"
+          },
+          {
+            "question": "A 12-meter ribbon has 1/3 used, and the rest is cut into 2/3-meter pieces. How many pieces?",
+            "options": [
+              "12",
+              "18",
+              "8",
+              "6"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "A student solves 2 1/2 ÷ 1/2 by writing 5/2 × 1/2 = 5/4. What error was made?",
+            "options": [
+              "The second fraction was not flipped",
+              "The mixed number was converted wrongly",
+              "The answer was simplified too early",
+              "The division sign was left unchanged"
+            ],
+            "correct_answer": "The second fraction was not flipped"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# ✍️ Filipino — Pagsulat ng Sanaysay tungkol sa Napapanahong Isyu\n\nHuling linggo ng Termino 1, Grade 6. 📝\n\n## 📄 Ano ang Sanaysay?\nAng **sanaysay** ay isang akdang tuluyan na naglalahad ng **kaisipan, opinyon, o pagsusuri** ng may-akda tungkol sa isang paksa.\n\n## 🧱 Tatlong Bahagi ng Sanaysay\n\n### 1. PANIMULA (Introduksiyon)\n- **Panghikayat** (hook) — kawili-wiling pambungad\n- **Konteksto** — maikling paliwanag sa paksa\n- **Tesis** — ang **pangunahing kaisipan** o paninindigan mo\n\n### 2. KATAWAN\n- Bawat talata ay may **iisang pangunahing punto**\n- Suportahan ng **datos, halimbawa, o pahayag ng eksperto**\n- Gumamit ng mga **transitional device**: *bukod dito, gayunpaman, samakatuwid, sa kabilang banda*\n\n### 3. WAKAS (Konklusyon)\n- **Lagumin** ang mga pangunahing punto\n- **Ulitin** ang tesis sa panibagong pananalita\n- Magbigay ng **panawagan** o mensaheng iiwan sa mambabasa\n\n## 🌏 Pagpili ng Tampok na Pangyayari\n\n**Pambansang isyu:** kalamidad at pagtugon, edukasyon, transportasyon, kalusugan, kahirapan\n\n**Pandaigdigang isyu:** climate change, digital technology, karapatang pantao, kalusugang pandaigdig\n\n**Pumili ng paksang:**\n- May sapat na **impormasyon** na mapagkukunan\n- **Mahalaga** at napapanahon\n- May **malinaw na paninindigan** kang maipapahayag\n\n## 🧠 Halimbawa ng Balangkas\n**Paksa:** Ang epekto ng basurang plastik sa Pilipinas\n\n- **Panimula:** Ang Pilipinas ay isa sa mga bansang may pinakamaraming basurang plastik sa dagat. *(Tesis: Kailangan ng agarang pagkilos mula sa pamahalaan AT mamamayan.)*\n- **Talata 1:** Datos — dami ng plastik na napupunta sa karagatan bawat taon\n- **Talata 2:** Epekto — sa hayop-dagat, pangisdaan, at kalusugan\n- **Talata 3:** Solusyon — batas, muling paggamit, edukasyon\n- **Wakas:** Panawagan sa mambabasa na magsimula sa sariling tahanan\n\n## ✅ Mga Katangian ng Mahusay na Sanaysay\n- **Malinaw** ang tesis mula sa umpisa\n- **Organisado** ang daloy ng ideya\n- **May ebidensiya**, hindi puro damdamin\n- **Wasto** ang gramatika at baybay\n- **Angkop** ang tono sa mambabasa\n\n## ⚠️ Iwasan\n- Sanaysay na walang malinaw na **paninindigan**\n- **Paglalahat** na walang patunay (*\"Lahat ng kabataan ay tamad.\"*)\n- **Panggagaya** (plagiarism) — laging banggitin ang pinagkunan\n\nMagaling sa Termino 1! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang sanaysay?",
+            "options": [
+              "Akdang naglalahad ng kaisipan o opinyon",
+              "Kuwentong may mga tauhan at banghay",
+              "Awiting may tugma at sukat",
+              "Dulang itinatanghal sa entablado"
+            ],
+            "correct_answer": "Akdang naglalahad ng kaisipan o opinyon"
+          },
+          {
+            "question": "Ano ang tesis sa isang sanaysay?",
+            "options": [
+              "Ang pangunahing kaisipan o paninindigan",
+              "Ang huling pangungusap nito",
+              "Ang pamagat ng buong akda",
+              "Ang pangalan ng may-akda"
+            ],
+            "correct_answer": "Ang pangunahing kaisipan o paninindigan"
+          },
+          {
+            "question": "Ilan ang pangunahing bahagi ng sanaysay?",
+            "options": [
+              "Tatlo",
+              "Dalawa",
+              "Apat",
+              "Lima"
+            ],
+            "correct_answer": "Tatlo"
+          },
+          {
+            "question": "Saan matatagpuan ang panghikayat o hook?",
+            "options": [
+              "Sa panimula",
+              "Sa katawan",
+              "Sa wakas",
+              "Sa talababa"
+            ],
+            "correct_answer": "Sa panimula"
+          },
+          {
+            "question": "Alin ang halimbawa ng transitional device?",
+            "options": [
+              "Gayunpaman",
+              "Maganda",
+              "Malaki",
+              "Mabilis"
+            ],
+            "correct_answer": "Gayunpaman"
+          },
+          {
+            "question": "Ilang pangunahing punto ang dapat nasa bawat talata ng katawan?",
+            "options": [
+              "Isa",
+              "Dalawa",
+              "Tatlo",
+              "Apat"
+            ],
+            "correct_answer": "Isa"
+          },
+          {
+            "question": "Ano ang dapat gawin sa wakas ng sanaysay?",
+            "options": [
+              "Lagumin ang punto at magbigay ng panawagan",
+              "Magsimula ng bagong paksa",
+              "Magtanong nang walang sagot",
+              "Magdagdag ng bagong datos"
+            ],
+            "correct_answer": "Lagumin ang punto at magbigay ng panawagan"
+          },
+          {
+            "question": "Ano ang plagiarism?",
+            "options": [
+              "Panggagaya nang walang pagbanggit sa pinagkunan",
+              "Pagsulat ng mahabang talata",
+              "Paggamit ng maraming halimbawa",
+              "Pagbabasa ng ibang sanaysay"
+            ],
+            "correct_answer": "Panggagaya nang walang pagbanggit sa pinagkunan"
+          },
+          {
+            "question": "Bakit dapat may ebidensiya ang sanaysay?",
+            "options": [
+              "Upang maging kapani-paniwala ang paninindigan",
+              "Upang humaba ang bilang ng pahina",
+              "Upang maging mahirap basahin",
+              "Upang maiwasan ang pagsulat"
+            ],
+            "correct_answer": "Upang maging kapani-paniwala ang paninindigan"
+          },
+          {
+            "question": "Alin ang halimbawa ng paglalahat na walang patunay?",
+            "options": [
+              "Lahat ng kabataan ay tamad.",
+              "Tumaas ang basura noong 2025.",
+              "May datos ang DENR tungkol dito.",
+              "Ayon sa pag-aaral, lumala ito."
+            ],
+            "correct_answer": "Lahat ng kabataan ay tamad."
+          },
+          {
+            "question": "Isusulat mo ang epekto ng climate change sa Pilipinas. Alin ang PINAKAMAHUSAY na tesis?",
+            "options": [
+              "Kailangan ng agarang pagkilos ang Pilipinas laban sa climate change.",
+              "Ang climate change ay isang paksa sa Agham.",
+              "Maraming bansa ang may climate change.",
+              "Ang panahon ay palaging nagbabago."
+            ],
+            "correct_answer": "Kailangan ng agarang pagkilos ang Pilipinas laban sa climate change."
+          },
+          {
+            "question": "Bakit mahalagang pumili ng paksang may sapat na impormasyon?",
+            "options": [
+              "Upang may masuportang ebidensiya ka",
+              "Upang maikli ang iyong sanaysay",
+              "Upang mabilis kang matapos",
+              "Upang walang magtanong sa iyo"
+            ],
+            "correct_answer": "Upang may masuportang ebidensiya ka"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ⚗️ Science — Changes of State, Mixtures, and Separation\n\nFinal Science lesson of Term 1, Grade 6. 🔬\n\n## 🌡️ Changes of State\nMatter changes state when **heat energy** is added or removed.\n\n| Change | From → To | Heat |\n|---|---|---|\n| **Melting** | solid → liquid | **absorbed** |\n| **Freezing** | liquid → solid | **released** |\n| **Evaporation** | liquid → gas | **absorbed** |\n| **Condensation** | gas → liquid | **released** |\n| **Sublimation** | solid → gas directly | **absorbed** |\n\n**Flowchart:**\n```\nSOLID --melting--> LIQUID --evaporation--> GAS\nSOLID <--freezing-- LIQUID <--condensation-- GAS\n```\n\n**Everyday example:** Water droplets form outside a cold glass because **water vapor in the air condenses** — the water did not leak through the glass.\n\n## 🔄 Physical vs Chemical Change\n\n| | **Physical change** | **Chemical change** |\n|---|---|---|\n| New substance? | **No** | **Yes** |\n| Reversible? | usually **yes** | usually **no** |\n| Examples | melting ice, tearing paper, dissolving salt | burning wood, rusting iron, cooking egg |\n\n**Why physical changes are reversible:** only the **arrangement** of particles changes — the substance itself is unchanged. Melted ice is still water.\n\n**Why chemical changes are irreversible:** the particles **rearrange into new substances** with new properties. Ash cannot become wood again.\n\n**Signs of a chemical change:** color change, gas bubbles, heat or light released, new odor, precipitate forms.\n\n## 🧪 Mixtures\n\n**Uniform (homogeneous)** — evenly distributed, looks like one substance\n- **Solution** — solute fully dissolved (salt water, air)\n- Particles are **too small to see** and **do not settle**\n\n**Non-uniform (heterogeneous)** — parts are visible\n- **Suspension** — particles **settle** on standing (sand in water, muddy water)\n\n**Air is a mixture:** about **78% nitrogen**, **21% oxygen**, plus **carbon dioxide** and **water vapor**.\n\n## 🔧 Separation Techniques\n\n| Technique | How it works | Best for |\n|---|---|---|\n| **Decantation** | pour off the liquid, leave settled solid | sand and water |\n| **Filtering** | pass through filter paper | solid pieces in liquid |\n| **Evaporation** | boil off the liquid, leave the solid | recovering **salt** from seawater |\n| **Sieving** | shake through a mesh | separating by **particle size** |\n| **Winnowing** | let wind blow away lighter parts | **rice grain** from husk (ipa) |\n| **Magnetism** | magnet attracts magnetic material | iron filings from sand |\n| **Picking** | remove by hand | stones from rice |\n| **Scooping** | lift floating material out | leaves from water |\n\n**Why it matters:** separation gives us **useful products** — salt from seawater, clean drinking water, milled rice.\n\n## 🔬 Features of a Fair Test\nA **fair test** is a valid experiment.\n1. Change only **ONE variable** (the independent variable)\n2. Keep **all others the same** (controlled variables)\n3. Measure the **result** (the dependent variable)\n4. **Repeat** trials for reliability\n5. Include a **control** for comparison\n\n**Example:** Testing whether temperature affects how fast sugar dissolves — **change only the water temperature**. Keep sugar amount, water amount, and stirring **identical**. Otherwise you cannot tell which factor caused the result.\n\nGreat scientist work this term! 🔎",
+        "quiz": [
+          {
+            "question": "The change from liquid to gas is called:",
+            "options": [
+              "evaporation",
+              "condensation",
+              "freezing",
+              "melting"
+            ],
+            "correct_answer": "evaporation"
+          },
+          {
+            "question": "Which change of state RELEASES heat?",
+            "options": [
+              "Freezing",
+              "Melting",
+              "Evaporation",
+              "Sublimation"
+            ],
+            "correct_answer": "Freezing"
+          },
+          {
+            "question": "Water droplets on the outside of a cold glass form because of:",
+            "options": [
+              "condensation of water vapor",
+              "leaking through the glass",
+              "melting of the glass itself",
+              "evaporation from the drink"
+            ],
+            "correct_answer": "condensation of water vapor"
+          },
+          {
+            "question": "Which is a chemical change?",
+            "options": [
+              "Burning wood",
+              "Melting ice",
+              "Tearing paper",
+              "Dissolving salt"
+            ],
+            "correct_answer": "Burning wood"
+          },
+          {
+            "question": "Why are physical changes usually reversible?",
+            "options": [
+              "No new substance is formed",
+              "New particles are created",
+              "Heat is always released",
+              "The mass always increases"
+            ],
+            "correct_answer": "No new substance is formed"
+          },
+          {
+            "question": "Which gas makes up about 78% of air?",
+            "options": [
+              "Nitrogen",
+              "Oxygen",
+              "Carbon dioxide",
+              "Water vapor"
+            ],
+            "correct_answer": "Nitrogen"
+          },
+          {
+            "question": "Muddy water in which particles settle after standing is a:",
+            "options": [
+              "suspension",
+              "solution",
+              "pure substance",
+              "compound"
+            ],
+            "correct_answer": "suspension"
+          },
+          {
+            "question": "Which technique separates rice grain from its husk using wind?",
+            "options": [
+              "Winnowing",
+              "Sieving",
+              "Decantation",
+              "Filtering"
+            ],
+            "correct_answer": "Winnowing"
+          },
+          {
+            "question": "Which technique recovers salt from seawater?",
+            "options": [
+              "Evaporation",
+              "Filtering",
+              "Winnowing",
+              "Magnetism"
+            ],
+            "correct_answer": "Evaporation"
+          },
+          {
+            "question": "In a fair test, how many variables should you change at one time?",
+            "options": [
+              "One",
+              "Two",
+              "Three",
+              "All of them"
+            ],
+            "correct_answer": "One"
+          },
+          {
+            "question": "You test whether temperature affects how fast sugar dissolves. Which must stay the SAME?",
+            "options": [
+              "Amount of sugar and stirring",
+              "The water temperature used",
+              "The type of sugar and heat",
+              "The temperature and stirring"
+            ],
+            "correct_answer": "Amount of sugar and stirring"
+          },
+          {
+            "question": "A mixture of iron filings and sand needs separating. Which method is BEST and why?",
+            "options": [
+              "A magnet, because iron is magnetic",
+              "Filtering, because grains differ in size",
+              "Evaporation, because sand dissolves",
+              "Winnowing, because iron is lighter"
+            ],
+            "correct_answer": "A magnet, because iron is magnetic"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Araling Panlipunan — Kahalagahan ng Pagsulong ng Kalayaan\n\nHuling aralin ng Termino 1, Grade 6. 🕊️\n\n## ⛓️ Mahigit 300 Taon ng Pananakop\nSakop ng **Espanya** ang Pilipinas mula **1565 hanggang 1898** — halos **333 taon**.\n\n**Mga naging dahilan ng pagtutol:**\n- **Sapilitang paggawa (polo y servicios)**\n- **Mabigat na buwis (tributo)**\n- **Diskriminasyon** sa mga indio\n- **Pang-aagaw ng lupa** ng mga prayle\n- **Kawalan ng representasyon** sa pamahalaan\n\n## 📚 Kilusang Propaganda (1880–1895)\n**Layunin:** **reporma**, hindi paghihiwalay — pantay na karapatan bilang mamamayan ng Espanya\n\n| Tao | Ambag |\n|---|---|\n| **Jose Rizal** | *Noli Me Tangere*, *El Filibusterismo* — inilantad ang pang-aabuso |\n| **Marcelo H. del Pilar** | patnugot ng **La Solidaridad** |\n| **Graciano Lopez Jaena** | *Fray Botod*, mahusay na mananalumpati |\n\n**Bakit ito nabigo?** Hindi pinakinggan ng Espanya ang mapayapang panawagan.\n\n## ⚔️ Ang Katipunan (1892)\nItinatag ni **Andres Bonifacio** noong **Hulyo 7, 1892** — layunin ang **tuluyang kalayaan sa pamamagitan ng himagsikan**.\n\n- **Sigaw sa Pugad Lawin (Agosto 1896)** — pinunit ang mga sedula bilang pagtanggi sa pananakop\n- **Tejeros Convention (1897)** — nahalal si **Emilio Aguinaldo**\n- **Deklarasyon ng Kalayaan** — **Hunyo 12, 1898** sa **Kawit, Cavite**; itinaas ang watawat at tinugtog ang **Lupang Hinirang**\n\n## 👩 Mga Babae sa Himagsikan\n- **Gabriela Silang** — namuno sa pag-aalsa sa Ilocos\n- **Melchora Aquino (Tandang Sora)** — \"Ina ng Katipunan\"\n- **Gregoria de Jesus** — tagapag-ingat ng mga dokumento ng Katipunan\n\n## 💡 Kahalagahan sa KASALUKUYAN\n\n**1. Pagkakakilanlang Pambansa**\nDahil sa himagsikan, nabuo ang diwa ng \"**Pilipino**\" — hindi na tayo hiwa-hiwalay na barangay kundi **isang bansa**.\n\n**2. Halaga ng Kalayaan**\nAng kalayaang tinatamasa natin ay **binayaran ng dugo at buhay**. Hindi ito regalo — ito ay **pinaglaban**.\n\n**3. Aral sa Pagkakaisa**\nNagtagumpay ang himagsikan nang **nagkaisa** ang iba't ibang rehiyon at uri ng tao.\n\n**4. Karapatan at Boses**\nAng laban para sa **representasyon** noon ay ugat ng ating **karapatang bumoto at magsalita** ngayon.\n\n**5. Pananagutan ng Kabataan**\nAng kalayaan ay **pinananatili**, hindi lamang natatamo. Ginagawa natin ito sa pamamagitan ng:\n- **Pag-aaral** ng tunay na kasaysayan\n- **Mapanuring pag-iisip** laban sa maling impormasyon\n- **Aktibong paglahok** sa pamayanan\n- **Pagtutol** sa katiwalian at pang-aabuso\n\n> *\"Ang hindi marunong lumingon sa pinanggalingan ay hindi makararating sa paroroonan.\"*\n\nMagaling sa Termino 1! 🌟",
+        "quiz": [
+          {
+            "question": "Ilang taon halos ang pananakop ng Espanya sa Pilipinas?",
+            "options": [
+              "333 taon",
+              "150 taon",
+              "50 taon",
+              "500 taon"
+            ],
+            "correct_answer": "333 taon"
+          },
+          {
+            "question": "Ano ang pangunahing layunin ng Kilusang Propaganda?",
+            "options": [
+              "Reporma at pantay na karapatan",
+              "Agarang paghihiwalay sa Espanya",
+              "Pagpapalit ng relihiyon",
+              "Pagpapalawak ng kalakalan"
+            ],
+            "correct_answer": "Reporma at pantay na karapatan"
+          },
+          {
+            "question": "Sino ang nagtatag ng Katipunan?",
+            "options": [
+              "Andres Bonifacio",
+              "Jose Rizal",
+              "Emilio Aguinaldo",
+              "Marcelo H. del Pilar"
+            ],
+            "correct_answer": "Andres Bonifacio"
+          },
+          {
+            "question": "Kailan idineklara ang kalayaan ng Pilipinas?",
+            "options": [
+              "Hunyo 12, 1898",
+              "Agosto 1896",
+              "Hulyo 7, 1892",
+              "Disyembre 30, 1896"
+            ],
+            "correct_answer": "Hunyo 12, 1898"
+          },
+          {
+            "question": "Ano ang pahayagan ng Kilusang Propaganda?",
+            "options": [
+              "La Solidaridad",
+              "Kalayaan",
+              "El Filibusterismo",
+              "Noli Me Tangere"
+            ],
+            "correct_answer": "La Solidaridad"
+          },
+          {
+            "question": "Ano ang ginawa sa Sigaw sa Pugad Lawin?",
+            "options": [
+              "Pinunit ang mga sedula",
+              "Nilagdaan ang kasunduan",
+              "Itinaas ang watawat",
+              "Binuo ang Katipunan"
+            ],
+            "correct_answer": "Pinunit ang mga sedula"
+          },
+          {
+            "question": "Sino ang tinaguriang Ina ng Katipunan?",
+            "options": [
+              "Melchora Aquino",
+              "Gabriela Silang",
+              "Gregoria de Jesus",
+              "Teodora Alonzo"
+            ],
+            "correct_answer": "Melchora Aquino"
+          },
+          {
+            "question": "Ano ang polo y servicios?",
+            "options": [
+              "Sapilitang paggawa sa mga Espanyol",
+              "Buwis na binabayaran taon-taon",
+              "Paaralan para sa mga indio",
+              "Kasunduan sa pagitan ng bansa"
+            ],
+            "correct_answer": "Sapilitang paggawa sa mga Espanyol"
+          },
+          {
+            "question": "Bakit nabigo ang Kilusang Propaganda?",
+            "options": [
+              "Hindi pinakinggan ng Espanya ang panawagan",
+              "Nawalan ng kasapi ang kilusan",
+              "Naubusan ito ng pondo agad",
+              "Ipinagbawal ito ng Katipunan"
+            ],
+            "correct_answer": "Hindi pinakinggan ng Espanya ang panawagan"
+          },
+          {
+            "question": "Ano ang pinakamahalagang naiambag ng himagsikan sa kasalukuyan?",
+            "options": [
+              "Ang pagkakabuo ng pagkakakilanlang Pilipino",
+              "Ang pagdami ng mga lalawigan",
+              "Ang pagbabago ng ating klima",
+              "Ang pagtaas ng ating populasyon"
+            ],
+            "correct_answer": "Ang pagkakabuo ng pagkakakilanlang Pilipino"
+          },
+          {
+            "question": "Paano mapananatili ng kabataan ngayon ang diwa ng kalayaan?",
+            "options": [
+              "Mapanuring pag-iisip at aktibong paglahok",
+              "Pagkalimot sa nakaraang kasaysayan",
+              "Pag-iwas sa lahat ng usapin",
+              "Pagsunod nang walang tanong"
+            ],
+            "correct_answer": "Mapanuring pag-iisip at aktibong paglahok"
+          },
+          {
+            "question": "Ano ang ipinapahiwatig ng kasabihang \"Ang hindi marunong lumingon sa pinanggalingan ay hindi makararating sa paroroonan\"?",
+            "options": [
+              "Mahalaga ang kasaysayan sa ating kinabukasan",
+              "Dapat manatili tayo sa nakaraan",
+              "Walang halaga ang mga bagong ideya",
+              "Dapat kalimutan ang mga pagkakamali"
+            ],
+            "correct_answer": "Mahalaga ang kasaysayan sa ating kinabukasan"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Safe and Responsible Use of Online and Productivity Tools\n\nFinal ICT lesson of Term 1, Grade 6. 🌐\n\n## 🧰 Productivity Tools\n| Tool | Best used for |\n|---|---|\n| **Word processor** | letters, reports, essays |\n| **Spreadsheet** | numbers, budgets, charts |\n| **Presentation** | slides for reporting |\n| **Cloud storage** | saving and sharing files online |\n\n**Choosing well:** use a **spreadsheet** for a class budget (it calculates), not a word processor. Match the tool to the **task**.\n\n## 💾 Responsible File Habits\n- **Save often** — do not lose an hour of work to a power cut\n- **Meaningful file names** — `Science-Report-Final.docx`, not `doc1.docx`\n- **Organized folders** — by subject or project\n- **Back up** important files to cloud or USB\n- **Version awareness** — keep the latest, delete confusing duplicates\n\n## 🔐 Online Safety\n\n**Strong passwords:**\n- At least **12 characters**\n- Mix of **letters, numbers, symbols**\n- **Never** your birthday, name, or `123456`\n- **Different** password for each important account\n- **Never share** — not even with a best friend\n\n**Privacy settings:**\n- Set social accounts to **private**\n- **Never post** your full address, phone number, school schedule, or exact location\n- Think before posting: *once online, it can be copied forever*\n- **Turn off** location tagging on photos\n\n## ⚠️ Recognizing Online Threats\n| Threat | What it is |\n|---|---|\n| **Phishing** | fake message stealing your login details |\n| **Malware** | harmful software from bad downloads |\n| **Scam** | fake prize or offer wanting money or data |\n| **Cyberbullying** | repeated harm through digital means |\n| **Fake news** | false information spread as fact |\n\n## 🔍 Evaluating Online Sources\nBefore trusting a website, check:\n1. **Author** — who wrote it? Are they qualified?\n2. **Date** — is it current?\n3. **Purpose** — to inform, or to sell?\n4. **Evidence** — are sources cited?\n5. **Cross-check** — do other reliable sites agree?\n\n**Warning signs:** no author, many typos, ALL CAPS headlines, no date, asks you to share urgently.\n\n## ⚖️ Digital Citizenship and Ethics\n- **Give credit** — cite sources; copying without credit is **plagiarism**\n- **Respect copyright** — do not use images or music without permission\n- **Be kind** — a real person reads what you post\n- **Do not spread** unverified information\n- **Report** harmful content to a trusted adult\n\n## 🪑 Digital Wellness\n- **20-20-20 rule:** every **20 minutes**, look **20 feet** away for **20 seconds**\n- Sit with **back straight**, screen at **eye level**\n- Take movement breaks; limit recreational screen time\n- No screens right before **sleep**\n\nGreat ICT work this term! 🌟",
+        "quiz": [
+          {
+            "question": "Which tool is BEST for making a class budget with calculations?",
+            "options": [
+              "Spreadsheet",
+              "Word processor",
+              "Presentation software",
+              "Photo editor"
+            ],
+            "correct_answer": "Spreadsheet"
+          },
+          {
+            "question": "Which is the strongest password?",
+            "options": [
+              "A long mix of letters, numbers, symbols",
+              "Your birthday written in numbers",
+              "Your first name and last name",
+              "The sequence 123456789"
+            ],
+            "correct_answer": "A long mix of letters, numbers, symbols"
+          },
+          {
+            "question": "What is plagiarism?",
+            "options": [
+              "Using someone's work without credit",
+              "Saving a file with a clear name",
+              "Citing your sources properly",
+              "Backing up work to the cloud"
+            ],
+            "correct_answer": "Using someone's work without credit"
+          },
+          {
+            "question": "What is the 20-20-20 rule for?",
+            "options": [
+              "Resting your eyes from the screen",
+              "Saving files every 20 minutes",
+              "Limiting passwords to 20 characters",
+              "Sharing files with 20 people"
+            ],
+            "correct_answer": "Resting your eyes from the screen"
+          },
+          {
+            "question": "Which is a good file name?",
+            "options": [
+              "Science-Report-Final.docx",
+              "doc1.docx",
+              "asdfgh.docx",
+              "new new new.docx"
+            ],
+            "correct_answer": "Science-Report-Final.docx"
+          },
+          {
+            "question": "Which information should you NEVER post publicly online?",
+            "options": [
+              "Your home address",
+              "Your favorite color",
+              "Your hobby interests",
+              "Your favorite book"
+            ],
+            "correct_answer": "Your home address"
+          },
+          {
+            "question": "What is malware?",
+            "options": [
+              "Harmful software from bad downloads",
+              "A tool for editing documents",
+              "A type of strong password",
+              "A way of saving files"
+            ],
+            "correct_answer": "Harmful software from bad downloads"
+          },
+          {
+            "question": "Which is a warning sign that a website is unreliable?",
+            "options": [
+              "No author and no date given",
+              "Clear citations and sources",
+              "A recent publication date",
+              "A named, qualified writer"
+            ],
+            "correct_answer": "No author and no date given"
+          },
+          {
+            "question": "Why should you back up important files?",
+            "options": [
+              "To recover them if a device fails",
+              "To make them open faster",
+              "To reduce the file size",
+              "To change the file name"
+            ],
+            "correct_answer": "To recover them if a device fails"
+          },
+          {
+            "question": "A post urges you to share a shocking claim immediately. What should you do FIRST?",
+            "options": [
+              "Cross-check it with reliable sources",
+              "Share it before it is deleted",
+              "Add your own comment to it",
+              "Send it to your whole class"
+            ],
+            "correct_answer": "Cross-check it with reliable sources"
+          },
+          {
+            "question": "Why should you turn off location tagging on photos?",
+            "options": [
+              "It can reveal where you actually are",
+              "It makes the photo file larger",
+              "It lowers the picture quality",
+              "It slows down the uploading"
+            ],
+            "correct_answer": "It can reveal where you actually are"
+          },
+          {
+            "question": "A website selling a product claims it cures every illness, citing no studies. What is the BEST conclusion?",
+            "options": [
+              "Its purpose is to sell, not to inform",
+              "It is a trustworthy medical source",
+              "The claim must be scientifically true",
+              "The lack of studies proves nothing"
+            ],
+            "correct_answer": "Its purpose is to sell, not to inform"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🏀 MAPEH — Target at Invasion Games\n\nHuling MAPEH ng Termino 1, Grade 6. 🏃\n\n## 🎯 Target Games\nLayunin: **maipadala ang bagay sa target** nang may katumpakan.\n- **Halimbawa:** archery, bowling, dart, Tumbang Preso\n- **Susi:** **accuracy**, kalmadong paghinga, tamang **positioning**\n\n## ⚔️ Invasion Games\nLayunin: **pumasok sa teritoryo ng kalaban** upang makapuntos, habang **ipinagtatanggol** ang sarili.\n- **Halimbawa:** basketball, football, ultimate frisbee, agawang base\n- **Susi:** teamwork, espasyo, at mabilis na paglipat mula depensa tungo sa opensa\n\n## 🧠 Movement Concepts\n| Konsepto | Kahulugan |\n|---|---|\n| **Body awareness** | ano ang ginagawa ng katawan |\n| **Space awareness** | saan gumagalaw — direksiyon, antas, daan |\n| **Effort** | gaano kabilis, kalakas, o kakinis |\n| **Relationship** | kaugnayan sa kakampi, kalaban, at kagamitan |\n\n## 🤾 Locomotor at Manipulative Skills\n- **Locomotor** — paggalaw ng buong katawan: **paglakad, pagtakbo, paglukso, pagtalon, pag-slide**\n- **Manipulative** — paggamit ng bagay: **paghagis, pagsalo, pagsipa, pagtira, pag-dribble**\n\n## 💪 Fitness Concepts\n| Component | Kahulugan |\n|---|---|\n| **Agility** | mabilis na pagbabago ng direksiyon |\n| **Balance** | pananatiling matatag |\n| **Coordination** | magkatugmang paggalaw ng bahagi ng katawan |\n| **Speed** | bilis ng paggalaw |\n| **Endurance** | tagal ng pagtitiis sa aktibidad |\n\n## 🛡️ Estratehiya sa Invasion Games\n\n**Sa OPENSA:**\n- **Buksan ang espasyo** — huwag magsiksikan sa isang lugar\n- **Ipasa nang maaga** — mas mabilis ang bola kaysa tao\n- **Gumalaw pagkatapos ipasa** (*pass and move*)\n- **Suportahan** ang may hawak ng bola\n\n**Sa DEPENSA:**\n- **Bantayan ang espasyo**, hindi lamang ang tao\n- **Manatili sa pagitan** ng kalaban at ng goal\n- **Mabilis na transisyon** kapag nawala ang bola\n- **Makipag-usap** sa kakampi\n\n## 🏅 Modified Games\nAng **modified games** ay binagong laro upang **angkop sa edad at kakayahan**:\n- **Mas maliit** na court o field\n- **Mas magaan** o mas malaking bola\n- **Mas mababang** ring o net\n- **Mas maikling** oras ng laro\n- **Mas kaunting** manlalaro\n\n**Layunin:** mas maraming pagkakataong makalahok ang **lahat**, hindi lamang ang magagaling.\n\n## 🤝 Sportsmanship\n- **Igalang** ang kalaro, kalaban, at referee\n- **Sundin** ang tuntunin kahit walang nakatingin\n- **Batiin** ang nanalo; **palakasin** ang loob ng natalo\n- **Isama** ang lahat sa laro\n\n## 🛡️ Kaligtasan\nWarm-up bago, cool-down pagkatapos, tamang sapatos, uminom ng tubig, at itigil kapag may sakit na nararamdaman.\n\nMagaling sa Termino 1! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang layunin sa invasion games?",
+            "options": [
+              "Pumasok sa teritoryo ng kalaban upang makapuntos",
+              "Maipadala ang bagay sa isang target",
+              "Manatili sa sariling lugar palagi",
+              "Tumakbo nang pinakamahabang distansiya"
+            ],
+            "correct_answer": "Pumasok sa teritoryo ng kalaban upang makapuntos"
+          },
+          {
+            "question": "Alin ang halimbawa ng invasion game?",
+            "options": [
+              "Basketball",
+              "Archery",
+              "Bowling",
+              "Dart"
+            ],
+            "correct_answer": "Basketball"
+          },
+          {
+            "question": "Alin ang halimbawa ng target game?",
+            "options": [
+              "Bowling",
+              "Football",
+              "Basketball",
+              "Frisbee"
+            ],
+            "correct_answer": "Bowling"
+          },
+          {
+            "question": "Alin ang locomotor skill?",
+            "options": [
+              "Pagtakbo",
+              "Paghagis",
+              "Pagsalo",
+              "Pagsipa"
+            ],
+            "correct_answer": "Pagtakbo"
+          },
+          {
+            "question": "Alin ang manipulative skill?",
+            "options": [
+              "Pag-dribble ng bola",
+              "Paglakad sa court",
+              "Paglukso sa lugar",
+              "Pag-slide sa gilid"
+            ],
+            "correct_answer": "Pag-dribble ng bola"
+          },
+          {
+            "question": "Ano ang space awareness?",
+            "options": [
+              "Kaalaman kung saan gumagalaw ang katawan",
+              "Bilis ng paggalaw ng katawan",
+              "Lakas ng pagtira ng bola",
+              "Bilang ng puntos sa laro"
+            ],
+            "correct_answer": "Kaalaman kung saan gumagalaw ang katawan"
+          },
+          {
+            "question": "Ano ang endurance?",
+            "options": [
+              "Tagal ng pagtitiis sa aktibidad",
+              "Bilis ng pagbabago ng direksiyon",
+              "Katatagan ng katawan sa isang posisyon",
+              "Katumpakan ng pagtira sa target"
+            ],
+            "correct_answer": "Tagal ng pagtitiis sa aktibidad"
+          },
+          {
+            "question": "Ano ang pass and move sa opensa?",
+            "options": [
+              "Gumalaw agad pagkatapos ipasa ang bola",
+              "Manatili sa lugar matapos ipasa",
+              "Ipasa ang bola nang paulit-ulit",
+              "Hawakan ang bola nang matagal"
+            ],
+            "correct_answer": "Gumalaw agad pagkatapos ipasa ang bola"
+          },
+          {
+            "question": "Bakit ginagawa ang modified games?",
+            "options": [
+              "Upang makalahok ang lahat ayon sa kakayahan",
+              "Upang mas mahirap ang laro",
+              "Upang manalo ang magagaling",
+              "Upang humaba ang oras ng laro"
+            ],
+            "correct_answer": "Upang makalahok ang lahat ayon sa kakayahan"
+          },
+          {
+            "question": "Sa depensa, saan dapat manatili ang manlalaro?",
+            "options": [
+              "Sa pagitan ng kalaban at ng goal",
+              "Sa likod mismo ng kalaban",
+              "Sa gilid ng buong court",
+              "Sa tabi ng sariling goal"
+            ],
+            "correct_answer": "Sa pagitan ng kalaban at ng goal"
+          },
+          {
+            "question": "Nagsisiksikan ang inyong koponan sa isang lugar at hindi makapuntos. Alin ang PINAKAMABUTING solusyon?",
+            "options": [
+              "Magkalat upang buksan ang espasyo",
+              "Ipasa lamang sa pinakamalapit",
+              "Tumakbo nang mas mabilis pa",
+              "Hawakan ang bola nang mas matagal"
+            ],
+            "correct_answer": "Magkalat upang buksan ang espasyo"
+          },
+          {
+            "question": "Natalo ang inyong koponan sa masikip na laban. Ano ang nagpapakita ng tunay na sportsmanship?",
+            "options": [
+              "Batiin ang nanalo nang may paggalang",
+              "Sisihin ang referee sa pagkatalo",
+              "Umalis agad nang hindi nagpaalam",
+              "Sisihin ang mahihinang kakampi"
+            ],
+            "correct_answer": "Batiin ang nanalo nang may paggalang"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💡 GMRC — Pagtitipid ng Enerhiya para sa Kalikasan\n\nHuling aralin ng Termino 1, Grade 6. Pagpapahalaga: **Mapagmalasakit**. 🌏\n\n## ⚡ Saan Nanggagaling ang Ating Kuryente?\nMalaking bahagi ng kuryente sa Pilipinas ay mula sa **fossil fuels** — karbon (coal), langis, at natural gas. Kapag sinusunog ang mga ito, naglalabas ng **carbon dioxide** na nagpapainit sa mundo (**climate change**).\n\n**Renewable sources:** araw (**solar**), hangin (**wind**), tubig (**hydro**), init ng lupa (**geothermal**) — mas malinis at hindi nauubos.\n\n## 🌡️ Bakit Mahalaga ang Pagtitipid?\n1. **Kalikasan** — mas kaunting polusyon at greenhouse gases\n2. **Ekonomiya** — mas mababang bayarin sa kuryente ng pamilya\n3. **Katarungan** — ang mga mahihirap ang unang tinatamaan ng epekto ng climate change\n4. **Kinabukasan** — pinangangalagaan natin ang susunod na salinlahi\n\n## 🏠 Konkretong Paraan ng Pagtitipid\n\n**Sa Ilaw:**\n- **Patayin** ang ilaw kapag umaalis sa silid\n- Gumamit ng **LED bulbs** — mas matipid kaysa incandescent\n- Gamitin ang **natural na liwanag** sa umaga; buksan ang kurtina\n\n**Sa Kagamitang Elektroniko:**\n- **Tanggalin sa saksakan** ang charger at appliance kapag hindi ginagamit — may **phantom load** o \"vampire power\" pa rin kahit patay\n- **I-shut down** nang maayos ang computer, huwag lamang iwang naka-sleep\n\n**Sa Refrigerator:**\n- **Huwag** buksan nang matagal o paulit-ulit\n- Hayaang **lumamig** ang mainit na pagkain bago ipasok\n- Panatilihing **sarado** ang pinto nang maigi\n\n**Sa Electric Fan at Aircon:**\n- Gamitin ang **bentilador** kaysa aircon kung kaya\n- Kung may aircon, itakda sa **25°C**, hindi sobrang lamig\n- **Isara** ang bintana at pinto kapag naka-aircon\n\n**Sa Paglalaba at Pamamalantsa:**\n- Maglaba nang **sabay-sabay** (full load)\n- **Ibilad** sa araw sa halip na gumamit ng dryer\n- Mamalantsa nang **maramihan** sa isang pagkakataon\n\n## 🤝 Ang Pagpapahalagang MAPAGMALASAKIT\nAng **pagmamalasakit** ay pag-aalala sa **kapakanan ng iba** — kahit sa mga hindi mo pa nakikilala.\n\n**Sa pagtitipid ng enerhiya, ipinapakita mo ang malasakit sa:**\n- **Pamilya** — mas mababang gastusin\n- **Kapwa Pilipino** — mas kaunting brownout\n- **Kalikasan** — hayop at halamang naaapektuhan\n- **Susunod na salinlahi** — mas malinis na mundo\n\n## 🎯 Personal na Pananagutan\nMaliit man ang isang tao, **napakalaki ng epekto kapag sama-sama**.\n\n> *Kung ang bawat isa sa 100 mag-aaral ay papatay ng isang ilaw kada araw, katumbas iyon ng 100 ilaw na natipid — araw-araw.*\n\n**Simulan sa sarili:** gumawa ng **energy checklist** sa bahay, ipaalala nang **magalang** sa pamilya, at maging **halimbawa**.\n\n**Tandaan:** Ang tunay na malasakit ay ginagawa **kahit walang nakakakita** at kahit **walang gantimpala**.\n\nMabuting mamamayan ka! 💫",
+        "quiz": [
+          {
+            "question": "Saan nanggagaling ang malaking bahagi ng kuryente sa Pilipinas?",
+            "options": [
+              "Fossil fuels tulad ng karbon",
+              "Puro enerhiya ng araw",
+              "Puro lakas ng hangin",
+              "Puro init ng lupa"
+            ],
+            "correct_answer": "Fossil fuels tulad ng karbon"
+          },
+          {
+            "question": "Alin ang renewable na pinagkukunan ng enerhiya?",
+            "options": [
+              "Solar o enerhiya ng araw",
+              "Karbon mula sa minahan",
+              "Langis mula sa lupa",
+              "Natural gas sa dagat"
+            ],
+            "correct_answer": "Solar o enerhiya ng araw"
+          },
+          {
+            "question": "Ano ang phantom load?",
+            "options": [
+              "Kuryenteng nauubos kahit patay ang appliance",
+              "Sobrang liwanag ng ilaw sa gabi",
+              "Biglaang pagkawala ng kuryente",
+              "Dagdag na bayarin tuwing tag-init"
+            ],
+            "correct_answer": "Kuryenteng nauubos kahit patay ang appliance"
+          },
+          {
+            "question": "Alin ang pinakamatipid na uri ng bombilya?",
+            "options": [
+              "LED bulb",
+              "Incandescent bulb",
+              "Halogen bulb",
+              "Neon bulb"
+            ],
+            "correct_answer": "LED bulb"
+          },
+          {
+            "question": "Sa anong temperatura mainam itakda ang aircon upang makatipid?",
+            "options": [
+              "25 degrees Celsius",
+              "16 degrees Celsius",
+              "30 degrees Celsius",
+              "10 degrees Celsius"
+            ],
+            "correct_answer": "25 degrees Celsius"
+          },
+          {
+            "question": "Bakit hindi dapat ipasok agad ang mainit na pagkain sa refrigerator?",
+            "options": [
+              "Nagdaragdag ito sa konsumo ng kuryente",
+              "Nasisira ang lasa ng pagkain",
+              "Bumibigat ang refrigerator",
+              "Nawawala ang kulay nito"
+            ],
+            "correct_answer": "Nagdaragdag ito sa konsumo ng kuryente"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng mapagmalasakit?",
+            "options": [
+              "Pag-aalala sa kapakanan ng iba",
+              "Pagtitipid ng sariling pera",
+              "Pagsunod sa lahat ng utos",
+              "Pagtatago ng sariling gamit"
+            ],
+            "correct_answer": "Pag-aalala sa kapakanan ng iba"
+          },
+          {
+            "question": "Alin ang matipid na paraan ng paglalaba?",
+            "options": [
+              "Maglaba nang sabay-sabay sa full load",
+              "Maglaba ng tig-iisang damit",
+              "Gumamit palagi ng dryer",
+              "Maglaba tuwing gabi lamang"
+            ],
+            "correct_answer": "Maglaba nang sabay-sabay sa full load"
+          },
+          {
+            "question": "Ano ang pangunahing epekto ng pagsunog ng fossil fuels?",
+            "options": [
+              "Naglalabas ito ng carbon dioxide",
+              "Nililinis nito ang hangin",
+              "Pinapalamig nito ang mundo",
+              "Dinaragdagan nito ang tubig"
+            ],
+            "correct_answer": "Naglalabas ito ng carbon dioxide"
+          },
+          {
+            "question": "Bakit sinasabing usapin ng katarungan ang climate change?",
+            "options": [
+              "Ang mahihirap ang unang tinatamaan nito",
+              "Ang mayayaman lamang ang apektado",
+              "Walang taong naaapektuhan nito",
+              "Ang mga bata lamang ang ligtas"
+            ],
+            "correct_answer": "Ang mahihirap ang unang tinatamaan nito"
+          },
+          {
+            "question": "Nakita mong nakabukas ang ilaw sa walang taong silid sa paaralan. Ano ang PINAKAMABUTING gawin?",
+            "options": [
+              "Patayin ito at ipaalala nang magalang",
+              "Dumaan na lamang at pabayaan",
+              "Ipagsabi ito sa lahat ng kaklase",
+              "Hintayin ang guro na pumatay"
+            ],
+            "correct_answer": "Patayin ito at ipaalala nang magalang"
+          },
+          {
+            "question": "Bakit mahalaga ang maliliit na hakbang sa pagtitipid ng enerhiya?",
+            "options": [
+              "Napakalaki ng epekto kapag sama-sama",
+              "Mabilis itong makikita sa isang araw",
+              "Nagbibigay ito ng gantimpala agad",
+              "Nakikita ito ng lahat ng tao"
+            ],
+            "correct_answer": "Napakalaki ng epekto kapag sama-sama"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🎬 Friday Review — English (Grade 6)\n\n- **Purposes:** inform · persuade · entertain · instruct\n- **Visual elements:** color · size · placement · **camera angle** (low = powerful, high = vulnerable) · lighting\n- **Cultural appropriateness** = portraying people with dignity, not as costume or stereotype\n- **Multimedia:** video · 2D animation · 3D animation · audio · interactive\n- **Propaganda:** bandwagon · testimonial · glittering generality · name-calling · plain folks · card stacking · transfer\n- **Ask:** who made this, what do they gain, whose voice is missing?\n\nStrong finish to Term 1! 🌟",
+        "quiz": [
+          {
+            "question": "\"Nine out of ten families choose us!\" is which technique?",
+            "options": [
+              "Bandwagon",
+              "Testimonial",
+              "Transfer",
+              "Name-calling"
+            ],
+            "correct_answer": "Bandwagon"
+          },
+          {
+            "question": "A high camera angle usually makes a subject look:",
+            "options": [
+              "small or vulnerable",
+              "powerful and strong",
+              "faster and quicker",
+              "older and wiser"
+            ],
+            "correct_answer": "small or vulnerable"
+          },
+          {
+            "question": "Placing a national flag behind a product uses which technique?",
+            "options": [
+              "Transfer",
+              "Bandwagon",
+              "Card stacking",
+              "Plain folks"
+            ],
+            "correct_answer": "Transfer"
+          },
+          {
+            "question": "Which is a purpose of a safety sign?",
+            "options": [
+              "To instruct",
+              "To entertain",
+              "To persuade",
+              "To sell"
+            ],
+            "correct_answer": "To instruct"
+          },
+          {
+            "question": "2D animation is BEST described as:",
+            "options": [
+              "flat drawings moved in sequence",
+              "modeled objects with real depth",
+              "photographs shown one by one",
+              "recorded voices without images"
+            ],
+            "correct_answer": "flat drawings moved in sequence"
+          },
+          {
+            "question": "Attacking an opponent's character instead of their idea is:",
+            "options": [
+              "Name-calling",
+              "Testimonial",
+              "Bandwagon",
+              "Plain folks"
+            ],
+            "correct_answer": "Name-calling"
+          },
+          {
+            "question": "The color blue in a design most often suggests:",
+            "options": [
+              "calm and trust",
+              "danger and urgency",
+              "growth and nature",
+              "anger and warning"
+            ],
+            "correct_answer": "calm and trust"
+          },
+          {
+            "question": "A visual is culturally appropriate when it:",
+            "options": [
+              "portrays people with dignity",
+              "uses the brightest colors",
+              "includes the most people",
+              "costs the least to make"
+            ],
+            "correct_answer": "portrays people with dignity"
+          },
+          {
+            "question": "An advertisement shows only a medicine's benefits and hides its risks. This is:",
+            "options": [
+              "Card stacking",
+              "Transfer",
+              "Bandwagon",
+              "Plain folks"
+            ],
+            "correct_answer": "Card stacking"
+          },
+          {
+            "question": "Which question BEST uncovers an author's hidden stand?",
+            "options": [
+              "What is emphasized and what is left out?",
+              "How many pages does it have?",
+              "What font size was chosen?",
+              "When was the file created?"
+            ],
+            "correct_answer": "What is emphasized and what is left out?"
+          },
+          {
+            "question": "A documentary about farmers interviews only company owners, never farmers. What is the problem?",
+            "options": [
+              "A key point of view is missing",
+              "There are too many interviews",
+              "The footage quality is poor",
+              "The film is far too short"
+            ],
+            "correct_answer": "A key point of view is missing"
+          },
+          {
+            "question": "A slogan promises \"A future of hope and greatness\" with no specific plan. This is:",
+            "options": [
+              "a glittering generality",
+              "a verified statistic",
+              "a technical instruction",
+              "a factual news report"
+            ],
+            "correct_answer": "a glittering generality"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ✖️➗ Friday Review — Mathematics (Grade 6)\n\n**Always convert first:** whole → `n/1` · mixed → improper (`2¼` → `9/4`)\n\n| Operation | Rule |\n|---|---|\n| **Multiply** | numerator × numerator, denominator × denominator |\n| **Divide** | **Keep, Change, Flip** the second fraction |\n\n| Problem | Answer |\n|---|---|\n| `1⅓ × 1½` | **2** |\n| `2¼ ÷ ¾` | **3** |\n| `¾ × 2½` | **1⅞** |\n| `7 ÷ 1¾` | **4** |\n\n**Multi-step:** solve one step at a time and label each result.\n\nExcellent Term 1! ⭐",
+        "quiz": [
+          {
+            "question": "Convert 3 2/5 to an improper fraction.",
+            "options": [
+              "17/5",
+              "15/5",
+              "11/5",
+              "13/5"
+            ],
+            "correct_answer": "17/5"
+          },
+          {
+            "question": "What is 3/4 × 8?",
+            "options": [
+              "6",
+              "32/3",
+              "11/4",
+              "24/8"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What is 2 1/2 × 2/5?",
+            "options": [
+              "1",
+              "5/4",
+              "2",
+              "4/5"
+            ],
+            "correct_answer": "1"
+          },
+          {
+            "question": "What is 4 1/2 ÷ 1 1/2?",
+            "options": [
+              "3",
+              "6 3/4",
+              "2 1/2",
+              "1 1/2"
+            ],
+            "correct_answer": "3"
+          },
+          {
+            "question": "What is 5/8 ÷ 5/16?",
+            "options": [
+              "2",
+              "1/2",
+              "25/128",
+              "10"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "What must you do to a mixed number before multiplying?",
+            "options": [
+              "Convert it to an improper fraction",
+              "Flip it upside down first",
+              "Round it to a whole number",
+              "Add its whole and fraction"
+            ],
+            "correct_answer": "Convert it to an improper fraction"
+          },
+          {
+            "question": "What is 9 ÷ 2 1/4?",
+            "options": [
+              "4",
+              "20 1/4",
+              "6 3/4",
+              "2 1/4"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "What is 2/3 × 1 1/2?",
+            "options": [
+              "1",
+              "2/9",
+              "3/2",
+              "2 1/3"
+            ],
+            "correct_answer": "1"
+          },
+          {
+            "question": "A tank holds 6 liters. Each bottle holds 3/4 liter. How many bottles can be filled?",
+            "options": [
+              "8",
+              "4 1/2",
+              "6 3/4",
+              "9"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "A recipe needs 2/3 cup of oil per batch. How much oil for 3 1/2 batches?",
+            "options": [
+              "2 1/3 cups",
+              "1 1/2 cups",
+              "5 1/4 cups",
+              "2 cups"
+            ],
+            "correct_answer": "2 1/3 cups"
+          },
+          {
+            "question": "A 20-meter rope has 1/4 cut off. The rest is divided into 3/4-meter pieces. How many pieces?",
+            "options": [
+              "20",
+              "15",
+              "26",
+              "12"
+            ],
+            "correct_answer": "20"
+          },
+          {
+            "question": "A student computes 3 1/2 × 2 by writing 3 × 2 = 6 and then adding 1/2 to get 6 1/2. What is the error?",
+            "options": [
+              "The 1/2 must also be multiplied by 2",
+              "The whole numbers should be divided",
+              "The mixed number should be flipped",
+              "The answer needs no simplification"
+            ],
+            "correct_answer": "The 1/2 must also be multiplied by 2"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# ✍️ Biyernes na Balik-Aral — Filipino (Grade 6)\n\n- **Sanaysay** = akdang naglalahad ng kaisipan o paninindigan\n- **Tatlong bahagi:** Panimula (hook + **tesis**) → Katawan (isang punto kada talata + ebidensiya) → Wakas (lagom + panawagan)\n- **Transitional devices:** bukod dito · gayunpaman · samakatuwid · sa kabilang banda\n- **Iwasan:** walang malinaw na tesis · paglalahat na walang patunay · **plagiarism**\n\nMagaling sa Termino 1! 🌟",
+        "quiz": [
+          {
+            "question": "Saan matatagpuan ang tesis ng sanaysay?",
+            "options": [
+              "Sa panimula",
+              "Sa gitna ng katawan",
+              "Sa huling pangungusap",
+              "Sa talababa"
+            ],
+            "correct_answer": "Sa panimula"
+          },
+          {
+            "question": "Ilang pangunahing punto ang dapat sa bawat talata?",
+            "options": [
+              "Isa",
+              "Dalawa",
+              "Tatlo",
+              "Apat"
+            ],
+            "correct_answer": "Isa"
+          },
+          {
+            "question": "Alin ang transitional device?",
+            "options": [
+              "Samakatuwid",
+              "Maganda",
+              "Mabilis",
+              "Malapit"
+            ],
+            "correct_answer": "Samakatuwid"
+          },
+          {
+            "question": "Ano ang dapat nasa wakas ng sanaysay?",
+            "options": [
+              "Lagom at panawagan",
+              "Bagong paksa",
+              "Bagong datos",
+              "Bagong tanong"
+            ],
+            "correct_answer": "Lagom at panawagan"
+          },
+          {
+            "question": "Ano ang panghikayat o hook?",
+            "options": [
+              "Kawili-wiling pambungad",
+              "Huling pangungusap",
+              "Listahan ng sanggunian",
+              "Pangalan ng may-akda"
+            ],
+            "correct_answer": "Kawili-wiling pambungad"
+          },
+          {
+            "question": "Bakit dapat iwasan ang plagiarism?",
+            "options": [
+              "Pagnanakaw ito ng ideya ng iba",
+              "Nagpapahaba ito ng sanaysay",
+              "Nagpapabagal ito ng pagsulat",
+              "Nagpapaliit ito ng titik"
+            ],
+            "correct_answer": "Pagnanakaw ito ng ideya ng iba"
+          },
+          {
+            "question": "Alin ang nagpapatibay sa punto ng sanaysay?",
+            "options": [
+              "Datos at halimbawa",
+              "Mahabang pangungusap",
+              "Magagarang salita",
+              "Maraming bantas"
+            ],
+            "correct_answer": "Datos at halimbawa"
+          },
+          {
+            "question": "Alin ang paglalahat na walang patunay?",
+            "options": [
+              "Lahat ng matanda ay mabagal.",
+              "Tumaas ang bilang noong 2025.",
+              "Ayon sa DOH, lumala ito.",
+              "May pag-aaral tungkol dito."
+            ],
+            "correct_answer": "Lahat ng matanda ay mabagal."
+          },
+          {
+            "question": "Alin ang PINAKAMAHUSAY na tesis para sa sanaysay tungkol sa basurang plastik?",
+            "options": [
+              "Kailangan ng agarang pagkilos laban sa basurang plastik.",
+              "Ang plastik ay ginagamit ng maraming tao.",
+              "May basura sa halos lahat ng lugar.",
+              "Ang dagat ay malawak at malalim."
+            ],
+            "correct_answer": "Kailangan ng agarang pagkilos laban sa basurang plastik."
+          },
+          {
+            "question": "Bakit mahalaga ang malinaw na organisasyon sa sanaysay?",
+            "options": [
+              "Madaling masusundan ng mambabasa ang ideya",
+              "Nagiging mahaba ang bawat talata",
+              "Nagiging magara ang mga salita",
+              "Nababawasan ang bilang ng pahina"
+            ],
+            "correct_answer": "Madaling masusundan ng mambabasa ang ideya"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag gumamit ka ng datos mula sa isang pag-aaral?",
+            "options": [
+              "Banggitin ang pinagkunan nito",
+              "Angkinin ito bilang sarili",
+              "Baguhin ang mga numero",
+              "Huwag na itong isulat"
+            ],
+            "correct_answer": "Banggitin ang pinagkunan nito"
+          },
+          {
+            "question": "Alin ang tanda ng mahusay na sanaysay?",
+            "options": [
+              "May ebidensiya, hindi puro damdamin",
+              "Puno ng malalakas na damdamin",
+              "Walang tiyak na paninindigan",
+              "Kopya mula sa internet"
+            ],
+            "correct_answer": "May ebidensiya, hindi puro damdamin"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ⚗️ Friday Review — Science (Grade 6)\n\n**Changes of state:** melting · freezing · evaporation · condensation · sublimation\n- **Absorb heat:** melting, evaporation | **Release heat:** freezing, condensation\n\n**Physical vs Chemical**\n- Physical = **no new substance**, reversible (melting ice)\n- Chemical = **new substance**, irreversible (burning wood, rusting)\n\n**Mixtures:** **solution** (uniform, does not settle) vs **suspension** (settles)\n- **Air** ≈ 78% nitrogen, 21% oxygen\n\n**Separation:** decantation · filtering · evaporation · sieving · winnowing · magnetism · picking · scooping\n\n**Fair test:** change **ONE** variable, keep the rest the same, repeat trials\n\nGreat scientist work! 🔎",
+        "quiz": [
+          {
+            "question": "Gas turning into liquid is called:",
+            "options": [
+              "condensation",
+              "evaporation",
+              "melting",
+              "sublimation"
+            ],
+            "correct_answer": "condensation"
+          },
+          {
+            "question": "Which process ABSORBS heat energy?",
+            "options": [
+              "Melting",
+              "Freezing",
+              "Condensation",
+              "Solidifying"
+            ],
+            "correct_answer": "Melting"
+          },
+          {
+            "question": "Which is a physical change?",
+            "options": [
+              "Dissolving salt in water",
+              "Burning a piece of paper",
+              "Rusting of an iron nail",
+              "Cooking a raw egg"
+            ],
+            "correct_answer": "Dissolving salt in water"
+          },
+          {
+            "question": "Rusting iron is irreversible because:",
+            "options": [
+              "a new substance is formed",
+              "the shape has been altered",
+              "the metal was only heated",
+              "the particles moved apart"
+            ],
+            "correct_answer": "a new substance is formed"
+          },
+          {
+            "question": "Salt water is an example of a:",
+            "options": [
+              "solution",
+              "suspension",
+              "pure element",
+              "compound only"
+            ],
+            "correct_answer": "solution"
+          },
+          {
+            "question": "Oxygen makes up about what percent of air?",
+            "options": [
+              "21%",
+              "78%",
+              "50%",
+              "10%"
+            ],
+            "correct_answer": "21%"
+          },
+          {
+            "question": "Which method separates stones from rice by hand?",
+            "options": [
+              "Picking",
+              "Winnowing",
+              "Filtering",
+              "Decantation"
+            ],
+            "correct_answer": "Picking"
+          },
+          {
+            "question": "Pouring off clear liquid and leaving settled sand behind is:",
+            "options": [
+              "decantation",
+              "evaporation",
+              "sieving",
+              "magnetism"
+            ],
+            "correct_answer": "decantation"
+          },
+          {
+            "question": "Which sign indicates a chemical change has occurred?",
+            "options": [
+              "Gas bubbles and a new odor",
+              "A change only in shape",
+              "A change only in size",
+              "A change only in position"
+            ],
+            "correct_answer": "Gas bubbles and a new odor"
+          },
+          {
+            "question": "In a fair test on plant growth and sunlight, which should be kept the same?",
+            "options": [
+              "Water amount and soil type",
+              "The hours of sunlight given",
+              "The light intensity per plant",
+              "The sunlight and the water"
+            ],
+            "correct_answer": "Water amount and soil type"
+          },
+          {
+            "question": "Muddy water is left standing and the soil sinks to the bottom. This shows it is a:",
+            "options": [
+              "suspension",
+              "solution",
+              "pure substance",
+              "uniform mixture"
+            ],
+            "correct_answer": "suspension"
+          },
+          {
+            "question": "You must separate salt from sand. Which sequence works BEST?",
+            "options": [
+              "Add water, filter, then evaporate",
+              "Filter first, then add water",
+              "Use a magnet, then sieve it",
+              "Winnow first, then decant it"
+            ],
+            "correct_answer": "Add water, filter, then evaporate"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Biyernes na Balik-Aral — Araling Panlipunan (Grade 6)\n\n- **333 taon** ng pananakop ng Espanya (1565–1898)\n- **Kilusang Propaganda** — reporma; Rizal, del Pilar, Lopez Jaena; **La Solidaridad**\n- **Katipunan (1892)** — Bonifacio; **Sigaw sa Pugad Lawin** (1896)\n- **Hunyo 12, 1898** — Deklarasyon ng Kalayaan sa **Kawit, Cavite**\n- **Kababaihan:** Gabriela Silang · Tandang Sora · Gregoria de Jesus\n- **Kahalagahan ngayon:** pagkakakilanlang pambansa · halaga ng kalayaan · pagkakaisa · karapatan · pananagutan ng kabataan\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Kailan itinatag ang Katipunan?",
+            "options": [
+              "1892",
+              "1896",
+              "1898",
+              "1872"
+            ],
+            "correct_answer": "1892"
+          },
+          {
+            "question": "Saan idineklara ang kalayaan noong Hunyo 12, 1898?",
+            "options": [
+              "Kawit, Cavite",
+              "Maynila",
+              "Pugad Lawin",
+              "Tejeros"
+            ],
+            "correct_answer": "Kawit, Cavite"
+          },
+          {
+            "question": "Sino ang sumulat ng Noli Me Tangere?",
+            "options": [
+              "Jose Rizal",
+              "Andres Bonifacio",
+              "Marcelo H. del Pilar",
+              "Graciano Lopez Jaena"
+            ],
+            "correct_answer": "Jose Rizal"
+          },
+          {
+            "question": "Sino ang namuno sa pag-aalsa sa Ilocos?",
+            "options": [
+              "Gabriela Silang",
+              "Melchora Aquino",
+              "Gregoria de Jesus",
+              "Teodora Alonzo"
+            ],
+            "correct_answer": "Gabriela Silang"
+          },
+          {
+            "question": "Ano ang tributo?",
+            "options": [
+              "Buwis na ipinapataw ng mga Espanyol",
+              "Sapilitang paggawa sa daan",
+              "Paaralan para sa mga bata",
+              "Kasunduan sa pagitan ng datu"
+            ],
+            "correct_answer": "Buwis na ipinapataw ng mga Espanyol"
+          },
+          {
+            "question": "Ang Kilusang Propaganda ay naglayong makamit ang:",
+            "options": [
+              "reporma at pantay na karapatan",
+              "agarang digmaan sa Espanya",
+              "pagpapalit ng relihiyon",
+              "paglipat sa ibang bansa"
+            ],
+            "correct_answer": "reporma at pantay na karapatan"
+          },
+          {
+            "question": "Sino ang tinawag na Ina ng Katipunan?",
+            "options": [
+              "Melchora Aquino",
+              "Gabriela Silang",
+              "Gregoria de Jesus",
+              "Josefa Rizal"
+            ],
+            "correct_answer": "Melchora Aquino"
+          },
+          {
+            "question": "Ano ang isinasagisag ng pagpunit ng sedula sa Pugad Lawin?",
+            "options": [
+              "Pagtanggi sa pananakop ng Espanya",
+              "Pagtatapos ng buwis sa bayan",
+              "Pagsisimula ng bagong taon",
+              "Paghahati ng lupain sa bayan"
+            ],
+            "correct_answer": "Pagtanggi sa pananakop ng Espanya"
+          },
+          {
+            "question": "Ano ang naiambag ng himagsikan sa ating pagkakakilanlan?",
+            "options": [
+              "Nabuo ang diwa ng pagiging isang bansa",
+              "Naghiwa-hiwalay ang mga rehiyon",
+              "Nawala ang ating mga wika",
+              "Bumaba ang bilang ng tao"
+            ],
+            "correct_answer": "Nabuo ang diwa ng pagiging isang bansa"
+          },
+          {
+            "question": "Paano naiuugnay ang laban para sa representasyon noon sa kasalukuyan?",
+            "options": [
+              "Ugat ito ng ating karapatang bumoto",
+              "Wala itong kinalaman ngayon",
+              "Pinigil nito ang ating pag-unlad",
+              "Nagdulot ito ng higit na hidwaan"
+            ],
+            "correct_answer": "Ugat ito ng ating karapatang bumoto"
+          },
+          {
+            "question": "Ano ang PINAKAMAHUSAY na paraan ng kabataan upang pahalagahan ang kalayaan ngayon?",
+            "options": [
+              "Pag-aaral ng kasaysayan at aktibong paglahok",
+              "Pagkalimot sa mga nakaraang pangyayari",
+              "Pag-iwas sa lahat ng usapin sa lipunan",
+              "Pagsunod nang hindi nagtatanong"
+            ],
+            "correct_answer": "Pag-aaral ng kasaysayan at aktibong paglahok"
+          },
+          {
+            "question": "Bakit sinasabing hindi regalo ang kalayaan?",
+            "options": [
+              "Binayaran ito ng dugo at buhay",
+              "Ibinigay ito ng ibang bansa",
+              "Nakuha ito nang walang hirap",
+              "Natagpuan ito nang biglaan"
+            ],
+            "correct_answer": "Binayaran ito ng dugo at buhay"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Friday Review — EPP (ICT) (Grade 6)\n\n- **Match the tool to the task:** spreadsheet for numbers, word processor for text, slides for reporting\n- **File habits:** save often · meaningful names · organized folders · **back up**\n- **Passwords:** 12+ characters, mixed, unique, never shared\n- **Threats:** phishing · malware · scam · cyberbullying · fake news\n- **Evaluate sources:** author · date · purpose · evidence · **cross-check**\n- **Ethics:** cite sources, respect copyright, be kind, report harm\n- **Wellness:** 20-20-20 rule, screen at eye level\n\nGreat ICT work! 🌟",
+        "quiz": [
+          {
+            "question": "Which tool suits writing a long report?",
+            "options": [
+              "Word processor",
+              "Spreadsheet",
+              "Photo editor",
+              "Video player"
+            ],
+            "correct_answer": "Word processor"
+          },
+          {
+            "question": "How long should a strong password be at minimum?",
+            "options": [
+              "12 characters",
+              "4 characters",
+              "6 characters",
+              "2 characters"
+            ],
+            "correct_answer": "12 characters"
+          },
+          {
+            "question": "What does the 20-20-20 rule protect?",
+            "options": [
+              "Your eyes",
+              "Your files",
+              "Your password",
+              "Your battery"
+            ],
+            "correct_answer": "Your eyes"
+          },
+          {
+            "question": "Which is the safest habit for important schoolwork?",
+            "options": [
+              "Back it up in more than one place",
+              "Keep only one copy on a laptop",
+              "Rename it after every session",
+              "Email it to strangers online"
+            ],
+            "correct_answer": "Back it up in more than one place"
+          },
+          {
+            "question": "Fake news is BEST described as:",
+            "options": [
+              "false information spread as fact",
+              "harmful software from downloads",
+              "a message stealing passwords",
+              "repeated online harassment"
+            ],
+            "correct_answer": "false information spread as fact"
+          },
+          {
+            "question": "Which detail should you check to judge a website's reliability?",
+            "options": [
+              "Whether an author is named",
+              "How colorful the page is",
+              "How many images it has",
+              "How fast the page loads"
+            ],
+            "correct_answer": "Whether an author is named"
+          },
+          {
+            "question": "Copying a paragraph from a website into your report without credit is:",
+            "options": [
+              "plagiarism",
+              "citation",
+              "paraphrasing",
+              "summarizing"
+            ],
+            "correct_answer": "plagiarism"
+          },
+          {
+            "question": "Why should each important account have a different password?",
+            "options": [
+              "One breach will not expose them all",
+              "It makes logging in much faster",
+              "It uses less storage on devices",
+              "It improves the internet speed"
+            ],
+            "correct_answer": "One breach will not expose them all"
+          },
+          {
+            "question": "A site has no date, many typos, and ALL CAPS headlines. You should:",
+            "options": [
+              "treat it as unreliable",
+              "share it right away",
+              "accept it as verified",
+              "cite it in your report"
+            ],
+            "correct_answer": "treat it as unreliable"
+          },
+          {
+            "question": "Someone sends hurtful messages to a classmate repeatedly online. This is:",
+            "options": [
+              "cyberbullying",
+              "phishing",
+              "malware",
+              "plagiarism"
+            ],
+            "correct_answer": "cyberbullying"
+          },
+          {
+            "question": "You must compare monthly expenses and make a chart. Which tool is BEST?",
+            "options": [
+              "Spreadsheet",
+              "Word processor",
+              "Music player",
+              "Drawing app"
+            ],
+            "correct_answer": "Spreadsheet"
+          },
+          {
+            "question": "Two reliable sites disagree with a claim you read on a blog. What should you conclude?",
+            "options": [
+              "The blog claim needs more verification",
+              "The blog must be entirely correct",
+              "All three sources are unreliable",
+              "The newest source is always right"
+            ],
+            "correct_answer": "The blog claim needs more verification"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🏀 Biyernes na Balik-Aral — MAPEH (Grade 6)\n\n- **Target games** = accuracy sa target (archery, bowling)\n- **Invasion games** = pumasok sa teritoryo (basketball, football)\n- **Locomotor** (takbo, lukso) vs **Manipulative** (hagis, sipa, dribble)\n- **Movement concepts:** body · space · effort · relationship\n- **Fitness:** agility · balance · coordination · speed · endurance\n- **Opensa:** buksan ang espasyo, **pass and move** | **Depensa:** bantayan ang espasyo\n- **Modified games** = angkop sa edad, mas maraming kalahok\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Alin ang invasion game?",
+            "options": [
+              "Football",
+              "Bowling",
+              "Archery",
+              "Dart"
+            ],
+            "correct_answer": "Football"
+          },
+          {
+            "question": "Alin ang locomotor skill?",
+            "options": [
+              "Paglukso",
+              "Paghagis",
+              "Pagsipa",
+              "Pagtira"
+            ],
+            "correct_answer": "Paglukso"
+          },
+          {
+            "question": "Ano ang agility?",
+            "options": [
+              "Mabilis na pagbabago ng direksiyon",
+              "Tagal ng pagtitiis sa laro",
+              "Katatagan sa isang posisyon",
+              "Katumpakan ng pagtira"
+            ],
+            "correct_answer": "Mabilis na pagbabago ng direksiyon"
+          },
+          {
+            "question": "Ano ang layunin ng modified games?",
+            "options": [
+              "Makalahok ang lahat ayon sa kakayahan",
+              "Mapahirap ang laro sa lahat",
+              "Manalo lamang ang magagaling",
+              "Humaba ang oras ng laro"
+            ],
+            "correct_answer": "Makalahok ang lahat ayon sa kakayahan"
+          },
+          {
+            "question": "Sa depensa, ano ang dapat bantayan bukod sa tao?",
+            "options": [
+              "Ang espasyo",
+              "Ang oras",
+              "Ang puntos",
+              "Ang tunog"
+            ],
+            "correct_answer": "Ang espasyo"
+          },
+          {
+            "question": "Ano ang manipulative skill?",
+            "options": [
+              "Pagsalo ng bola",
+              "Pagtakbo sa court",
+              "Paglakad sa gilid",
+              "Pag-slide sa sahig"
+            ],
+            "correct_answer": "Pagsalo ng bola"
+          },
+          {
+            "question": "Ano ang endurance?",
+            "options": [
+              "Tagal ng pagtitiis sa aktibidad",
+              "Bilis ng unang hakbang",
+              "Lakas ng isang tira",
+              "Tumpak na pagpuntirya"
+            ],
+            "correct_answer": "Tagal ng pagtitiis sa aktibidad"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng effort sa movement concepts?",
+            "options": [
+              "Gaano kabilis o kalakas ang galaw",
+              "Saan gumagalaw ang katawan",
+              "Sino ang kasama sa laro",
+              "Ilan ang puntos na nakuha"
+            ],
+            "correct_answer": "Gaano kabilis o kalakas ang galaw"
+          },
+          {
+            "question": "Bakit mahalaga ang pass and move?",
+            "options": [
+              "Mas mabilis ang bola kaysa tao",
+              "Mas mahaba ang oras ng laro",
+              "Mas kaunti ang pagod",
+              "Mas madali ang pagbilang"
+            ],
+            "correct_answer": "Mas mabilis ang bola kaysa tao"
+          },
+          {
+            "question": "Alin ang nagpapakita ng sportsmanship?",
+            "options": [
+              "Sundin ang tuntunin kahit walang nakatingin",
+              "Manalo sa anumang paraan",
+              "Sisihin ang referee palagi",
+              "Iwasan ang mahihinang kalaro"
+            ],
+            "correct_answer": "Sundin ang tuntunin kahit walang nakatingin"
+          },
+          {
+            "question": "Laging naaagaw ang bola ng kalaban dahil masyadong malapit ang inyong koponan sa isa't isa. Ano ang solusyon?",
+            "options": [
+              "Magkalat upang lumawak ang espasyo",
+              "Magsiksikan pa nang mas mahigpit",
+              "Hawakan ang bola nang matagal",
+              "Tumakbo pabalik sa sariling goal"
+            ],
+            "correct_answer": "Magkalat upang lumawak ang espasyo"
+          },
+          {
+            "question": "Bakit mahalaga ang warm-up bago maglaro ng invasion games?",
+            "options": [
+              "Naiiwasan nito ang pinsala sa katawan",
+              "Napapabilis nito ang pagtatapos ng laro",
+              "Nadaragdagan nito ang puntos ng koponan",
+              "Napapaikli nito ang oras ng paglalaro"
+            ],
+            "correct_answer": "Naiiwasan nito ang pinsala sa katawan"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💡 Biyernes na Balik-Aral — GMRC (Grade 6)\n\n- Karamihan ng kuryente natin ay mula sa **fossil fuels** → **carbon dioxide** → climate change\n- **Renewable:** solar · wind · hydro · geothermal\n- **Pagtitipid:** patayin ang ilaw · LED bulbs · **tanggalin sa saksakan** (phantom load) · aircon sa 25°C · full load na labada · ibilad sa araw\n- **Mapagmalasakit** = pag-aalala sa kapakanan ng iba — pamilya, kapwa, kalikasan, susunod na salinlahi\n- **Napakalaki ng epekto kapag sama-sama**\n\nMabuting mamamayan ka! 💫",
+        "quiz": [
+          {
+            "question": "Alin ang renewable na enerhiya?",
+            "options": [
+              "Hangin o wind power",
+              "Karbon mula sa minahan",
+              "Langis mula sa lupa",
+              "Natural gas sa dagat"
+            ],
+            "correct_answer": "Hangin o wind power"
+          },
+          {
+            "question": "Ano ang nailalabas kapag sinusunog ang fossil fuels?",
+            "options": [
+              "Carbon dioxide",
+              "Malinis na oxygen",
+              "Purong nitrogen",
+              "Tubig na inumin"
+            ],
+            "correct_answer": "Carbon dioxide"
+          },
+          {
+            "question": "Bakit dapat tanggalin sa saksakan ang charger kapag hindi ginagamit?",
+            "options": [
+              "May phantom load pa rin ito",
+              "Nasisira ito kapag nakasaksak",
+              "Bumibigat ito kapag nakabukas",
+              "Nag-iingay ito kapag tahimik"
+            ],
+            "correct_answer": "May phantom load pa rin ito"
+          },
+          {
+            "question": "Alin ang mas matipid na bombilya?",
+            "options": [
+              "LED",
+              "Incandescent",
+              "Halogen",
+              "Neon"
+            ],
+            "correct_answer": "LED"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng mapagmalasakit?",
+            "options": [
+              "Pag-aalala sa kapakanan ng iba",
+              "Pagtitipid ng sariling oras",
+              "Pagsunod sa lahat ng utos",
+              "Pag-iwas sa gawaing bahay"
+            ],
+            "correct_answer": "Pag-aalala sa kapakanan ng iba"
+          },
+          {
+            "question": "Alin ang matipid na gawi sa paglalaba?",
+            "options": [
+              "Maglaba nang full load",
+              "Maglaba ng tig-iisa",
+              "Gumamit lagi ng dryer",
+              "Maglaba tuwing gabi"
+            ],
+            "correct_answer": "Maglaba nang full load"
+          },
+          {
+            "question": "Bakit hindi dapat paulit-ulit buksan ang refrigerator?",
+            "options": [
+              "Dumadagdag ito sa gamit na kuryente",
+              "Sumisira ito sa pinto nito",
+              "Nagpapabago ito ng kulay",
+              "Nagpapabigat ito sa laman"
+            ],
+            "correct_answer": "Dumadagdag ito sa gamit na kuryente"
+          },
+          {
+            "question": "Sa anong temperatura mainam ang aircon upang makatipid?",
+            "options": [
+              "25 degrees Celsius",
+              "16 degrees Celsius",
+              "18 degrees Celsius",
+              "30 degrees Celsius"
+            ],
+            "correct_answer": "25 degrees Celsius"
+          },
+          {
+            "question": "Paano nakatutulong sa pamilya ang pagtitipid ng enerhiya?",
+            "options": [
+              "Bumababa ang bayarin sa kuryente",
+              "Tumataas ang buwis sa bahay",
+              "Dumarami ang mga gamit",
+              "Humahaba ang oras ng gabi"
+            ],
+            "correct_answer": "Bumababa ang bayarin sa kuryente"
+          },
+          {
+            "question": "Bakit mahalaga ang maliliit na hakbang ng bawat isa?",
+            "options": [
+              "Malaki ang epekto kapag pinagsama-sama",
+              "Mabilis itong nakikita sa isang araw",
+              "May gantimpala agad ang bawat isa",
+              "Napapansin ito ng lahat ng tao"
+            ],
+            "correct_answer": "Malaki ang epekto kapag pinagsama-sama"
+          },
+          {
+            "question": "Naiwang bukas ang electric fan sa walang taong silid. Ano ang PINAKAMABUTING gawin?",
+            "options": [
+              "Patayin ito at ipaalala nang magalang",
+              "Iwanan ito at umalis na lamang",
+              "Buksan pa ang ibang bentilador",
+              "Hintayin ang iba na pumatay"
+            ],
+            "correct_answer": "Patayin ito at ipaalala nang magalang"
+          },
+          {
+            "question": "Ang tunay na malasakit sa kalikasan ay ipinapakita kapag ikaw ay:",
+            "options": [
+              "nagtitipid kahit walang nakakakita",
+              "nagtitipid kapag may pumupuri",
+              "nagtitipid kapag may gantimpala",
+              "nagtitipid kapag may nag-uutos"
+            ],
+            "correct_answer": "nagtitipid kahit walang nakakakita"
+          }
+        ]
+      }
+    }
+  }
+}

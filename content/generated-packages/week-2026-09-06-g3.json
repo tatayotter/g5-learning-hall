@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-09-06",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📖 English — Composing Texts & Making Summaries\n\nFinal week of Term 1, Grade 3! Time to pull everything together. 💪\n\n## 🌟 Polite Expressions for Different Situations\n| Situation | What you say |\n|---|---|\n| Meeting your teacher | \"Good morning, Ma'am/Sir.\" |\n| Someone helps you | \"Thank you very much.\" |\n| You need to pass by | \"Excuse me, please.\" |\n| You made a mistake | \"I'm sorry.\" |\n| Asking a favor | \"May I please...\" |\n\n## 🔁 Retelling in Your Own Words\nWhen you **retell** a myth, legend, or fable, you use **your own words** but keep the **same events in the same order**.\n\n**Example:** Instead of copying *\"The industrious ant laboured throughout the summer\"*, you retell it as *\"The ant worked hard all summer.\"*\n\n## ✂️ Summarizing a Narrative\nA **summary** answers: **Who? What happened? How did it end?**\n\n**Example:** For *The Ant and the Grasshopper*:\n> *An ant stored food all summer while a grasshopper played. When winter came, the grasshopper had nothing to eat.*\n\nNotice: no small details, just the **main events**.\n\n## 📝 Text Structures\n- **Time order** — tells events in sequence (*first, next, then, finally*)\n- **Procedural** — gives steps to do something (*Step 1, Step 2...*)\n- **Description** — tells what something looks, sounds, or feels like\n- **Explanation** — tells **why** or **how** something happens\n\n**Example of procedural:** *First, gather your materials. Next, fold the paper in half. Then, cut along the line. Finally, unfold your design.*\n\n## 💬 Reacting to a Text\nGive your **opinion** and always add a **reason**:\n> *\"I think the ant was wise **because** she prepared for winter.\"*\n\nGreat finish to the term! 🌈",
+        "quiz": [
+          {
+            "question": "Which expression is best when asking a favor politely?",
+            "options": [
+              "May I please...",
+              "Give it now.",
+              "I want that.",
+              "Hand it over."
+            ],
+            "correct_answer": "May I please..."
+          },
+          {
+            "question": "When you retell a story, you should keep the events:",
+            "options": [
+              "in the same order",
+              "in a new order",
+              "only the last one",
+              "in reverse order"
+            ],
+            "correct_answer": "in the same order"
+          },
+          {
+            "question": "A summary of a narrative should tell who, what happened, and:",
+            "options": [
+              "how it ended",
+              "every small detail",
+              "the page numbers",
+              "the author's age"
+            ],
+            "correct_answer": "how it ended"
+          },
+          {
+            "question": "Which text structure gives steps to follow?",
+            "options": [
+              "Procedural",
+              "Description",
+              "Explanation",
+              "Persuasion"
+            ],
+            "correct_answer": "Procedural"
+          },
+          {
+            "question": "Which text structure tells WHY something happens?",
+            "options": [
+              "Explanation",
+              "Procedural",
+              "Time order",
+              "Description"
+            ],
+            "correct_answer": "Explanation"
+          },
+          {
+            "question": "\"The mango is yellow, sweet, and soft.\" Which structure is this?",
+            "options": [
+              "Description",
+              "Procedural",
+              "Explanation",
+              "Time order"
+            ],
+            "correct_answer": "Description"
+          },
+          {
+            "question": "Which set of words signals time order?",
+            "options": [
+              "first, next, finally",
+              "because, since, so",
+              "big, small, round",
+              "who, what, where"
+            ],
+            "correct_answer": "first, next, finally"
+          },
+          {
+            "question": "A fable is a short story that teaches a:",
+            "options": [
+              "moral lesson",
+              "cooking recipe",
+              "science formula",
+              "map direction"
+            ],
+            "correct_answer": "moral lesson"
+          },
+          {
+            "question": "Which is the BEST retelling of \"The industrious ant laboured all summer\"?",
+            "options": [
+              "The ant worked hard all summer.",
+              "The ant was industrious in labour.",
+              "Summer was long for the insect.",
+              "An ant existed during the summer."
+            ],
+            "correct_answer": "The ant worked hard all summer."
+          },
+          {
+            "question": "\"I liked the story because the boy was brave.\" What makes this a good reaction?",
+            "options": [
+              "It gives a reason",
+              "It is very long",
+              "It names the author",
+              "It counts the pages"
+            ],
+            "correct_answer": "It gives a reason"
+          },
+          {
+            "question": "Which sentence best summarizes a story about a girl who saved coins for a year to buy her mother a gift?",
+            "options": [
+              "A girl saved coins all year to buy her mother a gift.",
+              "A girl found some coins on the ground one day.",
+              "Coins are small and made of shiny metal.",
+              "Mothers like to receive gifts on special days."
+            ],
+            "correct_answer": "A girl saved coins all year to buy her mother a gift."
+          },
+          {
+            "question": "You are writing how to plant a seed. Which structure fits BEST?",
+            "options": [
+              "Procedural",
+              "Description",
+              "Explanation",
+              "Narrative"
+            ],
+            "correct_answer": "Procedural"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📐 Mathematics — Points, Lines, and Line Relationships\n\nLast Math lesson of Term 1, Grade 3! Let's explore **geometry**. ✏️\n\n## 🔹 The Basic Building Blocks\n| Figure | What it looks like | Key idea |\n|---|---|---|\n| **Point** | a tiny dot • | shows an exact **location**, no size |\n| **Line** | ←——→ | goes on **forever both ways** |\n| **Line segment** | •——• | has **two endpoints** |\n| **Ray** | •——→ | has **one endpoint**, goes forever one way |\n\n**Memory trick:** A **ray** is like sunlight — it **starts** at the sun and keeps going! ☀️\n\n## 📏 How Lines Relate to Each Other\n\n**1. Parallel lines** — always the **same distance** apart, they **never meet**.\n- Example: the two long rails of a **train track** 🚂\n- Example: opposite edges of your **notebook**\n\n**2. Intersecting lines** — they **cross** at one point.\n- Example: a **road crossing** ✚\n- Example: the blades of open **scissors**\n\n**3. Perpendicular lines** — a **special kind of intersecting line** that meets at a **square corner (90°)**.\n- Example: the corner of a **window** 🪟\n- Example: a **plus sign** ✚\n\n## 🧠 Worked Example 1\n*Is the letter **L** made of perpendicular lines?*\n- Step 1: The two segments meet. → They **intersect**.\n- Step 2: Do they form a square corner? **Yes**.\n- Step 3: So they are **perpendicular**. ✅\n\n## 🧠 Worked Example 2\n*The letter **X** — parallel or intersecting?*\n- Step 1: The two lines **cross** each other. → **Intersecting**.\n- Step 2: Is the corner square? **No**, the angles are slanted.\n- Step 3: So it is **intersecting but NOT perpendicular**. ✅\n\n**Remember:** All perpendicular lines intersect, but not all intersecting lines are perpendicular!\n\nExcellent work! ⭐",
+        "quiz": [
+          {
+            "question": "Which figure has TWO endpoints?",
+            "options": [
+              "Line segment",
+              "Ray",
+              "Line",
+              "Point"
+            ],
+            "correct_answer": "Line segment"
+          },
+          {
+            "question": "Which figure has exactly ONE endpoint?",
+            "options": [
+              "Ray",
+              "Line segment",
+              "Line",
+              "Point"
+            ],
+            "correct_answer": "Ray"
+          },
+          {
+            "question": "A point shows an exact:",
+            "options": [
+              "location",
+              "distance",
+              "direction",
+              "measurement"
+            ],
+            "correct_answer": "location"
+          },
+          {
+            "question": "Lines that never meet, no matter how far they go, are called:",
+            "options": [
+              "parallel",
+              "intersecting",
+              "perpendicular",
+              "curved"
+            ],
+            "correct_answer": "parallel"
+          },
+          {
+            "question": "Two lines that cross at a square corner are called:",
+            "options": [
+              "perpendicular",
+              "parallel",
+              "curved",
+              "slanted"
+            ],
+            "correct_answer": "perpendicular"
+          },
+          {
+            "question": "The two long rails of a train track are an example of:",
+            "options": [
+              "parallel lines",
+              "perpendicular lines",
+              "intersecting rays",
+              "line segments"
+            ],
+            "correct_answer": "parallel lines"
+          },
+          {
+            "question": "A line goes on forever in:",
+            "options": [
+              "both directions",
+              "one direction",
+              "no direction",
+              "a circle"
+            ],
+            "correct_answer": "both directions"
+          },
+          {
+            "question": "The corner of a window shows which kind of lines?",
+            "options": [
+              "Perpendicular",
+              "Parallel",
+              "Curved",
+              "Slanted"
+            ],
+            "correct_answer": "Perpendicular"
+          },
+          {
+            "question": "The letter X is made of two lines that:",
+            "options": [
+              "intersect but are not perpendicular",
+              "are parallel to each other",
+              "never touch at any point",
+              "have only one endpoint"
+            ],
+            "correct_answer": "intersect but are not perpendicular"
+          },
+          {
+            "question": "Which statement is TRUE?",
+            "options": [
+              "All perpendicular lines intersect.",
+              "All intersecting lines are perpendicular.",
+              "All parallel lines intersect.",
+              "All rays have two endpoints."
+            ],
+            "correct_answer": "All perpendicular lines intersect."
+          },
+          {
+            "question": "The opposite edges of a rectangular notebook are:",
+            "options": [
+              "parallel",
+              "perpendicular",
+              "intersecting",
+              "curved"
+            ],
+            "correct_answer": "parallel"
+          },
+          {
+            "question": "Sunlight starting at the sun and travelling outward is most like a:",
+            "options": [
+              "ray",
+              "line segment",
+              "point",
+              "parallel line"
+            ],
+            "correct_answer": "ray"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Pagbuo ng Maikling Talata\n\nHuling linggo ng Termino 1, Grade 3! Tapusin natin nang maganda. 💪\n\n## 🗣️ Magagalang na Pananalita\nSa paaralan, ginagamit natin ang **magalang na wika**.\n\n| Sitwasyon | Sasabihin |\n|---|---|\n| Pagbati sa guro | \"Magandang umaga po.\" |\n| Paghingi ng tulong | \"Maaari po bang...\" |\n| Pasasalamat | \"Maraming salamat po.\" |\n| Paghingi ng paumanhin | \"Pasensiya na po.\" |\n\nGamitin ang **po** at **opo** sa nakatatanda.\n\n## 📝 Ang Maikling Talata\nAng **talata** ay pangkat ng mga pangungusap na may **iisang paksa**.\n\nMga bahagi:\n1. **Pangunahing ideya** — ang paksa ng talata\n2. **Sumusuportang detalye** — mga pangungusap na nagpapaliwanag\n3. **Pangwakas** — ang buod o huling kaisipan\n\n## 🧩 Payak at Tambalang Pangungusap\n- **Payak** — iisa lang ang diwa.\n  > *Naglalaro ang mga bata.*\n- **Tambalang pangungusap** — dalawang diwa na pinagdugtong ng **at**, **ngunit**, o **kaya**.\n  > *Naglalaro ang mga bata **at** masaya sila.*\n\n## ✍️ Halimbawa ng Talata\n> **Mahalaga ang pagtutulungan sa aming pamayanan.** Tuwing Sabado, naglilinis ang mga kapitbahay sa kalye. Nagdadala ng walis ang matatanda ngunit tumutulong din ang mga bata. Dahil dito, malinis at maayos ang aming lugar.\n\n- **Pangunahing ideya:** pagtutulungan sa pamayanan\n- **Detalye:** paglilinis tuwing Sabado, tulong ng bata at matanda\n- **Pangwakas:** malinis ang lugar\n\n## 💭 Pagpapahayag ng Reaksiyon\nMagbigay ng **opinyon** at **dahilan**:\n> *\"Nagustuhan ko ang kuwento **dahil** nagtulungan ang magkakaibigan.\"*\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang talata?",
+            "options": [
+              "Pangkat ng pangungusap na may iisang paksa",
+              "Isang salitang may maraming kahulugan",
+              "Listahan ng pangalan ng mga bata",
+              "Guhit na may iba't ibang kulay"
+            ],
+            "correct_answer": "Pangkat ng pangungusap na may iisang paksa"
+          },
+          {
+            "question": "Alin ang magalang na paraan ng paghingi ng tulong?",
+            "options": [
+              "Maaari po bang tulungan ninyo ako?",
+              "Tulungan mo ako ngayon din.",
+              "Bilisan mo, kailangan ko na.",
+              "Gawin mo ito para sa akin."
+            ],
+            "correct_answer": "Maaari po bang tulungan ninyo ako?"
+          },
+          {
+            "question": "Alin ang payak na pangungusap?",
+            "options": [
+              "Naglalaro ang mga bata.",
+              "Naglalaro ang mga bata at masaya sila.",
+              "Umuulan ngunit pumasok kami.",
+              "Nag-aral siya kaya nakapasa siya."
+            ],
+            "correct_answer": "Naglalaro ang mga bata."
+          },
+          {
+            "question": "Aling salita ang nagdurugtong ng dalawang diwa sa tambalang pangungusap?",
+            "options": [
+              "ngunit",
+              "napaka",
+              "tunay",
+              "lubha"
+            ],
+            "correct_answer": "ngunit"
+          },
+          {
+            "question": "Ano ang tawag sa pangungusap na nagsasabi ng paksa ng talata?",
+            "options": [
+              "Pangunahing ideya",
+              "Sumusuportang detalye",
+              "Pangwakas",
+              "Pamagat"
+            ],
+            "correct_answer": "Pangunahing ideya"
+          },
+          {
+            "question": "Ano ang ginagamit natin sa pakikipag-usap sa nakatatanda?",
+            "options": [
+              "po at opo",
+              "oo at hindi",
+              "ito at iyan",
+              "sige at tara"
+            ],
+            "correct_answer": "po at opo"
+          },
+          {
+            "question": "\"Nagustuhan ko ang kuwento ____ nagtulungan sila.\" Anong salita ang nagbibigay ng dahilan?",
+            "options": [
+              "dahil",
+              "ngunit",
+              "bago",
+              "habang"
+            ],
+            "correct_answer": "dahil"
+          },
+          {
+            "question": "Alin ang tambalang pangungusap?",
+            "options": [
+              "Umuulan ngunit pumasok pa rin kami.",
+              "Malakas ang ulan kanina.",
+              "Pumasok ako sa paaralan.",
+              "Masaya ang mga bata."
+            ],
+            "correct_answer": "Umuulan ngunit pumasok pa rin kami."
+          },
+          {
+            "question": "Ano ang layunin ng sumusuportang detalye sa talata?",
+            "options": [
+              "Magpaliwanag sa pangunahing ideya",
+              "Magbigay ng bagong paksa",
+              "Magtapos ng kuwento",
+              "Magbilang ng pangungusap"
+            ],
+            "correct_answer": "Magpaliwanag sa pangunahing ideya"
+          },
+          {
+            "question": "Alin ang pinakamagandang pangwakas sa talata tungkol sa paglilinis ng kalye?",
+            "options": [
+              "Dahil dito, malinis ang aming lugar.",
+              "Ang walis ay gawa sa tingting.",
+              "May sampung bahay sa kalye.",
+              "Sabado ang ikaanim na araw."
+            ],
+            "correct_answer": "Dahil dito, malinis ang aming lugar."
+          },
+          {
+            "question": "Basahin: \"Masipag si Ana. Tumutulong siya kay Nanay. Naglilinis din siya ng bakuran.\" Ano ang pangunahing ideya?",
+            "options": [
+              "Ang kasipagan ni Ana",
+              "Ang bakuran ng bahay",
+              "Ang gawain ni Nanay",
+              "Ang oras ng paglilinis"
+            ],
+            "correct_answer": "Ang kasipagan ni Ana"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng magalang na pananalita sa paaralan?",
+            "options": [
+              "Nagpapakita ito ng paggalang sa iba",
+              "Nagpapahaba ito ng pangungusap",
+              "Nagpapabilis ito ng pagsulat",
+              "Nagpapaganda ito ng sulat-kamay"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang sa iba"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Handling and Disposing Materials Properly\n\nLast Science lesson of Term 1, Grade 3! Let's protect our environment. 🌏\n\n## ♻️ The 3 Rs\n- **Reduce** — use **less** in the first place\n- **Reuse** — use something **again** instead of throwing it away\n- **Recycle** — turn old material into something **new**\n\n## 🗑️ Sorting Our Waste\n| Type | Examples | Where it goes |\n|---|---|---|\n| **Biodegradable** | food scraps, leaves, paper | compost pit |\n| **Non-biodegradable** | plastic, glass, metal | recycling bin |\n| **Hazardous** | batteries, broken glass, used oil | special disposal |\n\n## ⚠️ Handling by Property\nHow we handle a material depends on its **properties**.\n\n- **Sharp** (broken glass) → wrap in **thick paper** before throwing; never touch with bare hands\n- **Liquid and greasy** (used cooking oil) → **never** pour into the sink or canal; it clogs pipes and pollutes water. Put it in a **sealed container** and place in the garbage.\n- **Breakable** (glass jars) → carry with **both hands**, store low\n- **Light and blowable** (plastic bags) → keep **covered** so wind does not scatter them\n\n## 🧠 Worked Example 1\n*Nanay finished frying and has leftover oil. What should she do?*\n- Step 1: Oil is **liquid and greasy** — it must not go down the drain.\n- Step 2: Let it **cool** first.\n- Step 3: Pour into a **sealed container**.\n- Step 4: Place it in the **garbage**. ✅\n\n## 🧠 Worked Example 2\n*You have an empty plastic bottle. What is the BEST choice?*\n- Throwing it away → the bottle is wasted ❌\n- **Reusing it as a plant pot or water container** → best ✅\n- Burning it → releases harmful smoke ❌\n\n## 🌱 Why It Matters\nProper disposal keeps our **water clean**, prevents **floods** from clogged canals, and protects **animals** that might eat or get trapped in trash.\n\nGreat scientist work this term! 🔎",
+        "quiz": [
+          {
+            "question": "What does 'reuse' mean?",
+            "options": [
+              "Use something again",
+              "Throw it away",
+              "Burn it outside",
+              "Bury it deep"
+            ],
+            "correct_answer": "Use something again"
+          },
+          {
+            "question": "Which material is biodegradable?",
+            "options": [
+              "Food scraps",
+              "Plastic bag",
+              "Glass bottle",
+              "Metal can"
+            ],
+            "correct_answer": "Food scraps"
+          },
+          {
+            "question": "Where should used cooking oil be placed?",
+            "options": [
+              "In a sealed container in the garbage",
+              "Straight down the kitchen sink drain",
+              "Into the open street canal outside",
+              "Spread over the garden soil"
+            ],
+            "correct_answer": "In a sealed container in the garbage"
+          },
+          {
+            "question": "Why should broken glass be wrapped before throwing it away?",
+            "options": [
+              "So no one gets cut",
+              "So it looks neater",
+              "So it weighs less",
+              "So it dries faster"
+            ],
+            "correct_answer": "So no one gets cut"
+          },
+          {
+            "question": "Turning old paper into new paper is called:",
+            "options": [
+              "recycling",
+              "reducing",
+              "reusing",
+              "removing"
+            ],
+            "correct_answer": "recycling"
+          },
+          {
+            "question": "Which is a non-biodegradable material?",
+            "options": [
+              "Plastic bottle",
+              "Banana peel",
+              "Dry leaves",
+              "Vegetable scraps"
+            ],
+            "correct_answer": "Plastic bottle"
+          },
+          {
+            "question": "What happens when oil is poured into a canal?",
+            "options": [
+              "It clogs pipes and pollutes water",
+              "It makes the water cleaner",
+              "It helps the plants grow",
+              "It disappears completely"
+            ],
+            "correct_answer": "It clogs pipes and pollutes water"
+          },
+          {
+            "question": "How should you carry a glass jar?",
+            "options": [
+              "With both hands",
+              "With one finger",
+              "On your head",
+              "In your pocket"
+            ],
+            "correct_answer": "With both hands"
+          },
+          {
+            "question": "What is the BEST use for an empty plastic bottle?",
+            "options": [
+              "Reuse it as a plant pot",
+              "Burn it in the yard",
+              "Throw it in the canal",
+              "Leave it on the street"
+            ],
+            "correct_answer": "Reuse it as a plant pot"
+          },
+          {
+            "question": "Which waste needs special disposal, not the ordinary bin?",
+            "options": [
+              "Used batteries",
+              "Dry leaves",
+              "Old newspaper",
+              "Fruit peelings"
+            ],
+            "correct_answer": "Used batteries"
+          },
+          {
+            "question": "Why should plastic bags be kept covered?",
+            "options": [
+              "So wind does not scatter them",
+              "So they stay warm",
+              "So they get heavier",
+              "So they change color"
+            ],
+            "correct_answer": "So wind does not scatter them"
+          },
+          {
+            "question": "Your barangay canal floods every rainy season because of trash. What would help MOST?",
+            "options": [
+              "Properly disposing of waste in bins",
+              "Digging the canal much deeper",
+              "Adding more water to the canal",
+              "Covering the canal with plastic"
+            ],
+            "correct_answer": "Properly disposing of waste in bins"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Pagpapahalaga sa Kasaysayan ng Komunidad\n\nHuling aralin sa Termino 1, Grade 3! 🎨\n\n## 🏛️ Ang Kasaysayan ng Ating Pook\nBawat komunidad ay may **kasaysayan** — ang kuwento ng nakaraan nito.\n\nMakikita ito sa:\n- **Mga lumang gusali** — simbahan, munisipyo, paaralan\n- **Mga bantayog at monumento** — alaala ng mga bayani\n- **Mga pangalan ng lugar** — may kuwento sa likod\n- **Mga kuwento ng matatanda** — ipinapasa sa bawat salinlahi\n\n## 🔄 Mga Pagbabago sa Komunidad\nNoon at ngayon:\n\n| Noon | Ngayon |\n|---|---|\n| Daang lupa | Semento at aspalto |\n| Bahay kubo | Bahay na bato at semento |\n| Ilaw na gasera | Kuryente at ilaw sa poste |\n| Kalesa at kariton | Jeep, tricycle, motor |\n\n## 🎨 Paglikha ng Likhang-Sining\nMaaari nating **ipakita ang pagpapahalaga** sa kasaysayan sa pamamagitan ng sining:\n\n- **Drawing o painting** ng makasaysayang tanawin\n- **Jigsaw puzzle** mula sa iyong iginuhit na tanawin\n- **Cityscape** — larawan ng iyong bayan\n- **Collage** ng lumang larawan at bagong larawan\n\n**Halimbawa 1:** Iguhit ang lumang simbahan ng inyong bayan, pagkatapos ay gupitin ito upang maging **jigsaw puzzle**.\n\n**Halimbawa 2:** Gumawa ng **dalawang guhit** — ang isa ay ang inyong kalye noon, ang isa naman ay ngayon. Ipakita ang pagbabago.\n\n## 💛 Bakit Mahalaga?\n- Naaalala natin kung **saan tayo nanggaling**\n- Nagiging **mapagpasalamat** tayo sa mga naunang tao\n- Natututo tayong **pangalagaan** ang mga makasaysayang lugar\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang kasaysayan ng isang komunidad?",
+            "options": [
+              "Ang kuwento ng nakaraan nito",
+              "Ang bilang ng bahay dito",
+              "Ang panahon sa susunod na linggo",
+              "Ang laki ng lupain nito"
+            ],
+            "correct_answer": "Ang kuwento ng nakaraan nito"
+          },
+          {
+            "question": "Alin ang halimbawa ng makasaysayang bahagi ng komunidad?",
+            "options": [
+              "Lumang simbahan",
+              "Bagong palaruan",
+              "Tindahan ng laruan",
+              "Modernong sasakyan"
+            ],
+            "correct_answer": "Lumang simbahan"
+          },
+          {
+            "question": "Ano ang ginagamit noon bilang ilaw bago dumating ang kuryente?",
+            "options": [
+              "Gasera",
+              "Bombilya",
+              "Flashlight",
+              "Poste"
+            ],
+            "correct_answer": "Gasera"
+          },
+          {
+            "question": "Alin ang sasakyan noong unang panahon?",
+            "options": [
+              "Kalesa",
+              "Tricycle",
+              "Motorsiklo",
+              "Bus"
+            ],
+            "correct_answer": "Kalesa"
+          },
+          {
+            "question": "Paano mo maipapakita ang pagpapahalaga sa kasaysayan sa pamamagitan ng sining?",
+            "options": [
+              "Pagguhit ng makasaysayang tanawin",
+              "Pagsira sa lumang gusali",
+              "Pagsulat sa pader nito",
+              "Pagtatapon ng lumang larawan"
+            ],
+            "correct_answer": "Pagguhit ng makasaysayang tanawin"
+          },
+          {
+            "question": "Sino ang mabuting pagkuhanan ng kuwento tungkol sa nakaraan ng inyong pook?",
+            "options": [
+              "Ang matatanda sa komunidad",
+              "Ang mga sanggol",
+              "Ang mga bagong dating",
+              "Ang mga turista"
+            ],
+            "correct_answer": "Ang matatanda sa komunidad"
+          },
+          {
+            "question": "Ang bantayog o monumento ay ginawa upang:",
+            "options": [
+              "alalahanin ang mga bayani",
+              "pagtaguan sa ulan",
+              "gawing palaruan",
+              "itanim ang halaman"
+            ],
+            "correct_answer": "alalahanin ang mga bayani"
+          },
+          {
+            "question": "Anong likhang-sining ang maaaring gawin mula sa iginuhit na tanawin?",
+            "options": [
+              "Jigsaw puzzle",
+              "Awiting bayan",
+              "Sayaw na tradisyonal",
+              "Tulang pambata"
+            ],
+            "correct_answer": "Jigsaw puzzle"
+          },
+          {
+            "question": "Bakit mahalagang pangalagaan ang mga makasaysayang lugar?",
+            "options": [
+              "Bahagi sila ng ating pagkakakilanlan",
+              "Malaki at matatag ang mga ito",
+              "Luma na at kupas ang mga ito",
+              "Marami ang bumibisita rito"
+            ],
+            "correct_answer": "Bahagi sila ng ating pagkakakilanlan"
+          },
+          {
+            "question": "Gumawa ka ng dalawang guhit: kalye noon at kalye ngayon. Ano ang ipinapakita nito?",
+            "options": [
+              "Ang pagbabago sa komunidad",
+              "Ang laki ng iyong papel",
+              "Ang dami ng kulay",
+              "Ang haba ng oras"
+            ],
+            "correct_answer": "Ang pagbabago sa komunidad"
+          },
+          {
+            "question": "Alin ang HINDI nagpapakita ng pagpapahalaga sa kasaysayan?",
+            "options": [
+              "Pagsulat sa lumang bantayog",
+              "Paglilinis sa paligid nito",
+              "Pag-aaral ng kuwento nito",
+              "Pagbisita kasama ang pamilya"
+            ],
+            "correct_answer": "Pagsulat sa lumang bantayog"
+          },
+          {
+            "question": "Napansin mong marami nang gusali kung saan dating palayan. Ano ang ipinapakita nito?",
+            "options": [
+              "Nagbago ang paggamit ng lupa sa pook",
+              "Lumiit ang buong bayan",
+              "Nawala ang kasaysayan nito",
+              "Tumigil ang panahon dito"
+            ],
+            "correct_answer": "Nagbago ang paggamit ng lupa sa pook"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# ⌨️ Computer — Typing Accuracy & The Home Row\n\nLast Computer lesson of Term 1, Grade 3! 💻\n\n## 🏠 The Home Row\nThe **home row** is the middle row of letter keys. Your fingers **always return** here.\n\n**Left hand:** `A` `S` `D` `F`\n**Right hand:** `J` `K` `L` `;`\n\n| Finger | Left key | Right key |\n|---|---|---|\n| Little finger | **A** | **;** |\n| Ring finger | **S** | **L** |\n| Middle finger | **D** | **K** |\n| Pointer finger | **F** | **J** |\n\nBoth **thumbs** rest on the **space bar**.\n\n## 🔎 The Bumps on F and J\nFeel the small **raised bumps** on the **F** and **J** keys. They help you find the home row **without looking down**!\n\n## ✅ Typing with Accuracy\n**Accuracy** means typing **correctly**, not just quickly.\n\nGood habits:\n- Keep your **eyes on the screen**, not the keyboard\n- Sit with your **back straight** and wrists relaxed\n- Type **slowly and correctly** first — speed comes later\n- Use the **correct finger** for each key\n\n**Example 1:** To type your name *Ana*, use the left little finger for **A**, then find **n**, then **a** again.\n\n**Example 2:** To type `dad`, use the left **middle finger** for **d**, left **little finger** for **a**, then **middle finger** for **d**.\n\n## 📋 Opening and Closing a Program Correctly\n1. **Double-click** the program icon to open it\n2. Do your work\n3. **Save** your file before leaving\n4. Click the **X** or choose **File → Exit** to close\n5. **Shut down** properly — never just unplug the computer\n\n**Why?** Closing correctly protects your work and keeps the computer healthy.\n\nGreat job this term! 🌟",
+        "quiz": [
+          {
+            "question": "Which keys are the home row for the LEFT hand?",
+            "options": [
+              "A S D F",
+              "J K L ;",
+              "Q W E R",
+              "Z X C V"
+            ],
+            "correct_answer": "A S D F"
+          },
+          {
+            "question": "Which keys are the home row for the RIGHT hand?",
+            "options": [
+              "J K L ;",
+              "A S D F",
+              "Y U I O",
+              "N M , ."
+            ],
+            "correct_answer": "J K L ;"
+          },
+          {
+            "question": "Which two keys have small raised bumps?",
+            "options": [
+              "F and J",
+              "A and ;",
+              "D and K",
+              "S and L"
+            ],
+            "correct_answer": "F and J"
+          },
+          {
+            "question": "Why do the F and J keys have bumps?",
+            "options": [
+              "To find the home row without looking",
+              "To make them stronger",
+              "To type faster only",
+              "To show they are broken"
+            ],
+            "correct_answer": "To find the home row without looking"
+          },
+          {
+            "question": "Where should your thumbs rest?",
+            "options": [
+              "On the space bar",
+              "On the letter A",
+              "On the enter key",
+              "Under the keyboard"
+            ],
+            "correct_answer": "On the space bar"
+          },
+          {
+            "question": "What does typing accuracy mean?",
+            "options": [
+              "Typing correctly",
+              "Typing very fast",
+              "Typing loudly",
+              "Typing with one hand"
+            ],
+            "correct_answer": "Typing correctly"
+          },
+          {
+            "question": "Where should your eyes be while typing?",
+            "options": [
+              "On the screen",
+              "On the keyboard",
+              "On your lap",
+              "On the ceiling"
+            ],
+            "correct_answer": "On the screen"
+          },
+          {
+            "question": "Which finger types the letter D?",
+            "options": [
+              "Left middle finger",
+              "Left little finger",
+              "Right pointer finger",
+              "Right thumb"
+            ],
+            "correct_answer": "Left middle finger"
+          },
+          {
+            "question": "What should you do BEFORE closing a program?",
+            "options": [
+              "Save your file",
+              "Unplug the computer",
+              "Turn off the screen",
+              "Move the mouse away"
+            ],
+            "correct_answer": "Save your file"
+          },
+          {
+            "question": "What is the correct way to close a program?",
+            "options": [
+              "Click X or choose File then Exit",
+              "Unplug the power cord",
+              "Press every key at once",
+              "Cover the whole screen"
+            ],
+            "correct_answer": "Click X or choose File then Exit"
+          },
+          {
+            "question": "You keep making mistakes when typing fast. What is the BEST thing to do?",
+            "options": [
+              "Slow down and type correctly",
+              "Type even faster",
+              "Use only one finger",
+              "Stop using the keyboard"
+            ],
+            "correct_answer": "Slow down and type correctly"
+          },
+          {
+            "question": "Why is it bad to just unplug the computer instead of shutting it down?",
+            "options": [
+              "Unsaved work can be lost",
+              "The screen gets brighter",
+              "The keys become loose",
+              "The mouse stops working"
+            ],
+            "correct_answer": "Unsaved work can be lost"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💛 GMRC — Ang Karapatan ng Bata sa Pamayanan\n\nHuling aralin ng Termino 1, Grade 3! Pag-usapan natin ang **karapatan**. 🌟\n\n## ⚖️ Ano ang Karapatan?\nAng **karapatan** ay mga bagay na **nararapat sa bawat bata** — hindi ito kailangang bilhin o hingiin. Kinikilala ito ng pamilya, paaralan, at pamayanan.\n\n## 📋 Mga Karapatan ng Batang Pilipino\n1. **Karapatan sa pangalan at pagkakakilanlan** — bawat bata ay may pangalan at mahal ng pamilya\n2. **Karapatan sa edukasyon** — makapag-aral sa paaralan\n3. **Karapatan sa kalusugan** — malinis na tubig, masustansiyang pagkain, gamot\n4. **Karapatan sa kaligtasan** — protektado laban sa panganib at pananakit\n5. **Karapatan sa paglalaro at pahinga** — may oras para maglaro\n6. **Karapatang marinig** — maipahayag ang saloobin nang may paggalang\n\n## 🤝 Karapatan at Tungkulin\nBawat **karapatan** ay may kaakibat na **tungkulin**.\n\n| Karapatan | Tungkulin |\n|---|---|\n| Makapag-aral | Mag-aral nang mabuti |\n| Maglaro | Mag-ingat at makibahagi |\n| Marinig ang saloobin | Makinig din sa iba |\n| Ligtas na pamayanan | Sundin ang tuntunin |\n\n## 🙏 Paggalang sa Karapatan ng Iba\nAng **respeto** ay pagkilala na ang bawat bata ay may **parehong karapatan** — anuman ang kaniyang kasarian, kayamanan, o hitsura.\n\n**Halimbawa 1:** May bagong kaklase na mahiyain. **Isama mo siya sa laro** — karapatan din niyang maglaro.\n\n**Halimbawa 2:** May kaklaseng may kapansanan. **Tulungan mo siya nang may paggalang**, hindi pagkaawa o panunukso.\n\n## 🛡️ Kapag May Nilalabag\nKung may nanakit o nang-aapi, **sabihin agad sa magulang o guro**. Hindi ito pagsusumbong — ito ay **pag-iingat sa sarili at sa iba**.\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang karapatan?",
+            "options": [
+              "Bagay na nararapat sa bawat bata",
+              "Bagay na binibili sa tindahan",
+              "Gantimpala sa mabuting bata",
+              "Regalo tuwing kaarawan"
+            ],
+            "correct_answer": "Bagay na nararapat sa bawat bata"
+          },
+          {
+            "question": "Alin ang karapatan ng bata?",
+            "options": [
+              "Karapatan sa edukasyon",
+              "Karapatang magmaneho",
+              "Karapatang bumoto",
+              "Karapatang magtrabaho"
+            ],
+            "correct_answer": "Karapatan sa edukasyon"
+          },
+          {
+            "question": "Ang malinis na tubig at masustansiyang pagkain ay bahagi ng karapatan sa:",
+            "options": [
+              "kalusugan",
+              "edukasyon",
+              "paglalaro",
+              "pangalan"
+            ],
+            "correct_answer": "kalusugan"
+          },
+          {
+            "question": "Ano ang kaakibat na tungkulin ng karapatang makapag-aral?",
+            "options": [
+              "Mag-aral nang mabuti",
+              "Lumiban sa klase",
+              "Maglaro buong araw",
+              "Matulog sa silid"
+            ],
+            "correct_answer": "Mag-aral nang mabuti"
+          },
+          {
+            "question": "May bagong kaklase kang mahiyain. Ano ang tama mong gawin?",
+            "options": [
+              "Isama siya sa laro",
+              "Iwasan siya palagi",
+              "Pagtawanan siya",
+              "Huwag siyang kausapin"
+            ],
+            "correct_answer": "Isama siya sa laro"
+          },
+          {
+            "question": "Bakit may karapatan sa paglalaro at pahinga ang bata?",
+            "options": [
+              "Mahalaga ito sa paglaki niya",
+              "Wala siyang ibang gawain",
+              "Ayaw niyang mag-aral",
+              "Maikli ang oras sa klase"
+            ],
+            "correct_answer": "Mahalaga ito sa paglaki niya"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng respeto sa karapatan ng iba?",
+            "options": [
+              "Pagkilala na pantay ang lahat",
+              "Pagsunod sa mayayaman lamang",
+              "Pagpili ng kaibigan",
+              "Pag-iwas sa iba"
+            ],
+            "correct_answer": "Pagkilala na pantay ang lahat"
+          },
+          {
+            "question": "May nakita kang batang inaapi sa palaruan. Ano ang tama mong gawin?",
+            "options": [
+              "Sabihin agad sa guro",
+              "Manood na lamang",
+              "Sumali sa pang-aapi",
+              "Umalis nang tahimik"
+            ],
+            "correct_answer": "Sabihin agad sa guro"
+          },
+          {
+            "question": "Ang karapatang marinig ay may tungkuling:",
+            "options": [
+              "makinig din sa iba",
+              "magsalita nang malakas",
+              "sumagot palagi",
+              "manahimik lagi"
+            ],
+            "correct_answer": "makinig din sa iba"
+          },
+          {
+            "question": "Alin ang HINDI paggalang sa karapatan ng kaklase?",
+            "options": [
+              "Pananakit at panunukso sa kaniya",
+              "Pakikinig sa kaniyang ideya",
+              "Pagsama sa kaniya sa laro",
+              "Pagtulong sa kaniyang gawain"
+            ],
+            "correct_answer": "Pananakit at panunukso sa kaniya"
+          },
+          {
+            "question": "Bakit kinikilala ng pamayanan ang karapatan ng mga bata?",
+            "options": [
+              "Upang maging ligtas at payapa ang buhay nila",
+              "Upang dumami ang mga batang mag-aaral",
+              "Upang maging maikli ang oras ng klase",
+              "Upang magkaroon sila ng maraming laruan"
+            ],
+            "correct_answer": "Upang maging ligtas at payapa ang buhay nila"
+          },
+          {
+            "question": "May kaklase kang may kapansanan. Paano mo siya pinakamahusay na matutulungan?",
+            "options": [
+              "Tulungan siya nang may paggalang",
+              "Kaawaan siya nang lantaran",
+              "Iwasan siyang kausapin",
+              "Gawin ang lahat para sa kaniya"
+            ],
+            "correct_answer": "Tulungan siya nang may paggalang"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📚 Friday Review — English (Grade 3)\n\n- **Polite expressions:** \"May I please...\" · \"Thank you very much.\" · \"Excuse me, please.\"\n- **Retelling** = your own words, **same order** of events\n- **Summary** = Who? What happened? How did it end?\n- **Text structures:** time order · procedural · description · explanation\n- **Reaction** = opinion **+ reason** (\"because...\")\n\nStrong finish to Term 1! 🌟",
+        "quiz": [
+          {
+            "question": "Which text structure gives steps in order?",
+            "options": [
+              "Procedural",
+              "Description",
+              "Explanation",
+              "Narrative"
+            ],
+            "correct_answer": "Procedural"
+          },
+          {
+            "question": "A summary should include:",
+            "options": [
+              "the main events only",
+              "every small detail",
+              "the author's address",
+              "all the page numbers"
+            ],
+            "correct_answer": "the main events only"
+          },
+          {
+            "question": "\"The kalabaw is large, gray, and strong.\" Which structure is this?",
+            "options": [
+              "Description",
+              "Procedural",
+              "Time order",
+              "Explanation"
+            ],
+            "correct_answer": "Description"
+          },
+          {
+            "question": "Which words signal time order?",
+            "options": [
+              "first, then, finally",
+              "large, small, round",
+              "because, so, since",
+              "who, what, when"
+            ],
+            "correct_answer": "first, then, finally"
+          },
+          {
+            "question": "Which is a polite way to ask for help?",
+            "options": [
+              "May I please have help?",
+              "Help me right now.",
+              "I need that thing.",
+              "Come here quickly."
+            ],
+            "correct_answer": "May I please have help?"
+          },
+          {
+            "question": "Retelling a story means using:",
+            "options": [
+              "your own words",
+              "the exact words",
+              "only one word",
+              "no words at all"
+            ],
+            "correct_answer": "your own words"
+          },
+          {
+            "question": "Which text structure answers WHY something happens?",
+            "options": [
+              "Explanation",
+              "Description",
+              "Procedural",
+              "Time order"
+            ],
+            "correct_answer": "Explanation"
+          },
+          {
+            "question": "What makes a reaction complete?",
+            "options": [
+              "An opinion with a reason",
+              "A very long sentence",
+              "The title of the book",
+              "The name of the author"
+            ],
+            "correct_answer": "An opinion with a reason"
+          },
+          {
+            "question": "A fable's main purpose is to:",
+            "options": [
+              "teach a lesson",
+              "list facts",
+              "give directions",
+              "sell a product"
+            ],
+            "correct_answer": "teach a lesson"
+          },
+          {
+            "question": "Which is the BEST summary of a story about a farmer whose hard work saved his harvest from a storm?",
+            "options": [
+              "A farmer's hard work saved his harvest from a storm.",
+              "A farmer walked around his field one morning.",
+              "Storms bring strong winds and heavy rainfall.",
+              "Harvest time happens once every single year."
+            ],
+            "correct_answer": "A farmer's hard work saved his harvest from a storm."
+          },
+          {
+            "question": "You are writing directions for making a paper boat. Which structure is BEST?",
+            "options": [
+              "Procedural",
+              "Description",
+              "Explanation",
+              "Persuasion"
+            ],
+            "correct_answer": "Procedural"
+          },
+          {
+            "question": "Which retelling keeps the events in the correct order?",
+            "options": [
+              "She planted, watered, then harvested.",
+              "She harvested, planted, then watered.",
+              "She watered, harvested, then planted.",
+              "She harvested, watered, then planted."
+            ],
+            "correct_answer": "She planted, watered, then harvested."
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📐 Friday Review — Mathematics (Grade 3)\n\n| Figure | Endpoints |\n|---|---|\n| **Point** | shows a location |\n| **Line** | none — forever both ways |\n| **Line segment** | **two** endpoints |\n| **Ray** | **one** endpoint |\n\n- **Parallel** — never meet (train rails)\n- **Intersecting** — cross at a point (letter X)\n- **Perpendicular** — cross at a **square corner** (letter L, window corner)\n\n**Key idea:** All perpendicular lines intersect — but not all intersecting lines are perpendicular.\n\nExcellent Term 1! ⭐",
+        "quiz": [
+          {
+            "question": "How many endpoints does a ray have?",
+            "options": [
+              "One",
+              "Two",
+              "None",
+              "Three"
+            ],
+            "correct_answer": "One"
+          },
+          {
+            "question": "How many endpoints does a line segment have?",
+            "options": [
+              "Two",
+              "One",
+              "None",
+              "Four"
+            ],
+            "correct_answer": "Two"
+          },
+          {
+            "question": "Lines that cross at a square corner are:",
+            "options": [
+              "perpendicular",
+              "parallel",
+              "curved",
+              "separate"
+            ],
+            "correct_answer": "perpendicular"
+          },
+          {
+            "question": "Which figure goes on forever in both directions?",
+            "options": [
+              "Line",
+              "Ray",
+              "Line segment",
+              "Point"
+            ],
+            "correct_answer": "Line"
+          },
+          {
+            "question": "The letter L shows which kind of lines?",
+            "options": [
+              "Perpendicular",
+              "Parallel",
+              "Curved",
+              "Separate"
+            ],
+            "correct_answer": "Perpendicular"
+          },
+          {
+            "question": "Which is an example of parallel lines?",
+            "options": [
+              "Train track rails",
+              "An open pair of scissors",
+              "The corner of a book",
+              "The letter X shape"
+            ],
+            "correct_answer": "Train track rails"
+          },
+          {
+            "question": "A point has:",
+            "options": [
+              "no size, only location",
+              "two endpoints only",
+              "one endpoint only",
+              "a measured length"
+            ],
+            "correct_answer": "no size, only location"
+          },
+          {
+            "question": "Which statement is TRUE about parallel lines?",
+            "options": [
+              "They never meet.",
+              "They meet at a corner.",
+              "They cross in the middle.",
+              "They form a square angle."
+            ],
+            "correct_answer": "They never meet."
+          },
+          {
+            "question": "The letter T is made of two segments. What is their relationship?",
+            "options": [
+              "Perpendicular",
+              "Parallel",
+              "Curved",
+              "Separate"
+            ],
+            "correct_answer": "Perpendicular"
+          },
+          {
+            "question": "Two roads cross at a slant, not a square corner. They are:",
+            "options": [
+              "intersecting only",
+              "perpendicular lines",
+              "parallel lines",
+              "line segments"
+            ],
+            "correct_answer": "intersecting only"
+          },
+          {
+            "question": "Which statement is FALSE?",
+            "options": [
+              "All intersecting lines are perpendicular.",
+              "All perpendicular lines intersect.",
+              "Parallel lines never meet.",
+              "A ray has one endpoint."
+            ],
+            "correct_answer": "All intersecting lines are perpendicular."
+          },
+          {
+            "question": "The rungs of a ladder are evenly spaced and never touch each other. They are:",
+            "options": [
+              "parallel",
+              "perpendicular",
+              "intersecting",
+              "curved"
+            ],
+            "correct_answer": "parallel"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes na Balik-Aral — Filipino (Grade 3)\n\n- **Talata** = pangkat ng pangungusap na may **iisang paksa**\n- **Bahagi:** pangunahing ideya → sumusuportang detalye → pangwakas\n- **Payak** = iisang diwa | **Tambalan** = dalawang diwa (**at, ngunit, kaya**)\n- **Magalang na pananalita:** po, opo, \"Maaari po bang...\"\n- **Reaksiyon** = opinyon **+ dahilan**\n\nMagaling sa Termino 1! 🌟",
+        "quiz": [
+          {
+            "question": "Ilan ang paksa ng isang talata?",
+            "options": [
+              "Isa lamang",
+              "Dalawa",
+              "Tatlo",
+              "Marami"
+            ],
+            "correct_answer": "Isa lamang"
+          },
+          {
+            "question": "Alin ang tambalang pangungusap?",
+            "options": [
+              "Umulan ngunit naglaro kami.",
+              "Umulan nang malakas.",
+              "Naglaro ang mga bata.",
+              "Masaya ang umaga."
+            ],
+            "correct_answer": "Umulan ngunit naglaro kami."
+          },
+          {
+            "question": "Aling bahagi ng talata ang nagsasabi ng paksa?",
+            "options": [
+              "Pangunahing ideya",
+              "Pangwakas",
+              "Detalye",
+              "Pamagat"
+            ],
+            "correct_answer": "Pangunahing ideya"
+          },
+          {
+            "question": "Alin ang magalang na pagbati sa guro?",
+            "options": [
+              "Magandang umaga po.",
+              "Uy, andiyan ka pala.",
+              "Ano na naman ito?",
+              "Tara na, umalis na."
+            ],
+            "correct_answer": "Magandang umaga po."
+          },
+          {
+            "question": "Alin ang payak na pangungusap?",
+            "options": [
+              "Kumakain si Ana.",
+              "Kumakain si Ana at umiinom siya.",
+              "Kumain siya kaya busog siya.",
+              "Kumain siya ngunit gutom pa."
+            ],
+            "correct_answer": "Kumakain si Ana."
+          },
+          {
+            "question": "Anong salita ang nagbibigay ng dahilan?",
+            "options": [
+              "dahil",
+              "at",
+              "o",
+              "din"
+            ],
+            "correct_answer": "dahil"
+          },
+          {
+            "question": "Ano ang gamit ng salitang po at opo?",
+            "options": [
+              "Pagpapakita ng paggalang",
+              "Pagpapahaba ng salita",
+              "Pagtatanong ng oras",
+              "Pagbibilang ng bagay"
+            ],
+            "correct_answer": "Pagpapakita ng paggalang"
+          },
+          {
+            "question": "Ano ang layunin ng pangwakas na pangungusap?",
+            "options": [
+              "Buurin ang talata",
+              "Magsimula ng paksa",
+              "Magbigay ng pamagat",
+              "Magtanong sa mambabasa"
+            ],
+            "correct_answer": "Buurin ang talata"
+          },
+          {
+            "question": "Basahin: \"Masipag ang mga magsasaka. Maaga silang gumigising. Nagtatanim sila buong araw.\" Ano ang pangunahing ideya?",
+            "options": [
+              "Ang kasipagan ng magsasaka",
+              "Ang oras ng paggising",
+              "Ang uri ng pananim",
+              "Ang haba ng araw"
+            ],
+            "correct_answer": "Ang kasipagan ng magsasaka"
+          },
+          {
+            "question": "Alin ang pinakamahusay na reaksiyon sa isang kuwento?",
+            "options": [
+              "Nagustuhan ko ito dahil matulungin ang bida.",
+              "Ang kuwento ay may limang pahina.",
+              "Ang aklat ay kulay berde.",
+              "Binasa ko ito kahapon ng hapon."
+            ],
+            "correct_answer": "Nagustuhan ko ito dahil matulungin ang bida."
+          },
+          {
+            "question": "Anong salita ang nagdurugtong sa \"Nag-aral siya ___ nakapasa siya\"?",
+            "options": [
+              "kaya",
+              "ngunit",
+              "bagkus",
+              "subalit"
+            ],
+            "correct_answer": "kaya"
+          },
+          {
+            "question": "Bakit mahalaga ang sumusuportang detalye sa talata?",
+            "options": [
+              "Pinaliliwanag nito ang pangunahing ideya",
+              "Pinahahaba nito ang talata",
+              "Pinapalitan nito ang paksa",
+              "Tinatapos nito ang kuwento"
+            ],
+            "correct_answer": "Pinaliliwanag nito ang pangunahing ideya"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Friday Review — Science (Grade 3)\n\n- **3 Rs:** **Reduce** (use less) · **Reuse** (use again) · **Recycle** (make new)\n- **Biodegradable:** food scraps, leaves, paper → compost\n- **Non-biodegradable:** plastic, glass, metal → recycling bin\n- **Hazardous:** batteries, broken glass, used oil → special disposal\n- **Used oil NEVER goes down the sink** — cool it, seal it, bin it\n- Broken glass → **wrap before throwing**\n\nGreat scientist work! 🔎",
+        "quiz": [
+          {
+            "question": "Which R means 'use less in the first place'?",
+            "options": [
+              "Reduce",
+              "Reuse",
+              "Recycle",
+              "Return"
+            ],
+            "correct_answer": "Reduce"
+          },
+          {
+            "question": "Dry leaves and fruit peels are:",
+            "options": [
+              "biodegradable",
+              "non-biodegradable",
+              "hazardous waste",
+              "recyclable metal"
+            ],
+            "correct_answer": "biodegradable"
+          },
+          {
+            "question": "What should NEVER be poured down the sink?",
+            "options": [
+              "Used cooking oil",
+              "Clean drinking water",
+              "Cool rice washing",
+              "Plain tap water"
+            ],
+            "correct_answer": "Used cooking oil"
+          },
+          {
+            "question": "How should broken glass be thrown away?",
+            "options": [
+              "Wrapped in thick paper",
+              "Loose in the bin",
+              "Down the drain",
+              "Into the garden"
+            ],
+            "correct_answer": "Wrapped in thick paper"
+          },
+          {
+            "question": "Which item needs special disposal?",
+            "options": [
+              "Used batteries",
+              "Old newspaper",
+              "Banana peel",
+              "Dry leaves"
+            ],
+            "correct_answer": "Used batteries"
+          },
+          {
+            "question": "Making new paper from old paper is:",
+            "options": [
+              "recycling",
+              "reducing",
+              "reusing",
+              "burning"
+            ],
+            "correct_answer": "recycling"
+          },
+          {
+            "question": "Why should plastic bags be kept covered?",
+            "options": [
+              "So the wind cannot scatter them",
+              "So they become heavier",
+              "So they change their color",
+              "So they dry out faster"
+            ],
+            "correct_answer": "So the wind cannot scatter them"
+          },
+          {
+            "question": "Using a tin can as a pencil holder is an example of:",
+            "options": [
+              "reusing",
+              "reducing",
+              "recycling",
+              "removing"
+            ],
+            "correct_answer": "reusing"
+          },
+          {
+            "question": "What is the FIRST step before disposing of used cooking oil?",
+            "options": [
+              "Let it cool down",
+              "Add water to it",
+              "Pour it outside",
+              "Heat it again"
+            ],
+            "correct_answer": "Let it cool down"
+          },
+          {
+            "question": "Why does trash in canals cause flooding?",
+            "options": [
+              "It blocks the flow of water",
+              "It makes the water heavier",
+              "It dries up the canal",
+              "It attracts more rain"
+            ],
+            "correct_answer": "It blocks the flow of water"
+          },
+          {
+            "question": "Which choice is BEST for the environment?",
+            "options": [
+              "Bringing your own reusable bag",
+              "Taking a new plastic bag daily",
+              "Burning plastic in the yard",
+              "Throwing bags in the canal"
+            ],
+            "correct_answer": "Bringing your own reusable bag"
+          },
+          {
+            "question": "Animals in the sea sometimes die after eating floating trash. This shows that:",
+            "options": [
+              "proper disposal protects living things",
+              "the sea cleans itself quickly",
+              "trash is food for sea animals",
+              "animals prefer plastic material"
+            ],
+            "correct_answer": "proper disposal protects living things"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Biyernes na Balik-Aral — Makabansa (Grade 3)\n\n- **Kasaysayan** = kuwento ng nakaraan ng komunidad\n- Makikita sa: **lumang gusali · bantayog · pangalan ng lugar · kuwento ng matatanda**\n- **Pagbabago:** daang lupa → semento | gasera → kuryente | kalesa → tricycle\n- **Likhang-sining:** drawing, jigsaw puzzle, cityscape, collage\n- Mahalaga ito upang **maalala kung saan tayo nanggaling**\n\nMagaling! 💛",
+        "quiz": [
+          {
+            "question": "Saan makikita ang kasaysayan ng isang pook?",
+            "options": [
+              "Sa mga lumang gusali at bantayog",
+              "Sa mga bagong laruan",
+              "Sa mga bagong damit",
+              "Sa mga bagong sasakyan"
+            ],
+            "correct_answer": "Sa mga lumang gusali at bantayog"
+          },
+          {
+            "question": "Ano ang ginamit noon bago ang kuryente?",
+            "options": [
+              "Gasera",
+              "Bombilya",
+              "Aircon",
+              "Telebisyon"
+            ],
+            "correct_answer": "Gasera"
+          },
+          {
+            "question": "Alin ang lumang sasakyan sa Pilipinas?",
+            "options": [
+              "Kalesa",
+              "Tricycle",
+              "Jeep",
+              "Bus"
+            ],
+            "correct_answer": "Kalesa"
+          },
+          {
+            "question": "Sino ang mabuting pagtanungan tungkol sa nakaraan ng inyong pook?",
+            "options": [
+              "Ang matatanda",
+              "Ang mga sanggol",
+              "Ang mga turista",
+              "Ang mga bisita"
+            ],
+            "correct_answer": "Ang matatanda"
+          },
+          {
+            "question": "Bakit itinatayo ang mga bantayog?",
+            "options": [
+              "Upang alalahanin ang mga bayani",
+              "Upang magkaroon ng silungan",
+              "Upang magkaroon ng palaruan",
+              "Upang tumaas ang lugar"
+            ],
+            "correct_answer": "Upang alalahanin ang mga bayani"
+          },
+          {
+            "question": "Alin ang likhang-sining na nagpapakita ng pagpapahalaga sa kasaysayan?",
+            "options": [
+              "Guhit ng lumang simbahan",
+              "Listahan ng pamimili",
+              "Talaan ng takdang-aralin",
+              "Sulat sa kaibigan"
+            ],
+            "correct_answer": "Guhit ng lumang simbahan"
+          },
+          {
+            "question": "Alin ang HINDI paggalang sa makasaysayang lugar?",
+            "options": [
+              "Pagsulat sa pader nito",
+              "Paglilinis sa paligid",
+              "Pag-aaral ng kuwento",
+              "Pagbisita nang maingat"
+            ],
+            "correct_answer": "Pagsulat sa pader nito"
+          },
+          {
+            "question": "Ang daang lupa noon ay naging ____ ngayon.",
+            "options": [
+              "semento at aspalto",
+              "buhangin at bato",
+              "damo at halaman",
+              "putik at tubig"
+            ],
+            "correct_answer": "semento at aspalto"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang kasaysayan ng komunidad?",
+            "options": [
+              "Upang malaman kung saan tayo nanggaling",
+              "Upang dumami ang gusali",
+              "Upang bumilis ang panahon",
+              "Upang lumaki ang bayan"
+            ],
+            "correct_answer": "Upang malaman kung saan tayo nanggaling"
+          },
+          {
+            "question": "Gumawa ka ng collage ng lumang larawan at bagong larawan ng inyong kalye. Ano ang ipinapakita nito?",
+            "options": [
+              "Ang pagbabago sa paglipas ng panahon",
+              "Ang dami ng iyong larawan",
+              "Ang laki ng iyong papel",
+              "Ang kulay ng iyong krayola"
+            ],
+            "correct_answer": "Ang pagbabago sa paglipas ng panahon"
+          },
+          {
+            "question": "Ang pangalan ng inyong barangay ay may kuwento sa likod nito. Ito ay bahagi ng:",
+            "options": [
+              "kasaysayan ng pook",
+              "batas ng bayan",
+              "mapa ng lalawigan",
+              "listahan ng tao"
+            ],
+            "correct_answer": "kasaysayan ng pook"
+          },
+          {
+            "question": "Napansin mong sira-sira na ang lumang bantayog sa plaza. Ano ang pinakamabuting gawin?",
+            "options": [
+              "Ipaalam ito sa opisyal ng barangay",
+              "Kunin ang mga bahagi nito",
+              "Sulatan ito ng pangalan mo",
+              "Huwag na lamang pansinin"
+            ],
+            "correct_answer": "Ipaalam ito sa opisyal ng barangay"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# ⌨️ Friday Review — Computer (Grade 3)\n\n- **Home row left:** A S D F | **right:** J K L ;\n- **Bumps on F and J** help you find home row without looking\n- **Thumbs** rest on the **space bar**\n- **Accuracy first**, speed later — eyes on the **screen**\n- **Closing correctly:** save → click X or File → Exit → shut down properly\n\nGreat computer skills! 💻",
+        "quiz": [
+          {
+            "question": "Which is the home row for the left hand?",
+            "options": [
+              "A S D F",
+              "Q W E R",
+              "Z X C V",
+              "J K L ;"
+            ],
+            "correct_answer": "A S D F"
+          },
+          {
+            "question": "Which keys have raised bumps?",
+            "options": [
+              "F and J",
+              "A and ;",
+              "S and L",
+              "D and K"
+            ],
+            "correct_answer": "F and J"
+          },
+          {
+            "question": "Where do your thumbs rest?",
+            "options": [
+              "On the space bar",
+              "On the shift key",
+              "On the enter key",
+              "On the number keys"
+            ],
+            "correct_answer": "On the space bar"
+          },
+          {
+            "question": "What is more important when you are learning to type?",
+            "options": [
+              "Accuracy",
+              "Speed",
+              "Loudness",
+              "Volume"
+            ],
+            "correct_answer": "Accuracy"
+          },
+          {
+            "question": "Where should your eyes look while typing?",
+            "options": [
+              "At the screen",
+              "At the keys",
+              "At your hands",
+              "At the floor"
+            ],
+            "correct_answer": "At the screen"
+          },
+          {
+            "question": "Which finger types the letter J?",
+            "options": [
+              "Right pointer finger",
+              "Right little finger",
+              "Left middle finger",
+              "Left thumb"
+            ],
+            "correct_answer": "Right pointer finger"
+          },
+          {
+            "question": "What should you always do before closing a program?",
+            "options": [
+              "Save your work",
+              "Turn off the screen",
+              "Unplug the mouse",
+              "Close your eyes"
+            ],
+            "correct_answer": "Save your work"
+          },
+          {
+            "question": "Why should you shut down properly instead of unplugging?",
+            "options": [
+              "To avoid losing your work",
+              "To make the fan quieter",
+              "To brighten the screen",
+              "To speed up typing"
+            ],
+            "correct_answer": "To avoid losing your work"
+          },
+          {
+            "question": "Which sitting position is best for typing?",
+            "options": [
+              "Back straight, wrists relaxed",
+              "Leaning on the keyboard",
+              "Lying on the table",
+              "Standing on one foot"
+            ],
+            "correct_answer": "Back straight, wrists relaxed"
+          },
+          {
+            "question": "You type quickly but make many errors. What should you do?",
+            "options": [
+              "Slow down to type correctly",
+              "Type even more quickly",
+              "Use only your thumbs",
+              "Skip the hard letters"
+            ],
+            "correct_answer": "Slow down to type correctly"
+          },
+          {
+            "question": "The home row is called 'home' because your fingers:",
+            "options": [
+              "always return to it",
+              "never leave the keys",
+              "start at the top row",
+              "rest on the screen"
+            ],
+            "correct_answer": "always return to it"
+          },
+          {
+            "question": "Which is the correct order to finish your work?",
+            "options": [
+              "Save, close the program, shut down",
+              "Shut down, save, close program",
+              "Close program, shut down, save",
+              "Shut down, close program, save"
+            ],
+            "correct_answer": "Save, close the program, shut down"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 Biyernes na Balik-Aral — GMRC (Grade 3)\n\n- **Karapatan** = nararapat sa bawat bata, hindi binibili\n- **Mga karapatan:** pangalan · edukasyon · kalusugan · kaligtasan · paglalaro · marinig\n- Bawat **karapatan** ay may **tungkulin**\n- **Respeto** = pantay ang karapatan ng lahat\n- Kung may nang-aapi → **sabihin agad sa guro o magulang**\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ang karapatan ay:",
+            "options": [
+              "nararapat sa bawat bata",
+              "binibili sa tindahan",
+              "gantimpala sa masipag",
+              "regalo sa Pasko"
+            ],
+            "correct_answer": "nararapat sa bawat bata"
+          },
+          {
+            "question": "Alin ang karapatan ng bata?",
+            "options": [
+              "Karapatan sa kaligtasan",
+              "Karapatang magmaneho",
+              "Karapatang bumoto",
+              "Karapatang magtrabaho"
+            ],
+            "correct_answer": "Karapatan sa kaligtasan"
+          },
+          {
+            "question": "Ang tungkulin na kaakibat ng karapatang maglaro ay:",
+            "options": [
+              "mag-ingat at makibahagi",
+              "maglaro nang mag-isa",
+              "kunin ang lahat ng laruan",
+              "manalo sa bawat laro"
+            ],
+            "correct_answer": "mag-ingat at makibahagi"
+          },
+          {
+            "question": "Ano ang ipinapakita ng respeto sa karapatan ng iba?",
+            "options": [
+              "Pantay ang karapatan ng lahat",
+              "May nakatataas na bata",
+              "Mas mahalaga ang matalino",
+              "Piling bata lang ang may karapatan"
+            ],
+            "correct_answer": "Pantay ang karapatan ng lahat"
+          },
+          {
+            "question": "May kaklase kang inaapi. Ano ang tama mong gawin?",
+            "options": [
+              "Ipaalam sa guro",
+              "Tumawa na lamang",
+              "Sumali sa kanila",
+              "Umalis nang tahimik"
+            ],
+            "correct_answer": "Ipaalam sa guro"
+          },
+          {
+            "question": "Ang karapatan sa kalusugan ay kinabibilangan ng:",
+            "options": [
+              "malinis na tubig at pagkain",
+              "bagong laruan",
+              "mamahaling damit",
+              "malaking bahay"
+            ],
+            "correct_answer": "malinis na tubig at pagkain"
+          },
+          {
+            "question": "Ang karapatang marinig ay may tungkuling:",
+            "options": [
+              "makinig din sa iba",
+              "magsalita nang mahaba",
+              "sumagot palagi",
+              "manahimik lagi"
+            ],
+            "correct_answer": "makinig din sa iba"
+          },
+          {
+            "question": "Bakit may karapatan sa edukasyon ang bata?",
+            "options": [
+              "Upang matuto at umunlad siya",
+              "Upang mapuno ang paaralan",
+              "Upang may gawin siya",
+              "Upang mabilis ang araw"
+            ],
+            "correct_answer": "Upang matuto at umunlad siya"
+          },
+          {
+            "question": "Alin ang HINDI paggalang sa karapatan ng kapwa bata?",
+            "options": [
+              "Panunukso at pananakit",
+              "Pakikinig sa kaniya",
+              "Pagsama sa laro",
+              "Pagtulong sa kaniya"
+            ],
+            "correct_answer": "Panunukso at pananakit"
+          },
+          {
+            "question": "May bagong kaklase na iba ang wika. Ano ang mabuting gawin?",
+            "options": [
+              "Tanggapin at kaibiganin siya",
+              "Iwasan siyang kausapin",
+              "Pagtawanan ang wika niya",
+              "Huwag siyang isama"
+            ],
+            "correct_answer": "Tanggapin at kaibiganin siya"
+          },
+          {
+            "question": "Bakit mahalagang kilalanin ng pamayanan ang karapatan ng bata?",
+            "options": [
+              "Upang ligtas at payapa ang buhay nila",
+              "Upang dumami ang paaralan",
+              "Upang umikli ang klase",
+              "Upang may laruan sila"
+            ],
+            "correct_answer": "Upang ligtas at payapa ang buhay nila"
+          },
+          {
+            "question": "Ang pagsasabi sa guro tungkol sa pang-aapi ay:",
+            "options": [
+              "pag-iingat sa sarili at sa iba",
+              "pagsusumbong lamang",
+              "pag-iwas sa gawain",
+              "paghahanap ng gulo"
+            ],
+            "correct_answer": "pag-iingat sa sarili at sa iba"
+          }
+        ]
+      }
+    }
+  }
+}

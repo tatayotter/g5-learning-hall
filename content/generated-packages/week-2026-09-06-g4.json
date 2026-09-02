@@ -1,0 +1,2016 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-09-06",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 👁️ English — Viewing and Representing\n\nLast week of Term 1, Grade 4! Let's read the world of **images**. 🎨\n\n## 🖼️ What Is Viewing?\n**Viewing** means looking at a **visual text** — a photo, poster, menu, or invitation — and figuring out what it is telling you.\n\n## 🎯 Every Visual Text Has a Purpose\n| Visual text | Purpose |\n|---|---|\n| **Invitation card** | to **invite** you to an event |\n| **Menu** | to **list** food and prices |\n| **Photo** | to **show** a moment or feeling |\n| **Poster** | to **inform** or **persuade** |\n\n## ✉️ Reading an Invitation Card\nAn invitation must answer:\n- **What** is the event? (birthday, fiesta, graduation)\n- **Who** is inviting you?\n- **When** — date and time\n- **Where** — the place\n- **RSVP** — how to reply\n\n**Example:** *\"Join us for Lola Ising's 80th birthday! Saturday, September 12, 4:00 PM, 25 Mabini Street. Please reply by September 9.\"*\n\n## 🎨 Why Design Choices Matter\nDesigners choose colors, fonts, and images **on purpose**.\n\n- **Bright colors + balloons** → a **happy, playful** event (a child's party)\n- **Gold letters + elegant script** → a **formal** event (a wedding)\n- **Large, bold text** → the **most important** information\n- **A photo of food** → makes you feel **hungry** (used in menus)\n\n**Example 1:** A birthday invitation uses a big cartoon cake. **Why?** It signals fun and tells you instantly it is a party.\n\n**Example 2:** A menu shows the *specialty dish* in a **larger photo** than the others. **Why?** The restaurant wants you to order that one.\n\n## 🍽️ Reading a Menu\n- Items are **grouped** (appetizers, mains, desserts, drinks)\n- **Prices** are aligned so you can compare\n- Bigger or boxed items are the ones being **promoted**\n\n## 💡 Ask Yourself When Viewing\n1. What is this trying to make me **know**, **feel**, or **do**?\n2. What did the designer make **biggest**? Why?\n3. Who is this **for**?\n\nGreat finish to Term 1! 🌟",
+        "quiz": [
+          {
+            "question": "What is the main purpose of an invitation card?",
+            "options": [
+              "To invite you to an event",
+              "To sell you a product",
+              "To teach a science lesson",
+              "To report the daily news"
+            ],
+            "correct_answer": "To invite you to an event"
+          },
+          {
+            "question": "Which detail must an invitation always include?",
+            "options": [
+              "The date and time",
+              "The writer's age",
+              "The price of food",
+              "The weather report"
+            ],
+            "correct_answer": "The date and time"
+          },
+          {
+            "question": "What does RSVP on an invitation ask you to do?",
+            "options": [
+              "Reply whether you will attend",
+              "Bring a gift to the event",
+              "Arrive earlier than others",
+              "Wear a formal costume"
+            ],
+            "correct_answer": "Reply whether you will attend"
+          },
+          {
+            "question": "On a menu, items are usually grouped into:",
+            "options": [
+              "appetizers, mains, and desserts",
+              "letters of the alphabet",
+              "colors of the packaging",
+              "days of the week"
+            ],
+            "correct_answer": "appetizers, mains, and desserts"
+          },
+          {
+            "question": "Why does a birthday invitation often use bright colors and balloons?",
+            "options": [
+              "To show it is a happy event",
+              "To make it cost less money",
+              "To hide the event address",
+              "To make the card heavier"
+            ],
+            "correct_answer": "To show it is a happy event"
+          },
+          {
+            "question": "On an invitation, which text is usually the LARGEST?",
+            "options": [
+              "The most important information",
+              "The smallest detail given",
+              "The printing company name",
+              "The paper size measurement"
+            ],
+            "correct_answer": "The most important information"
+          },
+          {
+            "question": "A restaurant shows one dish in a much bigger photo than the rest. Why?",
+            "options": [
+              "It wants you to order that dish",
+              "It ran out of that dish",
+              "That dish is the cheapest",
+              "The photo was taken first"
+            ],
+            "correct_answer": "It wants you to order that dish"
+          },
+          {
+            "question": "Gold letters and elegant script on an invitation suggest the event is:",
+            "options": [
+              "formal",
+              "playful",
+              "casual",
+              "secret"
+            ],
+            "correct_answer": "formal"
+          },
+          {
+            "question": "Which question BEST helps you understand a visual text?",
+            "options": [
+              "What does it want me to know or do?",
+              "How much did the paper cost?",
+              "Who printed this document?",
+              "How heavy is this card?"
+            ],
+            "correct_answer": "What does it want me to know or do?"
+          },
+          {
+            "question": "A menu photo shows steaming hot soup. What feeling is this meant to create?",
+            "options": [
+              "Hunger and appetite",
+              "Fear and worry",
+              "Boredom and sleep",
+              "Anger and upset"
+            ],
+            "correct_answer": "Hunger and appetite"
+          },
+          {
+            "question": "An invitation shows a cartoon superhero and very bright colors. Who is it MOST likely for?",
+            "options": [
+              "A young child's party",
+              "A business meeting",
+              "A formal wedding",
+              "A funeral service"
+            ],
+            "correct_answer": "A young child's party"
+          },
+          {
+            "question": "A fiesta poster puts the date in huge letters but the address in tiny print. What is the weakness of this design?",
+            "options": [
+              "People may not find the venue",
+              "The colors are too dull",
+              "The date is hard to read",
+              "The poster is too small"
+            ],
+            "correct_answer": "People may not find the venue"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Estimating, Adding, and Subtracting Large Numbers\n\nFinal Math lesson of Term 1, Grade 4! 💪\n\n## 🎯 Rounding to Estimate\n**Estimating** gives you a quick, close answer — useful for checking if your exact answer makes sense.\n\n**Rounding rule:** Look at the digit to the **right** of the place you are rounding to.\n- **5 or more** → round **up**\n- **4 or less** → round **down** (stay the same)\n\n## 🧠 Worked Example 1 — Estimating a Sum\n*Estimate 47,382 + 25,914 by rounding to the nearest **ten thousand**.*\n- Step 1: 47,382 → the thousands digit is **7** (5 or more) → rounds **up** to **50,000**\n- Step 2: 25,914 → the thousands digit is **5** (5 or more) → rounds **up** to **30,000**\n- Step 3: 50,000 + 30,000 = **80,000**\n- Exact answer: 73,296. The estimate **80,000** is close enough to check our work. ✅\n\n## 🧠 Worked Example 2 — Subtracting with Regrouping\n*Compute 605,000 − 248,375.*\n```\n  605000\n- 248375\n--------\n```\n- Step 1: Ones — 0 − 5 needs regrouping. Borrow across the zeros.\n- Step 2: Work right to left, regrouping each column that is too small.\n- Step 3: Answer: **356,625**\n- **Check by adding:** 356,625 + 248,375 = 605,000 ✅\n\n## ➕ Adding Up to 1,000,000\nLine up the **place values** carefully — ones under ones, tens under tens.\n\n**Example:** 384,296 + 215,478\n- Ones: 6 + 8 = 14 → write **4**, carry **1**\n- Tens: 9 + 7 + 1 = 17 → write **7**, carry **1**\n- Hundreds: 2 + 4 + 1 = 7\n- Thousands: 4 + 5 = 9\n- Ten thousands: 8 + 1 = 9\n- Hundred thousands: 3 + 2 = 5\n- Answer: **599,774**\n\n## 💡 Always Check Your Work\n- **Subtraction check:** add your answer to the number you subtracted\n- **Addition check:** subtract one addend from your total\n\nExcellent work this term! ⭐",
+        "quiz": [
+          {
+            "question": "Round 47,382 to the nearest ten thousand.",
+            "options": [
+              "50,000",
+              "40,000",
+              "47,000",
+              "48,000"
+            ],
+            "correct_answer": "50,000"
+          },
+          {
+            "question": "When rounding, a digit of 5 or more tells you to round:",
+            "options": [
+              "up",
+              "down",
+              "sideways",
+              "to zero"
+            ],
+            "correct_answer": "up"
+          },
+          {
+            "question": "Round 62,140 to the nearest ten thousand.",
+            "options": [
+              "60,000",
+              "70,000",
+              "62,000",
+              "63,000"
+            ],
+            "correct_answer": "60,000"
+          },
+          {
+            "question": "What is 384,296 + 215,478?",
+            "options": [
+              "599,774",
+              "599,664",
+              "589,774",
+              "600,774"
+            ],
+            "correct_answer": "599,774"
+          },
+          {
+            "question": "What is 605,000 − 248,375?",
+            "options": [
+              "356,625",
+              "356,725",
+              "357,625",
+              "346,625"
+            ],
+            "correct_answer": "356,625"
+          },
+          {
+            "question": "Estimate 38,600 + 21,200 by rounding to the nearest ten thousand.",
+            "options": [
+              "60,000",
+              "50,000",
+              "70,000",
+              "59,000"
+            ],
+            "correct_answer": "60,000"
+          },
+          {
+            "question": "How do you CHECK a subtraction answer?",
+            "options": [
+              "Add it to the number subtracted",
+              "Subtract it again from itself",
+              "Multiply it by the difference",
+              "Divide it by the first number"
+            ],
+            "correct_answer": "Add it to the number subtracted"
+          },
+          {
+            "question": "What is 725,431 − 310,220?",
+            "options": [
+              "415,211",
+              "415,111",
+              "425,211",
+              "405,211"
+            ],
+            "correct_answer": "415,211"
+          },
+          {
+            "question": "Round 149,500 to the nearest hundred thousand.",
+            "options": [
+              "100,000",
+              "200,000",
+              "150,000",
+              "140,000"
+            ],
+            "correct_answer": "100,000"
+          },
+          {
+            "question": "A town has 128,450 people. Another has 96,780. About how many altogether, rounded to the nearest ten thousand?",
+            "options": [
+              "230,000",
+              "220,000",
+              "240,000",
+              "210,000"
+            ],
+            "correct_answer": "230,000"
+          },
+          {
+            "question": "Ana estimated 51,000 + 29,000 as 80,000 but her exact answer was 8,000. What went wrong?",
+            "options": [
+              "Her exact answer is far too small",
+              "Her estimate was rounded wrongly",
+              "She should have subtracted first",
+              "The numbers cannot be added"
+            ],
+            "correct_answer": "Her exact answer is far too small"
+          },
+          {
+            "question": "A factory made 462,300 items and shipped 187,950. How many are left?",
+            "options": [
+              "274,350",
+              "274,450",
+              "275,350",
+              "264,350"
+            ],
+            "correct_answer": "274,350"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Unlapi, Gitlapi, at Hulapi\n\nHuling linggo ng Termino 1, Grade 4! Pag-aralan natin ang **panlapi**. ✍️\n\n## 🧩 Ano ang Panlapi?\nAng **panlapi** ay bahagi ng salita na idinadagdag sa **salitang-ugat** upang makabuo ng bagong salita.\n\n**Salitang-ugat:** *luto* → **nag**luto, l**um**uto, luto**in**\n\n## 📍 Tatlong Uri ng Panlapi\n\n**1. UNLAPI** — nasa **unahan** ng salitang-ugat\n- **mag-** → **mag**laro, **mag**basa, **mag**luto\n- **nag-** → **nag**laro, **nag**basa, **nag**luto\n- **ma-** → **ma**ganda, **ma**bait\n\n**2. GITLAPI** — nasa **gitna** ng salitang-ugat\n- **-um-** → s**um**ulat, k**um**ain, t**um**akbo\n- **-in-** → s**in**ulat, k**in**ain\n\n**3. HULAPI** — nasa **hulihan** ng salitang-ugat\n- **-in** → basah**in**, kant**ah**in, lutu**in**\n- **-an** → basah**an**, lut**uan**, tulung**an**\n\n## ⏰ Panlapi at Panahunan\nAng panlapi ay nagsasabi rin ng **panahon** ng kilos:\n\n| Panahunan | Halimbawa | Panlapi |\n|---|---|---|\n| **Pangnagdaan** (tapos na) | **nag**laro, s**um**ulat | nag-, -um- |\n| **Pangkasalukuyan** (ginagawa) | **nag**lalaro, s**umu**sulat | inuulit ang pantig |\n| **Panghinaharap** (gagawin) | **mag**lalaro, **su**susulat | mag-, uulitin |\n\n## 🧠 Halimbawa 1\n*Salitang-ugat: **sulat***\n- Unlapi: **mag**sulat (gagawin)\n- Gitlapi: s**um**ulat (ginawa na)\n- Hulapi: sulat**an** (ang pagsusulatan)\n\n## 🧠 Halimbawa 2\n*Salitang-ugat: **tulong***\n- **tumulong** — gitlapi **-um-**\n- **tulungan** — hulapi **-an**\n- **magtulungan** — unlapi **mag-** at hulapi **-an** (magkasabay!)\n\n## 💡 Paalala\nMinsan **nagbabago** ang baybay kapag idinugtong ang panlapi:\n- *luto* + *-in* → **lutuin** (hindi \"lutoin\")\n- *basa* + *-in* → **basahin** (may dagdag na **h**)\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang panlapi?",
+            "options": [
+              "Bahaging idinadagdag sa salitang-ugat",
+              "Ang buong pangungusap na binubuo",
+              "Ang bantas sa dulo ng pangungusap",
+              "Ang pamagat ng isang kuwento"
+            ],
+            "correct_answer": "Bahaging idinadagdag sa salitang-ugat"
+          },
+          {
+            "question": "Saan matatagpuan ang unlapi?",
+            "options": [
+              "Sa unahan ng salitang-ugat",
+              "Sa gitna ng salitang-ugat",
+              "Sa hulihan ng salitang-ugat",
+              "Sa labas ng pangungusap"
+            ],
+            "correct_answer": "Sa unahan ng salitang-ugat"
+          },
+          {
+            "question": "Sa salitang \"sumulat\", anong uri ng panlapi ang -um-?",
+            "options": [
+              "Gitlapi",
+              "Unlapi",
+              "Hulapi",
+              "Kabilaan"
+            ],
+            "correct_answer": "Gitlapi"
+          },
+          {
+            "question": "Sa salitang \"basahin\", anong uri ng panlapi ang -in?",
+            "options": [
+              "Hulapi",
+              "Unlapi",
+              "Gitlapi",
+              "Kabilaan"
+            ],
+            "correct_answer": "Hulapi"
+          },
+          {
+            "question": "Ano ang salitang-ugat ng \"naglalaro\"?",
+            "options": [
+              "laro",
+              "naglaro",
+              "lalaro",
+              "nagla"
+            ],
+            "correct_answer": "laro"
+          },
+          {
+            "question": "Alin ang may unlapi?",
+            "options": [
+              "magbasa",
+              "sumayaw",
+              "kainin",
+              "tulungan"
+            ],
+            "correct_answer": "magbasa"
+          },
+          {
+            "question": "Alin ang nagpapakita ng kilos na tapos na?",
+            "options": [
+              "nagluto",
+              "magluluto",
+              "nagluluto",
+              "lulutuin"
+            ],
+            "correct_answer": "nagluto"
+          },
+          {
+            "question": "Ano ang tamang anyo ng \"luto\" kapag dinagdagan ng hulaping -in?",
+            "options": [
+              "lutuin",
+              "lutoin",
+              "lutohin",
+              "luto-in"
+            ],
+            "correct_answer": "lutuin"
+          },
+          {
+            "question": "Sa salitang \"magtulungan\", ilang panlapi ang ginamit?",
+            "options": [
+              "Dalawa",
+              "Isa",
+              "Tatlo",
+              "Wala"
+            ],
+            "correct_answer": "Dalawa"
+          },
+          {
+            "question": "Alin ang nasa panahunang panghinaharap?",
+            "options": [
+              "magsusulat",
+              "sumulat",
+              "sumusulat",
+              "sinulat"
+            ],
+            "correct_answer": "magsusulat"
+          },
+          {
+            "question": "Bakit nagiging \"basahin\" ang \"basa\" at hindi \"basain\"?",
+            "options": [
+              "May dagdag na titik h sa pagdurugtong",
+              "Mali ang salitang-ugat nito",
+              "Hulapi ang ginamit dito",
+              "Walang panlapi ang salita"
+            ],
+            "correct_answer": "May dagdag na titik h sa pagdurugtong"
+          },
+          {
+            "question": "Sa pangungusap na \"Tinulungan ni Ana ang kaniyang kapatid,\" ano ang salitang-ugat ng pandiwa?",
+            "options": [
+              "tulong",
+              "tinulungan",
+              "tulungan",
+              "nagtulong"
+            ],
+            "correct_answer": "tulong"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Term Project: Inventions & Useful Waste\n\nFinal Science lesson of Term 1, Grade 4! Time to build something. 🛠️\n\n## 💡 Science Inventions in Daily Life\nAn **invention** is something **new** that people create to solve a **problem**.\n\n| Invention | Problem it solved |\n|---|---|\n| **Electric fan** | keeping cool in hot weather |\n| **Refrigerator** | food spoiling quickly |\n| **Light bulb** | seeing clearly at night |\n| **Telephone** | talking across long distances |\n| **Water filter** | unsafe drinking water |\n\n## 🇵🇭 Filipino Inventors\n- **Agapito Flores** — often credited with early fluorescent lamp work\n- **Fe del Mundo** — a pediatrician who developed an **incubator** for babies that needed no electricity\n- **Rodolfo Biescas** — worked on an early automatic **fire truck** ladder design\n\n## 🧪 Project Option A: Model of an Invention\n**Steps:**\n1. **Choose** an invention you use every day\n2. **Research** what problem it solves\n3. **Build** a simple model or draw a labeled illustration\n4. **Explain** how it works and why it matters\n\n## 🌱 Project Option B: Fertilizer from Household Waste\n**Compost** turns kitchen waste into food for plants!\n\n**Materials:** fruit and vegetable peelings, dry leaves, soil, a container with small holes\n\n**Steps:**\n1. **Layer** dry leaves at the bottom of the container\n2. **Add** chopped fruit and vegetable peels\n3. **Cover** with a layer of soil\n4. **Repeat** the layers\n5. **Mix** every few days to let air in\n6. **Wait** 3–6 weeks until it looks like **dark, crumbly soil**\n\n**⚠️ Do NOT put in:** meat, fish, oil, or dairy — these attract pests and smell bad.\n\n## 🧠 Why Composting Works\nTiny living things called **decomposers** (bacteria and fungi) break down the waste. They need **air**, **moisture**, and **time**. Mixing adds air, which is why the pile must be turned.\n\n## ♻️ The Benefit\n- **Less** garbage going to landfills\n- **Free** fertilizer for plants\n- **Healthier** soil that holds water better\n\nGreat scientist work this term! 🔎",
+        "quiz": [
+          {
+            "question": "What is an invention?",
+            "options": [
+              "Something new made to solve a problem",
+              "A rock found in the ground",
+              "A plant grown in a garden",
+              "An animal living in the wild"
+            ],
+            "correct_answer": "Something new made to solve a problem"
+          },
+          {
+            "question": "Which problem did the refrigerator solve?",
+            "options": [
+              "Food spoiling quickly",
+              "Rooms being too dark",
+              "Travelling long distances",
+              "Clothes getting dirty"
+            ],
+            "correct_answer": "Food spoiling quickly"
+          },
+          {
+            "question": "Fe del Mundo is known for developing an incubator that needed no:",
+            "options": [
+              "electricity",
+              "medicine",
+              "water supply",
+              "clean cloth"
+            ],
+            "correct_answer": "electricity"
+          },
+          {
+            "question": "What is compost made from?",
+            "options": [
+              "Fruit and vegetable waste",
+              "Plastic and metal scraps",
+              "Glass bottles and cans",
+              "Old batteries and wires"
+            ],
+            "correct_answer": "Fruit and vegetable waste"
+          },
+          {
+            "question": "Which should NOT be put into a compost pile?",
+            "options": [
+              "Meat and fish scraps",
+              "Banana peelings",
+              "Dry brown leaves",
+              "Vegetable trimmings"
+            ],
+            "correct_answer": "Meat and fish scraps"
+          },
+          {
+            "question": "Tiny living things that break down compost are called:",
+            "options": [
+              "decomposers",
+              "producers",
+              "predators",
+              "pollinators"
+            ],
+            "correct_answer": "decomposers"
+          },
+          {
+            "question": "Why must a compost pile be mixed every few days?",
+            "options": [
+              "To let air reach the decomposers",
+              "To make the pile look neater",
+              "To keep the pile completely dry",
+              "To stop the waste from breaking down"
+            ],
+            "correct_answer": "To let air reach the decomposers"
+          },
+          {
+            "question": "Finished compost looks like:",
+            "options": [
+              "dark, crumbly soil",
+              "clear running water",
+              "hard grey stone",
+              "bright green leaves"
+            ],
+            "correct_answer": "dark, crumbly soil"
+          },
+          {
+            "question": "About how long does compost take to be ready?",
+            "options": [
+              "3 to 6 weeks",
+              "3 to 6 hours",
+              "1 to 2 days",
+              "2 to 3 years"
+            ],
+            "correct_answer": "3 to 6 weeks"
+          },
+          {
+            "question": "Which is a benefit of composting at home?",
+            "options": [
+              "Less garbage and free fertilizer",
+              "Higher electricity bills",
+              "More plastic packaging",
+              "Faster food spoiling"
+            ],
+            "correct_answer": "Less garbage and free fertilizer"
+          },
+          {
+            "question": "Your compost pile smells very bad and attracts flies. What is the MOST likely cause?",
+            "options": [
+              "Meat or oil was added to it",
+              "It has too many dry leaves",
+              "It was mixed too often",
+              "It is too dry inside"
+            ],
+            "correct_answer": "Meat or oil was added to it"
+          },
+          {
+            "question": "A student wants to show how the electric fan solves a problem. Which project BEST does this?",
+            "options": [
+              "A labeled model showing how it moves air",
+              "A photo of a fan in a shop",
+              "A list of fan brand names",
+              "A drawing of a closed box"
+            ],
+            "correct_answer": "A labeled model showing how it moves air"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Araling Panlipunan — Ang Heograpiya ng Pilipinas\n\nHuling aralin ng Termino 1, Grade 4! 🇵🇭\n\n## 📍 Lokasyon ng Pilipinas\n- Matatagpuan ang Pilipinas sa **Timog-Silangang Asya**\n- Ito ay isang **arkipelago** — pulu-pulong lupain na napapaligiran ng tubig\n- Binubuo ng **7,641 na pulo**\n- Nasa **Karagatang Pasipiko** ang silangan; **Dagat Kanlurang Pilipinas** ang kanluran\n\n## 🏝️ Tatlong Pangunahing Pangkat-Pulo\n| Pangkat | Katangian |\n|---|---|\n| **Luzon** | pinakamalaki, nasa hilaga, kinaroroonan ng Maynila |\n| **Visayas** | nasa gitna, maraming maliliit na pulo |\n| **Mindanao** | nasa timog, mayaman sa prutas at mineral |\n\n## 🏔️ Mga Anyong-Lupa\n- **Bundok** — mataas na lupain (Bundok Apo, ang pinakamataas)\n- **Burol** — mas mababa kaysa bundok (Chocolate Hills)\n- **Kapatagan** — patag na lupa, mabuti sa pagsasaka (Gitnang Luzon)\n- **Talampas** — mataas ngunit patag ang ibabaw\n- **Lambak** — mababang lupain sa pagitan ng bundok\n\n## 🌊 Mga Anyong-Tubig\n- **Karagatan** — napakalawak na tubig-alat (Pasipiko)\n- **Dagat** — mas maliit kaysa karagatan\n- **Lawa** — napapaligiran ng lupa (Lawa ng Laguna, pinakamalaki)\n- **Ilog** — umaagos patungo sa dagat (Ilog Cagayan, pinakamahaba)\n- **Look** — bahagi ng dagat na pumapasok sa lupa (Look ng Maynila)\n\n## 🤝 Ugnayan ng Heograpiya at Pamumuhay\nAng **hanapbuhay** ng mga Pilipino ay nakabatay sa **kinalalagyan** nila.\n\n| Lugar | Hanapbuhay |\n|---|---|\n| Malapit sa dagat | **pangingisda** |\n| Kapatagan | **pagsasaka** (palay, mais) |\n| Bulubundukin | **paghahalaman**, gulay, kape |\n| Lungsod | **negosyo**, paglilingkod |\n\n**Halimbawa 1:** Mayaman sa isda ang mga taga-**Bicol** dahil napapaligiran sila ng tubig.\n\n**Halimbawa 2:** Tinatawag na \"rice granary\" ang **Gitnang Luzon** dahil malawak ang kapatagan nito — angkop sa palayan.\n\n## ⚠️ Hamon ng Ating Heograpiya\nDahil nasa **Pacific Ring of Fire** at **bagyo belt** ang Pilipinas, madalas tayong makaranas ng **lindol, bulkan, at bagyo**. Kaya mahalaga ang **paghahanda**.\n\nMagaling sa Termino 1! 🌟",
+        "quiz": [
+          {
+            "question": "Saan matatagpuan ang Pilipinas?",
+            "options": [
+              "Timog-Silangang Asya",
+              "Hilagang Amerika",
+              "Kanlurang Europa",
+              "Timog Aprika"
+            ],
+            "correct_answer": "Timog-Silangang Asya"
+          },
+          {
+            "question": "Ano ang tawag sa pulu-pulong lupaing napapaligiran ng tubig?",
+            "options": [
+              "Arkipelago",
+              "Kapatagan",
+              "Talampas",
+              "Lambak"
+            ],
+            "correct_answer": "Arkipelago"
+          },
+          {
+            "question": "Ilan ang pulo ng Pilipinas?",
+            "options": [
+              "7,641",
+              "1,707",
+              "5,432",
+              "9,876"
+            ],
+            "correct_answer": "7,641"
+          },
+          {
+            "question": "Alin ang pinakamalaking pangkat-pulo ng Pilipinas?",
+            "options": [
+              "Luzon",
+              "Visayas",
+              "Mindanao",
+              "Palawan"
+            ],
+            "correct_answer": "Luzon"
+          },
+          {
+            "question": "Ano ang pinakamataas na bundok sa Pilipinas?",
+            "options": [
+              "Bundok Apo",
+              "Bundok Mayon",
+              "Bundok Pulag",
+              "Bundok Banahaw"
+            ],
+            "correct_answer": "Bundok Apo"
+          },
+          {
+            "question": "Alin ang pinakamalaking lawa sa Pilipinas?",
+            "options": [
+              "Lawa ng Laguna",
+              "Lawa ng Taal",
+              "Lawa ng Lanao",
+              "Lawa ng Naujan"
+            ],
+            "correct_answer": "Lawa ng Laguna"
+          },
+          {
+            "question": "Ano ang anyong-lupa na patag at mabuti sa pagsasaka?",
+            "options": [
+              "Kapatagan",
+              "Bundok",
+              "Talampas",
+              "Burol"
+            ],
+            "correct_answer": "Kapatagan"
+          },
+          {
+            "question": "Ano ang pangunahing hanapbuhay ng mga naninirahan malapit sa dagat?",
+            "options": [
+              "Pangingisda",
+              "Pagmimina",
+              "Pagtotroso",
+              "Paghahayop"
+            ],
+            "correct_answer": "Pangingisda"
+          },
+          {
+            "question": "Bakit tinatawag na rice granary ang Gitnang Luzon?",
+            "options": [
+              "Malawak ang kapatagan para sa palayan",
+              "Marami itong bundok at burol",
+              "Napapaligiran ito ng karagatan",
+              "Malamig ang panahon dito"
+            ],
+            "correct_answer": "Malawak ang kapatagan para sa palayan"
+          },
+          {
+            "question": "Bakit madalas ang lindol at bulkan sa Pilipinas?",
+            "options": [
+              "Nasa Pacific Ring of Fire ito",
+              "Malapit ito sa Ekwador",
+              "Maliit ang lupain nito",
+              "Marami itong ilog"
+            ],
+            "correct_answer": "Nasa Pacific Ring of Fire ito"
+          },
+          {
+            "question": "Ang Chocolate Hills ng Bohol ay halimbawa ng anong anyong-lupa?",
+            "options": [
+              "Burol",
+              "Bundok",
+              "Lambak",
+              "Talampas"
+            ],
+            "correct_answer": "Burol"
+          },
+          {
+            "question": "Ang mga taga-Benguet ay nagtatanim ng gulay at kape. Ano ang dahilan nito?",
+            "options": [
+              "Malamig at bulubundukin ang lugar",
+              "Napapaligiran ito ng dagat",
+              "Patag at mainit ang lupain",
+              "Malapit ito sa lungsod"
+            ],
+            "correct_answer": "Malamig at bulubundukin ang lugar"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 📊 EPP (ICT) — Spreadsheet Basics\n\nLast ICT lesson of Term 1, Grade 4! Let's learn **spreadsheets**. 💻\n\n## 🗂️ What Is a Spreadsheet?\nA **spreadsheet** organizes information into a grid so you can **calculate**, **sort**, and **compare** easily.\n\n## 🧭 The Spreadsheet Interface\n| Part | What it is |\n|---|---|\n| **Column** | runs **up and down**, labeled with **letters** (A, B, C) |\n| **Row** | runs **left to right**, labeled with **numbers** (1, 2, 3) |\n| **Cell** | one box where a column and row meet |\n| **Cell address** | the column letter + row number, e.g. **B4** |\n| **Formula bar** | where you type or see a formula |\n\n**Example:** The cell in **column C**, **row 7** has the address **C7**.\n\n## 🖼️ Adding Borders\n**Borders** are lines around cells that make your table easier to read.\n1. **Select** the cells you want\n2. Click the **Borders** button on the toolbar\n3. Choose a style — *all borders*, *outline*, or *bottom border*\n\n**Why?** Borders separate headings from data so readers do not get lost.\n\n## ➗ Writing a Formula\nEvery formula starts with an **equals sign (=)**.\n\n| Operation | Symbol | Example |\n|---|---|---|\n| Add | **+** | `=A1+B1` |\n| Subtract | **−** | `=A1-B1` |\n| Multiply | **\\*** | `=A1*B1` |\n| Divide | **/** | `=A1/B1` |\n\n## 🔢 MDAS Order\nThe spreadsheet solves in **MDAS** order:\n> **M**ultiplication → **D**ivision → **A**ddition → **S**ubtraction\n\nMultiplication and division come **first** (left to right), then addition and subtraction.\n\n## 🧠 Worked Example 1\n*What does `=2+3*4` give?*\n- Step 1: Multiplication first → 3 * 4 = **12**\n- Step 2: Then addition → 2 + 12 = **14** ✅\n- (Not 20 — that would be adding first.)\n\n## 🧠 Worked Example 2\n*Cells: A1 = 10, B1 = 5. What does `=A1/B1+3` give?*\n- Step 1: Division first → 10 / 5 = **2**\n- Step 2: Then addition → 2 + 3 = **5** ✅\n\n## 💡 Use Parentheses to Change the Order\n`=(2+3)*4` → the parentheses go **first** → 5 * 4 = **20**\n\nGreat ICT work this term! 🌟",
+        "quiz": [
+          {
+            "question": "In a spreadsheet, columns are labeled with:",
+            "options": [
+              "letters",
+              "numbers",
+              "symbols",
+              "colors"
+            ],
+            "correct_answer": "letters"
+          },
+          {
+            "question": "Rows in a spreadsheet are labeled with:",
+            "options": [
+              "numbers",
+              "letters",
+              "shapes",
+              "arrows"
+            ],
+            "correct_answer": "numbers"
+          },
+          {
+            "question": "What is the address of the cell in column C, row 7?",
+            "options": [
+              "C7",
+              "7C",
+              "CR7",
+              "C-7"
+            ],
+            "correct_answer": "C7"
+          },
+          {
+            "question": "Every spreadsheet formula must begin with:",
+            "options": [
+              "an equals sign",
+              "a plus sign",
+              "a letter A",
+              "a question mark"
+            ],
+            "correct_answer": "an equals sign"
+          },
+          {
+            "question": "Which symbol is used to multiply in a spreadsheet?",
+            "options": [
+              "*",
+              "x",
+              "%",
+              "#"
+            ],
+            "correct_answer": "*"
+          },
+          {
+            "question": "What does MDAS stand for?",
+            "options": [
+              "Multiplication, Division, Addition, Subtraction",
+              "Multiply, Divide, Answer, Solve",
+              "Make, Draw, Add, Save",
+              "Move, Delete, Add, Sort"
+            ],
+            "correct_answer": "Multiplication, Division, Addition, Subtraction"
+          },
+          {
+            "question": "What is the result of =2+3*4?",
+            "options": [
+              "14",
+              "20",
+              "24",
+              "11"
+            ],
+            "correct_answer": "14"
+          },
+          {
+            "question": "What is the result of =(2+3)*4?",
+            "options": [
+              "20",
+              "14",
+              "24",
+              "11"
+            ],
+            "correct_answer": "20"
+          },
+          {
+            "question": "Why do we add borders to a spreadsheet table?",
+            "options": [
+              "To make the table easier to read",
+              "To make the file size smaller",
+              "To change the cell formulas",
+              "To delete unwanted rows"
+            ],
+            "correct_answer": "To make the table easier to read"
+          },
+          {
+            "question": "If A1 = 10 and B1 = 5, what does =A1/B1+3 give?",
+            "options": [
+              "5",
+              "2",
+              "8",
+              "13"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "What is the FIRST step in adding borders to cells?",
+            "options": [
+              "Select the cells you want",
+              "Type an equals sign",
+              "Save the whole file",
+              "Print the document"
+            ],
+            "correct_answer": "Select the cells you want"
+          },
+          {
+            "question": "You want a formula to add A1 and B1, then multiply by 2. Which is correct?",
+            "options": [
+              "=(A1+B1)*2",
+              "=A1+B1*2",
+              "=A1+(B1*2)",
+              "=A1*2+B1"
+            ],
+            "correct_answer": "=(A1+B1)*2"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎯 MAPEH — Target Games at Larong Pilipino\n\nHuling MAPEH ng Termino 1, Grade 4! Maglaro tayo! 🇵🇭\n\n## 🎯 Ano ang Target Games?\nSa **target games**, layunin mong **maitapon o maipadala** ang isang bagay (bola, bato, sinturon) patungo sa isang **target** o tiyak na lugar.\n\n**Mahalagang kasanayan:**\n- **Positioning** — tamang tayo at posisyon bago tumira\n- **Sending/propelling** — paghagis o pagtira patungo sa target\n- **Accuracy** — tumpak na pagtira\n\n## 🏃 Apat na Fitness Component\n| Component | Kahulugan |\n|---|---|\n| **Agility** | mabilis na pagbabago ng direksiyon |\n| **Balance** | pananatiling matatag ang katawan |\n| **Coordination** | magkasabay na paggalaw ng mata at kamay |\n| **Speed** | bilis ng paggalaw |\n\n## 🇵🇭 Mga Larong Pilipino (Target Games)\n\n**1. Tumbang Preso** — hinahagisan ng tsinelas ang nakatayong lata upang matumba ito. Sinasanay ang **accuracy** at **agility**.\n\n**2. Tatsing** — pinipitik o hinahagisan ng pamato ang mga tansan o takip upang mailabas sa bilog. Sinasanay ang **coordination**.\n\n**3. Tamaang-Tao** — hinahagisan ng bola ang kalaro sa loob ng bilog; iniiwasan naman nila ito. Sinasanay ang **agility** at **speed**.\n\n**4. Batuhang Bola** — paghahagis at pagsalo ng bola sa pagitan ng magkakampi.\n\n**5. Calahoyo** — inihuhulog o itinutulak ang bola o bato patungo sa maliit na butas sa lupa. Sinasanay ang **accuracy**.\n\n**6. Bati-Cobra** — pinapalo ang maliit na kahoy gamit ang mas mahabang kahoy. Sinasanay ang **hand-eye coordination**.\n\n## 🛡️ Kaligtasan sa Paglalaro\n- Mag-**warm-up** bago maglaro at **cool-down** pagkatapos\n- Siguraduhing **ligtas** at walang matutumbukan sa paligid\n- Gumamit ng **magaan** na bagay sa paghahagis, hindi matigas na bato\n- **Uminom ng tubig** — iwasan ang dehydration\n- Sundin ang **tuntunin** at igalang ang kalaro\n\n## 💛 Halaga ng Larong Pilipino\nAng mga larong ito ay bahagi ng ating **kultura**. Bukod sa **ehersisyo**, natututo tayo ng **pagkakaisa**, **pagiging patas**, at **paggalang** sa kalaro.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang layunin sa target games?",
+            "options": [
+              "Maipadala ang bagay sa target",
+              "Makatakbo nang pinakamabilis",
+              "Makaakyat nang pinakamataas",
+              "Makalangoy nang pinakamalayo"
+            ],
+            "correct_answer": "Maipadala ang bagay sa target"
+          },
+          {
+            "question": "Sa Tumbang Preso, ano ang pinupuntirya?",
+            "options": [
+              "Ang nakatayong lata",
+              "Ang bilog na guhit",
+              "Ang mataas na puno",
+              "Ang bukas na pinto"
+            ],
+            "correct_answer": "Ang nakatayong lata"
+          },
+          {
+            "question": "Ano ang agility?",
+            "options": [
+              "Mabilis na pagbabago ng direksiyon",
+              "Pananatiling nakatayo nang matagal",
+              "Paggamit ng malakas na boses",
+              "Pagbilang ng puntos sa laro"
+            ],
+            "correct_answer": "Mabilis na pagbabago ng direksiyon"
+          },
+          {
+            "question": "Anong fitness component ang pananatiling matatag ng katawan?",
+            "options": [
+              "Balance",
+              "Speed",
+              "Agility",
+              "Endurance"
+            ],
+            "correct_answer": "Balance"
+          },
+          {
+            "question": "Sa larong Tatsing, ano ang ginagamit na pantama?",
+            "options": [
+              "Pamato",
+              "Tsinelas",
+              "Mahabang kahoy",
+              "Malaking bola"
+            ],
+            "correct_answer": "Pamato"
+          },
+          {
+            "question": "Aling laro ang naghahagis ng bola sa kalarong nasa loob ng bilog?",
+            "options": [
+              "Tamaang-Tao",
+              "Tumbang Preso",
+              "Calahoyo",
+              "Bati-Cobra"
+            ],
+            "correct_answer": "Tamaang-Tao"
+          },
+          {
+            "question": "Ano ang coordination sa palakasan?",
+            "options": [
+              "Magkasabay na paggalaw ng mata at kamay",
+              "Bilis ng pagtakbo sa daan",
+              "Lakas ng buto at kalamnan",
+              "Haba ng oras ng paglalaro"
+            ],
+            "correct_answer": "Magkasabay na paggalaw ng mata at kamay"
+          },
+          {
+            "question": "Bakit mahalaga ang warm-up bago maglaro?",
+            "options": [
+              "Upang maiwasan ang pinsala",
+              "Upang mapabilis ang laro",
+              "Upang dumami ang puntos",
+              "Upang lumamig ang katawan"
+            ],
+            "correct_answer": "Upang maiwasan ang pinsala"
+          },
+          {
+            "question": "Sa Calahoyo, saan pinapapunta ang bola o bato?",
+            "options": [
+              "Sa maliit na butas sa lupa",
+              "Sa itaas ng mataas na poste",
+              "Sa kamay ng kalaro",
+              "Sa labas ng malaking bilog"
+            ],
+            "correct_answer": "Sa maliit na butas sa lupa"
+          },
+          {
+            "question": "Aling laro ang pinakamahusay na nagsasanay ng hand-eye coordination gamit ang kahoy?",
+            "options": [
+              "Bati-Cobra",
+              "Tumbang Preso",
+              "Tamaang-Tao",
+              "Batuhang Bola"
+            ],
+            "correct_answer": "Bati-Cobra"
+          },
+          {
+            "question": "Bukod sa ehersisyo, ano pa ang natututuhan sa larong Pilipino?",
+            "options": [
+              "Pagkakaisa at paggalang sa kalaro",
+              "Pagiging mas matalino sa klase",
+              "Pagkakaroon ng maraming pera",
+              "Pag-iwas sa lahat ng gawain"
+            ],
+            "correct_answer": "Pagkakaisa at paggalang sa kalaro"
+          },
+          {
+            "question": "Palaging pumapalya ang tira mo sa Tumbang Preso. Alin ang PINAKAMABUTING paraan upang gumaling?",
+            "options": [
+              "Ayusin ang positioning bago tumira",
+              "Humagis nang napakalakas",
+              "Lumapit hanggang sa lata",
+              "Tumira nang nakapikit"
+            ],
+            "correct_answer": "Ayusin ang positioning bago tumira"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 GMRC — Mabuting Kaugaliang Pilipino\n\nHuling aralin ng Termino 1, Grade 4! Pagpapahalaga: **Pagmamahal sa Bayan**. 🇵🇭\n\n## 🌟 Mga Mabuting Kaugaliang Pilipino\n\n**1. MASAYAHIN** 😊\nKilala ang Pilipino sa **ngiti kahit sa gitna ng hirap**. Nakakatulong ito upang **hindi tayo sumuko** sa mga pagsubok.\n- **Halimbawa:** Matapos ang bagyo, nagtutulungan ang magkakapitbahay habang nagkukuwentuhan at nagtatawanan.\n\n**2. MADASALIN** 🙏\nMalalim ang **pananampalataya** ng Pilipino. Nagdarasal tayo sa umaga, bago kumain, at sa oras ng pangangailangan.\n- **Halimbawa:** Nagdarasal ang pamilya bago kumain bilang pasasalamat.\n\n**3. MASIPAG** 💪\nMasipag ang Pilipino — handang magtrabaho nang husto para sa pamilya.\n- **Halimbawa:** Maagang gumigising ang magsasaka upang alagaan ang pananim.\n\n## 🤝 Iba Pang Kaugaliang Pilipino\n- **Bayanihan** — sama-samang pagtulong sa kapwa\n- **Utang na loob** — pagkilala sa tulong na natanggap\n- **Pagmamano** — paggalang sa nakatatanda\n- **Paggamit ng po at opo** — magalang na pananalita\n- **Pakikipagkapwa** — pagturing sa iba bilang kapatid\n\n## 🔍 Sariling Kamalayan\nAng **sariling kamalayan** ay ang pag-alam kung **alin sa mga kaugaliang ito ang isinasabuhay mo**.\n\nTanungin ang sarili:\n- Masayahin ba ako kahit may problema?\n- Nagpapasalamat ba ako sa aking mga biyaya?\n- Masipag ba ako sa aking pag-aaral at gawaing-bahay?\n\n## 🇵🇭 Pagmamahal sa Bayan\nAng **pagmamahal sa bayan** ay hindi lamang pagkanta ng Lupang Hinirang. Ito ay:\n- **Pagpapahalaga** sa ating kultura at wika\n- **Pagbili** ng produktong gawa sa Pilipinas\n- **Pagpapanatiling malinis** ng ating kapaligiran\n- **Pagiging tapat** at responsableng mamamayan\n- **Pagsasabuhay** ng mabubuting kaugalian upang maipagmalaki ang ating pagka-Pilipino\n\n**Halimbawa:** Kapag nagbabayad ka nang tama at hindi nandaraya, ipinapakita mo ang pagmamahal sa bayan.\n\nMabuting mamamayan ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang ibig sabihin ng masayahin bilang kaugaliang Pilipino?",
+            "options": [
+              "Nakangiti kahit sa gitna ng hirap",
+              "Palaging tumatawa nang malakas",
+              "Ayaw makinig sa problema",
+              "Iniiwasan ang lahat ng gawain"
+            ],
+            "correct_answer": "Nakangiti kahit sa gitna ng hirap"
+          },
+          {
+            "question": "Ano ang bayanihan?",
+            "options": [
+              "Sama-samang pagtulong sa kapwa",
+              "Pagtatago ng sariling yaman",
+              "Pag-iwas sa mga kapitbahay",
+              "Paligsahan sa pagitan ng pamilya"
+            ],
+            "correct_answer": "Sama-samang pagtulong sa kapwa"
+          },
+          {
+            "question": "Ang pagmamano ay nagpapakita ng:",
+            "options": [
+              "paggalang sa nakatatanda",
+              "pagmamadali sa gawain",
+              "pagsuway sa magulang",
+              "pag-iwas sa bisita"
+            ],
+            "correct_answer": "paggalang sa nakatatanda"
+          },
+          {
+            "question": "Ano ang utang na loob?",
+            "options": [
+              "Pagkilala sa tulong na natanggap",
+              "Paghiram ng pera sa iba",
+              "Pagkalimot sa nakaraan",
+              "Pagbabayad ng buwis"
+            ],
+            "correct_answer": "Pagkilala sa tulong na natanggap"
+          },
+          {
+            "question": "Alin ang nagpapakita ng pagiging masipag?",
+            "options": [
+              "Maagang gumising upang magtrabaho",
+              "Matulog buong maghapon",
+              "Ipagpaliban ang gawain",
+              "Iasa sa iba ang trabaho"
+            ],
+            "correct_answer": "Maagang gumising upang magtrabaho"
+          },
+          {
+            "question": "Ang pagdarasal bago kumain ay nagpapakita ng pagiging:",
+            "options": [
+              "madasalin",
+              "masipag",
+              "masayahin",
+              "matipid"
+            ],
+            "correct_answer": "madasalin"
+          },
+          {
+            "question": "Alin ang pagpapakita ng pagmamahal sa bayan?",
+            "options": [
+              "Pagbili ng produktong gawa sa Pilipinas",
+              "Pagtatapon ng basura sa ilog",
+              "Pandaraya sa pagsusulit",
+              "Pagsira sa pampublikong ari-arian"
+            ],
+            "correct_answer": "Pagbili ng produktong gawa sa Pilipinas"
+          },
+          {
+            "question": "Ano ang sariling kamalayan sa mabuting kaugalian?",
+            "options": [
+              "Pag-alam kung alin ang isinasabuhay mo",
+              "Pagbilang ng iyong mga kaibigan",
+              "Paghahanap ng mali sa iba",
+              "Pagsunod sa uso ngayon"
+            ],
+            "correct_answer": "Pag-alam kung alin ang isinasabuhay mo"
+          },
+          {
+            "question": "Ang paggamit ng po at opo ay bahagi ng:",
+            "options": [
+              "magalang na pananalita",
+              "mabilis na pagsasalita",
+              "malakas na pagsigaw",
+              "tahimik na pananahimik"
+            ],
+            "correct_answer": "magalang na pananalita"
+          },
+          {
+            "question": "Nagbabayad ka nang tama at hindi nandaraya. Ano ang ipinapakita mo?",
+            "options": [
+              "Pagmamahal sa bayan",
+              "Pagmamadali sa oras",
+              "Pag-iwas sa gastos",
+              "Pagsunod sa uso"
+            ],
+            "correct_answer": "Pagmamahal sa bayan"
+          },
+          {
+            "question": "Bakit mahalagang isabuhay ang mabubuting kaugaliang Pilipino?",
+            "options": [
+              "Upang maipagmalaki ang ating pagka-Pilipino",
+              "Upang matakot ang ibang bansa",
+              "Upang yumaman ang bawat isa",
+              "Upang dumami ang ating pulo"
+            ],
+            "correct_answer": "Upang maipagmalaki ang ating pagka-Pilipino"
+          },
+          {
+            "question": "Nasira ang bahay ng kapitbahay dahil sa bagyo at sama-sama silang tinulungan ng barangay. Aling kaugalian ito?",
+            "options": [
+              "Bayanihan",
+              "Utang na loob",
+              "Pagmamano",
+              "Pakikinig"
+            ],
+            "correct_answer": "Bayanihan"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 👁️ Friday Review — English (Grade 4)\n\n- **Viewing** = making meaning from photos, menus, posters, invitations\n- **Invitation must answer:** what · who · when · where · RSVP\n- **Design choices are deliberate:** bright colors = playful · gold script = formal · biggest text = most important\n- **Menus** group items and enlarge what they want you to order\n- **Always ask:** what does this want me to know, feel, or do?\n\nStrong finish to Term 1! 🌟",
+        "quiz": [
+          {
+            "question": "What information does RSVP ask for?",
+            "options": [
+              "Whether you will attend",
+              "How much you will pay",
+              "What gift you will bring",
+              "Where you currently live"
+            ],
+            "correct_answer": "Whether you will attend"
+          },
+          {
+            "question": "The biggest text on a poster is usually:",
+            "options": [
+              "the most important message",
+              "the printer's own name",
+              "the least useful detail",
+              "the paper size given"
+            ],
+            "correct_answer": "the most important message"
+          },
+          {
+            "question": "A menu's main purpose is to:",
+            "options": [
+              "list food and prices",
+              "invite you to a party",
+              "report the local news",
+              "teach a cooking skill"
+            ],
+            "correct_answer": "list food and prices"
+          },
+          {
+            "question": "Elegant gold script on an invitation suggests the event is:",
+            "options": [
+              "formal",
+              "playful",
+              "casual",
+              "sporty"
+            ],
+            "correct_answer": "formal"
+          },
+          {
+            "question": "Which detail is NOT usually needed on an invitation?",
+            "options": [
+              "The guest's shoe size",
+              "The date of the event",
+              "The place of the event",
+              "The name of the host"
+            ],
+            "correct_answer": "The guest's shoe size"
+          },
+          {
+            "question": "Why do menus show photos of food?",
+            "options": [
+              "To make dishes look appetizing",
+              "To fill up empty space",
+              "To show the kitchen staff",
+              "To list the ingredients"
+            ],
+            "correct_answer": "To make dishes look appetizing"
+          },
+          {
+            "question": "Viewing a visual text means:",
+            "options": [
+              "making meaning from images",
+              "counting all the words",
+              "measuring the paper",
+              "copying the pictures"
+            ],
+            "correct_answer": "making meaning from images"
+          },
+          {
+            "question": "Balloons and cartoon characters on an invitation suggest it is for a:",
+            "options": [
+              "children's party",
+              "business meeting",
+              "formal banquet",
+              "memorial service"
+            ],
+            "correct_answer": "children's party"
+          },
+          {
+            "question": "A poster uses a huge headline but hides the date in small grey text. What is the problem?",
+            "options": [
+              "Readers may miss when it happens",
+              "The headline is too clear",
+              "There are too many colors",
+              "The paper is the wrong size"
+            ],
+            "correct_answer": "Readers may miss when it happens"
+          },
+          {
+            "question": "A restaurant boxes one meal in a bright frame. What is it doing?",
+            "options": [
+              "Promoting that meal",
+              "Marking it unavailable",
+              "Showing it costs most",
+              "Warning about allergies"
+            ],
+            "correct_answer": "Promoting that meal"
+          },
+          {
+            "question": "Which question BEST checks who a visual text is for?",
+            "options": [
+              "Who would be interested in this?",
+              "How thick is this paper?",
+              "When was the ink dried?",
+              "Where was this printed?"
+            ],
+            "correct_answer": "Who would be interested in this?"
+          },
+          {
+            "question": "An invitation reads: \"Fiesta! Sept 12, 4 PM.\" What important detail is MISSING?",
+            "options": [
+              "The place of the event",
+              "The date of the event",
+              "The time of the event",
+              "The name of the event"
+            ],
+            "correct_answer": "The place of the event"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 4)\n\n- **Rounding:** look at the digit to the right — **5 or more rounds up**, 4 or less stays\n- **Estimate first**, then compute exactly — the estimate checks your answer\n- **Add/subtract:** line up place values, regroup as needed\n- **Check subtraction:** answer + number subtracted = original\n\n**Quick check:** 384,296 + 215,478 = **599,774**\n\nExcellent Term 1! ⭐",
+        "quiz": [
+          {
+            "question": "Round 38,750 to the nearest ten thousand.",
+            "options": [
+              "40,000",
+              "30,000",
+              "38,000",
+              "39,000"
+            ],
+            "correct_answer": "40,000"
+          },
+          {
+            "question": "Round 234,100 to the nearest hundred thousand.",
+            "options": [
+              "200,000",
+              "300,000",
+              "230,000",
+              "240,000"
+            ],
+            "correct_answer": "200,000"
+          },
+          {
+            "question": "What is 156,342 + 243,158?",
+            "options": [
+              "399,500",
+              "399,400",
+              "398,500",
+              "409,500"
+            ],
+            "correct_answer": "399,500"
+          },
+          {
+            "question": "What is 500,000 − 176,425?",
+            "options": [
+              "323,575",
+              "323,675",
+              "324,575",
+              "313,575"
+            ],
+            "correct_answer": "323,575"
+          },
+          {
+            "question": "A digit of 4 to the right means you round:",
+            "options": [
+              "down",
+              "up",
+              "twice",
+              "to five"
+            ],
+            "correct_answer": "down"
+          },
+          {
+            "question": "Estimate 61,800 + 28,400 to the nearest ten thousand.",
+            "options": [
+              "90,000",
+              "80,000",
+              "100,000",
+              "89,000"
+            ],
+            "correct_answer": "90,000"
+          },
+          {
+            "question": "How can you check that 452,100 − 128,900 = 323,200?",
+            "options": [
+              "Add 323,200 and 128,900",
+              "Subtract 323,200 from 128,900",
+              "Multiply 323,200 by 128,900",
+              "Divide 452,100 by 323,200"
+            ],
+            "correct_answer": "Add 323,200 and 128,900"
+          },
+          {
+            "question": "What is 807,650 − 492,310?",
+            "options": [
+              "315,340",
+              "315,240",
+              "325,340",
+              "305,340"
+            ],
+            "correct_answer": "315,340"
+          },
+          {
+            "question": "Two barangays have 74,600 and 55,300 residents. About how many altogether, to the nearest ten thousand?",
+            "options": [
+              "130,000",
+              "120,000",
+              "140,000",
+              "129,000"
+            ],
+            "correct_answer": "130,000"
+          },
+          {
+            "question": "A store had 615,000 items and sold 289,475. How many are left?",
+            "options": [
+              "325,525",
+              "325,425",
+              "335,525",
+              "315,525"
+            ],
+            "correct_answer": "325,525"
+          },
+          {
+            "question": "Ben estimated a sum as 90,000 but got an exact answer of 900,000. What should he do?",
+            "options": [
+              "Recheck his exact computation",
+              "Trust the exact answer only",
+              "Round to a smaller place",
+              "Change the estimate to match"
+            ],
+            "correct_answer": "Recheck his exact computation"
+          },
+          {
+            "question": "Which pair of numbers has an estimated difference of about 20,000?",
+            "options": [
+              "48,700 and 29,100",
+              "48,700 and 39,100",
+              "38,700 and 29,100",
+              "58,700 and 49,100"
+            ],
+            "correct_answer": "48,700 and 29,100"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes na Balik-Aral — Filipino (Grade 4)\n\n- **Unlapi** = unahan (**mag-**, **nag-**, **ma-**)\n- **Gitlapi** = gitna (**-um-**, **-in-**)\n- **Hulapi** = hulihan (**-in**, **-an**)\n- **Salitang-ugat** = ang batayang salita bago dagdagan ng panlapi\n- **Baybay:** *luto + -in* → **lutuin** | *basa + -in* → **basahin**\n\nMagaling sa Termino 1! 🌟",
+        "quiz": [
+          {
+            "question": "Saan matatagpuan ang hulapi?",
+            "options": [
+              "Sa hulihan ng salitang-ugat",
+              "Sa unahan ng salitang-ugat",
+              "Sa gitna ng salitang-ugat",
+              "Sa labas ng pangungusap"
+            ],
+            "correct_answer": "Sa hulihan ng salitang-ugat"
+          },
+          {
+            "question": "Sa salitang \"kumain\", anong uri ng panlapi ang -um-?",
+            "options": [
+              "Gitlapi",
+              "Unlapi",
+              "Hulapi",
+              "Kabilaan"
+            ],
+            "correct_answer": "Gitlapi"
+          },
+          {
+            "question": "Ano ang salitang-ugat ng \"nagbabasa\"?",
+            "options": [
+              "basa",
+              "nagbasa",
+              "babasa",
+              "nagba"
+            ],
+            "correct_answer": "basa"
+          },
+          {
+            "question": "Alin ang may unlaping mag-?",
+            "options": [
+              "maglinis",
+              "linisin",
+              "lumilinis",
+              "nilinis"
+            ],
+            "correct_answer": "maglinis"
+          },
+          {
+            "question": "Ano ang tamang anyo ng \"basa\" kapag dinagdagan ng -in?",
+            "options": [
+              "basahin",
+              "basain",
+              "basaan",
+              "basa-in"
+            ],
+            "correct_answer": "basahin"
+          },
+          {
+            "question": "Alin ang nagpapakita ng kilos na ginagawa pa lamang?",
+            "options": [
+              "naglalaro",
+              "naglaro",
+              "maglalaro",
+              "laruin"
+            ],
+            "correct_answer": "naglalaro"
+          },
+          {
+            "question": "Sa \"tulungan\", anong uri ng panlapi ang -an?",
+            "options": [
+              "Hulapi",
+              "Unlapi",
+              "Gitlapi",
+              "Kabilaan"
+            ],
+            "correct_answer": "Hulapi"
+          },
+          {
+            "question": "Alin ang salitang may dalawang panlapi?",
+            "options": [
+              "magtulungan",
+              "tumulong",
+              "tulungan",
+              "magtulong"
+            ],
+            "correct_answer": "magtulungan"
+          },
+          {
+            "question": "Ano ang salitang-ugat ng \"sinulatan\"?",
+            "options": [
+              "sulat",
+              "sinulat",
+              "sulatan",
+              "susulat"
+            ],
+            "correct_answer": "sulat"
+          },
+          {
+            "question": "Alin ang nasa panahunang pangnagdaan?",
+            "options": [
+              "sumayaw",
+              "sasayaw",
+              "sumasayaw",
+              "magsasayaw"
+            ],
+            "correct_answer": "sumayaw"
+          },
+          {
+            "question": "Bakit nagiging \"lutuin\" at hindi \"lutoin\" ang luto + -in?",
+            "options": [
+              "Nagbabago ang o tungo sa u",
+              "Mali ang salitang-ugat nito",
+              "Gitlapi ang ginamit dito",
+              "Walang panlapi ang salita"
+            ],
+            "correct_answer": "Nagbabago ang o tungo sa u"
+          },
+          {
+            "question": "Sa \"Binili ni Ana ang aklat,\" ano ang salitang-ugat ng pandiwa?",
+            "options": [
+              "bili",
+              "binili",
+              "bilhin",
+              "bumili"
+            ],
+            "correct_answer": "bili"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Friday Review — Science (Grade 4)\n\n- **Invention** = something new that solves a **problem**\n- **Filipino inventors:** Fe del Mundo (electricity-free incubator), Agapito Flores (fluorescent lamp work)\n- **Compost** = kitchen waste → fertilizer, broken down by **decomposers**\n- **Compost needs:** air (mix it), moisture, and **3–6 weeks**\n- **Never compost:** meat, fish, oil, dairy — they attract pests\n\nGreat scientist work! 🔎",
+        "quiz": [
+          {
+            "question": "An invention is created mainly to:",
+            "options": [
+              "solve a problem",
+              "decorate a room",
+              "fill up free time",
+              "replace all tools"
+            ],
+            "correct_answer": "solve a problem"
+          },
+          {
+            "question": "Which Filipino doctor developed an incubator needing no electricity?",
+            "options": [
+              "Fe del Mundo",
+              "Agapito Flores",
+              "Jose Rizal",
+              "Rodolfo Biescas"
+            ],
+            "correct_answer": "Fe del Mundo"
+          },
+          {
+            "question": "Which item is SAFE to compost?",
+            "options": [
+              "Vegetable peelings",
+              "Fried chicken bones",
+              "Used cooking oil",
+              "Leftover cheese"
+            ],
+            "correct_answer": "Vegetable peelings"
+          },
+          {
+            "question": "Decomposers in compost are mainly:",
+            "options": [
+              "bacteria and fungi",
+              "birds and insects",
+              "rocks and sand",
+              "wind and rain"
+            ],
+            "correct_answer": "bacteria and fungi"
+          },
+          {
+            "question": "Why is a compost pile turned regularly?",
+            "options": [
+              "To bring air to decomposers",
+              "To keep it perfectly dry",
+              "To make it look tidy",
+              "To stop it decomposing"
+            ],
+            "correct_answer": "To bring air to decomposers"
+          },
+          {
+            "question": "The light bulb solved the problem of:",
+            "options": [
+              "seeing clearly at night",
+              "food spoiling fast",
+              "travelling long distances",
+              "keeping rooms cool"
+            ],
+            "correct_answer": "seeing clearly at night"
+          },
+          {
+            "question": "Ready compost looks like:",
+            "options": [
+              "dark, crumbly soil",
+              "clear, thin liquid",
+              "hard, white stone",
+              "bright, green leaves"
+            ],
+            "correct_answer": "dark, crumbly soil"
+          },
+          {
+            "question": "Which is a benefit of composting?",
+            "options": [
+              "It reduces household garbage",
+              "It raises the electric bill",
+              "It creates more plastic",
+              "It spoils food faster"
+            ],
+            "correct_answer": "It reduces household garbage"
+          },
+          {
+            "question": "The electric fan was invented to solve the problem of:",
+            "options": [
+              "staying cool in hot weather",
+              "cooking food more quickly",
+              "storing water for later",
+              "lighting a dark hallway"
+            ],
+            "correct_answer": "staying cool in hot weather"
+          },
+          {
+            "question": "Your compost has not broken down after two months and feels bone dry. What is MOST likely missing?",
+            "options": [
+              "Moisture",
+              "Sunlight",
+              "Plastic bags",
+              "Extra salt"
+            ],
+            "correct_answer": "Moisture"
+          },
+          {
+            "question": "Which invention BEST solved the problem of talking across long distances?",
+            "options": [
+              "Telephone",
+              "Refrigerator",
+              "Electric fan",
+              "Water filter"
+            ],
+            "correct_answer": "Telephone"
+          },
+          {
+            "question": "A student's project shows a labeled model of a water filter and explains each layer. Why is this a strong project?",
+            "options": [
+              "It shows how the invention solves a problem",
+              "It uses many bright and neat colors",
+              "It took the longest time to finish",
+              "It is the largest model in class"
+            ],
+            "correct_answer": "It shows how the invention solves a problem"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Biyernes na Balik-Aral — Araling Panlipunan (Grade 4)\n\n- **Pilipinas:** Timog-Silangang Asya, **arkipelago**, **7,641** na pulo\n- **Pangkat-pulo:** Luzon (hilaga) · Visayas (gitna) · Mindanao (timog)\n- **Anyong-lupa:** bundok · burol · kapatagan · talampas · lambak\n- **Anyong-tubig:** karagatan · dagat · lawa · ilog · look\n- **Heograpiya → hanapbuhay:** dagat = pangingisda | kapatagan = pagsasaka\n- **Pacific Ring of Fire** → lindol at bulkan\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ang Pilipinas ay isang arkipelago. Ibig sabihin nito ay:",
+            "options": [
+              "pulu-pulong napapaligiran ng tubig",
+              "isang malaking lupain lamang",
+              "lupaing walang katabing dagat",
+              "bansang nasa gitna ng disyerto"
+            ],
+            "correct_answer": "pulu-pulong napapaligiran ng tubig"
+          },
+          {
+            "question": "Alin ang pangkat-pulo sa timog ng Pilipinas?",
+            "options": [
+              "Mindanao",
+              "Luzon",
+              "Visayas",
+              "Palawan"
+            ],
+            "correct_answer": "Mindanao"
+          },
+          {
+            "question": "Ano ang pinakamahabang ilog sa Pilipinas?",
+            "options": [
+              "Ilog Cagayan",
+              "Ilog Pasig",
+              "Ilog Agusan",
+              "Ilog Pampanga"
+            ],
+            "correct_answer": "Ilog Cagayan"
+          },
+          {
+            "question": "Ang lupaing napapaligiran ng lupa at puno ng tubig ay tinatawag na:",
+            "options": [
+              "lawa",
+              "look",
+              "ilog",
+              "dagat"
+            ],
+            "correct_answer": "lawa"
+          },
+          {
+            "question": "Alin ang anyong-lupa na mataas ngunit patag ang ibabaw?",
+            "options": [
+              "Talampas",
+              "Lambak",
+              "Burol",
+              "Kapatagan"
+            ],
+            "correct_answer": "Talampas"
+          },
+          {
+            "question": "Ano ang hanapbuhay ng mga naninirahan sa malawak na kapatagan?",
+            "options": [
+              "Pagsasaka",
+              "Pangingisda",
+              "Pagmimina",
+              "Paglalayag"
+            ],
+            "correct_answer": "Pagsasaka"
+          },
+          {
+            "question": "Ang Look ng Maynila ay halimbawa ng:",
+            "options": [
+              "bahagi ng dagat na pumapasok sa lupa",
+              "malawak na patag na lupain",
+              "mataas na bulubunduking lugar",
+              "maliit na batis sa gubat"
+            ],
+            "correct_answer": "bahagi ng dagat na pumapasok sa lupa"
+          },
+          {
+            "question": "Bakit madalas bumagyo sa Pilipinas?",
+            "options": [
+              "Nasa bagyo belt ang bansa",
+              "Malayo ito sa karagatan",
+              "Napakaliit ng lupain nito",
+              "Malamig ang panahon dito"
+            ],
+            "correct_answer": "Nasa bagyo belt ang bansa"
+          },
+          {
+            "question": "Anong karagatan ang nasa silangan ng Pilipinas?",
+            "options": [
+              "Karagatang Pasipiko",
+              "Karagatang Atlantiko",
+              "Karagatang Indian",
+              "Karagatang Arctic"
+            ],
+            "correct_answer": "Karagatang Pasipiko"
+          },
+          {
+            "question": "Ang mga taga-Bicol ay mayaman sa isda. Ano ang dahilan nito?",
+            "options": [
+              "Napapaligiran sila ng tubig",
+              "Malawak ang kanilang kapatagan",
+              "Malamig ang kanilang lugar",
+              "Malapit sila sa lungsod"
+            ],
+            "correct_answer": "Napapaligiran sila ng tubig"
+          },
+          {
+            "question": "Paano nakaaapekto ang heograpiya sa pamumuhay ng mga Pilipino?",
+            "options": [
+              "Tinutukoy nito ang kanilang hanapbuhay",
+              "Pinipili nito ang kanilang wika",
+              "Binabago nito ang kanilang edad",
+              "Itinatakda nito ang kanilang pangalan"
+            ],
+            "correct_answer": "Tinutukoy nito ang kanilang hanapbuhay"
+          },
+          {
+            "question": "Isang pamayanan ang nasa lambak sa pagitan ng dalawang bundok. Anong hamon ang malamang harapin nila?",
+            "options": [
+              "Pagbaha kapag malakas ang ulan",
+              "Kakulangan sa lupang taniman",
+              "Sobrang init sa buong taon",
+              "Kawalan ng tubig-tabang"
+            ],
+            "correct_answer": "Pagbaha kapag malakas ang ulan"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 📊 Friday Review — EPP (ICT) (Grade 4)\n\n- **Columns** = letters (A, B, C) | **Rows** = numbers (1, 2, 3)\n- **Cell address** = column letter + row number (**B4**)\n- Every formula starts with **=**\n- **Operators:** `+` `-` `*` `/`\n- **MDAS order:** Multiply → Divide → Add → Subtract\n- **Parentheses go first:** `=(2+3)*4` = **20**, but `=2+3*4` = **14**\n- **Borders** make tables readable — select cells first\n\nGreat ICT work! 💻",
+        "quiz": [
+          {
+            "question": "What must every spreadsheet formula start with?",
+            "options": [
+              "=",
+              "+",
+              "#",
+              "@"
+            ],
+            "correct_answer": "="
+          },
+          {
+            "question": "Cell address B4 means:",
+            "options": [
+              "column B, row 4",
+              "row B, column 4",
+              "block 4, box B",
+              "border 4, box B"
+            ],
+            "correct_answer": "column B, row 4"
+          },
+          {
+            "question": "Which operation comes FIRST in MDAS?",
+            "options": [
+              "Multiplication",
+              "Addition",
+              "Subtraction",
+              "Division"
+            ],
+            "correct_answer": "Multiplication"
+          },
+          {
+            "question": "What is the result of =10-2*3?",
+            "options": [
+              "4",
+              "24",
+              "6",
+              "8"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "What is the result of =(10-2)*3?",
+            "options": [
+              "24",
+              "4",
+              "6",
+              "30"
+            ],
+            "correct_answer": "24"
+          },
+          {
+            "question": "Which symbol divides in a spreadsheet?",
+            "options": [
+              "/",
+              "\\",
+              "%",
+              "÷"
+            ],
+            "correct_answer": "/"
+          },
+          {
+            "question": "Columns in a spreadsheet run:",
+            "options": [
+              "up and down",
+              "left to right",
+              "in a circle",
+              "diagonally"
+            ],
+            "correct_answer": "up and down"
+          },
+          {
+            "question": "Before adding borders, you must first:",
+            "options": [
+              "select the cells",
+              "save the file",
+              "print a copy",
+              "close the program"
+            ],
+            "correct_answer": "select the cells"
+          },
+          {
+            "question": "If A1 = 20 and B1 = 4, what does =A1/B1 give?",
+            "options": [
+              "5",
+              "80",
+              "24",
+              "16"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "Why are borders useful in a table?",
+            "options": [
+              "They separate headings from data",
+              "They make the file smaller",
+              "They change the formulas",
+              "They add extra rows"
+            ],
+            "correct_answer": "They separate headings from data"
+          },
+          {
+            "question": "You want to add C1 and C2, then divide by 2. Which formula is correct?",
+            "options": [
+              "=(C1+C2)/2",
+              "=C1+C2/2",
+              "=C1/(C2+2)",
+              "=C1+C2*2"
+            ],
+            "correct_answer": "=(C1+C2)/2"
+          },
+          {
+            "question": "A classmate types =5+5*2 and expects 20 but gets 15. Why?",
+            "options": [
+              "Multiplication is done before addition",
+              "The formula is missing an equals sign",
+              "Spreadsheets cannot multiply",
+              "Addition is always done last"
+            ],
+            "correct_answer": "Multiplication is done before addition"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎯 Biyernes na Balik-Aral — MAPEH (Grade 4)\n\n- **Target games** = ipadala ang bagay sa isang **target**\n- **Fitness components:** agility · balance · coordination · speed\n- **Larong Pilipino:** Tumbang Preso · Tatsing · Tamaang-Tao · Batuhang Bola · Calahoyo · Bati-Cobra\n- **Kaligtasan:** warm-up, ligtas na paligid, magaan na bagay, tubig, sundin ang tuntunin\n- Natututo tayo ng **pagkakaisa** at **paggalang**\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Sa Tumbang Preso, ano ang ipinapatumba?",
+            "options": [
+              "Ang lata",
+              "Ang bola",
+              "Ang kahoy",
+              "Ang bato"
+            ],
+            "correct_answer": "Ang lata"
+          },
+          {
+            "question": "Ano ang balance sa fitness?",
+            "options": [
+              "Pananatiling matatag ang katawan",
+              "Bilis ng pagtakbo sa daan",
+              "Lakas ng pagtira ng bola",
+              "Haba ng oras ng laro"
+            ],
+            "correct_answer": "Pananatiling matatag ang katawan"
+          },
+          {
+            "question": "Aling laro ang gumagamit ng mahabang kahoy sa pagpalo ng maliit na kahoy?",
+            "options": [
+              "Bati-Cobra",
+              "Tatsing",
+              "Calahoyo",
+              "Tumbang Preso"
+            ],
+            "correct_answer": "Bati-Cobra"
+          },
+          {
+            "question": "Ano ang dapat gawin bago maglaro?",
+            "options": [
+              "Mag-warm-up",
+              "Kumain nang marami",
+              "Matulog agad",
+              "Uminom ng malamig"
+            ],
+            "correct_answer": "Mag-warm-up"
+          },
+          {
+            "question": "Sa Calahoyo, saan pinapapunta ang bola?",
+            "options": [
+              "Sa butas sa lupa",
+              "Sa itaas ng poste",
+              "Sa loob ng bakod",
+              "Sa kamay ng kalaro"
+            ],
+            "correct_answer": "Sa butas sa lupa"
+          },
+          {
+            "question": "Ano ang speed bilang fitness component?",
+            "options": [
+              "Bilis ng paggalaw",
+              "Tibay ng katawan",
+              "Lakas ng kalamnan",
+              "Haba ng hininga"
+            ],
+            "correct_answer": "Bilis ng paggalaw"
+          },
+          {
+            "question": "Bakit dapat magaan ang bagay na ihahagis sa laro?",
+            "options": [
+              "Upang hindi makasakit ng kalaro",
+              "Upang mas malayo ang lipad",
+              "Upang mas mabilis matapos",
+              "Upang mas maganda tingnan"
+            ],
+            "correct_answer": "Upang hindi makasakit ng kalaro"
+          },
+          {
+            "question": "Aling laro ang umiiwas sa bolang ihinahagis sa loob ng bilog?",
+            "options": [
+              "Tamaang-Tao",
+              "Batuhang Bola",
+              "Bati-Cobra",
+              "Tatsing"
+            ],
+            "correct_answer": "Tamaang-Tao"
+          },
+          {
+            "question": "Ang coordination ay kinabibilangan ng magkasabay na paggalaw ng:",
+            "options": [
+              "mata at kamay",
+              "paa at tainga",
+              "ilong at bibig",
+              "likod at leeg"
+            ],
+            "correct_answer": "mata at kamay"
+          },
+          {
+            "question": "Bakit mahalaga ang uminom ng tubig habang naglalaro?",
+            "options": [
+              "Upang maiwasan ang dehydration",
+              "Upang tumaas ang puntos",
+              "Upang bumagal ang laro",
+              "Upang lumakas ang boses"
+            ],
+            "correct_answer": "Upang maiwasan ang dehydration"
+          },
+          {
+            "question": "Natalo ang kalaro mo sa Tatsing. Ano ang nagpapakita ng magandang sportsmanship?",
+            "options": [
+              "Batiin siya nang may paggalang",
+              "Ipagmalaki ang panalo mo",
+              "Pagtawanan ang pagkatalo",
+              "Ayawan ang susunod na laro"
+            ],
+            "correct_answer": "Batiin siya nang may paggalang"
+          },
+          {
+            "question": "Bakit mahalagang panatilihin ang mga larong Pilipino?",
+            "options": [
+              "Bahagi ito ng ating kultura",
+              "Mas mura ito kaysa laruan",
+              "Mabilis lang itong matapos",
+              "Walang tuntunin ang mga ito"
+            ],
+            "correct_answer": "Bahagi ito ng ating kultura"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 Biyernes na Balik-Aral — GMRC (Grade 4)\n\n- **Mabuting kaugalian:** masayahin · madasalin · masipag\n- **Iba pa:** bayanihan · utang na loob · pagmamano · po at opo · pakikipagkapwa\n- **Sariling kamalayan** = pag-alam kung alin ang isinasabuhay mo\n- **Pagmamahal sa bayan** = pagpapahalaga sa kultura, pagiging tapat, paglilinis ng kapaligiran\n\nMabuting mamamayan ka! 💫",
+        "quiz": [
+          {
+            "question": "Ang sama-samang pagtulong sa kapwa ay tinatawag na:",
+            "options": [
+              "bayanihan",
+              "pagmamano",
+              "pakikinig",
+              "pagtitipid"
+            ],
+            "correct_answer": "bayanihan"
+          },
+          {
+            "question": "Ang pagkilala sa tulong na natanggap ay:",
+            "options": [
+              "utang na loob",
+              "utang na pera",
+              "pagmamalaki",
+              "pagkalimot"
+            ],
+            "correct_answer": "utang na loob"
+          },
+          {
+            "question": "Alin ang nagpapakita ng pagiging masipag?",
+            "options": [
+              "Tapusin ang gawain sa tamang oras",
+              "Ipagpaliban ang lahat bukas",
+              "Iasa sa kapatid ang trabaho",
+              "Matulog buong maghapon"
+            ],
+            "correct_answer": "Tapusin ang gawain sa tamang oras"
+          },
+          {
+            "question": "Ang pagmamano ay ginagawa sa:",
+            "options": [
+              "nakatatanda",
+              "kaklase",
+              "alagang hayop",
+              "sariling laruan"
+            ],
+            "correct_answer": "nakatatanda"
+          },
+          {
+            "question": "Alin ang pagpapakita ng pagmamahal sa bayan?",
+            "options": [
+              "Pagpapanatiling malinis ng kapaligiran",
+              "Pagtatapon ng basura sa daan",
+              "Pandaraya sa pagsusulit",
+              "Pagsira sa pampublikong gamit"
+            ],
+            "correct_answer": "Pagpapanatiling malinis ng kapaligiran"
+          },
+          {
+            "question": "Ang pananampalataya at pagdarasal ay nagpapakita ng pagiging:",
+            "options": [
+              "madasalin",
+              "masipag",
+              "matipid",
+              "masayahin"
+            ],
+            "correct_answer": "madasalin"
+          },
+          {
+            "question": "Ano ang pakikipagkapwa?",
+            "options": [
+              "Pagturing sa iba bilang kapatid",
+              "Pag-iwas sa mga estranghero",
+              "Pagpili ng mayayamang kaibigan",
+              "Pananatili sa sariling bahay"
+            ],
+            "correct_answer": "Pagturing sa iba bilang kapatid"
+          },
+          {
+            "question": "Bakit sinasabing masayahin ang Pilipino?",
+            "options": [
+              "Nakangiti kahit may pagsubok",
+              "Walang problema kailanman",
+              "Ayaw magtrabaho nang husto",
+              "Laging nasa piyesta lamang"
+            ],
+            "correct_answer": "Nakangiti kahit may pagsubok"
+          },
+          {
+            "question": "Ang sariling kamalayan ay nangangahulugan ng:",
+            "options": [
+              "pagsusuri sa sariling kaugalian",
+              "paghusga sa kaugalian ng iba",
+              "pagsunod sa uso ngayon",
+              "pagkalimot sa nakaraan"
+            ],
+            "correct_answer": "pagsusuri sa sariling kaugalian"
+          },
+          {
+            "question": "Natagpuan mo ang pitaka ng kaklase mo na may laman. Ano ang tama mong gawin?",
+            "options": [
+              "Isauli ito sa kaniya agad",
+              "Itago ito para sa sarili",
+              "Hatiin ang laman nito",
+              "Iwanan ito sa sahig"
+            ],
+            "correct_answer": "Isauli ito sa kaniya agad"
+          },
+          {
+            "question": "Bakit mahalaga ang pagbili ng produktong gawa sa Pilipinas?",
+            "options": [
+              "Natutulungan ang ating mga manggagawa",
+              "Mas mura ito sa lahat ng oras",
+              "Mas maganda ang pakete nito",
+              "Mas mabilis itong maubos"
+            ],
+            "correct_answer": "Natutulungan ang ating mga manggagawa"
+          },
+          {
+            "question": "Ang buong barangay ay nagtulungan sa paglilipat ng bahay ng kapitbahay. Aling kaugalian ito?",
+            "options": [
+              "Bayanihan",
+              "Pagmamano",
+              "Utang na loob",
+              "Pagtitipid"
+            ],
+            "correct_answer": "Bayanihan"
+          }
+        ]
+      }
+    }
+  }
+}
