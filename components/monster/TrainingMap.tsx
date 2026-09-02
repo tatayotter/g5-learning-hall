@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { supabase } from '@/lib/supabase';
+import { createTrailingThrottle } from '@/lib/throttle';
 import { playMonsterAppear, playChime, playClash, playFootstepGrass, playFootstepTown, playWallBump, playCoins } from '@/lib/sounds';
 import { USERS } from '@/lib/userSession';
 import { useMapPresence } from '@/hooks/useMapPresence';
@@ -162,6 +163,22 @@ export default function TrainingMap({
   // Trash items currently mid-pickup animation (lifted + fading).
   const [collectingTrashIds, setCollectingTrashIds] = useState<Set<string>>(new Set());
   const scrollIdRef = useRef(0);
+  // Ledger's Heart persists map_x/map_y on every tile crossed — was firing an
+  // unthrottled DB write per step. Collapsed to at most one every 200ms
+  // (matches useMapPresence's PRESENCE_TRACK_THROTTLE_MS) while still
+  // guaranteeing the latest tile is always eventually persisted. Recreated
+  // naturally on remount (component remounts on regionId change, see below).
+  const positionWriteThrottleRef = useRef(
+    createTrailingThrottle((newX: number, newY: number) => {
+      supabase.from('user_battle_state')
+        .update({ map_x: newX, map_y: newY, updated_at: new Date().toISOString() })
+        .eq('user_id', userId);
+    }, 200)
+  );
+  // Flush on unmount only (empty deps — see useMapPresence.ts's identical
+  // pattern) so leaving the map mid-throttle-window doesn't strand a stale
+  // saved position behind the player's actual last tile.
+  useEffect(() => () => positionWriteThrottleRef.current.flush(), []);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
   const [infoTab, setInfoTab] = useState<'team' | 'online' | 'bag'>('team');
   const [stepping, setStepping] = useState(false);
@@ -375,10 +392,8 @@ export default function TrainingMap({
 
     if (isLedgersHeart) {
       const newState = { ...battleState, map_x: newX, map_y: newY };
-      onBattleStateChange(newState);
-      supabase.from('user_battle_state')
-        .update({ map_x: newX, map_y: newY, updated_at: new Date().toISOString() })
-        .eq('user_id', userId);
+      onBattleStateChange(newState); // local state stays instant, unthrottled
+      positionWriteThrottleRef.current.call(newX, newY);
     } else {
       setLocalPos({ x: newX, y: newY });
     }
