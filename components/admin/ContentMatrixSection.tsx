@@ -7,17 +7,32 @@ import { schoolWeekFromDate, weekToTermInfo } from '@/lib/promptBuilder';
 const BREAK_WEEKS = new Set(['2026-09-14', '2026-12-21', '2026-12-28']);
 const GRADES = [2, 3, 4, 5, 6] as const;
 
-/** All teaching Mondays for SY 2026-2027, orientation and breaks excluded. */
+/**
+ * All teaching weeks for SY 2026-2027, orientation and breaks excluded.
+ *
+ * Iterates MONDAYS — schoolWeekFromDate counts from Monday Jun 15 2026, so
+ * walking Mondays keeps the school-week and term-label arithmetic intact — but
+ * emits each week's SUNDAY as `date`. content_weeks is keyed by that Sunday,
+ * because the app resolves the current week with date-fns `startOfWeek(today)`
+ * (hooks/useWeeklyData.ts) and app/api/content matches it exactly.
+ *
+ * This grid used to emit the Monday, which is how a full Week 12 package for
+ * every grade got saved under 2026-08-31 and became unreachable — the app was
+ * asking for 2026-08-30. admin_set_content_week now snaps to Sunday on write
+ * too, so a stale caller can't reintroduce it.
+ */
 function getAllTeachingWeeks(): { date: string; schoolWeek: number; termLabel: string }[] {
   const weeks = [];
-  const d = new Date('2026-06-22'); // Week 2 — first teaching week
+  const d = new Date('2026-06-22'); // Week 2 — first teaching week (Monday)
   const end = new Date('2027-04-12');
   while (d < end) {
-    const date = d.toISOString().slice(0, 10);
-    if (!BREAK_WEEKS.has(date)) {
+    const monday = d.toISOString().slice(0, 10);
+    if (!BREAK_WEEKS.has(monday)) {
       const sw = schoolWeekFromDate(d);
       const { label } = weekToTermInfo(sw);
-      weeks.push({ date, schoolWeek: sw, termLabel: label });
+      const sunday = new Date(d);
+      sunday.setDate(sunday.getDate() - 1);
+      weeks.push({ date: sunday.toISOString().slice(0, 10), schoolWeek: sw, termLabel: label });
     }
     d.setDate(d.getDate() + 7);
   }
