@@ -5,6 +5,7 @@ import { supabase } from '@/lib/supabase';
 import { isNativeApp } from '@/lib/platform';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
 import ChildProgressPanel from '@/components/ChildProgressPanel';
+import ChildComparisonPanel from '@/components/ChildComparisonPanel';
 import WeeklyLessonsPanel from '@/components/WeeklyLessonsPanel';
 import ParentBlogResources from '@/components/ParentBlogResources';
 
@@ -58,6 +59,7 @@ export default function ParentDashboardPage() {
   const [bugText, setBugText] = useState('');
   const [bugSent, setBugSent] = useState(false);
   const [showOptOutConfirm, setShowOptOutConfirm] = useState(false);
+  const [showComparison, setShowComparison] = useState(false);
 
   const isPremium = subscription?.status === 'active';
 
@@ -306,6 +308,23 @@ export default function ParentDashboardPage() {
         )}
         {checkoutError && !isPremium && kids.length < maxChildren && <p className="text-red-500 text-sm">{checkoutError}</p>}
 
+        {kids.length > 1 && (
+          isPremium ? (
+            <div className="space-y-2">
+              <button
+                type="button"
+                onClick={() => setShowComparison((v) => !v)}
+                className="text-sm text-amber-700 hover:text-amber-800 underline"
+              >
+                {showComparison ? 'Hide comparison ▲' : 'Compare children ▼'}
+              </button>
+              {showComparison && <ChildComparisonPanel kids={kids} />}
+            </div>
+          ) : (
+            <p className="text-sm text-stone-400">🔒 Comparing children side-by-side is a Premium feature.</p>
+          )
+        )}
+
         <div className="space-y-3">
           {kids.length === 0 && <p className="text-stone-500 text-base">No children added yet.</p>}
           {kids.map((kid) => (
@@ -425,6 +444,21 @@ export default function ParentDashboardPage() {
             + Add a child
           </button>
         )}
+
+        {/* ── Parent Facebook group ── */}
+        <a
+          href="https://www.facebook.com/groups/1403800008384313"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 rounded-xl border border-sky-200 bg-sky-50 hover:bg-sky-100 hover:border-sky-300 px-4 py-3 shadow-sm transition-colors group"
+        >
+          <span className="w-9 h-9 rounded-full bg-[#1877F2] text-[#ffffff] flex items-center justify-center text-lg shrink-0">f</span>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-bold text-sky-800">Join our Parent Facebook Group</p>
+            <p className="text-xs text-sky-700/70">Swap tips, ask questions, and connect with other Learning Hall parents</p>
+          </div>
+          <span className="text-sky-600 group-hover:translate-x-0.5 transition-transform shrink-0">→</span>
+        </a>
 
         {/* ── Blog resources ── */}
         {kids.length > 0 && (

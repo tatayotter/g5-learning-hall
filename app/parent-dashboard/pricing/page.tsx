@@ -85,6 +85,8 @@ export default function PricingPage() {
               <li>✓ Progress dashboard & PIN viewing</li>
               <li className="text-stone-400">✕ Journal viewing</li>
               <li className="text-stone-400">✕ Gold coin rewards</li>
+              <li className="text-stone-400">✕ Weak-topic reports</li>
+              <li className="text-stone-400">✕ Compare children side-by-side</li>
             </ul>
           </div>
           <div className="rounded-xl border border-amber-300 bg-amber-50 p-4 space-y-2 shadow-sm">
@@ -94,7 +96,9 @@ export default function PricingPage() {
             <ul className="text-sm text-slate-700 space-y-1.5 pt-2">
               <li>✓ 2 child accounts included</li>
               <li>✓ Full gameplay access</li>
-              <li>✓ Journal viewing</li>
+              <li>✓ Journal viewing (last 30 days)</li>
+              <li>✓ Weak-topic reports — see what to review together</li>
+              <li>✓ Compare children side-by-side</li>
               <li>✓ 10,000 gold coins/year to reward your kids</li>
               <li>✓ +₱99/yr per extra child (up to 5 total)</li>
             </ul>
