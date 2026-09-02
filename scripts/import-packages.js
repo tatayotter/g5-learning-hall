@@ -20,8 +20,13 @@ const path = require('path');
 // ─── Load env ────────────────────────────────────────────────────────────────
 const envPath = path.join(__dirname, '..', '.env.local');
 if (fs.existsSync(envPath)) {
+  // Split on /\r?\n/, not '\n'. On Windows .env.local is CRLF, and JS `.` never
+  // matches \r, so with a plain '\n' split every line kept a trailing \r that
+  // (.*)$ could not consume — the regex failed on EVERY line and nothing was
+  // loaded, making the script report "ADMIN_PASSCODE not set" for a file that
+  // plainly contained it.
   fs.readFileSync(envPath, 'utf-8')
-    .split('\n')
+    .split(/\r?\n/)
     .forEach(line => {
       const m = line.match(/^([^#=]+)=(.*)$/);
       if (m) process.env[m[1].trim()] = m[2].trim().replace(/^['"]|['"]$/g, '');
