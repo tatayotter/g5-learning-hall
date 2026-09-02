@@ -14,10 +14,14 @@
 // polish for no gameplay benefit, so only the parts that actually benefit
 // from a real canvas (the world image/tilemap, sprite movement, particles)
 // live here. Because the tilemap "camera" pans (see below), that DOM overlay
-// can't use static tile-percentage math the way the old CSS grid did —
-// MapCanvas.tsx independently recomputes the same clamped-follow-offset math
-// this scene uses (same inputs, same formula), rather than this scene
-// reporting its position back to React.
+// can't use static tile-percentage math the way the old CSS grid did — this
+// scene is the single source of truth for the clamped-follow-offset math
+// (computeTransform/lastTransform below); MapCanvas.tsx reads it back every
+// frame via getTransform() and only converts canvas pixels to percentages,
+// rather than recomputing the clamp logic itself. (An earlier version had
+// MapCanvas.tsx independently reimplement the same formula — two copies of
+// the same clamp math that had to be hand-kept in sync was the actual bug
+// risk, not a real requirement.)
 //
 // Tilemap layering: layers from lib/tiledArtMap.ts are split into
 // "below player" and "above player" groups (everything from a layer literally
@@ -109,7 +113,9 @@ interface TrackedSprite {
   baseScaleY: number;
 }
 
-interface Transform { tileW: number; tileH: number; offsetX: number; offsetY: number }
+// Canvas-pixel camera transform — exported so MapCanvas.tsx can convert it to
+// overlay percentages without recomputing the clamp math itself.
+export interface Transform { tileW: number; tileH: number; offsetX: number; offsetY: number }
 
 // Avatar → walk-cycle spritesheet registry. Only the local player ever plays
 // the animation (see updateSelfPosition) — another player wearing this
@@ -204,6 +210,15 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.applyState(this.pendingState);
       this.pendingState = null;
     }
+  }
+
+  // Read-only view of the camera transform this scene last computed —
+  // authoritative for both the full sync() path (once per tile) and the
+  // per-frame updateSelfPosition() path, so it's always current regardless
+  // of which one ran most recently. MapCanvas.tsx's DOM overlay reads this
+  // every animation frame instead of recomputing computeTransform() itself.
+  getTransform(): Transform {
+    return this.lastTransform;
   }
 
   // Public entry point — safe to call before the scene has finished booting;
