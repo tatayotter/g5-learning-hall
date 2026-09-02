@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { RealtimeChannel } from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabase';
 import { playNearbyWhoosh } from '@/lib/sounds';
+import { createTrailingThrottle } from '@/lib/throttle';
 
 export interface OnlinePlayer {
   userId: string;
@@ -14,6 +15,10 @@ export interface OnlinePlayer {
 }
 
 const WAVE_TTL_MS = 1500;
+// Presence track() was firing once per tile crossed (a Realtime broadcast
+// per step, unthrottled) — collapse that to at most one every 200ms while
+// still guaranteeing the latest position is always sent, never dropped.
+const PRESENCE_TRACK_THROTTLE_MS = 200;
 
 // `enabled` defaults true (every existing call site keeps working
 // unchanged); pass false to skip opening the Realtime channel entirely —
@@ -23,6 +28,11 @@ export function useMapPresence(userId: string, name: string, gender: 'boy' | 'gi
   const [onlinePlayers, setOnlinePlayers] = useState<Record<string, OnlinePlayer>>({});
   const [waves, setWaves] = useState<Record<string, number>>({});
   const channelRef = useRef<RealtimeChannel | null>(null);
+  // Persists across renders for the component's lifetime — same instance
+  // reused by every track() call below so the throttle window is continuous.
+  const trackThrottleRef = useRef(
+    createTrailingThrottle((payload: OnlinePlayer) => channelRef.current?.track(payload), PRESENCE_TRACK_THROTTLE_MS)
+  );
 
   useEffect(() => {
     if (!enabled) return;
@@ -63,6 +73,7 @@ export function useMapPresence(userId: string, name: string, gender: 'boy' | 'gi
     });
 
     return () => {
+      trackThrottleRef.current.cancel(); // stale position, channel's gone anyway
       supabase.removeChannel(channel);
       channelRef.current = null;
     };
@@ -70,9 +81,16 @@ export function useMapPresence(userId: string, name: string, gender: 'boy' | 'gi
   }, [userId, enabled]);
 
   useEffect(() => {
-    channelRef.current?.track({ userId, name, gender, x, y });
+    trackThrottleRef.current.call({ userId, name, gender, x, y });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [x, y]);
+
+  // Separate effect with empty deps — its cleanup only runs on unmount, not
+  // on every [x, y] change (a cleanup tied to the effect above would flush,
+  // and thus defeat, the throttle on every single position update). Ensures
+  // the player's LAST position (not a throttled-away one) is what's visible
+  // right before the channel disconnects.
+  useEffect(() => () => trackThrottleRef.current.flush(), []);
 
   const sendWave = (toUserId: string) => {
     channelRef.current?.send({ type: 'broadcast', event: 'wave', payload: { from: userId, to: toUserId } });

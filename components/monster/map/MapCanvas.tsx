@@ -15,7 +15,7 @@ import { GMBadge, MonsterImage } from '@/components/battle/shared';
 import { ELEMENT_ICON_SRC, type MonsterDef } from '@/lib/monsterConfig';
 import { REGIONS } from '@/lib/regions';
 import { getQualityGroundGlowColor, type QualityTier } from '@/lib/curioQuality';
-import type { MapCanvasSyncState, MapCanvasPlayer, MapBackground } from '@/lib/phaserMap/TrainingMapScene';
+import type { MapCanvasSyncState, MapCanvasPlayer, MapBackground, Transform } from '@/lib/phaserMap/TrainingMapScene';
 import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM } from '@/lib/phaserMap/constants';
 import type { OnlinePlayer } from '@/hooks/useMapPresence';
 import type { ContinuousMovementHandle } from '@/hooks/useContinuousMovement';
@@ -33,70 +33,40 @@ function spriteSrcFor(userId: string, userpicOverride?: string): string {
     : '/userpics/userpics_premium/ssb3.png';
 }
 
-// Translates tile coordinates into percentages of the canvas box so the DOM
-// overlay (name tags, bubbles, portal/town markers) lines up with what the
-// Phaser canvas actually drew. Valid because the .mstage-frame container is
-// always a fixed 896:504 (16:9) box, so "% of container" and "% of canvas
-// pixels" are the same number.
-//
-// Painted-background regions stretch to fill the canvas at a fixed scale, so
-// this is static. Real tilemaps instead render at native scale behind a
-// panning/zooming camera that follows the player (see TrainingMapScene's
-// updateCameraForTilemap) — rather than asking that scene what its camera is
-// currently doing (which would lag a render behind whenever posX/posY changes,
-// producing a one-frame mismatch), this recomputes the exact same clamped
-// scroll target independently: it's a pure function of props already
-// available here, using the identical formula, so both always agree.
-// visibleCanvasW: the actual number of canvas pixels visible horizontally,
-// which equals CANVAS_WIDTH except in cover-mode fullscreen (where CSS
-// transform scale > 1 crops both sides). Passed so the scroll clamps keep
-// the player sprite within the visible viewport rather than the full canvas.
-function overlayPositioning(mapWidth: number, mapHeight: number, background: MapBackground, selfX: number, selfY: number, visibleCanvasW = CANVAS_WIDTH) {
-  if (background.type === 'image') {
-    const tileWPct = 100 / mapWidth;
-    const tileHPct = 100 / mapHeight;
-    return { tileWPct, tileHPct, leftPct: (x: number) => x * tileWPct, topPct: (y: number) => y * tileHPct };
-  }
-  const { tileSize } = background;
-  const zoom = TILE_ART_ZOOM;
-  const viewW = CANVAS_WIDTH / zoom;
-  const viewH = CANVAS_HEIGHT / zoom;
-  const mapPixelW = mapWidth * tileSize;
-  const mapPixelH = mapHeight * tileSize;
-  const selfWorldX = (selfX + 0.5) * tileSize;
-  const selfWorldY = (selfY + 0.5) * tileSize;
-
-  // Horizontal scroll: in cover mode use PURE VISIBILITY clamping — the player
-  // must stay inside the visible canvas window [visLeft, visRight] even at map
-  // edges (may briefly show transparent void past the map edge, but the player
-  // never leaves the visible strip). This mirrors TrainingMapScene.computeTransform
-  // exactly; both must stay in sync.
-  // visLeft = (CANVAS_WIDTH - visibleCanvasW) / 2  (canvas px cropped from each side)
-  // Player canvas X = (selfWorldX - scrollX) * zoom
-  //   Visible-left  → scrollX <= selfWorldX - visLeft/zoom
-  //   Visible-right → scrollX >= selfWorldX - visRight/zoom
-  let scrollX: number;
-  if (visibleCanvasW < CANVAS_WIDTH) {
-    const visLeft = (CANVAS_WIDTH - visibleCanvasW) / 2;
-    const visRight = CANVAS_WIDTH - visLeft;
-    // Prefer centering; clamp only to keep player within visible strip.
-    scrollX = Math.min(
-      Math.max(selfWorldX - viewW / 2, selfWorldX - visRight / zoom),
-      selfWorldX - visLeft / zoom,
-    );
-  } else {
-    // Normal mode: standard map-boundary clamp.
-    scrollX = Math.min(Math.max(selfWorldX - viewW / 2, 0), Math.max(0, mapPixelW - viewW));
-  }
-
-  const scrollY = Math.min(Math.max(selfWorldY - viewH / 2, 0), Math.max(0, mapPixelH - viewH));
-  const tileWPct = (tileSize * zoom / CANVAS_WIDTH) * 100;
-  const tileHPct = (tileSize * zoom / CANVAS_HEIGHT) * 100;
+// Converts the Phaser scene's own camera transform (canvas-pixel tile size +
+// follow offset — see TrainingMapScene.computeTransform, the ONE place that
+// math lives) into overlay percentages, so the DOM overlay (name tags,
+// bubbles, portal/town markers) lines up with what the canvas actually drew.
+// Valid because the .mstage-frame container is always a fixed 896:504 (16:9)
+// box, so "% of container" and "% of canvas pixels" are the same number.
+function pctFromTransform(t: Transform) {
+  const tileWPct = (t.tileW / CANVAS_WIDTH) * 100;
+  const tileHPct = (t.tileH / CANVAS_HEIGHT) * 100;
   return {
     tileWPct,
     tileHPct,
-    leftPct: (x: number) => ((x * tileSize - scrollX) * zoom / CANVAS_WIDTH) * 100,
-    topPct: (y: number) => ((y * tileSize - scrollY) * zoom / CANVAS_HEIGHT) * 100,
+    leftPct: (x: number) => ((t.offsetX + x * t.tileW) / CANVAS_WIDTH) * 100,
+    topPct: (y: number) => ((t.offsetY + y * t.tileH) / CANVAS_HEIGHT) * 100,
+  };
+}
+
+// Bootstrap-only fallback for the brief window before the Phaser game exists
+// (its creation is a dynamic import, so it lags the first React render by a
+// frame or two) — deliberately NOT the full clamped-camera formula, just an
+// unclamped "center on the player" approximation for tilemaps (exact for
+// painted-image backgrounds, which have no camera pan at all). Real markers
+// only ever show this for a single frame before getTransform() below takes
+// over, so it doesn't need to match the scene's clamp-at-map-edges behavior.
+function naiveInitialTransform(mapWidth: number, mapHeight: number, background: MapBackground, selfX: number, selfY: number): Transform {
+  if (background.type === 'image') {
+    return { tileW: CANVAS_WIDTH / mapWidth, tileH: CANVAS_HEIGHT / mapHeight, offsetX: 0, offsetY: 0 };
+  }
+  const tileW = background.tileSize * TILE_ART_ZOOM;
+  const tileH = background.tileSize * TILE_ART_ZOOM;
+  return {
+    tileW, tileH,
+    offsetX: CANVAS_WIDTH / 2 - (selfX + 0.5) * tileW,
+    offsetY: CANVAS_HEIGHT / 2 - (selfY + 0.5) * tileH,
   };
 }
 
@@ -277,11 +247,15 @@ export default function MapCanvas({
       sceneRef.current?.updateSelfPosition(x - 0.5, y - 0.5, isMoving, facingRight);
       sceneRef.current?.updateTrashPositions(x - 0.5, y - 0.5);
       if (selfWrapRef.current) {
-        // overlayPositioning's leftPct/topPct expect a raw tile-index-style
+        // pctFromTransform's leftPct/topPct expect a raw tile-index-style
         // coordinate (same convention as posX/posY elsewhere) — the
         // movement hook's float position is center-based, so subtract 0.5
-        // to convert back before reusing the same pure function.
-        const { leftPct: lp, topPct: tp } = overlayPositioning(mapWidth, mapHeight, background, x - 0.5, y - 0.5, visibleCanvasW);
+        // to convert back before reusing the same pure function. The scene
+        // has already recomputed its transform for this exact tile this
+        // frame (updateSelfPosition call above), so getTransform() here is
+        // never stale.
+        const transform = sceneRef.current?.getTransform() ?? naiveInitialTransform(mapWidth, mapHeight, background, x - 0.5, y - 0.5);
+        const { leftPct: lp, topPct: tp } = pctFromTransform(transform);
         selfWrapRef.current.style.left = `${lp(x - 0.5)}%`;
         selfWrapRef.current.style.top = `${tp(y - 0.5)}%`;
         // Every other stationary marker (town/portals/scrolls/curio) shares
@@ -305,7 +279,12 @@ export default function MapCanvas({
     return () => cancelAnimationFrame(raf);
   }, [movement, mapWidth, mapHeight, background, visibleCanvasW]);
 
-  const { tileWPct, tileHPct, leftPct, topPct } = overlayPositioning(mapWidth, mapHeight, background, posX, posY, visibleCanvasW);
+  // Render-time-only fallback (the rAF loop above imperatively overwrites
+  // every marker's actual position every frame once the scene exists) — used
+  // for markers' initial style before the first rAF tick.
+  const { tileWPct, tileHPct, leftPct, topPct } = pctFromTransform(
+    sceneRef.current?.getTransform() ?? naiveInitialTransform(mapWidth, mapHeight, background, posX, posY)
+  );
 
   const nameTag = (targetId: string, displayName?: string) => {
     const profile = USERS[targetId];
