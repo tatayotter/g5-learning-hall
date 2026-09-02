@@ -56,24 +56,24 @@ export default function WildEncounterModal({ monster, level, question, attemptsL
 
   return (
     <div className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
-      <div className="bg-neutral-900 border border-amber-700 rounded-2xl p-6 sm:p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in">
+      <div className="bg-white border border-[#c9a87a] rounded-2xl p-6 sm:p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in">
         <div className="flex items-center gap-3 mb-2">
           <MonsterImage monster={monster} className="w-12 h-12 battle-float" emojiClassName="text-4xl" />
           <div>
-            <p className="text-amber-400 font-bold text-lg flex items-center gap-1.5">
+            <p className="text-[#c9781a] font-bold text-lg flex items-center gap-1.5">
               <img src="/icons/encounter/cage.svg" alt="Wild encounter" className="w-6 h-6" /> A wild {monster.name} appeared!
             </p>
-            <p className="text-xs text-gray-500 capitalize">Lv.{level} · {monster.element}</p>
+            <p className="text-xs text-[#6b4820] capitalize">Lv.{level} · {monster.element}</p>
           </div>
         </div>
-        <p className="text-xs text-gray-500 mb-4">
+        <p className="text-xs text-[#6b4820] mb-4">
           Answer correctly to challenge it — {attemptsLeft} attempt{attemptsLeft !== 1 ? 's' : ''} left before it flees.
         </p>
 
         {question.passage && (
-          <p className="text-xs text-gray-500 mb-2 italic">{question.passage}</p>
+          <p className="text-xs text-[#6b4820] mb-2 italic">{question.passage}</p>
         )}
-        <p className="text-white font-bold mb-4">{question.question}</p>
+        <p className="text-[#2a1505] font-bold mb-4">{question.question}</p>
 
         <div className="space-y-3">
           {choices.map(c => {
@@ -84,20 +84,23 @@ export default function WildEncounterModal({ monster, level, question, attemptsL
             // unconditionally and crashed the component on mount when correct_choice
             // was null (TypeError: null.toLowerCase).
             const correctChoice = (question.correct_choice ?? '').toLowerCase();
-            let style = 'border-neutral-700 hover:border-neutral-500';
+            // Semantic feedback colors stay standard Tailwind, not re-themed
+            // to brown (docs/STYLE_GUIDE.md) — default option is the usual
+            // white/parchment-bordered tile.
+            let style = 'bg-white border-[#c9a87a] hover:border-[#c9781a] hover:bg-[#f0ddb8] text-[#2a1505]';
             let feedbackAnim = '';
             if (selected) {
               const isCorrect = c.key.toLowerCase() === correctChoice;
-              if (isSelected && isCorrect) { style = 'border-green-500 bg-green-900/30'; feedbackAnim = 'battle-answer-correct'; }
-              else if (isSelected && !isCorrect) { style = 'border-red-500 bg-red-900/30'; feedbackAnim = 'battle-answer-wrong'; }
-              else if (isCorrect) style = 'border-green-500 bg-green-900/20';
+              if (isSelected && isCorrect) { style = 'border-green-600 bg-green-100 text-[#2a1505]'; feedbackAnim = 'battle-answer-correct'; }
+              else if (isSelected && !isCorrect) { style = 'border-red-500 bg-red-100 text-red-700'; feedbackAnim = 'battle-answer-wrong'; }
+              else if (isCorrect) style = 'border-green-600 bg-green-50 text-[#2a1505]';
             }
             return (
               <button
                 key={c.key}
                 onClick={() => handleAnswer(c.key)}
                 disabled={!!selected}
-                className={`w-full text-left p-3 rounded-xl border-2 text-gray-200 transition-all btn-tactile ${style} ${feedbackAnim}`}
+                className={`w-full text-left p-3 rounded-xl border-2 transition-all btn-tactile ${style} ${feedbackAnim}`}
               >
                 {c.text}
               </button>
