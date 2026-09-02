@@ -3,20 +3,24 @@ import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { supabase } from '@/lib/supabase';
 import { createTrailingThrottle } from '@/lib/throttle';
 import { playMonsterAppear, playChime, playClash, playFootstepGrass, playFootstepTown, playWallBump, playCoins } from '@/lib/sounds';
-import { USERS } from '@/lib/userSession';
 import { useMapPresence } from '@/hooks/useMapPresence';
 import { useContinuousMovement } from '@/hooks/useContinuousMovement';
 import PlayerStatsPopup from '@/components/PlayerStatsPopup';
 import {
-  MonsterDef, BATTLE_CONSTANTS, getScaledStats, getMonsterLevel,
+  MonsterDef, BATTLE_CONSTANTS, getMonsterLevel,
   getWildEncounterChance, WILD_ENCOUNTER_PITY_THRESHOLD,
   NpcTrainer, NPC_TRAINERS,
 } from '@/lib/monsterConfig';
-import { MonsterImage, BattleQuestionModal, GMBadge, UserMonster } from '@/components/battle/shared';
+import { UserMonster } from '@/components/battle/shared';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import MapStage from '@/components/MapStage';
 import MapCanvas from '@/components/monster/map/MapCanvas';
 import Joystick from '@/components/monster/map/Joystick';
+import MapInfoDrawer, { type InfoTab } from '@/components/monster/map/MapInfoDrawer';
+import RecyclerTradePanel from '@/components/monster/map/panels/RecyclerTradePanel';
+import CurioEncounterPanel from '@/components/monster/map/panels/CurioEncounterPanel';
+import TrainerChallengePanel from '@/components/monster/map/panels/TrainerChallengePanel';
+import ScrollQuestionPanel from '@/components/monster/map/panels/ScrollQuestionPanel';
 import { REGIONS, type MapTile } from '@/lib/regions';
 import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
 import { loadTiledArtMap, type TiledArtPortal } from '@/lib/tiledArtMap';
@@ -24,7 +28,7 @@ import type { MapBackground } from '@/lib/phaserMap/TrainingMapScene';
 import { CaughtMonster, BattleState } from '@/components/monster/types';
 import type { QualityTier } from '@/lib/curioQuality';
 import { useTrashItems } from '@/hooks/useTrashItems';
-import { TRASH_DEFS, TRASH_ORDER, RECYCLER_TILES } from '@/lib/trashConfig';
+import { TRASH_DEFS, RECYCLER_TILES } from '@/lib/trashConfig';
 import { BOT_IDS } from '@/lib/botProfiles';
 
 // The training map is a single painted background image (public/maps/map-1.webp)
@@ -180,7 +184,7 @@ export default function TrainingMap({
   // saved position behind the player's actual last tile.
   useEffect(() => () => positionWriteThrottleRef.current.flush(), []);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
-  const [infoTab, setInfoTab] = useState<'team' | 'online' | 'bag'>('team');
+  const [infoTab, setInfoTab] = useState<InfoTab>('team');
   const [stepping, setStepping] = useState(false);
   const [bumping, setBumping] = useState(false);
   const [dustPuffs, setDustPuffs] = useState<{ id: number; x: number; y: number }[]>([]);
@@ -641,146 +645,20 @@ export default function TrainingMap({
     </div>
   );
 
-  // Info drawer — Team/Online/Legend/Tips used to be four permanent side
-  // cards; tabbed here instead since the drawer (like the battle log) is
-  // deliberately compact and hidden by default.
+  // Info drawer — Team/Online/Bag; see components/monster/map/MapInfoDrawer.tsx.
   const drawer = (
-    <div>
-      <div className="flex gap-1 mb-2">
-        {([
-          { id: 'team' as const, label: 'Team' },
-          { id: 'online' as const, label: `Online (${Object.keys(onlinePlayers).length})` },
-          { id: 'bag' as const, label: '🎒 Bag' },
-        ]).map(tab => (
-          <button
-            key={tab.id}
-            onClick={() => setInfoTab(tab.id)}
-            className={`flex-1 text-[10px] font-bold uppercase tracking-wide rounded px-1.5 py-1 transition-colors ${
-              infoTab === tab.id
-                ? 'bg-amber-900/30 text-amber-400 border border-amber-800'
-                : 'bg-neutral-900 text-gray-500 border border-neutral-800 hover:text-gray-300'
-            }`}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
-
-      {infoTab === 'team' && (
-        userMonsters.filter(m => m.slot !== null).length === 0 ? (
-          <p className="text-gray-500 text-xs">No curios on your team</p>
-        ) : (
-          <div className="space-y-2">
-            {userMonsters
-              .filter(m => m.slot !== null)
-              .sort((a, b) => (a.slot ?? 0) - (b.slot ?? 0))
-              .map(monster => {
-                const def = monsterDisplay[monster.monster_id];
-                const isActive = monster.slot === battleState.active_monster_slot;
-                const expIntoLevel = monster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL;
-                const expToNext = BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - expIntoLevel;
-                const scaled = getScaledStats(def, monster.monster_level, monster.quality);
-                return (
-                  <div
-                    key={monster.id}
-                    className={`rounded-lg p-2 ${isActive ? 'border border-amber-700 bg-amber-900/10' : 'border border-neutral-800 bg-neutral-900'}`}
-                  >
-                    <div className="flex items-center gap-2">
-                      <MonsterImage monster={def} className="w-9 h-9 flex-shrink-0" />
-                      <div className="flex-1 min-w-0">
-                        <p className="font-bold text-white text-xs truncate">
-                          {def?.name}
-                          {isActive && <span className="ml-1.5 text-[9px] text-amber-400 font-bold uppercase tracking-wide">Active</span>}
-                        </p>
-                        <p className="text-[10px] text-gray-400 capitalize">Lv.{monster.monster_level} · {def?.element}</p>
-                        <div className="w-full bg-neutral-800 rounded-full h-1 mt-1">
-                          <div className="h-1 rounded-full bg-amber-400" style={{ width: `${(expIntoLevel / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) * 100}%` }} />
-                        </div>
-                      </div>
-                      <div className="text-[9px] text-gray-400 space-y-0.5 flex-shrink-0">
-                        <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-2.5 h-2.5 object-contain" /> {scaled.hp}</p>
-                        <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-2.5 h-2.5 object-contain" /> {scaled.attack}</p>
-                        <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-2.5 h-2.5 object-contain" /> {scaled.speed}</p>
-                      </div>
-                    </div>
-                    <p className="text-[9px] text-gray-500 mt-0.5">{expToNext} EXP to next level</p>
-                  </div>
-                );
-              })}
-          </div>
-        )
-      )}
-
-      {infoTab === 'online' && (
-        Object.keys(onlinePlayers).length === 0 ? (
-          <p className="text-gray-600 text-xs">No one else is on the map right now.</p>
-        ) : (
-          <div className="space-y-1.5">
-            {Object.values(onlinePlayers)
-              .sort((a, b) => a.name.localeCompare(b.name))
-              .map(p => (
-                <button
-                  key={p.userId}
-                  onClick={() => setStatsTargetId(p.userId)}
-                  className="w-full flex items-center gap-2 bg-neutral-900 border border-neutral-800 hover:border-amber-500 rounded-lg px-2.5 py-1.5 text-left transition-colors"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
-                  <span className="text-white text-xs font-medium truncate">
-                    {USERS[p.userId]?.name || p.name}
-                  </span>
-                  {USERS[p.userId]?.isFamily && <GMBadge />}
-                  <span className="text-[10px] text-gray-500 ml-auto">{USERS[p.userId]?.grade}</span>
-                </button>
-              ))}
-          </div>
-        )
-      )}
-
-      {infoTab === 'bag' && (
-        <div>
-          {/* 1×6 item list */}
-          <div className="flex flex-col gap-1 mb-3">
-            {TRASH_ORDER.map(type => {
-              const def = TRASH_DEFS[type];
-              const count = trashInventory[type];
-              return (
-                <div
-                  key={type}
-                  className="flex items-center gap-2 rounded-md border border-neutral-700 bg-neutral-800 px-2 py-1"
-                  title={`${def.bundleSize} pcs = 1g`}
-                >
-                  <img
-                    src={`/trash/${type}.png`}
-                    alt={def.label}
-                    className="w-6 h-6 object-contain flex-shrink-0"
-                    style={{ imageRendering: 'auto' }}
-                  />
-                  <span className="flex-1 text-[10px] text-gray-300 leading-none">{def.label}</span>
-                  <span className="text-[10px] text-gray-500 leading-none">{def.bundleSize}=1g</span>
-                  <span className={`text-[11px] font-bold leading-none w-5 text-right ${count > 0 ? 'text-white' : 'text-neutral-600'}`}>
-                    {count}
-                  </span>
-                </div>
-              );
-            })}
-            {/* 6th slot empty */}
-            <div className="rounded-md border border-neutral-800 bg-neutral-900/40 h-8" />
-          </div>
-
-          {respawnSecsLeft !== null && (
-            <p className="text-[10px] text-amber-500 text-center font-medium">
-              Trash respawns in {Math.floor(respawnSecsLeft / 60)}:{String(respawnSecsLeft % 60).padStart(2, '0')}…
-            </p>
-          )}
-          {respawnSecsLeft === null && (
-            <p className="text-[10px] text-gray-500 text-center">
-              {trashItems.length} trash items on the map
-            </p>
-          )}
-        </div>
-      )}
-
-    </div>
+    <MapInfoDrawer
+      infoTab={infoTab}
+      onTabChange={setInfoTab}
+      userMonsters={userMonsters}
+      activeMonsterSlot={battleState.active_monster_slot}
+      monsterDisplay={monsterDisplay}
+      onlinePlayers={onlinePlayers}
+      onStatsTarget={setStatsTargetId}
+      trashInventory={trashInventory}
+      trashItemsOnMap={trashItems.length}
+      respawnSecsLeft={respawnSecsLeft}
+    />
   );
 
   const curioDef = activeCurio ? monsterDisplay[activeCurio.monsterId] : null;
@@ -791,203 +669,54 @@ export default function TrainingMap({
   );
 
   const overlay = pendingRecyclerTrade ? (
-    // Recycler NPC trade panel — player stepped within 1 tile of the recycler.
-    <div className="w-full max-w-sm bg-neutral-900 border border-green-700 rounded-2xl p-4 battle-panel-in">
-      <div className="flex items-start gap-3 mb-4">
-        <img
-          src="/npcs/recycler.png"
-          alt="Recycler"
-          className="w-14 h-14 flex-shrink-0 object-contain object-bottom rounded-lg bg-neutral-800"
-          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-        />
-        <div className="min-w-0">
-          <p className="font-bold text-green-300 text-sm leading-tight">♻️ Recycler</p>
-          <p className="text-gray-300 text-sm italic mt-1 leading-snug">
-            "Got trash? I'll give you gold for it!"
-          </p>
-        </div>
-      </div>
-
-      {/* 1×6 inventory list */}
-      <div className="flex flex-col gap-1 mb-4">
-        {TRASH_ORDER.map(type => {
-          const def = TRASH_DEFS[type];
-          const count = trashInventory[type];
-          const complete = count >= def.bundleSize;
-          return (
-            <div
-              key={type}
-              className={`flex items-center gap-2 rounded-md border px-2 py-1 ${
-                complete ? 'bg-green-900/30 border-green-700' : 'bg-neutral-800 border-neutral-700'
-              }`}
-            >
-              <img
-                src={`/trash/${type}.png`}
-                alt={def.label}
-                className="w-6 h-6 object-contain flex-shrink-0"
-                style={{ imageRendering: 'auto' }}
-              />
-              <span className="flex-1 text-[10px] text-gray-300 leading-none">{def.label}</span>
-              <span className="text-[10px] text-gray-500 leading-none">{def.bundleSize}=1g</span>
-              <span className={`text-[11px] font-bold leading-none w-5 text-right ${count > 0 ? 'text-white' : 'text-neutral-600'}`}>
-                {count}
-              </span>
-            </div>
-          );
-        })}
-        {/* 6th slot empty */}
-        <div className="rounded-md border border-neutral-800 bg-neutral-900/40 h-8" />
-      </div>
-
-      {canTrade && (
-        <p className="text-center text-xs text-green-400 font-bold mb-3">
-          Ready to trade →{' '}
-          <span className="text-amber-300 inline-flex items-center gap-0.5">
-            +{pendingTradeGold}g
-            <img src="/icons/rewards/gold_coin.svg" alt="gold" className="w-3.5 h-3.5 object-contain inline" />
-          </span>
-        </p>
-      )}
-      {!canTrade && (
-        <p className="text-center text-xs text-gray-500 mb-3">
-          Collect more trash to make a bundle.
-        </p>
-      )}
-
-      <div className="flex gap-2">
-        <button
-          disabled={!canTrade}
-          className="flex-1 bg-green-700 hover:bg-green-600 active:bg-green-800 disabled:opacity-40
-                     text-white font-bold text-sm py-2.5 rounded-xl transition-colors"
-          onClick={() => {
-            const gold = tradeAll();
-            if (gold > 0) {
-              onTrashTraded?.(gold);
-              setGoldEarnedFlash(gold);
-              setTimeout(() => setGoldEarnedFlash(null), 1800);
-              // Persist gold-from-recycling counter for achievements; skip for bots.
-              if (!BOT_IDS.has(userId)) {
-                supabase.rpc('add_trash_stats', { p_user_id: userId, p_collected: 0, p_gold: gold });
-              }
-            }
-            setPendingRecyclerTrade(false);
-          }}
-        >
-          ♻️ Trade All
-        </button>
-        <button
-          className="flex-1 bg-neutral-800 hover:bg-neutral-700 active:bg-neutral-900
-                     text-gray-400 font-bold text-sm py-2.5 rounded-xl border border-neutral-700
-                     transition-colors"
-          onClick={() => setPendingRecyclerTrade(false)}
-        >
-          Maybe Later
-        </button>
-      </div>
-    </div>
+    <RecyclerTradePanel
+      trashInventory={trashInventory}
+      canTrade={canTrade}
+      pendingTradeGold={pendingTradeGold}
+      onTradeAll={() => {
+        const gold = tradeAll();
+        if (gold > 0) {
+          onTrashTraded?.(gold);
+          setGoldEarnedFlash(gold);
+          setTimeout(() => setGoldEarnedFlash(null), 1800);
+          // Persist gold-from-recycling counter for achievements; skip for bots.
+          if (!BOT_IDS.has(userId)) {
+            supabase.rpc('add_trash_stats', { p_user_id: userId, p_collected: 0, p_gold: gold });
+          }
+        }
+        setPendingRecyclerTrade(false);
+      }}
+      onDismiss={() => setPendingRecyclerTrade(false)}
+    />
   ) : pendingCurioChallenge && activeCurio && curioDef ? (
-    // Wild curio encounter dialogue — shown when the player steps onto the
-    // curio tile. Battle! enters the encounter; Run Away lets the player
-    // walk away (curio remains on the map).
-    <div className="w-full max-w-sm bg-neutral-900 border border-emerald-700 rounded-2xl p-4 battle-panel-in">
-      <div className="flex items-start gap-3 mb-4">
-        <MonsterImage monster={curioDef} className="w-14 h-14 flex-shrink-0" />
-        <div className="min-w-0">
-          <p className="font-bold text-emerald-300 text-sm leading-tight">{curioDef.name} appeared!</p>
-          <p className="text-gray-400 text-xs mt-0.5 capitalize">{activeCurio.quality} · {curioDef.element} type</p>
-          <p className="text-gray-300 text-sm italic mt-1 leading-snug">
-            "A wild curio is challenging you!"
-          </p>
-        </div>
-      </div>
-      <div className="flex gap-2">
-        <button
-          className="flex-1 bg-emerald-700 hover:bg-emerald-600 active:bg-emerald-800
-                     text-white font-bold text-sm py-2.5 rounded-xl transition-colors"
-          onClick={() => { setPendingCurioChallenge(false); onEnterCurio?.(); }}
-        >
-          ⚔️ Battle!
-        </button>
-        <button
-          className="flex-1 bg-neutral-800 hover:bg-neutral-700 active:bg-neutral-900
-                     text-gray-400 font-bold text-sm py-2.5 rounded-xl border border-neutral-700
-                     transition-colors"
-          onClick={() => setPendingCurioChallenge(false)}
-        >
-          🏃 Run Away!
-        </button>
-      </div>
-    </div>
+    <CurioEncounterPanel
+      curioDef={curioDef}
+      quality={activeCurio.quality}
+      onBattle={() => { setPendingCurioChallenge(false); onEnterCurio?.(); }}
+      onRunAway={() => setPendingCurioChallenge(false)}
+    />
   ) : pendingTrainerChallenge ? (
-    // Trainer challenge dialogue — shown when the player enters the trainer's
-    // 3×3 detection zone. Accept launches the battle; Run Away dismisses.
-    <div className="w-full max-w-sm bg-neutral-900 border border-amber-700 rounded-2xl p-4 battle-panel-in">
-      <div className="flex items-start gap-3 mb-4">
-        <img
-          src={pendingTrainerChallenge.spriteOverride ?? `/trainers/${pendingTrainerChallenge.id}.png`}
-          alt={pendingTrainerChallenge.name}
-          className="w-14 h-14 flex-shrink-0 object-contain object-bottom rounded-lg bg-neutral-800"
-          onError={(e) => { (e.target as HTMLImageElement).src = ''; (e.target as HTMLImageElement).alt = pendingTrainerChallenge?.emoji ?? ''; }}
-        />
-        <div className="min-w-0">
-          <p className="font-bold text-amber-300 text-sm leading-tight">{pendingTrainerChallenge.name}</p>
-          <p className="text-gray-300 text-sm italic mt-1 leading-snug">
-            "{pendingTrainerChallenge.intro}"
-          </p>
-        </div>
-      </div>
-      <div className="flex gap-2">
-        <button
-          className="flex-1 bg-amber-600 hover:bg-amber-500 active:bg-amber-700
-                     text-white font-bold text-sm py-2.5 rounded-xl transition-colors"
-          onClick={() => {
-            const trainer = pendingTrainerChallenge;
-            setPendingTrainerChallenge(null);
-            setActiveMapTrainer(null);
-            onTrainerEncounter?.(trainer);
-          }}
-        >
-          ⚔️ Accept!
-        </button>
-        <button
-          className="flex-1 bg-neutral-800 hover:bg-neutral-700 active:bg-neutral-900
-                     text-gray-400 font-bold text-sm py-2.5 rounded-xl border border-neutral-700
-                     transition-colors"
-          onClick={() => {
-            setPendingTrainerChallenge(null);
-            setActiveMapTrainer(null);
-          }}
-        >
-          🏃 Run Away!
-        </button>
-      </div>
-    </div>
+    <TrainerChallengePanel
+      trainer={pendingTrainerChallenge}
+      onAccept={() => {
+        const trainer = pendingTrainerChallenge;
+        setPendingTrainerChallenge(null);
+        setActiveMapTrainer(null);
+        onTrainerEncounter?.(trainer);
+      }}
+      onRunAway={() => {
+        setPendingTrainerChallenge(null);
+        setActiveMapTrainer(null);
+      }}
+    />
   ) : activeScroll ? (
-    <div className="w-full max-w-xl bg-[#f5e8c8] border-2 border-[#8b5e2a] rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in">
-      <div className="flex items-center gap-3 mb-3 bg-amber-100 border border-amber-300 rounded-xl px-3 py-2">
-        {activeMonster && (
-          <MonsterImage monster={monsterDisplay[activeMonster.monster_id]} className="w-10 h-10 flex-shrink-0" />
-        )}
-        <div className="min-w-0">
-          <p className="text-stone-900 font-bold text-sm leading-tight">
-            {activeMonster ? monsterDisplay[activeMonster.monster_id]?.name : 'Your monster'} is practicing!
-          </p>
-          <p className="text-xs text-stone-600 leading-tight">
-            Answer correctly → <span className="text-amber-600 font-bold">+{BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER} EXP</span>
-            {activeMonsterExpToNext !== null && (
-              <span className="text-stone-400 text-[11px] ml-1">({activeMonsterExpToNext} to next level)</span>
-            )}
-          </p>
-        </div>
-      </div>
-      <BattleQuestionModal
-        questions={questions}
-        count={1}
-        embedded={true}
-        gradingUserId={gradingUserId}
-        onComplete={handleScrollAnswer}
-      />
-    </div>
+    <ScrollQuestionPanel
+      activeMonsterDef={activeMonster ? monsterDisplay[activeMonster.monster_id] : undefined}
+      activeMonsterExpToNext={activeMonsterExpToNext}
+      questions={questions}
+      gradingUserId={gradingUserId}
+      onComplete={handleScrollAnswer}
+    />
   ) : null;
 
   return (
