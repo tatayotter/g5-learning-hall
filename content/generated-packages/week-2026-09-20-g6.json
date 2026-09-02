@@ -1,0 +1,2016 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-09-20",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📚 English — Literary Reading: Sequencing, Flashback, and Irony\n\nWelcome to Term 2, Grade 6! Let's build on Term 1's literary skills. 💪\n\n## 📖 Story Grammar Review\nEvery story has: **characters, setting, problem, events, and resolution**.\n\n## 🔢 Sequencing at Least 8 Events\nWhen retelling a longer story, you should be able to list **8 or more events** in the correct order — showing you understood the **full plot**, not just the beginning and end.\n\n## ⏪ Flashback Plot\nA **flashback** interrupts the main timeline to show something from **earlier**. Writers use it to explain a character's **motivation** or reveal a **secret**.\n\n## 🎭 Irony\n**Irony** happens when the outcome is the **opposite** of what was expected.\n\n**Example:** *A fire station burns down.* — ironic because a fire station should be the safest place from fire.\n\n## 🎯 Inferring Author's Purpose, Message, and Target Audience\n- **Purpose** — to inform, persuade, entertain, or instruct\n- **Message** — the deeper lesson or theme\n- **Target audience** — who the text was written for\n\n**Clue words to look for:** tone, vocabulary level, topic, and where it was published.\n\n## 🔮 Predicting Possible Endings\nBefore finishing a story, use **clues** from earlier events to guess how it might end — then check if your prediction matches.\n\n## 🧩 Drawing Conclusions\nA **conclusion** is an understanding you reach by **combining clues** in the text with what you already know — the text doesn't say it directly.\n\n**Example:** If a character always shares her lunch, you can conclude she is **generous**, even if the story never uses that word.\n\n## 📝 Main Idea, Summary, and Vicarious Learning\n- **Main idea** — the central point of a text\n- **Summary** — a short retelling covering only the essentials\n- **Vicarious learning** — learning a lesson **through a character's experience**, without living it yourself\n\n## 🧠 Worked Example\n*A boy always helps his neighbors but is never thanked. In the end, they throw him a surprise party.* What can you conclude about the boy?\n- He is likely **kind and humble** — he helps without expecting anything back. This is a conclusion **drawn from his actions**, not stated directly.\n\nGreat literary reading! 🌟",
+        "quiz": [
+          {
+            "question": "What are the five parts of story grammar?",
+            "options": [
+              "Characters, setting, problem, events, resolution",
+              "Title, author, date, publisher, price",
+              "Introduction, body, conclusion, references, index",
+              "Noun, verb, adjective, adverb, pronoun"
+            ],
+            "correct_answer": "Characters, setting, problem, events, resolution"
+          },
+          {
+            "question": "What does a flashback do?",
+            "options": [
+              "Interrupts the timeline for earlier events",
+              "Predicts what happens next scene",
+              "Ends the story very suddenly",
+              "Describes only the setting fully"
+            ],
+            "correct_answer": "Interrupts the timeline for earlier events"
+          },
+          {
+            "question": "A fire station burning down is an example of:",
+            "options": [
+              "Irony",
+              "Flashback",
+              "Main idea",
+              "Summary"
+            ],
+            "correct_answer": "Irony"
+          },
+          {
+            "question": "What does 'author's purpose' mean?",
+            "options": [
+              "To inform, persuade, entertain, or instruct",
+              "The number of pages in a text",
+              "The exact publishing date",
+              "The price of the book"
+            ],
+            "correct_answer": "To inform, persuade, entertain, or instruct"
+          },
+          {
+            "question": "What is a 'conclusion' in reading?",
+            "options": [
+              "An understanding reached by combining clues with prior knowledge",
+              "A sentence copied directly from the text",
+              "The very last word of the story",
+              "The title of the book"
+            ],
+            "correct_answer": "An understanding reached by combining clues with prior knowledge"
+          },
+          {
+            "question": "What is vicarious learning?",
+            "options": [
+              "Learning a lesson through a character's experience",
+              "Learning by copying a textbook word for word",
+              "Learning only through personal experience",
+              "Learning without reading anything"
+            ],
+            "correct_answer": "Learning a lesson through a character's experience"
+          },
+          {
+            "question": "What is the difference between main idea and summary?",
+            "options": [
+              "Main idea is the central point; summary retells briefly",
+              "They mean exactly the same thing",
+              "Summary is always longer than the text",
+              "Main idea only applies to poems"
+            ],
+            "correct_answer": "Main idea is the central point; summary retells briefly"
+          },
+          {
+            "question": "How many events should you be able to sequence for a longer story?",
+            "options": [
+              "At least 8",
+              "Exactly 2",
+              "At least 20",
+              "Only 1"
+            ],
+            "correct_answer": "At least 8"
+          },
+          {
+            "question": "What clue helps you predict a possible ending?",
+            "options": [
+              "Events and details from earlier events",
+              "The color of the book cover art",
+              "The number of chapters listed",
+              "The author's stated birthday"
+            ],
+            "correct_answer": "Events and details from earlier events"
+          },
+          {
+            "question": "A character always shares her lunch but the story never calls her 'generous'. How do you know she is generous?",
+            "options": [
+              "By drawing a conclusion from her actions",
+              "The author states it directly",
+              "It is written in the title",
+              "It cannot be known at all"
+            ],
+            "correct_answer": "By drawing a conclusion from her actions"
+          },
+          {
+            "question": "A story is written with simple words and a playful tone, published in a children's magazine. Who is the target audience?",
+            "options": [
+              "Children",
+              "Elderly readers",
+              "Scientists",
+              "Business executives"
+            ],
+            "correct_answer": "Children"
+          },
+          {
+            "question": "A boy helps neighbors without expecting thanks, and they surprise him with a party. What can you conclude about him?",
+            "options": [
+              "He is likely kind and humble",
+              "He is likely selfish",
+              "He dislikes his neighbors",
+              "He wants to be famous"
+            ],
+            "correct_answer": "He is likely kind and humble"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ⚖️ Mathematics — Understanding Ratio\n\nWelcome to Term 2, Grade 6! Let's explore ratios. 💪\n\n## ⚖️ What Is a Ratio?\nA **ratio** compares **two quantities**. It can be written as **a:b**, **a to b**, or **a/b**.\n\n## 🍎 Part-to-Part vs Part-to-Whole\n\n**Part-to-Part:** compares one part to another part\n**Part-to-Whole:** compares one part to the total\n\n**Example:** A basket has 3 apples and 5 oranges (8 fruits total).\n- **Part-to-part** (apples to oranges): **3:5**\n- **Part-to-whole** (apples to all fruit): **3:8**\n\n## 🔢 Expressing a Number as a Fraction Given a Ratio\nIf the ratio of boys to girls is **2:3**, then:\n- Boys are **2/5** of the total (2 out of 2+3=5 parts)\n- Girls are **3/5** of the total\n\n## ✖️ Equivalent Ratios\nMultiply or divide **both terms** by the same number.\n\n**Example:** 2:3 is equivalent to 4:6, 6:9, 8:12 (multiply both by 2, 3, 4...)\n\n## 🧠 Worked Example 1\n*A recipe uses a ratio of 2 cups flour to 1 cup sugar. If you use 6 cups of flour, how much sugar?*\n- Step 1: Ratio is 2:1\n- Step 2: 6 ÷ 2 = 3 (the ratio was multiplied by 3)\n- Step 3: Sugar = 1 × 3 = **3 cups** ✅\n\n## 📊 Solving with Tables\n| Flour | Sugar |\n|---|---|\n| 2 | 1 |\n| 4 | 2 |\n| 6 | 3 |\n\n## 📏 Solving with a Double Number Line\n```\nFlour:  0   2   4   6\nSugar:  0   1   2   3\n```\nEach jump on flour matches a jump on sugar — keeping the ratio **consistent**.\n\n## 🧠 Worked Example 2\n*The ratio of red to blue marbles is 3:4. There are 21 red marbles. How many blue?*\n- Step 1: 21 ÷ 3 = 7 (multiplier)\n- Step 2: Blue = 4 × 7 = **28 marbles** ✅\n\n## 📝 Word Problem\n*A class has a ratio of 5 boys to 4 girls. If there are 27 students total, how many are boys?*\n- Step 1: Total ratio parts = 5+4 = 9\n- Step 2: Boys' fraction = 5/9\n- Step 3: 5/9 × 27 = **15 boys** ✅\n\nExcellent ratio work! ⭐",
+        "quiz": [
+          {
+            "question": "A basket has 3 apples and 5 oranges. What is the part-to-part ratio of apples to oranges?",
+            "options": [
+              "3:5",
+              "5:3",
+              "3:8",
+              "8:3"
+            ],
+            "correct_answer": "3:5"
+          },
+          {
+            "question": "What is the part-to-whole ratio of apples to all fruit (3 apples, 5 oranges)?",
+            "options": [
+              "3:8",
+              "3:5",
+              "5:8",
+              "8:3"
+            ],
+            "correct_answer": "3:8"
+          },
+          {
+            "question": "If the ratio of boys to girls is 2:3, what fraction of the total are boys?",
+            "options": [
+              "2/5",
+              "2/3",
+              "3/5",
+              "3/2"
+            ],
+            "correct_answer": "2/5"
+          },
+          {
+            "question": "Which ratio is equivalent to 2:3?",
+            "options": [
+              "4:6",
+              "3:2",
+              "2:6",
+              "6:2"
+            ],
+            "correct_answer": "4:6"
+          },
+          {
+            "question": "A recipe uses 2 cups flour to 1 cup sugar. For 6 cups flour, how much sugar?",
+            "options": [
+              "3 cups",
+              "2 cups",
+              "6 cups",
+              "12 cups"
+            ],
+            "correct_answer": "3 cups"
+          },
+          {
+            "question": "The ratio of red to blue marbles is 3:4. There are 21 red marbles. How many blue marbles?",
+            "options": [
+              "28",
+              "24",
+              "18",
+              "32"
+            ],
+            "correct_answer": "28"
+          },
+          {
+            "question": "A class has a ratio of 5 boys to 4 girls, with 27 students total. How many are boys?",
+            "options": [
+              "15",
+              "12",
+              "18",
+              "10"
+            ],
+            "correct_answer": "15"
+          },
+          {
+            "question": "How do you find an equivalent ratio?",
+            "options": [
+              "Multiply or divide both terms by the same number",
+              "Add the same number to both terms",
+              "Subtract the same number from both terms",
+              "Only change one of the two terms"
+            ],
+            "correct_answer": "Multiply or divide both terms by the same number"
+          },
+          {
+            "question": "What does a double number line show in a ratio problem?",
+            "options": [
+              "Matching jumps between two quantities",
+              "Only one quantity shown at once",
+              "The exact price of an item",
+              "A single fixed number value"
+            ],
+            "correct_answer": "Matching jumps between two quantities"
+          },
+          {
+            "question": "A ratio of 4:5 means for every 4 of one item, how many of the other item are there?",
+            "options": [
+              "5",
+              "4",
+              "9",
+              "1"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "In a fruit basket with a 3:8 apple-to-total ratio, what does the 8 represent?",
+            "options": [
+              "The total number of fruits",
+              "The number of oranges only",
+              "The number of apples only",
+              "The number of baskets"
+            ],
+            "correct_answer": "The total number of fruits"
+          },
+          {
+            "question": "A juice mix uses a 3:5 ratio of water to juice concentrate. If you use 15 cups of water, how much concentrate is needed?",
+            "options": [
+              "25 cups",
+              "9 cups",
+              "15 cups",
+              "20 cups"
+            ],
+            "correct_answer": "25 cups"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📖 Filipino — Pakikinig at Pagbasa: Mga Detalye at Damdamin ng Tauhan\n\nMaligayang pagdating sa Ikalawang Termino, Grade 6! 🎉\n\n## 🔍 Pagtukoy ng Mahahalagang Detalye\nSa pagbasa, kailangang matukoy ang **mahahalagang detalye** — hindi lahat ng nasa kuwento ay parehong mahalaga.\n\n**Tanong na gagabay:** Alin ang bahaging **nakaaapekto** sa daloy ng kuwento?\n\n## 💬 Kahulugan ng Kilos at Pahayag ng Tauhan\nHindi lamang ang **sinasabi** ng tauhan ang mahalaga — pati na rin ang **kilos** nito.\n\n**Halimbawa:** *Umiling si Ana at yumuko habang nagsasalita.* — nagpapakita ito ng **kahihiyan o kawalan ng tiwala**, kahit hindi ito direktang sinabi.\n\n## 💭 Paghinuha ng Damdamin at Kilos ng Tauhan\nAng **paghinuha** ay pagbibigay ng **pagpapakahulugan** batay sa mga **palatandaan** sa kuwento, hindi sa direktang sinabi.\n\n## 🗣️ Pagbibigay ng Opinyon at Reaksiyon\nMagbigay ng **reaksiyon** sa ginawa ng tauhan, kasama ang **dahilan**.\n\n> *\"Sa palagay ko, mali ang ginawa ni Pedro dahil nagsinungaling siya sa kanyang kaibigan.\"*\n\n## 🔄 Pagbabago ng Katangian o Pag-uugali ng Tauhan\nMaraming kuwento ang nagpapakita ng **pagbabago** ng tauhan mula simula hanggang wakas — tinatawag itong **character development**.\n\n**Halimbawa:** Isang tauhang **makasarili** sa simula ay nagiging **matulungin** sa wakas dahil sa isang karanasan.\n\n## 📚 Pagsusuri ng Kahulugan ng mga Salawikain\nAng **salawikain** ay maiikling pahayag na naglalaman ng **karunungan o aral**.\n\n**Halimbawa:** *\"Ang hindi lumingon sa pinanggalingan ay hindi makararating sa paroroonan.\"*\n- Ibig sabihin: mahalagang **igalang at alalahanin** ang nakaraan.\n\n## 🌍 Pag-uugnay ng Kaisipan sa Tunay na Pangyayari\nIkonekta ang **aral ng kuwento** sa **totoong buhay** — paano ito magagamit sa pang-araw-araw?\n\n## 🧠 Halimbawa\n*Sa kuwento, sinisisi ni Ben ang kanyang kaibigan sa pagkatalo nila, ngunit sa huli ay inamin niyang siya rin ang may kasalanan.* Ano ang character development dito?\n- Nagbago si Ben mula sa **hindi pananagutan** tungo sa **pag-amin ng pagkakamali** — nagpapakita ito ng paglago sa kanyang pagkatao. ✅\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang mahahalagang detalye sa isang kuwento?",
+            "options": [
+              "Ang mga bahaging nakaaapekto sa daloy nito",
+              "Lahat ng detalye nang walang pagkakaiba",
+              "Ang pinakamahabang pangungusap lamang",
+              "Ang unang salita ng kuwento"
+            ],
+            "correct_answer": "Ang mga bahaging nakaaapekto sa daloy nito"
+          },
+          {
+            "question": "Ano ang paghinuha?",
+            "options": [
+              "Pagbibigay ng pakahulugan batay sa palatandaan",
+              "Pagkopya sa direktang sinabi ng may-akda",
+              "Pagbabasa nang malakas",
+              "Pagsulat ng bagong kuwento"
+            ],
+            "correct_answer": "Pagbibigay ng pakahulugan batay sa palatandaan"
+          },
+          {
+            "question": "Ano ang character development?",
+            "options": [
+              "Pagbabago ng katangian ng tauhan mula simula hanggang wakas",
+              "Ang paglalarawan ng hitsura ng tauhan lamang",
+              "Ang bilang ng tauhan sa kuwento",
+              "Ang pangalan ng pangunahing tauhan"
+            ],
+            "correct_answer": "Pagbabago ng katangian ng tauhan mula simula hanggang wakas"
+          },
+          {
+            "question": "Ano ang salawikain?",
+            "options": [
+              "Maiikling pahayag na may aral",
+              "Mahabang kuwentong-bayan lamang",
+              "Balita sa dyaryo lamang",
+              "Liham para sa kaibigan"
+            ],
+            "correct_answer": "Maiikling pahayag na may aral"
+          },
+          {
+            "question": "Ano ang ipinapakita ng kilos ng isang tauhan na yumuyuko habang nagsasalita?",
+            "options": [
+              "Kahihiyan o kawalan ng tiwala",
+              "Labis na kasiyahan",
+              "Galit na damdamin",
+              "Pagkainip lamang"
+            ],
+            "correct_answer": "Kahihiyan o kawalan ng tiwala"
+          },
+          {
+            "question": "Ano ang layunin ng pagbibigay ng reaksiyon sa ginawa ng tauhan?",
+            "options": [
+              "Ipahayag ang opinyon nang may dahilan",
+              "Kopyahin lamang ang sinabi ng may-akda",
+              "Basta magbigay ng sagot",
+              "Alisin ang aral ng kuwento"
+            ],
+            "correct_answer": "Ipahayag ang opinyon nang may dahilan"
+          },
+          {
+            "question": "Bakit mahalagang alamin ang damdamin ng tauhan kahit hindi direktang sinabi?",
+            "options": [
+              "Nakatutulong ito sa mas malalim na pag-unawa sa kuwento",
+              "Wala itong kabuluhan sa kuwento",
+              "Ginagawa lang ito para tumagal ang basahin",
+              "Hindi ito bahagi ng pag-unawa"
+            ],
+            "correct_answer": "Nakatutulong ito sa mas malalim na pag-unawa sa kuwento"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng salawikaing \"Ang hindi lumingon sa pinanggalingan ay hindi makararating sa paroroonan\"?",
+            "options": [
+              "Mahalagang igalang at alalahanin ang nakaraan",
+              "Mahalagang kalimutan ang nakaraan",
+              "Hindi mahalaga ang pinagmulan",
+              "Dapat mabilis lang tumakbo palayo"
+            ],
+            "correct_answer": "Mahalagang igalang at alalahanin ang nakaraan"
+          },
+          {
+            "question": "Bakit mahalagang iugnay ang aral ng kuwento sa totoong buhay?",
+            "options": [
+              "Nagagamit ito sa pang-araw-araw na pamumuhay",
+              "Wala itong gamit sa totoong buhay",
+              "Ginagawa lamang ito sa paaralan",
+              "Hindi ito bahagi ng pagbasa"
+            ],
+            "correct_answer": "Nagagamit ito sa pang-araw-araw na pamumuhay"
+          },
+          {
+            "question": "Sa kuwento, sinisisi ni Ben ang kaibigan niya pero sa huli ay inamin niyang siya rin ang may kasalanan. Ano ang character development dito?",
+            "options": [
+              "Nagbago siya mula sa hindi pananagutan tungo sa pag-amin",
+              "Wala siyang pagbabago sa buong kuwento",
+              "Naging mas galit siya sa dulo",
+              "Naging mas makasarili siya"
+            ],
+            "correct_answer": "Nagbago siya mula sa hindi pananagutan tungo sa pag-amin"
+          },
+          {
+            "question": "Ano ang tinatanong sa pagtukoy ng mahahalagang detalye?",
+            "options": [
+              "Alin ang nakaaapekto sa daloy ng kuwento",
+              "Ilang pahina ang buong kuwento",
+              "Sino ang naglathala ng kuwento",
+              "Ano ang pamagat ng kuwento"
+            ],
+            "correct_answer": "Alin ang nakaaapekto sa daloy ng kuwento"
+          },
+          {
+            "question": "Isang tauhan na dating tamad ay naging masipag sa hulíng bahagi ng kuwento dahil sa isang karanasan. Ano ang PINAKAMAHUSAY na tawag dito?",
+            "options": [
+              "Character development",
+              "Ironiya",
+              "Pagsasalaysay",
+              "Kuwentong-bayan"
+            ],
+            "correct_answer": "Character development"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ❤️ Science — The Circulatory System\n\nWelcome to Term 2, Grade 6! Let's study how blood travels. 🔬\n\n## ❤️ Parts of the Circulatory System\n\n| Part | Job |\n|---|---|\n| **Heart** | pumps blood through the body |\n| **Blood** | carries oxygen, nutrients, and waste |\n| **Blood vessels** | tubes that carry blood everywhere |\n\n## 🩸 Types of Blood Vessels\n- **Arteries** — carry blood **away** from the heart (usually oxygen-rich)\n- **Veins** — carry blood **back** to the heart\n- **Capillaries** — tiny vessels where oxygen and nutrients **transfer** into body cells\n\n## 🔄 How the Circulatory System Works\n1. The **heart** pumps blood **out** through arteries\n2. Blood travels to **every cell** in the body through capillaries\n3. Cells take **oxygen and nutrients**, release **waste**\n4. Blood returns through **veins**, carrying waste\n5. The cycle **repeats**\n\n## 🧠 Worked Example 1\n*Why does blood need to circulate constantly?*\n- Step 1: Cells constantly need **oxygen and nutrients** to survive.\n- Step 2: They also constantly produce **waste** that must be removed.\n- Step 3: Continuous circulation delivers supplies and removes waste **without stopping**. ✅\n\n## 🧠 Worked Example 2\n*What would happen if the heart stopped pumping?*\n- Blood would **stop moving**, cells would not get **oxygen**, and the body could not survive without emergency help. This shows why the heart is essential. ✅\n\n## 💪 Taking Care of the Circulatory System\n- **Exercise** — strengthens the heart muscle\n- **Healthy food** — less fatty food keeps blood vessels clear\n- **Avoid smoking** — protects blood vessels\n- **Enough rest** — lets the heart recover\n\n## 📏 Fun Fact\nAn adult's heart beats about **100,000 times a day**, pumping blood through about **100,000 km** of blood vessels — nearly enough to circle the Earth **2.5 times**!\n\nGreat circulatory-system scientist! 🌟",
+        "quiz": [
+          {
+            "question": "What is the main job of the heart?",
+            "options": [
+              "Pumps blood through the body",
+              "Filters air we breathe",
+              "Digests food we eat",
+              "Sends signals to muscles"
+            ],
+            "correct_answer": "Pumps blood through the body"
+          },
+          {
+            "question": "Which blood vessels carry blood AWAY from the heart?",
+            "options": [
+              "Arteries",
+              "Veins",
+              "Capillaries",
+              "Nerves"
+            ],
+            "correct_answer": "Arteries"
+          },
+          {
+            "question": "Which blood vessels carry blood BACK to the heart?",
+            "options": [
+              "Veins",
+              "Arteries",
+              "Capillaries",
+              "Nerves"
+            ],
+            "correct_answer": "Veins"
+          },
+          {
+            "question": "Where does oxygen transfer into body cells?",
+            "options": [
+              "Capillaries",
+              "Arteries only",
+              "Veins only",
+              "The heart itself"
+            ],
+            "correct_answer": "Capillaries"
+          },
+          {
+            "question": "What does blood carry to cells?",
+            "options": [
+              "Oxygen and nutrients",
+              "Only water",
+              "Only sugar",
+              "Only air"
+            ],
+            "correct_answer": "Oxygen and nutrients"
+          },
+          {
+            "question": "What does blood carry AWAY from cells?",
+            "options": [
+              "Waste",
+              "Fresh oxygen",
+              "New nutrients",
+              "Clean water"
+            ],
+            "correct_answer": "Waste"
+          },
+          {
+            "question": "Why must blood circulate constantly?",
+            "options": [
+              "Cells constantly need supplies and produce waste",
+              "Cells only need supplies once a day",
+              "Blood stops moving when we sleep",
+              "Waste never needs to be removed"
+            ],
+            "correct_answer": "Cells constantly need supplies and produce waste"
+          },
+          {
+            "question": "Which habit strengthens the heart muscle?",
+            "options": [
+              "Exercise",
+              "Excessive sitting",
+              "Skipping meals",
+              "Avoiding all movement"
+            ],
+            "correct_answer": "Exercise"
+          },
+          {
+            "question": "About how many times does an adult heart beat in a day?",
+            "options": [
+              "About 100,000 times",
+              "About 100 times",
+              "About 1,000 times",
+              "About 10,000,000 times"
+            ],
+            "correct_answer": "About 100,000 times"
+          },
+          {
+            "question": "What would happen if the heart stopped pumping?",
+            "options": [
+              "Cells would stop receiving oxygen",
+              "Nothing would change in the body",
+              "Blood would flow even faster",
+              "The lungs would work harder instead"
+            ],
+            "correct_answer": "Cells would stop receiving oxygen"
+          },
+          {
+            "question": "Which habit protects blood vessels from damage?",
+            "options": [
+              "Avoiding smoking",
+              "Eating fatty food often",
+              "Sleeping very little",
+              "Sitting all day"
+            ],
+            "correct_answer": "Avoiding smoking"
+          },
+          {
+            "question": "A doctor checks a patient's pulse on the wrist, near an artery. Why is checking near an artery useful?",
+            "options": [
+              "Arteries carry blood pumped directly from the heart",
+              "Arteries carry blood only when resting",
+              "Arteries never carry oxygen",
+              "Arteries are the same as veins"
+            ],
+            "correct_answer": "Arteries carry blood pumped directly from the heart"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# ⚔️ Araling Panlipunan — Imperyalismo at Digmaang Pilipino-Amerikano\n\nMaligayang pagdating sa Ikalawang Termino, Grade 6! 🇵🇭\n\n## 🌍 Ano ang Imperyalismo?\nAng **imperyalismo** ay ang pagpapalawak ng kapangyarihan ng isang bansa sa **ibang teritoryo**, kadalasan sa pamamagitan ng pananakop.\n\n## ⚔️ Digmaang Pilipino-Amerikano (1899–1902)\n\nMatapos ang Digmaang Espanyol-Amerikano, hindi pinagbigyan ng Estados Unidos ang **kasarinlan** ng Pilipinas — nagbunga ito ng bagong digmaan.\n\n### Mga Mahalagang Pangyayari\n\n**1. Unang Putok sa Sta. Mesa (Pebrero 4, 1899)**\nNagsimula ang labanan nang **barilin** ng isang sundalong Amerikano ang isang Pilipino sa tulay ng San Juan.\n\n**2. Kasunduang Bates**\nKasunduan sa pagitan ng Estados Unidos at mga pinuno ng Muslim Mindanao — tumiyak na hindi manghihimasok ang Amerikano sa relihiyon at kaugalian nila (sa unang bahagi ng digmaan).\n\n**3. Labanan sa Tirad Pass (Disyembre 2, 1899)**\nDito ipinagtanggol ni **Heneral Gregorio del Pilar** ang pagbabakante ni Aguinaldo — namatay siya bilang bayani.\n\n**4. Pagdakip kay Aguinaldo (Marso 1901)**\nSi **Emilio Aguinaldo** ay nadakip sa Palanan, Isabela sa pamamagitan ng **taktikang panlilinlang** ng mga Amerikano.\n\n**5. Tagumpay ng Balangiga (Setyembre 1901)**\nSuwitik na pag-atake ng mga Pilipino sa mga sundalong Amerikano sa Samar — **naghiganti** ang Amerikano sa pamamagitan ng brutal na pananalakay sa buong isla.\n\n## 🧠 Halimbawa 1\n*Bakit itinuturing na simula ng digmaan ang Unang Putok sa Sta. Mesa?*\n- Ito ang **unang armadong tunggalian** sa pagitan ng mga Pilipino at Amerikano, na nagbunsod ng buong digmaan. ✅\n\n## 🧠 Halimbawa 2\n*Bakit itinuturing na bayani si Heneral Gregorio del Pilar?*\n- **Isinakripisyo** niya ang kanyang buhay sa Tirad Pass upang **bigyan ng panahon** si Aguinaldo na makatakas. ✅\n\n## 💭 Pananaw sa Digmaan\nAng digmaang ito ay nagpapakita na **hindi madaling makamit** ang tunay na kalayaan — kahit natalo ang Espanya, kailangan pa ring **ipaglaban** ang kasarinlan laban sa bagong mananakop.\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang imperyalismo?",
+            "options": [
+              "Pagpapalawak ng kapangyarihan sa teritoryo",
+              "Pananalig sa isang relihiyon lamang",
+              "Pagtatayo ng bagong bahay",
+              "Pagtatanim ng palay lamang"
+            ],
+            "correct_answer": "Pagpapalawak ng kapangyarihan sa teritoryo"
+          },
+          {
+            "question": "Saan nagsimula ang Unang Putok ng Digmaang Pilipino-Amerikano?",
+            "options": [
+              "San Juan",
+              "Tirad Pass",
+              "Palanan",
+              "Balangiga"
+            ],
+            "correct_answer": "San Juan"
+          },
+          {
+            "question": "Sino ang ipinagtanggol ni Heneral Gregorio del Pilar sa Tirad Pass?",
+            "options": [
+              "Si Emilio Aguinaldo",
+              "Si Andres Bonifacio",
+              "Si Jose Rizal",
+              "Si Lapu-Lapu"
+            ],
+            "correct_answer": "Si Emilio Aguinaldo"
+          },
+          {
+            "question": "Saan nadakip si Aguinaldo?",
+            "options": [
+              "Palanan, Isabela",
+              "Tirad Pass",
+              "San Juan",
+              "Balangiga"
+            ],
+            "correct_answer": "Palanan, Isabela"
+          },
+          {
+            "question": "Ano ang Tagumpay ng Balangiga?",
+            "options": [
+              "Matagumpay na atake laban sa Amerikano",
+              "Kasunduan sa Muslim Mindanao",
+              "Digmaan sa Tirad Pass lamang",
+              "Pagdakip lamang kay Aguinaldo"
+            ],
+            "correct_answer": "Matagumpay na atake laban sa Amerikano"
+          },
+          {
+            "question": "Ano ang Kasunduang Bates?",
+            "options": [
+              "Kasunduan sa mga pinuno ng Mindanao",
+              "Kasunduan sa Espanya lamang",
+              "Kasunduan sa Hapon lamang",
+              "Kasunduan sa Inglatera lamang"
+            ],
+            "correct_answer": "Kasunduan sa mga pinuno ng Mindanao"
+          },
+          {
+            "question": "Bakit itinuturing na bayani si Heneral Gregorio del Pilar?",
+            "options": [
+              "Isinakripisyo niya ang buhay niya para kay Aguinaldo",
+              "Siya ang unang pangulo ng Pilipinas",
+              "Nakipag-usap siya sa mga Amerikano",
+              "Nagtatag siya ng bagong bansa"
+            ],
+            "correct_answer": "Isinakripisyo niya ang buhay niya para kay Aguinaldo"
+          },
+          {
+            "question": "Paano nadakip si Aguinaldo?",
+            "options": [
+              "Sa pamamagitan ng taktikang panlilinlang",
+              "Sa isang direktang labanan",
+              "Sa isang kasunduan",
+              "Sa pamamagitan ng pagsuko"
+            ],
+            "correct_answer": "Sa pamamagitan ng taktikang panlilinlang"
+          },
+          {
+            "question": "Ano ang naging tugon ng Amerikano sa Tagumpay ng Balangiga?",
+            "options": [
+              "Brutal na pananalakay sa buong Samar",
+              "Pagbibigay ng kalayaan sa Pilipinas",
+              "Pag-alis nila sa Pilipinas",
+              "Kasunduan sa mga Pilipino"
+            ],
+            "correct_answer": "Brutal na pananalakay sa buong Samar"
+          },
+          {
+            "question": "Bakit itinuturing na simula ng digmaan ang Unang Putok sa Sta. Mesa?",
+            "options": [
+              "Ito ang unang armadong tunggalian",
+              "Ito ang huling labanan ng digmaan",
+              "Doon nagsimula ang Kasunduang Bates",
+              "Doon nadakip si Aguinaldo"
+            ],
+            "correct_answer": "Ito ang unang armadong tunggalian"
+          },
+          {
+            "question": "Ano ang aral ng Digmaang Pilipino-Amerikano tungkol sa kalayaan?",
+            "options": [
+              "Hindi madaling makamit ang tunay na kalayaan",
+              "Awtomatikong natatapos ang pananakop kapag natalo ang isang bansa",
+              "Walang kaugnayan ang digmaan sa kalayaan",
+              "Ang kalayaan ay hindi kailangang ipaglaban"
+            ],
+            "correct_answer": "Hindi madaling makamit ang tunay na kalayaan"
+          },
+          {
+            "question": "Bakit mahalaga ang pag-aaral ng Digmaang Pilipino-Amerikano ngayon?",
+            "options": [
+              "Nagpapakita ito ng katatagan natin",
+              "Wala itong kaugnayan sa kasalukuyan",
+              "Ito ay kathang-isip lamang",
+              "Hindi mahalaga ang kasaysayan"
+            ],
+            "correct_answer": "Nagpapakita ito ng katatagan natin"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎵 MAPEH — Music: Meter, Time Signatures, and Rhythmic Dance Patterns\n\nMaligayang pagdating sa Ikalawang Termino, Grade 6! 🎶\n\n## ⏱️ Ano ang Meter?\nAng **meter** ay ang **regular na pattern** ng bilang ng beats sa bawat measure (sukob) ng musika.\n\n## 🎼 Ano ang Time Signature?\nAng **time signature** ay ang **dalawang numero** sa simula ng musika (hal. **4/4**, **3/4**) na nagsasabi:\n- **Itaas na numero** — ilang beat kada measure\n- **Ibabang numero** — anong uri ng note ang isang beat\n\n**Halimbawa:**\n- **4/4 (Common Time)** — 4 beats bawat measure, karaniwan sa maraming kanta\n- **3/4 (Waltz Time)** — 3 beats bawat measure, ginagamit sa waltz\n\n## 💃 Rhythmic Dance Patterns\nAng bawat sayaw ay may sariling **rhythmic pattern** na tumutugma sa **time signature** ng musika.\n\n**Halimbawa:**\n- **Tinikling** — gumagamit ng ritmo na tumutugma sa pagpalakpak ng kawayan\n- **Waltz** — gumagalaw ang mananayaw sa 3-beat pattern (1-2-3, 1-2-3)\n\n## 🎻 Musikang Pilipino Klasikal, Semi-Klasikal, at Popular\n\n| Uri | Halimbawa |\n|---|---|\n| **Klasikal** | mga sonata at symphony ni Nicanor Abelardo |\n| **Semi-klasikal** | kundiman (awiting pag-ibig) |\n| **Popular** | mga OPM (Original Pilipino Music) |\n\n## 🧠 Halimbawa 1\n*Isang kanta ang may time signature na 3/4. Ilang beat ang bawat measure?*\n- **3 beats** kada measure — bagay sa waltz. ✅\n\n## 🧠 Halimbawa 2\n*Bakit tumutugma ang rhythmic dance pattern sa time signature?*\n- Ang bilang ng **hakbang** sa sayaw ay dapat umayon sa bilang ng **beats** sa musika, upang manatiling **magkasabay** ang tao sa tugtog. ✅\n\n## 🎵 Musikang Pilipino Klasikal na Panahon\nMaraming kompositor ng panahong ito ang naghalo ng **Kanluraning estilo** (klasikal) sa **musikang Pilipino** — tulad ng kundiman na naghahalo ng melodiya ng Kanluran sa damdaming Pilipino.\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang meter sa musika?",
+            "options": [
+              "Pattern ng beats sa bawat measure",
+              "Bilis ng musika lamang",
+              "Lakas ng tunog lamang",
+              "Uri lamang ng instrumento"
+            ],
+            "correct_answer": "Pattern ng beats sa bawat measure"
+          },
+          {
+            "question": "Ano ang ipinapakita ng itaas na numero sa time signature?",
+            "options": [
+              "Ilang beat kada measure",
+              "Anong nota ang isang beat",
+              "Bilang ng mang-aawit",
+              "Tagal ng buong kanta"
+            ],
+            "correct_answer": "Ilang beat kada measure"
+          },
+          {
+            "question": "Ilang beat bawat measure ang mayroon ang 3/4 time signature?",
+            "options": [
+              "3 beats",
+              "4 beats",
+              "2 beats",
+              "6 beats"
+            ],
+            "correct_answer": "3 beats"
+          },
+          {
+            "question": "Aling sayaw ang gumagamit ng 3-beat pattern?",
+            "options": [
+              "Waltz",
+              "Tinikling",
+              "Cha-cha",
+              "Boogie"
+            ],
+            "correct_answer": "Waltz"
+          },
+          {
+            "question": "Ano ang kundiman?",
+            "options": [
+              "Semi-klasikal na awiting pag-ibig",
+              "Uri lamang ng sayaw",
+              "Isang instrumento lamang",
+              "Isang laro lamang"
+            ],
+            "correct_answer": "Semi-klasikal na awiting pag-ibig"
+          },
+          {
+            "question": "Ano ang tinatawag na 4/4 time signature?",
+            "options": [
+              "Common Time",
+              "Waltz Time",
+              "Free Time",
+              "Simple Time"
+            ],
+            "correct_answer": "Common Time"
+          },
+          {
+            "question": "Bakit tumutugma ang rhythmic dance pattern sa time signature?",
+            "options": [
+              "Upang manatiling magkasabay ang tao sa tugtog",
+              "Upang mapabilis ang sayaw",
+              "Upang mas malakas ang tunog",
+              "Wala itong kaugnayan sa isa't isa"
+            ],
+            "correct_answer": "Upang manatiling magkasabay ang tao sa tugtog"
+          },
+          {
+            "question": "Alin ang halimbawa ng musikang popular sa Pilipinas?",
+            "options": [
+              "OPM",
+              "Symphony",
+              "Sonata",
+              "Kundiman lamang"
+            ],
+            "correct_answer": "OPM"
+          },
+          {
+            "question": "Ano ang ipinapakita ng ibabang numero sa time signature?",
+            "options": [
+              "Anong uri ng note ang isang beat",
+              "Ilang beat bawat measure",
+              "Bilang ng mang-aawit",
+              "Tagal ng buong kanta"
+            ],
+            "correct_answer": "Anong uri ng note ang isang beat"
+          },
+          {
+            "question": "Sino ang kilalang kompositor ng musikang klasikal na Pilipino?",
+            "options": [
+              "Nicanor Abelardo",
+              "Andres Bonifacio",
+              "Jose Rizal",
+              "Emilio Aguinaldo"
+            ],
+            "correct_answer": "Nicanor Abelardo"
+          },
+          {
+            "question": "Isang kanta ang may time signature na 3/4. Ilang beat ang bawat measure?",
+            "options": [
+              "3 beats",
+              "4 beats",
+              "2 beats",
+              "6 beats"
+            ],
+            "correct_answer": "3 beats"
+          },
+          {
+            "question": "Isang sayaw ang gumagamit ng kawayan na pinapalakpak sa ritmo. Anong sayaw ito?",
+            "options": [
+              "Tinikling",
+              "Waltz",
+              "Cha-cha",
+              "Ballet"
+            ],
+            "correct_answer": "Tinikling"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 👴 GMRC — Ugnayan sa mga Elders at Elderly sa Pamilya\n\nMaligayang pagdating sa Ikalawang Termino, Grade 6! Pagpapahalaga: **Kagandahang-loob**. 🌟\n\n## 👨‍👩‍👧‍👦 Sino ang mga Elders at Elderly?\n- **Elders** — nakatatanda sa pamilya, hindi lamang matanda (hal. magulang, tita, tito)\n- **Elderly** — mga taong may edad na, tulad ng lolo at lola\n\n## 🙏 Angkop na Salita at Gesture\n\n**Mga Salita:**\n- **\"Po\"** at **\"opo\"** sa bawat pananalita\n- **\"Magandang umaga po, Lola/Lolo\"** kapag bumabati\n- **\"Salamat po\"** kapag natanggap ang tulong o regalo\n\n**Mga Gesture:**\n- **Pagmamano** — kinuha ang kamay ng nakatatanda at idinikit sa noo\n- **Pagbibigay ng upuan** sa kanila kapag walang lugar\n- **Pagtulong** sa pagbaba/pag-akyat ng hagdan\n\n## 💭 Pag-alaala at Pag-alalay\n\n**Pag-alaala (Remembering):**\n- Pagtanong tungkol sa kanilang **kalusugan**\n- Pag-alaala ng kanilang **kaarawan** o mahahalagang araw\n- Pakikinig sa kanilang mga **kuwento** ng nakaraan\n\n**Pag-alalay (Assisting):**\n- Pagtulong sa **pang-araw-araw na gawain**\n- Pagsama sa kanila sa **doktor** o kung saan man kailangan\n- Pagtiyak na **ligtas** sila sa bahay\n\n## 💛 Ano ang Kagandahang-loob?\nAng **kagandahang-loob** ay ang **kusang-loob na pagtulong** sa iba nang **walang inaasahang kapalit**.\n\n**Halimbawa:** Tinutulungan mo ang Lola mong maglakad hindi dahil inutusan ka, kundi dahil **gusto** mong tulungan siya.\n\n## 🧠 Halimbawa 1\n*Ang Lolo mo ay nahihirapang umupo sa upuan. Ano ang mabuting gawin?*\n- **Tulungan siyang** umupo nang mahinahon, at **alalayan** ang kanyang braso. Ito ay nagpapakita ng kagandahang-loob. ✅\n\n## 🧠 Halimbawa 2\n*Palagi kang nakikinig sa kuwento ng Lola mo kahit paulit-ulit na ito.*\n- Ito ay nagpapakita ng **paggalang at pagmamalasakit** — pinahahalagahan mo ang kanilang oras at karanasan. ✅\n\n## 💡 Bakit Mahalaga Ito?\nAng mga nakatatanda ay **nagbahagi** ng kanilang buhay para sa pamilya. Ang **kagandahang-loob** natin sa kanila ay isang paraan ng **pagbabalik** ng pasasalamat.\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Sino ang tinatawag na elders?",
+            "options": [
+              "Nakatatanda sa pamilya",
+              "Kapatid na nakababata",
+              "Kaklase sa paaralan",
+              "Kaibigan sa laro"
+            ],
+            "correct_answer": "Nakatatanda sa pamilya"
+          },
+          {
+            "question": "Ano ang pagmamano?",
+            "options": [
+              "Kinukuha ang kamay, idinidikit sa noo",
+              "Pagbibigay lamang ng regalo",
+              "Pagsulat lamang ng liham",
+              "Pagkanta lamang para sa kanila"
+            ],
+            "correct_answer": "Kinukuha ang kamay, idinidikit sa noo"
+          },
+          {
+            "question": "Ano ang kagandahang-loob?",
+            "options": [
+              "Kusang-loob na pagtulong sa iba",
+              "Pagtulong dahil sa inutusan",
+              "Pagtulong upang mapuri lamang",
+              "Pagtulong para sa gantimpala"
+            ],
+            "correct_answer": "Kusang-loob na pagtulong sa iba"
+          },
+          {
+            "question": "Ano ang magalang na salitang ginagamit sa nakatatanda?",
+            "options": [
+              "Po at opo",
+              "Oo at hindi",
+              "Sige at tara",
+              "Bahala ka"
+            ],
+            "correct_answer": "Po at opo"
+          },
+          {
+            "question": "Ang Lolo mo ay nahihirapang umupo. Ano ang mabuting gawin?",
+            "options": [
+              "Tulungan siyang umupo at alalayan",
+              "Hayaan siyang mag-isa",
+              "Ipagsawalang-bahala siya",
+              "Tawanan siya"
+            ],
+            "correct_answer": "Tulungan siyang umupo at alalayan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng pag-alalay?",
+            "options": [
+              "Pagtulong sa pang-araw-araw na gawain",
+              "Pagsulat ng balita",
+              "Paglalaro ng sports",
+              "Pagbibigay ng pagsusulit"
+            ],
+            "correct_answer": "Pagtulong sa pang-araw-araw na gawain"
+          },
+          {
+            "question": "Bakit mahalagang makinig sa kuwento ng lolo o lola?",
+            "options": [
+              "Nagpapakita ito ng paggalang at pagmamalasakit",
+              "Wala itong kabuluhan",
+              "Nagpapasama lamang ng oras",
+              "Hindi mahalaga ang kanilang karanasan"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang at pagmamalasakit"
+          },
+          {
+            "question": "Ano ang unang salitang bati sa Lola o Lolo sa umaga?",
+            "options": [
+              "Magandang umaga po",
+              "Uy, ikaw pala",
+              "Ano na naman",
+              "Andiyan ka na naman"
+            ],
+            "correct_answer": "Magandang umaga po"
+          },
+          {
+            "question": "Bakit dapat bigyan ng upuan ang matanda kapag walang lugar?",
+            "options": [
+              "Nagpapakita ito ng paggalang natin",
+              "Iniuutos lamang ito sa lahat",
+              "Wala itong kabuluhan dito",
+              "Ginagawa lamang sa piyesta"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang natin"
+          },
+          {
+            "question": "Ano ang dahilan kung bakit dapat pahalagahan ang mga elders?",
+            "options": [
+              "Nagbahagi sila ng kanilang buhay para sa pamilya",
+              "Wala silang kontribusyon sa pamilya",
+              "Hindi na sila kailangan ngayon",
+              "Sila lamang ang dapat pagsilbihan"
+            ],
+            "correct_answer": "Nagbahagi sila ng kanilang buhay para sa pamilya"
+          },
+          {
+            "question": "Tinutulungan mo ang Lola mo hindi dahil inutusan ka kundi dahil gusto mo. Ano ang ipinapakita nito?",
+            "options": [
+              "Kagandahang-loob",
+              "Pananakot",
+              "Pagsuway",
+              "Pagkamakasarili"
+            ],
+            "correct_answer": "Kagandahang-loob"
+          },
+          {
+            "question": "Bakit itinuturing na paraan ng pasasalamat ang pagmamalasakit sa mga matanda?",
+            "options": [
+              "Sila ang nagbigay ng maraming taon",
+              "Wala silang naitulong sa pamilya",
+              "Hindi sila bahagi ng pamilya",
+              "Ito ay batas na dapat sundin"
+            ],
+            "correct_answer": "Sila ang nagbigay ng maraming taon"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP (AFA/FCS/IA) — Fishery Arts\n\nMaligayang pagdating sa Ikalawang Termino, Grade 6! Simulan natin ang Fishery Arts. 🎣\n\n## 🎣 Tatlong Sangay ng Fishery Arts\n\n**1. FISH CULTURE (Pag-aalaga ng Isda)**\nAng pagpapalaki ng isda sa **kontroladong kapaligiran** — palaisdaan (fishpond), fish cage, o tank.\n\n**2. FISH CAPTURE (Pangingisda)**\nAng pagkuha ng isda **direkta mula sa kanyang natural na tirahan** — dagat, ilog, lawa.\n\n**3. FISH PROCESSING (Pagproseso ng Isda)**\nAng pagbabago ng sariwang isda tungo sa produktong maaaring **itago nang mas matagal** — hal. tuyo, daing, bagoong, tinapa.\n\n## 💰 Kahalagahan ng Fishery Arts\n\n**Bilang PAGKAIN:**\n- Ang isda ay mahalagang **pinagkukunan ng protina**\n- Mura at abot-kaya kumpara sa ibang uri ng karne\n\n**Bilang KITA:**\n- **Trabaho** para sa mangingisda, fish farmer, at tagaproseso\n- **Kalakalan** — pagbenta ng sariwa o processed na isda\n\n**Bilang HANAPBUHAY:**\n- Nagbibigay ng **hanapbuhay** sa milyun-milyong pamilyang Pilipino, lalo na sa mga bayang malapit sa dagat\n\n## 🧠 Halimbawa 1\n*Ano ang pagkakaiba ng fish culture at fish capture?*\n- **Fish culture** — kontroladong pagpapalaki (hal. sa palaisdaan)\n- **Fish capture** — pagkuha mula sa natural na tirahan (hal. sa dagat) ✅\n\n## 🧠 Halimbawa 2\n*Bakit mahalaga ang fish processing?*\n- Ginagawang **matagalan** ang isda (tulad ng pagtutuyo) upang hindi ito **mabulok** agad — mahalaga ito lalo na kapag maraming huli. ✅\n\n## 🌊 Halimbawa ng Fishery Products\n| Produkto | Paraan |\n|---|---|\n| **Tuyo** | pinatuyo ang isda sa araw |\n| **Daing** | inasinan at pinatuyo |\n| **Bagoong** | fermented na maliit na isda o hipon |\n| **Tinapa** | pinausukan na isda |\n\n## 💡 Bakit Mahalaga sa Pilipinas?\nBilang **arkipelago**, napapaligiran tayo ng dagat, kaya napakahalaga ng **fishery arts** bilang bahagi ng ating **kabuhayan at kultura**.\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang fish culture?",
+            "options": [
+              "Kontroladong pagpapalaki ng isda",
+              "Pagkuha ng isda sa dagat",
+              "Pagbebenta ng isda sa palengke",
+              "Pagluluto ng isda"
+            ],
+            "correct_answer": "Kontroladong pagpapalaki ng isda"
+          },
+          {
+            "question": "Ano ang fish capture?",
+            "options": [
+              "Pagkuha ng isda mula sa natural na tirahan",
+              "Pagpapalaki ng isda sa palaisdaan",
+              "Pagpoproseso ng isda",
+              "Pagluluto ng isda"
+            ],
+            "correct_answer": "Pagkuha ng isda mula sa natural na tirahan"
+          },
+          {
+            "question": "Ano ang fish processing?",
+            "options": [
+              "Pagbabago ng isda upang matagal itago",
+              "Pagpapalaki ng isda sa tank",
+              "Pangingisda sa dagat",
+              "Pagbibigay ng pagkain sa isda"
+            ],
+            "correct_answer": "Pagbabago ng isda upang matagal itago"
+          },
+          {
+            "question": "Alin ang halimbawa ng fish processing product?",
+            "options": [
+              "Tuyo",
+              "Palaisdaan",
+              "Fish cage",
+              "Fishnet"
+            ],
+            "correct_answer": "Tuyo"
+          },
+          {
+            "question": "Saan ginagawa ang fish culture?",
+            "options": [
+              "Palaisdaan o fish cage",
+              "Sa gitna ng dagat lamang",
+              "Sa lawa lamang",
+              "Sa palengke"
+            ],
+            "correct_answer": "Palaisdaan o fish cage"
+          },
+          {
+            "question": "Bakit mahalagang pinoproseso ang isda?",
+            "options": [
+              "Upang hindi ito agad mabulok",
+              "Upang mas malaki ang laki nito",
+              "Upang mabilis itong mabuhay",
+              "Upang dumami ang isda"
+            ],
+            "correct_answer": "Upang hindi ito agad mabulok"
+          },
+          {
+            "question": "Ano ang daing?",
+            "options": [
+              "Isdang inasinan at pinatuyo",
+              "Isdang pinausukan lamang",
+              "Isdang niluto sa sabaw",
+              "Isdang sariwang kinain"
+            ],
+            "correct_answer": "Isdang inasinan at pinatuyo"
+          },
+          {
+            "question": "Bakit mahalaga ang isda bilang pagkain?",
+            "options": [
+              "Mahalagang pinagkukunan ng protina",
+              "Wala itong sustansiya",
+              "Mas mahal ito kaysa karne",
+              "Hindi ito ligtas kainin"
+            ],
+            "correct_answer": "Mahalagang pinagkukunan ng protina"
+          },
+          {
+            "question": "Bakit mahalaga ang fishery arts sa Pilipinas?",
+            "options": [
+              "Ito ay arkipelago na napapaligiran ng dagat",
+              "Wala itong dagat",
+              "Puro bundok lamang ang Pilipinas",
+              "Walang isda sa Pilipinas"
+            ],
+            "correct_answer": "Ito ay arkipelago na napapaligiran ng dagat"
+          },
+          {
+            "question": "Alin ang trabahong nakukuha mula sa fishery arts?",
+            "options": [
+              "Mangingisda at fish farmer",
+              "Guro at doktor",
+              "Abogado at inhinyero",
+              "Pintor at musikero"
+            ],
+            "correct_answer": "Mangingisda at fish farmer"
+          },
+          {
+            "question": "Ano ang tinapa?",
+            "options": [
+              "Isdang pinausukan",
+              "Isdang inasinan lamang",
+              "Isdang pinatuyo lamang",
+              "Isdang inihaw"
+            ],
+            "correct_answer": "Isdang pinausukan"
+          },
+          {
+            "question": "Isang mangingisda ang nakahuli ng maraming isda ngunit walang refrigerator. Ano ang PINAKAMABUTING gawin?",
+            "options": [
+              "Iproseso ito bilang tuyo o daing",
+              "Itapon na lamang ang sobra",
+              "Iwanan itong sariwa sa araw",
+              "Bilhin agad ang lahat ng ibang isda"
+            ],
+            "correct_answer": "Iproseso ito bilang tuyo o daing"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📚 Friday Review — English (Grade 6)\n\n- **Story grammar:** characters, setting, problem, events, resolution\n- **Flashback** interrupts timeline for earlier events | **Irony** = opposite of expected\n- **Author's purpose:** inform, persuade, entertain, instruct\n- **Conclusion** = combining clues with prior knowledge | **Vicarious learning** = through a character's experience\n\nStrong start to Term 2! 🌟",
+        "quiz": [
+          {
+            "question": "What are the five parts of story grammar?",
+            "options": [
+              "Characters, setting, problem, events, resolution",
+              "Title, author, date, publisher, price",
+              "Introduction, body, conclusion, references, index",
+              "Noun, verb, adjective, adverb, pronoun"
+            ],
+            "correct_answer": "Characters, setting, problem, events, resolution"
+          },
+          {
+            "question": "What does a flashback do?",
+            "options": [
+              "Interrupts the timeline for earlier events",
+              "Predicts what happens next scene",
+              "Ends the story very suddenly",
+              "Describes only the setting fully"
+            ],
+            "correct_answer": "Interrupts the timeline for earlier events"
+          },
+          {
+            "question": "A fire station burning down is an example of:",
+            "options": [
+              "Irony",
+              "Flashback",
+              "Main idea",
+              "Summary"
+            ],
+            "correct_answer": "Irony"
+          },
+          {
+            "question": "What does 'author's purpose' mean?",
+            "options": [
+              "To inform, persuade, entertain, or instruct",
+              "The number of pages in a text",
+              "The exact publishing date",
+              "The price of the book"
+            ],
+            "correct_answer": "To inform, persuade, entertain, or instruct"
+          },
+          {
+            "question": "What is a 'conclusion' in reading?",
+            "options": [
+              "An understanding reached by combining clues with prior knowledge",
+              "A sentence copied directly from the text",
+              "The very last word of the story",
+              "The title of the book"
+            ],
+            "correct_answer": "An understanding reached by combining clues with prior knowledge"
+          },
+          {
+            "question": "What is vicarious learning?",
+            "options": [
+              "Learning a lesson through a character's experience",
+              "Learning by copying a textbook word for word",
+              "Learning only through personal experience",
+              "Learning without reading anything"
+            ],
+            "correct_answer": "Learning a lesson through a character's experience"
+          },
+          {
+            "question": "What is the difference between main idea and summary?",
+            "options": [
+              "Main idea is the central point; summary retells briefly",
+              "They mean exactly the same thing",
+              "Summary is always longer than the text",
+              "Main idea only applies to poems"
+            ],
+            "correct_answer": "Main idea is the central point; summary retells briefly"
+          },
+          {
+            "question": "How many events should you be able to sequence for a longer story?",
+            "options": [
+              "At least 8",
+              "Exactly 2",
+              "At least 20",
+              "Only 1"
+            ],
+            "correct_answer": "At least 8"
+          },
+          {
+            "question": "What clue helps you predict a possible ending?",
+            "options": [
+              "Events and details from earlier events",
+              "The color of the book cover art",
+              "The number of chapters listed",
+              "The author's stated birthday"
+            ],
+            "correct_answer": "Events and details from earlier events"
+          },
+          {
+            "question": "A character always shares her lunch but the story never calls her 'generous'. How do you know she is generous?",
+            "options": [
+              "By drawing a conclusion from her actions",
+              "The author states it directly",
+              "It is written in the title",
+              "It cannot be known at all"
+            ],
+            "correct_answer": "By drawing a conclusion from her actions"
+          },
+          {
+            "question": "A story is written with simple words and a playful tone, published in a children's magazine. Who is the target audience?",
+            "options": [
+              "Children",
+              "Elderly readers",
+              "Scientists",
+              "Business executives"
+            ],
+            "correct_answer": "Children"
+          },
+          {
+            "question": "A boy helps neighbors without expecting thanks, and they surprise him with a party. What can you conclude about him?",
+            "options": [
+              "He is likely kind and humble",
+              "He is likely selfish",
+              "He dislikes his neighbors",
+              "He wants to be famous"
+            ],
+            "correct_answer": "He is likely kind and humble"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ⚖️ Friday Review — Mathematics (Grade 6)\n\n- **Ratio** compares two quantities: a:b, a to b, or a/b\n- **Part-to-part** vs **part-to-whole**\n- **Equivalent ratios:** multiply or divide both terms by the same number\n\n**Quick check:** ratio 3:4, 21 of the first → 28 of the second\n\nStrong start to Term 2! ⭐",
+        "quiz": [
+          {
+            "question": "A basket has 3 apples and 5 oranges. What is the part-to-part ratio of apples to oranges?",
+            "options": [
+              "3:5",
+              "5:3",
+              "3:8",
+              "8:3"
+            ],
+            "correct_answer": "3:5"
+          },
+          {
+            "question": "What is the part-to-whole ratio of apples to all fruit (3 apples, 5 oranges)?",
+            "options": [
+              "3:8",
+              "3:5",
+              "5:8",
+              "8:3"
+            ],
+            "correct_answer": "3:8"
+          },
+          {
+            "question": "If the ratio of boys to girls is 2:3, what fraction of the total are boys?",
+            "options": [
+              "2/5",
+              "2/3",
+              "3/5",
+              "3/2"
+            ],
+            "correct_answer": "2/5"
+          },
+          {
+            "question": "Which ratio is equivalent to 2:3?",
+            "options": [
+              "4:6",
+              "3:2",
+              "2:6",
+              "6:2"
+            ],
+            "correct_answer": "4:6"
+          },
+          {
+            "question": "A recipe uses 2 cups flour to 1 cup sugar. For 6 cups flour, how much sugar?",
+            "options": [
+              "3 cups",
+              "2 cups",
+              "6 cups",
+              "12 cups"
+            ],
+            "correct_answer": "3 cups"
+          },
+          {
+            "question": "The ratio of red to blue marbles is 3:4. There are 21 red marbles. How many blue marbles?",
+            "options": [
+              "28",
+              "24",
+              "18",
+              "32"
+            ],
+            "correct_answer": "28"
+          },
+          {
+            "question": "A class has a ratio of 5 boys to 4 girls, with 27 students total. How many are boys?",
+            "options": [
+              "15",
+              "12",
+              "18",
+              "10"
+            ],
+            "correct_answer": "15"
+          },
+          {
+            "question": "How do you find an equivalent ratio?",
+            "options": [
+              "Multiply or divide both terms by the same number",
+              "Add the same number to both terms",
+              "Subtract the same number from both terms",
+              "Only change one of the two terms"
+            ],
+            "correct_answer": "Multiply or divide both terms by the same number"
+          },
+          {
+            "question": "What does a double number line show in a ratio problem?",
+            "options": [
+              "Matching jumps between two quantities",
+              "Only one quantity shown at once",
+              "The exact price of an item",
+              "A single fixed number value"
+            ],
+            "correct_answer": "Matching jumps between two quantities"
+          },
+          {
+            "question": "A ratio of 4:5 means for every 4 of one item, how many of the other item are there?",
+            "options": [
+              "5",
+              "4",
+              "9",
+              "1"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "In a fruit basket with a 3:8 apple-to-total ratio, what does the 8 represent?",
+            "options": [
+              "The total number of fruits",
+              "The number of oranges only",
+              "The number of apples only",
+              "The number of baskets"
+            ],
+            "correct_answer": "The total number of fruits"
+          },
+          {
+            "question": "A juice mix uses a 3:5 ratio of water to juice concentrate. If you use 15 cups of water, how much concentrate is needed?",
+            "options": [
+              "25 cups",
+              "9 cups",
+              "15 cups",
+              "20 cups"
+            ],
+            "correct_answer": "25 cups"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📖 Biyernes na Balik-Aral — Filipino (Grade 6)\n\n- **Mahahalagang detalye** = nakaaapekto sa daloy ng kuwento\n- **Paghinuha** = pagpapakahulugan batay sa palatandaan\n- **Character development** = pagbabago ng katangian mula simula hanggang wakas\n- **Salawikain** = maiikling pahayag na may aral\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang mahahalagang detalye sa isang kuwento?",
+            "options": [
+              "Ang mga bahaging nakaaapekto sa daloy nito",
+              "Lahat ng detalye nang walang pagkakaiba",
+              "Ang pinakamahabang pangungusap lamang",
+              "Ang unang salita ng kuwento"
+            ],
+            "correct_answer": "Ang mga bahaging nakaaapekto sa daloy nito"
+          },
+          {
+            "question": "Ano ang paghinuha?",
+            "options": [
+              "Pagbibigay ng pakahulugan batay sa palatandaan",
+              "Pagkopya sa direktang sinabi ng may-akda",
+              "Pagbabasa nang malakas",
+              "Pagsulat ng bagong kuwento"
+            ],
+            "correct_answer": "Pagbibigay ng pakahulugan batay sa palatandaan"
+          },
+          {
+            "question": "Ano ang character development?",
+            "options": [
+              "Pagbabago ng katangian ng tauhan mula simula hanggang wakas",
+              "Ang paglalarawan ng hitsura ng tauhan lamang",
+              "Ang bilang ng tauhan sa kuwento",
+              "Ang pangalan ng pangunahing tauhan"
+            ],
+            "correct_answer": "Pagbabago ng katangian ng tauhan mula simula hanggang wakas"
+          },
+          {
+            "question": "Ano ang salawikain?",
+            "options": [
+              "Maiikling pahayag na may aral",
+              "Mahabang kuwentong-bayan lamang",
+              "Balita sa dyaryo lamang",
+              "Liham para sa kaibigan"
+            ],
+            "correct_answer": "Maiikling pahayag na may aral"
+          },
+          {
+            "question": "Ano ang ipinapakita ng kilos ng isang tauhan na yumuyuko habang nagsasalita?",
+            "options": [
+              "Kahihiyan o kawalan ng tiwala",
+              "Labis na kasiyahan",
+              "Galit na damdamin",
+              "Pagkainip lamang"
+            ],
+            "correct_answer": "Kahihiyan o kawalan ng tiwala"
+          },
+          {
+            "question": "Ano ang layunin ng pagbibigay ng reaksiyon sa ginawa ng tauhan?",
+            "options": [
+              "Ipahayag ang opinyon nang may dahilan",
+              "Kopyahin lamang ang sinabi ng may-akda",
+              "Basta magbigay ng sagot",
+              "Alisin ang aral ng kuwento"
+            ],
+            "correct_answer": "Ipahayag ang opinyon nang may dahilan"
+          },
+          {
+            "question": "Bakit mahalagang alamin ang damdamin ng tauhan kahit hindi direktang sinabi?",
+            "options": [
+              "Nakatutulong ito sa mas malalim na pag-unawa sa kuwento",
+              "Wala itong kabuluhan sa kuwento",
+              "Ginagawa lang ito para tumagal ang basahin",
+              "Hindi ito bahagi ng pag-unawa"
+            ],
+            "correct_answer": "Nakatutulong ito sa mas malalim na pag-unawa sa kuwento"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng salawikaing \"Ang hindi lumingon sa pinanggalingan ay hindi makararating sa paroroonan\"?",
+            "options": [
+              "Mahalagang igalang at alalahanin ang nakaraan",
+              "Mahalagang kalimutan ang nakaraan",
+              "Hindi mahalaga ang pinagmulan",
+              "Dapat mabilis lang tumakbo palayo"
+            ],
+            "correct_answer": "Mahalagang igalang at alalahanin ang nakaraan"
+          },
+          {
+            "question": "Bakit mahalagang iugnay ang aral ng kuwento sa totoong buhay?",
+            "options": [
+              "Nagagamit ito sa pang-araw-araw na pamumuhay",
+              "Wala itong gamit sa totoong buhay",
+              "Ginagawa lamang ito sa paaralan",
+              "Hindi ito bahagi ng pagbasa"
+            ],
+            "correct_answer": "Nagagamit ito sa pang-araw-araw na pamumuhay"
+          },
+          {
+            "question": "Sa kuwento, sinisisi ni Ben ang kaibigan niya pero sa huli ay inamin niyang siya rin ang may kasalanan. Ano ang character development dito?",
+            "options": [
+              "Nagbago siya mula sa hindi pananagutan tungo sa pag-amin",
+              "Wala siyang pagbabago sa buong kuwento",
+              "Naging mas galit siya sa dulo",
+              "Naging mas makasarili siya"
+            ],
+            "correct_answer": "Nagbago siya mula sa hindi pananagutan tungo sa pag-amin"
+          },
+          {
+            "question": "Ano ang tinatanong sa pagtukoy ng mahahalagang detalye?",
+            "options": [
+              "Alin ang nakaaapekto sa daloy ng kuwento",
+              "Ilang pahina ang buong kuwento",
+              "Sino ang naglathala ng kuwento",
+              "Ano ang pamagat ng kuwento"
+            ],
+            "correct_answer": "Alin ang nakaaapekto sa daloy ng kuwento"
+          },
+          {
+            "question": "Isang tauhan na dating tamad ay naging masipag sa hulíng bahagi ng kuwento dahil sa isang karanasan. Ano ang PINAKAMAHUSAY na tawag dito?",
+            "options": [
+              "Character development",
+              "Ironiya",
+              "Pagsasalaysay",
+              "Kuwentong-bayan"
+            ],
+            "correct_answer": "Character development"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ❤️ Friday Review — Science (Grade 6)\n\n- **Heart** pumps blood | **Blood** carries oxygen/nutrients/waste | **Blood vessels** carry blood\n- **Arteries** = away from heart | **Veins** = back to heart | **Capillaries** = where transfer happens\n- Circulation is **continuous** — cells constantly need supplies and produce waste\n\nGreat circulatory-system scientist! 🌟",
+        "quiz": [
+          {
+            "question": "What is the main job of the heart?",
+            "options": [
+              "Pumps blood through the body",
+              "Filters air we breathe",
+              "Digests food we eat",
+              "Sends signals to muscles"
+            ],
+            "correct_answer": "Pumps blood through the body"
+          },
+          {
+            "question": "Which blood vessels carry blood AWAY from the heart?",
+            "options": [
+              "Arteries",
+              "Veins",
+              "Capillaries",
+              "Nerves"
+            ],
+            "correct_answer": "Arteries"
+          },
+          {
+            "question": "Which blood vessels carry blood BACK to the heart?",
+            "options": [
+              "Veins",
+              "Arteries",
+              "Capillaries",
+              "Nerves"
+            ],
+            "correct_answer": "Veins"
+          },
+          {
+            "question": "Where does oxygen transfer into body cells?",
+            "options": [
+              "Capillaries",
+              "Arteries only",
+              "Veins only",
+              "The heart itself"
+            ],
+            "correct_answer": "Capillaries"
+          },
+          {
+            "question": "What does blood carry to cells?",
+            "options": [
+              "Oxygen and nutrients",
+              "Only water",
+              "Only sugar",
+              "Only air"
+            ],
+            "correct_answer": "Oxygen and nutrients"
+          },
+          {
+            "question": "What does blood carry AWAY from cells?",
+            "options": [
+              "Waste",
+              "Fresh oxygen",
+              "New nutrients",
+              "Clean water"
+            ],
+            "correct_answer": "Waste"
+          },
+          {
+            "question": "Why must blood circulate constantly?",
+            "options": [
+              "Cells constantly need supplies and produce waste",
+              "Cells only need supplies once a day",
+              "Blood stops moving when we sleep",
+              "Waste never needs to be removed"
+            ],
+            "correct_answer": "Cells constantly need supplies and produce waste"
+          },
+          {
+            "question": "Which habit strengthens the heart muscle?",
+            "options": [
+              "Exercise",
+              "Excessive sitting",
+              "Skipping meals",
+              "Avoiding all movement"
+            ],
+            "correct_answer": "Exercise"
+          },
+          {
+            "question": "About how many times does an adult heart beat in a day?",
+            "options": [
+              "About 100,000 times",
+              "About 100 times",
+              "About 1,000 times",
+              "About 10,000,000 times"
+            ],
+            "correct_answer": "About 100,000 times"
+          },
+          {
+            "question": "What would happen if the heart stopped pumping?",
+            "options": [
+              "Cells would stop receiving oxygen",
+              "Nothing would change in the body",
+              "Blood would flow even faster",
+              "The lungs would work harder instead"
+            ],
+            "correct_answer": "Cells would stop receiving oxygen"
+          },
+          {
+            "question": "Which habit protects blood vessels from damage?",
+            "options": [
+              "Avoiding smoking",
+              "Eating fatty food often",
+              "Sleeping very little",
+              "Sitting all day"
+            ],
+            "correct_answer": "Avoiding smoking"
+          },
+          {
+            "question": "A doctor checks a patient's pulse on the wrist, near an artery. Why is checking near an artery useful?",
+            "options": [
+              "Arteries carry blood pumped directly from the heart",
+              "Arteries carry blood only when resting",
+              "Arteries never carry oxygen",
+              "Arteries are the same as veins"
+            ],
+            "correct_answer": "Arteries carry blood pumped directly from the heart"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# ⚔️ Biyernes na Balik-Aral — Araling Panlipunan (Grade 6)\n\n- **Digmaang Pilipino-Amerikano (1899–1902)** — matapos ang Digmaang Espanyol-Amerikano\n- **Unang Putok sa Sta. Mesa** (San Juan) → simula ng digmaan\n- **Tirad Pass** = Gregorio del Pilar | **Palanan** = pagdakip kay Aguinaldo\n- **Tagumpay ng Balangiga** → naghiganti ang Amerikano sa Samar\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang imperyalismo?",
+            "options": [
+              "Pagpapalawak ng kapangyarihan sa teritoryo",
+              "Pananalig sa isang relihiyon lamang",
+              "Pagtatayo ng bagong bahay",
+              "Pagtatanim ng palay lamang"
+            ],
+            "correct_answer": "Pagpapalawak ng kapangyarihan sa teritoryo"
+          },
+          {
+            "question": "Saan nagsimula ang Unang Putok ng Digmaang Pilipino-Amerikano?",
+            "options": [
+              "San Juan",
+              "Tirad Pass",
+              "Palanan",
+              "Balangiga"
+            ],
+            "correct_answer": "San Juan"
+          },
+          {
+            "question": "Sino ang ipinagtanggol ni Heneral Gregorio del Pilar sa Tirad Pass?",
+            "options": [
+              "Si Emilio Aguinaldo",
+              "Si Andres Bonifacio",
+              "Si Jose Rizal",
+              "Si Lapu-Lapu"
+            ],
+            "correct_answer": "Si Emilio Aguinaldo"
+          },
+          {
+            "question": "Saan nadakip si Aguinaldo?",
+            "options": [
+              "Palanan, Isabela",
+              "Tirad Pass",
+              "San Juan",
+              "Balangiga"
+            ],
+            "correct_answer": "Palanan, Isabela"
+          },
+          {
+            "question": "Ano ang Tagumpay ng Balangiga?",
+            "options": [
+              "Matagumpay na atake laban sa Amerikano",
+              "Kasunduan sa Muslim Mindanao",
+              "Digmaan sa Tirad Pass lamang",
+              "Pagdakip lamang kay Aguinaldo"
+            ],
+            "correct_answer": "Matagumpay na atake laban sa Amerikano"
+          },
+          {
+            "question": "Ano ang Kasunduang Bates?",
+            "options": [
+              "Kasunduan sa mga pinuno ng Mindanao",
+              "Kasunduan sa Espanya lamang",
+              "Kasunduan sa Hapon lamang",
+              "Kasunduan sa Inglatera lamang"
+            ],
+            "correct_answer": "Kasunduan sa mga pinuno ng Mindanao"
+          },
+          {
+            "question": "Bakit itinuturing na bayani si Heneral Gregorio del Pilar?",
+            "options": [
+              "Isinakripisyo niya ang buhay niya para kay Aguinaldo",
+              "Siya ang unang pangulo ng Pilipinas",
+              "Nakipag-usap siya sa mga Amerikano",
+              "Nagtatag siya ng bagong bansa"
+            ],
+            "correct_answer": "Isinakripisyo niya ang buhay niya para kay Aguinaldo"
+          },
+          {
+            "question": "Paano nadakip si Aguinaldo?",
+            "options": [
+              "Sa pamamagitan ng taktikang panlilinlang",
+              "Sa isang direktang labanan",
+              "Sa isang kasunduan",
+              "Sa pamamagitan ng pagsuko"
+            ],
+            "correct_answer": "Sa pamamagitan ng taktikang panlilinlang"
+          },
+          {
+            "question": "Ano ang naging tugon ng Amerikano sa Tagumpay ng Balangiga?",
+            "options": [
+              "Brutal na pananalakay sa buong Samar",
+              "Pagbibigay ng kalayaan sa Pilipinas",
+              "Pag-alis nila sa Pilipinas",
+              "Kasunduan sa mga Pilipino"
+            ],
+            "correct_answer": "Brutal na pananalakay sa buong Samar"
+          },
+          {
+            "question": "Bakit itinuturing na simula ng digmaan ang Unang Putok sa Sta. Mesa?",
+            "options": [
+              "Ito ang unang armadong tunggalian",
+              "Ito ang huling labanan ng digmaan",
+              "Doon nagsimula ang Kasunduang Bates",
+              "Doon nadakip si Aguinaldo"
+            ],
+            "correct_answer": "Ito ang unang armadong tunggalian"
+          },
+          {
+            "question": "Ano ang aral ng Digmaang Pilipino-Amerikano tungkol sa kalayaan?",
+            "options": [
+              "Hindi madaling makamit ang tunay na kalayaan",
+              "Awtomatikong natatapos ang pananakop kapag natalo ang isang bansa",
+              "Walang kaugnayan ang digmaan sa kalayaan",
+              "Ang kalayaan ay hindi kailangang ipaglaban"
+            ],
+            "correct_answer": "Hindi madaling makamit ang tunay na kalayaan"
+          },
+          {
+            "question": "Bakit mahalaga ang pag-aaral ng Digmaang Pilipino-Amerikano ngayon?",
+            "options": [
+              "Nagpapakita ito ng katatagan natin",
+              "Wala itong kaugnayan sa kasalukuyan",
+              "Ito ay kathang-isip lamang",
+              "Hindi mahalaga ang kasaysayan"
+            ],
+            "correct_answer": "Nagpapakita ito ng katatagan natin"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎵 Biyernes na Balik-Aral — MAPEH (Grade 6)\n\n- **Meter** = pattern ng beats bawat measure | **Time signature** = 2 numero (beats/measure, uri ng note)\n- **4/4 (Common Time)** · **3/4 (Waltz Time)**\n- Rhythmic dance patterns dapat tumutugma sa time signature\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang meter sa musika?",
+            "options": [
+              "Pattern ng beats sa bawat measure",
+              "Bilis ng musika lamang",
+              "Lakas ng tunog lamang",
+              "Uri lamang ng instrumento"
+            ],
+            "correct_answer": "Pattern ng beats sa bawat measure"
+          },
+          {
+            "question": "Ano ang ipinapakita ng itaas na numero sa time signature?",
+            "options": [
+              "Ilang beat kada measure",
+              "Anong nota ang isang beat",
+              "Bilang ng mang-aawit",
+              "Tagal ng buong kanta"
+            ],
+            "correct_answer": "Ilang beat kada measure"
+          },
+          {
+            "question": "Ilang beat bawat measure ang mayroon ang 3/4 time signature?",
+            "options": [
+              "3 beats",
+              "4 beats",
+              "2 beats",
+              "6 beats"
+            ],
+            "correct_answer": "3 beats"
+          },
+          {
+            "question": "Aling sayaw ang gumagamit ng 3-beat pattern?",
+            "options": [
+              "Waltz",
+              "Tinikling",
+              "Cha-cha",
+              "Boogie"
+            ],
+            "correct_answer": "Waltz"
+          },
+          {
+            "question": "Ano ang kundiman?",
+            "options": [
+              "Semi-klasikal na awiting pag-ibig",
+              "Uri lamang ng sayaw",
+              "Isang instrumento lamang",
+              "Isang laro lamang"
+            ],
+            "correct_answer": "Semi-klasikal na awiting pag-ibig"
+          },
+          {
+            "question": "Ano ang tinatawag na 4/4 time signature?",
+            "options": [
+              "Common Time",
+              "Waltz Time",
+              "Free Time",
+              "Simple Time"
+            ],
+            "correct_answer": "Common Time"
+          },
+          {
+            "question": "Bakit tumutugma ang rhythmic dance pattern sa time signature?",
+            "options": [
+              "Upang manatiling magkasabay ang tao sa tugtog",
+              "Upang mapabilis ang sayaw",
+              "Upang mas malakas ang tunog",
+              "Wala itong kaugnayan sa isa't isa"
+            ],
+            "correct_answer": "Upang manatiling magkasabay ang tao sa tugtog"
+          },
+          {
+            "question": "Alin ang halimbawa ng musikang popular sa Pilipinas?",
+            "options": [
+              "OPM",
+              "Symphony",
+              "Sonata",
+              "Kundiman lamang"
+            ],
+            "correct_answer": "OPM"
+          },
+          {
+            "question": "Ano ang ipinapakita ng ibabang numero sa time signature?",
+            "options": [
+              "Anong uri ng note ang isang beat",
+              "Ilang beat bawat measure",
+              "Bilang ng mang-aawit",
+              "Tagal ng buong kanta"
+            ],
+            "correct_answer": "Anong uri ng note ang isang beat"
+          },
+          {
+            "question": "Sino ang kilalang kompositor ng musikang klasikal na Pilipino?",
+            "options": [
+              "Nicanor Abelardo",
+              "Andres Bonifacio",
+              "Jose Rizal",
+              "Emilio Aguinaldo"
+            ],
+            "correct_answer": "Nicanor Abelardo"
+          },
+          {
+            "question": "Isang kanta ang may time signature na 3/4. Ilang beat ang bawat measure?",
+            "options": [
+              "3 beats",
+              "4 beats",
+              "2 beats",
+              "6 beats"
+            ],
+            "correct_answer": "3 beats"
+          },
+          {
+            "question": "Isang sayaw ang gumagamit ng kawayan na pinapalakpak sa ritmo. Anong sayaw ito?",
+            "options": [
+              "Tinikling",
+              "Waltz",
+              "Cha-cha",
+              "Ballet"
+            ],
+            "correct_answer": "Tinikling"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 👴 Biyernes na Balik-Aral — GMRC (Grade 6)\n\n- **Elders/elderly** = nakatatanda sa pamilya, tulad ng lolo/lola\n- **Angkop na salita/gesture:** po/opo, pagmamano, pagtulong sa hagdan\n- **Pag-alaala** at **pag-alalay** = pagtanong at pagtulong\n- **Kagandahang-loob** = kusang-loob na pagtulong nang walang inaasahang kapalit\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Sino ang tinatawag na elders?",
+            "options": [
+              "Nakatatanda sa pamilya",
+              "Kapatid na nakababata",
+              "Kaklase sa paaralan",
+              "Kaibigan sa laro"
+            ],
+            "correct_answer": "Nakatatanda sa pamilya"
+          },
+          {
+            "question": "Ano ang pagmamano?",
+            "options": [
+              "Kinukuha ang kamay, idinidikit sa noo",
+              "Pagbibigay lamang ng regalo",
+              "Pagsulat lamang ng liham",
+              "Pagkanta lamang para sa kanila"
+            ],
+            "correct_answer": "Kinukuha ang kamay, idinidikit sa noo"
+          },
+          {
+            "question": "Ano ang kagandahang-loob?",
+            "options": [
+              "Kusang-loob na pagtulong sa iba",
+              "Pagtulong dahil sa inutusan",
+              "Pagtulong upang mapuri lamang",
+              "Pagtulong para sa gantimpala"
+            ],
+            "correct_answer": "Kusang-loob na pagtulong sa iba"
+          },
+          {
+            "question": "Ano ang magalang na salitang ginagamit sa nakatatanda?",
+            "options": [
+              "Po at opo",
+              "Oo at hindi",
+              "Sige at tara",
+              "Bahala ka"
+            ],
+            "correct_answer": "Po at opo"
+          },
+          {
+            "question": "Ang Lolo mo ay nahihirapang umupo. Ano ang mabuting gawin?",
+            "options": [
+              "Tulungan siyang umupo at alalayan",
+              "Hayaan siyang mag-isa",
+              "Ipagsawalang-bahala siya",
+              "Tawanan siya"
+            ],
+            "correct_answer": "Tulungan siyang umupo at alalayan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng pag-alalay?",
+            "options": [
+              "Pagtulong sa pang-araw-araw na gawain",
+              "Pagsulat ng balita",
+              "Paglalaro ng sports",
+              "Pagbibigay ng pagsusulit"
+            ],
+            "correct_answer": "Pagtulong sa pang-araw-araw na gawain"
+          },
+          {
+            "question": "Bakit mahalagang makinig sa kuwento ng lolo o lola?",
+            "options": [
+              "Nagpapakita ito ng paggalang at pagmamalasakit",
+              "Wala itong kabuluhan",
+              "Nagpapasama lamang ng oras",
+              "Hindi mahalaga ang kanilang karanasan"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang at pagmamalasakit"
+          },
+          {
+            "question": "Ano ang unang salitang bati sa Lola o Lolo sa umaga?",
+            "options": [
+              "Magandang umaga po",
+              "Uy, ikaw pala",
+              "Ano na naman",
+              "Andiyan ka na naman"
+            ],
+            "correct_answer": "Magandang umaga po"
+          },
+          {
+            "question": "Bakit dapat bigyan ng upuan ang matanda kapag walang lugar?",
+            "options": [
+              "Nagpapakita ito ng paggalang natin",
+              "Iniuutos lamang ito sa lahat",
+              "Wala itong kabuluhan dito",
+              "Ginagawa lamang sa piyesta"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang natin"
+          },
+          {
+            "question": "Ano ang dahilan kung bakit dapat pahalagahan ang mga elders?",
+            "options": [
+              "Nagbahagi sila ng kanilang buhay para sa pamilya",
+              "Wala silang kontribusyon sa pamilya",
+              "Hindi na sila kailangan ngayon",
+              "Sila lamang ang dapat pagsilbihan"
+            ],
+            "correct_answer": "Nagbahagi sila ng kanilang buhay para sa pamilya"
+          },
+          {
+            "question": "Tinutulungan mo ang Lola mo hindi dahil inutusan ka kundi dahil gusto mo. Ano ang ipinapakita nito?",
+            "options": [
+              "Kagandahang-loob",
+              "Pananakot",
+              "Pagsuway",
+              "Pagkamakasarili"
+            ],
+            "correct_answer": "Kagandahang-loob"
+          },
+          {
+            "question": "Bakit itinuturing na paraan ng pasasalamat ang pagmamalasakit sa mga matanda?",
+            "options": [
+              "Sila ang nagbigay ng maraming taon",
+              "Wala silang naitulong sa pamilya",
+              "Hindi sila bahagi ng pamilya",
+              "Ito ay batas na dapat sundin"
+            ],
+            "correct_answer": "Sila ang nagbigay ng maraming taon"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Friday Review — EPP (AFA/FCS/IA) (Grade 6)\n\n- **Fish culture** = kontroladong pagpapalaki | **Fish capture** = pagkuha sa natural na tirahan\n- **Fish processing** = ginagawang matagalan (tuyo, daing, bagoong, tinapa)\n- Mahalaga bilang **pagkain, kita, at hanapbuhay** — lalo na sa arkipelagong Pilipinas\n\nMagaling sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang fish culture?",
+            "options": [
+              "Kontroladong pagpapalaki ng isda",
+              "Pagkuha ng isda sa dagat",
+              "Pagbebenta ng isda sa palengke",
+              "Pagluluto ng isda"
+            ],
+            "correct_answer": "Kontroladong pagpapalaki ng isda"
+          },
+          {
+            "question": "Ano ang fish capture?",
+            "options": [
+              "Pagkuha ng isda mula sa natural na tirahan",
+              "Pagpapalaki ng isda sa palaisdaan",
+              "Pagpoproseso ng isda",
+              "Pagluluto ng isda"
+            ],
+            "correct_answer": "Pagkuha ng isda mula sa natural na tirahan"
+          },
+          {
+            "question": "Ano ang fish processing?",
+            "options": [
+              "Pagbabago ng isda upang matagal itago",
+              "Pagpapalaki ng isda sa tank",
+              "Pangingisda sa dagat",
+              "Pagbibigay ng pagkain sa isda"
+            ],
+            "correct_answer": "Pagbabago ng isda upang matagal itago"
+          },
+          {
+            "question": "Alin ang halimbawa ng fish processing product?",
+            "options": [
+              "Tuyo",
+              "Palaisdaan",
+              "Fish cage",
+              "Fishnet"
+            ],
+            "correct_answer": "Tuyo"
+          },
+          {
+            "question": "Saan ginagawa ang fish culture?",
+            "options": [
+              "Palaisdaan o fish cage",
+              "Sa gitna ng dagat lamang",
+              "Sa lawa lamang",
+              "Sa palengke"
+            ],
+            "correct_answer": "Palaisdaan o fish cage"
+          },
+          {
+            "question": "Bakit mahalagang pinoproseso ang isda?",
+            "options": [
+              "Upang hindi ito agad mabulok",
+              "Upang mas malaki ang laki nito",
+              "Upang mabilis itong mabuhay",
+              "Upang dumami ang isda"
+            ],
+            "correct_answer": "Upang hindi ito agad mabulok"
+          },
+          {
+            "question": "Ano ang daing?",
+            "options": [
+              "Isdang inasinan at pinatuyo",
+              "Isdang pinausukan lamang",
+              "Isdang niluto sa sabaw",
+              "Isdang sariwang kinain"
+            ],
+            "correct_answer": "Isdang inasinan at pinatuyo"
+          },
+          {
+            "question": "Bakit mahalaga ang isda bilang pagkain?",
+            "options": [
+              "Mahalagang pinagkukunan ng protina",
+              "Wala itong sustansiya",
+              "Mas mahal ito kaysa karne",
+              "Hindi ito ligtas kainin"
+            ],
+            "correct_answer": "Mahalagang pinagkukunan ng protina"
+          },
+          {
+            "question": "Bakit mahalaga ang fishery arts sa Pilipinas?",
+            "options": [
+              "Ito ay arkipelago na napapaligiran ng dagat",
+              "Wala itong dagat",
+              "Puro bundok lamang ang Pilipinas",
+              "Walang isda sa Pilipinas"
+            ],
+            "correct_answer": "Ito ay arkipelago na napapaligiran ng dagat"
+          },
+          {
+            "question": "Alin ang trabahong nakukuha mula sa fishery arts?",
+            "options": [
+              "Mangingisda at fish farmer",
+              "Guro at doktor",
+              "Abogado at inhinyero",
+              "Pintor at musikero"
+            ],
+            "correct_answer": "Mangingisda at fish farmer"
+          },
+          {
+            "question": "Ano ang tinapa?",
+            "options": [
+              "Isdang pinausukan",
+              "Isdang inasinan lamang",
+              "Isdang pinatuyo lamang",
+              "Isdang inihaw"
+            ],
+            "correct_answer": "Isdang pinausukan"
+          },
+          {
+            "question": "Isang mangingisda ang nakahuli ng maraming isda ngunit walang refrigerator. Ano ang PINAKAMABUTING gawin?",
+            "options": [
+              "Iproseso ito bilang tuyo o daing",
+              "Itapon na lamang ang sobra",
+              "Iwanan itong sariwa sa araw",
+              "Bilhin agad ang lahat ng ibang isda"
+            ],
+            "correct_answer": "Iproseso ito bilang tuyo o daing"
+          }
+        ]
+      }
+    }
+  }
+}

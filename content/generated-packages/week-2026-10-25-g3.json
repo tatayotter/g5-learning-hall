@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-10-25",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🎤 English — Final Review: Speaking and Writing Skills\n\nGrade 3, Week 20! Let's review everything we've learned about creating and composing text. 🗣️\n\n## 🔄 Review: Polite Expressions\nWe use words like \"please,\" \"thank you,\" and \"excuse me\" to show **respect**.\n\n## 🔄 Review: Retelling\n**Retelling** means telling a story again using **our own words**.\n\n## 🔄 Review: Reacting to Stories\nWe can **react** by sharing our **thoughts or feelings** about what we read.\n\n## 🔄 Review: Summarizing\nA **summary** includes only the **most important points**, in fewer words.\n\n## 🧠 Worked Example\n*Summarize: \"The boy planted a seed. He watered it every day. Weeks later, it grew into a beautiful flower.\"*\n- *\"The boy planted and cared for a seed, which grew into a flower.\"*\n\n## 💡 Why Review Matters\nReviewing these skills helps us **communicate clearly and confidently** in speaking and writing.\n\nGreat review work! 🌟",
+        "quiz": [
+          {
+            "question": "What are polite expressions used for?",
+            "options": [
+              "To show respect to others",
+              "To confuse the listener",
+              "To make speech longer",
+              "To avoid speaking at all"
+            ],
+            "correct_answer": "To show respect to others"
+          },
+          {
+            "question": "What does retelling mean?",
+            "options": [
+              "Telling a story again in your own words",
+              "Reading silently only",
+              "Copying word for word",
+              "Drawing instead of speaking"
+            ],
+            "correct_answer": "Telling a story again in your own words"
+          },
+          {
+            "question": "What does it mean to react to a story?",
+            "options": [
+              "To share your thoughts or feelings about it",
+              "To ignore the story completely",
+              "To copy it exactly",
+              "To only read the title"
+            ],
+            "correct_answer": "To share your thoughts or feelings about it"
+          },
+          {
+            "question": "What is a summary?",
+            "options": [
+              "The most important points, in fewer words",
+              "The entire story word for word",
+              "Only the title",
+              "A drawing of the setting"
+            ],
+            "correct_answer": "The most important points, in fewer words"
+          },
+          {
+            "question": "Summarize: \"The boy planted a seed. He watered it every day. Weeks later, it grew into a flower.\"",
+            "options": [
+              "The boy planted and cared for a seed, which grew into a flower.",
+              "The boy never planted anything at all.",
+              "The flower grew without any care.",
+              "The boy watered a flower that was already grown."
+            ],
+            "correct_answer": "The boy planted and cared for a seed, which grew into a flower."
+          },
+          {
+            "question": "Which is an example of a polite expression?",
+            "options": [
+              "\"Excuse me, may I ask a question?\"",
+              "\"Give it to me now!\"",
+              "\"I don't care.\"",
+              "\"That's not my problem.\""
+            ],
+            "correct_answer": "\"Excuse me, may I ask a question?\""
+          },
+          {
+            "question": "Why do we retell stories in our own words?",
+            "options": [
+              "It helps us check that we understood the story",
+              "It replaces the need to read at all",
+              "It only works for short stories",
+              "It has no educational purpose"
+            ],
+            "correct_answer": "It helps us check that we understood the story"
+          },
+          {
+            "question": "What should a good summary include?",
+            "options": [
+              "Only the most important points",
+              "Every single word from the text",
+              "Only the author's name",
+              "Random unrelated details"
+            ],
+            "correct_answer": "Only the most important points"
+          },
+          {
+            "question": "Why is it useful to react thoughtfully to a story?",
+            "options": [
+              "It shows we understood and connected with the story",
+              "It has no real value at all",
+              "It only matters for teachers",
+              "It replaces the need to read carefully"
+            ],
+            "correct_answer": "It shows we understood and connected with the story"
+          },
+          {
+            "question": "Why do we use content-specific words when speaking about a topic?",
+            "options": [
+              "To communicate ideas clearly about that subject",
+              "To confuse the listener on purpose",
+              "To make sentences shorter always",
+              "To avoid talking about the topic"
+            ],
+            "correct_answer": "To communicate ideas clearly about that subject"
+          },
+          {
+            "question": "Why is reviewing speaking and writing skills helpful?",
+            "options": [
+              "It helps us communicate clearly and confidently",
+              "It makes communication more confusing",
+              "It has no real benefit",
+              "It only matters right before a test"
+            ],
+            "correct_answer": "It helps us communicate clearly and confidently"
+          },
+          {
+            "question": "What is the goal of creating and composing text?",
+            "options": [
+              "To express our own ideas clearly to others",
+              "To copy other people's ideas exactly",
+              "To avoid ever writing anything",
+              "To make writing as confusing as possible"
+            ],
+            "correct_answer": "To express our own ideas clearly to others"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🎲 Mathematics — Collecting and Presenting Data\n\nGrade 3, Week 20! Let's learn to collect data from experiments and show it in graphs. 📊\n\n## 🎲 Collecting Data from Experiments\nWe can collect data by doing simple experiments, like **rolling a die** or **tossing a coin**, and recording the results.\n\n**Example:** Roll a die 10 times and record how many times each number appears.\n\n## 📋 Presenting Data in a Table\n| Number Rolled | Number of Times |\n|---|---|\n| 1 | 2 |\n| 2 | 1 |\n| 3 | 3 |\n| 4 | 1 |\n| 5 | 2 |\n| 6 | 1 |\n\n## 📊 Presenting Data in a Bar Graph\nA **bar graph** shows data using bars — it can be **horizontal** (side to side) or **vertical** (up and down).\n\n## 🧠 Worked Example 1\n*You tossed a coin 10 times: 6 heads and 4 tails. How would you show this in a bar graph?*\n- Draw **two bars** — one for heads (6) and one for tails (4), with heads being taller.\n\n## 🧠 Worked Example 2\n*Looking at the table above, which number was rolled the MOST?*\n- **3** — it appeared 3 times, more than any other number.\n\n## 💡 Why This Matters\nCollecting and presenting data helps us **understand patterns** in experiments and real life.\n\nGreat data work! ⭐",
+        "quiz": [
+          {
+            "question": "What is an example of collecting data from an experiment?",
+            "options": [
+              "Rolling a die and recording the results",
+              "Reading a storybook quietly",
+              "Drawing a picture of a house",
+              "Singing a song with friends"
+            ],
+            "correct_answer": "Rolling a die and recording the results"
+          },
+          {
+            "question": "What does a bar graph use to show data?",
+            "options": [
+              "Bars",
+              "Circles only",
+              "Lines connecting dots",
+              "Words only"
+            ],
+            "correct_answer": "Bars"
+          },
+          {
+            "question": "What are the two types of bar graphs mentioned?",
+            "options": [
+              "Horizontal and vertical",
+              "Red and blue",
+              "Big and small",
+              "Fast and slow"
+            ],
+            "correct_answer": "Horizontal and vertical"
+          },
+          {
+            "question": "You tossed a coin 10 times: 6 heads and 4 tails. How would you show this in a bar graph?",
+            "options": [
+              "Two bars — one for heads (6) and one for tails (4)",
+              "One single bar showing everything combined",
+              "A simple drawing of a coin only",
+              "No bars are needed at all here"
+            ],
+            "correct_answer": "Two bars — one for heads (6) and one for tails (4)"
+          },
+          {
+            "question": "Looking at a table where 3 was rolled 3 times (the most), what does this tell us?",
+            "options": [
+              "3 was rolled more often than any other number",
+              "3 was never rolled at all",
+              "All numbers were rolled the same amount",
+              "The die had no number 3"
+            ],
+            "correct_answer": "3 was rolled more often than any other number"
+          },
+          {
+            "question": "Why do we organize data into a table before graphing?",
+            "options": [
+              "It helps us see the data clearly before making a graph",
+              "Tables make data harder to understand",
+              "Tables are only used for money",
+              "It is unnecessary to organize data"
+            ],
+            "correct_answer": "It helps us see the data clearly before making a graph"
+          },
+          {
+            "question": "If you roll a die 10 times, what are the possible outcomes?",
+            "options": [
+              "The numbers 1 through 6",
+              "Only the number 1",
+              "Any number from 1 to 100",
+              "Only even numbers"
+            ],
+            "correct_answer": "The numbers 1 through 6"
+          },
+          {
+            "question": "What are the possible outcomes when tossing a coin?",
+            "options": [
+              "Heads or tails",
+              "Only heads",
+              "Only tails",
+              "Numbers 1 through 6"
+            ],
+            "correct_answer": "Heads or tails"
+          },
+          {
+            "question": "Why is it useful to collect data from experiments?",
+            "options": [
+              "It helps us understand patterns in real life",
+              "It has no real use at all",
+              "It only matters for scientists",
+              "It replaces the need for math entirely"
+            ],
+            "correct_answer": "It helps us understand patterns in real life"
+          },
+          {
+            "question": "In a vertical bar graph, which direction do the bars go?",
+            "options": [
+              "Up and down",
+              "Side to side",
+              "Diagonally only",
+              "In circles"
+            ],
+            "correct_answer": "Up and down"
+          },
+          {
+            "question": "In a horizontal bar graph, which direction do the bars go?",
+            "options": [
+              "Side to side",
+              "Up and down",
+              "Diagonally only",
+              "In circles"
+            ],
+            "correct_answer": "Side to side"
+          },
+          {
+            "question": "A class recorded the results of tossing a coin 20 times: 12 heads and 8 tails. Which outcome happened more often?",
+            "options": [
+              "Heads",
+              "Tails",
+              "Both happened equally",
+              "Neither happened at all"
+            ],
+            "correct_answer": "Heads"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🧩 Filipino — Pagsasanib ng mga Kasanayan sa Pagsulat\n\nGrade 3, Linggo 20! Pagsamahin natin ang lahat ng natutuhan sa pagsulat. ✍️\n\n## 🔄 Balik-Aral\nNatutuhan na natin ang **talasalitaan**, **gramatika (tambalang pangungusap)**, **pag-unawa sa teksto**, at **pagbuo ng teksto**.\n\n## 🧩 Pagsasanib sa Isang Gawain\nNgayong linggo, gagamitin natin lahat ng natutuhang kasanayan upang bumuo ng isang **maikling talata** tungkol sa isang paksang napili natin, gamit ang tambalang pangungusap at wastong bantas.\n\n## ✍️ Halimbawa ng Pagsasanib\n*\"Pumunta ako sa parke, at naglaro ako ng bola kasama ang aking mga kaibigan. Masaya kami dahil maganda ang panahon. Umuwi kami nang maaga upang makatulong sa gawaing-bahay.\"*\n\n## 🧠 Halimbawa 1\n*Anong kasanayan ang ginamit sa pangungusap na \"Pumunta ako sa parke, at naglaro ako ng bola\"?*\n- **Tambalang pangungusap** — dalawang sugnay na pinagsama gamit ang \"at.\"\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang pagsamahin ang lahat ng kasanayan sa pagsulat ng isang talata?*\n- Upang maging **malinaw, magkaugnay, at makabuluhan** ang ating isinusulat.\n\n## 💡 Kongklusyon\nAng pagsasanib ng mga kasanayan sa pagsulat ay nagpapakita ng ating **kakayahan bilang manunulat**.\n\nMagaling sa pagsulat! 🌟",
+        "quiz": [
+          {
+            "question": "Anong mga kasanayan ang natutuhan natin sa buong term na ito?",
+            "options": [
+              "Talasalitaan, gramatika, pag-unawa, at pagbuo ng teksto",
+              "Isa lamang kasanayang natutuhan",
+              "Wala tayong natutuhang kasanayan dito",
+              "Kasanayan lamang sa pagguhit ng larawan"
+            ],
+            "correct_answer": "Talasalitaan, gramatika, pag-unawa, at pagbuo ng teksto"
+          },
+          {
+            "question": "Anong kasanayan ang ginamit sa pangungusap na \"Pumunta ako sa parke, at naglaro ako ng bola\"?",
+            "options": [
+              "Tambalang pangungusap",
+              "Payak na pangungusap",
+              "Pang-uri lamang",
+              "Panghalip lamang"
+            ],
+            "correct_answer": "Tambalang pangungusap"
+          },
+          {
+            "question": "Bakit mahalagang pagsamahin ang lahat ng kasanayan sa pagsulat ng isang talata?",
+            "options": [
+              "Upang maging malinaw at magkaugnay ang isinusulat",
+              "Upang mahaba lamang ang buong talata",
+              "Upang malito ang bumabasang tao",
+              "Wala talagang dahilan para dito"
+            ],
+            "correct_answer": "Upang maging malinaw at magkaugnay ang isinusulat"
+          },
+          {
+            "question": "Ano ang ginagamit natin sa pagbuo ng isang maikling talata?",
+            "options": [
+              "Tambalang pangungusap at wastong bantas",
+              "Basta salita na lamang na walang ayos",
+              "Isang letra na lamang paulit-ulit",
+              "Walang bantas kahit kailan"
+            ],
+            "correct_answer": "Tambalang pangungusap at wastong bantas"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagsasanib ng mga kasanayan sa pagsulat?",
+            "options": [
+              "Ang kakayahan natin bilang manunulat",
+              "Kawalan ng kakayahan sa pagsulat",
+              "Kapabayaan sa gawain",
+              "Wala itong ipinapakita"
+            ],
+            "correct_answer": "Ang kakayahan natin bilang manunulat"
+          },
+          {
+            "question": "\"Masaya kami dahil maganda ang panahon.\" Anong kasanayan ang ipinapakita nito?",
+            "options": [
+              "Paglalarawan gamit ang wastong pangungusap",
+              "Talasalitaang walang kahulugan",
+              "Panghalip lamang",
+              "Bantas lamang"
+            ],
+            "correct_answer": "Paglalarawan gamit ang wastong pangungusap"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng wastong bantas sa pagsulat?",
+            "options": [
+              "Upang maging malinaw ang kahulugan ng pangungusap",
+              "Upang mahirap basahin ang teksto",
+              "Walang epekto ang bantas sa pangungusap",
+              "Upang mapahaba lamang ang talata"
+            ],
+            "correct_answer": "Upang maging malinaw ang kahulugan ng pangungusap"
+          },
+          {
+            "question": "Ano ang layunin ng pagbuo ng talata gamit ang lahat ng natutuhang kasanayan?",
+            "options": [
+              "Maipakita ang kabuuang natutuhan sa isang gawa",
+              "Upang matapos lamang agad ang gawain",
+              "Upang mahirapan ang mag-aaral",
+              "Walang layunin ito"
+            ],
+            "correct_answer": "Maipakita ang kabuuang natutuhan sa isang gawa"
+          },
+          {
+            "question": "Alin ang halimbawa ng talasalitaang may kaugnayan sa paksang \"parke\"?",
+            "options": [
+              "Bola, laro, kaibigan",
+              "Palengke, tinda, presyo",
+              "Simbahan, pari, misa",
+              "Ospital, doktor, gamot"
+            ],
+            "correct_answer": "Bola, laro, kaibigan"
+          },
+          {
+            "question": "Bakit mahalagang magkaugnay ang mga pangungusap sa isang talata?",
+            "options": [
+              "Upang maging maayos at malinaw ang daloy ng ideya",
+              "Upang mahaba lamang ang buong talata",
+              "Upang malito ang taong bumabasa",
+              "Wala talagang dahilan para dito"
+            ],
+            "correct_answer": "Upang maging maayos at malinaw ang daloy ng ideya"
+          },
+          {
+            "question": "Isang mag-aaral ang bumuo ng talata tungkol sa kanilang bakasyon gamit ang tambalang pangungusap. Ano ang ipinapakita nito?",
+            "options": [
+              "Kasanayan sa pagsulat na natutuhan sa buong term",
+              "Kawalan ng kaalaman sa gramatika",
+              "Kapabayaan sa gawain",
+              "Wala itong ipinapakita"
+            ],
+            "correct_answer": "Kasanayan sa pagsulat na natutuhan sa buong term"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang gawain ang pagsasanib ng mga kasanayan?",
+            "options": [
+              "Nagpapakita ito na kayang gamitin nang sabay-sabay ang natutuhan",
+              "Wala itong anumang kabuluhan sa pag-aaral natin",
+              "Ginagawa lamang ito upang makakuha ng marka",
+              "Hindi ito bahagi ng tunay na pagsulat natin"
+            ],
+            "correct_answer": "Nagpapakita ito na kayang gamitin nang sabay-sabay ang natutuhan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌍 Science — Basic Needs of All Living Things\n\nGrade 3, Week 20! Let's review what all living things need to survive. 🌱\n\n## 🌍 Basic Needs of All Living Things\n| Need | Why It's Needed |\n|---|---|\n| **Air** | for breathing/respiration |\n| **Food** | for energy to grow and function |\n| **Water** | to stay healthy and survive |\n| **Shelter** | for safety and protection |\n\n## 🤝 How Living Things Depend on Each Other\nLiving things **depend on one another** — plants provide food and oxygen for animals, and animals help spread seeds or provide nutrients back to soil.\n\n## 🌎 Living Things Depend on the Environment\nLiving things also depend on their **environment** — the air, water, soil, and temperature around them — to meet their basic needs.\n\n## ♻️ Protecting and Conserving the Environment\nSince living things need a healthy environment, it's important to **protect and conserve** it — like not polluting water or cutting down too many trees.\n\n## 🧠 Worked Example 1\n*Why do animals depend on plants?*\n- Plants provide **food and oxygen** that animals need to survive.\n\n## 🧠 Worked Example 2\n*Why is it important to protect the environment?*\n- Because all living things **depend on it** to meet their basic needs.\n\n## 💡 Why This Matters\nUnderstanding these needs and connections helps us see why **protecting nature** matters for all living things.\n\nGreat review of living things! 🌟",
+        "quiz": [
+          {
+            "question": "What are the basic needs of all living things?",
+            "options": [
+              "Air, food, water, and shelter",
+              "Toys, books, and games",
+              "Money and clothes",
+              "Television and music"
+            ],
+            "correct_answer": "Air, food, water, and shelter"
+          },
+          {
+            "question": "Why do living things need air?",
+            "options": [
+              "For breathing/respiration",
+              "To grow taller only",
+              "To change color",
+              "To find shelter"
+            ],
+            "correct_answer": "For breathing/respiration"
+          },
+          {
+            "question": "Why do animals depend on plants?",
+            "options": [
+              "Plants provide food and oxygen that animals need",
+              "Plants have no connection to animals",
+              "Animals never need plants at all",
+              "Plants only provide shelter, nothing else"
+            ],
+            "correct_answer": "Plants provide food and oxygen that animals need"
+          },
+          {
+            "question": "How do living things depend on their environment?",
+            "options": [
+              "They need air, water, soil, and temperature from it",
+              "They do not depend on the environment at all",
+              "Only plants depend on the environment",
+              "Only animals depend on the environment"
+            ],
+            "correct_answer": "They need air, water, soil, and temperature from it"
+          },
+          {
+            "question": "Why is it important to protect and conserve the environment?",
+            "options": [
+              "All living things depend on it to meet their basic needs",
+              "The environment has no effect on living things",
+              "Only humans need a healthy environment",
+              "Protecting the environment is not necessary"
+            ],
+            "correct_answer": "All living things depend on it to meet their basic needs"
+          },
+          {
+            "question": "What is an example of protecting the environment?",
+            "options": [
+              "Not polluting water",
+              "Cutting down as many trees as possible",
+              "Littering in rivers",
+              "Wasting water constantly"
+            ],
+            "correct_answer": "Not polluting water"
+          },
+          {
+            "question": "Why do living things need water?",
+            "options": [
+              "To stay healthy and survive",
+              "To fly higher",
+              "To change into a different species",
+              "Water is not actually needed"
+            ],
+            "correct_answer": "To stay healthy and survive"
+          },
+          {
+            "question": "Why do living things need shelter?",
+            "options": [
+              "For safety and protection",
+              "To make loud noises",
+              "To avoid eating food",
+              "Shelter is not actually needed"
+            ],
+            "correct_answer": "For safety and protection"
+          },
+          {
+            "question": "How do animals help plants in return?",
+            "options": [
+              "By helping spread seeds",
+              "By destroying all plant life",
+              "Animals never help plants",
+              "By removing all oxygen from the air"
+            ],
+            "correct_answer": "By helping spread seeds"
+          },
+          {
+            "question": "Why do living things need food?",
+            "options": [
+              "For energy to grow and function",
+              "To change their habitat",
+              "To avoid breathing",
+              "Food is not actually needed"
+            ],
+            "correct_answer": "For energy to grow and function"
+          },
+          {
+            "question": "What might happen if the environment becomes very polluted?",
+            "options": [
+              "Living things may struggle to meet their basic needs",
+              "Living things would not be affected at all",
+              "Pollution always helps living things thrive",
+              "Nothing would change for living things"
+            ],
+            "correct_answer": "Living things may struggle to meet their basic needs"
+          },
+          {
+            "question": "Why is understanding interdependence among living things important?",
+            "options": [
+              "It helps us see how nature is connected and why we should protect it",
+              "It has no real value in understanding nature",
+              "It only matters for scientists",
+              "It replaces the need to study individual living things"
+            ],
+            "correct_answer": "It helps us see how nature is connected and why we should protect it"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🎤 Makabansa — Pagtatanghal ng Proyektong Pangkultura\n\nGrade 3, Linggo 20! Ipakita natin ang ating natapos na proyekto. 🎨\n\n## 🎤 Pagtatanghal ng Proyekto\nNgayong linggo, ipapakita natin sa klase ang **proyektong pangkultura** na pinlano nating gawin noong nakaraang linggo.\n\n## 📋 Mga Dapat Isama sa Pagtatanghal\n| Bahagi | Nilalaman |\n|---|---|\n| **Pagpapakilala** | anong aspeto ng kultura ang pinili |\n| **Paliwanag** | kasaysayan o kahalagahan ng piniling aspeto |\n| **Pagpapakita** | ang aktwal na proyekto (poster, palamuti, o presentasyon) |\n\n## 🗣️ Mahahalagang Kasanayan sa Pagtatanghal\n- **Malinaw na pagsasalita** — hindi mabilis, hindi mabagal\n- **Pakikipagtitigan sa manonood** (eye contact)\n- **Pagtugon sa mga tanong** nang may kumpiyansa\n\n## 🧠 Halimbawa 1\n*Ano ang unang dapat sabihin sa pagtatanghal ng proyekto?*\n- Ang **pagpapakilala** — anong aspeto ng kultura ang piniling ipakita.\n\n## 🧠 Halimbawa 2\n*Bakit mahalaga ang pakikipagtitigan sa manonood habang nagtatanghal?*\n- Nagpapakita ito ng **kumpiyansa** at nakatutulong upang mas mapansin ng manonood ang sinasabi.\n\n## 💡 Kongklusyon\nAng pagtatanghal ng proyekto ay nagbibigay-diin sa **kahalagahan ng pagbabahagi** ng ating kultura sa iba.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang gagawin natin ngayong linggo tungkol sa proyekto?",
+            "options": [
+              "Ipapakita natin sa klase ang natapos na proyekto",
+              "Simulan ulit ang buong pagpaplano",
+              "Kalimutan na lamang ang proyekto",
+              "Huwag na ituloy ang gawain"
+            ],
+            "correct_answer": "Ipapakita natin sa klase ang natapos na proyekto"
+          },
+          {
+            "question": "Ano ang unang dapat sabihin sa pagtatanghal ng proyekto?",
+            "options": [
+              "Ang pagpapakilala kung anong aspeto ng kultura ang piniling ipakita",
+              "Ang pagtatapos ng buong presentasyong ginawa",
+              "Ang mga tanong lamang ng mga manonood",
+              "Wala, direktang ipakita na lamang agad ito"
+            ],
+            "correct_answer": "Ang pagpapakilala kung anong aspeto ng kultura ang piniling ipakita"
+          },
+          {
+            "question": "Bakit mahalaga ang pakikipagtitigan sa manonood habang nagtatanghal?",
+            "options": [
+              "Nagpapakita ito ng kumpiyansa at nakatutulong sa pakikinig",
+              "Wala itong kaugnayan sa presentasyon",
+              "Nakakalito lamang ito sa nagtatanghal",
+              "Dapat iwasan ito palagi"
+            ],
+            "correct_answer": "Nagpapakita ito ng kumpiyansa at nakatutulong sa pakikinig"
+          },
+          {
+            "question": "Ano ang dapat isama sa paliwanag ng proyekto?",
+            "options": [
+              "Kasaysayan o kahalagahan ng piniling aspeto ng kultura",
+              "Ang presyo ng mga materyales lamang",
+              "Ang pangalan ng lahat ng kamag-aral",
+              "Wala, hindi kailangan ng paliwanag"
+            ],
+            "correct_answer": "Kasaysayan o kahalagahan ng piniling aspeto ng kultura"
+          },
+          {
+            "question": "Bakit mahalagang magsalita nang malinaw habang nagtatanghal?",
+            "options": [
+              "Upang maintindihan ng manonood ang mensahe",
+              "Upang mas mabilis matapos ang presentasyon",
+              "Wala itong epekto sa pag-unawa ng manonood",
+              "Upang mahirapan ang manonood"
+            ],
+            "correct_answer": "Upang maintindihan ng manonood ang mensahe"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag may tanong ang manonood pagkatapos ng presentasyon?",
+            "options": [
+              "Sagutin ito nang may kumpiyansa",
+              "Balewalain ang tanong",
+              "Umalis nang hindi sumasagot",
+              "Magalit sa nagtatanong"
+            ],
+            "correct_answer": "Sagutin ito nang may kumpiyansa"
+          },
+          {
+            "question": "Ano ang pangkalahatang layunin ng pagtatanghal ng proyektong pangkultura?",
+            "options": [
+              "Ibahagi ang kultura sa iba",
+              "Makakuha lamang ng gantimpalang pera",
+              "Matapos lamang agad ang gawain",
+              "Walang layunin ito"
+            ],
+            "correct_answer": "Ibahagi ang kultura sa iba"
+          },
+          {
+            "question": "Ano ang dapat kasama sa aktwal na pagpapakita ng proyekto?",
+            "options": [
+              "Ang poster, palamuti, o presentasyon na ginawa",
+              "Isang random na larawang kinuha lamang sa internet",
+              "Wala, hindi na kailangang magpakita ng anuman dito",
+              "Isang blangkong papel na walang laman kahit ano"
+            ],
+            "correct_answer": "Ang poster, palamuti, o presentasyon na ginawa"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang kasanayan ang pagtatanghal sa harap ng klase?",
+            "options": [
+              "Tumutulong ito upang mapaunlad ang kumpiyansa at komunikasyon",
+              "Wala itong kaugnayan sa pag-aaral ng bata",
+              "Ginagawa lamang ito bilang isang parusa",
+              "Hindi ito totoong mahalagang kasanayan dito"
+            ],
+            "correct_answer": "Tumutulong ito upang mapaunlad ang kumpiyansa at komunikasyon"
+          },
+          {
+            "question": "Isang mag-aaral ang kinakabahan bago magtanghal ng kanyang proyekto. Ano ang makatutulong sa kanya?",
+            "options": [
+              "Pagsasanay ng malinaw na pagsasalita bago ang presentasyon",
+              "Hindi na lamang magtatanghal",
+              "Ipagawa na lamang sa iba ang presentasyon",
+              "Umiwas na lamang sa buong klase"
+            ],
+            "correct_answer": "Pagsasanay ng malinaw na pagsasalita bago ang presentasyon"
+          },
+          {
+            "question": "Bakit mahalagang balikan ang buong proseso ng paggawa ng proyekto bago ito itanghal?",
+            "options": [
+              "Upang matiyak na kumpleto at handa ang lahat ng bahagi",
+              "Upang mapabilis lamang ang oras ng presentasyon",
+              "Walang dahilan ito talaga",
+              "Upang malito ang gagawa ng presentasyon"
+            ],
+            "correct_answer": "Upang matiyak na kumpleto at handa ang lahat ng bahagi"
+          },
+          {
+            "question": "Ano ang pinakamahalagang aral ng buong yunit tungkol sa kultura ngayong term?",
+            "options": [
+              "Ang kultura ay bahagi ng ating pagkakakilanlan at dapat ipagmalaki",
+              "Ang kultura ay hindi na mahalaga sa kasalukuyan",
+              "Ang kultura ay dapat na lamang kalimutan agad",
+              "Ang kultura ay para lamang sa mga matatanda"
+            ],
+            "correct_answer": "Ang kultura ay bahagi ng ating pagkakakilanlan at dapat ipagmalaki"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🖥️ Computer — Pagsusuri at Pagpapakita ng Proyekto\n\nGrade 3, Week 20! Suriin at ipakita natin ang ating natapos na proyekto sa kompyuter. 💾\n\n## 🔍 Pagsusuri ng Proyekto Bago Ipakita\nBago ipakita ang ating proyekto (drawing o typed paragraph), suriin muna ito gamit ang mga kasanayang natutuhan — **copy, paste, at undo** — upang ayusin ang mga huling detalye.\n\n## ✅ Checklist Bago Ipakita\n| Tanong | Layunin |\n|---|---|\n| Na-save ba ang file nang wasto? | Tinitiyak na hindi mawawala ang gawa |\n| Tama ba ang ispeling? | Tinitiyak ang kalidad ng proyekto |\n| Malinaw ba ang mga label sa guhit? | Tinitiyak ang pag-unawa ng manonood |\n\n## 🖨️ Paghahanda para sa Presentasyon\nMaaaring **i-print** ang proyekto bago ito ipakita, o direktang ipakita sa screen ng kompyuter.\n\n## 🧠 Halimbawa 1\n*Nakita mong may maling spelling sa iyong proyekto bago ito i-print. Ano ang dapat mong gawin?*\n- **Itama muna** ang spelling gamit ang backspace o delete bago i-print o ipakita.\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang i-save ang file bago isara ang programa?*\n- Upang **hindi mawala** ang natapos na gawain.\n\n## 💡 Kongklusyon\nAng pagsusuri bago ipakita ang proyekto ay nagpapakita ng **pagsisikap at pag-iingat** sa gawain.\n\nMagaling sa Computer! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang dapat gawin bago ipakita ang proyekto sa kompyuter?",
+            "options": [
+              "Suriin ito gamit ang copy, paste, at undo",
+              "Direktang ipakita agad nang walang suri",
+              "Burahin ang buong proyekto",
+              "Isara agad ang programa"
+            ],
+            "correct_answer": "Suriin ito gamit ang copy, paste, at undo"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa wastong pag-save ng file?",
+            "options": [
+              "Na hindi mawawala ang ating gawa",
+              "Na mas mabilis matapos ang gawain",
+              "Na mas maganda ang kulay ng file",
+              "Wala itong tinitiyak"
+            ],
+            "correct_answer": "Na hindi mawawala ang ating gawa"
+          },
+          {
+            "question": "Nakita mong may maling spelling bago i-print ang proyekto. Ano ang dapat mong gawin?",
+            "options": [
+              "Itama muna ang spelling bago i-print",
+              "I-print agad kahit may mali",
+              "Burahin ang buong proyekto",
+              "Huwag na lamang ipakita ang proyekto"
+            ],
+            "correct_answer": "Itama muna ang spelling bago i-print"
+          },
+          {
+            "question": "Bakit mahalagang i-save ang file bago isara ang programa?",
+            "options": [
+              "Upang hindi mawala ang natapos na gawain",
+              "Wala itong kabuluhan",
+              "Upang mapabilis lamang ang pagsara",
+              "Upang mabura ang buong file"
+            ],
+            "correct_answer": "Upang hindi mawala ang natapos na gawain"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa malinaw na label ng guhit?",
+            "options": [
+              "Ang pag-unawa ng manonood sa proyekto",
+              "Ang bilang ng kulay na ginamit",
+              "Ang presyo ng proyekto",
+              "Ang laki ng file lamang"
+            ],
+            "correct_answer": "Ang pag-unawa ng manonood sa proyekto"
+          },
+          {
+            "question": "Ano ang dalawang paraan ng paghahanda para sa presentasyon?",
+            "options": [
+              "I-print ito o ipakita sa screen ng kompyuter",
+              "Isara lamang ang programa",
+              "Burahin ang proyekto",
+              "Wala, hindi na kailangan ihanda"
+            ],
+            "correct_answer": "I-print ito o ipakita sa screen ng kompyuter"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang undo kapag nagkamali habang sinusuri ang proyekto?",
+            "options": [
+              "Nakatutulong ito upang itama ang mga pagkakamali",
+              "Nagpapabagal lamang ito ng gawain",
+              "Wala itong kabuluhan sa proyekto",
+              "Nagpapahirap lamang ito ng trabaho"
+            ],
+            "correct_answer": "Nakatutulong ito upang itama ang mga pagkakamali"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagsusuri bago ipakita ang proyekto?",
+            "options": [
+              "Pagsisikap at pag-iingat sa gawain",
+              "Kapabayaan sa gawain",
+              "Kawalang-interes sa proyekto",
+              "Kakulangan sa oras lamang"
+            ],
+            "correct_answer": "Pagsisikap at pag-iingat sa gawain"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang copy at paste kapag ginagawa ang mga huling ayos ng proyekto?",
+            "options": [
+              "Upang maiwasan ang pag-uulit ng pagsulat",
+              "Nagpapahirap lamang ito ng gawain",
+              "Wala itong ginagawang tulong",
+              "Ginagamit lamang ito sa paglalaro"
+            ],
+            "correct_answer": "Upang maiwasan ang pag-uulit ng pagsulat"
+          },
+          {
+            "question": "Ano ang unang hakbang bago ipakita ang natapos na proyekto sa klase?",
+            "options": [
+              "Suriin ang proyekto gamit ang checklist",
+              "Direktang magtanghal nang walang suri",
+              "Kalimutan ang buong proyekto",
+              "Isara ang kompyuter agad"
+            ],
+            "correct_answer": "Suriin ang proyekto gamit ang checklist"
+          },
+          {
+            "question": "Bakit mahalagang matutong mag-checklist bago magtapos ng isang proyekto?",
+            "options": [
+              "Tinitiyak nito na kumpleto ang lahat ng bahagi",
+              "Wala itong kabuluhan sa proyekto",
+              "Nagpapabagal lamang ito ng gawain",
+              "Ginagamit lamang ito para sa marka"
+            ],
+            "correct_answer": "Tinitiyak nito na kumpleto ang lahat ng bahagi"
+          },
+          {
+            "question": "Isang mag-aaral ang natapos na ng kanyang proyekto ngunit hindi pa na-save. Ano ang dapat niyang gawin muna?",
+            "options": [
+              "I-save ang file bago isara ang programa",
+              "Isara agad ang programa nang walang pag-save",
+              "Burahin ang buong proyekto",
+              "Huwag na lamang ipasa ang proyekto"
+            ],
+            "correct_answer": "I-save ang file bago isara ang programa"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🌳 GMRC — Gawi ng Pamilya sa Pangangalaga sa Kalikasan\n\nGrade 3, Linggo 20! Pagpapahalaga: **Compassion (Pagmamalasakit)**. 🌟\n\n## 🌳 Gawi ng Pamilya sa Pangangalaga sa Kalikasan\nAng bawat pamilya ay may **sariling gawi** sa pangangalaga sa kalikasan — tulad ng pag-recycle, hindi pagtatapon ng basura kahit saan, o pagtatanim ng punong-kahoy.\n\n## 💚 Bakit Nakakaapekto ang Gawi ng Pamilya?\nAng mga gawi ng pamilya ay **humuhubog** sa ating sariling pag-iisip at kilos tungo sa kalikasan — kung ang pamilya natin ay maalaga sa kalikasan, mas malamang na matutunan din natin ito.\n\n## 🧠 Halimbawa 1\n*Bawat linggo, nag-uuwi ang iyong pamilya ng mga lumang bote para i-recycle. Ano ang ipinapakita nito?*\n- Isang **gawi ng pamilya sa pangangalaga sa kalikasan** — ipinapakita ang pagmamalasakit sa kapaligiran.\n\n## 🧠 Halimbawa 2\n*Bakit itinuturing na mahalaga ang gawi ng pamilya sa pagtuturo ng pangangalaga sa kalikasan?*\n- Dahil ito ang **unang natututuhan natin** bago pa natin naunawaan ang kahalagahan nito sa paaralan.\n\n## 🌿 Mga Halimbawa ng Personal na Aksyon\n- Hindi pagtatapon ng basura kahit saan\n- Pagtitipid ng tubig at kuryente\n- Pagsali sa pagtatanim ng puno\n\n## 💡 Kongklusyon\nAng pagsasagawa ng mga gawi ng pamilya na nagpapakita ng **pagmamalasakit** sa kalikasan ay tumutulong upang mapanatili ito para sa susunod na henerasyon.\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang halimbawa ng gawi ng pamilya sa pangangalaga sa kalikasan?",
+            "options": [
+              "Pag-recycle ng mga lumang bote",
+              "Pagtapon ng basura kahit saan",
+              "Pag-aaksaya ng tubig",
+              "Pagputol ng puno nang walang dahilan"
+            ],
+            "correct_answer": "Pag-recycle ng mga lumang bote"
+          },
+          {
+            "question": "Bawat linggo, nag-uuwi ang iyong pamilya ng mga lumang bote para i-recycle. Ano ang ipinapakita nito?",
+            "options": [
+              "Gawi ng pamilya sa pangangalaga sa kalikasan",
+              "Kapabayaan sa kapaligiran",
+              "Kawalang-interes sa kalikasan",
+              "Pag-aaksaya ng oras"
+            ],
+            "correct_answer": "Gawi ng pamilya sa pangangalaga sa kalikasan"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang gawi ng pamilya sa pagtuturo ng pangangalaga sa kalikasan?",
+            "options": [
+              "Ito ang unang natututuhan natin bago pa sa paaralan",
+              "Wala itong kaugnayan sa kalikasan",
+              "Hindi ito totoong mahalaga",
+              "Ginagawa lamang ito para sa iba"
+            ],
+            "correct_answer": "Ito ang unang natututuhan natin bago pa sa paaralan"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Compassion (Pagmamalasakit)",
+              "Honesty (Katapatan)",
+              "Masipag na Pag-uugali",
+              "Pakikiisa sa Pamilya"
+            ],
+            "correct_answer": "Compassion (Pagmamalasakit)"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng personal na aksyon para sa kalikasan?",
+            "options": [
+              "Pagtitipid ng tubig at kuryente",
+              "Pag-aaksaya ng tubig",
+              "Pagtapon ng basura sa ilog",
+              "Pagputol ng puno nang walang dahilan"
+            ],
+            "correct_answer": "Pagtitipid ng tubig at kuryente"
+          },
+          {
+            "question": "Bakit mahalagang sumali sa pagtatanim ng puno bilang pamilya?",
+            "options": [
+              "Nagpapakita ito ng pagmamalasakit sa kalikasan",
+              "Wala itong kabuluhan sa kalikasan",
+              "Nagpapabagal lamang ito ng oras",
+              "Ginagawa lamang ito bilang libangan"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamalasakit sa kalikasan"
+          },
+          {
+            "question": "Ano ang mangyayari kung ang mga gawi ng pamilya ay hindi maalaga sa kalikasan?",
+            "options": [
+              "Maaaring hindi rin matutunan ng bata ang pangangalaga",
+              "Awtomatikong magiging maalaga pa rin ang bata",
+              "Wala itong epekto sa bata",
+              "Mas magiging maalaga pa ang bata"
+            ],
+            "correct_answer": "Maaaring hindi rin matutunan ng bata ang pangangalaga"
+          },
+          {
+            "question": "Bakit mahalagang panatilihin ang mga gawing nagpapakalinga sa kalikasan?",
+            "options": [
+              "Upang mapanatili ito para sa susunod na henerasyon",
+              "Upang mabilis maubos ang likas na yaman",
+              "Dahil hindi na kailangan pang pangalagaan ito",
+              "Walang tunay na dahilan para dito"
+            ],
+            "correct_answer": "Upang mapanatili ito para sa susunod na henerasyon"
+          },
+          {
+            "question": "Ano ang tawag sa mga aksyong nagpapakita ng pagmamahal at pag-aalaga sa kalikasan?",
+            "options": [
+              "Compassion o pagmamalasakit",
+              "Kapabayaan",
+              "Kawalang-interes",
+              "Pagsuway"
+            ],
+            "correct_answer": "Compassion o pagmamalasakit"
+          },
+          {
+            "question": "Isang batang laging tumutulong sa paglilinis ng kanilang komunidad kasama ang pamilya. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagmamalasakit sa kalikasan",
+              "Kawalan ng pakialam sa kapaligiran",
+              "Kapabayaan sa gawain",
+              "Kasakiman sa likas na yaman"
+            ],
+            "correct_answer": "Pagmamalasakit sa kalikasan"
+          },
+          {
+            "question": "Bakit dapat ipasa ang mabubuting gawi sa kalikasan mula sa isang henerasyon patungo sa susunod?",
+            "options": [
+              "Upang patuloy na mapangalagaan ang ating kapaligiran",
+              "Dahil hindi na mahalaga ito ngayon",
+              "Upang mabilis maubos ang likas na yaman",
+              "Walang benepisyo ito sa kinabukasan"
+            ],
+            "correct_answer": "Upang patuloy na mapangalagaan ang ating kapaligiran"
+          },
+          {
+            "question": "Ano ang maaaring gawin ng isang bata upang tumulong sa pangangalaga ng kalikasan?",
+            "options": [
+              "Sumali sa paglilinis at pag-recycle",
+              "Magtapon ng basura kahit saan",
+              "Sumira ng mga puno at halaman",
+              "Mag-aksaya ng tubig araw-araw"
+            ],
+            "correct_answer": "Sumali sa paglilinis at pag-recycle"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🎤 Friday Review — English (Grade 3)\n\n- Polite expressions, retelling, reacting, summarizing\n\nGreat review work! 🌟",
+        "quiz": [
+          {
+            "question": "What are polite expressions used for?",
+            "options": [
+              "To show respect to others",
+              "To confuse the listener",
+              "To make speech longer",
+              "To avoid speaking at all"
+            ],
+            "correct_answer": "To show respect to others"
+          },
+          {
+            "question": "What does retelling mean?",
+            "options": [
+              "Telling a story again in your own words",
+              "Reading silently only",
+              "Copying word for word",
+              "Drawing instead of speaking"
+            ],
+            "correct_answer": "Telling a story again in your own words"
+          },
+          {
+            "question": "What does it mean to react to a story?",
+            "options": [
+              "To share your thoughts or feelings about it",
+              "To ignore the story completely",
+              "To copy it exactly",
+              "To only read the title"
+            ],
+            "correct_answer": "To share your thoughts or feelings about it"
+          },
+          {
+            "question": "What is a summary?",
+            "options": [
+              "The most important points, in fewer words",
+              "The entire story word for word",
+              "Only the title",
+              "A drawing of the setting"
+            ],
+            "correct_answer": "The most important points, in fewer words"
+          },
+          {
+            "question": "Summarize: \"The boy planted a seed. He watered it every day. Weeks later, it grew into a flower.\"",
+            "options": [
+              "The boy planted and cared for a seed, which grew into a flower.",
+              "The boy never planted anything at all.",
+              "The flower grew without any care.",
+              "The boy watered a flower that was already grown."
+            ],
+            "correct_answer": "The boy planted and cared for a seed, which grew into a flower."
+          },
+          {
+            "question": "Which is an example of a polite expression?",
+            "options": [
+              "\"Excuse me, may I ask a question?\"",
+              "\"Give it to me now!\"",
+              "\"I don't care.\"",
+              "\"That's not my problem.\""
+            ],
+            "correct_answer": "\"Excuse me, may I ask a question?\""
+          },
+          {
+            "question": "Why do we retell stories in our own words?",
+            "options": [
+              "It helps us check that we understood the story",
+              "It replaces the need to read at all",
+              "It only works for short stories",
+              "It has no educational purpose"
+            ],
+            "correct_answer": "It helps us check that we understood the story"
+          },
+          {
+            "question": "What should a good summary include?",
+            "options": [
+              "Only the most important points",
+              "Every single word from the text",
+              "Only the author's name",
+              "Random unrelated details"
+            ],
+            "correct_answer": "Only the most important points"
+          },
+          {
+            "question": "Why is it useful to react thoughtfully to a story?",
+            "options": [
+              "It shows we understood and connected with the story",
+              "It has no real value at all",
+              "It only matters for teachers",
+              "It replaces the need to read carefully"
+            ],
+            "correct_answer": "It shows we understood and connected with the story"
+          },
+          {
+            "question": "Why do we use content-specific words when speaking about a topic?",
+            "options": [
+              "To communicate ideas clearly about that subject",
+              "To confuse the listener on purpose",
+              "To make sentences shorter always",
+              "To avoid talking about the topic"
+            ],
+            "correct_answer": "To communicate ideas clearly about that subject"
+          },
+          {
+            "question": "Why is reviewing speaking and writing skills helpful?",
+            "options": [
+              "It helps us communicate clearly and confidently",
+              "It makes communication more confusing",
+              "It has no real benefit",
+              "It only matters right before a test"
+            ],
+            "correct_answer": "It helps us communicate clearly and confidently"
+          },
+          {
+            "question": "What is the goal of creating and composing text?",
+            "options": [
+              "To express our own ideas clearly to others",
+              "To copy other people's ideas exactly",
+              "To avoid ever writing anything",
+              "To make writing as confusing as possible"
+            ],
+            "correct_answer": "To express our own ideas clearly to others"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🎲 Friday Review — Mathematics (Grade 3)\n\n- Collecting data (dice/coin); presenting in tables and bar graphs\n\nGreat data work! ⭐",
+        "quiz": [
+          {
+            "question": "What is an example of collecting data from an experiment?",
+            "options": [
+              "Rolling a die and recording the results",
+              "Reading a storybook quietly",
+              "Drawing a picture of a house",
+              "Singing a song with friends"
+            ],
+            "correct_answer": "Rolling a die and recording the results"
+          },
+          {
+            "question": "What does a bar graph use to show data?",
+            "options": [
+              "Bars",
+              "Circles only",
+              "Lines connecting dots",
+              "Words only"
+            ],
+            "correct_answer": "Bars"
+          },
+          {
+            "question": "What are the two types of bar graphs mentioned?",
+            "options": [
+              "Horizontal and vertical",
+              "Red and blue",
+              "Big and small",
+              "Fast and slow"
+            ],
+            "correct_answer": "Horizontal and vertical"
+          },
+          {
+            "question": "You tossed a coin 10 times: 6 heads and 4 tails. How would you show this in a bar graph?",
+            "options": [
+              "Two bars — one for heads (6) and one for tails (4)",
+              "One single bar showing everything combined",
+              "A simple drawing of a coin only",
+              "No bars are needed at all here"
+            ],
+            "correct_answer": "Two bars — one for heads (6) and one for tails (4)"
+          },
+          {
+            "question": "Looking at a table where 3 was rolled 3 times (the most), what does this tell us?",
+            "options": [
+              "3 was rolled more often than any other number",
+              "3 was never rolled at all",
+              "All numbers were rolled the same amount",
+              "The die had no number 3"
+            ],
+            "correct_answer": "3 was rolled more often than any other number"
+          },
+          {
+            "question": "Why do we organize data into a table before graphing?",
+            "options": [
+              "It helps us see the data clearly before making a graph",
+              "Tables make data harder to understand",
+              "Tables are only used for money",
+              "It is unnecessary to organize data"
+            ],
+            "correct_answer": "It helps us see the data clearly before making a graph"
+          },
+          {
+            "question": "If you roll a die 10 times, what are the possible outcomes?",
+            "options": [
+              "The numbers 1 through 6",
+              "Only the number 1",
+              "Any number from 1 to 100",
+              "Only even numbers"
+            ],
+            "correct_answer": "The numbers 1 through 6"
+          },
+          {
+            "question": "What are the possible outcomes when tossing a coin?",
+            "options": [
+              "Heads or tails",
+              "Only heads",
+              "Only tails",
+              "Numbers 1 through 6"
+            ],
+            "correct_answer": "Heads or tails"
+          },
+          {
+            "question": "Why is it useful to collect data from experiments?",
+            "options": [
+              "It helps us understand patterns in real life",
+              "It has no real use at all",
+              "It only matters for scientists",
+              "It replaces the need for math entirely"
+            ],
+            "correct_answer": "It helps us understand patterns in real life"
+          },
+          {
+            "question": "In a vertical bar graph, which direction do the bars go?",
+            "options": [
+              "Up and down",
+              "Side to side",
+              "Diagonally only",
+              "In circles"
+            ],
+            "correct_answer": "Up and down"
+          },
+          {
+            "question": "In a horizontal bar graph, which direction do the bars go?",
+            "options": [
+              "Side to side",
+              "Up and down",
+              "Diagonally only",
+              "In circles"
+            ],
+            "correct_answer": "Side to side"
+          },
+          {
+            "question": "A class recorded the results of tossing a coin 20 times: 12 heads and 8 tails. Which outcome happened more often?",
+            "options": [
+              "Heads",
+              "Tails",
+              "Both happened equally",
+              "Neither happened at all"
+            ],
+            "correct_answer": "Heads"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🧩 Friday Review — Filipino (Grade 3)\n\n- Pagsasanib ng talasalitaan, gramatika, pag-unawa, at pagbuo ng teksto\n\nMagaling sa pagsulat! 🌟",
+        "quiz": [
+          {
+            "question": "Anong mga kasanayan ang natutuhan natin sa buong term na ito?",
+            "options": [
+              "Talasalitaan, gramatika, pag-unawa, at pagbuo ng teksto",
+              "Isa lamang kasanayang natutuhan",
+              "Wala tayong natutuhang kasanayan dito",
+              "Kasanayan lamang sa pagguhit ng larawan"
+            ],
+            "correct_answer": "Talasalitaan, gramatika, pag-unawa, at pagbuo ng teksto"
+          },
+          {
+            "question": "Anong kasanayan ang ginamit sa pangungusap na \"Pumunta ako sa parke, at naglaro ako ng bola\"?",
+            "options": [
+              "Tambalang pangungusap",
+              "Payak na pangungusap",
+              "Pang-uri lamang",
+              "Panghalip lamang"
+            ],
+            "correct_answer": "Tambalang pangungusap"
+          },
+          {
+            "question": "Bakit mahalagang pagsamahin ang lahat ng kasanayan sa pagsulat ng isang talata?",
+            "options": [
+              "Upang maging malinaw at magkaugnay ang isinusulat",
+              "Upang mahaba lamang ang buong talata",
+              "Upang malito ang bumabasang tao",
+              "Wala talagang dahilan para dito"
+            ],
+            "correct_answer": "Upang maging malinaw at magkaugnay ang isinusulat"
+          },
+          {
+            "question": "Ano ang ginagamit natin sa pagbuo ng isang maikling talata?",
+            "options": [
+              "Tambalang pangungusap at wastong bantas",
+              "Basta salita na lamang na walang ayos",
+              "Isang letra na lamang paulit-ulit",
+              "Walang bantas kahit kailan"
+            ],
+            "correct_answer": "Tambalang pangungusap at wastong bantas"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagsasanib ng mga kasanayan sa pagsulat?",
+            "options": [
+              "Ang kakayahan natin bilang manunulat",
+              "Kawalan ng kakayahan sa pagsulat",
+              "Kapabayaan sa gawain",
+              "Wala itong ipinapakita"
+            ],
+            "correct_answer": "Ang kakayahan natin bilang manunulat"
+          },
+          {
+            "question": "\"Masaya kami dahil maganda ang panahon.\" Anong kasanayan ang ipinapakita nito?",
+            "options": [
+              "Paglalarawan gamit ang wastong pangungusap",
+              "Talasalitaang walang kahulugan",
+              "Panghalip lamang",
+              "Bantas lamang"
+            ],
+            "correct_answer": "Paglalarawan gamit ang wastong pangungusap"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng wastong bantas sa pagsulat?",
+            "options": [
+              "Upang maging malinaw ang kahulugan ng pangungusap",
+              "Upang mahirap basahin ang teksto",
+              "Walang epekto ang bantas sa pangungusap",
+              "Upang mapahaba lamang ang talata"
+            ],
+            "correct_answer": "Upang maging malinaw ang kahulugan ng pangungusap"
+          },
+          {
+            "question": "Ano ang layunin ng pagbuo ng talata gamit ang lahat ng natutuhang kasanayan?",
+            "options": [
+              "Maipakita ang kabuuang natutuhan sa isang gawa",
+              "Upang matapos lamang agad ang gawain",
+              "Upang mahirapan ang mag-aaral",
+              "Walang layunin ito"
+            ],
+            "correct_answer": "Maipakita ang kabuuang natutuhan sa isang gawa"
+          },
+          {
+            "question": "Alin ang halimbawa ng talasalitaang may kaugnayan sa paksang \"parke\"?",
+            "options": [
+              "Bola, laro, kaibigan",
+              "Palengke, tinda, presyo",
+              "Simbahan, pari, misa",
+              "Ospital, doktor, gamot"
+            ],
+            "correct_answer": "Bola, laro, kaibigan"
+          },
+          {
+            "question": "Bakit mahalagang magkaugnay ang mga pangungusap sa isang talata?",
+            "options": [
+              "Upang maging maayos at malinaw ang daloy ng ideya",
+              "Upang mahaba lamang ang buong talata",
+              "Upang malito ang taong bumabasa",
+              "Wala talagang dahilan para dito"
+            ],
+            "correct_answer": "Upang maging maayos at malinaw ang daloy ng ideya"
+          },
+          {
+            "question": "Isang mag-aaral ang bumuo ng talata tungkol sa kanilang bakasyon gamit ang tambalang pangungusap. Ano ang ipinapakita nito?",
+            "options": [
+              "Kasanayan sa pagsulat na natutuhan sa buong term",
+              "Kawalan ng kaalaman sa gramatika",
+              "Kapabayaan sa gawain",
+              "Wala itong ipinapakita"
+            ],
+            "correct_answer": "Kasanayan sa pagsulat na natutuhan sa buong term"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang gawain ang pagsasanib ng mga kasanayan?",
+            "options": [
+              "Nagpapakita ito na kayang gamitin nang sabay-sabay ang natutuhan",
+              "Wala itong anumang kabuluhan sa pag-aaral natin",
+              "Ginagawa lamang ito upang makakuha ng marka",
+              "Hindi ito bahagi ng tunay na pagsulat natin"
+            ],
+            "correct_answer": "Nagpapakita ito na kayang gamitin nang sabay-sabay ang natutuhan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌍 Friday Review — Science (Grade 3)\n\n- Basic needs: air, food, water, shelter\n- Interdependence and protecting the environment\n\nGreat review of living things! 🌟",
+        "quiz": [
+          {
+            "question": "What are the basic needs of all living things?",
+            "options": [
+              "Air, food, water, and shelter",
+              "Toys, books, and games",
+              "Money and clothes",
+              "Television and music"
+            ],
+            "correct_answer": "Air, food, water, and shelter"
+          },
+          {
+            "question": "Why do living things need air?",
+            "options": [
+              "For breathing/respiration",
+              "To grow taller only",
+              "To change color",
+              "To find shelter"
+            ],
+            "correct_answer": "For breathing/respiration"
+          },
+          {
+            "question": "Why do animals depend on plants?",
+            "options": [
+              "Plants provide food and oxygen that animals need",
+              "Plants have no connection to animals",
+              "Animals never need plants at all",
+              "Plants only provide shelter, nothing else"
+            ],
+            "correct_answer": "Plants provide food and oxygen that animals need"
+          },
+          {
+            "question": "How do living things depend on their environment?",
+            "options": [
+              "They need air, water, soil, and temperature from it",
+              "They do not depend on the environment at all",
+              "Only plants depend on the environment",
+              "Only animals depend on the environment"
+            ],
+            "correct_answer": "They need air, water, soil, and temperature from it"
+          },
+          {
+            "question": "Why is it important to protect and conserve the environment?",
+            "options": [
+              "All living things depend on it to meet their basic needs",
+              "The environment has no effect on living things",
+              "Only humans need a healthy environment",
+              "Protecting the environment is not necessary"
+            ],
+            "correct_answer": "All living things depend on it to meet their basic needs"
+          },
+          {
+            "question": "What is an example of protecting the environment?",
+            "options": [
+              "Not polluting water",
+              "Cutting down as many trees as possible",
+              "Littering in rivers",
+              "Wasting water constantly"
+            ],
+            "correct_answer": "Not polluting water"
+          },
+          {
+            "question": "Why do living things need water?",
+            "options": [
+              "To stay healthy and survive",
+              "To fly higher",
+              "To change into a different species",
+              "Water is not actually needed"
+            ],
+            "correct_answer": "To stay healthy and survive"
+          },
+          {
+            "question": "Why do living things need shelter?",
+            "options": [
+              "For safety and protection",
+              "To make loud noises",
+              "To avoid eating food",
+              "Shelter is not actually needed"
+            ],
+            "correct_answer": "For safety and protection"
+          },
+          {
+            "question": "How do animals help plants in return?",
+            "options": [
+              "By helping spread seeds",
+              "By destroying all plant life",
+              "Animals never help plants",
+              "By removing all oxygen from the air"
+            ],
+            "correct_answer": "By helping spread seeds"
+          },
+          {
+            "question": "Why do living things need food?",
+            "options": [
+              "For energy to grow and function",
+              "To change their habitat",
+              "To avoid breathing",
+              "Food is not actually needed"
+            ],
+            "correct_answer": "For energy to grow and function"
+          },
+          {
+            "question": "What might happen if the environment becomes very polluted?",
+            "options": [
+              "Living things may struggle to meet their basic needs",
+              "Living things would not be affected at all",
+              "Pollution always helps living things thrive",
+              "Nothing would change for living things"
+            ],
+            "correct_answer": "Living things may struggle to meet their basic needs"
+          },
+          {
+            "question": "Why is understanding interdependence among living things important?",
+            "options": [
+              "It helps us see how nature is connected and why we should protect it",
+              "It has no real value in understanding nature",
+              "It only matters for scientists",
+              "It replaces the need to study individual living things"
+            ],
+            "correct_answer": "It helps us see how nature is connected and why we should protect it"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🎤 Friday Review — Makabansa (Grade 3)\n\n- Pagtatanghal ng proyektong pangkultura\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang gagawin natin ngayong linggo tungkol sa proyekto?",
+            "options": [
+              "Ipapakita natin sa klase ang natapos na proyekto",
+              "Simulan ulit ang buong pagpaplano",
+              "Kalimutan na lamang ang proyekto",
+              "Huwag na ituloy ang gawain"
+            ],
+            "correct_answer": "Ipapakita natin sa klase ang natapos na proyekto"
+          },
+          {
+            "question": "Ano ang unang dapat sabihin sa pagtatanghal ng proyekto?",
+            "options": [
+              "Ang pagpapakilala kung anong aspeto ng kultura ang piniling ipakita",
+              "Ang pagtatapos ng buong presentasyong ginawa",
+              "Ang mga tanong lamang ng mga manonood",
+              "Wala, direktang ipakita na lamang agad ito"
+            ],
+            "correct_answer": "Ang pagpapakilala kung anong aspeto ng kultura ang piniling ipakita"
+          },
+          {
+            "question": "Bakit mahalaga ang pakikipagtitigan sa manonood habang nagtatanghal?",
+            "options": [
+              "Nagpapakita ito ng kumpiyansa at nakatutulong sa pakikinig",
+              "Wala itong kaugnayan sa presentasyon",
+              "Nakakalito lamang ito sa nagtatanghal",
+              "Dapat iwasan ito palagi"
+            ],
+            "correct_answer": "Nagpapakita ito ng kumpiyansa at nakatutulong sa pakikinig"
+          },
+          {
+            "question": "Ano ang dapat isama sa paliwanag ng proyekto?",
+            "options": [
+              "Kasaysayan o kahalagahan ng piniling aspeto ng kultura",
+              "Ang presyo ng mga materyales lamang",
+              "Ang pangalan ng lahat ng kamag-aral",
+              "Wala, hindi kailangan ng paliwanag"
+            ],
+            "correct_answer": "Kasaysayan o kahalagahan ng piniling aspeto ng kultura"
+          },
+          {
+            "question": "Bakit mahalagang magsalita nang malinaw habang nagtatanghal?",
+            "options": [
+              "Upang maintindihan ng manonood ang mensahe",
+              "Upang mas mabilis matapos ang presentasyon",
+              "Wala itong epekto sa pag-unawa ng manonood",
+              "Upang mahirapan ang manonood"
+            ],
+            "correct_answer": "Upang maintindihan ng manonood ang mensahe"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag may tanong ang manonood pagkatapos ng presentasyon?",
+            "options": [
+              "Sagutin ito nang may kumpiyansa",
+              "Balewalain ang tanong",
+              "Umalis nang hindi sumasagot",
+              "Magalit sa nagtatanong"
+            ],
+            "correct_answer": "Sagutin ito nang may kumpiyansa"
+          },
+          {
+            "question": "Ano ang pangkalahatang layunin ng pagtatanghal ng proyektong pangkultura?",
+            "options": [
+              "Ibahagi ang kultura sa iba",
+              "Makakuha lamang ng gantimpalang pera",
+              "Matapos lamang agad ang gawain",
+              "Walang layunin ito"
+            ],
+            "correct_answer": "Ibahagi ang kultura sa iba"
+          },
+          {
+            "question": "Ano ang dapat kasama sa aktwal na pagpapakita ng proyekto?",
+            "options": [
+              "Ang poster, palamuti, o presentasyon na ginawa",
+              "Isang random na larawang kinuha lamang sa internet",
+              "Wala, hindi na kailangang magpakita ng anuman dito",
+              "Isang blangkong papel na walang laman kahit ano"
+            ],
+            "correct_answer": "Ang poster, palamuti, o presentasyon na ginawa"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang kasanayan ang pagtatanghal sa harap ng klase?",
+            "options": [
+              "Tumutulong ito upang mapaunlad ang kumpiyansa at komunikasyon",
+              "Wala itong kaugnayan sa pag-aaral ng bata",
+              "Ginagawa lamang ito bilang isang parusa",
+              "Hindi ito totoong mahalagang kasanayan dito"
+            ],
+            "correct_answer": "Tumutulong ito upang mapaunlad ang kumpiyansa at komunikasyon"
+          },
+          {
+            "question": "Isang mag-aaral ang kinakabahan bago magtanghal ng kanyang proyekto. Ano ang makatutulong sa kanya?",
+            "options": [
+              "Pagsasanay ng malinaw na pagsasalita bago ang presentasyon",
+              "Hindi na lamang magtatanghal",
+              "Ipagawa na lamang sa iba ang presentasyon",
+              "Umiwas na lamang sa buong klase"
+            ],
+            "correct_answer": "Pagsasanay ng malinaw na pagsasalita bago ang presentasyon"
+          },
+          {
+            "question": "Bakit mahalagang balikan ang buong proseso ng paggawa ng proyekto bago ito itanghal?",
+            "options": [
+              "Upang matiyak na kumpleto at handa ang lahat ng bahagi",
+              "Upang mapabilis lamang ang oras ng presentasyon",
+              "Walang dahilan ito talaga",
+              "Upang malito ang gagawa ng presentasyon"
+            ],
+            "correct_answer": "Upang matiyak na kumpleto at handa ang lahat ng bahagi"
+          },
+          {
+            "question": "Ano ang pinakamahalagang aral ng buong yunit tungkol sa kultura ngayong term?",
+            "options": [
+              "Ang kultura ay bahagi ng ating pagkakakilanlan at dapat ipagmalaki",
+              "Ang kultura ay hindi na mahalaga sa kasalukuyan",
+              "Ang kultura ay dapat na lamang kalimutan agad",
+              "Ang kultura ay para lamang sa mga matatanda"
+            ],
+            "correct_answer": "Ang kultura ay bahagi ng ating pagkakakilanlan at dapat ipagmalaki"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🖥️ Friday Review — Computer (Grade 3)\n\n- Pagsusuri (checklist) bago ipakita ang proyekto\n\nMagaling sa Computer! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang dapat gawin bago ipakita ang proyekto sa kompyuter?",
+            "options": [
+              "Suriin ito gamit ang copy, paste, at undo",
+              "Direktang ipakita agad nang walang suri",
+              "Burahin ang buong proyekto",
+              "Isara agad ang programa"
+            ],
+            "correct_answer": "Suriin ito gamit ang copy, paste, at undo"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa wastong pag-save ng file?",
+            "options": [
+              "Na hindi mawawala ang ating gawa",
+              "Na mas mabilis matapos ang gawain",
+              "Na mas maganda ang kulay ng file",
+              "Wala itong tinitiyak"
+            ],
+            "correct_answer": "Na hindi mawawala ang ating gawa"
+          },
+          {
+            "question": "Nakita mong may maling spelling bago i-print ang proyekto. Ano ang dapat mong gawin?",
+            "options": [
+              "Itama muna ang spelling bago i-print",
+              "I-print agad kahit may mali",
+              "Burahin ang buong proyekto",
+              "Huwag na lamang ipakita ang proyekto"
+            ],
+            "correct_answer": "Itama muna ang spelling bago i-print"
+          },
+          {
+            "question": "Bakit mahalagang i-save ang file bago isara ang programa?",
+            "options": [
+              "Upang hindi mawala ang natapos na gawain",
+              "Wala itong kabuluhan",
+              "Upang mapabilis lamang ang pagsara",
+              "Upang mabura ang buong file"
+            ],
+            "correct_answer": "Upang hindi mawala ang natapos na gawain"
+          },
+          {
+            "question": "Ano ang tinitiyak ng pagsuri sa malinaw na label ng guhit?",
+            "options": [
+              "Ang pag-unawa ng manonood sa proyekto",
+              "Ang bilang ng kulay na ginamit",
+              "Ang presyo ng proyekto",
+              "Ang laki ng file lamang"
+            ],
+            "correct_answer": "Ang pag-unawa ng manonood sa proyekto"
+          },
+          {
+            "question": "Ano ang dalawang paraan ng paghahanda para sa presentasyon?",
+            "options": [
+              "I-print ito o ipakita sa screen ng kompyuter",
+              "Isara lamang ang programa",
+              "Burahin ang proyekto",
+              "Wala, hindi na kailangan ihanda"
+            ],
+            "correct_answer": "I-print ito o ipakita sa screen ng kompyuter"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang undo kapag nagkamali habang sinusuri ang proyekto?",
+            "options": [
+              "Nakatutulong ito upang itama ang mga pagkakamali",
+              "Nagpapabagal lamang ito ng gawain",
+              "Wala itong kabuluhan sa proyekto",
+              "Nagpapahirap lamang ito ng trabaho"
+            ],
+            "correct_answer": "Nakatutulong ito upang itama ang mga pagkakamali"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagsusuri bago ipakita ang proyekto?",
+            "options": [
+              "Pagsisikap at pag-iingat sa gawain",
+              "Kapabayaan sa gawain",
+              "Kawalang-interes sa proyekto",
+              "Kakulangan sa oras lamang"
+            ],
+            "correct_answer": "Pagsisikap at pag-iingat sa gawain"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang copy at paste kapag ginagawa ang mga huling ayos ng proyekto?",
+            "options": [
+              "Upang maiwasan ang pag-uulit ng pagsulat",
+              "Nagpapahirap lamang ito ng gawain",
+              "Wala itong ginagawang tulong",
+              "Ginagamit lamang ito sa paglalaro"
+            ],
+            "correct_answer": "Upang maiwasan ang pag-uulit ng pagsulat"
+          },
+          {
+            "question": "Ano ang unang hakbang bago ipakita ang natapos na proyekto sa klase?",
+            "options": [
+              "Suriin ang proyekto gamit ang checklist",
+              "Direktang magtanghal nang walang suri",
+              "Kalimutan ang buong proyekto",
+              "Isara ang kompyuter agad"
+            ],
+            "correct_answer": "Suriin ang proyekto gamit ang checklist"
+          },
+          {
+            "question": "Bakit mahalagang matutong mag-checklist bago magtapos ng isang proyekto?",
+            "options": [
+              "Tinitiyak nito na kumpleto ang lahat ng bahagi",
+              "Wala itong kabuluhan sa proyekto",
+              "Nagpapabagal lamang ito ng gawain",
+              "Ginagamit lamang ito para sa marka"
+            ],
+            "correct_answer": "Tinitiyak nito na kumpleto ang lahat ng bahagi"
+          },
+          {
+            "question": "Isang mag-aaral ang natapos na ng kanyang proyekto ngunit hindi pa na-save. Ano ang dapat niyang gawin muna?",
+            "options": [
+              "I-save ang file bago isara ang programa",
+              "Isara agad ang programa nang walang pag-save",
+              "Burahin ang buong proyekto",
+              "Huwag na lamang ipasa ang proyekto"
+            ],
+            "correct_answer": "I-save ang file bago isara ang programa"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🌳 Friday Review — GMRC (Grade 3)\n\n- Gawi ng pamilya sa pangangalaga sa kalikasan\n- Pagpapahalaga: **Compassion (Pagmamalasakit)**\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang halimbawa ng gawi ng pamilya sa pangangalaga sa kalikasan?",
+            "options": [
+              "Pag-recycle ng mga lumang bote",
+              "Pagtapon ng basura kahit saan",
+              "Pag-aaksaya ng tubig",
+              "Pagputol ng puno nang walang dahilan"
+            ],
+            "correct_answer": "Pag-recycle ng mga lumang bote"
+          },
+          {
+            "question": "Bawat linggo, nag-uuwi ang iyong pamilya ng mga lumang bote para i-recycle. Ano ang ipinapakita nito?",
+            "options": [
+              "Gawi ng pamilya sa pangangalaga sa kalikasan",
+              "Kapabayaan sa kapaligiran",
+              "Kawalang-interes sa kalikasan",
+              "Pag-aaksaya ng oras"
+            ],
+            "correct_answer": "Gawi ng pamilya sa pangangalaga sa kalikasan"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang gawi ng pamilya sa pagtuturo ng pangangalaga sa kalikasan?",
+            "options": [
+              "Ito ang unang natututuhan natin bago pa sa paaralan",
+              "Wala itong kaugnayan sa kalikasan",
+              "Hindi ito totoong mahalaga",
+              "Ginagawa lamang ito para sa iba"
+            ],
+            "correct_answer": "Ito ang unang natututuhan natin bago pa sa paaralan"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Compassion (Pagmamalasakit)",
+              "Honesty (Katapatan)",
+              "Masipag na Pag-uugali",
+              "Pakikiisa sa Pamilya"
+            ],
+            "correct_answer": "Compassion (Pagmamalasakit)"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng personal na aksyon para sa kalikasan?",
+            "options": [
+              "Pagtitipid ng tubig at kuryente",
+              "Pag-aaksaya ng tubig",
+              "Pagtapon ng basura sa ilog",
+              "Pagputol ng puno nang walang dahilan"
+            ],
+            "correct_answer": "Pagtitipid ng tubig at kuryente"
+          },
+          {
+            "question": "Bakit mahalagang sumali sa pagtatanim ng puno bilang pamilya?",
+            "options": [
+              "Nagpapakita ito ng pagmamalasakit sa kalikasan",
+              "Wala itong kabuluhan sa kalikasan",
+              "Nagpapabagal lamang ito ng oras",
+              "Ginagawa lamang ito bilang libangan"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamalasakit sa kalikasan"
+          },
+          {
+            "question": "Ano ang mangyayari kung ang mga gawi ng pamilya ay hindi maalaga sa kalikasan?",
+            "options": [
+              "Maaaring hindi rin matutunan ng bata ang pangangalaga",
+              "Awtomatikong magiging maalaga pa rin ang bata",
+              "Wala itong epekto sa bata",
+              "Mas magiging maalaga pa ang bata"
+            ],
+            "correct_answer": "Maaaring hindi rin matutunan ng bata ang pangangalaga"
+          },
+          {
+            "question": "Bakit mahalagang panatilihin ang mga gawing nagpapakalinga sa kalikasan?",
+            "options": [
+              "Upang mapanatili ito para sa susunod na henerasyon",
+              "Upang mabilis maubos ang likas na yaman",
+              "Dahil hindi na kailangan pang pangalagaan ito",
+              "Walang tunay na dahilan para dito"
+            ],
+            "correct_answer": "Upang mapanatili ito para sa susunod na henerasyon"
+          },
+          {
+            "question": "Ano ang tawag sa mga aksyong nagpapakita ng pagmamahal at pag-aalaga sa kalikasan?",
+            "options": [
+              "Compassion o pagmamalasakit",
+              "Kapabayaan",
+              "Kawalang-interes",
+              "Pagsuway"
+            ],
+            "correct_answer": "Compassion o pagmamalasakit"
+          },
+          {
+            "question": "Isang batang laging tumutulong sa paglilinis ng kanilang komunidad kasama ang pamilya. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagmamalasakit sa kalikasan",
+              "Kawalan ng pakialam sa kapaligiran",
+              "Kapabayaan sa gawain",
+              "Kasakiman sa likas na yaman"
+            ],
+            "correct_answer": "Pagmamalasakit sa kalikasan"
+          },
+          {
+            "question": "Bakit dapat ipasa ang mabubuting gawi sa kalikasan mula sa isang henerasyon patungo sa susunod?",
+            "options": [
+              "Upang patuloy na mapangalagaan ang ating kapaligiran",
+              "Dahil hindi na mahalaga ito ngayon",
+              "Upang mabilis maubos ang likas na yaman",
+              "Walang benepisyo ito sa kinabukasan"
+            ],
+            "correct_answer": "Upang patuloy na mapangalagaan ang ating kapaligiran"
+          },
+          {
+            "question": "Ano ang maaaring gawin ng isang bata upang tumulong sa pangangalaga ng kalikasan?",
+            "options": [
+              "Sumali sa paglilinis at pag-recycle",
+              "Magtapon ng basura kahit saan",
+              "Sumira ng mga puno at halaman",
+              "Mag-aksaya ng tubig araw-araw"
+            ],
+            "correct_answer": "Sumali sa paglilinis at pag-recycle"
+          }
+        ]
+      }
+    }
+  }
+}

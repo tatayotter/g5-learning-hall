@@ -1,0 +1,2016 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-10-11",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🎬 English — Viewing and Representing: Multimedia and Purpose\n\nGrade 6, Week 18! Let's analyze videos and multimedia for purpose and point of view. 🎥\n\n## 🎬 Video-Specific Multimedia Elements\nWhen analyzing multimedia, we look at:\n| Element | What to Notice |\n|---|---|\n| **Transitions** | how scenes change (fade, cut, wipe) |\n| **Captions** | text on screen supporting the message |\n| **Pacing** | how fast or slow information is delivered |\n\n## 🎯 Author's Purpose and Point of View in Multimedia\nJust like in written texts, multimedia has an **author's purpose** — to inform, persuade, or entertain — and a **point of view** (the perspective being shown).\n\n## 📢 Propaganda in Multimedia\nMultimedia can also use **propaganda techniques** (like testimonials or bandwagon) through **visuals and sound**, not just words — e.g., dramatic music to persuade emotionally, or repeated images to reinforce a message.\n\n## 🎨 Creating Multimedia\nWhen creating our own multimedia (like a video or slideshow), we should plan:\n1. **Purpose** — what do I want to achieve?\n2. **Audience** — who will watch this?\n3. **Elements** — what transitions, captions, or pacing fit my purpose?\n\n## 🧠 Worked Example 1\n*A video uses dramatic music and slow-motion shots to make a product look exciting. What is this an example of?*\n- Using **multimedia elements** (music, pacing) to support a **persuasive purpose**.\n\n## 🧠 Worked Example 2\n*A documentary shows only one side of an issue with no other viewpoints. What does this suggest?*\n- It may reflect a **biased point of view** rather than a fully balanced one.\n\n## 💡 Why This Matters\nUnderstanding multimedia purpose and point of view helps us **think critically** about what we watch.\n\nGreat multimedia analysis! 🌟",
+        "quiz": [
+          {
+            "question": "What are video-specific multimedia elements?",
+            "options": [
+              "Transitions, captions, and pacing",
+              "Only the title of the video",
+              "Only the actors' names",
+              "Only the video's length in minutes"
+            ],
+            "correct_answer": "Transitions, captions, and pacing"
+          },
+          {
+            "question": "What is an author's purpose in multimedia?",
+            "options": [
+              "To inform, persuade, or entertain the audience",
+              "The exact running time of the video",
+              "The name of the video editor",
+              "The file format of the video"
+            ],
+            "correct_answer": "To inform, persuade, or entertain the audience"
+          },
+          {
+            "question": "What is point of view in multimedia?",
+            "options": [
+              "The perspective being shown in the content",
+              "The volume level of the audio",
+              "The screen resolution used",
+              "The number of scenes in the video"
+            ],
+            "correct_answer": "The perspective being shown in the content"
+          },
+          {
+            "question": "A video uses dramatic music and slow-motion shots to make a product look exciting. What is this an example of?",
+            "options": [
+              "Using multimedia elements to support a persuasive purpose",
+              "A purely informational video with no persuasion",
+              "A random editing mistake with no purpose",
+              "A caption error in the video"
+            ],
+            "correct_answer": "Using multimedia elements to support a persuasive purpose"
+          },
+          {
+            "question": "A documentary shows only one side of an issue with no other viewpoints. What does this suggest?",
+            "options": [
+              "It may reflect a biased point of view",
+              "It is completely balanced and fair",
+              "It has no author's purpose at all",
+              "It contains no multimedia elements"
+            ],
+            "correct_answer": "It may reflect a biased point of view"
+          },
+          {
+            "question": "How can propaganda appear in multimedia?",
+            "options": [
+              "Through visuals and sound, not just words",
+              "Only through written text on paper",
+              "Propaganda cannot appear in multimedia",
+              "Only through silence with no sound"
+            ],
+            "correct_answer": "Through visuals and sound, not just words"
+          },
+          {
+            "question": "What should you consider FIRST when planning to create multimedia?",
+            "options": [
+              "Your purpose — what you want to achieve",
+              "The exact colors to use only",
+              "The length of the video only",
+              "The music to add at the very end"
+            ],
+            "correct_answer": "Your purpose — what you want to achieve"
+          },
+          {
+            "question": "Why is it important to consider your audience when creating multimedia?",
+            "options": [
+              "So the content is appropriate and effective for who will watch it",
+              "Audience does not matter when creating multimedia",
+              "Only the creator's opinion matters",
+              "Audience only matters for written texts"
+            ],
+            "correct_answer": "So the content is appropriate and effective for who will watch it"
+          },
+          {
+            "question": "What is an example of a transition in a video?",
+            "options": [
+              "A fade from one scene to another",
+              "The title of the video",
+              "The name of the actor",
+              "The video's file size"
+            ],
+            "correct_answer": "A fade from one scene to another"
+          },
+          {
+            "question": "Why do creators use repeated images or music in multimedia?",
+            "options": [
+              "To reinforce a message, sometimes persuasively",
+              "To make the video load slower on purpose",
+              "To confuse the audience intentionally",
+              "It has no real effect on the audience"
+            ],
+            "correct_answer": "To reinforce a message, sometimes persuasively"
+          },
+          {
+            "question": "Why is it important to think critically about multimedia we watch?",
+            "options": [
+              "To recognize purpose, point of view, and possible bias",
+              "Because multimedia never has any purpose",
+              "Because critical thinking is only for written texts",
+              "Because all multimedia is always completely neutral"
+            ],
+            "correct_answer": "To recognize purpose, point of view, and possible bias"
+          },
+          {
+            "question": "Which of these best describes pacing in a video?",
+            "options": [
+              "How fast or slow information is delivered",
+              "The exact color palette used",
+              "The number of actors in the scene",
+              "The location where filming happened"
+            ],
+            "correct_answer": "How fast or slow information is delivered"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🧮 Mathematics — Integrative Review: Ratio, Percent, and Exponents\n\nGrade 6, Week 18! Let's combine everything we've learned this term. 💪\n\n## 🔄 Quick Recap\n| Topic | Key Idea |\n|---|---|\n| **Ratio** | comparing two quantities (part-to-part or part-to-whole) |\n| **Percent, Fraction, Decimal** | three ways to show the same value |\n| **Exponential form** | base^exponent = repeated multiplication |\n\n## 🧠 Worked Example 1 — Combining Ratio and Percent\n*In a class of 40 students, the ratio of boys to girls is 3:5. What percent of the class are boys?*\n- Total parts = 3+5 = 8. Boys = 3/8 of the class.\n- 3 ÷ 8 = 0.375 → **37.5% are boys**\n\n## 🧠 Worked Example 2 — Combining Percent and Exponents\n*A number is 5² percent of 200. What is the value?*\n- 5² = 25, so 25% of 200 = 0.25 × 200 = **50**\n\n## 🧠 Worked Example 3 — GEMDAS with Percent and Exponents\n*Solve: 2³ + 10% of 50*\n1. Exponent: 2³ = 8\n2. Percent: 10% of 50 = 5\n3. Add: 8 + 5 = **13**\n\n## 📝 Word Problem\n*A store gives a 3² % discount on a ₱800 item. How much is the discount?*\n- 3² = 9, so 9% of 800 = 0.09 × 800 = **₱72 discount**\n\n## 💡 Why Review Matters\nCombining ratio, percent, and exponents in one problem helps us become **flexible problem-solvers**, applying the right tool at the right time.\n\nGreat integrative math work! ⭐",
+        "quiz": [
+          {
+            "question": "In a class of 40 students, the ratio of boys to girls is 3:5. What percent of the class are boys?",
+            "options": [
+              "37.5%",
+              "60%",
+              "40%",
+              "30%"
+            ],
+            "correct_answer": "37.5%"
+          },
+          {
+            "question": "What is 5² percent of 200?",
+            "options": [
+              "50",
+              "25",
+              "100",
+              "10"
+            ],
+            "correct_answer": "50"
+          },
+          {
+            "question": "Solve: 2³ + 10% of 50",
+            "options": [
+              "13",
+              "18",
+              "8",
+              "15"
+            ],
+            "correct_answer": "13"
+          },
+          {
+            "question": "A store gives a 3² % discount on a ₱800 item. How much is the discount?",
+            "options": [
+              "₱72",
+              "₱24",
+              "₱90",
+              "₱80"
+            ],
+            "correct_answer": "₱72"
+          },
+          {
+            "question": "What is the ratio 3:5 as a fraction of the whole (3 out of 8 total parts)?",
+            "options": [
+              "3/8",
+              "3/5",
+              "5/8",
+              "5/3"
+            ],
+            "correct_answer": "3/8"
+          },
+          {
+            "question": "What is 4² as a percent applied to 100 (i.e., 4²%)?",
+            "options": [
+              "16%",
+              "8%",
+              "40%",
+              "4%"
+            ],
+            "correct_answer": "16%"
+          },
+          {
+            "question": "Solve: 3² × 10%",
+            "options": [
+              "0.9",
+              "9",
+              "90",
+              "0.09"
+            ],
+            "correct_answer": "0.9"
+          },
+          {
+            "question": "What percent is equal to the fraction 1/4?",
+            "options": [
+              "25%",
+              "40%",
+              "14%",
+              "4%"
+            ],
+            "correct_answer": "25%"
+          },
+          {
+            "question": "What is the value of 2⁴?",
+            "options": [
+              "16",
+              "8",
+              "12",
+              "24"
+            ],
+            "correct_answer": "16"
+          },
+          {
+            "question": "A recipe uses a ratio of 2:3 for sugar to flour. If there are 10 cups of sugar, how many cups of flour are needed?",
+            "options": [
+              "15 cups",
+              "10 cups",
+              "12 cups",
+              "20 cups"
+            ],
+            "correct_answer": "15 cups"
+          },
+          {
+            "question": "Solve using GEMDAS: (2+3)² - 10%",
+            "options": [
+              "24.9",
+              "25",
+              "10",
+              "15"
+            ],
+            "correct_answer": "24.9"
+          },
+          {
+            "question": "Why is it useful to combine ratio, percent, and exponents in one problem?",
+            "options": [
+              "It helps us apply the right tool flexibly to solve real problems",
+              "It makes math impossible to solve",
+              "It removes the need to understand any single topic",
+              "It only works for very simple numbers"
+            ],
+            "correct_answer": "It helps us apply the right tool flexibly to solve real problems"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# ✍️ Filipino — Pagsulat ng Sanaysay Tungkol sa Suliraning Pambansa\n\nGrade 6, Linggo 18! Alamin natin kung paano sumulat ng mabisang sanaysay. 📝\n\n## 📄 Ano ang Sanaysay?\nAng **sanaysay** ay isang uri ng komposisyon na naglalahad ng **opinyon o pananaw** ng manunulat tungkol sa isang paksa, suportado ng mga katwiran at ebidensiya.\n\n## 🌏 Suliraning Pambansa o Pangglobal\nHalimbawa ng suliraning maaaring pagsulatan: **polusyon, kahirapan, climate change, bullying, edukasyon**.\n\n## 🏗️ Istruktura ng Sanaysay\n| Bahagi | Nilalaman |\n|---|---|\n| **Panimula** | ipinapakilala ang paksa at pananaw ng manunulat |\n| **Katawan** | naglalahad ng mga katwiran at ebidensiya (2-3 talata) |\n| **Konklusyon** | binubuod ang mga punto at nagbibigay ng huling pananaw |\n\n## ✍️ Mga Hakbang sa Pagsulat\n1. **Pumili ng paksa** — isang suliraning pambansa o pangglobal\n2. **Magplano** — ilista ang mga punto na gustong talakayin\n3. **Sumulat ng draft** — sundin ang istruktura (panimula, katawan, konklusyon)\n4. **Suriin at ayusin** — tingnan ang gramatika at pagkakasunod-sunod ng ideya\n\n## 🧠 Halimbawa 1\n*Anong bahagi ng sanaysay ang naglalahad ng mga katwiran at ebidensiya?*\n- Ang **katawan** ng sanaysay.\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang magplano bago sumulat ng sanaysay?*\n- Upang **maayos at malinaw** ang daloy ng mga ideya sa buong sanaysay.\n\n## 💡 Bakit Mahalaga Ito?\nAng pagsulat ng sanaysay tungkol sa suliraning pambansa ay nagpapakita ng **pagmamalasakit** sa lipunan at kakayahang **magbigay ng solusyon**.\n\nMagaling sa pagsulat! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang sanaysay?",
+            "options": [
+              "Komposisyong naglalahad ng opinyon suportado ng katwiran",
+              "Isang kuwentong-bayan na walang tunay na paksa",
+              "Isang tulang walang anumang tema o mensahe",
+              "Isang balitang walang opinyon ng manunulat"
+            ],
+            "correct_answer": "Komposisyong naglalahad ng opinyon suportado ng katwiran"
+          },
+          {
+            "question": "Alin ang halimbawa ng suliraning pambansa o pangglobal?",
+            "options": [
+              "Polusyon at climate change",
+              "Paboritong kulay ng damit",
+              "Paboritong laro sa recess",
+              "Petsa ng kaarawan"
+            ],
+            "correct_answer": "Polusyon at climate change"
+          },
+          {
+            "question": "Ano ang nilalaman ng panimula ng sanaysay?",
+            "options": [
+              "Ipinapakilala ang paksa at pananaw ng manunulat",
+              "Ang katapusan ng buong sanaysay",
+              "Isang listahan ng bibliograpiya",
+              "Ang pamagat lamang ng sanaysay"
+            ],
+            "correct_answer": "Ipinapakilala ang paksa at pananaw ng manunulat"
+          },
+          {
+            "question": "Anong bahagi ng sanaysay ang naglalahad ng mga katwiran at ebidensiya?",
+            "options": [
+              "Katawan",
+              "Panimula",
+              "Konklusyon",
+              "Pamagat"
+            ],
+            "correct_answer": "Katawan"
+          },
+          {
+            "question": "Ano ang nilalaman ng konklusyon ng sanaysay?",
+            "options": [
+              "Binubuod ang mga punto at huling pananaw",
+              "Ipinapakilala lamang ang paksa",
+              "Naglalahad lamang ng mga tanong",
+              "Walang tiyak na nilalaman"
+            ],
+            "correct_answer": "Binubuod ang mga punto at huling pananaw"
+          },
+          {
+            "question": "Ano ang unang hakbang sa pagsulat ng sanaysay?",
+            "options": [
+              "Pumili ng paksa",
+              "Sumulat agad ng konklusyon",
+              "Ipasa agad sa guro",
+              "I-publish agad ang sanaysay"
+            ],
+            "correct_answer": "Pumili ng paksa"
+          },
+          {
+            "question": "Bakit mahalagang magplano bago sumulat ng sanaysay?",
+            "options": [
+              "Upang maayos at malinaw ang daloy ng mga ideya",
+              "Upang mapahaba lamang ang sanaysay",
+              "Upang mahirapan ang mambabasa",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang maayos at malinaw ang daloy ng mga ideya"
+          },
+          {
+            "question": "Ano ang huling hakbang sa pagsulat ng sanaysay?",
+            "options": [
+              "Suriin at ayusin ang gramatika at ideya",
+              "Pumili agad ng bagong paksa",
+              "Kalimutan ang buong draft",
+              "Huwag na basahin ulit ang sanaysay"
+            ],
+            "correct_answer": "Suriin at ayusin ang gramatika at ideya"
+          },
+          {
+            "question": "Bakit mahalagang sumulat tungkol sa suliraning pambansa o pangglobal?",
+            "options": [
+              "Nagpapakita ito ng pagmamalasakit sa lipunan",
+              "Wala itong kabuluhan sa lipunan",
+              "Ginagawa lamang ito para sa marka",
+              "Hindi ito totoong mahalaga"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamalasakit sa lipunan"
+          },
+          {
+            "question": "Ilang talata karaniwang binubuo ang katawan ng sanaysay?",
+            "options": [
+              "2 hanggang 3 talata",
+              "Isang talata lamang",
+              "Sampung talata",
+              "Walang tiyak na bilang"
+            ],
+            "correct_answer": "2 hanggang 3 talata"
+          },
+          {
+            "question": "Isang mag-aaral ang gustong sumulat tungkol sa bullying sa paaralan. Alin ang unang dapat niyang gawin?",
+            "options": [
+              "Magplano at ilista ang mga puntong tatalakayin",
+              "Direktang isulat ang konklusyon",
+              "Ipasa agad kahit walang binuo",
+              "Hanapin ang ibang paksa na lamang"
+            ],
+            "correct_answer": "Magplano at ilista ang mga puntong tatalakayin"
+          },
+          {
+            "question": "Bakit mahalagang suportahan ng ebidensiya ang opinyon sa sanaysay?",
+            "options": [
+              "Upang maging mas mapaniniwalaan ang argumento",
+              "Upang mapahaba lamang ang sanaysay",
+              "Dahil hindi kailangan ang ebidensiya",
+              "Upang malito ang mambabasa"
+            ],
+            "correct_answer": "Upang maging mas mapaniniwalaan ang argumento"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🦎 Science — Vertebrates and Invertebrates\n\nGrade 6, Week 18! Let's classify animals by their backbones. 🦴\n\n## 🦴 What Is a Vertebrate?\nA **vertebrate** is an animal that has a **backbone (spine)**.\n\n**Examples:** fish, frogs, lizards, birds, dogs, humans\n\n## 🐛 What Is an Invertebrate?\nAn **invertebrate** is an animal that does **NOT** have a backbone.\n\n**Examples:** insects, worms, jellyfish, starfish, crabs, snails\n\n## 🇵🇭 Local Examples\n| Group | Local Examples |\n|---|---|\n| **Vertebrates** | isda (bangus), palaka, ibon (maya), aso, tao |\n| **Invertebrates** | alupihan, uod, alimango, kuhol, alitaptap |\n\n## 🔍 How to Tell the Difference\n- Vertebrates usually have **internal skeletons** (bones)\n- Invertebrates may have **no skeleton**, a **soft body** (like worms), or an **exoskeleton** (hard outer covering, like crabs and insects)\n\n## 🧠 Worked Example 1\n*Is a crab a vertebrate or invertebrate?*\n- **Invertebrate** — it has an exoskeleton (hard shell), not a backbone.\n\n## 🧠 Worked Example 2\n*Is a bangus (milkfish) a vertebrate or invertebrate?*\n- **Vertebrate** — fish have a backbone.\n\n## 🧠 Worked Example 3\n*Why does an insect not need an internal skeleton?*\n- Because its **exoskeleton** (hard outer shell) provides support and protection instead.\n\n## 💡 Why This Matters\nClassifying animals as vertebrates or invertebrates helps scientists **organize and study** the huge diversity of animal life.\n\nGreat classification science! 🌟",
+        "quiz": [
+          {
+            "question": "What is a vertebrate?",
+            "options": [
+              "An animal that has a backbone",
+              "An animal that has no backbone",
+              "An animal that lives only in water",
+              "An animal that has no legs"
+            ],
+            "correct_answer": "An animal that has a backbone"
+          },
+          {
+            "question": "What is an invertebrate?",
+            "options": [
+              "An animal that does NOT have a backbone",
+              "An animal that has a backbone",
+              "An animal that only lives on land",
+              "An animal that only eats plants"
+            ],
+            "correct_answer": "An animal that does NOT have a backbone"
+          },
+          {
+            "question": "Which of these is a vertebrate?",
+            "options": [
+              "Dog",
+              "Crab",
+              "Snail",
+              "Jellyfish"
+            ],
+            "correct_answer": "Dog"
+          },
+          {
+            "question": "Which of these is an invertebrate?",
+            "options": [
+              "Starfish",
+              "Bird",
+              "Fish",
+              "Frog"
+            ],
+            "correct_answer": "Starfish"
+          },
+          {
+            "question": "Is a crab a vertebrate or invertebrate?",
+            "options": [
+              "Invertebrate, because it has an exoskeleton, not a backbone",
+              "Vertebrate, because it has a backbone",
+              "Neither, because crabs are not animals",
+              "Both, because it has two types of skeletons"
+            ],
+            "correct_answer": "Invertebrate, because it has an exoskeleton, not a backbone"
+          },
+          {
+            "question": "Is a bangus (milkfish) a vertebrate or invertebrate?",
+            "options": [
+              "Vertebrate, because fish have a backbone",
+              "Invertebrate, because fish have no backbone",
+              "Neither, because fish are not classified",
+              "Both, depending on the type of fish"
+            ],
+            "correct_answer": "Vertebrate, because fish have a backbone"
+          },
+          {
+            "question": "What do most vertebrates have that supports their body?",
+            "options": [
+              "An internal skeleton",
+              "An exoskeleton only",
+              "No support structure at all",
+              "Only soft tissue"
+            ],
+            "correct_answer": "An internal skeleton"
+          },
+          {
+            "question": "What is an exoskeleton?",
+            "options": [
+              "A hard outer covering that provides support, found in some invertebrates",
+              "An internal bone structure found in vertebrates",
+              "A soft body with no support at all",
+              "A type of internal organ"
+            ],
+            "correct_answer": "A hard outer covering that provides support, found in some invertebrates"
+          },
+          {
+            "question": "Why does an insect not need an internal skeleton?",
+            "options": [
+              "Its exoskeleton provides support and protection instead",
+              "Insects do not need any support at all",
+              "Insects actually have internal skeletons too",
+              "Insects are not really animals"
+            ],
+            "correct_answer": "Its exoskeleton provides support and protection instead"
+          },
+          {
+            "question": "Which local animal is an example of an invertebrate?",
+            "options": [
+              "Alitaptap (firefly)",
+              "Palaka (frog)",
+              "Maya (bird)",
+              "Aso (dog)"
+            ],
+            "correct_answer": "Alitaptap (firefly)"
+          },
+          {
+            "question": "Which local animal is an example of a vertebrate?",
+            "options": [
+              "Palaka (frog)",
+              "Uod (worm)",
+              "Alimango (crab)",
+              "Kuhol (snail)"
+            ],
+            "correct_answer": "Palaka (frog)"
+          },
+          {
+            "question": "Why is classifying animals as vertebrates or invertebrates useful for scientists?",
+            "options": [
+              "It helps organize and study the diversity of animal life",
+              "It has no real scientific use at all",
+              "It only matters for animals in zoos",
+              "It removes the need to study animals further"
+            ],
+            "correct_answer": "It helps organize and study the diversity of animal life"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎨 Araling Panlipunan — Paggawa ng Proyekto: Timeline ng Pakikibaka\n\nGrade 6, Linggo 18! Simulan na natin ang ating culminating project. 📜\n\n## 🎯 Layunin ng Proyekto\nAyon sa Pamantayan sa Pagganap, bubuo tayo ng **proyekto na nagpapakita ng pagmamalaki** sa pagpupunyagi ng mga Pilipino tungo sa ganap na kalayaan mula sa Imperyalismong Amerikano at Hapones.\n\n## 📋 Mga Hakbang sa Paggawa ng Timeline Project\n\n| Hakbang | Gawain |\n|---|---|\n| **1. Pagpili ng anyo** | timeline poster, maikling dula, o collage |\n| **2. Pananaliksik** | balikan ang mga natutuhang pangyayari (Digmaang Pilipino-Amerikano hanggang Imperyalismong Hapones) |\n| **3. Pagbalangkas** | ayusin ang mga pangyayari nang tama ang pagkakasunod-sunod |\n| **4. Paglikha** | gumawa ng aktwal na proyekto (guhit, sulat, o dula) |\n| **5. Pagtatanghal** | ipakita ang proyekto sa klase |\n\n## 🗓️ Pagbabalangkas ng Timeline\nIsang halimbawang timeline: **Digmaang Pilipino-Amerikano → Pamamahalang Amerikano → Pilipinisasyon → Batas Jones → Komonwelt (1935) → Imperyalismong Hapones → Kabayanihan sa Digmaan**\n\n## 🧠 Halimbawa 1\n*Bakit mahalagang balikan muna ang mga natutuhang pangyayari bago gumawa ng proyekto?*\n- Upang matiyak na **tama at kumpleto** ang mga impormasyong ilalagay sa proyekto.\n\n## 🧠 Halimbawa 2\n*Bakit dapat may tamang pagkakasunod-sunod ang mga pangyayari sa timeline?*\n- Upang **maunawaan nang malinaw** ng manonood kung paano umunlad ang pakikibaka sa paglipas ng panahon.\n\n## 💡 Kongklusyon\nAng paggawa ng proyektong ito ay isang paraan upang **ipakita ang natutuhan** at magpahalaga sa sakripisyo ng ating mga bayani.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang layunin ng proyektong gagawin?",
+            "options": [
+              "Ipakita ang pagmamalaki sa pagpupunyagi ng mga Pilipino tungo sa kalayaan",
+              "Ipakita lamang ang mga larawan ng mga bayani noong araw",
+              "Kalimutan na lamang ang mga natutuhang kasaysayan",
+              "Ipakita lamang ang mapa ng buong Pilipinas"
+            ],
+            "correct_answer": "Ipakita ang pagmamalaki sa pagpupunyagi ng mga Pilipino tungo sa kalayaan"
+          },
+          {
+            "question": "Ano ang tatlong maaaring anyo ng proyekto?",
+            "options": [
+              "Timeline poster, maikling dula, o collage",
+              "Isang liham sa pangulo lamang",
+              "Isang awiting pambata lamang",
+              "Isang guhit ng hayop lamang"
+            ],
+            "correct_answer": "Timeline poster, maikling dula, o collage"
+          },
+          {
+            "question": "Ano ang unang hakbang sa paggawa ng proyekto?",
+            "options": [
+              "Pagpili ng anyo ng proyekto",
+              "Direktang pagtatanghal",
+              "Paglikha nang walang plano",
+              "Pagsulat ng konklusyon agad"
+            ],
+            "correct_answer": "Pagpili ng anyo ng proyekto"
+          },
+          {
+            "question": "Bakit mahalagang balikan muna ang mga natutuhang pangyayari bago gumawa ng proyekto?",
+            "options": [
+              "Upang matiyak na tama at kumpleto ang impormasyon",
+              "Upang mapahaba lamang ang proseso",
+              "Walang dahilan ito talaga",
+              "Upang malito ang gagawa ng proyekto"
+            ],
+            "correct_answer": "Upang matiyak na tama at kumpleto ang impormasyon"
+          },
+          {
+            "question": "Anong pangyayari ang unang bahagi ng halimbawang timeline?",
+            "options": [
+              "Digmaang Pilipino-Amerikano",
+              "Imperyalismong Hapones",
+              "Komonwelt (1935)",
+              "Kabayanihan sa Digmaan"
+            ],
+            "correct_answer": "Digmaang Pilipino-Amerikano"
+          },
+          {
+            "question": "Anong pangyayari ang huling bahagi ng halimbawang timeline?",
+            "options": [
+              "Kabayanihan sa Digmaan",
+              "Digmaang Pilipino-Amerikano",
+              "Pilipinisasyon",
+              "Batas Jones"
+            ],
+            "correct_answer": "Kabayanihan sa Digmaan"
+          },
+          {
+            "question": "Bakit dapat may tamang pagkakasunod-sunod ang mga pangyayari sa timeline?",
+            "options": [
+              "Upang maunawaan nang malinaw kung paano umunlad ang pakikibaka",
+              "Upang mas mahaba lamang ang buong proyekto",
+              "Walang anumang epekto ang pagkakasunod-sunod",
+              "Upang mas mahirap unawain ng mga manonood"
+            ],
+            "correct_answer": "Upang maunawaan nang malinaw kung paano umunlad ang pakikibaka"
+          },
+          {
+            "question": "Ano ang gagawin sa hakbang na \"Pagbalangkas\"?",
+            "options": [
+              "Ayusin ang mga pangyayari nang tama ang pagkakasunod-sunod",
+              "Direktang ipakita agad ang proyekto sa klase",
+              "Kalimutan na lamang ang lahat ng detalye",
+              "Bumili lamang ng mga kagamitang gagamitin"
+            ],
+            "correct_answer": "Ayusin ang mga pangyayari nang tama ang pagkakasunod-sunod"
+          },
+          {
+            "question": "Ano ang huling hakbang sa paggawa ng proyekto?",
+            "options": [
+              "Pagtatanghal ng proyekto sa klase",
+              "Pagpili ng anyo ng proyekto",
+              "Pananaliksik tungkol sa paksa",
+              "Pagbalangkas ng mga pangyayari"
+            ],
+            "correct_answer": "Pagtatanghal ng proyekto sa klase"
+          },
+          {
+            "question": "Bakit mahalagang ipakita ang proyekto sa klase?",
+            "options": [
+              "Upang maibahagi ang natutuhan at magbigay-halaga sa mga bayani",
+              "Upang makakuha lamang ng gantimpalang pera",
+              "Wala itong anumang kabuluhan sa pag-aaral",
+              "Upang matapos lamang agad ang buong gawain"
+            ],
+            "correct_answer": "Upang maibahagi ang natutuhan at magbigay-halaga sa mga bayani"
+          },
+          {
+            "question": "Anong grupo ang bahagi ng \"kabayanihan sa panahon ng digmaan\" na maaaring isama sa timeline?",
+            "options": [
+              "HUKBALAHAP",
+              "Katipunan",
+              "Magdalo",
+              "Magdiwang"
+            ],
+            "correct_answer": "HUKBALAHAP"
+          },
+          {
+            "question": "Ano ang pangkalahatang mensahe ng proyektong ito tungkol sa kasaysayan ng Pilipinas?",
+            "options": [
+              "Ang kalayaan ay bunga ng matagal at magkakasunod na pakikibaka",
+              "Ang kalayaan ay ibinigay lamang kaagad",
+              "Walang naging sakripisyo ang mga Pilipino",
+              "Ang kasaysayan ng Pilipinas ay walang kahalagahan"
+            ],
+            "correct_answer": "Ang kalayaan ay bunga ng matagal at magkakasunod na pakikibaka"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🏐 MAPEH — Striking/Fielding at Net/Wall Games\n\nGrade 6, Linggo 18! Alamin natin ang mga larong pisikal para sa pamilya. 🏸\n\n## 🏐 Striking/Fielding Games\nAng **striking/fielding games** ay mga larong may **pananalo o pagtamo ng puntos** sa pamamagitan ng pagpalo/pagtapon ng bola at pagtakbo (hal. baseball, softball, patintero na may pagtapon).\n\n## 🏸 Net/Wall Games\nAng **net/wall games** ay mga larong may **hadlang** sa pagitan ng magkalaban (net o pader), tulad ng badminton, volleyball, o tennis.\n\n## 💪 Kasanayan at Konsepto na Ginagamit\n| Kasanayan | Paliwanag |\n|---|---|\n| **Agility** | kakayahang mabilis kumilos at magpalit ng direksyon |\n| **Balance** | kakayahang manatiling matatag habang gumagalaw |\n| **Coordination** | pagsasabay ng iba't ibang bahagi ng katawan sa isang kilos |\n\n## 👨‍👩‍👧‍👦 Modipikadong Larong para sa Pamilya\nAng mga larong ito ay maaaring **i-modify** upang angkop para sa buong pamilya, tumutulong sa **kalusugan at pagbubuklod-buklod**.\n\n## 🧠 Halimbawa 1\n*Ano ang pagkakaiba ng striking/fielding games sa net/wall games?*\n- Ang striking/fielding ay may **pagpalo at pagtakbo**, habang ang net/wall games ay may **hadlang** sa pagitan ng magkalaban.\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang i-modify ang mga larong ito para sa pamilya?*\n- Upang **magamit ng lahat ng edad** at maitaguyod ang kalusugan ng buong pamilya.\n\n## 💡 Kahalagahan\nAng paglahok sa mga larong ito ay nagpapabuti ng **pisikal na kalusugan** habang **nagpapatibay ng ugnayan** ng pamilya.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang striking/fielding games?",
+            "options": [
+              "Mga larong may pagpalo/pagtapon ng bola at pagtakbo",
+              "Mga larong may hadlang na net lamang",
+              "Mga larong walang anumang bola",
+              "Mga larong ginagawa habang nakaupo"
+            ],
+            "correct_answer": "Mga larong may pagpalo/pagtapon ng bola at pagtakbo"
+          },
+          {
+            "question": "Ano ang net/wall games?",
+            "options": [
+              "Mga larong may hadlang sa pagitan ng magkalaban",
+              "Mga larong walang panuntunan",
+              "Mga larong walang kalaban",
+              "Mga larong ginagawa lamang sa tubig"
+            ],
+            "correct_answer": "Mga larong may hadlang sa pagitan ng magkalaban"
+          },
+          {
+            "question": "Alin ang halimbawa ng net/wall game?",
+            "options": [
+              "Badminton",
+              "Baseball",
+              "Softball",
+              "Patintero"
+            ],
+            "correct_answer": "Badminton"
+          },
+          {
+            "question": "Ano ang agility?",
+            "options": [
+              "Kakayahang mabilis kumilos at magpalit ng direksyon",
+              "Kakayahang manatiling tahimik",
+              "Kakayahang kumain nang mabilis",
+              "Kakayahang matulog nang mahimbing"
+            ],
+            "correct_answer": "Kakayahang mabilis kumilos at magpalit ng direksyon"
+          },
+          {
+            "question": "Ano ang balance?",
+            "options": [
+              "Kakayahang manatiling matatag habang gumagalaw",
+              "Kakayahang tumakbo nang napakabilis",
+              "Kakayahang magbilang nang mabilis",
+              "Kakayahang kumanta nang malakas"
+            ],
+            "correct_answer": "Kakayahang manatiling matatag habang gumagalaw"
+          },
+          {
+            "question": "Ano ang coordination?",
+            "options": [
+              "Pagsasabay ng iba't ibang bahagi ng katawan sa isang kilos",
+              "Kakayahang manatiling nakaupo nang tahimik lamang",
+              "Kakayahang magbasa nang napakabilis lamang",
+              "Kakayahang manood ng TV nang napakatagal"
+            ],
+            "correct_answer": "Pagsasabay ng iba't ibang bahagi ng katawan sa isang kilos"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng striking/fielding games sa net/wall games?",
+            "options": [
+              "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang",
+              "Pareho silang walang bola",
+              "Pareho silang ginagawa lamang habang nakaupo",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang"
+          },
+          {
+            "question": "Bakit mahalagang i-modify ang mga larong ito para sa pamilya?",
+            "options": [
+              "Upang magamit ng lahat ng edad at maitaguyod ang kalusugan",
+              "Upang mas mahirap laruin ng bawat isa",
+              "Walang dahilan para dito",
+              "Upang bawal na ang mga bata sa laro"
+            ],
+            "correct_answer": "Upang magamit ng lahat ng edad at maitaguyod ang kalusugan"
+          },
+          {
+            "question": "Ano ang idinudulot ng paglahok sa mga larong ito para sa pamilya?",
+            "options": [
+              "Pisikal na kalusugan at mas matibay na ugnayan",
+              "Kawalan ng oras para sa isa't isa",
+              "Pagtaas lamang ng gastusin",
+              "Walang epekto sa kalusugan"
+            ],
+            "correct_answer": "Pisikal na kalusugan at mas matibay na ugnayan"
+          },
+          {
+            "question": "Alin ang halimbawa ng striking/fielding na larong Pilipino?",
+            "options": [
+              "Patintero na may pagtapon",
+              "Badminton sa bakuran",
+              "Volleyball sa parke",
+              "Tennis sa korte"
+            ],
+            "correct_answer": "Patintero na may pagtapon"
+          },
+          {
+            "question": "Bakit kailangan ang coordination sa mga larong ito?",
+            "options": [
+              "Upang tama ang pagsasabay ng kilos ng katawan sa laro",
+              "Upang manatili lamang nakaupo sa gilid",
+              "Upang hindi na kailangang kumilos pa",
+              "Walang kaugnayan ang coordination sa laro"
+            ],
+            "correct_answer": "Upang tama ang pagsasabay ng kilos ng katawan sa laro"
+          },
+          {
+            "question": "Ano ang pinakalayunin ng pagsasagawa ng mga larong ito bilang pamilya?",
+            "options": [
+              "Pagtataguyod ng kalusugan ng buong pamilya",
+              "Pagbibigay ng gantimpalang pera",
+              "Pagpapababa ng grado sa paaralan",
+              "Pagpapahirap sa gawaing-bahay"
+            ],
+            "correct_answer": "Pagtataguyod ng kalusugan ng buong pamilya"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 GMRC — Sama-samang Pagsamba ng Pamilya\n\nGrade 6, Linggo 18! Pagpapahalaga: **Pakikiisa**. 🌟\n\n## ⛪ Sama-samang Pagsamba ng Pamilya\nAng **sama-samang pagsamba** — tulad ng pagsimba, panalanging pampamilya, o pagbabasa ng Banal na Aklat — ay **nagpapatibay** ng ugnayan ng pamilya.\n\n## 🤝 Ano ang Pakikiisa?\nAng **pakikiisa** ay ang pagiging **kaisa** ng bawat kasapi ng pamilya sa mga gawain, kabilang ang panrelihiyoso.\n\n## 💛 Bunga ng Sama-samang Pagsamba\n- Nagpapatibay ng **tiwala** sa isa't isa\n- Nagpapalakas ng **buhay-panalangin** bilang pamilya\n- Nagbibigay ng **pagkakataong magkasama**\n\n## 🧠 Halimbawa 1\n*Bakit mahalaga ang sama-samang pagsamba ng pamilya?*\n- Nagpapatibay ito ng **tiwala at buhay-panalangin** bilang pamilya.\n\n## 🧠 Halimbawa 2\n*Tuwing Linggo, sabay-sabay sumasamba ang isang pamilya. Ano ang ipinapakita nito?*\n- **Pakikiisa** — nagpapakita ito na sama-sama silang lumalapit sa Diyos.\n\n## 🧠 Halimbawa 3\n*Ayaw sumama ng isang kapatid sa gawaing panrelihiyoso ng pamilya. Ano ang dapat gawin ng ibang kasapi?*\n- **Yayain siya nang magalang** at ipaliwanag ang kahalagahan ng pakikiisa, nang hindi pinipilit.\n\n## 💡 Kongklusyon\nAng pakikiisa sa gawaing panrelihiyoso ng pamilya ay nagpapatibay ng **samahan at pananampalataya**.\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang sama-samang pagsamba ng pamilya?",
+            "options": [
+              "Pagsimba o panalanging ginagawa nang sama-sama bilang pamilya",
+              "Pagsamba na isa-isa lamang sa bawat kasapi",
+              "Pananahimik na lamang sa buong araw",
+              "Pag-aaral ng ibang relihiyon sa paaralan"
+            ],
+            "correct_answer": "Pagsimba o panalanging ginagawa nang sama-sama bilang pamilya"
+          },
+          {
+            "question": "Ano ang pakikiisa?",
+            "options": [
+              "Pagiging kaisa ng bawat kasapi sa mga gawain ng pamilya",
+              "Pag-iwas sa lahat ng gawain ng pamilya",
+              "Pagsuway sa mga kasapi ng pamilya",
+              "Pananahimik palagi sa bahay"
+            ],
+            "correct_answer": "Pagiging kaisa ng bawat kasapi sa mga gawain ng pamilya"
+          },
+          {
+            "question": "Bakit mahalaga ang sama-samang pagsamba ng pamilya?",
+            "options": [
+              "Nagpapatibay ito ng tiwala at buhay-panalangin bilang pamilya",
+              "Wala itong kabuluhan sa pamilya",
+              "Nagpapahirap lamang ito ng oras ng bawat isa",
+              "Ginagawa lamang ito bilang tradisyon na walang saysay"
+            ],
+            "correct_answer": "Nagpapatibay ito ng tiwala at buhay-panalangin bilang pamilya"
+          },
+          {
+            "question": "Tuwing Linggo, sabay-sabay sumasamba ang isang pamilya. Ano ang ipinapakita nito?",
+            "options": [
+              "Pakikiisa",
+              "Kawalang-interes",
+              "Pagsuway",
+              "Kapabayaan"
+            ],
+            "correct_answer": "Pakikiisa"
+          },
+          {
+            "question": "Ayaw sumama ng isang kapatid sa gawaing panrelihiyoso ng pamilya. Ano ang dapat gawin ng ibang kasapi?",
+            "options": [
+              "Yayain siya nang magalang, nang hindi pinipilit",
+              "Pilitin siya nang husto",
+              "Iwanan na lamang siya magpakailanman",
+              "Galitan siya nang malakas"
+            ],
+            "correct_answer": "Yayain siya nang magalang, nang hindi pinipilit"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Pakikiisa",
+              "Masipag",
+              "Mapagpasensiya",
+              "Mapagkawang-gawa"
+            ],
+            "correct_answer": "Pakikiisa"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng sama-samang gawaing panrelihiyoso?",
+            "options": [
+              "Panalanging pampamilya sa gabi",
+              "Panonood ng TV nang mag-isa",
+              "Paglalaro ng video game nang mag-isa",
+              "Pagbabasa ng aklat nang mag-isa"
+            ],
+            "correct_answer": "Panalanging pampamilya sa gabi"
+          },
+          {
+            "question": "Ano ang idinudulot ng pakikiisa sa gawaing panrelihiyoso ng pamilya?",
+            "options": [
+              "Samahan at malalim na pananampalataya",
+              "Pagkawatak-watak ng pamilya",
+              "Kawalan ng tiwala sa isa't isa",
+              "Kalungkutan ng bawat kasapi"
+            ],
+            "correct_answer": "Samahan at malalim na pananampalataya"
+          },
+          {
+            "question": "Bakit hindi dapat pilitin ang isang kasapi ng pamilya na sumali sa panalangin?",
+            "options": [
+              "Mas mabuting yayain nang magalang para tunay na sumali sila",
+              "Dahil hindi mahalaga ang panalangin",
+              "Dahil bawal talaga ang panalangin sa bahay",
+              "Dahil hindi dapat sumamba ang pamilya"
+            ],
+            "correct_answer": "Mas mabuting yayain nang magalang para tunay na sumali sila"
+          },
+          {
+            "question": "Ano ang isa pang paraan ng pagpapakita ng pakikiisa bukod sa pagsamba?",
+            "options": [
+              "Pakikilahok sa iba pang gawain ng pamilya",
+              "Pag-iwas sa lahat ng bagay na ginagawa nila",
+              "Pananahimik palagi at hindi kumikibo",
+              "Pagtatago sa sariling kwarto palagi"
+            ],
+            "correct_answer": "Pakikilahok sa iba pang gawain ng pamilya"
+          },
+          {
+            "question": "Bakit mahalagang magkasamang magbasa ng Banal na Aklat bilang pamilya?",
+            "options": [
+              "Nagpapatibay ito ng ugnayan at buhay-panalangin",
+              "Nagpapahirap lamang ito ng gawain",
+              "Wala itong anumang kabuluhan",
+              "Ginagawa lamang ito minsan sa isang taon"
+            ],
+            "correct_answer": "Nagpapatibay ito ng ugnayan at buhay-panalangin"
+          },
+          {
+            "question": "Isang pamilya ang laging magkasamang sumasamba tuwing Linggo. Ano ang ipinapakita nitong halaga?",
+            "options": [
+              "Pakikiisa sa pananampalataya bilang pamilya",
+              "Kawalang-interes sa isa't isa",
+              "Pagsuway sa relihiyon",
+              "Kapabayaan sa gawain ng bahay"
+            ],
+            "correct_answer": "Pakikiisa sa pananampalataya bilang pamilya"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP (AFA/FCS/IA) — Pagsasagawa ng Natural na Pag-aalaga ng Isda\n\nGrade 6, Linggo 18! Alamin natin ang mga hakbang sa pagsasagawa ng fish raising. 🐠\n\n## 🛠️ Paghahanda ng Kagamitan\nBago magsimula, ihanda ang: **tangke o palaisdaan, lambat, timbangan, at kagamitan sa pagsukat ng kalidad ng tubig**.\n\n## 🐟 Pagstock ng Isda\nIsaalang-alang ang **wastong densidad** — huwag masyadong marami ang isda sa maliit na espasyo.\n\n## 🍽️ Pagpapakain\nMagbigay ng **sapat at wastong** dami ng pagkain sa isda, ayon sa kanilang laki at uri.\n\n## 💧 Pamamahala ng Tubig at Aeration\n- **Regular na pagpapalit ng tubig** upang manatiling malinis\n- **Aeration** (paglagay ng hangin sa tubig) upang may sapat na oxygen ang isda\n\n## 📈 Pagmomonitor ng Paglago\nRegular na **suriin ang laki at kalusugan** ng mga isda upang matiyak ang maayos na paglago.\n\n## 🎣 Pag-aani (Harvesting)\nKapag handa na, **anihin** ang mga isda gamit ang tamang kagamitan at pamamaraan.\n\n## 💰 Pagbebenta ng Isda\nIbenta ang mga isda **online o offline, wholesale o retail**, at itala ang **kita at gastos**.\n\n## 🧠 Halimbawa 1\n*Bakit mahalaga ang aeration sa palaisdaan?*\n- Upang magkaroon ng **sapat na oxygen** ang mga isda sa tubig.\n\n## 🧠 Halimbawa 2\n*Ano ang dapat itala pagkatapos ibenta ang mga isda?*\n- Ang **kita at gastos** para malaman kung kumikita ang negosyo.\n\n## 💡 Bakit Mahalaga Ito?\nAng pagsunod sa tamang hakbang sa pag-aalaga ng isda ay nagbibigay ng **magandang ani at kita**.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang dapat ihanda bago magsimula ng fish raising?",
+            "options": [
+              "Tangke o palaisdaan, lambat, at kagamitan sa pagsukat",
+              "Papel at lapis na lamang para sa tala",
+              "Sasakyan na gagamitin sa paglalakbay",
+              "Damit na gagamitin sa isang parada"
+            ],
+            "correct_answer": "Tangke o palaisdaan, lambat, at kagamitan sa pagsukat"
+          },
+          {
+            "question": "Ano ang dapat isaalang-alang sa pagstock ng isda?",
+            "options": [
+              "Wastong densidad ng isda",
+              "Kulay ng tangke lamang",
+              "Presyo ng tangke lamang",
+              "Laki ng bahay ng may-ari"
+            ],
+            "correct_answer": "Wastong densidad ng isda"
+          },
+          {
+            "question": "Ano ang aeration?",
+            "options": [
+              "Paglagay ng hangin sa tubig upang magkaroon ng sapat na oxygen",
+              "Paglilinis lamang ng buong tangke ng isda",
+              "Pagbibigay lamang ng pagkain araw-araw",
+              "Pagsukat lamang ng laki ng tangke"
+            ],
+            "correct_answer": "Paglagay ng hangin sa tubig upang magkaroon ng sapat na oxygen"
+          },
+          {
+            "question": "Bakit mahalaga ang regular na pagpapalit ng tubig?",
+            "options": [
+              "Upang manatiling malinis ang tubig para sa isda",
+              "Upang mapabilis ang paglaki ng isda kaagad",
+              "Upang mapababa ang gastos sa pagkain",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang manatiling malinis ang tubig para sa isda"
+          },
+          {
+            "question": "Ano ang dapat gawin sa pagmomonitor ng paglago ng isda?",
+            "options": [
+              "Suriin ang laki at kalusugan ng mga isda",
+              "Sukatin lamang ang laki ng buong tangke",
+              "Bilangin lamang ang mga bato na nasa loob",
+              "Suriin lamang ang kulay ng tubig araw-araw"
+            ],
+            "correct_answer": "Suriin ang laki at kalusugan ng mga isda"
+          },
+          {
+            "question": "Ano ang harvesting sa pag-aalaga ng isda?",
+            "options": [
+              "Ang pag-aani ng mga isda gamit ang tamang kagamitan",
+              "Ang pagtatanim ng bagong isda sa tangke",
+              "Ang paglilinis ng buong tangke ng isda",
+              "Ang pagpapalit ng tubig sa palaisdaan"
+            ],
+            "correct_answer": "Ang pag-aani ng mga isda gamit ang tamang kagamitan"
+          },
+          {
+            "question": "Paano maaaring ibenta ang mga naaning isda?",
+            "options": [
+              "Online o offline, wholesale o retail",
+              "Sa paaralan lamang",
+              "Sa ibang bansa lamang",
+              "Hindi maaaring ibenta ang isda"
+            ],
+            "correct_answer": "Online o offline, wholesale o retail"
+          },
+          {
+            "question": "Ano ang dapat itala pagkatapos ibenta ang mga isda?",
+            "options": [
+              "Ang kita at gastos",
+              "Ang bilang ng bisita sa palengke",
+              "Ang oras ng paggising",
+              "Ang pangalan ng bumili lamang"
+            ],
+            "correct_answer": "Ang kita at gastos"
+          },
+          {
+            "question": "Bakit mahalagang magbigay ng sapat na pagkain ayon sa laki at uri ng isda?",
+            "options": [
+              "Upang tumaas ang panganib sa sakit ng isda",
+              "Upang lumaki nang tama at malusog ang isda",
+              "Upang mabilis maubos ang tubig",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang lumaki nang tama at malusog ang isda"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi sapat ang aeration sa tangke?",
+            "options": [
+              "Maaaring mahirapan huminga ang mga isda",
+              "Mas lalago ang isda nang mabilis",
+              "Wala itong epekto sa isda",
+              "Mas malinis ang tubig"
+            ],
+            "correct_answer": "Maaaring mahirapan huminga ang mga isda"
+          },
+          {
+            "question": "Bakit mahalagang itala ang kita at gastos sa negosyo ng pag-aalaga ng isda?",
+            "options": [
+              "Upang malaman kung kumikita ang negosyo",
+              "Upang mapabilis ang paglaki ng isda",
+              "Upang mapaganda lamang ang tangke",
+              "Walang kabuluhan ang pagtatala"
+            ],
+            "correct_answer": "Upang malaman kung kumikita ang negosyo"
+          },
+          {
+            "question": "Ano ang kailangang gamitin sa pag-aani ng isda?",
+            "options": [
+              "Tamang kagamitan at pamamaraan",
+              "Kahit anong bagay na madaling makuha",
+              "Walang kagamitang kailangan",
+              "Kamay lamang nang walang kagamitan"
+            ],
+            "correct_answer": "Tamang kagamitan at pamamaraan"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🎬 Friday Review — English (Grade 6)\n\n- **Transitions, captions, pacing** — video multimedia elements\n- Author's purpose & point of view apply to multimedia too\n- Propaganda can appear through visuals/sound\n\nGreat multimedia analysis! 🌟",
+        "quiz": [
+          {
+            "question": "What are video-specific multimedia elements?",
+            "options": [
+              "Transitions, captions, and pacing",
+              "Only the title of the video",
+              "Only the actors' names",
+              "Only the video's length in minutes"
+            ],
+            "correct_answer": "Transitions, captions, and pacing"
+          },
+          {
+            "question": "What is an author's purpose in multimedia?",
+            "options": [
+              "To inform, persuade, or entertain the audience",
+              "The exact running time of the video",
+              "The name of the video editor",
+              "The file format of the video"
+            ],
+            "correct_answer": "To inform, persuade, or entertain the audience"
+          },
+          {
+            "question": "What is point of view in multimedia?",
+            "options": [
+              "The perspective being shown in the content",
+              "The volume level of the audio",
+              "The screen resolution used",
+              "The number of scenes in the video"
+            ],
+            "correct_answer": "The perspective being shown in the content"
+          },
+          {
+            "question": "A video uses dramatic music and slow-motion shots to make a product look exciting. What is this an example of?",
+            "options": [
+              "Using multimedia elements to support a persuasive purpose",
+              "A purely informational video with no persuasion",
+              "A random editing mistake with no purpose",
+              "A caption error in the video"
+            ],
+            "correct_answer": "Using multimedia elements to support a persuasive purpose"
+          },
+          {
+            "question": "A documentary shows only one side of an issue with no other viewpoints. What does this suggest?",
+            "options": [
+              "It may reflect a biased point of view",
+              "It is completely balanced and fair",
+              "It has no author's purpose at all",
+              "It contains no multimedia elements"
+            ],
+            "correct_answer": "It may reflect a biased point of view"
+          },
+          {
+            "question": "How can propaganda appear in multimedia?",
+            "options": [
+              "Through visuals and sound, not just words",
+              "Only through written text on paper",
+              "Propaganda cannot appear in multimedia",
+              "Only through silence with no sound"
+            ],
+            "correct_answer": "Through visuals and sound, not just words"
+          },
+          {
+            "question": "What should you consider FIRST when planning to create multimedia?",
+            "options": [
+              "Your purpose — what you want to achieve",
+              "The exact colors to use only",
+              "The length of the video only",
+              "The music to add at the very end"
+            ],
+            "correct_answer": "Your purpose — what you want to achieve"
+          },
+          {
+            "question": "Why is it important to consider your audience when creating multimedia?",
+            "options": [
+              "So the content is appropriate and effective for who will watch it",
+              "Audience does not matter when creating multimedia",
+              "Only the creator's opinion matters",
+              "Audience only matters for written texts"
+            ],
+            "correct_answer": "So the content is appropriate and effective for who will watch it"
+          },
+          {
+            "question": "What is an example of a transition in a video?",
+            "options": [
+              "A fade from one scene to another",
+              "The title of the video",
+              "The name of the actor",
+              "The video's file size"
+            ],
+            "correct_answer": "A fade from one scene to another"
+          },
+          {
+            "question": "Why do creators use repeated images or music in multimedia?",
+            "options": [
+              "To reinforce a message, sometimes persuasively",
+              "To make the video load slower on purpose",
+              "To confuse the audience intentionally",
+              "It has no real effect on the audience"
+            ],
+            "correct_answer": "To reinforce a message, sometimes persuasively"
+          },
+          {
+            "question": "Why is it important to think critically about multimedia we watch?",
+            "options": [
+              "To recognize purpose, point of view, and possible bias",
+              "Because multimedia never has any purpose",
+              "Because critical thinking is only for written texts",
+              "Because all multimedia is always completely neutral"
+            ],
+            "correct_answer": "To recognize purpose, point of view, and possible bias"
+          },
+          {
+            "question": "Which of these best describes pacing in a video?",
+            "options": [
+              "How fast or slow information is delivered",
+              "The exact color palette used",
+              "The number of actors in the scene",
+              "The location where filming happened"
+            ],
+            "correct_answer": "How fast or slow information is delivered"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🧮 Friday Review — Mathematics (Grade 6)\n\n- Combine **ratio, percent, and exponents** in one problem\n- Apply GEMDAS across mixed operations\n\nGreat integrative math work! ⭐",
+        "quiz": [
+          {
+            "question": "In a class of 40 students, the ratio of boys to girls is 3:5. What percent of the class are boys?",
+            "options": [
+              "37.5%",
+              "60%",
+              "40%",
+              "30%"
+            ],
+            "correct_answer": "37.5%"
+          },
+          {
+            "question": "What is 5² percent of 200?",
+            "options": [
+              "50",
+              "25",
+              "100",
+              "10"
+            ],
+            "correct_answer": "50"
+          },
+          {
+            "question": "Solve: 2³ + 10% of 50",
+            "options": [
+              "13",
+              "18",
+              "8",
+              "15"
+            ],
+            "correct_answer": "13"
+          },
+          {
+            "question": "A store gives a 3² % discount on a ₱800 item. How much is the discount?",
+            "options": [
+              "₱72",
+              "₱24",
+              "₱90",
+              "₱80"
+            ],
+            "correct_answer": "₱72"
+          },
+          {
+            "question": "What is the ratio 3:5 as a fraction of the whole (3 out of 8 total parts)?",
+            "options": [
+              "3/8",
+              "3/5",
+              "5/8",
+              "5/3"
+            ],
+            "correct_answer": "3/8"
+          },
+          {
+            "question": "What is 4² as a percent applied to 100 (i.e., 4²%)?",
+            "options": [
+              "16%",
+              "8%",
+              "40%",
+              "4%"
+            ],
+            "correct_answer": "16%"
+          },
+          {
+            "question": "Solve: 3² × 10%",
+            "options": [
+              "0.9",
+              "9",
+              "90",
+              "0.09"
+            ],
+            "correct_answer": "0.9"
+          },
+          {
+            "question": "What percent is equal to the fraction 1/4?",
+            "options": [
+              "25%",
+              "40%",
+              "14%",
+              "4%"
+            ],
+            "correct_answer": "25%"
+          },
+          {
+            "question": "What is the value of 2⁴?",
+            "options": [
+              "16",
+              "8",
+              "12",
+              "24"
+            ],
+            "correct_answer": "16"
+          },
+          {
+            "question": "A recipe uses a ratio of 2:3 for sugar to flour. If there are 10 cups of sugar, how many cups of flour are needed?",
+            "options": [
+              "15 cups",
+              "10 cups",
+              "12 cups",
+              "20 cups"
+            ],
+            "correct_answer": "15 cups"
+          },
+          {
+            "question": "Solve using GEMDAS: (2+3)² - 10%",
+            "options": [
+              "24.9",
+              "25",
+              "10",
+              "15"
+            ],
+            "correct_answer": "24.9"
+          },
+          {
+            "question": "Why is it useful to combine ratio, percent, and exponents in one problem?",
+            "options": [
+              "It helps us apply the right tool flexibly to solve real problems",
+              "It makes math impossible to solve",
+              "It removes the need to understand any single topic",
+              "It only works for very simple numbers"
+            ],
+            "correct_answer": "It helps us apply the right tool flexibly to solve real problems"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# ✍️ Friday Review — Filipino (Grade 6)\n\n- **Panimula, katawan, konklusyon** — istruktura ng sanaysay\n- Sumulat tungkol sa suliraning pambansa/pangglobal\n\nMagaling sa pagsulat! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang sanaysay?",
+            "options": [
+              "Komposisyong naglalahad ng opinyon suportado ng katwiran",
+              "Isang kuwentong-bayan na walang tunay na paksa",
+              "Isang tulang walang anumang tema o mensahe",
+              "Isang balitang walang opinyon ng manunulat"
+            ],
+            "correct_answer": "Komposisyong naglalahad ng opinyon suportado ng katwiran"
+          },
+          {
+            "question": "Alin ang halimbawa ng suliraning pambansa o pangglobal?",
+            "options": [
+              "Polusyon at climate change",
+              "Paboritong kulay ng damit",
+              "Paboritong laro sa recess",
+              "Petsa ng kaarawan"
+            ],
+            "correct_answer": "Polusyon at climate change"
+          },
+          {
+            "question": "Ano ang nilalaman ng panimula ng sanaysay?",
+            "options": [
+              "Ipinapakilala ang paksa at pananaw ng manunulat",
+              "Ang katapusan ng buong sanaysay",
+              "Isang listahan ng bibliograpiya",
+              "Ang pamagat lamang ng sanaysay"
+            ],
+            "correct_answer": "Ipinapakilala ang paksa at pananaw ng manunulat"
+          },
+          {
+            "question": "Anong bahagi ng sanaysay ang naglalahad ng mga katwiran at ebidensiya?",
+            "options": [
+              "Katawan",
+              "Panimula",
+              "Konklusyon",
+              "Pamagat"
+            ],
+            "correct_answer": "Katawan"
+          },
+          {
+            "question": "Ano ang nilalaman ng konklusyon ng sanaysay?",
+            "options": [
+              "Binubuod ang mga punto at huling pananaw",
+              "Ipinapakilala lamang ang paksa",
+              "Naglalahad lamang ng mga tanong",
+              "Walang tiyak na nilalaman"
+            ],
+            "correct_answer": "Binubuod ang mga punto at huling pananaw"
+          },
+          {
+            "question": "Ano ang unang hakbang sa pagsulat ng sanaysay?",
+            "options": [
+              "Pumili ng paksa",
+              "Sumulat agad ng konklusyon",
+              "Ipasa agad sa guro",
+              "I-publish agad ang sanaysay"
+            ],
+            "correct_answer": "Pumili ng paksa"
+          },
+          {
+            "question": "Bakit mahalagang magplano bago sumulat ng sanaysay?",
+            "options": [
+              "Upang maayos at malinaw ang daloy ng mga ideya",
+              "Upang mapahaba lamang ang sanaysay",
+              "Upang mahirapan ang mambabasa",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang maayos at malinaw ang daloy ng mga ideya"
+          },
+          {
+            "question": "Ano ang huling hakbang sa pagsulat ng sanaysay?",
+            "options": [
+              "Suriin at ayusin ang gramatika at ideya",
+              "Pumili agad ng bagong paksa",
+              "Kalimutan ang buong draft",
+              "Huwag na basahin ulit ang sanaysay"
+            ],
+            "correct_answer": "Suriin at ayusin ang gramatika at ideya"
+          },
+          {
+            "question": "Bakit mahalagang sumulat tungkol sa suliraning pambansa o pangglobal?",
+            "options": [
+              "Nagpapakita ito ng pagmamalasakit sa lipunan",
+              "Wala itong kabuluhan sa lipunan",
+              "Ginagawa lamang ito para sa marka",
+              "Hindi ito totoong mahalaga"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamalasakit sa lipunan"
+          },
+          {
+            "question": "Ilang talata karaniwang binubuo ang katawan ng sanaysay?",
+            "options": [
+              "2 hanggang 3 talata",
+              "Isang talata lamang",
+              "Sampung talata",
+              "Walang tiyak na bilang"
+            ],
+            "correct_answer": "2 hanggang 3 talata"
+          },
+          {
+            "question": "Isang mag-aaral ang gustong sumulat tungkol sa bullying sa paaralan. Alin ang unang dapat niyang gawin?",
+            "options": [
+              "Magplano at ilista ang mga puntong tatalakayin",
+              "Direktang isulat ang konklusyon",
+              "Ipasa agad kahit walang binuo",
+              "Hanapin ang ibang paksa na lamang"
+            ],
+            "correct_answer": "Magplano at ilista ang mga puntong tatalakayin"
+          },
+          {
+            "question": "Bakit mahalagang suportahan ng ebidensiya ang opinyon sa sanaysay?",
+            "options": [
+              "Upang maging mas mapaniniwalaan ang argumento",
+              "Upang mapahaba lamang ang sanaysay",
+              "Dahil hindi kailangan ang ebidensiya",
+              "Upang malito ang mambabasa"
+            ],
+            "correct_answer": "Upang maging mas mapaniniwalaan ang argumento"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🦎 Friday Review — Science (Grade 6)\n\n- **Vertebrate** = may backbone; **Invertebrate** = walang backbone\n- Exoskeleton vs internal skeleton\n\nGreat classification science! 🌟",
+        "quiz": [
+          {
+            "question": "What is a vertebrate?",
+            "options": [
+              "An animal that has a backbone",
+              "An animal that has no backbone",
+              "An animal that lives only in water",
+              "An animal that has no legs"
+            ],
+            "correct_answer": "An animal that has a backbone"
+          },
+          {
+            "question": "What is an invertebrate?",
+            "options": [
+              "An animal that does NOT have a backbone",
+              "An animal that has a backbone",
+              "An animal that only lives on land",
+              "An animal that only eats plants"
+            ],
+            "correct_answer": "An animal that does NOT have a backbone"
+          },
+          {
+            "question": "Which of these is a vertebrate?",
+            "options": [
+              "Dog",
+              "Crab",
+              "Snail",
+              "Jellyfish"
+            ],
+            "correct_answer": "Dog"
+          },
+          {
+            "question": "Which of these is an invertebrate?",
+            "options": [
+              "Starfish",
+              "Bird",
+              "Fish",
+              "Frog"
+            ],
+            "correct_answer": "Starfish"
+          },
+          {
+            "question": "Is a crab a vertebrate or invertebrate?",
+            "options": [
+              "Invertebrate, because it has an exoskeleton, not a backbone",
+              "Vertebrate, because it has a backbone",
+              "Neither, because crabs are not animals",
+              "Both, because it has two types of skeletons"
+            ],
+            "correct_answer": "Invertebrate, because it has an exoskeleton, not a backbone"
+          },
+          {
+            "question": "Is a bangus (milkfish) a vertebrate or invertebrate?",
+            "options": [
+              "Vertebrate, because fish have a backbone",
+              "Invertebrate, because fish have no backbone",
+              "Neither, because fish are not classified",
+              "Both, depending on the type of fish"
+            ],
+            "correct_answer": "Vertebrate, because fish have a backbone"
+          },
+          {
+            "question": "What do most vertebrates have that supports their body?",
+            "options": [
+              "An internal skeleton",
+              "An exoskeleton only",
+              "No support structure at all",
+              "Only soft tissue"
+            ],
+            "correct_answer": "An internal skeleton"
+          },
+          {
+            "question": "What is an exoskeleton?",
+            "options": [
+              "A hard outer covering that provides support, found in some invertebrates",
+              "An internal bone structure found in vertebrates",
+              "A soft body with no support at all",
+              "A type of internal organ"
+            ],
+            "correct_answer": "A hard outer covering that provides support, found in some invertebrates"
+          },
+          {
+            "question": "Why does an insect not need an internal skeleton?",
+            "options": [
+              "Its exoskeleton provides support and protection instead",
+              "Insects do not need any support at all",
+              "Insects actually have internal skeletons too",
+              "Insects are not really animals"
+            ],
+            "correct_answer": "Its exoskeleton provides support and protection instead"
+          },
+          {
+            "question": "Which local animal is an example of an invertebrate?",
+            "options": [
+              "Alitaptap (firefly)",
+              "Palaka (frog)",
+              "Maya (bird)",
+              "Aso (dog)"
+            ],
+            "correct_answer": "Alitaptap (firefly)"
+          },
+          {
+            "question": "Which local animal is an example of a vertebrate?",
+            "options": [
+              "Palaka (frog)",
+              "Uod (worm)",
+              "Alimango (crab)",
+              "Kuhol (snail)"
+            ],
+            "correct_answer": "Palaka (frog)"
+          },
+          {
+            "question": "Why is classifying animals as vertebrates or invertebrates useful for scientists?",
+            "options": [
+              "It helps organize and study the diversity of animal life",
+              "It has no real scientific use at all",
+              "It only matters for animals in zoos",
+              "It removes the need to study animals further"
+            ],
+            "correct_answer": "It helps organize and study the diversity of animal life"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎨 Friday Review — Araling Panlipunan (Grade 6)\n\n- Simulan ang culminating project: timeline, dula, o collage\n- Sundin ang tamang pagkakasunod-sunod ng pangyayari\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang layunin ng proyektong gagawin?",
+            "options": [
+              "Ipakita ang pagmamalaki sa pagpupunyagi ng mga Pilipino tungo sa kalayaan",
+              "Ipakita lamang ang mga larawan ng mga bayani noong araw",
+              "Kalimutan na lamang ang mga natutuhang kasaysayan",
+              "Ipakita lamang ang mapa ng buong Pilipinas"
+            ],
+            "correct_answer": "Ipakita ang pagmamalaki sa pagpupunyagi ng mga Pilipino tungo sa kalayaan"
+          },
+          {
+            "question": "Ano ang tatlong maaaring anyo ng proyekto?",
+            "options": [
+              "Timeline poster, maikling dula, o collage",
+              "Isang liham sa pangulo lamang",
+              "Isang awiting pambata lamang",
+              "Isang guhit ng hayop lamang"
+            ],
+            "correct_answer": "Timeline poster, maikling dula, o collage"
+          },
+          {
+            "question": "Ano ang unang hakbang sa paggawa ng proyekto?",
+            "options": [
+              "Pagpili ng anyo ng proyekto",
+              "Direktang pagtatanghal",
+              "Paglikha nang walang plano",
+              "Pagsulat ng konklusyon agad"
+            ],
+            "correct_answer": "Pagpili ng anyo ng proyekto"
+          },
+          {
+            "question": "Bakit mahalagang balikan muna ang mga natutuhang pangyayari bago gumawa ng proyekto?",
+            "options": [
+              "Upang matiyak na tama at kumpleto ang impormasyon",
+              "Upang mapahaba lamang ang proseso",
+              "Walang dahilan ito talaga",
+              "Upang malito ang gagawa ng proyekto"
+            ],
+            "correct_answer": "Upang matiyak na tama at kumpleto ang impormasyon"
+          },
+          {
+            "question": "Anong pangyayari ang unang bahagi ng halimbawang timeline?",
+            "options": [
+              "Digmaang Pilipino-Amerikano",
+              "Imperyalismong Hapones",
+              "Komonwelt (1935)",
+              "Kabayanihan sa Digmaan"
+            ],
+            "correct_answer": "Digmaang Pilipino-Amerikano"
+          },
+          {
+            "question": "Anong pangyayari ang huling bahagi ng halimbawang timeline?",
+            "options": [
+              "Kabayanihan sa Digmaan",
+              "Digmaang Pilipino-Amerikano",
+              "Pilipinisasyon",
+              "Batas Jones"
+            ],
+            "correct_answer": "Kabayanihan sa Digmaan"
+          },
+          {
+            "question": "Bakit dapat may tamang pagkakasunod-sunod ang mga pangyayari sa timeline?",
+            "options": [
+              "Upang maunawaan nang malinaw kung paano umunlad ang pakikibaka",
+              "Upang mas mahaba lamang ang buong proyekto",
+              "Walang anumang epekto ang pagkakasunod-sunod",
+              "Upang mas mahirap unawain ng mga manonood"
+            ],
+            "correct_answer": "Upang maunawaan nang malinaw kung paano umunlad ang pakikibaka"
+          },
+          {
+            "question": "Ano ang gagawin sa hakbang na \"Pagbalangkas\"?",
+            "options": [
+              "Ayusin ang mga pangyayari nang tama ang pagkakasunod-sunod",
+              "Direktang ipakita agad ang proyekto sa klase",
+              "Kalimutan na lamang ang lahat ng detalye",
+              "Bumili lamang ng mga kagamitang gagamitin"
+            ],
+            "correct_answer": "Ayusin ang mga pangyayari nang tama ang pagkakasunod-sunod"
+          },
+          {
+            "question": "Ano ang huling hakbang sa paggawa ng proyekto?",
+            "options": [
+              "Pagtatanghal ng proyekto sa klase",
+              "Pagpili ng anyo ng proyekto",
+              "Pananaliksik tungkol sa paksa",
+              "Pagbalangkas ng mga pangyayari"
+            ],
+            "correct_answer": "Pagtatanghal ng proyekto sa klase"
+          },
+          {
+            "question": "Bakit mahalagang ipakita ang proyekto sa klase?",
+            "options": [
+              "Upang maibahagi ang natutuhan at magbigay-halaga sa mga bayani",
+              "Upang makakuha lamang ng gantimpalang pera",
+              "Wala itong anumang kabuluhan sa pag-aaral",
+              "Upang matapos lamang agad ang buong gawain"
+            ],
+            "correct_answer": "Upang maibahagi ang natutuhan at magbigay-halaga sa mga bayani"
+          },
+          {
+            "question": "Anong grupo ang bahagi ng \"kabayanihan sa panahon ng digmaan\" na maaaring isama sa timeline?",
+            "options": [
+              "HUKBALAHAP",
+              "Katipunan",
+              "Magdalo",
+              "Magdiwang"
+            ],
+            "correct_answer": "HUKBALAHAP"
+          },
+          {
+            "question": "Ano ang pangkalahatang mensahe ng proyektong ito tungkol sa kasaysayan ng Pilipinas?",
+            "options": [
+              "Ang kalayaan ay bunga ng matagal at magkakasunod na pakikibaka",
+              "Ang kalayaan ay ibinigay lamang kaagad",
+              "Walang naging sakripisyo ang mga Pilipino",
+              "Ang kasaysayan ng Pilipinas ay walang kahalagahan"
+            ],
+            "correct_answer": "Ang kalayaan ay bunga ng matagal at magkakasunod na pakikibaka"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🏐 Friday Review — MAPEH (Grade 6)\n\n- Striking/fielding = pagpalo+pagtakbo; Net/wall = may hadlang\n- Agility, balance, coordination\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang striking/fielding games?",
+            "options": [
+              "Mga larong may pagpalo/pagtapon ng bola at pagtakbo",
+              "Mga larong may hadlang na net lamang",
+              "Mga larong walang anumang bola",
+              "Mga larong ginagawa habang nakaupo"
+            ],
+            "correct_answer": "Mga larong may pagpalo/pagtapon ng bola at pagtakbo"
+          },
+          {
+            "question": "Ano ang net/wall games?",
+            "options": [
+              "Mga larong may hadlang sa pagitan ng magkalaban",
+              "Mga larong walang panuntunan",
+              "Mga larong walang kalaban",
+              "Mga larong ginagawa lamang sa tubig"
+            ],
+            "correct_answer": "Mga larong may hadlang sa pagitan ng magkalaban"
+          },
+          {
+            "question": "Alin ang halimbawa ng net/wall game?",
+            "options": [
+              "Badminton",
+              "Baseball",
+              "Softball",
+              "Patintero"
+            ],
+            "correct_answer": "Badminton"
+          },
+          {
+            "question": "Ano ang agility?",
+            "options": [
+              "Kakayahang mabilis kumilos at magpalit ng direksyon",
+              "Kakayahang manatiling tahimik",
+              "Kakayahang kumain nang mabilis",
+              "Kakayahang matulog nang mahimbing"
+            ],
+            "correct_answer": "Kakayahang mabilis kumilos at magpalit ng direksyon"
+          },
+          {
+            "question": "Ano ang balance?",
+            "options": [
+              "Kakayahang manatiling matatag habang gumagalaw",
+              "Kakayahang tumakbo nang napakabilis",
+              "Kakayahang magbilang nang mabilis",
+              "Kakayahang kumanta nang malakas"
+            ],
+            "correct_answer": "Kakayahang manatiling matatag habang gumagalaw"
+          },
+          {
+            "question": "Ano ang coordination?",
+            "options": [
+              "Pagsasabay ng iba't ibang bahagi ng katawan sa isang kilos",
+              "Kakayahang manatiling nakaupo nang tahimik lamang",
+              "Kakayahang magbasa nang napakabilis lamang",
+              "Kakayahang manood ng TV nang napakatagal"
+            ],
+            "correct_answer": "Pagsasabay ng iba't ibang bahagi ng katawan sa isang kilos"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng striking/fielding games sa net/wall games?",
+            "options": [
+              "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang",
+              "Pareho silang walang bola",
+              "Pareho silang ginagawa lamang habang nakaupo",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang"
+          },
+          {
+            "question": "Bakit mahalagang i-modify ang mga larong ito para sa pamilya?",
+            "options": [
+              "Upang magamit ng lahat ng edad at maitaguyod ang kalusugan",
+              "Upang mas mahirap laruin ng bawat isa",
+              "Walang dahilan para dito",
+              "Upang bawal na ang mga bata sa laro"
+            ],
+            "correct_answer": "Upang magamit ng lahat ng edad at maitaguyod ang kalusugan"
+          },
+          {
+            "question": "Ano ang idinudulot ng paglahok sa mga larong ito para sa pamilya?",
+            "options": [
+              "Pisikal na kalusugan at mas matibay na ugnayan",
+              "Kawalan ng oras para sa isa't isa",
+              "Pagtaas lamang ng gastusin",
+              "Walang epekto sa kalusugan"
+            ],
+            "correct_answer": "Pisikal na kalusugan at mas matibay na ugnayan"
+          },
+          {
+            "question": "Alin ang halimbawa ng striking/fielding na larong Pilipino?",
+            "options": [
+              "Patintero na may pagtapon",
+              "Badminton sa bakuran",
+              "Volleyball sa parke",
+              "Tennis sa korte"
+            ],
+            "correct_answer": "Patintero na may pagtapon"
+          },
+          {
+            "question": "Bakit kailangan ang coordination sa mga larong ito?",
+            "options": [
+              "Upang tama ang pagsasabay ng kilos ng katawan sa laro",
+              "Upang manatili lamang nakaupo sa gilid",
+              "Upang hindi na kailangang kumilos pa",
+              "Walang kaugnayan ang coordination sa laro"
+            ],
+            "correct_answer": "Upang tama ang pagsasabay ng kilos ng katawan sa laro"
+          },
+          {
+            "question": "Ano ang pinakalayunin ng pagsasagawa ng mga larong ito bilang pamilya?",
+            "options": [
+              "Pagtataguyod ng kalusugan ng buong pamilya",
+              "Pagbibigay ng gantimpalang pera",
+              "Pagpapababa ng grado sa paaralan",
+              "Pagpapahirap sa gawaing-bahay"
+            ],
+            "correct_answer": "Pagtataguyod ng kalusugan ng buong pamilya"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 Friday Review — GMRC (Grade 6)\n\n- Sama-samang pagsamba ng pamilya\n- Pagpapahalaga: **Pakikiisa**\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang sama-samang pagsamba ng pamilya?",
+            "options": [
+              "Pagsimba o panalanging ginagawa nang sama-sama bilang pamilya",
+              "Pagsamba na isa-isa lamang sa bawat kasapi",
+              "Pananahimik na lamang sa buong araw",
+              "Pag-aaral ng ibang relihiyon sa paaralan"
+            ],
+            "correct_answer": "Pagsimba o panalanging ginagawa nang sama-sama bilang pamilya"
+          },
+          {
+            "question": "Ano ang pakikiisa?",
+            "options": [
+              "Pagiging kaisa ng bawat kasapi sa mga gawain ng pamilya",
+              "Pag-iwas sa lahat ng gawain ng pamilya",
+              "Pagsuway sa mga kasapi ng pamilya",
+              "Pananahimik palagi sa bahay"
+            ],
+            "correct_answer": "Pagiging kaisa ng bawat kasapi sa mga gawain ng pamilya"
+          },
+          {
+            "question": "Bakit mahalaga ang sama-samang pagsamba ng pamilya?",
+            "options": [
+              "Nagpapatibay ito ng tiwala at buhay-panalangin bilang pamilya",
+              "Wala itong kabuluhan sa pamilya",
+              "Nagpapahirap lamang ito ng oras ng bawat isa",
+              "Ginagawa lamang ito bilang tradisyon na walang saysay"
+            ],
+            "correct_answer": "Nagpapatibay ito ng tiwala at buhay-panalangin bilang pamilya"
+          },
+          {
+            "question": "Tuwing Linggo, sabay-sabay sumasamba ang isang pamilya. Ano ang ipinapakita nito?",
+            "options": [
+              "Pakikiisa",
+              "Kawalang-interes",
+              "Pagsuway",
+              "Kapabayaan"
+            ],
+            "correct_answer": "Pakikiisa"
+          },
+          {
+            "question": "Ayaw sumama ng isang kapatid sa gawaing panrelihiyoso ng pamilya. Ano ang dapat gawin ng ibang kasapi?",
+            "options": [
+              "Yayain siya nang magalang, nang hindi pinipilit",
+              "Pilitin siya nang husto",
+              "Iwanan na lamang siya magpakailanman",
+              "Galitan siya nang malakas"
+            ],
+            "correct_answer": "Yayain siya nang magalang, nang hindi pinipilit"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Pakikiisa",
+              "Masipag",
+              "Mapagpasensiya",
+              "Mapagkawang-gawa"
+            ],
+            "correct_answer": "Pakikiisa"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng sama-samang gawaing panrelihiyoso?",
+            "options": [
+              "Panalanging pampamilya sa gabi",
+              "Panonood ng TV nang mag-isa",
+              "Paglalaro ng video game nang mag-isa",
+              "Pagbabasa ng aklat nang mag-isa"
+            ],
+            "correct_answer": "Panalanging pampamilya sa gabi"
+          },
+          {
+            "question": "Ano ang idinudulot ng pakikiisa sa gawaing panrelihiyoso ng pamilya?",
+            "options": [
+              "Samahan at malalim na pananampalataya",
+              "Pagkawatak-watak ng pamilya",
+              "Kawalan ng tiwala sa isa't isa",
+              "Kalungkutan ng bawat kasapi"
+            ],
+            "correct_answer": "Samahan at malalim na pananampalataya"
+          },
+          {
+            "question": "Bakit hindi dapat pilitin ang isang kasapi ng pamilya na sumali sa panalangin?",
+            "options": [
+              "Mas mabuting yayain nang magalang para tunay na sumali sila",
+              "Dahil hindi mahalaga ang panalangin",
+              "Dahil bawal talaga ang panalangin sa bahay",
+              "Dahil hindi dapat sumamba ang pamilya"
+            ],
+            "correct_answer": "Mas mabuting yayain nang magalang para tunay na sumali sila"
+          },
+          {
+            "question": "Ano ang isa pang paraan ng pagpapakita ng pakikiisa bukod sa pagsamba?",
+            "options": [
+              "Pakikilahok sa iba pang gawain ng pamilya",
+              "Pag-iwas sa lahat ng bagay na ginagawa nila",
+              "Pananahimik palagi at hindi kumikibo",
+              "Pagtatago sa sariling kwarto palagi"
+            ],
+            "correct_answer": "Pakikilahok sa iba pang gawain ng pamilya"
+          },
+          {
+            "question": "Bakit mahalagang magkasamang magbasa ng Banal na Aklat bilang pamilya?",
+            "options": [
+              "Nagpapatibay ito ng ugnayan at buhay-panalangin",
+              "Nagpapahirap lamang ito ng gawain",
+              "Wala itong anumang kabuluhan",
+              "Ginagawa lamang ito minsan sa isang taon"
+            ],
+            "correct_answer": "Nagpapatibay ito ng ugnayan at buhay-panalangin"
+          },
+          {
+            "question": "Isang pamilya ang laging magkasamang sumasamba tuwing Linggo. Ano ang ipinapakita nitong halaga?",
+            "options": [
+              "Pakikiisa sa pananampalataya bilang pamilya",
+              "Kawalang-interes sa isa't isa",
+              "Pagsuway sa relihiyon",
+              "Kapabayaan sa gawain ng bahay"
+            ],
+            "correct_answer": "Pakikiisa sa pananampalataya bilang pamilya"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Friday Review — EPP (Grade 6)\n\n- Paghahanda, pagstock, pagpapakain, aeration, pagmomonitor, pag-aani, pagbebenta\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang dapat ihanda bago magsimula ng fish raising?",
+            "options": [
+              "Tangke o palaisdaan, lambat, at kagamitan sa pagsukat",
+              "Papel at lapis na lamang para sa tala",
+              "Sasakyan na gagamitin sa paglalakbay",
+              "Damit na gagamitin sa isang parada"
+            ],
+            "correct_answer": "Tangke o palaisdaan, lambat, at kagamitan sa pagsukat"
+          },
+          {
+            "question": "Ano ang dapat isaalang-alang sa pagstock ng isda?",
+            "options": [
+              "Wastong densidad ng isda",
+              "Kulay ng tangke lamang",
+              "Presyo ng tangke lamang",
+              "Laki ng bahay ng may-ari"
+            ],
+            "correct_answer": "Wastong densidad ng isda"
+          },
+          {
+            "question": "Ano ang aeration?",
+            "options": [
+              "Paglagay ng hangin sa tubig upang magkaroon ng sapat na oxygen",
+              "Paglilinis lamang ng buong tangke ng isda",
+              "Pagbibigay lamang ng pagkain araw-araw",
+              "Pagsukat lamang ng laki ng tangke"
+            ],
+            "correct_answer": "Paglagay ng hangin sa tubig upang magkaroon ng sapat na oxygen"
+          },
+          {
+            "question": "Bakit mahalaga ang regular na pagpapalit ng tubig?",
+            "options": [
+              "Upang manatiling malinis ang tubig para sa isda",
+              "Upang mapabilis ang paglaki ng isda kaagad",
+              "Upang mapababa ang gastos sa pagkain",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang manatiling malinis ang tubig para sa isda"
+          },
+          {
+            "question": "Ano ang dapat gawin sa pagmomonitor ng paglago ng isda?",
+            "options": [
+              "Suriin ang laki at kalusugan ng mga isda",
+              "Sukatin lamang ang laki ng buong tangke",
+              "Bilangin lamang ang mga bato na nasa loob",
+              "Suriin lamang ang kulay ng tubig araw-araw"
+            ],
+            "correct_answer": "Suriin ang laki at kalusugan ng mga isda"
+          },
+          {
+            "question": "Ano ang harvesting sa pag-aalaga ng isda?",
+            "options": [
+              "Ang pag-aani ng mga isda gamit ang tamang kagamitan",
+              "Ang pagtatanim ng bagong isda sa tangke",
+              "Ang paglilinis ng buong tangke ng isda",
+              "Ang pagpapalit ng tubig sa palaisdaan"
+            ],
+            "correct_answer": "Ang pag-aani ng mga isda gamit ang tamang kagamitan"
+          },
+          {
+            "question": "Paano maaaring ibenta ang mga naaning isda?",
+            "options": [
+              "Online o offline, wholesale o retail",
+              "Sa paaralan lamang",
+              "Sa ibang bansa lamang",
+              "Hindi maaaring ibenta ang isda"
+            ],
+            "correct_answer": "Online o offline, wholesale o retail"
+          },
+          {
+            "question": "Ano ang dapat itala pagkatapos ibenta ang mga isda?",
+            "options": [
+              "Ang kita at gastos",
+              "Ang bilang ng bisita sa palengke",
+              "Ang oras ng paggising",
+              "Ang pangalan ng bumili lamang"
+            ],
+            "correct_answer": "Ang kita at gastos"
+          },
+          {
+            "question": "Bakit mahalagang magbigay ng sapat na pagkain ayon sa laki at uri ng isda?",
+            "options": [
+              "Upang tumaas ang panganib sa sakit ng isda",
+              "Upang lumaki nang tama at malusog ang isda",
+              "Upang mabilis maubos ang tubig",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang lumaki nang tama at malusog ang isda"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi sapat ang aeration sa tangke?",
+            "options": [
+              "Maaaring mahirapan huminga ang mga isda",
+              "Mas lalago ang isda nang mabilis",
+              "Wala itong epekto sa isda",
+              "Mas malinis ang tubig"
+            ],
+            "correct_answer": "Maaaring mahirapan huminga ang mga isda"
+          },
+          {
+            "question": "Bakit mahalagang itala ang kita at gastos sa negosyo ng pag-aalaga ng isda?",
+            "options": [
+              "Upang malaman kung kumikita ang negosyo",
+              "Upang mapabilis ang paglaki ng isda",
+              "Upang mapaganda lamang ang tangke",
+              "Walang kabuluhan ang pagtatala"
+            ],
+            "correct_answer": "Upang malaman kung kumikita ang negosyo"
+          },
+          {
+            "question": "Ano ang kailangang gamitin sa pag-aani ng isda?",
+            "options": [
+              "Tamang kagamitan at pamamaraan",
+              "Kahit anong bagay na madaling makuha",
+              "Walang kagamitang kailangan",
+              "Kamay lamang nang walang kagamitan"
+            ],
+            "correct_answer": "Tamang kagamitan at pamamaraan"
+          }
+        ]
+      }
+    }
+  }
+}

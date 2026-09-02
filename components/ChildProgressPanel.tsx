@@ -34,6 +34,18 @@ interface JournalEntry {
   gratitude: string | null;
 }
 
+interface WeakTopic {
+  subject: string;
+  wrong_count: number;
+  total_count: number;
+  wrong_pct: number;
+}
+
+// Longer journal history is a Premium perk on top of the base journal-viewing
+// gate — free parents get nothing (see isPremium check below), Premium
+// parents get JOURNAL_LIMIT days instead of the old fixed 7.
+const JOURNAL_LIMIT = 30;
+
 function computeStreak(claimDates: string[]): number {
   if (claimDates.length === 0) return 0;
   const dates = new Set(claimDates);
@@ -67,10 +79,15 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
   const [journalLoading, setJournalLoading] = useState(false);
   const [journal, setJournal] = useState<JournalEntry[] | null>(null);
 
+  const [showWeakTopics, setShowWeakTopics] = useState(false);
+  const [weakTopicsLoading, setWeakTopicsLoading] = useState(false);
+  const [weakTopics, setWeakTopics] = useState<WeakTopic[] | null>(null);
+
   const [coinAmount, setCoinAmount] = useState('');
   const [awarding, setAwarding] = useState(false);
   const [awardError, setAwardError] = useState('');
   const [awardSuccess, setAwardSuccess] = useState(false);
+  const [showCoinInfo, setShowCoinInfo] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -135,13 +152,30 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
     setShowJournal(true);
     if (journal !== null) return;
     setJournalLoading(true);
-    const { data, error } = await supabase.rpc('get_child_journal', { p_child_id: childId, p_limit: 7 });
+    const { data, error } = await supabase.rpc('get_child_journal', { p_child_id: childId, p_limit: JOURNAL_LIMIT });
     setJournalLoading(false);
     if (error) {
       console.error('Failed to load journal:', error);
       return;
     }
     setJournal((data as JournalEntry[]) ?? []);
+  };
+
+  const handleToggleWeakTopics = async () => {
+    if (showWeakTopics) {
+      setShowWeakTopics(false);
+      return;
+    }
+    setShowWeakTopics(true);
+    if (weakTopics !== null) return;
+    setWeakTopicsLoading(true);
+    const { data, error } = await supabase.rpc('get_child_weak_topics', { p_child_id: childId });
+    setWeakTopicsLoading(false);
+    if (error) {
+      console.error('Failed to load weak topics:', error);
+      return;
+    }
+    setWeakTopics((data as WeakTopic[]) ?? []);
   };
 
   const handleAwardCoins = async (e: React.FormEvent) => {
@@ -204,58 +238,140 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
       </p>
 
       {isPremium ? (
-        <button
-          type="button"
-          onClick={handleToggleJournal}
-          className="text-sm text-amber-700 hover:text-amber-800 underline"
-        >
-          {showJournal ? 'Hide journal' : 'View journal'}
-        </button>
+        <div className="flex gap-2 flex-wrap">
+          <button
+            type="button"
+            onClick={handleToggleJournal}
+            className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-semibold transition-colors ${
+              showJournal
+                ? 'bg-indigo-600 border-indigo-600 text-[#ffffff] shadow-sm'
+                : 'bg-[#ffffff] border-indigo-200 text-indigo-700 hover:bg-indigo-50'
+            }`}
+          >
+            📔 Journal
+          </button>
+          <button
+            type="button"
+            onClick={handleToggleWeakTopics}
+            className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-semibold transition-colors ${
+              showWeakTopics
+                ? 'bg-rose-600 border-rose-600 text-[#ffffff] shadow-sm'
+                : 'bg-[#ffffff] border-rose-200 text-rose-700 hover:bg-rose-50'
+            }`}
+          >
+            🎯 Weak Topics
+          </button>
+        </div>
       ) : (
-        <p className="text-sm text-stone-400">🔒 Journal viewing is a Premium feature.</p>
+        <p className="text-sm text-stone-400">🔒 Journal viewing &amp; weak-topic reports are Premium features.</p>
+      )}
+
+      {isPremium && showWeakTopics && (
+        <div className="rounded-xl border border-rose-200 bg-rose-50 overflow-hidden shadow-sm">
+          <div className="bg-rose-100/70 px-3.5 py-2 border-b border-rose-200">
+            <p className="text-sm font-bold text-rose-800">🎯 Weak Topics Report</p>
+            <p className="text-xs text-rose-700/70">Subjects with the highest miss-rate across every attempt logged</p>
+          </div>
+          <div className="p-3">
+            {weakTopicsLoading && <p className="text-sm text-stone-500 py-1">Loading report…</p>}
+            {!weakTopicsLoading && weakTopics?.length === 0 && (
+              <p className="text-sm text-stone-500 py-1">Not enough attempts yet to spot a pattern — check back after a few more quiz days.</p>
+            )}
+            {!weakTopicsLoading && weakTopics && weakTopics.length > 0 && (
+              <div className="space-y-2.5">
+                {weakTopics.map((t, i) => {
+                  const barColor = t.wrong_pct >= 50 ? 'bg-red-500' : t.wrong_pct >= 30 ? 'bg-amber-500' : 'bg-emerald-400';
+                  const textColor = t.wrong_pct >= 50 ? 'text-red-600' : t.wrong_pct >= 30 ? 'text-amber-600' : 'text-emerald-600';
+                  return (
+                    <div key={t.subject} className="space-y-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-sm text-slate-800 font-semibold flex items-center gap-1.5">
+                          <span className="w-4 h-4 rounded-full bg-rose-200 text-rose-800 text-[10px] font-bold flex items-center justify-center shrink-0">{i + 1}</span>
+                          {t.subject}
+                        </span>
+                        <span className={`text-xs font-bold whitespace-nowrap ${textColor}`}>
+                          {t.wrong_count}/{t.total_count} missed · {t.wrong_pct}%
+                        </span>
+                      </div>
+                      <div className="h-1.5 rounded-full bg-rose-100 overflow-hidden">
+                        <div className={`h-full rounded-full ${barColor}`} style={{ width: `${Math.min(100, t.wrong_pct)}%` }} />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        </div>
       )}
 
       {isPremium && showJournal && (
-        <div className="space-y-2">
-          {journalLoading && <p className="text-sm text-stone-500">Loading journal…</p>}
-          {!journalLoading && journal?.length === 0 && (
-            <p className="text-sm text-stone-500">No journal entries yet.</p>
-          )}
-          {!journalLoading && journal?.map((entry) => (
-            <div key={entry.entry_date} className="rounded-lg bg-stone-50 border border-stone-200 p-3 text-sm space-y-1">
-              <p className="text-stone-500 font-semibold">{new Date(entry.entry_date).toLocaleDateString()}</p>
-              {entry.done_today && <p className="text-slate-700"><span className="text-stone-500">Did today:</span> {entry.done_today}</p>}
-              {entry.hardest_challenge && <p className="text-slate-700"><span className="text-stone-500">Hardest part:</span> {entry.hardest_challenge}</p>}
-              {entry.gratitude && <p className="text-slate-700"><span className="text-stone-500">Grateful for:</span> {entry.gratitude}</p>}
-              {entry.tomorrow_plan && <p className="text-slate-700"><span className="text-stone-500">Tomorrow:</span> {entry.tomorrow_plan}</p>}
-            </div>
-          ))}
+        <div className="rounded-xl border border-indigo-200 bg-indigo-50 overflow-hidden shadow-sm">
+          <div className="bg-indigo-100/70 px-3.5 py-2 border-b border-indigo-200">
+            <p className="text-sm font-bold text-indigo-800">📔 Journal — last {JOURNAL_LIMIT} days</p>
+            <p className="text-xs text-indigo-700/70">What your child wrote after each day's quests</p>
+          </div>
+          <div className="p-3 space-y-2.5">
+            {journalLoading && <p className="text-sm text-stone-500 py-1">Loading journal…</p>}
+            {!journalLoading && journal?.length === 0 && (
+              <p className="text-sm text-stone-500 py-1">No journal entries yet.</p>
+            )}
+            {!journalLoading && journal?.map((entry) => (
+              <div key={entry.entry_date} className="rounded-lg bg-[#ffffff] border border-indigo-100 border-l-4 border-l-indigo-400 p-3 text-sm space-y-1 shadow-sm">
+                <p className="text-indigo-700 font-bold text-xs uppercase tracking-wide">{new Date(entry.entry_date).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}</p>
+                {entry.done_today && <p className="text-slate-700"><span className="text-stone-400 font-semibold">Did today:</span> {entry.done_today}</p>}
+                {entry.hardest_challenge && <p className="text-slate-700"><span className="text-stone-400 font-semibold">Hardest part:</span> {entry.hardest_challenge}</p>}
+                {entry.gratitude && <p className="text-slate-700"><span className="text-stone-400 font-semibold">Grateful for:</span> {entry.gratitude}</p>}
+                {entry.tomorrow_plan && <p className="text-slate-700"><span className="text-stone-400 font-semibold">Tomorrow:</span> {entry.tomorrow_plan}</p>}
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
       {isPremium && (
-        <form onSubmit={handleAwardCoins} className="flex items-center gap-2 pt-2 border-t border-stone-200">
-          <span className="text-sm text-stone-500 whitespace-nowrap">🪙 Award coins</span>
-          <input
-            type="number"
-            min={1}
-            value={coinAmount}
-            onChange={(e) => { setCoinAmount(e.target.value); setAwardSuccess(false); }}
-            placeholder="Amount"
-            className="w-20 rounded-lg bg-[#ffffff] border border-stone-300 px-2 py-1.5 text-sm text-gray-900"
-          />
-          <button
-            type="submit"
-            disabled={awarding || coinBalance <= 0}
-            className="rounded-lg bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-[#ffffff] text-sm font-bold px-3 py-1.5 transition-colors"
-          >
-            {awarding ? '…' : 'Award'}
-          </button>
-          <span className="text-xs text-stone-400 whitespace-nowrap ml-auto">{coinBalance} left</span>
-        </form>
+        <div className="rounded-xl border-2 border-amber-300 bg-amber-50 p-3.5 space-y-2.5 shadow-sm">
+          <div className="flex items-center justify-between">
+            <p className="text-sm font-bold text-amber-800">🪙 Award Coins</p>
+            <button
+              type="button"
+              onClick={() => setShowCoinInfo((v) => !v)}
+              aria-label="How award coins work"
+              className="w-5 h-5 rounded-full border border-amber-400 text-amber-700 text-xs font-bold leading-none flex items-center justify-center hover:bg-amber-100 transition-colors"
+            >
+              i
+            </button>
+          </div>
+
+          {showCoinInfo && (
+            <div className="rounded-lg bg-[#ffffff] border border-amber-200 px-3 py-2.5 text-xs text-stone-600 space-y-1.5">
+              <p><span className="font-semibold text-amber-700">How to use it:</span> Enter an amount and hit Award to send gold straight to your child's in-game balance — they can spend it right away in the shop on avatars, themes, and other cosmetics.</p>
+              <p><span className="font-semibold text-amber-700">Where the coins come from:</span> Every Premium subscription includes a pool of 10,000 gold per year, shared across all your children. It resets to 10,000 on each yearly renewal — unused coins don't roll over, so it's worth spending down before then.</p>
+            </div>
+          )}
+
+          <form onSubmit={handleAwardCoins} className="flex items-center gap-2">
+            <input
+              type="number"
+              min={1}
+              value={coinAmount}
+              onChange={(e) => { setCoinAmount(e.target.value); setAwardSuccess(false); }}
+              placeholder="Amount"
+              className="w-24 rounded-lg bg-[#ffffff] border border-amber-300 px-2.5 py-2 text-sm text-gray-900 font-semibold"
+            />
+            <button
+              type="submit"
+              disabled={awarding || coinBalance <= 0}
+              className="rounded-lg bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-[#ffffff] text-sm font-bold px-4 py-2 shadow-sm transition-colors"
+            >
+              {awarding ? 'Awarding…' : 'Award'}
+            </button>
+            <span className="text-xs text-amber-700 font-semibold whitespace-nowrap ml-auto">🪙 {coinBalance} left</span>
+          </form>
+          {awardError && <p className="text-red-500 text-sm">{awardError}</p>}
+          {awardSuccess && <p className="text-green-600 text-sm font-semibold">✓ Coins awarded!</p>}
+        </div>
       )}
-      {isPremium && awardError && <p className="text-red-500 text-sm">{awardError}</p>}
-      {isPremium && awardSuccess && <p className="text-green-600 text-sm">Coins awarded!</p>}
     </div>
   );
 }

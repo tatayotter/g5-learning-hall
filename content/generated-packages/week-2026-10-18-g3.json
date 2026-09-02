@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-10-18",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🗣️ English — Creating and Composing Text\n\nGrade 3, Week 19! Let's practice expressing our own ideas clearly. ✍️\n\n## 🙏 Polite Expressions\nWhen speaking and writing, we use **polite expressions** to show respect: \"please,\" \"thank you,\" \"excuse me,\" \"may I...\"\n\n## 🔄 Retelling\n**Retelling** means telling a story or event again, in our **own words**, keeping the important parts.\n\n## 💭 Expressing Ideas\nWe express ideas about **regional and content-specific topics** — things related to our region or subjects we're learning.\n\n## 📝 Reacting to Stories and Topics\nWe can **react** by sharing our thoughts or feelings about what we read or learned.\n\n## 📋 Summarizing\nA **summary** shares only the **most important points**, in fewer words than the original.\n\n## 🧠 Worked Example 1\n*Retell this event in your own words: \"Ben went to the market, bought vegetables, and cooked dinner.\"*\n- *\"Ben shopped for vegetables at the market, then cooked them for dinner.\"*\n\n## 🧠 Worked Example 2\n*React to this story: \"A boy shared his lunch with a hungry classmate.\"*\n- *\"I think the boy was very kind. Sharing food shows he cares about others.\"*\n\n## 💡 Why This Matters\nCreating and composing our own texts helps us **communicate our thoughts** clearly and politely.\n\nGreat composing work! 🌟",
+        "quiz": [
+          {
+            "question": "What are polite expressions?",
+            "options": [
+              "Words used to show respect, like \"please\" and \"thank you\"",
+              "Words used only when someone is angry",
+              "Words that carry no meaning at all",
+              "Words used only inside written texts"
+            ],
+            "correct_answer": "Words used to show respect, like \"please\" and \"thank you\""
+          },
+          {
+            "question": "What does retelling mean?",
+            "options": [
+              "Telling a story again in your own words",
+              "Reading a story silently only",
+              "Copying a story word for word",
+              "Ignoring the story completely"
+            ],
+            "correct_answer": "Telling a story again in your own words"
+          },
+          {
+            "question": "Retell this event in your own words: \"Ben went to the market, bought vegetables, and cooked dinner.\"",
+            "options": [
+              "Ben shopped for vegetables, then cooked them for dinner.",
+              "Ben never went anywhere at all.",
+              "Ben cooked dinner before shopping.",
+              "Ben bought vegetables but never cooked."
+            ],
+            "correct_answer": "Ben shopped for vegetables, then cooked them for dinner."
+          },
+          {
+            "question": "What does it mean to react to a story?",
+            "options": [
+              "To share your thoughts or feelings about it",
+              "To ignore the story completely",
+              "To copy the story exactly",
+              "To only read the title"
+            ],
+            "correct_answer": "To share your thoughts or feelings about it"
+          },
+          {
+            "question": "React to this story: \"A boy shared his lunch with a hungry classmate.\" Which is a thoughtful reaction?",
+            "options": [
+              "I think the boy was very kind to share his food.",
+              "The story has no meaning at all.",
+              "I don't understand what happened.",
+              "The boy should not have shared anything."
+            ],
+            "correct_answer": "I think the boy was very kind to share his food."
+          },
+          {
+            "question": "What is a summary?",
+            "options": [
+              "The most important points, in fewer words",
+              "The entire story word for word",
+              "Only the title of the story",
+              "A drawing of the story's setting"
+            ],
+            "correct_answer": "The most important points, in fewer words"
+          },
+          {
+            "question": "What are regional and content-specific topics?",
+            "options": [
+              "Things related to our region or subjects we're learning",
+              "Only topics about foreign countries",
+              "Only topics about outer space",
+              "Only topics with no connection to us"
+            ],
+            "correct_answer": "Things related to our region or subjects we're learning"
+          },
+          {
+            "question": "Which is an example of a polite expression?",
+            "options": [
+              "\"Excuse me, may I ask a question?\"",
+              "\"Give it to me now!\"",
+              "\"I don't care.\"",
+              "\"That's not my problem.\""
+            ],
+            "correct_answer": "\"Excuse me, may I ask a question?\""
+          },
+          {
+            "question": "Why do we use polite expressions when speaking or writing?",
+            "options": [
+              "To show respect to others",
+              "To confuse the listener",
+              "To make our speech longer",
+              "To avoid saying anything at all"
+            ],
+            "correct_answer": "To show respect to others"
+          },
+          {
+            "question": "Why is retelling useful for understanding a story?",
+            "options": [
+              "It helps us check that we understood the important parts",
+              "It replaces the need to read the story at all",
+              "It only works for very short stories",
+              "It has no real educational purpose"
+            ],
+            "correct_answer": "It helps us check that we understood the important parts"
+          },
+          {
+            "question": "What should a good summary include?",
+            "options": [
+              "Only the most important points of the text",
+              "Every single word from the original text",
+              "Only the author's name",
+              "Random unrelated details"
+            ],
+            "correct_answer": "Only the most important points of the text"
+          },
+          {
+            "question": "Why is it helpful to compose our own texts about topics we're learning?",
+            "options": [
+              "It helps us communicate our thoughts clearly and politely",
+              "It makes learning harder to understand",
+              "It removes the need to think about the topic",
+              "It is only useful for adults"
+            ],
+            "correct_answer": "It helps us communicate our thoughts clearly and politely"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➖ Mathematics — Subtracting Numbers Less Than 10,000\n\nGrade 3, Week 19! Let's subtract larger numbers with regrouping. ➖\n\n## 🔢 Subtracting with Regrouping\nWhen subtracting, if the top digit is **smaller** than the bottom digit, we **regroup** (borrow) from the next column.\n\n**Example:** 5,342 - 2,876\n1. Ones: 2-6, borrow → 12-6=6\n2. Tens: 3(after borrow)-7, borrow → 13-7=6\n3. Hundreds: 2(after borrow)-8, borrow → 12-8=4\n4. Thousands: 4(after borrow)-2=2\n- Answer: **2,466**\n\n## 🔢 Estimating the Difference\nRound each number, then subtract.\n\n**Example:** Estimate 5,342 - 2,876\n- Round: 5,000 - 3,000 = **2,000** (close to the exact answer of 2,466)\n\n## ➕➖ Combined Operations\nWe can perform **addition and subtraction of 3 to 4 numbers**, following the correct **order of operations** (left to right).\n\n**Example:** 500 + 250 - 120 = 750 - 120 = **630**\n\n## 💰 Money Word Problems\n**Example:** *Maria had ₱5,000. She spent ₱1,850 on groceries. How much money does she have left?*\n- 5,000 - 1,850 = **₱3,150**\n\n## 🧠 Worked Example\n*Subtract 8,120 - 3,456.*\n1. Ones: 0-6, borrow → 10-6=4\n2. Tens: 1(after borrow)-5, borrow → 11-5=6\n3. Hundreds: 0(after borrow)-4, borrow → 10-4=6\n4. Thousands: 7(after borrow)-3=4\n- Answer: **4,664**\n\nGreat subtraction work! ⭐",
+        "quiz": [
+          {
+            "question": "What do we do when the top digit is smaller than the bottom digit while subtracting?",
+            "options": [
+              "Regroup (borrow) from the next column",
+              "Ignore the difference",
+              "Add instead of subtracting",
+              "Start the problem over"
+            ],
+            "correct_answer": "Regroup (borrow) from the next column"
+          },
+          {
+            "question": "What is 5,342 - 2,876?",
+            "options": [
+              "2,466",
+              "2,566",
+              "2,366",
+              "3,466"
+            ],
+            "correct_answer": "2,466"
+          },
+          {
+            "question": "How do you estimate a difference?",
+            "options": [
+              "Round each number, then subtract",
+              "Multiply the numbers instead",
+              "Add the numbers instead",
+              "Divide both numbers by 2"
+            ],
+            "correct_answer": "Round each number, then subtract"
+          },
+          {
+            "question": "Estimate 5,342 - 2,876 by rounding to the nearest thousand.",
+            "options": [
+              "2,000",
+              "3,000",
+              "1,000",
+              "2,500"
+            ],
+            "correct_answer": "2,000"
+          },
+          {
+            "question": "Maria had ₱5,000. She spent ₱1,850 on groceries. How much money does she have left?",
+            "options": [
+              "₱3,150",
+              "₱3,250",
+              "₱3,050",
+              "₱2,150"
+            ],
+            "correct_answer": "₱3,150"
+          },
+          {
+            "question": "What is 8,120 - 3,456?",
+            "options": [
+              "4,664",
+              "4,764",
+              "4,564",
+              "5,664"
+            ],
+            "correct_answer": "4,664"
+          },
+          {
+            "question": "What is 500 + 250 - 120?",
+            "options": [
+              "630",
+              "730",
+              "530",
+              "870"
+            ],
+            "correct_answer": "630"
+          },
+          {
+            "question": "In what order do we solve 500 + 250 - 120?",
+            "options": [
+              "Left to right",
+              "Right to left",
+              "Subtraction first always",
+              "Addition last always"
+            ],
+            "correct_answer": "Left to right"
+          },
+          {
+            "question": "Why do we estimate before solving a subtraction problem exactly?",
+            "options": [
+              "To check if our exact answer makes sense",
+              "To avoid solving the problem at all",
+              "To make the problem harder",
+              "To skip the subtraction step"
+            ],
+            "correct_answer": "To check if our exact answer makes sense"
+          },
+          {
+            "question": "What is 6,000 - 2,345?",
+            "options": [
+              "3,655",
+              "3,755",
+              "3,545",
+              "4,655"
+            ],
+            "correct_answer": "3,655"
+          },
+          {
+            "question": "A store had ₱9,500 in sales. It refunded ₱1,250 to a customer. How much sales remain?",
+            "options": [
+              "₱8,250",
+              "₱8,150",
+              "₱8,350",
+              "₱7,250"
+            ],
+            "correct_answer": "₱8,250"
+          },
+          {
+            "question": "Which number, when rounded to the nearest thousand, becomes 3,000?",
+            "options": [
+              "2,789",
+              "3,600",
+              "2,400",
+              "3,550"
+            ],
+            "correct_answer": "2,789"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# ✍️ Filipino — Pagbuo ng Teksto\n\nGrade 3, Linggo 19! Alamin natin ang wastong pagbuo ng talata. 📝\n\n## 🗣️ Magagalang na Pananalita\nGinagamit natin ang **magagalang na pananalita** (academic language) na angkop sa iba't ibang asignatura.\n\n## 📚 Paggamit ng High-Frequency at Content-Specific Words\nSa pagbuo ng talata, gumagamit tayo ng mga salitang **madalas gamitin** at mga salitang **may kaugnayan sa paksa**.\n\n## 🔗 Tambalang Pangungusap sa Pagbuo ng Talata\nGumagamit tayo ng **tambalang pangungusap** upang ilarawan ang karanasan tungkol sa sarili at bansa.\n\n**Halimbawa:** *\"Pumunta ako sa palengke, at bumili ako ng gulay.\"*\n\n## 💭 Pagpapahayag ng Reaksiyon\nKapag bumubuo ng talata, maaari tayong **magpahayag ng reaksiyon** sa suliranin o paksa ng isang binasang teksto.\n\n## 📋 Pagbubuod ng Tekstong Naratibo\nAng **pagbubuod** ay ang pagsasaad ng **pinakamahalagang bahagi** ng isang kuwento, sa mas maiksing paraan.\n\n## 🧠 Halimbawa 1\n*Bumuo ng pangungusap gamit ang tambalang pangungusap tungkol sa palengke.*\n- *\"Pumunta ako sa palengke, at bumili ako ng sariwang isda.\"*\n\n## 🧠 Halimbawa 2\n*Magbuod ng kuwentong: \"Nawalan ng gamit si Ana. Hinanap niya ito. Nakita niya sa ilalim ng mesa.\"*\n- *\"Nawalan si Ana ng gamit ngunit natagpuan niya ito sa ilalim ng mesa.\"*\n\n## 💡 Bakit Mahalaga Ito?\nAng pagbuo ng maayos na teksto ay tumutulong upang **maipahayag nang malinaw** ang ating mga ideya.\n\nMagaling sa pagsulat! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang magagalang na pananalita?",
+            "options": [
+              "Pananalitang angkop sa iba't ibang asignatura",
+              "Pananalitang basta-basta lamang",
+              "Pananalitang hindi maiintindihan",
+              "Pananalitang ginagamit lamang sa laro"
+            ],
+            "correct_answer": "Pananalitang angkop sa iba't ibang asignatura"
+          },
+          {
+            "question": "Ano ang tambalang pangungusap?",
+            "options": [
+              "Pangungusap na may dalawang sugnay na pinagsama",
+              "Isang salita lamang",
+              "Pangungusap na walang kahulugan",
+              "Isang tanong lamang"
+            ],
+            "correct_answer": "Pangungusap na may dalawang sugnay na pinagsama"
+          },
+          {
+            "question": "Bumuo ng pangungusap gamit ang tambalang pangungusap tungkol sa palengke.",
+            "options": [
+              "Pumunta ako sa palengke, at bumili ako ng sariwang isda.",
+              "Palengke lamang ang tanging salitang ginamit dito.",
+              "Isda lamang ang tanging salitang ginamit dito.",
+              "Ako lamang ang tanging salitang ginamit dito."
+            ],
+            "correct_answer": "Pumunta ako sa palengke, at bumili ako ng sariwang isda."
+          },
+          {
+            "question": "Ano ang pagbubuod?",
+            "options": [
+              "Pagsasaad ng pinakamahalagang bahagi sa maiksing paraan",
+              "Pagsulat ng buong kuwento nang paulit-ulit",
+              "Pagbabago ng pamagat ng kuwento",
+              "Pagguhit ng larawan lamang"
+            ],
+            "correct_answer": "Pagsasaad ng pinakamahalagang bahagi sa maiksing paraan"
+          },
+          {
+            "question": "Magbuod ng kuwentong: \"Nawalan ng gamit si Ana. Hinanap niya ito. Nakita niya sa ilalim ng mesa.\"",
+            "options": [
+              "Nawalan si Ana ng gamit ngunit natagpuan niya ito sa ilalim ng mesa.",
+              "Si Ana ay masaya araw-araw sa kanyang buhay.",
+              "Walang anumang bagay ang nangyari kay Ana dito.",
+              "Nawala ang buong mesa ni Ana kahapon."
+            ],
+            "correct_answer": "Nawalan si Ana ng gamit ngunit natagpuan niya ito sa ilalim ng mesa."
+          },
+          {
+            "question": "Ano ang ginagamit natin sa pagbuo ng talata bukod sa high-frequency words?",
+            "options": [
+              "Mga salitang may kaugnayan sa paksa",
+              "Mga salitang walang kahulugan",
+              "Mga bilang lamang",
+              "Mga bantas lamang"
+            ],
+            "correct_answer": "Mga salitang may kaugnayan sa paksa"
+          },
+          {
+            "question": "Kailan tayo maaaring magpahayag ng reaksiyon sa isang binasa?",
+            "options": [
+              "Kapag bumubuo ng talata tungkol sa suliranin o paksa nito",
+              "Kapag hindi pa natin binasa ang buong teksto",
+              "Kapag tulog na tayong lahat sa oras na iyon",
+              "Kapag wala tayong opinyon tungkol dito"
+            ],
+            "correct_answer": "Kapag bumubuo ng talata tungkol sa suliranin o paksa nito"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang magagalang na pananalita sa pagsulat?",
+            "options": [
+              "Upang maging angkop ito sa iba't ibang asignatura",
+              "Upang mahirap intindihin ang teksto",
+              "Upang mapahaba lamang ang pangungusap",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang maging angkop ito sa iba't ibang asignatura"
+          },
+          {
+            "question": "Alin ang halimbawa ng tambalang pangungusap?",
+            "options": [
+              "Kumain ako, at naligo ako.",
+              "Kumain ako kanina.",
+              "Naligo ako kanina.",
+              "Ako ay bata."
+            ],
+            "correct_answer": "Kumain ako, at naligo ako."
+          },
+          {
+            "question": "Ano ang layunin ng pagbubuod ng isang tekstong naratibo?",
+            "options": [
+              "Ipakita ang pinakamahalagang bahagi sa mas maiksing paraan",
+              "Pahabain pa ang buong kuwento nang husto",
+              "Baguhin nang tuluyan ang katapusan ng kuwento",
+              "Alisin ang lahat ng detalye sa kuwento"
+            ],
+            "correct_answer": "Ipakita ang pinakamahalagang bahagi sa mas maiksing paraan"
+          },
+          {
+            "question": "Bakit mahalaga ang pagbuo ng maayos na teksto?",
+            "options": [
+              "Tumutulong ito upang maipahayag nang malinaw ang ideya",
+              "Wala itong kabuluhan sa pag-aaral",
+              "Ginagawa lamang ito para sa marka",
+              "Nakakalito lamang ito sa mambabasa"
+            ],
+            "correct_answer": "Tumutulong ito upang maipahayag nang malinaw ang ideya"
+          },
+          {
+            "question": "Isang mag-aaral ang gustong sumulat ng talata tungkol sa kanyang karanasan sa bansa. Ano ang maaari niyang gamitin?",
+            "options": [
+              "Tambalang pangungusap na naglalarawan ng karanasan",
+              "Isang salita lamang na walang detalye",
+              "Isang bantas lamang",
+              "Isang guhit na walang salita"
+            ],
+            "correct_answer": "Tambalang pangungusap na naglalarawan ng karanasan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌿 Science — Outer Parts of Plants\n\nGrade 3, Week 19! Let's observe how plant parts help them get water and nutrients. 🌱\n\n## 🌿 Outer Parts of Plants\n| Plant Part | Role |\n|---|---|\n| **Roots** | absorb water and nutrients from the soil |\n| **Stems** | carry water and nutrients from roots to leaves |\n| **Leaves** | make food for the plant using sunlight (photosynthesis) |\n\n## 💧 How Roots Get Water and Nutrients\n**Roots** grow underground and **absorb** water and nutrients from the soil, like a sponge soaking up liquid.\n\n## 🌾 How Stems Transport Water and Nutrients\nThe **stem** acts like a **pipe**, carrying water and nutrients from the roots all the way up to the leaves.\n\n## ☀️ How Leaves Use What They Receive\n**Leaves** use the water and nutrients from the stem, along with **sunlight**, to make food for the plant.\n\n## 🧠 Worked Example 1\n*Why do roots grow underground?*\n- To **absorb water and nutrients** from the soil.\n\n## 🧠 Worked Example 2\n*How does water travel from the roots to the leaves?*\n- It travels through the **stem**, which acts like a pipe.\n\n## 🧠 Worked Example 3\n*What would happen to a plant if its roots were damaged?*\n- It would have **difficulty absorbing water and nutrients**, which could harm the whole plant.\n\n## 💡 Why This Matters\nUnderstanding the roles of roots, stems, and leaves helps us understand how **plants survive and grow**.\n\nGreat plant science! 🌟",
+        "quiz": [
+          {
+            "question": "What is the role of roots in a plant?",
+            "options": [
+              "Absorb water and nutrients from the soil",
+              "Make food using sunlight",
+              "Carry water to the leaves only",
+              "Produce flowers and fruit"
+            ],
+            "correct_answer": "Absorb water and nutrients from the soil"
+          },
+          {
+            "question": "What is the role of the stem in a plant?",
+            "options": [
+              "Carry water and nutrients from roots to leaves",
+              "Absorb water directly from the air",
+              "Make food using sunlight",
+              "Protect the plant from insects"
+            ],
+            "correct_answer": "Carry water and nutrients from roots to leaves"
+          },
+          {
+            "question": "What is the role of leaves in a plant?",
+            "options": [
+              "Make food for the plant using sunlight",
+              "Absorb water from the soil",
+              "Carry nutrients underground",
+              "Protect the roots from damage"
+            ],
+            "correct_answer": "Make food for the plant using sunlight"
+          },
+          {
+            "question": "Why do roots grow underground?",
+            "options": [
+              "To absorb water and nutrients from the soil",
+              "To make food using sunlight",
+              "To protect the leaves from wind",
+              "To attract insects for pollination"
+            ],
+            "correct_answer": "To absorb water and nutrients from the soil"
+          },
+          {
+            "question": "How does water travel from the roots to the leaves?",
+            "options": [
+              "Through the stem, which acts like a pipe",
+              "Through the air directly",
+              "Through the flowers only",
+              "Water does not travel inside plants"
+            ],
+            "correct_answer": "Through the stem, which acts like a pipe"
+          },
+          {
+            "question": "What would happen to a plant if its roots were damaged?",
+            "options": [
+              "It would have difficulty absorbing water and nutrients",
+              "It would grow faster than before",
+              "It would immediately produce more flowers",
+              "Nothing would change at all"
+            ],
+            "correct_answer": "It would have difficulty absorbing water and nutrients"
+          },
+          {
+            "question": "What process do leaves use to make food?",
+            "options": [
+              "Photosynthesis, using sunlight",
+              "Absorption, using soil only",
+              "Transportation, using the stem only",
+              "Respiration, using only air"
+            ],
+            "correct_answer": "Photosynthesis, using sunlight"
+          },
+          {
+            "question": "Why is the stem important for a plant's survival?",
+            "options": [
+              "It transports water and nutrients throughout the plant",
+              "It only provides color to the plant",
+              "It has no real function in the plant",
+              "It only produces seeds"
+            ],
+            "correct_answer": "It transports water and nutrients throughout the plant"
+          },
+          {
+            "question": "What do roots absorb from the soil?",
+            "options": [
+              "Water and nutrients",
+              "Only sunlight",
+              "Only oxygen from the air",
+              "Only carbon dioxide"
+            ],
+            "correct_answer": "Water and nutrients"
+          },
+          {
+            "question": "Which plant part is most like a sponge, soaking up water?",
+            "options": [
+              "Roots",
+              "Leaves",
+              "Stem",
+              "Flower"
+            ],
+            "correct_answer": "Roots"
+          },
+          {
+            "question": "Which plant part is most like a pipe, carrying water upward?",
+            "options": [
+              "Stem",
+              "Roots",
+              "Leaves",
+              "Flower"
+            ],
+            "correct_answer": "Stem"
+          },
+          {
+            "question": "Why is it important to understand the roles of roots, stems, and leaves?",
+            "options": [
+              "It helps us understand how plants survive and grow",
+              "It has no connection to how plants live",
+              "It only matters for farmers, not students",
+              "It only applies to very large trees"
+            ],
+            "correct_answer": "It helps us understand how plants survive and grow"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🗂️ Makabansa — Pagpaplano ng Proyektong Pangkultura\n\nGrade 3, Linggo 19! Ilapat natin ang natutuhan sa isang proyekto. 🎨\n\n## 🔄 Balik-Aral: Sining at Kultura\nNatutuhan na natin ang tungkol sa **ugnayan ng kapaligiran at kultura**, **pagkakakilanlan ng komunidad**, **kultura at sariling pagkakakilanlan**, at **pagpapahalaga sa sining at kultura**.\n\n## 🗂️ Pagpaplano ng Proyektong Pangkultura\nNgayong linggo, magplano tayo ng isang **simpleng proyekto** na nagpapakita ng pagpapahalaga sa kultura ng ating komunidad — tulad ng isang eksibit, palamuti, o maikling pagtatanghal.\n\n## 📋 Mga Hakbang sa Pagpaplano\n1. **Pumili ng aspeto ng kultura** — tulad ng pagkain, sayaw, o kasuotan\n2. **Mag-research** — alamin pa ang kasaysayan o kahalagahan nito\n3. **Magplano ng anyo** — poster, palamuti, o maikling presentasyon\n4. **Ihanda ang mga kagamitan** — gamit ang katutubong materyales kung maaari\n\n## 🧠 Halimbawa 1\n*Gusto mong gumawa ng proyekto tungkol sa tradisyonal na sayaw ng inyong lalawigan. Ano ang unang hakbang?*\n- **Pumili ng aspeto** — sa kasong ito, tradisyonal na sayaw — at magsimula ng pananaliksik dito.\n\n## 🧠 Halimbawa 2\n*Bakit mainam gumamit ng katutubong materyales sa proyekto?*\n- Dahil nagpapakita ito ng **tunay na koneksyon** sa kultura ng lokalidad.\n\n## 💡 Kongklusyon\nAng pagpaplano ng proyektong pangkultura ay isang paraan upang **ipakita ang natutuhan** at magpahalaga sa ating pamana.\n\nMagaling sa Makabansa! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang layunin ng proyektong pangkultura?",
+            "options": [
+              "Ipakita ang pagpapahalaga sa kultura ng komunidad",
+              "Kumita ng pera",
+              "Makatakas sa gawain sa paaralan",
+              "Walang layunin ito talaga"
+            ],
+            "correct_answer": "Ipakita ang pagpapahalaga sa kultura ng komunidad"
+          },
+          {
+            "question": "Ano ang unang hakbang sa pagpaplano ng proyektong pangkultura?",
+            "options": [
+              "Pumili ng aspeto ng kultura",
+              "Direktang ipakita ang proyekto",
+              "Bumili ng kagamitan agad",
+              "Magtanong sa lahat ng kaklase"
+            ],
+            "correct_answer": "Pumili ng aspeto ng kultura"
+          },
+          {
+            "question": "Gusto mong gumawa ng proyekto tungkol sa tradisyonal na sayaw. Ano ang unang gagawin mo?",
+            "options": [
+              "Pumili ng aspetong tradisyonal na sayaw at magsimulang mag-research",
+              "Direktang isulat na lamang ang konklusyon nito",
+              "Bumili agad ng kagamitan na hindi pa kailangan",
+              "Kalimutan na lamang ang buong paksang ito"
+            ],
+            "correct_answer": "Pumili ng aspetong tradisyonal na sayaw at magsimulang mag-research"
+          },
+          {
+            "question": "Bakit mainam gumamit ng katutubong materyales sa proyekto?",
+            "options": [
+              "Nagpapakita ito ng tunay na koneksyon sa kultura",
+              "Mas mura lamang ito palagi",
+              "Mas madali lamang itong hanapin",
+              "Walang ibang dahilan para dito"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na koneksyon sa kultura"
+          },
+          {
+            "question": "Ano ang maaaring maging aspeto ng kultura na pagsusulatan sa proyekto?",
+            "options": [
+              "Pagkain, sayaw, o kasuotan",
+              "Panahon lamang",
+              "Bilang ng populasyon lamang",
+              "Mapa ng mundo lamang"
+            ],
+            "correct_answer": "Pagkain, sayaw, o kasuotan"
+          },
+          {
+            "question": "Anong hakbang ang sumusunod matapos pumili ng aspeto ng kultura?",
+            "options": [
+              "Mag-research tungkol dito",
+              "Direktang ipakita agad",
+              "Kalimutan ang paksa",
+              "Umalis sa klase"
+            ],
+            "correct_answer": "Mag-research tungkol dito"
+          },
+          {
+            "question": "Ano ang maaaring anyo ng proyektong pangkultura?",
+            "options": [
+              "Poster, palamuti, o maikling presentasyon",
+              "Isang laruang de-baterya",
+              "Isang aklat sa matematika",
+              "Isang aparatong elektroniko"
+            ],
+            "correct_answer": "Poster, palamuti, o maikling presentasyon"
+          },
+          {
+            "question": "Bakit mahalagang mag-research bago gumawa ng proyekto?",
+            "options": [
+              "Upang matiyak na tama at kumpleto ang impormasyon",
+              "Upang mapahaba lamang ang proyekto",
+              "Walang dahilan ito talaga",
+              "Upang malito ang gagawa ng proyekto"
+            ],
+            "correct_answer": "Upang matiyak na tama at kumpleto ang impormasyon"
+          },
+          {
+            "question": "Ano ang pangkalahatang aral ng pagpaplano ng proyektong pangkultura?",
+            "options": [
+              "Ipakita ang natutuhan at magpahalaga sa pamana",
+              "Kalimutan ang natutuhang kultura",
+              "Palitan ang sariling kultura ng ibang kultura",
+              "Alisin ang lahat ng tradisyon"
+            ],
+            "correct_answer": "Ipakita ang natutuhan at magpahalaga sa pamana"
+          },
+          {
+            "question": "Alin ang halimbawa ng katutubong materyales na maaaring gamitin sa proyekto?",
+            "options": [
+              "Kawayan o abaka",
+              "Plastik na de-lata",
+              "Bakal na de-imported",
+              "Salamin na de-import"
+            ],
+            "correct_answer": "Kawayan o abaka"
+          },
+          {
+            "question": "Bakit dapat magplano bago simulan ang isang proyekto?",
+            "options": [
+              "Upang maging maayos at organisado ang proseso",
+              "Upang mapabilis lamang ang gawain",
+              "Walang dahilan ito talaga",
+              "Upang malito ang bawat isa"
+            ],
+            "correct_answer": "Upang maging maayos at organisado ang proseso"
+          },
+          {
+            "question": "Isang grupo ang gustong gumawa ng eksibit tungkol sa tradisyonal na pagkain ng kanilang lalawigan. Ano ang dapat nilang gawin muna?",
+            "options": [
+              "Mag-research tungkol sa kasaysayan at kahalagahan ng pagkaing ito",
+              "Direktang magluto na lamang nang walang anumang plano",
+              "Bumili agad ng kagamitan na hindi naman nila kailangan",
+              "Huwag na lamang ituloy pa ang buong proyekto"
+            ],
+            "correct_answer": "Mag-research tungkol sa kasaysayan at kahalagahan ng pagkaing ito"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Karagdagang Kasanayan: Copy, Paste, at Undo\n\nGrade 3, Week 19! Alamin natin ang mga kapaki-pakinabang na shortcut sa kompyuter. ⌨️\n\n## 📋 Copy and Paste\nAng **copy** ay ang paggawa ng **kopya** ng napiling teksto o larawan. Ang **paste** ay ang paglalagay ng nakopya sa **ibang lugar**.\n\n**Gamit:** kapag gusto mong gamitin muli ang parehong teksto o larawan nang hindi ito muling isinusulat.\n\n## ↩️ Undo\nAng **undo** ay ginagamit upang **ibalik** ang huling ginawang aksyon — kapaki-pakinabang kapag nagkamali tayo sa aming ginawa.\n\n**Halimbawa:** Kung aksidenteng na-delete mo ang isang parirala, gamitin ang undo upang ibalik ito.\n\n## 🖨️ Pag-print ng Iyong Gawa\nKapag tapos na ang iyong proyekto, maaari mo itong **i-print** upang magkaroon ng kopya sa papel.\n\n## 🧠 Halimbawa 1\n*Aksidenteng na-delete mo ang isang pangungusap sa iyong proyekto. Ano ang dapat mong gawin?*\n- Gamitin ang **undo** upang ibalik ang na-delete na pangungusap.\n\n## 🧠 Halimbawa 2\n*Gusto mong gamitin muli ang parehong pamagat sa iba't ibang bahagi ng proyekto. Anong dalawang kasanayan ang gagamitin?*\n- **Copy at paste** — kopyahin ang pamagat, at i-paste ito sa ibang lugar.\n\n## 💡 Bakit Mahalaga Ito?\nAng pag-alam sa copy, paste, at undo ay tumutulong upang maging **mas mabilis at episyente** sa paggawa ng proyekto.\n\nMagaling sa Computer! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang copy?",
+            "options": [
+              "Paggawa ng kopya ng napiling teksto o larawan",
+              "Pagtanggal ng teksto nang tuluyan",
+              "Pag-print ng buong dokumento",
+              "Pagsara ng programa"
+            ],
+            "correct_answer": "Paggawa ng kopya ng napiling teksto o larawan"
+          },
+          {
+            "question": "Ano ang paste?",
+            "options": [
+              "Paglalagay ng nakopyang bagay sa ibang lugar",
+              "Pagtanggal ng teksto",
+              "Pag-save ng file",
+              "Pagbubukas ng bagong programa"
+            ],
+            "correct_answer": "Paglalagay ng nakopyang bagay sa ibang lugar"
+          },
+          {
+            "question": "Ano ang undo?",
+            "options": [
+              "Pagbabalik ng huling ginawang aksyon",
+              "Pagsulat ng bagong pangungusap",
+              "Pag-print ng dokumento",
+              "Pagsara ng programa"
+            ],
+            "correct_answer": "Pagbabalik ng huling ginawang aksyon"
+          },
+          {
+            "question": "Aksidenteng na-delete mo ang isang pangungusap. Ano ang dapat mong gawin?",
+            "options": [
+              "Gamitin ang undo",
+              "Isara ang programa agad",
+              "Simulan ulit ang buong proyekto",
+              "I-save agad ang file"
+            ],
+            "correct_answer": "Gamitin ang undo"
+          },
+          {
+            "question": "Gusto mong gamitin muli ang parehong pamagat sa iba't ibang bahagi. Anong dalawang kasanayan ang gagamitin?",
+            "options": [
+              "Copy at paste",
+              "Undo at redo",
+              "Save at close",
+              "Print at delete"
+            ],
+            "correct_answer": "Copy at paste"
+          },
+          {
+            "question": "Ano ang gagawin mo sa iyong proyekto kapag tapos na ito?",
+            "options": [
+              "Maaari mo itong i-print",
+              "Kalimutan na lamang ito",
+              "Burahin agad ito",
+              "Huwag na itong buksan pa"
+            ],
+            "correct_answer": "Maaari mo itong i-print"
+          },
+          {
+            "question": "Bakit kapaki-pakinabang ang undo?",
+            "options": [
+              "Nakatutulong itong itama ang mga pagkakamali",
+              "Nagpapabagal lamang ito ng gawain",
+              "Wala itong gamit sa proyekto",
+              "Nagpapahirap lamang ito ng trabaho"
+            ],
+            "correct_answer": "Nakatutulong itong itama ang mga pagkakamali"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang copy at paste?",
+            "options": [
+              "Nakatutulong itong maiwasan ang pag-uulit ng pagsulat",
+              "Nagpapahirap lamang ito ng buong gawain",
+              "Wala talagang anumang tulong ito",
+              "Ginagamit lamang ito sa paglalaro ng laro"
+            ],
+            "correct_answer": "Nakatutulong itong maiwasan ang pag-uulit ng pagsulat"
+          },
+          {
+            "question": "Ano ang unang hakbang bago mag-paste ng isang teksto?",
+            "options": [
+              "Kopyahin muna ang teksto",
+              "I-print agad ang buong dokumento",
+              "Isara agad ang programa",
+              "Burahin agad ang teksto"
+            ],
+            "correct_answer": "Kopyahin muna ang teksto"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga kasanayang ito para sa isang proyekto?",
+            "options": [
+              "Tumutulong ang mga ito upang maging mas mabilis at episyente",
+              "Wala itong anumang kabuluhan sa buong gawain",
+              "Nagpapahirap lamang ito ng buong proyekto",
+              "Ginagamit lamang ito ng mga guro sa paaralan"
+            ],
+            "correct_answer": "Tumutulong ang mga ito upang maging mas mabilis at episyente"
+          },
+          {
+            "question": "Ano ang mangyayari kapag pinindot mo ang undo pagkatapos ng isang pagkakamali?",
+            "options": [
+              "Ibabalik nito ang huling ginawang aksyon",
+              "Isasara nito ang buong programa",
+              "I-i-print nito ang dokumento",
+              "Ide-delete nito ang buong file"
+            ],
+            "correct_answer": "Ibabalik nito ang huling ginawang aksyon"
+          },
+          {
+            "question": "Ano ang benepisyo ng pag-print ng iyong tapos na proyekto?",
+            "options": [
+              "Magkakaroon ka ng kopya sa papel",
+              "Mawawala ang lahat ng datos",
+              "Hindi na ito mababasa pa",
+              "Magiging mas mabagal ang kompyuter"
+            ],
+            "correct_answer": "Magkakaroon ka ng kopya sa papel"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🤝 GMRC — Pakikibahagi sa Gawaing Panrelihiyon ng Pamilya\n\nGrade 3, Linggo 19! Pagpapahalaga: **Cooperation (Pakikiisa)**. 🌟\n\n## ⛪ Pakikibahagi sa Gawaing Panrelihiyon\nAng **pakikibahagi** sa gawaing panrelihiyon o paniniwala ng pamilya ay isang paraan ng **pagpapalakas** ng ugnayan sa Diyos at sa pamilya.\n\n## 🤝 Ano ang Cooperation (Pakikiisa)?\nAng **pakikiisa** ay ang pagiging **kasangkot** sa mga gawain ng pamilya, kabilang ang mga gawaing panrelihiyon, nang **kusang-loob**.\n\n## 🧠 Halimbawa 1\n*Paano mo maipapakita ang iyong sariling paraan ng pakikibahagi sa gawaing panrelihiyoso ng pamilya?*\n- Sa pamamagitan ng **pagsali sa panalangin, pagsimba, o pagdiriwang** ng pista kasama ang pamilya.\n\n## 🧠 Halimbawa 2\n*Bakit itinuturing na tumutulong ang pakikibahagi sa pagtatayo ng ugnayan sa Diyos?*\n- Dahil ang **sama-samang pananampalataya** ay nagpapatibay ng **buhay-panalangin** ng bawat kasapi.\n\n## 💛 Bunga ng Pakikibahagi\n- Nagpapalakas ng **ugnayan sa Diyos**\n- Nagpapatibay ng **samahan ng pamilya**\n- Nagtuturo ng **disiplina at respeto**\n\n## 💡 Kongklusyon\nAng aktibong pakikibahagi sa gawaing panrelihiyon ng pamilya ay nagpapakita ng **tunay na pananampalataya at pakikiisa**.\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang pakikibahagi sa gawaing panrelihiyon?",
+            "options": [
+              "Pagiging kasangkot sa mga gawaing panrelihiyoso ng pamilya",
+              "Pag-iwas sa lahat ng gawaing panrelihiyoso",
+              "Pananahimik lamang",
+              "Pagsuway sa pamilya"
+            ],
+            "correct_answer": "Pagiging kasangkot sa mga gawaing panrelihiyoso ng pamilya"
+          },
+          {
+            "question": "Ano ang cooperation (pakikiisa)?",
+            "options": [
+              "Pagiging kasangkot sa gawain ng pamilya nang kusang-loob",
+              "Pag-iwas sa lahat ng gawain ng pamilya",
+              "Pagsuway sa mga tagubiling ibinigay",
+              "Pananahimik palagi kahit kailan"
+            ],
+            "correct_answer": "Pagiging kasangkot sa gawain ng pamilya nang kusang-loob"
+          },
+          {
+            "question": "Paano mo maipapakita ang pakikibahagi sa gawaing panrelihiyoso ng pamilya?",
+            "options": [
+              "Sa pagsali sa panalangin, pagsimba, o pagdiriwang",
+              "Sa pananatiling nag-iisa lamang",
+              "Sa pag-iwas sa lahat ng pagtitipon",
+              "Sa pagtanggi na sumama sa kanila"
+            ],
+            "correct_answer": "Sa pagsali sa panalangin, pagsimba, o pagdiriwang"
+          },
+          {
+            "question": "Bakit itinuturing na tumutulong ang pakikibahagi sa pagtatayo ng ugnayan sa Diyos?",
+            "options": [
+              "Nagpapatibay ito ng buhay-panalangin ng bawat kasapi",
+              "Wala itong kaugnayan sa pananampalataya",
+              "Ito ay nagpapahina lamang ng samahan",
+              "Hindi ito mahalaga sa pamilya"
+            ],
+            "correct_answer": "Nagpapatibay ito ng buhay-panalangin ng bawat kasapi"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Cooperation (Pakikiisa)",
+              "Honesty",
+              "Masipag",
+              "Mapagpasensiya"
+            ],
+            "correct_answer": "Cooperation (Pakikiisa)"
+          },
+          {
+            "question": "Ano ang isang bunga ng pakikibahagi sa gawaing panrelihiyon ng pamilya?",
+            "options": [
+              "Nagpapalakas ng ugnayan sa Diyos",
+              "Nagpapahina ng ugnayan sa Diyos",
+              "Walang epekto ito sa ugnayan",
+              "Nagdudulot lamang ito ng away"
+            ],
+            "correct_answer": "Nagpapalakas ng ugnayan sa Diyos"
+          },
+          {
+            "question": "Ano ang natutuhan ng bata mula sa pakikibahagi sa gawaing panrelihiyon?",
+            "options": [
+              "Disiplina at respeto",
+              "Kawalang-galang",
+              "Pagmamataas",
+              "Kapabayaan"
+            ],
+            "correct_answer": "Disiplina at respeto"
+          },
+          {
+            "question": "Bakit dapat kusang-loob ang pakikibahagi sa gawaing panrelihiyon?",
+            "options": [
+              "Upang tunay itong maging bahagi ng pananampalataya",
+              "Dahil pinipilit lamang ito ng magulang",
+              "Dahil wala itong tunay na kabuluhan",
+              "Dahil hindi ito importante"
+            ],
+            "correct_answer": "Upang tunay itong maging bahagi ng pananampalataya"
+          },
+          {
+            "question": "Ano ang halimbawa ng gawaing panrelihiyon ng isang pamilya?",
+            "options": [
+              "Sama-samang panalangin sa gabi",
+              "Panonood ng TV nang mag-isa",
+              "Paglalaro ng video game nang mag-isa",
+              "Pagbabasa ng komiks nang mag-isa"
+            ],
+            "correct_answer": "Sama-samang panalangin sa gabi"
+          },
+          {
+            "question": "Bakit mahalaga ang samahan ng pamilya sa gawaing panrelihiyoso?",
+            "options": [
+              "Nagpapatibay ito ng samahan at pananampalataya",
+              "Wala itong kabuluhan sa pamilya",
+              "Nagpapahirap lamang ito ng oras",
+              "Hindi ito bahagi ng buhay-pamilya"
+            ],
+            "correct_answer": "Nagpapatibay ito ng samahan at pananampalataya"
+          },
+          {
+            "question": "Isang batang laging tumutulong sa paghahanda ng gawaing panrelihiyoso ng kanilang pamilya. Ano ang ipinapakita nito?",
+            "options": [
+              "Pakikiisa at pananampalataya",
+              "Kawalan ng pakialam",
+              "Pagsuway sa pamilya",
+              "Kapabayaan sa gawain"
+            ],
+            "correct_answer": "Pakikiisa at pananampalataya"
+          },
+          {
+            "question": "Bakit mahalagang maging aktibo sa gawaing panrelihiyon ng pamilya sa halip na tumingin lamang mula sa malayo?",
+            "options": [
+              "Nagpapakita ito ng tunay na pananampalataya at pakikiisa",
+              "Wala itong pagkakaiba kung aktibo o hindi",
+              "Mas mainam palaging manatiling tahimik",
+              "Hindi na kailangang lumahok pa"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na pananampalataya at pakikiisa"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🗣️ Friday Review — English (Grade 3)\n\n- **Polite expressions**, **retelling**, **reacting**, **summarizing**\n\nGreat composing work! 🌟",
+        "quiz": [
+          {
+            "question": "What are polite expressions?",
+            "options": [
+              "Words used to show respect, like \"please\" and \"thank you\"",
+              "Words used only when someone is angry",
+              "Words that carry no meaning at all",
+              "Words used only inside written texts"
+            ],
+            "correct_answer": "Words used to show respect, like \"please\" and \"thank you\""
+          },
+          {
+            "question": "What does retelling mean?",
+            "options": [
+              "Telling a story again in your own words",
+              "Reading a story silently only",
+              "Copying a story word for word",
+              "Ignoring the story completely"
+            ],
+            "correct_answer": "Telling a story again in your own words"
+          },
+          {
+            "question": "Retell this event in your own words: \"Ben went to the market, bought vegetables, and cooked dinner.\"",
+            "options": [
+              "Ben shopped for vegetables, then cooked them for dinner.",
+              "Ben never went anywhere at all.",
+              "Ben cooked dinner before shopping.",
+              "Ben bought vegetables but never cooked."
+            ],
+            "correct_answer": "Ben shopped for vegetables, then cooked them for dinner."
+          },
+          {
+            "question": "What does it mean to react to a story?",
+            "options": [
+              "To share your thoughts or feelings about it",
+              "To ignore the story completely",
+              "To copy the story exactly",
+              "To only read the title"
+            ],
+            "correct_answer": "To share your thoughts or feelings about it"
+          },
+          {
+            "question": "React to this story: \"A boy shared his lunch with a hungry classmate.\" Which is a thoughtful reaction?",
+            "options": [
+              "I think the boy was very kind to share his food.",
+              "The story has no meaning at all.",
+              "I don't understand what happened.",
+              "The boy should not have shared anything."
+            ],
+            "correct_answer": "I think the boy was very kind to share his food."
+          },
+          {
+            "question": "What is a summary?",
+            "options": [
+              "The most important points, in fewer words",
+              "The entire story word for word",
+              "Only the title of the story",
+              "A drawing of the story's setting"
+            ],
+            "correct_answer": "The most important points, in fewer words"
+          },
+          {
+            "question": "What are regional and content-specific topics?",
+            "options": [
+              "Things related to our region or subjects we're learning",
+              "Only topics about foreign countries",
+              "Only topics about outer space",
+              "Only topics with no connection to us"
+            ],
+            "correct_answer": "Things related to our region or subjects we're learning"
+          },
+          {
+            "question": "Which is an example of a polite expression?",
+            "options": [
+              "\"Excuse me, may I ask a question?\"",
+              "\"Give it to me now!\"",
+              "\"I don't care.\"",
+              "\"That's not my problem.\""
+            ],
+            "correct_answer": "\"Excuse me, may I ask a question?\""
+          },
+          {
+            "question": "Why do we use polite expressions when speaking or writing?",
+            "options": [
+              "To show respect to others",
+              "To confuse the listener",
+              "To make our speech longer",
+              "To avoid saying anything at all"
+            ],
+            "correct_answer": "To show respect to others"
+          },
+          {
+            "question": "Why is retelling useful for understanding a story?",
+            "options": [
+              "It helps us check that we understood the important parts",
+              "It replaces the need to read the story at all",
+              "It only works for very short stories",
+              "It has no real educational purpose"
+            ],
+            "correct_answer": "It helps us check that we understood the important parts"
+          },
+          {
+            "question": "What should a good summary include?",
+            "options": [
+              "Only the most important points of the text",
+              "Every single word from the original text",
+              "Only the author's name",
+              "Random unrelated details"
+            ],
+            "correct_answer": "Only the most important points of the text"
+          },
+          {
+            "question": "Why is it helpful to compose our own texts about topics we're learning?",
+            "options": [
+              "It helps us communicate our thoughts clearly and politely",
+              "It makes learning harder to understand",
+              "It removes the need to think about the topic",
+              "It is only useful for adults"
+            ],
+            "correct_answer": "It helps us communicate our thoughts clearly and politely"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➖ Friday Review — Mathematics (Grade 3)\n\n- Subtracting with **regrouping**; **estimate** by rounding first\n\nGreat subtraction work! ⭐",
+        "quiz": [
+          {
+            "question": "What do we do when the top digit is smaller than the bottom digit while subtracting?",
+            "options": [
+              "Regroup (borrow) from the next column",
+              "Ignore the difference",
+              "Add instead of subtracting",
+              "Start the problem over"
+            ],
+            "correct_answer": "Regroup (borrow) from the next column"
+          },
+          {
+            "question": "What is 5,342 - 2,876?",
+            "options": [
+              "2,466",
+              "2,566",
+              "2,366",
+              "3,466"
+            ],
+            "correct_answer": "2,466"
+          },
+          {
+            "question": "How do you estimate a difference?",
+            "options": [
+              "Round each number, then subtract",
+              "Multiply the numbers instead",
+              "Add the numbers instead",
+              "Divide both numbers by 2"
+            ],
+            "correct_answer": "Round each number, then subtract"
+          },
+          {
+            "question": "Estimate 5,342 - 2,876 by rounding to the nearest thousand.",
+            "options": [
+              "2,000",
+              "3,000",
+              "1,000",
+              "2,500"
+            ],
+            "correct_answer": "2,000"
+          },
+          {
+            "question": "Maria had ₱5,000. She spent ₱1,850 on groceries. How much money does she have left?",
+            "options": [
+              "₱3,150",
+              "₱3,250",
+              "₱3,050",
+              "₱2,150"
+            ],
+            "correct_answer": "₱3,150"
+          },
+          {
+            "question": "What is 8,120 - 3,456?",
+            "options": [
+              "4,664",
+              "4,764",
+              "4,564",
+              "5,664"
+            ],
+            "correct_answer": "4,664"
+          },
+          {
+            "question": "What is 500 + 250 - 120?",
+            "options": [
+              "630",
+              "730",
+              "530",
+              "870"
+            ],
+            "correct_answer": "630"
+          },
+          {
+            "question": "In what order do we solve 500 + 250 - 120?",
+            "options": [
+              "Left to right",
+              "Right to left",
+              "Subtraction first always",
+              "Addition last always"
+            ],
+            "correct_answer": "Left to right"
+          },
+          {
+            "question": "Why do we estimate before solving a subtraction problem exactly?",
+            "options": [
+              "To check if our exact answer makes sense",
+              "To avoid solving the problem at all",
+              "To make the problem harder",
+              "To skip the subtraction step"
+            ],
+            "correct_answer": "To check if our exact answer makes sense"
+          },
+          {
+            "question": "What is 6,000 - 2,345?",
+            "options": [
+              "3,655",
+              "3,755",
+              "3,545",
+              "4,655"
+            ],
+            "correct_answer": "3,655"
+          },
+          {
+            "question": "A store had ₱9,500 in sales. It refunded ₱1,250 to a customer. How much sales remain?",
+            "options": [
+              "₱8,250",
+              "₱8,150",
+              "₱8,350",
+              "₱7,250"
+            ],
+            "correct_answer": "₱8,250"
+          },
+          {
+            "question": "Which number, when rounded to the nearest thousand, becomes 3,000?",
+            "options": [
+              "2,789",
+              "3,600",
+              "2,400",
+              "3,550"
+            ],
+            "correct_answer": "2,789"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# ✍️ Friday Review — Filipino (Grade 3)\n\n- **Tambalang pangungusap**, **pagbubuod**, magagalang na pananalita\n\nMagaling sa pagsulat! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang magagalang na pananalita?",
+            "options": [
+              "Pananalitang angkop sa iba't ibang asignatura",
+              "Pananalitang basta-basta lamang",
+              "Pananalitang hindi maiintindihan",
+              "Pananalitang ginagamit lamang sa laro"
+            ],
+            "correct_answer": "Pananalitang angkop sa iba't ibang asignatura"
+          },
+          {
+            "question": "Ano ang tambalang pangungusap?",
+            "options": [
+              "Pangungusap na may dalawang sugnay na pinagsama",
+              "Isang salita lamang",
+              "Pangungusap na walang kahulugan",
+              "Isang tanong lamang"
+            ],
+            "correct_answer": "Pangungusap na may dalawang sugnay na pinagsama"
+          },
+          {
+            "question": "Bumuo ng pangungusap gamit ang tambalang pangungusap tungkol sa palengke.",
+            "options": [
+              "Pumunta ako sa palengke, at bumili ako ng sariwang isda.",
+              "Palengke lamang ang tanging salitang ginamit dito.",
+              "Isda lamang ang tanging salitang ginamit dito.",
+              "Ako lamang ang tanging salitang ginamit dito."
+            ],
+            "correct_answer": "Pumunta ako sa palengke, at bumili ako ng sariwang isda."
+          },
+          {
+            "question": "Ano ang pagbubuod?",
+            "options": [
+              "Pagsasaad ng pinakamahalagang bahagi sa maiksing paraan",
+              "Pagsulat ng buong kuwento nang paulit-ulit",
+              "Pagbabago ng pamagat ng kuwento",
+              "Pagguhit ng larawan lamang"
+            ],
+            "correct_answer": "Pagsasaad ng pinakamahalagang bahagi sa maiksing paraan"
+          },
+          {
+            "question": "Magbuod ng kuwentong: \"Nawalan ng gamit si Ana. Hinanap niya ito. Nakita niya sa ilalim ng mesa.\"",
+            "options": [
+              "Nawalan si Ana ng gamit ngunit natagpuan niya ito sa ilalim ng mesa.",
+              "Si Ana ay masaya araw-araw sa kanyang buhay.",
+              "Walang anumang bagay ang nangyari kay Ana dito.",
+              "Nawala ang buong mesa ni Ana kahapon."
+            ],
+            "correct_answer": "Nawalan si Ana ng gamit ngunit natagpuan niya ito sa ilalim ng mesa."
+          },
+          {
+            "question": "Ano ang ginagamit natin sa pagbuo ng talata bukod sa high-frequency words?",
+            "options": [
+              "Mga salitang may kaugnayan sa paksa",
+              "Mga salitang walang kahulugan",
+              "Mga bilang lamang",
+              "Mga bantas lamang"
+            ],
+            "correct_answer": "Mga salitang may kaugnayan sa paksa"
+          },
+          {
+            "question": "Kailan tayo maaaring magpahayag ng reaksiyon sa isang binasa?",
+            "options": [
+              "Kapag bumubuo ng talata tungkol sa suliranin o paksa nito",
+              "Kapag hindi pa natin binasa ang buong teksto",
+              "Kapag tulog na tayong lahat sa oras na iyon",
+              "Kapag wala tayong opinyon tungkol dito"
+            ],
+            "correct_answer": "Kapag bumubuo ng talata tungkol sa suliranin o paksa nito"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang magagalang na pananalita sa pagsulat?",
+            "options": [
+              "Upang maging angkop ito sa iba't ibang asignatura",
+              "Upang mahirap intindihin ang teksto",
+              "Upang mapahaba lamang ang pangungusap",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang maging angkop ito sa iba't ibang asignatura"
+          },
+          {
+            "question": "Alin ang halimbawa ng tambalang pangungusap?",
+            "options": [
+              "Kumain ako, at naligo ako.",
+              "Kumain ako kanina.",
+              "Naligo ako kanina.",
+              "Ako ay bata."
+            ],
+            "correct_answer": "Kumain ako, at naligo ako."
+          },
+          {
+            "question": "Ano ang layunin ng pagbubuod ng isang tekstong naratibo?",
+            "options": [
+              "Ipakita ang pinakamahalagang bahagi sa mas maiksing paraan",
+              "Pahabain pa ang buong kuwento nang husto",
+              "Baguhin nang tuluyan ang katapusan ng kuwento",
+              "Alisin ang lahat ng detalye sa kuwento"
+            ],
+            "correct_answer": "Ipakita ang pinakamahalagang bahagi sa mas maiksing paraan"
+          },
+          {
+            "question": "Bakit mahalaga ang pagbuo ng maayos na teksto?",
+            "options": [
+              "Tumutulong ito upang maipahayag nang malinaw ang ideya",
+              "Wala itong kabuluhan sa pag-aaral",
+              "Ginagawa lamang ito para sa marka",
+              "Nakakalito lamang ito sa mambabasa"
+            ],
+            "correct_answer": "Tumutulong ito upang maipahayag nang malinaw ang ideya"
+          },
+          {
+            "question": "Isang mag-aaral ang gustong sumulat ng talata tungkol sa kanyang karanasan sa bansa. Ano ang maaari niyang gamitin?",
+            "options": [
+              "Tambalang pangungusap na naglalarawan ng karanasan",
+              "Isang salita lamang na walang detalye",
+              "Isang bantas lamang",
+              "Isang guhit na walang salita"
+            ],
+            "correct_answer": "Tambalang pangungusap na naglalarawan ng karanasan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌿 Friday Review — Science (Grade 3)\n\n- **Roots** absorb; **stem** transports; **leaves** make food (photosynthesis)\n\nGreat plant science! 🌟",
+        "quiz": [
+          {
+            "question": "What is the role of roots in a plant?",
+            "options": [
+              "Absorb water and nutrients from the soil",
+              "Make food using sunlight",
+              "Carry water to the leaves only",
+              "Produce flowers and fruit"
+            ],
+            "correct_answer": "Absorb water and nutrients from the soil"
+          },
+          {
+            "question": "What is the role of the stem in a plant?",
+            "options": [
+              "Carry water and nutrients from roots to leaves",
+              "Absorb water directly from the air",
+              "Make food using sunlight",
+              "Protect the plant from insects"
+            ],
+            "correct_answer": "Carry water and nutrients from roots to leaves"
+          },
+          {
+            "question": "What is the role of leaves in a plant?",
+            "options": [
+              "Make food for the plant using sunlight",
+              "Absorb water from the soil",
+              "Carry nutrients underground",
+              "Protect the roots from damage"
+            ],
+            "correct_answer": "Make food for the plant using sunlight"
+          },
+          {
+            "question": "Why do roots grow underground?",
+            "options": [
+              "To absorb water and nutrients from the soil",
+              "To make food using sunlight",
+              "To protect the leaves from wind",
+              "To attract insects for pollination"
+            ],
+            "correct_answer": "To absorb water and nutrients from the soil"
+          },
+          {
+            "question": "How does water travel from the roots to the leaves?",
+            "options": [
+              "Through the stem, which acts like a pipe",
+              "Through the air directly",
+              "Through the flowers only",
+              "Water does not travel inside plants"
+            ],
+            "correct_answer": "Through the stem, which acts like a pipe"
+          },
+          {
+            "question": "What would happen to a plant if its roots were damaged?",
+            "options": [
+              "It would have difficulty absorbing water and nutrients",
+              "It would grow faster than before",
+              "It would immediately produce more flowers",
+              "Nothing would change at all"
+            ],
+            "correct_answer": "It would have difficulty absorbing water and nutrients"
+          },
+          {
+            "question": "What process do leaves use to make food?",
+            "options": [
+              "Photosynthesis, using sunlight",
+              "Absorption, using soil only",
+              "Transportation, using the stem only",
+              "Respiration, using only air"
+            ],
+            "correct_answer": "Photosynthesis, using sunlight"
+          },
+          {
+            "question": "Why is the stem important for a plant's survival?",
+            "options": [
+              "It transports water and nutrients throughout the plant",
+              "It only provides color to the plant",
+              "It has no real function in the plant",
+              "It only produces seeds"
+            ],
+            "correct_answer": "It transports water and nutrients throughout the plant"
+          },
+          {
+            "question": "What do roots absorb from the soil?",
+            "options": [
+              "Water and nutrients",
+              "Only sunlight",
+              "Only oxygen from the air",
+              "Only carbon dioxide"
+            ],
+            "correct_answer": "Water and nutrients"
+          },
+          {
+            "question": "Which plant part is most like a sponge, soaking up water?",
+            "options": [
+              "Roots",
+              "Leaves",
+              "Stem",
+              "Flower"
+            ],
+            "correct_answer": "Roots"
+          },
+          {
+            "question": "Which plant part is most like a pipe, carrying water upward?",
+            "options": [
+              "Stem",
+              "Roots",
+              "Leaves",
+              "Flower"
+            ],
+            "correct_answer": "Stem"
+          },
+          {
+            "question": "Why is it important to understand the roles of roots, stems, and leaves?",
+            "options": [
+              "It helps us understand how plants survive and grow",
+              "It has no connection to how plants live",
+              "It only matters for farmers, not students",
+              "It only applies to very large trees"
+            ],
+            "correct_answer": "It helps us understand how plants survive and grow"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🗂️ Friday Review — Makabansa (Grade 3)\n\n- Pagpaplano ng proyektong pangkultura: pumili, mag-research, magplano, ihanda\n\nMagaling sa Makabansa! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang layunin ng proyektong pangkultura?",
+            "options": [
+              "Ipakita ang pagpapahalaga sa kultura ng komunidad",
+              "Kumita ng pera",
+              "Makatakas sa gawain sa paaralan",
+              "Walang layunin ito talaga"
+            ],
+            "correct_answer": "Ipakita ang pagpapahalaga sa kultura ng komunidad"
+          },
+          {
+            "question": "Ano ang unang hakbang sa pagpaplano ng proyektong pangkultura?",
+            "options": [
+              "Pumili ng aspeto ng kultura",
+              "Direktang ipakita ang proyekto",
+              "Bumili ng kagamitan agad",
+              "Magtanong sa lahat ng kaklase"
+            ],
+            "correct_answer": "Pumili ng aspeto ng kultura"
+          },
+          {
+            "question": "Gusto mong gumawa ng proyekto tungkol sa tradisyonal na sayaw. Ano ang unang gagawin mo?",
+            "options": [
+              "Pumili ng aspetong tradisyonal na sayaw at magsimulang mag-research",
+              "Direktang isulat na lamang ang konklusyon nito",
+              "Bumili agad ng kagamitan na hindi pa kailangan",
+              "Kalimutan na lamang ang buong paksang ito"
+            ],
+            "correct_answer": "Pumili ng aspetong tradisyonal na sayaw at magsimulang mag-research"
+          },
+          {
+            "question": "Bakit mainam gumamit ng katutubong materyales sa proyekto?",
+            "options": [
+              "Nagpapakita ito ng tunay na koneksyon sa kultura",
+              "Mas mura lamang ito palagi",
+              "Mas madali lamang itong hanapin",
+              "Walang ibang dahilan para dito"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na koneksyon sa kultura"
+          },
+          {
+            "question": "Ano ang maaaring maging aspeto ng kultura na pagsusulatan sa proyekto?",
+            "options": [
+              "Pagkain, sayaw, o kasuotan",
+              "Panahon lamang",
+              "Bilang ng populasyon lamang",
+              "Mapa ng mundo lamang"
+            ],
+            "correct_answer": "Pagkain, sayaw, o kasuotan"
+          },
+          {
+            "question": "Anong hakbang ang sumusunod matapos pumili ng aspeto ng kultura?",
+            "options": [
+              "Mag-research tungkol dito",
+              "Direktang ipakita agad",
+              "Kalimutan ang paksa",
+              "Umalis sa klase"
+            ],
+            "correct_answer": "Mag-research tungkol dito"
+          },
+          {
+            "question": "Ano ang maaaring anyo ng proyektong pangkultura?",
+            "options": [
+              "Poster, palamuti, o maikling presentasyon",
+              "Isang laruang de-baterya",
+              "Isang aklat sa matematika",
+              "Isang aparatong elektroniko"
+            ],
+            "correct_answer": "Poster, palamuti, o maikling presentasyon"
+          },
+          {
+            "question": "Bakit mahalagang mag-research bago gumawa ng proyekto?",
+            "options": [
+              "Upang matiyak na tama at kumpleto ang impormasyon",
+              "Upang mapahaba lamang ang proyekto",
+              "Walang dahilan ito talaga",
+              "Upang malito ang gagawa ng proyekto"
+            ],
+            "correct_answer": "Upang matiyak na tama at kumpleto ang impormasyon"
+          },
+          {
+            "question": "Ano ang pangkalahatang aral ng pagpaplano ng proyektong pangkultura?",
+            "options": [
+              "Ipakita ang natutuhan at magpahalaga sa pamana",
+              "Kalimutan ang natutuhang kultura",
+              "Palitan ang sariling kultura ng ibang kultura",
+              "Alisin ang lahat ng tradisyon"
+            ],
+            "correct_answer": "Ipakita ang natutuhan at magpahalaga sa pamana"
+          },
+          {
+            "question": "Alin ang halimbawa ng katutubong materyales na maaaring gamitin sa proyekto?",
+            "options": [
+              "Kawayan o abaka",
+              "Plastik na de-lata",
+              "Bakal na de-imported",
+              "Salamin na de-import"
+            ],
+            "correct_answer": "Kawayan o abaka"
+          },
+          {
+            "question": "Bakit dapat magplano bago simulan ang isang proyekto?",
+            "options": [
+              "Upang maging maayos at organisado ang proseso",
+              "Upang mapabilis lamang ang gawain",
+              "Walang dahilan ito talaga",
+              "Upang malito ang bawat isa"
+            ],
+            "correct_answer": "Upang maging maayos at organisado ang proseso"
+          },
+          {
+            "question": "Isang grupo ang gustong gumawa ng eksibit tungkol sa tradisyonal na pagkain ng kanilang lalawigan. Ano ang dapat nilang gawin muna?",
+            "options": [
+              "Mag-research tungkol sa kasaysayan at kahalagahan ng pagkaing ito",
+              "Direktang magluto na lamang nang walang anumang plano",
+              "Bumili agad ng kagamitan na hindi naman nila kailangan",
+              "Huwag na lamang ituloy pa ang buong proyekto"
+            ],
+            "correct_answer": "Mag-research tungkol sa kasaysayan at kahalagahan ng pagkaing ito"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Friday Review — Computer (Grade 3)\n\n- **Copy, paste, undo** — kapaki-pakinabang na shortcut\n\nMagaling sa Computer! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang copy?",
+            "options": [
+              "Paggawa ng kopya ng napiling teksto o larawan",
+              "Pagtanggal ng teksto nang tuluyan",
+              "Pag-print ng buong dokumento",
+              "Pagsara ng programa"
+            ],
+            "correct_answer": "Paggawa ng kopya ng napiling teksto o larawan"
+          },
+          {
+            "question": "Ano ang paste?",
+            "options": [
+              "Paglalagay ng nakopyang bagay sa ibang lugar",
+              "Pagtanggal ng teksto",
+              "Pag-save ng file",
+              "Pagbubukas ng bagong programa"
+            ],
+            "correct_answer": "Paglalagay ng nakopyang bagay sa ibang lugar"
+          },
+          {
+            "question": "Ano ang undo?",
+            "options": [
+              "Pagbabalik ng huling ginawang aksyon",
+              "Pagsulat ng bagong pangungusap",
+              "Pag-print ng dokumento",
+              "Pagsara ng programa"
+            ],
+            "correct_answer": "Pagbabalik ng huling ginawang aksyon"
+          },
+          {
+            "question": "Aksidenteng na-delete mo ang isang pangungusap. Ano ang dapat mong gawin?",
+            "options": [
+              "Gamitin ang undo",
+              "Isara ang programa agad",
+              "Simulan ulit ang buong proyekto",
+              "I-save agad ang file"
+            ],
+            "correct_answer": "Gamitin ang undo"
+          },
+          {
+            "question": "Gusto mong gamitin muli ang parehong pamagat sa iba't ibang bahagi. Anong dalawang kasanayan ang gagamitin?",
+            "options": [
+              "Copy at paste",
+              "Undo at redo",
+              "Save at close",
+              "Print at delete"
+            ],
+            "correct_answer": "Copy at paste"
+          },
+          {
+            "question": "Ano ang gagawin mo sa iyong proyekto kapag tapos na ito?",
+            "options": [
+              "Maaari mo itong i-print",
+              "Kalimutan na lamang ito",
+              "Burahin agad ito",
+              "Huwag na itong buksan pa"
+            ],
+            "correct_answer": "Maaari mo itong i-print"
+          },
+          {
+            "question": "Bakit kapaki-pakinabang ang undo?",
+            "options": [
+              "Nakatutulong itong itama ang mga pagkakamali",
+              "Nagpapabagal lamang ito ng gawain",
+              "Wala itong gamit sa proyekto",
+              "Nagpapahirap lamang ito ng trabaho"
+            ],
+            "correct_answer": "Nakatutulong itong itama ang mga pagkakamali"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang copy at paste?",
+            "options": [
+              "Nakatutulong itong maiwasan ang pag-uulit ng pagsulat",
+              "Nagpapahirap lamang ito ng buong gawain",
+              "Wala talagang anumang tulong ito",
+              "Ginagamit lamang ito sa paglalaro ng laro"
+            ],
+            "correct_answer": "Nakatutulong itong maiwasan ang pag-uulit ng pagsulat"
+          },
+          {
+            "question": "Ano ang unang hakbang bago mag-paste ng isang teksto?",
+            "options": [
+              "Kopyahin muna ang teksto",
+              "I-print agad ang buong dokumento",
+              "Isara agad ang programa",
+              "Burahin agad ang teksto"
+            ],
+            "correct_answer": "Kopyahin muna ang teksto"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga kasanayang ito para sa isang proyekto?",
+            "options": [
+              "Tumutulong ang mga ito upang maging mas mabilis at episyente",
+              "Wala itong anumang kabuluhan sa buong gawain",
+              "Nagpapahirap lamang ito ng buong proyekto",
+              "Ginagamit lamang ito ng mga guro sa paaralan"
+            ],
+            "correct_answer": "Tumutulong ang mga ito upang maging mas mabilis at episyente"
+          },
+          {
+            "question": "Ano ang mangyayari kapag pinindot mo ang undo pagkatapos ng isang pagkakamali?",
+            "options": [
+              "Ibabalik nito ang huling ginawang aksyon",
+              "Isasara nito ang buong programa",
+              "I-i-print nito ang dokumento",
+              "Ide-delete nito ang buong file"
+            ],
+            "correct_answer": "Ibabalik nito ang huling ginawang aksyon"
+          },
+          {
+            "question": "Ano ang benepisyo ng pag-print ng iyong tapos na proyekto?",
+            "options": [
+              "Magkakaroon ka ng kopya sa papel",
+              "Mawawala ang lahat ng datos",
+              "Hindi na ito mababasa pa",
+              "Magiging mas mabagal ang kompyuter"
+            ],
+            "correct_answer": "Magkakaroon ka ng kopya sa papel"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🤝 Friday Review — GMRC (Grade 3)\n\n- Pakikibahagi sa gawaing panrelihiyon ng pamilya\n- Pagpapahalaga: **Cooperation (Pakikiisa)**\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang pakikibahagi sa gawaing panrelihiyon?",
+            "options": [
+              "Pagiging kasangkot sa mga gawaing panrelihiyoso ng pamilya",
+              "Pag-iwas sa lahat ng gawaing panrelihiyoso",
+              "Pananahimik lamang",
+              "Pagsuway sa pamilya"
+            ],
+            "correct_answer": "Pagiging kasangkot sa mga gawaing panrelihiyoso ng pamilya"
+          },
+          {
+            "question": "Ano ang cooperation (pakikiisa)?",
+            "options": [
+              "Pagiging kasangkot sa gawain ng pamilya nang kusang-loob",
+              "Pag-iwas sa lahat ng gawain ng pamilya",
+              "Pagsuway sa mga tagubiling ibinigay",
+              "Pananahimik palagi kahit kailan"
+            ],
+            "correct_answer": "Pagiging kasangkot sa gawain ng pamilya nang kusang-loob"
+          },
+          {
+            "question": "Paano mo maipapakita ang pakikibahagi sa gawaing panrelihiyoso ng pamilya?",
+            "options": [
+              "Sa pagsali sa panalangin, pagsimba, o pagdiriwang",
+              "Sa pananatiling nag-iisa lamang",
+              "Sa pag-iwas sa lahat ng pagtitipon",
+              "Sa pagtanggi na sumama sa kanila"
+            ],
+            "correct_answer": "Sa pagsali sa panalangin, pagsimba, o pagdiriwang"
+          },
+          {
+            "question": "Bakit itinuturing na tumutulong ang pakikibahagi sa pagtatayo ng ugnayan sa Diyos?",
+            "options": [
+              "Nagpapatibay ito ng buhay-panalangin ng bawat kasapi",
+              "Wala itong kaugnayan sa pananampalataya",
+              "Ito ay nagpapahina lamang ng samahan",
+              "Hindi ito mahalaga sa pamilya"
+            ],
+            "correct_answer": "Nagpapatibay ito ng buhay-panalangin ng bawat kasapi"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Cooperation (Pakikiisa)",
+              "Honesty",
+              "Masipag",
+              "Mapagpasensiya"
+            ],
+            "correct_answer": "Cooperation (Pakikiisa)"
+          },
+          {
+            "question": "Ano ang isang bunga ng pakikibahagi sa gawaing panrelihiyon ng pamilya?",
+            "options": [
+              "Nagpapalakas ng ugnayan sa Diyos",
+              "Nagpapahina ng ugnayan sa Diyos",
+              "Walang epekto ito sa ugnayan",
+              "Nagdudulot lamang ito ng away"
+            ],
+            "correct_answer": "Nagpapalakas ng ugnayan sa Diyos"
+          },
+          {
+            "question": "Ano ang natutuhan ng bata mula sa pakikibahagi sa gawaing panrelihiyon?",
+            "options": [
+              "Disiplina at respeto",
+              "Kawalang-galang",
+              "Pagmamataas",
+              "Kapabayaan"
+            ],
+            "correct_answer": "Disiplina at respeto"
+          },
+          {
+            "question": "Bakit dapat kusang-loob ang pakikibahagi sa gawaing panrelihiyon?",
+            "options": [
+              "Upang tunay itong maging bahagi ng pananampalataya",
+              "Dahil pinipilit lamang ito ng magulang",
+              "Dahil wala itong tunay na kabuluhan",
+              "Dahil hindi ito importante"
+            ],
+            "correct_answer": "Upang tunay itong maging bahagi ng pananampalataya"
+          },
+          {
+            "question": "Ano ang halimbawa ng gawaing panrelihiyon ng isang pamilya?",
+            "options": [
+              "Sama-samang panalangin sa gabi",
+              "Panonood ng TV nang mag-isa",
+              "Paglalaro ng video game nang mag-isa",
+              "Pagbabasa ng komiks nang mag-isa"
+            ],
+            "correct_answer": "Sama-samang panalangin sa gabi"
+          },
+          {
+            "question": "Bakit mahalaga ang samahan ng pamilya sa gawaing panrelihiyoso?",
+            "options": [
+              "Nagpapatibay ito ng samahan at pananampalataya",
+              "Wala itong kabuluhan sa pamilya",
+              "Nagpapahirap lamang ito ng oras",
+              "Hindi ito bahagi ng buhay-pamilya"
+            ],
+            "correct_answer": "Nagpapatibay ito ng samahan at pananampalataya"
+          },
+          {
+            "question": "Isang batang laging tumutulong sa paghahanda ng gawaing panrelihiyoso ng kanilang pamilya. Ano ang ipinapakita nito?",
+            "options": [
+              "Pakikiisa at pananampalataya",
+              "Kawalan ng pakialam",
+              "Pagsuway sa pamilya",
+              "Kapabayaan sa gawain"
+            ],
+            "correct_answer": "Pakikiisa at pananampalataya"
+          },
+          {
+            "question": "Bakit mahalagang maging aktibo sa gawaing panrelihiyon ng pamilya sa halip na tumingin lamang mula sa malayo?",
+            "options": [
+              "Nagpapakita ito ng tunay na pananampalataya at pakikiisa",
+              "Wala itong pagkakaiba kung aktibo o hindi",
+              "Mas mainam palaging manatiling tahimik",
+              "Hindi na kailangang lumahok pa"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na pananampalataya at pakikiisa"
+          }
+        ]
+      }
+    }
+  }
+}

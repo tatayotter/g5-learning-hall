@@ -1,0 +1,2016 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-09-27",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# ✍️ English — Writing Procedural Texts and Friendly Letters\n\nGrade 4, Week 16! Let's write about celebrations. 💌\n\n## 📝 Writing a Procedural/Chronological Text\nWhen describing the **steps or order of events** in a ceremony, use clear **time-order words**.\n\n**Example: Steps in a Christening**\n1. **First**, the family arrives at church with the baby.\n2. **Next**, the priest pours water and says the baby's name.\n3. **Then**, godparents receive their responsibilities.\n4. **Finally**, everyone celebrates at the reception.\n\n## 💌 Writing a Friendly Letter of Pagbati (Congratulations)\nA friendly letter has these parts:\n| Part | What it contains |\n|---|---|\n| **Greeting** | \"Dear Ninong Jose,\" |\n| **Body** | your congratulatory message |\n| **Closing** | \"With love,\" |\n| **Signature** | your name |\n\n**Polite expressions to use:** *\"Congratulations!\", \"Wishing you happiness!\", \"May God bless you always.\"*\n\n## 🧠 Worked Example 1\n*Write the opening line of a pagbati letter for a wedding.*\n> *\"Dear Ate Maria, Congratulations on your wedding! I wish you and Kuya Pedro a lifetime of happiness.\"*\n\n## 🧠 Worked Example 2\n*Sequence these wedding steps correctly: reception, ceremony, pamamanhikan.*\n- **First:** pamamanhikan → **Then:** ceremony → **Finally:** reception\n\n## 📋 Combining Both Skills\nYou can write a **short procedural text** describing the steps of a celebration, THEN follow it with a **friendly letter** congratulating the celebrants.\n\nGreat writing! 🌟",
+        "quiz": [
+          {
+            "question": "Which word signals the FIRST step in a procedural text?",
+            "options": [
+              "First",
+              "Finally",
+              "Then",
+              "Next"
+            ],
+            "correct_answer": "First"
+          },
+          {
+            "question": "What is the greeting part of a friendly letter?",
+            "options": [
+              "\"Dear Ninong Jose,\"",
+              "\"With love,\"",
+              "The signature",
+              "The body paragraph"
+            ],
+            "correct_answer": "\"Dear Ninong Jose,\""
+          },
+          {
+            "question": "Which is a polite expression for a pagbati letter?",
+            "options": [
+              "\"Congratulations!\"",
+              "\"Hurry up now.\"",
+              "\"Give me that.\"",
+              "\"I don't care.\""
+            ],
+            "correct_answer": "\"Congratulations!\""
+          },
+          {
+            "question": "What comes at the end of a friendly letter?",
+            "options": [
+              "Closing and signature",
+              "The greeting",
+              "The title",
+              "The first step"
+            ],
+            "correct_answer": "Closing and signature"
+          },
+          {
+            "question": "Sequence these wedding steps: reception, ceremony, pamamanhikan. What comes FIRST?",
+            "options": [
+              "Pamamanhikan",
+              "Ceremony",
+              "Reception",
+              "None of these"
+            ],
+            "correct_answer": "Pamamanhikan"
+          },
+          {
+            "question": "What type of text describes the steps or order of events?",
+            "options": [
+              "Procedural/chronological text",
+              "A friendly letter only",
+              "A poem",
+              "A riddle"
+            ],
+            "correct_answer": "Procedural/chronological text"
+          },
+          {
+            "question": "In the body of a pagbati letter, what should you write?",
+            "options": [
+              "Your congratulatory message",
+              "A grocery list",
+              "A math problem",
+              "A weather report"
+            ],
+            "correct_answer": "Your congratulatory message"
+          },
+          {
+            "question": "Which time-order word signals the LAST step?",
+            "options": [
+              "Finally",
+              "First",
+              "Next",
+              "Before"
+            ],
+            "correct_answer": "Finally"
+          },
+          {
+            "question": "Why should ceremony steps be written in the correct order?",
+            "options": [
+              "So the reader can follow the events clearly",
+              "So the letter looks longer",
+              "So it uses more difficult words",
+              "So it avoids using polite expressions"
+            ],
+            "correct_answer": "So the reader can follow the events clearly"
+          },
+          {
+            "question": "What should you write to a couple who just got married?",
+            "options": [
+              "A congratulatory message wishing happiness",
+              "A complaint about the wedding day",
+              "A list of unrelated random facts",
+              "A demand for a costly gift"
+            ],
+            "correct_answer": "A congratulatory message wishing happiness"
+          },
+          {
+            "question": "A student wrote the steps: 1) Reception 2) Ceremony 3) Pamamanhikan. What is wrong?",
+            "options": [
+              "The order is reversed",
+              "There are too many steps",
+              "It should not use numbers",
+              "It needs a greeting instead"
+            ],
+            "correct_answer": "The order is reversed"
+          },
+          {
+            "question": "Which closing phrase fits BEST at the end of a friendly pagbati letter?",
+            "options": [
+              "\"With love,\"",
+              "\"Sincerely, the management\"",
+              "\"To whom it may concern,\"",
+              "\"Warning: read carefully\""
+            ],
+            "correct_answer": "\"With love,\""
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➗ Mathematics — Division of Multi-Digit Numbers\n\nGrade 4, Week 16! Let's divide bigger numbers. 💪\n\n## ➗ Dividing by a 1-Digit Number\n**Example: 846 ÷ 3**\n```\n  282\n3)846\n  -6\n  --\n   24\n  -24\n  ---\n    6\n   -6\n   --\n    0\n```\n- 8 ÷ 3 = 2 remainder 2\n- Bring down 4 → 24 ÷ 3 = 8\n- Bring down 6 → 6 ÷ 3 = 2\n- Answer: **282** ✅\n\n## ➗ Dividing by a 2-Digit Number\n**Example: 468 ÷ 12**\n- Think: how many 12s fit in 46? → 3 (3×12=36)\n- 46 − 36 = 10, bring down 8 → 108\n- How many 12s fit in 108? → 9 (9×12=108)\n- Answer: **39** ✅\n\n## 🎯 Estimating Quotients\nRound the **dividend and divisor** to the nearest 10 before dividing.\n\n**Example:** Estimate 587 ÷ 29\n- Round: 587 → 600, 29 → 30\n- 600 ÷ 30 = **20** (a close estimate)\n\n## 🧠 Worked Example 1\n*Solve 936 ÷ 4*\n- 9÷4=2 r1, bring down 3→13÷4=3 r1, bring down 6→16÷4=4\n- Answer: **234** ✅\n\n## 🧠 Worked Example 2\n*Estimate 812 ÷ 19*\n- Round: 812→800, 19→20\n- 800 ÷ 20 = **40** (close estimate)\n\n## 📝 Word Problem\n*A school has 456 students split evenly into 12 classes. How many students per class?*\n- 456 ÷ 12 = **38 students** ✅\n\nExcellent dividing! ⭐",
+        "quiz": [
+          {
+            "question": "What is 846 ÷ 3?",
+            "options": [
+              "282",
+              "272",
+              "292",
+              "228"
+            ],
+            "correct_answer": "282"
+          },
+          {
+            "question": "What is 936 ÷ 4?",
+            "options": [
+              "234",
+              "224",
+              "244",
+              "324"
+            ],
+            "correct_answer": "234"
+          },
+          {
+            "question": "What is 468 ÷ 12?",
+            "options": [
+              "39",
+              "36",
+              "42",
+              "29"
+            ],
+            "correct_answer": "39"
+          },
+          {
+            "question": "To estimate 587 ÷ 29, what do you round 587 and 29 to?",
+            "options": [
+              "600 and 30",
+              "500 and 30",
+              "600 and 20",
+              "580 and 30"
+            ],
+            "correct_answer": "600 and 30"
+          },
+          {
+            "question": "What is the estimate for 600 ÷ 30?",
+            "options": [
+              "20",
+              "10",
+              "30",
+              "60"
+            ],
+            "correct_answer": "20"
+          },
+          {
+            "question": "A school has 456 students split evenly into 12 classes. How many students per class?",
+            "options": [
+              "38",
+              "36",
+              "40",
+              "42"
+            ],
+            "correct_answer": "38"
+          },
+          {
+            "question": "What is 812 ÷ 19 estimated?",
+            "options": [
+              "About 40",
+              "About 20",
+              "About 60",
+              "About 10"
+            ],
+            "correct_answer": "About 40"
+          },
+          {
+            "question": "What is 555 ÷ 5?",
+            "options": [
+              "111",
+              "101",
+              "121",
+              "115"
+            ],
+            "correct_answer": "111"
+          },
+          {
+            "question": "In long division, what do you do after finding the first digit of the quotient?",
+            "options": [
+              "Bring down the next digit",
+              "Start over from the beginning",
+              "Multiply the whole dividend",
+              "Stop the problem"
+            ],
+            "correct_answer": "Bring down the next digit"
+          },
+          {
+            "question": "What is 3,600 ÷ 6?",
+            "options": [
+              "600",
+              "500",
+              "610",
+              "60"
+            ],
+            "correct_answer": "600"
+          },
+          {
+            "question": "Why is estimating useful before doing exact division?",
+            "options": [
+              "It helps check if your exact answer is reasonable",
+              "It replaces the need to divide exactly",
+              "It always gives the exact quotient",
+              "It only works for multiplication"
+            ],
+            "correct_answer": "It helps check if your exact answer is reasonable"
+          },
+          {
+            "question": "A factory packs 972 toys into boxes of 18. How many boxes are needed?",
+            "options": [
+              "54",
+              "52",
+              "56",
+              "48"
+            ],
+            "correct_answer": "54"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📔 Filipino — Talaarawan at Talambuhay ng Sarili\n\nGrade 4, Linggo 16! Isulat natin ang sariling kuwento. ✍️\n\n## 📔 Ang Talaarawan\nAng **talaarawan** (diary) ay pagsulat tungkol sa **personal na karanasan** sa loob ng isang araw o linggo.\n\n**Mga bahagi:**\n- **Petsa** — kailan nangyari\n- **Pangyayari** — ano ang ginawa mo\n- **Damdamin** — ano ang naramdaman mo\n\n**Halimbawa:**\n> *Setyembre 27, 2026*\n> *Ngayong araw, nagpunta kami ng pamilya sa palengke. Masaya ako dahil nakita ko ang aking lolo na matagal ko nang hindi nakita. Kumain kami ng halo-halo pagkatapos.*\n\n## 📖 Ang Talambuhay ng Sarili\nAng **talambuhay** ay mahabang salaysay tungkol sa **buong buhay** ng isang tao — hindi lamang isang araw.\n\n**Mahahalagang detalye:**\n- Pangalan at kaarawan\n- Pamilya\n- Paaralang pinasukan\n- Mga natatanging pangyayari sa buhay\n\n## 🧠 Halimbawa 1\n*Ano ang pagkakaiba ng talaarawan at talambuhay?*\n- Ang **talaarawan** ay tungkol sa **isang araw o linggo lamang**.\n- Ang **talambuhay** ay tungkol sa **buong buhay** ng tao.\n\n## 🧠 Halimbawa 2\n*Ano ang isusulat mo sa talaarawan tungkol sa isang masayang araw?*\n- Isulat ang **petsa**, ang **nangyari**, at ang iyong **naramdaman** — halimbawa, *\"Masaya ako dahil...\"*\n\n## 💡 Bakit Mahalaga ang Pagsulat ng Talaarawan?\nTumutulong ito upang **maalala** ang mga karanasan at **maipahayag** ang damdamin.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang talaarawan?",
+            "options": [
+              "Pagsulat tungkol sa karanasan sa isang araw",
+              "Kuwento ng buong buhay ng tao",
+              "Balitang pang-araw-araw lamang",
+              "Liham para sa isang kaibigan"
+            ],
+            "correct_answer": "Pagsulat tungkol sa karanasan sa isang araw"
+          },
+          {
+            "question": "Ano ang talambuhay?",
+            "options": [
+              "Salaysay tungkol sa buong buhay ng tao",
+              "Isang uri ng tula",
+              "Kuwento tungkol sa hayop",
+              "Liham ng pasasalamat"
+            ],
+            "correct_answer": "Salaysay tungkol sa buong buhay ng tao"
+          },
+          {
+            "question": "Anong bahagi ng talaarawan ang nagsasabi kung kailan nangyari ang pangyayari?",
+            "options": [
+              "Petsa",
+              "Damdamin",
+              "Pangyayari",
+              "Pamagat"
+            ],
+            "correct_answer": "Petsa"
+          },
+          {
+            "question": "Ano ang isusulat sa bahagi ng damdamin sa talaarawan?",
+            "options": [
+              "Ano ang naramdaman mo",
+              "Ang petsa lamang",
+              "Ang pangalan ng lahat",
+              "Ang halaga ng gamit"
+            ],
+            "correct_answer": "Ano ang naramdaman mo"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng talaarawan at talambuhay?",
+            "options": [
+              "Talaarawan ay isang araw, talambuhay ay buong buhay",
+              "Parehong tungkol sa isang araw lamang",
+              "Parehong tungkol sa buong buhay",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Talaarawan ay isang araw, talambuhay ay buong buhay"
+          },
+          {
+            "question": "Alin ang mahalagang detalye sa talambuhay?",
+            "options": [
+              "Pamilya at paaralang pinasukan",
+              "Presyo ng bilihin",
+              "Panahon ngayong araw",
+              "Bilang ng mag-aaral sa klase"
+            ],
+            "correct_answer": "Pamilya at paaralang pinasukan"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsulat ng talaarawan?",
+            "options": [
+              "Tumutulong itong maalala ang karanasan",
+              "Wala itong kabuluhan",
+              "Ginagawa lamang ito sa paaralan",
+              "Ginagamit lamang ito para sa palakasan"
+            ],
+            "correct_answer": "Tumutulong itong maalala ang karanasan"
+          },
+          {
+            "question": "Alin ang halimbawa ng pangungusap sa talaarawan?",
+            "options": [
+              "Masaya ako dahil nakita ko ang lolo ko.",
+              "Ang Pilipinas ay may 7,641 na pulo.",
+              "Ang kapital ng Pransya ay Paris.",
+              "Ang tubig ay kumukulo sa 100°C."
+            ],
+            "correct_answer": "Masaya ako dahil nakita ko ang lolo ko."
+          },
+          {
+            "question": "Anong bahagi ng talaarawan ang naglalarawan ng ginawa mo?",
+            "options": [
+              "Pangyayari",
+              "Petsa",
+              "Damdamin lamang",
+              "Pamagat lamang"
+            ],
+            "correct_answer": "Pangyayari"
+          },
+          {
+            "question": "Sino ang paksa ng isang talambuhay ng sarili?",
+            "options": [
+              "Ikaw mismo",
+              "Ang iyong kaibigan lamang",
+              "Ang isang hayop",
+              "Ang isang bansa"
+            ],
+            "correct_answer": "Ikaw mismo"
+          },
+          {
+            "question": "Bakit mahalagang isama ang damdamin sa talaarawan?",
+            "options": [
+              "Nagpapakita ito ng tunay na karanasan",
+              "Wala itong gamit sa pagsulat",
+              "Nagpapahaba lamang ito ng talata",
+              "Ginagawa lamang ito para sa iba"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na karanasan"
+          },
+          {
+            "question": "Isang bata ang nagsulat ng kuwento ng kanyang buong buhay mula pagkabata hanggang ngayon. Ano ang tinatawag na ito?",
+            "options": [
+              "Talambuhay",
+              "Talaarawan lamang",
+              "Balita",
+              "Liham"
+            ],
+            "correct_answer": "Talambuhay"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌳 Science — Plant Systems: Root and Shoot\n\nGrade 4, Week 16! Let's study plant systems. 🌱\n\n## 🌳 Two Main Plant Systems\n\n**1. ROOT SYSTEM** (underground)\n- Includes the **roots**\n- **Job:** absorbs water and nutrients from soil, anchors the plant\n\n**2. SHOOT SYSTEM** (above ground)\n- Includes the **stem, leaves, flowers, and fruits**\n- **Job:** makes food (leaves), supports the plant (stem), reproduces (flowers/fruits)\n\n## 🔍 Why Are These Systems Important?\n\n| System | Why Important |\n|---|---|\n| **Root** | without it, the plant cannot get **water** or stay **anchored** |\n| **Shoot** | without it, the plant cannot make **food** or **reproduce** |\n\n## 🧠 Worked Example 1\n*A strong wind almost uproots a tree, but it stays standing. Why?*\n- The **root system** anchors the tree firmly into the soil, resisting the wind's force.\n\n## 🧠 Worked Example 2\n*A plant's leaves are removed. What happens?*\n- The plant **cannot make food** through photosynthesis anymore, since leaves are part of the **shoot system**.\n\n## 🌿 Types of Root Systems\n- **Taproot** — one thick main root going deep (e.g., carrot)\n- **Fibrous root** — many thin roots spreading out (e.g., grass, rice)\n\n## 💡 Working Together\nThe root and shoot systems **depend on each other**:\n- Roots send **water** up to the shoot\n- Shoots send **food** (made in leaves) down to the roots\n\nGreat plant scientist! 🌟",
+        "quiz": [
+          {
+            "question": "Which system includes the roots?",
+            "options": [
+              "Root system",
+              "Shoot system",
+              "Both equally",
+              "Neither system"
+            ],
+            "correct_answer": "Root system"
+          },
+          {
+            "question": "Which system includes the stem, leaves, and flowers?",
+            "options": [
+              "Shoot system",
+              "Root system",
+              "Both equally",
+              "Neither system"
+            ],
+            "correct_answer": "Shoot system"
+          },
+          {
+            "question": "What is the main job of the root system?",
+            "options": [
+              "Absorb water and anchor the plant",
+              "Make food using sunlight",
+              "Attract insects for pollination",
+              "Store seeds for reproduction"
+            ],
+            "correct_answer": "Absorb water and anchor the plant"
+          },
+          {
+            "question": "What is the main job of the shoot system?",
+            "options": [
+              "Make food and support the plant",
+              "Absorb water from soil",
+              "Anchor the plant in the ground",
+              "Hold soil particles together"
+            ],
+            "correct_answer": "Make food and support the plant"
+          },
+          {
+            "question": "A strong wind almost uproots a tree, but it stays standing. Why?",
+            "options": [
+              "The root system anchors it firmly",
+              "The shoot system anchors it firmly",
+              "The leaves hold it down",
+              "The flowers hold it down"
+            ],
+            "correct_answer": "The root system anchors it firmly"
+          },
+          {
+            "question": "A plant's leaves are removed. What is most affected?",
+            "options": [
+              "Its ability to make food",
+              "Its ability to absorb water",
+              "Its root anchoring",
+              "Its underground growth"
+            ],
+            "correct_answer": "Its ability to make food"
+          },
+          {
+            "question": "Which is an example of a taproot?",
+            "options": [
+              "Carrot",
+              "Grass",
+              "Rice",
+              "Fern"
+            ],
+            "correct_answer": "Carrot"
+          },
+          {
+            "question": "Which is an example of a fibrous root system?",
+            "options": [
+              "Grass",
+              "Carrot",
+              "Radish",
+              "Beet"
+            ],
+            "correct_answer": "Grass"
+          },
+          {
+            "question": "What does the root system send UP to the shoot system?",
+            "options": [
+              "Water",
+              "Food",
+              "Sunlight",
+              "Seeds"
+            ],
+            "correct_answer": "Water"
+          },
+          {
+            "question": "What does the shoot system send DOWN to the root system?",
+            "options": [
+              "Food made in the leaves",
+              "Water from the soil",
+              "Sunlight energy directly",
+              "Oxygen from the air only"
+            ],
+            "correct_answer": "Food made in the leaves"
+          },
+          {
+            "question": "Why are root and shoot systems described as depending on each other?",
+            "options": [
+              "Each needs what the other provides to survive",
+              "They work completely independently",
+              "Only the shoot system matters for survival",
+              "Only the root system matters for survival"
+            ],
+            "correct_answer": "Each needs what the other provides to survive"
+          },
+          {
+            "question": "A gardener notices a plant wilting even though the soil is watered. What might be damaged?",
+            "options": [
+              "The root system, unable to absorb the water",
+              "The flowers, which do not need water",
+              "The seeds, which are underground",
+              "Nothing is likely wrong"
+            ],
+            "correct_answer": "The root system, unable to absorb the water"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🌍 Araling Panlipunan — Matalinong Paggamit ng Yaman\n\nGrade 4, Linggo 16! Suriin natin ang gawaing pangkabuhayan. 🇵🇭\n\n## 🗺️ Gawaing Pangkabuhayan sa Iba't Ibang Bahagi ng Bansa\n\n| Rehiyon | Pangunahing Kabuhayan | Kaugnay na Yaman |\n|---|---|---|\n| **Gitnang Luzon** | Agrikultura (palay) | Matabang lupa |\n| **Palawan/Visayas** | Pangingisda | Dagat at look |\n| **CAR (Cordillera)** | Pagmimina, pagsasaka sa terrace | Bundok, mineral |\n| **Metro Manila** | Industriya at kalakalan | Populasyon, imprastraktura |\n\n## 🧠 Halimbawa 1\n*Bakit angkop ang pagmimina sa Cordillera?*\n- Ang Cordillera ay may **mayamang mineral deposit** sa kanilang mga bundok, kaya naging pangunahing kabuhayan ang pagmimina roon.\n\n## 💡 Kahalagahan ng Matalinong Paggamit ng Yaman\nAng **matalinong paggamit** ng likas na yaman ay:\n- **Sapat** para sa kasalukuyang pangangailangan\n- **Hindi nauubos** para sa hinaharap\n- Isinasaalang-alang ang **epekto sa kapaligiran**\n\n## ⚖️ Epekto ng Desisyong Pangkabuhayan\nAng mga desisyon tungkol sa paggamit ng yaman ay may **epekto** sa kapaligiran at komunidad.\n\n**Halimbawa:**\n- **Labis na pagputol ng puno** para sa kahoy → nagdudulot ng **pagguho ng lupa** at **baha**\n- **Responsableng pagmimina** → binabawasan ang pinsala sa kapaligiran\n\n## 🧠 Halimbawa 2\n*Ano ang epekto ng labis na pangingisda sa isang bayan?*\n- **Nauubos ang isda**, kaya nasisira ang kabuhayan ng mga mangingisda sa hinaharap.\n\n## 🌱 Ang Solusyon: Balanseng Pag-unlad\nDapat balansehin ang **paggamit ng yaman ngayon** at ang **pangangalaga nito para sa susunod na henerasyon**.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pangunahing kabuhayan sa Gitnang Luzon?",
+            "options": [
+              "Agrikultura",
+              "Pagmimina",
+              "Pangingisda",
+              "Industriya"
+            ],
+            "correct_answer": "Agrikultura"
+          },
+          {
+            "question": "Bakit angkop ang pagmimina sa Cordillera?",
+            "options": [
+              "Mayaman ito sa mineral deposit",
+              "Malapit ito sa dagat",
+              "Matabang lupa ang meron dito",
+              "Wala itong bundok"
+            ],
+            "correct_answer": "Mayaman ito sa mineral deposit"
+          },
+          {
+            "question": "Ano ang matalinong paggamit ng yaman?",
+            "options": [
+              "Sapat sa kasalukuyan, hindi nauubos sa hinaharap",
+              "Paggamit ng lahat ng yaman agad",
+              "Pagtigil sa paggamit ng yaman",
+              "Pagbenta ng lahat ng yaman"
+            ],
+            "correct_answer": "Sapat sa kasalukuyan, hindi nauubos sa hinaharap"
+          },
+          {
+            "question": "Ano ang epekto ng labis na pagputol ng puno?",
+            "options": [
+              "Pagguho ng lupa at baha",
+              "Pagtaas ng ani ng palay",
+              "Paglinis ng hangin",
+              "Pagdami ng isda"
+            ],
+            "correct_answer": "Pagguho ng lupa at baha"
+          },
+          {
+            "question": "Ano ang epekto ng labis na pangingisda?",
+            "options": [
+              "Nauubos ang isda",
+              "Dumadami ang isda",
+              "Bumubuti ang tubig-dagat",
+              "Wala itong epekto"
+            ],
+            "correct_answer": "Nauubos ang isda"
+          },
+          {
+            "question": "Ano ang pangunahing kabuhayan sa mga isla tulad ng Palawan?",
+            "options": [
+              "Pangingisda",
+              "Pagmimina",
+              "Industriya",
+              "Agrikultura ng palay"
+            ],
+            "correct_answer": "Pangingisda"
+          },
+          {
+            "question": "Ano ang pangunahing kabuhayan sa Metro Manila?",
+            "options": [
+              "Industriya at kalakalan",
+              "Pagmimina lamang",
+              "Pangingisda lamang",
+              "Pagsasaka lamang"
+            ],
+            "correct_answer": "Industriya at kalakalan"
+          },
+          {
+            "question": "Bakit dapat isaalang-alang ang epekto sa kapaligiran sa mga desisyong pangkabuhayan?",
+            "options": [
+              "Upang maiwasan ang pinsala sa hinaharap",
+              "Upang mas mabilis kumita",
+              "Walang dahilan ito",
+              "Upang mabawasan ang trabaho"
+            ],
+            "correct_answer": "Upang maiwasan ang pinsala sa hinaharap"
+          },
+          {
+            "question": "Ano ang layunin ng balanseng pag-unlad?",
+            "options": [
+              "Paggamit ng yaman habang pinangangalagaan ito",
+              "Paggamit ng lahat ng yaman kaagad",
+              "Pagtigil sa lahat ng gawaing pangkabuhayan",
+              "Pagbebenta ng yaman sa ibang bansa"
+            ],
+            "correct_answer": "Paggamit ng yaman habang pinangangalagaan ito"
+          },
+          {
+            "question": "Ano ang halimbawa ng responsableng pagmimina?",
+            "options": [
+              "Pagbabawas ng pinsala sa kapaligiran",
+              "Pagmimina nang walang anumang batas",
+              "Pagtatapon ng basura sa ilog",
+              "Paggamit ng lahat ng mineral agad"
+            ],
+            "correct_answer": "Pagbabawas ng pinsala sa kapaligiran"
+          },
+          {
+            "question": "Bakit magkaiba ang kabuhayan ng iba't ibang rehiyon sa Pilipinas?",
+            "options": [
+              "Magkaiba ang kanilang likas na yaman",
+              "Iisa lang ang klima sa buong bansa",
+              "Walang pagkakaiba sa lahat ng rehiyon",
+              "Iisa lang ang kabuhayan sa buong bansa"
+            ],
+            "correct_answer": "Magkaiba ang kanilang likas na yaman"
+          },
+          {
+            "question": "Isang bayan ang gumagamit ng modernong paraan upang huwag maubos ang kanilang isda. Ano ang ipinapakita nito?",
+            "options": [
+              "Matalinong paggamit ng yaman",
+              "Kawalan ng pag-iisip sa hinaharap",
+              "Pagsira sa kapaligiran",
+              "Pagwawalang-bahala sa kabuhayan"
+            ],
+            "correct_answer": "Matalinong paggamit ng yaman"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎭 MAPEH — Arts: Rhythm and Movement sa Katutubong Ritwal\n\nGrade 4, Linggo 16! Alamin natin ang sining ng ating ninuno. 🎨\n\n## 🎭 Elemento at Prinsipyo ng Komposisyon\nSa **theater** at **dance**, mahalaga ang:\n- **Rhythm/Pattern** — paulit-ulit na galaw o tunog\n- **Movement** — kung paano gumagalaw ang katawan\n\n## 🙏 Katutubong Ritwal at Sayaw na Panrelihiyoso\nMaraming katutubong sayaw ang **may kaugnayan sa paniniwala o relihiyon**.\n\n**Halimbawa:**\n- **Sinulog** (Cebu) — sayaw pandalangin bilang parangal kay Santo Niño\n- **Ati-Atihan** (Aklan) — sayaw at ritwal bilang pasasalamat\n- **Pahiyas** (Quezon) — pagdiriwang bilang pasasalamat sa masaganang ani\n\n## 🎵 Rhythm sa Sayaw\nAng mga sayaw na ito ay may **paulit-ulit na hakbang** na sumasabay sa **tugtugin ng tambol o gong**.\n\n## 🧠 Halimbawa 1\n*Bakit itinuturing na may rhythm ang Sinulog?*\n- Gumagamit ito ng **paulit-ulit na hakbang** — dalawang hakbang pasulong, isang hakbang paatras — sumasabay sa **tugtog**.\n\n## 🧠 Halimbawa 2\n*Bakit may kaugnayan sa paniniwala ang mga sayaw na ito?*\n- Ginagawa ang mga ito bilang **pagdiriwang o pananalangin**, hindi lamang libangan — nagpapakita ng **pananampalataya** ng komunidad.\n\n## 🎨 Movement sa Iba't Ibang Sayaw\n| Sayaw | Uri ng Galaw |\n|---|---|\n| **Sinulog** | dalawang hakbang pasulong, isa paatras |\n| **Ati-Atihan** | masiglang sayaw na may kulay at ingay |\n| **Pahiyas** | prusisyon na may dekorasyon |\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang rhythm sa sining ng sayaw?",
+            "options": [
+              "Paulit-ulit na galaw o tunog",
+              "Kulay ng damit",
+              "Pangalan ng sayaw",
+              "Bilang ng mananayaw"
+            ],
+            "correct_answer": "Paulit-ulit na galaw o tunog"
+          },
+          {
+            "question": "Ano ang Sinulog?",
+            "options": [
+              "Sayaw pandalangin kay Santo Niño",
+              "Isang sayaw lamang tuwing Pasko",
+              "Isang sayaw lamang sa kasal",
+              "Isang sayaw sa graduation lamang"
+            ],
+            "correct_answer": "Sayaw pandalangin kay Santo Niño"
+          },
+          {
+            "question": "Saan ginaganap ang Ati-Atihan?",
+            "options": [
+              "Aklan",
+              "Cebu",
+              "Quezon",
+              "Manila"
+            ],
+            "correct_answer": "Aklan"
+          },
+          {
+            "question": "Ano ang Pahiyas?",
+            "options": [
+              "Pagdiriwang bilang pasasalamat sa ani",
+              "Isang sayaw pandigma lamang",
+              "Isang ritwal lamang sa libing",
+              "Isang sayaw sa graduation lamang"
+            ],
+            "correct_answer": "Pagdiriwang bilang pasasalamat sa ani"
+          },
+          {
+            "question": "Bakit may kaugnayan sa paniniwala ang mga katutubong sayaw na ito?",
+            "options": [
+              "Ginagawa bilang pananalangin o pagdiriwang",
+              "Ginagawa lamang para sa turista",
+              "Wala itong kaugnayan sa relihiyon",
+              "Ginagawa lamang bilang palakasan"
+            ],
+            "correct_answer": "Ginagawa bilang pananalangin o pagdiriwang"
+          },
+          {
+            "question": "Ano ang tugtugin na madalas gamitin sa mga katutubong sayaw?",
+            "options": [
+              "Tambol o gong",
+              "Piano",
+              "Gitara",
+              "Bayolin"
+            ],
+            "correct_answer": "Tambol o gong"
+          },
+          {
+            "question": "Ano ang hakbang sa Sinulog?",
+            "options": [
+              "Dalawang hakbang pasulong, isang paatras",
+              "Isang hakbang lamang paatras",
+              "Walang hakbang na ginagawa dito",
+              "Tatlong hakbang pasulong lamang"
+            ],
+            "correct_answer": "Dalawang hakbang pasulong, isang paatras"
+          },
+          {
+            "question": "Ano ang movement sa sining?",
+            "options": [
+              "Kung paano gumagalaw ang katawan",
+              "Ang kulay ng costume",
+              "Ang tunog ng musika lamang",
+              "Ang bilang ng manonood"
+            ],
+            "correct_answer": "Kung paano gumagalaw ang katawan"
+          },
+          {
+            "question": "Bakit mahalaga ang rhythm sa mga ritwal na sayaw?",
+            "options": [
+              "Nagbibigay ito ng ayos at pagkakaisa sa galaw",
+              "Wala itong kabuluhan",
+              "Ginagamit lamang ito sa laro",
+              "Nagpapahaba lamang ito ng oras"
+            ],
+            "correct_answer": "Nagbibigay ito ng ayos at pagkakaisa sa galaw"
+          },
+          {
+            "question": "Alin ang halimbawa ng sayaw bilang pasasalamat?",
+            "options": [
+              "Pahiyas",
+              "Sinulog lamang",
+              "Tinikling lamang",
+              "Cha-cha"
+            ],
+            "correct_answer": "Pahiyas"
+          },
+          {
+            "question": "Bakit itinuturing na sining ang mga katutubong ritwal?",
+            "options": [
+              "Gumagamit ito ng rhythm at movement",
+              "Wala itong kulay o disenyo",
+              "Ginagawa lamang ito nang random",
+              "Hindi ito nagpapakita ng kultura"
+            ],
+            "correct_answer": "Gumagamit ito ng rhythm at movement"
+          },
+          {
+            "question": "Isang paaralan ang nagsasagawa ng dula tungkol sa Sinulog. Ano ang mahalagang isama sa kanilang pagganap?",
+            "options": [
+              "Ang paulit-ulit na hakbang na sumasabay sa tugtog",
+              "Isang random na sayaw lamang",
+              "Isang sayaw na walang tugtog",
+              "Isang sayaw na walang kahulugan"
+            ],
+            "correct_answer": "Ang paulit-ulit na hakbang na sumasabay sa tugtog"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 GMRC — Pagtupad sa mga Gawain sa Pamilya\n\nGrade 4, Linggo 16! Pagpapahalaga: **Matiyaga**. 🌟\n\n## 🏠 Palagiang Paggawa ng Gawaing Bahay\nMahalagang gawing **palagian** ang pagtulong sa mga gawaing bahay, batay sa **mungkahi ng miyembro ng pamilya**.\n\n**Halimbawa ng gawaing bahay:**\n- Paglilinis ng silid\n- Pagtulong sa pagluluto\n- Pag-aalaga sa kapatid\n- Pagbibigay ng tubig sa halaman\n\n## 🕰️ Ano ang Pagiging Matiyaga?\nAng **matiyaga** ay ang kakayahang **magpatuloy** sa isang gawain kahit **mahirap** o **matagalan**.\n\n**Halimbawa:**\n- Patuloy na paglilinis kahit paulit-ulit itong nagkakalat\n- Pagpapatuloy sa pag-aaral kahit mahirap ang aralin\n- Hindi pagsuko sa isang gawaing bahay kahit pagod\n\n## 🧠 Halimbawa 1\n*Inutusan kang maglinis ng silid pero pagod ka. Ano ang tama mong gawin?*\n- **Ituloy ang gawain** hanggang matapos — ito ay nagpapakita ng **pagiging matiyaga**. ✅\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang bukas ka sa mungkahi ng ibang miyembro ng pamilya?*\n- Nagpapakita ito na **iginagalang** mo ang kanilang opinyon at handa kang **makipagtulungan**.\n\n## 💡 Bakit Mahalaga ang Palagiang Pagtulong?\nAng palagiang pagtulong sa gawaing bahay ay:\n- Nagpapaunlad ng **responsibilidad**\n- Nagpapagaan sa **pasanin** ng buong pamilya\n- Nagtuturo ng **pagiging matiyaga**\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang matiyaga?",
+            "options": [
+              "Kakayahang magpatuloy kahit mahirap ang gawain",
+              "Kakayahang sumuko agad",
+              "Kakayahang tumakbo nang mabilis",
+              "Kakayahang manalo sa laro"
+            ],
+            "correct_answer": "Kakayahang magpatuloy kahit mahirap ang gawain"
+          },
+          {
+            "question": "Inutusan kang maglinis ng silid pero pagod ka. Ano ang tama mong gawin?",
+            "options": [
+              "Ituloy ang gawain hanggang matapos",
+              "Iwanan ang gawain agad",
+              "Magreklamo at umalis",
+              "Sabihin na hindi mo kaya"
+            ],
+            "correct_answer": "Ituloy ang gawain hanggang matapos"
+          },
+          {
+            "question": "Alin ang halimbawa ng gawaing bahay?",
+            "options": [
+              "Paglilinis ng silid",
+              "Panonood ng palabas",
+              "Paglalaro sa labas",
+              "Pagtulog buong araw"
+            ],
+            "correct_answer": "Paglilinis ng silid"
+          },
+          {
+            "question": "Bakit dapat maging palagian ang pagtulong sa gawaing bahay?",
+            "options": [
+              "Nagpapaunlad ito ng responsibilidad",
+              "Wala itong kabuluhan",
+              "Ginagawa lamang kapag may pasok",
+              "Ginagawa lamang kapag may bisita"
+            ],
+            "correct_answer": "Nagpapaunlad ito ng responsibilidad"
+          },
+          {
+            "question": "Bakit mahalagang bukas ka sa mungkahi ng ibang miyembro ng pamilya?",
+            "options": [
+              "Nagpapakita ito ng paggalang at pakikipagtulungan",
+              "Wala itong kaugnayan sa pagtupad ng gawain",
+              "Ipinapakita nito ang kayabangan",
+              "Nagpapahirap lamang ito ng gawain"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang at pakikipagtulungan"
+          },
+          {
+            "question": "Ano ang halimbawa ng pagiging matiyaga sa pag-aaral?",
+            "options": [
+              "Pagpapatuloy kahit mahirap ang aralin",
+              "Pagsuko agad kapag mahirap",
+              "Pag-iwas sa takdang-aralin",
+              "Paghingi lamang ng sagot sa iba"
+            ],
+            "correct_answer": "Pagpapatuloy kahit mahirap ang aralin"
+          },
+          {
+            "question": "Ano ang mabuting gawin kapag paulit-ulit na nagkakalat ang isang bahagi ng bahay?",
+            "options": [
+              "Patuloy itong linisin nang walang sawa",
+              "Itigil ang paglilinis dito",
+              "Hayaan na lamang itong magkalat",
+              "Sisihin ang ibang kapatid"
+            ],
+            "correct_answer": "Patuloy itong linisin nang walang sawa"
+          },
+          {
+            "question": "Ano ang benepisyo ng palagiang pagtulong sa gawaing bahay para sa buong pamilya?",
+            "options": [
+              "Nagpapagaan ito ng pasanin ng lahat",
+              "Nagpapabigat lamang ito sa lahat",
+              "Wala itong benepisyo",
+              "Nagdadagdag lamang ito ng gastos"
+            ],
+            "correct_answer": "Nagpapagaan ito ng pasanin ng lahat"
+          },
+          {
+            "question": "Ano ang mabuting gawin kapag mayroon kang inaasikasong gawain sa bahay pero gusto mo nang maglaro?",
+            "options": [
+              "Tapusin muna ang gawain bago maglaro",
+              "Maglaro agad at kalimutan ang gawain",
+              "Isumbat ang gawain sa iba",
+              "Magalit sa mga magulang"
+            ],
+            "correct_answer": "Tapusin muna ang gawain bago maglaro"
+          },
+          {
+            "question": "Ano ang kabaligtaran ng pagiging matiyaga?",
+            "options": [
+              "Madaling sumuko",
+              "Palaging masipag",
+              "Palaging matulungin",
+              "Palaging magalang"
+            ],
+            "correct_answer": "Madaling sumuko"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang gawaing bukas sa mungkahi ng pamilya?",
+            "options": [
+              "Nagpapakita ito ng pagkakaisa sa desisyon",
+              "Wala itong kaugnayan sa pamilya",
+              "Ginagawa lamang ito para sa sarili",
+              "Hindi na ito kailangan"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagkakaisa sa desisyon"
+          },
+          {
+            "question": "Patuloy kang naglilinis kahit paulit-ulit na nagkakalat ang iyong kapatid. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagiging matiyaga",
+              "Kawalan ng pasensiya",
+              "Pagsuway sa magulang",
+              "Kapabayaan"
+            ],
+            "correct_answer": "Pagiging matiyaga"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 📜 EPP (AFA/FCS/IA) — Batas at Ahensya sa Paghahalaman\n\nGrade 4, Linggo 16! Alamin natin ang mga batas at tumutulong na ahensya. 🏛️\n\n## 📋 Mga Mahalagang Batas\n| Batas | Layunin |\n|---|---|\n| **RA 10068** (Organic Agriculture Act) | naghihikayat ng organikong pagsasaka |\n| **Ecological Solid Waste Management Act** | tamang pamamahala ng basura |\n| **Lokal na ordinansa** | tuntuning partikular sa isang bayan/lungsod |\n\n## 🏛️ Mga Ahensya ng Gobyerno\n| Ahensya | Gampanin |\n|---|---|\n| **DA** (Department of Agriculture) | tumutulong sa mga magsasaka |\n| **DENR** | nangangalaga sa kapaligiran |\n| **DTI** | tumutulong sa negosyo |\n| **DOLE** | tumutulong sa manggagawa |\n| **DOST** | tumutulong sa agham at teknolohiya |\n| **TESDA** | nagbibigay ng bokasyonal na pagsasanay |\n\n## 🤝 Mga NGO (Non-Government Organization)\n- **FAO** — pandaigdigang samahan para sa pagkain at agrikultura\n- **MASIPAG** — tumutulong sa mga magsasaka gamit ang organikong pamamaraan\n- **AgriCOOPh** — kooperatiba para sa mga magsasaka\n\n## 🧠 Halimbawa 1\n*Sino ang tatawagan ng isang magsasaka kung gusto niyang matuto ng organikong pagsasaka?*\n- Maaari siyang lumapit sa **DA** o sa NGO na **MASIPAG** para sa gabay.\n\n## 🧠 Halimbawa 2\n*Ano ang layunin ng RA 10068?*\n- Naghihikayat ito ng **organikong pagsasaka** — walang masamang kemikal na ginagamit.\n\nMagaling sa Linggo 16! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang layunin ng RA 10068?",
+            "options": [
+              "Naghihikayat ng organikong pagsasaka",
+              "Nagbibigay ng lisensya sa negosyo",
+              "Naglalarawan ng kasaysayan ng Pilipinas",
+              "Nagbibigay ng batas sa trapiko"
+            ],
+            "correct_answer": "Naghihikayat ng organikong pagsasaka"
+          },
+          {
+            "question": "Alin ang batas tungkol sa tamang pamamahala ng basura?",
+            "options": [
+              "Ecological Solid Waste Management Act",
+              "RA 10068",
+              "Local ordinance lamang",
+              "Organic Agriculture Act lamang"
+            ],
+            "correct_answer": "Ecological Solid Waste Management Act"
+          },
+          {
+            "question": "Aling ahensya ang tumutulong sa mga magsasaka?",
+            "options": [
+              "DA (Department of Agriculture)",
+              "DTI, for business permits",
+              "DOLE, for worker concerns",
+              "TESDA, for vocational training"
+            ],
+            "correct_answer": "DA (Department of Agriculture)"
+          },
+          {
+            "question": "Aling ahensya ang nangangalaga sa kapaligiran?",
+            "options": [
+              "DENR",
+              "DA",
+              "DTI",
+              "DOST"
+            ],
+            "correct_answer": "DENR"
+          },
+          {
+            "question": "Ano ang MASIPAG?",
+            "options": [
+              "NGO na tumutulong sa organikong pagsasaka",
+              "Batas ng gobyerno tungkol sa buwis",
+              "Ahensyang pang-edukasyon sa bayan",
+              "Kumpanya ng pagkain sa palengke"
+            ],
+            "correct_answer": "NGO na tumutulong sa organikong pagsasaka"
+          },
+          {
+            "question": "Ano ang FAO?",
+            "options": [
+              "Pandaigdigang samahan para sa pagkain at agrikultura",
+              "Batas sa Pilipinas tungkol sa lupa",
+              "Lokal na tindahan ng gulay lamang",
+              "Bangko sa Pilipinas para sa magsasaka"
+            ],
+            "correct_answer": "Pandaigdigang samahan para sa pagkain at agrikultura"
+          },
+          {
+            "question": "Aling ahensya ang nagbibigay ng bokasyonal na pagsasanay?",
+            "options": [
+              "TESDA",
+              "DENR",
+              "DA",
+              "DTI"
+            ],
+            "correct_answer": "TESDA"
+          },
+          {
+            "question": "Ano ang lokal na ordinansa?",
+            "options": [
+              "Tuntuning partikular sa isang bayan o lungsod",
+              "Batas na para lamang sa Maynila",
+              "Batas na walang bisa",
+              "Panuntunan sa paaralan lamang"
+            ],
+            "correct_answer": "Tuntuning partikular sa isang bayan o lungsod"
+          },
+          {
+            "question": "Sino ang tatawagan ng magsasakang gustong matuto ng organikong pagsasaka?",
+            "options": [
+              "DA o MASIPAG",
+              "TESDA lamang",
+              "DENR lamang",
+              "DOLE lamang"
+            ],
+            "correct_answer": "DA o MASIPAG"
+          },
+          {
+            "question": "Aling ahensya ang tumutulong sa mga manggagawa?",
+            "options": [
+              "DOLE",
+              "DA",
+              "DENR",
+              "DTI"
+            ],
+            "correct_answer": "DOLE"
+          },
+          {
+            "question": "Ano ang AgriCOOPh?",
+            "options": [
+              "Kooperatiba para sa mga magsasaka",
+              "Isang batas sa agrikultura",
+              "Isang ahensya ng gobyerno",
+              "Isang paaralan"
+            ],
+            "correct_answer": "Kooperatiba para sa mga magsasaka"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga batas at ahensyang ito?",
+            "options": [
+              "Nakatutulong ito sa maayos na pagsasagawa ng agrikultura",
+              "Wala itong kaugnayan sa paghahalaman",
+              "Ginagamit lamang ito sa negosyo",
+              "Hindi ito importante sa magsasaka"
+            ],
+            "correct_answer": "Nakatutulong ito sa maayos na pagsasagawa ng agrikultura"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# ✍️ Friday Review — English (Grade 4)\n\n- **Procedural text:** first, next, then, finally\n- **Friendly letter parts:** greeting, body, closing, signature\n- **Polite expressions:** \"Congratulations!\", \"Wishing you happiness!\"\n\nGreat writing! 🌟",
+        "quiz": [
+          {
+            "question": "Which word signals the FIRST step in a procedural text?",
+            "options": [
+              "First",
+              "Finally",
+              "Then",
+              "Next"
+            ],
+            "correct_answer": "First"
+          },
+          {
+            "question": "What is the greeting part of a friendly letter?",
+            "options": [
+              "\"Dear Ninong Jose,\"",
+              "\"With love,\"",
+              "The signature",
+              "The body paragraph"
+            ],
+            "correct_answer": "\"Dear Ninong Jose,\""
+          },
+          {
+            "question": "Which is a polite expression for a pagbati letter?",
+            "options": [
+              "\"Congratulations!\"",
+              "\"Hurry up now.\"",
+              "\"Give me that.\"",
+              "\"I don't care.\""
+            ],
+            "correct_answer": "\"Congratulations!\""
+          },
+          {
+            "question": "What comes at the end of a friendly letter?",
+            "options": [
+              "Closing and signature",
+              "The greeting",
+              "The title",
+              "The first step"
+            ],
+            "correct_answer": "Closing and signature"
+          },
+          {
+            "question": "Sequence these wedding steps: reception, ceremony, pamamanhikan. What comes FIRST?",
+            "options": [
+              "Pamamanhikan",
+              "Ceremony",
+              "Reception",
+              "None of these"
+            ],
+            "correct_answer": "Pamamanhikan"
+          },
+          {
+            "question": "What type of text describes the steps or order of events?",
+            "options": [
+              "Procedural/chronological text",
+              "A friendly letter only",
+              "A poem",
+              "A riddle"
+            ],
+            "correct_answer": "Procedural/chronological text"
+          },
+          {
+            "question": "In the body of a pagbati letter, what should you write?",
+            "options": [
+              "Your congratulatory message",
+              "A grocery list",
+              "A math problem",
+              "A weather report"
+            ],
+            "correct_answer": "Your congratulatory message"
+          },
+          {
+            "question": "Which time-order word signals the LAST step?",
+            "options": [
+              "Finally",
+              "First",
+              "Next",
+              "Before"
+            ],
+            "correct_answer": "Finally"
+          },
+          {
+            "question": "Why should ceremony steps be written in the correct order?",
+            "options": [
+              "So the reader can follow the events clearly",
+              "So the letter looks longer",
+              "So it uses more difficult words",
+              "So it avoids using polite expressions"
+            ],
+            "correct_answer": "So the reader can follow the events clearly"
+          },
+          {
+            "question": "What should you write to a couple who just got married?",
+            "options": [
+              "A congratulatory message wishing happiness",
+              "A complaint about the wedding day",
+              "A list of unrelated random facts",
+              "A demand for a costly gift"
+            ],
+            "correct_answer": "A congratulatory message wishing happiness"
+          },
+          {
+            "question": "A student wrote the steps: 1) Reception 2) Ceremony 3) Pamamanhikan. What is wrong?",
+            "options": [
+              "The order is reversed",
+              "There are too many steps",
+              "It should not use numbers",
+              "It needs a greeting instead"
+            ],
+            "correct_answer": "The order is reversed"
+          },
+          {
+            "question": "Which closing phrase fits BEST at the end of a friendly pagbati letter?",
+            "options": [
+              "\"With love,\"",
+              "\"Sincerely, the management\"",
+              "\"To whom it may concern,\"",
+              "\"Warning: read carefully\""
+            ],
+            "correct_answer": "\"With love,\""
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➗ Friday Review — Mathematics (Grade 4)\n\n- Long division: divide, multiply, subtract, bring down\n- **Estimate quotients** by rounding dividend and divisor\n\n**Quick check:** 846 ÷ 3 = **282**\n\nExcellent dividing! ⭐",
+        "quiz": [
+          {
+            "question": "What is 846 ÷ 3?",
+            "options": [
+              "282",
+              "272",
+              "292",
+              "228"
+            ],
+            "correct_answer": "282"
+          },
+          {
+            "question": "What is 936 ÷ 4?",
+            "options": [
+              "234",
+              "224",
+              "244",
+              "324"
+            ],
+            "correct_answer": "234"
+          },
+          {
+            "question": "What is 468 ÷ 12?",
+            "options": [
+              "39",
+              "36",
+              "42",
+              "29"
+            ],
+            "correct_answer": "39"
+          },
+          {
+            "question": "To estimate 587 ÷ 29, what do you round 587 and 29 to?",
+            "options": [
+              "600 and 30",
+              "500 and 30",
+              "600 and 20",
+              "580 and 30"
+            ],
+            "correct_answer": "600 and 30"
+          },
+          {
+            "question": "What is the estimate for 600 ÷ 30?",
+            "options": [
+              "20",
+              "10",
+              "30",
+              "60"
+            ],
+            "correct_answer": "20"
+          },
+          {
+            "question": "A school has 456 students split evenly into 12 classes. How many students per class?",
+            "options": [
+              "38",
+              "36",
+              "40",
+              "42"
+            ],
+            "correct_answer": "38"
+          },
+          {
+            "question": "What is 812 ÷ 19 estimated?",
+            "options": [
+              "About 40",
+              "About 20",
+              "About 60",
+              "About 10"
+            ],
+            "correct_answer": "About 40"
+          },
+          {
+            "question": "What is 555 ÷ 5?",
+            "options": [
+              "111",
+              "101",
+              "121",
+              "115"
+            ],
+            "correct_answer": "111"
+          },
+          {
+            "question": "In long division, what do you do after finding the first digit of the quotient?",
+            "options": [
+              "Bring down the next digit",
+              "Start over from the beginning",
+              "Multiply the whole dividend",
+              "Stop the problem"
+            ],
+            "correct_answer": "Bring down the next digit"
+          },
+          {
+            "question": "What is 3,600 ÷ 6?",
+            "options": [
+              "600",
+              "500",
+              "610",
+              "60"
+            ],
+            "correct_answer": "600"
+          },
+          {
+            "question": "Why is estimating useful before doing exact division?",
+            "options": [
+              "It helps check if your exact answer is reasonable",
+              "It replaces the need to divide exactly",
+              "It always gives the exact quotient",
+              "It only works for multiplication"
+            ],
+            "correct_answer": "It helps check if your exact answer is reasonable"
+          },
+          {
+            "question": "A factory packs 972 toys into boxes of 18. How many boxes are needed?",
+            "options": [
+              "54",
+              "52",
+              "56",
+              "48"
+            ],
+            "correct_answer": "54"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📔 Biyernes na Balik-Aral — Filipino (Grade 4)\n\n- **Talaarawan** = pagsulat tungkol sa isang araw (petsa, pangyayari, damdamin)\n- **Talambuhay** = kuwento ng buong buhay ng tao\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang talaarawan?",
+            "options": [
+              "Pagsulat tungkol sa karanasan sa isang araw",
+              "Kuwento ng buong buhay ng tao",
+              "Balitang pang-araw-araw lamang",
+              "Liham para sa isang kaibigan"
+            ],
+            "correct_answer": "Pagsulat tungkol sa karanasan sa isang araw"
+          },
+          {
+            "question": "Ano ang talambuhay?",
+            "options": [
+              "Salaysay tungkol sa buong buhay ng tao",
+              "Isang uri ng tula",
+              "Kuwento tungkol sa hayop",
+              "Liham ng pasasalamat"
+            ],
+            "correct_answer": "Salaysay tungkol sa buong buhay ng tao"
+          },
+          {
+            "question": "Anong bahagi ng talaarawan ang nagsasabi kung kailan nangyari ang pangyayari?",
+            "options": [
+              "Petsa",
+              "Damdamin",
+              "Pangyayari",
+              "Pamagat"
+            ],
+            "correct_answer": "Petsa"
+          },
+          {
+            "question": "Ano ang isusulat sa bahagi ng damdamin sa talaarawan?",
+            "options": [
+              "Ano ang naramdaman mo",
+              "Ang petsa lamang",
+              "Ang pangalan ng lahat",
+              "Ang halaga ng gamit"
+            ],
+            "correct_answer": "Ano ang naramdaman mo"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng talaarawan at talambuhay?",
+            "options": [
+              "Talaarawan ay isang araw, talambuhay ay buong buhay",
+              "Parehong tungkol sa isang araw lamang",
+              "Parehong tungkol sa buong buhay",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Talaarawan ay isang araw, talambuhay ay buong buhay"
+          },
+          {
+            "question": "Alin ang mahalagang detalye sa talambuhay?",
+            "options": [
+              "Pamilya at paaralang pinasukan",
+              "Presyo ng bilihin",
+              "Panahon ngayong araw",
+              "Bilang ng mag-aaral sa klase"
+            ],
+            "correct_answer": "Pamilya at paaralang pinasukan"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsulat ng talaarawan?",
+            "options": [
+              "Tumutulong itong maalala ang karanasan",
+              "Wala itong kabuluhan",
+              "Ginagawa lamang ito sa paaralan",
+              "Ginagamit lamang ito para sa palakasan"
+            ],
+            "correct_answer": "Tumutulong itong maalala ang karanasan"
+          },
+          {
+            "question": "Alin ang halimbawa ng pangungusap sa talaarawan?",
+            "options": [
+              "Masaya ako dahil nakita ko ang lolo ko.",
+              "Ang Pilipinas ay may 7,641 na pulo.",
+              "Ang kapital ng Pransya ay Paris.",
+              "Ang tubig ay kumukulo sa 100°C."
+            ],
+            "correct_answer": "Masaya ako dahil nakita ko ang lolo ko."
+          },
+          {
+            "question": "Anong bahagi ng talaarawan ang naglalarawan ng ginawa mo?",
+            "options": [
+              "Pangyayari",
+              "Petsa",
+              "Damdamin lamang",
+              "Pamagat lamang"
+            ],
+            "correct_answer": "Pangyayari"
+          },
+          {
+            "question": "Sino ang paksa ng isang talambuhay ng sarili?",
+            "options": [
+              "Ikaw mismo",
+              "Ang iyong kaibigan lamang",
+              "Ang isang hayop",
+              "Ang isang bansa"
+            ],
+            "correct_answer": "Ikaw mismo"
+          },
+          {
+            "question": "Bakit mahalagang isama ang damdamin sa talaarawan?",
+            "options": [
+              "Nagpapakita ito ng tunay na karanasan",
+              "Wala itong gamit sa pagsulat",
+              "Nagpapahaba lamang ito ng talata",
+              "Ginagawa lamang ito para sa iba"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na karanasan"
+          },
+          {
+            "question": "Isang bata ang nagsulat ng kuwento ng kanyang buong buhay mula pagkabata hanggang ngayon. Ano ang tinatawag na ito?",
+            "options": [
+              "Talambuhay",
+              "Talaarawan lamang",
+              "Balita",
+              "Liham"
+            ],
+            "correct_answer": "Talambuhay"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌳 Friday Review — Science (Grade 4)\n\n- **Root system** = absorbs water, anchors plant\n- **Shoot system** = stem, leaves, flowers — makes food, supports, reproduces\n- **Taproot** (carrot) vs **fibrous root** (grass)\n- Root/shoot systems **depend on each other**\n\nGreat plant scientist! 🌟",
+        "quiz": [
+          {
+            "question": "Which system includes the roots?",
+            "options": [
+              "Root system",
+              "Shoot system",
+              "Both equally",
+              "Neither system"
+            ],
+            "correct_answer": "Root system"
+          },
+          {
+            "question": "Which system includes the stem, leaves, and flowers?",
+            "options": [
+              "Shoot system",
+              "Root system",
+              "Both equally",
+              "Neither system"
+            ],
+            "correct_answer": "Shoot system"
+          },
+          {
+            "question": "What is the main job of the root system?",
+            "options": [
+              "Absorb water and anchor the plant",
+              "Make food using sunlight",
+              "Attract insects for pollination",
+              "Store seeds for reproduction"
+            ],
+            "correct_answer": "Absorb water and anchor the plant"
+          },
+          {
+            "question": "What is the main job of the shoot system?",
+            "options": [
+              "Make food and support the plant",
+              "Absorb water from soil",
+              "Anchor the plant in the ground",
+              "Hold soil particles together"
+            ],
+            "correct_answer": "Make food and support the plant"
+          },
+          {
+            "question": "A strong wind almost uproots a tree, but it stays standing. Why?",
+            "options": [
+              "The root system anchors it firmly",
+              "The shoot system anchors it firmly",
+              "The leaves hold it down",
+              "The flowers hold it down"
+            ],
+            "correct_answer": "The root system anchors it firmly"
+          },
+          {
+            "question": "A plant's leaves are removed. What is most affected?",
+            "options": [
+              "Its ability to make food",
+              "Its ability to absorb water",
+              "Its root anchoring",
+              "Its underground growth"
+            ],
+            "correct_answer": "Its ability to make food"
+          },
+          {
+            "question": "Which is an example of a taproot?",
+            "options": [
+              "Carrot",
+              "Grass",
+              "Rice",
+              "Fern"
+            ],
+            "correct_answer": "Carrot"
+          },
+          {
+            "question": "Which is an example of a fibrous root system?",
+            "options": [
+              "Grass",
+              "Carrot",
+              "Radish",
+              "Beet"
+            ],
+            "correct_answer": "Grass"
+          },
+          {
+            "question": "What does the root system send UP to the shoot system?",
+            "options": [
+              "Water",
+              "Food",
+              "Sunlight",
+              "Seeds"
+            ],
+            "correct_answer": "Water"
+          },
+          {
+            "question": "What does the shoot system send DOWN to the root system?",
+            "options": [
+              "Food made in the leaves",
+              "Water from the soil",
+              "Sunlight energy directly",
+              "Oxygen from the air only"
+            ],
+            "correct_answer": "Food made in the leaves"
+          },
+          {
+            "question": "Why are root and shoot systems described as depending on each other?",
+            "options": [
+              "Each needs what the other provides to survive",
+              "They work completely independently",
+              "Only the shoot system matters for survival",
+              "Only the root system matters for survival"
+            ],
+            "correct_answer": "Each needs what the other provides to survive"
+          },
+          {
+            "question": "A gardener notices a plant wilting even though the soil is watered. What might be damaged?",
+            "options": [
+              "The root system, unable to absorb the water",
+              "The flowers, which do not need water",
+              "The seeds, which are underground",
+              "Nothing is likely wrong"
+            ],
+            "correct_answer": "The root system, unable to absorb the water"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🌍 Biyernes na Balik-Aral — Araling Panlipunan (Grade 4)\n\n- **Gitnang Luzon** = agrikultura | **Palawan/Visayas** = pangingisda | **Cordillera** = pagmimina\n- **Matalinong paggamit** = sapat sa ngayon, hindi nauubos sa hinaharap\n- Labis na pagputol/pangingisda → baha, pagguho, nauubos na yaman\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pangunahing kabuhayan sa Gitnang Luzon?",
+            "options": [
+              "Agrikultura",
+              "Pagmimina",
+              "Pangingisda",
+              "Industriya"
+            ],
+            "correct_answer": "Agrikultura"
+          },
+          {
+            "question": "Bakit angkop ang pagmimina sa Cordillera?",
+            "options": [
+              "Mayaman ito sa mineral deposit",
+              "Malapit ito sa dagat",
+              "Matabang lupa ang meron dito",
+              "Wala itong bundok"
+            ],
+            "correct_answer": "Mayaman ito sa mineral deposit"
+          },
+          {
+            "question": "Ano ang matalinong paggamit ng yaman?",
+            "options": [
+              "Sapat sa kasalukuyan, hindi nauubos sa hinaharap",
+              "Paggamit ng lahat ng yaman agad",
+              "Pagtigil sa paggamit ng yaman",
+              "Pagbenta ng lahat ng yaman"
+            ],
+            "correct_answer": "Sapat sa kasalukuyan, hindi nauubos sa hinaharap"
+          },
+          {
+            "question": "Ano ang epekto ng labis na pagputol ng puno?",
+            "options": [
+              "Pagguho ng lupa at baha",
+              "Pagtaas ng ani ng palay",
+              "Paglinis ng hangin",
+              "Pagdami ng isda"
+            ],
+            "correct_answer": "Pagguho ng lupa at baha"
+          },
+          {
+            "question": "Ano ang epekto ng labis na pangingisda?",
+            "options": [
+              "Nauubos ang isda",
+              "Dumadami ang isda",
+              "Bumubuti ang tubig-dagat",
+              "Wala itong epekto"
+            ],
+            "correct_answer": "Nauubos ang isda"
+          },
+          {
+            "question": "Ano ang pangunahing kabuhayan sa mga isla tulad ng Palawan?",
+            "options": [
+              "Pangingisda",
+              "Pagmimina",
+              "Industriya",
+              "Agrikultura ng palay"
+            ],
+            "correct_answer": "Pangingisda"
+          },
+          {
+            "question": "Ano ang pangunahing kabuhayan sa Metro Manila?",
+            "options": [
+              "Industriya at kalakalan",
+              "Pagmimina lamang",
+              "Pangingisda lamang",
+              "Pagsasaka lamang"
+            ],
+            "correct_answer": "Industriya at kalakalan"
+          },
+          {
+            "question": "Bakit dapat isaalang-alang ang epekto sa kapaligiran sa mga desisyong pangkabuhayan?",
+            "options": [
+              "Upang maiwasan ang pinsala sa hinaharap",
+              "Upang mas mabilis kumita",
+              "Walang dahilan ito",
+              "Upang mabawasan ang trabaho"
+            ],
+            "correct_answer": "Upang maiwasan ang pinsala sa hinaharap"
+          },
+          {
+            "question": "Ano ang layunin ng balanseng pag-unlad?",
+            "options": [
+              "Paggamit ng yaman habang pinangangalagaan ito",
+              "Paggamit ng lahat ng yaman kaagad",
+              "Pagtigil sa lahat ng gawaing pangkabuhayan",
+              "Pagbebenta ng yaman sa ibang bansa"
+            ],
+            "correct_answer": "Paggamit ng yaman habang pinangangalagaan ito"
+          },
+          {
+            "question": "Ano ang halimbawa ng responsableng pagmimina?",
+            "options": [
+              "Pagbabawas ng pinsala sa kapaligiran",
+              "Pagmimina nang walang anumang batas",
+              "Pagtatapon ng basura sa ilog",
+              "Paggamit ng lahat ng mineral agad"
+            ],
+            "correct_answer": "Pagbabawas ng pinsala sa kapaligiran"
+          },
+          {
+            "question": "Bakit magkaiba ang kabuhayan ng iba't ibang rehiyon sa Pilipinas?",
+            "options": [
+              "Magkaiba ang kanilang likas na yaman",
+              "Iisa lang ang klima sa buong bansa",
+              "Walang pagkakaiba sa lahat ng rehiyon",
+              "Iisa lang ang kabuhayan sa buong bansa"
+            ],
+            "correct_answer": "Magkaiba ang kanilang likas na yaman"
+          },
+          {
+            "question": "Isang bayan ang gumagamit ng modernong paraan upang huwag maubos ang kanilang isda. Ano ang ipinapakita nito?",
+            "options": [
+              "Matalinong paggamit ng yaman",
+              "Kawalan ng pag-iisip sa hinaharap",
+              "Pagsira sa kapaligiran",
+              "Pagwawalang-bahala sa kabuhayan"
+            ],
+            "correct_answer": "Matalinong paggamit ng yaman"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎭 Biyernes na Balik-Aral — MAPEH (Grade 4)\n\n- **Rhythm** = paulit-ulit na galaw/tunog | **Movement** = kilos ng katawan\n- **Sinulog** (Cebu) · **Ati-Atihan** (Aklan) · **Pahiyas** (Quezon)\n- Katutubong sayaw = may kaugnayan sa paniniwala/relihiyon\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang rhythm sa sining ng sayaw?",
+            "options": [
+              "Paulit-ulit na galaw o tunog",
+              "Kulay ng damit",
+              "Pangalan ng sayaw",
+              "Bilang ng mananayaw"
+            ],
+            "correct_answer": "Paulit-ulit na galaw o tunog"
+          },
+          {
+            "question": "Ano ang Sinulog?",
+            "options": [
+              "Sayaw pandalangin kay Santo Niño",
+              "Isang sayaw lamang tuwing Pasko",
+              "Isang sayaw lamang sa kasal",
+              "Isang sayaw sa graduation lamang"
+            ],
+            "correct_answer": "Sayaw pandalangin kay Santo Niño"
+          },
+          {
+            "question": "Saan ginaganap ang Ati-Atihan?",
+            "options": [
+              "Aklan",
+              "Cebu",
+              "Quezon",
+              "Manila"
+            ],
+            "correct_answer": "Aklan"
+          },
+          {
+            "question": "Ano ang Pahiyas?",
+            "options": [
+              "Pagdiriwang bilang pasasalamat sa ani",
+              "Isang sayaw pandigma lamang",
+              "Isang ritwal lamang sa libing",
+              "Isang sayaw sa graduation lamang"
+            ],
+            "correct_answer": "Pagdiriwang bilang pasasalamat sa ani"
+          },
+          {
+            "question": "Bakit may kaugnayan sa paniniwala ang mga katutubong sayaw na ito?",
+            "options": [
+              "Ginagawa bilang pananalangin o pagdiriwang",
+              "Ginagawa lamang para sa turista",
+              "Wala itong kaugnayan sa relihiyon",
+              "Ginagawa lamang bilang palakasan"
+            ],
+            "correct_answer": "Ginagawa bilang pananalangin o pagdiriwang"
+          },
+          {
+            "question": "Ano ang tugtugin na madalas gamitin sa mga katutubong sayaw?",
+            "options": [
+              "Tambol o gong",
+              "Piano",
+              "Gitara",
+              "Bayolin"
+            ],
+            "correct_answer": "Tambol o gong"
+          },
+          {
+            "question": "Ano ang hakbang sa Sinulog?",
+            "options": [
+              "Dalawang hakbang pasulong, isang paatras",
+              "Isang hakbang lamang paatras",
+              "Walang hakbang na ginagawa dito",
+              "Tatlong hakbang pasulong lamang"
+            ],
+            "correct_answer": "Dalawang hakbang pasulong, isang paatras"
+          },
+          {
+            "question": "Ano ang movement sa sining?",
+            "options": [
+              "Kung paano gumagalaw ang katawan",
+              "Ang kulay ng costume",
+              "Ang tunog ng musika lamang",
+              "Ang bilang ng manonood"
+            ],
+            "correct_answer": "Kung paano gumagalaw ang katawan"
+          },
+          {
+            "question": "Bakit mahalaga ang rhythm sa mga ritwal na sayaw?",
+            "options": [
+              "Nagbibigay ito ng ayos at pagkakaisa sa galaw",
+              "Wala itong kabuluhan",
+              "Ginagamit lamang ito sa laro",
+              "Nagpapahaba lamang ito ng oras"
+            ],
+            "correct_answer": "Nagbibigay ito ng ayos at pagkakaisa sa galaw"
+          },
+          {
+            "question": "Alin ang halimbawa ng sayaw bilang pasasalamat?",
+            "options": [
+              "Pahiyas",
+              "Sinulog lamang",
+              "Tinikling lamang",
+              "Cha-cha"
+            ],
+            "correct_answer": "Pahiyas"
+          },
+          {
+            "question": "Bakit itinuturing na sining ang mga katutubong ritwal?",
+            "options": [
+              "Gumagamit ito ng rhythm at movement",
+              "Wala itong kulay o disenyo",
+              "Ginagawa lamang ito nang random",
+              "Hindi ito nagpapakita ng kultura"
+            ],
+            "correct_answer": "Gumagamit ito ng rhythm at movement"
+          },
+          {
+            "question": "Isang paaralan ang nagsasagawa ng dula tungkol sa Sinulog. Ano ang mahalagang isama sa kanilang pagganap?",
+            "options": [
+              "Ang paulit-ulit na hakbang na sumasabay sa tugtog",
+              "Isang random na sayaw lamang",
+              "Isang sayaw na walang tugtog",
+              "Isang sayaw na walang kahulugan"
+            ],
+            "correct_answer": "Ang paulit-ulit na hakbang na sumasabay sa tugtog"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 Biyernes na Balik-Aral — GMRC (Grade 4)\n\n- **Matiyaga** = kakayahang magpatuloy kahit mahirap ang gawain\n- Palagiang pagtulong sa gawaing bahay = nagpapaunlad ng responsibilidad\n- Bukas sa mungkahi ng pamilya = paggalang at pakikipagtulungan\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang matiyaga?",
+            "options": [
+              "Kakayahang magpatuloy kahit mahirap ang gawain",
+              "Kakayahang sumuko agad",
+              "Kakayahang tumakbo nang mabilis",
+              "Kakayahang manalo sa laro"
+            ],
+            "correct_answer": "Kakayahang magpatuloy kahit mahirap ang gawain"
+          },
+          {
+            "question": "Inutusan kang maglinis ng silid pero pagod ka. Ano ang tama mong gawin?",
+            "options": [
+              "Ituloy ang gawain hanggang matapos",
+              "Iwanan ang gawain agad",
+              "Magreklamo at umalis",
+              "Sabihin na hindi mo kaya"
+            ],
+            "correct_answer": "Ituloy ang gawain hanggang matapos"
+          },
+          {
+            "question": "Alin ang halimbawa ng gawaing bahay?",
+            "options": [
+              "Paglilinis ng silid",
+              "Panonood ng palabas",
+              "Paglalaro sa labas",
+              "Pagtulog buong araw"
+            ],
+            "correct_answer": "Paglilinis ng silid"
+          },
+          {
+            "question": "Bakit dapat maging palagian ang pagtulong sa gawaing bahay?",
+            "options": [
+              "Nagpapaunlad ito ng responsibilidad",
+              "Wala itong kabuluhan",
+              "Ginagawa lamang kapag may pasok",
+              "Ginagawa lamang kapag may bisita"
+            ],
+            "correct_answer": "Nagpapaunlad ito ng responsibilidad"
+          },
+          {
+            "question": "Bakit mahalagang bukas ka sa mungkahi ng ibang miyembro ng pamilya?",
+            "options": [
+              "Nagpapakita ito ng paggalang at pakikipagtulungan",
+              "Wala itong kaugnayan sa pagtupad ng gawain",
+              "Ipinapakita nito ang kayabangan",
+              "Nagpapahirap lamang ito ng gawain"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang at pakikipagtulungan"
+          },
+          {
+            "question": "Ano ang halimbawa ng pagiging matiyaga sa pag-aaral?",
+            "options": [
+              "Pagpapatuloy kahit mahirap ang aralin",
+              "Pagsuko agad kapag mahirap",
+              "Pag-iwas sa takdang-aralin",
+              "Paghingi lamang ng sagot sa iba"
+            ],
+            "correct_answer": "Pagpapatuloy kahit mahirap ang aralin"
+          },
+          {
+            "question": "Ano ang mabuting gawin kapag paulit-ulit na nagkakalat ang isang bahagi ng bahay?",
+            "options": [
+              "Patuloy itong linisin nang walang sawa",
+              "Itigil ang paglilinis dito",
+              "Hayaan na lamang itong magkalat",
+              "Sisihin ang ibang kapatid"
+            ],
+            "correct_answer": "Patuloy itong linisin nang walang sawa"
+          },
+          {
+            "question": "Ano ang benepisyo ng palagiang pagtulong sa gawaing bahay para sa buong pamilya?",
+            "options": [
+              "Nagpapagaan ito ng pasanin ng lahat",
+              "Nagpapabigat lamang ito sa lahat",
+              "Wala itong benepisyo",
+              "Nagdadagdag lamang ito ng gastos"
+            ],
+            "correct_answer": "Nagpapagaan ito ng pasanin ng lahat"
+          },
+          {
+            "question": "Ano ang mabuting gawin kapag mayroon kang inaasikasong gawain sa bahay pero gusto mo nang maglaro?",
+            "options": [
+              "Tapusin muna ang gawain bago maglaro",
+              "Maglaro agad at kalimutan ang gawain",
+              "Isumbat ang gawain sa iba",
+              "Magalit sa mga magulang"
+            ],
+            "correct_answer": "Tapusin muna ang gawain bago maglaro"
+          },
+          {
+            "question": "Ano ang kabaligtaran ng pagiging matiyaga?",
+            "options": [
+              "Madaling sumuko",
+              "Palaging masipag",
+              "Palaging matulungin",
+              "Palaging magalang"
+            ],
+            "correct_answer": "Madaling sumuko"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang gawaing bukas sa mungkahi ng pamilya?",
+            "options": [
+              "Nagpapakita ito ng pagkakaisa sa desisyon",
+              "Wala itong kaugnayan sa pamilya",
+              "Ginagawa lamang ito para sa sarili",
+              "Hindi na ito kailangan"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagkakaisa sa desisyon"
+          },
+          {
+            "question": "Patuloy kang naglilinis kahit paulit-ulit na nagkakalat ang iyong kapatid. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagiging matiyaga",
+              "Kawalan ng pasensiya",
+              "Pagsuway sa magulang",
+              "Kapabayaan"
+            ],
+            "correct_answer": "Pagiging matiyaga"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 📜 Friday Review — EPP (AFA/FCS/IA) (Grade 4)\n\n- **RA 10068** = organikong pagsasaka | **Ecological Solid Waste Management Act** = tamang pamamahala ng basura\n- **Ahensya:** DA, DENR, DTI, DOLE, DOST, TESDA\n- **NGO:** FAO, MASIPAG, AgriCOOPh\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang layunin ng RA 10068?",
+            "options": [
+              "Naghihikayat ng organikong pagsasaka",
+              "Nagbibigay ng lisensya sa negosyo",
+              "Naglalarawan ng kasaysayan ng Pilipinas",
+              "Nagbibigay ng batas sa trapiko"
+            ],
+            "correct_answer": "Naghihikayat ng organikong pagsasaka"
+          },
+          {
+            "question": "Alin ang batas tungkol sa tamang pamamahala ng basura?",
+            "options": [
+              "Ecological Solid Waste Management Act",
+              "RA 10068",
+              "Local ordinance lamang",
+              "Organic Agriculture Act lamang"
+            ],
+            "correct_answer": "Ecological Solid Waste Management Act"
+          },
+          {
+            "question": "Aling ahensya ang tumutulong sa mga magsasaka?",
+            "options": [
+              "DA (Department of Agriculture)",
+              "DTI, for business permits",
+              "DOLE, for worker concerns",
+              "TESDA, for vocational training"
+            ],
+            "correct_answer": "DA (Department of Agriculture)"
+          },
+          {
+            "question": "Aling ahensya ang nangangalaga sa kapaligiran?",
+            "options": [
+              "DENR",
+              "DA",
+              "DTI",
+              "DOST"
+            ],
+            "correct_answer": "DENR"
+          },
+          {
+            "question": "Ano ang MASIPAG?",
+            "options": [
+              "NGO na tumutulong sa organikong pagsasaka",
+              "Batas ng gobyerno tungkol sa buwis",
+              "Ahensyang pang-edukasyon sa bayan",
+              "Kumpanya ng pagkain sa palengke"
+            ],
+            "correct_answer": "NGO na tumutulong sa organikong pagsasaka"
+          },
+          {
+            "question": "Ano ang FAO?",
+            "options": [
+              "Pandaigdigang samahan para sa pagkain at agrikultura",
+              "Batas sa Pilipinas tungkol sa lupa",
+              "Lokal na tindahan ng gulay lamang",
+              "Bangko sa Pilipinas para sa magsasaka"
+            ],
+            "correct_answer": "Pandaigdigang samahan para sa pagkain at agrikultura"
+          },
+          {
+            "question": "Aling ahensya ang nagbibigay ng bokasyonal na pagsasanay?",
+            "options": [
+              "TESDA",
+              "DENR",
+              "DA",
+              "DTI"
+            ],
+            "correct_answer": "TESDA"
+          },
+          {
+            "question": "Ano ang lokal na ordinansa?",
+            "options": [
+              "Tuntuning partikular sa isang bayan o lungsod",
+              "Batas na para lamang sa Maynila",
+              "Batas na walang bisa",
+              "Panuntunan sa paaralan lamang"
+            ],
+            "correct_answer": "Tuntuning partikular sa isang bayan o lungsod"
+          },
+          {
+            "question": "Sino ang tatawagan ng magsasakang gustong matuto ng organikong pagsasaka?",
+            "options": [
+              "DA o MASIPAG",
+              "TESDA lamang",
+              "DENR lamang",
+              "DOLE lamang"
+            ],
+            "correct_answer": "DA o MASIPAG"
+          },
+          {
+            "question": "Aling ahensya ang tumutulong sa mga manggagawa?",
+            "options": [
+              "DOLE",
+              "DA",
+              "DENR",
+              "DTI"
+            ],
+            "correct_answer": "DOLE"
+          },
+          {
+            "question": "Ano ang AgriCOOPh?",
+            "options": [
+              "Kooperatiba para sa mga magsasaka",
+              "Isang batas sa agrikultura",
+              "Isang ahensya ng gobyerno",
+              "Isang paaralan"
+            ],
+            "correct_answer": "Kooperatiba para sa mga magsasaka"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga batas at ahensyang ito?",
+            "options": [
+              "Nakatutulong ito sa maayos na pagsasagawa ng agrikultura",
+              "Wala itong kaugnayan sa paghahalaman",
+              "Ginagamit lamang ito sa negosyo",
+              "Hindi ito importante sa magsasaka"
+            ],
+            "correct_answer": "Nakatutulong ito sa maayos na pagsasagawa ng agrikultura"
+          }
+        ]
+      }
+    }
+  }
+}

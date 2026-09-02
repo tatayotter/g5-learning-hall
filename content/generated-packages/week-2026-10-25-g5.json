@@ -1,0 +1,2266 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-10-25",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🗣️ English — Speaking with Grammar and Multimedia Awareness\n\nGrade 5, Week 20! Let's combine our grammar and viewing skills into a spoken presentation. 🎤\n\n## 🔄 Review: Grammar Tools\nAdverb-forming suffixes, possessive/compound nouns, relative pronouns, adverbs of place/frequency/intensity, noun/pronoun complements.\n\n## 🔄 Review: Multimedia Awareness\nPurpose (inform/persuade/entertain), point of view, and elements like transitions/pacing/captions.\n\n## 🗣️ Combining Both in a Spoken Presentation\nWhen speaking to an audience, we should:\n1. Use **correct grammar** (relative pronouns, adverbs) to speak clearly\n2. Consider our **purpose** — what do I want my audience to think or feel?\n3. Use **appropriate pacing and tone** — like multimedia elements support purpose\n\n## 🧠 Worked Example 1\n*\"The teacher, who is very kind, helped me finish my project.\" What grammar tool is used here?*\n- A **relative pronoun** (\"who\") that adds detail about the teacher.\n\n## 🧠 Worked Example 2\n*Why should a speaker slow their pacing when explaining a difficult idea?*\n- Slower pacing, like in multimedia, helps the **audience understand** more clearly.\n\n## 💡 Why This Matters\nCombining grammar and multimedia awareness helps us become **clear, purposeful communicators** whether writing or speaking.\n\nGreat combined skills work! 🌟",
+        "quiz": [
+          {
+            "question": "What is a relative pronoun used for?",
+            "options": [
+              "Adding detail about a noun, like \"who\" or \"which\"",
+              "Showing where something is located",
+              "Showing how often something happens",
+              "Making a noun possessive"
+            ],
+            "correct_answer": "Adding detail about a noun, like \"who\" or \"which\""
+          },
+          {
+            "question": "\"The teacher, who is very kind, helped me finish my project.\" What grammar tool is used here?",
+            "options": [
+              "A relative pronoun (\"who\")",
+              "An adverb of frequency",
+              "A possessive noun",
+              "A compound noun"
+            ],
+            "correct_answer": "A relative pronoun (\"who\")"
+          },
+          {
+            "question": "What does purpose mean in a spoken presentation?",
+            "options": [
+              "What you want your audience to think or feel",
+              "The exact time the speech starts",
+              "The color of your outfit",
+              "The number of words used"
+            ],
+            "correct_answer": "What you want your audience to think or feel"
+          },
+          {
+            "question": "Why should a speaker slow their pacing when explaining a difficult idea?",
+            "options": [
+              "It helps the audience understand more clearly",
+              "It has no effect on understanding",
+              "It only matters in written texts",
+              "It always confuses the audience more"
+            ],
+            "correct_answer": "It helps the audience understand more clearly"
+          },
+          {
+            "question": "What is an adverb of frequency?",
+            "options": [
+              "A word that tells how often something happens",
+              "A word that tells where something is",
+              "A word that names a person",
+              "A word that describes only colors"
+            ],
+            "correct_answer": "A word that tells how often something happens"
+          },
+          {
+            "question": "What is a compound noun?",
+            "options": [
+              "A noun made of two or more words joined together",
+              "A noun that only describes feelings",
+              "A single letter used as a noun",
+              "A noun that is always plural"
+            ],
+            "correct_answer": "A noun made of two or more words joined together"
+          },
+          {
+            "question": "Why is it useful to consider your purpose before speaking to an audience?",
+            "options": [
+              "It helps you plan what to say and how to say it",
+              "Purpose does not matter when speaking",
+              "Only written texts need a purpose",
+              "It makes speaking more confusing"
+            ],
+            "correct_answer": "It helps you plan what to say and how to say it"
+          },
+          {
+            "question": "What is a noun complement?",
+            "options": [
+              "A word or phrase that completes the meaning of a noun",
+              "A word that replaces a noun completely",
+              "A word that only shows location",
+              "A punctuation mark used with nouns"
+            ],
+            "correct_answer": "A word or phrase that completes the meaning of a noun"
+          },
+          {
+            "question": "Why should a speaker use correct grammar when presenting?",
+            "options": [
+              "It helps the message come across clearly",
+              "Grammar does not matter when speaking aloud",
+              "It only matters for written essays",
+              "It makes the presentation take longer"
+            ],
+            "correct_answer": "It helps the message come across clearly"
+          },
+          {
+            "question": "What is an example of an adverb of place?",
+            "options": [
+              "\"There\" or \"here\"",
+              "\"Always\" or \"never\"",
+              "\"Very\" or \"extremely\"",
+              "\"Quickly\" or \"slowly\""
+            ],
+            "correct_answer": "\"There\" or \"here\""
+          },
+          {
+            "question": "Why do we combine grammar and multimedia awareness when speaking?",
+            "options": [
+              "To become clear, purposeful communicators",
+              "These skills have no connection to each other",
+              "Only one of these skills is ever useful",
+              "Combining skills makes speaking pointless"
+            ],
+            "correct_answer": "To become clear, purposeful communicators"
+          },
+          {
+            "question": "A speaker uses a strong, confident tone to persuade classmates to join a project. What is their purpose?",
+            "options": [
+              "To persuade the audience",
+              "To purely inform with no persuasion",
+              "To entertain with no other goal",
+              "They have no purpose at all"
+            ],
+            "correct_answer": "To persuade the audience"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📊 Mathematics — Double Bar and Double Line Graphs\n\nGrade 5, Week 20! Let's compare two sets of data at once. 📈\n\n## 📊 What Is a Double Bar Graph?\nA **double bar graph** compares **two sets of data** side by side using pairs of bars.\n\n**Example:** Comparing boys' and girls' favorite subjects using two bars per subject.\n\n## 📈 What Is a Double Line Graph?\nA **double line graph** compares **two sets of data over time** using two lines.\n\n**Example:** Comparing the temperature in two cities over a week.\n\n## 🏷️ Important Parts of a Graph\n| Part | Purpose |\n|---|---|\n| **Title** | tells what the graph is about |\n| **Legend** | explains what each color/bar represents |\n| **Scale** | shows the range of values |\n| **Axis labels** | tell what each axis measures |\n\n## 🧠 Worked Example 1\n*A double bar graph compares Math and Science scores of two classes. What does the legend tell us?*\n- It tells us **which color or pattern** represents each class.\n\n## 🧠 Worked Example 2\n*Why is a scale important in a graph?*\n- It helps us **read and compare values accurately**.\n\n## 🧠 Worked Example 3\n*A double line graph shows rainfall in two provinces over 6 months. What would the two lines represent?*\n- Each line represents the **rainfall trend of one province**.\n\n## 💡 Why This Matters\nDouble bar and line graphs help us **compare two sets of data** clearly and accurately.\n\nGreat graphing work! ⭐",
+        "quiz": [
+          {
+            "question": "What is a double bar graph used for?",
+            "options": [
+              "Comparing two sets of data side by side",
+              "Showing only one set of data",
+              "Listing random numbers",
+              "Drawing pictures only"
+            ],
+            "correct_answer": "Comparing two sets of data side by side"
+          },
+          {
+            "question": "What is a double line graph used for?",
+            "options": [
+              "Comparing two sets of data over time",
+              "Comparing unrelated categories only",
+              "Listing random words",
+              "Drawing pictures only"
+            ],
+            "correct_answer": "Comparing two sets of data over time"
+          },
+          {
+            "question": "What does the title of a graph tell us?",
+            "options": [
+              "What the graph is about",
+              "The exact numbers only",
+              "The color of the bars only",
+              "Nothing important"
+            ],
+            "correct_answer": "What the graph is about"
+          },
+          {
+            "question": "What does the legend of a graph explain?",
+            "options": [
+              "What each color or bar represents",
+              "The title of the graph",
+              "The scale of the graph",
+              "The axis labels only"
+            ],
+            "correct_answer": "What each color or bar represents"
+          },
+          {
+            "question": "Why is a scale important in a graph?",
+            "options": [
+              "It helps us read and compare values accurately",
+              "It has no real purpose",
+              "It only matters for line graphs",
+              "It replaces the need for a title"
+            ],
+            "correct_answer": "It helps us read and compare values accurately"
+          },
+          {
+            "question": "What do axis labels tell us?",
+            "options": [
+              "What each axis measures",
+              "The title of the graph only",
+              "The legend only",
+              "Nothing useful"
+            ],
+            "correct_answer": "What each axis measures"
+          },
+          {
+            "question": "A double bar graph compares Math and Science scores of two classes. What does the legend tell us?",
+            "options": [
+              "Which color or pattern represents each class",
+              "The exact date the scores were recorded",
+              "The names of every student",
+              "The classroom number only"
+            ],
+            "correct_answer": "Which color or pattern represents each class"
+          },
+          {
+            "question": "A double line graph shows rainfall in two provinces over 6 months. What would the two lines represent?",
+            "options": [
+              "The rainfall trend of each province",
+              "The population of each province",
+              "The temperature of each province",
+              "The size of each province"
+            ],
+            "correct_answer": "The rainfall trend of each province"
+          },
+          {
+            "question": "Why would you use a double bar graph instead of a single bar graph?",
+            "options": [
+              "To compare two related sets of data at once",
+              "Double bar graphs are always wrong to use",
+              "Single bar graphs are always better",
+              "There is no difference between the two"
+            ],
+            "correct_answer": "To compare two related sets of data at once"
+          },
+          {
+            "question": "Why would you use a double line graph instead of a single line graph?",
+            "options": [
+              "To compare how two sets of data change over time",
+              "Double line graphs are always incorrect",
+              "Single line graphs are always better",
+              "There is no difference between the two"
+            ],
+            "correct_answer": "To compare how two sets of data change over time"
+          },
+          {
+            "question": "What should you check first when reading any graph?",
+            "options": [
+              "The title, to understand what it shows",
+              "Only the colors used",
+              "Only the size of the paper",
+              "Nothing needs to be checked first"
+            ],
+            "correct_answer": "The title, to understand what it shows"
+          },
+          {
+            "question": "Why must a graph have clearly labeled axes?",
+            "options": [
+              "So readers know exactly what is being measured",
+              "Labels are never actually necessary",
+              "Only the title matters, not the axes",
+              "Axis labels only matter for double graphs"
+            ],
+            "correct_answer": "So readers know exactly what is being measured"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🧩 Filipino — Pagsasanib ng Kasanayan: Pagbasa, Panonood, at Pagsulat\n\nGrade 5, Linggo 20! Pagsamahin natin ang lahat ng natutuhan ngayong term. ✍️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **ironiya**, **gramatika (langkapang pangungusap, pang-uri pasukdol)**, **pagsulat ng opisyal na form**, **paggamit ng almanac/atlas**, at **panonood ng multimedia**.\n\n## 🧩 Pagsasanib sa Isang Gawain\nNgayong linggo, gagamitin natin ang lahat ng ito sa pagsusuri ng isang maikling video o artikulo — pagbasa/panonood, pag-unawa sa layunin nito, at pagsulat ng sariling reaksiyon gamit ang wastong gramatika.\n\n## 🧠 Halimbawa 1\n*Anong kasanayan ang ginagamit kapag sinusuri natin ang layunin ng isang video?*\n- Ang **panonood ng multimedia** — pagsusuri sa tunog, biswal, at galaw.\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang gumamit ng wastong gramatika kapag sumusulat ng reaksiyon?*\n- Upang maging **malinaw at propesyonal** ang ating isinusulat na reaksiyon.\n\n## 💡 Kongklusyon\nAng pagsasanib ng mga kasanayang ito ay nagpapakita ng ating **kabuuang kakayahan** bilang mambabasa, manonood, at manunulat.\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Anong mga kasanayan ang natutuhan natin sa buong term na ito?",
+            "options": [
+              "Ironiya, gramatika, pagsulat ng form, at panonood ng multimedia",
+              "Isa lamang kasanayan dito ngayon",
+              "Wala tayong natutuhang kasanayan",
+              "Kasanayan lamang sa pagguhit sa gawaing ito"
+            ],
+            "correct_answer": "Ironiya, gramatika, pagsulat ng form, at panonood ng multimedia"
+          },
+          {
+            "question": "Anong kasanayan ang ginagamit kapag sinusuri natin ang layunin ng isang video?",
+            "options": [
+              "Panonood ng multimedia",
+              "Pagsulat ng opisyal na form lamang",
+              "Paggamit ng atlas lamang",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Panonood ng multimedia"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng wastong gramatika kapag sumusulat ng reaksiyon?",
+            "options": [
+              "Upang maging malinaw at propesyonal ang isinusulat",
+              "Upang mahaba lamang ang reaksiyon",
+              "Walang epekto ang gramatika sa reaksiyon",
+              "Upang malito ang mambabasa"
+            ],
+            "correct_answer": "Upang maging malinaw at propesyonal ang isinusulat"
+          },
+          {
+            "question": "Ano ang ironiya?",
+            "options": [
+              "Isang tayutay kung saan salungat sa inaasahan ang nangyari",
+              "Isang uri ng bantas lamang dito",
+              "Isang uri ng pangngalan lamang sa gawaing ito",
+              "Isang uri ng panghalip lamang ngayon"
+            ],
+            "correct_answer": "Isang tayutay kung saan salungat sa inaasahan ang nangyari"
+          },
+          {
+            "question": "Ano ang almanac at atlas ginagamit para dito?",
+            "options": [
+              "Bilang karagdagang sanggunian para sa impormasyon",
+              "Bilang uri ng laro lamang sa gawaing ito",
+              "Bilang uri ng damit lamang",
+              "Wala itong gamit dito ngayon"
+            ],
+            "correct_answer": "Bilang karagdagang sanggunian para sa impormasyon"
+          },
+          {
+            "question": "Ano ang tinitiyak ng wastong pagsagot sa opisyal na form?",
+            "options": [
+              "Kawastuhan ng impormasyong isinusumite",
+              "Bilis ng pagsagot lamang",
+              "Kulay ng papel lamang",
+              "Laki ng titik lamang"
+            ],
+            "correct_answer": "Kawastuhan ng impormasyong isinusumite"
+          },
+          {
+            "question": "Ano ang epekto ng tunog, biswal, at galaw sa multimedia text?",
+            "options": [
+              "Tumutulong itong maghatid ng mensahe at damdamin",
+              "Wala itong epekto sa mensahe",
+              "Nagpapabagal lamang ito ng video",
+              "Nakakasira lamang ito ng kalidad"
+            ],
+            "correct_answer": "Tumutulong itong maghatid ng mensahe at damdamin"
+          },
+          {
+            "question": "Bakit mahalagang pagsamahin ang pagbasa, panonood, at pagsulat sa isang gawain?",
+            "options": [
+              "Nagpapakita ito ng kabuuang kakayahan bilang mambabasa, manonood, at manunulat",
+              "Wala itong kabuluhan sa pag-aaral dito",
+              "Ginagawa lamang ito para sa marka ngayon",
+              "Nakakalito lamang ito sa mag-aaral sa gawaing ito"
+            ],
+            "correct_answer": "Nagpapakita ito ng kabuuang kakayahan bilang mambabasa, manonood, at manunulat"
+          },
+          {
+            "question": "Ano ang langkapang pangungusap na natutuhan natin?",
+            "options": [
+              "Punong sugnay at kaugnay na sugnay na pinagsama",
+              "Isang salita lamang dito",
+              "Isang bilang lamang ngayon",
+              "Isang bantas lamang sa gawaing ito"
+            ],
+            "correct_answer": "Punong sugnay at kaugnay na sugnay na pinagsama"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang pang-uri sa antas pahambing na pasukdol?",
+            "options": [
+              "Nakatutulong ito upang ihambing ang pinakamataas na antas ng katangian",
+              "Wala itong kabuluhan sa pagsulat ngayon",
+              "Ginagamit lamang ito sa matematika",
+              "Hindi ito bahagi ng gramatika dito sa gawaing ito"
+            ],
+            "correct_answer": "Nakatutulong ito upang ihambing ang pinakamataas na antas ng katangian"
+          },
+          {
+            "question": "Isang mag-aaral ang nanood ng isang video at sumulat ng reaksiyon gamit ang wastong gramatika. Ano ang ipinapakita nito?",
+            "options": [
+              "Kakayahang pagsamahin ang panonood at pagsulat",
+              "Kawalan ng pag-unawa sa video",
+              "Kapabayaan sa gawain",
+              "Wala itong ipinapakita"
+            ],
+            "correct_answer": "Kakayahang pagsamahin ang panonood at pagsulat"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang kasanayan ang pagsasanib ng pagbasa, panonood, at pagsulat sa totoong buhay?",
+            "options": [
+              "Ginagamit natin ang mga ito nang sabay-sabay sa totoong sitwasyon",
+              "Hiwalay lamang dapat gamitin ang bawat kasanayan",
+              "Wala itong kaugnayan sa totoong buhay",
+              "Hindi ito totoong mahalaga"
+            ],
+            "correct_answer": "Ginagamit natin ang mga ito nang sabay-sabay sa totoong sitwasyon"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ⚡ Science — Review: Forces and Motion\n\nGrade 5, Week 20! Let's review contact forces, friction, and gravity. 🍎\n\n## 🔄 Review: Contact Forces\n**Contact forces** need touching — like pushing or pulling — to change an object's speed or direction.\n\n## 🔄 Review: Friction\n**Friction** is a contact force that happens when two surfaces rub together, resisting motion. Rough surfaces create more friction; smooth surfaces create less.\n\n## 🔄 Review: Gravity\n**Gravity** is a **non-contact force** that pulls objects toward Earth's center, without needing to touch them.\n\n## 🧠 Worked Example 1\n*A ball rolling down a hill slows down due to friction with the grass, and eventually stops because of gravity pulling it. Which forces are at work?*\n- **Friction** (slowing it down) and **gravity** (keeping it on the ground and eventually stopping motion on flat ground).\n\n## 🧠 Worked Example 2\n*Why do ice skaters glide easily on ice?*\n- Ice has **low friction**, allowing smooth, fast movement.\n\n## 🧠 Worked Example 3\n*Why does a ball thrown upward always come back down?*\n- **Gravity** pulls it back toward Earth.\n\n## 💡 Why This Matters\nUnderstanding contact forces, friction, and gravity helps us explain **everyday motion** all around us.\n\nGreat review of forces! 🌟",
+        "quiz": [
+          {
+            "question": "What is a contact force?",
+            "options": [
+              "A force that needs touching to work",
+              "A force that works without touching",
+              "A force that only exists in space",
+              "A force that never affects motion"
+            ],
+            "correct_answer": "A force that needs touching to work"
+          },
+          {
+            "question": "What is friction?",
+            "options": [
+              "A contact force that resists motion between two surfaces",
+              "A non-contact force that pulls objects down",
+              "A force that only works in water",
+              "A force with no real effect on motion"
+            ],
+            "correct_answer": "A contact force that resists motion between two surfaces"
+          },
+          {
+            "question": "What is gravity?",
+            "options": [
+              "A non-contact force that pulls objects toward Earth",
+              "A contact force that needs touching",
+              "A force that only works underwater",
+              "A force that pushes objects away from Earth"
+            ],
+            "correct_answer": "A non-contact force that pulls objects toward Earth"
+          },
+          {
+            "question": "Which surface creates MORE friction?",
+            "options": [
+              "A rough surface",
+              "A smooth, polished surface",
+              "Ice",
+              "A surface with no texture"
+            ],
+            "correct_answer": "A rough surface"
+          },
+          {
+            "question": "A ball rolling down a hill slows down and stops. Which forces are at work?",
+            "options": [
+              "Friction and gravity",
+              "Only magnetism",
+              "Only sound waves",
+              "No forces are at work"
+            ],
+            "correct_answer": "Friction and gravity"
+          },
+          {
+            "question": "Why do ice skaters glide easily on ice?",
+            "options": [
+              "Ice has low friction, allowing smooth movement",
+              "Ice has very high friction",
+              "Gravity does not work on ice",
+              "Ice pushes skaters upward at all"
+            ],
+            "correct_answer": "Ice has low friction, allowing smooth movement"
+          },
+          {
+            "question": "Why does a ball thrown upward always come back down?",
+            "options": [
+              "Gravity pulls it back toward Earth",
+              "Friction pushes it back down",
+              "The ball gets tired of flying",
+              "There is no reason for this"
+            ],
+            "correct_answer": "Gravity pulls it back toward Earth"
+          },
+          {
+            "question": "What can be used to reduce friction?",
+            "options": [
+              "Lubricants like oil",
+              "Rough sandpaper",
+              "Rubber treads",
+              "Grip material"
+            ],
+            "correct_answer": "Lubricants like oil"
+          },
+          {
+            "question": "Which of these is an example of a contact force?",
+            "options": [
+              "Pushing a door open",
+              "Gravity pulling an object down",
+              "A magnet attracting metal from a distance",
+              "None of these are contact forces"
+            ],
+            "correct_answer": "Pushing a door open"
+          },
+          {
+            "question": "Which of these is an example of a non-contact force?",
+            "options": [
+              "Gravity pulling an object down",
+              "Kicking a ball at all",
+              "Pushing a cart",
+              "Pulling a rope"
+            ],
+            "correct_answer": "Gravity pulling an object down"
+          },
+          {
+            "question": "Why is it useful to understand friction and gravity together?",
+            "options": [
+              "They both affect how objects move in everyday life",
+              "They have no connection to each other",
+              "Only friction matters, not gravity",
+              "Only gravity matters, not friction"
+            ],
+            "correct_answer": "They both affect how objects move in everyday life"
+          },
+          {
+            "question": "What happens to an object's motion when friction is present?",
+            "options": [
+              "It slows down or resists motion",
+              "It always speeds up",
+              "It has no effect at all",
+              "It only affects objects in water"
+            ],
+            "correct_answer": "It slows down or resists motion"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 📜 Araling Panlipunan — Review: Kolonisasyon hanggang Pagpupunyagi\n\nGrade 5, Linggo 20! Balikan natin ang buong yunit tungkol sa panahon ng Espanyol. 🇵🇭\n\n## 🔄 Balik-Aral: Dahilan ng Pananakop\n**God, Gold, Glory** — pagpapalaganap ng relihiyon, pagkuha ng kayamanan, at paghahangad ng kapangyarihan.\n\n## 🔄 Balik-Aral: Patakarang Kolonyal\n**Encomienda, polo y servicio, bandala, tributo, monopolyo sa Galyon Trade**, sistema ng antas-panlipunan.\n\n## 🔄 Balik-Aral: Pag-aangkop at Paglaban\n**Sinkretismong relihiyoso**, mga pag-aalsa (Dagohoy, Tamblot, Sumuroy, Silang), at ang **katayuan ng kababaihan** (idyal na Maria Clara, Gabriela Silang).\n\n## 🔄 Balik-Aral: Pagpupunyagi ng Iba't Ibang Sektor\nPapel ng **magsasaka, katutubong pinuno, at grupong relihiyoso**; ang Cordillera at Sultanato ng Sulu/Maguindanao na hindi lubos nasakop.\n\n## 🧠 Halimbawa 1\n*Ano ang tatlong dahilan ng pananakop ng Espanya?*\n- **God, Gold, Glory.**\n\n## 🧠 Halimbawa 2\n*Bakit itinuturing na patunay ng di-natitinag na diwang makabayan ang pananatiling malaya ng Cordillera?*\n- Dahil **hindi nasakop nang lubusan** kahit sa mahabang panahon ng kolonisasyon.\n\n## 💡 Kongklusyon\nAng buong yunit na ito ay nagpapakita ng **kumplikadong kasaysayan** ng pananakop, paglaban, at pagpupunyagi ng mga Pilipino.\n\nMagaling sa Araling Panlipunan! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tatlong dahilan ng pananakop ng Espanya (God, Gold, Glory)?",
+            "options": [
+              "Relihiyon, kayamanan, at kapangyarihan",
+              "Edukasyon, agrikultura, at industriya",
+              "Musika, sining, at panitikan",
+              "Palakasan, laro, at libangan"
+            ],
+            "correct_answer": "Relihiyon, kayamanan, at kapangyarihan"
+          },
+          {
+            "question": "Ano ang encomienda?",
+            "options": [
+              "Isang sistemang pang-ekonomiyang kolonyal",
+              "Isang uri ng pagkain",
+              "Isang uri ng damit in this case",
+              "Isang uri ng laro at all"
+            ],
+            "correct_answer": "Isang sistemang pang-ekonomiyang kolonyal"
+          },
+          {
+            "question": "Ano ang polo y servicio?",
+            "options": [
+              "Sapilitang paggawa sa panahon ng Espanyol",
+              "Isang uri ng sayaw",
+              "Isang uri ng pagkain",
+              "Isang batas laban sa Espanyol"
+            ],
+            "correct_answer": "Sapilitang paggawa sa panahon ng Espanyol"
+          },
+          {
+            "question": "Ano ang sinkretismong relihiyoso?",
+            "options": [
+              "Paghahalo ng luma at bagong paniniwala",
+              "Ganap na pagtanggi sa bagong relihiyon",
+              "Ganap na pagtanggi sa lumang paniniwala",
+              "Kawalan ng anumang relihiyon"
+            ],
+            "correct_answer": "Paghahalo ng luma at bagong paniniwala"
+          },
+          {
+            "question": "Sino si Gabriela Silang?",
+            "options": [
+              "Isang babaeng namuno sa rebelyon laban sa Espanyol",
+              "Isang prinsesa ng Espanya dito",
+              "Isang guro sa isang beaterio",
+              "Isang manunulat ng nobela ngayon"
+            ],
+            "correct_answer": "Isang babaeng namuno sa rebelyon laban sa Espanyol"
+          },
+          {
+            "question": "Aling rehiyon ang nanatiling malaya dahil sa mabundok na tereyn?",
+            "options": [
+              "Cordillera",
+              "Kabisayaan",
+              "Kabikolan",
+              "Kalakhang Maynila"
+            ],
+            "correct_answer": "Cordillera"
+          },
+          {
+            "question": "Aling sultanato ang nanatiling malaya dahil sa matatag na pamahalaan at pananampalataya?",
+            "options": [
+              "Sultanato ng Sulu at Maguindanao",
+              "Sultanato ng Espanya",
+              "Sultanato ng Mindoro",
+              "Sultanato ng Palawan"
+            ],
+            "correct_answer": "Sultanato ng Sulu at Maguindanao"
+          },
+          {
+            "question": "Ano ang Dagohoy Rebellion?",
+            "options": [
+              "Ang pinakamahabang rebelyon laban sa Espanyol",
+              "Isang kasunduang pangkapayapaan",
+              "Isang batas laban sa Pilipino",
+              "Isang kombensyon ng mga prayle"
+            ],
+            "correct_answer": "Ang pinakamahabang rebelyon laban sa Espanyol"
+          },
+          {
+            "question": "Bakit itinuturing na patunay ng di-natitinag na diwang makabayan ang pananatiling malaya ng Cordillera?",
+            "options": [
+              "Hindi nasakop nang lubusan kahit sa mahabang panahon",
+              "Wala silang tao doon noon dito",
+              "Sumuko agad sila sa Espanya ngayon",
+              "Hindi ito bahagi ng Pilipinas"
+            ],
+            "correct_answer": "Hindi nasakop nang lubusan kahit sa mahabang panahon"
+          },
+          {
+            "question": "Ano ang idyal na \"Maria Clara\"?",
+            "options": [
+              "Larawan ng babaeng mahinhin at nakatuon sa gawaing-bahay",
+              "Isang uri ng pananim dito ngayon",
+              "Pangalan ng isang lungsod sa gawaing ito",
+              "Isang batas laban sa kababaihan"
+            ],
+            "correct_answer": "Larawan ng babaeng mahinhin at nakatuon sa gawaing-bahay"
+          },
+          {
+            "question": "Sino sa mga sumusunod ang bahagi ng iba't ibang sektor na lumaban para sa kalayaan?",
+            "options": [
+              "Magsasaka, katutubong pinuno, at grupong relihiyoso",
+              "Mga Espanyol lamang ngayon",
+              "Mga prayle lamang dito sa gawaing ito",
+              "Mga negosyanteng banyaga lamang"
+            ],
+            "correct_answer": "Magsasaka, katutubong pinuno, at grupong relihiyoso"
+          },
+          {
+            "question": "Ano ang pangkalahatang mensahe ng buong yunit tungkol sa panahon ng Espanyol?",
+            "options": [
+              "Kumplikadong kasaysayan ng pananakop, paglaban, at pagpupunyagi",
+              "Ganap na pagsuko ng mga Pilipino sa gawaing ito",
+              "Walang naganap na paglaban dito ngayon",
+              "Kawalan ng kahalagahan ng panahong ito"
+            ],
+            "correct_answer": "Kumplikadong kasaysayan ng pananakop, paglaban, at pagpupunyagi"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Pagtatanghal ng Aking Natapos na Digital Portfolio\n\nGrade 5, Linggo 20! Ipakita natin ang ating natapos at narebisang digital portfolio. 🖥️\n\n## 🔄 Balik-Aral\nGumawa tayo ng **Word document, presentation, at brochure**, at sinuri/binago natin ang mga ito batay sa puna.\n\n## 🎤 Pagtatanghal ng Portfolio\nNgayong linggo, ipapakita natin ang buong **digital portfolio** sa klase — ipapaliwanag natin ang bawat proyekto at kung bakit ito ginawa sa ganoong paraan.\n\n## 📋 Mga Dapat Sabihin sa Pagtatanghal\n- Ano ang **layunin** ng bawat proyekto\n- Anong **kasanayan** ang ginamit (formatting, animation, layout)\n- Anong **pagbabago** ang ginawa batay sa puna ng kaklase\n\n## 🧠 Halimbawa 1\n*Bakit mahalagang ipaliwanag ang mga pagbabagong ginawa batay sa puna?*\n- Upang **maipakita** kung paano tayo umunlad bilang manggagawa ng ICT.\n\n## 🧠 Halimbawa 2\n*Ano ang dapat sagutin kapag tinanong tungkol sa isang proyekto?*\n- Ang **layunin at proseso** ng paggawa nito.\n\n## 💡 Kongklusyon\nAng pagtatanghal ng natapos na portfolio ay nagpapakita ng **buong kakayahan** natin sa ICT ngayong term.\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "Anong tatlong dokumento ang ginawa natin ngayong term?",
+            "options": [
+              "Word document, presentation, at brochure",
+              "Isang spreadsheet lamang",
+              "Isang email lamang dito",
+              "Isang video lamang ngayon"
+            ],
+            "correct_answer": "Word document, presentation, at brochure"
+          },
+          {
+            "question": "Ano ang gagawin natin ngayong linggo sa ating portfolio?",
+            "options": [
+              "Ipapakita ito sa klase",
+              "Buburahin ito",
+              "Kalimutan ito",
+              "Isara na lamang ang programa"
+            ],
+            "correct_answer": "Ipapakita ito sa klase"
+          },
+          {
+            "question": "Ano ang dapat sabihin tungkol sa layunin ng bawat proyekto?",
+            "options": [
+              "Kung bakit ito ginawa sa ganoong paraan",
+              "Ang presyo ng kompyuter lamang",
+              "Ang oras ng pagsisimula lamang",
+              "Wala, hindi kailangang ipaliwanag"
+            ],
+            "correct_answer": "Kung bakit ito ginawa sa ganoong paraan"
+          },
+          {
+            "question": "Bakit mahalagang ipaliwanag ang mga pagbabagong ginawa batay sa puna?",
+            "options": [
+              "Upang maipakita kung paano tayo umunlad",
+              "Wala itong kabuluhan",
+              "Ginagawa lamang ito para sa marka",
+              "Nakakalito lamang ito sa manonood"
+            ],
+            "correct_answer": "Upang maipakita kung paano tayo umunlad"
+          },
+          {
+            "question": "Anong kasanayan ang maaaring banggitin tungkol sa presentation?",
+            "options": [
+              "Animation at slide transitions",
+              "Pagluluto lamang",
+              "Pagsasaka lamang",
+              "Pananahi lamang dito"
+            ],
+            "correct_answer": "Animation at slide transitions"
+          },
+          {
+            "question": "Anong kasanayan ang maaaring banggitin tungkol sa brochure?",
+            "options": [
+              "Layout at page design",
+              "Pagluluto lamang",
+              "Pananahi lamang",
+              "Pagsasaka lamang"
+            ],
+            "correct_answer": "Layout at page design"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagtatanghal ng natapos na portfolio?",
+            "options": [
+              "Ang buong kakayahan natin sa ICT ngayong term",
+              "Kapabayaan sa gawain dito ngayon",
+              "Kawalan ng interes sa ICT",
+              "Kakulangan sa oras lamang"
+            ],
+            "correct_answer": "Ang buong kakayahan natin sa ICT ngayong term"
+          },
+          {
+            "question": "Ano ang dapat sagutin kapag tinanong tungkol sa isang proyekto?",
+            "options": [
+              "Ang layunin at proseso ng paggawa nito",
+              "Ang presyo ng kompyuter",
+              "Ang oras ng klase lamang",
+              "Wala, hindi kailangang sagutin"
+            ],
+            "correct_answer": "Ang layunin at proseso ng paggawa nito"
+          },
+          {
+            "question": "Bakit mahalagang gumawa ng iba't ibang uri ng dokumento sa ICT?",
+            "options": [
+              "Upang matutong pumili ng tamang tool para sa bawat gawain",
+              "Upang mahirapan lamang ang mag-aaral",
+              "Wala itong kabuluhan",
+              "Ginagawa lamang ito bilang libangan"
+            ],
+            "correct_answer": "Upang matutong pumili ng tamang tool para sa bawat gawain"
+          },
+          {
+            "question": "Ano ang kailangan bago magtanghal ng portfolio?",
+            "options": [
+              "Suriin ito at ihanda ang paliwanag",
+              "Direktang ipakita nang walang paghahanda",
+              "Burahin ito bago itanghal",
+              "Wala, hindi na kailangan ihanda"
+            ],
+            "correct_answer": "Suriin ito at ihanda ang paliwanag"
+          },
+          {
+            "question": "Isang mag-aaral ang tinanong kung bakit binago niya ang layout ng kanyang brochure. Ano ang dapat niyang sagutin?",
+            "options": [
+              "Ang dahilan batay sa punang natanggap niya",
+              "Hindi na kailangang sagutin ang tanong",
+              "Sabihing hindi niya alam ang dahilan",
+              "Ipagpaliban na lamang ang pagsagot"
+            ],
+            "correct_answer": "Ang dahilan batay sa punang natanggap niya"
+          },
+          {
+            "question": "Bakit mahalagang ipakita ang buong proseso, hindi lang ang resulta, ng bawat proyekto?",
+            "options": [
+              "Nagpapakita ito ng pag-unlad at kaalaman sa paggawa",
+              "Hindi kailanman importante ang proseso",
+              "Ang resulta lamang ang mahalaga",
+              "Walang benepisyo ito sa pagtatanghal"
+            ],
+            "correct_answer": "Nagpapakita ito ng pag-unlad at kaalaman sa paggawa"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎉 MAPEH — Pagsasagawa ng Aming Family Wellness Activity\n\nGrade 5, Linggo 20! Isagawa natin ang wellness activity na pinlano natin. 💃\n\n## 🔄 Balik-Aral\nNoong nakaraang linggo, nagplano tayo ng isang **dance-for-health session** na may kasamang biswal na sining.\n\n## 🎉 Pagsasagawa ng Aktibidad\nNgayong linggo, aktwal na **isasagawa** ang plano — pagsasanay ng sayaw bilang ehersisyo, at pagpapakita ng ginawang poster tungkol sa kalusugan.\n\n## 💭 Pagninilay Matapos ang Aktibidad\nMatapos gawin ang aktibidad, mag-isip tungkol sa: *Ano ang natutuhan ko sa pagsasanib ng sayaw, kalusugan, at sining?*\n\n## 🧠 Halimbawa 1\n*Bakit mahalagang aktwal na isagawa ang plano, hindi lang basta magplano?*\n- Upang **maranasan** natin ang tunay na benepisyo ng ehersisyo at malaman kung epektibo ang plano.\n\n## 🧠 Halimbawa 2\n*Ano ang dapat isaalang-alang habang isinasagawa ang aktibidad?*\n- Ang **kaligtasan** ng lahat ng kalahok.\n\n## 💡 Kongklusyon\nAng pagsasagawa ng wellness activity ay nagpapakita kung paano natin **inilalapat** ang natutuhan sa totoong buhay.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang ginawa nating plano noong nakaraang linggo?",
+            "options": [
+              "Dance-for-health session na may biswal na sining",
+              "Isang eksamen sa matematika",
+              "Isang liham sa magulang at all",
+              "Isang gawain sa agrikultura"
+            ],
+            "correct_answer": "Dance-for-health session na may biswal na sining"
+          },
+          {
+            "question": "Ano ang gagawin natin ngayong linggo tungkol sa aktibidad?",
+            "options": [
+              "Aktwal na isasagawa ang plano",
+              "Kalimutan na lamang ang plano",
+              "Simulan ulit ang pagpaplano",
+              "Huwag na ituloy ang aktibidad"
+            ],
+            "correct_answer": "Aktwal na isasagawa ang plano"
+          },
+          {
+            "question": "Bakit mahalagang aktwal na isagawa ang plano, hindi lang basta magplano?",
+            "options": [
+              "Upang maranasan ang tunay na benepisyo ng ehersisyo",
+              "Sapat na ang pagpaplano lamang",
+              "Wala itong dagdag na benepisyo",
+              "Ang pagpaplano lamang ang mahalaga"
+            ],
+            "correct_answer": "Upang maranasan ang tunay na benepisyo ng ehersisyo"
+          },
+          {
+            "question": "Ano ang dapat isaalang-alang habang isinasagawa ang aktibidad?",
+            "options": [
+              "Ang kaligtasan ng lahat ng kalahok",
+              "Ang presyo lamang ng kagamitan",
+              "Ang oras lamang ng pagtatapos",
+              "Wala, walang dapat isaalang-alang"
+            ],
+            "correct_answer": "Ang kaligtasan ng lahat ng kalahok"
+          },
+          {
+            "question": "Ano ang tanong na dapat sagutin sa pagninilay pagkatapos ng aktibidad?",
+            "options": [
+              "Ano ang natutuhan ko sa pagsasanib ng sayaw, kalusugan, at sining?",
+              "Ano ang paborito kong kulay sa gawaing ito?",
+              "Ilang taon na ako ngayon dito?",
+              "Ano ang gusto kong kainin ngayon?"
+            ],
+            "correct_answer": "Ano ang natutuhan ko sa pagsasanib ng sayaw, kalusugan, at sining?"
+          },
+          {
+            "question": "Ano ang idudulot ng pagsasagawa ng aktibidad kaysa pagpaplano lamang?",
+            "options": [
+              "Tunay na karanasan at natutuhang aral",
+              "Kawalan ng kabuluhan",
+              "Nagpapabagal lamang ito ng gawain",
+              "Walang dagdag na natutuhan"
+            ],
+            "correct_answer": "Tunay na karanasan at natutuhang aral"
+          },
+          {
+            "question": "Ano ang ipinapakita ng biswal na sining na kasama sa aktibidad?",
+            "options": [
+              "Ipinapaalala nito ang kahalagahan ng kalusugan",
+              "Wala itong tunay na layunin",
+              "Ginagawa lamang ito bilang palamuti",
+              "Hindi ito bahagi ng aktibidad"
+            ],
+            "correct_answer": "Ipinapaalala nito ang kahalagahan ng kalusugan"
+          },
+          {
+            "question": "Bakit mahalagang isali ang buong pamilya sa aktibidad?",
+            "options": [
+              "Nagpapatibay ito ng samahan at kalusugan",
+              "Wala itong benepisyo sa pamilya",
+              "Mas mainam gawin ito nang mag-isa",
+              "Hindi kailangan ang pamilya sa gawaing ito"
+            ],
+            "correct_answer": "Nagpapatibay ito ng samahan at kalusugan"
+          },
+          {
+            "question": "Ano ang layunin ng pagninilay pagkatapos gawin ang aktibidad?",
+            "options": [
+              "Pagtibayin ang natutuhan mula sa karanasan",
+              "Kalimutan agad ang natutuhan",
+              "Isara ang paksa nang walang pag-iisip",
+              "Bumuo ng bagong aktibidad agad"
+            ],
+            "correct_answer": "Pagtibayin ang natutuhan mula sa karanasan"
+          },
+          {
+            "question": "Bakit mahalagang isaalang-alang ang kaligtasan sa isang wellness activity?",
+            "options": [
+              "Upang maiwasan ang aksidente sa gawain",
+              "Wala itong kaugnayan sa gawain",
+              "Upang mapabilis lamang ang aktibidad",
+              "Hindi na kailangang isaalang-alang ito"
+            ],
+            "correct_answer": "Upang maiwasan ang aksidente sa gawain"
+          },
+          {
+            "question": "Ano ang pangkalahatang aral ng buong yunit na ito tungkol sa sayaw, kalusugan, at sining?",
+            "options": [
+              "Ang mga ito ay konektado at magkatuwang na nagtataguyod ng kagalingan",
+              "Ang mga ito ay hindi konektado sa isa't isa",
+              "Isa lamang sa mga ito ang mahalaga sa gawaing ito",
+              "Wala itong tunay na kaugnayan dito ngayon"
+            ],
+            "correct_answer": "Ang mga ito ay konektado at magkatuwang na nagtataguyod ng kagalingan"
+          },
+          {
+            "question": "Isang pamilya ang nagsagawa ng dance-for-health session tuwing Sabado. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagpapahalaga sa kalusugan at samahan ng pamilya",
+              "Kawalan ng interes sa kalusugan",
+              "Kapabayaan sa gawain",
+              "Kawalang-halaga ng ehersisyo"
+            ],
+            "correct_answer": "Pagpapahalaga sa kalusugan at samahan ng pamilya"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 GMRC — Pasasalamat sa Diyos sa mga Biyaya\n\nGrade 5, Linggo 20! Pagpapahalaga: **Gratitude (Pasasalamat)**. 🌟\n\n## 🙏 Araw-araw na Ugali ng Pasasalamat\nAng **pasasalamat** ay ang pagiging **mapagpasalamat** sa mga biyayang natatanggap araw-araw, kahit sa mga simpleng bagay.\n\n## 🕯️ Pagpapahayag ng Pasasalamat sa Diyos\nIpinapahayag natin ang ating pasasalamat sa Diyos sa pamamagitan ng:\n- **Panalangin** — pasasalamat sa panalangin bago matulog o kumain\n- **Pagiging bukas-palad** sa iba bilang tanda ng pasasalamat\n\n## 🧠 Halimbawa 1\n*Bakit dapat magpasalamat sa Diyos kahit sa mga simpleng biyaya?*\n- Dahil ang **pagiging mapagpasalamat** ay nagpapalalim ng ating pananampalataya at tumutulong tayong maging **kuntento**.\n\n## 🧠 Halimbawa 2\n*Paano maipapakita ang pasasalamat sa Diyos sa pamamagitan ng pagiging bukas-palad?*\n- Sa pagtulong sa iba bilang pagbabahagi ng mga biyayang natanggap natin.\n\n## 💛 Bunga ng Araw-araw na Pasasalamat\n- Nagiging **positibo** ang pananaw sa buhay\n- Nagpapalalim ng **pananampalataya**\n- Nagbibigay-inspirasyon upang **tumulong sa iba**\n\n## 💡 Kongklusyon\nAng araw-araw na pagpapasalamat sa Diyos ay isang **simple ngunit makapangyarihang** paraan ng pagpapatibay ng ating pananampalataya.\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang pasasalamat?",
+            "options": [
+              "Pagiging mapagpasalamat sa mga biyayang natatanggap",
+              "Pagiging walang pakialam sa biyaya",
+              "Pagreklamo sa lahat ng bagay",
+              "Pananahimik palagi"
+            ],
+            "correct_answer": "Pagiging mapagpasalamat sa mga biyayang natatanggap"
+          },
+          {
+            "question": "Paano ipinapahayag ang pasasalamat sa Diyos?",
+            "options": [
+              "Sa panalangin at pagiging bukas-palad",
+              "Sa pagreklamo palagi",
+              "Sa pag-iwas sa Diyos",
+              "Sa kawalang-interes sa relihiyon"
+            ],
+            "correct_answer": "Sa panalangin at pagiging bukas-palad"
+          },
+          {
+            "question": "Bakit dapat magpasalamat sa Diyos kahit sa mga simpleng biyaya?",
+            "options": [
+              "Nagpapalalim ito ng pananampalataya at kuntentong pananaw",
+              "Wala itong kabuluhan sa buhay ngayon",
+              "Ginagawa lamang ito para sa iba",
+              "Hindi ito totoong mahalaga dito"
+            ],
+            "correct_answer": "Nagpapalalim ito ng pananampalataya at kuntentong pananaw"
+          },
+          {
+            "question": "Paano maipapakita ang pasasalamat sa Diyos sa pamamagitan ng pagiging bukas-palad?",
+            "options": [
+              "Sa pagtulong sa iba bilang pagbabahagi ng biyaya",
+              "Sa pagtatago ng lahat ng biyaya",
+              "Sa pag-iwas sa mga nangangailangan",
+              "Sa pagsasarili nang walang pakikipag-ugnayan"
+            ],
+            "correct_answer": "Sa pagtulong sa iba bilang pagbabahagi ng biyaya"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Gratitude (Pasasalamat)",
+              "Compassion",
+              "Respect",
+              "Accountability"
+            ],
+            "correct_answer": "Gratitude (Pasasalamat)"
+          },
+          {
+            "question": "Ano ang isang bunga ng araw-araw na pasasalamat?",
+            "options": [
+              "Nagiging positibo ang pananaw sa buhay",
+              "Nagiging negatibo ang pananaw sa buhay",
+              "Wala itong epekto sa pananaw",
+              "Nagiging mas malungkot ang buhay"
+            ],
+            "correct_answer": "Nagiging positibo ang pananaw sa buhay"
+          },
+          {
+            "question": "Ano ang halimbawa ng pang-araw-araw na gawi ng pasasalamat?",
+            "options": [
+              "Panalangin ng pasasalamat bago matulog",
+              "Pagreklamo tungkol sa pagkain",
+              "Pananahimik lamang palagi",
+              "Pagtanggi sa lahat ng tulong"
+            ],
+            "correct_answer": "Panalangin ng pasasalamat bago matulog"
+          },
+          {
+            "question": "Bakit mahalagang maging bukas-palad bilang tanda ng pasasalamat?",
+            "options": [
+              "Ipinapakita nito ang pagbabahagi ng biyaya sa iba",
+              "Wala itong kaugnayan sa pasasalamat",
+              "Nagpapakita lamang ito ng kayamanan",
+              "Hindi ito bahagi ng pagpapasalamat"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagbabahagi ng biyaya sa iba"
+          },
+          {
+            "question": "Ano ang idinudulot ng pagiging mapagpasalamat sa ating pananampalataya?",
+            "options": [
+              "Nagpapalalim ito ng ating pananampalataya",
+              "Nagpapahina ito ng pananampalataya",
+              "Wala itong epekto sa pananampalataya",
+              "Hindi ito nauugnay sa pananampalataya"
+            ],
+            "correct_answer": "Nagpapalalim ito ng ating pananampalataya"
+          },
+          {
+            "question": "Bakit itinuturing na simple ngunit makapangyarihan ang pang-araw-araw na pasasalamat?",
+            "options": [
+              "Kahit maliit na gawa, malaki ang epekto sa ating pananaw at pananampalataya",
+              "Wala itong tunay na epekto dito sa gawaing ito",
+              "Ito ay mahirap gawin araw-araw ngayon kahit kailan",
+              "Hindi ito nagbibigay ng anumang benepisyo"
+            ],
+            "correct_answer": "Kahit maliit na gawa, malaki ang epekto sa ating pananaw at pananampalataya"
+          },
+          {
+            "question": "Isang batang laging nagpapasalamat sa Diyos sa maliliit na biyaya. Ano ang ipinapakita nito?",
+            "options": [
+              "Malalim na pananampalataya at positibong pananaw",
+              "Kawalan ng interes sa pananampalataya",
+              "Pagreklamo palagi sa buhay",
+              "Kapabayaan sa relihiyon"
+            ],
+            "correct_answer": "Malalim na pananampalataya at positibong pananaw"
+          },
+          {
+            "question": "Bakit mahalagang ipasa ang gawi ng pasasalamat sa mga susunod na henerasyon?",
+            "options": [
+              "Upang patuloy na mapanatili ang mabuting ugali at pananampalataya",
+              "Dahil hindi na kailangan ito ngayon",
+              "Walang benepisyo ito sa kinabukasan",
+              "Ginagawa lamang ito bilang tradisyon na walang saysay"
+            ],
+            "correct_answer": "Upang patuloy na mapanatili ang mabuting ugali at pananampalataya"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 EPP (AFA/FCS/IA) — Paggawa ng Simpleng Kagamitang Pambahay\n\nGrade 5, Linggo 20! Gawin natin ang huling proyekto gamit ang sewing machine. 🪡\n\n## 🔄 Balik-Aral\nNatutuhan na natin ang mga **bahagi ng sewing machine**, **basic hand stitches**, **pagkukumpuni ng damit**, at **solusyon sa karaniwang suliranin sa pananahi**.\n\n## 🧵 Paggawa ng Simpleng Kagamitang Pambahay\nNgayong linggo, gagamitin natin lahat ng natutuhang kasanayan upang gumawa ng isang **simpleng kagamitang pambahay** (tulad ng unan, tote bag, o table runner) gamit ang sewing machine, **nang may pag-iingat**.\n\n## 🛡️ Mahahalagang Panuntunang Pangkaligtasan\n- I-thread ang makina nang **tama**\n- **Subukan muna** sa piraso ng tela\n- Manahi nang **dahan-dahan** at **maingat**\n- **Iwasan** ang pagdikit ng daliri sa karayom\n\n## 🧠 Halimbawa 1\n*Bakit dapat subukan muna sa piraso ng tela bago sa aktwal na proyekto?*\n- Upang matiyak na **tama ang setting** ng makina bago gamitin sa tunay na proyekto.\n\n## 🧠 Halimbawa 2\n*Anong kagamitang pambahay ang maaaring gawin gamit ang mga natutuhang kasanayan?*\n- Halimbawa: **unan, tote bag, o table runner.**\n\n## 💡 Kongklusyon\nAng paggawa ng kagamitang pambahay ay nagpapakita ng **kabuuang kakayahan** natin sa pananahi ngayong term.\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Anong mga kasanayan ang natutuhan natin tungkol sa sewing machine ngayong term?",
+            "options": [
+              "Mga bahagi, basic stitches, at solusyon sa suliranin",
+              "Wala tayong natutuhan dito sa gawaing ito",
+              "Isang kasanayan lamang ngayon",
+              "Kasanayan lamang sa pagluluto"
+            ],
+            "correct_answer": "Mga bahagi, basic stitches, at solusyon sa suliranin"
+          },
+          {
+            "question": "Ano ang gagawin natin ngayong linggo bilang huling proyekto?",
+            "options": [
+              "Gumawa ng simpleng kagamitang pambahay gamit ang makina",
+              "Magbasa lamang ng aklat dito",
+              "Magsulat lamang ng sanaysay sa gawaing ito",
+              "Magsanay lamang ng sayaw ngayon"
+            ],
+            "correct_answer": "Gumawa ng simpleng kagamitang pambahay gamit ang makina"
+          },
+          {
+            "question": "Alin ang halimbawa ng kagamitang pambahay na maaaring gawin?",
+            "options": [
+              "Unan, tote bag, o table runner",
+              "Kompyuter o telepono",
+              "Sasakyan o motorsiklo",
+              "Kagamitang panluto na de-koryente"
+            ],
+            "correct_answer": "Unan, tote bag, o table runner"
+          },
+          {
+            "question": "Bakit dapat subukan muna sa piraso ng tela bago sa aktwal na proyekto?",
+            "options": [
+              "Upang matiyak na tama ang setting ng makina",
+              "Upang mapabilis ang buong proseso",
+              "Upang makatipid ng sinulid",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang matiyak na tama ang setting ng makina"
+          },
+          {
+            "question": "Ano ang isang panuntunang pangkaligtasan sa pananahi?",
+            "options": [
+              "Manahi nang dahan-dahan at maingat",
+              "Manahi nang mabilis nang walang pag-iingat",
+              "Iwasan ang pag-iingat",
+              "Huwag na muna subukan sa piraso ng tela"
+            ],
+            "correct_answer": "Manahi nang dahan-dahan at maingat"
+          },
+          {
+            "question": "Bakit mahalagang i-thread nang tama ang makina bago magsimula?",
+            "options": [
+              "Upang gumana nang maayos ang pananahi",
+              "Upang mapabilis lamang ang gawain",
+              "Walang dahilan ito talaga",
+              "Upang mapaganda lamang ang kulay ng tela"
+            ],
+            "correct_answer": "Upang gumana nang maayos ang pananahi"
+          },
+          {
+            "question": "Ano ang dapat iwasan habang gumagamit ng sewing machine?",
+            "options": [
+              "Ang pagdikit ng daliri sa karayom",
+              "Ang paggamit ng tamang tensyon",
+              "Ang pagsubok sa piraso ng tela",
+              "Ang pag-iingat sa gawain"
+            ],
+            "correct_answer": "Ang pagdikit ng daliri sa karayom"
+          },
+          {
+            "question": "Ano ang ipinapakita ng paggawa ng kagamitang pambahay gamit ang lahat ng natutuhang kasanayan?",
+            "options": [
+              "Ang kabuuang kakayahan natin sa pananahi ngayong term",
+              "Kapabayaan sa gawain dito ngayon",
+              "Kawalan ng interes sa pananahi",
+              "Kakulangan sa oras lamang sa gawaing ito"
+            ],
+            "correct_answer": "Ang kabuuang kakayahan natin sa pananahi ngayong term"
+          },
+          {
+            "question": "Bakit mahalagang gumawa ng aktwal na proyekto gamit ang natutuhang kasanayan?",
+            "options": [
+              "Upang mailapat ang teorya sa totoong sitwasyon",
+              "Sapat na ang pag-aaral ng teorya lamang",
+              "Wala itong dagdag na benepisyo",
+              "Hindi na kailangang gumawa ng proyekto"
+            ],
+            "correct_answer": "Upang mailapat ang teorya sa totoong sitwasyon"
+          },
+          {
+            "question": "Ano ang dapat gawin kung may problema sa makina habang tinatahi?",
+            "options": [
+              "Tigilan ang pananahi at suriin ang sanhi ng problema",
+              "Ipagpatuloy ang pananahi kahit may problema",
+              "Isara ang makina at huwag na buksan pa",
+              "Ihagis ang tela na tinatahi"
+            ],
+            "correct_answer": "Tigilan ang pananahi at suriin ang sanhi ng problema"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang solusyon sa karaniwang suliranin sa pananahi bago gumawa ng proyekto?",
+            "options": [
+              "Upang maiwasan ang aksidente at magawa nang maayos ang proyekto",
+              "Wala itong kabuluhan sa pananahi ngayon",
+              "Ginagamit lamang ito sa eksamen dito sa gawaing ito",
+              "Hindi na kailangan pang pag-aralan ito"
+            ],
+            "correct_answer": "Upang maiwasan ang aksidente at magawa nang maayos ang proyekto"
+          },
+          {
+            "question": "Isang mag-aaral ang natapos gumawa ng tote bag gamit ang sewing machine. Ano ang ipinapakita nito?",
+            "options": [
+              "Kakayahang ilapat ang natutuhang kasanayan sa pananahi",
+              "Kawalan ng kaalaman sa pananahi",
+              "Kapabayaan sa proyekto dito sa gawaing ito",
+              "Kakulangan sa pag-iingat ngayon"
+            ],
+            "correct_answer": "Kakayahang ilapat ang natutuhang kasanayan sa pananahi"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🗣️ Friday Review — English (Grade 5)\n\n- Grammar tools + multimedia purpose awareness in speaking\n\nGreat combined skills work! 🌟",
+        "quiz": [
+          {
+            "question": "What is a relative pronoun used for?",
+            "options": [
+              "Adding detail about a noun, like \"who\" or \"which\"",
+              "Showing where something is located",
+              "Showing how often something happens",
+              "Making a noun possessive"
+            ],
+            "correct_answer": "Adding detail about a noun, like \"who\" or \"which\""
+          },
+          {
+            "question": "\"The teacher, who is very kind, helped me finish my project.\" What grammar tool is used here?",
+            "options": [
+              "A relative pronoun (\"who\")",
+              "An adverb of frequency",
+              "A possessive noun",
+              "A compound noun"
+            ],
+            "correct_answer": "A relative pronoun (\"who\")"
+          },
+          {
+            "question": "What does purpose mean in a spoken presentation?",
+            "options": [
+              "What you want your audience to think or feel",
+              "The exact time the speech starts",
+              "The color of your outfit",
+              "The number of words used"
+            ],
+            "correct_answer": "What you want your audience to think or feel"
+          },
+          {
+            "question": "Why should a speaker slow their pacing when explaining a difficult idea?",
+            "options": [
+              "It helps the audience understand more clearly",
+              "It has no effect on understanding",
+              "It only matters in written texts",
+              "It always confuses the audience more"
+            ],
+            "correct_answer": "It helps the audience understand more clearly"
+          },
+          {
+            "question": "What is an adverb of frequency?",
+            "options": [
+              "A word that tells how often something happens",
+              "A word that tells where something is",
+              "A word that names a person",
+              "A word that describes only colors"
+            ],
+            "correct_answer": "A word that tells how often something happens"
+          },
+          {
+            "question": "What is a compound noun?",
+            "options": [
+              "A noun made of two or more words joined together",
+              "A noun that only describes feelings",
+              "A single letter used as a noun",
+              "A noun that is always plural"
+            ],
+            "correct_answer": "A noun made of two or more words joined together"
+          },
+          {
+            "question": "Why is it useful to consider your purpose before speaking to an audience?",
+            "options": [
+              "It helps you plan what to say and how to say it",
+              "Purpose does not matter when speaking",
+              "Only written texts need a purpose",
+              "It makes speaking more confusing"
+            ],
+            "correct_answer": "It helps you plan what to say and how to say it"
+          },
+          {
+            "question": "What is a noun complement?",
+            "options": [
+              "A word or phrase that completes the meaning of a noun",
+              "A word that replaces a noun completely",
+              "A word that only shows location",
+              "A punctuation mark used with nouns"
+            ],
+            "correct_answer": "A word or phrase that completes the meaning of a noun"
+          },
+          {
+            "question": "Why should a speaker use correct grammar when presenting?",
+            "options": [
+              "It helps the message come across clearly",
+              "Grammar does not matter when speaking aloud",
+              "It only matters for written essays",
+              "It makes the presentation take longer"
+            ],
+            "correct_answer": "It helps the message come across clearly"
+          },
+          {
+            "question": "What is an example of an adverb of place?",
+            "options": [
+              "\"There\" or \"here\"",
+              "\"Always\" or \"never\"",
+              "\"Very\" or \"extremely\"",
+              "\"Quickly\" or \"slowly\""
+            ],
+            "correct_answer": "\"There\" or \"here\""
+          },
+          {
+            "question": "Why do we combine grammar and multimedia awareness when speaking?",
+            "options": [
+              "To become clear, purposeful communicators",
+              "These skills have no connection to each other",
+              "Only one of these skills is ever useful",
+              "Combining skills makes speaking pointless"
+            ],
+            "correct_answer": "To become clear, purposeful communicators"
+          },
+          {
+            "question": "A speaker uses a strong, confident tone to persuade classmates to join a project. What is their purpose?",
+            "options": [
+              "To persuade the audience",
+              "To purely inform with no persuasion",
+              "To entertain with no other goal",
+              "They have no purpose at all"
+            ],
+            "correct_answer": "To persuade the audience"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📊 Friday Review — Mathematics (Grade 5)\n\n- Double bar/line graphs: title, legend, scale, axis labels\n\nGreat graphing work! ⭐",
+        "quiz": [
+          {
+            "question": "What is a double bar graph used for?",
+            "options": [
+              "Comparing two sets of data side by side",
+              "Showing only one set of data",
+              "Listing random numbers",
+              "Drawing pictures only"
+            ],
+            "correct_answer": "Comparing two sets of data side by side"
+          },
+          {
+            "question": "What is a double line graph used for?",
+            "options": [
+              "Comparing two sets of data over time",
+              "Comparing unrelated categories only",
+              "Listing random words",
+              "Drawing pictures only"
+            ],
+            "correct_answer": "Comparing two sets of data over time"
+          },
+          {
+            "question": "What does the title of a graph tell us?",
+            "options": [
+              "What the graph is about",
+              "The exact numbers only",
+              "The color of the bars only",
+              "Nothing important"
+            ],
+            "correct_answer": "What the graph is about"
+          },
+          {
+            "question": "What does the legend of a graph explain?",
+            "options": [
+              "What each color or bar represents",
+              "The title of the graph",
+              "The scale of the graph",
+              "The axis labels only"
+            ],
+            "correct_answer": "What each color or bar represents"
+          },
+          {
+            "question": "Why is a scale important in a graph?",
+            "options": [
+              "It helps us read and compare values accurately",
+              "It has no real purpose",
+              "It only matters for line graphs",
+              "It replaces the need for a title"
+            ],
+            "correct_answer": "It helps us read and compare values accurately"
+          },
+          {
+            "question": "What do axis labels tell us?",
+            "options": [
+              "What each axis measures",
+              "The title of the graph only",
+              "The legend only",
+              "Nothing useful"
+            ],
+            "correct_answer": "What each axis measures"
+          },
+          {
+            "question": "A double bar graph compares Math and Science scores of two classes. What does the legend tell us?",
+            "options": [
+              "Which color or pattern represents each class",
+              "The exact date the scores were recorded",
+              "The names of every student",
+              "The classroom number only"
+            ],
+            "correct_answer": "Which color or pattern represents each class"
+          },
+          {
+            "question": "A double line graph shows rainfall in two provinces over 6 months. What would the two lines represent?",
+            "options": [
+              "The rainfall trend of each province",
+              "The population of each province",
+              "The temperature of each province",
+              "The size of each province"
+            ],
+            "correct_answer": "The rainfall trend of each province"
+          },
+          {
+            "question": "Why would you use a double bar graph instead of a single bar graph?",
+            "options": [
+              "To compare two related sets of data at once",
+              "Double bar graphs are always wrong to use",
+              "Single bar graphs are always better",
+              "There is no difference between the two"
+            ],
+            "correct_answer": "To compare two related sets of data at once"
+          },
+          {
+            "question": "Why would you use a double line graph instead of a single line graph?",
+            "options": [
+              "To compare how two sets of data change over time",
+              "Double line graphs are always incorrect",
+              "Single line graphs are always better",
+              "There is no difference between the two"
+            ],
+            "correct_answer": "To compare how two sets of data change over time"
+          },
+          {
+            "question": "What should you check first when reading any graph?",
+            "options": [
+              "The title, to understand what it shows",
+              "Only the colors used",
+              "Only the size of the paper",
+              "Nothing needs to be checked first"
+            ],
+            "correct_answer": "The title, to understand what it shows"
+          },
+          {
+            "question": "Why must a graph have clearly labeled axes?",
+            "options": [
+              "So readers know exactly what is being measured",
+              "Labels are never actually necessary",
+              "Only the title matters, not the axes",
+              "Axis labels only matter for double graphs"
+            ],
+            "correct_answer": "So readers know exactly what is being measured"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🧩 Friday Review — Filipino (Grade 5)\n\n- Pagsasanib ng pagbasa, panonood, at pagsulat\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Anong mga kasanayan ang natutuhan natin sa buong term na ito?",
+            "options": [
+              "Ironiya, gramatika, pagsulat ng form, at panonood ng multimedia",
+              "Isa lamang kasanayan dito ngayon",
+              "Wala tayong natutuhang kasanayan",
+              "Kasanayan lamang sa pagguhit sa gawaing ito"
+            ],
+            "correct_answer": "Ironiya, gramatika, pagsulat ng form, at panonood ng multimedia"
+          },
+          {
+            "question": "Anong kasanayan ang ginagamit kapag sinusuri natin ang layunin ng isang video?",
+            "options": [
+              "Panonood ng multimedia",
+              "Pagsulat ng opisyal na form lamang",
+              "Paggamit ng atlas lamang",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Panonood ng multimedia"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng wastong gramatika kapag sumusulat ng reaksiyon?",
+            "options": [
+              "Upang maging malinaw at propesyonal ang isinusulat",
+              "Upang mahaba lamang ang reaksiyon",
+              "Walang epekto ang gramatika sa reaksiyon",
+              "Upang malito ang mambabasa"
+            ],
+            "correct_answer": "Upang maging malinaw at propesyonal ang isinusulat"
+          },
+          {
+            "question": "Ano ang ironiya?",
+            "options": [
+              "Isang tayutay kung saan salungat sa inaasahan ang nangyari",
+              "Isang uri ng bantas lamang dito",
+              "Isang uri ng pangngalan lamang sa gawaing ito",
+              "Isang uri ng panghalip lamang ngayon"
+            ],
+            "correct_answer": "Isang tayutay kung saan salungat sa inaasahan ang nangyari"
+          },
+          {
+            "question": "Ano ang almanac at atlas ginagamit para dito?",
+            "options": [
+              "Bilang karagdagang sanggunian para sa impormasyon",
+              "Bilang uri ng laro lamang sa gawaing ito",
+              "Bilang uri ng damit lamang",
+              "Wala itong gamit dito ngayon"
+            ],
+            "correct_answer": "Bilang karagdagang sanggunian para sa impormasyon"
+          },
+          {
+            "question": "Ano ang tinitiyak ng wastong pagsagot sa opisyal na form?",
+            "options": [
+              "Kawastuhan ng impormasyong isinusumite",
+              "Bilis ng pagsagot lamang",
+              "Kulay ng papel lamang",
+              "Laki ng titik lamang"
+            ],
+            "correct_answer": "Kawastuhan ng impormasyong isinusumite"
+          },
+          {
+            "question": "Ano ang epekto ng tunog, biswal, at galaw sa multimedia text?",
+            "options": [
+              "Tumutulong itong maghatid ng mensahe at damdamin",
+              "Wala itong epekto sa mensahe",
+              "Nagpapabagal lamang ito ng video",
+              "Nakakasira lamang ito ng kalidad"
+            ],
+            "correct_answer": "Tumutulong itong maghatid ng mensahe at damdamin"
+          },
+          {
+            "question": "Bakit mahalagang pagsamahin ang pagbasa, panonood, at pagsulat sa isang gawain?",
+            "options": [
+              "Nagpapakita ito ng kabuuang kakayahan bilang mambabasa, manonood, at manunulat",
+              "Wala itong kabuluhan sa pag-aaral dito",
+              "Ginagawa lamang ito para sa marka ngayon",
+              "Nakakalito lamang ito sa mag-aaral sa gawaing ito"
+            ],
+            "correct_answer": "Nagpapakita ito ng kabuuang kakayahan bilang mambabasa, manonood, at manunulat"
+          },
+          {
+            "question": "Ano ang langkapang pangungusap na natutuhan natin?",
+            "options": [
+              "Punong sugnay at kaugnay na sugnay na pinagsama",
+              "Isang salita lamang dito",
+              "Isang bilang lamang ngayon",
+              "Isang bantas lamang sa gawaing ito"
+            ],
+            "correct_answer": "Punong sugnay at kaugnay na sugnay na pinagsama"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang pang-uri sa antas pahambing na pasukdol?",
+            "options": [
+              "Nakatutulong ito upang ihambing ang pinakamataas na antas ng katangian",
+              "Wala itong kabuluhan sa pagsulat ngayon",
+              "Ginagamit lamang ito sa matematika",
+              "Hindi ito bahagi ng gramatika dito sa gawaing ito"
+            ],
+            "correct_answer": "Nakatutulong ito upang ihambing ang pinakamataas na antas ng katangian"
+          },
+          {
+            "question": "Isang mag-aaral ang nanood ng isang video at sumulat ng reaksiyon gamit ang wastong gramatika. Ano ang ipinapakita nito?",
+            "options": [
+              "Kakayahang pagsamahin ang panonood at pagsulat",
+              "Kawalan ng pag-unawa sa video",
+              "Kapabayaan sa gawain",
+              "Wala itong ipinapakita"
+            ],
+            "correct_answer": "Kakayahang pagsamahin ang panonood at pagsulat"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang kasanayan ang pagsasanib ng pagbasa, panonood, at pagsulat sa totoong buhay?",
+            "options": [
+              "Ginagamit natin ang mga ito nang sabay-sabay sa totoong sitwasyon",
+              "Hiwalay lamang dapat gamitin ang bawat kasanayan",
+              "Wala itong kaugnayan sa totoong buhay",
+              "Hindi ito totoong mahalaga"
+            ],
+            "correct_answer": "Ginagamit natin ang mga ito nang sabay-sabay sa totoong sitwasyon"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ⚡ Friday Review — Science (Grade 5)\n\n- Contact forces, friction, gravity — review\n\nGreat review of forces! 🌟",
+        "quiz": [
+          {
+            "question": "What is a contact force?",
+            "options": [
+              "A force that needs touching to work",
+              "A force that works without touching",
+              "A force that only exists in space",
+              "A force that never affects motion"
+            ],
+            "correct_answer": "A force that needs touching to work"
+          },
+          {
+            "question": "What is friction?",
+            "options": [
+              "A contact force that resists motion between two surfaces",
+              "A non-contact force that pulls objects down",
+              "A force that only works in water",
+              "A force with no real effect on motion"
+            ],
+            "correct_answer": "A contact force that resists motion between two surfaces"
+          },
+          {
+            "question": "What is gravity?",
+            "options": [
+              "A non-contact force that pulls objects toward Earth",
+              "A contact force that needs touching",
+              "A force that only works underwater",
+              "A force that pushes objects away from Earth"
+            ],
+            "correct_answer": "A non-contact force that pulls objects toward Earth"
+          },
+          {
+            "question": "Which surface creates MORE friction?",
+            "options": [
+              "A rough surface",
+              "A smooth, polished surface",
+              "Ice",
+              "A surface with no texture"
+            ],
+            "correct_answer": "A rough surface"
+          },
+          {
+            "question": "A ball rolling down a hill slows down and stops. Which forces are at work?",
+            "options": [
+              "Friction and gravity",
+              "Only magnetism",
+              "Only sound waves",
+              "No forces are at work"
+            ],
+            "correct_answer": "Friction and gravity"
+          },
+          {
+            "question": "Why do ice skaters glide easily on ice?",
+            "options": [
+              "Ice has low friction, allowing smooth movement",
+              "Ice has very high friction",
+              "Gravity does not work on ice",
+              "Ice pushes skaters upward at all"
+            ],
+            "correct_answer": "Ice has low friction, allowing smooth movement"
+          },
+          {
+            "question": "Why does a ball thrown upward always come back down?",
+            "options": [
+              "Gravity pulls it back toward Earth",
+              "Friction pushes it back down",
+              "The ball gets tired of flying",
+              "There is no reason for this"
+            ],
+            "correct_answer": "Gravity pulls it back toward Earth"
+          },
+          {
+            "question": "What can be used to reduce friction?",
+            "options": [
+              "Lubricants like oil",
+              "Rough sandpaper",
+              "Rubber treads",
+              "Grip material"
+            ],
+            "correct_answer": "Lubricants like oil"
+          },
+          {
+            "question": "Which of these is an example of a contact force?",
+            "options": [
+              "Pushing a door open",
+              "Gravity pulling an object down",
+              "A magnet attracting metal from a distance",
+              "None of these are contact forces"
+            ],
+            "correct_answer": "Pushing a door open"
+          },
+          {
+            "question": "Which of these is an example of a non-contact force?",
+            "options": [
+              "Gravity pulling an object down",
+              "Kicking a ball at all",
+              "Pushing a cart",
+              "Pulling a rope"
+            ],
+            "correct_answer": "Gravity pulling an object down"
+          },
+          {
+            "question": "Why is it useful to understand friction and gravity together?",
+            "options": [
+              "They both affect how objects move in everyday life",
+              "They have no connection to each other",
+              "Only friction matters, not gravity",
+              "Only gravity matters, not friction"
+            ],
+            "correct_answer": "They both affect how objects move in everyday life"
+          },
+          {
+            "question": "What happens to an object's motion when friction is present?",
+            "options": [
+              "It slows down or resists motion",
+              "It always speeds up",
+              "It has no effect at all",
+              "It only affects objects in water"
+            ],
+            "correct_answer": "It slows down or resists motion"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 📜 Friday Review — Araling Panlipunan (Grade 5)\n\n- God/Gold/Glory, patakarang kolonyal, paglaban, pagpupunyagi\n\nMagaling sa Araling Panlipunan! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tatlong dahilan ng pananakop ng Espanya (God, Gold, Glory)?",
+            "options": [
+              "Relihiyon, kayamanan, at kapangyarihan",
+              "Edukasyon, agrikultura, at industriya",
+              "Musika, sining, at panitikan",
+              "Palakasan, laro, at libangan"
+            ],
+            "correct_answer": "Relihiyon, kayamanan, at kapangyarihan"
+          },
+          {
+            "question": "Ano ang encomienda?",
+            "options": [
+              "Isang sistemang pang-ekonomiyang kolonyal",
+              "Isang uri ng pagkain",
+              "Isang uri ng damit in this case",
+              "Isang uri ng laro at all"
+            ],
+            "correct_answer": "Isang sistemang pang-ekonomiyang kolonyal"
+          },
+          {
+            "question": "Ano ang polo y servicio?",
+            "options": [
+              "Sapilitang paggawa sa panahon ng Espanyol",
+              "Isang uri ng sayaw",
+              "Isang uri ng pagkain",
+              "Isang batas laban sa Espanyol"
+            ],
+            "correct_answer": "Sapilitang paggawa sa panahon ng Espanyol"
+          },
+          {
+            "question": "Ano ang sinkretismong relihiyoso?",
+            "options": [
+              "Paghahalo ng luma at bagong paniniwala",
+              "Ganap na pagtanggi sa bagong relihiyon",
+              "Ganap na pagtanggi sa lumang paniniwala",
+              "Kawalan ng anumang relihiyon"
+            ],
+            "correct_answer": "Paghahalo ng luma at bagong paniniwala"
+          },
+          {
+            "question": "Sino si Gabriela Silang?",
+            "options": [
+              "Isang babaeng namuno sa rebelyon laban sa Espanyol",
+              "Isang prinsesa ng Espanya dito",
+              "Isang guro sa isang beaterio",
+              "Isang manunulat ng nobela ngayon"
+            ],
+            "correct_answer": "Isang babaeng namuno sa rebelyon laban sa Espanyol"
+          },
+          {
+            "question": "Aling rehiyon ang nanatiling malaya dahil sa mabundok na tereyn?",
+            "options": [
+              "Cordillera",
+              "Kabisayaan",
+              "Kabikolan",
+              "Kalakhang Maynila"
+            ],
+            "correct_answer": "Cordillera"
+          },
+          {
+            "question": "Aling sultanato ang nanatiling malaya dahil sa matatag na pamahalaan at pananampalataya?",
+            "options": [
+              "Sultanato ng Sulu at Maguindanao",
+              "Sultanato ng Espanya",
+              "Sultanato ng Mindoro",
+              "Sultanato ng Palawan"
+            ],
+            "correct_answer": "Sultanato ng Sulu at Maguindanao"
+          },
+          {
+            "question": "Ano ang Dagohoy Rebellion?",
+            "options": [
+              "Ang pinakamahabang rebelyon laban sa Espanyol",
+              "Isang kasunduang pangkapayapaan",
+              "Isang batas laban sa Pilipino",
+              "Isang kombensyon ng mga prayle"
+            ],
+            "correct_answer": "Ang pinakamahabang rebelyon laban sa Espanyol"
+          },
+          {
+            "question": "Bakit itinuturing na patunay ng di-natitinag na diwang makabayan ang pananatiling malaya ng Cordillera?",
+            "options": [
+              "Hindi nasakop nang lubusan kahit sa mahabang panahon",
+              "Wala silang tao doon noon dito",
+              "Sumuko agad sila sa Espanya ngayon",
+              "Hindi ito bahagi ng Pilipinas"
+            ],
+            "correct_answer": "Hindi nasakop nang lubusan kahit sa mahabang panahon"
+          },
+          {
+            "question": "Ano ang idyal na \"Maria Clara\"?",
+            "options": [
+              "Larawan ng babaeng mahinhin at nakatuon sa gawaing-bahay",
+              "Isang uri ng pananim dito ngayon",
+              "Pangalan ng isang lungsod sa gawaing ito",
+              "Isang batas laban sa kababaihan"
+            ],
+            "correct_answer": "Larawan ng babaeng mahinhin at nakatuon sa gawaing-bahay"
+          },
+          {
+            "question": "Sino sa mga sumusunod ang bahagi ng iba't ibang sektor na lumaban para sa kalayaan?",
+            "options": [
+              "Magsasaka, katutubong pinuno, at grupong relihiyoso",
+              "Mga Espanyol lamang ngayon",
+              "Mga prayle lamang dito sa gawaing ito",
+              "Mga negosyanteng banyaga lamang"
+            ],
+            "correct_answer": "Magsasaka, katutubong pinuno, at grupong relihiyoso"
+          },
+          {
+            "question": "Ano ang pangkalahatang mensahe ng buong yunit tungkol sa panahon ng Espanyol?",
+            "options": [
+              "Kumplikadong kasaysayan ng pananakop, paglaban, at pagpupunyagi",
+              "Ganap na pagsuko ng mga Pilipino sa gawaing ito",
+              "Walang naganap na paglaban dito ngayon",
+              "Kawalan ng kahalagahan ng panahong ito"
+            ],
+            "correct_answer": "Kumplikadong kasaysayan ng pananakop, paglaban, at pagpupunyagi"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Friday Review — EPP (ICT) (Grade 5)\n\n- Pagtatanghal ng natapos na digital portfolio\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "Anong tatlong dokumento ang ginawa natin ngayong term?",
+            "options": [
+              "Word document, presentation, at brochure",
+              "Isang spreadsheet lamang",
+              "Isang email lamang dito",
+              "Isang video lamang ngayon"
+            ],
+            "correct_answer": "Word document, presentation, at brochure"
+          },
+          {
+            "question": "Ano ang gagawin natin ngayong linggo sa ating portfolio?",
+            "options": [
+              "Ipapakita ito sa klase",
+              "Buburahin ito",
+              "Kalimutan ito",
+              "Isara na lamang ang programa"
+            ],
+            "correct_answer": "Ipapakita ito sa klase"
+          },
+          {
+            "question": "Ano ang dapat sabihin tungkol sa layunin ng bawat proyekto?",
+            "options": [
+              "Kung bakit ito ginawa sa ganoong paraan",
+              "Ang presyo ng kompyuter lamang",
+              "Ang oras ng pagsisimula lamang",
+              "Wala, hindi kailangang ipaliwanag"
+            ],
+            "correct_answer": "Kung bakit ito ginawa sa ganoong paraan"
+          },
+          {
+            "question": "Bakit mahalagang ipaliwanag ang mga pagbabagong ginawa batay sa puna?",
+            "options": [
+              "Upang maipakita kung paano tayo umunlad",
+              "Wala itong kabuluhan",
+              "Ginagawa lamang ito para sa marka",
+              "Nakakalito lamang ito sa manonood"
+            ],
+            "correct_answer": "Upang maipakita kung paano tayo umunlad"
+          },
+          {
+            "question": "Anong kasanayan ang maaaring banggitin tungkol sa presentation?",
+            "options": [
+              "Animation at slide transitions",
+              "Pagluluto lamang",
+              "Pagsasaka lamang",
+              "Pananahi lamang dito"
+            ],
+            "correct_answer": "Animation at slide transitions"
+          },
+          {
+            "question": "Anong kasanayan ang maaaring banggitin tungkol sa brochure?",
+            "options": [
+              "Layout at page design",
+              "Pagluluto lamang",
+              "Pananahi lamang",
+              "Pagsasaka lamang"
+            ],
+            "correct_answer": "Layout at page design"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagtatanghal ng natapos na portfolio?",
+            "options": [
+              "Ang buong kakayahan natin sa ICT ngayong term",
+              "Kapabayaan sa gawain dito ngayon",
+              "Kawalan ng interes sa ICT",
+              "Kakulangan sa oras lamang"
+            ],
+            "correct_answer": "Ang buong kakayahan natin sa ICT ngayong term"
+          },
+          {
+            "question": "Ano ang dapat sagutin kapag tinanong tungkol sa isang proyekto?",
+            "options": [
+              "Ang layunin at proseso ng paggawa nito",
+              "Ang presyo ng kompyuter",
+              "Ang oras ng klase lamang",
+              "Wala, hindi kailangang sagutin"
+            ],
+            "correct_answer": "Ang layunin at proseso ng paggawa nito"
+          },
+          {
+            "question": "Bakit mahalagang gumawa ng iba't ibang uri ng dokumento sa ICT?",
+            "options": [
+              "Upang matutong pumili ng tamang tool para sa bawat gawain",
+              "Upang mahirapan lamang ang mag-aaral",
+              "Wala itong kabuluhan",
+              "Ginagawa lamang ito bilang libangan"
+            ],
+            "correct_answer": "Upang matutong pumili ng tamang tool para sa bawat gawain"
+          },
+          {
+            "question": "Ano ang kailangan bago magtanghal ng portfolio?",
+            "options": [
+              "Suriin ito at ihanda ang paliwanag",
+              "Direktang ipakita nang walang paghahanda",
+              "Burahin ito bago itanghal",
+              "Wala, hindi na kailangan ihanda"
+            ],
+            "correct_answer": "Suriin ito at ihanda ang paliwanag"
+          },
+          {
+            "question": "Isang mag-aaral ang tinanong kung bakit binago niya ang layout ng kanyang brochure. Ano ang dapat niyang sagutin?",
+            "options": [
+              "Ang dahilan batay sa punang natanggap niya",
+              "Hindi na kailangang sagutin ang tanong",
+              "Sabihing hindi niya alam ang dahilan",
+              "Ipagpaliban na lamang ang pagsagot"
+            ],
+            "correct_answer": "Ang dahilan batay sa punang natanggap niya"
+          },
+          {
+            "question": "Bakit mahalagang ipakita ang buong proseso, hindi lang ang resulta, ng bawat proyekto?",
+            "options": [
+              "Nagpapakita ito ng pag-unlad at kaalaman sa paggawa",
+              "Hindi kailanman importante ang proseso",
+              "Ang resulta lamang ang mahalaga",
+              "Walang benepisyo ito sa pagtatanghal"
+            ],
+            "correct_answer": "Nagpapakita ito ng pag-unlad at kaalaman sa paggawa"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎉 Friday Review — MAPEH (Grade 5)\n\n- Pagsasagawa ng family wellness activity\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang ginawa nating plano noong nakaraang linggo?",
+            "options": [
+              "Dance-for-health session na may biswal na sining",
+              "Isang eksamen sa matematika",
+              "Isang liham sa magulang at all",
+              "Isang gawain sa agrikultura"
+            ],
+            "correct_answer": "Dance-for-health session na may biswal na sining"
+          },
+          {
+            "question": "Ano ang gagawin natin ngayong linggo tungkol sa aktibidad?",
+            "options": [
+              "Aktwal na isasagawa ang plano",
+              "Kalimutan na lamang ang plano",
+              "Simulan ulit ang pagpaplano",
+              "Huwag na ituloy ang aktibidad"
+            ],
+            "correct_answer": "Aktwal na isasagawa ang plano"
+          },
+          {
+            "question": "Bakit mahalagang aktwal na isagawa ang plano, hindi lang basta magplano?",
+            "options": [
+              "Upang maranasan ang tunay na benepisyo ng ehersisyo",
+              "Sapat na ang pagpaplano lamang",
+              "Wala itong dagdag na benepisyo",
+              "Ang pagpaplano lamang ang mahalaga"
+            ],
+            "correct_answer": "Upang maranasan ang tunay na benepisyo ng ehersisyo"
+          },
+          {
+            "question": "Ano ang dapat isaalang-alang habang isinasagawa ang aktibidad?",
+            "options": [
+              "Ang kaligtasan ng lahat ng kalahok",
+              "Ang presyo lamang ng kagamitan",
+              "Ang oras lamang ng pagtatapos",
+              "Wala, walang dapat isaalang-alang"
+            ],
+            "correct_answer": "Ang kaligtasan ng lahat ng kalahok"
+          },
+          {
+            "question": "Ano ang tanong na dapat sagutin sa pagninilay pagkatapos ng aktibidad?",
+            "options": [
+              "Ano ang natutuhan ko sa pagsasanib ng sayaw, kalusugan, at sining?",
+              "Ano ang paborito kong kulay sa gawaing ito?",
+              "Ilang taon na ako ngayon dito?",
+              "Ano ang gusto kong kainin ngayon?"
+            ],
+            "correct_answer": "Ano ang natutuhan ko sa pagsasanib ng sayaw, kalusugan, at sining?"
+          },
+          {
+            "question": "Ano ang idudulot ng pagsasagawa ng aktibidad kaysa pagpaplano lamang?",
+            "options": [
+              "Tunay na karanasan at natutuhang aral",
+              "Kawalan ng kabuluhan",
+              "Nagpapabagal lamang ito ng gawain",
+              "Walang dagdag na natutuhan"
+            ],
+            "correct_answer": "Tunay na karanasan at natutuhang aral"
+          },
+          {
+            "question": "Ano ang ipinapakita ng biswal na sining na kasama sa aktibidad?",
+            "options": [
+              "Ipinapaalala nito ang kahalagahan ng kalusugan",
+              "Wala itong tunay na layunin",
+              "Ginagawa lamang ito bilang palamuti",
+              "Hindi ito bahagi ng aktibidad"
+            ],
+            "correct_answer": "Ipinapaalala nito ang kahalagahan ng kalusugan"
+          },
+          {
+            "question": "Bakit mahalagang isali ang buong pamilya sa aktibidad?",
+            "options": [
+              "Nagpapatibay ito ng samahan at kalusugan",
+              "Wala itong benepisyo sa pamilya",
+              "Mas mainam gawin ito nang mag-isa",
+              "Hindi kailangan ang pamilya sa gawaing ito"
+            ],
+            "correct_answer": "Nagpapatibay ito ng samahan at kalusugan"
+          },
+          {
+            "question": "Ano ang layunin ng pagninilay pagkatapos gawin ang aktibidad?",
+            "options": [
+              "Pagtibayin ang natutuhan mula sa karanasan",
+              "Kalimutan agad ang natutuhan",
+              "Isara ang paksa nang walang pag-iisip",
+              "Bumuo ng bagong aktibidad agad"
+            ],
+            "correct_answer": "Pagtibayin ang natutuhan mula sa karanasan"
+          },
+          {
+            "question": "Bakit mahalagang isaalang-alang ang kaligtasan sa isang wellness activity?",
+            "options": [
+              "Upang maiwasan ang aksidente sa gawain",
+              "Wala itong kaugnayan sa gawain",
+              "Upang mapabilis lamang ang aktibidad",
+              "Hindi na kailangang isaalang-alang ito"
+            ],
+            "correct_answer": "Upang maiwasan ang aksidente sa gawain"
+          },
+          {
+            "question": "Ano ang pangkalahatang aral ng buong yunit na ito tungkol sa sayaw, kalusugan, at sining?",
+            "options": [
+              "Ang mga ito ay konektado at magkatuwang na nagtataguyod ng kagalingan",
+              "Ang mga ito ay hindi konektado sa isa't isa",
+              "Isa lamang sa mga ito ang mahalaga sa gawaing ito",
+              "Wala itong tunay na kaugnayan dito ngayon"
+            ],
+            "correct_answer": "Ang mga ito ay konektado at magkatuwang na nagtataguyod ng kagalingan"
+          },
+          {
+            "question": "Isang pamilya ang nagsagawa ng dance-for-health session tuwing Sabado. Ano ang ipinapakita nito?",
+            "options": [
+              "Pagpapahalaga sa kalusugan at samahan ng pamilya",
+              "Kawalan ng interes sa kalusugan",
+              "Kapabayaan sa gawain",
+              "Kawalang-halaga ng ehersisyo"
+            ],
+            "correct_answer": "Pagpapahalaga sa kalusugan at samahan ng pamilya"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 Friday Review — GMRC (Grade 5)\n\n- Pasasalamat sa Diyos sa mga biyaya\n- Pagpapahalaga: **Gratitude**\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang pasasalamat?",
+            "options": [
+              "Pagiging mapagpasalamat sa mga biyayang natatanggap",
+              "Pagiging walang pakialam sa biyaya",
+              "Pagreklamo sa lahat ng bagay",
+              "Pananahimik palagi"
+            ],
+            "correct_answer": "Pagiging mapagpasalamat sa mga biyayang natatanggap"
+          },
+          {
+            "question": "Paano ipinapahayag ang pasasalamat sa Diyos?",
+            "options": [
+              "Sa panalangin at pagiging bukas-palad",
+              "Sa pagreklamo palagi",
+              "Sa pag-iwas sa Diyos",
+              "Sa kawalang-interes sa relihiyon"
+            ],
+            "correct_answer": "Sa panalangin at pagiging bukas-palad"
+          },
+          {
+            "question": "Bakit dapat magpasalamat sa Diyos kahit sa mga simpleng biyaya?",
+            "options": [
+              "Nagpapalalim ito ng pananampalataya at kuntentong pananaw",
+              "Wala itong kabuluhan sa buhay ngayon",
+              "Ginagawa lamang ito para sa iba",
+              "Hindi ito totoong mahalaga dito"
+            ],
+            "correct_answer": "Nagpapalalim ito ng pananampalataya at kuntentong pananaw"
+          },
+          {
+            "question": "Paano maipapakita ang pasasalamat sa Diyos sa pamamagitan ng pagiging bukas-palad?",
+            "options": [
+              "Sa pagtulong sa iba bilang pagbabahagi ng biyaya",
+              "Sa pagtatago ng lahat ng biyaya",
+              "Sa pag-iwas sa mga nangangailangan",
+              "Sa pagsasarili nang walang pakikipag-ugnayan"
+            ],
+            "correct_answer": "Sa pagtulong sa iba bilang pagbabahagi ng biyaya"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay natin ngayong linggo?",
+            "options": [
+              "Gratitude (Pasasalamat)",
+              "Compassion",
+              "Respect",
+              "Accountability"
+            ],
+            "correct_answer": "Gratitude (Pasasalamat)"
+          },
+          {
+            "question": "Ano ang isang bunga ng araw-araw na pasasalamat?",
+            "options": [
+              "Nagiging positibo ang pananaw sa buhay",
+              "Nagiging negatibo ang pananaw sa buhay",
+              "Wala itong epekto sa pananaw",
+              "Nagiging mas malungkot ang buhay"
+            ],
+            "correct_answer": "Nagiging positibo ang pananaw sa buhay"
+          },
+          {
+            "question": "Ano ang halimbawa ng pang-araw-araw na gawi ng pasasalamat?",
+            "options": [
+              "Panalangin ng pasasalamat bago matulog",
+              "Pagreklamo tungkol sa pagkain",
+              "Pananahimik lamang palagi",
+              "Pagtanggi sa lahat ng tulong"
+            ],
+            "correct_answer": "Panalangin ng pasasalamat bago matulog"
+          },
+          {
+            "question": "Bakit mahalagang maging bukas-palad bilang tanda ng pasasalamat?",
+            "options": [
+              "Ipinapakita nito ang pagbabahagi ng biyaya sa iba",
+              "Wala itong kaugnayan sa pasasalamat",
+              "Nagpapakita lamang ito ng kayamanan",
+              "Hindi ito bahagi ng pagpapasalamat"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagbabahagi ng biyaya sa iba"
+          },
+          {
+            "question": "Ano ang idinudulot ng pagiging mapagpasalamat sa ating pananampalataya?",
+            "options": [
+              "Nagpapalalim ito ng ating pananampalataya",
+              "Nagpapahina ito ng pananampalataya",
+              "Wala itong epekto sa pananampalataya",
+              "Hindi ito nauugnay sa pananampalataya"
+            ],
+            "correct_answer": "Nagpapalalim ito ng ating pananampalataya"
+          },
+          {
+            "question": "Bakit itinuturing na simple ngunit makapangyarihan ang pang-araw-araw na pasasalamat?",
+            "options": [
+              "Kahit maliit na gawa, malaki ang epekto sa ating pananaw at pananampalataya",
+              "Wala itong tunay na epekto dito sa gawaing ito",
+              "Ito ay mahirap gawin araw-araw ngayon kahit kailan",
+              "Hindi ito nagbibigay ng anumang benepisyo"
+            ],
+            "correct_answer": "Kahit maliit na gawa, malaki ang epekto sa ating pananaw at pananampalataya"
+          },
+          {
+            "question": "Isang batang laging nagpapasalamat sa Diyos sa maliliit na biyaya. Ano ang ipinapakita nito?",
+            "options": [
+              "Malalim na pananampalataya at positibong pananaw",
+              "Kawalan ng interes sa pananampalataya",
+              "Pagreklamo palagi sa buhay",
+              "Kapabayaan sa relihiyon"
+            ],
+            "correct_answer": "Malalim na pananampalataya at positibong pananaw"
+          },
+          {
+            "question": "Bakit mahalagang ipasa ang gawi ng pasasalamat sa mga susunod na henerasyon?",
+            "options": [
+              "Upang patuloy na mapanatili ang mabuting ugali at pananampalataya",
+              "Dahil hindi na kailangan ito ngayon",
+              "Walang benepisyo ito sa kinabukasan",
+              "Ginagawa lamang ito bilang tradisyon na walang saysay"
+            ],
+            "correct_answer": "Upang patuloy na mapanatili ang mabuting ugali at pananampalataya"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 Friday Review — EPP (Grade 5)\n\n- Paggawa ng simpleng kagamitang pambahay gamit ang makina\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Anong mga kasanayan ang natutuhan natin tungkol sa sewing machine ngayong term?",
+            "options": [
+              "Mga bahagi, basic stitches, at solusyon sa suliranin",
+              "Wala tayong natutuhan dito sa gawaing ito",
+              "Isang kasanayan lamang ngayon",
+              "Kasanayan lamang sa pagluluto"
+            ],
+            "correct_answer": "Mga bahagi, basic stitches, at solusyon sa suliranin"
+          },
+          {
+            "question": "Ano ang gagawin natin ngayong linggo bilang huling proyekto?",
+            "options": [
+              "Gumawa ng simpleng kagamitang pambahay gamit ang makina",
+              "Magbasa lamang ng aklat dito",
+              "Magsulat lamang ng sanaysay sa gawaing ito",
+              "Magsanay lamang ng sayaw ngayon"
+            ],
+            "correct_answer": "Gumawa ng simpleng kagamitang pambahay gamit ang makina"
+          },
+          {
+            "question": "Alin ang halimbawa ng kagamitang pambahay na maaaring gawin?",
+            "options": [
+              "Unan, tote bag, o table runner",
+              "Kompyuter o telepono",
+              "Sasakyan o motorsiklo",
+              "Kagamitang panluto na de-koryente"
+            ],
+            "correct_answer": "Unan, tote bag, o table runner"
+          },
+          {
+            "question": "Bakit dapat subukan muna sa piraso ng tela bago sa aktwal na proyekto?",
+            "options": [
+              "Upang matiyak na tama ang setting ng makina",
+              "Upang mapabilis ang buong proseso",
+              "Upang makatipid ng sinulid",
+              "Walang dahilan ito talaga"
+            ],
+            "correct_answer": "Upang matiyak na tama ang setting ng makina"
+          },
+          {
+            "question": "Ano ang isang panuntunang pangkaligtasan sa pananahi?",
+            "options": [
+              "Manahi nang dahan-dahan at maingat",
+              "Manahi nang mabilis nang walang pag-iingat",
+              "Iwasan ang pag-iingat",
+              "Huwag na muna subukan sa piraso ng tela"
+            ],
+            "correct_answer": "Manahi nang dahan-dahan at maingat"
+          },
+          {
+            "question": "Bakit mahalagang i-thread nang tama ang makina bago magsimula?",
+            "options": [
+              "Upang gumana nang maayos ang pananahi",
+              "Upang mapabilis lamang ang gawain",
+              "Walang dahilan ito talaga",
+              "Upang mapaganda lamang ang kulay ng tela"
+            ],
+            "correct_answer": "Upang gumana nang maayos ang pananahi"
+          },
+          {
+            "question": "Ano ang dapat iwasan habang gumagamit ng sewing machine?",
+            "options": [
+              "Ang pagdikit ng daliri sa karayom",
+              "Ang paggamit ng tamang tensyon",
+              "Ang pagsubok sa piraso ng tela",
+              "Ang pag-iingat sa gawain"
+            ],
+            "correct_answer": "Ang pagdikit ng daliri sa karayom"
+          },
+          {
+            "question": "Ano ang ipinapakita ng paggawa ng kagamitang pambahay gamit ang lahat ng natutuhang kasanayan?",
+            "options": [
+              "Ang kabuuang kakayahan natin sa pananahi ngayong term",
+              "Kapabayaan sa gawain dito ngayon",
+              "Kawalan ng interes sa pananahi",
+              "Kakulangan sa oras lamang sa gawaing ito"
+            ],
+            "correct_answer": "Ang kabuuang kakayahan natin sa pananahi ngayong term"
+          },
+          {
+            "question": "Bakit mahalagang gumawa ng aktwal na proyekto gamit ang natutuhang kasanayan?",
+            "options": [
+              "Upang mailapat ang teorya sa totoong sitwasyon",
+              "Sapat na ang pag-aaral ng teorya lamang",
+              "Wala itong dagdag na benepisyo",
+              "Hindi na kailangang gumawa ng proyekto"
+            ],
+            "correct_answer": "Upang mailapat ang teorya sa totoong sitwasyon"
+          },
+          {
+            "question": "Ano ang dapat gawin kung may problema sa makina habang tinatahi?",
+            "options": [
+              "Tigilan ang pananahi at suriin ang sanhi ng problema",
+              "Ipagpatuloy ang pananahi kahit may problema",
+              "Isara ang makina at huwag na buksan pa",
+              "Ihagis ang tela na tinatahi"
+            ],
+            "correct_answer": "Tigilan ang pananahi at suriin ang sanhi ng problema"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang solusyon sa karaniwang suliranin sa pananahi bago gumawa ng proyekto?",
+            "options": [
+              "Upang maiwasan ang aksidente at magawa nang maayos ang proyekto",
+              "Wala itong kabuluhan sa pananahi ngayon",
+              "Ginagamit lamang ito sa eksamen dito sa gawaing ito",
+              "Hindi na kailangan pang pag-aralan ito"
+            ],
+            "correct_answer": "Upang maiwasan ang aksidente at magawa nang maayos ang proyekto"
+          },
+          {
+            "question": "Isang mag-aaral ang natapos gumawa ng tote bag gamit ang sewing machine. Ano ang ipinapakita nito?",
+            "options": [
+              "Kakayahang ilapat ang natutuhang kasanayan sa pananahi",
+              "Kawalan ng kaalaman sa pananahi",
+              "Kapabayaan sa proyekto dito sa gawaing ito",
+              "Kakulangan sa pag-iingat ngayon"
+            ],
+            "correct_answer": "Kakayahang ilapat ang natutuhang kasanayan sa pananahi"
+          }
+        ]
+      }
+    }
+  }
+}
