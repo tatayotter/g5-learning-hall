@@ -13,7 +13,7 @@ import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { GUILDS } from '@/lib/dailyChecklist';
-import GameButton from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
@@ -188,14 +188,22 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
           <div className="w-40 h-40 mx-auto mb-4">
             <GuardianSprite guild="spellcaster" pose="idle" className="w-full h-full" />
           </div>
-          <h2 className="text-4xl font-display font-bold text-violet-700 mb-2">SpellCaster Guild</h2>
+          {/* Same Bungee/stroke/shadow text treatment as the quest GameButton's
+              label (2026-08-29), in the guild's own theme color instead of
+              the button's white. */}
+          <h2 className="text-2xl mb-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              <span aria-hidden style={questTextShadowStyle}>SpellCaster Guild</span>
+              <span style={{ ...questTextStyle, color: '#a78bfa' }}>SpellCaster Guild</span>
+            </span>
+          </h2>
           <p className="text-gray-500 italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'spellcaster')?.lore}</p>
           <p className="text-violet-600 font-medium mb-1">Lvl {profile?.spellcaster_lvl || 1} · {profile?.spellcaster_xp || 0}/500 XP</p>
           <p className="text-gray-500 mb-6 text-sm max-w-md mx-auto">Type each word exactly as shown. The moment you spell it correctly, it vanishes and the next appears. No Enter key — pure speed.</p>
 
           <div className="grid grid-cols-3 gap-4 mb-8 text-center">
             <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
-              <p className="text-2xl font-bold font-mono text-white">⏱ {timeLimit}s</p>
+              <p className="text-2xl font-bold font-mono text-[#2a1505]">⏱ {timeLimit}s</p>
               <p className="text-xs text-gray-500 mt-1">Time Limit</p>
             </div>
             <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">

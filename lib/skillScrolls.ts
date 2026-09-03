@@ -4,7 +4,7 @@
 // (see InventoryMap there) but are sold in their own Vault section and
 // consumed only via the learn_monster_skill/unlearn_monster_skill RPCs
 // (components/MonsterGuild.tsx's Compendium panel), never in battle.
-import { SKILLS, Skill } from './monsterConfig';
+import { SKILLS, Skill, SkillEffect } from './monsterConfig';
 import { supabase } from './supabase';
 
 export interface ScrollItem {
@@ -17,6 +17,15 @@ export interface ScrollItem {
   category: 'unlearn' | 'base' | 'alt' | 'universal';
   element: Skill['element'];
   skillId?: string; // omitted for the Unlearn Scroll
+  // Carried straight from the underlying Skill so the shop popup can show a
+  // damage comparison against a base element attack (always 1.0x) without
+  // re-deriving it or reaching back into SKILLS itself — undefined only for
+  // the Unlearn Scroll, which teaches nothing. 0 for universal "fighting
+  // skills" (Guard Up etc.), which deal no direct damage at all.
+  baseDamageMultiplier?: number;
+  // Secondary stat effects (buffs/debuffs/heals) — present on Alt and
+  // universal Fighting Skills, absent on the flat-damage Base Kit skills.
+  effects?: SkillEffect[];
 }
 
 const TIER_COST: Record<'base' | 'alt' | 'universal', Record<1 | 2 | 3, number>> = {
@@ -42,6 +51,8 @@ function scrollForSkill(skill: Skill & { category?: 'base' | 'alt' | 'universal'
     category,
     element: skill.element,
     skillId: skill.id,
+    baseDamageMultiplier: skill.baseDamageMultiplier,
+    effects: skill.effects,
   };
 }
 
