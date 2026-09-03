@@ -104,6 +104,25 @@ export async function respondToInvite(battleId: string, accept: boolean): Promis
   return data as LiveBattleRow | null;
 }
 
+// Called when a pending invite goes unanswered for INVITE_EXPIRY_MS (see
+// LiveBattleInviteToast.tsx) — by either side, whichever client's timer
+// fires first. The `.eq('status', 'pending_invite')` guard makes this
+// idempotent: if the invite was already accepted/declined/expired by the
+// other client in the meantime, this update matches zero rows and is a
+// harmless no-op.
+export async function expireInvite(battleId: string): Promise<LiveBattleRow | null> {
+  const { data, error } = await supabase
+    .from('live_battles')
+    .update({ status: 'expired' })
+    .eq('id', battleId)
+    .eq('status', 'pending_invite')
+    .select()
+    .single();
+
+  if (error) return null;
+  return data as LiveBattleRow | null;
+}
+
 export async function fetchLiveBattle(battleId: string): Promise<LiveBattleRow | null> {
   const { data, error } = await supabase
     .from('live_battles')

@@ -16,6 +16,10 @@ export interface IncomingInvite {
 export interface InviteResponse {
   battleId: string;
   accepted: boolean;
+  // True when this is an unanswered-in-time auto-response (see
+  // LiveBattleInviteToast's 15s countdown) rather than a real decline tap —
+  // lets the challenger's UI say "expired" instead of "declined".
+  expired?: boolean;
 }
 
 // Shared by every logged-in player at the same grade so "who's online"
@@ -140,7 +144,7 @@ export function useLiveBattleInbox(userId: string, name: string, grade?: string)
 
     channel.on('broadcast', { event: 'invite_response' }, ({ payload }) => {
       if (!payload?.battleId) return;
-      setInviteResponse({ battleId: payload.battleId, accepted: !!payload.accepted });
+      setInviteResponse({ battleId: payload.battleId, accepted: !!payload.accepted, expired: !!payload.expired });
     });
 
     channel.subscribe();
@@ -181,15 +185,16 @@ export function useLiveBattleInbox(userId: string, name: string, grade?: string)
   };
 
   // Sent by the invitee back to the challenger's inbox after they've updated
-  // the live_battles row via lib/liveBattle.ts's respondToInvite().
-  const sendInviteResponse = async (toId: string, battleId: string, accepted: boolean) => {
+  // the live_battles row via lib/liveBattle.ts's respondToInvite() (or
+  // expireInvite() when the 15s countdown ran out unanswered).
+  const sendInviteResponse = async (toId: string, battleId: string, accepted: boolean, expired = false) => {
     const inboxChannel = supabase.channel(`player-inbox-${toId}`, { config: { broadcast: { self: false } } });
     await new Promise<void>(resolve => {
       inboxChannel.subscribe(status => {
         if (status === 'SUBSCRIBED') resolve();
       });
     });
-    await inboxChannel.send({ type: 'broadcast', event: 'invite_response', payload: { battleId, accepted } });
+    await inboxChannel.send({ type: 'broadcast', event: 'invite_response', payload: { battleId, accepted, expired } });
     supabase.removeChannel(inboxChannel);
   };
 

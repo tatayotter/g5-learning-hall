@@ -31,7 +31,7 @@ import { UserMonster, ActiveBattleMonster } from '@/components/battle/shared';
 import LiveBattleScreen from '@/components/LiveBattleScreen';
 import LeaderboardPanel from '@/components/LeaderboardPanel';
 import TradePanel from '@/components/trade/TradePanel';
-import { createInvite, respondToInvite } from '@/lib/liveBattle';
+import { createInvite, respondToInvite, expireInvite } from '@/lib/liveBattle';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import WorldMap from '@/components/WorldMap';
@@ -43,6 +43,7 @@ import CompendiumPanel from '@/components/monster/CompendiumPanel';
 import BattleScreen from '@/components/monster/BattleScreen';
 import StarterSelection from '@/components/monster/StarterSelection';
 import HatcheryPanel from '@/components/monster/HatcheryPanel';
+import GameButton from '@/components/GameButton';
 import { EggChainMap, CurioEgg, fetchEggChainMap, fetchUserEggs, eggReadyLevel } from '@/lib/curioEggs';
 import { takePrefetch, MonsterGuildPrefetch } from '@/lib/tabPrefetch';
 
@@ -228,6 +229,15 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const [liveBattleBotAccuracy, setLiveBattleBotAccuracy] = useState<number | undefined>(undefined);
   /** Bot that has "challenged" the player — shown via LiveBattleInviteToast. */
   const [pendingBotChallenge, setPendingBotChallenge] = useState<BotProfile | null>(null);
+  // Challenger-side mirror of LiveBattleInviteToast's 15s countdown: covers
+  // the case where the invitee's client never even receives/renders the
+  // toast (they're offline, or not on this tab), so their own timer would
+  // never fire. Set right after a real invite is sent, cleared the moment
+  // an invite_response (accept/decline/expire) for that same battle arrives.
+  // Holds the battle id rather than a boolean so a stale timeout firing
+  // after the player has already moved on to a *different* challenge is a
+  // no-op (id mismatch) instead of expiring the wrong battle.
+  const pendingChallengeIdRef = useRef<string | null>(null);
   const [notification, setNotification] = useState<string | null>(null);
   const [revealMonster, setRevealMonster] = useState<MonsterDef | null>(null);
   const [pendingDuplicate, setPendingDuplicate] = useState<{ monsterId: string; level: number; name: string } | null>(null);
@@ -439,6 +449,18 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     liveBattleInbox.clearIncomingInvite();
   };
 
+  // Invitee's side of LiveBattleInviteToast's 15s auto-expiry — a distinct
+  // status/response from a real decline (see lib/liveBattle.ts's
+  // expireInvite) so the challenger's UI can say "expired" instead of
+  // "declined".
+  const handleExpireLiveBattleInvite = async () => {
+    const invite = liveBattleInbox.incomingInvite;
+    if (!invite) return;
+    await expireInvite(invite.battleId);
+    await liveBattleInbox.sendInviteResponse(invite.fromId, invite.battleId, false, true);
+    liveBattleInbox.clearIncomingInvite();
+  };
+
   // Lets other players' training maps show a blinking "in battle" badge over
   // this player's sprite, and blocks challenges aimed at them while it's set.
   useEffect(() => {
@@ -461,12 +483,18 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view]);
 
-  // Challenger's side: if the invitee declines, back out of the waiting screen.
+  // Challenger's side: if the invitee declines (or the invite times out),
+  // back out of the waiting screen.
   useEffect(() => {
     const resp = liveBattleInbox.inviteResponse;
     if (!resp || resp.battleId !== liveBattleId) return;
+    if (pendingChallengeIdRef.current === resp.battleId) pendingChallengeIdRef.current = null;
     if (!resp.accepted) {
-      showNotification(`${liveBattleOpponent?.name ?? 'They'} declined the challenge.`);
+      showNotification(
+        resp.expired
+          ? `Challenge to ${liveBattleOpponent?.name ?? 'them'} expired — they didn't respond in time.`
+          : `${liveBattleOpponent?.name ?? 'They'} declined the challenge.`
+      );
       setLiveBattleId(null);
       setLiveBattleOpponent(null);
       setLiveBattleTeams(null);
@@ -758,6 +786,26 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     setLiveBattleTeams({ mine: myTeam, opp: opponentTeam });
     setView('live_battle');
     showNotification(`Challenge sent to ${opponentName} — waiting for them to accept...`);
+
+    // Mirrors LiveBattleInviteToast's 15s countdown on the invitee's side.
+    // Normally their response (accept/decline/expire) arrives via
+    // inviteResponse well before this fires and clears the ref, making this
+    // a no-op — it only actually acts when the invitee's own client never
+    // got the chance to run that countdown itself (offline, or not on the
+    // Arena tab), so the challenger would otherwise be stuck on the waiting
+    // screen forever.
+    pendingChallengeIdRef.current = battle.id;
+    setTimeout(async () => {
+      if (pendingChallengeIdRef.current !== battle.id) return;
+      pendingChallengeIdRef.current = null;
+      await expireInvite(battle.id);
+      showNotification(`Challenge to ${opponentName} expired — they didn't respond in time.`);
+      setLiveBattleId(null);
+      setLiveBattleOpponent(null);
+      setLiveBattleTeams(null);
+      setLiveBattleBotAccuracy(undefined);
+      setView('trainers');
+    }, 15000);
   };
 
   const handleMonsterExpGained = async (monsterId: string, exp: number) => {
@@ -1128,25 +1176,25 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
             const alreadyWonToday = battleState?.last_pvp_win === today;
             const otherPlayers = getOtherPlayers(userId as UserId).filter(p => liveBattleInbox.onlinePlayerIds.has(p.id));
             return (
-              <div className="border border-indigo-200 bg-indigo-50 rounded-xl p-5">
+              <div className="border-2 border-[#c9a87a] bg-[#f0ddb8] rounded-2xl p-5">
                 <div className="flex items-center justify-between gap-3 mb-4">
                   <div className="flex items-center gap-3">
                     <span className="text-3xl">👊</span>
                     <div>
-                      <p className="font-bold text-gray-900">Challenge To A Battle</p>
-                      <p className="text-xs text-gray-400">
+                      <p className="font-bold text-[#2a1505]">Challenge To A Battle</p>
+                      <p className="text-xs text-[#6b4820]">
                         Battle another player's team.
                         {alreadyWonToday
                           ? ' First win gold already claimed today — resets tomorrow.'
                           : ' First win today earns '}
-                        {!alreadyWonToday && <span className="text-amber-400 font-bold">50 Gold</span>}
+                        {!alreadyWonToday && <span className="text-[#c9781a] font-bold">50 Gold</span>}
                         {!alreadyWonToday && '.'}
                       </p>
                     </div>
                   </div>
                   <button
                     onClick={() => liveBattleInbox.refreshPresence()}
-                    className="text-xs bg-stone-100 hover:bg-stone-200 text-gray-700 font-bold px-3 py-1.5 rounded-lg transition-colors flex-shrink-0"
+                    className="text-xs bg-white border border-[#c9a87a] hover:bg-[#f0ddb8] hover:border-[#c9781a] text-[#6b4820] font-bold px-3 py-1.5 rounded-lg transition-colors flex-shrink-0"
                     title="Refresh online list"
                   >
                     🔄 Refresh
@@ -1154,33 +1202,35 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                 </div>
                 <div className="space-y-2">
                   {otherPlayers.length === 0 && (
-                    <p className="text-xs text-gray-500 italic">No one else is online right now.</p>
+                    <p className="text-xs text-[#6b4820] italic">No one else is online right now.</p>
                   )}
                   {otherPlayers.map(player => {
                     const inBattle = liveBattleInbox.playersInBattle.has(player.id);
                     return (
-                    <div key={player.id} className="flex items-center justify-between bg-white border border-stone-200 rounded-lg px-4 py-3">
+                    <div key={player.id} className="flex items-center justify-between bg-white border border-[#c9a87a] rounded-lg px-4 py-3">
                       <div className="flex items-center gap-3">
                         <img
                           src={player.avatar || '/userpics/userpics_premium/ssb3.png'}
                           alt={player.name}
-                          className="w-9 h-9 rounded-full object-contain bg-neutral-950 border border-stone-300 flex-shrink-0"
+                          className="w-9 h-9 rounded-full object-contain bg-neutral-950 border border-[#c9a87a] flex-shrink-0"
                           onError={(e) => { (e.target as HTMLImageElement).src = '/userpics/userpics_premium/ssb3.png'; }}
                         />
                         <div>
-                          <p className="text-gray-900 text-sm font-bold">{player.fullName}</p>
-                          <p className="text-gray-500 text-xs">
+                          <p className="text-[#2a1505] text-sm font-bold">{player.fullName}</p>
+                          <p className="text-[#6b4820] text-xs">
                             {inBattle ? `⚔️ ${player.name} is in a battle` : `${player.grade}${!player.isFamily ? ' · Classmate' : ''}`}
                           </p>
                         </div>
                       </div>
-                      <button
+                      <GameButton
+                        variant="quest"
+                        color="#2563eb"
                         onClick={() => handleChallengePlayer(player.id as UserId, player.name)}
                         disabled={inBattle}
-                        className="bg-indigo-700 hover:bg-indigo-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                        style={{ fontSize: 13 }}
                       >
                         Challenge!
-                      </button>
+                      </GameButton>
                     </div>
                     );
                   })}
@@ -1189,24 +1239,24 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
             );
           })()}
 
-          <h3 className="text-lg font-bold text-gray-900">NPC Trainers</h3>
-          <div className="p-5 rounded-xl border flex items-center gap-4 border-stone-200 bg-stone-50">
+          <h3 className="text-lg font-bold text-[#2a1505]">NPC Trainers</h3>
+          <div className="p-5 rounded-2xl border-2 flex items-center gap-4 border-[#c9a87a] bg-[#f0ddb8]">
             <img
               src="/trainers/training_tester.png"
               alt="Training Dummy"
               className="w-24 h-24 flex-shrink-0 object-contain"
             />
             <div className="flex-1">
-              <p className="font-bold text-gray-900">Training Dummy</p>
-              <p className="text-xs text-gray-400">Always available · Matches your team</p>
-              <p className="text-xs text-gray-500 italic mt-1">"No hard feelings — just here to help you practice."</p>
-              <div className="flex gap-2 mt-2">
+              <p className="font-bold text-[#2a1505]">Training Dummy</p>
+              <p className="text-xs text-[#6b4820]">Always available · Matches your team</p>
+              <p className="text-xs text-[#6b4820] italic mt-1">"No hard feelings — just here to help you practice."</p>
+              <div className="flex gap-2 mt-2 flex-wrap">
                 {userMonsters.filter(um => um.slot !== null).map((um, i) => {
                   const def = ALL_MONSTERS[um.monster_id];
                   const counterElement = getCounterElement(def.element);
                   const counterMonster = Object.values(MONSTERS).find(m => m.element === counterElement);
                   return (
-                    <span key={i} className="text-xs bg-neutral-800 px-2 py-0.5 rounded text-gray-300">
+                    <span key={i} className="text-xs bg-white/70 border border-[#c9a87a] px-2 py-0.5 rounded text-[#3a2610]">
                       {counterMonster?.name || def.name} Lv.{um.monster_level}
                     </span>
                   );
@@ -1214,12 +1264,9 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
               </div>
             </div>
             <div className="text-right">
-              <button
-                onClick={handleDummyBattle}
-                className="bg-amber-600 hover:bg-amber-500 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors"
-              >
+              <GameButton variant="quest" color="#2563eb" onClick={handleDummyBattle} style={{ fontSize: 13 }}>
                 Battle!
-              </button>
+              </GameButton>
             </div>
           </div>
           {NPC_TRAINERS.map(trainer => {
@@ -1228,10 +1275,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
             return (
               <div
                 key={trainer.id}
-                className={`p-5 rounded-xl border flex items-center gap-4 ${
-                  defeated ? 'border-green-200 bg-green-50' :
-                  locked   ? 'border-stone-200 bg-stone-100 opacity-50' :
-                             'border-stone-200 bg-stone-50'
+                className={`p-5 rounded-2xl border-2 flex items-center gap-4 ${
+                  defeated ? 'border-green-700 bg-[#e8f5e0]' :
+                  locked   ? 'border-[#c9a87a] bg-[#e8d0a0]/60 opacity-60' :
+                             'border-[#c9a87a] bg-[#f0ddb8]'
                 }`}
               >
                 <img
@@ -1240,12 +1287,12 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                   className="w-24 h-24 flex-shrink-0 object-contain"
                 />
                 <div className="flex-1">
-                  <p className="font-bold text-gray-900">{trainer.name}</p>
-                  <p className="text-xs text-gray-400 capitalize">{trainer.element} · Requires Level {trainer.levelRequirement}</p>
-                  <p className="text-xs text-gray-500 italic mt-1">"{trainer.intro}"</p>
-                  <div className="flex gap-2 mt-2">
+                  <p className="font-bold text-[#2a1505]">{trainer.name}</p>
+                  <p className="text-xs text-[#6b4820] capitalize">{trainer.element} · Requires Level {trainer.levelRequirement}</p>
+                  <p className="text-xs text-[#6b4820] italic mt-1">"{trainer.intro}"</p>
+                  <div className="flex gap-2 mt-2 flex-wrap">
                     {trainer.monsters.map((tm, i) => (
-                      <span key={i} className="text-xs bg-stone-100 px-2 py-0.5 rounded text-gray-600">
+                      <span key={i} className="text-xs bg-white/70 border border-[#c9a87a] px-2 py-0.5 rounded text-[#3a2610]">
                         {ALL_MONSTERS[tm.monsterId]?.name} Lv.{tm.level}
                       </span>
                     ))}
@@ -1253,16 +1300,13 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                 </div>
                 <div className="text-right">
                   {defeated ? (
-                    <span className="text-green-600 text-sm font-bold">✅ Defeated</span>
+                    <span className="text-green-700 text-sm font-bold">✅ Defeated</span>
                   ) : locked ? (
-                    <span className="text-gray-500 text-sm">🔒 Locked</span>
+                    <span className="text-[#6b4820] text-sm">🔒 Locked</span>
                   ) : (
-                    <button
-                      onClick={() => handleTrainerBattle(trainer)}
-                      className="bg-amber-600 hover:bg-amber-500 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors"
-                    >
+                    <GameButton variant="quest" color="#2563eb" onClick={() => handleTrainerBattle(trainer)} style={{ fontSize: 13 }}>
                       Battle!
-                    </button>
+                    </GameButton>
                   )}
                 </div>
               </div>
@@ -1383,6 +1427,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           fromName={liveBattleInbox.incomingInvite.fromName}
           onAccept={handleAcceptLiveBattleInvite}
           onDecline={handleDeclineLiveBattleInvite}
+          onExpire={handleExpireLiveBattleInvite}
         />
       )}
 
@@ -1404,6 +1449,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
             setView('live_battle');
           }}
           onDecline={() => setPendingBotChallenge(null)}
+          onExpire={() => setPendingBotChallenge(null)}
         />
       )}
     </div>
