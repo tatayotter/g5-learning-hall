@@ -7,8 +7,10 @@
 // on the old skill's icon so the loss still registers as an event.
 import { useEffect, useState } from 'react';
 import { Skill, MonsterDef, getSkillIconSrc } from '@/lib/monsterConfig';
-import { playItemUse } from '@/lib/sounds';
+import { playSkillForget } from '@/lib/sounds';
 import { MonsterImage } from '@/components/battle/shared';
+import { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 
 interface UnlearnSkillModalProps {
   monster: MonsterDef;
@@ -22,7 +24,7 @@ export default function UnlearnSkillModal({ monster, skill, userId, onClose }: U
   const [dissolved, setDissolved] = useState(false);
 
   useEffect(() => {
-    playItemUse();
+    playSkillForget();
     const t = setTimeout(() => setDissolved(true), 50);
     return () => clearTimeout(t);
   }, []);
@@ -30,12 +32,28 @@ export default function UnlearnSkillModal({ monster, skill, userId, onClose }: U
   return (
     <div className="fixed inset-0 bg-black/85 z-[60] flex items-center justify-center p-4" onClick={onClose}>
       <div
-        className={`relative bg-neutral-900 border-2 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in ${
-          isTala ? 'border-pink-500' : 'border-amber-500'
-        }`}
+        className="relative border-2 border-[#4a2f18] rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in"
+        style={{ boxShadow: `0 0 0 3px #8a6a3a, ${questButtonDropShadow}`, ...woodTextureStyle }}
         onClick={e => e.stopPropagation()}
       >
-        <p className="font-bold text-sm tracking-wide mb-4 text-gray-400">💨 SKILL FORGOTTEN 💨</p>
+        {/* Same wood-plank + gold trim + corner-nail frame as the battle
+            screen's MonsterHpPanel/PostBattleSummary, reusing its exported
+            style pieces rather than re-deriving them — ring is muted brass
+            rather than bright gold, matching this beat's deliberately
+            quieter (non-celebratory) tone. */}
+        <Nail className="top-2 left-2" />
+        <Nail className="top-2 right-2" />
+        <Nail className="bottom-2 left-2" />
+        <Nail className="bottom-2 right-2" />
+        <p
+          className="text-sm tracking-wide mb-4"
+          style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}
+        >
+          <span style={{ position: 'relative', display: 'inline-block' }}>
+            <span aria-hidden style={questTextShadowStyle}>SKILL FORGOTTEN</span>
+            <span style={{ ...questTextStyle, color: '#d6d3d1' }}>SKILL FORGOTTEN</span>
+          </span>
+        </p>
 
         <div className="relative w-20 h-20 mx-auto mb-4 flex items-center justify-center">
           <img
@@ -48,9 +66,9 @@ export default function UnlearnSkillModal({ monster, skill, userId, onClose }: U
         </div>
 
         <div className="space-y-4">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-[#f5f0e8]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
             <span className="font-bold text-white">{monster.name}</span> forgot{' '}
-            <span className="font-bold text-gray-300">{skill.name}</span>. That slot is open again.
+            <span className="font-bold text-[#e8d0a0]">{skill.name}</span>. That slot is open again.
           </p>
           <div className="flex justify-center">
             <MonsterImage monster={monster} className="w-16 h-16" emojiClassName="text-5xl" />

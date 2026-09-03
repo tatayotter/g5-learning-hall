@@ -10,9 +10,10 @@ import { QUALITY_LABEL, getQualityGlowClass } from '@/lib/curioQuality';
 import { TutorOutcome } from '@/lib/tutorCurio';
 import { MonsterDef, getScaledStats } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
-import { playPageFlip, playCurioLevelUp, playMiss } from '@/lib/sounds';
+import { playRerollSpin, playCurioLevelUp, playMiss } from '@/lib/sounds';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
-import GameButton from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 
 interface TutorRollModalProps {
   outcome: TutorOutcome;
@@ -39,7 +40,7 @@ export default function TutorRollModal({ outcome, monsterName, def, monsterLevel
   const afterStats = success ? getScaledStats(def, monsterLevel, outcome.new_quality) : null;
 
   useEffect(() => {
-    playPageFlip();
+    playRerollSpin();
     const t = setTimeout(() => {
       setPhase('reveal');
       if (success) {
@@ -63,6 +64,14 @@ export default function TutorRollModal({ outcome, monsterName, def, monsterLevel
       : outcome.new_quality === 'outstanding' ? 'bg-cyan-400'
       : 'bg-orange-400'
     : 'bg-neutral-500';
+  // Ring color signals the outcome the same way the old border-color swap
+  // did, just moved onto the wood panel's gold-ring boxShadow layer instead.
+  const ringColor = success
+    ? outcome.new_quality === 'good' ? '#16a34a'
+      : outcome.new_quality === 'outstanding' ? '#06b6d4'
+      : '#f97316'
+    : isTala ? '#f472b6' : '#a8a29e';
+  const headlineColor = success ? '#f5c542' : (isTala ? '#f9a8d4' : '#d6d3d1');
 
   return (
     <>
@@ -72,17 +81,25 @@ export default function TutorRollModal({ outcome, monsterName, def, monsterLevel
         onClick={handleBackdropClick}
       >
         <div
-          className={`relative bg-[#f0ddb8] border-2 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in ${
-            success
-              ? outcome.new_quality === 'good' ? 'border-green-600'
-                : outcome.new_quality === 'outstanding' ? 'border-cyan-600'
-                : 'border-orange-600'
-              : isTala ? 'border-pink-400' : 'border-[#c9a87a]'
-          }`}
+          className="relative border-2 border-[#4a2f18] rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in"
+          style={{ boxShadow: `0 0 0 3px ${ringColor}, ${questButtonDropShadow}`, ...woodTextureStyle }}
           onClick={e => e.stopPropagation()}
         >
-          <p className={`font-bold text-sm tracking-wide mb-4 font-display ${success ? 'text-[#2a1505]' : 'text-[#8a7c66]'}`}>
-            Curio Tutoring
+          {/* Same wood-plank + gold trim + corner-nail frame as the battle
+              screen's MonsterHpPanel/PostBattleSummary, reusing its exported
+              style pieces rather than re-deriving them. */}
+          <Nail className="top-2 left-2" />
+          <Nail className="top-2 right-2" />
+          <Nail className="bottom-2 left-2" />
+          <Nail className="bottom-2 right-2" />
+          <p
+            className="text-sm tracking-wide mb-4"
+            style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}
+          >
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              <span aria-hidden style={questTextShadowStyle}>Curio Tutoring</span>
+              <span style={{ ...questTextStyle, color: headlineColor }}>Curio Tutoring</span>
+            </span>
           </p>
 
           <div className="relative w-24 h-24 mx-auto mb-2 flex items-center justify-center">
@@ -98,24 +115,26 @@ export default function TutorRollModal({ outcome, monsterName, def, monsterLevel
           </div>
 
           {phase !== 'reveal' ? (
-            <p className="text-[#2a1505] font-bold text-lg">Consulting the tutor...</p>
+            <p className="text-white font-bold text-lg" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.9)' }}>
+              Consulting the tutor...
+            </p>
           ) : success ? (
             <div className="space-y-4">
               <div>
-                <p className="text-[#2a1505] font-bold text-xl">{monsterName}</p>
-                <p className={`text-2xl font-bold mt-1 ${accentClass ? '' : 'text-[#2a1505]'}`}>
+                <p className="text-white font-bold text-xl" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>{monsterName}</p>
+                <p className="text-2xl font-bold mt-1 text-white" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
                   → {QUALITY_LABEL[outcome.new_quality!]}!
                 </p>
-                <p className="text-[#6b4820] text-xs mt-1">HP and Attack permanently increased.</p>
+                <p className="text-[#e8d0a0] text-xs mt-1">HP and Attack permanently increased.</p>
                 {afterStats && (
                   <div className="flex items-center justify-center gap-4 mt-2 text-xs">
-                    <span className="flex items-center gap-1 text-[#2a1505]">
+                    <span className="flex items-center gap-1 text-white" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
                       <img src="/icons/stats/hp.svg" alt="" className="w-3.5 h-3.5 object-contain" />
-                      {beforeStats.hp} <span className="text-green-700">→ {afterStats.hp}</span>
+                      {beforeStats.hp} <span className="text-green-400">→ {afterStats.hp}</span>
                     </span>
-                    <span className="flex items-center gap-1 text-[#2a1505]">
+                    <span className="flex items-center gap-1 text-white" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
                       <img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" />
-                      {beforeStats.attack} <span className="text-green-700">→ {afterStats.attack}</span>
+                      {beforeStats.attack} <span className="text-green-400">→ {afterStats.attack}</span>
                     </span>
                   </div>
                 )}
@@ -127,8 +146,8 @@ export default function TutorRollModal({ outcome, monsterName, def, monsterLevel
           ) : (
             <div className="space-y-4">
               <div>
-                <p className="text-[#2a1505] font-bold text-lg">No change this time</p>
-                <p className="text-[#6b4820] text-xs mt-1">{monsterName} stays {QUALITY_LABEL[outcome.previous_quality!]}. Try again anytime.</p>
+                <p className="text-white font-bold text-lg" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>No change this time</p>
+                <p className="text-[#e8d0a0] text-xs mt-1">{monsterName} stays {QUALITY_LABEL[outcome.previous_quality!]}. Try again anytime.</p>
               </div>
               <GameButton variant="quest" color="#78716c" onClick={onClose} className="w-full" style={{ fontSize: 15 }}>
                 Okay

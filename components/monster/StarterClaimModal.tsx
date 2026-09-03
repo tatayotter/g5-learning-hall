@@ -10,6 +10,8 @@ import { MonsterDef, getScaledStats } from '@/lib/monsterConfig';
 import { playCurioCaught } from '@/lib/sounds';
 import { MonsterImage } from '@/components/battle/shared';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
+import { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 
 interface StarterClaimModalProps {
   monster: MonsterDef;
@@ -56,13 +58,25 @@ export default function StarterClaimModal({ monster, userId, onComplete }: Start
         onClick={handleBackdropClick}
       >
         <div
-          className={`relative bg-neutral-900 border-2 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in ${
-            isTala ? 'border-pink-500' : 'border-amber-500'
-          }`}
+          className="relative border-2 border-[#4a2f18] rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in"
+          style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
           onClick={e => e.stopPropagation()}
         >
-          <p className={`font-bold text-sm tracking-wide mb-4 ${isTala ? 'text-pink-400' : 'text-amber-400'}`}>
-            ✨ YOUR FIRST CURIO ✨
+          {/* Same wood-plank + gold trim + corner-nail frame as the battle
+              screen's MonsterHpPanel/PostBattleSummary, reusing its exported
+              style pieces rather than re-deriving them. */}
+          <Nail className="top-2 left-2" />
+          <Nail className="top-2 right-2" />
+          <Nail className="bottom-2 left-2" />
+          <Nail className="bottom-2 right-2" />
+          <p
+            className="text-sm tracking-wide mb-4"
+            style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}
+          >
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              <span aria-hidden style={questTextShadowStyle}>YOUR FIRST CURIO</span>
+              <span style={{ ...questTextStyle, color: isTala ? '#f9a8d4' : '#f5c542' }}>YOUR FIRST CURIO</span>
+            </span>
           </p>
 
           <div className="relative w-28 h-28 mx-auto mb-4">
@@ -82,16 +96,16 @@ export default function StarterClaimModal({ monster, userId, onComplete }: Start
           </div>
 
           {phase !== 'reveal' ? (
-            <p className="text-white font-bold text-lg">Sealing the bond...</p>
+            <p className="text-white font-bold text-lg" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.9)' }}>Sealing the bond...</p>
           ) : (
             <div className="space-y-4">
               <div>
-                <p className="text-white font-bold text-xl">{monster.name}</p>
-                <p className="text-xs text-gray-500 capitalize mt-1">{monster.element} · {monster.archetype.replace('_', ' ')}</p>
+                <p className="text-white font-bold text-xl" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>{monster.name}</p>
+                <p className="text-xs text-[#e8d0a0] capitalize mt-1">{monster.element} · {monster.archetype.replace('_', ' ')}</p>
               </div>
 
-              <p className="text-sm text-gray-400">
-                <span className={`font-bold ${isTala ? 'text-pink-400' : 'text-amber-400'}`}>{monster.name}</span> has chosen you! Added to your Curio Arena collection.
+              <p className="text-sm text-[#f5f0e8]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
+                <span className={`font-bold ${isTala ? 'text-pink-300' : 'text-amber-300'}`}>{monster.name}</span> has chosen you! Added to your Curio Arena collection.
               </p>
 
               <div className="space-y-1.5 text-left max-w-[200px] mx-auto">
@@ -101,10 +115,10 @@ export default function StarterClaimModal({ monster, userId, onComplete }: Start
                     className="flex items-center justify-between text-xs battle-panel-in"
                     style={{ animationDelay: `${i * 120}ms`, animationFillMode: 'backwards' }}
                   >
-                    <span className="text-gray-500 flex items-center gap-1">
+                    <span className="text-[#e8d0a0] flex items-center gap-1">
                       <img src={row.icon} alt="" className="w-3.5 h-3.5 object-contain" /> {row.label}
                     </span>
-                    <span className="text-white font-bold">{scaled[row.key]}</span>
+                    <span className="text-white font-bold" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>{scaled[row.key]}</span>
                   </div>
                 ))}
               </div>

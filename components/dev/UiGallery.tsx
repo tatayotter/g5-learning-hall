@@ -61,6 +61,17 @@ import { GauntletBattle, GauntletEmptyScreen, GauntletFinishedScreen } from '@/c
 import { BOSS_PERSONAS } from '@/lib/bossPersonas';
 import type { BossQuestion } from '@/lib/bossFightEngine';
 import { ACHIEVEMENTS } from '@/lib/achievements';
+import {
+  playChime, playClash, playCoins, playBlessing, playLevelUp, playPageFlip,
+  playFootstepGrass, playFootstepTown, playWallBump, playNearbyWhoosh, playMonsterAppear,
+  playAttackWhoosh, playHitThud, playMiss, playVictory, playDefeat,
+  playCurioCaught, playCurioLevelUp, playCurioGraduation, playAchievementUnlock, playCheer,
+  playItemUse, playPvpChallenge, playShopPurchase, playTeachingScroll, playGuardianDefeatVoice,
+  playTradeAccept, playTradeDecline, playEggCrack, playGrowthPillGulp,
+  playSkillInscribe, playSkillForget, playRerollSpin, playPvpAccept, playPvpDecline,
+  startMainTheme, stopMainTheme, startBattleTheme, stopBattleTheme,
+  startTermBossTheme, stopTermBossTheme, startBossFightTheme, stopBossFightTheme,
+} from '@/lib/sounds';
 
 function Section({ title, note, children }: { title: string; note?: string; children: React.ReactNode }) {
   return (
@@ -556,6 +567,90 @@ export default function UiGallery() {
           <button onClick={() => setCelebration({ type: 'curio', key: Date.now() })} className="px-4 py-2 rounded-lg bg-purple-600 text-white text-xs font-bold">🎉 Curio Caught</button>
         </div>
         {celebration && <CelebrationOverlay key={celebration.key} userId="demo" trigger type={celebration.type} onComplete={() => setCelebration(null)} />}
+      </Section>
+
+      <Section
+        title="Sound effects"
+        note="lib/sounds.ts — click to play. Synthesized cues are generated live (no license risk). Recorded clips load from public/sounds/*; curio_caught/curio_level_up/achievement/pvp_challenge were confirmed Pokémon-derived and have been replaced with original AI-generated clips — the remaining ⚠ is still unreviewed, listen critically before reusing its role."
+      >
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-xs font-bold text-[#6b4820] mb-2 uppercase tracking-wide">Synthesized (Web Audio, original)</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <PreviewButton label="Chime (correct)" onClick={playChime} />
+              <PreviewButton label="Clash (wrong)" onClick={playClash} />
+              <PreviewButton label="Coins" onClick={playCoins} />
+              <PreviewButton label="Blessing" onClick={playBlessing} />
+              <PreviewButton label="Level up" onClick={playLevelUp} />
+              <PreviewButton label="Page flip" onClick={playPageFlip} />
+              <PreviewButton label="Footstep (grass)" onClick={playFootstepGrass} />
+              <PreviewButton label="Footstep (town)" onClick={playFootstepTown} />
+              <PreviewButton label="Wall bump" onClick={playWallBump} />
+              <PreviewButton label="Nearby whoosh" onClick={playNearbyWhoosh} />
+              <PreviewButton label="Monster appear" onClick={playMonsterAppear} />
+              <PreviewButton label="Attack whoosh" onClick={playAttackWhoosh} />
+              <PreviewButton label="Hit thud" onClick={playHitThud} />
+              <PreviewButton label="Miss" onClick={playMiss} />
+              <PreviewButton label="Victory" onClick={playVictory} />
+              <PreviewButton label="Defeat" onClick={playDefeat} />
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xs font-bold text-[#6b4820] mb-2 uppercase tracking-wide">Recorded clips (public/sounds/*)</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <PreviewButton label="Curio caught" onClick={playCurioCaught} />
+              <PreviewButton label="Curio level up" onClick={playCurioLevelUp} />
+              <PreviewButton label="⚠ Curio graduation" onClick={playCurioGraduation} />
+              <PreviewButton label="Achievement unlock" onClick={playAchievementUnlock} />
+              <PreviewButton label="Cheer" onClick={playCheer} />
+              <PreviewButton label="Item use" onClick={playItemUse} />
+              <PreviewButton label="PvP challenge" onClick={playPvpChallenge} />
+              <PreviewButton label="Shop purchase" onClick={playShopPurchase} />
+              <PreviewButton label="Teaching scroll" onClick={playTeachingScroll} />
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xs font-bold text-[#6b4820] mb-2 uppercase tracking-wide">New original clips (public/sounds/*, filling prior gaps)</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <PreviewButton label="Trade accept" onClick={playTradeAccept} />
+              <PreviewButton label="Trade decline" onClick={playTradeDecline} />
+              <PreviewButton label="Egg crack" onClick={playEggCrack} />
+              <PreviewButton label="Growth pill gulp" onClick={playGrowthPillGulp} />
+              <PreviewButton label="Skill inscribe" onClick={playSkillInscribe} />
+              <PreviewButton label="Skill forget" onClick={playSkillForget} />
+              <PreviewButton label="Reroll spin" onClick={playRerollSpin} />
+              <PreviewButton label="PvP accept" onClick={playPvpAccept} />
+              <PreviewButton label="PvP decline" onClick={playPvpDecline} />
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xs font-bold text-[#6b4820] mb-2 uppercase tracking-wide">Guardian defeat voice lines (random variant per click)</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <PreviewButton label="Lexicon Arena" onClick={() => playGuardianDefeatVoice('lexiconarena')} />
+              <PreviewButton label="Logic Labyrinth" onClick={() => playGuardianDefeatVoice('logiclabyrinth')} />
+              <PreviewButton label="Lorekeeper" onClick={() => playGuardianDefeatVoice('lorekeeper')} />
+              <PreviewButton label="Number Realm" onClick={() => playGuardianDefeatVoice('numberrealm')} />
+              <PreviewButton label="Spellcaster" onClick={() => playGuardianDefeatVoice('spellcaster')} />
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xs font-bold text-[#6b4820] mb-2 uppercase tracking-wide">Music loops (⚠ start = play, click again to stop)</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <PreviewButton label="⚠ Main theme: start" onClick={startMainTheme} />
+              <PreviewButton label="Main theme: stop" onClick={stopMainTheme} />
+              <PreviewButton label="⚠ Battle theme: start" onClick={startBattleTheme} />
+              <PreviewButton label="Battle theme: stop" onClick={stopBattleTheme} />
+              <PreviewButton label="Term boss theme: start" onClick={startTermBossTheme} />
+              <PreviewButton label="Term boss theme: stop" onClick={stopTermBossTheme} />
+              <PreviewButton label="Boss fight theme: start" onClick={startBossFightTheme} />
+              <PreviewButton label="Boss fight theme: stop" onClick={stopBossFightTheme} />
+            </div>
+          </div>
+        </div>
       </Section>
 
       <Section

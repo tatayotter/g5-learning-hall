@@ -9,7 +9,8 @@ import { useEffect, useState } from 'react';
 import { STREAK_GOLD_LADDER, goldForStreak } from '@/lib/dailyChecklist';
 import { playCoins } from '@/lib/sounds';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
-import GameButton from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 
 interface DailyBonusModalProps {
   streak: number;
@@ -48,13 +49,25 @@ export default function DailyBonusModal({ streak, gold, userId, onClose }: Daily
         onClick={handleBackdropClick}
       >
         <div
-          className={`relative bg-[#f0ddb8] border-2 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in ${
-            isTala ? 'border-pink-500' : 'border-amber-600'
-          }`}
+          className="relative border-2 border-[#4a2f18] rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in"
+          style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
           onClick={e => e.stopPropagation()}
         >
-          <p className={`font-bold text-sm tracking-wide mb-4 ${isTala ? 'text-pink-700' : 'text-amber-700'}`}>
-            🔥 DAILY BONUS CLAIMED 🔥
+          {/* Same wood-plank + gold trim + corner-nail frame as the battle
+              screen's MonsterHpPanel/PostBattleSummary, reusing its exported
+              style pieces rather than re-deriving them. */}
+          <Nail className="top-2 left-2" />
+          <Nail className="top-2 right-2" />
+          <Nail className="bottom-2 left-2" />
+          <Nail className="bottom-2 right-2" />
+          <p
+            className="text-sm tracking-wide mb-4"
+            style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}
+          >
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              <span aria-hidden style={questTextShadowStyle}>DAILY BONUS CLAIMED</span>
+              <span style={{ ...questTextStyle, color: isTala ? '#f9a8d4' : '#f5c542' }}>DAILY BONUS CLAIMED</span>
+            </span>
           </p>
 
           <div className="relative w-24 h-24 mx-auto mb-2 flex items-center justify-center">
@@ -72,13 +85,15 @@ export default function DailyBonusModal({ streak, gold, userId, onClose }: Daily
           </div>
 
           {phase !== 'reveal' ? (
-            <p className="text-[#2a1505] font-bold text-lg">Tallying today's work...</p>
+            <p className="text-white font-bold text-lg" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.9)' }}>
+              Tallying today's work...
+            </p>
           ) : (
             <div className="space-y-4">
               <div>
-                <p className="text-[#2a1505] font-bold text-2xl">+{gold} Gold</p>
-                <p className={`text-sm font-bold mt-1 ${isTala ? 'text-pink-700' : 'text-amber-700'}`}>
-                  🔥 {streak}-day streak{isMaxed ? ' · MAX' : ''}
+                <p className="text-white font-bold text-2xl" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>+{gold} Gold</p>
+                <p className={`text-sm font-bold mt-1 ${isTala ? 'text-pink-300' : 'text-amber-300'}`} style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
+                  {streak}-day streak{isMaxed ? ' · MAX' : ''}
                 </p>
               </div>
 
@@ -94,17 +109,17 @@ export default function DailyBonusModal({ streak, gold, userId, onClose }: Daily
                             ? isTala
                               ? 'bg-pink-600 border-pink-400 text-white'
                               : 'bg-amber-600 border-amber-400 text-white'
-                            : 'bg-[#e8d0a0]/60 border-[#c9a87a] text-[#a89c86]'
+                            : 'bg-black/25 border-[#8a6a3a] text-[#c9a87a]'
                         }`}
                       >
                         {day}
                       </div>
-                      <span className={`text-[9px] ${reached ? 'text-[#3a2610]' : 'text-[#a89c86]'}`}>{tierGold}g</span>
+                      <span className={`text-[9px] ${reached ? 'text-[#f5f0e8]' : 'text-[#c9a87a]'}`}>{tierGold}g</span>
                     </div>
                   );
                 })}
               </div>
-              <p className="text-[10px] text-[#6b4820]">
+              <p className="text-[10px] text-[#e8d0a0]">
                 {isMaxed
                   ? 'Streak bonus maxed out — keep it alive to keep earning 90 gold a day!'
                   : `Come back tomorrow for a ${goldForStreak(streak + 1)}-gold streak day. Miss a day and it resets to 50.`}

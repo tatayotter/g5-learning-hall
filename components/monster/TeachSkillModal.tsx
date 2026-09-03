@@ -6,9 +6,11 @@
 // instead of a whole monster sprite.
 import { useEffect, useState } from 'react';
 import { Skill, MonsterDef, getSkillIconSrc } from '@/lib/monsterConfig';
-import { playCurioLevelUp } from '@/lib/sounds';
+import { playSkillInscribe } from '@/lib/sounds';
 import { MonsterImage } from '@/components/battle/shared';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
+import { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 
 interface TeachSkillModalProps {
   monster: MonsterDef;
@@ -27,7 +29,7 @@ export default function TeachSkillModal({ monster, skill, userId, onClose }: Tea
   useEffect(() => {
     const t = setTimeout(() => {
       setPhase('reveal');
-      playCurioLevelUp();
+      playSkillInscribe();
       setBurst(true);
     }, 900);
     return () => clearTimeout(t);
@@ -45,13 +47,25 @@ export default function TeachSkillModal({ monster, skill, userId, onClose }: Tea
         onClick={handleBackdropClick}
       >
         <div
-          className={`relative bg-neutral-900 border-2 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in ${
-            isTala ? 'border-pink-500' : 'border-amber-500'
-          }`}
+          className="relative border-2 border-[#4a2f18] rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in"
+          style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
           onClick={e => e.stopPropagation()}
         >
-          <p className={`font-bold text-sm tracking-wide mb-4 ${isTala ? 'text-pink-400' : 'text-amber-400'}`}>
-            📜 NEW SKILL LEARNED 📜
+          {/* Same wood-plank + gold trim + corner-nail frame as the battle
+              screen's MonsterHpPanel/PostBattleSummary, reusing its exported
+              style pieces rather than re-deriving them. */}
+          <Nail className="top-2 left-2" />
+          <Nail className="top-2 right-2" />
+          <Nail className="bottom-2 left-2" />
+          <Nail className="bottom-2 right-2" />
+          <p
+            className="text-sm tracking-wide mb-4"
+            style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}
+          >
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              <span aria-hidden style={questTextShadowStyle}>NEW SKILL LEARNED</span>
+              <span style={{ ...questTextStyle, color: isTala ? '#f9a8d4' : '#f5c542' }}>NEW SKILL LEARNED</span>
+            </span>
           </p>
 
           <div className="relative w-24 h-24 mx-auto mb-4 flex items-center justify-center">
@@ -69,16 +83,16 @@ export default function TeachSkillModal({ monster, skill, userId, onClose }: Tea
           </div>
 
           {phase !== 'reveal' ? (
-            <p className="text-white font-bold text-lg">Inscribing the scroll...</p>
+            <p className="text-white font-bold text-lg" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.9)' }}>Inscribing the scroll...</p>
           ) : (
             <div className="space-y-4">
               <div>
-                <p className="text-white font-bold text-xl">{skill.name}</p>
-                <p className="text-xs text-gray-500 mt-1">{skill.description}</p>
+                <p className="text-white font-bold text-xl" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>{skill.name}</p>
+                <p className="text-xs text-[#e8d0a0] mt-1">{skill.description}</p>
               </div>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-[#f5f0e8]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
                 <span className="font-bold text-white">{monster.name}</span> learned{' '}
-                <span className={`font-bold ${isTala ? 'text-pink-400' : 'text-amber-400'}`}>{skill.name}</span>!
+                <span className={`font-bold ${isTala ? 'text-pink-300' : 'text-amber-300'}`}>{skill.name}</span>!
               </p>
               <div className="flex justify-center">
                 <MonsterImage monster={monster} className="w-16 h-16" emojiClassName="text-5xl" />
