@@ -1127,6 +1127,13 @@ html {
   justify-content: center;
   overflow: hidden;
 }
+/* Fullscreen maps (e.g. the training map) drop the 896px cap so the shell
+   can grow past it on wide desktop viewports — useStageScale's coverMode
+   branch scales .mstage-scale-inner off window dimensions to fill it, and
+   the fixed inset-0 wrapper around the whole stage clips any overflow. */
+.mstage-shell-cover {
+  max-width: none;
+}
 .mstage-scale-inner {
   width: 896px;
   height: 504px;

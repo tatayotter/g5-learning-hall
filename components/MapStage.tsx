@@ -124,7 +124,7 @@ export default function MapStage({
   ) : null;
 
   const shell = (
-    <div ref={shellRef} className="mstage-shell mx-auto" style={{ height: CANVAS_HEIGHT * scale }}>
+    <div ref={shellRef} className={`mstage-shell mx-auto${fullscreen ? ' mstage-shell-cover' : ''}`} style={{ height: CANVAS_HEIGHT * scale }}>
       <div className="mstage-scale-inner" style={{ transform: `scale(${scale})` }}>
         {canvas}
       </div>

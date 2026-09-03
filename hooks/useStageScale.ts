@@ -28,12 +28,18 @@ export function useStageScale(canvasWidth: number, canvasHeight: number, coverMo
   }, []);
 
   useEffect(() => {
-    if (isMobile) {
+    // coverMode (fullscreen maps, e.g. the training map) always fills the
+    // viewport edge-to-edge by scaling off window dimensions, not just on
+    // mobile widths — desktop windows are routinely wider than the 896px
+    // canvas, so the old isMobile-only gating left coverMode desktop users
+    // stuck at the ResizeObserver contain-fit below (scale capped at 1,
+    // centered with letterbox bars) instead of actually covering the screen.
+    if (isMobile || coverMode) {
       const update = () => {
         const scaleW = window.innerWidth / canvasWidth;
         const scaleH = window.innerHeight / canvasHeight;
-        // coverMode = fill viewport (map fullscreen): scale by the larger axis so
-        // both dimensions are at least as big as the viewport (overflow is cropped).
+        // coverMode = fill viewport: scale by the larger axis so both
+        // dimensions are at least as big as the viewport (overflow cropped).
         // Default = fit/contain: scale by the smaller axis (letterbox).
         setScale(coverMode ? Math.max(scaleW, scaleH) : Math.min(scaleW, scaleH));
       };
