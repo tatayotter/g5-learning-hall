@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bungee, Cinzel, Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import ContentProtection from "@/components/ContentProtection";
 import FacebookPixel from "@/components/FacebookPixel";
@@ -94,6 +95,7 @@ export default function RootLayout({
         <ContentProtection />
         <FacebookPixel />
         {children}
+        <Analytics />
       </body>
     </html>
   );
