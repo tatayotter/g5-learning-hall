@@ -37,6 +37,7 @@ import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
 import WelcomeCard from '@/components/WelcomeCard';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CompendiumPanel from '@/components/monster/CompendiumPanel';
+import RecyclerTradePanel from '@/components/monster/map/panels/RecyclerTradePanel';
 
 import Toast from '@/components/Toast';
 import AchievementToast from '@/components/AchievementToast';
@@ -516,6 +517,25 @@ export default function UiGallery() {
 
       <Section title="Referral key display" note="components/ReferralKeyDisplay.tsx — compact variant only (the full variant fetches live referral stats on mount)">
         <ReferralKeyDisplay referralKey="HERO4821" compact />
+      </Section>
+
+      <Section title="Recycler trade panel" note="components/monster/map/panels/RecyclerTradePanel.tsx — the map's trash-for-gold NPC panel">
+        <div className="grid sm:grid-cols-2 gap-4 bg-neutral-950 rounded-xl p-4">
+          <RecyclerTradePanel
+            trashInventory={{ paper: 10, bottle: 2, wrapper: 1, pencil: 0, chipbag: 0 }}
+            canTrade={true}
+            pendingTradeGold={1}
+            onTradeAll={() => {}}
+            onDismiss={() => {}}
+          />
+          <RecyclerTradePanel
+            trashInventory={{ paper: 3, bottle: 1, wrapper: 0, pencil: 0, chipbag: 0 }}
+            canTrade={false}
+            pendingTradeGold={0}
+            onTradeAll={() => {}}
+            onDismiss={() => {}}
+          />
+        </div>
       </Section>
 
       <Section title="Guardian sprite" note="components/guilds/GuardianSprite.tsx — one per guild, idle pose">
