@@ -469,7 +469,7 @@ export function playVictory() {
   });
 }
 
-// --- New curio obtained: recorded fanfare clip ---
+// --- New curio obtained: recorded fanfare clip (original AI-generated, replaces a Pokémon-derived clip) ---
 export function playCurioCaught() {
   if (!sfxEnabled) return;
   const audio = new Audio('/sounds/curio_caught.mp3');
@@ -477,7 +477,7 @@ export function playCurioCaught() {
   audio.play().catch(() => {});
 }
 
-// --- Curio leveled up: recorded fanfare clip ---
+// --- Curio leveled up: recorded fanfare clip (original AI-generated, replaces a Pokémon-derived clip) ---
 export function playCurioLevelUp() {
   if (!sfxEnabled) return;
   const audio = new Audio('/sounds/curio_level_up.mp3');
@@ -496,7 +496,7 @@ export function playCurioGraduation() {
 // --- Achievement unlocked: recorded fanfare clip ---
 export function playAchievementUnlock() {
   if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/achievement.wav');
+  const audio = new Audio('/sounds/achievement.mp3');
   audio.volume = 0.6;
   audio.play().catch(() => {});
 }
@@ -537,6 +537,78 @@ export function playShopPurchase() {
 export function playTeachingScroll() {
   if (!sfxEnabled) return;
   const audio = new Audio('/sounds/teaching_scroll.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- Trade accepted/completed: recorded clip ---
+export function playTradeAccept() {
+  if (!sfxEnabled) return;
+  const audio = new Audio('/sounds/trade_accept.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- Trade declined: recorded clip ---
+export function playTradeDecline() {
+  if (!sfxEnabled) return;
+  const audio = new Audio('/sounds/trade_decline.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- Egg cracking open: recorded clip ---
+export function playEggCrack() {
+  if (!sfxEnabled) return;
+  const audio = new Audio('/sounds/egg_crack.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- Growth Pill consumed: recorded clip ---
+export function playGrowthPillGulp() {
+  if (!sfxEnabled) return;
+  const audio = new Audio('/sounds/growth_pill_gulp.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- New skill inscribed onto a curio: recorded clip ---
+export function playSkillInscribe() {
+  if (!sfxEnabled) return;
+  const audio = new Audio('/sounds/skill_inscribe.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- Skill unlearned/forgotten: recorded clip ---
+export function playSkillForget() {
+  if (!sfxEnabled) return;
+  const audio = new Audio('/sounds/skill_forget.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- Tutor reroll spin: recorded clip ---
+export function playRerollSpin() {
+  if (!sfxEnabled) return;
+  const audio = new Audio('/sounds/reroll_spin.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- Live-battle challenge accepted: recorded clip ---
+export function playPvpAccept() {
+  if (!sfxEnabled) return;
+  const audio = new Audio('/sounds/pvp_accept.mp3');
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
+}
+
+// --- Live-battle challenge declined: recorded clip ---
+export function playPvpDecline() {
+  if (!sfxEnabled) return;
+  const audio = new Audio('/sounds/pvp_decline.mp3');
   audio.volume = 0.6;
   audio.play().catch(() => {});
 }

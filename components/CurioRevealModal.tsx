@@ -7,7 +7,8 @@ import { MonsterDef } from '@/lib/monsterConfig';
 import { playCurioCaught } from '@/lib/sounds';
 import { MonsterImage } from '@/components/battle/shared';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
-import GameButton from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 
 interface CurioRevealModalProps {
   monster: MonsterDef;
@@ -32,20 +33,32 @@ export default function CurioRevealModal({ monster, userId, onClose }: CurioReve
         onClick={onClose}
       >
         <div
-          className={`bg-[#f0ddb8] border-2 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in ${
-            isTala ? 'border-pink-500' : 'border-amber-600'
-          }`}
+          className="relative border-2 border-[#4a2f18] rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in"
+          style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
           onClick={e => e.stopPropagation()}
         >
-          <p className={`font-bold text-sm tracking-wide mb-4 ${isTala ? 'text-pink-700' : 'text-amber-700'}`}>
-            ✨ NEW CURIO OBTAINED! ✨
+          {/* Same wood-plank + gold trim + corner-nail frame as the battle
+              screen's MonsterHpPanel/PostBattleSummary, reusing its exported
+              style pieces rather than re-deriving them. */}
+          <Nail className="top-2 left-2" />
+          <Nail className="top-2 right-2" />
+          <Nail className="bottom-2 left-2" />
+          <Nail className="bottom-2 right-2" />
+          <p
+            className="text-sm tracking-wide mb-4"
+            style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}
+          >
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              <span aria-hidden style={questTextShadowStyle}>NEW CURIO OBTAINED!</span>
+              <span style={{ ...questTextStyle, color: isTala ? '#f9a8d4' : '#f5c542' }}>NEW CURIO OBTAINED!</span>
+            </span>
           </p>
           <div className="flex justify-center mb-4">
             <MonsterImage monster={monster} className="w-28 h-28 battle-float" emojiClassName="text-8xl" />
           </div>
-          <p className="text-[#2a1505] font-bold text-xl mb-1">{monster.name}</p>
-          <p className="text-xs text-[#6b4820] capitalize mb-6">{monster.element} · {monster.archetype}</p>
-          <p className="text-sm text-[#6b4820] mb-6">Added to your Curio Arena collection!</p>
+          <p className="text-white font-bold text-xl mb-1" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>{monster.name}</p>
+          <p className="text-xs text-[#e8d0a0] capitalize mb-6">{monster.element} · {monster.archetype}</p>
+          <p className="text-sm text-[#f5f0e8] mb-6" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Added to your Curio Arena collection!</p>
           <GameButton variant="quest" color={isTala ? '#db2777' : '#d97706'} onClick={onClose} className="w-full" style={{ fontSize: 15 }}>
             Awesome!
           </GameButton>

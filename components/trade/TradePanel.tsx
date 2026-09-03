@@ -21,6 +21,7 @@ import {
   PlayerSearchResult, TradeThread, TradeWithItems,
 } from '@/lib/trades';
 import { logAction } from '@/lib/playerlog';
+import { playTradeAccept, playTradeDecline } from '@/lib/sounds';
 import GameButton from '@/components/GameButton';
 
 interface TradePanelProps {
@@ -88,10 +89,12 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted, onT
     setBusyId(tradeId);
     const result = await respondToTrade(tradeId, accept);
     if (result.status === 'completed') {
+      playTradeAccept();
       logAction(userId, currentSunday(), 'trade', '🔄 Completed a curio trade', 0, 0);
       onTradeConfirmed?.();
       onGoldChanged?.();
     } else if (!accept) {
+      playTradeDecline();
       logAction(userId, currentSunday(), 'trade', '🔄 Declined a trade request', 0, 0);
     }
     setBusyId(null);
