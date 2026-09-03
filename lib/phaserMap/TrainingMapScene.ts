@@ -455,6 +455,10 @@ export default class TrainingMapScene extends Phaser.Scene {
       const key = `bg:${state.background.src}`;
       this.ensureTexture(key, state.background.src, () => {
         if (this.bgSrc !== (state.background as { type: 'image'; src: string }).src) return; // superseded
+        // Override pixelArt:true global setting — this is painted region art,
+        // not pixel sprites, and needs bilinear filtering (see setLinearFilter
+        // for player avatars above; map art was missing the same treatment).
+        this.setLinearFilter(key);
         this.bg?.destroy();
         this.bg = this.add.image(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, key);
         this.bg.setDisplaySize(CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -491,6 +495,10 @@ export default class TrainingMapScene extends Phaser.Scene {
     const tryBuild = () => {
       if (pending > 0) return;
       if (bg.key !== this.tilemapKey) return; // superseded by a newer call
+      // Override pixelArt:true global setting — tileset art is painted line
+      // art, not pixel sprites, and needs bilinear filtering (same reasoning
+      // as setLinearFilter for player avatars/background image above).
+      for (const [, key] of imageKeys) this.setLinearFilter(key);
       this.clearTilemap();
       this.tilemapKey = bg.key;
       const map = this.add.tilemap(mapDataKey);
