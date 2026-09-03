@@ -21,6 +21,7 @@ import {
   PlayerSearchResult, TradeThread, TradeWithItems,
 } from '@/lib/trades';
 import { logAction } from '@/lib/playerlog';
+import GameButton from '@/components/GameButton';
 
 interface TradePanelProps {
   userId: UserId;
@@ -112,7 +113,7 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted, onT
 
   return (
     <div className="space-y-6">
-      <div className="flex gap-2 border-b border-neutral-800">
+      <div className="flex gap-2 border-b border-[#c9a87a]">
         {([
           { id: 'pending', label: `Requests${incomingCount > 0 ? ` (${incomingCount})` : ''}` },
           { id: 'new', label: 'New Trade' },
@@ -122,7 +123,7 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted, onT
             key={t.id}
             onClick={() => setTab(t.id)}
             className={`px-4 py-2 text-sm font-bold transition-colors border-b-2 -mb-px ${
-              tab === t.id ? 'border-amber-400 text-amber-400' : 'border-transparent text-gray-400 hover:text-white'
+              tab === t.id ? 'border-[#c9781a] text-[#c9781a]' : 'border-transparent text-[#6b4820] hover:text-[#2a1505]'
             }`}
           >
             {t.label}
@@ -132,7 +133,7 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted, onT
 
       {tab === 'pending' && (
         <div className="space-y-3">
-          {activeThreads.length === 0 && <p className="text-sm text-gray-500">No open trade requests.</p>}
+          {activeThreads.length === 0 && <p className="text-sm text-[#6b4820]">No open trade requests.</p>}
           {activeThreads.map(thread => (
             <ThreadCard
               key={thread.threadId}
@@ -161,7 +162,7 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted, onT
 
       {tab === 'history' && (
         <div className="space-y-3">
-          {historyThreads.length === 0 && <p className="text-sm text-gray-500">No completed trades yet.</p>}
+          {historyThreads.length === 0 && <p className="text-sm text-[#6b4820]">No completed trades yet.</p>}
           {historyThreads.map(thread => (
             <ThreadCard key={thread.threadId} thread={thread} viewerId={userId} userMonsters={userMonsters} readOnly />
           ))}
@@ -206,39 +207,39 @@ function ThreadCard({
   const canCancel = latest.status === 'pending' && latest.initiator_id === viewerId;
 
   return (
-    <div className="border border-neutral-800 rounded-xl p-4 bg-neutral-900/50">
+    <div className="border border-[#c9a87a] rounded-xl p-4 bg-white">
       <div className="flex items-center justify-between mb-2">
-        <p className="text-sm font-bold text-white">
+        <p className="text-sm font-bold text-[#2a1505]">
           {isInitiator ? `To ${otherPartyId}` : `From ${otherPartyId}`}
         </p>
-        <span className="text-xs text-gray-500 uppercase">{latest.status}</span>
+        <span className="text-xs text-[#6b4820] uppercase">{latest.status}</span>
       </div>
-      <div className="grid grid-cols-2 gap-4 text-sm text-gray-300 mb-3">
+      <div className="grid grid-cols-2 gap-4 text-sm text-[#3a2610] mb-3">
         <div>
-          <p className="text-xs text-gray-500 mb-1">You give</p>
+          <p className="text-xs text-[#6b4820] mb-1">You give</p>
           <p>{myItems.length} curio{myItems.length === 1 ? '' : 's'}{myGold > 0 ? ` + ${myGold} gold` : ''}</p>
         </div>
         <div>
-          <p className="text-xs text-gray-500 mb-1">You get</p>
+          <p className="text-xs text-[#6b4820] mb-1">You get</p>
           <p>{theirItems.length} curio{theirItems.length === 1 ? '' : 's'}{theirGold > 0 ? ` + ${theirGold} gold` : ''}</p>
         </div>
       </div>
       {latest.status === 'failed' && latest.fail_reason && (
-        <p className="text-xs text-red-400 mb-2">{latest.fail_reason}</p>
+        <p className="text-xs text-red-600 mb-2">{latest.fail_reason}</p>
       )}
       {canCancel && !readOnly && (
-        <p className="text-xs text-gray-500 mb-2">Waiting for {otherPartyId} to respond.</p>
+        <p className="text-xs text-[#6b4820] mb-2">Waiting for {otherPartyId} to respond.</p>
       )}
 
       {thread.trades.length > 1 && (
-        <button onClick={() => setShowLog(v => !v)} className="text-xs text-indigo-400 hover:text-indigo-300 font-bold mb-2">
+        <button onClick={() => setShowLog(v => !v)} className="text-xs text-indigo-600 hover:text-indigo-500 font-bold mb-2">
           {showLog ? '▲ Hide offer history' : `▼ Show offer history (${thread.trades.length} offers)`}
         </button>
       )}
       {showLog && (
-        <div className="space-y-1 mb-3 border-l-2 border-neutral-800 pl-3">
+        <div className="space-y-1 mb-3 border-l-2 border-[#c9a87a] pl-3">
           {thread.trades.map(t => (
-            <p key={t.id} className="text-xs text-gray-500">
+            <p key={t.id} className="text-xs text-[#6b4820]">
               {offerSummary(t, t.initiator_id === viewerId ? 'You' : t.initiator_id)}
               {' — '}{t.status}
             </p>
@@ -251,21 +252,21 @@ function ThreadCard({
           <button
             disabled={busy}
             onClick={onAccept}
-            className="px-3 py-1.5 text-xs font-bold rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white disabled:opacity-50"
+            className="px-3 py-1.5 text-xs font-bold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white disabled:opacity-50"
           >
             Accept
           </button>
           <button
             disabled={busy}
             onClick={onDecline}
-            className="px-3 py-1.5 text-xs font-bold rounded-lg bg-neutral-800 hover:bg-neutral-700 text-gray-300 disabled:opacity-50"
+            className="px-3 py-1.5 text-xs font-bold rounded-lg bg-[#8b5e2a] hover:bg-[#6b4820] text-white disabled:opacity-50"
           >
             Decline
           </button>
           <button
             disabled={busy}
             onClick={onStartCounter}
-            className="px-3 py-1.5 text-xs font-bold rounded-lg bg-indigo-800 hover:bg-indigo-700 text-white disabled:opacity-50"
+            className="px-3 py-1.5 text-xs font-bold rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white disabled:opacity-50"
           >
             Counter
           </button>
@@ -275,14 +276,14 @@ function ThreadCard({
         <button
           disabled={busy}
           onClick={onCancel}
-          className="px-3 py-1.5 text-xs font-bold rounded-lg bg-neutral-800 hover:bg-neutral-700 text-gray-300 disabled:opacity-50"
+          className="px-3 py-1.5 text-xs font-bold rounded-lg bg-[#8b5e2a] hover:bg-[#6b4820] text-white disabled:opacity-50"
         >
           Cancel
         </button>
       )}
 
       {countering && onCounterSubmitted && (
-        <div className="mt-4 pt-4 border-t border-neutral-800">
+        <div className="mt-4 pt-4 border-t border-[#c9a87a]">
           <CounterOfferFlow
             trade={latest}
             viewerId={viewerId}
@@ -356,21 +357,21 @@ function NewTradeFlow({
   if (!target) {
     return (
       <div className="max-w-md">
-        <label className="text-sm font-bold text-gray-400 block mb-2">Search for a player</label>
+        <label className="text-sm font-bold text-[#6b4820] block mb-2">Search for a player</label>
         <input
           value={query}
           onChange={e => setQuery(e.target.value)}
           placeholder="Type a name…"
-          className="w-full px-3 py-2 rounded-lg bg-neutral-900 border border-neutral-700 text-white text-sm"
+          className="w-full px-3 py-2 rounded-lg bg-white border border-[#c9a87a] text-[#2a1505] text-sm"
         />
         <div className="mt-2 space-y-1">
           {results.map(p => (
             <button
               key={p.id}
               onClick={() => selectTarget(p)}
-              className="w-full text-left px-3 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-sm text-gray-200"
+              className="w-full text-left px-3 py-2 rounded-lg bg-white hover:bg-[#f0ddb8] border border-[#c9a87a] text-sm text-[#2a1505]"
             >
-              {p.display_name} <span className="text-gray-500">· {p.grade}</span>
+              {p.display_name} <span className="text-[#6b4820]">· {p.grade}</span>
             </button>
           ))}
         </div>
@@ -381,8 +382,8 @@ function NewTradeFlow({
   return (
     <div className="space-y-5">
       <div className="flex items-center justify-between">
-        <p className="text-sm text-gray-300">Trading with <span className="font-bold text-white">{target.display_name}</span></p>
-        <button onClick={() => setTarget(null)} className="text-xs text-gray-500 hover:text-gray-300">Change player</button>
+        <p className="text-sm text-[#3a2610]">Trading with <span className="font-bold text-[#2a1505]">{target.display_name}</span></p>
+        <button onClick={() => setTarget(null)} className="text-xs text-[#6b4820] hover:text-[#2a1505]">Change player</button>
       </div>
 
       <OfferBuilder
@@ -453,41 +454,43 @@ function OfferBuilder({
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="text-xs font-bold text-gray-400 block mb-1">Add your gold (optional)</label>
+          <label className="text-xs font-bold text-[#6b4820] block mb-1">Add your gold (optional)</label>
           <input
             type="number"
             min={0}
             value={myGold}
             onChange={e => setMyGold(Math.max(0, parseInt(e.target.value, 10) || 0))}
-            className="w-full px-3 py-2 rounded-lg bg-neutral-900 border border-neutral-700 text-white text-sm"
+            className="w-full px-3 py-2 rounded-lg bg-white border border-[#c9a87a] text-[#2a1505] text-sm"
           />
         </div>
         <div>
-          <label className="text-xs font-bold text-gray-400 block mb-1">Request their gold (optional)</label>
+          <label className="text-xs font-bold text-[#6b4820] block mb-1">Request their gold (optional)</label>
           <input
             type="number"
             min={0}
             value={theirGold}
             onChange={e => setTheirGold(Math.max(0, parseInt(e.target.value, 10) || 0))}
-            className="w-full px-3 py-2 rounded-lg bg-neutral-900 border border-neutral-700 text-white text-sm"
+            className="w-full px-3 py-2 rounded-lg bg-white border border-[#c9a87a] text-[#2a1505] text-sm"
           />
         </div>
       </div>
 
-      <div className="rounded-lg bg-amber-950/30 border border-amber-900 px-4 py-3 text-sm text-amber-300">
+      <div className="rounded-lg bg-amber-50 border border-amber-300 px-4 py-3 text-sm text-amber-800">
         Estimated fee you'll pay if accepted: <span className="font-bold">{fee} gold</span>
         {' '}(250 per curio moved + 8% of any gold you send, min 1). Final fee is confirmed by the server when the trade is accepted.
       </div>
 
-      {error && <p className="text-sm text-red-400">{error}</p>}
+      {error && <p className="text-sm text-red-600">{error}</p>}
 
-      <button
+      <GameButton
+        variant="quest"
+        color="#d97706"
         disabled={submitting || (myPicked.size === 0 && theirPicked.size === 0)}
         onClick={submit}
-        className="px-5 py-2.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-black font-bold text-sm disabled:opacity-50"
+        style={{ fontSize: 15 }}
       >
         {submitting ? 'Sending…' : submitLabel}
-      </button>
+      </GameButton>
     </div>
   );
 }
@@ -502,21 +505,21 @@ function MonsterPicker({
 }) {
   return (
     <div>
-      <p className="text-xs font-bold text-gray-400 mb-2">{title}</p>
+      <p className="text-xs font-bold text-[#6b4820] mb-2">{title}</p>
       <div className="space-y-1 max-h-64 overflow-y-auto pr-1">
         {monsters.map(m => (
           <button
             key={m.id}
             onClick={() => onToggle(m.id)}
             className={`w-full flex items-center gap-2 px-2 py-1.5 rounded-lg border text-left text-sm ${
-              picked.has(m.id) ? 'border-amber-400 bg-amber-900/20 text-amber-200' : 'border-neutral-800 bg-neutral-900 text-gray-300'
+              picked.has(m.id) ? 'border-[#c9781a] bg-[#c9781a]/20 text-[#8b5e2a]' : 'border-[#c9a87a] bg-white text-[#2a1505]'
             }`}
           >
             <MonsterImage monster={displayDef(m)} className="w-8 h-8" emojiClassName="text-lg" />
-            <span>{monsterLabel(m)} <span className="text-gray-500">Lv.{m.monster_level}</span></span>
+            <span>{monsterLabel(m)} <span className="text-[#6b4820]">Lv.{m.monster_level}</span></span>
           </button>
         ))}
-        {monsters.length === 0 && <p className="text-xs text-gray-500">No curios available.</p>}
+        {monsters.length === 0 && <p className="text-xs text-[#6b4820]">No curios available.</p>}
       </div>
     </div>
   );

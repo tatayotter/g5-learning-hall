@@ -14,7 +14,7 @@ import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash, playLevelUp } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { GUILDS } from '@/lib/dailyChecklist';
-import GameButton from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
@@ -193,17 +193,28 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
           <div className="w-40 h-40 mx-auto mb-4">
             <GuardianSprite guild="lexiconarena" pose="idle" className="w-full h-full" />
           </div>
-          <h2 className={`text-3xl font-display font-bold mb-2 ${accent}`}>Lexicon Arena</h2>
+          {/* Same Bungee/stroke/shadow text treatment as the quest GameButton's
+              label (2026-08-29), in the guild's own theme color (Tala pink vs.
+              indigo — Lexicon Arena's actual brand color on its Dashboard
+              guild card; the local `accent` var's amber collides with Number
+              Realm's amber and isn't this guild's real color) instead of the
+              button's white. */}
+          <h2 className="text-2xl mb-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              <span aria-hidden style={questTextShadowStyle}>Lexicon Arena</span>
+              <span style={{ ...questTextStyle, color: isTala ? '#f472b6' : '#818cf8' }}>Lexicon Arena</span>
+            </span>
+          </h2>
           <p className="text-gray-500 italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'lexicon_arena')?.lore}</p>
           <p className={`${accent} font-mono mb-1`}>Lvl {profile?.lexicon_arena_lvl || 1} · {profile?.lexicon_arena_xp || 0}/500 XP</p>
           <p className="text-gray-500 text-xs mb-1">Grade {profile?.lexicon_arena_tier || MIN_GRADE_STAGE} · {gradeStageStars(profile?.lexicon_arena_tier || MIN_GRADE_STAGE)}</p>
           <p className="text-gray-500 mb-6 text-sm max-w-md mx-auto">
-            Read the definition carefully, then pick the <span className="font-bold text-white">correctly spelled word</span> from the four choices. Watch out — the wrong ones look very close!
+            Read the definition carefully, then pick the <span className="font-bold text-[#2a1505]">correctly spelled word</span> from the four choices. Watch out — the wrong ones look very close!
           </p>
 
           <div className="grid grid-cols-3 gap-4 mb-8 text-center">
             <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
-              <p className="text-2xl font-bold font-mono text-white">⏱ {timeLimit}s</p>
+              <p className="text-2xl font-bold font-mono text-[#2a1505]">⏱ {timeLimit}s</p>
               <p className="text-xs text-gray-500 mt-1">Time Limit</p>
             </div>
             <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">

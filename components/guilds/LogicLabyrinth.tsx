@@ -14,7 +14,7 @@ import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { GUILDS } from '@/lib/dailyChecklist';
-import GameButton from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
@@ -162,7 +162,15 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
           <div className="w-40 h-40 mx-auto mb-4">
             <GuardianSprite guild="logiclabyrinth" pose="idle" className="w-full h-full" />
           </div>
-          <h2 className="text-4xl font-display font-bold text-cyan-700 mb-2">Logic Labyrinth</h2>
+          {/* Same Bungee/stroke/shadow text treatment as the quest GameButton's
+              label (2026-08-29), in the guild's own theme color instead of
+              the button's white. */}
+          <h2 className="text-2xl mb-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              <span aria-hidden style={questTextShadowStyle}>Logic Labyrinth</span>
+              <span style={{ ...questTextStyle, color: '#22d3ee' }}>Logic Labyrinth</span>
+            </span>
+          </h2>
           <p className="text-cyan-700 font-mono italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'logic_labyrinth')?.lore}</p>
           <p className="text-gray-500 font-mono mb-1">Lvl {profile?.logic_labyrinth_lvl || 1} · {profile?.logic_labyrinth_xp || 0}/500 XP</p>
           <p className="text-cyan-700 text-xs font-mono mb-1">Grade {profile?.logic_labyrinth_tier || MIN_GRADE_STAGE} · {gradeStageStars(profile?.logic_labyrinth_tier || MIN_GRADE_STAGE)}</p>
@@ -170,7 +178,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
 
           <div className="grid grid-cols-3 gap-4 mb-8 text-center">
             <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
-              <p className="text-2xl font-bold font-mono text-white">⏱ {timeLimit}s</p>
+              <p className="text-2xl font-bold font-mono text-[#2a1505]">⏱ {timeLimit}s</p>
               <p className="text-xs text-gray-500 mt-1">Time Limit</p>
             </div>
             <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">

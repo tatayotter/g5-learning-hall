@@ -257,8 +257,15 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-bold text-white font-display">Compendium</h3>
-        <p className="text-xs text-gray-500">Every curio species in the game. Wild-only species stay a mystery silhouette until you encounter one on the Training Map.</p>
+        {/* Same Bungee/stroke/shadow text treatment as the quest GameButton's
+            label (2026-08-29), in quest gold instead of the button's white. */}
+        <h3 className="text-lg" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+          <span style={{ position: 'relative', display: 'inline-block' }}>
+            <span aria-hidden style={questTextShadowStyle}>Compendium</span>
+            <span style={{ ...questTextStyle, color: '#f5c542' }}>Compendium</span>
+          </span>
+        </h3>
+        <p className="text-xs text-[#6b4820]">Every curio species in the game. Wild-only species stay a mystery silhouette until you encounter one on the Training Map.</p>
       </div>
 
       {selected && (

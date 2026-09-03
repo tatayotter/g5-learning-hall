@@ -1,7 +1,7 @@
 ﻿// components/Dashboard.tsx
 'use client';
 
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { UserId, getActiveUser, clearActiveUser, loadAllUsersData, saveTheme, linkIdentity, recordLastLogin, USERS, gradeToNumber } from '@/lib/userSession';
@@ -31,7 +31,7 @@ import CodexPanel from '@/components/CodexPanel';
 import { playShopPurchase, playPageFlip, startMainTheme, stopMainTheme, startTermBossTheme, stopTermBossTheme, isSfxEnabled, isMusicEnabled, setSfxEnabled, setMusicEnabled } from '@/lib/sounds';
 import Toast from '@/components/Toast';
 import { motion, AnimatePresence } from 'framer-motion';
-import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle } from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import AchievementToast from '@/components/AchievementToast';
 import { useAchievementNotifier } from '@/hooks/useAchievementNotifier';
 import LexiconArena from '@/components/guilds/LexiconArena';
@@ -329,6 +329,13 @@ export default function Dashboard() {
   const [loginStreak, setLoginStreak] = useState(0);
   const [checklistClaimedToday, setChecklistClaimedToday] = useState(false);
   const [todoCount, setTodoCount] = useState<{ done: number; total: number } | null>(null);
+  // Stable identity across renders — DailyChecklist's own effect depends on
+  // this callback, so an inline arrow here (a fresh function every render)
+  // would re-fire that effect every render, which calls this, which
+  // re-renders Dashboard, forever ("Maximum update depth exceeded").
+  const handleTodoCountChange = useCallback((done: number, total: number) => {
+    setTodoCount({ done, total });
+  }, []);
   useEffect(() => {
     if (!activeUserId) return;
     const today = new Date().toISOString().slice(0, 10);
@@ -947,7 +954,15 @@ export default function Dashboard() {
         {/* --- TAB A: QUEST BOARD --- */}
         {activeTab === 'board' && activeQuest === null && activeEventQuest === null && activeBossFight === null && activeGauntletDay === null && (
           <div>
-            <h1 className="text-2xl lg:text-3xl font-bold mt-4 mb-2 font-display text-gray-900">Active Campaign Map</h1>
+            {/* Same Bungee/stroke/shadow text treatment as the quest
+                GameButton's label (2026-08-29), in quest gold instead of
+                the button's white. */}
+            <h1 className="text-2xl lg:text-3xl mt-4 mb-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+              <span style={{ position: 'relative', display: 'inline-block' }}>
+                <span aria-hidden style={questTextShadowStyle}>Active Campaign Map</span>
+                <span style={{ ...questTextStyle, color: '#f5c542' }}>Active Campaign Map</span>
+              </span>
+            </h1>
             <p className="text-gray-500 mb-4 text-sm">Select an open, active quest card from the schedule below to begin your training.</p>
 
             <div data-tutorial-id="board-welcome">
@@ -1602,7 +1617,16 @@ export default function Dashboard() {
           <div>
             {activeGuild === null ? (
               <div className="battle-panel-in" data-tutorial-id="guilds-welcome">
-                <h1 className="text-2xl lg:text-3xl font-bold mt-4 mb-4 font-display text-gray-900">Side Quest Guilds</h1>
+                {/* Same Bungee/stroke/shadow text treatment as the quest
+                    GameButton's label (2026-08-29), in quest gold instead
+                    of the button's white. */}
+                <h1 className="text-2xl lg:text-3xl mt-4 mb-4" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+                  <span style={{ position: 'relative', display: 'inline-block' }}>
+                    <span aria-hidden style={questTextShadowStyle}>Side Quest Guilds</span>
+                    <span style={{ ...questTextStyle, color: '#f5c542' }}>Side Quest Guilds</span>
+                  </span>
+                </h1>
+                <p className="text-gray-500 mb-4 text-sm">Five guilds, five skills — pick one below to earn extra XP and Gold.</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {([
                     { key: 'lorekeeper' as GuildKey, guild: 'lorekeeper' as const, name: 'Lorekeeper', desc: 'English guild — Time Attack reading & grammar challenges.', border: 'border-[#251616] hover:border-[#3a2020]', titleColor: '#34d399', badge: 'bg-emerald-50 text-emerald-700', contentBg: 'bg-emerald-50', bg: '/guilds/lorekeeper-bg.png', lvl: guildProfile?.lorekeeper_lvl, tier: guildProfile?.lorekeeper_tier },
@@ -1727,7 +1751,15 @@ export default function Dashboard() {
         {/* --- TAB: JOURNAL --- */}
         {activeTab === 'journal' && (
           <div data-tutorial-id="journal-welcome">
-            <h1 className="text-2xl lg:text-3xl font-bold mb-2 font-display text-gray-900">Guild Journal</h1>
+            {/* Same Bungee/stroke/shadow text treatment as the quest
+                GameButton's label (2026-08-29), in quest gold instead of
+                the button's white. */}
+            <h1 className="text-2xl lg:text-3xl mb-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+              <span style={{ position: 'relative', display: 'inline-block' }}>
+                <span aria-hidden style={questTextShadowStyle}>Guild Journal</span>
+                <span style={{ ...questTextStyle, color: '#f5c542' }}>Guild Journal</span>
+              </span>
+            </h1>
             <p className="text-gray-500 mb-8">Reflect on today's run and seal your ledger entry to claim your reward.</p>
             <GuildJournal
               userId={activeUserId}
@@ -1745,7 +1777,15 @@ export default function Dashboard() {
         {activeTab === 'todo' && (
           <div>
             <div className="flex items-center justify-between gap-3 mt-4 mb-2" data-tutorial-id="todo-welcome">
-              <h1 className="text-2xl lg:text-3xl font-bold font-display text-gray-900">Daily To-Dos</h1>
+              {/* Same Bungee/stroke/shadow text treatment as the quest
+                  GameButton's label (2026-08-29), in quest gold instead of
+                  the button's white. */}
+              <h1 className="text-2xl lg:text-3xl" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+                <span style={{ position: 'relative', display: 'inline-block' }}>
+                  <span aria-hidden style={questTextShadowStyle}>Daily To-Dos</span>
+                  <span style={{ ...questTextStyle, color: '#f5c542' }}>Daily To-Dos</span>
+                </span>
+              </h1>
               {todoCount && (
                 <span className={`text-xs font-bold px-3 py-1 rounded-full flex-shrink-0
                   ${todoCount.done === todoCount.total ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}`}>
@@ -1767,7 +1807,7 @@ export default function Dashboard() {
               onGoToJournal={() => setActiveTab('journal')}
               onGoToMainQuest={() => { setActiveTab('board'); setActiveQuest(null); }}
               onGoToTrainingMap={() => setActiveTab('monster')}
-              onCountChange={(done, total) => setTodoCount({ done, total })}
+              onCountChange={handleTodoCountChange}
             />
           </div>
         )}
