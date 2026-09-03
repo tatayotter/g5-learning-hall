@@ -13,6 +13,13 @@ export interface BotProfile {
   fullName: string;
   gender: 'boy' | 'girl';
   grade: string;
+  /**
+   * Shown in place of "· Classmate" wherever a bot appears alongside real
+   * online players (e.g. the Trainers tab's challenge list) — a real
+   * Philippine public elementary school name, so a bot reads as an ordinary
+   * classmate rather than announcing itself as simulated.
+   */
+  school: string;
   /** Path relative to /public — shown as the bot's avatar / userpic. */
   userpic: string;
   /**
@@ -49,6 +56,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'bote_john',
     firstName: 'John', fullName: 'John Bote', gender: 'boy', grade: 'G5',
+    school: 'Bagong Silangan Elementary School',
     userpic: '/userpics/userpics_premium/ssb1.png',
     accuracy: 0.35,
     homeX: 7, homeY: 5,
@@ -61,6 +69,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'abotig_anna',
     firstName: 'Anna', fullName: 'Anna Abotig', gender: 'girl', grade: 'G5',
+    school: 'Malabon Elementary School',
     userpic: '/userpics/userpics_premium/ssg1.png',
     accuracy: 0.45,
     homeX: 13, homeY: 3,
@@ -74,6 +83,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'kibot_rose',
     firstName: 'Rose', fullName: 'Rose Kibot', gender: 'girl', grade: 'G5',
+    school: 'Sampaloc Elementary School',
     userpic: '/userpics/userpics_premium/ssg2.png',
     accuracy: 0.50,
     homeX: 5, homeY: 12,
@@ -86,6 +96,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'gabot_kyle',
     firstName: 'Kyle', fullName: 'Kyle Gabot', gender: 'boy', grade: 'G5',
+    school: 'Pasig Elementary School',
     userpic: '/userpics/userpics_premium/ssb2.png',
     accuracy: 0.55,
     homeX: 18, homeY: 8,
@@ -99,6 +110,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'botero_chloe',
     firstName: 'Chloe', fullName: 'Chloe Botero', gender: 'girl', grade: 'G5',
+    school: 'Taguig Elementary School',
     userpic: '/userpics/userpics_premium/ssg4.png',
     accuracy: 0.60,
     homeX: 10, homeY: 14,
@@ -111,6 +123,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'cabote_josh',
     firstName: 'Josh', fullName: 'Josh Cabote', gender: 'boy', grade: 'G5',
+    school: 'Cebu City Central School',
     userpic: '/userpics/userpics_premium/ssb4.png',
     accuracy: 0.65,
     homeX: 15, homeY: 11,
@@ -124,6 +137,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'abot_ian',
     firstName: 'Ian', fullName: 'Ian Abot', gender: 'boy', grade: 'G5',
+    school: 'Davao City Central Elementary School',
     userpic: '/userpics/userpics_premium/ssb5.png',
     accuracy: 0.70,
     homeX: 3, homeY: 8,
@@ -137,6 +151,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'sabot_kent',
     firstName: 'Kent', fullName: 'Kent Sabot', gender: 'boy', grade: 'G5',
+    school: 'Iloilo Central Elementary School',
     userpic: '/userpics/userpics_premium/ssb6.png',
     accuracy: 0.75,
     homeX: 16, homeY: 4,
@@ -149,6 +164,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'labot_mark',
     firstName: 'Mark', fullName: 'Mark Labot', gender: 'boy', grade: 'G5',
+    school: 'Baguio City Central School',
     userpic: '/userpics/userpics_premium/ssb3.png',
     accuracy: 0.80,
     homeX: 8, homeY: 15,
@@ -162,6 +178,7 @@ export const BOT_PROFILES: BotProfile[] = [
   {
     id: 'tibot_clark',
     firstName: 'Clark', fullName: 'Clark Tibot', gender: 'boy', grade: 'G5',
+    school: 'Cavite Elementary School',
     userpic: '/userpics/userpics_premium/bsp1.png',
     accuracy: 0.88,
     homeX: 12, homeY: 7,

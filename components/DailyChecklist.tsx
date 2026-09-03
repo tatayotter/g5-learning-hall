@@ -19,6 +19,16 @@ import GameButton from '@/components/GameButton';
 import GuardianSprite, { GuardianGuild } from '@/components/guilds/GuardianSprite';
 import DailyBonusModal from '@/components/DailyBonusModal';
 
+// Buttons here previously ran a homemade comic-outline look (yellow-400 +
+// hard black shadow) instead of the app's shared GameButton quest system —
+// replaced below with GameButton so this page matches Trainers/ceremony
+// modals/everywhere else per docs/STYLE_GUIDE.md's Buttons table: item
+// actions and guild "Play" are blue (primary CTA, "go do something"), the
+// gold-claim footer button is amber (matches the coin-reward theme used on
+// DailyBonusModal/MonsterShop's own claim/purchase buttons).
+const ACTION_BUTTON_COLOR = '#2563eb';
+const CLAIM_BUTTON_COLOR = '#d97706';
+
 const GUILD_SPRITE_KEY: Record<string, GuardianGuild> = {
   lorekeeper: 'lorekeeper',
   spellcaster: 'spellcaster',
@@ -49,8 +59,6 @@ interface ChecklistItem {
   actionLabel?: string;
   onAction?: () => void;
 }
-
-const BTN_STYLE = 'bg-yellow-400 text-black border-2 border-black shadow-[3px_3px_0_0_#000] hover:-translate-y-0.5 hover:shadow-[3px_4px_0_0_#000] active:shadow-none active:translate-y-0.5 transition-all font-extrabold';
 
 export default function DailyChecklist({
   userId,
@@ -179,13 +187,15 @@ export default function DailyChecklist({
               {item.label}
             </span>
             {!item.done && item.onAction && item.actionLabel && (
-              <button
-                type="button"
+              <GameButton
+                variant="quest"
+                color={ACTION_BUTTON_COLOR}
                 onClick={item.onAction}
-                className={`flex-shrink-0 text-xs px-3 py-1.5 rounded-lg ${BTN_STYLE}`}
+                className="flex-shrink-0"
+                style={{ fontSize: 13 }}
               >
                 {item.actionLabel}
-              </button>
+              </GameButton>
             )}
           </div>
         ))}
@@ -212,13 +222,15 @@ export default function DailyChecklist({
                   <div key={g.key} className="flex flex-col items-center gap-2 bg-white border border-stone-200 rounded-2xl px-3 pt-4 pb-3 shadow-sm">
                     <GuardianSprite guild={GUILD_SPRITE_KEY[g.key]} pose="idle" animate={false} className="w-14 h-14" />
                     <span className="text-xs font-bold text-gray-600 text-center leading-tight">{g.label}</span>
-                    <button
-                      type="button"
+                    <GameButton
+                      variant="quest"
+                      color={ACTION_BUTTON_COLOR}
                       onClick={() => onPlayGuild(g.key)}
-                      className={`w-full text-xs py-1.5 rounded-lg ${BTN_STYLE}`}
+                      className="w-full"
+                      style={{ fontSize: 13 }}
                     >
                       Play
-                    </button>
+                    </GameButton>
                   </div>
                 );
               })}
@@ -234,16 +246,16 @@ export default function DailyChecklist({
             Bonus claimed{streakInfo?.todayGold ? ` — ${streakInfo.todayGold} gold!` : '!'}
           </div>
         ) : allDone ? (
-          <button
+          <GameButton
+            variant="quest"
+            color={CLAIM_BUTTON_COLOR}
             onClick={handleClaim}
             disabled={claiming}
-            className="w-full py-4 rounded-2xl font-extrabold text-lg uppercase tracking-wide font-display
-              bg-amber-400 text-black border-2 border-black
-              shadow-[4px_4px_0_0_#000] active:shadow-none active:translate-x-1 active:translate-y-1
-              transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full"
+            style={{ fontSize: 20 }}
           >
             Claim {streakInfo?.nextGold ?? STREAK_GOLD_LADDER[0]} Gold!
-          </button>
+          </GameButton>
         ) : (
           <div className="text-center py-2 space-y-1">
             <p className="text-sm text-gray-400 font-semibold">
