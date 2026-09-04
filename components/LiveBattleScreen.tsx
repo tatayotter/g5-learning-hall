@@ -417,8 +417,17 @@ export default function LiveBattleScreen({
   // second call is a harmless no-op read of the already-resolved row. The
   // player reviews the fight summary screen below and leaves via its own
   // button rather than being auto-navigated away.
+  //
+  // Bot battles (botAccuracy set) never get a real `live_battles` row —
+  // their battleId is a client-only fake (`${bot.id}_${Date.now()}`, see
+  // MonsterGuild.tsx's bot-challenge-accept handler), so resolve-live-battle
+  // has nothing to resolve and errors every time. Gold/notification/log
+  // handling for bot fights already happens entirely client-side via
+  // onBattleEnd (see components/monster/BattleViews.tsx) — skip the
+  // server-side resolve call for them instead of failing it silently.
   useEffect(() => {
     if (!battleEnded) return;
+    if (botAccuracy !== undefined) return;
     const winnerMonsterId = battleEnded.winnerId === myUserId
       ? myRoster[myActiveIdx]?.userMonster?.id
       : battleEnded.winnerId === opponentId
