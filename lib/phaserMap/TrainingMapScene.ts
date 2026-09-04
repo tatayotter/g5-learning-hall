@@ -626,13 +626,19 @@ export default class TrainingMapScene extends Phaser.Scene {
       tracked.y = player.y;
     }
     if (tracked.srcKey !== key) {
-      tracked.srcKey = key;
+      // srcKey is only updated once the swap actually lands (inside the
+      // .active branch below), not eagerly here — if the load never
+      // completes (e.g. a failed fetch; ensureTexture has no error handler)
+      // or the sprite goes inactive first, the mismatch stays visible and
+      // this keeps retrying on every subsequent sync instead of getting
+      // permanently stuck showing the stale avatar.
       this.loadSpriteVisual(player.spriteSrc, h * 0.95, (texKey) => {
         if (tracked.image.active) {
           this.tweens.killTweensOf(tracked.image);
           tracked.image.setTexture(texKey, 0);
           this.fitSprite(tracked.image, h * 0.95);
           tracked.baseScaleY = tracked.image.scaleY;
+          tracked.srcKey = key;
         }
       });
     }
@@ -671,13 +677,16 @@ export default class TrainingMapScene extends Phaser.Scene {
       // texture in place, leave position untouched.
       const h = this.lastTransform.tileH;
       const self = this.self;
-      self.srcKey = key;
+      // srcKey is only updated once the swap actually lands (see the
+      // matching comment in spawnOrMoveSprite) so a failed/dropped load
+      // keeps retrying instead of getting permanently stuck.
       this.loadSpriteVisual(state.self.spriteSrc, h * 0.95, (texKey) => {
         if (self.image.active) {
           this.tweens.killTweensOf(self.image);
           self.image.setTexture(texKey, 0);
           this.fitSprite(self.image, h * 0.95);
           self.baseScaleY = self.image.scaleY;
+          self.srcKey = key;
         }
       });
     }
@@ -918,8 +927,13 @@ export default class TrainingMapScene extends Phaser.Scene {
       // Bottom-anchor: sprite's bottom edge sits at the tile's bottom edge.
       img.setOrigin(0.5, 1);
       // Scale uniformly so the image keeps its natural aspect ratio (near-1:1
-      // now that the texture itself is already baked to this target height).
-      img.setScale(targetH / img.height);
+      // now that the texture itself is already baked). bakeSmoothTexture
+      // sizes by the LONGEST edge, not specifically height, so the divisor
+      // here must match that (same as fitSprite/the trash-item scale below)
+      // — dividing by img.height alone only happens to work while
+      // recycler.png is portrait (height is the long edge); a wider NPC
+      // asset would silently upscale past 1:1 otherwise.
+      img.setScale(targetH / Math.max(img.width, img.height));
       img.setDepth(8);
       this.recyclerSprite = img;
       this.recyclerTilePos = { x: tile.x, y: tile.y };
