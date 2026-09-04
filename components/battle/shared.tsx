@@ -165,6 +165,42 @@ function shuffleArray<T>(arr: T[]): T[] {
   return result;
 }
 
+// "Skip for gold" — shared by the solo BattleScreen and the live PvP
+// LiveBattleScreen (previously an identical skipCost/canSkip/handleSkipQuestion
+// block copy-pasted into both, same duplication problem resolveItemEffect
+// above already exists to avoid). goldSpentThisBattle lives in this hook's own
+// state rather than the caller's, since a fresh BattleScreen/LiveBattleScreen
+// mount is exactly one battle either way.
+//
+// `trySkip` doesn't call the caller's addLog itself (screen-specific log
+// wiring is the one piece that's genuinely different between the two
+// screens) — it returns a `message` for the caller to log on failure, and an
+// empty string on success, so BattleScreen/LiveBattleScreen just do
+// `if (message) addLog(message)`.
+export function useSkipForGold(gold: number, onSpendGold: (amount: number) => Promise<boolean>) {
+  const [goldSpentThisBattle, setGoldSpentThisBattle] = useState(0);
+  const skipCost = BATTLE_CONSTANTS.QUESTION_SKIP_GOLD_COST;
+  const maxGoldPerBattle = BATTLE_CONSTANTS.MAX_GOLD_SPENT_PER_BATTLE;
+  const canSkip = gold >= skipCost && goldSpentThisBattle + skipCost <= maxGoldPerBattle;
+
+  const trySkip = async (): Promise<{ ok: boolean; message: string }> => {
+    if (!canSkip) {
+      return {
+        ok: false,
+        message: goldSpentThisBattle + skipCost > maxGoldPerBattle
+          ? `❌ Reached this battle's ${maxGoldPerBattle} gold skip limit!`
+          : '❌ Not enough gold to skip!',
+      };
+    }
+    const paid = await onSpendGold(skipCost);
+    if (!paid) return { ok: false, message: '❌ Not enough gold to skip!' };
+    setGoldSpentThisBattle(prev => prev + skipCost);
+    return { ok: true, message: '' };
+  };
+
+  return { skipCost, maxGoldPerBattle, goldSpentThisBattle, canSkip, trySkip };
+}
+
 export interface BattleQuestionProps {
   questions: any[];
   count: number;
@@ -311,7 +347,18 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
             {goldSpentThisBattle !== undefined && maxGoldPerBattle !== undefined && (
               <p className="text-[10px] text-[#8b6a3a] text-center mt-1 flex items-center justify-center gap-1">
                 Battle skip wallet: {goldSpentThisBattle}/{maxGoldPerBattle} gold
-                <InfoTag text={`Pay ${skipCost ?? BATTLE_CONSTANTS.QUESTION_SKIP_GOLD_COST} gold to skip any question and count it as correct. Every battle has its own ${maxGoldPerBattle}-gold skip wallet — once you've spent it all, you have to answer for the rest of the battle.`} />
+                <InfoTag
+                  text={`Pay ${skipCost ?? BATTLE_CONSTANTS.QUESTION_SKIP_GOLD_COST} gold to skip any question and count it as correct. Every battle has its own ${maxGoldPerBattle}-gold skip wallet — once you've spent it all, you have to answer for the rest of the battle.`}
+                  // Every other InfoTag call site sits on a dark neutral-900
+                  // panel, where the default border-gray-500/text-gray-400
+                  // reads fine — this is the first on a parchment/white panel,
+                  // where that stock gray both breaks the parchment-only-tokens
+                  // rule (docs/STYLE_GUIDE.md) and reads at ~2.5:1 contrast on
+                  // white. !-prefixed so it wins regardless of Tailwind's
+                  // generated class order, without touching InfoTag's own
+                  // default for its other (dark-panel) call sites.
+                  className="!border-[#8b5e2a] !text-[#7a4a0f]"
+                />
               </p>
             )}
           </div>
