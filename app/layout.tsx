@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bungee, Cinzel, Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -47,6 +47,11 @@ export const metadata: Metadata = {
     "gamified homework app Philippines",
   ],
   applicationName: "Learning Hall",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Learning Hall",
+  },
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -79,6 +84,10 @@ export const metadata: Metadata = {
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
     ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
     : {}),
+};
+
+export const viewport: Viewport = {
+  themeColor: "#c9781a",
 };
 
 export default function RootLayout({
