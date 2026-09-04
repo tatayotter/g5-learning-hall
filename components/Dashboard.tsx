@@ -2,8 +2,6 @@
 'use client';
 
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 import { UserId, getActiveUser, clearActiveUser, loadAllUsersData, saveTheme, linkIdentity, recordLastLogin, USERS, gradeToNumber } from '@/lib/userSession';
 import { THEME_CLASSES, getThemeItem } from '@/lib/themeShop';
 import SplashScreen from '@/components/SplashScreen';
@@ -11,7 +9,6 @@ import LoadingScreen from '@/components/LoadingScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
 import { markGuildSessionToday, GuildKey, GUILDS, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
 import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
-import QuestModule, { markdownComponents } from '@/components/QuestModule';
 import { useReadTimer } from '@/hooks/useReadTimer';
 import { format } from 'date-fns';
 import AchievementsBoard from '@/components/AchievementsBoard';
@@ -23,15 +20,18 @@ import CodexPanel from '@/components/CodexPanel';
 import { playShopPurchase, playPageFlip, startMainTheme, stopMainTheme, startTermBossTheme, stopTermBossTheme, isSfxEnabled, isMusicEnabled, setSfxEnabled, setMusicEnabled } from '@/lib/sounds';
 import Toast from '@/components/Toast';
 import { motion, AnimatePresence } from 'framer-motion';
-import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import AchievementToast from '@/components/AchievementToast';
 import { useAchievementNotifier } from '@/hooks/useAchievementNotifier';
 import { fetchSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
 import { prefetchAllTabs } from '@/lib/tabPrefetch';
 import { claimRegistrantReward, fetchNotifications, markNotificationsRead, getMyReferralKey, PlayerNotification } from '@/lib/referral';
 import { claimMarketingGoldBonus } from '@/lib/marketingBonus';
-import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
 import NotificationInbox from '@/components/NotificationInbox';
+import BoardMapView from '@/components/dashboard/board/BoardMapView';
+import ActiveQuestView from '@/components/dashboard/board/ActiveQuestView';
+import ActiveEventQuestView from '@/components/dashboard/board/ActiveEventQuestView';
+import ActiveBossFightView from '@/components/dashboard/board/ActiveBossFightView';
+import ActiveGauntletDayView from '@/components/dashboard/board/ActiveGauntletDayView';
 import JournalTab from '@/components/dashboard/JournalTab';
 import TodoTab from '@/components/dashboard/TodoTab';
 import ProfileTab from '@/components/dashboard/ProfileTab';
@@ -43,13 +43,10 @@ import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import LinkParentBanner from '@/components/LinkParentBanner';
 import SidebarRail, { RailTabId } from '@/components/SidebarRail';
-import WelcomeCard from '@/components/WelcomeCard';
-import QuestCard from '@/components/QuestCard';
 import TutorialSpotlight from '@/components/TutorialSpotlight';
 import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
 import { useTabTutorialGate } from '@/hooks/useTabTutorialGate';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
-import { MonsterImage } from '@/components/battle/shared';
 import { syncEggProgress, fetchUserEggs, HatchedEgg } from '@/lib/curioEggs';
 import EggHatchModal from '@/components/EggHatchModal';
 import {
@@ -61,28 +58,21 @@ import {
   fetchUserEventProgress,
   hasClaimedEventReward,
   fetchClaimedMonsterId,
-  recordEventQuizMastery,
-  claimEventReward,
 } from '@/lib/customEvents';
-import BossFightScreen from '@/components/monster/BossFightScreen';
-import MasteryGauntletScreen from '@/components/monster/MasteryGauntletScreen';
-import BossPersonaFan from '@/components/monster/BossPersonaFan';
 import BossMistOverlay from '@/components/BossMistOverlay';
 import BossCutscene from '@/components/BossCutscene';
 import { useBossFightProgress } from '@/hooks/useBossFightProgress';
 import { getPersonasForGrade, isBossFightGrade, hasCutsceneBeenSeen, markCutsceneSeen } from '@/lib/bossPersonas';
-import { fetchBossPoolCounts, POOL_READY_THRESHOLD, BossQuestion } from '@/lib/bossFightEngine';
+import { fetchBossPoolCounts, BossQuestion } from '@/lib/bossFightEngine';
 import {
   fetchGauntletQuestionPool,
   fetchGauntletMistakes,
   buildMasteryGauntletPool,
   splitPoolIntoDays,
   fetchGauntletDaysDone,
-  markGauntletDayComplete,
 } from '@/lib/masteryGauntletEngine';
 import { CURRENT_TERM } from '@/lib/guildConfig';
-
-const WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+import { WEEKDAYS } from '@/lib/weekdays';
 
 // Swaps <html>'s theme class for the one tied to `themeKey` (default has
 // none). Always removes every known theme class first so switching between
@@ -929,527 +919,108 @@ export default function Dashboard() {
 
         {/* --- TAB A: QUEST BOARD --- */}
         {activeTab === 'board' && activeQuest === null && activeEventQuest === null && activeBossFight === null && activeGauntletDay === null && (
-          <div>
-            {/* Same Bungee/stroke/shadow text treatment as the quest
-                GameButton's label (2026-08-29), in quest gold instead of
-                the button's white. */}
-            <h1 className="text-2xl lg:text-3xl mt-4 mb-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
-              <span style={{ position: 'relative', display: 'inline-block' }}>
-                <span aria-hidden style={questTextShadowStyle}>Active Campaign Map</span>
-                <span style={{ ...questTextStyle, color: '#f5c542' }}>Active Campaign Map</span>
-              </span>
-            </h1>
-            <p className="text-gray-500 mb-4 text-sm">Select an open, active quest card from the schedule below to begin your training.</p>
-
-            <div data-tutorial-id="board-welcome">
-              <WelcomeCard
-                playerName={USERS[activeUserId]?.name ?? activeUserId}
-                loginStreak={loginStreak}
-                totalQuests={totalQuests}
-                completedQuests={data.mastered_quizzes?.length ?? 0}
-              />
-            </div>
-
-            {/* Compact referral key — invite friends from the board */}
-            {dashReferralKey && (
-              <div className="mb-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2 min-w-0">
-                  <span className="text-amber-500 text-base">🔗</span>
-                  <div>
-                    <p className="text-xs font-bold text-amber-700 uppercase tracking-wider leading-tight">
-                      Invite Friends
-                    </p>
-                    <p className="text-xs text-gray-500 leading-tight">Share your code — you both earn rewards</p>
-                  </div>
-                </div>
-                <ReferralKeyDisplay referralKey={dashReferralKey} compact />
-              </div>
-            )}
-
-            {activeEvent && (
-              <div className="mb-10">
-                <div className="relative rounded-2xl border-2 border-amber-500/70 bg-gradient-to-br from-[#1a1005] to-black shadow-[0_0_0_2px_#000,0_0_40px_-8px_rgba(245,158,11,0.35)] overflow-hidden">
-                  {activeEvent.banner_url && (
-                    <div className="absolute inset-0 z-0">
-                      <img src={activeEvent.banner_url} alt="" className="w-full h-full object-cover opacity-35" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#0d0700] via-[#0d0700]/85 to-transparent" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0d0700] via-transparent to-transparent" />
-                    </div>
-                  )}
-                  <div className="relative z-10">
-                  <div className="p-6 pb-5">
-                    <h2 className="text-2xl font-bold text-white font-display mb-1">{activeEvent.title}</h2>
-                    <p className="text-xs font-bold text-amber-400 uppercase tracking-wide">
-                      Limited-time event <span className="text-amber-700 mx-1">•</span> Bonus loot inside
-                    </p>
-                  </div>
-                  {eventClaimed ? (
-                    <div className="px-6 pb-6 flex flex-col items-center text-center gap-3">
-                      <p className="text-green-400 font-bold">
-                        ✅ Special Event Completed. You have collected {(claimedMonsterId && ALL_MONSTERS[claimedMonsterId]?.name) ?? 'your reward'}!
-                      </p>
-                      {claimedMonsterId && ALL_MONSTERS[claimedMonsterId] && (
-                        <button
-                          type="button"
-                          onClick={() => { setGuildInitialView('compendium'); setActiveTab('monster'); }}
-                          className="cursor-pointer"
-                          title="View in Compendium"
-                        >
-                          <MonsterImage
-                            monster={ALL_MONSTERS[claimedMonsterId]}
-                            className="w-24 h-24 hover:scale-105 transition-transform"
-                            emojiClassName="text-7xl"
-                          />
-                        </button>
-                      )}
-                    </div>
-                  ) : (
-                  <div className="px-6 pb-6">
-                    {(activeEvent.details_markdown || activeEvent.reward_lore_markdown) && (
-                      <div className="mb-5 space-y-3">
-                        {activeEvent.details_markdown && (
-                          <div className="text-sm text-gray-300 leading-relaxed">
-                            <ReactMarkdown>{activeEvent.details_markdown}</ReactMarkdown>
-                          </div>
-                        )}
-                        {activeEvent.reward_lore_markdown && (
-                          <div className="text-sm text-yellow-200/90 leading-relaxed bg-amber-900/10 border border-amber-900/40 rounded-lg p-3">
-                            <ReactMarkdown>{activeEvent.reward_lore_markdown}</ReactMarkdown>
-                          </div>
-                        )}
-                      </div>
-                    )}
-                    {activeEvent.content_source === 'gauntlet' ? (
-                      <p className="text-xs text-emerald-400/90 font-bold uppercase tracking-wide">
-                        ⚔️ This week's board below is your Topic Mastery Gauntlet — one review session per day.
-                      </p>
-                    ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                      {eventQuests.map((q) => {
-                        const isQuestMastered = eventProgress.some(p => p.event_quest_id === q.id && p.is_mastered);
-                        return (
-                          <QuestCard
-                            key={q.id}
-                            subjectName={q.subject_name}
-                            completed={isQuestMastered}
-                            onEnter={() => {
-                              setActiveEventQuest(q.id);
-                              // Same fix as the board-quest entry point —
-                              // show the notes first, not the ready-confirm
-                              // screen, so the read-timer actually engages.
-                              setEventQuizPhase('study');
-                            }}
-                          />
-                        );
-                      })}
-                    </div>
-                    )}
-                  </div>
-                  )}
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {bossEventActive && (
-              <div className="mb-10">
-                {/* overflow-hidden: BossPersonaFan fans its cards out with
-                    absolute positioning, which can spill past this box's
-                    edges (the source of the horizontal-scroll bug) — clip it
-                    here instead of relying solely on the page-level
-                    overflow-x guard in globals.css. */}
-                <div className="rounded-2xl border-2 border-purple-700/70 bg-gradient-to-br from-[#0d0512] to-black shadow-[0_0_0_2px_#000,0_0_40px_-8px_rgba(147,51,234,0.35)] p-6 overflow-hidden">
-                  <h2 className="text-xl font-bold text-white font-display mb-1">Term Boss — The Forgetting</h2>
-                  <p className="text-xs font-bold text-purple-400 uppercase tracking-wide mb-4">
-                    Defeat every persona to push it back
-                  </p>
-                  <BossPersonaFan
-                    personas={getPersonasForGrade(bossGradeLevel)}
-                    defeated={bossProgress.defeated}
-                    readySubjects={new Set(Object.entries(bossPoolCounts).filter(([, c]) => c >= POOL_READY_THRESHOLD).map(([s]) => s))}
-                    onChallenge={(subject) => setActiveBossFight(subject)}
-                  />
-                </div>
-              </div>
-            )}
-
-            {WEEKDAYS.map((day) => {
-              const isToday = currentDayName === day;
-              const gauntletActive = activeEvent?.content_source === 'gauntlet';
-              // During a live gauntlet event, that day's slice of the review
-              // pool substitutes the normal per-subject cards entirely —
-              // mainQuestPackageData is irrelevant this week (break weeks
-              // don't get BOW-generated content in the first place, see
-              // project_term_break_special_content_plan memory).
-              const daySubjects = mainQuestPackageData[day] || {};
-              const subjectKeys = Object.keys(daySubjects);
-              const gauntletDayQuestions = gauntletDayPools[day] || [];
-              const dayFullyMastered = gauntletActive
-                ? gauntletDaysDone.has(day)
-                : subjectKeys.length > 0 &&
-                  subjectKeys.every((subjectName) => (data.mastered_quizzes || []).includes(`${day}_${subjectName}`));
-
-              return (
-                <div key={day} className="mb-8" data-tutorial-id={day === openTutorialDayName ? 'board-today-quest' : undefined}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <h2 className={`text-sm font-bold uppercase tracking-wide whitespace-nowrap ${isToday ? 'text-amber-600' : 'text-gray-400'}`}>
-                      {day} Objectives {isToday && <span className="text-amber-500">⚡ (Current Run)</span>}
-                    </h2>
-                    <div className={`flex-1 h-px ${isToday ? 'bg-amber-400/50' : 'bg-gray-200'}`} />
-                  </div>
-
-                  {dayFullyMastered ? (
-                    <p className="text-sm text-green-600 font-bold">✅ {day} Quests Completed</p>
-                  ) : gauntletActive ? (
-                    gauntletDayQuestions.length === 0 ? (
-                      <p className="text-sm text-gray-400">Gathering this day's review questions…</p>
-                    ) : (
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                        <QuestCard
-                          subjectName="Topic Mastery Gauntlet"
-                          completed={false}
-                          onEnter={() => setActiveGauntletDay(day)}
-                        />
-                      </div>
-                    )
-                  ) : isToday || subjectKeys.length > 0 ? (
-                    subjectKeys.length === 0 ? (
-                      <p className="text-sm text-gray-400">No quests registered for this specific calendar path.</p>
-                    ) : (
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                        {subjectKeys.map((subjectName) => (
-                          <QuestCard
-                            key={subjectName}
-                            subjectName={subjectName}
-                            completed={(data.mastered_quizzes || []).includes(`${day}_${subjectName}`)}
-                            onEnter={() => {
-                              setActiveQuest(`${day}_${subjectName}`);
-                              // Land on the notes screen first, not the
-                              // "ready" confirm screen — that's what was
-                              // letting kids skip straight past the summary
-                              // without the read-timer ever engaging.
-                              setQuizPhase('study');
-                            }}
-                          />
-                        ))}
-                      </div>
-                    )
-                  ) : null}
-                </div>
-              );
-            })}
-
-            {/* AchievementsBoard removed — accessible via Hero Profile tab */}
-          </div>
+          <BoardMapView
+            activeUserId={activeUserId}
+            loginStreak={loginStreak}
+            totalQuests={totalQuests}
+            masteredQuizzes={data.mastered_quizzes}
+            dashReferralKey={dashReferralKey}
+            activeEvent={activeEvent}
+            eventClaimed={eventClaimed}
+            claimedMonsterId={claimedMonsterId}
+            onViewClaimedInCompendium={() => { setGuildInitialView('compendium'); setActiveTab('monster'); }}
+            eventQuests={eventQuests}
+            eventProgress={eventProgress}
+            onEnterEventQuest={(questId) => {
+              setActiveEventQuest(questId);
+              // Same fix as the board-quest entry point — show the notes
+              // first, not the ready-confirm screen, so the read-timer
+              // actually engages.
+              setEventQuizPhase('study');
+            }}
+            bossEventActive={bossEventActive}
+            bossGradeLevel={bossGradeLevel}
+            bossDefeated={bossProgress.defeated}
+            bossPoolCounts={bossPoolCounts}
+            onChallengeBoss={(subject) => setActiveBossFight(subject)}
+            currentDayName={currentDayName}
+            mainQuestPackageData={mainQuestPackageData}
+            gauntletDayPools={gauntletDayPools}
+            gauntletDaysDone={gauntletDaysDone}
+            onEnterGauntletDay={(day) => setActiveGauntletDay(day)}
+            openTutorialDayName={openTutorialDayName}
+            onEnterQuest={(questKey) => {
+              setActiveQuest(questKey);
+              // Land on the notes screen first, not the "ready" confirm
+              // screen — that's what was letting kids skip straight past
+              // the summary without the read-timer ever engaging.
+              setQuizPhase('study');
+            }}
+          />
         )}
 
         {/* --- ACTIVE QUEST VIEW --- */}
-        {activeTab === 'board' && activeQuest !== null && (() => {
-          const [day, subject] = activeQuest.split('_');
-          const questData = mainQuestPackageData[day]?.[subject];
-
-          return (
-            <div className="w-full max-w-4xl mx-auto animate-in fade-in duration-500">
-              {quizPhase === 'study' && (
-                <div className="space-y-6">
-                  <GameButton variant="quest" color="#d4d4d4" onClick={() => { setActiveQuest(null); setQuizPhase('study'); }} style={{ fontSize: 13 }}>
-                    ← Retreat to Map
-                  </GameButton>
-
-                  <div className="bg-[#f0ddb8] border border-[#8b5e2a] p-8 rounded-xl shadow-lg">
-                    <h2 className="text-3xl font-bold mb-6 text-[#7a4a0f] font-display">Study Session: {subject}</h2>
-                    <div className="border-t border-[#c9a87a] pt-6">
-                      {questData?.summary_markdown
-                        ? <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{questData.summary_markdown}</ReactMarkdown>
-                        : <p className="text-[#3a2610] leading-relaxed">No notes available for this module.</p>}
-                    </div>
-                  </div>
-
-                  <GameButton
-                    variant="quest"
-                    color="#eab308"
-                    onClick={() => { if (studyReadRemaining <= 0) setQuizPhase('ready'); }}
-                    disabled={studyReadRemaining > 0}
-                    className="w-full"
-                    style={{ fontSize: 18 }}
-                  >
-                    {studyReadRemaining > 0 ? `🔒 Keep Reading... ${studyReadRemaining}s` : 'I Am Ready To Fight'}
-                  </GameButton>
-                </div>
-              )}
-
-              {quizPhase === 'ready' && (
-                <div className="bg-[#f0ddb8] border border-[#8b5e2a] p-12 rounded-2xl text-center shadow-2xl">
-                  <p className="text-[#c9781a] font-bold uppercase tracking-wider text-sm mb-2 font-display">{subject} Encounter</p>
-                  <h2 className="text-4xl font-display font-bold text-[#2a1505] mb-4">Prepare for Battle</h2>
-                  <p className="text-[#6b4820] mb-8 max-w-sm mx-auto">
-                    You are about to start the assessment. Once you enter the exam, there is no turning back.
-                  </p>
-                  <div className="flex gap-4 justify-center">
-                    <GameButton variant="quest" color="#d4d4d4" onClick={() => setQuizPhase('study')} style={{ fontSize: 15 }}>
-                      Go Back to Notes
-                    </GameButton>
-                    <GameButton variant="quest" color="#3b82f6" onClick={() => setQuizPhase('quiz')} style={{ fontSize: 15 }}>
-                      Start Exam
-                    </GameButton>
-                  </div>
-                </div>
-              )}
-
-              {quizPhase === 'quiz' && (
-                <QuestModule
-                  userId={activeUserId}
-                  questName={subject}
-                  questKey={activeQuest}
-                  questData={questData}
-                  currentStats={data.character_stats}
-                  attemptsSoFar={(data.quiz_attempts || {})[activeQuest] || 0}
-                  isMastered={(data.mastered_quizzes || []).includes(activeQuest)}
-                  gradeQuiz={async (selectedAnswers) => {
-                    // Every question now carries a stable content_questions.id (Phase 4 Wave 3,
-                    // see docs/weekly-progress-redesign-plan.md) — Weekly Review (built
-                    // client-side by lib/weeklyReview.ts from real questions pulled out of the
-                    // rest of the week) grades through the exact same id-keyed path as a normal
-                    // day/subject quiz now, no more bespoke text-matching RPC needed.
-                    const quizQuestions: { id: string }[] = questData?.quiz || [];
-                    const answers = quizQuestions.map((q, i) => ({
-                      question_id: q.id,
-                      selected: selectedAnswers[i],
-                    }));
-                    const { data: graded, error } = await supabase.rpc('grade_content_quiz', {
-                      p_user_id: activeUserId,
-                      p_answers: answers,
-                    });
-                    if (error || !graded) throw error || new Error('grade_content_quiz returned no data');
-                    return {
-                      correct_count: graded.correct_count,
-                      total: graded.total,
-                      is_perfect: graded.is_perfect,
-                      correct_answers: (graded.results || []).map((r: any) => r.correct_answer),
-                    };
-                  }}
-                  onQuizSubmit={(isPerfect, newAttempts, newStats, xpEarned, goldEarned) => {
-                    const newQuizAttempts = { ...(data.quiz_attempts || {}), [activeQuest]: newAttempts };
-                    if (isPerfect) {
-                      const newMasteredQuizzes = [...(data.mastered_quizzes || []), activeQuest];
-                      const newMasteryCount = (data.mastery_count || 0) + 1;
-                      updateStatsAndJournal(
-                        newStats, data.journal_logs,
-                        data.purchased_items, newMasteryCount, data.honor_grants,
-                        newQuizAttempts, newMasteredQuizzes,
-                        data.honor_grants,
-                        data.guild_sessions_count || 0,
-                        data.monster_battles_won || 0,
-                        data.sibling_battles_won || 0,
-                        (data.perfect_quizzes || 0) + 1
-                      );
-                      logAction(activeUserId, data.week_starting_date, 'quiz', `Completed ${subject} in ${newAttempts} attempt(s)`, xpEarned, goldEarned);
-                      trackEvent('main_quest_completed', { subject, attempts: newAttempts, xp_earned: xpEarned, gold_earned: goldEarned });
-                      if (newStats.level > data.character_stats.level) {
-                        logAction(activeUserId, data.week_starting_date, 'achievement', `🎉 Leveled up to Level ${newStats.level}!`, 0, 0);
-                        trackEvent('guild_level_up', { new_level: newStats.level });
-                      }
-                    } else {
-                      updateStatsAndJournal(
-                        data.character_stats, data.journal_logs,
-                        data.purchased_items, data.mastery_count, data.honor_grants,
-                        newQuizAttempts, data.mastered_quizzes,
-                        data.honor_grants,
-                        data.guild_sessions_count || 0,
-                        data.monster_battles_won || 0,
-                        data.sibling_battles_won || 0,
-                        data.perfect_quizzes || 0
-                      );
-                    }
-                  }}
-                  onExit={() => {
-                    setActiveQuest(null);
-                    setQuizPhase('study');
-                  }}
-                />
-              )}
-            </div>
-          );
-        })()}
+        {activeTab === 'board' && activeQuest !== null && (
+          <ActiveQuestView
+            activeUserId={activeUserId}
+            activeQuest={activeQuest}
+            mainQuestPackageData={mainQuestPackageData}
+            quizPhase={quizPhase}
+            setQuizPhase={setQuizPhase}
+            setActiveQuest={setActiveQuest}
+            studyReadRemaining={studyReadRemaining}
+            data={data}
+            updateStatsAndJournal={updateStatsAndJournal}
+          />
+        )}
 
         {/* --- ACTIVE EVENT QUEST VIEW --- */}
-        {activeTab === 'board' && activeEventQuest !== null && activeEvent && (() => {
-          const eventQuest = eventQuests.find(q => q.id === activeEventQuest);
-          const questRow = eventProgress.find(p => p.event_quest_id === activeEventQuest);
-
-          const handleEventQuizSubmit = (isPerfect: boolean, newAttempts: number, newStats: CharacterStats, xpEarned: number, goldEarned: number) => {
-            if (!activeUserId || !activeEvent || !eventQuest) return;
-            if (isPerfect) {
-              updateStatsAndJournal(newStats, data.journal_logs);
-              logAction(activeUserId, data.week_starting_date, 'event_quiz', `Completed event quest ${eventQuest.subject_name} in ${newAttempts} attempt(s)`, xpEarned, goldEarned);
-              trackEvent('event_quiz_completed', { event_id: activeEvent.id, subject: eventQuest.subject_name, attempts: newAttempts });
-            }
-            (async () => {
-              await recordEventQuizMastery(activeUserId, activeEvent.id, eventQuest.id, isPerfect, newAttempts);
-              const newProgress = await fetchUserEventProgress(activeUserId, activeEvent.id);
-              setEventProgress(newProgress);
-
-              if (isPerfect) {
-                const allMastered = eventQuests.every(q =>
-                  q.id === eventQuest.id || newProgress.some(p => p.event_quest_id === q.id && p.is_mastered)
-                );
-                if (allMastered) {
-                  const gradeLevel = gradeToNumber(USERS[activeUserId]?.grade);
-                  const grantedMonsterId = await claimEventReward(activeUserId, activeEvent.id, gradeLevel);
-                  if (grantedMonsterId) {
-                    setEventClaimed(true);
-                    setRevealEventMonster(grantedMonsterId);
-                    logAction(activeUserId, data.week_starting_date, 'event_reward', `Completed event: ${activeEvent.title}`, 0, 0);
-                    trackEvent('event_reward_claimed', { event_id: activeEvent.id });
-                  }
-                }
-              }
-            })();
-          };
-
-          return (
-            <div className="w-full max-w-4xl mx-auto animate-in fade-in duration-500">
-              {eventQuizPhase === 'study' && (
-                <div className="space-y-6">
-                  <GameButton variant="quest" color="#d4d4d4" onClick={() => { setActiveEventQuest(null); setEventQuizPhase('study'); }} style={{ fontSize: 13 }}>
-                    ← Retreat to Map
-                  </GameButton>
-
-                  <div className="bg-[#f0ddb8] border border-[#8b5e2a] p-8 rounded-xl shadow-lg">
-                    <h2 className="text-3xl font-bold mb-6 text-[#7a4a0f] font-display">Study Session: {eventQuest?.subject_name}</h2>
-                    <div className="border-t border-[#c9a87a] pt-6">
-                      {eventQuest?.summary_markdown
-                        ? <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{eventQuest.summary_markdown}</ReactMarkdown>
-                        : <p className="text-[#3a2610] leading-relaxed">No notes available for this module.</p>}
-                    </div>
-                  </div>
-
-                  <GameButton
-                    variant="quest"
-                    color="#d97706"
-                    onClick={() => { if (eventStudyReadRemaining <= 0) setEventQuizPhase('ready'); }}
-                    disabled={eventStudyReadRemaining > 0}
-                    className="w-full"
-                    style={{ fontSize: 18 }}
-                  >
-                    {eventStudyReadRemaining > 0 ? `🔒 Keep Reading... ${eventStudyReadRemaining}s` : 'I Am Ready To Fight'}
-                  </GameButton>
-                </div>
-              )}
-
-              {eventQuizPhase === 'ready' && (
-                <div className="bg-[#f0ddb8] border border-[#8b5e2a] p-12 rounded-2xl text-center shadow-2xl">
-                  <p className="text-[#c9781a] font-bold uppercase tracking-wider text-sm mb-2 font-display">{eventQuest?.subject_name} Encounter</p>
-                  <h2 className="text-4xl font-display font-bold text-[#2a1505] mb-4">Prepare for Battle</h2>
-                  <p className="text-[#6b4820] mb-8 max-w-sm mx-auto">
-                    You are about to start the event assessment. Once you enter the exam, there is no turning back.
-                  </p>
-                  <div className="flex gap-4 justify-center">
-                    <GameButton variant="quest" color="#d4d4d4" onClick={() => setEventQuizPhase('study')} style={{ fontSize: 15 }}>
-                      Go Back to Notes
-                    </GameButton>
-                    <GameButton variant="quest" color="#d97706" onClick={() => setEventQuizPhase('quiz')} style={{ fontSize: 15 }}>
-                      Start Exam
-                    </GameButton>
-                  </div>
-                </div>
-              )}
-
-              {eventQuizPhase === 'quiz' && eventQuest && (
-                <QuestModule
-                  userId={activeUserId}
-                  questName={eventQuest.subject_name}
-                  questKey={`event_${eventQuest.id}`}
-                  questData={eventQuest}
-                  currentStats={data.character_stats}
-                  attemptsSoFar={questRow?.attempts || 0}
-                  isMastered={!!questRow?.is_mastered}
-                  gradeQuiz={async (selectedAnswers) => {
-                    const { data: graded, error } = await supabase.rpc('grade_event_quiz', {
-                      p_event_quest_id: eventQuest.id,
-                      p_selected: selectedAnswers,
-                    });
-                    if (error || !graded) throw error || new Error('grade_event_quiz returned no data');
-                    return {
-                      correct_count: graded.correct_count,
-                      total: graded.total,
-                      is_perfect: graded.is_perfect,
-                      correct_answers: graded.correct_answers,
-                    };
-                  }}
-                  onQuizSubmit={handleEventQuizSubmit}
-                  onExit={() => {
-                    setActiveEventQuest(null);
-                    setEventQuizPhase('study');
-                  }}
-                />
-              )}
-            </div>
-          );
-        })()}
+        {activeTab === 'board' && activeEventQuest !== null && activeEvent && (
+          <ActiveEventQuestView
+            activeUserId={activeUserId}
+            activeEvent={activeEvent}
+            eventQuests={eventQuests}
+            activeEventQuest={activeEventQuest}
+            eventQuizPhase={eventQuizPhase}
+            setEventQuizPhase={setEventQuizPhase}
+            setActiveEventQuest={setActiveEventQuest}
+            eventStudyReadRemaining={eventStudyReadRemaining}
+            data={data}
+            updateStatsAndJournal={updateStatsAndJournal}
+            eventProgress={eventProgress}
+            setEventProgress={setEventProgress}
+            setEventClaimed={setEventClaimed}
+            setRevealEventMonster={setRevealEventMonster}
+          />
+        )}
 
         {/* --- ACTIVE BOSS FIGHT VIEW --- */}
         {activeTab === 'board' && activeBossFight !== null && (
-          <div className="w-full max-w-2xl mx-auto animate-in fade-in duration-500">
-            <GameButton variant="quest" color="#d4d4d4" onClick={() => setActiveBossFight(null)} className="mb-4" style={{ fontSize: 13 }}>
-              ← Retreat to Map
-            </GameButton>
-            <BossFightScreen
-              userId={activeUserId}
-              grade={bossGradeLevel}
-              subject={activeBossFight}
-              otherPersonas={getPersonasForGrade(bossGradeLevel).filter(
-                p => p.subject !== activeBossFight && !bossProgress.defeated.has(p.subject)
-              )}
-              onExit={(defeated) => {
-                setActiveBossFight(null);
-                if (defeated) bossProgress.refresh();
-              }}
-            />
-          </div>
+          <ActiveBossFightView
+            activeUserId={activeUserId}
+            bossGradeLevel={bossGradeLevel}
+            activeBossFight={activeBossFight}
+            bossDefeated={bossProgress.defeated}
+            onExit={(defeated) => {
+              setActiveBossFight(null);
+              if (defeated) bossProgress.refresh();
+            }}
+          />
         )}
 
         {/* --- ACTIVE TOPIC MASTERY GAUNTLET VIEW --- */}
         {activeTab === 'board' && activeGauntletDay !== null && activeEvent && (
-          <div className="w-full max-w-2xl mx-auto animate-in fade-in duration-500">
-            <GameButton
-              onClick={() => setActiveGauntletDay(null)}
-              className="text-[#6b4820] hover:text-[#2a1505] flex items-center text-sm font-bold transition-colors mb-4"
-            >
-              ← Retreat to Map
-            </GameButton>
-            <MasteryGauntletScreen
-              userId={activeUserId}
-              grade={gradeToNumber(USERS[activeUserId]?.grade)}
-              term={activeEvent.gauntlet_term ?? 1}
-              day={activeGauntletDay}
-              pool={gauntletDayPools[activeGauntletDay] || []}
-              eventTitle={activeEvent.title}
-              onExit={async (completedThisDay) => {
-                const day = activeGauntletDay;
-                setActiveGauntletDay(null);
-                if (!completedThisDay || !day) return;
-                const grade = gradeToNumber(USERS[activeUserId]?.grade);
-                const term = activeEvent.gauntlet_term ?? 1;
-                await markGauntletDayComplete(activeUserId, activeEvent.id, grade, term, day);
-                const daysDone = await fetchGauntletDaysDone(activeUserId, activeEvent.id);
-                setGauntletDaysDone(daysDone);
-                if (daysDone.size >= WEEKDAYS.length) {
-                  const { data: grantedMonsterId } = await supabase.rpc('claim_event_reward', {
-                    p_event_id: activeEvent.id,
-                    p_user_id: activeUserId,
-                    p_grade_level: grade,
-                  });
-                  if (grantedMonsterId) {
-                    setRevealEventMonster(grantedMonsterId);
-                    logAction(activeUserId, data.week_starting_date, 'event_reward', `Completed event: ${activeEvent.title}`, 0, 0);
-                    trackEvent('event_reward_claimed', { event_id: activeEvent.id });
-                  }
-                  loadEventData(activeUserId);
-                }
-              }}
-            />
-          </div>
+          <ActiveGauntletDayView
+            activeUserId={activeUserId}
+            activeEvent={activeEvent}
+            activeGauntletDay={activeGauntletDay}
+            gauntletDayPools={gauntletDayPools}
+            weekStartingDate={data.week_starting_date}
+            setActiveGauntletDay={setActiveGauntletDay}
+            setGauntletDaysDone={setGauntletDaysDone}
+            setRevealEventMonster={setRevealEventMonster}
+            loadEventData={loadEventData}
+          />
         )}
 
         {/* --- TAB B: REWARDS VAULT / SHOP --- */}
