@@ -8,6 +8,7 @@ import ChildProgressPanel from '@/components/ChildProgressPanel';
 import ChildComparisonPanel from '@/components/ChildComparisonPanel';
 import WeeklyLessonsPanel from '@/components/WeeklyLessonsPanel';
 import ParentBlogResources from '@/components/ParentBlogResources';
+import PushNotificationSettings from '@/components/PushNotificationSettings';
 
 interface ParentRow {
   status: 'pending' | 'approved' | 'rejected';
@@ -60,6 +61,7 @@ export default function ParentDashboardPage() {
   const [bugSent, setBugSent] = useState(false);
   const [showOptOutConfirm, setShowOptOutConfirm] = useState(false);
   const [showComparison, setShowComparison] = useState(false);
+  const [parentId, setParentId] = useState<string | null>(null);
 
   const isPremium = subscription?.status === 'active';
 
@@ -71,6 +73,7 @@ export default function ParentDashboardPage() {
       router.push('/parent-login');
       return;
     }
+    setParentId(user.id);
     const { data: parentRow } = await supabase
       .from('parents')
       .select('status, full_name, marketing_opt_in')
@@ -470,6 +473,9 @@ export default function ParentDashboardPage() {
         {/* ── Danger zone — pushed far from main content ── */}
         <div className="mt-16 pt-8 border-t border-stone-200 space-y-3">
           <p className="text-xs uppercase tracking-widest text-stone-400 select-none">More options</p>
+
+          {/* Push notifications on this device */}
+          {parentId && <PushNotificationSettings owner={{ kind: 'parent', id: parentId }} />}
 
           {/* Email updates opt-in/out */}
           {!showOptOutConfirm ? (

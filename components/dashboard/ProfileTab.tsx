@@ -7,6 +7,7 @@
 import { UserId } from '@/lib/userSession';
 import { WeeklyData } from '@/hooks/useWeeklyData';
 import HeroProfile from '@/components/HeroProfile';
+import PushNotificationSettings from '@/components/PushNotificationSettings';
 
 interface ProfileTabProps {
   activeUserId: UserId;
@@ -26,6 +27,9 @@ export default function ProfileTab({ activeUserId, data, currentDayName, onNavig
         currentDay={currentDayName}
         onViewAchievements={onNavigateToProfile}
       />
+      <div className="mt-6 max-w-md">
+        <PushNotificationSettings owner={{ kind: 'app_user', id: activeUserId }} variant="card" />
+      </div>
     </div>
   );
 }
