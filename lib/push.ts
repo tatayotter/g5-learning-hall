@@ -120,15 +120,15 @@ const AUTO_PROMPT_KEY_PREFIX = 'g5_push_auto_prompted_';
  * a 'default' permission that keeps getting silently dismissed would just
  * nag every page load.
  */
-export async function autoPromptForPush(owner: PushOwner): Promise<void> {
-  if (!isPushSupported()) return;
-  if (Notification.permission !== 'default') return;
+export async function autoPromptForPush(owner: PushOwner): Promise<boolean> {
+  if (!isPushSupported()) return false;
+  if (Notification.permission !== 'default') return false;
 
   const flagKey = `${AUTO_PROMPT_KEY_PREFIX}${owner.kind}_${owner.id}`;
-  if (typeof window !== 'undefined' && window.localStorage.getItem(flagKey)) return;
+  if (typeof window !== 'undefined' && window.localStorage.getItem(flagKey)) return false;
 
   const existing = await getExistingSubscription();
-  if (existing) return;
+  if (existing) return false;
 
   try {
     window.localStorage.setItem(flagKey, '1');
@@ -137,7 +137,12 @@ export async function autoPromptForPush(owner: PushOwner): Promise<void> {
     // this prompts again next load.
   }
 
-  await subscribeToPush(owner);
+  // Resolves only once the user has actually answered the native prompt
+  // (or it's been silently suppressed) — callers that award a bonus for
+  // subscribing should wait on this rather than checking state immediately,
+  // since the prompt itself can sit open for several seconds while a human
+  // reads and taps it.
+  return subscribeToPush(owner);
 }
 
 /** Asks the send-push Edge Function to deliver a test notification to `owner`. */
