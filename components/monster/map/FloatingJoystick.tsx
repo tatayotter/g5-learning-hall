@@ -35,6 +35,13 @@ export default function FloatingJoystick({ disabled, setDirectionPressed }: Floa
   const activeRef = useRef<Set<Direction>>(new Set());
   const draggingRef = useRef(false);
   const anchorRef = useRef({ x: 0, y: 0 });
+  // Which pointer started the current drag — a second touch landing (or
+  // lifting) in the capture zone while already dragging must be ignored,
+  // not treated as a re-anchor or a release. The window-level move/up
+  // listeners fire for every pointer, so without this a stray second touch
+  // (an accidental palm touch, or the other thumb in a two-handed grip)
+  // would silently end or misalign the real drag (2026-09-05 fix).
+  const pointerIdRef = useRef<number | null>(null);
   const [visible, setVisible] = useState(false);
   const [anchor, setAnchor] = useState({ x: 0, y: 0 });
   const [knobOffset, setKnobOffset] = useState({ x: 0, y: 0 });
@@ -83,7 +90,7 @@ export default function FloatingJoystick({ disabled, setDirectionPressed }: Floa
   }, [setDirectionPressed]);
 
   const handlePointerMove = useCallback((e: PointerEvent) => {
-    if (!draggingRef.current) return;
+    if (!draggingRef.current || e.pointerId !== pointerIdRef.current) return;
     let dx = e.clientX - anchorRef.current.x;
     let dy = e.clientY - anchorRef.current.y;
     const dist = Math.hypot(dx, dy);
@@ -96,19 +103,30 @@ export default function FloatingJoystick({ disabled, setDirectionPressed }: Floa
     applyDirections(dx, dy, clamped);
   }, [applyDirections]);
 
-  const handlePointerUp = useCallback(() => {
+  // Unconditional teardown — used both by the real pointerup handler (after
+  // it's confirmed the lifting pointer is the one that started the drag)
+  // and by the disabled/unmount effects below, which need to force-stop
+  // regardless of which pointer is "active" (there's no lifting pointer
+  // event to check an id against in those cases).
+  const stopDragging = useCallback(() => {
     draggingRef.current = false;
+    pointerIdRef.current = null;
     window.removeEventListener('pointermove', handlePointerMove);
     window.removeEventListener('pointerup', handlePointerUp);
     setVisible(false);
     clearAll();
   }, [handlePointerMove, clearAll]);
 
+  const handlePointerUp = useCallback((e: PointerEvent) => {
+    if (e.pointerId !== pointerIdRef.current) return;
+    stopDragging();
+  }, [stopDragging]);
+
   // Cancel an in-progress drag if the joystick gets disabled mid-hold (e.g.
   // a scroll/quiz overlay opens) — mirrors the old dpad/Joystick's guard.
   useEffect(() => {
-    if (disabled && draggingRef.current) handlePointerUp();
-  }, [disabled, handlePointerUp]);
+    if (disabled && draggingRef.current) stopDragging();
+  }, [disabled, stopDragging]);
 
   // Safety net if the component unmounts mid-drag (region change etc.).
   useEffect(() => () => {
@@ -117,7 +135,11 @@ export default function FloatingJoystick({ disabled, setDirectionPressed }: Floa
   }, [handlePointerMove, handlePointerUp]);
 
   const handlePointerDown = (e: React.PointerEvent) => {
-    if (disabled) return;
+    // A second touch landing in the zone while one is already dragging
+    // must not steal/re-anchor the drag — ignore it entirely and let the
+    // original pointer keep driving until it lifts.
+    if (disabled || draggingRef.current) return;
+    pointerIdRef.current = e.pointerId;
     anchorRef.current = { x: e.clientX, y: e.clientY };
     setAnchor(anchorRef.current);
     setKnobOffset({ x: 0, y: 0 });
