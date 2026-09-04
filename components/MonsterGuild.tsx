@@ -28,7 +28,6 @@ import {
   fetchSubclassProfile, guildLevelForKey, SubclassProfile,
 } from '@/lib/guildEngine';
 import { UserMonster, ActiveBattleMonster } from '@/components/battle/shared';
-import LiveBattleScreen from '@/components/LiveBattleScreen';
 import LeaderboardPanel from '@/components/LeaderboardPanel';
 import TradePanel from '@/components/trade/TradePanel';
 import { createInvite, respondToInvite, expireInvite } from '@/lib/liveBattle';
@@ -36,15 +35,15 @@ import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import WorldMap from '@/components/WorldMap';
 import { REGIONS } from '@/lib/regions';
-import { CaughtMonster, BattleState } from '@/components/monster/types';
+import { CaughtMonster, BattleState, GuildView } from '@/components/monster/types';
 import TrainingMap from '@/components/monster/TrainingMap';
 import TeamPanel from '@/components/monster/TeamPanel';
 import CompendiumPanel from '@/components/monster/CompendiumPanel';
-import BattleScreen from '@/components/monster/BattleScreen';
 import StarterSelection from '@/components/monster/StarterSelection';
 import HatcheryPanel from '@/components/monster/HatcheryPanel';
 import { EggChainMap, CurioEgg, fetchEggChainMap, fetchUserEggs, eggReadyLevel } from '@/lib/curioEggs';
 import { takePrefetch, MonsterGuildPrefetch } from '@/lib/tabPrefetch';
+import BattleViews from '@/components/monster/BattleViews';
 import TrainersView from '@/components/monster/TrainersView';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
@@ -118,8 +117,6 @@ function extractQuestions(packageData: any): any[] {
 }
 
 // ─── MAIN MONSTER GUILD ───────────────────────────────────────────────────────
-
-type GuildView = 'map' | 'team' | 'trainers' | 'compendium' | 'battle' | 'live_battle' | 'leaderboard' | 'trade' | 'hatchery';
 
 interface WildEncounterState {
   monsterId: string;
@@ -546,6 +543,15 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
   const handleHeal = () => {
     showNotification('🏠 Your team has been healed!');
+  };
+
+  // Shared by all three battle screens (NPC, PvP, live PvP) — was three
+  // identical inline closures. `true` skips loadData's full reset since a
+  // full reload would unmount the in-progress battle screen mid-fight.
+  const handleUseItem = async (key: string) => {
+    const ok = await useInventoryItem(userId, key);
+    if (ok) await loadData(true);
+    return ok;
   };
 
   const gradeLevel = gradeToNumber(USERS[userId]?.grade);
@@ -1183,85 +1189,35 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       )}
 
       {/* Battle view — NPC */}
-      {view === 'battle' && activeBattle && !pvpOpponentTeam && (
-        <BattleScreen
-          userId={userId}
-          playerTeam={buildPlayerTeam()}
-          trainer={activeBattle}
-          questions={questions}
-          gradingUserId={userId}
-          inventory={inventory}
-          onUseItem={async (key) => {
-            const ok = await useInventoryItem(userId, key);
-            if (ok) await loadData(true); // <--- Pass 'true' to skip full reset
-            return ok;
-          }}
-          onBattleEnd={handleBattleEnd}
-          onQuestionsAnswered={handleQuestionsAnswered}
-        />
-      )}
-
-      {/* Battle view — PvP */}
-      {view === 'battle' && pvpOpponentTeam && pvpOpponent && (
-        <BattleScreen
-          userId={userId}
-          playerTeam={buildPlayerTeam()}
-          siblingTeam={pvpOpponentTeam}
-          siblingName={pvpOpponent.name}
-          questions={questions}
-          gradingUserId={userId}
-          inventory={inventory}
-          onUseItem={async (key) => {
-            const ok = await useInventoryItem(userId, key);
-            if (ok) await loadData(true); // skip full reset — would unmount BattleScreen mid-fight
-            return ok;
-          }}
-          onBattleEnd={handlePvpBattleEnd}
-          onQuestionsAnswered={handleQuestionsAnswered}
-        />
-      )}
-
-      {/* Battle view — Live PvP */}
-      {view === 'live_battle' && liveBattleId && liveBattleOpponent && liveBattleTeams && (
-        <LiveBattleScreen
-          battleId={liveBattleId}
-          myUserId={userId}
-          opponentId={liveBattleOpponent.id}
-          opponentName={liveBattleOpponent.name}
-          side={liveBattleSide}
-          myTeam={liveBattleTeams.mine}
-          opponentTeam={liveBattleTeams.opp}
-          botAccuracy={liveBattleBotAccuracy}
-          questions={questions}
-          gradingUserId={userId}
-          inventory={inventory}
-          onUseItem={async (key) => {
-            const ok = await useInventoryItem(userId, key);
-            if (ok) await loadData(true); // skip full reset — would unmount LiveBattleScreen mid-fight
-            return ok;
-          }}
-          onBattleResultKnown={(won) => {
-            // Bot battles have no real inbox — skip the Supabase flash.
-            if (!liveBattleBotAccuracy) liveBattleInbox.sendBattleResultFlash(won);
-            liveBattleInbox.setInBattleStatus(false);
-          }}
-          onBattleEnd={(won) => {
-            showNotification(won ? `🏆 Defeated ${liveBattleOpponent.name}!` : `💀 ${liveBattleOpponent.name} was too strong!`);
-            if (won) {
-              onBattleWon('sibling');
-              // Bot battles: no Edge Function ran, so skip onProgressSynced()
-              // (there's no server-side gold credit to resync).
-              if (!liveBattleBotAccuracy) onProgressSynced();
-            }
-            setLiveBattleId(null);
-            setLiveBattleOpponent(null);
-            setLiveBattleTeams(null);
-            setLiveBattleBotAccuracy(undefined);
-            setView('trainers');
-            loadData();
-          }}
-        />
-      )}
+      <BattleViews
+        view={view}
+        userId={userId}
+        questions={questions}
+        inventory={inventory}
+        onUseItem={handleUseItem}
+        handleQuestionsAnswered={handleQuestionsAnswered}
+        buildPlayerTeam={buildPlayerTeam}
+        activeBattle={activeBattle}
+        handleBattleEnd={handleBattleEnd}
+        pvpOpponentTeam={pvpOpponentTeam}
+        pvpOpponent={pvpOpponent}
+        handlePvpBattleEnd={handlePvpBattleEnd}
+        liveBattleId={liveBattleId}
+        liveBattleOpponent={liveBattleOpponent}
+        liveBattleSide={liveBattleSide}
+        liveBattleTeams={liveBattleTeams}
+        liveBattleBotAccuracy={liveBattleBotAccuracy}
+        liveBattleInbox={liveBattleInbox}
+        showNotification={showNotification}
+        onBattleWon={onBattleWon}
+        onProgressSynced={onProgressSynced}
+        setLiveBattleId={setLiveBattleId}
+        setLiveBattleOpponent={setLiveBattleOpponent}
+        setLiveBattleTeams={setLiveBattleTeams}
+        setLiveBattleBotAccuracy={setLiveBattleBotAccuracy}
+        setView={setView}
+        loadData={loadData}
+      />
 
       {pendingDuplicate && (
         <DuplicateCatchModal
