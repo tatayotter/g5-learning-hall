@@ -49,6 +49,7 @@ import CurioExpertNpc from '@/components/CurioExpertNpc';
 import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import LinkParentBanner from '@/components/LinkParentBanner';
+import InstallNudge from '@/components/InstallNudge';
 import SidebarRail, { RailTabId } from '@/components/SidebarRail';
 import TutorialSpotlight from '@/components/TutorialSpotlight';
 import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
@@ -832,6 +833,7 @@ export default function Dashboard() {
       )}
       <div className="h-screen flex flex-col">
       <LinkParentBanner />
+      <InstallNudge userId={activeUserId} />
       {boardTutorial.step && (
         <TutorialSpotlight
           key={boardTutorial.step.id}
