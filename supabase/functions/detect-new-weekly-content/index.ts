@@ -65,7 +65,7 @@ Deno.serve(async (req: Request) => {
         owner_id: r.id as string,
         title: 'New Quests This Week! 📖',
         body: `${gradeLabel} content is ready — jump in and see what's new!`,
-        url: '/play',
+        url: '/?tab=board',
       }));
       const { error: insertErr } = await admin.from('push_notification_queue').insert(rows);
       if (insertErr) {

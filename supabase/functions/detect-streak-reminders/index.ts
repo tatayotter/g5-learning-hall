@@ -55,7 +55,7 @@ Deno.serve(async (req: Request) => {
       owner_id: child.id,
       title: "Don't lose your streak! 🔥",
       body: "You haven't finished today's quests yet — jump back in before the day ends!",
-      url: '/play',
+      url: '/?tab=board',
     });
     if (!insertErr) queued++;
   }
