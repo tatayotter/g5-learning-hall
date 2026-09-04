@@ -111,6 +111,14 @@ interface TrackedSprite {
   // from/to a stable value instead of compounding on whatever an
   // still-in-flight tween last reached. Only meaningfully used for self.
   baseScaleY: number;
+  // The logical avatar key from textureKeyFor(spriteSrc) — NOT necessarily
+  // image.texture.key, since loadSpriteVisual may swap in a pre-baked
+  // "smooth:<key>:<size>" texture (see bakeSmoothTexture) for plain-image
+  // avatars. Re-skin/no-op checks compare against this, not the live
+  // texture key, so they detect an actual avatar change rather than
+  // spuriously firing on every sync once the displayed key differs from
+  // the raw one.
+  srcKey: string;
 }
 
 // Canvas-pixel camera transform — exported so MapCanvas.tsx can convert it to
@@ -345,7 +353,14 @@ export default class TrainingMapScene extends Phaser.Scene {
   // Loads whatever texture a player's avatar needs (plain image, or — for
   // avatars in ANIMATED_AVATARS — a spritesheet with its walk animation
   // registered) and hands back the resulting texture key once ready.
-  private loadSpriteVisual(spriteSrc: string, onReady: (textureKey: string) => void) {
+  // `targetSize` (the tile-fit pixel size the caller is about to display this
+  // at, via fitSprite) lets a plain-image avatar get pre-baked down to that
+  // size — see bakeSmoothTexture's header comment for why plain LINEAR
+  // filtering alone isn't enough at these source→display downscale ratios.
+  // Animated (spritesheet) avatars skip baking: their frames are sub-rects
+  // of one shared sheet image, and downscaling the whole sheet as one bitmap
+  // would bleed adjacent frames into each other at the seams.
+  private loadSpriteVisual(spriteSrc: string, targetSize: number, onReady: (textureKey: string) => void) {
     const animated = ANIMATED_AVATARS[spriteSrc];
     if (!animated) {
       const key = textureKeyFor(spriteSrc);
@@ -353,7 +368,7 @@ export default class TrainingMapScene extends Phaser.Scene {
         // Override pixelArt:true global setting — player avatars are smooth
         // PNG art, not pixel sprites, and need bilinear filtering.
         this.setLinearFilter(key);
-        onReady(key);
+        onReady(this.bakeSmoothTexture(key, targetSize));
       });
       return;
     }
@@ -567,7 +582,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     const { px, py, h } = this.tileToPixel(t, player.x, player.y);
     const key = textureKeyFor(player.spriteSrc);
 
-    if (tracked && tracked.x === player.x && tracked.y === player.y && tracked.image.texture.key === key) {
+    if (tracked && tracked.x === player.x && tracked.y === player.y && tracked.srcKey === key) {
       return tracked;
     }
 
@@ -584,8 +599,8 @@ export default class TrainingMapScene extends Phaser.Scene {
         image.on('pointerdown', () => onClick(player.id));
       }
       const shadow = this.makeShadow(px, py, h, depth);
-      const next: TrackedSprite = { image, shadow, x: player.x, y: player.y, baseScaleY: image.scaleY };
-      this.loadSpriteVisual(player.spriteSrc, (texKey) => {
+      const next: TrackedSprite = { image, shadow, x: player.x, y: player.y, baseScaleY: image.scaleY, srcKey: key };
+      this.loadSpriteVisual(player.spriteSrc, h * 0.95, (texKey) => {
         // setTexture() swaps the frame but doesn't preserve the display size
         // set above (it was computed against the tiny placeholder frame) —
         // without reapplying it here, the real sprite art snaps to its own
@@ -610,13 +625,20 @@ export default class TrainingMapScene extends Phaser.Scene {
       tracked.x = player.x;
       tracked.y = player.y;
     }
-    if (tracked.image.texture.key !== key) {
-      this.loadSpriteVisual(player.spriteSrc, (texKey) => {
+    if (tracked.srcKey !== key) {
+      // srcKey is only updated once the swap actually lands (inside the
+      // .active branch below), not eagerly here — if the load never
+      // completes (e.g. a failed fetch; ensureTexture has no error handler)
+      // or the sprite goes inactive first, the mismatch stays visible and
+      // this keeps retrying on every subsequent sync instead of getting
+      // permanently stuck showing the stale avatar.
+      this.loadSpriteVisual(player.spriteSrc, h * 0.95, (texKey) => {
         if (tracked.image.active) {
           this.tweens.killTweensOf(tracked.image);
           tracked.image.setTexture(texKey, 0);
           this.fitSprite(tracked.image, h * 0.95);
           tracked.baseScaleY = tracked.image.scaleY;
+          tracked.srcKey = key;
         }
       });
     }
@@ -637,9 +659,9 @@ export default class TrainingMapScene extends Phaser.Scene {
       image.setDisplaySize(h * 0.95, h * 0.95);
       image.setDepth(10);
       const shadow = this.makeShadow(px, py, h, 10);
-      const next: TrackedSprite = { image, shadow, x: state.self.x, y: state.self.y, baseScaleY: image.scaleY };
+      const next: TrackedSprite = { image, shadow, x: state.self.x, y: state.self.y, baseScaleY: image.scaleY, srcKey: key };
       this.self = next;
-      this.loadSpriteVisual(state.self.spriteSrc, (texKey) => {
+      this.loadSpriteVisual(state.self.spriteSrc, h * 0.95, (texKey) => {
         if (next.image.active) {
           // Kill any stepping tween launched while we were still showing the
           // placeholder — its target was the placeholder's inflated baseScaleY
@@ -650,17 +672,21 @@ export default class TrainingMapScene extends Phaser.Scene {
           next.baseScaleY = next.image.scaleY;
         }
       });
-    } else if (this.self.image.texture.key !== key) {
+    } else if (this.self.srcKey !== key) {
       // Avatar changed (e.g. bought/equipped a new one mid-session) — swap
       // texture in place, leave position untouched.
       const h = this.lastTransform.tileH;
       const self = this.self;
-      this.loadSpriteVisual(state.self.spriteSrc, (texKey) => {
+      // srcKey is only updated once the swap actually lands (see the
+      // matching comment in spawnOrMoveSprite) so a failed/dropped load
+      // keeps retrying instead of getting permanently stuck.
+      this.loadSpriteVisual(state.self.spriteSrc, h * 0.95, (texKey) => {
         if (self.image.active) {
           this.tweens.killTweensOf(self.image);
           self.image.setTexture(texKey, 0);
           this.fitSprite(self.image, h * 0.95);
           self.baseScaleY = self.image.scaleY;
+          self.srcKey = key;
         }
       });
     }
@@ -714,6 +740,69 @@ export default class TrainingMapScene extends Phaser.Scene {
     // Footstep dust puffs removed — effect was distracting.
   }
 
+  /** Pre-bakes a properly downscaled copy of `sourceKey`, sized so its
+   *  longest edge is `targetSize` px, and returns the new texture's key
+   *  (caching by source+size so repeat calls are free).
+   *
+   *  Why this exists: avatar/trash/recycler art (~100-500px source) renders
+   *  at a small fraction of that on the tile grid (~5-8x downscale).
+   *  setLinearFilter (bilinear, single 2x2-texel sample, no mipmaps) looks
+   *  fine scaling UP (that's all the map background/tileset art needs) but
+   *  aliases badly minifying by more than ~2x — plain WebGL bilinear just
+   *  isn't a real minification filter. A browser's own <img> tag (used for
+   *  the DOM-overlay question-scroll marker, which shrinks by a similar
+   *  ratio and looks clean) instead uses proper box/mipmap-quality
+   *  downscaling automatically. This replicates that by hand: repeatedly
+   *  halving via Canvas2D (which *does* do quality minification) down to
+   *  the actual target size once, so what WebGL displays afterward is a
+   *  near-1:1 sample instead of an 5-8x-aliased one. */
+  private bakeSmoothTexture(sourceKey: string, targetSize: number): string {
+    const size = Math.max(1, Math.round(targetSize));
+    const smoothKey = `smooth:${sourceKey}:${size}`;
+    if (this.textures.exists(smoothKey)) return smoothKey;
+
+    const srcImg = this.textures.get(sourceKey).getSourceImage() as (HTMLImageElement | HTMLCanvasElement | ImageBitmap);
+    const srcW = (srcImg as HTMLImageElement).naturalWidth || (srcImg as HTMLCanvasElement).width;
+    const srcH = (srcImg as HTMLImageElement).naturalHeight || (srcImg as HTMLCanvasElement).height;
+    if (!srcW || !srcH) return sourceKey; // shouldn't happen once loaded; fall back to raw texture
+
+    const scale = size / Math.max(srcW, srcH);
+    const dstW = Math.max(1, Math.round(srcW * scale));
+    const dstH = Math.max(1, Math.round(srcH * scale));
+
+    // Progressive halving: single-step drawImage from source resolution
+    // straight to target still aliases at these ratios (Canvas2D's own
+    // quality mode is best when no single step downscales by more than 2x).
+    let cur: HTMLCanvasElement | HTMLImageElement | ImageBitmap = srcImg;
+    let curW = srcW, curH = srcH;
+    while (curW > dstW * 2 && curH > dstH * 2) {
+      const nextW = Math.max(dstW, Math.floor(curW / 2));
+      const nextH = Math.max(dstH, Math.floor(curH / 2));
+      const step = document.createElement('canvas');
+      step.width = nextW;
+      step.height = nextH;
+      const stepCtx = step.getContext('2d')!;
+      stepCtx.imageSmoothingEnabled = true;
+      stepCtx.imageSmoothingQuality = 'high';
+      stepCtx.drawImage(cur as CanvasImageSource, 0, 0, curW, curH, 0, 0, nextW, nextH);
+      cur = step;
+      curW = nextW;
+      curH = nextH;
+    }
+
+    const final = document.createElement('canvas');
+    final.width = dstW;
+    final.height = dstH;
+    const finalCtx = final.getContext('2d')!;
+    finalCtx.imageSmoothingEnabled = true;
+    finalCtx.imageSmoothingQuality = 'high';
+    finalCtx.drawImage(cur as CanvasImageSource, 0, 0, curW, curH, 0, 0, dstW, dstH);
+
+    this.textures.addCanvas(smoothKey, final);
+    this.setLinearFilter(smoothKey);
+    return smoothKey;
+  }
+
   /** Scale a sprite uniformly so its longest dimension fits within `size`
    *  pixels. Replaces setDisplaySize(size, size) which would stretch
    *  non-square art. The sprite's texture must already be set before calling. */
@@ -760,9 +849,14 @@ export default class TrainingMapScene extends Phaser.Scene {
           // Override global pixelArt:true so smooth PNGs render with bilinear filtering.
           this.setLinearFilter(key);
           const { px, py, h } = this.tileToPixel(this.lastTransform, tx, ty);
-          const sprite = this.add.image(px, py, key);
+          // Trash art shrinks ~7-8x to fit here — bake a properly downscaled
+          // copy first (see bakeSmoothTexture) instead of letting WebGL
+          // bilinear alias it at that ratio.
+          const smoothKey = this.bakeSmoothTexture(key, h * 0.22);
+          const sprite = this.add.image(px, py, smoothKey);
           sprite.setOrigin(0.5, 0.5).setDepth(9);
-          // Scale so the longest edge fits within 22% of a tile.
+          // Scale so the longest edge fits within 22% of a tile (near-1:1
+          // now that the texture itself is already baked to that size).
           sprite.setScale((h * 0.22) / Math.max(sprite.width, sprite.height));
           this.trashTexts.set(item.id, { sprite, tx, ty });
         });
@@ -824,13 +918,22 @@ export default class TrainingMapScene extends Phaser.Scene {
       if (this.recyclerSprite) this.recyclerSprite.destroy();
       // Override global pixelArt:true for this smooth PNG.
       this.setLinearFilter(key);
-      const img = this.add.image(px, py + h * 0.5, key);
+      // NPC art shrinks significantly to fit here — bake a properly
+      // downscaled copy first (see bakeSmoothTexture) instead of letting
+      // WebGL bilinear alias it at that ratio.
+      const targetH = h * 0.85;
+      const smoothKey = this.bakeSmoothTexture(key, targetH);
+      const img = this.add.image(px, py + h * 0.5, smoothKey);
       // Bottom-anchor: sprite's bottom edge sits at the tile's bottom edge.
       img.setOrigin(0.5, 1);
-      // Scale uniformly so the image keeps its natural aspect ratio;
-      // target display height is ~1.4× a tile height.
-      const targetH = h * 0.85;
-      img.setScale(targetH / img.height);
+      // Scale uniformly so the image keeps its natural aspect ratio (near-1:1
+      // now that the texture itself is already baked). bakeSmoothTexture
+      // sizes by the LONGEST edge, not specifically height, so the divisor
+      // here must match that (same as fitSprite/the trash-item scale below)
+      // — dividing by img.height alone only happens to work while
+      // recycler.png is portrait (height is the long edge); a wider NPC
+      // asset would silently upscale past 1:1 otherwise.
+      img.setScale(targetH / Math.max(img.width, img.height));
       img.setDepth(8);
       this.recyclerSprite = img;
       this.recyclerTilePos = { x: tile.x, y: tile.y };
