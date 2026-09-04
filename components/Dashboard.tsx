@@ -27,7 +27,7 @@ import { prefetchAllTabs } from '@/lib/tabPrefetch';
 import { claimRegistrantReward, fetchNotifications, markNotificationsRead, getMyReferralKey, PlayerNotification } from '@/lib/referral';
 import { claimMarketingGoldBonus } from '@/lib/marketingBonus';
 import { claimPushGoldBonusChild, claimPushGoldBonusParent } from '@/lib/pushBonus';
-import { autoPromptForPush } from '@/lib/push';
+import { autoPromptForPush, sendPushToSelf } from '@/lib/push';
 import NotificationInbox from '@/components/NotificationInbox';
 import BoardMapView from '@/components/dashboard/board/BoardMapView';
 import ActiveQuestView from '@/components/dashboard/board/ActiveQuestView';
@@ -188,6 +188,17 @@ export default function Dashboard() {
               const speciesName = ALL_MONSTERS[h.species_id]?.name ?? h.species_id;
               logAction(activeUserId, today, 'egg', `🐣 An egg hatched into ${speciesName}!`, 0, 0);
             });
+            // Self-notification — the hatch is already visible in-session via
+            // EggHatchModal, but a push also confirms it landed on other
+            // devices/tabs and matches the other event types below. Purely
+            // client-triggered (no cron needed): hatching only ever happens
+            // during a session, unlike mission completion.
+            const firstSpecies = ALL_MONSTERS[result.hatched[0].species_id]?.name ?? result.hatched[0].species_id;
+            const title = result.hatched.length > 1 ? 'Eggs Hatched! 🐣' : 'Egg Hatched! 🐣';
+            const body = result.hatched.length > 1
+              ? `${result.hatched.length} eggs hatched, including a ${firstSpecies}!`
+              : `Your egg hatched into a ${firstSpecies}!`;
+            sendPushToSelf({ kind: 'app_user', id: activeUserId }, title, body, '/play');
           }
         });
         fetchUserEggs(activeUserId).then(eggs => {
