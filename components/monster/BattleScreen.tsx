@@ -30,9 +30,14 @@ interface BattleScreenProps {
   onUseItem: (key: string) => Promise<boolean>;
   onBattleEnd: (won: boolean, expEarned: number) => void;
   onQuestionsAnswered?: (questions: any[]) => void;
+  // "Skip for gold" (see BattleQuestionModal in components/battle/shared.tsx) —
+  // gold is the player's live balance, onSpendGold does the actual atomic
+  // server-side debit and resolves to whether it succeeded.
+  gold: number;
+  onSpendGold: (amount: number) => Promise<boolean>;
 }
 
-export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, questions, gradingUserId, inventory, onUseItem, onBattleEnd, onQuestionsAnswered }: BattleScreenProps) {
+export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, questions, gradingUserId, inventory, onUseItem, onBattleEnd, onQuestionsAnswered, gold, onSpendGold }: BattleScreenProps) {
   const opponentName = trainer?.name || siblingName || 'Sibling';
   const opponentTeam = siblingTeam || trainer?.monsters.map((tm: any) => {
     const def = ALL_MONSTERS[tm.monsterId];
@@ -57,6 +62,10 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   const [battleResult, setBattleResult] = useState<{ won: boolean; exp: number; reason: 'ko' | 'surrender' } | null>(null);
   const [itemBusy, setItemBusy] = useState(false);
   const itemBusyRef = useRef(false);
+  // Per-battle "skip for gold" spend, capped by BATTLE_CONSTANTS.MAX_GOLD_SPENT_PER_BATTLE
+  // — lives here (not in state that outlives this component) since a fresh
+  // BattleScreen mount is exactly one battle.
+  const [goldSpentThisBattle, setGoldSpentThisBattle] = useState(0);
 
   const playerMon = playerMonsters[playerMonsterIdx];
   const npcMon = npcMonsters[npcMonsterIdx];
@@ -290,6 +299,25 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       itemBusyRef.current = false;
       setItemBusy(false);
     }, 500);
+  };
+
+  const skipCost = BATTLE_CONSTANTS.QUESTION_SKIP_GOLD_COST;
+  const canSkip = gold >= skipCost && goldSpentThisBattle + skipCost <= BATTLE_CONSTANTS.MAX_GOLD_SPENT_PER_BATTLE;
+
+  const handleSkipQuestion = async (): Promise<boolean> => {
+    if (!canSkip) {
+      addLog(goldSpentThisBattle + skipCost > BATTLE_CONSTANTS.MAX_GOLD_SPENT_PER_BATTLE
+        ? `❌ Reached this battle's ${BATTLE_CONSTANTS.MAX_GOLD_SPENT_PER_BATTLE} gold skip limit!`
+        : '❌ Not enough gold to skip!');
+      return false;
+    }
+    const paid = await onSpendGold(skipCost);
+    if (!paid) {
+      addLog('❌ Not enough gold to skip!');
+      return false;
+    }
+    setGoldSpentThisBattle(prev => prev + skipCost);
+    return true;
   };
 
   const handleQuestionsComplete = (correctCount: number, answeredQuestions: any[]) => {
@@ -631,6 +659,11 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         embedded={true}
         gradingUserId={gradingUserId}
         onComplete={handleQuestionsComplete}
+        canSkip={canSkip}
+        skipCost={skipCost}
+        onSkip={handleSkipQuestion}
+        goldSpentThisBattle={goldSpentThisBattle}
+        maxGoldPerBattle={BATTLE_CONSTANTS.MAX_GOLD_SPENT_PER_BATTLE}
       />
     </div>
   ) : phase === 'select_item' ? (

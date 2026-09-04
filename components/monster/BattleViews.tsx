@@ -24,6 +24,11 @@ interface BattleViewsProps {
   handleQuestionsAnswered: (usedQuestions: any[]) => void;
   buildPlayerTeam: () => ActiveBattleMonster[];
 
+  // "Skip for gold" (see BattleQuestionModal in components/battle/shared.tsx) —
+  // same live balance + spend handler for all three battle modes below.
+  gold: number;
+  onSpendGold: (amount: number) => Promise<boolean>;
+
   // NPC battle
   activeBattle: NpcTrainer | null;
   handleBattleEnd: (won: boolean, expEarned: number) => void;
@@ -59,6 +64,8 @@ export default function BattleViews({
   onUseItem,
   handleQuestionsAnswered,
   buildPlayerTeam,
+  gold,
+  onSpendGold,
   activeBattle,
   handleBattleEnd,
   pvpOpponentTeam,
@@ -91,6 +98,8 @@ export default function BattleViews({
           gradingUserId={userId}
           inventory={inventory}
           onUseItem={onUseItem}
+          gold={gold}
+          onSpendGold={onSpendGold}
           onBattleEnd={handleBattleEnd}
           onQuestionsAnswered={handleQuestionsAnswered}
         />
@@ -107,6 +116,8 @@ export default function BattleViews({
           gradingUserId={userId}
           inventory={inventory}
           onUseItem={onUseItem}
+          gold={gold}
+          onSpendGold={onSpendGold}
           onBattleEnd={handlePvpBattleEnd}
           onQuestionsAnswered={handleQuestionsAnswered}
         />
@@ -127,6 +138,8 @@ export default function BattleViews({
           gradingUserId={userId}
           inventory={inventory}
           onUseItem={onUseItem}
+          gold={gold}
+          onSpendGold={onSpendGold}
           onBattleResultKnown={(won) => {
             // Bot battles have no real inbox — skip the Supabase flash.
             if (!liveBattleBotAccuracy) liveBattleInbox.sendBattleResultFlash(won);
