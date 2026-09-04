@@ -11,6 +11,8 @@ import { UserId, USERS, gradeToNumber } from '@/lib/userSession';
 import { useMapPresence } from '@/hooks/useMapPresence';
 import { useBotPresence } from '@/hooks/useBotPresence';
 import { BOT_PROFILES, BOT_IDS, buildBotTeam, type BotProfile } from '@/lib/botProfiles';
+import { Nail } from '@/components/battle/MonsterHpPanel';
+import { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import WildEncounterModal from '@/components/WildEncounterModal';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import DuplicateCatchModal from '@/components/DuplicateCatchModal';
@@ -1017,13 +1019,13 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       {/* Arena sub-nav — floating Curio Arena icon FAB + drawer overlay */}
       {(() => {
         const ARENA_TABS = ([
-          { id: 'map'         as GuildView, label: 'Training Map', icon: '🗺️' },
-          { id: 'team'        as GuildView, label: 'My Team',      icon: '🐾' },
-          { id: 'trainers'    as GuildView, label: 'Trainers',     icon: '⚔️' },
-          { id: 'compendium'  as GuildView, label: `Compendium${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}`, icon: '📖' },
-          { id: 'trade'       as GuildView, label: 'Trade',       icon: '🤝' },
-          { id: 'leaderboard' as GuildView, label: 'Leaderboard',  icon: '🏆' },
-          { id: 'hatchery'    as GuildView, label: 'Hatchery',    icon: '🥚' },
+          { id: 'map'         as GuildView, label: 'Training Map', icon: '/icons/mapicon.png' },
+          { id: 'team'        as GuildView, label: 'My Team',      icon: '/icons/myteamicon.png' },
+          { id: 'trainers'    as GuildView, label: 'Trainers',     icon: '/icons/trainericon.png' },
+          { id: 'compendium'  as GuildView, label: `Compendium${caughtMonsters.length > 0 ? ` (${caughtMonsters.length})` : ''}`, icon: '/icons/compendiumicon.png' },
+          { id: 'trade'       as GuildView, label: 'Trade',       icon: '/icons/tradeicon.png' },
+          { id: 'leaderboard' as GuildView, label: 'Leaderboard',  icon: '/icons/leaderboardicon.png' },
+          { id: 'hatchery'    as GuildView, label: 'Hatchery',    icon: '/icons/hatcheryicon.png' },
         ]);
         return (
           <>
@@ -1058,17 +1060,50 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                     animate={isLandscape ? { x: 0 } : { y: 0 }}
                     exit={isLandscape ? { x: '-100%' } : { y: '100%' }}
                     transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
-                    style={isLandscape ? { position: 'absolute', top: 0, left: 0, bottom: 0, width: '22rem' } : undefined}
-                    className={`relative bg-white border-stone-200 shadow-2xl
+                    style={{
+                      ...(isLandscape ? { position: 'absolute', top: 0, left: 0, bottom: 0, width: '24rem' } : {}),
+                      boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`,
+                    }}
+                    className={`relative bg-white border-2 border-[#4a2f18]
                       ${isLandscape
-                        ? 'rounded-tr-3xl pt-4 pb-6 pl-6 pr-8 flex flex-col'
-                        : 'border border-b-0 rounded-t-3xl pt-6 pb-10 px-6 w-full'
+                        ? 'rounded-tr-3xl pt-4 pb-5 pl-6 pr-16 flex flex-col'
+                        : 'border-b-0 rounded-t-3xl pt-10 pb-6 px-6 w-full'
                       }`}
                     onClick={e => e.stopPropagation()}
                   >
-                    {/* Title */}
-                    <div className={`${isLandscape ? 'mb-4 text-left' : 'mb-5 text-center'}`}>
-                      <span className="text-amber-700 font-extrabold text-lg uppercase tracking-widest">Curio Arena</span>
+                    {/* Gold nails, top corners only — same treatment as the
+                        nav drawer (SidebarRail.tsx). */}
+                    <Nail className="top-2 left-2" />
+                    <Nail className="top-2 right-2" />
+                    {/* Curio Arena icon — sits on the drawer's edge and doubles
+                        as the close button, mirroring the nav drawer's compass
+                        trigger (SidebarRail.tsx): top-center on the bottom
+                        sheet, right-edge-middle on the landscape side drawer. */}
+                    <button
+                      onClick={() => setArenaNavOpen(false)}
+                      className={`absolute z-10 active:scale-95 transition-all duration-150 ease-out
+                        ${isLandscape
+                          ? 'bottom-6 -right-10 hover:opacity-80'
+                          : '-top-10 left-1/2 -translate-x-1/2 hover:-translate-y-1 hover:drop-shadow-lg'
+                        }`}
+                      aria-label="Close Curio Arena menu"
+                    >
+                      <img
+                        src="/main ui/curioarena.png"
+                        alt=""
+                        className={isDesktop ? 'w-24 h-24 object-contain' : 'w-20 h-20 object-contain'}
+                      />
+                    </button>
+
+                    {/* "Curio Arena" label — same Bungee/stroke/shadow text
+                        treatment as the nav drawer's "Navigation" heading. */}
+                    <div className={`${isLandscape ? 'mb-3 text-left' : 'mb-5 text-center'}`}>
+                      <span className="text-xl" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+                        <span style={{ position: 'relative', display: 'inline-block' }}>
+                          <span aria-hidden style={questTextShadowStyle}>Curio Arena</span>
+                          <span style={{ ...questTextStyle, color: '#f5c542' }}>Curio Arena</span>
+                        </span>
+                      </span>
                     </div>
 
                     {/* Tab grid */}
@@ -1079,15 +1114,14 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                           <button
                             key={tab.id}
                             onClick={() => { setView(tab.id); setArenaNavOpen(false); }}
-                            className={`flex flex-col items-center gap-2 p-4 rounded-2xl border transition-all duration-150
-                              hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-95
-                              ${isActive
-                                ? 'bg-amber-50 border-amber-300'
-                                : 'border-transparent hover:bg-stone-50'
-                              }`}
+                            className="relative flex flex-col items-center gap-1.5 p-4 rounded-2xl border transition-all duration-150 ease-out
+                              hover:-translate-y-1 hover:drop-shadow-md active:translate-y-0 active:scale-95
+                              border-transparent"
                           >
-                            <span className="text-3xl leading-none">{tab.icon}</span>
-                            <span className="text-[10px] font-bold uppercase tracking-wide text-gray-600 text-center leading-tight">
+                            <span className="relative w-10 h-10 flex items-center justify-center shrink-0">
+                              <img src={tab.icon} alt="" className={`w-10 h-10 object-contain${isActive ? ' nav-icon-active' : ''}`} />
+                            </span>
+                            <span className="text-[10px] font-bold uppercase tracking-wide text-gray-500 text-center leading-tight">
                               {tab.label}
                             </span>
                           </button>

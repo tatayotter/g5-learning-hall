@@ -34,7 +34,6 @@ import type { GuildView } from '@/components/monster/types';
 // value (`?view=`) at runtime, since a type alone can't check a string
 // pulled from window.location at deep-link time.
 const GUILD_VIEWS: readonly GuildView[] = ['map', 'team', 'trainers', 'compendium', 'battle', 'live_battle', 'leaderboard', 'trade', 'hatchery'];
-import NotificationInbox from '@/components/NotificationInbox';
 import BoardMapView from '@/components/dashboard/board/BoardMapView';
 import ActiveQuestView from '@/components/dashboard/board/ActiveQuestView';
 import ActiveEventQuestView from '@/components/dashboard/board/ActiveEventQuestView';
@@ -50,6 +49,7 @@ import CurioExpertNpc from '@/components/CurioExpertNpc';
 import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import LinkParentBanner from '@/components/LinkParentBanner';
+import InstallNudge from '@/components/InstallNudge';
 import SidebarRail, { RailTabId } from '@/components/SidebarRail';
 import TutorialSpotlight from '@/components/TutorialSpotlight';
 import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
@@ -833,6 +833,7 @@ export default function Dashboard() {
       )}
       <div className="h-screen flex flex-col">
       <LinkParentBanner />
+      <InstallNudge userId={activeUserId} />
       {boardTutorial.step && (
         <TutorialSpotlight
           key={boardTutorial.step.id}
@@ -890,19 +891,6 @@ export default function Dashboard() {
       )}
       <div className="app-content flex-1 min-h-0 flex flex-col">
         <div className="h-full bg-[#ffffff] text-[#2a1505]">
-      {/* Notifications bell — fixed top-right, no layout impact */}
-      {activeUserId && notifications.length > 0 && (
-        <div className="fixed top-3 right-16 z-[90]">
-          <NotificationInbox
-            notifications={notifications}
-            onMarkRead={() => {
-              markNotificationsRead(activeUserId);
-              setNotifications(prev => prev.map(n => ({ ...n, read: true })));
-            }}
-          />
-        </div>
-      )}
-
       {/* Floating nav — fixed-position, no layout impact */}
       {pendingEggHatches[0] && (
         <EggHatchModal
@@ -961,6 +949,12 @@ export default function Dashboard() {
           const weekNum = Math.floor((new Date(currentSunday).getTime() - SY_START) / (7 * 24 * 60 * 60 * 1000)) + 1;
           return weekNum > 0 ? `Week ${weekNum}` : undefined;
         })()}
+        notifications={notifications}
+        onMarkNotificationsRead={() => {
+          if (!activeUserId) return;
+          markNotificationsRead(activeUserId);
+          setNotifications(prev => prev.map(n => ({ ...n, read: true })));
+        }}
       />
 
       {/* Main Content Area */}

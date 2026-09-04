@@ -30,9 +30,9 @@ export default function NotificationInbox({
       <button
         onClick={handleOpen}
         aria-label={`Notifications${unread.length > 0 ? ` (${unread.length} unread)` : ''}`}
-        className="relative p-2 rounded-lg hover:bg-white/10 transition-colors"
+        className="relative p-2 rounded-lg hover:-translate-y-1 hover:drop-shadow-lg active:translate-y-0 active:scale-95 transition-all duration-150 ease-out"
       >
-        <span className="text-xl">🔔</span>
+        <img src="/icons/notificationbell.png" alt="" className="w-6 h-6 object-contain" />
         {unread.length > 0 && (
           <span className="absolute top-0.5 right-0.5 min-w-[18px] h-[18px] px-1
                            bg-red-500 text-white text-[10px] font-bold rounded-full

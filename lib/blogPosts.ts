@@ -3046,6 +3046,92 @@ export const BLOG_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'how-to-install-learning-hall-phone-computer',
+    title: 'How to Install Learning Hall on a Phone, Tablet, or Computer',
+    description:
+      "Step-by-step instructions for adding Learning Hall PH as a home-screen or desktop icon on Android, iPhone/iPad, and Windows/Mac — no app store needed, since the Android app isn't published yet.",
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 'all',
+    publishedAt: '2026-09-05',
+    updatedAt: '2026-09-05',
+    intro:
+      "We get asked fairly often whether Learning Hall is on the Google Play Store or the App Store. It isn't yet — the Android app is still in development and hasn't been published. In the meantime, the actual game already runs as a full web app at learninghallph.com, and every phone, tablet, and computer browser lets you \"install\" a web app as its own icon — on the home screen or the desktop — so a child (or a parent checking in on their progress) can tap it and be in the game in one step, the same as any app from a store. Here's exactly how to do that on each device.",
+    sections: [
+      {
+        heading: 'What "installing" the web app actually does',
+        paragraphs: [
+          "This isn't a shortcut to a bookmark — it's a real, separate icon that opens Learning Hall in its own window, without the browser's address bar or tabs around it, the same way a downloaded app looks and feels. It also keeps the quest streak, egg, and mission push notifications working exactly the same way they do for anyone already using the site.",
+          "The one thing it doesn't do yet is play offline — Learning Hall still needs an internet connection to load, since it isn't caching lessons for offline use. What it removes is the friction of typing a URL or digging through browser bookmarks every time: for a student doing a quick daily quest, or a parent opening the progress dashboard between errands, that one-tap access is the entire point.",
+        ],
+      },
+      {
+        heading: 'On Android (Chrome)',
+        paragraphs: [
+          'Open learninghallph.com in Chrome, then tap the three-dot menu in the top-right corner. Look for "Install app" (on newer Chrome versions) or "Add to Home screen" (on older ones) and tap it, then confirm on the prompt that appears. Chrome sometimes shows its own install banner near the bottom of the screen the first time it recognizes the site as installable — tapping that works just as well.',
+          "The Learning Hall icon then sits on the home screen like any other app. Opening it launches straight into the game in full-screen mode, with no browser bar visible.",
+        ],
+      },
+      {
+        heading: 'On iPhone or iPad (Safari)',
+        paragraphs: [
+          "This one only works from Safari — Chrome and other browsers on iOS don't have the option, even though they can open the site fine. Open learninghallph.com in Safari, tap the Share icon (the square with an arrow pointing up, in the bottom toolbar on iPhone or the top toolbar on iPad), then scroll down and tap \"Add to Home Screen.\" Confirm the name and tap \"Add\" in the top-right corner.",
+          "The icon appears on the home screen exactly where any other app icon would, and opens the same full-screen experience with no Safari address bar.",
+        ],
+      },
+      {
+        heading: 'On Windows or Mac (Chrome or Edge)',
+        paragraphs: [
+          'Open learninghallph.com in Chrome or Edge. Look for a small install icon in the address bar itself — usually a monitor-with-a-down-arrow icon on the right side of the bar — and click it, then click "Install" on the popup. If that icon isn\'t visible, the same option is in the three-dot menu under "Save and share" (Chrome) or "Apps" (Edge), as "Install Learning Hall PH."',
+          "Once installed, Learning Hall opens in its own app window — separate from your regular browser tabs — and you can pin it to the Windows taskbar or the Mac dock the same way you'd pin any other app, for a one-click launch.",
+        ],
+      },
+      {
+        heading: "Why we're pointing families here instead of an app store",
+        paragraphs: [
+          "To be upfront about it: this is a workaround for something that isn't finished yet, not our long-term plan. Once the Android app clears Google Play's review process, we'll publish it there and update this post. Until then, the installed web app is functionally the same game — same quests, same battles, same progress — reached through the browser instead of a store listing, so nobody has to wait on a review process to get that one-tap access today.",
+        ],
+      },
+    ],
+    takeaways: [
+      "Learning Hall isn't on Google Play yet — installing the web app is the real way to get a one-tap icon today, for both a child's quests and a parent's progress check-ins.",
+      'On Android, use Chrome\'s menu and look for "Install app" or "Add to Home screen."',
+      'On iPhone or iPad, it only works from Safari: Share icon → "Add to Home Screen."',
+      'On Windows or Mac, click the install icon in the Chrome or Edge address bar, then pin the app to the taskbar or dock.',
+    ],
+    externalLinks: [{ label: 'Open learninghallph.com', url: '/' }],
+    image: {
+      url: '/blog-images/install-learning-hall-home-screen.webp',
+      alt: 'A parent and child looking at a smartphone screen together at home',
+      width: 1200,
+      height: 675,
+      credit: { name: 'Helena Lopes', source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/a-woman-and-child-looking-at-a-cell-phone-27177479/' },
+    },
+    faq: [
+      {
+        question: 'Is Learning Hall available on the Google Play Store?',
+        answer:
+          "Not yet. The Android app is still in development and hasn't been published. Installing the web app from your browser gets you the same game as a home-screen icon in the meantime.",
+      },
+      {
+        question: 'Does installing the web app use phone storage like an app from a store?',
+        answer:
+          "It uses only a small amount of storage for the icon and basic app info — nowhere near what a typical downloaded app takes up, since the actual game still loads from the internet rather than being stored on the device.",
+      },
+      {
+        question: 'Will I still get push notifications after installing it this way?',
+        answer:
+          'Yes. Streak reminders, egg hatching, mission, and trade notifications work the same whether Learning Hall is installed as a home-screen icon or just open in a browser tab.',
+      },
+      {
+        question: "Why doesn't Add to Home Screen work in Chrome on my iPhone?",
+        answer:
+          "On iOS, only Safari can add a website to the home screen as a full app icon — it's a restriction Apple places on all browsers, not something specific to Learning Hall. Open the site in Safari instead and use the Share icon.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

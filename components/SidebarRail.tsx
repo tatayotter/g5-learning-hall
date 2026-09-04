@@ -3,8 +3,10 @@
 
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Nail } from '@/components/battle/MonsterHpPanel';
+import { Nail, woodTextureStyle } from '@/components/battle/MonsterHpPanel';
 import { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import NotificationInbox from '@/components/NotificationInbox';
+import type { PlayerNotification } from '@/lib/referral';
 
 function useIsLandscape() {
   const [isLandscape, setIsLandscape] = useState(false);
@@ -68,19 +70,47 @@ interface SidebarRailProps {
   playerGold?: number;
   playerStreak?: number;  // login streak days, from get_daily_checklist_streak (see Dashboard.tsx's loginStreak)
   weekLabel?: string;     // e.g. "Week 10"
+  // Notification bell — now permanently docked in the HUD instead of a
+  // separate floating button, so it's always reachable regardless of unread
+  // count (2026-09-04 HUD restyle). Defaults to an empty inbox so the bell
+  // still renders (just badge-less) if a caller doesn't wire it up.
+  notifications?: PlayerNotification[];
+  onMarkNotificationsRead?: () => void;
 }
 
-// Rank title derived from player level — mirrors typical RPG progression.
-// Intentionally defined client-side so the HUD shows immediately without a
-// server round-trip; the thresholds can be tuned freely without a migration.
-function rankForLevel(level: number): string {
-  if (level >= 30) return 'Legendary';
-  if (level >= 20) return 'Champion';
-  if (level >= 15) return 'Master';
-  if (level >= 10) return 'Expert';
-  if (level >= 6)  return 'Adept';
-  if (level >= 3)  return 'Journeyman';
-  return 'Apprentice';
+// Player name label — reuses the GameButton quest variant's Bungee/stroke/
+// shadow text treatment (same one used by the nav drawer's "Navigation"
+// heading and the battle HP card's name label) instead of plain bold text,
+// so the HUD's most personal element (the hero's own name) gets the game's
+// signature outlined-title look (2026-09-04).
+function HudName({ children, size }: { children: string; size: number }) {
+  return (
+    <span className="shrink-0" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing, fontSize: size }}>
+      <span style={{ position: 'relative', display: 'inline-block' }}>
+        <span aria-hidden style={questTextShadowStyle}>{children}</span>
+        <span style={questTextStyle}>{children}</span>
+      </span>
+    </span>
+  );
+}
+
+// Stat "chip" — a small pill with a colored ring, used for the HUD's gold
+// and streak readouts so they read as distinct game stats (like a coin
+// counter) instead of bare colored text floating on the bar. Kept as its
+// own tiny component rather than a shared class string since the ring color
+// varies per stat (gold vs. streak-orange).
+function HudChip({ icon, iconSrc, value, ring, text, small }: { icon?: string; iconSrc?: string; value: string; ring: string; text: string; small: boolean }) {
+  return (
+    <span
+      className={`inline-flex items-center gap-1 rounded-full font-bold leading-none shrink-0 bg-[#0a0807]/60 ${small ? 'text-xs px-1.5 py-1' : 'text-sm px-2 py-1'}`}
+      style={{ boxShadow: `inset 0 0 0 1px ${ring}` }}
+    >
+      {iconSrc
+        ? <img src={iconSrc} alt="" className={small ? 'w-3 h-3' : 'w-3.5 h-3.5'} />
+        : <span aria-hidden>{icon}</span>}
+      <span style={{ color: text }}>{value}</span>
+    </span>
+  );
 }
 
 // Compass icon — pixel-art compass with MENU label, supplied as a static
@@ -108,6 +138,8 @@ export default function SidebarRail({
   playerGold = 0,
   playerStreak = 0,
   weekLabel,
+  notifications = [],
+  onMarkNotificationsRead,
 }: SidebarRailProps) {
   const xpCap = 500 + playerLevel * 100;
   const xpPct = Math.min(100, Math.round((playerXp / xpCap) * 100));
@@ -145,54 +177,54 @@ export default function SidebarRail({
               below are hardcoded to today's dark-shell values rather than the
               bg-black/text-white/bg-white/NN tokens, so this bar doesn't go
               illegible if the base theme ever flips again. See
-              docs/STYLE_GUIDE.md. */}
-          <div className={`fixed top-0 left-0 right-0 z-[79] bg-[#0a0807]/85 backdrop-blur-sm border-b border-[#ffffff]/10 select-none pointer-events-none font-display
-            ${isDesktop ? 'px-8 py-3' : 'px-5'}
-            ${isLandscape ? 'py-2 flex items-center gap-4' : 'pt-3 pb-2 flex flex-col gap-1.5'}`}>
-
-            {isLandscape ? (
-              /* ── Landscape / Desktop: single row ── */
+              docs/STYLE_GUIDE.md. A thin gold edge + glow (2026-09-04 restyle)
+              replaces the old plain white/10 border so it reads as a gilded
+              banner rather than a flat translucent strip, and the fill now
+              reuses the same wood-grain texture as MonsterHpPanel/the nav
+              drawer frame instead of a flat dark tint — a dark scrim layer
+              is mixed into the background on top of the grain so the white/
+              amber stat text stays legible over the wood. The bar itself
+              stays pointer-events-none (it's a display overlay, clicks pass
+              through to the game underneath) — only the docked bell opts
+              back into pointer-events-auto. */}
+          <div className={`fixed top-0 left-0 right-0 z-[79] select-none pointer-events-none font-display
+            flex items-center gap-3
+            ${isDesktop ? 'px-8 pt-1.5 pb-2' : 'px-4 pt-1 pb-1.5'}`}
+            style={{
+              boxShadow: '0 2px 8px -1px rgba(0,0,0,0.5)',
+              backgroundImage: `linear-gradient(rgba(10,8,7,0.55), rgba(10,8,7,0.55)), ${woodTextureStyle.backgroundImage}`,
+            }}>
+            <HudName size={isDesktop ? 16 : 13}>{playerName}</HudName>
+            <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
+            <span className={`text-amber-400 font-bold leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>Lv.{playerLevel}</span>
+            <HudChip iconSrc="/icons/rewards/gold_coin.svg" value={playerGold.toLocaleString()} ring="#d4a017" text="#f5c542" small={!isDesktop} />
+            <HudChip iconSrc="/icons/streakicon.png" value={String(playerStreak)} ring="#ea580c" text="#fb923c" small={!isDesktop} />
+            {/* Grade/week only fit alongside everything else once there's
+                real room to spare (desktop, or landscape phones/tablets) —
+                dropped on narrow portrait so the bar stays one line
+                (2026-09-04: was previously a second row on portrait). */}
+            {(isDesktop || isLandscape) && (
               <>
-                <span className={`text-amber-500 font-bold leading-none tracking-widest uppercase shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>⚔ {rankForLevel(playerLevel)}</span>
-                <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
-                <span className={`text-[#ffffff] font-bold leading-none tracking-wide shrink-0 ${isDesktop ? 'text-base' : 'text-sm'}`}>{playerName}</span>
-                <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
-                <span className={`text-amber-400 font-bold leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>Lv.{playerLevel}</span>
-                <div className={`flex-1 min-w-8 rounded-full bg-[#ffffff]/15 overflow-hidden ${isDesktop ? 'h-2' : 'h-1.5'}`}>
-                  <div className="h-full bg-amber-400 rounded-full" style={{ width: `${xpPct}%` }} />
-                </div>
-                <span className={`text-[#f5c542] font-bold leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>🪙 {playerGold.toLocaleString()}</span>
-                <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
-                <span className={`text-orange-400 font-bold leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>🔥 {playerStreak}</span>
                 <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
                 {playerGrade && <span className={`text-[#8a7c66] font-bold leading-none tracking-wide uppercase shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>{playerGrade}</span>}
                 {weekLabel && <span className={`text-[#a89c86] font-bold leading-none tracking-wide uppercase shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>{weekLabel}</span>}
               </>
-            ) : (
-              /* ── Portrait: two rows ── */
-              <>
-                <div className="flex items-center justify-between">
-                  <span className="text-amber-500 font-bold text-xs leading-none tracking-widest uppercase">⚔ {rankForLevel(playerLevel)}</span>
-                  <div className="flex items-center gap-2">
-                    {playerGrade && <span className="text-[#8a7c66] font-bold text-xs leading-none tracking-wide uppercase">{playerGrade}</span>}
-                    {weekLabel && <span className="text-[#a89c86] font-bold text-xs leading-none tracking-wide uppercase">{weekLabel}</span>}
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-[#ffffff] font-bold text-sm leading-none tracking-wide shrink-0">{playerName}</span>
-                  <div className="w-px h-4 bg-[#ffffff]/20 shrink-0" />
-                  <div className="flex items-center gap-2 flex-1 min-w-0">
-                    <span className="text-amber-400 font-bold text-xs leading-none shrink-0">Lv.{playerLevel}</span>
-                    <div className="flex-1 min-w-8 h-1.5 rounded-full bg-[#ffffff]/15 overflow-hidden">
-                      <div className="h-full bg-amber-400 rounded-full" style={{ width: `${xpPct}%` }} />
-                    </div>
-                  </div>
-                  <span className="text-[#f5c542] font-bold text-xs leading-none shrink-0">🪙 {playerGold.toLocaleString()}</span>
-                  <div className="w-px h-4 bg-[#ffffff]/20 shrink-0" />
-                  <span className="text-orange-400 font-bold text-xs leading-none shrink-0">🔥 {playerStreak}</span>
-                </div>
-              </>
             )}
+            <div className="flex-1" />
+            <div className="pointer-events-auto shrink-0">
+              <NotificationInbox notifications={notifications} onMarkRead={() => onMarkNotificationsRead?.()} />
+            </div>
+
+            {/* XP bar — full-width, pinned to the HUD's own bottom edge
+                (2026-09-05: was a small inline segment next to "Lv.N";
+                moved here so it reads as the bar's own progress meter
+                rather than a cramped stat). */}
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#0a0807]/90 overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-amber-500 to-[#f5c542]"
+                style={{ width: `${xpPct}%`, boxShadow: '0 0 6px 1px rgba(245,197,66,0.55)' }}
+              />
+            </div>
           </div>
         </>
       )}
