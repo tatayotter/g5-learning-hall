@@ -37,8 +37,6 @@ import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import WorldMap from '@/components/WorldMap';
 import { REGIONS } from '@/lib/regions';
 import { CaughtMonster, BattleState } from '@/components/monster/types';
-import TrainingMap from '@/components/monster/TrainingMap';
-import TeamPanel from '@/components/monster/TeamPanel';
 import CompendiumPanel from '@/components/monster/CompendiumPanel';
 import BattleScreen from '@/components/monster/BattleScreen';
 import StarterSelection from '@/components/monster/StarterSelection';
@@ -46,6 +44,8 @@ import HatcheryPanel from '@/components/monster/HatcheryPanel';
 import GameButton from '@/components/GameButton';
 import { EggChainMap, CurioEgg, fetchEggChainMap, fetchUserEggs, eggReadyLevel } from '@/lib/curioEggs';
 import { takePrefetch, MonsterGuildPrefetch } from '@/lib/tabPrefetch';
+import MapView from '@/components/monster/MapView';
+import TeamView from '@/components/monster/TeamView';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 
@@ -1086,13 +1086,12 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
       {/* Map view — World Map region picker, or the selected region's Training Map. */}
       {view === 'map' && battleState && (
-        <TrainingMap
+        <MapView
           userId={userId}
           battleState={battleState}
           userMonsters={userMonsters}
           caughtMonsters={caughtMonsters}
           questions={questions}
-          gradingUserId={userId}
           onBattleStateChange={setBattleState}
           onMonsterExpGained={handleMonsterExpGained}
           onHeal={handleHeal}
@@ -1102,7 +1101,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           onEnterCurio={handleEnterCurio}
           onTrainerEncounter={handleTrainerBattle}
           onTrashTraded={onGoldAwarded}
-          onChallengePlayer={(targetId, name) => handleChallengePlayer(targetId as UserId, name)}
+          onChallengePlayer={handleChallengePlayer}
           liveBattleInbox={liveBattleInbox}
           mapPresence={mergedMapPresence}
           movementLocked={!!wildEncounter || walkLocked}
@@ -1111,13 +1110,12 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           regionId={activeRegion}
           playerLevel={playerLevel}
           onEnterRegion={setActiveRegion}
-          fullscreen
         />
       )}
 
       {/* Team view */}
       {view === 'team' && (
-        <TeamPanel
+        <TeamView
           userMonsters={userMonsters}
           playerLevel={playerLevel}
           userId={userId}
