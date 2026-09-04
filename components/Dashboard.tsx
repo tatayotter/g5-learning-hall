@@ -9,9 +9,6 @@ import { THEME_CLASSES, getThemeItem } from '@/lib/themeShop';
 import SplashScreen from '@/components/SplashScreen';
 import LoadingScreen from '@/components/LoadingScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
-import HeroProfile from '@/components/HeroProfile';
-import GuildJournal from '@/components/GuildJournal';
-import DailyChecklist from '@/components/DailyChecklist';
 import { markGuildSessionToday, GuildKey, GUILDS, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
 import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
 import QuestModule, { markdownComponents } from '@/components/QuestModule';
@@ -19,7 +16,6 @@ import { useReadTimer } from '@/hooks/useReadTimer';
 import { format } from 'date-fns';
 import AchievementsBoard from '@/components/AchievementsBoard';
 import { supabase } from '@/lib/supabase';
-import PlayerLog from '@/components/PlayerLog';
 import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
 import MonsterGuild from '@/components/MonsterGuild';
@@ -36,6 +32,9 @@ import { claimRegistrantReward, fetchNotifications, markNotificationsRead, getMy
 import { claimMarketingGoldBonus } from '@/lib/marketingBonus';
 import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
 import NotificationInbox from '@/components/NotificationInbox';
+import JournalTab from '@/components/dashboard/JournalTab';
+import TodoTab from '@/components/dashboard/TodoTab';
+import ProfileTab from '@/components/dashboard/ProfileTab';
 import GuildsTab from '@/components/dashboard/GuildsTab';
 import VaultTab from '@/components/dashboard/VaultTab';
 import VaultKeeperNpc from '@/components/VaultKeeperNpc';
@@ -1484,80 +1483,41 @@ export default function Dashboard() {
 
         {/* --- TAB: JOURNAL --- */}
         {activeTab === 'journal' && (
-          <div data-tutorial-id="journal-welcome">
-            {/* Same Bungee/stroke/shadow text treatment as the quest
-                GameButton's label (2026-08-29), in quest gold instead of
-                the button's white. */}
-            <h1 className="text-2xl lg:text-3xl mb-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
-              <span style={{ position: 'relative', display: 'inline-block' }}>
-                <span aria-hidden style={questTextShadowStyle}>Guild Journal</span>
-                <span style={{ ...questTextStyle, color: '#f5c542' }}>Guild Journal</span>
-              </span>
-            </h1>
-            <p className="text-gray-500 mb-8">Reflect on today's run and seal your ledger entry to claim your reward.</p>
-            <GuildJournal
-              userId={activeUserId}
-              journalLogs={data.journal_logs || {}}
-              stats={data.character_stats}
-              currentSunday={data.week_starting_date}
-              onSave={updateStatsAndJournal}
-            />
-            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wide mt-6 mb-2">Player Log</h3>
-            <PlayerLog userId={activeUserId} />
-          </div>
+          <JournalTab
+            activeUserId={activeUserId}
+            journalLogs={data.journal_logs}
+            characterStats={data.character_stats}
+            weekStartingDate={data.week_starting_date}
+            onSave={updateStatsAndJournal}
+          />
         )}
 
         {/* --- TAB: TO-DO --- */}
         {activeTab === 'todo' && (
-          <div>
-            <div className="flex items-center justify-between gap-3 mt-4 mb-2" data-tutorial-id="todo-welcome">
-              {/* Same Bungee/stroke/shadow text treatment as the quest
-                  GameButton's label (2026-08-29), in quest gold instead of
-                  the button's white. */}
-              <h1 className="text-2xl lg:text-3xl" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
-                <span style={{ position: 'relative', display: 'inline-block' }}>
-                  <span aria-hidden style={questTextShadowStyle}>Daily To-Dos</span>
-                  <span style={{ ...questTextStyle, color: '#f5c542' }}>Daily To-Dos</span>
-                </span>
-              </h1>
-              {todoCount && (
-                <span className={`text-xs font-bold px-3 py-1 rounded-full flex-shrink-0
-                  ${todoCount.done === todoCount.total ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}`}>
-                  {todoCount.done}/{todoCount.total} done
-                </span>
-              )}
-            </div>
-            <p className="text-gray-500 mb-6">Clear today's checklist to claim your daily bonus gold.</p>
-            <DailyChecklist
-              userId={activeUserId}
-              grade={gradeToNumber(USERS[activeUserId]?.grade)}
-              currentSunday={data.week_starting_date}
-              currentDayName={currentDayName}
-              packageData={mainQuestPackageData}
-              journalLogs={data.journal_logs}
-              masteredQuizzes={data.mastered_quizzes}
-              onGoldAwarded={applyGoldDelta}
-              onPlayGuild={(guildKey) => { setActiveTab('guilds'); setActiveGuild(guildKey); }}
-              onGoToJournal={() => setActiveTab('journal')}
-              onGoToMainQuest={() => { setActiveTab('board'); setActiveQuest(null); }}
-              onGoToTrainingMap={() => setActiveTab('monster')}
-              onCountChange={handleTodoCountChange}
-            />
-          </div>
+          <TodoTab
+            activeUserId={activeUserId}
+            weekStartingDate={data.week_starting_date}
+            currentDayName={currentDayName}
+            mainQuestPackageData={mainQuestPackageData}
+            journalLogs={data.journal_logs}
+            masteredQuizzes={data.mastered_quizzes}
+            applyGoldDelta={applyGoldDelta}
+            todoCount={todoCount}
+            onTodoCountChange={handleTodoCountChange}
+            setActiveTab={setActiveTab}
+            setActiveGuild={setActiveGuild}
+            setActiveQuest={setActiveQuest}
+          />
         )}
 
         {/* --- TAB: PROFILE --- */}
         {activeTab === 'profile' && (
-          <div>
-            <h1 className="text-3xl font-bold mb-2 font-display text-gray-900">Hero Profile</h1>
-            <p className="text-gray-500 mb-8">Your rank, stats, and everything you've earned on the journey so far.</p>
-            <HeroProfile
-              userId={activeUserId}
-              data={data}
-              currentDay={currentDayName}
-              onViewAchievements={() => setActiveTab('profile')}
-            />
-          </div>
+          <ProfileTab
+            activeUserId={activeUserId}
+            data={data}
+            currentDayName={currentDayName}
+            onNavigateToProfile={() => setActiveTab('profile')}
+          />
         )}
 
         {/* --- TAB: ADMIN --- */}
