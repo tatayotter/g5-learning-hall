@@ -86,6 +86,24 @@ export async function spendGoldAndGrantItem(
   return data;
 }
 
+// Atomic gold-only debit (no item involved) — used for spends that aren't a
+// shop purchase, e.g. paying gold mid-battle to skip an attack's question.
+// Mirrors spendGoldAndGrantItem's shape/error handling so callers can treat
+// both the same way (null = failed, most likely insufficient gold).
+export async function spendGold(
+  userId: string, amount: number
+): Promise<{ gold: number; xp: number; level: number } | null> {
+  const { data, error } = await supabase.rpc('spend_gold', {
+    p_user_id: userId,
+    p_amount: amount,
+  });
+  if (error) {
+    console.error('spend_gold error:', error);
+    return null;
+  }
+  return data;
+}
+
 export async function consumeInventoryItem(userId: string, key: string) {
   await supabase.rpc('upsert_inventory', {
     p_user_id: userId,

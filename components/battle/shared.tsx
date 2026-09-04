@@ -5,9 +5,11 @@
 // MonsterGuild.tsx rather than imported from it, so neither battle screen has to
 // import the other (avoids a circular import between the two).
 import { useState } from 'react';
-import { MonsterDef, StatusEffect, ActiveModifier, statusDuration } from '@/lib/monsterConfig';
+import { MonsterDef, StatusEffect, ActiveModifier, statusDuration, BATTLE_CONSTANTS } from '@/lib/monsterConfig';
 import { gradeMonsterQuestion } from '@/lib/guildEngine';
 import { QualityTier } from '@/lib/curioQuality';
+import InfoTag from '@/components/InfoTag';
+import GameButton from '@/components/GameButton';
 
 export interface UserMonster {
   id: string;
@@ -163,6 +165,42 @@ function shuffleArray<T>(arr: T[]): T[] {
   return result;
 }
 
+// "Skip for gold" — shared by the solo BattleScreen and the live PvP
+// LiveBattleScreen (previously an identical skipCost/canSkip/handleSkipQuestion
+// block copy-pasted into both, same duplication problem resolveItemEffect
+// above already exists to avoid). goldSpentThisBattle lives in this hook's own
+// state rather than the caller's, since a fresh BattleScreen/LiveBattleScreen
+// mount is exactly one battle either way.
+//
+// `trySkip` doesn't call the caller's addLog itself (screen-specific log
+// wiring is the one piece that's genuinely different between the two
+// screens) — it returns a `message` for the caller to log on failure, and an
+// empty string on success, so BattleScreen/LiveBattleScreen just do
+// `if (message) addLog(message)`.
+export function useSkipForGold(gold: number, onSpendGold: (amount: number) => Promise<boolean>) {
+  const [goldSpentThisBattle, setGoldSpentThisBattle] = useState(0);
+  const skipCost = BATTLE_CONSTANTS.QUESTION_SKIP_GOLD_COST;
+  const maxGoldPerBattle = BATTLE_CONSTANTS.MAX_GOLD_SPENT_PER_BATTLE;
+  const canSkip = gold >= skipCost && goldSpentThisBattle + skipCost <= maxGoldPerBattle;
+
+  const trySkip = async (): Promise<{ ok: boolean; message: string }> => {
+    if (!canSkip) {
+      return {
+        ok: false,
+        message: goldSpentThisBattle + skipCost > maxGoldPerBattle
+          ? `❌ Reached this battle's ${maxGoldPerBattle} gold skip limit!`
+          : '❌ Not enough gold to skip!',
+      };
+    }
+    const paid = await onSpendGold(skipCost);
+    if (!paid) return { ok: false, message: '❌ Not enough gold to skip!' };
+    setGoldSpentThisBattle(prev => prev + skipCost);
+    return { ok: true, message: '' };
+  };
+
+  return { skipCost, maxGoldPerBattle, goldSpentThisBattle, canSkip, trySkip };
+}
+
 export interface BattleQuestionProps {
   questions: any[];
   count: number;
@@ -172,9 +210,24 @@ export interface BattleQuestionProps {
   // server-side via grade_content_question, keyed by each question's stable id.
   gradingUserId: string;
   onComplete: (correctCount: number, answeredQuestions: any[]) => void;
+  // "Skip for gold" — omit entirely to disable the skip button (e.g. nowhere
+  // currently does this, but keeps the prop optional for any other caller of
+  // this modal, such as the Mastery Gauntlet, that doesn't want it). When
+  // provided, onSkip should perform the actual gold debit (server-side RPC +
+  // the caller's own per-battle spend cap check) and resolve to whether it
+  // succeeded — the modal only advances the question (as a correct answer)
+  // once it resolves true.
+  canSkip?: boolean;
+  skipCost?: number;
+  onSkip?: () => Promise<boolean>;
+  // Battle-wide skip wallet, for the "x/100 spent" indicator next to the skip
+  // button — same numbers canSkip was already computed from, just surfaced
+  // for display too.
+  goldSpentThisBattle?: number;
+  maxGoldPerBattle?: number;
 }
 
-export function BattleQuestionModal({ questions, count, embedded, gradingUserId, onComplete }: BattleQuestionProps) {
+export function BattleQuestionModal({ questions, count, embedded, gradingUserId, onComplete, canSkip, skipCost, onSkip, goldSpentThisBattle, maxGoldPerBattle }: BattleQuestionProps) {
   // A skill can ask for more questions than are actually available (e.g. a
   // tier-3 skill needs 3, but the player's unseen-question pool for that
   // subject has only 2 left) — capping to the pool's own length here, and
@@ -190,17 +243,15 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
   const [grading, setGrading] = useState(false);
   const [revealedCorrect, setRevealedCorrect] = useState<string | null>(null);
   const [results, setResults] = useState<boolean[]>([]);
+  const [skipped, setSkipped] = useState(false);
 
   const current = pool[index];
   if (!current) return null;
 
-  const handleAnswer = async (opt: string) => {
-    if (selected || grading) return;
-    setSelected(opt);
-    setGrading(true);
-    const { correct: isCorrect, correctAnswer } = await gradeMonsterQuestion(gradingUserId, current.id, opt);
-    setGrading(false);
-    setRevealedCorrect(correctAnswer);
+  // Shared by handleAnswer and handleSkip so a question can't be advanced
+  // twice (e.g. a skip click landing while an answer's grading round-trip is
+  // still in flight).
+  const advance = (isCorrect: boolean) => {
     const newResults = [...results, isCorrect];
     setTimeout(() => {
       if (index + 1 >= askedCount) {
@@ -209,9 +260,34 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
         setResults(newResults);
         setSelected(null);
         setRevealedCorrect(null);
+        setSkipped(false);
         setIndex(i => i + 1);
       }
     }, 800);
+  };
+
+  const handleAnswer = async (opt: string) => {
+    if (selected || grading || skipped) return;
+    setSelected(opt);
+    setGrading(true);
+    const { correct: isCorrect, correctAnswer } = await gradeMonsterQuestion(gradingUserId, current.id, opt);
+    setGrading(false);
+    setRevealedCorrect(correctAnswer);
+    advance(isCorrect);
+  };
+
+  // Pays gold (via the caller's onSkip, which does the actual RPC debit +
+  // per-battle cap check) to count this question as answered correctly
+  // without picking an option — same 800ms pacing as a real answer so a run
+  // of skips doesn't feel instant/jarring next to answered questions.
+  const handleSkip = async () => {
+    if (selected || grading || skipped || !onSkip) return;
+    setGrading(true);
+    const paid = await onSkip();
+    setGrading(false);
+    if (!paid) return; // insufficient gold or cap hit — caller already surfaced why
+    setSkipped(true);
+    advance(true);
   };
 
   // Keyed on index so each new question replays the entrance animation below,
@@ -245,7 +321,7 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
             <button
               key={key}
               onClick={() => handleAnswer(key)}
-              disabled={!!selected}
+              disabled={!!selected || skipped || grading}
               className={`w-full text-left p-3 rounded-xl border-2 text-[#2a1505] transition-all btn-tactile ${style} ${feedbackAnim}`}
             >
               {text}
@@ -253,6 +329,40 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
           );
         })}
         </div>
+        {onSkip && (
+          <div className="mt-2 pt-2 border-t border-[#c9a87a]/60">
+            {skipped ? (
+              <p className="text-xs font-bold text-[#7a4a0f] text-center">💰 Skipped — counted as correct!</p>
+            ) : (
+              <GameButton
+                variant="quest"
+                onClick={handleSkip}
+                disabled={!!selected || grading || !canSkip}
+                className="w-full"
+                style={{ fontSize: 13 }}
+              >
+                💰 Skip for {skipCost ?? BATTLE_CONSTANTS.QUESTION_SKIP_GOLD_COST} gold
+              </GameButton>
+            )}
+            {goldSpentThisBattle !== undefined && maxGoldPerBattle !== undefined && (
+              <p className="text-[10px] text-[#6b4820] text-center mt-1 flex items-center justify-center gap-1">
+                Battle skip wallet: {goldSpentThisBattle}/{maxGoldPerBattle} gold
+                <InfoTag
+                  text={`Pay ${skipCost ?? BATTLE_CONSTANTS.QUESTION_SKIP_GOLD_COST} gold to skip any question and count it as correct. Every battle has its own ${maxGoldPerBattle}-gold skip wallet — once you've spent it all, you have to answer for the rest of the battle.`}
+                  // Every other InfoTag call site sits on a dark neutral-900
+                  // panel, where the default border-gray-500/text-gray-400
+                  // reads fine — this is the first on a parchment/white panel,
+                  // where that stock gray both breaks the parchment-only-tokens
+                  // rule (docs/STYLE_GUIDE.md) and reads at ~2.5:1 contrast on
+                  // white. !-prefixed so it wins regardless of Tailwind's
+                  // generated class order, without touching InfoTag's own
+                  // default for its other (dark-panel) call sites.
+                  className="!border-[#8b5e2a] !text-[#7a4a0f]"
+                />
+              </p>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

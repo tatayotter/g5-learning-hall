@@ -20,7 +20,7 @@ import {
   pickRandomWildMonsterId, getGuildMonsterDisplay, getGraduatedMonsterDisplay, getOwnedMonsterDisplay,
   NpcTrainer, MonsterDef, TrainerMonster,
 } from '@/lib/monsterConfig';
-import { fetchInventory, useInventoryItem, InventoryMap } from '@/lib/inventory';
+import { fetchInventory, useInventoryItem, spendGold, InventoryMap } from '@/lib/inventory';
 import { rollFreshQualityTier, type QualityTier } from '@/lib/curioQuality';
 import {
   fetchAnsweredArenaQuestionIds, markArenaQuestionsCompleted, resetArenaHistory,
@@ -552,6 +552,18 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     const ok = await useInventoryItem(userId, key);
     if (ok) await loadData(true);
     return ok;
+  };
+
+  // "Skip for gold" (see BattleQuestionModal in components/battle/shared.tsx) —
+  // spendGold already performs the atomic server-side debit, so this just
+  // mirrors the result into Dashboard's cached currentGold via onGoldSynced
+  // (same "sync, don't re-apply" pattern as MonsterShop's onSpendGold /
+  // TeamPanel's Tutor-Curio gold sync) rather than a full loadData() reload.
+  const handleSpendGoldForSkip = async (amount: number): Promise<boolean> => {
+    const result = await spendGold(userId, amount);
+    if (!result) return false;
+    onGoldSynced(result);
+    return true;
   };
 
   const gradeLevel = gradeToNumber(USERS[userId]?.grade);
@@ -1195,6 +1207,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         onUseItem={handleUseItem}
         handleQuestionsAnswered={handleQuestionsAnswered}
         buildPlayerTeam={buildPlayerTeam}
+        gold={currentGold}
+        onSpendGold={handleSpendGoldForSkip}
         activeBattle={activeBattle}
         handleBattleEnd={handleBattleEnd}
         pvpOpponentTeam={pvpOpponentTeam}

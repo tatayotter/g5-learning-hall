@@ -8,6 +8,15 @@ unauthorized `tutor_curio` call now raises `not authorized`; an unauthorized
 unchanged, still out of scope. No app code changes were needed — every call site already
 only ever passed the current session's own id (see call-site confirmation below), so this
 was a pure server-side hardening with no client-visible behavior change for legitimate
+
+**2026-09-04 regression + fix:** `spend_gold` (added the same day, for the "skip for gold"
+battle mechanic — see [[project_skip_question_for_gold]]) shipped one migration *after*
+Group A without the identity check, exactly the gap this doc closed everywhere else —
+caught by ultrareview on the PR before merge, fixed same-day in
+`20260904010000_harden_spend_gold_rpc.sql`. Lesson: this doc's Group A list needs to be
+treated as a living checklist any new `p_user_id`-taking `SECURITY DEFINER` RPC must be
+checked against, not a one-time pass — added `spend_gold` to the list below so a future
+audit query catches it if the pattern ever regresses again.
 use.
 Related: [[feedback_postgres_function_hardening]] (admin passcode boundary),
 [[project_curio_quality_tutoring]] (where this was first flagged, as a "someday" item —
@@ -76,6 +85,7 @@ have no legitimate cross-user caller:
 
 - `tutor_curio(p_user_id, p_monster_row_id, p_use_tome)`
 - `spend_gold_and_grant_item(p_user_id, p_item_key, p_quantity)`
+- `spend_gold(p_user_id, p_amount)` — added 2026-09-04, hardened same-day (see status note above)
 - `apply_character_deltas(p_user_id, p_week_starting_date, p_xp_delta, p_gold_delta)`
 - `apply_progress_deltas(p_user_id, p_xp_delta, p_gold_delta)`
 - `apply_progress_update(p_user_id, ...16 more delta/count params)`

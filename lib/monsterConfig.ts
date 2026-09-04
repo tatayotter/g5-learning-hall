@@ -1145,6 +1145,13 @@ export const BATTLE_CONSTANTS = {
   // landing a perfect hit.
   NPC_COUNTER_ACCURACY: { correct: 2, total: 3 },
   MONSTER_LEVEL_CAP: 100,
+  // "Skip for gold" — a player can pay gold instead of answering a question,
+  // which counts as a correct answer for that question. Capped per battle
+  // (not per question) so a player with a huge gold stockpile can't just buy
+  // every attack's full damage all match long — same cap in NPC, same-session
+  // PvP, and live PvP battles (see BattleQuestionModal in components/battle/shared.tsx).
+  QUESTION_SKIP_GOLD_COST:        5,
+  MAX_GOLD_SPENT_PER_BATTLE:    100,
 };
 
 // How many turns a given status effect lasts once (re-)granted — the single

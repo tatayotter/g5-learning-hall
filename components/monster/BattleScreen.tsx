@@ -12,7 +12,7 @@ import {
 import { SHOP_CATALOG, InventoryMap } from '@/lib/inventory';
 import {
   ActiveBattleMonster, MonsterImage, BattleQuestionModal,
-  BattleBeat, runBattleBeats, resolveItemEffect, getSkillSlotLock,
+  BattleBeat, runBattleBeats, resolveItemEffect, getSkillSlotLock, useSkipForGold,
 } from '@/components/battle/shared';
 import BattleStage, { ActionTile, PlaceholderTile } from '@/components/battle/BattleStage';
 import PostBattleSummary from '@/components/battle/PostBattleSummary';
@@ -30,9 +30,14 @@ interface BattleScreenProps {
   onUseItem: (key: string) => Promise<boolean>;
   onBattleEnd: (won: boolean, expEarned: number) => void;
   onQuestionsAnswered?: (questions: any[]) => void;
+  // "Skip for gold" (see BattleQuestionModal in components/battle/shared.tsx) —
+  // gold is the player's live balance, onSpendGold does the actual atomic
+  // server-side debit and resolves to whether it succeeded.
+  gold: number;
+  onSpendGold: (amount: number) => Promise<boolean>;
 }
 
-export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, questions, gradingUserId, inventory, onUseItem, onBattleEnd, onQuestionsAnswered }: BattleScreenProps) {
+export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, questions, gradingUserId, inventory, onUseItem, onBattleEnd, onQuestionsAnswered, gold, onSpendGold }: BattleScreenProps) {
   const opponentName = trainer?.name || siblingName || 'Sibling';
   const opponentTeam = siblingTeam || trainer?.monsters.map((tm: any) => {
     const def = ALL_MONSTERS[tm.monsterId];
@@ -57,6 +62,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   const [battleResult, setBattleResult] = useState<{ won: boolean; exp: number; reason: 'ko' | 'surrender' } | null>(null);
   const [itemBusy, setItemBusy] = useState(false);
   const itemBusyRef = useRef(false);
+  const { skipCost, maxGoldPerBattle, goldSpentThisBattle, canSkip, trySkip } = useSkipForGold(gold, onSpendGold);
 
   const playerMon = playerMonsters[playerMonsterIdx];
   const npcMon = npcMonsters[npcMonsterIdx];
@@ -290,6 +296,12 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       itemBusyRef.current = false;
       setItemBusy(false);
     }, 500);
+  };
+
+  const handleSkipQuestion = async (): Promise<boolean> => {
+    const { ok, message } = await trySkip();
+    if (message) addLog(message);
+    return ok;
   };
 
   const handleQuestionsComplete = (correctCount: number, answeredQuestions: any[]) => {
@@ -631,6 +643,11 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         embedded={true}
         gradingUserId={gradingUserId}
         onComplete={handleQuestionsComplete}
+        canSkip={canSkip}
+        skipCost={skipCost}
+        onSkip={handleSkipQuestion}
+        goldSpentThisBattle={goldSpentThisBattle}
+        maxGoldPerBattle={maxGoldPerBattle}
       />
     </div>
   ) : phase === 'select_item' ? (

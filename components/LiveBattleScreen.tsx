@@ -14,7 +14,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLiveBattle, TIMEOUT_ACTION_ID } from '@/hooks/useLiveBattle';
 import { resolveBattle } from '@/lib/liveBattle';
-import { ActiveBattleMonster, BattleBeat, BattleQuestionModal, runBattleBeats, resolveItemEffect, getSkillSlotLock } from '@/components/battle/shared';
+import { ActiveBattleMonster, BattleBeat, BattleQuestionModal, runBattleBeats, resolveItemEffect, getSkillSlotLock, useSkipForGold } from '@/components/battle/shared';
 import BattleStage, { ActionTile, PlaceholderTile } from '@/components/battle/BattleStage';
 import { SKILLS, getAvailableSkillTiers, getEquippedSkills, getSkillIconSrc, REST_BY_ELEMENT } from '@/lib/monsterConfig';
 import PostBattleSummary from '@/components/battle/PostBattleSummary';
@@ -49,11 +49,15 @@ interface LiveBattleScreenProps {
   /** When defined, the battle runs in local bot mode (no Supabase channel).
    *  Value is the bot's answer accuracy (0–1). */
   botAccuracy?: number;
+  // "Skip for gold" (see BattleQuestionModal in components/battle/shared.tsx) —
+  // private to this player, never broadcast to the opponent.
+  gold: number;
+  onSpendGold: (amount: number) => Promise<boolean>;
 }
 
 export default function LiveBattleScreen({
   battleId, myUserId, opponentId, opponentName, side, myTeam, opponentTeam, questions, gradingUserId, inventory, onUseItem, onBattleEnd,
-  onBattleResultKnown, botAccuracy,
+  onBattleResultKnown, botAccuracy, gold, onSpendGold,
 }: LiveBattleScreenProps) {
   const [myRoster, setMyRoster] = useState<ActiveBattleMonster[]>(myTeam);
   const [myActiveIdx, setMyActiveIdx] = useState(0);
@@ -70,6 +74,9 @@ export default function LiveBattleScreen({
   const [now, setNow] = useState(() => Date.now());
   const [itemBusy, setItemBusy] = useState(false);
   const itemBusyRef = useRef(false);
+  // Private to this player: goldSpentThisBattle never travels over the
+  // live-battle channel, so the opponent never learns gold was spent.
+  const { skipCost, maxGoldPerBattle, goldSpentThisBattle, canSkip, trySkip } = useSkipForGold(gold, onSpendGold);
   const [myAnim, setMyAnim] = useState('');
   const [oppAnim, setOppAnim] = useState('');
   const [banner, setBanner] = useState<{ text: string; iconSrc: string | null } | null>(null);
@@ -447,6 +454,12 @@ export default function LiveBattleScreen({
     setAnswering(true);
   };
 
+  const handleSkipQuestion = async (): Promise<boolean> => {
+    const { ok, message } = await trySkip();
+    if (message) addLog(message);
+    return ok;
+  };
+
   const handleQuestionsComplete = (correctCount: number, answeredQuestions: any[]) => {
     setAnswering(false);
     if (!pendingSkillId) return;
@@ -635,6 +648,11 @@ export default function LiveBattleScreen({
         embedded
         gradingUserId={gradingUserId}
         onComplete={handleQuestionsComplete}
+        canSkip={canSkip}
+        skipCost={skipCost}
+        onSkip={handleSkipQuestion}
+        goldSpentThisBattle={goldSpentThisBattle}
+        maxGoldPerBattle={maxGoldPerBattle}
       />
     </div>
   ) : showItemMenu ? (
