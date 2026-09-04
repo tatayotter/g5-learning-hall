@@ -13,6 +13,8 @@ export interface CaughtMonster {
   quality: QualityTier;
 }
 
+export type GuildView = 'map' | 'team' | 'trainers' | 'compendium' | 'battle' | 'live_battle' | 'leaderboard' | 'trade' | 'hatchery';
+
 export interface BattleState {
   id: string;
   user_id: string;
