@@ -13,6 +13,7 @@ import {
   sendTestPush,
   type PushOwner,
 } from '@/lib/push';
+import { claimPushGoldBonusChild } from '@/lib/pushBonus';
 
 interface PushNotificationSettingsProps {
   owner: PushOwner;
@@ -25,6 +26,7 @@ export default function PushNotificationSettings({ owner, variant = 'row' }: Pus
   const [subscribed, setSubscribed] = useState(false);
   const [busy, setBusy] = useState(false);
   const [testStatus, setTestStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [goldReward, setGoldReward] = useState<number | null>(null);
 
   useEffect(() => {
     if (!isPushSupported()) return;
@@ -44,6 +46,15 @@ export default function PushNotificationSettings({ owner, variant = 'row' }: Pus
       } else {
         const ok = await subscribeToPush(owner);
         setSubscribed(ok);
+        // Auto-prompt (Dashboard.tsx) already claims this on next login, but
+        // clicking the manual toggle should show the reward right away
+        // rather than making the kid wait for a reload. Only meaningful for
+        // the child's own opt-in — the parent-opt-in bonus is credited to
+        // the child from their own dashboard, not visible here.
+        if (ok && owner.kind === 'app_user') {
+          const reward = await claimPushGoldBonusChild(owner.id);
+          if (reward) setGoldReward(reward.gold);
+        }
       }
     } finally {
       setBusy(false);
@@ -88,6 +99,9 @@ export default function PushNotificationSettings({ owner, variant = 'row' }: Pus
           {testStatus === 'sent' && <span className="text-xs text-emerald-600">Sent ✓</span>}
           {testStatus === 'error' && <span className="text-xs text-red-600">Failed</span>}
         </div>
+        {goldReward !== null && (
+          <p className="text-xs font-semibold text-amber-700">🪙 +{goldReward} Gold added to your account!</p>
+        )}
       </div>
     );
   }
