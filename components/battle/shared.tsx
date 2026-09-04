@@ -321,7 +321,7 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
             <button
               key={key}
               onClick={() => handleAnswer(key)}
-              disabled={!!selected || skipped}
+              disabled={!!selected || skipped || grading}
               className={`w-full text-left p-3 rounded-xl border-2 text-[#2a1505] transition-all btn-tactile ${style} ${feedbackAnim}`}
             >
               {text}
@@ -345,7 +345,7 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
               </GameButton>
             )}
             {goldSpentThisBattle !== undefined && maxGoldPerBattle !== undefined && (
-              <p className="text-[10px] text-[#8b6a3a] text-center mt-1 flex items-center justify-center gap-1">
+              <p className="text-[10px] text-[#6b4820] text-center mt-1 flex items-center justify-center gap-1">
                 Battle skip wallet: {goldSpentThisBattle}/{maxGoldPerBattle} gold
                 <InfoTag
                   text={`Pay ${skipCost ?? BATTLE_CONSTANTS.QUESTION_SKIP_GOLD_COST} gold to skip any question and count it as correct. Every battle has its own ${maxGoldPerBattle}-gold skip wallet — once you've spent it all, you have to answer for the rest of the battle.`}
