@@ -66,7 +66,7 @@ interface SidebarRailProps {
   playerLevel?: number;
   playerXp?: number;      // XP within current level (remainder after level-up)
   playerGold?: number;
-  playerStreak?: number;  // login streak days; TODO: wire from get_daily_checklist_streak RPC
+  playerStreak?: number;  // login streak days, from get_daily_checklist_streak (see Dashboard.tsx's loginStreak)
   weekLabel?: string;     // e.g. "Week 10"
 }
 
