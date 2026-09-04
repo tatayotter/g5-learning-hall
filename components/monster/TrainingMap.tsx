@@ -15,7 +15,7 @@ import { UserMonster } from '@/components/battle/shared';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import MapStage from '@/components/MapStage';
 import MapCanvas from '@/components/monster/map/MapCanvas';
-import Joystick from '@/components/monster/map/Joystick';
+import FloatingJoystick from '@/components/monster/map/FloatingJoystick';
 import MapInfoDrawer, { type InfoTab } from '@/components/monster/map/MapInfoDrawer';
 import RecyclerTradePanel from '@/components/monster/map/panels/RecyclerTradePanel';
 import CurioEncounterPanel from '@/components/monster/map/panels/CurioEncounterPanel';
@@ -582,8 +582,17 @@ export default function TrainingMap({
     ? BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - (activeMonster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL)
     : null;
 
+  // Gates both the floating joystick's press-and-drag and (previously) the
+  // static dpad — matches the keyboard-movement path in useContinuousMovement.
+  const controlsDisabled = movementLocked || !!activeScroll;
+
   const frameContent = (
     <div className="relative w-full h-full">
+      {/* MOBA-style floating joystick — invisible until pressed, appears
+          centered on the finger, left half of the frame only (see
+          FloatingJoystick.tsx for why). Replaces the old always-visible
+          bottom-left Joystick (2026-09-05). */}
+      <FloatingJoystick disabled={controlsDisabled} setDirectionPressed={contMove.setDirectionPressed} />
       {background && <MapCanvas
         mapWidth={activeRegion.mapWidth}
         mapHeight={activeRegion.mapHeight}
@@ -614,6 +623,14 @@ export default function TrainingMap({
           🔒 {lockedPortalMsg}
         </div>
       )}
+      {/* Walk-lock cooldown banner — used to sit under the old fixed
+          joystick; now a top-center toast since the joystick has no fixed
+          screen position to attach to (2026-09-05). */}
+      {walkLockActive && !lockedPortalMsg && (
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-black/80 border border-amber-600 text-amber-400 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap z-20">
+          ⏳ wait...
+        </div>
+      )}
 
       {/* Gold earned flash — floats up from screen centre after a trash trade */}
       {goldEarnedFlash !== null && (
@@ -628,22 +645,6 @@ export default function TrainingMap({
     </div>
   );
 
-  // Movement controls overlaid directly on the map (bottom-left corner of
-  // the frame) instead of living outside it in a separate row. Shown on
-  // every view type (desktop included) — desktop keyboard arrow-key support
-  // still works unchanged via useContinuousMovement's own keydown/keyup
-  // listeners, the joystick is just an always-available mouse alternative
-  // now. Gated by both movementLocked and activeScroll, matching the
-  // keyboard path.
-  const controlsDisabled = movementLocked || !!activeScroll;
-  const controls = (
-    <div className="flex items-end gap-2">
-      <div>
-        <Joystick disabled={controlsDisabled} setDirectionPressed={contMove.setDirectionPressed} />
-        {walkLockActive && <p className="text-[9px] text-amber-400 mt-0.5 text-center">⏳ wait...</p>}
-      </div>
-    </div>
-  );
 
   // Info drawer — Team/Online/Bag; see components/monster/map/MapInfoDrawer.tsx.
   const drawer = (
@@ -725,7 +726,6 @@ export default function TrainingMap({
         leftTag={leftTag}
         rightTag={`🟢 ${Object.keys(onlinePlayers).length}`}
         frame={frameContent}
-        controls={controls}
         drawerLabel="Info"
         drawer={drawer}
         overlay={overlay}

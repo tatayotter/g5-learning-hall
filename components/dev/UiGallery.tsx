@@ -508,6 +508,11 @@ export default function UiGallery() {
           playerStreak={6}
           weekLabel="Week 10"
           railBadges={{ monster: true }}
+          notifications={[
+            { id: 'n1', icon: '🐣', title: 'Egg ready to hatch!', body: 'Your mystery egg finished incubating.', read: false, created_at: new Date().toISOString() },
+            { id: 'n2', icon: '🔥', title: '6-day streak!', body: "You're on a roll — keep it going tomorrow.", read: true, created_at: new Date().toISOString() },
+          ]}
+          onMarkNotificationsRead={() => {}}
         />
       </Section>
 

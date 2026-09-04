@@ -1,20 +1,24 @@
 'use client';
-// components/monster/map/Joystick.tsx
-// Touch-drag virtual joystick for the training map — replaces the old
-// tap-and-hold 4-button dpad on mobile. Desktop players already have full
-// arrow-key support via useContinuousMovement's own keydown/keyup listeners
-// (see TrainingMap.tsx), so this is rendered `md:hidden` there and a
-// physical dpad is no longer shown at all on desktop.
+// components/monster/map/FloatingJoystick.tsx
+// MOBA-style floating joystick — invisible until the player presses down,
+// at which point it pops into existence centered on the finger and tracks
+// the drag from there; releasing hides it again. Replaces the old
+// always-visible bottom-left Joystick.tsx (2026-09-05).
 //
-// Drives the exact same setDirectionPressed(dir, pressed) API the old dpad
-// buttons used, so useContinuousMovement needed zero changes — diagonal
-// movement (two directions held at once) already worked for the dpad and
-// keyboard, and works here too via the 8-way angle sectors below.
+// The press-and-drag zone is the LEFT HALF of the map frame only — the
+// right half stays free for tapping map objects (other online players'
+// avatars, the info-drawer toggle, etc.), same split most mobile MOBAs use
+// between a movement thumb and everything else.
+//
+// Same 8-way angle-sector direction math as the old Joystick, driving the
+// exact same setDirectionPressed(dir, pressed) API — useContinuousMovement
+// needed zero changes.
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import type { Direction } from '@/hooks/useContinuousMovement';
 
-const OUTER_SIZE = 84;
-const KNOB_SIZE = 36;
+const OUTER_SIZE = 96;
+const KNOB_SIZE = 40;
 const MAX_RADIUS = (OUTER_SIZE - KNOB_SIZE) / 2;
 // Fraction of MAX_RADIUS the knob must travel before any direction
 // registers — avoids phantom drift from a stationary thumb.
@@ -22,16 +26,30 @@ const DEAD_ZONE = 0.3;
 
 const ALL_DIRECTIONS: Direction[] = ['up', 'down', 'left', 'right'];
 
-interface JoystickProps {
+interface FloatingJoystickProps {
   disabled: boolean;
   setDirectionPressed: (dir: Direction, pressed: boolean) => void;
 }
 
-export default function Joystick({ disabled, setDirectionPressed }: JoystickProps) {
-  const baseRef = useRef<HTMLDivElement>(null);
+export default function FloatingJoystick({ disabled, setDirectionPressed }: FloatingJoystickProps) {
   const activeRef = useRef<Set<Direction>>(new Set());
   const draggingRef = useRef(false);
+  const anchorRef = useRef({ x: 0, y: 0 });
+  const [visible, setVisible] = useState(false);
+  const [anchor, setAnchor] = useState({ x: 0, y: 0 });
   const [knobOffset, setKnobOffset] = useState({ x: 0, y: 0 });
+
+  // The joystick's visual pop-up renders via a portal straight into
+  // document.body (see the render below) rather than in place — the map
+  // frame sits inside a `transform: scale(...)` wrapper (useStageScale), and
+  // a `position: fixed` descendant of a transformed ancestor is positioned
+  // (and scaled) relative to THAT ancestor instead of the real viewport per
+  // the CSS spec. Portaling out to body sidesteps that entirely, so
+  // `left/top: e.clientX/clientY` always lines up with the actual finger
+  // position. Needs a mount flag since document.body isn't available
+  // during SSR.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   const clearAll = useCallback(() => {
     activeRef.current.forEach(dir => setDirectionPressed(dir, false));
@@ -65,13 +83,9 @@ export default function Joystick({ disabled, setDirectionPressed }: JoystickProp
   }, [setDirectionPressed]);
 
   const handlePointerMove = useCallback((e: PointerEvent) => {
-    const base = baseRef.current;
-    if (!base) return;
-    const rect = base.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    let dx = e.clientX - cx;
-    let dy = e.clientY - cy;
+    if (!draggingRef.current) return;
+    let dx = e.clientX - anchorRef.current.x;
+    let dy = e.clientY - anchorRef.current.y;
     const dist = Math.hypot(dx, dy);
     const clamped = Math.min(dist, MAX_RADIUS);
     if (dist > 0) {
@@ -86,11 +100,12 @@ export default function Joystick({ disabled, setDirectionPressed }: JoystickProp
     draggingRef.current = false;
     window.removeEventListener('pointermove', handlePointerMove);
     window.removeEventListener('pointerup', handlePointerUp);
+    setVisible(false);
     clearAll();
   }, [handlePointerMove, clearAll]);
 
   // Cancel an in-progress drag if the joystick gets disabled mid-hold (e.g.
-  // a scroll/quiz overlay opens) — mirrors the old dpad's disabled guard.
+  // a scroll/quiz overlay opens) — mirrors the old dpad/Joystick's guard.
   useEffect(() => {
     if (disabled && draggingRef.current) handlePointerUp();
   }, [disabled, handlePointerUp]);
@@ -103,28 +118,48 @@ export default function Joystick({ disabled, setDirectionPressed }: JoystickProp
 
   const handlePointerDown = (e: React.PointerEvent) => {
     if (disabled) return;
+    anchorRef.current = { x: e.clientX, y: e.clientY };
+    setAnchor(anchorRef.current);
+    setKnobOffset({ x: 0, y: 0 });
+    setVisible(true);
     draggingRef.current = true;
     window.addEventListener('pointermove', handlePointerMove);
     window.addEventListener('pointerup', handlePointerUp);
-    handlePointerMove(e.nativeEvent);
   };
 
   return (
-    <div
-      ref={baseRef}
-      onPointerDown={handlePointerDown}
-      className={`relative rounded-full bg-[#0a0807]/40 border border-[#ffffff]/20 ${disabled ? 'opacity-40' : ''}`}
-      style={{ width: OUTER_SIZE, height: OUTER_SIZE, touchAction: 'none' }}
-    >
+    <>
+      {/* Invisible capture zone — left half of the map frame. Sized to its
+          parent (the frame's own relative/w-full/h-full wrapper), so it
+          scales and repositions with the frame automatically. */}
       <div
-        className="absolute rounded-full bg-[#ffffff]/80 shadow pointer-events-none"
-        style={{
-          width: KNOB_SIZE, height: KNOB_SIZE,
-          left: '50%', top: '50%',
-          transform: `translate(calc(-50% + ${knobOffset.x}px), calc(-50% + ${knobOffset.y}px))`,
-          transition: draggingRef.current ? 'none' : 'transform 0.15s ease-out',
-        }}
+        onPointerDown={handlePointerDown}
+        className="absolute inset-y-0 left-0 w-1/2 z-10"
+        style={{ touchAction: 'none' }}
+        aria-hidden="true"
       />
-    </div>
+
+      {mounted && visible && createPortal(
+        <div
+          className="fixed z-[70] pointer-events-none"
+          style={{ left: anchor.x, top: anchor.y, transform: 'translate(-50%, -50%)' }}
+        >
+          <div
+            className="relative rounded-full bg-[#0a0807]/40 border border-[#ffffff]/20"
+            style={{ width: OUTER_SIZE, height: OUTER_SIZE }}
+          >
+            <div
+              className="absolute rounded-full bg-[#ffffff]/80 shadow"
+              style={{
+                width: KNOB_SIZE, height: KNOB_SIZE,
+                left: '50%', top: '50%',
+                transform: `translate(calc(-50% + ${knobOffset.x}px), calc(-50% + ${knobOffset.y}px))`,
+              }}
+            />
+          </div>
+        </div>,
+        document.body
+      )}
+    </>
   );
 }
