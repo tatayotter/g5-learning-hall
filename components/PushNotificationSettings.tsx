@@ -61,7 +61,10 @@ export default function PushNotificationSettings({ owner, variant = 'row' }: Pus
       <div className="rounded-xl border border-stone-200 bg-white p-4 space-y-3 shadow-sm">
         <div>
           <p className="text-sm font-bold text-stone-700">🔔 Push notifications</p>
-          <p className="text-xs text-stone-500">Get an alert on this device for things you care about.</p>
+          <p className="text-xs text-stone-500">
+            Get an alert on this device for things you care about.
+            {!subscribed && <span className="text-amber-700"> · get 300 free gold 🪙</span>}
+          </p>
         </div>
         <div className="flex items-center gap-2">
           <button
@@ -91,7 +94,10 @@ export default function PushNotificationSettings({ owner, variant = 'row' }: Pus
 
   return (
     <div className="flex items-center justify-between gap-3">
-      <span className="text-sm text-stone-500">🔔 Push notifications — device alerts</span>
+      <span className="text-sm text-stone-500">
+        🔔 Push notifications — device alerts
+        {!subscribed && <span className="text-amber-700"> · your child gets 300 free gold 🪙</span>}
+      </span>
       <div className="flex items-center gap-3">
         {subscribed && (
           <button

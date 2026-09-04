@@ -26,6 +26,8 @@ import { fetchSubclassProfile, SubclassProfile } from '@/lib/guildEngine';
 import { prefetchAllTabs } from '@/lib/tabPrefetch';
 import { claimRegistrantReward, fetchNotifications, markNotificationsRead, getMyReferralKey, PlayerNotification } from '@/lib/referral';
 import { claimMarketingGoldBonus } from '@/lib/marketingBonus';
+import { claimPushGoldBonusChild, claimPushGoldBonusParent } from '@/lib/pushBonus';
+import { autoPromptForPush } from '@/lib/push';
 import NotificationInbox from '@/components/NotificationInbox';
 import BoardMapView from '@/components/dashboard/board/BoardMapView';
 import ActiveQuestView from '@/components/dashboard/board/ActiveQuestView';
@@ -211,6 +213,29 @@ export default function Dashboard() {
             setToast({
               show: true,
               message: `🪙 Welcome bonus! +${reward.gold} Gold added to your account!`,
+            });
+          }
+        });
+
+        // Push notifications: fire the browser's native permission prompt
+        // automatically (once per browser) instead of waiting for the kid to
+        // find the Profile tab's manual toggle, then claim whichever of the
+        // two 300-gold bonuses (self opt-in / parent opt-in) apply — both
+        // idempotent, no-ops if already claimed or not actually subscribed.
+        autoPromptForPush({ kind: 'app_user', id: activeUserId });
+        claimPushGoldBonusChild(activeUserId).then(reward => {
+          if (reward) {
+            setToast({
+              show: true,
+              message: `🔔 Notifications on! +${reward.gold} Gold added to your account!`,
+            });
+          }
+        });
+        claimPushGoldBonusParent(activeUserId).then(reward => {
+          if (reward) {
+            setToast({
+              show: true,
+              message: `🔔 Your parent turned on notifications! +${reward.gold} Gold added to your account!`,
             });
           }
         });

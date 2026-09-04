@@ -108,6 +108,38 @@ export async function unsubscribeFromPush(): Promise<boolean> {
   return !error;
 }
 
+const AUTO_PROMPT_KEY_PREFIX = 'g5_push_auto_prompted_';
+
+/**
+ * Fires the browser's native permission prompt automatically, once per
+ * browser per owner — used so kids/parents don't have to find the manual
+ * toggle first (there's a 300-gold bonus for enabling, see lib/pushBonus.ts).
+ * No-ops if unsupported, already decided (granted/denied), already
+ * subscribed, or already attempted once in this browser — browsers won't
+ * re-show a dismissed prompt anyway, and calling subscribe() repeatedly on
+ * a 'default' permission that keeps getting silently dismissed would just
+ * nag every page load.
+ */
+export async function autoPromptForPush(owner: PushOwner): Promise<void> {
+  if (!isPushSupported()) return;
+  if (Notification.permission !== 'default') return;
+
+  const flagKey = `${AUTO_PROMPT_KEY_PREFIX}${owner.kind}_${owner.id}`;
+  if (typeof window !== 'undefined' && window.localStorage.getItem(flagKey)) return;
+
+  const existing = await getExistingSubscription();
+  if (existing) return;
+
+  try {
+    window.localStorage.setItem(flagKey, '1');
+  } catch {
+    // Storage unavailable (private mode, etc.) — proceed anyway, worst case
+    // this prompts again next load.
+  }
+
+  await subscribeToPush(owner);
+}
+
 /** Asks the send-push Edge Function to deliver a test notification to `owner`. */
 export async function sendTestPush(owner: PushOwner): Promise<boolean> {
   const { data, error } = await supabase.functions.invoke('send-push', {
