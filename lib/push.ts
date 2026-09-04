@@ -145,6 +145,24 @@ export async function autoPromptForPush(owner: PushOwner): Promise<boolean> {
   return subscribeToPush(owner);
 }
 
+/**
+ * Asks the send-push Edge Function to deliver a real push to `owner` right
+ * now. Self-only (send-push forwards the caller's own JWT, RLS-enforced) —
+ * for notifying someone else, enqueue into push_notification_queue
+ * server-side instead (see lib/pushBonus.ts's pattern / the trade-request
+ * and referral triggers), never call this for another user's id.
+ */
+export async function sendPushToSelf(owner: PushOwner, title: string, body: string, url?: string): Promise<boolean> {
+  const { data, error } = await supabase.functions.invoke('send-push', {
+    body: { owner_kind: owner.kind, owner_id: owner.id, title, body, url },
+  });
+  if (error) {
+    console.error('sendPushToSelf failed', error);
+    return false;
+  }
+  return !!data?.sent;
+}
+
 /** Asks the send-push Edge Function to deliver a test notification to `owner`. */
 export async function sendTestPush(owner: PushOwner): Promise<boolean> {
   const { data, error } = await supabase.functions.invoke('send-push', {
