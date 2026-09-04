@@ -28,6 +28,12 @@ import { claimRegistrantReward, fetchNotifications, markNotificationsRead, getMy
 import { claimMarketingGoldBonus } from '@/lib/marketingBonus';
 import { claimPushGoldBonusChild, claimPushGoldBonusParent } from '@/lib/pushBonus';
 import { autoPromptForPush, sendPushToSelf } from '@/lib/push';
+import type { GuildView } from '@/components/monster/types';
+
+// Runtime mirror of the GuildView union — needed to validate a query-param
+// value (`?view=`) at runtime, since a type alone can't check a string
+// pulled from window.location at deep-link time.
+const GUILD_VIEWS: readonly GuildView[] = ['map', 'team', 'trainers', 'compendium', 'battle', 'live_battle', 'leaderboard', 'trade', 'hatchery'];
 import NotificationInbox from '@/components/NotificationInbox';
 import BoardMapView from '@/components/dashboard/board/BoardMapView';
 import ActiveQuestView from '@/components/dashboard/board/ActiveQuestView';
@@ -198,7 +204,11 @@ export default function Dashboard() {
             const body = result.hatched.length > 1
               ? `${result.hatched.length} eggs hatched, including a ${firstSpecies}!`
               : `Your egg hatched into a ${firstSpecies}!`;
-            sendPushToSelf({ kind: 'app_user', id: activeUserId }, title, body, '/play');
+            // '/play' is a static marketing landing page, never the actual
+            // game (that's root '/', which Dashboard itself renders) —
+            // every push notification's url was wrongly pointing at '/play'
+            // until this was caught. Deep-links straight to the Hatchery.
+            sendPushToSelf({ kind: 'app_user', id: activeUserId }, title, body, '/?tab=monster&view=hatchery');
           }
         });
         fetchUserEggs(activeUserId).then(eggs => {
@@ -374,8 +384,30 @@ export default function Dashboard() {
 
   const [activeQuest, setActiveQuest] = useState<string | null>(null);
   const [activeGuild, setActiveGuild] = useState<GuildKey | null>(null);
-  const [guildInitialView, setGuildInitialView] = useState<'compendium' | 'team' | undefined>(undefined);
+  const [guildInitialView, setGuildInitialView] = useState<GuildView | undefined>(() => {
+    if (typeof window === 'undefined') return undefined;
+    const view = new URLSearchParams(window.location.search).get('view');
+    return (GUILD_VIEWS as readonly string[]).includes(view ?? '') ? (view as GuildView) : undefined;
+  });
   const [guildProfile, setGuildProfile] = useState<SubclassProfile | null>(null);
+
+  // Push-notification deep links (see lib/push.ts / push_notification_queue
+  // inserts) land on '/' with a `?tab=` (and optionally `?view=`, read into
+  // guildInitialView above) query param. One-shot at mount, same lifecycle
+  // as guildInitialView below — then strips the params so a later refresh
+  // doesn't keep re-forcing the tab, and a manual tab switch isn't fighting
+  // a URL that still says otherwise.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const tab = params.get('tab');
+    if (!tab) return;
+    setActiveTab(tab);
+    if (params.has('view') || params.has('tab')) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (activeTab !== 'guilds' || !activeUserId) return;

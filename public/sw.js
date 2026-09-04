@@ -40,14 +40,26 @@ self.addEventListener('push', (event) => {
 
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
-  const url = event.notification.data?.url || '/';
+  const targetPath = event.notification.data?.url || '/';
+  const targetUrl = new URL(targetPath, self.location.origin).href;
 
   event.waitUntil(
-    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clients) => {
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(async (clients) => {
+      // `client.url` is always absolute while targetPath is typically
+      // relative ('/?tab=monster') — comparing them directly never matched,
+      // so this always opened a brand-new tab even when the app was already
+      // open. Focus any existing tab of the app and navigate *that* one to
+      // the deep link instead, falling back to a new window only if none
+      // are open.
       for (const client of clients) {
-        if (client.url === url && 'focus' in client) return client.focus();
+        if ('focus' in client) {
+          if ('navigate' in client) {
+            try { await client.navigate(targetUrl); } catch { /* best-effort */ }
+          }
+          return client.focus();
+        }
       }
-      if (self.clients.openWindow) return self.clients.openWindow(url);
+      if (self.clients.openWindow) return self.clients.openWindow(targetUrl);
     }),
   );
 });

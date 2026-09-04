@@ -43,7 +43,7 @@ Deno.serve(async (req: Request) => {
       owner_id: mission.user_id,
       title: 'Mission Complete! 🎒',
       body: `"${mission.mission_name}" is done — come collect your curio's reward.`,
-      url: '/play',
+      url: '/?tab=monster&view=team',
     });
     if (insertErr) {
       console.error('detect-completed-missions: failed to queue', mission.id, insertErr);
