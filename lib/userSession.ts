@@ -316,6 +316,49 @@ export function registerChildUser(profile: {
   childIds.add(profile.id);
 }
 
+// Normalizes a typed username into the same slug the DB derives as
+// `children.id` (see create_child_account / create_unclaimed_child_account:
+// `lower(regexp_replace(username, '[^a-zA-Z0-9_]', '', 'g'))`). Lets a
+// returning-player login form take the username the child actually typed
+// during signup and resolve it to the id verify_child_login expects.
+export function usernameToChildId(username: string): UserId {
+  return username.toLowerCase().replace(/[^a-z0-9_]/g, '');
+}
+
+// Unclaimed (self-registered, parent_id IS NULL) children are permanently
+// excluded from children_public (it requires an approved parent), so
+// loadChildren() never loads them and they never appear on the SplashScreen
+// roster past their first in-memory session. This is the fallback login
+// path for that case: the child types their username + PIN directly instead
+// of picking a roster row, verify_child_login (which already allows
+// parent_id IS NULL, see docs/parent-child-linking-design.md) checks the
+// PIN server-side, and on success this injects a full USERS entry the same
+// way registerChildUser() does for a brand new signup — so the account
+// becomes selectable/usable for this session regardless of roster
+// membership. A later successful parent link (or any full page load, once
+// linked) will pick the child up naturally via loadChildren() from then on.
+export function loginReturningChild(profile: {
+  id: UserId;
+  fullName: string;
+  grade: string;
+  avatar: string;
+  gender: 'boy' | 'girl';
+  school?: string;
+}): void {
+  USERS[profile.id] = {
+    id: profile.id,
+    name: profile.fullName.split(' ')[0],
+    fullName: profile.fullName,
+    grade: profile.grade,
+    avatar: profile.avatar,
+    theme: 'theme_default',
+    gender: profile.gender,
+    isFamily: false,
+    school: profile.school,
+  };
+  childIds.add(profile.id);
+}
+
 export function getOtherPlayers(currentUserId: UserId): UserProfile[] {
   return (Object.keys(USERS) as UserId[])
     .filter(id => id !== currentUserId)
