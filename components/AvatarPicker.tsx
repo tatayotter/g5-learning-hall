@@ -18,20 +18,13 @@ interface AvatarPickerProps {
 }
 
 export default function AvatarPicker({ userId, currentAvatar, onClose, onSaved }: AvatarPickerProps) {
-  const [files, setFiles] = useState<string[]>([]);
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState<string | null>(null);
 
   useEffect(() => {
-    Promise.all([
-      fetch('/api/userpics').then(res => res.json()),
-      fetchInventory(userId),
-    ])
-      .then(([data, inv]) => {
-        setFiles(data.files || []);
-        setInventory(inv);
-      })
+    fetchInventory(userId)
+      .then(inv => setInventory(inv))
       .finally(() => setLoading(false));
   }, [userId]);
 
@@ -61,8 +54,6 @@ export default function AvatarPicker({ userId, currentAvatar, onClose, onSaved }
 
         {loading ? (
           <p className="text-gray-500 text-sm animate-pulse">Loading avatars...</p>
-        ) : files.length === 0 ? (
-          <p className="text-gray-500 text-sm">No avatars available yet.</p>
         ) : (
           <div className="overflow-y-auto flex-1 min-h-0">
             {/* Default avatars — always available, no purchase needed */}
@@ -83,33 +74,6 @@ export default function AvatarPicker({ userId, currentAvatar, onClose, onSaved }
                     }`}
                   >
                     <img src={avatar} alt={label} className="w-full h-full object-contain" />
-                    {isCurrent && (
-                      <span className="absolute bottom-0.5 right-0.5 bg-amber-500 text-black text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">✓</span>
-                    )}
-                    {isSaving && (
-                      <span className="absolute inset-0 bg-black/60 flex items-center justify-center text-xs text-white">...</span>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-
-            <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Classic</p>
-            <div className="grid grid-cols-4 sm:grid-cols-5 gap-3">
-              {files.map(file => {
-                const avatar = `/userpics/${file}`;
-                const isCurrent = avatar === currentAvatar;
-                const isSaving = saving === avatar;
-                return (
-                  <button
-                    key={file}
-                    onClick={() => handlePick(avatar)}
-                    disabled={!!saving}
-                    className={`relative aspect-square rounded-xl border-2 overflow-hidden bg-neutral-950 transition-all disabled:opacity-50 ${
-                      isCurrent ? 'border-amber-400' : 'border-neutral-700 hover:border-neutral-500'
-                    }`}
-                  >
-                    <img src={avatar} alt={file} className="w-full h-full object-contain" />
                     {isCurrent && (
                       <span className="absolute bottom-0.5 right-0.5 bg-amber-500 text-black text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">✓</span>
                     )}

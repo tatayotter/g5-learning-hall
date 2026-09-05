@@ -334,6 +334,14 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
                   alt="Character Portrait"
                   className="w-40 h-40 object-contain drop-shadow-2xl"
                   draggable={false}
+                  onError={e => {
+                    // Guards against stale/deleted avatar files (e.g. a saved
+                    // avatar pointing at an asset removed from public/userpics)
+                    // showing a broken-image icon instead of degrading gracefully.
+                    const fallback = userpicPath(activeUser.gender === 'girl' ? 'ssg3.png' : 'ssb3.png');
+                    if (e.currentTarget.src.endsWith(fallback)) return;
+                    e.currentTarget.src = fallback;
+                  }}
                 />
               </div>
             );
