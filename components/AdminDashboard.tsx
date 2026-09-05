@@ -14,6 +14,7 @@ import DraftQuestionsSection from '@/components/admin/DraftQuestionsSection';
 import AnalyticsSection from '@/components/admin/AnalyticsSection';
 import BossFightSection from '@/components/admin/BossFightSection';
 import SiteSettingsSection from '@/components/admin/SiteSettingsSection';
+import BugReportsSection from '@/components/admin/BugReportsSection';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 interface AdminDashboardProps {
@@ -23,7 +24,7 @@ interface AdminDashboardProps {
   onBack: () => void;
 }
 
-type AdminSection = 'packages' | 'draft_questions' | 'questions' | 'children' | 'parents' | 'events' | 'boss_fights' | 'egg_chains' | 'analytics' | 'tools' | 'content_matrix' | 'site_settings';
+type AdminSection = 'packages' | 'draft_questions' | 'questions' | 'children' | 'parents' | 'events' | 'boss_fights' | 'egg_chains' | 'analytics' | 'tools' | 'content_matrix' | 'site_settings' | 'bug_reports';
 
 export default function AdminDashboard({ currentData, currentSunday, onUpdateStats, onBack }: AdminDashboardProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -102,6 +103,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
       heading: 'System',
       items: [
         { id: 'analytics',      label: 'Analytics' },
+        { id: 'bug_reports',    label: 'Bug Reports' },
         { id: 'tools',          label: 'Tools' },
         { id: 'content_matrix', label: 'Content Matrix' },
         { id: 'site_settings',  label: 'Site Settings' },
@@ -175,6 +177,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
         {section === 'egg_chains' && <EggChainsSection passcode={password} />}
         {section === 'draft_questions' && <DraftQuestionsSection passcode={password} />}
         {section === 'analytics' && <AnalyticsSection />}
+        {section === 'bug_reports' && <BugReportsSection passcode={password} />}
         {section === 'tools' && (
           <ToolsSection
             currentData={currentData}

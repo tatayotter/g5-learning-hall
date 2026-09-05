@@ -60,6 +60,8 @@ export default function ParentDashboardPage() {
   const [showBugReport, setShowBugReport] = useState(false);
   const [bugText, setBugText] = useState('');
   const [bugSent, setBugSent] = useState(false);
+  const [bugSubmitting, setBugSubmitting] = useState(false);
+  const [bugError, setBugError] = useState('');
   const [showOptOutConfirm, setShowOptOutConfirm] = useState(false);
   const [showComparison, setShowComparison] = useState(false);
   const [parentId, setParentId] = useState<string | null>(null);
@@ -192,20 +194,34 @@ export default function ParentDashboardPage() {
     setRevealedPins((prev) => ({ ...prev, [childId]: data ?? null }));
   };
 
-  const handleBugReport = () => {
-    const subject = encodeURIComponent('[Learning Hall] Bug Report');
-    const body = encodeURIComponent(
-      `Parent: ${parent?.full_name ?? 'unknown'}\n\n` +
-      `Description:\n${bugText.trim()}\n\n` +
-      `---\nSent from Parent Dashboard`
-    );
-    window.open(`mailto:tatay@learninghallph.com?subject=${subject}&body=${body}`);
-    setBugSent(true);
-    setBugText('');
-    setTimeout(() => {
-      setBugSent(false);
-      setShowBugReport(false);
-    }, 2500);
+  const handleBugReport = async () => {
+    const description = bugText.trim();
+    if (!description) return;
+    setBugSubmitting(true);
+    setBugError('');
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const res = await fetch('/api/report-bug', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token || ''}` },
+        body: JSON.stringify({ description }),
+      });
+      const result = await res.json();
+      if (!res.ok || !result.success) {
+        setBugError(result.error || 'Something went wrong — please try again.');
+        return;
+      }
+      setBugSent(true);
+      setBugText('');
+      setTimeout(() => {
+        setBugSent(false);
+        setShowBugReport(false);
+      }, 2500);
+    } catch {
+      setBugError('Something went wrong — please try again.');
+    } finally {
+      setBugSubmitting(false);
+    }
   };
 
   const handleSignOut = async () => {
@@ -537,7 +553,7 @@ export default function ParentDashboardPage() {
           {/* Bug report */}
           {!showBugReport ? (
             <button
-              onClick={() => { setShowBugReport(true); setBugSent(false); }}
+              onClick={() => { setShowBugReport(true); setBugSent(false); setBugError(''); }}
               className="block text-sm text-amber-600 hover:text-amber-700 underline"
             >
               🐛 Report a bug
@@ -557,10 +573,11 @@ export default function ParentDashboardPage() {
                     placeholder="e.g. The progress panel doesn't load for my child…"
                     className="w-full rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 resize-none placeholder:text-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
                   />
+                  {bugError && <p className="text-sm text-red-600">{bugError}</p>}
                   <div className="flex gap-3">
                     <button
                       type="button"
-                      onClick={() => { setShowBugReport(false); setBugText(''); }}
+                      onClick={() => { setShowBugReport(false); setBugText(''); setBugError(''); }}
                       className="flex-1 rounded-xl border border-stone-300 text-stone-500 py-3 text-base"
                     >
                       Cancel
@@ -568,10 +585,10 @@ export default function ParentDashboardPage() {
                     <button
                       type="button"
                       onClick={handleBugReport}
-                      disabled={!bugText.trim()}
+                      disabled={!bugText.trim() || bugSubmitting}
                       className="flex-1 rounded-xl bg-amber-500 hover:bg-amber-600 disabled:opacity-40 text-[#ffffff] font-bold py-3 text-base transition-colors"
                     >
-                      Send Report
+                      {bugSubmitting ? 'Sending…' : 'Send Report'}
                     </button>
                   </div>
                 </>
