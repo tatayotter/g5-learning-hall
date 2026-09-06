@@ -1,8 +1,16 @@
 # MTAP Grade 4 Expansion Pack — Strands & Archetypes
 
-**Status:** second grade drafted, second-most-verified after Grade 5. Every archetype below traces to a real quoted question from at least one of 3 independent real documents, except Patterns (flagged, see below).
+**Status:** second grade drafted, since re-opened for a targeted follow-up pass (2026-09-05) after a cross-grade archetype-count review flagged this grade's evidence base as the thinnest of the five (3 sources vs. 4-5 elsewhere) — see "Follow-up research pass" below. Every archetype traces to a real quoted question from at least one real document.
 **Shared spec:** self-paced structure rationale, sourcing policy, mastery-threshold design, and the canonical Question Template Spec all live in [mtap-expansion-overview.md](mtap-expansion-overview.md) — this doc holds only Grade 4's strand/archetype list, per the "each grade gets its own independently-derived strands" decision there.
-**Evidence base:** 3 independent real documents (2 pdfcoffee + 1 math-inic) — see the full cross-grade findings table in the [overview](mtap-expansion-overview.md#cross-grade-findings--verified-against-real-question-text-tier-3) for exact quotes and source-by-source breakdown.
+**Evidence base:** 5 independent real documents (2 pdfcoffee + 1 math-inic + 2 SlideShare sets added in the follow-up pass) — see the full cross-grade findings table in the [overview](mtap-expansion-overview.md#cross-grade-findings--verified-against-real-question-text-tier-3) for exact quotes and source-by-source breakdown.
+
+## Follow-up research pass (2026-09-05)
+
+Triggered by a simple observation during SEC-pack content planning: this grade's archetype count (16) was lower than every other grade (19-22), which lined up suspiciously well with this grade having the thinnest sourcing (3 documents vs. 4-5 elsewhere) — a research-depth artifact, not evidence that Grade 4 content is genuinely narrower. Two more real sources were fetched and checked against three specific candidate gaps:
+
+1. **Two-unknowns Sum & Product — CONFIRMED, added below.** This grade had *no* two-unknowns archetype at all, unlike Grade 2 (sum/difference, product) and other grades. Found once in a first new source ("sum of two numbers is 20, quotient is 3" — sum-and-*quotient*, not corroborated elsewhere), but a second new source independently confirmed a *different*, recurring sum-and-**product** version across three separate citations: "find two numbers whose sum is 21 and whose product is 98" (2004 Elimination Q11 *and* 2005 Elimination Q12 — same item recurring across years) and "sum is 24, product is 135" (2008 Division Orals A.9). Sum-and-product is the real, multi-cited archetype; sum-and-quotient is dropped as an uncorroborated single mention.
+2. **Number properties (commutative/associative/distributive/identity) — CHECKED AND REJECTED.** Appeared once ("which property of multiplication is shown in 8×1=8?"), then explicitly searched for and *not found* in either of the two follow-up sources. Same shape as this pack's own Grade 3 Ratio correction: a single-source lead that doesn't survive a real cross-check. Not added.
+3. **Decimal operations — mixed, left open.** Decimal place-value/rounding questions ("5.36 is equal to how many hundredths," "round 458.5826 to the nearest hundredth") appear in both follow-up sources, but both cite an identically-worded "2008 Elimination, Question 5" — a sign these two SlideShare postings may share a common upstream source rather than being fully independent, so this doesn't meet the same bar as the sum-and-product finding above. Standalone decimal *addition* (e.g. "0.8 + 4.5 + 3.6") and unit-fraction decomposition ("3/5 is the sum of 3 unit fractions") each appeared exactly once and were not specifically re-checked. **Not added to the strand list — flagged as open leads, not silently dropped** (see "What's still open" below).
 
 ---
 
@@ -23,8 +31,9 @@
 - **Ratio & proportion** — real quotes: "ratio of adults to kids 5∶2," "ratio of 2:3... sum of the numbers," "two numbers have a ratio of 3:5 and one number is 16 more than the other"
 - **Percentage & discount** — "a pair of shoes marked ₱450 was sold at a discount of 15%," "the jeans has a discount of 12%," "winning percentage" framing (wins/total games)
 
-### Strand 3 — Patterns
+### Strand 3 — Patterns & Algebra
 - **Sequence / nth-term patterns** — now confirmed with a real quote from a 4th source, a named 2019 MMC Grade 4 Divisionals document: *"Find the sum of the numbers in the 20th triple: (1,4,7), (2,6,9), (3,8,11), (4,10,13), ..."* [answer: 107] — an arithmetic-sequence-of-triples pattern at the Difficult tier. (Previously flagged as inferred-from-continuity only; closed in a follow-up pass. That same source also cross-validated several other archetypes in this doc word-for-word — see [overview](mtap-expansion-overview.md) for the source note.)
+- **Two-unknowns Sum & Product** — added in the 2026-09-05 follow-up pass. Real quotes: "find two numbers whose sum is 21 and whose product is 98" (2004 Elimination Q11, recurring again verbatim in 2005 Elimination Q12), "sum is 24, product is 135" (2008 Division Orals A.9) — 3 independent citations across 2 sources, the strongest-cited new addition in this pass. Distinct from Grade 2's sum/difference and product-only two-unknowns variants — this one requires finding a factor pair of the product that also matches the target sum.
 
 ### Strand 4 — Geometry & Measurement
 - Perimeter (including reverse problems: "perimeter of a regular hexagon of side 12 2/3 meters")
@@ -89,12 +98,17 @@ Each entry: the parametric shape and how Easy → Average → Difficult scaffold
 - Average: discount problem (marked price, percent off, find sale price).
 - Difficult: percent framed as a ratio of outcomes (win/loss percentage, "how many of the remaining games must be won to reach X% of the season") — the real confirmed harder pattern.
 
-### Strand 3 — Patterns
+### Strand 3 — Patterns & Algebra
 
 **Sequence / nth-term patterns**
 - Easy: arithmetic sequence, find the next term.
 - Average: find the nth term.
 - Difficult: a compound structure — real confirmed pattern: three parallel arithmetic sequences grouped into triples, where the *sums* of each triple themselves form a second-order arithmetic sequence ("find the sum of the numbers in the 20th triple"). Solving requires first noticing the inner pattern (each triple's own arithmetic structure), then the outer pattern (triple-sums form their own sequence) — a genuine two-layer pattern-recognition step, confirmed harder than a simple two-step rule.
+
+**Two-unknowns Sum & Product**
+- Easy: small product with few factor pairs, so a short trial-and-error search reaches the answer quickly (real confirmed "sum 21, product 98" pattern — factor pairs of 98 are limited: 1×98, 2×49, 7×14, and only 7+14=21 fits).
+- Average: a larger product with more factor pairs to sift through, or numbers that aren't both obviously small (real confirmed "sum 24, product 135" pattern).
+- Difficult: reverse-framed — a word-problem wrapper the child must first translate into a sum and a product before searching (e.g. "two numbers differ by..." reframed, or a real-world scenario whose sum/product aren't stated as bare numbers).
 
 ### Strand 4 — Geometry & Measurement
 
@@ -197,6 +211,7 @@ Per the [overview's Technique Library](mtap-expansion-overview.md#technique-libr
 | Ratio & proportion | By proportionately | Directly sourced from this exact archetype's real citation. |
 | Percentage & discount | `null` generally; Reverse-percent restoration for the "restore original price" sub-case | |
 | Patterns (sequences) | Arithmetic nth-term formula | |
+| Two-unknowns Sum & Product | `null` (systematic factor-pair search) | No closed-form shortcut appropriate at this grade (the algebraic route needs the quadratic formula, well beyond Grade 4) — listing a product's factor pairs and checking which sums to the target *is* the fastest legitimate method here, same honest-null treatment as Grade 2's digit-property counting puzzles. |
 | Perimeter & area (incl. reverse) | `null` | Direct formula/reverse-solve. |
 | Angles | `null` generally; distribute-the-difference-equally reasoning for the confirmed supplementary-ratio sub-case | Real source solved the isosceles-triangle angle problem this way (E3) — worth noting as a technique even though not yet in the shared library, since it's grade-specific enough not to warrant a full library entry. |
 | Averages | Using a base | Directly sourced from this exact archetype's real citation (the basketball-average problem this whole technique entry is named for). |
@@ -209,6 +224,9 @@ Per the [overview's Technique Library](mtap-expansion-overview.md#technique-libr
 
 ## What's still open
 
-- Every archetype in this doc now traces to a real Tier-3 quote — the last open item (Strand 3 Patterns) was closed with a 4th source. No known unverified claims remain in this document.
-- Only the Custom-operation/Average template above is fully worked. The other archetypes across all 7 strands need the same skeleton/params/constraints/answer-formula/distractor-formula treatment before real generation starts — same open item Grade 5 has, at a less-far-along stage since Grade 4 is newer.
+- Every archetype in this doc now traces to a real Tier-3 quote — the last open item (Strand 3 Patterns) was closed with a 4th source, and Two-unknowns Sum & Product was added in the 2026-09-05 pass with 3 independent citations. No known unverified *included* claims remain in this document.
+- **Three leads from the 2026-09-05 pass were deliberately left out, not silently dropped:** standalone decimal addition, unit-fraction decomposition, and a generic get-on/get-off arithmetic word problem each appeared exactly once (in the same single source) and weren't cross-checked against another document the way Two-unknowns Sum & Product was. Revisit if a further pass turns up a second citation for any of them — until then they don't meet this pack's own multi-source bar.
+- Number properties (commutative/associative/distributive/identity) was actively checked for and rejected — see "Follow-up research pass" above. Not an oversight; don't re-add without new corroborating evidence.
+- Only the Custom-operation/Average template above is fully worked. The other archetypes across all 7 strands (now including Two-unknowns Sum & Product) need the same skeleton/params/constraints/answer-formula/distractor-formula treatment before real generation starts — same open item Grade 5 has, at a less-far-along stage since Grade 4 is newer.
+- Archetype count is now **17** (was 16) after this pass — still the lowest of the five grades (18-22 elsewhere), but no longer solely a research-depth artifact; a further pass could still close the gap more if the volume-scaling plan for SEC packs (see `docs/sec-shop-design.md`) needs it to.
 - Grades 2, 3, 6 strand/archetype docs still don't exist yet — see [overview Next Steps](mtap-expansion-overview.md#next-steps-not-yet-done).
