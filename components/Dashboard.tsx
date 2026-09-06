@@ -43,6 +43,7 @@ import JournalTab from '@/components/dashboard/JournalTab';
 import TodoTab from '@/components/dashboard/TodoTab';
 import ProfileTab from '@/components/dashboard/ProfileTab';
 import GuildsTab from '@/components/dashboard/GuildsTab';
+import BonusQuestsTab from '@/components/dashboard/BonusQuestsTab';
 import VaultTab from '@/components/dashboard/VaultTab';
 import VaultKeeperNpc from '@/components/VaultKeeperNpc';
 import CurioExpertNpc from '@/components/CurioExpertNpc';
@@ -330,7 +331,13 @@ export default function Dashboard() {
     await saveTheme(activeUserId, themeKey);
   };
 
-  const { data, loading, updateStatsAndJournal, currentSunday, contentWeekId, applyGoldDelta, bumpCounters, syncCharacterStats, setCharacterStatsDirect } = useWeeklyData(activeUserId ?? 'damien');
+  // No more `?? 'damien'` fallback — that placeholder was the actual cause of
+  // the HUD-flash bug (see useWeeklyData's own comment): any child logging in
+  // would briefly see damien's real stats before their own resolved. Passing
+  // activeUserId directly (null until hydration resolves it) means there's
+  // nothing to fetch or flash during that window — the existing
+  // !hydrated/loading/!data guards below already render a loading screen for it.
+  const { data, loading, updateStatsAndJournal, currentSunday, contentWeekId, applyGoldDelta, bumpCounters, syncCharacterStats, setCharacterStatsDirect } = useWeeklyData(activeUserId);
   // Sticks to whichever top-level tab the player was on across a page refresh
   // instead of always dropping back to Main Quests. sessionStorage (not
   // localStorage) so a fresh browser session still starts clean.
@@ -1119,6 +1126,15 @@ export default function Dashboard() {
             weekStartingDate={data.week_starting_date}
             characterStats={data.character_stats}
             onGuildGoldEarned={handleGuildGoldEarned}
+          />
+        )}
+
+        {/* --- TAB: BONUS QUESTS (SEC packs) --- */}
+        {activeTab === 'bonus_quests' && (
+          <BonusQuestsTab
+            userId={activeUserId}
+            userGrade={USERS[activeUserId]?.grade ?? 'Grade 5'}
+            onRewardEarned={() => syncCharacterStats()}
           />
         )}
 

@@ -1,0 +1,738 @@
+[
+  {
+    "id": "g2-s7-age-easy-0001",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "easy",
+    "params": {
+      "mult": 2,
+      "years": 10
+    },
+    "question": "In 10 years, Alex will be 2 times Alex's current age. How old is Alex now?",
+    "options": [
+      "10",
+      "5",
+      "12",
+      "8"
+    ],
+    "correct_answer": "10",
+    "distractor_rationale": [
+      "divided the years by the multiplier itself instead of by (multiplier − 1) — forgets that the given years only cover the EXTRA part of the growth, not the whole multiple",
+      "added the multiplier to the years instead of using it as a multiplier — treats the relationship like an additive comparison, not a multiplicative one",
+      "subtracted the multiplier from the years instead of solving the proportional relationship"
+    ],
+    "solution_steps": "Let Alex's age now be a. In 10 years, Alex will be a + 10, and that equals 2 × a. So a + 10 = 2a, which means 10 = a × (2 − 1), so a = 10 ÷ 1 = 10.",
+    "technique": null,
+    "time_budget_seconds": 15,
+    "scaffold_note": "",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-easy-0002",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "easy",
+    "params": {
+      "mult": 2,
+      "years": 20
+    },
+    "question": "In 20 years, Mika will be 2 times Mika's current age. How old is Mika now?",
+    "options": [
+      "10",
+      "20",
+      "22",
+      "18"
+    ],
+    "correct_answer": "20",
+    "distractor_rationale": [
+      "divided the years by the multiplier itself instead of by (multiplier − 1) — forgets that the given years only cover the EXTRA part of the growth, not the whole multiple",
+      "added the multiplier to the years instead of using it as a multiplier — treats the relationship like an additive comparison, not a multiplicative one",
+      "subtracted the multiplier from the years instead of solving the proportional relationship"
+    ],
+    "solution_steps": "Let Mika's age now be a. In 20 years, Mika will be a + 20, and that equals 2 × a. So a + 20 = 2a, which means 20 = a × (2 − 1), so a = 20 ÷ 1 = 20.",
+    "technique": null,
+    "time_budget_seconds": 15,
+    "scaffold_note": "",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-easy-0003",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "easy",
+    "params": {
+      "mult": 2,
+      "years": 16
+    },
+    "question": "In 16 years, Diego will be 2 times Diego's current age. How old is Diego now?",
+    "options": [
+      "16",
+      "14",
+      "18",
+      "8"
+    ],
+    "correct_answer": "16",
+    "distractor_rationale": [
+      "divided the years by the multiplier itself instead of by (multiplier − 1) — forgets that the given years only cover the EXTRA part of the growth, not the whole multiple",
+      "added the multiplier to the years instead of using it as a multiplier — treats the relationship like an additive comparison, not a multiplicative one",
+      "subtracted the multiplier from the years instead of solving the proportional relationship"
+    ],
+    "solution_steps": "Let Diego's age now be a. In 16 years, Diego will be a + 16, and that equals 2 × a. So a + 16 = 2a, which means 16 = a × (2 − 1), so a = 16 ÷ 1 = 16.",
+    "technique": null,
+    "time_budget_seconds": 15,
+    "scaffold_note": "",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-easy-0004",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "easy",
+    "params": {
+      "mult": 3,
+      "years": 24
+    },
+    "question": "In 24 years, Lara will be 3 times Lara's current age. How old is Lara now?",
+    "options": [
+      "27",
+      "21",
+      "12",
+      "8"
+    ],
+    "correct_answer": "12",
+    "distractor_rationale": [
+      "divided the years by the multiplier itself instead of by (multiplier − 1) — forgets that the given years only cover the EXTRA part of the growth, not the whole multiple",
+      "added the multiplier to the years instead of using it as a multiplier — treats the relationship like an additive comparison, not a multiplicative one",
+      "subtracted the multiplier from the years instead of solving the proportional relationship"
+    ],
+    "solution_steps": "Let Lara's age now be a. In 24 years, Lara will be a + 24, and that equals 3 × a. So a + 24 = 3a, which means 24 = a × (3 − 1), so a = 24 ÷ 2 = 12.",
+    "technique": null,
+    "time_budget_seconds": 15,
+    "scaffold_note": "",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-easy-0005",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "easy",
+    "params": {
+      "mult": 3,
+      "years": 12
+    },
+    "question": "In 12 years, Kian will be 3 times Kian's current age. How old is Kian now?",
+    "options": [
+      "4",
+      "9",
+      "6",
+      "15"
+    ],
+    "correct_answer": "6",
+    "distractor_rationale": [
+      "divided the years by the multiplier itself instead of by (multiplier − 1) — forgets that the given years only cover the EXTRA part of the growth, not the whole multiple",
+      "added the multiplier to the years instead of using it as a multiplier — treats the relationship like an additive comparison, not a multiplicative one",
+      "subtracted the multiplier from the years instead of solving the proportional relationship"
+    ],
+    "solution_steps": "Let Kian's age now be a. In 12 years, Kian will be a + 12, and that equals 3 × a. So a + 12 = 3a, which means 12 = a × (3 − 1), so a = 12 ÷ 2 = 6.",
+    "technique": null,
+    "time_budget_seconds": 15,
+    "scaffold_note": "",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-easy-0006",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "easy",
+    "params": {
+      "mult": 2,
+      "years": 12
+    },
+    "question": "In 12 years, Sofia will be 2 times Sofia's current age. How old is Sofia now?",
+    "options": [
+      "10",
+      "6",
+      "14",
+      "12"
+    ],
+    "correct_answer": "12",
+    "distractor_rationale": [
+      "divided the years by the multiplier itself instead of by (multiplier − 1) — forgets that the given years only cover the EXTRA part of the growth, not the whole multiple",
+      "added the multiplier to the years instead of using it as a multiplier — treats the relationship like an additive comparison, not a multiplicative one",
+      "subtracted the multiplier from the years instead of solving the proportional relationship"
+    ],
+    "solution_steps": "Let Sofia's age now be a. In 12 years, Sofia will be a + 12, and that equals 2 × a. So a + 12 = 2a, which means 12 = a × (2 − 1), so a = 12 ÷ 1 = 12.",
+    "technique": null,
+    "time_budget_seconds": 15,
+    "scaffold_note": "",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-easy-0007",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "easy",
+    "params": {
+      "mult": 2,
+      "years": 18
+    },
+    "question": "In 18 years, Noah will be 2 times Noah's current age. How old is Noah now?",
+    "options": [
+      "9",
+      "18",
+      "20",
+      "16"
+    ],
+    "correct_answer": "18",
+    "distractor_rationale": [
+      "divided the years by the multiplier itself instead of by (multiplier − 1) — forgets that the given years only cover the EXTRA part of the growth, not the whole multiple",
+      "added the multiplier to the years instead of using it as a multiplier — treats the relationship like an additive comparison, not a multiplicative one",
+      "subtracted the multiplier from the years instead of solving the proportional relationship"
+    ],
+    "solution_steps": "Let Noah's age now be a. In 18 years, Noah will be a + 18, and that equals 2 × a. So a + 18 = 2a, which means 18 = a × (2 − 1), so a = 18 ÷ 1 = 18.",
+    "technique": null,
+    "time_budget_seconds": 15,
+    "scaffold_note": "",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-easy-0008",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "easy",
+    "params": {
+      "mult": 3,
+      "years": 18
+    },
+    "question": "In 18 years, Ella will be 3 times Ella's current age. How old is Ella now?",
+    "options": [
+      "6",
+      "15",
+      "21",
+      "9"
+    ],
+    "correct_answer": "9",
+    "distractor_rationale": [
+      "divided the years by the multiplier itself instead of by (multiplier − 1) — forgets that the given years only cover the EXTRA part of the growth, not the whole multiple",
+      "added the multiplier to the years instead of using it as a multiplier — treats the relationship like an additive comparison, not a multiplicative one",
+      "subtracted the multiplier from the years instead of solving the proportional relationship"
+    ],
+    "solution_steps": "Let Ella's age now be a. In 18 years, Ella will be a + 18, and that equals 3 × a. So a + 18 = 3a, which means 18 = a × (3 − 1), so a = 18 ÷ 2 = 9.",
+    "technique": null,
+    "time_budget_seconds": 15,
+    "scaffold_note": "",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-avg-0001",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "average",
+    "params": {
+      "age": 7,
+      "mult": 3
+    },
+    "question": "Marco is 7 years old now. In how many years will Marco be 3 times as old as Marco is right now?",
+    "options": [
+      "21",
+      "10",
+      "4",
+      "14"
+    ],
+    "correct_answer": "14",
+    "distractor_rationale": [
+      "multiplied the current age by the multiplier itself instead of by (multiplier − 1) — double-counts the starting age as part of the growth",
+      "added the multiplier to the current age instead of finding how many years are needed to reach that multiple",
+      "subtracted the multiplier from the current age instead of solving for the number of years"
+    ],
+    "solution_steps": "Marco is 7 now. In y years, Marco will be 7 + y, and that should equal 3 × 7. So y = 7 × (3 − 1) = 14 years.",
+    "technique": null,
+    "time_budget_seconds": 30,
+    "scaffold_note": "Builds on the Easy tier's age/years/multiplier relationship, run in the opposite direction: given the current age, solve for the missing number of years instead of the missing age.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-avg-0002",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "average",
+    "params": {
+      "age": 10,
+      "mult": 4
+    },
+    "question": "Tala is 10 years old now. In how many years will Tala be 4 times as old as Tala is right now?",
+    "options": [
+      "6",
+      "30",
+      "14",
+      "40"
+    ],
+    "correct_answer": "30",
+    "distractor_rationale": [
+      "multiplied the current age by the multiplier itself instead of by (multiplier − 1) — double-counts the starting age as part of the growth",
+      "added the multiplier to the current age instead of finding how many years are needed to reach that multiple",
+      "subtracted the multiplier from the current age instead of solving for the number of years"
+    ],
+    "solution_steps": "Tala is 10 now. In y years, Tala will be 10 + y, and that should equal 4 × 10. So y = 10 × (4 − 1) = 30 years.",
+    "technique": null,
+    "time_budget_seconds": 30,
+    "scaffold_note": "Builds on the Easy tier's age/years/multiplier relationship, run in the opposite direction: given the current age, solve for the missing number of years instead of the missing age.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-avg-0003",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "average",
+    "params": {
+      "age": 8,
+      "mult": 2
+    },
+    "question": "Ravi is 8 years old now. In how many years will Ravi be 2 times as old as Ravi is right now?",
+    "options": [
+      "8",
+      "10",
+      "16",
+      "6"
+    ],
+    "correct_answer": "8",
+    "distractor_rationale": [
+      "multiplied the current age by the multiplier itself instead of by (multiplier − 1) — double-counts the starting age as part of the growth",
+      "added the multiplier to the current age instead of finding how many years are needed to reach that multiple",
+      "subtracted the multiplier from the current age instead of solving for the number of years"
+    ],
+    "solution_steps": "Ravi is 8 now. In y years, Ravi will be 8 + y, and that should equal 2 × 8. So y = 8 × (2 − 1) = 8 years.",
+    "technique": null,
+    "time_budget_seconds": 30,
+    "scaffold_note": "Builds on the Easy tier's age/years/multiplier relationship, run in the opposite direction: given the current age, solve for the missing number of years instead of the missing age.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-avg-0004",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "average",
+    "params": {
+      "age": 8,
+      "mult": 4
+    },
+    "question": "Zoe is 8 years old now. In how many years will Zoe be 4 times as old as Zoe is right now?",
+    "options": [
+      "4",
+      "24",
+      "12",
+      "32"
+    ],
+    "correct_answer": "24",
+    "distractor_rationale": [
+      "multiplied the current age by the multiplier itself instead of by (multiplier − 1) — double-counts the starting age as part of the growth",
+      "added the multiplier to the current age instead of finding how many years are needed to reach that multiple",
+      "subtracted the multiplier from the current age instead of solving for the number of years"
+    ],
+    "solution_steps": "Zoe is 8 now. In y years, Zoe will be 8 + y, and that should equal 4 × 8. So y = 8 × (4 − 1) = 24 years.",
+    "technique": null,
+    "time_budget_seconds": 30,
+    "scaffold_note": "Builds on the Easy tier's age/years/multiplier relationship, run in the opposite direction: given the current age, solve for the missing number of years instead of the missing age.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-avg-0005",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "average",
+    "params": {
+      "age": 5,
+      "mult": 3
+    },
+    "question": "Leon is 5 years old now. In how many years will Leon be 3 times as old as Leon is right now?",
+    "options": [
+      "2",
+      "10",
+      "15",
+      "8"
+    ],
+    "correct_answer": "10",
+    "distractor_rationale": [
+      "multiplied the current age by the multiplier itself instead of by (multiplier − 1) — double-counts the starting age as part of the growth",
+      "added the multiplier to the current age instead of finding how many years are needed to reach that multiple",
+      "subtracted the multiplier from the current age instead of solving for the number of years"
+    ],
+    "solution_steps": "Leon is 5 now. In y years, Leon will be 5 + y, and that should equal 3 × 5. So y = 5 × (3 − 1) = 10 years.",
+    "technique": null,
+    "time_budget_seconds": 30,
+    "scaffold_note": "Builds on the Easy tier's age/years/multiplier relationship, run in the opposite direction: given the current age, solve for the missing number of years instead of the missing age.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-avg-0006",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "average",
+    "params": {
+      "age": 10,
+      "mult": 3
+    },
+    "question": "Nina is 10 years old now. In how many years will Nina be 3 times as old as Nina is right now?",
+    "options": [
+      "7",
+      "13",
+      "30",
+      "20"
+    ],
+    "correct_answer": "20",
+    "distractor_rationale": [
+      "multiplied the current age by the multiplier itself instead of by (multiplier − 1) — double-counts the starting age as part of the growth",
+      "added the multiplier to the current age instead of finding how many years are needed to reach that multiple",
+      "subtracted the multiplier from the current age instead of solving for the number of years"
+    ],
+    "solution_steps": "Nina is 10 now. In y years, Nina will be 10 + y, and that should equal 3 × 10. So y = 10 × (3 − 1) = 20 years.",
+    "technique": null,
+    "time_budget_seconds": 30,
+    "scaffold_note": "Builds on the Easy tier's age/years/multiplier relationship, run in the opposite direction: given the current age, solve for the missing number of years instead of the missing age.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-avg-0007",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "average",
+    "params": {
+      "age": 6,
+      "mult": 3
+    },
+    "question": "Adam is 6 years old now. In how many years will Adam be 3 times as old as Adam is right now?",
+    "options": [
+      "18",
+      "12",
+      "9",
+      "3"
+    ],
+    "correct_answer": "12",
+    "distractor_rationale": [
+      "multiplied the current age by the multiplier itself instead of by (multiplier − 1) — double-counts the starting age as part of the growth",
+      "added the multiplier to the current age instead of finding how many years are needed to reach that multiple",
+      "subtracted the multiplier from the current age instead of solving for the number of years"
+    ],
+    "solution_steps": "Adam is 6 now. In y years, Adam will be 6 + y, and that should equal 3 × 6. So y = 6 × (3 − 1) = 12 years.",
+    "technique": null,
+    "time_budget_seconds": 30,
+    "scaffold_note": "Builds on the Easy tier's age/years/multiplier relationship, run in the opposite direction: given the current age, solve for the missing number of years instead of the missing age.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-avg-0008",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "average",
+    "params": {
+      "age": 9,
+      "mult": 2
+    },
+    "question": "Kaye is 9 years old now. In how many years will Kaye be 2 times as old as Kaye is right now?",
+    "options": [
+      "7",
+      "9",
+      "18",
+      "11"
+    ],
+    "correct_answer": "9",
+    "distractor_rationale": [
+      "multiplied the current age by the multiplier itself instead of by (multiplier − 1) — double-counts the starting age as part of the growth",
+      "added the multiplier to the current age instead of finding how many years are needed to reach that multiple",
+      "subtracted the multiplier from the current age instead of solving for the number of years"
+    ],
+    "solution_steps": "Kaye is 9 now. In y years, Kaye will be 9 + y, and that should equal 2 × 9. So y = 9 × (2 − 1) = 9 years.",
+    "technique": null,
+    "time_budget_seconds": 30,
+    "scaffold_note": "Builds on the Easy tier's age/years/multiplier relationship, run in the opposite direction: given the current age, solve for the missing number of years instead of the missing age.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-diff-0001",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "difficult",
+    "params": {
+      "m1": 5,
+      "m2": 2,
+      "years": 9,
+      "b_now": 3
+    },
+    "question": "Marco is currently 5 times as old as Isa. In 9 years, Marco will be 2 times as old as Isa will be then. How old is Marco now?",
+    "options": [
+      "6",
+      "60",
+      "15",
+      "24"
+    ],
+    "correct_answer": "15",
+    "distractor_rationale": [
+      "used the FUTURE multiple with Isa's CURRENT age instead of the correct now-multiple",
+      "gave Marco's age in the future instead of Marco's age right now — answers the wrong point in time",
+      "used Marco's now-multiple with Isa's FUTURE age — mixed two different timepoints together"
+    ],
+    "solution_steps": "Let Isa's age now be b. Then Marco's age now is 5b. In 9 years, Marco will be 5b + 9 and Isa will be b + 9, and Marco = 2 × Isa at that point: 5b + 9 = 2(b + 9). Solving gives b = 3, so Marco is now 5 × 3 = 15.",
+    "technique": null,
+    "time_budget_seconds": 60,
+    "scaffold_note": "Builds on the Average tier's 'solve for an unknown using a multiplicative age relationship' skill, adding a second person and a second timepoint tracked simultaneously.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-diff-0002",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "difficult",
+    "params": {
+      "m1": 3,
+      "m2": 2,
+      "years": 8,
+      "b_now": 8
+    },
+    "question": "Ravi is currently 3 times as old as Nico. In 8 years, Ravi will be 2 times as old as Nico will be then. How old is Ravi now?",
+    "options": [
+      "32",
+      "48",
+      "16",
+      "24"
+    ],
+    "correct_answer": "24",
+    "distractor_rationale": [
+      "used the FUTURE multiple with Nico's CURRENT age instead of the correct now-multiple",
+      "gave Ravi's age in the future instead of Ravi's age right now — answers the wrong point in time",
+      "used Ravi's now-multiple with Nico's FUTURE age — mixed two different timepoints together"
+    ],
+    "solution_steps": "Let Nico's age now be b. Then Ravi's age now is 3b. In 8 years, Ravi will be 3b + 8 and Nico will be b + 8, and Ravi = 2 × Nico at that point: 3b + 8 = 2(b + 8). Solving gives b = 8, so Ravi is now 3 × 8 = 24.",
+    "technique": null,
+    "time_budget_seconds": 60,
+    "scaffold_note": "Builds on the Average tier's 'solve for an unknown using a multiplicative age relationship' skill, adding a second person and a second timepoint tracked simultaneously.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-diff-0003",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "difficult",
+    "params": {
+      "m1": 4,
+      "m2": 2,
+      "years": 6,
+      "b_now": 3
+    },
+    "question": "Leon is currently 4 times as old as Dara. In 6 years, Leon will be 2 times as old as Dara will be then. How old is Leon now?",
+    "options": [
+      "36",
+      "12",
+      "6",
+      "18"
+    ],
+    "correct_answer": "12",
+    "distractor_rationale": [
+      "used the FUTURE multiple with Dara's CURRENT age instead of the correct now-multiple",
+      "gave Leon's age in the future instead of Leon's age right now — answers the wrong point in time",
+      "used Leon's now-multiple with Dara's FUTURE age — mixed two different timepoints together"
+    ],
+    "solution_steps": "Let Dara's age now be b. Then Leon's age now is 4b. In 6 years, Leon will be 4b + 6 and Dara will be b + 6, and Leon = 2 × Dara at that point: 4b + 6 = 2(b + 6). Solving gives b = 3, so Leon is now 4 × 3 = 12.",
+    "technique": null,
+    "time_budget_seconds": 60,
+    "scaffold_note": "Builds on the Average tier's 'solve for an unknown using a multiplicative age relationship' skill, adding a second person and a second timepoint tracked simultaneously.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-diff-0004",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "difficult",
+    "params": {
+      "m1": 6,
+      "m2": 3,
+      "years": 6,
+      "b_now": 4
+    },
+    "question": "Kian is currently 6 times as old as Faye. In 6 years, Kian will be 3 times as old as Faye will be then. How old is Kian now?",
+    "options": [
+      "12",
+      "60",
+      "30",
+      "24"
+    ],
+    "correct_answer": "24",
+    "distractor_rationale": [
+      "used the FUTURE multiple with Faye's CURRENT age instead of the correct now-multiple",
+      "gave Kian's age in the future instead of Kian's age right now — answers the wrong point in time",
+      "used Kian's now-multiple with Faye's FUTURE age — mixed two different timepoints together"
+    ],
+    "solution_steps": "Let Faye's age now be b. Then Kian's age now is 6b. In 6 years, Kian will be 6b + 6 and Faye will be b + 6, and Kian = 3 × Faye at that point: 6b + 6 = 3(b + 6). Solving gives b = 4, so Kian is now 6 × 4 = 24.",
+    "technique": null,
+    "time_budget_seconds": 60,
+    "scaffold_note": "Builds on the Average tier's 'solve for an unknown using a multiplicative age relationship' skill, adding a second person and a second timepoint tracked simultaneously.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-diff-0005",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "difficult",
+    "params": {
+      "m1": 3,
+      "m2": 2,
+      "years": 5,
+      "b_now": 5
+    },
+    "question": "Owen is currently 3 times as old as Mira. In 5 years, Owen will be 2 times as old as Mira will be then. How old is Owen now?",
+    "options": [
+      "30",
+      "20",
+      "15",
+      "10"
+    ],
+    "correct_answer": "15",
+    "distractor_rationale": [
+      "used the FUTURE multiple with Mira's CURRENT age instead of the correct now-multiple",
+      "gave Owen's age in the future instead of Owen's age right now — answers the wrong point in time",
+      "used Owen's now-multiple with Mira's FUTURE age — mixed two different timepoints together"
+    ],
+    "solution_steps": "Let Mira's age now be b. Then Owen's age now is 3b. In 5 years, Owen will be 3b + 5 and Mira will be b + 5, and Owen = 2 × Mira at that point: 3b + 5 = 2(b + 5). Solving gives b = 5, so Owen is now 3 × 5 = 15.",
+    "technique": null,
+    "time_budget_seconds": 60,
+    "scaffold_note": "Builds on the Average tier's 'solve for an unknown using a multiplicative age relationship' skill, adding a second person and a second timepoint tracked simultaneously.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-diff-0006",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "difficult",
+    "params": {
+      "m1": 6,
+      "m2": 2,
+      "years": 8,
+      "b_now": 2
+    },
+    "question": "Adam is currently 6 times as old as Cora. In 8 years, Adam will be 2 times as old as Cora will be then. How old is Adam now?",
+    "options": [
+      "12",
+      "20",
+      "4",
+      "60"
+    ],
+    "correct_answer": "12",
+    "distractor_rationale": [
+      "used the FUTURE multiple with Cora's CURRENT age instead of the correct now-multiple",
+      "gave Adam's age in the future instead of Adam's age right now — answers the wrong point in time",
+      "used Adam's now-multiple with Cora's FUTURE age — mixed two different timepoints together"
+    ],
+    "solution_steps": "Let Cora's age now be b. Then Adam's age now is 6b. In 8 years, Adam will be 6b + 8 and Cora will be b + 8, and Adam = 2 × Cora at that point: 6b + 8 = 2(b + 8). Solving gives b = 2, so Adam is now 6 × 2 = 12.",
+    "technique": null,
+    "time_budget_seconds": 60,
+    "scaffold_note": "Builds on the Average tier's 'solve for an unknown using a multiplicative age relationship' skill, adding a second person and a second timepoint tracked simultaneously.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-diff-0007",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "difficult",
+    "params": {
+      "m1": 5,
+      "m2": 3,
+      "years": 3,
+      "b_now": 3
+    },
+    "question": "Timmy is currently 5 times as old as Bettina. In 3 years, Timmy will be 3 times as old as Bettina will be then. How old is Timmy now?",
+    "options": [
+      "9",
+      "18",
+      "15",
+      "30"
+    ],
+    "correct_answer": "15",
+    "distractor_rationale": [
+      "used the FUTURE multiple with Bettina's CURRENT age instead of the correct now-multiple",
+      "gave Timmy's age in the future instead of Timmy's age right now — answers the wrong point in time",
+      "used Timmy's now-multiple with Bettina's FUTURE age — mixed two different timepoints together"
+    ],
+    "solution_steps": "Let Bettina's age now be b. Then Timmy's age now is 5b. In 3 years, Timmy will be 5b + 3 and Bettina will be b + 3, and Timmy = 3 × Bettina at that point: 5b + 3 = 3(b + 3). Solving gives b = 3, so Timmy is now 5 × 3 = 15.",
+    "technique": null,
+    "time_budget_seconds": 60,
+    "scaffold_note": "Builds on the Average tier's 'solve for an unknown using a multiplicative age relationship' skill, adding a second person and a second timepoint tracked simultaneously.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  },
+  {
+    "id": "g2-s7-age-diff-0008",
+    "grade": 2,
+    "strand": 7,
+    "archetype": "age_problems",
+    "tier": "difficult",
+    "params": {
+      "m1": 5,
+      "m2": 3,
+      "years": 9,
+      "b_now": 9
+    },
+    "question": "Julio is currently 5 times as old as Rina. In 9 years, Julio will be 3 times as old as Rina will be then. How old is Julio now?",
+    "options": [
+      "90",
+      "45",
+      "27",
+      "54"
+    ],
+    "correct_answer": "45",
+    "distractor_rationale": [
+      "used the FUTURE multiple with Rina's CURRENT age instead of the correct now-multiple",
+      "gave Julio's age in the future instead of Julio's age right now — answers the wrong point in time",
+      "used Julio's now-multiple with Rina's FUTURE age — mixed two different timepoints together"
+    ],
+    "solution_steps": "Let Rina's age now be b. Then Julio's age now is 5b. In 9 years, Julio will be 5b + 9 and Rina will be b + 9, and Julio = 3 × Rina at that point: 5b + 9 = 3(b + 9). Solving gives b = 9, so Julio is now 5 × 9 = 45.",
+    "technique": null,
+    "time_budget_seconds": 60,
+    "scaffold_note": "Builds on the Average tier's 'solve for an unknown using a multiplicative age relationship' skill, adding a second person and a second timepoint tracked simultaneously.",
+    "generated_by": "template-mtap-g2-s7-age-v1",
+    "reviewed": true
+  }
+]

@@ -55,6 +55,18 @@ Fetched and read actual questions from independent reviewer documents per grade 
 
 The regular BOW is gated by school calendar because it feeds a *scheduled* weekly package generator. This pack is a **paid, opt-in, self-paced reviewer** — a parent buys it once, the child works through it at their own speed. So the unit of progression is **mastery tier**, not calendar week, for every grade in this pack.
 
+## Standing workflow: reviewer docs are generated FROM the question bank, never before it
+
+Confirmed 2026-09-05, first applied to Grade 2: for every grade's pack, the order is always
+**(1) generate and fully verify the real question bank, (2) build that grade's reviewer
+study-guide doc by reading examples straight out of the verified batch** — never write the
+reviewer's worked examples by hand first. This guarantees every example in a reviewer doc
+matches a real, checklist-verified row (correct answer independently recomputed, distractors
+collision-checked) rather than risking hand-typed numbers drifting from what the app actually
+ships. See `mtap-grade2-reviewer.md` for the reference implementation and the generation script's
+approach (read the batch JSON, pick one real row per tier per archetype, render straight into
+Markdown — no numbers re-typed by a human in between).
+
 ## Sourcing policy (applies to every grade)
 
 All questions are original and isomorphic — same topic, structure, difficulty tier, and problem-solving trick as real MTAP reviewer questions, but new numbers/names/phrasing authored for this pack. No verbatim or lightly-reworded text from any MTAP reviewer, past contest paper, or third-party compilation, for any grade in the pack.

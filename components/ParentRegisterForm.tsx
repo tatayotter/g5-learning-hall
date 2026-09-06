@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { getOrCreateSessionId, getStoredAttribution } from '@/lib/analytics';
 import { trackPixelEvent } from '@/lib/fbPixel';
+import Link from 'next/link';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
 
 interface ParentRegisterFormProps {
@@ -250,6 +251,14 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
         <div className="bg-red-50 border border-red-200 rounded-xl px-3 py-2">
           <p className="text-base text-red-600">{error}</p>
         </div>
+      )}
+
+      {step === 1 && (
+        <p className="text-xs text-stone-400 text-center">
+          By creating an account, you agree to our{' '}
+          <Link href="/terms" target="_blank" className="text-amber-600 hover:text-amber-700 underline">Terms & Conditions</Link>{' '}
+          and <Link href="/privacy" target="_blank" className="text-amber-600 hover:text-amber-700 underline">Privacy Policy</Link>.
+        </p>
       )}
 
       <div className="flex gap-3">

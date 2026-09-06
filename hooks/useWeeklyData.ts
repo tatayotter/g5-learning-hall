@@ -4,7 +4,7 @@ import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { startOfWeek, format } from 'date-fns';
 import { ACHIEVEMENTS, Achievement } from '@/lib/achievements';
 import { logAction } from '@/lib/playerlog';
-import { USERS, UserId, gradeToNumber } from '@/lib/userSession';
+import { USERS, gradeToNumber } from '@/lib/userSession';
 import { fetchPlayerProgress, PlayerProgress } from '@/lib/lifetimeStats';
 
 export interface CharacterStats {
@@ -113,7 +113,19 @@ export interface WeeklyData {
   trash_gold_earned: number;
 }
 
-export function useWeeklyData(userId: string = 'damien') {
+// `userId` is nullable so callers mid-hydration (Dashboard.tsx doesn't know
+// the real logged-in user yet on first render) can pass null instead of a
+// placeholder id. A previous version of this hook defaulted to 'damien' —
+// callers used `activeUserId ?? 'damien'` while waiting for hydration, which
+// meant this hook briefly fetched and rendered a REAL account's real stats
+// (damien's own accumulated Lv.23/14,488 gold) in the one render frame before
+// the actual user resolved — a real bug: any child logging in saw someone
+// else's HUD numbers flash for an instant. Passing null now skips the fetch
+// entirely (data stays null, loading stays true) until a real id arrives, so
+// there's nothing to flash. TatayAdminPage.tsx's own explicit
+// useWeeklyData('damien') call is intentional (that screen really does want
+// damien's data) and is unaffected by this change.
+export function useWeeklyData(userId: string | null) {
   const [data, setData] = useState<WeeklyData | null>(null);
   const [loading, setLoading] = useState(true);
   // Lifetime totals for achievement-criteria checking (Phase 4 Wave 2, see
@@ -133,11 +145,25 @@ export function useWeeklyData(userId: string = 'damien') {
   // Content is grade-keyed, not per-student (Phase 4 Wave 3, see
   // docs/weekly-progress-redesign-plan.md) — replaces the old contentSourceId
   // indirection where classmates read a reference player's package_data.
-  const grade = gradeToNumber(USERS[userId as UserId]?.grade);
+  // userId is null pre-hydration; USERS[null] is safely undefined, and
+  // gradeToNumber's own fallback (5) covers it — never reaches the fetch
+  // below in that state anyway (see the early return there).
+  const grade = gradeToNumber(userId ? USERS[userId]?.grade : undefined);
 
   useEffect(() => {
     let cancelled = false;
     async function fetchData() {
+      // No real user resolved yet (Dashboard is still hydrating from
+      // localStorage) — don't fetch anyone's data, real or placeholder.
+      // Clearing `data` here too (not just skipping the fetch) matters for
+      // an account switch mid-session, not just first load: without it, the
+      // PREVIOUS user's stats would stay visible under the new user's name
+      // until their fetch resolves.
+      if (!userId) {
+        setData(null);
+        setLoading(true);
+        return;
+      }
       // player_progress/player_weekly_journal RLS only grants access to the `authenticated`
       // role, which this app's anonymous-auth bridge (lib/supabase.ts) provides — but that
       // sign-in happens in a separate effect (userSession.linkIdentity), so without waiting
@@ -215,7 +241,12 @@ export function useWeeklyData(userId: string = 'damien') {
     newTatayBattlesWon: number = data?.tatay_battles_won || 0,
     newTatayBattlesLost: number = data?.tatay_battles_lost || 0
   ) => {
-    if (!data) {
+    if (!data || !userId) {
+      // !data already implies !userId in practice (data only ever populates
+      // from a fetch keyed on a real userId — see the effect above), but TS
+      // can't see that relationship across two separate state variables, so
+      // this also narrows `userId` from `string | null` to `string` for the
+      // rest of this function.
       console.error('Aborting update: data is null');
       return;
     }
@@ -428,7 +459,7 @@ export function useWeeklyData(userId: string = 'damien') {
   };
 
   const applyGoldDelta = async (amount: number) => {
-    if (!data) return;
+    if (!data || !userId) return; // see updateStatsAndJournal's matching comment
 
     const { data: finalStats, error } = await supabase.rpc('apply_progress_deltas', {
       p_user_id: userId,
@@ -454,6 +485,7 @@ export function useWeeklyData(userId: string = 'damien') {
   // delta-applying counterparts, and MonsterGuild's onGoldSynced for the same
   // distinction on the Tutor-Curio path.
   const syncCharacterStats = async () => {
+    if (!userId) return; // see updateStatsAndJournal's matching comment
     const fresh = await fetchPlayerProgress(userId);
     if (!fresh) return;
     setProgress(fresh);

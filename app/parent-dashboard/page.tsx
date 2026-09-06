@@ -332,6 +332,12 @@ export default function ParentDashboardPage() {
             See full pricing details
           </a>
         )}
+        {!isNative && (
+          <div className="flex items-center justify-center gap-4 text-sm">
+            <a href="/parent-dashboard/shop" className="text-orange-700 hover:text-orange-800 underline">🛍️ Shop — extra quest packs</a>
+            <a href="/parent-dashboard/my-secs" className="text-orange-700 hover:text-orange-800 underline">📚 My SECs</a>
+          </div>
+        )}
         {checkoutError && !isPremium && kids.length < maxChildren && <p className="text-red-500 text-sm">{checkoutError}</p>}
 
         {kids.length > 1 && (

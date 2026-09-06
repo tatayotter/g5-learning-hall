@@ -132,6 +132,10 @@ export default function PricingPage() {
           </button>
         )}
         {checkoutError && <p className="text-red-500 text-base text-center">{checkoutError}</p>}
+
+        <p className="text-xs text-stone-400 text-center">
+          See our <a href="/terms" target="_blank" className="text-amber-600 hover:text-amber-700 underline">Terms & Conditions</a> for billing and refund details.
+        </p>
       </div>
     </main>
   );

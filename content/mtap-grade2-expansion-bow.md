@@ -236,6 +236,113 @@ Scaffold note: this is the Easy tier — no prior tier to scaffold from
                in a direct generation-time dependency.
 ```
 
+### Worked example — Average tier {#worked-example-average}
+
+Added 2026-09-05, as part of generating a real 24-question content batch
+(8/tier) for the SEC Grade 2 Math Enrichment pack — see
+[mtap-grade2-age-problems-batch.json](mtap-grade2-age-problems-batch.json).
+Reverses Easy's direction: instead of "given a future relationship, find
+the current age," this asks "given the current age, find how many years
+until a stated multiple of it."
+
+```
+Skeleton: "{name} is {age} years old now. In how many years will {name}
+           be {mult} times as old as {name} is right now?"
+
+Params:   age ∈ [4, 10], mult ∈ {2, 3, 4}
+
+Answer formula:  years = age × (mult − 1)
+
+Distractor formulas:
+  d1 = age × mult      // multiplied by mult instead of (mult−1) — double-
+                        // counts the starting age as part of the growth
+  d2 = age + mult       // added instead of using mult as a multiplier
+  d3 = age − mult       // subtracted instead of solving the proportional
+                        // relationship
+
+Generation-time check: d3 must stay positive (age > mult enforced) and all
+four values must be pairwise distinct per draw — verified programmatically
+across all 8 rows in the real batch (checklist item 11), not just spot-
+checked on one example the way the Easy tier's worked example originally
+was (see the Easy-tier finding below).
+
+Scaffold note: builds on Easy's core relationship (age, years, and a
+               multiplier combine via the same age×(mult−1)-shaped
+               algebra) but runs it in the opposite direction — the child
+               must recognize the same structure inverted, not just
+               substitute into a new formula.
+```
+
+### Worked example — Difficult tier {#worked-example-difficult}
+
+Added 2026-09-05, same batch as above. Matches this archetype's own
+Difficult-tier spec ("two people, ages related both now and at a future
+point simultaneously") — genuinely two simultaneous equations, not a
+single substitution.
+
+```
+Skeleton: "{nameA} is currently {m1} times as old as {nameB}. In {years}
+           years, {nameA} will be {m2} times as old as {nameB} will be
+           then. How old is {nameA} now?"
+
+Params:   m1 ∈ {3, 4, 5, 6}, m2 ∈ {2, 3} with m1 > m2 (the ratio must
+          shrink as both people age — a smaller m2 than m1 is what makes
+          the future relationship possible at all), years chosen so that
+          b_now = years×(m2−1) / (m1−m2) comes out to a clean positive
+          integer in [2, 20].
+
+Derivation: a_now = m1 × b_now                       (constraint: now)
+            a_now + years = m2 × (b_now + years)      (constraint: future)
+            => b_now × (m1 − m2) = years × (m2 − 1)
+            => b_now = years × (m2 − 1) / (m1 − m2)
+
+Answer formula:  a_now = m1 × b_now
+
+Distractor formulas:
+  d1 = m2 × b_now              // used the FUTURE multiple with B's CURRENT
+                                // age instead of the correct now-multiple
+  d2 = a_now + years            // gave A's future age instead of A's age
+                                // right now — answers the wrong question
+  d3 = m1 × (b_now + years)     // used A's now-multiple with B's FUTURE
+                                // age — mixes two different time points
+
+Verification (checklist item 10 style — recomputed independently from the
+rendered numbers, not the generating params): for every one of the 8 rows
+in the real batch, `a_now + years == m2 × (b_now + years)` was re-checked
+by direct substitution after generation, not assumed from the formula
+alone.
+
+Technique: `null` for both Average and Difficult — genuine simultaneous/
+           proportional algebra with no faster shortcut identified for
+           this age range, an honest null per the technique library's own
+           "don't force a fake technique" rule, not an oversight.
+
+Scaffold note (Difficult): builds on Average's "solve for an unknown time
+               span from a multiplicative age relationship" skill, adding
+               a second person and a second timepoint the child must track
+               simultaneously rather than in isolation.
+```
+
+### Finding from generating a real batch — Easy tier's `d1` distractor
+
+Writing 8 concrete Easy-tier questions (not just the one hand-picked
+worked example above) surfaced a real quality gap the single worked
+example never exposed: with the original params (`years ∈ {4, 5, 7, 8, 9,
+10}`), `d1 = years / mult` lands on a **fraction** for most draws (e.g.
+`mult=3, years=4` → `d1 = 1.33`). Since the correct answer and the other
+two distractors are always whole-number ages, a fractional-age option is
+trivially eliminable by format alone — never actually testing the
+misconception it's meant to represent (checklist item 2's "a distractor
+nobody would actually arrive at is a wasted option" — a form of that
+problem, not the exact wording, but the same underlying failure).
+
+**Fix:** widened `years` to range over `[4, 24]` (still excluding 6, the
+original `d3` collision value) and added the constraint that `d1 = years /
+mult` must also land on a whole number, so all four options share the
+same "whole-number age" shape. This is a refinement to the *param range*,
+not the answer/distractor formulas themselves — the formulas in the
+original worked example above are unchanged and still correct.
+
 ---
 
 ## Technique assignments
@@ -273,5 +380,6 @@ Per the [overview's Technique Library](mtap-expansion-overview.md#technique-libr
 
 - **Strand 6's Difficult tier (Averages)** is an inferred extension of the Grade 4/5-confirmed pattern, not independently G2-sourced.
 - **Lever/mixture/reversed-digit "not found"** rests on 4 sources — solid, on par with Grade 6's confident-absence standard, but stated as "not found" rather than "confirmed absent" for consistency with how this pack phrases negative findings that weren't the subject of a dedicated closing search (unlike Grade 5's probability, which was).
-- Only the Age Problems/Easy template above is fully worked. The other archetypes need the same skeleton/params/constraints/formula treatment before real generation starts.
+- **The Grade 2 pack is now scaled to its sell-ready bank size: 518 questions total**, up from an initial 2/tier design-sample pass. Age Problems ([mtap-grade2-age-problems-batch.json](mtap-grade2-age-problems-batch.json)) and the other 21 archetypes ([mtap-grade2-remaining-archetypes-batch.json](mtap-grade2-remaining-archetypes-batch.json)) are each at 8 questions/tier — the volume target from `docs/sec-shop-design.md`'s sizing discussion — **except `digit_property_counting`**, which is an honestly smaller bank (8/2/4 across Easy/Average/Difficult): its Average and Difficult tiers are fixed counting *facts* about the whole 10-99 range (e.g. "how many two-digit numbers have tens digit > units digit" has exactly one true answer, not a family of word-problem variations), so only 2 and 4 genuinely distinct question texts exist for those tiers respectively — padding to 8 would have meant inventing sub-conditions the archetype's own spec never called for. Every row passed the full 12-item bulletproofing checklist programmatically: answer/distractor collision-checked per draw, zero duplicate question text within any archetype+tier, and every batch spot-checked by independent recomputation from the rendered numbers (not the generating params).
+- **New standing workflow for every MTAP pack going forward, starting here:** generate and verify the real question bank first, THEN build a reviewer study-guide document from it — never the other way around, so every worked example in the reviewer is guaranteed to match a real, checklist-verified row rather than being hand-typed and possibly drifting from the actual generated content. See [mtap-grade2-reviewer.md](mtap-grade2-reviewer.md), built by a script that reads straight from the two batch JSON files above.
 - **This completes the Grades 2-6 strand/archetype research and drafting sweep.** See the [overview](mtap-expansion-overview.md) for what's next: the `mtap_expansion_content` table schema, filling out the remaining generation specs, and — eventually, deliberately deferred — the purchase/entitlement flow.

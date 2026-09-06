@@ -909,6 +909,8 @@ export default function WelcomePage() {
         <p className="mt-2 text-[11px] tracking-wide">
           <a href="https://www.facebook.com/learninghallph" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-600 underline">Facebook</a>
           <span className="text-slate-200 mx-2">·</span>
+          <a href="/terms" className="text-slate-400 hover:text-slate-600 underline">Terms & Conditions</a>
+          <span className="text-slate-200 mx-2">·</span>
           <a href="/privacy" className="text-slate-400 hover:text-slate-600 underline">Privacy Policy</a>
           <span className="text-slate-200 mx-2">·</span>
           <a href="/account-deletion" className="text-slate-400 hover:text-slate-600 underline">Delete Account</a>
