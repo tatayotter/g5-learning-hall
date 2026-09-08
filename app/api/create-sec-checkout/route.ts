@@ -103,7 +103,11 @@ export async function POST(request: NextRequest) {
   });
 
   if (rpcError) {
-    return NextResponse.json({ success: false, error: rpcError.message }, { status: 500 });
+    // 409, not 500 — this is create_sec_checkout_session's own business
+    // validation (e.g. "this child already owns this pack"), not a server
+    // fault. Matches the status code every other SEC route already uses for
+    // its RPC's expected-failure path (admin-sec-packs, admin-sec-refunds).
+    return NextResponse.json({ success: false, error: rpcError.message }, { status: 409 });
   }
 
   return NextResponse.json({ success: true, checkoutUrl });
