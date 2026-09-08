@@ -2,7 +2,7 @@
 
 Status: **Design only. Nothing implemented.**
 Owner: Rowil
-Last updated: 2026-09-08
+Last updated: 2026-09-09
 
 ## Background
 
@@ -210,14 +210,51 @@ support) so it can't become a routine lever, but exists so no paying parent
 is permanently stuck on a mis-click or genuine drift. One mechanism serves
 both edge cases instead of building two.
 
-## Grade promotion (open — needs a decision before next school year, not before v1 build)
+## Grade promotion (settled)
 
-Calibration doesn't automatically carry meaning across a grade promotion — a
-child calibrated 3 weeks behind in Grade 4 needs an explicit decision at
-Grade 5 enrollment: re-ask, carry the same offset forward, or reset to
-default. Not a blocker for building this ticket, but must be decided before
-the first grade-promotion cycle after launch, or every calibrated family
-silently reverts to default with no notice.
+**Trigger: each child's own progress, not the calendar.** Grade promotion is
+prompted when the child reaches `TOTAL_SCHOOL_WEEKS` (a fixed, explicit
+curriculum-length constant per grade — e.g. 50 — **not** "the highest
+`school_week` currently present in `content_weeks`"). Using the row count
+instead of a fixed constant would make a temporary authoring gap
+indistinguishable from actually finishing the grade, falsely promoting a
+child mid-curriculum — this must be a constant, checked independently of
+whatever's currently authored.
+
+This is deliberately the *same* trigger for every child, calibrated or not:
+a default-pace child hits it at the real end of the school year; a
+calibrated child hits it whenever their own pace gets them there. One
+mechanism, no special-casing for Premium vs. free.
+
+**Timing:**
+- 1-week grace buffer after reaching the final week before the first prompt
+  fires — one more full drip cycle to actually finish that week's content,
+  rather than prompting the instant they touch it.
+- If unacted on, re-prompt every 2 weeks thereafter, on both surfaces, until
+  a parent confirms. A stuck child can't get new content until the grade
+  changes, so this can't be a fire-once-and-forget notice.
+
+**Who can act on it:** shown on both the child's and the parent's account,
+but only the **parent** surface can actually confirm and apply the
+promotion. The child's surface is a nudge only — e.g. "You finished Grade 5!
+Ask your parent to move you up 🎉" — with no action available to them. This
+is deliberate: letting a child directly trigger their own grade change would
+open a new self-service exploit (promote early for fresh content, or demote
+back into easier material) in a design that has otherwise been careful to
+keep every consequential lever parent- or admin-only.
+
+**On parent confirmation:** proceeds exactly as designed earlier — the same
+Math-lesson calibration picker reopens for the new grade, pre-filled with
+the carried-forward equivalent offset, editable if the parent wants to
+correct it, then locked under the same one-time + 7-day-grace-window rule
+as any other calibration.
+
+**Manual override retained.** The existing `grade` field in
+`ChildAccountForm.tsx` stays parent-editable at any time, independent of
+this trigger — real exceptions exist (enrolling a transfer student directly
+into a specific grade, a child held back a year) that don't fit "finished
+all the content." The triggered prompt is the normal path; manual editing
+remains the escape hatch.
 
 ## Prerequisites before this is safe to ship
 
@@ -242,3 +279,10 @@ silently reverts to default with no notice.
 - [ ] Historical `boss_persona_defeats` reconciliation pass (report, not auto-fix)
 - [ ] Admin override UI for `week1_date` post-lock, with audit logging
 - [ ] 7-day grace window enforcement (`week1_locked_at` set by a scheduled job or on-read check)
+- [ ] `TOTAL_SCHOOL_WEEKS` constant per grade (curriculum length, independent of
+      authored row count) driving the grade-promotion trigger
+- [ ] Grade-promotion prompt: 1-week grace buffer, re-prompt every 2 weeks
+      until acted on, visible on both child and parent surfaces, action
+      available only on the parent surface
+- [ ] Grade-promotion confirmation reopens the calibration picker pre-filled
+      with the carried-forward offset
