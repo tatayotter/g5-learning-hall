@@ -36,5 +36,14 @@ export function useTabTutorialGate(tabKey: string, activeTab: string, userId: st
     setShow(false);
   };
 
-  return { active: show, markDone };
+  // `show` only ever flips true→false via markDone(), i.e. finishing this
+  // tab's tutorial. If the kid switches to another tab first — tapping a
+  // step's own CTA, which is exactly how the tutorial encourages them to
+  // navigate — `show` stays true, and switching to a tab whose own tutorial
+  // hasn't been seen yet flips that gate true too, stacking two spotlights
+  // on screen at once. Requiring activeTab === tabKey here (not just at the
+  // call site) hides this tab's spotlight the instant it's not the active
+  // tab, while leaving `show` itself true so the tutorial resumes if they
+  // tab back in without having finished it.
+  return { active: show && activeTab === tabKey, markDone };
 }
