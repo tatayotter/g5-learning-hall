@@ -3,10 +3,19 @@
 // separate from the recurring Premium subscription. See
 // docs/sec-shop-design.md for the full design (why this is its own page and
 // its own checkout/webhook branch instead of folded into pricing/).
+//
+// Card layout is deliberately conversion-focused, not a spec sheet: lead
+// with the outcome (competition edge, real rewards), back it with real
+// numbers (question/topic counts, never invented ones), let a parent expand
+// to see exactly what's inside before buying, and put the refund policy
+// right next to the CTA instead of buried in a footer link. Built as a
+// template for grades 3-6 once their content exists, not a one-off — see
+// PACK_DETAILS below for how a future grade plugs in.
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { gradeToNumber } from '@/lib/userSession';
+import { MTAP_GRADE2_STRANDS } from '@/lib/mtapContent';
 
 interface ChildRow {
   id: string;
@@ -29,6 +38,63 @@ interface EntitlementRow {
   status: 'pending' | 'active';
 }
 
+// Marketing/structural detail per pack, keyed by pack id — separate from
+// sec_packs' own DB columns since this is presentation content (benefit
+// copy, real question/topic counts, the strand preview list), not catalog
+// data an admin edits. A future Grade 3-6 pack adds its own entry here once
+// its content module (lib/mtapGradeNContent.ts or similar) exists — same
+// per-grade-lookup pattern MySecPackReviewer.tsx and BonusQuestsTab.tsx
+// already use for strand data, just extended to cover the Shop's own copy.
+// Note there's no hero-image/color field here — that's derived straight from
+// the pack's own `grade`/`category` columns below, so a future pack gets a
+// correctly-branded hero automatically, even before anyone's written its copy.
+const PACK_DETAILS: Record<string, {
+  eyebrow: string;
+  shortName: string; // the punchy headline name, distinct from sec_packs.title's formal one
+  hook: string; // the one-line positioning claim — competition-level, optional, not remedial
+  subhook: string; // the empowerment/permission line right under it — "they're already studying, see how far that goes"
+  benefits: { icon: string; text: string }[];
+  strands: { name: string; topics: number }[];
+  questionCount: number;
+}> = {
+  'g2-math-enrichment': {
+    eyebrow: 'MTAP Competition-Level',
+    shortName: 'Grade 2 Math+',
+    hook: 'Not required for school. Just how far your child could go if you let them.',
+    subhook: 'They\'re already putting in the work — this is where that effort gets tested against real competition-level math, not just the regular curriculum.',
+    benefits: [
+      { icon: '🏆', text: 'True MTAP competition level — well beyond standard school-level math' },
+      { icon: '📖', text: 'Untimed reviewer — they learn the method before ever facing the timer' },
+      { icon: '🪙', text: 'Real Gold & XP, same as their regular quests' },
+    ],
+    strands: MTAP_GRADE2_STRANDS.map((s) => ({ name: s.name, topics: s.archetypes.length })),
+    questionCount: 518,
+  },
+};
+
+// Hero band is a two-color gradient, not a photo — color 1 keys off grade
+// (a light-to-deep progression so higher grades read as "more advanced"),
+// color 2 keys off category and reuses WeeklyLessonsPanel.tsx's own
+// SUBJECT_COLOR hue for Mathematics (violet) so the same subject reads the
+// same color everywhere in the app, not a clashing one-off here. Both are
+// real DB columns (sec_packs.grade/category), so this renders correctly for
+// any future pack the day it's created — no per-pack art or copy needed.
+const GRADE_GRADIENT_COLOR: Record<number, string> = {
+  2: '#fbbf24', // amber-400
+  3: '#34d399', // emerald-400
+  4: '#38bdf8', // sky-400
+  5: '#818cf8', // indigo-400
+  6: '#fb7185', // rose-400
+};
+const CATEGORY_GRADIENT_COLOR: Record<string, string> = {
+  math_enrichment: '#8b5cf6', // violet-500 — matches SUBJECT_COLOR's Mathematics hue in WeeklyLessonsPanel.tsx
+};
+const CATEGORY_ICON: Record<string, string> = {
+  math_enrichment: '🧮',
+};
+const DEFAULT_GRADIENT_COLOR = '#94a3b8'; // slate-400 — an unmapped grade/category still renders a real gradient, just a neutral one
+const DEFAULT_ICON = '📚';
+
 export default function ShopPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -38,6 +104,7 @@ export default function ShopPage() {
   const [selectedChild, setSelectedChild] = useState<Record<string, string>>({}); // packId -> childId
   const [checkingOut, setCheckingOut] = useState<string | null>(null); // packId in flight
   const [checkoutError, setCheckoutError] = useState('');
+  const [expandedPack, setExpandedPack] = useState<string | null>(null);
   // Set from ?checkout=success|cancelled on the PayMongo redirect back —
   // 'success' starts out "confirming" rather than a flat success message,
   // since the redirect can land here before the webhook has actually
@@ -59,12 +126,6 @@ export default function ShopPage() {
     setPacks(packList);
     setEntitlements(entList);
 
-    // Default each pack's child picker to the first child in that pack's
-    // grade, if there is one — saves a step for the common "one child in
-    // this grade" case without hiding the picker. Only set on first load
-    // (guarded by callers below) so a background poll refresh never yanks
-    // the picker back to the default while a parent has it on purpose set
-    // to a different sibling.
     return { kidsList, packList, entList };
   };
 
@@ -80,6 +141,9 @@ export default function ShopPage() {
       const { kidsList, packList, entList } = await loadData(user.id);
       if (cancelled) return;
 
+      // Default each pack's child picker to the first child in that pack's
+      // grade, if there is one — saves a step for the common "one child in
+      // this grade" case without hiding the picker.
       const defaults: Record<string, string> = {};
       packList.forEach((pack) => {
         const match = kidsList.find((k) => gradeToNumber(k.grade) === pack.grade);
@@ -167,9 +231,8 @@ export default function ShopPage() {
           <a href="/parent-dashboard" className="text-sm text-stone-500 hover:text-slate-700 underline">Back to dashboard</a>
         </div>
         <p className="text-sm text-stone-500">
-          Student Enrichment Content (SEC) — extra quest lines your child plays at their own pace,
-          on top of everything else in their account. Each pack pays real Gold and XP just like
-          their regular quests. One purchase unlocks a pack for one child, forever.
+          Extra quest packs your child plays at their own pace — on top of everything else in
+          their account. Real Gold and XP for every question, same as their regular quests.
         </p>
 
         {checkoutBanner === 'success-confirmed' && (
@@ -201,59 +264,138 @@ export default function ShopPage() {
             const owned = ent?.status === 'active';
             const pending = ent?.status === 'pending';
             const eligibleKids = kids.filter((k) => gradeToNumber(k.grade) === pack.grade);
+            const details = PACK_DETAILS[pack.id];
+            const selectedChildName = eligibleKids.find((k) => k.id === childId)?.full_name;
+            const isExpanded = expandedPack === pack.id;
+            const perQuestion = details ? (pack.price_php / details.questionCount).toFixed(2) : null;
+            const gradeColor = GRADE_GRADIENT_COLOR[pack.grade] ?? DEFAULT_GRADIENT_COLOR;
+            const categoryColor = CATEGORY_GRADIENT_COLOR[pack.category] ?? DEFAULT_GRADIENT_COLOR;
+            const categoryIcon = CATEGORY_ICON[pack.category] ?? DEFAULT_ICON;
 
             return (
-              <div key={pack.id} className="rounded-xl border border-stone-200 bg-[#ffffff] p-4 shadow-sm space-y-3">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <p className="text-base font-bold text-slate-800">{pack.title}</p>
-                    <p className="text-sm text-stone-500 mt-1">{pack.description}</p>
+              <div key={pack.id} className="rounded-2xl border border-stone-200 bg-[#ffffff] shadow-sm overflow-hidden">
+                {/* Grade-color -> category-color gradient hero, not a photo —
+                    always renders correctly from real sec_packs.grade/category
+                    columns, so a brand-new pack looks right on day one, before
+                    anyone's had time to write its copy or source art. */}
+                <div
+                  className="relative h-24 overflow-hidden"
+                  style={{ background: `linear-gradient(135deg, ${gradeColor} 0%, ${categoryColor} 100%)` }}
+                >
+                  <span className="absolute -right-3 -bottom-5 text-8xl leading-none opacity-25 select-none pointer-events-none" aria-hidden="true">
+                    {categoryIcon}
+                  </span>
+                  <div className="absolute inset-0 flex items-end p-3">
+                    <span className="text-[10px] font-bold tracking-wide text-white bg-black/15 backdrop-blur-sm border border-white/30 rounded-full px-2.5 py-1">
+                      {details?.eyebrow || `Grade ${pack.grade} · ${pack.category.replace(/_/g, ' ')}`}
+                    </span>
                   </div>
-                  <p className="text-lg font-display font-bold text-amber-600 whitespace-nowrap">₱{pack.price_php}</p>
+                </div>
+                <div className="p-5 space-y-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <p className="text-xl font-display font-bold text-slate-800 leading-tight">
+                        {details?.shortName || pack.title}
+                      </p>
+                      {details && <p className="text-xs text-stone-400 mt-0.5">{pack.title}</p>}
+                    </div>
+                    <div className="text-right shrink-0">
+                      <p className="text-2xl font-display font-bold text-amber-600 leading-none">₱{pack.price_php}</p>
+                      <p className="text-[11px] text-stone-400 mt-1">one-time</p>
+                    </div>
+                  </div>
+
+                  {details ? (
+                    <>
+                      <div>
+                        <p className="text-base text-slate-800 font-bold leading-snug">{details.hook}</p>
+                        <p className="text-sm text-stone-500 leading-relaxed mt-1">{details.subhook}</p>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                        {details.benefits.map((b) => (
+                          <div key={b.text} className="flex items-start gap-2 rounded-lg bg-amber-50/60 border border-amber-100 px-3 py-2">
+                            <span className="text-base leading-none">{b.icon}</span>
+                            <span className="text-xs text-slate-600 leading-snug">{b.text}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div>
+                        <button
+                          type="button"
+                          onClick={() => setExpandedPack(isExpanded ? null : pack.id)}
+                          className="text-xs font-semibold text-amber-700 hover:text-amber-800 underline underline-offset-2"
+                        >
+                          {isExpanded ? 'Hide what\'s inside ▴' : `See all ${details.strands.length} topic groups ▾`}
+                        </button>
+                        {isExpanded && (
+                          <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                            {details.strands.map((s) => (
+                              <div key={s.name} className="flex items-center justify-between gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3 py-1.5">
+                                <span className="text-xs text-slate-700">{s.name}</span>
+                                <span className="text-[10px] text-stone-400 whitespace-nowrap">{s.topics} topic{s.topics === 1 ? '' : 's'}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </>
+                  ) : (
+                    <p className="text-sm text-stone-500">{pack.description}</p>
+                  )}
                 </div>
 
-                {eligibleKids.length === 0 ? (
-                  <p className="text-sm text-stone-400 italic">No Grade {pack.grade} child on this account yet.</p>
-                ) : (
-                  <>
-                    {eligibleKids.length > 1 && (
-                      <select
-                        value={childId || ''}
-                        onChange={(e) => setSelectedChild((s) => ({ ...s, [pack.id]: e.target.value }))}
-                        className="w-full rounded-lg border border-stone-300 px-3 py-2 text-sm text-slate-700"
-                      >
-                        {eligibleKids.map((k) => (
-                          <option key={k.id} value={k.id}>{k.full_name}</option>
-                        ))}
-                      </select>
-                    )}
-
-                    {owned ? (
-                      <div className="rounded-lg bg-green-50 border border-green-300 text-green-700 text-sm font-bold text-center py-2.5">
-                        ✓ Owned{eligibleKids.length > 1 && childId ? ` — ${eligibleKids.find((k) => k.id === childId)?.full_name}` : ''}
-                      </div>
-                    ) : (
-                      <>
-                        {/* pending never disables the button — an abandoned
-                            PayMongo checkout (closed tab, cancelled payment)
-                            must stay retryable, same as the subscription
-                            flow's own Buy button. create_sec_checkout_session
-                            already reuses the pending row via ON CONFLICT, so
-                            retrying here is safe and idempotent. */}
-                        {pending && (
-                          <p className="text-xs text-amber-600 text-center">A checkout was started but never completed — tap Buy to try again.</p>
-                        )}
-                        <button
-                          onClick={() => handleBuy(pack)}
-                          disabled={checkingOut === pack.id}
-                          className="w-full rounded-xl bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-[#ffffff] font-bold text-base py-2.5 shadow-lg shadow-orange-500/25 transition-colors"
+                <div className="border-t border-stone-100 bg-stone-50/50 p-5 space-y-3">
+                  {eligibleKids.length === 0 ? (
+                    <p className="text-sm text-stone-400 italic">No Grade {pack.grade} child on this account yet.</p>
+                  ) : (
+                    <>
+                      {eligibleKids.length > 1 && (
+                        <select
+                          value={childId || ''}
+                          onChange={(e) => setSelectedChild((s) => ({ ...s, [pack.id]: e.target.value }))}
+                          className="w-full rounded-lg border border-stone-300 px-3 py-2 text-sm text-slate-700 bg-white"
                         >
-                          {checkingOut === pack.id ? 'Redirecting…' : `Buy — ₱${pack.price_php}`}
-                        </button>
-                      </>
-                    )}
-                  </>
-                )}
+                          {eligibleKids.map((k) => (
+                            <option key={k.id} value={k.id}>{k.full_name}</option>
+                          ))}
+                        </select>
+                      )}
+
+                      {owned ? (
+                        <div className="rounded-lg bg-green-50 border border-green-300 text-green-700 text-sm font-bold text-center py-2.5">
+                          ✓ Owned{selectedChildName ? ` — ${selectedChildName}` : ''}
+                        </div>
+                      ) : (
+                        <>
+                          {/* pending never disables the button — an abandoned
+                              PayMongo checkout (closed tab, cancelled payment)
+                              must stay retryable, same as the subscription
+                              flow's own Buy button. create_sec_checkout_session
+                              already reuses the pending row via ON CONFLICT, so
+                              retrying here is safe and idempotent. */}
+                          {pending && (
+                            <p className="text-xs text-amber-600 text-center">A checkout was started but never completed — tap Unlock to try again.</p>
+                          )}
+                          <button
+                            onClick={() => handleBuy(pack)}
+                            disabled={checkingOut === pack.id}
+                            className="w-full rounded-xl bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-[#ffffff] font-bold text-base py-3 shadow-lg shadow-orange-500/25 transition-colors"
+                          >
+                            {checkingOut === pack.id ? 'Redirecting…' : `Unlock${selectedChildName ? ` for ${selectedChildName}` : ''} — ₱${pack.price_php}`}
+                          </button>
+                          <p className="text-[11px] text-stone-400 text-center flex items-center justify-center gap-1">
+                            <span>🛡️</span>
+                            <span>
+                              Full refund within 7 days if unused
+                              {perQuestion && <> · that&apos;s ₱{perQuestion} per question</>}
+                            </span>
+                          </p>
+                        </>
+                      )}
+                    </>
+                  )}
+                </div>
               </div>
             );
           })}
@@ -262,8 +404,7 @@ export default function ShopPage() {
         {checkoutError && <p className="text-red-500 text-sm text-center">{checkoutError}</p>}
 
         <p className="text-xs text-stone-400 text-center">
-          Refundable within 7 days if unused — see our{' '}
-          <a href="/terms" target="_blank" className="text-amber-600 hover:text-amber-700 underline">Terms & Conditions</a>.
+          See our <a href="/terms" target="_blank" className="text-amber-600 hover:text-amber-700 underline">Terms & Conditions</a> for the full refund policy.
         </p>
       </div>
     </main>
