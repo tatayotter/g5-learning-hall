@@ -38,8 +38,38 @@ export default function ShopPage() {
   const [selectedChild, setSelectedChild] = useState<Record<string, string>>({}); // packId -> childId
   const [checkingOut, setCheckingOut] = useState<string | null>(null); // packId in flight
   const [checkoutError, setCheckoutError] = useState('');
+  // Set from ?checkout=success|cancelled on the PayMongo redirect back —
+  // 'success' starts out "confirming" rather than a flat success message,
+  // since the redirect can land here before the webhook has actually
+  // activated the entitlement (browser redirect and server-to-server webhook
+  // race independently) — see the poll in the effect below.
+  const [checkoutBanner, setCheckoutBanner] = useState<'success-pending' | 'success-confirmed' | 'cancelled' | null>(null);
+
+  const loadData = async (userId: string) => {
+    const [{ data: children }, { data: packRows }, { data: entRows }] = await Promise.all([
+      supabase.from('children').select('id, full_name, grade').eq('parent_id', userId),
+      supabase.from('sec_packs').select('id, grade, category, title, description, price_php').eq('active', true).order('grade'),
+      supabase.from('sec_entitlements').select('child_id, pack_id, status').eq('parent_id', userId),
+    ]);
+
+    const kidsList = (children as ChildRow[]) || [];
+    const packList = (packRows as SecPack[]) || [];
+    const entList = (entRows as EntitlementRow[]) || [];
+    setKids(kidsList);
+    setPacks(packList);
+    setEntitlements(entList);
+
+    // Default each pack's child picker to the first child in that pack's
+    // grade, if there is one — saves a step for the common "one child in
+    // this grade" case without hiding the picker. Only set on first load
+    // (guarded by callers below) so a background poll refresh never yanks
+    // the picker back to the default while a parent has it on purpose set
+    // to a different sibling.
+    return { kidsList, packList, entList };
+  };
 
   useEffect(() => {
+    let cancelled = false;
     (async () => {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) {
@@ -47,28 +77,54 @@ export default function ShopPage() {
         return;
       }
 
-      const [{ data: children }, { data: packRows }, { data: entRows }] = await Promise.all([
-        supabase.from('children').select('id, full_name, grade').eq('parent_id', user.id),
-        supabase.from('sec_packs').select('id, grade, category, title, description, price_php').eq('active', true).order('grade'),
-        supabase.from('sec_entitlements').select('child_id, pack_id, status').eq('parent_id', user.id),
-      ]);
+      const { kidsList, packList, entList } = await loadData(user.id);
+      if (cancelled) return;
 
-      const kidsList = (children as ChildRow[]) || [];
-      setKids(kidsList);
-      setPacks((packRows as SecPack[]) || []);
-      setEntitlements((entRows as EntitlementRow[]) || []);
-
-      // Default each pack's child picker to the first child in that pack's
-      // grade, if there is one — saves a step for the common "one child in
-      // this grade" case without hiding the picker.
       const defaults: Record<string, string> = {};
-      ((packRows as SecPack[]) || []).forEach((pack) => {
+      packList.forEach((pack) => {
         const match = kidsList.find((k) => gradeToNumber(k.grade) === pack.grade);
         if (match) defaults[pack.id] = match.id;
       });
       setSelectedChild(defaults);
       setLoading(false);
+
+      // Read the PayMongo redirect's own query param — window.location
+      // rather than useSearchParams so this page doesn't need a Suspense
+      // boundary just for a one-shot banner.
+      const params = new URLSearchParams(window.location.search);
+      const checkoutParam = params.get('checkout');
+      if (checkoutParam === 'cancelled') {
+        setCheckoutBanner('cancelled');
+      } else if (checkoutParam === 'success') {
+        const alreadyActive = entList.some((e) => e.status === 'active');
+        if (alreadyActive) {
+          setCheckoutBanner('success-confirmed');
+        } else {
+          // The webhook that flips 'pending' -> 'active' can land a beat
+          // after PayMongo's own browser redirect — poll briefly rather
+          // than showing a stale "Buy" button right after a real payment.
+          setCheckoutBanner('success-pending');
+          let attempts = 0;
+          const poll = setInterval(async () => {
+            attempts += 1;
+            const { entList: freshEnt } = await loadData(user.id);
+            if (cancelled) { clearInterval(poll); return; }
+            if (freshEnt.some((e) => e.status === 'active')) {
+              setCheckoutBanner('success-confirmed');
+              clearInterval(poll);
+            } else if (attempts >= 6) {
+              clearInterval(poll); // ~30s — stop silently; the pack will still show correctly on a manual refresh once the webhook lands
+            }
+          }, 5000);
+        }
+      }
+      // Clean the query param out of the URL so a manual refresh later
+      // doesn't re-show a stale success/cancelled banner.
+      if (checkoutParam) {
+        window.history.replaceState({}, '', '/parent-dashboard/shop');
+      }
     })();
+    return () => { cancelled = true; };
   }, [router]);
 
   const entitlementFor = (packId: string, childId: string | undefined) => {
@@ -116,6 +172,22 @@ export default function ShopPage() {
           their regular quests. One purchase unlocks a pack for one child, forever.
         </p>
 
+        {checkoutBanner === 'success-confirmed' && (
+          <div className="rounded-xl border border-green-300 bg-green-50 text-green-700 text-sm font-semibold text-center py-3 px-4">
+            🎉 Purchase confirmed — the pack is unlocked and ready to play.
+          </div>
+        )}
+        {checkoutBanner === 'success-pending' && (
+          <div className="rounded-xl border border-amber-300 bg-amber-50 text-amber-700 text-sm font-semibold text-center py-3 px-4">
+            Payment received — confirming your purchase, this can take a few seconds…
+          </div>
+        )}
+        {checkoutBanner === 'cancelled' && (
+          <div className="rounded-xl border border-stone-300 bg-stone-50 text-stone-600 text-sm text-center py-3 px-4">
+            Checkout was cancelled — no charge was made. You can buy anytime below.
+          </div>
+        )}
+
         {kids.length === 0 && (
           <div className="rounded-xl border border-stone-200 bg-[#ffffff] p-4 text-sm text-stone-500">
             Add a child to your account first, then come back here to buy them a pack.
@@ -161,13 +233,24 @@ export default function ShopPage() {
                         ✓ Owned{eligibleKids.length > 1 && childId ? ` — ${eligibleKids.find((k) => k.id === childId)?.full_name}` : ''}
                       </div>
                     ) : (
-                      <button
-                        onClick={() => handleBuy(pack)}
-                        disabled={checkingOut === pack.id || pending}
-                        className="w-full rounded-xl bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-[#ffffff] font-bold text-base py-2.5 shadow-lg shadow-orange-500/25 transition-colors"
-                      >
-                        {checkingOut === pack.id ? 'Redirecting…' : pending ? 'Checkout started — try buying again if it didn\'t go through' : `Buy — ₱${pack.price_php}`}
-                      </button>
+                      <>
+                        {/* pending never disables the button — an abandoned
+                            PayMongo checkout (closed tab, cancelled payment)
+                            must stay retryable, same as the subscription
+                            flow's own Buy button. create_sec_checkout_session
+                            already reuses the pending row via ON CONFLICT, so
+                            retrying here is safe and idempotent. */}
+                        {pending && (
+                          <p className="text-xs text-amber-600 text-center">A checkout was started but never completed — tap Buy to try again.</p>
+                        )}
+                        <button
+                          onClick={() => handleBuy(pack)}
+                          disabled={checkingOut === pack.id}
+                          className="w-full rounded-xl bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-[#ffffff] font-bold text-base py-2.5 shadow-lg shadow-orange-500/25 transition-colors"
+                        >
+                          {checkingOut === pack.id ? 'Redirecting…' : `Buy — ₱${pack.price_php}`}
+                        </button>
+                      </>
                     )}
                   </>
                 )}
