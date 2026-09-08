@@ -8,6 +8,10 @@ import { supabase } from '@/lib/supabase';
 // different category) just needs a new entry here, not new gating logic.
 export const SEC_PACK_ID_BY_GRADE: Record<number, string> = {
   2: 'g2-math-enrichment',
+  3: 'g3-math-enrichment',
+  4: 'g4-math-enrichment',
+  5: 'g5-math-enrichment',
+  6: 'g6-math-enrichment',
 };
 
 // RLS's own sec_entitlements_select_own_as_child policy already scopes this

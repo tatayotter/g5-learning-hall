@@ -7,7 +7,7 @@
 'use client';
 
 import { useState } from 'react';
-import { MTAP_GRADE2_STRANDS } from '@/lib/mtapContent';
+import { MTAP_STRANDS_BY_GRADE } from '@/lib/mtapContent';
 import MtapReviewerPanel from '@/components/bonusquests/MtapReviewerPanel';
 import GameButton from '@/components/GameButton';
 
@@ -16,12 +16,9 @@ interface MySecPackReviewerProps {
   onClose: () => void;
 }
 
-// v1 only has one pack's content (Grade 2 Math Enrichment) — mirrors the
-// same grade-2-only scope BonusQuestsTab.tsx currently hardcodes, since
-// MTAP_GRADE2_STRANDS is the only strand list that exists yet.
 export default function MySecPackReviewer({ grade, onClose }: MySecPackReviewerProps) {
   const [openStrand, setOpenStrand] = useState<number | null>(null);
-  const strands = grade === 2 ? MTAP_GRADE2_STRANDS : [];
+  const strands = MTAP_STRANDS_BY_GRADE[grade] || [];
 
   if (openStrand !== null) {
     return (

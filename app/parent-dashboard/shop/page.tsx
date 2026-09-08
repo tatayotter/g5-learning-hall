@@ -15,7 +15,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { gradeToNumber } from '@/lib/userSession';
-import { MTAP_GRADE2_STRANDS } from '@/lib/mtapContent';
+import { MTAP_GRADE2_STRANDS, MTAP_GRADE3_STRANDS, MTAP_GRADE4_STRANDS, MTAP_GRADE5_STRANDS, MTAP_GRADE6_STRANDS } from '@/lib/mtapContent';
 
 interface ChildRow {
   id: string;
@@ -69,6 +69,58 @@ const PACK_DETAILS: Record<string, {
     ],
     strands: MTAP_GRADE2_STRANDS.map((s) => ({ name: s.name, topics: s.archetypes.length })),
     questionCount: 518,
+  },
+  'g3-math-enrichment': {
+    eyebrow: 'MTAP Competition-Level',
+    shortName: 'Grade 3 Math+',
+    hook: 'Not required for school. Just how far your child could go if you let them.',
+    subhook: 'They\'re already putting in the work — this is where that effort gets tested against real competition-level math, not just the regular curriculum.',
+    benefits: [
+      { icon: '🏆', text: 'True MTAP competition level — well beyond standard school-level math' },
+      { icon: '📖', text: 'Untimed reviewer — they learn the method before ever facing the timer' },
+      { icon: '🪙', text: 'Real Gold & XP, same as their regular quests' },
+    ],
+    strands: MTAP_GRADE3_STRANDS.map((s) => ({ name: s.name, topics: s.archetypes.length })),
+    questionCount: 534,
+  },
+  'g4-math-enrichment': {
+    eyebrow: 'MTAP Competition-Level',
+    shortName: 'Grade 4 Math+',
+    hook: 'Not required for school. Just how far your child could go if you let them.',
+    subhook: 'They\'re already putting in the work — this is where that effort gets tested against real competition-level math, not just the regular curriculum.',
+    benefits: [
+      { icon: '🏆', text: 'True MTAP competition level — well beyond standard school-level math' },
+      { icon: '📖', text: 'Untimed reviewer — they learn the method before ever facing the timer' },
+      { icon: '🪙', text: 'Real Gold & XP, same as their regular quests' },
+    ],
+    strands: MTAP_GRADE4_STRANDS.map((s) => ({ name: s.name, topics: s.archetypes.length })),
+    questionCount: 528,
+  },
+  'g5-math-enrichment': {
+    eyebrow: 'MTAP Competition-Level',
+    shortName: 'Grade 5 Math+',
+    hook: 'Not required for school. Just how far your child could go if you let them.',
+    subhook: 'They\'re already putting in the work — this is where that effort gets tested against real competition-level math, not just the regular curriculum.',
+    benefits: [
+      { icon: '🏆', text: 'True MTAP competition level — well beyond standard school-level math' },
+      { icon: '📖', text: 'Untimed reviewer — they learn the method before ever facing the timer' },
+      { icon: '🪙', text: 'Real Gold & XP, same as their regular quests' },
+    ],
+    strands: MTAP_GRADE5_STRANDS.map((s) => ({ name: s.name, topics: s.archetypes.length })),
+    questionCount: 560,
+  },
+  'g6-math-enrichment': {
+    eyebrow: 'MTAP Competition-Level',
+    shortName: 'Grade 6 Math+',
+    hook: 'Not required for school. Just how far your child could go if you let them.',
+    subhook: 'They\'re already putting in the work — this is where that effort gets tested against real competition-level math, not just the regular curriculum.',
+    benefits: [
+      { icon: '🏆', text: 'True MTAP competition level — well beyond standard school-level math' },
+      { icon: '📖', text: 'Untimed reviewer — they learn the method before ever facing the timer' },
+      { icon: '🪙', text: 'Real Gold & XP, same as their regular quests' },
+    ],
+    strands: MTAP_GRADE6_STRANDS.map((s) => ({ name: s.name, topics: s.archetypes.length })),
+    questionCount: 609,
   },
 };
 

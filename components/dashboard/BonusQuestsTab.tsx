@@ -17,6 +17,18 @@ import { gradeToNumber } from '@/lib/userSession';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import MtapTopicsView from '@/components/bonusquests/MtapTopicsView';
 import { SEC_PACK_ID_BY_GRADE, fetchOwnedSecPackIds } from '@/lib/secEngine';
+import { MTAP_STRANDS_BY_GRADE } from '@/lib/mtapContent';
+
+// Grade-color hero gradient, matching the Shop's own GRADE_GRADIENT_COLOR
+// palette (app/parent-dashboard/shop/page.tsx) so a grade reads the same
+// color everywhere in the app.
+const GRADE_HERO_GRADIENT: Record<number, string> = {
+  2: 'from-amber-200 to-amber-500',
+  3: 'from-emerald-200 to-emerald-500',
+  4: 'from-sky-200 to-sky-500',
+  5: 'from-indigo-200 to-indigo-500',
+  6: 'from-rose-200 to-rose-500',
+};
 
 interface BonusQuestsTabProps {
   userId: UserId;
@@ -41,13 +53,15 @@ export default function BonusQuestsTab({ userId, userGrade, onRewardEarned }: Bo
     return () => { cancelled = true; };
   }, [userId]);
 
-  const hasGrade2Pack = grade === 2 && !!gradePackId && !!ownedPackIds?.has(gradePackId);
+  const hasPack = !!gradePackId && !!ownedPackIds?.has(gradePackId);
+  const strands = grade != null ? (MTAP_STRANDS_BY_GRADE[grade] || []) : [];
+  const topicCount = strands.reduce((sum, s) => sum + s.archetypes.length, 0);
 
-  if (openPack === 'g2-math-enrichment') {
+  if (openPack === gradePackId && grade != null) {
     return (
       <div>
         <span className="text-xs text-[#a8a29e] cursor-pointer mb-2 inline-block" onClick={() => setOpenPack(null)}>&larr; Bonus Quests</span>
-        <MtapTopicsView userId={userId} grade={2} onRewardEarned={onRewardEarned} />
+        <MtapTopicsView userId={userId} grade={grade} onRewardEarned={onRewardEarned} />
       </div>
     );
   }
@@ -64,7 +78,7 @@ export default function BonusQuestsTab({ userId, userGrade, onRewardEarned }: Bo
 
       {ownedPackIds === null ? (
         <div className="text-sm text-stone-400 py-6">Loading your packs…</div>
-      ) : !hasGrade2Pack ? (
+      ) : !hasPack || grade == null || !gradePackId ? (
         <div className="border-2 border-dashed border-stone-300 rounded-2xl p-10 flex flex-col items-center gap-3 text-center max-w-md">
           <span className="text-4xl">📦</span>
           <h3 className="font-bold text-stone-700">No Bonus Quests yet</h3>
@@ -73,7 +87,7 @@ export default function BonusQuestsTab({ userId, userGrade, onRewardEarned }: Bo
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
           <motion.div
-            onClick={() => setOpenPack('g2-math-enrichment')}
+            onClick={() => setOpenPack(gradePackId)}
             role="button"
             tabIndex={0}
             whileHover="hover"
@@ -81,12 +95,12 @@ export default function BonusQuestsTab({ userId, userGrade, onRewardEarned }: Bo
             variants={{ hover: {} }}
             className="overflow-hidden bg-white border-2 border-[#251616] hover:border-[#3a2020] rounded-2xl text-center transition-colors flex flex-col items-center shadow-sm cursor-pointer"
           >
-            <div className="relative overflow-hidden w-full flex justify-center pt-5 pb-3 px-5 bg-gradient-to-br from-amber-200 to-amber-500">
+            <div className={`relative overflow-hidden w-full flex justify-center pt-5 pb-3 px-5 bg-gradient-to-br ${GRADE_HERO_GRADIENT[grade] || 'from-amber-200 to-amber-500'}`}>
               <span className="text-5xl relative z-10">📘</span>
             </div>
             <div className="w-full flex flex-col items-center gap-1.5 px-5 pb-5 pt-3 bg-amber-50">
               <h3 className="text-lg font-extrabold text-amber-700">Math+</h3>
-              <p className="text-xs text-gray-600 font-medium">Grade 2 Math Enrichment · 22 topics</p>
+              <p className="text-xs text-gray-600 font-medium">Grade {grade} Math Enrichment{topicCount > 0 ? ` · ${topicCount} topics` : ''}</p>
               <div className="mt-1">
                 <GameButton variant="quest" style={{ fontSize: 14 }}>Enter</GameButton>
               </div>
