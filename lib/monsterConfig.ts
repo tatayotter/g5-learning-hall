@@ -752,6 +752,23 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
     skillUnlocks: { tier2: 18, tier3: 30 },
   },
+  kasagbon: {
+    id: 'kasagbon', name: 'Kasagbon', element: 'water', archetype: 'balanced',
+    emoji: '🦀', description: 'A small stone crab dressed in Mamanwa gold and a raffia skirt, with wide amber eyes like the first stars after rain. Legend says the elders once stomped the river stones to thank San Nicolas de Tolentino after the year\'s first bonok, and wherever their feet landed, Kasagbon popped up clapping along. It keeps blessing droplets tucked in its skirt — let one fall on you and the day turns maradjaw, all good.',
+    ...STAT_PRESETS.balanced,
+    skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
+    skillUnlocks: { tier2: 18, tier3: 30 },
+    graduation: {
+      first: {
+        level: 20, name: 'Marabon', emoji: '🪇', spriteId: 'marabon',
+        description: 'Kasagbon after its first festival — taller now, in a beaded abaca headdress, shaking twin blessed-coconut maracas. Its old raffia skirt grew into a full bahag that rattles like rain; one maraca calls the rain down, the other sends it home. Locals say catching it mid-spin, seven turns without a stumble, means a lucky year ahead.',
+      },
+      second: {
+        level: 32, name: 'Datubon', emoji: '👑', spriteId: 'datubon',
+        description: 'The procession\'s elder — shield-backed, crowned like a chieftain, leaning on a staff capped with a blue scroll. Its shell is carved with every bonok-bonok step danced in the last forty years, and the Mamanwa say it carries the spirit of the datu who first prayed for rain after the worst typhoon anyone remembers. It has stopped dancing; when its staff comes down, confetti hangs in the air like rain that forgot to fall.',
+      },
+    },
+  },
 };
 
 // Legendary wild species are weighted well below the regular wild pool, so

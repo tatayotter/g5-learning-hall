@@ -17,6 +17,7 @@ import AnalyticsSection from '@/components/admin/AnalyticsSection';
 import BossFightSection from '@/components/admin/BossFightSection';
 import SiteSettingsSection from '@/components/admin/SiteSettingsSection';
 import BugReportsSection from '@/components/admin/BugReportsSection';
+import VouchersSection from '@/components/admin/VouchersSection';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 interface AdminDashboardProps {
@@ -26,7 +27,7 @@ interface AdminDashboardProps {
   onBack: () => void;
 }
 
-type AdminSection = 'packages' | 'draft_questions' | 'questions' | 'children' | 'parents' | 'events' | 'boss_fights' | 'egg_chains' | 'sec_packs' | 'sec_refunds' | 'analytics' | 'tools' | 'content_matrix' | 'site_settings' | 'bug_reports';
+type AdminSection = 'packages' | 'draft_questions' | 'questions' | 'children' | 'parents' | 'events' | 'boss_fights' | 'egg_chains' | 'vouchers' | 'sec_packs' | 'sec_refunds' | 'analytics' | 'tools' | 'content_matrix' | 'site_settings' | 'bug_reports';
 
 export default function AdminDashboard({ currentData, currentSunday, onUpdateStats, onBack }: AdminDashboardProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -99,6 +100,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
         { id: 'events',     label: 'Custom Events' },
         { id: 'boss_fights', label: 'Term Boss Fight' },
         { id: 'egg_chains', label: 'Egg Chains' },
+        { id: 'vouchers', label: 'Vouchers' },
         { id: 'sec_packs', label: 'SEC Packs' },
         { id: 'sec_refunds', label: 'SEC Refunds' },
       ],
@@ -179,6 +181,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
         {section === 'events' && <EventsSection passcode={password} />}
         {section === 'boss_fights' && <BossFightSection passcode={password} />}
         {section === 'egg_chains' && <EggChainsSection passcode={password} />}
+        {section === 'vouchers' && <VouchersSection passcode={password} />}
         {section === 'sec_packs' && <SecPacksSection passcode={password} />}
         {section === 'sec_refunds' && <SecRefundsSection passcode={password} />}
         {section === 'draft_questions' && <DraftQuestionsSection passcode={password} />}
