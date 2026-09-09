@@ -17,17 +17,7 @@ import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextS
 import MtapTopicsView from '@/components/bonusquests/MtapTopicsView';
 import { SEC_PACK_ID_BY_GRADE, fetchOwnedSecPackIds } from '@/lib/secEngine';
 import { MTAP_STRANDS_BY_GRADE } from '@/lib/mtapContent';
-
-// Grade-color hero gradient, matching the Shop's own GRADE_GRADIENT_COLOR
-// palette (app/parent-dashboard/shop/page.tsx) so a grade reads the same
-// color everywhere in the app.
-const GRADE_HERO_GRADIENT: Record<number, string> = {
-  2: 'from-amber-200 to-amber-500',
-  3: 'from-emerald-200 to-emerald-500',
-  4: 'from-sky-200 to-sky-500',
-  5: 'from-indigo-200 to-indigo-500',
-  6: 'from-rose-200 to-rose-500',
-};
+import { gradeColor } from '@/lib/gradeColors';
 
 interface BonusQuestsTabProps {
   userId: UserId;
@@ -94,6 +84,7 @@ export default function BonusQuestsTab({ userId, onRewardEarned }: BonusQuestsTa
           {ownedGrades.map((g) => {
             const strands = MTAP_STRANDS_BY_GRADE[g] || [];
             const topicCount = strands.reduce((sum, s) => sum + s.archetypes.length, 0);
+            const { 200: heroFrom, 500: heroTo } = gradeColor(g);
             return (
               <motion.div
                 key={g}
@@ -105,7 +96,10 @@ export default function BonusQuestsTab({ userId, onRewardEarned }: BonusQuestsTa
                 variants={{ hover: {} }}
                 className="overflow-hidden bg-white border-2 border-[#251616] hover:border-[#3a2020] rounded-2xl text-center transition-colors flex flex-col items-center shadow-sm cursor-pointer"
               >
-                <div className={`relative overflow-hidden w-full flex justify-center pt-5 pb-3 px-5 bg-gradient-to-br ${GRADE_HERO_GRADIENT[g] || 'from-amber-200 to-amber-500'}`}>
+                <div
+                  className="relative overflow-hidden w-full flex justify-center pt-5 pb-3 px-5"
+                  style={{ background: `linear-gradient(135deg, ${heroFrom} 0%, ${heroTo} 100%)` }}
+                >
                   <span className="text-5xl relative z-10">📘</span>
                 </div>
                 <div className="w-full flex flex-col items-center gap-1.5 px-5 pb-5 pt-3 bg-amber-50">
