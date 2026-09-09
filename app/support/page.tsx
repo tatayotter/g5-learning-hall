@@ -2,8 +2,11 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import SupportHero from '@/components/SupportHero';
+import SupportLiveNow from '@/components/SupportLiveNow';
+import SupportGameplayPreview from '@/components/SupportGameplayPreview';
 import SupportOriginStory from '@/components/SupportOriginStory';
 import SupportWhereItGoes from '@/components/SupportWhereItGoes';
+import SupportMilestones from '@/components/SupportMilestones';
 import SupportDonationForm from '@/components/SupportDonationForm';
 import SupportWall from '@/components/SupportWall';
 import StickySupportBar from '@/components/StickySupportBar';
@@ -60,6 +63,9 @@ export default async function SupportPage({
         <SupportHero totalPhp={totals.totalPhp} supporterCount={totals.supporterCount} />
       </div>
 
+      <SupportLiveNow />
+      <SupportGameplayPreview />
+
       {/* ── DONATE ── */}
       <section id="chip-in" className="px-6 py-16 sm:py-20 max-w-5xl mx-auto scroll-mt-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-14 items-start">
@@ -88,6 +94,7 @@ export default async function SupportPage({
 
       <SupportOriginStory />
       <SupportWhereItGoes />
+      <SupportMilestones />
 
       {/* ── SUPPORTER WALL ── */}
       <section className="px-6 py-20 max-w-2xl mx-auto">
