@@ -8,11 +8,12 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { UserId } from '@/lib/userSession';
-import { MTAP_STRANDS_BY_GRADE, TIERS, MtapTier } from '@/lib/mtapContent';
-import { fetchMtapAttempts, computeTierUnlocked, computeTierMastered, MtapAttempt } from '@/lib/mtapEngine';
+import { MTAP_STRANDS_BY_GRADE, TIERS, MtapTier, MIXED_TRAINER_SET_SIZE } from '@/lib/mtapContent';
+import { fetchMtapAttempts, computeTierUnlocked, computeTierMastered, computeMixedTrainerUnlocked, MtapAttempt } from '@/lib/mtapEngine';
 import GameButton from '@/components/GameButton';
 import MtapReviewerPanel from '@/components/bonusquests/MtapReviewerPanel';
 import MtapQuizPlayer from '@/components/bonusquests/MtapQuizPlayer';
+import MtapMixedTrainerPlayer from '@/components/bonusquests/MtapMixedTrainerPlayer';
 
 interface MtapTopicsViewProps {
   userId: UserId;
@@ -23,7 +24,8 @@ interface MtapTopicsViewProps {
 type View =
   | { mode: 'list' }
   | { mode: 'reviewer'; strandIdx: number }
-  | { mode: 'quiz'; archetype: string; archetypeName: string; tier: MtapTier };
+  | { mode: 'quiz'; archetype: string; archetypeName: string; tier: MtapTier }
+  | { mode: 'mixed-trainer' };
 
 export default function MtapTopicsView({ userId, grade, onRewardEarned }: MtapTopicsViewProps) {
   const strands = MTAP_STRANDS_BY_GRADE[grade] || [];
@@ -68,6 +70,20 @@ export default function MtapTopicsView({ userId, grade, onRewardEarned }: MtapTo
       />
     );
   }
+
+  if (view.mode === 'mixed-trainer') {
+    return (
+      <MtapMixedTrainerPlayer
+        userId={userId}
+        grade={grade}
+        onExit={() => { setView({ mode: 'list' }); reload(); }}
+        onProgress={reload}
+        onRewardEarned={onRewardEarned}
+      />
+    );
+  }
+
+  const mixedTrainerUnlocked = computeMixedTrainerUnlocked(attempts, strands);
 
   return (
     <div>
@@ -168,6 +184,33 @@ export default function MtapTopicsView({ userId, grade, onRewardEarned }: MtapTo
             </div>
           );
         })}
+      </div>
+
+      {/* Capstone — locked until every strand above has at least one archetype
+          at Difficult unlocked (content/mtap-expansion-overview.md's mastery-
+          threshold table: "capstone stays locked until there's a real base to
+          draw a shuffled set from"). Sits below the strand list rather than
+          among the numbered strands themselves, since it draws FROM them
+          rather than being one of them. */}
+      <div className={`mt-4 rounded-2xl border-2 p-4 flex items-center justify-between gap-3 ${mixedTrainerUnlocked ? 'bg-[#fdf0d5] border-[#c9781a]' : 'bg-stone-50 border-stone-300'}`}>
+        <div className="min-w-0">
+          <p className={`font-bold text-sm ${mixedTrainerUnlocked ? 'text-[#7a4a0f]' : 'text-stone-500'}`}>🏁 Mixed Trainer Track</p>
+          <p className={`text-[11px] ${mixedTrainerUnlocked ? 'text-[#8b5e2a]' : 'text-stone-400'}`}>
+            {mixedTrainerUnlocked
+              ? `A shuffled, timed ${MIXED_TRAINER_SET_SIZE}-question set across every strand — the closest thing to a real elimination round.`
+              : 'Locked — reach Difficult on at least one topic in every strand above to unlock.'}
+          </p>
+        </div>
+        <GameButton
+          variant="quest"
+          color={mixedTrainerUnlocked ? '#c9781a' : '#a8a29e'}
+          disabled={!mixedTrainerUnlocked}
+          style={{ fontSize: 12 }}
+          className="shrink-0"
+          onClick={() => mixedTrainerUnlocked && setView({ mode: 'mixed-trainer' })}
+        >
+          {mixedTrainerUnlocked ? 'Start' : '🔒 Locked'}
+        </GameButton>
       </div>
 
       <div className="mt-4 flex items-center gap-4 text-[11px] text-[#7a4a0f]">

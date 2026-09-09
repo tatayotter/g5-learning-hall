@@ -347,3 +347,15 @@ export const TIER_TIME_BUDGET: Record<MtapTier, number> = {
   average: 30,
   difficult: 60,
 };
+
+// Mixed Trainer Track — the capstone mode every grade's content doc specs
+// ("shuffled, timed sets drawn from all strands at a matching tier,
+// majority-easy weighting... structured like an actual elimination round").
+// 25 questions, weighted 60/28/12 toward Easy — the real elimination round's
+// own shape (broad field, few killer Difficult items), not an even split.
+export const MIXED_TRAINER_TIER_MIX: Record<MtapTier, number> = {
+  easy: 15,
+  average: 7,
+  difficult: 3,
+};
+export const MIXED_TRAINER_SET_SIZE = TIERS.reduce((sum, t) => sum + MIXED_TRAINER_TIER_MIX[t], 0);
