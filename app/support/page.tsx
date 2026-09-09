@@ -1,8 +1,16 @@
 import type { Metadata } from 'next';
-import BlogHeader from '@/components/BlogHeader';
-import BlogFooter from '@/components/BlogFooter';
+import Image from 'next/image';
+import Link from 'next/link';
+import SupportHero from '@/components/SupportHero';
+import SupportLiveNow from '@/components/SupportLiveNow';
+import SupportGameplayPreview from '@/components/SupportGameplayPreview';
+import SupportOriginStory from '@/components/SupportOriginStory';
+import SupportWhereItGoes from '@/components/SupportWhereItGoes';
+import SupportMilestones from '@/components/SupportMilestones';
 import SupportDonationForm from '@/components/SupportDonationForm';
 import SupportWall from '@/components/SupportWall';
+import StickySupportBar from '@/components/StickySupportBar';
+import FadeIn from '@/components/FadeIn';
 import { getSupportWall, getSupportTotals } from '@/lib/supportContributions';
 
 export const metadata: Metadata = {
@@ -29,9 +37,7 @@ export default async function SupportPage({
   const [wall, totals] = await Promise.all([getSupportWall(), getSupportTotals()]);
 
   return (
-    <div className="min-h-screen bg-[#faf7f1] text-[#2b2417] font-[Inter,system-ui,sans-serif]">
-      <BlogHeader theme="light" />
-
+    <div className="min-h-screen bg-white text-slate-800 font-[Inter,system-ui,sans-serif] overflow-x-hidden scroll-smooth">
       {donation === 'success' && (
         <div className="bg-emerald-50 border-b border-emerald-200 text-emerald-800 text-sm text-center py-3 px-4">
           Thank you! Your support means a lot — a receipt is on its way to your email.
@@ -43,50 +49,84 @@ export default async function SupportPage({
         </div>
       )}
 
-      <div className="px-6 py-12 border-b border-[#eee3ce] text-center">
-        <p className="text-[10px] tracking-[0.2em] font-bold text-emerald-700 uppercase mb-3">Support the mission</p>
-        <h1 className="font-display text-3xl sm:text-4xl font-black mb-4 max-w-2xl mx-auto">
-          Help keep Learning Hall growing
-        </h1>
-        <p className="text-[#6b5f4d] max-w-xl mx-auto leading-relaxed">
-          This game started as something I built for my own kids — a way to replace screen time
-          with something that actually helped them do better in school. Turning it into something
-          more kids and parents could use became a mission along the way. If it's helped your
-          family too, any contribution helps keep it alive and growing.
-        </p>
+      {/* ── HERO ── */}
+      <div className="relative">
+        <Link href="/welcome" className="absolute top-6 left-6 z-20 flex items-center gap-2">
+          <Image
+            src="/learning_hall_full_logo.webp"
+            alt="Learning Hall"
+            width={495}
+            height={367}
+            className="h-9 w-auto object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
+          />
+        </Link>
+        <SupportHero totalPhp={totals.totalPhp} supporterCount={totals.supporterCount} />
       </div>
 
-      <main className="px-6 py-12">
-        <section className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 mb-16">
-          <div>
-            <div className="bg-white border border-[#eee3ce] rounded-2xl p-6 mb-6">
-              <p className="text-[10px] tracking-[0.2em] font-bold text-[#a3610c] uppercase mb-2">Raised so far</p>
-              <p className="font-display text-3xl font-black">₱{totals.totalPhp.toLocaleString()}</p>
-              <p className="text-sm text-[#948975] mt-1">
-                from {totals.supporterCount} {totals.supporterCount === 1 ? 'supporter' : 'supporters'}
-              </p>
-            </div>
-            <div className="bg-white border border-[#eee3ce] rounded-2xl p-6">
-              <h2 className="font-display text-lg font-black mb-2">Where it goes</h2>
-              <ul className="text-sm text-[#5c5245] leading-relaxed space-y-1.5 list-disc pl-4">
-                <li>Operational costs — hosting, database, and infrastructure</li>
-                <li>Keeping the app alive and available for every family using it</li>
-                <li>Ongoing improvements and new features</li>
-                <li>Art assets — the characters, worlds, and world-building that make it fun</li>
-              </ul>
-            </div>
-          </div>
+      <SupportLiveNow />
+      <SupportGameplayPreview />
 
-          <SupportDonationForm />
-        </section>
+      {/* ── DONATE ── */}
+      <section id="chip-in" className="px-6 py-16 sm:py-20 max-w-5xl mx-auto scroll-mt-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-14 items-start">
+          <FadeIn>
+            <p className="text-[11px] tracking-[0.28em] font-bold text-orange-500 uppercase mb-4">
+              Chip In
+            </p>
+            <h2 className="font-display text-2xl sm:text-3xl font-black mb-4 text-slate-800">
+              Any amount helps keep it going
+            </h2>
+            <p className="text-slate-500 leading-relaxed mb-6">
+              There's no minimum tier, no reward tiers to pick through — just a straightforward way
+              to chip in. Pick an amount that feels right, or set your own.
+            </p>
+            <div className="flex items-center gap-3 text-sm text-slate-500">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+              Secure checkout via PayMongo — GCash, Maya, and cards accepted
+            </div>
+          </FadeIn>
 
-        <section className="max-w-2xl mx-auto">
-          <h2 className="font-display text-xl font-black mb-6 text-center">Supporter Wall</h2>
+          <FadeIn delay={0.08}>
+            <SupportDonationForm />
+          </FadeIn>
+        </div>
+      </section>
+
+      <SupportOriginStory />
+      <SupportWhereItGoes />
+      <SupportMilestones />
+
+      {/* ── SUPPORTER WALL ── */}
+      <section className="px-6 py-20 max-w-2xl mx-auto">
+        <FadeIn>
+          <p className="text-[11px] tracking-[0.28em] font-bold text-orange-500 uppercase text-center mb-4">
+            Hall of Supporters
+          </p>
+          <h2 className="font-display text-2xl sm:text-3xl font-black text-center mb-10 text-slate-800">
+            Supporter Wall
+          </h2>
+        </FadeIn>
+        <FadeIn delay={0.05}>
           <SupportWall entries={wall} />
-        </section>
-      </main>
+        </FadeIn>
+      </section>
 
-      <BlogFooter />
+      <footer className="px-6 py-8 pb-24 text-center border-t border-slate-200 bg-white">
+        <p className="text-[11px] tracking-[0.06em] text-slate-300 font-medium">
+          © {new Date().getFullYear()} Ruelo Learning Hall. All Rights Reserved.
+        </p>
+        <p className="mt-2 text-[11px] tracking-wide">
+          <a href="https://www.facebook.com/learninghallph" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-600 underline">Facebook</a>
+          <span className="text-slate-200 mx-2">·</span>
+          <Link href="/welcome" className="text-slate-400 hover:text-slate-600 underline">Learning Hall Home</Link>
+          <span className="text-slate-200 mx-2">·</span>
+          <Link href="/terms" className="text-slate-400 hover:text-slate-600 underline">Terms & Conditions</Link>
+          <span className="text-slate-200 mx-2">·</span>
+          <Link href="/privacy" className="text-slate-400 hover:text-slate-600 underline">Privacy Policy</Link>
+        </p>
+      </footer>
+
+      <StickySupportBar />
     </div>
   );
 }
