@@ -25,15 +25,13 @@ export const metadata: Metadata = {
       'Learning Hall started as a way to get my own kids off screens and into learning. Support keeps it running, improving, and reaching more kids and parents.',
     url: '/support',
     // Overrides the root layout's default splash1.webp — this page gets its
-    // own share preview instead of the generic site-wide one. Same hero art
-    // used at the top of the page itself, so the shared link and the page
-    // you land on actually match.
+    // own purpose-built share preview instead of the generic site-wide one.
     images: [
       {
-        url: '/welcome-hero.webp',
+        url: '/supporters.webp',
         width: 2048,
         height: 1152,
-        alt: 'A young adventurer discovers a glowing map in Learning Hall',
+        alt: 'Help Us Improve Learning Hall — two students in a library',
       },
     ],
   },
@@ -42,7 +40,7 @@ export const metadata: Metadata = {
     title: 'Support Learning Hall',
     description:
       'Learning Hall started as a way to get my own kids off screens and into learning. Support keeps it running, improving, and reaching more kids and parents.',
-    images: ['/welcome-hero.webp'],
+    images: ['/supporters.webp'],
   },
 };
 
