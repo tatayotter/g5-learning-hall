@@ -9,6 +9,8 @@ export default function BlogFooter() {
       <p className="mt-2 text-[11px] tracking-wide">
         <a href="https://www.facebook.com/learninghallph" target="_blank" rel="noopener noreferrer" className="text-[#948975] hover:text-[#5c5245] underline">Facebook</a>
         <span className="text-[#d8cdb5] mx-2">·</span>
+        <Link href="/support" className="text-[#948975] hover:text-[#5c5245] underline">Support the App</Link>
+        <span className="text-[#d8cdb5] mx-2">·</span>
         <Link href="/terms" className="text-[#948975] hover:text-[#5c5245] underline">Terms & Conditions</Link>
         <span className="text-[#d8cdb5] mx-2">·</span>
         <Link href="/privacy" className="text-[#948975] hover:text-[#5c5245] underline">Privacy Policy</Link>

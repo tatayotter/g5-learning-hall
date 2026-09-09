@@ -58,6 +58,43 @@ async function fireParentSubscribedCapiEvent(checkoutId: string, paymentId: stri
   });
 }
 
+// Best-effort: looks the contribution up by checkout_id (not trusted event
+// metadata) and never throws — a SendFox hiccup must not fail the webhook
+// response, same reasoning as the CAPI senders below. Pushes the donor to
+// SendFox via support-donation-sendfox-sync; the actual thank-you/receipt
+// email is sent by a SendFox Automation on SENDFOX_DONATION_LIST_ID, not by
+// this codebase — see that function's header comment.
+async function syncDonationToSendFox(checkoutId: string) {
+  const { data: row, error } = await supabaseAdmin
+    .from('support_contributions')
+    .select('email, display_name, amount_php, subscribe_updates')
+    .eq('paymongo_checkout_id', checkoutId)
+    .maybeSingle();
+  if (error || !row) {
+    console.error('syncDonationToSendFox: could not load contribution row', checkoutId, error);
+    return;
+  }
+
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/support-donation-sendfox-sync`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: row.email,
+        displayName: row.display_name,
+        amountPhp: row.amount_php,
+        subscribeUpdates: row.subscribe_updates,
+      }),
+    });
+    if (!res.ok) console.error('support-donation-sendfox-sync failed', await res.text());
+  } catch (err) {
+    console.error('support-donation-sendfox-sync unreachable', err);
+  }
+}
+
 // Best-effort, same reasoning as fireParentSubscribedCapiEvent above — looks
 // the purchase up by checkout_id (not trusted event metadata) so a Meta API
 // hiccup can never fail the webhook response itself.
@@ -118,7 +155,21 @@ export async function POST(request: NextRequest) {
     // docs/sec-shop-design.md open item #3.
     const metadataType: string | undefined = event.data.attributes.data.attributes.metadata?.type;
 
-    if (metadataType === 'sec_purchase') {
+    if (metadataType === 'donation') {
+      const { data: activated, error } = await supabaseAdmin.rpc('handle_donation_webhook', {
+        p_checkout_id: checkoutId,
+      });
+
+      if (error) {
+        return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+      }
+
+      // Same idempotency reasoning as the other branches — only send the
+      // receipt once, on the delivery that actually transitions the row.
+      if (activated) {
+        await syncDonationToSendFox(checkoutId);
+      }
+    } else if (metadataType === 'sec_purchase') {
       const { data: activated, error } = await supabaseAdmin.rpc('handle_sec_purchase_webhook', {
         p_checkout_id: checkoutId,
       });

@@ -4,7 +4,10 @@ const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
 const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
 const SENDFOX_API_TOKEN = Deno.env.get('SENDFOX_API_TOKEN')!;
 const SENDFOX_RENEWAL_REMINDER_LIST_ID = Deno.env.get('SENDFOX_RENEWAL_REMINDER_LIST_ID')!;
-const SENDFOX_RENEWS_ON_FIELD_ID = Deno.env.get('SENDFOX_RENEWS_ON_FIELD_ID')!;
+// The field's machine-readable slug, not its numeric id -- see
+// coin-expiry-sync's header comment for why (verified against
+// sendfox.com/openapi.yaml; the old `{ id, value }` shape 500s).
+const SENDFOX_RENEWS_ON_FIELD_NAME = Deno.env.get('SENDFOX_RENEWS_ON_FIELD_NAME') || 'renews_on';
 const RENEWAL_REMINDER_CRON_SECRET = Deno.env.get('RENEWAL_REMINDER_CRON_SECRET')!;
 
 // Not a user-facing endpoint — called only by pg_cron on a daily schedule
@@ -44,12 +47,9 @@ Deno.serve(async (req: Request) => {
         lists: [Number(SENDFOX_RENEWAL_REMINDER_LIST_ID)],
         // Lets the reminder email quote the actual renewal date instead of
         // a made-up one. renews_on is a Date-typed field in SendFox, so this
-        // sends a plain YYYY-MM-DD rather than the full timestamptz. Schema
-        // confirmed against sendfox.com/developer/docs (POST /contacts
-        // contact_fields), not yet verified against a real send; check a
-        // synced contact's profile in SendFox after the first live cron run.
+        // sends a plain YYYY-MM-DD rather than the full timestamptz.
         contact_fields: [{
-          id: Number(SENDFOX_RENEWS_ON_FIELD_ID),
+          name: SENDFOX_RENEWS_ON_FIELD_NAME,
           value: new Date(candidate.current_period_end).toISOString().slice(0, 10),
         }],
       }),
