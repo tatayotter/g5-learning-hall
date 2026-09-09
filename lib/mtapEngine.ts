@@ -5,7 +5,8 @@
 // of the sq_* guild tables — see supabase/migrations/20260828130000_add_mtap_expansion_content_schema.sql
 // and 20260905160000_add_mtap_expansion_attempts_and_grading.sql for the schema.
 import { supabase } from '@/lib/supabase';
-import type { MtapTier } from '@/lib/mtapContent';
+import { MIXED_TRAINER_TIER_MIX, TIERS } from '@/lib/mtapContent';
+import type { MtapTier, MtapStrandDef } from '@/lib/mtapContent';
 
 export interface MtapQuestion {
   id: string;
@@ -141,6 +142,67 @@ export function computeTierMastered(attempts: MtapAttempt[], archetype: string, 
   const correctCount = relevant.filter(a => a.correct).length;
   const distinctDays = new Set(relevant.map(a => a.created_at.slice(0, 10))).size;
   return correctCount >= 8 && distinctDays >= 2;
+}
+
+// Mixed Trainer Track's own unlock rule (content/mtap-expansion-overview.md's
+// mastery-threshold table): stays locked until EVERY strand in the grade has
+// at least one archetype with Difficult unlocked — "capstone stays locked
+// until there's a real base to draw a shuffled set from." An empty strand
+// list (grade not populated) never unlocks, rather than vacuously passing.
+export function computeMixedTrainerUnlocked(attempts: MtapAttempt[], strands: MtapStrandDef[]): boolean {
+  if (strands.length === 0) return false;
+  return strands.every(strand => strand.archetypes.some(arch => computeTierUnlocked(attempts, arch.key, 'difficult')));
+}
+
+// Mixed Trainer Track's question set: pulls the grade's full reviewed pool in
+// one query (all archetypes, all tiers — small enough to fetch whole, same
+// scale as a single archetype's bank elsewhere in this file), then samples
+// MIXED_TRAINER_TIER_MIX's count per tier via sampleDiverse so a 15-question
+// Easy draw isn't six GCF/LCM questions and nothing else — "drawn from all
+// strands," per every grade's own content doc. Final shuffle keeps tiers from
+// arriving in easy/average/difficult blocks; a real elimination round doesn't
+// announce which item is which.
+export async function fetchMixedTrainerSet(grade: number): Promise<MtapQuestion[]> {
+  const { data, error } = await supabase
+    .from('mtap_expansion_content_public')
+    .select('*')
+    .eq('grade', grade);
+  if (error) {
+    console.error('Failed to fetch mixed trainer pool:', error);
+    return [];
+  }
+  const pool = (data || []) as MtapQuestion[];
+  const set: MtapQuestion[] = [];
+  for (const tier of TIERS) {
+    const tierPool = pool.filter(q => q.tier === tier);
+    set.push(...sampleDiverse(tierPool, MIXED_TRAINER_TIER_MIX[tier]));
+  }
+  return set.sort(() => Math.random() - 0.5);
+}
+
+// Round-robins across archetypes (one pick per archetype per round) before
+// ever repeating one, so a tier's draw spreads across topics instead of
+// clustering on whichever archetype happens to have the biggest bank.
+function sampleDiverse(rows: MtapQuestion[], count: number): MtapQuestion[] {
+  const shuffled = [...rows].sort(() => Math.random() - 0.5);
+  const byArchetype = new Map<string, MtapQuestion[]>();
+  for (const q of shuffled) {
+    const list = byArchetype.get(q.archetype) || [];
+    list.push(q);
+    byArchetype.set(q.archetype, list);
+  }
+  const archetypes = [...byArchetype.keys()];
+  const picked: MtapQuestion[] = [];
+  let round = 0;
+  while (picked.length < count && archetypes.some(a => (byArchetype.get(a) || []).length > round)) {
+    for (const a of archetypes) {
+      if (picked.length >= count) break;
+      const q = (byArchetype.get(a) || [])[round];
+      if (q) picked.push(q);
+    }
+    round += 1;
+  }
+  return picked;
 }
 
 // Grades one question server-side (never trust a client-computed correctness
