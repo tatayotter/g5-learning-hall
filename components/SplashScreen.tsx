@@ -28,22 +28,24 @@ function RosterAvatar({
   avatar,
   name,
   palette,
+  size = 42,
 }: {
   avatar: string;
   name: string;
   palette: { bg: string; border: string; text: string };
+  size?: number;
 }) {
   const [failed, setFailed] = useState(false);
   return (
     <div
-      className="shrink-0 w-[42px] h-[42px] rounded-[10px] border flex items-center justify-center relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.5)]"
-      style={{ backgroundColor: palette.bg, borderColor: palette.border }}
+      className="shrink-0 rounded-[12px] border flex items-center justify-center relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.5)]"
+      style={{ backgroundColor: palette.bg, borderColor: palette.border, width: size, height: size }}
     >
       <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(#2a1505_1px,transparent_1px),linear-gradient(90deg,#2a1505_1px,transparent_1px)] bg-[size:6px_6px]" />
       {failed ? (
         <span
-          className="relative text-[18px] font-black tracking-tighter"
-          style={{ color: palette.text, fontFamily: 'monospace' }}
+          className="relative font-black tracking-tighter"
+          style={{ color: palette.text, fontFamily: 'monospace', fontSize: size * 0.42 }}
         >
           {name.charAt(0).toUpperCase()}
         </span>
@@ -213,14 +215,19 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(12,36,86,0.75)_100%)]" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[480px] h-[100dvh] flex flex-col px-[18px] sm:px-6 py-5 overflow-hidden">
+      <div className="relative z-10 w-full max-w-[480px] h-[100dvh] flex flex-col px-4 sm:px-6 py-4 sm:py-5 overflow-hidden">
         {/* Header */}
-        <div className="flex flex-col items-center gap-3 pt-2 pb-5">
+        <div className="flex flex-col items-center gap-2 pt-1 pb-4 shrink-0">
           <img
             src="/learning_hall_full_logo_optimize.png"
             alt="Learning Hall"
-            className="h-20 w-auto object-contain"
+            className="h-16 sm:h-20 w-auto object-contain"
           />
+          {!loginTarget && !returningLogin && (
+            <h1 className="text-[11px] tracking-[0.18em] text-blue-100/60 font-medium uppercase text-center">
+              Choose your hero
+            </h1>
+          )}
           {loginTarget && (
             <h1 className="text-[11px] tracking-[0.18em] text-blue-100/70 font-medium uppercase text-center px-4">
               {`Welcome back, ${loginTarget.name}`}
@@ -234,11 +241,19 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
         </div>
 
         {!loginTarget && !returningLogin && allIds.length > 6 && (
-          <div className="relative group mb-5">
-            <div className="absolute -inset-px rounded-[14px] bg-gradient-to-b from-[#c9781a]/40 to-transparent opacity-0 group-focus-within:opacity-100 blur-[1px] transition-opacity" />
-            <div className="relative flex items-center rounded-[14px] bg-white border border-[#c9a87a] shadow-[0_0_0_1px_rgba(0,0,0,0.03),inset_0_1px_0_rgba(255,255,255,0.6)]">
-              <div className="pl-4 pr-2 text-[#8b5e2a]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <motion.div
+            className="relative group mb-3.5 shrink-0 rounded-[14px]"
+            animate={{
+              boxShadow: [
+                '0 0 0 0 rgba(255,214,0,0.65), 0 2px 16px rgba(255,214,0,0.45)',
+                '0 0 0 10px rgba(255,214,0,0), 0 2px 16px rgba(255,214,0,0.45)',
+              ],
+            }}
+            transition={{ duration: 1.4, repeat: Infinity, ease: 'easeOut' }}
+          >
+            <div className="relative flex items-center rounded-[14px] bg-white border-2 border-[#c9781a]">
+              <div className="pl-4 pr-2 text-[#c9781a]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="11" cy="11" r="8" />
                   <path d="m21 21-4.3-4.3" />
                 </svg>
@@ -248,50 +263,51 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search players..."
-                className="w-full bg-transparent py-[13px] pr-4 text-[14px] font-medium text-[#2a1505] placeholder:text-[#8b5e2a]/70 focus:outline-none"
+                className="w-full bg-transparent py-[14px] pr-4 text-[16px] sm:text-[15px] font-semibold text-[#2a1505] placeholder:text-[#8b5e2a]/70 placeholder:font-medium focus:outline-none"
               />
             </div>
-          </div>
+          </motion.div>
         )}
 
         {!loginTarget && !returningLogin && (
           <div className="flex-1 min-h-0 relative">
-            <div className="h-full overflow-y-auto pr-1 -mr-1 custom-scrollbar space-y-[10px] pb-4">
+            <div className="h-full overflow-y-auto pr-1 -mr-1 custom-scrollbar pb-4">
               {visibleIds.length === 0 && (
                 <p className="text-center text-blue-100/60 text-sm py-6">No players match &quot;{searchQuery}&quot;</p>
               )}
-              {visibleIds.map((id, i) => {
-                const user = USERS[id];
-                const palette = AVATAR_PALETTES[allIds.indexOf(id) % AVATAR_PALETTES.length];
+              <div className="grid grid-cols-2 gap-2.5">
+                {visibleIds.map((id, i) => {
+                  const user = USERS[id];
+                  const palette = AVATAR_PALETTES[allIds.indexOf(id) % AVATAR_PALETTES.length];
 
-                return (
-                  <motion.button
-                    key={id}
-                    onClick={() => handleRowClick(id)}
-                    whileHover={{ scale: 1.015 }}
-                    whileTap={{ scale: 0.99 }}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: Math.min(i, 10) * 0.03 }}
-                    className="group w-full text-left relative rounded-[14px] bg-white border border-[#c9a87a] p-3 flex items-center gap-3 transition-colors duration-200 hover:border-[#c9781a] hover:bg-[#fdf6e8]"
-                  >
-                    <RosterAvatar avatar={user.avatar} name={user.name} palette={palette} />
+                  return (
+                    <motion.button
+                      key={id}
+                      onClick={() => handleRowClick(id)}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.97 }}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: Math.min(i, 10) * 0.03 }}
+                      className="group text-left relative rounded-[16px] bg-white border border-[#c9a87a] p-3 flex flex-col items-center gap-2 text-center transition-colors duration-200 hover:border-[#c9781a] hover:bg-[#fdf6e8] shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
+                    >
+                      <RosterAvatar avatar={user.avatar} name={user.name} palette={palette} size={56} />
 
-                    <div className="flex-1 min-w-0 flex flex-col gap-[1px]">
-                      <span className="text-[15px] font-bold leading-none tracking-[-0.01em] text-[#2a1505] transition-colors truncate">
-                        {user.name}
-                      </span>
-                      <span className="text-[11.5px] font-medium tracking-wide text-[#6b4820] mt-[3px]">{user.grade}</span>
-                    </div>
-
-                    {user.school && (
-                      <span className="shrink-0 max-w-[110px] text-right text-[11px] font-medium text-[#8b5e2a] tracking-wide truncate">
-                        {user.school}
-                      </span>
-                    )}
-                  </motion.button>
-                );
-              })}
+                      <div className="min-w-0 w-full flex flex-col gap-[1px]">
+                        <span className="text-[13.5px] font-bold leading-tight tracking-[-0.01em] text-[#2a1505] transition-colors truncate">
+                          {user.name}
+                        </span>
+                        <span className="text-[10.5px] font-medium tracking-wide text-[#6b4820]">{user.grade}</span>
+                        {user.school && (
+                          <span className="text-[9.5px] font-medium text-[#8b5e2a] tracking-wide truncate">
+                            {user.school}
+                          </span>
+                        )}
+                      </div>
+                    </motion.button>
+                  );
+                })}
+              </div>
               <div className="h-2" />
             </div>
           </div>
@@ -303,16 +319,24 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="w-full rounded-[14px] bg-white border border-[#c9a87a] p-8 shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_10px_30px_rgba(201,120,26,0.15)]"
+              className="w-full rounded-[18px] bg-white border border-[#c9a87a] p-6 sm:p-8 shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_10px_30px_rgba(201,120,26,0.15)]"
             >
-              <h2 className="text-lg font-bold text-[#2a1505] mb-1">{loginTarget.name}</h2>
-              <p className="text-[#6b4820] text-sm mb-5">Enter your password to continue.</p>
+              <div className="flex flex-col items-center text-center mb-5">
+                <RosterAvatar
+                  avatar={USERS[loginTarget.id].avatar}
+                  name={loginTarget.name}
+                  palette={AVATAR_PALETTES[allIds.indexOf(loginTarget.id) % AVATAR_PALETTES.length]}
+                  size={64}
+                />
+                <h2 className="text-lg font-bold text-[#2a1505] mt-3 mb-1">{loginTarget.name}</h2>
+                <p className="text-[#6b4820] text-sm">Enter your password to continue.</p>
+              </div>
               <form onSubmit={handlePasswordSubmit} className="space-y-4">
                 <input
                   type="password"
                   autoFocus
                   placeholder="Password"
-                  className="w-full bg-white border border-[#c9a87a] rounded-[14px] p-3 text-[#2a1505] placeholder:text-[#8b5e2a]/60 focus:border-[#c9781a] outline-none"
+                  className="w-full bg-white border border-[#c9a87a] rounded-[14px] p-3.5 text-[16px] text-[#2a1505] placeholder:text-[#8b5e2a]/60 focus:border-[#c9781a] outline-none"
                   value={passwordInput}
                   onChange={(e) => setPasswordInput(e.target.value)}
                 />
@@ -352,7 +376,7 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="w-full rounded-[14px] bg-white border border-[#c9a87a] p-8 shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_10px_30px_rgba(201,120,26,0.15)]"
+              className="w-full rounded-[18px] bg-white border border-[#c9a87a] p-6 sm:p-8 shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_10px_30px_rgba(201,120,26,0.15)]"
             >
               <h2 className="text-lg font-bold text-[#2a1505] mb-1">Log In</h2>
               <p className="text-[#6b4820] text-sm mb-5">Don&apos;t see your name above? Enter your username and PIN.</p>
@@ -363,14 +387,14 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
                   placeholder="Username"
                   autoCapitalize="none"
                   autoCorrect="off"
-                  className="w-full bg-white border border-[#c9a87a] rounded-[14px] p-3 text-[#2a1505] placeholder:text-[#8b5e2a]/60 focus:border-[#c9781a] outline-none"
+                  className="w-full bg-white border border-[#c9a87a] rounded-[14px] p-3.5 text-[16px] text-[#2a1505] placeholder:text-[#8b5e2a]/60 focus:border-[#c9781a] outline-none"
                   value={usernameInput}
                   onChange={(e) => setUsernameInput(e.target.value)}
                 />
                 <input
                   type="password"
                   placeholder="PIN"
-                  className="w-full bg-white border border-[#c9a87a] rounded-[14px] p-3 text-[#2a1505] placeholder:text-[#8b5e2a]/60 focus:border-[#c9781a] outline-none"
+                  className="w-full bg-white border border-[#c9a87a] rounded-[14px] p-3.5 text-[16px] text-[#2a1505] placeholder:text-[#8b5e2a]/60 focus:border-[#c9781a] outline-none"
                   value={passwordInput}
                   onChange={(e) => setPasswordInput(e.target.value)}
                 />
@@ -403,29 +427,44 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
         )}
 
         {!loginTarget && !returningLogin && (
-          <div className="pt-4 pb-2 flex flex-col items-center gap-3.5 shrink-0">
+          <div className="pt-3.5 pb-1 flex flex-col items-center gap-3 shrink-0">
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45 }}
+              className="flex gap-2.5 w-full"
+            >
+              <a
+                href="/child-signup"
+                className="flex-1 text-center rounded-full bg-[#f5c542] text-[#2a1505] font-extrabold text-[13px] py-3 border border-black/10 shadow-[0_2px_0_rgba(0,0,0,0.25)] hover:brightness-105 active:translate-y-px transition"
+              >
+                Create Account
+              </a>
+              <button
+                type="button"
+                onClick={openReturningLogin}
+                className="flex-1 text-center rounded-full bg-white text-[#2a1505] font-extrabold text-[13px] py-3 border border-[#c9a87a] shadow-[0_2px_0_rgba(0,0,0,0.08)] hover:bg-[#fdf6e8] active:translate-y-px transition"
+              >
+                Can&apos;t Find Account
+              </button>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.55 }}
-              className="flex items-center gap-2.5 text-[12.5px] font-medium"
+              className="flex items-center gap-2.5 text-[12px] font-medium"
             >
-              <a href="/register" className="text-[#f5c542] hover:text-[#ffdd88] transition-colors tracking-wide">Register as a Parent</a>
-              <span className="text-blue-100/30 text-[10px]">·</span>
-              <a href="/parent-login" className="text-[#f5c542] hover:text-[#ffdd88] transition-colors tracking-wide">Parent Login</a>
-              <span className="text-blue-100/30 text-[10px]">·</span>
-              <a href="/child-signup" className="text-[#f5c542] hover:text-[#ffdd88] transition-colors tracking-wide">Kids: Play Now</a>
-              <span className="text-blue-100/30 text-[10px]">·</span>
-              <button type="button" onClick={openReturningLogin} className="text-[#f5c542] hover:text-[#ffdd88] transition-colors tracking-wide">Kids: Log In</button>
+              <a href="/parent-login" className="text-[#f5c542] hover:text-[#ffdd88] transition-colors tracking-wide py-1">Parent Login</a>
             </motion.div>
 
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-[11px] tracking-[0.06em] text-blue-100/40 font-medium mt-1"
+              className="text-[10.5px] tracking-[0.06em] text-blue-100/40 font-medium"
             >
-              Ruelo Learning Hall · Family Edition
+              Learning Hall Technologies
             </motion.p>
           </div>
         )}
