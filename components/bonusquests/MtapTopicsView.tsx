@@ -8,7 +8,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { UserId } from '@/lib/userSession';
-import { MTAP_GRADE2_STRANDS, TIERS, MtapTier } from '@/lib/mtapContent';
+import { MTAP_STRANDS_BY_GRADE, TIERS, MtapTier } from '@/lib/mtapContent';
 import { fetchMtapAttempts, computeTierUnlocked, computeTierMastered, MtapAttempt } from '@/lib/mtapEngine';
 import GameButton from '@/components/GameButton';
 import MtapReviewerPanel from '@/components/bonusquests/MtapReviewerPanel';
@@ -26,6 +26,7 @@ type View =
   | { mode: 'quiz'; archetype: string; archetypeName: string; tier: MtapTier };
 
 export default function MtapTopicsView({ userId, grade, onRewardEarned }: MtapTopicsViewProps) {
+  const strands = MTAP_STRANDS_BY_GRADE[grade] || [];
   const [attempts, setAttempts] = useState<MtapAttempt[]>([]);
   const [expanded, setExpanded] = useState<number | null>(null);
   const [view, setView] = useState<View>({ mode: 'list' });
@@ -49,7 +50,7 @@ export default function MtapTopicsView({ userId, grade, onRewardEarned }: MtapTo
   }, [userId, grade]);
 
   if (view.mode === 'reviewer') {
-    const strand = MTAP_GRADE2_STRANDS[view.strandIdx];
+    const strand = strands[view.strandIdx];
     return <MtapReviewerPanel grade={grade} strand={strand} onClose={() => setView({ mode: 'list' })} />;
   }
 
@@ -74,7 +75,7 @@ export default function MtapTopicsView({ userId, grade, onRewardEarned }: MtapTo
       <p className="text-xs text-[#a8a29e] mb-4">Tap a topic group to see its questions, or open the Reviewer to study first — no timer while you study.</p>
 
       <div className="space-y-2">
-        {MTAP_GRADE2_STRANDS.map((strand, idx) => {
+        {strands.map((strand, idx) => {
           const totalTiers = strand.archetypes.length * TIERS.length;
           const masteredTiers = strand.archetypes.reduce(
             (sum, arch) => sum + TIERS.filter(t => computeTierMastered(attempts, arch.key, t)).length,

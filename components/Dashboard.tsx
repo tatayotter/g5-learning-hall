@@ -1133,7 +1133,6 @@ export default function Dashboard() {
         {activeTab === 'bonus_quests' && (
           <BonusQuestsTab
             userId={activeUserId}
-            userGrade={USERS[activeUserId]?.grade ?? 'Grade 5'}
             onRewardEarned={() => syncCharacterStats()}
           />
         )}
