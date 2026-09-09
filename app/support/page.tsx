@@ -9,6 +9,7 @@ import SupportWhereItGoes from '@/components/SupportWhereItGoes';
 import SupportMilestones from '@/components/SupportMilestones';
 import SupportDonationForm from '@/components/SupportDonationForm';
 import SupportWall from '@/components/SupportWall';
+import SupportShareButtons from '@/components/SupportShareButtons';
 import StickySupportBar from '@/components/StickySupportBar';
 import FadeIn from '@/components/FadeIn';
 import { getSupportWall, getSupportTotals } from '@/lib/supportContributions';
@@ -110,6 +111,8 @@ export default async function SupportPage({
           <SupportWall entries={wall} />
         </FadeIn>
       </section>
+
+      <SupportShareButtons />
 
       <footer className="px-6 py-8 pb-24 text-center border-t border-slate-200 bg-white">
         <p className="text-[11px] tracking-[0.06em] text-slate-300 font-medium">
