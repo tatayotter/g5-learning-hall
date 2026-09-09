@@ -16,6 +16,7 @@ import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { gradeToNumber } from '@/lib/userSession';
 import { MTAP_GRADE2_STRANDS, MTAP_GRADE3_STRANDS, MTAP_GRADE4_STRANDS, MTAP_GRADE5_STRANDS, MTAP_GRADE6_STRANDS } from '@/lib/mtapContent';
+import { gradeColor } from '@/lib/gradeColors';
 
 interface ChildRow {
   id: string;
@@ -131,20 +132,15 @@ const PACK_DETAILS: Record<string, {
 // same color everywhere in the app, not a clashing one-off here. Both are
 // real DB columns (sec_packs.grade/category), so this renders correctly for
 // any future pack the day it's created — no per-pack art or copy needed.
-const GRADE_GRADIENT_COLOR: Record<number, string> = {
-  2: '#fbbf24', // amber-400
-  3: '#34d399', // emerald-400
-  4: '#38bdf8', // sky-400
-  5: '#818cf8', // indigo-400
-  6: '#fb7185', // rose-400
-};
+// Grade -> color itself lives in lib/gradeColors.ts, shared with
+// BonusQuestsTab.tsx's pack card hero so the two never drift out of sync.
 const CATEGORY_GRADIENT_COLOR: Record<string, string> = {
   math_enrichment: '#8b5cf6', // violet-500 — matches SUBJECT_COLOR's Mathematics hue in WeeklyLessonsPanel.tsx
 };
 const CATEGORY_ICON: Record<string, string> = {
   math_enrichment: '🧮',
 };
-const DEFAULT_GRADIENT_COLOR = '#94a3b8'; // slate-400 — an unmapped grade/category still renders a real gradient, just a neutral one
+const DEFAULT_GRADIENT_COLOR = '#94a3b8'; // slate-400 — an unmapped category still renders a real gradient, just a neutral one
 const DEFAULT_ICON = '📚';
 
 export default function ShopPage() {
@@ -320,7 +316,7 @@ export default function ShopPage() {
             const selectedChildName = eligibleKids.find((k) => k.id === childId)?.full_name;
             const isExpanded = expandedPack === pack.id;
             const perQuestion = details ? (pack.price_php / details.questionCount).toFixed(2) : null;
-            const gradeColor = GRADE_GRADIENT_COLOR[pack.grade] ?? DEFAULT_GRADIENT_COLOR;
+            const heroGradeColor = gradeColor(pack.grade)[400];
             const categoryColor = CATEGORY_GRADIENT_COLOR[pack.category] ?? DEFAULT_GRADIENT_COLOR;
             const categoryIcon = CATEGORY_ICON[pack.category] ?? DEFAULT_ICON;
 
@@ -332,7 +328,7 @@ export default function ShopPage() {
                     anyone's had time to write its copy or source art. */}
                 <div
                   className="relative h-24 overflow-hidden"
-                  style={{ background: `linear-gradient(135deg, ${gradeColor} 0%, ${categoryColor} 100%)` }}
+                  style={{ background: `linear-gradient(135deg, ${heroGradeColor} 0%, ${categoryColor} 100%)` }}
                 >
                   <span className="absolute -right-3 -bottom-5 text-8xl leading-none opacity-25 select-none pointer-events-none" aria-hidden="true">
                     {categoryIcon}
