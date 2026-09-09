@@ -22,6 +22,7 @@ import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
 import TutorialSpotlight from '@/components/TutorialSpotlight';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle, questButtonDropShadow } from '@/components/GameButton';
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
+import VoucherRedeemPanel from '@/components/VoucherRedeemPanel';
 
 const SCROLL_CATEGORY_LABELS: Record<ScrollItem['category'], string> = {
   unlearn: 'Unlearn',
@@ -267,6 +268,14 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
         Buy consumable items to use in Curio Arena battles.
         {isFamily && ' As a family member, you receive free daily supplies!'}
       </p>
+
+      <VoucherRedeemPanel
+        userId={userId}
+        onRedeemed={result => {
+          if (result.stats) onSpendGold(result.stats);
+          loadInventory();
+        }}
+      />
 
       {/* Daily claim banner for family */}
       {isFamily && (
