@@ -16,7 +16,7 @@ import { UserId } from '@/lib/userSession';
 import { calculateReward } from '@/lib/quizReward';
 import GameButton from '@/components/GameButton';
 import {
-  MtapQuestion, MtapGradeResult, fetchMixedTrainerSet, gradeMtapAnswer, creditMtapReward,
+  MtapQuestion, MtapGradeResult, MixedTrainerRewardResult, fetchMixedTrainerSet, gradeMtapAnswer, creditMtapReward, claimMixedTrainerReward,
 } from '@/lib/mtapEngine';
 import { TIER_LABEL, MtapTier, TIERS } from '@/lib/mtapContent';
 
@@ -48,6 +48,7 @@ export default function MtapMixedTrainerPlayer({
     average: { correct: 0, total: 0 },
     difficult: { correct: 0, total: 0 },
   });
+  const [pillResult, setPillResult] = useState<MixedTrainerRewardResult | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -124,6 +125,23 @@ export default function MtapMixedTrainerPlayer({
     setPhase('question');
   };
 
+  // Claims the completion reward once, the moment the run actually finishes
+  // — not from inside handleNext (which also fires for every question, not
+  // just the last one) and not synchronously in a render, per this file's
+  // own established async-boundary-only setState pattern. The RPC itself is
+  // the real gate (see the migration): this just fires the one call and
+  // reads back whatever it decided.
+  useEffect(() => {
+    if (phase !== 'done') return;
+    let cancelled = false;
+    (async () => {
+      const codes = questions.map(q => q.question_code);
+      const claimed = await claimMixedTrainerReward(userId, grade, codes);
+      if (!cancelled) setPillResult(claimed);
+    })();
+    return () => { cancelled = true; };
+  }, [phase, userId, grade, questions]);
+
   if (phase === 'loading') {
     return <div className="bg-[#f0ddb8] border-[3px] border-[#8b5e2a] rounded-2xl p-8 text-center text-[#7a4a0f]">Assembling your set…</div>;
   }
@@ -150,11 +168,19 @@ export default function MtapMixedTrainerPlayer({
             </div>
           ))}
         </div>
-        <p className="text-[#2a1505] mb-6">
+        <p className="text-[#2a1505] mb-2">
           Earned <span className="font-bold text-[#c9781a] font-mono">{sessionReward.xp} XP</span> and{' '}
           <span className="font-bold text-yellow-600 font-mono">{sessionReward.gold} Gold</span> this run.
         </p>
-        <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>Back to topics</GameButton>
+        {pillResult?.granted && (
+          <p className="text-[#2a1505] mb-6 font-bold">🎁 +{pillResult.growth_pills} Growth Pill for finishing a full run!</p>
+        )}
+        {pillResult && !pillResult.granted && pillResult.reason === 'already_claimed_today' && (
+          <p className="text-xs text-[#8b5e2a] italic mb-4">Already claimed today's Growth Pill for this grade — come back tomorrow for another.</p>
+        )}
+        <div className="mt-4">
+          <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>Back to topics</GameButton>
+        </div>
       </div>
     );
   }

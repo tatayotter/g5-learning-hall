@@ -36,6 +36,12 @@ export interface MtapGradeResult {
   reward_eligible: boolean;
 }
 
+export interface MixedTrainerRewardResult {
+  granted: boolean;
+  growth_pills?: number;
+  reason?: 'set_too_small' | 'unverified' | 'already_claimed_today';
+}
+
 // Fetches every reviewed question for one archetype+tier — the whole bank (up to
 // 8), not a single quiz-sized sample, so the player component can shuffle/track
 // which ones haven't been seen this session itself. mtap_expansion_content_public
@@ -221,6 +227,26 @@ export async function gradeMtapAnswer(userId: string, questionCode: string, sele
     return null;
   }
   return data as MtapGradeResult;
+}
+
+// Claims the Mixed Trainer Track completion reward (1 Growth Pill), server-
+// verified: claim_mixed_trainer_reward checks that every code in
+// questionCodes has a real graded attempt (from THIS user, THIS grade)
+// within the last 2 hours before granting anything — the client can't just
+// assert a run happened. Capped at once per (user, grade) per calendar day
+// server-side too, so `granted: false` with reason 'already_claimed_today'
+// is an expected, non-error outcome, not a failure to surface as one.
+export async function claimMixedTrainerReward(userId: string, grade: number, questionCodes: string[]): Promise<MixedTrainerRewardResult | null> {
+  const { data, error } = await supabase.rpc('claim_mixed_trainer_reward', {
+    p_user_id: userId,
+    p_grade: grade,
+    p_question_codes: questionCodes,
+  });
+  if (error || !data) {
+    console.error('Failed to claim mixed trainer reward:', error);
+    return null;
+  }
+  return data as MixedTrainerRewardResult;
 }
 
 // Credits XP/gold for a reward-eligible correct answer, via the SAME
