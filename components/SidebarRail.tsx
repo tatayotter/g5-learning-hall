@@ -44,9 +44,7 @@ const RAIL_ITEMS: RailItem[] = [
   { icon: '/main ui/curioarena.png',  label: 'Curio Arena',  target: 'monster' },
   { icon: '/main ui/journal.png',     label: 'Journal',      target: 'journal' },
   { icon: '/main ui/sidequest.png',   label: 'Side Quests',  target: 'guilds' },
-  // Placeholder icon (reused rewardvault.png) — no dedicated Bonus Quests art
-  // exists yet; swap in real art before this leaves a testing/dev state.
-  { icon: '/main ui/rewardvault.png', label: 'Bonus Quests', target: 'bonus_quests' },
+  { icon: '/main ui/bonusquest.png',  label: 'Bonus Quests', target: 'bonus_quests' },
   { icon: '/main ui/rewardvault.png', label: 'Reward Vault', target: 'vault' },
   { icon: '/main ui/codex.png',       label: 'Codex',        target: 'codex' },
   { icon: '/main ui/profile.png',     label: 'Profile',      target: 'profile' },
