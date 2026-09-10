@@ -1,0 +1,2016 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-11-29",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🎭 English — Literary Essay: Analyzing Theme\n\nGrade 6, Week 25! Let's learn to write about the deeper meaning of a literary work! 🎭\n\n## 🔄 Review\nWe learned in-text citation for research writing.\n\n## 🎭 What Is a Literary Essay?\nA **literary essay** analyzes and interprets elements of a literary work, such as its theme, characters, or symbolism, supported by evidence from the text.\n\n## 📝 Structure of a Literary Essay\n1. **Introduction** — introduce the work and your main interpretation (thesis)\n2. **Body paragraphs** — each analyzes one element with textual evidence\n3. **Conclusion** — restate your interpretation and its significance\n\n## 🔍 Using Textual Evidence\nAlways support your interpretation with specific **quotes or details** from the story, not just personal opinion.\n\n## 🎯 Why This Matters\nWriting literary essays develops deep, evidence-based thinking about the meaning of stories and poems.\n\n**Key words:** literary essay, thesis, textual evidence, interpretation",
+        "quiz": [
+          {
+            "question": "What is a literary essay?",
+            "options": [
+              "An essay analyzing elements of a literary work with evidence",
+              "A random story with no analysis",
+              "A grocery list",
+              "A weather report"
+            ],
+            "correct_answer": "An essay analyzing elements of a literary work with evidence"
+          },
+          {
+            "question": "What goes in the introduction of a literary essay?",
+            "options": [
+              "The work and your main interpretation (thesis)",
+              "A random unrelated fact",
+              "The full text of the story",
+              "Only the author's biography"
+            ],
+            "correct_answer": "The work and your main interpretation (thesis)"
+          },
+          {
+            "question": "What should each body paragraph do?",
+            "options": [
+              "Analyze one element with textual evidence",
+              "Repeat the introduction",
+              "Contain no evidence at all",
+              "Summarize the whole story only"
+            ],
+            "correct_answer": "Analyze one element with textual evidence"
+          },
+          {
+            "question": "What is textual evidence?",
+            "options": [
+              "Specific quotes or details from the story",
+              "The writer's personal feelings only",
+              "A made-up fact",
+              "The cover of the book"
+            ],
+            "correct_answer": "Specific quotes or details from the story"
+          },
+          {
+            "question": "Why must interpretations be supported by textual evidence?",
+            "options": [
+              "To make the analysis credible and grounded in the text",
+              "Evidence is never needed in essays",
+              "Opinions alone are always sufficient",
+              "It has no purpose"
+            ],
+            "correct_answer": "To make the analysis credible and grounded in the text"
+          },
+          {
+            "question": "What should the conclusion of a literary essay do?",
+            "options": [
+              "Restate the interpretation and its significance",
+              "Introduce a brand new topic",
+              "Repeat the introduction word for word",
+              "Ignore everything written before"
+            ],
+            "correct_answer": "Restate the interpretation and its significance"
+          },
+          {
+            "question": "What elements might a literary essay analyze?",
+            "options": [
+              "Theme, characters, or symbolism",
+              "Only the book's price",
+              "Only the cover design",
+              "Only the page count"
+            ],
+            "correct_answer": "Theme, characters, or symbolism"
+          },
+          {
+            "question": "How does a literary essay differ from a simple summary?",
+            "options": [
+              "It interprets meaning rather than just retelling events",
+              "It is exactly the same as a summary",
+              "It never mentions the story's events",
+              "Summaries always use more evidence"
+            ],
+            "correct_answer": "It interprets meaning rather than just retelling events"
+          },
+          {
+            "question": "How does citation (from last week) apply to a literary essay?",
+            "options": [
+              "Quotes from the text should be properly cited",
+              "Citation is never needed in literary essays",
+              "Only research essays use citation",
+              "Literary essays don't use quotes"
+            ],
+            "correct_answer": "Quotes from the text should be properly cited"
+          },
+          {
+            "question": "Why is developing evidence-based thinking about literature valuable?",
+            "options": [
+              "It builds deeper understanding beyond surface reading",
+              "It has no educational value",
+              "Surface reading is always enough",
+              "Literature doesn't require deep thinking"
+            ],
+            "correct_answer": "It builds deeper understanding beyond surface reading"
+          },
+          {
+            "question": "What is a thesis in a literary essay?",
+            "options": [
+              "Your main interpretation of the work",
+              "A list of characters",
+              "The book's price",
+              "A summary of the plot only"
+            ],
+            "correct_answer": "Your main interpretation of the work"
+          },
+          {
+            "question": "Why organize a literary essay into clear paragraphs?",
+            "options": [
+              "It helps present each point of analysis clearly",
+              "Organization has no effect on clarity",
+              "Paragraphs are only decorative",
+              "One long paragraph works just as well"
+            ],
+            "correct_answer": "It helps present each point of analysis clearly"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ⭕ Mathematics — Area of a Circle\n\nGrade 6, Week 25! Let's discover how to find the area inside a circle! ⭕\n\n## 🔄 Review\nWe learned to calculate the circumference of a circle.\n\n## ⭕ Formula for Area of a Circle\n**Area (A) = π × r²** (pi times the radius squared)\n\nWe use **π ≈ 3.14**.\n\n## 🔍 Worked Example 1\nA circle has a radius of 4 cm.\nA = π × r² = 3.14 × 4² = 3.14 × 16 = **50.24 cm²**\n\n## 🔍 Worked Example 2\nA circle has a radius of 10 cm.\nA = π × r² = 3.14 × 10² = 3.14 × 100 = **314 cm²**\n\n## ⚠️ Common Mistake\nRemember to square the radius FIRST, then multiply by π — don't multiply radius by π first and then square!\n\n## 🎯 Why This Matters\nArea of a circle is used in real life for things like calculating the size of a circular garden or pizza.\n\n**Key words:** area, circle, radius, pi, squared",
+        "quiz": [
+          {
+            "question": "What is the formula for the area of a circle?",
+            "options": [
+              "A = π × r²",
+              "A = π × d",
+              "A = 2 × π × r",
+              "A = r × 4"
+            ],
+            "correct_answer": "A = π × r²"
+          },
+          {
+            "question": "A circle has radius 4 cm. What is its area?",
+            "options": [
+              "50.24 cm²",
+              "12.56 cm²",
+              "16 cm²",
+              "25.12 cm²"
+            ],
+            "correct_answer": "50.24 cm²"
+          },
+          {
+            "question": "A circle has radius 10 cm. What is its area?",
+            "options": [
+              "314 cm²",
+              "31.4 cm²",
+              "100 cm²",
+              "62.8 cm²"
+            ],
+            "correct_answer": "314 cm²"
+          },
+          {
+            "question": "What is the correct order of operations for area of a circle?",
+            "options": [
+              "Square the radius first, then multiply by π",
+              "Multiply radius by π first, then square",
+              "Add radius and π",
+              "Divide radius by π"
+            ],
+            "correct_answer": "Square the radius first, then multiply by π"
+          },
+          {
+            "question": "What value of pi is used in these calculations?",
+            "options": [
+              "3.14",
+              "3.41",
+              "1.34",
+              "31.4"
+            ],
+            "correct_answer": "3.14"
+          },
+          {
+            "question": "A circle has radius 5 cm. What is its area?",
+            "options": [
+              "78.5 cm²",
+              "15.7 cm²",
+              "25 cm²",
+              "31.4 cm²"
+            ],
+            "correct_answer": "78.5 cm²"
+          },
+          {
+            "question": "Why is squaring the radius important in the area formula?",
+            "options": [
+              "It accounts for the two-dimensional space inside the circle",
+              "It has no mathematical purpose",
+              "Squaring is optional in the formula",
+              "It only works for large circles"
+            ],
+            "correct_answer": "It accounts for the two-dimensional space inside the circle"
+          },
+          {
+            "question": "What real-life object might use area of a circle to calculate its size?",
+            "options": [
+              "A circular pizza",
+              "A straight ruler",
+              "A rectangular table",
+              "A triangular flag"
+            ],
+            "correct_answer": "A circular pizza"
+          },
+          {
+            "question": "How is area of a circle different from circumference?",
+            "options": [
+              "Area measures space inside; circumference measures distance around",
+              "They are exactly the same measurement",
+              "Circumference measures space inside",
+              "Area measures the distance around"
+            ],
+            "correct_answer": "Area measures space inside; circumference measures distance around"
+          },
+          {
+            "question": "A circle has radius 2 cm. What is its area?",
+            "options": [
+              "12.56 cm²",
+              "6.28 cm²",
+              "4 cm²",
+              "8 cm²"
+            ],
+            "correct_answer": "12.56 cm²"
+          },
+          {
+            "question": "Why might someone need to calculate the area of a circular garden?",
+            "options": [
+              "To determine how much soil or seed is needed to cover it",
+              "Area calculations are never useful outdoors",
+              "Gardens are never circular",
+              "It has no practical use"
+            ],
+            "correct_answer": "To determine how much soil or seed is needed to cover it"
+          },
+          {
+            "question": "What common mistake should be avoided in this formula?",
+            "options": [
+              "Multiplying radius by π before squaring it",
+              "Using the correct value of pi",
+              "Squaring the radius before multiplying",
+              "Using the radius instead of the diameter"
+            ],
+            "correct_answer": "Multiplying radius by π before squaring it"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "# 🌋 Science — Volcanoes: Formation and Alert Levels\n\nGrade 6, Week 25! Let's learn about volcanoes and how we monitor them! 🌋\n\n## 🔄 Review\nWe learned about sound and the Doppler Effect.\n\n## 🌋 How Do Volcanoes Form?\nA **volcano** forms when magma (molten rock) from deep within the Earth rises and erupts through an opening in the Earth's crust, building up layers of rock over time.\n\n## 🇵🇭 Volcanoes in the Philippines\nThe Philippines has many active volcanoes, including **Mayon**, **Taal**, and **Pinatubo**, due to its location along the Pacific Ring of Fire.\n\n## 🚨 PHIVOLCS Alert Levels\nPHIVOLCS (Philippine Institute of Volcanology and Seismology) uses **Alert Levels 0-5** to communicate volcanic activity risk:\n- **Level 0:** Normal, no eruption expected\n- **Level 5:** Hazardous eruption in progress\n\n## 🎯 Why This Matters\nUnderstanding volcano alert levels helps communities prepare and stay safe during volcanic activity.\n\n**Key words:** volcano, magma, PHIVOLCS, Alert Level, Ring of Fire",
+        "quiz": [
+          {
+            "question": "How does a volcano form?",
+            "options": [
+              "Magma rises and erupts through an opening in the crust",
+              "Rocks suddenly appear from nowhere",
+              "Water freezes underground",
+              "Wind erodes a mountain"
+            ],
+            "correct_answer": "Magma rises and erupts through an opening in the crust"
+          },
+          {
+            "question": "What is magma?",
+            "options": [
+              "Molten rock from deep within the Earth",
+              "Cooled lava on the surface",
+              "A type of gas only",
+              "Ocean water"
+            ],
+            "correct_answer": "Molten rock from deep within the Earth"
+          },
+          {
+            "question": "Name an active volcano in the Philippines.",
+            "options": [
+              "Mayon",
+              "Everest",
+              "Kilimanjaro",
+              "Fuji"
+            ],
+            "correct_answer": "Mayon"
+          },
+          {
+            "question": "What organization monitors Philippine volcanoes?",
+            "options": [
+              "PHIVOLCS",
+              "PAGASA",
+              "DENR",
+              "DOH"
+            ],
+            "correct_answer": "PHIVOLCS"
+          },
+          {
+            "question": "Why does the Philippines have many active volcanoes?",
+            "options": [
+              "It is located along the Pacific Ring of Fire",
+              "It has no connection to tectonic activity",
+              "Volcanoes are randomly distributed everywhere equally",
+              "It has no volcanic activity at all"
+            ],
+            "correct_answer": "It is located along the Pacific Ring of Fire"
+          },
+          {
+            "question": "What does PHIVOLCS Alert Level 0 mean?",
+            "options": [
+              "Normal, no eruption expected",
+              "Hazardous eruption in progress",
+              "Immediate evacuation needed",
+              "Volcano has disappeared"
+            ],
+            "correct_answer": "Normal, no eruption expected"
+          },
+          {
+            "question": "What does PHIVOLCS Alert Level 5 mean?",
+            "options": [
+              "Hazardous eruption in progress",
+              "Normal activity",
+              "No monitoring needed",
+              "Volcano is dormant forever"
+            ],
+            "correct_answer": "Hazardous eruption in progress"
+          },
+          {
+            "question": "Why are alert levels important for communities near volcanoes?",
+            "options": [
+              "They help communities prepare and stay safe",
+              "They have no practical use",
+              "They only matter to scientists",
+              "They predict weather, not volcanoes"
+            ],
+            "correct_answer": "They help communities prepare and stay safe"
+          },
+          {
+            "question": "What happens to rock layers over time as a volcano erupts repeatedly?",
+            "options": [
+              "They build up, forming the volcano's structure",
+              "They disappear completely",
+              "They turn into water",
+              "They have no effect on the volcano's shape"
+            ],
+            "correct_answer": "They build up, forming the volcano's structure"
+          },
+          {
+            "question": "Name another active Philippine volcano besides Mayon.",
+            "options": [
+              "Taal",
+              "K2",
+              "Denali",
+              "Matterhorn"
+            ],
+            "correct_answer": "Taal"
+          },
+          {
+            "question": "Why is it important to know your nearest local volcano?",
+            "options": [
+              "To understand personal risk and prepare accordingly",
+              "Volcanoes have no impact on nearby communities",
+              "It has no practical importance",
+              "Only scientists need this information"
+            ],
+            "correct_answer": "To understand personal risk and prepare accordingly"
+          },
+          {
+            "question": "How does understanding volcanoes connect to broader Earth science topics?",
+            "options": [
+              "It's part of understanding Earth's geological forces alongside waves and sound",
+              "It has no connection to other science topics",
+              "Volcanoes are unrelated to Earth science",
+              "Only chemistry explains volcanoes"
+            ],
+            "correct_answer": "It's part of understanding Earth's geological forces alongside waves and sound"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# ✍️ Filipino — Pagsulat sa Mataas na Antas\n\nGrade 6, Linggo 25! Alamin natin kung paano magsulat nang may mas mataas na kalidad. ✍️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang retorika ng argumento.\n\n## ✍️ Ano ang Pagsulat sa Mataas na Antas?\nAng **pagsulat sa mataas na antas** ay tumutukoy sa paggamit ng mayamang bokabularyo, malinaw na organisasyon, at masusing pagsusuri sa pagsulat.\n\n## 🔍 Mga Katangian nito\n- Paggamit ng iba't ibang uri ng pangungusap (payak, tambalan, hugnayan)\n- Malinaw na daloy ng ideya mula sa isang talata patungo sa isa pa\n- Paggamit ng mayamang talasalitaan sa halip na paulit-ulit na salita\n\n## ✅ Halimbawa ng Pagpapahusay\n**Simple:** \"Maganda ang bulaklak.\"\n**Mataas na antas:** \"Ang bulaklak ay namumukod-tanging kaakit-akit sa gitna ng hardin.\"\n\n## 🎯 Bakit Mahalaga Ito?\nAng pagsulat sa mataas na antas ay tumutulong maipahayag nang mas epektibo at makapangyarihan ang mga ideya.\n\n**Mahahalagang salita:** pagsulat sa mataas na antas, bokabularyo, organisasyon, daloy ng ideya",
+        "quiz": [
+          {
+            "question": "Ano ang pagsulat sa mataas na antas?",
+            "options": [
+              "Paggamit ng mayamang bokabularyo at malinaw na organisasyon",
+              "Pagsulat nang mabilis lamang",
+              "Pagsulat nang walang plano",
+              "Isang uri ng bantas"
+            ],
+            "correct_answer": "Paggamit ng mayamang bokabularyo at malinaw na organisasyon"
+          },
+          {
+            "question": "Anong uri ng pangungusap ang ginagamit sa mataas na antas ng pagsulat?",
+            "options": [
+              "Payak, tambalan, at hugnayan",
+              "Payak lamang",
+              "Walang pangungusap",
+              "Bantas lamang"
+            ],
+            "correct_answer": "Payak, tambalan, at hugnayan"
+          },
+          {
+            "question": "Bakit mahalaga ang malinaw na daloy ng ideya?",
+            "options": [
+              "Nagbibigay ito ng kaayusan sa pagbabasa",
+              "Walang kahalagahan ito",
+              "Ito ay nagpapalito sa mambabasa",
+              "Hindi na kailangan ng daloy"
+            ],
+            "correct_answer": "Nagbibigay ito ng kaayusan sa pagbabasa"
+          },
+          {
+            "question": "Ano ang halimbawa ng mataas na antas na pangungusap?",
+            "options": [
+              "Ang bulaklak ay namumukod-tanging kaakit-akit sa gitna ng hardin",
+              "Maganda ang bulaklak",
+              "Bulaklak",
+              "Wala sa mga nabanggit"
+            ],
+            "correct_answer": "Ang bulaklak ay namumukod-tanging kaakit-akit sa gitna ng hardin"
+          },
+          {
+            "question": "Bakit mas mainam gumamit ng mayamang talasalitaan?",
+            "options": [
+              "Nagpapayaman ito ng pagpapahayag ng ideya",
+              "Walang epekto ito sa pagsulat",
+              "Mas mahirap unawain ang mayamang bokabularyo",
+              "Hindi kailanman kailangan"
+            ],
+            "correct_answer": "Nagpapayaman ito ng pagpapahayag ng ideya"
+          },
+          {
+            "question": "Bakit dapat iwasan ang paulit-ulit na salita sa pagsulat?",
+            "options": [
+              "Nagpapahina ito ng kalidad ng sulatin",
+              "Walang epekto ito",
+              "Mas maganda ang paulit-ulit na salita",
+              "Palaging kinakailangan ang pag-uulit"
+            ],
+            "correct_answer": "Nagpapahina ito ng kalidad ng sulatin"
+          },
+          {
+            "question": "Bakit mahalagang matutong gumamit ng iba't ibang uri ng pangungusap?",
+            "options": [
+              "Nagpapayaman ito ng istilo ng pagsulat",
+              "Walang gamit ito",
+              "Isang uri lamang ang tama",
+              "Hindi ito bahagi ng pagsulat"
+            ],
+            "correct_answer": "Nagpapayaman ito ng istilo ng pagsulat"
+          },
+          {
+            "question": "Paano nauugnay ang retorika na natutunan noon sa pagsulat sa mataas na antas?",
+            "options": [
+              "Parehong bahagi ng epektibong pagpapahayag ng ideya",
+              "Walang koneksyon ang dalawa",
+              "Retorika ay para lamang sa berbal na pagsasalita",
+              "Hindi ito kaugnay ng pagsulat"
+            ],
+            "correct_answer": "Parehong bahagi ng epektibong pagpapahayag ng ideya"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang mataas na antas ng pagsulat sa panitikan?",
+            "options": [
+              "Tumutulong itong maipahayag nang mas makapangyarihan ang mga ideya",
+              "Walang kahalagahan ito",
+              "Ito ay hindi bahagi ng panitikan",
+              "Basta't naisulat na, tama na"
+            ],
+            "correct_answer": "Tumutulong itong maipahayag nang mas makapangyarihan ang mga ideya"
+          },
+          {
+            "question": "Bakit itinuturo ang mataas na antas ng pagsulat sa Grade 6?",
+            "options": [
+              "Upang mapaghusay ang kakayahan sa malikhaing pagpapahayag",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi ito kaugnay ng Filipino"
+            ],
+            "correct_answer": "Upang mapaghusay ang kakayahan sa malikhaing pagpapahayag"
+          },
+          {
+            "question": "Ano ang epekto ng masusing organisasyon sa isang sanaysay?",
+            "options": [
+              "Ginagawa nitong mas madaling sundan ang mga ideya",
+              "Walang epekto ito",
+              "Nakakalito ito sa mambabasa",
+              "Hindi na kailangan ng organisasyon"
+            ],
+            "correct_answer": "Ginagawa nitong mas madaling sundan ang mga ideya"
+          },
+          {
+            "question": "Bakit itinuturing na kasanayan ang pagpapahusay ng antas ng pagsulat?",
+            "options": [
+              "Nagpapaunlad ito ng kalidad ng komunikasyon sa pagsulat",
+              "Wala itong kahalagahan",
+              "Ito ay para sa manunulat lamang",
+              "Hindi ito totoong kasanayan"
+            ],
+            "correct_answer": "Nagpapaunlad ito ng kalidad ng komunikasyon sa pagsulat"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 📜 Araling Panlipunan — Saligang Batas 1987\n\nGrade 6, Linggo 25! Alamin natin ang saligan ng ating kasalukuyang pamahalaan. 📜\n\n## 🔄 Balik-Aral\nNatutuhan natin ang EDSA People Power I.\n\n## 📜 Ano ang Saligang Batas 1987?\nAng **Saligang Batas ng 1987** ay ang kasalukuyang batayang batas ng Pilipinas, na binuo pagkatapos ng EDSA People Power I upang muling itatag ang demokrasya.\n\n## ⚖️ Mahahalagang Probisyon\n- Nagtatag ng tatlong sangay ng pamahalaan (Ehekutibo, Lehislatibo, Panghukuman)\n- Nagbigay-diin sa mga karapatang pantao at kalayaan sibil\n- Naglimita sa termino ng Pangulo sa iisang termino ng 6 na taon\n\n## 🎯 Bakit Mahalaga Ito?\nAng Saligang Batas 1987 ay sumisiguro na hindi na maulit ang pang-aabuso ng kapangyarihan tulad ng nangyari sa Batas Militar.\n\n**Mahahalagang salita:** Saligang Batas 1987, sangay ng pamahalaan, karapatang pantao, termino",
+        "quiz": [
+          {
+            "question": "Kailan binuo ang kasalukuyang Saligang Batas?",
+            "options": [
+              "1987",
+              "1946",
+              "1898",
+              "1972"
+            ],
+            "correct_answer": "1987"
+          },
+          {
+            "question": "Bakit binuo ang Saligang Batas 1987?",
+            "options": [
+              "Upang muling itatag ang demokrasya pagkatapos ng EDSA",
+              "Upang palawakin ang Batas Militar",
+              "Upang alisin ang mga karapatang pantao",
+              "Upang palakasin ang isang diktador"
+            ],
+            "correct_answer": "Upang muling itatag ang demokrasya pagkatapos ng EDSA"
+          },
+          {
+            "question": "Ilang sangay ng pamahalaan ang itinatag ng Saligang Batas?",
+            "options": [
+              "Tatlo",
+              "Isa",
+              "Dalawa",
+              "Apat"
+            ],
+            "correct_answer": "Tatlo"
+          },
+          {
+            "question": "Anong sangay ang responsable sa pagpapatupad ng batas?",
+            "options": [
+              "Ehekutibo",
+              "Lehislatibo",
+              "Panghukuman",
+              "Walang sangay na ganito"
+            ],
+            "correct_answer": "Ehekutibo"
+          },
+          {
+            "question": "Ano ang limitasyon sa termino ng Pangulo?",
+            "options": [
+              "Iisang termino ng 6 na taon",
+              "Walang limitasyon",
+              "Tatlong termino ng 4 na taon",
+              "Habambuhay na termino"
+            ],
+            "correct_answer": "Iisang termino ng 6 na taon"
+          },
+          {
+            "question": "Bakit mahalaga ang pagbibigay-diin sa karapatang pantao sa Saligang Batas?",
+            "options": [
+              "Upang maiwasang maulit ang paglabag na naganap noong Batas Militar",
+              "Walang kahalagahan ito",
+              "Karapatang pantao ay hindi mahalaga",
+              "Ito ay walang koneksyon sa Batas Militar"
+            ],
+            "correct_answer": "Upang maiwasang maulit ang paglabag na naganap noong Batas Militar"
+          },
+          {
+            "question": "Konsepto bago ang Saligang Batas 1987 sa serye ng AP?",
+            "options": [
+              "EDSA People Power I",
+              "Batas Militar",
+              "Neokolonyalismo",
+              "Ikatlong Republika"
+            ],
+            "correct_answer": "EDSA People Power I"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang dokumento ang Saligang Batas 1987?",
+            "options": [
+              "Ito ang kasalukuyang batayang batas na gumagabay sa pamahalaan",
+              "Wala itong kahalagahan",
+              "Ito ay isang lumang dokumento na hindi na ginagamit",
+              "Ito ay hindi kaugnay ng kasalukuyang pamahalaan"
+            ],
+            "correct_answer": "Ito ang kasalukuyang batayang batas na gumagabay sa pamahalaan"
+          },
+          {
+            "question": "Bakit itinatag ang tatlong sangay ng pamahalaan?",
+            "options": [
+              "Upang tiyakin ang balanse ng kapangyarihan (checks and balances)",
+              "Upang bigyan lamang ng trabaho ang mga tao",
+              "Walang partikular na layunin",
+              "Upang palakasin ang isang tao lamang"
+            ],
+            "correct_answer": "Upang tiyakin ang balanse ng kapangyarihan (checks and balances)"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga probisyon ng Saligang Batas bilang mamamayan?",
+            "options": [
+              "Tumutulong itong maunawaan ang mga karapatan at proseso ng pamahalaan",
+              "Walang kaugnayan ito sa mamamayan",
+              "Ito ay para lamang sa mga abogado",
+              "Hindi ito importante malaman"
+            ],
+            "correct_answer": "Tumutulong itong maunawaan ang mga karapatan at proseso ng pamahalaan"
+          },
+          {
+            "question": "Paano konektado ang Saligang Batas 1987 sa EDSA People Power?",
+            "options": [
+              "Ito ang bunga ng pangangailangang muling itatag ang demokrasya pagkatapos ng EDSA",
+              "Walang koneksyon ang dalawa",
+              "Iba't ibang panahon ang tinutukoy",
+              "Hindi magkaugnay ang mga pangyayari"
+            ],
+            "correct_answer": "Ito ang bunga ng pangangailangang muling itatag ang demokrasya pagkatapos ng EDSA"
+          },
+          {
+            "question": "Bakit itinuturing na hamon ang pagpapanatili ng demokrasya sa temang taunan ng AP?",
+            "options": [
+              "Nangangailangan ito ng patuloy na pagbabantay ng mga mamamayan",
+              "Walang hamon dito",
+              "Awtomatiko itong napapanatili",
+              "Hindi ito bahagi ng temang taunan"
+            ],
+            "correct_answer": "Nangangailangan ito ng patuloy na pagbabantay ng mga mamamayan"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎊 MAPEH — Tradisyunal/Pambansang Sayaw\n\nGrade 6, Linggo 25! Alamin natin ang mga tradisyunal na sayaw ng Pilipinas! 🎊\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga lokal at rehiyonal na street dance festival.\n\n## 🎊 Ano ang Tradisyunal/Pambansang Sayaw?\nAng **tradisyunal na sayaw** ay mga sayaw na naipasa mula sa isang henerasyon patungo sa isa pa, na sumasalamin sa kultura at kasaysayan ng isang rehiyon.\n\n## 💃 Mga Halimbawa\n- **Tinikling** — sayaw gamit ang kawayan, kumakatawan sa ibong tikling\n- **Singkil** — sayaw ng mga Maranao gamit ang kawayan at payong\n- **Pandanggo sa Ilaw** — sayaw gamit ang mga ilawan sa kamay at ulo\n\n## 🎯 Bakit Mahalaga Ito?\nAng mga sayaw na ito ay bahagi ng ating pambansang pagkakakilanlan at dapat mapanatili para sa susunod na henerasyon.\n\n**Mahahalagang salita:** tradisyunal na sayaw, Tinikling, Singkil, Pandanggo sa Ilaw",
+        "quiz": [
+          {
+            "question": "Ano ang tradisyunal na sayaw?",
+            "options": [
+              "Sayaw na naipasa mula sa isang henerasyon patungo sa isa pa",
+              "Bagong uri ng sayaw",
+              "Sayaw na banyaga lamang",
+              "Isang uri ng laro"
+            ],
+            "correct_answer": "Sayaw na naipasa mula sa isang henerasyon patungo sa isa pa"
+          },
+          {
+            "question": "Anong kagamitan ginagamit sa Tinikling?",
+            "options": [
+              "Kawayan",
+              "Payong",
+              "Ilawan",
+              "Baso"
+            ],
+            "correct_answer": "Kawayan"
+          },
+          {
+            "question": "Sino ang gumagawa ng Singkil?",
+            "options": [
+              "Mga Maranao",
+              "Mga Ilokano",
+              "Mga Bisaya",
+              "Mga Tagalog"
+            ],
+            "correct_answer": "Mga Maranao"
+          },
+          {
+            "question": "Anong kagamitan ginagamit sa Pandanggo sa Ilaw?",
+            "options": [
+              "Mga ilawan sa kamay at ulo",
+              "Kawayan lamang",
+              "Payong lamang",
+              "Walang kagamitan"
+            ],
+            "correct_answer": "Mga ilawan sa kamay at ulo"
+          },
+          {
+            "question": "Ano ang kinakatawan ng Tinikling?",
+            "options": [
+              "Ibong tikling",
+              "Isang uri ng puno",
+              "Isang uri ng isda",
+              "Isang uri ng hayop na dagat"
+            ],
+            "correct_answer": "Ibong tikling"
+          },
+          {
+            "question": "Bakit mahalagang mapanatili ang mga tradisyunal na sayaw?",
+            "options": [
+              "Bahagi ito ng ating pambansang pagkakakilanlan",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan ito ngayon",
+              "Ito ay hindi bahagi ng kultura"
+            ],
+            "correct_answer": "Bahagi ito ng ating pambansang pagkakakilanlan"
+          },
+          {
+            "question": "Ano ang ipinapakita ng Singkil bilang sayaw?",
+            "options": [
+              "Kulturang Maranao gamit ang kawayan at payong",
+              "Kulturang banyaga",
+              "Isang uri ng laro lamang",
+              "Walang partikular na kahulugan"
+            ],
+            "correct_answer": "Kulturang Maranao gamit ang kawayan at payong"
+          },
+          {
+            "question": "Bakit itinuturo ang tradisyunal na sayaw sa MAPEH?",
+            "options": [
+              "Upang mapahalagahan at mapanatili ang kultura ng Pilipinas",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Upang mapahalagahan at mapanatili ang kultura ng Pilipinas"
+          },
+          {
+            "question": "Bakit mahalagang ituro ang tradisyunal na sayaw sa mga bata?",
+            "options": [
+              "Upang maipasa ang kultura sa susunod na henerasyon",
+              "Hindi na kailangan ituro ito",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang maipasa ang kultura sa susunod na henerasyon"
+          },
+          {
+            "question": "Paano nauugnay ang tradisyunal na sayaw sa street dance na natutunan noon?",
+            "options": [
+              "Parehong bahagi ng pagdiriwang at pagpapahalaga sa kultura ng Pilipinas",
+              "Walang koneksyon ang dalawa",
+              "Isa tungkol sa agham lamang",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong bahagi ng pagdiriwang at pagpapahalaga sa kultura ng Pilipinas"
+          },
+          {
+            "question": "Bakit natatangi ang bawat tradisyunal na sayaw sa iba't ibang rehiyon?",
+            "options": [
+              "Sumasalamin ito sa natatanging kasaysayan at kultura ng bawat lugar",
+              "Magkatulad lamang ang lahat ng sayaw",
+              "Walang pagkakaiba ang mga rehiyon",
+              "Basta random lamang ang pagkakaiba"
+            ],
+            "correct_answer": "Sumasalamin ito sa natatanging kasaysayan at kultura ng bawat lugar"
+          },
+          {
+            "question": "Ano ang naidudulot ng pag-aaral ng iba't ibang tradisyunal na sayaw?",
+            "options": [
+              "Mas malalim na pag-unawa at pagpapahalaga sa kultura ng bansa",
+              "Walang naidudulot",
+              "Nakakalito lamang ito",
+              "Hindi ito nagbibigay-kaalaman"
+            ],
+            "correct_answer": "Mas malalim na pag-unawa at pagpapahalaga sa kultura ng bansa"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 📦 EPP (FCS) — Pagpapakete at Pag-la-label ng Produkto\n\nGrade 6, Linggo 25! Alamin natin kung paano tamang ihanda ang produkto para ibenta! 📦\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pag-aasin at pagbibilad ng pagkain.\n\n## 📦 Bakit Mahalaga ang Pagpapaketehan?\nAng maayos na **pagpapaketehan** ay nagpoprotekta sa produkto mula sa dumi at pinsala, at nagpapahaba ng buhay-imbak nito.\n\n## 🏷️ Ano ang Dapat Nasa Label?\n- Pangalan ng produkto\n- Petsa ng paggawa at petsa ng expiry\n- Mga sangkap na ginamit\n- Timbang o dami ng nilalaman\n\n## 💰 Bakit Mahalaga ang Pag-la-label?\nAng maayos na paglalagay ng label ay nagbibigay-tiwala sa mga bibili at kinakailangan din para sa legal na pagbebenta.\n\n## 🎯 Bakit Mahalaga Ito?\nAng maayos na pagpapaketehan at pag-la-label ay tumutulong sa pagpapalaki ng negosyo sa pagbebenta ng pagkain.\n\n**Mahahalagang salita:** pagpapaketehan, pag-la-label, expiry, negosyo",
+        "quiz": [
+          {
+            "question": "Bakit mahalaga ang maayos na pagpapaketehan?",
+            "options": [
+              "Pinoprotektahan nito ang produkto at pinapahaba ang buhay-imbak",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan ito ngayon",
+              "Nagpapabilis lamang ito ng pagkasira"
+            ],
+            "correct_answer": "Pinoprotektahan nito ang produkto at pinapahaba ang buhay-imbak"
+          },
+          {
+            "question": "Ano ang dapat nasa label ng produkto?",
+            "options": [
+              "Pangalan, petsa ng paggawa/expiry, sangkap, timbang",
+              "Ang pangalan ng magulang lamang",
+              "Walang partikular na impormasyon",
+              "Kulay lamang ng pakete"
+            ],
+            "correct_answer": "Pangalan, petsa ng paggawa/expiry, sangkap, timbang"
+          },
+          {
+            "question": "Bakit kailangan ng petsa ng expiry sa label?",
+            "options": [
+              "Upang malaman ng bumibili kung ligtas pa itong kainin",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan ito",
+              "Para lang magmukhang propesyonal"
+            ],
+            "correct_answer": "Upang malaman ng bumibili kung ligtas pa itong kainin"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang pag-la-label para sa negosyo?",
+            "options": [
+              "Nagbibigay-tiwala sa mga bibili at kinakailangan sa legal na pagbebenta",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan ito",
+              "Basta't may pakete na, tama na"
+            ],
+            "correct_answer": "Nagbibigay-tiwala sa mga bibili at kinakailangan sa legal na pagbebenta"
+          },
+          {
+            "question": "Ano ang naprotektahan ng maayos na pagpapaketehan?",
+            "options": [
+              "Ang produkto mula sa dumi at pinsala",
+              "Ang tindahan lamang",
+              "Ang bumibili lamang",
+              "Walang naprotektahan"
+            ],
+            "correct_answer": "Ang produkto mula sa dumi at pinsala"
+          },
+          {
+            "question": "Bakit dapat nakasaad ang mga sangkap na ginamit sa label?",
+            "options": [
+              "Upang malaman ng bumibili ang laman ng produkto, lalo na kung may allergy",
+              "Walang kahalagahan ito",
+              "Hindi na kailangang isulat ito",
+              "Basta huwag isulat ang sangkap"
+            ],
+            "correct_answer": "Upang malaman ng bumibili ang laman ng produkto, lalo na kung may allergy"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang timbang o dami ng nilalaman sa label?",
+            "options": [
+              "Upang maging patas ang presyo batay sa halaga ng produkto",
+              "Walang gamit ito",
+              "Hindi na kailangan itong isaad",
+              "Basta kalkulahin na lamang ng bumibili"
+            ],
+            "correct_answer": "Upang maging patas ang presyo batay sa halaga ng produkto"
+          },
+          {
+            "question": "Paano nauugnay ang paksang ito sa pag-aasin at pagbibilad na natutunan noon?",
+            "options": [
+              "Parehong bahagi ng buong proseso ng paghahanda at pagbebenta ng produkto",
+              "Walang koneksyon ang dalawa",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong bahagi ng buong proseso ng paghahanda at pagbebenta ng produkto"
+          },
+          {
+            "question": "Bakit itinuturo ang pagpapaketehan at pag-la-label sa Grade 6?",
+            "options": [
+              "Nagpapaunlad ito ng kasanayan sa pagnenegosyo",
+              "Walang gamit ito",
+              "Para sa matatanda lamang ito",
+              "Hindi kaugnay ng EPP"
+            ],
+            "correct_answer": "Nagpapaunlad ito ng kasanayan sa pagnenegosyo"
+          },
+          {
+            "question": "Ano ang mangyayari kung walang label ang isang produkto?",
+            "options": [
+              "Maaaring hindi magtiwala ang bumibili sa kaligtasan nito",
+              "Walang epekto ito",
+              "Mas maganda ito kung walang label",
+              "Mas mabenta ito nang walang label"
+            ],
+            "correct_answer": "Maaaring hindi magtiwala ang bumibili sa kaligtasan nito"
+          },
+          {
+            "question": "Bakit mahalagang maging propesyonal ang hitsura ng pagpapaketehan?",
+            "options": [
+              "Nakakaakit ito sa mga potensyal na bumibili",
+              "Walang kahalagahan ang hitsura",
+              "Hindi ito nakakaapekto sa benta",
+              "Basta may laman lang ay okay na"
+            ],
+            "correct_answer": "Nakakaakit ito sa mga potensyal na bumibili"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang bahagi ng negosyo ang pagpapaketehan at pag-la-label?",
+            "options": [
+              "Nagpoprotekta ito sa produkto at nagbibigay-impormasyon sa mamimili",
+              "Walang kaugnayan sa negosyo",
+              "Ito ay opsyonal lamang",
+              "Hindi mahalaga ang impormasyon sa mamimili"
+            ],
+            "correct_answer": "Nagpoprotekta ito sa produkto at nagbibigay-impormasyon sa mamimili"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 GMRC — Pananalig Tungo sa Pakikipagkapuwa (Pananalig sa Diyos)\n\nGrade 6, Linggo 25! Pagpapahalaga: **Pananalig sa Diyos (Faith in God)**. 🙏\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagiging patas sa kapuwa (Makatarungan).\n\n## 🙏 Ano ang Ugnayan ng Pananalig sa Pakikipagkapuwa?\nAng **pananalig sa Diyos** ay nagbibigay-lakas sa atin na magpakita ng pagmamahal at kabutihan sa ating kapwa, sapagkat itinuturo ng maraming pananampalataya ang pag-ibig sa kapwa-tao.\n\n## 🤝 Halimbawa ng Pananalig na Nagbibigay-Inspirasyon sa Pakikipagkapuwa\n- Pagtulong sa mga nangangailangan bilang pagpapahayag ng pananampalataya\n- Pagpapatawad sa nagkasala bilang bahagi ng espirituwal na paniniwala\n- Pananalangin para sa kapakanan ng iba, hindi lamang sa sarili\n\n## 💡 Bakit Mahalaga Ito?\nAng pananalig sa Diyos ay maaaring maging batayan ng ating pagmamahal at paggalang sa kapwa-tao.\n\n**Mahahalagang salita:** pananalig sa Diyos, pananampalataya, pagpapatawad, pagmamahal sa kapwa",
+        "quiz": [
+          {
+            "question": "Ano ang ugnayan ng pananalig sa Diyos sa pakikipagkapuwa?",
+            "options": [
+              "Nagbibigay-lakas ito na magpakita ng pagmamahal sa kapwa",
+              "Walang koneksyon ang dalawa",
+              "Ito ay dalawang magkaibang paksa lamang",
+              "Hindi kaugnay ang pananalig sa moralidad"
+            ],
+            "correct_answer": "Nagbibigay-lakas ito na magpakita ng pagmamahal sa kapwa"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Pananalig sa Diyos (Faith in God)",
+              "Makatarungan",
+              "Mapagpasensiya",
+              "Lakas ng loob"
+            ],
+            "correct_answer": "Pananalig sa Diyos (Faith in God)"
+          },
+          {
+            "question": "Anong halimbawa ng pananalig na nagbibigay-inspirasyon sa pakikipagkapuwa?",
+            "options": [
+              "Pagtulong sa mga nangangailangan",
+              "Kawalang pakialam sa iba",
+              "Pagtanggi tumulong",
+              "Pag-iwas sa kapwa"
+            ],
+            "correct_answer": "Pagtulong sa mga nangangailangan"
+          },
+          {
+            "question": "Bakit itinuturing na bahagi ng pananampalataya ang pagpapatawad?",
+            "options": [
+              "Maraming pananampalataya ang nagtuturo ng pagpapatawad sa kapwa",
+              "Walang kaugnayan ang dalawa",
+              "Hindi bahagi ito ng espirituwalidad",
+              "Ito ay hiwalay na paksa"
+            ],
+            "correct_answer": "Maraming pananampalataya ang nagtuturo ng pagpapatawad sa kapwa"
+          },
+          {
+            "question": "Anong konsepto ang natutunan bago ang paksang ito?",
+            "options": [
+              "Pagiging patas sa kapuwa (Makatarungan)",
+              "Pagtugon sa emosyon ng kapuwa",
+              "Pagtugon sa pambubulas",
+              "Nasyonalismo"
+            ],
+            "correct_answer": "Pagiging patas sa kapuwa (Makatarungan)"
+          },
+          {
+            "question": "Bakit mahalagang manalangin para sa kapakanan ng iba?",
+            "options": [
+              "Nagpapakita ito ng pagmamalasakit lampas sa sarili",
+              "Walang kahalagahan ito",
+              "Dapat lamang isipin ang sarili",
+              "Hindi na kailangang manalangin para sa iba"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamalasakit lampas sa sarili"
+          },
+          {
+            "question": "Ano ang ikaapat na hakbang sa serye ng pakikipagkapuwa sa Term 3?",
+            "options": [
+              "Pananalig tungo sa pakikipagkapuwa (Pananalig sa Diyos)",
+              "Pagiging patas sa kapuwa",
+              "Pagtugon sa emosyon ng kapuwa",
+              "Pagtugon sa pambubulas"
+            ],
+            "correct_answer": "Pananalig tungo sa pakikipagkapuwa (Pananalig sa Diyos)"
+          },
+          {
+            "question": "Bakit itinuturing na batayan ng pagmamahal sa kapwa ang pananalig sa Diyos para sa maraming tao?",
+            "options": [
+              "Itinuturo ng maraming pananampalataya ang pag-ibig sa kapwa-tao",
+              "Walang kaugnayan ang pananalig sa pagmamahal",
+              "Hindi ito bahagi ng anumang pananampalataya",
+              "Ito ay laban sa pagmamahal sa kapwa"
+            ],
+            "correct_answer": "Itinuturo ng maraming pananampalataya ang pag-ibig sa kapwa-tao"
+          },
+          {
+            "question": "Bakit mahalagang paksa ang pananalig sa Diyos sa GMRC ng Pilipinas?",
+            "options": [
+              "Malaki ang papel ng pananampalataya sa kultura at moralidad ng mga Pilipino",
+              "Walang kaugnayan ito sa kultura",
+              "Ito ay hindi bahagi ng edukasyon",
+              "Hindi ito totoong pagpapahalaga"
+            ],
+            "correct_answer": "Malaki ang papel ng pananampalataya sa kultura at moralidad ng mga Pilipino"
+          },
+          {
+            "question": "Bakit itinuturo ang pananalig sa Diyos bilang bahagi ng pakikipagkapuwa?",
+            "options": [
+              "Nagsisilbi itong gabay sa pagmamahal at paggalang sa kapwa",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi ito kaugnay ng moralidad"
+            ],
+            "correct_answer": "Nagsisilbi itong gabay sa pagmamahal at paggalang sa kapwa"
+          },
+          {
+            "question": "Ano ang mangyayari kung isasagawa ng lahat ang pagtulong bilang bahagi ng pananalig?",
+            "options": [
+              "Mas maraming taong matutulungan sa komunidad",
+              "Walang mangyayari",
+              "Mas maraming taong masasaktan",
+              "Wala itong epekto sa komunidad"
+            ],
+            "correct_answer": "Mas maraming taong matutulungan sa komunidad"
+          },
+          {
+            "question": "Paano nauugnay ang pananalig sa Diyos sa naunang mga pagpapahalaga tulad ng lakas ng loob at makatarungan?",
+            "options": [
+              "Nagsisilbi itong ugat na nagbibigay-lakas sa lahat ng ibang pagpapahalaga",
+              "Walang kaugnayan sa mga naunang pagpapahalaga",
+              "Kabaligtaran ito ng lakas ng loob",
+              "Hindi ito bahagi ng buong serye"
+            ],
+            "correct_answer": "Nagsisilbi itong ugat na nagbibigay-lakas sa lahat ng ibang pagpapahalaga"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🎭 Friday Review — English (Grade 6)\n\n- Literary essay: analyzing theme\n\nGreat literary analysis! 🌟",
+        "quiz": [
+          {
+            "question": "What is a literary essay?",
+            "options": [
+              "An essay analyzing elements of a literary work with evidence",
+              "A random story with no analysis",
+              "A grocery list",
+              "A weather report"
+            ],
+            "correct_answer": "An essay analyzing elements of a literary work with evidence"
+          },
+          {
+            "question": "What goes in the introduction?",
+            "options": [
+              "The work and your main interpretation",
+              "A random unrelated fact",
+              "The full text",
+              "Only the author's biography"
+            ],
+            "correct_answer": "The work and your main interpretation"
+          },
+          {
+            "question": "What should each body paragraph do?",
+            "options": [
+              "Analyze one element with evidence",
+              "Repeat the introduction",
+              "Contain no evidence",
+              "Summarize only"
+            ],
+            "correct_answer": "Analyze one element with evidence"
+          },
+          {
+            "question": "What is textual evidence?",
+            "options": [
+              "Specific quotes or details from the story",
+              "Personal feelings only",
+              "A made-up fact",
+              "The book's cover"
+            ],
+            "correct_answer": "Specific quotes or details from the story"
+          },
+          {
+            "question": "Why support interpretations with evidence?",
+            "options": [
+              "Makes analysis credible and text-grounded",
+              "Evidence is never needed",
+              "Opinions alone suffice",
+              "No purpose"
+            ],
+            "correct_answer": "Makes analysis credible and text-grounded"
+          },
+          {
+            "question": "What should the conclusion do?",
+            "options": [
+              "Restate interpretation and significance",
+              "Introduce a new topic",
+              "Repeat introduction exactly",
+              "Ignore prior content"
+            ],
+            "correct_answer": "Restate interpretation and significance"
+          },
+          {
+            "question": "What elements might a literary essay analyze?",
+            "options": [
+              "Theme, characters, or symbolism",
+              "Book's price",
+              "Cover design",
+              "Page count"
+            ],
+            "correct_answer": "Theme, characters, or symbolism"
+          },
+          {
+            "question": "How does a literary essay differ from a summary?",
+            "options": [
+              "Interprets meaning rather than retelling",
+              "Exactly the same",
+              "Never mentions events",
+              "Summaries use more evidence"
+            ],
+            "correct_answer": "Interprets meaning rather than retelling"
+          },
+          {
+            "question": "How does citation apply here?",
+            "options": [
+              "Quotes should be properly cited",
+              "Never needed",
+              "Only research essays cite",
+              "Literary essays don't quote"
+            ],
+            "correct_answer": "Quotes should be properly cited"
+          },
+          {
+            "question": "Why is evidence-based thinking about literature valuable?",
+            "options": [
+              "Builds deeper understanding beyond surface reading",
+              "No educational value",
+              "Surface reading is enough",
+              "No deep thinking needed"
+            ],
+            "correct_answer": "Builds deeper understanding beyond surface reading"
+          },
+          {
+            "question": "What is a thesis in a literary essay?",
+            "options": [
+              "Your main interpretation",
+              "A list of characters",
+              "The book's price",
+              "Plot summary only"
+            ],
+            "correct_answer": "Your main interpretation"
+          },
+          {
+            "question": "Why organize the essay into clear paragraphs?",
+            "options": [
+              "Helps present analysis clearly",
+              "No effect on clarity",
+              "Paragraphs are decorative",
+              "One long paragraph works fine"
+            ],
+            "correct_answer": "Helps present analysis clearly"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ⭕ Friday Review — Mathematics (Grade 6)\n\n- Area of a circle\n\nGreat area calculations! ⭐",
+        "quiz": [
+          {
+            "question": "Formula for area of a circle?",
+            "options": [
+              "A = π × r²",
+              "A = π × d",
+              "A = 2 × π × r",
+              "A = r × 4"
+            ],
+            "correct_answer": "A = π × r²"
+          },
+          {
+            "question": "Radius 4 cm, area?",
+            "options": [
+              "50.24 cm²",
+              "12.56 cm²",
+              "16 cm²",
+              "25.12 cm²"
+            ],
+            "correct_answer": "50.24 cm²"
+          },
+          {
+            "question": "Radius 10 cm, area?",
+            "options": [
+              "314 cm²",
+              "31.4 cm²",
+              "100 cm²",
+              "62.8 cm²"
+            ],
+            "correct_answer": "314 cm²"
+          },
+          {
+            "question": "Correct order of operations?",
+            "options": [
+              "Square radius first, then multiply by π",
+              "Multiply by π first, then square",
+              "Add radius and π",
+              "Divide radius by π"
+            ],
+            "correct_answer": "Square radius first, then multiply by π"
+          },
+          {
+            "question": "Value of pi used?",
+            "options": [
+              "3.14",
+              "3.41",
+              "1.34",
+              "31.4"
+            ],
+            "correct_answer": "3.14"
+          },
+          {
+            "question": "Radius 5 cm, area?",
+            "options": [
+              "78.5 cm²",
+              "15.7 cm²",
+              "25 cm²",
+              "31.4 cm²"
+            ],
+            "correct_answer": "78.5 cm²"
+          },
+          {
+            "question": "Why square the radius?",
+            "options": [
+              "Accounts for two-dimensional space",
+              "No mathematical purpose",
+              "Optional in the formula",
+              "Only for large circles"
+            ],
+            "correct_answer": "Accounts for two-dimensional space"
+          },
+          {
+            "question": "Real-life object using circle area?",
+            "options": [
+              "A circular pizza",
+              "A straight ruler",
+              "A rectangular table",
+              "A triangular flag"
+            ],
+            "correct_answer": "A circular pizza"
+          },
+          {
+            "question": "Area vs circumference?",
+            "options": [
+              "Area measures space inside; circumference measures around",
+              "Exactly the same",
+              "Circumference measures inside",
+              "Area measures around"
+            ],
+            "correct_answer": "Area measures space inside; circumference measures around"
+          },
+          {
+            "question": "Radius 2 cm, area?",
+            "options": [
+              "12.56 cm²",
+              "6.28 cm²",
+              "4 cm²",
+              "8 cm²"
+            ],
+            "correct_answer": "12.56 cm²"
+          },
+          {
+            "question": "Why calculate area of a circular garden?",
+            "options": [
+              "To determine soil or seed needed",
+              "Never useful outdoors",
+              "Gardens aren't circular",
+              "No practical use"
+            ],
+            "correct_answer": "To determine soil or seed needed"
+          },
+          {
+            "question": "Common mistake to avoid?",
+            "options": [
+              "Multiplying by π before squaring",
+              "Using correct pi value",
+              "Squaring before multiplying",
+              "Using radius not diameter"
+            ],
+            "correct_answer": "Multiplying by π before squaring"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌋 Friday Review — Science (Grade 6)\n\n- Volcanoes: formation and alert levels\n\nGreat volcano science! 🌟",
+        "quiz": [
+          {
+            "question": "How does a volcano form?",
+            "options": [
+              "Magma rises and erupts through the crust",
+              "Rocks appear from nowhere",
+              "Water freezes underground",
+              "Wind erodes a mountain"
+            ],
+            "correct_answer": "Magma rises and erupts through the crust"
+          },
+          {
+            "question": "What is magma?",
+            "options": [
+              "Molten rock deep within the Earth",
+              "Cooled lava on the surface",
+              "A type of gas only",
+              "Ocean water"
+            ],
+            "correct_answer": "Molten rock deep within the Earth"
+          },
+          {
+            "question": "Name an active Philippine volcano.",
+            "options": [
+              "Mayon",
+              "Everest",
+              "Kilimanjaro",
+              "Fuji"
+            ],
+            "correct_answer": "Mayon"
+          },
+          {
+            "question": "Who monitors Philippine volcanoes?",
+            "options": [
+              "PHIVOLCS",
+              "PAGASA",
+              "DENR",
+              "DOH"
+            ],
+            "correct_answer": "PHIVOLCS"
+          },
+          {
+            "question": "Why does the Philippines have many volcanoes?",
+            "options": [
+              "Located along the Pacific Ring of Fire",
+              "No tectonic connection",
+              "Random distribution",
+              "No volcanic activity"
+            ],
+            "correct_answer": "Located along the Pacific Ring of Fire"
+          },
+          {
+            "question": "What does Alert Level 0 mean?",
+            "options": [
+              "Normal, no eruption expected",
+              "Hazardous eruption",
+              "Immediate evacuation",
+              "Volcano disappeared"
+            ],
+            "correct_answer": "Normal, no eruption expected"
+          },
+          {
+            "question": "What does Alert Level 5 mean?",
+            "options": [
+              "Hazardous eruption in progress",
+              "Normal activity",
+              "No monitoring needed",
+              "Dormant forever"
+            ],
+            "correct_answer": "Hazardous eruption in progress"
+          },
+          {
+            "question": "Why are alert levels important?",
+            "options": [
+              "Help communities prepare and stay safe",
+              "No practical use",
+              "Only for scientists",
+              "Predict weather, not volcanoes"
+            ],
+            "correct_answer": "Help communities prepare and stay safe"
+          },
+          {
+            "question": "What happens to rock layers over repeated eruptions?",
+            "options": [
+              "They build up, forming the volcano",
+              "They disappear",
+              "They turn into water",
+              "No effect on shape"
+            ],
+            "correct_answer": "They build up, forming the volcano"
+          },
+          {
+            "question": "Another active Philippine volcano besides Mayon?",
+            "options": [
+              "Taal",
+              "K2",
+              "Denali",
+              "Matterhorn"
+            ],
+            "correct_answer": "Taal"
+          },
+          {
+            "question": "Why know your nearest local volcano?",
+            "options": [
+              "Understand personal risk and prepare",
+              "No impact on nearby communities",
+              "No practical importance",
+              "Only scientists need this"
+            ],
+            "correct_answer": "Understand personal risk and prepare"
+          },
+          {
+            "question": "How does this connect to broader Earth science?",
+            "options": [
+              "Part of Earth's geological forces alongside waves and sound",
+              "No connection to other topics",
+              "Unrelated to Earth science",
+              "Only chemistry explains it"
+            ],
+            "correct_answer": "Part of Earth's geological forces alongside waves and sound"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# ✍️ Friday Review — Filipino (Grade 6)\n\n- Pagsulat sa mataas na antas\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pagsulat sa mataas na antas?",
+            "options": [
+              "Mayamang bokabularyo at malinaw na organisasyon",
+              "Pagsulat nang mabilis lamang",
+              "Pagsulat nang walang plano",
+              "Uri ng bantas"
+            ],
+            "correct_answer": "Mayamang bokabularyo at malinaw na organisasyon"
+          },
+          {
+            "question": "Anong uri ng pangungusap ang ginagamit?",
+            "options": [
+              "Payak, tambalan, hugnayan",
+              "Payak lamang",
+              "Walang pangungusap",
+              "Bantas lamang"
+            ],
+            "correct_answer": "Payak, tambalan, hugnayan"
+          },
+          {
+            "question": "Bakit mahalaga ang malinaw na daloy ng ideya?",
+            "options": [
+              "Nagbibigay ng kaayusan sa pagbabasa",
+              "Walang kahalagahan",
+              "Nagpapalito sa mambabasa",
+              "Hindi kailangan ng daloy"
+            ],
+            "correct_answer": "Nagbibigay ng kaayusan sa pagbabasa"
+          },
+          {
+            "question": "Halimbawa ng mataas na antas na pangungusap?",
+            "options": [
+              "Ang bulaklak ay namumukod-tangi",
+              "Maganda ang bulaklak",
+              "Bulaklak",
+              "Wala sa nabanggit"
+            ],
+            "correct_answer": "Ang bulaklak ay namumukod-tangi"
+          },
+          {
+            "question": "Bakit gumamit ng mayamang talasalitaan?",
+            "options": [
+              "Nagpapayaman ng pagpapahayag",
+              "Walang epekto",
+              "Mas mahirap unawain",
+              "Hindi kailangan"
+            ],
+            "correct_answer": "Nagpapayaman ng pagpapahayag"
+          },
+          {
+            "question": "Bakit iwasan ang paulit-ulit na salita?",
+            "options": [
+              "Nagpapahina ng kalidad ng sulatin",
+              "Walang epekto",
+              "Mas maganda ang pag-uulit",
+              "Palaging kinakailangan"
+            ],
+            "correct_answer": "Nagpapahina ng kalidad ng sulatin"
+          },
+          {
+            "question": "Bakit matutong gumamit ng iba't ibang pangungusap?",
+            "options": [
+              "Nagpapayaman ng istilo ng pagsulat",
+              "Walang gamit",
+              "Isang uri lamang tama",
+              "Hindi bahagi ng pagsulat"
+            ],
+            "correct_answer": "Nagpapayaman ng istilo ng pagsulat"
+          },
+          {
+            "question": "Koneksyon sa retorika na natutunan?",
+            "options": [
+              "Parehong bahagi ng epektibong pagpapahayag",
+              "Walang koneksyon",
+              "Retorika ay para lamang sa berbal",
+              "Hindi kaugnay ng pagsulat"
+            ],
+            "correct_answer": "Parehong bahagi ng epektibong pagpapahayag"
+          },
+          {
+            "question": "Bakit mahalaga ang mataas na antas ng pagsulat sa panitikan?",
+            "options": [
+              "Maipahayag nang makapangyarihan ang ideya",
+              "Walang kahalagahan",
+              "Hindi bahagi ng panitikan",
+              "Basta't naisulat na, tama na"
+            ],
+            "correct_answer": "Maipahayag nang makapangyarihan ang ideya"
+          },
+          {
+            "question": "Bakit ituro ang mataas na antas ng pagsulat sa Grade 6?",
+            "options": [
+              "Mapaghusay ang malikhaing pagpapahayag",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng Filipino"
+            ],
+            "correct_answer": "Mapaghusay ang malikhaing pagpapahayag"
+          },
+          {
+            "question": "Epekto ng masusing organisasyon sa sanaysay?",
+            "options": [
+              "Mas madaling sundan ang mga ideya",
+              "Walang epekto",
+              "Nakakalito",
+              "Hindi kailangan ng organisasyon"
+            ],
+            "correct_answer": "Mas madaling sundan ang mga ideya"
+          },
+          {
+            "question": "Bakit kasanayan ang pagpapahusay ng pagsulat?",
+            "options": [
+              "Nagpapaunlad ng kalidad ng komunikasyon",
+              "Walang kahalagahan",
+              "Para sa manunulat lamang",
+              "Hindi totoong kasanayan"
+            ],
+            "correct_answer": "Nagpapaunlad ng kalidad ng komunikasyon"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 📜 Friday Review — Araling Panlipunan (Grade 6)\n\n- Saligang Batas 1987\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Kailan binuo ang kasalukuyang Saligang Batas?",
+            "options": [
+              "1987",
+              "1946",
+              "1898",
+              "1972"
+            ],
+            "correct_answer": "1987"
+          },
+          {
+            "question": "Bakit binuo ang Saligang Batas 1987?",
+            "options": [
+              "Muling itatag ang demokrasya pagkatapos ng EDSA",
+              "Palawakin ang Batas Militar",
+              "Alisin ang karapatang pantao",
+              "Palakasin ang diktador"
+            ],
+            "correct_answer": "Muling itatag ang demokrasya pagkatapos ng EDSA"
+          },
+          {
+            "question": "Ilang sangay ng pamahalaan?",
+            "options": [
+              "Tatlo",
+              "Isa",
+              "Dalawa",
+              "Apat"
+            ],
+            "correct_answer": "Tatlo"
+          },
+          {
+            "question": "Sangay na nagpapatupad ng batas?",
+            "options": [
+              "Ehekutibo",
+              "Lehislatibo",
+              "Panghukuman",
+              "Walang ganito"
+            ],
+            "correct_answer": "Ehekutibo"
+          },
+          {
+            "question": "Limitasyon sa termino ng Pangulo?",
+            "options": [
+              "Iisang termino ng 6 na taon",
+              "Walang limitasyon",
+              "Tatlong termino",
+              "Habambuhay na termino"
+            ],
+            "correct_answer": "Iisang termino ng 6 na taon"
+          },
+          {
+            "question": "Bakit bigyang-diin ang karapatang pantao?",
+            "options": [
+              "Maiwasan maulit ang paglabag noong Batas Militar",
+              "Walang kahalagahan",
+              "Hindi mahalaga ito",
+              "Walang koneksyon sa Batas Militar"
+            ],
+            "correct_answer": "Maiwasan maulit ang paglabag noong Batas Militar"
+          },
+          {
+            "question": "Konsepto bago ang Saligang Batas 1987?",
+            "options": [
+              "EDSA People Power I",
+              "Batas Militar",
+              "Neokolonyalismo",
+              "Ikatlong Republika"
+            ],
+            "correct_answer": "EDSA People Power I"
+          },
+          {
+            "question": "Bakit mahalagang dokumento ang Saligang Batas 1987?",
+            "options": [
+              "Kasalukuyang batayang batas na gumagabay sa pamahalaan",
+              "Walang kahalagahan",
+              "Lumang dokumento na hindi na ginagamit",
+              "Hindi kaugnay ng pamahalaan"
+            ],
+            "correct_answer": "Kasalukuyang batayang batas na gumagabay sa pamahalaan"
+          },
+          {
+            "question": "Bakit itinatag ang tatlong sangay?",
+            "options": [
+              "Tiyakin ang balanse ng kapangyarihan",
+              "Bigyan lamang ng trabaho",
+              "Walang layunin",
+              "Palakasin ang isang tao lamang"
+            ],
+            "correct_answer": "Tiyakin ang balanse ng kapangyarihan"
+          },
+          {
+            "question": "Bakit malaman ang probisyon ng Saligang Batas?",
+            "options": [
+              "Maunawaan ang karapatan at proseso ng pamahalaan",
+              "Walang kaugnayan sa mamamayan",
+              "Para sa abogado lamang",
+              "Hindi importante malaman"
+            ],
+            "correct_answer": "Maunawaan ang karapatan at proseso ng pamahalaan"
+          },
+          {
+            "question": "Koneksyon ng Saligang Batas 1987 sa EDSA?",
+            "options": [
+              "Bunga ng pangangailangang muling itatag ang demokrasya",
+              "Walang koneksyon",
+              "Iba't ibang panahon lamang",
+              "Hindi magkaugnay"
+            ],
+            "correct_answer": "Bunga ng pangangailangang muling itatag ang demokrasya"
+          },
+          {
+            "question": "Bakit hamon ang pagpapanatili ng demokrasya?",
+            "options": [
+              "Nangangailangan ng patuloy na pagbabantay",
+              "Walang hamon dito",
+              "Awtomatiko itong napapanatili",
+              "Hindi bahagi ng tema"
+            ],
+            "correct_answer": "Nangangailangan ng patuloy na pagbabantay"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎊 Friday Review — MAPEH (Grade 6)\n\n- Tradisyunal/pambansang sayaw\n\nMagaling sa kultura! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tradisyunal na sayaw?",
+            "options": [
+              "Naipasa mula sa isang henerasyon patungo sa isa pa",
+              "Bagong uri ng sayaw",
+              "Sayaw na banyaga lamang",
+              "Uri ng laro"
+            ],
+            "correct_answer": "Naipasa mula sa isang henerasyon patungo sa isa pa"
+          },
+          {
+            "question": "Kagamitan sa Tinikling?",
+            "options": [
+              "Kawayan",
+              "Payong",
+              "Ilawan",
+              "Baso"
+            ],
+            "correct_answer": "Kawayan"
+          },
+          {
+            "question": "Sino gumagawa ng Singkil?",
+            "options": [
+              "Mga Maranao",
+              "Mga Ilokano",
+              "Mga Bisaya",
+              "Mga Tagalog"
+            ],
+            "correct_answer": "Mga Maranao"
+          },
+          {
+            "question": "Kagamitan sa Pandanggo sa Ilaw?",
+            "options": [
+              "Ilawan sa kamay at ulo",
+              "Kawayan lamang",
+              "Payong lamang",
+              "Walang kagamitan"
+            ],
+            "correct_answer": "Ilawan sa kamay at ulo"
+          },
+          {
+            "question": "Kinakatawan ng Tinikling?",
+            "options": [
+              "Ibong tikling",
+              "Puno",
+              "Isda",
+              "Hayop sa dagat"
+            ],
+            "correct_answer": "Ibong tikling"
+          },
+          {
+            "question": "Bakit mapanatili ang tradisyunal na sayaw?",
+            "options": [
+              "Bahagi ng pambansang pagkakakilanlan",
+              "Walang kahalagahan",
+              "Hindi na kailangan ngayon",
+              "Hindi bahagi ng kultura"
+            ],
+            "correct_answer": "Bahagi ng pambansang pagkakakilanlan"
+          },
+          {
+            "question": "Ipinapakita ng Singkil?",
+            "options": [
+              "Kulturang Maranao gamit kawayan at payong",
+              "Kulturang banyaga",
+              "Uri ng laro lamang",
+              "Walang kahulugan"
+            ],
+            "correct_answer": "Kulturang Maranao gamit kawayan at payong"
+          },
+          {
+            "question": "Bakit ituro ang tradisyunal na sayaw sa MAPEH?",
+            "options": [
+              "Mapahalagahan at mapanatili ang kultura",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Mapahalagahan at mapanatili ang kultura"
+          },
+          {
+            "question": "Bakit ituro sa mga bata?",
+            "options": [
+              "Maipasa ang kultura sa susunod na henerasyon",
+              "Hindi kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maipasa ang kultura sa susunod na henerasyon"
+          },
+          {
+            "question": "Koneksyon sa street dance na natutunan?",
+            "options": [
+              "Parehong bahagi ng pagdiriwang ng kultura",
+              "Walang koneksyon",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong bahagi ng pagdiriwang ng kultura"
+          },
+          {
+            "question": "Bakit natatangi ang bawat sayaw sa rehiyon?",
+            "options": [
+              "Sumasalamin sa natatanging kasaysayan ng lugar",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Random lamang"
+            ],
+            "correct_answer": "Sumasalamin sa natatanging kasaysayan ng lugar"
+          },
+          {
+            "question": "Naidudulot ng pag-aaral ng sayaw?",
+            "options": [
+              "Mas malalim na pagpapahalaga sa kultura",
+              "Walang naidudulot",
+              "Nakakalito lamang",
+              "Hindi nagbibigay-kaalaman"
+            ],
+            "correct_answer": "Mas malalim na pagpapahalaga sa kultura"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 📦 Friday Review — EPP (Grade 6)\n\n- Pagpapakete at pag-la-label ng produkto\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Bakit mahalaga ang maayos na pagpapaketehan?",
+            "options": [
+              "Pinoprotektahan ang produkto at pinapahaba buhay-imbak",
+              "Walang kahalagahan",
+              "Hindi na kailangan",
+              "Pinapabilis ang pagkasira"
+            ],
+            "correct_answer": "Pinoprotektahan ang produkto at pinapahaba buhay-imbak"
+          },
+          {
+            "question": "Ano ang dapat nasa label?",
+            "options": [
+              "Pangalan, petsa, sangkap, timbang",
+              "Pangalan ng magulang lamang",
+              "Walang impormasyon",
+              "Kulay lamang"
+            ],
+            "correct_answer": "Pangalan, petsa, sangkap, timbang"
+          },
+          {
+            "question": "Bakit kailangan ng petsa ng expiry?",
+            "options": [
+              "Malaman kung ligtas pa kainin",
+              "Walang kahalagahan",
+              "Hindi kailangan",
+              "Magmukhang propesyonal lamang"
+            ],
+            "correct_answer": "Malaman kung ligtas pa kainin"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang pag-la-label?",
+            "options": [
+              "Nagbibigay-tiwala at kailangan sa legal na pagbebenta",
+              "Walang kahalagahan",
+              "Hindi kailangan",
+              "May pakete na, tama na"
+            ],
+            "correct_answer": "Nagbibigay-tiwala at kailangan sa legal na pagbebenta"
+          },
+          {
+            "question": "Ano naprotektahan ng pagpapaketehan?",
+            "options": [
+              "Produkto mula sa dumi at pinsala",
+              "Tindahan lamang",
+              "Bumibili lamang",
+              "Wala"
+            ],
+            "correct_answer": "Produkto mula sa dumi at pinsala"
+          },
+          {
+            "question": "Bakit isaad ang mga sangkap sa label?",
+            "options": [
+              "Malaman ang laman, lalo na kung may allergy",
+              "Walang kahalagahan",
+              "Hindi kailangang isulat",
+              "Huwag isulat ang sangkap"
+            ],
+            "correct_answer": "Malaman ang laman, lalo na kung may allergy"
+          },
+          {
+            "question": "Bakit malaman ang timbang sa label?",
+            "options": [
+              "Maging patas ang presyo batay sa halaga",
+              "Walang gamit",
+              "Hindi kailangan isaad",
+              "Kalkulahin na lamang ng bumibili"
+            ],
+            "correct_answer": "Maging patas ang presyo batay sa halaga"
+          },
+          {
+            "question": "Koneksyon sa pag-aasin at pagbibilad?",
+            "options": [
+              "Parehong bahagi ng paghahanda at pagbebenta",
+              "Walang koneksyon",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong bahagi ng paghahanda at pagbebenta"
+          },
+          {
+            "question": "Bakit ituro ang pagpapaketehan sa Grade 6?",
+            "options": [
+              "Nagpapaunlad ng kasanayan sa pagnenegosyo",
+              "Walang gamit",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng EPP"
+            ],
+            "correct_answer": "Nagpapaunlad ng kasanayan sa pagnenegosyo"
+          },
+          {
+            "question": "Mangyayari kung walang label ang produkto?",
+            "options": [
+              "Maaaring hindi magtiwala ang bumibili",
+              "Walang epekto",
+              "Mas maganda ito",
+              "Mas mabenta ito"
+            ],
+            "correct_answer": "Maaaring hindi magtiwala ang bumibili"
+          },
+          {
+            "question": "Bakit maging propesyonal ang hitsura ng pagpapaketehan?",
+            "options": [
+              "Nakakaakit sa potensyal na bumibili",
+              "Walang kahalagahan",
+              "Hindi nakakaapekto sa benta",
+              "May laman lang ay okay na"
+            ],
+            "correct_answer": "Nakakaakit sa potensyal na bumibili"
+          },
+          {
+            "question": "Bakit mahalagang bahagi ng negosyo ang pagpapaketehan?",
+            "options": [
+              "Nagpoprotekta sa produkto at nagbibigay-impormasyon",
+              "Walang kaugnayan sa negosyo",
+              "Opsyonal lamang",
+              "Hindi mahalaga ang impormasyon"
+            ],
+            "correct_answer": "Nagpoprotekta sa produkto at nagbibigay-impormasyon"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 Friday Review — GMRC (Grade 6)\n\n- Pananalig sa Diyos\n\nMagaling! 💫",
+        "quiz": [
+          {
+            "question": "Ugnayan ng pananalig sa Diyos sa pakikipagkapuwa?",
+            "options": [
+              "Nagbibigay-lakas magpakita ng pagmamahal",
+              "Walang koneksyon",
+              "Dalawang magkaibang paksa",
+              "Hindi kaugnay ng moralidad"
+            ],
+            "correct_answer": "Nagbibigay-lakas magpakita ng pagmamahal"
+          },
+          {
+            "question": "Pagpapahalaga sa linggong ito?",
+            "options": [
+              "Pananalig sa Diyos",
+              "Makatarungan",
+              "Mapagpasensiya",
+              "Lakas ng loob"
+            ],
+            "correct_answer": "Pananalig sa Diyos"
+          },
+          {
+            "question": "Halimbawa ng pananalig na nagbibigay-inspirasyon?",
+            "options": [
+              "Pagtulong sa nangangailangan",
+              "Kawalang pakialam",
+              "Pagtanggi tumulong",
+              "Pag-iwas sa kapwa"
+            ],
+            "correct_answer": "Pagtulong sa nangangailangan"
+          },
+          {
+            "question": "Bakit bahagi ng pananampalataya ang pagpapatawad?",
+            "options": [
+              "Maraming pananampalataya nagtuturo nito",
+              "Walang kaugnayan",
+              "Hindi bahagi ng espirituwalidad",
+              "Hiwalay na paksa"
+            ],
+            "correct_answer": "Maraming pananampalataya nagtuturo nito"
+          },
+          {
+            "question": "Konsepto bago ang paksang ito?",
+            "options": [
+              "Pagiging patas sa kapuwa",
+              "Pagtugon sa emosyon",
+              "Pagtugon sa pambubulas",
+              "Nasyonalismo"
+            ],
+            "correct_answer": "Pagiging patas sa kapuwa"
+          },
+          {
+            "question": "Bakit manalangin para sa iba?",
+            "options": [
+              "Nagpapakita ng pagmamalasakit lampas sa sarili",
+              "Walang kahalagahan",
+              "Isipin lamang ang sarili",
+              "Hindi na kailangan"
+            ],
+            "correct_answer": "Nagpapakita ng pagmamalasakit lampas sa sarili"
+          },
+          {
+            "question": "Ikaapat na hakbang sa serye ng Term 3?",
+            "options": [
+              "Pananalig sa Diyos",
+              "Pagiging patas",
+              "Pagtugon sa emosyon",
+              "Pagtugon sa pambubulas"
+            ],
+            "correct_answer": "Pananalig sa Diyos"
+          },
+          {
+            "question": "Bakit batayan ng pagmamahal ang pananalig sa Diyos?",
+            "options": [
+              "Itinuturo ng pananampalataya ang pag-ibig sa kapwa",
+              "Walang kaugnayan",
+              "Hindi bahagi ng pananampalataya",
+              "Laban sa pagmamahal"
+            ],
+            "correct_answer": "Itinuturo ng pananampalataya ang pag-ibig sa kapwa"
+          },
+          {
+            "question": "Bakit mahalagang paksa sa GMRC ang pananalig sa Diyos?",
+            "options": [
+              "Malaking papel sa kultura at moralidad ng Pilipino",
+              "Walang kaugnayan sa kultura",
+              "Hindi bahagi ng edukasyon",
+              "Hindi totoong pagpapahalaga"
+            ],
+            "correct_answer": "Malaking papel sa kultura at moralidad ng Pilipino"
+          },
+          {
+            "question": "Bakit ituro bilang bahagi ng pakikipagkapuwa?",
+            "options": [
+              "Gabay sa pagmamahal at paggalang sa kapwa",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng moralidad"
+            ],
+            "correct_answer": "Gabay sa pagmamahal at paggalang sa kapwa"
+          },
+          {
+            "question": "Mangyayari kung isasagawa ng lahat ang pagtulong?",
+            "options": [
+              "Mas maraming matutulungan sa komunidad",
+              "Wala",
+              "Mas maraming masasaktan",
+              "Walang epekto"
+            ],
+            "correct_answer": "Mas maraming matutulungan sa komunidad"
+          },
+          {
+            "question": "Paano nauugnay ang pananalig sa Diyos sa naunang mga pagpapahalaga tulad ng lakas ng loob at makatarungan?",
+            "options": [
+              "Nagsisilbi itong ugat na nagbibigay-lakas sa lahat ng ibang pagpapahalaga",
+              "Walang kaugnayan sa mga naunang pagpapahalaga",
+              "Kabaligtaran ito ng lakas ng loob",
+              "Hindi ito bahagi ng buong serye"
+            ],
+            "correct_answer": "Nagsisilbi itong ugat na nagbibigay-lakas sa lahat ng ibang pagpapahalaga"
+          }
+        ]
+      }
+    }
+  }
+}

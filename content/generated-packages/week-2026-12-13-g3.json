@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-12-13",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Review: National Themes and Writing Skills\n\nGrade 3, Week 27! Let's review everything we studied this term before the break. 🌟\n\n## 🔄 Big Ideas from This Term\n- **Compound sentences:** two independent clauses joined by and, but, or, so\n- **National themes:** reading for 4-5 details and drawing conclusions\n- **Sequencing:** using time-order words (first, then, finally)\n- **Cause and effect:** because, so, therefore, as a result\n- **Composing:** topic sentence, 3-4 details, closing sentence\n\n## 🧠 Putting It All Together\nA skilled Grade 3 writer can now read national-theme passages critically, understand why events happen, and write a well-organized paragraph.\n\n## 🎯 Ready for Term 3!\nNext term, we'll explore even richer national topics with more complex sentences.\n\n**Key words:** compound sentence, national theme, sequence, cause and effect, paragraph",
+        "quiz": [
+          {
+            "question": "What is a compound sentence?",
+            "options": [
+              "Two independent clauses joined by a coordinating conjunction",
+              "A sentence with one word",
+              "A sentence with no verb",
+              "A question only"
+            ],
+            "correct_answer": "Two independent clauses joined by a coordinating conjunction"
+          },
+          {
+            "question": "What are national themes?",
+            "options": [
+              "Topics that concern the whole Philippines",
+              "Topics about one family",
+              "Topics about one classroom",
+              "Topics with no connection to the country"
+            ],
+            "correct_answer": "Topics that concern the whole Philippines"
+          },
+          {
+            "question": "What are time-order words used for?",
+            "options": [
+              "Showing the order events happened",
+              "Describing colors",
+              "Naming characters",
+              "Asking questions"
+            ],
+            "correct_answer": "Showing the order events happened"
+          },
+          {
+            "question": "What is a cause?",
+            "options": [
+              "Why something happens",
+              "What happens as a result",
+              "The title of a story",
+              "A character's name"
+            ],
+            "correct_answer": "Why something happens"
+          },
+          {
+            "question": "What is an effect?",
+            "options": [
+              "What happens as a result",
+              "Why something happens",
+              "The title",
+              "A character's name"
+            ],
+            "correct_answer": "What happens as a result"
+          },
+          {
+            "question": "What is a topic sentence?",
+            "options": [
+              "A sentence that introduces the main subject",
+              "The last sentence",
+              "A question only",
+              "A list of random words"
+            ],
+            "correct_answer": "A sentence that introduces the main subject"
+          },
+          {
+            "question": "How many supporting details should a paragraph usually have?",
+            "options": [
+              "3-4 details",
+              "0 details",
+              "20 details",
+              "Only 1"
+            ],
+            "correct_answer": "3-4 details"
+          },
+          {
+            "question": "Which word signals cause and effect?",
+            "options": [
+              "Because",
+              "Mountain",
+              "Beautiful",
+              "Quickly"
+            ],
+            "correct_answer": "Because"
+          },
+          {
+            "question": "What punctuation comes before the conjunction in a compound sentence?",
+            "options": [
+              "A comma",
+              "A question mark",
+              "An exclamation point",
+              "Nothing"
+            ],
+            "correct_answer": "A comma"
+          },
+          {
+            "question": "Why is finding details important when reading national themes?",
+            "options": [
+              "They help build a complete understanding of the topic",
+              "They are never useful",
+              "One detail is always enough",
+              "They replace the need to read"
+            ],
+            "correct_answer": "They help build a complete understanding of the topic"
+          },
+          {
+            "question": "What does a closing sentence do?",
+            "options": [
+              "Share why the topic matters",
+              "Introduce a new topic",
+              "Repeat the title exactly",
+              "Ask an unrelated question"
+            ],
+            "correct_answer": "Share why the topic matters"
+          },
+          {
+            "question": "Why do writers use compound sentences?",
+            "options": [
+              "To join related ideas smoothly",
+              "To make sentences shorter",
+              "To confuse the reader",
+              "To avoid using verbs"
+            ],
+            "correct_answer": "To join related ideas smoothly"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Review: Multiplication, Division, and Patterns\n\nGrade 3, Week 27! Let's review our math skills from this term! 🔢\n\n## 🔄 What We Learned\n- **Multiplication:** 6, 7, 8, 9 tables and 2-digit numbers\n- **Patterns:** increasing, decreasing, repeating\n- **Division:** as the inverse of multiplication, with and without remainders\n- **Money word problems:** one-step and two-step\n\n## 🧮 Practice Problems\n- 7 × 8 = **56**\n- 24 ÷ 6 = **4**\n- 25 ÷ 4 = **6 remainder 1**\n- ₱84 ÷ 4 friends = **₱21** each\n\n## 🎯 Ready for Term 3!\nNext term, we'll explore fractions, symmetry, and more advanced division.\n\n**Key words:** multiply, divide, pattern, remainder, money word problem",
+        "quiz": [
+          {
+            "question": "What is 7 × 8?",
+            "options": [
+              "56",
+              "63",
+              "49",
+              "64"
+            ],
+            "correct_answer": "56"
+          },
+          {
+            "question": "What is 24 ÷ 6?",
+            "options": [
+              "4",
+              "6",
+              "18",
+              "30"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "What is 25 ÷ 4?",
+            "options": [
+              "6 remainder 1",
+              "6 remainder 0",
+              "7 remainder 1",
+              "5 remainder 1"
+            ],
+            "correct_answer": "6 remainder 1"
+          },
+          {
+            "question": "If ₱84 is shared among 4 friends, how much does each get?",
+            "options": [
+              "₱21",
+              "₱20",
+              "₱24",
+              "₱80"
+            ],
+            "correct_answer": "₱21"
+          },
+          {
+            "question": "What is the commutative property?",
+            "options": [
+              "Changing order of factors doesn't change the product",
+              "Multiplying by 0 gives 0",
+              "Multiplying by 1 changes the number",
+              "Adding numbers"
+            ],
+            "correct_answer": "Changing order of factors doesn't change the product"
+          },
+          {
+            "question": "2, 4, 6, 8, __: missing number?",
+            "options": [
+              "10",
+              "9",
+              "12",
+              "16"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "What is a remainder?",
+            "options": [
+              "The amount left over after dividing evenly",
+              "The total before dividing",
+              "The divisor itself",
+              "The multiplication answer"
+            ],
+            "correct_answer": "The amount left over after dividing evenly"
+          },
+          {
+            "question": "What is 350 ÷ 10?",
+            "options": [
+              "35",
+              "350",
+              "3.5",
+              "3500"
+            ],
+            "correct_answer": "35"
+          },
+          {
+            "question": "What is 9 × 9?",
+            "options": [
+              "81",
+              "72",
+              "90",
+              "18"
+            ],
+            "correct_answer": "81"
+          },
+          {
+            "question": "20, 17, 14, __: missing number?",
+            "options": [
+              "11",
+              "13",
+              "10",
+              "17"
+            ],
+            "correct_answer": "11"
+          },
+          {
+            "question": "If 6 × 4 = 24, what is 24 ÷ 6?",
+            "options": [
+              "4",
+              "6",
+              "24",
+              "10"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "If ₱96 is shared among 6 friends, how much does each get?",
+            "options": [
+              "₱16",
+              "₱14",
+              "₱18",
+              "₱90"
+            ],
+            "correct_answer": "₱16"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📚 Filipino — Pagbabalik-Aral: Tambalang Pangungusap at Kahulugan ng Salita\n\nGrade 3, Linggo 27! Balikan natin ang natutuhan ngayong term. 📚\n\n## 🔄 Mga Natutunan\n- **Tambalang pangungusap:** sugnay na pinagdurugtong ng pananda (at, ngunit, o)\n- **Denotasyon at konotasyon:** literal na kahulugan vs. idinaragdag na damdamin\n- **Pagsunud-sunod ng pangyayari:** 5-7 pangyayari sa mahabang teksto\n\n## 🧠 Pagsasama-sama\nGinagamit natin ang tambalang pangungusap at angkop na salita (konotasyon) upang bumuo ng mas mayamang pagsulat, habang sinusundan natin ang pagkakasunod-sunod ng mga pangyayari sa pagbasa.\n\n## 🎯 Paghahanda\nSa susunod na term, aalamin pa natin ang mas kumplikadong tambalang pangungusap.\n\n**Mahahalagang salita:** tambalang pangungusap, pananda, denotasyon, konotasyon",
+        "quiz": [
+          {
+            "question": "Ano ang tambalang pangungusap?",
+            "options": [
+              "Dalawang sugnay na nakapag-iisa, pinagdurugtong ng pangatnig",
+              "Isang salita lamang",
+              "Isang tanong lamang",
+              "Walang pandiwa"
+            ],
+            "correct_answer": "Dalawang sugnay na nakapag-iisa, pinagdurugtong ng pangatnig"
+          },
+          {
+            "question": "Ano ang pananda?",
+            "options": [
+              "Salitang nag-uugnay sa dalawang sugnay",
+              "Isang uri ng pangngalan",
+              "Isang bantas lamang",
+              "Isang uri ng pandiwa"
+            ],
+            "correct_answer": "Salitang nag-uugnay sa dalawang sugnay"
+          },
+          {
+            "question": "Ano ang denotasyon?",
+            "options": [
+              "Literal o diksiyonaryong kahulugan ng salita",
+              "Idinaragdag na damdamin sa salita",
+              "Isang uri ng pangngalan",
+              "Isang uri ng bantas"
+            ],
+            "correct_answer": "Literal o diksiyonaryong kahulugan ng salita"
+          },
+          {
+            "question": "Ano ang konotasyon?",
+            "options": [
+              "Idinaragdag na kahulugan o damdamin sa salita",
+              "Literal na kahulugan lamang",
+              "Isang uri ng pandiwa",
+              "Isang uri ng bantas"
+            ],
+            "correct_answer": "Idinaragdag na kahulugan o damdamin sa salita"
+          },
+          {
+            "question": "Ilang pangyayari ang kailangang masundan sa mahabang teksto?",
+            "options": [
+              "5-7 pangyayari",
+              "1 pangyayari lamang",
+              "20 pangyayari",
+              "Walang pangyayari"
+            ],
+            "correct_answer": "5-7 pangyayari"
+          },
+          {
+            "question": "Alin ang halimbawa ng pananda?",
+            "options": [
+              "At",
+              "Bahay",
+              "Maganda",
+              "Tumatakbo"
+            ],
+            "correct_answer": "At"
+          },
+          {
+            "question": "Alin ang mas positibong salita para sa 'payat'?",
+            "options": [
+              "Balingkinitan",
+              "Kulang sa timbang",
+              "Napakapayat",
+              "Payat na parang patpat"
+            ],
+            "correct_answer": "Balingkinitan"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang uri ng pananda?",
+            "options": [
+              "Para maunawaan ang ugnayan ng dalawang ideya",
+              "Walang kaugnayan sa pag-unawa",
+              "Para lamang sa pagsusulit",
+              "Hindi ito mahalaga"
+            ],
+            "correct_answer": "Para maunawaan ang ugnayan ng dalawang ideya"
+          },
+          {
+            "question": "Anong panandang salita ang ginagamit sa dulo ng kuwento?",
+            "options": [
+              "Sa wakas",
+              "Una",
+              "Pangalawa",
+              "Kanina"
+            ],
+            "correct_answer": "Sa wakas"
+          },
+          {
+            "question": "Bakit gumamit ng salitang may positibong konotasyon?",
+            "options": [
+              "Gawing mas kaakit-akit ang paglalarawan",
+              "Lituhin ang mambabasa",
+              "Walang dahilan",
+              "Gawing mas maikli"
+            ],
+            "correct_answer": "Gawing mas kaakit-akit ang paglalarawan"
+          },
+          {
+            "question": "Alin ang halimbawa ng pananda ng pagsalungat?",
+            "options": [
+              "Ngunit",
+              "At",
+              "O",
+              "Saka"
+            ],
+            "correct_answer": "Ngunit"
+          },
+          {
+            "question": "Bakit mahalagang matutong bumuo ng tambalang pangungusap?",
+            "options": [
+              "Nagbibigay ito ng iba't ibang paraan ng pagsulat",
+              "Hindi ito kailangan",
+              "Ginagawa lamang nitong mas mahaba ang talata",
+              "Walang gamit ito"
+            ],
+            "correct_answer": "Nagbibigay ito ng iba't ibang paraan ng pagsulat"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Review: Movement, Sound, Light, and Non-Living Things\n\nGrade 3, Linggo 27! Balikan natin ang natutuhan sa Agham. 🔬\n\n## 🔄 Mga Natutunan\n- **Paggalaw:** natural na sanhi, tao, timbang, ibabaw\n- **Tunog at liwanag:** paano nagagawa, paano nakakasama\n- **Mga bagay na walang buhay:** bato, lupa, tubig, hangin, metal\n- **Kapaki-pakinabang na produkto:** mula sa hilaw na materyales\n\n## 🧠 Pagsasama-sama\nAng lahat ng ito ay bahagi ng ating pag-unawa sa **pisikal na kapaligiran** — kung paano gumagalaw ang mga bagay, paano gumagawa ng tunog at liwanag, at kung paano nagiging kapaki-pakinabang ang mga likas na materyales.\n\n## 🎯 Paghahanda\nSa susunod na term, aalamin pa natin ang tungkol sa panahon at kalawakan.\n\n**Mahahalagang salita:** paggalaw, tunog, liwanag, hilaw na materyales",
+        "quiz": [
+          {
+            "question": "Ano ang natural na sanhi ng paggalaw?",
+            "options": [
+              "Hangin, tubig, grabidad",
+              "Pagtulak lamang ng tao",
+              "Pagbuhat lamang ng tao",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Hangin, tubig, grabidad"
+          },
+          {
+            "question": "Paano nagagawa ang tunog?",
+            "options": [
+              "Sa pamamagitan ng pag-vibrate ng bagay",
+              "Sa pamamagitan ng paninigid ng bagay",
+              "Sa pamamagitan ng pagbago ng kulay",
+              "Walang paraan"
+            ],
+            "correct_answer": "Sa pamamagitan ng pag-vibrate ng bagay"
+          },
+          {
+            "question": "Ano ang natural na pinagmumulan ng liwanag?",
+            "options": [
+              "Ang araw",
+              "Isang ilaw sa kuwarto",
+              "Isang flashlight",
+              "Isang kandila lamang"
+            ],
+            "correct_answer": "Ang araw"
+          },
+          {
+            "question": "Ano ang epekto ng malakas na tunog sa tainga?",
+            "options": [
+              "Maaari itong makasira ng tainga sa paglipas ng panahon",
+              "Walang epekto",
+              "Pinapalakas nito ang tainga",
+              "Pinapabuti nito ang pandinig"
+            ],
+            "correct_answer": "Maaari itong makasira ng tainga sa paglipas ng panahon"
+          },
+          {
+            "question": "Ano ang halimbawa ng bagay na walang buhay?",
+            "options": [
+              "Bato",
+              "Halaman",
+              "Hayop",
+              "Tao"
+            ],
+            "correct_answer": "Bato"
+          },
+          {
+            "question": "Ano ang magiging produkto ng luwad (clay)?",
+            "options": [
+              "Laryo at palayok",
+              "Salamin",
+              "Kuryente",
+              "Damit"
+            ],
+            "correct_answer": "Laryo at palayok"
+          },
+          {
+            "question": "Ano ang magiging produkto ng buhangin?",
+            "options": [
+              "Salamin at semento",
+              "Laryo lamang",
+              "Kuryente",
+              "Damit"
+            ],
+            "correct_answer": "Salamin at semento"
+          },
+          {
+            "question": "Bakit mapanganib tumingin nang direkta sa araw?",
+            "options": [
+              "Maaari itong makasira ng mata",
+              "Walang panganib",
+              "Pinapalakas nito ang paningin",
+              "Pinapabuti nito ang paningin"
+            ],
+            "correct_answer": "Maaari itong makasira ng mata"
+          },
+          {
+            "question": "Ano ang epekto ng timbang sa paggalaw ng bagay?",
+            "options": [
+              "Mas mabigat na bagay ay mas mahirap galawin",
+              "Walang epekto ang timbang",
+              "Mas magaan ay mas mahirap galawin",
+              "Timbang lamang para sa likido"
+            ],
+            "correct_answer": "Mas mabigat na bagay ay mas mahirap galawin"
+          },
+          {
+            "question": "Ano ang halimbawa ng paggamit ng tunog para magbigay ng impormasyon?",
+            "options": [
+              "Sirena",
+              "Larawan",
+              "Aklat",
+              "Guhit"
+            ],
+            "correct_answer": "Sirena"
+          },
+          {
+            "question": "Ano ang mangyayari kung ibabago ang posisyon ng isang bagay palapit sa iyo?",
+            "options": [
+              "Ito ay lumalapit",
+              "Ito ay lumalayo",
+              "Walang nangyari",
+              "Ito ay nagbago ng kulay"
+            ],
+            "correct_answer": "Ito ay lumalapit"
+          },
+          {
+            "question": "Bakit mahalagang alamin kung paano nagiging kapaki-pakinabang ang mga hilaw na materyales?",
+            "options": [
+              "Para maunawaan kung paano nagmula ang mga bagay na ginagamit natin araw-araw",
+              "Walang kahalagahan",
+              "Hindi ito nauugnay sa buhay natin",
+              "Hindi ito bahagi ng Agham"
+            ],
+            "correct_answer": "Para maunawaan kung paano nagmula ang mga bagay na ginagamit natin araw-araw"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🇵🇭 Makabansa — Pagbabalik-Aral: Aktibong Pagiging Pilipino\n\nGrade 3, Linggo 27! Balikan natin ang natutuhan tungkol sa pagiging aktibong Pilipino. 🇵🇭\n\n## 🔄 Mga Natutunan\n- **Konsepto ng pagka-Pilipino:** wika, kultura, kasaysayan, pagmamahal sa bayan\n- **Sariling katangian:** malasakit, bayanihan, paggalang\n- **Papel ng aktibong Pilipino:** pagsunod sa batas, pagtulong sa komunidad\n- **Laro ng Lahi:** patintero, piko, sipa\n- **Panatang Makabayan:** pagmamahal at pananagutan sa bansa\n\n## 🧠 Pagsasama-sama\nAng lahat ng natutunan natin ay tumuturo sa isang malaking konsepto: ang pagiging mabuti at aktibong Pilipino ay nagsisimula sa maliliit na kilos ng pagmamahal at responsibilidad.\n\n## 🎯 Paghahanda\nSa susunod na term, patuloy nating pagyayamanin ang pag-unawa sa ating pagka-Pilipino.\n\n**Mahahalagang salita:** pagka-Pilipino, bayanihan, Panatang Makabayan, responsibilidad",
+        "quiz": [
+          {
+            "question": "Ano ang pagka-Pilipino?",
+            "options": [
+              "Pagkakakilanlan bilang mamamayan ng Pilipinas",
+              "Pagkakakilanlan bilang mamamayan ng ibang bansa",
+              "Kawalan ng pagkakakilanlan",
+              "Isang uri ng damit lamang"
+            ],
+            "correct_answer": "Pagkakakilanlan bilang mamamayan ng Pilipinas"
+          },
+          {
+            "question": "Ano ang malasakit bilang katangiang Pilipino?",
+            "options": [
+              "Pagmamalasakit sa kapwa",
+              "Kawalang pakialam sa iba",
+              "Pag-iwas sa kapwa",
+              "Pagiging bastos"
+            ],
+            "correct_answer": "Pagmamalasakit sa kapwa"
+          },
+          {
+            "question": "Ano ang bayanihan?",
+            "options": [
+              "Pagtutulungan bilang komunidad",
+              "Pagsasarili nang walang tulong",
+              "Pag-iwas sa kapwa",
+              "Kawalang pakialam sa iba"
+            ],
+            "correct_answer": "Pagtutulungan bilang komunidad"
+          },
+          {
+            "question": "Ano ang aktibong Pilipino?",
+            "options": [
+              "Mamamayan na kumikilos para sa ikabubuti ng bansa",
+              "Mamamayan na walang pakialam sa bansa",
+              "Mamamayan na hindi sumusunod sa batas",
+              "Mamamayan sa ibang bansa lamang"
+            ],
+            "correct_answer": "Mamamayan na kumikilos para sa ikabubuti ng bansa"
+          },
+          {
+            "question": "Ano ang patintero?",
+            "options": [
+              "Laro ng pagtakbo at pag-iwas",
+              "Laro ng pagbasa",
+              "Laro sa telepono",
+              "Laro sa kompyuter"
+            ],
+            "correct_answer": "Laro ng pagtakbo at pag-iwas"
+          },
+          {
+            "question": "Ano ang Panatang Makabayan?",
+            "options": [
+              "Panatang nagpapahayag ng pagmamahal at pananagutan sa bansa",
+              "Isang uri ng laro",
+              "Isang uri ng kanta lamang",
+              "Isang batas ng bansa"
+            ],
+            "correct_answer": "Panatang nagpapahayag ng pagmamahal at pananagutan sa bansa"
+          },
+          {
+            "question": "Bakit mahalaga ang mga katangiang Pilipino?",
+            "options": [
+              "Bumubuo ito sa natatanging pagkatao ng Pilipino at pagkakaisa ng bansa",
+              "Wala itong kahalagahan",
+              "Nagdudulot lamang ito ng away",
+              "Hindi ito nakakatulong sa bansa"
+            ],
+            "correct_answer": "Bumubuo ito sa natatanging pagkatao ng Pilipino at pagkakaisa ng bansa"
+          },
+          {
+            "question": "Anong halimbawa ng papel ng aktibong Pilipino?",
+            "options": [
+              "Pagsunod sa batas at alituntunin",
+              "Pagtanggi sa lahat ng batas",
+              "Pag-iwas sa komunidad",
+              "Kawalang pakialam sa iba"
+            ],
+            "correct_answer": "Pagsunod sa batas at alituntunin"
+          },
+          {
+            "question": "Bakit mahalagang pahalagahan ang mga larong tulad ng Laro ng Lahi?",
+            "options": [
+              "Bahagi ito ng ating kultura at kasaysayan",
+              "Wala itong kahalagahan",
+              "Ito ay galing sa ibang bansa",
+              "Hindi na ito ginagamit ngayon"
+            ],
+            "correct_answer": "Bahagi ito ng ating kultura at kasaysayan"
+          },
+          {
+            "question": "Anong pangunahing mensahe ng buong term na ito sa Makabansa?",
+            "options": [
+              "Ang pagiging mabuti at aktibong Pilipino ay nagsisimula sa maliliit na kilos",
+              "Walang koneksyon ang mga paksa",
+              "Ang pagka-Pilipino ay hindi mahalaga",
+              "Ang mga aralin ay hiwalay sa isa't isa"
+            ],
+            "correct_answer": "Ang pagiging mabuti at aktibong Pilipino ay nagsisimula sa maliliit na kilos"
+          },
+          {
+            "question": "Bakit mahalagang ituro ang mga paksang ito sa mga bata?",
+            "options": [
+              "Upang mahubog ang pagmamahal at responsibilidad sa bansa mula pagkabata",
+              "Hindi na kailangan ituro ito",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang mahubog ang pagmamahal at responsibilidad sa bansa mula pagkabata"
+          },
+          {
+            "question": "Ano ang naidudulot kung maraming aktibong mamamayan sa isang bansa?",
+            "options": [
+              "Mas malakas at umuunlad na bansa",
+              "Higit na kaguluhan",
+              "Walang naidudulot",
+              "Kawalan ng pagkakaisa"
+            ],
+            "correct_answer": "Mas malakas at umuunlad na bansa"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Pagbabalik-Aral: Buong Term sa Computer\n\nGrade 3, Week 27! Balikan natin ang natutuhan sa Computer ngayong term. 💻\n\n## 🔄 Mga Natutunan\n- **Gamit ng Internet:** pagsasaliksik, komunikasyon, pag-aaral\n- **Browser at search engine:** pagkilala sa mga icon\n- **Ligtas na nilalaman:** paano makilala ang angkop at hindi angkop\n- **Personal na impormasyon:** kailan hindi dapat ibahagi\n- **Katotohanan online:** hindi lahat ng nasa Internet ay totoo\n- **Ligtas na pagsasara** ng kompyuter\n\n## 🧠 Pagsasama-sama\nGinamit natin ang lahat ng kaalamang ito upang maging **responsable at ligtas** na gumagamit ng kompyuter at Internet.\n\n## 🎯 Paghahanda\nSa susunod na term, patuloy nating pagyayamanin ang kaalaman sa ligtas na paggamit ng teknolohiya.\n\n**Mahahalagang salita:** Internet, browser, ligtas na nilalaman, personal na impormasyon",
+        "quiz": [
+          {
+            "question": "Gamit ng Internet?",
+            "options": [
+              "Pagsasaliksik ng impormasyon",
+              "Panonood ng TV lamang",
+              "Pagluluto",
+              "Paglalakbay sa ibang bansa"
+            ],
+            "correct_answer": "Pagsasaliksik ng impormasyon"
+          },
+          {
+            "question": "Ano ang browser?",
+            "options": [
+              "Programang ginagamit para makapunta sa Internet",
+              "Uri ng laro",
+              "Uri ng libro",
+              "Uri ng gunting"
+            ],
+            "correct_answer": "Programang ginagamit para makapunta sa Internet"
+          },
+          {
+            "question": "Katangian ng ligtas na nilalaman?",
+            "options": [
+              "Ginawa para sa bata, aprubado ng matanda",
+              "May marahas na larawan",
+              "Humihingi ng personal na impormasyon",
+              "Hindi angkop sa edad"
+            ],
+            "correct_answer": "Ginawa para sa bata, aprubado ng matanda"
+          },
+          {
+            "question": "Halimbawa ng personal na impormasyon?",
+            "options": [
+              "Buong pangalan at tirahan",
+              "Paboritong kulay",
+              "Paboritong pagkain",
+              "Paboritong laro"
+            ],
+            "correct_answer": "Buong pangalan at tirahan"
+          },
+          {
+            "question": "Bakit hindi lahat ng nasa Internet ay totoo?",
+            "options": [
+              "Sinuman ay maaaring maglagay ng impormasyon nang hindi na-check",
+              "Lahat na-verify na",
+              "Walang maling impormasyon",
+              "Palaging tama ang Internet"
+            ],
+            "correct_answer": "Sinuman ay maaaring maglagay ng impormasyon nang hindi na-check"
+          },
+          {
+            "question": "Unang hakbang bago isara ang kompyuter?",
+            "options": [
+              "I-save ang trabaho",
+              "Direktang patayin",
+              "Kalimutan ang trabaho",
+              "Tanggalin ang saksakan"
+            ],
+            "correct_answer": "I-save ang trabaho"
+          },
+          {
+            "question": "Gawin kung may humihingi ng personal na impormasyon?",
+            "options": [
+              "Huwag ibigay, sabihin sa matanda",
+              "Ibigay agad",
+              "Sagutin nang tapat",
+              "Ipagpatuloy ang usapan"
+            ],
+            "correct_answer": "Huwag ibigay, sabihin sa matanda"
+          },
+          {
+            "question": "Paano masusuri kung totoo ang impormasyon online?",
+            "options": [
+              "Tingnan kung mula sa kilalang website",
+              "Basta paniwalaan agad",
+              "Ibahagi agad",
+              "Huwag tingnan pa"
+            ],
+            "correct_answer": "Tingnan kung mula sa kilalang website"
+          },
+          {
+            "question": "Bakit kailangang piliin ang 'Shut Down' kaysa basta putulin ang kuryente?",
+            "options": [
+              "Nakakaiwas sa pagkasira at pagkawala ng trabaho",
+              "Walang pagkakaiba",
+              "Basta patayin lamang agad",
+              "Hindi mahalaga kung paano isasara"
+            ],
+            "correct_answer": "Nakakaiwas sa pagkasira at pagkawala ng trabaho"
+          },
+          {
+            "question": "Ano ang halimbawa ng search engine?",
+            "options": [
+              "Google",
+              "Chrome",
+              "Edge",
+              "Safari"
+            ],
+            "correct_answer": "Google"
+          },
+          {
+            "question": "Bakit itinuro ang lahat ng paksang ito sa Computer?",
+            "options": [
+              "Upang maging responsable at ligtas sa paggamit ng teknolohiya",
+              "Hindi ito mahalaga",
+              "Upang hikayatin ang paggamit nang walang gabay",
+              "Walang layunin ito"
+            ],
+            "correct_answer": "Upang maging responsable at ligtas sa paggamit ng teknolohiya"
+          },
+          {
+            "question": "Ano ang pangkalahatang aral ng buong term sa Computer?",
+            "options": [
+              "Gamitin ang kompyuter at Internet nang responsable at ligtas",
+              "Gamitin nang mag-isa kahit kailan",
+              "Hindi na kailangan mag-ingat",
+              "Walang panganib sa paggamit ng kompyuter"
+            ],
+            "correct_answer": "Gamitin ang kompyuter at Internet nang responsable at ligtas"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🌟 GMRC — Pagbabalik-Aral: Pagmamalasakit at Pagmamahal sa Bayan\n\nGrade 3, Linggo 27! Balikan natin ang mga pagpapahalagang natutunan ngayong term. 🌟\n\n## 🔄 Mga Natutunan\n- **Obedience:** mabubuting kaugalian ng pamilyang Pilipino\n- **Compassion:** sariling kakayahan para sa kapuwa\n- **Respect:** pagkilala sa mga PWD\n- **Prayerful:** panalangin para sa kapuwa\n- **Prudence:** pamamahala sa 4Rs\n- **Love of Country:** paggalang sa sagisag ng bansa\n\n## 🧠 Pagsasama-sama\nMula sa pagsunod sa magulang hanggang sa pagmamahal sa bayan, natutunan nating ang tunay na pagpapahalaga ay nakikita sa maliliit na kilos ng pagmamalasakit sa pamilya, kapuwa, kapaligiran, at bansa.\n\n## 🎯 Paghahanda\nSa susunod na term, aalamin pa natin ang mas malalim na pakikibahagi sa pamayanan.\n\n**Mahahalagang salita:** obedience, compassion, respect, prayerful, prudence, love of country",
+        "quiz": [
+          {
+            "question": "Ano ang pagmamano?",
+            "options": [
+              "Tanda ng paggalang sa nakatatanda",
+              "Uri ng pagkain",
+              "Uri ng sayaw",
+              "Uri ng laro"
+            ],
+            "correct_answer": "Tanda ng paggalang sa nakatatanda"
+          },
+          {
+            "question": "Paano magagamit ang kakayahang umawit para sa kapuwa?",
+            "options": [
+              "Awitan ang malungkot na kaibigan",
+              "Itago ang talento",
+              "Gamitin lamang sa sarili",
+              "Huwag kumanta"
+            ],
+            "correct_answer": "Awitan ang malungkot na kaibigan"
+          },
+          {
+            "question": "Sino ang mga PWD?",
+            "options": [
+              "Mga taong may pisikal, mental, o sensoryal na kondisyon",
+              "Mga taong may sakit na kaunti",
+              "Mga taong walang kondisyon",
+              "Matatandang tao lamang"
+            ],
+            "correct_answer": "Mga taong may pisikal, mental, o sensoryal na kondisyon"
+          },
+          {
+            "question": "Ano ang panalangin para sa kapuwa?",
+            "options": [
+              "Pagdarasal para sa kapakanan ng iba",
+              "Pagdarasal para sa sarili lamang",
+              "Kawalang pakialam",
+              "Pag-iwas sa panalangin"
+            ],
+            "correct_answer": "Pagdarasal para sa kapakanan ng iba"
+          },
+          {
+            "question": "Ibig sabihin ng 'Reduce' sa 4Rs?",
+            "options": [
+              "Bawasan ang basura sa simula",
+              "Muling gamitin",
+              "Gawing bago ang materyales",
+              "Ayusin ang sira"
+            ],
+            "correct_answer": "Bawasan ang basura sa simula"
+          },
+          {
+            "question": "Ano ang watawat?",
+            "options": [
+              "Sagisag ng ating kalayaan",
+              "Uri ng laro",
+              "Uri ng pagkain",
+              "Uri ng damit"
+            ],
+            "correct_answer": "Sagisag ng ating kalayaan"
+          },
+          {
+            "question": "Anong tema ang nag-uugnay sa lahat ng pagpapahalaga?",
+            "options": [
+              "Pagmamalasakit sa pamilya, kapuwa, kapaligiran, at bansa",
+              "Pagiging mayaman",
+              "Pagiging pinakamalakas",
+              "Pagiging pinakamatalino"
+            ],
+            "correct_answer": "Pagmamalasakit sa pamilya, kapuwa, kapaligiran, at bansa"
+          },
+          {
+            "question": "Bakit mahalagang linangin ang mga pagpapahalagang ito?",
+            "options": [
+              "Upang maging mabuting mamamayan at kaibigan",
+              "Hindi na kailangan linangin",
+              "Para sa matatanda lamang",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang maging mabuting mamamayan at kaibigan"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagpapahalaga sa kapuwa sa isang komunidad?",
+            "options": [
+              "Mas mapayapa at magkakaisang komunidad",
+              "Mas maraming away",
+              "Walang epekto",
+              "Hindi na kailangan ng pagkakaisa"
+            ],
+            "correct_answer": "Mas mapayapa at magkakaisang komunidad"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang paggalang sa PWD?",
+            "options": [
+              "Nagtuturo ito ng paggalang sa dignidad ng bawat tao",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ito ng agham",
+              "Hindi ito itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagtuturo ito ng paggalang sa dignidad ng bawat tao"
+          },
+          {
+            "question": "Ano ang pangkalahatang aral ng GMRC ngayong term?",
+            "options": [
+              "Ang tunay na pagpapahalaga ay nakikita sa maliliit na kilos ng pagmamalasakit",
+              "Walang aral na natutunan",
+              "Ang GMRC ay tungkol lamang sa agham",
+              "Ang GMRC ay tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Ang tunay na pagpapahalaga ay nakikita sa maliliit na kilos ng pagmamalasakit"
+          },
+          {
+            "question": "Bakit mahalagang ipakita ang pasasalamat sa mga tumulong sa atin?",
+            "options": [
+              "Nagpapatibay ito ng magandang ugnayan",
+              "Wala itong kahalagahan",
+              "Nakakahiya itong gawin",
+              "Hindi na kailangan"
+            ],
+            "correct_answer": "Nagpapatibay ito ng magandang ugnayan"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Review — English (Grade 3)\n\n- Term 2 wrap-up: national themes, sequencing, cause-effect, paragraphs\n\nMagaling na term! 🌟",
+        "quiz": [
+          {
+            "question": "What is a compound sentence?",
+            "options": [
+              "Two independent clauses joined by a conjunction",
+              "A sentence with one word",
+              "A sentence with no verb",
+              "A question only"
+            ],
+            "correct_answer": "Two independent clauses joined by a conjunction"
+          },
+          {
+            "question": "What are national themes?",
+            "options": [
+              "Topics that concern the whole Philippines",
+              "Topics about one family",
+              "Topics about one classroom",
+              "Topics unrelated to the country"
+            ],
+            "correct_answer": "Topics that concern the whole Philippines"
+          },
+          {
+            "question": "What are time-order words for?",
+            "options": [
+              "Showing the order events happened",
+              "Describing colors",
+              "Naming characters",
+              "Asking questions"
+            ],
+            "correct_answer": "Showing the order events happened"
+          },
+          {
+            "question": "What is a cause?",
+            "options": [
+              "Why something happens",
+              "What happens as a result",
+              "The title",
+              "A character's name"
+            ],
+            "correct_answer": "Why something happens"
+          },
+          {
+            "question": "What is an effect?",
+            "options": [
+              "What happens as a result",
+              "Why something happens",
+              "The title",
+              "A character's name"
+            ],
+            "correct_answer": "What happens as a result"
+          },
+          {
+            "question": "What is a topic sentence?",
+            "options": [
+              "A sentence introducing the main subject",
+              "The last sentence",
+              "A question only",
+              "A list of words"
+            ],
+            "correct_answer": "A sentence introducing the main subject"
+          },
+          {
+            "question": "Supporting details in a paragraph?",
+            "options": [
+              "3-4 details",
+              "0 details",
+              "20 details",
+              "Only 1"
+            ],
+            "correct_answer": "3-4 details"
+          },
+          {
+            "question": "Word that signals cause and effect?",
+            "options": [
+              "Because",
+              "Mountain",
+              "Beautiful",
+              "Quickly"
+            ],
+            "correct_answer": "Because"
+          },
+          {
+            "question": "Punctuation before the conjunction?",
+            "options": [
+              "A comma",
+              "A question mark",
+              "An exclamation point",
+              "Nothing"
+            ],
+            "correct_answer": "A comma"
+          },
+          {
+            "question": "Why are details important for national themes?",
+            "options": [
+              "Build a complete understanding",
+              "Never useful",
+              "One detail is enough",
+              "Replaces reading"
+            ],
+            "correct_answer": "Build a complete understanding"
+          },
+          {
+            "question": "What does a closing sentence do?",
+            "options": [
+              "Share why the topic matters",
+              "Introduce a new topic",
+              "Repeat the title",
+              "Ask an unrelated question"
+            ],
+            "correct_answer": "Share why the topic matters"
+          },
+          {
+            "question": "Why use compound sentences?",
+            "options": [
+              "Join related ideas smoothly",
+              "Make sentences shorter",
+              "Confuse the reader",
+              "Avoid verbs"
+            ],
+            "correct_answer": "Join related ideas smoothly"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 3)\n\n- Term 2 wrap-up: multiplication, division, patterns, money\n\nGreat term of math! ⭐",
+        "quiz": [
+          {
+            "question": "What is 7 × 8?",
+            "options": [
+              "56",
+              "63",
+              "49",
+              "64"
+            ],
+            "correct_answer": "56"
+          },
+          {
+            "question": "What is 24 ÷ 6?",
+            "options": [
+              "4",
+              "6",
+              "18",
+              "30"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "What is 25 ÷ 4?",
+            "options": [
+              "6 remainder 1",
+              "6 remainder 0",
+              "7 remainder 1",
+              "5 remainder 1"
+            ],
+            "correct_answer": "6 remainder 1"
+          },
+          {
+            "question": "₱84 shared among 4 friends: each gets?",
+            "options": [
+              "₱21",
+              "₱20",
+              "₱24",
+              "₱80"
+            ],
+            "correct_answer": "₱21"
+          },
+          {
+            "question": "Commutative property?",
+            "options": [
+              "Order of factors doesn't change product",
+              "Multiplying by 0 gives 0",
+              "Multiplying by 1 changes number",
+              "Adding numbers"
+            ],
+            "correct_answer": "Order of factors doesn't change product"
+          },
+          {
+            "question": "2, 4, 6, 8, __: missing number?",
+            "options": [
+              "10",
+              "9",
+              "12",
+              "16"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "What is a remainder?",
+            "options": [
+              "Amount left over after dividing evenly",
+              "Total before dividing",
+              "The divisor",
+              "Multiplication answer"
+            ],
+            "correct_answer": "Amount left over after dividing evenly"
+          },
+          {
+            "question": "What is 350 ÷ 10?",
+            "options": [
+              "35",
+              "350",
+              "3.5",
+              "3500"
+            ],
+            "correct_answer": "35"
+          },
+          {
+            "question": "What is 9 × 9?",
+            "options": [
+              "81",
+              "72",
+              "90",
+              "18"
+            ],
+            "correct_answer": "81"
+          },
+          {
+            "question": "20, 17, 14, __: missing number?",
+            "options": [
+              "11",
+              "13",
+              "10",
+              "17"
+            ],
+            "correct_answer": "11"
+          },
+          {
+            "question": "If 6 × 4 = 24, what is 24 ÷ 6?",
+            "options": [
+              "4",
+              "6",
+              "24",
+              "10"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "₱96 shared among 6 friends: each gets?",
+            "options": [
+              "₱16",
+              "₱14",
+              "₱18",
+              "₱90"
+            ],
+            "correct_answer": "₱16"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📚 Friday Review — Filipino (Grade 3)\n\n- Term 2 wrap-up: tambalang pangungusap at kahulugan ng salita\n\nMagaling na term! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tambalang pangungusap?",
+            "options": [
+              "Dalawang sugnay na pinagdurugtong ng pangatnig",
+              "Isang salita lamang",
+              "Isang tanong lamang",
+              "Walang pandiwa"
+            ],
+            "correct_answer": "Dalawang sugnay na pinagdurugtong ng pangatnig"
+          },
+          {
+            "question": "Ano ang pananda?",
+            "options": [
+              "Salitang nag-uugnay sa dalawang sugnay",
+              "Uri ng pangngalan",
+              "Bantas lamang",
+              "Uri ng pandiwa"
+            ],
+            "correct_answer": "Salitang nag-uugnay sa dalawang sugnay"
+          },
+          {
+            "question": "Ano ang denotasyon?",
+            "options": [
+              "Literal o diksiyonaryong kahulugan",
+              "Idinaragdag na damdamin",
+              "Uri ng pangngalan",
+              "Uri ng bantas"
+            ],
+            "correct_answer": "Literal o diksiyonaryong kahulugan"
+          },
+          {
+            "question": "Ano ang konotasyon?",
+            "options": [
+              "Idinaragdag na kahulugan o damdamin",
+              "Literal na kahulugan lamang",
+              "Uri ng pandiwa",
+              "Uri ng bantas"
+            ],
+            "correct_answer": "Idinaragdag na kahulugan o damdamin"
+          },
+          {
+            "question": "Ilang pangyayari sa mahabang teksto?",
+            "options": [
+              "5-7 pangyayari",
+              "1 pangyayari",
+              "20 pangyayari",
+              "Wala"
+            ],
+            "correct_answer": "5-7 pangyayari"
+          },
+          {
+            "question": "Halimbawa ng pananda?",
+            "options": [
+              "At",
+              "Bahay",
+              "Maganda",
+              "Tumatakbo"
+            ],
+            "correct_answer": "At"
+          },
+          {
+            "question": "Mas positibong salita para sa 'payat'?",
+            "options": [
+              "Balingkinitan",
+              "Kulang sa timbang",
+              "Napakapayat",
+              "Payat na parang patpat"
+            ],
+            "correct_answer": "Balingkinitan"
+          },
+          {
+            "question": "Bakit malaman ang uri ng pananda?",
+            "options": [
+              "Maunawaan ang ugnayan ng ideya",
+              "Walang kaugnayan",
+              "Para sa pagsusulit lamang",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Maunawaan ang ugnayan ng ideya"
+          },
+          {
+            "question": "Panandang salita sa dulo ng kuwento?",
+            "options": [
+              "Sa wakas",
+              "Una",
+              "Pangalawa",
+              "Kanina"
+            ],
+            "correct_answer": "Sa wakas"
+          },
+          {
+            "question": "Bakit gumamit ng positibong konotasyon?",
+            "options": [
+              "Gawing kaakit-akit ang paglalarawan",
+              "Lituhin ang mambabasa",
+              "Walang dahilan",
+              "Gawing maikli"
+            ],
+            "correct_answer": "Gawing kaakit-akit ang paglalarawan"
+          },
+          {
+            "question": "Halimbawa ng pananda ng pagsalungat?",
+            "options": [
+              "Ngunit",
+              "At",
+              "O",
+              "Saka"
+            ],
+            "correct_answer": "Ngunit"
+          },
+          {
+            "question": "Bakit matutong bumuo ng tambalang pangungusap?",
+            "options": [
+              "Iba't ibang paraan ng pagsulat",
+              "Hindi kailangan",
+              "Mas mahaba lamang",
+              "Walang gamit"
+            ],
+            "correct_answer": "Iba't ibang paraan ng pagsulat"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Friday Review — Science (Grade 3)\n\n- Term 2 wrap-up: movement, sound, light, materials\n\nGreat term of Science! 🌟",
+        "quiz": [
+          {
+            "question": "Natural na sanhi ng paggalaw?",
+            "options": [
+              "Hangin, tubig, grabidad",
+              "Pagtulak lamang ng tao",
+              "Pagbuhat lamang",
+              "Wala"
+            ],
+            "correct_answer": "Hangin, tubig, grabidad"
+          },
+          {
+            "question": "Paano nagagawa ang tunog?",
+            "options": [
+              "Pag-vibrate ng bagay",
+              "Paninigid ng bagay",
+              "Pagbago ng kulay",
+              "Walang paraan"
+            ],
+            "correct_answer": "Pag-vibrate ng bagay"
+          },
+          {
+            "question": "Natural na pinagmumulan ng liwanag?",
+            "options": [
+              "Ang araw",
+              "Ilaw sa kuwarto",
+              "Flashlight",
+              "Kandila lamang"
+            ],
+            "correct_answer": "Ang araw"
+          },
+          {
+            "question": "Epekto ng malakas na tunog sa tainga?",
+            "options": [
+              "Maaaring makasira sa paglipas ng panahon",
+              "Walang epekto",
+              "Pinapalakas ang tainga",
+              "Pinapabuti ang pandinig"
+            ],
+            "correct_answer": "Maaaring makasira sa paglipas ng panahon"
+          },
+          {
+            "question": "Halimbawa ng bagay na walang buhay?",
+            "options": [
+              "Bato",
+              "Halaman",
+              "Hayop",
+              "Tao"
+            ],
+            "correct_answer": "Bato"
+          },
+          {
+            "question": "Produkto ng luwad?",
+            "options": [
+              "Laryo at palayok",
+              "Salamin",
+              "Kuryente",
+              "Damit"
+            ],
+            "correct_answer": "Laryo at palayok"
+          },
+          {
+            "question": "Produkto ng buhangin?",
+            "options": [
+              "Salamin at semento",
+              "Laryo lamang",
+              "Kuryente",
+              "Damit"
+            ],
+            "correct_answer": "Salamin at semento"
+          },
+          {
+            "question": "Bakit mapanganib tumingin sa araw?",
+            "options": [
+              "Maaaring makasira ng mata",
+              "Walang panganib",
+              "Pinapalakas ang paningin",
+              "Pinapabuti ang paningin"
+            ],
+            "correct_answer": "Maaaring makasira ng mata"
+          },
+          {
+            "question": "Epekto ng timbang sa paggalaw?",
+            "options": [
+              "Mabigat na bagay mas mahirap galawin",
+              "Walang epekto",
+              "Magaan mas mahirap galawin",
+              "Timbang para sa likido lamang"
+            ],
+            "correct_answer": "Mabigat na bagay mas mahirap galawin"
+          },
+          {
+            "question": "Halimbawa ng tunog na nagbibigay impormasyon?",
+            "options": [
+              "Sirena",
+              "Larawan",
+              "Aklat",
+              "Guhit"
+            ],
+            "correct_answer": "Sirena"
+          },
+          {
+            "question": "Mangyayari kung bagay ay ibabago ang posisyon palapit sa iyo?",
+            "options": [
+              "Ito ay lumalapit",
+              "Ito ay lumalayo",
+              "Walang nangyari",
+              "Nagbago ng kulay"
+            ],
+            "correct_answer": "Ito ay lumalapit"
+          },
+          {
+            "question": "Bakit malaman kung paano nagiging kapaki-pakinabang ang hilaw na materyales?",
+            "options": [
+              "Maunawaan ang pinagmulan ng bagay na ginagamit araw-araw",
+              "Walang kahalagahan",
+              "Hindi nauugnay sa buhay",
+              "Hindi bahagi ng Agham"
+            ],
+            "correct_answer": "Maunawaan ang pinagmulan ng bagay na ginagamit araw-araw"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🇵🇭 Friday Review — Makabansa (Grade 3)\n\n- Term 2 wrap-up: aktibong pagiging Pilipino\n\nMagaling na term! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pagka-Pilipino?",
+            "options": [
+              "Pagkakakilanlan bilang mamamayan ng Pilipinas",
+              "Pagkakakilanlan bilang mamamayan ng ibang bansa",
+              "Kawalan ng pagkakakilanlan",
+              "Uri ng damit"
+            ],
+            "correct_answer": "Pagkakakilanlan bilang mamamayan ng Pilipinas"
+          },
+          {
+            "question": "Ano ang malasakit?",
+            "options": [
+              "Pagmamalasakit sa kapwa",
+              "Kawalang pakialam",
+              "Pag-iwas sa kapwa",
+              "Pagiging bastos"
+            ],
+            "correct_answer": "Pagmamalasakit sa kapwa"
+          },
+          {
+            "question": "Ano ang bayanihan?",
+            "options": [
+              "Pagtutulungan bilang komunidad",
+              "Pagsasarili",
+              "Pag-iwas sa kapwa",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pagtutulungan bilang komunidad"
+          },
+          {
+            "question": "Ano ang aktibong Pilipino?",
+            "options": [
+              "Mamamayan na kumikilos para sa ikabubuti ng bansa",
+              "Mamamayan na walang pakialam",
+              "Mamamayan na hindi sumusunod sa batas",
+              "Mamamayan sa ibang bansa lamang"
+            ],
+            "correct_answer": "Mamamayan na kumikilos para sa ikabubuti ng bansa"
+          },
+          {
+            "question": "Ano ang patintero?",
+            "options": [
+              "Laro ng pagtakbo at pag-iwas",
+              "Laro ng pagbasa",
+              "Laro sa telepono",
+              "Laro sa kompyuter"
+            ],
+            "correct_answer": "Laro ng pagtakbo at pag-iwas"
+          },
+          {
+            "question": "Ano ang Panatang Makabayan?",
+            "options": [
+              "Panatang nagpapahayag ng pagmamahal at pananagutan",
+              "Uri ng laro",
+              "Uri ng kanta lamang",
+              "Batas ng bansa"
+            ],
+            "correct_answer": "Panatang nagpapahayag ng pagmamahal at pananagutan"
+          },
+          {
+            "question": "Bakit mahalaga ang mga katangiang Pilipino?",
+            "options": [
+              "Bumubuo sa pagkatao at pagkakaisa ng bansa",
+              "Walang kahalagahan",
+              "Nagdudulot ng away",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Bumubuo sa pagkatao at pagkakaisa ng bansa"
+          },
+          {
+            "question": "Halimbawa ng papel ng aktibong Pilipino?",
+            "options": [
+              "Pagsunod sa batas at alituntunin",
+              "Pagtanggi sa batas",
+              "Pag-iwas sa komunidad",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pagsunod sa batas at alituntunin"
+          },
+          {
+            "question": "Bakit pahalagahan ang Laro ng Lahi?",
+            "options": [
+              "Bahagi ng kultura at kasaysayan",
+              "Walang kahalagahan",
+              "Galing sa ibang bansa",
+              "Hindi na ginagamit"
+            ],
+            "correct_answer": "Bahagi ng kultura at kasaysayan"
+          },
+          {
+            "question": "Pangunahing mensahe ng term na ito sa Makabansa?",
+            "options": [
+              "Aktibong pagiging Pilipino nagsisimula sa maliliit na kilos",
+              "Walang koneksyon ang mga paksa",
+              "Pagka-Pilipino ay hindi mahalaga",
+              "Mga aralin ay hiwalay"
+            ],
+            "correct_answer": "Aktibong pagiging Pilipino nagsisimula sa maliliit na kilos"
+          },
+          {
+            "question": "Bakit ituro ang mga paksang ito sa bata?",
+            "options": [
+              "Mahubog ang pagmamahal sa bansa mula pagkabata",
+              "Hindi kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Mahubog ang pagmamahal sa bansa mula pagkabata"
+          },
+          {
+            "question": "Naidudulot ng maraming aktibong mamamayan?",
+            "options": [
+              "Mas malakas at umuunlad na bansa",
+              "Higit na kaguluhan",
+              "Wala",
+              "Kawalan ng pagkakaisa"
+            ],
+            "correct_answer": "Mas malakas at umuunlad na bansa"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Friday Review — Computer (Grade 3)\n\n- Term 2 wrap-up: Internet, ligtas na nilalaman, online safety\n\nMagaling na term! 🌟",
+        "quiz": [
+          {
+            "question": "Gamit ng Internet?",
+            "options": [
+              "Pagsasaliksik ng impormasyon",
+              "Panonood ng TV lamang",
+              "Pagluluto",
+              "Paglalakbay"
+            ],
+            "correct_answer": "Pagsasaliksik ng impormasyon"
+          },
+          {
+            "question": "Ano ang browser?",
+            "options": [
+              "Programang ginagamit para makapunta sa Internet",
+              "Uri ng laro",
+              "Uri ng libro",
+              "Uri ng gunting"
+            ],
+            "correct_answer": "Programang ginagamit para makapunta sa Internet"
+          },
+          {
+            "question": "Katangian ng ligtas na nilalaman?",
+            "options": [
+              "Ginawa para sa bata, aprubado ng matanda",
+              "May marahas na larawan",
+              "Humihingi ng personal na impormasyon",
+              "Hindi angkop sa edad"
+            ],
+            "correct_answer": "Ginawa para sa bata, aprubado ng matanda"
+          },
+          {
+            "question": "Halimbawa ng personal na impormasyon?",
+            "options": [
+              "Buong pangalan at tirahan",
+              "Paboritong kulay",
+              "Paboritong pagkain",
+              "Paboritong laro"
+            ],
+            "correct_answer": "Buong pangalan at tirahan"
+          },
+          {
+            "question": "Bakit hindi lahat ng nasa Internet ay totoo?",
+            "options": [
+              "Sinuman ay maaaring maglagay nang hindi na-check",
+              "Lahat na-verify na",
+              "Walang maling impormasyon",
+              "Palaging tama"
+            ],
+            "correct_answer": "Sinuman ay maaaring maglagay nang hindi na-check"
+          },
+          {
+            "question": "Unang hakbang bago isara ang kompyuter?",
+            "options": [
+              "I-save ang trabaho",
+              "Direktang patayin",
+              "Kalimutan ang trabaho",
+              "Tanggalin ang saksakan"
+            ],
+            "correct_answer": "I-save ang trabaho"
+          },
+          {
+            "question": "Gawin kung may humihingi ng personal na impormasyon?",
+            "options": [
+              "Huwag ibigay, sabihin sa matanda",
+              "Ibigay agad",
+              "Sagutin nang tapat",
+              "Ipagpatuloy ang usapan"
+            ],
+            "correct_answer": "Huwag ibigay, sabihin sa matanda"
+          },
+          {
+            "question": "Paano masusuri kung totoo ang impormasyon?",
+            "options": [
+              "Tingnan kung mula sa kilalang website",
+              "Basta paniwalaan",
+              "Ibahagi agad",
+              "Huwag tingnan"
+            ],
+            "correct_answer": "Tingnan kung mula sa kilalang website"
+          },
+          {
+            "question": "Bakit piliin ang 'Shut Down' kaysa basta putulin ang kuryente?",
+            "options": [
+              "Iwasan ang pagkasira at pagkawala ng trabaho",
+              "Walang pagkakaiba",
+              "Basta patayin agad",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Iwasan ang pagkasira at pagkawala ng trabaho"
+          },
+          {
+            "question": "Halimbawa ng search engine?",
+            "options": [
+              "Google",
+              "Chrome",
+              "Edge",
+              "Safari"
+            ],
+            "correct_answer": "Google"
+          },
+          {
+            "question": "Bakit itinuro ang mga paksang ito sa Computer?",
+            "options": [
+              "Maging responsable at ligtas sa teknolohiya",
+              "Hindi mahalaga",
+              "Hikayatin nang walang gabay",
+              "Walang layunin"
+            ],
+            "correct_answer": "Maging responsable at ligtas sa teknolohiya"
+          },
+          {
+            "question": "Pangkalahatang aral ng term sa Computer?",
+            "options": [
+              "Gamitin ang kompyuter at Internet nang responsable at ligtas",
+              "Gamitin nang mag-isa",
+              "Hindi na kailangan mag-ingat",
+              "Walang panganib"
+            ],
+            "correct_answer": "Gamitin ang kompyuter at Internet nang responsable at ligtas"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🌟 Friday Review — GMRC (Grade 3)\n\n- Term 2 wrap-up: pagmamalasakit at pagmamahal sa bayan\n\nMagaling na bata ka, magaling na term! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang pagmamano?",
+            "options": [
+              "Tanda ng paggalang sa nakatatanda",
+              "Uri ng pagkain",
+              "Uri ng sayaw",
+              "Uri ng laro"
+            ],
+            "correct_answer": "Tanda ng paggalang sa nakatatanda"
+          },
+          {
+            "question": "Paano magagamit ang talento para sa kapuwa?",
+            "options": [
+              "Awitan ang malungkot na kaibigan",
+              "Itago ang talento",
+              "Gamitin lamang sa sarili",
+              "Huwag kumanta"
+            ],
+            "correct_answer": "Awitan ang malungkot na kaibigan"
+          },
+          {
+            "question": "Sino ang mga PWD?",
+            "options": [
+              "Mga taong may pisikal, mental, o sensoryal na kondisyon",
+              "Mga taong may sakit na kaunti",
+              "Mga taong walang kondisyon",
+              "Matatandang tao lamang"
+            ],
+            "correct_answer": "Mga taong may pisikal, mental, o sensoryal na kondisyon"
+          },
+          {
+            "question": "Ano ang panalangin para sa kapuwa?",
+            "options": [
+              "Pagdarasal para sa kapakanan ng iba",
+              "Pagdarasal para sa sarili lamang",
+              "Kawalang pakialam",
+              "Pag-iwas sa panalangin"
+            ],
+            "correct_answer": "Pagdarasal para sa kapakanan ng iba"
+          },
+          {
+            "question": "Ibig sabihin ng 'Reduce'?",
+            "options": [
+              "Bawasan ang basura sa simula",
+              "Muling gamitin",
+              "Gawing bago",
+              "Ayusin ang sira"
+            ],
+            "correct_answer": "Bawasan ang basura sa simula"
+          },
+          {
+            "question": "Ano ang watawat?",
+            "options": [
+              "Sagisag ng kalayaan",
+              "Uri ng laro",
+              "Uri ng pagkain",
+              "Uri ng damit"
+            ],
+            "correct_answer": "Sagisag ng kalayaan"
+          },
+          {
+            "question": "Tema na nag-uugnay sa lahat ng pagpapahalaga?",
+            "options": [
+              "Pagmamalasakit sa pamilya, kapuwa, kapaligiran, bansa",
+              "Pagiging mayaman",
+              "Pagiging pinakamalakas",
+              "Pagiging pinakamatalino"
+            ],
+            "correct_answer": "Pagmamalasakit sa pamilya, kapuwa, kapaligiran, bansa"
+          },
+          {
+            "question": "Bakit linangin ang mga pagpapahalagang ito?",
+            "options": [
+              "Maging mabuting mamamayan at kaibigan",
+              "Hindi kailangan linangin",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging mabuting mamamayan at kaibigan"
+          },
+          {
+            "question": "Naidudulot ng pagpapahalaga sa kapuwa sa komunidad?",
+            "options": [
+              "Mas mapayapa at magkakaisang komunidad",
+              "Mas maraming away",
+              "Walang epekto",
+              "Hindi kailangan ng pagkakaisa"
+            ],
+            "correct_answer": "Mas mapayapa at magkakaisang komunidad"
+          },
+          {
+            "question": "Bakit pagpapahalaga ang paggalang sa PWD?",
+            "options": [
+              "Nagtuturo ng paggalang sa dignidad",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi ng agham lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Nagtuturo ng paggalang sa dignidad"
+          },
+          {
+            "question": "Pangkalahatang aral ng GMRC term na ito?",
+            "options": [
+              "Tunay na pagpapahalaga nakikita sa maliliit na kilos",
+              "Walang aral",
+              "GMRC tungkol sa agham lamang",
+              "GMRC tungkol sa matematika lamang"
+            ],
+            "correct_answer": "Tunay na pagpapahalaga nakikita sa maliliit na kilos"
+          },
+          {
+            "question": "Bakit ipakita ang pasasalamat sa tumulong sa atin?",
+            "options": [
+              "Nagpapatibay ng magandang ugnayan",
+              "Wala itong kahalagahan",
+              "Nakakahiya gawin",
+              "Hindi kailangan"
+            ],
+            "correct_answer": "Nagpapatibay ng magandang ugnayan"
+          }
+        ]
+      }
+    }
+  }
+}

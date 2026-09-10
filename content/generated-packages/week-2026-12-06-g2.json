@@ -1,0 +1,1766 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-12-06",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📖 English — Main Idea in Physical Environment Texts\n\nGrade 2, Week 26! Let's find the main idea in a short passage about nature. 📖\n\n## 🔄 Review\nWe learned plant and animal words, plus synonyms.\n\n## 📖 What Is a Main Idea?\nThe **main idea** is what a passage is mostly about — the most important point.\n\n**Example Passage:** \"Rivers give us water to drink. Rivers help plants grow. Rivers are homes for fish. Rivers are very important to life.\"\n\n**Main Idea:** Rivers are important to life.\n\n## 🔍 Finding the Main Idea\n1. Read the whole passage\n2. Ask: \"What is this mostly about?\"\n3. Look for a sentence that sums up all the details\n\n**Key words:** main idea, passage, details, important",
+        "quiz": [
+          {
+            "question": "What is the main idea of a passage?",
+            "options": [
+              "The most important point it is mostly about",
+              "The very last sentence always",
+              "A random detail",
+              "The title only"
+            ],
+            "correct_answer": "The most important point it is mostly about"
+          },
+          {
+            "question": "In the river passage, what is the main idea?",
+            "options": [
+              "Rivers are important to life",
+              "Fish live in the ocean",
+              "Plants need sunlight",
+              "Rain falls from clouds"
+            ],
+            "correct_answer": "Rivers are important to life"
+          },
+          {
+            "question": "What is the first step in finding the main idea?",
+            "options": [
+              "Read the whole passage",
+              "Skip the passage",
+              "Guess without reading",
+              "Read only the last word"
+            ],
+            "correct_answer": "Read the whole passage"
+          },
+          {
+            "question": "What question helps you find the main idea?",
+            "options": [
+              "What is this mostly about?",
+              "What color is this?",
+              "How many words are there?",
+              "Who wrote this?"
+            ],
+            "correct_answer": "What is this mostly about?"
+          },
+          {
+            "question": "Why are details in a passage useful?",
+            "options": [
+              "They support and explain the main idea",
+              "They have no connection to the main idea",
+              "They replace the main idea",
+              "They are always wrong"
+            ],
+            "correct_answer": "They support and explain the main idea"
+          },
+          {
+            "question": "'Rivers give us water to drink' is an example of what in the passage?",
+            "options": [
+              "A supporting detail",
+              "The main idea itself",
+              "The title",
+              "A random unrelated fact"
+            ],
+            "correct_answer": "A supporting detail"
+          },
+          {
+            "question": "Why is it useful to find the main idea of a passage?",
+            "options": [
+              "It helps you understand what the passage is really about",
+              "It has no real use",
+              "It replaces the need to read",
+              "It only matters for tests"
+            ],
+            "correct_answer": "It helps you understand what the passage is really about"
+          },
+          {
+            "question": "A passage about mountains mentions their height, animals living there, and their beauty. What might the main idea be?",
+            "options": [
+              "Mountains are amazing landforms",
+              "Only animals matter",
+              "Height is unimportant",
+              "Beauty has no connection"
+            ],
+            "correct_answer": "Mountains are amazing landforms"
+          },
+          {
+            "question": "How many main ideas does a short passage usually have?",
+            "options": [
+              "One main idea",
+              "Ten main ideas",
+              "No main idea at all",
+              "A different one for each sentence"
+            ],
+            "correct_answer": "One main idea"
+          },
+          {
+            "question": "If every sentence in a passage talks about frogs, what is likely the main idea?",
+            "options": [
+              "Something important about frogs",
+              "Something about the ocean",
+              "Something about mountains",
+              "Something unrelated to frogs"
+            ],
+            "correct_answer": "Something important about frogs"
+          },
+          {
+            "question": "Why might details alone NOT tell you the main idea?",
+            "options": [
+              "A detail is only one small part of the whole idea",
+              "Details are always the main idea",
+              "Main ideas don't need details",
+              "Details are never true"
+            ],
+            "correct_answer": "A detail is only one small part of the whole idea"
+          },
+          {
+            "question": "What is a good way to check if you found the correct main idea?",
+            "options": [
+              "See if all the details support it",
+              "Guess randomly",
+              "Ignore the passage completely",
+              "Only look at the first word"
+            ],
+            "correct_answer": "See if all the details support it"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🕐 Mathematics — Telling Time: Hours and Minutes\n\nGrade 2, Week 26! Let's learn to read a clock! 🕐\n\n## 🔄 Review\nWe practiced comparing unit fractions.\n\n## 🕐 Parts of a Clock\n- **Hour hand** — the shorter hand, points to the hour\n- **Minute hand** — the longer hand, points to the minutes\n\n## ⏰ Reading Time\nWhen the hour hand is on 3 and the minute hand is on 12, it is **3:00** (three o'clock).\n\nWhen the minute hand is on 6, it means **30 minutes** have passed (half past the hour).\n\n## 🌅 A.M. and P.M.\n- **A.M.** — from midnight to before noon (morning)\n- **P.M.** — from noon to before midnight (afternoon/evening)\n\n**Key words:** hour hand, minute hand, o'clock, a.m., p.m.",
+        "quiz": [
+          {
+            "question": "What does the hour hand do?",
+            "options": [
+              "Points to the hour (it's the shorter hand)",
+              "Points to the minutes (it's the longer hand)",
+              "Doesn't move at all",
+              "Shows the date"
+            ],
+            "correct_answer": "Points to the hour (it's the shorter hand)"
+          },
+          {
+            "question": "What does the minute hand do?",
+            "options": [
+              "Points to the minutes (it's the longer hand)",
+              "Points to the hour (it's the shorter hand)",
+              "Doesn't move at all",
+              "Shows the year"
+            ],
+            "correct_answer": "Points to the minutes (it's the longer hand)"
+          },
+          {
+            "question": "If the hour hand is on 3 and minute hand is on 12, what time is it?",
+            "options": [
+              "3:00",
+              "12:00",
+              "3:30",
+              "12:03"
+            ],
+            "correct_answer": "3:00"
+          },
+          {
+            "question": "If the minute hand is on 6, how many minutes have passed?",
+            "options": [
+              "30 minutes",
+              "6 minutes",
+              "60 minutes",
+              "12 minutes"
+            ],
+            "correct_answer": "30 minutes"
+          },
+          {
+            "question": "What does A.M. mean?",
+            "options": [
+              "Midnight to before noon",
+              "Noon to before midnight",
+              "Only nighttime",
+              "Only weekends"
+            ],
+            "correct_answer": "Midnight to before noon"
+          },
+          {
+            "question": "What does P.M. mean?",
+            "options": [
+              "Noon to before midnight",
+              "Midnight to before noon",
+              "Only mornings",
+              "Only weekdays"
+            ],
+            "correct_answer": "Noon to before midnight"
+          },
+          {
+            "question": "Which hand on the clock is shorter?",
+            "options": [
+              "Hour hand",
+              "Minute hand",
+              "Both are the same length",
+              "Neither hand exists"
+            ],
+            "correct_answer": "Hour hand"
+          },
+          {
+            "question": "Which hand on the clock is longer?",
+            "options": [
+              "Minute hand",
+              "Hour hand",
+              "Both are the same length",
+              "Neither hand exists"
+            ],
+            "correct_answer": "Minute hand"
+          },
+          {
+            "question": "If you wake up at 6:00 in the morning, is that A.M. or P.M.?",
+            "options": [
+              "A.M.",
+              "P.M.",
+              "Neither",
+              "Both"
+            ],
+            "correct_answer": "A.M."
+          },
+          {
+            "question": "If you eat dinner at 7:00 in the evening, is that A.M. or P.M.?",
+            "options": [
+              "P.M.",
+              "A.M.",
+              "Neither",
+              "Both"
+            ],
+            "correct_answer": "P.M."
+          },
+          {
+            "question": "What time is it when both hands point to 12?",
+            "options": [
+              "12:00",
+              "6:00",
+              "3:00",
+              "9:00"
+            ],
+            "correct_answer": "12:00"
+          },
+          {
+            "question": "Half past the hour means how many minutes have passed?",
+            "options": [
+              "30 minutes",
+              "15 minutes",
+              "45 minutes",
+              "60 minutes"
+            ],
+            "correct_answer": "30 minutes"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# ✏️ Filipino — Simuno at Panaguri\n\nGrade 2, Linggo 26! Alamin natin ang mga bahagi ng isang pangungusap. ✏️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga hayop at tanim.\n\n## ✏️ Ano ang Simuno?\nAng **simuno** ay ang bahagi ng pangungusap na nagsasabi kung SINO o ANO ang pinag-uusapan.\n\n## ✏️ Ano ang Panaguri?\nAng **panaguri** ay ang bahagi ng pangungusap na nagsasabi ng KILOS o KATANGIAN ng simuno.\n\n## 📝 Halimbawa\n\"**Ang aso** ay tumatakbo.\"\n- Simuno: Ang aso\n- Panaguri: tumatakbo\n\n\"**Si Ana** ay masipag.\"\n- Simuno: Si Ana\n- Panaguri: masipag\n\n**Mahahalagang salita:** simuno, panaguri, pangungusap",
+        "quiz": [
+          {
+            "question": "Ano ang simuno?",
+            "options": [
+              "Bahaging nagsasabi kung sino o ano ang pinag-uusapan",
+              "Bahaging nagsasabi ng kilos",
+              "Ang katapusan ng pangungusap",
+              "Ang unang salita lamang"
+            ],
+            "correct_answer": "Bahaging nagsasabi kung sino o ano ang pinag-uusapan"
+          },
+          {
+            "question": "Ano ang panaguri?",
+            "options": [
+              "Bahaging nagsasabi ng kilos o katangian",
+              "Bahaging nagsasabi kung sino ang pinag-uusapan",
+              "Ang unang salita",
+              "Ang bantas sa pangungusap"
+            ],
+            "correct_answer": "Bahaging nagsasabi ng kilos o katangian"
+          },
+          {
+            "question": "Sa 'Ang aso ay tumatakbo,' ano ang simuno?",
+            "options": [
+              "Ang aso",
+              "Tumatakbo",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Ang aso"
+          },
+          {
+            "question": "Sa 'Ang aso ay tumatakbo,' ano ang panaguri?",
+            "options": [
+              "Tumatakbo",
+              "Ang aso",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Tumatakbo"
+          },
+          {
+            "question": "Sa 'Si Ana ay masipag,' ano ang simuno?",
+            "options": [
+              "Si Ana",
+              "Masipag",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Si Ana"
+          },
+          {
+            "question": "Sa 'Si Ana ay masipag,' ano ang panaguri?",
+            "options": [
+              "Masipag",
+              "Si Ana",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Masipag"
+          },
+          {
+            "question": "Bakit kailangan ng simuno sa isang pangungusap?",
+            "options": [
+              "Para malaman kung sino o ano ang pinag-uusapan",
+              "Hindi ito kailangan",
+              "Para lang mapahaba ang pangungusap",
+              "Wala itong gamit"
+            ],
+            "correct_answer": "Para malaman kung sino o ano ang pinag-uusapan"
+          },
+          {
+            "question": "Bakit kailangan ng panaguri sa isang pangungusap?",
+            "options": [
+              "Para malaman ang kilos o katangian ng simuno",
+              "Hindi ito kailangan",
+              "Para lang mapaikli ang pangungusap",
+              "Wala itong gamit"
+            ],
+            "correct_answer": "Para malaman ang kilos o katangian ng simuno"
+          },
+          {
+            "question": "Sa 'Ang bulaklak ay maganda,' ano ang simuno?",
+            "options": [
+              "Ang bulaklak",
+              "Maganda",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Ang bulaklak"
+          },
+          {
+            "question": "Sa 'Ang bulaklak ay maganda,' ano ang panaguri?",
+            "options": [
+              "Maganda",
+              "Ang bulaklak",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Maganda"
+          },
+          {
+            "question": "Ano ang dalawang pangunahing bahagi ng isang pangungusap?",
+            "options": [
+              "Simuno at panaguri",
+              "Simuno at bantas",
+              "Panaguri at titik",
+              "Titik at pantig"
+            ],
+            "correct_answer": "Simuno at panaguri"
+          },
+          {
+            "question": "Sa 'Ang ibon ay lumilipad,' ano ang panaguri?",
+            "options": [
+              "Lumilipad",
+              "Ang ibon",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Lumilipad"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ⚙️ Science — Simple Machines: Lever and Wheel-and-Axle\n\nGrade 2, Week 26! Let's learn about tools that make work easier! ⚙️\n\n## 🔄 Review\nWe learned about push and pull forces.\n\n## ⚙️ What Is a Lever?\nA **lever** is a bar that helps lift things using a fixed point called a **fulcrum**.\n\n**Example:** A seesaw is a lever!\n\n## 🎡 What Is a Wheel-and-Axle?\nA **wheel-and-axle** is a wheel attached to a rod (axle); turning one turns the other.\n\n**Example:** A doorknob or a steering wheel!\n\n## 💡 Why Use Simple Machines?\nSimple machines make work **easier** by helping us push, pull, or lift with less effort.\n\n**Key words:** lever, fulcrum, wheel-and-axle, simple machine",
+        "quiz": [
+          {
+            "question": "What is a lever?",
+            "options": [
+              "A bar that helps lift things using a fixed point",
+              "A round wheel only",
+              "A type of liquid",
+              "A type of animal"
+            ],
+            "correct_answer": "A bar that helps lift things using a fixed point"
+          },
+          {
+            "question": "What is the fixed point on a lever called?",
+            "options": [
+              "Fulcrum",
+              "Axle",
+              "Wheel",
+              "Handle"
+            ],
+            "correct_answer": "Fulcrum"
+          },
+          {
+            "question": "Which of these is an example of a lever?",
+            "options": [
+              "A seesaw",
+              "A doorknob",
+              "A steering wheel",
+              "A ball"
+            ],
+            "correct_answer": "A seesaw"
+          },
+          {
+            "question": "What is a wheel-and-axle?",
+            "options": [
+              "A wheel attached to a rod; turning one turns the other",
+              "A bar with a fixed point",
+              "A type of liquid",
+              "A flat surface"
+            ],
+            "correct_answer": "A wheel attached to a rod; turning one turns the other"
+          },
+          {
+            "question": "Which of these is an example of a wheel-and-axle?",
+            "options": [
+              "A doorknob",
+              "A seesaw",
+              "A rock",
+              "A tree"
+            ],
+            "correct_answer": "A doorknob"
+          },
+          {
+            "question": "Why do we use simple machines?",
+            "options": [
+              "They make work easier",
+              "They make work harder",
+              "They have no purpose",
+              "They only look nice"
+            ],
+            "correct_answer": "They make work easier"
+          },
+          {
+            "question": "A steering wheel in a car is an example of what simple machine?",
+            "options": [
+              "Wheel-and-axle",
+              "Lever",
+              "Pulley",
+              "Inclined plane"
+            ],
+            "correct_answer": "Wheel-and-axle"
+          },
+          {
+            "question": "Why is a seesaw considered a lever?",
+            "options": [
+              "It has a fixed point (fulcrum) that helps it move up and down",
+              "It has wheels",
+              "It is made of liquid",
+              "It has no moving parts"
+            ],
+            "correct_answer": "It has a fixed point (fulcrum) that helps it move up and down"
+          },
+          {
+            "question": "What does turning a doorknob (wheel) do to the rod inside (axle)?",
+            "options": [
+              "It turns the rod too",
+              "Nothing happens to the rod",
+              "It breaks the rod",
+              "It changes color"
+            ],
+            "correct_answer": "It turns the rod too"
+          },
+          {
+            "question": "How does a lever make lifting easier?",
+            "options": [
+              "It uses a fixed point to help move a heavy object with less effort",
+              "It removes the need for any effort",
+              "It makes objects heavier",
+              "It has no effect on lifting"
+            ],
+            "correct_answer": "It uses a fixed point to help move a heavy object with less effort"
+          },
+          {
+            "question": "Why are simple machines helpful in everyday life?",
+            "options": [
+              "They help us do tasks with less effort",
+              "They make tasks impossible",
+              "They only exist in factories",
+              "They have no practical use"
+            ],
+            "correct_answer": "They help us do tasks with less effort"
+          },
+          {
+            "question": "Which simple machine would help you turn something round and round?",
+            "options": [
+              "Wheel-and-axle",
+              "Lever alone",
+              "A rock",
+              "A flat board"
+            ],
+            "correct_answer": "Wheel-and-axle"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🤝 Makabansa — Konsepto ng Pakikipagkapuwa at Pakikibahagi\n\nGrade 2, Linggo 26! Alamin natin ang kahulugan ng pakikipagkapuwa. 🤝\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa pagpapahalaga sa naglilingkod sa komunidad.\n\n## 🤝 Ano ang Pakikipagkapuwa?\nAng **pakikipagkapuwa** ay ang pakikitungo nang mabuti at may pag-unawa sa ibang tao, kahit sila ay iba sa atin.\n\n## 🎉 Ano ang Pakikibahagi?\nAng **pakikibahagi** ay ang pagiging bahagi ng isang gawain o pagdiriwang kasama ang ibang tao sa komunidad.\n\n## 🔍 Halimbawa\nAng pagtulong sa isang bagong kapitbahay na mag-ayos ay pakikipagkapuwa. Ang paglahok sa isang pista ng bayan ay pakikibahagi.\n\n**Mahahalagang salita:** pakikipagkapuwa, pakikibahagi, kapitbahay, pagdiriwang",
+        "quiz": [
+          {
+            "question": "Ano ang pakikipagkapuwa?",
+            "options": [
+              "Pakikitungo nang mabuti at may pag-unawa sa ibang tao",
+              "Pag-iwas sa ibang tao",
+              "Pagiging bastos sa iba",
+              "Kawalang pakialam sa iba"
+            ],
+            "correct_answer": "Pakikitungo nang mabuti at may pag-unawa sa ibang tao"
+          },
+          {
+            "question": "Ano ang pakikibahagi?",
+            "options": [
+              "Pagiging bahagi ng gawain o pagdiriwang kasama ang iba",
+              "Pag-iwas sa mga gawain ng komunidad",
+              "Pagtanggi sa lahat ng aktibidad",
+              "Kawalang interes sa iba"
+            ],
+            "correct_answer": "Pagiging bahagi ng gawain o pagdiriwang kasama ang iba"
+          },
+          {
+            "question": "Alin ang halimbawa ng pakikipagkapuwa?",
+            "options": [
+              "Pagtulong sa bagong kapitbahay",
+              "Pag-iwas sa kapitbahay",
+              "Pagtanggi tumulong",
+              "Kawalang pakialam sa iba"
+            ],
+            "correct_answer": "Pagtulong sa bagong kapitbahay"
+          },
+          {
+            "question": "Alin ang halimbawa ng pakikibahagi?",
+            "options": [
+              "Paglahok sa pista ng bayan",
+              "Pag-iwas sa mga kaganapan",
+              "Pananatili sa bahay lamang",
+              "Pagtanggi sa lahat ng imbitasyon"
+            ],
+            "correct_answer": "Paglahok sa pista ng bayan"
+          },
+          {
+            "question": "Bakit mahalaga ang pakikipagkapuwa?",
+            "options": [
+              "Nakakatulong ito lumikha ng magandang ugnayan sa iba",
+              "Wala itong kahalagahan",
+              "Nagdudulot lamang ito ng away",
+              "Hindi ito mahalaga sa komunidad"
+            ],
+            "correct_answer": "Nakakatulong ito lumikha ng magandang ugnayan sa iba"
+          },
+          {
+            "question": "Bakit mahalaga ang pakikibahagi sa mga pagdiriwang ng komunidad?",
+            "options": [
+              "Nagpapatibay ito ng pagkakaisa",
+              "Wala itong kabuluhan",
+              "Nagdudulot lamang ito ng gulo",
+              "Hindi ito nakakatulong sa komunidad"
+            ],
+            "correct_answer": "Nagpapatibay ito ng pagkakaisa"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag may bagong pamilyang lumipat sa iyong kapitbahayan?",
+            "options": [
+              "Batiin at tulungan sila",
+              "Iwasan sila",
+              "Kutyain sila",
+              "Balewalain sila"
+            ],
+            "correct_answer": "Batiin at tulungan sila"
+          },
+          {
+            "question": "Ano ang naidudulot ng pakikipagkapuwa sa isang komunidad?",
+            "options": [
+              "Mas magandang relasyon sa iba't ibang tao",
+              "Higit na away",
+              "Kawalan ng pagkakaisa",
+              "Walang naidudulot"
+            ],
+            "correct_answer": "Mas magandang relasyon sa iba't ibang tao"
+          },
+          {
+            "question": "Bakit dapat lumahok sa mga gawain ng komunidad?",
+            "options": [
+              "Nagpapakita ito ng pagmamalasakit at pakikiisa",
+              "Hindi na kailangan lumahok",
+              "Walang benepisyo dito",
+              "Ito ay para lamang sa matatanda"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamalasakit at pakikiisa"
+          },
+          {
+            "question": "Paano naiiba ang pakikipagkapuwa sa pakikibahagi?",
+            "options": [
+              "Pakikipagkapuwa ay pakikitungo sa iba, pakikibahagi ay pag-lahok sa gawain",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Pareho silang tungkol sa pera"
+            ],
+            "correct_answer": "Pakikipagkapuwa ay pakikitungo sa iba, pakikibahagi ay pag-lahok sa gawain"
+          },
+          {
+            "question": "Bakit mahalagang matutong makipagkapuwa mula pagkabata?",
+            "options": [
+              "Upang maging mabuting kasapi ng komunidad paglaki",
+              "Hindi na kailangan matutunan ito",
+              "Ito ay para lamang sa matatanda",
+              "Walang epekto ito sa buhay ng bata"
+            ],
+            "correct_answer": "Upang maging mabuting kasapi ng komunidad paglaki"
+          },
+          {
+            "question": "Ano ang isang halimbawa ng pagdiriwang na maaaring paglahukan?",
+            "options": [
+              "Pista ng bayan",
+              "Pagtulog buong araw",
+              "Pananatiling nag-iisa",
+              "Pagtanggi sa lahat ng imbitasyon"
+            ],
+            "correct_answer": "Pista ng bayan"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🖱️ Computer — Pagsasanib ng Kasanayan sa Isang Proyekto\n\nGrade 2, Week 26! Pagsamahin natin ang lahat ng natutuhan sa kompyuter! 🖱️\n\n## 🔄 Balik-Aral\nNatutuhan natin kung paano kilalanin at iulat ang hindi ligtas na sitwasyon.\n\n## 🖱️ Mga Kasanayang Natutuhan\n- Mouse skills (click, drag)\n- Pagta-type gamit ang keyboard\n- Word-processing at simpleng pagguhit\n- Pag-save at pagbukas ng file\n- Online safety\n\n## 🎨 Simpleng Proyekto\nGumawa ng maikling proyekto — halimbawa, mag-type ng isang pangungusap tungkol sa iyong sarili at magdagdag ng simpleng guhit — gamit ang lahat ng kasanayang natutuhan.\n\n## 👨‍👩‍👧 Tandaan\nHumingi pa rin ng gabay ng matanda kapag nag-se-save o gumagamit ng bagong programa.\n\n**Mahahalagang salita:** pagsasanib, proyekto, mouse skills, word-processing",
+        "quiz": [
+          {
+            "question": "Anong mga kasanayan ang pinagsama-sama sa proyekto?",
+            "options": [
+              "Mouse skills, pag-type, pag-guhit, pag-save",
+              "Pagluluto at paglilinis lamang",
+              "Pagkanta at pagsayaw",
+              "Pangingisda at pagsasaka"
+            ],
+            "correct_answer": "Mouse skills, pag-type, pag-guhit, pag-save"
+          },
+          {
+            "question": "Ano ang halimbawang gawin sa simpleng proyekto?",
+            "options": [
+              "Mag-type ng pangungusap tungkol sa sarili at magdagdag ng guhit",
+              "Manood lamang ng TV",
+              "Maglaro nang mag-isa",
+              "Magbasa ng libro lamang"
+            ],
+            "correct_answer": "Mag-type ng pangungusap tungkol sa sarili at magdagdag ng guhit"
+          },
+          {
+            "question": "Bakit mahalagang pagsamahin ang mga kasanayan sa kompyuter?",
+            "options": [
+              "Para makagawa ng isang kumpletong proyekto",
+              "Walang gamit ito",
+              "Hindi na kailangan gawin ito",
+              "Para lamang libangin ang guro"
+            ],
+            "correct_answer": "Para makagawa ng isang kumpletong proyekto"
+          },
+          {
+            "question": "Sino dapat pa ring hingan ng gabay habang gumagawa ng proyekto?",
+            "options": [
+              "Isang matanda",
+              "Walang kailangan hingan",
+              "Kaklase lamang",
+              "Estranghero online"
+            ],
+            "correct_answer": "Isang matanda"
+          },
+          {
+            "question": "Anong kasanayan ang ginagamit para i-type ang pangungusap?",
+            "options": [
+              "Word-processing/typing",
+              "Mouse click lamang",
+              "Pagguhit lamang",
+              "Pag-save lamang"
+            ],
+            "correct_answer": "Word-processing/typing"
+          },
+          {
+            "question": "Ano ang dapat gawin bago isara ang proyekto?",
+            "options": [
+              "I-save ang trabaho",
+              "Kalimutan na lamang ito",
+              "Burahin agad",
+              "Isara nang walang pag-save"
+            ],
+            "correct_answer": "I-save ang trabaho"
+          },
+          {
+            "question": "Bakit mahalagang matutong gumamit ng mouse nang tama?",
+            "options": [
+              "Para mas madaling gumawa ng proyekto sa kompyuter",
+              "Walang gamit ito",
+              "Hindi na kailangan matutunan",
+              "Para lamang sa laro"
+            ],
+            "correct_answer": "Para mas madaling gumawa ng proyekto sa kompyuter"
+          },
+          {
+            "question": "Ano ang layunin ng pagsasanib ng kasanayan sa isang proyekto?",
+            "options": [
+              "Ipakita ang natutunang kasanayan sa isang gawain",
+              "Wala itong layunin",
+              "Para lamang matapos ang oras",
+              "Para hikayatin ang mahabang screen-time"
+            ],
+            "correct_answer": "Ipakita ang natutunang kasanayan sa isang gawain"
+          },
+          {
+            "question": "Bakit hindi dapat mag-online nang walang gabay ng matanda kahit sa isang proyekto?",
+            "options": [
+              "Para masiguro ang kaligtasan at tamang paggamit",
+              "Hindi na kailangan iyon",
+              "Ligtas na palagi",
+              "Bata na lamang ang magpasya"
+            ],
+            "correct_answer": "Para masiguro ang kaligtasan at tamang paggamit"
+          },
+          {
+            "question": "Alin sa mga ito ang kasanayan sa ICT na natutunan sa buong term?",
+            "options": [
+              "Pag-save, pag-type, at online safety",
+              "Pagluluto ng pagkain",
+              "Pananahi ng damit",
+              "Pagsasaka"
+            ],
+            "correct_answer": "Pag-save, pag-type, at online safety"
+          },
+          {
+            "question": "Bakit kailangang magpraktis ng mga kasanayan sa kompyuter?",
+            "options": [
+              "Para maging mas magaling at komportable sa paggamit nito",
+              "Hindi na kailangan magpraktis",
+              "Isang beses lamang ginagamit ang kasanayan",
+              "Walang benepisyo ito"
+            ],
+            "correct_answer": "Para maging mas magaling at komportable sa paggamit nito"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi mo isasanib ang mga kasanayan sa isang proyekto?",
+            "options": [
+              "Mahihirapan kang makagawa ng kumpletong gawain",
+              "Walang epekto ito",
+              "Mas madali kung hiwalay lahat",
+              "Awtomatikong matatapos ang proyekto"
+            ],
+            "correct_answer": "Mahihirapan kang makagawa ng kumpletong gawain"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🤲 GMRC — Pagbabayanihan ng Kapuwa-Bata para sa Pamayanan\n\nGrade 2, Linggo 26! Pagpapahalaga: **Helpful (Matulungin)**. 🤲\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **pangangalaga sa kapaligiran**.\n\n## 🤲 Ano ang Bayanihan?\nAng **bayanihan** ay ang pagtutulungan ng mga tao sa isang komunidad para sa kapakanan ng lahat.\n\n## 🧒 Paano Makakatulong ang mga Bata sa Bayanihan\n- Sama-samang maglinis ng paligid\n- Tumulong sa pagbibigay ng gamit sa nangangailangan\n- Tumulong sa mga proyekto ng paaralan para sa komunidad\n\n## 💡 Bakit Mahalaga Ito?\nAng bayanihan ay nagpapakita ng **pagkakaisa** at **pagmamalasakit** sa kapwa-tao, kahit maliit pa ang mga bata.\n\n**Mahahalagang salita:** bayanihan, matulungin, pagkakaisa, komunidad",
+        "quiz": [
+          {
+            "question": "Ano ang bayanihan?",
+            "options": [
+              "Pagtutulungan ng mga tao para sa kapakanan ng lahat",
+              "Pag-iwas sa pagtulong",
+              "Pagsasarili nang walang tulong",
+              "Kawalang pakialam sa iba"
+            ],
+            "correct_answer": "Pagtutulungan ng mga tao para sa kapakanan ng lahat"
+          },
+          {
+            "question": "Anong halimbawa ng pagtulong ng bata sa bayanihan?",
+            "options": [
+              "Sama-samang maglinis ng paligid",
+              "Iwasan ang paglilinis",
+              "Manatiling nag-iisa",
+              "Tumanggi tumulong"
+            ],
+            "correct_answer": "Sama-samang maglinis ng paligid"
+          },
+          {
+            "question": "Paano makakatulong ang bata sa nangangailangan?",
+            "options": [
+              "Tumulong sa pagbibigay ng gamit",
+              "Iwasan silang tulungan",
+              "Ipagkait ang tulong",
+              "Kalimutan sila"
+            ],
+            "correct_answer": "Tumulong sa pagbibigay ng gamit"
+          },
+          {
+            "question": "Bakit mahalaga ang bayanihan?",
+            "options": [
+              "Nagpapakita ito ng pagkakaisa at pagmamalasakit",
+              "Wala itong kahalagahan",
+              "Nagdudulot lamang ito ng away",
+              "Hindi ito nakakatulong"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagkakaisa at pagmamalasakit"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Helpful (Matulungin)",
+              "Loving",
+              "Respect",
+              "Gratitude"
+            ],
+            "correct_answer": "Helpful (Matulungin)"
+          },
+          {
+            "question": "Saan maaaring tumulong ang bata sa proyekto para sa komunidad?",
+            "options": [
+              "Sa mga proyekto ng paaralan",
+              "Sa pagtanggi sa lahat ng gawain",
+              "Sa pag-iwas sa lahat",
+              "Sa pagsira ng ari-arian"
+            ],
+            "correct_answer": "Sa mga proyekto ng paaralan"
+          },
+          {
+            "question": "Ano ang naidudulot ng bayanihan sa isang komunidad?",
+            "options": [
+              "Mas malakas na pagkakaisa",
+              "Higit na paghihiwalay",
+              "Walang naidudulot",
+              "Kawalan ng tiwala"
+            ],
+            "correct_answer": "Mas malakas na pagkakaisa"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang bayanihan sa GMRC?",
+            "options": [
+              "Nagtuturo ito ng pagmamalasakit sa kapwa",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ng agham",
+              "Hindi itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagtuturo ito ng pagmamalasakit sa kapwa"
+          },
+          {
+            "question": "Bakit dapat sumali ang bata sa bayanihan kahit bata pa siya?",
+            "options": [
+              "Kahit maliit ang tulong, mahalaga ito sa pagkakaisa",
+              "Hindi pa siya puwedeng tumulong",
+              "Bata lamang ang dapat tumanggi",
+              "Walang mahalagang gagampanan"
+            ],
+            "correct_answer": "Kahit maliit ang tulong, mahalaga ito sa pagkakaisa"
+          },
+          {
+            "question": "Ano ang mangyayari kung walang bayanihan sa isang komunidad?",
+            "options": [
+              "Mas mahirap malutas ang mga suliranin ng lahat",
+              "Mas mabuti ang lahat",
+              "Walang epekto",
+              "Awtomatikong maayos ang lahat"
+            ],
+            "correct_answer": "Mas mahirap malutas ang mga suliranin ng lahat"
+          },
+          {
+            "question": "Alin ang HINDI halimbawa ng bayanihan?",
+            "options": [
+              "Pagtanggi tumulong sa proyekto ng paaralan",
+              "Pagtulong sa paglilinis",
+              "Pagbibigay ng gamit sa nangangailangan",
+              "Paglahok sa proyekto ng komunidad"
+            ],
+            "correct_answer": "Pagtanggi tumulong sa proyekto ng paaralan"
+          },
+          {
+            "question": "Bakit dapat ituro ang bayanihan sa mga bata simula ngayon?",
+            "options": [
+              "Upang maging matulungin at mapagmalasakit na mamamayan paglaki",
+              "Hindi na kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang maging matulungin at mapagmalasakit na mamamayan paglaki"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📖 Friday Review — English (Grade 2)\n\n- Finding the main idea\n\nGreat reading comprehension! 🌟",
+        "quiz": [
+          {
+            "question": "What is the main idea of a passage?",
+            "options": [
+              "The most important point it is mostly about",
+              "The very last sentence always",
+              "A random detail",
+              "The title only"
+            ],
+            "correct_answer": "The most important point it is mostly about"
+          },
+          {
+            "question": "In the river passage, what is the main idea?",
+            "options": [
+              "Rivers are important to life",
+              "Fish live in the ocean",
+              "Plants need sunlight",
+              "Rain falls from clouds"
+            ],
+            "correct_answer": "Rivers are important to life"
+          },
+          {
+            "question": "First step in finding the main idea?",
+            "options": [
+              "Read the whole passage",
+              "Skip the passage",
+              "Guess without reading",
+              "Read only the last word"
+            ],
+            "correct_answer": "Read the whole passage"
+          },
+          {
+            "question": "What question helps find the main idea?",
+            "options": [
+              "What is this mostly about?",
+              "What color is this?",
+              "How many words?",
+              "Who wrote this?"
+            ],
+            "correct_answer": "What is this mostly about?"
+          },
+          {
+            "question": "Why are details useful?",
+            "options": [
+              "They support and explain the main idea",
+              "No connection to main idea",
+              "They replace the main idea",
+              "Always wrong"
+            ],
+            "correct_answer": "They support and explain the main idea"
+          },
+          {
+            "question": "'Rivers give us water to drink' is an example of?",
+            "options": [
+              "A supporting detail",
+              "The main idea itself",
+              "The title",
+              "An unrelated fact"
+            ],
+            "correct_answer": "A supporting detail"
+          },
+          {
+            "question": "Why find the main idea of a passage?",
+            "options": [
+              "Helps understand what it's really about",
+              "No real use",
+              "Replaces reading",
+              "Only for tests"
+            ],
+            "correct_answer": "Helps understand what it's really about"
+          },
+          {
+            "question": "A passage mentions height, animals, and beauty of mountains. Main idea?",
+            "options": [
+              "Mountains are amazing landforms",
+              "Only animals matter",
+              "Height unimportant",
+              "Beauty has no connection"
+            ],
+            "correct_answer": "Mountains are amazing landforms"
+          },
+          {
+            "question": "How many main ideas does a short passage usually have?",
+            "options": [
+              "One",
+              "Ten",
+              "None",
+              "A different one per sentence"
+            ],
+            "correct_answer": "One"
+          },
+          {
+            "question": "Every sentence about frogs: likely main idea?",
+            "options": [
+              "Something important about frogs",
+              "Something about ocean",
+              "Something about mountains",
+              "Unrelated to frogs"
+            ],
+            "correct_answer": "Something important about frogs"
+          },
+          {
+            "question": "Why might details alone NOT tell you the main idea?",
+            "options": [
+              "A detail is only one small part of the whole",
+              "Details are always the main idea",
+              "Main ideas don't need details",
+              "Details are never true"
+            ],
+            "correct_answer": "A detail is only one small part of the whole"
+          },
+          {
+            "question": "How to check if you found the main idea?",
+            "options": [
+              "See if all details support it",
+              "Guess randomly",
+              "Ignore the passage",
+              "Only look at first word"
+            ],
+            "correct_answer": "See if all details support it"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🕐 Friday Review — Mathematics (Grade 2)\n\n- Telling time: hours and minutes\n\nGreat time-telling skills! ⭐",
+        "quiz": [
+          {
+            "question": "What does the hour hand do?",
+            "options": [
+              "Points to the hour (shorter hand)",
+              "Points to minutes (longer hand)",
+              "Doesn't move",
+              "Shows the date"
+            ],
+            "correct_answer": "Points to the hour (shorter hand)"
+          },
+          {
+            "question": "What does the minute hand do?",
+            "options": [
+              "Points to minutes (longer hand)",
+              "Points to hour (shorter hand)",
+              "Doesn't move",
+              "Shows the year"
+            ],
+            "correct_answer": "Points to minutes (longer hand)"
+          },
+          {
+            "question": "Hour hand on 3, minute hand on 12: what time?",
+            "options": [
+              "3:00",
+              "12:00",
+              "3:30",
+              "12:03"
+            ],
+            "correct_answer": "3:00"
+          },
+          {
+            "question": "Minute hand on 6: how many minutes passed?",
+            "options": [
+              "30 minutes",
+              "6 minutes",
+              "60 minutes",
+              "12 minutes"
+            ],
+            "correct_answer": "30 minutes"
+          },
+          {
+            "question": "What does A.M. mean?",
+            "options": [
+              "Midnight to before noon",
+              "Noon to before midnight",
+              "Only nighttime",
+              "Only weekends"
+            ],
+            "correct_answer": "Midnight to before noon"
+          },
+          {
+            "question": "What does P.M. mean?",
+            "options": [
+              "Noon to before midnight",
+              "Midnight to before noon",
+              "Only mornings",
+              "Only weekdays"
+            ],
+            "correct_answer": "Noon to before midnight"
+          },
+          {
+            "question": "Which clock hand is shorter?",
+            "options": [
+              "Hour hand",
+              "Minute hand",
+              "Same length",
+              "Neither exists"
+            ],
+            "correct_answer": "Hour hand"
+          },
+          {
+            "question": "Which clock hand is longer?",
+            "options": [
+              "Minute hand",
+              "Hour hand",
+              "Same length",
+              "Neither exists"
+            ],
+            "correct_answer": "Minute hand"
+          },
+          {
+            "question": "Waking up at 6:00 in the morning: A.M. or P.M.?",
+            "options": [
+              "A.M.",
+              "P.M.",
+              "Neither",
+              "Both"
+            ],
+            "correct_answer": "A.M."
+          },
+          {
+            "question": "Eating dinner at 7:00 evening: A.M. or P.M.?",
+            "options": [
+              "P.M.",
+              "A.M.",
+              "Neither",
+              "Both"
+            ],
+            "correct_answer": "P.M."
+          },
+          {
+            "question": "Time when both hands point to 12?",
+            "options": [
+              "12:00",
+              "6:00",
+              "3:00",
+              "9:00"
+            ],
+            "correct_answer": "12:00"
+          },
+          {
+            "question": "Half past the hour is how many minutes?",
+            "options": [
+              "30 minutes",
+              "15 minutes",
+              "45 minutes",
+              "60 minutes"
+            ],
+            "correct_answer": "30 minutes"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# ✏️ Friday Review — Filipino (Grade 2)\n\n- Simuno at panaguri\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang simuno?",
+            "options": [
+              "Bahaging nagsasabi kung sino o ano ang pinag-uusapan",
+              "Bahaging nagsasabi ng kilos",
+              "Katapusan ng pangungusap",
+              "Unang salita lamang"
+            ],
+            "correct_answer": "Bahaging nagsasabi kung sino o ano ang pinag-uusapan"
+          },
+          {
+            "question": "Ano ang panaguri?",
+            "options": [
+              "Bahaging nagsasabi ng kilos o katangian",
+              "Bahaging nagsasabi ng simuno",
+              "Unang salita",
+              "Bantas sa pangungusap"
+            ],
+            "correct_answer": "Bahaging nagsasabi ng kilos o katangian"
+          },
+          {
+            "question": "Sa 'Ang aso ay tumatakbo,' ano ang simuno?",
+            "options": [
+              "Ang aso",
+              "Tumatakbo",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Ang aso"
+          },
+          {
+            "question": "Sa 'Ang aso ay tumatakbo,' ano ang panaguri?",
+            "options": [
+              "Tumatakbo",
+              "Ang aso",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Tumatakbo"
+          },
+          {
+            "question": "Sa 'Si Ana ay masipag,' ano ang simuno?",
+            "options": [
+              "Si Ana",
+              "Masipag",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Si Ana"
+          },
+          {
+            "question": "Sa 'Si Ana ay masipag,' ano ang panaguri?",
+            "options": [
+              "Masipag",
+              "Si Ana",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Masipag"
+          },
+          {
+            "question": "Bakit kailangan ng simuno?",
+            "options": [
+              "Malaman kung sino o ano ang pinag-uusapan",
+              "Hindi kailangan",
+              "Mapahaba lamang",
+              "Walang gamit"
+            ],
+            "correct_answer": "Malaman kung sino o ano ang pinag-uusapan"
+          },
+          {
+            "question": "Bakit kailangan ng panaguri?",
+            "options": [
+              "Malaman ang kilos o katangian ng simuno",
+              "Hindi kailangan",
+              "Mapaikli lamang",
+              "Walang gamit"
+            ],
+            "correct_answer": "Malaman ang kilos o katangian ng simuno"
+          },
+          {
+            "question": "Sa 'Ang bulaklak ay maganda,' ano ang simuno?",
+            "options": [
+              "Ang bulaklak",
+              "Maganda",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Ang bulaklak"
+          },
+          {
+            "question": "Sa 'Ang bulaklak ay maganda,' ano ang panaguri?",
+            "options": [
+              "Maganda",
+              "Ang bulaklak",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Maganda"
+          },
+          {
+            "question": "Dalawang pangunahing bahagi ng pangungusap?",
+            "options": [
+              "Simuno at panaguri",
+              "Simuno at bantas",
+              "Panaguri at titik",
+              "Titik at pantig"
+            ],
+            "correct_answer": "Simuno at panaguri"
+          },
+          {
+            "question": "Sa 'Ang ibon ay lumilipad,' ano ang panaguri?",
+            "options": [
+              "Lumilipad",
+              "Ang ibon",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Lumilipad"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ⚙️ Friday Review — Science (Grade 2)\n\n- Simple machines: lever, wheel-and-axle\n\nGreat simple machines review! 🌟",
+        "quiz": [
+          {
+            "question": "What is a lever?",
+            "options": [
+              "A bar that helps lift things using a fixed point",
+              "A round wheel only",
+              "A liquid",
+              "An animal"
+            ],
+            "correct_answer": "A bar that helps lift things using a fixed point"
+          },
+          {
+            "question": "What is the fixed point on a lever called?",
+            "options": [
+              "Fulcrum",
+              "Axle",
+              "Wheel",
+              "Handle"
+            ],
+            "correct_answer": "Fulcrum"
+          },
+          {
+            "question": "Example of a lever?",
+            "options": [
+              "A seesaw",
+              "A doorknob",
+              "A steering wheel",
+              "A ball"
+            ],
+            "correct_answer": "A seesaw"
+          },
+          {
+            "question": "What is a wheel-and-axle?",
+            "options": [
+              "A wheel attached to a rod; turning one turns the other",
+              "A bar with a fixed point",
+              "A liquid",
+              "A flat surface"
+            ],
+            "correct_answer": "A wheel attached to a rod; turning one turns the other"
+          },
+          {
+            "question": "Example of a wheel-and-axle?",
+            "options": [
+              "A doorknob",
+              "A seesaw",
+              "A rock",
+              "A tree"
+            ],
+            "correct_answer": "A doorknob"
+          },
+          {
+            "question": "Why use simple machines?",
+            "options": [
+              "They make work easier",
+              "They make work harder",
+              "No purpose",
+              "Only look nice"
+            ],
+            "correct_answer": "They make work easier"
+          },
+          {
+            "question": "A steering wheel is an example of what?",
+            "options": [
+              "Wheel-and-axle",
+              "Lever",
+              "Pulley",
+              "Inclined plane"
+            ],
+            "correct_answer": "Wheel-and-axle"
+          },
+          {
+            "question": "Why is a seesaw a lever?",
+            "options": [
+              "Has a fulcrum that helps it move up and down",
+              "Has wheels",
+              "Made of liquid",
+              "Has no moving parts"
+            ],
+            "correct_answer": "Has a fulcrum that helps it move up and down"
+          },
+          {
+            "question": "Turning a doorknob does what to the rod inside?",
+            "options": [
+              "Turns the rod too",
+              "Nothing happens",
+              "Breaks the rod",
+              "Changes color"
+            ],
+            "correct_answer": "Turns the rod too"
+          },
+          {
+            "question": "How does a lever make lifting easier?",
+            "options": [
+              "Uses a fixed point to move heavy objects with less effort",
+              "Removes need for effort",
+              "Makes objects heavier",
+              "No effect on lifting"
+            ],
+            "correct_answer": "Uses a fixed point to move heavy objects with less effort"
+          },
+          {
+            "question": "Why are simple machines helpful in daily life?",
+            "options": [
+              "Help do tasks with less effort",
+              "Make tasks impossible",
+              "Only exist in factories",
+              "No practical use"
+            ],
+            "correct_answer": "Help do tasks with less effort"
+          },
+          {
+            "question": "Which simple machine helps turn something round?",
+            "options": [
+              "Wheel-and-axle",
+              "Lever alone",
+              "A rock",
+              "A flat board"
+            ],
+            "correct_answer": "Wheel-and-axle"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🤝 Friday Review — Makabansa (Grade 2)\n\n- Pakikipagkapuwa at pakikibahagi\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pakikipagkapuwa?",
+            "options": [
+              "Pakikitungo nang mabuti at may pag-unawa sa iba",
+              "Pag-iwas sa iba",
+              "Pagiging bastos sa iba",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pakikitungo nang mabuti at may pag-unawa sa iba"
+          },
+          {
+            "question": "Ano ang pakikibahagi?",
+            "options": [
+              "Pagiging bahagi ng gawain o pagdiriwang",
+              "Pag-iwas sa gawain ng komunidad",
+              "Pagtanggi sa aktibidad",
+              "Kawalang interes sa iba"
+            ],
+            "correct_answer": "Pagiging bahagi ng gawain o pagdiriwang"
+          },
+          {
+            "question": "Halimbawa ng pakikipagkapuwa?",
+            "options": [
+              "Pagtulong sa bagong kapitbahay",
+              "Pag-iwas sa kapitbahay",
+              "Pagtanggi tumulong",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pagtulong sa bagong kapitbahay"
+          },
+          {
+            "question": "Halimbawa ng pakikibahagi?",
+            "options": [
+              "Paglahok sa pista ng bayan",
+              "Pag-iwas sa kaganapan",
+              "Pananatili sa bahay",
+              "Pagtanggi sa imbitasyon"
+            ],
+            "correct_answer": "Paglahok sa pista ng bayan"
+          },
+          {
+            "question": "Bakit mahalaga ang pakikipagkapuwa?",
+            "options": [
+              "Nakakatulong lumikha ng magandang ugnayan",
+              "Walang kahalagahan",
+              "Nagdudulot ng away",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Nakakatulong lumikha ng magandang ugnayan"
+          },
+          {
+            "question": "Bakit mahalaga ang pakikibahagi sa pagdiriwang?",
+            "options": [
+              "Nagpapatibay ng pagkakaisa",
+              "Walang kabuluhan",
+              "Nagdudulot ng gulo",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Nagpapatibay ng pagkakaisa"
+          },
+          {
+            "question": "Gawin kapag may bagong pamilyang lumipat sa kapitbahayan?",
+            "options": [
+              "Batiin at tulungan sila",
+              "Iwasan sila",
+              "Kutyain sila",
+              "Balewalain sila"
+            ],
+            "correct_answer": "Batiin at tulungan sila"
+          },
+          {
+            "question": "Naidudulot ng pakikipagkapuwa sa komunidad?",
+            "options": [
+              "Mas magandang relasyon",
+              "Higit na away",
+              "Kawalan ng pagkakaisa",
+              "Wala"
+            ],
+            "correct_answer": "Mas magandang relasyon"
+          },
+          {
+            "question": "Bakit lumahok sa gawain ng komunidad?",
+            "options": [
+              "Nagpapakita ng pagmamalasakit at pakikiisa",
+              "Hindi kailangan lumahok",
+              "Walang benepisyo",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Nagpapakita ng pagmamalasakit at pakikiisa"
+          },
+          {
+            "question": "Pagkakaiba ng pakikipagkapuwa sa pakikibahagi?",
+            "options": [
+              "Pakikipagkapuwa pakikitungo sa iba, pakikibahagi paglahok sa gawain",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Pareho tungkol sa pera"
+            ],
+            "correct_answer": "Pakikipagkapuwa pakikitungo sa iba, pakikibahagi paglahok sa gawain"
+          },
+          {
+            "question": "Bakit matutong makipagkapuwa mula pagkabata?",
+            "options": [
+              "Maging mabuting kasapi ng komunidad paglaki",
+              "Hindi kailangan matutunan",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging mabuting kasapi ng komunidad paglaki"
+          },
+          {
+            "question": "Halimbawa ng pagdiriwang na maaaring paglahukan?",
+            "options": [
+              "Pista ng bayan",
+              "Pagtulog buong araw",
+              "Pananatiling nag-iisa",
+              "Pagtanggi sa imbitasyon"
+            ],
+            "correct_answer": "Pista ng bayan"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🖱️ Friday Review — Computer (Grade 2)\n\n- Pagsasanib ng kasanayan sa proyekto\n\nMagaling sa Computer term! 🌟",
+        "quiz": [
+          {
+            "question": "Anong mga kasanayan pinagsama sa proyekto?",
+            "options": [
+              "Mouse skills, pag-type, pag-guhit, pag-save",
+              "Pagluluto at paglilinis",
+              "Pagkanta at pagsayaw",
+              "Pangingisda at pagsasaka"
+            ],
+            "correct_answer": "Mouse skills, pag-type, pag-guhit, pag-save"
+          },
+          {
+            "question": "Halimbawang gawin sa simpleng proyekto?",
+            "options": [
+              "Mag-type ng pangungusap at magdagdag ng guhit",
+              "Manood lamang ng TV",
+              "Maglaro nang mag-isa",
+              "Magbasa lamang"
+            ],
+            "correct_answer": "Mag-type ng pangungusap at magdagdag ng guhit"
+          },
+          {
+            "question": "Bakit pagsamahin ang kasanayan sa kompyuter?",
+            "options": [
+              "Makagawa ng kumpletong proyekto",
+              "Walang gamit",
+              "Hindi kailangan gawin",
+              "Libangin ang guro"
+            ],
+            "correct_answer": "Makagawa ng kumpletong proyekto"
+          },
+          {
+            "question": "Sino pa ring hihingan ng gabay habang gumagawa?",
+            "options": [
+              "Isang matanda",
+              "Walang kailangan",
+              "Kaklase lamang",
+              "Estranghero online"
+            ],
+            "correct_answer": "Isang matanda"
+          },
+          {
+            "question": "Anong kasanayan gamit para i-type?",
+            "options": [
+              "Word-processing/typing",
+              "Mouse click lamang",
+              "Pagguhit lamang",
+              "Pag-save lamang"
+            ],
+            "correct_answer": "Word-processing/typing"
+          },
+          {
+            "question": "Gawin bago isara ang proyekto?",
+            "options": [
+              "I-save ang trabaho",
+              "Kalimutan na lamang",
+              "Burahin agad",
+              "Isara nang walang pag-save"
+            ],
+            "correct_answer": "I-save ang trabaho"
+          },
+          {
+            "question": "Bakit matutong gumamit ng mouse nang tama?",
+            "options": [
+              "Mas madaling gumawa ng proyekto",
+              "Walang gamit",
+              "Hindi kailangan matutunan",
+              "Para sa laro lamang"
+            ],
+            "correct_answer": "Mas madaling gumawa ng proyekto"
+          },
+          {
+            "question": "Layunin ng pagsasanib ng kasanayan?",
+            "options": [
+              "Ipakita ang natutunang kasanayan sa isang gawain",
+              "Walang layunin",
+              "Matapos lamang ang oras",
+              "Hikayatin ang mahabang screen-time"
+            ],
+            "correct_answer": "Ipakita ang natutunang kasanayan sa isang gawain"
+          },
+          {
+            "question": "Bakit hindi mag-online nang walang gabay kahit sa proyekto?",
+            "options": [
+              "Masiguro ang kaligtasan at tamang paggamit",
+              "Hindi kailangan iyon",
+              "Ligtas na palagi",
+              "Bata na lamang magpasya"
+            ],
+            "correct_answer": "Masiguro ang kaligtasan at tamang paggamit"
+          },
+          {
+            "question": "Kasanayan sa ICT na natutunan sa buong term?",
+            "options": [
+              "Pag-save, pag-type, online safety",
+              "Pagluluto ng pagkain",
+              "Pananahi ng damit",
+              "Pagsasaka"
+            ],
+            "correct_answer": "Pag-save, pag-type, online safety"
+          },
+          {
+            "question": "Bakit magpraktis ng kasanayan sa kompyuter?",
+            "options": [
+              "Maging mas magaling at komportable",
+              "Hindi kailangan magpraktis",
+              "Isang beses lamang gamit",
+              "Walang benepisyo"
+            ],
+            "correct_answer": "Maging mas magaling at komportable"
+          },
+          {
+            "question": "Mangyayari kung hindi isasanib ang mga kasanayan?",
+            "options": [
+              "Mahihirapan makagawa ng kumpletong gawain",
+              "Walang epekto",
+              "Mas madali kung hiwalay",
+              "Awtomatikong matatapos"
+            ],
+            "correct_answer": "Mahihirapan makagawa ng kumpletong gawain"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🤲 Friday Review — GMRC (Grade 2)\n\n- Bayanihan: matulungin sa pamayanan\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang bayanihan?",
+            "options": [
+              "Pagtutulungan para sa kapakanan ng lahat",
+              "Pag-iwas sa pagtulong",
+              "Pagsasarili nang walang tulong",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pagtutulungan para sa kapakanan ng lahat"
+          },
+          {
+            "question": "Halimbawa ng pagtulong ng bata sa bayanihan?",
+            "options": [
+              "Sama-samang maglinis ng paligid",
+              "Iwasan ang paglilinis",
+              "Manatiling nag-iisa",
+              "Tumanggi tumulong"
+            ],
+            "correct_answer": "Sama-samang maglinis ng paligid"
+          },
+          {
+            "question": "Paano tumulong sa nangangailangan?",
+            "options": [
+              "Tumulong sa pagbibigay ng gamit",
+              "Iwasan silang tulungan",
+              "Ipagkait ang tulong",
+              "Kalimutan sila"
+            ],
+            "correct_answer": "Tumulong sa pagbibigay ng gamit"
+          },
+          {
+            "question": "Bakit mahalaga ang bayanihan?",
+            "options": [
+              "Nagpapakita ng pagkakaisa at pagmamalasakit",
+              "Walang kahalagahan",
+              "Nagdudulot ng away",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Nagpapakita ng pagkakaisa at pagmamalasakit"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinalakay?",
+            "options": [
+              "Helpful (Matulungin)",
+              "Loving",
+              "Respect",
+              "Gratitude"
+            ],
+            "correct_answer": "Helpful (Matulungin)"
+          },
+          {
+            "question": "Saan tumulong ang bata sa proyekto ng komunidad?",
+            "options": [
+              "Sa mga proyekto ng paaralan",
+              "Sa pagtanggi sa gawain",
+              "Sa pag-iwas",
+              "Sa pagsira ng ari-arian"
+            ],
+            "correct_answer": "Sa mga proyekto ng paaralan"
+          },
+          {
+            "question": "Naidudulot ng bayanihan sa komunidad?",
+            "options": [
+              "Mas malakas na pagkakaisa",
+              "Higit na paghihiwalay",
+              "Wala",
+              "Kawalan ng tiwala"
+            ],
+            "correct_answer": "Mas malakas na pagkakaisa"
+          },
+          {
+            "question": "Bakit bayanihan ay pagpapahalaga sa GMRC?",
+            "options": [
+              "Nagtuturo ng pagmamalasakit sa kapwa",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi ng agham lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Nagtuturo ng pagmamalasakit sa kapwa"
+          },
+          {
+            "question": "Bakit sumali sa bayanihan kahit bata pa?",
+            "options": [
+              "Maliit man ang tulong, mahalaga sa pagkakaisa",
+              "Hindi pa puwedeng tumulong",
+              "Bata lamang dapat tumanggi",
+              "Walang mahalagang gagampanan"
+            ],
+            "correct_answer": "Maliit man ang tulong, mahalaga sa pagkakaisa"
+          },
+          {
+            "question": "Mangyayari kung walang bayanihan sa komunidad?",
+            "options": [
+              "Mas mahirap malutas ang suliranin",
+              "Mas mabuti ang lahat",
+              "Walang epekto",
+              "Awtomatikong maayos"
+            ],
+            "correct_answer": "Mas mahirap malutas ang suliranin"
+          },
+          {
+            "question": "Alin ang HINDI bayanihan?",
+            "options": [
+              "Pagtanggi tumulong sa proyekto ng paaralan",
+              "Pagtulong sa paglilinis",
+              "Pagbibigay ng gamit sa nangangailangan",
+              "Paglahok sa proyekto ng komunidad"
+            ],
+            "correct_answer": "Pagtanggi tumulong sa proyekto ng paaralan"
+          },
+          {
+            "question": "Bakit ituro ang bayanihan mula ngayon?",
+            "options": [
+              "Maging matulungin at mapagmalasakit na mamamayan paglaki",
+              "Hindi kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging matulungin at mapagmalasakit na mamamayan paglaki"
+          }
+        ]
+      }
+    }
+  }
+}

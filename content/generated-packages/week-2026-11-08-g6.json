@@ -1,0 +1,2016 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-11-08",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌏 English — Evaluating Author Credibility\n\nGrade 6, Week 22! Let's learn how to judge whether a source is trustworthy! 🌏\n\n## 🔄 Review\nWe learned to synthesize multiple sources and compare perspectives.\n\n## 🔍 What Is Author Credibility?\n**Credibility** means how trustworthy and reliable an author or source is on a given topic.\n\n## ✅ Signs of a Credible Author\n- Has relevant **expertise or experience** on the topic\n- Provides **evidence** to support claims\n- Is **unbiased** or acknowledges different viewpoints\n- Is published by a **reputable** source\n\n## ⚠️ Warning Signs\n- No sources or evidence cited\n- Extreme, one-sided language\n- Financial or personal interest in a particular conclusion\n\n## 🎯 Why This Matters\nEvaluating credibility helps you decide which information to trust, especially in research and news.\n\n**Key words:** credibility, expertise, evidence, bias, reputable",
+        "quiz": [
+          {
+            "question": "What does 'credibility' mean?",
+            "options": [
+              "How trustworthy and reliable a source is",
+              "How long a text is",
+              "How colorful a text is",
+              "How old a text is"
+            ],
+            "correct_answer": "How trustworthy and reliable a source is"
+          },
+          {
+            "question": "What is one sign of a credible author?",
+            "options": [
+              "Relevant expertise on the topic",
+              "No evidence at all",
+              "Extreme one-sided language",
+              "Personal financial interest"
+            ],
+            "correct_answer": "Relevant expertise on the topic"
+          },
+          {
+            "question": "What is a warning sign of low credibility?",
+            "options": [
+              "No sources or evidence cited",
+              "Balanced viewpoints",
+              "Reputable publisher",
+              "Relevant expertise"
+            ],
+            "correct_answer": "No sources or evidence cited"
+          },
+          {
+            "question": "Why is providing evidence important for credibility?",
+            "options": [
+              "It supports the author's claims with proof",
+              "It makes the text longer",
+              "It has no connection to credibility",
+              "It only matters in fiction"
+            ],
+            "correct_answer": "It supports the author's claims with proof"
+          },
+          {
+            "question": "What does it mean if an author acknowledges different viewpoints?",
+            "options": [
+              "They may be presenting a more balanced, credible perspective",
+              "They are being untrustworthy",
+              "They have no expertise",
+              "They are avoiding the topic"
+            ],
+            "correct_answer": "They may be presenting a more balanced, credible perspective"
+          },
+          {
+            "question": "Why might financial interest lower an author's credibility?",
+            "options": [
+              "It may bias their conclusions toward their own benefit",
+              "It always makes writing better",
+              "It has no effect on writing",
+              "It proves the author is an expert"
+            ],
+            "correct_answer": "It may bias their conclusions toward their own benefit"
+          },
+          {
+            "question": "Why is evaluating credibility especially important in research?",
+            "options": [
+              "It helps you decide which information to trust",
+              "It has no use in research",
+              "It replaces the need to read the source",
+              "Credibility never matters in research"
+            ],
+            "correct_answer": "It helps you decide which information to trust"
+          },
+          {
+            "question": "What might extreme, one-sided language suggest about a source?",
+            "options": [
+              "It may lack balance and credibility",
+              "It is always the most trustworthy",
+              "It shows strong expertise",
+              "It has no meaning at all"
+            ],
+            "correct_answer": "It may lack balance and credibility"
+          },
+          {
+            "question": "Why is a 'reputable' publisher a sign of credibility?",
+            "options": [
+              "Reputable publishers often have editorial standards for accuracy",
+              "All publishers are equally trustworthy",
+              "Publishers never affect credibility",
+              "Reputation has no connection to accuracy"
+            ],
+            "correct_answer": "Reputable publishers often have editorial standards for accuracy"
+          },
+          {
+            "question": "How does evaluating credibility connect to comparing perspectives from last week?",
+            "options": [
+              "Both help build a critical, well-rounded understanding of a topic",
+              "They are unrelated skills",
+              "Credibility replaces the need to compare perspectives",
+              "Comparing perspectives ignores credibility"
+            ],
+            "correct_answer": "Both help build a critical, well-rounded understanding of a topic"
+          },
+          {
+            "question": "If an author has relevant expertise but no evidence, is the source fully credible?",
+            "options": [
+              "Not necessarily — evidence is also needed to support claims",
+              "Yes, expertise alone is always enough",
+              "No, expertise never matters",
+              "Credibility doesn't require evidence"
+            ],
+            "correct_answer": "Not necessarily — evidence is also needed to support claims"
+          },
+          {
+            "question": "Why is credibility especially important when reading news online?",
+            "options": [
+              "Online sources vary widely in accuracy and bias",
+              "All online news is equally reliable",
+              "Credibility only matters in print",
+              "News never needs to be evaluated"
+            ],
+            "correct_answer": "Online sources vary widely in accuracy and bias"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📐 Mathematics — Perimeter and Area of Composite Figures\n\nGrade 6, Week 22! Let's find the perimeter and area of shapes made of multiple figures! 📐\n\n## 🔄 Review\nWe learned volume of cubes and rectangular prisms.\n\n## 📐 What Is a Composite Figure?\nA **composite figure** is a shape made up of two or more basic shapes, like a rectangle combined with a triangle.\n\n## 🔍 Finding Area of Composite Figures\n1. Divide the figure into simple shapes (rectangles, triangles, etc.)\n2. Find the area of each simple shape\n3. Add the areas together\n\n**Example:** An L-shaped room can be divided into two rectangles. Add their areas to get the total area.\n\n## 📏 Finding Perimeter\nTo find perimeter, add up the length of ALL outer sides of the composite figure — including any sides created when the shapes are combined.\n\n**Key words:** composite figure, area, perimeter, decompose",
+        "quiz": [
+          {
+            "question": "What is a composite figure?",
+            "options": [
+              "A shape made of two or more basic shapes",
+              "A single circle",
+              "A figure with no sides",
+              "A 3D solid only"
+            ],
+            "correct_answer": "A shape made of two or more basic shapes"
+          },
+          {
+            "question": "What is the first step in finding the area of a composite figure?",
+            "options": [
+              "Divide it into simple shapes",
+              "Measure only one side",
+              "Skip measuring entirely",
+              "Guess the area"
+            ],
+            "correct_answer": "Divide it into simple shapes"
+          },
+          {
+            "question": "How do you find the total area of a composite figure?",
+            "options": [
+              "Add the areas of the simple shapes together",
+              "Multiply all the side lengths",
+              "Subtract the areas from each other",
+              "Divide the areas by two"
+            ],
+            "correct_answer": "Add the areas of the simple shapes together"
+          },
+          {
+            "question": "What does perimeter measure?",
+            "options": [
+              "The total length of all outer sides",
+              "The space inside a shape",
+              "The weight of a shape",
+              "The number of shapes combined"
+            ],
+            "correct_answer": "The total length of all outer sides"
+          },
+          {
+            "question": "Give an example of a composite figure.",
+            "options": [
+              "An L-shaped room",
+              "A single square",
+              "A single triangle",
+              "A single circle"
+            ],
+            "correct_answer": "An L-shaped room"
+          },
+          {
+            "question": "Why is it useful to decompose a shape into simpler shapes?",
+            "options": [
+              "It makes calculating area easier using known formulas",
+              "It makes the shape disappear",
+              "It has no mathematical benefit",
+              "It only works for circles"
+            ],
+            "correct_answer": "It makes calculating area easier using known formulas"
+          },
+          {
+            "question": "An L-shaped figure can be divided into what shapes?",
+            "options": [
+              "Two rectangles",
+              "One triangle only",
+              "A single circle",
+              "No shapes at all"
+            ],
+            "correct_answer": "Two rectangles"
+          },
+          {
+            "question": "If Rectangle A has area 20 sq cm and Rectangle B has area 15 sq cm in a composite shape, what is the total area?",
+            "options": [
+              "35 sq cm",
+              "5 sq cm",
+              "300 sq cm",
+              "40 sq cm"
+            ],
+            "correct_answer": "35 sq cm"
+          },
+          {
+            "question": "Why must you include ALL outer sides when finding perimeter of a composite figure?",
+            "options": [
+              "Missing a side gives an incorrect total length",
+              "Perimeter never needs all sides",
+              "Only the longest side matters",
+              "Perimeter is unrelated to the shape's sides"
+            ],
+            "correct_answer": "Missing a side gives an incorrect total length"
+          },
+          {
+            "question": "Why are composite figures common in real life?",
+            "options": [
+              "Many real spaces, like rooms or lots, are irregular shapes",
+              "All real spaces are perfect squares",
+              "Composite figures don't exist in real life",
+              "Only mathematicians use composite figures"
+            ],
+            "correct_answer": "Many real spaces, like rooms or lots, are irregular shapes"
+          },
+          {
+            "question": "What formula would you use for the rectangle part of a composite figure?",
+            "options": [
+              "Area = length × width",
+              "Area = base + height",
+              "Area = side³",
+              "Area = radius × 2"
+            ],
+            "correct_answer": "Area = length × width"
+          },
+          {
+            "question": "Why is understanding composite figures useful for architects or builders?",
+            "options": [
+              "They help calculate materials needed for irregular spaces",
+              "It has no real-world application",
+              "Builders never work with irregular shapes",
+              "It only applies to math homework"
+            ],
+            "correct_answer": "They help calculate materials needed for irregular spaces"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "# 🔧 Science — Levers and Their Uses\n\nGrade 6, Week 22! Let's learn about levers — one of the most useful simple machines! 🔧\n\n## 🔄 Review\nWe learned about inclined planes and wedges.\n\n## 🔧 What Is a Lever?\nA **lever** is a rigid bar that rotates around a fixed point called the **fulcrum**, used to lift or move loads with less effort.\n\n## ⚖️ Parts of a Lever\n- **Fulcrum** — the fixed pivot point\n- **Effort** — the force applied\n- **Load** — the object being moved\n\n## 🔍 Classes of Levers\n- **1st class:** Fulcrum is between effort and load (e.g., seesaw)\n- **2nd class:** Load is between fulcrum and effort (e.g., wheelbarrow)\n- **3rd class:** Effort is between fulcrum and load (e.g., fishing rod)\n\n## 🎯 Why This Matters\nLevers change the force needed to move objects, making many everyday tools possible.\n\n**Key words:** lever, fulcrum, effort, load, class of lever",
+        "quiz": [
+          {
+            "question": "What is a lever?",
+            "options": [
+              "A rigid bar that rotates around a fixed point",
+              "A round wheel",
+              "A sharp blade",
+              "A flat ramp"
+            ],
+            "correct_answer": "A rigid bar that rotates around a fixed point"
+          },
+          {
+            "question": "What is the fulcrum?",
+            "options": [
+              "The fixed pivot point of a lever",
+              "The force applied to a lever",
+              "The object being moved",
+              "The handle of a lever"
+            ],
+            "correct_answer": "The fixed pivot point of a lever"
+          },
+          {
+            "question": "What is 'effort' in a lever system?",
+            "options": [
+              "The force applied to move the load",
+              "The fixed pivot point",
+              "The object being lifted",
+              "The length of the lever"
+            ],
+            "correct_answer": "The force applied to move the load"
+          },
+          {
+            "question": "What is 'load' in a lever system?",
+            "options": [
+              "The object being moved",
+              "The fixed pivot point",
+              "The force applied",
+              "The handle of the lever"
+            ],
+            "correct_answer": "The object being moved"
+          },
+          {
+            "question": "In a 1st class lever, where is the fulcrum?",
+            "options": [
+              "Between the effort and the load",
+              "At the very end only",
+              "There is no fulcrum",
+              "Always at the load"
+            ],
+            "correct_answer": "Between the effort and the load"
+          },
+          {
+            "question": "What is an example of a 1st class lever?",
+            "options": [
+              "A seesaw",
+              "A wheelbarrow",
+              "A fishing rod",
+              "A ramp"
+            ],
+            "correct_answer": "A seesaw"
+          },
+          {
+            "question": "In a 2nd class lever, where is the load?",
+            "options": [
+              "Between the fulcrum and the effort",
+              "At the very end only",
+              "There is no load",
+              "Always at the fulcrum"
+            ],
+            "correct_answer": "Between the fulcrum and the effort"
+          },
+          {
+            "question": "What is an example of a 2nd class lever?",
+            "options": [
+              "A wheelbarrow",
+              "A seesaw",
+              "A fishing rod",
+              "A ramp"
+            ],
+            "correct_answer": "A wheelbarrow"
+          },
+          {
+            "question": "In a 3rd class lever, where is the effort?",
+            "options": [
+              "Between the fulcrum and the load",
+              "At the very end only",
+              "There is no effort",
+              "Always at the load"
+            ],
+            "correct_answer": "Between the fulcrum and the load"
+          },
+          {
+            "question": "What is an example of a 3rd class lever?",
+            "options": [
+              "A fishing rod",
+              "A seesaw",
+              "A wheelbarrow",
+              "A ramp"
+            ],
+            "correct_answer": "A fishing rod"
+          },
+          {
+            "question": "Why are levers useful in everyday tools?",
+            "options": [
+              "They change the force needed to move objects",
+              "They have no practical use",
+              "They only work in factories",
+              "They increase weight of objects"
+            ],
+            "correct_answer": "They change the force needed to move objects"
+          },
+          {
+            "question": "How is a lever different from an inclined plane?",
+            "options": [
+              "A lever rotates around a fulcrum; an inclined plane is a sloped surface",
+              "They work exactly the same way",
+              "A lever has no moving parts",
+              "An inclined plane always rotates"
+            ],
+            "correct_answer": "A lever rotates around a fulcrum; an inclined plane is a sloped surface"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📝 Filipino — Salitang Kultural at Historikal\n\nGrade 6, Linggo 22! Alamin natin ang mga salitang may kaugnayan sa kultura at kasaysayan. 📝\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tema, simbolismo, at punto de bista.\n\n## 📝 Ano ang Salitang Kultural at Historikal?\nAng mga **salitang kultural at historikal** ay mga terminong may kaugnayan sa tradisyon, paniniwala, o mga makasaysayang pangyayari ng isang lipunan.\n\n## 🔍 Mga Halimbawa\n- **Bayanihan** — kulturang paraan ng pagtutulungan\n- **Kartilya** — makasaysayang aklat-aralin\n- **Katipunero** — miyembro ng makasaysayang kilusan\n\n## 💡 Bakit Mahalaga Ito?\nAng pag-unawa sa mga salitang ito ay tumutulong maunawaan ang konteksto ng mga akdang pampanitikang tumatalakay sa kasaysayan at kultura ng Pilipinas.\n\n**Mahahalagang salita:** salitang kultural, salitang historikal, konteksto, kasaysayan",
+        "quiz": [
+          {
+            "question": "Ano ang salitang kultural at historikal?",
+            "options": [
+              "Mga terminong may kaugnayan sa tradisyon at makasaysayang pangyayari",
+              "Mga salitang walang kahulugan",
+              "Mga bagong salitang banyaga lamang",
+              "Mga bantas sa pangungusap"
+            ],
+            "correct_answer": "Mga terminong may kaugnayan sa tradisyon at makasaysayang pangyayari"
+          },
+          {
+            "question": "Ano ang bayanihan bilang salitang kultural?",
+            "options": [
+              "Kulturang paraan ng pagtutulungan",
+              "Isang uri ng pagkain",
+              "Isang uri ng laro",
+              "Isang bantas"
+            ],
+            "correct_answer": "Kulturang paraan ng pagtutulungan"
+          },
+          {
+            "question": "Ano ang Katipunero?",
+            "options": [
+              "Miyembro ng makasaysayang kilusan",
+              "Isang uri ng hayop",
+              "Isang uri ng pagkain",
+              "Isang uri ng damit"
+            ],
+            "correct_answer": "Miyembro ng makasaysayang kilusan"
+          },
+          {
+            "question": "Bakit mahalagang maunawaan ang mga salitang kultural at historikal?",
+            "options": [
+              "Tumutulong maunawaan ang konteksto ng mga akdang pampanitikan",
+              "Walang gamit ito",
+              "Ito ay para sa matatanda lamang",
+              "Hindi kaugnay ng Filipino"
+            ],
+            "correct_answer": "Tumutulong maunawaan ang konteksto ng mga akdang pampanitikan"
+          },
+          {
+            "question": "Ano ang Kartilya?",
+            "options": [
+              "Makasaysayang aklat-aralin",
+              "Isang uri ng laro",
+              "Isang uri ng pagkain",
+              "Isang bantas"
+            ],
+            "correct_answer": "Makasaysayang aklat-aralin"
+          },
+          {
+            "question": "Bakit ginagamit ang mga salitang historikal sa mga akda tungkol sa Pilipinas?",
+            "options": [
+              "Nagbibigay ito ng konteksto sa panahong tinutukoy",
+              "Walang layunin ito",
+              "Ito ay basta pandagdag lamang",
+              "Hindi ito kaugnay ng kasaysayan"
+            ],
+            "correct_answer": "Nagbibigay ito ng konteksto sa panahong tinutukoy"
+          },
+          {
+            "question": "Paano nauugnay ang mga salitang ito sa tema at simbolismo na natutunan noon?",
+            "options": [
+              "Magkakasamang tumutulong maunawaan ang buong akda",
+              "Walang koneksyon ang mga ito",
+              "Isa lamang sa mga ito ang mahalaga",
+              "Hindi sila konektado sa panitikan"
+            ],
+            "correct_answer": "Magkakasamang tumutulong maunawaan ang buong akda"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang bahagi ng wika ang mga salitang kultural?",
+            "options": [
+              "Ipinapakita nila ang pagkakakilanlan at kasaysayan ng isang bayan",
+              "Wala silang kahalagahan",
+              "Hindi sila bahagi ng wikang Filipino",
+              "Ginagamit lamang sila sa ibang bansa"
+            ],
+            "correct_answer": "Ipinapakita nila ang pagkakakilanlan at kasaysayan ng isang bayan"
+          },
+          {
+            "question": "Bakit mahalagang matutong gamitin ang mga salitang kultural sa pagsulat?",
+            "options": [
+              "Nagpapayaman ito ng pagsulat at nagbibigay ng lalim sa konteksto",
+              "Walang epekto ito sa pagsulat",
+              "Ito ay palaging nakakalito",
+              "Hindi ito kailanman ginagamit"
+            ],
+            "correct_answer": "Nagpapayaman ito ng pagsulat at nagbibigay ng lalim sa konteksto"
+          },
+          {
+            "question": "Anong halimbawa ng salitang may kaugnayan sa Himagsikang Pilipino?",
+            "options": [
+              "Katipunero",
+              "Kompyuter",
+              "Telebisyon",
+              "Iskedyul"
+            ],
+            "correct_answer": "Katipunero"
+          },
+          {
+            "question": "Bakit maaaring mahirap unawain ang isang lumang akda kung hindi alam ang mga salitang historikal?",
+            "options": [
+              "Nawawala ang buong konteksto at kahulugan ng akda",
+              "Walang epekto ito sa pag-unawa",
+              "Ang mga salita ay hindi kailanman mahalaga",
+              "Ang lumang akda ay palaging madaling unawain"
+            ],
+            "correct_answer": "Nawawala ang buong konteksto at kahulugan ng akda"
+          },
+          {
+            "question": "Bakit itinuturo ang mga salitang kultural at historikal sa Grade 6?",
+            "options": [
+              "Upang mapahalagahan ang kasaysayan at kultura sa pamamagitan ng wika",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi ito bahagi ng Filipino"
+            ],
+            "correct_answer": "Upang mapahalagahan ang kasaysayan at kultura sa pamamagitan ng wika"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# ⚖️ Araling Panlipunan — Neokolonyalismo\n\nGrade 6, Linggo 22! Alamin natin ang neokolonyalismo pagkatapos ng kalayaan. ⚖️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang Ikatlong Republika at Cold War.\n\n## ⚖️ Ano ang Neokolonyalismo?\nAng **neokolonyalismo** ay ang di-tuwirang kontrol ng dating mananakop sa ekonomiya at pulitika ng isang malayang bansa.\n\n## 💰 Parity Rights\nAng **Parity Rights** ay nagbigay sa mga Amerikanong negosyante ng parehong karapatan sa mga Pilipino sa pagsasamantala ng likas na yaman ng bansa.\n\n## 🤝 Bell Trade Act\nAng **Bell Trade Act** ay naglagay ng mga kondisyon sa kalakalan na paborable sa Estados Unidos, na nagpapanatili ng dependensiya ng Pilipinas.\n\n## 🎯 Bakit Mahalaga Ito?\nIpinapakita ng neokolonyalismo na ang kalayaang pampulitika ay hindi laging kasama ang tunay na kalayaang pang-ekonomiya.\n\n**Mahahalagang salita:** neokolonyalismo, Parity Rights, Bell Trade Act, dependensiya",
+        "quiz": [
+          {
+            "question": "Ano ang neokolonyalismo?",
+            "options": [
+              "Di-tuwirang kontrol ng dating mananakop sa ekonomiya at pulitika",
+              "Tuwirang pananakop ng ibang bansa",
+              "Isang uri ng kasunduang militar",
+              "Isang uri ng laro"
+            ],
+            "correct_answer": "Di-tuwirang kontrol ng dating mananakop sa ekonomiya at pulitika"
+          },
+          {
+            "question": "Ano ang Parity Rights?",
+            "options": [
+              "Pantay na karapatan ng Amerikano sa pagsasamantala ng yaman",
+              "Karapatang bumoto ng mga kababaihan",
+              "Isang batas laban sa krimen",
+              "Isang kasunduang pangkapayapaan"
+            ],
+            "correct_answer": "Pantay na karapatan ng Amerikano sa pagsasamantala ng yaman"
+          },
+          {
+            "question": "Ano ang Bell Trade Act?",
+            "options": [
+              "Kondisyon sa kalakalan na paborable sa US",
+              "Batas laban sa neokolonyalismo",
+              "Kasunduang pangmilitar",
+              "Batas tungkol sa edukasyon"
+            ],
+            "correct_answer": "Kondisyon sa kalakalan na paborable sa US"
+          },
+          {
+            "question": "Bakit itinuturing na dependensiya ang epekto ng Bell Trade Act?",
+            "options": [
+              "Pinapanatili nito ang pag-asa ng Pilipinas sa US pang-ekonomiya",
+              "Nagbigay ito ng ganap na kalayaang pang-ekonomiya",
+              "Walang epekto ito sa ekonomiya",
+              "Pinalakas nito ang kalayaan ng Pilipinas"
+            ],
+            "correct_answer": "Pinapanatili nito ang pag-asa ng Pilipinas sa US pang-ekonomiya"
+          },
+          {
+            "question": "Ano ang ipinapakita ng neokolonyalismo tungkol sa kalayaan?",
+            "options": [
+              "Ang kalayaang pampulitika ay hindi laging kasama ang tunay na kalayaang pang-ekonomiya",
+              "Ang kalayaan ay palaging ganap sa lahat ng aspeto",
+              "Walang kaugnayan ang ekonomiya sa kalayaan",
+              "Ang neokolonyalismo ay katulad ng tunay na kalayaan"
+            ],
+            "correct_answer": "Ang kalayaang pampulitika ay hindi laging kasama ang tunay na kalayaang pang-ekonomiya"
+          },
+          {
+            "question": "Bakit tinawag na 'di-tuwiran' ang kontrol sa neokolonyalismo?",
+            "options": [
+              "Hindi ito direktang pananakop kundi sa pamamagitan ng ekonomiya at pulitika",
+              "Ito ay tuwirang pananakop",
+              "Walang kontrol na nagaganap",
+              "Ito ay tuwirang digmaan"
+            ],
+            "correct_answer": "Hindi ito direktang pananakop kundi sa pamamagitan ng ekonomiya at pulitika"
+          },
+          {
+            "question": "Anong konsepto ang natutunan bago ang neokolonyalismo?",
+            "options": [
+              "Ikatlong Republika at Cold War",
+              "Digmaang Pilipino-Amerikano",
+              "Simple machines",
+              "Volume ng cube"
+            ],
+            "correct_answer": "Ikatlong Republika at Cold War"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang neokolonyalismo bilang mag-aaral?",
+            "options": [
+              "Tumutulong itong maunawaan ang tunay na kahulugan ng kalayaan",
+              "Walang kahalagahan ito",
+              "Hindi ito bahagi ng kasaysayan ng Pilipinas",
+              "Ito ay tungkol lamang sa ibang bansa"
+            ],
+            "correct_answer": "Tumutulong itong maunawaan ang tunay na kahulugan ng kalayaan"
+          },
+          {
+            "question": "Sino ang nakikinabang sa Parity Rights?",
+            "options": [
+              "Mga Amerikanong negosyante",
+              "Mga magsasaka ng Pilipinas lamang",
+              "Mga estudyante ng Pilipinas",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Mga Amerikanong negosyante"
+          },
+          {
+            "question": "Bakit itinuring na mahalagang aral ang neokolonyalismo para sa kasalukuyan?",
+            "options": [
+              "Tumutulong itong maunawaan ang mga hamon sa tunay na kasarinlan ng bansa",
+              "Wala itong kaugnayan sa kasalukuyan",
+              "Hindi na ito nagaganap ngayon",
+              "Ito ay tungkol lamang sa nakaraan"
+            ],
+            "correct_answer": "Tumutulong itong maunawaan ang mga hamon sa tunay na kasarinlan ng bansa"
+          },
+          {
+            "question": "Paano naiiba ang neokolonyalismo sa tuwirang kolonyalismo?",
+            "options": [
+              "Walang tuwirang pananakop pero may kontrol sa ekonomiya at pulitika",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Mas malala ang neokolonyalismo kaysa tuwirang kolonyalismo"
+            ],
+            "correct_answer": "Walang tuwirang pananakop pero may kontrol sa ekonomiya at pulitika"
+          },
+          {
+            "question": "Bakit itinuturing na hamon ang neokolonyalismo sa temang 'Mga Hamon at Pagtugon sa Pagkabansa'?",
+            "options": [
+              "Ipinapakita nito ang patuloy na pakikibaka para sa ganap na kasarinlan",
+              "Walang koneksyon ito sa tema",
+              "Ito ay hiwalay na paksa",
+              "Hindi ito bahagi ng taunang tema"
+            ],
+            "correct_answer": "Ipinapakita nito ang patuloy na pakikibaka para sa ganap na kasarinlan"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🌱 MAPEH — Kalusugang Pangkapaligiran (One Health)\n\nGrade 6, Linggo 22! Alamin natin ang kaugnayan ng kalusugan ng tao at kapaligiran. 🌱\n\n## 🔄 Balik-Aral\nNatutuhan natin ang karaniwang nakakahawang sakit.\n\n## 🌱 Ano ang One Health?\nAng **One Health** ay ang paniniwalang magkakaugnay ang kalusugan ng tao, hayop, at kapaligiran — kaya dapat pangalagaan ang lahat ng ito nang sabay-sabay.\n\n## ♻️ Sanitasyon at Kalinisan\nMahalaga ang tamang **sanitasyon** (tulad ng malinis na tubig at maayos na disposal ng basura) upang maiwasan ang pagkalat ng sakit.\n\n## ♻️ 8Rs ng Pamamahala ng Basura\nRefuse, Reduce, Reuse, Repurpose, Rot, Recycle, Repair, at Rethink — mga paraan para bawasan ang basurang idinudulot sa kapaligiran.\n\n**Mahahalagang salita:** One Health, sanitasyon, 8Rs, kapaligiran",
+        "quiz": [
+          {
+            "question": "Ano ang One Health?",
+            "options": [
+              "Paniniwalang magkakaugnay ang kalusugan ng tao, hayop, kapaligiran",
+              "Isang uri ng bakuna",
+              "Isang uri ng ehersisyo",
+              "Isang uri ng gamot"
+            ],
+            "correct_answer": "Paniniwalang magkakaugnay ang kalusugan ng tao, hayop, kapaligiran"
+          },
+          {
+            "question": "Bakit mahalaga ang sanitasyon?",
+            "options": [
+              "Maiwasan ang pagkalat ng sakit",
+              "Walang kahalagahan",
+              "Nagdudulot ng sakit",
+              "Hindi konektado sa kalusugan"
+            ],
+            "correct_answer": "Maiwasan ang pagkalat ng sakit"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 8Rs?",
+            "options": [
+              "Mga paraan para bawasan ang basura sa kapaligiran",
+              "Walong bagong sakit",
+              "Walong bakuna",
+              "Walong uri ng ehersisyo"
+            ],
+            "correct_answer": "Mga paraan para bawasan ang basura sa kapaligiran"
+          },
+          {
+            "question": "Bakit mahalagang pangalagaan ang kalusugan ng hayop at kapaligiran, hindi lamang ng tao?",
+            "options": [
+              "Magkakaugnay ang lahat ng ito ayon sa konsepto ng One Health",
+              "Walang kaugnayan ang mga ito sa kalusugan ng tao",
+              "Ang tao lamang ang mahalaga",
+              "Ang kapaligiran ay hiwalay sa kalusugan"
+            ],
+            "correct_answer": "Magkakaugnay ang lahat ng ito ayon sa konsepto ng One Health"
+          },
+          {
+            "question": "Anong halimbawa ng maayos na sanitasyon?",
+            "options": [
+              "Malinis na tubig at maayos na disposal ng basura",
+              "Basurang nakakalat kahit saan",
+              "Kawalang pag-iingat sa tubig",
+              "Pagtatapon ng basura sa ilog"
+            ],
+            "correct_answer": "Malinis na tubig at maayos na disposal ng basura"
+          },
+          {
+            "question": "Ano ang 'Reduce' sa 8Rs?",
+            "options": [
+              "Pagbawas ng basurang nagagawa",
+              "Pagdagdag ng basura",
+              "Pagtatago ng basura",
+              "Pagsunog ng basura"
+            ],
+            "correct_answer": "Pagbawas ng basurang nagagawa"
+          },
+          {
+            "question": "Ano ang 'Recycle' sa 8Rs?",
+            "options": [
+              "Paggawa ng bagong bagay mula sa lumang materyales",
+              "Pagtapon ng basura kaagad",
+              "Pagsunog ng basura",
+              "Pagtago ng basura magpakailanman"
+            ],
+            "correct_answer": "Paggawa ng bagong bagay mula sa lumang materyales"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang isyu ang kalusugang pangkapaligiran?",
+            "options": [
+              "Nakakaapekto ito sa kalusugan at kabuhayan ng lahat",
+              "Walang epekto ito sa tao",
+              "Isyu lamang ito ng ibang bansa",
+              "Hindi kaugnay ng MAPEH"
+            ],
+            "correct_answer": "Nakakaapekto ito sa kalusugan at kabuhayan ng lahat"
+          },
+          {
+            "question": "Bakit konektado ang sakit sa hayop sa sakit ng tao ayon sa One Health?",
+            "options": [
+              "Maaaring lumipat ang ilang sakit mula sa hayop patungo sa tao",
+              "Walang koneksyon ang dalawa",
+              "Ang hayop ay hindi kailanman nagkakasakit",
+              "Ang tao ay hindi kailanman nahahawa mula sa hayop"
+            ],
+            "correct_answer": "Maaaring lumipat ang ilang sakit mula sa hayop patungo sa tao"
+          },
+          {
+            "question": "Paano nauugnay ang paksang ito sa nakakahawang sakit na natutunan noon?",
+            "options": [
+              "Parehong tumatalakay sa pag-iwas at pangangalaga ng kalusugan",
+              "Walang koneksyon ang dalawa",
+              "Isa tungkol lamang sa agham",
+              "Isa tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Parehong tumatalakay sa pag-iwas at pangangalaga ng kalusugan"
+          },
+          {
+            "question": "Bakit itinuturo ang 8Rs sa mga bata?",
+            "options": [
+              "Upang maging responsable sa pangangalaga ng kapaligiran",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi kaugnay ng kalusugan"
+            ],
+            "correct_answer": "Upang maging responsable sa pangangalaga ng kapaligiran"
+          },
+          {
+            "question": "Ano ang mangyayari kung walang maayos na sanitasyon sa isang komunidad?",
+            "options": [
+              "Mas mataas ang panganib ng pagkalat ng sakit",
+              "Walang epekto ito",
+              "Mas malusog ang lahat",
+              "Awtomatikong nawawala ang mga sakit"
+            ],
+            "correct_answer": "Mas mataas ang panganib ng pagkalat ng sakit"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🍽️ EPP (FCS) — Pagpaplano ng Pagkain at Kalinisan\n\nGrade 6, Linggo 22! Alamin natin kung paano magplano ng masustansyang pagkain! 🍽️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pamamahala ng yaman ng pamilya.\n\n## 🍽️ Ano ang Pagpaplano ng Pagkain?\nAng **meal planning** ay ang paghahanda ng listahan ng pagkain para sa isang tiyak na panahon, isinasaalang-alang ang nutrisyon, badyet, at panahon.\n\n## 🧼 Kalinisan sa Pagluluto\n- Maghugas ng kamay bago maghawak ng pagkain\n- Gamitin ang malinis na kagamitan sa pagluluto\n- Iwasang paghaluin ang hilaw at lutong pagkain\n\n## ✅ Bakit Mahalaga Ito?\nAng maayos na pagpaplano ng pagkain at kalinisan ay tumutulong maiwasan ang sakit at masiguro ang tamang nutrisyon ng pamilya.\n\n**Mahahalagang salita:** meal planning, nutrisyon, kalinisan, badyet",
+        "quiz": [
+          {
+            "question": "Ano ang meal planning?",
+            "options": [
+              "Paghahanda ng listahan ng pagkain para sa isang tiyak na panahon",
+              "Isang uri ng pagluluto lamang",
+              "Isang uri ng laro",
+              "Isang bantas"
+            ],
+            "correct_answer": "Paghahanda ng listahan ng pagkain para sa isang tiyak na panahon"
+          },
+          {
+            "question": "Anong isinasaalang-alang sa pagpaplano ng pagkain?",
+            "options": [
+              "Nutrisyon, badyet, at panahon",
+              "Kulay ng plato lamang",
+              "Bilang ng kutsara",
+              "Uri ng tela"
+            ],
+            "correct_answer": "Nutrisyon, badyet, at panahon"
+          },
+          {
+            "question": "Bakit maghugas ng kamay bago maghawak ng pagkain?",
+            "options": [
+              "Upang maiwasan ang pagkalat ng mikrobyo",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan",
+              "Para lang tumagal ang oras"
+            ],
+            "correct_answer": "Upang maiwasan ang pagkalat ng mikrobyo"
+          },
+          {
+            "question": "Bakit dapat iwasan ang paghaluin ng hilaw at lutong pagkain?",
+            "options": [
+              "Maaaring maghatid ito ng bakterya sa lutong pagkain",
+              "Walang epekto ito",
+              "Mas masarap ang resulta",
+              "Kinakailangan itong gawin"
+            ],
+            "correct_answer": "Maaaring maghatid ito ng bakterya sa lutong pagkain"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng malinis na kagamitan sa pagluluto?",
+            "options": [
+              "Iwasan ang kontaminasyon ng pagkain",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan linisin ang kagamitan",
+              "Para lang magmukhang maganda"
+            ],
+            "correct_answer": "Iwasan ang kontaminasyon ng pagkain"
+          },
+          {
+            "question": "Bakit mahalagang isaalang-alang ang badyet sa pagpaplano ng pagkain?",
+            "options": [
+              "Upang matugunan ang pangangailangan nang hindi lumalampas sa kakayahang gumastos",
+              "Walang kaugnayan ang badyet sa pagkain",
+              "Hindi na kailangan isaalang-alang ang badyet",
+              "Palaging walang limitasyon ang badyet"
+            ],
+            "correct_answer": "Upang matugunan ang pangangailangan nang hindi lumalampas sa kakayahang gumastos"
+          },
+          {
+            "question": "Ano ang naidudulot ng maayos na meal planning?",
+            "options": [
+              "Tamang nutrisyon at maayos na paggasta",
+              "Walang naidudulot",
+              "Palaging mas mahal ang gastos",
+              "Kawalan ng nutrisyon"
+            ],
+            "correct_answer": "Tamang nutrisyon at maayos na paggasta"
+          },
+          {
+            "question": "Bakit mahalagang matutong magplano ng pagkain mula sa Grade 6?",
+            "options": [
+              "Nagpapaunlad ito ng kasanayang mabubuhay nang mag-isa balang araw",
+              "Walang gamit ito",
+              "Para sa matatanda lamang ito",
+              "Hindi kaugnay ng EPP"
+            ],
+            "correct_answer": "Nagpapaunlad ito ng kasanayang mabubuhay nang mag-isa balang araw"
+          },
+          {
+            "question": "Paano nauugnay ang pagpaplano ng pagkain sa pamamahala ng yaman ng pamilya na natutunan noon?",
+            "options": [
+              "Parehong bahagi ng responsableng pamamahala ng mga mapagkukunan ng pamilya",
+              "Walang koneksyon ang dalawa",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong bahagi ng responsableng pamamahala ng mga mapagkukunan ng pamilya"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi susundin ang kalinisan sa pagluluto?",
+            "options": [
+              "Maaaring magdulot ito ng sakit sa pamilya",
+              "Walang epekto ito",
+              "Mas masarap ang pagkain",
+              "Awtomatikong ligtas ang lahat"
+            ],
+            "correct_answer": "Maaaring magdulot ito ng sakit sa pamilya"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang kasanayan ang meal planning sa buhay may-sapat na gulang?",
+            "options": [
+              "Tumutulong itong pamahalaan ang oras, pera, at kalusugan nang sabay-sabay",
+              "Walang kahalagahan ito",
+              "Ito ay para sa mga chef lamang",
+              "Hindi ito totoong kasanayan"
+            ],
+            "correct_answer": "Tumutulong itong pamahalaan ang oras, pera, at kalusugan nang sabay-sabay"
+          },
+          {
+            "question": "Ano ang unang bagay na dapat gawin bago maghanda ng pagkain?",
+            "options": [
+              "Maghugas ng kamay",
+              "Kumain agad",
+              "Bumili ng bagong kagamitan",
+              "Kalimutan ang badyet"
+            ],
+            "correct_answer": "Maghugas ng kamay"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💪 GMRC — Pagtugon sa Pambubulas ng Kapuwa (Lakas ng Loob)\n\nGrade 6, Linggo 22! Simulan natin ang Term 3 na pagpapahalaga sa pakikipagkapuwa! 💪\n\n## 🔄 Balik-Aral\nNatapos natin ang Term 2 sa paksang bayanihan.\n\n## 💪 Ano ang Pambubulas?\nAng **pambubulas** ay ang pananakot, panunukso nang malupit, o pambu-bully sa kapuwa — isang bagay na dapat harapin nang may lakas ng loob.\n\n## 🛡️ Paano Tumugon nang may Lakas ng Loob\n- Huwag manahimik kung ikaw o kapwa mo ay bina-bully\n- Sabihin sa isang may tiwalang matanda kung may nangyayaring pambubulas\n- Suportahan ang kapwang biktima ng bullying\n\n## 💡 Bakit Mahalaga Ito?\nAng lakas ng loob na tumugon sa pambubulas ay nagpoprotekta sa sarili at sa kapwa mula sa pananakit.\n\n**Mahahalagang salita:** pambubulas, lakas ng loob, bullying, suporta",
+        "quiz": [
+          {
+            "question": "Ano ang pambubulas?",
+            "options": [
+              "Pananakot o pambu-bully sa kapuwa",
+              "Isang uri ng laro",
+              "Isang uri ng pagkain",
+              "Isang bantas"
+            ],
+            "correct_answer": "Pananakot o pambu-bully sa kapuwa"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Lakas ng loob",
+              "Mapagpasensiya",
+              "Makatarungan",
+              "Nasyonalismo"
+            ],
+            "correct_answer": "Lakas ng loob"
+          },
+          {
+            "question": "Ano ang dapat gawin kung ikaw ay bina-bully?",
+            "options": [
+              "Huwag manahimik at humingi ng tulong sa may tiwalang matanda",
+              "Manahimik at tanggapin na lamang",
+              "Bumalik sa pambubulas",
+              "Iwasan ang lahat ng tao"
+            ],
+            "correct_answer": "Huwag manahimik at humingi ng tulong sa may tiwalang matanda"
+          },
+          {
+            "question": "Bakit mahalagang suportahan ang biktima ng bullying?",
+            "options": [
+              "Nagbibigay ito ng lakas ng loob at proteksyon sa kapwa",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan tumulong",
+              "Ito ay hindi responsibilidad ng iba"
+            ],
+            "correct_answer": "Nagbibigay ito ng lakas ng loob at proteksyon sa kapwa"
+          },
+          {
+            "question": "Anong Term na natapos bago sinimulan ang paksang ito?",
+            "options": [
+              "Term 2",
+              "Term 1",
+              "Term 3",
+              "Walang natapos na term"
+            ],
+            "correct_answer": "Term 2"
+          },
+          {
+            "question": "Bakit mahalagang harapin ang pambubulas nang may lakas ng loob?",
+            "options": [
+              "Upang maprotektahan ang sarili at ang kapwa mula sa pananakit",
+              "Walang kahalagahan ito",
+              "Mas mabuting balewalain na lamang",
+              "Hindi na kailangang harapin ito"
+            ],
+            "correct_answer": "Upang maprotektahan ang sarili at ang kapwa mula sa pananakit"
+          },
+          {
+            "question": "Ano ang unang hakbang ng Term 3 GMRC sequence?",
+            "options": [
+              "Pagtugon sa pambubulas ng kapuwa gamit ang lakas ng loob",
+              "Pagtugon sa emosyon ng kapuwa",
+              "Pagiging patas sa kapuwa",
+              "Pananalig sa Diyos"
+            ],
+            "correct_answer": "Pagtugon sa pambubulas ng kapuwa gamit ang lakas ng loob"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang bahagi ng pakikipagkapuwa ang lakas ng loob?",
+            "options": [
+              "Tumutulong itong protektahan ang dignidad ng bawat tao",
+              "Walang kaugnayan ito sa pakikipagkapuwa",
+              "Ito ay isang uri lamang ng laro",
+              "Hindi ito totoong pagpapahalaga"
+            ],
+            "correct_answer": "Tumutulong itong protektahan ang dignidad ng bawat tao"
+          },
+          {
+            "question": "Bakit hindi dapat manahimik kapag may nakikitang pambubulas?",
+            "options": [
+              "Ang katahimikan ay maaaring magpatuloy sa pananakit sa biktima",
+              "Walang epekto ang pananahimik",
+              "Mas ligtas na manahimik lamang",
+              "Hindi ito responsibilidad ng sinuman"
+            ],
+            "correct_answer": "Ang katahimikan ay maaaring magpatuloy sa pananakit sa biktima"
+          },
+          {
+            "question": "Bakit itinuturo ang paksang ito sa Grade 6?",
+            "options": [
+              "Upang matulungan silang tumugon nang tama sa mga hamon sa pakikipagkapuwa",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi ito kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Upang matulungan silang tumugon nang tama sa mga hamon sa pakikipagkapuwa"
+          },
+          {
+            "question": "Sino ang dapat lumapit kung may nararanasang pambubulas?",
+            "options": [
+              "Isang may tiwalang matanda",
+              "Walang sinuman",
+              "Ang bully mismo",
+              "Dapat manahimik na lamang"
+            ],
+            "correct_answer": "Isang may tiwalang matanda"
+          },
+          {
+            "question": "Bakit itinuturing na unang hakbang ang lakas ng loob sa serye ng pagpapahalaga sa pakikipagkapuwa?",
+            "options": [
+              "Kinakailangan itong pundasyon bago matutong tumugon sa iba pang hamon sa relasyon",
+              "Wala itong kaugnayan sa ibang pagpapahalaga",
+              "Ito ay hindi bahagi ng serye",
+              "Basta random na pinili lamang"
+            ],
+            "correct_answer": "Kinakailangan itong pundasyon bago matutong tumugon sa iba pang hamon sa relasyon"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌏 Friday Review — English (Grade 6)\n\n- Evaluating author credibility\n\nGreat critical evaluation! 🌟",
+        "quiz": [
+          {
+            "question": "What does 'credibility' mean?",
+            "options": [
+              "How trustworthy and reliable a source is",
+              "How long a text is",
+              "How colorful a text is",
+              "How old a text is"
+            ],
+            "correct_answer": "How trustworthy and reliable a source is"
+          },
+          {
+            "question": "One sign of a credible author?",
+            "options": [
+              "Relevant expertise",
+              "No evidence at all",
+              "One-sided language",
+              "Financial interest"
+            ],
+            "correct_answer": "Relevant expertise"
+          },
+          {
+            "question": "A warning sign of low credibility?",
+            "options": [
+              "No sources cited",
+              "Balanced viewpoints",
+              "Reputable publisher",
+              "Relevant expertise"
+            ],
+            "correct_answer": "No sources cited"
+          },
+          {
+            "question": "Why is providing evidence important?",
+            "options": [
+              "Supports claims with proof",
+              "Makes text longer",
+              "No connection to credibility",
+              "Only matters in fiction"
+            ],
+            "correct_answer": "Supports claims with proof"
+          },
+          {
+            "question": "What does acknowledging different viewpoints suggest?",
+            "options": [
+              "A more balanced, credible perspective",
+              "Untrustworthiness",
+              "No expertise",
+              "Avoiding the topic"
+            ],
+            "correct_answer": "A more balanced, credible perspective"
+          },
+          {
+            "question": "Why might financial interest lower credibility?",
+            "options": [
+              "May bias conclusions toward benefit",
+              "Always makes writing better",
+              "No effect on writing",
+              "Proves expertise"
+            ],
+            "correct_answer": "May bias conclusions toward benefit"
+          },
+          {
+            "question": "Why is evaluating credibility important in research?",
+            "options": [
+              "Helps decide what to trust",
+              "No use in research",
+              "Replaces reading the source",
+              "Never matters"
+            ],
+            "correct_answer": "Helps decide what to trust"
+          },
+          {
+            "question": "What might extreme language suggest?",
+            "options": [
+              "May lack balance and credibility",
+              "Always most trustworthy",
+              "Shows strong expertise",
+              "Has no meaning"
+            ],
+            "correct_answer": "May lack balance and credibility"
+          },
+          {
+            "question": "Why is a reputable publisher a good sign?",
+            "options": [
+              "Often has editorial standards",
+              "All publishers are equal",
+              "Publishers never affect credibility",
+              "Reputation has no connection to accuracy"
+            ],
+            "correct_answer": "Often has editorial standards"
+          },
+          {
+            "question": "How does this connect to comparing perspectives?",
+            "options": [
+              "Both build critical understanding",
+              "Unrelated skills",
+              "Credibility replaces comparison",
+              "Comparing ignores credibility"
+            ],
+            "correct_answer": "Both build critical understanding"
+          },
+          {
+            "question": "If an author has expertise but no evidence, fully credible?",
+            "options": [
+              "Not necessarily",
+              "Yes, always",
+              "No, expertise never matters",
+              "Credibility doesn't need evidence"
+            ],
+            "correct_answer": "Not necessarily"
+          },
+          {
+            "question": "Why is credibility important reading news online?",
+            "options": [
+              "Online sources vary in accuracy",
+              "All online news is reliable",
+              "Only matters in print",
+              "News never needs evaluation"
+            ],
+            "correct_answer": "Online sources vary in accuracy"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📐 Friday Review — Mathematics (Grade 6)\n\n- Perimeter and area of composite figures\n\nGreat composite figure skills! ⭐",
+        "quiz": [
+          {
+            "question": "What is a composite figure?",
+            "options": [
+              "A shape made of two or more basic shapes",
+              "A single circle",
+              "A figure with no sides",
+              "A 3D solid only"
+            ],
+            "correct_answer": "A shape made of two or more basic shapes"
+          },
+          {
+            "question": "First step in finding area of a composite figure?",
+            "options": [
+              "Divide it into simple shapes",
+              "Measure one side only",
+              "Skip measuring",
+              "Guess the area"
+            ],
+            "correct_answer": "Divide it into simple shapes"
+          },
+          {
+            "question": "How do you find total area of a composite figure?",
+            "options": [
+              "Add areas of the simple shapes",
+              "Multiply all side lengths",
+              "Subtract the areas",
+              "Divide areas by two"
+            ],
+            "correct_answer": "Add areas of the simple shapes"
+          },
+          {
+            "question": "What does perimeter measure?",
+            "options": [
+              "Total length of outer sides",
+              "Space inside a shape",
+              "Weight of a shape",
+              "Number of shapes combined"
+            ],
+            "correct_answer": "Total length of outer sides"
+          },
+          {
+            "question": "Example of a composite figure?",
+            "options": [
+              "An L-shaped room",
+              "A single square",
+              "A single triangle",
+              "A single circle"
+            ],
+            "correct_answer": "An L-shaped room"
+          },
+          {
+            "question": "Why decompose a shape into simpler shapes?",
+            "options": [
+              "Makes calculating area easier",
+              "Makes shape disappear",
+              "No mathematical benefit",
+              "Only works for circles"
+            ],
+            "correct_answer": "Makes calculating area easier"
+          },
+          {
+            "question": "An L-shape can be divided into?",
+            "options": [
+              "Two rectangles",
+              "One triangle only",
+              "A single circle",
+              "No shapes"
+            ],
+            "correct_answer": "Two rectangles"
+          },
+          {
+            "question": "Rectangle A = 20 sq cm, Rectangle B = 15 sq cm. Total area?",
+            "options": [
+              "35 sq cm",
+              "5 sq cm",
+              "300 sq cm",
+              "40 sq cm"
+            ],
+            "correct_answer": "35 sq cm"
+          },
+          {
+            "question": "Why include ALL outer sides for perimeter?",
+            "options": [
+              "Missing a side gives wrong total",
+              "Perimeter never needs all sides",
+              "Only longest side matters",
+              "Perimeter is unrelated to sides"
+            ],
+            "correct_answer": "Missing a side gives wrong total"
+          },
+          {
+            "question": "Why are composite figures common in real life?",
+            "options": [
+              "Many real spaces are irregular",
+              "All spaces are perfect squares",
+              "They don't exist in real life",
+              "Only mathematicians use them"
+            ],
+            "correct_answer": "Many real spaces are irregular"
+          },
+          {
+            "question": "Formula for the rectangle part of a composite figure?",
+            "options": [
+              "Area = length × width",
+              "Area = base + height",
+              "Area = side³",
+              "Area = radius × 2"
+            ],
+            "correct_answer": "Area = length × width"
+          },
+          {
+            "question": "Why useful for architects or builders?",
+            "options": [
+              "Helps calculate materials for irregular spaces",
+              "No real-world application",
+              "Builders never work with irregular shapes",
+              "Only applies to homework"
+            ],
+            "correct_answer": "Helps calculate materials for irregular spaces"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔧 Friday Review — Science (Grade 6)\n\n- Levers and their uses\n\nGreat lever mechanics! 🌟",
+        "quiz": [
+          {
+            "question": "What is a lever?",
+            "options": [
+              "A rigid bar that rotates around a fixed point",
+              "A round wheel",
+              "A sharp blade",
+              "A flat ramp"
+            ],
+            "correct_answer": "A rigid bar that rotates around a fixed point"
+          },
+          {
+            "question": "What is the fulcrum?",
+            "options": [
+              "The fixed pivot point",
+              "The force applied",
+              "The object being moved",
+              "The handle"
+            ],
+            "correct_answer": "The fixed pivot point"
+          },
+          {
+            "question": "What is 'effort' in a lever system?",
+            "options": [
+              "Force applied to move the load",
+              "The fixed pivot point",
+              "The object lifted",
+              "The lever's length"
+            ],
+            "correct_answer": "Force applied to move the load"
+          },
+          {
+            "question": "What is 'load'?",
+            "options": [
+              "The object being moved",
+              "The fixed pivot point",
+              "The force applied",
+              "The lever's handle"
+            ],
+            "correct_answer": "The object being moved"
+          },
+          {
+            "question": "1st class lever: where is the fulcrum?",
+            "options": [
+              "Between effort and load",
+              "At the very end only",
+              "No fulcrum",
+              "Always at the load"
+            ],
+            "correct_answer": "Between effort and load"
+          },
+          {
+            "question": "Example of a 1st class lever?",
+            "options": [
+              "A seesaw",
+              "A wheelbarrow",
+              "A fishing rod",
+              "A ramp"
+            ],
+            "correct_answer": "A seesaw"
+          },
+          {
+            "question": "2nd class lever: where is the load?",
+            "options": [
+              "Between fulcrum and effort",
+              "At the very end only",
+              "No load",
+              "Always at the fulcrum"
+            ],
+            "correct_answer": "Between fulcrum and effort"
+          },
+          {
+            "question": "Example of a 2nd class lever?",
+            "options": [
+              "A wheelbarrow",
+              "A seesaw",
+              "A fishing rod",
+              "A ramp"
+            ],
+            "correct_answer": "A wheelbarrow"
+          },
+          {
+            "question": "3rd class lever: where is the effort?",
+            "options": [
+              "Between fulcrum and load",
+              "At the very end only",
+              "No effort",
+              "Always at the load"
+            ],
+            "correct_answer": "Between fulcrum and load"
+          },
+          {
+            "question": "Example of a 3rd class lever?",
+            "options": [
+              "A fishing rod",
+              "A seesaw",
+              "A wheelbarrow",
+              "A ramp"
+            ],
+            "correct_answer": "A fishing rod"
+          },
+          {
+            "question": "Why are levers useful?",
+            "options": [
+              "Change force needed to move objects",
+              "No practical use",
+              "Only work in factories",
+              "Increase object weight"
+            ],
+            "correct_answer": "Change force needed to move objects"
+          },
+          {
+            "question": "How is a lever different from an inclined plane?",
+            "options": [
+              "Lever rotates around a fulcrum; ramp is sloped",
+              "Work exactly the same",
+              "Lever has no moving parts",
+              "Ramp always rotates"
+            ],
+            "correct_answer": "Lever rotates around a fulcrum; ramp is sloped"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📝 Friday Review — Filipino (Grade 6)\n\n- Salitang kultural at historikal\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang salitang kultural at historikal?",
+            "options": [
+              "Termino may kaugnayan sa tradisyon at kasaysayan",
+              "Salitang walang kahulugan",
+              "Bagong salitang banyaga lamang",
+              "Bantas sa pangungusap"
+            ],
+            "correct_answer": "Termino may kaugnayan sa tradisyon at kasaysayan"
+          },
+          {
+            "question": "Ano ang bayanihan bilang salitang kultural?",
+            "options": [
+              "Kulturang paraan ng pagtutulungan",
+              "Uri ng pagkain",
+              "Uri ng laro",
+              "Bantas"
+            ],
+            "correct_answer": "Kulturang paraan ng pagtutulungan"
+          },
+          {
+            "question": "Ano ang Katipunero?",
+            "options": [
+              "Miyembro ng makasaysayang kilusan",
+              "Uri ng hayop",
+              "Uri ng pagkain",
+              "Uri ng damit"
+            ],
+            "correct_answer": "Miyembro ng makasaysayang kilusan"
+          },
+          {
+            "question": "Bakit maunawaan ang mga salitang ito?",
+            "options": [
+              "Maunawaan ang konteksto ng akda",
+              "Walang gamit",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng Filipino"
+            ],
+            "correct_answer": "Maunawaan ang konteksto ng akda"
+          },
+          {
+            "question": "Ano ang Kartilya?",
+            "options": [
+              "Makasaysayang aklat-aralin",
+              "Uri ng laro",
+              "Uri ng pagkain",
+              "Bantas"
+            ],
+            "correct_answer": "Makasaysayang aklat-aralin"
+          },
+          {
+            "question": "Bakit ginagamit ang salitang historikal sa akda?",
+            "options": [
+              "Nagbibigay konteksto sa panahong tinutukoy",
+              "Walang layunin",
+              "Pandagdag lamang",
+              "Hindi kaugnay ng kasaysayan"
+            ],
+            "correct_answer": "Nagbibigay konteksto sa panahong tinutukoy"
+          },
+          {
+            "question": "Koneksyon sa tema at simbolismo na natutunan noon?",
+            "options": [
+              "Magkakasamang maunawaan ang akda",
+              "Walang koneksyon",
+              "Isa lamang mahalaga",
+              "Hindi sila konektado"
+            ],
+            "correct_answer": "Magkakasamang maunawaan ang akda"
+          },
+          {
+            "question": "Bakit mahalaga ang salitang kultural sa wika?",
+            "options": [
+              "Ipinapakita ang pagkakakilanlan at kasaysayan",
+              "Wala silang kahalagahan",
+              "Hindi bahagi ng Filipino",
+              "Ginagamit lamang sa ibang bansa"
+            ],
+            "correct_answer": "Ipinapakita ang pagkakakilanlan at kasaysayan"
+          },
+          {
+            "question": "Bakit matutong gamitin ang mga salitang kultural?",
+            "options": [
+              "Nagpapayaman ng pagsulat at nagbibigay lalim",
+              "Walang epekto",
+              "Palaging nakakalito",
+              "Hindi kailanman ginagamit"
+            ],
+            "correct_answer": "Nagpapayaman ng pagsulat at nagbibigay lalim"
+          },
+          {
+            "question": "Halimbawa ng salitang may kaugnayan sa Himagsikan?",
+            "options": [
+              "Katipunero",
+              "Kompyuter",
+              "Telebisyon",
+              "Iskedyul"
+            ],
+            "correct_answer": "Katipunero"
+          },
+          {
+            "question": "Bakit mahirap unawain ang lumang akda kung hindi alam ang salitang historikal?",
+            "options": [
+              "Nawawala ang konteksto ng akda",
+              "Walang epekto",
+              "Salita ay hindi mahalaga",
+              "Lumang akda ay laging madali unawain"
+            ],
+            "correct_answer": "Nawawala ang konteksto ng akda"
+          },
+          {
+            "question": "Bakit ituro ang mga salitang ito sa Grade 6?",
+            "options": [
+              "Mapahalagahan ang kasaysayan sa pamamagitan ng wika",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi bahagi ng Filipino"
+            ],
+            "correct_answer": "Mapahalagahan ang kasaysayan sa pamamagitan ng wika"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# ⚖️ Friday Review — Araling Panlipunan (Grade 6)\n\n- Neokolonyalismo\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang neokolonyalismo?",
+            "options": [
+              "Di-tuwirang kontrol sa ekonomiya at pulitika",
+              "Tuwirang pananakop",
+              "Kasunduang militar",
+              "Uri ng laro"
+            ],
+            "correct_answer": "Di-tuwirang kontrol sa ekonomiya at pulitika"
+          },
+          {
+            "question": "Ano ang Parity Rights?",
+            "options": [
+              "Pantay na karapatan ng Amerikano sa yaman",
+              "Karapatang bumoto ng kababaihan",
+              "Batas laban sa krimen",
+              "Kasunduang pangkapayapaan"
+            ],
+            "correct_answer": "Pantay na karapatan ng Amerikano sa yaman"
+          },
+          {
+            "question": "Ano ang Bell Trade Act?",
+            "options": [
+              "Kondisyon sa kalakalan paborable sa US",
+              "Batas laban sa neokolonyalismo",
+              "Kasunduang pangmilitar",
+              "Batas tungkol sa edukasyon"
+            ],
+            "correct_answer": "Kondisyon sa kalakalan paborable sa US"
+          },
+          {
+            "question": "Bakit dependensiya ang epekto ng Bell Trade Act?",
+            "options": [
+              "Pinapanatili ang pag-asa sa US pang-ekonomiya",
+              "Ganap na kalayaang pang-ekonomiya",
+              "Walang epekto",
+              "Pinalakas ang kalayaan"
+            ],
+            "correct_answer": "Pinapanatili ang pag-asa sa US pang-ekonomiya"
+          },
+          {
+            "question": "Ipinapakita ng neokolonyalismo tungkol sa kalayaan?",
+            "options": [
+              "Pampulitikang kalayaan hindi laging kasama ang pang-ekonomiya",
+              "Kalayaan ay laging ganap",
+              "Walang kaugnayan ang ekonomiya",
+              "Katulad ng tunay na kalayaan"
+            ],
+            "correct_answer": "Pampulitikang kalayaan hindi laging kasama ang pang-ekonomiya"
+          },
+          {
+            "question": "Bakit tinawag na di-tuwiran ang kontrol?",
+            "options": [
+              "Sa pamamagitan ng ekonomiya at pulitika, hindi tuwirang pananakop",
+              "Tuwirang pananakop ito",
+              "Walang kontrol na nagaganap",
+              "Tuwirang digmaan ito"
+            ],
+            "correct_answer": "Sa pamamagitan ng ekonomiya at pulitika, hindi tuwirang pananakop"
+          },
+          {
+            "question": "Konsepto bago ang neokolonyalismo?",
+            "options": [
+              "Ikatlong Republika at Cold War",
+              "Digmaang Pilipino-Amerikano",
+              "Simple machines",
+              "Volume ng cube"
+            ],
+            "correct_answer": "Ikatlong Republika at Cold War"
+          },
+          {
+            "question": "Bakit pag-aralan ang neokolonyalismo?",
+            "options": [
+              "Maunawaan ang tunay na kahulugan ng kalayaan",
+              "Walang kahalagahan",
+              "Hindi bahagi ng kasaysayan",
+              "Tungkol lamang sa ibang bansa"
+            ],
+            "correct_answer": "Maunawaan ang tunay na kahulugan ng kalayaan"
+          },
+          {
+            "question": "Sino nakikinabang sa Parity Rights?",
+            "options": [
+              "Mga Amerikanong negosyante",
+              "Mga magsasaka ng Pilipinas lamang",
+              "Mga estudyante",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Mga Amerikanong negosyante"
+          },
+          {
+            "question": "Bakit mahalagang aral ang neokolonyalismo para sa kasalukuyan?",
+            "options": [
+              "Maunawaan ang hamon sa tunay na kasarinlan",
+              "Walang kaugnayan sa kasalukuyan",
+              "Hindi na nagaganap ngayon",
+              "Tungkol lamang sa nakaraan"
+            ],
+            "correct_answer": "Maunawaan ang hamon sa tunay na kasarinlan"
+          },
+          {
+            "question": "Paano naiiba ang neokolonyalismo sa tuwirang kolonyalismo?",
+            "options": [
+              "Walang tuwirang pananakop pero may kontrol sa ekonomiya",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Mas malala ang neokolonyalismo"
+            ],
+            "correct_answer": "Walang tuwirang pananakop pero may kontrol sa ekonomiya"
+          },
+          {
+            "question": "Bakit hamon ang neokolonyalismo sa temang taunan?",
+            "options": [
+              "Patuloy na pakikibaka para sa ganap na kasarinlan",
+              "Walang koneksyon sa tema",
+              "Hiwalay na paksa",
+              "Hindi bahagi ng tema"
+            ],
+            "correct_answer": "Patuloy na pakikibaka para sa ganap na kasarinlan"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🌱 Friday Review — MAPEH (Grade 6)\n\n- Kalusugang pangkapaligiran (One Health)\n\nMagaling sa Health! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang One Health?",
+            "options": [
+              "Magkakaugnay ang kalusugan ng tao, hayop, kapaligiran",
+              "Uri ng bakuna",
+              "Uri ng ehersisyo",
+              "Uri ng gamot"
+            ],
+            "correct_answer": "Magkakaugnay ang kalusugan ng tao, hayop, kapaligiran"
+          },
+          {
+            "question": "Bakit mahalaga ang sanitasyon?",
+            "options": [
+              "Maiwasan ang pagkalat ng sakit",
+              "Walang kahalagahan",
+              "Nagdudulot ng sakit",
+              "Hindi konektado sa kalusugan"
+            ],
+            "correct_answer": "Maiwasan ang pagkalat ng sakit"
+          },
+          {
+            "question": "Ano ang 8Rs?",
+            "options": [
+              "Paraan para bawasan ang basura",
+              "Walong bagong sakit",
+              "Walong bakuna",
+              "Walong ehersisyo"
+            ],
+            "correct_answer": "Paraan para bawasan ang basura"
+          },
+          {
+            "question": "Bakit pangalagaan ang kalusugan ng hayop at kapaligiran?",
+            "options": [
+              "Magkakaugnay ayon sa One Health",
+              "Walang kaugnayan",
+              "Ang tao lamang mahalaga",
+              "Kapaligiran ay hiwalay"
+            ],
+            "correct_answer": "Magkakaugnay ayon sa One Health"
+          },
+          {
+            "question": "Halimbawa ng maayos na sanitasyon?",
+            "options": [
+              "Malinis na tubig at disposal ng basura",
+              "Basurang nakakalat",
+              "Kawalang pag-iingat sa tubig",
+              "Pagtatapon sa ilog"
+            ],
+            "correct_answer": "Malinis na tubig at disposal ng basura"
+          },
+          {
+            "question": "Ano ang 'Reduce'?",
+            "options": [
+              "Pagbawas ng basura",
+              "Pagdagdag ng basura",
+              "Pagtatago ng basura",
+              "Pagsunog ng basura"
+            ],
+            "correct_answer": "Pagbawas ng basura"
+          },
+          {
+            "question": "Ano ang 'Recycle'?",
+            "options": [
+              "Bagong bagay mula sa lumang materyales",
+              "Pagtapon kaagad",
+              "Pagsunog ng basura",
+              "Pagtago magpakailanman"
+            ],
+            "correct_answer": "Bagong bagay mula sa lumang materyales"
+          },
+          {
+            "question": "Bakit mahalagang isyu ang kalusugang pangkapaligiran?",
+            "options": [
+              "Nakaka-apekto sa kalusugan ng lahat",
+              "Walang epekto sa tao",
+              "Isyu lamang ng ibang bansa",
+              "Hindi kaugnay ng MAPEH"
+            ],
+            "correct_answer": "Nakaka-apekto sa kalusugan ng lahat"
+          },
+          {
+            "question": "Bakit konektado ang sakit sa hayop sa sakit ng tao?",
+            "options": [
+              "Maaaring lumipat ang sakit mula sa hayop",
+              "Walang koneksyon",
+              "Hayop ay hindi nagkakasakit",
+              "Tao ay hindi nahahawa"
+            ],
+            "correct_answer": "Maaaring lumipat ang sakit mula sa hayop"
+          },
+          {
+            "question": "Koneksyon sa nakakahawang sakit na natutunan noon?",
+            "options": [
+              "Parehong tumatalakay sa pag-iwas ng sakit",
+              "Walang koneksyon",
+              "Isa tungkol sa agham lamang",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong tumatalakay sa pag-iwas ng sakit"
+          },
+          {
+            "question": "Bakit ituro ang 8Rs sa mga bata?",
+            "options": [
+              "Responsable sa pangangalaga ng kapaligiran",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng kalusugan"
+            ],
+            "correct_answer": "Responsable sa pangangalaga ng kapaligiran"
+          },
+          {
+            "question": "Ano ang mangyayari kung walang maayos na sanitasyon?",
+            "options": [
+              "Mas mataas ang panganib ng sakit",
+              "Walang epekto",
+              "Mas malusog ang lahat",
+              "Nawawala ang mga sakit"
+            ],
+            "correct_answer": "Mas mataas ang panganib ng sakit"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🍽️ Friday Review — EPP (Grade 6)\n\n- Pagpaplano ng pagkain at kalinisan\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang meal planning?",
+            "options": [
+              "Listahan ng pagkain para sa tiyak na panahon",
+              "Uri ng pagluluto lamang",
+              "Uri ng laro",
+              "Bantas"
+            ],
+            "correct_answer": "Listahan ng pagkain para sa tiyak na panahon"
+          },
+          {
+            "question": "Anong isinasaalang-alang sa pagpaplano ng pagkain?",
+            "options": [
+              "Nutrisyon, badyet, panahon",
+              "Kulay ng plato lamang",
+              "Bilang ng kutsara",
+              "Uri ng tela"
+            ],
+            "correct_answer": "Nutrisyon, badyet, panahon"
+          },
+          {
+            "question": "Bakit maghugas ng kamay bago maghawak ng pagkain?",
+            "options": [
+              "Maiwasan ang mikrobyo",
+              "Walang kahalagahan",
+              "Hindi na kailangan",
+              "Para lang tumagal"
+            ],
+            "correct_answer": "Maiwasan ang mikrobyo"
+          },
+          {
+            "question": "Bakit iwasan ang paghaluin ng hilaw at lutong pagkain?",
+            "options": [
+              "Maaaring maghatid ng bakterya",
+              "Walang epekto",
+              "Mas masarap ang resulta",
+              "Kinakailangan gawin"
+            ],
+            "correct_answer": "Maaaring maghatid ng bakterya"
+          },
+          {
+            "question": "Bakit gumamit ng malinis na kagamitan?",
+            "options": [
+              "Iwasan ang kontaminasyon",
+              "Walang kahalagahan",
+              "Hindi na kailangan linisin",
+              "Para magmukhang maganda"
+            ],
+            "correct_answer": "Iwasan ang kontaminasyon"
+          },
+          {
+            "question": "Bakit isaalang-alang ang badyet sa meal planning?",
+            "options": [
+              "Matugunan pangangailangan nang hindi lumalampas sa gastos",
+              "Walang kaugnayan",
+              "Hindi na kailangan",
+              "Walang limitasyon"
+            ],
+            "correct_answer": "Matugunan pangangailangan nang hindi lumalampas sa gastos"
+          },
+          {
+            "question": "Naidudulot ng maayos na meal planning?",
+            "options": [
+              "Tamang nutrisyon at maayos na paggasta",
+              "Walang naidudulot",
+              "Mas mahal ang gastos",
+              "Kawalan ng nutrisyon"
+            ],
+            "correct_answer": "Tamang nutrisyon at maayos na paggasta"
+          },
+          {
+            "question": "Bakit matutong magplano ng pagkain sa Grade 6?",
+            "options": [
+              "Kasanayang mabubuhay nang mag-isa",
+              "Walang gamit",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng EPP"
+            ],
+            "correct_answer": "Kasanayang mabubuhay nang mag-isa"
+          },
+          {
+            "question": "Koneksyon sa pamamahala ng yaman ng pamilya na natutunan?",
+            "options": [
+              "Parehong responsableng pamamahala ng mapagkukunan",
+              "Walang koneksyon",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong responsableng pamamahala ng mapagkukunan"
+          },
+          {
+            "question": "Mangyayari kung hindi susundin ang kalinisan sa pagluluto?",
+            "options": [
+              "Maaaring magdulot ng sakit",
+              "Walang epekto",
+              "Mas masarap",
+              "Awtomatikong ligtas"
+            ],
+            "correct_answer": "Maaaring magdulot ng sakit"
+          },
+          {
+            "question": "Bakit mahalagang kasanayan ang meal planning sa buhay may-sapat na gulang?",
+            "options": [
+              "Pamahalaan ang oras, pera, kalusugan sabay-sabay",
+              "Walang kahalagahan",
+              "Para sa chef lamang",
+              "Hindi totoong kasanayan"
+            ],
+            "correct_answer": "Pamahalaan ang oras, pera, kalusugan sabay-sabay"
+          },
+          {
+            "question": "Unang bagay dapat gawin bago maghanda ng pagkain?",
+            "options": [
+              "Maghugas ng kamay",
+              "Kumain agad",
+              "Bumili ng kagamitan",
+              "Kalimutan ang badyet"
+            ],
+            "correct_answer": "Maghugas ng kamay"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💪 Friday Review — GMRC (Grade 6)\n\n- Pagtugon sa pambubulas (Lakas ng loob)\n\nMagaling! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang pambubulas?",
+            "options": [
+              "Pananakot o pambu-bully sa kapuwa",
+              "Uri ng laro",
+              "Uri ng pagkain",
+              "Bantas"
+            ],
+            "correct_answer": "Pananakot o pambu-bully sa kapuwa"
+          },
+          {
+            "question": "Pagpapahalaga sa linggong ito?",
+            "options": [
+              "Lakas ng loob",
+              "Mapagpasensiya",
+              "Makatarungan",
+              "Nasyonalismo"
+            ],
+            "correct_answer": "Lakas ng loob"
+          },
+          {
+            "question": "Ano ang gagawin kung ikaw ay bina-bully?",
+            "options": [
+              "Humingi ng tulong sa may tiwalang matanda",
+              "Manahimik at tanggapin",
+              "Bumalik sa pambubulas",
+              "Iwasan ang lahat ng tao"
+            ],
+            "correct_answer": "Humingi ng tulong sa may tiwalang matanda"
+          },
+          {
+            "question": "Bakit suportahan ang biktima ng bullying?",
+            "options": [
+              "Lakas ng loob at proteksyon sa kapwa",
+              "Walang kahalagahan",
+              "Hindi kailangan tumulong",
+              "Hindi responsibilidad ng iba"
+            ],
+            "correct_answer": "Lakas ng loob at proteksyon sa kapwa"
+          },
+          {
+            "question": "Anong Term ang natapos bago ang paksang ito?",
+            "options": [
+              "Term 2",
+              "Term 1",
+              "Term 3",
+              "Walang natapos"
+            ],
+            "correct_answer": "Term 2"
+          },
+          {
+            "question": "Bakit harapin ang pambubulas nang may lakas ng loob?",
+            "options": [
+              "Protektahan ang sarili at kapwa",
+              "Walang kahalagahan",
+              "Balewalain na lamang",
+              "Hindi na kailangang harapin"
+            ],
+            "correct_answer": "Protektahan ang sarili at kapwa"
+          },
+          {
+            "question": "Unang hakbang ng Term 3 GMRC sequence?",
+            "options": [
+              "Pagtugon sa pambubulas gamit ang lakas ng loob",
+              "Pagtugon sa emosyon ng kapuwa",
+              "Pagiging patas",
+              "Pananalig sa Diyos"
+            ],
+            "correct_answer": "Pagtugon sa pambubulas gamit ang lakas ng loob"
+          },
+          {
+            "question": "Bakit mahalaga ang lakas ng loob sa pakikipagkapuwa?",
+            "options": [
+              "Protektahan ang dignidad ng bawat tao",
+              "Walang kaugnayan",
+              "Uri lamang ng laro",
+              "Hindi totoong pagpapahalaga"
+            ],
+            "correct_answer": "Protektahan ang dignidad ng bawat tao"
+          },
+          {
+            "question": "Bakit hindi dapat manahimik kapag may pambubulas?",
+            "options": [
+              "Katahimikan ay magpapatuloy sa pananakit",
+              "Walang epekto",
+              "Mas ligtas manahimik",
+              "Hindi responsibilidad ng sinuman"
+            ],
+            "correct_answer": "Katahimikan ay magpapatuloy sa pananakit"
+          },
+          {
+            "question": "Bakit ituro ang paksang ito sa Grade 6?",
+            "options": [
+              "Matulungan tumugon nang tama sa hamon sa pakikipagkapuwa",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Matulungan tumugon nang tama sa hamon sa pakikipagkapuwa"
+          },
+          {
+            "question": "Sino dapat lapitan kung may nararanasang pambubulas?",
+            "options": [
+              "Isang may tiwalang matanda",
+              "Walang sinuman",
+              "Ang bully mismo",
+              "Manahimik na lamang"
+            ],
+            "correct_answer": "Isang may tiwalang matanda"
+          },
+          {
+            "question": "Bakit itinuturing na unang hakbang ang lakas ng loob sa serye ng pagpapahalaga sa pakikipagkapuwa?",
+            "options": [
+              "Kinakailangan itong pundasyon bago matutong tumugon sa iba pang hamon sa relasyon",
+              "Wala itong kaugnayan sa ibang pagpapahalaga",
+              "Ito ay hindi bahagi ng serye",
+              "Basta random na pinili lamang"
+            ],
+            "correct_answer": "Kinakailangan itong pundasyon bago matutong tumugon sa iba pang hamon sa relasyon"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,2016 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-11-15",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📚 English — Research-Based Essay: Getting Started\n\nGrade 6, Week 23! Let's begin learning how to write a research-based essay! 📚\n\n## 🔄 Review\nWe learned to evaluate author credibility.\n\n## 📚 What Is a Research-Based Essay?\nA **research-based essay** presents an argument or explanation supported by evidence gathered from credible sources.\n\n## 📝 Steps to Start\n1. Choose a clear, focused **topic** or research question\n2. Gather information from multiple **credible sources**\n3. Take organized **notes**, keeping track of where each fact came from\n4. Create a simple **outline** before writing\n\n## 📖 Using a Handbook or Manual\nA **handbook** or **manual** is a reference resource that gives step-by-step guidance on a specific process or topic — useful for research on technical subjects.\n\n## 🎯 Why This Matters\nStarting with a strong plan makes writing a research-based essay far easier and more organized.\n\n**Key words:** research-based essay, credible source, outline, handbook, manual",
+        "quiz": [
+          {
+            "question": "What is a research-based essay?",
+            "options": [
+              "An essay presenting an argument supported by evidence from sources",
+              "A story with no facts",
+              "A poem about any topic",
+              "A letter to a friend"
+            ],
+            "correct_answer": "An essay presenting an argument supported by evidence from sources"
+          },
+          {
+            "question": "What is the first step in starting a research-based essay?",
+            "options": [
+              "Choose a clear, focused topic",
+              "Write the conclusion first",
+              "Skip research entirely",
+              "Copy another essay"
+            ],
+            "correct_answer": "Choose a clear, focused topic"
+          },
+          {
+            "question": "Why should you gather information from credible sources?",
+            "options": [
+              "To ensure the essay is accurate and trustworthy",
+              "Credibility doesn't matter in essays",
+              "Any source works equally well",
+              "Sources are never needed"
+            ],
+            "correct_answer": "To ensure the essay is accurate and trustworthy"
+          },
+          {
+            "question": "Why is it important to track where each fact came from?",
+            "options": [
+              "It allows proper citation and avoids plagiarism",
+              "It has no purpose",
+              "Facts never need sources",
+              "Only the essay's length matters"
+            ],
+            "correct_answer": "It allows proper citation and avoids plagiarism"
+          },
+          {
+            "question": "What is an outline used for?",
+            "options": [
+              "Organizing ideas before writing the full essay",
+              "Replacing the need to write the essay",
+              "Decorating the essay's cover",
+              "Counting the words in an essay"
+            ],
+            "correct_answer": "Organizing ideas before writing the full essay"
+          },
+          {
+            "question": "What is a handbook or manual?",
+            "options": [
+              "A reference resource with step-by-step guidance",
+              "A type of storybook",
+              "A type of poem",
+              "A blank notebook"
+            ],
+            "correct_answer": "A reference resource with step-by-step guidance"
+          },
+          {
+            "question": "When might a handbook be a useful research resource?",
+            "options": [
+              "When researching a technical process or topic",
+              "Only for fiction writing",
+              "Never useful for research",
+              "Only for poetry"
+            ],
+            "correct_answer": "When researching a technical process or topic"
+          },
+          {
+            "question": "Why is planning before writing helpful?",
+            "options": [
+              "It makes the writing process more organized and easier",
+              "Planning wastes valuable time",
+              "Essays never need planning",
+              "It replaces the need for research"
+            ],
+            "correct_answer": "It makes the writing process more organized and easier"
+          },
+          {
+            "question": "How does evaluating credibility (from last week) connect to starting a research essay?",
+            "options": [
+              "You need credible sources to support the essay's claims",
+              "Credibility has no connection to essays",
+              "Research essays never use sources",
+              "Credibility only matters for opinions"
+            ],
+            "correct_answer": "You need credible sources to support the essay's claims"
+          },
+          {
+            "question": "What might happen if you skip taking organized notes?",
+            "options": [
+              "You might lose track of facts and their sources",
+              "Nothing negative would happen",
+              "The essay would automatically improve",
+              "Notes are never useful in research"
+            ],
+            "correct_answer": "You might lose track of facts and their sources"
+          },
+          {
+            "question": "Why choose a focused topic rather than a broad one?",
+            "options": [
+              "A focused topic is easier to research and explain clearly",
+              "Broad topics are always better",
+              "Focus makes research harder",
+              "Topics don't need to be specific"
+            ],
+            "correct_answer": "A focused topic is easier to research and explain clearly"
+          },
+          {
+            "question": "What skill from earlier weeks supports gathering good research information?",
+            "options": [
+              "Synthesizing multiple credible sources",
+              "Drawing pictures",
+              "Memorizing poems",
+              "Counting syllables"
+            ],
+            "correct_answer": "Synthesizing multiple credible sources"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ⭕ Mathematics — Parts of a Circle\n\nGrade 6, Week 23! Let's explore the parts of a circle! ⭕\n\n## 🔄 Review\nWe learned perimeter and area of composite figures.\n\n## ⭕ Parts of a Circle\n- **Center** — the middle point of the circle, equidistant from all points on the circle\n- **Radius (r)** — the distance from the center to any point on the circle\n- **Diameter (d)** — the distance across the circle through the center; d = 2r\n- **Circumference** — the distance around the circle (like perimeter for a circle)\n\n## 🔍 Relationship Between Radius and Diameter\nThe diameter is always **twice** the radius: d = 2r, or r = d ÷ 2.\n\n**Example:** If radius = 5 cm, then diameter = 10 cm.\n\n## 🎯 Why This Matters\nUnderstanding these parts is essential before we calculate circumference and area of circles next week.\n\n**Key words:** center, radius, diameter, circumference",
+        "quiz": [
+          {
+            "question": "What is the center of a circle?",
+            "options": [
+              "The middle point, equidistant from all points on the circle",
+              "The edge of the circle",
+              "The widest part",
+              "A random point outside the circle"
+            ],
+            "correct_answer": "The middle point, equidistant from all points on the circle"
+          },
+          {
+            "question": "What is the radius of a circle?",
+            "options": [
+              "The distance from the center to any point on the circle",
+              "The distance across the whole circle",
+              "The distance around the circle",
+              "The area inside the circle"
+            ],
+            "correct_answer": "The distance from the center to any point on the circle"
+          },
+          {
+            "question": "What is the diameter of a circle?",
+            "options": [
+              "The distance across the circle through the center",
+              "The distance from center to edge",
+              "The distance around the circle",
+              "The area of the circle"
+            ],
+            "correct_answer": "The distance across the circle through the center"
+          },
+          {
+            "question": "What is the circumference of a circle?",
+            "options": [
+              "The distance around the circle",
+              "The distance across the circle",
+              "The area inside the circle",
+              "The center point"
+            ],
+            "correct_answer": "The distance around the circle"
+          },
+          {
+            "question": "What is the relationship between radius and diameter?",
+            "options": [
+              "Diameter is twice the radius",
+              "Radius is twice the diameter",
+              "They are always equal",
+              "There is no relationship"
+            ],
+            "correct_answer": "Diameter is twice the radius"
+          },
+          {
+            "question": "If the radius is 5 cm, what is the diameter?",
+            "options": [
+              "10 cm",
+              "2.5 cm",
+              "5 cm",
+              "15 cm"
+            ],
+            "correct_answer": "10 cm"
+          },
+          {
+            "question": "If the diameter is 12 cm, what is the radius?",
+            "options": [
+              "6 cm",
+              "24 cm",
+              "12 cm",
+              "3 cm"
+            ],
+            "correct_answer": "6 cm"
+          },
+          {
+            "question": "What formula relates diameter (d) and radius (r)?",
+            "options": [
+              "d = 2r",
+              "d = r ÷ 2",
+              "d = r + 2",
+              "d = r²"
+            ],
+            "correct_answer": "d = 2r"
+          },
+          {
+            "question": "Why is understanding the parts of a circle important?",
+            "options": [
+              "It's essential before calculating circumference and area",
+              "It has no future use",
+              "Circles are never measured in math",
+              "Only the center matters"
+            ],
+            "correct_answer": "It's essential before calculating circumference and area"
+          },
+          {
+            "question": "Is circumference similar to another measurement we've learned?",
+            "options": [
+              "Yes, similar to perimeter but for circles",
+              "No, it's a completely different concept",
+              "Circumference is the same as area",
+              "Circumference doesn't apply to circles"
+            ],
+            "correct_answer": "Yes, similar to perimeter but for circles"
+          },
+          {
+            "question": "If radius = 8 cm, what is the diameter?",
+            "options": [
+              "16 cm",
+              "4 cm",
+              "8 cm",
+              "24 cm"
+            ],
+            "correct_answer": "16 cm"
+          },
+          {
+            "question": "Why must the radius be measured from the exact center?",
+            "options": [
+              "Any other point would give an inconsistent measurement",
+              "The center doesn't matter",
+              "Radius can be measured from anywhere",
+              "Circles have no fixed center"
+            ],
+            "correct_answer": "Any other point would give an inconsistent measurement"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "# 🌊 Science — Waves Carry Energy\n\nGrade 6, Week 23! Let's learn how waves move energy from place to place! 🌊\n\n## 🔄 Review\nWe learned about levers and their classes.\n\n## 🌊 What Is a Wave?\nA **wave** is a disturbance that carries **energy** from one place to another without moving matter permanently along with it.\n\n## 🔍 Types of Waves\n- **Transverse wave:** particles move perpendicular (up-down) to the wave's direction (e.g., water waves)\n- **Longitudinal wave:** particles move parallel (back-forth) to the wave's direction (e.g., sound waves)\n\n## 🔬 Investigating Water Waves\nDropping a pebble in water creates ripples that carry energy outward, though the water itself mostly stays in place, moving up and down.\n\n## 🎯 Why This Matters\nUnderstanding waves helps explain how sound, light, and even earthquakes transfer energy.\n\n**Key words:** wave, energy, transverse wave, longitudinal wave",
+        "quiz": [
+          {
+            "question": "What is a wave?",
+            "options": [
+              "A disturbance that carries energy from one place to another",
+              "A solid object that never moves",
+              "A type of chemical reaction",
+              "A type of rock formation"
+            ],
+            "correct_answer": "A disturbance that carries energy from one place to another"
+          },
+          {
+            "question": "What is a transverse wave?",
+            "options": [
+              "Particles move perpendicular to the wave's direction",
+              "Particles move parallel to the wave's direction",
+              "Particles don't move at all",
+              "Particles move randomly"
+            ],
+            "correct_answer": "Particles move perpendicular to the wave's direction"
+          },
+          {
+            "question": "What is a longitudinal wave?",
+            "options": [
+              "Particles move parallel to the wave's direction",
+              "Particles move perpendicular to the wave's direction",
+              "Particles don't move at all",
+              "Particles move randomly"
+            ],
+            "correct_answer": "Particles move parallel to the wave's direction"
+          },
+          {
+            "question": "Give an example of a transverse wave.",
+            "options": [
+              "Water waves",
+              "Sound waves",
+              "Heat",
+              "Light only in a vacuum"
+            ],
+            "correct_answer": "Water waves"
+          },
+          {
+            "question": "Give an example of a longitudinal wave.",
+            "options": [
+              "Sound waves",
+              "Water waves",
+              "Light waves",
+              "Radio waves"
+            ],
+            "correct_answer": "Sound waves"
+          },
+          {
+            "question": "What happens when a pebble is dropped in water?",
+            "options": [
+              "Ripples carry energy outward while water mostly stays in place",
+              "The water disappears completely",
+              "No energy is transferred",
+              "The pebble creates no movement"
+            ],
+            "correct_answer": "Ripples carry energy outward while water mostly stays in place"
+          },
+          {
+            "question": "Does a wave move matter permanently along with it?",
+            "options": [
+              "No, it carries energy without permanently moving matter",
+              "Yes, matter always travels with the wave",
+              "Waves never involve any matter",
+              "Matter disappears when a wave passes"
+            ],
+            "correct_answer": "No, it carries energy without permanently moving matter"
+          },
+          {
+            "question": "Why is understanding waves important?",
+            "options": [
+              "It explains how sound, light, and earthquakes transfer energy",
+              "Waves have no real-world application",
+              "Waves only exist in the ocean",
+              "Waves cannot be studied scientifically"
+            ],
+            "correct_answer": "It explains how sound, light, and earthquakes transfer energy"
+          },
+          {
+            "question": "How is sound classified as a wave?",
+            "options": [
+              "It is a longitudinal wave that carries energy through air",
+              "It is not a wave at all",
+              "It is a type of light wave",
+              "It doesn't require any medium"
+            ],
+            "correct_answer": "It is a longitudinal wave that carries energy through air"
+          },
+          {
+            "question": "What best describes the movement of water in a water wave?",
+            "options": [
+              "Water particles mostly move up and down as the wave passes",
+              "Water flows completely in the direction of the wave",
+              "Water disappears once the wave passes",
+              "Water never moves at all"
+            ],
+            "correct_answer": "Water particles mostly move up and down as the wave passes"
+          },
+          {
+            "question": "Why do scientists classify waves into different types?",
+            "options": [
+              "To understand how particles move relative to the wave's direction",
+              "Classification has no scientific purpose",
+              "All waves behave identically",
+              "Only sound waves need classification"
+            ],
+            "correct_answer": "To understand how particles move relative to the wave's direction"
+          },
+          {
+            "question": "How are waves connected to the simple machines we studied earlier?",
+            "options": [
+              "Both topics are part of studying force, motion, and energy",
+              "They are completely unrelated topics",
+              "Simple machines are a type of wave",
+              "Waves are a type of simple machine"
+            ],
+            "correct_answer": "Both topics are part of studying force, motion, and energy"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# ✍️ Filipino — Pasibo at Aktibong Anyo ng Pandiwa\n\nGrade 6, Linggo 23! Alamin natin ang dalawang anyo ng pandiwa sa pangungusap. ✍️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang salitang kultural at historikal.\n\n## ✍️ Ano ang Aktibong Anyo?\nSa **aktibong anyo**, ang paksa ng pangungusap ang gumagawa ng kilos.\n\n**Halimbawa:** \"Kumain ang bata ng mansanas.\" — ang bata (paksa) ang gumawa ng kilos.\n\n## ✍️ Ano ang Pasibong Anyo?\nSa **pasibong anyo**, ang paksa ng pangungusap ang tumatanggap ng kilos.\n\n**Halimbawa:** \"Kinain ng bata ang mansanas.\" — ang mansanas (paksa) ang tumanggap ng kilos.\n\n## 🔍 Bakit Mahalaga Ito?\nAng pagkakaiba ng aktibo at pasibong anyo ay nagbibigay-diin sa iba't ibang bahagi ng pangungusap, depende sa nais bigyang-diin ng manunulat.\n\n**Mahahalagang salita:** aktibong anyo, pasibong anyo, paksa, kilos",
+        "quiz": [
+          {
+            "question": "Ano ang aktibong anyo ng pandiwa?",
+            "options": [
+              "Kung saan ang paksa ang gumagawa ng kilos",
+              "Kung saan ang paksa ang tumatanggap ng kilos",
+              "Isang uri ng bantas",
+              "Isang uri ng pang-uri"
+            ],
+            "correct_answer": "Kung saan ang paksa ang gumagawa ng kilos"
+          },
+          {
+            "question": "Ano ang pasibong anyo ng pandiwa?",
+            "options": [
+              "Kung saan ang paksa ang tumatanggap ng kilos",
+              "Kung saan ang paksa ang gumagawa ng kilos",
+              "Isang uri ng bantas",
+              "Isang uri ng pang-uri"
+            ],
+            "correct_answer": "Kung saan ang paksa ang tumatanggap ng kilos"
+          },
+          {
+            "question": "Sa 'Kumain ang bata ng mansanas', ano ang aktibong bahagi?",
+            "options": [
+              "Ang bata ang gumagawa ng kilos",
+              "Ang mansanas ang gumagawa ng kilos",
+              "Walang aktibong bahagi",
+              "Pareho ang bata at mansanas"
+            ],
+            "correct_answer": "Ang bata ang gumagawa ng kilos"
+          },
+          {
+            "question": "Sa 'Kinain ng bata ang mansanas', ano ang pasibong bahagi?",
+            "options": [
+              "Ang mansanas ang tumatanggap ng kilos",
+              "Ang bata ang tumatanggap ng kilos",
+              "Walang pasibong bahagi",
+              "Pareho ang bata at mansanas"
+            ],
+            "correct_answer": "Ang mansanas ang tumatanggap ng kilos"
+          },
+          {
+            "question": "Bakit mahalaga ang pagkakaiba ng aktibo at pasibong anyo?",
+            "options": [
+              "Nagbibigay-diin ito sa iba't ibang bahagi ng pangungusap",
+              "Walang epekto ito sa kahulugan",
+              "Hindi ito totoong gramatika",
+              "Palaging pareho ang kahulugan"
+            ],
+            "correct_answer": "Nagbibigay-diin ito sa iba't ibang bahagi ng pangungusap"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang aktibong pangungusap?",
+            "options": [
+              "Naglaro ang bata sa parke",
+              "Nilaro ng bata ang bola",
+              "Naglaro ang bola",
+              "Walang tamang sagot"
+            ],
+            "correct_answer": "Naglaro ang bata sa parke"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang pasibong pangungusap?",
+            "options": [
+              "Nilinis ng bata ang kwarto",
+              "Naglinis ang bata ng kwarto",
+              "Naglilinis ang bata",
+              "Wala sa mga nabanggit"
+            ],
+            "correct_answer": "Nilinis ng bata ang kwarto"
+          },
+          {
+            "question": "Bakit ginagamit ng manunulat ang pasibong anyo minsan?",
+            "options": [
+              "Upang bigyang-diin ang tumatanggap ng kilos sa halip na gumagawa nito",
+              "Walang layunin ito",
+              "Palaging mali ang paggamit nito",
+              "Hindi ito bahagi ng gramatika"
+            ],
+            "correct_answer": "Upang bigyang-diin ang tumatanggap ng kilos sa halip na gumagawa nito"
+          },
+          {
+            "question": "Ano ang pangunahing pagkakaiba ng dalawang anyo?",
+            "options": [
+              "Kung sino ang gumagawa o tumatanggap ng kilos",
+              "Ang haba ng pangungusap",
+              "Ang uri ng bantas na ginamit",
+              "Walang pagkakaiba"
+            ],
+            "correct_answer": "Kung sino ang gumagawa o tumatanggap ng kilos"
+          },
+          {
+            "question": "Bakit mahalagang matutong bumuo ng parehong anyo ng pandiwa?",
+            "options": [
+              "Nagpapahusay ito ng kakayahan sa pagsulat at pananalita",
+              "Walang gamit ito",
+              "Ito ay para lamang sa guro",
+              "Hindi kailanman kapaki-pakinabang"
+            ],
+            "correct_answer": "Nagpapahusay ito ng kakayahan sa pagsulat at pananalita"
+          },
+          {
+            "question": "Anong bagong gramatikal na paksa ang sinimulan ngayong linggo?",
+            "options": [
+              "Pasibo at aktibong anyo ng pandiwa",
+              "Salitang kultural at historikal",
+              "Tema at simbolismo",
+              "Salitang hiram"
+            ],
+            "correct_answer": "Pasibo at aktibong anyo ng pandiwa"
+          },
+          {
+            "question": "Bakit kailangang malaman ang parehong anyo sa pagbasa ng akda?",
+            "options": [
+              "Nakakatulong ito maunawaan kung paano binuo ang pangungusap",
+              "Walang gamit ito sa pagbasa",
+              "Hindi ito totoong bahagi ng akda",
+              "Palaging pasibo lamang ang ginagamit"
+            ],
+            "correct_answer": "Nakakatulong ito maunawaan kung paano binuo ang pangungusap"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# ⚖️ Araling Panlipunan — Diktadurang Marcos: Batas Militar\n\nGrade 6, Linggo 23! Alamin natin ang panahon ng Batas Militar sa Pilipinas. ⚖️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang neokolonyalismo pagkatapos ng kalayaan.\n\n## ⚖️ Ano ang Batas Militar?\nAng **Batas Militar** ay idineklara ni Pangulong Ferdinand Marcos noong Setyembre 21, 1972, na nagbigay sa kanya ng malawak na kapangyarihan sa pamahalaan.\n\n## 🚫 Epekto sa Karapatang Pantao\nSa panahon ng Batas Militar, maraming Pilipino ang naranasan ang paglabag sa **karapatang pantao** — tulad ng pagkakakulong nang walang tamang paglilitis, at pagsupil sa kalayaan sa pamamahayag.\n\n## 📰 Kalayaan sa Pamamahayag\nMaraming pahayagan at himpilan ng radyo/telebisyon ang sinara ng pamahalaan upang kontrolin ang impormasyong natatanggap ng publiko.\n\n## 🎯 Bakit Mahalaga Ito?\nAng pag-aaral ng Batas Militar ay nagpapaalala sa atin ng kahalagahan ng pagprotekta ng karapatan at kalayaan.\n\n**Mahahalagang salita:** Batas Militar, karapatang pantao, kalayaan sa pamamahayag, Marcos",
+        "quiz": [
+          {
+            "question": "Kailan idineklara ang Batas Militar?",
+            "options": [
+              "Setyembre 21, 1972",
+              "Hulyo 4, 1946",
+              "Pebrero 25, 1986",
+              "Hunyo 12, 1898"
+            ],
+            "correct_answer": "Setyembre 21, 1972"
+          },
+          {
+            "question": "Sino ang nagdeklara ng Batas Militar?",
+            "options": [
+              "Ferdinand Marcos",
+              "Emilio Aguinaldo",
+              "Jose Rizal",
+              "Manuel Quezon"
+            ],
+            "correct_answer": "Ferdinand Marcos"
+          },
+          {
+            "question": "Ano ang naging epekto ng Batas Militar sa karapatang pantao?",
+            "options": [
+              "Maraming Pilipino ang naranasan ang paglabag sa karapatang pantao",
+              "Naging mas malaya ang lahat",
+              "Walang naapektuhan",
+              "Lumaki ang kalayaan ng bawat Pilipino"
+            ],
+            "correct_answer": "Maraming Pilipino ang naranasan ang paglabag sa karapatang pantao"
+          },
+          {
+            "question": "Ano ang nangyari sa kalayaan sa pamamahayag noong Batas Militar?",
+            "options": [
+              "Sinara ang maraming pahayagan at himpilan ng radyo/telebisyon",
+              "Naging mas malaya ang midya",
+              "Walang epekto sa midya",
+              "Dumami ang mga pahayagan"
+            ],
+            "correct_answer": "Sinara ang maraming pahayagan at himpilan ng radyo/telebisyon"
+          },
+          {
+            "question": "Ano ang kapangyarihang natanggap ni Marcos sa Batas Militar?",
+            "options": [
+              "Malawak na kapangyarihan sa pamahalaan",
+              "Limitadong kapangyarihan lamang",
+              "Walang bagong kapangyarihan",
+              "Kapangyarihan lamang sa hukbo"
+            ],
+            "correct_answer": "Malawak na kapangyarihan sa pamahalaan"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang Batas Militar?",
+            "options": [
+              "Nagpapaalala ito ng kahalagahan ng pagprotekta ng karapatan",
+              "Walang kahalagahan ito",
+              "Hindi ito bahagi ng kasaysayan ng Pilipinas",
+              "Ito ay tungkol lamang sa ibang bansa"
+            ],
+            "correct_answer": "Nagpapaalala ito ng kahalagahan ng pagprotekta ng karapatan"
+          },
+          {
+            "question": "Anong halimbawa ng paglabag sa karapatang pantao sa panahon ng Batas Militar?",
+            "options": [
+              "Pagkakakulong nang walang tamang paglilitis",
+              "Pagbibigay ng malayang boto",
+              "Pagbukas ng maraming pahayagan",
+              "Kalayaan sa pamamahayag"
+            ],
+            "correct_answer": "Pagkakakulong nang walang tamang paglilitis"
+          },
+          {
+            "question": "Konsepto bago ang Batas Militar sa serye ng Araling Panlipunan?",
+            "options": [
+              "Neokolonyalismo",
+              "Ikatlong Republika",
+              "Digmaang Pilipino-Amerikano",
+              "EDSA People Power"
+            ],
+            "correct_answer": "Neokolonyalismo"
+          },
+          {
+            "question": "Bakit kontrolado ang impormasyon sa panahon ng Batas Militar?",
+            "options": [
+              "Upang kontrolin ang natatanggap ng publiko na impormasyon",
+              "Upang mas dumami ang balita",
+              "Walang layunin ito",
+              "Upang palawakin ang kalayaan ng midya"
+            ],
+            "correct_answer": "Upang kontrolin ang natatanggap ng publiko na impormasyon"
+          },
+          {
+            "question": "Bakit mahalagang alalahanin ang mga naranasan noong Batas Militar?",
+            "options": [
+              "Upang maiwasang maulit ang paglabag sa karapatan",
+              "Walang kahalagahan sa kasalukuyan",
+              "Hindi na ito importante ngayon",
+              "Ito ay dapat lamang kalimutan"
+            ],
+            "correct_answer": "Upang maiwasang maulit ang paglabag sa karapatan"
+          },
+          {
+            "question": "Ano ang kaugnayan ng Batas Militar sa temang taunan tungkol sa mga hamon ng bansa?",
+            "options": [
+              "Ipinapakita nito ang isang malaking hamon sa demokrasya ng bansa",
+              "Walang koneksyon ito sa tema",
+              "Ito ay hiwalay na paksa",
+              "Hindi ito bahagi ng taunang tema"
+            ],
+            "correct_answer": "Ipinapakita nito ang isang malaking hamon sa demokrasya ng bansa"
+          },
+          {
+            "question": "Bakit mahalagang maunawaan ang epekto ng Batas Militar sa kalayaan sa pamamahayag?",
+            "options": [
+              "Nagpapakita ito ng kahalagahan ng malayang midya sa isang demokrasya",
+              "Walang kahalagahan ito",
+              "Hindi kaugnay ang midya sa demokrasya",
+              "Kalayaan sa pamamahayag ay hindi mahalaga"
+            ],
+            "correct_answer": "Nagpapakita ito ng kahalagahan ng malayang midya sa isang demokrasya"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🕺 MAPEH — Dance Exercise\n\nGrade 6, Linggo 23! Simulan natin ang bagong yunit sa PE — Dance Exercise! 🕺\n\n## 🔄 Balik-Aral\nNatutuhan natin ang kalusugang pangkapaligiran (One Health).\n\n## 🕺 Ano ang Dance Exercise?\nAng **dance exercise** ay isang uri ng ehersisyo na gumagamit ng mga hakbang sa sayaw upang mapabuti ang **cardiovascular fitness** habang nagsasaya.\n\n## 💃 Mga Benepisyo\n- Pinapabuti ang lakas ng puso at baga\n- Nagpapahusay ng koordinasyon at balanse\n- Nagbibigay-saya habang nag-eehersisyo\n\n## 🎶 Halimbawa ng Dance Exercise\n- Zumba-inspired na kilos\n- Aerobic dance sa musikang Pilipino\n\n## 🎯 Bakit Mahalaga Ito?\nAng dance exercise ay isang masayang paraan upang manatiling aktibo at malusog ang katawan.\n\n**Mahahalagang salita:** dance exercise, cardiovascular fitness, koordinasyon, balanse",
+        "quiz": [
+          {
+            "question": "Ano ang dance exercise?",
+            "options": [
+              "Ehersisyong gumagamit ng hakbang sa sayaw",
+              "Isang uri ng laro lamang",
+              "Isang uri ng pagkain",
+              "Isang bantas"
+            ],
+            "correct_answer": "Ehersisyong gumagamit ng hakbang sa sayaw"
+          },
+          {
+            "question": "Ano ang cardiovascular fitness?",
+            "options": [
+              "Lakas ng puso at baga",
+              "Lakas ng braso lamang",
+              "Bilis ng pagtakbo lamang",
+              "Timbang ng katawan"
+            ],
+            "correct_answer": "Lakas ng puso at baga"
+          },
+          {
+            "question": "Anong benepisyo ang ibinibigay ng dance exercise?",
+            "options": [
+              "Pinapabuti ang koordinasyon at balanse",
+              "Walang benepisyo",
+              "Pinapahina ang katawan",
+              "Nagdudulot lamang ng pagod"
+            ],
+            "correct_answer": "Pinapabuti ang koordinasyon at balanse"
+          },
+          {
+            "question": "Anong halimbawa ng dance exercise?",
+            "options": [
+              "Zumba-inspired na kilos",
+              "Chess",
+              "Puzzle games",
+              "Pagbabasa ng libro"
+            ],
+            "correct_answer": "Zumba-inspired na kilos"
+          },
+          {
+            "question": "Bakit mahalagang gawin ang dance exercise?",
+            "options": [
+              "Nagbibigay-saya habang nagpapanatiling aktibo at malusog",
+              "Walang kahalagahan ito",
+              "Hindi ito totoong ehersisyo",
+              "Nagpapahina ito ng katawan"
+            ],
+            "correct_answer": "Nagbibigay-saya habang nagpapanatiling aktibo at malusog"
+          },
+          {
+            "question": "Anong bagong yunit ang sinimulan ngayong linggo sa PE?",
+            "options": [
+              "Dance Exercise",
+              "Sports Officiating",
+              "Weightlifting",
+              "Swimming"
+            ],
+            "correct_answer": "Dance Exercise"
+          },
+          {
+            "question": "Bakit mas masaya ang dance exercise kaysa sa karaniwang ehersisyo?",
+            "options": [
+              "Kombinasyon ito ng musika at galaw",
+              "Walang pagkakaiba ito sa iba",
+              "Mas mahirap ito kaysa iba",
+              "Hindi ito ehersisyo"
+            ],
+            "correct_answer": "Kombinasyon ito ng musika at galaw"
+          },
+          {
+            "question": "Anong bahagi ng katawan ang pinapahusay ng dance exercise?",
+            "options": [
+              "Puso, baga, at kalamnan",
+              "Buhok lamang",
+              "Kuko lamang",
+              "Wala sa mga nabanggit"
+            ],
+            "correct_answer": "Puso, baga, at kalamnan"
+          },
+          {
+            "question": "Bakit itinuturo ang dance exercise sa MAPEH?",
+            "options": [
+              "Upang itaguyod ang pisikal na kalusugan sa masayang paraan",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi kaugnay ng PE"
+            ],
+            "correct_answer": "Upang itaguyod ang pisikal na kalusugan sa masayang paraan"
+          },
+          {
+            "question": "Paano nakakatulong ang dance exercise sa koordinasyon?",
+            "options": [
+              "Kinakailangan sumabay sa mga hakbang at tempo ng musika",
+              "Hindi kailangan ng koordinasyon dito",
+              "Walang kaugnayan sa koordinasyon",
+              "Basta na lang tumayo"
+            ],
+            "correct_answer": "Kinakailangan sumabay sa mga hakbang at tempo ng musika"
+          },
+          {
+            "question": "Bakit isinama ang musikang Pilipino sa ilang halimbawa ng dance exercise?",
+            "options": [
+              "Nagpapahalaga ito sa kulturang Pilipino habang nag-eehersisyo",
+              "Walang kaugnayan ang musika",
+              "Ipinagbabawal ang musikang Pilipino",
+              "Basta random na pinili lamang"
+            ],
+            "correct_answer": "Nagpapahalaga ito sa kulturang Pilipino habang nag-eehersisyo"
+          },
+          {
+            "question": "Ano ang kaugnayan ng dance exercise sa kalusugang pangkapaligiran na natutunan noon?",
+            "options": [
+              "Magkaiba ang paksa pero pareho tumatalakay sa pangkalahatang kalusugan",
+              "Walang koneksyon ang dalawa",
+              "Parehong tungkol sa agham lamang",
+              "Parehong tungkol sa matematika"
+            ],
+            "correct_answer": "Magkaiba ang paksa pero pareho tumatalakay sa pangkalahatang kalusugan"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🔪 EPP (FCS) — Kasangkapan sa Kusina at Teknik sa Paghihiwa\n\nGrade 6, Linggo 23! Alamin natin ang mga kasangkapan sa kusina at ligtas na paghawak nito! 🔪\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagpaplano ng pagkain at kalinisan.\n\n## 🔪 Mahahalagang Kasangkapan sa Kusina\n- **Kutsilyo** — para sa paghiwa ng sangkap\n- **Chopping board** — kinalalagyan ng sangkap habang hinihiwa\n- **Panukat na tasa/kutsara** — para sa tumpak na sukat ng sangkap\n\n## 🔪 Teknik sa Paghihiwa\n- **Dicing** — pagputol sa maliliit na parisukat\n- **Slicing** — pagputol nang manipis\n- **Mincing** — pagputol nang napakaliit, tulad ng bawang\n\n## ⚠️ Kaligtasan\nHawakan ang kutsilyo nang maayos at laging gupitin palayo sa sarili upang maiwasan ang aksidente.\n\n**Mahahalagang salita:** kasangkapan sa kusina, dicing, slicing, mincing, kaligtasan",
+        "quiz": [
+          {
+            "question": "Ano ang gamit ng kutsilyo sa kusina?",
+            "options": [
+              "Paghiwa ng sangkap",
+              "Pagsukat ng temperatura",
+              "Paglinis ng sahig",
+              "Paglaba ng damit"
+            ],
+            "correct_answer": "Paghiwa ng sangkap"
+          },
+          {
+            "question": "Ano ang gamit ng chopping board?",
+            "options": [
+              "Kinalalagyan ng sangkap habang hinihiwa",
+              "Panluto ng kanin",
+              "Panimpla ng inumin",
+              "Panlinis ng kamay"
+            ],
+            "correct_answer": "Kinalalagyan ng sangkap habang hinihiwa"
+          },
+          {
+            "question": "Ano ang dicing?",
+            "options": [
+              "Pagputol sa maliliit na parisukat",
+              "Pagputol nang manipis",
+              "Pagputol nang napakaliit",
+              "Hindi pagputol"
+            ],
+            "correct_answer": "Pagputol sa maliliit na parisukat"
+          },
+          {
+            "question": "Ano ang slicing?",
+            "options": [
+              "Pagputol nang manipis",
+              "Pagputol sa parisukat",
+              "Pagputol nang napakaliit",
+              "Hindi pagputol"
+            ],
+            "correct_answer": "Pagputol nang manipis"
+          },
+          {
+            "question": "Ano ang mincing?",
+            "options": [
+              "Pagputol nang napakaliit, tulad ng bawang",
+              "Pagputol nang malaki",
+              "Pagputol sa parisukat",
+              "Hindi pagputol"
+            ],
+            "correct_answer": "Pagputol nang napakaliit, tulad ng bawang"
+          },
+          {
+            "question": "Bakit dapat gupitin palayo sa sarili gamit ang kutsilyo?",
+            "options": [
+              "Upang maiwasan ang aksidente",
+              "Walang kahalagahan ito",
+              "Mas mabilis kung patungo sa sarili",
+              "Hindi na kailangan mag-ingat"
+            ],
+            "correct_answer": "Upang maiwasan ang aksidente"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng panukat na tasa/kutsara?",
+            "options": [
+              "Para sa tumpak na sukat ng sangkap",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan sukatin ang sangkap",
+              "Para lang magmukhang maganda"
+            ],
+            "correct_answer": "Para sa tumpak na sukat ng sangkap"
+          },
+          {
+            "question": "Bakit mahalagang matutong gumamit nang tama ng mga kasangkapan sa kusina?",
+            "options": [
+              "Tumutulong ito maiwasan ang aksidente at magluto nang maayos",
+              "Walang gamit ito",
+              "Ito ay para sa matatanda lamang",
+              "Hindi kaugnay ng EPP"
+            ],
+            "correct_answer": "Tumutulong ito maiwasan ang aksidente at magluto nang maayos"
+          },
+          {
+            "question": "Anong teknik sa paghihiwa ang gagamitin sa pagputol ng bawang?",
+            "options": [
+              "Mincing",
+              "Dicing lamang",
+              "Slicing lamang",
+              "Walang teknik na gagamitin"
+            ],
+            "correct_answer": "Mincing"
+          },
+          {
+            "question": "Bakit mahalaga ang kaligtasan sa paggamit ng mga kasangkapan sa kusina?",
+            "options": [
+              "Upang maiwasan ang pinsala sa sarili o sa iba",
+              "Walang kahalagahan ito",
+              "Hindi na kailangang mag-ingat",
+              "Ligtas na palagi ang kusina"
+            ],
+            "correct_answer": "Upang maiwasan ang pinsala sa sarili o sa iba"
+          },
+          {
+            "question": "Paano nauugnay ang paksang ito sa pagpaplano ng pagkain na natutunan noon?",
+            "options": [
+              "Parehong bahagi ng kasanayan sa paghahanda ng pagkain",
+              "Walang koneksyon ang dalawa",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong bahagi ng kasanayan sa paghahanda ng pagkain"
+          },
+          {
+            "question": "Bakit itinuturo ang mga teknik sa paghihiwa sa Grade 6?",
+            "options": [
+              "Nagpapaunlad ito ng batayang kasanayan sa pagluluto",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi ito kapaki-pakinabang"
+            ],
+            "correct_answer": "Nagpapaunlad ito ng batayang kasanayan sa pagluluto"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 😌 GMRC — Pagtugon sa Emosyon ng Kapuwa (Mapagpasensiya)\n\nGrade 6, Linggo 23! Pagpapahalaga: **Mapagpasensiya (Patience)**. 😌\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagtugon sa pambubulas gamit ang lakas ng loob.\n\n## 😌 Ano ang Kahulugan ng Pagiging Mapagpasensiya?\nAng **pagiging mapagpasensiya** ay ang kakayahang manatiling kalmado at maunawain kahit sa harap ng hamon o pagkabigo, lalo na sa emosyon ng ibang tao.\n\n## 🤝 Pagtugon sa Emosyon ng Kapuwa\n- Makinig nang mabuti kapag malungkot o galit ang kapwa\n- Huwag agad hatulan ang damdamin ng iba\n- Bigyan ng oras ang taong nagpapakita ng malakas na emosyon\n\n## 💡 Bakit Mahalaga Ito?\nAng pagiging mapagpasensiya sa emosyon ng iba ay nagpapalakas ng relasyon at nagpapakita ng tunay na pag-unawa.\n\n**Mahahalagang salita:** mapagpasensiya, emosyon, pag-unawa, pakikinig",
+        "quiz": [
+          {
+            "question": "Ano ang mapagpasensiya?",
+            "options": [
+              "Kakayahang manatiling kalmado kahit sa harap ng hamon",
+              "Kawalang pakialam sa iba",
+              "Pagiging galit palagi",
+              "Isang uri ng laro"
+            ],
+            "correct_answer": "Kakayahang manatiling kalmado kahit sa harap ng hamon"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Mapagpasensiya (Patience)",
+              "Lakas ng loob",
+              "Makatarungan",
+              "Nasyonalismo"
+            ],
+            "correct_answer": "Mapagpasensiya (Patience)"
+          },
+          {
+            "question": "Paano tumugon nang mapagpasensiya sa emosyon ng iba?",
+            "options": [
+              "Makinig nang mabuti kapag malungkot o galit ang kapwa",
+              "Iwasan agad ang taong nasasaktan",
+              "Hatulan agad ang kanilang damdamin",
+              "Balewalain ang emosyon ng iba"
+            ],
+            "correct_answer": "Makinig nang mabuti kapag malungkot o galit ang kapwa"
+          },
+          {
+            "question": "Bakit hindi dapat agad hatulan ang damdamin ng iba?",
+            "options": [
+              "Bawat tao ay may sariling paraan ng pagharap sa emosyon",
+              "Walang kahalagahan ito",
+              "Dapat palaging hatulan agad",
+              "Hindi mahalaga ang damdamin ng iba"
+            ],
+            "correct_answer": "Bawat tao ay may sariling paraan ng pagharap sa emosyon"
+          },
+          {
+            "question": "Anong konsepto ang natutunan bago ang paksang ito?",
+            "options": [
+              "Pagtugon sa pambubulas gamit ang lakas ng loob",
+              "Ikatlong Republika",
+              "Simple machines",
+              "Volume ng cube"
+            ],
+            "correct_answer": "Pagtugon sa pambubulas gamit ang lakas ng loob"
+          },
+          {
+            "question": "Bakit mahalagang bigyan ng oras ang taong nagpapakita ng malakas na emosyon?",
+            "options": [
+              "Nagbibigay ito ng pagkakataon na makapag-ayos ang kanilang damdamin",
+              "Walang kahalagahan ito",
+              "Mas mabuting iwasan sila agad",
+              "Hindi na kailangang maghintay"
+            ],
+            "correct_answer": "Nagbibigay ito ng pagkakataon na makapag-ayos ang kanilang damdamin"
+          },
+          {
+            "question": "Paano nauugnay ang mapagpasensiya sa lakas ng loob na natutunan noon?",
+            "options": [
+              "Magkaiba ngunit parehong mahalagang bahagi ng pakikipagkapuwa",
+              "Walang koneksyon ang dalawa",
+              "Magkatulad lamang sila",
+              "Isa lamang ang mahalaga"
+            ],
+            "correct_answer": "Magkaiba ngunit parehong mahalagang bahagi ng pakikipagkapuwa"
+          },
+          {
+            "question": "Bakit mahalagang matutong maging mapagpasensiya sa mga kaibigan?",
+            "options": [
+              "Nagpapalakas ito ng relasyon at pag-unawa",
+              "Walang kahalagahan ito",
+              "Hindi na kailangang maging mapagpasensiya",
+              "Ito ay palaging madali gawin"
+            ],
+            "correct_answer": "Nagpapalakas ito ng relasyon at pag-unawa"
+          },
+          {
+            "question": "Ano ang ikalawang hakbang sa serye ng pakikipagkapuwa sa Term 3?",
+            "options": [
+              "Pagtugon sa emosyon ng kapuwa (Mapagpasensiya)",
+              "Pagtugon sa pambubulas",
+              "Pagiging patas sa kapuwa",
+              "Pananalig sa Diyos"
+            ],
+            "correct_answer": "Pagtugon sa emosyon ng kapuwa (Mapagpasensiya)"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang kasanayan ang pakikinig sa damdamin ng iba?",
+            "options": [
+              "Nagpapakita ito ng tunay na pagmamalasakit",
+              "Walang gamit ito",
+              "Ito ay para sa matatanda lamang",
+              "Hindi ito bahagi ng GMRC"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na pagmamalasakit"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi mapagpasensiya ang isang tao sa emosyon ng iba?",
+            "options": [
+              "Maaaring maging sanhi ito ng hindi pagkakaunawaan",
+              "Walang epekto ito",
+              "Mas maayos ang lahat",
+              "Palaging positibo ang resulta"
+            ],
+            "correct_answer": "Maaaring maging sanhi ito ng hindi pagkakaunawaan"
+          },
+          {
+            "question": "Bakit mahalagang balansehin ang mapagpasensiya at lakas ng loob sa pakikipagkapuwa?",
+            "options": [
+              "Upang malaman kung kailan makinig at kailan kumilos",
+              "Dahil isa lamang sa mga ito ang totoong pagpapahalaga",
+              "Walang kaugnayan ang dalawa sa isa't isa",
+              "Dahil dapat piliin lamang ang isa sa buong buhay"
+            ],
+            "correct_answer": "Upang malaman kung kailan makinig at kailan kumilos"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📚 Friday Review — English (Grade 6)\n\n- Research-based essay: getting started\n\nGreat research skills! 🌟",
+        "quiz": [
+          {
+            "question": "What is a research-based essay?",
+            "options": [
+              "An essay with an argument supported by evidence",
+              "A story with no facts",
+              "A poem about any topic",
+              "A letter to a friend"
+            ],
+            "correct_answer": "An essay with an argument supported by evidence"
+          },
+          {
+            "question": "First step in starting the essay?",
+            "options": [
+              "Choose a clear, focused topic",
+              "Write the conclusion first",
+              "Skip research entirely",
+              "Copy another essay"
+            ],
+            "correct_answer": "Choose a clear, focused topic"
+          },
+          {
+            "question": "Why gather info from credible sources?",
+            "options": [
+              "Ensures accuracy and trust",
+              "Credibility doesn't matter",
+              "Any source works equally",
+              "Sources aren't needed"
+            ],
+            "correct_answer": "Ensures accuracy and trust"
+          },
+          {
+            "question": "Why track where facts came from?",
+            "options": [
+              "Allows citation, avoids plagiarism",
+              "No purpose",
+              "Facts never need sources",
+              "Only length matters"
+            ],
+            "correct_answer": "Allows citation, avoids plagiarism"
+          },
+          {
+            "question": "What is an outline used for?",
+            "options": [
+              "Organizing ideas before writing",
+              "Replacing the essay",
+              "Decorating the cover",
+              "Counting words"
+            ],
+            "correct_answer": "Organizing ideas before writing"
+          },
+          {
+            "question": "What is a handbook or manual?",
+            "options": [
+              "A reference with step-by-step guidance",
+              "A storybook",
+              "A poem",
+              "A blank notebook"
+            ],
+            "correct_answer": "A reference with step-by-step guidance"
+          },
+          {
+            "question": "When is a handbook a useful resource?",
+            "options": [
+              "Researching a technical process",
+              "Only fiction writing",
+              "Never useful",
+              "Only poetry"
+            ],
+            "correct_answer": "Researching a technical process"
+          },
+          {
+            "question": "Why is planning before writing helpful?",
+            "options": [
+              "Makes writing organized and easier",
+              "Wastes time",
+              "Never needed",
+              "Replaces research"
+            ],
+            "correct_answer": "Makes writing organized and easier"
+          },
+          {
+            "question": "How does credibility connect to research essays?",
+            "options": [
+              "Need credible sources to support claims",
+              "No connection",
+              "Essays never use sources",
+              "Only matters for opinions"
+            ],
+            "correct_answer": "Need credible sources to support claims"
+          },
+          {
+            "question": "What happens if you skip organized notes?",
+            "options": [
+              "You might lose track of facts and sources",
+              "Nothing happens",
+              "Essay automatically improves",
+              "Notes are never useful"
+            ],
+            "correct_answer": "You might lose track of facts and sources"
+          },
+          {
+            "question": "Why choose a focused topic?",
+            "options": [
+              "Easier to research and explain clearly",
+              "Broad topics are always better",
+              "Focus makes research harder",
+              "Topics don't need specifics"
+            ],
+            "correct_answer": "Easier to research and explain clearly"
+          },
+          {
+            "question": "What skill supports gathering good research info?",
+            "options": [
+              "Synthesizing multiple credible sources",
+              "Drawing pictures",
+              "Memorizing poems",
+              "Counting syllables"
+            ],
+            "correct_answer": "Synthesizing multiple credible sources"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ⭕ Friday Review — Mathematics (Grade 6)\n\n- Parts of a circle\n\nGreat circle knowledge! ⭐",
+        "quiz": [
+          {
+            "question": "What is the center of a circle?",
+            "options": [
+              "The middle point, equidistant from the edge",
+              "The edge of the circle",
+              "The widest part",
+              "A random outside point"
+            ],
+            "correct_answer": "The middle point, equidistant from the edge"
+          },
+          {
+            "question": "What is the radius?",
+            "options": [
+              "Distance from center to any point on the circle",
+              "Distance across the circle",
+              "Distance around the circle",
+              "The area inside"
+            ],
+            "correct_answer": "Distance from center to any point on the circle"
+          },
+          {
+            "question": "What is the diameter?",
+            "options": [
+              "Distance across the circle through the center",
+              "Distance from center to edge",
+              "Distance around the circle",
+              "The area"
+            ],
+            "correct_answer": "Distance across the circle through the center"
+          },
+          {
+            "question": "What is circumference?",
+            "options": [
+              "The distance around the circle",
+              "The distance across",
+              "The area inside",
+              "The center point"
+            ],
+            "correct_answer": "The distance around the circle"
+          },
+          {
+            "question": "Relationship between radius and diameter?",
+            "options": [
+              "Diameter is twice the radius",
+              "Radius is twice the diameter",
+              "They are equal",
+              "No relationship"
+            ],
+            "correct_answer": "Diameter is twice the radius"
+          },
+          {
+            "question": "Radius = 5 cm, diameter?",
+            "options": [
+              "10 cm",
+              "2.5 cm",
+              "5 cm",
+              "15 cm"
+            ],
+            "correct_answer": "10 cm"
+          },
+          {
+            "question": "Diameter = 12 cm, radius?",
+            "options": [
+              "6 cm",
+              "24 cm",
+              "12 cm",
+              "3 cm"
+            ],
+            "correct_answer": "6 cm"
+          },
+          {
+            "question": "Formula relating d and r?",
+            "options": [
+              "d = 2r",
+              "d = r ÷ 2",
+              "d = r + 2",
+              "d = r²"
+            ],
+            "correct_answer": "d = 2r"
+          },
+          {
+            "question": "Why understand circle parts?",
+            "options": [
+              "Essential before circumference and area",
+              "No future use",
+              "Circles aren't measured",
+              "Only center matters"
+            ],
+            "correct_answer": "Essential before circumference and area"
+          },
+          {
+            "question": "Is circumference similar to another measurement?",
+            "options": [
+              "Yes, like perimeter for circles",
+              "No, different concept",
+              "Same as area",
+              "Doesn't apply to circles"
+            ],
+            "correct_answer": "Yes, like perimeter for circles"
+          },
+          {
+            "question": "Radius = 8 cm, diameter?",
+            "options": [
+              "16 cm",
+              "4 cm",
+              "8 cm",
+              "24 cm"
+            ],
+            "correct_answer": "16 cm"
+          },
+          {
+            "question": "Why measure radius from exact center?",
+            "options": [
+              "Other points give inconsistent measurement",
+              "Center doesn't matter",
+              "Can measure anywhere",
+              "Circles have no center"
+            ],
+            "correct_answer": "Other points give inconsistent measurement"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌊 Friday Review — Science (Grade 6)\n\n- Waves carry energy\n\nGreat wave science! 🌟",
+        "quiz": [
+          {
+            "question": "What is a wave?",
+            "options": [
+              "A disturbance that carries energy",
+              "A solid object that never moves",
+              "A chemical reaction",
+              "A rock formation"
+            ],
+            "correct_answer": "A disturbance that carries energy"
+          },
+          {
+            "question": "What is a transverse wave?",
+            "options": [
+              "Particles move perpendicular to direction",
+              "Particles move parallel",
+              "Particles don't move",
+              "Particles move randomly"
+            ],
+            "correct_answer": "Particles move perpendicular to direction"
+          },
+          {
+            "question": "What is a longitudinal wave?",
+            "options": [
+              "Particles move parallel to direction",
+              "Particles move perpendicular",
+              "Particles don't move",
+              "Particles move randomly"
+            ],
+            "correct_answer": "Particles move parallel to direction"
+          },
+          {
+            "question": "Example of a transverse wave?",
+            "options": [
+              "Water waves",
+              "Sound waves",
+              "Heat",
+              "Light in a vacuum"
+            ],
+            "correct_answer": "Water waves"
+          },
+          {
+            "question": "Example of a longitudinal wave?",
+            "options": [
+              "Sound waves",
+              "Water waves",
+              "Light waves",
+              "Radio waves"
+            ],
+            "correct_answer": "Sound waves"
+          },
+          {
+            "question": "What happens when a pebble drops in water?",
+            "options": [
+              "Ripples carry energy while water stays in place",
+              "Water disappears",
+              "No energy transferred",
+              "No movement created"
+            ],
+            "correct_answer": "Ripples carry energy while water stays in place"
+          },
+          {
+            "question": "Does a wave move matter permanently?",
+            "options": [
+              "No, it carries energy without moving matter",
+              "Yes, matter always travels",
+              "Waves involve no matter",
+              "Matter disappears"
+            ],
+            "correct_answer": "No, it carries energy without moving matter"
+          },
+          {
+            "question": "Why understand waves?",
+            "options": [
+              "Explains how sound, light, earthquakes transfer energy",
+              "No real-world application",
+              "Only exist in ocean",
+              "Cannot be studied"
+            ],
+            "correct_answer": "Explains how sound, light, earthquakes transfer energy"
+          },
+          {
+            "question": "How is sound classified?",
+            "options": [
+              "A longitudinal wave through air",
+              "Not a wave",
+              "A type of light wave",
+              "Needs no medium"
+            ],
+            "correct_answer": "A longitudinal wave through air"
+          },
+          {
+            "question": "How does water move in a water wave?",
+            "options": [
+              "Mostly up and down as the wave passes",
+              "Flows in the wave's direction",
+              "Disappears after the wave",
+              "Never moves"
+            ],
+            "correct_answer": "Mostly up and down as the wave passes"
+          },
+          {
+            "question": "Why classify waves into types?",
+            "options": [
+              "To understand particle movement relative to direction",
+              "No scientific purpose",
+              "All waves behave identically",
+              "Only sound needs classification"
+            ],
+            "correct_answer": "To understand particle movement relative to direction"
+          },
+          {
+            "question": "How are waves connected to simple machines?",
+            "options": [
+              "Both are part of studying force, motion, energy",
+              "Completely unrelated",
+              "Simple machines are waves",
+              "Waves are simple machines"
+            ],
+            "correct_answer": "Both are part of studying force, motion, energy"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# ✍️ Friday Review — Filipino (Grade 6)\n\n- Pasibo at aktibong anyo ng pandiwa\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang aktibong anyo?",
+            "options": [
+              "Paksa ang gumagawa ng kilos",
+              "Paksa ang tumatanggap ng kilos",
+              "Uri ng bantas",
+              "Uri ng pang-uri"
+            ],
+            "correct_answer": "Paksa ang gumagawa ng kilos"
+          },
+          {
+            "question": "Ano ang pasibong anyo?",
+            "options": [
+              "Paksa ang tumatanggap ng kilos",
+              "Paksa ang gumagawa ng kilos",
+              "Uri ng bantas",
+              "Uri ng pang-uri"
+            ],
+            "correct_answer": "Paksa ang tumatanggap ng kilos"
+          },
+          {
+            "question": "Sa 'Kumain ang bata ng mansanas', ano ang aktibong bahagi?",
+            "options": [
+              "Bata ang gumagawa ng kilos",
+              "Mansanas ang gumagawa",
+              "Walang aktibong bahagi",
+              "Pareho sila"
+            ],
+            "correct_answer": "Bata ang gumagawa ng kilos"
+          },
+          {
+            "question": "Sa 'Kinain ng bata ang mansanas', pasibong bahagi?",
+            "options": [
+              "Mansanas ang tumatanggap",
+              "Bata ang tumatanggap",
+              "Walang pasibong bahagi",
+              "Pareho sila"
+            ],
+            "correct_answer": "Mansanas ang tumatanggap"
+          },
+          {
+            "question": "Bakit mahalaga ang pagkakaiba ng dalawang anyo?",
+            "options": [
+              "Nagbibigay-diin sa iba't ibang bahagi ng pangungusap",
+              "Walang epekto",
+              "Hindi totoong gramatika",
+              "Pareho ang kahulugan"
+            ],
+            "correct_answer": "Nagbibigay-diin sa iba't ibang bahagi ng pangungusap"
+          },
+          {
+            "question": "Alin ang aktibong pangungusap?",
+            "options": [
+              "Naglaro ang bata sa parke",
+              "Nilaro ng bata ang bola",
+              "Naglaro ang bola",
+              "Walang tamang sagot"
+            ],
+            "correct_answer": "Naglaro ang bata sa parke"
+          },
+          {
+            "question": "Alin ang pasibong pangungusap?",
+            "options": [
+              "Nilinis ng bata ang kwarto",
+              "Naglinis ang bata ng kwarto",
+              "Naglilinis ang bata",
+              "Wala sa mga nabanggit"
+            ],
+            "correct_answer": "Nilinis ng bata ang kwarto"
+          },
+          {
+            "question": "Bakit ginagamit ang pasibong anyo?",
+            "options": [
+              "Bigyang-diin ang tumatanggap ng kilos",
+              "Walang layunin",
+              "Palaging mali",
+              "Hindi bahagi ng gramatika"
+            ],
+            "correct_answer": "Bigyang-diin ang tumatanggap ng kilos"
+          },
+          {
+            "question": "Pangunahing pagkakaiba ng dalawang anyo?",
+            "options": [
+              "Kung sino ang gumagawa o tumatanggap",
+              "Haba ng pangungusap",
+              "Uri ng bantas",
+              "Walang pagkakaiba"
+            ],
+            "correct_answer": "Kung sino ang gumagawa o tumatanggap"
+          },
+          {
+            "question": "Bakit matutong bumuo ng parehong anyo?",
+            "options": [
+              "Nagpapahusay ng pagsulat at pananalita",
+              "Walang gamit",
+              "Para sa guro lamang",
+              "Hindi kapaki-pakinabang"
+            ],
+            "correct_answer": "Nagpapahusay ng pagsulat at pananalita"
+          },
+          {
+            "question": "Bagong gramatikal na paksa ngayong linggo?",
+            "options": [
+              "Pasibo at aktibong anyo",
+              "Salitang kultural at historikal",
+              "Tema at simbolismo",
+              "Salitang hiram"
+            ],
+            "correct_answer": "Pasibo at aktibong anyo"
+          },
+          {
+            "question": "Bakit kailangang malaman ang parehong anyo sa pagbasa?",
+            "options": [
+              "Maunawaan kung paano binuo ang pangungusap",
+              "Walang gamit sa pagbasa",
+              "Hindi totoong bahagi ng akda",
+              "Palaging pasibo lamang"
+            ],
+            "correct_answer": "Maunawaan kung paano binuo ang pangungusap"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# ⚖️ Friday Review — Araling Panlipunan (Grade 6)\n\n- Diktadurang Marcos: Batas Militar\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Kailan idineklara ang Batas Militar?",
+            "options": [
+              "Setyembre 21, 1972",
+              "Hulyo 4, 1946",
+              "Pebrero 25, 1986",
+              "Hunyo 12, 1898"
+            ],
+            "correct_answer": "Setyembre 21, 1972"
+          },
+          {
+            "question": "Sino ang nagdeklara nito?",
+            "options": [
+              "Ferdinand Marcos",
+              "Emilio Aguinaldo",
+              "Jose Rizal",
+              "Manuel Quezon"
+            ],
+            "correct_answer": "Ferdinand Marcos"
+          },
+          {
+            "question": "Epekto sa karapatang pantao?",
+            "options": [
+              "Maraming paglabag sa karapatang pantao",
+              "Naging mas malaya ang lahat",
+              "Walang epekto",
+              "Lumaki ang kalayaan"
+            ],
+            "correct_answer": "Maraming paglabag sa karapatang pantao"
+          },
+          {
+            "question": "Nangyari sa kalayaan sa pamamahayag?",
+            "options": [
+              "Sinara ang maraming pahayagan",
+              "Naging mas malaya ang midya",
+              "Walang epekto",
+              "Dumami ang pahayagan"
+            ],
+            "correct_answer": "Sinara ang maraming pahayagan"
+          },
+          {
+            "question": "Kapangyarihang natanggap ni Marcos?",
+            "options": [
+              "Malawak na kapangyarihan",
+              "Limitadong kapangyarihan",
+              "Walang bagong kapangyarihan",
+              "Kapangyarihan sa hukbo lamang"
+            ],
+            "correct_answer": "Malawak na kapangyarihan"
+          },
+          {
+            "question": "Bakit pag-aralan ang Batas Militar?",
+            "options": [
+              "Paalala ng kahalagahan ng karapatan",
+              "Walang kahalagahan",
+              "Hindi bahagi ng kasaysayan",
+              "Tungkol lamang sa ibang bansa"
+            ],
+            "correct_answer": "Paalala ng kahalagahan ng karapatan"
+          },
+          {
+            "question": "Halimbawa ng paglabag sa karapatang pantao?",
+            "options": [
+              "Pagkakakulong walang tamang paglilitis",
+              "Malayang boto",
+              "Maraming pahayagan",
+              "Kalayaan sa pamamahayag"
+            ],
+            "correct_answer": "Pagkakakulong walang tamang paglilitis"
+          },
+          {
+            "question": "Konsepto bago ang Batas Militar?",
+            "options": [
+              "Neokolonyalismo",
+              "Ikatlong Republika",
+              "Digmaang Pilipino-Amerikano",
+              "EDSA People Power"
+            ],
+            "correct_answer": "Neokolonyalismo"
+          },
+          {
+            "question": "Bakit kontrolado ang impormasyon noon?",
+            "options": [
+              "Kontrolin ang natatanggap ng publiko",
+              "Dumami ang balita",
+              "Walang layunin",
+              "Palawakin ang midya"
+            ],
+            "correct_answer": "Kontrolin ang natatanggap ng publiko"
+          },
+          {
+            "question": "Bakit alalahanin ang naranasan noong Batas Militar?",
+            "options": [
+              "Maiwasang maulit ang paglabag",
+              "Walang kahalagahan",
+              "Hindi na importante",
+              "Dapat kalimutan"
+            ],
+            "correct_answer": "Maiwasang maulit ang paglabag"
+          },
+          {
+            "question": "Kaugnayan sa temang taunan?",
+            "options": [
+              "Malaking hamon sa demokrasya ng bansa",
+              "Walang koneksyon",
+              "Hiwalay na paksa",
+              "Hindi bahagi ng tema"
+            ],
+            "correct_answer": "Malaking hamon sa demokrasya ng bansa"
+          },
+          {
+            "question": "Bakit mahalaga ang epekto sa kalayaan sa pamamahayag?",
+            "options": [
+              "Kahalagahan ng malayang midya sa demokrasya",
+              "Walang kahalagahan",
+              "Hindi kaugnay ang midya",
+              "Hindi mahalaga ito"
+            ],
+            "correct_answer": "Kahalagahan ng malayang midya sa demokrasya"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🕺 Friday Review — MAPEH (Grade 6)\n\n- Dance Exercise\n\nMagaling sa PE! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang dance exercise?",
+            "options": [
+              "Ehersisyong gumagamit ng hakbang sa sayaw",
+              "Uri ng laro lamang",
+              "Uri ng pagkain",
+              "Bantas"
+            ],
+            "correct_answer": "Ehersisyong gumagamit ng hakbang sa sayaw"
+          },
+          {
+            "question": "Ano ang cardiovascular fitness?",
+            "options": [
+              "Lakas ng puso at baga",
+              "Lakas ng braso lamang",
+              "Bilis ng pagtakbo",
+              "Timbang ng katawan"
+            ],
+            "correct_answer": "Lakas ng puso at baga"
+          },
+          {
+            "question": "Benepisyo ng dance exercise?",
+            "options": [
+              "Pinapabuti ang koordinasyon at balanse",
+              "Walang benepisyo",
+              "Pinapahina ang katawan",
+              "Nagdudulot ng pagod"
+            ],
+            "correct_answer": "Pinapabuti ang koordinasyon at balanse"
+          },
+          {
+            "question": "Halimbawa ng dance exercise?",
+            "options": [
+              "Zumba-inspired na kilos",
+              "Chess",
+              "Puzzle games",
+              "Pagbabasa"
+            ],
+            "correct_answer": "Zumba-inspired na kilos"
+          },
+          {
+            "question": "Bakit gawin ang dance exercise?",
+            "options": [
+              "Nagbibigay-saya at nagpapanatiling aktibo",
+              "Walang kahalagahan",
+              "Hindi totoong ehersisyo",
+              "Nagpapahina"
+            ],
+            "correct_answer": "Nagbibigay-saya at nagpapanatiling aktibo"
+          },
+          {
+            "question": "Bagong yunit ngayong linggo sa PE?",
+            "options": [
+              "Dance Exercise",
+              "Sports Officiating",
+              "Weightlifting",
+              "Swimming"
+            ],
+            "correct_answer": "Dance Exercise"
+          },
+          {
+            "question": "Bakit mas masaya ang dance exercise?",
+            "options": [
+              "Kombinasyon ng musika at galaw",
+              "Walang pagkakaiba",
+              "Mas mahirap ito",
+              "Hindi ito ehersisyo"
+            ],
+            "correct_answer": "Kombinasyon ng musika at galaw"
+          },
+          {
+            "question": "Bahagi ng katawan na pinapahusay?",
+            "options": [
+              "Puso, baga, kalamnan",
+              "Buhok lamang",
+              "Kuko lamang",
+              "Wala"
+            ],
+            "correct_answer": "Puso, baga, kalamnan"
+          },
+          {
+            "question": "Bakit itinuro ang dance exercise?",
+            "options": [
+              "Itaguyod ang pisikal na kalusugan",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng PE"
+            ],
+            "correct_answer": "Itaguyod ang pisikal na kalusugan"
+          },
+          {
+            "question": "Paano nakakatulong sa koordinasyon?",
+            "options": [
+              "Sumabay sa hakbang at tempo",
+              "Hindi kailangan ng koordinasyon",
+              "Walang kaugnayan",
+              "Basta tumayo lamang"
+            ],
+            "correct_answer": "Sumabay sa hakbang at tempo"
+          },
+          {
+            "question": "Bakit isinama ang musikang Pilipino?",
+            "options": [
+              "Pahalagahan ang kultura habang nag-eehersisyo",
+              "Walang kaugnayan",
+              "Ipinagbabawal ito",
+              "Random na pinili lamang"
+            ],
+            "correct_answer": "Pahalagahan ang kultura habang nag-eehersisyo"
+          },
+          {
+            "question": "Kaugnayan sa kalusugang pangkapaligiran?",
+            "options": [
+              "Pareho tumatalakay sa pangkalahatang kalusugan",
+              "Walang koneksyon",
+              "Parehong agham lamang",
+              "Parehong matematika"
+            ],
+            "correct_answer": "Pareho tumatalakay sa pangkalahatang kalusugan"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🔪 Friday Review — EPP (Grade 6)\n\n- Kasangkapan sa kusina at teknik sa paghihiwa\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Gamit ng kutsilyo?",
+            "options": [
+              "Paghiwa ng sangkap",
+              "Pagsukat ng temperatura",
+              "Paglinis ng sahig",
+              "Paglaba ng damit"
+            ],
+            "correct_answer": "Paghiwa ng sangkap"
+          },
+          {
+            "question": "Gamit ng chopping board?",
+            "options": [
+              "Kinalalagyan ng sangkap habang hinihiwa",
+              "Panluto ng kanin",
+              "Panimpla ng inumin",
+              "Panlinis ng kamay"
+            ],
+            "correct_answer": "Kinalalagyan ng sangkap habang hinihiwa"
+          },
+          {
+            "question": "Ano ang dicing?",
+            "options": [
+              "Pagputol sa maliliit na parisukat",
+              "Pagputol nang manipis",
+              "Pagputol nang napakaliit",
+              "Hindi pagputol"
+            ],
+            "correct_answer": "Pagputol sa maliliit na parisukat"
+          },
+          {
+            "question": "Ano ang slicing?",
+            "options": [
+              "Pagputol nang manipis",
+              "Pagputol sa parisukat",
+              "Pagputol nang napakaliit",
+              "Hindi pagputol"
+            ],
+            "correct_answer": "Pagputol nang manipis"
+          },
+          {
+            "question": "Ano ang mincing?",
+            "options": [
+              "Pagputol nang napakaliit, tulad ng bawang",
+              "Pagputol nang malaki",
+              "Pagputol sa parisukat",
+              "Hindi pagputol"
+            ],
+            "correct_answer": "Pagputol nang napakaliit, tulad ng bawang"
+          },
+          {
+            "question": "Bakit gupitin palayo sa sarili?",
+            "options": [
+              "Maiwasan ang aksidente",
+              "Walang kahalagahan",
+              "Mas mabilis patungo sa sarili",
+              "Hindi kailangan mag-ingat"
+            ],
+            "correct_answer": "Maiwasan ang aksidente"
+          },
+          {
+            "question": "Bakit gumamit ng panukat na tasa?",
+            "options": [
+              "Tumpak na sukat ng sangkap",
+              "Walang kahalagahan",
+              "Hindi na kailangan sukatin",
+              "Magmukhang maganda lamang"
+            ],
+            "correct_answer": "Tumpak na sukat ng sangkap"
+          },
+          {
+            "question": "Bakit matutong gumamit ng kasangkapan sa kusina?",
+            "options": [
+              "Maiwasan ang aksidente at magluto nang maayos",
+              "Walang gamit",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng EPP"
+            ],
+            "correct_answer": "Maiwasan ang aksidente at magluto nang maayos"
+          },
+          {
+            "question": "Teknik para sa bawang?",
+            "options": [
+              "Mincing",
+              "Dicing lamang",
+              "Slicing lamang",
+              "Walang teknik"
+            ],
+            "correct_answer": "Mincing"
+          },
+          {
+            "question": "Bakit mahalaga ang kaligtasan sa kusina?",
+            "options": [
+              "Maiwasan ang pinsala sa sarili o sa iba",
+              "Walang kahalagahan",
+              "Hindi kailangan mag-ingat",
+              "Ligtas na palagi"
+            ],
+            "correct_answer": "Maiwasan ang pinsala sa sarili o sa iba"
+          },
+          {
+            "question": "Koneksyon sa pagpaplano ng pagkain?",
+            "options": [
+              "Parehong bahagi ng kasanayan sa paghahanda",
+              "Walang koneksyon",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong bahagi ng kasanayan sa paghahanda"
+          },
+          {
+            "question": "Bakit ituro ang teknik sa paghihiwa sa Grade 6?",
+            "options": [
+              "Nagpapaunlad ng batayang kasanayan sa pagluluto",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kapaki-pakinabang"
+            ],
+            "correct_answer": "Nagpapaunlad ng batayang kasanayan sa pagluluto"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 😌 Friday Review — GMRC (Grade 6)\n\n- Pagtugon sa emosyon ng kapuwa (Mapagpasensiya)\n\nMagaling! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang mapagpasensiya?",
+            "options": [
+              "Kakayahang manatiling kalmado sa harap ng hamon",
+              "Kawalang pakialam",
+              "Pagiging galit palagi",
+              "Uri ng laro"
+            ],
+            "correct_answer": "Kakayahang manatiling kalmado sa harap ng hamon"
+          },
+          {
+            "question": "Pagpapahalaga sa linggong ito?",
+            "options": [
+              "Mapagpasensiya",
+              "Lakas ng loob",
+              "Makatarungan",
+              "Nasyonalismo"
+            ],
+            "correct_answer": "Mapagpasensiya"
+          },
+          {
+            "question": "Paano tumugon nang mapagpasensiya?",
+            "options": [
+              "Makinig nang mabuti sa emosyon ng kapwa",
+              "Iwasan agad ang taong nasasaktan",
+              "Hatulan agad ang damdamin",
+              "Balewalain ang emosyon"
+            ],
+            "correct_answer": "Makinig nang mabuti sa emosyon ng kapwa"
+          },
+          {
+            "question": "Bakit hindi agad hatulan ang damdamin ng iba?",
+            "options": [
+              "Bawat tao may sariling paraan ng pagharap",
+              "Walang kahalagahan",
+              "Dapat palaging hatulan",
+              "Hindi mahalaga ang damdamin"
+            ],
+            "correct_answer": "Bawat tao may sariling paraan ng pagharap"
+          },
+          {
+            "question": "Konsepto bago ang paksang ito?",
+            "options": [
+              "Pagtugon sa pambubulas gamit lakas ng loob",
+              "Ikatlong Republika",
+              "Simple machines",
+              "Volume ng cube"
+            ],
+            "correct_answer": "Pagtugon sa pambubulas gamit lakas ng loob"
+          },
+          {
+            "question": "Bakit bigyan ng oras ang taong may malakas na emosyon?",
+            "options": [
+              "Makapag-ayos ang kanilang damdamin",
+              "Walang kahalagahan",
+              "Iwasan sila agad",
+              "Hindi na kailangang maghintay"
+            ],
+            "correct_answer": "Makapag-ayos ang kanilang damdamin"
+          },
+          {
+            "question": "Koneksyon sa lakas ng loob na natutunan noon?",
+            "options": [
+              "Parehong mahalagang bahagi ng pakikipagkapuwa",
+              "Walang koneksyon",
+              "Magkatulad lamang",
+              "Isa lamang mahalaga"
+            ],
+            "correct_answer": "Parehong mahalagang bahagi ng pakikipagkapuwa"
+          },
+          {
+            "question": "Bakit maging mapagpasensiya sa kaibigan?",
+            "options": [
+              "Nagpapalakas ng relasyon at pag-unawa",
+              "Walang kahalagahan",
+              "Hindi kailangan",
+              "Palaging madali gawin"
+            ],
+            "correct_answer": "Nagpapalakas ng relasyon at pag-unawa"
+          },
+          {
+            "question": "Ikalawang hakbang sa serye ng Term 3?",
+            "options": [
+              "Pagtugon sa emosyon ng kapuwa",
+              "Pagtugon sa pambubulas",
+              "Pagiging patas",
+              "Pananalig sa Diyos"
+            ],
+            "correct_answer": "Pagtugon sa emosyon ng kapuwa"
+          },
+          {
+            "question": "Bakit mahalaga ang pakikinig sa damdamin ng iba?",
+            "options": [
+              "Nagpapakita ng tunay na pagmamalasakit",
+              "Walang gamit",
+              "Para sa matatanda lamang",
+              "Hindi bahagi ng GMRC"
+            ],
+            "correct_answer": "Nagpapakita ng tunay na pagmamalasakit"
+          },
+          {
+            "question": "Mangyayari kung hindi mapagpasensiya sa emosyon ng iba?",
+            "options": [
+              "Sanhi ng hindi pagkakaunawaan",
+              "Walang epekto",
+              "Mas maayos ang lahat",
+              "Palaging positibo"
+            ],
+            "correct_answer": "Sanhi ng hindi pagkakaunawaan"
+          },
+          {
+            "question": "Bakit mahalagang balansehin ang mapagpasensiya at lakas ng loob sa pakikipagkapuwa?",
+            "options": [
+              "Upang malaman kung kailan makinig at kailan kumilos",
+              "Dahil isa lamang sa mga ito ang totoong pagpapahalaga",
+              "Walang kaugnayan ang dalawa sa isa't isa",
+              "Dahil dapat piliin lamang ang isa sa buong buhay"
+            ],
+            "correct_answer": "Upang malaman kung kailan makinig at kailan kumilos"
+          }
+        ]
+      }
+    }
+  }
+}

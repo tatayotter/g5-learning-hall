@@ -1,0 +1,2016 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-11-01",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📚 English — Synthesizing Multiple Sources\n\nGrade 6, Week 21! Welcome to a new kind of reading — critical reading and research! 📚\n\n## 🔍 What Is Synthesizing?\n**Synthesizing** means combining information from two or more sources into a single, coherent understanding — not just summarizing each one separately.\n\n## 📝 Steps to Synthesize Sources\n1. Read each source carefully and note the main idea\n2. Identify what the sources **agree** on\n3. Identify what the sources **disagree** on or add differently\n4. Combine the ideas into your own understanding\n\n## 🌏 Comparing Perspectives\nDifferent authors may write about the same topic — like a historical event — from different **perspectives** (viewpoints), shaped by their background, purpose, or audience.\n\n**Example:** A soldier's account of a battle and a civilian's account may emphasize different details, even about the same event.\n\n## 🎯 Why This Matters\nSynthesizing sources helps you build a fuller, more balanced understanding of any topic — a critical skill for research.\n\n**Key words:** synthesize, perspective, source, research",
+        "quiz": [
+          {
+            "question": "What does 'synthesizing' sources mean?",
+            "options": [
+              "Combining information from multiple sources into one understanding",
+              "Reading only one source",
+              "Ignoring all sources",
+              "Copying a source word for word"
+            ],
+            "correct_answer": "Combining information from multiple sources into one understanding"
+          },
+          {
+            "question": "What is the first step in synthesizing sources?",
+            "options": [
+              "Read each source carefully and note the main idea",
+              "Combine ideas immediately without reading",
+              "Pick the shortest source only",
+              "Skip all sources"
+            ],
+            "correct_answer": "Read each source carefully and note the main idea"
+          },
+          {
+            "question": "Why might a soldier's and civilian's account of the same battle differ?",
+            "options": [
+              "They have different perspectives shaped by their experience",
+              "One of them is always lying",
+              "Battles are always described the same way",
+              "Only soldiers can describe battles accurately"
+            ],
+            "correct_answer": "They have different perspectives shaped by their experience"
+          },
+          {
+            "question": "What should you look for when comparing two sources?",
+            "options": [
+              "What they agree on and what they disagree on",
+              "Only the page count",
+              "Only the author's name",
+              "Only the publication date"
+            ],
+            "correct_answer": "What they agree on and what they disagree on"
+          },
+          {
+            "question": "Why is synthesizing different from summarizing each source separately?",
+            "options": [
+              "Synthesizing combines ideas into one coherent understanding",
+              "They are exactly the same process",
+              "Summarizing is always better",
+              "Synthesizing ignores all sources"
+            ],
+            "correct_answer": "Synthesizing combines ideas into one coherent understanding"
+          },
+          {
+            "question": "What is a 'perspective' in reading multiple sources?",
+            "options": [
+              "A viewpoint shaped by background, purpose, or audience",
+              "The physical size of a book",
+              "The color of the cover",
+              "The number of pages"
+            ],
+            "correct_answer": "A viewpoint shaped by background, purpose, or audience"
+          },
+          {
+            "question": "Why is synthesizing sources important for research?",
+            "options": [
+              "It builds a fuller, more balanced understanding of a topic",
+              "It has no value in research",
+              "It replaces the need to read anything",
+              "It only works for fiction"
+            ],
+            "correct_answer": "It builds a fuller, more balanced understanding of a topic"
+          },
+          {
+            "question": "If two sources disagree about a historical event, what should a good researcher do?",
+            "options": [
+              "Consider both perspectives and evaluate the evidence",
+              "Ignore both sources completely",
+              "Believe only the first one they read",
+              "Assume one source is always fake"
+            ],
+            "correct_answer": "Consider both perspectives and evaluate the evidence"
+          },
+          {
+            "question": "What skill are we building by comparing perspectives across sources?",
+            "options": [
+              "Critical thinking and balanced evaluation",
+              "Only memorization",
+              "Only handwriting",
+              "Only spelling"
+            ],
+            "correct_answer": "Critical thinking and balanced evaluation"
+          },
+          {
+            "question": "Why might an author's purpose affect how they describe an event?",
+            "options": [
+              "Their purpose shapes what details they choose to emphasize",
+              "Purpose never affects writing",
+              "All authors write identically regardless of purpose",
+              "Purpose only matters in fiction"
+            ],
+            "correct_answer": "Their purpose shapes what details they choose to emphasize"
+          },
+          {
+            "question": "What is the benefit of reading multiple sources instead of just one?",
+            "options": [
+              "A fuller and more balanced view of the topic",
+              "It wastes time with no benefit",
+              "One source is always enough",
+              "Multiple sources always contradict each other uselessly"
+            ],
+            "correct_answer": "A fuller and more balanced view of the topic"
+          },
+          {
+            "question": "How does synthesizing multiple sources prepare you for research writing?",
+            "options": [
+              "It teaches you to combine evidence into your own argument",
+              "It teaches you to copy sources directly",
+              "It has no connection to research writing",
+              "It only applies to poetry"
+            ],
+            "correct_answer": "It teaches you to combine evidence into your own argument"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📦 Mathematics — Volume of Cube and Rectangular Prism\n\nGrade 6, Week 21! Let's calculate volume — how much space a solid takes up! 📦\n\n## 📦 What Is Volume?\n**Volume** measures the amount of space inside a 3D solid, measured in cubic units (like cm³ or m³).\n\n## 🧊 Volume of a Cube\n**Formula:** V = s³ (side × side × side)\n\n**Example:** A cube with side 4 cm has volume 4 × 4 × 4 = **64 cm³**\n\n## 📐 Volume of a Rectangular Prism\n**Formula:** V = l × w × h (length × width × height)\n\n**Example:** A box 5 cm long, 3 cm wide, 2 cm high has volume 5 × 3 × 2 = **30 cm³**\n\n## 🔄 Converting Units\n1,000 cm³ = 1 liter (L) — useful for converting volume to liquid capacity.\n\n**Key words:** volume, cube, rectangular prism, cubic units, liter",
+        "quiz": [
+          {
+            "question": "What does volume measure?",
+            "options": [
+              "The amount of space inside a 3D solid",
+              "The weight of an object",
+              "The outside surface of a shape",
+              "The color of an object"
+            ],
+            "correct_answer": "The amount of space inside a 3D solid"
+          },
+          {
+            "question": "What is the formula for the volume of a cube?",
+            "options": [
+              "V = s³",
+              "V = s + s + s",
+              "V = 2s",
+              "V = s²"
+            ],
+            "correct_answer": "V = s³"
+          },
+          {
+            "question": "What is the volume of a cube with side 4 cm?",
+            "options": [
+              "64 cm³",
+              "16 cm³",
+              "12 cm³",
+              "48 cm³"
+            ],
+            "correct_answer": "64 cm³"
+          },
+          {
+            "question": "What is the formula for the volume of a rectangular prism?",
+            "options": [
+              "V = l × w × h",
+              "V = l + w + h",
+              "V = 2(l + w)",
+              "V = l × w"
+            ],
+            "correct_answer": "V = l × w × h"
+          },
+          {
+            "question": "What is the volume of a box 5 cm long, 3 cm wide, 2 cm high?",
+            "options": [
+              "30 cm³",
+              "10 cm³",
+              "15 cm³",
+              "25 cm³"
+            ],
+            "correct_answer": "30 cm³"
+          },
+          {
+            "question": "How many cm³ equal 1 liter?",
+            "options": [
+              "1,000 cm³",
+              "100 cm³",
+              "10 cm³",
+              "10,000 cm³"
+            ],
+            "correct_answer": "1,000 cm³"
+          },
+          {
+            "question": "What unit is volume typically measured in?",
+            "options": [
+              "Cubic units, like cm³",
+              "Square units only",
+              "Linear units only",
+              "No units at all"
+            ],
+            "correct_answer": "Cubic units, like cm³"
+          },
+          {
+            "question": "A box has volume 2,000 cm³. How many liters is this?",
+            "options": [
+              "2 liters",
+              "0.2 liters",
+              "20 liters",
+              "200 liters"
+            ],
+            "correct_answer": "2 liters"
+          },
+          {
+            "question": "Why is volume useful in real life?",
+            "options": [
+              "It helps determine how much a container can hold",
+              "It has no practical use",
+              "It only matters in math class",
+              "It measures weight, not space"
+            ],
+            "correct_answer": "It helps determine how much a container can hold"
+          },
+          {
+            "question": "If a cube has volume 27 cm³, what is the length of one side?",
+            "options": [
+              "3 cm",
+              "9 cm",
+              "27 cm",
+              "6 cm"
+            ],
+            "correct_answer": "3 cm"
+          },
+          {
+            "question": "Why does a cube use s³ instead of l × w × h?",
+            "options": [
+              "All sides of a cube are equal, so s replaces l, w, and h",
+              "Cubes have no sides",
+              "Cubes are always bigger than prisms",
+              "s³ is just a shortcut with no real meaning"
+            ],
+            "correct_answer": "All sides of a cube are equal, so s replaces l, w, and h"
+          },
+          {
+            "question": "A rectangular prism is 10 cm long, 4 cm wide, 5 cm high. What is its volume?",
+            "options": [
+              "200 cm³",
+              "19 cm³",
+              "40 cm³",
+              "50 cm³"
+            ],
+            "correct_answer": "200 cm³"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "# ⚙️ Science — Simple Machines: Inclined Planes and Wedges\n\nGrade 6, Week 21! Let's explore simple machines that make work easier! ⚙️\n\n## 🔄 Review\nWe learned about biotic and abiotic factors in an ecosystem.\n\n## ⚙️ What Is a Simple Machine?\nA **simple machine** is a basic device that makes work easier by changing the amount or direction of force needed.\n\n## 🛤️ Inclined Plane\nAn **inclined plane** is a flat, sloped surface (like a ramp) that reduces the force needed to move an object upward, though over a longer distance.\n\n## 🔺 Wedge\nA **wedge** is like two inclined planes joined together, used to split or cut things (like an axe or a knife).\n\n## ⚖️ Advantages and Limitations\n- **Advantage:** Less force is needed\n- **Limitation:** You must move the object a greater distance\n\n**Key words:** simple machine, inclined plane, wedge, force, distance",
+        "quiz": [
+          {
+            "question": "What is a simple machine?",
+            "options": [
+              "A basic device that makes work easier",
+              "A complex electronic device",
+              "A device with no function",
+              "A type of computer"
+            ],
+            "correct_answer": "A basic device that makes work easier"
+          },
+          {
+            "question": "What is an inclined plane?",
+            "options": [
+              "A flat, sloped surface like a ramp",
+              "A round wheel",
+              "A sharp blade",
+              "A twisted rod"
+            ],
+            "correct_answer": "A flat, sloped surface like a ramp"
+          },
+          {
+            "question": "How does an inclined plane make work easier?",
+            "options": [
+              "It reduces the force needed to move an object upward",
+              "It increases the force needed",
+              "It has no effect on force",
+              "It only works for lowering objects"
+            ],
+            "correct_answer": "It reduces the force needed to move an object upward"
+          },
+          {
+            "question": "What is a wedge?",
+            "options": [
+              "Two inclined planes joined together",
+              "A single flat surface",
+              "A round object",
+              "A type of lever"
+            ],
+            "correct_answer": "Two inclined planes joined together"
+          },
+          {
+            "question": "Give an example of a wedge.",
+            "options": [
+              "An axe",
+              "A ramp",
+              "A wheel",
+              "A pulley"
+            ],
+            "correct_answer": "An axe"
+          },
+          {
+            "question": "What is the trade-off of using an inclined plane?",
+            "options": [
+              "Less force needed, but the object moves a greater distance",
+              "More force needed and shorter distance",
+              "No trade-off at all",
+              "It only works with heavy objects"
+            ],
+            "correct_answer": "Less force needed, but the object moves a greater distance"
+          },
+          {
+            "question": "Why might a ramp be used instead of lifting an object straight up?",
+            "options": [
+              "It requires less force even though the distance is longer",
+              "It requires more force",
+              "It has no benefit",
+              "It only works on flat ground"
+            ],
+            "correct_answer": "It requires less force even though the distance is longer"
+          },
+          {
+            "question": "What is the main function of a wedge?",
+            "options": [
+              "To split or cut things",
+              "To lift heavy objects only",
+              "To measure distance",
+              "To generate electricity"
+            ],
+            "correct_answer": "To split or cut things"
+          },
+          {
+            "question": "Which of these is an example of an inclined plane in real life?",
+            "options": [
+              "A wheelchair ramp",
+              "A pair of scissors",
+              "A doorknob",
+              "A seesaw"
+            ],
+            "correct_answer": "A wheelchair ramp"
+          },
+          {
+            "question": "Why are simple machines considered helpful tools?",
+            "options": [
+              "They change the amount or direction of force needed for work",
+              "They make all tasks impossible",
+              "They only work in factories",
+              "They have no practical use"
+            ],
+            "correct_answer": "They change the amount or direction of force needed for work"
+          },
+          {
+            "question": "If a ramp is made longer but less steep, what happens to the force needed?",
+            "options": [
+              "Less force is needed",
+              "More force is needed",
+              "No change in force",
+              "The ramp becomes useless"
+            ],
+            "correct_answer": "Less force is needed"
+          },
+          {
+            "question": "How is a wedge different from an inclined plane in its use?",
+            "options": [
+              "A wedge is used to split objects, while a ramp helps move objects up",
+              "They are used for exactly the same purpose",
+              "A wedge only lifts objects",
+              "An inclined plane only cuts objects"
+            ],
+            "correct_answer": "A wedge is used to split objects, while a ramp helps move objects up"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📖 Filipino — Bokabularyo ng Panitikan at Pagsusuri\n\nGrade 6, Linggo 21! Simulan natin ang bagong yunit sa pagsusuri ng akdang pampanitikan! 📖\n\n## 🔄 Balik-Aral\nNatapos natin ang term review tungkol sa mga akdang binasa.\n\n## 📖 Mahahalagang Termino sa Pagsusuri\n- **Tema** — ang pangkalahatang mensahe o aral ng akda\n- **Simbolismo** — paggamit ng bagay o pangyayari upang kumatawan sa isang mas malalim na kahulugan\n- **Punto de bista** — ang panig o pananaw kung saan isinalaysay ang kuwento\n\n## 🔍 Bakit Mahalaga Ito?\nAng pag-alam sa mga terminong ito ay tumutulong sa atin na mas maunawaan at masuri ang kahulugan ng anumang akdang binabasa.\n\n## ✍️ Halimbawa\nSa isang kuwento tungkol sa isang ibong nakakulong, ang \"kulungan\" ay maaaring simbolo ng **kawalang kalayaan**.\n\n**Mahahalagang salita:** tema, simbolismo, punto de bista, pagsusuri",
+        "quiz": [
+          {
+            "question": "Ano ang tema sa isang akda?",
+            "options": [
+              "Ang pangkalahatang mensahe o aral ng akda",
+              "Ang pangalan ng may-akda",
+              "Ang bilang ng pahina",
+              "Ang uri ng papel na ginamit"
+            ],
+            "correct_answer": "Ang pangkalahatang mensahe o aral ng akda"
+          },
+          {
+            "question": "Ano ang simbolismo?",
+            "options": [
+              "Paggamit ng bagay upang kumatawan sa mas malalim na kahulugan",
+              "Isang uri ng tugma",
+              "Isang uri ng bantas",
+              "Isang pangngalan lamang"
+            ],
+            "correct_answer": "Paggamit ng bagay upang kumatawan sa mas malalim na kahulugan"
+          },
+          {
+            "question": "Ano ang punto de bista?",
+            "options": [
+              "Ang panig o pananaw kung saan isinalaysay ang kuwento",
+              "Ang haba ng kuwento",
+              "Ang pamagat ng aklat",
+              "Ang kulay ng pabalat"
+            ],
+            "correct_answer": "Ang panig o pananaw kung saan isinalaysay ang kuwento"
+          },
+          {
+            "question": "Sa halimbawang ibon sa kulungan, ano ang maaaring isimbolo ng kulungan?",
+            "options": [
+              "Kawalang kalayaan",
+              "Kasaganaan",
+              "Kaligayahan",
+              "Kalusugan"
+            ],
+            "correct_answer": "Kawalang kalayaan"
+          },
+          {
+            "question": "Bakit mahalagang matutong tukuyin ang tema ng isang akda?",
+            "options": [
+              "Tumutulong ito maunawaan ang aral na nais iparating",
+              "Walang kahalagahan ito",
+              "Hindi ito bahagi ng pagsusuri",
+              "Ito ay para sa matatanda lamang"
+            ],
+            "correct_answer": "Tumutulong ito maunawaan ang aral na nais iparating"
+          },
+          {
+            "question": "Bakit ginagamit ang simbolismo sa panitikan?",
+            "options": [
+              "Upang magbigay ng mas malalim na kahulugan sa isang bagay o pangyayari",
+              "Upang pahabain lamang ang kuwento",
+              "Walang layunin ito",
+              "Upang gawing mahirap unawain ang kuwento"
+            ],
+            "correct_answer": "Upang magbigay ng mas malalim na kahulugan sa isang bagay o pangyayari"
+          },
+          {
+            "question": "Bakit mahalagang tukuyin ang punto de bista ng isang kuwento?",
+            "options": [
+              "Nakakaapekto ito sa kung paano isinalaysay ang mga pangyayari",
+              "Walang epekto ito sa kuwento",
+              "Hindi na kailangan itong tukuyin",
+              "Palaging pareho ang punto de bista sa lahat ng kuwento"
+            ],
+            "correct_answer": "Nakakaapekto ito sa kung paano isinalaysay ang mga pangyayari"
+          },
+          {
+            "question": "Anong bagong yunit ang sinimulan sa linggong ito?",
+            "options": [
+              "Pagsusuri ng akdang pampanitikan",
+              "Balik-aral sa buong term",
+              "Pagsulat ng liham",
+              "Pag-aaral ng gramatika lamang"
+            ],
+            "correct_answer": "Pagsusuri ng akdang pampanitikan"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga terminong ito sa pagsusuri?",
+            "options": [
+              "Tumutulong ito mas maunawaan at masuri ang binabasang akda",
+              "Walang gamit ito",
+              "Ito ay para lamang sa guro",
+              "Hindi kailanman kapaki-pakinabang"
+            ],
+            "correct_answer": "Tumutulong ito mas maunawaan at masuri ang binabasang akda"
+          },
+          {
+            "question": "Ano ang maaaring maging simbolo ng liwanag sa isang kuwento?",
+            "options": [
+              "Pag-asa o kaalaman",
+              "Kawalang pag-asa",
+              "Kamatayan lamang",
+              "Walang partikular na kahulugan"
+            ],
+            "correct_answer": "Pag-asa o kaalaman"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang kasanayan ang pagsusuri ng akda?",
+            "options": [
+              "Nagpapaunlad ito ng kritikal na pag-iisip sa pagbasa",
+              "Wala itong gamit",
+              "Ito ay para sa matatanda lamang",
+              "Hindi ito bahagi ng Filipino"
+            ],
+            "correct_answer": "Nagpapaunlad ito ng kritikal na pag-iisip sa pagbasa"
+          },
+          {
+            "question": "Paano nauugnay ang tema, simbolismo, at punto de bista sa pag-unawa ng akda?",
+            "options": [
+              "Magkakasamang bumubuo ng mas malalim na pag-unawa sa kuwento",
+              "Walang koneksyon ang mga ito",
+              "Isa lamang sa mga ito ang mahalaga",
+              "Hindi sila konektado sa panitikan"
+            ],
+            "correct_answer": "Magkakasamang bumubuo ng mas malalim na pag-unawa sa kuwento"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Araling Panlipunan — Ikatlong Republika\n\nGrade 6, Linggo 21! Simulan natin ang bagong yunit tungkol sa Pilipinas pagkatapos ng digmaan! 🇵🇭\n\n## 🔄 Balik-Aral\nNatapos natin ang term review tungkol sa Digmaang Pilipino-Amerikano at Hapones.\n\n## 🇵🇭 Ano ang Ikatlong Republika?\nAng **Ikatlong Republika** ay itinatag noong Hulyo 4, 1946, nang bigyan ng kalayaan ang Pilipinas ng Estados Unidos matapos ang Ikalawang Digmaang Pandaigdig.\n\n## 🏗️ Muling Pagtatayo\nMatapos ang digmaan, kailangang muling itayo ng Pilipinas ang mga nasirang gusali, ekonomiya, at pamahalaan.\n\n## ❄️ Ang Cold War\nAng **Cold War** ay ang tensyon sa pagitan ng Estados Unidos at Unyong Sobyet — apektado nito ang polisiya ng Pilipinas dahil sa kaalyansa nito sa US.\n\n**Mahahalagang salita:** Ikatlong Republika, kalayaan, Cold War, muling pagtatayo",
+        "quiz": [
+          {
+            "question": "Kailan itinatag ang Ikatlong Republika?",
+            "options": [
+              "Hulyo 4, 1946",
+              "Hunyo 12, 1898",
+              "Setyembre 21, 1972",
+              "Pebrero 25, 1986"
+            ],
+            "correct_answer": "Hulyo 4, 1946"
+          },
+          {
+            "question": "Sino ang nagbigay ng kalayaan sa Pilipinas noong 1946?",
+            "options": [
+              "Estados Unidos",
+              "Espanya",
+              "Hapon",
+              "Britanya"
+            ],
+            "correct_answer": "Estados Unidos"
+          },
+          {
+            "question": "Ano ang kailangang muling itayo ng Pilipinas pagkatapos ng digmaan?",
+            "options": [
+              "Mga nasirang gusali, ekonomiya, at pamahalaan",
+              "Wala, kumpleto pa rin ang lahat",
+              "Mga eskwelahan lamang",
+              "Mga simbahan lamang"
+            ],
+            "correct_answer": "Mga nasirang gusali, ekonomiya, at pamahalaan"
+          },
+          {
+            "question": "Ano ang Cold War?",
+            "options": [
+              "Tensyon sa pagitan ng US at Unyong Sobyet",
+              "Isang aktwal na labanan sa Pilipinas",
+              "Isang uri ng kalamidad",
+              "Isang kasunduang pangkalakalan"
+            ],
+            "correct_answer": "Tensyon sa pagitan ng US at Unyong Sobyet"
+          },
+          {
+            "question": "Bakit naapektuhan ang Pilipinas ng Cold War?",
+            "options": [
+              "Dahil sa kaalyansa nito sa US",
+              "Dahil nasa Europa ito",
+              "Dahil hindi ito nakaugnay sa Pilipinas",
+              "Dahil sa kaalyansa nito sa Unyong Sobyet"
+            ],
+            "correct_answer": "Dahil sa kaalyansa nito sa US"
+          },
+          {
+            "question": "Ano ang panahon bago ang Ikatlong Republika na natutunan natin noong nakaraang term?",
+            "options": [
+              "Imperyalismong Amerikano at Hapones",
+              "Panahon ng Espanyol",
+              "Panahon ng Kontemporanyong Pilipinas",
+              "EDSA People Power"
+            ],
+            "correct_answer": "Imperyalismong Amerikano at Hapones"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang Ikatlong Republika?",
+            "options": [
+              "Nagpapakita ito kung paano nagsimulang muli ang bansa bilang malaya",
+              "Walang kahalagahan ito",
+              "Hindi ito bahagi ng kasaysayan ng Pilipinas",
+              "Ito ay tungkol lamang sa Espanya"
+            ],
+            "correct_answer": "Nagpapakita ito kung paano nagsimulang muli ang bansa bilang malaya"
+          },
+          {
+            "question": "Ano ang naging hamon ng Pilipinas pagkatapos makamit ang kalayaan noong 1946?",
+            "options": [
+              "Muling pagtatayo ng bansa matapos ang digmaan",
+              "Walang hamon na naranasan",
+              "Agad na naging mayaman ang bansa",
+              "Wala nang problema pagkatapos ng digmaan"
+            ],
+            "correct_answer": "Muling pagtatayo ng bansa matapos ang digmaan"
+          },
+          {
+            "question": "Bakit itinuturing na makasaysayang pangyayari ang 1946?",
+            "options": [
+              "Iyon ang taon nang bigyan ng kalayaan ang Pilipinas",
+              "Walang pangyayari noong taong iyon",
+              "Iyon ang taon ng EDSA Revolution",
+              "Iyon ang taon ng Batas Militar"
+            ],
+            "correct_answer": "Iyon ang taon nang bigyan ng kalayaan ang Pilipinas"
+          },
+          {
+            "question": "Paano nakaapekto ang Cold War sa polisiya ng ibang bansa tulad ng Pilipinas?",
+            "options": [
+              "Hinihikayat silang kumampi sa alinman sa dalawang superpower",
+              "Walang epekto ito sa ibang bansa",
+              "Nagdulot lamang ito ng kapayapaan sa lahat",
+              "Naging sanhi ito ng pagtatapos ng lahat ng gera"
+            ],
+            "correct_answer": "Hinihikayat silang kumampi sa alinman sa dalawang superpower"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang kasaysayan ng Ikatlong Republika bilang mamamayan?",
+            "options": [
+              "Tumutulong itong maunawaan ang pinagmulan ng kasalukuyang pamahalaan",
+              "Walang kaugnayan ito sa kasalukuyan",
+              "Hindi na ito importante ngayon",
+              "Ito ay tungkol lamang sa ibang bansa"
+            ],
+            "correct_answer": "Tumutulong itong maunawaan ang pinagmulan ng kasalukuyang pamahalaan"
+          },
+          {
+            "question": "Ano ang kaugnayan ng Ikatlong Republika sa temang taunan tungkol sa 'Mga Hamon at Pagtugon sa Pagkabansa'?",
+            "options": [
+              "Ipinapakita nito kung paano tumugon ang bansa sa hamon ng muling pagtatayo",
+              "Walang koneksyon ito sa tema",
+              "Ito ay hiwalay na paksa",
+              "Hindi ito bahagi ng taunang tema"
+            ],
+            "correct_answer": "Ipinapakita nito kung paano tumugon ang bansa sa hamon ng muling pagtatayo"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🏥 MAPEH — Kalusugan: Karaniwang Nakakahawang Sakit\n\nGrade 6, Linggo 21! Simulan natin ang bagong yunit tungkol sa kalusugan at pag-iwas sa sakit! 🏥\n\n## 🔄 Balik-Aral\nNatapos natin ang term review sa Musika, Sining, at PE.\n\n## 🦠 Karaniwang Nakakahawang Sakit\nAng mga **nakakahawang sakit** (communicable diseases) ay kumakalat mula sa isang tao patungo sa isa pa, tulad ng trangkaso, tigdas, at bulutong-tubig.\n\n## 🔗 Chain of Infection\nAng **chain of infection** ay ang proseso kung paano kumakalat ang sakit: pinagmumulan → daanan ng paglabas → paraan ng paghawa → daanan ng pagpasok → bagong inaangkin na katawan.\n\n## 💉 Bakuna\nAng **bakuna** ay tumutulong protektahan ang katawan mula sa mga partikular na sakit sa pamamagitan ng pagbuo ng imyunidad.\n\n**Mahahalagang salita:** nakakahawang sakit, chain of infection, bakuna, imyunidad",
+        "quiz": [
+          {
+            "question": "Ano ang nakakahawang sakit?",
+            "options": [
+              "Sakit na kumakalat mula sa isang tao patungo sa isa pa",
+              "Sakit na hindi kailanman kumakalat",
+              "Isang uri ng bitamina",
+              "Isang uri ng ehersisyo"
+            ],
+            "correct_answer": "Sakit na kumakalat mula sa isang tao patungo sa isa pa"
+          },
+          {
+            "question": "Ano ang chain of infection?",
+            "options": [
+              "Ang proseso kung paano kumakalat ang sakit",
+              "Isang uri ng gamot",
+              "Isang uri ng ehersisyo",
+              "Isang bakuna"
+            ],
+            "correct_answer": "Ang proseso kung paano kumakalat ang sakit"
+          },
+          {
+            "question": "Ano ang ginagawa ng bakuna sa katawan?",
+            "options": [
+              "Tumutulong bumuo ng imyunidad laban sa sakit",
+              "Nagdudulot ng sakit sa katawan",
+              "Walang epekto sa katawan",
+              "Pinapahina ang immune system"
+            ],
+            "correct_answer": "Tumutulong bumuo ng imyunidad laban sa sakit"
+          },
+          {
+            "question": "Anong halimbawa ng nakakahawang sakit?",
+            "options": [
+              "Trangkaso",
+              "Diabetes",
+              "Osteoporosis",
+              "Hika"
+            ],
+            "correct_answer": "Trangkaso"
+          },
+          {
+            "question": "Bakit mahalagang maunawaan ang chain of infection?",
+            "options": [
+              "Tumutulong ito maiwasan ang pagkalat ng sakit",
+              "Walang gamit ito",
+              "Hindi na kailangang unawain ito",
+              "Ito ay tungkol lamang sa mga hayop"
+            ],
+            "correct_answer": "Tumutulong ito maiwasan ang pagkalat ng sakit"
+          },
+          {
+            "question": "Ano ang isang paraan para maputol ang chain of infection?",
+            "options": [
+              "Regular na paghuhugas ng kamay",
+              "Kawalang pakialam sa kalinisan",
+              "Pagsasama-sama nang walang proteksyon",
+              "Pagkalimot na magbakuna"
+            ],
+            "correct_answer": "Regular na paghuhugas ng kamay"
+          },
+          {
+            "question": "Bakit mahalagang magpabakuna?",
+            "options": [
+              "Nagbibigay ito ng proteksyon laban sa partikular na sakit",
+              "Walang benepisyo ito",
+              "Nagdudulot lamang ito ng sakit",
+              "Hindi na ito kailangan"
+            ],
+            "correct_answer": "Nagbibigay ito ng proteksyon laban sa partikular na sakit"
+          },
+          {
+            "question": "Ano ang epekto ng hindi pagsunod sa mga hakbang laban sa nakakahawang sakit?",
+            "options": [
+              "Mas mabilis kumalat ang sakit",
+              "Walang epekto ito",
+              "Mas mabuti ang lahat",
+              "Awtomatikong nawawala ang sakit"
+            ],
+            "correct_answer": "Mas mabilis kumalat ang sakit"
+          },
+          {
+            "question": "Bakit itinuturo ang paksang ito bilang bahagi ng Health sa MAPEH?",
+            "options": [
+              "Upang maging responsable sa pag-iwas ng sakit at proteksyon ng kalusugan",
+              "Walang layunin ito",
+              "Ito ay para sa matatanda lamang",
+              "Hindi ito kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Upang maging responsable sa pag-iwas ng sakit at proteksyon ng kalusugan"
+          },
+          {
+            "question": "Ano ang unang bahagi ng chain of infection?",
+            "options": [
+              "Pinagmumulan ng sakit",
+              "Bagong inaangkin na katawan",
+              "Bakuna",
+              "Daanan ng pagpasok"
+            ],
+            "correct_answer": "Pinagmumulan ng sakit"
+          },
+          {
+            "question": "Bakit mahalaga ang imyunidad ng katawan?",
+            "options": [
+              "Tumutulong itong labanan ang mga sakit",
+              "Walang gamit ito",
+              "Nagdudulot lamang ito ng sakit",
+              "Hindi ito totoong konsepto"
+            ],
+            "correct_answer": "Tumutulong itong labanan ang mga sakit"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang paksa ang pag-iwas sa sakit sa komunidad?",
+            "options": [
+              "Nakakatulong ito protektahan ang kalusugan ng lahat",
+              "Wala itong epekto sa komunidad",
+              "Ito ay isyu lamang ng indibidwal",
+              "Hindi kaugnay sa kalusugan pangkomunidad"
+            ],
+            "correct_answer": "Nakakatulong ito protektahan ang kalusugan ng lahat"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🏠 EPP (FCS) — Pamamahala ng Yaman ng Pamilya\n\nGrade 6, Linggo 21! Simulan natin ang bagong yunit sa Family and Consumer Science! 🏠\n\n## 🔄 Balik-Aral\nNatapos natin ang term review tungkol sa Fishery Arts.\n\n## 💰 Ano ang Yaman ng Pamilya?\nAng **yaman ng pamilya** ay kinabibilangan ng oras, pera, kasanayan, at enerhiya na ginagamit ng isang pamilya para matugunan ang mga pangangailangan.\n\n## 📊 Pagbabadyet\nAng **badyet** ay isang plano kung paano gagastusin ang kita ng pamilya, na inuuna ang mga pangunahing pangangailangan bago ang mga gusto.\n\n## ✅ Mga Hakbang sa Pagbabadyet\n1. Ilista ang kita ng pamilya\n2. Ilista ang mga gastusin (pagkain, tirahan, edukasyon)\n3. Ihambing ang kita at gastusin\n4. Magtabi ng ipon\n\n**Mahahalagang salita:** yaman ng pamilya, badyet, kita, gastusin, ipon",
+        "quiz": [
+          {
+            "question": "Ano ang yaman ng pamilya?",
+            "options": [
+              "Oras, pera, kasanayan, at enerhiya ng pamilya",
+              "Isang uri ng gamit sa bahay lamang",
+              "Isang uri ng laro",
+              "Isang bantas"
+            ],
+            "correct_answer": "Oras, pera, kasanayan, at enerhiya ng pamilya"
+          },
+          {
+            "question": "Ano ang badyet?",
+            "options": [
+              "Isang plano kung paano gagastusin ang kita ng pamilya",
+              "Isang uri ng pagkain",
+              "Isang uri ng laro",
+              "Isang bantas"
+            ],
+            "correct_answer": "Isang plano kung paano gagastusin ang kita ng pamilya"
+          },
+          {
+            "question": "Ano ang dapat unahin sa pagbabadyet?",
+            "options": [
+              "Ang mga pangunahing pangangailangan",
+              "Ang mga gusto lamang",
+              "Walang inuuna",
+              "Ang libangan lamang"
+            ],
+            "correct_answer": "Ang mga pangunahing pangangailangan"
+          },
+          {
+            "question": "Ano ang unang hakbang sa paggawa ng badyet?",
+            "options": [
+              "Ilista ang kita ng pamilya",
+              "Gumastos agad",
+              "Kalimutan ang kita",
+              "Umutang muna"
+            ],
+            "correct_answer": "Ilista ang kita ng pamilya"
+          },
+          {
+            "question": "Bakit mahalagang magtabi ng ipon?",
+            "options": [
+              "Para sa mga hindi inaasahang pangangailangan sa hinaharap",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan mag-ipon",
+              "Para gastusin agad"
+            ],
+            "correct_answer": "Para sa mga hindi inaasahang pangangailangan sa hinaharap"
+          },
+          {
+            "question": "Ano ang kasama sa gastusin ng pamilya?",
+            "options": [
+              "Pagkain, tirahan, edukasyon",
+              "Wala, walang gastusin ang pamilya",
+              "Libangan lamang",
+              "Damit lamang"
+            ],
+            "correct_answer": "Pagkain, tirahan, edukasyon"
+          },
+          {
+            "question": "Bakit kailangang ihambing ang kita at gastusin?",
+            "options": [
+              "Upang matiyak na sapat ang kita sa mga gastusin",
+              "Walang kahalagahan ito",
+              "Hindi na kailangang ihambing",
+              "Basta gastusin lang lahat"
+            ],
+            "correct_answer": "Upang matiyak na sapat ang kita sa mga gastusin"
+          },
+          {
+            "question": "Bakit mahalagang matutong pamahalaan ang yaman ng pamilya?",
+            "options": [
+              "Tumutulong ito matugunan ang mga pangangailangan nang maayos",
+              "Walang gamit ito",
+              "Ito ay para sa matatanda lamang",
+              "Hindi kaugnay ng EPP"
+            ],
+            "correct_answer": "Tumutulong ito matugunan ang mga pangangailangan nang maayos"
+          },
+          {
+            "question": "Ano ang mangyayari kung mas malaki ang gastusin kaysa kita?",
+            "options": [
+              "Maaaring magkaroon ng problema sa pananalapi",
+              "Walang epekto ito",
+              "Mas maayos ang lahat",
+              "Awtomatikong lalaki ang kita"
+            ],
+            "correct_answer": "Maaaring magkaroon ng problema sa pananalapi"
+          },
+          {
+            "question": "Bakit itinuturo ang pagbabadyet sa Grade 6?",
+            "options": [
+              "Upang maging responsable sa pananalapi mula sa maagang edad",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi ito kapaki-pakinabang"
+            ],
+            "correct_answer": "Upang maging responsable sa pananalapi mula sa maagang edad"
+          },
+          {
+            "question": "Anong bagong sangay ng EPP ang sinimulan ngayong linggo?",
+            "options": [
+              "Family and Consumer Science (FCS)",
+              "Fishery Arts",
+              "Information and Communications Technology",
+              "Agrikultura"
+            ],
+            "correct_answer": "Family and Consumer Science (FCS)"
+          },
+          {
+            "question": "Bakit mahalagang isaalang-alang ang mga pangunahing pangangailangan bago ang gusto sa badyet?",
+            "options": [
+              "Tinitiyak nitong natutugunan muna ang mahahalagang bagay",
+              "Walang pagkakaiba ang dalawa",
+              "Dapat unahin ang gusto palagi",
+              "Hindi mahalaga ang pagkakasunud-sunod"
+            ],
+            "correct_answer": "Tinitiyak nitong natutugunan muna ang mahahalagang bagay"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🤝 GMRC — Pakikipagbayanihan\n\nGrade 6, Linggo 21! Pagpapahalaga: **Pakikiisa (Solidarity)** — huling paksa ng Term 2! 🤝\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagsunod sa mga batas-pangkapaligiran.\n\n## 🤝 Ano ang Bayanihan?\nAng **bayanihan** ay ang tradisyunal na diwa ng pagtutulungan ng mga Pilipino, kung saan nagsasama-sama ang komunidad para tulungan ang isang miyembro nito.\n\n## 🏠 Halimbawa ng Bayanihan\n- Pagtulong sa muling pagtatayo ng bahay ng kapitbahay pagkatapos ng bagyo\n- Sama-samang paglilinis ng komunidad\n- Pagtulong sa pamilyang nasalanta ng kalamidad\n\n## 💡 Bakit Mahalaga Ito?\nAng bayanihan ay nagpapakita ng pagkakaisa at pagmamalasakit ng mga Pilipino sa isa't isa, lalo na sa mga oras ng pangangailangan.\n\n**Mahahalagang salita:** bayanihan, pakikiisa, komunidad, pagtutulungan",
+        "quiz": [
+          {
+            "question": "Ano ang bayanihan?",
+            "options": [
+              "Tradisyunal na diwa ng pagtutulungan ng mga Pilipino",
+              "Isang uri ng laro",
+              "Isang uri ng pagkain",
+              "Isang bantas"
+            ],
+            "correct_answer": "Tradisyunal na diwa ng pagtutulungan ng mga Pilipino"
+          },
+          {
+            "question": "Anong halimbawa ng bayanihan?",
+            "options": [
+              "Pagtulong sa muling pagtatayo ng bahay ng kapitbahay",
+              "Pagsasarili nang walang tulong",
+              "Kawalang pakialam sa iba",
+              "Pagtanggi tumulong"
+            ],
+            "correct_answer": "Pagtulong sa muling pagtatayo ng bahay ng kapitbahay"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Pakikiisa (Solidarity)",
+              "Mapanagutan",
+              "Magalang",
+              "Nasyonalismo"
+            ],
+            "correct_answer": "Pakikiisa (Solidarity)"
+          },
+          {
+            "question": "Bakit mahalaga ang bayanihan lalo na sa oras ng kalamidad?",
+            "options": [
+              "Nagpapakita ito ng pagmamalasakit at tulong sa isa't isa",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan sa panahon ngayon",
+              "Ito ay para sa matatanda lamang"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamalasakit at tulong sa isa't isa"
+          },
+          {
+            "question": "Anong konsepto ang natapos natin bago ang bayanihan?",
+            "options": [
+              "Pagsunod sa mga batas-pangkapaligiran",
+              "Digmaang Pilipino-Amerikano",
+              "Simple machines",
+              "Volume ng cube"
+            ],
+            "correct_answer": "Pagsunod sa mga batas-pangkapaligiran"
+          },
+          {
+            "question": "Paano maipapakita ng isang bata ang diwa ng bayanihan?",
+            "options": [
+              "Sa pagtulong sa gawaing pangkomunidad",
+              "Sa pag-iwas sa lahat ng gawain",
+              "Sa kawalang pakialam sa kapitbahay",
+              "Sa pagtanggi tumulong"
+            ],
+            "correct_answer": "Sa pagtulong sa gawaing pangkomunidad"
+          },
+          {
+            "question": "Bakit itinuturing na natatanging katangian ng Pilipino ang bayanihan?",
+            "options": [
+              "Ipinapakita nito ang malalim na diwa ng pagkakaisa at pagtutulungan",
+              "Wala itong kahalagahan sa kultura",
+              "Ito ay hiram lamang sa ibang bansa",
+              "Hindi ito bahagi ng kulturang Pilipino"
+            ],
+            "correct_answer": "Ipinapakita nito ang malalim na diwa ng pagkakaisa at pagtutulungan"
+          },
+          {
+            "question": "Bakit mahalagang ituro ang bayanihan sa mga bata?",
+            "options": [
+              "Upang mapanatili ang diwa ng pagtutulungan sa susunod na henerasyon",
+              "Hindi na kailangan ituro ito",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang mapanatili ang diwa ng pagtutulungan sa susunod na henerasyon"
+          },
+          {
+            "question": "Ano ang naidudulot ng bayanihan sa isang komunidad?",
+            "options": [
+              "Mas malakas na pagkakaisa at suporta sa isa't isa",
+              "Higit na kaguluhan",
+              "Wala",
+              "Kawalan ng pagkakaisa"
+            ],
+            "correct_answer": "Mas malakas na pagkakaisa at suporta sa isa't isa"
+          },
+          {
+            "question": "Ito ang huling paksa ng Term 2 sa GMRC — ano ang kahalagahan nito?",
+            "options": [
+              "Nagbubuod ito ng mga pagpapahalagang natutunan tungkol sa pamilya at komunidad",
+              "Walang kahalagahan ito",
+              "Ito ay basta huling paksa lamang",
+              "Hindi ito angkop sa Term 2"
+            ],
+            "correct_answer": "Nagbubuod ito ng mga pagpapahalagang natutunan tungkol sa pamilya at komunidad"
+          },
+          {
+            "question": "Sino ang dapat magpakita ng diwa ng bayanihan?",
+            "options": [
+              "Bawat mamamayan, kasama ang mga bata",
+              "Ang pamahalaan lamang",
+              "Ang matatanda lamang",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Bawat mamamayan, kasama ang mga bata"
+          },
+          {
+            "question": "Bakit itinuturing na bahagi ng pagkakakilanlan ng Pilipino ang bayanihan?",
+            "options": [
+              "Ito ay tumutulong bumuo ng pagkakaisa sa bawat panahon ng pangangailangan",
+              "Wala itong kaugnayan sa kultura",
+              "Basta hiram lamang ito sa ibang bansa",
+              "Hindi ito bahagi ng tradisyon"
+            ],
+            "correct_answer": "Ito ay tumutulong bumuo ng pagkakaisa sa bawat panahon ng pangangailangan"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📚 Friday Review — English (Grade 6)\n\n- Synthesizing multiple sources and comparing perspectives\n\nGreat critical reading! 🌟",
+        "quiz": [
+          {
+            "question": "What does 'synthesizing' sources mean?",
+            "options": [
+              "Combining information into one understanding",
+              "Reading only one source",
+              "Ignoring all sources",
+              "Copying a source word for word"
+            ],
+            "correct_answer": "Combining information into one understanding"
+          },
+          {
+            "question": "First step in synthesizing sources?",
+            "options": [
+              "Read each source and note the main idea",
+              "Combine ideas without reading",
+              "Pick the shortest source",
+              "Skip all sources"
+            ],
+            "correct_answer": "Read each source and note the main idea"
+          },
+          {
+            "question": "Why might a soldier's and civilian's account differ?",
+            "options": [
+              "Different perspectives from experience",
+              "One is always lying",
+              "Battles are described the same way",
+              "Only soldiers describe battles accurately"
+            ],
+            "correct_answer": "Different perspectives from experience"
+          },
+          {
+            "question": "What should you look for when comparing sources?",
+            "options": [
+              "What they agree and disagree on",
+              "Only page count",
+              "Only author's name",
+              "Only publication date"
+            ],
+            "correct_answer": "What they agree and disagree on"
+          },
+          {
+            "question": "Why is synthesizing different from summarizing separately?",
+            "options": [
+              "It combines ideas into one understanding",
+              "They are the same process",
+              "Summarizing is always better",
+              "Synthesizing ignores sources"
+            ],
+            "correct_answer": "It combines ideas into one understanding"
+          },
+          {
+            "question": "What is a 'perspective'?",
+            "options": [
+              "A viewpoint shaped by background or purpose",
+              "The physical size of a book",
+              "The color of a cover",
+              "The number of pages"
+            ],
+            "correct_answer": "A viewpoint shaped by background or purpose"
+          },
+          {
+            "question": "Why is synthesizing important for research?",
+            "options": [
+              "Builds a fuller, balanced understanding",
+              "No value in research",
+              "Replaces reading",
+              "Only works for fiction"
+            ],
+            "correct_answer": "Builds a fuller, balanced understanding"
+          },
+          {
+            "question": "If sources disagree, what should a researcher do?",
+            "options": [
+              "Consider both and evaluate evidence",
+              "Ignore both sources",
+              "Believe the first one only",
+              "Assume one is fake"
+            ],
+            "correct_answer": "Consider both and evaluate evidence"
+          },
+          {
+            "question": "What skill is built by comparing perspectives?",
+            "options": [
+              "Critical thinking and evaluation",
+              "Only memorization",
+              "Only handwriting",
+              "Only spelling"
+            ],
+            "correct_answer": "Critical thinking and evaluation"
+          },
+          {
+            "question": "Why might an author's purpose affect their writing?",
+            "options": [
+              "It shapes what details they emphasize",
+              "Purpose never affects writing",
+              "All authors write identically",
+              "Purpose only matters in fiction"
+            ],
+            "correct_answer": "It shapes what details they emphasize"
+          },
+          {
+            "question": "Benefit of reading multiple sources?",
+            "options": [
+              "A fuller, balanced view",
+              "Wastes time",
+              "One source is enough",
+              "Sources always contradict uselessly"
+            ],
+            "correct_answer": "A fuller, balanced view"
+          },
+          {
+            "question": "How does synthesizing prepare you for research writing?",
+            "options": [
+              "Teaches combining evidence into an argument",
+              "Teaches copying sources",
+              "No connection to research",
+              "Only applies to poetry"
+            ],
+            "correct_answer": "Teaches combining evidence into an argument"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📦 Friday Review — Mathematics (Grade 6)\n\n- Volume of cube and rectangular prism\n\nGreat volume calculations! ⭐",
+        "quiz": [
+          {
+            "question": "What does volume measure?",
+            "options": [
+              "Space inside a 3D solid",
+              "The weight of an object",
+              "The outside surface",
+              "The color"
+            ],
+            "correct_answer": "Space inside a 3D solid"
+          },
+          {
+            "question": "Formula for volume of a cube?",
+            "options": [
+              "V = s³",
+              "V = s + s + s",
+              "V = 2s",
+              "V = s²"
+            ],
+            "correct_answer": "V = s³"
+          },
+          {
+            "question": "Volume of a cube with side 4 cm?",
+            "options": [
+              "64 cm³",
+              "16 cm³",
+              "12 cm³",
+              "48 cm³"
+            ],
+            "correct_answer": "64 cm³"
+          },
+          {
+            "question": "Formula for volume of a rectangular prism?",
+            "options": [
+              "V = l × w × h",
+              "V = l + w + h",
+              "V = 2(l + w)",
+              "V = l × w"
+            ],
+            "correct_answer": "V = l × w × h"
+          },
+          {
+            "question": "Volume of a box 5×3×2 cm?",
+            "options": [
+              "30 cm³",
+              "10 cm³",
+              "15 cm³",
+              "25 cm³"
+            ],
+            "correct_answer": "30 cm³"
+          },
+          {
+            "question": "How many cm³ equal 1 liter?",
+            "options": [
+              "1,000 cm³",
+              "100 cm³",
+              "10 cm³",
+              "10,000 cm³"
+            ],
+            "correct_answer": "1,000 cm³"
+          },
+          {
+            "question": "Volume is measured in what kind of units?",
+            "options": [
+              "Cubic units",
+              "Square units only",
+              "Linear units only",
+              "No units"
+            ],
+            "correct_answer": "Cubic units"
+          },
+          {
+            "question": "A box has 2,000 cm³. How many liters?",
+            "options": [
+              "2 liters",
+              "0.2 liters",
+              "20 liters",
+              "200 liters"
+            ],
+            "correct_answer": "2 liters"
+          },
+          {
+            "question": "Why is volume useful in real life?",
+            "options": [
+              "Determines container capacity",
+              "No practical use",
+              "Only for math class",
+              "Measures weight"
+            ],
+            "correct_answer": "Determines container capacity"
+          },
+          {
+            "question": "A cube has volume 27 cm³. Side length?",
+            "options": [
+              "3 cm",
+              "9 cm",
+              "27 cm",
+              "6 cm"
+            ],
+            "correct_answer": "3 cm"
+          },
+          {
+            "question": "Why does a cube use s³?",
+            "options": [
+              "All sides are equal",
+              "Cubes have no sides",
+              "Cubes are always bigger",
+              "s³ has no meaning"
+            ],
+            "correct_answer": "All sides are equal"
+          },
+          {
+            "question": "Prism 10×4×5 cm. Volume?",
+            "options": [
+              "200 cm³",
+              "19 cm³",
+              "40 cm³",
+              "50 cm³"
+            ],
+            "correct_answer": "200 cm³"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ⚙️ Friday Review — Science (Grade 6)\n\n- Simple machines: inclined planes and wedges\n\nGreat machine mechanics! 🌟",
+        "quiz": [
+          {
+            "question": "What is a simple machine?",
+            "options": [
+              "A basic device that makes work easier",
+              "A complex electronic device",
+              "A device with no function",
+              "A type of computer"
+            ],
+            "correct_answer": "A basic device that makes work easier"
+          },
+          {
+            "question": "What is an inclined plane?",
+            "options": [
+              "A flat, sloped surface like a ramp",
+              "A round wheel",
+              "A sharp blade",
+              "A twisted rod"
+            ],
+            "correct_answer": "A flat, sloped surface like a ramp"
+          },
+          {
+            "question": "How does an inclined plane help?",
+            "options": [
+              "Reduces force needed to move objects up",
+              "Increases force needed",
+              "Has no effect",
+              "Only lowers objects"
+            ],
+            "correct_answer": "Reduces force needed to move objects up"
+          },
+          {
+            "question": "What is a wedge?",
+            "options": [
+              "Two inclined planes joined together",
+              "A single flat surface",
+              "A round object",
+              "A type of lever"
+            ],
+            "correct_answer": "Two inclined planes joined together"
+          },
+          {
+            "question": "Example of a wedge?",
+            "options": [
+              "An axe",
+              "A ramp",
+              "A wheel",
+              "A pulley"
+            ],
+            "correct_answer": "An axe"
+          },
+          {
+            "question": "Trade-off of using an inclined plane?",
+            "options": [
+              "Less force but greater distance",
+              "More force, shorter distance",
+              "No trade-off",
+              "Only for heavy objects"
+            ],
+            "correct_answer": "Less force but greater distance"
+          },
+          {
+            "question": "Why use a ramp instead of lifting straight up?",
+            "options": [
+              "Requires less force",
+              "Requires more force",
+              "No benefit",
+              "Only works on flat ground"
+            ],
+            "correct_answer": "Requires less force"
+          },
+          {
+            "question": "Main function of a wedge?",
+            "options": [
+              "To split or cut things",
+              "To lift heavy objects only",
+              "To measure distance",
+              "To generate electricity"
+            ],
+            "correct_answer": "To split or cut things"
+          },
+          {
+            "question": "Example of an inclined plane in real life?",
+            "options": [
+              "A wheelchair ramp",
+              "A pair of scissors",
+              "A doorknob",
+              "A seesaw"
+            ],
+            "correct_answer": "A wheelchair ramp"
+          },
+          {
+            "question": "Why are simple machines helpful?",
+            "options": [
+              "Change force amount or direction needed",
+              "Make tasks impossible",
+              "Only work in factories",
+              "No practical use"
+            ],
+            "correct_answer": "Change force amount or direction needed"
+          },
+          {
+            "question": "Longer, less steep ramp: effect on force?",
+            "options": [
+              "Less force needed",
+              "More force needed",
+              "No change",
+              "Ramp becomes useless"
+            ],
+            "correct_answer": "Less force needed"
+          },
+          {
+            "question": "How is a wedge different from a ramp?",
+            "options": [
+              "Wedge splits objects; ramp moves objects up",
+              "Same purpose exactly",
+              "Wedge only lifts",
+              "Ramp only cuts"
+            ],
+            "correct_answer": "Wedge splits objects; ramp moves objects up"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📖 Friday Review — Filipino (Grade 6)\n\n- Bokabularyo ng panitikan at pagsusuri\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tema sa isang akda?",
+            "options": [
+              "Ang pangkalahatang mensahe o aral ng akda",
+              "Ang pangalan ng may-akda",
+              "Ang bilang ng pahina",
+              "Ang uri ng papel"
+            ],
+            "correct_answer": "Ang pangkalahatang mensahe o aral ng akda"
+          },
+          {
+            "question": "Ano ang simbolismo?",
+            "options": [
+              "Paggamit ng bagay para sa mas malalim na kahulugan",
+              "Uri ng tugma",
+              "Uri ng bantas",
+              "Isang pangngalan lamang"
+            ],
+            "correct_answer": "Paggamit ng bagay para sa mas malalim na kahulugan"
+          },
+          {
+            "question": "Ano ang punto de bista?",
+            "options": [
+              "Ang panig o pananaw ng kuwento",
+              "Ang haba ng kuwento",
+              "Ang pamagat ng aklat",
+              "Ang kulay ng pabalat"
+            ],
+            "correct_answer": "Ang panig o pananaw ng kuwento"
+          },
+          {
+            "question": "Sa ibong sa kulungan, ano ang isimbolo ng kulungan?",
+            "options": [
+              "Kawalang kalayaan",
+              "Kasaganaan",
+              "Kaligayahan",
+              "Kalusugan"
+            ],
+            "correct_answer": "Kawalang kalayaan"
+          },
+          {
+            "question": "Bakit tukuyin ang tema ng akda?",
+            "options": [
+              "Tumutulong maunawaan ang aral",
+              "Walang kahalagahan",
+              "Hindi bahagi ng pagsusuri",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Tumutulong maunawaan ang aral"
+          },
+          {
+            "question": "Bakit ginagamit ang simbolismo?",
+            "options": [
+              "Nagbibigay ng mas malalim na kahulugan",
+              "Pahabain lamang ang kuwento",
+              "Walang layunin",
+              "Gawing mahirap unawain"
+            ],
+            "correct_answer": "Nagbibigay ng mas malalim na kahulugan"
+          },
+          {
+            "question": "Bakit tukuyin ang punto de bista ng kuwento?",
+            "options": [
+              "Nakakaapekto sa pagkakasalaysay",
+              "Walang epekto",
+              "Hindi na kailangan tukuyin",
+              "Palaging pareho sa lahat"
+            ],
+            "correct_answer": "Nakakaapekto sa pagkakasalaysay"
+          },
+          {
+            "question": "Anong bagong yunit ang sinimulan ngayong linggo?",
+            "options": [
+              "Pagsusuri ng akdang pampanitikan",
+              "Balik-aral sa buong term",
+              "Pagsulat ng liham",
+              "Pag-aaral ng gramatika lamang"
+            ],
+            "correct_answer": "Pagsusuri ng akdang pampanitikan"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga terminong ito?",
+            "options": [
+              "Tumutulong mas maunawaan ang akda",
+              "Walang gamit",
+              "Para lamang sa guro",
+              "Hindi kapaki-pakinabang"
+            ],
+            "correct_answer": "Tumutulong mas maunawaan ang akda"
+          },
+          {
+            "question": "Ano ang maaaring isimbolo ng liwanag?",
+            "options": [
+              "Pag-asa o kaalaman",
+              "Kawalang pag-asa",
+              "Kamatayan lamang",
+              "Walang kahulugan"
+            ],
+            "correct_answer": "Pag-asa o kaalaman"
+          },
+          {
+            "question": "Bakit mahalagang kasanayan ang pagsusuri ng akda?",
+            "options": [
+              "Nagpapaunlad ng kritikal na pag-iisip",
+              "Wala itong gamit",
+              "Para sa matatanda lamang",
+              "Hindi bahagi ng Filipino"
+            ],
+            "correct_answer": "Nagpapaunlad ng kritikal na pag-iisip"
+          },
+          {
+            "question": "Paano konektado ang tema, simbolismo, at punto de bista?",
+            "options": [
+              "Magkakasamang bumubuo ng pag-unawa",
+              "Walang koneksyon",
+              "Isa lamang ang mahalaga",
+              "Hindi sila konektado"
+            ],
+            "correct_answer": "Magkakasamang bumubuo ng pag-unawa"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Friday Review — Araling Panlipunan (Grade 6)\n\n- Ikatlong Republika\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Kailan itinatag ang Ikatlong Republika?",
+            "options": [
+              "Hulyo 4, 1946",
+              "Hunyo 12, 1898",
+              "Setyembre 21, 1972",
+              "Pebrero 25, 1986"
+            ],
+            "correct_answer": "Hulyo 4, 1946"
+          },
+          {
+            "question": "Sino ang nagbigay ng kalayaan noong 1946?",
+            "options": [
+              "Estados Unidos",
+              "Espanya",
+              "Hapon",
+              "Britanya"
+            ],
+            "correct_answer": "Estados Unidos"
+          },
+          {
+            "question": "Ano ang kailangang muling itayo pagkatapos ng digmaan?",
+            "options": [
+              "Mga gusto, ekonomiya, pamahalaan",
+              "Wala",
+              "Mga eskwelahan lamang",
+              "Mga simbahan lamang"
+            ],
+            "correct_answer": "Mga gusto, ekonomiya, pamahalaan"
+          },
+          {
+            "question": "Ano ang Cold War?",
+            "options": [
+              "Tensyon sa US at Unyong Sobyet",
+              "Aktwal na labanan sa Pilipinas",
+              "Uri ng kalamidad",
+              "Kasunduang pangkalakalan"
+            ],
+            "correct_answer": "Tensyon sa US at Unyong Sobyet"
+          },
+          {
+            "question": "Bakit naapektuhan ang Pilipinas ng Cold War?",
+            "options": [
+              "Kaalyansa sa US",
+              "Nasa Europa ito",
+              "Hindi ito nakaugnay",
+              "Kaalyansa sa Unyong Sobyet"
+            ],
+            "correct_answer": "Kaalyansa sa US"
+          },
+          {
+            "question": "Panahon bago ang Ikatlong Republika?",
+            "options": [
+              "Imperyalismong Amerikano at Hapones",
+              "Panahon ng Espanyol",
+              "Kontemporanyong Pilipinas",
+              "EDSA People Power"
+            ],
+            "correct_answer": "Imperyalismong Amerikano at Hapones"
+          },
+          {
+            "question": "Bakit pag-aralan ang Ikatlong Republika?",
+            "options": [
+              "Ipinapakita paano nagsimula muli ang bansa",
+              "Walang kahalagahan",
+              "Hindi bahagi ng kasaysayan",
+              "Tungkol lamang sa Espanya"
+            ],
+            "correct_answer": "Ipinapakita paano nagsimula muli ang bansa"
+          },
+          {
+            "question": "Hamon ng Pilipinas pagkatapos ng 1946?",
+            "options": [
+              "Muling pagtatayo matapos ang digmaan",
+              "Walang hamon",
+              "Agad naging mayaman",
+              "Walang problema"
+            ],
+            "correct_answer": "Muling pagtatayo matapos ang digmaan"
+          },
+          {
+            "question": "Bakit makasaysayan ang 1946?",
+            "options": [
+              "Taon ng kalayaan ng Pilipinas",
+              "Walang pangyayari",
+              "Taon ng EDSA",
+              "Taon ng Batas Militar"
+            ],
+            "correct_answer": "Taon ng kalayaan ng Pilipinas"
+          },
+          {
+            "question": "Epekto ng Cold War sa ibang bansa?",
+            "options": [
+              "Hinihikayat kumampi sa superpower",
+              "Walang epekto",
+              "Nagdulot ng kapayapaan",
+              "Nagtapos ang lahat ng gera"
+            ],
+            "correct_answer": "Hinihikayat kumampi sa superpower"
+          },
+          {
+            "question": "Bakit malaman ang kasaysayan ng Ikatlong Republika?",
+            "options": [
+              "Maunawaan ang pinagmulan ng pamahalaan ngayon",
+              "Walang kaugnayan",
+              "Hindi na importante",
+              "Tungkol lamang sa ibang bansa"
+            ],
+            "correct_answer": "Maunawaan ang pinagmulan ng pamahalaan ngayon"
+          },
+          {
+            "question": "Kaugnayan sa temang 'Mga Hamon at Pagtugon sa Pagkabansa'?",
+            "options": [
+              "Paano tumugon ang bansa sa hamon ng muling pagtatayo",
+              "Walang koneksyon",
+              "Hiwalay na paksa",
+              "Hindi bahagi ng tema"
+            ],
+            "correct_answer": "Paano tumugon ang bansa sa hamon ng muling pagtatayo"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🏥 Friday Review — MAPEH (Grade 6)\n\n- Karaniwang nakakahawang sakit\n\nMagaling sa Health! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang nakakahawang sakit?",
+            "options": [
+              "Sakit na kumakalat sa mga tao",
+              "Sakit na hindi kumakalat",
+              "Uri ng bitamina",
+              "Uri ng ehersisyo"
+            ],
+            "correct_answer": "Sakit na kumakalat sa mga tao"
+          },
+          {
+            "question": "Ano ang chain of infection?",
+            "options": [
+              "Proseso ng pagkalat ng sakit",
+              "Uri ng gamot",
+              "Uri ng ehersisyo",
+              "Bakuna"
+            ],
+            "correct_answer": "Proseso ng pagkalat ng sakit"
+          },
+          {
+            "question": "Ano ang ginagawa ng bakuna?",
+            "options": [
+              "Bumubuo ng imyunidad",
+              "Nagdudulot ng sakit",
+              "Walang epekto",
+              "Pinapahina ang immune system"
+            ],
+            "correct_answer": "Bumubuo ng imyunidad"
+          },
+          {
+            "question": "Halimbawa ng nakakahawang sakit?",
+            "options": [
+              "Trangkaso",
+              "Diabetes",
+              "Osteoporosis",
+              "Hika"
+            ],
+            "correct_answer": "Trangkaso"
+          },
+          {
+            "question": "Bakit maunawaan ang chain of infection?",
+            "options": [
+              "Maiwasan ang pagkalat ng sakit",
+              "Walang gamit",
+              "Hindi kailangan",
+              "Tungkol lamang sa hayop"
+            ],
+            "correct_answer": "Maiwasan ang pagkalat ng sakit"
+          },
+          {
+            "question": "Paraan para maputol ang chain of infection?",
+            "options": [
+              "Paghuhugas ng kamay",
+              "Kawalang pakialam",
+              "Walang proteksyon",
+              "Kalimutan magbakuna"
+            ],
+            "correct_answer": "Paghuhugas ng kamay"
+          },
+          {
+            "question": "Bakit magpabakuna?",
+            "options": [
+              "Proteksyon laban sa sakit",
+              "Walang benepisyo",
+              "Nagdudulot ng sakit",
+              "Hindi na kailangan"
+            ],
+            "correct_answer": "Proteksyon laban sa sakit"
+          },
+          {
+            "question": "Epekto ng hindi pagsunod sa hakbang laban sa sakit?",
+            "options": [
+              "Mas mabilis kumalat",
+              "Walang epekto",
+              "Mas mabuti",
+              "Nawawala agad"
+            ],
+            "correct_answer": "Mas mabilis kumalat"
+          },
+          {
+            "question": "Bakit itinuro ang paksang ito?",
+            "options": [
+              "Responsable sa pag-iwas ng sakit",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay"
+            ],
+            "correct_answer": "Responsable sa pag-iwas ng sakit"
+          },
+          {
+            "question": "Unang bahagi ng chain of infection?",
+            "options": [
+              "Pinagmumulan ng sakit",
+              "Bagong katawan",
+              "Bakuna",
+              "Daanan ng pagpasok"
+            ],
+            "correct_answer": "Pinagmumulan ng sakit"
+          },
+          {
+            "question": "Bakit mahalaga ang imyunidad?",
+            "options": [
+              "Labanan ang mga sakit",
+              "Walang gamit",
+              "Nagdudulot ng sakit",
+              "Hindi totoong konsepto"
+            ],
+            "correct_answer": "Labanan ang mga sakit"
+          },
+          {
+            "question": "Bakit mahalaga ang pag-iwas sa sakit sa komunidad?",
+            "options": [
+              "Protektahan ang kalusugan ng lahat",
+              "Walang epekto",
+              "Isyu ng indibidwal lamang",
+              "Hindi kaugnay"
+            ],
+            "correct_answer": "Protektahan ang kalusugan ng lahat"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🏠 Friday Review — EPP (Grade 6)\n\n- Pamamahala ng yaman ng pamilya\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang yaman ng pamilya?",
+            "options": [
+              "Oras, pera, kasanayan, enerhiya",
+              "Isang gamit sa bahay lamang",
+              "Isang uri ng laro",
+              "Isang bantas"
+            ],
+            "correct_answer": "Oras, pera, kasanayan, enerhiya"
+          },
+          {
+            "question": "Ano ang badyet?",
+            "options": [
+              "Plano kung paano gagastusin ang kita",
+              "Uri ng pagkain",
+              "Uri ng laro",
+              "Bantas"
+            ],
+            "correct_answer": "Plano kung paano gagastusin ang kita"
+          },
+          {
+            "question": "Ano ang dapat unahin sa badyet?",
+            "options": [
+              "Mga pangunahing pangangailangan",
+              "Mga gusto lamang",
+              "Walang inuuna",
+              "Libangan lamang"
+            ],
+            "correct_answer": "Mga pangunahing pangangailangan"
+          },
+          {
+            "question": "Unang hakbang sa paggawa ng badyet?",
+            "options": [
+              "Ilista ang kita",
+              "Gumastos agad",
+              "Kalimutan ang kita",
+              "Umutang muna"
+            ],
+            "correct_answer": "Ilista ang kita"
+          },
+          {
+            "question": "Bakit magtabi ng ipon?",
+            "options": [
+              "Para sa hindi inaasahang pangangailangan",
+              "Walang kahalagahan",
+              "Hindi kailangan mag-ipon",
+              "Para gastusin agad"
+            ],
+            "correct_answer": "Para sa hindi inaasahang pangangailangan"
+          },
+          {
+            "question": "Kasama sa gastusin ng pamilya?",
+            "options": [
+              "Pagkain, tirahan, edukasyon",
+              "Wala",
+              "Libangan lamang",
+              "Damit lamang"
+            ],
+            "correct_answer": "Pagkain, tirahan, edukasyon"
+          },
+          {
+            "question": "Bakit ihambing ang kita at gastusin?",
+            "options": [
+              "Matiyak na sapat ang kita",
+              "Walang kahalagahan",
+              "Hindi na kailangan",
+              "Gastusin lang lahat"
+            ],
+            "correct_answer": "Matiyak na sapat ang kita"
+          },
+          {
+            "question": "Bakit matutong pamahalaan ang yaman ng pamilya?",
+            "options": [
+              "Matugunan ang pangangailangan nang maayos",
+              "Walang gamit",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng EPP"
+            ],
+            "correct_answer": "Matugunan ang pangangailangan nang maayos"
+          },
+          {
+            "question": "Mangyayari kung mas malaki ang gastusin kaysa kita?",
+            "options": [
+              "Problema sa pananalapi",
+              "Walang epekto",
+              "Mas maayos ang lahat",
+              "Lalaki ang kita"
+            ],
+            "correct_answer": "Problema sa pananalapi"
+          },
+          {
+            "question": "Bakit itinuro ang pagbabadyet sa Grade 6?",
+            "options": [
+              "Responsable sa pananalapi mula sa maagang edad",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kapaki-pakinabang"
+            ],
+            "correct_answer": "Responsable sa pananalapi mula sa maagang edad"
+          },
+          {
+            "question": "Bagong sangay ng EPP na sinimulan?",
+            "options": [
+              "Family and Consumer Science",
+              "Fishery Arts",
+              "ICT",
+              "Agrikultura"
+            ],
+            "correct_answer": "Family and Consumer Science"
+          },
+          {
+            "question": "Bakit unahin ang pangangailangan bago ang gusto?",
+            "options": [
+              "Tinitiyak natutugunan ang mahahalagang bagay",
+              "Walang pagkakaiba",
+              "Dapat unahin ang gusto",
+              "Hindi mahalaga ang pagkakasunud-sunod"
+            ],
+            "correct_answer": "Tinitiyak natutugunan ang mahahalagang bagay"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🤝 Friday Review — GMRC (Grade 6)\n\n- Pakikipagbayanihan\n\nMagaling! Tapos na ang Term 2! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang bayanihan?",
+            "options": [
+              "Diwa ng pagtutulungan ng mga Pilipino",
+              "Uri ng laro",
+              "Uri ng pagkain",
+              "Bantas"
+            ],
+            "correct_answer": "Diwa ng pagtutulungan ng mga Pilipino"
+          },
+          {
+            "question": "Halimbawa ng bayanihan?",
+            "options": [
+              "Pagtulong sa muling pagtatayo ng bahay",
+              "Pagsasarili nang walang tulong",
+              "Kawalang pakialam",
+              "Pagtanggi tumulong"
+            ],
+            "correct_answer": "Pagtulong sa muling pagtatayo ng bahay"
+          },
+          {
+            "question": "Pagpapahalaga sa linggong ito?",
+            "options": [
+              "Pakikiisa",
+              "Mapanagutan",
+              "Magalang",
+              "Nasyonalismo"
+            ],
+            "correct_answer": "Pakikiisa"
+          },
+          {
+            "question": "Bakit mahalaga ang bayanihan sa kalamidad?",
+            "options": [
+              "Pagmamalasakit at tulong sa isa't isa",
+              "Walang kahalagahan",
+              "Hindi na kailangan",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Pagmamalasakit at tulong sa isa't isa"
+          },
+          {
+            "question": "Konsepto bago ang bayanihan?",
+            "options": [
+              "Pagsunod sa batas-pangkapaligiran",
+              "Digmaang Pilipino-Amerikano",
+              "Simple machines",
+              "Volume ng cube"
+            ],
+            "correct_answer": "Pagsunod sa batas-pangkapaligiran"
+          },
+          {
+            "question": "Paano maipapakita ng bata ang bayanihan?",
+            "options": [
+              "Pagtulong sa gawaing pangkomunidad",
+              "Pag-iwas sa gawain",
+              "Kawalang pakialam",
+              "Pagtanggi tumulong"
+            ],
+            "correct_answer": "Pagtulong sa gawaing pangkomunidad"
+          },
+          {
+            "question": "Bakit natatangi ang bayanihan sa Pilipino?",
+            "options": [
+              "Malalim na diwa ng pagkakaisa",
+              "Walang kahalagahan",
+              "Hiram lamang sa ibang bansa",
+              "Hindi bahagi ng kultura"
+            ],
+            "correct_answer": "Malalim na diwa ng pagkakaisa"
+          },
+          {
+            "question": "Bakit ituro ang bayanihan sa mga bata?",
+            "options": [
+              "Mapanatili ang diwa ng pagtutulungan",
+              "Hindi kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Mapanatili ang diwa ng pagtutulungan"
+          },
+          {
+            "question": "Naidudulot ng bayanihan sa komunidad?",
+            "options": [
+              "Mas malakas na pagkakaisa",
+              "Higit na kaguluhan",
+              "Wala",
+              "Kawalan ng pagkakaisa"
+            ],
+            "correct_answer": "Mas malakas na pagkakaisa"
+          },
+          {
+            "question": "Kahalagahan ng huling paksa ng Term 2?",
+            "options": [
+              "Nagbubuod ng natutunang pagpapahalaga",
+              "Walang kahalagahan",
+              "Basta huling paksa",
+              "Hindi angkop"
+            ],
+            "correct_answer": "Nagbubuod ng natutunang pagpapahalaga"
+          },
+          {
+            "question": "Sino dapat magpakita ng diwa ng bayanihan?",
+            "options": [
+              "Bawat mamamayan, kasama ang bata",
+              "Pamahalaan lamang",
+              "Matatanda lamang",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Bawat mamamayan, kasama ang bata"
+          },
+          {
+            "question": "Bakit itinuturing na bahagi ng pagkakakilanlan ng Pilipino ang bayanihan?",
+            "options": [
+              "Tumutulong bumuo ng pagkakaisa sa bawat panahon ng pangangailangan",
+              "Walang kaugnayan sa kultura",
+              "Hiram lamang sa ibang bansa",
+              "Hindi bahagi ng tradisyon"
+            ],
+            "correct_answer": "Tumutulong bumuo ng pagkakaisa sa bawat panahon ng pangangailangan"
+          }
+        ]
+      }
+    }
+  }
+}

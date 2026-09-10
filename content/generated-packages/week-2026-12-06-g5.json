@@ -1,0 +1,2266 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-12-06",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📚 English — Using a Glossary\n\nGrade 5, Week 26! Let's learn about a helpful tool found at the back of books. 📚\n\n## 🔄 Review\nWe learned about **appositives** as context clues.\n\n## 📚 What Is a Glossary?\nA **glossary** is a list of difficult or special words used in a book, along with their **definitions**, usually found at the **back** of the book.\n\n## 🔍 Glossary vs. Dictionary\n- A **glossary** only defines words used in *that specific book* or topic\n- A **dictionary** defines *all* words in the language\n\n## 🪜 How to Use a Glossary\n1. Find the glossary section (usually at the back)\n2. Words are listed in **alphabetical order**\n3. Look up the unfamiliar word to find its definition **as used in that book**\n\n**Example:** A science textbook's glossary might define \"photosynthesis\" specifically in the context of plants, matching how the book uses it.\n\n**Key words:** glossary, definition, alphabetical order, dictionary",
+        "quiz": [
+          {
+            "question": "What is a glossary?",
+            "options": [
+              "A list of difficult words and their definitions from a specific book",
+              "A list of every word in the language",
+              "A table of contents",
+              "An index of page numbers"
+            ],
+            "correct_answer": "A list of difficult words and their definitions from a specific book"
+          },
+          {
+            "question": "Where is a glossary usually found in a book?",
+            "options": [
+              "At the back",
+              "At the very beginning",
+              "In the middle only",
+              "On the front cover"
+            ],
+            "correct_answer": "At the back"
+          },
+          {
+            "question": "How is a glossary different from a dictionary?",
+            "options": [
+              "A glossary only defines words used in that specific book",
+              "They are exactly the same thing",
+              "A dictionary is always shorter",
+              "A glossary defines every word in the language"
+            ],
+            "correct_answer": "A glossary only defines words used in that specific book"
+          },
+          {
+            "question": "How are words usually organized in a glossary?",
+            "options": [
+              "Alphabetical order",
+              "By length of the word",
+              "Randomly",
+              "By page number"
+            ],
+            "correct_answer": "Alphabetical order"
+          },
+          {
+            "question": "Why might a science textbook have its own glossary?",
+            "options": [
+              "To define specialized words as used specifically in that book",
+              "Because dictionaries don't exist for science",
+              "To replace the entire dictionary",
+              "Because glossaries are only for storybooks"
+            ],
+            "correct_answer": "To define specialized words as used specifically in that book"
+          },
+          {
+            "question": "If you don't understand a bolded word in your textbook, where should you look first?",
+            "options": [
+              "The glossary at the back",
+              "The front cover",
+              "A random page",
+              "Ignore the word completely"
+            ],
+            "correct_answer": "The glossary at the back"
+          },
+          {
+            "question": "What might you find right next to a word in a glossary?",
+            "options": [
+              "Its definition",
+              "Its price",
+              "Its page number in a different book",
+              "A picture only, no words"
+            ],
+            "correct_answer": "Its definition"
+          },
+          {
+            "question": "Why is alphabetical order useful in a glossary?",
+            "options": [
+              "It makes words easy to find quickly",
+              "It makes the glossary shorter",
+              "It removes the need for definitions",
+              "It has no real purpose"
+            ],
+            "correct_answer": "It makes words easy to find quickly"
+          },
+          {
+            "question": "A history book's glossary defines 'colonization.' What can you expect this definition to match?",
+            "options": [
+              "How the word is used specifically in that history book",
+              "A definition of every meaning the word could ever have",
+              "A biology definition instead",
+              "Nothing related to the word's actual meaning"
+            ],
+            "correct_answer": "How the word is used specifically in that history book"
+          },
+          {
+            "question": "Which of these would most likely have its own glossary?",
+            "options": [
+              "A science textbook with specialized vocabulary",
+              "A blank notebook",
+              "A single photograph",
+              "A grocery list"
+            ],
+            "correct_answer": "A science textbook with specialized vocabulary"
+          },
+          {
+            "question": "Why is a glossary more efficient than a full dictionary for studying one subject?",
+            "options": [
+              "It focuses only on the words relevant to that subject",
+              "It has more pages than a dictionary",
+              "It never has definitions, only pictures",
+              "It is written in a foreign language"
+            ],
+            "correct_answer": "It focuses only on the words relevant to that subject"
+          },
+          {
+            "question": "What skill from earlier lessons is similar to using a glossary?",
+            "options": [
+              "Using context clues to find word meanings",
+              "Multiplying decimals",
+              "Drawing a bar graph",
+              "Reading a map"
+            ],
+            "correct_answer": "Using context clues to find word meanings"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔺 Mathematics — Prisms vs. Pyramids\n\nGrade 5, Week 26! Let's compare two important solid figures. 🔺\n\n## 🔄 Review\nWe studied **solid figures**: cube, cylinder, cone, sphere.\n\n## 🔺 Prisms\nA **prism** has **two parallel, identical bases** connected by rectangular sides. A rectangular prism has 6 faces, 8 vertices, and 12 edges.\n\n## 🔻 Pyramids\nA **pyramid** has **one base** and triangular faces that meet at a single point (**apex**). A square pyramid has 5 faces, 5 vertices, and 8 edges.\n\n## 🔢 Faces, Vertices, and Edges\n- **Face** — a flat surface\n- **Vertex (plural: vertices)** — a corner point where edges meet\n- **Edge** — a line where two faces meet\n\n## 📐 What Is a Net?\nA **net** is a 2D pattern that can be folded to form a 3D solid — like unfolding a cardboard box flat.\n\n**Key words:** prism, pyramid, face, vertex, edge, net",
+        "quiz": [
+          {
+            "question": "What is a prism?",
+            "options": [
+              "A solid with two parallel, identical bases connected by rectangles",
+              "A solid with one base and triangular sides",
+              "A perfectly round shape",
+              "A flat 2D shape"
+            ],
+            "correct_answer": "A solid with two parallel, identical bases connected by rectangles"
+          },
+          {
+            "question": "What is a pyramid?",
+            "options": [
+              "A solid with one base and triangular faces meeting at a point",
+              "A solid with two identical parallel bases",
+              "A perfectly round shape",
+              "A flat 2D shape"
+            ],
+            "correct_answer": "A solid with one base and triangular faces meeting at a point"
+          },
+          {
+            "question": "How many faces does a rectangular prism have?",
+            "options": [
+              "6",
+              "5",
+              "8",
+              "4"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "How many faces does a square pyramid have?",
+            "options": [
+              "5",
+              "6",
+              "4",
+              "8"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "What is a vertex?",
+            "options": [
+              "A corner point where edges meet",
+              "A flat surface",
+              "A line where two faces meet",
+              "A curved surface"
+            ],
+            "correct_answer": "A corner point where edges meet"
+          },
+          {
+            "question": "What is an edge?",
+            "options": [
+              "A line where two faces meet",
+              "A corner point",
+              "A flat surface",
+              "A curved line only"
+            ],
+            "correct_answer": "A line where two faces meet"
+          },
+          {
+            "question": "What is the point at the top of a pyramid called?",
+            "options": [
+              "Apex",
+              "Base",
+              "Edge",
+              "Face"
+            ],
+            "correct_answer": "Apex"
+          },
+          {
+            "question": "How many vertices does a rectangular prism have?",
+            "options": [
+              "8",
+              "6",
+              "12",
+              "4"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "How many edges does a square pyramid have?",
+            "options": [
+              "8",
+              "5",
+              "6",
+              "12"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is a net?",
+            "options": [
+              "A 2D pattern that folds into a 3D solid",
+              "A type of triangle only",
+              "A curved surface",
+              "A type of vertex"
+            ],
+            "correct_answer": "A 2D pattern that folds into a 3D solid"
+          },
+          {
+            "question": "How is a prism different from a pyramid?",
+            "options": [
+              "A prism has two identical bases; a pyramid has only one",
+              "They are exactly the same shape",
+              "A pyramid always has more faces than a prism",
+              "A prism never has rectangular sides"
+            ],
+            "correct_answer": "A prism has two identical bases; a pyramid has only one"
+          },
+          {
+            "question": "If you unfolded a cardboard box completely flat, what would you get?",
+            "options": [
+              "The net of the box",
+              "A new pyramid",
+              "A sphere",
+              "A cylinder"
+            ],
+            "correct_answer": "The net of the box"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# ✍️ Filipino — Pagsasanay: Pagsulat ng Sariling Maikling Kuwento\n\nGrade 5, Linggo 26! Panahon na para isulat ang sarili mong kuwento! ✍️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **dulang pambata**: tauhan, dayalogo, direksyon sa entablado.\n\n## ✍️ Pagsasama-sama ng Natutunan\nGamit ang lahat ng natutunan tungkol sa **balangkas** (simula, gitna, wakas), maaari mo nang simulan ang pagsulat ng iyong sariling maikling kuwento.\n\n## 📝 Mga Hakbang\n1. Pumili ng simpleng **suliranin** para sa iyong tauhan\n2. Ilarawan ang **tagpuan** — saan at kailan nangyari ang kuwento\n3. Buuin ang **simula** (pagpapakilala), **gitna** (paglaki ng suliranin), at **wakas** (paglutas)\n4. Gumamit ng **tugma o kaakit-akit na wika** kung nagsusulat ka rin ng bahaging patula\n\n## 💡 Payo\nHuwag matakot magsimula nang simple — ang pinakamahalagang bagay ay may **malinaw na balangkas** ang iyong kuwento.\n\n**Mahahalagang salita:** pagsasanay, balangkas, suliranin, tagpuan",
+        "quiz": [
+          {
+            "question": "Ano ang unang hakbang sa pagsulat ng sariling kuwento?",
+            "options": [
+              "Pumili ng simpleng suliranin para sa tauhan",
+              "Direktang isulat ang wakas",
+              "Kalimutan ang balangkas",
+              "Huwag maglagay ng tauhan"
+            ],
+            "correct_answer": "Pumili ng simpleng suliranin para sa tauhan"
+          },
+          {
+            "question": "Ano ang dapat ilarawan bilang tagpuan?",
+            "options": [
+              "Saan at kailan nangyari ang kuwento",
+              "Ang pangalan ng may-akda",
+              "Ang bilang ng pahina",
+              "Ang katapusan lamang"
+            ],
+            "correct_answer": "Saan at kailan nangyari ang kuwento"
+          },
+          {
+            "question": "Ano ang nangyayari sa gitna ng kuwento?",
+            "options": [
+              "Lumalaki ang suliranin",
+              "Ipinapakilala lamang ang tauhan",
+              "Nalulutas agad ang lahat",
+              "Wala nang mangyayari"
+            ],
+            "correct_answer": "Lumalaki ang suliranin"
+          },
+          {
+            "question": "Ano ang mahalagang bagay na dapat mayroon ang isang kuwento ayon sa payo?",
+            "options": [
+              "Malinaw na balangkas",
+              "Napakahabang pangungusap",
+              "Maraming tauhan lamang",
+              "Kumplikadong salita"
+            ],
+            "correct_answer": "Malinaw na balangkas"
+          },
+          {
+            "question": "Bakit hindi dapat matakot magsimulang simple sa pagsulat?",
+            "options": [
+              "Ang pinakamahalaga ay ang malinaw na balangkas, hindi ang kahirapan ng salita",
+              "Dapat palaging kumplikado ang kuwento",
+              "Ang simpleng kuwento ay hindi maganda",
+              "Hindi dapat magsulat nang simple"
+            ],
+            "correct_answer": "Ang pinakamahalaga ay ang malinaw na balangkas, hindi ang kahirapan ng salita"
+          },
+          {
+            "question": "Anong bahagi ng kuwento ang naglalaman ng paglutas ng suliranin?",
+            "options": [
+              "Wakas",
+              "Simula",
+              "Gitna lamang",
+              "Tagpuan"
+            ],
+            "correct_answer": "Wakas"
+          },
+          {
+            "question": "Bakit mahalagang ilarawan nang mabuti ang tagpuan?",
+            "options": [
+              "Nakakatulong ito sa mambabasa na maisip ang kapaligiran ng kuwento",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan ilarawan ang tagpuan",
+              "Ito ay laging huling bahagi ng kuwento"
+            ],
+            "correct_answer": "Nakakatulong ito sa mambabasa na maisip ang kapaligiran ng kuwento"
+          },
+          {
+            "question": "Kailan maaaring gumamit ng tugma sa isang kuwento?",
+            "options": [
+              "Kung nagsusulat din ng bahaging patula",
+              "Palagi, kahit anong uri ng kuwento",
+              "Hindi dapat gamitin kailanman",
+              "Sa dulo lamang ng kuwento"
+            ],
+            "correct_answer": "Kung nagsusulat din ng bahaging patula"
+          },
+          {
+            "question": "Ano ang gagawin kung mahirap pumili ng suliranin para sa kuwento?",
+            "options": [
+              "Pumili ng simpleng suliranin na madaling ilarawan",
+              "Huwag na lamang maglagay ng suliranin",
+              "Kopyahin ang kuwento ng ibang tao",
+              "Tumigil na sa pagsulat"
+            ],
+            "correct_answer": "Pumili ng simpleng suliranin na madaling ilarawan"
+          },
+          {
+            "question": "Bakit kailangang balikan ang mga aralin tungkol sa balangkas bago magsimulang sumulat?",
+            "options": [
+              "Para magabayan ka sa maayos na pagkakasunod-sunod ng kuwento",
+              "Hindi na ito kailangan",
+              "Ang balangkas ay hindi mahalaga",
+              "Ang pagsulat ay hindi nangangailangan ng balangkas"
+            ],
+            "correct_answer": "Para magabayan ka sa maayos na pagkakasunod-sunod ng kuwento"
+          },
+          {
+            "question": "Ano ang koneksyon ng aralin na ito sa mga naunang linggo?",
+            "options": [
+              "Ginagamit dito ang natutunang balangkas at pagkilala sa tauhan",
+              "Walang koneksyon sa mga naunang aralin",
+              "Bago itong konseptong hindi pa naunang tinalakay",
+              "Tungkol lamang ito sa matematika"
+            ],
+            "correct_answer": "Ginagamit dito ang natutunang balangkas at pagkilala sa tauhan"
+          },
+          {
+            "question": "Bakit mahalagang magsanay sa pagsulat ng sariling kuwento?",
+            "options": [
+              "Nakakatulong ito upang mailapat ang mga natutunang kasanayan sa pagsulat",
+              "Walang gamit ang pagsasanay",
+              "Sapat na ang basta pagbasa ng kuwento ng iba",
+              "Hindi na kailangang sumulat pa"
+            ],
+            "correct_answer": "Nakakatulong ito upang mailapat ang mga natutunang kasanayan sa pagsulat"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🏞️ Science — Landforms and Bodies of Water\n\nGrade 5, Week 26! Let's explore the shapes of the Earth's surface. 🏞️\n\n## 🔄 Review\nWe learned about **electromagnets**.\n\n## ⛰️ Common Landforms\n- **Mountain** — a very tall landform with steep sides\n- **Plateau** — a raised, flat area of land\n- **Valley** — low land between mountains or hills\n- **Plain** — a large, flat area of land, often used for farming\n\n## 🌊 Common Bodies of Water\n- **Ocean** — the largest body of salt water\n- **Lake** — a body of water surrounded by land\n- **River** — a flowing body of fresh water\n- **Gulf** — a large area of sea partly enclosed by land\n\n## 🇵🇭 Philippine Examples\nMt. Apo (mountain), the Cordillera (plateau region), the Pasig River (river), and the Gulf of Davao (gulf) are all Philippine examples.\n\n**Key words:** landform, mountain, plateau, valley, plain, ocean, river",
+        "quiz": [
+          {
+            "question": "What is a mountain?",
+            "options": [
+              "A very tall landform with steep sides",
+              "A flat, low area",
+              "A body of salt water",
+              "A flowing body of fresh water"
+            ],
+            "correct_answer": "A very tall landform with steep sides"
+          },
+          {
+            "question": "What is a plateau?",
+            "options": [
+              "A raised, flat area of land",
+              "A body of water",
+              "A very deep valley",
+              "A type of ocean"
+            ],
+            "correct_answer": "A raised, flat area of land"
+          },
+          {
+            "question": "What is a valley?",
+            "options": [
+              "Low land between mountains or hills",
+              "The tallest landform",
+              "A body of salt water",
+              "A flat plain used for farming"
+            ],
+            "correct_answer": "Low land between mountains or hills"
+          },
+          {
+            "question": "What is a plain?",
+            "options": [
+              "A large, flat area of land often used for farming",
+              "A tall mountain range",
+              "A deep valley",
+              "A body of water"
+            ],
+            "correct_answer": "A large, flat area of land often used for farming"
+          },
+          {
+            "question": "What is the largest body of salt water called?",
+            "options": [
+              "Ocean",
+              "Lake",
+              "River",
+              "Valley"
+            ],
+            "correct_answer": "Ocean"
+          },
+          {
+            "question": "What is a lake?",
+            "options": [
+              "A body of water surrounded by land",
+              "A flowing body of water",
+              "A tall mountain",
+              "A large area of sea"
+            ],
+            "correct_answer": "A body of water surrounded by land"
+          },
+          {
+            "question": "What is a river?",
+            "options": [
+              "A flowing body of fresh water",
+              "A body of water surrounded by land on all sides",
+              "A tall landform",
+              "A large area of sea"
+            ],
+            "correct_answer": "A flowing body of fresh water"
+          },
+          {
+            "question": "What is a gulf?",
+            "options": [
+              "A large area of sea partly enclosed by land",
+              "A tall mountain",
+              "A flat plain",
+              "A small lake"
+            ],
+            "correct_answer": "A large area of sea partly enclosed by land"
+          },
+          {
+            "question": "Which Philippine landmark is an example of a mountain?",
+            "options": [
+              "Mt. Apo",
+              "Pasig River",
+              "Gulf of Davao",
+              "Laguna de Bay"
+            ],
+            "correct_answer": "Mt. Apo"
+          },
+          {
+            "question": "Which Philippine landmark is an example of a river?",
+            "options": [
+              "Pasig River",
+              "Mt. Apo",
+              "Cordillera",
+              "Gulf of Davao"
+            ],
+            "correct_answer": "Pasig River"
+          },
+          {
+            "question": "Why are plains often used for farming?",
+            "options": [
+              "They are flat and easy to cultivate",
+              "They are always underwater",
+              "They are too steep for crops",
+              "They have no soil"
+            ],
+            "correct_answer": "They are flat and easy to cultivate"
+          },
+          {
+            "question": "How is a plateau different from a plain?",
+            "options": [
+              "A plateau is raised, while a plain is at a lower, flatter level",
+              "They are exactly the same landform",
+              "A plateau is always underwater",
+              "A plain is always taller than a mountain"
+            ],
+            "correct_answer": "A plateau is raised, while a plain is at a lower, flatter level"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎓 Araling Panlipunan — Ambag ng mga Ilustrado\n\nGrade 5, Linggo 26! Alamin natin ang mga naging kontribusyon ng mga ilustrado. 🎓\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **Konstitusyon ng Cadiz** at **Suez Canal**.\n\n## 🎓 Sino ang mga Ilustrado?\nAng mga **ilustrado** ay mga Pilipinong may-kayang mag-aral, karamihan sa Europa, na naging edukado sa mga bagong kaisipan.\n\n## 📚 Ambag ng mga Ilustrado\n- Nagsulat sila ng mga akda na naglantad ng **kalagayan ng Pilipinas** sa ilalim ng Espanya\n- Nagtatag sila ng samahang **La Solidaridad** upang ipaglaban ang **reporma**\n- Nag-udyok sila ng pagmamahal sa bayan sa pamamagitan ng edukasyon at panitikan\n\n## 📜 Educational Decree of 1863\nItong batas ay nag-utos ng pagtatatag ng **libreng paaralang publiko** sa bawat bayan, na naging daan para sa mas maraming Pilipinong makapag-aral.\n\n**Mahahalagang salita:** ilustrado, La Solidaridad, reporma, Educational Decree",
+        "quiz": [
+          {
+            "question": "Sino ang mga ilustrado?",
+            "options": [
+              "Mga Pilipinong may-kayang mag-aral, karamihan sa Europa",
+              "Mga sundalong Espanyol",
+              "Mga pari lamang",
+              "Mga mangangalakal na Tsino"
+            ],
+            "correct_answer": "Mga Pilipinong may-kayang mag-aral, karamihan sa Europa"
+          },
+          {
+            "question": "Ano ang isang ambag ng mga ilustrado?",
+            "options": [
+              "Nagsulat sila ng mga akdang naglantad sa kalagayan ng Pilipinas",
+              "Sumuporta sila sa lahat ng patakaran ng Espanya",
+              "Wala silang naitulong sa kasaysayan",
+              "Umalis sila magpakailanman sa Pilipinas"
+            ],
+            "correct_answer": "Nagsulat sila ng mga akdang naglantad sa kalagayan ng Pilipinas"
+          },
+          {
+            "question": "Ano ang La Solidaridad?",
+            "options": [
+              "Samahang itinatag para ipaglaban ang reporma",
+              "Isang uri ng barko",
+              "Isang batas ng Espanya",
+              "Isang lungsod sa Pilipinas"
+            ],
+            "correct_answer": "Samahang itinatag para ipaglaban ang reporma"
+          },
+          {
+            "question": "Ano ang layunin ng Educational Decree of 1863?",
+            "options": [
+              "Pagtatatag ng libreng paaralang publiko sa bawat bayan",
+              "Pagbabawal ng edukasyon sa mga Pilipino",
+              "Pagpapatayo ng simbahan lamang",
+              "Pagpapatalsik sa mga guro"
+            ],
+            "correct_answer": "Pagtatatag ng libreng paaralang publiko sa bawat bayan"
+          },
+          {
+            "question": "Bakit mahalaga ang Educational Decree of 1863?",
+            "options": [
+              "Nagbigay-daan ito sa mas maraming Pilipinong makapag-aral",
+              "Wala itong epekto sa edukasyon",
+              "Nagbawal ito ng anumang paaralan",
+              "Ito ay para lamang sa mga Espanyol"
+            ],
+            "correct_answer": "Nagbigay-daan ito sa mas maraming Pilipinong makapag-aral"
+          },
+          {
+            "question": "Paano nag-udyok ang mga ilustrado ng pagmamahal sa bayan?",
+            "options": [
+              "Sa pamamagitan ng edukasyon at panitikan",
+              "Sa pamamagitan ng puwersahang digmaan lamang",
+              "Sa pamamagitan ng pagtulong sa Espanya",
+              "Wala silang ginawang aksyon"
+            ],
+            "correct_answer": "Sa pamamagitan ng edukasyon at panitikan"
+          },
+          {
+            "question": "Saan karaniwang nag-aral ang mga ilustrado?",
+            "options": [
+              "Europa",
+              "Aprika",
+              "Antartika",
+              "Wala silang pinag-aralan"
+            ],
+            "correct_answer": "Europa"
+          },
+          {
+            "question": "Bakit mahalaga ang samahang La Solidaridad sa kasaysayan ng Pilipinas?",
+            "options": [
+              "Naging plataporma ito para ipahayag ang mga hinaing at reporma",
+              "Wala itong papel sa kasaysayan",
+              "Ito ay isang samahan ng mga Espanyol lamang",
+              "Ito ay tumutol sa lahat ng reporma"
+            ],
+            "correct_answer": "Naging plataporma ito para ipahayag ang mga hinaing at reporma"
+          },
+          {
+            "question": "Ano ang naging resulta ng mga akdang isinulat ng ilustrado?",
+            "options": [
+              "Nailantad ang kalagayan ng Pilipinas sa ilalim ng Espanya",
+              "Pinuri nila ang lahat ng patakaran ng Espanya",
+              "Walang naging resulta",
+              "Ipinagbawal agad ang lahat ng pagsulat"
+            ],
+            "correct_answer": "Nailantad ang kalagayan ng Pilipinas sa ilalim ng Espanya"
+          },
+          {
+            "question": "Paano naiugnay ang mga ilustrado sa nasyonalismong Pilipino?",
+            "options": [
+              "Sila ay naging bahagi ng mahalagang salik sa pag-unlad ng nasyonalismo",
+              "Wala silang kinalaman dito",
+              "Kinontra nila ang nasyonalismo",
+              "Sila ay laban sa reporma"
+            ],
+            "correct_answer": "Sila ay naging bahagi ng mahalagang salik sa pag-unlad ng nasyonalismo"
+          },
+          {
+            "question": "Ano ang naidulot ng mas maraming paaralan mula sa Educational Decree of 1863?",
+            "options": [
+              "Mas maraming Pilipino ang nagkaroon ng access sa edukasyon",
+              "Bumaba ang bilang ng nag-aaral",
+              "Walang naidulot na pagbabago",
+              "Isinara ang lahat ng dating paaralan"
+            ],
+            "correct_answer": "Mas maraming Pilipino ang nagkaroon ng access sa edukasyon"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang yugto ang panahon ng mga ilustrado sa kasaysayan?",
+            "options": [
+              "Naghanda ito sa daan patungo sa mas malawak na kilusang makabayan",
+              "Wala itong kahalagahan",
+              "Ito ay hiwalay na kasaysayan lamang",
+              "Hindi ito nauugnay sa Kilusang Propaganda"
+            ],
+            "correct_answer": "Naghanda ito sa daan patungo sa mas malawak na kilusang makabayan"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🎬 EPP (ICT) — Presentation Transitions and Animations\n\nGrade 5, Week 26! Let's make our slideshows come alive. 🎬\n\n## 🔄 Review\nWe learned about **strong passwords** and online safety.\n\n## 🎬 What Are Transitions?\nA **transition** is the effect that happens when moving from one slide to the next (e.g., fade, slide, wipe).\n\n## ✨ What Are Animations?\nAn **animation** makes individual elements (text, images) on a *single* slide move or appear, such as text flying in or fading in.\n\n## ⚖️ Using Them Wisely\n- Use transitions and animations **sparingly** — too many can distract from your message\n- Keep the SAME transition style throughout for a **consistent, professional** look\n- Animations should highlight important points, not just look flashy\n\n**Key words:** transition, animation, slide, consistent",
+        "quiz": [
+          {
+            "question": "What is a transition in a presentation?",
+            "options": [
+              "The effect when moving from one slide to the next",
+              "The text inside a slide",
+              "The title of the presentation",
+              "The file name of the presentation"
+            ],
+            "correct_answer": "The effect when moving from one slide to the next"
+          },
+          {
+            "question": "What is an animation in a presentation?",
+            "options": [
+              "An effect that makes elements on one slide move or appear",
+              "The effect between two different slides",
+              "The background color of a slide",
+              "The font used in the title"
+            ],
+            "correct_answer": "An effect that makes elements on one slide move or appear"
+          },
+          {
+            "question": "Why should transitions and animations be used sparingly?",
+            "options": [
+              "Too many can distract from the message",
+              "They always make the presentation better the more you add",
+              "They are required on every slide",
+              "They replace the need for content"
+            ],
+            "correct_answer": "Too many can distract from the message"
+          },
+          {
+            "question": "Why is it good to use the same transition style throughout a presentation?",
+            "options": [
+              "It gives a consistent, professional look",
+              "It makes the file smaller",
+              "It removes the need for slides",
+              "It is required by every program"
+            ],
+            "correct_answer": "It gives a consistent, professional look"
+          },
+          {
+            "question": "What should animations be used to do?",
+            "options": [
+              "Highlight important points",
+              "Only look flashy with no purpose",
+              "Replace all text on the slide",
+              "Slow down the presentation unnecessarily"
+            ],
+            "correct_answer": "Highlight important points"
+          },
+          {
+            "question": "Which of these is an example of a transition?",
+            "options": [
+              "A fade effect between two slides",
+              "Text flying in on one slide",
+              "The title font",
+              "The slide's background color"
+            ],
+            "correct_answer": "A fade effect between two slides"
+          },
+          {
+            "question": "Which of these is an example of an animation?",
+            "options": [
+              "Text flying in on a single slide",
+              "A fade effect between two different slides",
+              "The slide's title",
+              "The presentation's file name"
+            ],
+            "correct_answer": "Text flying in on a single slide"
+          },
+          {
+            "question": "What might happen if every slide uses a different, flashy transition?",
+            "options": [
+              "It could look unprofessional and distracting",
+              "It would always look better",
+              "It has no effect on the audience",
+              "It makes the content easier to understand"
+            ],
+            "correct_answer": "It could look unprofessional and distracting"
+          },
+          {
+            "question": "How does this ICT skill relate to earlier lessons on multimedia in English?",
+            "options": [
+              "Both involve choosing elements carefully to support a message",
+              "They are completely unrelated topics",
+              "Only English class uses multimedia elements",
+              "Presentations never use multimedia"
+            ],
+            "correct_answer": "Both involve choosing elements carefully to support a message"
+          },
+          {
+            "question": "If you want your audience to focus on one key statistic, what could you use?",
+            "options": [
+              "An animation to make it appear at the right moment",
+              "No visual elements at all",
+              "The loudest transition sound available",
+              "Ten different fonts on the same slide"
+            ],
+            "correct_answer": "An animation to make it appear at the right moment"
+          },
+          {
+            "question": "Why is consistency important in a professional presentation?",
+            "options": [
+              "It helps the audience focus on content instead of distracting effects",
+              "It makes every slide look completely different",
+              "It has no real benefit",
+              "It is only important for very long presentations"
+            ],
+            "correct_answer": "It helps the audience focus on content instead of distracting effects"
+          },
+          {
+            "question": "What is a good rule of thumb when adding animations to a slide?",
+            "options": [
+              "Use them only when they add meaning or clarity",
+              "Add as many as possible to every element",
+              "Never use any animation at all",
+              "Only use animations on the title slide"
+            ],
+            "correct_answer": "Use them only when they add meaning or clarity"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎼 MAPEH — Paggawa ng Sariling Simpleng Awit\n\nGrade 5, Linggo 26! Gawin natin ang sarili nating simpleng himig! 🎼\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **culminating dance performance**.\n\n## 🎼 Muling Balikan: Verse at Chorus\nNatutuhan na natin na ang isang awit ay may **verse (saknong)** at **chorus (koro)**.\n\n## 🎵 Mga Hakbang sa Paggawa ng Sariling Awit\n1. Pumili ng simpleng paksa (hal. pagmamahal sa pamilya, kalikasan)\n2. Sumulat ng maikling **verse** na nagkukuwento\n3. Sumulat ng **chorus** na paulit-ulit at madaling tandaan\n4. Subukang humanap ng simpleng himig gamit ang boses o simpleng instrumento (kampanilya, palakpak)\n\n## 🎯 Layunin\nHindi kailangang maging perpekto ang himig — ang mahalaga ay maipahayag mo ang iyong ideya gamit ang **musical form** na natutunan natin.\n\n**Mahahalagang salita:** paggawa ng awit, verse, chorus, himig",
+        "quiz": [
+          {
+            "question": "Ano ang unang hakbang sa paggawa ng sariling awit?",
+            "options": [
+              "Pumili ng simpleng paksa",
+              "Direktang kumanta nang walang plano",
+              "Kalimutan ang verse at chorus",
+              "Bumili ng bagong instrumento"
+            ],
+            "correct_answer": "Pumili ng simpleng paksa"
+          },
+          {
+            "question": "Ano ang katangian ng verse na isusulat?",
+            "options": [
+              "Nagkukuwento at nagbabago bawat pag-uulit",
+              "Palaging pareho ang salita",
+              "Walang salita",
+              "Instrumento lamang"
+            ],
+            "correct_answer": "Nagkukuwento at nagbabago bawat pag-uulit"
+          },
+          {
+            "question": "Ano ang katangian ng chorus na dapat isulat?",
+            "options": [
+              "Paulit-ulit at madaling tandaan",
+              "Nagbabago bawat ulit",
+              "Walang himig",
+              "Mahaba at kumplikado"
+            ],
+            "correct_answer": "Paulit-ulit at madaling tandaan"
+          },
+          {
+            "question": "Anong simpleng instrumento ang maaaring gamitin sa paggawa ng himig?",
+            "options": [
+              "Kampanilya o palakpak",
+              "Piano lamang",
+              "Gitara lamang",
+              "Walang instrumentong maaaring gamitin"
+            ],
+            "correct_answer": "Kampanilya o palakpak"
+          },
+          {
+            "question": "Ano ang mahalaga ayon sa layunin ng aktibidad?",
+            "options": [
+              "Maipahayag ang ideya gamit ang musical form",
+              "Maging perpekto ang himig",
+              "Maging pinakamahaba ang awit",
+              "Gumamit ng maraming instrumento"
+            ],
+            "correct_answer": "Maipahayag ang ideya gamit ang musical form"
+          },
+          {
+            "question": "Anong konseptong natutunan noong nakaraan ang ginagamit dito?",
+            "options": [
+              "Verse at chorus",
+              "Estadistika",
+              "Probability",
+              "Balangkas ng kuwento"
+            ],
+            "correct_answer": "Verse at chorus"
+          },
+          {
+            "question": "Bakit hindi kailangang maging perpekto ang himig?",
+            "options": [
+              "Ang mahalaga ay maipahayag ang ideya",
+              "Kailangang perpekto palagi",
+              "Hindi na kailangan ng himig",
+              "Wala itong kahalagahan"
+            ],
+            "correct_answer": "Ang mahalaga ay maipahayag ang ideya"
+          },
+          {
+            "question": "Anong halimbawang paksa ang maaaring gamitin sa awit?",
+            "options": [
+              "Pagmamahal sa pamilya",
+              "Batas komersyo",
+              "Ekonomiya ng bansa",
+              "Pamamahala ng gobyerno"
+            ],
+            "correct_answer": "Pagmamahal sa pamilya"
+          },
+          {
+            "question": "Bakit mahalagang isulat muna ang verse bago ang chorus?",
+            "options": [
+              "Para maayos na maiugnay ang kuwento sa pangunahing mensahe",
+              "Hindi mahalaga ang pagkakasunod-sunod",
+              "Dapat isulat muna ang chorus",
+              "Walang pagkakaayos na kailangan"
+            ],
+            "correct_answer": "Para maayos na maiugnay ang kuwento sa pangunahing mensahe"
+          },
+          {
+            "question": "Ano ang layunin ng pagsasagawa ng ganitong aktibidad sa MAPEH?",
+            "options": [
+              "Ilapat ang natutunang musical form sa isang malikhaing proyekto",
+              "Wala itong layunin",
+              "Para lamang libangin ang guro",
+              "Palitan ang mga aralin sa matematika"
+            ],
+            "correct_answer": "Ilapat ang natutunang musical form sa isang malikhaing proyekto"
+          },
+          {
+            "question": "Ano ang dapat gawin kung mahirap makahanap ng himig?",
+            "options": [
+              "Subukan ang simpleng boses o palakpak muna",
+              "Sumuko na lamang",
+              "Kalimutan ang buong proyekto",
+              "Kopyahin ang awit ng iba nang walang pagbabago"
+            ],
+            "correct_answer": "Subukan ang simpleng boses o palakpak muna"
+          },
+          {
+            "question": "Paano naiiba ang pagsulat ng awit sa pagsulat ng tulang pambata na inaral noon?",
+            "options": [
+              "Ang awit ay may himig at musical form, ang tula ay binabasa lamang",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba sa dalawa",
+              "Ang tula ay may himig din palagi"
+            ],
+            "correct_answer": "Ang awit ay may himig at musical form, ang tula ay binabasa lamang"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 💹 EPP (AFA/FCS/IA) — Paghahambing ng Presyo sa Merkado\n\nGrade 5, Linggo 26! Alamin natin kung paano magtakda ng makatwirang presyo. 💹\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **pagpapaganda ng produkto gamit ang palamuti**.\n\n## 💹 Bakit Ihambing sa Merkado?\nBago itakda ang huling presyo ng iyong produkto, mahalagang **pag-aralan muna** kung magkano ang katulad na produkto sa merkado o palengke.\n\n## 📊 Mga Hakbang sa Paghahambing\n1. Tingnan ang presyo ng katulad na produkto sa iba't ibang tindahan\n2. Ihambing ang **kalidad** ng iyong produkto sa mga ito\n3. Isaalang-alang kung mas mataas o mas mababa dapat ang iyong presyo\n\n## ⚖️ Balanse ng Presyo\n- **Masyadong mataas** — maaaring hindi mabili ng mamimili\n- **Masyadong mababa** — maaaring hindi sapat para sa puhunan at kita\n\nAng tamang presyo ay **patas** para sa mamimili at **sapat** para sa gumawa.\n\n**Mahahalagang salita:** paghahambing, merkado, kalidad, balanse ng presyo",
+        "quiz": [
+          {
+            "question": "Bakit mahalagang ihambing ang presyo sa merkado?",
+            "options": [
+              "Para malaman ang makatwirang presyo ng produkto",
+              "Hindi na kailangan itong gawin",
+              "Para lang tularan ang ibang tindahan",
+              "Walang kaugnayan sa presyo ng sariling produkto"
+            ],
+            "correct_answer": "Para malaman ang makatwirang presyo ng produkto"
+          },
+          {
+            "question": "Ano ang mangyayari kung masyadong mataas ang presyo?",
+            "options": [
+              "Maaaring hindi mabili ng mamimili",
+              "Palaging mabibili agad",
+              "Walang epekto sa benta",
+              "Awtomatikong bababa ang puhunan"
+            ],
+            "correct_answer": "Maaaring hindi mabili ng mamimili"
+          },
+          {
+            "question": "Ano ang mangyayari kung masyadong mababa ang presyo?",
+            "options": [
+              "Maaaring hindi sapat para sa puhunan at kita",
+              "Palaging kikita ng malaki",
+              "Walang epekto",
+              "Mas mabibili ang produkto kaysa dati"
+            ],
+            "correct_answer": "Maaaring hindi sapat para sa puhunan at kita"
+          },
+          {
+            "question": "Ano ang unang hakbang sa paghahambing ng presyo?",
+            "options": [
+              "Tingnan ang presyo ng katulad na produkto sa iba't ibang tindahan",
+              "Direktang ibenta nang walang pag-aaral",
+              "Kalimutan ang presyo ng iba",
+              "Itaas agad ang presyo"
+            ],
+            "correct_answer": "Tingnan ang presyo ng katulad na produkto sa iba't ibang tindahan"
+          },
+          {
+            "question": "Ano ang dapat isaalang-alang bukod sa presyo ng iba?",
+            "options": [
+              "Kalidad ng sariling produkto",
+              "Kulay ng kalangitan",
+              "Bilang ng bituin sa gabi",
+              "Pangalan ng may-ari ng tindahan"
+            ],
+            "correct_answer": "Kalidad ng sariling produkto"
+          },
+          {
+            "question": "Ano ang tamang presyo ayon sa aralin?",
+            "options": [
+              "Patas para sa mamimili at sapat para sa gumawa",
+              "Palaging pinakamataas na presyo",
+              "Palaging pinakamababang presyo",
+              "Presyo na hindi isinasaalang-alang ang puhunan"
+            ],
+            "correct_answer": "Patas para sa mamimili at sapat para sa gumawa"
+          },
+          {
+            "question": "Bakit mahalagang isaalang-alang ang kalidad kapag naghahambing ng presyo?",
+            "options": [
+              "Mas magandang kalidad ay maaaring magbigay-katwiran sa mas mataas na presyo",
+              "Walang kaugnayan ang kalidad sa presyo",
+              "Ang kalidad ay hindi mahalaga sa negosyo",
+              "Palaging pareho ang kalidad ng lahat ng produkto"
+            ],
+            "correct_answer": "Mas magandang kalidad ay maaaring magbigay-katwiran sa mas mataas na presyo"
+          },
+          {
+            "question": "Ano ang benepisyo ng pagsusuri sa presyo bago magbenta?",
+            "options": [
+              "Nakakatulong ito upang makatakda ng makatwirang presyo",
+              "Wala itong benepisyo",
+              "Nagpapahaba lamang ito ng proseso",
+              "Nagpapababa ito ng kalidad ng produkto"
+            ],
+            "correct_answer": "Nakakatulong ito upang makatakda ng makatwirang presyo"
+          },
+          {
+            "question": "Ano ang maaaring mangyari kung hindi inihambing ang presyo sa merkado?",
+            "options": [
+              "Maaaring maging masyadong mataas o mababa ang itinakdang presyo",
+              "Palaging tamang presyo agad ang malalabas",
+              "Walang epekto sa negosyo",
+              "Awtomatikong tama ang lahat ng presyo"
+            ],
+            "correct_answer": "Maaaring maging masyadong mataas o mababa ang itinakdang presyo"
+          },
+          {
+            "question": "Bakit kailangang tingnan ang iba't ibang tindahan hindi lamang isa?",
+            "options": [
+              "Para makakuha ng mas malawak at tumpak na pananaw sa presyo sa merkado",
+              "Isang tindahan lamang ang tama",
+              "Hindi na kailangan tumingin sa iba pang tindahan",
+              "Walang pagkakaiba ang presyo sa bawat tindahan"
+            ],
+            "correct_answer": "Para makakuha ng mas malawak at tumpak na pananaw sa presyo sa merkado"
+          },
+          {
+            "question": "Ano ang koneksyon ng araling ito sa puhunan at kita na natutunan noon?",
+            "options": [
+              "Tinutulungan nitong itakda ang presyo na tumutugma sa puhunan at kitang inaasahan",
+              "Walang koneksyon sa mga naunang aralin",
+              "Ito ay bagong konsepto na hindi konektado",
+              "Tungkol lamang ito sa musika"
+            ],
+            "correct_answer": "Tinutulungan nitong itakda ang presyo na tumutugma sa puhunan at kitang inaasahan"
+          },
+          {
+            "question": "Bakit mahalagang matutong maghambing ng presyo sa murang edad?",
+            "options": [
+              "Ito ay batayang kasanayan sa pananalapi na magagamit sa hinaharap",
+              "Hindi ito kapaki-pakinabang sa buhay",
+              "Ito ay para lamang sa may-ari ng negosyo",
+              "Walang gamit ito sa pag-aaral"
+            ],
+            "correct_answer": "Ito ay batayang kasanayan sa pananalapi na magagamit sa hinaharap"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 GMRC — Pagpili ng Tamang Desisyon (Discernment)\n\nGrade 5, Linggo 26! Pagpapahalaga ngayong linggo: **Pananampalataya (Discernment)**. 🙏\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **paggalang sa relihiyon ng iba**.\n\n## 🙏 Ano ang Discernment?\nAng **discernment** ay ang kakayahang **magpasiya nang matalino** sa pagitan ng tama at mali, lalo na sa mahihirap na sitwasyon, sa tulong ng payo at panalangin.\n\n## 🧭 Paano Magpakita ng Discernment\n- Mag-isip bago kumilos\n- Humingi ng payo sa mga taong may karanasan (magulang, guro, pari/pastor)\n- Idulog sa panalangin ang mga mahihirap na desisyon\n- Timbangin ang epekto ng bawat pagpipilian\n\n## 💡 Halimbawa\nKapag inaanyayahan ka ng kaibigan sa isang bagay na hindi tama, gamitin ang discernment: isipin ang kahihinatnan, at humingi ng payo bago sumang-ayon o tumanggi.\n\n**Mahahalagang salita:** discernment, payo, panalangin, tamang desisyon",
+        "quiz": [
+          {
+            "question": "Ano ang discernment?",
+            "options": [
+              "Kakayahang magpasiya nang matalino sa pagitan ng tama at mali",
+              "Kawalan ng pagpapasiya",
+              "Pagsunod na lamang sa kaibigan",
+              "Pagpapabaya sa mahihirap na sitwasyon"
+            ],
+            "correct_answer": "Kakayahang magpasiya nang matalino sa pagitan ng tama at mali"
+          },
+          {
+            "question": "Anong halimbawa ng pagpapakita ng discernment?",
+            "options": [
+              "Humingi ng payo sa magulang bago magpasiya",
+              "Sumunod agad sa unang naisip",
+              "Iwasan ang lahat ng pagpapasya",
+              "Kalimutan ang epekto ng pagpili"
+            ],
+            "correct_answer": "Humingi ng payo sa magulang bago magpasiya"
+          },
+          {
+            "question": "Bakit mahalaga ang pag-iisip bago kumilos?",
+            "options": [
+              "Nakakatulong ito na gumawa ng matalinong desisyon",
+              "Walang epekto ito",
+              "Nagpapabagal lamang ito ng proseso",
+              "Hindi na ito kinakailangan"
+            ],
+            "correct_answer": "Nakakatulong ito na gumawa ng matalinong desisyon"
+          },
+          {
+            "question": "Sino ang maaaring hingan ng payo sa mahihirap na desisyon?",
+            "options": [
+              "Magulang, guro, o pari/pastor",
+              "Estranghero lamang",
+              "Walang dapat hingan ng payo",
+              "Kaibigan na hindi mo kilala"
+            ],
+            "correct_answer": "Magulang, guro, o pari/pastor"
+          },
+          {
+            "question": "Ano ang isang paraan upang matulungan ang sarili sa mahihirap na desisyon?",
+            "options": [
+              "Idulog ito sa panalangin",
+              "Kalimutan na lamang ang problema",
+              "Basta na lamang magdesisyon nang walang pag-iisip",
+              "Iwasan ang lahat ng tao"
+            ],
+            "correct_answer": "Idulog ito sa panalangin"
+          },
+          {
+            "question": "Ano ang dapat timbangin bago gumawa ng desisyon?",
+            "options": [
+              "Ang epekto ng bawat pagpipilian",
+              "Ang kulay ng damit na isusuot",
+              "Ang oras ng araw lamang",
+              "Walang kailangang timbangin"
+            ],
+            "correct_answer": "Ang epekto ng bawat pagpipilian"
+          },
+          {
+            "question": "Kapag inaanyayahan ka ng kaibigan sa hindi tamang bagay, ano ang dapat gawin?",
+            "options": [
+              "Isipin ang kahihinatnan at humingi ng payo",
+              "Sumunod agad",
+              "Sabihin nang malakas na hindi mo kaibigan siya",
+              "Iwanan siya magpakailanman"
+            ],
+            "correct_answer": "Isipin ang kahihinatnan at humingi ng payo"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang discernment sa GMRC?",
+            "options": [
+              "Tumutulong ito sa paggawa ng moral na desisyon",
+              "Walang kaugnayan ito sa moralidad",
+              "Bahagi lamang ito ng agham",
+              "Hindi ito itinuro sa paaralan"
+            ],
+            "correct_answer": "Tumutulong ito sa paggawa ng moral na desisyon"
+          },
+          {
+            "question": "Ano ang kabaligtaran ng discernment?",
+            "options": [
+              "Padalos-dalos na pagpapasya nang walang pag-iisip",
+              "Mahinahong pag-iisip",
+              "Paghingi ng payo",
+              "Panalangin bago magdesisyon"
+            ],
+            "correct_answer": "Padalos-dalos na pagpapasya nang walang pag-iisip"
+          },
+          {
+            "question": "Paano nakakatulong ang panalangin sa pagpapasiya?",
+            "options": [
+              "Nagbibigay ito ng gabay at katatagan sa desisyon",
+              "Wala itong papel sa pagpapasiya",
+              "Pinipigilan nito ang paggawa ng desisyon",
+              "Nagpapahirap lamang ito"
+            ],
+            "correct_answer": "Nagbibigay ito ng gabay at katatagan sa desisyon"
+          },
+          {
+            "question": "Bakit mahalagang matutong magdiscern mula pagkabata?",
+            "options": [
+              "Para maging handa sa paggawa ng mas mahihirap na desisyon paglaki",
+              "Hindi na kailangan itong linangin",
+              "Awtomatiko ito sa lahat ng tao",
+              "Walang benepisyo sa hinaharap"
+            ],
+            "correct_answer": "Para maging handa sa paggawa ng mas mahihirap na desisyon paglaki"
+          },
+          {
+            "question": "Paano nauugnay ang discernment sa paggalang sa relihiyon ng iba na inaral noong nakaraang linggo?",
+            "options": [
+              "Pareho silang nangangailangan ng matalinong pagsasaalang-alang sa iba",
+              "Walang kaugnayan ang dalawa",
+              "Ang isa ay tungkol lamang sa agham",
+              "Ang isa ay tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Pareho silang nangangailangan ng matalinong pagsasaalang-alang sa iba"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📚 Friday Review — English (Grade 5)\n\n- Using a glossary\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "What is a glossary?",
+            "options": [
+              "A list of difficult words and their definitions from a specific book",
+              "A list of every word in the language",
+              "A table of contents",
+              "An index of page numbers"
+            ],
+            "correct_answer": "A list of difficult words and their definitions from a specific book"
+          },
+          {
+            "question": "Where is a glossary usually found?",
+            "options": [
+              "At the back of a book",
+              "At the very beginning",
+              "In the middle only",
+              "On the front cover"
+            ],
+            "correct_answer": "At the back of a book"
+          },
+          {
+            "question": "How is a glossary different from a dictionary?",
+            "options": [
+              "It only defines words used in that specific book",
+              "They are exactly the same",
+              "A dictionary is always shorter",
+              "A glossary defines every word"
+            ],
+            "correct_answer": "It only defines words used in that specific book"
+          },
+          {
+            "question": "How are glossary words organized?",
+            "options": [
+              "Alphabetical order",
+              "By word length",
+              "Randomly",
+              "By page number"
+            ],
+            "correct_answer": "Alphabetical order"
+          },
+          {
+            "question": "Why might a science textbook have its own glossary?",
+            "options": [
+              "To define specialized words as used in that book",
+              "Dictionaries don't exist for science",
+              "To replace the dictionary",
+              "Only storybooks have glossaries"
+            ],
+            "correct_answer": "To define specialized words as used in that book"
+          },
+          {
+            "question": "If you don't understand a bolded word, where should you look?",
+            "options": [
+              "The glossary",
+              "The front cover",
+              "A random page",
+              "Ignore it"
+            ],
+            "correct_answer": "The glossary"
+          },
+          {
+            "question": "What is found next to a word in a glossary?",
+            "options": [
+              "Its definition",
+              "Its price",
+              "A page number in a different book",
+              "Only a picture"
+            ],
+            "correct_answer": "Its definition"
+          },
+          {
+            "question": "Why is alphabetical order useful?",
+            "options": [
+              "It makes words easy to find quickly",
+              "It makes the glossary shorter",
+              "It removes definitions",
+              "No real purpose"
+            ],
+            "correct_answer": "It makes words easy to find quickly"
+          },
+          {
+            "question": "A history book's glossary defines 'colonization.' What does this match?",
+            "options": [
+              "How the word is used in that book",
+              "Every possible meaning ever",
+              "A biology definition",
+              "Nothing related to the word"
+            ],
+            "correct_answer": "How the word is used in that book"
+          },
+          {
+            "question": "Which would most likely have a glossary?",
+            "options": [
+              "A science textbook",
+              "A blank notebook",
+              "A photograph",
+              "A grocery list"
+            ],
+            "correct_answer": "A science textbook"
+          },
+          {
+            "question": "Why is a glossary more efficient than a dictionary for one subject?",
+            "options": [
+              "It focuses only on relevant words",
+              "It has more pages",
+              "It has no definitions",
+              "It's in a foreign language"
+            ],
+            "correct_answer": "It focuses only on relevant words"
+          },
+          {
+            "question": "What skill is similar to using a glossary?",
+            "options": [
+              "Using context clues",
+              "Multiplying decimals",
+              "Drawing a bar graph",
+              "Reading a map"
+            ],
+            "correct_answer": "Using context clues"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔺 Friday Review — Mathematics (Grade 5)\n\n- Prisms vs. pyramids: faces, vertices, edges, nets\n\nGreat 3D geometry work! ⭐",
+        "quiz": [
+          {
+            "question": "What is a prism?",
+            "options": [
+              "Two parallel identical bases connected by rectangles",
+              "One base with triangular sides",
+              "A perfectly round shape",
+              "A flat 2D shape"
+            ],
+            "correct_answer": "Two parallel identical bases connected by rectangles"
+          },
+          {
+            "question": "What is a pyramid?",
+            "options": [
+              "One base with triangular faces meeting at a point",
+              "Two identical parallel bases",
+              "A round shape",
+              "A flat 2D shape"
+            ],
+            "correct_answer": "One base with triangular faces meeting at a point"
+          },
+          {
+            "question": "How many faces does a rectangular prism have?",
+            "options": [
+              "6",
+              "5",
+              "8",
+              "4"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "How many faces does a square pyramid have?",
+            "options": [
+              "5",
+              "6",
+              "4",
+              "8"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "What is a vertex?",
+            "options": [
+              "A corner point where edges meet",
+              "A flat surface",
+              "A line where faces meet",
+              "A curved surface"
+            ],
+            "correct_answer": "A corner point where edges meet"
+          },
+          {
+            "question": "What is an edge?",
+            "options": [
+              "A line where two faces meet",
+              "A corner point",
+              "A flat surface",
+              "A curved line"
+            ],
+            "correct_answer": "A line where two faces meet"
+          },
+          {
+            "question": "What is the top point of a pyramid called?",
+            "options": [
+              "Apex",
+              "Base",
+              "Edge",
+              "Face"
+            ],
+            "correct_answer": "Apex"
+          },
+          {
+            "question": "How many vertices does a rectangular prism have?",
+            "options": [
+              "8",
+              "6",
+              "12",
+              "4"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "How many edges does a square pyramid have?",
+            "options": [
+              "8",
+              "5",
+              "6",
+              "12"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is a net?",
+            "options": [
+              "A 2D pattern that folds into a 3D solid",
+              "A triangle only",
+              "A curved surface",
+              "A vertex"
+            ],
+            "correct_answer": "A 2D pattern that folds into a 3D solid"
+          },
+          {
+            "question": "How is a prism different from a pyramid?",
+            "options": [
+              "A prism has two identical bases; pyramid has one",
+              "They're the same shape",
+              "A pyramid always has more faces",
+              "A prism never has rectangular sides"
+            ],
+            "correct_answer": "A prism has two identical bases; pyramid has one"
+          },
+          {
+            "question": "Unfolding a cardboard box flat gives you what?",
+            "options": [
+              "Its net",
+              "A new pyramid",
+              "A sphere",
+              "A cylinder"
+            ],
+            "correct_answer": "Its net"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# ✍️ Friday Review — Filipino (Grade 5)\n\n- Pagsulat ng sariling maikling kuwento\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang unang hakbang sa pagsulat ng sariling kuwento?",
+            "options": [
+              "Pumili ng simpleng suliranin",
+              "Direktang isulat ang wakas",
+              "Kalimutan ang balangkas",
+              "Huwag maglagay ng tauhan"
+            ],
+            "correct_answer": "Pumili ng simpleng suliranin"
+          },
+          {
+            "question": "Ano ang dapat ilarawan bilang tagpuan?",
+            "options": [
+              "Saan at kailan nangyari ang kuwento",
+              "Pangalan ng may-akda",
+              "Bilang ng pahina",
+              "Katapusan lamang"
+            ],
+            "correct_answer": "Saan at kailan nangyari ang kuwento"
+          },
+          {
+            "question": "Ano ang nangyayari sa gitna ng kuwento?",
+            "options": [
+              "Lumalaki ang suliranin",
+              "Ipinapakilala lamang ang tauhan",
+              "Nalulutas agad",
+              "Walang mangyayari"
+            ],
+            "correct_answer": "Lumalaki ang suliranin"
+          },
+          {
+            "question": "Ano ang mahalaga ayon sa payo?",
+            "options": [
+              "Malinaw na balangkas",
+              "Napakahabang pangungusap",
+              "Maraming tauhan lamang",
+              "Kumplikadong salita"
+            ],
+            "correct_answer": "Malinaw na balangkas"
+          },
+          {
+            "question": "Bakit hindi dapat matakot magsimulang simple?",
+            "options": [
+              "Mahalaga ang balangkas, hindi ang kahirapan ng salita",
+              "Dapat palaging kumplikado",
+              "Simpleng kuwento ay hindi maganda",
+              "Hindi dapat magsulat nang simple"
+            ],
+            "correct_answer": "Mahalaga ang balangkas, hindi ang kahirapan ng salita"
+          },
+          {
+            "question": "Anong bahagi ang naglalaman ng paglutas ng suliranin?",
+            "options": [
+              "Wakas",
+              "Simula",
+              "Gitna lamang",
+              "Tagpuan"
+            ],
+            "correct_answer": "Wakas"
+          },
+          {
+            "question": "Bakit ilarawan nang mabuti ang tagpuan?",
+            "options": [
+              "Nakakatulong maisip ang kapaligiran",
+              "Walang kahalagahan",
+              "Hindi na kailangan ilarawan",
+              "Laging huling bahagi"
+            ],
+            "correct_answer": "Nakakatulong maisip ang kapaligiran"
+          },
+          {
+            "question": "Kailan gagamit ng tugma?",
+            "options": [
+              "Kung may bahaging patula",
+              "Palagi",
+              "Hindi dapat gamitin",
+              "Sa dulo lamang"
+            ],
+            "correct_answer": "Kung may bahaging patula"
+          },
+          {
+            "question": "Ano ang gagawin kung mahirap pumili ng suliranin?",
+            "options": [
+              "Pumili ng simpleng suliranin",
+              "Huwag maglagay ng suliranin",
+              "Kopyahin ang kuwento ng iba",
+              "Tumigil sa pagsulat"
+            ],
+            "correct_answer": "Pumili ng simpleng suliranin"
+          },
+          {
+            "question": "Bakit balikan ang mga aralin tungkol sa balangkas?",
+            "options": [
+              "Para magabayan sa maayos na pagkakasunod-sunod",
+              "Hindi na kailangan",
+              "Balangkas ay hindi mahalaga",
+              "Pagsulat ay hindi nangangailangan ng balangkas"
+            ],
+            "correct_answer": "Para magabayan sa maayos na pagkakasunod-sunod"
+          },
+          {
+            "question": "Koneksyon nito sa mga naunang linggo?",
+            "options": [
+              "Ginagamit ang natutunang balangkas at pagkilala sa tauhan",
+              "Walang koneksyon",
+              "Bagong konsepto",
+              "Tungkol sa matematika"
+            ],
+            "correct_answer": "Ginagamit ang natutunang balangkas at pagkilala sa tauhan"
+          },
+          {
+            "question": "Bakit magsanay sa pagsulat ng sariling kuwento?",
+            "options": [
+              "Nailalapat ang natutunang kasanayan",
+              "Walang gamit",
+              "Sapat na ang pagbasa ng iba",
+              "Hindi na kailangan sumulat"
+            ],
+            "correct_answer": "Nailalapat ang natutunang kasanayan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🏞️ Friday Review — Science (Grade 5)\n\n- Landforms and bodies of water\n\nGreat geography review! 🌟",
+        "quiz": [
+          {
+            "question": "What is a mountain?",
+            "options": [
+              "A very tall landform with steep sides",
+              "A flat, low area",
+              "A body of salt water",
+              "A flowing fresh water body"
+            ],
+            "correct_answer": "A very tall landform with steep sides"
+          },
+          {
+            "question": "What is a plateau?",
+            "options": [
+              "A raised, flat area of land",
+              "A body of water",
+              "A deep valley",
+              "A type of ocean"
+            ],
+            "correct_answer": "A raised, flat area of land"
+          },
+          {
+            "question": "What is a valley?",
+            "options": [
+              "Low land between mountains or hills",
+              "The tallest landform",
+              "A body of salt water",
+              "A farming plain"
+            ],
+            "correct_answer": "Low land between mountains or hills"
+          },
+          {
+            "question": "What is a plain?",
+            "options": [
+              "A large, flat area often used for farming",
+              "A tall mountain range",
+              "A deep valley",
+              "A body of water"
+            ],
+            "correct_answer": "A large, flat area often used for farming"
+          },
+          {
+            "question": "What is the largest body of salt water?",
+            "options": [
+              "Ocean",
+              "Lake",
+              "River",
+              "Valley"
+            ],
+            "correct_answer": "Ocean"
+          },
+          {
+            "question": "What is a lake?",
+            "options": [
+              "A body of water surrounded by land",
+              "A flowing body of water",
+              "A tall mountain",
+              "A large area of sea"
+            ],
+            "correct_answer": "A body of water surrounded by land"
+          },
+          {
+            "question": "What is a river?",
+            "options": [
+              "A flowing body of fresh water",
+              "A body surrounded by land",
+              "A tall landform",
+              "A large area of sea"
+            ],
+            "correct_answer": "A flowing body of fresh water"
+          },
+          {
+            "question": "What is a gulf?",
+            "options": [
+              "A large sea area partly enclosed by land",
+              "A tall mountain",
+              "A flat plain",
+              "A small lake"
+            ],
+            "correct_answer": "A large sea area partly enclosed by land"
+          },
+          {
+            "question": "Which Philippine landmark is a mountain?",
+            "options": [
+              "Mt. Apo",
+              "Pasig River",
+              "Gulf of Davao",
+              "Laguna de Bay"
+            ],
+            "correct_answer": "Mt. Apo"
+          },
+          {
+            "question": "Which Philippine landmark is a river?",
+            "options": [
+              "Pasig River",
+              "Mt. Apo",
+              "Cordillera",
+              "Gulf of Davao"
+            ],
+            "correct_answer": "Pasig River"
+          },
+          {
+            "question": "Why are plains used for farming?",
+            "options": [
+              "They are flat and easy to cultivate",
+              "They are always underwater",
+              "Too steep for crops",
+              "No soil"
+            ],
+            "correct_answer": "They are flat and easy to cultivate"
+          },
+          {
+            "question": "How is a plateau different from a plain?",
+            "options": [
+              "A plateau is raised, a plain is at a lower flat level",
+              "They are the same landform",
+              "A plateau is always underwater",
+              "A plain is taller than a mountain"
+            ],
+            "correct_answer": "A plateau is raised, a plain is at a lower flat level"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎓 Friday Review — Araling Panlipunan (Grade 5)\n\n- Ambag ng ilustrado at Educational Decree of 1863\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Sino ang mga ilustrado?",
+            "options": [
+              "Mga Pilipinong may-kayang mag-aral, karamihan sa Europa",
+              "Mga sundalong Espanyol",
+              "Mga pari lamang",
+              "Mga mangangalakal na Tsino"
+            ],
+            "correct_answer": "Mga Pilipinong may-kayang mag-aral, karamihan sa Europa"
+          },
+          {
+            "question": "Isang ambag ng ilustrado?",
+            "options": [
+              "Nagsulat ng akdang naglantad sa kalagayan ng Pilipinas",
+              "Sumuporta sa lahat ng patakaran ng Espanya",
+              "Wala silang naitulong",
+              "Umalis magpakailanman"
+            ],
+            "correct_answer": "Nagsulat ng akdang naglantad sa kalagayan ng Pilipinas"
+          },
+          {
+            "question": "Ano ang La Solidaridad?",
+            "options": [
+              "Samahang para ipaglaban ang reporma",
+              "Uri ng barko",
+              "Batas ng Espanya",
+              "Lungsod sa Pilipinas"
+            ],
+            "correct_answer": "Samahang para ipaglaban ang reporma"
+          },
+          {
+            "question": "Layunin ng Educational Decree of 1863?",
+            "options": [
+              "Pagtatatag ng libreng paaralang publiko",
+              "Pagbabawal ng edukasyon",
+              "Pagpapatayo ng simbahan lamang",
+              "Pagpapatalsik ng guro"
+            ],
+            "correct_answer": "Pagtatatag ng libreng paaralang publiko"
+          },
+          {
+            "question": "Bakit mahalaga ang Educational Decree of 1863?",
+            "options": [
+              "Nagbigay-daan sa mas maraming Pilipinong makapag-aral",
+              "Wala itong epekto",
+              "Nagbawal ng anumang paaralan",
+              "Para lamang sa Espanyol"
+            ],
+            "correct_answer": "Nagbigay-daan sa mas maraming Pilipinong makapag-aral"
+          },
+          {
+            "question": "Paano nag-udyok ang ilustrado ng pagmamahal sa bayan?",
+            "options": [
+              "Sa pamamagitan ng edukasyon at panitikan",
+              "Sa puwersahang digmaan lamang",
+              "Sa pagtulong sa Espanya",
+              "Wala silang ginawa"
+            ],
+            "correct_answer": "Sa pamamagitan ng edukasyon at panitikan"
+          },
+          {
+            "question": "Saan karaniwang nag-aral ang ilustrado?",
+            "options": [
+              "Europa",
+              "Aprika",
+              "Antartika",
+              "Wala silang pinag-aralan"
+            ],
+            "correct_answer": "Europa"
+          },
+          {
+            "question": "Bakit mahalaga ang La Solidaridad?",
+            "options": [
+              "Naging plataporma para ipahayag ang hinaing at reporma",
+              "Wala itong papel",
+              "Samahan ng Espanyol lamang",
+              "Tumutol sa lahat ng reporma"
+            ],
+            "correct_answer": "Naging plataporma para ipahayag ang hinaing at reporma"
+          },
+          {
+            "question": "Resulta ng mga akda ng ilustrado?",
+            "options": [
+              "Nailantad ang kalagayan ng Pilipinas",
+              "Pinuri ang patakaran ng Espanya",
+              "Walang naging resulta",
+              "Ipinagbawal agad ang pagsulat"
+            ],
+            "correct_answer": "Nailantad ang kalagayan ng Pilipinas"
+          },
+          {
+            "question": "Koneksyon ng ilustrado sa nasyonalismo?",
+            "options": [
+              "Naging bahagi sila ng pag-unlad ng nasyonalismo",
+              "Walang kinalaman",
+              "Kinontra nila ang nasyonalismo",
+              "Laban sa reporma"
+            ],
+            "correct_answer": "Naging bahagi sila ng pag-unlad ng nasyonalismo"
+          },
+          {
+            "question": "Naidulot ng mas maraming paaralan mula sa Decree?",
+            "options": [
+              "Mas maraming access sa edukasyon",
+              "Bumaba ang bilang ng nag-aaral",
+              "Walang pagbabago",
+              "Isinara ang dating paaralan"
+            ],
+            "correct_answer": "Mas maraming access sa edukasyon"
+          },
+          {
+            "question": "Bakit mahalaga ang panahon ng ilustrado sa kasaysayan?",
+            "options": [
+              "Naghanda ito sa mas malawak na kilusang makabayan",
+              "Walang kahalagahan",
+              "Hiwalay na kasaysayan lamang",
+              "Hindi nauugnay sa Kilusang Propaganda"
+            ],
+            "correct_answer": "Naghanda ito sa mas malawak na kilusang makabayan"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🎬 Friday Review — EPP (ICT) (Grade 5)\n\n- Presentation transitions and animations\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "What is a transition?",
+            "options": [
+              "The effect moving from one slide to the next",
+              "Text inside a slide",
+              "The title of the presentation",
+              "The file name"
+            ],
+            "correct_answer": "The effect moving from one slide to the next"
+          },
+          {
+            "question": "What is an animation?",
+            "options": [
+              "An effect making elements on one slide move or appear",
+              "The effect between two slides",
+              "The background color",
+              "The title font"
+            ],
+            "correct_answer": "An effect making elements on one slide move or appear"
+          },
+          {
+            "question": "Why use transitions/animations sparingly?",
+            "options": [
+              "Too many can distract from the message",
+              "More is always better",
+              "Required on every slide",
+              "They replace content"
+            ],
+            "correct_answer": "Too many can distract from the message"
+          },
+          {
+            "question": "Why use the same transition throughout?",
+            "options": [
+              "Consistent, professional look",
+              "Smaller file size",
+              "Removes need for slides",
+              "Required by every program"
+            ],
+            "correct_answer": "Consistent, professional look"
+          },
+          {
+            "question": "What should animations do?",
+            "options": [
+              "Highlight important points",
+              "Only look flashy",
+              "Replace all text",
+              "Slow down the presentation"
+            ],
+            "correct_answer": "Highlight important points"
+          },
+          {
+            "question": "Example of a transition?",
+            "options": [
+              "A fade between two slides",
+              "Text flying in on one slide",
+              "The title font",
+              "Background color"
+            ],
+            "correct_answer": "A fade between two slides"
+          },
+          {
+            "question": "Example of an animation?",
+            "options": [
+              "Text flying in on a single slide",
+              "A fade between two slides",
+              "The slide title",
+              "The file name"
+            ],
+            "correct_answer": "Text flying in on a single slide"
+          },
+          {
+            "question": "What if every slide uses a different flashy transition?",
+            "options": [
+              "Looks unprofessional and distracting",
+              "Always looks better",
+              "No effect on the audience",
+              "Easier to understand"
+            ],
+            "correct_answer": "Looks unprofessional and distracting"
+          },
+          {
+            "question": "How does this relate to multimedia lessons in English?",
+            "options": [
+              "Both choose elements to support a message",
+              "Completely unrelated",
+              "Only English uses multimedia",
+              "Presentations never use multimedia"
+            ],
+            "correct_answer": "Both choose elements to support a message"
+          },
+          {
+            "question": "To highlight one key statistic, what could you use?",
+            "options": [
+              "An animation timed to appear",
+              "No visuals at all",
+              "The loudest transition sound",
+              "Ten different fonts"
+            ],
+            "correct_answer": "An animation timed to appear"
+          },
+          {
+            "question": "Why is consistency important?",
+            "options": [
+              "Helps audience focus on content, not distracting effects",
+              "Makes every slide different",
+              "No real benefit",
+              "Only for long presentations"
+            ],
+            "correct_answer": "Helps audience focus on content, not distracting effects"
+          },
+          {
+            "question": "Good rule of thumb for animations?",
+            "options": [
+              "Use only when they add meaning or clarity",
+              "Add as many as possible",
+              "Never use any",
+              "Only on the title slide"
+            ],
+            "correct_answer": "Use only when they add meaning or clarity"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎼 Friday Review — MAPEH (Grade 5)\n\n- Paggawa ng sariling simpleng awit\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Unang hakbang sa paggawa ng sariling awit?",
+            "options": [
+              "Pumili ng simpleng paksa",
+              "Direktang kumanta nang walang plano",
+              "Kalimutan ang verse at chorus",
+              "Bumili ng bagong instrumento"
+            ],
+            "correct_answer": "Pumili ng simpleng paksa"
+          },
+          {
+            "question": "Katangian ng verse?",
+            "options": [
+              "Nagkukuwento at nagbabago bawat pag-uulit",
+              "Palaging pareho",
+              "Walang salita",
+              "Instrumento lamang"
+            ],
+            "correct_answer": "Nagkukuwento at nagbabago bawat pag-uulit"
+          },
+          {
+            "question": "Katangian ng chorus?",
+            "options": [
+              "Paulit-ulit at madaling tandaan",
+              "Nagbabago bawat ulit",
+              "Walang himig",
+              "Mahaba at kumplikado"
+            ],
+            "correct_answer": "Paulit-ulit at madaling tandaan"
+          },
+          {
+            "question": "Simpleng instrumento sa himig?",
+            "options": [
+              "Kampanilya o palakpak",
+              "Piano lamang",
+              "Gitara lamang",
+              "Wala"
+            ],
+            "correct_answer": "Kampanilya o palakpak"
+          },
+          {
+            "question": "Mahalaga ayon sa layunin ng aktibidad?",
+            "options": [
+              "Maipahayag ang ideya gamit ang musical form",
+              "Maging perpekto ang himig",
+              "Maging pinakamahaba",
+              "Gumamit ng maraming instrumento"
+            ],
+            "correct_answer": "Maipahayag ang ideya gamit ang musical form"
+          },
+          {
+            "question": "Konseptong ginagamit dito?",
+            "options": [
+              "Verse at chorus",
+              "Estadistika",
+              "Probability",
+              "Balangkas"
+            ],
+            "correct_answer": "Verse at chorus"
+          },
+          {
+            "question": "Bakit hindi kailangang perpekto ang himig?",
+            "options": [
+              "Mahalaga ang maipahayag ang ideya",
+              "Kailangang perpekto",
+              "Hindi na kailangan ng himig",
+              "Walang kahalagahan"
+            ],
+            "correct_answer": "Mahalaga ang maipahayag ang ideya"
+          },
+          {
+            "question": "Halimbawang paksa sa awit?",
+            "options": [
+              "Pagmamahal sa pamilya",
+              "Batas komersyo",
+              "Ekonomiya",
+              "Pamamahala ng gobyerno"
+            ],
+            "correct_answer": "Pagmamahal sa pamilya"
+          },
+          {
+            "question": "Bakit isulat muna ang verse bago chorus?",
+            "options": [
+              "Maayos na maiugnay ang kuwento sa mensahe",
+              "Hindi mahalaga ang ayos",
+              "Dapat isulat muna ang chorus",
+              "Walang pagkakaayos"
+            ],
+            "correct_answer": "Maayos na maiugnay ang kuwento sa mensahe"
+          },
+          {
+            "question": "Layunin ng aktibidad sa MAPEH?",
+            "options": [
+              "Ilapat ang musical form sa proyekto",
+              "Walang layunin",
+              "Libangin ang guro",
+              "Palitan ang matematika"
+            ],
+            "correct_answer": "Ilapat ang musical form sa proyekto"
+          },
+          {
+            "question": "Kung mahirap makahanap ng himig?",
+            "options": [
+              "Subukan ang boses o palakpak",
+              "Sumuko na lamang",
+              "Kalimutan ang proyekto",
+              "Kopyahin ang iba"
+            ],
+            "correct_answer": "Subukan ang boses o palakpak"
+          },
+          {
+            "question": "Pagkakaiba ng awit sa tulang pambata?",
+            "options": [
+              "Ang awit ay may himig, ang tula ay binabasa lamang",
+              "Magkatulad",
+              "Walang pagkakaiba",
+              "Ang tula ay may himig din"
+            ],
+            "correct_answer": "Ang awit ay may himig, ang tula ay binabasa lamang"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 💹 Friday Review — EPP (Grade 5)\n\n- Paghahambing ng presyo sa merkado\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Bakit ihambing ang presyo sa merkado?",
+            "options": [
+              "Malaman ang makatwirang presyo",
+              "Hindi na kailangan",
+              "Tularan lang ang ibang tindahan",
+              "Walang kaugnayan"
+            ],
+            "correct_answer": "Malaman ang makatwirang presyo"
+          },
+          {
+            "question": "Mangyayari kung masyadong mataas ang presyo?",
+            "options": [
+              "Maaaring hindi mabili",
+              "Palaging mabibili",
+              "Walang epekto",
+              "Awtomatikong bababa ang puhunan"
+            ],
+            "correct_answer": "Maaaring hindi mabili"
+          },
+          {
+            "question": "Mangyayari kung masyadong mababa ang presyo?",
+            "options": [
+              "Maaaring hindi sapat sa puhunan at kita",
+              "Palaging kikita ng malaki",
+              "Walang epekto",
+              "Mas mabibili"
+            ],
+            "correct_answer": "Maaaring hindi sapat sa puhunan at kita"
+          },
+          {
+            "question": "Unang hakbang sa paghahambing ng presyo?",
+            "options": [
+              "Tingnan ang presyo sa iba't ibang tindahan",
+              "Ibenta agad",
+              "Kalimutan ang presyo ng iba",
+              "Itaas agad ang presyo"
+            ],
+            "correct_answer": "Tingnan ang presyo sa iba't ibang tindahan"
+          },
+          {
+            "question": "Bukod sa presyo, ano pang isaalang-alang?",
+            "options": [
+              "Kalidad ng produkto",
+              "Kulay ng kalangitan",
+              "Bilang ng bituin",
+              "Pangalan ng may-ari"
+            ],
+            "correct_answer": "Kalidad ng produkto"
+          },
+          {
+            "question": "Tamang presyo ayon sa aralin?",
+            "options": [
+              "Patas sa mamimili, sapat sa gumawa",
+              "Palaging pinakamataas",
+              "Palaging pinakamababa",
+              "Hindi isinasaalang-alang ang puhunan"
+            ],
+            "correct_answer": "Patas sa mamimili, sapat sa gumawa"
+          },
+          {
+            "question": "Bakit isaalang-alang ang kalidad sa presyo?",
+            "options": [
+              "Mas magandang kalidad ay nagbibigay-katwiran sa mas mataas na presyo",
+              "Walang kaugnayan",
+              "Hindi mahalaga sa negosyo",
+              "Palaging pareho ang kalidad"
+            ],
+            "correct_answer": "Mas magandang kalidad ay nagbibigay-katwiran sa mas mataas na presyo"
+          },
+          {
+            "question": "Benepisyo ng pagsusuri sa presyo bago magbenta?",
+            "options": [
+              "Makatakda ng makatwirang presyo",
+              "Walang benepisyo",
+              "Nagpapahaba lamang",
+              "Nagpapababa ng kalidad"
+            ],
+            "correct_answer": "Makatakda ng makatwirang presyo"
+          },
+          {
+            "question": "Mangyayari kung hindi inihambing ang presyo?",
+            "options": [
+              "Maaaring maging masyadong mataas o mababa",
+              "Palaging tama agad",
+              "Walang epekto",
+              "Awtomatikong tama"
+            ],
+            "correct_answer": "Maaaring maging masyadong mataas o mababa"
+          },
+          {
+            "question": "Bakit tingnan ang iba't ibang tindahan?",
+            "options": [
+              "Mas malawak at tumpak na pananaw sa presyo",
+              "Isang tindahan lamang ang tama",
+              "Hindi na kailangan",
+              "Walang pagkakaiba ang presyo"
+            ],
+            "correct_answer": "Mas malawak at tumpak na pananaw sa presyo"
+          },
+          {
+            "question": "Koneksyon nito sa puhunan at kita?",
+            "options": [
+              "Tumutulong itakda ang presyong tumutugma sa puhunan at kita",
+              "Walang koneksyon",
+              "Bagong konsepto lamang",
+              "Tungkol sa musika"
+            ],
+            "correct_answer": "Tumutulong itakda ang presyong tumutugma sa puhunan at kita"
+          },
+          {
+            "question": "Bakit matuto maghambing ng presyo sa murang edad?",
+            "options": [
+              "Batayang kasanayan sa pananalapi para sa hinaharap",
+              "Hindi kapaki-pakinabang",
+              "Para lamang sa may-ari ng negosyo",
+              "Walang gamit sa pag-aaral"
+            ],
+            "correct_answer": "Batayang kasanayan sa pananalapi para sa hinaharap"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 Friday Review — GMRC (Grade 5)\n\n- Discernment: pagpili ng tamang desisyon\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang discernment?",
+            "options": [
+              "Kakayahang magpasiya nang matalino",
+              "Kawalan ng pagpapasiya",
+              "Pagsunod na lamang sa kaibigan",
+              "Pagpapabaya sa sitwasyon"
+            ],
+            "correct_answer": "Kakayahang magpasiya nang matalino"
+          },
+          {
+            "question": "Halimbawa ng discernment?",
+            "options": [
+              "Humingi ng payo bago magpasiya",
+              "Sumunod agad sa unang naisip",
+              "Iwasan ang pagpapasya",
+              "Kalimutan ang epekto"
+            ],
+            "correct_answer": "Humingi ng payo bago magpasiya"
+          },
+          {
+            "question": "Bakit mahalaga ang pag-iisip bago kumilos?",
+            "options": [
+              "Nakakatulong sa matalinong desisyon",
+              "Walang epekto",
+              "Nagpapabagal lamang",
+              "Hindi kinakailangan"
+            ],
+            "correct_answer": "Nakakatulong sa matalinong desisyon"
+          },
+          {
+            "question": "Sino hihingan ng payo sa mahihirap na desisyon?",
+            "options": [
+              "Magulang, guro, o pari/pastor",
+              "Estranghero lamang",
+              "Wala",
+              "Kaibigang hindi kilala"
+            ],
+            "correct_answer": "Magulang, guro, o pari/pastor"
+          },
+          {
+            "question": "Isang paraan para tulungan ang sarili sa desisyon?",
+            "options": [
+              "Idulog sa panalangin",
+              "Kalimutan ang problema",
+              "Basta magdesisyon",
+              "Iwasan ang lahat ng tao"
+            ],
+            "correct_answer": "Idulog sa panalangin"
+          },
+          {
+            "question": "Ano ang dapat timbangin bago magdesisyon?",
+            "options": [
+              "Epekto ng bawat pagpipilian",
+              "Kulay ng damit",
+              "Oras ng araw lamang",
+              "Wala"
+            ],
+            "correct_answer": "Epekto ng bawat pagpipilian"
+          },
+          {
+            "question": "Kapag inaanyayahan sa hindi tamang bagay?",
+            "options": [
+              "Isipin ang kahihinatnan at humingi ng payo",
+              "Sumunod agad",
+              "Sabihin na hindi mo kaibigan siya",
+              "Iwanan magpakailanman"
+            ],
+            "correct_answer": "Isipin ang kahihinatnan at humingi ng payo"
+          },
+          {
+            "question": "Bakit pagpapahalaga ang discernment sa GMRC?",
+            "options": [
+              "Tumutulong sa moral na desisyon",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ng agham",
+              "Hindi itinuro sa paaralan"
+            ],
+            "correct_answer": "Tumutulong sa moral na desisyon"
+          },
+          {
+            "question": "Kabaligtaran ng discernment?",
+            "options": [
+              "Padalos-dalos na pagpapasya",
+              "Mahinahong pag-iisip",
+              "Paghingi ng payo",
+              "Panalangin bago magdesisyon"
+            ],
+            "correct_answer": "Padalos-dalos na pagpapasya"
+          },
+          {
+            "question": "Papaano tumutulong ang panalangin sa pagpapasiya?",
+            "options": [
+              "Nagbibigay ng gabay at katatagan",
+              "Walang papel",
+              "Pinipigilan ang desisyon",
+              "Nagpapahirap lamang"
+            ],
+            "correct_answer": "Nagbibigay ng gabay at katatagan"
+          },
+          {
+            "question": "Bakit matuto magdiscern mula pagkabata?",
+            "options": [
+              "Para maging handa sa mas mahihirap na desisyon",
+              "Hindi na kailangan linangin",
+              "Awtomatiko sa lahat",
+              "Walang benepisyo"
+            ],
+            "correct_answer": "Para maging handa sa mas mahihirap na desisyon"
+          },
+          {
+            "question": "Koneksyon ng discernment sa paggalang sa relihiyon?",
+            "options": [
+              "Pareho nangangailangan ng matalinong pagsasaalang-alang sa iba",
+              "Walang kaugnayan",
+              "Isa ay tungkol sa agham",
+              "Isa ay tungkol sa matematika"
+            ],
+            "correct_answer": "Pareho nangangailangan ng matalinong pagsasaalang-alang sa iba"
+          }
+        ]
+      }
+    }
+  }
+}

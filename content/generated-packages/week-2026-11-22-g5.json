@@ -1,0 +1,2266 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-11-22",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🎭 English — Metaphor, Personification, and Hyperbole\n\nGrade 5, Week 24! Let's explore three powerful figures of speech. 🎭\n\n## 🔄 Review\nWe learned about **flashback** as a plot pattern last week.\n\n## 🎭 Three Figures of Speech\n- **Metaphor** — comparing two unlike things WITHOUT using \"like\" or \"as\": *\"Her smile was sunshine.\"*\n- **Personification** — giving human qualities to non-human things: *\"The wind whispered through the trees.\"*\n- **Hyperbole** — an extreme exaggeration not meant to be taken literally: *\"I've told you a million times!\"*\n\n## 🔍 Why Writers Use Them\nThese figures of speech make writing more **vivid** and **emotional** than plain, literal language. They help readers *feel* a scene, not just understand it.\n\n**Key words:** metaphor, personification, hyperbole, figurative language",
+        "quiz": [
+          {
+            "question": "What is a metaphor?",
+            "options": [
+              "Comparing two unlike things without 'like' or 'as'",
+              "Giving human qualities to objects",
+              "An extreme exaggeration",
+              "A type of rhyme"
+            ],
+            "correct_answer": "Comparing two unlike things without 'like' or 'as'"
+          },
+          {
+            "question": "What is personification?",
+            "options": [
+              "Giving human qualities to non-human things",
+              "Comparing using 'like' or 'as'",
+              "An extreme exaggeration",
+              "A type of form"
+            ],
+            "correct_answer": "Giving human qualities to non-human things"
+          },
+          {
+            "question": "What is hyperbole?",
+            "options": [
+              "An extreme exaggeration not meant literally",
+              "A comparison using 'like'",
+              "A human quality given to objects",
+              "A type of rhyme scheme"
+            ],
+            "correct_answer": "An extreme exaggeration not meant literally"
+          },
+          {
+            "question": "'Her smile was sunshine' is an example of what?",
+            "options": [
+              "Metaphor",
+              "Hyperbole",
+              "Personification",
+              "Simile"
+            ],
+            "correct_answer": "Metaphor"
+          },
+          {
+            "question": "'The wind whispered through the trees' is an example of what?",
+            "options": [
+              "Personification",
+              "Metaphor",
+              "Hyperbole",
+              "Literal language"
+            ],
+            "correct_answer": "Personification"
+          },
+          {
+            "question": "'I've told you a million times!' is an example of what?",
+            "options": [
+              "Hyperbole",
+              "Metaphor",
+              "Personification",
+              "Literal statement"
+            ],
+            "correct_answer": "Hyperbole"
+          },
+          {
+            "question": "Why do writers use figures of speech like these?",
+            "options": [
+              "To make writing more vivid and emotional",
+              "To confuse the reader on purpose",
+              "To make sentences shorter",
+              "To avoid using any adjectives"
+            ],
+            "correct_answer": "To make writing more vivid and emotional"
+          },
+          {
+            "question": "How is a metaphor different from a simile?",
+            "options": [
+              "A metaphor does not use 'like' or 'as'; a simile does",
+              "They are exactly the same",
+              "A metaphor is always about animals",
+              "A simile never compares things"
+            ],
+            "correct_answer": "A metaphor does not use 'like' or 'as'; a simile does"
+          },
+          {
+            "question": "'The stars danced in the sky' is an example of what figure of speech?",
+            "options": [
+              "Personification",
+              "Hyperbole",
+              "Literal description",
+              "A metaphor about sunshine"
+            ],
+            "correct_answer": "Personification"
+          },
+          {
+            "question": "'This bag weighs a ton!' is an example of what?",
+            "options": [
+              "Hyperbole",
+              "Metaphor",
+              "Personification",
+              "A literal fact"
+            ],
+            "correct_answer": "Hyperbole"
+          },
+          {
+            "question": "Why should hyperbole never be taken literally?",
+            "options": [
+              "It is an intentional exaggeration for effect",
+              "It is always a true fact",
+              "It replaces real numbers",
+              "It is a type of math problem"
+            ],
+            "correct_answer": "It is an intentional exaggeration for effect"
+          },
+          {
+            "question": "Which sentence uses a metaphor?",
+            "options": [
+              "'Time is money.'",
+              "'She ran like the wind.'",
+              "'The clock ticked patiently.'",
+              "'I could eat a horse!'"
+            ],
+            "correct_answer": "'Time is money.'"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — GMDAS with Fractions and Decimals\n\nGrade 5, Week 24! Let's combine fractions and decimals in one expression. 🔢\n\n## 🔄 Review\nWe practiced **dividing decimals** last week.\n\n## 🔢 What Is GMDAS?\n**GMDAS** is the order of operations: **G**rouping, **M**ultiplication, **D**ivision, **A**ddition, **S**ubtraction (left to right within each level).\n\n## 🔀 Mixing Fractions and Decimals\nWhen an expression has both, it's often easiest to convert everything to **decimals** first, then apply GMDAS.\n\n**Example:** (1/2 + 0.25) × 4\n- 1/2 = 0.5\n- 0.5 + 0.25 = 0.75\n- 0.75 × 4 = **3**\n\n**Example 2:** 0.6 ÷ (3/4 − 1/2)\n- 3/4 = 0.75, 1/2 = 0.5\n- 0.75 − 0.5 = 0.25\n- 0.6 ÷ 0.25 = **2.4**\n\n**Key words:** GMDAS, order of operations, mixed expression",
+        "quiz": [
+          {
+            "question": "What does GMDAS stand for?",
+            "options": [
+              "Grouping, Multiplication, Division, Addition, Subtraction",
+              "Grouping, Multiplication, Division, Average, Sum",
+              "Group, Multiply, Divide, Add, Simplify",
+              "Guess, Measure, Divide, Add, Subtract"
+            ],
+            "correct_answer": "Grouping, Multiplication, Division, Addition, Subtraction"
+          },
+          {
+            "question": "What should you do first when mixing fractions and decimals in GMDAS?",
+            "options": [
+              "Convert everything to decimals first",
+              "Ignore the fractions",
+              "Ignore the decimals",
+              "Add before multiplying always"
+            ],
+            "correct_answer": "Convert everything to decimals first"
+          },
+          {
+            "question": "What is 1/2 as a decimal?",
+            "options": [
+              "0.5",
+              "0.2",
+              "0.12",
+              "5.0"
+            ],
+            "correct_answer": "0.5"
+          },
+          {
+            "question": "What is (1/2 + 0.25) × 4?",
+            "options": [
+              "3",
+              "0.75",
+              "4.75",
+              "1"
+            ],
+            "correct_answer": "3"
+          },
+          {
+            "question": "What is 3/4 as a decimal?",
+            "options": [
+              "0.75",
+              "0.34",
+              "3.4",
+              "0.43"
+            ],
+            "correct_answer": "0.75"
+          },
+          {
+            "question": "In GMDAS, what comes first?",
+            "options": [
+              "Grouping (parentheses)",
+              "Addition",
+              "Subtraction",
+              "Division"
+            ],
+            "correct_answer": "Grouping (parentheses)"
+          },
+          {
+            "question": "What is 0.6 ÷ (3/4 − 1/2)?",
+            "options": [
+              "2.4",
+              "0.24",
+              "24",
+              "0.6"
+            ],
+            "correct_answer": "2.4"
+          },
+          {
+            "question": "What is 1/4 + 0.5?",
+            "options": [
+              "0.75",
+              "0.25",
+              "1.5",
+              "0.05"
+            ],
+            "correct_answer": "0.75"
+          },
+          {
+            "question": "Why do we follow GMDAS instead of solving left to right always?",
+            "options": [
+              "To get one correct, agreed-upon answer for every expression",
+              "It doesn't actually matter what order you use",
+              "GMDAS only applies to whole numbers",
+              "It makes problems harder on purpose"
+            ],
+            "correct_answer": "To get one correct, agreed-upon answer for every expression"
+          },
+          {
+            "question": "What is (0.5 + 1/2) × 2?",
+            "options": [
+              "2",
+              "1",
+              "0.5",
+              "4"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "What is 1 − 1/4 (as a decimal)?",
+            "options": [
+              "0.75",
+              "0.25",
+              "1.25",
+              "0.5"
+            ],
+            "correct_answer": "0.75"
+          },
+          {
+            "question": "What is 2 × (1/2 + 0.25)?",
+            "options": [
+              "1.5",
+              "0.75",
+              "2.5",
+              "1"
+            ],
+            "correct_answer": "1.5"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📚 Filipino — Maikling Kuwento: Simula, Gitna, Wakas\n\nGrade 5, Linggo 24! Alamin natin ang balangkas ng maikling kuwento. 📚\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **kuwentong katatakutan**.\n\n## 📖 Ano ang Maikling Kuwento?\nAng **maikling kuwento** ay isang kathang-isip na may kumpletong balangkas ngunit mas maigsi kaysa nobela.\n\n## 🧩 Tatlong Bahagi ng Balangkas\n- **Simula** — ipinapakilala ang mga tauhan, tagpuan, at suliranin\n- **Gitna** — umuunlad ang suliranin (climax o sukdulan)\n- **Wakas** — nalulutas ang suliranin, may kongklusyon\n\n**Halimbawa:** Sa isang kuwento tungkol sa batang naliligaw, ang **simula** ay ang paglalakbay niya, ang **gitna** ay ang paghahanap ng daan pauwi, at ang **wakas** ay ang pagkakita niya ng kanyang pamilya.\n\n**Mahahalagang salita:** maikling kuwento, simula, gitna, wakas, balangkas",
+        "quiz": [
+          {
+            "question": "Ano ang maikling kuwento?",
+            "options": [
+              "Kathang-isip na may kumpletong balangkas ngunit maigsi",
+              "Isang mahabang nobela",
+              "Isang tula lamang",
+              "Isang liham pangkaibigan"
+            ],
+            "correct_answer": "Kathang-isip na may kumpletong balangkas ngunit maigsi"
+          },
+          {
+            "question": "Ano ang nangyayari sa simula ng kuwento?",
+            "options": [
+              "Ipinapakilala ang tauhan, tagpuan, at suliranin",
+              "Nalulutas ang suliranin",
+              "Nagwawakas ang kuwento",
+              "Wala nang mangyayari"
+            ],
+            "correct_answer": "Ipinapakilala ang tauhan, tagpuan, at suliranin"
+          },
+          {
+            "question": "Ano ang nangyayari sa gitna ng kuwento?",
+            "options": [
+              "Umuunlad ang suliranin hanggang sa sukdulan",
+              "Nagsisimula lamang ang kuwento",
+              "Walang pangyayari",
+              "Ipinapakilala ang mga tauhan"
+            ],
+            "correct_answer": "Umuunlad ang suliranin hanggang sa sukdulan"
+          },
+          {
+            "question": "Ano ang nangyayari sa wakas ng kuwento?",
+            "options": [
+              "Nalulutas ang suliranin",
+              "Ipinapakilala ang tauhan",
+              "Nagsisimula ang kuwento",
+              "Walang kongklusyon"
+            ],
+            "correct_answer": "Nalulutas ang suliranin"
+          },
+          {
+            "question": "Sa halimbawa ng batang naliligaw, ano ang simula?",
+            "options": [
+              "Ang paglalakbay niya",
+              "Ang pagkakita niya ng pamilya",
+              "Ang paghahanap ng daan",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Ang paglalakbay niya"
+          },
+          {
+            "question": "Sa halimbawa ng batang naliligaw, ano ang wakas?",
+            "options": [
+              "Ang pagkakita niya ng kanyang pamilya",
+              "Ang paglalakbay niya",
+              "Ang unang tagpuan",
+              "Ang paglabas niya ng bahay"
+            ],
+            "correct_answer": "Ang pagkakita niya ng kanyang pamilya"
+          },
+          {
+            "question": "Anong tawag sa pinakamataas na punto ng suliranin sa gitna ng kuwento?",
+            "options": [
+              "Sukdulan (climax)",
+              "Simula",
+              "Wakas",
+              "Tagpuan"
+            ],
+            "correct_answer": "Sukdulan (climax)"
+          },
+          {
+            "question": "Bakit mahalaga ang balangkas sa isang kuwento?",
+            "options": [
+              "Nagbibigay ito ng maayos na daloy mula simula hanggang wakas",
+              "Wala itong kaugnayan sa kuwento",
+              "Ito ay para lamang sa tula",
+              "Ginagawa lamang nitong mas mahaba ang kuwento"
+            ],
+            "correct_answer": "Nagbibigay ito ng maayos na daloy mula simula hanggang wakas"
+          },
+          {
+            "question": "Paano naiiba ang maikling kuwento sa nobela?",
+            "options": [
+              "Ang maikling kuwento ay mas maigsi kaysa nobela",
+              "Magkatulad lamang sila sa haba",
+              "Ang nobela ay palaging mas maigsi",
+              "Walang pagkakaiba"
+            ],
+            "correct_answer": "Ang maikling kuwento ay mas maigsi kaysa nobela"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang dapat na nasa simula ng kuwento?",
+            "options": [
+              "Pagpapakilala sa pangunahing tauhan",
+              "Ang paglutas ng suliranin",
+              "Ang kongklusyon",
+              "Ang huling pangungusap"
+            ],
+            "correct_answer": "Pagpapakilala sa pangunahing tauhan"
+          },
+          {
+            "question": "Bakit kailangang lutasin ang suliranin sa wakas?",
+            "options": [
+              "Para magbigay ng kumpletong at makabuluhang katapusan",
+              "Hindi na ito kailangan",
+              "Para pahabain lang ang kuwento",
+              "Para gawing mas nakakalito ang kuwento"
+            ],
+            "correct_answer": "Para magbigay ng kumpletong at makabuluhang katapusan"
+          },
+          {
+            "question": "Kung susulat ka ng sarili mong maikling kuwento, ano ang unang dapat mong balangkasin?",
+            "options": [
+              "Ang mga tauhan, tagpuan, at suliranin sa simula",
+              "Ang wakas lamang",
+              "Ang sukdulan lamang",
+              "Walang kailangang balangkasin"
+            ],
+            "correct_answer": "Ang mga tauhan, tagpuan, at suliranin sa simula"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔋 Science — Simple Series Circuits\n\nGrade 5, Week 24! Let's build a circuit that makes a bulb light up. 🔋\n\n## 🔄 Review\nWe learned about **conductors** and **insulators**.\n\n## 🔋 What Is a Circuit?\nA **circuit** is a complete path that allows electricity to flow. A basic circuit needs three parts:\n- **Power source** — like a battery\n- **Conductor** — wires connecting the parts\n- **Load** — something that uses the electricity, like a light bulb\n\n## ➰ Series Circuit\nIn a **series circuit**, all parts are connected in a single loop, one after another. If the loop is broken anywhere (like an open switch), **the whole circuit stops working** — the bulb won't light.\n\n## 🔌 Open vs. Closed Circuit\n- **Closed circuit** — the path is complete, electricity flows, the bulb lights up\n- **Open circuit** — there's a break in the path, electricity cannot flow\n\n**Key words:** circuit, series circuit, power source, closed circuit, open circuit",
+        "quiz": [
+          {
+            "question": "What is a circuit?",
+            "options": [
+              "A complete path that allows electricity to flow",
+              "A type of magnet",
+              "A material that blocks electricity",
+              "A kind of battery only"
+            ],
+            "correct_answer": "A complete path that allows electricity to flow"
+          },
+          {
+            "question": "What are the three basic parts of a circuit?",
+            "options": [
+              "Power source, conductor, load",
+              "Battery, plastic, wood",
+              "Insulator, magnet, wire",
+              "Bulb, glass, rubber"
+            ],
+            "correct_answer": "Power source, conductor, load"
+          },
+          {
+            "question": "What is a series circuit?",
+            "options": [
+              "A circuit where all parts are connected in a single loop",
+              "A circuit with no wires",
+              "A circuit made only of insulators",
+              "A circuit that never works"
+            ],
+            "correct_answer": "A circuit where all parts are connected in a single loop"
+          },
+          {
+            "question": "What happens if a series circuit's loop is broken anywhere?",
+            "options": [
+              "The whole circuit stops working",
+              "Only part of the circuit stops",
+              "Nothing changes",
+              "The bulb becomes brighter"
+            ],
+            "correct_answer": "The whole circuit stops working"
+          },
+          {
+            "question": "What is a closed circuit?",
+            "options": [
+              "A complete path where electricity flows",
+              "A broken path",
+              "A path with no wires",
+              "A path made only of insulators"
+            ],
+            "correct_answer": "A complete path where electricity flows"
+          },
+          {
+            "question": "What is an open circuit?",
+            "options": [
+              "A circuit with a break so electricity cannot flow",
+              "A circuit that is always on",
+              "A circuit with no power source",
+              "A circuit made entirely of metal"
+            ],
+            "correct_answer": "A circuit with a break so electricity cannot flow"
+          },
+          {
+            "question": "What role does a battery play in a circuit?",
+            "options": [
+              "It acts as the power source",
+              "It acts as the load",
+              "It blocks electricity",
+              "It has no role"
+            ],
+            "correct_answer": "It acts as the power source"
+          },
+          {
+            "question": "What role does a light bulb play in a circuit?",
+            "options": [
+              "It acts as the load, using the electricity",
+              "It acts as the power source",
+              "It is a type of conductor wire",
+              "It blocks all electricity"
+            ],
+            "correct_answer": "It acts as the load, using the electricity"
+          },
+          {
+            "question": "Why must wires in a circuit be made of conductors?",
+            "options": [
+              "So electricity can flow through them easily",
+              "So they block electricity",
+              "So they can be insulators instead",
+              "Wires don't need to be conductors"
+            ],
+            "correct_answer": "So electricity can flow through them easily"
+          },
+          {
+            "question": "If you flip a switch to 'off' in a series circuit, what happens?",
+            "options": [
+              "The circuit becomes open and the bulb turns off",
+              "Nothing happens",
+              "The bulb becomes brighter",
+              "The battery stops existing"
+            ],
+            "correct_answer": "The circuit becomes open and the bulb turns off"
+          },
+          {
+            "question": "Why is a series circuit called a 'single loop'?",
+            "options": [
+              "All parts are connected one after another in one path",
+              "It has many separate paths",
+              "It has no path at all",
+              "It only works with two batteries"
+            ],
+            "correct_answer": "All parts are connected one after another in one path"
+          },
+          {
+            "question": "A classroom demonstration circuit has a battery, wire, and bulb, but the bulb doesn't light. What is the most likely reason?",
+            "options": [
+              "The circuit is open somewhere along the loop",
+              "The battery is too powerful",
+              "The wire is a good conductor",
+              "The bulb is not part of a circuit"
+            ],
+            "correct_answer": "The circuit is open somewhere along the loop"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇫🇷 Araling Panlipunan — Kaisipang Liberal mula sa French Revolution\n\nGrade 5, Linggo 24! Alamin natin kung paano nakaimpluwensya ang mga kaisipan mula sa Europa. 🇫🇷\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **Konsepto ng Nasyonalismo**.\n\n## 🇫🇷 Ang French Revolution\nAng **French Revolution** (1789) ay isang malaking pagbabago sa Pransya na nagtaguyod ng mga kaisipang **liberal**: **kalayaan**, **pagkakapantay-pantay**, at **karapatang pantao**.\n\n## 🌍 Epekto sa Pilipinas\nAng mga ideyang ito ay **kumalat sa buong mundo**, kabilang ang sa mga ilustradong Pilipino na nag-aaral sa Europa. Natutunan nila ang mga konsepto ng:\n- Karapatan ng bawat tao\n- Pagtutol sa hindi makatarungang pamahalaan\n- Kahalagahan ng representasyon sa pamahalaan\n\nItong mga kaisipang liberal ang naging isa sa mga **binhi** ng nasyonalismong Pilipino.\n\n**Mahahalagang salita:** French Revolution, kaisipang liberal, kalayaan, karapatang pantao",
+        "quiz": [
+          {
+            "question": "Kailan naganap ang French Revolution?",
+            "options": [
+              "1789",
+              "1521",
+              "1898",
+              "1600"
+            ],
+            "correct_answer": "1789"
+          },
+          {
+            "question": "Anong mga kaisipan ang itinaguyod ng French Revolution?",
+            "options": [
+              "Kalayaan, pagkakapantay-pantay, karapatang pantao",
+              "Kolonyalismo at pananakop",
+              "Pagsamba sa hari",
+              "Pagsuko sa dayuhan"
+            ],
+            "correct_answer": "Kalayaan, pagkakapantay-pantay, karapatang pantao"
+          },
+          {
+            "question": "Paano naiimpluwensyahan ng French Revolution ang mga Pilipino?",
+            "options": [
+              "Sa pamamagitan ng mga ilustradong nag-aral sa Europa",
+              "Sa pamamagitan ng direktang pananakop ng Pransya",
+              "Wala itong epekto sa Pilipinas",
+              "Sa pamamagitan ng digmaan laban sa Pransya"
+            ],
+            "correct_answer": "Sa pamamagitan ng mga ilustradong nag-aral sa Europa"
+          },
+          {
+            "question": "Ano ang natutunan ng mga ilustrado mula sa kaisipang liberal?",
+            "options": [
+              "Karapatan ng bawat tao at pagtutol sa hindi makatarungang pamahalaan",
+              "Kahalagahan ng pananatiling sakop",
+              "Pagsuko sa awtoridad ng Espanya",
+              "Kawalan ng interes sa pamahalaan"
+            ],
+            "correct_answer": "Karapatan ng bawat tao at pagtutol sa hindi makatarungang pamahalaan"
+          },
+          {
+            "question": "Ano ang naging papel ng kaisipang liberal sa nasyonalismong Pilipino?",
+            "options": [
+              "Naging isa itong binhi ng nasyonalismo",
+              "Wala itong papel",
+              "Pinigilan nito ang nasyonalismo",
+              "Pinabagal nito ang pagbabago"
+            ],
+            "correct_answer": "Naging isa itong binhi ng nasyonalismo"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HINDI kaisipang liberal?",
+            "options": [
+              "Kawalang-interes sa karapatan ng tao",
+              "Kalayaan",
+              "Pagkakapantay-pantay",
+              "Karapatang pantao"
+            ],
+            "correct_answer": "Kawalang-interes sa karapatan ng tao"
+          },
+          {
+            "question": "Bakit mahalaga ang representasyon sa pamahalaan ayon sa kaisipang liberal?",
+            "options": [
+              "Tinitiyak nito na naririnig ang boses ng mamamayan",
+              "Wala itong kahalagahan",
+              "Ipinagbabawal ito sa lahat ng pamahalaan",
+              "Nauukol lamang ito sa hari"
+            ],
+            "correct_answer": "Tinitiyak nito na naririnig ang boses ng mamamayan"
+          },
+          {
+            "question": "Saan nagmula ang French Revolution?",
+            "options": [
+              "Pransya",
+              "Espanya",
+              "Pilipinas",
+              "Estados Unidos"
+            ],
+            "correct_answer": "Pransya"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang kaisipang liberal sa kontekstong Pilipino?",
+            "options": [
+              "Nakatulong ito sa paghubog ng nasyonalismong Pilipino",
+              "Walang kaugnayan ito sa Pilipinas",
+              "Ito ay kathang-isip lamang",
+              "Ito ay tungkol lamang sa Pransya"
+            ],
+            "correct_answer": "Nakatulong ito sa paghubog ng nasyonalismong Pilipino"
+          },
+          {
+            "question": "Paano kumalat ang mga kaisipang liberal sa mundo?",
+            "options": [
+              "Sa pamamagitan ng edukasyon at pakikipag-ugnayan sa ibang bansa",
+              "Sa pamamagitan ng lihim na kasunduan lamang",
+              "Hindi ito kumalat sa ibang bansa",
+              "Sa pamamagitan ng puwersahang pananakop lamang"
+            ],
+            "correct_answer": "Sa pamamagitan ng edukasyon at pakikipag-ugnayan sa ibang bansa"
+          },
+          {
+            "question": "Ano ang koneksyon ng aralin na ito sa binanggit noong nakaraang linggo tungkol sa nasyonalismo?",
+            "options": [
+              "Ang kaisipang liberal ay isa sa mga dahilan ng pagsibol ng nasyonalismo",
+              "Walang koneksyon ang dalawa",
+              "Ang nasyonalismo ay nauna sa French Revolution",
+              "Magkaiba ang paksa nila nang lubusan"
+            ],
+            "correct_answer": "Ang kaisipang liberal ay isa sa mga dahilan ng pagsibol ng nasyonalismo"
+          },
+          {
+            "question": "Bakit itinuturing na 'binhi' ang kaisipang liberal sa nasyonalismong Pilipino?",
+            "options": [
+              "Sapagkat pinasimulan nito ang paglago ng ideya ng kalayaan sa isip ng mga Pilipino",
+              "Sapagkat ito ay literal na binhi ng halaman",
+              "Sapagkat walang kaugnayan ito sa nasyonalismo",
+              "Sapagkat ito ay galing sa Pilipinas"
+            ],
+            "correct_answer": "Sapagkat pinasimulan nito ang paglago ng ideya ng kalayaan sa isip ng mga Pilipino"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🗂️ EPP (ICT) — Organizing Files and Folders\n\nGrade 5, Week 24! Let's keep our digital files neat and easy to find. 🗂️\n\n## 🔄 Review\nWe learned **SUM** and **AVERAGE** formulas.\n\n## 🗂️ Why Organize Files?\nJust like a messy room makes things hard to find, a messy computer with files everywhere makes it hard to locate your work.\n\n## 📁 Folders\nA **folder** is a container that holds files, helping group related items together.\n\n**Good practice:**\n- Make a folder for each subject (e.g., \"Math,\" \"Science\")\n- Use clear, descriptive **file names** (e.g., \"Math_Week24_Homework\" instead of \"Untitled1\")\n- Avoid saving everything on the Desktop — use folders instead\n\n## 🔍 Finding Files Faster\nWell-organized folders and clear names mean you can find your work in **seconds** instead of searching everywhere.\n\n**Key words:** folder, file name, organize, desktop",
+        "quiz": [
+          {
+            "question": "What is a folder used for?",
+            "options": [
+              "Holding and grouping related files together",
+              "Deleting files permanently",
+              "Making the computer slower",
+              "Printing documents"
+            ],
+            "correct_answer": "Holding and grouping related files together"
+          },
+          {
+            "question": "Why is it good practice to make a folder for each subject?",
+            "options": [
+              "It keeps related files organized and easy to find",
+              "It makes the computer run faster",
+              "It deletes old files automatically",
+              "It is required by every program"
+            ],
+            "correct_answer": "It keeps related files organized and easy to find"
+          },
+          {
+            "question": "Which is a better file name than 'Untitled1'?",
+            "options": [
+              "Math_Week24_Homework",
+              "File",
+              "New Document",
+              "Untitled2"
+            ],
+            "correct_answer": "Math_Week24_Homework"
+          },
+          {
+            "question": "Why should you avoid saving everything on the Desktop?",
+            "options": [
+              "It becomes cluttered and hard to search",
+              "The Desktop cannot save files",
+              "It automatically deletes files",
+              "It is not allowed by any computer"
+            ],
+            "correct_answer": "It becomes cluttered and hard to search"
+          },
+          {
+            "question": "What is the benefit of clear, descriptive file names?",
+            "options": [
+              "You can identify a file's content without opening it",
+              "Files load faster because of their name",
+              "They make the file smaller",
+              "They are required to open a file at all"
+            ],
+            "correct_answer": "You can identify a file's content without opening it"
+          },
+          {
+            "question": "How does good file organization help you?",
+            "options": [
+              "You can find your work in seconds instead of searching everywhere",
+              "It has no real benefit",
+              "It only matters for teachers, not students",
+              "It automatically completes your homework"
+            ],
+            "correct_answer": "You can find your work in seconds instead of searching everywhere"
+          },
+          {
+            "question": "What is a good comparison for a messy computer full of unorganized files?",
+            "options": [
+              "A messy room where things are hard to find",
+              "A clean, organized library",
+              "A locked safe",
+              "A well-labeled filing cabinet"
+            ],
+            "correct_answer": "A messy room where things are hard to find"
+          },
+          {
+            "question": "If you have files for Science, Math, and English, what is the best way to organize them?",
+            "options": [
+              "Create a separate folder for each subject",
+              "Put them all in one folder named 'Stuff'",
+              "Leave them all on the Desktop",
+              "Delete the ones you don't need right now"
+            ],
+            "correct_answer": "Create a separate folder for each subject"
+          },
+          {
+            "question": "Why might 'Untitled1' be a poor file name?",
+            "options": [
+              "It doesn't describe what the file contains",
+              "It is too short to be valid",
+              "Computers cannot open files named this way",
+              "It automatically deletes the file"
+            ],
+            "correct_answer": "It doesn't describe what the file contains"
+          },
+          {
+            "question": "What happens over time if you never organize your files into folders?",
+            "options": [
+              "It becomes harder and harder to find specific files",
+              "The computer automatically organizes them for you",
+              "Nothing changes at all",
+              "Files delete themselves"
+            ],
+            "correct_answer": "It becomes harder and harder to find specific files"
+          },
+          {
+            "question": "Which naming convention makes the most sense for a weekly assignment?",
+            "options": [
+              "Subject_Week#_Topic",
+              "asdf123",
+              "New Folder (2)",
+              "aaaaaa"
+            ],
+            "correct_answer": "Subject_Week#_Topic"
+          },
+          {
+            "question": "What is one key habit for staying organized digitally?",
+            "options": [
+              "Sorting new files into the correct folder right away",
+              "Waiting until hundreds of files pile up before sorting",
+              "Never naming your files",
+              "Saving everything with the same generic name"
+            ],
+            "correct_answer": "Sorting new files into the correct folder right away"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# ⚠️ MAPEH — Mga Epekto ng Gateway Drugs\n\nGrade 5, Linggo 24! Alamin natin ang panganib ng mga gateway drugs. ⚠️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **tamang paggamit ng gamot**.\n\n## ⚠️ Ano ang Gateway Drugs?\nAng **gateway drugs** ay mga substansiyang maaaring magbukas ng daan sa paggamit ng mas mapanganib na droga sa hinaharap — halimbawa: sigarilyo, alak, at vape.\n\n## 🚫 Mga Epekto\n- **Sigarilyo** — nakakasira ng baga, nagdudulot ng adiksyon sa nikotina\n- **Alak** — nakakaapekto sa utak at pag-iisip, nagdudulot ng adiksyon\n- **Vape** — naglalaman din ng nikotina na maaaring maging sanhi ng adiksyon kahit sa murang edad\n\n## 🛡️ Paano Iiwasan\n- Sabihin \"Hindi\" nang may tiwala kapag inaalok\n- Piliin ang kaibigang may positibong impluwensya\n- Humingi ng tulong sa magulang o guro kapag napipilitan\n\n**Mahahalagang salita:** gateway drugs, adiksyon, nikotina, impluwensya",
+        "quiz": [
+          {
+            "question": "Ano ang gateway drugs?",
+            "options": [
+              "Substansiyang maaaring magbukas ng daan sa mas mapanganib na droga",
+              "Uri ng pagkain lamang",
+              "Legal na gamot na walang epekto",
+              "Uri ng bitamina"
+            ],
+            "correct_answer": "Substansiyang maaaring magbukas ng daan sa mas mapanganib na droga"
+          },
+          {
+            "question": "Alin sa mga ito ay halimbawa ng gateway drug?",
+            "options": [
+              "Sigarilyo",
+              "Gatas",
+              "Tubig",
+              "Prutas"
+            ],
+            "correct_answer": "Sigarilyo"
+          },
+          {
+            "question": "Ano ang epekto ng sigarilyo sa katawan?",
+            "options": [
+              "Nakakasira ng baga at nagdudulot ng adiksyon",
+              "Pinapalakas ang baga",
+              "Walang epekto sa katawan",
+              "Nagpapabuti ng kalusugan"
+            ],
+            "correct_answer": "Nakakasira ng baga at nagdudulot ng adiksyon"
+          },
+          {
+            "question": "Ano ang epekto ng alak sa katawan?",
+            "options": [
+              "Nakakaapekto sa utak at pag-iisip",
+              "Nagpapalakas ng memorya",
+              "Walang epekto sa isip",
+              "Nagpapabuti ng paningin"
+            ],
+            "correct_answer": "Nakakaapekto sa utak at pag-iisip"
+          },
+          {
+            "question": "Bakit mapanganib ang vape kahit tila hindi masama?",
+            "options": [
+              "Naglalaman ito ng nikotina na sanhi ng adiksyon",
+              "Wala itong nikotina",
+              "Ligtas ito kahit anong edad",
+              "Hindi ito nagdudulot ng anumang epekto"
+            ],
+            "correct_answer": "Naglalaman ito ng nikotina na sanhi ng adiksyon"
+          },
+          {
+            "question": "Ano ang isang paraan para iwasan ang gateway drugs?",
+            "options": [
+              "Sabihin ang 'Hindi' nang may tiwala kapag inaalok",
+              "Subukan ito minsan lang para malaman",
+              "Sundin ang kaibigang gumagamit nito",
+              "Itago na lamang sa magulang"
+            ],
+            "correct_answer": "Sabihin ang 'Hindi' nang may tiwala kapag inaalok"
+          },
+          {
+            "question": "Bakit mahalagang piliin ang kaibigang may positibong impluwensya?",
+            "options": [
+              "Nakakatulong ito na maiwasan ang masamang gawain",
+              "Wala itong epekto sa desisyon",
+              "Palaging masama ang bagong kaibigan",
+              "Hindi mahalaga ang uri ng kaibigan"
+            ],
+            "correct_answer": "Nakakatulong ito na maiwasan ang masamang gawain"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag napipilitang gumamit ng bawal na bagay?",
+            "options": [
+              "Humingi ng tulong sa magulang o guro",
+              "Sumunod na lamang",
+              "Itago ito sa lahat",
+              "Gawin ito nang palihim"
+            ],
+            "correct_answer": "Humingi ng tulong sa magulang o guro"
+          },
+          {
+            "question": "Bakit tinatawag na 'gateway' ang mga substansiyang ito?",
+            "options": [
+              "Sapagkat maaari itong maging simula sa paggamit ng mas mapanganib na droga",
+              "Sapagkat ito ay ligtas at walang epekto",
+              "Sapagkat ito ay uri ng gate o pinto lamang",
+              "Sapagkat ipinagbabawal lamang ito sa matatanda"
+            ],
+            "correct_answer": "Sapagkat maaari itong maging simula sa paggamit ng mas mapanganib na droga"
+          },
+          {
+            "question": "Bakit itinuturo ang paksang ito sa mga bata?",
+            "options": [
+              "Para maging handa silang tanggihan ito kapag inalok",
+              "Para hikayatin silang subukan ito",
+              "Walang layunin ito",
+              "Para lamang takutin sila"
+            ],
+            "correct_answer": "Para maging handa silang tanggihan ito kapag inalok"
+          },
+          {
+            "question": "Alin sa mga ito ang HINDI mabuting tugon kapag inaalok ng gateway drug?",
+            "options": [
+              "Subukan muna bago tumanggi",
+              "Sabihin ang 'Hindi' nang matatag",
+              "Umalis sa sitwasyon",
+              "Humingi ng tulong sa may sapat na gulang"
+            ],
+            "correct_answer": "Subukan muna bago tumanggi"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang epekto ng gateway drugs sa murang edad?",
+            "options": [
+              "Sapagkat mas mabilis maapektuhan ang lumalagong katawan at utak ng bata",
+              "Walang epekto ito sa mga bata",
+              "Ligtas ito hangga't hindi araw-araw",
+              "Hindi ito totoong panganib"
+            ],
+            "correct_answer": "Sapagkat mas mabilis maapektuhan ang lumalagong katawan at utak ng bata"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🎁 EPP (AFA/FCS/IA) — Mini Project: Ikalawang Produkto\n\nGrade 5, Linggo 24! Gawin natin ang ikalawang proyekto gamit ang natutuhang kasanayan. 🎁\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **puhunan, presyo, at kita**.\n\n## 🎁 Pagpaplano ng Bagong Produkto\nGamit ang lahat ng natutuhan (sewing machine, embroidery, crochet), pumili ng ikalawang simpleng produkto na gagawin — halimbawa: **coin purse**, **table runner**, o **potholder**.\n\n## 📋 Mga Hakbang sa Pagpaplano\n1. Piliin ang disenyo at sukat ng produkto\n2. Ilista ang kakailanganing materyales (tela, sinulid, palamuti)\n3. Kwentahin ang tinatayang puhunan\n4. Magtakda ng target na presyo ng benta\n\nSa pagpaplano bago simulan ang trabaho, naiiwasan ang **pag-aaksaya ng materyales** at oras.\n\n**Mahahalagang salita:** pagpaplano, disenyo, materyales, tinatayang puhunan",
+        "quiz": [
+          {
+            "question": "Ano ang unang hakbang sa pagpaplano ng bagong produkto?",
+            "options": [
+              "Piliin ang disenyo at sukat",
+              "Direktang manahi na lang",
+              "Ibenta agad",
+              "Kalimutan ang materyales"
+            ],
+            "correct_answer": "Piliin ang disenyo at sukat"
+          },
+          {
+            "question": "Bakit kailangang ilista ang materyales bago magsimula?",
+            "options": [
+              "Para malaman kung ano ang kakailanganin at maiwasan ang pag-aaksaya",
+              "Hindi na ito kailangan",
+              "Para lang mapahaba ang proseso",
+              "Para gawing mas mahal ang produkto"
+            ],
+            "correct_answer": "Para malaman kung ano ang kakailanganin at maiwasan ang pag-aaksaya"
+          },
+          {
+            "question": "Ano ang halimbawa ng simpleng produktong maaaring gawin?",
+            "options": [
+              "Coin purse",
+              "Kotse",
+              "Bahay",
+              "Kompyuter"
+            ],
+            "correct_answer": "Coin purse"
+          },
+          {
+            "question": "Bakit dapat kwentahin ang tinatayang puhunan bago magsimula?",
+            "options": [
+              "Para malaman kung magkano ang kailangang gastusin",
+              "Hindi na kailangang kwentahin ito",
+              "Para lang libangin ang sarili",
+              "Walang gamit ito"
+            ],
+            "correct_answer": "Para malaman kung magkano ang kailangang gastusin"
+          },
+          {
+            "question": "Ano ang benepisyo ng pagpaplano bago gawin ang isang proyekto?",
+            "options": [
+              "Naiiwasan ang pag-aaksaya ng materyales at oras",
+              "Walang benepisyo ito",
+              "Ginagawang mas mahirap ang trabaho",
+              "Nagpapahaba lamang ng proseso nang walang dahilan"
+            ],
+            "correct_answer": "Naiiwasan ang pag-aaksaya ng materyales at oras"
+          },
+          {
+            "question": "Alin sa mga ito ang kasama sa pagpaplano ng produkto?",
+            "options": [
+              "Pagtakda ng target na presyo ng benta",
+              "Pagtapon ng lahat ng materyales",
+              "Pag-iwas sa paggamit ng disenyo",
+              "Pagsusulat ng balita"
+            ],
+            "correct_answer": "Pagtakda ng target na presyo ng benta"
+          },
+          {
+            "question": "Bakit maaaring gamitin ang parehong kasanayan (sewing, embroidery, crochet) sa bagong produkto?",
+            "options": [
+              "Sapagkat natutunan na ang mga ito mula sa nakaraang mga aralin",
+              "Sapagkat hindi na kailangan pang matuto ng bago",
+              "Sapagkat magkaiba ang bawat kasanayan sa isa't isa",
+              "Walang koneksyon sa naunang mga aralin"
+            ],
+            "correct_answer": "Sapagkat natutunan na ang mga ito mula sa nakaraang mga aralin"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi maayos ang pagpaplano bago magsimula ng produkto?",
+            "options": [
+              "Maaaring maubusan ng materyales o mag-aksaya ng oras",
+              "Palaging magiging perpekto ang resulta",
+              "Walang magiging epekto",
+              "Awtomatikong tatama ang lahat"
+            ],
+            "correct_answer": "Maaaring maubusan ng materyales o mag-aksaya ng oras"
+          },
+          {
+            "question": "Bakit mahalagang piliin muna ang sukat ng produkto?",
+            "options": [
+              "Para malaman kung gaano karaming materyales ang kakailanganin",
+              "Hindi ito mahalaga",
+              "Palaging pareho ang sukat ng lahat ng produkto",
+              "Ito ay huling hakbang lamang"
+            ],
+            "correct_answer": "Para malaman kung gaano karaming materyales ang kakailanganin"
+          },
+          {
+            "question": "Anong kasanayan sa nakaraang aralin ang maaaring gamitin sa palamuti ng bagong produkto?",
+            "options": [
+              "Embroidery o crochet",
+              "Pagluluto",
+              "Pagsulat ng tula",
+              "Pagkalkula ng probability"
+            ],
+            "correct_answer": "Embroidery o crochet"
+          },
+          {
+            "question": "Bakit dapat magtakda ng target na presyo bago pa man matapos ang produkto?",
+            "options": [
+              "Para maisaalang-alang ito sa pagpili ng disenyo at materyales",
+              "Hindi na kailangan ito gawin nang maaga",
+              "Ang presyo ay hindi mahalaga sa pagpaplano",
+              "Dapat gawin ito pagkatapos lamang ibenta"
+            ],
+            "correct_answer": "Para maisaalang-alang ito sa pagpili ng disenyo at materyales"
+          },
+          {
+            "question": "Ano ang layunin ng paggawa ng ikalawang produkto?",
+            "options": [
+              "Palalimin ang natutunang kasanayan sa pagpaplano at paggawa",
+              "Wala itong layunin",
+              "Para lamang lumipas ang oras",
+              "Para talunin ang ibang estudyante"
+            ],
+            "correct_answer": "Palalimin ang natutunang kasanayan sa pagpaplano at paggawa"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙇 GMRC — Paggalang sa mga Nakatatanda\n\nGrade 5, Linggo 24! Pagpapahalaga ngayong linggo: **Paggalang (Respect)**. 🙇\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **pagtitimpi**.\n\n## 🙇 Bakit Igalang ang mga Nakatatanda?\nAng mga **nakatatanda** — lolo, lola, magulang, guro — ay may **karanasan** at **karunungan** na maaari nilang ibahagi sa atin.\n\n## 🤝 Paano Magpakita ng Paggalang\n- Bumati ng \"po\" at \"opo\" kapag nakikipag-usap\n- Makinig nang mabuti kapag sila ay nagsasalita\n- Tulungan sila sa mga gawain, lalo na sa mabibigat\n- Humingi ng payo sa mahahalagang desisyon\n\n## 💡 Kahalagahan ng Paggalang\nAng paggalang sa nakatatanda ay isa sa mga **pundasyon ng magandang pakikitungo** sa lipunang Pilipino, at nagpapakita ito ng mabuting pagpapalaki (upbringing).\n\n**Mahahalagang salita:** paggalang, nakatatanda, po at opo, karanasan",
+        "quiz": [
+          {
+            "question": "Bakit dapat igalang ang mga nakatatanda?",
+            "options": [
+              "May karanasan at karunungan silang maibabahagi",
+              "Wala silang maitutulong",
+              "Palagi silang mali",
+              "Hindi na sila mahalaga sa lipunan"
+            ],
+            "correct_answer": "May karanasan at karunungan silang maibabahagi"
+          },
+          {
+            "question": "Anong salita ang ginagamit para ipakita ang paggalang kapag nakikipag-usap sa nakatatanda?",
+            "options": [
+              "Po at opo",
+              "Walang kailangang salita",
+              "Salitang di magalang",
+              "Pangalan lamang"
+            ],
+            "correct_answer": "Po at opo"
+          },
+          {
+            "question": "Anong halimbawa ng pagpapakita ng paggalang sa nakatatanda?",
+            "options": [
+              "Makinig nang mabuti kapag sila ay nagsasalita",
+              "Hindi makinig at sumagot nang bastos",
+              "Iwasan silang lubusan",
+              "Tumawa habang sila ay nagsasalita"
+            ],
+            "correct_answer": "Makinig nang mabuti kapag sila ay nagsasalita"
+          },
+          {
+            "question": "Bakit mahalaga ang pagtulong sa mabibigat na gawain ng nakatatanda?",
+            "options": [
+              "Nagpapakita ito ng pagmamalasakit at paggalang",
+              "Wala itong kahalagahan",
+              "Hindi dapat tumulong sa nakatatanda",
+              "Ito ay pagsayang ng oras lamang"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamalasakit at paggalang"
+          },
+          {
+            "question": "Sino ang kabilang sa 'nakatatanda' sa aralin?",
+            "options": [
+              "Lolo, lola, magulang, guro",
+              "Kapatid na mas bata lamang",
+              "Kaklase lamang",
+              "Estranghero lamang"
+            ],
+            "correct_answer": "Lolo, lola, magulang, guro"
+          },
+          {
+            "question": "Ano ang ipinapakita ng paghingi ng payo sa mahahalagang desisyon?",
+            "options": [
+              "Paggalang sa karunungan ng nakatatanda",
+              "Kawalang tiwala sa sarili",
+              "Kahinaan ng loob",
+              "Kawalan ng respeto"
+            ],
+            "correct_answer": "Paggalang sa karunungan ng nakatatanda"
+          },
+          {
+            "question": "Bakit itinuturing na pundasyon ng magandang pakikitungo ang paggalang?",
+            "options": [
+              "Ito ay bahagi ng mabuting pagpapalaki sa lipunang Pilipino",
+              "Wala itong kaugnayan sa pakikitungo",
+              "Ito ay hindi na kailangan sa kasalukuyan",
+              "Ginagamit lamang ito sa paaralan"
+            ],
+            "correct_answer": "Ito ay bahagi ng mabuting pagpapalaki sa lipunang Pilipino"
+          },
+          {
+            "question": "Alin ang HINDI paraan ng pagpapakita ng paggalang sa nakatatanda?",
+            "options": [
+              "Sumagot nang bastos",
+              "Pagbati ng po at opo",
+              "Pakikinig sa kanilang sinasabi",
+              "Pagtulong sa mga gawain"
+            ],
+            "correct_answer": "Sumagot nang bastos"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang paggalang sa GMRC?",
+            "options": [
+              "Nagpapakita ito ng moral na pagsasaalang-alang sa iba",
+              "Walang kaugnayan ito sa moralidad",
+              "Bahagi lamang ito ng agham",
+              "Hindi itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagpapakita ito ng moral na pagsasaalang-alang sa iba"
+          },
+          {
+            "question": "Ano ang naidudulot ng paggalang sa relasyon ng bata sa nakatatanda?",
+            "options": [
+              "Mas malapit at maayos na relasyon",
+              "Mas malayong relasyon",
+              "Walang epekto",
+              "Nagdudulot lamang ng away"
+            ],
+            "correct_answer": "Mas malapit at maayos na relasyon"
+          },
+          {
+            "question": "Bakit mahalagang matuto mula sa karanasan ng nakatatanda?",
+            "options": [
+              "Maiiwasan ang mga pagkakamaling nagawa na nila noon",
+              "Wala itong silbi",
+              "Palaging luma at hindi na gamit ang kanilang kaalaman",
+              "Hindi na sila marunong ngayon"
+            ],
+            "correct_answer": "Maiiwasan ang mga pagkakamaling nagawa na nila noon"
+          },
+          {
+            "question": "Paano nauugnay ang paggalang sa pagtitimpi na inaral noong nakaraang linggo?",
+            "options": [
+              "Pareho silang nagpapakita ng respeto at kontrol sa sarili",
+              "Walang kaugnayan ang dalawa",
+              "Ang pagtitimpi ay tungkol lamang sa agham",
+              "Ang paggalang ay tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Pareho silang nagpapakita ng respeto at kontrol sa sarili"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🎭 Friday Review — English (Grade 5)\n\n- Metaphor, personification, hyperbole\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "What is a metaphor?",
+            "options": [
+              "Comparing two unlike things without 'like' or 'as'",
+              "Giving human qualities to objects",
+              "An extreme exaggeration",
+              "A type of rhyme"
+            ],
+            "correct_answer": "Comparing two unlike things without 'like' or 'as'"
+          },
+          {
+            "question": "What is personification?",
+            "options": [
+              "Giving human qualities to non-human things",
+              "Comparing with 'like' or 'as'",
+              "An extreme exaggeration",
+              "A type of form"
+            ],
+            "correct_answer": "Giving human qualities to non-human things"
+          },
+          {
+            "question": "What is hyperbole?",
+            "options": [
+              "An extreme exaggeration not meant literally",
+              "A comparison with 'like'",
+              "A human quality given to objects",
+              "A rhyme scheme"
+            ],
+            "correct_answer": "An extreme exaggeration not meant literally"
+          },
+          {
+            "question": "'Her smile was sunshine' is what figure of speech?",
+            "options": [
+              "Metaphor",
+              "Hyperbole",
+              "Personification",
+              "Simile"
+            ],
+            "correct_answer": "Metaphor"
+          },
+          {
+            "question": "'The wind whispered through the trees' is what?",
+            "options": [
+              "Personification",
+              "Metaphor",
+              "Hyperbole",
+              "Literal language"
+            ],
+            "correct_answer": "Personification"
+          },
+          {
+            "question": "'I've told you a million times!' is what?",
+            "options": [
+              "Hyperbole",
+              "Metaphor",
+              "Personification",
+              "A literal statement"
+            ],
+            "correct_answer": "Hyperbole"
+          },
+          {
+            "question": "Why do writers use figures of speech?",
+            "options": [
+              "To make writing vivid and emotional",
+              "To confuse readers",
+              "To shorten sentences",
+              "To avoid adjectives"
+            ],
+            "correct_answer": "To make writing vivid and emotional"
+          },
+          {
+            "question": "How does a metaphor differ from a simile?",
+            "options": [
+              "A metaphor doesn't use 'like' or 'as'",
+              "They are the same",
+              "A metaphor is only about animals",
+              "A simile never compares"
+            ],
+            "correct_answer": "A metaphor doesn't use 'like' or 'as'"
+          },
+          {
+            "question": "'The stars danced in the sky' uses what figure of speech?",
+            "options": [
+              "Personification",
+              "Hyperbole",
+              "Literal description",
+              "A metaphor about sunshine"
+            ],
+            "correct_answer": "Personification"
+          },
+          {
+            "question": "'This bag weighs a ton!' is an example of what?",
+            "options": [
+              "Hyperbole",
+              "Metaphor",
+              "Personification",
+              "A literal fact"
+            ],
+            "correct_answer": "Hyperbole"
+          },
+          {
+            "question": "Why shouldn't hyperbole be taken literally?",
+            "options": [
+              "It's an intentional exaggeration for effect",
+              "It's always true",
+              "It replaces real numbers",
+              "It's a math problem"
+            ],
+            "correct_answer": "It's an intentional exaggeration for effect"
+          },
+          {
+            "question": "Which sentence uses a metaphor?",
+            "options": [
+              "'Time is money.'",
+              "'She ran like the wind.'",
+              "'The clock ticked patiently.'",
+              "'I could eat a horse!'"
+            ],
+            "correct_answer": "'Time is money.'"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 5)\n\n- GMDAS with fractions and decimals\n\nGreat combined operations work! ⭐",
+        "quiz": [
+          {
+            "question": "What does GMDAS stand for?",
+            "options": [
+              "Grouping, Multiplication, Division, Addition, Subtraction",
+              "Grouping, Multiplication, Division, Average, Sum",
+              "Group, Multiply, Divide, Add, Simplify",
+              "Guess, Measure, Divide, Add, Subtract"
+            ],
+            "correct_answer": "Grouping, Multiplication, Division, Addition, Subtraction"
+          },
+          {
+            "question": "What should you do first when mixing fractions and decimals?",
+            "options": [
+              "Convert everything to decimals",
+              "Ignore the fractions",
+              "Ignore the decimals",
+              "Always add first"
+            ],
+            "correct_answer": "Convert everything to decimals"
+          },
+          {
+            "question": "What is 1/2 as a decimal?",
+            "options": [
+              "0.5",
+              "0.2",
+              "0.12",
+              "5.0"
+            ],
+            "correct_answer": "0.5"
+          },
+          {
+            "question": "What is (1/2 + 0.25) × 4?",
+            "options": [
+              "3",
+              "0.75",
+              "4.75",
+              "1"
+            ],
+            "correct_answer": "3"
+          },
+          {
+            "question": "What is 3/4 as a decimal?",
+            "options": [
+              "0.75",
+              "0.34",
+              "3.4",
+              "0.43"
+            ],
+            "correct_answer": "0.75"
+          },
+          {
+            "question": "In GMDAS, what comes first?",
+            "options": [
+              "Grouping (parentheses)",
+              "Addition",
+              "Subtraction",
+              "Division"
+            ],
+            "correct_answer": "Grouping (parentheses)"
+          },
+          {
+            "question": "What is 0.6 ÷ (3/4 − 1/2)?",
+            "options": [
+              "2.4",
+              "0.24",
+              "24",
+              "0.6"
+            ],
+            "correct_answer": "2.4"
+          },
+          {
+            "question": "What is 1/4 + 0.5?",
+            "options": [
+              "0.75",
+              "0.25",
+              "1.5",
+              "0.05"
+            ],
+            "correct_answer": "0.75"
+          },
+          {
+            "question": "Why follow GMDAS instead of solving left to right always?",
+            "options": [
+              "To get one correct, agreed-upon answer",
+              "It doesn't matter what order",
+              "GMDAS only applies to whole numbers",
+              "It's harder on purpose"
+            ],
+            "correct_answer": "To get one correct, agreed-upon answer"
+          },
+          {
+            "question": "What is (0.5 + 1/2) × 2?",
+            "options": [
+              "2",
+              "1",
+              "0.5",
+              "4"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "What is 1 − 1/4 as a decimal?",
+            "options": [
+              "0.75",
+              "0.25",
+              "1.25",
+              "0.5"
+            ],
+            "correct_answer": "0.75"
+          },
+          {
+            "question": "What is 2 × (1/2 + 0.25)?",
+            "options": [
+              "1.5",
+              "0.75",
+              "2.5",
+              "1"
+            ],
+            "correct_answer": "1.5"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📚 Friday Review — Filipino (Grade 5)\n\n- Maikling kuwento: simula, gitna, wakas\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang maikling kuwento?",
+            "options": [
+              "Kathang-isip na may kumpletong balangkas ngunit maigsi",
+              "Isang mahabang nobela",
+              "Isang tula lamang",
+              "Isang liham"
+            ],
+            "correct_answer": "Kathang-isip na may kumpletong balangkas ngunit maigsi"
+          },
+          {
+            "question": "Ano ang nangyayari sa simula?",
+            "options": [
+              "Ipinapakilala ang tauhan, tagpuan, suliranin",
+              "Nalulutas ang suliranin",
+              "Nagwawakas ang kuwento",
+              "Wala nang mangyayari"
+            ],
+            "correct_answer": "Ipinapakilala ang tauhan, tagpuan, suliranin"
+          },
+          {
+            "question": "Ano ang nangyayari sa gitna?",
+            "options": [
+              "Umuunlad ang suliranin hanggang sukdulan",
+              "Nagsisimula lamang",
+              "Walang pangyayari",
+              "Ipinapakilala ang tauhan"
+            ],
+            "correct_answer": "Umuunlad ang suliranin hanggang sukdulan"
+          },
+          {
+            "question": "Ano ang nangyayari sa wakas?",
+            "options": [
+              "Nalulutas ang suliranin",
+              "Ipinapakilala ang tauhan",
+              "Nagsisimula ang kuwento",
+              "Walang kongklusyon"
+            ],
+            "correct_answer": "Nalulutas ang suliranin"
+          },
+          {
+            "question": "Anong tawag sa pinakamataas na punto ng suliranin?",
+            "options": [
+              "Sukdulan",
+              "Simula",
+              "Wakas",
+              "Tagpuan"
+            ],
+            "correct_answer": "Sukdulan"
+          },
+          {
+            "question": "Bakit mahalaga ang balangkas sa kuwento?",
+            "options": [
+              "Nagbibigay ng maayos na daloy",
+              "Walang kaugnayan",
+              "Para lamang sa tula",
+              "Nagpapahaba lamang"
+            ],
+            "correct_answer": "Nagbibigay ng maayos na daloy"
+          },
+          {
+            "question": "Paano naiiba ang maikling kuwento sa nobela?",
+            "options": [
+              "Mas maigsi ang maikling kuwento",
+              "Magkatulad sa haba",
+              "Mas mahaba ang maikling kuwento",
+              "Walang pagkakaiba"
+            ],
+            "correct_answer": "Mas maigsi ang maikling kuwento"
+          },
+          {
+            "question": "Ano ang dapat nasa simula ng kuwento?",
+            "options": [
+              "Pagpapakilala sa pangunahing tauhan",
+              "Ang paglutas ng suliranin",
+              "Ang kongklusyon",
+              "Ang huling pangungusap"
+            ],
+            "correct_answer": "Pagpapakilala sa pangunahing tauhan"
+          },
+          {
+            "question": "Bakit kailangang lutasin ang suliranin sa wakas?",
+            "options": [
+              "Para magbigay ng makabuluhang katapusan",
+              "Hindi na ito kailangan",
+              "Para pahabain lamang",
+              "Para gawing nakakalito"
+            ],
+            "correct_answer": "Para magbigay ng makabuluhang katapusan"
+          },
+          {
+            "question": "Ano ang unang dapat balangkasin sa sariling kuwento?",
+            "options": [
+              "Mga tauhan, tagpuan, suliranin",
+              "Ang wakas lamang",
+              "Ang sukdulan lamang",
+              "Wala"
+            ],
+            "correct_answer": "Mga tauhan, tagpuan, suliranin"
+          },
+          {
+            "question": "Sa halimbawa ng batang naliligaw, ano ang simula?",
+            "options": [
+              "Ang paglalakbay niya",
+              "Pagkakita ng pamilya",
+              "Paghahanap ng daan",
+              "Wala"
+            ],
+            "correct_answer": "Ang paglalakbay niya"
+          },
+          {
+            "question": "Ilang pangunahing bahagi ang bumubuo ng balangkas?",
+            "options": [
+              "Tatlo",
+              "Isa",
+              "Lima",
+              "Sampu"
+            ],
+            "correct_answer": "Tatlo"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔋 Friday Review — Science (Grade 5)\n\n- Simple series circuits\n\nGreat circuit work! 🌟",
+        "quiz": [
+          {
+            "question": "What is a circuit?",
+            "options": [
+              "A complete path that allows electricity to flow",
+              "A type of magnet",
+              "A material that blocks electricity",
+              "A kind of battery only"
+            ],
+            "correct_answer": "A complete path that allows electricity to flow"
+          },
+          {
+            "question": "What are the three basic parts of a circuit?",
+            "options": [
+              "Power source, conductor, load",
+              "Battery, plastic, wood",
+              "Insulator, magnet, wire",
+              "Bulb, glass, rubber"
+            ],
+            "correct_answer": "Power source, conductor, load"
+          },
+          {
+            "question": "What is a series circuit?",
+            "options": [
+              "All parts connected in a single loop",
+              "A circuit with no wires",
+              "A circuit of only insulators",
+              "A circuit that never works"
+            ],
+            "correct_answer": "All parts connected in a single loop"
+          },
+          {
+            "question": "What happens if a series circuit's loop is broken?",
+            "options": [
+              "The whole circuit stops working",
+              "Only part stops",
+              "Nothing changes",
+              "The bulb gets brighter"
+            ],
+            "correct_answer": "The whole circuit stops working"
+          },
+          {
+            "question": "What is a closed circuit?",
+            "options": [
+              "A complete path where electricity flows",
+              "A broken path",
+              "A path with no wires",
+              "A path of only insulators"
+            ],
+            "correct_answer": "A complete path where electricity flows"
+          },
+          {
+            "question": "What is an open circuit?",
+            "options": [
+              "A circuit with a break so electricity can't flow",
+              "A circuit always on",
+              "A circuit with no power source",
+              "A circuit made entirely of metal"
+            ],
+            "correct_answer": "A circuit with a break so electricity can't flow"
+          },
+          {
+            "question": "What role does a battery play?",
+            "options": [
+              "Power source",
+              "Load",
+              "Blocks electricity",
+              "No role"
+            ],
+            "correct_answer": "Power source"
+          },
+          {
+            "question": "What role does a light bulb play?",
+            "options": [
+              "The load, using electricity",
+              "The power source",
+              "A conductor wire",
+              "It blocks electricity"
+            ],
+            "correct_answer": "The load, using electricity"
+          },
+          {
+            "question": "Why must wires be conductors?",
+            "options": [
+              "So electricity flows easily",
+              "So they block electricity",
+              "So they're insulators",
+              "Wires don't need to be conductors"
+            ],
+            "correct_answer": "So electricity flows easily"
+          },
+          {
+            "question": "If you flip a switch to off in a series circuit, what happens?",
+            "options": [
+              "The circuit opens and the bulb turns off",
+              "Nothing happens",
+              "The bulb brightens",
+              "The battery disappears"
+            ],
+            "correct_answer": "The circuit opens and the bulb turns off"
+          },
+          {
+            "question": "Why is a series circuit a 'single loop'?",
+            "options": [
+              "All parts connect one after another in one path",
+              "It has many paths",
+              "It has no path",
+              "It needs two batteries"
+            ],
+            "correct_answer": "All parts connect one after another in one path"
+          },
+          {
+            "question": "A circuit's bulb won't light. What's the likely reason?",
+            "options": [
+              "The circuit is open somewhere",
+              "The battery is too strong",
+              "The wire is a good conductor",
+              "The bulb isn't part of a circuit"
+            ],
+            "correct_answer": "The circuit is open somewhere"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇫🇷 Friday Review — Araling Panlipunan (Grade 5)\n\n- Kaisipang liberal mula sa French Revolution\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Kailan naganap ang French Revolution?",
+            "options": [
+              "1789",
+              "1521",
+              "1898",
+              "1600"
+            ],
+            "correct_answer": "1789"
+          },
+          {
+            "question": "Anong mga kaisipan ang itinaguyod ng French Revolution?",
+            "options": [
+              "Kalayaan, pagkakapantay-pantay, karapatang pantao",
+              "Kolonyalismo",
+              "Pagsamba sa hari",
+              "Pagsuko sa dayuhan"
+            ],
+            "correct_answer": "Kalayaan, pagkakapantay-pantay, karapatang pantao"
+          },
+          {
+            "question": "Paano naimpluwensyahan ng French Revolution ang mga Pilipino?",
+            "options": [
+              "Sa pamamagitan ng ilustradong nag-aral sa Europa",
+              "Sa direktang pananakop ng Pransya",
+              "Wala itong epekto",
+              "Sa digmaan laban sa Pransya"
+            ],
+            "correct_answer": "Sa pamamagitan ng ilustradong nag-aral sa Europa"
+          },
+          {
+            "question": "Ano ang natutunan ng ilustrado mula sa kaisipang liberal?",
+            "options": [
+              "Karapatan ng tao at pagtutol sa hindi makatarungang pamahalaan",
+              "Kahalagahan ng pananatiling sakop",
+              "Pagsuko sa Espanya",
+              "Kawalan ng interes sa pamahalaan"
+            ],
+            "correct_answer": "Karapatan ng tao at pagtutol sa hindi makatarungang pamahalaan"
+          },
+          {
+            "question": "Ano ang papel ng kaisipang liberal sa nasyonalismong Pilipino?",
+            "options": [
+              "Naging binhi ng nasyonalismo",
+              "Wala itong papel",
+              "Pinigilan nito ang nasyonalismo",
+              "Pinabagal ang pagbabago"
+            ],
+            "correct_answer": "Naging binhi ng nasyonalismo"
+          },
+          {
+            "question": "Alin ang HINDI kaisipang liberal?",
+            "options": [
+              "Kawalang-interes sa karapatan ng tao",
+              "Kalayaan",
+              "Pagkakapantay-pantay",
+              "Karapatang pantao"
+            ],
+            "correct_answer": "Kawalang-interes sa karapatan ng tao"
+          },
+          {
+            "question": "Bakit mahalaga ang representasyon sa pamahalaan?",
+            "options": [
+              "Tinitiyak nitong naririnig ang boses ng mamamayan",
+              "Wala itong kahalagahan",
+              "Ipinagbabawal ito",
+              "Nauukol lamang sa hari"
+            ],
+            "correct_answer": "Tinitiyak nitong naririnig ang boses ng mamamayan"
+          },
+          {
+            "question": "Saan nagmula ang French Revolution?",
+            "options": [
+              "Pransya",
+              "Espanya",
+              "Pilipinas",
+              "Estados Unidos"
+            ],
+            "correct_answer": "Pransya"
+          },
+          {
+            "question": "Bakit pag-aralan ang kaisipang liberal sa Pilipinas?",
+            "options": [
+              "Nakatulong ito sa paghubog ng nasyonalismo",
+              "Walang kaugnayan sa Pilipinas",
+              "Kathang-isip lamang",
+              "Tungkol lamang sa Pransya"
+            ],
+            "correct_answer": "Nakatulong ito sa paghubog ng nasyonalismo"
+          },
+          {
+            "question": "Paano kumalat ang kaisipang liberal sa mundo?",
+            "options": [
+              "Sa pamamagitan ng edukasyon at pakikipag-ugnayan",
+              "Sa lihim na kasunduan lamang",
+              "Hindi ito kumalat",
+              "Sa puwersahang pananakop lamang"
+            ],
+            "correct_answer": "Sa pamamagitan ng edukasyon at pakikipag-ugnayan"
+          },
+          {
+            "question": "Koneksyon ng aralin na ito sa nasyonalismo?",
+            "options": [
+              "Kaisipang liberal ay isang dahilan ng pagsibol ng nasyonalismo",
+              "Walang koneksyon",
+              "Nauna ang nasyonalismo",
+              "Magkaiba ang paksa"
+            ],
+            "correct_answer": "Kaisipang liberal ay isang dahilan ng pagsibol ng nasyonalismo"
+          },
+          {
+            "question": "Bakit itinuturing na 'binhi' ang kaisipang liberal?",
+            "options": [
+              "Pinasimulan nito ang paglago ng ideya ng kalayaan",
+              "Literal na binhi ng halaman",
+              "Walang kaugnayan sa nasyonalismo",
+              "Galing ito sa Pilipinas"
+            ],
+            "correct_answer": "Pinasimulan nito ang paglago ng ideya ng kalayaan"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🗂️ Friday Review — EPP (ICT) (Grade 5)\n\n- Organizing files and folders\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "What is a folder used for?",
+            "options": [
+              "Holding and grouping related files",
+              "Deleting files permanently",
+              "Making the computer slower",
+              "Printing documents"
+            ],
+            "correct_answer": "Holding and grouping related files"
+          },
+          {
+            "question": "Why make a folder per subject?",
+            "options": [
+              "It keeps files organized and easy to find",
+              "It makes the computer faster",
+              "It deletes old files",
+              "Required by every program"
+            ],
+            "correct_answer": "It keeps files organized and easy to find"
+          },
+          {
+            "question": "Which is a better file name than 'Untitled1'?",
+            "options": [
+              "Math_Week24_Homework",
+              "File",
+              "New Document",
+              "Untitled2"
+            ],
+            "correct_answer": "Math_Week24_Homework"
+          },
+          {
+            "question": "Why avoid saving everything on the Desktop?",
+            "options": [
+              "It becomes cluttered and hard to search",
+              "The Desktop can't save files",
+              "It auto-deletes files",
+              "Not allowed by any computer"
+            ],
+            "correct_answer": "It becomes cluttered and hard to search"
+          },
+          {
+            "question": "Benefit of clear, descriptive file names?",
+            "options": [
+              "Identify content without opening it",
+              "Files load faster",
+              "Makes files smaller",
+              "Required to open any file"
+            ],
+            "correct_answer": "Identify content without opening it"
+          },
+          {
+            "question": "How does good organization help you?",
+            "options": [
+              "Find work in seconds instead of searching",
+              "No real benefit",
+              "Only matters for teachers",
+              "Completes homework automatically"
+            ],
+            "correct_answer": "Find work in seconds instead of searching"
+          },
+          {
+            "question": "A messy computer is like...",
+            "options": [
+              "A messy room where things are hard to find",
+              "A clean library",
+              "A locked safe",
+              "A labeled cabinet"
+            ],
+            "correct_answer": "A messy room where things are hard to find"
+          },
+          {
+            "question": "Best way to organize Science, Math, English files?",
+            "options": [
+              "A separate folder for each subject",
+              "One folder named 'Stuff'",
+              "Leave on the Desktop",
+              "Delete unneeded ones"
+            ],
+            "correct_answer": "A separate folder for each subject"
+          },
+          {
+            "question": "Why is 'Untitled1' a poor file name?",
+            "options": [
+              "Doesn't describe the content",
+              "Too short to be valid",
+              "Can't be opened",
+              "Auto-deletes the file"
+            ],
+            "correct_answer": "Doesn't describe the content"
+          },
+          {
+            "question": "What happens if you never organize files?",
+            "options": [
+              "Harder and harder to find specific files",
+              "Computer auto-organizes them",
+              "Nothing changes",
+              "Files delete themselves"
+            ],
+            "correct_answer": "Harder and harder to find specific files"
+          },
+          {
+            "question": "Best naming convention for a weekly assignment?",
+            "options": [
+              "Subject_Week#_Topic",
+              "asdf123",
+              "New Folder (2)",
+              "aaaaaa"
+            ],
+            "correct_answer": "Subject_Week#_Topic"
+          },
+          {
+            "question": "One key habit for staying organized digitally?",
+            "options": [
+              "Sort new files right away",
+              "Wait until hundreds pile up",
+              "Never name files",
+              "Save with generic names"
+            ],
+            "correct_answer": "Sort new files right away"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# ⚠️ Friday Review — MAPEH (Grade 5)\n\n- Epekto ng gateway drugs\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang gateway drugs?",
+            "options": [
+              "Substansiyang maaaring magbukas ng daan sa mas mapanganib na droga",
+              "Uri ng pagkain lamang",
+              "Legal na gamot na walang epekto",
+              "Uri ng bitamina"
+            ],
+            "correct_answer": "Substansiyang maaaring magbukas ng daan sa mas mapanganib na droga"
+          },
+          {
+            "question": "Alin ang halimbawa ng gateway drug?",
+            "options": [
+              "Sigarilyo",
+              "Gatas",
+              "Tubig",
+              "Prutas"
+            ],
+            "correct_answer": "Sigarilyo"
+          },
+          {
+            "question": "Epekto ng sigarilyo sa katawan?",
+            "options": [
+              "Sinisira ang baga, nagdudulot ng adiksyon",
+              "Pinapalakas ang baga",
+              "Walang epekto",
+              "Nagpapabuti ng kalusugan"
+            ],
+            "correct_answer": "Sinisira ang baga, nagdudulot ng adiksyon"
+          },
+          {
+            "question": "Epekto ng alak sa katawan?",
+            "options": [
+              "Nakakaapekto sa utak at pag-iisip",
+              "Nagpapalakas ng memorya",
+              "Walang epekto sa isip",
+              "Nagpapabuti ng paningin"
+            ],
+            "correct_answer": "Nakakaapekto sa utak at pag-iisip"
+          },
+          {
+            "question": "Bakit mapanganib ang vape?",
+            "options": [
+              "Naglalaman ito ng nikotina, sanhi ng adiksyon",
+              "Wala itong nikotina",
+              "Ligtas ito kahit anong edad",
+              "Walang epekto"
+            ],
+            "correct_answer": "Naglalaman ito ng nikotina, sanhi ng adiksyon"
+          },
+          {
+            "question": "Isang paraan para iwasan ang gateway drugs?",
+            "options": [
+              "Sabihin ang 'Hindi' nang may tiwala",
+              "Subukan minsan lang",
+              "Sundin ang kaibigang gumagamit",
+              "Itago sa magulang"
+            ],
+            "correct_answer": "Sabihin ang 'Hindi' nang may tiwala"
+          },
+          {
+            "question": "Bakit piliin ang kaibigang may positibong impluwensya?",
+            "options": [
+              "Nakakatulong iwasan ang masamang gawain",
+              "Walang epekto",
+              "Palaging masama ang bagong kaibigan",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Nakakatulong iwasan ang masamang gawain"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag napipilitang gumamit?",
+            "options": [
+              "Humingi ng tulong sa magulang o guro",
+              "Sumunod na lamang",
+              "Itago sa lahat",
+              "Gawin nang palihim"
+            ],
+            "correct_answer": "Humingi ng tulong sa magulang o guro"
+          },
+          {
+            "question": "Bakit tinatawag na 'gateway' ang mga ito?",
+            "options": [
+              "Maaaring maging simula sa mas mapanganib na droga",
+              "Ligtas ito",
+              "Uri lamang ng gate",
+              "Ipinagbabawal lamang sa matanda"
+            ],
+            "correct_answer": "Maaaring maging simula sa mas mapanganib na droga"
+          },
+          {
+            "question": "Bakit itinuturo ang paksang ito?",
+            "options": [
+              "Para maging handa silang tumanggi",
+              "Para hikayatin subukan ito",
+              "Walang layunin",
+              "Para lang takutin sila"
+            ],
+            "correct_answer": "Para maging handa silang tumanggi"
+          },
+          {
+            "question": "Alin ang HINDI mabuting tugon kung inaalok?",
+            "options": [
+              "Subukan muna",
+              "Sabihin ang 'Hindi'",
+              "Umalis sa sitwasyon",
+              "Humingi ng tulong"
+            ],
+            "correct_answer": "Subukan muna"
+          },
+          {
+            "question": "Bakit mapanganib ang murang edad sa gateway drugs?",
+            "options": [
+              "Mas mabilis maapektuhan ang lumalagong katawan/utak",
+              "Walang epekto sa bata",
+              "Ligtas kung hindi araw-araw",
+              "Hindi totoong panganib"
+            ],
+            "correct_answer": "Mas mabilis maapektuhan ang lumalagong katawan/utak"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🎁 Friday Review — EPP (Grade 5)\n\n- Pagpaplano ng ikalawang produkto\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang unang hakbang sa pagpaplano ng produkto?",
+            "options": [
+              "Piliin ang disenyo at sukat",
+              "Manahi na lang agad",
+              "Ibenta agad",
+              "Kalimutan ang materyales"
+            ],
+            "correct_answer": "Piliin ang disenyo at sukat"
+          },
+          {
+            "question": "Bakit ilista ang materyales bago magsimula?",
+            "options": [
+              "Para malaman ang kakailanganin at maiwasan pag-aaksaya",
+              "Hindi kailangan",
+              "Para lang pahabain ang proseso",
+              "Para gawing mas mahal"
+            ],
+            "correct_answer": "Para malaman ang kakailanganin at maiwasan pag-aaksaya"
+          },
+          {
+            "question": "Halimbawa ng simpleng produkto?",
+            "options": [
+              "Coin purse",
+              "Kotse",
+              "Bahay",
+              "Kompyuter"
+            ],
+            "correct_answer": "Coin purse"
+          },
+          {
+            "question": "Bakit kwentahin ang tinatayang puhunan?",
+            "options": [
+              "Para malaman kung magkano ang gagastusin",
+              "Hindi kailangan",
+              "Para lang libangin",
+              "Walang gamit"
+            ],
+            "correct_answer": "Para malaman kung magkano ang gagastusin"
+          },
+          {
+            "question": "Benepisyo ng pagpaplano bago gawin?",
+            "options": [
+              "Naiiwasan ang pag-aaksaya",
+              "Walang benepisyo",
+              "Mas mahirap ang trabaho",
+              "Nagpapahaba lamang"
+            ],
+            "correct_answer": "Naiiwasan ang pag-aaksaya"
+          },
+          {
+            "question": "Alin ang kasama sa pagpaplano?",
+            "options": [
+              "Pagtakda ng target na presyo",
+              "Pagtapon ng materyales",
+              "Pag-iwas sa disenyo",
+              "Pagsusulat ng balita"
+            ],
+            "correct_answer": "Pagtakda ng target na presyo"
+          },
+          {
+            "question": "Bakit magagamit ang parehong kasanayan sa bagong produkto?",
+            "options": [
+              "Natutunan na ito mula sa nakaraang aralin",
+              "Hindi na kailangan matuto",
+              "Magkaiba ang kasanayan",
+              "Walang koneksyon"
+            ],
+            "correct_answer": "Natutunan na ito mula sa nakaraang aralin"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi maayos ang pagpaplano?",
+            "options": [
+              "Maaaring maubusan ng materyales",
+              "Palaging perpekto",
+              "Walang epekto",
+              "Awtomatikong tatama"
+            ],
+            "correct_answer": "Maaaring maubusan ng materyales"
+          },
+          {
+            "question": "Bakit piliin muna ang sukat?",
+            "options": [
+              "Malaman ang materyales na kakailanganin",
+              "Hindi mahalaga",
+              "Palaging pareho ang sukat",
+              "Huling hakbang lamang"
+            ],
+            "correct_answer": "Malaman ang materyales na kakailanganin"
+          },
+          {
+            "question": "Anong kasanayan magagamit sa palamuti?",
+            "options": [
+              "Embroidery o crochet",
+              "Pagluluto",
+              "Pagsulat ng tula",
+              "Pagkalkula ng probability"
+            ],
+            "correct_answer": "Embroidery o crochet"
+          },
+          {
+            "question": "Bakit magtakda ng target na presyo nang maaga?",
+            "options": [
+              "Maisaalang-alang sa pagpili ng disenyo",
+              "Hindi kailangan maaga",
+              "Hindi mahalaga sa pagpaplano",
+              "Gawin lamang pagkatapos ibenta"
+            ],
+            "correct_answer": "Maisaalang-alang sa pagpili ng disenyo"
+          },
+          {
+            "question": "Layunin ng paggawa ng ikalawang produkto?",
+            "options": [
+              "Palalimin ang kasanayan sa pagpaplano",
+              "Walang layunin",
+              "Lumipas lang ang oras",
+              "Talunin ang ibang estudyante"
+            ],
+            "correct_answer": "Palalimin ang kasanayan sa pagpaplano"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙇 Friday Review — GMRC (Grade 5)\n\n- Paggalang sa nakatatanda\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Bakit dapat igalang ang nakatatanda?",
+            "options": [
+              "May karanasan at karunungan silang maibabahagi",
+              "Wala silang maitutulong",
+              "Palagi silang mali",
+              "Hindi na sila mahalaga"
+            ],
+            "correct_answer": "May karanasan at karunungan silang maibabahagi"
+          },
+          {
+            "question": "Anong salita ang tanda ng paggalang sa nakikipag-usap sa nakatatanda?",
+            "options": [
+              "Po at opo",
+              "Walang kailangan",
+              "Salitang bastos",
+              "Pangalan lamang"
+            ],
+            "correct_answer": "Po at opo"
+          },
+          {
+            "question": "Halimbawa ng pagpapakita ng paggalang?",
+            "options": [
+              "Makinig nang mabuti kapag sila ay nagsasalita",
+              "Hindi makinig at sumagot nang bastos",
+              "Iwasan silang lubusan",
+              "Tumawa habang nagsasalita"
+            ],
+            "correct_answer": "Makinig nang mabuti kapag sila ay nagsasalita"
+          },
+          {
+            "question": "Bakit mahalagang tumulong sa mabibigat na gawain ng nakatatanda?",
+            "options": [
+              "Nagpapakita ng pagmamalasakit",
+              "Walang kahalagahan",
+              "Hindi dapat tumulong",
+              "Pagsayang ng oras"
+            ],
+            "correct_answer": "Nagpapakita ng pagmamalasakit"
+          },
+          {
+            "question": "Sino ang kabilang sa 'nakatatanda'?",
+            "options": [
+              "Lolo, lola, magulang, guro",
+              "Kapatid na mas bata",
+              "Kaklase lamang",
+              "Estranghero lamang"
+            ],
+            "correct_answer": "Lolo, lola, magulang, guro"
+          },
+          {
+            "question": "Ano ang ipinapakita ng paghingi ng payo sa desisyon?",
+            "options": [
+              "Paggalang sa karunungan ng nakatatanda",
+              "Kawalang tiwala sa sarili",
+              "Kahinaan ng loob",
+              "Kawalan ng respeto"
+            ],
+            "correct_answer": "Paggalang sa karunungan ng nakatatanda"
+          },
+          {
+            "question": "Bakit itinuturing na pundasyon ng magandang pakikitungo ang paggalang?",
+            "options": [
+              "Bahagi ito ng mabuting pagpapalaki sa lipunang Pilipino",
+              "Walang kaugnayan",
+              "Hindi na kailangan ngayon",
+              "Sa paaralan lamang gamit"
+            ],
+            "correct_answer": "Bahagi ito ng mabuting pagpapalaki sa lipunang Pilipino"
+          },
+          {
+            "question": "Alin ang HINDI paraan ng paggalang sa nakatatanda?",
+            "options": [
+              "Sumagot nang bastos",
+              "Pagbati ng po at opo",
+              "Pakikinig sa sinasabi",
+              "Pagtulong sa gawain"
+            ],
+            "correct_answer": "Sumagot nang bastos"
+          },
+          {
+            "question": "Bakit pagpapahalaga sa GMRC ang paggalang?",
+            "options": [
+              "Nagpapakita ng moral na pagsasaalang-alang sa iba",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ng agham",
+              "Hindi itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagpapakita ng moral na pagsasaalang-alang sa iba"
+          },
+          {
+            "question": "Ano ang naidudulot ng paggalang sa relasyon?",
+            "options": [
+              "Mas malapit at maayos na relasyon",
+              "Mas malayong relasyon",
+              "Walang epekto",
+              "Nagdudulot ng away"
+            ],
+            "correct_answer": "Mas malapit at maayos na relasyon"
+          },
+          {
+            "question": "Bakit matuto mula sa karanasan ng nakatatanda?",
+            "options": [
+              "Maiiwasan ang pagkakamaling nagawa na nila",
+              "Walang silbi",
+              "Luma na ang kaalaman nila",
+              "Hindi na sila marunong"
+            ],
+            "correct_answer": "Maiiwasan ang pagkakamaling nagawa na nila"
+          },
+          {
+            "question": "Koneksyon ng paggalang sa pagtitimpi?",
+            "options": [
+              "Pareho silang nagpapakita ng respeto at kontrol sa sarili",
+              "Walang kaugnayan",
+              "Pagtitimpi ay tungkol sa agham",
+              "Paggalang ay tungkol sa matematika"
+            ],
+            "correct_answer": "Pareho silang nagpapakita ng respeto at kontrol sa sarili"
+          }
+        ]
+      }
+    }
+  }
+}

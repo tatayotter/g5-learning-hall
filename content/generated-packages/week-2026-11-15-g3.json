@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-11-15",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🇵🇭 English — Reading About National Themes\n\nGrade 3, Week 23! Let's start reading about topics that matter to our whole nation. 🇵🇭\n\n## 🔄 Review\nWe practiced spotting compound sentences in stories.\n\n## 🇵🇭 What Are National Themes?\n**National themes** are topics that concern the whole Philippines — like national heroes, national symbols, and shared history.\n\n## 📖 Reading for Details\nWhen reading about a national theme, look for **4-5 important details** that explain the topic.\n\n**Example:** A passage about the Philippine flag might mention its colors, the sun, the three stars, and what each part means.\n\n## ✍️ Drawing Conclusions\nAfter reading details, we can **draw a conclusion** — a reasonable idea based on the information given.\n\n**Key words:** national theme, details, draw conclusions, symbol",
+        "quiz": [
+          {
+            "question": "What are national themes?",
+            "options": [
+              "Topics that concern the whole Philippines",
+              "Topics about only one family",
+              "Topics about only one classroom",
+              "Topics with no connection to the country"
+            ],
+            "correct_answer": "Topics that concern the whole Philippines"
+          },
+          {
+            "question": "How many important details should you look for in a national-theme passage?",
+            "options": [
+              "4-5 details",
+              "1 detail only",
+              "20 details",
+              "No details needed"
+            ],
+            "correct_answer": "4-5 details"
+          },
+          {
+            "question": "What might a passage about the Philippine flag mention?",
+            "options": [
+              "Its colors, the sun, and the three stars",
+              "Only its price",
+              "Only where it was made",
+              "Nothing important"
+            ],
+            "correct_answer": "Its colors, the sun, and the three stars"
+          },
+          {
+            "question": "What does it mean to 'draw a conclusion'?",
+            "options": [
+              "Form a reasonable idea based on given information",
+              "Draw a picture of the topic",
+              "Copy the passage word for word",
+              "Ignore all the details"
+            ],
+            "correct_answer": "Form a reasonable idea based on given information"
+          },
+          {
+            "question": "Which of these is an example of a national theme?",
+            "options": [
+              "A national hero",
+              "Your own pet",
+              "Your favorite snack",
+              "A toy you own"
+            ],
+            "correct_answer": "A national hero"
+          },
+          {
+            "question": "Why is it important to find several details in a passage?",
+            "options": [
+              "They help build a complete understanding of the topic",
+              "Details are never useful",
+              "One detail is always enough",
+              "Details replace the need to read"
+            ],
+            "correct_answer": "They help build a complete understanding of the topic"
+          },
+          {
+            "question": "What are national symbols?",
+            "options": [
+              "Objects or images that represent the whole country",
+              "Objects that only one family owns",
+              "Random unrelated objects",
+              "Items found only in one city"
+            ],
+            "correct_answer": "Objects or images that represent the whole country"
+          },
+          {
+            "question": "Why might a passage about a national hero be considered a national theme?",
+            "options": [
+              "The hero's story matters to the whole country",
+              "It only matters to their family",
+              "It has no importance",
+              "It is about a random stranger"
+            ],
+            "correct_answer": "The hero's story matters to the whole country"
+          },
+          {
+            "question": "What skill helps you understand what several details together suggest?",
+            "options": [
+              "Drawing conclusions",
+              "Ignoring the text",
+              "Reading only the title",
+              "Skipping to the end"
+            ],
+            "correct_answer": "Drawing conclusions"
+          },
+          {
+            "question": "Why do national themes appear in reading lessons?",
+            "options": [
+              "To help students understand shared history and identity",
+              "They have no educational value",
+              "They are only for adults",
+              "They replace the need for stories"
+            ],
+            "correct_answer": "To help students understand shared history and identity"
+          },
+          {
+            "question": "If a passage lists 5 facts about Philippine independence, what should you do with them?",
+            "options": [
+              "Use them to understand the full picture and draw a conclusion",
+              "Ignore all but one fact",
+              "Memorize them without understanding",
+              "Assume they are unrelated"
+            ],
+            "correct_answer": "Use them to understand the full picture and draw a conclusion"
+          },
+          {
+            "question": "Which is a better conclusion after reading several details about a hero's bravery?",
+            "options": [
+              "This hero showed courage in difficult situations",
+              "This hero liked the color blue",
+              "This hero was born in a house",
+              "This hero had two arms"
+            ],
+            "correct_answer": "This hero showed courage in difficult situations"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Missing Number Patterns\n\nGrade 3, Week 23! Let's find the missing terms in number patterns! 🔢\n\n## 🔄 Review\nWe practiced multiplying larger numbers and solving money problems.\n\n## 🔢 What Is a Pattern?\nA **pattern** follows a rule — numbers that increase, decrease, or repeat in a predictable way.\n\n## ➕ Increasing Pattern\n2, 4, 6, 8, __ — the rule is \"add 2\" — next number is **10**\n\n## ➖ Decreasing Pattern\n20, 17, 14, __ — the rule is \"subtract 3\" — next number is **11**\n\n## 🔁 Repeating Pattern\nred, blue, red, blue, __ — the pattern repeats — next is **red**\n\n## 🧠 Finding the Rule\nAlways compare consecutive numbers to discover the rule before filling in the blank.\n\n**Key words:** pattern, increasing, decreasing, repeating, rule",
+        "quiz": [
+          {
+            "question": "What is a pattern?",
+            "options": [
+              "A predictable sequence following a rule",
+              "A random set of numbers",
+              "Only shapes, never numbers",
+              "A single number"
+            ],
+            "correct_answer": "A predictable sequence following a rule"
+          },
+          {
+            "question": "In 2, 4, 6, 8, __, what is the missing number?",
+            "options": [
+              "10",
+              "9",
+              "12",
+              "16"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "What is the rule in 2, 4, 6, 8?",
+            "options": [
+              "Add 2",
+              "Subtract 2",
+              "Multiply by 2",
+              "Add 4"
+            ],
+            "correct_answer": "Add 2"
+          },
+          {
+            "question": "In 20, 17, 14, __, what is the missing number?",
+            "options": [
+              "11",
+              "13",
+              "10",
+              "17"
+            ],
+            "correct_answer": "11"
+          },
+          {
+            "question": "What is the rule in 20, 17, 14?",
+            "options": [
+              "Subtract 3",
+              "Add 3",
+              "Subtract 2",
+              "Multiply by 3"
+            ],
+            "correct_answer": "Subtract 3"
+          },
+          {
+            "question": "In red, blue, red, blue, __, what comes next?",
+            "options": [
+              "Red",
+              "Blue",
+              "Green",
+              "Yellow"
+            ],
+            "correct_answer": "Red"
+          },
+          {
+            "question": "What should you do first to find a missing number in a pattern?",
+            "options": [
+              "Compare consecutive numbers to find the rule",
+              "Guess randomly",
+              "Skip the problem",
+              "Always add 1"
+            ],
+            "correct_answer": "Compare consecutive numbers to find the rule"
+          },
+          {
+            "question": "In 5, 10, 15, 20, __, what is the missing number?",
+            "options": [
+              "25",
+              "24",
+              "30",
+              "22"
+            ],
+            "correct_answer": "25"
+          },
+          {
+            "question": "What type of pattern is 3, 6, 9, 12?",
+            "options": [
+              "Increasing",
+              "Decreasing",
+              "Repeating",
+              "Random"
+            ],
+            "correct_answer": "Increasing"
+          },
+          {
+            "question": "What type of pattern is 30, 25, 20, 15?",
+            "options": [
+              "Decreasing",
+              "Increasing",
+              "Repeating",
+              "Random"
+            ],
+            "correct_answer": "Decreasing"
+          },
+          {
+            "question": "In 1, 3, 5, 7, __, what is the missing number?",
+            "options": [
+              "9",
+              "8",
+              "10",
+              "6"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "Why is it useful to identify patterns?",
+            "options": [
+              "It helps predict what comes next logically",
+              "It has no real use",
+              "Patterns never repeat",
+              "It only works with letters"
+            ],
+            "correct_answer": "It helps predict what comes next logically"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# ✍️ Filipino — Panimula sa Tambalang Pangungusap Batay sa Pananda\n\nGrade 3, Linggo 23! Alamin natin ang iba't ibang pananda sa tambalang pangungusap. ✍️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang denotasyon at konotasyon.\n\n## 🔗 Ano ang Pananda?\nAng **pananda** ay ang salitang nag-uugnay sa dalawang sugnay sa isang tambalang pangungusap.\n\n## 🔗 Mga Uri ng Pananda\n- **Pagdaragdag** — at, saka\n- **Pagsalungat** — ngunit, subalit, pero\n- **Pagpipilian** — o\n\n## 📝 Halimbawa\n\"Nag-aral siya nang mabuti, **ngunit** hindi pa rin siya nakapasa.\" (pagsalungat)\n\"Kakain tayo ng hapunan, **at** saka tayo maglalaro.\" (pagdaragdag)\n\n**Mahahalagang salita:** pananda, pagdaragdag, pagsalungat, pagpipilian",
+        "quiz": [
+          {
+            "question": "Ano ang pananda?",
+            "options": [
+              "Salitang nag-uugnay sa dalawang sugnay",
+              "Isang uri ng pangngalan",
+              "Isang bantas lamang",
+              "Isang uri ng pandiwa"
+            ],
+            "correct_answer": "Salitang nag-uugnay sa dalawang sugnay"
+          },
+          {
+            "question": "Anong uri ng pananda ang 'at'?",
+            "options": [
+              "Pagdaragdag",
+              "Pagsalungat",
+              "Pagpipilian",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Pagdaragdag"
+          },
+          {
+            "question": "Anong uri ng pananda ang 'ngunit'?",
+            "options": [
+              "Pagsalungat",
+              "Pagdaragdag",
+              "Pagpipilian",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Pagsalungat"
+          },
+          {
+            "question": "Anong uri ng pananda ang 'o'?",
+            "options": [
+              "Pagpipilian",
+              "Pagdaragdag",
+              "Pagsalungat",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Pagpipilian"
+          },
+          {
+            "question": "Sa 'Nag-aral siya, ngunit hindi siya nakapasa,' anong uri ng pananda ang ginamit?",
+            "options": [
+              "Pagsalungat",
+              "Pagdaragdag",
+              "Pagpipilian",
+              "Wala"
+            ],
+            "correct_answer": "Pagsalungat"
+          },
+          {
+            "question": "Sa 'Kakain tayo, at saka tayo maglalaro,' anong uri ng pananda ang ginamit?",
+            "options": [
+              "Pagdaragdag",
+              "Pagsalungat",
+              "Pagpipilian",
+              "Wala"
+            ],
+            "correct_answer": "Pagdaragdag"
+          },
+          {
+            "question": "Alin ang halimbawa ng pananda ng pagpipilian?",
+            "options": [
+              "O",
+              "At",
+              "Ngunit",
+              "Subalit"
+            ],
+            "correct_answer": "O"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang uri ng pananda?",
+            "options": [
+              "Para maunawaan ang ugnayan ng dalawang ideya",
+              "Walang kaugnayan sa pag-unawa",
+              "Para lamang sa pagsusulit",
+              "Hindi ito mahalaga"
+            ],
+            "correct_answer": "Para maunawaan ang ugnayan ng dalawang ideya"
+          },
+          {
+            "question": "Alin ang HALIMBAWA ng pananda ng pagsalungat?",
+            "options": [
+              "Subalit",
+              "At",
+              "O",
+              "Saka"
+            ],
+            "correct_answer": "Subalit"
+          },
+          {
+            "question": "Ano ang binubuo ng dalawang sugnay na may pananda?",
+            "options": [
+              "Tambalang pangungusap",
+              "Payak na pangungusap",
+              "Isang salita lamang",
+              "Isang tugma"
+            ],
+            "correct_answer": "Tambalang pangungusap"
+          },
+          {
+            "question": "Kung gusto mong magbigay ng pagpipilian sa pangungusap, anong pananda ang gagamitin?",
+            "options": [
+              "O",
+              "At",
+              "Ngunit",
+              "Saka"
+            ],
+            "correct_answer": "O"
+          },
+          {
+            "question": "Kung gusto mong magpakita ng kontrast, anong pananda ang gagamitin?",
+            "options": [
+              "Ngunit",
+              "At",
+              "O",
+              "Saka"
+            ],
+            "correct_answer": "Ngunit"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔊 Science — Sound and Light\n\nGrade 3, Week 23! Let's discover how sound and light are made and used! 🔊\n\n## 🔄 Review\nWe learned to describe changes in position.\n\n## 🔊 How Sound Is Made\nSound is made when an object **vibrates** (shakes back and forth quickly), like a guitar string.\n\n## 🔊 How Sound Travels\nSound travels through air (and other materials) to reach our ears — this is called **transferring**.\n\n## 💡 Sources of Light\n- **Natural** — the Sun, fire\n- **Artificial (man-made)** — light bulbs, flashlights\n\n## 🔦 Uses of Light\nLight helps us **see**, grow plants, and signal others (like traffic lights).\n\n**Key words:** vibrate, sound, transfer, natural light, artificial light",
+        "quiz": [
+          {
+            "question": "How is sound made?",
+            "options": [
+              "An object vibrates",
+              "An object stays completely still",
+              "An object changes color",
+              "An object melts"
+            ],
+            "correct_answer": "An object vibrates"
+          },
+          {
+            "question": "What does 'vibrate' mean?",
+            "options": [
+              "Shake back and forth quickly",
+              "Stay perfectly still",
+              "Change temperature",
+              "Disappear"
+            ],
+            "correct_answer": "Shake back and forth quickly"
+          },
+          {
+            "question": "How does sound travel to our ears?",
+            "options": [
+              "It transfers through air or other materials",
+              "It cannot travel at all",
+              "It only travels through solid objects",
+              "It travels through nothing"
+            ],
+            "correct_answer": "It transfers through air or other materials"
+          },
+          {
+            "question": "Which is a natural source of light?",
+            "options": [
+              "The Sun",
+              "A flashlight",
+              "A light bulb",
+              "A lamp"
+            ],
+            "correct_answer": "The Sun"
+          },
+          {
+            "question": "Which is an artificial (man-made) source of light?",
+            "options": [
+              "A light bulb",
+              "The Sun",
+              "Fire from lightning",
+              "Stars"
+            ],
+            "correct_answer": "A light bulb"
+          },
+          {
+            "question": "What is fire an example of?",
+            "options": [
+              "A natural source of light",
+              "An artificial source of light",
+              "A type of sound only",
+              "Neither light nor sound"
+            ],
+            "correct_answer": "A natural source of light"
+          },
+          {
+            "question": "Why do we need light?",
+            "options": [
+              "To see, grow plants, and signal others",
+              "It has no real use",
+              "Only to make objects hot",
+              "Only for decoration"
+            ],
+            "correct_answer": "To see, grow plants, and signal others"
+          },
+          {
+            "question": "What happens when you pluck a guitar string?",
+            "options": [
+              "It vibrates and makes sound",
+              "It disappears",
+              "It changes color",
+              "It stops all sound"
+            ],
+            "correct_answer": "It vibrates and makes sound"
+          },
+          {
+            "question": "Why can we hear someone talking across a room?",
+            "options": [
+              "Sound transfers through the air",
+              "Sound cannot travel through air",
+              "Sound only travels through solid walls",
+              "There is no sound involved"
+            ],
+            "correct_answer": "Sound transfers through the air"
+          },
+          {
+            "question": "What is an example of light being used to signal others?",
+            "options": [
+              "A traffic light",
+              "A book",
+              "A pencil",
+              "A chair"
+            ],
+            "correct_answer": "A traffic light"
+          },
+          {
+            "question": "Why is understanding vibration important to understanding sound?",
+            "options": [
+              "Vibration is what creates sound in the first place",
+              "Vibration has nothing to do with sound",
+              "Sound exists without any vibration",
+              "Vibration only affects light"
+            ],
+            "correct_answer": "Vibration is what creates sound in the first place"
+          },
+          {
+            "question": "Which pair correctly matches natural and artificial light sources?",
+            "options": [
+              "Sun (natural), light bulb (artificial)",
+              "Sun (artificial), fire (artificial)",
+              "Light bulb (natural), Sun (artificial)",
+              "Both are always natural"
+            ],
+            "correct_answer": "Sun (natural), light bulb (artificial)"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🎖️ Makabansa — Pagpapahalaga sa Pagkakakilanlan Bilang Pilipino\n\nGrade 3, Linggo 23! Alamin natin kung paano ipagmalaki ang ating pagkakakilanlan. 🎖️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang sariling katangian at pagka-Pilipino.\n\n## 🎖️ Paano Ipagmalaki ang Pagkakakilanlan?\n- Pagsasalita ng Filipino nang may kumpiyansa\n- Pagsuot ng damit na Pilipino sa espesyal na okasyon\n- Pagsali sa mga pagdiriwang ng kultura\n- Pagsuporta sa mga produktong gawang-Pilipino\n\n## 🌏 Bakit Mahalaga Ito?\nAng pagpapahalaga sa ating pagkakakilanlan ay nagbibigay ng **pagmamalaki** at tumutulong mapanatili ang ating **kultura** para sa susunod na henerasyon.\n\n## 💡 Halimbawa\nKapag may bisitang dayuhan, maaari nating ipakita ang ating kultura sa pamamagitan ng pagkain, sayaw, o kasuotang katutubo.\n\n**Mahahalagang salita:** pagkakakilanlan, pagmamalaki, kultura, henerasyon",
+        "quiz": [
+          {
+            "question": "Paano maipapakita ang pagmamalaki sa pagkakakilanlan?",
+            "options": [
+              "Pagsasalita ng Filipino nang may kumpiyansa",
+              "Pag-iwas sa sariling wika",
+              "Pagtanggi sa sariling kultura",
+              "Pagkutya sa sariling bansa"
+            ],
+            "correct_answer": "Pagsasalita ng Filipino nang may kumpiyansa"
+          },
+          {
+            "question": "Anong halimbawa ng pagpapakita ng kultura?",
+            "options": [
+              "Pagsuot ng damit na Pilipino sa espesyal na okasyon",
+              "Pag-iwas sa mga pagdiriwang",
+              "Pagtanggi sa mga tradisyon",
+              "Pagkalimot sa sariling kasaysayan"
+            ],
+            "correct_answer": "Pagsuot ng damit na Pilipino sa espesyal na okasyon"
+          },
+          {
+            "question": "Bakit dapat suportahan ang mga produktong gawang-Pilipino?",
+            "options": [
+              "Tumutulong ito sa ekonomiya at ipinagmamalaki ang galing ng Pilipino",
+              "Wala itong kabuluhan",
+              "Dapat bumili lamang ng imported",
+              "Hindi ito mahalaga"
+            ],
+            "correct_answer": "Tumutulong ito sa ekonomiya at ipinagmamalaki ang galing ng Pilipino"
+          },
+          {
+            "question": "Bakit mahalagang pahalagahan ang ating pagkakakilanlan?",
+            "options": [
+              "Nagbibigay ito ng pagmamalaki at nagpapanatili ng kultura",
+              "Wala itong kahalagahan",
+              "Nagdudulot ito ng away",
+              "Hindi ito nakakatulong sa bansa"
+            ],
+            "correct_answer": "Nagbibigay ito ng pagmamalaki at nagpapanatili ng kultura"
+          },
+          {
+            "question": "Ano ang maaaring ipakita sa isang bisitang dayuhan?",
+            "options": [
+              "Kultura sa pamamagitan ng pagkain, sayaw, o kasuotan",
+              "Wala, dapat itago ang kultura",
+              "Kultura ng ibang bansa lamang",
+              "Walang dapat ipakita"
+            ],
+            "correct_answer": "Kultura sa pamamagitan ng pagkain, sayaw, o kasuotan"
+          },
+          {
+            "question": "Bakit mahalagang mapanatili ang kultura para sa susunod na henerasyon?",
+            "options": [
+              "Para hindi mawala ang tradisyon at kasaysayan ng bansa",
+              "Hindi na kailangan ipasa ito",
+              "Ang kultura ay hindi mahalaga sa kinabukasan",
+              "Ang bawat henerasyon ay gumagawa ng sariling kultura mula sa wala"
+            ],
+            "correct_answer": "Para hindi mawala ang tradisyon at kasaysayan ng bansa"
+          },
+          {
+            "question": "Ano ang isang paraan ng pakikilahok sa pagdiriwang ng kultura?",
+            "options": [
+              "Pagsali sa mga pagdiriwang ng bayan",
+              "Pag-iwas sa lahat ng pagdiriwang",
+              "Pagtanggi sa imbitasyon",
+              "Pananatili sa bahay lamang"
+            ],
+            "correct_answer": "Pagsali sa mga pagdiriwang ng bayan"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang paksang ito sa Makabansa?",
+            "options": [
+              "Tumutulong maunawaan at ipagmalaki ang sariling pagkakakilanlan",
+              "Walang kaugnayan sa kasaysayan",
+              "Tungkol lamang ito sa ibang bansa",
+              "Hindi mahalagang paksa"
+            ],
+            "correct_answer": "Tumutulong maunawaan at ipagmalaki ang sariling pagkakakilanlan"
+          },
+          {
+            "question": "Alin ang HINDI paraan ng pagpapahalaga sa pagkakakilanlan?",
+            "options": [
+              "Pagtanggi sa sariling wika at kultura",
+              "Pagsasalita ng Filipino",
+              "Pagsuot ng damit na Pilipino",
+              "Pagsali sa pagdiriwang"
+            ],
+            "correct_answer": "Pagtanggi sa sariling wika at kultura"
+          },
+          {
+            "question": "Bakit dapat magmalaki ang mga bata sa kanilang pagka-Pilipino?",
+            "options": [
+              "Ito ay bahagi ng kanilang natatanging pagkakakilanlan",
+              "Hindi mahalaga ito sa kanila",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Ito ay bahagi ng kanilang natatanging pagkakakilanlan"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagsasalita ng Filipino nang may kumpiyansa?",
+            "options": [
+              "Pagpapakita ng pagmamalaki sa sariling wika",
+              "Kahihiyan",
+              "Kawalan ng galang sa iba",
+              "Walang naidudulot"
+            ],
+            "correct_answer": "Pagpapakita ng pagmamalaki sa sariling wika"
+          },
+          {
+            "question": "Bakit mahalagang isali ang mga tradisyon sa modernong buhay?",
+            "options": [
+              "Para hindi mawala ang koneksyon sa ating pinagmulan",
+              "Hindi na kailangan ang tradisyon",
+              "Ang tradisyon ay laban sa modernong buhay",
+              "Walang kaugnayan ang dalawa"
+            ],
+            "correct_answer": "Para hindi mawala ang koneksyon sa ating pinagmulan"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# ✅ Computer — Ligtas na Nilalaman vs. Hindi Angkop na Nilalaman\n\nGrade 3, Week 23! Alamin natin kung paano makilala ang ligtas na nilalaman online. ✅\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga icon ng browser at search engine.\n\n## ✅ Ligtas na Nilalaman\n- Ginawa para sa mga bata\n- Edukasyonal o nakakatuwang laro\n- Aprubado ng magulang o guro\n\n## 🚫 Hindi Angkop na Nilalaman\n- May marahas o nakakatakot na larawan\n- Humihingi ng personal na impormasyon\n- Hindi ginawa para sa edad ng bata\n\n## 👨‍👩‍👧 Ano ang Gagawin?\nKung nakakita ng hindi angkop na nilalaman, **isara agad** ito at sabihin sa isang matanda.\n\n**Mahahalagang salita:** ligtas, hindi angkop, edukasyonal, isara agad",
+        "quiz": [
+          {
+            "question": "Ano ang katangian ng ligtas na nilalaman online?",
+            "options": [
+              "Ginawa para sa mga bata at aprubado ng matanda",
+              "May marahas na larawan",
+              "Humihingi ng personal na impormasyon",
+              "Hindi angkop sa edad"
+            ],
+            "correct_answer": "Ginawa para sa mga bata at aprubado ng matanda"
+          },
+          {
+            "question": "Ano ang katangian ng hindi angkop na nilalaman?",
+            "options": [
+              "May marahas o nakakatakot na larawan",
+              "Ginawa para sa mga bata",
+              "Edukasyonal",
+              "Aprubado ng magulang"
+            ],
+            "correct_answer": "May marahas o nakakatakot na larawan"
+          },
+          {
+            "question": "Ano ang dapat gawin kung nakakita ng hindi angkop na nilalaman?",
+            "options": [
+              "Isara agad at sabihin sa matanda",
+              "Ipagpatuloy panoorin",
+              "Ibahagi sa kaibigan",
+              "Balewalain ito"
+            ],
+            "correct_answer": "Isara agad at sabihin sa matanda"
+          },
+          {
+            "question": "Bakit mahalagang kilalanin ang ligtas na nilalaman?",
+            "options": [
+              "Para maiwasan ang mapanganib o hindi angkop na bagay",
+              "Hindi na kailangan kilalanin ito",
+              "Lahat ng nilalaman ay ligtas",
+              "Walang gamit ito"
+            ],
+            "correct_answer": "Para maiwasan ang mapanganib o hindi angkop na bagay"
+          },
+          {
+            "question": "Sino ang dapat sabihan kung may nakitang hindi angkop na nilalaman?",
+            "options": [
+              "Isang matanda",
+              "Walang dapat sabihan",
+              "Kaklase lamang",
+              "Estranghero online"
+            ],
+            "correct_answer": "Isang matanda"
+          },
+          {
+            "question": "Alin ang halimbawa ng ligtas na nilalaman?",
+            "options": [
+              "Edukasyonal na laro",
+              "Larawang marahas",
+              "Kahilingan ng personal na impormasyon",
+              "Nilalamang hindi angkop sa edad"
+            ],
+            "correct_answer": "Edukasyonal na laro"
+          },
+          {
+            "question": "Bakit hindi dapat magbigay ng personal na impormasyon sa isang website?",
+            "options": [
+              "Maaaring gamitin ito ng may masamang layunin",
+              "Ligtas itong gawin palagi",
+              "Walang panganib dito",
+              "Kinakailangan itong gawin"
+            ],
+            "correct_answer": "Maaaring gamitin ito ng may masamang layunin"
+          },
+          {
+            "question": "Bakit itinuturo ang paksang ito sa mga bata?",
+            "options": [
+              "Upang malaman kung ano ang dapat iwasan online",
+              "Hindi ito mahalaga",
+              "Upang hikayatin panoorin ang lahat",
+              "Walang layunin ito"
+            ],
+            "correct_answer": "Upang malaman kung ano ang dapat iwasan online"
+          },
+          {
+            "question": "Ano ang tamang gawin kapag hindi sigurado kung ligtas ang isang website?",
+            "options": [
+              "Magtanong muna sa magulang o guro",
+              "Buksan agad nang walang tanong",
+              "Ipagpatuloy nang mag-isa",
+              "Ibahagi sa kaklase"
+            ],
+            "correct_answer": "Magtanong muna sa magulang o guro"
+          },
+          {
+            "question": "Bakit mahalagang aprubahan muna ng matanda ang nilalaman?",
+            "options": [
+              "Para matiyak na angkop at ligtas ito para sa bata",
+              "Hindi na kailangan ang aprubasyon",
+              "Ang bata na lamang ang dapat pumili",
+              "Walang gamit ang aprubasyon"
+            ],
+            "correct_answer": "Para matiyak na angkop at ligtas ito para sa bata"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HINDI angkop na nilalaman para sa bata?",
+            "options": [
+              "Larawang nakakatakot o marahas",
+              "Bidyong pang-edukasyon",
+              "Larong pang-matematika",
+              "Kuwentong pambata"
+            ],
+            "correct_answer": "Larawang nakakatakot o marahas"
+          },
+          {
+            "question": "Bakit mahalagang matutong kilalanin ang ligtas na nilalaman mula sa maagang edad?",
+            "options": [
+              "Upang maging responsable at ligtas sa paggamit ng Internet paglaki",
+              "Hindi na kailangan matutunan ito",
+              "Para sa matatanda lamang",
+              "Walang epekto ito sa hinaharap"
+            ],
+            "correct_answer": "Upang maging responsable at ligtas sa paggamit ng Internet paglaki"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# ♿ GMRC — Pagkilala sa mga Taong may Kapansanan\n\nGrade 3, Linggo 23! Pagpapahalaga: **Respect (Paggalang)**. ♿\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **sariling kakayahan** para sa kapuwa.\n\n## ♿ Sino ang mga Taong may Kapansanan (PWD)?\nAng mga **Persons with Disabilities (PWD)** ay mga taong may pisikal, mental, o sensoryal na kondisyong nakakaapekto sa kanilang pang-araw-araw na buhay.\n\n## 🤝 Paano Magpakita ng Paggalang\n- Huwag mangutya o manukso sa kanilang kondisyon\n- Tumulong kung kinakailangan (halimbawa, buksan ang pinto para sa taong naka-wheelchair)\n- Makinig at makipag-usap nang normal\n\n## 💡 Bakit Mahalaga Ito?\nAng mga PWD ay may **pantay na karapatan** at dignidad tulad ng lahat, at ang ating paggalang sa kanila ay nagpapakita ng **mabuting pagkatao**.\n\n**Mahahalagang salita:** PWD, kapansanan, paggalang, dignidad",
+        "quiz": [
+          {
+            "question": "Sino ang mga taong may kapansanan (PWD)?",
+            "options": [
+              "Mga taong may pisikal, mental, o sensoryal na kondisyon",
+              "Mga taong may sakit na kaunti lamang",
+              "Mga taong walang kondisyon",
+              "Mga matatandang tao lamang"
+            ],
+            "correct_answer": "Mga taong may pisikal, mental, o sensoryal na kondisyon"
+          },
+          {
+            "question": "Anong halimbawa ng pagpapakita ng paggalang sa PWD?",
+            "options": [
+              "Tumulong kung kinakailangan",
+              "Mangutya sa kanilang kondisyon",
+              "Iwasan sila",
+              "Kutyain sila"
+            ],
+            "correct_answer": "Tumulong kung kinakailangan"
+          },
+          {
+            "question": "Ano ang HINDI dapat gawin sa taong may kapansanan?",
+            "options": [
+              "Mangutya o manukso sa kondisyon",
+              "Tumulong kung kailangan",
+              "Makinig sa kanila",
+              "Makipag-usap nang normal"
+            ],
+            "correct_answer": "Mangutya o manukso sa kondisyon"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Respect (Paggalang)",
+              "Compassion",
+              "Obedience",
+              "Gratitude"
+            ],
+            "correct_answer": "Respect (Paggalang)"
+          },
+          {
+            "question": "Ano ang mayroon ang mga PWD kagaya ng lahat?",
+            "options": [
+              "Pantay na karapatan at dignidad",
+              "Wala silang karapatan",
+              "Mas kaunting karapatan",
+              "Walang dignidad"
+            ],
+            "correct_answer": "Pantay na karapatan at dignidad"
+          },
+          {
+            "question": "Bakit mahalagang tumulong sa isang taong naka-wheelchair kung kinakailangan?",
+            "options": [
+              "Nagpapakita ito ng pagmamalasakit at paggalang",
+              "Wala itong kahalagahan",
+              "Hindi dapat tumulong",
+              "Ito ay pagmamalabis"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamalasakit at paggalang"
+          },
+          {
+            "question": "Bakit itinuturing na respect ang pagkilala sa PWD?",
+            "options": [
+              "Nagtuturo ito ng paggalang sa dignidad ng bawat tao",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ito ng agham",
+              "Hindi ito itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagtuturo ito ng paggalang sa dignidad ng bawat tao"
+          },
+          {
+            "question": "Paano dapat makipag-usap sa isang taong may kapansanan?",
+            "options": [
+              "Nang normal at may respeto",
+              "Nang mababa ang boses lamang",
+              "Iwasan silang kausapin",
+              "Kutyain sila"
+            ],
+            "correct_answer": "Nang normal at may respeto"
+          },
+          {
+            "question": "Ano ang mararamdaman ng isang PWD kapag iginagalang sila?",
+            "options": [
+              "Pagpapahalaga at dignidad",
+              "Kahihiyan",
+              "Kawalan ng pagkatao",
+              "Wala silang mararamdaman"
+            ],
+            "correct_answer": "Pagpapahalaga at dignidad"
+          },
+          {
+            "question": "Bakit dapat matutong maging sensitibo sa mga PWD mula pagkabata?",
+            "options": [
+              "Upang maging mapagpalagay at magalang na tao paglaki",
+              "Hindi na kailangan ituro ito",
+              "Para sa matatanda lamang",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang maging mapagpalagay at magalang na tao paglaki"
+          },
+          {
+            "question": "Ano ang tamang gawin kung may kaklaseng may kapansanan sa iyong silid-aralan?",
+            "options": [
+              "Tanggapin siya at maging kaibigan",
+              "Iwasan siya",
+              "Kutyain siya",
+              "Tanggihan siyang makisama"
+            ],
+            "correct_answer": "Tanggapin siya at maging kaibigan"
+          },
+          {
+            "question": "Paano nauugnay ang pagkilala sa PWD sa mga natutunan noong nakaraang linggo tungkol sa sariling kakayahan?",
+            "options": [
+              "Pareho silang tumatalakay sa pagpapahalaga at pagtulong sa kapwa",
+              "Walang kaugnayan ang dalawa",
+              "Isa ay tungkol lamang sa agham",
+              "Isa ay tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Pareho silang tumatalakay sa pagpapahalaga at pagtulong sa kapwa"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🇵🇭 Friday Review — English (Grade 3)\n\n- National themes: reading for details and drawing conclusions\n\nGreat reading work! 🌟",
+        "quiz": [
+          {
+            "question": "What are national themes?",
+            "options": [
+              "Topics that concern the whole Philippines",
+              "Topics about only one family",
+              "Topics about only one classroom",
+              "Topics with no connection to the country"
+            ],
+            "correct_answer": "Topics that concern the whole Philippines"
+          },
+          {
+            "question": "How many important details for a national-theme passage?",
+            "options": [
+              "4-5 details",
+              "1 detail",
+              "20 details",
+              "No details needed"
+            ],
+            "correct_answer": "4-5 details"
+          },
+          {
+            "question": "What might a flag passage mention?",
+            "options": [
+              "Colors, the sun, and three stars",
+              "Only its price",
+              "Only where made",
+              "Nothing important"
+            ],
+            "correct_answer": "Colors, the sun, and three stars"
+          },
+          {
+            "question": "What does 'draw a conclusion' mean?",
+            "options": [
+              "Form a reasonable idea from given info",
+              "Draw a picture",
+              "Copy word for word",
+              "Ignore all details"
+            ],
+            "correct_answer": "Form a reasonable idea from given info"
+          },
+          {
+            "question": "Example of a national theme?",
+            "options": [
+              "A national hero",
+              "Your own pet",
+              "Your favorite snack",
+              "A toy you own"
+            ],
+            "correct_answer": "A national hero"
+          },
+          {
+            "question": "Why find several details in a passage?",
+            "options": [
+              "Build complete understanding",
+              "Never useful",
+              "One detail is enough",
+              "Replaces reading"
+            ],
+            "correct_answer": "Build complete understanding"
+          },
+          {
+            "question": "What are national symbols?",
+            "options": [
+              "Objects representing the whole country",
+              "Objects one family owns",
+              "Random objects",
+              "Items in one city"
+            ],
+            "correct_answer": "Objects representing the whole country"
+          },
+          {
+            "question": "Why is a hero's story a national theme?",
+            "options": [
+              "It matters to the whole country",
+              "Only matters to family",
+              "No importance",
+              "About a random stranger"
+            ],
+            "correct_answer": "It matters to the whole country"
+          },
+          {
+            "question": "What skill helps understand what details suggest?",
+            "options": [
+              "Drawing conclusions",
+              "Ignoring the text",
+              "Reading only the title",
+              "Skipping to the end"
+            ],
+            "correct_answer": "Drawing conclusions"
+          },
+          {
+            "question": "Why do national themes appear in reading lessons?",
+            "options": [
+              "Help understand shared history and identity",
+              "No educational value",
+              "Only for adults",
+              "Replaces stories"
+            ],
+            "correct_answer": "Help understand shared history and identity"
+          },
+          {
+            "question": "A passage lists 5 facts about independence: what to do?",
+            "options": [
+              "Use them to draw a conclusion",
+              "Ignore all but one",
+              "Memorize without understanding",
+              "Assume unrelated"
+            ],
+            "correct_answer": "Use them to draw a conclusion"
+          },
+          {
+            "question": "Better conclusion after reading about a hero's bravery?",
+            "options": [
+              "This hero showed courage",
+              "Liked the color blue",
+              "Born in a house",
+              "Had two arms"
+            ],
+            "correct_answer": "This hero showed courage"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 3)\n\n- Number patterns: increasing, decreasing, repeating\n\nGreat pattern work! ⭐",
+        "quiz": [
+          {
+            "question": "What is a pattern?",
+            "options": [
+              "A predictable sequence following a rule",
+              "A random set of numbers",
+              "Only shapes",
+              "A single number"
+            ],
+            "correct_answer": "A predictable sequence following a rule"
+          },
+          {
+            "question": "2, 4, 6, 8, __: missing number?",
+            "options": [
+              "10",
+              "9",
+              "12",
+              "16"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "Rule in 2, 4, 6, 8?",
+            "options": [
+              "Add 2",
+              "Subtract 2",
+              "Multiply by 2",
+              "Add 4"
+            ],
+            "correct_answer": "Add 2"
+          },
+          {
+            "question": "20, 17, 14, __: missing number?",
+            "options": [
+              "11",
+              "13",
+              "10",
+              "17"
+            ],
+            "correct_answer": "11"
+          },
+          {
+            "question": "Rule in 20, 17, 14?",
+            "options": [
+              "Subtract 3",
+              "Add 3",
+              "Subtract 2",
+              "Multiply by 3"
+            ],
+            "correct_answer": "Subtract 3"
+          },
+          {
+            "question": "red, blue, red, blue, __: next?",
+            "options": [
+              "Red",
+              "Blue",
+              "Green",
+              "Yellow"
+            ],
+            "correct_answer": "Red"
+          },
+          {
+            "question": "First step to find a missing number?",
+            "options": [
+              "Compare consecutive numbers for the rule",
+              "Guess randomly",
+              "Skip the problem",
+              "Always add 1"
+            ],
+            "correct_answer": "Compare consecutive numbers for the rule"
+          },
+          {
+            "question": "5, 10, 15, 20, __: missing number?",
+            "options": [
+              "25",
+              "24",
+              "30",
+              "22"
+            ],
+            "correct_answer": "25"
+          },
+          {
+            "question": "Type of pattern: 3, 6, 9, 12?",
+            "options": [
+              "Increasing",
+              "Decreasing",
+              "Repeating",
+              "Random"
+            ],
+            "correct_answer": "Increasing"
+          },
+          {
+            "question": "Type of pattern: 30, 25, 20, 15?",
+            "options": [
+              "Decreasing",
+              "Increasing",
+              "Repeating",
+              "Random"
+            ],
+            "correct_answer": "Decreasing"
+          },
+          {
+            "question": "1, 3, 5, 7, __: missing number?",
+            "options": [
+              "9",
+              "8",
+              "10",
+              "6"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "Why identify patterns?",
+            "options": [
+              "Predict what comes next logically",
+              "No real use",
+              "Patterns never repeat",
+              "Only works with letters"
+            ],
+            "correct_answer": "Predict what comes next logically"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🔗 Friday Review — Filipino (Grade 3)\n\n- Pananda: pagdaragdag, pagsalungat, pagpipilian\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pananda?",
+            "options": [
+              "Salitang nag-uugnay sa dalawang sugnay",
+              "Uri ng pangngalan",
+              "Bantas lamang",
+              "Uri ng pandiwa"
+            ],
+            "correct_answer": "Salitang nag-uugnay sa dalawang sugnay"
+          },
+          {
+            "question": "Uri ng pananda ang 'at'?",
+            "options": [
+              "Pagdaragdag",
+              "Pagsalungat",
+              "Pagpipilian",
+              "Wala"
+            ],
+            "correct_answer": "Pagdaragdag"
+          },
+          {
+            "question": "Uri ng pananda ang 'ngunit'?",
+            "options": [
+              "Pagsalungat",
+              "Pagdaragdag",
+              "Pagpipilian",
+              "Wala"
+            ],
+            "correct_answer": "Pagsalungat"
+          },
+          {
+            "question": "Uri ng pananda ang 'o'?",
+            "options": [
+              "Pagpipilian",
+              "Pagdaragdag",
+              "Pagsalungat",
+              "Wala"
+            ],
+            "correct_answer": "Pagpipilian"
+          },
+          {
+            "question": "Sa 'Nag-aral siya, ngunit hindi nakapasa,' uri ng pananda?",
+            "options": [
+              "Pagsalungat",
+              "Pagdaragdag",
+              "Pagpipilian",
+              "Wala"
+            ],
+            "correct_answer": "Pagsalungat"
+          },
+          {
+            "question": "Sa 'Kakain tayo, at saka maglalaro,' uri ng pananda?",
+            "options": [
+              "Pagdaragdag",
+              "Pagsalungat",
+              "Pagpipilian",
+              "Wala"
+            ],
+            "correct_answer": "Pagdaragdag"
+          },
+          {
+            "question": "Halimbawa ng pananda ng pagpipilian?",
+            "options": [
+              "O",
+              "At",
+              "Ngunit",
+              "Subalit"
+            ],
+            "correct_answer": "O"
+          },
+          {
+            "question": "Bakit malaman ang uri ng pananda?",
+            "options": [
+              "Maunawaan ang ugnayan ng dalawang ideya",
+              "Walang kaugnayan",
+              "Para sa pagsusulit lamang",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Maunawaan ang ugnayan ng dalawang ideya"
+          },
+          {
+            "question": "Halimbawa ng pananda ng pagsalungat?",
+            "options": [
+              "Subalit",
+              "At",
+              "O",
+              "Saka"
+            ],
+            "correct_answer": "Subalit"
+          },
+          {
+            "question": "Ano ang binubuo ng dalawang sugnay na may pananda?",
+            "options": [
+              "Tambalang pangungusap",
+              "Payak na pangungusap",
+              "Isang salita",
+              "Isang tugma"
+            ],
+            "correct_answer": "Tambalang pangungusap"
+          },
+          {
+            "question": "Pananda para sa pagpipilian?",
+            "options": [
+              "O",
+              "At",
+              "Ngunit",
+              "Saka"
+            ],
+            "correct_answer": "O"
+          },
+          {
+            "question": "Pananda para sa kontrast?",
+            "options": [
+              "Ngunit",
+              "At",
+              "O",
+              "Saka"
+            ],
+            "correct_answer": "Ngunit"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔊 Friday Review — Science (Grade 3)\n\n- Sound and light: vibrate, transfer, natural/artificial\n\nGreat sound and light review! 🌟",
+        "quiz": [
+          {
+            "question": "How is sound made?",
+            "options": [
+              "An object vibrates",
+              "Stays still",
+              "Changes color",
+              "Melts"
+            ],
+            "correct_answer": "An object vibrates"
+          },
+          {
+            "question": "What does 'vibrate' mean?",
+            "options": [
+              "Shake back and forth quickly",
+              "Stay still",
+              "Change temperature",
+              "Disappear"
+            ],
+            "correct_answer": "Shake back and forth quickly"
+          },
+          {
+            "question": "How does sound travel to ears?",
+            "options": [
+              "Transfers through air",
+              "Cannot travel",
+              "Only through solids",
+              "Through nothing"
+            ],
+            "correct_answer": "Transfers through air"
+          },
+          {
+            "question": "Natural source of light?",
+            "options": [
+              "The Sun",
+              "A flashlight",
+              "A light bulb",
+              "A lamp"
+            ],
+            "correct_answer": "The Sun"
+          },
+          {
+            "question": "Artificial source of light?",
+            "options": [
+              "A light bulb",
+              "The Sun",
+              "Lightning",
+              "Stars"
+            ],
+            "correct_answer": "A light bulb"
+          },
+          {
+            "question": "Fire is an example of?",
+            "options": [
+              "Natural light source",
+              "Artificial light source",
+              "Sound only",
+              "Neither"
+            ],
+            "correct_answer": "Natural light source"
+          },
+          {
+            "question": "Why do we need light?",
+            "options": [
+              "To see, grow plants, signal others",
+              "No real use",
+              "Only to heat things",
+              "Only decoration"
+            ],
+            "correct_answer": "To see, grow plants, signal others"
+          },
+          {
+            "question": "What happens plucking a guitar string?",
+            "options": [
+              "It vibrates and makes sound",
+              "It disappears",
+              "It changes color",
+              "It stops sound"
+            ],
+            "correct_answer": "It vibrates and makes sound"
+          },
+          {
+            "question": "Why hear someone across a room?",
+            "options": [
+              "Sound transfers through air",
+              "Cannot travel through air",
+              "Only through walls",
+              "No sound involved"
+            ],
+            "correct_answer": "Sound transfers through air"
+          },
+          {
+            "question": "Light used to signal others?",
+            "options": [
+              "A traffic light",
+              "A book",
+              "A pencil",
+              "A chair"
+            ],
+            "correct_answer": "A traffic light"
+          },
+          {
+            "question": "Why is vibration important to sound?",
+            "options": [
+              "It creates sound",
+              "Nothing to do with sound",
+              "Sound exists without it",
+              "Only affects light"
+            ],
+            "correct_answer": "It creates sound"
+          },
+          {
+            "question": "Correct pair: natural and artificial light?",
+            "options": [
+              "Sun (natural), light bulb (artificial)",
+              "Sun (artificial), fire (artificial)",
+              "Bulb (natural), Sun (artificial)",
+              "Both natural"
+            ],
+            "correct_answer": "Sun (natural), light bulb (artificial)"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🎖️ Friday Review — Makabansa (Grade 3)\n\n- Pagpapahalaga sa pagkakakilanlan bilang Pilipino\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Paano ipapakita ang pagmamalaki sa pagkakakilanlan?",
+            "options": [
+              "Pagsasalita ng Filipino nang may kumpiyansa",
+              "Pag-iwas sa sariling wika",
+              "Pagtanggi sa kultura",
+              "Pagkutya sa bansa"
+            ],
+            "correct_answer": "Pagsasalita ng Filipino nang may kumpiyansa"
+          },
+          {
+            "question": "Halimbawa ng pagpapakita ng kultura?",
+            "options": [
+              "Pagsuot ng damit na Pilipino",
+              "Pag-iwas sa pagdiriwang",
+              "Pagtanggi sa tradisyon",
+              "Pagkalimot sa kasaysayan"
+            ],
+            "correct_answer": "Pagsuot ng damit na Pilipino"
+          },
+          {
+            "question": "Bakit suportahan ang gawang-Pilipino?",
+            "options": [
+              "Tumutulong sa ekonomiya at ipinagmamalaki ang galing",
+              "Wala itong kabuluhan",
+              "Bumili lamang ng imported",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Tumutulong sa ekonomiya at ipinagmamalaki ang galing"
+          },
+          {
+            "question": "Bakit pahalagahan ang pagkakakilanlan?",
+            "options": [
+              "Pagmamalaki at pananatili ng kultura",
+              "Walang kahalagahan",
+              "Nagdudulot ng away",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Pagmamalaki at pananatili ng kultura"
+          },
+          {
+            "question": "Ano ang maaaring ipakita sa bisitang dayuhan?",
+            "options": [
+              "Kultura sa pagkain, sayaw, o kasuotan",
+              "Itago ang kultura",
+              "Kultura ng ibang bansa lamang",
+              "Walang ipakita"
+            ],
+            "correct_answer": "Kultura sa pagkain, sayaw, o kasuotan"
+          },
+          {
+            "question": "Bakit mapanatili ang kultura?",
+            "options": [
+              "Hindi mawala ang tradisyon at kasaysayan",
+              "Hindi kailangan ipasa",
+              "Hindi mahalaga sa kinabukasan",
+              "Bawat henerasyon gumagawa mula sa wala"
+            ],
+            "correct_answer": "Hindi mawala ang tradisyon at kasaysayan"
+          },
+          {
+            "question": "Paraan ng pakikilahok sa pagdiriwang?",
+            "options": [
+              "Pagsali sa pagdiriwang ng bayan",
+              "Pag-iwas sa pagdiriwang",
+              "Pagtanggi sa imbitasyon",
+              "Pananatili sa bahay"
+            ],
+            "correct_answer": "Pagsali sa pagdiriwang ng bayan"
+          },
+          {
+            "question": "Bakit mahalaga ang paksang ito sa Makabansa?",
+            "options": [
+              "Tumutulong ipagmalaki ang pagkakakilanlan",
+              "Walang kaugnayan sa kasaysayan",
+              "Tungkol lamang sa ibang bansa",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Tumutulong ipagmalaki ang pagkakakilanlan"
+          },
+          {
+            "question": "Alin ang HINDI pagpapahalaga sa pagkakakilanlan?",
+            "options": [
+              "Pagtanggi sa sariling wika",
+              "Pagsasalita ng Filipino",
+              "Pagsuot ng damit Pilipino",
+              "Pagsali sa pagdiriwang"
+            ],
+            "correct_answer": "Pagtanggi sa sariling wika"
+          },
+          {
+            "question": "Bakit magmalaki sa pagka-Pilipino?",
+            "options": [
+              "Bahagi ng natatanging pagkakakilanlan",
+              "Hindi mahalaga sa kanila",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Bahagi ng natatanging pagkakakilanlan"
+          },
+          {
+            "question": "Naidudulot ng pagsasalita ng Filipino nang may kumpiyansa?",
+            "options": [
+              "Pagmamalaki sa sariling wika",
+              "Kahihiyan",
+              "Kawalan ng galang",
+              "Wala"
+            ],
+            "correct_answer": "Pagmamalaki sa sariling wika"
+          },
+          {
+            "question": "Bakit isali ang tradisyon sa modernong buhay?",
+            "options": [
+              "Hindi mawala ang koneksyon sa pinagmulan",
+              "Hindi kailangan ang tradisyon",
+              "Tradisyon ay laban sa modernong buhay",
+              "Walang kaugnayan"
+            ],
+            "correct_answer": "Hindi mawala ang koneksyon sa pinagmulan"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# ✅ Friday Review — Computer (Grade 3)\n\n- Ligtas vs. hindi angkop na nilalaman\n\nMagaling sa Computer! 🌟",
+        "quiz": [
+          {
+            "question": "Katangian ng ligtas na nilalaman?",
+            "options": [
+              "Ginawa para sa bata, aprubado ng matanda",
+              "May marahas na larawan",
+              "Humihingi ng personal na impormasyon",
+              "Hindi angkop sa edad"
+            ],
+            "correct_answer": "Ginawa para sa bata, aprubado ng matanda"
+          },
+          {
+            "question": "Katangian ng hindi angkop na nilalaman?",
+            "options": [
+              "May marahas o nakakatakot na larawan",
+              "Ginawa para sa bata",
+              "Edukasyonal",
+              "Aprubado ng magulang"
+            ],
+            "correct_answer": "May marahas o nakakatakot na larawan"
+          },
+          {
+            "question": "Gawin kung may nakitang hindi angkop na nilalaman?",
+            "options": [
+              "Isara agad at sabihin sa matanda",
+              "Ipagpatuloy panoorin",
+              "Ibahagi sa kaibigan",
+              "Balewalain"
+            ],
+            "correct_answer": "Isara agad at sabihin sa matanda"
+          },
+          {
+            "question": "Bakit kilalanin ang ligtas na nilalaman?",
+            "options": [
+              "Iwasan ang mapanganib o hindi angkop",
+              "Hindi kailangan",
+              "Lahat ay ligtas",
+              "Walang gamit"
+            ],
+            "correct_answer": "Iwasan ang mapanganib o hindi angkop"
+          },
+          {
+            "question": "Sino sabihan kung may nakitang hindi angkop?",
+            "options": [
+              "Isang matanda",
+              "Walang dapat sabihan",
+              "Kaklase lamang",
+              "Estranghero online"
+            ],
+            "correct_answer": "Isang matanda"
+          },
+          {
+            "question": "Halimbawa ng ligtas na nilalaman?",
+            "options": [
+              "Edukasyonal na laro",
+              "Larawang marahas",
+              "Kahilingan ng personal na impormasyon",
+              "Nilalamang hindi angkop"
+            ],
+            "correct_answer": "Edukasyonal na laro"
+          },
+          {
+            "question": "Bakit hindi magbigay ng personal na impormasyon?",
+            "options": [
+              "Maaaring gamitin ng may masamang layunin",
+              "Ligtas palagi",
+              "Walang panganib",
+              "Kinakailangan gawin"
+            ],
+            "correct_answer": "Maaaring gamitin ng may masamang layunin"
+          },
+          {
+            "question": "Bakit ituro ang paksang ito?",
+            "options": [
+              "Malaman ang dapat iwasan online",
+              "Hindi mahalaga",
+              "Hikayatin panoorin lahat",
+              "Walang layunin"
+            ],
+            "correct_answer": "Malaman ang dapat iwasan online"
+          },
+          {
+            "question": "Gawin kung hindi sigurado kung ligtas ang website?",
+            "options": [
+              "Magtanong sa magulang o guro",
+              "Buksan agad",
+              "Ipagpatuloy mag-isa",
+              "Ibahagi sa kaklase"
+            ],
+            "correct_answer": "Magtanong sa magulang o guro"
+          },
+          {
+            "question": "Bakit aprubahan muna ng matanda ang nilalaman?",
+            "options": [
+              "Matiyak na angkop at ligtas",
+              "Hindi kailangan",
+              "Bata ang dapat pumili",
+              "Walang gamit"
+            ],
+            "correct_answer": "Matiyak na angkop at ligtas"
+          },
+          {
+            "question": "Alin ang HINDI angkop na nilalaman?",
+            "options": [
+              "Larawang nakakatakot o marahas",
+              "Bidyong pang-edukasyon",
+              "Larong pang-matematika",
+              "Kuwentong pambata"
+            ],
+            "correct_answer": "Larawang nakakatakot o marahas"
+          },
+          {
+            "question": "Bakit matutong kilalanin ang ligtas na nilalaman maaga?",
+            "options": [
+              "Maging responsable sa Internet paglaki",
+              "Hindi kailangan matutunan",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging responsable sa Internet paglaki"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# ♿ Friday Review — GMRC (Grade 3)\n\n- Respect: pagkilala sa mga taong may kapansanan (PWD)\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Sino ang mga PWD?",
+            "options": [
+              "Mga taong may pisikal, mental, o sensoryal na kondisyon",
+              "Mga taong may sakit na kaunti",
+              "Mga taong walang kondisyon",
+              "Matatandang tao lamang"
+            ],
+            "correct_answer": "Mga taong may pisikal, mental, o sensoryal na kondisyon"
+          },
+          {
+            "question": "Halimbawa ng paggalang sa PWD?",
+            "options": [
+              "Tumulong kung kinakailangan",
+              "Mangutya sa kondisyon",
+              "Iwasan sila",
+              "Kutyain sila"
+            ],
+            "correct_answer": "Tumulong kung kinakailangan"
+          },
+          {
+            "question": "HINDI dapat gawin sa taong may kapansanan?",
+            "options": [
+              "Mangutya sa kondisyon",
+              "Tumulong kung kailangan",
+              "Makinig sa kanila",
+              "Makipag-usap nang normal"
+            ],
+            "correct_answer": "Mangutya sa kondisyon"
+          },
+          {
+            "question": "Pagpapahalaga na tinalakay?",
+            "options": [
+              "Respect (Paggalang)",
+              "Compassion",
+              "Obedience",
+              "Gratitude"
+            ],
+            "correct_answer": "Respect (Paggalang)"
+          },
+          {
+            "question": "Mayroon ang mga PWD kagaya ng lahat?",
+            "options": [
+              "Pantay na karapatan at dignidad",
+              "Wala silang karapatan",
+              "Mas kaunting karapatan",
+              "Walang dignidad"
+            ],
+            "correct_answer": "Pantay na karapatan at dignidad"
+          },
+          {
+            "question": "Bakit tumulong sa taong naka-wheelchair kung kinakailangan?",
+            "options": [
+              "Nagpapakita ng pagmamalasakit at paggalang",
+              "Walang kahalagahan",
+              "Hindi dapat tumulong",
+              "Pagmamalabis"
+            ],
+            "correct_answer": "Nagpapakita ng pagmamalasakit at paggalang"
+          },
+          {
+            "question": "Bakit respect ang pagkilala sa PWD?",
+            "options": [
+              "Nagtuturo ng paggalang sa dignidad",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi ng agham lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Nagtuturo ng paggalang sa dignidad"
+          },
+          {
+            "question": "Paano makipag-usap sa taong may kapansanan?",
+            "options": [
+              "Nang normal at may respeto",
+              "Nang mababa lamang ang boses",
+              "Iwasan silang kausapin",
+              "Kutyain sila"
+            ],
+            "correct_answer": "Nang normal at may respeto"
+          },
+          {
+            "question": "Mararamdaman ng PWD kapag iginagalang?",
+            "options": [
+              "Pagpapahalaga at dignidad",
+              "Kahihiyan",
+              "Kawalan ng pagkatao",
+              "Wala silang mararamdaman"
+            ],
+            "correct_answer": "Pagpapahalaga at dignidad"
+          },
+          {
+            "question": "Bakit maging sensitibo sa PWD mula pagkabata?",
+            "options": [
+              "Maging mapagpalagay at magalang paglaki",
+              "Hindi na kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging mapagpalagay at magalang paglaki"
+          },
+          {
+            "question": "Gawin kung may kaklaseng may kapansanan?",
+            "options": [
+              "Tanggapin siya at maging kaibigan",
+              "Iwasan siya",
+              "Kutyain siya",
+              "Tanggihan makisama"
+            ],
+            "correct_answer": "Tanggapin siya at maging kaibigan"
+          },
+          {
+            "question": "Koneksyon sa sariling kakayahan noong nakaraang linggo?",
+            "options": [
+              "Pareho tungkol sa pagpapahalaga at pagtulong sa kapwa",
+              "Walang kaugnayan",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Pareho tungkol sa pagpapahalaga at pagtulong sa kapwa"
+          }
+        ]
+      }
+    }
+  }
+}

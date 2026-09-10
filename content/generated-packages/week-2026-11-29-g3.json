@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-11-29",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🏆 English — Cause and Effect in National Stories\n\nGrade 3, Week 25! Let's explore why things happened in stories about our nation. 🏆\n\n## 🔄 Review\nWe practiced sequencing events about a national hero.\n\n## 🏆 What Is Cause and Effect?\nA **cause** is why something happens. An **effect** is what happens as a result.\n\n**Example:** \"Because the hero worked hard (cause), he inspired many Filipinos (effect).\"\n\n## 🔍 Signal Words\nLook for words like *because, so, as a result, therefore* to spot cause-and-effect relationships.\n\n## ✍️ Practice\n\"The community worked together, **so** they built a new school.\" — Cause: community worked together. Effect: new school was built.\n\n**Key words:** cause, effect, because, as a result, therefore",
+        "quiz": [
+          {
+            "question": "What is a cause?",
+            "options": [
+              "Why something happens",
+              "What happens as a result",
+              "The title of a story",
+              "A character's name"
+            ],
+            "correct_answer": "Why something happens"
+          },
+          {
+            "question": "What is an effect?",
+            "options": [
+              "What happens as a result",
+              "Why something happens",
+              "The title of a story",
+              "A character's name"
+            ],
+            "correct_answer": "What happens as a result"
+          },
+          {
+            "question": "Which word signals a cause-and-effect relationship?",
+            "options": [
+              "Because",
+              "Mountain",
+              "Beautiful",
+              "Quickly"
+            ],
+            "correct_answer": "Because"
+          },
+          {
+            "question": "In 'Because the hero worked hard, he inspired many Filipinos,' what is the effect?",
+            "options": [
+              "He inspired many Filipinos",
+              "The hero worked hard",
+              "Nothing happened",
+              "The hero's name"
+            ],
+            "correct_answer": "He inspired many Filipinos"
+          },
+          {
+            "question": "In the same sentence, what is the cause?",
+            "options": [
+              "The hero worked hard",
+              "He inspired many Filipinos",
+              "Nothing happened",
+              "The hero's age"
+            ],
+            "correct_answer": "The hero worked hard"
+          },
+          {
+            "question": "Which word also signals cause and effect?",
+            "options": [
+              "Therefore",
+              "River",
+              "Yesterday",
+              "Happy"
+            ],
+            "correct_answer": "Therefore"
+          },
+          {
+            "question": "'The community worked together, so they built a new school' - what is the cause?",
+            "options": [
+              "The community worked together",
+              "They built a new school",
+              "Nothing happened",
+              "The school's name"
+            ],
+            "correct_answer": "The community worked together"
+          },
+          {
+            "question": "Why is understanding cause and effect useful when reading?",
+            "options": [
+              "It helps explain why events in a story happen",
+              "It has no real use",
+              "It replaces the need for characters",
+              "It only matters for math"
+            ],
+            "correct_answer": "It helps explain why events in a story happen"
+          },
+          {
+            "question": "'As a result of the drought, farmers lost their crops.' What is the cause?",
+            "options": [
+              "The drought",
+              "Farmers lost their crops",
+              "Nothing happened",
+              "The farmers' names"
+            ],
+            "correct_answer": "The drought"
+          },
+          {
+            "question": "In the same sentence, what is the effect?",
+            "options": [
+              "Farmers lost their crops",
+              "The drought",
+              "Nothing happened",
+              "The season"
+            ],
+            "correct_answer": "Farmers lost their crops"
+          },
+          {
+            "question": "Which sentence shows a clear cause-and-effect relationship?",
+            "options": [
+              "It rained heavily, so the game was canceled.",
+              "It rained heavily. The game happened.",
+              "The game was fun.",
+              "It was a game."
+            ],
+            "correct_answer": "It rained heavily, so the game was canceled."
+          },
+          {
+            "question": "Why might national stories often use cause-and-effect structure?",
+            "options": [
+              "To explain how historical events led to important outcomes",
+              "To confuse the reader",
+              "To remove all details",
+              "To avoid explaining anything"
+            ],
+            "correct_answer": "To explain how historical events led to important outcomes"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➗ Mathematics — Dividing 2-3 Digit Numbers\n\nGrade 3, Week 25! Let's divide bigger numbers, with and without remainders! ➗\n\n## 🔄 Review\nWe connected division to multiplication as its inverse.\n\n## ➗ Dividing Without a Remainder\n**Example:** 84 ÷ 4 = 21 (no remainder — divides evenly)\n\n## ➗ Dividing With a Remainder\n**Example:** 25 ÷ 4 = 6 remainder 1 (because 4 × 6 = 24, and 25 - 24 = 1)\n\n## 🔟 Dividing by 10\nDividing by 10 simply removes a zero: 350 ÷ 10 = **35**\n\n## 🧮 Steps to Divide\n1. Find how many times the divisor fits into the dividend\n2. Multiply and subtract to check\n3. Write any leftover as the remainder\n\n**Key words:** divide, remainder, dividend, divisor",
+        "quiz": [
+          {
+            "question": "What is 84 ÷ 4?",
+            "options": [
+              "21",
+              "20",
+              "22",
+              "24"
+            ],
+            "correct_answer": "21"
+          },
+          {
+            "question": "What is 25 ÷ 4?",
+            "options": [
+              "6 remainder 1",
+              "6 remainder 0",
+              "7 remainder 1",
+              "5 remainder 1"
+            ],
+            "correct_answer": "6 remainder 1"
+          },
+          {
+            "question": "What is 350 ÷ 10?",
+            "options": [
+              "35",
+              "350",
+              "3.5",
+              "3500"
+            ],
+            "correct_answer": "35"
+          },
+          {
+            "question": "What is a remainder?",
+            "options": [
+              "The amount left over after dividing evenly",
+              "The total before dividing",
+              "The divisor itself",
+              "The answer to a multiplication problem"
+            ],
+            "correct_answer": "The amount left over after dividing evenly"
+          },
+          {
+            "question": "What is 63 ÷ 7?",
+            "options": [
+              "9",
+              "8",
+              "10",
+              "56"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "What is 30 ÷ 4?",
+            "options": [
+              "7 remainder 2",
+              "7 remainder 0",
+              "6 remainder 2",
+              "8 remainder 2"
+            ],
+            "correct_answer": "7 remainder 2"
+          },
+          {
+            "question": "What is 720 ÷ 10?",
+            "options": [
+              "72",
+              "720",
+              "7.2",
+              "7200"
+            ],
+            "correct_answer": "72"
+          },
+          {
+            "question": "What is the first step in dividing?",
+            "options": [
+              "Find how many times the divisor fits into the dividend",
+              "Add the numbers",
+              "Guess the remainder first",
+              "Multiply immediately"
+            ],
+            "correct_answer": "Find how many times the divisor fits into the dividend"
+          },
+          {
+            "question": "What is 48 ÷ 6?",
+            "options": [
+              "8",
+              "7",
+              "9",
+              "42"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "In 25 ÷ 4 = 6 remainder 1, how do you check the remainder?",
+            "options": [
+              "Multiply 4 × 6 = 24, then subtract from 25",
+              "Add 4 + 6",
+              "Multiply 4 × 25",
+              "Divide 25 by 1"
+            ],
+            "correct_answer": "Multiply 4 × 6 = 24, then subtract from 25"
+          },
+          {
+            "question": "What is 100 ÷ 10?",
+            "options": [
+              "10",
+              "100",
+              "1",
+              "1000"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "What is 45 ÷ 6?",
+            "options": [
+              "7 remainder 3",
+              "7 remainder 0",
+              "8 remainder 3",
+              "6 remainder 3"
+            ],
+            "correct_answer": "7 remainder 3"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🔗 Filipino — Tambalang Pangungusap Batay sa Pananda: Pagsasanay\n\nGrade 3, Linggo 25! Magsanay pa tayo ng paggamit ng iba't ibang pananda. 🔗\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagsulat gamit ang denotasyon at konotasyon.\n\n## 🔗 Pagsasama-sama ng Kasanayan\nGamitin natin ang mga pananda (at, ngunit, o) upang bumuo ng tambalang pangungusap tungkol sa ating bansa.\n\n**Halimbawa:**\n- Pagdaragdag: \"Maganda ang Pilipinas, **at** sagana rin ito sa likas na yaman.\"\n- Pagsalungat: \"Malakas ang bagyo, **ngunit** ligtas ang aming pamilya.\"\n- Pagpipilian: \"Maaari kang pumunta sa Baguio, **o** maaari kang bumisita sa Boracay.\"\n\n## 📝 Pagsasanay\nSubukang bumuo ng tatlong pangungusap, isa para sa bawat uri ng pananda.\n\n**Mahahalagang salita:** pagsasanay, pananda, tambalang pangungusap, bansa",
+        "quiz": [
+          {
+            "question": "Anong pananda ang ginamit sa 'Maganda ang Pilipinas, at sagana sa likas na yaman'?",
+            "options": [
+              "Pagdaragdag",
+              "Pagsalungat",
+              "Pagpipilian",
+              "Wala"
+            ],
+            "correct_answer": "Pagdaragdag"
+          },
+          {
+            "question": "Anong pananda ang ginamit sa 'Malakas ang bagyo, ngunit ligtas ang pamilya'?",
+            "options": [
+              "Pagsalungat",
+              "Pagdaragdag",
+              "Pagpipilian",
+              "Wala"
+            ],
+            "correct_answer": "Pagsalungat"
+          },
+          {
+            "question": "Anong pananda ang ginamit sa 'Pumunta sa Baguio, o bumisita sa Boracay'?",
+            "options": [
+              "Pagpipilian",
+              "Pagdaragdag",
+              "Pagsalungat",
+              "Wala"
+            ],
+            "correct_answer": "Pagpipilian"
+          },
+          {
+            "question": "Ilang uri ng pananda ang tinalakay sa aralin?",
+            "options": [
+              "Tatlo",
+              "Isa",
+              "Lima",
+              "Sampu"
+            ],
+            "correct_answer": "Tatlo"
+          },
+          {
+            "question": "Bakit kailangang magsanay sa paggamit ng iba't ibang pananda?",
+            "options": [
+              "Para mailapat ang mga ito sa aktwal na pagsulat",
+              "Hindi na kailangan pagsanayan",
+              "Isang uri lamang ang kailangan",
+              "Walang gamit ito"
+            ],
+            "correct_answer": "Para mailapat ang mga ito sa aktwal na pagsulat"
+          },
+          {
+            "question": "Alin ang pangatnig ng pagdaragdag?",
+            "options": [
+              "At",
+              "Ngunit",
+              "O",
+              "Subalit"
+            ],
+            "correct_answer": "At"
+          },
+          {
+            "question": "Alin ang pangatnig ng pagsalungat?",
+            "options": [
+              "Ngunit",
+              "At",
+              "O",
+              "Saka"
+            ],
+            "correct_answer": "Ngunit"
+          },
+          {
+            "question": "Alin ang pangatnig ng pagpipilian?",
+            "options": [
+              "O",
+              "At",
+              "Ngunit",
+              "Saka"
+            ],
+            "correct_answer": "O"
+          },
+          {
+            "question": "Ano ang paksa ng mga halimbawang pangungusap sa aralin?",
+            "options": [
+              "Ang Pilipinas at mga lugar dito",
+              "Mga hayop",
+              "Mga pagkain",
+              "Mga laro"
+            ],
+            "correct_answer": "Ang Pilipinas at mga lugar dito"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang tatlong uri ng pananda?",
+            "options": [
+              "Nagbibigay ito ng iba't ibang paraan ng pagbuo ng ideya",
+              "Isang uri lamang ang totoong pananda",
+              "Hindi ito mahalaga",
+              "Walang gamit ito"
+            ],
+            "correct_answer": "Nagbibigay ito ng iba't ibang paraan ng pagbuo ng ideya"
+          },
+          {
+            "question": "Kung magbibigay ka ng dalawang pagpipilian, anong pananda ang gagamitin?",
+            "options": [
+              "O",
+              "At",
+              "Ngunit",
+              "Saka"
+            ],
+            "correct_answer": "O"
+          },
+          {
+            "question": "Kung sasabihin mong parehong totoo ang dalawang bagay, anong pananda ang gagamitin?",
+            "options": [
+              "At",
+              "O",
+              "Ngunit",
+              "Wala"
+            ],
+            "correct_answer": "At"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🪨 Science — Non-Living Things Around School\n\nGrade 3, Week 25! Let's explore the non-living things around our school. 🪨\n\n## 🔄 Review\nWe learned that sound and light can be harmful.\n\n## 🪨 Common Non-Living Things\n- **Rocks and soil** — form the ground\n- **Water** — in puddles, fountains, or faucets\n- **Air** — invisible but all around us\n- **Metals** — found in fences, gates, playground equipment\n- **Clouds, rain, sunlight** — part of the sky and weather\n\n## 🔍 Non-Living vs. Living\nNon-living things do NOT grow, breathe, or reproduce like living things do.\n\n## 💡 Why This Matters\nUnderstanding non-living things around us helps us appreciate how they **support life** — like water for drinking or soil for growing plants.\n\n**Key words:** non-living, rocks, soil, metal, sunlight",
+        "quiz": [
+          {
+            "question": "Which of these forms the ground?",
+            "options": [
+              "Rocks and soil",
+              "Air only",
+              "Sunlight only",
+              "Clouds only"
+            ],
+            "correct_answer": "Rocks and soil"
+          },
+          {
+            "question": "Which non-living thing is invisible but all around us?",
+            "options": [
+              "Air",
+              "Rocks",
+              "Metal",
+              "Soil"
+            ],
+            "correct_answer": "Air"
+          },
+          {
+            "question": "Where might you find metal around a school?",
+            "options": [
+              "Fences, gates, playground equipment",
+              "In the clouds",
+              "In the air only",
+              "In sunlight only"
+            ],
+            "correct_answer": "Fences, gates, playground equipment"
+          },
+          {
+            "question": "Which of these is part of the sky and weather?",
+            "options": [
+              "Clouds",
+              "Soil",
+              "Metal",
+              "Rocks"
+            ],
+            "correct_answer": "Clouds"
+          },
+          {
+            "question": "What is a key difference between non-living and living things?",
+            "options": [
+              "Non-living things do not grow, breathe, or reproduce",
+              "Non-living things always move on their own",
+              "Non-living things always breathe",
+              "There is no difference"
+            ],
+            "correct_answer": "Non-living things do not grow, breathe, or reproduce"
+          },
+          {
+            "question": "Why is water important even though it's non-living?",
+            "options": [
+              "It supports life, like for drinking",
+              "It has no importance",
+              "Only living things need water",
+              "Water is actually alive"
+            ],
+            "correct_answer": "It supports life, like for drinking"
+          },
+          {
+            "question": "Why is soil important?",
+            "options": [
+              "It supports plant growth",
+              "It has no use",
+              "It is a living thing",
+              "It is only found in cities"
+            ],
+            "correct_answer": "It supports plant growth"
+          },
+          {
+            "question": "Which of these is a non-living thing found in a puddle?",
+            "options": [
+              "Water",
+              "A frog",
+              "A plant",
+              "An insect"
+            ],
+            "correct_answer": "Water"
+          },
+          {
+            "question": "Why should we study non-living things around us?",
+            "options": [
+              "To understand how they support living things",
+              "They have no connection to living things",
+              "Non-living things are unimportant",
+              "Only scientists need to know this"
+            ],
+            "correct_answer": "To understand how they support living things"
+          },
+          {
+            "question": "Is sunlight considered living or non-living?",
+            "options": [
+              "Non-living",
+              "Living",
+              "Both living and non-living",
+              "Neither exists"
+            ],
+            "correct_answer": "Non-living"
+          },
+          {
+            "question": "Which of these is an example of a metal object at a playground?",
+            "options": [
+              "A metal slide",
+              "A wooden bench",
+              "A plastic ball",
+              "A cotton flag"
+            ],
+            "correct_answer": "A metal slide"
+          },
+          {
+            "question": "Why is understanding non-living things useful for a Grade 3 student?",
+            "options": [
+              "It helps them observe and appreciate the world around them",
+              "It has no educational value",
+              "Only adults study non-living things",
+              "It replaces the need to study living things"
+            ],
+            "correct_answer": "It helps them observe and appreciate the world around them"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🎮 Makabansa — Pagpapahalaga sa Papel ng Aktibong Pilipino: Laro ng Lahi\n\nGrade 3, Linggo 25! Alamin natin ang mga tradisyunal na laro ng mga Pilipino. 🎮\n\n## 🔄 Balik-Aral\nNatutuhan natin ang papel ng pagiging aktibong Pilipino.\n\n## 🎮 Ano ang Laro ng Lahi?\nAng **Laro ng Lahi** ay mga tradisyunal na larong Pilipino na naglalaro ng mga bata noong unang panahon, gaya ng:\n- **Patintero** — laro ng pagtakbo at pag-iwas\n- **Piko** — laro ng paghagis at paglukso\n- **Luksong Tinik** — laro ng paglukso\n- **Sipa** — laro ng pagpalo ng bagay gamit ang paa\n\n## 🌟 Bakit Pahalagahan ang mga Larong Ito?\nAng mga larong ito ay bahagi ng ating **kultura at kasaysayan**, at tumuturo ng **pagtutulungan** at masiglang paglalaro nang walang kailangang gadyet.\n\n**Mahahalagang salita:** Laro ng Lahi, patintero, piko, kultura",
+        "quiz": [
+          {
+            "question": "Ano ang Laro ng Lahi?",
+            "options": [
+              "Mga tradisyunal na larong Pilipino",
+              "Mga bagong laro sa telepono",
+              "Mga larong banyaga lamang",
+              "Mga larong dayuhan"
+            ],
+            "correct_answer": "Mga tradisyunal na larong Pilipino"
+          },
+          {
+            "question": "Ano ang patintero?",
+            "options": [
+              "Laro ng pagtakbo at pag-iwas",
+              "Laro ng pagbasa",
+              "Laro sa telepono",
+              "Laro sa kompyuter"
+            ],
+            "correct_answer": "Laro ng pagtakbo at pag-iwas"
+          },
+          {
+            "question": "Ano ang piko?",
+            "options": [
+              "Laro ng paghagis at paglukso",
+              "Laro ng pagkanta",
+              "Laro sa kompyuter",
+              "Laro ng pagsulat"
+            ],
+            "correct_answer": "Laro ng paghagis at paglukso"
+          },
+          {
+            "question": "Ano ang sipa?",
+            "options": [
+              "Laro ng pagpalo ng bagay gamit ang paa",
+              "Laro ng pagguhit",
+              "Laro sa telepono",
+              "Laro ng pagbasa"
+            ],
+            "correct_answer": "Laro ng pagpalo ng bagay gamit ang paa"
+          },
+          {
+            "question": "Ano ang luksong tinik?",
+            "options": [
+              "Laro ng paglukso",
+              "Laro ng pagsulat",
+              "Laro sa telepono",
+              "Laro ng pagguhit"
+            ],
+            "correct_answer": "Laro ng paglukso"
+          },
+          {
+            "question": "Bakit mahalagang pahalagahan ang mga larong ito?",
+            "options": [
+              "Bahagi ito ng ating kultura at kasaysayan",
+              "Wala itong kahalagahan",
+              "Ito ay galing sa ibang bansa",
+              "Hindi na ito ginagamit ngayon"
+            ],
+            "correct_answer": "Bahagi ito ng ating kultura at kasaysayan"
+          },
+          {
+            "question": "Ano ang natutunan sa paglalaro ng Laro ng Lahi?",
+            "options": [
+              "Pagtutulungan at masiglang paglalaro",
+              "Kawalang pakialam sa iba",
+              "Pag-iwas sa kapwa",
+              "Kompetisyon lamang nang walang kasiyahan"
+            ],
+            "correct_answer": "Pagtutulungan at masiglang paglalaro"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng Laro ng Lahi sa mga modernong laro sa gadyet?",
+            "options": [
+              "Hindi ito nangangailangan ng gadyet",
+              "Parehong nangangailangan ng gadyet",
+              "Walang pagkakaiba",
+              "Ang Laro ng Lahi ay laging mas mahirap"
+            ],
+            "correct_answer": "Hindi ito nangangailangan ng gadyet"
+          },
+          {
+            "question": "Bakit itinuturing na bahagi ng aktibong pagiging Pilipino ang pagpapahalaga sa Laro ng Lahi?",
+            "options": [
+              "Tumutulong ito mapanatili ang kultura ng bansa",
+              "Walang koneksyon sa aktibong pagiging Pilipino",
+              "Ito ay tungkol lamang sa libangan",
+              "Hindi mahalagang paksa ito"
+            ],
+            "correct_answer": "Tumutulong ito mapanatili ang kultura ng bansa"
+          },
+          {
+            "question": "Ano ang isang paraan ng pagpapahalaga sa mga tradisyunal na laro?",
+            "options": [
+              "Ituro ang mga ito sa mas batang henerasyon",
+              "Kalimutan na lamang ang mga ito",
+              "Palitan agad ng mga modernong laro",
+              "Ipagbawal ang paglalaro nito"
+            ],
+            "correct_answer": "Ituro ang mga ito sa mas batang henerasyon"
+          },
+          {
+            "question": "Bakit itinuturing na malaking bahagi ng kabataang Pilipino noon ang mga larong ito?",
+            "options": [
+              "Ito ang karaniwang libangan bago dumating ang mga gadyet",
+              "Hindi ito ginagamit noon",
+              "Ito ay bago lamang na imbensyon",
+              "Ito ay laro lamang ng matatanda"
+            ],
+            "correct_answer": "Ito ang karaniwang libangan bago dumating ang mga gadyet"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagsali sa Laro ng Lahi sa isang komunidad?",
+            "options": [
+              "Pagkakaisa at kasiyahan sa paglalaro nang magkakasama",
+              "Hiwalay na paglalaro",
+              "Kawalan ng interes sa isa't isa",
+              "Walang naidudulot"
+            ],
+            "correct_answer": "Pagkakaisa at kasiyahan sa paglalaro nang magkakasama"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# ❓ Computer — Hindi Lahat ng Nasa Internet ay Totoo\n\nGrade 3, Week 25! Alamin natin kung paano suriin ang katotohanan ng impormasyon online. ❓\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa hindi pagbabahagi ng personal na impormasyon.\n\n## ❓ Bakit Hindi Lahat ay Totoo Online?\nAng sinuman ay maaaring maglagay ng anumang impormasyon sa Internet — hindi lahat ay **na-check** kung tama.\n\n## 🔍 Paano Suriin Kung Totoo\n- Tingnan kung mula ito sa **kilalang website** (halimbawa, paaralan, aklatan)\n- Magtanong sa magulang o guro kung hindi sigurado\n- Ihambing sa ibang mapagkukunan\n\n## ⌨️ Simpleng Keyboard Shortcuts\n- **Ctrl+C** — kopyahin\n- **Ctrl+V** — i-paste\n- **Ctrl+S** — i-save\n\n**Mahahalagang salita:** totoo, hindi totoo, mapagkukunan, keyboard shortcut",
+        "quiz": [
+          {
+            "question": "Bakit hindi lahat ng nasa Internet ay totoo?",
+            "options": [
+              "Sinuman ay maaaring maglagay ng impormasyon nang hindi na-check",
+              "Lahat ng nasa Internet ay na-verify na",
+              "Walang maling impormasyon online",
+              "Ang Internet ay palaging tama"
+            ],
+            "correct_answer": "Sinuman ay maaaring maglagay ng impormasyon nang hindi na-check"
+          },
+          {
+            "question": "Paano masusuri kung totoo ang isang impormasyon online?",
+            "options": [
+              "Tingnan kung mula sa kilalang website",
+              "Basta paniwalaan agad",
+              "Ibahagi agad sa iba",
+              "Huwag na tingnan pa"
+            ],
+            "correct_answer": "Tingnan kung mula sa kilalang website"
+          },
+          {
+            "question": "Ano ang gagawin kung hindi sigurado sa totoo ng impormasyon?",
+            "options": [
+              "Magtanong sa magulang o guro",
+              "Paniwalaan agad",
+              "Ibahagi kaagad",
+              "Balewalain na lamang"
+            ],
+            "correct_answer": "Magtanong sa magulang o guro"
+          },
+          {
+            "question": "Ano ang ginagawa ng Ctrl+C?",
+            "options": [
+              "Kopyahin",
+              "I-paste",
+              "I-save",
+              "Burahin"
+            ],
+            "correct_answer": "Kopyahin"
+          },
+          {
+            "question": "Ano ang ginagawa ng Ctrl+V?",
+            "options": [
+              "I-paste",
+              "Kopyahin",
+              "I-save",
+              "Burahin"
+            ],
+            "correct_answer": "I-paste"
+          },
+          {
+            "question": "Ano ang ginagawa ng Ctrl+S?",
+            "options": [
+              "I-save",
+              "Kopyahin",
+              "I-paste",
+              "Burahin"
+            ],
+            "correct_answer": "I-save"
+          },
+          {
+            "question": "Bakit mahalagang ihambing ang impormasyon sa ibang mapagkukunan?",
+            "options": [
+              "Para matiyak ang katotohanan nito",
+              "Hindi na kailangan gawin ito",
+              "Isang mapagkukunan lamang ang sapat na palagi",
+              "Walang gamit ito"
+            ],
+            "correct_answer": "Para matiyak ang katotohanan nito"
+          },
+          {
+            "question": "Bakit itinuturo ang paksang ito sa mga bata?",
+            "options": [
+              "Upang maging kritikal sa impormasyong nakikita online",
+              "Hindi ito mahalaga",
+              "Upang paniwalaan lahat ng nabasa",
+              "Walang layunin ito"
+            ],
+            "correct_answer": "Upang maging kritikal sa impormasyong nakikita online"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang keyboard shortcuts?",
+            "options": [
+              "Nagpapabilis ito ng paggawa ng gawain sa kompyuter",
+              "Hindi na kailangan malaman ito",
+              "Walang gamit ito",
+              "Ito ay para lamang sa matatanda"
+            ],
+            "correct_answer": "Nagpapabilis ito ng paggawa ng gawain sa kompyuter"
+          },
+          {
+            "question": "Ano ang halimbawa ng kilalang mapagkukunan ng impormasyon?",
+            "options": [
+              "Website ng paaralan o aklatan",
+              "Kahit sinong estranghero online",
+              "Random na comment",
+              "Hindi na kailangan mapagkukunan"
+            ],
+            "correct_answer": "Website ng paaralan o aklatan"
+          },
+          {
+            "question": "Ano ang mangyayari kung basta paniwalaan lahat ng nabasa online?",
+            "options": [
+              "Maaaring maniwala sa maling impormasyon",
+              "Palaging tama ang paniniwala",
+              "Walang epekto",
+              "Awtomatikong tumpak ang lahat"
+            ],
+            "correct_answer": "Maaaring maniwala sa maling impormasyon"
+          },
+          {
+            "question": "Bakit mahalagang matutong suriin ang impormasyon simula sa maagang edad?",
+            "options": [
+              "Upang maging matalinong gumagamit ng Internet paglaki",
+              "Hindi kailangan matutunan",
+              "Para sa matatanda lamang",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang maging matalinong gumagamit ng Internet paglaki"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# ♻️ GMRC — Pamamahala sa mga Bagay na Hindi Nagagamit (4Rs)\n\nGrade 3, Linggo 25! Pagpapahalaga: **Prudence (Kaingatan/Katalinuhan)**. ♻️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **panalangin para sa kapuwa**.\n\n## ♻️ Ano ang 4Rs?\n- **Reduce (Bawasan)** — bawasan ang basura sa simula pa lang\n- **Reuse (Muling gamitin)** — gamitin muli ang mga bagay bago itapon\n- **Recycle (Isiklo)** — gawing bago ang mga lumang materyales\n- **Repair (Ayusin)** — ayusin ang sirang bagay imbes na itapon agad\n\n## 💡 Bakit Mahalaga Ang 4Rs?\nAng pagsasagawa ng 4Rs ay nakakatulong **bawasan ang basura** at **protektahan ang kapaligiran** para sa susunod na henerasyon.\n\n**Mahahalagang salita:** 4Rs, reduce, reuse, recycle, repair",
+        "quiz": [
+          {
+            "question": "Ano ang ibig sabihin ng 'Reduce' sa 4Rs?",
+            "options": [
+              "Bawasan ang basura sa simula pa lang",
+              "Muling gamitin ang bagay",
+              "Gawing bago ang materyales",
+              "Ayusin ang sira"
+            ],
+            "correct_answer": "Bawasan ang basura sa simula pa lang"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'Reuse'?",
+            "options": [
+              "Muling gamitin ang mga bagay bago itapon",
+              "Bawasan ang basura",
+              "Gawing bago ang materyales",
+              "Ayusin ang sirang bagay"
+            ],
+            "correct_answer": "Muling gamitin ang mga bagay bago itapon"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'Recycle'?",
+            "options": [
+              "Gawing bago ang mga lumang materyales",
+              "Bawasan ang basura",
+              "Muling gamitin ang bagay",
+              "Ayusin ang sirang bagay"
+            ],
+            "correct_answer": "Gawing bago ang mga lumang materyales"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'Repair'?",
+            "options": [
+              "Ayusin ang sirang bagay imbes na itapon",
+              "Bawasan ang basura",
+              "Muling gamitin ang bagay",
+              "Gawing bago ang materyales"
+            ],
+            "correct_answer": "Ayusin ang sirang bagay imbes na itapon"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Prudence (Kaingatan)",
+              "Compassion",
+              "Respect",
+              "Gratitude"
+            ],
+            "correct_answer": "Prudence (Kaingatan)"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsasagawa ng 4Rs?",
+            "options": [
+              "Nakakatulong bawasan ang basura at protektahan ang kapaligiran",
+              "Wala itong kahalagahan",
+              "Nagdudulot lamang ito ng gastos",
+              "Hindi ito nakakatulong sa kapaligiran"
+            ],
+            "correct_answer": "Nakakatulong bawasan ang basura at protektahan ang kapaligiran"
+          },
+          {
+            "question": "Anong halimbawa ng 'Reuse'?",
+            "options": [
+              "Paggamit muli ng bote bilang lalagyan",
+              "Pagtatapon ng bote agad",
+              "Pagbili ng bagong bote",
+              "Pagsunog ng bote"
+            ],
+            "correct_answer": "Paggamit muli ng bote bilang lalagyan"
+          },
+          {
+            "question": "Anong halimbawa ng 'Repair'?",
+            "options": [
+              "Pag-aayos ng sirang laruan",
+              "Pagtapon ng sirang laruan",
+              "Pagbili ng bagong laruan agad",
+              "Pagkalimot sa sirang laruan"
+            ],
+            "correct_answer": "Pag-aayos ng sirang laruan"
+          },
+          {
+            "question": "Bakit itinuturing na prudence ang pagsasagawa ng 4Rs?",
+            "options": [
+              "Nagpapakita ito ng maingat na paggamit ng likas na yaman",
+              "Walang kaugnayan sa kaingatan",
+              "Bahagi lamang ito ng agham",
+              "Hindi ito itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagpapakita ito ng maingat na paggamit ng likas na yaman"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi natin isasagawa ang 4Rs?",
+            "options": [
+              "Mas maraming basura at pinsala sa kapaligiran",
+              "Walang mangyayari",
+              "Mas maganda ang kapaligiran",
+              "Awtomatikong maayos ang lahat"
+            ],
+            "correct_answer": "Mas maraming basura at pinsala sa kapaligiran"
+          },
+          {
+            "question": "Bakit mahalagang ituro ang 4Rs sa mga bata mula ngayon?",
+            "options": [
+              "Upang maging responsable sa kapaligiran paglaki",
+              "Hindi kailangan ituro ito",
+              "Para sa matatanda lamang",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang maging responsable sa kapaligiran paglaki"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang pinakaunang hakbang sa 4Rs (bago pa gumawa ng basura)?",
+            "options": [
+              "Reduce",
+              "Reuse",
+              "Recycle",
+              "Repair"
+            ],
+            "correct_answer": "Reduce"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🏆 Friday Review — English (Grade 3)\n\n- Cause and effect in national stories\n\nGreat cause-and-effect skills! 🌟",
+        "quiz": [
+          {
+            "question": "What is a cause?",
+            "options": [
+              "Why something happens",
+              "What happens as a result",
+              "The title of a story",
+              "A character's name"
+            ],
+            "correct_answer": "Why something happens"
+          },
+          {
+            "question": "What is an effect?",
+            "options": [
+              "What happens as a result",
+              "Why something happens",
+              "The title",
+              "A character's name"
+            ],
+            "correct_answer": "What happens as a result"
+          },
+          {
+            "question": "Which word signals cause and effect?",
+            "options": [
+              "Because",
+              "Mountain",
+              "Beautiful",
+              "Quickly"
+            ],
+            "correct_answer": "Because"
+          },
+          {
+            "question": "'Because the hero worked hard, he inspired Filipinos' - effect?",
+            "options": [
+              "He inspired many Filipinos",
+              "The hero worked hard",
+              "Nothing happened",
+              "The hero's name"
+            ],
+            "correct_answer": "He inspired many Filipinos"
+          },
+          {
+            "question": "Same sentence - cause?",
+            "options": [
+              "The hero worked hard",
+              "He inspired Filipinos",
+              "Nothing happened",
+              "The hero's age"
+            ],
+            "correct_answer": "The hero worked hard"
+          },
+          {
+            "question": "Another cause-effect signal word?",
+            "options": [
+              "Therefore",
+              "River",
+              "Yesterday",
+              "Happy"
+            ],
+            "correct_answer": "Therefore"
+          },
+          {
+            "question": "'The community worked together, so they built a new school' - cause?",
+            "options": [
+              "The community worked together",
+              "They built a school",
+              "Nothing happened",
+              "The school's name"
+            ],
+            "correct_answer": "The community worked together"
+          },
+          {
+            "question": "Why is cause and effect useful when reading?",
+            "options": [
+              "Explains why events happen",
+              "No real use",
+              "Replaces characters",
+              "Only for math"
+            ],
+            "correct_answer": "Explains why events happen"
+          },
+          {
+            "question": "'As a result of the drought, farmers lost their crops' - cause?",
+            "options": [
+              "The drought",
+              "Farmers lost crops",
+              "Nothing happened",
+              "The farmers' names"
+            ],
+            "correct_answer": "The drought"
+          },
+          {
+            "question": "Same sentence - effect?",
+            "options": [
+              "Farmers lost their crops",
+              "The drought",
+              "Nothing happened",
+              "The season"
+            ],
+            "correct_answer": "Farmers lost their crops"
+          },
+          {
+            "question": "Which sentence shows clear cause-effect?",
+            "options": [
+              "It rained heavily, so the game was canceled.",
+              "It rained heavily. The game happened.",
+              "The game was fun.",
+              "It was a game."
+            ],
+            "correct_answer": "It rained heavily, so the game was canceled."
+          },
+          {
+            "question": "Why do national stories use cause-and-effect structure?",
+            "options": [
+              "Explain how events led to outcomes",
+              "Confuse the reader",
+              "Remove details",
+              "Avoid explaining"
+            ],
+            "correct_answer": "Explain how events led to outcomes"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➗ Friday Review — Mathematics (Grade 3)\n\n- Dividing 2-3 digit numbers with remainders\n\nGreat division mastery! ⭐",
+        "quiz": [
+          {
+            "question": "What is 84 ÷ 4?",
+            "options": [
+              "21",
+              "20",
+              "22",
+              "24"
+            ],
+            "correct_answer": "21"
+          },
+          {
+            "question": "What is 25 ÷ 4?",
+            "options": [
+              "6 remainder 1",
+              "6 remainder 0",
+              "7 remainder 1",
+              "5 remainder 1"
+            ],
+            "correct_answer": "6 remainder 1"
+          },
+          {
+            "question": "What is 350 ÷ 10?",
+            "options": [
+              "35",
+              "350",
+              "3.5",
+              "3500"
+            ],
+            "correct_answer": "35"
+          },
+          {
+            "question": "What is a remainder?",
+            "options": [
+              "The amount left over after dividing evenly",
+              "The total before dividing",
+              "The divisor itself",
+              "The multiplication answer"
+            ],
+            "correct_answer": "The amount left over after dividing evenly"
+          },
+          {
+            "question": "What is 63 ÷ 7?",
+            "options": [
+              "9",
+              "8",
+              "10",
+              "56"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "What is 30 ÷ 4?",
+            "options": [
+              "7 remainder 2",
+              "7 remainder 0",
+              "6 remainder 2",
+              "8 remainder 2"
+            ],
+            "correct_answer": "7 remainder 2"
+          },
+          {
+            "question": "What is 720 ÷ 10?",
+            "options": [
+              "72",
+              "720",
+              "7.2",
+              "7200"
+            ],
+            "correct_answer": "72"
+          },
+          {
+            "question": "First step in dividing?",
+            "options": [
+              "Find how many times divisor fits into dividend",
+              "Add the numbers",
+              "Guess the remainder",
+              "Multiply immediately"
+            ],
+            "correct_answer": "Find how many times divisor fits into dividend"
+          },
+          {
+            "question": "What is 48 ÷ 6?",
+            "options": [
+              "8",
+              "7",
+              "9",
+              "42"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "How to check 25 ÷ 4 = 6 remainder 1?",
+            "options": [
+              "Multiply 4×6=24, subtract from 25",
+              "Add 4+6",
+              "Multiply 4×25",
+              "Divide 25 by 1"
+            ],
+            "correct_answer": "Multiply 4×6=24, subtract from 25"
+          },
+          {
+            "question": "What is 100 ÷ 10?",
+            "options": [
+              "10",
+              "100",
+              "1",
+              "1000"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "What is 45 ÷ 6?",
+            "options": [
+              "7 remainder 3",
+              "7 remainder 0",
+              "8 remainder 3",
+              "6 remainder 3"
+            ],
+            "correct_answer": "7 remainder 3"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🔗 Friday Review — Filipino (Grade 3)\n\n- Pananda sa tambalang pangungusap: pagsasanay\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Pananda sa 'Maganda ang Pilipinas, at sagana sa yaman'?",
+            "options": [
+              "Pagdaragdag",
+              "Pagsalungat",
+              "Pagpipilian",
+              "Wala"
+            ],
+            "correct_answer": "Pagdaragdag"
+          },
+          {
+            "question": "Pananda sa 'Malakas ang bagyo, ngunit ligtas ang pamilya'?",
+            "options": [
+              "Pagsalungat",
+              "Pagdaragdag",
+              "Pagpipilian",
+              "Wala"
+            ],
+            "correct_answer": "Pagsalungat"
+          },
+          {
+            "question": "Pananda sa 'Pumunta sa Baguio, o bumisita sa Boracay'?",
+            "options": [
+              "Pagpipilian",
+              "Pagdaragdag",
+              "Pagsalungat",
+              "Wala"
+            ],
+            "correct_answer": "Pagpipilian"
+          },
+          {
+            "question": "Ilang uri ng pananda ang tinalakay?",
+            "options": [
+              "Tatlo",
+              "Isa",
+              "Lima",
+              "Sampu"
+            ],
+            "correct_answer": "Tatlo"
+          },
+          {
+            "question": "Bakit magsanay sa paggamit ng pananda?",
+            "options": [
+              "Mailapat sa aktwal na pagsulat",
+              "Hindi na kailangan",
+              "Isang uri lamang kailangan",
+              "Walang gamit"
+            ],
+            "correct_answer": "Mailapat sa aktwal na pagsulat"
+          },
+          {
+            "question": "Pangatnig ng pagdaragdag?",
+            "options": [
+              "At",
+              "Ngunit",
+              "O",
+              "Subalit"
+            ],
+            "correct_answer": "At"
+          },
+          {
+            "question": "Pangatnig ng pagsalungat?",
+            "options": [
+              "Ngunit",
+              "At",
+              "O",
+              "Saka"
+            ],
+            "correct_answer": "Ngunit"
+          },
+          {
+            "question": "Pangatnig ng pagpipilian?",
+            "options": [
+              "O",
+              "At",
+              "Ngunit",
+              "Saka"
+            ],
+            "correct_answer": "O"
+          },
+          {
+            "question": "Paksa ng halimbawang pangungusap?",
+            "options": [
+              "Ang Pilipinas at mga lugar dito",
+              "Mga hayop",
+              "Mga pagkain",
+              "Mga laro"
+            ],
+            "correct_answer": "Ang Pilipinas at mga lugar dito"
+          },
+          {
+            "question": "Bakit malaman ang tatlong uri ng pananda?",
+            "options": [
+              "Iba't ibang paraan ng pagbuo ng ideya",
+              "Isang uri lamang totoo",
+              "Hindi mahalaga",
+              "Walang gamit"
+            ],
+            "correct_answer": "Iba't ibang paraan ng pagbuo ng ideya"
+          },
+          {
+            "question": "Magbibigay ng dalawang pagpipilian: anong pananda?",
+            "options": [
+              "O",
+              "At",
+              "Ngunit",
+              "Saka"
+            ],
+            "correct_answer": "O"
+          },
+          {
+            "question": "Sasabihing parehong totoo: anong pananda?",
+            "options": [
+              "At",
+              "O",
+              "Ngunit",
+              "Wala"
+            ],
+            "correct_answer": "At"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🪨 Friday Review — Science (Grade 3)\n\n- Non-living things around school\n\nGreat non-living things review! 🌟",
+        "quiz": [
+          {
+            "question": "What forms the ground?",
+            "options": [
+              "Rocks and soil",
+              "Air only",
+              "Sunlight only",
+              "Clouds only"
+            ],
+            "correct_answer": "Rocks and soil"
+          },
+          {
+            "question": "Invisible non-living thing all around us?",
+            "options": [
+              "Air",
+              "Rocks",
+              "Metal",
+              "Soil"
+            ],
+            "correct_answer": "Air"
+          },
+          {
+            "question": "Where find metal at school?",
+            "options": [
+              "Fences, gates, playground equipment",
+              "In clouds",
+              "In air only",
+              "In sunlight only"
+            ],
+            "correct_answer": "Fences, gates, playground equipment"
+          },
+          {
+            "question": "Part of the sky and weather?",
+            "options": [
+              "Clouds",
+              "Soil",
+              "Metal",
+              "Rocks"
+            ],
+            "correct_answer": "Clouds"
+          },
+          {
+            "question": "Key difference between non-living and living?",
+            "options": [
+              "Non-living don't grow, breathe, or reproduce",
+              "Non-living always move on their own",
+              "Non-living always breathe",
+              "No difference"
+            ],
+            "correct_answer": "Non-living don't grow, breathe, or reproduce"
+          },
+          {
+            "question": "Why is water important?",
+            "options": [
+              "Supports life, like drinking",
+              "No importance",
+              "Only living things need it",
+              "Water is alive"
+            ],
+            "correct_answer": "Supports life, like drinking"
+          },
+          {
+            "question": "Why is soil important?",
+            "options": [
+              "Supports plant growth",
+              "No use",
+              "It's a living thing",
+              "Only in cities"
+            ],
+            "correct_answer": "Supports plant growth"
+          },
+          {
+            "question": "Non-living thing in a puddle?",
+            "options": [
+              "Water",
+              "A frog",
+              "A plant",
+              "An insect"
+            ],
+            "correct_answer": "Water"
+          },
+          {
+            "question": "Why study non-living things?",
+            "options": [
+              "Understand how they support living things",
+              "No connection to living things",
+              "Unimportant",
+              "Only scientists need to know"
+            ],
+            "correct_answer": "Understand how they support living things"
+          },
+          {
+            "question": "Is sunlight living or non-living?",
+            "options": [
+              "Non-living",
+              "Living",
+              "Both",
+              "Neither exists"
+            ],
+            "correct_answer": "Non-living"
+          },
+          {
+            "question": "Metal object at a playground?",
+            "options": [
+              "A metal slide",
+              "A wooden bench",
+              "A plastic ball",
+              "A cotton flag"
+            ],
+            "correct_answer": "A metal slide"
+          },
+          {
+            "question": "Why is this useful for Grade 3 students?",
+            "options": [
+              "Helps observe and appreciate the world",
+              "No educational value",
+              "Only adults study this",
+              "Replaces studying living things"
+            ],
+            "correct_answer": "Helps observe and appreciate the world"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🎮 Friday Review — Makabansa (Grade 3)\n\n- Laro ng Lahi: patintero, piko, sipa\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang Laro ng Lahi?",
+            "options": [
+              "Tradisyunal na larong Pilipino",
+              "Bagong laro sa telepono",
+              "Larong banyaga",
+              "Larong dayuhan"
+            ],
+            "correct_answer": "Tradisyunal na larong Pilipino"
+          },
+          {
+            "question": "Ano ang patintero?",
+            "options": [
+              "Laro ng pagtakbo at pag-iwas",
+              "Laro ng pagbasa",
+              "Laro sa telepono",
+              "Laro sa kompyuter"
+            ],
+            "correct_answer": "Laro ng pagtakbo at pag-iwas"
+          },
+          {
+            "question": "Ano ang piko?",
+            "options": [
+              "Laro ng paghagis at paglukso",
+              "Laro ng pagkanta",
+              "Laro sa kompyuter",
+              "Laro ng pagsulat"
+            ],
+            "correct_answer": "Laro ng paghagis at paglukso"
+          },
+          {
+            "question": "Ano ang sipa?",
+            "options": [
+              "Laro ng pagpalo gamit ang paa",
+              "Laro ng pagguhit",
+              "Laro sa telepono",
+              "Laro ng pagbasa"
+            ],
+            "correct_answer": "Laro ng pagpalo gamit ang paa"
+          },
+          {
+            "question": "Ano ang luksong tinik?",
+            "options": [
+              "Laro ng paglukso",
+              "Laro ng pagsulat",
+              "Laro sa telepono",
+              "Laro ng pagguhit"
+            ],
+            "correct_answer": "Laro ng paglukso"
+          },
+          {
+            "question": "Bakit pahalagahan ang mga larong ito?",
+            "options": [
+              "Bahagi ng kultura at kasaysayan",
+              "Walang kahalagahan",
+              "Galing sa ibang bansa",
+              "Hindi na ginagamit"
+            ],
+            "correct_answer": "Bahagi ng kultura at kasaysayan"
+          },
+          {
+            "question": "Natutunan sa Laro ng Lahi?",
+            "options": [
+              "Pagtutulungan at masiglang paglalaro",
+              "Kawalang pakialam",
+              "Pag-iwas sa kapwa",
+              "Kompetisyon lamang"
+            ],
+            "correct_answer": "Pagtutulungan at masiglang paglalaro"
+          },
+          {
+            "question": "Pagkakaiba nito sa modernong laro sa gadyet?",
+            "options": [
+              "Hindi nangangailangan ng gadyet",
+              "Parehong nangangailangan",
+              "Walang pagkakaiba",
+              "Laging mas mahirap"
+            ],
+            "correct_answer": "Hindi nangangailangan ng gadyet"
+          },
+          {
+            "question": "Bakit bahagi ng aktibong Pilipino ang Laro ng Lahi?",
+            "options": [
+              "Mapanatili ang kultura ng bansa",
+              "Walang koneksyon",
+              "Tungkol lamang sa libangan",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Mapanatili ang kultura ng bansa"
+          },
+          {
+            "question": "Paraan ng pagpapahalaga sa tradisyunal na laro?",
+            "options": [
+              "Ituro sa mas batang henerasyon",
+              "Kalimutan na lamang",
+              "Palitan agad ng modernong laro",
+              "Ipagbawal"
+            ],
+            "correct_answer": "Ituro sa mas batang henerasyon"
+          },
+          {
+            "question": "Bakit malaking bahagi ito ng kabataang Pilipino noon?",
+            "options": [
+              "Karaniwang libangan bago dumating ang gadyet",
+              "Hindi ginagamit noon",
+              "Bagong imbensyon",
+              "Laro lamang ng matatanda"
+            ],
+            "correct_answer": "Karaniwang libangan bago dumating ang gadyet"
+          },
+          {
+            "question": "Naidudulot ng pagsali sa Laro ng Lahi?",
+            "options": [
+              "Pagkakaisa at kasiyahan",
+              "Hiwalay na paglalaro",
+              "Kawalan ng interes",
+              "Wala"
+            ],
+            "correct_answer": "Pagkakaisa at kasiyahan"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# ❓ Friday Review — Computer (Grade 3)\n\n- Hindi lahat ng nasa Internet ay totoo; keyboard shortcuts\n\nMagaling sa Computer! 🌟",
+        "quiz": [
+          {
+            "question": "Bakit hindi lahat ng nasa Internet ay totoo?",
+            "options": [
+              "Sinuman ay maaaring maglagay ng impormasyon nang hindi na-check",
+              "Lahat na-verify na",
+              "Walang maling impormasyon",
+              "Palaging tama ang Internet"
+            ],
+            "correct_answer": "Sinuman ay maaaring maglagay ng impormasyon nang hindi na-check"
+          },
+          {
+            "question": "Paano masusuri kung totoo ang impormasyon?",
+            "options": [
+              "Tingnan kung mula sa kilalang website",
+              "Basta paniwalaan agad",
+              "Ibahagi agad",
+              "Huwag tingnan pa"
+            ],
+            "correct_answer": "Tingnan kung mula sa kilalang website"
+          },
+          {
+            "question": "Gawin kung hindi sigurado sa totoo ng impormasyon?",
+            "options": [
+              "Magtanong sa magulang o guro",
+              "Paniwalaan agad",
+              "Ibahagi kaagad",
+              "Balewalain"
+            ],
+            "correct_answer": "Magtanong sa magulang o guro"
+          },
+          {
+            "question": "Ginagawa ng Ctrl+C?",
+            "options": [
+              "Kopyahin",
+              "I-paste",
+              "I-save",
+              "Burahin"
+            ],
+            "correct_answer": "Kopyahin"
+          },
+          {
+            "question": "Ginagawa ng Ctrl+V?",
+            "options": [
+              "I-paste",
+              "Kopyahin",
+              "I-save",
+              "Burahin"
+            ],
+            "correct_answer": "I-paste"
+          },
+          {
+            "question": "Ginagawa ng Ctrl+S?",
+            "options": [
+              "I-save",
+              "Kopyahin",
+              "I-paste",
+              "Burahin"
+            ],
+            "correct_answer": "I-save"
+          },
+          {
+            "question": "Bakit ihambing ang impormasyon sa ibang mapagkukunan?",
+            "options": [
+              "Matiyak ang katotohanan",
+              "Hindi kailangan gawin",
+              "Isang mapagkukunan sapat na",
+              "Walang gamit"
+            ],
+            "correct_answer": "Matiyak ang katotohanan"
+          },
+          {
+            "question": "Bakit ituro ang paksang ito sa bata?",
+            "options": [
+              "Maging kritikal sa impormasyon online",
+              "Hindi mahalaga",
+              "Paniwalaan lahat",
+              "Walang layunin"
+            ],
+            "correct_answer": "Maging kritikal sa impormasyon online"
+          },
+          {
+            "question": "Bakit malaman ang keyboard shortcuts?",
+            "options": [
+              "Nagpapabilis ng gawain sa kompyuter",
+              "Hindi kailangan malaman",
+              "Walang gamit",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Nagpapabilis ng gawain sa kompyuter"
+          },
+          {
+            "question": "Halimbawa ng kilalang mapagkukunan?",
+            "options": [
+              "Website ng paaralan o aklatan",
+              "Kahit sinong estranghero",
+              "Random na comment",
+              "Walang mapagkukunan kailangan"
+            ],
+            "correct_answer": "Website ng paaralan o aklatan"
+          },
+          {
+            "question": "Mangyayari kung basta paniwalaan lahat online?",
+            "options": [
+              "Maaaring maniwala sa maling impormasyon",
+              "Palaging tama",
+              "Walang epekto",
+              "Awtomatikong tumpak"
+            ],
+            "correct_answer": "Maaaring maniwala sa maling impormasyon"
+          },
+          {
+            "question": "Bakit matutong suriin impormasyon mula sa maagang edad?",
+            "options": [
+              "Maging matalinong gumagamit ng Internet",
+              "Hindi kailangan matutunan",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging matalinong gumagamit ng Internet"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# ♻️ Friday Review — GMRC (Grade 3)\n\n- Prudence: pamamahala sa 4Rs\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ibig sabihin ng 'Reduce'?",
+            "options": [
+              "Bawasan ang basura sa simula",
+              "Muling gamitin",
+              "Gawing bago ang materyales",
+              "Ayusin ang sira"
+            ],
+            "correct_answer": "Bawasan ang basura sa simula"
+          },
+          {
+            "question": "Ibig sabihin ng 'Reuse'?",
+            "options": [
+              "Muling gamitin bago itapon",
+              "Bawasan ang basura",
+              "Gawing bago",
+              "Ayusin ang sira"
+            ],
+            "correct_answer": "Muling gamitin bago itapon"
+          },
+          {
+            "question": "Ibig sabihin ng 'Recycle'?",
+            "options": [
+              "Gawing bago ang lumang materyales",
+              "Bawasan ang basura",
+              "Muling gamitin",
+              "Ayusin ang sira"
+            ],
+            "correct_answer": "Gawing bago ang lumang materyales"
+          },
+          {
+            "question": "Ibig sabihin ng 'Repair'?",
+            "options": [
+              "Ayusin ang sira imbes na itapon",
+              "Bawasan ang basura",
+              "Muling gamitin",
+              "Gawing bago"
+            ],
+            "correct_answer": "Ayusin ang sira imbes na itapon"
+          },
+          {
+            "question": "Pagpapahalaga na tinalakay?",
+            "options": [
+              "Prudence (Kaingatan)",
+              "Compassion",
+              "Respect",
+              "Gratitude"
+            ],
+            "correct_answer": "Prudence (Kaingatan)"
+          },
+          {
+            "question": "Bakit mahalaga ang 4Rs?",
+            "options": [
+              "Bawasan ang basura, protektahan ang kapaligiran",
+              "Walang kahalagahan",
+              "Nagdudulot ng gastos",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Bawasan ang basura, protektahan ang kapaligiran"
+          },
+          {
+            "question": "Halimbawa ng 'Reuse'?",
+            "options": [
+              "Paggamit muli ng bote",
+              "Pagtatapon ng bote agad",
+              "Pagbili ng bagong bote",
+              "Pagsunog ng bote"
+            ],
+            "correct_answer": "Paggamit muli ng bote"
+          },
+          {
+            "question": "Halimbawa ng 'Repair'?",
+            "options": [
+              "Pag-aayos ng sirang laruan",
+              "Pagtapon ng laruan",
+              "Pagbili ng bago agad",
+              "Pagkalimot dito"
+            ],
+            "correct_answer": "Pag-aayos ng sirang laruan"
+          },
+          {
+            "question": "Bakit prudence ang 4Rs?",
+            "options": [
+              "Maingat na paggamit ng likas na yaman",
+              "Walang kaugnayan",
+              "Bahagi ng agham lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Maingat na paggamit ng likas na yaman"
+          },
+          {
+            "question": "Mangyayari kung hindi gawin ang 4Rs?",
+            "options": [
+              "Mas maraming basura at pinsala",
+              "Wala",
+              "Mas maganda ang kapaligiran",
+              "Awtomatikong maayos"
+            ],
+            "correct_answer": "Mas maraming basura at pinsala"
+          },
+          {
+            "question": "Bakit ituro ang 4Rs sa bata?",
+            "options": [
+              "Maging responsable sa kapaligiran paglaki",
+              "Hindi kailangan",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging responsable sa kapaligiran paglaki"
+          },
+          {
+            "question": "Unang hakbang sa 4Rs bago gumawa ng basura?",
+            "options": [
+              "Reduce",
+              "Reuse",
+              "Recycle",
+              "Repair"
+            ],
+            "correct_answer": "Reduce"
+          }
+        ]
+      }
+    }
+  }
+}

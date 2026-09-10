@@ -1,0 +1,2266 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-11-22",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 💌 English — Friendly Letter of Pasasalamat\n\nGrade 4, Week 24! Let's learn to write a letter that says thank you. 💌\n\n## 🔄 Review\nWe wrote recounts connecting family experiences to national holidays.\n\n## 💌 What Is a Letter of Pasasalamat?\nA **letter of pasasalamat (thanks)** expresses gratitude to someone for a specific kindness or gift.\n\n## ✍️ Parts of the Letter\n1. **Greeting** — \"Dear...\"\n2. **Body** — say exactly what you're thankful for and why it mattered\n3. **Closing** — \"With gratitude,\"\n\n**Example:** \"Thank you so much for helping me study for my test. Because of your patience, I finally understood fractions!\"\n\n## 🌟 Using All Four Friendly Letter Types\nThis year we learned four friendly letters: invitation, pagbati (greeting), pakikiramay (condolence), and pasasalamat (thanks) — each for a different purpose.\n\n**Key words:** pasasalamat, gratitude, specific, purpose",
+        "quiz": [
+          {
+            "question": "What is a letter of pasasalamat?",
+            "options": [
+              "A letter expressing gratitude for a kindness or gift",
+              "A letter of complaint",
+              "A letter of condolence",
+              "A letter requesting a favor"
+            ],
+            "correct_answer": "A letter expressing gratitude for a kindness or gift"
+          },
+          {
+            "question": "What should the body of a thank-you letter include?",
+            "options": [
+              "Exactly what you're thankful for and why it mattered",
+              "A random unrelated topic",
+              "A list of complaints",
+              "Nothing specific"
+            ],
+            "correct_answer": "Exactly what you're thankful for and why it mattered"
+          },
+          {
+            "question": "What is a common closing for a thank-you letter?",
+            "options": [
+              "With gratitude",
+              "See you never",
+              "Yours in complaint",
+              "Angrily yours"
+            ],
+            "correct_answer": "With gratitude"
+          },
+          {
+            "question": "How many friendly letter types were learned this year?",
+            "options": [
+              "Four",
+              "One",
+              "Ten",
+              "Two"
+            ],
+            "correct_answer": "Four"
+          },
+          {
+            "question": "Which of these is NOT one of the four friendly letter types learned?",
+            "options": [
+              "Instruction manual",
+              "Invitation",
+              "Pakikiramay",
+              "Pasasalamat"
+            ],
+            "correct_answer": "Instruction manual"
+          },
+          {
+            "question": "Why be specific about what you're thankful for?",
+            "options": [
+              "It shows the person you truly noticed their kindness",
+              "Specificity doesn't matter",
+              "It makes the letter longer for no reason",
+              "General thanks are always better"
+            ],
+            "correct_answer": "It shows the person you truly noticed their kindness"
+          },
+          {
+            "question": "'Thank you for helping me study' is an example of what?",
+            "options": [
+              "A specific expression of gratitude",
+              "A complaint",
+              "A condolence",
+              "An invitation"
+            ],
+            "correct_answer": "A specific expression of gratitude"
+          },
+          {
+            "question": "What is a letter of pagbati used for?",
+            "options": [
+              "Greeting or congratulating someone",
+              "Comforting someone grieving",
+              "Complaining about something",
+              "Requesting information"
+            ],
+            "correct_answer": "Greeting or congratulating someone"
+          },
+          {
+            "question": "Why is each of the four friendly letter types used for a different purpose?",
+            "options": [
+              "Different situations call for different kinds of messages",
+              "All letters are exactly the same",
+              "Purpose never matters in writing",
+              "Only one type is ever needed"
+            ],
+            "correct_answer": "Different situations call for different kinds of messages"
+          },
+          {
+            "question": "Which detail makes a thank-you letter feel more sincere?",
+            "options": [
+              "Explaining why the kindness mattered to you",
+              "Keeping it as vague as possible",
+              "Copying a letter from someone else",
+              "Leaving out the reason entirely"
+            ],
+            "correct_answer": "Explaining why the kindness mattered to you"
+          },
+          {
+            "question": "Why is learning to write different types of friendly letters useful?",
+            "options": [
+              "It helps communicate appropriately in different real-life situations",
+              "It has no practical value",
+              "Only one letter type is ever needed in life",
+              "It replaces the need for speaking"
+            ],
+            "correct_answer": "It helps communicate appropriately in different real-life situations"
+          },
+          {
+            "question": "Which sentence best fits a thank-you letter?",
+            "options": [
+              "Because of your patience, I finally understood fractions!",
+              "I'm sorry for your loss.",
+              "Please come to my party.",
+              "I demand a refund."
+            ],
+            "correct_answer": "Because of your patience, I finally understood fractions!"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➕ Mathematics — Adding and Subtracting Dissimilar Fractions\n\nGrade 4, Week 24! Let's add and subtract fractions with different denominators! ➕\n\n## 🔄 Review\nWe learned about factors and multiples.\n\n## ➕ Adding Dissimilar Fractions\n1. Find a common denominator\n2. Convert both fractions\n3. Add the numerators\n\n**Example:** 1/2 + 1/4\n- 1/2 = 2/4\n- 2/4 + 1/4 = **3/4**\n\n## ➖ Subtracting Dissimilar Fractions\n**Example:** 2/3 − 1/6\n- 2/3 = 4/6\n- 4/6 − 1/6 = **3/6 = 1/2**\n\n## 🧮 Multi-Step Word Problems\nIf you eat 1/4 of a pizza and your sibling eats 1/2, how much is left?\n1/4 + 1/2 = 1/4 + 2/4 = 3/4 eaten → **1/4 left**\n\n**Key words:** dissimilar fractions, common denominator, add, subtract",
+        "quiz": [
+          {
+            "question": "What is 1/2 + 1/4?",
+            "options": [
+              "3/4",
+              "2/4",
+              "1/4",
+              "2/6"
+            ],
+            "correct_answer": "3/4"
+          },
+          {
+            "question": "What is the first step in adding dissimilar fractions?",
+            "options": [
+              "Find a common denominator",
+              "Add the numerators immediately",
+              "Multiply the denominators only",
+              "Subtract the numerators"
+            ],
+            "correct_answer": "Find a common denominator"
+          },
+          {
+            "question": "What is 2/3 − 1/6?",
+            "options": [
+              "1/2",
+              "1/6",
+              "3/6",
+              "1/3"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "What is 1/3 + 1/6?",
+            "options": [
+              "1/2",
+              "2/9",
+              "1/6",
+              "2/3"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "If you eat 1/4 of a pizza and your sibling eats 1/2, how much is eaten total?",
+            "options": [
+              "3/4",
+              "1/4",
+              "1/2",
+              "1/6"
+            ],
+            "correct_answer": "3/4"
+          },
+          {
+            "question": "In the pizza problem, how much pizza is left?",
+            "options": [
+              "1/4",
+              "3/4",
+              "1/2",
+              "0"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "What is 3/4 − 1/2?",
+            "options": [
+              "1/4",
+              "2/4",
+              "1/2",
+              "3/4"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "What is 1/2 + 1/3?",
+            "options": [
+              "5/6",
+              "2/5",
+              "1/6",
+              "2/3"
+            ],
+            "correct_answer": "5/6"
+          },
+          {
+            "question": "Why must you convert fractions before adding them?",
+            "options": [
+              "The parts must be the same size to combine them correctly",
+              "Conversion is never necessary",
+              "You should always guess the answer",
+              "Only whole numbers can be added"
+            ],
+            "correct_answer": "The parts must be the same size to combine them correctly"
+          },
+          {
+            "question": "What is 5/6 − 1/3?",
+            "options": [
+              "1/2",
+              "4/3",
+              "4/6",
+              "1/3"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "What is 1/4 + 1/8?",
+            "options": [
+              "3/8",
+              "2/12",
+              "1/8",
+              "2/4"
+            ],
+            "correct_answer": "3/8"
+          },
+          {
+            "question": "Why are multi-step word problems useful practice?",
+            "options": [
+              "They combine several skills to solve a real situation",
+              "They have no value",
+              "They only test one skill at a time",
+              "They replace basic fraction skills"
+            ],
+            "correct_answer": "They combine several skills to solve a real situation"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📋 Filipino — Tekstong Panuto: Hakbang-Hakbang\n\nGrade 4, Linggo 24! Alamin natin kung paano sumulat ng tekstong panuto. 📋\n\n## 🔄 Balik-Aral\nNatutuhan natin ang talambuhay.\n\n## 📋 Ano ang Tekstong Panuto?\nAng **tekstong panuto** ay nagbibigay ng **hakbang-hakbang** na gabay sa paggawa ng isang bagay.\n\n## 🔢 Mga Katangian ng Tekstong Panuto\n- Ginagamit ang **pandiwa sa utos** (halimbawa: \"Ihalo,\" \"Isama\")\n- Sumusunod sa **tamang pagkakasunod-sunod**\n- Maaaring may **talaan ng mga kakailanganin** (materyales/sangkap)\n\n## 🍳 Halimbawa\n**Paggawa ng Sandwich:**\n1. Kumuha ng dalawang tinapay\n2. Maglagay ng palaman\n3. Isara ang sandwich\n\n**Mahahalagang salita:** tekstong panuto, hakbang-hakbang, pandiwa sa utos, materyales",
+        "quiz": [
+          {
+            "question": "Ano ang tekstong panuto?",
+            "options": [
+              "Nagbibigay ng hakbang-hakbang na gabay",
+              "Nagsasalaysay ng totoong buhay",
+              "Kathang-isip na kuwento",
+              "Isang liham"
+            ],
+            "correct_answer": "Nagbibigay ng hakbang-hakbang na gabay"
+          },
+          {
+            "question": "Anong uri ng pandiwa ang ginagamit sa tekstong panuto?",
+            "options": [
+              "Pandiwa sa utos",
+              "Pandiwa sa nakaraan lamang",
+              "Pandiwa sa hinaharap lamang",
+              "Walang pandiwa"
+            ],
+            "correct_answer": "Pandiwa sa utos"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang pagkakasunod-sunod sa tekstong panuto?",
+            "options": [
+              "Para matagumpay maisagawa ang gawain",
+              "Hindi mahalaga ang pagkakasunod-sunod",
+              "Basta anumang ayos ay tama",
+              "Walang epekto ang ayos"
+            ],
+            "correct_answer": "Para matagumpay maisagawa ang gawain"
+          },
+          {
+            "question": "Ano ang maaaring kasama sa tekstong panuto bukod sa hakbang?",
+            "options": [
+              "Talaan ng mga kakailanganing materyales",
+              "Isang tugma",
+              "Isang liham pangkaibigan",
+              "Isang balitang isport"
+            ],
+            "correct_answer": "Talaan ng mga kakailanganing materyales"
+          },
+          {
+            "question": "Ano ang unang hakbang sa halimbawang paggawa ng sandwich?",
+            "options": [
+              "Kumuha ng dalawang tinapay",
+              "Isara ang sandwich",
+              "Maglagay ng palaman",
+              "Kainin"
+            ],
+            "correct_answer": "Kumuha ng dalawang tinapay"
+          },
+          {
+            "question": "Anong halimbawa ng pandiwa sa utos?",
+            "options": [
+              "Ihalo",
+              "Naghalo",
+              "Maghahalo",
+              "Hahaluin"
+            ],
+            "correct_answer": "Ihalo"
+          },
+          {
+            "question": "Bakit mahalaga ang tekstong panuto sa araw-araw na buhay?",
+            "options": [
+              "Tumutulong ito magawa nang tama ang isang gawain",
+              "Walang kahalagahan",
+              "Ito ay para lamang sa mga guro",
+              "Hindi ito ginagamit sa totoong buhay"
+            ],
+            "correct_answer": "Tumutulong ito magawa nang tama ang isang gawain"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang halimbawa ng tekstong panuto?",
+            "options": [
+              "Panuto sa pagluluto ng adobo",
+              "Kuwento tungkol sa isang bayani",
+              "Isang tula tungkol sa pag-ibig",
+              "Isang balitang pampolitika"
+            ],
+            "correct_answer": "Panuto sa pagluluto ng adobo"
+          },
+          {
+            "question": "Bakit gumagamit ng bilang (1, 2, 3) sa tekstong panuto?",
+            "options": [
+              "Para ipakita ang tamang pagkakasunod-sunod",
+              "Walang kahulugan ang bilang",
+              "Para pagandahin lamang ito",
+              "Hindi ito kailangan"
+            ],
+            "correct_answer": "Para ipakita ang tamang pagkakasunod-sunod"
+          },
+          {
+            "question": "Paano naiiba ang tekstong panuto sa talambuhay?",
+            "options": [
+              "Ang panuto ay nagtuturo kung paano gumawa, ang talambuhay ay tungkol sa totoong buhay",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Ang talambuhay ay nagtuturo kung paano gumawa"
+            ],
+            "correct_answer": "Ang panuto ay nagtuturo kung paano gumawa, ang talambuhay ay tungkol sa totoong buhay"
+          },
+          {
+            "question": "Bakit dapat malinaw ang bawat hakbang sa isang tekstong panuto?",
+            "options": [
+              "Upang maunawaan at masundan nang tama ng bumabasa",
+              "Hindi mahalaga ang kalinawan",
+              "Basta't nasusulat na, tama na",
+              "Walang epekto sa pagsasagawa"
+            ],
+            "correct_answer": "Upang maunawaan at masundan nang tama ng bumabasa"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi sinunod ang tamang pagkakasunod-sunod ng panuto?",
+            "options": [
+              "Maaaring hindi matagumpay ang gawain",
+              "Palaging magiging tama pa rin",
+              "Walang epekto ito",
+              "Mas mabilis matapos ang gawain"
+            ],
+            "correct_answer": "Maaaring hindi matagumpay ang gawain"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌐 Science — Pushes and Pulls Changing Shape\n\nGrade 4, Week 24! Let's discover how forces can change the shape of objects! 🌐\n\n## 🔄 Review\nWe learned how pushes and pulls change speed and direction.\n\n## 🌐 Forces Changing Shape\nA push or pull can also change an object's **shape** — not just its speed or direction.\n\n**Examples:**\n- Squeezing a sponge (push) makes it flatten\n- Stretching a rubber band (pull) makes it longer\n- Molding clay (push/squeeze) changes its form\n\n## 🔄 Can the Shape Change Back?\nSome materials (like a sponge or rubber band) return to their original shape — this is called **elasticity**. Others (like clay) stay changed — this is **permanent deformation**.\n\n**Key words:** shape, elasticity, permanent deformation, squeeze, stretch",
+        "quiz": [
+          {
+            "question": "Can a push or pull change an object's shape?",
+            "options": [
+              "Yes",
+              "No, only speed can change",
+              "No, only direction can change",
+              "Forces never affect shape"
+            ],
+            "correct_answer": "Yes"
+          },
+          {
+            "question": "What happens when you squeeze a sponge?",
+            "options": [
+              "It flattens",
+              "It grows bigger",
+              "Nothing happens",
+              "It changes color"
+            ],
+            "correct_answer": "It flattens"
+          },
+          {
+            "question": "What happens when you stretch a rubber band?",
+            "options": [
+              "It becomes longer",
+              "It becomes shorter",
+              "It disappears",
+              "It changes color"
+            ],
+            "correct_answer": "It becomes longer"
+          },
+          {
+            "question": "What is elasticity?",
+            "options": [
+              "The ability of a material to return to its original shape",
+              "The ability to change color",
+              "The ability to disappear",
+              "The inability to change shape at all"
+            ],
+            "correct_answer": "The ability of a material to return to its original shape"
+          },
+          {
+            "question": "What is permanent deformation?",
+            "options": [
+              "When a material stays changed after a force is applied",
+              "When a material returns to its original shape",
+              "When nothing happens to a material",
+              "When a material disappears"
+            ],
+            "correct_answer": "When a material stays changed after a force is applied"
+          },
+          {
+            "question": "Which material shows elasticity?",
+            "options": [
+              "A rubber band",
+              "Clay",
+              "Wet cement after drying",
+              "A broken glass"
+            ],
+            "correct_answer": "A rubber band"
+          },
+          {
+            "question": "Which material shows permanent deformation when molded?",
+            "options": [
+              "Clay",
+              "A rubber band",
+              "A spring",
+              "An elastic string"
+            ],
+            "correct_answer": "Clay"
+          },
+          {
+            "question": "What force is applied when molding clay into a shape?",
+            "options": [
+              "Push or squeeze",
+              "No force at all",
+              "Only pull",
+              "Only gravity"
+            ],
+            "correct_answer": "Push or squeeze"
+          },
+          {
+            "question": "Why does a sponge return to its shape after squeezing?",
+            "options": [
+              "It has elastic properties",
+              "It has no properties at all",
+              "It is permanently deformed",
+              "It changes into a liquid"
+            ],
+            "correct_answer": "It has elastic properties"
+          },
+          {
+            "question": "Which everyday action shows a force changing shape?",
+            "options": [
+              "Squishing a stress ball",
+              "Watching TV",
+              "Reading a book",
+              "Listening to music"
+            ],
+            "correct_answer": "Squishing a stress ball"
+          },
+          {
+            "question": "Why is understanding shape-changing forces useful?",
+            "options": [
+              "It helps explain how materials behave under force in daily life",
+              "It has no practical use",
+              "Shape never actually changes",
+              "Only speed matters, not shape"
+            ],
+            "correct_answer": "It helps explain how materials behave under force in daily life"
+          },
+          {
+            "question": "If you bend a metal spoon slightly and it goes back to normal, what property is this?",
+            "options": [
+              "Elasticity",
+              "Permanent deformation",
+              "No property at all",
+              "Melting"
+            ],
+            "correct_answer": "Elasticity"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎌 Araling Panlipunan — Mga Sagisag Pambansa\n\nGrade 4, Linggo 24! Alamin natin ang mga sagisag na kumakatawan sa ating bansa. 🎌\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga serbisyo ng pamahalaan.\n\n## 🎌 Mga Sagisag Pambansa ng Pilipinas\n- **Watawat** — sagisag ng kalayaan\n- **Pambansang Awit** — Lupang Hinirang\n- **Pambansang Ibon** — Agila (Philippine Eagle)\n- **Pambansang Bulaklak** — Sampaguita\n\n## 💡 Kahalagahan ng mga Sagisag\nAng bawat sagisag ay may **natatanging kahulugan** na kumakatawan sa mga halagahin ng bansa — kalayaan, tapang, at kagandahan ng ating lupain.\n\n## 🙇 Paggalang sa mga Sagisag\nSundin ang tamang etiketa kapag humahaharap sa bandila (pagsaludo, pagtayo nang tuwid).\n\n**Mahahalagang salita:** sagisag pambansa, watawat, pambansang awit, etiketa",
+        "quiz": [
+          {
+            "question": "Ano ang watawat?",
+            "options": [
+              "Sagisag ng kalayaan",
+              "Uri ng laro",
+              "Uri ng pagkain",
+              "Uri ng damit"
+            ],
+            "correct_answer": "Sagisag ng kalayaan"
+          },
+          {
+            "question": "Ano ang pambansang awit ng Pilipinas?",
+            "options": [
+              "Lupang Hinirang",
+              "Bahay Kubo",
+              "Bayan Ko",
+              "Anak"
+            ],
+            "correct_answer": "Lupang Hinirang"
+          },
+          {
+            "question": "Ano ang pambansang ibon ng Pilipinas?",
+            "options": [
+              "Agila (Philippine Eagle)",
+              "Aso",
+              "Pusa",
+              "Ibon lamang"
+            ],
+            "correct_answer": "Agila (Philippine Eagle)"
+          },
+          {
+            "question": "Ano ang pambansang bulaklak ng Pilipinas?",
+            "options": [
+              "Sampaguita",
+              "Rosas",
+              "Sunflower",
+              "Orchid"
+            ],
+            "correct_answer": "Sampaguita"
+          },
+          {
+            "question": "Ano ang kahulugan ng bawat sagisag pambansa?",
+            "options": [
+              "Kumakatawan sa mga halagahin ng bansa",
+              "Walang kahulugan",
+              "Para lamang palamuti",
+              "Isang uri ng laro lamang"
+            ],
+            "correct_answer": "Kumakatawan sa mga halagahin ng bansa"
+          },
+          {
+            "question": "Anong halagahin ang kinakatawan ng watawat?",
+            "options": [
+              "Kalayaan",
+              "Kayamanan",
+              "Kagutuman",
+              "Kahirapan"
+            ],
+            "correct_answer": "Kalayaan"
+          },
+          {
+            "question": "Ano ang tamang gawin kapag humaharap sa bandila?",
+            "options": [
+              "Pagsaludo at pagtayo nang tuwid",
+              "Pag-upo lamang",
+              "Pagtalikod",
+              "Pagtawa"
+            ],
+            "correct_answer": "Pagsaludo at pagtayo nang tuwid"
+          },
+          {
+            "question": "Bakit mahalagang igalang ang mga sagisag pambansa?",
+            "options": [
+              "Nagpapakita ito ng paggalang sa bansa",
+              "Walang kahalagahan",
+              "Hindi na ito kailangan",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang sa bansa"
+          },
+          {
+            "question": "Ano ang tinutukoy ng etiketa sa bandila?",
+            "options": [
+              "Tamang paraan ng pakikitungo sa bandila",
+              "Uri ng damit lamang",
+              "Uri ng pagkain",
+              "Walang kahulugan"
+            ],
+            "correct_answer": "Tamang paraan ng pakikitungo sa bandila"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang mga sagisag pambansa sa pagkakakilanlan ng Pilipino?",
+            "options": [
+              "Nagpapakita ito ng natatanging kultura at kasaysayan ng bansa",
+              "Walang kaugnayan sa pagkakakilanlan",
+              "Ito ay galing sa ibang bansa",
+              "Hindi mahalaga ang mga sagisag"
+            ],
+            "correct_answer": "Nagpapakita ito ng natatanging kultura at kasaysayan ng bansa"
+          },
+          {
+            "question": "Bakit mahalagang ituro ang mga sagisag pambansa sa mga bata?",
+            "options": [
+              "Upang mahubog ang pagmamahal at paggalang sa bansa",
+              "Hindi na kailangan ituro ito",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang mahubog ang pagmamahal at paggalang sa bansa"
+          },
+          {
+            "question": "Ano ang koneksyon ng mga sagisag pambansa sa mga elemento ng pagkabansa na natutunan noon?",
+            "options": [
+              "Ipinapakita nila ang pagkakakilanlan ng bansa bilang bahagi ng soberanya nito",
+              "Walang koneksyon ang dalawa",
+              "Ang mga sagisag ay hiwalay sa konsepto ng bansa",
+              "Hindi kailangan ng sagisag ang isang bansa"
+            ],
+            "correct_answer": "Ipinapakita nila ang pagkakakilanlan ng bansa bilang bahagi ng soberanya nito"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🎬 EPP (ICT) — Review: Presentation at Multimedia\n\nGrade 4, Week 24! Balikan natin ang paggawa ng epektibong presentation. 🎬\n\n## 🔄 Balik-Aral\nNatutuhan natin ang online security.\n\n## 🎬 Mga Elemento ng Magandang Presentation\n- **Malinaw na teksto** — hindi masyadong marami sa isang slide\n- **Angkop na larawan** — sumusuporta sa mensahe\n- **Kaunting transition** — hindi nakakagulo\n\n## 🖥️ Multimedia sa Presentation\nMaaaring magsama ng **litrato, tunog, o maikling bidyo** upang gawing mas kaakit-akit ang isang presentation.\n\n## 💡 Bakit Mahalaga Ito?\nAng magandang presentation ay tumutulong maipahayag nang malinaw ang isang mensahe sa manonood.\n\n**Mahahalagang salita:** presentation, multimedia, transition, mensahe",
+        "quiz": [
+          {
+            "question": "Ano ang isang elemento ng magandang presentation?",
+            "options": [
+              "Malinaw na teksto",
+              "Napakaraming teksto sa isang slide",
+              "Walang larawan",
+              "Walang organisasyon"
+            ],
+            "correct_answer": "Malinaw na teksto"
+          },
+          {
+            "question": "Bakit dapat iwasan ang sobrang teksto sa isang slide?",
+            "options": [
+              "Mahihirapan ang manonood basahin at unawain ito",
+              "Walang epekto ito",
+              "Mas mahusay ang mas maraming teksto",
+              "Kinakailangan ang sobrang teksto"
+            ],
+            "correct_answer": "Mahihirapan ang manonood basahin at unawain ito"
+          },
+          {
+            "question": "Bakit gumamit ng angkop na larawan sa presentation?",
+            "options": [
+              "Sumusuporta ito sa mensahe",
+              "Walang gamit ang larawan",
+              "Ginagawa lamang itong mas magulo",
+              "Hindi kailangan ang larawan"
+            ],
+            "correct_answer": "Sumusuporta ito sa mensahe"
+          },
+          {
+            "question": "Ano ang kasama sa multimedia sa presentation?",
+            "options": [
+              "Litrato, tunog, o maikling bidyo",
+              "Teksto lamang",
+              "Walang laman",
+              "Numero lamang"
+            ],
+            "correct_answer": "Litrato, tunog, o maikling bidyo"
+          },
+          {
+            "question": "Bakit dapat kaunti lamang ang transition sa isang presentation?",
+            "options": [
+              "Iwasan ang pagiging nakakagulo",
+              "Para gawing mas magulo",
+              "Walang kahalagahan ito",
+              "Kinakailangan ang maraming transition"
+            ],
+            "correct_answer": "Iwasan ang pagiging nakakagulo"
+          },
+          {
+            "question": "Bakit mahalaga ang magandang presentation?",
+            "options": [
+              "Tumutulong maipahayag nang malinaw ang mensahe",
+              "Walang kahalagahan",
+              "Para lamang palamutihan",
+              "Hindi ito kailangan"
+            ],
+            "correct_answer": "Tumutulong maipahayag nang malinaw ang mensahe"
+          },
+          {
+            "question": "Ano ang mangyayari kung sobrang teksto ang nasa isang slide?",
+            "options": [
+              "Mahihirapang basahin at maunawaan ng manonood",
+              "Mas magiging malinaw ito",
+              "Walang epekto",
+              "Mas madaling maunawaan"
+            ],
+            "correct_answer": "Mahihirapang basahin at maunawaan ng manonood"
+          },
+          {
+            "question": "Bakit itinuturo ang paggawa ng presentation sa EPP (ICT)?",
+            "options": [
+              "Upang matutong maipahayag ang ideya sa harap ng iba",
+              "Walang layunin ito",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng ICT"
+            ],
+            "correct_answer": "Upang matutong maipahayag ang ideya sa harap ng iba"
+          },
+          {
+            "question": "Alin sa mga ito ang HINDI dapat gawin sa isang mahusay na presentation?",
+            "options": [
+              "Maglagay ng napakaraming teksto sa bawat slide",
+              "Gumamit ng angkop na larawan",
+              "Panatilihing malinaw ang mensahe",
+              "Gumamit ng kaunting transition"
+            ],
+            "correct_answer": "Maglagay ng napakaraming teksto sa bawat slide"
+          },
+          {
+            "question": "Bakit kailangang mag-focus sa isang malinaw na mensahe sa bawat slide?",
+            "options": [
+              "Upang hindi malito ang manonood",
+              "Walang kahalagahan ito",
+              "Basta't marami ang impormasyon, okay na",
+              "Hindi mahalaga ang pagiging malinaw"
+            ],
+            "correct_answer": "Upang hindi malito ang manonood"
+          },
+          {
+            "question": "Paano nakakatulong ang tunog o bidyo sa isang presentation?",
+            "options": [
+              "Ginagawang mas kaakit-akit at nakakaengganyo ang presentation",
+              "Wala itong tulong",
+              "Ginagawa lamang itong mas mahirap gawin",
+              "Hindi ito kailangan"
+            ],
+            "correct_answer": "Ginagawang mas kaakit-akit at nakakaengganyo ang presentation"
+          },
+          {
+            "question": "Bakit balikan ang mga natutunang kasanayan sa presentation?",
+            "options": [
+              "Patatagin ang kaalaman bago gumawa ng bagong proyekto",
+              "Hindi na kailangan balikan ito",
+              "Walang gamit ito",
+              "Para lamang libangin ang guro"
+            ],
+            "correct_answer": "Patatagin ang kaalaman bago gumawa ng bagong proyekto"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 💃 MAPEH — Fundamental Dance Steps sa 2/4 Time\n\nGrade 4, Linggo 24! Alamin natin ang batayang hakbang sa sayaw. 💃\n\n## 🔄 Balik-Aral\nNatutuhan natin ang teatro at sayaw ng alamat.\n\n## 💃 Ano ang Fundamental Dance Steps?\nAng **fundamental dance steps** ay ang mga batayang hakbang na ginagamit sa maraming sayaw — tulad ng touch step, slide, at bounce.\n\n## 🕺 Sayaw sa 2/4 Time\nSa **2/4 time**, may dalawang beat sa bawat sukat, na karaniwang ginagamit sa mabilis na sayaw tulad ng polka.\n\n## 🎯 Bakit Mahalaga Ito?\nAng pagkatuto ng batayang hakbang ay nagbibigay-daan upang mas madaling matutunan ang mas kumplikadong sayaw sa hinaharap.\n\n**Mahahalagang salita:** fundamental dance steps, 2/4 time, touch step, polka",
+        "quiz": [
+          {
+            "question": "Ano ang fundamental dance steps?",
+            "options": [
+              "Batayang hakbang na ginagamit sa maraming sayaw",
+              "Isang uri ng awit",
+              "Isang uri ng laro",
+              "Isang uri ng pagguhit"
+            ],
+            "correct_answer": "Batayang hakbang na ginagamit sa maraming sayaw"
+          },
+          {
+            "question": "Ilang beat ang mayroon sa 2/4 time bawat sukat?",
+            "options": [
+              "Dalawa",
+              "Tatlo",
+              "Apat",
+              "Isa"
+            ],
+            "correct_answer": "Dalawa"
+          },
+          {
+            "question": "Anong uri ng sayaw ang karaniwang gumagamit ng 2/4 time?",
+            "options": [
+              "Polka",
+              "Waltz",
+              "Tango",
+              "Ballroom sa 3/4"
+            ],
+            "correct_answer": "Polka"
+          },
+          {
+            "question": "Bakit mahalagang matutunan ang batayang hakbang sa sayaw?",
+            "options": [
+              "Nagbibigay-daan ito upang matutunan ang mas kumplikadong sayaw",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan matutunan",
+              "Para lamang libangin ang guro"
+            ],
+            "correct_answer": "Nagbibigay-daan ito upang matutunan ang mas kumplikadong sayaw"
+          },
+          {
+            "question": "Anong halimbawa ng fundamental dance step?",
+            "options": [
+              "Touch step",
+              "Pagbasa",
+              "Pagsulat",
+              "Paglangoy"
+            ],
+            "correct_answer": "Touch step"
+          },
+          {
+            "question": "Bakit itinuturo ang batayang hakbang bago ang kumplikadong sayaw?",
+            "options": [
+              "Nagbibigay ito ng matibay na pundasyon",
+              "Walang dahilan",
+              "Hindi kailangang matutunan muna ang batayan",
+              "Basta anumang sayaw ay puwede agad"
+            ],
+            "correct_answer": "Nagbibigay ito ng matibay na pundasyon"
+          },
+          {
+            "question": "Ano ang layunin ng pagsasanay sa 2/4 time?",
+            "options": [
+              "Matutong sumabay sa tempo ng mabilis na musika",
+              "Matutong sumulat",
+              "Matutong maglaro ng basketball",
+              "Matuto ng matematika"
+            ],
+            "correct_answer": "Matutong sumabay sa tempo ng mabilis na musika"
+          },
+          {
+            "question": "Bakit mahalaga ang koordinasyon sa pagsasagawa ng dance steps?",
+            "options": [
+              "Upang maging maayos at magkasabay ang mga galaw",
+              "Walang kahalagahan",
+              "Hindi kailangan ng koordinasyon",
+              "Basta anumang galaw ay tama"
+            ],
+            "correct_answer": "Upang maging maayos at magkasabay ang mga galaw"
+          },
+          {
+            "question": "Ano ang benepisyo ng pagsasanay ng sayaw sa katawan?",
+            "options": [
+              "Pagpapaunlad ng pisikal na kakayahan at koordinasyon",
+              "Walang benepisyo",
+              "Pinapahina ang katawan",
+              "Pinipigilan ang paggalaw"
+            ],
+            "correct_answer": "Pagpapaunlad ng pisikal na kakayahan at koordinasyon"
+          },
+          {
+            "question": "Bakit mahalaga ang pagbibigay-diin sa tamang bilang ng beat sa 2/4 time?",
+            "options": [
+              "Para tumpak na masabayan ang musika",
+              "Walang kaugnayan sa musika",
+              "Basta ba gumagalaw, tama na",
+              "Hindi mahalaga ang bilang ng beat"
+            ],
+            "correct_answer": "Para tumpak na masabayan ang musika"
+          },
+          {
+            "question": "Paano naiiba ang 2/4 time sa 3/4 time?",
+            "options": [
+              "May dalawang beat kada sukat ang 2/4, tatlo naman sa 3/4",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Ang 3/4 ay may dalawang beat"
+            ],
+            "correct_answer": "May dalawang beat kada sukat ang 2/4, tatlo naman sa 3/4"
+          },
+          {
+            "question": "Bakit isinasama ang PE dance activities sa MAPEH?",
+            "options": [
+              "Nagtataguyod ito ng pisikal na kalusugan at pagpapahalaga sa sining",
+              "Walang layunin ito",
+              "Hindi kaugnay ng edukasyon",
+              "Para lamang sa matatanda"
+            ],
+            "correct_answer": "Nagtataguyod ito ng pisikal na kalusugan at pagpapahalaga sa sining"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# ✏️ EPP (IA) — Kasangkapan at Materyales sa Pagguhit\n\nGrade 4, Linggo 24! Simulan na natin ang Industrial Arts! ✏️\n\n## 🔄 Balik-Aral\nNatapos na natin ang yunit ng Family and Consumer Science.\n\n## ✏️ Batayang Kasangkapan sa Pagguhit\n- **Lapis** — para sa unang guhit (draft)\n- **Ruler/T-square** — para sa tuwid na linya\n- **Compass** — para sa bilog\n- **Protractor** — para sa pagsukat ng anggulo\n\n## 📐 Sistema ng Pagsukat\nGinagamit ang **metriko** (sentimetro, milimetro) sa karamihan ng teknikal na pagguhit sa Pilipinas.\n\n## 💡 Bakit Mahalaga Ito?\nAng tamang kasangkapan ay tumutulong makagawa ng **tumpak at malinis** na guhit para sa mga proyekto.\n\n**Mahahalagang salita:** kasangkapan, T-square, compass, protractor, metriko",
+        "quiz": [
+          {
+            "question": "Ano ang gamit ng lapis sa pagguhit?",
+            "options": [
+              "Para sa unang guhit o draft",
+              "Para sa pagsukat ng anggulo",
+              "Para gumawa ng bilog",
+              "Para sa tuwid na linya lamang"
+            ],
+            "correct_answer": "Para sa unang guhit o draft"
+          },
+          {
+            "question": "Ano ang gamit ng ruler o T-square?",
+            "options": [
+              "Para sa tuwid na linya",
+              "Para gumawa ng bilog",
+              "Para sa pagsukat ng anggulo",
+              "Para lamang sa kulay"
+            ],
+            "correct_answer": "Para sa tuwid na linya"
+          },
+          {
+            "question": "Ano ang gamit ng compass sa pagguhit?",
+            "options": [
+              "Para gumawa ng bilog",
+              "Para sa tuwid na linya",
+              "Para sa unang guhit",
+              "Para sa pagsukat ng anggulo"
+            ],
+            "correct_answer": "Para gumawa ng bilog"
+          },
+          {
+            "question": "Ano ang gamit ng protractor?",
+            "options": [
+              "Para sa pagsukat ng anggulo",
+              "Para gumawa ng bilog",
+              "Para sa tuwid na linya",
+              "Para sa unang guhit"
+            ],
+            "correct_answer": "Para sa pagsukat ng anggulo"
+          },
+          {
+            "question": "Anong sistema ng pagsukat ang karaniwang ginagamit sa Pilipinas?",
+            "options": [
+              "Metriko (sentimetro, milimetro)",
+              "Imperyal lamang",
+              "Walang sistema",
+              "Sistemang Tsino"
+            ],
+            "correct_answer": "Metriko (sentimetro, milimetro)"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang kasangkapan sa pagguhit?",
+            "options": [
+              "Tumutulong makagawa ng tumpak at malinis na guhit",
+              "Walang kahalagahan",
+              "Basta anumang kasangkapan ay puwede",
+              "Hindi na kailangan ng kasangkapan"
+            ],
+            "correct_answer": "Tumutulong makagawa ng tumpak at malinis na guhit"
+          },
+          {
+            "question": "Bakit ginagamit ang lapis para sa unang guhit?",
+            "options": [
+              "Madali itong burahin at itama kung mali",
+              "Hindi na dapat gumamit ng lapis",
+              "Ang lapis ay hindi tumpak",
+              "Walang dahilan"
+            ],
+            "correct_answer": "Madali itong burahin at itama kung mali"
+          },
+          {
+            "question": "Bakit itinuturo ang Industrial Arts sa Grade 4?",
+            "options": [
+              "Upang matutong gumawa ng tumpak na guhit at proyekto",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi ito kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Upang matutong gumawa ng tumpak na guhit at proyekto"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi gagamitin ang tamang kasangkapan?",
+            "options": [
+              "Maaaring hindi tumpak o malinis ang resultang guhit",
+              "Walang epekto",
+              "Mas mabilis matapos",
+              "Palaging tumpak pa rin"
+            ],
+            "correct_answer": "Maaaring hindi tumpak o malinis ang resultang guhit"
+          },
+          {
+            "question": "Alin ang HALIMBAWA ng batayang kasangkapan sa pagguhit?",
+            "options": [
+              "Compass",
+              "Sandok",
+              "Karayom",
+              "Kaldero"
+            ],
+            "correct_answer": "Compass"
+          },
+          {
+            "question": "Bakit mahalagang matutong gumamit ng protractor?",
+            "options": [
+              "Para sa tumpak na pagsukat ng anggulo sa proyekto",
+              "Hindi ito kailangan",
+              "Para lamang sa palamuti",
+              "Walang gamit ito"
+            ],
+            "correct_answer": "Para sa tumpak na pagsukat ng anggulo sa proyekto"
+          },
+          {
+            "question": "Ano ang layunin ng pagpapakilala ng Industrial Arts pagkatapos ng FCS?",
+            "options": [
+              "Palawakin ang kasanayan sa iba't ibang uri ng gawaing-kamay",
+              "Walang layunin",
+              "Palitan ang FCS",
+              "Hindi konektado sa naunang aralin"
+            ],
+            "correct_answer": "Palawakin ang kasanayan sa iba't ibang uri ng gawaing-kamay"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 GMRC — Kababaang-loob Bilang Pananampalataya\n\nGrade 4, Linggo 24! Pagpapahalaga: **Mapagpakumbaba (Humble)**. 🙏\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagkakapantay-pantay sa kabila ng pagkakaiba.\n\n## 🙏 Ano ang Kababaang-loob?\nAng **kababaang-loob** ay ang pagiging simple at hindi mapagmataas kahit may natatanging kakayahan o tagumpay.\n\n## 💫 Kababaang-loob Bilang Pananampalataya\nSa maraming paniniwala, ang pagiging mapagpakumbaba ay bahagi ng pagpapakita ng **paggalang sa Diyos** — pagkilala na tayo ay may limitasyon at kailangan ng gabay.\n\n## 🌟 Halimbawa ng Kababaang-loob\n- Pagtanggap ng puna nang walang galit\n- Pagbigay-pugay sa iba sa halip na sarili\n- Pagsasabing \"salamat sa tulong ng iba\" sa halip na ipagmalaki lamang ang sarili\n\n**Mahahalagang salita:** kababaang-loob, mapagpakumbaba, pananampalataya, puna",
+        "quiz": [
+          {
+            "question": "Ano ang kababaang-loob?",
+            "options": [
+              "Pagiging simple at hindi mapagmataas",
+              "Pagiging mayabang",
+              "Pagiging bastos",
+              "Kawalang galang"
+            ],
+            "correct_answer": "Pagiging simple at hindi mapagmataas"
+          },
+          {
+            "question": "Bakit itinuturing na bahagi ng pananampalataya ang kababaang-loob?",
+            "options": [
+              "Ipinapakita nito ang paggalang sa Diyos at pagkilala sa sariling limitasyon",
+              "Walang kaugnayan sa pananampalataya",
+              "Ito ay tungkol lamang sa sarili",
+              "Hindi ito tunay na pagpapahalaga"
+            ],
+            "correct_answer": "Ipinapakita nito ang paggalang sa Diyos at pagkilala sa sariling limitasyon"
+          },
+          {
+            "question": "Anong halimbawa ng kababaang-loob?",
+            "options": [
+              "Pagtanggap ng puna nang walang galit",
+              "Pagyayabang tungkol sa sarili",
+              "Pagtanggi sa lahat ng payo",
+              "Pagmamataas sa iba"
+            ],
+            "correct_answer": "Pagtanggap ng puna nang walang galit"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Mapagpakumbaba (Humble)",
+              "Matipid",
+              "Mapagmalasakit",
+              "Magalang"
+            ],
+            "correct_answer": "Mapagpakumbaba (Humble)"
+          },
+          {
+            "question": "Bakit dapat magbigay-pugay sa iba sa halip na sarili?",
+            "options": [
+              "Nagpapakita ito ng tunay na kababaang-loob",
+              "Wala itong kahalagahan",
+              "Dapat lagi tayong sumikat sa sarili",
+              "Hindi mahalaga ang pugay"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na kababaang-loob"
+          },
+          {
+            "question": "Bakit mahalagang sabihin ang 'salamat sa tulong ng iba'?",
+            "options": [
+              "Nagpapakita ito ng kababaang-loob at pasasalamat",
+              "Wala itong kahalagahan",
+              "Dapat ipagmalaki na lamang ang sarili",
+              "Hindi kailangan magpasalamat"
+            ],
+            "correct_answer": "Nagpapakita ito ng kababaang-loob at pasasalamat"
+          },
+          {
+            "question": "Ano ang kabaligtaran ng kababaang-loob?",
+            "options": [
+              "Pagmamayabang",
+              "Pagtitiwala",
+              "Pagmamahal",
+              "Pananampalataya"
+            ],
+            "correct_answer": "Pagmamayabang"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang kababaang-loob sa GMRC?",
+            "options": [
+              "Nagtuturo ito ng respeto sa Diyos at sariling limitasyon",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ito ng agham",
+              "Hindi ito itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagtuturo ito ng respeto sa Diyos at sariling limitasyon"
+          },
+          {
+            "question": "Bakit mahalagang tanggapin ang puna nang walang galit?",
+            "options": [
+              "Nakakatulong ito lumago at magpakumbaba",
+              "Walang gamit ito",
+              "Dapat palaging tanggihan ang puna",
+              "Puna ay palaging mali"
+            ],
+            "correct_answer": "Nakakatulong ito lumago at magpakumbaba"
+          },
+          {
+            "question": "Bakit mahalagang matutong magpakumbaba mula sa maagang edad?",
+            "options": [
+              "Upang maging simple at magalang na tao paglaki",
+              "Hindi na kailangan matutunan ito",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang maging simple at magalang na tao paglaki"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagiging mapagpakumbaba sa isang tao?",
+            "options": [
+              "Mas mabuting ugnayan sa iba",
+              "Higit na away",
+              "Wala itong naidudulot",
+              "Kawalan ng respeto ng iba"
+            ],
+            "correct_answer": "Mas mabuting ugnayan sa iba"
+          },
+          {
+            "question": "Paano nauugnay ang kababaang-loob sa pagkakapantay-pantay na natutunan noong nakaraang linggo?",
+            "options": [
+              "Pareho silang nagtuturo ng pagpapahalaga sa iba higit sa sarili",
+              "Walang kaugnayan ang dalawa",
+              "Isa ay tungkol lamang sa agham",
+              "Isa ay tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Pareho silang nagtuturo ng pagpapahalaga sa iba higit sa sarili"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 💌 Friday Review — English (Grade 4)\n\n- Friendly letter of pasasalamat (thanks)\n\nGreat gratitude writing! 🌟",
+        "quiz": [
+          {
+            "question": "What is a letter of pasasalamat?",
+            "options": [
+              "A letter expressing gratitude for a kindness or gift",
+              "A letter of complaint",
+              "A letter of condolence",
+              "A letter requesting a favor"
+            ],
+            "correct_answer": "A letter expressing gratitude for a kindness or gift"
+          },
+          {
+            "question": "What should the body include?",
+            "options": [
+              "What you're thankful for and why it mattered",
+              "A random topic",
+              "A list of complaints",
+              "Nothing specific"
+            ],
+            "correct_answer": "What you're thankful for and why it mattered"
+          },
+          {
+            "question": "Common closing for a thank-you letter?",
+            "options": [
+              "With gratitude",
+              "See you never",
+              "Yours in complaint",
+              "Angrily yours"
+            ],
+            "correct_answer": "With gratitude"
+          },
+          {
+            "question": "How many friendly letter types were learned?",
+            "options": [
+              "Four",
+              "One",
+              "Ten",
+              "Two"
+            ],
+            "correct_answer": "Four"
+          },
+          {
+            "question": "Which is NOT one of the four types?",
+            "options": [
+              "Instruction manual",
+              "Invitation",
+              "Pakikiramay",
+              "Pasasalamat"
+            ],
+            "correct_answer": "Instruction manual"
+          },
+          {
+            "question": "Why be specific about your thanks?",
+            "options": [
+              "Shows you truly noticed their kindness",
+              "Specificity doesn't matter",
+              "Makes it longer for no reason",
+              "General thanks are always better"
+            ],
+            "correct_answer": "Shows you truly noticed their kindness"
+          },
+          {
+            "question": "'Thank you for helping me study' is what?",
+            "options": [
+              "A specific expression of gratitude",
+              "A complaint",
+              "A condolence",
+              "An invitation"
+            ],
+            "correct_answer": "A specific expression of gratitude"
+          },
+          {
+            "question": "What is a letter of pagbati used for?",
+            "options": [
+              "Greeting or congratulating someone",
+              "Comforting someone grieving",
+              "Complaining",
+              "Requesting information"
+            ],
+            "correct_answer": "Greeting or congratulating someone"
+          },
+          {
+            "question": "Why does each letter type have a different purpose?",
+            "options": [
+              "Different situations need different messages",
+              "All letters are the same",
+              "Purpose never matters",
+              "Only one type is needed"
+            ],
+            "correct_answer": "Different situations need different messages"
+          },
+          {
+            "question": "What makes a thank-you letter feel sincere?",
+            "options": [
+              "Explaining why the kindness mattered",
+              "Being as vague as possible",
+              "Copying another letter",
+              "Leaving out the reason"
+            ],
+            "correct_answer": "Explaining why the kindness mattered"
+          },
+          {
+            "question": "Why is learning these letters useful?",
+            "options": [
+              "Communicate appropriately in real situations",
+              "No practical value",
+              "Only one type needed",
+              "Replaces speaking"
+            ],
+            "correct_answer": "Communicate appropriately in real situations"
+          },
+          {
+            "question": "Which sentence fits a thank-you letter?",
+            "options": [
+              "Because of your patience, I finally understood fractions!",
+              "I'm sorry for your loss.",
+              "Please come to my party.",
+              "I demand a refund."
+            ],
+            "correct_answer": "Because of your patience, I finally understood fractions!"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➕ Friday Review — Mathematics (Grade 4)\n\n- Adding and subtracting dissimilar fractions\n\nGreat fraction operations! ⭐",
+        "quiz": [
+          {
+            "question": "What is 1/2 + 1/4?",
+            "options": [
+              "3/4",
+              "2/4",
+              "1/4",
+              "2/6"
+            ],
+            "correct_answer": "3/4"
+          },
+          {
+            "question": "First step in adding dissimilar fractions?",
+            "options": [
+              "Find a common denominator",
+              "Add numerators immediately",
+              "Multiply denominators only",
+              "Subtract numerators"
+            ],
+            "correct_answer": "Find a common denominator"
+          },
+          {
+            "question": "What is 2/3 − 1/6?",
+            "options": [
+              "1/2",
+              "1/6",
+              "3/6",
+              "1/3"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "What is 1/3 + 1/6?",
+            "options": [
+              "1/2",
+              "2/9",
+              "1/6",
+              "2/3"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "Eating 1/4 then 1/2 of a pizza: total eaten?",
+            "options": [
+              "3/4",
+              "1/4",
+              "1/2",
+              "1/6"
+            ],
+            "correct_answer": "3/4"
+          },
+          {
+            "question": "How much pizza is left in that problem?",
+            "options": [
+              "1/4",
+              "3/4",
+              "1/2",
+              "0"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "What is 3/4 − 1/2?",
+            "options": [
+              "1/4",
+              "2/4",
+              "1/2",
+              "3/4"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "What is 1/2 + 1/3?",
+            "options": [
+              "5/6",
+              "2/5",
+              "1/6",
+              "2/3"
+            ],
+            "correct_answer": "5/6"
+          },
+          {
+            "question": "Why convert fractions before adding?",
+            "options": [
+              "Parts must be the same size to combine correctly",
+              "Never necessary",
+              "Should always guess",
+              "Only whole numbers can be added"
+            ],
+            "correct_answer": "Parts must be the same size to combine correctly"
+          },
+          {
+            "question": "What is 5/6 − 1/3?",
+            "options": [
+              "1/2",
+              "4/3",
+              "4/6",
+              "1/3"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "What is 1/4 + 1/8?",
+            "options": [
+              "3/8",
+              "2/12",
+              "1/8",
+              "2/4"
+            ],
+            "correct_answer": "3/8"
+          },
+          {
+            "question": "Why are multi-step word problems useful?",
+            "options": [
+              "Combine several skills to solve real situations",
+              "No value",
+              "Test one skill at a time",
+              "Replace basic skills"
+            ],
+            "correct_answer": "Combine several skills to solve real situations"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📋 Friday Review — Filipino (Grade 4)\n\n- Tekstong panuto: hakbang-hakbang, pandiwa sa utos\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tekstong panuto?",
+            "options": [
+              "Hakbang-hakbang na gabay",
+              "Nagsasalaysay ng totoong buhay",
+              "Kathang-isip na kuwento",
+              "Isang liham"
+            ],
+            "correct_answer": "Hakbang-hakbang na gabay"
+          },
+          {
+            "question": "Anong pandiwa ang ginagamit sa panuto?",
+            "options": [
+              "Pandiwa sa utos",
+              "Pandiwa sa nakaraan lamang",
+              "Pandiwa sa hinaharap lamang",
+              "Walang pandiwa"
+            ],
+            "correct_answer": "Pandiwa sa utos"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang pagkakasunod-sunod?",
+            "options": [
+              "Matagumpay maisagawa ang gawain",
+              "Hindi mahalaga",
+              "Anumang ayos ay tama",
+              "Walang epekto"
+            ],
+            "correct_answer": "Matagumpay maisagawa ang gawain"
+          },
+          {
+            "question": "Ano pang kasama sa panuto bukod sa hakbang?",
+            "options": [
+              "Talaan ng materyales",
+              "Tugma",
+              "Liham pangkaibigan",
+              "Balitang isport"
+            ],
+            "correct_answer": "Talaan ng materyales"
+          },
+          {
+            "question": "Unang hakbang sa sandwich?",
+            "options": [
+              "Kumuha ng dalawang tinapay",
+              "Isara ang sandwich",
+              "Maglagay ng palaman",
+              "Kainin"
+            ],
+            "correct_answer": "Kumuha ng dalawang tinapay"
+          },
+          {
+            "question": "Halimbawa ng pandiwa sa utos?",
+            "options": [
+              "Ihalo",
+              "Naghalo",
+              "Maghahalo",
+              "Hahaluin"
+            ],
+            "correct_answer": "Ihalo"
+          },
+          {
+            "question": "Bakit mahalaga sa araw-araw na buhay?",
+            "options": [
+              "Tumutulong magawa nang tama ang gawain",
+              "Walang kahalagahan",
+              "Para sa guro lamang",
+              "Hindi ginagamit sa buhay"
+            ],
+            "correct_answer": "Tumutulong magawa nang tama ang gawain"
+          },
+          {
+            "question": "Halimbawa ng tekstong panuto?",
+            "options": [
+              "Panuto sa pagluluto",
+              "Kuwento ng bayani",
+              "Tula tungkol sa pag-ibig",
+              "Balitang pampolitika"
+            ],
+            "correct_answer": "Panuto sa pagluluto"
+          },
+          {
+            "question": "Bakit gumagamit ng bilang (1,2,3)?",
+            "options": [
+              "Ipakita ang tamang pagkakasunod-sunod",
+              "Walang kahulugan",
+              "Pagandahin lamang",
+              "Hindi kailangan"
+            ],
+            "correct_answer": "Ipakita ang tamang pagkakasunod-sunod"
+          },
+          {
+            "question": "Pagkakaiba ng panuto sa talambuhay?",
+            "options": [
+              "Panuto nagtuturo kung paano gumawa, talambuhay tungkol sa totoong buhay",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Talambuhay nagtuturo gumawa"
+            ],
+            "correct_answer": "Panuto nagtuturo kung paano gumawa, talambuhay tungkol sa totoong buhay"
+          },
+          {
+            "question": "Bakit malinaw dapat ang bawat hakbang?",
+            "options": [
+              "Maunawaan at masundan ng bumabasa",
+              "Hindi mahalaga",
+              "Basta nasusulat, tama na",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maunawaan at masundan ng bumabasa"
+          },
+          {
+            "question": "Mangyayari kung mali ang pagkakasunod-sunod?",
+            "options": [
+              "Maaaring hindi matagumpay ang gawain",
+              "Palaging tama pa rin",
+              "Walang epekto",
+              "Mas mabilis matapos"
+            ],
+            "correct_answer": "Maaaring hindi matagumpay ang gawain"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌐 Friday Review — Science (Grade 4)\n\n- Forces changing shape: elasticity vs. permanent deformation\n\nGreat shape-change review! 🌟",
+        "quiz": [
+          {
+            "question": "Can a push or pull change shape?",
+            "options": [
+              "Yes",
+              "No, only speed",
+              "No, only direction",
+              "Never affects shape"
+            ],
+            "correct_answer": "Yes"
+          },
+          {
+            "question": "What happens when you squeeze a sponge?",
+            "options": [
+              "It flattens",
+              "It grows bigger",
+              "Nothing happens",
+              "It changes color"
+            ],
+            "correct_answer": "It flattens"
+          },
+          {
+            "question": "What happens stretching a rubber band?",
+            "options": [
+              "It becomes longer",
+              "It becomes shorter",
+              "It disappears",
+              "It changes color"
+            ],
+            "correct_answer": "It becomes longer"
+          },
+          {
+            "question": "What is elasticity?",
+            "options": [
+              "Ability to return to original shape",
+              "Ability to change color",
+              "Ability to disappear",
+              "Inability to change at all"
+            ],
+            "correct_answer": "Ability to return to original shape"
+          },
+          {
+            "question": "What is permanent deformation?",
+            "options": [
+              "Staying changed after force applied",
+              "Returning to original shape",
+              "Nothing happens",
+              "Disappearing"
+            ],
+            "correct_answer": "Staying changed after force applied"
+          },
+          {
+            "question": "Which material shows elasticity?",
+            "options": [
+              "A rubber band",
+              "Clay",
+              "Dried cement",
+              "Broken glass"
+            ],
+            "correct_answer": "A rubber band"
+          },
+          {
+            "question": "Which shows permanent deformation when molded?",
+            "options": [
+              "Clay",
+              "A rubber band",
+              "A spring",
+              "An elastic string"
+            ],
+            "correct_answer": "Clay"
+          },
+          {
+            "question": "Force applied when molding clay?",
+            "options": [
+              "Push or squeeze",
+              "No force",
+              "Only pull",
+              "Only gravity"
+            ],
+            "correct_answer": "Push or squeeze"
+          },
+          {
+            "question": "Why does a sponge return to shape?",
+            "options": [
+              "Elastic properties",
+              "No properties",
+              "Permanently deformed",
+              "Changes to liquid"
+            ],
+            "correct_answer": "Elastic properties"
+          },
+          {
+            "question": "Everyday action showing shape-changing force?",
+            "options": [
+              "Squishing a stress ball",
+              "Watching TV",
+              "Reading a book",
+              "Listening to music"
+            ],
+            "correct_answer": "Squishing a stress ball"
+          },
+          {
+            "question": "Why understand shape-changing forces?",
+            "options": [
+              "Explains material behavior in daily life",
+              "No practical use",
+              "Shape never changes",
+              "Only speed matters"
+            ],
+            "correct_answer": "Explains material behavior in daily life"
+          },
+          {
+            "question": "Bending a spoon slightly, it returns to normal: what property?",
+            "options": [
+              "Elasticity",
+              "Permanent deformation",
+              "No property",
+              "Melting"
+            ],
+            "correct_answer": "Elasticity"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎌 Friday Review — Araling Panlipunan (Grade 4)\n\n- Mga sagisag pambansa: watawat, awit, ibon, bulaklak\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang watawat?",
+            "options": [
+              "Sagisag ng kalayaan",
+              "Uri ng laro",
+              "Uri ng pagkain",
+              "Uri ng damit"
+            ],
+            "correct_answer": "Sagisag ng kalayaan"
+          },
+          {
+            "question": "Pambansang awit ng Pilipinas?",
+            "options": [
+              "Lupang Hinirang",
+              "Bahay Kubo",
+              "Bayan Ko",
+              "Anak"
+            ],
+            "correct_answer": "Lupang Hinirang"
+          },
+          {
+            "question": "Pambansang ibon?",
+            "options": [
+              "Agila (Philippine Eagle)",
+              "Aso",
+              "Pusa",
+              "Ibon lamang"
+            ],
+            "correct_answer": "Agila (Philippine Eagle)"
+          },
+          {
+            "question": "Pambansang bulaklak?",
+            "options": [
+              "Sampaguita",
+              "Rosas",
+              "Sunflower",
+              "Orchid"
+            ],
+            "correct_answer": "Sampaguita"
+          },
+          {
+            "question": "Kahulugan ng bawat sagisag pambansa?",
+            "options": [
+              "Kumakatawan sa halagahin ng bansa",
+              "Walang kahulugan",
+              "Para lamang palamuti",
+              "Uri ng laro lamang"
+            ],
+            "correct_answer": "Kumakatawan sa halagahin ng bansa"
+          },
+          {
+            "question": "Halagahing kinakatawan ng watawat?",
+            "options": [
+              "Kalayaan",
+              "Kayamanan",
+              "Kagutuman",
+              "Kahirapan"
+            ],
+            "correct_answer": "Kalayaan"
+          },
+          {
+            "question": "Tamang gawin kapag humaharap sa bandila?",
+            "options": [
+              "Pagsaludo at pagtayo nang tuwid",
+              "Pag-upo lamang",
+              "Pagtalikod",
+              "Pagtawa"
+            ],
+            "correct_answer": "Pagsaludo at pagtayo nang tuwid"
+          },
+          {
+            "question": "Bakit igalang ang mga sagisag pambansa?",
+            "options": [
+              "Nagpapakita ng paggalang sa bansa",
+              "Walang kahalagahan",
+              "Hindi na kailangan",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Nagpapakita ng paggalang sa bansa"
+          },
+          {
+            "question": "Tinutukoy ng etiketa sa bandila?",
+            "options": [
+              "Tamang pakikitungo sa bandila",
+              "Uri ng damit lamang",
+              "Uri ng pagkain",
+              "Walang kahulugan"
+            ],
+            "correct_answer": "Tamang pakikitungo sa bandila"
+          },
+          {
+            "question": "Bakit mahalaga ang mga sagisag sa pagkakakilanlan ng Pilipino?",
+            "options": [
+              "Nagpapakita ng natatanging kultura at kasaysayan",
+              "Walang kaugnayan",
+              "Galing sa ibang bansa",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Nagpapakita ng natatanging kultura at kasaysayan"
+          },
+          {
+            "question": "Bakit ituro ang mga sagisag sa mga bata?",
+            "options": [
+              "Mahubog ang pagmamahal at paggalang sa bansa",
+              "Hindi kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Mahubog ang pagmamahal at paggalang sa bansa"
+          },
+          {
+            "question": "Koneksyon sa mga elemento ng pagkabansa?",
+            "options": [
+              "Ipinapakita ang pagkakakilanlan ng bansa bilang bahagi ng soberanya",
+              "Walang koneksyon",
+              "Hiwalay sa konsepto ng bansa",
+              "Hindi kailangan ng bansa"
+            ],
+            "correct_answer": "Ipinapakita ang pagkakakilanlan ng bansa bilang bahagi ng soberanya"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🎬 Friday Review — EPP (ICT) (Grade 4)\n\n- Presentation at multimedia elements\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "Elemento ng magandang presentation?",
+            "options": [
+              "Malinaw na teksto",
+              "Napakaraming teksto sa slide",
+              "Walang larawan",
+              "Walang organisasyon"
+            ],
+            "correct_answer": "Malinaw na teksto"
+          },
+          {
+            "question": "Bakit iwasan ang sobrang teksto sa slide?",
+            "options": [
+              "Mahihirapan basahin at unawain",
+              "Walang epekto",
+              "Mas mahusay ang mas maraming teksto",
+              "Kinakailangan ito"
+            ],
+            "correct_answer": "Mahihirapan basahin at unawain"
+          },
+          {
+            "question": "Bakit gumamit ng angkop na larawan?",
+            "options": [
+              "Sumusuporta sa mensahe",
+              "Walang gamit",
+              "Ginagawa lamang magulo",
+              "Hindi kailangan"
+            ],
+            "correct_answer": "Sumusuporta sa mensahe"
+          },
+          {
+            "question": "Kasama sa multimedia sa presentation?",
+            "options": [
+              "Litrato, tunog, o bidyo",
+              "Teksto lamang",
+              "Walang laman",
+              "Numero lamang"
+            ],
+            "correct_answer": "Litrato, tunog, o bidyo"
+          },
+          {
+            "question": "Bakit kaunti lamang ang transition?",
+            "options": [
+              "Iwasan ang pagiging nakakagulo",
+              "Gawing mas magulo",
+              "Walang kahalagahan",
+              "Kinakailangan ang marami"
+            ],
+            "correct_answer": "Iwasan ang pagiging nakakagulo"
+          },
+          {
+            "question": "Bakit mahalaga ang magandang presentation?",
+            "options": [
+              "Maipahayag nang malinaw ang mensahe",
+              "Walang kahalagahan",
+              "Para lamang palamutihan",
+              "Hindi kailangan"
+            ],
+            "correct_answer": "Maipahayag nang malinaw ang mensahe"
+          },
+          {
+            "question": "Mangyayari kung sobrang teksto ang slide?",
+            "options": [
+              "Mahihirapang basahin ng manonood",
+              "Mas magiging malinaw",
+              "Walang epekto",
+              "Mas madaling maunawaan"
+            ],
+            "correct_answer": "Mahihirapang basahin ng manonood"
+          },
+          {
+            "question": "Bakit ituro ang presentation sa ICT?",
+            "options": [
+              "Matutong maipahayag ang ideya sa iba",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng ICT"
+            ],
+            "correct_answer": "Matutong maipahayag ang ideya sa iba"
+          },
+          {
+            "question": "Alin ang HINDI dapat gawin sa presentation?",
+            "options": [
+              "Maglagay ng napakaraming teksto",
+              "Gumamit ng angkop na larawan",
+              "Panatilihing malinaw ang mensahe",
+              "Gumamit ng kaunting transition"
+            ],
+            "correct_answer": "Maglagay ng napakaraming teksto"
+          },
+          {
+            "question": "Bakit mag-focus sa isang malinaw na mensahe kada slide?",
+            "options": [
+              "Hindi malito ang manonood",
+              "Walang kahalagahan",
+              "Basta marami ang impormasyon, okay na",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Hindi malito ang manonood"
+          },
+          {
+            "question": "Paano tumutulong ang tunog o bidyo?",
+            "options": [
+              "Ginagawang mas kaakit-akit ang presentation",
+              "Wala itong tulong",
+              "Ginagawang mas mahirap",
+              "Hindi kailangan"
+            ],
+            "correct_answer": "Ginagawang mas kaakit-akit ang presentation"
+          },
+          {
+            "question": "Bakit balikan ang natutunang kasanayan?",
+            "options": [
+              "Patatagin ang kaalaman bago bagong proyekto",
+              "Hindi kailangan balikan",
+              "Walang gamit",
+              "Libangin lamang ang guro"
+            ],
+            "correct_answer": "Patatagin ang kaalaman bago bagong proyekto"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 4)\n\n- Fundamental dance steps sa 2/4 time\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang fundamental dance steps?",
+            "options": [
+              "Batayang hakbang sa maraming sayaw",
+              "Uri ng awit",
+              "Uri ng laro",
+              "Uri ng pagguhit"
+            ],
+            "correct_answer": "Batayang hakbang sa maraming sayaw"
+          },
+          {
+            "question": "Ilang beat sa 2/4 time?",
+            "options": [
+              "Dalawa",
+              "Tatlo",
+              "Apat",
+              "Isa"
+            ],
+            "correct_answer": "Dalawa"
+          },
+          {
+            "question": "Uri ng sayaw sa 2/4 time?",
+            "options": [
+              "Polka",
+              "Waltz",
+              "Tango",
+              "Ballroom sa 3/4"
+            ],
+            "correct_answer": "Polka"
+          },
+          {
+            "question": "Bakit matutunan ang batayang hakbang?",
+            "options": [
+              "Matutunan ang mas kumplikadong sayaw",
+              "Walang kahalagahan",
+              "Hindi kailangan matutunan",
+              "Libangin lamang ang guro"
+            ],
+            "correct_answer": "Matutunan ang mas kumplikadong sayaw"
+          },
+          {
+            "question": "Halimbawa ng fundamental dance step?",
+            "options": [
+              "Touch step",
+              "Pagbasa",
+              "Pagsulat",
+              "Paglangoy"
+            ],
+            "correct_answer": "Touch step"
+          },
+          {
+            "question": "Bakit ituro ang batayan bago kumplikado?",
+            "options": [
+              "Matibay na pundasyon",
+              "Walang dahilan",
+              "Hindi kailangan ng batayan",
+              "Anumang sayaw puwede agad"
+            ],
+            "correct_answer": "Matibay na pundasyon"
+          },
+          {
+            "question": "Layunin ng pagsasanay sa 2/4 time?",
+            "options": [
+              "Sumabay sa tempo ng mabilis na musika",
+              "Matutong sumulat",
+              "Maglaro ng basketball",
+              "Matuto ng matematika"
+            ],
+            "correct_answer": "Sumabay sa tempo ng mabilis na musika"
+          },
+          {
+            "question": "Bakit mahalaga ang koordinasyon sa dance steps?",
+            "options": [
+              "Maayos at magkasabay na galaw",
+              "Walang kahalagahan",
+              "Hindi kailangan",
+              "Anumang galaw ay tama"
+            ],
+            "correct_answer": "Maayos at magkasabay na galaw"
+          },
+          {
+            "question": "Benepisyo ng pagsasanay ng sayaw?",
+            "options": [
+              "Pisikal na kakayahan at koordinasyon",
+              "Walang benepisyo",
+              "Pinapahina ang katawan",
+              "Pinipigilan ang paggalaw"
+            ],
+            "correct_answer": "Pisikal na kakayahan at koordinasyon"
+          },
+          {
+            "question": "Bakit tumpak na bilang ng beat sa 2/4?",
+            "options": [
+              "Tumpak na masabayan ang musika",
+              "Walang kaugnayan",
+              "Basta gumagalaw",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Tumpak na masabayan ang musika"
+          },
+          {
+            "question": "Pagkakaiba ng 2/4 sa 3/4 time?",
+            "options": [
+              "Dalawang beat sa 2/4, tatlo sa 3/4",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "3/4 may dalawang beat"
+            ],
+            "correct_answer": "Dalawang beat sa 2/4, tatlo sa 3/4"
+          },
+          {
+            "question": "Bakit isinasama ang PE dance sa MAPEH?",
+            "options": [
+              "Nagtataguyod ng kalusugan at sining",
+              "Walang layunin",
+              "Hindi kaugnay ng edukasyon",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Nagtataguyod ng kalusugan at sining"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# ✏️ Friday Review — EPP (Grade 4)\n\n- Kasangkapan sa pagguhit: T-square, compass, protractor\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Gamit ng lapis sa pagguhit?",
+            "options": [
+              "Unang guhit o draft",
+              "Pagsukat ng anggulo",
+              "Gumawa ng bilog",
+              "Tuwid na linya lamang"
+            ],
+            "correct_answer": "Unang guhit o draft"
+          },
+          {
+            "question": "Gamit ng ruler o T-square?",
+            "options": [
+              "Tuwid na linya",
+              "Gumawa ng bilog",
+              "Pagsukat ng anggulo",
+              "Kulay lamang"
+            ],
+            "correct_answer": "Tuwid na linya"
+          },
+          {
+            "question": "Gamit ng compass?",
+            "options": [
+              "Gumawa ng bilog",
+              "Tuwid na linya",
+              "Unang guhit",
+              "Pagsukat ng anggulo"
+            ],
+            "correct_answer": "Gumawa ng bilog"
+          },
+          {
+            "question": "Gamit ng protractor?",
+            "options": [
+              "Pagsukat ng anggulo",
+              "Gumawa ng bilog",
+              "Tuwid na linya",
+              "Unang guhit"
+            ],
+            "correct_answer": "Pagsukat ng anggulo"
+          },
+          {
+            "question": "Sistema ng pagsukat sa Pilipinas?",
+            "options": [
+              "Metriko",
+              "Imperyal lamang",
+              "Walang sistema",
+              "Sistemang Tsino"
+            ],
+            "correct_answer": "Metriko"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang kasangkapan sa pagguhit?",
+            "options": [
+              "Tumpak at malinis na guhit",
+              "Walang kahalagahan",
+              "Anumang kasangkapan puwede",
+              "Hindi kailangan"
+            ],
+            "correct_answer": "Tumpak at malinis na guhit"
+          },
+          {
+            "question": "Bakit lapis ang ginagamit sa unang guhit?",
+            "options": [
+              "Madaling burahin at itama",
+              "Hindi dapat gumamit ng lapis",
+              "Hindi tumpak ang lapis",
+              "Walang dahilan"
+            ],
+            "correct_answer": "Madaling burahin at itama"
+          },
+          {
+            "question": "Bakit ituro ang Industrial Arts?",
+            "options": [
+              "Matutong gumawa ng tumpak na guhit",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Matutong gumawa ng tumpak na guhit"
+          },
+          {
+            "question": "Mangyayari kung hindi tamang kasangkapan?",
+            "options": [
+              "Hindi tumpak o malinis ang guhit",
+              "Walang epekto",
+              "Mas mabilis matapos",
+              "Palaging tumpak pa rin"
+            ],
+            "correct_answer": "Hindi tumpak o malinis ang guhit"
+          },
+          {
+            "question": "Halimbawa ng batayang kasangkapan?",
+            "options": [
+              "Compass",
+              "Sandok",
+              "Karayom",
+              "Kaldero"
+            ],
+            "correct_answer": "Compass"
+          },
+          {
+            "question": "Bakit matutong gumamit ng protractor?",
+            "options": [
+              "Tumpak na pagsukat ng anggulo",
+              "Hindi kailangan",
+              "Para lamang palamuti",
+              "Walang gamit"
+            ],
+            "correct_answer": "Tumpak na pagsukat ng anggulo"
+          },
+          {
+            "question": "Layunin ng IA pagkatapos ng FCS?",
+            "options": [
+              "Palawakin ang kasanayan sa gawaing-kamay",
+              "Walang layunin",
+              "Palitan ang FCS",
+              "Hindi konektado"
+            ],
+            "correct_answer": "Palawakin ang kasanayan sa gawaing-kamay"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 Friday Review — GMRC (Grade 4)\n\n- Mapagpakumbaba: kababaang-loob\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang kababaang-loob?",
+            "options": [
+              "Pagiging simple at hindi mapagmataas",
+              "Pagiging mayabang",
+              "Pagiging bastos",
+              "Kawalang galang"
+            ],
+            "correct_answer": "Pagiging simple at hindi mapagmataas"
+          },
+          {
+            "question": "Bakit bahagi ng pananampalataya ang kababaang-loob?",
+            "options": [
+              "Paggalang sa Diyos at sariling limitasyon",
+              "Walang kaugnayan sa pananampalataya",
+              "Tungkol lamang sa sarili",
+              "Hindi totoong pagpapahalaga"
+            ],
+            "correct_answer": "Paggalang sa Diyos at sariling limitasyon"
+          },
+          {
+            "question": "Halimbawa ng kababaang-loob?",
+            "options": [
+              "Pagtanggap ng puna nang walang galit",
+              "Pagyayabang",
+              "Pagtanggi sa payo",
+              "Pagmamataas"
+            ],
+            "correct_answer": "Pagtanggap ng puna nang walang galit"
+          },
+          {
+            "question": "Pagpapahalaga na tinalakay?",
+            "options": [
+              "Mapagpakumbaba (Humble)",
+              "Matipid",
+              "Mapagmalasakit",
+              "Magalang"
+            ],
+            "correct_answer": "Mapagpakumbaba (Humble)"
+          },
+          {
+            "question": "Bakit magbigay-pugay sa iba?",
+            "options": [
+              "Tunay na kababaang-loob",
+              "Wala itong kahalagahan",
+              "Dapat sumikat sa sarili",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Tunay na kababaang-loob"
+          },
+          {
+            "question": "Bakit sabihing 'salamat sa tulong ng iba'?",
+            "options": [
+              "Kababaang-loob at pasasalamat",
+              "Wala itong kahalagahan",
+              "Ipagmalaki na lamang ang sarili",
+              "Hindi kailangan magpasalamat"
+            ],
+            "correct_answer": "Kababaang-loob at pasasalamat"
+          },
+          {
+            "question": "Kabaligtaran ng kababaang-loob?",
+            "options": [
+              "Pagmamayabang",
+              "Pagtitiwala",
+              "Pagmamahal",
+              "Pananampalataya"
+            ],
+            "correct_answer": "Pagmamayabang"
+          },
+          {
+            "question": "Bakit pagpapahalaga ang kababaang-loob sa GMRC?",
+            "options": [
+              "Respeto sa Diyos at sariling limitasyon",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi ng agham lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Respeto sa Diyos at sariling limitasyon"
+          },
+          {
+            "question": "Bakit tanggapin ang puna nang walang galit?",
+            "options": [
+              "Nakakatulong lumago at magpakumbaba",
+              "Walang gamit",
+              "Dapat tanggihan ang puna",
+              "Puna palaging mali"
+            ],
+            "correct_answer": "Nakakatulong lumago at magpakumbaba"
+          },
+          {
+            "question": "Bakit matutong magpakumbaba mula pagkabata?",
+            "options": [
+              "Maging simple at magalang paglaki",
+              "Hindi kailangan matutunan",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging simple at magalang paglaki"
+          },
+          {
+            "question": "Naidudulot ng pagiging mapagpakumbaba?",
+            "options": [
+              "Mas mabuting ugnayan sa iba",
+              "Higit na away",
+              "Wala",
+              "Kawalan ng respeto"
+            ],
+            "correct_answer": "Mas mabuting ugnayan sa iba"
+          },
+          {
+            "question": "Koneksyon sa pagkakapantay-pantay?",
+            "options": [
+              "Pareho nagtuturo pagpapahalaga sa iba higit sa sarili",
+              "Walang kaugnayan",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Pareho nagtuturo pagpapahalaga sa iba higit sa sarili"
+          }
+        ]
+      }
+    }
+  }
+}

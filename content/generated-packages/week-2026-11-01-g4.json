@@ -1,0 +1,2266 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-11-01",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📖 English — Recount Texts About Gatherings\n\nGrade 4, Week 21! Let's learn about a new text type — the recount! 📖\n\n## 🔄 Review\nWe presented our invitation cards aloud.\n\n## 📖 What Is a Recount?\nA **recount** tells about events that already happened, in the order they occurred — like retelling a family gathering.\n\n## 🕯️ Recounts About Funerals and Symposia\nA recount about a funeral or symposium (a formal gathering to discuss a topic) usually includes:\n- **When and where** it happened\n- **Who** was involved\n- **What** happened, in order\n- **How** people felt or what was learned\n\n## 🔍 Recount vs. Procedural Text\nA **recount** tells what already happened (past tense). A **procedural text** tells how to do something (step-by-step instructions, present tense).\n\n**Key words:** recount, symposium, past events, procedural text",
+        "quiz": [
+          {
+            "question": "What is a recount?",
+            "options": [
+              "A text that tells about events that already happened, in order",
+              "A text that gives step-by-step instructions",
+              "A list of random facts",
+              "A poem with no order"
+            ],
+            "correct_answer": "A text that tells about events that already happened, in order"
+          },
+          {
+            "question": "What is a symposium?",
+            "options": [
+              "A formal gathering to discuss a topic",
+              "A type of funeral food",
+              "A type of dance",
+              "A birthday party"
+            ],
+            "correct_answer": "A formal gathering to discuss a topic"
+          },
+          {
+            "question": "What should a recount about a gathering include?",
+            "options": [
+              "When, where, who, and what happened",
+              "Only a list of ingredients",
+              "Only step-by-step directions",
+              "Nothing specific"
+            ],
+            "correct_answer": "When, where, who, and what happened"
+          },
+          {
+            "question": "What tense is usually used in a recount?",
+            "options": [
+              "Past tense",
+              "Future tense only",
+              "Present tense only",
+              "No tense at all"
+            ],
+            "correct_answer": "Past tense"
+          },
+          {
+            "question": "How is a recount different from a procedural text?",
+            "options": [
+              "A recount tells what happened; a procedural text tells how to do something",
+              "They are exactly the same",
+              "A recount is always about the future",
+              "A procedural text is always about the past"
+            ],
+            "correct_answer": "A recount tells what happened; a procedural text tells how to do something"
+          },
+          {
+            "question": "What tense is usually used in a procedural text?",
+            "options": [
+              "Present tense",
+              "Past tense only",
+              "Future tense only",
+              "No tense at all"
+            ],
+            "correct_answer": "Present tense"
+          },
+          {
+            "question": "Why might a recount include how people felt?",
+            "options": [
+              "It helps the reader understand the emotional significance of the event",
+              "Feelings are never important in a recount",
+              "It replaces the need for facts",
+              "It only matters in fiction"
+            ],
+            "correct_answer": "It helps the reader understand the emotional significance of the event"
+          },
+          {
+            "question": "Which of these is an example of a recount?",
+            "options": [
+              "Retelling what happened at your grandmother's wake",
+              "Instructions for baking a cake",
+              "A menu of food items",
+              "A list of vocabulary words"
+            ],
+            "correct_answer": "Retelling what happened at your grandmother's wake"
+          },
+          {
+            "question": "Why is order important in a recount?",
+            "options": [
+              "It helps the reader follow the sequence of real events",
+              "Order does not matter in a recount",
+              "Recounts have no order at all",
+              "Order only matters in procedural texts"
+            ],
+            "correct_answer": "It helps the reader follow the sequence of real events"
+          },
+          {
+            "question": "What might a recount about a symposium describe?",
+            "options": [
+              "What topics were discussed and by whom",
+              "Only the food that was served",
+              "Only the location's address",
+              "Nothing about the actual event"
+            ],
+            "correct_answer": "What topics were discussed and by whom"
+          },
+          {
+            "question": "Which detail would NOT belong in a recount about a funeral?",
+            "options": [
+              "Step-by-step instructions for baking bread",
+              "Who attended",
+              "What was said in the eulogy",
+              "How the family felt"
+            ],
+            "correct_answer": "Step-by-step instructions for baking bread"
+          },
+          {
+            "question": "Why do we study recount texts in Grade 4?",
+            "options": [
+              "To learn how to retell real past experiences clearly",
+              "They have no practical use",
+              "Recounts are only for adults",
+              "Recounts replace the need for procedural texts"
+            ],
+            "correct_answer": "To learn how to retell real past experiences clearly"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🍕 Mathematics — Introduction to Dissimilar Fractions\n\nGrade 4, Week 21! Let's learn about fractions with different denominators! 🍕\n\n## 🔄 Review\nWe reviewed multiplication, division, and similar fractions from this term.\n\n## 🍕 What Are Dissimilar Fractions?\n**Dissimilar fractions** have different denominators, like 1/2 and 1/3 — unlike similar fractions (1/4 and 3/4), which share the same denominator.\n\n## 🔢 Comparing Dissimilar Fractions\nTo compare 1/2 and 1/3, find a common denominator:\n- 1/2 = 3/6\n- 1/3 = 2/6\n- Since 3/6 > 2/6, **1/2 is greater than 1/3**\n\n## 🖍️ Representing Dissimilar Fractions\nDrawing models (circles, bars) divided differently helps visualize why fractions with different denominators need converting before comparing.\n\n**Key words:** dissimilar fractions, denominator, common denominator, compare",
+        "quiz": [
+          {
+            "question": "What are dissimilar fractions?",
+            "options": [
+              "Fractions with different denominators",
+              "Fractions with the same denominator",
+              "Fractions equal to 1",
+              "Whole numbers only"
+            ],
+            "correct_answer": "Fractions with different denominators"
+          },
+          {
+            "question": "Which pair is an example of dissimilar fractions?",
+            "options": [
+              "1/2 and 1/3",
+              "1/4 and 3/4",
+              "2/5 and 4/5",
+              "1/6 and 5/6"
+            ],
+            "correct_answer": "1/2 and 1/3"
+          },
+          {
+            "question": "What must you find to compare dissimilar fractions?",
+            "options": [
+              "A common denominator",
+              "A common numerator",
+              "The largest whole number",
+              "Nothing extra is needed"
+            ],
+            "correct_answer": "A common denominator"
+          },
+          {
+            "question": "What is 1/2 converted to sixths?",
+            "options": [
+              "3/6",
+              "2/6",
+              "1/6",
+              "6/6"
+            ],
+            "correct_answer": "3/6"
+          },
+          {
+            "question": "What is 1/3 converted to sixths?",
+            "options": [
+              "2/6",
+              "3/6",
+              "1/6",
+              "6/6"
+            ],
+            "correct_answer": "2/6"
+          },
+          {
+            "question": "Which is greater: 1/2 or 1/3?",
+            "options": [
+              "1/2",
+              "1/3",
+              "They are equal",
+              "Cannot be compared"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "Why do models help when comparing dissimilar fractions?",
+            "options": [
+              "They help visualize the different-sized parts",
+              "They replace the need for math",
+              "They make fractions disappear",
+              "They only work for similar fractions"
+            ],
+            "correct_answer": "They help visualize the different-sized parts"
+          },
+          {
+            "question": "What is a denominator?",
+            "options": [
+              "The bottom number of a fraction, showing total parts",
+              "The top number of a fraction",
+              "A whole number only",
+              "A type of decimal"
+            ],
+            "correct_answer": "The bottom number of a fraction, showing total parts"
+          },
+          {
+            "question": "Which is greater: 1/4 or 1/3?",
+            "options": [
+              "1/3",
+              "1/4",
+              "They are equal",
+              "Cannot be compared"
+            ],
+            "correct_answer": "1/3"
+          },
+          {
+            "question": "Why can't you directly compare 1/2 and 1/3 without converting?",
+            "options": [
+              "They have different-sized parts (different denominators)",
+              "You always can compare directly",
+              "Fractions can never be compared",
+              "The numerators must be different too"
+            ],
+            "correct_answer": "They have different-sized parts (different denominators)"
+          },
+          {
+            "question": "What is 2/3 converted to sixths?",
+            "options": [
+              "4/6",
+              "2/6",
+              "3/6",
+              "6/6"
+            ],
+            "correct_answer": "4/6"
+          },
+          {
+            "question": "Comparing 4/6 and 3/6, which is greater?",
+            "options": [
+              "4/6",
+              "3/6",
+              "They are equal",
+              "Cannot tell"
+            ],
+            "correct_answer": "4/6"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# ⚡ Filipino — Mito: Katangian at Layunin\n\nGrade 4, Linggo 21! Alamin natin ang isang bagong anyo ng panitikan — ang mito. ⚡\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagbabahagi ng maikling kuwento.\n\n## ⚡ Ano ang Mito?\nAng **mito** ay isang kathang-isip na kuwento na naglalayong **ipaliwanag** ang pinagmulan ng mundo, tao, o kalikasan gamit ang mga diyos o nilalang na may kapangyarihan.\n\n## 🌟 Mga Katangian ng Mito\n- May mga **diyos o diyosa** o nilalang na makapangyarihan\n- Naglalaman ng **paliwanag** sa isang natural na pangyayari (hal. bakit umuulan, bakit may bahaghari)\n- Isinasalaysay bilang **totoo** ng dating paniniwala ng mga tao\n\n## 🎯 Layunin ng Mito\nIpaliwanag ang mga bagay na hindi pa naiintindihan gamit ang agham noong unang panahon.\n\n**Mahahalagang salita:** mito, diyos, paliwanag, pinagmulan",
+        "quiz": [
+          {
+            "question": "Ano ang mito?",
+            "options": [
+              "Kathang-isip na kuwento na nagpapaliwanag ng pinagmulan ng mundo o kalikasan",
+              "Kuwentong totoo tungkol sa kasalukuyang panahon",
+              "Isang liham pangkaibigan",
+              "Isang balita sa pahayagan"
+            ],
+            "correct_answer": "Kathang-isip na kuwento na nagpapaliwanag ng pinagmulan ng mundo o kalikasan"
+          },
+          {
+            "question": "Sino ang karaniwang nasa kuwento ng mito?",
+            "options": [
+              "Mga diyos o diyosa o nilalang na makapangyarihan",
+              "Mga ordinaryong tao lamang",
+              "Mga hayop sa bukid lamang",
+              "Walang tauhan"
+            ],
+            "correct_answer": "Mga diyos o diyosa o nilalang na makapangyarihan"
+          },
+          {
+            "question": "Ano ang layunin ng mito?",
+            "options": [
+              "Ipaliwanag ang mga bagay na hindi pa naiintindihan noon",
+              "Magbigay ng balita ngayon",
+              "Magturo ng matematika",
+              "Magbigay ng resipe"
+            ],
+            "correct_answer": "Ipaliwanag ang mga bagay na hindi pa naiintindihan noon"
+          },
+          {
+            "question": "Anong halimbawa ng pinaliwanag ng mito?",
+            "options": [
+              "Bakit umuulan o bakit may bahaghari",
+              "Kung paano gumawa ng kompyuter",
+              "Kung paano magluto ng ulam",
+              "Kung paano maglaro ng basketball"
+            ],
+            "correct_answer": "Bakit umuulan o bakit may bahaghari"
+          },
+          {
+            "question": "Paano isinasalaysay ang mito ng dating mga tao?",
+            "options": [
+              "Bilang totoo",
+              "Bilang biro lamang",
+              "Bilang balita",
+              "Bilang liham"
+            ],
+            "correct_answer": "Bilang totoo"
+          },
+          {
+            "question": "Bakit gumamit ang mga sinaunang tao ng mito?",
+            "options": [
+              "Wala pa silang agham para ipaliwanag ang mga natural na pangyayari",
+              "Mas gusto nilang magsinungaling",
+              "Wala silang ibang gawin",
+              "Hindi nila alam ang tunay na dahilan kaya't hindi na sila nag-isip"
+            ],
+            "correct_answer": "Wala pa silang agham para ipaliwanag ang mga natural na pangyayari"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang katangian ng mito?",
+            "options": [
+              "May diyos o nilalang na may kapangyarihan",
+              "Walang katangi-tanging tauhan",
+              "Palaging tungkol sa modernong buhay",
+              "Walang layuning ipaliwanag"
+            ],
+            "correct_answer": "May diyos o nilalang na may kapangyarihan"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang mito?",
+            "options": [
+              "Nagbibigay ito ng kaalaman sa paniniwala at kultura ng ating ninuno",
+              "Walang kahalagahan ito",
+              "Ito ay hindi bahagi ng ating kultura",
+              "Ito ay galing lamang sa ibang bansa"
+            ],
+            "correct_answer": "Nagbibigay ito ng kaalaman sa paniniwala at kultura ng ating ninuno"
+          },
+          {
+            "question": "Paano naiiba ang mito sa isang balita?",
+            "options": [
+              "Ang mito ay kathang-isip, ang balita ay totoong pangyayari ngayon",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Ang balita ay laging tungkol sa diyos"
+            ],
+            "correct_answer": "Ang mito ay kathang-isip, ang balita ay totoong pangyayari ngayon"
+          },
+          {
+            "question": "Alin ang halimbawa ng Pilipinong mito?",
+            "options": [
+              "Ang alamat ng unang araw at buwan",
+              "Isang recipe ng adobo",
+              "Isang balitang pampolitika",
+              "Isang liham ng aplikasyon"
+            ],
+            "correct_answer": "Ang alamat ng unang araw at buwan"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang pag-aaral ng mito sa kasalukuyan?",
+            "options": [
+              "Nakakatulong ito maunawaan ang ugat ng ilang paniniwala at tradisyon",
+              "Wala itong kaugnayan sa kasalukuyan",
+              "Ito ay hindi na dapat pag-aralan",
+              "Wala itong halaga sa edukasyon"
+            ],
+            "correct_answer": "Nakakatulong ito maunawaan ang ugat ng ilang paniniwala at tradisyon"
+          },
+          {
+            "question": "Ano ang pangunahing pagkakaiba ng mito sa isang tunay na kasaysayan?",
+            "options": [
+              "Ang mito ay kathang-isip, ang kasaysayan ay batay sa totoong pangyayari",
+              "Magkatulad lamang sila",
+              "Ang kasaysayan ay palaging tungkol sa diyos",
+              "Walang pagkakaiba"
+            ],
+            "correct_answer": "Ang mito ay kathang-isip, ang kasaysayan ay batay sa totoong pangyayari"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🏃 Science — Forces, Movement, and Speed\n\nGrade 4, Week 21! Let's learn how to measure how fast something moves! 🏃\n\n## 🔄 Review\nWe reviewed body systems, habitats, and food chains this term.\n\n## 🏃 What Is Speed?\n**Speed** tells us how fast an object moves — it is the distance traveled divided by the time it takes.\n\n$$\\text{Speed} = \\frac{\\text{distance}}{\\text{time}}$$\n\n## 📏 Measuring Distance and Time\nTo find speed, we need two measurements: **distance** (how far, in meters) and **time** (how long, in seconds).\n\n**Example:** A runner covers 100 meters in 20 seconds.\nSpeed = 100 ÷ 20 = **5 meters per second**\n\n## 🎯 Why Speed Matters\nUnderstanding speed helps us compare how fast different things move — a car, a bicycle, or a runner.\n\n**Key words:** speed, distance, time, meters per second",
+        "quiz": [
+          {
+            "question": "What is speed?",
+            "options": [
+              "How fast an object moves (distance ÷ time)",
+              "How heavy an object is",
+              "How far an object is from you",
+              "The color of an object"
+            ],
+            "correct_answer": "How fast an object moves (distance ÷ time)"
+          },
+          {
+            "question": "What two measurements are needed to find speed?",
+            "options": [
+              "Distance and time",
+              "Weight and color",
+              "Height and width",
+              "Temperature and sound"
+            ],
+            "correct_answer": "Distance and time"
+          },
+          {
+            "question": "A runner covers 100 meters in 20 seconds. What is the speed?",
+            "options": [
+              "5 meters per second",
+              "20 meters per second",
+              "100 meters per second",
+              "2000 meters per second"
+            ],
+            "correct_answer": "5 meters per second"
+          },
+          {
+            "question": "What is the formula for speed?",
+            "options": [
+              "Distance ÷ time",
+              "Distance × time",
+              "Time ÷ distance",
+              "Distance + time"
+            ],
+            "correct_answer": "Distance ÷ time"
+          },
+          {
+            "question": "Why is understanding speed useful?",
+            "options": [
+              "It helps compare how fast different things move",
+              "It has no practical use",
+              "It only matters for cars",
+              "It replaces the need for distance"
+            ],
+            "correct_answer": "It helps compare how fast different things move"
+          },
+          {
+            "question": "A car travels 60 kilometers in 1 hour. What is its speed?",
+            "options": [
+              "60 kilometers per hour",
+              "1 kilometer per hour",
+              "60 hours per kilometer",
+              "Cannot be determined"
+            ],
+            "correct_answer": "60 kilometers per hour"
+          },
+          {
+            "question": "If two runners cover the same distance, but one takes less time, who is faster?",
+            "options": [
+              "The one who took less time",
+              "The one who took more time",
+              "Both are equally fast",
+              "Cannot be determined"
+            ],
+            "correct_answer": "The one who took less time"
+          },
+          {
+            "question": "What unit might we use to measure speed?",
+            "options": [
+              "Meters per second",
+              "Grams only",
+              "Degrees only",
+              "Liters only"
+            ],
+            "correct_answer": "Meters per second"
+          },
+          {
+            "question": "A cyclist covers 30 meters in 5 seconds. What is the speed?",
+            "options": [
+              "6 meters per second",
+              "5 meters per second",
+              "30 meters per second",
+              "150 meters per second"
+            ],
+            "correct_answer": "6 meters per second"
+          },
+          {
+            "question": "Why do we divide distance by time to find speed?",
+            "options": [
+              "It tells us how much distance is covered per unit of time",
+              "Division has no connection to speed",
+              "We should multiply instead",
+              "Speed cannot be calculated"
+            ],
+            "correct_answer": "It tells us how much distance is covered per unit of time"
+          },
+          {
+            "question": "If a turtle moves slower than a rabbit, what does that mean about their speeds?",
+            "options": [
+              "The turtle's speed is lower than the rabbit's",
+              "The turtle's speed is higher",
+              "Their speeds are always equal",
+              "Speed does not apply to animals"
+            ],
+            "correct_answer": "The turtle's speed is lower than the rabbit's"
+          },
+          {
+            "question": "A walker covers 40 meters in 20 seconds. What is their speed?",
+            "options": [
+              "2 meters per second",
+              "20 meters per second",
+              "40 meters per second",
+              "800 meters per second"
+            ],
+            "correct_answer": "2 meters per second"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🏛️ Araling Panlipunan — Elemento ng Pagkabansa\n\nGrade 4, Linggo 21! Alamin natin ang mga sangkap na bumubuo sa isang bansa. 🏛️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang epekto ng gawaing pangkabuhayan sa kapaligiran.\n\n## 🏛️ Apat na Elemento ng Pagkabansa\n- **Teritoryo** — ang lupain, tubig, at himpapawid na sakop ng bansa\n- **Mamamayan** — ang mga taong naninirahan at bahagi ng bansa\n- **Pamahalaan** — ang sistemang namamahala sa bansa\n- **Soberanya** — ang kapangyarihan ng bansa na mamahala nang walang panghihimasok\n\n## 🇵🇭 Halimbawa sa Pilipinas\nAng Pilipinas ay may teritoryo (mga isla), mamamayan (mga Pilipino), pamahalaan (Malacañang, Kongreso, Korte Suprema), at soberanya (kalayaan mula sa ibang bansa).\n\n**Mahahalagang salita:** pagkabansa, teritoryo, mamamayan, pamahalaan, soberanya",
+        "quiz": [
+          {
+            "question": "Ilan ang elemento ng pagkabansa?",
+            "options": [
+              "Apat",
+              "Dalawa",
+              "Anim",
+              "Sampu"
+            ],
+            "correct_answer": "Apat"
+          },
+          {
+            "question": "Ano ang teritoryo?",
+            "options": [
+              "Lupain, tubig, at himpapawid na sakop ng bansa",
+              "Mga taong naninirahan",
+              "Sistemang namamahala",
+              "Kapangyarihan mamahala"
+            ],
+            "correct_answer": "Lupain, tubig, at himpapawid na sakop ng bansa"
+          },
+          {
+            "question": "Ano ang mamamayan?",
+            "options": [
+              "Mga taong naninirahan at bahagi ng bansa",
+              "Ang lupain ng bansa",
+              "Ang sistema ng pamahalaan",
+              "Ang bandila ng bansa"
+            ],
+            "correct_answer": "Mga taong naninirahan at bahagi ng bansa"
+          },
+          {
+            "question": "Ano ang pamahalaan?",
+            "options": [
+              "Sistemang namamahala sa bansa",
+              "Ang lupain ng bansa",
+              "Ang mga mamamayan",
+              "Ang kapangyarihan lamang"
+            ],
+            "correct_answer": "Sistemang namamahala sa bansa"
+          },
+          {
+            "question": "Ano ang soberanya?",
+            "options": [
+              "Kapangyarihan ng bansa na mamahala nang walang panghihimasok",
+              "Ang teritoryo ng bansa",
+              "Ang mamamayan ng bansa",
+              "Ang bandila ng bansa"
+            ],
+            "correct_answer": "Kapangyarihan ng bansa na mamahala nang walang panghihimasok"
+          },
+          {
+            "question": "Ano ang teritoryo ng Pilipinas?",
+            "options": [
+              "Mga isla nito",
+              "Ang Malacañang lamang",
+              "Ang mga Pilipino lamang",
+              "Ang kalayaan lamang"
+            ],
+            "correct_answer": "Mga isla nito"
+          },
+          {
+            "question": "Sino ang mamamayan ng Pilipinas?",
+            "options": [
+              "Mga Pilipino",
+              "Mga isla lamang",
+              "Ang Kongreso lamang",
+              "Ang Korte Suprema lamang"
+            ],
+            "correct_answer": "Mga Pilipino"
+          },
+          {
+            "question": "Bakit mahalaga ang soberanya sa isang bansa?",
+            "options": [
+              "Nagbibigay ito ng kalayaang mamahala ng sarili nitong pamahalaan",
+              "Wala itong kahalagahan",
+              "Nagpapahina ito ng bansa",
+              "Hindi na ito kailangan sa modernong panahon"
+            ],
+            "correct_answer": "Nagbibigay ito ng kalayaang mamahala ng sarili nitong pamahalaan"
+          },
+          {
+            "question": "Ano ang mangyayari kung walang isa sa apat na elemento ng pagkabansa?",
+            "options": [
+              "Hindi ito maituturing na ganap na bansa",
+              "Wala itong epekto",
+              "Mas magiging malakas ang bansa",
+              "Ito ay magiging mas maayos"
+            ],
+            "correct_answer": "Hindi ito maituturing na ganap na bansa"
+          },
+          {
+            "question": "Alin ang halimbawa ng pamahalaan sa Pilipinas?",
+            "options": [
+              "Malacañang, Kongreso, Korte Suprema",
+              "Mga isla lamang",
+              "Mga Pilipino lamang",
+              "Ang bandila lamang"
+            ],
+            "correct_answer": "Malacañang, Kongreso, Korte Suprema"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga elemento ng pagkabansa?",
+            "options": [
+              "Tumutulong itong maunawaan kung ano ang bumubuo sa isang bansa",
+              "Walang kaugnayan sa kasaysayan",
+              "Ito ay tungkol lamang sa ibang bansa",
+              "Hindi mahalagang paksa ito"
+            ],
+            "correct_answer": "Tumutulong itong maunawaan kung ano ang bumubuo sa isang bansa"
+          },
+          {
+            "question": "Ano ang koneksyon ng mamamayan sa pagkabansa?",
+            "options": [
+              "Sila ang mga taong bumubuo at nagpapatakbo ng lipunan sa loob ng bansa",
+              "Walang koneksyon ang mamamayan sa bansa",
+              "Ang mamamayan ay hiwalay sa konsepto ng bansa",
+              "Hindi kailangan ng mamamayan ang isang bansa"
+            ],
+            "correct_answer": "Sila ang mga taong bumubuo at nagpapatakbo ng lipunan sa loob ng bansa"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Review: Digital Citizenship at Software\n\nGrade 4, Week 21! Balikan natin ang mga natutuhang kasanayan sa ICT. 💻\n\n## 🔄 Balik-Aral\nNatutuhan natin ang word processing, presentation, at spreadsheet software.\n\n## 💻 Digital Citizenship Recap\n- Bantayan ang **screen time** at postura\n- Sundin ang mga alituntunin sa **online safety**\n- Panatilihing pribado ang personal na impormasyon\n\n## 🖥️ Recap ng mga Software\n- **Word Processing** — pagta-type at pag-format ng dokumento\n- **Presentation** — paggawa ng slides\n- **Spreadsheet** — pag-oorganisa ng datos sa cells\n- **Desktop Publishing** — paglikha ng poster o newsletter\n\n**Mahahalagang salita:** digital citizenship, word processing, presentation, spreadsheet",
+        "quiz": [
+          {
+            "question": "Ano ang digital citizenship?",
+            "options": [
+              "Responsable at ligtas na paggamit ng teknolohiya",
+              "Paggamit ng kompyuter nang walang pag-iingat",
+              "Pagbabahagi ng lahat ng impormasyon online",
+              "Kawalan ng alituntunin sa Internet"
+            ],
+            "correct_answer": "Responsable at ligtas na paggamit ng teknolohiya"
+          },
+          {
+            "question": "Ano ang ginagamit sa word processing?",
+            "options": [
+              "Pagta-type at pag-format ng dokumento",
+              "Pag-oorganisa ng datos sa cells",
+              "Paggawa ng slides",
+              "Pagguhit lamang"
+            ],
+            "correct_answer": "Pagta-type at pag-format ng dokumento"
+          },
+          {
+            "question": "Ano ang ginagamit sa presentation software?",
+            "options": [
+              "Paggawa ng slides",
+              "Pagta-type ng dokumento lamang",
+              "Pag-oorganisa ng datos sa cells",
+              "Pagguhit lamang"
+            ],
+            "correct_answer": "Paggawa ng slides"
+          },
+          {
+            "question": "Ano ang ginagamit sa spreadsheet software?",
+            "options": [
+              "Pag-oorganisa ng datos sa cells",
+              "Paggawa ng slides lamang",
+              "Pagta-type ng liham lamang",
+              "Pagguhit lamang"
+            ],
+            "correct_answer": "Pag-oorganisa ng datos sa cells"
+          },
+          {
+            "question": "Ano ang ginagamit sa desktop publishing?",
+            "options": [
+              "Paglikha ng poster o newsletter",
+              "Pag-oorganisa ng datos lamang",
+              "Pagta-type ng liham lamang",
+              "Paggawa ng slides lamang"
+            ],
+            "correct_answer": "Paglikha ng poster o newsletter"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang postura habang gumagamit ng kompyuter?",
+            "options": [
+              "Nakakaiwas ito sa sakit ng katawan",
+              "Walang epekto ang postura",
+              "Hindi na kailangan pag-isipan ito",
+              "Ito ay para lamang sa matatanda"
+            ],
+            "correct_answer": "Nakakaiwas ito sa sakit ng katawan"
+          },
+          {
+            "question": "Bakit mahalagang bantayan ang screen time?",
+            "options": [
+              "Maaaring makasama sa kalusugan kung sobra",
+              "Walang epekto sa kalusugan",
+              "Palaging mabuti ang mahabang screen time",
+              "Hindi na kailangan bantayan"
+            ],
+            "correct_answer": "Maaaring makasama sa kalusugan kung sobra"
+          },
+          {
+            "question": "Bakit hindi dapat ibahagi ang personal na impormasyon online?",
+            "options": [
+              "Maaaring gamitin ito ng may masamang layunin",
+              "Ligtas itong gawin palagi",
+              "Kinakailangan itong gawin",
+              "Walang panganib dito"
+            ],
+            "correct_answer": "Maaaring gamitin ito ng may masamang layunin"
+          },
+          {
+            "question": "Anong software ang gagamitin kung gusto mong gumawa ng ulat na may talahanayan ng datos?",
+            "options": [
+              "Spreadsheet",
+              "Presentation lamang",
+              "Word processing lamang",
+              "Desktop publishing lamang"
+            ],
+            "correct_answer": "Spreadsheet"
+          },
+          {
+            "question": "Anong software ang gagamitin kung magtatanghal ka sa harap ng klase?",
+            "options": [
+              "Presentation",
+              "Spreadsheet lamang",
+              "Word processing lamang",
+              "Desktop publishing lamang"
+            ],
+            "correct_answer": "Presentation"
+          },
+          {
+            "question": "Bakit mahalagang balikan ang mga kasanayang natutunan sa ICT?",
+            "options": [
+              "Para patatagin ang kaalaman bago matuto ng bago",
+              "Hindi na kailangan balikan ito",
+              "Wala itong gamit",
+              "Para lamang libangin ang guro"
+            ],
+            "correct_answer": "Para patatagin ang kaalaman bago matuto ng bago"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang bahagi ng online safety?",
+            "options": [
+              "Panatilihing pribado ang personal na impormasyon",
+              "Ibahagi ang password sa lahat",
+              "Sumagot sa lahat ng humihingi ng impormasyon",
+              "Iwasan ang pag-iingat online"
+            ],
+            "correct_answer": "Panatilihing pribado ang personal na impormasyon"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎭 MAPEH — Melodiya at Malusog na Pagkain\n\nGrade 4, Linggo 21! Alamin natin ang melodiya sa musika at ang kahalagahan ng malusog na pagkain. 🎭\n\n## 🔄 Balik-Aral\nNatutuhan natin ang rhythm at tempo sa musika ng pananampalataya.\n\n## 🎵 Ano ang Melodiya?\nAng **melodiya** ay ang serye ng mga tunog na tumataas o bumababa na bumubuo ng \"tono\" ng isang awit — madalas na ito ang bahaging madaling kantahin o alalahanin.\n\n## 🍎 Malusog na Pagkain\nAng **balanseng pagkain** ay may kasamang:\n- Karbohidrat (kanin, tinapay)\n- Protina (isda, itlog)\n- Gulay at prutas\n- Tubig\n\nMahalagang kumain ng iba't ibang uri ng pagkain para sa isang **malusog na katawan**.\n\n**Mahahalagang salita:** melodiya, tono, balanseng pagkain, nutrisyon",
+        "quiz": [
+          {
+            "question": "Ano ang melodiya?",
+            "options": [
+              "Serye ng tunog na bumubuo ng tono ng awit",
+              "Bilis ng isang awit",
+              "Lakas ng tunog",
+              "Instrumentong ginagamit"
+            ],
+            "correct_answer": "Serye ng tunog na bumubuo ng tono ng awit"
+          },
+          {
+            "question": "Ano ang balanseng pagkain?",
+            "options": [
+              "Pagkaing may karbohidrat, protina, gulay, at prutas",
+              "Kanin lamang",
+              "Matamis na pagkain lamang",
+              "Isang uri ng inumin lamang"
+            ],
+            "correct_answer": "Pagkaing may karbohidrat, protina, gulay, at prutas"
+          },
+          {
+            "question": "Alin ang halimbawa ng karbohidrat?",
+            "options": [
+              "Kanin",
+              "Isda",
+              "Gulay",
+              "Tubig lamang"
+            ],
+            "correct_answer": "Kanin"
+          },
+          {
+            "question": "Alin ang halimbawa ng protina?",
+            "options": [
+              "Isda o itlog",
+              "Kanin",
+              "Prutas lamang",
+              "Tubig lamang"
+            ],
+            "correct_answer": "Isda o itlog"
+          },
+          {
+            "question": "Bakit mahalagang kumain ng iba't ibang uri ng pagkain?",
+            "options": [
+              "Para sa malusog na katawan",
+              "Walang kahalagahan",
+              "Basta't marami lang, okay na",
+              "Hindi mahalaga ang iba't ibang uri"
+            ],
+            "correct_answer": "Para sa malusog na katawan"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang melodiya sa isang awit?",
+            "options": [
+              "Ito ang bahaging madaling kantahin at alalahanin",
+              "Wala itong kahalagahan",
+              "Ito lamang ang bahagi na walang tunog",
+              "Ginagamit lamang ito ng instrumento"
+            ],
+            "correct_answer": "Ito ang bahaging madaling kantahin at alalahanin"
+          },
+          {
+            "question": "Anong grupo ng pagkain ang kasama ang gulay at prutas?",
+            "options": [
+              "Bitamina at mineral",
+              "Karbohidrat lamang",
+              "Protina lamang",
+              "Taba lamang"
+            ],
+            "correct_answer": "Bitamina at mineral"
+          },
+          {
+            "question": "Bakit mahalaga ang tubig sa balanseng pagkain?",
+            "options": [
+              "Kailangan ng katawan ang tubig upang gumana nang maayos",
+              "Walang kahalagahan ang tubig",
+              "Hindi kasama ang tubig sa pagkain",
+              "Tubig ay nakakasama sa katawan"
+            ],
+            "correct_answer": "Kailangan ng katawan ang tubig upang gumana nang maayos"
+          },
+          {
+            "question": "Paano naiiba ang melodiya sa rhythm?",
+            "options": [
+              "Ang melodiya ay ang tono, ang rhythm ay ang tempo/bilis",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Ang rhythm ay tungkol sa tono lamang"
+            ],
+            "correct_answer": "Ang melodiya ay ang tono, ang rhythm ay ang tempo/bilis"
+          },
+          {
+            "question": "Bakit itinuturo ang food literacy sa MAPEH?",
+            "options": [
+              "Upang matutong pumili ng malusog na pagkain",
+              "Walang layunin ito",
+              "Hindi ito kaugnay ng kalusugan",
+              "Para lamang sa matatanda"
+            ],
+            "correct_answer": "Upang matutong pumili ng malusog na pagkain"
+          },
+          {
+            "question": "Alin ang HINDI bahagi ng balanseng pagkain?",
+            "options": [
+              "Junk food lamang bilang pangunahing pagkain",
+              "Karbohidrat",
+              "Protina",
+              "Gulay at prutas"
+            ],
+            "correct_answer": "Junk food lamang bilang pangunahing pagkain"
+          },
+          {
+            "question": "Bakit gumagamit ng iba't ibang tunog ang isang melodiya?",
+            "options": [
+              "Para lumikha ng natatanging tono na kilala at nakakaantig",
+              "Walang dahilan",
+              "Para lituhin ang tagapakinig",
+              "Para gawing mas maikli ang awit"
+            ],
+            "correct_answer": "Para lumikha ng natatanging tono na kilala at nakakaantig"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧴 EPP (FCS) — Pangangalaga sa Katawan\n\nGrade 4, Linggo 21! Simulan na natin ang bagong yunit tungkol sa Family and Consumer Science. 🧴\n\n## 🔄 Balik-Aral\nNatapos na natin ang yunit ng Paghahalaman.\n\n## 🧴 Pangangalaga sa Katawan sa Pagdadalaga/Pagbibinata\nSa Grade 4, nagsisimula ang mga pagbabago sa katawan (puberty). Mahalagang malaman ang:\n- Regular na **paliligo** at paggamit ng deodorant kung kinakailangan\n- Angkop na **kasuotan** ayon sa aktibidad at panahon\n- Pagpili ng angkop na **kagamitan sa personal na kalinisan**\n\n## 💡 Bakit Mahalaga Ito?\nAng tamang pangangalaga sa sarili ay nagbibigay ng **kumpiyansa** at nakakaiwas sa mga sakit na dulot ng kawalan ng kalinisan.\n\n**Mahahalagang salita:** pangangalaga sa katawan, pagdadalaga, pagbibinata, kalinisan",
+        "quiz": [
+          {
+            "question": "Bakit mahalaga ang regular na paliligo?",
+            "options": [
+              "Nakakaiwas ito sa masamang amoy at sakit",
+              "Walang kahalagahan",
+              "Hindi na kailangan ito araw-araw",
+              "Isang beses lamang sa isang linggo"
+            ],
+            "correct_answer": "Nakakaiwas ito sa masamang amoy at sakit"
+          },
+          {
+            "question": "Ano ang pagdadalaga/pagbibinata?",
+            "options": [
+              "Panahon ng mga pagbabago sa katawan ng bata papunta sa pagbibinata/pagdadalaga",
+              "Isang uri ng sakit",
+              "Isang uri ng laro",
+              "Isang uri ng pagkain"
+            ],
+            "correct_answer": "Panahon ng mga pagbabago sa katawan ng bata papunta sa pagbibinata/pagdadalaga"
+          },
+          {
+            "question": "Bakit kailangang pumili ng angkop na kasuotan ayon sa aktibidad?",
+            "options": [
+              "Para maging komportable at ligtas sa gagawing aktibidad",
+              "Walang kahalagahan ang kasuotan",
+              "Basta damit lang, okay na",
+              "Hindi mahalaga ang panahon sa kasuotan"
+            ],
+            "correct_answer": "Para maging komportable at ligtas sa gagawing aktibidad"
+          },
+          {
+            "question": "Anong halimbawa ng kagamitan sa personal na kalinisan?",
+            "options": [
+              "Sabon at tuwalya",
+              "Kompyuter",
+              "Kagamitan sa pagluluto",
+              "Kagamitan sa pagsasaka"
+            ],
+            "correct_answer": "Sabon at tuwalya"
+          },
+          {
+            "question": "Ano ang naidudulot ng tamang pangangalaga sa sarili?",
+            "options": [
+              "Kumpiyansa at pag-iwas sa sakit",
+              "Kahihiyan",
+              "Walang naidudulot",
+              "Sakit at kahihiyan lamang"
+            ],
+            "correct_answer": "Kumpiyansa at pag-iwas sa sakit"
+          },
+          {
+            "question": "Bakit mahalagang alamin ang mga pagbabago sa katawan sa Grade 4?",
+            "options": [
+              "Para maunawaan at maging handa sa mga pagbabagong ito",
+              "Hindi na kailangan ito malaman",
+              "Ito ay para lamang sa matatanda",
+              "Walang epekto ito sa buhay ng bata"
+            ],
+            "correct_answer": "Para maunawaan at maging handa sa mga pagbabagong ito"
+          },
+          {
+            "question": "Bakit maaaring kailanganin ang deodorant sa yugtong ito ng buhay?",
+            "options": [
+              "Dahil sa mga pagbabago sa katawan na nagdudulot ng pawis at amoy",
+              "Walang kaugnayan sa pagbabago ng katawan",
+              "Hindi na kailangan ito kailanman",
+              "Para lamang sa matatanda"
+            ],
+            "correct_answer": "Dahil sa mga pagbabago sa katawan na nagdudulot ng pawis at amoy"
+          },
+          {
+            "question": "Ano ang epekto ng kawalan ng kalinisan sa katawan?",
+            "options": [
+              "Maaaring magdulot ng sakit o masamang amoy",
+              "Walang epekto",
+              "Palaging mabuti ang resulta",
+              "Pinapabuti nito ang kalusugan"
+            ],
+            "correct_answer": "Maaaring magdulot ng sakit o masamang amoy"
+          },
+          {
+            "question": "Bakit itinuturo ang FCS sa paaralan?",
+            "options": [
+              "Upang matutong mag-alaga ng sarili at tahanan",
+              "Walang layunin ito",
+              "Hindi ito kailangang matutunan",
+              "Para lamang sa mga babae"
+            ],
+            "correct_answer": "Upang matutong mag-alaga ng sarili at tahanan"
+          },
+          {
+            "question": "Alin sa mga ito ang HALIMBAWA ng tamang pangangalaga sa sarili?",
+            "options": [
+              "Araw-araw na paliligo",
+              "Hindi paliligo nang ilang araw",
+              "Pag-iwas sa paghuhugas ng kamay",
+              "Kawalan ng pag-aalaga sa katawan"
+            ],
+            "correct_answer": "Araw-araw na paliligo"
+          },
+          {
+            "question": "Bakit dapat maging maingat sa pagpili ng kasuotan sa panahon ng ulan?",
+            "options": [
+              "Para hindi magkasakit at mananatiling tuyo",
+              "Walang kaugnayan ang panahon sa kasuotan",
+              "Basta damit lang, okay na",
+              "Hindi mahalaga ang panahon"
+            ],
+            "correct_answer": "Para hindi magkasakit at mananatiling tuyo"
+          },
+          {
+            "question": "Ano ang kabuuang layunin ng yunit tungkol sa pangangalaga sa sarili?",
+            "options": [
+              "Matutong mag-alaga ng sariling kalusugan at kalinisan",
+              "Matuto ng matematika",
+              "Matuto ng agham",
+              "Matuto ng kasaysayan"
+            ],
+            "correct_answer": "Matutong mag-alaga ng sariling kalusugan at kalinisan"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💰 GMRC — Pagtitipid/Pag-iimpok Para sa Kapuwa\n\nGrade 4, Linggo 21! Pagpapahalaga: **Matipid (Thrifty)**. 💰\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa kaugaliang Pilipino sa pamilya.\n\n## 💰 Ano ang Pagtitipid Para sa Kapuwa?\nAng **pagtitipid** ay hindi lamang para sa sarili — maaari rin itong gawin upang may maitulong tayo sa **iba**.\n\n## 🤝 Halimbawa ng Pagtitipid Para sa Kapuwa\n- Pag-iipon ng barya para makatulong sa isang proyekto ng paaralan\n- Hindi pag-aaksaya ng pagkain upang may sapat na para sa iba\n- Pagbibigay ng bahagi ng ipon sa nangangailangan\n\n## 💡 Bakit Mahalaga Ito?\nAng pagtitipid nang may layuning makatulong sa iba ay nagpapakita ng **kabutihang-loob** at pananagutan sa kapuwa.\n\n**Mahahalagang salita:** matipid, pag-iimpok, kabutihang-loob, kapuwa",
+        "quiz": [
+          {
+            "question": "Ano ang pagtitipid para sa kapuwa?",
+            "options": [
+              "Pag-iimpok na may layuning makatulong sa iba",
+              "Pag-iimpok para sa sarili lamang",
+              "Kawalang pakialam sa pera",
+              "Pag-aaksaya ng pera"
+            ],
+            "correct_answer": "Pag-iimpok na may layuning makatulong sa iba"
+          },
+          {
+            "question": "Anong halimbawa ng pagtitipid para sa kapuwa?",
+            "options": [
+              "Pag-iipon ng barya para sa proyekto ng paaralan",
+              "Pagtapon ng pagkain",
+              "Pag-aaksaya ng pera sa laruan lamang",
+              "Kawalang interes sa ibang tao"
+            ],
+            "correct_answer": "Pag-iipon ng barya para sa proyekto ng paaralan"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Matipid (Thrifty)",
+              "Mapagmalasakit",
+              "Magalang",
+              "Mapagpakumbaba"
+            ],
+            "correct_answer": "Matipid (Thrifty)"
+          },
+          {
+            "question": "Bakit hindi dapat aksayahin ang pagkain?",
+            "options": [
+              "Upang may sapat na para sa iba",
+              "Walang epekto ang pag-aaksaya",
+              "Basta't marami ka, okay lang",
+              "Hindi mahalaga ang pagkain"
+            ],
+            "correct_answer": "Upang may sapat na para sa iba"
+          },
+          {
+            "question": "Ano ang naipapakita ng pagbibigay ng bahagi ng ipon sa nangangailangan?",
+            "options": [
+              "Kabutihang-loob at pananagutan sa kapuwa",
+              "Kawalang-interes",
+              "Kasakiman",
+              "Walang kahulugan"
+            ],
+            "correct_answer": "Kabutihang-loob at pananagutan sa kapuwa"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang pagiging matipid?",
+            "options": [
+              "Nagpapakita ito ng pananagutan sa sarili at sa iba",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ito ng matematika",
+              "Hindi ito itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagpapakita ito ng pananagutan sa sarili at sa iba"
+          },
+          {
+            "question": "Ano ang isang paraan upang ipakita ang pagtitipid sa araw-araw na buhay?",
+            "options": [
+              "Iwasan ang pag-aaksaya ng pagkain at pera",
+              "Gastusin lahat ng pera agad",
+              "Aksayahin ang mga gamit",
+              "Huwag mag-isip tungkol sa pera"
+            ],
+            "correct_answer": "Iwasan ang pag-aaksaya ng pagkain at pera"
+          },
+          {
+            "question": "Bakit mahalagang matutong magtipid mula sa maagang edad?",
+            "options": [
+              "Upang maging responsable sa pananalapi paglaki",
+              "Hindi kailangan ito matutunan",
+              "Para sa matatanda lamang",
+              "Walang epekto ito sa hinaharap"
+            ],
+            "correct_answer": "Upang maging responsable sa pananalapi paglaki"
+          },
+          {
+            "question": "Ano ang epekto ng pagtitipid sa isang komunidad?",
+            "options": [
+              "Mas maraming mapagkukunan para sa mga nangangailangan",
+              "Kawalan ng benepisyo",
+              "Nagdudulot ng kakulangan sa lahat",
+              "Walang epekto sa iba"
+            ],
+            "correct_answer": "Mas maraming mapagkukunan para sa mga nangangailangan"
+          },
+          {
+            "question": "Paano nauugnay ang pagtitipid sa pagmamalasakit sa kapuwa?",
+            "options": [
+              "Ang pag-iimpok ay maaaring gamitin para tumulong sa iba",
+              "Walang koneksyon ang dalawa",
+              "Ang pagtitipid ay para sa sarili lamang",
+              "Hindi konektado ang dalawang konsepto"
+            ],
+            "correct_answer": "Ang pag-iimpok ay maaaring gamitin para tumulong sa iba"
+          },
+          {
+            "question": "Bakit dapat ituro ang halagang ito sa mga bata simula ngayon?",
+            "options": [
+              "Upang maunawaan na ang pagtitipid ay maaaring makatulong din sa iba",
+              "Hindi kailangan ituro ito",
+              "Para sa matatanda lamang",
+              "Walang epekto ito sa pagkabata"
+            ],
+            "correct_answer": "Upang maunawaan na ang pagtitipid ay maaaring makatulong din sa iba"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HINDI halimbawa ng pagtitipid para sa kapuwa?",
+            "options": [
+              "Pag-aaksaya ng pagkain kahit may kakulangan sa iba",
+              "Pag-iipon para sa proyekto ng paaralan",
+              "Pagbibigay ng ipon sa nangangailangan",
+              "Pag-iwas sa pag-aaksaya ng pera"
+            ],
+            "correct_answer": "Pag-aaksaya ng pagkain kahit may kakulangan sa iba"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📖 Friday Review — English (Grade 4)\n\n- Recount texts: what already happened, in order\n\nGreat reading work! 🌟",
+        "quiz": [
+          {
+            "question": "What is a recount?",
+            "options": [
+              "A text telling about events that already happened, in order",
+              "A text giving step-by-step instructions",
+              "A list of random facts",
+              "A poem with no order"
+            ],
+            "correct_answer": "A text telling about events that already happened, in order"
+          },
+          {
+            "question": "What is a symposium?",
+            "options": [
+              "A formal gathering to discuss a topic",
+              "A type of funeral food",
+              "A type of dance",
+              "A birthday party"
+            ],
+            "correct_answer": "A formal gathering to discuss a topic"
+          },
+          {
+            "question": "What should a recount include?",
+            "options": [
+              "When, where, who, and what happened",
+              "Only ingredients",
+              "Only directions",
+              "Nothing specific"
+            ],
+            "correct_answer": "When, where, who, and what happened"
+          },
+          {
+            "question": "What tense does a recount use?",
+            "options": [
+              "Past tense",
+              "Future tense only",
+              "Present tense only",
+              "No tense"
+            ],
+            "correct_answer": "Past tense"
+          },
+          {
+            "question": "How is a recount different from a procedural text?",
+            "options": [
+              "Recount tells what happened; procedural tells how to do something",
+              "They are the same",
+              "Recount is always about the future",
+              "Procedural is always about the past"
+            ],
+            "correct_answer": "Recount tells what happened; procedural tells how to do something"
+          },
+          {
+            "question": "What tense does a procedural text use?",
+            "options": [
+              "Present tense",
+              "Past tense only",
+              "Future tense only",
+              "No tense"
+            ],
+            "correct_answer": "Present tense"
+          },
+          {
+            "question": "Why include feelings in a recount?",
+            "options": [
+              "Helps understand emotional significance",
+              "Feelings never matter",
+              "Replaces facts",
+              "Only matters in fiction"
+            ],
+            "correct_answer": "Helps understand emotional significance"
+          },
+          {
+            "question": "Example of a recount?",
+            "options": [
+              "Retelling what happened at a wake",
+              "Baking instructions",
+              "A food menu",
+              "A vocabulary list"
+            ],
+            "correct_answer": "Retelling what happened at a wake"
+          },
+          {
+            "question": "Why is order important in a recount?",
+            "options": [
+              "Helps follow the real sequence of events",
+              "Order doesn't matter",
+              "Recounts have no order",
+              "Only matters in procedural texts"
+            ],
+            "correct_answer": "Helps follow the real sequence of events"
+          },
+          {
+            "question": "What might a symposium recount describe?",
+            "options": [
+              "What was discussed and by whom",
+              "Only food served",
+              "Only an address",
+              "Nothing real"
+            ],
+            "correct_answer": "What was discussed and by whom"
+          },
+          {
+            "question": "What wouldn't belong in a funeral recount?",
+            "options": [
+              "Bread-baking instructions",
+              "Who attended",
+              "The eulogy's content",
+              "How the family felt"
+            ],
+            "correct_answer": "Bread-baking instructions"
+          },
+          {
+            "question": "Why study recount texts?",
+            "options": [
+              "To retell real past experiences clearly",
+              "No practical use",
+              "Only for adults",
+              "Replaces procedural texts"
+            ],
+            "correct_answer": "To retell real past experiences clearly"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🍕 Friday Review — Mathematics (Grade 4)\n\n- Dissimilar fractions: comparing with common denominators\n\nGreat fraction work! ⭐",
+        "quiz": [
+          {
+            "question": "What are dissimilar fractions?",
+            "options": [
+              "Fractions with different denominators",
+              "Fractions with the same denominator",
+              "Fractions equal to 1",
+              "Whole numbers"
+            ],
+            "correct_answer": "Fractions with different denominators"
+          },
+          {
+            "question": "Example of dissimilar fractions?",
+            "options": [
+              "1/2 and 1/3",
+              "1/4 and 3/4",
+              "2/5 and 4/5",
+              "1/6 and 5/6"
+            ],
+            "correct_answer": "1/2 and 1/3"
+          },
+          {
+            "question": "What must you find to compare dissimilar fractions?",
+            "options": [
+              "A common denominator",
+              "A common numerator",
+              "The largest whole number",
+              "Nothing extra"
+            ],
+            "correct_answer": "A common denominator"
+          },
+          {
+            "question": "1/2 converted to sixths?",
+            "options": [
+              "3/6",
+              "2/6",
+              "1/6",
+              "6/6"
+            ],
+            "correct_answer": "3/6"
+          },
+          {
+            "question": "1/3 converted to sixths?",
+            "options": [
+              "2/6",
+              "3/6",
+              "1/6",
+              "6/6"
+            ],
+            "correct_answer": "2/6"
+          },
+          {
+            "question": "Which is greater: 1/2 or 1/3?",
+            "options": [
+              "1/2",
+              "1/3",
+              "Equal",
+              "Cannot compare"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "Why do models help compare dissimilar fractions?",
+            "options": [
+              "Visualize different-sized parts",
+              "Replace math",
+              "Make fractions disappear",
+              "Only work for similar fractions"
+            ],
+            "correct_answer": "Visualize different-sized parts"
+          },
+          {
+            "question": "What is a denominator?",
+            "options": [
+              "Bottom number showing total parts",
+              "Top number",
+              "A whole number",
+              "A decimal type"
+            ],
+            "correct_answer": "Bottom number showing total parts"
+          },
+          {
+            "question": "Which is greater: 1/4 or 1/3?",
+            "options": [
+              "1/3",
+              "1/4",
+              "Equal",
+              "Cannot compare"
+            ],
+            "correct_answer": "1/3"
+          },
+          {
+            "question": "Why can't you directly compare 1/2 and 1/3?",
+            "options": [
+              "Different-sized parts",
+              "You always can",
+              "Fractions can't compare",
+              "Numerators must differ too"
+            ],
+            "correct_answer": "Different-sized parts"
+          },
+          {
+            "question": "2/3 converted to sixths?",
+            "options": [
+              "4/6",
+              "2/6",
+              "3/6",
+              "6/6"
+            ],
+            "correct_answer": "4/6"
+          },
+          {
+            "question": "Comparing 4/6 and 3/6, which is greater?",
+            "options": [
+              "4/6",
+              "3/6",
+              "Equal",
+              "Cannot tell"
+            ],
+            "correct_answer": "4/6"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# ⚡ Friday Review — Filipino (Grade 4)\n\n- Mito: diyos, paliwanag, pinagmulan\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang mito?",
+            "options": [
+              "Kathang-isip na kuwento na nagpapaliwanag ng pinagmulan",
+              "Kuwentong totoo tungkol sa ngayon",
+              "Isang liham pangkaibigan",
+              "Isang balita"
+            ],
+            "correct_answer": "Kathang-isip na kuwento na nagpapaliwanag ng pinagmulan"
+          },
+          {
+            "question": "Sino ang karaniwang nasa mito?",
+            "options": [
+              "Mga diyos o nilalang na makapangyarihan",
+              "Mga ordinaryong tao lamang",
+              "Mga hayop sa bukid lamang",
+              "Walang tauhan"
+            ],
+            "correct_answer": "Mga diyos o nilalang na makapangyarihan"
+          },
+          {
+            "question": "Layunin ng mito?",
+            "options": [
+              "Ipaliwanag ang hindi naiintindihan noon",
+              "Magbigay ng balita ngayon",
+              "Magturo ng matematika",
+              "Magbigay ng resipe"
+            ],
+            "correct_answer": "Ipaliwanag ang hindi naiintindihan noon"
+          },
+          {
+            "question": "Halimbawa ng pinaliwanag ng mito?",
+            "options": [
+              "Bakit umuulan o may bahaghari",
+              "Paano gumawa ng kompyuter",
+              "Paano magluto",
+              "Paano maglaro ng basketball"
+            ],
+            "correct_answer": "Bakit umuulan o may bahaghari"
+          },
+          {
+            "question": "Paano isinalaysay ang mito noon?",
+            "options": [
+              "Bilang totoo",
+              "Bilang biro",
+              "Bilang balita",
+              "Bilang liham"
+            ],
+            "correct_answer": "Bilang totoo"
+          },
+          {
+            "question": "Bakit gumamit ang sinaunang tao ng mito?",
+            "options": [
+              "Wala pang agham noon",
+              "Gustong magsinungaling",
+              "Walang gawin",
+              "Ayaw isipin ang dahilan"
+            ],
+            "correct_answer": "Wala pang agham noon"
+          },
+          {
+            "question": "Katangian ng mito?",
+            "options": [
+              "May diyos na may kapangyarihan",
+              "Walang katangi-tanging tauhan",
+              "Tungkol sa modernong buhay",
+              "Walang layuning ipaliwanag"
+            ],
+            "correct_answer": "May diyos na may kapangyarihan"
+          },
+          {
+            "question": "Bakit pag-aralan ang mito?",
+            "options": [
+              "Nagbibigay kaalaman sa paniniwala ng ninuno",
+              "Walang kahalagahan",
+              "Hindi bahagi ng kultura",
+              "Galing lamang sa ibang bansa"
+            ],
+            "correct_answer": "Nagbibigay kaalaman sa paniniwala ng ninuno"
+          },
+          {
+            "question": "Pagkakaiba ng mito sa balita?",
+            "options": [
+              "Mito ay kathang-isip, balita ay totoo ngayon",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Balita ay laging tungkol sa diyos"
+            ],
+            "correct_answer": "Mito ay kathang-isip, balita ay totoo ngayon"
+          },
+          {
+            "question": "Halimbawa ng Pilipinong mito?",
+            "options": [
+              "Alamat ng unang araw at buwan",
+              "Recipe ng adobo",
+              "Balitang pampolitika",
+              "Liham ng aplikasyon"
+            ],
+            "correct_answer": "Alamat ng unang araw at buwan"
+          },
+          {
+            "question": "Bakit mahalaga ngayon ang pag-aaral ng mito?",
+            "options": [
+              "Nakakatulong maunawaan ang ugat ng paniniwala",
+              "Walang kaugnayan ngayon",
+              "Hindi na dapat pag-aralan",
+              "Walang halaga sa edukasyon"
+            ],
+            "correct_answer": "Nakakatulong maunawaan ang ugat ng paniniwala"
+          },
+          {
+            "question": "Pagkakaiba ng mito sa kasaysayan?",
+            "options": [
+              "Mito kathang-isip, kasaysayan totoong pangyayari",
+              "Magkatulad lamang",
+              "Kasaysayan laging tungkol sa diyos",
+              "Walang pagkakaiba"
+            ],
+            "correct_answer": "Mito kathang-isip, kasaysayan totoong pangyayari"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🏃 Friday Review — Science (Grade 4)\n\n- Speed = distance ÷ time\n\nGreat speed calculations! 🌟",
+        "quiz": [
+          {
+            "question": "What is speed?",
+            "options": [
+              "How fast an object moves (distance ÷ time)",
+              "How heavy something is",
+              "How far something is",
+              "The color of an object"
+            ],
+            "correct_answer": "How fast an object moves (distance ÷ time)"
+          },
+          {
+            "question": "Two measurements needed for speed?",
+            "options": [
+              "Distance and time",
+              "Weight and color",
+              "Height and width",
+              "Temperature and sound"
+            ],
+            "correct_answer": "Distance and time"
+          },
+          {
+            "question": "Runner covers 100m in 20s: speed?",
+            "options": [
+              "5 m/s",
+              "20 m/s",
+              "100 m/s",
+              "2000 m/s"
+            ],
+            "correct_answer": "5 m/s"
+          },
+          {
+            "question": "Formula for speed?",
+            "options": [
+              "Distance ÷ time",
+              "Distance × time",
+              "Time ÷ distance",
+              "Distance + time"
+            ],
+            "correct_answer": "Distance ÷ time"
+          },
+          {
+            "question": "Why is speed useful to understand?",
+            "options": [
+              "Compare how fast things move",
+              "No practical use",
+              "Only matters for cars",
+              "Replaces distance"
+            ],
+            "correct_answer": "Compare how fast things move"
+          },
+          {
+            "question": "Car travels 60 km in 1 hour: speed?",
+            "options": [
+              "60 km/h",
+              "1 km/h",
+              "60 h/km",
+              "Cannot determine"
+            ],
+            "correct_answer": "60 km/h"
+          },
+          {
+            "question": "Same distance, less time: who is faster?",
+            "options": [
+              "The one who took less time",
+              "The one who took more time",
+              "Both equal",
+              "Cannot determine"
+            ],
+            "correct_answer": "The one who took less time"
+          },
+          {
+            "question": "Unit for measuring speed?",
+            "options": [
+              "Meters per second",
+              "Grams only",
+              "Degrees only",
+              "Liters only"
+            ],
+            "correct_answer": "Meters per second"
+          },
+          {
+            "question": "Cyclist covers 30m in 5s: speed?",
+            "options": [
+              "6 m/s",
+              "5 m/s",
+              "30 m/s",
+              "150 m/s"
+            ],
+            "correct_answer": "6 m/s"
+          },
+          {
+            "question": "Why divide distance by time for speed?",
+            "options": [
+              "Tells distance per unit time",
+              "No connection to speed",
+              "Should multiply instead",
+              "Speed can't be calculated"
+            ],
+            "correct_answer": "Tells distance per unit time"
+          },
+          {
+            "question": "Turtle slower than rabbit means?",
+            "options": [
+              "Turtle's speed is lower",
+              "Turtle's speed is higher",
+              "Speeds always equal",
+              "Speed doesn't apply to animals"
+            ],
+            "correct_answer": "Turtle's speed is lower"
+          },
+          {
+            "question": "Walker covers 40m in 20s: speed?",
+            "options": [
+              "2 m/s",
+              "20 m/s",
+              "40 m/s",
+              "800 m/s"
+            ],
+            "correct_answer": "2 m/s"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🏛️ Friday Review — Araling Panlipunan (Grade 4)\n\n- Elemento ng pagkabansa: teritoryo, mamamayan, pamahalaan, soberanya\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ilan ang elemento ng pagkabansa?",
+            "options": [
+              "Apat",
+              "Dalawa",
+              "Anim",
+              "Sampu"
+            ],
+            "correct_answer": "Apat"
+          },
+          {
+            "question": "Ano ang teritoryo?",
+            "options": [
+              "Lupain, tubig, himpapawid ng bansa",
+              "Mga taong naninirahan",
+              "Sistemang namamahala",
+              "Kapangyarihan mamahala"
+            ],
+            "correct_answer": "Lupain, tubig, himpapawid ng bansa"
+          },
+          {
+            "question": "Ano ang mamamayan?",
+            "options": [
+              "Mga taong bahagi ng bansa",
+              "Lupain ng bansa",
+              "Sistema ng pamahalaan",
+              "Bandila ng bansa"
+            ],
+            "correct_answer": "Mga taong bahagi ng bansa"
+          },
+          {
+            "question": "Ano ang pamahalaan?",
+            "options": [
+              "Sistemang namamahala sa bansa",
+              "Lupain ng bansa",
+              "Mamamayan",
+              "Kapangyarihan lamang"
+            ],
+            "correct_answer": "Sistemang namamahala sa bansa"
+          },
+          {
+            "question": "Ano ang soberanya?",
+            "options": [
+              "Kapangyarihang mamahala nang walang panghihimasok",
+              "Teritoryo ng bansa",
+              "Mamamayan ng bansa",
+              "Bandila ng bansa"
+            ],
+            "correct_answer": "Kapangyarihang mamahala nang walang panghihimasok"
+          },
+          {
+            "question": "Teritoryo ng Pilipinas?",
+            "options": [
+              "Mga isla nito",
+              "Malacañang lamang",
+              "Mga Pilipino lamang",
+              "Kalayaan lamang"
+            ],
+            "correct_answer": "Mga isla nito"
+          },
+          {
+            "question": "Sino ang mamamayan ng Pilipinas?",
+            "options": [
+              "Mga Pilipino",
+              "Mga isla lamang",
+              "Kongreso lamang",
+              "Korte Suprema lamang"
+            ],
+            "correct_answer": "Mga Pilipino"
+          },
+          {
+            "question": "Bakit mahalaga ang soberanya?",
+            "options": [
+              "Kalayaang mamahala ng sariling pamahalaan",
+              "Walang kahalagahan",
+              "Nagpapahina ng bansa",
+              "Hindi na kailangan ngayon"
+            ],
+            "correct_answer": "Kalayaang mamahala ng sariling pamahalaan"
+          },
+          {
+            "question": "Mangyayari kung walang isang elemento?",
+            "options": [
+              "Hindi ganap na bansa",
+              "Walang epekto",
+              "Mas malakas ang bansa",
+              "Mas maayos ito"
+            ],
+            "correct_answer": "Hindi ganap na bansa"
+          },
+          {
+            "question": "Halimbawa ng pamahalaan sa Pilipinas?",
+            "options": [
+              "Malacañang, Kongreso, Korte Suprema",
+              "Mga isla lamang",
+              "Mga Pilipino lamang",
+              "Bandila lamang"
+            ],
+            "correct_answer": "Malacañang, Kongreso, Korte Suprema"
+          },
+          {
+            "question": "Bakit malaman ang elemento ng pagkabansa?",
+            "options": [
+              "Maunawaan kung ano ang bumubuo sa bansa",
+              "Walang kaugnayan sa kasaysayan",
+              "Tungkol lamang sa ibang bansa",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Maunawaan kung ano ang bumubuo sa bansa"
+          },
+          {
+            "question": "Koneksyon ng mamamayan sa pagkabansa?",
+            "options": [
+              "Sila bumubuo at nagpapatakbo ng lipunan",
+              "Walang koneksyon",
+              "Hiwalay sa konsepto ng bansa",
+              "Hindi kailangan ng bansa"
+            ],
+            "correct_answer": "Sila bumubuo at nagpapatakbo ng lipunan"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Friday Review — EPP (ICT) (Grade 4)\n\n- Digital citizenship at software recap\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang digital citizenship?",
+            "options": [
+              "Responsable at ligtas na paggamit ng teknolohiya",
+              "Paggamit nang walang pag-iingat",
+              "Pagbabahagi ng lahat",
+              "Kawalan ng alituntunin"
+            ],
+            "correct_answer": "Responsable at ligtas na paggamit ng teknolohiya"
+          },
+          {
+            "question": "Ginagamit sa word processing?",
+            "options": [
+              "Pagta-type at pag-format ng dokumento",
+              "Pag-oorganisa sa cells",
+              "Paggawa ng slides",
+              "Pagguhit lamang"
+            ],
+            "correct_answer": "Pagta-type at pag-format ng dokumento"
+          },
+          {
+            "question": "Ginagamit sa presentation software?",
+            "options": [
+              "Paggawa ng slides",
+              "Pagta-type ng dokumento",
+              "Pag-oorganisa sa cells",
+              "Pagguhit lamang"
+            ],
+            "correct_answer": "Paggawa ng slides"
+          },
+          {
+            "question": "Ginagamit sa spreadsheet software?",
+            "options": [
+              "Pag-oorganisa ng datos sa cells",
+              "Paggawa ng slides",
+              "Pagta-type ng liham",
+              "Pagguhit lamang"
+            ],
+            "correct_answer": "Pag-oorganisa ng datos sa cells"
+          },
+          {
+            "question": "Ginagamit sa desktop publishing?",
+            "options": [
+              "Paglikha ng poster o newsletter",
+              "Pag-oorganisa ng datos",
+              "Pagta-type ng liham",
+              "Paggawa ng slides"
+            ],
+            "correct_answer": "Paglikha ng poster o newsletter"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang postura?",
+            "options": [
+              "Iwasan ang sakit ng katawan",
+              "Walang epekto",
+              "Hindi na kailangan isipin",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Iwasan ang sakit ng katawan"
+          },
+          {
+            "question": "Bakit bantayan ang screen time?",
+            "options": [
+              "Makasama sa kalusugan kung sobra",
+              "Walang epekto",
+              "Palaging mabuti",
+              "Hindi kailangan bantayan"
+            ],
+            "correct_answer": "Makasama sa kalusugan kung sobra"
+          },
+          {
+            "question": "Bakit hindi ibahagi ang personal na impormasyon?",
+            "options": [
+              "Magagamit ng may masamang layunin",
+              "Ligtas gawin palagi",
+              "Kinakailangan gawin",
+              "Walang panganib"
+            ],
+            "correct_answer": "Magagamit ng may masamang layunin"
+          },
+          {
+            "question": "Software para sa ulat na may talahanayan?",
+            "options": [
+              "Spreadsheet",
+              "Presentation",
+              "Word processing",
+              "Desktop publishing"
+            ],
+            "correct_answer": "Spreadsheet"
+          },
+          {
+            "question": "Software para sa pagtatanghal sa klase?",
+            "options": [
+              "Presentation",
+              "Spreadsheet",
+              "Word processing",
+              "Desktop publishing"
+            ],
+            "correct_answer": "Presentation"
+          },
+          {
+            "question": "Bakit balikan ang mga kasanayan sa ICT?",
+            "options": [
+              "Patatagin ang kaalaman bago matuto ng bago",
+              "Hindi kailangan balikan",
+              "Walang gamit",
+              "Libangin lamang ang guro"
+            ],
+            "correct_answer": "Patatagin ang kaalaman bago matuto ng bago"
+          },
+          {
+            "question": "Bahagi ng online safety?",
+            "options": [
+              "Panatilihing pribado ang personal na impormasyon",
+              "Ibahagi ang password",
+              "Sagutin lahat",
+              "Iwasan ang pag-iingat"
+            ],
+            "correct_answer": "Panatilihing pribado ang personal na impormasyon"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎭 Friday Review — MAPEH (Grade 4)\n\n- Melodiya at malusog na pagkain\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang melodiya?",
+            "options": [
+              "Serye ng tunog na bumubuo ng tono",
+              "Bilis ng awit",
+              "Lakas ng tunog",
+              "Instrumentong ginagamit"
+            ],
+            "correct_answer": "Serye ng tunog na bumubuo ng tono"
+          },
+          {
+            "question": "Ano ang balanseng pagkain?",
+            "options": [
+              "Karbohidrat, protina, gulay, prutas",
+              "Kanin lamang",
+              "Matamis lamang",
+              "Inumin lamang"
+            ],
+            "correct_answer": "Karbohidrat, protina, gulay, prutas"
+          },
+          {
+            "question": "Halimbawa ng karbohidrat?",
+            "options": [
+              "Kanin",
+              "Isda",
+              "Gulay",
+              "Tubig"
+            ],
+            "correct_answer": "Kanin"
+          },
+          {
+            "question": "Halimbawa ng protina?",
+            "options": [
+              "Isda o itlog",
+              "Kanin",
+              "Prutas",
+              "Tubig"
+            ],
+            "correct_answer": "Isda o itlog"
+          },
+          {
+            "question": "Bakit kumain ng iba't ibang pagkain?",
+            "options": [
+              "Malusog na katawan",
+              "Walang kahalagahan",
+              "Basta marami",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Malusog na katawan"
+          },
+          {
+            "question": "Bakit mahalaga ang melodiya?",
+            "options": [
+              "Madaling kantahin at alalahanin",
+              "Walang kahalagahan",
+              "Walang tunog",
+              "Ginagamit ng instrumento lamang"
+            ],
+            "correct_answer": "Madaling kantahin at alalahanin"
+          },
+          {
+            "question": "Anong grupo may gulay at prutas?",
+            "options": [
+              "Bitamina at mineral",
+              "Karbohidrat lamang",
+              "Protina lamang",
+              "Taba lamang"
+            ],
+            "correct_answer": "Bitamina at mineral"
+          },
+          {
+            "question": "Bakit mahalaga ang tubig?",
+            "options": [
+              "Kailangan ng katawan gumana nang maayos",
+              "Walang kahalagahan",
+              "Hindi kasama sa pagkain",
+              "Nakakasama sa katawan"
+            ],
+            "correct_answer": "Kailangan ng katawan gumana nang maayos"
+          },
+          {
+            "question": "Pagkakaiba ng melodiya sa rhythm?",
+            "options": [
+              "Melodiya tono, rhythm tempo/bilis",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Rhythm tungkol sa tono"
+            ],
+            "correct_answer": "Melodiya tono, rhythm tempo/bilis"
+          },
+          {
+            "question": "Bakit ituro ang food literacy?",
+            "options": [
+              "Matutong pumili ng malusog na pagkain",
+              "Walang layunin",
+              "Hindi kaugnay ng kalusugan",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Matutong pumili ng malusog na pagkain"
+          },
+          {
+            "question": "Alin ang HINDI bahagi ng balanseng pagkain?",
+            "options": [
+              "Junk food bilang pangunahing pagkain",
+              "Karbohidrat",
+              "Protina",
+              "Gulay at prutas"
+            ],
+            "correct_answer": "Junk food bilang pangunahing pagkain"
+          },
+          {
+            "question": "Bakit gumagamit ng iba't ibang tunog ang melodiya?",
+            "options": [
+              "Lumikha ng natatanging tono",
+              "Walang dahilan",
+              "Lituhin ang tagapakinig",
+              "Gawing maikli ang awit"
+            ],
+            "correct_answer": "Lumikha ng natatanging tono"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧴 Friday Review — EPP (Grade 4)\n\n- Pangangalaga sa katawan sa pagdadalaga/pagbibinata\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Bakit mahalaga ang regular na paliligo?",
+            "options": [
+              "Iwasan ang masamang amoy at sakit",
+              "Walang kahalagahan",
+              "Hindi kailangan araw-araw",
+              "Isang beses lamang sa linggo"
+            ],
+            "correct_answer": "Iwasan ang masamang amoy at sakit"
+          },
+          {
+            "question": "Ano ang pagdadalaga/pagbibinata?",
+            "options": [
+              "Panahon ng pagbabago sa katawan",
+              "Isang uri ng sakit",
+              "Isang uri ng laro",
+              "Isang uri ng pagkain"
+            ],
+            "correct_answer": "Panahon ng pagbabago sa katawan"
+          },
+          {
+            "question": "Bakit pumili ng angkop na kasuotan?",
+            "options": [
+              "Komportable at ligtas sa aktibidad",
+              "Walang kahalagahan",
+              "Basta damit lang",
+              "Hindi mahalaga ang panahon"
+            ],
+            "correct_answer": "Komportable at ligtas sa aktibidad"
+          },
+          {
+            "question": "Halimbawa ng kagamitan sa personal na kalinisan?",
+            "options": [
+              "Sabon at tuwalya",
+              "Kompyuter",
+              "Kagamitan sa pagluluto",
+              "Kagamitan sa pagsasaka"
+            ],
+            "correct_answer": "Sabon at tuwalya"
+          },
+          {
+            "question": "Naidudulot ng tamang pangangalaga sa sarili?",
+            "options": [
+              "Kumpiyansa at pag-iwas sa sakit",
+              "Kahihiyan",
+              "Wala",
+              "Sakit lamang"
+            ],
+            "correct_answer": "Kumpiyansa at pag-iwas sa sakit"
+          },
+          {
+            "question": "Bakit malaman ang pagbabago sa katawan sa Grade 4?",
+            "options": [
+              "Maunawaan at maging handa",
+              "Hindi kailangan malaman",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maunawaan at maging handa"
+          },
+          {
+            "question": "Bakit maaaring kailanganin ang deodorant?",
+            "options": [
+              "Dahil sa pagbabago sa katawan",
+              "Walang kaugnayan",
+              "Hindi na kailangan kailanman",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Dahil sa pagbabago sa katawan"
+          },
+          {
+            "question": "Epekto ng kawalan ng kalinisan?",
+            "options": [
+              "Sakit o masamang amoy",
+              "Walang epekto",
+              "Palaging mabuti",
+              "Pinapabuti ang kalusugan"
+            ],
+            "correct_answer": "Sakit o masamang amoy"
+          },
+          {
+            "question": "Bakit itinuro ang FCS?",
+            "options": [
+              "Matutong mag-alaga ng sarili at tahanan",
+              "Walang layunin",
+              "Hindi kailangan matutunan",
+              "Para lamang sa babae"
+            ],
+            "correct_answer": "Matutong mag-alaga ng sarili at tahanan"
+          },
+          {
+            "question": "Halimbawa ng tamang pangangalaga sa sarili?",
+            "options": [
+              "Araw-araw na paliligo",
+              "Hindi paliligo nang ilang araw",
+              "Pag-iwas sa paghuhugas",
+              "Kawalan ng pag-aalaga"
+            ],
+            "correct_answer": "Araw-araw na paliligo"
+          },
+          {
+            "question": "Bakit maingat pumili ng kasuotan sa tag-ulan?",
+            "options": [
+              "Hindi magkasakit at mananatiling tuyo",
+              "Walang kaugnayan",
+              "Basta damit lang",
+              "Hindi mahalaga ang panahon"
+            ],
+            "correct_answer": "Hindi magkasakit at mananatiling tuyo"
+          },
+          {
+            "question": "Layunin ng yunit ng pangangalaga sa sarili?",
+            "options": [
+              "Matutong mag-alaga ng kalusugan at kalinisan",
+              "Matuto ng matematika",
+              "Matuto ng agham",
+              "Matuto ng kasaysayan"
+            ],
+            "correct_answer": "Matutong mag-alaga ng kalusugan at kalinisan"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💰 Friday Review — GMRC (Grade 4)\n\n- Matipid: pagtitipid para sa kapuwa\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang pagtitipid para sa kapuwa?",
+            "options": [
+              "Pag-iimpok na may layuning tumulong sa iba",
+              "Pag-iimpok para sa sarili lamang",
+              "Kawalang pakialam sa pera",
+              "Pag-aaksaya ng pera"
+            ],
+            "correct_answer": "Pag-iimpok na may layuning tumulong sa iba"
+          },
+          {
+            "question": "Halimbawa ng pagtitipid para sa kapuwa?",
+            "options": [
+              "Pag-iipon para sa proyekto ng paaralan",
+              "Pagtapon ng pagkain",
+              "Pag-aaksaya ng pera sa laruan",
+              "Kawalang interes sa iba"
+            ],
+            "correct_answer": "Pag-iipon para sa proyekto ng paaralan"
+          },
+          {
+            "question": "Pagpapahalaga na tinalakay?",
+            "options": [
+              "Matipid (Thrifty)",
+              "Mapagmalasakit",
+              "Magalang",
+              "Mapagpakumbaba"
+            ],
+            "correct_answer": "Matipid (Thrifty)"
+          },
+          {
+            "question": "Bakit hindi aksayahin ang pagkain?",
+            "options": [
+              "May sapat na para sa iba",
+              "Walang epekto",
+              "Basta marami ka",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "May sapat na para sa iba"
+          },
+          {
+            "question": "Naipapakita ng pagbibigay ng ipon sa nangangailangan?",
+            "options": [
+              "Kabutihang-loob at pananagutan",
+              "Kawalang-interes",
+              "Kasakiman",
+              "Walang kahulugan"
+            ],
+            "correct_answer": "Kabutihang-loob at pananagutan"
+          },
+          {
+            "question": "Bakit pagpapahalaga ang pagiging matipid?",
+            "options": [
+              "Pananagutan sa sarili at sa iba",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi ng matematika lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Pananagutan sa sarili at sa iba"
+          },
+          {
+            "question": "Paraan ipakita ang pagtitipid araw-araw?",
+            "options": [
+              "Iwasan ang pag-aaksaya ng pagkain at pera",
+              "Gastusin lahat agad",
+              "Aksayahin ang mga gamit",
+              "Huwag isipin ang pera"
+            ],
+            "correct_answer": "Iwasan ang pag-aaksaya ng pagkain at pera"
+          },
+          {
+            "question": "Bakit matutong magtipid mula pagkabata?",
+            "options": [
+              "Maging responsable sa pananalapi paglaki",
+              "Hindi kailangan matutunan",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging responsable sa pananalapi paglaki"
+          },
+          {
+            "question": "Epekto ng pagtitipid sa komunidad?",
+            "options": [
+              "Mas maraming mapagkukunan para sa nangangailangan",
+              "Kawalan ng benepisyo",
+              "Kakulangan sa lahat",
+              "Walang epekto sa iba"
+            ],
+            "correct_answer": "Mas maraming mapagkukunan para sa nangangailangan"
+          },
+          {
+            "question": "Koneksyon ng pagtitipid sa pagmamalasakit?",
+            "options": [
+              "Pag-iimpok maaaring gamitin para tumulong",
+              "Walang koneksyon",
+              "Para sa sarili lamang",
+              "Hindi konektado"
+            ],
+            "correct_answer": "Pag-iimpok maaaring gamitin para tumulong"
+          },
+          {
+            "question": "Bakit ituro ito sa bata simula ngayon?",
+            "options": [
+              "Maunawaan pagtitipid makatulong din sa iba",
+              "Hindi kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maunawaan pagtitipid makatulong din sa iba"
+          },
+          {
+            "question": "Alin ang HINDI halimbawa ng pagtitipid para sa kapuwa?",
+            "options": [
+              "Pag-aaksaya ng pagkain kahit may kakulangan",
+              "Pag-iipon para sa proyekto",
+              "Pagbibigay ng ipon sa nangangailangan",
+              "Pag-iwas sa pag-aaksaya"
+            ],
+            "correct_answer": "Pag-aaksaya ng pagkain kahit may kakulangan"
+          }
+        ]
+      }
+    }
+  }
+}

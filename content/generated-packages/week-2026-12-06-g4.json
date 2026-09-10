@@ -1,0 +1,2266 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-12-06",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🖼️ English — Analyzing Images from National Celebrations\n\nGrade 4, Week 26! Let's study photos and posters from national holidays! 🖼️\n\n## 🔄 Review\nWe wrote our own recount paragraph.\n\n## 🖼️ Reading Visual Images\nWhen looking at a photo or poster about a national celebration, ask:\n- What is happening in the image?\n- What **mood** does it show (proud, solemn, joyful)?\n- What **purpose** does the image serve — to inform, to inspire, or to invite?\n\n## 📅 Creating a Timeline\nA **timeline** organizes events in the order they happened, using dates.\n\n**Example:** A timeline of Philippine Independence Day might show: 1898 — Declaration → 1946 — Recognized independence → Today — annual celebration.\n\n## 🎯 Why This Matters\nAnalyzing images and building timelines helps us understand history **visually**, not just through words.\n\n**Key words:** image analysis, mood, purpose, timeline",
+        "quiz": [
+          {
+            "question": "What should you ask when analyzing a celebration photo?",
+            "options": [
+              "What is happening, what mood it shows, and its purpose",
+              "Only what colors are used",
+              "Only how many people are in it",
+              "Nothing specific"
+            ],
+            "correct_answer": "What is happening, what mood it shows, and its purpose"
+          },
+          {
+            "question": "What is a timeline?",
+            "options": [
+              "Events organized in the order they happened, using dates",
+              "A single photo",
+              "A list of unrelated facts",
+              "A type of letter"
+            ],
+            "correct_answer": "Events organized in the order they happened, using dates"
+          },
+          {
+            "question": "What might a proud or joyful mood in a photo suggest?",
+            "options": [
+              "A celebration or achievement",
+              "A sad event only",
+              "Nothing about the event",
+              "A procedural instruction"
+            ],
+            "correct_answer": "A celebration or achievement"
+          },
+          {
+            "question": "Why might an image serve to 'inspire'?",
+            "options": [
+              "It could motivate viewers with a powerful message",
+              "Images never inspire",
+              "Only text can inspire",
+              "Inspiration has no visual form"
+            ],
+            "correct_answer": "It could motivate viewers with a powerful message"
+          },
+          {
+            "question": "What does a timeline of Independence Day show?",
+            "options": [
+              "Key dates in order, like 1898 declaration to today's celebration",
+              "Only one date",
+              "Random unrelated events",
+              "A recipe"
+            ],
+            "correct_answer": "Key dates in order, like 1898 declaration to today's celebration"
+          },
+          {
+            "question": "Why is it useful to understand history through images?",
+            "options": [
+              "It helps understand history visually, not just through words",
+              "Images have no historical value",
+              "Only text matters in history",
+              "Images replace the need for facts"
+            ],
+            "correct_answer": "It helps understand history visually, not just through words"
+          },
+          {
+            "question": "What is the purpose of a poster inviting people to a celebration?",
+            "options": [
+              "To invite and inform people about an event",
+              "To confuse viewers",
+              "To replace a timeline",
+              "To hide information"
+            ],
+            "correct_answer": "To invite and inform people about an event"
+          },
+          {
+            "question": "Why analyze the mood of an image?",
+            "options": [
+              "It reveals the feeling the image intends to create",
+              "Mood has no meaning",
+              "Only facts matter, not feelings",
+              "It replaces the need for a timeline"
+            ],
+            "correct_answer": "It reveals the feeling the image intends to create"
+          },
+          {
+            "question": "What makes a timeline useful for understanding history?",
+            "options": [
+              "It shows how events relate to each other in order",
+              "It removes the need for dates",
+              "It shows events randomly",
+              "It only works for recent events"
+            ],
+            "correct_answer": "It shows how events relate to each other in order"
+          },
+          {
+            "question": "Which best describes 'purpose' in image analysis?",
+            "options": [
+              "Why the image was created — to inform, inspire, or invite",
+              "The color used in the image",
+              "The size of the photo",
+              "The photographer's name"
+            ],
+            "correct_answer": "Why the image was created — to inform, inspire, or invite"
+          },
+          {
+            "question": "Why might a solemn mood appear in a historical photo?",
+            "options": [
+              "It could reflect a serious or respectful moment, like a memorial",
+              "Solemn moods are never in photos",
+              "It always means something negative happened",
+              "It has no connection to the event"
+            ],
+            "correct_answer": "It could reflect a serious or respectful moment, like a memorial"
+          },
+          {
+            "question": "Why combine analyzing images with creating a timeline?",
+            "options": [
+              "Together they give a fuller picture of historical events",
+              "They contradict each other",
+              "Only one method is ever needed",
+              "Timelines replace the need for images"
+            ],
+            "correct_answer": "Together they give a fuller picture of historical events"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🪞 Mathematics — Symmetry with Respect to a Line\n\nGrade 4, Week 26! Let's discover mirror images in shapes! 🪞\n\n## 🔄 Review\nWe added and subtracted mixed numbers.\n\n## 🪞 What Is Line Symmetry?\nA shape has **line symmetry** if you can fold it along a line and both halves match exactly. This line is called the **line of symmetry**.\n\n## 🔍 Identifying Symmetry\n- A butterfly has one line of symmetry down the middle\n- A square has 4 lines of symmetry\n- A circle has infinite lines of symmetry\n\n## ✏️ Drawing a Line of Symmetry\nTo draw a line of symmetry, find where you could fold the shape so both sides match perfectly.\n\n## 🔄 Reflection\nA **reflection** creates a mirror image of a shape across a line — like looking in a mirror.\n\n**Key words:** line symmetry, line of symmetry, reflection, mirror image",
+        "quiz": [
+          {
+            "question": "What is line symmetry?",
+            "options": [
+              "When a shape can be folded so both halves match exactly",
+              "When a shape has no matching parts",
+              "When a shape is always a circle",
+              "When a shape cannot be folded"
+            ],
+            "correct_answer": "When a shape can be folded so both halves match exactly"
+          },
+          {
+            "question": "What is a line of symmetry?",
+            "options": [
+              "The line along which a shape can be folded to match",
+              "Any random line on a shape",
+              "A line that never matches",
+              "A line only found in circles"
+            ],
+            "correct_answer": "The line along which a shape can be folded to match"
+          },
+          {
+            "question": "How many lines of symmetry does a square have?",
+            "options": [
+              "4",
+              "1",
+              "0",
+              "2"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "How many lines of symmetry does a circle have?",
+            "options": [
+              "Infinite",
+              "0",
+              "1",
+              "4"
+            ],
+            "correct_answer": "Infinite"
+          },
+          {
+            "question": "How many lines of symmetry does a butterfly shape typically have?",
+            "options": [
+              "1",
+              "0",
+              "4",
+              "Infinite"
+            ],
+            "correct_answer": "1"
+          },
+          {
+            "question": "What is a reflection in math?",
+            "options": [
+              "A mirror image of a shape across a line",
+              "A shape with no matching image",
+              "A random rotation",
+              "A shape that disappears"
+            ],
+            "correct_answer": "A mirror image of a shape across a line"
+          },
+          {
+            "question": "How can you tell if a shape has line symmetry?",
+            "options": [
+              "Check if folding it makes both halves match",
+              "Check its color only",
+              "Check its size only",
+              "Shapes never have symmetry"
+            ],
+            "correct_answer": "Check if folding it makes both halves match"
+          },
+          {
+            "question": "Which letter of the alphabet has line symmetry?",
+            "options": [
+              "A",
+              "F",
+              "G",
+              "J"
+            ],
+            "correct_answer": "A"
+          },
+          {
+            "question": "Why is understanding symmetry useful?",
+            "options": [
+              "It helps recognize patterns and balance in shapes and designs",
+              "It has no practical use",
+              "It only applies to math tests",
+              "Symmetry never appears in real life"
+            ],
+            "correct_answer": "It helps recognize patterns and balance in shapes and designs"
+          },
+          {
+            "question": "What happens to a shape during a reflection?",
+            "options": [
+              "It creates a mirror image across a line",
+              "It disappears completely",
+              "It becomes a different color",
+              "It grows larger"
+            ],
+            "correct_answer": "It creates a mirror image across a line"
+          },
+          {
+            "question": "Which shape has NO lines of symmetry?",
+            "options": [
+              "An irregular scribble shape",
+              "A square",
+              "A circle",
+              "A butterfly"
+            ],
+            "correct_answer": "An irregular scribble shape"
+          },
+          {
+            "question": "Why might artists and designers use symmetry?",
+            "options": [
+              "It creates visual balance and appeal",
+              "Symmetry is never used in design",
+              "It makes designs harder to create",
+              "It has no visual effect"
+            ],
+            "correct_answer": "It creates visual balance and appeal"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🌏 Filipino — Salitang Hango sa Ingles at Kastila\n\nGrade 4, Linggo 26! Alamin natin ang mga salitang hiram mula sa ibang wika. 🌏\n\n## 🔄 Balik-Aral\nNatutuhan natin ang hugnayang pangungusap.\n\n## 🌏 Ano ang Salitang Hiram?\nMaraming salita sa Filipino ang **hiniram** mula sa ibang wika, lalo na sa Kastila at Ingles, dahil sa kasaysayan ng ating bansa.\n\n## 🇪🇸 Mga Halimbawa mula sa Kastila\n- \"Mesa\" (mula sa \"mesa\")\n- \"Silya\" (mula sa \"silla\")\n- \"Kutsara\" (mula sa \"cuchara\")\n\n## 🇬🇧 Mga Halimbawa mula sa Ingles\n- \"Kompyuter\" (mula sa \"computer\")\n- \"Telebisyon\" (mula sa \"television\")\n- \"Iskedyul\" (mula sa \"schedule\")\n\n## 💡 Bakit Mahalaga Ito?\nAng pag-unawa sa pinagmulan ng mga salita ay tumutulong maunawaan ang kasaysayan ng ating wika.\n\n**Mahahalagang salita:** salitang hiram, Kastila, Ingles, kasaysayan ng wika",
+        "quiz": [
+          {
+            "question": "Ano ang salitang hiram?",
+            "options": [
+              "Salitang hiniram mula sa ibang wika",
+              "Salitang orihinal na Filipino lamang",
+              "Isang uri ng pangngalan",
+              "Isang bantas"
+            ],
+            "correct_answer": "Salitang hiniram mula sa ibang wika"
+          },
+          {
+            "question": "Saan hango ang salitang 'mesa'?",
+            "options": [
+              "Kastila",
+              "Ingles",
+              "Intsik",
+              "Hapon"
+            ],
+            "correct_answer": "Kastila"
+          },
+          {
+            "question": "Saan hango ang salitang 'kompyuter'?",
+            "options": [
+              "Ingles",
+              "Kastila",
+              "Intsik",
+              "Hapon"
+            ],
+            "correct_answer": "Ingles"
+          },
+          {
+            "question": "Saan hango ang salitang 'kutsara'?",
+            "options": [
+              "Kastila",
+              "Ingles",
+              "Intsik",
+              "Hapon"
+            ],
+            "correct_answer": "Kastila"
+          },
+          {
+            "question": "Saan hango ang salitang 'telebisyon'?",
+            "options": [
+              "Ingles",
+              "Kastila",
+              "Intsik",
+              "Hapon"
+            ],
+            "correct_answer": "Ingles"
+          },
+          {
+            "question": "Bakit maraming salitang Filipino ang hiniram mula sa Kastila?",
+            "options": [
+              "Dahil sa mahabang kasaysayan ng kolonisasyon ng Espanya",
+              "Walang dahilan",
+              "Sapagkat mas gusto ng mga Pilipino ang Kastila",
+              "Sapagkat walang sariling salita ang Filipino"
+            ],
+            "correct_answer": "Dahil sa mahabang kasaysayan ng kolonisasyon ng Espanya"
+          },
+          {
+            "question": "Bakit maraming salitang Filipino ang hiniram mula sa Ingles?",
+            "options": [
+              "Dahil sa impluwensya ng Estados Unidos at modernong teknolohiya",
+              "Walang dahilan",
+              "Sapagkat mas madali itong bigkasin",
+              "Sapagkat pinilit ito ng ibang bansa"
+            ],
+            "correct_answer": "Dahil sa impluwensya ng Estados Unidos at modernong teknolohiya"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang pinagmulan ng mga salita?",
+            "options": [
+              "Tumutulong itong maunawaan ang kasaysayan ng ating wika",
+              "Walang kahalagahan ito",
+              "Hindi ito kaugnay ng Filipino",
+              "Hindi mahalagang paksa ito"
+            ],
+            "correct_answer": "Tumutulong itong maunawaan ang kasaysayan ng ating wika"
+          },
+          {
+            "question": "Ano ang tawag sa proseso ng paghiram ng salita mula sa ibang wika?",
+            "options": [
+              "Panghihiram ng salita",
+              "Pagbabago ng gramatika",
+              "Pagbuo ng tugma",
+              "Pagsulat ng talata"
+            ],
+            "correct_answer": "Panghihiram ng salita"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang salitang hango sa Ingles?",
+            "options": [
+              "Iskedyul",
+              "Silya",
+              "Mesa",
+              "Kutsara"
+            ],
+            "correct_answer": "Iskedyul"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang salitang hango sa Kastila?",
+            "options": [
+              "Silya",
+              "Kompyuter",
+              "Iskedyul",
+              "Telebisyon"
+            ],
+            "correct_answer": "Silya"
+          },
+          {
+            "question": "Bakit itinuturing na natural ang paghiram ng salita sa pagitan ng mga wika?",
+            "options": [
+              "Nangyayari ito kapag nagtatagpo ang iba't ibang kultura sa kasaysayan",
+              "Hindi ito natural na proseso",
+              "Ito ay palaging masama para sa isang wika",
+              "Hindi ito nangyayari sa ibang bansa"
+            ],
+            "correct_answer": "Nangyayari ito kapag nagtatagpo ang iba't ibang kultura sa kasaysayan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🧲 Science — Magnet Effects on Materials\n\nGrade 4, Week 26! Let's see how magnets affect different materials! 🧲\n\n## 🔄 Review\nWe learned about magnet poles, attraction, and repulsion.\n\n## 🧲 Magnetic vs. Non-Magnetic Materials\n- **Magnetic materials** (iron, steel, nickel) are pulled by magnets\n- **Non-magnetic materials** (wood, plastic, glass, paper) are NOT affected\n\n## 🔬 Testing Materials\nYou can test if a material is magnetic by bringing a magnet close to it and observing if it's attracted.\n\n## 🧪 Magnets Working Through Materials\nA magnet can attract an object even through a **thin non-magnetic barrier**, like a piece of paper or thin plastic — this is why magnets can hold notes on a whiteboard!\n\n## 🎯 Real-World Application\nMagnets are used in recycling centers to **separate metal** from other trash.\n\n**Key words:** magnetic material, non-magnetic material, test, barrier",
+        "quiz": [
+          {
+            "question": "Which materials are magnetic?",
+            "options": [
+              "Iron, steel, and nickel",
+              "Wood, plastic, and glass",
+              "Paper and cloth",
+              "Rubber and cotton"
+            ],
+            "correct_answer": "Iron, steel, and nickel"
+          },
+          {
+            "question": "Which materials are non-magnetic?",
+            "options": [
+              "Wood, plastic, glass, paper",
+              "Iron and steel",
+              "Nickel",
+              "All metals"
+            ],
+            "correct_answer": "Wood, plastic, glass, paper"
+          },
+          {
+            "question": "How can you test if a material is magnetic?",
+            "options": [
+              "Bring a magnet close and observe if it's attracted",
+              "Look at its color",
+              "Smell it",
+              "Taste it"
+            ],
+            "correct_answer": "Bring a magnet close and observe if it's attracted"
+          },
+          {
+            "question": "Can a magnet work through a thin non-magnetic barrier?",
+            "options": [
+              "Yes, like through paper or thin plastic",
+              "No, magnets never work through anything",
+              "Only through metal",
+              "Only through water"
+            ],
+            "correct_answer": "Yes, like through paper or thin plastic"
+          },
+          {
+            "question": "Why can magnets hold notes on a whiteboard?",
+            "options": [
+              "The magnetic force passes through the thin paper",
+              "Paper is magnetic",
+              "Whiteboards are always magnetic",
+              "Notes have no weight"
+            ],
+            "correct_answer": "The magnetic force passes through the thin paper"
+          },
+          {
+            "question": "How are magnets used in recycling centers?",
+            "options": [
+              "To separate metal from other trash",
+              "To make trash disappear",
+              "To color-sort trash",
+              "To weigh trash"
+            ],
+            "correct_answer": "To separate metal from other trash"
+          },
+          {
+            "question": "Why is nickel considered a magnetic material?",
+            "options": [
+              "It is attracted to magnets",
+              "It repels all magnets",
+              "It changes color near magnets",
+              "It has no reaction to magnets"
+            ],
+            "correct_answer": "It is attracted to magnets"
+          },
+          {
+            "question": "Why is glass NOT attracted to a magnet?",
+            "options": [
+              "It is a non-magnetic material",
+              "It is too heavy",
+              "It is too light",
+              "It is a metal"
+            ],
+            "correct_answer": "It is a non-magnetic material"
+          },
+          {
+            "question": "Why is it useful to know which materials are magnetic?",
+            "options": [
+              "It helps in sorting materials and designing tools",
+              "It has no practical use",
+              "All materials behave the same way",
+              "Only scientists need this knowledge"
+            ],
+            "correct_answer": "It helps in sorting materials and designing tools"
+          },
+          {
+            "question": "If you place a paperclip under a piece of paper and move a magnet above it, what happens?",
+            "options": [
+              "The paperclip moves with the magnet",
+              "Nothing happens",
+              "The paper becomes magnetic",
+              "The paperclip disappears"
+            ],
+            "correct_answer": "The paperclip moves with the magnet"
+          },
+          {
+            "question": "Why might recycling centers rely on magnets instead of sorting by hand?",
+            "options": [
+              "It is faster and more efficient to separate metal automatically",
+              "Magnets cannot sort metal",
+              "Hand sorting is always better",
+              "Magnets destroy the metal"
+            ],
+            "correct_answer": "It is faster and more efficient to separate metal automatically"
+          },
+          {
+            "question": "Which of these would NOT be attracted by a strong magnet?",
+            "options": [
+              "A plastic ruler",
+              "An iron nail",
+              "A steel paperclip",
+              "A nickel coin"
+            ],
+            "correct_answer": "A plastic ruler"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🤝 Araling Panlipunan — Kapakanang Sibiko Bilang Pananagutan\n\nGrade 4, Linggo 26! Alamin natin ang ating tungkulin bilang mamamayan. 🤝\n\n## 🔄 Balik-Aral\nNatutuhan natin ang konsepto ng pagkamamamayan.\n\n## 🤝 Ano ang Kapakanang Sibiko?\nAng **kapakanang sibiko** ay ang aktibong pakikilahok ng isang mamamayan sa mga gawaing nakakabuti sa komunidad o bansa.\n\n## 🏫 Pakikilahok sa Paaralan at Komunidad\n- Pagsali sa proyektong pangkalinisan\n- Pagtulong sa mga kapwa estudyante\n- Pagsunod sa mga alituntunin ng paaralan at komunidad\n\n## 💡 Bakit Mahalaga Ito?\nAng bawat mamamayan, kahit bata, ay may **pananagutang** tumulong sa ikabubuti ng lahat.\n\n**Mahahalagang salita:** kapakanang sibiko, pananagutan, pakikilahok, komunidad",
+        "quiz": [
+          {
+            "question": "Ano ang kapakanang sibiko?",
+            "options": [
+              "Aktibong pakikilahok sa mga gawaing nakakabuti sa komunidad",
+              "Kawalang pakialam sa komunidad",
+              "Pag-iwas sa lahat ng gawain",
+              "Isang uri ng laro"
+            ],
+            "correct_answer": "Aktibong pakikilahok sa mga gawaing nakakabuti sa komunidad"
+          },
+          {
+            "question": "Anong halimbawa ng pakikilahok sa paaralan?",
+            "options": [
+              "Pagsali sa proyektong pangkalinisan",
+              "Pag-iwas sa lahat ng gawain",
+              "Kawalang pakialam sa kapwa estudyante",
+              "Pagtanggi sa alituntunin"
+            ],
+            "correct_answer": "Pagsali sa proyektong pangkalinisan"
+          },
+          {
+            "question": "Bakit mahalaga ang pagtulong sa kapwa estudyante?",
+            "options": [
+              "Nagpapakita ito ng pagmamalasakit at pananagutan",
+              "Wala itong kahalagahan",
+              "Hindi na kailangan tumulong",
+              "Ito ay pag-aaksaya ng oras"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamalasakit at pananagutan"
+          },
+          {
+            "question": "Bakit dapat sumunod sa alituntunin ng paaralan?",
+            "options": [
+              "Nagpapanatili ito ng kaayusan sa komunidad",
+              "Hindi na kailangan sundin",
+              "Walang kahalagahan",
+              "Para lamang sa matatanda"
+            ],
+            "correct_answer": "Nagpapanatili ito ng kaayusan sa komunidad"
+          },
+          {
+            "question": "Sino ang may pananagutang tumulong sa kapakanan ng lahat?",
+            "options": [
+              "Bawat mamamayan, kahit bata",
+              "Ang pamahalaan lamang",
+              "Ang matatanda lamang",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Bawat mamamayan, kahit bata"
+          },
+          {
+            "question": "Bakit mahalaga ang kapakanang sibiko sa isang demokratikong bansa?",
+            "options": [
+              "Tumutulong ito sa pag-unlad ng lipunan",
+              "Wala itong kahalagahan",
+              "Ito ay para lamang sa gobyerno",
+              "Hindi nakakatulong sa bansa"
+            ],
+            "correct_answer": "Tumutulong ito sa pag-unlad ng lipunan"
+          },
+          {
+            "question": "Ano ang naidudulot ng aktibong pakikilahok ng mga mamamayan?",
+            "options": [
+              "Mas malakas at umuunlad na komunidad",
+              "Higit na kaguluhan",
+              "Walang naidudulot",
+              "Kawalan ng pagkakaisa"
+            ],
+            "correct_answer": "Mas malakas at umuunlad na komunidad"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang pananagutan ang kapakanang sibiko?",
+            "options": [
+              "Tinitiyak nitong nagtutulungan ang lahat para sa ikabubuti",
+              "Walang kaugnayan ito sa pananagutan",
+              "Ito ay opsyonal lamang",
+              "Hindi ito totoong tungkulin"
+            ],
+            "correct_answer": "Tinitiyak nitong nagtutulungan ang lahat para sa ikabubuti"
+          },
+          {
+            "question": "Paano makakapaglahok ang isang bata sa kapakanang sibiko?",
+            "options": [
+              "Sa pagsali sa gawaing pangkalinisan o pagtulong sa kapwa",
+              "Sa pag-iwas sa lahat ng gawain",
+              "Sa pagtanggi sa mga alituntunin",
+              "Sa kawalang pakialam sa iba"
+            ],
+            "correct_answer": "Sa pagsali sa gawaing pangkalinisan o pagtulong sa kapwa"
+          },
+          {
+            "question": "Bakit mahalagang ituro ang kapakanang sibiko sa mga bata simula ngayon?",
+            "options": [
+              "Upang maging responsableng mamamayan paglaki",
+              "Hindi na kailangan ituro ito",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang maging responsableng mamamayan paglaki"
+          },
+          {
+            "question": "Paano nauugnay ang kapakanang sibiko sa konsepto ng pagkamamamayan na natutunan noong nakaraang linggo?",
+            "options": [
+              "Ipinapakita nito ang aktibong pagsasabuhay ng mga karapatan at tungkulin ng isang mamamayan",
+              "Walang koneksyon ang dalawa",
+              "Isa ay tungkol lamang sa agham",
+              "Isa ay tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Ipinapakita nito ang aktibong pagsasabuhay ng mga karapatan at tungkulin ng isang mamamayan"
+          },
+          {
+            "question": "Ano ang mangyayari kung walang mamamayan ang lumalahok sa kapakanang sibiko?",
+            "options": [
+              "Mas mahirap umunlad ang komunidad",
+              "Mas maayos ang lahat",
+              "Walang epekto",
+              "Awtomatikong umuunlad ang lahat"
+            ],
+            "correct_answer": "Mas mahirap umunlad ang komunidad"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 👣 EPP (ICT) — Digital Footprint Awareness\n\nGrade 4, Week 26! Alamin natin ang tinatawag na \"digital footprint.\" 👣\n\n## 🔄 Balik-Aral\nNatutuhan natin ang simpleng spreadsheet data.\n\n## 👣 Ano ang Digital Footprint?\nAng **digital footprint** ay ang bakas na naiiwan natin sa Internet — mga litrato, mensahe, at komento na ating ibinahagi.\n\n## ⚠️ Bakit Kailangang Mag-ingat?\nAng anumang inilagay online ay maaaring **manatili magpakailanman**, kahit binura na natin ito.\n\n## ✅ Paano Magpanatili ng Positibong Digital Footprint\n- Mag-isip bago mag-post\n- Iwasan ang pagsasabi ng masasakit na salita online\n- Panatilihing pribado ang personal na impormasyon\n\n**Mahahalagang salita:** digital footprint, online, positibo, pag-iisip bago mag-post",
+        "quiz": [
+          {
+            "question": "Ano ang digital footprint?",
+            "options": [
+              "Bakas na naiiwan natin sa Internet",
+              "Isang uri ng laro",
+              "Isang uri ng litrato lamang",
+              "Isang uri ng kompyuter"
+            ],
+            "correct_answer": "Bakas na naiiwan natin sa Internet"
+          },
+          {
+            "question": "Bakit kailangang mag-ingat sa ating ibinabahagi online?",
+            "options": [
+              "Maaaring manatili ito magpakailanman kahit binura",
+              "Wala itong epekto",
+              "Nawawala agad ang lahat ng post",
+              "Hindi ito totoong isyu"
+            ],
+            "correct_answer": "Maaaring manatili ito magpakailanman kahit binura"
+          },
+          {
+            "question": "Ano ang isang paraan para mapanatili ang positibong digital footprint?",
+            "options": [
+              "Mag-isip bago mag-post",
+              "Basta mag-post nang walang pag-iisip",
+              "Ibahagi ang lahat ng personal na impormasyon",
+              "Sabihin ang masasakit na salita"
+            ],
+            "correct_answer": "Mag-isip bago mag-post"
+          },
+          {
+            "question": "Bakit dapat iwasan ang pagsasabi ng masasakit na salita online?",
+            "options": [
+              "Maaari itong makasakit sa iba at manatili magpakailanman",
+              "Walang epekto ito",
+              "Ligtas itong gawin online",
+              "Kinakailangan itong gawin"
+            ],
+            "correct_answer": "Maaari itong makasakit sa iba at manatili magpakailanman"
+          },
+          {
+            "question": "Ano ang kasama sa digital footprint?",
+            "options": [
+              "Mga litrato, mensahe, at komento na ibinahagi online",
+              "Mga gamit sa bahay lamang",
+              "Mga kasangkapan sa pagluluto",
+              "Mga laruan lamang"
+            ],
+            "correct_answer": "Mga litrato, mensahe, at komento na ibinahagi online"
+          },
+          {
+            "question": "Bakit mahalagang panatilihing pribado ang personal na impormasyon online?",
+            "options": [
+              "Iwasan ang panganib mula sa may masamang layunin",
+              "Walang panganib dito",
+              "Kinakailangan itong ibahagi sa lahat",
+              "Ligtas itong ibahagi"
+            ],
+            "correct_answer": "Iwasan ang panganib mula sa may masamang layunin"
+          },
+          {
+            "question": "Ano ang mangyayari kung nag-post ka ng negatibong bagay online noon?",
+            "options": [
+              "Maaari pa rin itong makita kahit binura mo na",
+              "Nawawala agad ito",
+              "Walang epekto ito ngayon",
+              "Hindi na ito naipon kahit saan"
+            ],
+            "correct_answer": "Maaari pa rin itong makita kahit binura mo na"
+          },
+          {
+            "question": "Bakit itinuturo ang digital footprint sa mga bata?",
+            "options": [
+              "Upang maging responsable sa kanilang online presence",
+              "Walang layunin ito",
+              "Hikayatin silang mag-post nang walang pag-iisip",
+              "Hindi ito bahagi ng ICT"
+            ],
+            "correct_answer": "Upang maging responsable sa kanilang online presence"
+          },
+          {
+            "question": "Bakit dapat mag-isip bago mag-post ng anumang bagay online?",
+            "options": [
+              "Ang post ay maaaring makaapekto sa iyong reputasyon sa hinaharap",
+              "Walang kahihinatnan ang pag-post",
+              "Basta't nasabi na, tapos na",
+              "Hindi mahalaga ang pag-iisip"
+            ],
+            "correct_answer": "Ang post ay maaaring makaapekto sa iyong reputasyon sa hinaharap"
+          },
+          {
+            "question": "Sino ang responsable sa pagpapanatili ng positibong digital footprint?",
+            "options": [
+              "Bawat isa sa atin",
+              "Ang kompyuter lamang",
+              "Ang internet provider lamang",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Bawat isa sa atin"
+          },
+          {
+            "question": "Bakit mahalagang matutong pangalagaan ang digital footprint mula sa maagang edad?",
+            "options": [
+              "Upang maging responsable sa online presence paglaki",
+              "Hindi na kailangan matutunan ito",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang maging responsable sa online presence paglaki"
+          },
+          {
+            "question": "Ano ang pangkalahatang aral tungkol sa digital footprint?",
+            "options": [
+              "Mag-isip bago mag-post at panatilihing positibo ang presensya online",
+              "Basta mag-post kahit ano",
+              "Hindi mahalaga ang naiiwan online",
+              "Walang panganib sa Internet"
+            ],
+            "correct_answer": "Mag-isip bago mag-post at panatilihing positibo ang presensya online"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 💃 MAPEH — Social Dance Mixers sa 3/4 Time\n\nGrade 4, Linggo 26! Alamin natin ang sayaw sa 3/4 time. 💃\n\n## 🔄 Balik-Aral\nNatutuhan natin ang fundamental dance steps sa 2/4 time.\n\n## 💃 Ano ang 3/4 Time?\nSa **3/4 time**, may tatlong beat sa bawat sukat, karaniwang ginagamit sa waltz — mas malumanay ang tempo kumpara sa 2/4.\n\n## 🕺 Social Dance Mixer sa 3/4 Time\nTulad ng natutunan natin dati, ang social dance mixer ay nagpapalit-palit ng partner, ngunit ngayon ay sasabayan natin ang mas malumanay na 3/4 tempo.\n\n## 🎯 Bakit Mahalaga Ito?\nAng pagsasanay sa iba't ibang time signature ay nagpapalawak ng ating **musical at pisikal na kakayahan**.\n\n**Mahahalagang salita:** 3/4 time, waltz, social dance mixer, tempo",
+        "quiz": [
+          {
+            "question": "Ilang beat ang mayroon sa 3/4 time bawat sukat?",
+            "options": [
+              "Tatlo",
+              "Dalawa",
+              "Apat",
+              "Isa"
+            ],
+            "correct_answer": "Tatlo"
+          },
+          {
+            "question": "Anong uri ng sayaw ang karaniwang gumagamit ng 3/4 time?",
+            "options": [
+              "Waltz",
+              "Polka",
+              "Hip-hop",
+              "Breakdance"
+            ],
+            "correct_answer": "Waltz"
+          },
+          {
+            "question": "Paano naiiba ang tempo ng 3/4 sa 2/4 time?",
+            "options": [
+              "Mas malumanay ang 3/4 kumpara sa 2/4",
+              "Magkatulad lamang sila",
+              "Mas mabilis ang 3/4",
+              "Walang pagkakaiba"
+            ],
+            "correct_answer": "Mas malumanay ang 3/4 kumpara sa 2/4"
+          },
+          {
+            "question": "Ano ang ginagawa sa social dance mixer?",
+            "options": [
+              "Nagpapalit-palit ng partner",
+              "Nananatili sa iisang partner lamang",
+              "Walang partner na ginagamit",
+              "Umuupo lamang"
+            ],
+            "correct_answer": "Nagpapalit-palit ng partner"
+          },
+          {
+            "question": "Bakit mahalagang matutong sumayaw sa iba't ibang time signature?",
+            "options": [
+              "Nagpapalawak ng musical at pisikal na kakayahan",
+              "Walang kahalagahan",
+              "Hindi na kailangan matutunan ito",
+              "Para lamang libangin ang guro"
+            ],
+            "correct_answer": "Nagpapalawak ng musical at pisikal na kakayahan"
+          },
+          {
+            "question": "Ano ang layunin ng pagsasanay ng social dance mixer sa 3/4 time?",
+            "options": [
+              "Sumabay sa mas malumanay na tempo habang nakikipag-ugnayan sa iba",
+              "Matutong sumulat",
+              "Matuto ng matematika",
+              "Maglaro ng basketball"
+            ],
+            "correct_answer": "Sumabay sa mas malumanay na tempo habang nakikipag-ugnayan sa iba"
+          },
+          {
+            "question": "Bakit mahalaga ang koordinasyon sa 3/4 time dance?",
+            "options": [
+              "Upang maging maayos ang pagsabay sa tatlong beat",
+              "Walang kahalagahan",
+              "Hindi kailangan ng koordinasyon",
+              "Anumang galaw ay tama"
+            ],
+            "correct_answer": "Upang maging maayos ang pagsabay sa tatlong beat"
+          },
+          {
+            "question": "Ano ang katangian ng waltz bilang isang sayaw?",
+            "options": [
+              "Malumanay at may tatlong beat kada sukat",
+              "Napakabilis at may dalawang beat",
+              "Walang musika",
+              "Isang beses lamang ang beat"
+            ],
+            "correct_answer": "Malumanay at may tatlong beat kada sukat"
+          },
+          {
+            "question": "Bakit isinasama ang iba't ibang uri ng sayaw sa MAPEH?",
+            "options": [
+              "Nagtataguyod ito ng pisikal na kalusugan at pagpapahalaga sa sining",
+              "Walang layunin ito",
+              "Hindi kaugnay ng edukasyon",
+              "Para lamang sa matatanda"
+            ],
+            "correct_answer": "Nagtataguyod ito ng pisikal na kalusugan at pagpapahalaga sa sining"
+          },
+          {
+            "question": "Ano ang naidudulot ng pakikisalamuha sa social dance mixer?",
+            "options": [
+              "Kasiyahan sa pakikipag-ugnayan sa iba't ibang kaklase",
+              "Pag-iisa",
+              "Kompetisyon lamang",
+              "Kawalang interes sa iba"
+            ],
+            "correct_answer": "Kasiyahan sa pakikipag-ugnayan sa iba't ibang kaklase"
+          },
+          {
+            "question": "Paano naiiba ang 3/4 time sa 2/4 time sa bilang ng beat?",
+            "options": [
+              "Tatlong beat sa 3/4, dalawang beat sa 2/4",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Dalawang beat sa 3/4"
+            ],
+            "correct_answer": "Tatlong beat sa 3/4, dalawang beat sa 2/4"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsasanay ng sayaw bilang bahagi ng PE?",
+            "options": [
+              "Nagpapaunlad ito ng pisikal na kakayahan at koordinasyon",
+              "Walang benepisyo",
+              "Pinapahina ang katawan",
+              "Hindi ito bahagi ng PE"
+            ],
+            "correct_answer": "Nagpapaunlad ito ng pisikal na kakayahan at koordinasyon"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 📐 EPP (IA) — Orthographic at Isometric Drawing\n\nGrade 4, Linggo 26! Alamin natin ang dalawang uri ng teknikal na pagguhit. 📐\n\n## 🔄 Balik-Aral\nNatutuhan natin ang free-hand drawing at lettering styles.\n\n## 📐 Ano ang Orthographic Drawing?\nAng **orthographic drawing** ay nagpapakita ng iba't ibang panig ng isang bagay (harapan, tabi, itaas) sa hiwalay na tanawin, ginagamit sa teknikal na proyekto.\n\n## 🧊 Ano ang Isometric Drawing?\nAng **isometric drawing** naman ay nagpapakita ng bagay sa isang tanawin na parang 3D, kung saan nakikita ang tatlong panig nang sabay-sabay.\n\n## 🔍 Paghahambing\n- Orthographic: maraming tanawin, patag, tumpak sa sukat\n- Isometric: isang tanawin, mas madaling maisip ang aktwal na hitsura\n\n**Mahahalagang salita:** orthographic drawing, isometric drawing, tanawin, teknikal na guhit",
+        "quiz": [
+          {
+            "question": "Ano ang orthographic drawing?",
+            "options": [
+              "Nagpapakita ng iba't ibang panig ng bagay sa hiwalay na tanawin",
+              "Isang uri ng kulay lamang",
+              "Nagpapakita lamang ng isang panig",
+              "Isang uri ng libro"
+            ],
+            "correct_answer": "Nagpapakita ng iba't ibang panig ng bagay sa hiwalay na tanawin"
+          },
+          {
+            "question": "Ano ang isometric drawing?",
+            "options": [
+              "Nagpapakita ng bagay sa tanawing parang 3D",
+              "Nagpapakita lamang ng isang guhit na patag",
+              "Isang uri ng lettering",
+              "Isang uri ng kulay"
+            ],
+            "correct_answer": "Nagpapakita ng bagay sa tanawing parang 3D"
+          },
+          {
+            "question": "Ilang panig ang nakikita sa isang isometric drawing?",
+            "options": [
+              "Tatlo, sabay-sabay",
+              "Isa lamang",
+              "Apat",
+              "Wala"
+            ],
+            "correct_answer": "Tatlo, sabay-sabay"
+          },
+          {
+            "question": "Anong panig ang ipinapakita sa orthographic drawing?",
+            "options": [
+              "Harapan, tabi, at itaas sa hiwalay na tanawin",
+              "Isang panig lamang",
+              "Walang partikular na panig",
+              "Lahat ng panig sabay-sabay"
+            ],
+            "correct_answer": "Harapan, tabi, at itaas sa hiwalay na tanawin"
+          },
+          {
+            "question": "Bakit ginagamit ang orthographic drawing sa mga teknikal na proyekto?",
+            "options": [
+              "Nagbibigay ito ng tumpak na sukat sa bawat panig",
+              "Walang gamit ito",
+              "Mas mahirap unawain ito",
+              "Hindi ito ginagamit sa totoong buhay"
+            ],
+            "correct_answer": "Nagbibigay ito ng tumpak na sukat sa bawat panig"
+          },
+          {
+            "question": "Bakit mas madaling maisip ang aktwal na hitsura sa isometric drawing?",
+            "options": [
+              "Nakikita ang tatlong panig nang sabay-sabay tulad ng totoong bagay",
+              "Isang panig lamang ang ipinapakita",
+              "Wala itong hugis",
+              "Hindi ito totoong drawing"
+            ],
+            "correct_answer": "Nakikita ang tatlong panig nang sabay-sabay tulad ng totoong bagay"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang pagkakaiba ng dalawang uri ng pagguhit?",
+            "options": [
+              "Orthographic ay maraming tanawin, isometric ay isang tanawing 3D",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Orthographic ay 3D, isometric ay patag"
+            ],
+            "correct_answer": "Orthographic ay maraming tanawin, isometric ay isang tanawing 3D"
+          },
+          {
+            "question": "Bakit mahalagang matutong gumawa ng parehong uri ng pagguhit?",
+            "options": [
+              "Bawat isa ay may layuning gamit sa iba't ibang proyekto",
+              "Isa lamang ang kailangan matutunan",
+              "Walang gamit ang dalawa",
+              "Hindi ito bahagi ng Industrial Arts"
+            ],
+            "correct_answer": "Bawat isa ay may layuning gamit sa iba't ibang proyekto"
+          },
+          {
+            "question": "Sino ang karaniwang gumagamit ng orthographic at isometric drawing?",
+            "options": [
+              "Mga inhinyero at disenyador",
+              "Mga manunulat lamang",
+              "Mga guro sa Filipino lamang",
+              "Mga doktor lamang"
+            ],
+            "correct_answer": "Mga inhinyero at disenyador"
+          },
+          {
+            "question": "Bakit itinuturo ang mga uri ng teknikal na pagguhit sa Grade 4?",
+            "options": [
+              "Upang matutong maglarawan ng bagay nang tumpak para sa proyekto",
+              "Walang layunin ito",
+              "Para sa matatanda lamang",
+              "Hindi ito kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Upang matutong maglarawan ng bagay nang tumpak para sa proyekto"
+          },
+          {
+            "question": "Anong halimbawa ng gagamitin ang orthographic drawing?",
+            "options": [
+              "Plano ng isang bahay",
+              "Isang liham",
+              "Isang tula",
+              "Isang balita"
+            ],
+            "correct_answer": "Plano ng isang bahay"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng tumpak na sukat sa teknikal na pagguhit?",
+            "options": [
+              "Para maging tama at magamit ang proyekto sa totoong buhay",
+              "Hindi mahalaga ang sukat",
+              "Basta guhit lang, okay na",
+              "Walang epekto ang sukat"
+            ],
+            "correct_answer": "Para maging tama at magamit ang proyekto sa totoong buhay"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🎮 GMRC — Laro ng Lahi (Nasyonalismo)\n\nGrade 4, Linggo 26! Pagpapahalaga: **Nasyonalismo (Nationalism)**. 🎮\n\n## 🔄 Balik-Aral\nNatutuhan natin ang kalinisan ng kapaligiran.\n\n## 🎮 Ano ang Laro ng Lahi?\nAng **Laro ng Lahi** ay mga tradisyunal na larong Pilipino tulad ng patintero, piko, at tumbang preso, na naglalaman ng ating pambansang kultura.\n\n## 🇵🇭 Bakit Nasyonalismo Ito?\nAng pagpapahalaga sa mga tradisyunal na laro ay isang paraan ng pagpapakita ng **pagmamalaki sa kultura ng Pilipinas**, sa halip na palaging umasa sa modernong libangan.\n\n## 💡 Paano Ito Isabuhay\n- Ituro ang mga larong ito sa mas batang kapatid\n- Isali ang mga ito sa proyekto ng paaralan\n- Ipagmalaki ang mga larong ito sa mga kaibigan\n\n**Mahahalagang salita:** Laro ng Lahi, nasyonalismo, kultura, pagmamalaki",
+        "quiz": [
+          {
+            "question": "Ano ang Laro ng Lahi?",
+            "options": [
+              "Tradisyunal na larong Pilipino",
+              "Bagong laro sa telepono",
+              "Larong banyaga",
+              "Larong dayuhan"
+            ],
+            "correct_answer": "Tradisyunal na larong Pilipino"
+          },
+          {
+            "question": "Bakit itinuturing na nasyonalismo ang pagpapahalaga sa Laro ng Lahi?",
+            "options": [
+              "Ipinapakita nito ang pagmamalaki sa kultura ng Pilipinas",
+              "Walang koneksyon sa nasyonalismo",
+              "Ito ay tungkol lamang sa libangan",
+              "Hindi ito bahagi ng kultura"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagmamalaki sa kultura ng Pilipinas"
+          },
+          {
+            "question": "Anong halimbawa ng Laro ng Lahi?",
+            "options": [
+              "Patintero, piko, tumbang preso",
+              "Video game sa telepono",
+              "Larong online lamang",
+              "Larong dayuhan"
+            ],
+            "correct_answer": "Patintero, piko, tumbang preso"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Nasyonalismo (Nationalism)",
+              "Kalinisan",
+              "Mapagpakumbaba",
+              "Magalang"
+            ],
+            "correct_answer": "Nasyonalismo (Nationalism)"
+          },
+          {
+            "question": "Paano maisasabuhay ang pagpapahalaga sa Laro ng Lahi?",
+            "options": [
+              "Ituro sa mas batang kapatid",
+              "Kalimutan na lamang ito",
+              "Iwasan itong laruin",
+              "Ipagbawal ito"
+            ],
+            "correct_answer": "Ituro sa mas batang kapatid"
+          },
+          {
+            "question": "Bakit mahalagang isali ang Laro ng Lahi sa proyekto ng paaralan?",
+            "options": [
+              "Upang mapanatili ang kaalaman tungkol dito sa mga bata",
+              "Walang kahalagahan ito",
+              "Hindi ito kailangan sa paaralan",
+              "Ito ay hindi bahagi ng edukasyon"
+            ],
+            "correct_answer": "Upang mapanatili ang kaalaman tungkol dito sa mga bata"
+          },
+          {
+            "question": "Bakit dapat ipagmalaki ang mga tradisyunal na laro sa mga kaibigan?",
+            "options": [
+              "Ipinapakita nito ang pagmamahal sa sariling kultura",
+              "Nakakahiya itong gawin",
+              "Wala itong halaga",
+              "Dapat itago na lamang ito"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagmamahal sa sariling kultura"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga sa GMRC ang nasyonalismo sa Laro ng Lahi?",
+            "options": [
+              "Nagtuturo ito ng pagmamalaki at pagpapanatili ng kultura",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ito ng PE",
+              "Hindi ito itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagtuturo ito ng pagmamalaki at pagpapanatili ng kultura"
+          },
+          {
+            "question": "Bakit maaaring mawala ang mga tradisyunal na laro kung hindi pahahalagahan?",
+            "options": [
+              "Maaaring makalimutan ito ng susunod na henerasyon dahil sa modernong libangan",
+              "Hindi ito mawawala kahit ano pa",
+              "Palaging mananatili ito nang walang pagsisikap",
+              "Walang panganib na mawala ito"
+            ],
+            "correct_answer": "Maaaring makalimutan ito ng susunod na henerasyon dahil sa modernong libangan"
+          },
+          {
+            "question": "Bakit mahalagang ituro ang Laro ng Lahi sa mga bata mula ngayon?",
+            "options": [
+              "Upang mapanatili ang kulturang Pilipino sa susunod na henerasyon",
+              "Hindi na kailangan ituro ito",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang mapanatili ang kulturang Pilipino sa susunod na henerasyon"
+          },
+          {
+            "question": "Paano nauugnay ang Laro ng Lahi sa kalinisan ng kapaligiran na natutunan noong nakaraang linggo?",
+            "options": [
+              "Pareho silang nagtuturo ng pagmamalasakit at pananagutan sa ating bansa",
+              "Walang kaugnayan ang dalawa",
+              "Isa ay tungkol lamang sa agham",
+              "Isa ay tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Pareho silang nagtuturo ng pagmamalasakit at pananagutan sa ating bansa"
+          },
+          {
+            "question": "Ano ang matututuhan sa pakikilahok sa Laro ng Lahi tungkol sa pagtutulungan?",
+            "options": [
+              "Ang kahalagahan ng pagsasama-sama at pagtutulungan ng magkakaibigan",
+              "Walang aral na natutunan",
+              "Mas mabuting mag-isa sa laro",
+              "Hindi kailangan ng ibang manlalaro"
+            ],
+            "correct_answer": "Ang kahalagahan ng pagsasama-sama at pagtutulungan ng magkakaibigan"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🖼️ Friday Review — English (Grade 4)\n\n- Analyzing images and building timelines\n\nGreat visual analysis! 🌟",
+        "quiz": [
+          {
+            "question": "What should you ask analyzing a celebration photo?",
+            "options": [
+              "What is happening, what mood, and its purpose",
+              "Only colors used",
+              "Only how many people",
+              "Nothing specific"
+            ],
+            "correct_answer": "What is happening, what mood, and its purpose"
+          },
+          {
+            "question": "What is a timeline?",
+            "options": [
+              "Events organized in order using dates",
+              "A single photo",
+              "Unrelated facts",
+              "A type of letter"
+            ],
+            "correct_answer": "Events organized in order using dates"
+          },
+          {
+            "question": "What might a proud/joyful mood suggest?",
+            "options": [
+              "A celebration or achievement",
+              "A sad event only",
+              "Nothing about the event",
+              "A procedural instruction"
+            ],
+            "correct_answer": "A celebration or achievement"
+          },
+          {
+            "question": "Why might an image serve to inspire?",
+            "options": [
+              "Could motivate viewers with a message",
+              "Images never inspire",
+              "Only text inspires",
+              "Inspiration has no visual form"
+            ],
+            "correct_answer": "Could motivate viewers with a message"
+          },
+          {
+            "question": "What does an Independence Day timeline show?",
+            "options": [
+              "Key dates in order",
+              "Only one date",
+              "Random events",
+              "A recipe"
+            ],
+            "correct_answer": "Key dates in order"
+          },
+          {
+            "question": "Why understand history through images?",
+            "options": [
+              "Helps understand history visually",
+              "No historical value",
+              "Only text matters",
+              "Replaces facts"
+            ],
+            "correct_answer": "Helps understand history visually"
+          },
+          {
+            "question": "Purpose of an invitation poster?",
+            "options": [
+              "To invite and inform people",
+              "To confuse viewers",
+              "To replace a timeline",
+              "To hide information"
+            ],
+            "correct_answer": "To invite and inform people"
+          },
+          {
+            "question": "Why analyze mood in an image?",
+            "options": [
+              "Reveals the intended feeling",
+              "Mood has no meaning",
+              "Only facts matter",
+              "Replaces need for timeline"
+            ],
+            "correct_answer": "Reveals the intended feeling"
+          },
+          {
+            "question": "What makes a timeline useful?",
+            "options": [
+              "Shows how events relate in order",
+              "Removes need for dates",
+              "Shows events randomly",
+              "Only works for recent events"
+            ],
+            "correct_answer": "Shows how events relate in order"
+          },
+          {
+            "question": "What is 'purpose' in image analysis?",
+            "options": [
+              "Why the image was created",
+              "The color used",
+              "The photo size",
+              "The photographer's name"
+            ],
+            "correct_answer": "Why the image was created"
+          },
+          {
+            "question": "Why might a solemn mood appear in a historical photo?",
+            "options": [
+              "Reflects a serious or respectful moment",
+              "Solemn moods never appear",
+              "Always means something negative",
+              "No connection to the event"
+            ],
+            "correct_answer": "Reflects a serious or respectful moment"
+          },
+          {
+            "question": "Why combine image analysis with timelines?",
+            "options": [
+              "Together give a fuller historical picture",
+              "They contradict each other",
+              "Only one method needed",
+              "Timelines replace images"
+            ],
+            "correct_answer": "Together give a fuller historical picture"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🪞 Friday Review — Mathematics (Grade 4)\n\n- Line symmetry and reflection\n\nGreat symmetry skills! ⭐",
+        "quiz": [
+          {
+            "question": "What is line symmetry?",
+            "options": [
+              "When a shape can be folded so both halves match",
+              "When a shape has no matching parts",
+              "When a shape is always a circle",
+              "When a shape cannot be folded"
+            ],
+            "correct_answer": "When a shape can be folded so both halves match"
+          },
+          {
+            "question": "What is a line of symmetry?",
+            "options": [
+              "The line where a shape folds to match",
+              "Any random line",
+              "A line that never matches",
+              "Only found in circles"
+            ],
+            "correct_answer": "The line where a shape folds to match"
+          },
+          {
+            "question": "Lines of symmetry in a square?",
+            "options": [
+              "4",
+              "1",
+              "0",
+              "2"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "Lines of symmetry in a circle?",
+            "options": [
+              "Infinite",
+              "0",
+              "1",
+              "4"
+            ],
+            "correct_answer": "Infinite"
+          },
+          {
+            "question": "Lines of symmetry in a butterfly shape?",
+            "options": [
+              "1",
+              "0",
+              "4",
+              "Infinite"
+            ],
+            "correct_answer": "1"
+          },
+          {
+            "question": "What is a reflection in math?",
+            "options": [
+              "A mirror image across a line",
+              "A shape with no matching image",
+              "A random rotation",
+              "A shape that disappears"
+            ],
+            "correct_answer": "A mirror image across a line"
+          },
+          {
+            "question": "How to tell if a shape has line symmetry?",
+            "options": [
+              "Check if folding makes halves match",
+              "Check color only",
+              "Check size only",
+              "Shapes never have symmetry"
+            ],
+            "correct_answer": "Check if folding makes halves match"
+          },
+          {
+            "question": "Which letter has line symmetry?",
+            "options": [
+              "A",
+              "F",
+              "G",
+              "J"
+            ],
+            "correct_answer": "A"
+          },
+          {
+            "question": "Why is symmetry useful?",
+            "options": [
+              "Recognize patterns and balance",
+              "No practical use",
+              "Only for math tests",
+              "Never appears in real life"
+            ],
+            "correct_answer": "Recognize patterns and balance"
+          },
+          {
+            "question": "What happens during a reflection?",
+            "options": [
+              "Creates a mirror image across a line",
+              "Disappears completely",
+              "Becomes a different color",
+              "Grows larger"
+            ],
+            "correct_answer": "Creates a mirror image across a line"
+          },
+          {
+            "question": "Shape with NO lines of symmetry?",
+            "options": [
+              "An irregular scribble",
+              "A square",
+              "A circle",
+              "A butterfly"
+            ],
+            "correct_answer": "An irregular scribble"
+          },
+          {
+            "question": "Why do artists use symmetry?",
+            "options": [
+              "Creates visual balance and appeal",
+              "Never used in design",
+              "Makes designs harder",
+              "Has no visual effect"
+            ],
+            "correct_answer": "Creates visual balance and appeal"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🌏 Friday Review — Filipino (Grade 4)\n\n- Salitang hango sa Ingles at Kastila\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang salitang hiram?",
+            "options": [
+              "Hiniram mula sa ibang wika",
+              "Orihinal na Filipino lamang",
+              "Uri ng pangngalan",
+              "Isang bantas"
+            ],
+            "correct_answer": "Hiniram mula sa ibang wika"
+          },
+          {
+            "question": "Saan hango ang 'mesa'?",
+            "options": [
+              "Kastila",
+              "Ingles",
+              "Intsik",
+              "Hapon"
+            ],
+            "correct_answer": "Kastila"
+          },
+          {
+            "question": "Saan hango ang 'kompyuter'?",
+            "options": [
+              "Ingles",
+              "Kastila",
+              "Intsik",
+              "Hapon"
+            ],
+            "correct_answer": "Ingles"
+          },
+          {
+            "question": "Saan hango ang 'kutsara'?",
+            "options": [
+              "Kastila",
+              "Ingles",
+              "Intsik",
+              "Hapon"
+            ],
+            "correct_answer": "Kastila"
+          },
+          {
+            "question": "Saan hango ang 'telebisyon'?",
+            "options": [
+              "Ingles",
+              "Kastila",
+              "Intsik",
+              "Hapon"
+            ],
+            "correct_answer": "Ingles"
+          },
+          {
+            "question": "Bakit maraming salita hiniram mula sa Kastila?",
+            "options": [
+              "Mahabang kasaysayan ng kolonisasyon",
+              "Walang dahilan",
+              "Mas gusto ng Pilipino ang Kastila",
+              "Walang sariling salita ang Filipino"
+            ],
+            "correct_answer": "Mahabang kasaysayan ng kolonisasyon"
+          },
+          {
+            "question": "Bakit maraming salita hiniram mula sa Ingles?",
+            "options": [
+              "Impluwensya ng US at teknolohiya",
+              "Walang dahilan",
+              "Mas madaling bigkasin",
+              "Pinilit ng ibang bansa"
+            ],
+            "correct_answer": "Impluwensya ng US at teknolohiya"
+          },
+          {
+            "question": "Bakit malaman ang pinagmulan ng salita?",
+            "options": [
+              "Maunawaan ang kasaysayan ng wika",
+              "Walang kahalagahan",
+              "Hindi kaugnay ng Filipino",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Maunawaan ang kasaysayan ng wika"
+          },
+          {
+            "question": "Tawag sa proseso ng paghiram ng salita?",
+            "options": [
+              "Panghihiram ng salita",
+              "Pagbabago ng gramatika",
+              "Pagbuo ng tugma",
+              "Pagsulat ng talata"
+            ],
+            "correct_answer": "Panghihiram ng salita"
+          },
+          {
+            "question": "Alin ang salitang hango sa Ingles?",
+            "options": [
+              "Iskedyul",
+              "Silya",
+              "Mesa",
+              "Kutsara"
+            ],
+            "correct_answer": "Iskedyul"
+          },
+          {
+            "question": "Alin ang salitang hango sa Kastila?",
+            "options": [
+              "Silya",
+              "Kompyuter",
+              "Iskedyul",
+              "Telebisyon"
+            ],
+            "correct_answer": "Silya"
+          },
+          {
+            "question": "Bakit natural ang paghiram ng salita sa pagitan ng wika?",
+            "options": [
+              "Nangyayari kapag nagtagpo ang kultura sa kasaysayan",
+              "Hindi natural na proseso",
+              "Palaging masama",
+              "Hindi nangyayari sa ibang bansa"
+            ],
+            "correct_answer": "Nangyayari kapag nagtagpo ang kultura sa kasaysayan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🧲 Friday Review — Science (Grade 4)\n\n- Magnetic vs. non-magnetic materials\n\nGreat magnet review! 🌟",
+        "quiz": [
+          {
+            "question": "Which materials are magnetic?",
+            "options": [
+              "Iron, steel, and nickel",
+              "Wood, plastic, glass",
+              "Paper and cloth",
+              "Rubber and cotton"
+            ],
+            "correct_answer": "Iron, steel, and nickel"
+          },
+          {
+            "question": "Which materials are non-magnetic?",
+            "options": [
+              "Wood, plastic, glass, paper",
+              "Iron and steel",
+              "Nickel",
+              "All metals"
+            ],
+            "correct_answer": "Wood, plastic, glass, paper"
+          },
+          {
+            "question": "How can you test if a material is magnetic?",
+            "options": [
+              "Bring a magnet close and observe",
+              "Look at color",
+              "Smell it",
+              "Taste it"
+            ],
+            "correct_answer": "Bring a magnet close and observe"
+          },
+          {
+            "question": "Can a magnet work through thin paper?",
+            "options": [
+              "Yes",
+              "No, never",
+              "Only through metal",
+              "Only through water"
+            ],
+            "correct_answer": "Yes"
+          },
+          {
+            "question": "Why can magnets hold notes on a whiteboard?",
+            "options": [
+              "Force passes through the thin paper",
+              "Paper is magnetic",
+              "Whiteboards are magnetic",
+              "Notes have no weight"
+            ],
+            "correct_answer": "Force passes through the thin paper"
+          },
+          {
+            "question": "How are magnets used in recycling?",
+            "options": [
+              "Separate metal from trash",
+              "Make trash disappear",
+              "Color-sort trash",
+              "Weigh trash"
+            ],
+            "correct_answer": "Separate metal from trash"
+          },
+          {
+            "question": "Why is nickel magnetic?",
+            "options": [
+              "Attracted to magnets",
+              "Repels all magnets",
+              "Changes color near magnets",
+              "No reaction to magnets"
+            ],
+            "correct_answer": "Attracted to magnets"
+          },
+          {
+            "question": "Why is glass NOT attracted to magnets?",
+            "options": [
+              "Non-magnetic material",
+              "Too heavy",
+              "Too light",
+              "It's a metal"
+            ],
+            "correct_answer": "Non-magnetic material"
+          },
+          {
+            "question": "Why know which materials are magnetic?",
+            "options": [
+              "Helps sort materials and design tools",
+              "No practical use",
+              "All materials behave the same",
+              "Only scientists need this"
+            ],
+            "correct_answer": "Helps sort materials and design tools"
+          },
+          {
+            "question": "Paperclip under paper, magnet moved above: result?",
+            "options": [
+              "Paperclip moves with the magnet",
+              "Nothing happens",
+              "Paper becomes magnetic",
+              "Paperclip disappears"
+            ],
+            "correct_answer": "Paperclip moves with the magnet"
+          },
+          {
+            "question": "Why do recycling centers use magnets?",
+            "options": [
+              "Faster and more efficient sorting",
+              "Magnets cannot sort metal",
+              "Hand sorting always better",
+              "Magnets destroy metal"
+            ],
+            "correct_answer": "Faster and more efficient sorting"
+          },
+          {
+            "question": "Which would NOT be attracted by a magnet?",
+            "options": [
+              "A plastic ruler",
+              "An iron nail",
+              "A steel paperclip",
+              "A nickel coin"
+            ],
+            "correct_answer": "A plastic ruler"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🤝 Friday Review — Araling Panlipunan (Grade 4)\n\n- Kapakanang sibiko bilang pananagutan\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang kapakanang sibiko?",
+            "options": [
+              "Aktibong pakikilahok sa mga gawaing nakakabuti sa komunidad",
+              "Kawalang pakialam sa komunidad",
+              "Pag-iwas sa gawain",
+              "Uri ng laro"
+            ],
+            "correct_answer": "Aktibong pakikilahok sa mga gawaing nakakabuti sa komunidad"
+          },
+          {
+            "question": "Halimbawa ng pakikilahok sa paaralan?",
+            "options": [
+              "Pagsali sa proyektong pangkalinisan",
+              "Pag-iwas sa gawain",
+              "Kawalang pakialam",
+              "Pagtanggi sa alituntunin"
+            ],
+            "correct_answer": "Pagsali sa proyektong pangkalinisan"
+          },
+          {
+            "question": "Bakit tumulong sa kapwa estudyante?",
+            "options": [
+              "Nagpapakita ng pagmamalasakit at pananagutan",
+              "Walang kahalagahan",
+              "Hindi kailangan tumulong",
+              "Pag-aaksaya ng oras"
+            ],
+            "correct_answer": "Nagpapakita ng pagmamalasakit at pananagutan"
+          },
+          {
+            "question": "Bakit sumunod sa alituntunin ng paaralan?",
+            "options": [
+              "Nagpapanatili ng kaayusan",
+              "Hindi kailangan sundin",
+              "Walang kahalagahan",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Nagpapanatili ng kaayusan"
+          },
+          {
+            "question": "Sino may pananagutang tumulong sa kapakanan ng lahat?",
+            "options": [
+              "Bawat mamamayan, kahit bata",
+              "Pamahalaan lamang",
+              "Matatanda lamang",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Bawat mamamayan, kahit bata"
+          },
+          {
+            "question": "Bakit mahalaga ang kapakanang sibiko sa demokrasya?",
+            "options": [
+              "Tumutulong sa pag-unlad ng lipunan",
+              "Walang kahalagahan",
+              "Para sa gobyerno lamang",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Tumutulong sa pag-unlad ng lipunan"
+          },
+          {
+            "question": "Naidudulot ng aktibong pakikilahok?",
+            "options": [
+              "Mas malakas na komunidad",
+              "Higit na kaguluhan",
+              "Wala",
+              "Kawalan ng pagkakaisa"
+            ],
+            "correct_answer": "Mas malakas na komunidad"
+          },
+          {
+            "question": "Bakit mahalagang pananagutan ang kapakanang sibiko?",
+            "options": [
+              "Tinitiyak na nagtutulungan lahat",
+              "Walang kaugnayan",
+              "Opsyonal lamang",
+              "Hindi totoong tungkulin"
+            ],
+            "correct_answer": "Tinitiyak na nagtutulungan lahat"
+          },
+          {
+            "question": "Paano makakapaglahok ang bata sa kapakanang sibiko?",
+            "options": [
+              "Pagsali sa gawaing pangkalinisan",
+              "Pag-iwas sa gawain",
+              "Pagtanggi sa alituntunin",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pagsali sa gawaing pangkalinisan"
+          },
+          {
+            "question": "Bakit ituro ang kapakanang sibiko sa bata simula ngayon?",
+            "options": [
+              "Maging responsableng mamamayan paglaki",
+              "Hindi kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging responsableng mamamayan paglaki"
+          },
+          {
+            "question": "Koneksyon sa konsepto ng pagkamamamayan?",
+            "options": [
+              "Aktibong pagsasabuhay ng karapatan at tungkulin",
+              "Walang koneksyon",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Aktibong pagsasabuhay ng karapatan at tungkulin"
+          },
+          {
+            "question": "Mangyayari kung walang lumalahok sa kapakanang sibiko?",
+            "options": [
+              "Mas mahirap umunlad ang komunidad",
+              "Mas maayos ang lahat",
+              "Walang epekto",
+              "Awtomatikong umunlad"
+            ],
+            "correct_answer": "Mas mahirap umunlad ang komunidad"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 👣 Friday Review — EPP (ICT) (Grade 4)\n\n- Digital footprint awareness\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang digital footprint?",
+            "options": [
+              "Bakas na naiiwan sa Internet",
+              "Uri ng laro",
+              "Uri ng litrato lamang",
+              "Uri ng kompyuter"
+            ],
+            "correct_answer": "Bakas na naiiwan sa Internet"
+          },
+          {
+            "question": "Bakit mag-ingat sa ibinabahagi online?",
+            "options": [
+              "Maaaring manatili magpakailanman",
+              "Walang epekto",
+              "Nawawala agad",
+              "Hindi totoong isyu"
+            ],
+            "correct_answer": "Maaaring manatili magpakailanman"
+          },
+          {
+            "question": "Paraan mapanatili ang positibong digital footprint?",
+            "options": [
+              "Mag-isip bago mag-post",
+              "Basta mag-post",
+              "Ibahagi ang lahat",
+              "Sabihin masasakit na salita"
+            ],
+            "correct_answer": "Mag-isip bago mag-post"
+          },
+          {
+            "question": "Bakit iwasan ang masasakit na salita online?",
+            "options": [
+              "Makakasakit at manatili magpakailanman",
+              "Walang epekto",
+              "Ligtas gawin online",
+              "Kinakailangan gawin"
+            ],
+            "correct_answer": "Makakasakit at manatili magpakailanman"
+          },
+          {
+            "question": "Kasama sa digital footprint?",
+            "options": [
+              "Litrato, mensahe, komento online",
+              "Gamit sa bahay lamang",
+              "Kasangkapan sa pagluluto",
+              "Laruan lamang"
+            ],
+            "correct_answer": "Litrato, mensahe, komento online"
+          },
+          {
+            "question": "Bakit panatilihing pribado ang personal na impormasyon?",
+            "options": [
+              "Iwasan panganib mula sa masamang layunin",
+              "Walang panganib",
+              "Kinakailangan ibahagi",
+              "Ligtas ibahagi"
+            ],
+            "correct_answer": "Iwasan panganib mula sa masamang layunin"
+          },
+          {
+            "question": "Mangyayari kung nag-post ng negatibo dati?",
+            "options": [
+              "Maaari pa ring makita kahit binura",
+              "Nawawala agad",
+              "Walang epekto ngayon",
+              "Hindi na naipon kahit saan"
+            ],
+            "correct_answer": "Maaari pa ring makita kahit binura"
+          },
+          {
+            "question": "Bakit ituro ang digital footprint sa bata?",
+            "options": [
+              "Maging responsable sa online presence",
+              "Walang layunin",
+              "Hikayatin mag-post walang pag-iisip",
+              "Hindi bahagi ng ICT"
+            ],
+            "correct_answer": "Maging responsable sa online presence"
+          },
+          {
+            "question": "Bakit mag-isip bago mag-post?",
+            "options": [
+              "Makakaapekto sa reputasyon sa hinaharap",
+              "Walang kahihinatnan",
+              "Tapos na pagkasabi",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Makakaapekto sa reputasyon sa hinaharap"
+          },
+          {
+            "question": "Sino responsable sa positibong digital footprint?",
+            "options": [
+              "Bawat isa sa atin",
+              "Kompyuter lamang",
+              "Internet provider lamang",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Bawat isa sa atin"
+          },
+          {
+            "question": "Bakit matutong pangalagaan ito mula sa maagang edad?",
+            "options": [
+              "Maging responsable sa online presence paglaki",
+              "Hindi kailangan matutunan",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging responsable sa online presence paglaki"
+          },
+          {
+            "question": "Pangkalahatang aral tungkol sa digital footprint?",
+            "options": [
+              "Mag-isip bago mag-post, panatilihing positibo",
+              "Mag-post kahit ano",
+              "Hindi mahalaga ang naiiwan online",
+              "Walang panganib online"
+            ],
+            "correct_answer": "Mag-isip bago mag-post, panatilihing positibo"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 4)\n\n- Social dance mixers sa 3/4 time\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ilang beat sa 3/4 time?",
+            "options": [
+              "Tatlo",
+              "Dalawa",
+              "Apat",
+              "Isa"
+            ],
+            "correct_answer": "Tatlo"
+          },
+          {
+            "question": "Uri ng sayaw sa 3/4 time?",
+            "options": [
+              "Waltz",
+              "Polka",
+              "Hip-hop",
+              "Breakdance"
+            ],
+            "correct_answer": "Waltz"
+          },
+          {
+            "question": "Pagkakaiba ng tempo ng 3/4 sa 2/4?",
+            "options": [
+              "Mas malumanay ang 3/4",
+              "Magkatulad lamang",
+              "Mas mabilis ang 3/4",
+              "Walang pagkakaiba"
+            ],
+            "correct_answer": "Mas malumanay ang 3/4"
+          },
+          {
+            "question": "Ginagawa sa social dance mixer?",
+            "options": [
+              "Nagpapalit-palit ng partner",
+              "Nananatili sa iisang partner",
+              "Walang partner",
+              "Umuupo lamang"
+            ],
+            "correct_answer": "Nagpapalit-palit ng partner"
+          },
+          {
+            "question": "Bakit matutong sumayaw sa iba't ibang time signature?",
+            "options": [
+              "Nagpapalawak ng kakayahan",
+              "Walang kahalagahan",
+              "Hindi kailangan matutunan",
+              "Libangin lamang ang guro"
+            ],
+            "correct_answer": "Nagpapalawak ng kakayahan"
+          },
+          {
+            "question": "Layunin ng social dance mixer sa 3/4 time?",
+            "options": [
+              "Sumabay sa malumanay na tempo habang nakikipag-ugnayan",
+              "Matutong sumulat",
+              "Matuto ng matematika",
+              "Maglaro ng basketball"
+            ],
+            "correct_answer": "Sumabay sa malumanay na tempo habang nakikipag-ugnayan"
+          },
+          {
+            "question": "Bakit mahalaga ang koordinasyon sa 3/4 time dance?",
+            "options": [
+              "Maayos na pagsabay sa tatlong beat",
+              "Walang kahalagahan",
+              "Hindi kailangan",
+              "Anumang galaw ay tama"
+            ],
+            "correct_answer": "Maayos na pagsabay sa tatlong beat"
+          },
+          {
+            "question": "Katangian ng waltz?",
+            "options": [
+              "Malumanay, tatlong beat kada sukat",
+              "Napakabilis, dalawang beat",
+              "Walang musika",
+              "Isang beat lamang"
+            ],
+            "correct_answer": "Malumanay, tatlong beat kada sukat"
+          },
+          {
+            "question": "Bakit isinasama ang iba't ibang sayaw sa MAPEH?",
+            "options": [
+              "Nagtataguyod ng kalusugan at sining",
+              "Walang layunin",
+              "Hindi kaugnay ng edukasyon",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Nagtataguyod ng kalusugan at sining"
+          },
+          {
+            "question": "Naidudulot ng pakikisalamuha sa social dance mixer?",
+            "options": [
+              "Kasiyahan sa pakikipag-ugnayan",
+              "Pag-iisa",
+              "Kompetisyon lamang",
+              "Kawalang interes"
+            ],
+            "correct_answer": "Kasiyahan sa pakikipag-ugnayan"
+          },
+          {
+            "question": "Pagkakaiba ng 3/4 sa 2/4 sa bilang ng beat?",
+            "options": [
+              "Tatlo sa 3/4, dalawa sa 2/4",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Dalawa sa 3/4"
+            ],
+            "correct_answer": "Tatlo sa 3/4, dalawa sa 2/4"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsasanay ng sayaw sa PE?",
+            "options": [
+              "Nagpapaunlad ng kakayahan at koordinasyon",
+              "Walang benepisyo",
+              "Pinapahina ang katawan",
+              "Hindi bahagi ng PE"
+            ],
+            "correct_answer": "Nagpapaunlad ng kakayahan at koordinasyon"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 📐 Friday Review — EPP (Grade 4)\n\n- Orthographic at isometric drawing\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang orthographic drawing?",
+            "options": [
+              "Iba't ibang panig sa hiwalay na tanawin",
+              "Uri ng kulay lamang",
+              "Isang panig lamang",
+              "Uri ng libro"
+            ],
+            "correct_answer": "Iba't ibang panig sa hiwalay na tanawin"
+          },
+          {
+            "question": "Ano ang isometric drawing?",
+            "options": [
+              "Bagay sa tanawing parang 3D",
+              "Guhit na patag lamang",
+              "Uri ng lettering",
+              "Uri ng kulay"
+            ],
+            "correct_answer": "Bagay sa tanawing parang 3D"
+          },
+          {
+            "question": "Ilang panig nakikita sa isometric drawing?",
+            "options": [
+              "Tatlo, sabay-sabay",
+              "Isa lamang",
+              "Apat",
+              "Wala"
+            ],
+            "correct_answer": "Tatlo, sabay-sabay"
+          },
+          {
+            "question": "Panig ipinapakita sa orthographic?",
+            "options": [
+              "Harapan, tabi, itaas sa hiwalay na tanawin",
+              "Isang panig lamang",
+              "Walang partikular",
+              "Lahat sabay-sabay"
+            ],
+            "correct_answer": "Harapan, tabi, itaas sa hiwalay na tanawin"
+          },
+          {
+            "question": "Bakit ginagamit ang orthographic sa teknikal na proyekto?",
+            "options": [
+              "Tumpak na sukat sa bawat panig",
+              "Walang gamit",
+              "Mas mahirap unawain",
+              "Hindi ginagamit"
+            ],
+            "correct_answer": "Tumpak na sukat sa bawat panig"
+          },
+          {
+            "question": "Bakit mas madaling maisip ang aktwal na hitsura sa isometric?",
+            "options": [
+              "Nakikita ang tatlong panig sabay-sabay",
+              "Isang panig lamang",
+              "Wala itong hugis",
+              "Hindi totoong drawing"
+            ],
+            "correct_answer": "Nakikita ang tatlong panig sabay-sabay"
+          },
+          {
+            "question": "Pagkakaiba ng dalawang uri ng pagguhit?",
+            "options": [
+              "Orthographic maraming tanawin, isometric isang tanawing 3D",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Orthographic 3D, isometric patag"
+            ],
+            "correct_answer": "Orthographic maraming tanawin, isometric isang tanawing 3D"
+          },
+          {
+            "question": "Bakit matutong gumawa ng parehong uri?",
+            "options": [
+              "Bawat isa may layuning gamit",
+              "Isa lamang kailangan",
+              "Walang gamit ang dalawa",
+              "Hindi bahagi ng IA"
+            ],
+            "correct_answer": "Bawat isa may layuning gamit"
+          },
+          {
+            "question": "Sino gumagamit ng orthographic at isometric drawing?",
+            "options": [
+              "Mga inhinyero at disenyador",
+              "Mga manunulat lamang",
+              "Mga guro sa Filipino lamang",
+              "Mga doktor lamang"
+            ],
+            "correct_answer": "Mga inhinyero at disenyador"
+          },
+          {
+            "question": "Bakit ituro ang teknikal na pagguhit sa Grade 4?",
+            "options": [
+              "Matutong maglarawan ng bagay nang tumpak",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Matutong maglarawan ng bagay nang tumpak"
+          },
+          {
+            "question": "Halimbawang gagamitin ang orthographic drawing?",
+            "options": [
+              "Plano ng bahay",
+              "Isang liham",
+              "Isang tula",
+              "Isang balita"
+            ],
+            "correct_answer": "Plano ng bahay"
+          },
+          {
+            "question": "Bakit mahalaga ang tumpak na sukat sa teknikal na pagguhit?",
+            "options": [
+              "Maging tama at magamit sa totoong buhay",
+              "Hindi mahalaga",
+              "Basta guhit lang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging tama at magamit sa totoong buhay"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🎮 Friday Review — GMRC (Grade 4)\n\n- Nasyonalismo: Laro ng Lahi\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang Laro ng Lahi?",
+            "options": [
+              "Tradisyunal na larong Pilipino",
+              "Bagong laro sa telepono",
+              "Larong banyaga",
+              "Larong dayuhan"
+            ],
+            "correct_answer": "Tradisyunal na larong Pilipino"
+          },
+          {
+            "question": "Bakit nasyonalismo ang pagpapahalaga sa Laro ng Lahi?",
+            "options": [
+              "Pagmamalaki sa kultura ng Pilipinas",
+              "Walang koneksyon",
+              "Tungkol lamang sa libangan",
+              "Hindi bahagi ng kultura"
+            ],
+            "correct_answer": "Pagmamalaki sa kultura ng Pilipinas"
+          },
+          {
+            "question": "Halimbawa ng Laro ng Lahi?",
+            "options": [
+              "Patintero, piko, tumbang preso",
+              "Video game",
+              "Larong online",
+              "Larong dayuhan"
+            ],
+            "correct_answer": "Patintero, piko, tumbang preso"
+          },
+          {
+            "question": "Pagpapahalaga na tinalakay?",
+            "options": [
+              "Nasyonalismo (Nationalism)",
+              "Kalinisan",
+              "Mapagpakumbaba",
+              "Magalang"
+            ],
+            "correct_answer": "Nasyonalismo (Nationalism)"
+          },
+          {
+            "question": "Paano maisasabuhay ang pagpapahalaga rito?",
+            "options": [
+              "Ituro sa mas batang kapatid",
+              "Kalimutan na lamang",
+              "Iwasan laruin",
+              "Ipagbawal ito"
+            ],
+            "correct_answer": "Ituro sa mas batang kapatid"
+          },
+          {
+            "question": "Bakit isali sa proyekto ng paaralan?",
+            "options": [
+              "Mapanatili ang kaalaman sa mga bata",
+              "Walang kahalagahan",
+              "Hindi kailangan sa paaralan",
+              "Hindi bahagi ng edukasyon"
+            ],
+            "correct_answer": "Mapanatili ang kaalaman sa mga bata"
+          },
+          {
+            "question": "Bakit ipagmalaki ito sa mga kaibigan?",
+            "options": [
+              "Pagmamahal sa sariling kultura",
+              "Nakakahiya gawin",
+              "Wala itong halaga",
+              "Itago na lamang"
+            ],
+            "correct_answer": "Pagmamahal sa sariling kultura"
+          },
+          {
+            "question": "Bakit nasyonalismo bahagi ng GMRC?",
+            "options": [
+              "Nagtuturo ng pagmamalaki at pagpapanatili ng kultura",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi ng PE lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Nagtuturo ng pagmamalaki at pagpapanatili ng kultura"
+          },
+          {
+            "question": "Bakit maaaring mawala ang tradisyunal na laro?",
+            "options": [
+              "Makalimutan ng henerasyon dahil sa modernong libangan",
+              "Hindi mawawala kahit ano pa",
+              "Palaging mananatili",
+              "Walang panganib mawala"
+            ],
+            "correct_answer": "Makalimutan ng henerasyon dahil sa modernong libangan"
+          },
+          {
+            "question": "Bakit ituro sa bata mula ngayon?",
+            "options": [
+              "Mapanatili ang kultura sa susunod na henerasyon",
+              "Hindi kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Mapanatili ang kultura sa susunod na henerasyon"
+          },
+          {
+            "question": "Koneksyon sa kalinisan ng kapaligiran?",
+            "options": [
+              "Pareho tumatalakay sa pananagutan sa bansa",
+              "Walang kaugnayan",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Pareho tumatalakay sa pananagutan sa bansa"
+          },
+          {
+            "question": "Ano ang matututuhan sa pakikilahok sa Laro ng Lahi tungkol sa pagtutulungan?",
+            "options": [
+              "Ang kahalagahan ng pagsasama-sama at pagtutulungan ng magkakaibigan",
+              "Walang aral na natutunan",
+              "Mas mabuting mag-isa sa laro",
+              "Hindi kailangan ng ibang manlalaro"
+            ],
+            "correct_answer": "Ang kahalagahan ng pagsasama-sama at pagtutulungan ng magkakaibigan"
+          }
+        ]
+      }
+    }
+  }
+}

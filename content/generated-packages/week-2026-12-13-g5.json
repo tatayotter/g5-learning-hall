@@ -1,0 +1,2266 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-12-13",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📖 English — Review: Reading, Grammar, and Multimedia Skills\n\nGrade 5, Week 27! Let's bring together everything we studied this term before the break. 📖\n\n## 🔄 Big Ideas from This Term\n- **Story elements:** flashback (non-linear plot), metaphor, personification, hyperbole\n- **Context clues:** appositives (renaming phrases set off by commas), glossary use\n- **Forms:** deposit slips, application forms\n- **Viewing:** directionality in visuals, multimedia elements (visuals, audio, pacing, captions)\n\n## 🧠 Putting It Together\nA skilled reader uses figures of speech to *feel* a story, context clues (like appositives) to understand new words, and viewing skills to *analyze* how visuals and video send a message.\n\n## 🎯 Why This Matters\nThese are tools you'll use for the rest of your life — reading forms, understanding stories, and evaluating media critically.\n\n**Key words:** flashback, figurative language, appositive, glossary, multimedia",
+        "quiz": [
+          {
+            "question": "What is a flashback?",
+            "options": [
+              "A pause in the present to show something from the past",
+              "A prediction about the future",
+              "The story's title",
+              "A character's name"
+            ],
+            "correct_answer": "A pause in the present to show something from the past"
+          },
+          {
+            "question": "What is a metaphor?",
+            "options": [
+              "Comparing two unlike things without 'like' or 'as'",
+              "Giving human qualities to objects",
+              "An extreme exaggeration",
+              "A type of rhyme"
+            ],
+            "correct_answer": "Comparing two unlike things without 'like' or 'as'"
+          },
+          {
+            "question": "What is personification?",
+            "options": [
+              "Giving human qualities to non-human things",
+              "Comparing with 'like' or 'as'",
+              "An extreme exaggeration",
+              "A rhyme scheme"
+            ],
+            "correct_answer": "Giving human qualities to non-human things"
+          },
+          {
+            "question": "What is an appositive?",
+            "options": [
+              "A phrase that renames or explains a noun",
+              "A type of verb",
+              "A punctuation mark",
+              "A rhyme scheme"
+            ],
+            "correct_answer": "A phrase that renames or explains a noun"
+          },
+          {
+            "question": "What is a glossary?",
+            "options": [
+              "A list of difficult words and definitions from a specific book",
+              "A list of every word in the language",
+              "A table of contents",
+              "An index of page numbers"
+            ],
+            "correct_answer": "A list of difficult words and definitions from a specific book"
+          },
+          {
+            "question": "What is an application form used for?",
+            "options": [
+              "Formally requesting something",
+              "Depositing money",
+              "Drawing a picture",
+              "Writing a poem"
+            ],
+            "correct_answer": "Formally requesting something"
+          },
+          {
+            "question": "What is directionality in a visual text?",
+            "options": [
+              "The order your eyes are guided to read it",
+              "The color of the text",
+              "The size of the paper",
+              "The font used"
+            ],
+            "correct_answer": "The order your eyes are guided to read it"
+          },
+          {
+            "question": "What does 'pacing' affect in a video?",
+            "options": [
+              "The mood of the video",
+              "The color of captions",
+              "The screen size",
+              "The volume only"
+            ],
+            "correct_answer": "The mood of the video"
+          },
+          {
+            "question": "'I've told you a million times!' is an example of what?",
+            "options": [
+              "Hyperbole",
+              "Metaphor",
+              "Personification",
+              "A literal statement"
+            ],
+            "correct_answer": "Hyperbole"
+          },
+          {
+            "question": "Why do writers use figures of speech and context clues together?",
+            "options": [
+              "To make writing vivid while helping readers understand new words",
+              "To confuse readers on purpose",
+              "To remove the need for a plot",
+              "To make sentences shorter"
+            ],
+            "correct_answer": "To make writing vivid while helping readers understand new words"
+          },
+          {
+            "question": "Which skill would help you understand a specialized word in a science book?",
+            "options": [
+              "Checking the glossary",
+              "Ignoring the word",
+              "Assuming it means nothing",
+              "Skipping the whole page"
+            ],
+            "correct_answer": "Checking the glossary"
+          },
+          {
+            "question": "Why is it useful to understand multimedia elements when watching a video?",
+            "options": [
+              "It helps you notice how the video persuades or informs you",
+              "It has no real use",
+              "Only filmmakers need this skill",
+              "It replaces the need to read"
+            ],
+            "correct_answer": "It helps you notice how the video persuades or informs you"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📐 Mathematics — Surface Area of Prisms\n\nGrade 5, Week 27! Let's calculate how much material covers a solid shape. 📐\n\n## 🔄 Review\nWe compared **prisms and pyramids** — faces, vertices, edges, and nets.\n\n## 📐 What Is Surface Area?\n**Surface area** is the total area of ALL the faces of a solid figure added together.\n\n## 🧮 Finding Surface Area of a Rectangular Prism\n1. Find the area of each of the 6 faces (length × width for each pair)\n2. Add all 6 areas together\n\n**Example:** A box is 4cm long, 3cm wide, 2cm tall.\n- Top/Bottom: 4×3 = 12 each → 24 total\n- Front/Back: 4×2 = 8 each → 16 total\n- Sides: 3×2 = 6 each → 12 total\n- **Total Surface Area = 24 + 16 + 12 = 52 cm²**\n\n## 🎁 Real-World Use\nSurface area tells you how much wrapping paper you'd need to cover a gift box completely!\n\n**Key words:** surface area, face, rectangular prism, total area",
+        "quiz": [
+          {
+            "question": "What is surface area?",
+            "options": [
+              "The total area of all the faces of a solid added together",
+              "The volume inside a solid",
+              "The length of one edge only",
+              "The number of vertices"
+            ],
+            "correct_answer": "The total area of all the faces of a solid added together"
+          },
+          {
+            "question": "How many faces does a rectangular prism have?",
+            "options": [
+              "6",
+              "4",
+              "8",
+              "2"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What is the first step in finding surface area?",
+            "options": [
+              "Find the area of each face",
+              "Find the volume",
+              "Count the vertices",
+              "Multiply all edges together"
+            ],
+            "correct_answer": "Find the area of each face"
+          },
+          {
+            "question": "A box is 4cm long, 3cm wide, 2cm tall. What is the area of the top face?",
+            "options": [
+              "12 cm²",
+              "8 cm²",
+              "6 cm²",
+              "24 cm²"
+            ],
+            "correct_answer": "12 cm²"
+          },
+          {
+            "question": "In the same box, what is the area of one side face (width × height)?",
+            "options": [
+              "6 cm²",
+              "12 cm²",
+              "8 cm²",
+              "24 cm²"
+            ],
+            "correct_answer": "6 cm²"
+          },
+          {
+            "question": "What is the total surface area of the 4×3×2 cm box?",
+            "options": [
+              "52 cm²",
+              "24 cm²",
+              "12 cm²",
+              "48 cm²"
+            ],
+            "correct_answer": "52 cm²"
+          },
+          {
+            "question": "Why do you multiply each face's area by 2 in the calculation?",
+            "options": [
+              "Because opposite faces of a prism have equal area",
+              "Because all faces are triangles",
+              "Because there's only one face",
+              "Multiplying by 2 is not needed"
+            ],
+            "correct_answer": "Because opposite faces of a prism have equal area"
+          },
+          {
+            "question": "What real-world question does surface area help answer?",
+            "options": [
+              "How much wrapping paper covers a box completely",
+              "How much water a box can hold",
+              "How heavy a box is",
+              "How many edges a box has"
+            ],
+            "correct_answer": "How much wrapping paper covers a box completely"
+          },
+          {
+            "question": "If a cube has a side length of 3cm, what is the area of ONE face?",
+            "options": [
+              "9 cm²",
+              "3 cm²",
+              "6 cm²",
+              "27 cm²"
+            ],
+            "correct_answer": "9 cm²"
+          },
+          {
+            "question": "What is the total surface area of that cube (6 faces)?",
+            "options": [
+              "54 cm²",
+              "9 cm²",
+              "18 cm²",
+              "27 cm²"
+            ],
+            "correct_answer": "54 cm²"
+          },
+          {
+            "question": "Surface area is measured in what type of units?",
+            "options": [
+              "Square units",
+              "Cubic units",
+              "Linear units",
+              "No units at all"
+            ],
+            "correct_answer": "Square units"
+          },
+          {
+            "question": "Why is finding surface area useful when designing packaging?",
+            "options": [
+              "It tells you exactly how much material is needed to cover the box",
+              "It tells you how much the box weighs",
+              "It has no practical use",
+              "It only matters for spheres"
+            ],
+            "correct_answer": "It tells you exactly how much material is needed to cover the box"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🎭 Filipino — Balik-Aral: Mga Anyo ng Panitikan\n\nGrade 5, Linggo 27! Balikan natin ang mga anyo ng panitikang natutunan ngayong term. 🎭\n\n## 🔄 Apat na Anyo ng Panitikan na Natutunan\n- **Tulang Pambata** — saknong, taludtod, tugma\n- **Kuwentong Katatakutan** — tagpuan, suspense, twist\n- **Maikling Kuwento** — simula, gitna, wakas\n- **Dulang Pambata** — tauhan, dayalogo, direksyon sa entablado\n\n## 🧠 Pagsasama-sama ng Kaalaman\nBawat anyo ay may sariling layunin: ang tula ay para sa damdamin at ritmo, ang kuwentong katatakutan ay para magbigay-kaba, ang maikling kuwento ay para sa kumpletong balangkas, at ang dula ay para isadula.\n\n## 🎯 Bakit Mahalaga Ito?\nSa pag-alam ng iba't ibang anyo, mas madali mong makikilala at mauunawaan ang **iba't ibang uri ng teksto** na iyong babasahin sa buhay.\n\n**Mahahalagang salita:** tulang pambata, kuwentong katatakutan, maikling kuwento, dulang pambata",
+        "quiz": [
+          {
+            "question": "Ano ang saknong sa tulang pambata?",
+            "options": [
+              "Grupo ng mga taludtod",
+              "Isang salita lamang",
+              "Ang pamagat",
+              "Ang may-akda"
+            ],
+            "correct_answer": "Grupo ng mga taludtod"
+          },
+          {
+            "question": "Ano ang tagpuan sa kuwentong katatakutan?",
+            "options": [
+              "Kadalasang madilim o kakaibang lugar",
+              "Ang pangalan ng may-akda",
+              "Ang pamagat",
+              "Ang bilang ng pahina"
+            ],
+            "correct_answer": "Kadalasang madilim o kakaibang lugar"
+          },
+          {
+            "question": "Ano ang nangyayari sa gitna ng maikling kuwento?",
+            "options": [
+              "Umuunlad ang suliranin hanggang sa sukdulan",
+              "Nagsisimula lamang",
+              "Walang pangyayari",
+              "Ipinapakilala ang tauhan"
+            ],
+            "correct_answer": "Umuunlad ang suliranin hanggang sa sukdulan"
+          },
+          {
+            "question": "Ano ang dayalogo sa dulang pambata?",
+            "options": [
+              "Ang mga salitang binibigkas ng tauhan",
+              "Ang tagpuan ng dula",
+              "Ang pamagat ng dula",
+              "Ang may-akda ng dula"
+            ],
+            "correct_answer": "Ang mga salitang binibigkas ng tauhan"
+          },
+          {
+            "question": "Alin ang layunin ng tulang pambata?",
+            "options": [
+              "Para sa damdamin at ritmo",
+              "Para magbigay-kaba",
+              "Para sa kumpletong balangkas",
+              "Para isadula"
+            ],
+            "correct_answer": "Para sa damdamin at ritmo"
+          },
+          {
+            "question": "Alin ang layunin ng kuwentong katatakutan?",
+            "options": [
+              "Para magbigay-kaba",
+              "Para sa damdamin at ritmo",
+              "Para sa kumpletong balangkas",
+              "Para isadula"
+            ],
+            "correct_answer": "Para magbigay-kaba"
+          },
+          {
+            "question": "Ano ang direksyon sa entablado?",
+            "options": [
+              "Panuto kung paano gagalaw ang tauhan",
+              "Ang salitang binibigkas ng tauhan",
+              "Ang pamagat ng dula",
+              "Ang katapusan ng dula"
+            ],
+            "correct_answer": "Panuto kung paano gagalaw ang tauhan"
+          },
+          {
+            "question": "Ilang anyo ng panitikan ang binalikan sa araling ito?",
+            "options": [
+              "Apat",
+              "Isa",
+              "Dalawa",
+              "Sampu"
+            ],
+            "correct_answer": "Apat"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang iba't ibang anyo ng panitikan?",
+            "options": [
+              "Nakakatulong makilala at maunawaan ang iba't ibang uri ng teksto",
+              "Walang kaugnayan sa pagbasa",
+              "Para lamang sa pagsusulit",
+              "Hindi ito mahalaga"
+            ],
+            "correct_answer": "Nakakatulong makilala at maunawaan ang iba't ibang uri ng teksto"
+          },
+          {
+            "question": "Alin ang katangian ng maikling kuwento?",
+            "options": [
+              "May kumpletong balangkas: simula, gitna, wakas",
+              "Palaging isasadula",
+              "Palaging may tugma",
+              "Palaging nakakatakot"
+            ],
+            "correct_answer": "May kumpletong balangkas: simula, gitna, wakas"
+          },
+          {
+            "question": "Ano ang tugma sa tulang pambata?",
+            "options": [
+              "Magkatunog na huling salita sa magkasunod na taludtod",
+              "Ang bilang ng saknong",
+              "Ang haba ng tula",
+              "Ang pamagat ng tula"
+            ],
+            "correct_answer": "Magkatunog na huling salita sa magkasunod na taludtod"
+          },
+          {
+            "question": "Paano naiiba ang dula sa ibang anyo ng panitikan?",
+            "options": [
+              "Ipinapahayag ito sa pamamagitan ng sinasabi at ginagawa ng tauhan",
+              "Wala itong pagkakaiba",
+              "Basta binabasa lamang ito",
+              "Wala itong tauhan"
+            ],
+            "correct_answer": "Ipinapahayag ito sa pamamagitan ng sinasabi at ginagawa ng tauhan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🪨 Science — Rock Classification\n\nGrade 5, Week 27! Let's discover the three types of rocks. 🪨\n\n## 🔄 Review\nWe learned about **landforms and bodies of water**.\n\n## 🪨 Three Types of Rocks\n- **Igneous** — formed from cooled and hardened **lava/magma** (e.g., basalt, obsidian)\n- **Sedimentary** — formed from layers of **sediment** (sand, mud) pressed together over time (e.g., sandstone, limestone)\n- **Metamorphic** — formed when existing rock is changed by intense **heat and pressure** (e.g., marble from limestone, slate from shale)\n\n## 🌱 Soil Formation\nSoil forms when rocks slowly **weather** (break down) over time due to wind, water, and living things, mixed with **organic matter** (decayed plants and animals).\n\n## 💧 Weathering and Erosion\n- **Weathering** — breaking down of rocks in place\n- **Erosion** — the *movement* of broken rock and soil from one place to another (by water, wind, or ice)\n\n**Key words:** igneous, sedimentary, metamorphic, weathering, erosion",
+        "quiz": [
+          {
+            "question": "How does an igneous rock form?",
+            "options": [
+              "From cooled and hardened lava or magma",
+              "From layers of sediment pressed together",
+              "From intense heat and pressure changing existing rock",
+              "From plants decaying"
+            ],
+            "correct_answer": "From cooled and hardened lava or magma"
+          },
+          {
+            "question": "How does a sedimentary rock form?",
+            "options": [
+              "From layers of sediment pressed together over time",
+              "From cooled lava",
+              "From heat and pressure alone",
+              "From melted metal"
+            ],
+            "correct_answer": "From layers of sediment pressed together over time"
+          },
+          {
+            "question": "How does a metamorphic rock form?",
+            "options": [
+              "Existing rock changed by intense heat and pressure",
+              "Cooled lava only",
+              "Sediment falling from the sky",
+              "Melted ice"
+            ],
+            "correct_answer": "Existing rock changed by intense heat and pressure"
+          },
+          {
+            "question": "Which is an example of an igneous rock?",
+            "options": [
+              "Basalt",
+              "Sandstone",
+              "Marble",
+              "Limestone"
+            ],
+            "correct_answer": "Basalt"
+          },
+          {
+            "question": "Which is an example of a sedimentary rock?",
+            "options": [
+              "Sandstone",
+              "Basalt",
+              "Marble",
+              "Obsidian"
+            ],
+            "correct_answer": "Sandstone"
+          },
+          {
+            "question": "Which is an example of a metamorphic rock?",
+            "options": [
+              "Marble",
+              "Sandstone",
+              "Basalt",
+              "Limestone"
+            ],
+            "correct_answer": "Marble"
+          },
+          {
+            "question": "What is weathering?",
+            "options": [
+              "The breaking down of rocks in place",
+              "The movement of broken rock from one place to another",
+              "The cooling of lava",
+              "The melting of ice only"
+            ],
+            "correct_answer": "The breaking down of rocks in place"
+          },
+          {
+            "question": "What is erosion?",
+            "options": [
+              "The movement of broken rock and soil from one place to another",
+              "The breaking down of rocks in place only",
+              "The formation of lava",
+              "The growth of plants"
+            ],
+            "correct_answer": "The movement of broken rock and soil from one place to another"
+          },
+          {
+            "question": "What is soil made of?",
+            "options": [
+              "Weathered rock mixed with organic matter",
+              "Only liquid water",
+              "Only melted metal",
+              "Pure lava"
+            ],
+            "correct_answer": "Weathered rock mixed with organic matter"
+          },
+          {
+            "question": "What can cause erosion?",
+            "options": [
+              "Water, wind, or ice",
+              "Only sunlight",
+              "Only darkness",
+              "Nothing can cause erosion"
+            ],
+            "correct_answer": "Water, wind, or ice"
+          },
+          {
+            "question": "Marble is formed from what sedimentary rock through heat and pressure?",
+            "options": [
+              "Limestone",
+              "Basalt",
+              "Obsidian",
+              "Granite"
+            ],
+            "correct_answer": "Limestone"
+          },
+          {
+            "question": "Why is it important to distinguish weathering from erosion?",
+            "options": [
+              "Weathering breaks rock apart while erosion moves the broken pieces",
+              "They are exactly the same process",
+              "Weathering only happens underwater",
+              "Erosion only happens in space"
+            ],
+            "correct_answer": "Weathering breaks rock apart while erosion moves the broken pieces"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# ⚔️ Araling Panlipunan — Cavite Mutiny at GOMBURZA\n\nGrade 5, Linggo 27! Alamin natin ang isang mahalaga at madugong pangyayari sa ating kasaysayan. ⚔️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **ambag ng mga ilustrado**.\n\n## ⚔️ Ang Cavite Mutiny (1872)\nIsang maikling paghihimagsik ng mga sundalo at manggagawa sa Cavite laban sa pang-aabuso ng mga Espanyol. Ginamit ito bilang **dahilan** ng pamahalaang Espanyol para akusahan ang tatlong paring Pilipino.\n\n## ✝️ Ang GOMBURZA\nSina Padre **G**omez, **Bur**gos, at **Za**mora — tatlong sekular na paring Pilipino — ay **binitay** noong Pebrero 17, 1872, matapos akusahang sangkot sa Cavite Mutiny, kahit walang sapat na ebidensya.\n\n## 🔥 Epekto sa Nasyonalismong Pilipino\nAng hindi makatarungang pagbitay sa GOMBURZA ay nagpaalab ng damdaming makabayan, at naging isang mahalagang **inspirasyon** kay Jose Rizal at sa Kilusang Propaganda.\n\n**Mahahalagang salita:** Cavite Mutiny, GOMBURZA, sekularisasyon, inspirasyon",
+        "quiz": [
+          {
+            "question": "Kailan naganap ang Cavite Mutiny?",
+            "options": [
+              "1872",
+              "1521",
+              "1898",
+              "1863"
+            ],
+            "correct_answer": "1872"
+          },
+          {
+            "question": "Ano ang Cavite Mutiny?",
+            "options": [
+              "Maikling paghihimagsik ng mga sundalo at manggagawa sa Cavite",
+              "Isang malaking digmaan sa Maynila",
+              "Isang kasunduang pangkalakalan",
+              "Isang batas pang-edukasyon"
+            ],
+            "correct_answer": "Maikling paghihimagsik ng mga sundalo at manggagawa sa Cavite"
+          },
+          {
+            "question": "Sino ang tatlong paring binubuo ang GOMBURZA?",
+            "options": [
+              "Gomez, Burgos, Zamora",
+              "Rizal, Bonifacio, Aguinaldo",
+              "Legazpi, Magellan, Urdaneta",
+              "Del Pilar, Lopez Jaena, Ponce"
+            ],
+            "correct_answer": "Gomez, Burgos, Zamora"
+          },
+          {
+            "question": "Kailan binitay ang GOMBURZA?",
+            "options": [
+              "Pebrero 17, 1872",
+              "Hunyo 12, 1898",
+              "Disyembre 30, 1896",
+              "Agosto 26, 1896"
+            ],
+            "correct_answer": "Pebrero 17, 1872"
+          },
+          {
+            "question": "Bakit binitay ang GOMBURZA?",
+            "options": [
+              "Inakusahang sangkot sa Cavite Mutiny kahit walang sapat na ebidensya",
+              "Dahil sila ay Espanyol",
+              "Dahil tumangging maging pari",
+              "Dahil nagtaksil sa Simbahan"
+            ],
+            "correct_answer": "Inakusahang sangkot sa Cavite Mutiny kahit walang sapat na ebidensya"
+          },
+          {
+            "question": "Ano ang naging epekto ng pagbitay sa GOMBURZA?",
+            "options": [
+              "Nagpaalab ito ng damdaming makabayan",
+              "Wala itong epekto",
+              "Pinatahimik nito ang lahat ng paglaban",
+              "Pinasaya nito ang mga Pilipino"
+            ],
+            "correct_answer": "Nagpaalab ito ng damdaming makabayan"
+          },
+          {
+            "question": "Sino ang naging inspirasyon dahil sa pagkamatay ng GOMBURZA?",
+            "options": [
+              "Jose Rizal",
+              "Ferdinand Magellan",
+              "Miguel Lopez de Legazpi",
+              "Antonio Pigafetta"
+            ],
+            "correct_answer": "Jose Rizal"
+          },
+          {
+            "question": "Ano ang tinutukoy ng 'sekularisasyon' sa konteksto ng panahong ito?",
+            "options": [
+              "Ang pagbibigay ng mas maraming parokya sa mga paring Pilipino kaysa dayuhan",
+              "Ang pagpapatupad ng batas militar",
+              "Ang pagtatatag ng mga paaralan",
+              "Ang paggawa ng mapa"
+            ],
+            "correct_answer": "Ang pagbibigay ng mas maraming parokya sa mga paring Pilipino kaysa dayuhan"
+          },
+          {
+            "question": "Bakit itinuturing na hindi makatarungan ang pagbitay sa GOMBURZA?",
+            "options": [
+              "Kulang ang ebidensya laban sa kanila",
+              "Sila mismo ay umamin sa krimen",
+              "Sila ay hindi kailanman naaresto",
+              "Hiniling nila mismo ang kamatayan"
+            ],
+            "correct_answer": "Kulang ang ebidensya laban sa kanila"
+          },
+          {
+            "question": "Ano ang koneksyon ng GOMBURZA sa Kilusang Propaganda?",
+            "options": [
+              "Naging inspirasyon ito para sa mga susunod na kilusang makabayan",
+              "Walang koneksyon ang dalawa",
+              "Kinontra ng Kilusang Propaganda ang GOMBURZA",
+              "Naunang naganap ang Kilusang Propaganda"
+            ],
+            "correct_answer": "Naging inspirasyon ito para sa mga susunod na kilusang makabayan"
+          },
+          {
+            "question": "Bakit mahalagang alalahanin ang Cavite Mutiny at GOMBURZA sa kasaysayan?",
+            "options": [
+              "Nagpapakita ito ng krusyal na sandali sa pag-usbong ng damdaming makabayan",
+              "Walang kahalagahan ito",
+              "Ito ay kathang-isip lamang",
+              "Naganap ito sa ibang bansa"
+            ],
+            "correct_answer": "Nagpapakita ito ng krusyal na sandali sa pag-usbong ng damdaming makabayan"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HINDI totoo tungkol sa GOMBURZA?",
+            "options": [
+              "Sila ay mga Espanyol na pari",
+              "Sila ay tatlong sekular na paring Pilipino",
+              "Sila ay binitay noong 1872",
+              "Naging inspirasyon sila kay Rizal"
+            ],
+            "correct_answer": "Sila ay mga Espanyol na pari"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Term 2 ICT Skills Review\n\nGrade 5, Week 27! Let's review everything we learned in ICT this term. 💻\n\n## 🔄 Skills Covered This Term\n- **Spreadsheets** — rows, columns, cells\n- **Charts** — turning data into bar/line charts\n- **Formulas** — SUM and AVERAGE\n- **File Organization** — folders, clear file names\n- **Online Safety** — strong passwords, keeping accounts private\n- **Presentations** — transitions and animations used wisely\n\n## 🧠 How These Skills Connect\nMany of these skills work together — you might organize data in a spreadsheet, use a formula to total it, then insert a chart, and finally present it using a well-designed slideshow!\n\n## 🎯 Why ICT Skills Matter\nThese digital literacy skills are used across many subjects — not just computer class — and will help you throughout school and life.\n\n**Key words:** spreadsheet, formula, file organization, password, presentation",
+        "quiz": [
+          {
+            "question": "What is a spreadsheet made of?",
+            "options": [
+              "Rows and columns forming cells",
+              "Only pictures",
+              "Only text paragraphs",
+              "A single large cell"
+            ],
+            "correct_answer": "Rows and columns forming cells"
+          },
+          {
+            "question": "What does the SUM formula do?",
+            "options": [
+              "Adds a group of numbers",
+              "Finds the average",
+              "Deletes numbers",
+              "Colors cells"
+            ],
+            "correct_answer": "Adds a group of numbers"
+          },
+          {
+            "question": "What does the AVERAGE formula do?",
+            "options": [
+              "Finds the mean of a group of numbers",
+              "Adds numbers only",
+              "Deletes a row",
+              "Changes the font"
+            ],
+            "correct_answer": "Finds the mean of a group of numbers"
+          },
+          {
+            "question": "Why organize computer files into folders?",
+            "options": [
+              "To keep related files easy to find",
+              "To make the computer slower",
+              "To delete files automatically",
+              "It has no benefit"
+            ],
+            "correct_answer": "To keep related files easy to find"
+          },
+          {
+            "question": "What makes a password strong?",
+            "options": [
+              "Mixing uppercase, lowercase, numbers, and symbols",
+              "Using your name",
+              "Using '123456'",
+              "Using the same password everywhere"
+            ],
+            "correct_answer": "Mixing uppercase, lowercase, numbers, and symbols"
+          },
+          {
+            "question": "What is a transition in a presentation?",
+            "options": [
+              "The effect moving from one slide to the next",
+              "Text inside a slide",
+              "The title",
+              "The file name"
+            ],
+            "correct_answer": "The effect moving from one slide to the next"
+          },
+          {
+            "question": "What is an animation in a presentation?",
+            "options": [
+              "An effect making elements on one slide move or appear",
+              "The effect between two slides",
+              "The background color",
+              "The file name"
+            ],
+            "correct_answer": "An effect making elements on one slide move or appear"
+          },
+          {
+            "question": "Why use transitions/animations sparingly?",
+            "options": [
+              "Too many can distract from the message",
+              "More is always better",
+              "They're required on every slide",
+              "They replace content"
+            ],
+            "correct_answer": "Too many can distract from the message"
+          },
+          {
+            "question": "What chart type is best for comparing amounts?",
+            "options": [
+              "Bar chart",
+              "Line chart only",
+              "Pie chart only",
+              "No chart works"
+            ],
+            "correct_answer": "Bar chart"
+          },
+          {
+            "question": "Which of these ICT skills would help present data visually?",
+            "options": [
+              "Making a chart from spreadsheet data",
+              "Deleting all your files",
+              "Using a weak password",
+              "Ignoring file organization"
+            ],
+            "correct_answer": "Making a chart from spreadsheet data"
+          },
+          {
+            "question": "Why should you never share your password?",
+            "options": [
+              "It protects your personal accounts and information",
+              "Passwords are meant to be shared with friends",
+              "It has no real effect",
+              "Sharing makes the password stronger"
+            ],
+            "correct_answer": "It protects your personal accounts and information"
+          },
+          {
+            "question": "How might these ICT skills work together in a school project?",
+            "options": [
+              "Organizing data in a spreadsheet, charting it, then presenting it in slides",
+              "They are all completely unrelated to each other",
+              "Only one skill can ever be used at a time",
+              "ICT skills have no practical school use"
+            ],
+            "correct_answer": "Organizing data in a spreadsheet, charting it, then presenting it in slides"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎭 MAPEH — Term 2 Review: Musika, Sining, PE, at Kalusugan\n\nGrade 5, Linggo 27! Balikan natin ang natutunan ngayong term. 🎭\n\n## 🔄 Mga Paksang Natalakay\n- **Musika/Sining:** Panahon ng Unang Kolonyal na Espanyol; melody at musical form (verse/chorus)\n- **PE:** Rhythmic activities/dances sa 2/4 time, social dance mixer\n- **Kalusugan:** Tamang paggamit ng gamot, epekto ng gateway drugs\n\n## 🧠 Pagsasama-sama\nSa termino na ito, natutunan nating kilalanin ang mga bahagi ng musika (verse, chorus), gumawa ng sariling simpleng awit, sumayaw ng mga rhythmic dance, at alamin ang tamang pangangalaga sa kalusugan sa pamamagitan ng wastong paggamit ng gamot.\n\n## 🎯 Layunin ng Pagbabalik-Aral\nTiyakin na handa tayo para sa mga bagong paksa sa susunod na term, habang buong-buo ang natutunang kaalaman.\n\n**Mahahalagang salita:** musical form, social dance mixer, tamang paggamit ng gamot, gateway drugs",
+        "quiz": [
+          {
+            "question": "Ano ang verse (saknong) sa isang awit?",
+            "options": [
+              "Bahaging nagbabago ang salita sa bawat pag-uulit",
+              "Bahaging palaging pareho ang salita",
+              "Bahaging walang salita",
+              "Instrumento lamang"
+            ],
+            "correct_answer": "Bahaging nagbabago ang salita sa bawat pag-uulit"
+          },
+          {
+            "question": "Ano ang chorus (koro) sa isang awit?",
+            "options": [
+              "Bahaging paulit-ulit at kadalasang pinakakatatandaan",
+              "Bahaging binabago bawat ulit",
+              "Bahaging walang himig",
+              "Instrumento lamang"
+            ],
+            "correct_answer": "Bahaging paulit-ulit at kadalasang pinakakatatandaan"
+          },
+          {
+            "question": "Ano ang social dance mixer?",
+            "options": [
+              "Sayaw kung saan nagpapalit-palit ng partner",
+              "Isang uri ng awit",
+              "Isang laro na walang musika",
+              "Isang uri ng pagguhit"
+            ],
+            "correct_answer": "Sayaw kung saan nagpapalit-palit ng partner"
+          },
+          {
+            "question": "Anong time signature ang ginamit sa mga rhythmic dance?",
+            "options": [
+              "2/4",
+              "6/8",
+              "9/4",
+              "Walang time signature"
+            ],
+            "correct_answer": "2/4"
+          },
+          {
+            "question": "Sino ang dapat magrereseta ng gamot?",
+            "options": [
+              "Doktor o magulang",
+              "Kaibigan lamang",
+              "Sinuman",
+              "Walang kailangang pahintulot"
+            ],
+            "correct_answer": "Doktor o magulang"
+          },
+          {
+            "question": "Ano ang gateway drugs?",
+            "options": [
+              "Substansiyang maaaring magbukas ng daan sa mas mapanganib na droga",
+              "Uri ng pagkain lamang",
+              "Legal na gamot na walang epekto",
+              "Uri ng bitamina"
+            ],
+            "correct_answer": "Substansiyang maaaring magbukas ng daan sa mas mapanganib na droga"
+          },
+          {
+            "question": "Alin ang halimbawa ng gateway drug?",
+            "options": [
+              "Sigarilyo",
+              "Gatas",
+              "Tubig",
+              "Prutas"
+            ],
+            "correct_answer": "Sigarilyo"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang tamang paggamit ng gamot?",
+            "options": [
+              "Upang maiwasan ang maling paggamit na makasasama sa katawan",
+              "Hindi ito mahalaga",
+              "Ang gamot ay palaging ligtas kahit paano gamitin",
+              "Hindi na kailangan ng dosis"
+            ],
+            "correct_answer": "Upang maiwasan ang maling paggamit na makasasama sa katawan"
+          },
+          {
+            "question": "Anong yugto ng kasaysayan ang tinalakay sa Musika/Sining ngayong term?",
+            "options": [
+              "Unang Panahon ng Kolonyal na Espanyol",
+              "Panahon ng mga Amerikano",
+              "Kasalukuyang panahon",
+              "Bago dumating ang mga Espanyol"
+            ],
+            "correct_answer": "Unang Panahon ng Kolonyal na Espanyol"
+          },
+          {
+            "question": "Ano ang layunin ng pagbabalik-aral bago ang bakasyon?",
+            "options": [
+              "Tiyakin na handa para sa bagong paksa sa susunod na term",
+              "Wala itong layunin",
+              "Para lamang libangin ang guro",
+              "Palitan ang mga aralin sa matematika"
+            ],
+            "correct_answer": "Tiyakin na handa para sa bagong paksa sa susunod na term"
+          },
+          {
+            "question": "Anong kasanayan ang ipinakita sa culminating dance performance?",
+            "options": [
+              "Koordinasyon at pakikipagtulungan",
+              "Kasanayan sa pagsulat",
+              "Kasanayan sa matematika",
+              "Kasanayan sa pagluluto"
+            ],
+            "correct_answer": "Koordinasyon at pakikipagtulungan"
+          },
+          {
+            "question": "Anong mahalagang aral ang natutunan sa paggawa ng sariling awit?",
+            "options": [
+              "Paglalapat ng musical form (verse at chorus) sa malikhaing proyekto",
+              "Paggawa ng puhunan",
+              "Pagkalkula ng probability",
+              "Pagsulat ng balangkas ng kuwento"
+            ],
+            "correct_answer": "Paglalapat ng musical form (verse at chorus) sa malikhaing proyekto"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 EPP (AFA/FCS/IA) — Pagbabalik-Aral: Buong Yunit ng Pananahi\n\nGrade 5, Linggo 27! Balikan natin ang buong yunit ng Family and Consumer Science. 🧵\n\n## 🔄 Mga Natutunan Ngayong Term\n- Batayang **kasangkapan sa pananahi** at basic hand stitches\n- Paggamit ng **sewing machine**\n- **Embroidery** at **crochet** stitches (chain, single, double)\n- Pagpaplano at paggawa ng **produkto**\n- **Puhunan, presyo, at kita** — pagkukuwenta at paghahambing sa merkado\n- **Palamuti** upang pagandahin ang produkto\n\n## 🧠 Pagsasama-sama\nMula sa pagtahi ng simpleng hand stitch hanggang sa pagtakda ng makatwirang presyo, natutunan natin ang buong proseso ng paggawa at pagbebenta ng isang produktong-kamay.\n\n## 🎯 Paghahanda para sa Susunod na Term\nSa susunod na term, aalamin naman natin ang Industrial Arts — pagkukumpuni ng mga bagay.\n\n**Mahahalagang salita:** pananahi, embroidery, crochet, puhunan, presyo, kita",
+        "quiz": [
+          {
+            "question": "Anong batayang kasangkapan ang natutunan sa simula ng term?",
+            "options": [
+              "Kasangkapan sa pananahi at basic hand stitches",
+              "Kompyuter at spreadsheet",
+              "Kagamitan sa agrikultura",
+              "Kagamitan sa pagluluto"
+            ],
+            "correct_answer": "Kasangkapan sa pananahi at basic hand stitches"
+          },
+          {
+            "question": "Ano ang embroidery hoop?",
+            "options": [
+              "Bilog na hawakan para hindi gumalaw ang tela",
+              "Kawit para sa crochet",
+              "Uri ng makina",
+              "Uri ng gunting"
+            ],
+            "correct_answer": "Bilog na hawakan para hindi gumalaw ang tela"
+          },
+          {
+            "question": "Ano ang chain stitch?",
+            "options": [
+              "Ang unang hilera, pundasyon ng crochet",
+              "Ang huling tahi",
+              "Isang uri ng embroidery",
+              "Isang uri ng makina"
+            ],
+            "correct_answer": "Ang unang hilera, pundasyon ng crochet"
+          },
+          {
+            "question": "Paano kinukwenta ang presyo ng benta?",
+            "options": [
+              "Puhunan + Kitang Inaasahan",
+              "Puhunan lamang",
+              "Kitang Inaasahan lamang",
+              "Puhunan − Kita"
+            ],
+            "correct_answer": "Puhunan + Kitang Inaasahan"
+          },
+          {
+            "question": "Bakit ihambing ang presyo sa merkado bago ibenta ang produkto?",
+            "options": [
+              "Para malaman ang makatwirang presyo",
+              "Hindi na kailangan",
+              "Tularan lang ang ibang tindahan",
+              "Walang kaugnayan"
+            ],
+            "correct_answer": "Para malaman ang makatwirang presyo"
+          },
+          {
+            "question": "Ano ang palamuti (embellishment)?",
+            "options": [
+              "Bagay na nagpapaganda sa hitsura ng produkto",
+              "Kabuuang gastos ng produkto",
+              "Presyo ng benta",
+              "Pangalan ng produkto"
+            ],
+            "correct_answer": "Bagay na nagpapaganda sa hitsura ng produkto"
+          },
+          {
+            "question": "Anong susunod na paksa sa EPP sa Term 3?",
+            "options": [
+              "Industrial Arts — pagkukumpuni",
+              "Poultry raising",
+              "Internet safety",
+              "Musika"
+            ],
+            "correct_answer": "Industrial Arts — pagkukumpuni"
+          },
+          {
+            "question": "Bakit mahalagang matutong maghambing ng presyo sa murang edad?",
+            "options": [
+              "Ito ay batayang kasanayan sa pananalapi para sa hinaharap",
+              "Hindi kapaki-pakinabang",
+              "Para lamang sa may-ari ng negosyo",
+              "Walang gamit sa pag-aaral"
+            ],
+            "correct_answer": "Ito ay batayang kasanayan sa pananalapi para sa hinaharap"
+          },
+          {
+            "question": "Ano ang pinakamahalagang natutunan sa buong yunit ng pananahi?",
+            "options": [
+              "Ang buong proseso ng paggawa at pagbebenta ng produktong-kamay",
+              "Basta lamang manahi nang walang plano",
+              "Ang pagbili ng damit sa tindahan",
+              "Walang natutunan"
+            ],
+            "correct_answer": "Ang buong proseso ng paggawa at pagbebenta ng produktong-kamay"
+          },
+          {
+            "question": "Ano ang kaugnayan ng puhunan sa pagtakda ng presyo?",
+            "options": [
+              "Ang presyo ay dapat sumaklaw sa puhunan kasama ang kitang inaasahan",
+              "Walang kaugnayan ang dalawa",
+              "Ang puhunan ay hindi kailangang isaalang-alang",
+              "Ang presyo ay palaging mas mababa sa puhunan"
+            ],
+            "correct_answer": "Ang presyo ay dapat sumaklaw sa puhunan kasama ang kitang inaasahan"
+          },
+          {
+            "question": "Bakit mahalagang planuhin muna ang isang produkto bago simulan?",
+            "options": [
+              "Para maiwasan ang pag-aaksaya ng materyales at oras",
+              "Hindi na kailangan planuhin",
+              "Palaging perpekto ang resulta kahit walang plano",
+              "Wala itong benepisyo"
+            ],
+            "correct_answer": "Para maiwasan ang pag-aaksaya ng materyales at oras"
+          },
+          {
+            "question": "Anong kasanayan sa buong term ang pinagsama sa paggawa ng ikalawang produkto?",
+            "options": [
+              "Sewing, embroidery, at crochet",
+              "Matematika lamang",
+              "Pagsulat lamang",
+              "Pagsayaw lamang"
+            ],
+            "correct_answer": "Sewing, embroidery, at crochet"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🌟 GMRC — Term 2 Review: Pagmamalasakit sa Iba\n\nGrade 5, Linggo 27! Balikan natin ang mga pagpapahalagang natutunan ngayong term. 🌟\n\n## 🔄 Mga Pagpapahalagang Natutunan\n- **Compassion** (kahabagan), **Gratitude** (pasasalamat), **Respect** (paggalang)\n- **Accountability** (pananagutan), **Faith** (pananampalataya)\n- **Cleanliness** (kalinisan), **Nationalism** (nasyonalismo)\n- **Patience** (pagtitimpi), **Discernment** (matalinong pagpapasiya)\n\n## 🧠 Pagsasama-sama\nAng lahat ng pagpapahalagang ito ay may iisang tema — **pagmamalasakit sa iba**: kapwa Pilipino, pamilya, at Diyos. Mula sa paggalang sa nakatatanda hanggang sa paggalang sa relihiyon ng iba, natutunan nating maging mabuting kapwa-tao.\n\n## 🎯 Paghahanda para sa Susunod na Term\nSa susunod na term, aalamin naman natin ang mga pagpapahalaga tungkol sa **komunidad at lipunan**.\n\n**Mahahalagang salita:** pagmamalasakit, paggalang, pananampalataya, pananagutan",
+        "quiz": [
+          {
+            "question": "Ano ang tema ng mga pagpapahalagang natutunan ngayong term?",
+            "options": [
+              "Pagmamalasakit sa iba",
+              "Pagiging mayaman",
+              "Pagiging pinakamalakas",
+              "Pagiging pinakamatalino"
+            ],
+            "correct_answer": "Pagmamalasakit sa iba"
+          },
+          {
+            "question": "Ano ang pagtitimpi?",
+            "options": [
+              "Kakayahang pigilan ang sariling damdamin at kumilos nang mahinahon",
+              "Kawalan ng pakialam sa sitwasyon",
+              "Pagpapakita ng galit agad",
+              "Pag-iwas sa lahat ng tao"
+            ],
+            "correct_answer": "Kakayahang pigilan ang sariling damdamin at kumilos nang mahinahon"
+          },
+          {
+            "question": "Ano ang nasyonalismo?",
+            "options": [
+              "Pagmamahal at pagmamalaki sa sariling bansa",
+              "Pagmamahal sa ibang bansa lamang",
+              "Kawalang-interes sa bansa",
+              "Pagtanggi sa sariling kultura"
+            ],
+            "correct_answer": "Pagmamahal at pagmamalaki sa sariling bansa"
+          },
+          {
+            "question": "Bakit dapat igalang ang mga nakatatanda?",
+            "options": [
+              "May karanasan at karunungan silang maibabahagi",
+              "Wala silang maitutulong",
+              "Palagi silang mali",
+              "Hindi na sila mahalaga"
+            ],
+            "correct_answer": "May karanasan at karunungan silang maibabahagi"
+          },
+          {
+            "question": "Bakit dapat igalang ang relihiyon ng iba?",
+            "options": [
+              "May karapatan ang lahat sa kanilang paniniwala",
+              "Dapat lamang igalang ang sariling relihiyon",
+              "Walang kailangang igalang",
+              "Palaging mali ang iba"
+            ],
+            "correct_answer": "May karapatan ang lahat sa kanilang paniniwala"
+          },
+          {
+            "question": "Ano ang discernment?",
+            "options": [
+              "Kakayahang magpasiya nang matalino sa pagitan ng tama at mali",
+              "Kawalan ng pagpapasiya",
+              "Pagsunod na lamang sa kaibigan",
+              "Pagpapabaya sa mahihirap na sitwasyon"
+            ],
+            "correct_answer": "Kakayahang magpasiya nang matalino sa pagitan ng tama at mali"
+          },
+          {
+            "question": "Bakit mahalaga ang kalinisan sa tahanan?",
+            "options": [
+              "Nakakaiwas ito sa sakit at nagbibigay ng maayos na kapaligiran",
+              "Wala itong epekto sa kalusugan",
+              "Para lang ito maganda tingnan",
+              "Kailangan lamang ito kapag may bisita"
+            ],
+            "correct_answer": "Nakakaiwas ito sa sakit at nagbibigay ng maayos na kapaligiran"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tumutukoy sa pagsuporta sa produktong Pilipino?",
+            "options": [
+              "Nasyonalismo",
+              "Kalinisan",
+              "Pagtitimpi",
+              "Discernment"
+            ],
+            "correct_answer": "Nasyonalismo"
+          },
+          {
+            "question": "Bakit itinuturing na magkakaugnay ang mga pagpapahalagang natutunan?",
+            "options": [
+              "Lahat sila ay tungkol sa pagmamalasakit sa iba",
+              "Walang koneksyon sa isa't isa",
+              "Bawat isa ay hiwalay na paksa",
+              "Wala silang iisang tema"
+            ],
+            "correct_answer": "Lahat sila ay tungkol sa pagmamalasakit sa iba"
+          },
+          {
+            "question": "Anong susunod na tema ng GMRC sa Term 3?",
+            "options": [
+              "Komunidad at lipunan",
+              "Pananalapi lamang",
+              "Agham lamang",
+              "Matematika lamang"
+            ],
+            "correct_answer": "Komunidad at lipunan"
+          },
+          {
+            "question": "Bakit mahalagang pagsamahin ang mga pagpapahalaga sa pang-araw-araw na buhay?",
+            "options": [
+              "Upang maging mabuting kapwa-tao sa lahat ng sitwasyon",
+              "Hindi na kailangan gawin ito",
+              "Sila ay para lamang sa paaralan",
+              "Walang praktikal na gamit"
+            ],
+            "correct_answer": "Upang maging mabuting kapwa-tao sa lahat ng sitwasyon"
+          },
+          {
+            "question": "Ano ang koneksyon ng paggalang sa nakatatanda at paggalang sa relihiyon ng iba?",
+            "options": [
+              "Pareho silang nagpapakita ng respeto sa pagkakaiba ng iba",
+              "Walang kaugnayan ang dalawa",
+              "Isa ay tungkol lamang sa agham",
+              "Isa ay tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Pareho silang nagpapakita ng respeto sa pagkakaiba ng iba"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📖 Friday Review — English (Grade 5)\n\n- Term 2 wrap-up: figurative language, context clues, forms, multimedia\n\nMagaling term! 🌟",
+        "quiz": [
+          {
+            "question": "What is a flashback?",
+            "options": [
+              "A pause showing something from the past",
+              "A prediction",
+              "The story's title",
+              "A character's name"
+            ],
+            "correct_answer": "A pause showing something from the past"
+          },
+          {
+            "question": "What is a metaphor?",
+            "options": [
+              "Comparing without 'like' or 'as'",
+              "Giving human qualities",
+              "An exaggeration",
+              "A rhyme"
+            ],
+            "correct_answer": "Comparing without 'like' or 'as'"
+          },
+          {
+            "question": "What is an appositive?",
+            "options": [
+              "A phrase renaming a noun",
+              "A verb type",
+              "A punctuation mark",
+              "A rhyme scheme"
+            ],
+            "correct_answer": "A phrase renaming a noun"
+          },
+          {
+            "question": "What is a glossary?",
+            "options": [
+              "A list of words and definitions from a book",
+              "Every word in the language",
+              "A table of contents",
+              "A page index"
+            ],
+            "correct_answer": "A list of words and definitions from a book"
+          },
+          {
+            "question": "What is an application form for?",
+            "options": [
+              "Formally requesting something",
+              "Depositing money",
+              "Drawing",
+              "Writing a poem"
+            ],
+            "correct_answer": "Formally requesting something"
+          },
+          {
+            "question": "What is directionality in visuals?",
+            "options": [
+              "The order your eyes are guided",
+              "The text color",
+              "The paper size",
+              "The font"
+            ],
+            "correct_answer": "The order your eyes are guided"
+          },
+          {
+            "question": "What does pacing affect in video?",
+            "options": [
+              "The mood",
+              "Caption color",
+              "Screen size",
+              "Volume only"
+            ],
+            "correct_answer": "The mood"
+          },
+          {
+            "question": "'I've told you a million times!' is what?",
+            "options": [
+              "Hyperbole",
+              "Metaphor",
+              "Personification",
+              "A fact"
+            ],
+            "correct_answer": "Hyperbole"
+          },
+          {
+            "question": "Why use figures of speech and context clues together?",
+            "options": [
+              "Vivid writing plus understanding new words",
+              "To confuse readers",
+              "Remove the plot",
+              "Shorten sentences"
+            ],
+            "correct_answer": "Vivid writing plus understanding new words"
+          },
+          {
+            "question": "How would you understand a specialized science word?",
+            "options": [
+              "Check the glossary",
+              "Ignore it",
+              "Assume nothing",
+              "Skip the page"
+            ],
+            "correct_answer": "Check the glossary"
+          },
+          {
+            "question": "Why understand multimedia elements?",
+            "options": [
+              "Notice how video persuades or informs",
+              "No real use",
+              "Only for filmmakers",
+              "Replaces reading"
+            ],
+            "correct_answer": "Notice how video persuades or informs"
+          },
+          {
+            "question": "'The wind whispered through the trees' is what figure of speech?",
+            "options": [
+              "Personification",
+              "Hyperbole",
+              "A literal fact",
+              "An appositive"
+            ],
+            "correct_answer": "Personification"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📐 Friday Review — Mathematics (Grade 5)\n\n- Surface area of prisms\n\nGreat term of geometry and probability! ⭐",
+        "quiz": [
+          {
+            "question": "What is surface area?",
+            "options": [
+              "Total area of all faces added together",
+              "The volume inside",
+              "The length of one edge",
+              "The number of vertices"
+            ],
+            "correct_answer": "Total area of all faces added together"
+          },
+          {
+            "question": "How many faces does a rectangular prism have?",
+            "options": [
+              "6",
+              "4",
+              "8",
+              "2"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "First step in finding surface area?",
+            "options": [
+              "Find the area of each face",
+              "Find the volume",
+              "Count vertices",
+              "Multiply all edges"
+            ],
+            "correct_answer": "Find the area of each face"
+          },
+          {
+            "question": "A 4×3×2 box: area of the top face?",
+            "options": [
+              "12 cm²",
+              "8 cm²",
+              "6 cm²",
+              "24 cm²"
+            ],
+            "correct_answer": "12 cm²"
+          },
+          {
+            "question": "Same box: area of one side face (3×2)?",
+            "options": [
+              "6 cm²",
+              "12 cm²",
+              "8 cm²",
+              "24 cm²"
+            ],
+            "correct_answer": "6 cm²"
+          },
+          {
+            "question": "Total surface area of the 4×3×2 box?",
+            "options": [
+              "52 cm²",
+              "24 cm²",
+              "12 cm²",
+              "48 cm²"
+            ],
+            "correct_answer": "52 cm²"
+          },
+          {
+            "question": "Why multiply each face's area by 2?",
+            "options": [
+              "Opposite faces of a prism have equal area",
+              "All faces are triangles",
+              "Only one face exists",
+              "Not needed"
+            ],
+            "correct_answer": "Opposite faces of a prism have equal area"
+          },
+          {
+            "question": "What real question does surface area answer?",
+            "options": [
+              "How much wrapping paper covers a box",
+              "How much water it holds",
+              "How heavy it is",
+              "How many edges it has"
+            ],
+            "correct_answer": "How much wrapping paper covers a box"
+          },
+          {
+            "question": "A cube with 3cm sides: area of one face?",
+            "options": [
+              "9 cm²",
+              "3 cm²",
+              "6 cm²",
+              "27 cm²"
+            ],
+            "correct_answer": "9 cm²"
+          },
+          {
+            "question": "Total surface area of that cube?",
+            "options": [
+              "54 cm²",
+              "9 cm²",
+              "18 cm²",
+              "27 cm²"
+            ],
+            "correct_answer": "54 cm²"
+          },
+          {
+            "question": "Surface area is measured in what units?",
+            "options": [
+              "Square units",
+              "Cubic units",
+              "Linear units",
+              "No units"
+            ],
+            "correct_answer": "Square units"
+          },
+          {
+            "question": "Why is surface area useful in packaging design?",
+            "options": [
+              "Tells how much material covers the box",
+              "Tells the box's weight",
+              "No practical use",
+              "Only matters for spheres"
+            ],
+            "correct_answer": "Tells how much material covers the box"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🎭 Friday Review — Filipino (Grade 5)\n\n- Apat na anyo ng panitikan: tula, kuwentong katatakutan, maikling kuwento, dula\n\nMagaling na term! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang saknong?",
+            "options": [
+              "Grupo ng mga taludtod",
+              "Isang salita lamang",
+              "Ang pamagat",
+              "Ang may-akda"
+            ],
+            "correct_answer": "Grupo ng mga taludtod"
+          },
+          {
+            "question": "Ano ang tagpuan sa kuwentong katatakutan?",
+            "options": [
+              "Kadalasang madilim o kakaibang lugar",
+              "Pangalan ng may-akda",
+              "Pamagat",
+              "Bilang ng pahina"
+            ],
+            "correct_answer": "Kadalasang madilim o kakaibang lugar"
+          },
+          {
+            "question": "Ano ang nangyayari sa gitna ng maikling kuwento?",
+            "options": [
+              "Umuunlad ang suliranin",
+              "Nagsisimula lamang",
+              "Walang pangyayari",
+              "Ipinapakilala ang tauhan"
+            ],
+            "correct_answer": "Umuunlad ang suliranin"
+          },
+          {
+            "question": "Ano ang dayalogo?",
+            "options": [
+              "Salitang binibigkas ng tauhan",
+              "Tagpuan ng dula",
+              "Pamagat ng dula",
+              "May-akda ng dula"
+            ],
+            "correct_answer": "Salitang binibigkas ng tauhan"
+          },
+          {
+            "question": "Layunin ng tulang pambata?",
+            "options": [
+              "Para sa damdamin at ritmo",
+              "Magbigay-kaba",
+              "Kumpletong balangkas",
+              "Isadula"
+            ],
+            "correct_answer": "Para sa damdamin at ritmo"
+          },
+          {
+            "question": "Layunin ng kuwentong katatakutan?",
+            "options": [
+              "Magbigay-kaba",
+              "Para sa damdamin at ritmo",
+              "Kumpletong balangkas",
+              "Isadula"
+            ],
+            "correct_answer": "Magbigay-kaba"
+          },
+          {
+            "question": "Ano ang direksyon sa entablado?",
+            "options": [
+              "Panuto kung paano gagalaw ang tauhan",
+              "Salitang binibigkas",
+              "Pamagat",
+              "Katapusan"
+            ],
+            "correct_answer": "Panuto kung paano gagalaw ang tauhan"
+          },
+          {
+            "question": "Ilang anyo ng panitikan ang binalikan?",
+            "options": [
+              "Apat",
+              "Isa",
+              "Dalawa",
+              "Sampu"
+            ],
+            "correct_answer": "Apat"
+          },
+          {
+            "question": "Bakit mahalaga ang iba't ibang anyo ng panitikan?",
+            "options": [
+              "Nakakatulong maunawaan ang iba't ibang uri ng teksto",
+              "Walang kaugnayan sa pagbasa",
+              "Para lamang sa pagsusulit",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Nakakatulong maunawaan ang iba't ibang uri ng teksto"
+          },
+          {
+            "question": "Katangian ng maikling kuwento?",
+            "options": [
+              "Kumpletong balangkas: simula, gitna, wakas",
+              "Palaging isasadula",
+              "Palaging may tugma",
+              "Palaging nakakatakot"
+            ],
+            "correct_answer": "Kumpletong balangkas: simula, gitna, wakas"
+          },
+          {
+            "question": "Ano ang tugma?",
+            "options": [
+              "Magkatunog na huling salita",
+              "Bilang ng saknong",
+              "Haba ng tula",
+              "Pamagat ng tula"
+            ],
+            "correct_answer": "Magkatunog na huling salita"
+          },
+          {
+            "question": "Paano naiiba ang dula sa ibang anyo?",
+            "options": [
+              "Ipinapahayag sa sinasabi at ginagawa ng tauhan",
+              "Walang pagkakaiba",
+              "Basta binabasa lamang",
+              "Walang tauhan"
+            ],
+            "correct_answer": "Ipinapahayag sa sinasabi at ginagawa ng tauhan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🪨 Friday Review — Science (Grade 5)\n\n- Rock types: igneous, sedimentary, metamorphic\n\nGreat term of Science! 🌟",
+        "quiz": [
+          {
+            "question": "How does igneous rock form?",
+            "options": [
+              "From cooled lava or magma",
+              "From layers of sediment",
+              "From heat and pressure on rock",
+              "From plants decaying"
+            ],
+            "correct_answer": "From cooled lava or magma"
+          },
+          {
+            "question": "How does sedimentary rock form?",
+            "options": [
+              "From layers of sediment pressed together",
+              "From cooled lava",
+              "From heat and pressure alone",
+              "From melted metal"
+            ],
+            "correct_answer": "From layers of sediment pressed together"
+          },
+          {
+            "question": "How does metamorphic rock form?",
+            "options": [
+              "Existing rock changed by heat and pressure",
+              "Cooled lava only",
+              "Sediment falling",
+              "Melted ice"
+            ],
+            "correct_answer": "Existing rock changed by heat and pressure"
+          },
+          {
+            "question": "Example of igneous rock?",
+            "options": [
+              "Basalt",
+              "Sandstone",
+              "Marble",
+              "Limestone"
+            ],
+            "correct_answer": "Basalt"
+          },
+          {
+            "question": "Example of sedimentary rock?",
+            "options": [
+              "Sandstone",
+              "Basalt",
+              "Marble",
+              "Obsidian"
+            ],
+            "correct_answer": "Sandstone"
+          },
+          {
+            "question": "Example of metamorphic rock?",
+            "options": [
+              "Marble",
+              "Sandstone",
+              "Basalt",
+              "Limestone"
+            ],
+            "correct_answer": "Marble"
+          },
+          {
+            "question": "What is weathering?",
+            "options": [
+              "Breaking down of rocks in place",
+              "Movement of broken rock elsewhere",
+              "Cooling of lava",
+              "Melting of ice"
+            ],
+            "correct_answer": "Breaking down of rocks in place"
+          },
+          {
+            "question": "What is erosion?",
+            "options": [
+              "Movement of broken rock and soil",
+              "Breaking down of rock in place only",
+              "Formation of lava",
+              "Growth of plants"
+            ],
+            "correct_answer": "Movement of broken rock and soil"
+          },
+          {
+            "question": "What is soil made of?",
+            "options": [
+              "Weathered rock mixed with organic matter",
+              "Only water",
+              "Only melted metal",
+              "Pure lava"
+            ],
+            "correct_answer": "Weathered rock mixed with organic matter"
+          },
+          {
+            "question": "What can cause erosion?",
+            "options": [
+              "Water, wind, or ice",
+              "Only sunlight",
+              "Only darkness",
+              "Nothing"
+            ],
+            "correct_answer": "Water, wind, or ice"
+          },
+          {
+            "question": "Marble forms from what sedimentary rock?",
+            "options": [
+              "Limestone",
+              "Basalt",
+              "Obsidian",
+              "Granite"
+            ],
+            "correct_answer": "Limestone"
+          },
+          {
+            "question": "Why distinguish weathering from erosion?",
+            "options": [
+              "Weathering breaks rock apart; erosion moves the pieces",
+              "They're identical",
+              "Weathering only happens underwater",
+              "Erosion only happens in space"
+            ],
+            "correct_answer": "Weathering breaks rock apart; erosion moves the pieces"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# ⚔️ Friday Review — Araling Panlipunan (Grade 5)\n\n- Cavite Mutiny at GOMBURZA\n\nMagaling na term sa AP! 🌟",
+        "quiz": [
+          {
+            "question": "Kailan naganap ang Cavite Mutiny?",
+            "options": [
+              "1872",
+              "1521",
+              "1898",
+              "1863"
+            ],
+            "correct_answer": "1872"
+          },
+          {
+            "question": "Ano ang Cavite Mutiny?",
+            "options": [
+              "Paghihimagsik ng sundalo at manggagawa sa Cavite",
+              "Malaking digmaan sa Maynila",
+              "Kasunduang pangkalakalan",
+              "Batas pang-edukasyon"
+            ],
+            "correct_answer": "Paghihimagsik ng sundalo at manggagawa sa Cavite"
+          },
+          {
+            "question": "Sino ang GOMBURZA?",
+            "options": [
+              "Gomez, Burgos, Zamora",
+              "Rizal, Bonifacio, Aguinaldo",
+              "Legazpi, Magellan, Urdaneta",
+              "Del Pilar, Lopez Jaena, Ponce"
+            ],
+            "correct_answer": "Gomez, Burgos, Zamora"
+          },
+          {
+            "question": "Kailan binitay ang GOMBURZA?",
+            "options": [
+              "Pebrero 17, 1872",
+              "Hunyo 12, 1898",
+              "Disyembre 30, 1896",
+              "Agosto 26, 1896"
+            ],
+            "correct_answer": "Pebrero 17, 1872"
+          },
+          {
+            "question": "Bakit binitay ang GOMBURZA?",
+            "options": [
+              "Inakusahang sangkot sa Cavite Mutiny kahit walang sapat na ebidensya",
+              "Sila ay Espanyol",
+              "Tumangging maging pari",
+              "Nagtaksil sa Simbahan"
+            ],
+            "correct_answer": "Inakusahang sangkot sa Cavite Mutiny kahit walang sapat na ebidensya"
+          },
+          {
+            "question": "Epekto ng pagbitay sa GOMBURZA?",
+            "options": [
+              "Nagpaalab ng damdaming makabayan",
+              "Walang epekto",
+              "Pinatahimik ang lahat",
+              "Pinasaya ang mga Pilipino"
+            ],
+            "correct_answer": "Nagpaalab ng damdaming makabayan"
+          },
+          {
+            "question": "Sino naging inspirasyon dahil sa GOMBURZA?",
+            "options": [
+              "Jose Rizal",
+              "Ferdinand Magellan",
+              "Miguel Lopez de Legazpi",
+              "Antonio Pigafetta"
+            ],
+            "correct_answer": "Jose Rizal"
+          },
+          {
+            "question": "Ano ang sekularisasyon?",
+            "options": [
+              "Pagbibigay ng mas maraming parokya sa paring Pilipino",
+              "Pagpapatupad ng batas militar",
+              "Pagtatatag ng paaralan",
+              "Paggawa ng mapa"
+            ],
+            "correct_answer": "Pagbibigay ng mas maraming parokya sa paring Pilipino"
+          },
+          {
+            "question": "Bakit hindi makatarungan ang pagbitay sa GOMBURZA?",
+            "options": [
+              "Kulang ang ebidensya laban sa kanila",
+              "Umamin sila sa krimen",
+              "Hindi sila naaresto",
+              "Hiniling nila ang kamatayan"
+            ],
+            "correct_answer": "Kulang ang ebidensya laban sa kanila"
+          },
+          {
+            "question": "Koneksyon ng GOMBURZA sa Kilusang Propaganda?",
+            "options": [
+              "Naging inspirasyon para sa susunod na kilusang makabayan",
+              "Walang koneksyon",
+              "Kinontra ito",
+              "Naunang naganap ang Propaganda"
+            ],
+            "correct_answer": "Naging inspirasyon para sa susunod na kilusang makabayan"
+          },
+          {
+            "question": "Bakit mahalagang alalahanin ang GOMBURZA?",
+            "options": [
+              "Krusyal na sandali sa pag-usbong ng damdaming makabayan",
+              "Walang kahalagahan",
+              "Kathang-isip lamang",
+              "Naganap sa ibang bansa"
+            ],
+            "correct_answer": "Krusyal na sandali sa pag-usbong ng damdaming makabayan"
+          },
+          {
+            "question": "Alin ang HINDI totoo tungkol sa GOMBURZA?",
+            "options": [
+              "Sila ay Espanyol na pari",
+              "Tatlong sekular na paring Pilipino",
+              "Binitay noong 1872",
+              "Naging inspirasyon kay Rizal"
+            ],
+            "correct_answer": "Sila ay Espanyol na pari"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Friday Review — EPP (ICT) (Grade 5)\n\n- Term 2 ICT wrap-up\n\nMagaling na term sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "What is a spreadsheet made of?",
+            "options": [
+              "Rows and columns forming cells",
+              "Only pictures",
+              "Only text",
+              "One large cell"
+            ],
+            "correct_answer": "Rows and columns forming cells"
+          },
+          {
+            "question": "What does SUM do?",
+            "options": [
+              "Adds a group of numbers",
+              "Finds the average",
+              "Deletes numbers",
+              "Colors cells"
+            ],
+            "correct_answer": "Adds a group of numbers"
+          },
+          {
+            "question": "What does AVERAGE do?",
+            "options": [
+              "Finds the mean of numbers",
+              "Adds numbers only",
+              "Deletes a row",
+              "Changes font"
+            ],
+            "correct_answer": "Finds the mean of numbers"
+          },
+          {
+            "question": "Why organize files into folders?",
+            "options": [
+              "Keeps related files easy to find",
+              "Makes the computer slower",
+              "Deletes files automatically",
+              "No benefit"
+            ],
+            "correct_answer": "Keeps related files easy to find"
+          },
+          {
+            "question": "What makes a strong password?",
+            "options": [
+              "Mixing uppercase, lowercase, numbers, symbols",
+              "Using your name",
+              "Using '123456'",
+              "Same password everywhere"
+            ],
+            "correct_answer": "Mixing uppercase, lowercase, numbers, symbols"
+          },
+          {
+            "question": "What is a transition?",
+            "options": [
+              "Effect moving from one slide to the next",
+              "Text inside a slide",
+              "The title",
+              "The file name"
+            ],
+            "correct_answer": "Effect moving from one slide to the next"
+          },
+          {
+            "question": "What is an animation?",
+            "options": [
+              "Effect making elements on one slide move",
+              "Effect between two slides",
+              "Background color",
+              "File name"
+            ],
+            "correct_answer": "Effect making elements on one slide move"
+          },
+          {
+            "question": "Why use transitions/animations sparingly?",
+            "options": [
+              "Too many distract from the message",
+              "More is always better",
+              "Required on every slide",
+              "Replaces content"
+            ],
+            "correct_answer": "Too many distract from the message"
+          },
+          {
+            "question": "Best chart for comparing amounts?",
+            "options": [
+              "Bar chart",
+              "Line chart only",
+              "Pie chart only",
+              "No chart"
+            ],
+            "correct_answer": "Bar chart"
+          },
+          {
+            "question": "Which skill presents data visually?",
+            "options": [
+              "Making a chart from spreadsheet data",
+              "Deleting files",
+              "Weak passwords",
+              "Ignoring organization"
+            ],
+            "correct_answer": "Making a chart from spreadsheet data"
+          },
+          {
+            "question": "Why never share your password?",
+            "options": [
+              "Protects personal accounts and info",
+              "Meant to be shared with friends",
+              "No real effect",
+              "Makes it stronger"
+            ],
+            "correct_answer": "Protects personal accounts and info"
+          },
+          {
+            "question": "How do ICT skills work together in a project?",
+            "options": [
+              "Organize data, chart it, present in slides",
+              "Completely unrelated",
+              "Only one skill used at a time",
+              "No practical use"
+            ],
+            "correct_answer": "Organize data, chart it, present in slides"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎭 Friday Review — MAPEH (Grade 5)\n\n- Term 2 wrap-up: musika, PE, kalusugan\n\nMagaling na term! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang verse (saknong)?",
+            "options": [
+              "Bahaging nagbabago ang salita",
+              "Bahaging palaging pareho",
+              "Walang salita",
+              "Instrumento lamang"
+            ],
+            "correct_answer": "Bahaging nagbabago ang salita"
+          },
+          {
+            "question": "Ano ang chorus (koro)?",
+            "options": [
+              "Bahaging paulit-ulit",
+              "Bahaging binabago bawat ulit",
+              "Bahaging walang himig",
+              "Instrumento lamang"
+            ],
+            "correct_answer": "Bahaging paulit-ulit"
+          },
+          {
+            "question": "Ano ang social dance mixer?",
+            "options": [
+              "Sayaw na nagpapalit-palit ng partner",
+              "Uri ng awit",
+              "Laro na walang musika",
+              "Uri ng pagguhit"
+            ],
+            "correct_answer": "Sayaw na nagpapalit-palit ng partner"
+          },
+          {
+            "question": "Anong time signature ginamit sa rhythmic dance?",
+            "options": [
+              "2/4",
+              "6/8",
+              "9/4",
+              "Wala"
+            ],
+            "correct_answer": "2/4"
+          },
+          {
+            "question": "Sino ang dapat magrereseta ng gamot?",
+            "options": [
+              "Doktor o magulang",
+              "Kaibigan lamang",
+              "Sinuman",
+              "Walang kailangan"
+            ],
+            "correct_answer": "Doktor o magulang"
+          },
+          {
+            "question": "Ano ang gateway drugs?",
+            "options": [
+              "Substansiyang bukas-daan sa mas mapanganib na droga",
+              "Uri ng pagkain",
+              "Legal na gamot",
+              "Uri ng bitamina"
+            ],
+            "correct_answer": "Substansiyang bukas-daan sa mas mapanganib na droga"
+          },
+          {
+            "question": "Halimbawa ng gateway drug?",
+            "options": [
+              "Sigarilyo",
+              "Gatas",
+              "Tubig",
+              "Prutas"
+            ],
+            "correct_answer": "Sigarilyo"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang paggamit ng gamot?",
+            "options": [
+              "Upang maiwasan ang maling paggamit",
+              "Hindi mahalaga",
+              "Palaging ligtas ang gamot",
+              "Hindi kailangan ng dosis"
+            ],
+            "correct_answer": "Upang maiwasan ang maling paggamit"
+          },
+          {
+            "question": "Yugto ng kasaysayan sa Musika/Sining ngayong term?",
+            "options": [
+              "Unang Kolonyal na Espanyol",
+              "Amerikano",
+              "Kasalukuyan",
+              "Bago dumating ang Espanyol"
+            ],
+            "correct_answer": "Unang Kolonyal na Espanyol"
+          },
+          {
+            "question": "Layunin ng pagbabalik-aral bago bakasyon?",
+            "options": [
+              "Maging handa sa bagong paksa",
+              "Walang layunin",
+              "Libangin ang guro",
+              "Palitan ang matematika"
+            ],
+            "correct_answer": "Maging handa sa bagong paksa"
+          },
+          {
+            "question": "Kasanayan sa culminating dance performance?",
+            "options": [
+              "Koordinasyon at pakikipagtulungan",
+              "Pagsulat",
+              "Matematika",
+              "Pagluluto"
+            ],
+            "correct_answer": "Koordinasyon at pakikipagtulungan"
+          },
+          {
+            "question": "Aral sa paggawa ng sariling awit?",
+            "options": [
+              "Paglalapat ng musical form sa proyekto",
+              "Paggawa ng puhunan",
+              "Pagkalkula ng probability",
+              "Pagsulat ng balangkas"
+            ],
+            "correct_answer": "Paglalapat ng musical form sa proyekto"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 Friday Review — EPP (Grade 5)\n\n- Term 2 wrap-up: pananahi, embroidery, crochet, negosyo\n\nMagaling na term! 🌟",
+        "quiz": [
+          {
+            "question": "Anong batayang kasangkapan natutunan sa simula ng term?",
+            "options": [
+              "Kasangkapan sa pananahi",
+              "Kompyuter",
+              "Kagamitan sa agrikultura",
+              "Kagamitan sa pagluluto"
+            ],
+            "correct_answer": "Kasangkapan sa pananahi"
+          },
+          {
+            "question": "Ano ang embroidery hoop?",
+            "options": [
+              "Bilog na hawakan para hindi gumalaw ang tela",
+              "Kawit para sa crochet",
+              "Uri ng makina",
+              "Uri ng gunting"
+            ],
+            "correct_answer": "Bilog na hawakan para hindi gumalaw ang tela"
+          },
+          {
+            "question": "Ano ang chain stitch?",
+            "options": [
+              "Unang hilera, pundasyon ng crochet",
+              "Huling tahi",
+              "Uri ng embroidery",
+              "Uri ng makina"
+            ],
+            "correct_answer": "Unang hilera, pundasyon ng crochet"
+          },
+          {
+            "question": "Paano kinukwenta ang presyo ng benta?",
+            "options": [
+              "Puhunan + Kitang Inaasahan",
+              "Puhunan lamang",
+              "Kitang Inaasahan lamang",
+              "Puhunan − Kita"
+            ],
+            "correct_answer": "Puhunan + Kitang Inaasahan"
+          },
+          {
+            "question": "Bakit ihambing ang presyo sa merkado?",
+            "options": [
+              "Para malaman ang makatwirang presyo",
+              "Hindi kailangan",
+              "Tularan lang",
+              "Walang kaugnayan"
+            ],
+            "correct_answer": "Para malaman ang makatwirang presyo"
+          },
+          {
+            "question": "Ano ang palamuti?",
+            "options": [
+              "Nagpapaganda sa hitsura ng produkto",
+              "Kabuuang gastos",
+              "Presyo ng benta",
+              "Pangalan ng produkto"
+            ],
+            "correct_answer": "Nagpapaganda sa hitsura ng produkto"
+          },
+          {
+            "question": "Susunod na paksa sa Term 3?",
+            "options": [
+              "Industrial Arts — pagkukumpuni",
+              "Poultry raising",
+              "Internet safety",
+              "Musika"
+            ],
+            "correct_answer": "Industrial Arts — pagkukumpuni"
+          },
+          {
+            "question": "Bakit matuto maghambing ng presyo?",
+            "options": [
+              "Batayang kasanayan sa pananalapi",
+              "Hindi kapaki-pakinabang",
+              "Para sa may-ari lamang",
+              "Walang gamit"
+            ],
+            "correct_answer": "Batayang kasanayan sa pananalapi"
+          },
+          {
+            "question": "Pinakamahalagang natutunan sa buong yunit?",
+            "options": [
+              "Buong proseso ng paggawa at pagbebenta",
+              "Basta manahi lang",
+              "Pagbili ng damit",
+              "Walang natutunan"
+            ],
+            "correct_answer": "Buong proseso ng paggawa at pagbebenta"
+          },
+          {
+            "question": "Kaugnayan ng puhunan sa presyo?",
+            "options": [
+              "Presyo dapat sumaklaw sa puhunan at kita",
+              "Walang kaugnayan",
+              "Hindi isaalang-alang ang puhunan",
+              "Presyo palaging mas mababa"
+            ],
+            "correct_answer": "Presyo dapat sumaklaw sa puhunan at kita"
+          },
+          {
+            "question": "Bakit planuhin muna ang produkto?",
+            "options": [
+              "Maiwasan ang pag-aaksaya ng materyales",
+              "Hindi kailangan",
+              "Palaging perpekto kahit walang plano",
+              "Walang benepisyo"
+            ],
+            "correct_answer": "Maiwasan ang pag-aaksaya ng materyales"
+          },
+          {
+            "question": "Kasanayan pinagsama sa ikalawang produkto?",
+            "options": [
+              "Sewing, embroidery, crochet",
+              "Matematika lamang",
+              "Pagsulat lamang",
+              "Pagsayaw lamang"
+            ],
+            "correct_answer": "Sewing, embroidery, crochet"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🌟 Friday Review — GMRC (Grade 5)\n\n- Term 2 wrap-up: pagmamalasakit sa iba\n\nMagaling na term, bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Tema ng mga pagpapahalaga ngayong term?",
+            "options": [
+              "Pagmamalasakit sa iba",
+              "Pagiging mayaman",
+              "Pagiging pinakamalakas",
+              "Pagiging pinakamatalino"
+            ],
+            "correct_answer": "Pagmamalasakit sa iba"
+          },
+          {
+            "question": "Ano ang pagtitimpi?",
+            "options": [
+              "Kakayahang pigilan ang damdamin at kumilos nang mahinahon",
+              "Kawalan ng pakialam",
+              "Pagpapakita ng galit agad",
+              "Pag-iwas sa lahat"
+            ],
+            "correct_answer": "Kakayahang pigilan ang damdamin at kumilos nang mahinahon"
+          },
+          {
+            "question": "Ano ang nasyonalismo?",
+            "options": [
+              "Pagmamahal at pagmamalaki sa sariling bansa",
+              "Pagmamahal sa ibang bansa lamang",
+              "Kawalang-interes sa bansa",
+              "Pagtanggi sa kultura"
+            ],
+            "correct_answer": "Pagmamahal at pagmamalaki sa sariling bansa"
+          },
+          {
+            "question": "Bakit igalang ang nakatatanda?",
+            "options": [
+              "May karanasan at karunungan silang maibabahagi",
+              "Wala silang maitutulong",
+              "Palagi silang mali",
+              "Hindi na mahalaga"
+            ],
+            "correct_answer": "May karanasan at karunungan silang maibabahagi"
+          },
+          {
+            "question": "Bakit igalang ang relihiyon ng iba?",
+            "options": [
+              "May karapatan ang lahat sa kanilang paniniwala",
+              "Dapat lamang sariling relihiyon",
+              "Walang kailangang igalang",
+              "Palaging mali ang iba"
+            ],
+            "correct_answer": "May karapatan ang lahat sa kanilang paniniwala"
+          },
+          {
+            "question": "Ano ang discernment?",
+            "options": [
+              "Kakayahang magpasiya nang matalino",
+              "Kawalan ng pagpapasiya",
+              "Pagsunod sa kaibigan",
+              "Pagpapabaya"
+            ],
+            "correct_answer": "Kakayahang magpasiya nang matalino"
+          },
+          {
+            "question": "Bakit mahalaga ang kalinisan sa tahanan?",
+            "options": [
+              "Nakakaiwas sa sakit at nagbibigay ng maayos na kapaligiran",
+              "Wala itong epekto",
+              "Para lang maganda tingnan",
+              "Kailangan lamang kung may bisita"
+            ],
+            "correct_answer": "Nakakaiwas sa sakit at nagbibigay ng maayos na kapaligiran"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tumutukoy sa pagsuporta sa lokal na produkto?",
+            "options": [
+              "Nasyonalismo",
+              "Kalinisan",
+              "Pagtitimpi",
+              "Discernment"
+            ],
+            "correct_answer": "Nasyonalismo"
+          },
+          {
+            "question": "Bakit magkakaugnay ang mga pagpapahalagang natutunan?",
+            "options": [
+              "Lahat tungkol sa pagmamalasakit sa iba",
+              "Walang koneksyon",
+              "Bawat isa hiwalay na paksa",
+              "Walang iisang tema"
+            ],
+            "correct_answer": "Lahat tungkol sa pagmamalasakit sa iba"
+          },
+          {
+            "question": "Susunod na tema ng GMRC sa Term 3?",
+            "options": [
+              "Komunidad at lipunan",
+              "Pananalapi lamang",
+              "Agham lamang",
+              "Matematika lamang"
+            ],
+            "correct_answer": "Komunidad at lipunan"
+          },
+          {
+            "question": "Bakit isama ang mga pagpapahalaga sa pang-araw-araw na buhay?",
+            "options": [
+              "Upang maging mabuting kapwa-tao",
+              "Hindi kailangan",
+              "Para lamang sa paaralan",
+              "Walang praktikal na gamit"
+            ],
+            "correct_answer": "Upang maging mabuting kapwa-tao"
+          },
+          {
+            "question": "Koneksyon ng paggalang sa nakatatanda at sa relihiyon ng iba?",
+            "options": [
+              "Pareho tungkol sa respeto sa pagkakaiba",
+              "Walang kaugnayan",
+              "Isa ay agham",
+              "Isa ay matematika"
+            ],
+            "correct_answer": "Pareho tungkol sa respeto sa pagkakaiba"
+          }
+        ]
+      }
+    }
+  }
+}

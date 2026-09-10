@@ -1,0 +1,2266 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-11-01",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🏦 English — Reading Bank and Government Forms\n\nGrade 5, Week 21! Let's practice reading real-world forms you'll see as an adult. 📝\n\n## 🔄 Review\nLast term we learned about **enrollment forms** and **permission slips** — forms fill in specific information in specific blanks.\n\n## 🏦 The Deposit Slip\nA **deposit slip** is a form you fill out at a bank to put money into an account. It usually asks for:\n- **Account Name** — whose account it is\n- **Account Number** — the unique number for that account\n- **Date** — when you're depositing\n- **Amount** — how much money (in **cash** or **check**)\n- **Signature** — proving you made the deposit\n\n## 🧭 Directionality in Visual Texts\nWhen you look at a poster or infographic, your eyes usually move **top to bottom, left to right** — but designers can change this with arrows, numbers, or big shapes to guide your eyes in a different order. Following this **directionality** helps you understand the message the way the creator intended.\n\n**Key words:** deposit slip, account number, directionality, infographic",
+        "quiz": [
+          {
+            "question": "What is a deposit slip used for?",
+            "options": [
+              "Putting money into a bank account",
+              "Withdrawing money only",
+              "Applying for a loan",
+              "Buying groceries"
+            ],
+            "correct_answer": "Putting money into a bank account"
+          },
+          {
+            "question": "Which detail is NOT usually found on a deposit slip?",
+            "options": [
+              "Your favorite color",
+              "Account number",
+              "Date",
+              "Amount deposited"
+            ],
+            "correct_answer": "Your favorite color"
+          },
+          {
+            "question": "Why does a deposit slip need a signature?",
+            "options": [
+              "To prove you made the deposit",
+              "To decorate the form",
+              "To show your age",
+              "It is never required"
+            ],
+            "correct_answer": "To prove you made the deposit"
+          },
+          {
+            "question": "What does 'directionality' mean in a visual text?",
+            "options": [
+              "The order your eyes are guided to read it",
+              "The color of the text",
+              "The size of the paper",
+              "The font used"
+            ],
+            "correct_answer": "The order your eyes are guided to read it"
+          },
+          {
+            "question": "How can a designer change the natural reading direction of a poster?",
+            "options": [
+              "Using arrows or numbers to guide the eye",
+              "Using only black ink",
+              "Removing all images",
+              "Making the poster smaller"
+            ],
+            "correct_answer": "Using arrows or numbers to guide the eye"
+          },
+          {
+            "question": "What is the usual natural reading direction for most visual texts?",
+            "options": [
+              "Top to bottom, left to right",
+              "Bottom to top, right to left",
+              "Only in circles",
+              "There is no natural direction"
+            ],
+            "correct_answer": "Top to bottom, left to right"
+          },
+          {
+            "question": "An infographic uses big numbered circles to show steps. What is this an example of?",
+            "options": [
+              "Guided directionality",
+              "A deposit slip",
+              "A permission slip",
+              "An enrollment form"
+            ],
+            "correct_answer": "Guided directionality"
+          },
+          {
+            "question": "You are filling out a deposit slip and deposited a check, not cash. Where would you likely indicate this?",
+            "options": [
+              "In the amount/type of deposit section",
+              "In the signature box",
+              "In the date box only",
+              "You cannot deposit checks"
+            ],
+            "correct_answer": "In the amount/type of deposit section"
+          },
+          {
+            "question": "Why is it important to write your account number correctly on a deposit slip?",
+            "options": [
+              "So the money goes into the right account",
+              "So the bank knows your favorite food",
+              "It doesn't matter at all",
+              "So the teller can read your handwriting"
+            ],
+            "correct_answer": "So the money goes into the right account"
+          },
+          {
+            "question": "A poster about handwashing uses arrows numbered 1 to 5. What is the purpose of the arrows?",
+            "options": [
+              "To show the correct order of steps",
+              "To make the poster more colorful",
+              "To confuse the reader",
+              "To show the artist's signature"
+            ],
+            "correct_answer": "To show the correct order of steps"
+          },
+          {
+            "question": "Which of these is most similar to a deposit slip in purpose?",
+            "options": [
+              "A withdrawal slip at a bank",
+              "A birthday card",
+              "A comic strip",
+              "A grocery list"
+            ],
+            "correct_answer": "A withdrawal slip at a bank"
+          },
+          {
+            "question": "Why do forms like deposit slips use specific labeled blanks instead of blank paper?",
+            "options": [
+              "To make sure all needed information is collected clearly",
+              "To make the form look nicer",
+              "Blank paper is not allowed in banks",
+              "Labeled blanks are only for decoration"
+            ],
+            "correct_answer": "To make sure all needed information is collected clearly"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🎲 Mathematics — Theoretical Probability of Simple Events\n\nGrade 5, Week 21! Time to learn about chance and probability! 🎲\n\n## 🔄 Review\nLast week we compared data using **double bar and double line graphs**.\n\n## 🎲 What Is Probability?\n**Probability** tells us how likely something is to happen. **Theoretical probability** is calculated using math, without actually testing it:\n\n$$\\text{Probability} = \\frac{\\text{number of favorable outcomes}}{\\text{total number of possible outcomes}}$$\n\n**Example:** A bag has 3 red marbles and 2 blue marbles (5 total).\n- P(red) = 3/5\n- P(blue) = 2/5\n\n## 🪙 Simple Events\nA **simple event** has one outcome, like flipping one coin (heads or tails) or rolling one die (1-6).\n\n**Example:** Rolling a fair die — P(rolling a 4) = 1/6, because there's only one \"4\" out of six faces.\n\nProbability is always a number between **0** (impossible) and **1** (certain).\n\n**Key words:** probability, theoretical, favorable outcome, simple event",
+        "quiz": [
+          {
+            "question": "What is theoretical probability?",
+            "options": [
+              "The chance of an event calculated using math",
+              "A guess with no calculation",
+              "Only used for coins",
+              "The same as counting all outcomes"
+            ],
+            "correct_answer": "The chance of an event calculated using math"
+          },
+          {
+            "question": "What is the formula for theoretical probability?",
+            "options": [
+              "Favorable outcomes divided by total outcomes",
+              "Total outcomes divided by favorable outcomes",
+              "Favorable outcomes plus total outcomes",
+              "Favorable outcomes minus total outcomes"
+            ],
+            "correct_answer": "Favorable outcomes divided by total outcomes"
+          },
+          {
+            "question": "A coin has 2 sides. What is the probability of landing on heads?",
+            "options": [
+              "1/2",
+              "1/4",
+              "2/2",
+              "0/2"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "A die has 6 faces. What is the probability of rolling a 3?",
+            "options": [
+              "1/6",
+              "3/6",
+              "1/3",
+              "6/1"
+            ],
+            "correct_answer": "1/6"
+          },
+          {
+            "question": "A probability of 0 means an event is...",
+            "options": [
+              "Impossible",
+              "Certain",
+              "Very likely",
+              "Somewhat likely"
+            ],
+            "correct_answer": "Impossible"
+          },
+          {
+            "question": "A probability of 1 means an event is...",
+            "options": [
+              "Certain",
+              "Impossible",
+              "Unlikely",
+              "Undefined"
+            ],
+            "correct_answer": "Certain"
+          },
+          {
+            "question": "A bag has 4 red and 6 blue marbles (10 total). What is P(red)?",
+            "options": [
+              "4/10",
+              "6/10",
+              "10/4",
+              "4/6"
+            ],
+            "correct_answer": "4/10"
+          },
+          {
+            "question": "A spinner has 8 equal sections, 2 of which are green. What is P(green)?",
+            "options": [
+              "2/8",
+              "8/2",
+              "6/8",
+              "2/6"
+            ],
+            "correct_answer": "2/8"
+          },
+          {
+            "question": "Which event has a probability closest to 1?",
+            "options": [
+              "The sun rising tomorrow",
+              "Rolling a 6 on one die",
+              "Flipping heads on a coin",
+              "Picking a red card from a full deck"
+            ],
+            "correct_answer": "The sun rising tomorrow"
+          },
+          {
+            "question": "A jar has 5 yellow, 3 green, and 2 orange candies (10 total). What is P(orange)?",
+            "options": [
+              "2/10",
+              "5/10",
+              "3/10",
+              "10/2"
+            ],
+            "correct_answer": "2/10"
+          },
+          {
+            "question": "If a probability is written as 3/4, what does the 4 represent?",
+            "options": [
+              "Total possible outcomes",
+              "Favorable outcomes only",
+              "The number of trials done",
+              "Always the number of players"
+            ],
+            "correct_answer": "Total possible outcomes"
+          },
+          {
+            "question": "A number cube (1-6) is rolled. What is P(rolling an even number)?",
+            "options": [
+              "3/6",
+              "1/6",
+              "6/6",
+              "2/6"
+            ],
+            "correct_answer": "3/6"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📖 Filipino — Paggamit ng Almanac at Atlas\n\nGrade 5, Linggo 21! Alamin natin kung paano gamitin ang mga sanggunian na ito. 📚\n\n## 🔄 Balik-Aral\nNatutuhan na natin ang **ID form** at **Library Card form**.\n\n## 📚 Ano ang Almanac?\nAng **almanac** ay isang aklat na naglalaman ng mga **totoong impormasyon** tulad ng panahon, petsa ng mga pista, at iba't ibang **estadistika** (statistics) taun-taon.\n\n## 🗺️ Ano ang Atlas?\nAng **atlas** naman ay isang **koleksyon ng mga mapa** — ginagamit ito para hanapin ang lokasyon ng mga bansa, lungsod, ilog, at bundok.\n\n**Halimbawa:** Kung gusto mong malaman kung saang bansa matatagpuan ang Cordillera, tumingin ka sa **atlas**. Kung gusto mong malaman ang tinatayang temperatura ngayong buwan, tumingin ka sa **almanac**.\n\n**Mahahalagang salita:** almanac, atlas, sanggunian, estadistika",
+        "quiz": [
+          {
+            "question": "Ano ang almanac?",
+            "options": [
+              "Aklat na naglalaman ng estadistika at impormasyon taun-taon",
+              "Kuwentong bayan",
+              "Diksiyonaryo ng mga salita",
+              "Aklat ng mga tula"
+            ],
+            "correct_answer": "Aklat na naglalaman ng estadistika at impormasyon taun-taon"
+          },
+          {
+            "question": "Ano ang atlas?",
+            "options": [
+              "Koleksyon ng mga mapa",
+              "Listahan ng mga pangalan",
+              "Aklat ng mga kuwento",
+              "Diksiyonaryo ng kasingkahulugan"
+            ],
+            "correct_answer": "Koleksyon ng mga mapa"
+          },
+          {
+            "question": "Saan mo hahanapin ang lokasyon ng isang bansa?",
+            "options": [
+              "Atlas",
+              "Almanac",
+              "Diksiyonaryo",
+              "Nobela"
+            ],
+            "correct_answer": "Atlas"
+          },
+          {
+            "question": "Saan mo hahanapin ang petsa ng mga pista opisyal?",
+            "options": [
+              "Almanac",
+              "Atlas",
+              "Komiks",
+              "Peryodiko lamang"
+            ],
+            "correct_answer": "Almanac"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'estadistika' sa almanac?",
+            "options": [
+              "Mga bilang at datos",
+              "Mga tugma",
+              "Mga larawan lamang",
+              "Mga pangalan ng tao"
+            ],
+            "correct_answer": "Mga bilang at datos"
+          },
+          {
+            "question": "Bakit mahalaga ang paggamit ng sanggunian tulad ng almanac at atlas?",
+            "options": [
+              "Nakakatulong ito para makahanap ng tumpak na impormasyon",
+              "Wala itong silbi",
+              "Ginagamit lamang ito ng mga guro",
+              "Para lang ito sa mga aklatan"
+            ],
+            "correct_answer": "Nakakatulong ito para makahanap ng tumpak na impormasyon"
+          },
+          {
+            "question": "Gustong malaman ni Ana ang lokasyon ng Palawan sa mapa ng Pilipinas. Saan siya dapat tumingin?",
+            "options": [
+              "Atlas",
+              "Almanac",
+              "Diksiyonaryo",
+              "Talaan ng nilalaman"
+            ],
+            "correct_answer": "Atlas"
+          },
+          {
+            "question": "Gustong malaman ni Ben ang tinatayang panahon sa Disyembre. Saan siya dapat tumingin?",
+            "options": [
+              "Almanac",
+              "Atlas",
+              "Nobela",
+              "Komiks"
+            ],
+            "correct_answer": "Almanac"
+          },
+          {
+            "question": "Alin sa mga ito ang katangian ng isang atlas?",
+            "options": [
+              "Mayroon itong mga mapa ng iba't ibang lugar",
+              "Mayroon itong mga kahulugan ng salita",
+              "Mayroon itong tugmang pambata lamang",
+              "Wala itong mga larawan"
+            ],
+            "correct_answer": "Mayroon itong mga mapa ng iba't ibang lugar"
+          },
+          {
+            "question": "Kailan mo gagamitin ang isang almanac?",
+            "options": [
+              "Kapag gusto mong malaman ang datos taun-taon",
+              "Kapag gusto mong maghanap ng bansa sa mapa",
+              "Kapag gusto mong bumasa ng kuwentong bayan",
+              "Kapag gusto mong sumulat ng tula"
+            ],
+            "correct_answer": "Kapag gusto mong malaman ang datos taun-taon"
+          },
+          {
+            "question": "Alin ang HINDI matatagpuan sa isang atlas?",
+            "options": [
+              "Talaan ng mga kaarawan",
+              "Mapa ng Pilipinas",
+              "Mapa ng mundo",
+              "Mga pangalan ng bansa"
+            ],
+            "correct_answer": "Talaan ng mga kaarawan"
+          },
+          {
+            "question": "Bakit itinuturing na sanggunian ang almanac at atlas?",
+            "options": [
+              "Ginagamit sila para maghanap ng tumpak na kaalaman",
+              "Sila ay mga kuwentong kababalaghan",
+              "Sila ay mga liham pangkaibigan",
+              "Wala silang gamit sa pag-aaral"
+            ],
+            "correct_answer": "Ginagamit sila para maghanap ng tumpak na kaalaman"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ⚙️ Science — Simple Machines: Making Force Easier\n\nGrade 5, Week 21! Let's connect what we learned about forces to real tools! ⚙️\n\n## 🔄 Review\nWe learned about **contact forces**, **friction**, and **gravity**.\n\n## ⚙️ What Are Simple Machines?\n**Simple machines** are tools that make work easier by changing the size or direction of a **force**. There are two we'll focus on today:\n\n- **Lever** — a bar that pivots on a fixed point (**fulcrum**) to lift things. Example: a seesaw, a crowbar.\n- **Inclined Plane** — a flat, slanted surface used to move objects up or down more easily than lifting straight up. Example: a ramp.\n\n**Pulley** — a wheel with a rope that changes the direction of a pulling force. Example: a flagpole.\n\n**Wheel and Axle** — a wheel attached to a rod; turning one turns the other. Example: a doorknob, a steering wheel.\n\nSimple machines don't remove the need for force — they make the *same job* need **less effort** or change its **direction**.\n\n**Key words:** simple machine, lever, fulcrum, inclined plane, pulley, wheel and axle",
+        "quiz": [
+          {
+            "question": "What is a simple machine?",
+            "options": [
+              "A tool that makes work easier by changing force",
+              "A machine with an engine",
+              "A tool with no moving parts",
+              "A type of computer"
+            ],
+            "correct_answer": "A tool that makes work easier by changing force"
+          },
+          {
+            "question": "What is the fixed point on a lever called?",
+            "options": [
+              "Fulcrum",
+              "Axle",
+              "Pulley",
+              "Incline"
+            ],
+            "correct_answer": "Fulcrum"
+          },
+          {
+            "question": "Which of these is an example of a lever?",
+            "options": [
+              "A seesaw",
+              "A ramp",
+              "A doorknob",
+              "A flagpole rope"
+            ],
+            "correct_answer": "A seesaw"
+          },
+          {
+            "question": "What is an inclined plane used for?",
+            "options": [
+              "Moving objects up or down a slanted surface more easily",
+              "Changing the direction of a pulling force only",
+              "Spinning objects in a circle",
+              "Cutting objects in half"
+            ],
+            "correct_answer": "Moving objects up or down a slanted surface more easily"
+          },
+          {
+            "question": "What does a pulley do?",
+            "options": [
+              "Changes the direction of a pulling force",
+              "Removes the need for any force",
+              "Only works with electricity",
+              "Makes objects heavier"
+            ],
+            "correct_answer": "Changes the direction of a pulling force"
+          },
+          {
+            "question": "Which is an example of a wheel and axle?",
+            "options": [
+              "A doorknob",
+              "A seesaw",
+              "A ramp",
+              "A rope over a branch"
+            ],
+            "correct_answer": "A doorknob"
+          },
+          {
+            "question": "A ramp used to roll a heavy box into a truck is an example of a...",
+            "options": [
+              "Inclined plane",
+              "Lever",
+              "Pulley",
+              "Wheel and axle"
+            ],
+            "correct_answer": "Inclined plane"
+          },
+          {
+            "question": "Do simple machines remove the need for force entirely?",
+            "options": [
+              "No, they reduce effort or change direction",
+              "Yes, they eliminate force completely",
+              "Only pulleys eliminate force",
+              "Simple machines create new force"
+            ],
+            "correct_answer": "No, they reduce effort or change direction"
+          },
+          {
+            "question": "A flagpole uses a rope and wheel at the top to raise a flag. What simple machine is this?",
+            "options": [
+              "Pulley",
+              "Lever",
+              "Inclined plane",
+              "Wheel and axle"
+            ],
+            "correct_answer": "Pulley"
+          },
+          {
+            "question": "Why is it easier to push a box up a ramp than lift it straight up?",
+            "options": [
+              "The inclined plane spreads the force over a longer distance",
+              "Ramps remove gravity",
+              "Boxes become lighter on ramps",
+              "Friction disappears on ramps"
+            ],
+            "correct_answer": "The inclined plane spreads the force over a longer distance"
+          },
+          {
+            "question": "A crowbar used to pry open a lid works using which simple machine principle?",
+            "options": [
+              "Lever",
+              "Pulley",
+              "Wheel and axle",
+              "Inclined plane"
+            ],
+            "correct_answer": "Lever"
+          },
+          {
+            "question": "Which simple machine would be most useful for turning a steering wheel to control a car's direction?",
+            "options": [
+              "Wheel and axle",
+              "Inclined plane",
+              "Pulley",
+              "Lever"
+            ],
+            "correct_answer": "Wheel and axle"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 👩 Araling Panlipunan — Katayuan ng Kababaihan sa Kolonyal na Panahon\n\nGrade 5, Linggo 21! Alamin natin ang buhay ng kababaihan noong panahon ng Espanyol. 👩🏽\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **pag-aalsa** nina Dagohoy, Tamblot, Sumuroy, at Silang.\n\n## 👩 Katayuan ng Kababaihan\nSa ilalim ng pamahalaang kolonyal, binigyan ng mga Espanyol ang kababaihan ng larawang **\"Maria Clara\"** — mahinhin, tahimik, at nasa tahanan lamang. Ngunit maraming babaeng Pilipino ang lumaban sa larawang ito.\n\n## ⚔️ Si Gabriela Silang\nSi **Gabriela Silang** ay ang unang babaeng pinuno ng isang kilusang panghihimagsik sa Pilipinas. Matapos mapatay ang kanyang asawang si Diego Silang, ipinagpatuloy niya ang laban laban sa mga Espanyol sa Ilocos hanggang siya ay nahuli at binitay noong 1763. Siya ay itinuturing na simbolo ng **katapangan ng kababaihang Pilipino**.\n\n**Mahahalagang salita:** Maria Clara, Gabriela Silang, katapangan, pamunuan",
+        "quiz": [
+          {
+            "question": "Sino si Gabriela Silang?",
+            "options": [
+              "Unang babaeng pinuno ng kilusang panghihimagsik sa Pilipinas",
+              "Isang prinsesa ng Espanya",
+              "Isang guro sa Maynila",
+              "Isang mangangalakal na Tsino"
+            ],
+            "correct_answer": "Unang babaeng pinuno ng kilusang panghihimagsik sa Pilipinas"
+          },
+          {
+            "question": "Ano ang larawang 'Maria Clara' na ibinigay ng mga Espanyol sa kababaihan?",
+            "options": [
+              "Mahinhin at nasa tahanan lamang",
+              "Malakas at mandirigma",
+              "Mangangalakal at negosyante",
+              "Guro sa paaralan"
+            ],
+            "correct_answer": "Mahinhin at nasa tahanan lamang"
+          },
+          {
+            "question": "Saang lalawigan pangunahing lumaban si Gabriela Silang?",
+            "options": [
+              "Ilocos",
+              "Cebu",
+              "Bohol",
+              "Sulu"
+            ],
+            "correct_answer": "Ilocos"
+          },
+          {
+            "question": "Ano ang naganap kay Gabriela Silang matapos mapatay ang kanyang asawa?",
+            "options": [
+              "Ipinagpatuloy niya ang laban laban sa mga Espanyol",
+              "Umuwi siya sa Espanya",
+              "Huminto siya sa paglaban",
+              "Naging madre siya"
+            ],
+            "correct_answer": "Ipinagpatuloy niya ang laban laban sa mga Espanyol"
+          },
+          {
+            "question": "Sino ang asawa ni Gabriela Silang?",
+            "options": [
+              "Diego Silang",
+              "Francisco Dagohoy",
+              "Andres Bonifacio",
+              "Jose Rizal"
+            ],
+            "correct_answer": "Diego Silang"
+          },
+          {
+            "question": "Bakit itinuturing na simbolo ng katapangan si Gabriela Silang?",
+            "options": [
+              "Nanguna siya sa paglaban kahit mapanganib para sa kababaihan noon",
+              "Siya ay isang mayamang mangangalakal",
+              "Naging pinuno siya ng bansang Espanya",
+              "Sumulat siya ng maraming aklat"
+            ],
+            "correct_answer": "Nanguna siya sa paglaban kahit mapanganib para sa kababaihan noon"
+          },
+          {
+            "question": "Ano ang nangyari kay Gabriela Silang noong 1763?",
+            "options": [
+              "Siya ay nahuli at binitay",
+              "Siya ay naging pinuno ng Pilipinas",
+              "Siya ay umuwi sa Tsina",
+              "Wala siyang ginawang paglaban"
+            ],
+            "correct_answer": "Siya ay nahuli at binitay"
+          },
+          {
+            "question": "Bakit hindi lahat ng kababaihang Pilipino sumunod sa larawang 'Maria Clara'?",
+            "options": [
+              "Sapagkat marami sa kanila ang lumaban at nagpakita ng katapangan",
+              "Sapagkat ipinagbawal ito ng batas",
+              "Sapagkat walang babae noon",
+              "Sapagkat hindi ito totoo"
+            ],
+            "correct_answer": "Sapagkat marami sa kanila ang lumaban at nagpakita ng katapangan"
+          },
+          {
+            "question": "Anong uri ng papel ang ginampanan ni Gabriela Silang sa kasaysayan ng Pilipinas?",
+            "options": [
+              "Pinuno ng isang kilusang panghihimagsik",
+              "Manggagamot sa ospital",
+              "Guro sa unibersidad",
+              "Mangangalakal ng seda"
+            ],
+            "correct_answer": "Pinuno ng isang kilusang panghihimagsik"
+          },
+          {
+            "question": "Alin sa mga ito ang HINDI bahagi ng larawang 'Maria Clara'?",
+            "options": [
+              "Pagiging pinuno ng hukbo",
+              "Pagiging mahinhin",
+              "Pagiging tahimik",
+              "Pananatili sa tahanan"
+            ],
+            "correct_answer": "Pagiging pinuno ng hukbo"
+          },
+          {
+            "question": "Ano ang naipapakita ng buhay ni Gabriela Silang tungkol sa kababaihang Pilipino noong panahon ng Espanyol?",
+            "options": [
+              "Kayang lumaban at mamuno ng kababaihan",
+              "Walang karapatan ang kababaihan",
+              "Hindi lumahok ang kababaihan sa kasaysayan",
+              "Nasa tahanan lamang dapat sila"
+            ],
+            "correct_answer": "Kayang lumaban at mamuno ng kababaihan"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang kasaysayan ni Gabriela Silang ngayon?",
+            "options": [
+              "Upang makilala ang ambag ng kababaihan sa paglaya ng bansa",
+              "Sapagkat kailangan itong isaulo lamang para sa pagsusulit",
+              "Sapagkat wala itong kaugnayan sa kasalukuyan",
+              "Sapagkat siya lamang ang kababaihang kilala sa kasaysayan"
+            ],
+            "correct_answer": "Upang makilala ang ambag ng kababaihan sa paglaya ng bansa"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 📊 EPP (ICT) — Introduction to Spreadsheets\n\nGrade 5, Week 21! Let's learn a new digital tool for organizing data. 💻\n\n## 🔄 Review\nWe finished our **digital portfolio** project using word processing and presentation tools.\n\n## 📊 What Is a Spreadsheet?\nA **spreadsheet** is a program (like Google Sheets or Excel) made of a grid of **rows** and **columns**. Each box where a row and column meet is called a **cell**.\n\n- **Rows** run left to right (numbered: 1, 2, 3...)\n- **Columns** run top to bottom (lettered: A, B, C...)\n- A **cell** is named by its column and row, like **B3**\n\n## 🧮 Why Use a Spreadsheet?\nSpreadsheets are great for organizing **data**, like the double bar graph data we studied in Math! You can type numbers into cells and even use simple formulas to add them automatically.\n\n**Key words:** spreadsheet, row, column, cell, data",
+        "quiz": [
+          {
+            "question": "What is a spreadsheet?",
+            "options": [
+              "A program with a grid of rows and columns for organizing data",
+              "A tool for drawing pictures only",
+              "A type of word processor",
+              "A video editing tool"
+            ],
+            "correct_answer": "A program with a grid of rows and columns for organizing data"
+          },
+          {
+            "question": "What do we call the box where a row and column meet?",
+            "options": [
+              "Cell",
+              "Sheet",
+              "Tab",
+              "Block"
+            ],
+            "correct_answer": "Cell"
+          },
+          {
+            "question": "How are rows usually labeled in a spreadsheet?",
+            "options": [
+              "Numbers",
+              "Letters",
+              "Colors",
+              "Symbols"
+            ],
+            "correct_answer": "Numbers"
+          },
+          {
+            "question": "How are columns usually labeled in a spreadsheet?",
+            "options": [
+              "Letters",
+              "Numbers",
+              "Colors",
+              "Symbols"
+            ],
+            "correct_answer": "Letters"
+          },
+          {
+            "question": "What does the cell name 'B3' mean?",
+            "options": [
+              "Column B, Row 3",
+              "Row B, Column 3",
+              "It has no meaning",
+              "Cell number 33"
+            ],
+            "correct_answer": "Column B, Row 3"
+          },
+          {
+            "question": "Why are spreadsheets useful for organizing data?",
+            "options": [
+              "They arrange numbers and text into clear rows and columns",
+              "They can only display pictures",
+              "They cannot store numbers",
+              "They are only used for writing essays"
+            ],
+            "correct_answer": "They arrange numbers and text into clear rows and columns"
+          },
+          {
+            "question": "Which of these is an example of spreadsheet software?",
+            "options": [
+              "Google Sheets",
+              "A web browser",
+              "A video player",
+              "A drawing app"
+            ],
+            "correct_answer": "Google Sheets"
+          },
+          {
+            "question": "You want to record five students' quiz scores neatly. What tool would work best?",
+            "options": [
+              "A spreadsheet",
+              "A video editor",
+              "A drawing program",
+              "A music player"
+            ],
+            "correct_answer": "A spreadsheet"
+          },
+          {
+            "question": "What can spreadsheets do that makes them helpful for math class data (like double bar graphs)?",
+            "options": [
+              "Organize numbers so they can be turned into graphs",
+              "Play sound effects",
+              "Record videos",
+              "Print photographs"
+            ],
+            "correct_answer": "Organize numbers so they can be turned into graphs"
+          },
+          {
+            "question": "In a spreadsheet, what runs from left to right?",
+            "options": [
+              "A row",
+              "A column",
+              "A cell",
+              "A formula"
+            ],
+            "correct_answer": "A row"
+          },
+          {
+            "question": "In a spreadsheet, what runs from top to bottom?",
+            "options": [
+              "A column",
+              "A row",
+              "A cell",
+              "A tab"
+            ],
+            "correct_answer": "A column"
+          },
+          {
+            "question": "Why might a formula be useful in a spreadsheet?",
+            "options": [
+              "It can add numbers automatically",
+              "It changes the font color",
+              "It deletes all your data",
+              "It only works on printed paper"
+            ],
+            "correct_answer": "It can add numbers automatically"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎵 MAPEH — Musical Form: Verse and Chorus\n\nGrade 5, Linggo 21! Alamin natin ang bahagi ng isang awit. 🎶\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **melody** at ang mga sayaw sa 2/4 time.\n\n## 🎵 Ano ang Musical Form?\nAng **musical form** ay ang **pagkakaayos** ng mga bahagi ng isang awit. Ang dalawang pinakakaraniwang bahagi ay:\n\n- **Verse (Saknong)** — ang bahaging nagbabago ang salita sa bawat pag-uulit; nagkukuwento ito.\n- **Chorus (Koro)** — ang bahaging paulit-ulit at kadalasang pinakakatatandaan ng mga tao; ito ang \"pangunahing mensahe\" ng awit.\n\n**Halimbawa:** Sa maraming awiting Pilipino, ang **verse** ay nagbabago ng kuwento habang ang **koro** ay paulit-ulit na inaawit sa parehong himig at salita.\n\n**Mahahalagang salita:** musical form, verse, chorus, saknong, koro",
+        "quiz": [
+          {
+            "question": "Ano ang musical form?",
+            "options": [
+              "Pagkakaayos ng mga bahagi ng isang awit",
+              "Ang lapad ng boses ng kumakanta",
+              "Ang bilang ng mga instrumento",
+              "Ang tunog ng gitara lamang"
+            ],
+            "correct_answer": "Pagkakaayos ng mga bahagi ng isang awit"
+          },
+          {
+            "question": "Ano ang verse (saknong) sa isang awit?",
+            "options": [
+              "Bahaging nagbabago ang salita sa bawat pag-uulit",
+              "Bahaging palaging pareho ang salita",
+              "Bahaging walang salita",
+              "Bahaging tumutunog lamang ng tambol"
+            ],
+            "correct_answer": "Bahaging nagbabago ang salita sa bawat pag-uulit"
+          },
+          {
+            "question": "Ano ang chorus (koro) sa isang awit?",
+            "options": [
+              "Bahaging paulit-ulit at kadalasang pinakakatatandaan",
+              "Bahaging binabago ang salita bawat pag-uulit",
+              "Bahaging walang himig",
+              "Bahaging tumutugtog lamang ng piano"
+            ],
+            "correct_answer": "Bahaging paulit-ulit at kadalasang pinakakatatandaan"
+          },
+          {
+            "question": "Anong bahagi ng awit ang nagkukuwento tungkol sa nagbabagong ideya?",
+            "options": [
+              "Verse",
+              "Chorus",
+              "Rhythm lamang",
+              "Dynamics lamang"
+            ],
+            "correct_answer": "Verse"
+          },
+          {
+            "question": "Bakit madaling matandaan ang koro ng isang awit?",
+            "options": [
+              "Sapagkat ito ay paulit-ulit sa parehong salita at himig",
+              "Sapagkat ito ay tahimik lamang",
+              "Sapagkat wala itong himig",
+              "Sapagkat isang beses lamang ito kinakanta"
+            ],
+            "correct_answer": "Sapagkat ito ay paulit-ulit sa parehong salita at himig"
+          },
+          {
+            "question": "Alin ang tamang halimbawa ng isang saknong (verse)?",
+            "options": [
+              "Bahaging nagbabago ang kuwento bawat ulit ng awit",
+              "Bahaging palaging pareho ang salita",
+              "Ang pamagat lamang ng awit",
+              "Ang tugtugin bago magsimula ang awit"
+            ],
+            "correct_answer": "Bahaging nagbabago ang kuwento bawat ulit ng awit"
+          },
+          {
+            "question": "Sa isang awiting may dalawang saknong at isang koro sa gitna, ilang beses karaniwang inaawit ang koro?",
+            "options": [
+              "Higit sa isang beses",
+              "Isang beses lamang",
+              "Hindi na inaawit",
+              "Sa dulo lamang"
+            ],
+            "correct_answer": "Higit sa isang beses"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang musical form ng isang awit?",
+            "options": [
+              "Nakakatulong itong maunawaan ang pagkakaayos at mensahe ng awit",
+              "Wala itong kaugnayan sa pag-unawa sa awit",
+              "Ginagamit lamang ito ng mga propesyonal na musikero",
+              "Ito ay para lamang sa mga instrumento"
+            ],
+            "correct_answer": "Nakakatulong itong maunawaan ang pagkakaayos at mensahe ng awit"
+          },
+          {
+            "question": "Alin sa mga ito ang HINDI bahagi ng karaniwang musical form?",
+            "options": [
+              "Deposit slip",
+              "Verse",
+              "Chorus",
+              "Melody"
+            ],
+            "correct_answer": "Deposit slip"
+          },
+          {
+            "question": "Paano naiiba ang saknong sa koro?",
+            "options": [
+              "Nagbabago ang salita ng saknong habang paulit-ulit ang koro",
+              "Pareho lamang sila palagi",
+              "Walang himig ang saknong",
+              "Walang salita ang koro"
+            ],
+            "correct_answer": "Nagbabago ang salita ng saknong habang paulit-ulit ang koro"
+          },
+          {
+            "question": "Kung gusto mong ipakilala ang pangunahing mensahe ng iyong sariling awit, aling bahagi ang gagamitin mo nang paulit-ulit?",
+            "options": [
+              "Chorus",
+              "Verse",
+              "Introduction lamang",
+              "Walang bahagi"
+            ],
+            "correct_answer": "Chorus"
+          },
+          {
+            "question": "Ano ang koneksyon ng melody sa musical form?",
+            "options": [
+              "Ang melody ay ginagamit sa parehong verse at chorus, ngunit maaaring iba ang himig ng bawat isa",
+              "Walang koneksyon ang melody sa musical form",
+              "Ang melody ay para lamang sa chorus",
+              "Ang melody ay para lamang sa mga instrumento"
+            ],
+            "correct_answer": "Ang melody ay ginagamit sa parehong verse at chorus, ngunit maaaring iba ang himig ng bawat isa"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 EPP (AFA/FCS/IA) — Embroidery at Crochet\n\nGrade 5, Linggo 21! Matuto tayo ng bagong sining sa pananahi. 🧵\n\n## 🔄 Balik-Aral\nNatapos na natin ang paggawa ng simpleng kagamitang pambahay gamit ang sewing machine.\n\n## 🪡 Kasangkapan sa Embroidery\n- **Embroidery hoop** — bilog na hawakan para hindi gumalaw ang tela\n- **Embroidery needle** — mas malaking butas kaysa regular na karayom\n- **Embroidery thread (floss)** — makapal at makulay na sinulid\n\n## 🧶 Kasangkapan sa Crochet\n- **Crochet hook** — kawit na ginagamit sa paggawa ng crochet stitches\n- **Yarn** — makapal na sinulid para sa crochet\n\n## 📋 Pamamaraan\n1. Ihanda ang tela at hoop para sa embroidery\n2. Piliin ang disenyo na gagawin\n3. Gumamit ng basic stitches (running stitch, back stitch) bilang simula\n\n**Mahahalagang salita:** embroidery, hoop, crochet hook, yarn, floss",
+        "quiz": [
+          {
+            "question": "Ano ang embroidery hoop?",
+            "options": [
+              "Bilog na hawakan para hindi gumalaw ang tela",
+              "Kawit para sa crochet",
+              "Uri ng makinang panahi",
+              "Uri ng gunting"
+            ],
+            "correct_answer": "Bilog na hawakan para hindi gumalaw ang tela"
+          },
+          {
+            "question": "Ano ang crochet hook?",
+            "options": [
+              "Kawit na ginagamit sa paggawa ng crochet stitches",
+              "Bilog na hawakan ng tela",
+              "Uri ng sinulid lamang",
+              "Uri ng makinang panahi"
+            ],
+            "correct_answer": "Kawit na ginagamit sa paggawa ng crochet stitches"
+          },
+          {
+            "question": "Ano ang tawag sa makapal na sinulid na ginagamit sa crochet?",
+            "options": [
+              "Yarn",
+              "Floss",
+              "Ribbon",
+              "Fabric"
+            ],
+            "correct_answer": "Yarn"
+          },
+          {
+            "question": "Ano ang tawag sa makapal at makulay na sinulid na ginagamit sa embroidery?",
+            "options": [
+              "Floss",
+              "Yarn",
+              "Ribbon",
+              "Thread lamang para sa makina"
+            ],
+            "correct_answer": "Floss"
+          },
+          {
+            "question": "Bakit mas malaki ang butas ng embroidery needle kumpara sa regular na karayom?",
+            "options": [
+              "Para madaling madaanan ng makapal na embroidery floss",
+              "Para hindi na kailangan ng sinulid",
+              "Para gawing crochet hook ito",
+              "Walang dahilan"
+            ],
+            "correct_answer": "Para madaling madaanan ng makapal na embroidery floss"
+          },
+          {
+            "question": "Ano ang unang hakbang sa paggawa ng embroidery?",
+            "options": [
+              "Ihanda ang tela at hoop",
+              "Direktang manahi nang walang paghahanda",
+              "Bumili muna ng bagong makina",
+              "Gumamit agad ng crochet hook"
+            ],
+            "correct_answer": "Ihanda ang tela at hoop"
+          },
+          {
+            "question": "Aling basic stitch ang maaaring gamitin bilang simula sa embroidery?",
+            "options": [
+              "Running stitch",
+              "Crochet hook stitch",
+              "Wala sa mga ito",
+              "Sewing machine stitch lamang"
+            ],
+            "correct_answer": "Running stitch"
+          },
+          {
+            "question": "Anong pagkakaiba mayroon ang embroidery sa crochet?",
+            "options": [
+              "Ang embroidery ay pananahi sa ibabaw ng tela, ang crochet ay paggawa gamit ang kawit at sinulid",
+              "Magkatulad lamang sila",
+              "Ang crochet ay palaging gumagamit ng makina",
+              "Walang pagkakaiba"
+            ],
+            "correct_answer": "Ang embroidery ay pananahi sa ibabaw ng tela, ang crochet ay paggawa gamit ang kawit at sinulid"
+          },
+          {
+            "question": "Bakit mahalagang piliin muna ang disenyo bago simulan ang embroidery?",
+            "options": [
+              "Para malaman kung anong pattern ng tahi ang gagamitin",
+              "Hindi na kailangan pumili ng disenyo",
+              "Para hindi na kailangan ng hoop",
+              "Wala itong epekto sa proyekto"
+            ],
+            "correct_answer": "Para malaman kung anong pattern ng tahi ang gagamitin"
+          },
+          {
+            "question": "Aling kasangkapan ang mas angkop gamitin kung gagawa ka ng bag mula sa yarn?",
+            "options": [
+              "Crochet hook",
+              "Embroidery hoop",
+              "Sewing machine lamang",
+              "Gunting lamang"
+            ],
+            "correct_answer": "Crochet hook"
+          },
+          {
+            "question": "Ano ang benepisyo ng paggamit ng embroidery hoop habang nananahi?",
+            "options": [
+              "Pinapanatili nitong laban ang tela para pantay ang tahi",
+              "Ginagawa nitong mas mabilis ang paggamit ng makina",
+              "Pinapalitan nito ang karayom",
+              "Wala itong benepisyo"
+            ],
+            "correct_answer": "Pinapanatili nitong laban ang tela para pantay ang tahi"
+          },
+          {
+            "question": "Bakit itinuturo ang embroidery at crochet bilang karagdagan sa sewing machine skills?",
+            "options": [
+              "Para matutunan ang iba't ibang pamamaraan ng paggawa ng kagamitang pantahanan",
+              "Sapagkat hindi na kailangan ang makina",
+              "Sapagkat mas madali ang embroidery kaysa lahat",
+              "Walang dahilan, random lamang"
+            ],
+            "correct_answer": "Para matutunan ang iba't ibang pamamaraan ng paggawa ng kagamitang pantahanan"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🧹 GMRC — Kalinisan sa Tahanan\n\nGrade 5, Linggo 21! Pagpapahalaga ngayong linggo: **Kalinisan (Cleanliness)**. 🧹\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **pasasalamat sa Diyos** sa mga biyaya.\n\n## 🧹 Bakit Mahalaga ang Kalinisan?\nAng **kalinisan sa tahanan** ay bahagi ng pagpapahalaga sa ating pamilya at kalusugan. Ang malinis na tahanan ay:\n- Nakakaiwas sa sakit dulot ng mikrobyo at duming naipon\n- Nagpapakita ng **disiplina** at pagmamalasakit sa ibang miyembro ng pamilya\n- Nagbibigay ng maayos at komportableng kapaligiran para mag-aral at magpahinga\n\n## 🏡 Paano Makatutulong sa Kalinisan?\n- Pagliligpit ng sariling gamit pagkatapos gamitin\n- Pagwawalis at pagpapahid ng sahig\n- Pagtutulong sa paglilinis ng bahay-kubeta at kusina\n\nAng bawat maliit na tulong ay nagpapakita ng **pagmamahal sa pamilya**.\n\n**Mahahalagang salita:** kalinisan, disiplina, pagmamalasakit, tahanan",
+        "quiz": [
+          {
+            "question": "Ano ang kahulugan ng kalinisan sa tahanan?",
+            "options": [
+              "Ang pagpapanatiling malinis at maayos ng bahay",
+              "Ang pagiging mayaman",
+              "Ang pagiging pinakamalakas sa laro",
+              "Ang pagiging pinakamatalino sa klase"
+            ],
+            "correct_answer": "Ang pagpapanatiling malinis at maayos ng bahay"
+          },
+          {
+            "question": "Bakit mahalaga ang kalinisan sa tahanan?",
+            "options": [
+              "Nakakaiwas ito sa sakit at nagbibigay ng maayos na kapaligiran",
+              "Wala itong epekto sa kalusugan",
+              "Para lang ito maganda tingnan",
+              "Kailangan lamang ito kapag may bisita"
+            ],
+            "correct_answer": "Nakakaiwas ito sa sakit at nagbibigay ng maayos na kapaligiran"
+          },
+          {
+            "question": "Anong halimbawa ng pagtulong sa kalinisan ng tahanan?",
+            "options": [
+              "Pagliligpit ng sariling gamit",
+              "Pagtatapon ng basura kahit saan",
+              "Pag-iwan ng maruming plato",
+              "Hindi paglilinis kailanman"
+            ],
+            "correct_answer": "Pagliligpit ng sariling gamit"
+          },
+          {
+            "question": "Ano ang ipinapakita ng isang batang tumutulong maglinis ng bahay?",
+            "options": [
+              "Pagmamahal at pagmamalasakit sa pamilya",
+              "Kawalang galang sa magulang",
+              "Kapaguran lamang",
+              "Kawalan ng disiplina"
+            ],
+            "correct_answer": "Pagmamahal at pagmamalasakit sa pamilya"
+          },
+          {
+            "question": "Ano ang maaaring idulot ng maruming tahanan?",
+            "options": [
+              "Sakit dulot ng mikrobyo",
+              "Higit na kalusugan",
+              "Mas magandang kapaligiran",
+              "Walang epekto"
+            ],
+            "correct_answer": "Sakit dulot ng mikrobyo"
+          },
+          {
+            "question": "Alin sa mga ito ang halimbawa ng disiplina sa tahanan?",
+            "options": [
+              "Paglilinis ng sariling kalat",
+              "Pagtatapon ng basura sa sahig",
+              "Pag-iwan ng maruming damit kahit saan",
+              "Hindi pagtulong sa gawaing bahay"
+            ],
+            "correct_answer": "Paglilinis ng sariling kalat"
+          },
+          {
+            "question": "Bakit mahalaga ang malinis na silid sa pag-aaral?",
+            "options": [
+              "Nagbibigay ito ng komportableng kapaligiran para mag-aral",
+              "Walang epekto ang kalinisan sa pag-aaral",
+              "Mas mahirap mag-aral sa malinis na lugar",
+              "Kailangan lamang malinis kapag may pagsusulit"
+            ],
+            "correct_answer": "Nagbibigay ito ng komportableng kapaligiran para mag-aral"
+          },
+          {
+            "question": "Sino ang dapat may pananagutan sa kalinisan ng tahanan?",
+            "options": [
+              "Lahat ng miyembro ng pamilya",
+              "Ang ina lamang",
+              "Ang katulong lamang",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Lahat ng miyembro ng pamilya"
+          },
+          {
+            "question": "Ano ang unang hakbang na dapat gawin ng isang bata pagkatapos gumamit ng laruan?",
+            "options": [
+              "Ibalik ito sa lugar nito",
+              "Iwanan ito kung saan man",
+              "Itapon ito",
+              "Hayaan itong mabulok"
+            ],
+            "correct_answer": "Ibalik ito sa lugar nito"
+          },
+          {
+            "question": "Paano naiiba ang tulong sa paglilinis mula sa iba pang gawain sa tahanan?",
+            "options": [
+              "Ito ay nagpapakita rin ng pagmamalasakit gaya ng ibang paglilingkod sa pamilya",
+              "Walang kaugnayan ang paglilinis sa pagmamalasakit",
+              "Ito ay hindi kailanman itinuturing na tulong",
+              "Ito ay para lamang sa matatanda"
+            ],
+            "correct_answer": "Ito ay nagpapakita rin ng pagmamalasakit gaya ng ibang paglilingkod sa pamilya"
+          },
+          {
+            "question": "Ano ang mabuting epekto ng malinis na tahanan sa kalusugan ng pamilya?",
+            "options": [
+              "Nababawasan ang panganib ng sakit",
+              "Nadadagdagan ang panganib ng sakit",
+              "Walang epekto sa kalusugan",
+              "Nagiging mas mahal ang bahay"
+            ],
+            "correct_answer": "Nababawasan ang panganib ng sakit"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang kalinisan sa GMRC?",
+            "options": [
+              "Sapagkat nagpapakita ito ng disiplina at pagmamahal sa pamilya",
+              "Sapagkat wala itong kaugnayan sa moralidad",
+              "Sapagkat ito ay bahagi lamang ng agham",
+              "Sapagkat ito ay hindi kailanman itinuro sa paaralan"
+            ],
+            "correct_answer": "Sapagkat nagpapakita ito ng disiplina at pagmamahal sa pamilya"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🗣️ Friday Review — English (Grade 5)\n\n- Deposit slips and bank/government forms\n- Directionality in visual texts\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "What is a deposit slip for?",
+            "options": [
+              "Putting money into a bank account",
+              "Withdrawing money",
+              "Applying for school",
+              "Renting a house"
+            ],
+            "correct_answer": "Putting money into a bank account"
+          },
+          {
+            "question": "What does directionality guide in a visual text?",
+            "options": [
+              "The order your eyes read it in",
+              "The colors used",
+              "The paper size",
+              "The font style"
+            ],
+            "correct_answer": "The order your eyes read it in"
+          },
+          {
+            "question": "Which detail belongs on a deposit slip?",
+            "options": [
+              "Account number",
+              "Favorite food",
+              "Shoe size",
+              "Pet's name"
+            ],
+            "correct_answer": "Account number"
+          },
+          {
+            "question": "What tool helps a designer guide reading order?",
+            "options": [
+              "Arrows and numbers",
+              "Random colors",
+              "Blank space only",
+              "Small font only"
+            ],
+            "correct_answer": "Arrows and numbers"
+          },
+          {
+            "question": "Why is a signature needed on a deposit slip?",
+            "options": [
+              "To prove you made the deposit",
+              "To decorate it",
+              "It isn't needed",
+              "To show your school grade"
+            ],
+            "correct_answer": "To prove you made the deposit"
+          },
+          {
+            "question": "What is the usual natural reading direction of most texts?",
+            "options": [
+              "Top to bottom, left to right",
+              "Bottom to top",
+              "Right to left always",
+              "There is no pattern"
+            ],
+            "correct_answer": "Top to bottom, left to right"
+          },
+          {
+            "question": "A poster uses numbered steps to guide the reader. This is an example of...",
+            "options": [
+              "Directionality",
+              "A deposit slip",
+              "An enrollment form",
+              "A permission slip"
+            ],
+            "correct_answer": "Directionality"
+          },
+          {
+            "question": "Which form would you fill out to put cash into your savings account?",
+            "options": [
+              "Deposit slip",
+              "Permission slip",
+              "Enrollment form",
+              "Library card form"
+            ],
+            "correct_answer": "Deposit slip"
+          },
+          {
+            "question": "Why do forms use labeled blanks?",
+            "options": [
+              "To collect specific needed information clearly",
+              "To look decorative",
+              "Forms never have blanks",
+              "To confuse the reader"
+            ],
+            "correct_answer": "To collect specific needed information clearly"
+          },
+          {
+            "question": "What kind of information does a bank form usually NOT ask for?",
+            "options": [
+              "Your favorite movie",
+              "Account number",
+              "Amount",
+              "Date"
+            ],
+            "correct_answer": "Your favorite movie"
+          },
+          {
+            "question": "Following a poster's numbered arrows helps you understand what?",
+            "options": [
+              "The intended order of the message",
+              "The price of the poster",
+              "The artist's name only",
+              "Nothing useful"
+            ],
+            "correct_answer": "The intended order of the message"
+          },
+          {
+            "question": "What is one similarity between a deposit slip and other government forms?",
+            "options": [
+              "Both use labeled blanks for specific information",
+              "Both are used to buy food",
+              "Both have no purpose",
+              "Both must be written in cursive"
+            ],
+            "correct_answer": "Both use labeled blanks for specific information"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🎲 Friday Review — Mathematics (Grade 5)\n\n- Theoretical probability: favorable ÷ total outcomes\n- Simple events: coins, dice, marbles\n\nGreat work with probability! ⭐",
+        "quiz": [
+          {
+            "question": "What is the formula for theoretical probability?",
+            "options": [
+              "Favorable outcomes ÷ total outcomes",
+              "Total outcomes ÷ favorable outcomes",
+              "Favorable + total outcomes",
+              "Favorable − total outcomes"
+            ],
+            "correct_answer": "Favorable outcomes ÷ total outcomes"
+          },
+          {
+            "question": "A coin is flipped. What is P(tails)?",
+            "options": [
+              "1/2",
+              "1/4",
+              "2/2",
+              "0"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "A die (1-6) is rolled. What is P(rolling a 5)?",
+            "options": [
+              "1/6",
+              "5/6",
+              "1/5",
+              "6/5"
+            ],
+            "correct_answer": "1/6"
+          },
+          {
+            "question": "A probability of 1 means an event is...",
+            "options": [
+              "Certain",
+              "Impossible",
+              "Unlikely",
+              "Undefined"
+            ],
+            "correct_answer": "Certain"
+          },
+          {
+            "question": "A probability of 0 means an event is...",
+            "options": [
+              "Impossible",
+              "Certain",
+              "Likely",
+              "Guaranteed"
+            ],
+            "correct_answer": "Impossible"
+          },
+          {
+            "question": "A bag has 2 red and 8 blue marbles. What is P(red)?",
+            "options": [
+              "2/10",
+              "8/10",
+              "10/2",
+              "2/8"
+            ],
+            "correct_answer": "2/10"
+          },
+          {
+            "question": "A spinner has 4 equal sections, 1 of which is yellow. What is P(yellow)?",
+            "options": [
+              "1/4",
+              "4/1",
+              "1/3",
+              "3/4"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "What does the denominator in a probability fraction represent?",
+            "options": [
+              "Total possible outcomes",
+              "Favorable outcomes only",
+              "The number of trials done",
+              "It has no meaning"
+            ],
+            "correct_answer": "Total possible outcomes"
+          },
+          {
+            "question": "A die is rolled once. What is P(rolling an odd number)?",
+            "options": [
+              "3/6",
+              "1/6",
+              "6/6",
+              "2/6"
+            ],
+            "correct_answer": "3/6"
+          },
+          {
+            "question": "Which event is a simple event?",
+            "options": [
+              "Flipping one coin",
+              "Flipping two coins and rolling a die",
+              "Predicting the weather all year",
+              "Guessing a friend's age"
+            ],
+            "correct_answer": "Flipping one coin"
+          },
+          {
+            "question": "A jar has 10 candies, all red. What is P(picking red)?",
+            "options": [
+              "10/10 or 1",
+              "0",
+              "5/10",
+              "1/10"
+            ],
+            "correct_answer": "10/10 or 1"
+          },
+          {
+            "question": "Why is probability always between 0 and 1?",
+            "options": [
+              "Because it represents a fraction of possible outcomes",
+              "Because numbers above 1 don't exist",
+              "Because probability is always a whole number",
+              "Because it must always equal 1/2"
+            ],
+            "correct_answer": "Because it represents a fraction of possible outcomes"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📖 Friday Review — Filipino (Grade 5)\n\n- Almanac at atlas bilang sanggunian\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang almanac?",
+            "options": [
+              "Aklat na naglalaman ng estadistika taun-taon",
+              "Koleksyon ng mga mapa",
+              "Diksiyonaryo ng mga salita",
+              "Kuwentong bayan"
+            ],
+            "correct_answer": "Aklat na naglalaman ng estadistika taun-taon"
+          },
+          {
+            "question": "Ano ang atlas?",
+            "options": [
+              "Koleksyon ng mga mapa",
+              "Aklat ng mga tula",
+              "Listahan ng petsa",
+              "Kuwentong kababalaghan"
+            ],
+            "correct_answer": "Koleksyon ng mga mapa"
+          },
+          {
+            "question": "Saan mo hahanapin ang lokasyon ng isang lungsod?",
+            "options": [
+              "Atlas",
+              "Almanac",
+              "Diksiyonaryo",
+              "Nobela"
+            ],
+            "correct_answer": "Atlas"
+          },
+          {
+            "question": "Saan mo hahanapin ang datos tungkol sa panahon ngayong buwan?",
+            "options": [
+              "Almanac",
+              "Atlas",
+              "Komiks",
+              "Peryodiko lamang"
+            ],
+            "correct_answer": "Almanac"
+          },
+          {
+            "question": "Bakit mahalaga ang mga sanggunian tulad ng almanac at atlas?",
+            "options": [
+              "Tumutulong ito makahanap ng tumpak na impormasyon",
+              "Wala itong gamit",
+              "Ginagamit lamang sa aklatan",
+              "Para lamang sa guro"
+            ],
+            "correct_answer": "Tumutulong ito makahanap ng tumpak na impormasyon"
+          },
+          {
+            "question": "Alin ang matatagpuan sa isang atlas?",
+            "options": [
+              "Mapa ng mundo",
+              "Talaan ng kaarawan",
+              "Listahan ng estadistika",
+              "Talasalitaan"
+            ],
+            "correct_answer": "Mapa ng mundo"
+          },
+          {
+            "question": "Alin ang matatagpuan sa isang almanac?",
+            "options": [
+              "Estadistika at datos taun-taon",
+              "Mga mapa lamang",
+              "Mga kuwentong kababalaghan",
+              "Mga liham"
+            ],
+            "correct_answer": "Estadistika at datos taun-taon"
+          },
+          {
+            "question": "Kailan mo gagamitin ang atlas?",
+            "options": [
+              "Kapag gusto mong maghanap ng lokasyon",
+              "Kapag gusto mong malaman ang panahon",
+              "Kapag gusto mong sumulat ng tula",
+              "Kapag gusto mong magbasa ng nobela"
+            ],
+            "correct_answer": "Kapag gusto mong maghanap ng lokasyon"
+          },
+          {
+            "question": "Kailan mo gagamitin ang almanac?",
+            "options": [
+              "Kapag gusto mong malaman ang estadistika taun-taon",
+              "Kapag gusto mong maghanap ng bansa sa mapa",
+              "Kapag gusto mong magbasa ng epiko",
+              "Kapag gusto mong sumulat ng liham"
+            ],
+            "correct_answer": "Kapag gusto mong malaman ang estadistika taun-taon"
+          },
+          {
+            "question": "Ano ang tawag sa mga aklat na ginagamit para maghanap ng tumpak na kaalaman?",
+            "options": [
+              "Sanggunian",
+              "Nobela",
+              "Tula",
+              "Kuwentong bayan"
+            ],
+            "correct_answer": "Sanggunian"
+          },
+          {
+            "question": "Paano naiiba ang almanac sa atlas?",
+            "options": [
+              "Ang almanac ay naglalaman ng datos, ang atlas ay naglalaman ng mapa",
+              "Magkatulad lamang sila",
+              "Ang atlas ay para sa panahon lamang",
+              "Ang almanac ay para sa mapa lamang"
+            ],
+            "correct_answer": "Ang almanac ay naglalaman ng datos, ang atlas ay naglalaman ng mapa"
+          },
+          {
+            "question": "Bakit itinuturo ang paggamit ng sanggunian sa Filipino subject?",
+            "options": [
+              "Upang matutong humanap ng impormasyon sa pananaliksik",
+              "Sapagkat kailangan lang para sa pagsusulit",
+              "Walang layunin ito",
+              "Para lamang sa mga guro"
+            ],
+            "correct_answer": "Upang matutong humanap ng impormasyon sa pananaliksik"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ⚙️ Friday Review — Science (Grade 5)\n\n- Simple machines: lever, inclined plane, pulley, wheel and axle\n\nGreat review of simple machines! 🌟",
+        "quiz": [
+          {
+            "question": "What is a simple machine?",
+            "options": [
+              "A tool that makes work easier by changing force",
+              "A machine with an engine",
+              "A computer part",
+              "A type of vehicle"
+            ],
+            "correct_answer": "A tool that makes work easier by changing force"
+          },
+          {
+            "question": "What is the fixed point on a lever called?",
+            "options": [
+              "Fulcrum",
+              "Axle",
+              "Pulley",
+              "Incline"
+            ],
+            "correct_answer": "Fulcrum"
+          },
+          {
+            "question": "A seesaw is an example of what simple machine?",
+            "options": [
+              "Lever",
+              "Pulley",
+              "Inclined plane",
+              "Wheel and axle"
+            ],
+            "correct_answer": "Lever"
+          },
+          {
+            "question": "A ramp is an example of what simple machine?",
+            "options": [
+              "Inclined plane",
+              "Lever",
+              "Pulley",
+              "Wheel and axle"
+            ],
+            "correct_answer": "Inclined plane"
+          },
+          {
+            "question": "What does a pulley change?",
+            "options": [
+              "The direction of a pulling force",
+              "The color of an object",
+              "The weight of an object",
+              "Nothing at all"
+            ],
+            "correct_answer": "The direction of a pulling force"
+          },
+          {
+            "question": "A doorknob works using which simple machine?",
+            "options": [
+              "Wheel and axle",
+              "Lever",
+              "Pulley",
+              "Inclined plane"
+            ],
+            "correct_answer": "Wheel and axle"
+          },
+          {
+            "question": "Do simple machines eliminate the need for force?",
+            "options": [
+              "No, they reduce effort or change direction",
+              "Yes, completely",
+              "Only levers do",
+              "Only pulleys do"
+            ],
+            "correct_answer": "No, they reduce effort or change direction"
+          },
+          {
+            "question": "A flagpole rope and wheel is an example of what simple machine?",
+            "options": [
+              "Pulley",
+              "Lever",
+              "Inclined plane",
+              "Wheel and axle"
+            ],
+            "correct_answer": "Pulley"
+          },
+          {
+            "question": "Why is a ramp easier than lifting straight up?",
+            "options": [
+              "It spreads the force over a longer distance",
+              "It removes gravity",
+              "It makes objects lighter",
+              "It removes friction completely"
+            ],
+            "correct_answer": "It spreads the force over a longer distance"
+          },
+          {
+            "question": "A crowbar prying open a lid uses which simple machine?",
+            "options": [
+              "Lever",
+              "Pulley",
+              "Wheel and axle",
+              "Inclined plane"
+            ],
+            "correct_answer": "Lever"
+          },
+          {
+            "question": "Which simple machine helps turn a steering wheel?",
+            "options": [
+              "Wheel and axle",
+              "Inclined plane",
+              "Pulley",
+              "Lever"
+            ],
+            "correct_answer": "Wheel and axle"
+          },
+          {
+            "question": "Which best describes what all simple machines have in common?",
+            "options": [
+              "They all make work easier by changing force or direction",
+              "They all require electricity",
+              "They all have engines",
+              "They only work underwater"
+            ],
+            "correct_answer": "They all make work easier by changing force or direction"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 📜 Friday Review — Araling Panlipunan (Grade 5)\n\n- Katayuan ng kababaihan noong kolonyal na panahon\n- Si Gabriela Silang\n\nMagaling sa Araling Panlipunan! 🌟",
+        "quiz": [
+          {
+            "question": "Sino si Gabriela Silang?",
+            "options": [
+              "Unang babaeng pinuno ng kilusang panghihimagsik sa Pilipinas",
+              "Isang guro sa Maynila",
+              "Isang prinsesa ng Espanya",
+              "Isang mangangalakal"
+            ],
+            "correct_answer": "Unang babaeng pinuno ng kilusang panghihimagsik sa Pilipinas"
+          },
+          {
+            "question": "Saan pangunahing lumaban si Gabriela Silang?",
+            "options": [
+              "Ilocos",
+              "Cebu",
+              "Bohol",
+              "Sulu"
+            ],
+            "correct_answer": "Ilocos"
+          },
+          {
+            "question": "Sino ang asawa ni Gabriela Silang?",
+            "options": [
+              "Diego Silang",
+              "Francisco Dagohoy",
+              "Jose Rizal",
+              "Andres Bonifacio"
+            ],
+            "correct_answer": "Diego Silang"
+          },
+          {
+            "question": "Ano ang larawang 'Maria Clara'?",
+            "options": [
+              "Mahinhin at nasa tahanan lamang",
+              "Malakas at mandirigma",
+              "Guro sa paaralan",
+              "Mangangalakal"
+            ],
+            "correct_answer": "Mahinhin at nasa tahanan lamang"
+          },
+          {
+            "question": "Ano ang nangyari kay Gabriela Silang noong 1763?",
+            "options": [
+              "Siya ay nahuli at binitay",
+              "Siya ay naging reyna",
+              "Siya ay umuwi sa Espanya",
+              "Wala siyang ginawa"
+            ],
+            "correct_answer": "Siya ay nahuli at binitay"
+          },
+          {
+            "question": "Bakit itinuturing na simbolo ng katapangan si Gabriela Silang?",
+            "options": [
+              "Nanguna siya sa paglaban kahit mapanganib",
+              "Siya ay mayamang negosyante",
+              "Siya ay isang artista",
+              "Wala siyang ginawang mahalaga"
+            ],
+            "correct_answer": "Nanguna siya sa paglaban kahit mapanganib"
+          },
+          {
+            "question": "Ano ang naipapakita ng buhay ni Gabriela Silang tungkol sa kababaihan noon?",
+            "options": [
+              "Kayang lumaban at mamuno ng kababaihan",
+              "Walang karapatan ang kababaihan",
+              "Nasa tahanan lamang dapat sila",
+              "Hindi lumahok ang kababaihan sa kasaysayan"
+            ],
+            "correct_answer": "Kayang lumaban at mamuno ng kababaihan"
+          },
+          {
+            "question": "Ano ang ginawa ni Gabriela Silang matapos mapatay ang kanyang asawa?",
+            "options": [
+              "Ipinagpatuloy niya ang laban",
+              "Huminto siya sa paglaban",
+              "Umalis siya sa Pilipinas",
+              "Naging madre siya"
+            ],
+            "correct_answer": "Ipinagpatuloy niya ang laban"
+          },
+          {
+            "question": "Alin ang HINDI bahagi ng larawang 'Maria Clara'?",
+            "options": [
+              "Pagiging pinuno ng hukbo",
+              "Pagiging mahinhin",
+              "Pagiging tahimik",
+              "Pananatili sa tahanan"
+            ],
+            "correct_answer": "Pagiging pinuno ng hukbo"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang kasaysayan ni Gabriela Silang?",
+            "options": [
+              "Upang makilala ang ambag ng kababaihan sa kasaysayan",
+              "Sapagkat kailangan lang isaulo",
+              "Walang kaugnayan sa kasalukuyan",
+              "Siya lamang ang kilalang babae sa kasaysayan"
+            ],
+            "correct_answer": "Upang makilala ang ambag ng kababaihan sa kasaysayan"
+          },
+          {
+            "question": "Anong uri ng papel ang ginampanan ni Gabriela Silang?",
+            "options": [
+              "Pinuno ng kilusang panghihimagsik",
+              "Manggagamot",
+              "Guro",
+              "Mangangalakal ng seda"
+            ],
+            "correct_answer": "Pinuno ng kilusang panghihimagsik"
+          },
+          {
+            "question": "Alin ang tamang paglalarawan sa kasaysayan ni Gabriela Silang?",
+            "options": [
+              "Isang babaeng lumaban para sa kalayaan ng bansa",
+              "Isang babaeng walang ginawa",
+              "Isang mayamang prinsesa",
+              "Isang mangangalakal na Tsino"
+            ],
+            "correct_answer": "Isang babaeng lumaban para sa kalayaan ng bansa"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Friday Review — EPP (ICT) (Grade 5)\n\n- Spreadsheets: rows, columns, cells\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "What is a spreadsheet?",
+            "options": [
+              "A program with rows and columns for organizing data",
+              "A drawing tool",
+              "A word processor",
+              "A video player"
+            ],
+            "correct_answer": "A program with rows and columns for organizing data"
+          },
+          {
+            "question": "What is a cell in a spreadsheet?",
+            "options": [
+              "Where a row and column meet",
+              "A type of chart",
+              "A font style",
+              "A type of file"
+            ],
+            "correct_answer": "Where a row and column meet"
+          },
+          {
+            "question": "How are columns usually labeled?",
+            "options": [
+              "Letters",
+              "Numbers",
+              "Colors",
+              "Symbols"
+            ],
+            "correct_answer": "Letters"
+          },
+          {
+            "question": "How are rows usually labeled?",
+            "options": [
+              "Numbers",
+              "Letters",
+              "Colors",
+              "Symbols"
+            ],
+            "correct_answer": "Numbers"
+          },
+          {
+            "question": "What does cell 'C2' mean?",
+            "options": [
+              "Column C, Row 2",
+              "Row C, Column 2",
+              "It has no meaning",
+              "Cell number 22"
+            ],
+            "correct_answer": "Column C, Row 2"
+          },
+          {
+            "question": "Why are spreadsheets useful?",
+            "options": [
+              "They organize data clearly into rows and columns",
+              "They only play music",
+              "They cannot hold numbers",
+              "They are only for drawing"
+            ],
+            "correct_answer": "They organize data clearly into rows and columns"
+          },
+          {
+            "question": "Which is an example of spreadsheet software?",
+            "options": [
+              "Google Sheets",
+              "A web browser",
+              "A drawing app",
+              "A video player"
+            ],
+            "correct_answer": "Google Sheets"
+          },
+          {
+            "question": "What runs from left to right in a spreadsheet?",
+            "options": [
+              "A row",
+              "A column",
+              "A cell",
+              "A tab"
+            ],
+            "correct_answer": "A row"
+          },
+          {
+            "question": "What runs from top to bottom in a spreadsheet?",
+            "options": [
+              "A column",
+              "A row",
+              "A cell",
+              "A formula"
+            ],
+            "correct_answer": "A column"
+          },
+          {
+            "question": "What can a formula do in a spreadsheet?",
+            "options": [
+              "Add numbers automatically",
+              "Change the font color only",
+              "Delete the whole file",
+              "Play a sound"
+            ],
+            "correct_answer": "Add numbers automatically"
+          },
+          {
+            "question": "Why would you use a spreadsheet instead of plain paper for data?",
+            "options": [
+              "It keeps numbers organized and easy to calculate",
+              "Paper cannot hold numbers",
+              "Spreadsheets are always printed",
+              "There is no difference"
+            ],
+            "correct_answer": "It keeps numbers organized and easy to calculate"
+          },
+          {
+            "question": "What could you do with quiz scores typed into a spreadsheet?",
+            "options": [
+              "Organize and later turn them into a graph",
+              "Nothing useful",
+              "Only print them in red",
+              "Delete them automatically"
+            ],
+            "correct_answer": "Organize and later turn them into a graph"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎵 Friday Review — MAPEH (Grade 5)\n\n- Musical form: verse and chorus\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang verse (saknong) sa isang awit?",
+            "options": [
+              "Bahaging nagbabago ang salita bawat pag-uulit",
+              "Bahaging palaging pareho",
+              "Bahaging walang salita",
+              "Instrumento lamang"
+            ],
+            "correct_answer": "Bahaging nagbabago ang salita bawat pag-uulit"
+          },
+          {
+            "question": "Ano ang chorus (koro) sa isang awit?",
+            "options": [
+              "Bahaging paulit-ulit at kadalasang pinakakatatandaan",
+              "Bahaging binabago bawat ulit",
+              "Bahaging walang himig",
+              "Instrumento lamang"
+            ],
+            "correct_answer": "Bahaging paulit-ulit at kadalasang pinakakatatandaan"
+          },
+          {
+            "question": "Ano ang musical form?",
+            "options": [
+              "Pagkakaayos ng mga bahagi ng isang awit",
+              "Ang lapad ng boses",
+              "Bilang ng instrumento",
+              "Tunog ng gitara lamang"
+            ],
+            "correct_answer": "Pagkakaayos ng mga bahagi ng isang awit"
+          },
+          {
+            "question": "Bakit madaling matandaan ang koro?",
+            "options": [
+              "Sapagkat ito ay paulit-ulit",
+              "Sapagkat tahimik ito",
+              "Sapagkat wala itong himig",
+              "Isang beses lamang ito kinakanta"
+            ],
+            "correct_answer": "Sapagkat ito ay paulit-ulit"
+          },
+          {
+            "question": "Anong bahagi ng awit ang nagkukuwento?",
+            "options": [
+              "Verse",
+              "Chorus lamang",
+              "Rhythm lamang",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Verse"
+          },
+          {
+            "question": "Alin ang HINDI bahagi ng musical form?",
+            "options": [
+              "Deposit slip",
+              "Verse",
+              "Chorus",
+              "Melody"
+            ],
+            "correct_answer": "Deposit slip"
+          },
+          {
+            "question": "Paano naiiba ang saknong sa koro?",
+            "options": [
+              "Nagbabago ang salita ng saknong, paulit-ulit ang koro",
+              "Pareho lamang sila",
+              "Walang himig ang saknong",
+              "Walang salita ang koro"
+            ],
+            "correct_answer": "Nagbabago ang salita ng saknong, paulit-ulit ang koro"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang musical form?",
+            "options": [
+              "Nakakatulong maunawaan ang mensahe ng awit",
+              "Wala itong kaugnayan sa pag-unawa",
+              "Para lamang sa musikero",
+              "Para lamang sa instrumento"
+            ],
+            "correct_answer": "Nakakatulong maunawaan ang mensahe ng awit"
+          },
+          {
+            "question": "Kung gusto mong idiin ang pangunahing mensahe ng awit, alin ang gagamitin nang paulit-ulit?",
+            "options": [
+              "Chorus",
+              "Verse",
+              "Introduction lamang",
+              "Walang bahagi"
+            ],
+            "correct_answer": "Chorus"
+          },
+          {
+            "question": "Ilang beses karaniwang inaawit ang koro sa isang awit?",
+            "options": [
+              "Higit sa isang beses",
+              "Isang beses lamang",
+              "Hindi na inaawit",
+              "Sa dulo lamang"
+            ],
+            "correct_answer": "Higit sa isang beses"
+          },
+          {
+            "question": "Ano ang koneksyon ng melody sa verse at chorus?",
+            "options": [
+              "Ginagamit ang melody sa dalawa, maaaring magkaiba ang himig",
+              "Walang koneksyon",
+              "Melody ay para lamang sa chorus",
+              "Melody ay para lamang sa instrumento"
+            ],
+            "correct_answer": "Ginagamit ang melody sa dalawa, maaaring magkaiba ang himig"
+          },
+          {
+            "question": "Anong tawag sa bahaging paulit-ulit na kadalasang kinakanta ng lahat?",
+            "options": [
+              "Chorus",
+              "Verse",
+              "Bridge lamang",
+              "Introduction"
+            ],
+            "correct_answer": "Chorus"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 Friday Review — EPP (Grade 5)\n\n- Embroidery at crochet: kasangkapan at pamamaraan\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang embroidery hoop?",
+            "options": [
+              "Bilog na hawakan para hindi gumalaw ang tela",
+              "Kawit para sa crochet",
+              "Uri ng makina",
+              "Uri ng gunting"
+            ],
+            "correct_answer": "Bilog na hawakan para hindi gumalaw ang tela"
+          },
+          {
+            "question": "Ano ang crochet hook?",
+            "options": [
+              "Kawit na ginagamit sa paggawa ng crochet stitches",
+              "Bilog na hawakan ng tela",
+              "Uri ng sinulid lamang",
+              "Uri ng makina"
+            ],
+            "correct_answer": "Kawit na ginagamit sa paggawa ng crochet stitches"
+          },
+          {
+            "question": "Ano ang tawag sa sinulid na ginagamit sa crochet?",
+            "options": [
+              "Yarn",
+              "Floss",
+              "Ribbon",
+              "Fabric"
+            ],
+            "correct_answer": "Yarn"
+          },
+          {
+            "question": "Ano ang tawag sa sinulid na ginagamit sa embroidery?",
+            "options": [
+              "Floss",
+              "Yarn",
+              "Ribbon",
+              "Thread ng makina lamang"
+            ],
+            "correct_answer": "Floss"
+          },
+          {
+            "question": "Ano ang unang hakbang sa paggawa ng embroidery?",
+            "options": [
+              "Ihanda ang tela at hoop",
+              "Direktang manahi",
+              "Bumili ng bagong makina",
+              "Gumamit ng crochet hook"
+            ],
+            "correct_answer": "Ihanda ang tela at hoop"
+          },
+          {
+            "question": "Paano naiiba ang embroidery sa crochet?",
+            "options": [
+              "Embroidery ay tahi sa ibabaw ng tela, crochet ay gamit ang kawit",
+              "Magkatulad lamang",
+              "Crochet ay palaging gumagamit ng makina",
+              "Walang pagkakaiba"
+            ],
+            "correct_answer": "Embroidery ay tahi sa ibabaw ng tela, crochet ay gamit ang kawit"
+          },
+          {
+            "question": "Bakit malaki ang butas ng embroidery needle?",
+            "options": [
+              "Para madaanan ng makapal na floss",
+              "Para hindi na kailangan ng sinulid",
+              "Para gawing crochet hook ito",
+              "Walang dahilan"
+            ],
+            "correct_answer": "Para madaanan ng makapal na floss"
+          },
+          {
+            "question": "Aling kasangkapan ang gagamitin para gumawa ng bag mula sa yarn?",
+            "options": [
+              "Crochet hook",
+              "Embroidery hoop",
+              "Sewing machine lamang",
+              "Gunting lamang"
+            ],
+            "correct_answer": "Crochet hook"
+          },
+          {
+            "question": "Bakit itinuturo ang embroidery at crochet bukod sa sewing machine?",
+            "options": [
+              "Para matutunan ang iba't ibang paraan ng paggawa",
+              "Sapagkat hindi na kailangan ang makina",
+              "Sapagkat mas madali ito sa lahat",
+              "Walang dahilan"
+            ],
+            "correct_answer": "Para matutunan ang iba't ibang paraan ng paggawa"
+          },
+          {
+            "question": "Anong stitch ang maaaring gamitin bilang simula sa embroidery?",
+            "options": [
+              "Running stitch",
+              "Crochet stitch lamang",
+              "Wala sa mga ito",
+              "Machine stitch lamang"
+            ],
+            "correct_answer": "Running stitch"
+          },
+          {
+            "question": "Ano ang benepisyo ng embroidery hoop?",
+            "options": [
+              "Pinapanatili nitong laban ang tela para pantay ang tahi",
+              "Pinapabilis nito ang paggamit ng makina",
+              "Pinapalitan nito ang karayom",
+              "Wala itong benepisyo"
+            ],
+            "correct_answer": "Pinapanatili nitong laban ang tela para pantay ang tahi"
+          },
+          {
+            "question": "Ano ang kailangang piliin muna bago simulan ang embroidery?",
+            "options": [
+              "Disenyo",
+              "Kulay ng buhok",
+              "Presyo ng tela lamang",
+              "Pangalan ng gagawa"
+            ],
+            "correct_answer": "Disenyo"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🧹 Friday Review — GMRC (Grade 5)\n\n- Kalinisan sa tahanan\n- Pagpapahalaga: Cleanliness\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang kahulugan ng kalinisan sa tahanan?",
+            "options": [
+              "Ang pagpapanatiling malinis at maayos ng bahay",
+              "Ang pagiging mayaman",
+              "Ang pagiging pinakamalakas",
+              "Ang pagiging pinakamatalino"
+            ],
+            "correct_answer": "Ang pagpapanatiling malinis at maayos ng bahay"
+          },
+          {
+            "question": "Bakit mahalaga ang kalinisan sa tahanan?",
+            "options": [
+              "Nakakaiwas sa sakit",
+              "Wala itong epekto",
+              "Para lamang maganda tingnan",
+              "Kailangan lamang kapag may bisita"
+            ],
+            "correct_answer": "Nakakaiwas sa sakit"
+          },
+          {
+            "question": "Anong halimbawa ng pagtulong sa kalinisan ng tahanan?",
+            "options": [
+              "Pagliligpit ng sariling gamit",
+              "Pagtatapon ng basura kahit saan",
+              "Pag-iwan ng maruming plato",
+              "Hindi paglilinis"
+            ],
+            "correct_answer": "Pagliligpit ng sariling gamit"
+          },
+          {
+            "question": "Ano ang ipinapakita ng batang tumutulong maglinis?",
+            "options": [
+              "Pagmamahal sa pamilya",
+              "Kawalang galang",
+              "Kapaguran lamang",
+              "Kawalan ng disiplina"
+            ],
+            "correct_answer": "Pagmamahal sa pamilya"
+          },
+          {
+            "question": "Ano ang maaaring idulot ng maruming tahanan?",
+            "options": [
+              "Sakit dulot ng mikrobyo",
+              "Higit na kalusugan",
+              "Mas magandang kapaligiran",
+              "Walang epekto"
+            ],
+            "correct_answer": "Sakit dulot ng mikrobyo"
+          },
+          {
+            "question": "Sino ang dapat may pananagutan sa kalinisan ng tahanan?",
+            "options": [
+              "Lahat ng miyembro ng pamilya",
+              "Ang ina lamang",
+              "Ang katulong lamang",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Lahat ng miyembro ng pamilya"
+          },
+          {
+            "question": "Bakit mahalaga ang malinis na silid sa pag-aaral?",
+            "options": [
+              "Nagbibigay ito ng komportableng kapaligiran",
+              "Walang epekto sa pag-aaral",
+              "Mas mahirap mag-aral doon",
+              "Kailangan lamang malinis kapag may pagsusulit"
+            ],
+            "correct_answer": "Nagbibigay ito ng komportableng kapaligiran"
+          },
+          {
+            "question": "Ano ang unang hakbang pagkatapos gumamit ng laruan?",
+            "options": [
+              "Ibalik sa lugar nito",
+              "Iwanan kung saan man",
+              "Itapon",
+              "Hayaan mabulok"
+            ],
+            "correct_answer": "Ibalik sa lugar nito"
+          },
+          {
+            "question": "Alin ang halimbawa ng disiplina sa tahanan?",
+            "options": [
+              "Paglilinis ng sariling kalat",
+              "Pagtatapon ng basura sa sahig",
+              "Pag-iwan ng maruming damit",
+              "Hindi pagtulong sa gawain"
+            ],
+            "correct_answer": "Paglilinis ng sariling kalat"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang kalinisan?",
+            "options": [
+              "Nagpapakita ito ng disiplina at pagmamahal",
+              "Wala itong kaugnayan sa moralidad",
+              "Bahagi lamang ito ng agham",
+              "Hindi ito itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagpapakita ito ng disiplina at pagmamahal"
+          },
+          {
+            "question": "Ano ang mabuting epekto ng malinis na tahanan sa kalusugan?",
+            "options": [
+              "Nababawasan ang panganib ng sakit",
+              "Nadadagdagan ang panganib ng sakit",
+              "Walang epekto",
+              "Nagiging mas mahal ang bahay"
+            ],
+            "correct_answer": "Nababawasan ang panganib ng sakit"
+          },
+          {
+            "question": "Paano naiiba ang tulong sa paglilinis sa iba pang pagmamalasakit sa pamilya?",
+            "options": [
+              "Ito rin ay isang paraan ng pagpapakita ng pagmamalasakit",
+              "Walang kaugnayan sa pagmamalasakit",
+              "Hindi ito itinuturing na tulong",
+              "Para lamang ito sa matatanda"
+            ],
+            "correct_answer": "Ito rin ay isang paraan ng pagpapakita ng pagmamalasakit"
+          }
+        ]
+      }
+    }
+  }
+}

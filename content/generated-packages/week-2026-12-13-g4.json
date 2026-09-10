@@ -1,0 +1,2266 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-12-13",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🖼️ English — Comparing Images Across Events\n\nGrade 4, Week 27! Let's compare images from different national celebrations! 🖼️\n\n## 🔄 Review\nWe analyzed images and built timelines from national celebrations.\n\n## 🔍 Comparing Multiple Images\nWhen comparing images from two different events, ask:\n- What is **similar** between the images (mood, purpose, symbols)?\n- What is **different** (setting, people, activities)?\n- What can we **conclude** about both events from the comparison?\n\n## 📊 Using a Venn Diagram\nA **Venn diagram** helps organize similarities and differences visually — overlapping for similarities, separate sides for differences.\n\n## 🎯 Why This Matters\nComparing images across events deepens our understanding of how different celebrations connect to shared values, like unity and pride.\n\n**Key words:** compare, contrast, Venn diagram, shared values",
+        "quiz": [
+          {
+            "question": "What should you ask when comparing two images?",
+            "options": [
+              "What is similar, different, and what can we conclude",
+              "Only the colors used",
+              "Only the size of the images",
+              "Nothing specific"
+            ],
+            "correct_answer": "What is similar, different, and what can we conclude"
+          },
+          {
+            "question": "What is a Venn diagram used for?",
+            "options": [
+              "Organizing similarities and differences visually",
+              "Drawing a single image",
+              "Writing a story",
+              "Solving math problems"
+            ],
+            "correct_answer": "Organizing similarities and differences visually"
+          },
+          {
+            "question": "In a Venn diagram, where do similarities go?",
+            "options": [
+              "In the overlapping section",
+              "On separate sides only",
+              "Nowhere specific",
+              "Outside the diagram"
+            ],
+            "correct_answer": "In the overlapping section"
+          },
+          {
+            "question": "Why compare images from different national celebrations?",
+            "options": [
+              "To understand shared values like unity and pride",
+              "To find which image is prettier",
+              "To waste time",
+              "There is no reason to compare"
+            ],
+            "correct_answer": "To understand shared values like unity and pride"
+          },
+          {
+            "question": "What might be a 'difference' when comparing celebration images?",
+            "options": [
+              "Setting, people, or activities shown",
+              "The paper size only",
+              "Nothing ever differs",
+              "Only the frame color"
+            ],
+            "correct_answer": "Setting, people, or activities shown"
+          },
+          {
+            "question": "What might be a 'similarity' when comparing celebration images?",
+            "options": [
+              "Shared mood, purpose, or symbols",
+              "The camera brand used",
+              "The exact same people",
+              "Nothing is ever similar"
+            ],
+            "correct_answer": "Shared mood, purpose, or symbols"
+          },
+          {
+            "question": "Why is concluding important after comparing images?",
+            "options": [
+              "It helps summarize what we learned from both events",
+              "It has no purpose",
+              "It replaces the need to look at images",
+              "Conclusions are guesses only"
+            ],
+            "correct_answer": "It helps summarize what we learned from both events"
+          },
+          {
+            "question": "How does a Venn diagram show differences?",
+            "options": [
+              "On the separate, non-overlapping sides",
+              "In the overlapping middle",
+              "It cannot show differences",
+              "Only through color"
+            ],
+            "correct_answer": "On the separate, non-overlapping sides"
+          },
+          {
+            "question": "Why might two different celebrations share a similar mood?",
+            "options": [
+              "Both may express national pride or unity",
+              "Celebrations never share moods",
+              "Only random chance",
+              "They are always identical events"
+            ],
+            "correct_answer": "Both may express national pride or unity"
+          },
+          {
+            "question": "What skill are we building by comparing images from events?",
+            "options": [
+              "Critical thinking and visual analysis",
+              "Only drawing skills",
+              "Only handwriting skills",
+              "Only counting skills"
+            ],
+            "correct_answer": "Critical thinking and visual analysis"
+          },
+          {
+            "question": "Why use a visual tool like a Venn diagram instead of just talking?",
+            "options": [
+              "It organizes ideas clearly for easier understanding",
+              "Visual tools are never helpful",
+              "Talking is always better",
+              "Diagrams confuse the reader"
+            ],
+            "correct_answer": "It organizes ideas clearly for easier understanding"
+          },
+          {
+            "question": "What is the overall goal of comparing images from national events?",
+            "options": [
+              "To deepen understanding of shared cultural values",
+              "To pick a favorite image",
+              "To avoid learning history",
+              "To replace timelines entirely"
+            ],
+            "correct_answer": "To deepen understanding of shared cultural values"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔄 Mathematics — Symmetry with Respect to a Point\n\nGrade 4, Week 27! Let's learn about point symmetry! 🔄\n\n## 🔄 Review\nWe learned line symmetry and reflection.\n\n## 🔄 What Is Point Symmetry?\nA shape has **point symmetry** if it looks the same after being rotated 180° around a central point.\n\n## 🔍 Identifying Point Symmetry\n- A pinwheel shape often has point symmetry\n- The letter \"S\" has point symmetry\n- A square has both line AND point symmetry\n\n## 🆚 Line Symmetry vs. Point Symmetry\n- **Line symmetry**: folding along a line makes both halves match\n- **Point symmetry**: rotating 180° around a center point makes the shape look the same\n\n## 🎯 Why This Matters\nUnderstanding both types of symmetry helps us recognize patterns in art, nature, and design.\n\n**Key words:** point symmetry, rotate, 180 degrees, center point",
+        "quiz": [
+          {
+            "question": "What is point symmetry?",
+            "options": [
+              "A shape looks the same after rotating 180° around a center point",
+              "A shape that can be folded in half",
+              "A shape with no matching parts",
+              "A shape that changes color"
+            ],
+            "correct_answer": "A shape looks the same after rotating 180° around a center point"
+          },
+          {
+            "question": "How many degrees do you rotate a shape to check point symmetry?",
+            "options": [
+              "180°",
+              "90°",
+              "360°",
+              "45°"
+            ],
+            "correct_answer": "180°"
+          },
+          {
+            "question": "Which letter has point symmetry?",
+            "options": [
+              "S",
+              "A",
+              "T",
+              "L"
+            ],
+            "correct_answer": "S"
+          },
+          {
+            "question": "Does a square have point symmetry?",
+            "options": [
+              "Yes, it has both line and point symmetry",
+              "No, only line symmetry",
+              "No, squares have no symmetry",
+              "Only point symmetry, not line"
+            ],
+            "correct_answer": "Yes, it has both line and point symmetry"
+          },
+          {
+            "question": "What is the main difference between line and point symmetry?",
+            "options": [
+              "Line symmetry uses folding; point symmetry uses rotating 180°",
+              "They are exactly the same",
+              "Line symmetry only applies to circles",
+              "Point symmetry only applies to squares"
+            ],
+            "correct_answer": "Line symmetry uses folding; point symmetry uses rotating 180°"
+          },
+          {
+            "question": "What shape often shows point symmetry?",
+            "options": [
+              "A pinwheel",
+              "A random scribble",
+              "An irregular triangle",
+              "A single dot"
+            ],
+            "correct_answer": "A pinwheel"
+          },
+          {
+            "question": "Why is understanding both types of symmetry useful?",
+            "options": [
+              "It helps recognize patterns in art, nature, and design",
+              "It has no real use",
+              "Only for math tests",
+              "Symmetry never appears elsewhere"
+            ],
+            "correct_answer": "It helps recognize patterns in art, nature, and design"
+          },
+          {
+            "question": "What is the 'center point' in point symmetry?",
+            "options": [
+              "The point around which the shape rotates",
+              "Any random point outside the shape",
+              "The corner of the shape",
+              "It does not exist"
+            ],
+            "correct_answer": "The point around which the shape rotates"
+          },
+          {
+            "question": "If you rotate a shape 180° and it looks different, does it have point symmetry?",
+            "options": [
+              "No, it does not have point symmetry",
+              "Yes, it always has point symmetry",
+              "Only sometimes",
+              "It has line symmetry instead"
+            ],
+            "correct_answer": "No, it does not have point symmetry"
+          },
+          {
+            "question": "Which of these does NOT have point symmetry?",
+            "options": [
+              "A scalene triangle",
+              "A square",
+              "The letter S",
+              "A pinwheel shape"
+            ],
+            "correct_answer": "A scalene triangle"
+          },
+          {
+            "question": "Why might artists use point symmetry in designs?",
+            "options": [
+              "It creates a balanced, rotational visual effect",
+              "It makes designs impossible to draw",
+              "It removes all patterns",
+              "It has no visual effect"
+            ],
+            "correct_answer": "It creates a balanced, rotational visual effect"
+          },
+          {
+            "question": "How is point symmetry tested differently from line symmetry?",
+            "options": [
+              "By rotating the shape instead of folding it",
+              "By folding the shape only",
+              "By coloring the shape",
+              "By measuring its perimeter"
+            ],
+            "correct_answer": "By rotating the shape instead of folding it"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📖 Filipino — Konteksklu: Pagpapakahulugan Gamit ang Konteksto\n\nGrade 4, Linggo 27! Alamin natin kung paano hulaan ang kahulugan ng salita gamit ang konteksto. 📖\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga salitang hango sa Ingles at Kastila.\n\n## 📖 Ano ang Konteksklu?\nAng **konteksklu** ay ang paggamit ng mga salitang nakapaligid sa isang hindi pamilyar na salita upang mahulaan ang kahulugan nito.\n\n## 🔍 Paraan ng Paggamit ng Konteksklu\n1. Basahin ang buong pangungusap\n2. Hanapin ang mga salitang nagbibigay-hint sa kahulugan\n3. Gumawa ng hula batay sa mga hint\n\n**Halimbawa:** \"Ang matsing ay mabilis na *tumalon* mula sa isang sanga patungo sa isa pa.\" — Ang \"tumalon\" ay maaaring ibig sabihin ay \"lumundag\" batay sa konteksto.\n\n## 💡 Bakit Mahalaga Ito?\nAng konteksklu ay tumutulong sa atin na maunawaan ang bagong salita nang hindi laging gumagamit ng diksyunaryo.\n\n**Mahahalagang salita:** konteksklu, hula, kahulugan, konteksto",
+        "quiz": [
+          {
+            "question": "Ano ang konteksklu?",
+            "options": [
+              "Paggamit ng mga salitang nakapaligid upang mahulaan ang kahulugan",
+              "Isang uri ng pabula",
+              "Isang uri ng tula",
+              "Isang bantas"
+            ],
+            "correct_answer": "Paggamit ng mga salitang nakapaligid upang mahulaan ang kahulugan"
+          },
+          {
+            "question": "Ano ang unang hakbang sa paggamit ng konteksklu?",
+            "options": [
+              "Basahin ang buong pangungusap",
+              "Buksan agad ang diksyunaryo",
+              "Laktawan ang salita",
+              "Isulat ang salita nang paulit-ulit"
+            ],
+            "correct_answer": "Basahin ang buong pangungusap"
+          },
+          {
+            "question": "Ano ang hinahanap natin sa pangungusap gamit ang konteksklu?",
+            "options": [
+              "Mga salitang nagbibigay-hint sa kahulugan",
+              "Ang pinakamahabang salita",
+              "Ang unang salita lamang",
+              "Ang bilang ng salita"
+            ],
+            "correct_answer": "Mga salitang nagbibigay-hint sa kahulugan"
+          },
+          {
+            "question": "Bakit mahalaga ang konteksklu?",
+            "options": [
+              "Tumutulong maunawaan ang bagong salita nang hindi laging gumagamit ng diksyunaryo",
+              "Walang gamit ito",
+              "Pinapalitan nito ang pagbasa",
+              "Ito ay para sa matatanda lamang"
+            ],
+            "correct_answer": "Tumutulong maunawaan ang bagong salita nang hindi laging gumagamit ng diksyunaryo"
+          },
+          {
+            "question": "Sa halimbawang 'tumalon mula sa sanga', ano ang maaaring kahulugan?",
+            "options": [
+              "Lumundag",
+              "Umupo",
+              "Natulog",
+              "Kumain"
+            ],
+            "correct_answer": "Lumundag"
+          },
+          {
+            "question": "Ano ang huling hakbang sa paggamit ng konteksklu?",
+            "options": [
+              "Gumawa ng hula batay sa mga hint",
+              "Kalimutan ang salita",
+              "Basahin muli mula umpisa",
+              "Isulat ang buong kuwento"
+            ],
+            "correct_answer": "Gumawa ng hula batay sa mga hint"
+          },
+          {
+            "question": "Bakit mas mabilis ang konteksklu kaysa gumamit ng diksyunaryo?",
+            "options": [
+              "Hindi na kailangang huminto sa pagbasa para maghanap",
+              "Mas mahaba ang proseso",
+              "Hindi ito totoo",
+              "Diksyunaryo ay palaging mas mabilis"
+            ],
+            "correct_answer": "Hindi na kailangang huminto sa pagbasa para maghanap"
+          },
+          {
+            "question": "Anong kasanayan ang binubuo ng konteksklu?",
+            "options": [
+              "Kritikal na pag-iisip at pag-unawa sa pagbasa",
+              "Pagguhit lamang",
+              "Pagkanta lamang",
+              "Pagsasayaw lamang"
+            ],
+            "correct_answer": "Kritikal na pag-iisip at pag-unawa sa pagbasa"
+          },
+          {
+            "question": "Bakit mahalagang basahin ang BUONG pangungusap bago manghula?",
+            "options": [
+              "Nagbibigay ito ng mas maraming hint tungkol sa kahulugan",
+              "Hindi na kailangan basahin ang lahat",
+              "Isang salita lamang ang mahalaga",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Nagbibigay ito ng mas maraming hint tungkol sa kahulugan"
+          },
+          {
+            "question": "Ano ang mangyayari kung mali ang unang hula gamit ang konteksklu?",
+            "options": [
+              "Maaaring baguhin ang hula base sa dagdag na konteksto",
+              "Dapat isuko na agad",
+              "Walang paraan para itama ito",
+              "Palaging tama ang unang hula"
+            ],
+            "correct_answer": "Maaaring baguhin ang hula base sa dagdag na konteksto"
+          },
+          {
+            "question": "Bakit itinuturo ang konteksklu bilang kasanayan sa pagbasa?",
+            "options": [
+              "Nagpapaunlad ito ng kakayahang maunawaan ang teksto nang mag-isa",
+              "Wala itong gamit sa totoong buhay",
+              "Ito ay para lamang sa guro",
+              "Hindi kailanman kapaki-pakinabang"
+            ],
+            "correct_answer": "Nagpapaunlad ito ng kakayahang maunawaan ang teksto nang mag-isa"
+          },
+          {
+            "question": "Paano nauugnay ang konteksklu sa natutunan noong nakaraang linggo tungkol sa salitang hiram?",
+            "options": [
+              "Parehong tumutulong maunawaan ang kahulugan ng bagong salita",
+              "Walang koneksyon ang dalawa",
+              "Isa ay tungkol sa agham",
+              "Isa ay tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong tumutulong maunawaan ang kahulugan ng bagong salita"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ⚡ Science — Electromagnets\n\nGrade 4, Week 27! Let's discover how electricity can create magnetism! ⚡\n\n## 🔄 Review\nWe learned about magnetic and non-magnetic materials.\n\n## ⚡ What Is an Electromagnet?\nAn **electromagnet** is a magnet created by electricity flowing through a coiled wire, often wrapped around an iron core.\n\n## 🔬 How Electromagnets Work\nWhen electric current flows through the wire coil, it creates a magnetic field — turning the iron core into a temporary magnet.\n\n## 🔌 Turning It On and Off\nUnlike a regular magnet, an electromagnet can be **turned on and off** by connecting or disconnecting the electricity!\n\n## 🎯 Real-World Uses\nElectromagnets are used in doorbells, cranes that lift scrap metal, and electric motors.\n\n**Key words:** electromagnet, electric current, coil, iron core, temporary magnet",
+        "quiz": [
+          {
+            "question": "What is an electromagnet?",
+            "options": [
+              "A magnet created by electricity flowing through a coiled wire",
+              "A magnet found only in nature",
+              "A magnet that never turns off",
+              "A type of battery"
+            ],
+            "correct_answer": "A magnet created by electricity flowing through a coiled wire"
+          },
+          {
+            "question": "What is often used as the core of an electromagnet?",
+            "options": [
+              "Iron",
+              "Wood",
+              "Plastic",
+              "Glass"
+            ],
+            "correct_answer": "Iron"
+          },
+          {
+            "question": "What happens when electric current flows through the coiled wire?",
+            "options": [
+              "It creates a magnetic field",
+              "Nothing happens",
+              "The wire disappears",
+              "The wire changes color"
+            ],
+            "correct_answer": "It creates a magnetic field"
+          },
+          {
+            "question": "How is an electromagnet different from a regular magnet?",
+            "options": [
+              "It can be turned on and off with electricity",
+              "It never works",
+              "It is always weaker",
+              "It cannot attract metal"
+            ],
+            "correct_answer": "It can be turned on and off with electricity"
+          },
+          {
+            "question": "What happens if you disconnect the electricity from an electromagnet?",
+            "options": [
+              "It stops being magnetic",
+              "It becomes permanently magnetic",
+              "It explodes",
+              "Nothing changes"
+            ],
+            "correct_answer": "It stops being magnetic"
+          },
+          {
+            "question": "Name one real-world use of an electromagnet.",
+            "options": [
+              "A crane that lifts scrap metal",
+              "A wooden chair",
+              "A glass window",
+              "A plastic toy"
+            ],
+            "correct_answer": "A crane that lifts scrap metal"
+          },
+          {
+            "question": "Where else are electromagnets commonly used?",
+            "options": [
+              "Doorbells and electric motors",
+              "Only in outer space",
+              "Only in kitchens",
+              "Nowhere in daily life"
+            ],
+            "correct_answer": "Doorbells and electric motors"
+          },
+          {
+            "question": "Why is an electromagnet called a 'temporary magnet'?",
+            "options": [
+              "It is only magnetic while electricity flows through it",
+              "It never stops being magnetic",
+              "It has no magnetic properties at all",
+              "It changes into a different material"
+            ],
+            "correct_answer": "It is only magnetic while electricity flows through it"
+          },
+          {
+            "question": "What is the coiled wire in an electromagnet used for?",
+            "options": [
+              "To carry electric current that creates a magnetic field",
+              "To decorate the magnet",
+              "To make the magnet heavier",
+              "To prevent magnetism"
+            ],
+            "correct_answer": "To carry electric current that creates a magnetic field"
+          },
+          {
+            "question": "Why is it useful that electromagnets can be turned on and off?",
+            "options": [
+              "It allows control over when and what to attract, like in a scrap crane",
+              "It has no practical benefit",
+              "It makes electromagnets weaker",
+              "It prevents them from working at all"
+            ],
+            "correct_answer": "It allows control over when and what to attract, like in a scrap crane"
+          },
+          {
+            "question": "Why do electromagnets connect to what we learned about magnetic materials?",
+            "options": [
+              "The iron core becomes magnetic just like other magnetic materials",
+              "There is no connection",
+              "Electromagnets use non-magnetic cores only",
+              "Magnetic materials are irrelevant to electromagnets"
+            ],
+            "correct_answer": "The iron core becomes magnetic just like other magnetic materials"
+          },
+          {
+            "question": "What powers an electromagnet?",
+            "options": [
+              "Electric current",
+              "Wind",
+              "Water",
+              "Sunlight only"
+            ],
+            "correct_answer": "Electric current"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🙏 Araling Panlipunan — Paggalang sa Karapatan ng Kapwa\n\nGrade 4, Linggo 27! Alamin natin ang paggalang sa karapatan ng bawat mamamayan. 🙏\n\n## 🔄 Balik-Aral\nNatutuhan natin ang kapakanang sibiko bilang pananagutan.\n\n## 🙏 Ano ang Karapatan?\nAng **karapatan** ay mga bagay na dapat matamasa ng bawat tao, tulad ng karapatang mag-aral, magsalita, at maging ligtas.\n\n## 🤝 Paggalang sa Karapatan ng Iba\nBahagi ng kapakanang sibiko ang paggalang sa karapatan ng kapwa — hindi pagsasamantala, pakikinig sa opinyon ng iba, at pagtanggap sa pagkakaiba.\n\n## 💡 Halimbawa sa Pang-araw-araw na Buhay\n- Hindi ninanakaw ang gamit ng iba\n- Pinakikinggan ang opinyon ng kaklase kahit iba ito sa iyo\n- Iginagalang ang personal na espasyo ng bawat isa\n\n**Mahahalagang salita:** karapatan, paggalang, kapwa, kapakanang sibiko",
+        "quiz": [
+          {
+            "question": "Ano ang karapatan?",
+            "options": [
+              "Mga bagay na dapat matamasa ng bawat tao",
+              "Isang uri ng laro",
+              "Isang batas lamang",
+              "Isang uri ng pagkain"
+            ],
+            "correct_answer": "Mga bagay na dapat matamasa ng bawat tao"
+          },
+          {
+            "question": "Ano ang halimbawa ng karapatan?",
+            "options": [
+              "Karapatang mag-aral",
+              "Karapatang manakit ng iba",
+              "Karapatang mangloko",
+              "Karapatang manira ng ari-arian"
+            ],
+            "correct_answer": "Karapatang mag-aral"
+          },
+          {
+            "question": "Paano ipinapakita ang paggalang sa karapatan ng iba?",
+            "options": [
+              "Pakikinig sa opinyon ng iba kahit iba ito",
+              "Pagsasamantala sa kapwa",
+              "Pagbabalewala sa iba",
+              "Pagkontrol sa opinyon ng iba"
+            ],
+            "correct_answer": "Pakikinig sa opinyon ng iba kahit iba ito"
+          },
+          {
+            "question": "Bakit mahalaga ang hindi pagnanakaw ng gamit ng iba?",
+            "options": [
+              "Iginagalang nito ang karapatan sa ari-arian ng iba",
+              "Walang kahalagahan ito",
+              "Pinapayagan ito minsan",
+              "Hindi ito kaugnay ng karapatan"
+            ],
+            "correct_answer": "Iginagalang nito ang karapatan sa ari-arian ng iba"
+          },
+          {
+            "question": "Ano ang koneksyon ng paggalang sa karapatan sa kapakanang sibiko?",
+            "options": [
+              "Bahagi ito ng pagiging responsableng mamamayan",
+              "Walang koneksyon",
+              "Ito ay hiwalay na paksa",
+              "Hindi ito bahagi ng AP"
+            ],
+            "correct_answer": "Bahagi ito ng pagiging responsableng mamamayan"
+          },
+          {
+            "question": "Bakit dapat igalang ang personal na espasyo ng iba?",
+            "options": [
+              "Ito ay bahagi ng paggalang sa karapatan ng bawat isa",
+              "Walang kahalagahan ito",
+              "Hindi ito totoong karapatan",
+              "Dapat balewalain ito"
+            ],
+            "correct_answer": "Ito ay bahagi ng paggalang sa karapatan ng bawat isa"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi iginagalang ang karapatan ng iba?",
+            "options": [
+              "Maaaring magkaroon ng alitan at kawalan ng pagkakaisa",
+              "Mas maayos ang lahat",
+              "Walang epekto ito",
+              "Palaging positibo ang resulta"
+            ],
+            "correct_answer": "Maaaring magkaroon ng alitan at kawalan ng pagkakaisa"
+          },
+          {
+            "question": "Bakit mahalagang tanggapin ang pagkakaiba ng bawat tao?",
+            "options": [
+              "Nagpapakita ito ng paggalang sa kanilang karapatan bilang indibidwal",
+              "Hindi kailangan tanggapin ito",
+              "Dapat pareho ang lahat ng tao",
+              "Walang kahalagahan ang pagkakaiba"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang sa kanilang karapatan bilang indibidwal"
+          },
+          {
+            "question": "Paano nakakatulong ang paggalang sa karapatan sa isang komunidad?",
+            "options": [
+              "Nagbibigay ito ng kapayapaan at pagkakaisa",
+              "Wala itong benepisyo",
+              "Nagdudulot lamang ito ng gulo",
+              "Walang kinalaman sa komunidad"
+            ],
+            "correct_answer": "Nagbibigay ito ng kapayapaan at pagkakaisa"
+          },
+          {
+            "question": "Bakit ito bahagi ng Kapakanang Sibiko na natutunan noong nakaraang linggo?",
+            "options": [
+              "Parehong tumatalakay sa responsableng pakikitungo sa kapwa mamamayan",
+              "Walang koneksyon ang dalawa",
+              "Isa ay tungkol lamang sa agham",
+              "Isa ay tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Parehong tumatalakay sa responsableng pakikitungo sa kapwa mamamayan"
+          },
+          {
+            "question": "Sino ang dapat gumalang sa karapatan ng bawat mamamayan?",
+            "options": [
+              "Lahat ng tao, kasama ang mga bata",
+              "Ang pamahalaan lamang",
+              "Ang matatanda lamang",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Lahat ng tao, kasama ang mga bata"
+          },
+          {
+            "question": "Bakit itinuturo ang paggalang sa karapatan sa Grade 4?",
+            "options": [
+              "Upang maging mapagpalang mamamayan simula sa maagang edad",
+              "Walang layunin ito",
+              "Para sa matatanda lamang",
+              "Hindi ito kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Upang maging mapagpalang mamamayan simula sa maagang edad"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🔍 EPP (ICT) — Responsableng Paggamit ng Search Engine\n\nGrade 4, Linggo 27! Alamin natin kung paano suriin ang impormasyon online. 🔍\n\n## 🔄 Balik-Aral\nNatutuhan natin ang digital footprint.\n\n## 🔍 Ano ang Search Engine?\nAng **search engine** (tulad ng Google) ay tumutulong maghanap ng impormasyon sa Internet gamit ang mga keyword.\n\n## ✅ Pagsusuri ng Impormasyon Online\nHindi lahat ng makikita online ay totoo. Dapat suriin natin:\n- Sino ang gumawa ng impormasyon?\n- Kailan ito nailathala?\n- May katibayan ba ang sinasabi?\n\n## ⚠️ Bakit Mahalaga Ito?\nMaraming maling impormasyon (fake news) ang kumakalat online, kaya mahalagang matutong suriin bago maniwala.\n\n**Mahahalagang salita:** search engine, keyword, pagsusuri, fake news",
+        "quiz": [
+          {
+            "question": "Ano ang search engine?",
+            "options": [
+              "Tumutulong maghanap ng impormasyon sa Internet gamit ang keyword",
+              "Isang uri ng laro",
+              "Isang uri ng kompyuter",
+              "Isang uri ng printer"
+            ],
+            "correct_answer": "Tumutulong maghanap ng impormasyon sa Internet gamit ang keyword"
+          },
+          {
+            "question": "Ano ang dapat tanungin kapag sinusuri ang impormasyon online?",
+            "options": [
+              "Sino ang gumawa, kailan nailathala, at may katibayan ba",
+              "Ang kulay ng website lamang",
+              "Ang laki ng font",
+              "Wala, dapat lang paniwalaan agad"
+            ],
+            "correct_answer": "Sino ang gumawa, kailan nailathala, at may katibayan ba"
+          },
+          {
+            "question": "Ano ang fake news?",
+            "options": [
+              "Maling impormasyong kumakalat online",
+              "Totoong balita lamang",
+              "Isang uri ng laro",
+              "Isang opisyal na dokumento"
+            ],
+            "correct_answer": "Maling impormasyong kumakalat online"
+          },
+          {
+            "question": "Bakit mahalagang suriin ang impormasyon bago maniwala?",
+            "options": [
+              "Hindi lahat ng nasa Internet ay totoo",
+              "Lahat ng online ay palaging totoo",
+              "Hindi na kailangan pang suriin",
+              "Walang epekto ang maling impormasyon"
+            ],
+            "correct_answer": "Hindi lahat ng nasa Internet ay totoo"
+          },
+          {
+            "question": "Ano ang keyword sa paghahanap online?",
+            "options": [
+              "Mahalagang salitang ginagamit para maghanap ng impormasyon",
+              "Isang uri ng password",
+              "Isang uri ng virus",
+              "Isang uri ng file"
+            ],
+            "correct_answer": "Mahalagang salitang ginagamit para maghanap ng impormasyon"
+          },
+          {
+            "question": "Bakit mahalagang malaman kung sino ang gumawa ng isang artikulo online?",
+            "options": [
+              "Tumutulong ito matukoy kung mapagkakatiwalaan ang impormasyon",
+              "Walang kaugnayan ito sa katotohanan",
+              "Hindi na kailangan malaman ito",
+              "Palaging pareho ang lahat ng may-akda"
+            ],
+            "correct_answer": "Tumutulong ito matukoy kung mapagkakatiwalaan ang impormasyon"
+          },
+          {
+            "question": "Ano ang epekto ng paniniwala sa fake news?",
+            "options": [
+              "Maaaring maging maling kaalaman at desisyon",
+              "Walang epekto ito",
+              "Palaging positibo ang resulta",
+              "Nagpapalakas lamang ng kaalaman"
+            ],
+            "correct_answer": "Maaaring maging maling kaalaman at desisyon"
+          },
+          {
+            "question": "Bakit itinuturo ang pagsusuri ng online source sa mga bata?",
+            "options": [
+              "Upang maging responsableng gumagamit ng Internet",
+              "Walang layunin ito",
+              "Para lamang libangin",
+              "Hindi bahagi ng ICT"
+            ],
+            "correct_answer": "Upang maging responsableng gumagamit ng Internet"
+          },
+          {
+            "question": "Bakit mahalagang tingnan ang petsa ng paglalathala?",
+            "options": [
+              "Ang lumang impormasyon ay maaaring hindi na tama",
+              "Walang epekto ang petsa",
+              "Lahat ng petsa ay pareho ang halaga",
+              "Hindi na kailangan tingnan ito"
+            ],
+            "correct_answer": "Ang lumang impormasyon ay maaaring hindi na tama"
+          },
+          {
+            "question": "Paano nauugnay ang digital footprint sa pagsusuri ng impormasyon online?",
+            "options": [
+              "Pareho silang bahagi ng responsableng paggamit ng Internet",
+              "Walang koneksyon ang dalawa",
+              "Isa tungkol lamang sa agham",
+              "Isa tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Pareho silang bahagi ng responsableng paggamit ng Internet"
+          },
+          {
+            "question": "Ano ang gagawin kung nakakita ka ng kaduda-dudang impormasyon online?",
+            "options": [
+              "Suriin muna bago ibahagi o paniwalaan",
+              "Ibahagi agad sa lahat",
+              "Paniwalaan agad",
+              "Balewalain ang lahat ng babala"
+            ],
+            "correct_answer": "Suriin muna bago ibahagi o paniwalaan"
+          },
+          {
+            "question": "Bakit mahalaga ang katibayan sa isang impormasyon?",
+            "options": [
+              "Nagpapatunay ito na totoo ang sinasabi",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan ng katibayan",
+              "Palaging tama kahit walang katibayan"
+            ],
+            "correct_answer": "Nagpapatunay ito na totoo ang sinasabi"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 💃 MAPEH — Pagsasama-sama ng 2/4 at 3/4 Time\n\nGrade 4, Linggo 27! Buuin natin ang natutunang mga hakbang sa sayaw! 💃\n\n## 🔄 Balik-Aral\nNatutuhan natin ang social dance mixer sa 3/4 time.\n\n## 💃 Pagsasama-sama ng Dalawang Tempo\nSa linggong ito, pagsasamahin natin ang mga hakbang mula sa 2/4 time (mabilis) at 3/4 time (malumanay) sa isang maliit na presentasyon.\n\n## 🎯 Layunin ng Pagsasanay\n- Palakasin ang koordinasyon sa pagpapalit ng tempo\n- Ipakita ang tiwala sa sarili sa harap ng iba\n- Magtulungan bilang grupo sa isang maikling koreograpiya\n\n## 🏆 Pagtatapos ng Term 2\nIto ang huling linggo ng Term 2 para sa MAPEH — magandang pagkakataon para ipakita ang natutunan buong term!\n\n**Mahahalagang salita:** 2/4 time, 3/4 time, koreograpiya, koordinasyon",
+        "quiz": [
+          {
+            "question": "Anong dalawang tempo ang pinagsama sa linggong ito?",
+            "options": [
+              "2/4 at 3/4 time",
+              "4/4 at 6/8 time",
+              "1/4 at 5/4 time",
+              "Walang tempo na pinagsama"
+            ],
+            "correct_answer": "2/4 at 3/4 time"
+          },
+          {
+            "question": "Alin ang mas mabilis na tempo?",
+            "options": [
+              "2/4 time",
+              "3/4 time",
+              "Parehong magkatulad",
+              "Walang mabilis na tempo"
+            ],
+            "correct_answer": "2/4 time"
+          },
+          {
+            "question": "Alin ang mas malumanay na tempo?",
+            "options": [
+              "3/4 time",
+              "2/4 time",
+              "Parehong magkatulad",
+              "Walang malumanay na tempo"
+            ],
+            "correct_answer": "3/4 time"
+          },
+          {
+            "question": "Ano ang layunin ng pagsasanay ngayong linggo?",
+            "options": [
+              "Palakasin ang koordinasyon sa pagpapalit ng tempo",
+              "Matutong magbasa lamang",
+              "Matuto ng matematika",
+              "Maglaro ng basketball"
+            ],
+            "correct_answer": "Palakasin ang koordinasyon sa pagpapalit ng tempo"
+          },
+          {
+            "question": "Bakit mahalaga ang tiwala sa sarili sa pagsasayaw sa harap ng iba?",
+            "options": [
+              "Nakakatulong ito maipakita nang maayos ang koreograpiya",
+              "Walang kahalagahan ito",
+              "Hindi kailangan ng tiwala sa sarili",
+              "Nakakasagabal lamang ito"
+            ],
+            "correct_answer": "Nakakatulong ito maipakita nang maayos ang koreograpiya"
+          },
+          {
+            "question": "Bakit mahalaga ang pagtutulungan bilang grupo sa koreograpiya?",
+            "options": [
+              "Nagbibigay ito ng mas maayos at magkasabay na presentasyon",
+              "Walang kahalagahan ito",
+              "Mas mabuti mag-isa lamang",
+              "Hindi kailangan ng grupo"
+            ],
+            "correct_answer": "Nagbibigay ito ng mas maayos at magkasabay na presentasyon"
+          },
+          {
+            "question": "Ano ang kahalagahan ng linggong ito para sa Term 2?",
+            "options": [
+              "Ito ang huling linggo ng Term 2 para sa MAPEH",
+              "Ito ang unang linggo lamang",
+              "Walang kahalagahan ito",
+              "Hindi ito bahagi ng Term 2"
+            ],
+            "correct_answer": "Ito ang huling linggo ng Term 2 para sa MAPEH"
+          },
+          {
+            "question": "Bakit mahalagang ipakita ang natutunan buong term?",
+            "options": [
+              "Nagpapakita ito ng pag-unlad sa kasanayan sa sayaw",
+              "Walang kahalagahan ito",
+              "Hindi na kailangang ipakita ito",
+              "Basta't tapos na ang term"
+            ],
+            "correct_answer": "Nagpapakita ito ng pag-unlad sa kasanayan sa sayaw"
+          },
+          {
+            "question": "Ano ang kailangan para maayos na sumabay sa pagpapalit ng tempo?",
+            "options": [
+              "Mabuting koordinasyon at pakikinig sa musika",
+              "Pagbabalewala sa musika",
+              "Pag-iisa lamang",
+              "Walang partikular na kasanayan"
+            ],
+            "correct_answer": "Mabuting koordinasyon at pakikinig sa musika"
+          },
+          {
+            "question": "Bakit binubuo ang MAPEH ng sayaw bilang bahagi ng PE?",
+            "options": [
+              "Nagtataguyod ito ng pisikal na kalusugan at pagpapahalaga sa sining",
+              "Walang layunin ito",
+              "Hindi kaugnay ng edukasyon",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Nagtataguyod ito ng pisikal na kalusugan at pagpapahalaga sa sining"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagsasama-sama ng dalawang tempo sa isang presentasyon?",
+            "options": [
+              "Nagpapakita ito ng bersatilidad at kasanayan sa sayaw",
+              "Wala itong idinudulot",
+              "Nakakalito lamang ito",
+              "Hindi ito posible"
+            ],
+            "correct_answer": "Nagpapakita ito ng bersatilidad at kasanayan sa sayaw"
+          },
+          {
+            "question": "Bakit mahalagang magsanay bago ang isang koreograpiyang presentasyon?",
+            "options": [
+              "Upang maging maayos at magkasabay ang mga galaw",
+              "Hindi na kailangan magsanay",
+              "Basta't tama ang unang subok",
+              "Walang epekto ang pagsasanay"
+            ],
+            "correct_answer": "Upang maging maayos at magkasabay ang mga galaw"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 📐 EPP (IA) — Batayang Teknikal na Proyekto sa Pagguhit\n\nGrade 4, Linggo 27! Isama natin ang orthographic at isometric drawing sa isang proyekto! 📐\n\n## 🔄 Balik-Aral\nNatutuhan natin ang orthographic at isometric drawing.\n\n## 📐 Ang Proyekto\nGagawa tayo ng simpleng proyekto — halimbawa, isang kahon o istante — gamit ang parehong orthographic (harapan, tabi, itaas) at isometric (3D na tanawin) na pagguhit.\n\n## 🔍 Mga Hakbang\n1. Gumuhit ng orthographic view ng bagay (3 panig)\n2. Gumuhit ng isometric view ng parehong bagay\n3. Ihambing ang dalawang guhit\n\n## 🏆 Pagtatapos ng Term 2\nIto ang huling linggo ng Term 2 para sa Industrial Arts — ipinapakita nito ang lahat ng natutunan tungkol sa teknikal na pagguhit!\n\n**Mahahalagang salita:** proyekto, orthographic, isometric, teknikal na pagguhit",
+        "quiz": [
+          {
+            "question": "Ano ang proyekto ngayong linggo?",
+            "options": [
+              "Gumawa ng simpleng bagay gamit ang orthographic at isometric drawing",
+              "Magsulat ng kuwento",
+              "Kumanta ng awit",
+              "Maglaro ng basketball"
+            ],
+            "correct_answer": "Gumawa ng simpleng bagay gamit ang orthographic at isometric drawing"
+          },
+          {
+            "question": "Ilang panig ang iginuhit sa orthographic view?",
+            "options": [
+              "Tatlo (harapan, tabi, itaas)",
+              "Isa lamang",
+              "Apat",
+              "Wala"
+            ],
+            "correct_answer": "Tatlo (harapan, tabi, itaas)"
+          },
+          {
+            "question": "Ano ang unang hakbang sa proyekto?",
+            "options": [
+              "Gumuhit ng orthographic view",
+              "Gumuhit ng isometric view muna",
+              "Bumili ng gamit",
+              "Magsulat ng ulat"
+            ],
+            "correct_answer": "Gumuhit ng orthographic view"
+          },
+          {
+            "question": "Bakit mahalagang ihambing ang dalawang uri ng guhit?",
+            "options": [
+              "Upang makita kung paano naiiba ang representasyon ng parehong bagay",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan ihambing",
+              "Magkatulad lang naman sila"
+            ],
+            "correct_answer": "Upang makita kung paano naiiba ang representasyon ng parehong bagay"
+          },
+          {
+            "question": "Ano ang kahalagahan ng linggong ito para sa Industrial Arts?",
+            "options": [
+              "Huling linggo ng Term 2",
+              "Unang linggo lamang",
+              "Walang kahalagahan",
+              "Hindi bahagi ng Term 2"
+            ],
+            "correct_answer": "Huling linggo ng Term 2"
+          },
+          {
+            "question": "Bakit mahalagang isama ang parehong uri ng pagguhit sa isang proyekto?",
+            "options": [
+              "Nagpapakita ito ng buong pag-unawa sa teknikal na pagguhit",
+              "Walang layunin ito",
+              "Isa lamang ang kailangan",
+              "Hindi ito totoong proyekto"
+            ],
+            "correct_answer": "Nagpapakita ito ng buong pag-unawa sa teknikal na pagguhit"
+          },
+          {
+            "question": "Anong halimbawang bagay ang maaaring iguhit sa proyekto?",
+            "options": [
+              "Isang kahon o istante",
+              "Isang tula",
+              "Isang awit",
+              "Isang laro"
+            ],
+            "correct_answer": "Isang kahon o istante"
+          },
+          {
+            "question": "Bakit mahalagang matutong gumawa ng teknikal na proyekto sa Grade 4?",
+            "options": [
+              "Nagpapaunlad ito ng kasanayan sa pagplano at disenyo",
+              "Walang gamit ito",
+              "Para sa matatanda lamang",
+              "Hindi ito bahagi ng edukasyon"
+            ],
+            "correct_answer": "Nagpapaunlad ito ng kasanayan sa pagplano at disenyo"
+          },
+          {
+            "question": "Ano ang ipinapakita ng proyektong ito tungkol sa buong term?",
+            "options": [
+              "Ang pag-unlad sa kasanayan sa teknikal na pagguhit",
+              "Walang ipinapakita",
+              "Ito ay basta proyekto lamang",
+              "Hindi kaugnay sa natutunan"
+            ],
+            "correct_answer": "Ang pag-unlad sa kasanayan sa teknikal na pagguhit"
+          },
+          {
+            "question": "Sino karaniwang gumagawa ng ganitong uri ng proyekto sa totoong buhay?",
+            "options": [
+              "Mga inhinyero at karpintero",
+              "Mga manunulat lamang",
+              "Mga guro sa Filipino lamang",
+              "Mga doktor lamang"
+            ],
+            "correct_answer": "Mga inhinyero at karpintero"
+          },
+          {
+            "question": "Bakit mahalagang sundin ang mga hakbang nang maayos sa proyekto?",
+            "options": [
+              "Nagbibigay ito ng malinaw at tumpak na resulta",
+              "Hindi mahalaga ang pagkakasunud-sunod",
+              "Basta ba may nagawa",
+              "Walang epekto ang mga hakbang"
+            ],
+            "correct_answer": "Nagbibigay ito ng malinaw at tumpak na resulta"
+          },
+          {
+            "question": "Ano ang natutunan sa buong seryeng ito ng teknikal na pagguhit?",
+            "options": [
+              "Paano gumawa ng tumpak na representasyon ng isang bagay sa iba't ibang paraan",
+              "Wala talagang natutunan",
+              "Isang bagay lamang ang natutunan",
+              "Hindi ito kapaki-pakinabang"
+            ],
+            "correct_answer": "Paano gumawa ng tumpak na representasyon ng isang bagay sa iba't ibang paraan"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🇵🇭 GMRC — Pagmamahal sa Bayan\n\nGrade 4, Linggo 27! Pagpapahalaga: **Pagmamahal sa Bayan (Love of Country)** — pagtatapos ng Term 2! 🇵🇭\n\n## 🔄 Balik-Aral\nNatutuhan natin ang Laro ng Lahi bilang bahagi ng Nasyonalismo.\n\n## 🇵🇭 Ano ang Pagmamahal sa Bayan?\nAng **pagmamahal sa bayan** ay ang pagmamalaki at pananagutan sa ating bansa — hindi lamang sa salita kundi sa gawa.\n\n## 💡 Paano Ito Ipinapakita\n- Pagsunod sa batas at alituntunin\n- Pag-aalaga sa kapaligiran\n- Pagtulong sa kapwa Pilipino\n- Pagpapahalaga sa kultura at kasaysayan\n\n## 🏆 Pagtatapos ng Term 2\nBuod ng ating mga natutunang pagpapahalaga sa GMRC: kalinisan, nasyonalismo, at ngayon, pagmamahal sa bayan — lahat ay konektado sa pagiging mabuting mamamayan!\n\n**Mahahalagang salita:** pagmamahal sa bayan, pananagutan, mabuting mamamayan",
+        "quiz": [
+          {
+            "question": "Ano ang pagmamahal sa bayan?",
+            "options": [
+              "Pagmamalaki at pananagutan sa ating bansa",
+              "Kawalang pakialam sa bansa",
+              "Isang uri ng laro",
+              "Isang bantas"
+            ],
+            "correct_answer": "Pagmamalaki at pananagutan sa ating bansa"
+          },
+          {
+            "question": "Paano ipinapakita ang pagmamahal sa bayan?",
+            "options": [
+              "Pagsunod sa batas at pag-aalaga sa kapaligiran",
+              "Paglabag sa batas",
+              "Pagsira sa kapaligiran",
+              "Kawalang pakialam sa iba"
+            ],
+            "correct_answer": "Pagsunod sa batas at pag-aalaga sa kapaligiran"
+          },
+          {
+            "question": "Bakit mahalagang tumulong sa kapwa Pilipino?",
+            "options": [
+              "Nagpapakita ito ng tunay na pagmamahal sa bayan",
+              "Walang kaugnayan ito",
+              "Hindi na kailangan tumulong",
+              "Ito ay pag-aaksaya ng oras"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na pagmamahal sa bayan"
+          },
+          {
+            "question": "Anong mga pagpapahalaga ang natutunan sa buong Term 2 sa GMRC?",
+            "options": [
+              "Kalinisan, nasyonalismo, at pagmamahal sa bayan",
+              "Basketball at swimming",
+              "Matematika at agham",
+              "Wala sa mga nabanggit"
+            ],
+            "correct_answer": "Kalinisan, nasyonalismo, at pagmamahal sa bayan"
+          },
+          {
+            "question": "Bakit hindi sapat na sabihin lamang na mahal mo ang bansa?",
+            "options": [
+              "Dapat itong ipakita rin sa gawa, hindi lang salita",
+              "Sapat na ang salita lamang",
+              "Walang gawang kailangan",
+              "Basta't sabi mo, tama na"
+            ],
+            "correct_answer": "Dapat itong ipakita rin sa gawa, hindi lang salita"
+          },
+          {
+            "question": "Bakit mahalagang pahalagahan ang kultura at kasaysayan ng bansa?",
+            "options": [
+              "Bahagi ito ng pagmamahal sa bayan",
+              "Walang kahalagahan ito",
+              "Hindi na kailangang pahalagahan",
+              "Ito ay para sa matatanda lamang"
+            ],
+            "correct_answer": "Bahagi ito ng pagmamahal sa bayan"
+          },
+          {
+            "question": "Paano nauugnay ang Laro ng Lahi sa pagmamahal sa bayan?",
+            "options": [
+              "Parehong nagpapakita ng pagmamalaki sa kultura ng Pilipinas",
+              "Walang koneksyon ang dalawa",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong nagpapakita ng pagmamalaki sa kultura ng Pilipinas"
+          },
+          {
+            "question": "Sino ang dapat magpakita ng pagmamahal sa bayan?",
+            "options": [
+              "Bawat mamamayan, kasama ang mga bata",
+              "Ang pamahalaan lamang",
+              "Ang matatanda lamang",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Bawat mamamayan, kasama ang mga bata"
+          },
+          {
+            "question": "Ano ang mangyayari kung walang nagmamahal sa sariling bansa?",
+            "options": [
+              "Mahihirapang umunlad at magkaisa ang bansa",
+              "Mas maayos ang lahat",
+              "Walang epekto ito",
+              "Awtomatikong umuunlad ang bansa"
+            ],
+            "correct_answer": "Mahihirapang umunlad at magkaisa ang bansa"
+          },
+          {
+            "question": "Bakit angkop na tapusin ang Term 2 sa paksang pagmamahal sa bayan?",
+            "options": [
+              "Ito ang buod ng lahat ng pagpapahalagang natutunan",
+              "Walang dahilan",
+              "Basta ito ang huling paksa",
+              "Hindi ito angkop na paksa"
+            ],
+            "correct_answer": "Ito ang buod ng lahat ng pagpapahalagang natutunan"
+          },
+          {
+            "question": "Bakit mahalagang ituro ang pagmamahal sa bayan sa mga bata?",
+            "options": [
+              "Upang maging responsable at mapagmalasakit na mamamayan paglaki",
+              "Walang layunin ito",
+              "Para sa matatanda lamang",
+              "Hindi ito kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Upang maging responsable at mapagmalasakit na mamamayan paglaki"
+          },
+          {
+            "question": "Anong aral ang dala ng buong Term 2 tungkol sa pagiging Pilipino?",
+            "options": [
+              "Ang pagiging responsable, may pananagutan, at may pagmamahal sa bansa",
+              "Walang partikular na aral",
+              "Tungkol lamang sa mga laro",
+              "Tungkol lamang sa kasaysayan"
+            ],
+            "correct_answer": "Ang pagiging responsable, may pananagutan, at may pagmamahal sa bansa"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🖼️ Friday Review — English (Grade 4)\n\n- Comparing images across national events\n\nGreat comparison skills! 🌟",
+        "quiz": [
+          {
+            "question": "What should you ask when comparing two images?",
+            "options": [
+              "What is similar, different, and what can we conclude",
+              "Only the colors used",
+              "Only the size",
+              "Nothing specific"
+            ],
+            "correct_answer": "What is similar, different, and what can we conclude"
+          },
+          {
+            "question": "What is a Venn diagram used for?",
+            "options": [
+              "Organizing similarities and differences visually",
+              "Drawing a single image",
+              "Writing a story",
+              "Solving math problems"
+            ],
+            "correct_answer": "Organizing similarities and differences visually"
+          },
+          {
+            "question": "Where do similarities go in a Venn diagram?",
+            "options": [
+              "In the overlapping section",
+              "On separate sides only",
+              "Nowhere specific",
+              "Outside the diagram"
+            ],
+            "correct_answer": "In the overlapping section"
+          },
+          {
+            "question": "Why compare images from different celebrations?",
+            "options": [
+              "To understand shared values like unity and pride",
+              "To find which is prettier",
+              "To waste time",
+              "No reason to compare"
+            ],
+            "correct_answer": "To understand shared values like unity and pride"
+          },
+          {
+            "question": "What might be a 'difference' when comparing images?",
+            "options": [
+              "Setting, people, or activities",
+              "Camera brand",
+              "Nothing differs",
+              "Frame color only"
+            ],
+            "correct_answer": "Setting, people, or activities"
+          },
+          {
+            "question": "What might be a 'similarity' between celebration images?",
+            "options": [
+              "Shared mood or purpose",
+              "Camera brand",
+              "Exact same people",
+              "Nothing similar"
+            ],
+            "correct_answer": "Shared mood or purpose"
+          },
+          {
+            "question": "Why is concluding important after comparing images?",
+            "options": [
+              "Summarizes what we learned",
+              "No purpose",
+              "Replaces looking at images",
+              "Conclusions are guesses"
+            ],
+            "correct_answer": "Summarizes what we learned"
+          },
+          {
+            "question": "How does a Venn diagram show differences?",
+            "options": [
+              "On separate, non-overlapping sides",
+              "In the overlapping middle",
+              "Cannot show differences",
+              "Only through color"
+            ],
+            "correct_answer": "On separate, non-overlapping sides"
+          },
+          {
+            "question": "Why might two celebrations share a similar mood?",
+            "options": [
+              "Both may express national pride",
+              "Never share moods",
+              "Random chance only",
+              "Always identical events"
+            ],
+            "correct_answer": "Both may express national pride"
+          },
+          {
+            "question": "What skill is built by comparing images?",
+            "options": [
+              "Critical thinking and visual analysis",
+              "Only drawing",
+              "Only handwriting",
+              "Only counting"
+            ],
+            "correct_answer": "Critical thinking and visual analysis"
+          },
+          {
+            "question": "Why use a Venn diagram instead of just talking?",
+            "options": [
+              "It organizes ideas clearly",
+              "Never helpful",
+              "Talking is always better",
+              "Confuses the reader"
+            ],
+            "correct_answer": "It organizes ideas clearly"
+          },
+          {
+            "question": "What is the overall goal of comparing images from events?",
+            "options": [
+              "Deepen understanding of shared values",
+              "Pick a favorite image",
+              "Avoid learning history",
+              "Replace timelines entirely"
+            ],
+            "correct_answer": "Deepen understanding of shared values"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔄 Friday Review — Mathematics (Grade 4)\n\n- Symmetry with respect to a point\n\nGreat symmetry mastery! ⭐",
+        "quiz": [
+          {
+            "question": "What is point symmetry?",
+            "options": [
+              "Shape looks the same after rotating 180° around a center",
+              "A shape folded in half",
+              "A shape with no matching parts",
+              "A shape that changes color"
+            ],
+            "correct_answer": "Shape looks the same after rotating 180° around a center"
+          },
+          {
+            "question": "How many degrees to check point symmetry?",
+            "options": [
+              "180°",
+              "90°",
+              "360°",
+              "45°"
+            ],
+            "correct_answer": "180°"
+          },
+          {
+            "question": "Which letter has point symmetry?",
+            "options": [
+              "S",
+              "A",
+              "T",
+              "L"
+            ],
+            "correct_answer": "S"
+          },
+          {
+            "question": "Does a square have point symmetry?",
+            "options": [
+              "Yes, both line and point",
+              "No, only line",
+              "No, none",
+              "Only point, not line"
+            ],
+            "correct_answer": "Yes, both line and point"
+          },
+          {
+            "question": "Main difference between line and point symmetry?",
+            "options": [
+              "Line folds; point rotates 180°",
+              "Exactly the same",
+              "Line only for circles",
+              "Point only for squares"
+            ],
+            "correct_answer": "Line folds; point rotates 180°"
+          },
+          {
+            "question": "What shape often shows point symmetry?",
+            "options": [
+              "A pinwheel",
+              "A scribble",
+              "An irregular triangle",
+              "A single dot"
+            ],
+            "correct_answer": "A pinwheel"
+          },
+          {
+            "question": "Why is understanding both symmetries useful?",
+            "options": [
+              "Recognize patterns in art and nature",
+              "No real use",
+              "Only for math tests",
+              "Never appears elsewhere"
+            ],
+            "correct_answer": "Recognize patterns in art and nature"
+          },
+          {
+            "question": "What is the 'center point' in point symmetry?",
+            "options": [
+              "The point around which it rotates",
+              "Any random point outside",
+              "A corner of the shape",
+              "It does not exist"
+            ],
+            "correct_answer": "The point around which it rotates"
+          },
+          {
+            "question": "If a shape looks different after 180° rotation, does it have point symmetry?",
+            "options": [
+              "No",
+              "Yes, always",
+              "Only sometimes",
+              "It has line symmetry instead"
+            ],
+            "correct_answer": "No"
+          },
+          {
+            "question": "Which does NOT have point symmetry?",
+            "options": [
+              "A scalene triangle",
+              "A square",
+              "The letter S",
+              "A pinwheel"
+            ],
+            "correct_answer": "A scalene triangle"
+          },
+          {
+            "question": "Why might artists use point symmetry?",
+            "options": [
+              "Creates balanced rotational effect",
+              "Makes designs impossible",
+              "Removes patterns",
+              "No visual effect"
+            ],
+            "correct_answer": "Creates balanced rotational effect"
+          },
+          {
+            "question": "How is point symmetry tested differently from line symmetry?",
+            "options": [
+              "By rotating instead of folding",
+              "By folding only",
+              "By coloring",
+              "By measuring perimeter"
+            ],
+            "correct_answer": "By rotating instead of folding"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📖 Friday Review — Filipino (Grade 4)\n\n- Konteksklu: pagpapakahulugan gamit ang konteksto\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang konteksklu?",
+            "options": [
+              "Paggamit ng mga salitang nakapaligid upang mahulaan ang kahulugan",
+              "Uri ng pabula",
+              "Uri ng tula",
+              "Isang bantas"
+            ],
+            "correct_answer": "Paggamit ng mga salitang nakapaligid upang mahulaan ang kahulugan"
+          },
+          {
+            "question": "Unang hakbang sa paggamit ng konteksklu?",
+            "options": [
+              "Basahin ang buong pangungusap",
+              "Buksan ang diksyunaryo",
+              "Laktawan ang salita",
+              "Isulat ang salita paulit-ulit"
+            ],
+            "correct_answer": "Basahin ang buong pangungusap"
+          },
+          {
+            "question": "Ano ang hinahanap gamit ang konteksklu?",
+            "options": [
+              "Mga salitang nagbibigay-hint sa kahulugan",
+              "Ang pinakamahabang salita",
+              "Ang unang salita lamang",
+              "Ang bilang ng salita"
+            ],
+            "correct_answer": "Mga salitang nagbibigay-hint sa kahulugan"
+          },
+          {
+            "question": "Bakit mahalaga ang konteksklu?",
+            "options": [
+              "Tumutulong maunawaan ang salita nang hindi laging gumagamit ng diksyunaryo",
+              "Walang gamit",
+              "Pinapalitan ang pagbasa",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Tumutulong maunawaan ang salita nang hindi laging gumagamit ng diksyunaryo"
+          },
+          {
+            "question": "Sa 'tumalon mula sa sanga', anong kahulugan ang mahuhulaan?",
+            "options": [
+              "Lumundag",
+              "Umupo",
+              "Natulog",
+              "Kumain"
+            ],
+            "correct_answer": "Lumundag"
+          },
+          {
+            "question": "Huling hakbang sa paggamit ng konteksklu?",
+            "options": [
+              "Gumawa ng hula batay sa hint",
+              "Kalimutan ang salita",
+              "Basahin muli",
+              "Isulat ang buong kuwento"
+            ],
+            "correct_answer": "Gumawa ng hula batay sa hint"
+          },
+          {
+            "question": "Bakit mas mabilis ang konteksklu kaysa diksyunaryo?",
+            "options": [
+              "Hindi na kailangang huminto sa pagbasa",
+              "Mas mahaba ang proseso",
+              "Hindi totoo",
+              "Diksyunaryo palaging mas mabilis"
+            ],
+            "correct_answer": "Hindi na kailangang huminto sa pagbasa"
+          },
+          {
+            "question": "Anong kasanayan ang binubuo ng konteksklu?",
+            "options": [
+              "Kritikal na pag-iisip",
+              "Pagguhit lamang",
+              "Pagkanta lamang",
+              "Pagsasayaw lamang"
+            ],
+            "correct_answer": "Kritikal na pag-iisip"
+          },
+          {
+            "question": "Bakit basahin ang buong pangungusap muna?",
+            "options": [
+              "Nagbibigay ng mas maraming hint",
+              "Hindi kailangan basahin lahat",
+              "Isang salita lamang mahalaga",
+              "Walang epekto"
+            ],
+            "correct_answer": "Nagbibigay ng mas maraming hint"
+          },
+          {
+            "question": "Ano ang mangyayari kung mali ang unang hula?",
+            "options": [
+              "Maaaring baguhin base sa dagdag na konteksto",
+              "Dapat isuko agad",
+              "Walang paraan itama",
+              "Palaging tama ang unang hula"
+            ],
+            "correct_answer": "Maaaring baguhin base sa dagdag na konteksto"
+          },
+          {
+            "question": "Bakit itinuturo ang konteksklu bilang kasanayan?",
+            "options": [
+              "Nagpapaunlad ng kakayahang maunawaan teksto nang mag-isa",
+              "Wala itong gamit",
+              "Para lamang sa guro",
+              "Hindi kapaki-pakinabang"
+            ],
+            "correct_answer": "Nagpapaunlad ng kakayahang maunawaan teksto nang mag-isa"
+          },
+          {
+            "question": "Koneksyon sa salitang hiram na natutunan noon?",
+            "options": [
+              "Parehong tumutulong maunawaan bagong salita",
+              "Walang koneksyon",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong tumutulong maunawaan bagong salita"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ⚡ Friday Review — Science (Grade 4)\n\n- Electromagnets\n\nGreat electromagnet review! 🌟",
+        "quiz": [
+          {
+            "question": "What is an electromagnet?",
+            "options": [
+              "A magnet created by electricity through a coiled wire",
+              "A magnet found in nature",
+              "A magnet that never turns off",
+              "A type of battery"
+            ],
+            "correct_answer": "A magnet created by electricity through a coiled wire"
+          },
+          {
+            "question": "What is often used as an electromagnet's core?",
+            "options": [
+              "Iron",
+              "Wood",
+              "Plastic",
+              "Glass"
+            ],
+            "correct_answer": "Iron"
+          },
+          {
+            "question": "What happens when current flows through the coil?",
+            "options": [
+              "Creates a magnetic field",
+              "Nothing happens",
+              "The wire disappears",
+              "The wire changes color"
+            ],
+            "correct_answer": "Creates a magnetic field"
+          },
+          {
+            "question": "How is an electromagnet different from a regular magnet?",
+            "options": [
+              "Can be turned on/off with electricity",
+              "Never works",
+              "Always weaker",
+              "Cannot attract metal"
+            ],
+            "correct_answer": "Can be turned on/off with electricity"
+          },
+          {
+            "question": "What happens if you disconnect the electricity?",
+            "options": [
+              "It stops being magnetic",
+              "Becomes permanently magnetic",
+              "It explodes",
+              "Nothing changes"
+            ],
+            "correct_answer": "It stops being magnetic"
+          },
+          {
+            "question": "Name a real-world use of an electromagnet.",
+            "options": [
+              "A crane lifting scrap metal",
+              "A wooden chair",
+              "A glass window",
+              "A plastic toy"
+            ],
+            "correct_answer": "A crane lifting scrap metal"
+          },
+          {
+            "question": "Where else are electromagnets used?",
+            "options": [
+              "Doorbells and electric motors",
+              "Only in space",
+              "Only in kitchens",
+              "Nowhere daily"
+            ],
+            "correct_answer": "Doorbells and electric motors"
+          },
+          {
+            "question": "Why called a 'temporary magnet'?",
+            "options": [
+              "Magnetic only while electricity flows",
+              "Never stops being magnetic",
+              "Has no magnetic properties",
+              "Changes into different material"
+            ],
+            "correct_answer": "Magnetic only while electricity flows"
+          },
+          {
+            "question": "What is the coiled wire used for?",
+            "options": [
+              "Carries current creating magnetic field",
+              "Decoration",
+              "Makes magnet heavier",
+              "Prevents magnetism"
+            ],
+            "correct_answer": "Carries current creating magnetic field"
+          },
+          {
+            "question": "Why is on/off control useful?",
+            "options": [
+              "Allows control over attraction, like in a crane",
+              "No practical benefit",
+              "Makes it weaker",
+              "Prevents it from working"
+            ],
+            "correct_answer": "Allows control over attraction, like in a crane"
+          },
+          {
+            "question": "How do electromagnets connect to magnetic materials?",
+            "options": [
+              "Iron core becomes magnetic like other magnetic materials",
+              "No connection",
+              "Uses non-magnetic cores only",
+              "Irrelevant to electromagnets"
+            ],
+            "correct_answer": "Iron core becomes magnetic like other magnetic materials"
+          },
+          {
+            "question": "What powers an electromagnet?",
+            "options": [
+              "Electric current",
+              "Wind",
+              "Water",
+              "Sunlight only"
+            ],
+            "correct_answer": "Electric current"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🙏 Friday Review — Araling Panlipunan (Grade 4)\n\n- Paggalang sa karapatan ng kapwa\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang karapatan?",
+            "options": [
+              "Mga bagay na dapat matamasa ng bawat tao",
+              "Uri ng laro",
+              "Isang batas lamang",
+              "Uri ng pagkain"
+            ],
+            "correct_answer": "Mga bagay na dapat matamasa ng bawat tao"
+          },
+          {
+            "question": "Halimbawa ng karapatan?",
+            "options": [
+              "Karapatang mag-aral",
+              "Karapatang manakit ng iba",
+              "Karapatang mangloko",
+              "Karapatang manira"
+            ],
+            "correct_answer": "Karapatang mag-aral"
+          },
+          {
+            "question": "Paano ipinapakita ang paggalang sa karapatan ng iba?",
+            "options": [
+              "Pakikinig sa opinyon ng iba",
+              "Pagsasamantala sa kapwa",
+              "Pagbabalewala",
+              "Pagkontrol sa opinyon"
+            ],
+            "correct_answer": "Pakikinig sa opinyon ng iba"
+          },
+          {
+            "question": "Bakit mahalaga ang hindi pagnanakaw?",
+            "options": [
+              "Iginagalang ang karapatan sa ari-arian",
+              "Walang kahalagahan",
+              "Pinapayagan minsan",
+              "Hindi kaugnay ng karapatan"
+            ],
+            "correct_answer": "Iginagalang ang karapatan sa ari-arian"
+          },
+          {
+            "question": "Koneksyon ng paggalang sa karapatan sa kapakanang sibiko?",
+            "options": [
+              "Bahagi ng responsableng mamamayan",
+              "Walang koneksyon",
+              "Hiwalay na paksa",
+              "Hindi bahagi ng AP"
+            ],
+            "correct_answer": "Bahagi ng responsableng mamamayan"
+          },
+          {
+            "question": "Bakit igalang ang personal na espasyo ng iba?",
+            "options": [
+              "Bahagi ng paggalang sa karapatan",
+              "Walang kahalagahan",
+              "Hindi totoong karapatan",
+              "Dapat balewalain"
+            ],
+            "correct_answer": "Bahagi ng paggalang sa karapatan"
+          },
+          {
+            "question": "Mangyayari kung hindi iginagalang ang karapatan ng iba?",
+            "options": [
+              "Alitan at kawalan ng pagkakaisa",
+              "Mas maayos ang lahat",
+              "Walang epekto",
+              "Palaging positibo"
+            ],
+            "correct_answer": "Alitan at kawalan ng pagkakaisa"
+          },
+          {
+            "question": "Bakit tanggapin ang pagkakaiba ng bawat tao?",
+            "options": [
+              "Nagpapakita ng paggalang sa kanilang karapatan",
+              "Hindi kailangan tanggapin",
+              "Dapat pareho lahat",
+              "Walang kahalagahan"
+            ],
+            "correct_answer": "Nagpapakita ng paggalang sa kanilang karapatan"
+          },
+          {
+            "question": "Nakakatulong ba ang paggalang sa karapatan sa komunidad?",
+            "options": [
+              "Oo, nagbibigay ng kapayapaan",
+              "Wala itong benepisyo",
+              "Nagdudulot lamang ng gulo",
+              "Walang kinalaman"
+            ],
+            "correct_answer": "Oo, nagbibigay ng kapayapaan"
+          },
+          {
+            "question": "Koneksyon sa Kapakanang Sibiko na natutunan noon?",
+            "options": [
+              "Parehong tungkol sa responsableng pakikitungo sa kapwa",
+              "Walang koneksyon",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong tungkol sa responsableng pakikitungo sa kapwa"
+          },
+          {
+            "question": "Sino dapat gumalang sa karapatan ng bawat mamamayan?",
+            "options": [
+              "Lahat ng tao, kasama ang mga bata",
+              "Pamahalaan lamang",
+              "Matatanda lamang",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Lahat ng tao, kasama ang mga bata"
+          },
+          {
+            "question": "Bakit ituro ang paggalang sa karapatan sa Grade 4?",
+            "options": [
+              "Maging mapagpalang mamamayan mula sa maagang edad",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Maging mapagpalang mamamayan mula sa maagang edad"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🔍 Friday Review — EPP (ICT) (Grade 4)\n\n- Responsableng paggamit ng search engine\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang search engine?",
+            "options": [
+              "Tumutulong maghanap ng impormasyon gamit ang keyword",
+              "Uri ng laro",
+              "Uri ng kompyuter",
+              "Uri ng printer"
+            ],
+            "correct_answer": "Tumutulong maghanap ng impormasyon gamit ang keyword"
+          },
+          {
+            "question": "Ano ang dapat tanungin kapag sinusuri ang impormasyon online?",
+            "options": [
+              "Sino gumawa, kailan nailathala, may katibayan ba",
+              "Kulay ng website lamang",
+              "Laki ng font",
+              "Wala, paniwalaan agad"
+            ],
+            "correct_answer": "Sino gumawa, kailan nailathala, may katibayan ba"
+          },
+          {
+            "question": "Ano ang fake news?",
+            "options": [
+              "Maling impormasyong kumakalat online",
+              "Totoong balita lamang",
+              "Uri ng laro",
+              "Opisyal na dokumento"
+            ],
+            "correct_answer": "Maling impormasyong kumakalat online"
+          },
+          {
+            "question": "Bakit suriin bago maniwala?",
+            "options": [
+              "Hindi lahat sa Internet ay totoo",
+              "Lahat ay palaging totoo",
+              "Hindi na kailangan suriin",
+              "Walang epekto ang maling impormasyon"
+            ],
+            "correct_answer": "Hindi lahat sa Internet ay totoo"
+          },
+          {
+            "question": "Ano ang keyword sa paghahanap online?",
+            "options": [
+              "Mahalagang salitang ginagamit sa paghahanap",
+              "Uri ng password",
+              "Uri ng virus",
+              "Uri ng file"
+            ],
+            "correct_answer": "Mahalagang salitang ginagamit sa paghahanap"
+          },
+          {
+            "question": "Bakit malaman kung sino gumawa ng artikulo?",
+            "options": [
+              "Tumutulong matukoy kung mapagkakatiwalaan",
+              "Walang kaugnayan",
+              "Hindi na kailangan malaman",
+              "Palaging pareho ang may-akda"
+            ],
+            "correct_answer": "Tumutulong matukoy kung mapagkakatiwalaan"
+          },
+          {
+            "question": "Epekto ng paniniwala sa fake news?",
+            "options": [
+              "Maling kaalaman at desisyon",
+              "Walang epekto",
+              "Palaging positibo",
+              "Nagpapalakas lamang"
+            ],
+            "correct_answer": "Maling kaalaman at desisyon"
+          },
+          {
+            "question": "Bakit ituro ang pagsusuri ng online source?",
+            "options": [
+              "Maging responsableng gumagamit ng Internet",
+              "Walang layunin",
+              "Libangin lamang",
+              "Hindi bahagi ng ICT"
+            ],
+            "correct_answer": "Maging responsableng gumagamit ng Internet"
+          },
+          {
+            "question": "Bakit tingnan ang petsa ng paglalathala?",
+            "options": [
+              "Lumang impormasyon maaaring hindi na tama",
+              "Walang epekto",
+              "Pareho lahat ng petsa",
+              "Hindi na kailangan tingnan"
+            ],
+            "correct_answer": "Lumang impormasyon maaaring hindi na tama"
+          },
+          {
+            "question": "Koneksyon ng digital footprint sa pagsusuri ng impormasyon?",
+            "options": [
+              "Parehong bahagi ng responsableng Internet use",
+              "Walang koneksyon",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong bahagi ng responsableng Internet use"
+          },
+          {
+            "question": "Gagawin kung nakakita ng kaduda-dudang impormasyon?",
+            "options": [
+              "Suriin muna bago ibahagi",
+              "Ibahagi agad sa lahat",
+              "Paniwalaan agad",
+              "Balewalain ang babala"
+            ],
+            "correct_answer": "Suriin muna bago ibahagi"
+          },
+          {
+            "question": "Bakit mahalaga ang katibayan sa impormasyon?",
+            "options": [
+              "Nagpapatunay na totoo ang sinasabi",
+              "Walang kahalagahan",
+              "Hindi na kailangan",
+              "Palaging tama kahit wala"
+            ],
+            "correct_answer": "Nagpapatunay na totoo ang sinasabi"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 4)\n\n- Pagsasama-sama ng 2/4 at 3/4 time\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Anong dalawang tempo ang pinagsama?",
+            "options": [
+              "2/4 at 3/4 time",
+              "4/4 at 6/8 time",
+              "1/4 at 5/4 time",
+              "Wala"
+            ],
+            "correct_answer": "2/4 at 3/4 time"
+          },
+          {
+            "question": "Alin ang mas mabilis?",
+            "options": [
+              "2/4 time",
+              "3/4 time",
+              "Magkatulad",
+              "Wala"
+            ],
+            "correct_answer": "2/4 time"
+          },
+          {
+            "question": "Alin ang mas malumanay?",
+            "options": [
+              "3/4 time",
+              "2/4 time",
+              "Magkatulad",
+              "Wala"
+            ],
+            "correct_answer": "3/4 time"
+          },
+          {
+            "question": "Layunin ng pagsasanay?",
+            "options": [
+              "Palakasin ang koordinasyon",
+              "Matutong magbasa",
+              "Matuto ng matematika",
+              "Maglaro ng basketball"
+            ],
+            "correct_answer": "Palakasin ang koordinasyon"
+          },
+          {
+            "question": "Bakit mahalaga ang tiwala sa sarili sa pagsasayaw?",
+            "options": [
+              "Nakakatulong maipakita ang koreograpiya",
+              "Walang kahalagahan",
+              "Hindi kailangan",
+              "Nakakasagabal lamang"
+            ],
+            "correct_answer": "Nakakatulong maipakita ang koreograpiya"
+          },
+          {
+            "question": "Bakit mahalaga ang pagtutulungan bilang grupo?",
+            "options": [
+              "Mas maayos na presentasyon",
+              "Walang kahalagahan",
+              "Mas mabuti mag-isa",
+              "Hindi kailangan"
+            ],
+            "correct_answer": "Mas maayos na presentasyon"
+          },
+          {
+            "question": "Kahalagahan ng linggong ito para sa Term 2?",
+            "options": [
+              "Huling linggo ng Term 2",
+              "Unang linggo lamang",
+              "Walang kahalagahan",
+              "Hindi bahagi ng Term 2"
+            ],
+            "correct_answer": "Huling linggo ng Term 2"
+          },
+          {
+            "question": "Bakit ipakita ang natutunan buong term?",
+            "options": [
+              "Nagpapakita ng pag-unlad",
+              "Walang kahalagahan",
+              "Hindi na kailangan",
+              "Basta tapos na"
+            ],
+            "correct_answer": "Nagpapakita ng pag-unlad"
+          },
+          {
+            "question": "Kailangan para maayos sumabay sa tempo?",
+            "options": [
+              "Koordinasyon at pakikinig sa musika",
+              "Pagbabalewala",
+              "Pag-iisa",
+              "Wala"
+            ],
+            "correct_answer": "Koordinasyon at pakikinig sa musika"
+          },
+          {
+            "question": "Bakit binubuo ang MAPEH ng sayaw?",
+            "options": [
+              "Nagtataguyod ng kalusugan at sining",
+              "Walang layunin",
+              "Hindi kaugnay",
+              "Para sa matatanda"
+            ],
+            "correct_answer": "Nagtataguyod ng kalusugan at sining"
+          },
+          {
+            "question": "Naidudulot ng pagsasama ng dalawang tempo?",
+            "options": [
+              "Bersatilidad sa sayaw",
+              "Wala",
+              "Nakakalito lamang",
+              "Hindi posible"
+            ],
+            "correct_answer": "Bersatilidad sa sayaw"
+          },
+          {
+            "question": "Bakit magsanay bago ang presentasyon?",
+            "options": [
+              "Maging maayos ang galaw",
+              "Hindi kailangan",
+              "Basta tama ang unang subok",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging maayos ang galaw"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 📐 Friday Review — EPP (Grade 4)\n\n- Batayang teknikal na proyekto\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang proyekto ngayong linggo?",
+            "options": [
+              "Gumawa ng bagay gamit ang orthographic at isometric",
+              "Magsulat ng kuwento",
+              "Kumanta",
+              "Maglaro ng basketball"
+            ],
+            "correct_answer": "Gumawa ng bagay gamit ang orthographic at isometric"
+          },
+          {
+            "question": "Ilang panig sa orthographic view?",
+            "options": [
+              "Tatlo",
+              "Isa",
+              "Apat",
+              "Wala"
+            ],
+            "correct_answer": "Tatlo"
+          },
+          {
+            "question": "Unang hakbang sa proyekto?",
+            "options": [
+              "Gumuhit ng orthographic view",
+              "Gumuhit ng isometric muna",
+              "Bumili ng gamit",
+              "Magsulat ng ulat"
+            ],
+            "correct_answer": "Gumuhit ng orthographic view"
+          },
+          {
+            "question": "Bakit ihambing ang dalawang uri ng guhit?",
+            "options": [
+              "Makita kung paano naiiba ang representasyon",
+              "Walang kahalagahan",
+              "Hindi na kailangan",
+              "Magkatulad lang naman"
+            ],
+            "correct_answer": "Makita kung paano naiiba ang representasyon"
+          },
+          {
+            "question": "Kahalagahan ng linggong ito para sa IA?",
+            "options": [
+              "Huling linggo ng Term 2",
+              "Unang linggo",
+              "Walang kahalagahan",
+              "Hindi bahagi ng Term 2"
+            ],
+            "correct_answer": "Huling linggo ng Term 2"
+          },
+          {
+            "question": "Bakit isama ang parehong uri ng pagguhit?",
+            "options": [
+              "Nagpapakita ng buong pag-unawa",
+              "Walang layunin",
+              "Isa lamang kailangan",
+              "Hindi totoong proyekto"
+            ],
+            "correct_answer": "Nagpapakita ng buong pag-unawa"
+          },
+          {
+            "question": "Halimbawang bagay para sa proyekto?",
+            "options": [
+              "Kahon o istante",
+              "Tula",
+              "Awit",
+              "Laro"
+            ],
+            "correct_answer": "Kahon o istante"
+          },
+          {
+            "question": "Bakit matutong gumawa ng teknikal na proyekto?",
+            "options": [
+              "Nagpapaunlad ng kasanayan sa pagplano at disenyo",
+              "Walang gamit",
+              "Para sa matatanda lamang",
+              "Hindi bahagi ng edukasyon"
+            ],
+            "correct_answer": "Nagpapaunlad ng kasanayan sa pagplano at disenyo"
+          },
+          {
+            "question": "Ipinapakita ng proyekto tungkol sa buong term?",
+            "options": [
+              "Pag-unlad sa kasanayan sa pagguhit",
+              "Wala",
+              "Basta proyekto lamang",
+              "Hindi kaugnay"
+            ],
+            "correct_answer": "Pag-unlad sa kasanayan sa pagguhit"
+          },
+          {
+            "question": "Sino gumagawa ng ganitong proyekto sa totoong buhay?",
+            "options": [
+              "Inhinyero at karpintero",
+              "Manunulat lamang",
+              "Guro sa Filipino",
+              "Doktor lamang"
+            ],
+            "correct_answer": "Inhinyero at karpintero"
+          },
+          {
+            "question": "Bakit sundin ang mga hakbang nang maayos?",
+            "options": [
+              "Malinaw at tumpak na resulta",
+              "Hindi mahalaga ang pagkakasunud-sunod",
+              "Basta may nagawa",
+              "Walang epekto"
+            ],
+            "correct_answer": "Malinaw at tumpak na resulta"
+          },
+          {
+            "question": "Natutunan sa buong seryeng ito ng teknikal na pagguhit?",
+            "options": [
+              "Tumpak na representasyon sa iba't ibang paraan",
+              "Wala",
+              "Isang bagay lamang",
+              "Hindi kapaki-pakinabang"
+            ],
+            "correct_answer": "Tumpak na representasyon sa iba't ibang paraan"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🇵🇭 Friday Review — GMRC (Grade 4)\n\n- Pagmamahal sa Bayan\n\nMagaling na Pilipino ka! 💫 Tapos na ang Term 2!",
+        "quiz": [
+          {
+            "question": "Ano ang pagmamahal sa bayan?",
+            "options": [
+              "Pagmamalaki at pananagutan sa bansa",
+              "Kawalang pakialam",
+              "Uri ng laro",
+              "Isang bantas"
+            ],
+            "correct_answer": "Pagmamalaki at pananagutan sa bansa"
+          },
+          {
+            "question": "Paano ipinapakita ang pagmamahal sa bayan?",
+            "options": [
+              "Pagsunod sa batas at pag-aalaga sa kapaligiran",
+              "Paglabag sa batas",
+              "Pagsira sa kapaligiran",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pagsunod sa batas at pag-aalaga sa kapaligiran"
+          },
+          {
+            "question": "Bakit tumulong sa kapwa Pilipino?",
+            "options": [
+              "Tunay na pagmamahal sa bayan",
+              "Walang kaugnayan",
+              "Hindi na kailangan",
+              "Pag-aaksaya ng oras"
+            ],
+            "correct_answer": "Tunay na pagmamahal sa bayan"
+          },
+          {
+            "question": "Anong mga pagpapahalaga natutunan sa buong Term 2?",
+            "options": [
+              "Kalinisan, nasyonalismo, pagmamahal sa bayan",
+              "Basketball at swimming",
+              "Matematika at agham",
+              "Wala"
+            ],
+            "correct_answer": "Kalinisan, nasyonalismo, pagmamahal sa bayan"
+          },
+          {
+            "question": "Bakit hindi sapat ang salita lamang?",
+            "options": [
+              "Dapat ipakita rin sa gawa",
+              "Sapat na ang salita",
+              "Walang gawang kailangan",
+              "Basta sabi mo, tama na"
+            ],
+            "correct_answer": "Dapat ipakita rin sa gawa"
+          },
+          {
+            "question": "Bakit pahalagahan ang kultura at kasaysayan?",
+            "options": [
+              "Bahagi ng pagmamahal sa bayan",
+              "Walang kahalagahan",
+              "Hindi na kailangan",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Bahagi ng pagmamahal sa bayan"
+          },
+          {
+            "question": "Koneksyon ng Laro ng Lahi sa pagmamahal sa bayan?",
+            "options": [
+              "Parehong nagpapakita ng pagmamalaki sa kultura",
+              "Walang koneksyon",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong nagpapakita ng pagmamalaki sa kultura"
+          },
+          {
+            "question": "Sino dapat magpakita ng pagmamahal sa bayan?",
+            "options": [
+              "Bawat mamamayan, kasama ang bata",
+              "Pamahalaan lamang",
+              "Matatanda lamang",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Bawat mamamayan, kasama ang bata"
+          },
+          {
+            "question": "Mangyayari kung walang nagmamahal sa bansa?",
+            "options": [
+              "Mahihirapang umunlad",
+              "Mas maayos ang lahat",
+              "Walang epekto",
+              "Awtomatikong umunlad"
+            ],
+            "correct_answer": "Mahihirapang umunlad"
+          },
+          {
+            "question": "Bakit angkop tapusin ang Term 2 sa paksang ito?",
+            "options": [
+              "Buod ng lahat ng pagpapahalaga",
+              "Walang dahilan",
+              "Basta huling paksa",
+              "Hindi angkop"
+            ],
+            "correct_answer": "Buod ng lahat ng pagpapahalaga"
+          },
+          {
+            "question": "Bakit ituro ang pagmamahal sa bayan sa bata?",
+            "options": [
+              "Maging responsable at mapagmalasakit paglaki",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Maging responsable at mapagmalasakit paglaki"
+          },
+          {
+            "question": "Anong aral ang dala ng buong Term 2?",
+            "options": [
+              "Responsable, may pananagutan, may pagmamahal sa bansa",
+              "Walang partikular na aral",
+              "Tungkol lamang sa laro",
+              "Tungkol lamang sa kasaysayan"
+            ],
+            "correct_answer": "Responsable, may pananagutan, may pagmamahal sa bansa"
+          }
+        ]
+      }
+    }
+  }
+}

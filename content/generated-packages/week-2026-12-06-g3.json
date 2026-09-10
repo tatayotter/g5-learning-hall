@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-12-06",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📝 English — Composing a Paragraph About a National Symbol\n\nGrade 3, Week 26! Let's write our own paragraph about a national symbol! 📝\n\n## 🔄 Review\nWe explored cause and effect in national stories.\n\n## 📝 Choosing a Topic\nPick a national symbol you know well — the flag, the national flower (sampaguita), or the national bird (Philippine eagle).\n\n## ✍️ Structuring Your Paragraph\n1. **Topic sentence** — introduce the symbol\n2. **3-4 details** — describe it and explain its meaning\n3. **Closing sentence** — share why it matters\n\n**Example:** \"The sampaguita is our national flower. It is small, white, and has a sweet smell. It is often used in garlands for special occasions. The sampaguita reminds us of purity and simplicity.\"\n\n**Key words:** topic sentence, details, closing sentence, national symbol",
+        "quiz": [
+          {
+            "question": "What should you choose first when writing about a national symbol?",
+            "options": [
+              "A topic you know well",
+              "A random unrelated topic",
+              "The longest word you know",
+              "A topic with no meaning"
+            ],
+            "correct_answer": "A topic you know well"
+          },
+          {
+            "question": "What is a topic sentence?",
+            "options": [
+              "A sentence that introduces the main subject",
+              "The last sentence in a paragraph",
+              "A question only",
+              "A list of random words"
+            ],
+            "correct_answer": "A sentence that introduces the main subject"
+          },
+          {
+            "question": "How many supporting details should a paragraph usually have?",
+            "options": [
+              "3-4 details",
+              "0 details",
+              "20 details",
+              "Only 1 detail"
+            ],
+            "correct_answer": "3-4 details"
+          },
+          {
+            "question": "What is the sampaguita?",
+            "options": [
+              "The national flower of the Philippines",
+              "The national bird",
+              "The national animal",
+              "The national fruit"
+            ],
+            "correct_answer": "The national flower of the Philippines"
+          },
+          {
+            "question": "What is the national bird of the Philippines?",
+            "options": [
+              "The Philippine eagle",
+              "The sampaguita",
+              "The carabao",
+              "The mango"
+            ],
+            "correct_answer": "The Philippine eagle"
+          },
+          {
+            "question": "What should a closing sentence do?",
+            "options": [
+              "Share why the topic matters",
+              "Introduce a brand new topic",
+              "Repeat the title exactly",
+              "Ask an unrelated question"
+            ],
+            "correct_answer": "Share why the topic matters"
+          },
+          {
+            "question": "In the example paragraph, what detail describes the sampaguita's smell?",
+            "options": [
+              "It has a sweet smell",
+              "It has no smell",
+              "It smells bad",
+              "It smells like rain"
+            ],
+            "correct_answer": "It has a sweet smell"
+          },
+          {
+            "question": "Why is it helpful to organize a paragraph with a clear structure?",
+            "options": [
+              "It helps the reader understand the ideas clearly",
+              "It has no real benefit",
+              "It makes writing harder",
+              "It removes the need for details"
+            ],
+            "correct_answer": "It helps the reader understand the ideas clearly"
+          },
+          {
+            "question": "What might a closing sentence about the Philippine flag mention?",
+            "options": [
+              "What the flag's colors and symbols represent to Filipinos",
+              "An unrelated topic",
+              "Only the flag's price",
+              "Nothing at all"
+            ],
+            "correct_answer": "What the flag's colors and symbols represent to Filipinos"
+          },
+          {
+            "question": "Why choose a symbol you know well before writing?",
+            "options": [
+              "It's easier to describe with accurate details",
+              "Random topics are always better",
+              "Knowledge doesn't matter for writing",
+              "It makes the paragraph shorter automatically"
+            ],
+            "correct_answer": "It's easier to describe with accurate details"
+          },
+          {
+            "question": "What is the purpose of details in a paragraph?",
+            "options": [
+              "To support and explain the topic sentence",
+              "To confuse the reader",
+              "To replace the topic sentence",
+              "To make the paragraph shorter"
+            ],
+            "correct_answer": "To support and explain the topic sentence"
+          },
+          {
+            "question": "Why might garlands made of sampaguita be used for special occasions?",
+            "options": [
+              "They represent purity and are traditionally meaningful",
+              "They have no cultural significance",
+              "They are only used in other countries",
+              "They are randomly chosen with no meaning"
+            ],
+            "correct_answer": "They represent purity and are traditionally meaningful"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💰 Mathematics — Division Word Problems with Money\n\nGrade 3, Week 26! Let's use division to solve money problems! 💰\n\n## 🔄 Review\nWe practiced dividing 2-3 digit numbers with and without remainders.\n\n## 💰 One-Step Money Word Problems\nIf ₱84 is shared equally among 4 friends, how much does each get?\n84 ÷ 4 = **₱21** each\n\n## 💰 Two-Step Money Word Problems\nIf a group of 6 friends collects ₱96 total, and each already spent ₱4, how much does each have left?\n1. 96 ÷ 6 = ₱16 (each person's share)\n2. 16 - 4 = **₱12** left\n\n## 🧮 Solving Steps\n1. Understand what's being asked\n2. Decide which operations to use\n3. Solve step by step\n\n**Key words:** money word problem, one-step, two-step, division",
+        "quiz": [
+          {
+            "question": "If ₱84 is shared equally among 4 friends, how much does each get?",
+            "options": [
+              "₱21",
+              "₱20",
+              "₱24",
+              "₱80"
+            ],
+            "correct_answer": "₱21"
+          },
+          {
+            "question": "If ₱96 is shared among 6 friends, how much does each get?",
+            "options": [
+              "₱16",
+              "₱14",
+              "₱18",
+              "₱90"
+            ],
+            "correct_answer": "₱16"
+          },
+          {
+            "question": "In a two-step problem, what should you do first?",
+            "options": [
+              "Understand what is being asked",
+              "Guess the final answer",
+              "Skip reading the problem",
+              "Add random numbers"
+            ],
+            "correct_answer": "Understand what is being asked"
+          },
+          {
+            "question": "If each of 6 friends gets ₱16 and already spent ₱4, how much is left?",
+            "options": [
+              "₱12",
+              "₱20",
+              "₱10",
+              "₱16"
+            ],
+            "correct_answer": "₱12"
+          },
+          {
+            "question": "If ₱72 is shared equally among 8 students, how much does each get?",
+            "options": [
+              "₱9",
+              "₱8",
+              "₱10",
+              "₱64"
+            ],
+            "correct_answer": "₱9"
+          },
+          {
+            "question": "If ₱45 is shared equally among 5 friends, how much does each get?",
+            "options": [
+              "₱9",
+              "₱8",
+              "₱10",
+              "₱40"
+            ],
+            "correct_answer": "₱9"
+          },
+          {
+            "question": "What operation is usually used to share money equally?",
+            "options": [
+              "Division",
+              "Multiplication only",
+              "Subtraction only",
+              "None of these"
+            ],
+            "correct_answer": "Division"
+          },
+          {
+            "question": "If ₱120 is shared among 10 people, how much does each get?",
+            "options": [
+              "₱12",
+              "₱10",
+              "₱110",
+              "₱130"
+            ],
+            "correct_answer": "₱12"
+          },
+          {
+            "question": "A two-step problem requires how many operations to solve?",
+            "options": [
+              "Two",
+              "One",
+              "Zero",
+              "Ten"
+            ],
+            "correct_answer": "Two"
+          },
+          {
+            "question": "If 7 friends share ₱63 and each spends ₱3, how much is left per person?",
+            "options": [
+              "₱6",
+              "₱9",
+              "₱3",
+              "₱60"
+            ],
+            "correct_answer": "₱6"
+          },
+          {
+            "question": "Why is it important to read a word problem carefully?",
+            "options": [
+              "To understand exactly what numbers and operations are needed",
+              "It doesn't matter what the problem says",
+              "You should always guess",
+              "Reading slows you down unnecessarily"
+            ],
+            "correct_answer": "To understand exactly what numbers and operations are needed"
+          },
+          {
+            "question": "If ₱54 is divided among 6 friends, how much does each get?",
+            "options": [
+              "₱9",
+              "₱8",
+              "₱10",
+              "₱48"
+            ],
+            "correct_answer": "₱9"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📰 Filipino — Pagsasanay: 5-7 Pangyayari sa Isang Teksto\n\nGrade 3, Linggo 26! Magsanay tayong magsunud-sunod ng maraming pangyayari. 📰\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tambalang pangungusap batay sa pananda.\n\n## 📰 Pagsunud-sunod ng Pangyayari\nSa mas mahahabang teksto, kailangan nating masundan ang **5-7 pangyayari** upang lubos na maunawaan ang buong kuwento o balita.\n\n## 🔍 Mga Paraang Ginagamit\n- Panandang salita: una, pangalawa, pagkatapos, sa wakas\n- Pagbasa nang maingat sa bawat talata\n\n## ✍️ Halimbawa\nSa isang balita tungkol sa isang komunidad na naglinis ng ilog:\n1. Nagplano sila\n2. Nagsama-sama sa isang araw\n3. Naglinis ng ilog\n4. Nagtipon ng basura\n5. Nagsalita ang lider tungkol sa mensahe\n\n**Mahahalagang salita:** pagsunud-sunod, pangyayari, balita, panandang salita",
+        "quiz": [
+          {
+            "question": "Ilang pangyayari ang kailangang masundan sa mahabang teksto?",
+            "options": [
+              "5-7 pangyayari",
+              "1 pangyayari lamang",
+              "20 pangyayari",
+              "Walang pangyayari"
+            ],
+            "correct_answer": "5-7 pangyayari"
+          },
+          {
+            "question": "Ano ang isang panandang salita para sa pagsunud-sunod?",
+            "options": [
+              "Una",
+              "Bahay",
+              "Maganda",
+              "Tumatakbo"
+            ],
+            "correct_answer": "Una"
+          },
+          {
+            "question": "Bakit mahalagang sundan ang pagkakasunod-sunod ng pangyayari?",
+            "options": [
+              "Para lubos na maunawaan ang buong kuwento",
+              "Hindi mahalaga ang pagkakasunod-sunod",
+              "Para lamang sa pagsusulit",
+              "Walang gamit ito"
+            ],
+            "correct_answer": "Para lubos na maunawaan ang buong kuwento"
+          },
+          {
+            "question": "Sa halimbawa, ano ang unang ginawa ng komunidad?",
+            "options": [
+              "Nagplano sila",
+              "Naglinis ng ilog",
+              "Nagsalita ang lider",
+              "Nagtipon ng basura"
+            ],
+            "correct_answer": "Nagplano sila"
+          },
+          {
+            "question": "Sa halimbawa, ano ang huling nangyari?",
+            "options": [
+              "Nagsalita ang lider tungkol sa mensahe",
+              "Nagplano sila",
+              "Naglinis ng ilog",
+              "Nagsama-sama"
+            ],
+            "correct_answer": "Nagsalita ang lider tungkol sa mensahe"
+          },
+          {
+            "question": "Anong panandang salita ang ginagamit sa dulo ng kuwento?",
+            "options": [
+              "Sa wakas",
+              "Una",
+              "Pangalawa",
+              "Kanina"
+            ],
+            "correct_answer": "Sa wakas"
+          },
+          {
+            "question": "Bakit mahalagang basahin nang maingat ang bawat talata?",
+            "options": [
+              "Para makuha ang bawat detalye ng pangyayari",
+              "Hindi na kailangan basahin nang maingat",
+              "Basta basahin lamang nang mabilis",
+              "Walang gamit ang pagbasa nang maingat"
+            ],
+            "correct_answer": "Para makuha ang bawat detalye ng pangyayari"
+          },
+          {
+            "question": "Ano ang nagiging mas malinaw sa mambabasa kung sinusunod ang tamang pagkakasunod-sunod?",
+            "options": [
+              "Ang buong daloy ng kuwento o balita",
+              "Ang bilang ng titik",
+              "Ang kulay ng papel",
+              "Ang laki ng font"
+            ],
+            "correct_answer": "Ang buong daloy ng kuwento o balita"
+          },
+          {
+            "question": "Ano ang halimbawang balita na ginamit sa aralin?",
+            "options": [
+              "Paglilinis ng ilog ng komunidad",
+              "Isang laro sa paaralan",
+              "Isang recipe sa pagluluto",
+              "Isang liham pangkaibigan"
+            ],
+            "correct_answer": "Paglilinis ng ilog ng komunidad"
+          },
+          {
+            "question": "Bakit ginagamit ang mga panandang salita sa pagsasalaysay?",
+            "options": [
+              "Para gabayan ang mambabasa sa tamang pagkakasunod-sunod",
+              "Wala silang layunin",
+              "Para lituhin ang mambabasa",
+              "Para gawing mas maikli ang kuwento"
+            ],
+            "correct_answer": "Para gabayan ang mambabasa sa tamang pagkakasunod-sunod"
+          },
+          {
+            "question": "Alin ang HINDI panandang salita ng pagsunud-sunod?",
+            "options": [
+              "Maganda",
+              "Una",
+              "Pangalawa",
+              "Sa wakas"
+            ],
+            "correct_answer": "Maganda"
+          },
+          {
+            "question": "Bakit mahalagang magsanay nang sundin ang mahahabang teksto?",
+            "options": [
+              "Para mahusay na maunawaan ang mas kumplikadong pagbasa",
+              "Hindi na kailangan pagsanayan ito",
+              "Palagi namang madali ang mahabang teksto",
+              "Walang epekto ito sa pag-unawa"
+            ],
+            "correct_answer": "Para mahusay na maunawaan ang mas kumplikadong pagbasa"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🧱 Science — Useful Things from Non-Living Materials\n\nGrade 3, Week 26! Let's see how non-living materials become useful things! 🧱\n\n## 🔄 Review\nWe learned about non-living things around school.\n\n## 🧱 From Raw Material to Useful Object\n- **Clay** → bricks, pottery\n- **Sand** → glass, cement\n- **Metal ore** → tools, wires, coins\n- **Rocks** → gravel for roads, building stones\n\n## 🔧 How Materials Are Changed\nRaw materials are often **shaped, melted, pressed, or combined** with other materials to become useful.\n\n## 🎯 Why This Matters\nUnderstanding this process helps us appreciate how the **things we use every day** come from the Earth's non-living resources.\n\n**Key words:** raw material, useful object, shaped, resource",
+        "quiz": [
+          {
+            "question": "What can clay be turned into?",
+            "options": [
+              "Bricks and pottery",
+              "Glass only",
+              "Metal wires",
+              "Gravel only"
+            ],
+            "correct_answer": "Bricks and pottery"
+          },
+          {
+            "question": "What can sand be turned into?",
+            "options": [
+              "Glass and cement",
+              "Bricks only",
+              "Coins only",
+              "Wood"
+            ],
+            "correct_answer": "Glass and cement"
+          },
+          {
+            "question": "What can metal ore be turned into?",
+            "options": [
+              "Tools, wires, coins",
+              "Only glass",
+              "Only bricks",
+              "Only sand"
+            ],
+            "correct_answer": "Tools, wires, coins"
+          },
+          {
+            "question": "What can rocks be turned into?",
+            "options": [
+              "Gravel for roads and building stones",
+              "Only glass",
+              "Only paper",
+              "Only cloth"
+            ],
+            "correct_answer": "Gravel for roads and building stones"
+          },
+          {
+            "question": "How are raw materials often changed into useful things?",
+            "options": [
+              "Shaped, melted, pressed, or combined",
+              "They stay exactly the same forever",
+              "They disappear completely",
+              "They become living things"
+            ],
+            "correct_answer": "Shaped, melted, pressed, or combined"
+          },
+          {
+            "question": "Why is it useful to understand how raw materials become products?",
+            "options": [
+              "It helps appreciate everyday items come from Earth's resources",
+              "It has no real value",
+              "Raw materials are never used for anything",
+              "Only scientists need this knowledge"
+            ],
+            "correct_answer": "It helps appreciate everyday items come from Earth's resources"
+          },
+          {
+            "question": "What is a raw material?",
+            "options": [
+              "A natural, unprocessed substance used to make things",
+              "A finished product ready to sell",
+              "A living organism",
+              "A type of weather"
+            ],
+            "correct_answer": "A natural, unprocessed substance used to make things"
+          },
+          {
+            "question": "Why might sand be melted to make glass?",
+            "options": [
+              "Melting changes its form into a useful new material",
+              "Sand cannot be changed at all",
+              "Melting destroys all usefulness",
+              "Sand is already glass"
+            ],
+            "correct_answer": "Melting changes its form into a useful new material"
+          },
+          {
+            "question": "Which everyday object might come from metal ore?",
+            "options": [
+              "A coin",
+              "A wooden chair",
+              "A cotton shirt",
+              "A glass of water"
+            ],
+            "correct_answer": "A coin"
+          },
+          {
+            "question": "Why are rocks useful for building roads?",
+            "options": [
+              "Gravel from rocks provides a strong, stable surface",
+              "Rocks are too soft for roads",
+              "Rocks disappear when used for roads",
+              "Rocks are only decorative"
+            ],
+            "correct_answer": "Gravel from rocks provides a strong, stable surface"
+          },
+          {
+            "question": "What connects clay, sand, metal ore, and rocks?",
+            "options": [
+              "They are all non-living materials that can be made useful",
+              "They are all living things",
+              "They cannot be changed into anything",
+              "They are all liquids"
+            ],
+            "correct_answer": "They are all non-living materials that can be made useful"
+          },
+          {
+            "question": "Why is this topic connected to the earlier lesson on non-living things?",
+            "options": [
+              "It shows how non-living materials become useful objects we use daily",
+              "It has no connection to non-living things",
+              "This is only about living things",
+              "Non-living things are never useful"
+            ],
+            "correct_answer": "It shows how non-living materials become useful objects we use daily"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🇵🇭 Makabansa — Pagiging Aktibo at Responsableng Batang Pilipino\n\nGrade 3, Linggo 26! Alamin natin ang Panatang Makabayan. 🇵🇭\n\n## 🔄 Balik-Aral\nNatutuhan natin ang Laro ng Lahi.\n\n## 🇵🇭 Ano ang Panatang Makabayan?\nAng **Panatang Makabayan** ay isang panata na binibigkas ng mga Pilipino, lalo na sa paaralan, na nagpapahayag ng pagmamahal at pananagutan sa bansa.\n\n## 🌟 Mga Pananagutan ng Responsableng Batang Pilipino\n- Pagmamahal sa Pilipinas\n- Pagsunod sa mga magulang at guro\n- Pagtulong sa kapwa\n- Pagpapakita ng disiplina sa paaralan\n\n## 💡 Bakit Mahalaga Ito?\nAng pagbigkas ng Panatang Makabayan ay paalala ng ating **responsibilidad** bilang batang Pilipino sa pag-aalaga ng bansa.\n\n**Mahahalagang salita:** Panatang Makabayan, responsibilidad, pananagutan, disiplina",
+        "quiz": [
+          {
+            "question": "Ano ang Panatang Makabayan?",
+            "options": [
+              "Panatang nagpapahayag ng pagmamahal at pananagutan sa bansa",
+              "Isang uri ng laro",
+              "Isang uri ng kanta lamang",
+              "Isang batas ng bansa"
+            ],
+            "correct_answer": "Panatang nagpapahayag ng pagmamahal at pananagutan sa bansa"
+          },
+          {
+            "question": "Saan karaniwang binibigkas ang Panatang Makabayan?",
+            "options": [
+              "Sa paaralan",
+              "Sa palengke lamang",
+              "Sa dagat",
+              "Sa bundok"
+            ],
+            "correct_answer": "Sa paaralan"
+          },
+          {
+            "question": "Anong pananagutan ang mayroon ang responsableng batang Pilipino?",
+            "options": [
+              "Pagsunod sa magulang at guro",
+              "Pagtanggi sa lahat ng payo",
+              "Kawalang disiplina",
+              "Pag-iwas sa kapwa"
+            ],
+            "correct_answer": "Pagsunod sa magulang at guro"
+          },
+          {
+            "question": "Anong halimbawa ng pagtulong sa kapwa?",
+            "options": [
+              "Pagtulong sa kaklaseng nahihirapan",
+              "Pag-iwas sa kaklase",
+              "Kutyain ang iba",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pagtulong sa kaklaseng nahihirapan"
+          },
+          {
+            "question": "Bakit mahalaga ang Panatang Makabayan?",
+            "options": [
+              "Paalala ito ng responsibilidad bilang batang Pilipino",
+              "Wala itong kahalagahan",
+              "Ito ay hindi na kailangan bigkasin",
+              "Ito ay para sa matatanda lamang"
+            ],
+            "correct_answer": "Paalala ito ng responsibilidad bilang batang Pilipino"
+          },
+          {
+            "question": "Anong disiplina ang dapat ipakita sa paaralan?",
+            "options": [
+              "Pagsunod sa alituntunin",
+              "Pagtanggi sa lahat ng patakaran",
+              "Kawalang galang sa guro",
+              "Pag-iwas sa pag-aaral"
+            ],
+            "correct_answer": "Pagsunod sa alituntunin"
+          },
+          {
+            "question": "Bakit dapat mahalin ang Pilipinas ayon sa Panatang Makabayan?",
+            "options": [
+              "Ito ay ating bansa at bahagi ng ating pagkakakilanlan",
+              "Walang dahilan",
+              "Dapat mahalin ang ibang bansa lamang",
+              "Hindi ito mahalaga"
+            ],
+            "correct_answer": "Ito ay ating bansa at bahagi ng ating pagkakakilanlan"
+          },
+          {
+            "question": "Paano nagiging aktibong Pilipino ang isang bata?",
+            "options": [
+              "Sa pagpapakita ng responsibilidad at pagtulong sa iba",
+              "Sa pananatiling walang ginagawa",
+              "Sa pag-iwas sa lahat ng gawain",
+              "Sa kawalang interes"
+            ],
+            "correct_answer": "Sa pagpapakita ng responsibilidad at pagtulong sa iba"
+          },
+          {
+            "question": "Ano ang koneksyon ng Panatang Makabayan sa aktibong pagiging Pilipino na natutunan noon?",
+            "options": [
+              "Parehong tumatalakay sa responsibilidad ng bawat mamamayan",
+              "Walang koneksyon ang dalawa",
+              "Ang isa ay tungkol lamang sa agham",
+              "Ang isa ay tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Parehong tumatalakay sa responsibilidad ng bawat mamamayan"
+          },
+          {
+            "question": "Bakit mahalagang ituro ang Panatang Makabayan mula pagkabata?",
+            "options": [
+              "Upang malinang ang pagmamahal sa bansa mula sa maagang edad",
+              "Hindi na kailangan ituro ito",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang malinang ang pagmamahal sa bansa mula sa maagang edad"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagiging responsableng mamamayan mula sa pagkabata?",
+            "options": [
+              "Paghubog ng mabuting mamamayan paglaki",
+              "Wala itong naidudulot",
+              "Nagdudulot lamang ito ng kahirapan",
+              "Walang epekto sa hinaharap"
+            ],
+            "correct_answer": "Paghubog ng mabuting mamamayan paglaki"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HALIMBAWA ng responsableng batang Pilipino?",
+            "options": [
+              "Pagsunod sa alituntunin ng paaralan",
+              "Pagtanggi sa lahat ng tuntunin",
+              "Kawalang disiplina",
+              "Pag-iwas sa mga gawain"
+            ],
+            "correct_answer": "Pagsunod sa alituntunin ng paaralan"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🔌 Computer — Ligtas na Pagsasara ng Programa at Kompyuter\n\nGrade 3, Week 26! Alamin natin ang tamang paraan ng pagsasara ng kompyuter. 🔌\n\n## 🔄 Balik-Aral\nNatutuhan natin na hindi lahat ng nasa Internet ay totoo.\n\n## 🔌 Bakit Mahalaga ang Tamang Pagsasara?\nAng biglaang pagputol ng kuryente o pagpindot lamang sa power button ay maaaring **makasira** sa kompyuter o **mawala** ang hindi pa na-save na trabaho.\n\n## ✅ Tamang Hakbang sa Pagsasara\n1. I-save muna ang lahat ng trabaho\n2. Isara ang lahat ng bukas na programa\n3. Piliin ang \"Shut Down\" mula sa menu\n4. Hintaying mag-off nang tuluyan bago tanggalin ang saksakan (kung kailangan)\n\n**Mahahalagang salita:** shut down, save, ligtas na pagsasara, programa",
+        "quiz": [
+          {
+            "question": "Bakit mahalaga ang tamang pagsasara ng kompyuter?",
+            "options": [
+              "Nakakaiwas ito sa pagkasira at pagkawala ng trabaho",
+              "Hindi mahalaga kung paano isasara",
+              "Walang epekto sa kompyuter",
+              "Basta patayin lamang agad"
+            ],
+            "correct_answer": "Nakakaiwas ito sa pagkasira at pagkawala ng trabaho"
+          },
+          {
+            "question": "Ano ang unang hakbang bago isara ang kompyuter?",
+            "options": [
+              "I-save ang lahat ng trabaho",
+              "Direktang patayin",
+              "Kalimutan ang trabaho",
+              "Tanggalin agad ang saksakan"
+            ],
+            "correct_answer": "I-save ang lahat ng trabaho"
+          },
+          {
+            "question": "Ano ang gagawin pagkatapos i-save ang trabaho?",
+            "options": [
+              "Isara ang lahat ng bukas na programa",
+              "Direktang tanggalin ang saksakan",
+              "Simulan ulit ang trabaho",
+              "Kalimutan ang lahat"
+            ],
+            "correct_answer": "Isara ang lahat ng bukas na programa"
+          },
+          {
+            "question": "Anong opsyon ang dapat piliin para tamang isara ang kompyuter?",
+            "options": [
+              "Shut Down",
+              "Restart lamang paulit-ulit",
+              "Delete",
+              "Format"
+            ],
+            "correct_answer": "Shut Down"
+          },
+          {
+            "question": "Ano ang maaaring mangyari kung basta biglang puputulin ang kuryente?",
+            "options": [
+              "Maaaring masira ang kompyuter o mawala ang trabaho",
+              "Walang mangyayari",
+              "Palaging ligtas ito",
+              "Mas mabilis pa itong isasara"
+            ],
+            "correct_answer": "Maaaring masira ang kompyuter o mawala ang trabaho"
+          },
+          {
+            "question": "Bakit dapat hintaying mag-off nang tuluyan ang kompyuter bago tanggalin ang saksakan?",
+            "options": [
+              "Para matiyak na kumpleto na ang proseso ng pagsasara",
+              "Hindi na kailangan hintayin ito",
+              "Walang epekto kung agad tatanggalin",
+              "Basta tanggalin agad"
+            ],
+            "correct_answer": "Para matiyak na kumpleto na ang proseso ng pagsasara"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi mo isasave ang iyong trabaho bago isara ang programa?",
+            "options": [
+              "Maaaring mawala ang iyong ginawang trabaho",
+              "Palaging naiipon ito",
+              "Walang epekto",
+              "Awtomatikong nase-save ito"
+            ],
+            "correct_answer": "Maaaring mawala ang iyong ginawang trabaho"
+          },
+          {
+            "question": "Bakit itinuturo ang ligtas na pagsasara sa mga bata?",
+            "options": [
+              "Upang mapanatili ang kompyuter sa mabuting kondisyon",
+              "Hindi ito mahalaga",
+              "Para lamang mapahaba ang oras",
+              "Walang layunin ito"
+            ],
+            "correct_answer": "Upang mapanatili ang kompyuter sa mabuting kondisyon"
+          },
+          {
+            "question": "Ilang hakbang ang binanggit sa tamang pagsasara ng kompyuter?",
+            "options": [
+              "Apat na hakbang",
+              "Isang hakbang lamang",
+              "Sampung hakbang",
+              "Walang hakbang"
+            ],
+            "correct_answer": "Apat na hakbang"
+          },
+          {
+            "question": "Bakit mahalagang isara ang lahat ng bukas na programa bago mag-shut down?",
+            "options": [
+              "Para maiwasan ang problema sa proseso ng pagsasara",
+              "Hindi na kailangan isara ang mga ito",
+              "Walang epekto kung bukas pa ang mga ito",
+              "Mas mabilis kung hindi isasara"
+            ],
+            "correct_answer": "Para maiwasan ang problema sa proseso ng pagsasara"
+          },
+          {
+            "question": "Ano ang tamang gawin bago tanggalin ang saksakan ng kompyuter?",
+            "options": [
+              "Tiyakin na tuluyan nang naka-off ang kompyuter",
+              "Direktang tanggalin agad",
+              "Walang kailangang tiyakin",
+              "Basta tanggalin habang naka-on"
+            ],
+            "correct_answer": "Tiyakin na tuluyan nang naka-off ang kompyuter"
+          },
+          {
+            "question": "Bakit mahalagang matutong mag-shut down nang tama simula sa Grade 3?",
+            "options": [
+              "Batayang kasanayan ito sa pag-aalaga ng kagamitan",
+              "Hindi ito kailangan matutunan",
+              "Para sa matatanda lamang ito",
+              "Walang gamit sa paaralan"
+            ],
+            "correct_answer": "Batayang kasanayan ito sa pag-aalaga ng kagamitan"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🇵🇭 GMRC — Paghikayat sa Kapuwa na Igalang ang Sagisag ng Bansa\n\nGrade 3, Linggo 26! Pagpapahalaga: **Love of Country (Pagmamahal sa Bayan)**. 🇵🇭\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa 4Rs.\n\n## 🇵🇭 Ano ang mga Sagisag ng Bansa?\n- **Watawat (Bandila)** — sagisag ng ating kalayaan\n- **Pambansang Awit** — Lupang Hinirang\n- **Pambansang Sagisag** — Pambansang Sibol (sampaguita), Agila (Philippine eagle)\n\n## 🤝 Paano Hikayatin ang Iba na Igalang Ito?\n- Ipaalala sa kaibigan ang tamang paraan ng pagsaludo sa bandila\n- Sabihan sila kung bakit mahalaga ang pambansang awit\n- Magpakita ng magandang halimbawa sa pagsunod sa mga alituntunin sa sagisag ng bansa\n\n## 💡 Bakit Mahalaga Ito?\nAng paggalang sa mga sagisag ng bansa ay isang paraan ng pagpapakita ng **pagmamahal sa bayan**.\n\n**Mahahalagang salita:** sagisag, watawat, pambansang awit, paghikayat",
+        "quiz": [
+          {
+            "question": "Ano ang watawat?",
+            "options": [
+              "Sagisag ng ating kalayaan",
+              "Isang uri ng laro",
+              "Isang uri ng pagkain",
+              "Isang uri ng damit"
+            ],
+            "correct_answer": "Sagisag ng ating kalayaan"
+          },
+          {
+            "question": "Ano ang pambansang awit ng Pilipinas?",
+            "options": [
+              "Lupang Hinirang",
+              "Bahay Kubo",
+              "Bayan Ko",
+              "Anak"
+            ],
+            "correct_answer": "Lupang Hinirang"
+          },
+          {
+            "question": "Anong hayop ang pambansang sagisag ng Pilipinas?",
+            "options": [
+              "Agila (Philippine eagle)",
+              "Aso",
+              "Pusa",
+              "Ibon lamang"
+            ],
+            "correct_answer": "Agila (Philippine eagle)"
+          },
+          {
+            "question": "Anong bulaklak ang pambansang sagisag ng Pilipinas?",
+            "options": [
+              "Sampaguita",
+              "Rosas",
+              "Sunflower",
+              "Orchid"
+            ],
+            "correct_answer": "Sampaguita"
+          },
+          {
+            "question": "Paano mahihikayat ang kaibigan na igalang ang bandila?",
+            "options": [
+              "Ipaalala ang tamang paraan ng pagsaludo",
+              "Kutyain sila kung mali ang ginawa",
+              "Iwasan silang turuan",
+              "Balewalain ang usapin"
+            ],
+            "correct_answer": "Ipaalala ang tamang paraan ng pagsaludo"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Love of Country (Pagmamahal sa Bayan)",
+              "Compassion",
+              "Respect",
+              "Prudence"
+            ],
+            "correct_answer": "Love of Country (Pagmamahal sa Bayan)"
+          },
+          {
+            "question": "Bakit mahalaga ang paggalang sa sagisag ng bansa?",
+            "options": [
+              "Isang paraan ito ng pagpapakita ng pagmamahal sa bayan",
+              "Walang kahalagahan",
+              "Hindi na kailangan igalang ito",
+              "Ito ay para lamang sa matatanda"
+            ],
+            "correct_answer": "Isang paraan ito ng pagpapakita ng pagmamahal sa bayan"
+          },
+          {
+            "question": "Ano ang magandang halimbawang maipapakita sa kaibigan?",
+            "options": [
+              "Pagsunod sa alituntunin sa sagisag ng bansa",
+              "Kawalang pakialam sa mga sagisag",
+              "Pagkutya sa bandila",
+              "Kawalang respeto"
+            ],
+            "correct_answer": "Pagsunod sa alituntunin sa sagisag ng bansa"
+          },
+          {
+            "question": "Bakit mahalagang sabihan ang iba tungkol sa kahalagahan ng pambansang awit?",
+            "options": [
+              "Upang lumago ang pagmamahal at paggalang sa bansa",
+              "Hindi na kailangan gawin ito",
+              "Walang gamit ito",
+              "Wala itong kahalagahan"
+            ],
+            "correct_answer": "Upang lumago ang pagmamahal at paggalang sa bansa"
+          },
+          {
+            "question": "Bakit itinuturing na love of country ang paggalang sa mga sagisag?",
+            "options": [
+              "Nagpapakita ito ng pagmamahal at pananagutan sa bansa",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ito ng agham",
+              "Hindi itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamahal at pananagutan sa bansa"
+          },
+          {
+            "question": "Ano ang dapat gawin kung nakita mong hindi iginagalang ng iba ang bandila?",
+            "options": [
+              "Sabihan sila nang may respeto tungkol sa tamang paggalang",
+              "Sigawan sila agad",
+              "Balewalain lamang ito",
+              "Kutyain sila"
+            ],
+            "correct_answer": "Sabihan sila nang may respeto tungkol sa tamang paggalang"
+          },
+          {
+            "question": "Bakit mahalagang ituro ang paggalang sa sagisag ng bansa sa mga bata?",
+            "options": [
+              "Upang lumaki silang magalang at makabayang mamamayan",
+              "Hindi na kailangan ituro ito",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang lumaki silang magalang at makabayang mamamayan"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📝 Friday Review — English (Grade 3)\n\n- Composing a paragraph about a national symbol\n\nGreat writing skills! 🌟",
+        "quiz": [
+          {
+            "question": "What should you choose first when writing about a national symbol?",
+            "options": [
+              "A topic you know well",
+              "A random unrelated topic",
+              "The longest word you know",
+              "A topic with no meaning"
+            ],
+            "correct_answer": "A topic you know well"
+          },
+          {
+            "question": "What is a topic sentence?",
+            "options": [
+              "A sentence that introduces the main subject",
+              "The last sentence",
+              "A question only",
+              "A list of random words"
+            ],
+            "correct_answer": "A sentence that introduces the main subject"
+          },
+          {
+            "question": "How many supporting details in a paragraph?",
+            "options": [
+              "3-4 details",
+              "0 details",
+              "20 details",
+              "Only 1"
+            ],
+            "correct_answer": "3-4 details"
+          },
+          {
+            "question": "What is the sampaguita?",
+            "options": [
+              "National flower of the Philippines",
+              "National bird",
+              "National animal",
+              "National fruit"
+            ],
+            "correct_answer": "National flower of the Philippines"
+          },
+          {
+            "question": "National bird of the Philippines?",
+            "options": [
+              "The Philippine eagle",
+              "The sampaguita",
+              "The carabao",
+              "The mango"
+            ],
+            "correct_answer": "The Philippine eagle"
+          },
+          {
+            "question": "What should a closing sentence do?",
+            "options": [
+              "Share why the topic matters",
+              "Introduce a new topic",
+              "Repeat the title exactly",
+              "Ask an unrelated question"
+            ],
+            "correct_answer": "Share why the topic matters"
+          },
+          {
+            "question": "In the example, what describes sampaguita's smell?",
+            "options": [
+              "It has a sweet smell",
+              "No smell",
+              "Smells bad",
+              "Smells like rain"
+            ],
+            "correct_answer": "It has a sweet smell"
+          },
+          {
+            "question": "Why organize a paragraph with clear structure?",
+            "options": [
+              "Helps the reader understand ideas clearly",
+              "No real benefit",
+              "Makes writing harder",
+              "Removes need for details"
+            ],
+            "correct_answer": "Helps the reader understand ideas clearly"
+          },
+          {
+            "question": "What might a closing about the flag mention?",
+            "options": [
+              "What colors/symbols represent to Filipinos",
+              "An unrelated topic",
+              "Only the flag's price",
+              "Nothing"
+            ],
+            "correct_answer": "What colors/symbols represent to Filipinos"
+          },
+          {
+            "question": "Why choose a familiar symbol?",
+            "options": [
+              "Easier to describe with accurate details",
+              "Random is always better",
+              "Knowledge doesn't matter",
+              "Shortens the paragraph automatically"
+            ],
+            "correct_answer": "Easier to describe with accurate details"
+          },
+          {
+            "question": "Purpose of details in a paragraph?",
+            "options": [
+              "Support and explain the topic sentence",
+              "Confuse the reader",
+              "Replace the topic sentence",
+              "Shorten the paragraph"
+            ],
+            "correct_answer": "Support and explain the topic sentence"
+          },
+          {
+            "question": "Why are sampaguita garlands used for special occasions?",
+            "options": [
+              "Represent purity, traditionally meaningful",
+              "No cultural significance",
+              "Only used elsewhere",
+              "Chosen randomly"
+            ],
+            "correct_answer": "Represent purity, traditionally meaningful"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💰 Friday Review — Mathematics (Grade 3)\n\n- Division word problems with money\n\nGreat problem-solving! ⭐",
+        "quiz": [
+          {
+            "question": "₱84 shared among 4 friends: each gets?",
+            "options": [
+              "₱21",
+              "₱20",
+              "₱24",
+              "₱80"
+            ],
+            "correct_answer": "₱21"
+          },
+          {
+            "question": "₱96 shared among 6 friends: each gets?",
+            "options": [
+              "₱16",
+              "₱14",
+              "₱18",
+              "₱90"
+            ],
+            "correct_answer": "₱16"
+          },
+          {
+            "question": "First step in a two-step problem?",
+            "options": [
+              "Understand what is being asked",
+              "Guess the answer",
+              "Skip reading",
+              "Add random numbers"
+            ],
+            "correct_answer": "Understand what is being asked"
+          },
+          {
+            "question": "6 friends get ₱16 each, spent ₱4: how much left?",
+            "options": [
+              "₱12",
+              "₱20",
+              "₱10",
+              "₱16"
+            ],
+            "correct_answer": "₱12"
+          },
+          {
+            "question": "₱72 shared among 8 students: each gets?",
+            "options": [
+              "₱9",
+              "₱8",
+              "₱10",
+              "₱64"
+            ],
+            "correct_answer": "₱9"
+          },
+          {
+            "question": "₱45 shared among 5 friends: each gets?",
+            "options": [
+              "₱9",
+              "₱8",
+              "₱10",
+              "₱40"
+            ],
+            "correct_answer": "₱9"
+          },
+          {
+            "question": "Operation for sharing money equally?",
+            "options": [
+              "Division",
+              "Multiplication only",
+              "Subtraction only",
+              "None"
+            ],
+            "correct_answer": "Division"
+          },
+          {
+            "question": "₱120 shared among 10 people: each gets?",
+            "options": [
+              "₱12",
+              "₱10",
+              "₱110",
+              "₱130"
+            ],
+            "correct_answer": "₱12"
+          },
+          {
+            "question": "Operations needed in a two-step problem?",
+            "options": [
+              "Two",
+              "One",
+              "Zero",
+              "Ten"
+            ],
+            "correct_answer": "Two"
+          },
+          {
+            "question": "7 friends share ₱63, each spends ₱3: left per person?",
+            "options": [
+              "₱6",
+              "₱9",
+              "₱3",
+              "₱60"
+            ],
+            "correct_answer": "₱6"
+          },
+          {
+            "question": "Why read a word problem carefully?",
+            "options": [
+              "Understand exact numbers and operations needed",
+              "It doesn't matter",
+              "Always guess",
+              "Reading slows you down"
+            ],
+            "correct_answer": "Understand exact numbers and operations needed"
+          },
+          {
+            "question": "₱54 divided among 6 friends: each gets?",
+            "options": [
+              "₱9",
+              "₱8",
+              "₱10",
+              "₱48"
+            ],
+            "correct_answer": "₱9"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📰 Friday Review — Filipino (Grade 3)\n\n- Pagsunud-sunod ng 5-7 pangyayari\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ilang pangyayari sa mahabang teksto?",
+            "options": [
+              "5-7 pangyayari",
+              "1 pangyayari",
+              "20 pangyayari",
+              "Wala"
+            ],
+            "correct_answer": "5-7 pangyayari"
+          },
+          {
+            "question": "Panandang salita para sa pagsunud-sunod?",
+            "options": [
+              "Una",
+              "Bahay",
+              "Maganda",
+              "Tumatakbo"
+            ],
+            "correct_answer": "Una"
+          },
+          {
+            "question": "Bakit sundan ang pagkakasunod-sunod ng pangyayari?",
+            "options": [
+              "Lubos na maunawaan ang buong kuwento",
+              "Hindi mahalaga",
+              "Para sa pagsusulit lamang",
+              "Walang gamit"
+            ],
+            "correct_answer": "Lubos na maunawaan ang buong kuwento"
+          },
+          {
+            "question": "Unang ginawa ng komunidad sa halimbawa?",
+            "options": [
+              "Nagplano sila",
+              "Naglinis ng ilog",
+              "Nagsalita ang lider",
+              "Nagtipon ng basura"
+            ],
+            "correct_answer": "Nagplano sila"
+          },
+          {
+            "question": "Huling nangyari sa halimbawa?",
+            "options": [
+              "Nagsalita ang lider tungkol sa mensahe",
+              "Nagplano sila",
+              "Naglinis ng ilog",
+              "Nagsama-sama"
+            ],
+            "correct_answer": "Nagsalita ang lider tungkol sa mensahe"
+          },
+          {
+            "question": "Panandang salita sa dulo ng kuwento?",
+            "options": [
+              "Sa wakas",
+              "Una",
+              "Pangalawa",
+              "Kanina"
+            ],
+            "correct_answer": "Sa wakas"
+          },
+          {
+            "question": "Bakit basahin nang maingat ang bawat talata?",
+            "options": [
+              "Makuha ang bawat detalye",
+              "Hindi kailangan",
+              "Basahin lamang nang mabilis",
+              "Walang gamit"
+            ],
+            "correct_answer": "Makuha ang bawat detalye"
+          },
+          {
+            "question": "Nagiging mas malinaw sa mambabasa dahil sa tamang pagkakasunod-sunod?",
+            "options": [
+              "Ang buong daloy ng kuwento",
+              "Ang bilang ng titik",
+              "Ang kulay ng papel",
+              "Ang laki ng font"
+            ],
+            "correct_answer": "Ang buong daloy ng kuwento"
+          },
+          {
+            "question": "Halimbawang balita sa aralin?",
+            "options": [
+              "Paglilinis ng ilog",
+              "Isang laro",
+              "Isang recipe",
+              "Isang liham pangkaibigan"
+            ],
+            "correct_answer": "Paglilinis ng ilog"
+          },
+          {
+            "question": "Bakit ginagamit ang panandang salita?",
+            "options": [
+              "Gabayan ang mambabasa sa pagkakasunod-sunod",
+              "Walang layunin",
+              "Lituhin ang mambabasa",
+              "Gawing maikli ang kuwento"
+            ],
+            "correct_answer": "Gabayan ang mambabasa sa pagkakasunod-sunod"
+          },
+          {
+            "question": "HINDI panandang salita ng pagsunud-sunod?",
+            "options": [
+              "Maganda",
+              "Una",
+              "Pangalawa",
+              "Sa wakas"
+            ],
+            "correct_answer": "Maganda"
+          },
+          {
+            "question": "Bakit magsanay sundin ang mahahabang teksto?",
+            "options": [
+              "Mahusay na maunawaan ang kumplikadong pagbasa",
+              "Hindi kailangan pagsanayan",
+              "Palagi madali ang mahabang teksto",
+              "Walang epekto"
+            ],
+            "correct_answer": "Mahusay na maunawaan ang kumplikadong pagbasa"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🧱 Friday Review — Science (Grade 3)\n\n- Useful things from non-living materials\n\nGreat materials review! 🌟",
+        "quiz": [
+          {
+            "question": "What can clay become?",
+            "options": [
+              "Bricks and pottery",
+              "Glass only",
+              "Metal wires",
+              "Gravel only"
+            ],
+            "correct_answer": "Bricks and pottery"
+          },
+          {
+            "question": "What can sand become?",
+            "options": [
+              "Glass and cement",
+              "Bricks only",
+              "Coins only",
+              "Wood"
+            ],
+            "correct_answer": "Glass and cement"
+          },
+          {
+            "question": "What can metal ore become?",
+            "options": [
+              "Tools, wires, coins",
+              "Only glass",
+              "Only bricks",
+              "Only sand"
+            ],
+            "correct_answer": "Tools, wires, coins"
+          },
+          {
+            "question": "What can rocks become?",
+            "options": [
+              "Gravel for roads, building stones",
+              "Only glass",
+              "Only paper",
+              "Only cloth"
+            ],
+            "correct_answer": "Gravel for roads, building stones"
+          },
+          {
+            "question": "How are raw materials changed into useful things?",
+            "options": [
+              "Shaped, melted, pressed, combined",
+              "They stay the same forever",
+              "They disappear",
+              "They become living"
+            ],
+            "correct_answer": "Shaped, melted, pressed, combined"
+          },
+          {
+            "question": "Why understand how raw materials become products?",
+            "options": [
+              "Appreciate items from Earth's resources",
+              "No real value",
+              "Never used for anything",
+              "Only scientists need this"
+            ],
+            "correct_answer": "Appreciate items from Earth's resources"
+          },
+          {
+            "question": "What is a raw material?",
+            "options": [
+              "A natural, unprocessed substance",
+              "A finished product",
+              "A living organism",
+              "A type of weather"
+            ],
+            "correct_answer": "A natural, unprocessed substance"
+          },
+          {
+            "question": "Why melt sand to make glass?",
+            "options": [
+              "Melting changes form into useful material",
+              "Sand cannot change",
+              "Melting destroys usefulness",
+              "Sand is already glass"
+            ],
+            "correct_answer": "Melting changes form into useful material"
+          },
+          {
+            "question": "Everyday object from metal ore?",
+            "options": [
+              "A coin",
+              "A wooden chair",
+              "A cotton shirt",
+              "A glass of water"
+            ],
+            "correct_answer": "A coin"
+          },
+          {
+            "question": "Why are rocks useful for roads?",
+            "options": [
+              "Gravel provides strong, stable surface",
+              "Rocks too soft",
+              "Rocks disappear when used",
+              "Only decorative"
+            ],
+            "correct_answer": "Gravel provides strong, stable surface"
+          },
+          {
+            "question": "What connects clay, sand, metal ore, rocks?",
+            "options": [
+              "Non-living materials made useful",
+              "All living things",
+              "Cannot be changed",
+              "All liquids"
+            ],
+            "correct_answer": "Non-living materials made useful"
+          },
+          {
+            "question": "Connection to earlier non-living things lesson?",
+            "options": [
+              "Shows how they become useful objects",
+              "No connection",
+              "Only about living things",
+              "Non-living never useful"
+            ],
+            "correct_answer": "Shows how they become useful objects"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🇵🇭 Friday Review — Makabansa (Grade 3)\n\n- Panatang Makabayan at responsableng batang Pilipino\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang Panatang Makabayan?",
+            "options": [
+              "Panatang nagpapahayag ng pagmamahal at pananagutan",
+              "Uri ng laro",
+              "Uri ng kanta lamang",
+              "Batas ng bansa"
+            ],
+            "correct_answer": "Panatang nagpapahayag ng pagmamahal at pananagutan"
+          },
+          {
+            "question": "Saan binibigkas ang Panatang Makabayan?",
+            "options": [
+              "Sa paaralan",
+              "Sa palengke lamang",
+              "Sa dagat",
+              "Sa bundok"
+            ],
+            "correct_answer": "Sa paaralan"
+          },
+          {
+            "question": "Pananagutan ng responsableng batang Pilipino?",
+            "options": [
+              "Pagsunod sa magulang at guro",
+              "Pagtanggi sa payo",
+              "Kawalang disiplina",
+              "Pag-iwas sa kapwa"
+            ],
+            "correct_answer": "Pagsunod sa magulang at guro"
+          },
+          {
+            "question": "Halimbawa ng pagtulong sa kapwa?",
+            "options": [
+              "Pagtulong sa kaklaseng nahihirapan",
+              "Pag-iwas sa kaklase",
+              "Kutyain ang iba",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pagtulong sa kaklaseng nahihirapan"
+          },
+          {
+            "question": "Bakit mahalaga ang Panatang Makabayan?",
+            "options": [
+              "Paalala ng responsibilidad bilang Pilipino",
+              "Walang kahalagahan",
+              "Hindi na kailangan bigkasin",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Paalala ng responsibilidad bilang Pilipino"
+          },
+          {
+            "question": "Disiplinang dapat ipakita sa paaralan?",
+            "options": [
+              "Pagsunod sa alituntunin",
+              "Pagtanggi sa patakaran",
+              "Kawalang galang sa guro",
+              "Pag-iwas sa pag-aaral"
+            ],
+            "correct_answer": "Pagsunod sa alituntunin"
+          },
+          {
+            "question": "Bakit mahalin ang Pilipinas ayon sa Panata?",
+            "options": [
+              "Ating bansa at bahagi ng pagkakakilanlan",
+              "Walang dahilan",
+              "Mahalin ang ibang bansa lamang",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Ating bansa at bahagi ng pagkakakilanlan"
+          },
+          {
+            "question": "Paano nagiging aktibong Pilipino ang bata?",
+            "options": [
+              "Pagpapakita ng responsibilidad at pagtulong",
+              "Walang ginagawa",
+              "Pag-iwas sa gawain",
+              "Kawalang interes"
+            ],
+            "correct_answer": "Pagpapakita ng responsibilidad at pagtulong"
+          },
+          {
+            "question": "Koneksyon ng Panata sa aktibong Pilipino?",
+            "options": [
+              "Parehong tumatalakay sa responsibilidad",
+              "Walang koneksyon",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong tumatalakay sa responsibilidad"
+          },
+          {
+            "question": "Bakit ituro ang Panata mula pagkabata?",
+            "options": [
+              "Malinang ang pagmamahal sa bansa maaga",
+              "Hindi kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Malinang ang pagmamahal sa bansa maaga"
+          },
+          {
+            "question": "Naidudulot ng pagiging responsableng mamamayan mula bata?",
+            "options": [
+              "Paghubog ng mabuting mamamayan paglaki",
+              "Wala",
+              "Nagdudulot ng kahirapan",
+              "Walang epekto"
+            ],
+            "correct_answer": "Paghubog ng mabuting mamamayan paglaki"
+          },
+          {
+            "question": "Halimbawa ng responsableng batang Pilipino?",
+            "options": [
+              "Pagsunod sa alituntunin ng paaralan",
+              "Pagtanggi sa tuntunin",
+              "Kawalang disiplina",
+              "Pag-iwas sa gawain"
+            ],
+            "correct_answer": "Pagsunod sa alituntunin ng paaralan"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🔌 Friday Review — Computer (Grade 3)\n\n- Ligtas na pagsasara ng programa at kompyuter\n\nMagaling sa Computer! 🌟",
+        "quiz": [
+          {
+            "question": "Bakit mahalaga ang tamang pagsasara ng kompyuter?",
+            "options": [
+              "Nakakaiwas sa pagkasira at pagkawala ng trabaho",
+              "Hindi mahalaga",
+              "Walang epekto",
+              "Basta patayin agad"
+            ],
+            "correct_answer": "Nakakaiwas sa pagkasira at pagkawala ng trabaho"
+          },
+          {
+            "question": "Unang hakbang bago isara ang kompyuter?",
+            "options": [
+              "I-save ang trabaho",
+              "Direktang patayin",
+              "Kalimutan ang trabaho",
+              "Tanggalin ang saksakan"
+            ],
+            "correct_answer": "I-save ang trabaho"
+          },
+          {
+            "question": "Gawin pagkatapos i-save ang trabaho?",
+            "options": [
+              "Isara ang mga bukas na programa",
+              "Tanggalin ang saksakan",
+              "Simulan ulit",
+              "Kalimutan ang lahat"
+            ],
+            "correct_answer": "Isara ang mga bukas na programa"
+          },
+          {
+            "question": "Opsyon para tamang isara ang kompyuter?",
+            "options": [
+              "Shut Down",
+              "Restart paulit-ulit",
+              "Delete",
+              "Format"
+            ],
+            "correct_answer": "Shut Down"
+          },
+          {
+            "question": "Mangyayari kung biglang puputulin ang kuryente?",
+            "options": [
+              "Maaaring masira o mawala ang trabaho",
+              "Wala",
+              "Palaging ligtas",
+              "Mas mabilis isasara"
+            ],
+            "correct_answer": "Maaaring masira o mawala ang trabaho"
+          },
+          {
+            "question": "Bakit hintaying mag-off nang tuluyan bago tanggalin ang saksakan?",
+            "options": [
+              "Matiyak na kumpleto ang proseso",
+              "Hindi kailangan hintayin",
+              "Walang epekto",
+              "Basta tanggalin agad"
+            ],
+            "correct_answer": "Matiyak na kumpleto ang proseso"
+          },
+          {
+            "question": "Mangyayari kung hindi i-save ang trabaho?",
+            "options": [
+              "Maaaring mawala ang trabaho",
+              "Palaging naiipon",
+              "Walang epekto",
+              "Awtomatikong nase-save"
+            ],
+            "correct_answer": "Maaaring mawala ang trabaho"
+          },
+          {
+            "question": "Bakit ituro ang ligtas na pagsasara?",
+            "options": [
+              "Mapanatili ang kompyuter sa mabuting kondisyon",
+              "Hindi mahalaga",
+              "Mapahaba lamang ang oras",
+              "Walang layunin"
+            ],
+            "correct_answer": "Mapanatili ang kompyuter sa mabuting kondisyon"
+          },
+          {
+            "question": "Ilang hakbang sa tamang pagsasara?",
+            "options": [
+              "Apat",
+              "Isa",
+              "Sampu",
+              "Wala"
+            ],
+            "correct_answer": "Apat"
+          },
+          {
+            "question": "Bakit isara ang bukas na programa bago mag-shut down?",
+            "options": [
+              "Iwasan ang problema sa pagsasara",
+              "Hindi kailangan",
+              "Walang epekto",
+              "Mas mabilis kung hindi isasara"
+            ],
+            "correct_answer": "Iwasan ang problema sa pagsasara"
+          },
+          {
+            "question": "Gawin bago tanggalin ang saksakan?",
+            "options": [
+              "Tiyakin naka-off na ang kompyuter",
+              "Direktang tanggalin",
+              "Walang kailangang tiyakin",
+              "Tanggalin habang naka-on"
+            ],
+            "correct_answer": "Tiyakin naka-off na ang kompyuter"
+          },
+          {
+            "question": "Bakit matutong mag-shut down nang tama mula Grade 3?",
+            "options": [
+              "Batayang kasanayan sa pag-aalaga ng kagamitan",
+              "Hindi kailangan matutunan",
+              "Para sa matatanda lamang",
+              "Walang gamit"
+            ],
+            "correct_answer": "Batayang kasanayan sa pag-aalaga ng kagamitan"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🇵🇭 Friday Review — GMRC (Grade 3)\n\n- Love of Country: paggalang sa sagisag ng bansa\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang watawat?",
+            "options": [
+              "Sagisag ng kalayaan",
+              "Uri ng laro",
+              "Uri ng pagkain",
+              "Uri ng damit"
+            ],
+            "correct_answer": "Sagisag ng kalayaan"
+          },
+          {
+            "question": "Pambansang awit ng Pilipinas?",
+            "options": [
+              "Lupang Hinirang",
+              "Bahay Kubo",
+              "Bayan Ko",
+              "Anak"
+            ],
+            "correct_answer": "Lupang Hinirang"
+          },
+          {
+            "question": "Pambansang hayop na sagisag?",
+            "options": [
+              "Agila (Philippine eagle)",
+              "Aso",
+              "Pusa",
+              "Ibon lamang"
+            ],
+            "correct_answer": "Agila (Philippine eagle)"
+          },
+          {
+            "question": "Pambansang bulaklak na sagisag?",
+            "options": [
+              "Sampaguita",
+              "Rosas",
+              "Sunflower",
+              "Orchid"
+            ],
+            "correct_answer": "Sampaguita"
+          },
+          {
+            "question": "Paano hikayatin ang kaibigan na igalang ang bandila?",
+            "options": [
+              "Ipaalala ang tamang pagsaludo",
+              "Kutyain sila",
+              "Iwasan silang turuan",
+              "Balewalain"
+            ],
+            "correct_answer": "Ipaalala ang tamang pagsaludo"
+          },
+          {
+            "question": "Pagpapahalaga na tinalakay?",
+            "options": [
+              "Love of Country",
+              "Compassion",
+              "Respect",
+              "Prudence"
+            ],
+            "correct_answer": "Love of Country"
+          },
+          {
+            "question": "Bakit mahalaga ang paggalang sa sagisag?",
+            "options": [
+              "Paraan ng pagpapakita ng pagmamahal sa bayan",
+              "Walang kahalagahan",
+              "Hindi na kailangan",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Paraan ng pagpapakita ng pagmamahal sa bayan"
+          },
+          {
+            "question": "Magandang halimbawa sa kaibigan?",
+            "options": [
+              "Pagsunod sa alituntunin sa sagisag",
+              "Kawalang pakialam",
+              "Pagkutya sa bandila",
+              "Kawalang respeto"
+            ],
+            "correct_answer": "Pagsunod sa alituntunin sa sagisag"
+          },
+          {
+            "question": "Bakit sabihan ang iba tungkol sa pambansang awit?",
+            "options": [
+              "Lumago ang pagmamahal sa bansa",
+              "Hindi kailangan",
+              "Walang gamit",
+              "Wala itong kahalagahan"
+            ],
+            "correct_answer": "Lumago ang pagmamahal sa bansa"
+          },
+          {
+            "question": "Bakit love of country ang paggalang sa sagisag?",
+            "options": [
+              "Nagpapakita ng pagmamahal sa bansa",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi ng agham lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Nagpapakita ng pagmamahal sa bansa"
+          },
+          {
+            "question": "Gawin kung may hindi gumagalang sa bandila?",
+            "options": [
+              "Sabihan nang may respeto",
+              "Sigawan agad",
+              "Balewalain",
+              "Kutyain sila"
+            ],
+            "correct_answer": "Sabihan nang may respeto"
+          },
+          {
+            "question": "Bakit ituro ang paggalang sa sagisag sa bata?",
+            "options": [
+              "Lumaki silang magalang at makabayan",
+              "Hindi kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Lumaki silang magalang at makabayan"
+          }
+        ]
+      }
+    }
+  }
+}

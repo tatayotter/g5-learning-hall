@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-11-08",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📖 English — Reading Compound Sentences in Stories\n\nGrade 3, Week 22! Let's find compound sentences while reading a story. 📖\n\n## 🔄 Review\nWe practiced writing compound sentences about our region.\n\n## 📖 Spotting Compound Sentences in Text\nWhen reading, look for a **comma + conjunction** (and, but, or, so) joining two complete ideas.\n\n**Example from a story:** \"The fisherman cast his net, **and** he waited patiently for a catch.\"\n\n## ✍️ Why Authors Use Them\nAuthors combine short sentences into compound sentences to show how two ideas are **connected** — like cause and result, or two things happening together.\n\n## 🔍 Practice\n\"The rain stopped, **so** the children went outside to play.\" — this shows a cause (rain stopping) and its result (children playing).\n\n**Key words:** spot, connected ideas, cause, result",
+        "quiz": [
+          {
+            "question": "What should you look for to spot a compound sentence while reading?",
+            "options": [
+              "A comma plus a conjunction joining two complete ideas",
+              "Only capital letters",
+              "A question mark",
+              "The longest word in the sentence"
+            ],
+            "correct_answer": "A comma plus a conjunction joining two complete ideas"
+          },
+          {
+            "question": "In 'The fisherman cast his net, and he waited patiently,' what conjunction joins the ideas?",
+            "options": [
+              "And",
+              "But",
+              "Or",
+              "So"
+            ],
+            "correct_answer": "And"
+          },
+          {
+            "question": "Why do authors combine short sentences into compound sentences?",
+            "options": [
+              "To show how two ideas are connected",
+              "To make reading harder",
+              "To remove all punctuation",
+              "To avoid using verbs"
+            ],
+            "correct_answer": "To show how two ideas are connected"
+          },
+          {
+            "question": "'The rain stopped, so the children went outside' shows what relationship?",
+            "options": [
+              "Cause and result",
+              "Two unrelated facts",
+              "A question and an answer",
+              "A list of items"
+            ],
+            "correct_answer": "Cause and result"
+          },
+          {
+            "question": "Which conjunction often shows a cause-and-result relationship?",
+            "options": [
+              "So",
+              "And",
+              "Or",
+              "But"
+            ],
+            "correct_answer": "So"
+          },
+          {
+            "question": "Which conjunction shows a contrast between two ideas?",
+            "options": [
+              "But",
+              "And",
+              "So",
+              "Or"
+            ],
+            "correct_answer": "But"
+          },
+          {
+            "question": "'She wanted to swim, but the pool was closed' shows what?",
+            "options": [
+              "A contrast between wanting to swim and the pool being closed",
+              "The same idea twice",
+              "A question",
+              "A cause with no result"
+            ],
+            "correct_answer": "A contrast between wanting to swim and the pool being closed"
+          },
+          {
+            "question": "Why is it useful to recognize compound sentences while reading?",
+            "options": [
+              "It helps understand how ideas in the story relate to each other",
+              "It has no real use",
+              "It only matters for spelling tests",
+              "It replaces the need to understand the story"
+            ],
+            "correct_answer": "It helps understand how ideas in the story relate to each other"
+          },
+          {
+            "question": "'The wind blew hard, and the leaves fell from the trees' shows what?",
+            "options": [
+              "Two related events happening together",
+              "A single unrelated fact",
+              "A question",
+              "An exclamation only"
+            ],
+            "correct_answer": "Two related events happening together"
+          },
+          {
+            "question": "Which sentence contains a compound sentence structure?",
+            "options": [
+              "He finished his homework, and he watched TV.",
+              "He finished his homework.",
+              "Finished homework.",
+              "Homework done."
+            ],
+            "correct_answer": "He finished his homework, and he watched TV."
+          },
+          {
+            "question": "Why might a compound sentence be more interesting to read than two separate short sentences?",
+            "options": [
+              "It shows the connection between the ideas more clearly",
+              "It always makes the story shorter",
+              "It removes the need for a plot",
+              "It confuses the reader on purpose"
+            ],
+            "correct_answer": "It shows the connection between the ideas more clearly"
+          },
+          {
+            "question": "In a story about a fisherman, what might a compound sentence describe?",
+            "options": [
+              "Two actions or events happening in connected order",
+              "Only the fisherman's name",
+              "The title of the story",
+              "The author's name"
+            ],
+            "correct_answer": "Two actions or events happening in connected order"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💵 Mathematics — Multiplying Larger Numbers and Money Word Problems\n\nGrade 3, Week 22! Let's multiply bigger numbers and solve money problems! 💵\n\n## 🔄 Review\nWe practiced multiplying with 6, 7, 8, and 9.\n\n## ✖️ Multiplying 2-Digit by 1-Digit Numbers\n**Example:** 23 × 4\n- 20 × 4 = 80\n- 3 × 4 = 12\n- 80 + 12 = **92**\n\n## 💵 Money Word Problems\nIf a toy costs ₱35 and you buy 3, how much do you spend?\n35 × 3 = **₱105**\n\n## 🔢 Estimating Products\nBefore multiplying exactly, round numbers to estimate.\n**Example:** 23 × 4 ≈ 20 × 4 = 80 (estimate)\n\n**Key words:** multiply, estimate, money word problem, 2-digit number",
+        "quiz": [
+          {
+            "question": "What is 23 × 4?",
+            "options": [
+              "92",
+              "84",
+              "96",
+              "88"
+            ],
+            "correct_answer": "92"
+          },
+          {
+            "question": "If a toy costs ₱35 and you buy 3, how much do you spend?",
+            "options": [
+              "₱105",
+              "₱95",
+              "₱115",
+              "₱38"
+            ],
+            "correct_answer": "₱105"
+          },
+          {
+            "question": "What is 32 × 3?",
+            "options": [
+              "96",
+              "35",
+              "90",
+              "99"
+            ],
+            "correct_answer": "96"
+          },
+          {
+            "question": "Why estimate before multiplying exactly?",
+            "options": [
+              "To check if your final answer is reasonable",
+              "It replaces the need to multiply",
+              "It always gives the exact answer",
+              "It only works with 1-digit numbers"
+            ],
+            "correct_answer": "To check if your final answer is reasonable"
+          },
+          {
+            "question": "What is 23 × 4 estimated by rounding 23 to 20?",
+            "options": [
+              "80",
+              "92",
+              "100",
+              "60"
+            ],
+            "correct_answer": "80"
+          },
+          {
+            "question": "What is 41 × 2?",
+            "options": [
+              "82",
+              "43",
+              "80",
+              "84"
+            ],
+            "correct_answer": "82"
+          },
+          {
+            "question": "If a pencil costs ₱12 and you buy 5, how much do you spend?",
+            "options": [
+              "₱60",
+              "₱17",
+              "₱50",
+              "₱65"
+            ],
+            "correct_answer": "₱60"
+          },
+          {
+            "question": "What is 15 × 6?",
+            "options": [
+              "90",
+              "21",
+              "85",
+              "96"
+            ],
+            "correct_answer": "90"
+          },
+          {
+            "question": "What is 20 × 4 + 3 × 4 equal to (using 23 × 4)?",
+            "options": [
+              "92",
+              "80",
+              "12",
+              "96"
+            ],
+            "correct_answer": "92"
+          },
+          {
+            "question": "If a shirt costs ₱150 and you buy 2, how much do you spend?",
+            "options": [
+              "₱300",
+              "₱152",
+              "₱250",
+              "₱350"
+            ],
+            "correct_answer": "₱300"
+          },
+          {
+            "question": "What is 12 × 7?",
+            "options": [
+              "84",
+              "19",
+              "72",
+              "91"
+            ],
+            "correct_answer": "84"
+          },
+          {
+            "question": "What is the first step in solving a multiplication word problem?",
+            "options": [
+              "Understand what is being asked and what numbers to use",
+              "Guess the answer immediately",
+              "Skip reading the problem",
+              "Always add instead of multiply"
+            ],
+            "correct_answer": "Understand what is being asked and what numbers to use"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📚 Filipino — Denotasyon at Konotasyon\n\nGrade 3, Linggo 22! Alamin natin ang dalawang uri ng kahulugan ng salita. 📚\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagbuo ng talata gamit ang tambalang pangungusap.\n\n## 📖 Ano ang Denotasyon?\nAng **denotasyon** ay ang literal o diksiyonaryong kahulugan ng isang salita.\n\n**Halimbawa:** \"Bahay\" — literal na tirahan ng tao.\n\n## 💭 Ano ang Konotasyon?\nAng **konotasyon** ay ang idinaragdag na kahulugan o damdaming kaugnay ng salita, hindi ang literal na kahulugan.\n\n**Halimbawa:** \"Tahanan\" — nagdadala ng damdaming init at pagmamahal, hindi lamang isang gusali.\n\n## 🔍 Paghahambing\n\"Payat\" (denotasyon: kulang sa timbang) kumpara sa \"balingkinitan\" (konotasyon: positibong paglalarawan ng payat).\n\n**Mahahalagang salita:** denotasyon, konotasyon, literal, damdamin",
+        "quiz": [
+          {
+            "question": "Ano ang denotasyon?",
+            "options": [
+              "Literal o diksiyonaryong kahulugan ng salita",
+              "Idinaragdag na damdamin sa salita",
+              "Isang uri ng pangngalan",
+              "Isang uri ng bantas"
+            ],
+            "correct_answer": "Literal o diksiyonaryong kahulugan ng salita"
+          },
+          {
+            "question": "Ano ang konotasyon?",
+            "options": [
+              "Idinaragdag na kahulugan o damdamin sa salita",
+              "Literal na kahulugan lamang",
+              "Isang uri ng pandiwa",
+              "Isang uri ng bantas"
+            ],
+            "correct_answer": "Idinaragdag na kahulugan o damdamin sa salita"
+          },
+          {
+            "question": "Ano ang denotasyon ng salitang 'bahay'?",
+            "options": [
+              "Literal na tirahan ng tao",
+              "Init at pagmamahal",
+              "Isang uri ng hayop",
+              "Isang uri ng pagkain"
+            ],
+            "correct_answer": "Literal na tirahan ng tao"
+          },
+          {
+            "question": "Ano ang konotasyon ng salitang 'tahanan'?",
+            "options": [
+              "Init at pagmamahal",
+              "Literal na gusali lamang",
+              "Isang uri ng hayop",
+              "Isang uri ng pagkain"
+            ],
+            "correct_answer": "Init at pagmamahal"
+          },
+          {
+            "question": "Alin ang mas positibong konotasyon ng 'payat'?",
+            "options": [
+              "Balingkinitan",
+              "Kulang sa timbang",
+              "Napakapayat",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Balingkinitan"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang pagkakaiba ng denotasyon at konotasyon?",
+            "options": [
+              "Para maunawaan ang tunay na kahulugan at damdamin ng salita",
+              "Walang kaugnayan sa pag-unawa",
+              "Para lamang sa pagsusulit",
+              "Hindi ito mahalaga sa pagbasa"
+            ],
+            "correct_answer": "Para maunawaan ang tunay na kahulugan at damdamin ng salita"
+          },
+          {
+            "question": "Alin ang halimbawa ng denotasyon?",
+            "options": [
+              "Ang diksiyonaryong kahulugan ng 'aso'",
+              "Ang damdaming dala ng salitang 'tahanan'",
+              "Ang tugma sa isang tula",
+              "Ang direksyon sa entablado"
+            ],
+            "correct_answer": "Ang diksiyonaryong kahulugan ng 'aso'"
+          },
+          {
+            "question": "Alin ang halimbawa ng konotasyon?",
+            "options": [
+              "Ang init na dala ng salitang 'tahanan'",
+              "Ang literal na kahulugan ng 'bahay' sa diksiyonaryo",
+              "Ang bilang ng titik sa salita",
+              "Ang pagbabaybay ng salita"
+            ],
+            "correct_answer": "Ang init na dala ng salitang 'tahanan'"
+          },
+          {
+            "question": "Bakit ginagamit ng manunulat ang mga salitang may positibong konotasyon?",
+            "options": [
+              "Para makabuo ng mas magandang damdamin sa mambabasa",
+              "Para lituhin ang mambabasa",
+              "Wala itong layunin",
+              "Para gawing mas maikli ang teksto"
+            ],
+            "correct_answer": "Para makabuo ng mas magandang damdamin sa mambabasa"
+          },
+          {
+            "question": "Paano naiiba ang 'matipuno' sa 'malaki' bilang paglalarawan ng katawan?",
+            "options": [
+              "Ang 'matipuno' ay may positibong konotasyon kumpara sa 'malaki'",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Ang 'malaki' ay palaging mas positibo"
+            ],
+            "correct_answer": "Ang 'matipuno' ay may positibong konotasyon kumpara sa 'malaki'"
+          },
+          {
+            "question": "Bakit gumagamit ang mga manunulat ng salitang may konotasyon sa halip na literal na salita lamang?",
+            "options": [
+              "Para maipahayag ang damdamin at karagdagang kahulugan",
+              "Sapagkat mas madali itong isulat",
+              "Sapagkat wala itong pagkakaiba sa denotasyon",
+              "Wala itong dahilan"
+            ],
+            "correct_answer": "Para maipahayag ang damdamin at karagdagang kahulugan"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang may negatibong konotasyon?",
+            "options": [
+              "Payat na parang patpat",
+              "Balingkinitan",
+              "Matipuno",
+              "Malusog"
+            ],
+            "correct_answer": "Payat na parang patpat"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 📍 Science — Describing Changes in Position\n\nGrade 3, Week 22! Let's learn how to describe where objects move! 📍\n\n## 🔄 Review\nWe learned about the natural and human causes of movement.\n\n## 📍 Describing Position\nWe describe position using words like:\n- **Closer** / **Farther** — distance from a point\n- **Left** / **Right** — sideways direction\n- **Up** / **Down** — vertical direction\n\n## 🔍 Comparing Positions\n**Example:** \"The ball moved closer to the goal.\" \"The book slid to the left of the table.\"\n\n## 🎯 Why This Matters\nDescribing position accurately helps us explain **how** and **where** things move — an important skill in science observation.\n\n**Key words:** position, closer, farther, left, right, up, down",
+        "quiz": [
+          {
+            "question": "What word describes something moving toward a point?",
+            "options": [
+              "Closer",
+              "Farther",
+              "Left",
+              "Right"
+            ],
+            "correct_answer": "Closer"
+          },
+          {
+            "question": "What word describes something moving away from a point?",
+            "options": [
+              "Farther",
+              "Closer",
+              "Up",
+              "Down"
+            ],
+            "correct_answer": "Farther"
+          },
+          {
+            "question": "What direction words describe sideways movement?",
+            "options": [
+              "Left and right",
+              "Up and down",
+              "Closer and farther",
+              "Fast and slow"
+            ],
+            "correct_answer": "Left and right"
+          },
+          {
+            "question": "What direction words describe vertical movement?",
+            "options": [
+              "Up and down",
+              "Left and right",
+              "Closer and farther",
+              "Loud and quiet"
+            ],
+            "correct_answer": "Up and down"
+          },
+          {
+            "question": "'The ball moved closer to the goal' describes what?",
+            "options": [
+              "A change in position toward a point",
+              "A change in color",
+              "A change in size",
+              "A change in sound"
+            ],
+            "correct_answer": "A change in position toward a point"
+          },
+          {
+            "question": "'The book slid to the left of the table' describes what?",
+            "options": [
+              "A sideways change in position",
+              "A vertical change",
+              "A change in temperature",
+              "No movement at all"
+            ],
+            "correct_answer": "A sideways change in position"
+          },
+          {
+            "question": "Why is it important to describe position accurately in science?",
+            "options": [
+              "It helps explain how and where things move",
+              "It has no real use",
+              "It only matters for math",
+              "It replaces the need for observation"
+            ],
+            "correct_answer": "It helps explain how and where things move"
+          },
+          {
+            "question": "If a bird flies from a low branch to a high one, what direction word describes this?",
+            "options": [
+              "Up",
+              "Down",
+              "Left",
+              "Right"
+            ],
+            "correct_answer": "Up"
+          },
+          {
+            "question": "If a car moves away from a building, what word describes this?",
+            "options": [
+              "Farther",
+              "Closer",
+              "Up",
+              "Down"
+            ],
+            "correct_answer": "Farther"
+          },
+          {
+            "question": "Which pair of words describes opposite directions?",
+            "options": [
+              "Left and right",
+              "Closer and closer",
+              "Up and up",
+              "Farther and farther"
+            ],
+            "correct_answer": "Left and right"
+          },
+          {
+            "question": "Why do scientists need precise position words instead of vague ones?",
+            "options": [
+              "Precise words communicate exactly what happened",
+              "Vague words are always clearer",
+              "Position doesn't matter in science",
+              "Scientists never describe position"
+            ],
+            "correct_answer": "Precise words communicate exactly what happened"
+          },
+          {
+            "question": "If you push a toy car and it ends up nearer to you, what word best describes the change?",
+            "options": [
+              "Closer",
+              "Farther",
+              "Left",
+              "Right"
+            ],
+            "correct_answer": "Closer"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🌟 Makabansa — Sariling Katangian at Pagka-Pilipino\n\nGrade 3, Linggo 22! Alamin natin ang mga katangiang natatangi sa mga Pilipino. 🌟\n\n## 🔄 Balik-Aral\nNatutuhan natin ang konsepto ng pagka-Pilipino.\n\n## 🌟 Mga Katangian ng Pilipino\n- **Malasakit** — pagmamalasakit sa kapwa\n- **Pagiging Masayahin** — kahit sa mahihirap na sitwasyon\n- **Bayanihan** — pagtutulungan bilang komunidad\n- **Paggalang** — sa nakatatanda at sa iba\n\n## 🌏 Pagpapakita ng mga Katangian\nAng mga katangiang ito ay nakikita sa araw-araw na buhay — sa pagtulong sa kapitbahay, sa pagtanggap ng bisita, at sa pagharap sa mga hamon nang may ngiti.\n\n## 💡 Bakit Mahalaga Ito?\nAng mga katangiang ito ay bumubuo sa **natatanging pagkatao** ng bawat Pilipino at nagpapatibay sa **pagkakaisa** ng bansa.\n\n**Mahahalagang salita:** malasakit, bayanihan, paggalang, pagkatao",
+        "quiz": [
+          {
+            "question": "Ano ang malasakit bilang katangiang Pilipino?",
+            "options": [
+              "Pagmamalasakit sa kapwa",
+              "Kawalang pakialam sa iba",
+              "Pag-iwas sa kapwa",
+              "Pagiging bastos"
+            ],
+            "correct_answer": "Pagmamalasakit sa kapwa"
+          },
+          {
+            "question": "Ano ang tinutukoy ng pagiging masayahin ng Pilipino?",
+            "options": [
+              "Pananatiling masaya kahit sa mahihirap na sitwasyon",
+              "Kawalang pakialam",
+              "Pagiging seryoso lamang",
+              "Pag-iwas sa problema"
+            ],
+            "correct_answer": "Pananatiling masaya kahit sa mahihirap na sitwasyon"
+          },
+          {
+            "question": "Ano ang bayanihan?",
+            "options": [
+              "Pagtutulungan bilang komunidad",
+              "Pagsasarili nang walang tulong",
+              "Pag-iwas sa kapwa",
+              "Kawalang pakialam sa iba"
+            ],
+            "correct_answer": "Pagtutulungan bilang komunidad"
+          },
+          {
+            "question": "Saan makikita ang mga katangiang Pilipino?",
+            "options": [
+              "Sa araw-araw na buhay tulad ng pagtulong sa kapitbahay",
+              "Sa mga libro lamang",
+              "Sa ibang bansa lamang",
+              "Wala kahit saan"
+            ],
+            "correct_answer": "Sa araw-araw na buhay tulad ng pagtulong sa kapitbahay"
+          },
+          {
+            "question": "Bakit mahalaga ang mga katangiang ito?",
+            "options": [
+              "Bumubuo ito sa natatanging pagkatao ng Pilipino at pagkakaisa ng bansa",
+              "Wala itong kahalagahan",
+              "Nagdudulot lamang ito ng away",
+              "Hindi ito nakakatulong sa bansa"
+            ],
+            "correct_answer": "Bumubuo ito sa natatanging pagkatao ng Pilipino at pagkakaisa ng bansa"
+          },
+          {
+            "question": "Ano ang ipinapakita ng paggalang bilang katangiang Pilipino?",
+            "options": [
+              "Paggalang sa nakatatanda at sa iba",
+              "Kawalang respeto sa iba",
+              "Kawalang pakialam sa nakatatanda",
+              "Pagiging bastos sa lahat"
+            ],
+            "correct_answer": "Paggalang sa nakatatanda at sa iba"
+          },
+          {
+            "question": "Anong halimbawa ng pagpapakita ng malasakit?",
+            "options": [
+              "Pagtulong sa kapitbahay na may problema",
+              "Pag-iwas sa taong may problema",
+              "Kutyain ang taong nahihirapan",
+              "Balewalain ang kapitbahay"
+            ],
+            "correct_answer": "Pagtulong sa kapitbahay na may problema"
+          },
+          {
+            "question": "Bakit itinuturing na natatangi ang bayanihan sa kultura ng Pilipino?",
+            "options": [
+              "Ipinapakita nito ang pagkakaisa at pagtutulungan ng komunidad",
+              "Walang kaugnayan sa kultura",
+              "Ito ay galing sa ibang bansa",
+              "Hindi ito ginagawa ng mga Pilipino"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagkakaisa at pagtutulungan ng komunidad"
+          },
+          {
+            "question": "Paano nagpapakita ang Pilipino ng pagiging masayahin kahit may bagyo?",
+            "options": [
+              "Sa pamamagitan ng pananatiling positibo at magkatuwang habang naghahanda",
+              "Sa pamamagitan ng pananakit sa isa't isa",
+              "Sa pamamagitan ng pag-iwas sa lahat",
+              "Sa pamamagitan ng pagtigil sa lahat ng gawain"
+            ],
+            "correct_answer": "Sa pamamagitan ng pananatiling positibo at magkatuwang habang naghahanda"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang bahagi ng pagka-Pilipino ang mga katangiang ito?",
+            "options": [
+              "Nagpapakita sila ng kung sino talaga tayo bilang mamamayan",
+              "Wala silang kaugnayan sa pagka-Pilipino",
+              "Ito ay tungkol lamang sa ibang bansa",
+              "Hindi mahalaga ang katangian"
+            ],
+            "correct_answer": "Nagpapakita sila ng kung sino talaga tayo bilang mamamayan"
+          },
+          {
+            "question": "Ano ang naidudulot ng bayanihan sa isang komunidad?",
+            "options": [
+              "Mas malakas na pagkakaisa",
+              "Higit na paghihiwalay",
+              "Walang naidudulot",
+              "Kawalan ng tiwala"
+            ],
+            "correct_answer": "Mas malakas na pagkakaisa"
+          },
+          {
+            "question": "Bakit dapat ipagmalaki ng mga bata ang mga katangiang ito?",
+            "options": [
+              "Ipinapakita nito ang kanilang pagkakakilanlan bilang Pilipino",
+              "Hindi mahalaga ito sa kanila",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito sa hinaharap"
+            ],
+            "correct_answer": "Ipinapakita nito ang kanilang pagkakakilanlan bilang Pilipino"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🔍 Computer — Kilalanin ang Browser at Search Engine Icons\n\nGrade 3, Week 22! Matuto tayong kilalanin ang mga icon na madalas nating makita. 🔍\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga gamit ng Internet.\n\n## 🔍 Mga Karaniwang Icon ng Browser\n- **Chrome** — bilog na may apat na kulay\n- **Edge** — asul na alon o \"e\"\n- **Safari** — kompas na asul\n\n## 🔍 Mga Icon ng Search Engine\n- **Google** — kulay na salitang \"Google\" o magnifying glass\n\n## 💡 Bakit Kailangang Kilalanin Ito?\nAng pagkilala sa mga icon na ito ay tumutulong sa atin na **mahanap agad** ang tamang programa kapag gagamit ng kompyuter.\n\n**Mahahalagang salita:** icon, browser, search engine, kilalanin",
+        "quiz": [
+          {
+            "question": "Bakit mahalagang kilalanin ang mga icon ng browser?",
+            "options": [
+              "Tumutulong itong mahanap agad ang tamang programa",
+              "Walang gamit ito",
+              "Hindi na kailangan malaman ito",
+              "Para lamang palamutihan ang kompyuter"
+            ],
+            "correct_answer": "Tumutulong itong mahanap agad ang tamang programa"
+          },
+          {
+            "question": "Anong hugis ang icon ng Chrome?",
+            "options": [
+              "Bilog na may apat na kulay",
+              "Parisukat na itim",
+              "Tatsulok na berde",
+              "Bituin na dilaw"
+            ],
+            "correct_answer": "Bilog na may apat na kulay"
+          },
+          {
+            "question": "Ano ang halimbawa ng browser?",
+            "options": [
+              "Chrome, Edge, Safari",
+              "Google lamang",
+              "Word lamang",
+              "Paint lamang"
+            ],
+            "correct_answer": "Chrome, Edge, Safari"
+          },
+          {
+            "question": "Ano ang halimbawa ng search engine?",
+            "options": [
+              "Google",
+              "Chrome",
+              "Edge",
+              "Safari"
+            ],
+            "correct_answer": "Google"
+          },
+          {
+            "question": "Bakit iba-iba ang hitsura ng mga browser icon?",
+            "options": [
+              "Iba't ibang kumpanya ang gumawa ng bawat isa",
+              "Lahat sila ay pareho",
+              "Walang pagkakaiba",
+              "Iisang kumpanya lamang ang gumawa ng lahat"
+            ],
+            "correct_answer": "Iba't ibang kumpanya ang gumawa ng bawat isa"
+          },
+          {
+            "question": "Ano ang ginagamit para maghanap ng impormasyon online?",
+            "options": [
+              "Search engine",
+              "Browser lamang",
+              "Keyboard lamang",
+              "Mouse lamang"
+            ],
+            "correct_answer": "Search engine"
+          },
+          {
+            "question": "Ano ang ginagamit para makapunta sa internet?",
+            "options": [
+              "Browser",
+              "Search engine lamang",
+              "Keyboard lamang",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Browser"
+          },
+          {
+            "question": "Bakit itinuturo ang pagkilala sa mga icon na ito sa Grade 3?",
+            "options": [
+              "Para makapaggamit nang mas mahusay at mabilis ng kompyuter",
+              "Hindi ito mahalaga",
+              "Para lamang libangin ang mga bata",
+              "Walang layunin ito"
+            ],
+            "correct_answer": "Para makapaggamit nang mas mahusay at mabilis ng kompyuter"
+          },
+          {
+            "question": "Kung gusto mong maghanap ng larawan ng hayop online, ano ang gagamitin mo?",
+            "options": [
+              "Search engine",
+              "Isang bagong browser lamang",
+              "Isang bagong kompyuter",
+              "Walang gagamitin"
+            ],
+            "correct_answer": "Search engine"
+          },
+          {
+            "question": "Kung gusto mong buksan ang Internet, ano ang una mong bubuksan?",
+            "options": [
+              "Browser",
+              "Search engine lamang",
+              "Isang laruan",
+              "Isang libro"
+            ],
+            "correct_answer": "Browser"
+          },
+          {
+            "question": "Bakit mahalagang maging pamilyar sa iba't ibang icon ng kompyuter?",
+            "options": [
+              "Nakakatulong ito upang gumamit nang mas kumpiyansa ng kompyuter",
+              "Hindi ito kinakailangan",
+              "Wala itong epekto sa paggamit",
+              "Isang icon lamang ang mahalaga"
+            ],
+            "correct_answer": "Nakakatulong ito upang gumamit nang mas kumpiyansa ng kompyuter"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HINDI isang browser?",
+            "options": [
+              "Google Search bar lamang (hindi ito browser)",
+              "Chrome",
+              "Edge",
+              "Safari"
+            ],
+            "correct_answer": "Google Search bar lamang (hindi ito browser)"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🤲 GMRC — Sariling Kakayahan Para sa Kapuwa\n\nGrade 3, Linggo 22! Pagpapahalaga: **Compassion (Pagmamalasakit)**. 🤲\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa mabubuting kaugalian ng pamilyang Pilipino.\n\n## 🤲 Ano ang Sariling Kakayahan?\nAng bawat isa ay may **natatanging talento o kakayahan** — pagkanta, pagguhit, pag-aaral, o kahit pakikinig lamang sa iba.\n\n## 💝 Paggamit ng Kakayahan Para sa Iba\n- Ang batang magaling sa pag-awit ay maaaring **awitan** ang isang malungkot na kaibigan\n- Ang batang magaling sa pagguhit ay maaaring **gumawa ng card** para sa may sakit\n- Ang batang mahusay sa Matematika ay maaaring **turuan** ang kaklaseng nahihirapan\n\n## 💡 Bakit Mahalaga Ito?\nAng paggamit ng sariling kakayahan para sa iba ay isang uri ng **kabutihan** na nagpapasaya at nakakatulong sa kapwa.\n\n**Mahahalagang salita:** kakayahan, talento, kabutihan, paggamit",
+        "quiz": [
+          {
+            "question": "Ano ang kailangang malaman tungkol sa bawat isang tao?",
+            "options": [
+              "May natatanging talento o kakayahan ang bawat isa",
+              "Walang taong may kakayahan",
+              "Iisa lamang ang uri ng talento",
+              "Walang kaugnayan ang talento sa kabutihan"
+            ],
+            "correct_answer": "May natatanging talento o kakayahan ang bawat isa"
+          },
+          {
+            "question": "Paano magagamit ng batang magaling umawit ang kanyang kakayahan para sa kapuwa?",
+            "options": [
+              "Awitan ang malungkot na kaibigan",
+              "Itago na lamang ang talento",
+              "Gamitin lamang sa sarili",
+              "Huwag na lamang kumanta"
+            ],
+            "correct_answer": "Awitan ang malungkot na kaibigan"
+          },
+          {
+            "question": "Paano magagamit ng batang magaling gumuhit ang kanyang talento para sa iba?",
+            "options": [
+              "Gumawa ng card para sa may sakit",
+              "Itago ang mga guhit",
+              "Huwag ipakita sa iba",
+              "Gamitin lamang para sa sarili"
+            ],
+            "correct_answer": "Gumawa ng card para sa may sakit"
+          },
+          {
+            "question": "Paano magagamit ng batang mahusay sa Matematika ang kanyang kakayahan?",
+            "options": [
+              "Turuan ang kaklaseng nahihirapan",
+              "Ipagmalaki lamang ito",
+              "Itago ang kaalaman",
+              "Huwag tumulong sa iba"
+            ],
+            "correct_answer": "Turuan ang kaklaseng nahihirapan"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Compassion (Pagmamalasakit)",
+              "Respect",
+              "Gratitude",
+              "Prudence"
+            ],
+            "correct_answer": "Compassion (Pagmamalasakit)"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang sariling kakayahan para sa iba?",
+            "options": [
+              "Ito ay isang uri ng kabutihan na nakakatulong sa kapwa",
+              "Wala itong kahalagahan",
+              "Dapat itago lamang ang talento",
+              "Para lamang sa sarili dapat gamitin"
+            ],
+            "correct_answer": "Ito ay isang uri ng kabutihan na nakakatulong sa kapwa"
+          },
+          {
+            "question": "Bakit itinuturing na compassion ang paggamit ng talento para sa iba?",
+            "options": [
+              "Nagpapakita ito ng pagmamalasakit sa kapwa",
+              "Walang kaugnayan sa pagmamalasakit",
+              "Ito ay tungkol lamang sa sarili",
+              "Hindi ito totoong kabutihan"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamalasakit sa kapwa"
+          },
+          {
+            "question": "Ano ang mararamdaman ng kaibigang inawitan mo dahil sa kalungkutan?",
+            "options": [
+              "Kasiyahan at ginhawa",
+              "Higit na kalungkutan",
+              "Galit",
+              "Wala siyang mararamdaman"
+            ],
+            "correct_answer": "Kasiyahan at ginhawa"
+          },
+          {
+            "question": "Bakit hindi dapat itago ang sariling talento?",
+            "options": [
+              "Maaari itong makatulong sa iba kung ibabahagi",
+              "Dapat itago palagi ang talento",
+              "Walang gamit ang pagbabahagi ng talento",
+              "Ang talento ay para sa sarili lamang"
+            ],
+            "correct_answer": "Maaari itong makatulong sa iba kung ibabahagi"
+          },
+          {
+            "question": "Anong halimbawa ng kabutihan gamit ang talento?",
+            "options": [
+              "Pagtuturo sa kaklaseng nahihirapan",
+              "Pagtago ng kaalaman",
+              "Pagkutya sa kaklase",
+              "Pagtanggi tumulong"
+            ],
+            "correct_answer": "Pagtuturo sa kaklaseng nahihirapan"
+          },
+          {
+            "question": "Bakit itinuturo ang paksang ito sa GMRC?",
+            "options": [
+              "Upang matutunan gamitin ang sariling talento para sa kabutihan ng iba",
+              "Walang layunin ito",
+              "Para lamang ipagmalaki ang sarili",
+              "Hindi ito mahalagang aralin"
+            ],
+            "correct_answer": "Upang matutunan gamitin ang sariling talento para sa kabutihan ng iba"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagbabahagi ng talento sa isang klase?",
+            "options": [
+              "Mas malapit at magkakatulungang klase",
+              "Higit na kompetisyon lamang",
+              "Walang naidudulot",
+              "Nagdudulot ng inggit"
+            ],
+            "correct_answer": "Mas malapit at magkakatulungang klase"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📖 Friday Review — English (Grade 3)\n\n- Spotting compound sentences in stories\n\nGreat reading skills! 🌟",
+        "quiz": [
+          {
+            "question": "What should you look for to spot a compound sentence?",
+            "options": [
+              "A comma plus a conjunction joining two ideas",
+              "Only capital letters",
+              "A question mark",
+              "The longest word"
+            ],
+            "correct_answer": "A comma plus a conjunction joining two ideas"
+          },
+          {
+            "question": "In 'The fisherman cast his net, and he waited,' what joins the ideas?",
+            "options": [
+              "And",
+              "But",
+              "Or",
+              "So"
+            ],
+            "correct_answer": "And"
+          },
+          {
+            "question": "Why do authors combine sentences into compound sentences?",
+            "options": [
+              "To show how two ideas are connected",
+              "To make reading harder",
+              "To remove punctuation",
+              "To avoid verbs"
+            ],
+            "correct_answer": "To show how two ideas are connected"
+          },
+          {
+            "question": "'The rain stopped, so the children went outside' shows what?",
+            "options": [
+              "Cause and result",
+              "Unrelated facts",
+              "A question",
+              "A list"
+            ],
+            "correct_answer": "Cause and result"
+          },
+          {
+            "question": "Which conjunction often shows cause and result?",
+            "options": [
+              "So",
+              "And",
+              "Or",
+              "But"
+            ],
+            "correct_answer": "So"
+          },
+          {
+            "question": "Which conjunction shows contrast?",
+            "options": [
+              "But",
+              "And",
+              "So",
+              "Or"
+            ],
+            "correct_answer": "But"
+          },
+          {
+            "question": "'She wanted to swim, but the pool was closed' shows what?",
+            "options": [
+              "A contrast between two ideas",
+              "The same idea twice",
+              "A question",
+              "A cause with no result"
+            ],
+            "correct_answer": "A contrast between two ideas"
+          },
+          {
+            "question": "Why recognize compound sentences while reading?",
+            "options": [
+              "Helps understand how ideas relate",
+              "No real use",
+              "Only for spelling tests",
+              "Replaces understanding the story"
+            ],
+            "correct_answer": "Helps understand how ideas relate"
+          },
+          {
+            "question": "'The wind blew hard, and the leaves fell' shows what?",
+            "options": [
+              "Two related events together",
+              "An unrelated fact",
+              "A question",
+              "An exclamation only"
+            ],
+            "correct_answer": "Two related events together"
+          },
+          {
+            "question": "Which sentence is compound?",
+            "options": [
+              "He finished his homework, and he watched TV.",
+              "He finished his homework.",
+              "Finished homework.",
+              "Homework done."
+            ],
+            "correct_answer": "He finished his homework, and he watched TV."
+          },
+          {
+            "question": "Why might a compound sentence be more interesting?",
+            "options": [
+              "Shows the connection between ideas clearly",
+              "Always shorter",
+              "Removes the plot",
+              "Confuses on purpose"
+            ],
+            "correct_answer": "Shows the connection between ideas clearly"
+          },
+          {
+            "question": "In a fisherman story, what might a compound sentence describe?",
+            "options": [
+              "Two connected actions or events",
+              "Only the fisherman's name",
+              "The title",
+              "The author's name"
+            ],
+            "correct_answer": "Two connected actions or events"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💵 Friday Review — Mathematics (Grade 3)\n\n- Multiplying larger numbers and money problems\n\nGreat problem-solving! ⭐",
+        "quiz": [
+          {
+            "question": "What is 23 × 4?",
+            "options": [
+              "92",
+              "84",
+              "96",
+              "88"
+            ],
+            "correct_answer": "92"
+          },
+          {
+            "question": "A toy costs ₱35, you buy 3: total?",
+            "options": [
+              "₱105",
+              "₱95",
+              "₱115",
+              "₱38"
+            ],
+            "correct_answer": "₱105"
+          },
+          {
+            "question": "What is 32 × 3?",
+            "options": [
+              "96",
+              "35",
+              "90",
+              "99"
+            ],
+            "correct_answer": "96"
+          },
+          {
+            "question": "Why estimate before multiplying exactly?",
+            "options": [
+              "Check if the answer is reasonable",
+              "Replaces multiplying",
+              "Always gives exact answer",
+              "Only works with 1-digit numbers"
+            ],
+            "correct_answer": "Check if the answer is reasonable"
+          },
+          {
+            "question": "23 × 4 estimated by rounding 23 to 20?",
+            "options": [
+              "80",
+              "92",
+              "100",
+              "60"
+            ],
+            "correct_answer": "80"
+          },
+          {
+            "question": "What is 41 × 2?",
+            "options": [
+              "82",
+              "43",
+              "80",
+              "84"
+            ],
+            "correct_answer": "82"
+          },
+          {
+            "question": "A pencil costs ₱12, you buy 5: total?",
+            "options": [
+              "₱60",
+              "₱17",
+              "₱50",
+              "₱65"
+            ],
+            "correct_answer": "₱60"
+          },
+          {
+            "question": "What is 15 × 6?",
+            "options": [
+              "90",
+              "21",
+              "85",
+              "96"
+            ],
+            "correct_answer": "90"
+          },
+          {
+            "question": "20 × 4 + 3 × 4 equals what (23 × 4)?",
+            "options": [
+              "92",
+              "80",
+              "12",
+              "96"
+            ],
+            "correct_answer": "92"
+          },
+          {
+            "question": "A shirt costs ₱150, you buy 2: total?",
+            "options": [
+              "₱300",
+              "₱152",
+              "₱250",
+              "₱350"
+            ],
+            "correct_answer": "₱300"
+          },
+          {
+            "question": "What is 12 × 7?",
+            "options": [
+              "84",
+              "19",
+              "72",
+              "91"
+            ],
+            "correct_answer": "84"
+          },
+          {
+            "question": "First step in a multiplication word problem?",
+            "options": [
+              "Understand what's asked and what numbers to use",
+              "Guess the answer",
+              "Skip reading",
+              "Always add instead"
+            ],
+            "correct_answer": "Understand what's asked and what numbers to use"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📚 Friday Review — Filipino (Grade 3)\n\n- Denotasyon at konotasyon\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang denotasyon?",
+            "options": [
+              "Literal o diksiyonaryong kahulugan",
+              "Idinaragdag na damdamin",
+              "Uri ng pangngalan",
+              "Uri ng bantas"
+            ],
+            "correct_answer": "Literal o diksiyonaryong kahulugan"
+          },
+          {
+            "question": "Ano ang konotasyon?",
+            "options": [
+              "Idinaragdag na kahulugan o damdamin",
+              "Literal na kahulugan lamang",
+              "Uri ng pandiwa",
+              "Uri ng bantas"
+            ],
+            "correct_answer": "Idinaragdag na kahulugan o damdamin"
+          },
+          {
+            "question": "Denotasyon ng 'bahay'?",
+            "options": [
+              "Literal na tirahan ng tao",
+              "Init at pagmamahal",
+              "Uri ng hayop",
+              "Uri ng pagkain"
+            ],
+            "correct_answer": "Literal na tirahan ng tao"
+          },
+          {
+            "question": "Konotasyon ng 'tahanan'?",
+            "options": [
+              "Init at pagmamahal",
+              "Literal na gusali lamang",
+              "Uri ng hayop",
+              "Uri ng pagkain"
+            ],
+            "correct_answer": "Init at pagmamahal"
+          },
+          {
+            "question": "Mas positibong konotasyon ng 'payat'?",
+            "options": [
+              "Balingkinitan",
+              "Kulang sa timbang",
+              "Napakapayat",
+              "Wala"
+            ],
+            "correct_answer": "Balingkinitan"
+          },
+          {
+            "question": "Bakit malaman ang pagkakaiba ng dalawa?",
+            "options": [
+              "Maunawaan ang tunay na kahulugan at damdamin",
+              "Walang kaugnayan",
+              "Para sa pagsusulit lamang",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Maunawaan ang tunay na kahulugan at damdamin"
+          },
+          {
+            "question": "Halimbawa ng denotasyon?",
+            "options": [
+              "Diksiyonaryong kahulugan ng 'aso'",
+              "Damdamin ng 'tahanan'",
+              "Tugma sa tula",
+              "Direksyon sa entablado"
+            ],
+            "correct_answer": "Diksiyonaryong kahulugan ng 'aso'"
+          },
+          {
+            "question": "Halimbawa ng konotasyon?",
+            "options": [
+              "Init na dala ng 'tahanan'",
+              "Literal na kahulugan ng 'bahay'",
+              "Bilang ng titik",
+              "Pagbabaybay ng salita"
+            ],
+            "correct_answer": "Init na dala ng 'tahanan'"
+          },
+          {
+            "question": "Bakit gumagamit ng positibong konotasyon ang manunulat?",
+            "options": [
+              "Makabuo ng magandang damdamin sa mambabasa",
+              "Para lituhin ang mambabasa",
+              "Walang layunin",
+              "Gawing mas maikli"
+            ],
+            "correct_answer": "Makabuo ng magandang damdamin sa mambabasa"
+          },
+          {
+            "question": "Pagkakaiba ng 'matipuno' sa 'malaki'?",
+            "options": [
+              "Matipuno ay may positibong konotasyon",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Malaki ay palaging mas positibo"
+            ],
+            "correct_answer": "Matipuno ay may positibong konotasyon"
+          },
+          {
+            "question": "Bakit gumamit ng salitang may konotasyon?",
+            "options": [
+              "Maipahayag ang damdamin at karagdagang kahulugan",
+              "Mas madali isulat",
+              "Wala itong pagkakaiba",
+              "Walang dahilan"
+            ],
+            "correct_answer": "Maipahayag ang damdamin at karagdagang kahulugan"
+          },
+          {
+            "question": "Alin ang may negatibong konotasyon?",
+            "options": [
+              "Payat na parang patpat",
+              "Balingkinitan",
+              "Matipuno",
+              "Malusog"
+            ],
+            "correct_answer": "Payat na parang patpat"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 📍 Friday Review — Science (Grade 3)\n\n- Describing changes in position\n\nGreat position vocabulary! 🌟",
+        "quiz": [
+          {
+            "question": "Word describing movement toward a point?",
+            "options": [
+              "Closer",
+              "Farther",
+              "Left",
+              "Right"
+            ],
+            "correct_answer": "Closer"
+          },
+          {
+            "question": "Word describing movement away?",
+            "options": [
+              "Farther",
+              "Closer",
+              "Up",
+              "Down"
+            ],
+            "correct_answer": "Farther"
+          },
+          {
+            "question": "Words describing sideways movement?",
+            "options": [
+              "Left and right",
+              "Up and down",
+              "Closer and farther",
+              "Fast and slow"
+            ],
+            "correct_answer": "Left and right"
+          },
+          {
+            "question": "Words describing vertical movement?",
+            "options": [
+              "Up and down",
+              "Left and right",
+              "Closer and farther",
+              "Loud and quiet"
+            ],
+            "correct_answer": "Up and down"
+          },
+          {
+            "question": "'The ball moved closer to the goal' describes?",
+            "options": [
+              "Position change toward a point",
+              "Color change",
+              "Size change",
+              "Sound change"
+            ],
+            "correct_answer": "Position change toward a point"
+          },
+          {
+            "question": "'The book slid to the left' describes?",
+            "options": [
+              "Sideways position change",
+              "Vertical change",
+              "Temperature change",
+              "No movement"
+            ],
+            "correct_answer": "Sideways position change"
+          },
+          {
+            "question": "Why describe position accurately in science?",
+            "options": [
+              "Explains how and where things move",
+              "No real use",
+              "Only for math",
+              "Replaces observation"
+            ],
+            "correct_answer": "Explains how and where things move"
+          },
+          {
+            "question": "A bird flies from a low to high branch: what word?",
+            "options": [
+              "Up",
+              "Down",
+              "Left",
+              "Right"
+            ],
+            "correct_answer": "Up"
+          },
+          {
+            "question": "A car moves away from a building: what word?",
+            "options": [
+              "Farther",
+              "Closer",
+              "Up",
+              "Down"
+            ],
+            "correct_answer": "Farther"
+          },
+          {
+            "question": "Which pair describes opposite directions?",
+            "options": [
+              "Left and right",
+              "Closer and closer",
+              "Up and up",
+              "Farther and farther"
+            ],
+            "correct_answer": "Left and right"
+          },
+          {
+            "question": "Why do scientists need precise position words?",
+            "options": [
+              "Communicate exactly what happened",
+              "Vague words are clearer",
+              "Position doesn't matter",
+              "Never describe position"
+            ],
+            "correct_answer": "Communicate exactly what happened"
+          },
+          {
+            "question": "Pushing a toy car nearer to you: what word?",
+            "options": [
+              "Closer",
+              "Farther",
+              "Left",
+              "Right"
+            ],
+            "correct_answer": "Closer"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🌟 Friday Review — Makabansa (Grade 3)\n\n- Sariling katangian at pagka-Pilipino\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang malasakit?",
+            "options": [
+              "Pagmamalasakit sa kapwa",
+              "Kawalang pakialam",
+              "Pag-iwas sa kapwa",
+              "Pagiging bastos"
+            ],
+            "correct_answer": "Pagmamalasakit sa kapwa"
+          },
+          {
+            "question": "Tinutukoy ng pagiging masayahin?",
+            "options": [
+              "Pananatiling masaya kahit mahirap ang sitwasyon",
+              "Kawalang pakialam",
+              "Pagiging seryoso lamang",
+              "Pag-iwas sa problema"
+            ],
+            "correct_answer": "Pananatiling masaya kahit mahirap ang sitwasyon"
+          },
+          {
+            "question": "Ano ang bayanihan?",
+            "options": [
+              "Pagtutulungan bilang komunidad",
+              "Pagsasarili",
+              "Pag-iwas sa kapwa",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pagtutulungan bilang komunidad"
+          },
+          {
+            "question": "Saan makikita ang katangiang Pilipino?",
+            "options": [
+              "Sa araw-araw na buhay",
+              "Sa libro lamang",
+              "Sa ibang bansa lamang",
+              "Wala kahit saan"
+            ],
+            "correct_answer": "Sa araw-araw na buhay"
+          },
+          {
+            "question": "Bakit mahalaga ang mga katangiang ito?",
+            "options": [
+              "Bumubuo sa pagkatao at pagkakaisa ng bansa",
+              "Walang kahalagahan",
+              "Nagdudulot ng away",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Bumubuo sa pagkatao at pagkakaisa ng bansa"
+          },
+          {
+            "question": "Ipinapakita ng paggalang?",
+            "options": [
+              "Paggalang sa nakatatanda at sa iba",
+              "Kawalang respeto",
+              "Kawalang pakialam",
+              "Pagiging bastos"
+            ],
+            "correct_answer": "Paggalang sa nakatatanda at sa iba"
+          },
+          {
+            "question": "Halimbawa ng malasakit?",
+            "options": [
+              "Pagtulong sa kapitbahay na may problema",
+              "Pag-iwas sa may problema",
+              "Kutyain ang nahihirapan",
+              "Balewalain sila"
+            ],
+            "correct_answer": "Pagtulong sa kapitbahay na may problema"
+          },
+          {
+            "question": "Bakit natatangi ang bayanihan?",
+            "options": [
+              "Ipinapakita ang pagkakaisa at pagtutulungan",
+              "Walang kaugnayan sa kultura",
+              "Galing sa ibang bansa",
+              "Hindi ginagawa ng Pilipino"
+            ],
+            "correct_answer": "Ipinapakita ang pagkakaisa at pagtutulungan"
+          },
+          {
+            "question": "Paano nagpapakita ang Pilipino ng pagiging masayahin sa bagyo?",
+            "options": [
+              "Sa pananatiling positibo habang naghahanda",
+              "Sa pananakit sa isa't isa",
+              "Sa pag-iwas sa lahat",
+              "Sa pagtigil sa gawain"
+            ],
+            "correct_answer": "Sa pananatiling positibo habang naghahanda"
+          },
+          {
+            "question": "Bakit mahalagang bahagi ng pagka-Pilipino ang mga katangiang ito?",
+            "options": [
+              "Nagpapakita ng kung sino talaga tayo",
+              "Walang kaugnayan",
+              "Tungkol lamang sa ibang bansa",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Nagpapakita ng kung sino talaga tayo"
+          },
+          {
+            "question": "Naidudulot ng bayanihan sa komunidad?",
+            "options": [
+              "Mas malakas na pagkakaisa",
+              "Higit na paghihiwalay",
+              "Wala",
+              "Kawalan ng tiwala"
+            ],
+            "correct_answer": "Mas malakas na pagkakaisa"
+          },
+          {
+            "question": "Bakit ipagmalaki ng bata ang mga katangiang ito?",
+            "options": [
+              "Nagpapakita ng pagkakakilanlan bilang Pilipino",
+              "Hindi mahalaga sa kanila",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Nagpapakita ng pagkakakilanlan bilang Pilipino"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🔍 Friday Review — Computer (Grade 3)\n\n- Pagkilala sa browser at search engine icons\n\nMagaling sa Computer! 🌟",
+        "quiz": [
+          {
+            "question": "Bakit kilalanin ang icon ng browser?",
+            "options": [
+              "Mahanap agad ang tamang programa",
+              "Walang gamit",
+              "Hindi kailangan malaman",
+              "Palamutihan lamang"
+            ],
+            "correct_answer": "Mahanap agad ang tamang programa"
+          },
+          {
+            "question": "Hugis ng icon ng Chrome?",
+            "options": [
+              "Bilog na may apat na kulay",
+              "Parisukat na itim",
+              "Tatsulok na berde",
+              "Bituin na dilaw"
+            ],
+            "correct_answer": "Bilog na may apat na kulay"
+          },
+          {
+            "question": "Halimbawa ng browser?",
+            "options": [
+              "Chrome, Edge, Safari",
+              "Google lamang",
+              "Word lamang",
+              "Paint lamang"
+            ],
+            "correct_answer": "Chrome, Edge, Safari"
+          },
+          {
+            "question": "Halimbawa ng search engine?",
+            "options": [
+              "Google",
+              "Chrome",
+              "Edge",
+              "Safari"
+            ],
+            "correct_answer": "Google"
+          },
+          {
+            "question": "Bakit iba-iba ang hitsura ng browser icons?",
+            "options": [
+              "Iba't ibang kumpanya gumawa ng bawat isa",
+              "Lahat pareho",
+              "Walang pagkakaiba",
+              "Iisang kumpanya gumawa"
+            ],
+            "correct_answer": "Iba't ibang kumpanya gumawa ng bawat isa"
+          },
+          {
+            "question": "Gamit para maghanap ng impormasyon online?",
+            "options": [
+              "Search engine",
+              "Browser lamang",
+              "Keyboard lamang",
+              "Mouse lamang"
+            ],
+            "correct_answer": "Search engine"
+          },
+          {
+            "question": "Gamit para makapunta sa internet?",
+            "options": [
+              "Browser",
+              "Search engine lamang",
+              "Keyboard lamang",
+              "Wala"
+            ],
+            "correct_answer": "Browser"
+          },
+          {
+            "question": "Bakit ituro ang pagkilala sa mga icon?",
+            "options": [
+              "Makapaggamit nang mas mahusay ng kompyuter",
+              "Hindi mahalaga",
+              "Libangin lamang ang bata",
+              "Walang layunin"
+            ],
+            "correct_answer": "Makapaggamit nang mas mahusay ng kompyuter"
+          },
+          {
+            "question": "Gusto mong maghanap ng larawan ng hayop: gamitin?",
+            "options": [
+              "Search engine",
+              "Bagong browser lamang",
+              "Bagong kompyuter",
+              "Wala"
+            ],
+            "correct_answer": "Search engine"
+          },
+          {
+            "question": "Gusto mong buksan ang Internet: buksan muna?",
+            "options": [
+              "Browser",
+              "Search engine lamang",
+              "Isang laruan",
+              "Isang libro"
+            ],
+            "correct_answer": "Browser"
+          },
+          {
+            "question": "Bakit maging pamilyar sa iba't ibang icon?",
+            "options": [
+              "Gumamit nang mas kumpiyansa ng kompyuter",
+              "Hindi kinakailangan",
+              "Walang epekto",
+              "Isang icon lamang mahalaga"
+            ],
+            "correct_answer": "Gumamit nang mas kumpiyansa ng kompyuter"
+          },
+          {
+            "question": "Alin ang HINDI browser?",
+            "options": [
+              "Google Search bar lamang",
+              "Chrome",
+              "Edge",
+              "Safari"
+            ],
+            "correct_answer": "Google Search bar lamang"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🤲 Friday Review — GMRC (Grade 3)\n\n- Sariling kakayahan para sa kapuwa\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "May natatanging talento ba ang bawat isa?",
+            "options": [
+              "Oo, may natatanging talento ang bawat isa",
+              "Hindi, walang taong may talento",
+              "Iisa lamang ang uri ng talento",
+              "Walang kaugnayan ang talento sa kabutihan"
+            ],
+            "correct_answer": "Oo, may natatanging talento ang bawat isa"
+          },
+          {
+            "question": "Paano magagamit ang kakayahang umawit para sa kapuwa?",
+            "options": [
+              "Awitan ang malungkot na kaibigan",
+              "Itago ang talento",
+              "Gamitin lamang sa sarili",
+              "Huwag kumanta"
+            ],
+            "correct_answer": "Awitan ang malungkot na kaibigan"
+          },
+          {
+            "question": "Paano magagamit ang kakayahang gumuhit?",
+            "options": [
+              "Gumawa ng card para sa may sakit",
+              "Itago ang mga guhit",
+              "Huwag ipakita sa iba",
+              "Gamitin lamang sa sarili"
+            ],
+            "correct_answer": "Gumawa ng card para sa may sakit"
+          },
+          {
+            "question": "Paano magagamit ang kakayahan sa Matematika?",
+            "options": [
+              "Turuan ang kaklaseng nahihirapan",
+              "Ipagmalaki lamang",
+              "Itago ang kaalaman",
+              "Huwag tumulong"
+            ],
+            "correct_answer": "Turuan ang kaklaseng nahihirapan"
+          },
+          {
+            "question": "Pagpapahalaga na tinalakay?",
+            "options": [
+              "Compassion (Pagmamalasakit)",
+              "Respect",
+              "Gratitude",
+              "Prudence"
+            ],
+            "correct_answer": "Compassion (Pagmamalasakit)"
+          },
+          {
+            "question": "Bakit gamitin ang kakayahan para sa iba?",
+            "options": [
+              "Isang uri ng kabutihan na nakakatulong",
+              "Walang kahalagahan",
+              "Dapat itago ang talento",
+              "Para sa sarili lamang"
+            ],
+            "correct_answer": "Isang uri ng kabutihan na nakakatulong"
+          },
+          {
+            "question": "Bakit compassion ang paggamit ng talento para sa iba?",
+            "options": [
+              "Nagpapakita ng pagmamalasakit",
+              "Walang kaugnayan sa pagmamalasakit",
+              "Tungkol lamang sa sarili",
+              "Hindi totoong kabutihan"
+            ],
+            "correct_answer": "Nagpapakita ng pagmamalasakit"
+          },
+          {
+            "question": "Mararamdaman ng kaibigang inawitan mo?",
+            "options": [
+              "Kasiyahan at ginhawa",
+              "Higit na kalungkutan",
+              "Galit",
+              "Wala siyang mararamdaman"
+            ],
+            "correct_answer": "Kasiyahan at ginhawa"
+          },
+          {
+            "question": "Bakit hindi itago ang talento?",
+            "options": [
+              "Makakatulong sa iba kung ibabahagi",
+              "Dapat itago palagi",
+              "Walang gamit ang pagbabahagi",
+              "Para sa sarili lamang"
+            ],
+            "correct_answer": "Makakatulong sa iba kung ibabahagi"
+          },
+          {
+            "question": "Halimbawa ng kabutihan gamit ang talento?",
+            "options": [
+              "Pagtuturo sa kaklaseng nahihirapan",
+              "Pagtago ng kaalaman",
+              "Pagkutya sa kaklase",
+              "Pagtanggi tumulong"
+            ],
+            "correct_answer": "Pagtuturo sa kaklaseng nahihirapan"
+          },
+          {
+            "question": "Bakit ituro ang paksang ito sa GMRC?",
+            "options": [
+              "Matutong gamitin ang talento para sa kabutihan",
+              "Walang layunin",
+              "Ipagmalaki lamang ang sarili",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Matutong gamitin ang talento para sa kabutihan"
+          },
+          {
+            "question": "Naidudulot ng pagbabahagi ng talento sa klase?",
+            "options": [
+              "Mas malapit at magkakatulungang klase",
+              "Higit na kompetisyon",
+              "Wala",
+              "Nagdudulot ng inggit"
+            ],
+            "correct_answer": "Mas malapit at magkakatulungang klase"
+          }
+        ]
+      }
+    }
+  }
+}

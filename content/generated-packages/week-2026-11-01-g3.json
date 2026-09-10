@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-11-01",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🔗 English — Compound Sentences About My Region\n\nGrade 3, Week 21! Let's practice writing compound sentences about our region. 🔗\n\n## 🔄 Review\nWe finished reviewing all our speaking and writing skills.\n\n## 🔗 What Is a Compound Sentence?\nA **compound sentence** joins two independent clauses (complete thoughts) with a **coordinating conjunction** like *and, but, or, so*.\n\n**Example:** \"Our region has beautiful mountains, **and** it also has wide rivers.\"\n\n## ✅ Checking a Compound Sentence\n1. Does each half have its own doer and action?\n2. Is there a coordinating conjunction joining them?\n3. Is there a comma before the conjunction?\n\n**Example:** \"I visited the market, **but** I did not buy anything.\"\n\n**Key words:** compound sentence, independent clause, coordinating conjunction, comma",
+        "quiz": [
+          {
+            "question": "What is a compound sentence?",
+            "options": [
+              "Two independent clauses joined by a coordinating conjunction",
+              "A sentence with only one word",
+              "A sentence with no verb",
+              "A question only"
+            ],
+            "correct_answer": "Two independent clauses joined by a coordinating conjunction"
+          },
+          {
+            "question": "Which word is a coordinating conjunction?",
+            "options": [
+              "And",
+              "Quickly",
+              "Beautiful",
+              "Mountain"
+            ],
+            "correct_answer": "And"
+          },
+          {
+            "question": "What punctuation usually comes before the conjunction in a compound sentence?",
+            "options": [
+              "A comma",
+              "A question mark",
+              "An exclamation point",
+              "Nothing at all"
+            ],
+            "correct_answer": "A comma"
+          },
+          {
+            "question": "'Our region has mountains, and it has rivers' is an example of what?",
+            "options": [
+              "A compound sentence",
+              "A single word",
+              "A question",
+              "A fragment"
+            ],
+            "correct_answer": "A compound sentence"
+          },
+          {
+            "question": "What must each half of a compound sentence have?",
+            "options": [
+              "Its own doer and action",
+              "The same exact words",
+              "No verb at all",
+              "A question mark"
+            ],
+            "correct_answer": "Its own doer and action"
+          },
+          {
+            "question": "Which of these is a coordinating conjunction?",
+            "options": [
+              "But",
+              "Mountain",
+              "River",
+              "Beautiful"
+            ],
+            "correct_answer": "But"
+          },
+          {
+            "question": "'I visited the market, but I did not buy anything' shows what?",
+            "options": [
+              "A compound sentence with 'but'",
+              "A single independent clause",
+              "A question",
+              "A fragment with no verb"
+            ],
+            "correct_answer": "A compound sentence with 'but'"
+          },
+          {
+            "question": "Why do writers use compound sentences?",
+            "options": [
+              "To join related ideas smoothly",
+              "To make sentences shorter",
+              "To confuse the reader",
+              "To avoid using verbs"
+            ],
+            "correct_answer": "To join related ideas smoothly"
+          },
+          {
+            "question": "Which sentence is a compound sentence?",
+            "options": [
+              "She sang a song, and he played the guitar.",
+              "She sang a song.",
+              "Sang a song.",
+              "A beautiful song."
+            ],
+            "correct_answer": "She sang a song, and he played the guitar."
+          },
+          {
+            "question": "What is an independent clause?",
+            "options": [
+              "A complete thought with its own doer and action",
+              "A single word",
+              "A punctuation mark",
+              "A question only"
+            ],
+            "correct_answer": "A complete thought with its own doer and action"
+          },
+          {
+            "question": "Which conjunction shows a choice between two things?",
+            "options": [
+              "Or",
+              "And",
+              "But",
+              "So"
+            ],
+            "correct_answer": "Or"
+          },
+          {
+            "question": "Why check for a comma before the conjunction in a compound sentence?",
+            "options": [
+              "It correctly separates the two independent clauses",
+              "Commas are never needed",
+              "It changes the meaning of the sentence",
+              "It replaces the conjunction"
+            ],
+            "correct_answer": "It correctly separates the two independent clauses"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ✖️ Mathematics — Multiplying with 6, 7, 8, and 9\n\nGrade 3, Week 21! Let's practice multiplying with bigger numbers! ✖️\n\n## 🔄 Review\nWe learned to collect and present data in tables and graphs.\n\n## ✖️ Multiplication Tables 6-9\n| × | 6 | 7 | 8 | 9 |\n|---|---|---|---|---|\n| 6 | 36 | 42 | 48 | 54 |\n| 7 | 42 | 49 | 56 | 63 |\n\n## 🔢 Properties of Multiplication\n- **Commutative Property:** 6 × 7 = 7 × 6\n- **Identity Property:** any number × 1 = that number\n- **Zero Property:** any number × 0 = 0\n\n## 💵 Word Problems\nIf a notebook costs ₱9 and you buy 8, how much do you spend?\n9 × 8 = **₱72**\n\n**Key words:** multiply, commutative property, identity property, zero property",
+        "quiz": [
+          {
+            "question": "What is 6 × 7?",
+            "options": [
+              "42",
+              "36",
+              "48",
+              "54"
+            ],
+            "correct_answer": "42"
+          },
+          {
+            "question": "What is 8 × 9?",
+            "options": [
+              "72",
+              "64",
+              "81",
+              "56"
+            ],
+            "correct_answer": "72"
+          },
+          {
+            "question": "What is the commutative property of multiplication?",
+            "options": [
+              "Changing the order of factors doesn't change the product",
+              "Multiplying by 0 always gives 0",
+              "Multiplying by 1 always changes the number",
+              "Adding numbers together"
+            ],
+            "correct_answer": "Changing the order of factors doesn't change the product"
+          },
+          {
+            "question": "According to the identity property, what is 15 × 1?",
+            "options": [
+              "15",
+              "1",
+              "0",
+              "16"
+            ],
+            "correct_answer": "15"
+          },
+          {
+            "question": "According to the zero property, what is 23 × 0?",
+            "options": [
+              "0",
+              "23",
+              "1",
+              "230"
+            ],
+            "correct_answer": "0"
+          },
+          {
+            "question": "If 6 × 7 = 42, what is 7 × 6?",
+            "options": [
+              "42",
+              "13",
+              "1",
+              "48"
+            ],
+            "correct_answer": "42"
+          },
+          {
+            "question": "If a notebook costs ₱9 and you buy 8, how much do you spend?",
+            "options": [
+              "₱72",
+              "₱17",
+              "₱81",
+              "₱63"
+            ],
+            "correct_answer": "₱72"
+          },
+          {
+            "question": "What is 7 × 8?",
+            "options": [
+              "56",
+              "63",
+              "49",
+              "64"
+            ],
+            "correct_answer": "56"
+          },
+          {
+            "question": "What is 9 × 9?",
+            "options": [
+              "81",
+              "72",
+              "90",
+              "18"
+            ],
+            "correct_answer": "81"
+          },
+          {
+            "question": "What is 6 × 6?",
+            "options": [
+              "36",
+              "42",
+              "12",
+              "66"
+            ],
+            "correct_answer": "36"
+          },
+          {
+            "question": "If 4 boxes each have 8 apples, how many apples in total?",
+            "options": [
+              "32",
+              "12",
+              "36",
+              "24"
+            ],
+            "correct_answer": "32"
+          },
+          {
+            "question": "What is 7 × 9?",
+            "options": [
+              "63",
+              "56",
+              "72",
+              "16"
+            ],
+            "correct_answer": "63"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# ✍️ Filipino — Pagbuo ng Talata Gamit ang Tambalang Pangungusap\n\nGrade 3, Linggo 21! Magsanay tayo ng pagsulat ng talata. ✍️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagsasanib ng mga kasanayan sa pagsulat.\n\n## ✍️ Ano ang Tambalang Pangungusap?\nAng **tambalang pangungusap** ay binubuo ng dalawang sugnay na nakapag-iisa, pinagdurugtong ng **pangatnig** tulad ng \"at,\" \"ngunit,\" o \"o.\"\n\n**Halimbawa:** \"Maganda ang aming lalawigan, **at** marami ring magagandang tanawin dito.\"\n\n## 📝 Pagbuo ng Talata\nSubukang gumawa ng isang talata (3-5 pangungusap) tungkol sa iyong lalawigan, gamit ang hindi bababa sa isang tambalang pangungusap.\n\n**Halimbawa:**\n\"Ang aming lalawigan ay may magandang baybayin. Marami ring bukid dito, **at** sagana sa gulay ang mga tao. Masaya kaming naninirahan dito.\"\n\n**Mahahalagang salita:** tambalang pangungusap, pangatnig, sugnay, talata",
+        "quiz": [
+          {
+            "question": "Ano ang tambalang pangungusap?",
+            "options": [
+              "Dalawang sugnay na nakapag-iisa, pinagdurugtong ng pangatnig",
+              "Isang salita lamang",
+              "Isang tanong lamang",
+              "Walang pandiwa"
+            ],
+            "correct_answer": "Dalawang sugnay na nakapag-iisa, pinagdurugtong ng pangatnig"
+          },
+          {
+            "question": "Ano ang pangatnig?",
+            "options": [
+              "Salitang nag-uugnay ng dalawang sugnay",
+              "Isang bantas lamang",
+              "Isang uri ng pangngalan",
+              "Isang uri ng pandiwa"
+            ],
+            "correct_answer": "Salitang nag-uugnay ng dalawang sugnay"
+          },
+          {
+            "question": "Alin ang halimbawa ng pangatnig?",
+            "options": [
+              "At",
+              "Bahay",
+              "Maganda",
+              "Tumatakbo"
+            ],
+            "correct_answer": "At"
+          },
+          {
+            "question": "Sa 'Maganda ang aming lalawigan, at marami ring magagandang tanawin,' ilang sugnay ang mayroon?",
+            "options": [
+              "Dalawa",
+              "Isa",
+              "Tatlo",
+              "Wala"
+            ],
+            "correct_answer": "Dalawa"
+          },
+          {
+            "question": "Ilang pangungusap dapat mayroon ang isang maayos na talata ayon sa aralin?",
+            "options": [
+              "3-5 pangungusap",
+              "1 pangungusap lamang",
+              "20 pangungusap",
+              "Walang pangungusap"
+            ],
+            "correct_answer": "3-5 pangungusap"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng tambalang pangungusap sa isang talata?",
+            "options": [
+              "Nagbibigay ito ng iba't ibang paraan ng pagsulat",
+              "Hindi ito kailangan",
+              "Ginagawa lamang nitong mas mahaba ang talata",
+              "Wala itong gamit"
+            ],
+            "correct_answer": "Nagbibigay ito ng iba't ibang paraan ng pagsulat"
+          },
+          {
+            "question": "Alin ang HINDI pangatnig?",
+            "options": [
+              "Bahay",
+              "At",
+              "Ngunit",
+              "O"
+            ],
+            "correct_answer": "Bahay"
+          },
+          {
+            "question": "Ano ang sugnay na nakapag-iisa?",
+            "options": [
+              "Isang kumpletong ideya na may sariling simuno at panaguri",
+              "Isang salita lamang",
+              "Isang bantas",
+              "Isang uri ng pandiwa"
+            ],
+            "correct_answer": "Isang kumpletong ideya na may sariling simuno at panaguri"
+          },
+          {
+            "question": "Anong paksa ang ginamit sa halimbawang talata?",
+            "options": [
+              "Ang lalawigan ng may-akda",
+              "Ang isang hayop",
+              "Ang isang laro",
+              "Ang isang gamit sa bahay"
+            ],
+            "correct_answer": "Ang lalawigan ng may-akda"
+          },
+          {
+            "question": "Bakit kailangan ng kuwit bago ang pangatnig sa tambalang pangungusap?",
+            "options": [
+              "Para tamang paghihiwalay ng dalawang sugnay",
+              "Hindi na ito kailangan",
+              "Binabago nito ang kahulugan",
+              "Pinapalitan nito ang pangatnig"
+            ],
+            "correct_answer": "Para tamang paghihiwalay ng dalawang sugnay"
+          },
+          {
+            "question": "Ano ang layunin ng pagsasanay sa pagsulat ng talata?",
+            "options": [
+              "Mailapat ang natutunang gramatika sa tunay na pagsulat",
+              "Walang layunin ito",
+              "Para lamang sa pagsusulit",
+              "Hindi na kailangan pagsanayan"
+            ],
+            "correct_answer": "Mailapat ang natutunang gramatika sa tunay na pagsulat"
+          },
+          {
+            "question": "Sa 'Ang aming lalawigan ay may magandang baybayin,' ilang sugnay ang mayroon?",
+            "options": [
+              "Isa",
+              "Dalawa",
+              "Tatlo",
+              "Wala"
+            ],
+            "correct_answer": "Isa"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🏃 Science — Ways to Move Objects\n\nGrade 3, Week 21! Let's discover why and how objects move! 🏃\n\n## 🔄 Review\nWe learned about the basic needs of living things.\n\n## 🏃 Natural Causes of Movement\nObjects can move due to natural causes:\n- **Wind** blowing leaves\n- **Water** carrying a boat downstream\n- **Gravity** pulling a fruit down from a tree\n\n## 🤲 People Causing Movement\nPeople can move objects by:\n- **Pushing** — like moving a cart\n- **Pulling** — like dragging a sled\n- **Lifting** — like carrying a bag\n\n## 🎯 Factors Affecting Movement\n- **Weight** — heavier objects are harder to move\n- **Surface** — rough surfaces slow movement down; smooth surfaces make it easier\n\n**Key words:** movement, natural cause, push, pull, weight, surface",
+        "quiz": [
+          {
+            "question": "What natural cause can move leaves?",
+            "options": [
+              "Wind",
+              "A push from a person",
+              "A pull from a person",
+              "A lift from a person"
+            ],
+            "correct_answer": "Wind"
+          },
+          {
+            "question": "What natural cause can move a boat downstream?",
+            "options": [
+              "Water",
+              "Gravity pulling it up",
+              "A push",
+              "A lift"
+            ],
+            "correct_answer": "Water"
+          },
+          {
+            "question": "What natural cause pulls a ripe fruit down from a tree?",
+            "options": [
+              "Gravity",
+              "Wind only",
+              "Water only",
+              "A person"
+            ],
+            "correct_answer": "Gravity"
+          },
+          {
+            "question": "What is pushing a cart an example of?",
+            "options": [
+              "A person causing movement",
+              "A natural cause of movement",
+              "Gravity",
+              "Wind"
+            ],
+            "correct_answer": "A person causing movement"
+          },
+          {
+            "question": "What is dragging a sled an example of?",
+            "options": [
+              "Pulling",
+              "Pushing",
+              "Lifting",
+              "Natural movement only"
+            ],
+            "correct_answer": "Pulling"
+          },
+          {
+            "question": "How does weight affect movement?",
+            "options": [
+              "Heavier objects are harder to move",
+              "Weight has no effect on movement",
+              "Lighter objects are always harder to move",
+              "Weight only matters for liquids"
+            ],
+            "correct_answer": "Heavier objects are harder to move"
+          },
+          {
+            "question": "How does a rough surface affect movement?",
+            "options": [
+              "It slows movement down",
+              "It always speeds movement up",
+              "It has no effect",
+              "It stops all movement completely"
+            ],
+            "correct_answer": "It slows movement down"
+          },
+          {
+            "question": "How does a smooth surface affect movement?",
+            "options": [
+              "It makes movement easier",
+              "It always stops movement",
+              "It has no effect",
+              "It makes objects heavier"
+            ],
+            "correct_answer": "It makes movement easier"
+          },
+          {
+            "question": "Which of these is a natural cause of movement?",
+            "options": [
+              "Wind",
+              "Pushing a cart",
+              "Lifting a bag",
+              "Dragging a sled"
+            ],
+            "correct_answer": "Wind"
+          },
+          {
+            "question": "Which of these is a movement caused by people?",
+            "options": [
+              "Lifting a bag",
+              "Wind blowing leaves",
+              "Water flowing",
+              "Gravity pulling fruit"
+            ],
+            "correct_answer": "Lifting a bag"
+          },
+          {
+            "question": "Why is it harder to push a heavy box than a light one?",
+            "options": [
+              "Heavier objects need more force to move",
+              "Weight doesn't matter at all",
+              "Lighter objects are always harder",
+              "Heavy objects move by themselves"
+            ],
+            "correct_answer": "Heavier objects need more force to move"
+          },
+          {
+            "question": "Why might it be easier to slide a box on a tiled floor than on a carpet?",
+            "options": [
+              "The tiled floor is smoother, causing less resistance",
+              "Carpet is always smoother",
+              "Tiled floors are always heavier",
+              "There is no difference between the two"
+            ],
+            "correct_answer": "The tiled floor is smoother, causing less resistance"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🇵🇭 Makabansa — Konsepto ng Pagka-Pilipino\n\nGrade 3, Linggo 21! Simulan na natin ang bagong yunit tungkol sa pagiging Pilipino. 🇵🇭\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa sining at kultura ng ating komunidad.\n\n## 🇵🇭 Ano ang Pagka-Pilipino?\nAng **pagka-Pilipino** ay ang pagkakakilanlan bilang mamamayan ng Pilipinas — kasama ang wika, kultura, kasaysayan, at pagmamahal sa bansa.\n\n## 🌟 Mga Sangkap ng Pagka-Pilipino\n- **Wika** — Filipino at mga wikang katutubo\n- **Kultura** — tradisyon, pagkain, sayaw, musika\n- **Kasaysayan** — mga kaganapang humubog sa bansa\n- **Pagmamahal sa Bayan** — pagmamalaki sa mga tagumpay ng Pilipino\n\n## 💡 Bakit Mahalaga Ito?\nAng pag-unawa sa ating pagka-Pilipino ay nakakatulong lumikha ng **pagkakaisa** at **pagmamalaki** bilang isang bansa.\n\n**Mahahalagang salita:** pagka-Pilipino, pagkakakilanlan, kultura, pagkakaisa",
+        "quiz": [
+          {
+            "question": "Ano ang pagka-Pilipino?",
+            "options": [
+              "Pagkakakilanlan bilang mamamayan ng Pilipinas",
+              "Pagkakakilanlan bilang mamamayan ng ibang bansa",
+              "Kawalan ng pagkakakilanlan",
+              "Isang uri ng damit lamang"
+            ],
+            "correct_answer": "Pagkakakilanlan bilang mamamayan ng Pilipinas"
+          },
+          {
+            "question": "Alin ang isang sangkap ng pagka-Pilipino?",
+            "options": [
+              "Wika",
+              "Sasakyan",
+              "Pera lamang",
+              "Damit lamang"
+            ],
+            "correct_answer": "Wika"
+          },
+          {
+            "question": "Ano ang kasama sa kultura ng pagka-Pilipino?",
+            "options": [
+              "Tradisyon, pagkain, sayaw, musika",
+              "Batas lamang",
+              "Damit lamang",
+              "Wala"
+            ],
+            "correct_answer": "Tradisyon, pagkain, sayaw, musika"
+          },
+          {
+            "question": "Ano ang tinutukoy ng kasaysayan sa pagka-Pilipino?",
+            "options": [
+              "Mga kaganapang humubog sa bansa",
+              "Isang uri ng pagkain lamang",
+              "Isang uri ng sayaw lamang",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Mga kaganapang humubog sa bansa"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagmamahal sa bayan?",
+            "options": [
+              "Pagmamalaki sa mga tagumpay ng Pilipino",
+              "Kawalang-interes sa bansa",
+              "Pagtanggi sa sariling kultura",
+              "Pag-iwas sa kapwa Pilipino"
+            ],
+            "correct_answer": "Pagmamalaki sa mga tagumpay ng Pilipino"
+          },
+          {
+            "question": "Bakit mahalagang unawain ang ating pagka-Pilipino?",
+            "options": [
+              "Nakakatulong ito lumikha ng pagkakaisa",
+              "Wala itong kahalagahan",
+              "Nagdudulot lamang ito ng pagkakahati-hati",
+              "Hindi ito nakakatulong sa bansa"
+            ],
+            "correct_answer": "Nakakatulong ito lumikha ng pagkakaisa"
+          },
+          {
+            "question": "Anong wika ang bahagi ng pagka-Pilipino bukod sa Filipino?",
+            "options": [
+              "Mga wikang katutubo",
+              "Wikang banyaga lamang",
+              "Walang ibang wika",
+              "Wikang sign lamang"
+            ],
+            "correct_answer": "Mga wikang katutubo"
+          },
+          {
+            "question": "Ano ang naidudulot ng pag-unawa sa pagka-Pilipino sa isang bansa?",
+            "options": [
+              "Pagkakaisa at pagmamalaki",
+              "Higit na paghihiwalay",
+              "Kawalan ng pagkakakilanlan",
+              "Walang naidudulot"
+            ],
+            "correct_answer": "Pagkakaisa at pagmamalaki"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang paksa ang pagka-Pilipino sa Makabansa?",
+            "options": [
+              "Tumutulong itong maunawaan ang sariling pagkakakilanlan",
+              "Walang kaugnayan sa kasaysayan",
+              "Ito ay tungkol lamang sa ibang bansa",
+              "Hindi mahalagang paksa ito"
+            ],
+            "correct_answer": "Tumutulong itong maunawaan ang sariling pagkakakilanlan"
+          },
+          {
+            "question": "Alin sa mga ito ang HINDI sangkap ng pagka-Pilipino?",
+            "options": [
+              "Pagtanggi sa sariling kultura",
+              "Wika",
+              "Kultura",
+              "Kasaysayan"
+            ],
+            "correct_answer": "Pagtanggi sa sariling kultura"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang kasaysayan ng bansa bilang bahagi ng pagka-Pilipino?",
+            "options": [
+              "Tumutulong itong maunawaan kung paano nabuo ang kasalukuyang lipunan",
+              "Walang kaugnayan ito sa kasalukuyan",
+              "Hindi ito bahagi ng pagkakakilanlan",
+              "Isang beses lamang dapat pag-aralan"
+            ],
+            "correct_answer": "Tumutulong itong maunawaan kung paano nabuo ang kasalukuyang lipunan"
+          },
+          {
+            "question": "Ano ang koneksyon ng kultura sa pagka-Pilipino?",
+            "options": [
+              "Ipinapakita nito ang natatanging pamumuhay at kaugalian ng mga Pilipino",
+              "Walang koneksyon ang kultura",
+              "Kultura ay tungkol lamang sa ibang bansa",
+              "Hindi mahalaga ang kultura"
+            ],
+            "correct_answer": "Ipinapakita nito ang natatanging pamumuhay at kaugalian ng mga Pilipino"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🌐 Computer — Ano ang Ginagamit sa Internet\n\nGrade 3, Week 21! Alamin natin kung ano ang mga karaniwang gamit ng Internet. 🌐\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa pagsusuri at pagpapakita ng proyekto.\n\n## 🌐 Mga Gamit ng Internet\n- **Pagsasaliksik** — paghahanap ng impormasyon para sa proyekto\n- **Komunikasyon** — pakikipag-usap sa pamilya sa malayo\n- **Pag-aaral** — panonood ng edukasyonal na bidyo\n- **Libangan** — paglalaro ng edukasyonal na laro\n\n## 🔍 Pagkilala sa Browser at Search Engine\n- Ang **browser** ay ang programang ginagamit para makapunta sa Internet (hal. Chrome, Edge)\n- Ang **search engine** ay ang tool na ginagamit para maghanap ng impormasyon (hal. Google)\n\n**Mahahalagang salita:** Internet, browser, search engine, pagsasaliksik",
+        "quiz": [
+          {
+            "question": "Ano ang isang gamit ng Internet?",
+            "options": [
+              "Pagsasaliksik ng impormasyon",
+              "Panonood ng TV lamang",
+              "Pagluluto ng pagkain",
+              "Paglalakbay sa ibang bansa"
+            ],
+            "correct_answer": "Pagsasaliksik ng impormasyon"
+          },
+          {
+            "question": "Ano ang browser?",
+            "options": [
+              "Programang ginagamit para makapunta sa Internet",
+              "Isang uri ng laro",
+              "Isang uri ng libro",
+              "Isang uri ng gunting"
+            ],
+            "correct_answer": "Programang ginagamit para makapunta sa Internet"
+          },
+          {
+            "question": "Ano ang search engine?",
+            "options": [
+              "Tool na ginagamit para maghanap ng impormasyon",
+              "Isang uri ng makina",
+              "Isang uri ng laruan",
+              "Isang uri ng bahagi ng kompyuter"
+            ],
+            "correct_answer": "Tool na ginagamit para maghanap ng impormasyon"
+          },
+          {
+            "question": "Alin ang halimbawa ng browser?",
+            "options": [
+              "Chrome",
+              "Google",
+              "Windows",
+              "Facebook"
+            ],
+            "correct_answer": "Chrome"
+          },
+          {
+            "question": "Alin ang halimbawa ng search engine?",
+            "options": [
+              "Google",
+              "Chrome",
+              "Windows",
+              "Word"
+            ],
+            "correct_answer": "Google"
+          },
+          {
+            "question": "Paano makakatulong ang Internet sa komunikasyon?",
+            "options": [
+              "Nakakapag-usap sa pamilya sa malayo",
+              "Wala itong papel sa komunikasyon",
+              "Pinipigilan nito ang komunikasyon",
+              "Ginagamit lamang para sa libangan"
+            ],
+            "correct_answer": "Nakakapag-usap sa pamilya sa malayo"
+          },
+          {
+            "question": "Paano makakatulong ang Internet sa pag-aaral?",
+            "options": [
+              "Panonood ng edukasyonal na bidyo",
+              "Wala itong gamit sa pag-aaral",
+              "Pinipigilan nito ang pag-aaral",
+              "Ginagamit lamang para sa libangan"
+            ],
+            "correct_answer": "Panonood ng edukasyonal na bidyo"
+          },
+          {
+            "question": "Bakit kailangan ng search engine?",
+            "options": [
+              "Para makahanap ng impormasyon nang mabilis",
+              "Para lamang magbukas ng laro",
+              "Para lumikha ng bagong Internet",
+              "Walang gamit ito"
+            ],
+            "correct_answer": "Para makahanap ng impormasyon nang mabilis"
+          },
+          {
+            "question": "Ano ang pagkakaiba ng browser sa search engine?",
+            "options": [
+              "Ang browser ay ginagamit para makapunta sa Internet, ang search engine ay para maghanap",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Ang search engine ay para sa pagguhit lamang"
+            ],
+            "correct_answer": "Ang browser ay ginagamit para makapunta sa Internet, ang search engine ay para maghanap"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga karaniwang gamit ng Internet?",
+            "options": [
+              "Para magamit ito nang tama at responsable",
+              "Hindi na kailangan malaman ito",
+              "Para hikayatin ang paggamit nang walang gabay",
+              "Walang layunin ito"
+            ],
+            "correct_answer": "Para magamit ito nang tama at responsable"
+          },
+          {
+            "question": "Alin sa mga ito ang halimbawa ng edukasyonal na paggamit ng Internet?",
+            "options": [
+              "Panonood ng bidyo tungkol sa Agham",
+              "Paglalaro nang walang layunin",
+              "Pagbabahagi ng personal na impormasyon",
+              "Pakikipag-usap sa estranghero"
+            ],
+            "correct_answer": "Panonood ng bidyo tungkol sa Agham"
+          },
+          {
+            "question": "Bakit itinuturo ang paksang ito bago aralin ang online safety?",
+            "options": [
+              "Para maunawaan muna kung ano ang Internet bago ang tamang paggamit nito",
+              "Hindi na kailangan ituro ito",
+              "Walang kaugnayan sa online safety",
+              "Ito ay para sa matatanda lamang"
+            ],
+            "correct_answer": "Para maunawaan muna kung ano ang Internet bago ang tamang paggamit nito"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🇵🇭 GMRC — Mabuting Kaugalian ng Pamilyang Pilipino\n\nGrade 3, Linggo 21! Pagpapahalaga: **Obedience (Pagsunod)**. 🇵🇭\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **pangangalaga sa kalikasan** ng pamilya.\n\n## 🇵🇭 Mabuting Kaugalian ng Pamilyang Pilipino\n- **Pagmamano** sa nakatatanda bilang tanda ng paggalang\n- **Pagsasama-sama** sa pagkain tuwing hapunan\n- **Bayanihan** — pagtutulungan ng magkakapitbahay\n- **Pagsunod** sa payo ng mga magulang\n\n## 🌏 Pagkakaiba-iba ayon sa Rehiyon\nMay natatanging kaugalian ang bawat rehiyon sa Pilipinas, ngunit lahat ay naglalayong **magpalakas ng ugnayan ng pamilya**.\n\n## 💡 Bakit Mahalaga Ito?\nAng pagsunod sa mabubuting kaugalian ay nagpapakita ng **paggalang** at **pagmamahal** sa pamilya at tradisyon.\n\n**Mahahalagang salita:** kaugalian, pagmamano, bayanihan, pagsunod",
+        "quiz": [
+          {
+            "question": "Ano ang pagmamano?",
+            "options": [
+              "Pagtanda ng paggalang sa nakatatanda",
+              "Isang uri ng pagkain",
+              "Isang uri ng sayaw",
+              "Isang uri ng laro"
+            ],
+            "correct_answer": "Pagtanda ng paggalang sa nakatatanda"
+          },
+          {
+            "question": "Ano ang bayanihan?",
+            "options": [
+              "Pagtutulungan ng magkakapitbahay",
+              "Pagsasarili nang walang tulong",
+              "Pag-iwas sa kapwa",
+              "Kawalang pakialam sa iba"
+            ],
+            "correct_answer": "Pagtutulungan ng magkakapitbahay"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Obedience (Pagsunod)",
+              "Compassion",
+              "Respect",
+              "Gratitude"
+            ],
+            "correct_answer": "Obedience (Pagsunod)"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsasama-sama sa pagkain tuwing hapunan?",
+            "options": [
+              "Nagpapalakas ito ng ugnayan ng pamilya",
+              "Wala itong kahalagahan",
+              "Hindi na kailangan gawin ito",
+              "Ito ay hindi tradisyon"
+            ],
+            "correct_answer": "Nagpapalakas ito ng ugnayan ng pamilya"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagsunod sa payo ng magulang?",
+            "options": [
+              "Paggalang at pagmamahal sa pamilya",
+              "Kawalang tiwala sa sarili",
+              "Kawalan ng respeto",
+              "Kahinaan ng loob"
+            ],
+            "correct_answer": "Paggalang at pagmamahal sa pamilya"
+          },
+          {
+            "question": "Bakit iba-iba ang kaugalian sa bawat rehiyon?",
+            "options": [
+              "May natatanging tradisyon ang bawat rehiyon",
+              "Iisa lamang ang tradisyon sa buong Pilipinas",
+              "Walang kaugalian ang mga rehiyon",
+              "Hindi mahalaga ang pagkakaiba"
+            ],
+            "correct_answer": "May natatanging tradisyon ang bawat rehiyon"
+          },
+          {
+            "question": "Ano ang layunin ng mabubuting kaugaliang Pilipino?",
+            "options": [
+              "Magpalakas ng ugnayan ng pamilya",
+              "Panatilihing malayo ang pamilya",
+              "Hindi mahalaga ang layunin",
+              "Walang layunin"
+            ],
+            "correct_answer": "Magpalakas ng ugnayan ng pamilya"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang pagsunod sa GMRC?",
+            "options": [
+              "Nagtuturo ito ng paggalang sa pamilya at tradisyon",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ito ng kasaysayan",
+              "Hindi itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagtuturo ito ng paggalang sa pamilya at tradisyon"
+          },
+          {
+            "question": "Alin ang HALIMBAWA ng mabuting kaugaliang Pilipino?",
+            "options": [
+              "Pagmamano sa lolo o lola",
+              "Pagwawalang-bahala sa nakatatanda",
+              "Pag-iwas sa gawaing pampamilya",
+              "Kawalan ng respeto sa magulang"
+            ],
+            "correct_answer": "Pagmamano sa lolo o lola"
+          },
+          {
+            "question": "Bakit mahalagang alagaan ang mabubuting kaugalian ng ating pamilya?",
+            "options": [
+              "Pinapanatili nito ang ugnayan at tradisyon ng pamilya",
+              "Hindi na kailangan panatilihin ang mga ito",
+              "Wala itong kabuluhan",
+              "Ito ay para lamang sa matatanda"
+            ],
+            "correct_answer": "Pinapanatili nito ang ugnayan at tradisyon ng pamilya"
+          },
+          {
+            "question": "Ano ang naidudulot ng bayanihan sa isang komunidad?",
+            "options": [
+              "Mas malakas na pagkakaisa",
+              "Higit na paghihiwalay",
+              "Walang naidudulot",
+              "Kawalan ng tiwala"
+            ],
+            "correct_answer": "Mas malakas na pagkakaisa"
+          },
+          {
+            "question": "Bakit mahalagang ituro ang mga kaugaliang ito sa mga bata?",
+            "options": [
+              "Upang mapanatili ang tradisyon sa susunod na henerasyon",
+              "Hindi na kailangan ituro ang mga ito",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito sa hinaharap"
+            ],
+            "correct_answer": "Upang mapanatili ang tradisyon sa susunod na henerasyon"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🔗 Friday Review — English (Grade 3)\n\n- Compound sentences with coordinating conjunctions\n\nGreat sentence-writing work! 🌟",
+        "quiz": [
+          {
+            "question": "What is a compound sentence?",
+            "options": [
+              "Two independent clauses joined by a coordinating conjunction",
+              "A sentence with only one word",
+              "A sentence with no verb",
+              "A question only"
+            ],
+            "correct_answer": "Two independent clauses joined by a coordinating conjunction"
+          },
+          {
+            "question": "Which word is a coordinating conjunction?",
+            "options": [
+              "And",
+              "Quickly",
+              "Beautiful",
+              "Mountain"
+            ],
+            "correct_answer": "And"
+          },
+          {
+            "question": "What punctuation comes before the conjunction?",
+            "options": [
+              "A comma",
+              "A question mark",
+              "An exclamation point",
+              "Nothing"
+            ],
+            "correct_answer": "A comma"
+          },
+          {
+            "question": "'Our region has mountains, and it has rivers' is what?",
+            "options": [
+              "A compound sentence",
+              "A single word",
+              "A question",
+              "A fragment"
+            ],
+            "correct_answer": "A compound sentence"
+          },
+          {
+            "question": "What must each half of a compound sentence have?",
+            "options": [
+              "Its own doer and action",
+              "The same words",
+              "No verb",
+              "A question mark"
+            ],
+            "correct_answer": "Its own doer and action"
+          },
+          {
+            "question": "Which is a coordinating conjunction?",
+            "options": [
+              "But",
+              "Mountain",
+              "River",
+              "Beautiful"
+            ],
+            "correct_answer": "But"
+          },
+          {
+            "question": "'I visited the market, but I did not buy anything' shows what?",
+            "options": [
+              "A compound sentence with 'but'",
+              "A single independent clause",
+              "A question",
+              "A fragment"
+            ],
+            "correct_answer": "A compound sentence with 'but'"
+          },
+          {
+            "question": "Why use compound sentences?",
+            "options": [
+              "To join related ideas smoothly",
+              "To make sentences shorter",
+              "To confuse the reader",
+              "To avoid verbs"
+            ],
+            "correct_answer": "To join related ideas smoothly"
+          },
+          {
+            "question": "Which sentence is compound?",
+            "options": [
+              "She sang a song, and he played the guitar.",
+              "She sang a song.",
+              "Sang a song.",
+              "A beautiful song."
+            ],
+            "correct_answer": "She sang a song, and he played the guitar."
+          },
+          {
+            "question": "What is an independent clause?",
+            "options": [
+              "A complete thought with its own doer and action",
+              "A single word",
+              "A punctuation mark",
+              "A question only"
+            ],
+            "correct_answer": "A complete thought with its own doer and action"
+          },
+          {
+            "question": "Which conjunction shows a choice?",
+            "options": [
+              "Or",
+              "And",
+              "But",
+              "So"
+            ],
+            "correct_answer": "Or"
+          },
+          {
+            "question": "Why check for a comma before the conjunction?",
+            "options": [
+              "Correctly separates the two clauses",
+              "Never needed",
+              "Changes the meaning",
+              "Replaces the conjunction"
+            ],
+            "correct_answer": "Correctly separates the two clauses"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ✖️ Friday Review — Mathematics (Grade 3)\n\n- Multiplying with 6, 7, 8, 9\n\nGreat multiplication practice! ⭐",
+        "quiz": [
+          {
+            "question": "What is 6 × 7?",
+            "options": [
+              "42",
+              "36",
+              "48",
+              "54"
+            ],
+            "correct_answer": "42"
+          },
+          {
+            "question": "What is 8 × 9?",
+            "options": [
+              "72",
+              "64",
+              "81",
+              "56"
+            ],
+            "correct_answer": "72"
+          },
+          {
+            "question": "What is the commutative property?",
+            "options": [
+              "Changing order of factors doesn't change the product",
+              "Multiplying by 0 gives 0",
+              "Multiplying by 1 changes the number",
+              "Adding numbers"
+            ],
+            "correct_answer": "Changing order of factors doesn't change the product"
+          },
+          {
+            "question": "What is 15 × 1 (identity property)?",
+            "options": [
+              "15",
+              "1",
+              "0",
+              "16"
+            ],
+            "correct_answer": "15"
+          },
+          {
+            "question": "What is 23 × 0 (zero property)?",
+            "options": [
+              "0",
+              "23",
+              "1",
+              "230"
+            ],
+            "correct_answer": "0"
+          },
+          {
+            "question": "If 6 × 7 = 42, what is 7 × 6?",
+            "options": [
+              "42",
+              "13",
+              "1",
+              "48"
+            ],
+            "correct_answer": "42"
+          },
+          {
+            "question": "A notebook costs ₱9, you buy 8: total cost?",
+            "options": [
+              "₱72",
+              "₱17",
+              "₱81",
+              "₱63"
+            ],
+            "correct_answer": "₱72"
+          },
+          {
+            "question": "What is 7 × 8?",
+            "options": [
+              "56",
+              "63",
+              "49",
+              "64"
+            ],
+            "correct_answer": "56"
+          },
+          {
+            "question": "What is 9 × 9?",
+            "options": [
+              "81",
+              "72",
+              "90",
+              "18"
+            ],
+            "correct_answer": "81"
+          },
+          {
+            "question": "What is 6 × 6?",
+            "options": [
+              "36",
+              "42",
+              "12",
+              "66"
+            ],
+            "correct_answer": "36"
+          },
+          {
+            "question": "4 boxes with 8 apples each: total?",
+            "options": [
+              "32",
+              "12",
+              "36",
+              "24"
+            ],
+            "correct_answer": "32"
+          },
+          {
+            "question": "What is 7 × 9?",
+            "options": [
+              "63",
+              "56",
+              "72",
+              "16"
+            ],
+            "correct_answer": "63"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# ✍️ Friday Review — Filipino (Grade 3)\n\n- Pagbuo ng talata gamit ang tambalang pangungusap\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tambalang pangungusap?",
+            "options": [
+              "Dalawang sugnay na nakapag-iisa, pinagdurugtong ng pangatnig",
+              "Isang salita lamang",
+              "Isang tanong lamang",
+              "Walang pandiwa"
+            ],
+            "correct_answer": "Dalawang sugnay na nakapag-iisa, pinagdurugtong ng pangatnig"
+          },
+          {
+            "question": "Ano ang pangatnig?",
+            "options": [
+              "Salitang nag-uugnay ng dalawang sugnay",
+              "Isang bantas lamang",
+              "Uri ng pangngalan",
+              "Uri ng pandiwa"
+            ],
+            "correct_answer": "Salitang nag-uugnay ng dalawang sugnay"
+          },
+          {
+            "question": "Halimbawa ng pangatnig?",
+            "options": [
+              "At",
+              "Bahay",
+              "Maganda",
+              "Tumatakbo"
+            ],
+            "correct_answer": "At"
+          },
+          {
+            "question": "Ilang sugnay sa 'Maganda ang lalawigan, at marami ring tanawin'?",
+            "options": [
+              "Dalawa",
+              "Isa",
+              "Tatlo",
+              "Wala"
+            ],
+            "correct_answer": "Dalawa"
+          },
+          {
+            "question": "Ilang pangungusap dapat sa isang talata?",
+            "options": [
+              "3-5 pangungusap",
+              "1 pangungusap",
+              "20 pangungusap",
+              "Wala"
+            ],
+            "correct_answer": "3-5 pangungusap"
+          },
+          {
+            "question": "Bakit gumamit ng tambalang pangungusap sa talata?",
+            "options": [
+              "Nagbibigay ng iba't ibang paraan ng pagsulat",
+              "Hindi kailangan",
+              "Mas mahaba lamang ang talata",
+              "Walang gamit"
+            ],
+            "correct_answer": "Nagbibigay ng iba't ibang paraan ng pagsulat"
+          },
+          {
+            "question": "Alin ang HINDI pangatnig?",
+            "options": [
+              "Bahay",
+              "At",
+              "Ngunit",
+              "O"
+            ],
+            "correct_answer": "Bahay"
+          },
+          {
+            "question": "Ano ang sugnay na nakapag-iisa?",
+            "options": [
+              "Kumpletong ideya na may sariling simuno at panaguri",
+              "Isang salita",
+              "Isang bantas",
+              "Isang uri ng pandiwa"
+            ],
+            "correct_answer": "Kumpletong ideya na may sariling simuno at panaguri"
+          },
+          {
+            "question": "Paksa ng halimbawang talata?",
+            "options": [
+              "Ang lalawigan ng may-akda",
+              "Isang hayop",
+              "Isang laro",
+              "Isang gamit sa bahay"
+            ],
+            "correct_answer": "Ang lalawigan ng may-akda"
+          },
+          {
+            "question": "Bakit kailangan ng kuwit bago ang pangatnig?",
+            "options": [
+              "Tamang paghihiwalay ng dalawang sugnay",
+              "Hindi kailangan",
+              "Binabago ang kahulugan",
+              "Pinapalitan ang pangatnig"
+            ],
+            "correct_answer": "Tamang paghihiwalay ng dalawang sugnay"
+          },
+          {
+            "question": "Layunin ng pagsasanay sa pagsulat ng talata?",
+            "options": [
+              "Mailapat ang gramatika sa tunay na pagsulat",
+              "Walang layunin",
+              "Para sa pagsusulit lamang",
+              "Hindi kailangan pagsanayan"
+            ],
+            "correct_answer": "Mailapat ang gramatika sa tunay na pagsulat"
+          },
+          {
+            "question": "Ilang sugnay sa 'Ang lalawigan ay may magandang baybayin'?",
+            "options": [
+              "Isa",
+              "Dalawa",
+              "Tatlo",
+              "Wala"
+            ],
+            "correct_answer": "Isa"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🏃 Friday Review — Science (Grade 3)\n\n- Ways to move objects: natural causes, people, weight, surface\n\nGreat movement review! 🌟",
+        "quiz": [
+          {
+            "question": "What natural cause can move leaves?",
+            "options": [
+              "Wind",
+              "A push",
+              "A pull",
+              "A lift"
+            ],
+            "correct_answer": "Wind"
+          },
+          {
+            "question": "What natural cause can move a boat downstream?",
+            "options": [
+              "Water",
+              "Gravity pulling up",
+              "A push",
+              "A lift"
+            ],
+            "correct_answer": "Water"
+          },
+          {
+            "question": "What natural cause pulls ripe fruit down?",
+            "options": [
+              "Gravity",
+              "Wind only",
+              "Water only",
+              "A person"
+            ],
+            "correct_answer": "Gravity"
+          },
+          {
+            "question": "Pushing a cart is an example of?",
+            "options": [
+              "A person causing movement",
+              "A natural cause",
+              "Gravity",
+              "Wind"
+            ],
+            "correct_answer": "A person causing movement"
+          },
+          {
+            "question": "Dragging a sled is an example of?",
+            "options": [
+              "Pulling",
+              "Pushing",
+              "Lifting",
+              "Natural movement"
+            ],
+            "correct_answer": "Pulling"
+          },
+          {
+            "question": "How does weight affect movement?",
+            "options": [
+              "Heavier objects are harder to move",
+              "No effect",
+              "Lighter objects harder",
+              "Only matters for liquids"
+            ],
+            "correct_answer": "Heavier objects are harder to move"
+          },
+          {
+            "question": "How does a rough surface affect movement?",
+            "options": [
+              "Slows movement down",
+              "Always speeds up",
+              "No effect",
+              "Stops movement completely"
+            ],
+            "correct_answer": "Slows movement down"
+          },
+          {
+            "question": "How does a smooth surface affect movement?",
+            "options": [
+              "Makes movement easier",
+              "Always stops movement",
+              "No effect",
+              "Makes objects heavier"
+            ],
+            "correct_answer": "Makes movement easier"
+          },
+          {
+            "question": "Which is a natural cause of movement?",
+            "options": [
+              "Wind",
+              "Pushing a cart",
+              "Lifting a bag",
+              "Dragging a sled"
+            ],
+            "correct_answer": "Wind"
+          },
+          {
+            "question": "Which movement is caused by people?",
+            "options": [
+              "Lifting a bag",
+              "Wind blowing",
+              "Water flowing",
+              "Gravity pulling fruit"
+            ],
+            "correct_answer": "Lifting a bag"
+          },
+          {
+            "question": "Why is a heavy box harder to push?",
+            "options": [
+              "Needs more force to move",
+              "Weight doesn't matter",
+              "Lighter is always harder",
+              "Heavy objects move alone"
+            ],
+            "correct_answer": "Needs more force to move"
+          },
+          {
+            "question": "Why is it easier to slide a box on tile than carpet?",
+            "options": [
+              "Tile is smoother, less resistance",
+              "Carpet is always smoother",
+              "Tile is always heavier",
+              "No difference"
+            ],
+            "correct_answer": "Tile is smoother, less resistance"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🇵🇭 Friday Review — Makabansa (Grade 3)\n\n- Konsepto ng pagka-Pilipino\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pagka-Pilipino?",
+            "options": [
+              "Pagkakakilanlan bilang mamamayan ng Pilipinas",
+              "Pagkakakilanlan bilang mamamayan ng ibang bansa",
+              "Kawalan ng pagkakakilanlan",
+              "Isang uri ng damit"
+            ],
+            "correct_answer": "Pagkakakilanlan bilang mamamayan ng Pilipinas"
+          },
+          {
+            "question": "Sangkap ng pagka-Pilipino?",
+            "options": [
+              "Wika",
+              "Sasakyan",
+              "Pera lamang",
+              "Damit lamang"
+            ],
+            "correct_answer": "Wika"
+          },
+          {
+            "question": "Kasama sa kultura ng pagka-Pilipino?",
+            "options": [
+              "Tradisyon, pagkain, sayaw, musika",
+              "Batas lamang",
+              "Damit lamang",
+              "Wala"
+            ],
+            "correct_answer": "Tradisyon, pagkain, sayaw, musika"
+          },
+          {
+            "question": "Tinutukoy ng kasaysayan sa pagka-Pilipino?",
+            "options": [
+              "Mga kaganapang humubog sa bansa",
+              "Uri ng pagkain lamang",
+              "Uri ng sayaw lamang",
+              "Wala"
+            ],
+            "correct_answer": "Mga kaganapang humubog sa bansa"
+          },
+          {
+            "question": "Ipinapakita ng pagmamahal sa bayan?",
+            "options": [
+              "Pagmamalaki sa tagumpay ng Pilipino",
+              "Kawalang-interes sa bansa",
+              "Pagtanggi sa kultura",
+              "Pag-iwas sa kapwa"
+            ],
+            "correct_answer": "Pagmamalaki sa tagumpay ng Pilipino"
+          },
+          {
+            "question": "Bakit unawain ang pagka-Pilipino?",
+            "options": [
+              "Lumikha ng pagkakaisa",
+              "Walang kahalagahan",
+              "Pagkakahati-hati",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Lumikha ng pagkakaisa"
+          },
+          {
+            "question": "Anong wika bahagi ng pagka-Pilipino bukod sa Filipino?",
+            "options": [
+              "Mga wikang katutubo",
+              "Wikang banyaga lamang",
+              "Walang ibang wika",
+              "Wikang sign lamang"
+            ],
+            "correct_answer": "Mga wikang katutubo"
+          },
+          {
+            "question": "Naidudulot ng pag-unawa sa pagka-Pilipino?",
+            "options": [
+              "Pagkakaisa at pagmamalaki",
+              "Higit na paghihiwalay",
+              "Kawalan ng pagkakakilanlan",
+              "Wala"
+            ],
+            "correct_answer": "Pagkakaisa at pagmamalaki"
+          },
+          {
+            "question": "Bakit mahalaga ang pagka-Pilipino sa Makabansa?",
+            "options": [
+              "Tumutulong maunawaan ang sariling pagkakakilanlan",
+              "Walang kaugnayan sa kasaysayan",
+              "Tungkol lamang sa ibang bansa",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Tumutulong maunawaan ang sariling pagkakakilanlan"
+          },
+          {
+            "question": "Alin ang HINDI sangkap ng pagka-Pilipino?",
+            "options": [
+              "Pagtanggi sa sariling kultura",
+              "Wika",
+              "Kultura",
+              "Kasaysayan"
+            ],
+            "correct_answer": "Pagtanggi sa sariling kultura"
+          },
+          {
+            "question": "Bakit malaman ang kasaysayan bilang bahagi ng pagka-Pilipino?",
+            "options": [
+              "Maunawaan kung paano nabuo ang lipunan",
+              "Walang kaugnayan sa kasalukuyan",
+              "Hindi bahagi ng pagkakakilanlan",
+              "Isang beses lamang pag-aralan"
+            ],
+            "correct_answer": "Maunawaan kung paano nabuo ang lipunan"
+          },
+          {
+            "question": "Koneksyon ng kultura sa pagka-Pilipino?",
+            "options": [
+              "Ipinapakita ang natatanging pamumuhay ng Pilipino",
+              "Walang koneksyon",
+              "Tungkol lamang sa ibang bansa",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Ipinapakita ang natatanging pamumuhay ng Pilipino"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🌐 Friday Review — Computer (Grade 3)\n\n- Gamit ng Internet: browser at search engine\n\nMagaling sa Computer! 🌟",
+        "quiz": [
+          {
+            "question": "Gamit ng Internet?",
+            "options": [
+              "Pagsasaliksik ng impormasyon",
+              "Panonood ng TV lamang",
+              "Pagluluto",
+              "Paglalakbay sa ibang bansa"
+            ],
+            "correct_answer": "Pagsasaliksik ng impormasyon"
+          },
+          {
+            "question": "Ano ang browser?",
+            "options": [
+              "Programang ginagamit para makapunta sa Internet",
+              "Uri ng laro",
+              "Uri ng libro",
+              "Uri ng gunting"
+            ],
+            "correct_answer": "Programang ginagamit para makapunta sa Internet"
+          },
+          {
+            "question": "Ano ang search engine?",
+            "options": [
+              "Tool para maghanap ng impormasyon",
+              "Uri ng makina",
+              "Uri ng laruan",
+              "Bahagi ng kompyuter"
+            ],
+            "correct_answer": "Tool para maghanap ng impormasyon"
+          },
+          {
+            "question": "Halimbawa ng browser?",
+            "options": [
+              "Chrome",
+              "Google",
+              "Windows",
+              "Facebook"
+            ],
+            "correct_answer": "Chrome"
+          },
+          {
+            "question": "Halimbawa ng search engine?",
+            "options": [
+              "Google",
+              "Chrome",
+              "Windows",
+              "Word"
+            ],
+            "correct_answer": "Google"
+          },
+          {
+            "question": "Paano tumulong ang Internet sa komunikasyon?",
+            "options": [
+              "Nakakapag-usap sa pamilya sa malayo",
+              "Walang papel",
+              "Pinipigilan ang komunikasyon",
+              "Para sa libangan lamang"
+            ],
+            "correct_answer": "Nakakapag-usap sa pamilya sa malayo"
+          },
+          {
+            "question": "Paano tumulong ang Internet sa pag-aaral?",
+            "options": [
+              "Panonood ng edukasyonal na bidyo",
+              "Walang gamit",
+              "Pinipigilan ang pag-aaral",
+              "Para sa libangan lamang"
+            ],
+            "correct_answer": "Panonood ng edukasyonal na bidyo"
+          },
+          {
+            "question": "Bakit kailangan ng search engine?",
+            "options": [
+              "Makahanap ng impormasyon nang mabilis",
+              "Magbukas ng laro lamang",
+              "Lumikha ng bagong Internet",
+              "Walang gamit"
+            ],
+            "correct_answer": "Makahanap ng impormasyon nang mabilis"
+          },
+          {
+            "question": "Pagkakaiba ng browser sa search engine?",
+            "options": [
+              "Browser para makapunta sa Internet, search engine para maghanap",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Search engine para sa pagguhit"
+            ],
+            "correct_answer": "Browser para makapunta sa Internet, search engine para maghanap"
+          },
+          {
+            "question": "Bakit malaman ang gamit ng Internet?",
+            "options": [
+              "Magamit nang tama at responsable",
+              "Hindi kailangan malaman",
+              "Hikayatin gamit nang walang gabay",
+              "Walang layunin"
+            ],
+            "correct_answer": "Magamit nang tama at responsable"
+          },
+          {
+            "question": "Halimbawa ng edukasyonal na paggamit ng Internet?",
+            "options": [
+              "Panonood ng bidyo tungkol sa Agham",
+              "Paglalaro nang walang layunin",
+              "Pagbabahagi ng personal na impormasyon",
+              "Pakikipag-usap sa estranghero"
+            ],
+            "correct_answer": "Panonood ng bidyo tungkol sa Agham"
+          },
+          {
+            "question": "Bakit ituro ito bago ang online safety?",
+            "options": [
+              "Maunawaan muna ang Internet bago ang tamang paggamit",
+              "Hindi kailangan ituro",
+              "Walang kaugnayan sa online safety",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Maunawaan muna ang Internet bago ang tamang paggamit"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🇵🇭 Friday Review — GMRC (Grade 3)\n\n- Mabuting kaugalian ng pamilyang Pilipino\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang pagmamano?",
+            "options": [
+              "Tanda ng paggalang sa nakatatanda",
+              "Uri ng pagkain",
+              "Uri ng sayaw",
+              "Uri ng laro"
+            ],
+            "correct_answer": "Tanda ng paggalang sa nakatatanda"
+          },
+          {
+            "question": "Ano ang bayanihan?",
+            "options": [
+              "Pagtutulungan ng magkakapitbahay",
+              "Pagsasarili nang walang tulong",
+              "Pag-iwas sa kapwa",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pagtutulungan ng magkakapitbahay"
+          },
+          {
+            "question": "Pagpapahalaga na tinalakay?",
+            "options": [
+              "Obedience (Pagsunod)",
+              "Compassion",
+              "Respect",
+              "Gratitude"
+            ],
+            "correct_answer": "Obedience (Pagsunod)"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsasama-sama sa pagkain?",
+            "options": [
+              "Nagpapalakas ng ugnayan ng pamilya",
+              "Walang kahalagahan",
+              "Hindi kailangan gawin",
+              "Hindi tradisyon"
+            ],
+            "correct_answer": "Nagpapalakas ng ugnayan ng pamilya"
+          },
+          {
+            "question": "Ipinapakita ng pagsunod sa payo ng magulang?",
+            "options": [
+              "Paggalang at pagmamahal",
+              "Kawalang tiwala sa sarili",
+              "Kawalan ng respeto",
+              "Kahinaan ng loob"
+            ],
+            "correct_answer": "Paggalang at pagmamahal"
+          },
+          {
+            "question": "Bakit iba-iba ang kaugalian sa rehiyon?",
+            "options": [
+              "May natatanging tradisyon ang bawat rehiyon",
+              "Iisa lamang ang tradisyon",
+              "Walang kaugalian",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "May natatanging tradisyon ang bawat rehiyon"
+          },
+          {
+            "question": "Layunin ng mabubuting kaugaliang Pilipino?",
+            "options": [
+              "Magpalakas ng ugnayan ng pamilya",
+              "Panatilihing malayo ang pamilya",
+              "Walang layunin",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Magpalakas ng ugnayan ng pamilya"
+          },
+          {
+            "question": "Bakit pagpapahalaga ang pagsunod sa GMRC?",
+            "options": [
+              "Nagtuturo ng paggalang sa pamilya",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi ng kasaysayan lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Nagtuturo ng paggalang sa pamilya"
+          },
+          {
+            "question": "Halimbawa ng mabuting kaugaliang Pilipino?",
+            "options": [
+              "Pagmamano sa lolo o lola",
+              "Pagwawalang-bahala sa nakatatanda",
+              "Pag-iwas sa gawaing pampamilya",
+              "Kawalan ng respeto"
+            ],
+            "correct_answer": "Pagmamano sa lolo o lola"
+          },
+          {
+            "question": "Bakit alagaan ang mabubuting kaugalian ng pamilya?",
+            "options": [
+              "Pinapanatili ang ugnayan at tradisyon",
+              "Hindi kailangan panatilihin",
+              "Walang kabuluhan",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Pinapanatili ang ugnayan at tradisyon"
+          },
+          {
+            "question": "Naidudulot ng bayanihan sa komunidad?",
+            "options": [
+              "Mas malakas na pagkakaisa",
+              "Higit na paghihiwalay",
+              "Wala",
+              "Kawalan ng tiwala"
+            ],
+            "correct_answer": "Mas malakas na pagkakaisa"
+          },
+          {
+            "question": "Bakit ituro ang mga kaugaliang ito sa bata?",
+            "options": [
+              "Mapanatili ang tradisyon sa susunod na henerasyon",
+              "Hindi kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Mapanatili ang tradisyon sa susunod na henerasyon"
+          }
+        ]
+      }
+    }
+  }
+}

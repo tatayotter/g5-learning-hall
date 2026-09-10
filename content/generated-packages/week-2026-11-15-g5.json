@@ -1,0 +1,2266 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-11-15",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🔙 English — Flashback in Stories\n\nGrade 5, Week 23! Let's learn a storytelling trick that jumps back in time. ⏪\n\n## 🔄 Review\nWe practiced **application forms** and **multimedia elements** in videos.\n\n## ⏪ What Is a Flashback?\nA **flashback** is when a story pauses the present action to show something that happened **earlier**. Writers use flashbacks to explain a character's feelings, secrets, or backstory.\n\n**Example:** A story about a girl afraid of dogs might flash back to when she was bitten by one as a toddler — explaining her fear *now*.\n\n## 📖 Recognizing a Flashback\nLook for signal phrases like *\"She remembered...\"*, *\"Years ago...\"*, or *\"It all started when...\"* — these often mark the shift into a flashback.\n\nA flashback is different from a normal **sequential plot** (which moves forward in time only) — it's one way a story's structure can be **non-linear**.\n\n**Key words:** flashback, backstory, sequential, non-linear",
+        "quiz": [
+          {
+            "question": "What is a flashback?",
+            "options": [
+              "A pause in the present to show something from the past",
+              "A prediction about the future",
+              "The story's title",
+              "A character's name"
+            ],
+            "correct_answer": "A pause in the present to show something from the past"
+          },
+          {
+            "question": "Why do writers use flashbacks?",
+            "options": [
+              "To explain a character's feelings or backstory",
+              "To end the story early",
+              "To confuse the reader on purpose",
+              "To skip writing an ending"
+            ],
+            "correct_answer": "To explain a character's feelings or backstory"
+          },
+          {
+            "question": "Which phrase often signals a flashback is starting?",
+            "options": [
+              "'She remembered...'",
+              "'The end.'",
+              "'Chapter One'",
+              "'The author wrote...'"
+            ],
+            "correct_answer": "'She remembered...'"
+          },
+          {
+            "question": "How is a flashback different from a sequential plot?",
+            "options": [
+              "A flashback jumps back in time; sequential moves forward only",
+              "They are exactly the same",
+              "A flashback only happens in movies",
+              "A sequential plot has no order"
+            ],
+            "correct_answer": "A flashback jumps back in time; sequential moves forward only"
+          },
+          {
+            "question": "A girl is afraid of dogs. The story shows a memory of her being bitten as a toddler. What is this an example of?",
+            "options": [
+              "Flashback",
+              "Prediction",
+              "Dialogue",
+              "Setting description"
+            ],
+            "correct_answer": "Flashback"
+          },
+          {
+            "question": "What does 'non-linear' mean when describing a story's structure?",
+            "options": [
+              "The events are not told in strict forward order",
+              "The story has no characters",
+              "The story is very short",
+              "The story has no ending"
+            ],
+            "correct_answer": "The events are not told in strict forward order"
+          },
+          {
+            "question": "Why might understanding a character's backstory matter to the reader?",
+            "options": [
+              "It helps explain the character's current actions or feelings",
+              "It has no effect on understanding the story",
+              "It replaces the need for a plot",
+              "It only matters for villains"
+            ],
+            "correct_answer": "It helps explain the character's current actions or feelings"
+          },
+          {
+            "question": "A story says 'Years ago, in a small village...' right after describing the present. This signals what?",
+            "options": [
+              "A flashback is beginning",
+              "The story has ended",
+              "A new chapter title",
+              "A change in the main character"
+            ],
+            "correct_answer": "A flashback is beginning"
+          },
+          {
+            "question": "Which type of plot moves forward in time from beginning to end without jumping back?",
+            "options": [
+              "Sequential plot",
+              "Flashback",
+              "Non-linear plot",
+              "Backstory"
+            ],
+            "correct_answer": "Sequential plot"
+          },
+          {
+            "question": "Why might a mystery story use a flashback?",
+            "options": [
+              "To reveal a clue or secret from the past",
+              "To skip the ending",
+              "To remove all characters",
+              "To make the story shorter"
+            ],
+            "correct_answer": "To reveal a clue or secret from the past"
+          },
+          {
+            "question": "What is 'backstory'?",
+            "options": [
+              "A character's history or past events",
+              "The title of the book",
+              "The illustrations in a book",
+              "The author's name"
+            ],
+            "correct_answer": "A character's history or past events"
+          },
+          {
+            "question": "If a story is told entirely in flashbacks with no return to the present, what makes it unusual?",
+            "options": [
+              "It relies entirely on past events instead of mixing present and past",
+              "It has no plot at all",
+              "It cannot have any characters",
+              "It is not really a story"
+            ],
+            "correct_answer": "It relies entirely on past events instead of mixing present and past"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➗ Mathematics — Estimating and Dividing Decimals\n\nGrade 5, Week 23! Let's divide decimals, including money problems. ➗\n\n## 🔄 Review\nWe multiplied decimals last week.\n\n## 🔢 Estimating Decimal Quotients\nRound both numbers first to estimate.\n\n**Example:** 8.7 ÷ 2.9 ≈ 9 ÷ 3 = 3 (estimate)\n\n## ➗ Dividing Decimals\n1. If the divisor has a decimal, move the decimal point right to make it a whole number.\n2. Move the decimal point in the dividend the same number of places.\n3. Divide as usual.\n\n**Example:** 6.4 ÷ 0.8 → move 1 place → 64 ÷ 8 = 8\n\n## 💵 Word Problems with Money\nIf ₱127.50 is shared equally among 5 students, each gets: 127.50 ÷ 5 = ₱25.50\n\n**Key words:** estimate, decimal division, divisor, dividend",
+        "quiz": [
+          {
+            "question": "What is the first step when estimating a decimal division?",
+            "options": [
+              "Round both numbers",
+              "Multiply the numbers",
+              "Add the numbers",
+              "Ignore the decimal points"
+            ],
+            "correct_answer": "Round both numbers"
+          },
+          {
+            "question": "What is 8.7 ÷ 2.9 estimated?",
+            "options": [
+              "About 3 (9 ÷ 3)",
+              "About 5",
+              "About 10",
+              "About 1"
+            ],
+            "correct_answer": "About 3 (9 ÷ 3)"
+          },
+          {
+            "question": "When the divisor has a decimal, what should you do first?",
+            "options": [
+              "Move the decimal point to make it a whole number",
+              "Ignore the decimal completely",
+              "Round it to zero",
+              "Subtract 1 from it"
+            ],
+            "correct_answer": "Move the decimal point to make it a whole number"
+          },
+          {
+            "question": "What is 6.4 ÷ 0.8?",
+            "options": [
+              "8",
+              "0.8",
+              "80",
+              "0.08"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "If ₱127.50 is shared equally among 5 students, how much does each get?",
+            "options": [
+              "₱25.50",
+              "₱127.50",
+              "₱5.00",
+              "₱25.00"
+            ],
+            "correct_answer": "₱25.50"
+          },
+          {
+            "question": "What is 9.6 ÷ 3?",
+            "options": [
+              "3.2",
+              "32",
+              "0.32",
+              "6.6"
+            ],
+            "correct_answer": "3.2"
+          },
+          {
+            "question": "In decimal division, what must you also do to the dividend if you move the divisor's decimal point?",
+            "options": [
+              "Move the dividend's decimal point the same number of places",
+              "Leave the dividend exactly the same",
+              "Round the dividend to a whole number",
+              "Divide the dividend by 10 automatically"
+            ],
+            "correct_answer": "Move the dividend's decimal point the same number of places"
+          },
+          {
+            "question": "What is 4.5 ÷ 0.5?",
+            "options": [
+              "9",
+              "0.9",
+              "90",
+              "0.09"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "Why is estimating useful before doing exact decimal division?",
+            "options": [
+              "It helps check whether the final answer makes sense",
+              "It replaces the need to divide",
+              "It always gives the exact answer",
+              "It only works with whole numbers"
+            ],
+            "correct_answer": "It helps check whether the final answer makes sense"
+          },
+          {
+            "question": "A ribbon of 12.6 meters is cut into 3 equal pieces. How long is each piece?",
+            "options": [
+              "4.2 meters",
+              "3.6 meters",
+              "42 meters",
+              "1.2 meters"
+            ],
+            "correct_answer": "4.2 meters"
+          },
+          {
+            "question": "What is 15.75 ÷ 5?",
+            "options": [
+              "3.15",
+              "31.5",
+              "0.315",
+              "7.875"
+            ],
+            "correct_answer": "3.15"
+          },
+          {
+            "question": "If ₱84.00 is split evenly among 4 friends, how much does each friend get?",
+            "options": [
+              "₱21.00",
+              "₱84.00",
+              "₱4.00",
+              "₱20.00"
+            ],
+            "correct_answer": "₱21.00"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 👻 Filipino — Panimula sa Kuwentong Katatakutan\n\nGrade 5, Linggo 23! Alamin natin ang isang uri ng kuwentong pampanitikan. 👻\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **tulang pambata**: saknong, taludtod, tugma.\n\n## 👻 Ano ang Kuwentong Katatakutan?\nAng **kuwentong katatakutan** ay isang uri ng kuwentong pampanitikan na naglalayong **magpataranta o magbigay-kaba** sa mambabasa gamit ang mga misteryosong pangyayari, nilalang, o lugar.\n\n## 🏚️ Mga Sangkap\n- **Tagpuan** — kadalasang madilim o kakaibang lugar (lumang bahay, gubat)\n- **Suspense** — pagbuo ng kaba bago dumating ang sukdulan\n- **Twist** — di-inaasahang pagbabago sa dulo\n\n## 📚 Halimbawa sa Kulturang Pilipino\nMaraming alamat at kuwentong-bayan sa Pilipinas ang may temang katatakutan, tulad ng mga kuwento tungkol sa **aswang, tikbalang, at kapre** — bahagi ito ng ating **katutubong panitikan**.\n\n**Mahahalagang salita:** kuwentong katatakutan, tagpuan, suspense, twist",
+        "quiz": [
+          {
+            "question": "Ano ang kuwentong katatakutan?",
+            "options": [
+              "Kuwentong naglalayong magpataranta o magbigay-kaba",
+              "Kuwentong pang-agham",
+              "Kuwentong tungkol sa negosyo",
+              "Kuwentong tungkol sa matematika"
+            ],
+            "correct_answer": "Kuwentong naglalayong magpataranta o magbigay-kaba"
+          },
+          {
+            "question": "Ano ang tagpuan sa kuwentong katatakutan?",
+            "options": [
+              "Kadalasang madilim o kakaibang lugar",
+              "Ang pangalan ng may-akda",
+              "Ang pamagat ng kuwento",
+              "Ang bilang ng pahina"
+            ],
+            "correct_answer": "Kadalasang madilim o kakaibang lugar"
+          },
+          {
+            "question": "Ano ang suspense?",
+            "options": [
+              "Pagbuo ng kaba bago dumating ang sukdulan",
+              "Ang katapusan ng kuwento",
+              "Ang pangunahing tauhan",
+              "Ang tagpuan lamang"
+            ],
+            "correct_answer": "Pagbuo ng kaba bago dumating ang sukdulan"
+          },
+          {
+            "question": "Ano ang twist sa isang kuwento?",
+            "options": [
+              "Di-inaasahang pagbabago sa dulo",
+              "Ang unang bahagi ng kuwento",
+              "Ang pangalan ng tauhan",
+              "Ang tagpuan ng kuwento"
+            ],
+            "correct_answer": "Di-inaasahang pagbabago sa dulo"
+          },
+          {
+            "question": "Alin sa mga ito ang halimbawa ng katutubong nilalang sa kuwentong katatakutan ng Pilipinas?",
+            "options": [
+              "Aswang",
+              "Alien",
+              "Vampire ng ibang bansa",
+              "Robot"
+            ],
+            "correct_answer": "Aswang"
+          },
+          {
+            "question": "Bakit karaniwang madilim o kakaiba ang tagpuan sa kuwentong katatakutan?",
+            "options": [
+              "Para makatulong itong bumuo ng kaba at misteryo",
+              "Walang dahilan, random lamang",
+              "Para gawing masaya ang kuwento",
+              "Para gawing madaling unawain ang kuwento"
+            ],
+            "correct_answer": "Para makatulong itong bumuo ng kaba at misteryo"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HINDI karaniwang sangkap ng kuwentong katatakutan?",
+            "options": [
+              "Masayang katapusan na walang kaba",
+              "Suspense",
+              "Tagpuang madilim",
+              "Twist sa dulo"
+            ],
+            "correct_answer": "Masayang katapusan na walang kaba"
+          },
+          {
+            "question": "Bakit itinuturing na bahagi ng katutubong panitikan ang mga kuwento tungkol sa tikbalang at kapre?",
+            "options": [
+              "Sapagkat ito ay bahagi ng alamat at kuwentong-bayan ng Pilipinas",
+              "Sapagkat galing ito sa ibang bansa",
+              "Sapagkat ito ay bagong likha lamang",
+              "Sapagkat walang kinalaman ito sa kultura"
+            ],
+            "correct_answer": "Sapagkat ito ay bahagi ng alamat at kuwentong-bayan ng Pilipinas"
+          },
+          {
+            "question": "Ano ang epekto ng twist sa mambabasa?",
+            "options": [
+              "Nagbibigay ito ng sorpresa o di-inaasahang pagbabago",
+              "Wala itong epekto",
+              "Ginagawa nitong mas maikli ang kuwento",
+              "Tinatapos nito ang kuwento nang maaga"
+            ],
+            "correct_answer": "Nagbibigay ito ng sorpresa o di-inaasahang pagbabago"
+          },
+          {
+            "question": "Bakit gumagamit ng suspense ang mga manunulat ng kuwentong katatakutan?",
+            "options": [
+              "Para hawakan ang atensyon ng mambabasa hanggang sa sukdulan",
+              "Para agad matapos ang kuwento",
+              "Para gawing komedya ang kuwento",
+              "Para alisin ang tagpuan"
+            ],
+            "correct_answer": "Para hawakan ang atensyon ng mambabasa hanggang sa sukdulan"
+          },
+          {
+            "question": "Alin sa mga ito ang malamang na tagpuan ng isang kuwentong katatakutan?",
+            "options": [
+              "Isang lumang bahay na madilim",
+              "Isang maaliwalas na palengke",
+              "Isang paaralang puno ng tawanan",
+              "Isang parke sa hapon"
+            ],
+            "correct_answer": "Isang lumang bahay na madilim"
+          },
+          {
+            "question": "Paano naiiba ang kuwentong katatakutan sa tulang pambata na inaral natin noong nakaraang linggo?",
+            "options": [
+              "Ang kuwentong katatakutan ay naglalayong magbigay-kaba, habang ang tulang pambata ay para aliwin ang mga bata sa payak na paraan",
+              "Magkatulad lamang sila",
+              "Ang tulang pambata ay palaging nakakatakot",
+              "Walang pagkakaiba sa layunin nila"
+            ],
+            "correct_answer": "Ang kuwentong katatakutan ay naglalayong magbigay-kaba, habang ang tulang pambata ay para aliwin ang mga bata sa payak na paraan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔌 Science — Conductors and Insulators\n\nGrade 5, Week 23! Let's find out which materials let electricity flow. 🔌\n\n## 🔄 Review\nWe learned about **static electricity** and electric charge.\n\n## 🔌 What Is a Conductor?\nA **conductor** is a material that allows electricity to flow through it easily. Most **metals** (copper, aluminum, iron) are good conductors — that's why electrical wires are made of metal.\n\n## 🚫 What Is an Insulator?\nAn **insulator** is a material that does NOT allow electricity to flow through it easily. Examples: rubber, plastic, glass, wood, and air.\n\n## 🔒 Why This Matters\nElectrical wires are covered in **rubber or plastic** (insulators) to keep the electricity inside the wire safe, so it doesn't shock anyone who touches the wire's outside.\n\n**Quick test:** Metal spoon = conductor. Wooden spoon = insulator. Plastic ruler = insulator. Aluminum foil = conductor.\n\n**Key words:** conductor, insulator, metal, safety",
+        "quiz": [
+          {
+            "question": "What is a conductor?",
+            "options": [
+              "A material that allows electricity to flow through it easily",
+              "A material that blocks electricity completely",
+              "A type of magnet",
+              "A type of sound wave"
+            ],
+            "correct_answer": "A material that allows electricity to flow through it easily"
+          },
+          {
+            "question": "What is an insulator?",
+            "options": [
+              "A material that does not allow electricity to flow easily",
+              "A material that always conducts electricity",
+              "A type of electric charge",
+              "A kind of magnet"
+            ],
+            "correct_answer": "A material that does not allow electricity to flow easily"
+          },
+          {
+            "question": "Which of these is a good conductor?",
+            "options": [
+              "Copper",
+              "Rubber",
+              "Plastic",
+              "Wood"
+            ],
+            "correct_answer": "Copper"
+          },
+          {
+            "question": "Which of these is a good insulator?",
+            "options": [
+              "Rubber",
+              "Copper",
+              "Aluminum",
+              "Iron"
+            ],
+            "correct_answer": "Rubber"
+          },
+          {
+            "question": "Why are electrical wires covered in rubber or plastic?",
+            "options": [
+              "To keep electricity safely inside the wire",
+              "To make the wire heavier",
+              "To make the wire a better conductor",
+              "To make the wire colorful only"
+            ],
+            "correct_answer": "To keep electricity safely inside the wire"
+          },
+          {
+            "question": "Why are metals generally good conductors?",
+            "options": [
+              "They allow electricity to pass through them easily",
+              "They are always shiny",
+              "They are lightweight",
+              "They never get hot"
+            ],
+            "correct_answer": "They allow electricity to pass through them easily"
+          },
+          {
+            "question": "A wooden spoon is an example of what?",
+            "options": [
+              "An insulator",
+              "A conductor",
+              "A magnet",
+              "A source of electricity"
+            ],
+            "correct_answer": "An insulator"
+          },
+          {
+            "question": "An aluminum foil sheet touching a battery's terminals would likely...",
+            "options": [
+              "Conduct electricity because it is a metal",
+              "Block electricity completely",
+              "Turn into a magnet",
+              "Have no reaction at all"
+            ],
+            "correct_answer": "Conduct electricity because it is a metal"
+          },
+          {
+            "question": "Why is it dangerous to touch a bare (uncovered) electrical wire?",
+            "options": [
+              "The metal wire conducts electricity, which can shock you",
+              "Bare wires never carry electricity",
+              "Metal wires are always insulators",
+              "It is never actually dangerous"
+            ],
+            "correct_answer": "The metal wire conducts electricity, which can shock you"
+          },
+          {
+            "question": "Which material would be safest to use as a handle for a hot electrical tool?",
+            "options": [
+              "Plastic (an insulator)",
+              "Copper (a conductor)",
+              "Aluminum (a conductor)",
+              "Iron (a conductor)"
+            ],
+            "correct_answer": "Plastic (an insulator)"
+          },
+          {
+            "question": "Why is glass considered an insulator?",
+            "options": [
+              "It does not allow electricity to pass through easily",
+              "It is always transparent",
+              "It conducts electricity very well",
+              "It is a type of metal"
+            ],
+            "correct_answer": "It does not allow electricity to pass through easily"
+          },
+          {
+            "question": "If you wanted to build a circuit that lights a bulb, which material would you use to connect the wires?",
+            "options": [
+              "A conductor like copper wire",
+              "An insulator like rubber",
+              "A wooden stick",
+              "A plastic sheet"
+            ],
+            "correct_answer": "A conductor like copper wire"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Araling Panlipunan — Konsepto ng Nasyonalismo\n\nGrade 5, Linggo 23! Simulan na natin ang bagong yunit tungkol sa nasyonalismo. 🇵🇭\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **Malayang Cordillera** at **Sultanato**.\n\n## 🇵🇭 Ano ang Nasyonalismo?\nAng **nasyonalismo** ay ang malalim na pagmamahal at katapatan sa sariling bansa, kasama ang paniniwalang dapat magkaroon ang mga Pilipino ng sariling pagkakakilanlan at pamahalaan.\n\n## 🌱 Pagsibol ng Nasyonalismo sa Pilipinas\nSa huling bahagi ng panahon ng kolonyal, nagsimulang lumago ang diwa ng nasyonalismo dulot ng:\n- Pagsasama-sama ng mga Pilipino sa ilalim ng iisang pamahalaang kolonyal (nagbigay-daan sa pakiramdam ng \"iisang bansa\")\n- Pagkakaroon ng ilustradong Pilipino na nakapag-aral sa ibang bansa\n- Karanasan ng inhustisya sa ilalim ng pananakop\n\n**Halimbawa:** Ang paggamit ng salitang \"Pilipino\" (sa halip na \"Indio\") bilang pagkakakilanlan ay isang tanda ng lumalaking nasyonalismo.\n\n**Mahahalagang salita:** nasyonalismo, pagkakakilanlan, ilustrado, kolonyal",
+        "quiz": [
+          {
+            "question": "Ano ang nasyonalismo?",
+            "options": [
+              "Malalim na pagmamahal at katapatan sa sariling bansa",
+              "Pagmamahal sa ibang bansa lamang",
+              "Kawalang-interes sa pamahalaan",
+              "Pagtanggi sa sariling kasaysayan"
+            ],
+            "correct_answer": "Malalim na pagmamahal at katapatan sa sariling bansa"
+          },
+          {
+            "question": "Kailan nagsimulang lumago ang nasyonalismo sa Pilipinas?",
+            "options": [
+              "Sa huling bahagi ng panahon ng kolonyal",
+              "Bago dumating ang mga Espanyol",
+              "Pagkatapos ng Ikalawang Digmaang Pandaigdig lamang",
+              "Hindi ito naganap kailanman"
+            ],
+            "correct_answer": "Sa huling bahagi ng panahon ng kolonyal"
+          },
+          {
+            "question": "Sino ang ilustrado?",
+            "options": [
+              "Pilipinong nakapag-aral sa ibang bansa",
+              "Pinuno ng Espanya",
+              "Sundalong Espanyol",
+              "Isang uri ng hayop"
+            ],
+            "correct_answer": "Pilipinong nakapag-aral sa ibang bansa"
+          },
+          {
+            "question": "Ano ang naging papel ng pagsasama-sama sa ilalim ng iisang pamahalaan sa pagsibol ng nasyonalismo?",
+            "options": [
+              "Nagbigay ito ng pakiramdam ng 'iisang bansa'",
+              "Wala itong papel",
+              "Pinahina nito ang diwa ng pagkakaisa",
+              "Naghati lamang ito sa mga Pilipino"
+            ],
+            "correct_answer": "Nagbigay ito ng pakiramdam ng 'iisang bansa'"
+          },
+          {
+            "question": "Ano ang naging tanda ng lumalaking nasyonalismo sa paggamit ng salitang 'Pilipino'?",
+            "options": [
+              "Ginamit ito sa halip na 'Indio' bilang pagkakakilanlan",
+              "Ito ay pangalan ng isang lungsod lamang",
+              "Ito ay ginamit lamang ng mga Espanyol",
+              "Wala itong kahulugan noon"
+            ],
+            "correct_answer": "Ginamit ito sa halip na 'Indio' bilang pagkakakilanlan"
+          },
+          {
+            "question": "Ano ang isa sa mga sanhi ng pagsibol ng nasyonalismo?",
+            "options": [
+              "Karanasan ng inhustisya sa ilalim ng pananakop",
+              "Kasiyahan sa buhay kolonyal",
+              "Kawalan ng pakikipag-ugnayan sa ibang Pilipino",
+              "Kakulangan ng edukasyon"
+            ],
+            "correct_answer": "Karanasan ng inhustisya sa ilalim ng pananakop"
+          },
+          {
+            "question": "Ano ang pangunahing paniniwala ng nasyonalismo?",
+            "options": [
+              "Dapat magkaroon ang mga Pilipino ng sariling pagkakakilanlan at pamahalaan",
+              "Dapat manatiling sakop ng ibang bansa ang Pilipinas",
+              "Walang kailangang pagbabago sa lipunan",
+              "Dapat kalimutan ang sariling kasaysayan"
+            ],
+            "correct_answer": "Dapat magkaroon ang mga Pilipino ng sariling pagkakakilanlan at pamahalaan"
+          },
+          {
+            "question": "Bakit mahalaga ang mga ilustrado sa pagsibol ng nasyonalismo?",
+            "options": [
+              "Nadala nila ang mga bagong ideya mula sa ibang bansa tungkol sa kalayaan",
+              "Wala silang naitulong sa kasaysayan",
+              "Sila ay laging sumusuporta sa kolonyalismo",
+              "Sila ay hindi nag-aral kailanman"
+            ],
+            "correct_answer": "Nadala nila ang mga bagong ideya mula sa ibang bansa tungkol sa kalayaan"
+          },
+          {
+            "question": "Paano nauugnay ang pagsasama-sama ng mga pulo sa ilalim ng iisang pamahalaan sa nasyonalismo?",
+            "options": [
+              "Nagbunsod ito ng pakiramdam ng pagkakaisa bilang isang bansa",
+              "Nagpahiwalay lamang ito sa mga Pilipino",
+              "Walang naging epekto ito",
+              "Pinigilan nito ang pagkakaisa"
+            ],
+            "correct_answer": "Nagbunsod ito ng pakiramdam ng pagkakaisa bilang isang bansa"
+          },
+          {
+            "question": "Alin ang HINDI naging dahilan ng pagsibol ng nasyonalismo?",
+            "options": [
+              "Kasiyahan sa patuloy na pananakop",
+              "Karanasan ng inhustisya",
+              "Pag-usbong ng mga ilustrado",
+              "Pagkakaroon ng pakiramdam na 'iisang bansa'"
+            ],
+            "correct_answer": "Kasiyahan sa patuloy na pananakop"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang paksa ang nasyonalismo sa Araling Panlipunan?",
+            "options": [
+              "Tumutulong itong maunawaan kung paano nabuo ang pagkakakilanlang Pilipino",
+              "Walang kaugnayan ito sa kasaysayan",
+              "Ito ay tungkol lamang sa mga bansang dayuhan",
+              "Hindi mahalagang paksa ito"
+            ],
+            "correct_answer": "Tumutulong itong maunawaan kung paano nabuo ang pagkakakilanlang Pilipino"
+          },
+          {
+            "question": "Paano konektado ang araling ito sa binanggit sa GMRC linggong ito?",
+            "options": [
+              "Pareho silang tumatalakay sa pagmamahal at pagsuporta sa sariling bansa",
+              "Walang koneksyon ang dalawa",
+              "Ang GMRC ay tungkol lamang sa agham",
+              "Ang AP ay tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Pareho silang tumatalakay sa pagmamahal at pagsuporta sa sariling bansa"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🧮 EPP (ICT) — Basic Formulas: SUM and AVERAGE\n\nGrade 5, Week 23! Let's make the spreadsheet do the math for us. 🧮\n\n## 🔄 Review\nWe learned how to make **charts** from spreadsheet data.\n\n## ➕ The SUM Formula\nThe **SUM** formula adds a group of numbers automatically.\n\n**Example:** `=SUM(A1:A5)` adds all the numbers from cell A1 to A5.\n\n## 📊 The AVERAGE Formula\nThe **AVERAGE** formula finds the mean of a group of numbers.\n\n**Example:** `=AVERAGE(B1:B5)` finds the average of the numbers from B1 to B5.\n\n## 🖊️ Why Use Formulas?\nInstead of adding numbers by hand, formulas update **automatically** if you change a number in the range — saving time and avoiding mistakes.\n\n**Key words:** formula, SUM, AVERAGE, range, automatic",
+        "quiz": [
+          {
+            "question": "What does the SUM formula do?",
+            "options": [
+              "Adds a group of numbers",
+              "Finds the average",
+              "Deletes numbers",
+              "Colors the cells"
+            ],
+            "correct_answer": "Adds a group of numbers"
+          },
+          {
+            "question": "What does the AVERAGE formula do?",
+            "options": [
+              "Finds the mean of a group of numbers",
+              "Adds numbers only",
+              "Deletes a row",
+              "Changes the font"
+            ],
+            "correct_answer": "Finds the mean of a group of numbers"
+          },
+          {
+            "question": "What does '=SUM(A1:A5)' do?",
+            "options": [
+              "Adds all numbers from A1 to A5",
+              "Multiplies A1 by A5",
+              "Deletes A1 to A5",
+              "Finds the average of A1 to A5"
+            ],
+            "correct_answer": "Adds all numbers from A1 to A5"
+          },
+          {
+            "question": "Why are formulas useful in a spreadsheet?",
+            "options": [
+              "They update automatically when numbers change",
+              "They only work once and never update",
+              "They remove the need for numbers",
+              "They only work on printed paper"
+            ],
+            "correct_answer": "They update automatically when numbers change"
+          },
+          {
+            "question": "What does '=AVERAGE(B1:B5)' calculate?",
+            "options": [
+              "The average of B1 to B5",
+              "The sum of B1 to B5",
+              "The largest number in B1 to B5",
+              "The smallest number in B1 to B5"
+            ],
+            "correct_answer": "The average of B1 to B5"
+          },
+          {
+            "question": "If you change one number inside a SUM formula's range, what happens?",
+            "options": [
+              "The total updates automatically",
+              "Nothing changes at all",
+              "The formula stops working",
+              "The spreadsheet crashes"
+            ],
+            "correct_answer": "The total updates automatically"
+          },
+          {
+            "question": "Why might a teacher use AVERAGE on a spreadsheet of quiz scores?",
+            "options": [
+              "To quickly find the class's mean score",
+              "To delete all the scores",
+              "To change the scores randomly",
+              "To hide the scores"
+            ],
+            "correct_answer": "To quickly find the class's mean score"
+          },
+          {
+            "question": "What is a 'range' in a formula like A1:A5?",
+            "options": [
+              "A group of connected cells",
+              "A single cell only",
+              "A type of chart",
+              "A file name"
+            ],
+            "correct_answer": "A group of connected cells"
+          },
+          {
+            "question": "Why is using a formula better than adding numbers by hand for large data?",
+            "options": [
+              "It saves time and avoids mistakes",
+              "It is always slower",
+              "It removes the numbers permanently",
+              "It only works with letters"
+            ],
+            "correct_answer": "It saves time and avoids mistakes"
+          },
+          {
+            "question": "If A1=2, A2=4, A3=6, what would =SUM(A1:A3) equal?",
+            "options": [
+              "12",
+              "6",
+              "2",
+              "8"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "If A1=2, A2=4, A3=6, what would =AVERAGE(A1:A3) equal?",
+            "options": [
+              "4",
+              "12",
+              "2",
+              "6"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "Which formula would you use to quickly total a week's worth of allowance savings?",
+            "options": [
+              "SUM",
+              "AVERAGE only",
+              "Neither formula works for this",
+              "A chart instead of a formula"
+            ],
+            "correct_answer": "SUM"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 💊 MAPEH — Proper Medicine Use vs. Misuse\n\nGrade 5, Linggo 23! Alamin natin ang tamang paggamit ng gamot. 💊\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **social dance mixer**.\n\n## 💊 Tamang Paggamit ng Gamot\n- Inumin lamang ang gamot na **inireseta o inirekomenda** ng doktor o magulang\n- Sundin ang tamang **dosis** at oras ng pag-inom\n- Basahin ang **label** bago uminom\n- Huwag kailanman uminom ng gamot ng ibang tao\n\n## ⚠️ Maling Paggamit (Misuse)\nAng **maling paggamit** ay nangyayari kapag:\n- Uminom nang higit sa itinakdang dosis\n- Uminom nang walang pahintulot ng may sapat na gulang\n- Ginagamit ang gamot para sa hindi tamang layunin\n\nAng maling paggamit ng gamot ay maaaring magdulot ng **malalang pinsala sa katawan** kahit ang gamot mismo ay ligtas kapag ginamit nang tama.\n\n**Mahahalagang salita:** reseta, dosis, label, maling paggamit",
+        "quiz": [
+          {
+            "question": "Sino ang dapat magrereseta o magrekomenda ng gamot?",
+            "options": [
+              "Doktor o magulang",
+              "Kaibigan lamang",
+              "Sinuman sa paaralan",
+              "Walang kailangang pahintulot"
+            ],
+            "correct_answer": "Doktor o magulang"
+          },
+          {
+            "question": "Ano ang dosis?",
+            "options": [
+              "Ang tamang bilang o dami ng gamot na iinumin",
+              "Ang pangalan ng gamot",
+              "Ang kulay ng gamot",
+              "Ang presyo ng gamot"
+            ],
+            "correct_answer": "Ang tamang bilang o dami ng gamot na iinumin"
+          },
+          {
+            "question": "Bakit mahalagang basahin ang label ng gamot bago ito inumin?",
+            "options": [
+              "Para malaman ang tamang paggamit at dosis nito",
+              "Hindi kailangang basahin ang label",
+              "Ang label ay para lamang palamuti",
+              "Ang label ay para lamang sa matatanda"
+            ],
+            "correct_answer": "Para malaman ang tamang paggamit at dosis nito"
+          },
+          {
+            "question": "Ano ang maling paggamit (misuse) ng gamot?",
+            "options": [
+              "Pag-inom nang higit sa itinakdang dosis o walang pahintulot",
+              "Pag-inom ayon sa reseta ng doktor",
+              "Pagsunod sa tamang oras ng pag-inom",
+              "Pagbasa ng label bago uminom"
+            ],
+            "correct_answer": "Pag-inom nang higit sa itinakdang dosis o walang pahintulot"
+          },
+          {
+            "question": "Bakit hindi dapat uminom ng gamot ng ibang tao?",
+            "options": [
+              "Maaaring hindi ito angkop o ligtas para sa iyong kondisyon",
+              "Walang epekto ito kahit kanino",
+              "Palaging ligtas ang gamot ng iba",
+              "Kinakailangan ito para gumaling agad"
+            ],
+            "correct_answer": "Maaaring hindi ito angkop o ligtas para sa iyong kondisyon"
+          },
+          {
+            "question": "Ano ang maaaring idulot ng maling paggamit ng gamot?",
+            "options": [
+              "Malalang pinsala sa katawan",
+              "Palaging positibong epekto",
+              "Walang epekto kailanman",
+              "Awtomatikong paggaling"
+            ],
+            "correct_answer": "Malalang pinsala sa katawan"
+          },
+          {
+            "question": "Bakit itinuturing na ligtas ang gamot kapag ginamit nang tama?",
+            "options": [
+              "Sapagkat ginagamit ito ayon sa tamang dosis at layunin",
+              "Sapagkat lahat ng gamot ay ligtas kahit paano gamitin",
+              "Sapagkat walang epekto ang gamot",
+              "Sapagkat gamot ay hindi kailangang subaybayan"
+            ],
+            "correct_answer": "Sapagkat ginagamit ito ayon sa tamang dosis at layunin"
+          },
+          {
+            "question": "Anong dapat gawin ng isang bata bago uminom ng anumang gamot?",
+            "options": [
+              "Humingi ng pahintulot at gabay sa magulang o doktor",
+              "Uminom agad nang walang tanong",
+              "Sumangguni sa kaibigan lamang",
+              "Sumunod lamang sa TV commercial"
+            ],
+            "correct_answer": "Humingi ng pahintulot at gabay sa magulang o doktor"
+          },
+          {
+            "question": "Bakit itinuturo ang paksang ito sa MAPEH?",
+            "options": [
+              "Bahagi ito ng pag-aalaga sa kalusugan at kaligtasan",
+              "Wala itong kaugnayan sa kalusugan",
+              "Ito ay tungkol lamang sa musika",
+              "Ito ay tungkol lamang sa sayaw"
+            ],
+            "correct_answer": "Bahagi ito ng pag-aalaga sa kalusugan at kaligtasan"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HALIMBAWA ng tamang paggamit ng gamot?",
+            "options": [
+              "Pag-inom ayon sa reseta ng doktor sa tamang oras",
+              "Pag-inom ng dagdag na dosis para mabilis gumaling",
+              "Pag-inom ng gamot ng kapatid",
+              "Pag-inom nang walang pagbasa ng label"
+            ],
+            "correct_answer": "Pag-inom ayon sa reseta ng doktor sa tamang oras"
+          },
+          {
+            "question": "Ano ang gagawin mo kung nakalimutan mong uminom ng gamot sa tamang oras?",
+            "options": [
+              "Magtanong sa magulang o doktor kung ano ang dapat gawin",
+              "Uminom ng dobleng dosis kaagad",
+              "Kalimutan na lang ang pag-inom",
+              "Uminom ng ibang gamot na kapareho ang kulay"
+            ],
+            "correct_answer": "Magtanong sa magulang o doktor kung ano ang dapat gawin"
+          },
+          {
+            "question": "Bakit dapat ipagbawal ang pag-inom ng gamot nang walang pahintulot ng may sapat na gulang?",
+            "options": [
+              "Maaaring hindi alam ng bata ang tamang dosis o epekto nito",
+              "Walang panganib dito",
+              "Palaging alam ng bata ang tamang gamot",
+              "Hindi na kailangan ng pahintulot"
+            ],
+            "correct_answer": "Maaaring hindi alam ng bata ang tamang dosis o epekto nito"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 💰 EPP (AFA/FCS/IA) — Pagbebenta ng Natapos na Kagamitan\n\nGrade 5, Linggo 23! Tapusin natin ang ating proyekto sa pananahi sa pagbebenta! 💰\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga crochet stitch: chain, single, at double crochet.\n\n## 💰 Pagkukuwenta ng Puhunan (Capital)\nAng **puhunan** ay ang kabuuang gastos sa paggawa ng produkto — halaga ng tela, sinulid, at iba pang materyales.\n\n**Halimbawa:** Tela (₱50) + Sinulid (₱15) + Iba pa (₱10) = ₱75 na puhunan\n\n## 💵 Pagtakda ng Presyo\nUpang magkaroon ng **kita (profit)**, idagdag ang gustong kita sa puhunan:\n\nPresyo = Puhunan + Kitang Inaasahan\n\n**Halimbawa:** ₱75 (puhunan) + ₱25 (kitang inaasahan) = ₱100 na presyo ng benta\n\n## 📈 Kitang Inaasahan (Expected Profit)\nKita = Presyo ng Benta − Puhunan\n\n₱100 − ₱75 = ₱25 na kita\n\n**Mahahalagang salita:** puhunan, presyo, kita, benta",
+        "quiz": [
+          {
+            "question": "Ano ang puhunan?",
+            "options": [
+              "Kabuuang gastos sa paggawa ng produkto",
+              "Ang kita mula sa pagbebenta",
+              "Ang pangalan ng produkto",
+              "Ang presyo ng benta lamang"
+            ],
+            "correct_answer": "Kabuuang gastos sa paggawa ng produkto"
+          },
+          {
+            "question": "Paano kinukwenta ang presyo ng benta?",
+            "options": [
+              "Puhunan + Kitang Inaasahan",
+              "Puhunan lamang",
+              "Kitang Inaasahan lamang",
+              "Puhunan − Kitang Inaasahan"
+            ],
+            "correct_answer": "Puhunan + Kitang Inaasahan"
+          },
+          {
+            "question": "Kung ₱75 ang puhunan at ₱25 ang inaasahang kita, ano ang presyo ng benta?",
+            "options": [
+              "₱100",
+              "₱75",
+              "₱25",
+              "₱50"
+            ],
+            "correct_answer": "₱100"
+          },
+          {
+            "question": "Paano kinukwenta ang kita?",
+            "options": [
+              "Presyo ng Benta − Puhunan",
+              "Presyo ng Benta + Puhunan",
+              "Puhunan lamang",
+              "Presyo ng Benta lamang"
+            ],
+            "correct_answer": "Presyo ng Benta − Puhunan"
+          },
+          {
+            "question": "Kung ₱100 ang presyo ng benta at ₱75 ang puhunan, ano ang kita?",
+            "options": [
+              "₱25",
+              "₱100",
+              "₱75",
+              "₱175"
+            ],
+            "correct_answer": "₱25"
+          },
+          {
+            "question": "Ano ang kasama sa puhunan sa paggawa ng kagamitang pantahanan?",
+            "options": [
+              "Halaga ng tela, sinulid, at iba pang materyales",
+              "Presyo ng benta lamang",
+              "Kita lamang",
+              "Pangalan ng bumibili"
+            ],
+            "correct_answer": "Halaga ng tela, sinulid, at iba pang materyales"
+          },
+          {
+            "question": "Bakit mahalagang kwentahin nang tama ang puhunan?",
+            "options": [
+              "Para malaman ang tamang presyo na dapat itakda",
+              "Hindi na kailangan itong kwentahin",
+              "Para talunin lang ang kompetisyon",
+              "Walang kaugnayan sa pagbebenta"
+            ],
+            "correct_answer": "Para malaman ang tamang presyo na dapat itakda"
+          },
+          {
+            "question": "Ano ang mangyayari kung mas mababa ang presyo ng benta kaysa puhunan?",
+            "options": [
+              "Malulugi (mawawalan ng kita) ang gumawa",
+              "Kikita nang husto ang gumawa",
+              "Walang epekto ito",
+              "Awtomatikong tataas ang presyo"
+            ],
+            "correct_answer": "Malulugi (mawawalan ng kita) ang gumawa"
+          },
+          {
+            "question": "Bakit itinuturo ang pagbebenta bilang bahagi ng proyekto sa EPP?",
+            "options": [
+              "Para matutunan ang batayang kasanayan sa negosyo at pananalapi",
+              "Walang layunin ito",
+              "Para lamang libangin ang mga bata",
+              "Hindi ito bahagi ng tunay na buhay"
+            ],
+            "correct_answer": "Para matutunan ang batayang kasanayan sa negosyo at pananalapi"
+          },
+          {
+            "question": "Ano ang tawag sa perang natitira pagkatapos bawasin ang puhunan sa presyo ng benta?",
+            "options": [
+              "Kita",
+              "Puhunan",
+              "Gastos",
+              "Diskwento"
+            ],
+            "correct_answer": "Kita"
+          },
+          {
+            "question": "Kung tumaas ang presyo ng tela (puhunan), ano ang malamang na mangyayari sa presyo ng benta upang mapanatili ang parehong kita?",
+            "options": [
+              "Kailangang tumaas din ito",
+              "Kailangang bumaba ito",
+              "Mananatiling pareho ito",
+              "Wala itong kaugnayan sa presyo ng tela"
+            ],
+            "correct_answer": "Kailangang tumaas din ito"
+          },
+          {
+            "question": "Bakit mahalagang maging makatarungan sa pagtakda ng presyo?",
+            "options": [
+              "Para patas ito sa mamimili habang may kitang natatanggap ang gumawa",
+              "Para lang lagyan ng mataas na presyo",
+              "Presyo ay hindi mahalaga",
+              "Para talunin ang ibang nagtitinda"
+            ],
+            "correct_answer": "Para patas ito sa mamimili habang may kitang natatanggap ang gumawa"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 😌 GMRC — Pagtitimpi (Patience)\n\nGrade 5, Linggo 23! Pagpapahalaga ngayong linggo: **Pagtitimpi (Patience)**. 😌\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **nasyonalismo**.\n\n## 😌 Ano ang Pagtitimpi?\nAng **pagtitimpi** ay ang kakayahang pigilan ang sariling damdamin (galit, inis, o pagkabigo) at kumilos nang mahinahon kahit sa mahihirap na sitwasyon.\n\n## 🧘 Bakit Mahalaga ang Pagtitimpi?\n- Nakakaiwas ito sa hindi magandang pagpapasya na dulot ng galit\n- Nagpapakita ito ng paggalang sa ibang tao\n- Nakakatulong ito sa mas maayos na pakikitungo sa problema\n\n## 💡 Paano Magpakita ng Pagtitimpi\n- Huminga nang malalim bago magsalita kapag galit\n- Bilangin ang 1 hanggang 10 bago kumilos\n- Isipin muna ang epekto ng iyong gagawin bago ito gawin\n\n**Halimbawa:** Kapag nainis sa kapatid, sa halip na sumigaw, huminto muna at huminga bago magsalita nang mahinahon.\n\n**Mahahalagang salita:** pagtitimpi, mahinahon, damdamin, paggalang",
+        "quiz": [
+          {
+            "question": "Ano ang pagtitimpi?",
+            "options": [
+              "Kakayahang pigilan ang sariling damdamin at kumilos nang mahinahon",
+              "Kawalan ng pakialam sa sitwasyon",
+              "Pagpapakita ng galit agad",
+              "Pag-iwas sa lahat ng tao"
+            ],
+            "correct_answer": "Kakayahang pigilan ang sariling damdamin at kumilos nang mahinahon"
+          },
+          {
+            "question": "Bakit mahalaga ang pagtitimpi?",
+            "options": [
+              "Nakakaiwas ito sa hindi magandang pagpapasya",
+              "Wala itong benepisyo",
+              "Nagdudulot ito ng away",
+              "Ginagawa nitong mas galit ang tao"
+            ],
+            "correct_answer": "Nakakaiwas ito sa hindi magandang pagpapasya"
+          },
+          {
+            "question": "Anong halimbawa ng pagpapakita ng pagtitimpi?",
+            "options": [
+              "Huminga nang malalim bago magsalita kapag galit",
+              "Sumigaw kaagad",
+              "Manakit ng ibang tao",
+              "Sumira ng gamit"
+            ],
+            "correct_answer": "Huminga nang malalim bago magsalita kapag galit"
+          },
+          {
+            "question": "Ano ang mabuting epekto ng pagtitimpi sa relasyon sa ibang tao?",
+            "options": [
+              "Nagpapakita ito ng paggalang",
+              "Nagdudulot ito ng away",
+              "Wala itong epekto sa relasyon",
+              "Nagiging dahilan ito ng hindi pagkakaunawaan"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang"
+          },
+          {
+            "question": "Ano ang isang paraan para mapanatili ang pagtitimpi?",
+            "options": [
+              "Bilangin ang 1 hanggang 10 bago kumilos",
+              "Sumigaw agad",
+              "Kalimutan ang sitwasyon",
+              "Umiwas sa lahat ng tao magpakailanman"
+            ],
+            "correct_answer": "Bilangin ang 1 hanggang 10 bago kumilos"
+          },
+          {
+            "question": "Bakit kailangang isipin muna ang epekto ng gagawin bago ito gawin?",
+            "options": [
+              "Para maiwasan ang masamang resulta ng padalos-dalos na pagkilos",
+              "Walang epekto ang pag-iisip bago kumilos",
+              "Para mapabilis ang pagkilos",
+              "Para hindi na kailangang pumili ng gagawin"
+            ],
+            "correct_answer": "Para maiwasan ang masamang resulta ng padalos-dalos na pagkilos"
+          },
+          {
+            "question": "Kapag nainis ka sa kapatid, ano ang dapat gawin ayon sa aralin?",
+            "options": [
+              "Huminto muna at huminga bago magsalita nang mahinahon",
+              "Sumigaw kaagad sa kanya",
+              "Iwasan siya magpakailanman",
+              "Manakit ng damdamin niya"
+            ],
+            "correct_answer": "Huminto muna at huminga bago magsalita nang mahinahon"
+          },
+          {
+            "question": "Ano ang kabaligtaran ng pagtitimpi?",
+            "options": [
+              "Padalos-dalos na pagkilos dahil sa galit",
+              "Mahinahong pag-uusap",
+              "Pag-iisip bago kumilos",
+              "Paggalang sa ibang tao"
+            ],
+            "correct_answer": "Padalos-dalos na pagkilos dahil sa galit"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang pagtitimpi sa GMRC?",
+            "options": [
+              "Tumutulong ito sa pagbuo ng mabuting ugnayan sa iba",
+              "Walang kaugnayan ito sa moralidad",
+              "Ito ay bahagi lamang ng agham",
+              "Hindi ito itinuro sa paaralan"
+            ],
+            "correct_answer": "Tumutulong ito sa pagbuo ng mabuting ugnayan sa iba"
+          },
+          {
+            "question": "Alin ang HINDI halimbawa ng pagtitimpi?",
+            "options": [
+              "Pagsigaw at pagmumura kapag inis",
+              "Paghinga nang malalim bago magsalita",
+              "Pag-iisip bago kumilos",
+              "Pananatiling mahinahon sa problema"
+            ],
+            "correct_answer": "Pagsigaw at pagmumura kapag inis"
+          },
+          {
+            "question": "Paano nakakatulong ang pagtitimpi sa paglutas ng problema?",
+            "options": [
+              "Nagbibigay ito ng oras para mag-isip ng mas mahusay na solusyon",
+              "Pinapahaba lamang nito ang problema",
+              "Walang epekto sa paglutas ng problema",
+              "Ginagawa nitong mas malaki ang problema"
+            ],
+            "correct_answer": "Nagbibigay ito ng oras para mag-isip ng mas mahusay na solusyon"
+          },
+          {
+            "question": "Bakit mahalagang linangin ang pagtitimpi mula pagkabata?",
+            "options": [
+              "Para maging mas mahusay sa pakikitungo sa mahihirap na sitwasyon paglaki",
+              "Hindi na kailangan itong linangin",
+              "Ito ay awtomatikong nasa lahat ng tao",
+              "Walang benepisyo ito sa hinaharap"
+            ],
+            "correct_answer": "Para maging mas mahusay sa pakikitungo sa mahihirap na sitwasyon paglaki"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🗣️ Friday Review — English (Grade 5)\n\n- Flashback in stories\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "What is a flashback?",
+            "options": [
+              "A pause in the present to show something from the past",
+              "A prediction about the future",
+              "The story's title",
+              "A character's name"
+            ],
+            "correct_answer": "A pause in the present to show something from the past"
+          },
+          {
+            "question": "Why do writers use flashbacks?",
+            "options": [
+              "To explain a character's feelings or backstory",
+              "To end the story early",
+              "To confuse the reader",
+              "To skip the ending"
+            ],
+            "correct_answer": "To explain a character's feelings or backstory"
+          },
+          {
+            "question": "Which phrase often signals a flashback?",
+            "options": [
+              "'She remembered...'",
+              "'The end.'",
+              "'Chapter One'",
+              "'The author wrote...'"
+            ],
+            "correct_answer": "'She remembered...'"
+          },
+          {
+            "question": "How is a flashback different from a sequential plot?",
+            "options": [
+              "A flashback jumps back in time",
+              "They are the same",
+              "A flashback only happens in movies",
+              "A sequential plot has no order"
+            ],
+            "correct_answer": "A flashback jumps back in time"
+          },
+          {
+            "question": "What does 'non-linear' mean for a story's structure?",
+            "options": [
+              "Events aren't told in strict forward order",
+              "The story has no characters",
+              "The story is very short",
+              "The story has no ending"
+            ],
+            "correct_answer": "Events aren't told in strict forward order"
+          },
+          {
+            "question": "Why does a character's backstory matter?",
+            "options": [
+              "It explains current actions or feelings",
+              "It has no effect",
+              "It replaces the plot",
+              "It only matters for villains"
+            ],
+            "correct_answer": "It explains current actions or feelings"
+          },
+          {
+            "question": "'Years ago, in a small village...' right after the present signals what?",
+            "options": [
+              "A flashback is beginning",
+              "The story ended",
+              "A new chapter title",
+              "A new main character"
+            ],
+            "correct_answer": "A flashback is beginning"
+          },
+          {
+            "question": "Which plot moves forward without jumping back?",
+            "options": [
+              "Sequential plot",
+              "Flashback",
+              "Non-linear plot",
+              "Backstory"
+            ],
+            "correct_answer": "Sequential plot"
+          },
+          {
+            "question": "Why might a mystery use a flashback?",
+            "options": [
+              "To reveal a clue from the past",
+              "To skip the ending",
+              "To remove characters",
+              "To shorten the story"
+            ],
+            "correct_answer": "To reveal a clue from the past"
+          },
+          {
+            "question": "What is 'backstory'?",
+            "options": [
+              "A character's history or past events",
+              "The book's title",
+              "The illustrations",
+              "The author's name"
+            ],
+            "correct_answer": "A character's history or past events"
+          },
+          {
+            "question": "A girl afraid of dogs recalls being bitten as a toddler. What is this?",
+            "options": [
+              "Flashback",
+              "Prediction",
+              "Dialogue",
+              "Setting description"
+            ],
+            "correct_answer": "Flashback"
+          },
+          {
+            "question": "A story told entirely in flashbacks relies mostly on what?",
+            "options": [
+              "Past events instead of mixing present and past",
+              "No plot at all",
+              "No characters",
+              "Not being a real story"
+            ],
+            "correct_answer": "Past events instead of mixing present and past"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➗ Friday Review — Mathematics (Grade 5)\n\n- Estimating and dividing decimals\n- Money word problems\n\nGreat division work! ⭐",
+        "quiz": [
+          {
+            "question": "What is the first step when estimating a decimal division?",
+            "options": [
+              "Round both numbers",
+              "Multiply",
+              "Add",
+              "Ignore decimals"
+            ],
+            "correct_answer": "Round both numbers"
+          },
+          {
+            "question": "What is 6.4 ÷ 0.8?",
+            "options": [
+              "8",
+              "0.8",
+              "80",
+              "0.08"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "If ₱127.50 is shared among 5 students, how much does each get?",
+            "options": [
+              "₱25.50",
+              "₱127.50",
+              "₱5.00",
+              "₱25.00"
+            ],
+            "correct_answer": "₱25.50"
+          },
+          {
+            "question": "What is 9.6 ÷ 3?",
+            "options": [
+              "3.2",
+              "32",
+              "0.32",
+              "6.6"
+            ],
+            "correct_answer": "3.2"
+          },
+          {
+            "question": "What must you also do to the dividend if you move the divisor's decimal?",
+            "options": [
+              "Move the dividend's decimal the same amount",
+              "Leave it the same",
+              "Round it to a whole number",
+              "Divide it by 10"
+            ],
+            "correct_answer": "Move the dividend's decimal the same amount"
+          },
+          {
+            "question": "What is 4.5 ÷ 0.5?",
+            "options": [
+              "9",
+              "0.9",
+              "90",
+              "0.09"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "Why estimate before dividing decimals exactly?",
+            "options": [
+              "To check if the answer makes sense",
+              "It replaces dividing",
+              "It always gives the exact answer",
+              "It only works with whole numbers"
+            ],
+            "correct_answer": "To check if the answer makes sense"
+          },
+          {
+            "question": "A ribbon of 12.6 meters is cut into 3 equal pieces. How long is each?",
+            "options": [
+              "4.2 meters",
+              "3.6 meters",
+              "42 meters",
+              "1.2 meters"
+            ],
+            "correct_answer": "4.2 meters"
+          },
+          {
+            "question": "What is 15.75 ÷ 5?",
+            "options": [
+              "3.15",
+              "31.5",
+              "0.315",
+              "7.875"
+            ],
+            "correct_answer": "3.15"
+          },
+          {
+            "question": "If ₱84.00 is split among 4 friends, how much does each get?",
+            "options": [
+              "₱21.00",
+              "₱84.00",
+              "₱4.00",
+              "₱20.00"
+            ],
+            "correct_answer": "₱21.00"
+          },
+          {
+            "question": "What is 8.7 ÷ 2.9 estimated?",
+            "options": [
+              "About 3",
+              "About 5",
+              "About 10",
+              "About 1"
+            ],
+            "correct_answer": "About 3"
+          },
+          {
+            "question": "When dividing decimals, what should you do first if the divisor has a decimal?",
+            "options": [
+              "Move its decimal point to make it a whole number",
+              "Leave it alone",
+              "Round it to zero",
+              "Multiply it by itself"
+            ],
+            "correct_answer": "Move its decimal point to make it a whole number"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 👻 Friday Review — Filipino (Grade 5)\n\n- Kuwentong katatakutan: tagpuan, suspense, twist\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang kuwentong katatakutan?",
+            "options": [
+              "Kuwentong naglalayong magpataranta o magbigay-kaba",
+              "Kuwentong pang-agham",
+              "Kuwentong tungkol sa negosyo",
+              "Kuwentong tungkol sa matematika"
+            ],
+            "correct_answer": "Kuwentong naglalayong magpataranta o magbigay-kaba"
+          },
+          {
+            "question": "Ano ang tagpuan?",
+            "options": [
+              "Kadalasang madilim o kakaibang lugar",
+              "Ang pangalan ng may-akda",
+              "Ang pamagat ng kuwento",
+              "Ang bilang ng pahina"
+            ],
+            "correct_answer": "Kadalasang madilim o kakaibang lugar"
+          },
+          {
+            "question": "Ano ang suspense?",
+            "options": [
+              "Pagbuo ng kaba bago dumating ang sukdulan",
+              "Ang katapusan ng kuwento",
+              "Ang pangunahing tauhan",
+              "Ang tagpuan lamang"
+            ],
+            "correct_answer": "Pagbuo ng kaba bago dumating ang sukdulan"
+          },
+          {
+            "question": "Ano ang twist?",
+            "options": [
+              "Di-inaasahang pagbabago sa dulo",
+              "Ang unang bahagi ng kuwento",
+              "Ang pangalan ng tauhan",
+              "Ang tagpuan"
+            ],
+            "correct_answer": "Di-inaasahang pagbabago sa dulo"
+          },
+          {
+            "question": "Alin ang katutubong nilalang sa kuwentong katatakutan ng Pilipinas?",
+            "options": [
+              "Aswang",
+              "Alien",
+              "Vampire",
+              "Robot"
+            ],
+            "correct_answer": "Aswang"
+          },
+          {
+            "question": "Bakit madilim ang tagpuan sa kuwentong katatakutan?",
+            "options": [
+              "Tumutulong itong bumuo ng kaba at misteryo",
+              "Walang dahilan",
+              "Para gawing masaya",
+              "Para gawing madaling unawain"
+            ],
+            "correct_answer": "Tumutulong itong bumuo ng kaba at misteryo"
+          },
+          {
+            "question": "Alin ang HINDI karaniwang sangkap ng kuwentong katatakutan?",
+            "options": [
+              "Masayang katapusan na walang kaba",
+              "Suspense",
+              "Tagpuang madilim",
+              "Twist sa dulo"
+            ],
+            "correct_answer": "Masayang katapusan na walang kaba"
+          },
+          {
+            "question": "Bakit bahagi ng katutubong panitikan ang tikbalang at kapre?",
+            "options": [
+              "Bahagi ito ng alamat at kuwentong-bayan ng Pilipinas",
+              "Galing ito sa ibang bansa",
+              "Bagong likha lamang ito",
+              "Walang kinalaman sa kultura"
+            ],
+            "correct_answer": "Bahagi ito ng alamat at kuwentong-bayan ng Pilipinas"
+          },
+          {
+            "question": "Ano ang epekto ng twist sa mambabasa?",
+            "options": [
+              "Nagbibigay ng sorpresa",
+              "Walang epekto",
+              "Ginagawang maikli ang kuwento",
+              "Tinatapos agad ang kuwento"
+            ],
+            "correct_answer": "Nagbibigay ng sorpresa"
+          },
+          {
+            "question": "Bakit gumagamit ng suspense ang manunulat?",
+            "options": [
+              "Para hawakan ang atensyon hanggang sa sukdulan",
+              "Para agad matapos ang kuwento",
+              "Para gawing komedya",
+              "Para alisin ang tagpuan"
+            ],
+            "correct_answer": "Para hawakan ang atensyon hanggang sa sukdulan"
+          },
+          {
+            "question": "Alin ang malamang na tagpuan ng kuwentong katatakutan?",
+            "options": [
+              "Isang lumang bahay na madilim",
+              "Isang palengke sa umaga",
+              "Isang paaralang maaliwalas",
+              "Isang parke sa hapon"
+            ],
+            "correct_answer": "Isang lumang bahay na madilim"
+          },
+          {
+            "question": "Paano naiiba ang kuwentong katatakutan sa tulang pambata?",
+            "options": [
+              "Ang isa ay para magbigay-kaba, ang isa ay para aliwin sa payak na paraan",
+              "Magkatulad lamang sila",
+              "Ang tulang pambata ay palaging nakakatakot",
+              "Walang pagkakaiba"
+            ],
+            "correct_answer": "Ang isa ay para magbigay-kaba, ang isa ay para aliwin sa payak na paraan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔌 Friday Review — Science (Grade 5)\n\n- Conductors and insulators\n\nGreat review! 🌟",
+        "quiz": [
+          {
+            "question": "What is a conductor?",
+            "options": [
+              "A material that allows electricity to flow easily",
+              "A material that blocks electricity",
+              "A type of magnet",
+              "A sound wave"
+            ],
+            "correct_answer": "A material that allows electricity to flow easily"
+          },
+          {
+            "question": "What is an insulator?",
+            "options": [
+              "A material that does not allow electricity to flow easily",
+              "A material that always conducts",
+              "A type of charge",
+              "A kind of magnet"
+            ],
+            "correct_answer": "A material that does not allow electricity to flow easily"
+          },
+          {
+            "question": "Which of these is a good conductor?",
+            "options": [
+              "Copper",
+              "Rubber",
+              "Plastic",
+              "Wood"
+            ],
+            "correct_answer": "Copper"
+          },
+          {
+            "question": "Which of these is a good insulator?",
+            "options": [
+              "Rubber",
+              "Copper",
+              "Aluminum",
+              "Iron"
+            ],
+            "correct_answer": "Rubber"
+          },
+          {
+            "question": "Why are wires covered in rubber or plastic?",
+            "options": [
+              "To keep electricity safely inside the wire",
+              "To make wires heavier",
+              "To make wires conduct better",
+              "For color only"
+            ],
+            "correct_answer": "To keep electricity safely inside the wire"
+          },
+          {
+            "question": "Why are metals good conductors?",
+            "options": [
+              "They allow electricity to pass through easily",
+              "They are shiny",
+              "They are lightweight",
+              "They never heat up"
+            ],
+            "correct_answer": "They allow electricity to pass through easily"
+          },
+          {
+            "question": "A wooden spoon is an example of what?",
+            "options": [
+              "An insulator",
+              "A conductor",
+              "A magnet",
+              "A power source"
+            ],
+            "correct_answer": "An insulator"
+          },
+          {
+            "question": "Touching aluminum foil to a battery would likely...",
+            "options": [
+              "Conduct electricity since it's a metal",
+              "Block electricity completely",
+              "Turn into a magnet",
+              "Cause no reaction"
+            ],
+            "correct_answer": "Conduct electricity since it's a metal"
+          },
+          {
+            "question": "Why is touching a bare wire dangerous?",
+            "options": [
+              "The metal conducts electricity, which can shock you",
+              "Bare wires never carry electricity",
+              "Metal wires are insulators",
+              "It's never dangerous"
+            ],
+            "correct_answer": "The metal conducts electricity, which can shock you"
+          },
+          {
+            "question": "Best handle material for a hot electrical tool?",
+            "options": [
+              "Plastic",
+              "Copper",
+              "Aluminum",
+              "Iron"
+            ],
+            "correct_answer": "Plastic"
+          },
+          {
+            "question": "Why is glass an insulator?",
+            "options": [
+              "It doesn't allow electricity through easily",
+              "It's always transparent",
+              "It conducts electricity well",
+              "It's a metal"
+            ],
+            "correct_answer": "It doesn't allow electricity through easily"
+          },
+          {
+            "question": "To connect wires in a working circuit, use a...",
+            "options": [
+              "Conductor like copper wire",
+              "Insulator like rubber",
+              "Wooden stick",
+              "Plastic sheet"
+            ],
+            "correct_answer": "Conductor like copper wire"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Friday Review — Araling Panlipunan (Grade 5)\n\n- Konsepto ng nasyonalismo\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang nasyonalismo?",
+            "options": [
+              "Malalim na pagmamahal at katapatan sa sariling bansa",
+              "Pagmamahal sa ibang bansa lamang",
+              "Kawalang-interes sa pamahalaan",
+              "Pagtanggi sa sariling kasaysayan"
+            ],
+            "correct_answer": "Malalim na pagmamahal at katapatan sa sariling bansa"
+          },
+          {
+            "question": "Kailan nagsimulang lumago ang nasyonalismo sa Pilipinas?",
+            "options": [
+              "Sa huling bahagi ng panahon ng kolonyal",
+              "Bago dumating ang Espanyol",
+              "Pagkatapos ng WWII lamang",
+              "Hindi ito naganap"
+            ],
+            "correct_answer": "Sa huling bahagi ng panahon ng kolonyal"
+          },
+          {
+            "question": "Sino ang ilustrado?",
+            "options": [
+              "Pilipinong nakapag-aral sa ibang bansa",
+              "Pinuno ng Espanya",
+              "Sundalong Espanyol",
+              "Isang hayop"
+            ],
+            "correct_answer": "Pilipinong nakapag-aral sa ibang bansa"
+          },
+          {
+            "question": "Ano ang naging papel ng pagsasama-sama sa ilalim ng iisang pamahalaan?",
+            "options": [
+              "Nagbigay ng pakiramdam ng 'iisang bansa'",
+              "Wala itong papel",
+              "Pinahina ang diwa ng pagkakaisa",
+              "Naghati sa mga Pilipino"
+            ],
+            "correct_answer": "Nagbigay ng pakiramdam ng 'iisang bansa'"
+          },
+          {
+            "question": "Ano ang tanda ng lumalaking nasyonalismo sa salitang 'Pilipino'?",
+            "options": [
+              "Ginamit sa halip na 'Indio'",
+              "Pangalan ng lungsod lamang",
+              "Ginamit lamang ng Espanyol",
+              "Walang kahulugan noon"
+            ],
+            "correct_answer": "Ginamit sa halip na 'Indio'"
+          },
+          {
+            "question": "Ano ang isang sanhi ng pagsibol ng nasyonalismo?",
+            "options": [
+              "Karanasan ng inhustisya sa ilalim ng pananakop",
+              "Kasiyahan sa buhay kolonyal",
+              "Kawalan ng ugnayan sa ibang Pilipino",
+              "Kakulangan ng edukasyon"
+            ],
+            "correct_answer": "Karanasan ng inhustisya sa ilalim ng pananakop"
+          },
+          {
+            "question": "Ano ang pangunahing paniniwala ng nasyonalismo?",
+            "options": [
+              "Dapat magkaroon ng sariling pagkakakilanlan at pamahalaan",
+              "Dapat manatiling sakop ng ibang bansa",
+              "Walang kailangang pagbabago",
+              "Dapat kalimutan ang sariling kasaysayan"
+            ],
+            "correct_answer": "Dapat magkaroon ng sariling pagkakakilanlan at pamahalaan"
+          },
+          {
+            "question": "Bakit mahalaga ang mga ilustrado?",
+            "options": [
+              "Nadala nila ang bagong ideya tungkol sa kalayaan",
+              "Wala silang naitulong",
+              "Sila ay laging suportado sa kolonyalismo",
+              "Sila ay hindi nag-aral"
+            ],
+            "correct_answer": "Nadala nila ang bagong ideya tungkol sa kalayaan"
+          },
+          {
+            "question": "Alin ang HINDI naging dahilan ng pagsibol ng nasyonalismo?",
+            "options": [
+              "Kasiyahan sa patuloy na pananakop",
+              "Karanasan ng inhustisya",
+              "Pag-usbong ng mga ilustrado",
+              "Pakiramdam na 'iisang bansa'"
+            ],
+            "correct_answer": "Kasiyahan sa patuloy na pananakop"
+          },
+          {
+            "question": "Bakit mahalagang paksa ang nasyonalismo sa AP?",
+            "options": [
+              "Tumutulong itong maunawaan ang pagkakakilanlang Pilipino",
+              "Walang kaugnayan sa kasaysayan",
+              "Tungkol lamang ito sa dayuhang bansa",
+              "Hindi mahalagang paksa"
+            ],
+            "correct_answer": "Tumutulong itong maunawaan ang pagkakakilanlang Pilipino"
+          },
+          {
+            "question": "Paano konektado ang araling ito sa GMRC linggong ito?",
+            "options": [
+              "Pareho silang tumatalakay sa pagsuporta sa sariling bansa",
+              "Walang koneksyon",
+              "GMRC ay tungkol lamang sa agham",
+              "AP ay tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Pareho silang tumatalakay sa pagsuporta sa sariling bansa"
+          },
+          {
+            "question": "Ano ang naging resulta ng pagkakaroon ng iisang pamahalaang kolonyal sa mga Pilipino?",
+            "options": [
+              "Pakiramdam ng pagkakaisa bilang isang bansa",
+              "Higit na paghihiwalay",
+              "Kawalan ng pagbabago",
+              "Kawalan ng kaugnayan sa isa't isa"
+            ],
+            "correct_answer": "Pakiramdam ng pagkakaisa bilang isang bansa"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🧮 Friday Review — EPP (ICT) (Grade 5)\n\n- SUM and AVERAGE formulas\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "What does the SUM formula do?",
+            "options": [
+              "Adds a group of numbers",
+              "Finds the average",
+              "Deletes numbers",
+              "Colors cells"
+            ],
+            "correct_answer": "Adds a group of numbers"
+          },
+          {
+            "question": "What does the AVERAGE formula do?",
+            "options": [
+              "Finds the mean of a group of numbers",
+              "Adds numbers only",
+              "Deletes a row",
+              "Changes the font"
+            ],
+            "correct_answer": "Finds the mean of a group of numbers"
+          },
+          {
+            "question": "What does '=SUM(A1:A5)' do?",
+            "options": [
+              "Adds all numbers from A1 to A5",
+              "Multiplies A1 by A5",
+              "Deletes A1 to A5",
+              "Averages A1 to A5"
+            ],
+            "correct_answer": "Adds all numbers from A1 to A5"
+          },
+          {
+            "question": "Why are formulas useful in a spreadsheet?",
+            "options": [
+              "They update automatically when numbers change",
+              "They only work once",
+              "They remove the need for numbers",
+              "They only work on paper"
+            ],
+            "correct_answer": "They update automatically when numbers change"
+          },
+          {
+            "question": "What does '=AVERAGE(B1:B5)' calculate?",
+            "options": [
+              "The average of B1 to B5",
+              "The sum of B1 to B5",
+              "The largest number",
+              "The smallest number"
+            ],
+            "correct_answer": "The average of B1 to B5"
+          },
+          {
+            "question": "If a number in a SUM range changes, what happens?",
+            "options": [
+              "The total updates automatically",
+              "Nothing changes",
+              "The formula stops working",
+              "The spreadsheet crashes"
+            ],
+            "correct_answer": "The total updates automatically"
+          },
+          {
+            "question": "Why use AVERAGE on quiz scores?",
+            "options": [
+              "To quickly find the mean score",
+              "To delete the scores",
+              "To change scores randomly",
+              "To hide scores"
+            ],
+            "correct_answer": "To quickly find the mean score"
+          },
+          {
+            "question": "What is a 'range' like A1:A5?",
+            "options": [
+              "A group of connected cells",
+              "A single cell",
+              "A type of chart",
+              "A file name"
+            ],
+            "correct_answer": "A group of connected cells"
+          },
+          {
+            "question": "Why is a formula better than adding numbers by hand?",
+            "options": [
+              "Saves time and avoids mistakes",
+              "It's always slower",
+              "It removes numbers permanently",
+              "Only works with letters"
+            ],
+            "correct_answer": "Saves time and avoids mistakes"
+          },
+          {
+            "question": "If A1=2, A2=4, A3=6, what is SUM(A1:A3)?",
+            "options": [
+              "12",
+              "6",
+              "2",
+              "8"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "If A1=2, A2=4, A3=6, what is AVERAGE(A1:A3)?",
+            "options": [
+              "4",
+              "12",
+              "2",
+              "6"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "Which formula quickly totals a week's savings?",
+            "options": [
+              "SUM",
+              "AVERAGE only",
+              "Neither works",
+              "A chart instead"
+            ],
+            "correct_answer": "SUM"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 💊 Friday Review — MAPEH (Grade 5)\n\n- Proper medicine use vs. misuse\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Sino ang dapat magrereseta ng gamot?",
+            "options": [
+              "Doktor o magulang",
+              "Kaibigan lamang",
+              "Sinuman",
+              "Walang kailangang pahintulot"
+            ],
+            "correct_answer": "Doktor o magulang"
+          },
+          {
+            "question": "Ano ang dosis?",
+            "options": [
+              "Tamang bilang o dami ng gamot",
+              "Pangalan ng gamot",
+              "Kulay ng gamot",
+              "Presyo ng gamot"
+            ],
+            "correct_answer": "Tamang bilang o dami ng gamot"
+          },
+          {
+            "question": "Bakit basahin ang label bago uminom ng gamot?",
+            "options": [
+              "Para malaman ang tamang paggamit",
+              "Hindi kailangan basahin",
+              "Para lamang palamuti",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Para malaman ang tamang paggamit"
+          },
+          {
+            "question": "Ano ang maling paggamit ng gamot?",
+            "options": [
+              "Pag-inom nang higit sa dosis o walang pahintulot",
+              "Pag-inom ayon sa reseta",
+              "Pagsunod sa oras",
+              "Pagbasa ng label"
+            ],
+            "correct_answer": "Pag-inom nang higit sa dosis o walang pahintulot"
+          },
+          {
+            "question": "Bakit hindi dapat uminom ng gamot ng iba?",
+            "options": [
+              "Baka hindi ito angkop para sa iyong kondisyon",
+              "Walang epekto ito",
+              "Palaging ligtas ito",
+              "Kailangan ito para gumaling"
+            ],
+            "correct_answer": "Baka hindi ito angkop para sa iyong kondisyon"
+          },
+          {
+            "question": "Ano ang idudulot ng maling paggamit ng gamot?",
+            "options": [
+              "Malalang pinsala sa katawan",
+              "Palaging positibong epekto",
+              "Walang epekto",
+              "Awtomatikong paggaling"
+            ],
+            "correct_answer": "Malalang pinsala sa katawan"
+          },
+          {
+            "question": "Bakit ligtas ang gamot kapag tama ang paggamit?",
+            "options": [
+              "Sapagkat ginamit ayon sa tamang dosis at layunin",
+              "Lahat ng gamot ay ligtas kahit paano",
+              "Walang epekto ang gamot",
+              "Hindi na kailangang subaybayan"
+            ],
+            "correct_answer": "Sapagkat ginamit ayon sa tamang dosis at layunin"
+          },
+          {
+            "question": "Anong dapat gawin bago uminom ng anumang gamot?",
+            "options": [
+              "Humingi ng pahintulot sa magulang o doktor",
+              "Uminom agad",
+              "Sumangguni sa kaibigan lamang",
+              "Sumunod sa TV commercial"
+            ],
+            "correct_answer": "Humingi ng pahintulot sa magulang o doktor"
+          },
+          {
+            "question": "Bakit itinuturo ang paksang ito sa MAPEH?",
+            "options": [
+              "Bahagi ito ng pag-aalaga sa kalusugan",
+              "Walang kaugnayan sa kalusugan",
+              "Tungkol lamang ito sa musika",
+              "Tungkol lamang ito sa sayaw"
+            ],
+            "correct_answer": "Bahagi ito ng pag-aalaga sa kalusugan"
+          },
+          {
+            "question": "Alin ang HALIMBAWA ng tamang paggamit?",
+            "options": [
+              "Pag-inom ayon sa reseta sa tamang oras",
+              "Dagdag na dosis para mabilis gumaling",
+              "Pag-inom ng gamot ng kapatid",
+              "Pag-inom nang walang pagbasa ng label"
+            ],
+            "correct_answer": "Pag-inom ayon sa reseta sa tamang oras"
+          },
+          {
+            "question": "Ano ang gagawin kung nakalimutan ang oras ng pag-inom?",
+            "options": [
+              "Magtanong sa magulang o doktor",
+              "Uminom ng dobleng dosis",
+              "Kalimutan na lang",
+              "Uminom ng ibang gamot"
+            ],
+            "correct_answer": "Magtanong sa magulang o doktor"
+          },
+          {
+            "question": "Bakit ipinagbawal ang pag-inom nang walang pahintulot ng may sapat na gulang?",
+            "options": [
+              "Baka hindi alam ng bata ang tamang dosis o epekto",
+              "Walang panganib dito",
+              "Palaging alam ng bata ang tamang gamot",
+              "Hindi na kailangan ng pahintulot"
+            ],
+            "correct_answer": "Baka hindi alam ng bata ang tamang dosis o epekto"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 💰 Friday Review — EPP (Grade 5)\n\n- Puhunan, presyo, at kita\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang puhunan?",
+            "options": [
+              "Kabuuang gastos sa paggawa ng produkto",
+              "Ang kita mula sa benta",
+              "Ang pangalan ng produkto",
+              "Ang presyo ng benta lamang"
+            ],
+            "correct_answer": "Kabuuang gastos sa paggawa ng produkto"
+          },
+          {
+            "question": "Paano kinukwenta ang presyo ng benta?",
+            "options": [
+              "Puhunan + Kitang Inaasahan",
+              "Puhunan lamang",
+              "Kitang Inaasahan lamang",
+              "Puhunan − Kita"
+            ],
+            "correct_answer": "Puhunan + Kitang Inaasahan"
+          },
+          {
+            "question": "Kung ₱75 ang puhunan at ₱25 ang kita, ano ang presyo ng benta?",
+            "options": [
+              "₱100",
+              "₱75",
+              "₱25",
+              "₱50"
+            ],
+            "correct_answer": "₱100"
+          },
+          {
+            "question": "Paano kinukwenta ang kita?",
+            "options": [
+              "Presyo ng Benta − Puhunan",
+              "Presyo ng Benta + Puhunan",
+              "Puhunan lamang",
+              "Presyo lamang"
+            ],
+            "correct_answer": "Presyo ng Benta − Puhunan"
+          },
+          {
+            "question": "Kung ₱100 ang presyo at ₱75 ang puhunan, ano ang kita?",
+            "options": [
+              "₱25",
+              "₱100",
+              "₱75",
+              "₱175"
+            ],
+            "correct_answer": "₱25"
+          },
+          {
+            "question": "Ano ang kasama sa puhunan?",
+            "options": [
+              "Halaga ng tela, sinulid, materyales",
+              "Presyo ng benta lamang",
+              "Kita lamang",
+              "Pangalan ng bumibili"
+            ],
+            "correct_answer": "Halaga ng tela, sinulid, materyales"
+          },
+          {
+            "question": "Bakit mahalagang kwentahin ang puhunan?",
+            "options": [
+              "Para malaman ang tamang presyo",
+              "Hindi na kailangan",
+              "Para talunin ang kompetisyon",
+              "Walang kaugnayan sa benta"
+            ],
+            "correct_answer": "Para malaman ang tamang presyo"
+          },
+          {
+            "question": "Ano ang mangyayari kung mas mababa ang presyo kaysa puhunan?",
+            "options": [
+              "Malulugi ang gumawa",
+              "Kikita ng husto",
+              "Walang epekto",
+              "Awtomatikong tataas ang presyo"
+            ],
+            "correct_answer": "Malulugi ang gumawa"
+          },
+          {
+            "question": "Bakit itinuturo ang pagbebenta sa EPP?",
+            "options": [
+              "Para matutunan ang batayang kasanayan sa negosyo",
+              "Walang layunin ito",
+              "Para lamang libangin",
+              "Hindi bahagi ng tunay na buhay"
+            ],
+            "correct_answer": "Para matutunan ang batayang kasanayan sa negosyo"
+          },
+          {
+            "question": "Ano ang tawag sa natitirang pera pagkatapos bawasin ang puhunan?",
+            "options": [
+              "Kita",
+              "Puhunan",
+              "Gastos",
+              "Diskwento"
+            ],
+            "correct_answer": "Kita"
+          },
+          {
+            "question": "Kung tumaas ang puhunan, ano ang mangyayari sa presyo para mapanatili ang kita?",
+            "options": [
+              "Kailangang tumaas din",
+              "Kailangang bumaba",
+              "Mananatiling pareho",
+              "Walang kaugnayan"
+            ],
+            "correct_answer": "Kailangang tumaas din"
+          },
+          {
+            "question": "Bakit mahalagang maging makatarungan sa presyo?",
+            "options": [
+              "Para patas sa mamimili habang may kita ang gumawa",
+              "Para lagyan ng mataas na presyo",
+              "Presyo ay hindi mahalaga",
+              "Para talunin ang ibang nagtitinda"
+            ],
+            "correct_answer": "Para patas sa mamimili habang may kita ang gumawa"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 😌 Friday Review — GMRC (Grade 5)\n\n- Pagtitimpi (Patience)\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang pagtitimpi?",
+            "options": [
+              "Kakayahang pigilan ang sariling damdamin at kumilos nang mahinahon",
+              "Kawalan ng pakialam sa sitwasyon",
+              "Pagpapakita ng galit agad",
+              "Pag-iwas sa lahat ng tao"
+            ],
+            "correct_answer": "Kakayahang pigilan ang sariling damdamin at kumilos nang mahinahon"
+          },
+          {
+            "question": "Bakit mahalaga ang pagtitimpi?",
+            "options": [
+              "Nakakaiwas ito sa hindi magandang pagpapasya",
+              "Wala itong benepisyo",
+              "Nagdudulot ito ng away",
+              "Ginagawa nitong mas galit ang tao"
+            ],
+            "correct_answer": "Nakakaiwas ito sa hindi magandang pagpapasya"
+          },
+          {
+            "question": "Anong halimbawa ng pagpapakita ng pagtitimpi?",
+            "options": [
+              "Huminga nang malalim bago magsalita kapag galit",
+              "Sumigaw kaagad",
+              "Manakit ng ibang tao",
+              "Sumira ng gamit"
+            ],
+            "correct_answer": "Huminga nang malalim bago magsalita kapag galit"
+          },
+          {
+            "question": "Ano ang mabuting epekto ng pagtitimpi sa relasyon?",
+            "options": [
+              "Nagpapakita ito ng paggalang",
+              "Nagdudulot ito ng away",
+              "Wala itong epekto",
+              "Nagiging dahilan ng hindi pagkakaunawaan"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang"
+          },
+          {
+            "question": "Ano ang isang paraan para mapanatili ang pagtitimpi?",
+            "options": [
+              "Bilangin ang 1 hanggang 10 bago kumilos",
+              "Sumigaw agad",
+              "Kalimutan ang sitwasyon",
+              "Umiwas sa lahat ng tao"
+            ],
+            "correct_answer": "Bilangin ang 1 hanggang 10 bago kumilos"
+          },
+          {
+            "question": "Bakit isipin muna ang epekto bago kumilos?",
+            "options": [
+              "Para maiwasan ang masamang resulta ng padalos-dalos na pagkilos",
+              "Walang epekto ang pag-iisip",
+              "Para mapabilis ang pagkilos",
+              "Para hindi na kailangang pumili"
+            ],
+            "correct_answer": "Para maiwasan ang masamang resulta ng padalos-dalos na pagkilos"
+          },
+          {
+            "question": "Kapag nainis sa kapatid, ano ang dapat gawin?",
+            "options": [
+              "Huminto muna at huminga bago magsalita",
+              "Sumigaw kaagad",
+              "Iwasan siya magpakailanman",
+              "Manakit ng damdamin niya"
+            ],
+            "correct_answer": "Huminto muna at huminga bago magsalita"
+          },
+          {
+            "question": "Ano ang kabaligtaran ng pagtitimpi?",
+            "options": [
+              "Padalos-dalos na pagkilos dahil sa galit",
+              "Mahinahong pag-uusap",
+              "Pag-iisip bago kumilos",
+              "Paggalang sa iba"
+            ],
+            "correct_answer": "Padalos-dalos na pagkilos dahil sa galit"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang pagtitimpi?",
+            "options": [
+              "Tumutulong ito sa pagbuo ng mabuting ugnayan",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ng agham",
+              "Hindi itinuro sa paaralan"
+            ],
+            "correct_answer": "Tumutulong ito sa pagbuo ng mabuting ugnayan"
+          },
+          {
+            "question": "Alin ang HINDI halimbawa ng pagtitimpi?",
+            "options": [
+              "Pagsigaw at pagmumura kapag inis",
+              "Paghinga bago magsalita",
+              "Pag-iisip bago kumilos",
+              "Pananatiling mahinahon"
+            ],
+            "correct_answer": "Pagsigaw at pagmumura kapag inis"
+          },
+          {
+            "question": "Paano nakakatulong ang pagtitimpi sa paglutas ng problema?",
+            "options": [
+              "Nagbibigay ng oras para mag-isip ng solusyon",
+              "Pinapahaba ang problema",
+              "Walang epekto",
+              "Ginagawang mas malaki ang problema"
+            ],
+            "correct_answer": "Nagbibigay ng oras para mag-isip ng solusyon"
+          },
+          {
+            "question": "Bakit linangin ang pagtitimpi mula pagkabata?",
+            "options": [
+              "Para maging mas mahusay sa mahihirap na sitwasyon paglaki",
+              "Hindi kailangang linangin",
+              "Awtomatiko sa lahat ng tao",
+              "Walang benepisyo sa hinaharap"
+            ],
+            "correct_answer": "Para maging mas mahusay sa mahihirap na sitwasyon paglaki"
+          }
+        ]
+      }
+    }
+  }
+}

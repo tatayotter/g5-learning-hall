@@ -1,0 +1,2266 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-11-08",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 💌 English — Friendly Letter of Pakikiramay\n\nGrade 4, Week 22! Let's learn how to write a letter of comfort to someone grieving. 💌\n\n## 🔄 Review\nWe learned about recount texts.\n\n## 💌 What Is a Letter of Pakikiramay?\nA **letter of pakikiramay (condolence)** is written to comfort someone who has lost a loved one.\n\n## ✍️ Parts of the Letter\n1. **Greeting** — \"Dear...\"\n2. **Body** — express sympathy, share a kind memory if you have one, offer support\n3. **Closing** — \"With deepest sympathy,\"\n\n**Example:** \"I was so sorry to hear about your grandmother. She was always so kind whenever I visited. Please know I am here for you.\"\n\n## 💡 Tone\nUse a **gentle, respectful, and caring** tone — never rushed or careless.\n\n**Key words:** pakikiramay, condolence, sympathy, tone",
+        "quiz": [
+          {
+            "question": "What is a letter of pakikiramay?",
+            "options": [
+              "A letter written to comfort someone who lost a loved one",
+              "A letter congratulating someone",
+              "A letter requesting information",
+              "A letter of complaint"
+            ],
+            "correct_answer": "A letter written to comfort someone who lost a loved one"
+          },
+          {
+            "question": "What tone should a condolence letter use?",
+            "options": [
+              "Gentle, respectful, and caring",
+              "Rushed and careless",
+              "Funny and joking",
+              "Angry and demanding"
+            ],
+            "correct_answer": "Gentle, respectful, and caring"
+          },
+          {
+            "question": "What might the body of a condolence letter include?",
+            "options": [
+              "Sympathy and a kind memory",
+              "A list of complaints",
+              "A joke",
+              "A request for money"
+            ],
+            "correct_answer": "Sympathy and a kind memory"
+          },
+          {
+            "question": "What is a common closing for a condolence letter?",
+            "options": [
+              "With deepest sympathy",
+              "Sincerely yours, best regards only",
+              "See you later!",
+              "Yours in business"
+            ],
+            "correct_answer": "With deepest sympathy"
+          },
+          {
+            "question": "Why is offering support important in a condolence letter?",
+            "options": [
+              "It shows you care about the grieving person",
+              "It has no purpose",
+              "It should be avoided",
+              "It makes the letter shorter"
+            ],
+            "correct_answer": "It shows you care about the grieving person"
+          },
+          {
+            "question": "What is the greeting part of a friendly letter usually called?",
+            "options": [
+              "Dear...",
+              "The body",
+              "The closing",
+              "The signature only"
+            ],
+            "correct_answer": "Dear..."
+          },
+          {
+            "question": "Why should a condolence letter avoid a rushed tone?",
+            "options": [
+              "The person is grieving and needs sincerity",
+              "It's more efficient to be quick",
+              "Tone doesn't matter in letters",
+              "A rushed tone is always appropriate"
+            ],
+            "correct_answer": "The person is grieving and needs sincerity"
+          },
+          {
+            "question": "Which sentence fits a condolence letter?",
+            "options": [
+              "I was so sorry to hear about your loss.",
+              "Congratulations on your win!",
+              "Please send the report by Friday.",
+              "Happy birthday to you!"
+            ],
+            "correct_answer": "I was so sorry to hear about your loss."
+          },
+          {
+            "question": "Why might sharing a kind memory help in a condolence letter?",
+            "options": [
+              "It honors the person who passed and comforts the reader",
+              "It has no effect",
+              "It makes the letter too long",
+              "It should never be included"
+            ],
+            "correct_answer": "It honors the person who passed and comforts the reader"
+          },
+          {
+            "question": "How many main parts does a friendly letter usually have?",
+            "options": [
+              "Three: greeting, body, closing",
+              "One part only",
+              "Ten parts",
+              "No specific parts"
+            ],
+            "correct_answer": "Three: greeting, body, closing"
+          },
+          {
+            "question": "Why is this type of letter important to learn?",
+            "options": [
+              "It teaches how to express care during hard times",
+              "It has no real-life use",
+              "Only adults need to write these",
+              "It replaces the need for empathy"
+            ],
+            "correct_answer": "It teaches how to express care during hard times"
+          },
+          {
+            "question": "Which word best describes the purpose of a pakikiramay letter?",
+            "options": [
+              "Comfort",
+              "Celebration",
+              "Complaint",
+              "Instruction"
+            ],
+            "correct_answer": "Comfort"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🍰 Mathematics — Equivalent Fractions\n\nGrade 4, Week 22! Let's learn how different fractions can represent the same amount! 🍰\n\n## 🔄 Review\nWe compared dissimilar fractions using common denominators.\n\n## 🍰 What Are Equivalent Fractions?\n**Equivalent fractions** look different but represent the same value.\n\n**Example:** 1/2 = 2/4 = 3/6 — all represent \"half\" of a whole!\n\n## 🔢 Generating Equivalent Fractions\nMultiply (or divide) both the numerator and denominator by the same number.\n\n**Example:** 1/2 × 2/2 = 2/4\n\n## 🧮 Reducing to Simplest Form\nDivide both numbers by their greatest common factor.\n\n**Example:** 4/8 ÷ 4/4 = **1/2** (simplest form)\n\n**Key words:** equivalent fractions, simplest form, numerator, denominator",
+        "quiz": [
+          {
+            "question": "What are equivalent fractions?",
+            "options": [
+              "Fractions that look different but represent the same value",
+              "Fractions that are always different in value",
+              "Whole numbers only",
+              "Fractions with no numerator"
+            ],
+            "correct_answer": "Fractions that look different but represent the same value"
+          },
+          {
+            "question": "Which fraction is equivalent to 1/2?",
+            "options": [
+              "2/4",
+              "1/4",
+              "3/4",
+              "1/3"
+            ],
+            "correct_answer": "2/4"
+          },
+          {
+            "question": "How do you generate an equivalent fraction?",
+            "options": [
+              "Multiply the numerator and denominator by the same number",
+              "Add a random number to the numerator only",
+              "Subtract from the denominator only",
+              "Multiply only the numerator"
+            ],
+            "correct_answer": "Multiply the numerator and denominator by the same number"
+          },
+          {
+            "question": "What is 1/2 × 2/2?",
+            "options": [
+              "2/4",
+              "1/4",
+              "3/6",
+              "1/2"
+            ],
+            "correct_answer": "2/4"
+          },
+          {
+            "question": "What is the simplest form of 4/8?",
+            "options": [
+              "1/2",
+              "2/4",
+              "4/8",
+              "1/4"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "To reduce a fraction, what do you divide by?",
+            "options": [
+              "The greatest common factor",
+              "Any random number",
+              "Only the numerator",
+              "Only the denominator"
+            ],
+            "correct_answer": "The greatest common factor"
+          },
+          {
+            "question": "Which fraction is equivalent to 1/3?",
+            "options": [
+              "2/6",
+              "1/6",
+              "3/6",
+              "1/2"
+            ],
+            "correct_answer": "2/6"
+          },
+          {
+            "question": "What is the simplest form of 6/9?",
+            "options": [
+              "2/3",
+              "3/9",
+              "6/9",
+              "1/3"
+            ],
+            "correct_answer": "2/3"
+          },
+          {
+            "question": "Why are equivalent fractions useful?",
+            "options": [
+              "They help compare and add fractions with different denominators",
+              "They have no practical use",
+              "They only work with whole numbers",
+              "They replace the need for math"
+            ],
+            "correct_answer": "They help compare and add fractions with different denominators"
+          },
+          {
+            "question": "What is 3/4 × 2/2?",
+            "options": [
+              "6/8",
+              "3/8",
+              "6/4",
+              "3/4"
+            ],
+            "correct_answer": "6/8"
+          },
+          {
+            "question": "Which fraction is NOT equivalent to 2/4?",
+            "options": [
+              "3/5",
+              "1/2",
+              "4/8",
+              "3/6"
+            ],
+            "correct_answer": "3/5"
+          },
+          {
+            "question": "What is the simplest form of 10/20?",
+            "options": [
+              "1/2",
+              "5/10",
+              "2/4",
+              "10/20"
+            ],
+            "correct_answer": "1/2"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🎭 Filipino — Epiko: Katangian\n\nGrade 4, Linggo 22! Alamin natin ang isa pang uri ng panitikan — ang epiko. 🎭\n\n## 🔄 Balik-Aral\nNatutuhan natin ang katangian ng mito.\n\n## 🎭 Ano ang Epiko?\nAng **epiko** ay isang mahabang tulang naratibo na naglalarawan ng kabayanihan ng isang bayaning may kapangyarihang **higit sa karaniwang tao**.\n\n## 🌟 Mga Katangian ng Epiko\n- Isinasalaysay sa anyong **tula**\n- May **bayaning epiko** na may di-pangkaraniwang lakas o kakayahan\n- Naglalaman ng mga **pakikipagsapalaran** at digmaan\n- Sumasalamin sa **kultura at bayani** ng isang lipunan\n\n## 🏆 Halimbawa\nAng \"Biag ni Lam-ang\" ay isang tanyag na epikong Ilokano tungkol sa isang bayaning may kapambihirang kakayahan.\n\n**Mahahalagang salita:** epiko, bayani, tula, kabayanihan",
+        "quiz": [
+          {
+            "question": "Ano ang epiko?",
+            "options": [
+              "Mahabang tulang naratibo tungkol sa kabayanihan",
+              "Maikling kuwento tungkol sa hayop",
+              "Isang liham pangkaibigan",
+              "Isang balita"
+            ],
+            "correct_answer": "Mahabang tulang naratibo tungkol sa kabayanihan"
+          },
+          {
+            "question": "Anong anyo ang ginagamit sa pagsasalaysay ng epiko?",
+            "options": [
+              "Tula",
+              "Liham",
+              "Balita",
+              "Talumpati"
+            ],
+            "correct_answer": "Tula"
+          },
+          {
+            "question": "Anong uri ng bayani ang matatagpuan sa epiko?",
+            "options": [
+              "May di-pangkaraniwang lakas o kakayahan",
+              "Ordinaryong tao lamang",
+              "Walang kakayahan",
+              "Isang hayop lamang"
+            ],
+            "correct_answer": "May di-pangkaraniwang lakas o kakayahan"
+          },
+          {
+            "question": "Anong halimbawa ng epikong Pilipino?",
+            "options": [
+              "Biag ni Lam-ang",
+              "Ang Alamat ng Pinya",
+              "Ang Kuneho at Pagong",
+              "Ang Alamat ng Bahaghari"
+            ],
+            "correct_answer": "Biag ni Lam-ang"
+          },
+          {
+            "question": "Ano ang laman ng epiko bukod sa kabayanihan?",
+            "options": [
+              "Pakikipagsapalaran at digmaan",
+              "Resipe ng pagkain",
+              "Tuntunin ng laro",
+              "Balitang pang-ekonomiya"
+            ],
+            "correct_answer": "Pakikipagsapalaran at digmaan"
+          },
+          {
+            "question": "Ano ang sinasalamin ng isang epiko?",
+            "options": [
+              "Kultura at bayani ng isang lipunan",
+              "Modernong teknolohiya",
+              "Batas komersyo",
+              "Uri ng pagkain"
+            ],
+            "correct_answer": "Kultura at bayani ng isang lipunan"
+          },
+          {
+            "question": "Paano naiiba ang epiko sa mito?",
+            "options": [
+              "Ang epiko ay tungkol sa kabayanihan ng isang bayani, ang mito ay nagpapaliwanag ng pinagmulan",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Ang mito ay tungkol sa bayani lamang"
+            ],
+            "correct_answer": "Ang epiko ay tungkol sa kabayanihan ng isang bayani, ang mito ay nagpapaliwanag ng pinagmulan"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang epiko?",
+            "options": [
+              "Nagbibigay ito ng kaalaman sa kabayanihan at kultura ng ating bayan",
+              "Walang kahalagahan ito",
+              "Ito ay galing lamang sa ibang bansa",
+              "Hindi na ito bahagi ng ating kultura"
+            ],
+            "correct_answer": "Nagbibigay ito ng kaalaman sa kabayanihan at kultura ng ating bayan"
+          },
+          {
+            "question": "Anong katangian ang mayroon ang bayani sa epiko na hindi karaniwan sa ordinaryong tao?",
+            "options": [
+              "Kapambihirang lakas o kakayahan",
+              "Karaniwang trabaho lamang",
+              "Walang natatanging kakayahan",
+              "Pagiging mahina"
+            ],
+            "correct_answer": "Kapambihirang lakas o kakayahan"
+          },
+          {
+            "question": "Ano ang layunin ng pagsasalaysay ng epiko sa isang lipunan?",
+            "options": [
+              "Ipakita ang mga pinahahalagahang katangian at kabayanihan",
+              "Magbigay ng balitang pang-araw-araw",
+              "Magturo ng matematika",
+              "Magbigay ng resipe"
+            ],
+            "correct_answer": "Ipakita ang mga pinahahalagahang katangian at kabayanihan"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HINDI katangian ng epiko?",
+            "options": [
+              "Maikling talata tungkol sa balita",
+              "Isinasalaysay sa tula",
+              "May bayaning may kapambihirang kakayahan",
+              "May digmaan at pakikipagsapalaran"
+            ],
+            "correct_answer": "Maikling talata tungkol sa balita"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang bahagi ng panitikang Pilipino ang mga epiko tulad ng Biag ni Lam-ang?",
+            "options": [
+              "Ipinapakita nito ang mayamang tradisyon at kabayanihan ng iba't ibang etnikong grupo",
+              "Wala itong kaugnayan sa Pilipinas",
+              "Ito ay bagong likha lamang",
+              "Hindi ito tunay na bahagi ng kultura"
+            ],
+            "correct_answer": "Ipinapakita nito ang mayamang tradisyon at kabayanihan ng iba't ibang etnikong grupo"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 📈 Science — Speed Graphs\n\nGrade 4, Week 22! Let's learn how to show speed using a graph! 📈\n\n## 🔄 Review\nWe learned that speed = distance ÷ time.\n\n## 📈 What Is a Speed (Distance-Time) Graph?\nA **distance-time graph** shows how far an object has traveled over time. It has:\n- **Time** on the horizontal (x) axis\n- **Distance** on the vertical (y) axis\n\n## 📊 Reading the Graph\n- A **steeper line** means the object is moving **faster**\n- A **flat line** means the object has **stopped**\n- A **straight line** means the object moves at a **constant speed**\n\n## 🔍 Comparing Two Objects\nOn the same graph, the line that rises faster represents the **faster** object.\n\n**Key words:** distance-time graph, steep, constant speed, comparing",
+        "quiz": [
+          {
+            "question": "What does a distance-time graph show?",
+            "options": [
+              "How far an object has traveled over time",
+              "Only the color of an object",
+              "Only the weight of an object",
+              "The temperature of an object"
+            ],
+            "correct_answer": "How far an object has traveled over time"
+          },
+          {
+            "question": "What is usually on the horizontal (x) axis of a speed graph?",
+            "options": [
+              "Time",
+              "Distance",
+              "Weight",
+              "Color"
+            ],
+            "correct_answer": "Time"
+          },
+          {
+            "question": "What is usually on the vertical (y) axis of a speed graph?",
+            "options": [
+              "Distance",
+              "Time",
+              "Weight",
+              "Color"
+            ],
+            "correct_answer": "Distance"
+          },
+          {
+            "question": "What does a steeper line on a distance-time graph mean?",
+            "options": [
+              "The object is moving faster",
+              "The object has stopped",
+              "The object is moving slower",
+              "There is no movement"
+            ],
+            "correct_answer": "The object is moving faster"
+          },
+          {
+            "question": "What does a flat line on a distance-time graph mean?",
+            "options": [
+              "The object has stopped",
+              "The object is moving very fast",
+              "The object is speeding up",
+              "The object is slowing down"
+            ],
+            "correct_answer": "The object has stopped"
+          },
+          {
+            "question": "What does a straight (constant slope) line mean?",
+            "options": [
+              "The object moves at a constant speed",
+              "The object is not moving at all",
+              "The object keeps changing color",
+              "The object disappears"
+            ],
+            "correct_answer": "The object moves at a constant speed"
+          },
+          {
+            "question": "On a graph comparing two runners, which line represents the faster runner?",
+            "options": [
+              "The line that rises faster (steeper)",
+              "The flatter line",
+              "The line that goes down",
+              "Neither line shows speed"
+            ],
+            "correct_answer": "The line that rises faster (steeper)"
+          },
+          {
+            "question": "Why are distance-time graphs useful?",
+            "options": [
+              "They help visually compare how objects move over time",
+              "They have no real use",
+              "They only work for cars",
+              "They replace the need for measuring distance"
+            ],
+            "correct_answer": "They help visually compare how objects move over time"
+          },
+          {
+            "question": "If a line on the graph goes flat for a while, what happened to the object?",
+            "options": [
+              "It paused or stopped moving",
+              "It moved very fast",
+              "It disappeared",
+              "It changed color"
+            ],
+            "correct_answer": "It paused or stopped moving"
+          },
+          {
+            "question": "Why is time usually placed on the x-axis?",
+            "options": [
+              "It is the independent variable we track distance against",
+              "It has no particular reason",
+              "Distance is always on the x-axis instead",
+              "Time cannot be graphed"
+            ],
+            "correct_answer": "It is the independent variable we track distance against"
+          },
+          {
+            "question": "What would a very steep line at the start followed by a flat line suggest?",
+            "options": [
+              "The object moved fast then stopped",
+              "The object never moved",
+              "The object moved slowly the whole time",
+              "The object moved backward"
+            ],
+            "correct_answer": "The object moved fast then stopped"
+          },
+          {
+            "question": "Why might scientists use graphs instead of just numbers to show speed?",
+            "options": [
+              "Graphs make patterns and comparisons easier to see",
+              "Numbers are always better",
+              "Graphs have no advantage",
+              "Graphs replace the need for data"
+            ],
+            "correct_answer": "Graphs make patterns and comparisons easier to see"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🏛️ Araling Panlipunan — Unitary Presidential System\n\nGrade 4, Linggo 22! Alamin natin ang sistema ng pamahalaan ng Pilipinas. 🏛️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga elemento ng pagkabansa.\n\n## 🏛️ Ano ang Unitary Presidential System?\nAng Pilipinas ay may **unitary** na pamahalaan (iisang sentral na pamahalaan) at **presidential** na sistema (pinamumunuan ng Pangulo).\n\n## ⚖️ Tatlong Sangay ng Pamahalaan\n- **Ehekutibo (Executive)** — Pangulo, nagpapatupad ng batas\n- **Lehislatibo (Legislative)** — Kongreso, gumagawa ng batas\n- **Hudisyal (Judicial)** — Korte Suprema, nagpapaliwanag at nagpapatupad ng katarungan\n\n## 🔄 Checks and Balances\nAng bawat sangay ay may kapangyarihang **suriin** ang isa't isa upang walang isang sangay ang magkaroon ng sobrang kapangyarihan.\n\n**Mahahalagang salita:** unitary, presidential, ehekutibo, lehislatibo, hudisyal",
+        "quiz": [
+          {
+            "question": "Ano ang ibig sabihin ng 'unitary'?",
+            "options": [
+              "Iisang sentral na pamahalaan",
+              "Maraming hiwalay na pamahalaan",
+              "Walang pamahalaan",
+              "Pamahalaan ng ibang bansa"
+            ],
+            "correct_answer": "Iisang sentral na pamahalaan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'presidential'?",
+            "options": [
+              "Pinamumunuan ng Pangulo",
+              "Pinamumunuan ng hari",
+              "Walang pinuno",
+              "Pinamumunuan ng Kongreso lamang"
+            ],
+            "correct_answer": "Pinamumunuan ng Pangulo"
+          },
+          {
+            "question": "Ano ang tungkulin ng sangay na ehekutibo?",
+            "options": [
+              "Nagpapatupad ng batas",
+              "Gumagawa ng batas",
+              "Nagpapaliwanag ng batas",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Nagpapatupad ng batas"
+          },
+          {
+            "question": "Ano ang tungkulin ng sangay na lehislatibo?",
+            "options": [
+              "Gumagawa ng batas",
+              "Nagpapatupad ng batas",
+              "Naghuhusga ng kaso",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Gumagawa ng batas"
+          },
+          {
+            "question": "Ano ang tungkulin ng sangay na hudisyal?",
+            "options": [
+              "Nagpapaliwanag at nagpapatupad ng katarungan",
+              "Gumagawa ng batas",
+              "Nagpapatupad ng batas",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Nagpapaliwanag at nagpapatupad ng katarungan"
+          },
+          {
+            "question": "Sino ang pinuno ng sangay na ehekutibo?",
+            "options": [
+              "Pangulo",
+              "Kongreso",
+              "Korte Suprema",
+              "Senado lamang"
+            ],
+            "correct_answer": "Pangulo"
+          },
+          {
+            "question": "Ano ang Kongreso?",
+            "options": [
+              "Sangay na lehislatibo na gumagawa ng batas",
+              "Sangay na ehekutibo",
+              "Sangay na hudisyal",
+              "Isang uri ng ospital"
+            ],
+            "correct_answer": "Sangay na lehislatibo na gumagawa ng batas"
+          },
+          {
+            "question": "Ano ang Korte Suprema?",
+            "options": [
+              "Pinakamataas na hukuman ng sangay na hudisyal",
+              "Isang paaralan",
+              "Sangay na ehekutibo",
+              "Sangay na lehislatibo"
+            ],
+            "correct_answer": "Pinakamataas na hukuman ng sangay na hudisyal"
+          },
+          {
+            "question": "Ano ang layunin ng checks and balances?",
+            "options": [
+              "Upang walang isang sangay ang magkaroon ng sobrang kapangyarihan",
+              "Upang bigyan ng lahat ng kapangyarihan ang Pangulo",
+              "Upang alisin ang lahat ng batas",
+              "Walang layunin"
+            ],
+            "correct_answer": "Upang walang isang sangay ang magkaroon ng sobrang kapangyarihan"
+          },
+          {
+            "question": "Bakit hinahati ang pamahalaan sa tatlong sangay?",
+            "options": [
+              "Upang maiwasan ang labis na kapangyarihan sa isang tao o grupo",
+              "Upang mas mahirap magpatupad ng batas",
+              "Walang dahilan",
+              "Upang bawasan ang trabaho ng gobyerno"
+            ],
+            "correct_answer": "Upang maiwasan ang labis na kapangyarihan sa isang tao o grupo"
+          },
+          {
+            "question": "Bakit itinuturing na presidential ang sistema ng pamahalaan ng Pilipinas?",
+            "options": [
+              "Sapagkat pinamumunuan ito ng isang Pangulo",
+              "Sapagkat walang pinuno",
+              "Sapagkat pinamumunuan ito ng hari",
+              "Sapagkat walang sangay ng pamahalaan"
+            ],
+            "correct_answer": "Sapagkat pinamumunuan ito ng isang Pangulo"
+          },
+          {
+            "question": "Ano ang koneksyon ng sistemang ito sa mga elementong natutunan noon (teritoryo, mamamayan, pamahalaan, soberanya)?",
+            "options": [
+              "Ito ay nagpapakita kung paano isinasagawa ang gawain ng pamahalaan bilang isa sa apat na elemento",
+              "Walang koneksyon ang dalawa",
+              "Ang sistema ng pamahalaan ay hiwalay sa mga elemento",
+              "Hindi kailangan ng sistema ang pamahalaan"
+            ],
+            "correct_answer": "Ito ay nagpapakita kung paano isinasagawa ang gawain ng pamahalaan bilang isa sa apat na elemento"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🤖 EPP (ICT) — Review: Block Coding at Algorithm\n\nGrade 4, Week 22! Balikan natin ang batayan ng block coding. 🤖\n\n## 🔄 Balik-Aral\nNatutuhan natin ang digital citizenship.\n\n## 🤖 Ano ang Algorithm?\nAng **algorithm** ay isang hakbang-hakbang na paraan ng paglutas ng problema o pagsasagawa ng isang gawain.\n\n## 📊 Ano ang Flowchart?\nGinagamit ang **flowchart** upang ipakita ang proseso ng isang algorithm gamit ang mga simbolo at arrow.\n\n## 🧩 Halimbawa ng Simpleng Algorithm\nPara gumawa ng sandwich:\n1. Kumuha ng tinapay\n2. Maglagay ng palaman\n3. Isara ang sandwich\n4. Kainin\n\n**Mahahalagang salita:** algorithm, flowchart, hakbang-hakbang, proseso",
+        "quiz": [
+          {
+            "question": "Ano ang algorithm?",
+            "options": [
+              "Hakbang-hakbang na paraan ng paglutas ng problema",
+              "Isang uri ng laro",
+              "Isang uri ng laruan",
+              "Isang uri ng pagkain"
+            ],
+            "correct_answer": "Hakbang-hakbang na paraan ng paglutas ng problema"
+          },
+          {
+            "question": "Ano ang flowchart?",
+            "options": [
+              "Simbolo at arrow na nagpapakita ng proseso",
+              "Isang uri ng grap ng datos lamang",
+              "Isang uri ng litrato",
+              "Isang uri ng kanta"
+            ],
+            "correct_answer": "Simbolo at arrow na nagpapakita ng proseso"
+          },
+          {
+            "question": "Ano ang unang hakbang sa halimbawang algorithm ng paggawa ng sandwich?",
+            "options": [
+              "Kumuha ng tinapay",
+              "Kainin",
+              "Isara ang sandwich",
+              "Maglagay ng palaman"
+            ],
+            "correct_answer": "Kumuha ng tinapay"
+          },
+          {
+            "question": "Ano ang huling hakbang sa halimbawang algorithm?",
+            "options": [
+              "Kainin",
+              "Kumuha ng tinapay",
+              "Maglagay ng palaman",
+              "Isara ang sandwich"
+            ],
+            "correct_answer": "Kainin"
+          },
+          {
+            "question": "Bakit mahalagang sumunod sa tamang pagkakasunod-sunod sa isang algorithm?",
+            "options": [
+              "Para matagumpay na malutas ang problema o gawin ang gawain",
+              "Hindi mahalaga ang pagkakasunod-sunod",
+              "Basta anumang pagkakasunod-sunod ay tama",
+              "Walang epekto ang pagkakasunod-sunod"
+            ],
+            "correct_answer": "Para matagumpay na malutas ang problema o gawin ang gawain"
+          },
+          {
+            "question": "Bakit ginagamit ang flowchart sa pagpaplano ng isang gawain?",
+            "options": [
+              "Nagbibigay ito ng biswal na representasyon ng proseso",
+              "Wala itong gamit",
+              "Ginagamit lamang ito para sa larawan",
+              "Hindi ito ginagamit sa ICT"
+            ],
+            "correct_answer": "Nagbibigay ito ng biswal na representasyon ng proseso"
+          },
+          {
+            "question": "Anong halimbawang gawain sa araw-araw ang maaaring gawing algorithm?",
+            "options": [
+              "Paghahanda para sa paaralan",
+              "Wala, hindi maaaring gawing algorithm ang gawain",
+              "Isang bagay na walang hakbang",
+              "Isang random na kaisipan"
+            ],
+            "correct_answer": "Paghahanda para sa paaralan"
+          },
+          {
+            "question": "Bakit itinuturo ang block coding sa mga bata?",
+            "options": [
+              "Upang ipakilala ang batayan ng lohikal na pag-iisip",
+              "Walang layunin ito",
+              "Para lamang libangin ang bata",
+              "Hindi ito nauugnay sa ICT"
+            ],
+            "correct_answer": "Upang ipakilala ang batayan ng lohikal na pag-iisip"
+          },
+          {
+            "question": "Ano ang tinutukoy ng isang 'proseso' sa isang algorithm?",
+            "options": [
+              "Ang bawat hakbang na kailangang gawin",
+              "Ang kabuuang resulta lamang",
+              "Ang huling hakbang lamang",
+              "Walang kahulugan ang proseso"
+            ],
+            "correct_answer": "Ang bawat hakbang na kailangang gawin"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi tamang pagkakasunod-sunod ang sundin sa isang algorithm?",
+            "options": [
+              "Maaaring hindi matagumpay ang gawain",
+              "Palaging magiging tama pa rin ang resulta",
+              "Walang epekto ito sa resulta",
+              "Mas mabilis pa ang resulta"
+            ],
+            "correct_answer": "Maaaring hindi matagumpay ang gawain"
+          },
+          {
+            "question": "Bakit mahalagang matutong bumuo ng simpleng algorithm sa Grade 4?",
+            "options": [
+              "Nagtuturo ito ng lohikal at sistematikong pag-iisip",
+              "Walang gamit ito sa totoong buhay",
+              "Para sa matatanda lamang ito",
+              "Hindi na kailangan ito matutunan"
+            ],
+            "correct_answer": "Nagtuturo ito ng lohikal at sistematikong pag-iisip"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang halimbawa ng flowchart symbol?",
+            "options": [
+              "Isang parihaba para sa isang hakbang",
+              "Isang notebook",
+              "Isang lapis",
+              "Isang gunting"
+            ],
+            "correct_answer": "Isang parihaba para sa isang hakbang"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 💃 MAPEH — Dance Exercise at Movement Exploration\n\nGrade 4, Linggo 22! Galawin natin ang buong katawan sa pamamagitan ng sayaw! 💃\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa melodiya at malusog na pagkain.\n\n## 💃 Ano ang Dance Exercise?\nAng **dance exercise** ay isang paraan ng pag-eehersisyo gamit ang mga simpleng galaw ng sayaw kasabay ng musika.\n\n## 🤸 Movement Exploration\nAng **movement exploration** ay ang pagsubok ng iba't ibang galaw ng katawan — pagyuko, pag-ikot, paglukso — upang tuklasin kung ano ang kaya ng iyong katawan.\n\n## 🎯 Bakit Mahalaga Ito?\nAng dance exercise ay nagpapalakas ng katawan habang **nasisiyahan** tayo sa musika at galaw.\n\n**Mahahalagang salita:** dance exercise, movement exploration, ehersisyo, galaw",
+        "quiz": [
+          {
+            "question": "Ano ang dance exercise?",
+            "options": [
+              "Pag-eehersisyo gamit ang simpleng galaw ng sayaw",
+              "Isang uri ng pagkain",
+              "Isang uri ng laro sa telepono",
+              "Isang uri ng pagguhit"
+            ],
+            "correct_answer": "Pag-eehersisyo gamit ang simpleng galaw ng sayaw"
+          },
+          {
+            "question": "Ano ang movement exploration?",
+            "options": [
+              "Pagsubok ng iba't ibang galaw ng katawan",
+              "Isang uri ng pagkain",
+              "Isang uri ng awit",
+              "Isang uri ng laruan"
+            ],
+            "correct_answer": "Pagsubok ng iba't ibang galaw ng katawan"
+          },
+          {
+            "question": "Anong halimbawa ng galaw sa movement exploration?",
+            "options": [
+              "Pagyuko, pag-ikot, paglukso",
+              "Pagkain, pag-inom, pagtulog",
+              "Pagsulat, pagbasa, pagguhit",
+              "Panonood ng TV"
+            ],
+            "correct_answer": "Pagyuko, pag-ikot, paglukso"
+          },
+          {
+            "question": "Bakit mahalaga ang dance exercise?",
+            "options": [
+              "Nagpapalakas ng katawan habang nasisiyahan sa musika",
+              "Walang kahalagahan",
+              "Nakakapagod lamang nang walang benepisyo",
+              "Hindi ito bahagi ng PE"
+            ],
+            "correct_answer": "Nagpapalakas ng katawan habang nasisiyahan sa musika"
+          },
+          {
+            "question": "Ano ang layunin ng movement exploration?",
+            "options": [
+              "Tuklasin kung ano ang kaya ng katawan",
+              "Palakasin lamang ang boses",
+              "Matuto ng matematika",
+              "Matuto ng pagsulat"
+            ],
+            "correct_answer": "Tuklasin kung ano ang kaya ng katawan"
+          },
+          {
+            "question": "Ano ang kasamang bahagi ng dance exercise?",
+            "options": [
+              "Musika",
+              "Aklat",
+              "Kompyuter",
+              "Lapis"
+            ],
+            "correct_answer": "Musika"
+          },
+          {
+            "question": "Bakit itinuturo ang movement exploration sa PE?",
+            "options": [
+              "Upang matulungan ang mga bata magtiwala sa sariling katawan",
+              "Walang layunin ito",
+              "Para lamang libangin ang guro",
+              "Hindi ito bahagi ng kurikulum"
+            ],
+            "correct_answer": "Upang matulungan ang mga bata magtiwala sa sariling katawan"
+          },
+          {
+            "question": "Ano ang pisikal na benepisyo ng dance exercise?",
+            "options": [
+              "Pagpapalakas ng katawan at koordinasyon",
+              "Walang benepisyo",
+              "Pinapahina ang katawan",
+              "Pinipigilan ang paggalaw"
+            ],
+            "correct_answer": "Pagpapalakas ng katawan at koordinasyon"
+          },
+          {
+            "question": "Bakit gumagamit ng musika sa dance exercise?",
+            "options": [
+              "Nagbibigay ito ng tempo at kasiyahan sa paggalaw",
+              "Walang gamit ang musika",
+              "Ginagawa lamang nitong mas mahirap ang ehersisyo",
+              "Hindi kailangan ang musika"
+            ],
+            "correct_answer": "Nagbibigay ito ng tempo at kasiyahan sa paggalaw"
+          },
+          {
+            "question": "Bakit mahalaga ang paglukso sa movement exploration?",
+            "options": [
+              "Isa itong halimbawa ng paggalaw na sinusubok ng katawan",
+              "Wala itong kaugnayan sa PE",
+              "Ito ay hindi tunay na galaw",
+              "Hindi ito kasama sa PE"
+            ],
+            "correct_answer": "Isa itong halimbawa ng paggalaw na sinusubok ng katawan"
+          },
+          {
+            "question": "Paano naiiba ang movement exploration sa isang tradisyunal na sayaw?",
+            "options": [
+              "Mas malaya at pagsubok ng bagong galaw kaysa sa itinakdang mga hakbang",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Movement exploration ay laging may partikular na hakbang"
+            ],
+            "correct_answer": "Mas malaya at pagsubok ng bagong galaw kaysa sa itinakdang mga hakbang"
+          },
+          {
+            "question": "Ano ang koneksyon ng dance exercise sa pisikal na kalusugan?",
+            "options": [
+              "Parehong tumutulong sa pisikal na kalusugan ng katawan",
+              "Walang koneksyon",
+              "Dance exercise ay tungkol lamang sa musika",
+              "Walang epekto sa kalusugan"
+            ],
+            "correct_answer": "Parehong tumutulong sa pisikal na kalusugan ng katawan"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🍚 EPP (FCS) — Tungkuling Pantahanan: Pagsasaing at Paghuhugas\n\nGrade 4, Linggo 22! Matuto tayo ng mga batayang gawaing bahay. 🍚\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pangangalaga sa katawan.\n\n## 🍚 Tamang Pagsasaing\n1. Hugasan ang bigas hanggang malinaw ang tubig\n2. Sukatin ang tubig ayon sa dami ng bigas\n3. Pakuluan hanggang maluto\n\n## 🧼 Tamang Paghuhugas ng Pinggan\n1. Alisin muna ang tira-tirang pagkain\n2. Hugasan gamit ang sabon at espongha\n3. Banlawan nang mabuti\n4. Ipatuyo o punasan\n\n## 💡 Bakit Mahalaga Ito?\nAng mga simpleng gawaing bahay na ito ay nagtuturo ng **pananagutan** at pagtulong sa pamilya.\n\n**Mahahalagang salita:** pagsasaing, paghuhugas, tungkuling pantahanan, pananagutan",
+        "quiz": [
+          {
+            "question": "Ano ang unang hakbang sa tamang pagsasaing?",
+            "options": [
+              "Hugasan ang bigas hanggang malinaw ang tubig",
+              "Direktang pakuluan nang walang hugas",
+              "Kalimutan ang bigas",
+              "Ilagay agad sa kaldero nang basa pa"
+            ],
+            "correct_answer": "Hugasan ang bigas hanggang malinaw ang tubig"
+          },
+          {
+            "question": "Ano ang gagawin pagkatapos hugasan ang bigas?",
+            "options": [
+              "Sukatin ang tubig ayon sa dami ng bigas",
+              "Itapon ang bigas",
+              "Kainin agad ang hilaw na bigas",
+              "Ihalo sa asukal"
+            ],
+            "correct_answer": "Sukatin ang tubig ayon sa dami ng bigas"
+          },
+          {
+            "question": "Ano ang unang hakbang sa paghuhugas ng pinggan?",
+            "options": [
+              "Alisin ang tira-tirang pagkain",
+              "Direktang banlawan nang walang sabon",
+              "Itago ang pinggan na marumi",
+              "Kalimutan ang paghuhugas"
+            ],
+            "correct_answer": "Alisin ang tira-tirang pagkain"
+          },
+          {
+            "question": "Ano ang gagawin pagkatapos hugasan gamit ang sabon?",
+            "options": [
+              "Banlawan nang mabuti",
+              "Direktang gamitin ulit",
+              "Kalimutan ang natirang sabon",
+              "Ilagay agad sa cabinet nang basa"
+            ],
+            "correct_answer": "Banlawan nang mabuti"
+          },
+          {
+            "question": "Bakit mahalagang matutong magsaing at maghugas ng pinggan?",
+            "options": [
+              "Nagtuturo ito ng pananagutan sa tahanan",
+              "Walang kahalagahan",
+              "Para sa matatanda lamang ito",
+              "Hindi ito kailangang matutunan"
+            ],
+            "correct_answer": "Nagtuturo ito ng pananagutan sa tahanan"
+          },
+          {
+            "question": "Bakit kailangang banlawan nang mabuti ang pinggan?",
+            "options": [
+              "Upang alisin ang natitirang sabon",
+              "Hindi na kailangan banlawan",
+              "Para lamang lumaki ang tubig na ginamit",
+              "Walang gamit ang pagbanlaw"
+            ],
+            "correct_answer": "Upang alisin ang natitirang sabon"
+          },
+          {
+            "question": "Bakit mahalagang tumulong sa gawaing bahay?",
+            "options": [
+              "Nagpapakita ito ng pananagutan at pagtulong sa pamilya",
+              "Wala itong kahalagahan",
+              "Ito ay para lamang sa matatanda",
+              "Hindi ito bahagi ng pag-aaral"
+            ],
+            "correct_answer": "Nagpapakita ito ng pananagutan at pagtulong sa pamilya"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi hugasan nang mabuti ang bigas?",
+            "options": [
+              "Maaaring may dumi o labis na almirol na matira",
+              "Walang mangyayari",
+              "Mas masarap ang resulta",
+              "Mabilis maluto ang kanin"
+            ],
+            "correct_answer": "Maaaring may dumi o labis na almirol na matira"
+          },
+          {
+            "question": "Bakit itinuturo ang mga gawaing bahay sa EPP?",
+            "options": [
+              "Upang matutong mag-alaga ng sariling tahanan",
+              "Walang layunin ito",
+              "Para sa mga babae lamang",
+              "Hindi ito kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Upang matutong mag-alaga ng sariling tahanan"
+          },
+          {
+            "question": "Ano ang gagawin kung marumi pa rin ang pinggan pagkatapos hugasan?",
+            "options": [
+              "Hugasan ulit hanggang malinis",
+              "Gamitin agad kahit marumi",
+              "Itapon ang pinggan",
+              "Balewalain na lamang"
+            ],
+            "correct_answer": "Hugasan ulit hanggang malinis"
+          },
+          {
+            "question": "Bakit sukatin ang tubig ayon sa dami ng bigas?",
+            "options": [
+              "Para maluto nang tama at hindi masyadong malambot o matigas",
+              "Hindi mahalaga ang sukat",
+              "Basta't marami lang ang tubig",
+              "Walang epekto ang sukat ng tubig"
+            ],
+            "correct_answer": "Para maluto nang tama at hindi masyadong malambot o matigas"
+          },
+          {
+            "question": "Anong kasanayan ang ipinapakita ng paggawa ng gawaing bahay nang tama?",
+            "options": [
+              "Disiplina at pagtutok sa detalye",
+              "Kawalang pakialam",
+              "Pagmamadali nang walang pag-iingat",
+              "Kawalan ng disiplina"
+            ],
+            "correct_answer": "Disiplina at pagtutok sa detalye"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🤝 GMRC — Tungkulin ng Pamilya sa Kapuwa\n\nGrade 4, Linggo 22! Pagpapahalaga: **Mapagmalasakit (Compassionate)**. 🤝\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa pagtitipid para sa kapuwa.\n\n## 🤝 Ano ang Tungkulin ng Pamilya sa Kapuwa?\nAng pamilya ay may tungkuling **tumulong sa iba**, hindi lamang mag-alaga sa sariling miyembro.\n\n## 💝 Halimbawa ng Tungkulin sa Kapuwa\n- Pagtulong sa kapitbahay na nangangailangan\n- Pagsali sa isang gawaing pangkomunidad kasama ang pamilya\n- Pagbibigay ng suporta sa mga kamag-anak na may problema\n\n## 💡 Bakit Mahalaga Ito?\nAng pagtuturo ng pamilya tungkol sa pagmamalasakit sa iba ay nagpapalago ng **magiliw na puso** sa mga bata.\n\n**Mahahalagang salita:** mapagmalasakit, tungkulin, kapuwa, pamilya",
+        "quiz": [
+          {
+            "question": "Ano ang tungkulin ng pamilya sa kapuwa?",
+            "options": [
+              "Tumulong sa iba, hindi lamang sa sariling miyembro",
+              "Alagaan lamang ang sarili",
+              "Kawalang pakialam sa iba",
+              "Iwasan ang kapwa"
+            ],
+            "correct_answer": "Tumulong sa iba, hindi lamang sa sariling miyembro"
+          },
+          {
+            "question": "Anong halimbawa ng tungkulin ng pamilya sa kapuwa?",
+            "options": [
+              "Pagtulong sa kapitbahay na nangangailangan",
+              "Pag-iwas sa kapitbahay",
+              "Kutyain ang nangangailangan",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pagtulong sa kapitbahay na nangangailangan"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Mapagmalasakit (Compassionate)",
+              "Matipid",
+              "Magalang",
+              "Mapagpakumbaba"
+            ],
+            "correct_answer": "Mapagmalasakit (Compassionate)"
+          },
+          {
+            "question": "Bakit mahalagang sumali ang pamilya sa gawaing pangkomunidad?",
+            "options": [
+              "Nagpapakita ito ng pagmamalasakit sa iba",
+              "Walang kahalagahan",
+              "Nakakasama ito sa pamilya",
+              "Hindi ito kailangan"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamalasakit sa iba"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagtuturo ng pamilya tungkol sa pagmamalasakit?",
+            "options": [
+              "Nagpapalago ng magiliw na puso sa mga bata",
+              "Wala itong naidudulot",
+              "Nagdudulot lamang ito ng gulo",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Nagpapalago ng magiliw na puso sa mga bata"
+          },
+          {
+            "question": "Bakit dapat magbigay ng suporta sa mga kamag-anak na may problema?",
+            "options": [
+              "Nagpapakita ito ng pagmamalasakit at pagmamahal",
+              "Walang kaugnayan sa pagmamalasakit",
+              "Hindi ito kailangan gawin",
+              "Ito ay pag-aaksaya lamang ng oras"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamalasakit at pagmamahal"
+          },
+          {
+            "question": "Bakit itinuturing na mapagmalasakit ang pagtulong sa iba bilang pamilya?",
+            "options": [
+              "Ipinapakita nito ang malasakit sa kapakanan ng iba",
+              "Walang kaugnayan sa mapagmalasakit",
+              "Ito ay para lamang sa sariling pamilya",
+              "Hindi ito totoong pagmamalasakit"
+            ],
+            "correct_answer": "Ipinapakita nito ang malasakit sa kapakanan ng iba"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagtulong ng pamilya sa kapwa sa isang komunidad?",
+            "options": [
+              "Mas malakas na pagkakaisa at pagtutulungan",
+              "Higit na paghihiwalay",
+              "Walang naidudulot",
+              "Kawalan ng tiwala"
+            ],
+            "correct_answer": "Mas malakas na pagkakaisa at pagtutulungan"
+          },
+          {
+            "question": "Bakit mahalagang ituro ang halagang ito sa mga bata mula ngayon?",
+            "options": [
+              "Upang matutong magmalasakit sa iba mula sa maagang edad",
+              "Hindi na kailangan ituro ito",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang matutong magmalasakit sa iba mula sa maagang edad"
+          },
+          {
+            "question": "Paano naiiba ang tungkulin sa sariling pamilya sa tungkulin sa kapuwa?",
+            "options": [
+              "Ang tungkulin sa kapuwa ay lumalawak sa mga taong labas sa sariling pamilya",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Ang tungkulin sa kapuwa ay hindi mahalaga"
+            ],
+            "correct_answer": "Ang tungkulin sa kapuwa ay lumalawak sa mga taong labas sa sariling pamilya"
+          },
+          {
+            "question": "Ano ang koneksyon nito sa pagtitipid para sa kapuwa noong nakaraang linggo?",
+            "options": [
+              "Pareho silang tumatalakay sa pagtulong sa iba",
+              "Walang koneksyon",
+              "Isa ay tungkol sa agham",
+              "Isa ay tungkol sa matematika"
+            ],
+            "correct_answer": "Pareho silang tumatalakay sa pagtulong sa iba"
+          },
+          {
+            "question": "Bakit dapat simulan sa loob ng tahanan ang pagtuturo ng pagmamalasakit sa iba?",
+            "options": [
+              "Ang pamilya ang unang gurong tumuturo ng mabubuting asal",
+              "Hindi mahalaga ang tahanan sa pagtuturo nito",
+              "Ang paaralan lamang ang dapat magturo nito",
+              "Walang kaugnayan ang tahanan sa asal ng bata"
+            ],
+            "correct_answer": "Ang pamilya ang unang gurong tumuturo ng mabubuting asal"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 💌 Friday Review — English (Grade 4)\n\n- Friendly letter of pakikiramay (condolence)\n\nGreat compassionate writing! 🌟",
+        "quiz": [
+          {
+            "question": "What is a letter of pakikiramay?",
+            "options": [
+              "A letter written to comfort someone who lost a loved one",
+              "A letter congratulating someone",
+              "A letter requesting information",
+              "A letter of complaint"
+            ],
+            "correct_answer": "A letter written to comfort someone who lost a loved one"
+          },
+          {
+            "question": "What tone should it use?",
+            "options": [
+              "Gentle, respectful, and caring",
+              "Rushed and careless",
+              "Funny and joking",
+              "Angry and demanding"
+            ],
+            "correct_answer": "Gentle, respectful, and caring"
+          },
+          {
+            "question": "What might the body include?",
+            "options": [
+              "Sympathy and a kind memory",
+              "A list of complaints",
+              "A joke",
+              "A request for money"
+            ],
+            "correct_answer": "Sympathy and a kind memory"
+          },
+          {
+            "question": "Common closing for a condolence letter?",
+            "options": [
+              "With deepest sympathy",
+              "Best regards only",
+              "See you later!",
+              "Yours in business"
+            ],
+            "correct_answer": "With deepest sympathy"
+          },
+          {
+            "question": "Why offer support in the letter?",
+            "options": [
+              "Shows you care about the grieving person",
+              "No purpose",
+              "Should be avoided",
+              "Makes the letter shorter"
+            ],
+            "correct_answer": "Shows you care about the grieving person"
+          },
+          {
+            "question": "Greeting part of a friendly letter?",
+            "options": [
+              "Dear...",
+              "The body",
+              "The closing",
+              "The signature only"
+            ],
+            "correct_answer": "Dear..."
+          },
+          {
+            "question": "Why avoid a rushed tone?",
+            "options": [
+              "The person needs sincerity while grieving",
+              "More efficient to be quick",
+              "Tone doesn't matter",
+              "A rushed tone is always fine"
+            ],
+            "correct_answer": "The person needs sincerity while grieving"
+          },
+          {
+            "question": "Which sentence fits a condolence letter?",
+            "options": [
+              "I was so sorry to hear about your loss.",
+              "Congratulations on your win!",
+              "Please send the report by Friday.",
+              "Happy birthday to you!"
+            ],
+            "correct_answer": "I was so sorry to hear about your loss."
+          },
+          {
+            "question": "Why share a kind memory?",
+            "options": [
+              "Honors the person and comforts the reader",
+              "No effect",
+              "Makes the letter too long",
+              "Never include it"
+            ],
+            "correct_answer": "Honors the person and comforts the reader"
+          },
+          {
+            "question": "Main parts of a friendly letter?",
+            "options": [
+              "Greeting, body, closing",
+              "One part only",
+              "Ten parts",
+              "No specific parts"
+            ],
+            "correct_answer": "Greeting, body, closing"
+          },
+          {
+            "question": "Why is this letter type important?",
+            "options": [
+              "Teaches how to express care in hard times",
+              "No real-life use",
+              "Only adults write these",
+              "Replaces empathy"
+            ],
+            "correct_answer": "Teaches how to express care in hard times"
+          },
+          {
+            "question": "Word describing the purpose of pakikiramay?",
+            "options": [
+              "Comfort",
+              "Celebration",
+              "Complaint",
+              "Instruction"
+            ],
+            "correct_answer": "Comfort"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🍰 Friday Review — Mathematics (Grade 4)\n\n- Equivalent fractions and simplest form\n\nGreat fraction skills! ⭐",
+        "quiz": [
+          {
+            "question": "What are equivalent fractions?",
+            "options": [
+              "Fractions that look different but represent the same value",
+              "Fractions always different in value",
+              "Whole numbers only",
+              "Fractions with no numerator"
+            ],
+            "correct_answer": "Fractions that look different but represent the same value"
+          },
+          {
+            "question": "Fraction equivalent to 1/2?",
+            "options": [
+              "2/4",
+              "1/4",
+              "3/4",
+              "1/3"
+            ],
+            "correct_answer": "2/4"
+          },
+          {
+            "question": "How to generate an equivalent fraction?",
+            "options": [
+              "Multiply numerator and denominator by same number",
+              "Add random number to numerator only",
+              "Subtract from denominator only",
+              "Multiply only the numerator"
+            ],
+            "correct_answer": "Multiply numerator and denominator by same number"
+          },
+          {
+            "question": "What is 1/2 × 2/2?",
+            "options": [
+              "2/4",
+              "1/4",
+              "3/6",
+              "1/2"
+            ],
+            "correct_answer": "2/4"
+          },
+          {
+            "question": "Simplest form of 4/8?",
+            "options": [
+              "1/2",
+              "2/4",
+              "4/8",
+              "1/4"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "What to divide by to reduce a fraction?",
+            "options": [
+              "The greatest common factor",
+              "Any random number",
+              "Only the numerator",
+              "Only the denominator"
+            ],
+            "correct_answer": "The greatest common factor"
+          },
+          {
+            "question": "Fraction equivalent to 1/3?",
+            "options": [
+              "2/6",
+              "1/6",
+              "3/6",
+              "1/2"
+            ],
+            "correct_answer": "2/6"
+          },
+          {
+            "question": "Simplest form of 6/9?",
+            "options": [
+              "2/3",
+              "3/9",
+              "6/9",
+              "1/3"
+            ],
+            "correct_answer": "2/3"
+          },
+          {
+            "question": "Why are equivalent fractions useful?",
+            "options": [
+              "Help compare and add fractions with different denominators",
+              "No practical use",
+              "Only work with whole numbers",
+              "Replace math"
+            ],
+            "correct_answer": "Help compare and add fractions with different denominators"
+          },
+          {
+            "question": "What is 3/4 × 2/2?",
+            "options": [
+              "6/8",
+              "3/8",
+              "6/4",
+              "3/4"
+            ],
+            "correct_answer": "6/8"
+          },
+          {
+            "question": "Which is NOT equivalent to 2/4?",
+            "options": [
+              "3/5",
+              "1/2",
+              "4/8",
+              "3/6"
+            ],
+            "correct_answer": "3/5"
+          },
+          {
+            "question": "Simplest form of 10/20?",
+            "options": [
+              "1/2",
+              "5/10",
+              "2/4",
+              "10/20"
+            ],
+            "correct_answer": "1/2"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🎭 Friday Review — Filipino (Grade 4)\n\n- Epiko: bayani, tula, kabayanihan\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang epiko?",
+            "options": [
+              "Mahabang tulang naratibo tungkol sa kabayanihan",
+              "Maikling kuwento tungkol sa hayop",
+              "Liham pangkaibigan",
+              "Balita"
+            ],
+            "correct_answer": "Mahabang tulang naratibo tungkol sa kabayanihan"
+          },
+          {
+            "question": "Anong anyo ginagamit sa epiko?",
+            "options": [
+              "Tula",
+              "Liham",
+              "Balita",
+              "Talumpati"
+            ],
+            "correct_answer": "Tula"
+          },
+          {
+            "question": "Uri ng bayani sa epiko?",
+            "options": [
+              "May di-pangkaraniwang lakas",
+              "Ordinaryong tao lamang",
+              "Walang kakayahan",
+              "Hayop lamang"
+            ],
+            "correct_answer": "May di-pangkaraniwang lakas"
+          },
+          {
+            "question": "Halimbawa ng epikong Pilipino?",
+            "options": [
+              "Biag ni Lam-ang",
+              "Alamat ng Pinya",
+              "Kuneho at Pagong",
+              "Alamat ng Bahaghari"
+            ],
+            "correct_answer": "Biag ni Lam-ang"
+          },
+          {
+            "question": "Laman ng epiko bukod sa kabayanihan?",
+            "options": [
+              "Pakikipagsapalaran at digmaan",
+              "Resipe ng pagkain",
+              "Tuntunin ng laro",
+              "Balitang pang-ekonomiya"
+            ],
+            "correct_answer": "Pakikipagsapalaran at digmaan"
+          },
+          {
+            "question": "Sinasalamin ng epiko?",
+            "options": [
+              "Kultura at bayani ng lipunan",
+              "Modernong teknolohiya",
+              "Batas komersyo",
+              "Uri ng pagkain"
+            ],
+            "correct_answer": "Kultura at bayani ng lipunan"
+          },
+          {
+            "question": "Pagkakaiba ng epiko sa mito?",
+            "options": [
+              "Epiko tungkol sa kabayanihan, mito nagpapaliwanag ng pinagmulan",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Mito tungkol sa bayani lamang"
+            ],
+            "correct_answer": "Epiko tungkol sa kabayanihan, mito nagpapaliwanag ng pinagmulan"
+          },
+          {
+            "question": "Bakit pag-aralan ang epiko?",
+            "options": [
+              "Kaalaman sa kabayanihan at kultura ng bayan",
+              "Walang kahalagahan",
+              "Galing sa ibang bansa lamang",
+              "Hindi bahagi ng kultura"
+            ],
+            "correct_answer": "Kaalaman sa kabayanihan at kultura ng bayan"
+          },
+          {
+            "question": "Katangian ng bayani sa epiko?",
+            "options": [
+              "Kapambihirang lakas o kakayahan",
+              "Karaniwang trabaho lamang",
+              "Walang natatanging kakayahan",
+              "Pagiging mahina"
+            ],
+            "correct_answer": "Kapambihirang lakas o kakayahan"
+          },
+          {
+            "question": "Layunin ng pagsasalaysay ng epiko?",
+            "options": [
+              "Ipakita ang pinahahalagahang katangian",
+              "Magbigay ng balita",
+              "Magturo ng matematika",
+              "Magbigay ng resipe"
+            ],
+            "correct_answer": "Ipakita ang pinahahalagahang katangian"
+          },
+          {
+            "question": "Alin ang HINDI katangian ng epiko?",
+            "options": [
+              "Maikling talata tungkol sa balita",
+              "Isinasalaysay sa tula",
+              "May bayaning kapambihira",
+              "May digmaan"
+            ],
+            "correct_answer": "Maikling talata tungkol sa balita"
+          },
+          {
+            "question": "Bakit mahalaga ang Biag ni Lam-ang?",
+            "options": [
+              "Ipinapakita ang tradisyon at kabayanihan ng etnikong grupo",
+              "Walang kaugnayan sa Pilipinas",
+              "Bagong likha lamang",
+              "Hindi tunay na bahagi ng kultura"
+            ],
+            "correct_answer": "Ipinapakita ang tradisyon at kabayanihan ng etnikong grupo"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 📈 Friday Review — Science (Grade 4)\n\n- Distance-time graphs\n\nGreat graph-reading skills! 🌟",
+        "quiz": [
+          {
+            "question": "What does a distance-time graph show?",
+            "options": [
+              "How far an object has traveled over time",
+              "Only color",
+              "Only weight",
+              "Temperature"
+            ],
+            "correct_answer": "How far an object has traveled over time"
+          },
+          {
+            "question": "What's on the x-axis of a speed graph?",
+            "options": [
+              "Time",
+              "Distance",
+              "Weight",
+              "Color"
+            ],
+            "correct_answer": "Time"
+          },
+          {
+            "question": "What's on the y-axis?",
+            "options": [
+              "Distance",
+              "Time",
+              "Weight",
+              "Color"
+            ],
+            "correct_answer": "Distance"
+          },
+          {
+            "question": "Steeper line means?",
+            "options": [
+              "Moving faster",
+              "Stopped",
+              "Moving slower",
+              "No movement"
+            ],
+            "correct_answer": "Moving faster"
+          },
+          {
+            "question": "Flat line means?",
+            "options": [
+              "Object has stopped",
+              "Very fast",
+              "Speeding up",
+              "Slowing down"
+            ],
+            "correct_answer": "Object has stopped"
+          },
+          {
+            "question": "Straight constant-slope line means?",
+            "options": [
+              "Constant speed",
+              "Not moving",
+              "Changing color",
+              "Disappearing"
+            ],
+            "correct_answer": "Constant speed"
+          },
+          {
+            "question": "Faster runner's line on a comparison graph?",
+            "options": [
+              "Rises faster (steeper)",
+              "The flatter line",
+              "Goes down",
+              "Neither shows speed"
+            ],
+            "correct_answer": "Rises faster (steeper)"
+          },
+          {
+            "question": "Why are distance-time graphs useful?",
+            "options": [
+              "Visually compare movement over time",
+              "No real use",
+              "Only for cars",
+              "Replace measuring distance"
+            ],
+            "correct_answer": "Visually compare movement over time"
+          },
+          {
+            "question": "A flat section means the object?",
+            "options": [
+              "Paused or stopped",
+              "Moved fast",
+              "Disappeared",
+              "Changed color"
+            ],
+            "correct_answer": "Paused or stopped"
+          },
+          {
+            "question": "Why is time on the x-axis?",
+            "options": [
+              "Independent variable tracked against",
+              "No particular reason",
+              "Distance always on x-axis",
+              "Time can't be graphed"
+            ],
+            "correct_answer": "Independent variable tracked against"
+          },
+          {
+            "question": "Steep line then flat suggests?",
+            "options": [
+              "Moved fast then stopped",
+              "Never moved",
+              "Moved slowly whole time",
+              "Moved backward"
+            ],
+            "correct_answer": "Moved fast then stopped"
+          },
+          {
+            "question": "Why use graphs instead of just numbers?",
+            "options": [
+              "Make patterns and comparisons easier to see",
+              "Numbers always better",
+              "No advantage",
+              "Replace the need for data"
+            ],
+            "correct_answer": "Make patterns and comparisons easier to see"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🏛️ Friday Review — Araling Panlipunan (Grade 4)\n\n- Unitary presidential system: ehekutibo, lehislatibo, hudisyal\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ibig sabihin ng 'unitary'?",
+            "options": [
+              "Iisang sentral na pamahalaan",
+              "Maraming hiwalay na pamahalaan",
+              "Walang pamahalaan",
+              "Pamahalaan ng ibang bansa"
+            ],
+            "correct_answer": "Iisang sentral na pamahalaan"
+          },
+          {
+            "question": "Ibig sabihin ng 'presidential'?",
+            "options": [
+              "Pinamumunuan ng Pangulo",
+              "Pinamumunuan ng hari",
+              "Walang pinuno",
+              "Pinamumunuan ng Kongreso lamang"
+            ],
+            "correct_answer": "Pinamumunuan ng Pangulo"
+          },
+          {
+            "question": "Tungkulin ng ehekutibo?",
+            "options": [
+              "Nagpapatupad ng batas",
+              "Gumagawa ng batas",
+              "Nagpapaliwanag ng batas",
+              "Wala"
+            ],
+            "correct_answer": "Nagpapatupad ng batas"
+          },
+          {
+            "question": "Tungkulin ng lehislatibo?",
+            "options": [
+              "Gumagawa ng batas",
+              "Nagpapatupad ng batas",
+              "Naghuhusga ng kaso",
+              "Wala"
+            ],
+            "correct_answer": "Gumagawa ng batas"
+          },
+          {
+            "question": "Tungkulin ng hudisyal?",
+            "options": [
+              "Nagpapaliwanag at nagpapatupad ng katarungan",
+              "Gumagawa ng batas",
+              "Nagpapatupad ng batas",
+              "Wala"
+            ],
+            "correct_answer": "Nagpapaliwanag at nagpapatupad ng katarungan"
+          },
+          {
+            "question": "Sino ang pinuno ng ehekutibo?",
+            "options": [
+              "Pangulo",
+              "Kongreso",
+              "Korte Suprema",
+              "Senado lamang"
+            ],
+            "correct_answer": "Pangulo"
+          },
+          {
+            "question": "Ano ang Kongreso?",
+            "options": [
+              "Sangay na lehislatibo",
+              "Sangay na ehekutibo",
+              "Sangay na hudisyal",
+              "Isang ospital"
+            ],
+            "correct_answer": "Sangay na lehislatibo"
+          },
+          {
+            "question": "Ano ang Korte Suprema?",
+            "options": [
+              "Pinakamataas na hukuman ng hudisyal",
+              "Isang paaralan",
+              "Sangay na ehekutibo",
+              "Sangay na lehislatibo"
+            ],
+            "correct_answer": "Pinakamataas na hukuman ng hudisyal"
+          },
+          {
+            "question": "Layunin ng checks and balances?",
+            "options": [
+              "Walang isang sangay ang sobrang kapangyarihan",
+              "Bigyan ang Pangulo ng lahat ng kapangyarihan",
+              "Alisin ang lahat ng batas",
+              "Wala"
+            ],
+            "correct_answer": "Walang isang sangay ang sobrang kapangyarihan"
+          },
+          {
+            "question": "Bakit hinahati ang pamahalaan sa tatlong sangay?",
+            "options": [
+              "Iwasan ang labis na kapangyarihan sa isang tao",
+              "Mas mahirap magpatupad ng batas",
+              "Walang dahilan",
+              "Bawasan ang trabaho"
+            ],
+            "correct_answer": "Iwasan ang labis na kapangyarihan sa isang tao"
+          },
+          {
+            "question": "Bakit presidential ang sistema ng Pilipinas?",
+            "options": [
+              "Pinamumunuan ng Pangulo",
+              "Walang pinuno",
+              "Pinamumunuan ng hari",
+              "Walang sangay"
+            ],
+            "correct_answer": "Pinamumunuan ng Pangulo"
+          },
+          {
+            "question": "Koneksyon nito sa apat na elemento ng pagkabansa?",
+            "options": [
+              "Nagpapakita paano ginagawa ang gawain ng pamahalaan",
+              "Walang koneksyon",
+              "Hiwalay sa elemento",
+              "Hindi kailangan ng sistema"
+            ],
+            "correct_answer": "Nagpapakita paano ginagawa ang gawain ng pamahalaan"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🤖 Friday Review — EPP (ICT) (Grade 4)\n\n- Algorithm at flowchart\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang algorithm?",
+            "options": [
+              "Hakbang-hakbang na paglutas ng problema",
+              "Uri ng laro",
+              "Uri ng laruan",
+              "Uri ng pagkain"
+            ],
+            "correct_answer": "Hakbang-hakbang na paglutas ng problema"
+          },
+          {
+            "question": "Ano ang flowchart?",
+            "options": [
+              "Simbolo at arrow ng proseso",
+              "Uri ng grap ng datos lamang",
+              "Uri ng litrato",
+              "Uri ng kanta"
+            ],
+            "correct_answer": "Simbolo at arrow ng proseso"
+          },
+          {
+            "question": "Unang hakbang sa halimbawang algorithm ng sandwich?",
+            "options": [
+              "Kumuha ng tinapay",
+              "Kainin",
+              "Isara ang sandwich",
+              "Maglagay ng palaman"
+            ],
+            "correct_answer": "Kumuha ng tinapay"
+          },
+          {
+            "question": "Huling hakbang?",
+            "options": [
+              "Kainin",
+              "Kumuha ng tinapay",
+              "Maglagay ng palaman",
+              "Isara"
+            ],
+            "correct_answer": "Kainin"
+          },
+          {
+            "question": "Bakit sumunod sa tamang pagkakasunod-sunod?",
+            "options": [
+              "Para matagumpay malutas ang gawain",
+              "Hindi mahalaga",
+              "Basta anumang ayos ay tama",
+              "Walang epekto"
+            ],
+            "correct_answer": "Para matagumpay malutas ang gawain"
+          },
+          {
+            "question": "Bakit ginagamit ang flowchart?",
+            "options": [
+              "Biswal na representasyon ng proseso",
+              "Walang gamit",
+              "Para sa larawan lamang",
+              "Hindi ginagamit sa ICT"
+            ],
+            "correct_answer": "Biswal na representasyon ng proseso"
+          },
+          {
+            "question": "Halimbawang gawain na magiging algorithm?",
+            "options": [
+              "Paghahanda para sa paaralan",
+              "Walang maaaring gawing algorithm",
+              "Isang bagay na walang hakbang",
+              "Random na kaisipan"
+            ],
+            "correct_answer": "Paghahanda para sa paaralan"
+          },
+          {
+            "question": "Bakit ituro ang block coding?",
+            "options": [
+              "Ipakilala ang lohikal na pag-iisip",
+              "Walang layunin",
+              "Libangin lamang ang bata",
+              "Hindi nauugnay sa ICT"
+            ],
+            "correct_answer": "Ipakilala ang lohikal na pag-iisip"
+          },
+          {
+            "question": "Ano ang tinutukoy ng 'proseso' sa algorithm?",
+            "options": [
+              "Bawat hakbang na kailangang gawin",
+              "Kabuuang resulta lamang",
+              "Huling hakbang lamang",
+              "Walang kahulugan"
+            ],
+            "correct_answer": "Bawat hakbang na kailangang gawin"
+          },
+          {
+            "question": "Mangyayari kung mali ang pagkakasunod-sunod?",
+            "options": [
+              "Maaaring hindi matagumpay ang gawain",
+              "Palaging magiging tama",
+              "Walang epekto",
+              "Mas mabilis ang resulta"
+            ],
+            "correct_answer": "Maaaring hindi matagumpay ang gawain"
+          },
+          {
+            "question": "Bakit matutong bumuo ng algorithm sa Grade 4?",
+            "options": [
+              "Nagtuturo ng lohikal na pag-iisip",
+              "Walang gamit sa totoong buhay",
+              "Para sa matatanda lamang",
+              "Hindi kailangan matutunan"
+            ],
+            "correct_answer": "Nagtuturo ng lohikal na pag-iisip"
+          },
+          {
+            "question": "Halimbawa ng flowchart symbol?",
+            "options": [
+              "Parihaba para sa hakbang",
+              "Notebook",
+              "Lapis",
+              "Gunting"
+            ],
+            "correct_answer": "Parihaba para sa hakbang"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 4)\n\n- Dance exercise at movement exploration\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang dance exercise?",
+            "options": [
+              "Pag-eehersisyo gamit ang galaw ng sayaw",
+              "Uri ng pagkain",
+              "Uri ng laro sa telepono",
+              "Uri ng pagguhit"
+            ],
+            "correct_answer": "Pag-eehersisyo gamit ang galaw ng sayaw"
+          },
+          {
+            "question": "Ano ang movement exploration?",
+            "options": [
+              "Pagsubok ng iba't ibang galaw ng katawan",
+              "Uri ng pagkain",
+              "Uri ng awit",
+              "Uri ng laruan"
+            ],
+            "correct_answer": "Pagsubok ng iba't ibang galaw ng katawan"
+          },
+          {
+            "question": "Halimbawa ng galaw sa movement exploration?",
+            "options": [
+              "Pagyuko, pag-ikot, paglukso",
+              "Pagkain, pag-inom",
+              "Pagsulat, pagbasa",
+              "Panonood ng TV"
+            ],
+            "correct_answer": "Pagyuko, pag-ikot, paglukso"
+          },
+          {
+            "question": "Bakit mahalaga ang dance exercise?",
+            "options": [
+              "Nagpapalakas ng katawan habang nasisiyahan",
+              "Walang kahalagahan",
+              "Nakakapagod lamang",
+              "Hindi bahagi ng PE"
+            ],
+            "correct_answer": "Nagpapalakas ng katawan habang nasisiyahan"
+          },
+          {
+            "question": "Layunin ng movement exploration?",
+            "options": [
+              "Tuklasin kaya ng katawan",
+              "Palakasin ang boses",
+              "Matuto ng matematika",
+              "Matuto ng pagsulat"
+            ],
+            "correct_answer": "Tuklasin kaya ng katawan"
+          },
+          {
+            "question": "Kasamang bahagi ng dance exercise?",
+            "options": [
+              "Musika",
+              "Aklat",
+              "Kompyuter",
+              "Lapis"
+            ],
+            "correct_answer": "Musika"
+          },
+          {
+            "question": "Bakit ituro ang movement exploration?",
+            "options": [
+              "Magtiwala sa sariling katawan",
+              "Walang layunin",
+              "Libangin ang guro",
+              "Hindi bahagi ng kurikulum"
+            ],
+            "correct_answer": "Magtiwala sa sariling katawan"
+          },
+          {
+            "question": "Pisikal na benepisyo ng dance exercise?",
+            "options": [
+              "Palakas ng katawan at koordinasyon",
+              "Walang benepisyo",
+              "Pinapahina",
+              "Pinipigilan ang paggalaw"
+            ],
+            "correct_answer": "Palakas ng katawan at koordinasyon"
+          },
+          {
+            "question": "Bakit gumagamit ng musika?",
+            "options": [
+              "Tempo at kasiyahan sa paggalaw",
+              "Walang gamit",
+              "Mas mahirap lang ang ehersisyo",
+              "Hindi kailangan"
+            ],
+            "correct_answer": "Tempo at kasiyahan sa paggalaw"
+          },
+          {
+            "question": "Bakit mahalaga ang paglukso?",
+            "options": [
+              "Halimbawa ng paggalaw na sinusubok",
+              "Walang kaugnayan sa PE",
+              "Hindi tunay na galaw",
+              "Hindi kasama sa PE"
+            ],
+            "correct_answer": "Halimbawa ng paggalaw na sinusubok"
+          },
+          {
+            "question": "Pagkakaiba nito sa tradisyunal na sayaw?",
+            "options": [
+              "Mas malaya kaysa itinakdang hakbang",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Laging may partikular na hakbang"
+            ],
+            "correct_answer": "Mas malaya kaysa itinakdang hakbang"
+          },
+          {
+            "question": "Koneksyon ng dance exercise sa kalusugan?",
+            "options": [
+              "Parehong tumutulong sa pisikal na kalusugan",
+              "Walang koneksyon",
+              "Tungkol lamang sa musika",
+              "Walang epekto"
+            ],
+            "correct_answer": "Parehong tumutulong sa pisikal na kalusugan"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🍚 Friday Review — EPP (Grade 4)\n\n- Pagsasaing at paghuhugas ng pinggan\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Unang hakbang sa pagsasaing?",
+            "options": [
+              "Hugasan ang bigas",
+              "Direktang pakuluan",
+              "Kalimutan ang bigas",
+              "Ilagay sa kaldero nang basa"
+            ],
+            "correct_answer": "Hugasan ang bigas"
+          },
+          {
+            "question": "Gawin pagkatapos hugasan ang bigas?",
+            "options": [
+              "Sukatin ang tubig",
+              "Itapon ang bigas",
+              "Kainin agad",
+              "Ihalo sa asukal"
+            ],
+            "correct_answer": "Sukatin ang tubig"
+          },
+          {
+            "question": "Unang hakbang sa paghuhugas ng pinggan?",
+            "options": [
+              "Alisin ang tira-tirang pagkain",
+              "Direktang banlawan",
+              "Itago ang marumi",
+              "Kalimutan"
+            ],
+            "correct_answer": "Alisin ang tira-tirang pagkain"
+          },
+          {
+            "question": "Gawin pagkatapos hugasan ng sabon?",
+            "options": [
+              "Banlawan nang mabuti",
+              "Direktang gamitin ulit",
+              "Kalimutan ang sabon",
+              "Ilagay agad sa cabinet"
+            ],
+            "correct_answer": "Banlawan nang mabuti"
+          },
+          {
+            "question": "Bakit matutong magsaing at maghugas?",
+            "options": [
+              "Nagtuturo ng pananagutan",
+              "Walang kahalagahan",
+              "Para sa matatanda lamang",
+              "Hindi kailangan matutunan"
+            ],
+            "correct_answer": "Nagtuturo ng pananagutan"
+          },
+          {
+            "question": "Bakit banlawan nang mabuti?",
+            "options": [
+              "Alisin ang natitirang sabon",
+              "Hindi kailangan banlawan",
+              "Lumaki ang tubig",
+              "Walang gamit"
+            ],
+            "correct_answer": "Alisin ang natitirang sabon"
+          },
+          {
+            "question": "Bakit tumulong sa gawaing bahay?",
+            "options": [
+              "Pananagutan at pagtulong sa pamilya",
+              "Wala itong kahalagahan",
+              "Para sa matatanda lamang",
+              "Hindi bahagi ng pag-aaral"
+            ],
+            "correct_answer": "Pananagutan at pagtulong sa pamilya"
+          },
+          {
+            "question": "Mangyayari kung hindi hugasan nang mabuti ang bigas?",
+            "options": [
+              "May dumi o almirol na matira",
+              "Walang mangyayari",
+              "Mas masarap ang resulta",
+              "Mabilis maluto"
+            ],
+            "correct_answer": "May dumi o almirol na matira"
+          },
+          {
+            "question": "Bakit ituro ang gawaing bahay sa EPP?",
+            "options": [
+              "Matutong mag-alaga ng tahanan",
+              "Walang layunin",
+              "Para sa babae lamang",
+              "Hindi kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Matutong mag-alaga ng tahanan"
+          },
+          {
+            "question": "Gawin kung marumi pa rin pagkahugas?",
+            "options": [
+              "Hugasan ulit",
+              "Gamitin agad",
+              "Itapon ang pinggan",
+              "Balewalain"
+            ],
+            "correct_answer": "Hugasan ulit"
+          },
+          {
+            "question": "Bakit sukatin ang tubig ayon sa bigas?",
+            "options": [
+              "Para maluto nang tama",
+              "Hindi mahalaga",
+              "Basta marami lang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Para maluto nang tama"
+          },
+          {
+            "question": "Kasanayan ipinapakita ng tamang gawaing bahay?",
+            "options": [
+              "Disiplina at pagtutok sa detalye",
+              "Kawalang pakialam",
+              "Pagmamadali",
+              "Kawalan ng disiplina"
+            ],
+            "correct_answer": "Disiplina at pagtutok sa detalye"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🤝 Friday Review — GMRC (Grade 4)\n\n- Mapagmalasakit: tungkulin ng pamilya sa kapuwa\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang tungkulin ng pamilya sa kapuwa?",
+            "options": [
+              "Tumulong sa iba, hindi lamang sa sarili",
+              "Alagaan lamang ang sarili",
+              "Kawalang pakialam",
+              "Iwasan ang kapwa"
+            ],
+            "correct_answer": "Tumulong sa iba, hindi lamang sa sarili"
+          },
+          {
+            "question": "Halimbawa ng tungkulin sa kapuwa?",
+            "options": [
+              "Pagtulong sa kapitbahay",
+              "Pag-iwas sa kapitbahay",
+              "Kutyain ang nangangailangan",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pagtulong sa kapitbahay"
+          },
+          {
+            "question": "Pagpapahalaga na tinalakay?",
+            "options": [
+              "Mapagmalasakit",
+              "Matipid",
+              "Magalang",
+              "Mapagpakumbaba"
+            ],
+            "correct_answer": "Mapagmalasakit"
+          },
+          {
+            "question": "Bakit sumali ang pamilya sa gawaing pangkomunidad?",
+            "options": [
+              "Nagpapakita ng pagmamalasakit",
+              "Walang kahalagahan",
+              "Nakakasama sa pamilya",
+              "Hindi kailangan"
+            ],
+            "correct_answer": "Nagpapakita ng pagmamalasakit"
+          },
+          {
+            "question": "Naidudulot ng pagtuturo tungkol sa pagmamalasakit?",
+            "options": [
+              "Nagpapalago ng magiliw na puso",
+              "Wala",
+              "Gulo lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Nagpapalago ng magiliw na puso"
+          },
+          {
+            "question": "Bakit magbigay ng suporta sa kamag-anak na may problema?",
+            "options": [
+              "Nagpapakita ng pagmamalasakit",
+              "Walang kaugnayan",
+              "Hindi kailangan gawin",
+              "Pag-aaksaya ng oras"
+            ],
+            "correct_answer": "Nagpapakita ng pagmamalasakit"
+          },
+          {
+            "question": "Bakit mapagmalasakit ang pagtulong sa iba bilang pamilya?",
+            "options": [
+              "Ipinapakita ang malasakit sa kapakanan ng iba",
+              "Walang kaugnayan",
+              "Para sa sariling pamilya lamang",
+              "Hindi totoong pagmamalasakit"
+            ],
+            "correct_answer": "Ipinapakita ang malasakit sa kapakanan ng iba"
+          },
+          {
+            "question": "Naidudulot ng pagtulong ng pamilya sa komunidad?",
+            "options": [
+              "Mas malakas na pagkakaisa",
+              "Higit na paghihiwalay",
+              "Wala",
+              "Kawalan ng tiwala"
+            ],
+            "correct_answer": "Mas malakas na pagkakaisa"
+          },
+          {
+            "question": "Bakit ituro ang halagang ito sa bata?",
+            "options": [
+              "Matutong magmalasakit mula maagang edad",
+              "Hindi kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Matutong magmalasakit mula maagang edad"
+          },
+          {
+            "question": "Pagkakaiba ng tungkulin sa pamilya sa tungkulin sa kapuwa?",
+            "options": [
+              "Tungkulin sa kapuwa lumalawak sa labas ng pamilya",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Tungkulin sa kapuwa lumalawak sa labas ng pamilya"
+          },
+          {
+            "question": "Koneksyon nito sa pagtitipid para sa kapuwa?",
+            "options": [
+              "Pareho tumatalakay sa pagtulong sa iba",
+              "Walang koneksyon",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Pareho tumatalakay sa pagtulong sa iba"
+          },
+          {
+            "question": "Bakit simulan sa tahanan ang pagtuturo ng pagmamalasakit?",
+            "options": [
+              "Ang pamilya ang unang gurong tumuturo ng mabubuting asal",
+              "Hindi mahalaga ang tahanan",
+              "Paaralan lamang dapat magturo",
+              "Walang kaugnayan ang tahanan"
+            ],
+            "correct_answer": "Ang pamilya ang unang gurong tumuturo ng mabubuting asal"
+          }
+        ]
+      }
+    }
+  }
+}

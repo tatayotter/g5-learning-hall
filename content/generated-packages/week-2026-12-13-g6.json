@@ -1,0 +1,2016 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-12-13",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🎓 English — Term Review: Critical Reading and Research\n\nGrade 6, Week 27! Let's review everything we've learned in English this term. 🎓\n\n## 🔄 Review: Critical Reading\nSynthesizing multiple sources, comparing perspectives, and evaluating author credibility.\n\n## 🔄 Review: Research and Writing\nResearch-based essays, in-text citation, and avoiding plagiarism.\n\n## 🔄 Review: Literary and Reflective Writing\nAnalyzing theme through literary essays, and sharing personal insight through reflective essays.\n\n## 🎯 Putting It All Together\nThis term, we grew from simple reading to becoming critical thinkers who can research, cite, analyze, and reflect — powerful skills for lifelong learning.\n\n**Key words:** synthesize, credibility, citation, literary essay, reflective essay",
+        "quiz": [
+          {
+            "question": "What does synthesizing multiple sources mean?",
+            "options": [
+              "Combining information into one coherent understanding",
+              "Reading only one source",
+              "Ignoring all sources",
+              "Copying word for word"
+            ],
+            "correct_answer": "Combining information into one coherent understanding"
+          },
+          {
+            "question": "What does evaluating credibility involve?",
+            "options": [
+              "Judging how trustworthy a source is",
+              "Ignoring the source entirely",
+              "Only reading the title",
+              "Counting the pages"
+            ],
+            "correct_answer": "Judging how trustworthy a source is"
+          },
+          {
+            "question": "What is in-text citation used for?",
+            "options": [
+              "Showing where information came from",
+              "Making an essay longer",
+              "Decorating a page",
+              "Replacing a title"
+            ],
+            "correct_answer": "Showing where information came from"
+          },
+          {
+            "question": "What does a research-based essay require?",
+            "options": [
+              "Evidence gathered from credible sources",
+              "No evidence at all",
+              "Only personal opinion",
+              "A single made-up fact"
+            ],
+            "correct_answer": "Evidence gathered from credible sources"
+          },
+          {
+            "question": "What does a literary essay analyze?",
+            "options": [
+              "Elements like theme, characters, or symbolism",
+              "Only the book's price",
+              "Only the cover design",
+              "Only the page count"
+            ],
+            "correct_answer": "Elements like theme, characters, or symbolism"
+          },
+          {
+            "question": "What does a reflective essay share?",
+            "options": [
+              "Personal thoughts and insights about an experience",
+              "Only objective facts",
+              "A weather report",
+              "A grocery list"
+            ],
+            "correct_answer": "Personal thoughts and insights about an experience"
+          },
+          {
+            "question": "Why is comparing perspectives useful?",
+            "options": [
+              "It builds a fuller, balanced understanding",
+              "It has no value",
+              "It replaces reading entirely",
+              "Only works for fiction"
+            ],
+            "correct_answer": "It builds a fuller, balanced understanding"
+          },
+          {
+            "question": "What is plagiarism?",
+            "options": [
+              "Using someone's work without giving credit",
+              "Reading carefully",
+              "Writing an original essay",
+              "Citing a source properly"
+            ],
+            "correct_answer": "Using someone's work without giving credit"
+          },
+          {
+            "question": "How did skills grow across this term?",
+            "options": [
+              "From simple reading to critical thinking and research",
+              "Skills stayed exactly the same",
+              "Skills became simpler over time",
+              "No growth occurred"
+            ],
+            "correct_answer": "From simple reading to critical thinking and research"
+          },
+          {
+            "question": "Why is textual evidence important in a literary essay?",
+            "options": [
+              "It supports interpretation with specific details from the text",
+              "It replaces the need for analysis",
+              "It is always optional",
+              "It has no connection to the essay"
+            ],
+            "correct_answer": "It supports interpretation with specific details from the text"
+          },
+          {
+            "question": "What skill connects a reflective essay to personal growth?",
+            "options": [
+              "Explaining what you learned from an experience",
+              "Copying another person's opinion",
+              "Ignoring your own reaction",
+              "Avoiding any personal connection"
+            ],
+            "correct_answer": "Explaining what you learned from an experience"
+          },
+          {
+            "question": "Why are these skills valuable for lifelong learning?",
+            "options": [
+              "They build critical thinking applicable beyond school",
+              "They only matter for one test",
+              "They have no future use",
+              "They apply only to English class"
+            ],
+            "correct_answer": "They build critical thinking applicable beyond school"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🎓 Mathematics — Term Review: Circles to Pie Graphs\n\nGrade 6, Week 27! Let's review all the math we've learned this term. 🔢\n\n## 🔄 Review: Circles\nParts of a circle (center, radius, diameter), circumference (C = πd or 2πr), and area (A = πr²).\n\n## 🔄 Review: Data and Graphs\nPie graphs — reading percentages, converting to degrees (percentage × 3.6), and drawing conclusions.\n\n## 🔄 Review: Shapes\nVolume of cubes/prisms, perimeter and area of composite figures.\n\n## 🎯 Putting It All Together\nThis term's math skills — measurement and data interpretation — are used everywhere, from cooking to construction to reading news graphics.\n\n**Key words:** circle, circumference, area, pie graph, volume",
+        "quiz": [
+          {
+            "question": "What is the radius of a circle?",
+            "options": [
+              "The distance from the center to any point on the circle",
+              "The distance across the whole circle",
+              "The distance around the circle",
+              "The area inside the circle"
+            ],
+            "correct_answer": "The distance from the center to any point on the circle"
+          },
+          {
+            "question": "What is the formula for circumference using radius?",
+            "options": [
+              "C = 2 × π × r",
+              "C = π × r²",
+              "C = 2 × r",
+              "C = r ÷ π"
+            ],
+            "correct_answer": "C = 2 × π × r"
+          },
+          {
+            "question": "What is the formula for area of a circle?",
+            "options": [
+              "A = π × r²",
+              "A = π × d",
+              "A = 2 × π × r",
+              "A = r × 4"
+            ],
+            "correct_answer": "A = π × r²"
+          },
+          {
+            "question": "What does the whole circle in a pie graph represent?",
+            "options": [
+              "100%",
+              "50%",
+              "10%",
+              "360%"
+            ],
+            "correct_answer": "100%"
+          },
+          {
+            "question": "What is the formula to convert percentage to degrees?",
+            "options": [
+              "degrees = percentage × 3.6",
+              "degrees = percentage ÷ 3.6",
+              "degrees = percentage + 360",
+              "degrees = percentage - 100"
+            ],
+            "correct_answer": "degrees = percentage × 3.6"
+          },
+          {
+            "question": "What is the formula for volume of a rectangular prism?",
+            "options": [
+              "V = l × w × h",
+              "V = l + w + h",
+              "V = 2(l + w)",
+              "V = l × w"
+            ],
+            "correct_answer": "V = l × w × h"
+          },
+          {
+            "question": "How do you find the area of a composite figure?",
+            "options": [
+              "Divide it into simple shapes and add their areas",
+              "Multiply all side lengths",
+              "Subtract the areas",
+              "Divide areas by two"
+            ],
+            "correct_answer": "Divide it into simple shapes and add their areas"
+          },
+          {
+            "question": "A circle has radius 7 cm. What is its circumference?",
+            "options": [
+              "43.96 cm",
+              "21.98 cm",
+              "7 cm",
+              "14 cm"
+            ],
+            "correct_answer": "43.96 cm"
+          },
+          {
+            "question": "A circle has radius 5 cm. What is its area?",
+            "options": [
+              "78.5 cm²",
+              "15.7 cm²",
+              "25 cm²",
+              "31.4 cm²"
+            ],
+            "correct_answer": "78.5 cm²"
+          },
+          {
+            "question": "Why are pie graphs useful for showing data?",
+            "options": [
+              "They visually show how parts relate to a whole",
+              "They only show single numbers",
+              "They cannot represent percentages",
+              "They are only used for money"
+            ],
+            "correct_answer": "They visually show how parts relate to a whole"
+          },
+          {
+            "question": "What real-life skill uses circle measurements?",
+            "options": [
+              "Determining the size of a circular garden",
+              "Only used in math class",
+              "Has no practical use",
+              "Only used for triangles"
+            ],
+            "correct_answer": "Determining the size of a circular garden"
+          },
+          {
+            "question": "Why is understanding both circles and pie graphs useful together?",
+            "options": [
+              "Pie graphs rely on circle properties like degrees and proportions",
+              "They are unrelated topics",
+              "Pie graphs are actually squares",
+              "Circles have no connection to data"
+            ],
+            "correct_answer": "Pie graphs rely on circle properties like degrees and proportions"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "# 🎓 Science — Term Review: Force, Motion, Energy, Earth/Space\n\nGrade 6, Week 27! Let's review everything we've learned in Science this term. 🔬\n\n## 🔄 Review: Simple Machines\nInclined planes, wedges, and levers (1st, 2nd, 3rd class) — how they change force and direction.\n\n## 🔄 Review: Waves and Sound\nTransverse vs. longitudinal waves, and the Doppler Effect (pitch changes with motion).\n\n## 🔄 Review: Earth and Space\nVolcano formation, PHIVOLCS Alert Levels, Earth's rotation (day/night), and Philippine seasons.\n\n## 🎯 Putting It All Together\nThis term connected force, energy, and Earth systems — showing how physical science explains both everyday tools and natural phenomena.\n\n**Key words:** simple machine, wave, Doppler Effect, volcano, rotation",
+        "quiz": [
+          {
+            "question": "What is a lever?",
+            "options": [
+              "A rigid bar that rotates around a fixed point",
+              "A round wheel",
+              "A sharp blade",
+              "A flat ramp"
+            ],
+            "correct_answer": "A rigid bar that rotates around a fixed point"
+          },
+          {
+            "question": "What is an inclined plane?",
+            "options": [
+              "A flat, sloped surface like a ramp",
+              "A round wheel",
+              "A sharp blade",
+              "A twisted rod"
+            ],
+            "correct_answer": "A flat, sloped surface like a ramp"
+          },
+          {
+            "question": "What is a transverse wave?",
+            "options": [
+              "Particles move perpendicular to the wave's direction",
+              "Particles move parallel to the wave's direction",
+              "Particles don't move at all",
+              "Particles move randomly"
+            ],
+            "correct_answer": "Particles move perpendicular to the wave's direction"
+          },
+          {
+            "question": "What is the Doppler Effect?",
+            "options": [
+              "The change in pitch when a sound source is moving",
+              "The speed of light in a vacuum",
+              "The color of sound waves",
+              "A type of simple machine"
+            ],
+            "correct_answer": "The change in pitch when a sound source is moving"
+          },
+          {
+            "question": "How does a volcano form?",
+            "options": [
+              "Magma rises and erupts through an opening in the crust",
+              "Rocks suddenly appear from nowhere",
+              "Water freezes underground",
+              "Wind erodes a mountain"
+            ],
+            "correct_answer": "Magma rises and erupts through an opening in the crust"
+          },
+          {
+            "question": "What organization monitors Philippine volcanoes?",
+            "options": [
+              "PHIVOLCS",
+              "PAGASA",
+              "DENR",
+              "DOH"
+            ],
+            "correct_answer": "PHIVOLCS"
+          },
+          {
+            "question": "What causes day and night?",
+            "options": [
+              "Earth's rotation on its axis",
+              "The Moon blocking the Sun",
+              "Clouds covering the sky",
+              "The Sun moving around Earth"
+            ],
+            "correct_answer": "Earth's rotation on its axis"
+          },
+          {
+            "question": "What are the two main seasons in the Philippines?",
+            "options": [
+              "Tag-init and Tag-ulan",
+              "Winter and Summer",
+              "Spring and Fall",
+              "Wet and Frozen"
+            ],
+            "correct_answer": "Tag-init and Tag-ulan"
+          },
+          {
+            "question": "Why are simple machines useful?",
+            "options": [
+              "They change the amount or direction of force needed",
+              "They have no practical use",
+              "They only work in factories",
+              "They increase weight of objects"
+            ],
+            "correct_answer": "They change the amount or direction of force needed"
+          },
+          {
+            "question": "What causes seasons globally?",
+            "options": [
+              "Earth's tilted axis as it revolves around the Sun",
+              "The Moon's phases",
+              "Random weather patterns",
+              "The Earth stopping its rotation"
+            ],
+            "correct_answer": "Earth's tilted axis as it revolves around the Sun"
+          },
+          {
+            "question": "How is sound classified as a wave?",
+            "options": [
+              "It is a longitudinal wave",
+              "It is a transverse wave",
+              "It is not a wave at all",
+              "It has no classification"
+            ],
+            "correct_answer": "It is a longitudinal wave"
+          },
+          {
+            "question": "How do this term's topics connect force, energy, and Earth systems?",
+            "options": [
+              "They show how physical science explains tools and natural phenomena together",
+              "They are completely unrelated fields",
+              "Only tools matter in physical science",
+              "Earth systems have no connection to force or energy"
+            ],
+            "correct_answer": "They show how physical science explains tools and natural phenomena together"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🎓 Filipino — Balik-Aral: Term 2\n\nGrade 6, Linggo 27! Balikan natin ang lahat ng natutuhan sa Filipino ngayong term. 📖\n\n## 🔄 Balik-Aral: Gramatika\nPasibo at aktibong anyo ng pandiwa.\n\n## 🔄 Balik-Aral: Talasalitaan\nSalitang kultural at historikal, konteksklu.\n\n## 🔄 Balik-Aral: Pagsulat\nRetorika ng argumento (claim, warrant, backing), pagsulat sa mataas na antas, at editoryal.\n\n## 🎯 Pagsasama-sama ng Natutuhan\nSa termong ito, natutunan nating gumamit ng mas mayamang wika at mas malalim na pananaw sa pagsusuri at pagsulat.\n\n**Mahahalagang salita:** aktibo, pasibo, retorika, editoryal, mataas na antas",
+        "quiz": [
+          {
+            "question": "Ano ang aktibong anyo ng pandiwa?",
+            "options": [
+              "Kung saan ang paksa ang gumagawa ng kilos",
+              "Kung saan ang paksa ang tumatanggap ng kilos",
+              "Isang uri ng bantas",
+              "Isang uri ng pang-uri"
+            ],
+            "correct_answer": "Kung saan ang paksa ang gumagawa ng kilos"
+          },
+          {
+            "question": "Ano ang salitang kultural at historikal?",
+            "options": [
+              "Termino may kaugnayan sa tradisyon at kasaysayan",
+              "Salitang walang kahulugan",
+              "Bagong salitang banyaga lamang",
+              "Bantas sa pangungusap"
+            ],
+            "correct_answer": "Termino may kaugnayan sa tradisyon at kasaysayan"
+          },
+          {
+            "question": "Ano ang konteksklu?",
+            "options": [
+              "Paggamit ng mga salitang nakapaligid upang mahulaan ang kahulugan",
+              "Isang uri ng pabula",
+              "Isang uri ng tula",
+              "Isang bantas"
+            ],
+            "correct_answer": "Paggamit ng mga salitang nakapaligid upang mahulaan ang kahulugan"
+          },
+          {
+            "question": "Ano ang claim sa isang argumento?",
+            "options": [
+              "Ang pangunahing panukala o paninindigan",
+              "Ang dagdag na suporta",
+              "Ang paliwanag kung bakit valid",
+              "Isang uri ng bantas"
+            ],
+            "correct_answer": "Ang pangunahing panukala o paninindigan"
+          },
+          {
+            "question": "Ano ang editoryal?",
+            "options": [
+              "Artikulong nagpapahayag ng opinyon tungkol sa isyu",
+              "Isang balitang walang opinyon",
+              "Isang uri ng tula",
+              "Isang bantas"
+            ],
+            "correct_answer": "Artikulong nagpapahayag ng opinyon tungkol sa isyu"
+          },
+          {
+            "question": "Ano ang pagsulat sa mataas na antas?",
+            "options": [
+              "Paggamit ng mayamang bokabularyo at malinaw na organisasyon",
+              "Pagsulat nang mabilis lamang",
+              "Pagsulat nang walang plano",
+              "Isang uri ng bantas"
+            ],
+            "correct_answer": "Paggamit ng mayamang bokabularyo at malinaw na organisasyon"
+          },
+          {
+            "question": "Ano ang pasibong anyo ng pandiwa?",
+            "options": [
+              "Kung saan ang paksa ang tumatanggap ng kilos",
+              "Kung saan ang paksa ang gumagawa ng kilos",
+              "Isang uri ng bantas",
+              "Isang uri ng pang-uri"
+            ],
+            "correct_answer": "Kung saan ang paksa ang tumatanggap ng kilos"
+          },
+          {
+            "question": "Ano ang warrant sa isang argumento?",
+            "options": [
+              "Paliwanag kung bakit valid ang katibayan",
+              "Ang pangunahing panukala",
+              "Dagdag na suporta lamang",
+              "Isang uri ng bantas"
+            ],
+            "correct_answer": "Paliwanag kung bakit valid ang katibayan"
+          },
+          {
+            "question": "Bakit mahalaga ang mga terminong ito sa pagsusuri ng akda?",
+            "options": [
+              "Tumutulong itong maunawaan at masuri ang kahulugan ng akda",
+              "Walang kahalagahan",
+              "Hindi bahagi ng pagsusuri",
+              "Basta sabi ng guro lamang"
+            ],
+            "correct_answer": "Tumutulong itong maunawaan at masuri ang kahulugan ng akda"
+          },
+          {
+            "question": "Paano lumago ang kasanayan sa pagsulat sa buong termong ito?",
+            "options": [
+              "Mula sa payak na gramatika tungo sa mas malalim na retorika at pagsusuri",
+              "Hindi na nagbago ang kasanayan",
+              "Naging mas simple ang kasanayan",
+              "Walang paglago na naganap"
+            ],
+            "correct_answer": "Mula sa payak na gramatika tungo sa mas malalim na retorika at pagsusuri"
+          },
+          {
+            "question": "Bakit mahalaga ang pagkakaiba ng aktibo at pasibong anyo?",
+            "options": [
+              "Nagbibigay-diin ito sa iba't ibang bahagi ng pangungusap",
+              "Walang epekto ito sa kahulugan",
+              "Hindi ito totoong gramatika",
+              "Palaging pareho ang kahulugan"
+            ],
+            "correct_answer": "Nagbibigay-diin ito sa iba't ibang bahagi ng pangungusap"
+          },
+          {
+            "question": "Bakit mahalagang matutong sumulat ng editoryal at retorika?",
+            "options": [
+              "Nagpapaunlad ito ng kakayahang kumbinsihin at ipahayag ang opinyon",
+              "Walang gamit ito",
+              "Ito ay para sa matatanda lamang",
+              "Hindi ito bahagi ng edukasyon"
+            ],
+            "correct_answer": "Nagpapaunlad ito ng kakayahang kumbinsihin at ipahayag ang opinyon"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎓 Araling Panlipunan — Term Review: Kasaysayan ng Modernong Pilipinas\n\nGrade 6, Linggo 27! Balikan natin ang buong kwento ng pagbangon at pakikibaka ng bansa. 🇵🇭\n\n## 🔄 Balik-Aral: Panahon ng Digmaan at Pagbangon\nNeokolonyalismo, Ikatlong Republika, at ang Cold War.\n\n## 🔄 Balik-Aral: Diktadura at Pagbabalik ng Demokrasya\nBatas Militar ni Marcos, EDSA People Power I, at Saligang Batas 1987.\n\n## 🔄 Balik-Aral: Ang Pilipinas Ngayon\nPakikilahok sa United Nations at ASEAN bilang bahagi ng internasyonal na komunidad.\n\n## 🎯 Pagsasama-sama ng Natutuhan\nIpinapakita ng buong kwentong ito kung paano tumugon ang Pilipinas sa iba't ibang hamon — mula sa kolonyalismo, diktadura, hanggang sa pagbuo ng isang mas malakas na demokrasya.\n\n**Mahahalagang salita:** neokolonyalismo, Batas Militar, EDSA, Saligang Batas, UN, ASEAN",
+        "quiz": [
+          {
+            "question": "Ano ang neokolonyalismo?",
+            "options": [
+              "Di-tuwirang kontrol ng dating mananakop sa ekonomiya at pulitika",
+              "Tuwirang pananakop ng ibang bansa",
+              "Isang uri ng kasunduang militar",
+              "Isang uri ng laro"
+            ],
+            "correct_answer": "Di-tuwirang kontrol ng dating mananakop sa ekonomiya at pulitika"
+          },
+          {
+            "question": "Kailan idineklara ang Batas Militar?",
+            "options": [
+              "Setyembre 21, 1972",
+              "Hulyo 4, 1946",
+              "Pebrero 25, 1986",
+              "Hunyo 12, 1898"
+            ],
+            "correct_answer": "Setyembre 21, 1972"
+          },
+          {
+            "question": "Kailan naganap ang EDSA People Power I?",
+            "options": [
+              "Pebrero 22-25, 1986",
+              "Setyembre 21, 1972",
+              "Hulyo 4, 1946",
+              "Hunyo 12, 1898"
+            ],
+            "correct_answer": "Pebrero 22-25, 1986"
+          },
+          {
+            "question": "Kailan binuo ang kasalukuyang Saligang Batas?",
+            "options": [
+              "1987",
+              "1946",
+              "1898",
+              "1972"
+            ],
+            "correct_answer": "1987"
+          },
+          {
+            "question": "Kailan naging kasapi ang Pilipinas sa UN?",
+            "options": [
+              "1945",
+              "1967",
+              "1986",
+              "1946"
+            ],
+            "correct_answer": "1945"
+          },
+          {
+            "question": "Sino ang nagdeklara ng Batas Militar?",
+            "options": [
+              "Ferdinand Marcos",
+              "Corazon Aquino",
+              "Jose Rizal",
+              "Manuel Quezon"
+            ],
+            "correct_answer": "Ferdinand Marcos"
+          },
+          {
+            "question": "Sino ang naging bagong pangulo pagkatapos ng EDSA?",
+            "options": [
+              "Corazon Aquino",
+              "Ferdinand Marcos",
+              "Manuel Quezon",
+              "Emilio Aguinaldo"
+            ],
+            "correct_answer": "Corazon Aquino"
+          },
+          {
+            "question": "Ano ang layunin ng ASEAN?",
+            "options": [
+              "Itaguyod ang kaunlaran at kapayapaan sa rehiyon",
+              "Magdulot ng digmaan",
+              "Walang layunin",
+              "Kontrolin ang ibang bansa"
+            ],
+            "correct_answer": "Itaguyod ang kaunlaran at kapayapaan sa rehiyon"
+          },
+          {
+            "question": "Ilang sangay ng pamahalaan ang itinatag ng Saligang Batas 1987?",
+            "options": [
+              "Tatlo",
+              "Isa",
+              "Dalawa",
+              "Apat"
+            ],
+            "correct_answer": "Tatlo"
+          },
+          {
+            "question": "Ano ang ipinapakita ng buong kwentong ito ng modernong Pilipinas?",
+            "options": [
+              "Paano tumugon ang bansa sa iba't ibang hamon tungo sa demokrasya",
+              "Walang pagbabagong naganap",
+              "Palaging nasa ilalim ng dayuhan ang bansa",
+              "Hindi kailanman nagkaroon ng hamon ang bansa"
+            ],
+            "correct_answer": "Paano tumugon ang bansa sa iba't ibang hamon tungo sa demokrasya"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang aral ang buong seryeng ito para sa mga mag-aaral ngayon?",
+            "options": [
+              "Tumutulong itong maunawaan ang kasalukuyang pamahalaan at karapatan",
+              "Walang kaugnayan sa kasalukuyan",
+              "Ito ay tungkol lamang sa nakaraan",
+              "Hindi na ito importante ngayon"
+            ],
+            "correct_answer": "Tumutulong itong maunawaan ang kasalukuyang pamahalaan at karapatan"
+          },
+          {
+            "question": "Paano nauugnay ang paksang taunan na 'Mga Hamon at Pagtugon sa Pagkabansa' sa buong seryeng ito?",
+            "options": [
+              "Bawat paksa ay nagpapakita ng iba't ibang hamon at kung paano ito hinarap ng bansa",
+              "Walang koneksyon ang mga paksa sa temang taunan",
+              "Isa lamang sa mga paksa ang may kaugnayan",
+              "Hindi bahagi ng temang taunan ang mga paksang ito"
+            ],
+            "correct_answer": "Bawat paksa ay nagpapakita ng iba't ibang hamon at kung paano ito hinarap ng bansa"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎓 MAPEH — Term Review: Sining, Kultura, at Kalusugan\n\nGrade 6, Linggo 27! Balikan natin ang lahat ng natutuhan sa MAPEH ngayong term. 🎨\n\n## 🔄 Balik-Aral: Kalusugan\nKaraniwang nakakahawang sakit, chain of infection, at kalusugang pangkapaligiran (One Health).\n\n## 🔄 Balik-Aral: PE\nDance exercise, at mga lokal na street dance festival (Sinulog, Ati-Atihan, Dinagyang).\n\n## 🔄 Balik-Aral: Sayaw at Sining\nTradisyunal na sayaw (Tinikling, Singkil, Pandanggo sa Ilaw) at kontemporanyong pagkakakilanlang Pilipino.\n\n## 🎯 Pagsasama-sama ng Natutuhan\nIpinapakita ng buong termong ito kung paano pinapanatili ng mga Pilipino ang kalusugan ng katawan at pagpapahalaga sa kultura sa parehong oras.\n\n**Mahahalagang salita:** One Health, dance exercise, street dance, tradisyunal na sayaw, kontemporanyong sining",
+        "quiz": [
+          {
+            "question": "Ano ang One Health?",
+            "options": [
+              "Magkakaugnay ang kalusugan ng tao, hayop, kapaligiran",
+              "Uri ng bakuna",
+              "Uri ng ehersisyo",
+              "Uri ng gamot"
+            ],
+            "correct_answer": "Magkakaugnay ang kalusugan ng tao, hayop, kapaligiran"
+          },
+          {
+            "question": "Ano ang chain of infection?",
+            "options": [
+              "Ang proseso kung paano kumakalat ang sakit",
+              "Isang uri ng gamot",
+              "Isang uri ng ehersisyo",
+              "Isang bakuna"
+            ],
+            "correct_answer": "Ang proseso kung paano kumakalat ang sakit"
+          },
+          {
+            "question": "Ano ang dance exercise?",
+            "options": [
+              "Ehersisyong gumagamit ng hakbang sa sayaw",
+              "Isang uri ng laro lamang",
+              "Isang uri ng pagkain",
+              "Isang bantas"
+            ],
+            "correct_answer": "Ehersisyong gumagamit ng hakbang sa sayaw"
+          },
+          {
+            "question": "Saan ginaganap ang Sinulog?",
+            "options": [
+              "Cebu",
+              "Aklan",
+              "Iloilo",
+              "Manila"
+            ],
+            "correct_answer": "Cebu"
+          },
+          {
+            "question": "Anong kagamitan ginagamit sa Tinikling?",
+            "options": [
+              "Kawayan",
+              "Payong",
+              "Ilawan",
+              "Baso"
+            ],
+            "correct_answer": "Kawayan"
+          },
+          {
+            "question": "Sino gumagawa ng Singkil?",
+            "options": [
+              "Mga Maranao",
+              "Mga Ilokano",
+              "Mga Bisaya",
+              "Mga Tagalog"
+            ],
+            "correct_answer": "Mga Maranao"
+          },
+          {
+            "question": "Ano ang OPM?",
+            "options": [
+              "Original Pilipino Music",
+              "Isang uri ng sayaw",
+              "Isang bansa",
+              "Isang uri ng pagkain"
+            ],
+            "correct_answer": "Original Pilipino Music"
+          },
+          {
+            "question": "Ano ang 8Rs?",
+            "options": [
+              "Mga paraan para bawasan ang basura sa kapaligiran",
+              "Walong bagong sakit",
+              "Walong bakuna",
+              "Walong uri ng ehersisyo"
+            ],
+            "correct_answer": "Mga paraan para bawasan ang basura sa kapaligiran"
+          },
+          {
+            "question": "Bakit mahalagang mapanatili ang tradisyunal na sayaw?",
+            "options": [
+              "Bahagi ito ng ating pambansang pagkakakilanlan",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan ito ngayon",
+              "Ito ay hindi bahagi ng kultura"
+            ],
+            "correct_answer": "Bahagi ito ng ating pambansang pagkakakilanlan"
+          },
+          {
+            "question": "Paano ipinapakita ng buong termong ito ang balanse ng kalusugan at kultura?",
+            "options": [
+              "Sinasama nito ang pisikal na kalusugan at pagpapahalaga sa sining",
+              "Isa lamang sa mga ito ang mahalaga",
+              "Walang koneksyon ang dalawa",
+              "Hindi ito totoong tema ng MAPEH"
+            ],
+            "correct_answer": "Sinasama nito ang pisikal na kalusugan at pagpapahalaga sa sining"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang bahagi ng MAPEH ang pagpapahalaga sa kultura?",
+            "options": [
+              "Tumutulong itong mapanatili ang pagkakakilanlan ng Pilipino",
+              "Walang kaugnayan ito",
+              "Ito ay hiwalay na paksa lamang",
+              "Hindi ito bahagi ng edukasyon"
+            ],
+            "correct_answer": "Tumutulong itong mapanatili ang pagkakakilanlan ng Pilipino"
+          },
+          {
+            "question": "Ano ang kabuuang aral ng buong Term 2 sa MAPEH?",
+            "options": [
+              "Ang kahalagahan ng kalusugan at kulturang Pilipino sa pang-araw-araw na buhay",
+              "Walang partikular na aral",
+              "Tungkol lamang sa isport",
+              "Tungkol lamang sa musika"
+            ],
+            "correct_answer": "Ang kahalagahan ng kalusugan at kulturang Pilipino sa pang-araw-araw na buhay"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🎓 EPP — Term Review: FCS at Industrial Arts\n\nGrade 6, Linggo 27! Balikan natin ang lahat ng natutuhan sa EPP ngayong term. 🏠\n\n## 🔄 Balik-Aral: FCS\nPamamahala ng yaman ng pamilya, pagpaplano ng pagkain, kasangkapan sa kusina, pag-aasin/pagbibilad, pagpapaketehan at pag-la-label.\n\n## 🔄 Balik-Aral: Industrial Arts\nBasic wood joints (butt, lap, miter) at pagtatapos ng kahoy.\n\n## 🎯 Pagsasama-sama ng Natutuhan\nSa termong ito, natutunan natin kung paano pamahalaan ang mga likas na yaman ng pamilya at gumawa ng mga produktong maaaring ipagbili — mahahalagang kasanayan para sa pang-araw-araw na buhay.\n\n**Mahahalagang salita:** yaman ng pamilya, meal planning, pangangalaga ng pagkain, wood joint",
+        "quiz": [
+          {
+            "question": "Ano ang yaman ng pamilya?",
+            "options": [
+              "Oras, pera, kasanayan, at enerhiya ng pamilya",
+              "Isang uri ng gamit sa bahay lamang",
+              "Isang uri ng laro",
+              "Isang bantas"
+            ],
+            "correct_answer": "Oras, pera, kasanayan, at enerhiya ng pamilya"
+          },
+          {
+            "question": "Ano ang meal planning?",
+            "options": [
+              "Paghahanda ng listahan ng pagkain para sa isang tiyak na panahon",
+              "Isang uri ng pagluluto lamang",
+              "Isang uri ng laro",
+              "Isang bantas"
+            ],
+            "correct_answer": "Paghahanda ng listahan ng pagkain para sa isang tiyak na panahon"
+          },
+          {
+            "question": "Ano ang pag-aasin?",
+            "options": [
+              "Paraan ng pangangalaga ng pagkain gamit ang asin",
+              "Uri ng pagluluto lamang",
+              "Uri ng laro",
+              "Bantas"
+            ],
+            "correct_answer": "Paraan ng pangangalaga ng pagkain gamit ang asin"
+          },
+          {
+            "question": "Ano ang dapat nasa label ng produkto?",
+            "options": [
+              "Pangalan, petsa ng paggawa/expiry, sangkap, timbang",
+              "Ang pangalan ng magulang lamang",
+              "Walang partikular na impormasyon",
+              "Kulay lamang ng pakete"
+            ],
+            "correct_answer": "Pangalan, petsa ng paggawa/expiry, sangkap, timbang"
+          },
+          {
+            "question": "Ano ang butt joint?",
+            "options": [
+              "Simpleng pagdikit ng dalawang dulo",
+              "Pagpapatong ng piraso",
+              "Pagdurugtong sa anggulo",
+              "Walang koneksyon"
+            ],
+            "correct_answer": "Simpleng pagdikit ng dalawang dulo"
+          },
+          {
+            "question": "Ano ang miter joint?",
+            "options": [
+              "Pagdurugtong sa anggulo, karaniwang 45°",
+              "Simpleng pagdikit ng dulo",
+              "Pagpapatong ng piraso",
+              "Walang koneksyon"
+            ],
+            "correct_answer": "Pagdurugtong sa anggulo, karaniwang 45°"
+          },
+          {
+            "question": "Ano ang dicing?",
+            "options": [
+              "Pagputol sa maliliit na parisukat",
+              "Pagputol nang manipis",
+              "Pagputol nang napakaliit",
+              "Hindi pagputol"
+            ],
+            "correct_answer": "Pagputol sa maliliit na parisukat"
+          },
+          {
+            "question": "Bakit mahalaga ang badyet sa pamamahala ng yaman ng pamilya?",
+            "options": [
+              "Tumutulong itong matugunan ang pangangailangan nang maayos",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan mag-badyet",
+              "Basta gastusin lang lahat"
+            ],
+            "correct_answer": "Tumutulong itong matugunan ang pangangailangan nang maayos"
+          },
+          {
+            "question": "Bakit mahalaga ang pagtatapos (finishing) sa gawaing kahoy?",
+            "options": [
+              "Pinapahusay nito ang tibay at itsura ng natapos na proyekto",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan pagandahin ang proyekto",
+              "Ito ay opsyonal lamang"
+            ],
+            "correct_answer": "Pinapahusay nito ang tibay at itsura ng natapos na proyekto"
+          },
+          {
+            "question": "Paano nauugnay ang FCS at Industrial Arts sa pagnenegosyo?",
+            "options": [
+              "Parehong nagtuturo ng kasanayang magagamit sa paggawa at pagbebenta ng produkto",
+              "Walang koneksyon ang dalawa sa negosyo",
+              "Isa lamang sa mga ito ang kaugnay sa negosyo",
+              "Hindi ito bahagi ng EPP"
+            ],
+            "correct_answer": "Parehong nagtuturo ng kasanayang magagamit sa paggawa at pagbebenta ng produkto"
+          },
+          {
+            "question": "Ano ang pinakamalaking natutuhan sa buong Term 2 sa EPP?",
+            "options": [
+              "Praktikal na kasanayan sa pamamahala ng tahanan at paggawa ng produkto",
+              "Wala talagang natutunan",
+              "Isang bagay lamang ang natutunan",
+              "Hindi ito kapaki-pakinabang"
+            ],
+            "correct_answer": "Praktikal na kasanayan sa pamamahala ng tahanan at paggawa ng produkto"
+          },
+          {
+            "question": "Bakit mahalagang matutong gumawa ng mga produktong maibebenta?",
+            "options": [
+              "Nagbibigay ito ng karagdagang kabuhayan sa pamilya",
+              "Walang gamit ito",
+              "Hindi na kailangan pang matuto nito",
+              "Ito ay para sa matatanda lamang"
+            ],
+            "correct_answer": "Nagbibigay ito ng karagdagang kabuhayan sa pamilya"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🎓 GMRC — Term Review: Pakikipagkapuwa\n\nGrade 6, Linggo 27! Balikan natin ang buong serye ng pagpapahalaga sa pakikipagkapuwa ngayong term. 🤝\n\n## 🔄 Balik-Aral: Ang Serye ng Pakikipagkapuwa\n1. **Lakas ng loob** — pagtugon sa pambubulas\n2. **Mapagpasensiya** — pagtugon sa emosyon ng kapuwa\n3. **Makatarungan** — pagiging patas sa kapuwa\n4. **Pananalig sa Diyos** — pundasyon ng pakikipagkapuwa\n5. **Mapagmalasakit** — espirituwalidad sa pakikipagkapuwa\n\n## 🎯 Pagsasama-sama ng Natutuhan\nIpinapakita ng buong seryeng ito na ang tunay na pakikipagkapuwa ay nangangailangan ng tapang, pasensya, katarungan, pananampalataya, at pagmamalasakit — magkakasamang pundasyon ng mabuting relasyon.\n\n**Mahahalagang salita:** pakikipagkapuwa, lakas ng loob, mapagpasensiya, makatarungan, pananalig, mapagmalasakit",
+        "quiz": [
+          {
+            "question": "Ano ang una sa serye ng pakikipagkapuwa?",
+            "options": [
+              "Lakas ng loob (pagtugon sa pambubulas)",
+              "Mapagpasensiya",
+              "Makatarungan",
+              "Pananalig sa Diyos"
+            ],
+            "correct_answer": "Lakas ng loob (pagtugon sa pambubulas)"
+          },
+          {
+            "question": "Ano ang ikalawa sa serye?",
+            "options": [
+              "Mapagpasensiya (pagtugon sa emosyon)",
+              "Lakas ng loob",
+              "Makatarungan",
+              "Mapagmalasakit"
+            ],
+            "correct_answer": "Mapagpasensiya (pagtugon sa emosyon)"
+          },
+          {
+            "question": "Ano ang ikatlo sa serye?",
+            "options": [
+              "Makatarungan (pagiging patas)",
+              "Lakas ng loob",
+              "Mapagpasensiya",
+              "Pananalig sa Diyos"
+            ],
+            "correct_answer": "Makatarungan (pagiging patas)"
+          },
+          {
+            "question": "Ano ang ikaapat sa serye?",
+            "options": [
+              "Pananalig sa Diyos",
+              "Makatarungan",
+              "Mapagpasensiya",
+              "Mapagmalasakit"
+            ],
+            "correct_answer": "Pananalig sa Diyos"
+          },
+          {
+            "question": "Ano ang ikalima sa serye?",
+            "options": [
+              "Mapagmalasakit (espirituwalidad)",
+              "Lakas ng loob",
+              "Makatarungan",
+              "Pananalig sa Diyos"
+            ],
+            "correct_answer": "Mapagmalasakit (espirituwalidad)"
+          },
+          {
+            "question": "Bakit kailangan ng lakas ng loob sa pakikipagkapuwa?",
+            "options": [
+              "Upang harapin ang pambubulas at protektahan ang sarili at kapwa",
+              "Walang kahalagahan ito",
+              "Hindi ito bahagi ng pakikipagkapuwa",
+              "Basta manahimik na lamang"
+            ],
+            "correct_answer": "Upang harapin ang pambubulas at protektahan ang sarili at kapwa"
+          },
+          {
+            "question": "Bakit mahalaga ang pananalig sa Diyos bilang pundasyon?",
+            "options": [
+              "Nagbibigay-lakas ito sa lahat ng ibang pagpapahalaga",
+              "Walang koneksyon ito sa ibang pagpapahalaga",
+              "Hindi ito mahalaga",
+              "Ito ay hiwalay na paksa"
+            ],
+            "correct_answer": "Nagbibigay-lakas ito sa lahat ng ibang pagpapahalaga"
+          },
+          {
+            "question": "Ano ang ipinapakita ng buong seryeng ito tungkol sa tunay na pakikipagkapuwa?",
+            "options": [
+              "Nangangailangan ito ng tapang, pasensya, katarungan, pananampalataya, at pagmamalasakit",
+              "Isang pagpapahalaga lamang ang kailangan",
+              "Walang koneksyon ang mga pagpapahalaga sa isa't isa",
+              "Hindi mahalaga ang pakikipagkapuwa"
+            ],
+            "correct_answer": "Nangangailangan ito ng tapang, pasensya, katarungan, pananampalataya, at pagmamalasakit"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang buong seryeng ito ng GMRC?",
+            "options": [
+              "Tumutulong itong maging mabuting kaibigan at kapwa-tao",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi ito kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Tumutulong itong maging mabuting kaibigan at kapwa-tao"
+          },
+          {
+            "question": "Paano nauugnay ang mapagmalasakit sa pananalig sa Diyos?",
+            "options": [
+              "Ang mapagmalasakit ay natural na bunga ng malalim na pananampalataya",
+              "Walang koneksyon ang dalawa",
+              "Magkasalungat sila",
+              "Isa lamang ang totoong pagpapahalaga"
+            ],
+            "correct_answer": "Ang mapagmalasakit ay natural na bunga ng malalim na pananampalataya"
+          },
+          {
+            "question": "Bakit itinuturing na progresibo ang pagkakasunud-sunod ng serye?",
+            "options": [
+              "Bawat hakbang ay bumubuo sa naunang natutuhan tungo sa mas malalim na relasyon",
+              "Random lamang ang pagkakasunod-sunod",
+              "Walang kaugnayan ang bawat hakbang",
+              "Hindi mahalaga ang pagkakasunud-sunod"
+            ],
+            "correct_answer": "Bawat hakbang ay bumubuo sa naunang natutuhan tungo sa mas malalim na relasyon"
+          },
+          {
+            "question": "Ano ang kabuuang aral ng Term 2 sa GMRC tungkol sa pakikipagkapuwa?",
+            "options": [
+              "Ang pagbuo ng malalim at makabuluhang relasyon sa kapwa nangangailangan ng maraming pagpapahalaga",
+              "Walang partikular na aral",
+              "Tungkol lamang sa isang pagpapahalaga",
+              "Hindi ito mahalagang paksa"
+            ],
+            "correct_answer": "Ang pagbuo ng malalim at makabuluhang relasyon sa kapwa nangangailangan ng maraming pagpapahalaga"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🎓 Friday Review — English (Grade 6)\n\n- Full term review: critical reading, research, and writing\n\nAmazing term of growth! 🌟",
+        "quiz": [
+          {
+            "question": "What does synthesizing multiple sources mean?",
+            "options": [
+              "Combining information into one coherent understanding",
+              "Reading only one source",
+              "Ignoring all sources",
+              "Copying word for word"
+            ],
+            "correct_answer": "Combining information into one coherent understanding"
+          },
+          {
+            "question": "What does evaluating credibility involve?",
+            "options": [
+              "Judging how trustworthy a source is",
+              "Ignoring the source",
+              "Only reading the title",
+              "Counting pages"
+            ],
+            "correct_answer": "Judging how trustworthy a source is"
+          },
+          {
+            "question": "What is in-text citation used for?",
+            "options": [
+              "Showing where information came from",
+              "Making an essay longer",
+              "Decorating a page",
+              "Replacing a title"
+            ],
+            "correct_answer": "Showing where information came from"
+          },
+          {
+            "question": "What does a research-based essay require?",
+            "options": [
+              "Evidence from credible sources",
+              "No evidence",
+              "Only opinion",
+              "A made-up fact"
+            ],
+            "correct_answer": "Evidence from credible sources"
+          },
+          {
+            "question": "What does a literary essay analyze?",
+            "options": [
+              "Theme, characters, or symbolism",
+              "Book's price",
+              "Cover design",
+              "Page count"
+            ],
+            "correct_answer": "Theme, characters, or symbolism"
+          },
+          {
+            "question": "What does a reflective essay share?",
+            "options": [
+              "Personal thoughts about an experience",
+              "Only objective facts",
+              "A weather report",
+              "A grocery list"
+            ],
+            "correct_answer": "Personal thoughts about an experience"
+          },
+          {
+            "question": "Why is comparing perspectives useful?",
+            "options": [
+              "Builds a fuller, balanced understanding",
+              "No value",
+              "Replaces reading entirely",
+              "Only works for fiction"
+            ],
+            "correct_answer": "Builds a fuller, balanced understanding"
+          },
+          {
+            "question": "What is plagiarism?",
+            "options": [
+              "Using work without credit",
+              "Reading carefully",
+              "Writing original",
+              "Citing properly"
+            ],
+            "correct_answer": "Using work without credit"
+          },
+          {
+            "question": "How did skills grow this term?",
+            "options": [
+              "From simple reading to critical thinking",
+              "Stayed the same",
+              "Became simpler",
+              "No growth"
+            ],
+            "correct_answer": "From simple reading to critical thinking"
+          },
+          {
+            "question": "Why is textual evidence important?",
+            "options": [
+              "Supports interpretation with details",
+              "Replaces analysis",
+              "Always optional",
+              "No connection to essay"
+            ],
+            "correct_answer": "Supports interpretation with details"
+          },
+          {
+            "question": "What connects reflection to personal growth?",
+            "options": [
+              "Explaining what you learned",
+              "Copying opinions",
+              "Ignoring your reaction",
+              "Avoiding personal connection"
+            ],
+            "correct_answer": "Explaining what you learned"
+          },
+          {
+            "question": "Why are these skills valuable for lifelong learning?",
+            "options": [
+              "Build critical thinking beyond school",
+              "Only matter for one test",
+              "No future use",
+              "Only apply to English"
+            ],
+            "correct_answer": "Build critical thinking beyond school"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🎓 Friday Review — Mathematics (Grade 6)\n\n- Full term review: circles, area, volume, pie graphs\n\nAmazing math skills this term! ⭐",
+        "quiz": [
+          {
+            "question": "What is the radius of a circle?",
+            "options": [
+              "Distance from center to any point on the circle",
+              "Distance across the circle",
+              "Distance around the circle",
+              "The area inside"
+            ],
+            "correct_answer": "Distance from center to any point on the circle"
+          },
+          {
+            "question": "Formula for circumference using radius?",
+            "options": [
+              "C = 2 × π × r",
+              "C = π × r²",
+              "C = 2 × r",
+              "C = r ÷ π"
+            ],
+            "correct_answer": "C = 2 × π × r"
+          },
+          {
+            "question": "Formula for area of a circle?",
+            "options": [
+              "A = π × r²",
+              "A = π × d",
+              "A = 2 × π × r",
+              "A = r × 4"
+            ],
+            "correct_answer": "A = π × r²"
+          },
+          {
+            "question": "What does the whole pie graph represent?",
+            "options": [
+              "100%",
+              "50%",
+              "10%",
+              "360%"
+            ],
+            "correct_answer": "100%"
+          },
+          {
+            "question": "Formula to convert percentage to degrees?",
+            "options": [
+              "degrees = percentage × 3.6",
+              "degrees = percentage ÷ 3.6",
+              "degrees = percentage + 360",
+              "degrees = percentage - 100"
+            ],
+            "correct_answer": "degrees = percentage × 3.6"
+          },
+          {
+            "question": "Formula for volume of a rectangular prism?",
+            "options": [
+              "V = l × w × h",
+              "V = l + w + h",
+              "V = 2(l + w)",
+              "V = l × w"
+            ],
+            "correct_answer": "V = l × w × h"
+          },
+          {
+            "question": "How do you find the area of a composite figure?",
+            "options": [
+              "Divide into simple shapes and add areas",
+              "Multiply all sides",
+              "Subtract areas",
+              "Divide by two"
+            ],
+            "correct_answer": "Divide into simple shapes and add areas"
+          },
+          {
+            "question": "Radius 7 cm, circumference?",
+            "options": [
+              "43.96 cm",
+              "21.98 cm",
+              "7 cm",
+              "14 cm"
+            ],
+            "correct_answer": "43.96 cm"
+          },
+          {
+            "question": "Radius 5 cm, area?",
+            "options": [
+              "78.5 cm²",
+              "15.7 cm²",
+              "25 cm²",
+              "31.4 cm²"
+            ],
+            "correct_answer": "78.5 cm²"
+          },
+          {
+            "question": "Why are pie graphs useful?",
+            "options": [
+              "Show how parts relate to a whole",
+              "Show only single numbers",
+              "Cannot represent percentages",
+              "Only used for money"
+            ],
+            "correct_answer": "Show how parts relate to a whole"
+          },
+          {
+            "question": "Real-life skill using circle measurements?",
+            "options": [
+              "Determining size of a circular garden",
+              "Only used in math class",
+              "No practical use",
+              "Only for triangles"
+            ],
+            "correct_answer": "Determining size of a circular garden"
+          },
+          {
+            "question": "Why understand circles AND pie graphs together?",
+            "options": [
+              "Pie graphs rely on circle properties",
+              "Unrelated topics",
+              "Pie graphs are squares",
+              "Circles have no data connection"
+            ],
+            "correct_answer": "Pie graphs rely on circle properties"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🎓 Friday Review — Science (Grade 6)\n\n- Full term review: machines, waves, Earth/space\n\nAmazing science this term! 🌟",
+        "quiz": [
+          {
+            "question": "What is a lever?",
+            "options": [
+              "A rigid bar that rotates around a fixed point",
+              "A round wheel",
+              "A sharp blade",
+              "A flat ramp"
+            ],
+            "correct_answer": "A rigid bar that rotates around a fixed point"
+          },
+          {
+            "question": "What is an inclined plane?",
+            "options": [
+              "A flat, sloped surface like a ramp",
+              "A round wheel",
+              "A sharp blade",
+              "A twisted rod"
+            ],
+            "correct_answer": "A flat, sloped surface like a ramp"
+          },
+          {
+            "question": "What is a transverse wave?",
+            "options": [
+              "Particles move perpendicular to direction",
+              "Particles move parallel",
+              "Particles don't move",
+              "Particles move randomly"
+            ],
+            "correct_answer": "Particles move perpendicular to direction"
+          },
+          {
+            "question": "What is the Doppler Effect?",
+            "options": [
+              "Pitch change when a source is moving",
+              "Speed of light in a vacuum",
+              "Color of sound waves",
+              "A simple machine"
+            ],
+            "correct_answer": "Pitch change when a source is moving"
+          },
+          {
+            "question": "How does a volcano form?",
+            "options": [
+              "Magma rises and erupts through the crust",
+              "Rocks appear from nowhere",
+              "Water freezes underground",
+              "Wind erodes a mountain"
+            ],
+            "correct_answer": "Magma rises and erupts through the crust"
+          },
+          {
+            "question": "Who monitors Philippine volcanoes?",
+            "options": [
+              "PHIVOLCS",
+              "PAGASA",
+              "DENR",
+              "DOH"
+            ],
+            "correct_answer": "PHIVOLCS"
+          },
+          {
+            "question": "What causes day and night?",
+            "options": [
+              "Earth's rotation on its axis",
+              "The Moon blocking the Sun",
+              "Clouds",
+              "The Sun moving around Earth"
+            ],
+            "correct_answer": "Earth's rotation on its axis"
+          },
+          {
+            "question": "Two main Philippine seasons?",
+            "options": [
+              "Tag-init and Tag-ulan",
+              "Winter and Summer",
+              "Spring and Fall",
+              "Wet and Frozen"
+            ],
+            "correct_answer": "Tag-init and Tag-ulan"
+          },
+          {
+            "question": "Why are simple machines useful?",
+            "options": [
+              "Change force amount or direction needed",
+              "No practical use",
+              "Only work in factories",
+              "Increase weight"
+            ],
+            "correct_answer": "Change force amount or direction needed"
+          },
+          {
+            "question": "What causes seasons globally?",
+            "options": [
+              "Earth's tilted axis as it revolves",
+              "The Moon's phases",
+              "Random weather",
+              "Earth stopping rotation"
+            ],
+            "correct_answer": "Earth's tilted axis as it revolves"
+          },
+          {
+            "question": "How is sound classified?",
+            "options": [
+              "A longitudinal wave",
+              "A transverse wave",
+              "Not a wave",
+              "No classification"
+            ],
+            "correct_answer": "A longitudinal wave"
+          },
+          {
+            "question": "How do force, energy, and Earth systems connect?",
+            "options": [
+              "Physical science explains tools and natural phenomena together",
+              "Completely unrelated fields",
+              "Only tools matter",
+              "No connection to force or energy"
+            ],
+            "correct_answer": "Physical science explains tools and natural phenomena together"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🎓 Friday Review — Filipino (Grade 6)\n\n- Buong term review: gramatika, talasalitaan, pagsulat\n\nMagaling na Filipino term! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang aktibong anyo?",
+            "options": [
+              "Paksa ang gumagawa ng kilos",
+              "Paksa ang tumatanggap ng kilos",
+              "Uri ng bantas",
+              "Uri ng pang-uri"
+            ],
+            "correct_answer": "Paksa ang gumagawa ng kilos"
+          },
+          {
+            "question": "Ano ang salitang kultural at historikal?",
+            "options": [
+              "Termino may kaugnayan sa tradisyon at kasaysayan",
+              "Salitang walang kahulugan",
+              "Bagong salitang banyaga lamang",
+              "Bantas"
+            ],
+            "correct_answer": "Termino may kaugnayan sa tradisyon at kasaysayan"
+          },
+          {
+            "question": "Ano ang konteksklu?",
+            "options": [
+              "Paggamit ng mga salitang nakapaligid para mahulaan ang kahulugan",
+              "Uri ng pabula",
+              "Uri ng tula",
+              "Bantas"
+            ],
+            "correct_answer": "Paggamit ng mga salitang nakapaligid para mahulaan ang kahulugan"
+          },
+          {
+            "question": "Ano ang claim sa argumento?",
+            "options": [
+              "Pangunahing panukala o paninindigan",
+              "Dagdag na suporta",
+              "Paliwanag kung bakit valid",
+              "Uri ng bantas"
+            ],
+            "correct_answer": "Pangunahing panukala o paninindigan"
+          },
+          {
+            "question": "Ano ang editoryal?",
+            "options": [
+              "Artikulong nagpapahayag ng opinyon",
+              "Balitang walang opinyon",
+              "Uri ng tula",
+              "Bantas"
+            ],
+            "correct_answer": "Artikulong nagpapahayag ng opinyon"
+          },
+          {
+            "question": "Ano ang pagsulat sa mataas na antas?",
+            "options": [
+              "Mayamang bokabularyo at malinaw na organisasyon",
+              "Pagsulat nang mabilis lamang",
+              "Pagsulat nang walang plano",
+              "Uri ng bantas"
+            ],
+            "correct_answer": "Mayamang bokabularyo at malinaw na organisasyon"
+          },
+          {
+            "question": "Ano ang pasibong anyo?",
+            "options": [
+              "Paksa ang tumatanggap ng kilos",
+              "Paksa ang gumagawa ng kilos",
+              "Uri ng bantas",
+              "Uri ng pang-uri"
+            ],
+            "correct_answer": "Paksa ang tumatanggap ng kilos"
+          },
+          {
+            "question": "Ano ang warrant sa argumento?",
+            "options": [
+              "Paliwanag kung bakit valid ang katibayan",
+              "Pangunahing panukala",
+              "Dagdag na suporta lamang",
+              "Uri ng bantas"
+            ],
+            "correct_answer": "Paliwanag kung bakit valid ang katibayan"
+          },
+          {
+            "question": "Bakit mahalaga ang mga terminong ito sa pagsusuri?",
+            "options": [
+              "Maunawaan at masuri ang kahulugan ng akda",
+              "Walang kahalagahan",
+              "Hindi bahagi ng pagsusuri",
+              "Basta sabi ng guro"
+            ],
+            "correct_answer": "Maunawaan at masuri ang kahulugan ng akda"
+          },
+          {
+            "question": "Paano lumago ang kasanayan sa pagsulat sa termong ito?",
+            "options": [
+              "Mula sa payak na gramatika tungo sa retorika at pagsusuri",
+              "Hindi nagbago",
+              "Naging mas simple",
+              "Walang paglago"
+            ],
+            "correct_answer": "Mula sa payak na gramatika tungo sa retorika at pagsusuri"
+          },
+          {
+            "question": "Bakit mahalaga ang pagkakaiba ng aktibo at pasibo?",
+            "options": [
+              "Nagbibigay-diin sa iba't ibang bahagi ng pangungusap",
+              "Walang epekto",
+              "Hindi totoong gramatika",
+              "Pareho ang kahulugan"
+            ],
+            "correct_answer": "Nagbibigay-diin sa iba't ibang bahagi ng pangungusap"
+          },
+          {
+            "question": "Bakit matutong sumulat ng editoryal at retorika?",
+            "options": [
+              "Nagpapaunlad ng kakayahang kumbinsihin at magpahayag",
+              "Walang gamit",
+              "Para sa matatanda lamang",
+              "Hindi bahagi ng edukasyon"
+            ],
+            "correct_answer": "Nagpapaunlad ng kakayahang kumbinsihin at magpahayag"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎓 Friday Review — Araling Panlipunan (Grade 6)\n\n- Buong term review: modernong kasaysayan ng Pilipinas\n\nMagaling na term ng kasaysayan! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang neokolonyalismo?",
+            "options": [
+              "Di-tuwirang kontrol sa ekonomiya at pulitika",
+              "Tuwirang pananakop",
+              "Kasunduang militar",
+              "Uri ng laro"
+            ],
+            "correct_answer": "Di-tuwirang kontrol sa ekonomiya at pulitika"
+          },
+          {
+            "question": "Kailan idineklara ang Batas Militar?",
+            "options": [
+              "Setyembre 21, 1972",
+              "Hulyo 4, 1946",
+              "Pebrero 25, 1986",
+              "Hunyo 12, 1898"
+            ],
+            "correct_answer": "Setyembre 21, 1972"
+          },
+          {
+            "question": "Kailan naganap ang EDSA People Power I?",
+            "options": [
+              "Pebrero 22-25, 1986",
+              "Setyembre 21, 1972",
+              "Hulyo 4, 1946",
+              "Hunyo 12, 1898"
+            ],
+            "correct_answer": "Pebrero 22-25, 1986"
+          },
+          {
+            "question": "Kailan binuo ang kasalukuyang Saligang Batas?",
+            "options": [
+              "1987",
+              "1946",
+              "1898",
+              "1972"
+            ],
+            "correct_answer": "1987"
+          },
+          {
+            "question": "Kailan naging kasapi ang Pilipinas sa UN?",
+            "options": [
+              "1945",
+              "1967",
+              "1986",
+              "1946"
+            ],
+            "correct_answer": "1945"
+          },
+          {
+            "question": "Sino ang nagdeklara ng Batas Militar?",
+            "options": [
+              "Ferdinand Marcos",
+              "Corazon Aquino",
+              "Jose Rizal",
+              "Manuel Quezon"
+            ],
+            "correct_answer": "Ferdinand Marcos"
+          },
+          {
+            "question": "Sino naging bagong pangulo pagkatapos ng EDSA?",
+            "options": [
+              "Corazon Aquino",
+              "Ferdinand Marcos",
+              "Manuel Quezon",
+              "Emilio Aguinaldo"
+            ],
+            "correct_answer": "Corazon Aquino"
+          },
+          {
+            "question": "Layunin ng ASEAN?",
+            "options": [
+              "Itaguyod ang kaunlaran at kapayapaan",
+              "Magdulot ng digmaan",
+              "Walang layunin",
+              "Kontrolin ang ibang bansa"
+            ],
+            "correct_answer": "Itaguyod ang kaunlaran at kapayapaan"
+          },
+          {
+            "question": "Ilang sangay ng pamahalaan sa Saligang Batas 1987?",
+            "options": [
+              "Tatlo",
+              "Isa",
+              "Dalawa",
+              "Apat"
+            ],
+            "correct_answer": "Tatlo"
+          },
+          {
+            "question": "Ipinapakita ng buong kwento ng modernong Pilipinas?",
+            "options": [
+              "Paano tumugon ang bansa sa hamon tungo sa demokrasya",
+              "Walang pagbabago",
+              "Palaging nasa ilalim ng dayuhan",
+              "Walang hamon ang bansa"
+            ],
+            "correct_answer": "Paano tumugon ang bansa sa hamon tungo sa demokrasya"
+          },
+          {
+            "question": "Bakit mahalagang aral ang seryeng ito ngayon?",
+            "options": [
+              "Maunawaan ang kasalukuyang pamahalaan at karapatan",
+              "Walang kaugnayan sa kasalukuyan",
+              "Tungkol lamang sa nakaraan",
+              "Hindi na importante"
+            ],
+            "correct_answer": "Maunawaan ang kasalukuyang pamahalaan at karapatan"
+          },
+          {
+            "question": "Koneksyon ng temang taunan sa buong seryeng ito?",
+            "options": [
+              "Bawat paksa nagpapakita ng hamon at pagtugon ng bansa",
+              "Walang koneksyon",
+              "Isa lamang may kaugnayan",
+              "Hindi bahagi ng tema"
+            ],
+            "correct_answer": "Bawat paksa nagpapakita ng hamon at pagtugon ng bansa"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎓 Friday Review — MAPEH (Grade 6)\n\n- Buong term review: sining, kultura, kalusugan\n\nMagaling na term sa MAPEH! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang One Health?",
+            "options": [
+              "Magkakaugnay ang kalusugan ng tao, hayop, kapaligiran",
+              "Uri ng bakuna",
+              "Uri ng ehersisyo",
+              "Uri ng gamot"
+            ],
+            "correct_answer": "Magkakaugnay ang kalusugan ng tao, hayop, kapaligiran"
+          },
+          {
+            "question": "Ano ang chain of infection?",
+            "options": [
+              "Proseso ng pagkalat ng sakit",
+              "Uri ng gamot",
+              "Uri ng ehersisyo",
+              "Bakuna"
+            ],
+            "correct_answer": "Proseso ng pagkalat ng sakit"
+          },
+          {
+            "question": "Ano ang dance exercise?",
+            "options": [
+              "Ehersisyong gumagamit ng hakbang sa sayaw",
+              "Uri ng laro lamang",
+              "Uri ng pagkain",
+              "Bantas"
+            ],
+            "correct_answer": "Ehersisyong gumagamit ng hakbang sa sayaw"
+          },
+          {
+            "question": "Saan ginaganap ang Sinulog?",
+            "options": [
+              "Cebu",
+              "Aklan",
+              "Iloilo",
+              "Manila"
+            ],
+            "correct_answer": "Cebu"
+          },
+          {
+            "question": "Kagamitan sa Tinikling?",
+            "options": [
+              "Kawayan",
+              "Payong",
+              "Ilawan",
+              "Baso"
+            ],
+            "correct_answer": "Kawayan"
+          },
+          {
+            "question": "Sino gumagawa ng Singkil?",
+            "options": [
+              "Mga Maranao",
+              "Mga Ilokano",
+              "Mga Bisaya",
+              "Mga Tagalog"
+            ],
+            "correct_answer": "Mga Maranao"
+          },
+          {
+            "question": "Ano ang OPM?",
+            "options": [
+              "Original Pilipino Music",
+              "Uri ng sayaw",
+              "Bansa",
+              "Uri ng pagkain"
+            ],
+            "correct_answer": "Original Pilipino Music"
+          },
+          {
+            "question": "Ano ang 8Rs?",
+            "options": [
+              "Paraan para bawasan ang basura",
+              "Walong bagong sakit",
+              "Walong bakuna",
+              "Walong ehersisyo"
+            ],
+            "correct_answer": "Paraan para bawasan ang basura"
+          },
+          {
+            "question": "Bakit mapanatili ang tradisyunal na sayaw?",
+            "options": [
+              "Bahagi ng pambansang pagkakakilanlan",
+              "Walang kahalagahan",
+              "Hindi kailangan ngayon",
+              "Hindi bahagi ng kultura"
+            ],
+            "correct_answer": "Bahagi ng pambansang pagkakakilanlan"
+          },
+          {
+            "question": "Paano ipinapakita ng term ang balanse ng kalusugan at kultura?",
+            "options": [
+              "Sinasama ang pisikal na kalusugan at sining",
+              "Isa lamang mahalaga",
+              "Walang koneksyon",
+              "Hindi totoong tema"
+            ],
+            "correct_answer": "Sinasama ang pisikal na kalusugan at sining"
+          },
+          {
+            "question": "Bakit mahalaga ang pagpapahalaga sa kultura sa MAPEH?",
+            "options": [
+              "Mapanatili ang pagkakakilanlan ng Pilipino",
+              "Walang kaugnayan",
+              "Hiwalay na paksa",
+              "Hindi bahagi ng edukasyon"
+            ],
+            "correct_answer": "Mapanatili ang pagkakakilanlan ng Pilipino"
+          },
+          {
+            "question": "Kabuuang aral ng Term 2 sa MAPEH?",
+            "options": [
+              "Kahalagahan ng kalusugan at kulturang Pilipino",
+              "Walang partikular na aral",
+              "Tungkol lamang sa isport",
+              "Tungkol lamang sa musika"
+            ],
+            "correct_answer": "Kahalagahan ng kalusugan at kulturang Pilipino"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🎓 Friday Review — EPP (Grade 6)\n\n- Buong term review: FCS at Industrial Arts\n\nMagaling na term sa EPP! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang yaman ng pamilya?",
+            "options": [
+              "Oras, pera, kasanayan, enerhiya",
+              "Isang gamit sa bahay lamang",
+              "Uri ng laro",
+              "Bantas"
+            ],
+            "correct_answer": "Oras, pera, kasanayan, enerhiya"
+          },
+          {
+            "question": "Ano ang meal planning?",
+            "options": [
+              "Listahan ng pagkain para sa tiyak na panahon",
+              "Uri ng pagluluto lamang",
+              "Uri ng laro",
+              "Bantas"
+            ],
+            "correct_answer": "Listahan ng pagkain para sa tiyak na panahon"
+          },
+          {
+            "question": "Ano ang pag-aasin?",
+            "options": [
+              "Paraan ng pangangalaga gamit ang asin",
+              "Uri ng pagluluto lamang",
+              "Uri ng laro",
+              "Bantas"
+            ],
+            "correct_answer": "Paraan ng pangangalaga gamit ang asin"
+          },
+          {
+            "question": "Ano ang dapat nasa label?",
+            "options": [
+              "Pangalan, petsa, sangkap, timbang",
+              "Pangalan ng magulang lamang",
+              "Walang impormasyon",
+              "Kulay lamang"
+            ],
+            "correct_answer": "Pangalan, petsa, sangkap, timbang"
+          },
+          {
+            "question": "Ano ang butt joint?",
+            "options": [
+              "Simpleng pagdikit ng dulo",
+              "Pagpapatong ng piraso",
+              "Pagdurugtong sa anggulo",
+              "Walang koneksyon"
+            ],
+            "correct_answer": "Simpleng pagdikit ng dulo"
+          },
+          {
+            "question": "Ano ang miter joint?",
+            "options": [
+              "Pagdurugtong sa anggulo, 45°",
+              "Simpleng pagdikit ng dulo",
+              "Pagpapatong ng piraso",
+              "Walang koneksyon"
+            ],
+            "correct_answer": "Pagdurugtong sa anggulo, 45°"
+          },
+          {
+            "question": "Ano ang dicing?",
+            "options": [
+              "Pagputol sa maliliit na parisukat",
+              "Pagputol nang manipis",
+              "Pagputol nang napakaliit",
+              "Hindi pagputol"
+            ],
+            "correct_answer": "Pagputol sa maliliit na parisukat"
+          },
+          {
+            "question": "Bakit mahalaga ang badyet sa yaman ng pamilya?",
+            "options": [
+              "Matugunan ang pangangailangan nang maayos",
+              "Walang kahalagahan",
+              "Hindi na kailangan mag-badyet",
+              "Gastusin lang lahat"
+            ],
+            "correct_answer": "Matugunan ang pangangailangan nang maayos"
+          },
+          {
+            "question": "Bakit mahalaga ang pagtatapos ng gawaing kahoy?",
+            "options": [
+              "Pinapahusay ang tibay at itsura",
+              "Walang kahalagahan",
+              "Hindi na kailangan pagandahin",
+              "Opsyonal lamang"
+            ],
+            "correct_answer": "Pinapahusay ang tibay at itsura"
+          },
+          {
+            "question": "Koneksyon ng FCS at IA sa negosyo?",
+            "options": [
+              "Nagtuturo ng kasanayan sa paggawa at pagbebenta",
+              "Walang koneksyon sa negosyo",
+              "Isa lamang kaugnay sa negosyo",
+              "Hindi bahagi ng EPP"
+            ],
+            "correct_answer": "Nagtuturo ng kasanayan sa paggawa at pagbebenta"
+          },
+          {
+            "question": "Pinakamalaking natutuhan sa buong Term 2 sa EPP?",
+            "options": [
+              "Praktikal na kasanayan sa pamamahala ng tahanan",
+              "Wala talagang natutunan",
+              "Isang bagay lamang",
+              "Hindi kapaki-pakinabang"
+            ],
+            "correct_answer": "Praktikal na kasanayan sa pamamahala ng tahanan"
+          },
+          {
+            "question": "Bakit matutong gumawa ng maibebentang produkto?",
+            "options": [
+              "Nagbibigay ng karagdagang kabuhayan",
+              "Walang gamit",
+              "Hindi na kailangan matuto",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Nagbibigay ng karagdagang kabuhayan"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🎓 Friday Review — GMRC (Grade 6)\n\n- Buong term review: pakikipagkapuwa\n\nMagaling na term ng GMRC! Tapos na ang Term 2! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang una sa serye ng pakikipagkapuwa?",
+            "options": [
+              "Lakas ng loob",
+              "Mapagpasensiya",
+              "Makatarungan",
+              "Pananalig sa Diyos"
+            ],
+            "correct_answer": "Lakas ng loob"
+          },
+          {
+            "question": "Ano ang ikalawa sa serye?",
+            "options": [
+              "Mapagpasensiya",
+              "Lakas ng loob",
+              "Makatarungan",
+              "Mapagmalasakit"
+            ],
+            "correct_answer": "Mapagpasensiya"
+          },
+          {
+            "question": "Ano ang ikatlo sa serye?",
+            "options": [
+              "Makatarungan",
+              "Lakas ng loob",
+              "Mapagpasensiya",
+              "Pananalig sa Diyos"
+            ],
+            "correct_answer": "Makatarungan"
+          },
+          {
+            "question": "Ano ang ikaapat sa serye?",
+            "options": [
+              "Pananalig sa Diyos",
+              "Makatarungan",
+              "Mapagpasensiya",
+              "Mapagmalasakit"
+            ],
+            "correct_answer": "Pananalig sa Diyos"
+          },
+          {
+            "question": "Ano ang ikalima sa serye?",
+            "options": [
+              "Mapagmalasakit",
+              "Lakas ng loob",
+              "Makatarungan",
+              "Pananalig sa Diyos"
+            ],
+            "correct_answer": "Mapagmalasakit"
+          },
+          {
+            "question": "Bakit kailangan ng lakas ng loob?",
+            "options": [
+              "Harapin ang pambubulas at protektahan ang sarili",
+              "Walang kahalagahan",
+              "Hindi bahagi ng pakikipagkapuwa",
+              "Manahimik na lamang"
+            ],
+            "correct_answer": "Harapin ang pambubulas at protektahan ang sarili"
+          },
+          {
+            "question": "Bakit mahalaga ang pananalig sa Diyos bilang pundasyon?",
+            "options": [
+              "Nagbibigay-lakas sa ibang pagpapahalaga",
+              "Walang koneksyon",
+              "Hindi mahalaga",
+              "Hiwalay na paksa"
+            ],
+            "correct_answer": "Nagbibigay-lakas sa ibang pagpapahalaga"
+          },
+          {
+            "question": "Ipinapakita ng seryeng ito tungkol sa pakikipagkapuwa?",
+            "options": [
+              "Nangangailangan ng tapang, pasensya, katarungan, pananampalataya, pagmamalasakit",
+              "Isa lamang pagpapahalaga ang kailangan",
+              "Walang koneksyon ang mga pagpapahalaga",
+              "Hindi mahalaga ito"
+            ],
+            "correct_answer": "Nangangailangan ng tapang, pasensya, katarungan, pananampalataya, pagmamalasakit"
+          },
+          {
+            "question": "Bakit pag-aralan ang buong seryeng ito ng GMRC?",
+            "options": [
+              "Maging mabuting kaibigan at kapwa-tao",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Maging mabuting kaibigan at kapwa-tao"
+          },
+          {
+            "question": "Koneksyon ng mapagmalasakit sa pananalig sa Diyos?",
+            "options": [
+              "Natural na bunga ng malalim na pananampalataya",
+              "Walang koneksyon",
+              "Magkasalungat sila",
+              "Isa lamang totoong pagpapahalaga"
+            ],
+            "correct_answer": "Natural na bunga ng malalim na pananampalataya"
+          },
+          {
+            "question": "Bakit progresibo ang pagkakasunud-sunod ng serye?",
+            "options": [
+              "Bawat hakbang bumubuo sa naunang natutuhan",
+              "Random lamang",
+              "Walang kaugnayan",
+              "Hindi mahalaga ang sunud-sunod"
+            ],
+            "correct_answer": "Bawat hakbang bumubuo sa naunang natutuhan"
+          },
+          {
+            "question": "Bakit angkop na tapusin ang Term 2 GMRC sa temang pakikipagkapuwa?",
+            "options": [
+              "Ibinubuod nito ang aral tungkol sa pagbuo ng makabuluhang relasyon sa iba",
+              "Walang kaugnayan sa temang taunan",
+              "Basta na lamang ito pinili",
+              "Hindi ito angkop na pagtatapos"
+            ],
+            "correct_answer": "Ibinubuod nito ang aral tungkol sa pagbuo ng makabuluhang relasyon sa iba"
+          }
+        ]
+      }
+    }
+  }
+}
